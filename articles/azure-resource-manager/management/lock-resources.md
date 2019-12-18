@@ -18,7 +18,7 @@ As an administrator, you may need to lock a subscription, resource group, or res
 
 When you apply a lock at a parent scope, all resources within that scope inherit the same lock. Even resources you add later inherit the lock from the parent. The most restrictive lock in the inheritance takes precedence.
 
-Unlike role-based access control, you use management locks to apply a restriction across all users and roles. To learn about setting permissions for users and roles, see [Azure Role-based Access Control](../role-based-access-control/role-assignments-portal.md).
+Unlike role-based access control, you use management locks to apply a restriction across all users and roles. To learn about setting permissions for users and roles, see [Azure Role-based Access Control](../../role-based-access-control/role-assignments-portal.md).
 
 Resource Manager locks apply only to operations that happen in the management plane, which consists of operations sent to `https://management.azure.com`. The locks don't restrict how resources perform their own functions. Resource changes are restricted, but resource operations aren't restricted. For example, a ReadOnly lock on a SQL Database prevents you from deleting or modifying the database. It doesn't prevent you from creating, updating, or deleting data in the database. Data transactions are permitted because those operations aren't sent to `https://management.azure.com`.
 
@@ -35,7 +35,7 @@ To create or delete management locks, you must have access to `Microsoft.Authori
 
 ## Managed Applications and locks
 
-Some Azure services, such as Azure Databricks, use [managed applications](../managed-applications/overview.md) to implement the service. In that case, the service creates two resource groups. One resource group contains an overview of the service and isn't locked. The other resource group contains the infrastructure for the service and is locked.
+Some Azure services, such as Azure Databricks, use [managed applications](../../managed-applications/overview.md) to implement the service. In that case, the service creates two resource groups. One resource group contains an overview of the service and isn't locked. The other resource group contains the infrastructure for the service and is locked.
 
 If you try to delete the infrastructure resource group, you get an error stating that the resource group is locked. If you try to delete the lock for the infrastructure resource group, you get an error stating that the lock can't be deleted because it's owned by a system application.
 
@@ -43,15 +43,15 @@ Instead, delete the service, which also deletes the infrastructure resource grou
 
 For managed applications, select the service you deployed.
 
-![Select service](./media/resource-group-lock-resources/select-service.png)
+![Select service](./media/lock-resources/select-service.png)
 
 Notice the service includes a link for a **Managed Resource Group**. That resource group holds the infrastructure and is locked. It can't be directly deleted.
 
-![Show managed group](./media/resource-group-lock-resources/show-managed-group.png)
+![Show managed group](./media/lock-resources/show-managed-group.png)
 
 To delete everything for the service, including the locked infrastructure resource group, select **Delete** for the service.
 
-![Delete service](./media/resource-group-lock-resources/delete-service.png)
+![Delete service](./media/lock-resources/delete-service.png)
 
 ## Portal
 [!INCLUDE [resource-manager-lock-resources](../../../includes/resource-manager-lock-resources.md)]
@@ -229,7 +229,7 @@ In the request, include a JSON object that specifies the properties for the lock
     } 
 
 ## Next steps
-* To learn about logically organizing your resources, see [Using tags to organize your resources](resource-group-using-tags.md)
-* You can apply restrictions and conventions across your subscription with customized policies. For more information, see [What is Azure Policy?](../governance/policy/overview.md).
+* To learn about logically organizing your resources, see [Using tags to organize your resources](tag-resources.md)
+* You can apply restrictions and conventions across your subscription with customized policies. For more information, see [What is Azure Policy?](../../governance/policy/overview.md).
 * For guidance on how enterprises can use Resource Manager to effectively manage subscriptions, see [Azure enterprise scaffold - prescriptive subscription governance](/azure/architecture/cloud-adoption-guide/subscription-governance).
 

@@ -720,7 +720,7 @@ Jump to a resource provider namespace:
 > | workbooks | Yes | Yes |
 
 > [!IMPORTANT]
-> Make sure moving to new subscription doesn't exceed [subscription quotas](../azure-subscription-service-limits.md#azure-monitor-limits).
+> Make sure moving to new subscription doesn't exceed [subscription quotas](../../azure-subscription-service-limits.md#azure-monitor-limits).
 
 ## Microsoft.IoTCentral
 
@@ -963,7 +963,7 @@ Jump to a resource provider namespace:
 > | workspaces | Yes | Yes |
 
 > [!IMPORTANT]
-> Make sure moving to new subscription doesn't exceed [subscription quotas](../azure-subscription-service-limits.md#azure-monitor-limits).
+> Make sure moving to new subscription doesn't exceed [subscription quotas](../../azure-subscription-service-limits.md#azure-monitor-limits).
 
 ## Microsoft.OperationsManagement
 
@@ -1024,7 +1024,7 @@ Jump to a resource provider namespace:
 > | vaults | Yes | Yes |
 
 > [!IMPORTANT]
-> See [Recovery Services move guidance](../backup/backup-azure-move-recovery-services-vault.md?toc=/azure/azure-resource-manager/toc.json).
+> See [Recovery Services move guidance](../../backup/backup-azure-move-recovery-services-vault.md?toc=/azure/azure-resource-manager/toc.json).
 
 ## Microsoft.Relay
 
@@ -1318,6 +1318,6 @@ Jump to a resource provider namespace:
 Third-party services currently don't support the move operation.
 
 ## Next steps
-For commands to move resources, see [Move resources to new resource group or subscription](resource-group-move-resources.md).
+For commands to move resources, see [Move resources to new resource group or subscription](move-resource-group-and-subscription.md).
 
 To get the same data as a file of comma-separated values, download [move-support-resources.csv](https://github.com/tfitzmac/resource-capabilities/blob/master/move-support-resources.csv).

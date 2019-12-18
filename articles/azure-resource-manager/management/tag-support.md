@@ -6,7 +6,7 @@ ms.date: 11/22/2019
 ---
 
 # Tag support for Azure resources
-This article describes whether a resource type supports [tags](resource-group-using-tags.md). The column labeled **Supports tags** indicates whether the resource type has a property for the tag. The column labeled **Tag in cost report** indicates whether that resource type passes the tag to the cost report. You can view costs by tags in the [Cost Management cost analysis](../cost-management/quick-acm-cost-analysis.md#understanding-grouping-and-filtering-options) and the [Azure billing invoice and daily usage data](../billing/billing-download-azure-invoice-daily-usage-date.md).
+This article describes whether a resource type supports [tags](tag-resources.md). The column labeled **Supports tags** indicates whether the resource type has a property for the tag. The column labeled **Tag in cost report** indicates whether that resource type passes the tag to the cost report. You can view costs by tags in the [Cost Management cost analysis](../../cost-management/quick-acm-cost-analysis.md#understanding-grouping-and-filtering-options) and the [Azure billing invoice and daily usage data](../../billing/billing-download-azure-invoice-daily-usage-date.md).
 
 To get the same data as a file of comma-separated values, download [tag-support.csv](https://github.com/tfitzmac/resource-capabilities/blob/master/tag-support.csv).
 
@@ -2029,4 +2029,4 @@ Jump to a resource provider namespace:
 
 ## Next steps
 
-To learn how to apply tags to resources, see [Use tags to organize your Azure resources](resource-group-using-tags.md).
+To learn how to apply tags to resources, see [Use tags to organize your Azure resources](tag-resources.md).

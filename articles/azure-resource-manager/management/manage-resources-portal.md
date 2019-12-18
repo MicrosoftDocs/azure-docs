@@ -9,18 +9,18 @@ ms.author: jgao
 ---
 # Manage Azure resources by using the Azure portal
 
-Learn how to use the [Azure portal](https://portal.azure.com) with [Azure Resource Manager](resource-group-overview.md) to manage your Azure resources. For managing resource groups, see [Manage Azure resource groups by using the Azure portal](./manage-resource-groups-portal.md).
+Learn how to use the [Azure portal](https://portal.azure.com) with [Azure Resource Manager](overview.md) to manage your Azure resources. For managing resource groups, see [Manage Azure resource groups by using the Azure portal](manage-resource-groups-portal.md).
 
 Other articles about managing resources:
 
-- [Manage Azure resources by using Azure CLI](./manage-resources-cli.md)
-- [Manage Azure resources by using Azure PowerShell](./manage-resources-powershell.md)
+- [Manage Azure resources by using Azure CLI](manage-resources-cli.md)
+- [Manage Azure resources by using Azure PowerShell](manage-resources-powershell.md)
 
 [!INCLUDE [Handle personal data](../../../includes/gdpr-intro-sentence.md)]
 
 ## Deploy resources to a resource group
 
-After you have created a Resource Manager template, you can use the Azure portal to deploy your Azure resources. For creating a template, see [Quickstart: Create and deploy Azure Resource Manager templates by using the Azure portal](./resource-manager-quickstart-create-templates-use-the-portal.md). For deploying a template using the portal, see [Deploy resources with Resource Manager templates and Azure portal](resource-group-template-deploy-portal.md).
+After you have created a Resource Manager template, you can use the Azure portal to deploy your Azure resources. For creating a template, see [Quickstart: Create and deploy Azure Resource Manager templates by using the Azure portal](./templates/quickstart-create-templates-use-the-portal.md). For deploying a template using the portal, see [Deploy resources with Resource Manager templates and Azure portal](../templates/deploy-portal.md).
 
 ## Open resources
 
@@ -63,7 +63,7 @@ The screenshot shows the management options for an Azure virtual machine. You ca
     ![delete azure resource](./media/manage-resources-portal/manage-azure-resources-portal-delete-resource.png)
 3. Type the name of the resource to confirm the deletion, and then select **Delete**.
 
-For more information about how Azure Resource Manager orders the deletion of resources, see [Azure Resource Manager resource group deletion](./resource-group-delete.md).
+For more information about how Azure Resource Manager orders the deletion of resources, see [Azure Resource Manager resource group deletion](delete-resource-group.md).
 
 ## Move resources
 
@@ -73,7 +73,7 @@ For more information about how Azure Resource Manager orders the deletion of res
     ![move azure resource](./media/manage-resources-portal/manage-azure-resources-portal-move-resource.png)
 3. Select **Move to another resource group** or **Move to another subscription** depending on your needs.
 
-For more information, see [Move resources to new resource group or subscription](resource-group-move-resources.md).
+For more information, see [Move resources to new resource group or subscription](move-resource-group-and-subscription.md).
 
 ## Lock resources
 
@@ -85,7 +85,7 @@ Locking prevents other users in your organization from accidentally deleting or 
     ![lock azure resource](./media/manage-resources-portal/manage-azure-resources-portal-lock-resource.png)
 3. Select **Add**, and then specify the lock properties.
 
-For more information, see [Lock resources with Azure Resource Manager](resource-group-lock-resources.md).
+For more information, see [Lock resources with Azure Resource Manager](lock-resources.md).
 
 ## Tag resources
 
@@ -97,7 +97,7 @@ Tagging helps organizing your resource group and resources logically.
     ![tag azure resource](./media/manage-resources-portal/manage-azure-resources-portal-tag-resource.png)
 3. Specify the tag properties, and then select **Save**.
 
-For information, see [Using tags to organize your Azure resources](./resource-group-using-tags.md#portal).
+For information, see [Using tags to organize your Azure resources](tag-resources.md#portal).
 
 ## Monitor resources
 
@@ -105,15 +105,15 @@ When you open a resource, the portal presents default graphs and tables for moni
 
 ![monitor azure resource](./media/manage-resources-portal/manage-azure-resources-portal-monitor-resource.png)
 
-You can select the pin icon on the upper right corner of the graphs to pin the graph to the dashboard. To learn about working with dashboards, see [Creating and sharing dashboards in the Azure portal](../azure-portal/azure-portal-dashboards.md).
+You can select the pin icon on the upper right corner of the graphs to pin the graph to the dashboard. To learn about working with dashboards, see [Creating and sharing dashboards in the Azure portal](../../azure-portal/azure-portal-dashboards.md).
 
 ## Manage access to resources
 
-[Role-based access control (RBAC)](../role-based-access-control/overview.md) is the way that you manage access to resources in Azure. For more information, see [Manage access using RBAC and the Azure portal](../role-based-access-control/role-assignments-portal.md).
+[Role-based access control (RBAC)](../role-based-access-control/overview.md) is the way that you manage access to resources in Azure. For more information, see [Manage access using RBAC and the Azure portal](../../role-based-access-control/role-assignments-portal.md).
 
 ## Next steps
 
-- To learn Azure Resource Manager, see [Azure Resource Manager overview](./resource-group-overview.md).
-- To learn the Resource Manager template syntax, see [Understand the structure and syntax of Azure Resource Manager templates](./resource-group-authoring-templates.md).
+- To learn Azure Resource Manager, see [Azure Resource Manager overview](overview.md).
+- To learn the Resource Manager template syntax, see [Understand the structure and syntax of Azure Resource Manager templates](../templates/template-syntax.md).
 - To learn how to develop templates, see the [step-by-step tutorials](/azure/azure-resource-manager/).
 - To view the Azure Resource Manager template schemas, see [template reference](/azure/templates/).

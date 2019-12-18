@@ -46,7 +46,7 @@ If you're trying to decide between using Resource Manager templates and one of t
 
 ## Template file
 
-Within your template, you can write [template expressions](template-expressions.md) that extend the capabilities of JSON. These expressions make use of the [functions](resource-group-template-functions.md) provided by Resource Manager.
+Within your template, you can write [template expressions](template-expressions.md) that extend the capabilities of JSON. These expressions make use of the [functions](template-functions.md) provided by Resource Manager.
 
 The template has the following sections:
 
@@ -56,7 +56,7 @@ The template has the following sections:
 
 * [User-defined functions](template-user-defined-functions.md) - Create customized functions that simplify your template.
 
-* [Resources](resource-group-authoring-templates.md#resources) - Specify the resources to deploy.
+* [Resources](template-syntax.md#resources) - Specify the resources to deploy.
 
 * [Outputs](template-outputs.md) - Return values from the deployed resources.
 
@@ -117,5 +117,5 @@ For information about nested templates, see [Using linked templates with Azure R
 ## Next steps
 
 * For a step-by-step tutorial that guides you through the process of creating a template, see [Tutorial: Create and deploy your first Azure Resource Manager template](template-tutorial-create-first-template.md).
-* For information about the properties in template files, see [Understand the structure and syntax of Azure Resource Manager templates](resource-group-authoring-templates.md).
+* For information about the properties in template files, see [Understand the structure and syntax of Azure Resource Manager templates](template-syntax.md).
 * To learn about exporting templates, see [Quickstart: Create and deploy Azure Resource Manager templates by using the Azure portal](./resource-manager-quickstart-create-templates-use-the-portal.md).

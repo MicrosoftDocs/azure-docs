@@ -2205,7 +2205,7 @@ The next example shows how to use a value from the function when setting a tag v
 ```
 
 ## Next steps
-* For a description of the sections in an Azure Resource Manager template, see [Authoring Azure Resource Manager templates](resource-group-authoring-templates.md).
+* For a description of the sections in an Azure Resource Manager template, see [Authoring Azure Resource Manager templates](template-syntax.md).
 * To merge multiple templates, see [Using linked templates with Azure Resource Manager](resource-group-linked-templates.md).
 * To iterate a specified number of times when creating a type of resource, see [Create multiple instances of resources in Azure Resource Manager](resource-group-create-multiple.md).
 * To see how to deploy the template you've created, see [Deploy an application with Azure Resource Manager template](resource-group-template-deploy.md).

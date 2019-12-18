@@ -18,7 +18,7 @@ Resource Manager provides the following functions for getting resource values:
 * [subscriptionResourceId](#subscriptionresourceid)
 * [tenantResourceId](#tenantresourceid)
 
-To get values from parameters, variables, or the current deployment, see [Deployment value functions](resource-group-template-functions-deployment.md).
+To get values from parameters, variables, or the current deployment, see [Deployment value functions](template-functions-deployment.md).
 
 ## extensionResourceId
 
@@ -262,7 +262,7 @@ Other list functions have different return formats. To see the format of a funct
 
 Specify the resource by using either the resource name or the [resourceId function](#resourceid). When using a list function in the same template that deploys the referenced resource, use the resource name.
 
-If you use a **list** function in a resource that is conditionally deployed, the function is evaluated even if the resource isn't deployed. You get an error if the **list** function refers to a resource that doesn't exist. Use the **if** function to make sure the function is only evaluated when the resource is being deployed. See the [if function](resource-group-template-functions-logical.md#if) for a sample template that uses if and list with a conditionally deployed resource.
+If you use a **list** function in a resource that is conditionally deployed, the function is evaluated even if the resource isn't deployed. You get an error if the **list** function refers to a resource that doesn't exist. Use the **if** function to make sure the function is only evaluated when the resource is being deployed. See the [if function](template-functions-logical.md#if) for a sample template that uses if and list with a conditionally deployed resource.
 
 ### List example
 
@@ -479,7 +479,7 @@ The reference function can only be used in the properties of a resource definiti
 
 You can't use the reference function in the outputs of a [nested template](resource-group-linked-templates.md#nested-template) to return a resource you've deployed in the nested template. Instead, use a [linked template](resource-group-linked-templates.md#linked-template).
 
-If you use the **reference** function in a resource that is conditionally deployed, the function is evaluated even if the resource isn't deployed.  You get an error if the **reference** function refers to a resource that doesn't exist. Use the **if** function to make sure the function is only evaluated when the resource is being deployed. See the [if function](resource-group-template-functions-logical.md#if) for a sample template that uses if and reference with a conditionally deployed resource.
+If you use the **reference** function in a resource that is conditionally deployed, the function is evaluated even if the resource isn't deployed.  You get an error if the **reference** function refers to a resource that doesn't exist. Use the **if** function to make sure the function is only evaluated when the resource is being deployed. See the [if function](template-functions-logical.md#if) for a sample template that uses if and reference with a conditionally deployed resource.
 
 ### Implicit dependency
 
@@ -1024,7 +1024,7 @@ You use this function to get the resource ID for a resource that is deployed to 
 
 ## Next steps
 
-* For a description of the sections in an Azure Resource Manager template, see [Authoring Azure Resource Manager templates](resource-group-authoring-templates.md).
+* For a description of the sections in an Azure Resource Manager template, see [Authoring Azure Resource Manager templates](template-syntax.md).
 * To merge multiple templates, see [Using linked templates with Azure Resource Manager](resource-group-linked-templates.md).
 * To iterate a specified number of times when creating a type of resource, see [Create multiple instances of resources in Azure Resource Manager](resource-group-create-multiple.md).
 * To see how to deploy the template you've created, see [Deploy an application with Azure Resource Manager template](resource-group-template-deploy.md).

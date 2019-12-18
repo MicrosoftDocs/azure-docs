@@ -8,7 +8,7 @@ ms.author: jgao
 ---
 # Provide post-deployment configurations by using extensions
 
-Template extensions are small applications that provide post-deployment configuration and automation tasks on Azure resources. The most popular one is virtual machine extensions. See [Virtual machine extensions and features for Windows](../virtual-machines/extensions/features-windows.md), and [Virtual machine extensions and features for Linux](../virtual-machines/extensions/features-linux.md).
+Template extensions are small applications that provide post-deployment configuration and automation tasks on Azure resources. The most popular one is virtual machine extensions. See [Virtual machine extensions and features for Windows](../../virtual-machines/extensions/features-windows.md), and [Virtual machine extensions and features for Linux](../../virtual-machines/extensions/features-linux.md).
 
 ## Extensions
 
@@ -24,10 +24,10 @@ To find out the available extensions, browse to the [template reference](https:/
 
 To learn how to use these extensions, see:
 
-- [Tutorial: Deploy virtual machine extensions with Azure Resource Manager templates](./resource-manager-tutorial-deploy-vm-extensions.md).
-- [Tutorial: Import SQL BACPAC files with Azure Resource Manager templates](./resource-manager-tutorial-deploy-sql-extensions-bacpac.md)
+- [Tutorial: Deploy virtual machine extensions with Azure Resource Manager templates](template-tutorial-deploy-vm-extensions.md).
+- [Tutorial: Import SQL BACPAC files with Azure Resource Manager templates](template-tutorial-deploy-sql-extensions-bacpac.md)
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Tutorial: Deploy virtual machine extensions with Azure Resource Manager templates](./resource-manager-tutorial-deploy-vm-extensions.md)
+> [Tutorial: Deploy virtual machine extensions with Azure Resource Manager templates](template-tutorial-deploy-vm-extensions.md)

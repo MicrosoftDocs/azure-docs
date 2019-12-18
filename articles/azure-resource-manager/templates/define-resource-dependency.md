@@ -34,7 +34,7 @@ The following example shows a virtual machine scale set that depends on a load b
 }
 ```
 
-In the preceding example, a dependency is included on the resources that are created through a copy loop named **storageLoop**. For an example, see [Create multiple instances of resources in Azure Resource Manager](resource-group-create-multiple.md).
+In the preceding example, a dependency is included on the resources that are created through a copy loop named **storageLoop**. For an example, see [Create multiple instances of resources in Azure Resource Manager](create-multiple-instances.md).
 
 When defining dependencies, you can include the resource provider namespace and resource type to avoid ambiguity. For example, to clarify a load balancer and virtual network that may have the same names as other resources, use the following format:
 
@@ -95,7 +95,7 @@ The following example shows a SQL server and SQL database. Notice that an explic
 
 ## reference and list functions
 
-The [reference function](resource-group-template-functions-resource.md#reference) enables an expression to derive its value from other JSON name and value pairs or runtime resources. The [list* functions](resource-group-template-functions-resource.md#list) return values for a resource from a list operation.  Reference and list expressions implicitly declare that one resource depends on another, when the referenced resource is deployed in the same template and referred to by its name (not resource ID). If you pass the resource ID into the reference or list functions, an implicit reference isn't created.
+The [reference function](template-functions-resource.md#reference) enables an expression to derive its value from other JSON name and value pairs or runtime resources. The [list* functions](template-functions-resource.md#list) return values for a resource from a list operation.  Reference and list expressions implicitly declare that one resource depends on another, when the referenced resource is deployed in the same template and referred to by its name (not resource ID). If you pass the resource ID into the reference or list functions, an implicit reference isn't created.
 
 The general format of the reference function is:
 
@@ -128,7 +128,7 @@ In the following example, a CDN endpoint explicitly depends on the CDN profile, 
 
 You can use either this element or the dependsOn element to specify dependencies, but you don't need to use both for the same dependent resource. Whenever possible, use an implicit reference to avoid adding an unnecessary dependency.
 
-To learn more, see [reference function](resource-group-template-functions-resource.md#reference).
+To learn more, see [reference function](template-functions-resource.md#reference).
 
 ## Circular dependencies
 
@@ -139,13 +139,13 @@ Resource Manager identifies circular dependencies during template validation. If
 3. Extension on vm1 depends on vm1 and vm2. The extension sets values on vm1 that it gets from vm2.
 4. Extension on vm2 depends on vm1 and vm2. The extension sets values on vm2 that it gets from vm1.
 
-For information about assessing the deployment order and resolving dependency errors, see [Troubleshoot common Azure deployment errors with Azure Resource Manager](resource-manager-common-deployment-errors.md).
+For information about assessing the deployment order and resolving dependency errors, see [Troubleshoot common Azure deployment errors with Azure Resource Manager](common-deployment-errors.md).
 
 ## Next steps
 
-* To go through a tutorial, see [Tutorial: create Azure Resource Manager templates with dependent resources](./resource-manager-tutorial-create-templates-with-dependent-resources.md).
+* To go through a tutorial, see [Tutorial: create Azure Resource Manager templates with dependent resources](template-tutorial-create-templates-with-dependent-resources.md).
 * For recommendations when setting dependencies, see [Azure Resource Manager template best practices](template-best-practices.md).
-* To learn about troubleshooting dependencies during deployment, see [Troubleshoot common Azure deployment errors with Azure Resource Manager](resource-manager-common-deployment-errors.md).
-* To learn about creating Azure Resource Manager templates, see [Authoring templates](resource-group-authoring-templates.md). 
-* For a list of the available functions in a template, see [Template functions](resource-group-template-functions.md).
+* To learn about troubleshooting dependencies during deployment, see [Troubleshoot common Azure deployment errors with Azure Resource Manager](common-deployment-errors.md).
+* To learn about creating Azure Resource Manager templates, see [Authoring templates](template-syntax.md). 
+* For a list of the available functions in a template, see [Template functions](template-functions.md).
 

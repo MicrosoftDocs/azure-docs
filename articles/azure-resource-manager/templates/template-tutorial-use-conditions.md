@@ -27,8 +27,8 @@ This tutorial only covers a basic scenario of using conditions. For more informa
 
 * [Template file structure: Condition](conditional-resource-deployment.md).
 * [Conditionally deploy a resource in an Azure Resource Manager template](/azure/architecture/building-blocks/extending-templates/conditional-deploy).
-* [Template function: If](./resource-group-template-functions-logical.md#if).
-* [Comparison functions for Azure Resource Manager templates](./resource-group-template-functions-comparison.md)
+* [Template function: If](./template-functions-logical.md#if).
+* [Comparison functions for Azure Resource Manager templates](./template-functions-comparison.md)
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 

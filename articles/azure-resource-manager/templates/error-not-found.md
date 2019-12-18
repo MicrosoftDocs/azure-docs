@@ -17,7 +17,7 @@ Code=NotFound;
 Message=Cannot find ServerFarm with name exampleplan.
 ```
 
-If you use the [reference](resource-group-template-functions-resource.md#reference) or [listKeys](resource-group-template-functions-resource.md#listkeys) functions with a resource that can't be resolved, you receive the following error:
+If you use the [reference](template-functions-resource.md#reference) or [listKeys](template-functions-resource.md#listkeys) functions with a resource that can't be resolved, you receive the following error:
 
 ```
 Code=ResourceNotFound;
@@ -44,7 +44,7 @@ If you're trying to deploy the missing resource in the template, check whether y
 }
 ```
 
-But, you want to avoid setting dependencies that aren't needed. When you have unnecessary dependencies, you prolong the duration of the deployment by preventing resources that aren't dependent on each other from being deployed in parallel. In addition, you may create circular dependencies that block the deployment. The [reference](resource-group-template-functions-resource.md#reference) function and [list*](resource-group-template-functions-resource.md#list) functions creates an implicit dependency on the referenced resource, when that resource is deployed in the same template and is referenced by its name (not resource ID). Therefore, you may have more dependencies than the dependencies specified in the **dependsOn** property. The [resourceId](resource-group-template-functions-resource.md#resourceid) function doesn't create an implicit dependency or validate that the resource exists. The [reference](resource-group-template-functions-resource.md#reference) function and [list*](resource-group-template-functions-resource.md#list) functions don't create an implicit dependency when the resource is referred to by its resource ID. To create an implicit dependency, pass the name of the resource that is deployed in the same template.
+But, you want to avoid setting dependencies that aren't needed. When you have unnecessary dependencies, you prolong the duration of the deployment by preventing resources that aren't dependent on each other from being deployed in parallel. In addition, you may create circular dependencies that block the deployment. The [reference](template-functions-resource.md#reference) function and [list*](template-functions-resource.md#list) functions creates an implicit dependency on the referenced resource, when that resource is deployed in the same template and is referenced by its name (not resource ID). Therefore, you may have more dependencies than the dependencies specified in the **dependsOn** property. The [resourceId](template-functions-resource.md#resourceid) function doesn't create an implicit dependency or validate that the resource exists. The [reference](template-functions-resource.md#reference) function and [list*](template-functions-resource.md#list) functions don't create an implicit dependency when the resource is referred to by its resource ID. To create an implicit dependency, pass the name of the resource that is deployed in the same template.
 
 When you see dependency problems, you need to gain insight into the order of resource deployment. To view the order of deployment operations:
 
@@ -66,7 +66,7 @@ When you see dependency problems, you need to gain insight into the order of res
 
 ## Solution 2 - get resource from different resource group
 
-When the resource exists in a different resource group than the one being deployed to, use the [resourceId function](resource-group-template-functions-resource.md#resourceid) to get the fully qualified name of the resource.
+When the resource exists in a different resource group than the one being deployed to, use the [resourceId function](template-functions-resource.md#resourceid) to get the fully qualified name of the resource.
 
 ```json
 "properties": {
@@ -77,7 +77,7 @@ When the resource exists in a different resource group than the one being deploy
 
 ## Solution 3 - check reference function
 
-Look for an expression that includes the [reference](resource-group-template-functions-resource.md#reference) function. The values you provide vary based on whether the resource is in the same template, resource group, and subscription. Double check that you're providing the required parameter values for your scenario. If the resource is in a different resource group, provide the full resource ID. For example, to reference a storage account in another resource group, use:
+Look for an expression that includes the [reference](template-functions-resource.md#reference) function. The values you provide vary based on whether the resource is in the same template, resource group, and subscription. Double check that you're providing the required parameter values for your scenario. If the resource is in a different resource group, provide the full resource ID. For example, to reference a storage account in another resource group, use:
 
 ```json
 "[reference(resourceId('exampleResourceGroup', 'Microsoft.Storage/storageAccounts', 'myStorage'), '2017-06-01')]"

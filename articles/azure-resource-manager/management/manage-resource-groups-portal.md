@@ -8,12 +8,12 @@ ms.author: jgao
 ---
 # Manage Azure Resource Manager resource groups by using the Azure portal
 
-Learn how to use the [Azure portal](https://portal.azure.com) with [Azure Resource Manager](resource-group-overview.md) to manage your Azure resource groups. For managing Azure resources, see [Manage Azure resources by using the Azure portal](./manage-resources-portal.md).
+Learn how to use the [Azure portal](https://portal.azure.com) with [Azure Resource Manager](overview.md) to manage your Azure resource groups. For managing Azure resources, see [Manage Azure resources by using the Azure portal](manage-resources-portal.md).
 
 Other articles about managing resource groups:
 
-- [Manage Azure resource groups by using Azure CLI](./manage-resources-cli.md)
-- [Manage Azure resource groups by using Azure PowerShell](./manage-resources-powershell.md)
+- [Manage Azure resource groups by using Azure CLI](manage-resources-cli.md)
+- [Manage Azure resource groups by using Azure PowerShell](manage-resources-powershell.md)
 
 [!INCLUDE [Handle personal data](../../../includes/gdpr-intro-sentence.md)]
 
@@ -67,15 +67,15 @@ The resource group stores metadata about the resources. When you specify a locat
 
     ![delete azure resource group](./media/manage-resource-groups-portal/delete-group.png)
 
-For more information about how Azure Resource Manager orders the deletion of resources, see [Azure Resource Manager resource group deletion](./resource-group-delete.md).
+For more information about how Azure Resource Manager orders the deletion of resources, see [Azure Resource Manager resource group deletion](delete-resource-group.md).
 
 ## Deploy resources to a resource group
 
-After you have created a Resource Manager template, you can use the Azure portal to deploy your Azure resources. For creating a template, see [Quickstart: Create and deploy Azure Resource Manager templates by using the Azure portal](./resource-manager-quickstart-create-templates-use-the-portal.md). For deploying a template using the portal, see [Deploy resources with Resource Manager templates and Azure portal](resource-group-template-deploy-portal.md).
+After you have created a Resource Manager template, you can use the Azure portal to deploy your Azure resources. For creating a template, see [Quickstart: Create and deploy Azure Resource Manager templates by using the Azure portal](../templates/quickstart-create-templates-use-the-portal.md). For deploying a template using the portal, see [Deploy resources with Resource Manager templates and Azure portal](../templates/deploy-portal.md).
 
 ## Move to another resource group or subscription
 
-You can move the resources in the group to another resource group. For more information, see [Move resources to new resource group or subscription](resource-group-move-resources.md).
+You can move the resources in the group to another resource group. For more information, see [Move resources to new resource group or subscription](move-resource-group-and-subscription.md).
 
 ## Lock resource groups
 
@@ -88,11 +88,11 @@ Locking prevents other users in your organization from accidentally deleting or 
 
     ![lock azure resource group](./media/manage-resource-groups-portal/manage-resource-groups-add-lock.png)
 
-For more information, see [Lock resources to prevent unexpected changes](./resource-group-lock-resources.md).
+For more information, see [Lock resources to prevent unexpected changes](lock-resources.md).
 
 ## Tag resource groups
 
-You can apply tags to resource groups and resources to logically organize your assets. For information, see [Using tags to organize your Azure resources](./resource-group-using-tags.md#portal).
+You can apply tags to resource groups and resources to logically organize your assets. For information, see [Using tags to organize your Azure resources](tag-resources.md#portal).
 
 ## Export resource groups to templates
 
@@ -100,11 +100,11 @@ For information about exporting templates, see [Single and multi-resource export
 
 ## Manage access to resource groups
 
-[Role-based access control (RBAC)](../role-based-access-control/overview.md) is the way that you manage access to resources in Azure. For more information, see [Manage access using RBAC and the Azure portal](../role-based-access-control/role-assignments-portal.md).
+[Role-based access control (RBAC)](../../role-based-access-control/overview.md) is the way that you manage access to resources in Azure. For more information, see [Manage access using RBAC and the Azure portal](../../role-based-access-control/role-assignments-portal.md).
 
 ## Next steps
 
-- To learn Azure Resource Manager, see [Azure Resource Manager overview](./resource-group-overview.md).
-- To learn the Resource Manager template syntax, see [Understand the structure and syntax of Azure Resource Manager templates](./resource-group-authoring-templates.md).
+- To learn Azure Resource Manager, see [Azure Resource Manager overview](overview.md).
+- To learn the Resource Manager template syntax, see [Understand the structure and syntax of Azure Resource Manager templates](../templates/template-syntax.md).
 - To learn how to develop templates, see the [step-by-step tutorials](/azure/azure-resource-manager/).
 - To view the Azure Resource Manager template schemas, see [template reference](/azure/templates/).

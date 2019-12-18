@@ -31,13 +31,13 @@ To see all resource providers, and the registration status for your subscription
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. On the Azure portal menu, select **All services**.
 
-    ![select subscriptions](./media/resource-manager-supported-services/select-all-services.png)
+    ![select subscriptions](./media/resource-providers-and-types/select-all-services.png)
 
 3. In the **All services** box, enter **subscription**, and then select **Subscriptions**.
 4. Select the subscription from the subscription list to view.
 5. Select **Resource providers** and view the list of available resource providers.
 
-    ![show resource providers](./media/resource-manager-supported-services/show-resource-providers.png)
+    ![show resource providers](./media/resource-providers-and-types/show-resource-providers.png)
 
 6. Registering a resource provider configures your subscription to work with the resource provider. The scope for registration is always the subscription. By default, many resource providers are automatically registered. However, you may need to manually register some resource providers. To register a resource provider, you must have permission to do the `/register/action` operation for the resource provider. This operation is included in the Contributor and Owner roles. To register a resource provider, select **Register**. In the previous screenshot, the **Register** link is highlighted for **Microsoft.Blueprint**.
 
@@ -49,23 +49,23 @@ To see information for a particular resource provider:
 2. On the Azure portal menu, select **All services**.
 3. In the **All services** box, enter **resource explorer**, and then select **Resource Explorer**.
 
-    ![select All services](./media/resource-manager-supported-services/select-resource-explorer.png)
+    ![select All services](./media/resource-providers-and-types/select-resource-explorer.png)
 
 4. Expand **Providers** by selecting the right arrow.
 
-    ![Select providers](./media/resource-manager-supported-services/select-providers.png)
+    ![Select providers](./media/resource-providers-and-types/select-providers.png)
 
 5. Expand a resource provider and resource type that you want to view.
 
-    ![Select resource type](./media/resource-manager-supported-services/select-resource-type.png)
+    ![Select resource type](./media/resource-providers-and-types/select-resource-type.png)
 
 6. Resource Manager is supported in all regions, but the resources you deploy might not be supported in all regions. In addition, there may be limitations on your subscription that prevent you from using some regions that support the resource. The resource explorer displays valid locations for the resource type.
 
-    ![Show locations](./media/resource-manager-supported-services/show-locations.png)
+    ![Show locations](./media/resource-providers-and-types/show-locations.png)
 
 7. The API version corresponds to a version of REST API operations that are released by the resource provider. As a resource provider enables new features, it releases a new version of the REST API. The resource explorer displays valid API versions for the resource type.
 
-    ![Show API versions](./media/resource-manager-supported-services/show-api-versions.png)
+    ![Show API versions](./media/resource-providers-and-types/show-api-versions.png)
 
 ## Azure PowerShell
 
@@ -282,7 +282,7 @@ West US
 
 ## Next steps
 
-* To learn about creating Resource Manager templates, see [Authoring Azure Resource Manager templates](resource-group-authoring-templates.md). 
+* To learn about creating Resource Manager templates, see [Authoring Azure Resource Manager templates](../templates/template-syntax.md). 
 * To view the resource provider template schemas, see [Template reference](/azure/templates/).
 * For a list that maps resource providers to Azure services, see [Resource providers for Azure services](azure-services-resource-providers.md).
 * To view the operations for a resource provider, see [Azure REST API](/rest/api/).

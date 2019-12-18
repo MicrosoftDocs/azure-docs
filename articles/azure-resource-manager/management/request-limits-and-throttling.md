@@ -11,7 +11,7 @@ This article describes how Azure Resource Manager throttles requests. It shows y
 
 Throttling happens at two levels. Azure Resource Manager throttles requests for the subscription and tenant. If the request is under the throttling limits for the subscription and tenant, Resource Manager routes the request to the resource provider. The resource provider applies throttling limits that are tailored to its operations. The following image shows how throttling is applied as a request goes from the user to Azure Resource Manager and the resource provider.
 
-![Request throttling](./media/resource-manager-request-limits/request-throttling.svg)
+![Request throttling](./media/request-limits-and-throttling/request-throttling.svg)
 
 ## Subscription and tenant limits
 
@@ -52,13 +52,13 @@ The Microsoft.Network resource provider applies the following throttle limits:
 
 ### Compute throttling
 
-For information about throttling limits for compute operations, see [Troubleshooting API throttling errors - Compute](../virtual-machines/troubleshooting/troubleshooting-throttling-errors.md).
+For information about throttling limits for compute operations, see [Troubleshooting API throttling errors - Compute](../../virtual-machines/troubleshooting/troubleshooting-throttling-errors.md).
 
 For checking virtual machine instances within a virtual machine scale set, use the [Virtual Machine Scale Sets operations](/rest/api/compute/virtualmachinescalesetvms). For example, use the [Virtual Machine Scale Set VMs - List](/rest/api/compute/virtualmachinescalesetvms/list) with parameters to check the power state of virtual machine instances. This API reduces the number of requests.
 
 ### Azure Resource Graph throttling
 
-Azure Resource Graph limits the number of requests to its operations. The steps in this article to determine the remaining requests and how to respond when the limit is reached also apply to Resource Graph. However, Resource Graph sets its own limit and reset rate. For more information, see [Throttle in Azure Resource Graph](../governance/resource-graph/overview.md#throttling).
+Azure Resource Graph limits the number of requests to its operations. The steps in this article to determine the remaining requests and how to respond when the limit is reached also apply to Resource Graph. However, Resource Graph sets its own limit and reset rate. For more information, see [Throttle in Azure Resource Graph](../../governance/resource-graph/overview.md#throttling).
 
 ## Request increase
 
@@ -89,7 +89,7 @@ You can determine the number of remaining requests by examining response headers
 | x-ms-ratelimit-remaining-tenant-resource-requests |Tenant scoped resource type requests remaining.<br /><br />This header is only added for requests at tenant level, and only if a service has overridden the default limit. Resource Manager adds this value instead of the tenant reads or writes. |
 | x-ms-ratelimit-remaining-tenant-resource-entities-read |Tenant scoped resource type collection requests remaining.<br /><br />This header is only added for requests at tenant level, and only if a service has overridden the default limit. |
 
-The resource provider can also return response headers with information about remaining requests. For information about response headers returned by the Compute resource provider, see [Call rate informational response headers](../virtual-machines/troubleshooting/troubleshooting-throttling-errors.md#call-rate-informational-response-headers).
+The resource provider can also return response headers with information about remaining requests. For information about response headers returned by the Compute resource provider, see [Call rate informational response headers](../../virtual-machines/troubleshooting/troubleshooting-throttling-errors.md#call-rate-informational-response-headers).
 
 ## Retrieving the header values
 
@@ -190,5 +190,5 @@ msrest.http_logger :     'x-ms-ratelimit-remaining-subscription-writes': '1199'
 ## Next steps
 
 * For a complete PowerShell example, see [Check Resource Manager Limits for a Subscription](https://github.com/Microsoft/csa-misc-utils/tree/master/psh-GetArmLimitsViaAPI).
-* For more information about limits and quotas, see [Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md).
-* To learn about handling asynchronous REST requests, see [Track asynchronous Azure operations](resource-manager-async-operations.md).
+* For more information about limits and quotas, see [Azure subscription and service limits, quotas, and constraints](../../azure-subscription-service-limits.md).
+* To learn about handling asynchronous REST requests, see [Track asynchronous Azure operations](async-operations.md).

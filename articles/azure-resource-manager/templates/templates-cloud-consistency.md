@@ -40,7 +40,7 @@ For an introduction to Azure Resource Manger templates, see [Template deployment
 
 ## Ensure template functions work
 
-The basic syntax of a Resource Manager template is JSON. Templates use a superset of JSON, extending the syntax with expressions and functions. The template language processor is frequently updated to support additional template functions. For a detailed explanation of the available template functions, see [Azure Resource Manager template functions](resource-group-template-functions.md).
+The basic syntax of a Resource Manager template is JSON. Templates use a superset of JSON, extending the syntax with expressions and functions. The template language processor is frequently updated to support additional template functions. For a detailed explanation of the available template functions, see [Azure Resource Manager template functions](template-functions.md).
 
 New template functions that are introduced to Azure Resource Manager aren't immediately available in the sovereign clouds or Azure Stack. To deploy a template successfully, all functions referenced in the template must be available in the target cloud. 
 
@@ -663,4 +663,4 @@ Consider the following tips for testing and automation:
 ## Next steps
 
 * [Azure Resource Manager template considerations](/azure-stack/user/azure-stack-develop-templates)
-* [Best practices for Azure Resource Manager templates](resource-group-authoring-templates.md)
+* [Best practices for Azure Resource Manager templates](template-syntax.md)

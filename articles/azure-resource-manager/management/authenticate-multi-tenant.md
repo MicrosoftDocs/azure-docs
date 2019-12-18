@@ -30,5 +30,5 @@ When the request references a resource from different tenant, Resource Manager c
 
 ## Next steps
 
-* To learn about authentication requests, see [Authentication flows and application scenarios](../active-directory/develop/authentication-flows-app-scenarios.md).
-* For more information about tokens, see [Azure Active Directory access tokens](../active-directory/develop/access-tokens.md).
+* To learn about authentication requests, see [Authentication flows and application scenarios](../../active-directory/develop/authentication-flows-app-scenarios.md).
+* For more information about tokens, see [Azure Active Directory access tokens](../../active-directory/develop/access-tokens.md).

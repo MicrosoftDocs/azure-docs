@@ -112,6 +112,6 @@ The following example shows a linked template set to incremental deployment mode
 
 ## Next steps
 
-* To learn about creating Resource Manager templates, see [Authoring Azure Resource Manager templates](resource-group-authoring-templates.md).
+* To learn about creating Resource Manager templates, see [Authoring Azure Resource Manager templates](template-syntax.md).
 * To learn about deploying resources, see [Deploy an application with Azure Resource Manager template](resource-group-template-deploy.md).
 * To view the operations for a resource provider, see [Azure REST API](/rest/api/).

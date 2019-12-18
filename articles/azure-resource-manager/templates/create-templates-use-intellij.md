@@ -11,7 +11,7 @@ ms.topic: quickstart
 
 Learn how to deploy a Resource Manager template to Azure using the IntelliJ IDEA, and the process of editing and update the template directly from the IDE. Resource Manager templates are JSON files that define the resources you need to deploy for your solution. To understand the concepts associated with deploying and managing your Azure solutions, see [Azure Resource Manager overview](resource-group-overview.md).
 
-![Resource Manager template quickstart portal diagram](./media/resource-manager-quickstart-create-templates-use-the-portal/azure-resource-manager-export-deploy-template-portal.png)
+![Resource Manager template quickstart portal diagram](./media/quickstart-create-templates-use-the-portal/azure-resource-manager-export-deploy-template-portal.png)
 
 After completing the tutorial, you deploy an Azure Storage account. The same process can be used to deploy other Azure resources.
 
@@ -23,7 +23,7 @@ To complete this article, you need:
 
 * An [IntelliJ IDEA](https://www.jetbrains.com/idea/download/) Ultimate Edition or Community Edition installed
 * The [Azure Toolkit for IntelliJ](https://plugins.jetbrains.com/plugin/8053) installed, check [IntelliJ's plugins management guide](https://www.jetbrains.com/help/idea/managing-plugins.html) for more information
-* Be [signed in](https://docs.microsoft.com/java/azure/intellij/azure-toolkit-for-intellij-sign-in-instructions) to your Azure account for the Azure Toolkit for IntelliJ
+* Be [signed in](/java/azure/intellij/azure-toolkit-for-intellij-sign-in-instructions) to your Azure account for the Azure Toolkit for IntelliJ
 
 ## Deploy a Quickstart template
 
@@ -33,35 +33,35 @@ Instead of creating a template from scratch, you open a template from [Azure Qui
 
 1. If your Azure Toolkit are properly installed and signed-in, you should see Azure Explorer in your IntelliJ IDEA's sidebar. Right-click on the **Resource Management** and select **Create Deployment**.
 
-    ![Resource Manager template right click to create deployment](./media/resource-manager-quickstart-create-templates-use-intellij/resource-manager-create-deployment-right-click.png)
+    ![Resource Manager template right click to create deployment](./media/create-templates-use-intellij/resource-manager-create-deployment-right-click.png)
 
 1. Config your **Deployment Name**, **Subscription**, **Resource Group**, and **Region**. Here we deploy the template into a new resource group `testRG`. Then, select path for **Resource Template** as `azuredeploy.json` and **Resource Parameters** as `azuredeploy.parameters.json` you downloaded.
 
-    ![Resource Manager template select files to create deployment](./media/resource-manager-quickstart-create-templates-use-intellij/resource-manager-create-deployment-select-files.png)
+    ![Resource Manager template select files to create deployment](./media/create-templates-use-intellij/resource-manager-create-deployment-select-files.png)
 
 1. After you click OK, the deployment is started. Until the deployment complete, you can find the progress from IntelliJ IDEA's **status bar** on the bottom.
 
-    ![Resource Manager template deployment status](./media/resource-manager-quickstart-create-templates-use-intellij/resource-manager-create-deployment-status.png)
+    ![Resource Manager template deployment status](./media/create-templates-use-intellij/resource-manager-create-deployment-status.png)
 
 ## Browse an existing deployment
 
 1. After the deployment is done, you can see the new resource group `testRG` and a new deployment created. Right-click on the deployment and you can see a list of possible actions. Now select **Show Properties**.
 
-    ![Resource Manager template browse deployment](./media/resource-manager-quickstart-create-templates-use-intellij/resource-manager-deployment-browse.png)
+    ![Resource Manager template browse deployment](./media/create-templates-use-intellij/resource-manager-deployment-browse.png)
 
 1. A tab view will be open to show some useful properties like deployment status and template structure.
 
-    ![Resource Manager template show deployment properties](./media/resource-manager-quickstart-create-templates-use-intellij/resource-manager-deployment-show-properties.png)
+    ![Resource Manager template show deployment properties](./media/create-templates-use-intellij/resource-manager-deployment-show-properties.png)
 
 ## Edit and update an existing deployment
 
 1. Select **Edit Deployment** from right-click menu or the show properties view before. Another tab view will be open, showing the template and parameter files for the deployment on Azure. To save those files to local, you could click **Export Template File**  or **Export Parameter Files**.
 
-    ![Resource Manager template edit deployment](./media/resource-manager-quickstart-create-templates-use-intellij/resource-manager-edit-deployment.png)
+    ![Resource Manager template edit deployment](./media/create-templates-use-intellij/resource-manager-edit-deployment.png)
 
 1. You can edit the two files on this page and deploy the changes to Azure. Here we modify the value of **storageAccountType** in parameter files, from `Standard_LRS` to `Standard_GRS`. Then, click **Update Deployment** on the bottom and confirm the update.
 
-    ![Resource Manager template edit deployment](./media/resource-manager-quickstart-create-templates-use-intellij/resource-manager-edit-deployment-update.png)
+    ![Resource Manager template edit deployment](./media/create-templates-use-intellij/resource-manager-edit-deployment-update.png)
 
 1. After update deployment completed, you can verify on the portal that the created storage account is changed to `Standard_GRS`.
 
@@ -69,7 +69,7 @@ Instead of creating a template from scratch, you open a template from [Azure Qui
 
 1. When the Azure resources are no longer needed, clean up the resources you deployed by deleting the resource group. You can do it from Azure portal or Azure CLI. In Azure Explorer from IntelliJ IDEA, right click on your created **resource group** and select delete.
 
-    ![Delete resource group in Azure Explorer from IntelliJ IDEA](./media/resource-manager-quickstart-create-templates-use-intellij/delete-resource-group.png)
+    ![Delete resource group in Azure Explorer from IntelliJ IDEA](./media/create-templates-use-intellij/delete-resource-group.png)
 
 > [!NOTE]
 > Notice that delete a deployment will not delete resources created by the deployment. Please delete corresponding resource group or specific resources if you no longer need them.

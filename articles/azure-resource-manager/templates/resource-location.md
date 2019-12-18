@@ -90,5 +90,5 @@ The following example shows a storage account that is deployed to a location spe
 
 ## Next steps
 
-* For the full list of template functions, see [Azure Resource Manager template functions](resource-group-template-functions.md).
-* For more information about template files, see [Understand the structure and syntax of Azure Resource Manager templates](resource-group-authoring-templates.md).
+* For the full list of template functions, see [Azure Resource Manager template functions](template-functions.md).
+* For more information about template files, see [Understand the structure and syntax of Azure Resource Manager templates](template-syntax.md).

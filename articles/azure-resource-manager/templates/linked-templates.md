@@ -88,7 +88,7 @@ The following example deploys a storage account through a nested template.
 
 ### Scope for expressions in nested templates
 
-When using a nested template, you can specify whether template expressions are evaluated within the scope of the parent template or the nested template. The scope determines how parameters, variables, and functions like [resourceGroup](resource-group-template-functions-resource.md#resourcegroup) and [subscription](resource-group-template-functions-resource.md#subscription) are resolved.
+When using a nested template, you can specify whether template expressions are evaluated within the scope of the parent template or the nested template. The scope determines how parameters, variables, and functions like [resourceGroup](template-functions-resource.md#resourcegroup) and [subscription](template-functions-resource.md#subscription) are resolved.
 
 You set the scope through the `expressionEvaluationOptions` property. By default, the `expressionEvaluationOptions` property is set to `outer`, which means it uses the parent template scope. Set the value to `inner` to scope expressions to the nested template.
 
@@ -418,7 +418,7 @@ The following example shows how to use a base URL to create two URLs for linked 
 }
 ```
 
-You can also use [deployment()](resource-group-template-functions-deployment.md#deployment) to get the base URL for the current template, and use that to get the URL for other templates in the same location. This approach is useful if your template location changes or you want to avoid hard coding URLs in the template file. The templateLink property is only returned when linking to a remote template with a URL. If you're using a local template, that property isn't available.
+You can also use [deployment()](template-functions-deployment.md#deployment) to get the base URL for the current template, and use that to get the URL for other templates in the same location. This approach is useful if your template location changes or you want to avoid hard coding URLs in the template file. The templateLink property is only returned when linking to a remote template with a URL. If you're using a local template, that property isn't available.
 
 ```json
 "variables": {

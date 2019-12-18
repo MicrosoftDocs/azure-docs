@@ -114,6 +114,6 @@ You can export the template that was used to deploy existing resources. The temp
 ## Next steps
 
 - Learn how to export templates with [Azure CLI](manage-resource-groups-cli.md#export-resource-groups-to-templates), [Azure PowerShell](manage-resource-groups-powershell.md#export-resource-groups-to-templates), or [REST API](/rest/api/resources/resourcegroups/exporttemplate).
-- To learn the Resource Manager template syntax, see [Understand the structure and syntax of Azure Resource Manager templates](./resource-group-authoring-templates.md).
+- To learn the Resource Manager template syntax, see [Understand the structure and syntax of Azure Resource Manager templates](./template-syntax.md).
 - To learn how to develop templates, see the [step-by-step tutorials](/azure/azure-resource-manager/).
 - To view the Azure Resource Manager template schemas, see [template reference](/azure/templates/).

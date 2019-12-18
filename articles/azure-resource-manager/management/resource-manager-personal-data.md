@@ -30,7 +30,7 @@ To delete **deployments** from the history, use:
 
 ## Delete personal data in resource group names
 
-The name of the resource group persists until you delete the resource group. To see if you have provided personal data in the names, list the resource groups. If you find personal data, [move the resources](resource-group-move-resources.md) to a new resource group, and delete the resource group with personal data in the name.
+The name of the resource group persists until you delete the resource group. To see if you have provided personal data in the names, list the resource groups. If you find personal data, [move the resources](move-resource-group-and-subscription.md) to a new resource group, and delete the resource group with personal data in the name.
 
 To list **resource groups**, use:
 
@@ -61,4 +61,4 @@ To delete **tags**, use:
 * [az tag delete](/cli/azure/tag#az-tag-delete)
 
 ## Next steps
-* For an overview of Azure Resource Manager, see the [What is Resource Manager?](resource-group-overview.md)
+* For an overview of Azure Resource Manager, see the [What is Resource Manager?](overview.md)

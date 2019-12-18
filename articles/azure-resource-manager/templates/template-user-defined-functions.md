@@ -6,7 +6,7 @@ ms.date: 09/05/2019
 ---
 # User-defined functions in Azure Resource Manager template
 
-Within your template, you can create your own functions. These functions are available for use in your template. User-defined functions are separate from the [standard template functions](resource-group-template-functions.md) that are automatically available within your template. Create your own functions when you have complicated expressions that are used repeatedly in your template.
+Within your template, you can create your own functions. These functions are available for use in your template. User-defined functions are separate from the [standard template functions](template-functions.md) that are automatically available within your template. Create your own functions when you have complicated expressions that are used repeatedly in your template.
 
 This article describes how to add user-defined functions in your Azure Resource Manager template.
 
@@ -62,13 +62,13 @@ The following example shows how to call your function.
 When defining a user function, there are some restrictions:
 
 * The function can't access variables.
-* The function can only use parameters that are defined in the function. When you use the [parameters](resource-group-template-functions-deployment.md#parameters) function within a user-defined function, you're restricted to the parameters for that function.
+* The function can only use parameters that are defined in the function. When you use the [parameters](template-functions-deployment.md#parameters) function within a user-defined function, you're restricted to the parameters for that function.
 * The function can't call other user-defined functions.
-* The function can't use the [reference](resource-group-template-functions-resource.md#reference) function or any of the [list](resource-group-template-functions-resource.md#list) functions.
+* The function can't use the [reference](template-functions-resource.md#reference) function or any of the [list](template-functions-resource.md#list) functions.
 * Parameters for the function can't have default values.
 
 
 ## Next steps
 
-* To learn about the available properties for user-defined functions, see [Understand the structure and syntax of Azure Resource Manager templates](resource-group-authoring-templates.md).
-* For a list of the available template functions, see [Azure Resource Manager template functions](resource-group-template-functions.md).
+* To learn about the available properties for user-defined functions, see [Understand the structure and syntax of Azure Resource Manager templates](template-syntax.md).
+* For a list of the available template functions, see [Azure Resource Manager template functions](template-functions.md).

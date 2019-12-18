@@ -26,7 +26,7 @@ Resource Manager provides several functions for working with arrays and objects.
 * [take](#take)
 * [union](#union)
 
-To get an array of string values delimited by a value, see [split](resource-group-template-functions-string.md#split).
+To get an array of string values delimited by a value, see [split](template-functions-string.md#split).
 
 ## array
 
@@ -715,7 +715,7 @@ The JSON object from the specified string, or an empty object when **null** is s
 
 ### Remarks
 
-If you need to include a parameter value or variable in the JSON object, use the [concat](resource-group-template-functions-string.md#concat) function to create the string that you pass to the function.
+If you need to include a parameter value or variable in the JSON object, use the [concat](template-functions-string.md#concat) function to create the string that you pass to the function.
 
 ### Example
 
@@ -1362,7 +1362,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 ## Next steps
 
-* For a description of the sections in an Azure Resource Manager template, see [Authoring Azure Resource Manager templates](resource-group-authoring-templates.md).
+* For a description of the sections in an Azure Resource Manager template, see [Authoring Azure Resource Manager templates](template-syntax.md).
 * To merge multiple templates, see [Using linked templates with Azure Resource Manager](resource-group-linked-templates.md).
 * To iterate a specified number of times when creating a type of resource, see [Create multiple instances of resources in Azure Resource Manager](resource-group-create-multiple.md).
 * To see how to deploy the template you have created, see [Deploy an application with Azure Resource Manager template](resource-group-template-deploy.md).

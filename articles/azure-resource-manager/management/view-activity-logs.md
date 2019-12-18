@@ -14,7 +14,7 @@ Through activity logs, you can determine:
 * the status of the operation
 * the values of other properties that might help you research the operation
 
-The activity log contains all write operations (PUT, POST, DELETE) for your resources. It doesn't include read operations (GET). For a list of resource actions, see [Azure Resource Manager Resource Provider operations](../role-based-access-control/resource-provider-operations.md). You can use the activity logs to find an error when troubleshooting or to monitor how a user in your organization modified a resource.
+The activity log contains all write operations (PUT, POST, DELETE) for your resources. It doesn't include read operations (GET). For a list of resource actions, see [Azure Resource Manager Resource Provider operations](../../role-based-access-control/resource-provider-operations.md). You can use the activity logs to find an error when troubleshooting or to monitor how a user in your organization modified a resource.
 
 Activity logs are kept for 90 days. You can query for any range of dates, as long as the starting date isn't more than 90 days in the past.
 
@@ -26,57 +26,57 @@ To view the activity logs through the portal, follow these steps:
 
 1. On the Azure portal menu, select **Monitor**, or search for and select **Monitor** from any page.
 
-    ![Select monitor](./media/resource-group-audit/select-monitor-from-menu.png)
+    ![Select monitor](./media/view-activity-logs/select-monitor-from-menu.png)
 
 1. Select **Activity Log**.
 
-    ![Select activity log](./media/resource-group-audit/select-activity-log.png)
+    ![Select activity log](./media/view-activity-logs/select-activity-log.png)
 
 1. You see a summary of recent operations. A default set of filters is applied to the operations. Notice the information on the summary includes who started the action and when it happened.
 
-    ![View summary of recent operations](./media/resource-group-audit/audit-summary.png)
+    ![View summary of recent operations](./media/view-activity-logs/audit-summary.png)
 
 1. To quickly run a pre-defined set of filters, select **Quick Insights**.
 
-    ![Select quick insights](./media/resource-group-audit/select-quick-insights.png)
+    ![Select quick insights](./media/view-activity-logs/select-quick-insights.png)
 
 1. Select one of the options. For example, select **Failed deployments** to see errors from deployments.
 
-    ![Select failed deployments](./media/resource-group-audit/select-failed-deployments.png)
+    ![Select failed deployments](./media/view-activity-logs/select-failed-deployments.png)
 
 1. Notice the filters have been changed to focus on deployment errors in the last 24 hours. Only operations that match the filters are displayed.
 
-    ![View filters](./media/resource-group-audit/view-filters.png)
+    ![View filters](./media/view-activity-logs/view-filters.png)
 
 1. To focus on specific operations, change the filters or apply new ones. For example, the following image shows a new value for the **Timespan** and **Resource type** is set to storage accounts.
 
-    ![Set filter options](./media/resource-group-audit/set-filter.png)
+    ![Set filter options](./media/view-activity-logs/set-filter.png)
 
 1. If you need to run the query again later, select **Pin current filters**.
 
-    ![Pin filters](./media/resource-group-audit/pin-filters.png)
+    ![Pin filters](./media/view-activity-logs/pin-filters.png)
 
 1. Give the filter a name.
 
-    ![Name filters](./media/resource-group-audit/name-filters.png)
+    ![Name filters](./media/view-activity-logs/name-filters.png)
 
 1. The filter is available in the dashboard. On the Azure portal menu, select **Dashboard**.
 
-    ![Show filter on dashboard](./media/resource-group-audit/activity-log-on-dashboard.png)
+    ![Show filter on dashboard](./media/view-activity-logs/activity-log-on-dashboard.png)
 
 1. From the portal, you can view changes to a resource. Go back to the default view in Monitor, and select an operation that involved changing a resource.
 
-    ![Select operation](./media/resource-group-audit/select-operation.png)
+    ![Select operation](./media/view-activity-logs/select-operation.png)
 
 1. Select **Change history (Preview)** and pick one of the available operations.
 
-    ![Select change history](./media/resource-group-audit/select-change-history.png)
+    ![Select change history](./media/view-activity-logs/select-change-history.png)
 
 1. The changes in the resource are displayed.
 
-    ![Show changes](./media/resource-group-audit/show-changes.png)
+    ![Show changes](./media/view-activity-logs/show-changes.png)
 
-To learn more about change history, see [Get resource changes](../governance/resource-graph/how-to/get-resource-changes.md).
+To learn more about change history, see [Get resource changes](../../governance/resource-graph/how-to/get-resource-changes.md).
 
 ## PowerShell
 
@@ -176,7 +176,7 @@ Depending on the start time you specify, the previous commands can return a long
 az monitor activity-log list -g ExampleGroup --offset 1d --query "[?operationName.value=='Microsoft.Storage/storageAccounts/write']"
 ```
 
-You can use Resource Graph to see the change history for a resource. For more information, see [Get resource changes](../governance/resource-graph/how-to/get-resource-changes.md).
+You can use Resource Graph to see the change history for a resource. For more information, see [Get resource changes](../../governance/resource-graph/how-to/get-resource-changes.md).
 
 ## REST API
 
@@ -185,8 +185,8 @@ The REST operations for working with the activity log are part of the [Insights 
 ## Next steps
 
 * Azure Activity logs can be used with Power BI to gain greater insights about the actions in your subscription. See [View and analyze Azure Activity Logs in Power BI and more](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/).
-* To learn about setting security policies, see [Azure Role-based Access Control](../role-based-access-control/role-assignments-portal.md).
-* To view more details about the changes to your applications from the infrastructure layer all the way to application deployment, see [Use Application Change Analysis in Azure Monitor](../azure-monitor/app/change-analysis.md).
-* To learn about the commands for viewing deployment operations, see [View deployment operations](resource-manager-deployment-operations.md).
-* To learn how to prevent deletions on a resource for all users, see [Lock resources with Azure Resource Manager](resource-group-lock-resources.md).
-* To see the list of operations available for each Microsoft Azure Resource Manager provider, see [Azure Resource Manager Resource Provider operations](../role-based-access-control/resource-provider-operations.md)
+* To learn about setting security policies, see [Azure Role-based Access Control](../../role-based-access-control/role-assignments-portal.md).
+* To view more details about the changes to your applications from the infrastructure layer all the way to application deployment, see [Use Application Change Analysis in Azure Monitor](../../azure-monitor/app/change-analysis.md).
+* To learn about the commands for viewing deployment operations, see [View deployment operations](deployment-history.md).
+* To learn how to prevent deletions on a resource for all users, see [Lock resources with Azure Resource Manager](lock-resources.md).
+* To see the list of operations available for each Microsoft Azure Resource Manager provider, see [Azure Resource Manager Resource Provider operations](../../role-based-access-control/resource-provider-operations.md)

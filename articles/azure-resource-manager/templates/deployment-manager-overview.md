@@ -7,7 +7,7 @@ ms.custom: seodec18
 ---
 # Enable safe deployment practices with Azure Deployment Manager (Public preview)
 
-To deploy your service across many regions and make sure it's running as expected in each region, you can use Azure Deployment Manager to coordinate a staged rollout of the service. Just as you would for any Azure deployment, you define the resources for your service in [Resource Manager templates](resource-group-authoring-templates.md). After creating the templates, you use Deployment Manager to describe the topology for your service and how it should be rolled out.
+To deploy your service across many regions and make sure it's running as expected in each region, you can use Azure Deployment Manager to coordinate a staged rollout of the service. Just as you would for any Azure deployment, you define the resources for your service in [Resource Manager templates](template-syntax.md). After creating the templates, you use Deployment Manager to describe the topology for your service and how it should be rolled out.
 
 Deployment Manager is a feature of Resource Manager. It expands your capabilities during deployment. Use Deployment Manager when you have a complex service that needs to be deployed to several regions. By staging the rollout of your service, you can find potential problems before it has been deployed to all regions. If you don't need the extra precautions of a staged rollout, use the standard [deployment options](resource-group-template-deploy-portal.md) for Resource Manager. Deployment Manager seamlessly integrates with all existing third-party tools that support Resource Manager deployments, such as continuous integration and continuous delivery (CI/CD) offerings.
 

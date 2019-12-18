@@ -146,7 +146,7 @@ The following information can be helpful when you work with [variables](template
 
 * Don't use variables for `apiVersion` on a resource. The API version determines the schema of the resource. Often, you can't change the version without changing the properties for the resource.
 
-* You can't use the [reference](resource-group-template-functions-resource.md#reference) function in the **variables** section of the template. The **reference** function derives its value from the resource's runtime state. However, variables are resolved during the initial parsing of the template. Construct values that need the **reference** function directly in the **resources** or **outputs** section of the template.
+* You can't use the [reference](template-functions-resource.md#reference) function in the **variables** section of the template. The **reference** function derives its value from the resource's runtime state. However, variables are resolved during the initial parsing of the template. Construct values that need the **reference** function directly in the **resources** or **outputs** section of the template.
 
 * Include variables for resource names that must be unique.
 
@@ -170,7 +170,7 @@ When deciding what [dependencies](resource-group-define-dependencies.md) to set,
 
 ## Resources
 
-The following information can be helpful when you work with [resources](resource-group-authoring-templates.md#resources):
+The following information can be helpful when you work with [resources](template-syntax.md#resources):
 
 * To help other contributors understand the purpose of the resource, specify **comments** for each resource in the template:
    
@@ -273,5 +273,5 @@ The following information can be helpful when you work with [resources](resource
 
 ## Next steps
 
-* For information about the structure of the Resource Manager template file, see [Understand the structure and syntax of Azure Resource Manager Templates](resource-group-authoring-templates.md).
+* For information about the structure of the Resource Manager template file, see [Understand the structure and syntax of Azure Resource Manager Templates](template-syntax.md).
 * For recommendations about how to build templates that work in all Azure cloud environments, see [Develop Azure Resource Manager templates for cloud consistency](templates-cloud-consistency.md).

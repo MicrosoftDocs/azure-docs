@@ -80,7 +80,7 @@ For examples of how to use parameters, see [Parameters in Azure Resource Manager
 
 ### Data types
 
-For integers passed as inline parameters, the range of values may be limited by the SDK or command-line tool you use for deployment. For example, when using PowerShell to deploy a template, integer types can range from -2147483648 to 2147483647. To avoid this limitation, specify large integer values in a [parameter file](resource-manager-parameter-files.md). Resource types apply their own limits for integer properties.
+For integers passed as inline parameters, the range of values may be limited by the SDK or command-line tool you use for deployment. For example, when using PowerShell to deploy a template, integer types can range from -2147483648 to 2147483647. To avoid this limitation, specify large integer values in a [parameter file](parameter-files-syntax.md). Resource types apply their own limits for integer properties.
 
 When specifying boolean and integer values in your template, don't surround the value with quotation marks. Start and end string values with double quotation marks.
 
@@ -88,7 +88,7 @@ Objects start with a left brace and end with a right brace. Arrays start with a 
 
 Secure strings and secure objects can't be read after resource deployment.
 
-For samples of formatting data types, see [Parameter type formats](resource-manager-parameter-files.md#parameter-type-formats).
+For samples of formatting data types, see [Parameter type formats](parameter-files-syntax.md#parameter-type-formats).
 
 ## Variables
 
@@ -127,14 +127,14 @@ For examples of how to use variables, see [Variables in Azure Resource Manager t
 
 ## Functions
 
-Within your template, you can create your own functions. These functions are available for use in your template. Typically, you define complicated expressions that you don't want to repeat throughout your template. You create the user-defined functions from expressions and [functions](resource-group-template-functions.md) that are supported in templates.
+Within your template, you can create your own functions. These functions are available for use in your template. Typically, you define complicated expressions that you don't want to repeat throughout your template. You create the user-defined functions from expressions and [functions](template-functions.md) that are supported in templates.
 
 When defining a user function, there are some restrictions:
 
 * The function can't access variables.
-* The function can only use parameters that are defined in the function. When you use the [parameters function](resource-group-template-functions-deployment.md#parameters) within a user-defined function, you're restricted to the parameters for that function.
+* The function can only use parameters that are defined in the function. When you use the [parameters function](template-functions-deployment.md#parameters) within a user-defined function, you're restricted to the parameters for that function.
 * The function can't call other user-defined functions.
-* The function can't use the [reference function](resource-group-template-functions-resource.md#reference).
+* The function can't use the [reference function](template-functions-resource.md#reference).
 * Parameters for the function can't have default values.
 
 ```json
@@ -238,7 +238,7 @@ You define resources with the following structure:
 | name |Yes |Name of the resource. The name must follow URI component restrictions defined in RFC3986. Azure services that expose the resource name to outside parties validate the name to make sure it isn't an attempt to spoof another identity. For a child resource, the format of the name depends on whether it's nested within the parent resource or defined outside of the parent resource. See [Set name and type for child resources](child-resource-name-type.md). |
 | location |Varies |Supported geo-locations of the provided resource. You can select any of the available locations, but typically it makes sense to pick one that is close to your users. Usually, it also makes sense to place resources that interact with each other in the same region. Most resource types require a location, but some types (such as a role assignment) don't require a location. See [Set resource location](resource-location.md). |
 | tags |No |Tags that are associated with the resource. Apply tags to logically organize resources across your subscription. |
-| comments |No |Your notes for documenting the resources in your template. For more information, see [Comments in templates](resource-group-authoring-templates.md#comments). |
+| comments |No |Your notes for documenting the resources in your template. For more information, see [Comments in templates](template-syntax.md#comments). |
 | copy |No |If more than one instance is needed, the number of resources to create. The default mode is parallel. Specify serial mode when you don't want all or the resources to deploy at the same time. For more information, see [Create several instances of resources in Azure Resource Manager](resource-group-create-multiple.md). |
 | dependsOn |No |Resources that must be deployed before this resource is deployed. Resource Manager evaluates the dependencies between resources and deploys them in the correct order. When resources aren't dependent on each other, they're deployed in parallel. The value can be a comma-separated list of a resource names or resource unique identifiers. Only list resources that are deployed in this template. Resources that aren't defined in this template must already exist. Avoid adding unnecessary dependencies as they can slow your deployment and create circular dependencies. For guidance on setting dependencies, see [Defining dependencies in Azure Resource Manager templates](resource-group-define-dependencies.md). |
 | properties |No |Resource-specific configuration settings. The values for the properties are the same as the values you provide in the request body for the REST API operation (PUT method) to create the resource. You can also specify a copy array to create several instances of a property. To determine available values, see [template reference](/azure/templates/). |
@@ -267,7 +267,7 @@ The following example shows the structure of an output definition:
 |:--- |:--- |:--- |
 | output-name |Yes |Name of the output value. Must be a valid JavaScript identifier. |
 | condition |No | Boolean value that indicates whether this output value is returned. When `true`, the value is included in the output for the deployment. When `false`, the output value is skipped for this deployment. When not specified, the default value is `true`. |
-| type |Yes |Type of the output value. Output values support the same types as template input parameters. If you specify **securestring** for the output type, the value isn't displayed in the deployment history and can't be retrieved from another template. To use a secret value in more than one template, store the secret in a Key Vault and reference the secret in the parameter file. For more information, see [Use Azure Key Vault to pass secure parameter value during deployment](resource-manager-keyvault-parameter.md). |
+| type |Yes |Type of the output value. Output values support the same types as template input parameters. If you specify **securestring** for the output type, the value isn't displayed in the deployment history and can't be retrieved from another template. To use a secret value in more than one template, store the secret in a Key Vault and reference the secret in the parameter file. For more information, see [Use Azure Key Vault to pass secure parameter value during deployment](key-vault-parameter.md). |
 | value |Yes |Template language expression that is evaluated and returned as output value. |
 
 For examples of how to use outputs, see [Outputs in Azure Resource Manager template](template-outputs.md).
@@ -399,7 +399,7 @@ To deploy templates with multi-line strings by using Azure CLI, you must use the
 ## Next steps
 
 * To view complete templates for many different types of solutions, see the [Azure Quickstart Templates](https://azure.microsoft.com/documentation/templates/).
-* For details about the functions you can use from within a template, see [Azure Resource Manager Template Functions](resource-group-template-functions.md).
+* For details about the functions you can use from within a template, see [Azure Resource Manager Template Functions](template-functions.md).
 * To combine several templates during deployment, see [Using linked templates with Azure Resource Manager](resource-group-linked-templates.md).
 * For recommendations about creating templates, see [Azure Resource Manager template best practices](template-best-practices.md).
 * For recommendations on creating Resource Manager templates that you can use across all Azure environments and Azure Stack, see [Develop Azure Resource Manager templates for cloud consistency](templates-cloud-consistency.md).

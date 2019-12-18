@@ -80,9 +80,9 @@ For each deployment name, the location is immutable. You can't create a deployme
 
 For subscription-level deployments, there are some important considerations when using template functions:
 
-* The [resourceGroup()](resource-group-template-functions-resource.md#resourcegroup) function is **not** supported.
-* The [resourceId()](resource-group-template-functions-resource.md#resourceid) function is supported. Use it to get the resource ID for resources that are used at subscription level deployments. For example, get the resource ID for a policy definition with `resourceId('Microsoft.Authorization/roleDefinitions/', parameters('roleDefinition'))`. Or, use the [subscriptionResourceId()](resource-group-template-functions-resource.md#subscriptionresourceid) function to get the resource ID for a subscription level resource.
-* The [reference()](resource-group-template-functions-resource.md#reference) and [list()](resource-group-template-functions-resource.md#list) functions are supported.
+* The [resourceGroup()](template-functions-resource.md#resourcegroup) function is **not** supported.
+* The [resourceId()](template-functions-resource.md#resourceid) function is supported. Use it to get the resource ID for resources that are used at subscription level deployments. For example, get the resource ID for a policy definition with `resourceId('Microsoft.Authorization/roleDefinitions/', parameters('roleDefinition'))`. Or, use the [subscriptionResourceId()](template-functions-resource.md#subscriptionresourceid) function to get the resource ID for a subscription level resource.
+* The [reference()](template-functions-resource.md#reference) and [list()](template-functions-resource.md#list) functions are supported.
 
 ## Create resource groups
 
@@ -358,5 +358,5 @@ New-AzDeployment `
 * To learn about assigning roles, see [Manage access to Azure resources using RBAC and Azure Resource Manager templates](../role-based-access-control/role-assignments-template.md).
 * For an example of deploying workspace settings for Azure Security Center, see [deployASCwithWorkspaceSettings.json](https://github.com/krnese/AzureDeploy/blob/master/ARM/deployments/deployASCwithWorkspaceSettings.json).
 * Sample templates can be found at [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/subscription-level-deployments).
-* To learn about creating Azure Resource Manager templates, see [Authoring templates](resource-group-authoring-templates.md). 
-* For a list of the available functions in a template, see [Template functions](resource-group-template-functions.md).
+* To learn about creating Azure Resource Manager templates, see [Authoring templates](template-syntax.md). 
+* For a list of the available functions in a template, see [Template functions](template-functions.md).

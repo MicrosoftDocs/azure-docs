@@ -52,4 +52,4 @@ This article documents the security controls built into Azure Resource Manager.
 
 ## Next steps
 
-- Learn more about the [built-in security controls across Azure services](../security/fundamentals/security-controls.md).
+- Learn more about the [built-in security controls across Azure services](../../security/fundamentals/security-controls.md).

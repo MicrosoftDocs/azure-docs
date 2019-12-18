@@ -33,14 +33,14 @@ Storage account names must be between 3 and 24 characters in length and use numb
 
 ## Solution
 
-Make sure the storage account name is unique. You can create a unique name by concatenating your naming convention with the result of the [uniqueString](resource-group-template-functions-string.md#uniquestring) function.
+Make sure the storage account name is unique. You can create a unique name by concatenating your naming convention with the result of the [uniqueString](template-functions-string.md#uniquestring) function.
 
 ```json
 "name": "[concat('storage', uniqueString(resourceGroup().id))]",
 "type": "Microsoft.Storage/storageAccounts",
 ```
 
-Make sure your storage account name does not exceed 24 characters. The [uniqueString](resource-group-template-functions-string.md#uniquestring) function returns 13 characters. If you concatenate a prefix or postfix to the **uniqueString** result, provide a value that is 11 characters or less.
+Make sure your storage account name does not exceed 24 characters. The [uniqueString](template-functions-string.md#uniquestring) function returns 13 characters. If you concatenate a prefix or postfix to the **uniqueString** result, provide a value that is 11 characters or less.
 
 ```json
 "parameters": {

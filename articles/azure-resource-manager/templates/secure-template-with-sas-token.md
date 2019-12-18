@@ -136,4 +136,4 @@ For an example of using a SAS token with linked templates, see [Using linked tem
 ## Next steps
 * For an introduction to deploying templates, see [Deploy resources with Resource Manager templates and Azure PowerShell](resource-group-template-deploy.md).
 * For a complete sample script that deploys a template, see [Deploy Resource Manager template script](resource-manager-samples-powershell-deploy.md)
-* To define parameters in template, see [Authoring templates](resource-group-authoring-templates.md#parameters).
+* To define parameters in template, see [Authoring templates](template-syntax.md#parameters).

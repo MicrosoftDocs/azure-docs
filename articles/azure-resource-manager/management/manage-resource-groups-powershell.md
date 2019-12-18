@@ -9,12 +9,12 @@ ms.author: jgao
 ---
 # Manage Azure Resource Manager resource groups by using Azure PowerShell
 
-Learn how to use Azure PowerShell with [Azure Resource Manager](resource-group-overview.md) to manage your Azure resource groups. For managing Azure resources, see [Manage Azure resources by using Azure PowerShell](./manage-resources-powershell.md).
+Learn how to use Azure PowerShell with [Azure Resource Manager](overview.md) to manage your Azure resource groups. For managing Azure resources, see [Manage Azure resources by using Azure PowerShell](manage-resources-powershell.md).
 
 Other articles about managing resource groups:
 
-- [Manage Azure resource groups by using the Azure portal](./manage-resources-portal.md)
-- [Manage Azure resource groups by using Azure CLI](./manage-resources-cli.md)
+- [Manage Azure resource groups by using the Azure portal](manage-resources-portal.md)
+- [Manage Azure resource groups by using Azure CLI](manage-resources-cli.md)
 
 ## What is a resource group
 
@@ -63,25 +63,25 @@ $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
 Remove-AzResourceGroup -Name $resourceGroupName
 ```
 
-For more information about how Azure Resource Manager orders the deletion of resources, see [Azure Resource Manager resource group deletion](./resource-group-delete.md).
+For more information about how Azure Resource Manager orders the deletion of resources, see [Azure Resource Manager resource group deletion](delete-resource-group.md).
 
 ## Deploy resources to an existing resource group
 
-See [Deploy resources to an existing resource group](./manage-resources-powershell.md#deploy-resources-to-an-existing-resource-group).
+See [Deploy resources to an existing resource group](manage-resources-powershell.md#deploy-resources-to-an-existing-resource-group).
 
 To validate a resource group deployment, see [Test-AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/Az.Resources/Test-AzResourceGroupDeployment?view=azps-1.3.0).
 
 ## Deploy a resource group and resources
 
-You can create a resource group and deploy resources to the group by using a Resource Manager template. For more information, see [Create resource group and deploy resources](./deploy-to-subscription.md#resource-group-and-resources).
+You can create a resource group and deploy resources to the group by using a Resource Manager template. For more information, see [Create resource group and deploy resources](../templates/deploy-to-subscription.md#resource-group-and-resources).
 
 ## Redeploy when deployment fails
 
-This feature is also known as *Rollback on error*. For more information, see [Redeploy when deployment fails](./rollback-on-error.md).
+This feature is also known as *Rollback on error*. For more information, see [Redeploy when deployment fails](rollback-on-error.md).
 
 ## Move to another resource group or subscription
 
-You can move the resources in the group to another resource group. For more information, see [Move resources to new resource group or subscription](./resource-group-move-resources.md).
+You can move the resources in the group to another resource group. For more information, see [Move resources to new resource group or subscription](move-resource-group-and-subscription.md).
 
 ## Lock resource groups
 
@@ -103,11 +103,11 @@ $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
 Get-AzResourceLock -ResourceGroupName $resourceGroupName 
 ```
 
-For more information, see [Lock resources with Azure Resource Manager](resource-group-lock-resources.md).
+For more information, see [Lock resources with Azure Resource Manager](lock-resources.md).
 
 ## Tag resource groups
 
-You can apply tags to resource groups and resources to logically organize your assets. For information, see [Using tags to organize your Azure resources](./resource-group-using-tags.md#powershell).
+You can apply tags to resource groups and resources to logically organize your assets. For information, see [Using tags to organize your Azure resources](tag-resources.md#powershell).
 
 ## Export resource groups to templates
 
@@ -208,15 +208,15 @@ The export template feature doesn't support exporting Azure Data Factory resourc
 
 To export resources created through classic deployment model, you must [migrate them to the Resource Manager deployment model](https://aka.ms/migrateclassicresourcetoarm).
 
-For more information, see [Single and multi-resource export to template in Azure portal](./export-template-portal.md).
+For more information, see [Single and multi-resource export to template in Azure portal](../templates/export-template-portal.md).
 
 ## Manage access to resource groups
 
-[Role-based access control (RBAC)](../role-based-access-control/overview.md) is the way that you manage access to resources in Azure. For more information, see [Manage access using RBAC and Azure PowerShell](../role-based-access-control/role-assignments-powershell.md).
+[Role-based access control (RBAC)](../../role-based-access-control/overview.md) is the way that you manage access to resources in Azure. For more information, see [Manage access using RBAC and Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md).
 
 ## Next steps
 
-- To learn Azure Resource Manager, see [Azure Resource Manager overview](./resource-group-overview.md).
-- To learn the Resource Manager template syntax, see [Understand the structure and syntax of Azure Resource Manager templates](./resource-group-authoring-templates.md).
+- To learn Azure Resource Manager, see [Azure Resource Manager overview](overview.md).
+- To learn the Resource Manager template syntax, see [Understand the structure and syntax of Azure Resource Manager templates](../templates/template-syntax.md).
 - To learn how to develop templates, see the [step-by-step tutorials](/azure/azure-resource-manager/).
 - To view the Azure Resource Manager template schemas, see [template reference](/azure/templates/).

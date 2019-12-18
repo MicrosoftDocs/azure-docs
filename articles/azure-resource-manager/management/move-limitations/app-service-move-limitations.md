@@ -49,4 +49,4 @@ To determine which App Service resources can be moved, see move support status f
 
 ## Next steps
 
-For commands to move resources, see [Move resources to new resource group or subscription](../resource-group-move-resources.md).
+For commands to move resources, see [Move resources to new resource group or subscription](../move-resource-group-and-subscription.md).
