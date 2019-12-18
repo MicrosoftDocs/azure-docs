@@ -447,13 +447,13 @@ conceptualContent:
         - url: https://docs.microsoft.com/dotnet/api/overview/azure/insights?view=azure-dotnet
           itemType: reference
           text: .NET SDK 
-        - url: https://docs.microsoft.com/en-us/java/api/overview/azure/appinsights?view=azure-java-stable
+        - url: https://docs.microsoft.com/java/api/overview/azure/appinsights?view=azure-java-stable
           itemType: reference
           text: .Java
-        - url: https://docs.microsoft.com/en-us/javascript/api/overview/azure/applicationinsights?view=azure-node-latest
+        - url: https://docs.microsoft.com/javascript/api/overview/azure/applicationinsights?view=azure-node-latest
           itemType: reference
           text: Node.js
-        - url: https://docs.microsoft.com/en-us/rest/api/application-insights/
+        - url: https://docs.microsoft.com/rest/api/application-insights/
           itemType: reference
           text: REST API 
         - url: https://dev.applicationinsights.io/
