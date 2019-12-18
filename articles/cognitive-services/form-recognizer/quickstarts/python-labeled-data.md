@@ -546,4 +546,4 @@ We understand this scenario is essential for our customers, and we are working o
 
 ## Next steps
 
-In this quickstart, you learned how to use the Form Recognizer REST API with Python to train a model with manually labeled data. Next, see the [API reference documentation](https://aka.ms/form-recognizer/api) to explore the Form Recognizer API in more depth.
+In this quickstart, you learned how to use the Form Recognizer REST API with Python to train a model with manually labeled data. Next, see the [API reference documentation](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeWithCustomForm) to explore the Form Recognizer API in more depth.

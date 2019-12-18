@@ -424,4 +424,4 @@ The main key/value pair associations and tables are in the `"pageResults"` node.
 In this quickstart, you used the Form Recognizer REST API with cURL to train a model and run it in a sample scenario. Next, see the reference documentation to explore the Form Recognizer API in more depth.
 
 > [!div class="nextstepaction"]
-> [REST API reference documentation](https://aka.ms/form-recognizer/api)
+> [REST API reference documentation](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeWithCustomForm)
