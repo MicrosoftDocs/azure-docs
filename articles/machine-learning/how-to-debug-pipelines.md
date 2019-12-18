@@ -105,4 +105,4 @@ You can also find the log files of specific runs in the pipeline run detail page
 
 * See the SDK reference for help with the [azureml-pipelines-core](https://docs.microsoft.com/python/api/azureml-pipeline-core/?view=azure-ml-py) package and the [azureml-pipelines-steps](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py) package.
 
-* See the list of [designer exceptions and error codes](../algorithm-module-reference/designer-error-codes).
+* See the list of [designer exceptions and error codes](algorithm-module-reference/designer-error-codes.md).
