@@ -2,14 +2,14 @@
 title: Common query patterns in Azure Stream Analytics
 description: This article describes several common query patterns and designs that are useful in Azure Stream Analytics jobs.
 services: stream-analytics
-author: rodrigoa
+author: rodrigoaatmicrosoft
 ms.author: rodrigoa
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 11/20/2019
+ms.date: 12/18/2019
 ---
-# Stream Analytics Quick Start Guide
+# Common query patterns in Azure Stream Analytics
 
 Queries in Azure Stream Analytics are expressed in a SQL-like query language. The language constructs are documented in the [Stream Analytics query language reference](/stream-analytics-query/stream-analytics-query-language-reference) guide. 
 
@@ -23,9 +23,9 @@ Azure Stream Analytics supports processing events in CSV, JSON and Avro data for
 
 Both JSON and Avro may contain complex types such as nested objects (records) or arrays. For more information on working with these complex data types, refer to the [Parsing JSON and AVRO data](stream-analytics-parsing-json.md) article.
 
-## Query example: Simple pass-through query
+## Simple pass-through query
 
-A simple pass-through query can be used to copy the input stream data into the output. For example, if a stream of data containing real time vehicle information needs to be saved into a SQL database for letter analysis, a simple pass-through query will do the job.
+A simple pass-through query can be used to copy the input stream data into the output. For example, if a stream of data containing real-time vehicle information needs to be saved in a SQL database for letter analysis, a simple pass-through query will do the job.
 
 **Input**:
 
@@ -50,7 +50,7 @@ INTO Output
 FROM Input
 ```
 
-A **SELECT** * query will project all the fields of an event coming from the input and send them to the output. The same way, **SELECT** can be used to only project required fields from the input. In this example, if vehicle Make and Time are the only required fields to be saved, those fields can be specified in the select statement.
+A **SELECT** * query projects all the fields of an incoming event and sends them to the output. The same way, **SELECT** can also be used to only project required fields from the input. In this example, if vehicle *Make* and *Time* are the only required fields to be saved, those fields can be specified in the **SELECT** statement.
 
 **Input**:
 
@@ -76,9 +76,9 @@ SELECT
 INTO Output
 FROM Input
 ```
-## Query example: Data aggregation over time
+## Data aggregation over time
 
-To compute information over a time window, data can be aggregated together, and its calculation can be outputted. In this example, a count is computed over the last 10 minutes of time for every specific car make.
+To compute information over a time window, data can be aggregated together. In this example, a count is computed over the last 10 minutes of time for every specific car make.
 
 **Input**:
 
@@ -108,15 +108,15 @@ GROUP BY
 	TumblingWindow(second, 10)
 ```
 
-This aggregation will group the cars by Make and count them every 10 seconds. The output will have the Make and Count of cars that made through the toll.
+This aggregation groups the cars by *Make* and counts them every 10 seconds. The output has the *Make* and *Count* of cars that went through the toll.
 
-TumblingWindow is a windowing function used to group events together. An aggregation can be applied over all grouped events, for more information, refer to [windowing functions](stream-analytics-window-functions.md).
+TumblingWindow is a windowing function used to group events together. An aggregation can be applied over all grouped events. For more information, see [windowing functions](stream-analytics-window-functions.md).
 
 For more information on aggregation, refer to [aggregate functions](/stream-analytics-query/aggregate-functions-azure-stream-analytics).
 
-## Query example: Data conversion
+## Data conversion
 
-Data can be casted at real time using the **CAST** method. For example, car weight can be converted from type **nvarchar(max)** to type **bigint** and be used on a numeric caculation.
+Data can be cast in real-time using the **CAST** method. For example, car weight can be converted from type **nvarchar(max)** to type **bigint** and be used on a numeric calculation.
 
 **Input**:
 
@@ -148,9 +148,9 @@ Use a **CAST** statement to specify its data type. See the list of supported dat
 
 For more information on [data conversion functions](/stream-analytics-query/conversion-functions-azure-stream-analytics).
 
-## Query example: LIKE/NOT LIKE for string matching
+## String matching with LIKE and NOT LIKE
 
-**LIKE** and **NOT LIKE** can be used to verify if a field matches a certain pattern. For example, a filter can be created to return only the license plates that start with ‘A’ and end with ‘9’.
+**LIKE** and **NOT LIKE** can be used to verify if a field matches a certain pattern. For example, a filter can be created to return only the license plates that start with the letter 'A' and end with the number 9.
 
 **Input**:
 
@@ -178,11 +178,11 @@ WHERE
 	License_plate LIKE 'A%9'
 ```
 
-Use the **LIKE** statement to check the **License_plate** field value. It should start with the letter A, then have any string of zero or more characters, ending with the number 9.
+Use the **LIKE** statement to check the **License_plate** field value. It should start with the letter 'A', then have any string of zero or more characters, ending with the number 9.
 
-## Query example: Specify logic for different cases/values (CASE statements)
+## Specify logic for different cases/values (CASE statements)
 
-**CASE** statements can provide different computations for different fields, based on particular criterions. For example, assign lane ‘A’ to cars of Make1 and lane ‘B’ to any other make.
+**CASE** statements can provide different computations for different fields, based on particular criterions. For example, assign lane 'A' to cars of *Make1* and lane 'B' to any other make.
 
 **Input**:
 
@@ -196,8 +196,8 @@ Use the **LIKE** statement to check the **License_plate** field value. It should
 
 | Make |Dispatch_to_lane | Time |
 | --- | --- | --- |
-| Make1 |”A” |2015-01-01T00:00:01.0000000Z |
-| Make2 |”B” |2015-01-01T00:00:02.0000000Z |
+| Make1 |"A" |2015-01-01T00:00:01.0000000Z |
+| Make2 |"B" |2015-01-01T00:00:02.0000000Z |
 
 **Solution**:
 
@@ -205,21 +205,21 @@ Use the **LIKE** statement to check the **License_plate** field value. It should
 SELECT
 	Make
 	CASE
-		WHEN Make = "Make1" THEN “A”
-		ELSE “B”
+		WHEN Make = "Make1" THEN "A"
+		ELSE "B"
 	END AS Dispatch_to_lane,
 	System.TimeStamp() AS Time
 FROM
 	Input TIMESTAMP BY Time
 ```
 
-The **CASE** expression compares an expression to a set of simple expressions to determine its result. In this example, vehicles of Make1 will be dispatched to lane “A” while vehicles of any other make will be assigned lane “B”.
+The **CASE** expression compares an expression to a set of simple expressions to determine its result. In this example, vehicles of *Make1* are dispatched to lane 'A' while vehicles of any other make will be assigned lane 'B'.
 
 For more information, refer to [case expression](/stream-analytics-query/case-azure-stream-analytics).
 
-## Query example: Sending data to multiple outputs
+## Send data to multiple outputs
 
-Multiple **SELECT** statements can be used to output data to different sinks. For example, one **SELECT** can output a threshold-based alert while another one can output events to blob storage.
+Multiple **SELECT** statements can be used to output data to different output sinks. For example, one **SELECT** can output a threshold-based alert while another one can output events to blob storage.
 
 **Input**:
 
@@ -272,7 +272,7 @@ HAVING
 	[Count] >= 3
 ```
 
-The **INTO** clause tells Stream Analytics which of the outputs to write the data to. The first **SELECT** defines a pass-through query that receives data from the input and sends it to the output named **ArchiveOutput**. The second query does some simple aggregation and filtering, sending the results to a downstream alerting system, output called **AlertOutput**.
+The **INTO** clause tells Stream Analytics which of the outputs to write the data to. The first **SELECT** defines a pass-through query that receives data from the input and sends it to the output named **ArchiveOutput**. The second query does some simple aggregation and filtering before sending the results to a downstream alerting system output called **AlertOutput**.
 
 Note that the **WITH** clause can be used to define multiple sub-query blocks. This option has the benefit of opening fewer readers to the input source.
 
@@ -302,9 +302,9 @@ HAVING [Count] >= 3
 
 For more information, refer to [**WITH** clause](/stream-analytics-query/with-azure-stream-analytics).
 
-## Query example: Counting unique values
+## Count unique values
 
-**COUNT** and **DISTINCT** can be used to count the number of unique field values that appears in the stream within a time window. A query can be created to calculate how many unique make of cars passed through the toll booth in a 2-second window.
+**COUNT** and **DISTINCT** can be used to count the number of unique field values that appear in the stream within a time window. A query can be created to calculate how many unique *Makes* of cars passed through the toll booth in a 2-second window.
 
 **Input**:
 
@@ -337,9 +337,9 @@ GROUP BY
 **COUNT(DISTINCT Make)** returns the count of distinct values in the **Make** column within a time window.
 For more information, refer to [**COUNT** aggregate function](/stream-analytics-query/count-azure-stream-analytics).
 
-## Query example: Calculation over past events
+## Calculation over past events
 
-The **LAG** function, can be used to look into past events within a time window, this allow past values to be compared against the current event. For example, the current car make can be outputted if it is different from the last car that went through the toll.
+The **LAG** function, can be used to look into past events within a time window, this allow past values to be compared against the current event. For example, the current car *Make* can be outputted if it is different from the last car that went through the toll.
 
 **Input**:
 
@@ -366,11 +366,11 @@ WHERE
 	LAG(Make, 1) OVER (LIMIT DURATION(minute, 1)) <> Make
 ```
 
-Use **LAG** to peek into the input stream one event back, retrieving the Make value and comparing it to the Make value of the current event and output the event.
+Use **LAG** to peek into the input stream one event back, retrieving the *Make* value and comparing it to the *Make* value of the current event and output the event.
 
 For more information, refer to [**LAG**](/stream-analytics-query/lag-azure-stream-analytics).
 
-## Query example: The first event in a window
+## The first event in a window
 
 **IsFirst** can be used to retrieve the first event in a time window. For example, outputting the first car information at every 10-minute interval.
 
@@ -406,7 +406,7 @@ WHERE
 	IsFirst(minute, 10) = 1
 ```
 
-**IsFirst** can also partition the data and calculate the first event to each specific car make found at every 10-minute interval.
+**IsFirst** can also partition the data and calculate the first event to each specific car *Make* found at every 10-minute interval.
 
 **Output**:
 
@@ -433,7 +433,7 @@ WHERE
 
 For more information, refer to [**IsFirst**](/stream-analytics-query/isfirst-azure-stream-analytics).
 
-## Query example: The last event in a window
+## The last event in a window
 
 As events are consumed by the system in real time, there is no function that can determine if an event will be the last one to arrive for that window of time. To achieve this, the input stream needs to be joined with another where the time of an event is the maximum time for all events at that window.
 
@@ -487,9 +487,9 @@ The first step on the query finds the maximum time stamp in 10-minute windows, t
 For more information on joining streams, refer to [**JOIN**](/stream-analytics-query/join-azure-stream-analytics).
 
 
-## Query example: Correlating events in a stream
+## Correlating events in a stream
 
-Correlating events in the same stream can be done by looking at past events using the **LAG** function. For example, an output can be generated every time two consecutive cars from the same make go through the toll for the last 90 seconds.
+Correlating events in the same stream can be done by looking at past events using the **LAG** function. For example, an output can be generated every time two consecutive cars from the same *Make* go through the toll for the last 90 seconds.
 
 **Input**:
 
@@ -521,11 +521,11 @@ WHERE
 	LAG(Make, 1) OVER (LIMIT DURATION(second, 90)) = Make
 ```
 
-The **LAG** function can look into the input stream one event back and retrieve the Make value, comparing that with the Make value of the current event.  Once the condition is met, data from the previous event can be projected using **LAG** in the **SELECT** statement.
+The **LAG** function can look into the input stream one event back and retrieve the *Make* value, comparing that with the *Make* value of the current event.  Once the condition is met, data from the previous event can be projected using **LAG** in the **SELECT** statement.
 
 For more information, refer to [LAG](/stream-analytics-query/lag-azure-stream-analytics).
 
-## Query example: Detecting the duration between events
+## Detecting the duration between events
 
 The duration of an event can be computed by looking at the last Start event once an End event is received. This query can be useful to determine the time a user spends on a page or a feature.
 
@@ -557,9 +557,9 @@ WHERE
 	Event = 'end'
 ```
 
-The **LAST** function can be used to retrieve the last event within a specific condition. In this example, the condition is an event of type Start, partitioning the search by **PARTITION BY ** [user] and Feature. This way, every user and feature will be treated independently when searching for the Start event. **LIMIT DURATION** limits the search back in time to 1 hour between the End and Start events.
+The **LAST** function can be used to retrieve the last event within a specific condition. In this example, the condition is an event of type Start, partitioning the search by **PARTITION BY** [user] and Feature. This way, every user and feature will be treated independently when searching for the Start event. **LIMIT DURATION** limits the search back in time to 1 hour between the End and Start events.
 
-## Query example: Detecting the duration of a condition
+## Detecting the duration of a condition
 
 A certain condition can span through multiple events, **LAG** function can also be used to identify the duration of that condition. For example, suppose that a bug resulted in all cars having an incorrect weight (above 20,000 pounds), and the duration of that bug must be computed.
 
@@ -602,11 +602,11 @@ WHERE
 	[weight] < 20000
 	AND previous_weight > 20000
 ```
-The first **SELECT** statement correlates the current weight measurement with the previous measurement, projecting it together with the current one. The second **SELECT** looks back to the last event where the previous_weight is less than 20000, where the current weight is smaller than 20000 and the previous_weight of the current event was bigger than 20000.
+The first **SELECT** statement correlates the current weight measurement with the previous measurement, projecting it together with the current one. The second **SELECT** looks back to the last event where the *previous_weight* is less than 20000, where the current weight is smaller than 20000 and the *previous_weight* of the current event was bigger than 20000.
 
-Sounds complicated but it is simple, the End_fault is the current non-faulty event where the previous event was faulty, and the Start_fault is the last non-faulty event before that.
+Sounds complicated but it is simple, the *End_fault* is the current non-faulty event where the previous event was faulty, and the *Start_fault* is the last non-faulty event before that.
 
-## Query example: Periodically outputting values
+## Periodically outputting values
 
 In case of irregular or missing events, a regular interval output can be generated from a more sparse data input. For example, generate an event every 5 seconds that reports the most recently seen data point.
 
@@ -652,10 +652,10 @@ This query generates events every 5 seconds and outputs the last event that was 
 
 For more information, refer to [Hopping window](/stream-analytics-query/hopping-window-azure-stream-analytics).
 
-## Query example: Processing events with independent time (Substreams)
+## Processing events with independent time (Substreams)
 
 Events can arrive late or out of order due to clock skews between event producers, clock skews between partitions, or even network latency.
-For example, the device clock for TollID 2 is five seconds behind TollID 1, and the device clock for TollID 3 is ten seconds behind TollID 1. A computation can happen independently for each toll, considering only its own clock data as a timestamp.
+For example, the device clock for *TollID* 2 is five seconds behind *TollID* 1, and the device clock for *TollID* 3 is ten seconds behind *TollID* 1. A computation can happen independently for each toll, considering only its own clock data as a timestamp.
 
 **Input**:
 
@@ -692,11 +692,11 @@ FROM input
 GROUP BY TUMBLINGWINDOW(second, 5), TollId
 ```
 
-The **TIMESTAMP OVER BY** clause looks at each device timeline independently using substreams. The output event for each TollID is generated as they are computed, meaning that the events are in order with respect to each TollID instead of being reordered as if all devices were on the same clock.
+The **TIMESTAMP OVER BY** clause looks at each device timeline independently using substreams. The output event for each *TollID* is generated as they are computed, meaning that the events are in order with respect to each *TollID* instead of being reordered as if all devices were on the same clock.
 
 For more information, refer to [TIMESTAMP BY OVER](/stream-analytics-query/timestamp-by-azure-stream-analytics#over-clause-interacts-with-event-ordering).
 
-## Query example: Remove duplicate events in a window
+## Remove duplicate events in a window
 
 When performing an operation such as calculating averages over events in a given time window, duplicate events should be filtered. In the following example, the second event is a duplicate of the first.
 
@@ -745,11 +745,11 @@ GROUP BY DeviceId,TumblingWindow(minute, 5)
 
 For more information, refer to [COUNT(DISTINCT Time)](/stream-analytics-query/count-azure-stream-analytics).
 
-## Query example: Session Window
+## Session Window
 
 A Session Window is a window that keeps expanding as events occurs, and closes for computation if no event is received after a specific amount of time or the window reaches its maximum duration.
-This window is particularly useful when computing user interaction data, in this case a window starts when a user starts interacting with the system and closes when no more events are observed, meaning, the user stopped interacting.
-For example, a user is interacting with a web page where clicks are being logged, a Session Window can be used to find out how long the user interacted with the site.
+This window is particularly useful when computing user interaction data. A window starts when a user starts interacting with the system and closes when no more events are observed, meaning, the user has stopped interacting.
+For example, a user is interacting with a web page where the number of clicks is logged, a Session Window can be used to find out how long the user interacted with the site.
 
 **Input**:
 
@@ -786,9 +786,9 @@ The **SELECT** projects the data relevant to the user interaction, together with
 
 For more information on **SessionWindow**, refer to [Session Window](/stream-analytics-query/session-window-azure-stream-analytics) .
 
-## Query example: Language extensibility with User Defined Function in JavaScript and C#
+## Language extensibility with User Defined Function in JavaScript and C#
 
-Azure Stream Analytics query language can be extended with custom functions written either in JavaScript or C# language. User Defined Functions (UDF) are custom/complex computations that cannot be easily expressed using the **SQL** language. These UDFs can be defined once and used multiple times within a query. For example, an UDF can be used to convert a hexadecimal **nvarchar(max)** value to an bigint value.
+Azure Stream Analytics query language can be extended with custom functions written either in JavaScript or C# language. User Defined Functions (UDF) are custom/complex computations that cannot be easily expressed using the **SQL** language. These UDFs can be defined once and used multiple times within a query. For example, an UDF can be used to convert a hexadecimal *nvarchar(max)* value to an *bigint* value.
 
 **Input**:
 
@@ -828,11 +828,11 @@ From
 	Input
 ```
 
-The User Defined Function will compute the bigint value from the HexValue on every event consumed.
+The User Defined Function will compute the *bigint* value from the HexValue on every event consumed.
 
 For more information, refer to [JavaScript](/stream-analytics/stream-analytics-javascript-user-defined-functions) and [C#](/stream-analytics/stream-analytics-edge-csharp-udf).
 
-## Query example: Advanced pattern matching with MATCH_RECOGNIZE
+## Advanced pattern matching with MATCH_RECOGNIZE
 
 **MATCH_RECOGNIZE** is an advanced pattern matching mechanism that can be used to match a sequence of events to a well-defined regular expression pattern.
 For example, an ATM is being monitored at real time for failures, during the operation of the ATM if there are two consecutive warning messages the administrator needs to be notified.
@@ -874,11 +874,11 @@ MATCH_RECOGNIZE (
 
 This query matches at least two consecutive failure events and generate an alarm when the conditions are met.
 **PATTERN** defines the regular expression to be used on the matching, in this case, any number of successful operations followed by at least two consecutive failures.
-Success and Failure are defined using Return_Code value and once the condition is met, the **MEASURES** are projected with ATM_id, the first warning operation and first warning time.
+Success and Failure are defined using Return_Code value and once the condition is met, the **MEASURES** are projected with *ATM_id*, the first warning operation and first warning time.
 
 For more information, refer to [MATCH_RECOGNIZE](/stream-analytics-query/match-recognize-stream-analytics).
 
-## Query example: Geofencing and geospatial queries
+## Geofencing and geospatial queries
 Azure Stream Analytics provides built-in geospatial functions that can be used to implement scenarios such as fleet management, ride sharing, connected cars, and asset tracking.
 Geospatial data can be ingested in either GeoJSON or WKT formats as part of event stream or reference data.
 For example, a company that is specialized in manufacturing machines for printing passports, lease their machines to governments and consulates. The location of those machines is heavily controlled as to avoid the misplacing and possible use for counterfeiting of passports. Each machine is fitted with a GPS tracker, that information is relayed back to an Azure Stream Analytics job.
