@@ -182,4 +182,4 @@ After the junction has been created, clients use the namespace path to access th
 ## Next steps
 
 * [Mount the Avere vFXT cluster](avere-vfxt-mount-clients.md)
-* Learn efficient ways to [move data to a new Blob container](avere-vfxt-dta-ingest.md)
+* Learn efficient ways to [move data to a new Blob container](avere-vfxt-data-ingest.md)
