@@ -14,7 +14,7 @@ ms.custom: seodec18
 ---
 
 # Configure a development environment for Azure Machine Learning
-[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
+[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 In this article, you learn how to configure a development environment to work with Azure Machine Learning. Azure Machine Learning is platform agnostic. The only hard requirement for your development environment is Python 3. An isolated environment like Anaconda or Virtualenv is also recommended.
 
@@ -36,7 +36,7 @@ This article also provides additional usage tips for the following tools:
 
 ## Prerequisites
 
-An Azure Machine Learning workspace. To create the workspace, see [Create an Azure Machine Learning workspace](how-to-manage-workspace.md). A workspace is all you need to get started with your own [cloud-based notebook server](#compute-instance), a [DSVM](#dsvm), or [Azure Databricks](#aml-databricks).
+An Azure Machine Learning workspace. To create the workspace, see [Create an Azure Machine Learning workspace](service/how-to-manage-workspace.md). A workspace is all you need to get started with your own [cloud-based notebook server](#compute-instance), a [DSVM](#dsvm), or [Azure Databricks](#aml-databricks).
 
 To install the SDK environment for your [local computer](#local), [Jupyter Notebook server](#jupyter) or [Visual Studio Code](#vscode) you also need:
 
@@ -51,18 +51,18 @@ To install the SDK environment for your [local computer](#local), [Jupyter Noteb
 
 ## <a id="compute-instance"></a>Your own cloud-based compute instance
 
-The Azure Machine Learning [compute instance (preview)](concept-compute-instance.md) is a secure, cloud-based Azure workstation that provides data scientists with a Jupyter notebook server, JupyterLab, and a fully prepared ML environment.
+The Azure Machine Learning [compute instance (preview)](service/concept-compute-instance.md) is a secure, cloud-based Azure workstation that provides data scientists with a Jupyter notebook server, JupyterLab, and a fully prepared ML environment.
 
 > [!NOTE]
 > Compute instances are available only for workspaces with a region of **North Central US** or **UK South**.
->If your workspace is in any other region, you can continue to create and use a [Notebook VM](concept-compute-instance.md#notebookvm) instead.
+>If your workspace is in any other region, you can continue to create and use a [Notebook VM](service/concept-compute-instance.md#notebookvm) instead.
 
-There is nothing to install or configure for a compute instance.  Create one anytime from within your Azure Machine Learning workspace. Provide just a name and specify an Azure VM type. Try it now with this [Tutorial: Setup environment and workspace](tutorial-1st-experiment-sdk-setup.md).
+There is nothing to install or configure for a compute instance.  Create one anytime from within your Azure Machine Learning workspace. Provide just a name and specify an Azure VM type. Try it now with this [Tutorial: Setup environment and workspace](service/tutorial-1st-experiment-sdk-setup.md).
 
 
-Learn more about [compute instances](concept-compute-instance.md).
+Learn more about [compute instances](service/concept-compute-instance.md).
 
-To stop incurring compute charges, [stop the compute instance](tutorial-1st-experiment-sdk-train.md#clean-up-resources).
+To stop incurring compute charges, [stop the compute instance](service/tutorial-1st-experiment-sdk-train.md#clean-up-resources).
 
 ## <a id="dsvm"></a>Data Science Virtual Machine
 
@@ -254,7 +254,7 @@ To use Visual Studio Code for development:
 
 1. Install the Azure Machine Learning extension for Visual Studio Code, see [Azure Machine Learning](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai).
 
-    For more information, see [Use Azure Machine Learning for Visual Studio Code](how-to-vscode-tools.md).
+    For more information, see [Use Azure Machine Learning for Visual Studio Code](service/how-to-vscode-tools.md).
 
 1. Learn how to use Visual Studio Code for any type of Python development, see [Get started with Python in VSCode](https://code.visualstudio.com/docs/python/python-tutorial).
 
@@ -278,8 +278,8 @@ Azure Databricks is an  Apache Spark-based environment in the Azure cloud. It pr
 
 How Azure Databricks works with Azure Machine Learning:
 + You can train a model using Spark MLlib and deploy the model to ACI/AKS from within Azure Databricks.
-+ You can also use [automated machine learning](../concept-automated-ml.md) capabilities in a special Azure ML SDK with Azure Databricks.
-+ You can use Azure Databricks as a compute target from an [Azure Machine Learning pipeline](../concept-ml-pipelines.md).
++ You can also use [automated machine learning](concept-automated-ml.md) capabilities in a special Azure ML SDK with Azure Databricks.
++ You can use Azure Databricks as a compute target from an [Azure Machine Learning pipeline](concept-ml-pipelines.md).
 
 ### Set up your Databricks cluster
 
@@ -344,8 +344,8 @@ Try it out:
 + While many sample notebooks are available, **only [these sample notebooks](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-databricks) work with Azure Databricks.**
 
 + Import these samples directly from your workspace. See below:
-![Select Import](media/how-to-configure-environment/azure-db-screenshot.png)
-![Import Panel](media/how-to-configure-environment/azure-db-import.png)
+![Select Import](./media/how-to-configure-environment/azure-db-screenshot.png)
+![Import Panel](./media/how-to-configure-environment/azure-db-import.png)
 
 + Learn how to [create a pipeline with Databricks as the training compute](how-to-create-your-first-pipeline.md).
 
@@ -395,5 +395,5 @@ You can create the configuration file in three ways:
 
 ## Next steps
 
-- [Train a model](tutorial-train-models-with-aml.md) on Azure Machine Learning with the MNIST dataset
+- [Train a model](service/tutorial-train-models-with-aml.md) on Azure Machine Learning with the MNIST dataset
 - View the [Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) reference

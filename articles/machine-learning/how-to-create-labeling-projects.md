@@ -39,7 +39,7 @@ In this article, you'll learn how to:
 * The set of labels that you want to apply.
 * The instructions for labeling.
 * An Azure subscription. If you don’t have an Azure subscription, create a [free account](https://aka.ms/AMLFree) before you begin.
-* A Machine Learning workspace. See [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).
+* A Machine Learning workspace. See [Create an Azure Machine Learning workspace](service/how-to-manage-workspace.md).
 
 ## Create a labeling project
 
@@ -49,7 +49,7 @@ If your data is already in Azure Blob storage, you should make it available as a
 
 To create a project, select **Add project**. Give the project an appropriate name and select **Labeling task type**.
 
-![Labeling project creation wizard](media/how-to-create-labeling-projects/labeling-creation-wizard.png)
+![Labeling project creation wizard](./media/how-to-create-labeling-projects/labeling-creation-wizard.png)
 
 * Choose **Image Classification Multi-label** for projects when you want to apply *one or more* labels from a set of classes to an image. For instance, a photo of a dog might be labeled with both *dog* and *daytime*.
 * Choose **Image Classification Multi-class** for projects when you want to apply only a *single class* from a set of classes to an image.
@@ -151,9 +151,9 @@ You can export the label data for Machine Learning experimentation at any time. 
 
 The COCO file is created in the default blob store of the Azure Machine Learning workspace in a folder within *export/coco*. You can access the exported Azure Machine Learning dataset in the **Datasets** section of Machine Learning. The dataset details page also provides sample code to access your labels from Python.
 
-![Exported dataset](media/how-to-create-labeling-projects/exported-dataset.png)
+![Exported dataset](./media/how-to-create-labeling-projects/exported-dataset.png)
 
 ## Next steps
 
-* Label images for [image classification or object detection](how-to-label-images.md)
-* Learn more about [Azure Machine Learning and Machine Learning Studio (classic)](../compare-azure-ml-to-studio-classic.md)
+* Label images for [image classification or object detection](service/how-to-label-images.md)
+* Learn more about [Azure Machine Learning and Machine Learning Studio (classic)](compare-azure-ml-to-studio-classic.md)

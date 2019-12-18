@@ -26,7 +26,7 @@ Azure Machine Learning pipelines allow you to create workflows in your machine l
 
 These benefits become significant as soon as your machine learning project moves beyond pure exploration and into iteration. Even simple one-step pipelines can be valuable. Machine learning projects are often in a complex state, and it can be a relief to make the precise accomplishment of a single workflow a trivial process.
 
-Learn how to [create your first pipeline](service/how-to-create-your-first-pipeline.md).
+Learn how to [create your first pipeline](how-to-create-your-first-pipeline.md).
 
 ![Machine learning pipelines in Azure Machine Learning](./media/concept-ml-pipelines/pipeline-flow.png)
 
@@ -202,7 +202,7 @@ The key advantages of using pipelines for your machine learning workflows are:
 Azure ML pipelines are a powerful facility that begins delivering value in the early development stages. The value increases as the team and project grows. This article has explained how pipelines are specified with the Azure Machine Learning Python SDK and orchestrated on Azure. You've seen some basic source code and been introduced to a few of the `PipelineStep` classes that are available. You should have a sense of when to use Azure ML pipelines and how Azure runs them. 
 
 
-+ Learn how to [create your first pipeline](service/how-to-create-your-first-pipeline.md).
++ Learn how to [create your first pipeline](how-to-create-your-first-pipeline.md).
 
 + Learn how to [run batch predictions on large data](service/tutorial-pipeline-batch-scoring-classification.md ).
 

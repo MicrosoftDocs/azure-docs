@@ -16,7 +16,7 @@ ms.date: 11/04/2019
 
 # Create Azure Machine Learning datasets
 
-[!INCLUDE [aml-applies-to-basic-enterprise-sku](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
+[!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 In this article, you learn how to create Azure Machine Learning datasets to access data for your local or remote experiments.
 
@@ -34,7 +34,7 @@ To create and work with datasets, you need:
 
 * An Azure subscription. If you don’t have one, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree).
 
-* An [Azure Machine Learning workspace](how-to-manage-workspace.md).
+* An [Azure Machine Learning workspace](service/how-to-manage-workspace.md).
 
 * The [Azure Machine Learning SDK for Python installed](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py), which includes the azureml-datasets package.
 
@@ -55,11 +55,11 @@ To learn more about upcoming API changes, see [Dataset API change notice](https:
 
 By creating a dataset, you create a reference to the data source location, along with a copy of its metadata. Because the data remains in its existing location, you incur no extra storage cost. You can create both `TabularDataset` and `FileDataset` data sets by using the Python SDK or workspace landing page (preview).
 
-For the data to be accessible by Azure Machine Learning, datasets must be created from paths in [Azure datastores](../how-to-access-data.md) or public web URLs.
+For the data to be accessible by Azure Machine Learning, datasets must be created from paths in [Azure datastores](how-to-access-data.md) or public web URLs.
 
 ### Use the SDK
 
-To create datasets from an [Azure datastore](../how-to-access-data.md) by using the Python SDK:
+To create datasets from an [Azure datastore](how-to-access-data.md) by using the Python SDK:
 
 1. Verify that you have `contributor` or `owner` access to the registered Azure datastore.
 
@@ -168,7 +168,7 @@ mnist_ds = Dataset.File.from_files(path=web_paths)
 #### On the web 
 The following steps and animation show how to create a dataset in Azure Machine Learning Studio, https://ml.azure.com.
 
-![Create a dataset with the UI](media/how-to-create-register-datasets/create-dataset-ui.gif)
+![Create a dataset with the UI](./media/how-to-create-register-datasets/create-dataset-ui.gif)
 
 To create a dataset in the studio:
 1. Sign in at https://ml.azure.com.
@@ -227,21 +227,21 @@ diabetes_tabular = Diabetes.get_tabular_dataset()
 
 You can also create datasets from Open Datasets classes through the UI. In your workspace, select the **Datasets** tab under **Assets**. On the **Create dataset** drop-down menu, select **From Open Datasets**.
 
-![Open Dataset with the UI](media/how-to-create-register-datasets/open-datasets-1.png)
+![Open Dataset with the UI](./media/how-to-create-register-datasets/open-datasets-1.png)
 
 Select a dataset by selecting its tile. (You have the option to filter by using the search bar.) Select **Next**.
 
-![Choose dataset](media/how-to-create-register-datasets/open-datasets-2.png)
+![Choose dataset](./media/how-to-create-register-datasets/open-datasets-2.png)
 
 Choose a name under which to register the dataset, and optionally filter the data by using the available filters. In this case, for the public holidays dataset, you filter the time period to one year and the country code to only the US. Select **Create**.
 
-![Set dataset params and create dataset](media/how-to-create-register-datasets/open-datasets-3.png)
+![Set dataset params and create dataset](./media/how-to-create-register-datasets/open-datasets-3.png)
 
 The dataset is now available in your workspace under **Datasets**. You can use it in the same way as other datasets you've created.
 
 ## Version datasets
 
-You can register a new dataset under the same name by creating a new version. A dataset version is a way to bookmark the state of your data so that you can apply a specific version of the dataset for experimentation or future reproduction. Learn more about [dataset versions](how-to-version-track-datasets.md).
+You can register a new dataset under the same name by creating a new version. A dataset version is a way to bookmark the state of your data so that you can apply a specific version of the dataset for experimentation or future reproduction. Learn more about [dataset versions](service/how-to-version-track-datasets.md).
 ```Python
 # create a TabularDataset from Titanic training data
 web_paths = [
@@ -281,6 +281,6 @@ df = titanic_ds.to_pandas_dataframe()
 
 ## Next steps
 
-* Learn [how to train with datasets](how-to-train-with-datasets.md).
+* Learn [how to train with datasets](service/how-to-train-with-datasets.md).
 * Use automated machine learning to [train with TabularDatasets](https://aka.ms/automl-dataset).
 * For more dataset training examples, see the [sample notebooks](https://aka.ms/dataset-tutorial).

@@ -12805,6 +12805,57 @@
             "redirect_url": "/azure/machine-learning/how-to-configure-auto-train",
             "redirect_document_id": true
         },
+        
+        {
+            "source_path": "articles/machine-learning/service/how-to-configure-environment.md",
+            "redirect_url": "/azure/machine-learning/how-to-configure-environment",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/machine-learning/service/how-to-consume-web-service.md",
+            "redirect_url": "/azure/machine-learning/how-to-consume-web-service",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/machine-learning/service/how-to-create-labeling-projects.md",
+            "redirect_url": "/azure/machine-learning/how-to-create-labeling-projects",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/machine-learning/service/how-to-create-portal-experiments.md",
+            "redirect_url": "/azure/machine-learning/how-to-create-portal-experiments",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/machine-learning/service/how-to-create-register-datasets.md",
+            "redirect_url": "/azure/machine-learning/how-to-create-register-datasets",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/machine-learning/service/how-to-create-workspace-template.md",
+            "redirect_url": "/azure/machine-learning/how-to-create-workspace-template",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/machine-learning/service/how-to-create-your-first-pipeline.md",
+            "redirect_url": "/azure/machine-learning/how-to-create-your-first-pipeline",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/machine-learning/service/how-to-debug-batch-predictions.md",
+            "redirect_url": "/azure/machine-learning/how-to-debug-batch-predictions",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/machine-learning/service/how-to-debug-pipelines.md",
+            "redirect_url": "/azure/machine-learning/how-to-debug-pipelines",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/machine-learning/service/how-to-define-task-type.md",
+            "redirect_url": "/azure/machine-learning/how-to-define-task-type",
+            "redirect_document_id": true
+        },
         {
             "source_path": "articles/log-analytics/log-analytics-add-solutions.md",
             "redirect_url": "/azure/monitoring/monitoring-solutions",

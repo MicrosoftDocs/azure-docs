@@ -68,7 +68,7 @@ Pipeline runs are grouped into [experiments](concept-azure-machine-learning-arch
 
 ## Datasets
 
-A machine learning dataset makes it easy to access and work with your data. A number of sample datasets are included in the designer for you to experiment with. You can [register](./service/how-to-create-register-datasets.md) more datasets as you need them.
+A machine learning dataset makes it easy to access and work with your data. A number of sample datasets are included in the designer for you to experiment with. You can [register](how-to-create-register-datasets.md) more datasets as you need them.
 
 ## Module
 

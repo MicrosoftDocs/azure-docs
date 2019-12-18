@@ -399,7 +399,7 @@ az ml service show -n myservice
 
 This command returns the same JSON document, including the `scoringUri`.
 
-The REST endpoint can be used to send data to the service. For information on creating a client application that sends data to the service, see [Consume an Azure Machine Learning model deployed as a web service](how-to-consume-web-service.md)
+The REST endpoint can be used to send data to the service. For information on creating a client application that sends data to the service, see [Consume an Azure Machine Learning model deployed as a web service](../how-to-consume-web-service.md)
 
 ### Send data to the service
 

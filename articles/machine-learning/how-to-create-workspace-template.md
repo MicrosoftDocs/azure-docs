@@ -13,13 +13,13 @@ ms.custom: seoapril2019
 
 # Customer intent: As a DevOps person, I need to automate or customize the creation of Azure Machine Learning by using templates.
 ---
-[!INCLUDE [aml-applies-to-basic-enterprise-sku](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
+[!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 # Use an Azure Resource Manager template to create a workspace for Azure Machine Learning
 
 In this article, you learn several ways to create an Azure Machine Learning workspace using Azure Resource Manager templates. A Resource Manager template makes it easy to create resources as a single, coordinated operation. A template is a JSON document that defines the resources that are needed for a deployment. It may also specify deployment parameters. Parameters are used to provide input values when using the template.
 
-For more information, see [Deploy an application with Azure Resource Manager template](../../azure-resource-manager/resource-group-template-deploy.md).
+For more information, see [Deploy an application with Azure Resource Manager template](../azure-resource-manager/resource-group-template-deploy.md).
 
 ## Prerequisites
 
@@ -197,8 +197,8 @@ The example template has two parameters:
 
 For more information on templates, see the following articles:
 
-* [Author Azure Resource Manager templates](../../azure-resource-manager/resource-group-authoring-templates.md)
-* [Deploy an application with Azure Resource Manager templates](../../azure-resource-manager/resource-group-template-deploy.md)
+* [Author Azure Resource Manager templates](../azure-resource-manager/resource-group-authoring-templates.md)
+* [Deploy an application with Azure Resource Manager templates](../azure-resource-manager/resource-group-template-deploy.md)
 * [Microsoft.MachineLearningServices resource types](https://docs.microsoft.com/azure/templates/microsoft.machinelearningservices/allversions)
 
 ## Use the Azure portal
@@ -211,7 +211,7 @@ For more information on templates, see the following articles:
    * Workspace name: The name to use for the Azure Machine Learning workspace that will be created. The workspace name must be between 3 and 33 characters. It may only contain alphanumeric characters and '-'.
    * Location: Select the location where the resources will be created.
 
-For more information, see [Deploy resources from custom template](../../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template).
+For more information, see [Deploy resources from custom template](../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template).
 
 ## Use Azure PowerShell
 
@@ -224,7 +224,7 @@ new-azresourcegroupdeployment -name exampledeployment `
   -templatefile .\azuredeploy.json -workspaceName "exampleworkspace"
 ```
 
-For more information, see [Deploy resources with Resource Manager templates and Azure PowerShell](../../azure-resource-manager/resource-group-template-deploy.md) and [Deploy private Resource Manager template with SAS token and Azure PowerShell](../../azure-resource-manager/resource-manager-powershell-sas-token.md).
+For more information, see [Deploy resources with Resource Manager templates and Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md) and [Deploy private Resource Manager template with SAS token and Azure PowerShell](../azure-resource-manager/secure-template-with-sas-token.md).
 
 ## Use Azure CLI
 
@@ -239,7 +239,7 @@ az group deployment create \
   --parameters workspaceName=exampleworkspace location=eastus
 ```
 
-For more information, see [Deploy resources with Resource Manager templates and Azure CLI](../../azure-resource-manager/resource-group-template-deploy-cli.md) and [Deploy private Resource Manager template with SAS token and Azure CLI](../../azure-resource-manager/resource-manager-cli-sas-token.md).
+For more information, see [Deploy resources with Resource Manager templates and Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md) and [Deploy private Resource Manager template with SAS token and Azure CLI](../azure-resource-manager/secure-template-with-sas-token.md).
 
 ## Azure Key Vault access policy and Azure Resource Manager templates
 
@@ -256,5 +256,5 @@ To avoid this problem, we recommend one of the following approaches:
 
 ## Next steps
 
-* [Deploy resources with Resource Manager templates and Resource Manager REST API](../../azure-resource-manager/resource-group-template-deploy-rest.md).
-* [Creating and deploying Azure resource groups through Visual Studio](../../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
+* [Deploy resources with Resource Manager templates and Resource Manager REST API](../azure-resource-manager/resource-group-template-deploy-rest.md).
+* [Creating and deploying Azure resource groups through Visual Studio](../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).

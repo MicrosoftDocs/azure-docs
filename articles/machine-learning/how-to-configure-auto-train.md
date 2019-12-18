@@ -30,11 +30,11 @@ Configuration options available in automated machine learning:
 * Explore model metrics
 * Register and deploy model
 
-If you prefer a no code experience, you can also [Create your automated machine learning experiments in Azure Machine Learning studio](service/how-to-create-portal-experiments.md).
+If you prefer a no code experience, you can also [Create your automated machine learning experiments in Azure Machine Learning studio](how-to-create-portal-experiments.md).
 
 ## Select your experiment type
 
-Before you begin your experiment, you should determine the kind of machine learning problem you are solving. Automated machine learning supports task types of classification, regression and forecasting. Learn more about [task types](service/how-to-define-task-type.md).
+Before you begin your experiment, you should determine the kind of machine learning problem you are solving. Automated machine learning supports task types of classification, regression and forecasting. Learn more about [task types](how-to-define-task-type.md).
 
 Automated machine learning supports the following algorithms during the automation and tuning process. As a user, there is no need for you to specify the algorithm.
 
@@ -68,7 +68,7 @@ automl_config = AutoMLConfig(task = "classification")
 
 ## Data source and format
 
-Automated machine learning supports data that resides on your local desktop or in the cloud such as Azure Blob Storage. The data can be read into a **Pandas DataFrame** or an **Azure Machine Learning TabularDataset**.  [Learn more about datasets](https://github.com/MicrosoftDocs/azure-docs-pr/pull/how-to-create-register-datasets.md).
+Automated machine learning supports data that resides on your local desktop or in the cloud such as Azure Blob Storage. The data can be read into a **Pandas DataFrame** or an **Azure Machine Learning TabularDataset**.  [Learn more about datasets](how-to-create-register-datasets.md).
 
 Requirements for training data:
 - Data must be in tabular form.
@@ -129,7 +129,7 @@ Next determine where the model will be trained. An automated machine learning tr
 
 See the [GitHub site](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning) for example notebooks with local and remote compute targets.
 
-*   An Azure Databricks cluster in your Azure subscription. You can find more details here - [Setup Azure Databricks cluster for Automated ML](service/how-to-configure-environment.md#azure-databricks)
+*   An Azure Databricks cluster in your Azure subscription. You can find more details here - [Setup Azure Databricks cluster for Automated ML](how-to-configure-environment.md#azure-databricks)
 
 See the [GitHub site](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/azure-databricks/automl) for example notebooks with Azure Databricks.
 
@@ -183,7 +183,7 @@ Learn about the specific definitions of these in [Understand automated machine l
 
 ### Data preprocessing & featurization
 
-In every automated machine learning experiment, your data is [automatically scaled and normalized](concept-automated-ml.md#preprocess) to help *certain* algorithms that are sensitive to features that are on different scales.  However, you can also enable additional preprocessing/featurization, such as missing values imputation, encoding, and transforms. [Learn more about what featurization is included](service/how-to-create-portal-experiments.md#preprocess).
+In every automated machine learning experiment, your data is [automatically scaled and normalized](concept-automated-ml.md#preprocess) to help *certain* algorithms that are sensitive to features that are on different scales.  However, you can also enable additional preprocessing/featurization, such as missing values imputation, encoding, and transforms. [Learn more about what featurization is included](how-to-create-portal-experiments.md#preprocess).
 
 To enable this featurization, specify `"preprocess": True` for the [`AutoMLConfig` class](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig?view=azure-ml-py).
 

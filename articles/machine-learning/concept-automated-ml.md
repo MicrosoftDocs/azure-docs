@@ -92,9 +92,9 @@ In every automated machine learning experiment, your data is automatically scale
 
 ### Advanced preprocessing: optional featurization
 
-Additional advanced preprocessing and featurization are also available, such as missing values imputation, encoding, and transforms. [Learn more about what featurization is included](service/how-to-create-portal-experiments.md#preprocess). Enable this setting with:
+Additional advanced preprocessing and featurization are also available, such as missing values imputation, encoding, and transforms. [Learn more about what featurization is included](how-to-create-portal-experiments.md#preprocess). Enable this setting with:
 
-+ Azure Machine Learning studio : Selecting the **View featurization settings** in the **Configuration Run** section [with these steps](service/how-to-create-portal-experiments.md).
++ Azure Machine Learning studio : Selecting the **View featurization settings** in the **Configuration Run** section [with these steps](how-to-create-portal-experiments.md).
 
 + Python SDK: Specifying `"feauturization": auto' / 'off' / FeaturizationConfig` for the [`AutoMLConfig` class](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig).
 
@@ -227,7 +227,7 @@ See examples and learn how to build models using automated machine learning:
 + Follow the [Tutorial: Automatically train a regression model with Azure Automated Machine Learning](service/tutorial-auto-train-models.md)
 
 + Configure the settings for automatic training experiment:
-  + In Azure Machine Learning studio, [use these steps](service/how-to-create-portal-experiments.md).
+  + In Azure Machine Learning studio, [use these steps](how-to-create-portal-experiments.md).
   + With the Python SDK, [use these steps](how-to-configure-auto-train.md).
 
 + Learn how to auto train using time series data, [use these steps](how-to-auto-train-forecast.md).

@@ -34,7 +34,7 @@ Run this code on either of these environments:
  - Your own Jupyter Notebook server
 
     - [Install the Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
-    - [Create a workspace configuration file](how-to-configure-environment.md#workspace).
+    - [Create a workspace configuration file](../how-to-configure-environment.md#workspace).
     - Download the dataset and sample script file 
         - [iris dataset](https://archive.ics.uci.edu/ml/datasets/iris)
         - [`train_iris.py`](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/ml-frameworks/scikit-learn/training/train-hyperparameter-tune-deploy-with-sklearn)

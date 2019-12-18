@@ -267,4 +267,4 @@ print(response.json())
 * Learn more about scaling in [Get started with Autoscale in Azure](/azure/azure-monitor/platform/autoscale-get-started?toc=%2fazure%2fapp-service%2ftoc.json).
 * [Use an SSL certificate in your Azure App Service](/azure/app-service/configure-ssl-certificate-in-code).
 * [Configure your App Service app to use Azure Active Directory sign-in](/azure/app-service/configure-authentication-provider-aad).
-* [Consume a ML Model deployed as a web service](how-to-consume-web-service.md)
+* [Consume a ML Model deployed as a web service](../how-to-consume-web-service.md)

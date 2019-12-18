@@ -80,7 +80,7 @@ When you have the right model, you can easily use it in a web service, on an IoT
 
 Then you can manage your deployed models by using the [Azure Machine Learning SDK for Python](https://aka.ms/aml-sdk), [Azure Machine Learning studio](https://ml.azure.com), or the [machine learning CLI](reference-azure-machine-learning-cli.md).
 
-These models can be consumed and return predictions in [real time](how-to-consume-web-service.md) or [asynchronously](how-to-run-batch-predictions.md) on large quantities of data.
+These models can be consumed and return predictions in [real time](../how-to-consume-web-service.md) or [asynchronously](how-to-run-batch-predictions.md) on large quantities of data.
 
 And with advanced [machine learning pipelines](../concept-ml-pipelines.md), you can collaborate on each step from data preparation, model training and evaluation, through deployment. Pipelines allow you to:
 
@@ -100,7 +100,7 @@ Azure Machine Learning works with other services on the Azure platform, and also
 + Compute targets such as __Azure Kubernetes Service__, __Azure Container Instances__, __Azure Databricks__, __Azure Data Lake Analytics__, and __Azure HDInsight__. For more information on compute targets, see [What are compute targets?](../concept-compute-target.md).
 + __Azure Event Grid__. For more information, see [Consume Azure Machine Learning events](../concept-event-grid-integration.md).
 + __Azure Monitor__. For more information, see [Monitoring Azure Machine Learning](monitor-azure-machine-learning.md).
-+ Data stores such as __Azure Storage accounts__, __Azure Data Lake Storage__, __Azure SQL Database__, __Azure Database for PostgreSQL__, and __Azure Open Datasets__. For more information, see [Access data in Azure storage services](../how-to-access-data.md) and [Create datasets with Azure Open Datasets](how-to-create-register-datasets.md#create-datasets-with-azure-open-datasets).
++ Data stores such as __Azure Storage accounts__, __Azure Data Lake Storage__, __Azure SQL Database__, __Azure Database for PostgreSQL__, and __Azure Open Datasets__. For more information, see [Access data in Azure storage services](../how-to-access-data.md) and [Create datasets with Azure Open Datasets](../how-to-create-register-datasets.md#create-datasets-with-azure-open-datasets).
 + __Azure Virtual Networks__. For more information, see [Secure experimentation and inference in a virtual network](how-to-enable-virtual-network.md).
 + __Azure Pipelines__. For more information, see [Train and deploy machine learning models](/azure/devops/pipelines/targets/azure-machine-learning).
 + __Git repository logs__. For more information, see [Git integration](../concept-train-model-git-integration.md).
