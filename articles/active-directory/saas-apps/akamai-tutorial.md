@@ -30,7 +30,7 @@ In this tutorial, you'll learn how to integrate Akamai with Azure Active Directo
 
 To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-Azure Active Directory and Akamai Enterprise Application Access integration allows seamless access to legacy applications hosted in the cloud or on-premises. The integrated solution takes advantages of all the modern capabilities of Azure Active Directory like [Azure AD conditional access](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-conditional-access-azure-portal), [Azure AD Identity Protection](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-identityprotection) and [Azure AD Identity Governance](https://docs.microsoft.com/en-us/azure/active-directory/governance/identity-governance-overview) for legacy applications access without app modifications or agents installation.
+Azure Active Directory and Akamai Enterprise Application Access integration allows seamless access to legacy applications hosted in the cloud or on-premises. The integrated solution takes advantages of all the modern capabilities of Azure Active Directory like [Azure AD conditional access](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal), [Azure AD Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection) and [Azure AD Identity Governance](https://docs.microsoft.com/azure/active-directory/governance/identity-governance-overview) for legacy applications access without app modifications or agents installation.
 
 The below image describes, where Akamai EAA fits into the broader Hybrid Secure Access scenario
 
@@ -125,6 +125,11 @@ To configure and test Azure AD SSO with Akamai, complete the following building 
     * **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
     * **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
 1. **[Configure Akamai SSO](#configure-akamai-sso)** - to configure the single sign-on settings on application side.
+    * **[Setting up IDP](#setting-up-idp)**
+    * **[Header Based Authentication](#header-based-authentication)**
+    * **[Remote Desktop](#remote-desktop)**
+    * **[SSH](#ssh)**
+    * **[Kerberos Authentication](#kerberos-authentication)**
     * **[Create Akamai test user](#create-akamai-test-user)** - to have a counterpart of B.Simon in Akamai that is linked to the Azure AD representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
@@ -466,7 +471,7 @@ Assign the Identity Provider
 ![Configuring Akamai](./media/header-akamai-tutorial/advancesettings02.png)
 
 > [!NOTE]
-> The SPN for the Web Server has be  in SPN@Domain Format ex: [HTTP/frp-app1.superdemo.live@SUPERDEMO.LIVE](HTTP/frp-app1.superdemo.live@SUPERDEMO.LIVE) for this demo. Leave rest of the settings to default.
+> The SPN for the Web Server has be  in SPN@Domain Format ex: `HTTP/frp-app1.superdemo.live@SUPERDEMO.LIVE` for this demo. Leave rest of the settings to default.
 
 #### Deployment Tab
 
@@ -534,7 +539,7 @@ Assign the Identity Provider
 
 1. Here is the generic Syntax.
 
-1. ktpass /out ActiveDirectorydomain.keytab  /princ [HTTP/yourloginportalurl@ADDomain.com](HTTP/yourloginportalurl@ADDomain.com)  /mapuser serviceaccount@ADdomain.com /pass +rdnPass  /crypto All /ptype KRB5_NT_PRINCIPAL
+1. ktpass /out ActiveDirectorydomain.keytab  /princ `HTTP/yourloginportalurl@ADDomain.com`  /mapuser serviceaccount@ADdomain.com /pass +rdnPass  /crypto All /ptype KRB5_NT_PRINCIPAL
 
 1. Example explained
 
