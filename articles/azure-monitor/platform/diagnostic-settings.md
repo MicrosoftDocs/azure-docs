@@ -5,21 +5,20 @@ author: bwren
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 12/03/2019
+ms.date: 12/18/2019
 ms.author: bwren
 ms.subservice: logs
 ---
 
 # Create diagnostic setting to collect platform logs and metrics in Azure
-[Platform logs](resource-logs-overview.md) in Azure provide detailed diagnostic and auditing information for Azure resources and the Azure platform they depend on. This article provides details on creating and configuring diagnostic settings to collect platform logs to different destinations.
+[Platform logs](resource-logs-overview.md) in Azure, including Azure Activity log and resource logs, provide detailed diagnostic and auditing information for Azure resources and the Azure platform they depend on. This article provides details on creating and configuring diagnostic settings to send platform logs to different destinations.
 
-Each Azure resource requires its own diagnostic setting. The diagnostic setting defines the following for that resource:
+Each Azure resource requires its own diagnostic setting, which defines the following:
 
 - Categories of logs and metric data sent to the destinations defined in the setting. The available categories will vary for different resource types.
 - One or more destinations to send the logs. Current destinations include Log Analytics workspace, Event Hubs, and Azure Storage.
-- Retention policy for data stored in Azure Storage.
  
-A single diagnostic setting can define one of each of the destinations. If you want to send data to more than one of a particular destination type (for example, two different Log Analytics workspaces), then create multiple settings. Each resource can have up to 5 diagnostic settings.
+A single diagnostic setting can define no more than one of each of the destinations. If you want to send data to more than one of a particular destination type (for example, two different Log Analytics workspaces), then create multiple settings. Each resource can have up to 5 diagnostic settings.
 
 
 > [!NOTE]
@@ -34,10 +33,6 @@ Platform logs can be sent to the destinations in the following table. The config
 | [Event hubs](resource-logs-stream-event-hubs.md) | Sending logs to Event Hubs allows you to stream data to external systems such as third-party SIEMs and other log analytics solutions. |
 | [Azure storage account](resource-logs-collect-storage.md) | Archiving logs to an Azure storage account is useful for audit, static analysis, or backup. |
 
-
-> [!IMPORTANT]
-> Azure Data Lake Storage Gen2 accounts are not currently supported as a destination for diagnostic settings even though they may be listed as a valid option in the Azure portal.
-
 ## Create diagnostic settings in Azure portal
 You can configure diagnostic settings in the Azure portal either from the Azure Monitor menu or from the menu for the resource.
 
@@ -51,7 +46,7 @@ You can configure diagnostic settings in the Azure portal either from the Azure 
     
     ![Diagnostic settings](media/diagnostic-settings/menu-monitor.png)
 
-    - For the Activity log, click **Activity log** and then **Diagnostic settings**
+    - For the Activity log, click **Activity log** in the **Azure Monitor** menu and then **Diagnostic settings**
 
     ![Diagnostic settings](media/diagnostic-settings/menu-activity-log.png)
 
@@ -76,7 +71,7 @@ You can configure diagnostic settings in the Azure portal either from the Azure 
 
     ![Add diagnostic setting - existing settings](media/diagnostic-settings/setting-details.png)
 
-5. Check the box for each of the categories of data to send to the specified destinations.
+5. Check the box for each of the categories of data to send to the specified destinations. The list of categories will vary for each Azure service.
 
 
 
@@ -101,7 +96,7 @@ Following is an example PowerShell cmdlet to create a diagnostic setting using a
 
 
 ```powershell
-Set-AzDiagnosticSetting -Name KeyVault-Diagnostics -ResourceId /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myresourcegroup/providers/Microsoft.KeyVault/vaults/mykeyvault -Category AuditEvent -MetricCategory AllMetrics -Enabled $true -StorageAccountId /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount -RetentionEnabled $true -RetentionInDays 7 -WorkspaceId /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/oi-default-east-us/providers/microsoft.operationalinsights/workspaces/myworkspace  -EventHubAuthorizationRuleId /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myresourcegroup/providers/Microsoft.EventHub/namespaces/myeventhub/authorizationrules/RootManageSharedAccessKey
+Set-AzDiagnosticSetting -Name KeyVault-Diagnostics -ResourceId /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myresourcegroup/providers/Microsoft.KeyVault/vaults/mykeyvault -Category AuditEvent -MetricCategory AllMetrics -Enabled $true -StorageAccountId /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount -WorkspaceId /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/oi-default-east-us/providers/microsoft.operationalinsights/workspaces/myworkspace  -EventHubAuthorizationRuleId /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myresourcegroup/providers/Microsoft.EventHub/namespaces/myeventhub/authorizationrules/RootManageSharedAccessKey
 ```
 
 
@@ -119,8 +114,8 @@ Following is an example CLI command to create a diagnostic setting using all thr
 az monitor diagnostic-settings create  \
 --name KeyVault-Diagnostics \
 --resource /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myresourcegroup/providers/Microsoft.KeyVault/vaults/mykeyvault \
---logs    '[{"category": "AuditEvent","enabled": true,"retentionPolicy": {"days": 7,"enabled": true}}]' \
---metrics '[{"category": "AllMetrics","enabled": true,"retentionPolicy": {"days": 7,"enabled": true}}]' \
+--logs    '[{"category": "AuditEvent","enabled": true}]' \
+--metrics '[{"category": "AllMetrics","enabled": true}]' \
 --storage-account /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount \
 --workspace /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/oi-default-east-us/providers/microsoft.operationalinsights/workspaces/myworkspace \
 --event-hub-rule /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myresourcegroup/providers/Microsoft.EventHub/namespaces/myeventhub/authorizationrules/RootManageSharedAccessKey

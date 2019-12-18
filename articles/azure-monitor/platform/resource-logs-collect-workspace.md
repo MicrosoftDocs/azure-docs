@@ -5,13 +5,13 @@ author: bwren
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 09/20/2019
+ms.date: 12/18/2019
 ms.author: bwren
 ms.subservice: logs
 ---
 
 # Collect Azure platform logs in Log Analytics workspace in Azure Monitor
-[Platform logs](platform-logs-overview.md), which include Activity log and resource logs, provide detailed diagnostic and auditing information for Azure resources and the Azure platform they depend on. This article describes collecting resource logs in a Log Analytics workspace which allows you to analyze it with other monitoring data collected in Azure Monitor Logs using powerful log queries and also to leverage other Azure Monitor features such as alerts and visualizations. 
+[Platform logs](resource-logs-overview.md) in Azure, including Azure Activity log and resource logs, provide detailed diagnostic and auditing information for Azure resources and the Azure platform they depend on. This article describes collecting resource logs in a Log Analytics workspace which allows you to analyze it with other monitoring data collected in Azure Monitor Logs using powerful log queries and also to leverage other Azure Monitor features such as alerts and visualizations. 
 
 
 ## What you can do with platform logs in a workspace
@@ -25,10 +25,11 @@ Collecting platform logs into a Log Analytics workspace allows you to analyze th
 You need to [create a new workspace](../learn/quick-create-workspace.md) if you don't already have one. The workspace does not have to be in the same subscription as the resource sending logs as long as the user who configures the setting has appropriate RBAC access to both subscriptions.
 
 ## Create a diagnostic setting
-Resource logs are not collected by default. Collect them in a Log Analytics workspace and other destinations by creating a diagnostic setting for an Azure resource. See [Create diagnostic setting to collect logs and metrics in Azure](diagnostic-settings.md) for details.
+Send platform logs to a Log Analytics workspace and other destinations by creating a diagnostic setting for an Azure resource. See [Create diagnostic setting to collect logs and metrics in Azure](diagnostic-settings.md) for details.
+
 
 ## Activity log collection
-Resource log data collected in a Log Analytics workspace is stored in the **AzureActivity** table. You can send the Activity log from any single subscription to up to five Log Analytics workspaces.
+You can send the Activity log from any single subscription to up to five Log Analytics workspaces. Resource log data collected in a Log Analytics workspace is stored in the **AzureActivity** table. 
 
 ## Resource log collection mode
 Resource log data collected in a Log Analytics workspace is stored in tables as described in [Structure of Azure Monitor Logs](../log-query/logs-structure.md). The tables used by resource logs depend on what type of collection the resource is using:

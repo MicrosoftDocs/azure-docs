@@ -20,8 +20,8 @@ You can deploy these templates with a variety of methods including PowerShell an
 > Since you can't [create a diagnostic setting](diagnostic-settings.md) for the Azure Activity log using PowerShell or CLI like diagnostic settings for other Azure resources, create a Resource Manager template for the Activity log using the information in this article and deploy the template using PowerShell or CLI.
 
 
-## Resource Manager structure
-Resource Manager templates have two sections, parameters and resources. Parameters are values that you define when you deploy the template. Resources uses values provided by parameters and provides the definition of the resources being configured.
+## Template structure
+Resource Manager templates have two sections, parameters and resources. Parameters are values that you define when you deploy the template. Resources use values provided by parameters and provides the definition of the resources being configured.
 
 ### Parameters
 Following are parameter definitions for each of the possible [destinations](diagnostic-settings.md#destinations) for a diagnostic setting. You can remove parameters for destinations that your diagnostic setting doesn't use.
@@ -66,12 +66,12 @@ Following are parameter definitions for each of the possible [destinations](diag
 ```
 
 ### Resources
-In the resources array of the resource for which you want to create the diagnostic setting, add a resource of type `[resource namespace]/providers/diagnosticSettings`. The properties section follows the format described in [Diagnostic Settings - Create Or Update](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings/createorupdate). Provide a `category` in the `logs` section for each of the categories valid for the resource that you want to collect. Add the `metrics` property to collect resource metrics to the same destinations if the [resource supports metrics](metrics-supported.md).
-   
+In the resources array of the resource for which you want to create the diagnostic setting, add a resource of type `[resource namespace]/providers/diagnosticSettings`. The properties section follows the format described in [Diagnostic Settings - Create Or Update](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings/createorupdate). Provide a `category` in the `logs` section for each of the categories valid for the resource that you want to collect. Add the `metrics` property to collect resource metrics to the same destinations if the [resource supports metrics](metrics-supported.md). An example is shown below.
+
 ```json
 "resources": [
   {
-    "type": "[concat(parameters('resourceName'),'/diagnosticSettings')]"
+    "type": "[concat(parameters('resourceName'),'/diagnosticSettings')]",
     "name": "[concat(parameters('resourceName'),'/microsoft.insights/', parameters('settingName'))]",
     "dependsOn": [
       "[/*resource Id for which resource logs will be enabled>*/]"
@@ -85,7 +85,7 @@ In the resources array of the resource for which you want to create the diagnost
       "workspaceId": "[parameters('workspaceId')]",
       "logs": [ 
         {
-          "category": "/* log category name */",
+          "category": "/* category name */",
           "enabled": true
         }
       ],
@@ -103,8 +103,31 @@ In the resources array of the resource for which you want to create the diagnost
 For the Azure Activity log, add a resource of type `Microsoft.Insights/diagnosticSettings"` using the same format as other resources. The available categories are listed in [Categories in the Activity Log](activity-logs-overview.md#categories-in-the-activity-log).
 
 
+```json
+"resources": [
+  {
+    "type": "Microsoft.Insights/diagnosticSettings",
+    "name": "[parameters('settingName')]",
+    "apiVersion": "2017-05-01-preview",
+    "location": "global",
+    "properties": {
+      "storageAccountId": "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName'))]",
+      "eventHubAuthorizationRuleId": "[parameters('eventHubAuthorizationRuleId')]",
+      "eventHubName": "[parameters('eventHubName')]",
+      "workspaceId": "[parameters('workspaceId')]",
+      "logs": [
+        {
+          "category": "/* category name */",
+          "enabled": true
+        }
+      ]
+    }
+  }
+]
+```
+
 ## Example - Azure resource
-Following is a complete example that creates a Logic App and creates a diagnostic setting that enables streaming of resource logs to an event hub and storage in a storage account.
+Following is a complete example that creates a Logic App and creates a diagnostic setting that enables streaming of resource logs to an event hub, a storage account, and a Log Analytics workspace.
 
 ```json
 {
@@ -209,21 +232,13 @@ Following is a complete example that creates a Logic App and creates a diagnosti
             "logs": [
               {
                 "category": "WorkflowRuntime",
-                "enabled": true,
-                "retentionPolicy": {
-                  "days": 0,
-                  "enabled": false
-                }
+                "enabled": true
               }
             ],
             "metrics": [
               {
                 "timeGrain": "PT1M",
-                "enabled": true,
-                "retentionPolicy": {
-                  "enabled": false,
-                  "days": 0
-                }
+                "enabled": true
               }
             ]
           }
@@ -237,6 +252,7 @@ Following is a complete example that creates a Logic App and creates a diagnosti
 ```
 
 ## Example - Activity log
+Following is an example that creates a diagnostic setting that enables streaming of all categories of the Azure Activity log in the current subscription to an event hub, a storage account, and a Log Analytics workspace.
 
 ```json
 {
