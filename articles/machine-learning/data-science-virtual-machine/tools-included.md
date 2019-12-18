@@ -7,10 +7,10 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: data-science-vm
 
-author: lobrien
-ms.author: laobri
+author: gvashishtha
+ms.author: gopalv
 ms.topic: overview
-ms.date: 12/18/2019
+ms.date: 10/10/2019
 
 ---
 
