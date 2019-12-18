@@ -75,15 +75,19 @@ Run the following PowerShell commands to deploy the management tool and associat
 ```powershell
 $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
 $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
+$templateParameters = @{
+    isServicePrincipal = $true
+    azureAdminUserPrincipalNameOrApplicationId = $ServicePrincipalCredentials.UserName
+    azureAdminPassword $servicePrincipalCredentials.Password
+    applicationName $appName
+}
 
-Select-AzSubscription -SubscriptionId $subscriptionId
+Get-AzSubscription -SubscriptionId $subscriptionId | Select-AzSubscription
 New-AzResourceGroup -Name $resourceGroupName -Location $location
 New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName `
     -TemplateUri "https://raw.githubusercontent.com/Azure/RDS-Templates/master/wvd-templates/wvd-management-ux/deploy/mainTemplate.json" `
-    -isServicePrincipal $true `
-    -azureAdminUserPrincipalNameOrApplicationId $servicePrincipalCredentials.UserName `
-    -azureAdminPassword $servicePrincipalCredentials.Password `
-    -applicationName $appName
+    -TemplateParameterObject $templateParameters `
+    -Verbose
 ```
 After you've created the web app, you must add a redirect URI to the Azure AD application to successfully login users.
 
@@ -94,8 +98,7 @@ Run the following PowerShell commands to retrieve the web app URL and set it as 
 ```powershell
 $webApp = Get-AzWebApp -ResourceGroupName $resourceGroupName -Name $appName
 $redirectUri = "https://" + $webApp.DefaultHostName + "/"
-$azureADApplication = Get-AzureADApplication | where { $_.AppId -eq $servicePrincipalCredentials.UserName } 
-Get-AzureADApplication | where { $_.AppId -eq $servicePrincipalCredentials.UserName } | Set-AzureADApplication -ReplyUrls $redirectUri  
+Get-AzureADApplication | where { $_.AppId -match $servicePrincipalCredentials.UserName } | Set-AzureADApplication -ReplyUrls $redirectUri  
 ```
 Now that you've added a redirect URI for user login, you must update the API URL so the management tool UI can interact with the API backend service.
 
