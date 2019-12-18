@@ -24,7 +24,7 @@ The application will recognize an utterance like "turn on the tv" and respond wi
 If you don't have a speech subscription, you can create one by navigating to the [Speech Studio](https://speech.microsoft.com/) and selecting **Create a Speech Resource**.
 
   > [!div class="mx-imgBorder"]
-  > ![Create a project](media/custom-speech-commands/create-new-subscription.png)
+  > [ ![Create a project](media/custom-speech-commands/create-new-subscription.png) ](media/custom-speech-commands/create-new-subscription.png#lightbox)
 
   > [!NOTE]
   > During preview, only the westus2 region is supported.
