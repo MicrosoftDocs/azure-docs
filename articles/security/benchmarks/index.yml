@@ -44,19 +44,9 @@ landingContent:
             url: security-control-data-protection.md
           - text: Vulnerability Management
             url: security-control-vulnerability-management.md
-          - text: Inventory and Asset Management
-            url: security-control-inventory-and-asset-management.md
-          - text: Secure Configuration
-            url: security-control-secure-configuration.md
-          - text: Malware Defense
-            url: security-control-malware-defense.md
-          - text: Data Recovery
-            url: security-control-data-recovery.md
-          - text: Incident Response
-            url: security-control-incident-response.md
-          - text: Penetration Tests and Red Team Exercises
-            url: security-control-penetration-tests-and-red-team-exercises.md
-
+         footerLink: 
+           url: introduction.md
+           text: See more
   # Card
   - title: More Azure Security Information
     linkLists:
