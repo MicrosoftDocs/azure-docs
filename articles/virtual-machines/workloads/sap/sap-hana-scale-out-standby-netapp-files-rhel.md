@@ -627,18 +627,18 @@ In this example for deploying SAP HANA in scale-out configuration with standby n
    For information about how to verify the configuration, see SAP Note [2183363 - Configuration of SAP HANA internal network](https://launchpad.support.sap.com/#/notes/2183363).  
 
 5. **[A]** Re-enable the firewall.  
-- Stop HANA
+  - Stop HANA
    <pre><code>
     sudo -u <b>hn1</b>adm /usr/sap/hostctrl/exe/sapcontrol -nr <b>03</b> -function StopSystem HDB
    </code></pre>
-- Re-enable the firewall
+  - Re-enable the firewall
    <pre><code>
     # Execute as root
     systemctl start firewalld
     systemctl enable firewalld
    </code></pre>
 
-- Open the necessary firewall ports
+  - Open the necessary firewall ports
 
     > [!IMPORTANT]
     > Create firewall rules to allow HANA inter node communication and client traffic. The required ports are listed on [TCP/IP Ports of All SAP Products](https://help.sap.com/viewer/ports). The following commands are just an example. In this scenario with used system number 03.
@@ -689,7 +689,7 @@ In this example for deploying SAP HANA in scale-out configuration with standby n
     sudo firewall-cmd --zone=public --add-port=30302/tcp
    </code></pre>
 
-- Start HANA
+  - Start HANA
    <pre><code>
     sudo -u <b>hn1</b>adm /usr/sap/hostctrl/exe/sapcontrol -nr <b>03</b> -function StartSystem HDB
    </code></pre>
