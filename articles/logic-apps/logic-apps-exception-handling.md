@@ -157,18 +157,26 @@ This table shows how Logic Apps generates a uniform random variable in the speci
 
 ## Catch and handle failures by using "run after" behavior
 
-When you add actions through the designer, you implicitly specify the order for running those actions. After an action finishes running, that same action is marked with a status, such as `Succeeded`, `Failed`, `Skipped`, or `TimedOut`. Each action declares the predecessor action that must finish running and the resulting status before the successor action can start running. By default, when you add an action through the designer, that action is set to run *only after* its predecessor finishes with `Succeeded` status. You can [customize this "run after" behavior](#customize-run-after) to an extent.
+When you add actions through the designer, you implicitly specify the order for running those actions. After an action finishes running, that same action is marked with a status, such as `Succeeded`, `Failed`, `Skipped`, or `TimedOut`. Each action declares the predecessor action that must finish running and the resulting status before the successor action can start running. By default, when you add an action through the designer, that action is set to run *only after* its predecessor finishes with `Succeeded` status. You can [customize this "run after" behavior](#customize-run-after).
 
-The entire logic app run is marked as `Failed` under any of these conditions:
-
-* A predecessor action results in an error that isn't caught and handled.
-
-* In a logic app with parallel branches, an action that ends a branch is marked as `Failed`. Or, if that action is marked as `Skipped`, and after following all the predecessor paths ends with an action that's marked as `Failed`, `Succeeded`, `Cancelled`, or `TimedOut`, but any of
-
-In a logic app with parallel branches, if the predecessor action fails, but the successor action runs and finishes successfully, that successor action is marked as `Succeeded`. In most logic apps, if you successfully catch all the failures in a workflow, the logic app run is marked as `Succeeded`. 
+If a predecessor action fails, but the successor action finishes successfully, the successor action is marked as `Succeeded`.
 
 
-However, if your logic apps has parallel branches, if any actions at the end of those parallel branches are skipped or if any preceding skipped actions fail, the logic app run is marked as `Failed`.
+The entire logic app run is marked as `Failed` if a predecessor action results in an error that isn't caught and handled. In most cases, if you successfully catch all the failures in a workflow, the logic app run is marked as `Succeeded`. 
+
+However, for a logic app that has a parallel branches, all the statuses for the actions at the ends of those branches
+
+that logic app run is marked as `Failed` under any of these conditions:
+
+* An action that ends a branch fails.
+
+* An action that ends a branch fails, and the predecessor paths end with actions that are marked as `Failed`, `Succeeded`, `Cancelled`, or `TimedOut`, but any of
+
+
+If any actions that end parallel branches are skipped *and* if the preceding skipped actions fail, the logic app run is marked as `Failed`.
+
+
+However, if your logic apps has parallel branches, 
 
 <a name="customize-run-after"></a>
 
@@ -237,13 +245,13 @@ You can customize an action's "run after" behavior so that the action runs when 
 
   To specify that the action runs whether the predecessor action is marked as `Failed`, `Skipped` or `TimedOut`, add the other statuses:
 
-```json
-"runAfter": {
-   "Add_a_row_into_a_table": [
-      "Failed", "Skipped", "TimedOut"
-   ]
-}
-```
+  ```json
+  "runAfter": {
+     "Add_a_row_into_a_table": [
+        "Failed", "Skipped", "TimedOut"
+     ]
+  },
+  ```
 
 <a name="scopes"></a>
 
