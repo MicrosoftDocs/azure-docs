@@ -36,7 +36,7 @@ Inference, or model scoring, is the phase where the deployed model is used to ma
 
 * A registered model that uses a GPU.
 
-    * To learn how to register models, see [Deploy Models](service/how-to-deploy-and-where.md#registermodel).
+    * To learn how to register models, see [Deploy Models](how-to-deploy-and-where.md#registermodel).
 
     * To create and register the Tensorflow model used to create this document, see [How to Train a TensorFlow Model](service/how-to-train-tensorflow.md).
 
@@ -282,4 +282,4 @@ aks_target.delete()
 
 * [Deploy model on FPGA](service/how-to-deploy-fpga-web-service.md)
 * [Deploy model with ONNX](concept-onnx.md#deploy-onnx-models-in-azure)
-* [Train Tensorflow DNN Models](../service/service/how-to-train-tensorflow.md)
+* [Train Tensorflow DNN Models](service/how-to-train-tensorflow.md)
