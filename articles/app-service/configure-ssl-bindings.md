@@ -1,17 +1,10 @@
 ---
-title: Secure a custom DNS name with an SSL binding - Azure App Service | Microsoft Docs
-description: Learn how to buy an App Service certificate and bind it to your App Service app
-services: app-service
-author: cephalin
-manager: gwallace
+title: Secure a custom DNS with an SSL binding
+description: Secure HTTPS access to your custom domain by creating a TLS/SSL binding with a certificate. Improve your website's security by enforcing HTTPS or TLS 1.2.
 tags: buy-ssl-certificates
 
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 10/25/2019
-ms.author: cephalin
 ms.reviewer: yutlin
 ms.custom: seodec18
 ---
@@ -106,10 +99,11 @@ Your app's **Custom domain** page is updated with the new, dedicated IP address.
 
 ## Test HTTPS
 
-In various browsers, browse
-to `https://<your.custom.domain>` to verify that it serves up your app.
+In various browsers, browse to `https://<your.custom.domain>` to verify that it serves up your app.
 
 ![Portal navigation to Azure app](./media/configure-ssl-bindings/app-with-custom-ssl.png)
+
+Your application code can inspect the protocol via the "x-appservice-proto" header. The header will have a value of `http` or `https`. 
 
 > [!NOTE]
 > If your app gives you certificate validation errors, you're probably using a self-signed certificate.

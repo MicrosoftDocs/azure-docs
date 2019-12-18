@@ -1,6 +1,6 @@
 ---
-title: "Quickstart: Launch an Azure Spring Cloud application using the Azure portal"
-description: Deploy a sample application to the Azure Spring Cloud using the Azure portal.
+title: "Quickstart - Launch an Azure Spring Cloud application using the Azure portal"
+description: In this quickstart, deploy a sample application to the Azure Spring Cloud using the Azure portal.
 author: jpconnock
 ms.service: spring-cloud
 ms.topic: quickstart
@@ -144,3 +144,5 @@ In this quickstart, you learned how to:
 
 > [!div class="nextstepaction"]
 > [Prepare your Azure Spring Cloud application for deployment](spring-cloud-tutorial-prepare-app-deployment.md)
+
+More samples are available on GitHub: [Azure Spring Cloud Samples](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples/tree/master/service-binding-cosmosdb-sql).

@@ -65,7 +65,7 @@ You can also register the datastore with the workspace using a one-time registra
 
 ## Experiment submission
 
-In the [automated machine learning configuration](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig), the property `spark_context` should be set for the package to run on distributed mode. The property `concurrent_iterations`, which is the maximum number of iterations executed in parallel, should be set to a number less than the executor cores for the Spark app.
+In the [automated machine learning configuration](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig), the property `spark_context` should be set for the package to run on distributed mode. The property `concurrent_iterations`, which is the maximum number of iterations executed in parallel, should be set to a number less than the executor cores for the Spark app.
 
 ## Next steps
 

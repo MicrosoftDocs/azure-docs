@@ -6,7 +6,7 @@ ms.author: ashish
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 06/10/2019
+ms.date: 11/22/2019
 ---
 
 # Scale Azure HDInsight clusters
@@ -131,7 +131,7 @@ yarn application -kill "application_1499348398273_0003"
 
 When you scale down a cluster, HDInsight uses Apache Ambari management interfaces to first decommission the extra worker nodes, which replicate their HDFS blocks to other online worker nodes. After that, HDInsight safely scales the cluster down. HDFS goes into safe mode during the scaling operation, and is supposed to come out once the scaling is finished. In some cases, however, HDFS gets stuck in safe mode during a scaling operation because of file block under-replication.
 
-By default, HDFS is configured with a `dfs.replication` setting of 3, which controls how many copies of each file block are available. Each copy of a file block is stored on a different node of the cluster.
+By default, HDFS is configured with a `dfs.replication` setting of 1, which controls how many copies of each file block are available. Each copy of a file block is stored on a different node of the cluster.
 
 When HDFS detects that the expected number of block copies aren't available, HDFS enters safe mode and Ambari generates alerts. If HDFS enters safe mode for a scaling operation, but then cannot exit safe mode because the required number of nodes are not detected for replication, the cluster can become stuck in safe mode.
 

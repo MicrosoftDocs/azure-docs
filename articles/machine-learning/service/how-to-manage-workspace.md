@@ -1,5 +1,5 @@
 ---
-title: Create Azure ML workspaces in the portal
+title: Create Azure Machine Learning workspaces in the portal
 titleSuffix: Azure Machine Learning
 description: Learn how to create, view and delete Azure Machine Learning workspaces in the Azure portal.
 services: machine-learning
@@ -58,27 +58,27 @@ To create a workspace, you need an Azure subscription. If you don’t have an Az
 
 ### Download a configuration file
 
-1. If you will be creating a [Notebook VM](tutorial-1st-experiment-sdk-setup.md#azure), skip this step.
+1. If you will be creating a [compute instance](tutorial-1st-experiment-sdk-setup.md#azure), skip this step.
 
 1. If you plan to use code on your local environment that references this workspace, select  **Download config.json** from the **Overview** section of the workspace.  
 
    ![Download config.json](./media/how-to-manage-workspace/configure.png)
    
-   Place the file into  the directory structure with your Python scripts or Jupyter Notebooks. It can be in the same directory, a subdirectory named *.azureml*, or in a parent directory. When you create a Notebook VM, this file is added to the correct directory on the VM for you.
+   Place the file into  the directory structure with your Python scripts or Jupyter Notebooks. It can be in the same directory, a subdirectory named *.azureml*, or in a parent directory. When you create a compute instance, this file is added to the correct directory on the VM for you.
 
 ## <a name="upgrade"></a>Upgrade to Enterprise edition
 
-You can upgrade your workspace from Basic edition to Enterprise edition to take advantage of the enhanced features such low-code experiences and enhanced security features.
+You can upgrade your workspace from Basic edition to Enterprise edition to take advantage of the enhanced features such as low-code experiences and enhanced security features.
 
-1. Sign in to [Azure portal](https://portal.azure.com).
+1. Sign in to [Azure Machine Learning studio](https://ml.azure.com).
 
 1. Select the workspace that you wish to upgrade.
 
-1. Select **Upgrade** either at the top or in the upgrade message.
+1. Select **Learn more**  at the top right of the page.
 
-    ![Upgrade a workspace](media/how-to-manage-workspace/upgrade.png)
+   [ ![Upgrade a workspace](media/how-to-manage-workspace/upgrade.png) ](media/how-to-manage-workspace/upgrade.png#lightbox)
 
-1. Select **Confirm Update**.
+1. Select **Upgrade** in the window that appears.
 
 
 > [!IMPORTANT]

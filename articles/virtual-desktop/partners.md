@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 11/22/2019
+ms.date: 12/18/2019
 ms.author: helohr
 ---
 # Windows Virtual Desktop partner integrations
@@ -23,16 +23,6 @@ Citrix extends the value of Windows Virtual Desktop with robust enterprise tools
 
 - [Go to the partner website](https://more.citrix.com/wvd).
 
-## Cloudhouse
-
-![Cloudhouse logo](./media/partners/cloudhouse.png)
-
-Cloudhouse is a Windows Virtual Desktop value-added services provider that offers customers a turnkey application migration service that can move all applications, including ones that are incompatible with modern Windows operating systems, to the Windows Virtual Desktop environment, allowing customers to truly leverage multi-session Windows 10. 
-
-By leveraging proven Cloudhouse containerization technology, the Cloudhouse service takes all applications, including ones designed for Windows XP, Windows 7, or Windows 8, and deploys them to a modern Windows Virtual Desktop without needing to change code or impact user experience. Cloudhouse further adds to the value of Windows Virtual Desktop by isolating applications from the underlying operating system, allowing Windows Servicing updates to be rolled out without affecting the containerized application. 
-
-- [Go to the partner website](https://cloudhouse.com/resources/migrate-everything-to-windows-10-on-microsoft-windows-virtua).
-
 ## VMware
 
 ![VMware Logo](./media/partners/vmware.png)
@@ -43,6 +33,16 @@ As an approved provider, the benefits of Windows Virtual Desktop will be extende
 
 - [Register for the Tech Preview of Horizon Cloud on Microsoft Azure](https://www.vmware.com/learn/323526_TECH_PREVIEW_REG.html).
 - [Go to the partner website](https://www.vmware.com/products/horizon-cloud-virtual-desktops.html).
+
+## Cloudhouse
+
+![Cloudhouse logo](./media/partners/cloudhouse.png)
+
+Cloudhouse is a Windows Virtual Desktop value-added services provider that offers customers a turnkey application migration service that can move all applications, including ones that are incompatible with modern Windows operating systems, to the Windows Virtual Desktop environment, allowing customers to truly leverage multi-session Windows 10. 
+
+By leveraging proven Cloudhouse containerization technology, the Cloudhouse service takes all applications, including ones designed for Windows XP, Windows 7, or Windows 8, and deploys them to a modern Windows Virtual Desktop without needing to change code or impact user experience. Cloudhouse further adds to the value of Windows Virtual Desktop by isolating applications from the underlying operating system, allowing Windows Servicing updates to be rolled out without affecting the containerized application. 
+
+- [Go to the partner website](https://cloudhouse.com/resources/migrate-everything-to-windows-10-on-microsoft-windows-virtua).
 
 ## CloudJumper
 
@@ -76,6 +76,16 @@ deviceTRUST extends the value of Windows Virtual Desktop with their contextual s
 
 - [Go to the partner website](https://devicetrust.com/wvd).
 
+## HP
+
+![HP logo](./media/partners/hp.png)
+
+HP Thin Client is an approved and verified partner of Microsoft's Azure and Windows Virtual Desktop services. HP Thin Clients with Windows 10 IoT Enterprise offer out-of-box support for Azure-based workloads and Windows Virtual Desktop hosted desktops. The hardware and OS are optimized to provide a best-in-class experience that effectively delivers remote workloads while reducing the OS footprint, hardware, and maintenance costs.
+
+As HP looked at industry trends, customer challenges, and the solutions virtualization offered during the development process, they were inspired to invent the ideal cloud endpoint using a four-pillar value proposition: design, manageability, security, and versatility. Every HP Thin Client is purpose-built with IT decision makers in mind. HP Thin Clients are long-lasting, secure, easy to deploy and manage, and powerful so you can effortlessly transition to VDI or cloud computing. HP's versatile portfolio gives you the freedom to choose the modern endpoint solution that’s right for you.
+
+- [Go to the partner website](https://hp.com/go/thin).
+
 ## IGEL
 
 ![IGEL logo](./media/partners/igel.png)
@@ -84,7 +94,7 @@ IGEL is an approved and verified partner of Microsoft Azure and Windows Virtual 
  
 IGEL OS supports all popular virtual apps, desktops, and cloud workspace client protocols from Citrix, Microsoft, and VMware. It includes integrated technologies from 85 peripheral, interface, and protocol partners to help organizations quickly adopt Windows Virtual Desktop services into their own unique user environments. IGEL OS is a read-only, modular endpoint OS, which helps protect it from tampering. It now also includes a complete “chain of trust” that verifies the integrity of all key major processes running on the endpoint, from the endpoint hardware (some selected models) or UEFI process all the way to the Azure cloud and Windows Virtual Desktop services. With IGEL OS, enterprises can subscribe to Windows Virtual Desktop from the Azure cloud with full confidence in the integrity, security, and manageability of their users’ endpoint devices.
 
-- [Go to the partner website.](https://www.igel.com/igel-os-universal-desktop-operating-system/)
+- [Go to the partner website](https://www.igel.com/igel-os-universal-desktop-operating-system/).
 
 ## Ivanti
 

@@ -10,7 +10,10 @@ ms.custom: "seodec18, mvc"
 
 # Tutorial: Automate container image builds in the cloud when you commit source code
 
-In addition to a [quick task](container-registry-tutorial-quick-task.md), ACR Tasks supports automated Docker container image builds in the cloud when you commit source code to a Git repository.
+In addition to a [quick task](container-registry-tutorial-quick-task.md), ACR Tasks supports automated Docker container image builds in the cloud when you commit source code to a Git repository. Supported Git contexts for ACR Tasks include public or private GitHub or Azure repos.
+
+> [!NOTE]
+> Currently, ACR Tasks doesn't support commit or pull request triggers in GitHub Enterprise repos.
 
 In this tutorial, your ACR task builds and pushes a single container image specified in a Dockerfile when you commit source code to a Git repo. To create a [multi-step task](container-registry-tasks-multi-step.md) that uses a YAML file to define steps to build, push, and optionally test multiple containers on code commit, see [Tutorial: Run a multi-step container workflow in the cloud when you commit source code](container-registry-tutorial-multistep-task.md). For an overview of ACR Tasks, see [Automate OS and framework patching with ACR Tasks](container-registry-tasks-overview.md)
 

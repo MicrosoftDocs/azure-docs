@@ -13,7 +13,7 @@ ms.date: 11/04/2019
 Azure Cosmos DB allows you to provision throughput on your containers in either manual or autopilot mode. This article describes the benefits and use cases of autopilot mode.
 
 > [!NOTE]
-> Autopilot mode is currently available in public preview. To enable autopilot feature for your Azure Cosmos account, see the [enable autopilot](#enable-autopilot) section of this article. You can enable autopilot for new databases and containers only,it's not available for existing containers and databases.
+> Autopilot mode is currently available in public preview. To enable autopilot feature for your Azure Cosmos account, see the [enable autopilot](#enable-autopilot) section of this article. You can enable autopilot for new databases and containers only, it's not available for existing containers and databases.
 
 In addition to manual provisioning of throughput, you can now configure Azure cosmos containers in autopilot mode. Azure Cosmos containers and databases configured in autopilot mode will **automatically and instantly scale the provisioned throughput based on your application needs without compromising the SLAs.**
 
@@ -102,6 +102,7 @@ The following table shows the maximum throughout and storage limits for differen
 
 ## Next steps
 
+* Review the [autopilot FAQ](autopilot-faq.md).
 * Learn more about [logical partitions](partition-data.md).
 * Learn how to [provision throughput on an Azure Cosmos container](how-to-provision-container-throughput.md).
 * Learn how to [provision throughput on an Azure Cosmos database](how-to-provision-database-throughput.md).

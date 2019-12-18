@@ -17,61 +17,61 @@ Refer to the [prerequisites](tutorial-backup-sap-hana-db.md#prerequisites) and [
 
 ## Common user errors
 
-###  UserErrorInOpeningHanaOdbcConnection 
+### UserErrorInOpeningHanaOdbcConnection
 
-| Error Message      | Failed to connect to HANA system                             |
+| Error Message      | <span style="font-weight:normal">Failed to connect to HANA system</span>                        |
 | ------------------ | ------------------------------------------------------------ |
-| Possible causes    | The SAP HANA instance may be down.<br/>The required permissions for Azure backup to interact with the HANA database aren't set. |
-| Recommended action | Check if the SAP HANA database is up. If the database is up and running, check if all the required permissions are set. If any of the permissions are missing run the [preregistration script](https://aka.ms/scriptforpermsonhana) to add the missing permissions. |
+| **Possible causes**    | The SAP HANA instance may be down.<br/>The required permissions for Azure backup to interact with the HANA database aren't set. |
+| **Recommended action** | Check if the SAP HANA database is up. If the database is up and running, check if all the required permissions are set. If any of the permissions are missing run the [preregistration script](https://aka.ms/scriptforpermsonhana) to add the missing permissions. |
 
-###  UserErrorHanaInstanceNameInvalid 
+### UserErrorHanaInstanceNameInvalid
 
-| Error Message      | The specified SAP HANA instance is either invalid or can't be found |
+| Error Message      | <span style="font-weight:normal">The specified SAP HANA instance is either invalid or can't be found</span>  |
 | ------------------ | ------------------------------------------------------------ |
-| Possible causes    | Multiple SAP HANA instances on a single Azure VM can't be backed up. |
-| Recommended action | Run the [preregistration script](https://aka.ms/scriptforpermsonhana) on the SAP HANA instance you want to back up. If the issue still persists, contact Microsoft support. |
+| **Possible causes**    | Multiple SAP HANA instances on a single Azure VM can't be backed up. |
+| **Recommended action** | Run the [preregistration script](https://aka.ms/scriptforpermsonhana) on the SAP HANA instance you want to back up. If the issue still persists, contact Microsoft support. |
 
-###  UserErrorHanaUnsupportedOperation 
+### UserErrorHanaUnsupportedOperation
 
-| Error Message      | The specified SAP HANA operation isn't supported             |
+| Error Message      | <span style="font-weight:normal">The specified SAP HANA operation isn't supported</span>              |
 | ------------------ | ------------------------------------------------------------ |
-| Possible causes    | Azure backup for SAP HANA doesn't support incremental backup and actions performed on SAP HANA native clients (Studio/ Cockpit/ DBA Cockpit) |
-| Recommended action | For more information, refer [here](https://docs.microsoft.com/azure/backup/sap-hana-backup-support-matrix#scenario-support). |
+| **Possible causes**    | Azure backup for SAP HANA doesn't support incremental backup and actions performed on SAP HANA native clients (Studio/ Cockpit/ DBA Cockpit) |
+| **Recommended action** | For more information, refer [here](https://docs.microsoft.com/azure/backup/sap-hana-backup-support-matrix#scenario-support). |
 
-###  UserErrorHANAPODoesNotSupportBackupType 
+### UserErrorHANAPODoesNotSupportBackupType
 
-| Error Message      | This SAP HANA database doesn't support the requested backup type |
+| Error Message      | <span style="font-weight:normal">This SAP HANA database doesn't support the requested backup type</span>  |
 | ------------------ | ------------------------------------------------------------ |
-| Possible causes    | Azure backup doesn't support incremental backup and backup using snapshots |
-| Recommended action | For more information, refer [here](https://docs.microsoft.com/azure/backup/sap-hana-backup-support-matrix#scenario-support). |
+| **Possible causes**    | Azure backup doesn't support incremental backup and backup using snapshots |
+| **Recommended action** | For more information, refer [here](https://docs.microsoft.com/azure/backup/sap-hana-backup-support-matrix#scenario-support). |
 
-###  UserErrorHANALSNValidationFailure 
+### UserErrorHANALSNValidationFailure
 
-| Error Message      | Backup log chain is broken                                   |
+| Error Message      | <span style="font-weight:normal">Backup log chain is broken</span>                                    |
 | ------------------ | ------------------------------------------------------------ |
-| Possible causes    | The log backup destination may have been updated from backint to file system or the backint executable may have been changed |
-| Recommended action | Trigger a full backup to resolve the issue                   |
+| **Possible causes**    | The log backup destination may have been updated from backint to file system or the backint executable may have been changed |
+| **Recommended action** | Trigger a full backup to resolve the issue                   |
 
-###  UserErrorIncomaptibleSrcTargetSystsemsForRestore 
+### UserErrorIncomaptibleSrcTargetSystsemsForRestore
 
-| Error Message      | The source and target systems for restore are incompatible   |
+| Error Message      | <span style="font-weight:normal">The source and target systems for restore are incompatible</span>    |
 | ------------------ | ------------------------------------------------------------ |
-| Possible causes    | The target system for restore is incompatible with the source |
-| Recommended action | Refer to the SAP Note [1642148](https://launchpad.support.sap.com/#/notes/1642148) to learn about the restore types supported today |
+| **Possible causes**    | The target system for restore is incompatible with the source |
+| **Recommended action** | Refer to the SAP Note [1642148](https://launchpad.support.sap.com/#/notes/1642148) to learn about the restore types supported today |
 
-###  UserErrorSDCtoMDCUpgradeDetected 
+### UserErrorSDCtoMDCUpgradeDetected
 
-| Error Message      | SDC to MDC upgrade detected                                  |
+| Error Message      | <span style="font-weight:normal">SDC to MDC upgrade detected</span>                                   |
 | ------------------ | ------------------------------------------------------------ |
-| Possible causes    | The SAP HANA instance has been upgraded from SDC to MDC. Backups will fail after the update. |
-| Recommended action | Follow the steps listed in the [Upgrading from SAP HANA 1.0 to 2.0 section](https://docs.microsoft.com/azure/backup/backup-azure-sap-hana-database-troubleshoot#upgrading-from-sap-hana-10-to-20) to resolve the issue |
+| **Possible causes**    | The SAP HANA instance has been upgraded from SDC to MDC. Backups will fail after the update. |
+| **Recommended action** | Follow the steps listed in the [Upgrading from SAP HANA 1.0 to 2.0 section](https://docs.microsoft.com/azure/backup/backup-azure-sap-hana-database-troubleshoot#upgrading-from-sap-hana-10-to-20) to resolve the issue |
 
-###  UserErrorInvalidBackintConfiguration 
+### UserErrorInvalidBackintConfiguration
 
-| Error Message      | Detected invalid backint configuration                       |
+| Error Message      | <span style="font-weight:normal">Detected invalid backint configuration</span>                       |
 | ------------------ | ------------------------------------------------------------ |
-| Possible causes    | The backing parameters are incorrectly specified for Azure backup |
-| Recommended action | Check if the following (backint) parameters are set:<br/>\* [catalog_backup_using_backint:true]<br/>\* [enable_accumulated_catalog_backup:false]<br/>\* [parallel_data_backup_backint_channels:1]<br/>\* [log_backup_timeout_s:900)]<br/>\* [backint_response_timeout:7200]<br/>If backint-based parameters are present in HOST, remove them. If parameters aren't present at HOST level but have been manually modified at a database level, revert them to the appropriate values as described earlier. Or, run [stop protection and retain backup data](https://docs.microsoft.com/azure/backup/sap-hana-db-manage#stop-protection-for-an-sap-hana-database) from the Azure portal, and then select **Resume backup**. |
+| **Possible causes**    | The backing parameters are incorrectly specified for Azure backup |
+| **Recommended action** | Check if the following (backint) parameters are set:<br/>\* [catalog_backup_using_backint:true]<br/>\* [enable_accumulated_catalog_backup:false]<br/>\* [parallel_data_backup_backint_channels:1]<br/>\* [log_backup_timeout_s:900)]<br/>\* [backint_response_timeout:7200]<br/>If backint-based parameters are present in HOST, remove them. If parameters aren't present at HOST level but have been manually modified at a database level, revert them to the appropriate values as described earlier. Or, run [stop protection and retain backup data](https://docs.microsoft.com/azure/backup/sap-hana-db-manage#stop-protection-for-an-sap-hana-database) from the Azure portal, and then select **Resume backup**. |
 
 ## Restore checks
 
@@ -99,17 +99,19 @@ In multiple container databases for HANA, the standard configuration is SYSTEMDB
 If you're protecting SAP HANA 1.0 databases and wish to upgrade to 2.0, then perform the steps outlined below:
 
 - [Stop protection](sap-hana-db-manage.md#stop-protection-for-an-sap-hana-database) with retain data for old SDC database.
+- Perform the upgrade. After completion, the HANA is now MDC with a system DB and tenant DB(s)
 - Rerun [pre-registration script](https://aka.ms/scriptforpermsonhana) with correct details of (sid and mdc).
-- Re-register extension (Backup -> view details -> Select the relevant Azure VM -> Re-register).
+- Re-register extension for the same machine in Azure Portal (Backup -> view details -> Select the relevant Azure VM -> Re-register).
 - Click Rediscover DBs for the same VM. This action should show the new DBs in step 2 with correct details (SYSTEMDB and Tenant DB, not SDC).
-- Protect these new databases.
+- Configure backup for these new databases.
 
 ## Upgrading without an SID change
 
 Upgrades to OS or SAP HANA that don't cause a SID change can be handled as outlined below:
 
 - [Stop protection](sap-hana-db-manage.md#stop-protection-for-an-sap-hana-database) with retain data for the database
-- Rerun the [pre-registration script](https://aka.ms/scriptforpermsonhana)
+- Perform the upgrade.
+- Rerun the [pre-registration script](https://aka.ms/scriptforpermsonhana). Usually, we have seen upgrade process removes the necessary roles. Running the pre-registration script will help verify all the required roles.
 - [Resume protection](sap-hana-db-manage.md#resume-protection-for-an-sap-hana-database) for the database again
 
 ## Next steps

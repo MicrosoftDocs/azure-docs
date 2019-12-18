@@ -12,7 +12,7 @@ manager: philmea
 
 # Azure Maps weather coverage
 
-This article provides coverage information for Azure Maps [Weather services](https://aka.ms/AzureMapsWeatherService). Azure Maps  Weather data services can be return details such as radar tiles, current weather conditions, weather forecasts and weather along a route.
+This article provides coverage information for Azure Maps [Weather services](https://aka.ms/AzureMapsWeatherService). Azure Maps Weather data services can return details such as radar tiles, current weather conditions, weather forecasts and weather along a route.
 
 Azure Maps does not have the same level of information and accuracy for all countries and regions.
 
@@ -20,7 +20,7 @@ The following table provides information about what kind of weather information 
 
 | Symbol | Meaning |
 |--------|---------|
-|*       |Covers Weather along route, Current Conditions, Hourly Forecast, Quarter-day Forecast and Daily Forecast APIs |
+|*       |Covers Weather Along Route, Current Conditions, Hourly Forecast, Quarter-day Forecast and Daily Forecast APIs |
 
 
 ## Americas

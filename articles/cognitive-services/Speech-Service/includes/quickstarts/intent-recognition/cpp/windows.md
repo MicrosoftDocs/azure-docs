@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Recognize speech, intents, and entities, C++ - Speech Service"
+title: "Quickstart: Recognize speech, intents, and entities, C++ - Speech service"
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services
@@ -7,7 +7,7 @@ author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: quickstart
+ms.topic: include
 ms.date: 10/28/2019
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-two
@@ -41,6 +41,7 @@ Let's add some code that works as a skeleton for our project. Make note that you
 Before you can initialize an `IntentRecognizer` object, you need to create a configuration that uses your LUIS Endpoint key and region. Insert this code in the `recognizeIntent()` method.
 
 This sample uses the `FromSubscription()` method to build the `SpeechConfig`. For a full list of available methods, see [SpeechConfig Class](https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig).
+The Speech SDK will default to recognizing using en-us for the language, see [Specify source language for speech to text](../../../../how-to-specify-source-language.md) for information on choosing the source language.
 
 > [!NOTE]
 > It is important to use the LUIS Endpoint key and not the Starter or Authoring keys as only the Endpoint key is valid for speech to intent recognition. See [Create a LUIS application and get an endpoint key](~/articles/cognitive-services/Speech-Service/quickstarts/create-luis.md) for instructions on how to get the correct key.

@@ -176,6 +176,9 @@ Use the `New-AzDataMigrationTask` cmdlet to create and start a migration task. T
 - *SourceCred*. [PSCredential](https://docs.microsoft.com/dotnet/api/system.management.automation.pscredential?redirectedfrom=MSDN&view=powershellsdk-1.1.0) object for connecting to source server.
 - *TargetCred*. [PSCredential](https://docs.microsoft.com/dotnet/api/system.management.automation.pscredential?redirectedfrom=MSDN&view=powershellsdk-1.1.0) object for connecting to target server.
 - *SelectedDatabase*. AzDataMigrationSelectedDB object representing the source and target database mapping.
+- *SchemaValidation*. (optional, switch parameter) Following the migration, performs a comparison of the schema information between source and target.
+- *DataIntegrityValidation*. (optional, switch parameter) Following the migration, performs a checksum-based data integrity validation between source and target.
+- *QueryAnalysisValidation*. (optional, switch parameter) Following the migration, performs a quick and intelligent query analysis by retrieving queries from the source database and executes them in the target.
 
 The following example creates and starts a migration task named myDMSTask:
 
@@ -190,6 +193,24 @@ $migTask = New-AzDataMigrationTask -TaskType MigrateSqlServerSqlDb `
   -TargetConnection $targetConnInfo `
   -TargetCred $targetCred `
   -SelectedDatabase  $selectedDbs `
+```
+
+The following example creates and starts the same migration task as above but also performs all three validations:
+
+```powershell
+$migTask = New-AzDataMigrationTask -TaskType MigrateSqlServerSqlDb `
+  -ResourceGroupName myResourceGroup `
+  -ServiceName $service.Name `
+  -ProjectName $project.Name `
+  -TaskName myDMSTask `
+  -SourceConnection $sourceConnInfo `
+  -SourceCred $sourceCred `
+  -TargetConnection $targetConnInfo `
+  -TargetCred $targetCred `
+  -SelectedDatabase  $selectedDbs `
+  -SchemaValidation `
+  -DataIntegrityValidation `
+  -QueryAnalysisValidation `
 ```
 
 ## Monitor the migration
