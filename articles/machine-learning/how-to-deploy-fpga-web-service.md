@@ -15,7 +15,7 @@ ms.custom: seodec18
 ---
 
 # What are field-programmable gate arrays (FPGA) and how to deploy
-[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
+[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 This article provides an introduction to field-programmable gate arrays (FPGA), and shows you how to deploy your models using Azure Machine Learning to an Azure FPGA. 
 
@@ -25,7 +25,7 @@ FPGAs contain an array of programmable logic blocks, and a hierarchy of reconfig
 
 The following diagram and table show how FPGAs compare to other processors.
 
-![Diagram of Azure Machine Learning FPGA comparison](./media/concept-accelerate-with-fpgas/azure-machine-learning-fpga-comparison.png)
+![Diagram of Azure Machine Learning FPGA comparison](./media/how-to-deploy-fpga-web-service/azure-machine-learning-fpga-comparison.png)
 
 |Processor||Description|
 |---|:-------:|------|
@@ -109,7 +109,7 @@ You can deploy a model as a web service on FPGAs with Azure Machine Learning Har
 
     If you do not have quota, then submit a request at [https://aka.ms/accelerateAI](https://aka.ms/accelerateAI).
 
-- An Azure Machine Learning workspace and the Azure Machine Learning SDK for Python installed. For more information, see [Create a workspace](how-to-manage-workspace.md).
+- An Azure Machine Learning workspace and the Azure Machine Learning SDK for Python installed. For more information, see [Create a workspace](service/how-to-manage-workspace.md).
  
 - The Python SDK for hardware-accelerated models:
 
@@ -242,7 +242,7 @@ The available models and the corresponding default classifier output tensors are
 
 ### Register model
 
-[Register](../concept-model-management-and-deployment.md) the model by using the SDK with the ZIP file in Azure Blob storage. Adding tags and other metadata about the model helps you keep track of your trained models.
+[Register](concept-model-management-and-deployment.md) the model by using the SDK with the ZIP file in Azure Blob storage. Adding tags and other metadata about the model helps you keep track of your trained models.
 
 ```python
 from azureml.core.model import Model
@@ -422,7 +422,7 @@ All [Azure Data Box Edge devices](https://docs.microsoft.com/azure/databox-onlin
 
 ## Secure FPGA web services
 
-To secure your FPGA web services, see the [Secure web services](how-to-secure-web-service.md) document.
+To secure your FPGA web services, see the [Secure web services](service/how-to-secure-web-service.md) document.
 
 ## Next steps
 

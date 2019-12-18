@@ -13,7 +13,7 @@ ms.date: 11/06/2019
 ---
 
 # Deploy a model to an Azure Kubernetes Service cluster
-[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
+[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Learn how to use Azure Machine Learning to deploy a model as a web service on Azure Kubernetes Service (AKS). Azure Kubernetes Service is good for high-scale production deployments. Use Azure Kubernetes service if you need one or more of the following capabilities:
 
@@ -22,7 +22,7 @@ Learn how to use Azure Machine Learning to deploy a model as a web service on Az
 - __Hardware acceleration__ options such as GPU and field-programmable gate arrays (FPGA).
 
 > [!IMPORTANT]
-> Cluster scaling is not provided through the Azure Machine Learning SDK. For more information on scaling the nodes in an AKS cluster, see [Scale the node count in an AKS cluster](../../aks/scale-cluster.md).
+> Cluster scaling is not provided through the Azure Machine Learning SDK. For more information on scaling the nodes in an AKS cluster, see [Scale the node count in an AKS cluster](../aks/scale-cluster.md).
 
 When deploying to Azure Kubernetes Service, you deploy to an AKS cluster that is __connected to your workspace__. There are two ways to connect an AKS cluster to your workspace:
 
@@ -34,11 +34,11 @@ When deploying to Azure Kubernetes Service, you deploy to an AKS cluster that is
 
 ## Prerequisites
 
-- An Azure Machine Learning workspace. For more information, see [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).
+- An Azure Machine Learning workspace. For more information, see [Create an Azure Machine Learning workspace](service/how-to-manage-workspace.md).
 
-- A machine learning model registered in your workspace. If you don't have a registered model, see [How and where to deploy models](how-to-deploy-and-where.md).
+- A machine learning model registered in your workspace. If you don't have a registered model, see [How and where to deploy models](service/how-to-deploy-and-where.md).
 
-- The [Azure CLI extension for Machine Learning service](reference-azure-machine-learning-cli.md), [Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py), or the [Azure Machine Learning Visual Studio Code extension](how-to-vscode-tools.md).
+- The [Azure CLI extension for Machine Learning service](service/reference-azure-machine-learning-cli.md), [Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py), or the [Azure Machine Learning Visual Studio Code extension](service/how-to-vscode-tools.md).
 
 - The __Python__ code snippets in this article assume that the following variables are set:
 
@@ -46,9 +46,9 @@ When deploying to Azure Kubernetes Service, you deploy to an AKS cluster that is
     * `model` - Set to your registered model.
     * `inference_config` - Set to the inference configuration for the model.
 
-    For more information on setting these variables, see [How and where to deploy models](how-to-deploy-and-where.md).
+    For more information on setting these variables, see [How and where to deploy models](service/how-to-deploy-and-where.md).
 
-- The __CLI__ snippets in this article assume that you've created an `inferenceconfig.json` document. For more information on creating this document, see [How and where to deploy models](how-to-deploy-and-where.md).
+- The __CLI__ snippets in this article assume that you've created an `inferenceconfig.json` document. For more information on creating this document, see [How and where to deploy models](service/how-to-deploy-and-where.md).
 
 ## Create a new AKS cluster
 
@@ -57,7 +57,7 @@ When deploying to Azure Kubernetes Service, you deploy to an AKS cluster that is
 Creating or attaching an AKS cluster is a one time process for your workspace. You can reuse this cluster for multiple deployments. If you delete the cluster or the resource group that contains it, you must create a new cluster the next time you need to deploy. You can have multiple AKS clusters attached to your workspace.
 
 > [!TIP]
-> If you want to secure your AKS cluster using an Azure Virtual Network, you must create the virtual network first. For more information, see [Secure experimentation and inference with Azure Virtual Network](how-to-enable-virtual-network.md#aksvnet).
+> If you want to secure your AKS cluster using an Azure Virtual Network, you must create the virtual network first. For more information, see [Secure experimentation and inference with Azure Virtual Network](service/how-to-enable-virtual-network.md#aksvnet).
 
 If you want to create an AKS cluster for __development__, __validation__, and __testing__ instead of production, you can specify the __cluster purpose__ to __dev test__.
 
@@ -115,7 +115,7 @@ If you already have AKS cluster in your Azure subscription, and it is lower than
 > [!TIP]
 > The existing AKS cluster can be in a Azure region other than your Azure Machine Learning workspace.
 >
-> If you want to secure your AKS cluster using an Azure Virtual Network, you must create the virtual network first. For more information, see [Secure experimentation and inference with Azure Virtual Network](how-to-enable-virtual-network.md#aksvnet).
+> If you want to secure your AKS cluster using an Azure Virtual Network, you must create the virtual network first. For more information, see [Secure experimentation and inference with Azure Virtual Network](service/how-to-enable-virtual-network.md#aksvnet).
 
 When attaching an AKS cluster to a workspace, you can define how you will use the cluster by setting the `cluster_purpose` parameter.
 
@@ -182,7 +182,7 @@ For more information, see the [az ml computetarget attach aks](https://docs.micr
 
 ## Deploy to AKS
 
-To deploy a model to Azure Kubernetes Service, create a __deployment configuration__ that describes the compute resources needed. For example, number of cores and memory. You also need an __inference configuration__, which describes the environment needed to host the model and web service. For more information on creating the inference configuration, see [How and where to deploy models](how-to-deploy-and-where.md).
+To deploy a model to Azure Kubernetes Service, create a __deployment configuration__ that describes the compute resources needed. For example, number of cores and memory. You also need an __inference configuration__, which describes the environment needed to host the model and web service. For more information on creating the inference configuration, see [How and where to deploy models](service/how-to-deploy-and-where.md).
 
 ### Using the SDK
 
@@ -216,13 +216,13 @@ To deploy using the CLI, use the following command. Replace `myaks` with the nam
 az ml model deploy -ct myaks -m mymodel:1 -n myservice -ic inferenceconfig.json -dc deploymentconfig.json
 ```
 
-[!INCLUDE [deploymentconfig](../../../includes/machine-learning-service-aks-deploy-config.md)]
+[!INCLUDE [deploymentconfig](../../includes/machine-learning-service-aks-deploy-config.md)]
 
 For more information, see the [az ml model deploy](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-deploy) reference. 
 
 ### Using VS Code
 
-For information on using VS Code, see [deploy to AKS via the VS Code extension](how-to-vscode-tools.md#deploy-and-manage-models).
+For information on using VS Code, see [deploy to AKS via the VS Code extension](service/how-to-vscode-tools.md#deploy-and-manage-models).
 
 > [!IMPORTANT] 
 > Deploying through VS Code requires the AKS cluster to be created or attached to your workspace in advance.
@@ -300,7 +300,7 @@ To __disable__ authentication, set the `auth_enabled=False` parameter when creat
 deployment_config = AksWebservice.deploy_configuration(cpu_cores=1, memory_gb=1, auth_enabled=False)
 ```
 
-For information on authenticating from a client application, see the [Consume an Azure Machine Learning model deployed as a web service](../how-to-consume-web-service.md).
+For information on authenticating from a client application, see the [Consume an Azure Machine Learning model deployed as a web service](how-to-consume-web-service.md).
 
 ### Authentication with keys
 
@@ -336,14 +336,14 @@ print(token)
 
 ## Update the web service
 
-[!INCLUDE [aml-update-web-service](../../../includes/machine-learning-update-web-service.md)]
+[!INCLUDE [aml-update-web-service](../../includes/machine-learning-update-web-service.md)]
 
 ## Next steps
 
-* [Secure experimentation and inference in a virtual network](how-to-enable-virtual-network.md)
+* [Secure experimentation and inference in a virtual network](service/how-to-enable-virtual-network.md)
 * [How to deploy a model using a custom Docker image](how-to-deploy-custom-docker-image.md)
-* [Deployment troubleshooting](how-to-troubleshoot-deployment.md)
-* [Secure Azure Machine Learning web services with SSL](how-to-secure-web-service.md)
-* [Consume a ML Model deployed as a web service](../how-to-consume-web-service.md)
-* [Monitor your Azure Machine Learning models with Application Insights](how-to-enable-app-insights.md)
-* [Collect data for models in production](how-to-enable-data-collection.md)
+* [Deployment troubleshooting](service/how-to-troubleshoot-deployment.md)
+* [Secure Azure Machine Learning web services with SSL](service/how-to-secure-web-service.md)
+* [Consume a ML Model deployed as a web service](how-to-consume-web-service.md)
+* [Monitor your Azure Machine Learning models with Application Insights](service/how-to-enable-app-insights.md)
+* [Collect data for models in production](service/how-to-enable-data-collection.md)

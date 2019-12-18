@@ -13,7 +13,7 @@ ms.date: 10/25/2019
 ---
 
 # Deploy a model to Azure Container Instances
-[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
+[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Learn how to use Azure Machine Learning to deploy a model as a web service on Azure Container Instances (ACI). Use Azure Container Instances if one of the following conditions is true:
 
@@ -24,11 +24,11 @@ For information on quota and region availability for ACI, see [Quotas and region
 
 ## Prerequisites
 
-- An Azure Machine Learning workspace. For more information, see [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).
+- An Azure Machine Learning workspace. For more information, see [Create an Azure Machine Learning workspace](service/how-to-manage-workspace.md).
 
-- A machine learning model registered in your workspace. If you don't have a registered model, see [How and where to deploy models](how-to-deploy-and-where.md).
+- A machine learning model registered in your workspace. If you don't have a registered model, see [How and where to deploy models](service/how-to-deploy-and-where.md).
 
-- The [Azure CLI extension for Machine Learning service](reference-azure-machine-learning-cli.md), [Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py), or the [Azure Machine Learning Visual Studio Code extension](how-to-vscode-tools.md).
+- The [Azure CLI extension for Machine Learning service](service/reference-azure-machine-learning-cli.md), [Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py), or the [Azure Machine Learning Visual Studio Code extension](service/how-to-vscode-tools.md).
 
 - The __Python__ code snippets in this article assume that the following variables are set:
 
@@ -36,13 +36,13 @@ For information on quota and region availability for ACI, see [Quotas and region
     * `model` - Set to your registered model.
     * `inference_config` - Set to the inference configuration for the model.
 
-    For more information on setting these variables, see [How and where to deploy models](how-to-deploy-and-where.md).
+    For more information on setting these variables, see [How and where to deploy models](service/how-to-deploy-and-where.md).
 
-- The __CLI__ snippets in this article assume that you've created an `inferenceconfig.json` document. For more information on creating this document, see [How and where to deploy models](how-to-deploy-and-where.md).
+- The __CLI__ snippets in this article assume that you've created an `inferenceconfig.json` document. For more information on creating this document, see [How and where to deploy models](service/how-to-deploy-and-where.md).
 
 ## Deploy to ACI
 
-To deploy a model to Azure Container Instances, create a __deployment configuration__ that describes the compute resources needed. For example, number of cores and memory. You also need an __inference configuration__, which describes the environment needed to host the model and web service. For more information on creating the inference configuration, see [How and where to deploy models](how-to-deploy-and-where.md).
+To deploy a model to Azure Container Instances, create a __deployment configuration__ that describes the compute resources needed. For example, number of cores and memory. You also need an __inference configuration__, which describes the environment needed to host the model and web service. For more information on creating the inference configuration, see [How and where to deploy models](service/how-to-deploy-and-where.md).
 
 ### Using the SDK
 
@@ -70,26 +70,26 @@ To deploy using the CLI, use the following command. Replace `mymodel:1` with the
 az ml model deploy -m mymodel:1 -n myservice -ic inferenceconfig.json -dc deploymentconfig.json
 ```
 
-[!INCLUDE [deploymentconfig](../../../includes/machine-learning-service-aci-deploy-config.md)]
+[!INCLUDE [deploymentconfig](../../includes/machine-learning-service-aci-deploy-config.md)]
 
 For more information, see the [az ml model deploy](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-deploy) reference. 
 
 ## Using VS Code
 
-See [deploy your models with VS Code](how-to-vscode-tools.md#deploy-and-manage-models).
+See [deploy your models with VS Code](service/how-to-vscode-tools.md#deploy-and-manage-models).
 
 > [!IMPORTANT]
 > You don't need to create an ACI container to test in advance. ACI containers are created as needed.
 
 ## Update the web service
 
-[!INCLUDE [aml-update-web-service](../../../includes/machine-learning-update-web-service.md)]
+[!INCLUDE [aml-update-web-service](../../includes/machine-learning-update-web-service.md)]
 
 ## Next steps
 
 * [How to deploy a model using a custom Docker image](how-to-deploy-custom-docker-image.md)
-* [Deployment troubleshooting](how-to-troubleshoot-deployment.md)
-* [Secure Azure Machine Learning web services with SSL](how-to-secure-web-service.md)
-* [Consume a ML Model deployed as a web service](../how-to-consume-web-service.md)
-* [Monitor your Azure Machine Learning models with Application Insights](how-to-enable-app-insights.md)
-* [Collect data for models in production](how-to-enable-data-collection.md)
+* [Deployment troubleshooting](service/how-to-troubleshoot-deployment.md)
+* [Secure Azure Machine Learning web services with SSL](service/how-to-secure-web-service.md)
+* [Consume a ML Model deployed as a web service](how-to-consume-web-service.md)
+* [Monitor your Azure Machine Learning models with Application Insights](service/how-to-enable-app-insights.md)
+* [Collect data for models in production](service/how-to-enable-data-collection.md)
