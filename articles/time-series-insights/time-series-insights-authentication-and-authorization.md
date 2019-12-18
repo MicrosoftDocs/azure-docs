@@ -135,6 +135,7 @@ Optional but recommended response headers are described below.
 | --- | --- |
 | Content-type | Only `application/json` is supported. |
 | x-ms-request-id | Server-generated request ID. Can be used to contact Microsoft to investigate a request. |
+| x-ms-property-not-found-behavior | GA API optional response header. Possible values are `ThrowError` (default) or `UseNull`. |
 
 ### HTTP parameters
 
