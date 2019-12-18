@@ -1,5 +1,5 @@
 ---
-title: Create a snapshot of a virtual hard drive (VHD) in Azure 
+title: Create a snapshot of a virtual hard drive in Azure 
 description: Learn how to create a copy of an Azure VM to use as a back up or for troubleshooting issues.
 documentationcenter: ''
 author: roygara
