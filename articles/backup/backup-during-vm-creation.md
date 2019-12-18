@@ -45,13 +45,13 @@ If you aren't already signed in to your account, sign in to the [Azure portal](h
 
 ## Azure Backup resource group for Virtual Machines
 
-The Backup service creates a separate resource group (RG) from the resource group of the VM to store the restore point collection (RPC). The RPC houses the instant recovery points of managed VMs. The default naming format of the resource group created by the Backup service is: `AzureBackupRG_<Geo>_<number>`. For example: *AzureBackupRG_northeurope_1*. You now can customize the Resource group name created by Azure Backup.
+The Backup service creates a separate resource group (RG), different than the resource group of the VM to store the restore point collection (RPC). The RPC houses the instant recovery points of managed VMs. The default naming format of the resource group created by the Backup service is: `AzureBackupRG_<Geo>_<number>`. For example: *AzureBackupRG_northeurope_1*. You now can customize the Resource group name created by Azure Backup.
 
 Points to note:
 
-1. You can either use the default name of the RG, or update it according to your company requirements.
+1. You can either use the default name of the RG, or edit it according to your company requirements.
 2. You provide the RG name pattern as input during VM backup policy creation. The RG name should be of the following format:
-              `<alpha-numeric string>* n <alpha-numeric string>`. ‘n’ should be replaced with an integer (starting from 1) and will be used for scaling out if the first RG is full. One RG can have a max of 600 RPC's today.
+              `<alpha-numeric string>* n <alpha-numeric string>`. ‘n’ is replaced with an integer (starting from 1) and is used for scaling out if the first RG is full. One RG can have a max of 600 RPCs today.
               ![Choose name when creating policy](./media/backup-during-vm-creation/create-policy.png)
 3. The pattern should follow the RG naming rules below and the total length should not exceed the maximum allowed RG name length.
     1. Resource group names only allow alphanumeric characters, periods, underscores, hyphens, and parenthesis. They cannot end in a period.
