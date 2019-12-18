@@ -20,7 +20,7 @@ This article describes how, as a device developer, to connect a MXChip IoT DevKi
 
 To complete the steps in this article, you need the following resources:
 
-1. An Azure IoT Central application created from the **legacy** application template. For more information, see the [create an application quickstart](quick-deploy-iot-central.md).
+1. An Azure IoT Central application created from the **Legacy application** application template. For more information, see the [create an application quickstart](quick-deploy-iot-central.md).
 1. A DevKit device. To purchase a DevKit device, visit [MXChip IoT DevKit](https://microsoft.github.io/azure-iot-developer-kit/).
 
 ## Add a device template

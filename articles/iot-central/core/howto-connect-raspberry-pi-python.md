@@ -22,7 +22,7 @@ This article describes how, as a device developer, to connect a Raspberry Pi to 
 
 To complete the steps in this article, you need the following components:
 
-* An Azure IoT Central application created from the **legacy** application template. For more information, see the [create an application quickstart](quick-deploy-iot-central.md).
+* An Azure IoT Central application created from the **Legacy application** application template. For more information, see the [create an application quickstart](quick-deploy-iot-central.md).
 * A Raspberry Pi device running the Raspbian operating system. The Raspberry Pi must be able to connect to the internet. For more information, see [Setting up your Raspberry Pi](https://projects.raspberrypi.org/en/projects/raspberry-pi-setting-up/3).
 
 > [!TIP]

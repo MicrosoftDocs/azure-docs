@@ -20,7 +20,7 @@ This article describes how, as a device developer, to connect a Windows IoT Core
 
 To complete the steps in this article, you need the following:
 
-- An Azure IoT Central application created from the **legacy** application template. For more information, see the [create an application quickstart](quick-deploy-iot-central.md).
+- An Azure IoT Central application created from the **Legacy application** application template. For more information, see the [create an application quickstart](quick-deploy-iot-central.md).
 
 - A device running the Windows 10 IoT Core operating system. For more information, see [Setting up your Windows 10 IoT Core device](https://docs.microsoft.com/windows/iot-core/tutorials/quickstarter/devicesetup).
 
