@@ -21,14 +21,14 @@ First, [download and import the Windows Virtual Desktop PowerShell module](https
 Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
 ```
 
-## Default RDP Properties
+## Default RDP properties
 
 By default, published RDP files contain the following properties:
 
 |RDP properties | Desktops | RemoteApps |
 |---|---| --- |
 | Multi-monitor mode | Enabled | N/A |
-| Drive redirections enabled | Drives, clipboard, printers, COM ports, USB devices and smartcards| Drives, clipboard, and printers
+| Drive redirections enabled | Drives, clipboard, printers, COM ports, USB devices and smartcards| Drives, clipboard, and printers |
 | Remote audio mode | Play locally | Play locally |
 
 Any custom properties you define for the host pool will override these defaults.
