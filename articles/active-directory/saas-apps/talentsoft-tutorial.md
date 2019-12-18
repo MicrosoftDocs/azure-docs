@@ -135,6 +135,10 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 To configure single sign-on on **Talentsoft** side, you need to send the downloaded **Certificate (Base64)** and appropriate copied URLs from Azure portal to [Talentsoft support team](mailto:jlegoff@talentsoft.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
+### Create Talentsoft test user
+
+In this section, you create a user called B.Simon in Talentsoft. Work with [Talentsoft support team](mailto:jlegoff@talentsoft.com) to add the users in the Talentsoft platform. Users must be created and activated before you use single sign-on.
+
 ## Test SSO
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
