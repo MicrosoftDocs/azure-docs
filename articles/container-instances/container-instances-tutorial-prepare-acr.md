@@ -36,8 +36,7 @@ az group create --name myResourceGroup --location eastus
 Once you've created the resource group, create an Azure container registry with the [az acr create][az-acr-create] command. The container registry name must be unique within Azure, and contain 5-50 alphanumeric characters. Replace `<acrName>` with a unique name for your registry:
 
 ```azurecli
-az acr create --resource-group myResourceGroup \
-  --name <acrName> --sku Basic
+az acr create --resource-group myResourceGroup --name <acrName> --sku Basic
 ```
 
 Here's example output for a new Azure container registry named *mycontainerregistry082* (shown here truncated):
