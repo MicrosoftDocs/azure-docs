@@ -127,4 +127,4 @@ You'll need to run this cmdlet for every tenant you want to stop sending data fr
 
 ## Next steps 
 
-Check out [Identify and diagnoise issues](diagnostics-role-service.md#common-error-scenarios) to review common error scenarios that the diagnostics feature can identify for you.
+To review common error scenarios that the diagnostics feature can identify for you, see [Identify and diagnose issues](diagnostics-role-service.md#common-error-scenarios).
