@@ -46,7 +46,7 @@ Here's the full list of Azure monitor metric sources supported by the newer aler
 |Microsoft.Compute/virtualMachineScaleSets |N/A | Yes |[Virtual machine scale sets](../../azure-monitor/platform/metrics-supported.md#microsoftcomputevirtualmachinescalesets)|
 |Microsoft.ContainerInstance/containerGroups | Yes| No | [Container groups](../../azure-monitor/platform/metrics-supported.md#microsoftcontainerinstancecontainergroups)|
 |Microsoft.ContainerService/managedClusters | Yes | No | [Managed Clusters](../../azure-monitor/platform/metrics-supported.md#microsoftcontainerservicemanagedclusters)|
-|Microsoft.DataBoxEdge/dataBoxEdgeDevices | Yes | Yes | [DataBox](../../azure-monitor/platform/metrics-supported#microsoftdataboxedgedataboxedgedevices
+|Microsoft.DataBoxEdge/dataBoxEdgeDevices | Yes | Yes | [DataBox](../../azure-monitor/platform/metrics-supported#microsoftdataboxedgedataboxedgedevices)
 |Microsoft.DataFactory/datafactories| Yes| No | [Data Factories V1](../../azure-monitor/platform/metrics-supported.md#microsoftdatafactorydatafactories)|
 |Microsoft.DataFactory/factories |Yes | No |[Data Factories V2](../../azure-monitor/platform/metrics-supported.md#microsoftdatafactoryfactories)|
 |Microsoft.DataShare/accounts |No| Yes|
@@ -76,6 +76,8 @@ Here's the full list of Azure monitor metric sources supported by the newer aler
 |Microsoft.PowerBIDedicated/capacities | N/A | No | [Capacities](../../azure-monitor/platform/metrics-supported.md#microsoftpowerbidedicatedcapacities)|
 |Microsoft.Search/searchServices |N/A|No | [Search services](../../azure-monitor/platform/metrics-supported.md#microsoftsearchsearchservices)|
 |Microsoft.ServiceBus/namespaces |Yes| No |[Service Bus](../../azure-monitor/platform/metrics-supported.md#microsoftservicebusnamespaces)|
+|Microsoft.Sql/servers/elasticPools |	No | Yes |
+|Microsoft.Sql/servers/databases	| No | Yes |
 |Microsoft.Storage/storageAccounts |Yes | No | [Storage Accounts](../../azure-monitor/platform/metrics-supported.md#microsoftstoragestorageaccounts)|
 |Microsoft.Storage/storageAccounts/services | Yes| No | [Blob Services](../../azure-monitor/platform/metrics-supported.md#microsoftstoragestorageaccountsblobservices), [File Services](../../azure-monitor/platform/metrics-supported.md#microsoftstoragestorageaccountsfileservices), [Queue Services](../../azure-monitor/platform/metrics-supported.md#microsoftstoragestorageaccountsqueueservices) and [Table Services](../../azure-monitor/platform/metrics-supported.md#microsoftstoragestorageaccountstableservices)|
 |Microsoft.StreamAnalytics/streamingjobs |N/A| No | [Stream Analytics](../../azure-monitor/platform/metrics-supported.md#microsoftstreamanalyticsstreamingjobs)|
@@ -83,11 +85,6 @@ Here's the full list of Azure monitor metric sources supported by the newer aler
 |Microsoft.Web/serverfarms | Yes | No | [App Service Plans](../../azure-monitor/platform/metrics-supported.md#microsoftwebserverfarms)|
 |Microsoft.Web/sites | Yes | No | [App Services](../../azure-monitor/platform/metrics-supported.md#microsoftwebsites-excluding-functions) and [Functions](../../azure-monitor/platform/metrics-supported.md#microsoftwebsites-functions)|
 |Microsoft.Web/sites/slots | Yes | No | [App Service slots](../../azure-monitor/platform/metrics-supported.md#microsoftwebsitesslots)|
-
-
-
-
-
 
 ## Payload schema
 
