@@ -140,4 +140,4 @@ WITH (DROP_EXISTING = ON)
 ```
 
 ## Next steps
-For more development tips, see [SQL Data Warehouse development overview](sql-data-warehouse-overview-develop.md).
+For more development tips, see [SQL Data Warehouse development overview](../synapse-analytics/sql-analytics/development-overview.md).

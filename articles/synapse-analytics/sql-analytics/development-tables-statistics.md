@@ -1,5 +1,5 @@
 ---
-title: Creating, updating statistics - SQL Analytics | Microsoft Docs
+title: Creating, updating statistics
 description: Recommendations and examples for creating and updating query-optimization statistics in SQL Analytics.
 services: synapse analytics
 author: filippopovic

@@ -75,12 +75,12 @@ Now that a connection has been established to your database, you'll write a quer
     ![Query results][7]
 
 ## Next steps
-Now that you can connect and query, try [visualizing the data with Power BI][visualizing the data with PowerBI].
+Now that you can connect and query, try [visualizing the data with Power BI][visualizing the data with Power BI].
 
 To configure your environment for Azure Active Directory authentication, see [Authenticate to SQL Pool][Authenticate to SQL Pool].
 
 <!--Arcticles-->
-[Connect to SQL Pool]: ../../sql-data-warehouse/sql-data-warehouse-connect-overview.md
+[Connect to SQL Pool]:connect-overview.md
 [Create a SQL Pool]: ../../sql-data-warehouse/sql-data-warehouse-get-started-provision.md
 [Installing Visual Studio and SSDT]: ../../sql-data-warehouse/sql-data-warehouse-install-visual-studio.md
 [Authenticate to SQL Pool]: ../../sql-data-warehouse/sql-data-warehouse-authentication.md

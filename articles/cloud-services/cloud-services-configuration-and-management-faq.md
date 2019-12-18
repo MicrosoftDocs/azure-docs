@@ -1,5 +1,6 @@
 ---
-title: Configuration and management issues for Microsoft Azure Cloud Services FAQ| Microsoft Docs
+title: Configuration and management issues FAQ
+titleSuffix: Azure Cloud Services
 description: This article lists the frequently asked questions about configuration and management for Microsoft Azure Cloud Services.
 services: cloud-services
 documentationcenter: ''

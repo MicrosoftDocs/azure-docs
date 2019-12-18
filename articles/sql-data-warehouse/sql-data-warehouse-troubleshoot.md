@@ -81,7 +81,7 @@ For more help in finding solution to your issue, here are some other resources y
 [SSMS]: /sql/ssms/download-sql-server-management-studio-ssms
 [SSDT for Visual Studio]: sql-data-warehouse-install-visual-studio.md
 [Drivers for Azure SQL Data Warehouse]: sql-data-warehouse-connection-strings.md
-[Connect to Azure SQL Data Warehouse]: sql-data-warehouse-connect-overview.md
+[Connect to Azure SQL Data Warehouse]:../synapse-analytics/sql-analytics/connect-overview.md
 [Create support ticket]: sql-data-warehouse-get-started-create-support-ticket.md
 [Scaling your SQL Data Warehouse]: sql-data-warehouse-manage-compute-overview.md
 [DWU]: sql-data-warehouse-overview-what-is.md
@@ -90,16 +90,16 @@ For more help in finding solution to your issue, here are some other resources y
 [Provisioning instructions]: sql-data-warehouse-get-started-provision.md
 [Configure server firewall access for your client IP]: sql-data-warehouse-get-started-provision.md
 [SQL Data Warehouse best practices]: sql-data-warehouse-best-practices.md
-[Table sizes]: sql-data-warehouse-tables-overview.md#table-size-queries
-[Unsupported table features]: sql-data-warehouse-tables-overview.md#unsupported-table-features
-[Unsupported data types]: sql-data-warehouse-tables-data-types.md#unsupported-data-types
-[Overview]: sql-data-warehouse-tables-overview.md
-[Data types]: sql-data-warehouse-tables-data-types.md
+[Table sizes]:../synapse-analytics/sql-analytics/development-tables-overview.md#table-size-queries
+[Unsupported table features]:../synapse-analytics/sql-analytics/development-tables-overview.md#unsupported-table-features
+[Unsupported data types]:../synapse-analytics/sql-analytics/development-tables-data-types.md#unsupported-data-types
+[Overview]:../synapse-analytics/sql-analytics/development-tables-overview.md
+[Data types]:../synapse-analytics/sql-analytics/development-tables-data-types.md
 [Distribute]: sql-data-warehouse-tables-distribute.md
 [Index]: sql-data-warehouse-tables-index.md
 [Partition]: sql-data-warehouse-tables-partition.md
-[Statistics]: sql-data-warehouse-tables-statistics.md
-[Temporary]: sql-data-warehouse-tables-temporary.md
+[Statistics]:../synapse-analytics/sql-analytics/development-tables-statistics.md
+[Temporary]:../synapse-analytics/sql-analytics/development-tables-temporary.md
 [Poor columnstore index quality]: sql-data-warehouse-tables-index.md#causes-of-poor-columnstore-index-quality
 [Rebuild indexes to improve segment quality]: sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality
 [Workload management]: resource-classes-for-workload-management.md
@@ -107,14 +107,14 @@ For more help in finding solution to your issue, here are some other resources y
 [UPDATE workarounds]: sql-data-warehouse-develop-ctas.md#ansi-join-replacement-for-update-statements
 [DELETE workarounds]: sql-data-warehouse-develop-ctas.md#ansi-join-replacement-for-delete-statements
 [MERGE workarounds]: sql-data-warehouse-develop-ctas.md#replace-merge-statements
-[Stored procedure limitations]: sql-data-warehouse-develop-stored-procedures.md#limitations
+[Stored procedure limitations]:../synapse-analytics/sql-analytics/development-stored-procedures.md#limitations
 [Authentication to Azure SQL Data Warehouse]: sql-data-warehouse-authentication.md
 
 
 <!--MSDN references-->
 [sys.database_principals]: /sql/relational-databases/system-catalog-views/sys-database-principals-transact-sql
 [CREATE FUNCTION]: /sql/t-sql/statements/create-function-sql-data-warehouse
-[sqlcmd]: sql-data-warehouse-get-started-connect-sqlcmd.md
+[sqlcmd]:../synapse-analytics/sql-analytics/get-started-connect-sqlcmd.md
 
 <!--Other Web references-->
 [Blogs]: https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/

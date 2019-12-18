@@ -113,12 +113,12 @@
       href: design-elt-data-loading.md
     - name: Best practices
       href: guidance-for-loading-data.md
-    - name: Columnstore compression
-      href: sql-data-warehouse-memory-optimizations-for-columnstore-compression.md
+    # - name: Columnstore compression
+    #   href: sql-data-warehouse-memory-optimizations-for-columnstore-compression.md
   - name: Development
     items:
-    - name: Overview
-      href: sql-data-warehouse-overview-develop.md
+    # - name: Overview
+    #   href: sql-data-warehouse-overview-develop.md
     - name: Best practices
       href: sql-data-warehouse-best-practices-development.md
     - name: JSON
@@ -169,12 +169,12 @@
         href: /sql/t-sql/database-console-commands/dbcc-dropresultsetcache-transact-sql?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest
     - name: Tables
       items:
-      - name: Overview
-        href: sql-data-warehouse-tables-overview.md
+      # - name: Overview
+      #   href: sql-data-warehouse-tables-overview.md
       - name: CTAS
         href: sql-data-warehouse-develop-ctas.md
-      - name: Data types
-        href: sql-data-warehouse-tables-data-types.md
+      # - name: Data types
+      #   href: sql-data-warehouse-tables-data-types.md
       - name: Distributed tables
         href: sql-data-warehouse-tables-distribute.md
       - name: Table constraints 
@@ -187,26 +187,26 @@
         href: sql-data-warehouse-tables-partition.md
       - name: Replicated tables
         href: design-guidance-for-replicated-tables.md
-      - name: Statistics
-        href: sql-data-warehouse-tables-statistics.md
-      - name: Temporary
-        href: sql-data-warehouse-tables-temporary.md
+      # - name: Statistics
+      #   href: sql-data-warehouse-tables-statistics.md
+      # - name: Temporary
+      #   href: sql-data-warehouse-tables-temporary.md
     - name: T-SQL language elements
       items:
       - name: Loops
         href: sql-data-warehouse-develop-loops.md
       - name: Stored procedures
         href: sql-data-warehouse-develop-stored-procedures.md
-      - name: Transactions
-        href: sql-data-warehouse-develop-transactions.md
+      # - name: Transactions
+      #   href: sql-data-warehouse-develop-transactions.md
       - name: Transactions best practices
         href: sql-data-warehouse-develop-best-practices-transactions.md
-      - name: User-defined schemas
-        href: sql-data-warehouse-develop-user-defined-schemas.md
-      - name: Variable assignment
-        href: sql-data-warehouse-develop-variable-assignment.md
-      - name: Views
-        href: sql-data-warehouse-develop-views.md
+      # - name: User-defined schemas
+      #   href: sql-data-warehouse-develop-user-defined-schemas.md
+      # - name: Variable assignment
+      #   href: sql-data-warehouse-develop-variable-assignment.md
+      # - name: Views
+      #   href: sql-data-warehouse-develop-views.md
   - name: Querying
     items:
     - name: Dynamic SQL
@@ -301,8 +301,8 @@
         href: sql-data-warehouse-query-visual-studio.md
       - name: SSMS
         href: sql-data-warehouse-query-ssms.md
-      - name: sqlcmd
-        href: sql-data-warehouse-get-started-connect-sqlcmd.md
+      # - name: sqlcmd
+      #   href: sql-data-warehouse-get-started-connect-sqlcmd.md
   - name: Workload management
     items:
     - name: Analyze your workload

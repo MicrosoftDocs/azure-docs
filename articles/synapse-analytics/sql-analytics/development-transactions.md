@@ -1,7 +1,7 @@
 ---
-title: Using transactions in Azure SQL Data Warehouse | Microsoft Docs
+title: Using transactions
 description: Tips for implementing transactions in Azure SQL Data Warehouse for developing solutions.
-services: synapse analytics
+services: synapse-analytics
 author: XiaoyuMSFT 
 manager: craigg
 ms.service: synapse-analytics
@@ -146,8 +146,8 @@ BEGIN TRAN
 
         IF @@TRANCOUNT > 0
         BEGIN
-            PRINT 'ROLLBACK';
             ROLLBACK TRAN;
+            PRINT 'ROLLBACK';
         END
 
         SELECT  ERROR_NUMBER()    AS ErrNumber

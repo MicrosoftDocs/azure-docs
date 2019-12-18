@@ -75,7 +75,7 @@ This tutorial outlines how to integrate your SQL Server Data tools (SSDT) databa
 
 ## Next steps
 
-- [Developing for Azure SQL Data Warehouse](sql-data-warehouse-overview-develop.md)
+- [Developing for Azure SQL Data Warehouse](../synapse-analytics/sql-analytics/development-overview.md)
 
 <!--Image references-->
 

@@ -234,10 +234,7 @@ This storage account contains the JSON file with the names of the SQL tables.
     "properties": {
         "type": "AzureStorage",
         "typeProperties": {
-            "connectionString": {
-                "value": "DefaultEndpointsProtocol=https;AccountName=<StorageAccountName>;AccountKey=<StorageAccountKey>",
-                "type": "SecureString"
-            }
+            "connectionString": "DefaultEndpointsProtocol=https;AccountName=<StorageAccountName>;AccountKey=<StorageAccountKey>"
         }
     },
         "name": "AzureStorageLinkedService"
@@ -254,10 +251,7 @@ This Azure SQL Database instance contains the data to be copied to Blob storage.
         "type": "AzureSqlDatabase",
         "description": "",
 		"typeProperties": {
-			"connectionString": {
-				"value": "Server=<server>;Initial Catalog=<database>;User ID=<user>;Password=<password>;",
-				"type": "SecureString"
-			}
+			"connectionString": "Server=<server>;Initial Catalog=<database>;User ID=<user>;Password=<password>;"
 		}
 	}
 }

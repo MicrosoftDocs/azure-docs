@@ -170,7 +170,7 @@ This sample shows how you can use the referenceObjects and extendedProperties to
             "type": "LinkedServiceReference"
           }]
         },
-        "extendedProperties": {
+        "extendedProperties": {          
           "connectionString": {
             "type": "SecureString",
             "value": "aSampleSecureString"

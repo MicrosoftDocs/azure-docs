@@ -1,7 +1,7 @@
 ---
-title: Using T-SQL views in Azure SQL analytics | Microsoft Docs
-description: Tips for using T-SQL views in Azure SQL analytics for developing solutions.
-services: synapse analytics
+title: Using T-SQL views
+description: Tips for using T-SQL views in Azure Synapse Analytics for developing solutions.
+services: synapse-analytics
 author: azaricstefan 
 ms.service: synapse-analytics
 ms.topic: conceptual
@@ -11,7 +11,7 @@ ms.author: v-stazar
 ms.reviewer: jrasnick
 ---
 
-# Views in Azure SQL analytics
+# Views in Azure SQL Analytics
 Tips for using T-SQL views in Azure SQL analytics for developing solutions. 
 
 ## Why use views?
