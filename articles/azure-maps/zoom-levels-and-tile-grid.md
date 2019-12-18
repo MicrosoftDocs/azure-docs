@@ -417,6 +417,7 @@ namespace AzureMaps
             var sinLatitude = Math.Sin(latitude * Math.PI / 180);
             var y = 0.5 - Math.Log((1 + sinLatitude) / (1 - sinLatitude)) / (4 * Math.PI);
 
+            //tileSize needed in calculations as in rare cases the multiplying/rounding/dividing can make the difference of a pixel which can result in a completely different tile. 
             var mapSize = MapSize(zoom, tileSize);
             tileX = (int)Math.Floor(Clip(x * mapSize + 0.5, 0, mapSize - 1) / tileSize);
             tileY = (int)Math.Floor(Clip(y * mapSize + 0.5, 0, mapSize - 1) / tileSize);
@@ -797,6 +798,7 @@ module AzureMaps {
             var sinLatitude = Math.sin(latitude * Math.PI / 180);
             var y = 0.5 - Math.log((1 + sinLatitude) / (1 - sinLatitude)) / (4 * Math.PI);
 
+            //tileSize needed in calculations as in rare cases the multiplying/rounding/dividing can make the difference of a pixel which can result in a completely different tile. 
             var mapSize = this.MapSize(zoom, tileSize);
 
             return {

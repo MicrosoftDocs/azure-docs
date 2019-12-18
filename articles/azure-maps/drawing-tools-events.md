@@ -6,8 +6,8 @@ ms.author: richbrun
 ms.date: 12/05/2019
 ms.topic: conceptual
 ms.service: azure-maps
-services: azure-mapss
-manager: cpendleton
+services: azure-maps
+manager: cpendle
 ---
 
 # Drawing tool events

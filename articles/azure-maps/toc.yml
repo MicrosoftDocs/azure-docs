@@ -31,6 +31,16 @@
       href: tutorial-ev-routing.md
     - name: Analyze weather data using Azure Notebooks (Python)
       href: weather-service-tutorial.md
+  - name: Migrating from Google Maps Tutorials
+    items:
+    - name: Migrate from Google Maps
+      href: migrate-from-google-maps.md
+    - name: Migrate a web app
+      href: migrate-from-google-maps-web-app.md
+    - name: Migrate an Android app
+      href: migrate-from-google-maps-android-app.md
+    - name: Migrate a web service
+      href: migrate-from-google-maps-web-services.md
 - name: Concepts
   items:
   - name: Authentication with Azure Maps
