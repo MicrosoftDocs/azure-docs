@@ -24,7 +24,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 To complete this quickstart, you must have:
 - Access to the Form Recognizer limited-access preview. To get access to the preview, fill out and submit the [Form Recognizer access request](https://aka.ms/FormRecognizerRequestAccess) form.
 - [cURL](https://curl.haxx.se/windows/) installed.
-- A URL for an image of a receipt. You can use a [sample image](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/contoso-receipt.png?raw=true) for this quickstart.
+- A URL for an image of a receipt. You can use a [sample image](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/contoso-allinone.jpg?raw=true) for this quickstart.
 
 ## Create a Form Recognizer resource
 
@@ -66,21 +66,21 @@ You'll receive a `200 (Success)` response with JSON output. The first field, `"s
 
 See the following receipt image and its corresponding JSON output. The output has been shortened for readability.
 
-![A receipt from Contoso store](../media/contoso-receipt.png)
+![A receipt from Contoso store](../media/contoso-allinone.jpg)
 
 The `"recognitionResults"` node contains all of the recognized text. Text is organized by page, then by line, then by individual words. The `"understandingResults"` node contains the receipt-specific values that the model discovered. This is where you'll find useful key/value pairs like the tax, total, merchant address, and so on.
 
 ```json
-{
-  "status": "succeeded",
-  "createdDateTime": "2019-10-16T09:08:06.52Z",
-  "lastUpdatedDateTime": "2019-10-16T09:08:06.98Z",
-  "analyzeResult": { 
-    "version":"2.0",
+{ 
+  "status":"succeeded",
+  "createdDateTime":"2019-12-17T04:11:24Z",
+  "lastUpdatedDateTime":"2019-12-17T04:11:32Z",
+  "analyzeResult":{ 
+    "version":"2.0.0",
     "readResults":[ 
       { 
         "page":1,
-        "angle":0.3165,
+        "angle":0.6893,
         "width":1688,
         "height":3000,
         "unit":"pixel",
@@ -89,29 +89,29 @@ The `"recognitionResults"` node contains all of the recognized text. Text is org
           { 
             "text":"Contoso",
             "boundingBox":[ 
-              617,
-              291,
-              1050,
-              279,
-              1054,
-              384,
-              620,
-              397
+              635,
+              510,
+              1086,
+              461,
+              1098,
+              558,
+              643,
+              604
             ],
             "words":[ 
               { 
                 "text":"Contoso",
                 "boundingBox":[ 
-                  619,
-                  293,
-                  1051,
-                  284,
-                  1053,
-                  383,
-                  621,
-                  399
+                  639,
+                  510,
+                  1087,
+                  461,
+                  1098,
+                  551,
+                  646,
+                  604
                 ],
-                "confidence":0.9905
+                "confidence":0.955
               }
             ]
           },
@@ -130,26 +130,26 @@ The `"recognitionResults"` node contains all of the recognized text. Text is org
           "ReceiptType":{ 
             "type":"string",
             "valueString":"Itemized",
-            "pageNumber":1,
-            "confidence":0.991940975189209
+            "confidence":0.692
           },
           "MerchantName":{ 
             "type":"string",
-            "valueString":"Contoso",
-            "text":"Contoso",
+            "valueString":"Contoso Contoso",
+            "text":"Contoso Contoso",
             "boundingBox":[ 
-              330,
-              590,
-              502.272644,
-              600.547363,
-              498.906647,
-              655.5249,
-              326.634,
-              644.9776
+              378.2,
+              292.4,
+              1117.7,
+              468.3,
+              1035.7,
+              812.7,
+              296.3,
+              636.8
             ],
-            "pageNumber":1,
-            "confidence":0.048439331352710724,
+            "page":1,
+            "confidence":0.613,
             "elements":[ 
+              "#/readResults/0/lines/0/words/0",
               "#/readResults/0/lines/1/words/0"
             ]
           },
@@ -158,17 +158,17 @@ The `"recognitionResults"` node contains all of the recognized text. Text is org
             "valueString":"123 Main Street Redmond, WA 98052",
             "text":"123 Main Street Redmond, WA 98052",
             "boundingBox":[ 
-              318.0899,
-              689.9097,
-              753.7846,
-              697.9188,
-              750.6947,
-              866.0091,
-              315,
-              858
+              302,
+              675.8,
+              848.1,
+              793.7,
+              809.9,
+              970.4,
+              263.9,
+              852.5
             ],
-            "pageNumber":1,
-            "confidence":0.68994146585464478,
+            "page":1,
+            "confidence":0.99,
             "elements":[ 
               "#/readResults/0/lines/2/words/0",
               "#/readResults/0/lines/2/words/1",
@@ -180,19 +180,20 @@ The `"recognitionResults"` node contains all of the recognized text. Text is org
           },
           "MerchantPhoneNumber":{ 
             "type":"phoneNumber",
-            "text":"123-456-7890",
+            "valuePhoneNumber":"+19876543210",
+            "text":"987-654-3210",
             "boundingBox":[ 
-              308.268616,
-              1003.98456,
-              617.031433,
-              1010.51123,
-              615.7628,
-              1070.52673,
-              307,
-              1064
+              278,
+              1004,
+              656.3,
+              1054.7,
+              646.8,
+              1125.3,
+              268.5,
+              1074.7
             ],
-            "pageNumber":1,
-            "confidence":1,
+            "page":1,
+            "confidence":0.99,
             "elements":[ 
               "#/readResults/0/lines/4/words/0"
             ]
@@ -202,17 +203,17 @@ The `"recognitionResults"` node contains all of the recognized text. Text is org
             "valueDate":"2019-06-10",
             "text":"6/10/2019",
             "boundingBox":[ 
-              306.1577,
-              1223.4967,
-              512,
-              1224,
-              511.8411,
-              1289.002,
-              305.998779,
-              1288.49866
+              265.1,
+              1228.4,
+              525,
+              1247,
+              518.9,
+              1332.1,
+              259,
+              1313.5
             ],
-            "pageNumber":1,
-            "confidence":0.99991607666015625,
+            "page":1,
+            "confidence":0.99,
             "elements":[ 
               "#/readResults/0/lines/5/words/0"
             ]
@@ -222,17 +223,17 @@ The `"recognitionResults"` node contains all of the recognized text. Text is org
             "valueTime":"13:59:00",
             "text":"13:59",
             "boundingBox":[ 
-              524,
-              1225,
-              629.019,
-              1227.00989,
-              627.7942,
-              1291.00562,
-              522.7752,
-              1288.99573
+              541,
+              1248,
+              677.3,
+              1261.5,
+              668.9,
+              1346.5,
+              532.6,
+              1333
             ],
-            "pageNumber":1,
-            "confidence":0.98649173974990845,
+            "page":1,
+            "confidence":0.977,
             "elements":[ 
               "#/readResults/0/lines/5/words/1"
             ]
@@ -243,115 +244,148 @@ The `"recognitionResults"` node contains all of the recognized text. Text is org
               { 
                 "type":"object",
                 "valueObject":{ 
+                  "Quantity":{ 
+                    "type":"number",
+                    "text":"1",
+                    "boundingBox":[ 
+                      245.1,
+                      1581.5,
+                      300.9,
+                      1585.1,
+                      295,
+                      1676,
+                      239.2,
+                      1672.4
+                    ],
+                    "page":1,
+                    "confidence":0.92,
+                    "elements":[ 
+                      "#/readResults/0/lines/7/words/0"
+                    ]
+                  },
                   "Name":{ 
                     "type":"string",
-                    "valueString":"8GB RAM (Black)",
-                    "text":"8GB RAM (Black)",
+                    "valueString":"Cappuccino",
+                    "text":"Cappuccino",
                     "boundingBox":[ 
-                      370.704559,
-                      1781.30469,
-                      731,
-                      1785,
-                      730.2923,
-                      1854.00293,
-                      369.996826,
-                      1850.30762
+                      322,
+                      1586,
+                      654.2,
+                      1601.1,
+                      650,
+                      1693,
+                      317.8,
+                      1678
                     ],
-                    "pageNumber":1,
-                    "confidence":0.2663407027721405,
+                    "page":1,
+                    "confidence":0.923,
                     "elements":[ 
-                      "#/readResults/0/lines/9/words/0",
-                      "#/readResults/0/lines/9/words/1",
-                      "#/readResults/0/lines/9/words/2"
+                      "#/readResults/0/lines/7/words/1"
                     ]
                   },
                   "TotalPrice":{ 
                     "type":"number",
-                    "valueNumber":999,
-                    "text":"$999.00",
+                    "valueNumber":2.2,
+                    "text":"$2.20",
                     "boundingBox":[ 
-                      942.147,
-                      1781.32581,
-                      1135.95691,
-                      1789.07825,
-                      1132.85144,
-                      1866.714,
-                      939.041565,
-                      1858.96167
+                      1107.7,
+                      1584,
+                      1263,
+                      1574,
+                      1268.3,
+                      1656,
+                      1113,
+                      1666
                     ],
-                    "pageNumber":1,
-                    "confidence":0.45141306519508362,
+                    "page":1,
+                    "confidence":0.918,
                     "elements":[ 
-                      "#/readResults/0/lines/10/words/0",
-                      "#/readResults/0/lines/10/words/1"
+                      "#/readResults/0/lines/8/words/0"
                     ]
                   }
-                },
-                "pageNumber":1
+                }
               },
               ...
-            ],
-            "pageNumber":1
+            ]
           },
           "Subtotal":{ 
             "type":"number",
-            "valueNumber":1098.99,
-            "text":"1098.99",
+            "valueNumber":11.7,
+            "text":"11.70",
             "boundingBox":[ 
-              964.73114,
-              2251.99316,
-              1132.73071,
-              2246.97827,
-              1135,
-              2323,
-              967.0004,
-              2328.015
+              1146,
+              2221,
+              1297.3,
+              2223,
+              1296,
+              2319,
+              1144.7,
+              2317
             ],
-            "pageNumber":1,
-            "confidence":0.96126359701156616,
+            "page":1,
+            "confidence":0.955,
             "elements":[ 
-              "#/readResults/0/lines/14/words/1"
+              "#/readResults/0/lines/13/words/1"
             ]
           },
           "Tax":{ 
             "type":"number",
-            "valueNumber":104.4,
-            "text":"$104.40",
+            "valueNumber":1.17,
+            "text":"1.17",
             "boundingBox":[ 
-              948.058533,
-              2366.65137,
-              1133.05762,
-              2361.61743,
-              1135,
-              2433,
-              950.0009,
-              2438.034
+              1190,
+              2359,
+              1304,
+              2359,
+              1304,
+              2456,
+              1190,
+              2456
             ],
-            "pageNumber":1,
-            "confidence":0.78252553939819336,
+            "page":1,
+            "confidence":0.979,
             "elements":[ 
-              "#/readResults/0/lines/16/words/0",
-              "#/readResults/0/lines/16/words/1"
+              "#/readResults/0/lines/15/words/1"
+            ]
+          },
+          "Tip":{ 
+            "type":"number",
+            "valueNumber":1.63,
+            "text":"1.63",
+            "boundingBox":[ 
+              1094,
+              2479,
+              1267.7,
+              2485,
+              1264,
+              2591,
+              1090.3,
+              2585
+            ],
+            "page":1,
+            "confidence":0.941,
+            "elements":[ 
+              "#/readResults/0/lines/17/words/1"
             ]
           },
           "Total":{ 
             "type":"number",
-            "valueNumber":1203.39,
-            "text":"1203.39",
+            "valueNumber":14.5,
+            "text":"$14.50",
             "boundingBox":[ 
-              962.011047,
-              2593.89551,
-              1124,
-              2611,
-              1116.81091,
-              2679.08545,
-              954.821838,
-              2661.9812
+              1034.2,
+              2617,
+              1387.5,
+              2638.2,
+              1380,
+              2763,
+              1026.7,
+              2741.8
             ],
-            "pageNumber":1,
-            "confidence":0.9648091197013855,
+            "page":1,
+            "confidence":0.985,
             "elements":[ 
-              "#/readResults/0/lines/18/words/1"
+              "#/readResults/0/lines/19/words/0"
             ]
           }
         }
