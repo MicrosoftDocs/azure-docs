@@ -29,10 +29,10 @@ Note the following before you start:
 - **Disk type**:
     - You can exclude basic disks from replication.
     - You can't exclude operating system disks.
-    - We recommend that you don't exclude dynamic disks. Site Recovery can't identify which VHD is basic or dynamic in the guest VM.  If all dependent dynamic volume disks aren't excluded, the protected dynamic disk becomes a failed disk on a failed over VM, and the data on that disk isn't accessible.
-- **Add/remove disks**: After you enable replication, you can't add or remove disks for replication. If you want to add or exclude a disk, you need to disable protection for the VM, and then enable it again.
-- **Failover**: After failover, if failed over apps need disks you've excluded to operate, you need to create those disks manually. Alternatively, you can  integrate Azure automation into a recovery plan to create the disk during failover of the machine.
-- **Failback**: When you fail back to your on-premises site after failover, disks you created manually in Azure aren't failed back. For example, if you fail over three disks and create two disks directly on an Azure VM, only three disks that were failed over are then failed back. You can't include disks that were created manually in failback, or in reverse replication of VMs.
+    - We recommend that you don't exclude dynamic disks. Site Recovery can't identify which VHD is basic or dynamic in the guest VM.  If you don't exclude all dependent dynamic volume disks, the protected dynamic disk becomes a failed disk on a failed over VM, and the data on that disk isn't accessible.
+- **Add/remove/exclude disks**: After you enable replication, you can't add/remove/exclude disks for replication. If you want to add/remove or exclude a disk, you need to disable protection for the VM, and then enable it again.
+- **Failover**: After failover, if failed over apps need exclude disks in order to work, you need to create those disks manually. Alternatively, you can integrate Azure automation into a recovery plan, to create the disk during failover of the machine.
+- **Failback**: When you fail back to your on-premises site after failover, disks that you created manually in Azure aren't failed back. For example, if you fail over three disks and create two disks directly on an Azure VM, only three disks that were failed over are then failed back. You can't include disks that were created manually in failback, or in reverse replication of VMs.
 
 ## Exclude disks
 
@@ -44,6 +44,3 @@ Note the following before you start:
 
 ## Next steps
 After your deployment is set up and running, [learn more](failover-failback-overview.md) about different types of failover.
-
-## Next steps
-After your deployment is up and running, [learn more](site-recovery-failover.md) about different types of failover.
