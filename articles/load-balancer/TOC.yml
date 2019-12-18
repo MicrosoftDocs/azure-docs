@@ -14,15 +14,15 @@
     href: quickstart-load-balancer-standard-public-cli.md
   - name: Create Standard Load Balancer - Azure PowerShell
     href: quickstart-create-standard-load-balancer-powershell.md
-  - name: Create Standard Load Balancer - template
+  - name: Create Standard Load Balancer - Template
+    href: quickstart-load-balancer-standard-public-template.md
   - name: Create Basic Load Balancer - Portal
     href: quickstart-create-basic-load-balancer-portal.md
   - name: Create Basic Load Balancer - Azure CLI
     href: quickstart-create-basic-load-balancer-cli.md
   - name: Create Basic Load Balancer - Azure PowerShell
     href: quickstart-create-basic-load-balancer-powershell.md
-    displayName: ARM
-    href: quickstart-load-balancer-standard-public-template.md
+    
 - name: Tutorials
   items:
   - name: Load balance internet traffic to VMs

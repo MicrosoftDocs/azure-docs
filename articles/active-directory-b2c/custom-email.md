@@ -1,7 +1,7 @@
 ---
 title: Custom email verifications
 titleSuffix: Azure AD B2C
-description: Learn how to customize email verification when customers sign up to use your Azure AD B2C-enabled applications.
+description: Learn how to customize the verification email sent to your customers when they sign up to use your Azure AD B2C-enabled applications.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 12/10/2019
+ms.date: 12/18/2019
 ms.author: marsma
 ms.subservice: B2C
 ---
@@ -148,6 +148,8 @@ With a SendGrid account created and SendGrid API key stored in a Azure AD B2C po
     ```
 
 1. Select **Save Template**.
+1. Return to the **Transactional Templates** page by selecting the back arrow.
+1. Record the **ID** of template you created for use in a later step. For example, `d-989077fbba9746e89f3f6411f596fb96`. You specify this ID when you [add the claims transformation](#add-the-claims-transformation).
 
 ## Add Azure AD B2C claim types
 
@@ -257,7 +259,7 @@ The `GenerateOtp` technical profile generates a code for the email address. The 
       </InputClaims>
     </TechnicalProfile>
    </TechnicalProfiles>
-</ClaimsProviders>
+</ClaimsProvider>
 ```
 
 ## Add a REST API technical profile
@@ -278,7 +280,7 @@ This REST API technical profile generates the email content (using the SendGrid 
         <Item Key="ClaimUsedForRequestPayload">sendGridReqBody</Item>
       </Metadata>
       <CryptographicKeys>
-        <Key Id="BearerAuthenticationToken" StorageReferenceId="B2C_1A_SendGridApiKey" />
+        <Key Id="BearerAuthenticationToken" StorageReferenceId="B2C_1A_SendGridSecret" />
       </CryptographicKeys>
       <InputClaimsTransformations>
         <InputClaimsTransformation ReferenceId="GenerateSendGridRequestBody" />
@@ -293,7 +295,10 @@ This REST API technical profile generates the email content (using the SendGrid 
 
 ## Add the claims transformation
 
-Add the following claims transformation to output a JSON string claim that will be the body of the request sent to SendGrid.
+Add the following claims transformation to output a JSON string claim that will be the body of the request sent to SendGrid. Make the following updates to the claims transformation XML:
+
+* Update the `template_id` InputParameter value with the ID of the SendGrid transactional template you created earlier in [Create SendGrid template](#create-sendgrid-template).
+* Update the value of the `personalizations.0.dynamic_template_data.subject` subject line input parameter with a subject line appropriate for your organization.
 
 The JSON object's structure is defined by the IDs in dot notation of the InputParameters and the TransformationClaimTypes of the InputClaims. Numbers in the dot notation imply arrays. The values come from the InputClaims' values and the InputParameters' "Value" properties. For more information about JSON claims transformations, see [JSON claims transformations](json-transformations.md).
 
@@ -305,14 +310,28 @@ The JSON object's structure is defined by the IDs in dot notation of the InputPa
     <InputClaim ClaimTypeReferenceId="email" TransformationClaimType="personalizations.0.dynamic_template_data.email" />
   </InputClaims>
   <InputParameters>
+    <!-- Update the template_id value with the ID of your SendGrid template. -->
     <InputParameter Id="template_id" DataType="string" Value="d-989077fbba9746e89f3f6411f596fb96"/>
     <InputParameter Id="from.email" DataType="string" Value="my_email@mydomain.com"/>
-    <InputParameter Id="personalizations.0.subject" DataType="string" Value="Contoso account email verification code"/>
+    <!-- Update with a subject line appropriate for your organization. -->
+    <InputParameter Id="personalizations.0.dynamic_template_data.subject" DataType="string" Value="Contoso account email verification code"/>
   </InputParameters>
   <OutputClaims>
     <OutputClaim ClaimTypeReferenceId="sendGridReqBody" TransformationClaimType="outputClaim"/>
   </OutputClaims>
 </ClaimsTransformation>
+```
+
+## Add DataUri content definition
+
+Add the following ContentDefinition within BuildingBlocks to reference the version 2.0.0 data URI:
+
+```XML
+<ContentDefinitions>
+ <ContentDefinition Id="api.localaccountsignup">
+    <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.0.0</DataUri>
+  </ContentDefinition>
+</ContentDefinitions>
 ```
 
 ## Make a reference to the DisplayControl
@@ -335,7 +354,6 @@ For more information, see [Self-asserted technical profile](restful-technical-pr
   </InputClaims>
   <DisplayClaims>
     <DisplayClaim DisplayControlReferenceId="emailVerificationControl" />
-    <DisplayClaim DisplayControlReferenceId="SecondaryEmailVerificationControl" />
     <DisplayClaim ClaimTypeReferenceId="displayName" Required="true" />
     <DisplayClaim ClaimTypeReferenceId="givenName" Required="true" />
     <DisplayClaim ClaimTypeReferenceId="surName" Required="true" />
@@ -357,5 +375,9 @@ For more information, see [Self-asserted technical profile](restful-technical-pr
 ```
 
 ## Next steps
+
+You can find an example of a custom email verification policy on GitHub:
+
+[Custom email verification - DisplayControls](https://github.com/azure-ad-b2c/samples/tree/master/policies/custom-email-verifcation-displaycontrol)
 
 For information about using a custom REST API or any HTTP-based SMTP email provider, see [Define a RESTful technical profile in an Azure AD B2C custom policy](restful-technical-profile.md).

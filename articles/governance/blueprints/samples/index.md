@@ -1,7 +1,7 @@
 ---
 title: Index of Blueprint samples
 description: Index of compliance and standard samples for deploying environments, policies, and Cloud Adoptions Framework foundations with Azure Blueprints.
-ms.date: 11/22/2019
+ms.date: 12/05/2019
 ms.topic: sample
 ---
 # Azure Blueprints samples
@@ -16,6 +16,7 @@ quality and ready to deploy today to assist you in meeting your various complian
 | [Canada Federal PBMM](./canada-federal-pbmm/index.md) | Provides guardrails for compliance to Canada Federal Protected B, Medium Integrity, Medium Availability (PBMM). |
 | [CIS Microsoft Azure Foundations Benchmark](./cis-azure-1.1.0/index.md)| Provides a set of policies to help comply with CIS Microsoft Azure Foundations Benchmark recommendations. |
 | [FedRAMP Moderate](./fedramp-m/index.md) | Provides a set of policies to help comply with FedRAMP Moderate. |
+| [HIPAA HITRUST](./HIPAA-HITRUST/index.md) | Provides a set of policies to help comply with HIPAA HITRUST. |
 | [IRS 1075](./irs-1075/index.md) | Provides guardrails for compliance to IRS 1075.|
 | [ISO 27001](./iso27001/index.md) | Provides guardrails for compliance with ISO 27001. |
 | [ISO 27001 Shared Services](./iso27001-shared/index.md) | Provides a set of compliant infrastructure patterns and policy guard-rails that help towards ISO 27001 attestation. |
