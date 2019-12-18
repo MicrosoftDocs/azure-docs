@@ -175,7 +175,7 @@ The basic pattern of feature management is to first check if a feature flag is s
 ```csharp
 IFeatureManager featureManager;
 ...
-if (await featureManager.IsEnabled(nameof(MyFeatureFlags.FeatureA)))
+if (await featureManager.IsEnabledAsync(nameof(MyFeatureFlags.FeatureA)))
 {
     // Run the following code
 }
