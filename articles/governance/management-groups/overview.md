@@ -2,7 +2,7 @@
 title: Organize your resources with management groups - Azure Governance
 description: Learn about the management groups, how their permissions work, and how to use them. 
 ms.assetid: 482191ac-147e-4eb6-9655-c40c13846672
-ms.date: 04/22/2019
+ms.date: 12/18/2019
 ms.topic: overview
 ---
 # Organize your resources with Azure management groups
@@ -129,7 +129,7 @@ The following chart shows the list of roles and the supported actions on managem
 Custom RBAC roles support for management groups is currently in Public Preview.  You are able to define the management group scope in the Role Definition's assignable scope.  That custom RBAC Role will then be available for assignment on that management group and any management group, subscription, resource group, or resource under it. This custom role will inherit down the hierarchy like any built-in role.    
 
 ### Example definition
-[Defining and creating a custom role](./role-based-access-control/custom-roles.md) does not change with the inclusion of management groups. Use the full path to define the management group **/providers/microsoft.management/managementgroups/<MgID>**. 
+[Defining and creating a custom role](../role-based-access-control/custom-roles.md) does not change with the inclusion of management groups. Use the full path to define the management group **/providers/Microsoft.Management/managementgroups/{groupId}**. 
 
 Use the management group's ID and not the management group's display name. This common error happens since they are both custom defined fields when creating a management group. 
 
@@ -165,10 +165,10 @@ Use the management group's ID and not the management group's display name. This 
 ```
 
 ### Issues with breaking the role definition and assignment hierarchy path
-Role definitions can have an assignable scope anywhere within the management group hierarchy. A role definition can be defined on a parent management group while the actual role assignment exists on the child subscription. Since there is a relationship between the two items, you will receive an error when trying to separated the assignment from its definition. 
+Role definitions can have an assignable scope anywhere within the management group hierarchy. A role definition can be defined on a parent management group while the actual role assignment exists on the child subscription. Since there is a relationship between the two items, you will receive an error when trying to separate the assignment from its definition. 
 
 For example: 
-Let's look a small section of a hierarchy for a visual. 
+Let's look at a small section of a hierarchy for a visual. 
 
 ![sub-tree](./media/subtree.png)
 
@@ -178,6 +178,7 @@ If we try to move one of those subscriptions to be a child of the Production man
 
 There are a couple different options to fix this scenario:
 - Remove the role assignment from the subscription prior to moving the subscription to a new parent MG.
+- Add the subscription to the Role Definition's assignable scope.
 - Change the assignable scope within the role definition. In the above example, you can update the assignable scopes from Marketing to Root Management Group so that the definition can be reach by both branches of the hierarchy.   
 - Create an additional Custom Role that will be defined in the other branch.  This new role will require the role assignment to be changed on the subscription also.  
 
@@ -186,7 +187,7 @@ There are a couple different options to fix this scenario:
 There are a few limitations that exist when using custom roles on management groups within the Public Preview. 
 
  - You can only define one management group in the assignable scopes of a new role.  This limitation is in place to reduce the the number of situations where role definitions and role assignments are disconnected.  This situation happens when a child subscription or management group with a role assignment is moved to a different parent that doesn't have the role definition.   
- - RBAC Data Plane actions are not allowed to be defined in management group custom roles.  This restriction is in place as there is a latency issues with RBAC actions updating the data plane resource providers. This latency issue is being worked on an these actions will be disabled from the role definition to reduce any risks.  We are looking to eliminate any risks in scenarios like a user's write access is removed from a storage resource but it takes 24 hours for that to update.     
+ - RBAC Data Plane actions are not allowed to be defined in management group custom roles.  This restriction is in place as there is a latency issue with RBAC actions updating the data plane resource providers. This latency issue is being worked on and these actions will be disabled from the role definition to reduce any risks.    
 
 ## Audit management groups using activity logs
 
