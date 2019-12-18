@@ -517,7 +517,7 @@ In this example for deploying SAP HANA in scale-out configuration with standby n
 3. **[A]** Install additional packages, which are required for HANA 2.0 SP4. For more information, see SAP Note [2593824](https://launchpad.support.sap.com/#/notes/2593824). 
 
     <pre><code>
-    sudo zypper install libgcc_s1 libstdc++6 compat-sap-c++-7 libatomic1 
+    yum install libgcc_s1 libstdc++6 compat-sap-c++-7 libatomic1 
     </code></pre>
 
 4. **[2], [3]** Change ownership of SAP HANA `data` and `log` directories to **hn1**adm.   
