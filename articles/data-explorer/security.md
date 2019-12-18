@@ -62,7 +62,7 @@ Rotating the key does not trigger re-encryption of data in the cluster. There is
 
 #### Revoke access to customer-managed keys
 
-To revoke access to customer-managed keys, use PowerShell or Azure CLI. For more information, see [Azure Key Vault PowerShell](../powershell/module/az.keyvault.md) or [Azure Key Vault CLI](../cli/azure/keyvault.md). Revoking access effectively blocks access to all data in the cluster's storage level, as the encryption key is inaccessible by Azure Data Explorer.
+To revoke access to customer-managed keys, use PowerShell or Azure CLI. For more information, see [Azure Key Vault PowerShell](/powershell/module/az.keyvault.md) or [Azure Key Vault CLI](/cli/azure/keyvault.md). Revoking access effectively blocks access to all data in the cluster's storage level, as the encryption key is inaccessible by Azure Data Explorer.
 
 ## Role-based access control
 
