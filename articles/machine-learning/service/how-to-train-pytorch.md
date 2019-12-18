@@ -175,7 +175,7 @@ model = run.register_model(model_name='pt-dnn', model_path='outputs/')
 > [!TIP]
 > The model you just registered is deployed the exact same way as any other registered model in Azure 
 Machine Learning, regardless of which estimator you used for training. The deployment how-to
-contains a section on registering models, but you can skip directly to [creating a compute target](how-to-deploy-and-where.md#choose-a-compute-target) for deployment, since you already have a registered model.
+contains a section on registering models, but you can skip directly to [creating a compute target](../how-to-deploy-and-where.md#choose-a-compute-target) for deployment, since you already have a registered model.
 
 You can also download a local copy of the model by using the Run object. In the training script `pytorch_train.py`, a PyTorch save object persists the model to a local folder (local to the compute target). You can use the Run object to download a copy.
 
@@ -228,8 +228,8 @@ To optimize inference with the [ONNX Runtime](../concept-onnx.md), convert your 
 In this article, you trained and registered a deep learning, neural network using PyTorch on Azure Machine Learning. To learn how to deploy a model, continue on to our model deployment article.
 
 > [!div class="nextstepaction"]
-> [How and where to deploy models](how-to-deploy-and-where.md)
+> [How and where to deploy models](../how-to-deploy-and-where.md)
 * [Track run metrics during training](how-to-track-experiments.md)
 * [Tune hyperparameters](how-to-tune-hyperparameters.md)
-* [Deploy a trained model](how-to-deploy-and-where.md)
+* [Deploy a trained model](../how-to-deploy-and-where.md)
 * [Reference architecture for distributed deep learning training in Azure](/azure/architecture/reference-architectures/ai/training-deep-learning)

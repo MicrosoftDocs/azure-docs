@@ -15,7 +15,7 @@ ms.date: 08/27/2019
 ---
 
 # Deploy a machine learning model to Azure App Service (preview)
-[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
+[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Learn how to deploy a model from Azure Machine Learning as a web app in Azure App Service.
 
@@ -31,13 +31,13 @@ With Azure Machine Learning, you can create Docker images from trained machine l
 For more information on features provided by Azure App Service, see the [App Service overview](/azure/app-service/overview).
 
 > [!IMPORTANT]
-> If you need the ability to log the scoring data used with your deployed model, or the results of scoring, you should instead deploy to Azure Kubernetes Service. For more information, see [Collect data on your production models](how-to-enable-data-collection.md).
+> If you need the ability to log the scoring data used with your deployed model, or the results of scoring, you should instead deploy to Azure Kubernetes Service. For more information, see [Collect data on your production models](service/how-to-enable-data-collection.md).
 
 ## Prerequisites
 
-* An Azure Machine Learning workspace. For more information, see the [Create a workspace](how-to-manage-workspace.md) article.
+* An Azure Machine Learning workspace. For more information, see the [Create a workspace](service/how-to-manage-workspace.md) article.
 * The [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
-* A trained machine learning model registered in your workspace. If you do not have a model, use the [Image classification tutorial: train model](tutorial-train-models-with-aml.md) to train and register one.
+* A trained machine learning model registered in your workspace. If you do not have a model, use the [Image classification tutorial: train model](service/tutorial-train-models-with-aml.md) to train and register one.
 
     > [!IMPORTANT]
     > The code snippets in this article assume that you have set the following variables:
@@ -46,7 +46,7 @@ For more information on features provided by Azure App Service, see the [App Ser
     > * `model` - The registered model that will be deployed.
     > * `inference_config` - The inference configuration for the model.
     >
-    > For more information on setting these variables, see [Deploy models with Azure Machine Learning](how-to-deploy-and-where.md).
+    > For more information on setting these variables, see [Deploy models with Azure Machine Learning](service/how-to-deploy-and-where.md).
 
 ## Prepare for deployment
 
@@ -62,9 +62,9 @@ Before deploying, you must define what is needed to run the model as a web servi
     > [!IMPORTANT]
     > The Azure Machine Learning SDK does not provide a way for the web service access your datastore or data sets. If you need the deployed model to access data stored outside the deployment, such as in an Azure Storage account, you must develop a custom code solution using the relevant SDK. For example, the [Azure Storage SDK for Python](https://github.com/Azure/azure-storage-python).
     >
-    > Another alternative that may work for your scenario is [batch predictions](how-to-run-batch-predictions.md), which does provide access to datastores when scoring.
+    > Another alternative that may work for your scenario is [batch predictions](service/how-to-run-batch-predictions.md), which does provide access to datastores when scoring.
 
-    For more information on entry scripts, see [Deploy models with Azure Machine Learning](how-to-deploy-and-where.md).
+    For more information on entry scripts, see [Deploy models with Azure Machine Learning](service/how-to-deploy-and-where.md).
 
 * **Dependencies**, such as helper scripts or Python/Conda packages required to run the entry script or model
 
@@ -85,9 +85,9 @@ These entities are encapsulated into an __inference configuration__. The inferen
 > myenv.python.conda_dependencies = CondaDependencies.create(conda_packages=['scikit-learn'])
 > ```
 
-For more information on environments, see [Create and manage environments for training and deployment](how-to-use-environments.md).
+For more information on environments, see [Create and manage environments for training and deployment](service/how-to-use-environments.md).
 
-For more information on inference configuration, see [Deploy models with Azure Machine Learning](how-to-deploy-and-where.md).
+For more information on inference configuration, see [Deploy models with Azure Machine Learning](service/how-to-deploy-and-where.md).
 
 > [!IMPORTANT]
 > When deploying to Azure App Service, you do not need to create a __deployment configuration__.
@@ -97,7 +97,7 @@ For more information on inference configuration, see [Deploy models with Azure M
 To create the Docker image that is deployed to Azure App Service, use [Model.package](https://docs.microsoft.com//python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#package-workspace--models--inference-config-none--generate-dockerfile-false-). The following code snippet demonstrates how to build a new image from the model and inference configuration:
 
 > [!NOTE]
-> The code snippet assumes that `model` contains a registered model, and that `inference_config` contains the configuration for the inference environment. For more information, see [Deploy models with Azure Machine Learning](how-to-deploy-and-where.md).
+> The code snippet assumes that `model` contains a registered model, and that `inference_config` contains the configuration for the inference environment. For more information, see [Deploy models with Azure Machine Learning](service/how-to-deploy-and-where.md).
 
 ```python
 from azureml.core import Model
@@ -267,4 +267,4 @@ print(response.json())
 * Learn more about scaling in [Get started with Autoscale in Azure](/azure/azure-monitor/platform/autoscale-get-started?toc=%2fazure%2fapp-service%2ftoc.json).
 * [Use an SSL certificate in your Azure App Service](/azure/app-service/configure-ssl-certificate-in-code).
 * [Configure your App Service app to use Azure Active Directory sign-in](/azure/app-service/configure-authentication-provider-aad).
-* [Consume a ML Model deployed as a web service](../how-to-consume-web-service.md)
+* [Consume a ML Model deployed as a web service](how-to-consume-web-service.md)

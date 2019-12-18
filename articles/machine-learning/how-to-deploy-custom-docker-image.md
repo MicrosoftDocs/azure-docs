@@ -13,7 +13,7 @@ ms.date: 08/22/2019
 ---
 
 # Deploy a model using a custom Docker base image
-[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
+[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Learn how to use a custom Docker base image when deploying trained models with Azure Machine Learning.
 
@@ -38,10 +38,10 @@ This document is broken into two sections:
 
 ## Prerequisites
 
-* An Azure Machine Learning workgroup. For more information, see the [Create a workspace](how-to-manage-workspace.md) article.
+* An Azure Machine Learning workgroup. For more information, see the [Create a workspace](service/how-to-manage-workspace.md) article.
 * The [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py). 
 * The [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
-* The [CLI extension for Azure Machine Learning](reference-azure-machine-learning-cli.md).
+* The [CLI extension for Azure Machine Learning](service/reference-azure-machine-learning-cli.md).
 * An [Azure Container Registry](/azure/container-registry) or other Docker registry that is accessible on the internet.
 * The steps in this document assume that you are familiar with creating and using an __inference configuration__ object as part of model deployment. For more information, see the "prepare to deploy" section of [Where to deploy and how](how-to-deploy-and-where.md#prepare-to-deploy).
 
@@ -97,7 +97,7 @@ If you've already trained or deployed models using Azure Machine Learning, a con
     az ml workspace show -w <myworkspace> -g <resourcegroup> --query containerRegistry
     ```
 
-    [!INCLUDE [install extension](../../../includes/machine-learning-service-install-extension.md)]
+    [!INCLUDE [install extension](../../includes/machine-learning-service-install-extension.md)]
 
     The information returned is similar to the following text:
 
@@ -245,7 +245,7 @@ service.wait_for_deployment(show_output = True)
 print(service.state)
 ```
 
-For more information on deployment, see [Deploy models with Azure Machine Learning](how-to-deploy-and-where.md).
+For more information on deployment, see [Deploy models with Azure Machine Learning](service/how-to-deploy-and-where.md).
 
 ### Use an image with the Machine Learning CLI
 
@@ -273,9 +273,9 @@ This file is used with the `az ml model deploy` command. The `--ic` parameter is
 az ml model deploy -n myservice -m mymodel:1 --ic inferenceconfig.json --dc deploymentconfig.json --ct akscomputetarget
 ```
 
-For more information on deploying a model using the ML CLI, see the "model registration, profiling, and deployment" section of the [CLI extension for Azure Machine Learning](reference-azure-machine-learning-cli.md#model-registration-profiling-deployment) article.
+For more information on deploying a model using the ML CLI, see the "model registration, profiling, and deployment" section of the [CLI extension for Azure Machine Learning](service/reference-azure-machine-learning-cli.md#model-registration-profiling-deployment) article.
 
 ## Next steps
 
-* Learn more about [Where to deploy and how](how-to-deploy-and-where.md).
+* Learn more about [Where to deploy and how](service/how-to-deploy-and-where.md).
 * Learn how to [Train and deploy machine learning models using Azure Pipelines](/azure/devops/pipelines/targets/azure-machine-learning?view=azure-devops).

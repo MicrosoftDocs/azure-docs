@@ -289,5 +289,5 @@ tb.stop()
 
 In this how-to you, created two experiments and learned how to launch TensorBoard against their run histories to identify areas for potential tuning and retraining. 
 
-* If you are satisfied with your model, head over to our [How to deploy a model](how-to-deploy-and-where.md) article. 
+* If you are satisfied with your model, head over to our [How to deploy a model](../how-to-deploy-and-where.md) article. 
 * Learn more about [hyperparameter tuning](how-to-tune-hyperparameters.md). 

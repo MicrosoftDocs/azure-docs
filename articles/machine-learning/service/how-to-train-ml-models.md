@@ -155,4 +155,4 @@ For notebooks on training models by using deep-learning-framework specific estim
 * [Train PyTorch models](how-to-train-pytorch.md)
 * [Train TensorFlow models](how-to-train-tensorflow.md)
 * [Tune hyperparameters](how-to-tune-hyperparameters.md)
-* [Deploy a trained model](how-to-deploy-and-where.md)
+* [Deploy a trained model](../how-to-deploy-and-where.md)

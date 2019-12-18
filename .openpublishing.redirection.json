@@ -12805,7 +12805,6 @@
             "redirect_url": "/azure/machine-learning/how-to-configure-auto-train",
             "redirect_document_id": true
         },
-        
         {
             "source_path": "articles/machine-learning/service/how-to-configure-environment.md",
             "redirect_url": "/azure/machine-learning/how-to-configure-environment",
@@ -12854,6 +12853,56 @@
         {
             "source_path": "articles/machine-learning/service/how-to-define-task-type.md",
             "redirect_url": "/azure/machine-learning/how-to-define-task-type",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/machine-learning/service/how-to-deploy-app-service.md",
+            "redirect_url": "/azure/machine-learning/how-to-deploy-app-service",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/machine-learning/service/how-to-deploy-and-where.md",
+            "redirect_url": "/azure/machine-learning/how-to-deploy-and-where",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/machine-learning/service/how-to-deploy-azure-container-instance.md",
+            "redirect_url": "/azure/machine-learning/how-to-deploy-azure-container-instance",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/machine-learning/service/how-to-deploy-azure-kubernetes-service.md",
+            "redirect_url": "/azure/machine-learning/how-to-deploy-azure-kubernetes-service",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/machine-learning/service/how-to-deploy-existing-model.md",
+            "redirect_url": "/azure/machine-learning/how-to-deploy-existing-model",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/machine-learning/service/how-to-deploy-custom-docker-image.md",
+            "redirect_url": "/azure/machine-learning/how-to-deploy-custom-docker-image",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/machine-learning/service/how-to-deploy-fpga-web-service.md",
+            "redirect_url": "/azure/machine-learning/how-to-deploy-fpga-web-service",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/machine-learning/service/how-to-deploy-functions.md",
+            "redirect_url": "/azure/machine-learning/how-to-deploy-functions",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/machine-learning/service/how-to-deploy-inferencing-gpus.md",
+            "redirect_url": "/azure/machine-learning/how-to-deploy-inferencing-gpus",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/machine-learning/service/how-to-deploy-local-container-notebook-vm.md",
+            "redirect_url": "/azure/machine-learning/how-to-deploy-local-container-notebook-vm",
             "redirect_document_id": true
         },
         {

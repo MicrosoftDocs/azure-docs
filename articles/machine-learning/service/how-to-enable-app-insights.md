@@ -90,7 +90,7 @@ You can enable and disable Azure Application Insights in the Azure portal.
 
 ### Log custom traces in your service
 
-If you want to log custom traces, follow the standard deployment process for AKS or ACI in the [How to deploy and where](how-to-deploy-and-where.md) document. Then use the following steps:
+If you want to log custom traces, follow the standard deployment process for AKS or ACI in the [How to deploy and where](../how-to-deploy-and-where.md) document. Then use the following steps:
 
 1. Update the scoring file by adding print statements
     

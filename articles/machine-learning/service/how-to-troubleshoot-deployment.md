@@ -207,7 +207,7 @@ print(prediction)
 During local testing, you may need to update the `score.py` file to add logging or attempt to resolve any problems that you've discovered. To reload changes to the `score.py` file, use `reload()`. For example, the following code reloads the script for the service, and then sends data to it. The data is scored using the updated `score.py` file:
 
 > [!IMPORTANT]
-> The `reload` method is only available for local deployments. For information on updating a deployment to another compute target, see the update section of [Deploy models](how-to-deploy-and-where.md#update).
+> The `reload` method is only available for local deployments. For information on updating a deployment to another compute target, see the update section of [Deploy models](../how-to-deploy-and-where.md#update).
 
 ```python
 service.reload()
@@ -533,5 +533,5 @@ docker stop debug
 
 Learn more about deployment:
 
-* [How to deploy and where](how-to-deploy-and-where.md)
+* [How to deploy and where](../how-to-deploy-and-where.md)
 * [Tutorial: Train & deploy models](tutorial-train-models-with-aml.md)

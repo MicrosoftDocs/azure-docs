@@ -332,7 +332,7 @@ run = experiment.submit(sk_est)
 
 You can use environments when deploying your model as a web service. This enables a reproducible, connected workflow where you can train, test, and deploy your model using the exact same libraries in both your training and inference computes.
 
-To deploy a web service, combine the environment, inference compute, scoring script, and registered model in your deployment object, [deploy()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-). Learn more about [deploying web services](how-to-deploy-and-where.md).
+To deploy a web service, combine the environment, inference compute, scoring script, and registered model in your deployment object, [deploy()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-). Learn more about [deploying web services](../how-to-deploy-and-where.md).
 
 In this example, assume you have completed a training run and want to deploy that model to an Azure Container Instance (ACI). When building the web service, the model and scoring files are mounted on the image and the Azure Machine Learning inference stack is added to the image.
 
@@ -365,5 +365,5 @@ This [example notebook](https://github.com/Azure/MachineLearningNotebooks/tree/m
 ## Next steps
 
 * [Tutorial: Train a model](tutorial-train-models-with-aml.md) uses a managed compute target to  train a model.
-* Once you have a trained model, learn [how and where to deploy models](how-to-deploy-and-where.md).
+* Once you have a trained model, learn [how and where to deploy models](../how-to-deploy-and-where.md).
 * View the [Environment class](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment(class)?view=azure-ml-py) SDK reference.

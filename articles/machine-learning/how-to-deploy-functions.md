@@ -15,7 +15,7 @@ ms.date: 11/22/2019
 ---
 
 # Deploy a machine learning model to Azure Functions (preview)
-[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
+[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Learn how to deploy a model from Azure Machine Learning as a function app in Azure Functions.
 
@@ -26,9 +26,9 @@ With Azure Machine Learning, you can create Docker images from trained machine l
 
 ## Prerequisites
 
-* An Azure Machine Learning workspace. For more information, see the [Create a workspace](how-to-manage-workspace.md) article.
+* An Azure Machine Learning workspace. For more information, see the [Create a workspace](service/how-to-manage-workspace.md) article.
 * The [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
-* A trained machine learning model registered in your workspace. If you do not have a model, use the [Image classification tutorial: train model](tutorial-train-models-with-aml.md) to train and register one.
+* A trained machine learning model registered in your workspace. If you do not have a model, use the [Image classification tutorial: train model](service/tutorial-train-models-with-aml.md) to train and register one.
 
     > [!IMPORTANT]
     > The code snippets in this article assume that you have set the following variables:
@@ -37,7 +37,7 @@ With Azure Machine Learning, you can create Docker images from trained machine l
     > * `model` - The registered model that will be deployed.
     > * `inference_config` - The inference configuration for the model.
     >
-    > For more information on setting these variables, see [Deploy models with Azure Machine Learning](how-to-deploy-and-where.md).
+    > For more information on setting these variables, see [Deploy models with Azure Machine Learning](service/how-to-deploy-and-where.md).
 
 ## Prepare for deployment
 
@@ -72,9 +72,9 @@ These entities are encapsulated into an __inference configuration__. The inferen
 > myenv.python.conda_dependencies = CondaDependencies.create(conda_packages=['scikit-learn'])
 > ```
 
-For more information on environments, see [Create and manage environments for training and deployment](how-to-use-environments.md).
+For more information on environments, see [Create and manage environments for training and deployment](service/how-to-use-environments.md).
 
-For more information on inference configuration, see [Deploy models with Azure Machine Learning](how-to-deploy-and-where.md).
+For more information on inference configuration, see [Deploy models with Azure Machine Learning](service/how-to-deploy-and-where.md).
 
 > [!IMPORTANT]
 > When deploying to Functions, you do not need to create a __deployment configuration__.
@@ -92,7 +92,7 @@ pip install azureml-contrib-functions
 To create the Docker image that is deployed to Azure Functions, use [azureml.contrib.functions.package](https://docs.microsoft.com/python/api/azureml-contrib-functions/azureml.contrib.functions?view=azure-ml-py) or the specific package function for the trigger you are interested in using. The following code snippet demonstrates how to create a new package with a blob trigger from the model and inference configuration:
 
 > [!NOTE]
-> The code snippet assumes that `model` contains a registered model, and that `inference_config` contains the configuration for the inference environment. For more information, see [Deploy models with Azure Machine Learning](how-to-deploy-and-where.md).
+> The code snippet assumes that `model` contains a registered model, and that `inference_config` contains the configuration for the inference environment. For more information, see [Deploy models with Azure Machine Learning](service/how-to-deploy-and-where.md).
 
 ```python
 from azureml.contrib.functions import package
@@ -233,6 +233,6 @@ At this point, the function app begins loading the image.
 
 * Learn to configure your Functions App in the [Functions](/azure/azure-functions/functions-create-function-linux-custom-image) documentation.
 * Learn more about Blob storage triggers [Azure Blob storage bindings](https://docs.microsoft.com/azure/azure-functions/functions-bindings-storage-blob).
-* [Deploy your model to Azure App Service](how-to-deploy-app-service.md).
-* [Consume a ML Model deployed as a web service](../how-to-consume-web-service.md)
+* [Deploy your model to Azure App Service](service/how-to-deploy-app-service.md).
+* [Consume a ML Model deployed as a web service](how-to-consume-web-service.md)
 * [API Reference](https://docs.microsoft.com/python/api/azureml-contrib-functions/azureml.contrib.functions?view=azure-ml-py)

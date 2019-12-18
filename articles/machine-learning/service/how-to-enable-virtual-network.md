@@ -382,6 +382,6 @@ For more information on configuring a network rule, see [Deploy and configure Az
 ## Next steps
 
 * [Set up training environments](how-to-set-up-training-targets.md)
-* [Where to deploy models](how-to-deploy-and-where.md)
+* [Where to deploy models](../how-to-deploy-and-where.md)
 * [Securely deploy models with SSL](how-to-secure-web-service.md)
 

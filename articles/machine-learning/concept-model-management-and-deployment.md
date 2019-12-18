@@ -49,7 +49,7 @@ Registered models are identified by name and version. Each time you register a m
 > You can also register models trained outside Azure Machine Learning.
 
 You can't delete a registered model that is being used in an active deployment.
-For more information, see the register model section of [Deploy models](service/how-to-deploy-and-where.md#registermodel).
+For more information, see the register model section of [Deploy models](how-to-deploy-and-where.md#registermodel).
 
 ### Package and debug models
 
@@ -57,7 +57,7 @@ Before deploying a model into production, it is packaged into a Docker image. In
 
 If you run into problems with the deployment, you can deploy on your local development environment for troubleshooting and debugging.
 
-For more information, see [Deploy models](service/how-to-deploy-and-where.md#registermodel) and [Troubleshooting deployments](service/how-to-troubleshoot-deployment.md).
+For more information, see [Deploy models](how-to-deploy-and-where.md#registermodel) and [Troubleshooting deployments](service/how-to-troubleshoot-deployment.md).
 
 ### Validate and profile models
 
@@ -101,13 +101,13 @@ To deploy the model as a web service, you must provide the following items:
 * Dependencies required to use the model. For example, a script that accepts requests and invokes the model, conda dependencies, etc.
 * Deployment configuration that describes how and where to deploy the model.
 
-For more information, see [Deploy models](service/how-to-deploy-and-where.md).
+For more information, see [Deploy models](how-to-deploy-and-where.md).
 
 #### IoT Edge devices
 
 You can use models with IoT devices through **Azure IoT Edge modules**. IoT Edge modules are deployed to a hardware device, which enables inference, or model scoring, on the device.
 
-For more information, see [Deploy models](service/how-to-deploy-and-where.md).
+For more information, see [Deploy models](how-to-deploy-and-where.md).
 
 ### Analytics
 
@@ -149,7 +149,7 @@ For more information on using Azure Pipelines with Azure Machine Learning, see t
 
 Learn more by reading and exploring the following resources:
 
-+ [How & where to deploy models](service/how-to-deploy-and-where.md) with Azure Machine Learning
++ [How & where to deploy models](how-to-deploy-and-where.md) with Azure Machine Learning
 
 + [Tutorial: Deploy an image classification model in ACI](service/tutorial-deploy-models-with-aml.md).
 

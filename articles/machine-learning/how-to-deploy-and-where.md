@@ -15,7 +15,7 @@ ms.custom: seoapril2019
 ---
 
 # Deploy models with Azure Machine Learning
-[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
+[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Learn how to deploy your machine learning model as a web service in the Azure cloud or to Azure IoT Edge devices.
 
@@ -26,15 +26,15 @@ The workflow is similar no matter [where you deploy](#target) your model:
 1. Deploy the model to the compute target.
 1. Test the deployed model, also called a web service.
 
-For more information on the concepts involved in the deployment workflow, see [Manage, deploy, and monitor models with Azure Machine Learning](../concept-model-management-and-deployment.md).
+For more information on the concepts involved in the deployment workflow, see [Manage, deploy, and monitor models with Azure Machine Learning](concept-model-management-and-deployment.md).
 
 ## Prerequisites
 
-- An Azure Machine Learning workspace. For more information, see [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).
+- An Azure Machine Learning workspace. For more information, see [Create an Azure Machine Learning workspace](service/how-to-manage-workspace.md).
 
 - A model. If you don't have a trained model, you can use the model and dependency files provided in [this tutorial](https://aka.ms/azml-deploy-cloud).
 
-- The [Azure CLI extension for the Machine Learning service](reference-azure-machine-learning-cli.md), the [Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py), or the [Azure Machine Learning Visual Studio Code extension](how-to-vscode-tools.md).
+- The [Azure CLI extension for the Machine Learning service](service/reference-azure-machine-learning-cli.md), the [Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py), or the [Azure Machine Learning Visual Studio Code extension](service/how-to-vscode-tools.md).
 
 ## Connect to your workspace
 
@@ -55,7 +55,7 @@ The following code shows how to connect to an Azure Machine Learning workspace b
 
 + **Using VS Code**
 
-   When you use VS Code, you select the workspace by using a graphical interface. For more information, see [Deploy and manage models](how-to-vscode-tools.md#deploy-and-manage-models) in the VS Code extension documentation.
+   When you use VS Code, you select the workspace by using a graphical interface. For more information, see [Deploy and manage models](service/how-to-vscode-tools.md#deploy-and-manage-models) in the VS Code extension documentation.
 
 ## <a id="registermodel"></a> Register your model
 
@@ -71,7 +71,7 @@ Machine learning models are registered in your Azure Machine Learning workspace.
 The code snippets in this section demonstrate how to register a model from a training run:
 
 > [!IMPORTANT]
-> To use these snippets, you need to have previously performed a training run and you need to have access to the `Run` object (SDK example) or the run ID value (CLI example). For more information on training models, see [Set up compute targets for model training](how-to-set-up-training-targets.md).
+> To use these snippets, you need to have previously performed a training run and you need to have access to the `Run` object (SDK example) or the run ID value (CLI example). For more information on training models, see [Set up compute targets for model training](service/how-to-set-up-training-targets.md).
 
 + **Using the SDK**
 
@@ -105,19 +105,19 @@ The code snippets in this section demonstrate how to register a model from a tra
   az ml model register -n sklearn_mnist  --asset-path outputs/sklearn_mnist_model.pkl  --experiment-name myexperiment --run-id myrunid
   ```
 
-  [!INCLUDE [install extension](../../../includes/machine-learning-service-install-extension.md)]
+  [!INCLUDE [install extension](../../includes/machine-learning-service-install-extension.md)]
 
   The `--asset-path` parameter refers to the cloud location of the model. In this example, the path of a single file is used. To include multiple files in the model registration, set `--asset-path` to the path of a folder that contains the files.
 
 + **Using VS Code**
 
-  Register models using any model files or folders by using the [VS Code](how-to-vscode-tools.md#deploy-and-manage-models) extension.
+  Register models using any model files or folders by using the [VS Code](service/how-to-vscode-tools.md#deploy-and-manage-models) extension.
 
 ### Register a model from a local file
 
 You can register a model by providing the local path of the model. You can provide the path of either a folder or a single file. You can use this method to register models trained with Azure Machine Learning and then downloaded. You can also use this method to register models trained outside of Azure Machine Learning.
 
-[!INCLUDE [trusted models](../../../includes/machine-learning-service-trusted-model.md)]
+[!INCLUDE [trusted models](../../includes/machine-learning-service-trusted-model.md)]
 
 + **Using the SDK and ONNX**
 
@@ -159,7 +159,7 @@ For more information on working with models trained outside Azure Machine Learni
 
 You can use the following compute targets, or compute resources, to host your web service deployment:
 
-[!INCLUDE [aml-compute-target-deploy](../../../includes/aml-compute-target-deploy.md)]
+[!INCLUDE [aml-compute-target-deploy](../../includes/aml-compute-target-deploy.md)]
 
 ## Prepare to deploy
 
@@ -174,7 +174,7 @@ To deploy the model, you need the following items:
     >
     > * The Azure Machine Learning SDK doesn't provide a way for web services or IoT Edge deployments to access your data store or datasets. If your deployed model needs to access data stored outside the deployment, like data in an Azure storage account, you must develop a custom code solution by using the relevant SDK. For example, the [Azure Storage SDK for Python](https://github.com/Azure/azure-storage-python).
     >
-    >   An alternative that might work for your scenario is [batch prediction](how-to-run-batch-predictions.md), which does provide access to data stores during scoring.
+    >   An alternative that might work for your scenario is [batch prediction](service/how-to-run-batch-predictions.md), which does provide access to data stores during scoring.
 
 * **Dependencies**, like helper scripts or Python/Conda packages required to run the entry script or model.
 
@@ -482,7 +482,7 @@ inference_config = InferenceConfig(entry_script="x/y/score.py",
                                    environment=deploy_env)
 ```
 
-For more information on environments, see [Create and manage environments for training and deployment](how-to-use-environments.md).
+For more information on environments, see [Create and manage environments for training and deployment](service/how-to-use-environments.md).
 
 You can also directly specify the dependencies without using an environment. The following example demonstrates how to create an inference configuration that loads software dependencies from a Conda file:
 
@@ -500,7 +500,7 @@ For information on using a custom Docker image with an inference configuration, 
 
 ### CLI example of InferenceConfig
 
-[!INCLUDE [inference config](../../../includes/machine-learning-service-inference-config.md)]
+[!INCLUDE [inference config](../../includes/machine-learning-service-inference-config.md)]
 
 The following command demonstrates how to deploy a model by using the CLI:
 
@@ -569,7 +569,7 @@ For more information, see these documents:
 
 * [ModelProfile](https://docs.microsoft.com/python/api/azureml-core/azureml.core.profile.modelprofile?view=azure-ml-py)
 * [profile()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#profile-workspace--profile-name--models--inference-config--input-data-)
-* [Inference configuration file schema](reference-azure-machine-learning-cli.md#inference-configuration-schema)
+* [Inference configuration file schema](service/reference-azure-machine-learning-cli.md#inference-configuration-schema)
 
 ## Deploy to target
 
@@ -577,7 +577,7 @@ Deployment uses the inference configuration deployment configuration to deploy t
 
 ### Securing deployments with SSL
 
-For more information on how to secure a web service deployment, see [Use SSL to secure a web service](how-to-secure-web-service.md#enable).
+For more information on how to secure a web service deployment, see [Use SSL to secure a web service](service/how-to-secure-web-service.md#enable).
 
 ### <a id="local"></a> Local deployment
 
@@ -604,7 +604,7 @@ To deploy a model by using the CLI, use the following command. Replace `mymodel:
 az ml model deploy -m mymodel:1 --ic inferenceconfig.json --dc deploymentconfig.json
 ```
 
-[!INCLUDE [aml-local-deploy-config](../../../includes/machine-learning-service-local-deploy-config.md)]
+[!INCLUDE [aml-local-deploy-config](../../includes/machine-learning-service-local-deploy-config.md)]
 
 For more information, see the [az ml model deploy](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-deploy) documentation.
 
@@ -657,7 +657,7 @@ print(response.elapsed)
 print(response.json())
 ```
 
-For more information, see [Create client applications to consume web services](../how-to-consume-web-service.md).
+For more information, see [Create client applications to consume web services](how-to-consume-web-service.md).
 
 ### Web service schema (OpenAPI specification)
 
@@ -804,7 +804,7 @@ For a utility that can create client libraries from the specification, see [swag
 ### <a id="azuremlcompute"></a> Batch inference
 Azure Machine Learning Compute targets are created and managed by Azure Machine Learning. They can be used for batch prediction from Azure Machine Learning pipelines.
 
-For a walkthrough of batch inference with Azure Machine Learning Compute, see [How to run batch predictions](tutorial-pipeline-batch-scoring-classification.md).
+For a walkthrough of batch inference with Azure Machine Learning Compute, see [How to run batch predictions](service/tutorial-pipeline-batch-scoring-classification.md).
 
 ### <a id="iotedge"></a> IoT Edge inference
 Support for deploying to the edge is in preview. For more information, see [Deploy Azure Machine Learning as an IoT Edge module](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-machine-learning).
@@ -812,13 +812,13 @@ Support for deploying to the edge is in preview. For more information, see [Depl
 
 ## <a id="update"></a> Update web services
 
-[!INCLUDE [aml-update-web-service](../../../includes/machine-learning-update-web-service.md)]
+[!INCLUDE [aml-update-web-service](../../includes/machine-learning-update-web-service.md)]
 
 ## Continuously deploy models
 
 You can continuously deploy models by using the Machine Learning extension for [Azure DevOps](https://azure.microsoft.com/services/devops/). You can use the Machine Learning extension for Azure DevOps to trigger a deployment pipeline when a new machine learning model is registered in an Azure Machine Learning workspace.
 
-1. Sign up for [Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/get-started/pipelines-sign-up?view=azure-devops), which makes continuous integration and delivery of your application to any platform or cloud possible. (Note that Azure Pipelines isn't the same as [Machine Learning pipelines](../concept-ml-pipelines.md#compare).)
+1. Sign up for [Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/get-started/pipelines-sign-up?view=azure-devops), which makes continuous integration and delivery of your application to any platform or cloud possible. (Note that Azure Pipelines isn't the same as [Machine Learning pipelines](concept-ml-pipelines.md#compare).)
 
 1. [Create an Azure DevOps project.](https://docs.microsoft.com/azure/devops/organizations/projects/create-project?view=azure-devops)
 
@@ -830,7 +830,7 @@ You can continuously deploy models by using the Machine Learning extension for [
 
 1. In the **Scope level** list, select **AzureMLWorkspace**, and then enter the rest of the values:
 
-    ![Select AzureMLWorkspace](media/how-to-deploy-and-where/resource-manager-connection.png)
+    ![Select AzureMLWorkspace](./media/how-to-deploy-and-where/resource-manager-connection.png)
 
 1. To continuously deploy your machine learning model by using Azure Pipelines, under pipelines, select **release**. Add a new artifact, and then select the **AzureML Model** artifact and the service connection that you created earlier. Select the model and version to trigger a deployment:
 
@@ -1056,7 +1056,7 @@ resp = requests.post(scoring_uri, input_data, headers=headers)
 print(resp.text)
 ```
 
-For example clients in other programming languages, see [Consume models deployed as web services](../how-to-consume-web-service.md).
+For example clients in other programming languages, see [Consume models deployed as web services](how-to-consume-web-service.md).
 
 ### Stop the Docker container
 
@@ -1076,9 +1076,9 @@ For more information, see the documentation for [WebService.delete()](https://do
 ## Next steps
 
 * [How to deploy a model using a custom Docker image](how-to-deploy-custom-docker-image.md)
-* [Deployment troubleshooting](how-to-troubleshoot-deployment.md)
-* [Secure Azure Machine Learning web services with SSL](how-to-secure-web-service.md)
-* [Consume an Azure Machine Learning model deployed as a web service](../how-to-consume-web-service.md)
-* [Monitor your Azure Machine Learning models with Application Insights](how-to-enable-app-insights.md)
-* [Collect data for models in production](how-to-enable-data-collection.md)
+* [Deployment troubleshooting](service/how-to-troubleshoot-deployment.md)
+* [Secure Azure Machine Learning web services with SSL](service/how-to-secure-web-service.md)
+* [Consume an Azure Machine Learning model deployed as a web service](how-to-consume-web-service.md)
+* [Monitor your Azure Machine Learning models with Application Insights](service/how-to-enable-app-insights.md)
+* [Collect data for models in production](service/how-to-enable-data-collection.md)
 
