@@ -76,6 +76,11 @@ The following script in `Python` loads a dataset from **Azure Blob Storage** &gt
 ``` python
 # Load libraries
 from azure.storage.blob import BlockBlobService
+import subprocess
+import sys
+
+# Install pandas
+subprocess.check_call([sys.executable, "-m", "pip", "install", "pandas"])
 import pandas as pd
 
 # Define parameters
