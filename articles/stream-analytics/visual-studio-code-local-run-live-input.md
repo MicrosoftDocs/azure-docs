@@ -33,7 +33,7 @@ You can use Azure Stream Analytics Tools for Visual Studio Code to test your Str
 
 3. If you added the input from the command palette, choose the Stream Analytics query script that will use the input. It should be automatically populated with the file path to **myASAproj.asaql**.
 
-   ![Select an Stream Analytics script in Visual Studio Code](./media/quick-create-vs-code/asa-script.png)
+   ![Select a Stream Analytics script in Visual Studio Code](./media/quick-create-vs-code/asa-script.png)
 
 4. Choose **Select from your Azure Subscriptions** from the drop-down menu.
 
@@ -45,7 +45,7 @@ You can use Azure Stream Analytics Tools for Visual Studio Code to test your Str
 
 ## Preview input
 
-To make sure that the input data is coming, select **Preview data** in your live input configuration file from the top line. Some input data comes from an IoT hub and is shown in the preview window. Note that the preview might take a few seconds to appear.
+To make sure that the input data is coming, select **Preview data** in your live input configuration file from the top line. Some input data comes from an IoT hub and is shown in the preview window. The preview might take a few seconds to appear.
 
  ![Preview live input](./media/quick-create-vs-code/preview-live-input.png)
 

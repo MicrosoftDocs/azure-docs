@@ -58,9 +58,9 @@ Before you define the Stream Analytics job, you should prepare the data that's l
    |**Setting**  |**Suggested value**  |**Description**  |
    |---------|---------|---------|
    |Subscription  | \<Your subscription\> |  Select the Azure subscription that you want to use. |
-   |Resource group   |   asaquickstart-resourcegroup  |   Select **Create New** and enter a new resource-group name for your account. |
+   |Resource Group   |   asaquickstart-resourcegroup  |   Select **Create New** and enter a new resource-group name for your account. |
    |Region  |  \<Select the region that is closest to your users\> | Select a geographic location where you can host your IoT hub. Use the location that's closest to your users. |
-   |IoT hub name  | MyASAIoTHub  |   Select a name for your IoT hub.   |
+   |IoT Hub Name  | MyASAIoTHub  |   Select a name for your IoT hub.   |
 
    ![Create an IoT hub](./media/quick-create-vs-code/create-iot-hub.png)
 
@@ -76,7 +76,7 @@ Before you define the Stream Analytics job, you should prepare the data that's l
 
    ![Add a device to your IoT hub](./media/quick-create-vs-code/add-device-iot-hub.png)
 
-8. After the device is created, open the device from the **IoT devices** list. Copy the string in **Connection string -- primary key** and save it to a notepad to use later.
+8. After the device is created, open the device from the **IoT devices** list. Copy the string in **Connection string (primary key)** and save it to a notepad to use later.
 
    ![Copy IoT hub device connection string](./media/quick-create-vs-code/save-iot-device-connection-string.png)
 
@@ -84,7 +84,7 @@ Before you define the Stream Analytics job, you should prepare the data that's l
 
 1. Open the [Raspberry Pi Azure IoT Online Simulator](https://azure-samples.github.io/raspberry-pi-web-simulator/) in a new browser tab or window.
 
-2. Replace the placeholder in line 15 with the IoT hub device connection string that you saved in a previous section.
+2. Replace the placeholder in line 15 with the IoT hub device connection string that you saved earlier.
 
 3. Select **Run**. The output should show the sensor data and messages that are being sent to your IoT hub.
 
@@ -116,7 +116,7 @@ Before you define the Stream Analytics job, you should prepare the data that's l
 
     ![Create a project name](./media/quick-create-vs-code/create-project-name.png)
 
-3. The new project is added to your workspace. A Stream Analytics project consists of three folders: Inputs, Outputs, and Functions. It also has the query script **(*.asaql)**, a **JobConfig.json** file, and an **asaproj.json** configuration file.
+3. The new project is added to your workspace. A Stream Analytics project consists of three folders: **Inputs**, **Outputs**, and **Functions**. It also has the query script **(*.asaql)**, a **JobConfig.json** file, and an **asaproj.json** configuration file.
 
     The **asaproj.json** configuration file contains the inputs, outputs, and job configuration file information needed for submitting the Stream Analytics job to Azure.
 
