@@ -16,26 +16,12 @@ ms.date: 12/12/2019
 
 # What tools are included on the Azure Data Science Virtual Machine?
 
-The Data Science Virtual Machine comes with the most useful data-science tools pre-installed. In addition to operating system tools, the DSVM includes:
+The Data Science Virtual Machine comes with the most useful data-science tools pre-installed. In addition to operating system tools, the DSVM includes tools to:
 
-- [The data platform of your choice](dsvm-tools-data-platforms.md)
-- [Your preferred programming languages](dsvm-tools-languages.md)
-- [Familiar development tools](dsvm-tools-development.md)
-- [Powerful Data Science tools and libraries](dsvm-tools-data-science.md)
-- [Data ingestion tools](dsvm-tools-ingestion.md)
-- [Deep learning and statistical ML frameworks](dsvm-tools-deep-learning-frameworks.md)
-- [Productivity and Business Intelligence tools](dsvm-tools-productivity.md)
-- [Sample code and walkthroughs](dsvm-samples-and-walkthroughs.md)
-
-# What tools are included on the Azure Data Science Virtual Machine?
-
-The Data Science Virtual Machine comes with the most useful data-science tools pre-installed. In addition to operating system tools, the DSVM includes tools for data manipulating, programming, and popular libraries for developing and running machine learning models. 
-
-Below we have included an up-to-date list of tools included on the Data Science Virtual Machine, with links to help with configuration and usage.
-
+- [Store, Retrieve, and Manipulate Data](#store-retrieve-and-manipulate-data)
+- [Program in Python, R, and Julia](#program-in-python-r-and-julia)
 
 ## Store, Retrieve, and Manipulate Data
-
 
 | **Tool**                                                                                                                                     |                                                                                           **Windows DSVM**                                                                                           |                                                                          **Linux DSVM**                                                                          | **Windows 2019 Server DSVM (Preview)**                                                    | **Ubuntu 18.04 DSVM (Preview)** |                                                       **Usage notes**                                                       |
 |----------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|:----------------------------------------------------------------------------------------------------------------------------------------------------------------:|-------------------------------------------------------------------------------------------|---------------------------------|:---------------------------------------------------------------------------------------------------------------------------:|
