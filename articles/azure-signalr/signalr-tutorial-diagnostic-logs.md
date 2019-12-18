@@ -10,7 +10,7 @@ ms.author: wanl
 
 # Diagnostic Logs for Azure SignalR Service
 
-This tutorial covers what are diagnostic logs and how to set up diagnostic logs and how to troubleshoot with diagnostic logs.
+This tutorial covers what are diagnostic logs for Azure SignalR Service and how to set up diagnostic logs and how to troubleshoot with diagnostic logs.
 
 ## Prerequisites
 To enable diagnostic logs, you'll need somewhere to store your log data. This tutorial uses Azure Storage and Log Analytics.
@@ -51,7 +51,7 @@ For more information about configuring diagnostics, see the [overview of Azure d
 
 Azure SignalR Service captures diagnostic logs in one category:
 
-* **All Logs**: Track connections that connect to Azure SignalR Service. The logs Provide information about the connect/disconnect, authentication and throttling. For more information, see the next section.
+* **All Logs**: Track connections that connect to Azure SignalR Service. The logs provide information about the connect/disconnect, authentication and throttling. For more information, see the next section.
 
 ### Archive to a storage account
 
@@ -116,7 +116,7 @@ To view diagnostic logs, follow these steps:
 
     ![Log Analytics menu item](./media/signalr-tutorial-diagnostic-logs/log-analytics-menu-item.png)
 
-1. Enter `SignalRServiceDiagnosticLogs` and select time range to query diagnostic logs. For advanced query, please see [Get started with Log Analytics in Azure Monitor](../azure-monitor/log-query/get-started-portal)
+2. Enter `SignalRServiceDiagnosticLogs` and select time range to query diagnostic logs. For advanced query, see [Get started with Log Analytics in Azure Monitor](../azure-monitor/log-query/get-started-portal)
 
     ![Query log in Log Analytics](./media/signalr-tutorial-diagnostic-logs/query-log-in-log-analytics.png)
 
@@ -161,17 +161,17 @@ Reason | Description
 Connection count reaches limit | Connection count reaches limit of your current price tier. Consider scale up service unit
 Application server closed the connection | App server triggers the abortion. It can be considered as an expected abortion
 Connection ping timeout | Usually it is caused by network issue. Consider checking your app server's availability from the internet
-Service reloading, please reconnect | Azure SignalR Service is reloading. Azure SignalR supports auto-reconnecting, you can wait until reconnected or manually reconnect to Azure SignalR Service
+Service reloading, reconnect | Azure SignalR Service is reloading. Azure SignalR supports auto-reconnecting, you can wait until reconnected or manually reconnect to Azure SignalR Service
 Internal server transient error | Transient error occurs in Azure SignalR Service, should be auto-recovered
 Server connection dropped | Server connection drops with unknown error, consider self-troubleshooting with service/server/client side log first. Try to exclude basic issues (e.g Network issue, app server side issue and so on). If the issue isn't resolved, contact us for further help. For more information, see [Get help](#get-help) section. 
 
 ##### Unexpected connection growing
 
-To troubleshoot about unexpected connection growing, the first thing you need to do is filter out the extra connections. You can add unique test user ID to your test client connection. Then verify it in with diagnostic logs, you see more than one client connections have the same test user ID or IP, then it is likely the client side create and establish more connections than expectation. Check your client side.
+To troubleshoot about unexpected connection growing, the first thing you need to do is to filter out the extra connections. You can add unique test user ID to your test client connection. Then verify it in with diagnostic logs, if you see more than one client connections have the same test user ID or IP, then it is likely the client side create and establish more connections than expectation. Check your client side.
 
 #### Authorization failure
 
-If you get 401 Unauthorized returned for client requests, check your diagnostic logs. If you encounter `Failed to validate audience. Expected Audiences: <valid audience>. Actual Audiences: <actual audience>`, it means your all audiences in your access token are invalid. Try to use the valid audiences suggested in the log.
+If you get 401 Unauthorized returned for client requests, check your diagnostic logs. If you encounter `Failed to validate audience. Expected Audiences: <valid audience>. Actual Audiences: <actual audience>`, it means all audiences in your access token are invalid. Try to use the valid audiences suggested in the log.
 
 
 #### Throttling
@@ -185,7 +185,7 @@ If the issue still can't be resolved, then consider open an issue in github or c
 Provide:
 1. Time range about 30 minutes when the issue occurs
 2. Azure SignalR Service's resource ID
-3. Issue details, as specifically as possible: For example, appserver doesn't send messages, client connection drops and so on
+3. Issue details, as specific as possible: For example, appserver doesn't send messages, client connection drops and so on
 4. Logs collected from server/client side, and other material that might be useful
 5. [Optional] Repro code
 
