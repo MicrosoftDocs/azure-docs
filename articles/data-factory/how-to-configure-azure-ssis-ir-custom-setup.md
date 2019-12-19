@@ -16,9 +16,15 @@ ms.date: 12/16/2019
 
 # Customize setup for the Azure-SSIS integration runtime
 
-The custom setup interface for the Azure-SSIS Integration Runtime provides an interface to add your own setup steps during the provisioning or reconfiguration of your Azure-SSIS IR. Custom setup lets you alter the default operating configuration or environment (for example, to start additional Windows services or persist access credentials for file shares) or install additional components (for example, assemblies, drivers, or extensions) on each node of your Azure-SSIS IR.
+The custom setup interface for the Azure-SSIS Integration Runtime provides an interface to add your own setup steps during the provisioning or reconfiguration of your Azure-SSIS IR. 
 
-There are two ways to do custom setups on your Azure-SSIS IR: express custom setups without scripts and standard custom setups with scripts.  With express custom setups, you can run some common system configurations/Windows commands or install some popular/recommended additional components without using any scripts.  With standard custom setups, you need to prepare a script and its associated files, and upload them all together into a blob container in your Azure Storage account. You then provide a Shared Access Signature (SAS) Uniform Resource Identifier (URI) for your container when you provision or reconfigure your Azure-SSIS IR. Each node of your Azure-SSIS IR will then download the script and its associated files from your container and run your custom setup with elevated privileges. When your custom setup is finished, each node will upload the standard output of execution and other logs into your container.
+Custom setup lets you alter the default operating configuration or environment (for example, to start additional Windows services or persist access credentials for file shares) or install additional components (for example, assemblies, drivers, or extensions) on each node of your Azure-SSIS IR.
+
+There are two ways to do custom setups on your Azure-SSIS IR: express custom setups without scripts and standard custom setups with scripts.
+
+With express custom setups, you can run some common system configurations/Windows commands or install some popular/recommended additional components without using any scripts.  
+
+With standard custom setups, you need to prepare a script and its associated files, and upload them all together into a blob container in your Azure Storage account. You then provide a Shared Access Signature (SAS) Uniform Resource Identifier (URI) for your container when you provision or reconfigure your Azure-SSIS IR. Each node of your Azure-SSIS IR will then download the script and its associated files from your container and run your custom setup with elevated privileges. When your custom setup is finished, each node will upload the standard output of execution and other logs into your container.
 
 You can install both free/unlicensed and paid/licensed components with express/standard custom setups. If you're an ISV, see [How to develop paid or licensed components for the Azure-SSIS IR](how-to-develop-azure-ssis-ir-licensed-components.md).
 
@@ -98,7 +104,11 @@ To customize your Azure-SSIS IR, you need the following things:
 
       ![Copy and save the Shared Access Signature](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image8.png)
 
-1. When you provision or reconfigure your Azure-SSIS IR with Data Factory UI, you can add/remove custom setups by selecting the **Customize your Azure-SSIS Integration Runtime with additional system configurations/component installations** check box on the **Advanced Settings** panel. If you want to add standard custom setups, enter the SAS URI of your container in the **Custom setup container SAS URI** field. If you want to add express custom setups, select **New** to open the **Add express custom setup** panel and then select any types under the **Express custom setup type** dropdown menu:
+1. When you provision or reconfigure your Azure-SSIS IR with Data Factory UI, you can add/remove custom setups by selecting the **Customize your Azure-SSIS Integration Runtime with additional system configurations/component installations** check box on the **Advanced Settings** panel. 
+
+   If you want to add standard custom setups, enter the SAS URI of your container in the **Custom setup container SAS URI** field. 
+   
+   If you want to add express custom setups, select **New** to open the **Add express custom setup** panel and then select any types under the **Express custom setup type** dropdown menu:
 
    1. If you select the **Run cmdkey command** type, you can persist access credentials for your file shares/Azure Files on Azure-SSIS IR by entering your targeted computer/domain name, account name/username, and account key/password in the **/Add**, **/User**, and **/Pass** fields, respectively. This is similar to running Windows [cmdkey](https://docs.microsoft.com/windows-server/administration/windows-commands/cmdkey) command on your local machine.
    
@@ -116,7 +126,9 @@ To customize your Azure-SSIS IR, you need the following things:
 
    ![Standard and express custom setups](media/how-to-configure-azure-ssis-ir-custom-setup/advanced-settings-custom.png)
 
-   When you provision or reconfigure your Azure-SSIS IR with PowerShell, you can add/remove custom setups by running the `Set-AzDataFactoryV2IntegrationRuntime` cmdlet before you start your Azure-SSIS IR.  For standard custom setups, you can provide the SAS URI of your container as the value for `SetupScriptContainerSasUri` parameter. For example:
+   When you provision or reconfigure your Azure-SSIS IR with PowerShell, you can add/remove custom setups by running the `Set-AzDataFactoryV2IntegrationRuntime` cmdlet before you start your Azure-SSIS IR.
+   
+   For standard custom setups, you can provide the SAS URI of your container as the value for `SetupScriptContainerSasUri` parameter. For example:
 
    ```powershell
    Set-AzDataFactoryV2IntegrationRuntime -DataFactoryName $MyDataFactoryName `
@@ -131,7 +143,7 @@ To customize your Azure-SSIS IR, you need the following things:
    
    After your standard custom setup finishes and your Azure-SSIS IR starts, you can find the standard output of `main.cmd` and other execution logs in the `main.cmd.log` folder of your storage container.
 
-1. For standard custom setups, to see other examples, connect to our Public Preview container with Azure Storage Explorer.
+1. To see some samples of standard custom setups, connect to our Public Preview container with Azure Storage Explorer.
 
    1. Under **(Local and Attached)**, right-click **Storage Accounts**, select **Connect to Azure storage**, select **Use a connection string or a shared access signature URI**, and then select **Next**.
 
@@ -147,7 +159,7 @@ To customize your Azure-SSIS IR, you need the following things:
 
       1. A `Sample` folder, which contains a custom setup to install a basic task on each node of your Azure-SSIS IR. The task does nothing but sleep for a few seconds. The folder also contains a `gacutil` folder, the whole content of which (`gacutil.exe`, `gacutil.exe.config`, and `1033\gacutlrc.dll`) can be copied as is into your container.
 
-      1. A `UserScenarios` folder, which contains several custom setups for real user scenarios.
+      1. A `UserScenarios` folder, which contains several custom setup samples from real user scenarios.
 
       ![Contents of the public preview container](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image11.png)
 
@@ -171,7 +183,7 @@ To customize your Azure-SSIS IR, you need the following things:
 
 	  1. A `POSTGRESQL ODBC` folder, which contains a custom setup script (`main.cmd`) to install the PostgreSQL ODBC drivers on each node of your Azure-SSIS IR. This setup lets you use the ODBC Connection Manager/Source/Destination to connect to PostgreSQL server. First, download the latest 64-bit and 32-bit versions of PostgreSQL ODBC driver installers - for example, `psqlodbc_x64.msi` and `psqlodbc_x86.msi` - from [PostgreSQL](https://www.postgresql.org/ftp/odbc/versions/msi/), then upload them all together with `main.cmd` into your container.
 
-      1. An `SAP BW` folder, which contains a custom setup script (`main.cmd`) to install the SAP .NET connector assembly (`librfc32.dll`) on each node of your Azure-SSIS IR Enterprise Edition. This setup lets you use the SAP BW Connection Manager/Source/Destination to connect to SAP BW server. First, upload the 64-bit or the 32-bit version of `librfc32.dll` from the SAP installation folder together with `main.cmd` into your container. The script then copies the SAP assembly into the `%windir%\SysWow64` or `%windir%\System32` folder during setup.
+      1. A `SAP BW` folder, which contains a custom setup script (`main.cmd`) to install the SAP .NET connector assembly (`librfc32.dll`) on each node of your Azure-SSIS IR Enterprise Edition. This setup lets you use the SAP BW Connection Manager/Source/Destination to connect to SAP BW server. First, upload the 64-bit or the 32-bit version of `librfc32.dll` from the SAP installation folder together with `main.cmd` into your container. The script then copies the SAP assembly into the `%windir%\SysWow64` or `%windir%\System32` folder during setup.
 
       1. A `STORAGE` folder, which contains a custom setup to install Azure PowerShell on each node of your Azure-SSIS IR. This setup lets you deploy and run SSIS packages that run [PowerShell scripts to manipulate your Azure Storage account](https://docs.microsoft.com/azure/storage/blobs/storage-how-to-use-blobs-powershell). Copy `main.cmd`, a sample `AzurePowerShell.msi` (or use the latest version), and `storage.ps1` to your container. Use PowerShell.dtsx as a template for your packages. The package template combines an [Azure Blob Download Task](https://docs.microsoft.com/sql/integration-services/control-flow/azure-blob-download-task), which downloads `storage.ps1` as a modifiable PowerShell script, and an [Execute Process Task](https://blogs.msdn.microsoft.com/ssis/2017/01/26/run-powershell-scripts-in-ssis/)  that executes the script on each node.
 
