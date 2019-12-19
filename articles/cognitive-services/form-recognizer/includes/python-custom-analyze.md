@@ -30,7 +30,7 @@ Next, you'll use your newly trained model to analyze a document and extract key-
     post_url = endpoint + "/formrecognizer/v2.0-preview/custom/models/%s/analyze" % model_id
     source = r"<file path>"
     params = {
-        "includeTextDetails": False
+        "includeTextDetails": True
     }
     
     headers = {
