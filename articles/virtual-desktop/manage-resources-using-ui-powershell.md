@@ -10,7 +10,7 @@ ms.date: 12/16/2019
 ms.author: helohr
 ---
 
-# Deploy a management tool using PowerShell
+# Deploy a management tool with PowerShell
 
 This article will show you how to deploy the management tool using PowerShell.
 

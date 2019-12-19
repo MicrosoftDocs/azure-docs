@@ -70,9 +70,9 @@
     href: customize-feed-for-virtual-desktop-users.md
   - name: Deploy the management tool
     items:
-      - name: Using a one-click deployment
+      - name: Azure Resource Manager template
         href: manage-resources-using-ui.md
-      - name: Using PowerShell
+      - name: PowerShell
         href: manage-resources-using-ui-powershell.md
   - name: Use service diagnostics
     items:

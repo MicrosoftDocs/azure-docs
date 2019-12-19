@@ -1,6 +1,6 @@
 ---
-title: Deploy management tool using a one-click deployment - Azure
-description: How to install a user interface tool with a one-click deployment to manage Windows Virtual Desktop resources.
+title: Deploy management tool with an Azure Resource Manager template - Azure
+description: How to install a user interface tool with an Azure Resource Manager template to manage Windows Virtual Desktop resources.
 services: virtual-desktop
 author: Heidilohr
 
@@ -9,9 +9,9 @@ ms.topic: conceptual
 ms.date: 11/09/2019
 ms.author: helohr
 ---
-# Deploy a management tool using a one-click deployment
+# Deploy a management tool with an Azure Resource Manager template
 
-The instructions in this article will tell you how to deploy the UI by using a user account.
+The instructions in this article will tell you how to deploy the UI by using an Azure Resource Manager template.
 
 ## Important considerations
 
