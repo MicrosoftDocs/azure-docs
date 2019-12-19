@@ -57,8 +57,8 @@ By default, service tags reflect the ranges for the entire cloud. Some service t
 | **BatchNodeManagement** | Management traffic for deployments dedicated to Azure Batch. | Both | No | Yes |
 | **CognitiveServicesManagement** | The address ranges for traffic for Cognitive Services. | Outbound | No | No |
 | **Dynamics365ForMarketingEmail** | The address ranges for the marketing email service of Dynamics 365. | Outbound | Yes | No |
-| **EventHub** | Azure EventHub service. | Outbound | Yes | Yes |
-| **GatewayManager** | Management traffic for VPN/App Gateways dedicated deployments. | Inbound | No | No |
+| **EventHub** | Azure Event Hubs. | Outbound | Yes | Yes |
+| **GatewayManager** | Management traffic for deployments dedicated to VPN/App Gateways. | Inbound | No | No |
 | **Internet** | The IP address space that is outside the virtual network and reachable by the public Internet.<br/><br/>The address range includes the [Azure owned public IP address space](https://www.microsoft.com/download/details.aspx?id=41653). | Both | No | No |
 | **MicrosoftContainerRegistry** | Microsoft Container Registry service. | Outbound | Yes | Yes |
 | **ServiceBus** | Azure Service Bus service using the Premium service tier. | Outbound | Yes | Yes |
