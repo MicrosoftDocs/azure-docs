@@ -187,7 +187,7 @@ To make clean-up easier, these VMs will be added to the same resource group that
 
 In this section, you will clone the Azure IoT C SDK on each VM. The SDK contains a sample that will simulate a tenant's device provisioning from each region.
 
-1. For each VM, install **Cmake**, **g++**, **gcc**, and [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) using the following commands:
+1. For each VM, install **CMake**, **g++**, **gcc**, and [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) using the following commands:
 
     ```bash
     sudo apt-get update

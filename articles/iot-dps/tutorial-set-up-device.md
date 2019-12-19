@@ -95,8 +95,9 @@ Depending on whether you built the SDK to use attestation for a physical TPM/HSM
 
 - For an X.509 device, you need to obtain the certificates issued to your device(s). The provisioning service exposes two types of enrollment entries that control access for devices using the X.509 attestation mechanism. The certificates needed depend on the enrollment types you will be using.
 
-    1. Individual enrollments: Enrollment for a specific single device. This type of enrollment entry requires [end-entity, "leaf", certificates](concepts-security.md#end-entity-leaf-certificate).
-    1. Enrollment groups: This type of enrollment entry requires intermediate or root certificates. For more information, see [Controlling device access to the provisioning service with X.509 certificates](concepts-security.md#controlling-device-access-to-the-provisioning-service-with-x509-certificates).
+    - Individual enrollments: Enrollment for a specific single device. This type of enrollment entry requires [end-entity, "leaf", certificates](concepts-security.md#end-entity-leaf-certificate).
+    
+    - Enrollment groups: This type of enrollment entry requires intermediate or root certificates. For more information, see [Controlling device access to the provisioning service with X.509 certificates](concepts-security.md#controlling-device-access-to-the-provisioning-service-with-x509-certificates).
 
 ### Simulated devices
 
