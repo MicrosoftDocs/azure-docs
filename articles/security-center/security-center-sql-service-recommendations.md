@@ -20,7 +20,7 @@ When Security Center identifies potential security vulnerabilities, it creates r
 
 This article explains the Data Security page of the resource security section of Azure Security Center and some of the recommendations you'll see there.
 
-For a full list of the recommendations you might see on this page, see [Data and Storage recommendations](recommendations-reference#recs-datastorage).
+For a full list of the recommendations you might see on this page, see [Data and Storage recommendations](recommendations-reference.md#recs-datastorage).
 
 
 ## View your data security information
