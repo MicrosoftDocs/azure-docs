@@ -132,7 +132,7 @@ Monitoring enables you to understand what data is being sent to your model, and 
 
 This information helps you understand how your model is being used. The collected input data may also be useful in training future versions of the model.
 
-For more information, see [How to enable model data collection](service/how-to-enable-data-collection.md).
+For more information, see [How to enable model data collection](how-to-enable-data-collection.md).
 
 ## Automate the ML lifecycle 
 
