@@ -726,7 +726,7 @@
       - name: Slow reducer
         href: ./interactive-query/interactive-query-troubleshoot-slow-reducer.md
       - name: Apache Hive gateway timeout
-        href: ./interactive-query-troubleshoot-gateway-timeout.md
+        href: ./interactive-query/interactive-query-troubleshoot-gateway-timeout.md
       - name: Apache Hive View time out
         href: ./interactive-query/interactive-query-troubleshoot-view-time-out.md
       - name: Permission error creating table

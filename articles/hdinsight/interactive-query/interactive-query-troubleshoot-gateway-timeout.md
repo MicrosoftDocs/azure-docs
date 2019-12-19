@@ -51,7 +51,7 @@ Some general recommendations to you to improve the situation:
 
 * Ensure that parallel ops is turned on (this enables the http handler threads to operate in parallel). To verify the value, launch [Apache Ambari](../hdinsight-hadoop-manage-ambari.md) and navigate to **Hive** > **Configs** > **Advanced** > **Custom hive-site**. The value for `hive.server2.parallel.ops.in.session` should be `true`.
 
-* Ensure that the cluster's VM SKU isn't too small for the load. Consider to splitting the work among multiple clusters. For more information, see [Choose a cluster type](../hdinsight-capacity-planning#choose-a-cluster-type.md).
+* Ensure that the cluster's VM SKU isn't too small for the load. Consider to splitting the work among multiple clusters. For more information, see [Choose a cluster type](../hdinsight-capacity-planning.md#choose-a-cluster-type.md).
 
 * If Ranger is installed on the cluster, please check if there are too many Ranger policies that need to be evaluated for each query. Look for duplicate or unneeded policies.
 
