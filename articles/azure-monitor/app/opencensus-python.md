@@ -350,7 +350,7 @@ Here are the exporters that OpenCensus provides mapped to the types of telemetry
     logger.warning('action', {'key-1': 'value-1', 'key-2': 'value2'})
     ```
 
-7. For details on how to enrich your logs with trace context data, see OpenCensus Python [logs integration](https://docs.microsoft.com/azure/azure-monitor/app/correlation#logs-correlation).
+7. For details on how to enrich your logs with trace context data, see OpenCensus Python [logs integration](https://docs.microsoft.com/azure/azure-monitor/app/correlation#log-correlation).
 
 ## View your data with queries
 
