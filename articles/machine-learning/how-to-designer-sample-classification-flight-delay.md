@@ -21,7 +21,7 @@ This pipeline uses historical flight and weather data to predict if a scheduled 
 
 Here's the final pipeline graph for this sample:
 
-[![Graph of the pipeline](./media/how-to-designer-sample-classification-flight-delay/pipeline-graph.png)](media/how-to-designer-sample-classification-predict-credit-risk-cost-sensitive/graph.png#lightbox)
+[![Graph of the pipeline](media/how-to-designer-sample-classification-flight-delay/pipeline-graph.png)](media/how-to-designer-sample-classification-flight-delay/pipeline-graph.png#lightbox)
 
 ## Prerequisites
 

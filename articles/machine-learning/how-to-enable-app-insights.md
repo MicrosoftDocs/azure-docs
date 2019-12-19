@@ -104,7 +104,7 @@ If you want to log custom traces, follow the standard deployment process for AKS
     config = Webservice.deploy_configuration(enable_app_insights=True)
     ```
 
-3. Build an image and deploy it on [AKS](how-to-deploy-to-aks.md) or [ACI](how-to-deploy-to-aci.md)
+3. Build an image and deploy it on [AKS or ACI](how-to-deploy-and-where.md).
 
 ### Disable tracking in Python
 
