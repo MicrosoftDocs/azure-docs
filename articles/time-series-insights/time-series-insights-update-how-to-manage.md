@@ -8,7 +8,7 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 10/23/2019
+ms.date: 12/18/2019
 ms.custom: seodec18
 ---
 
@@ -39,22 +39,24 @@ After provisioning is complete, you can modify your access policies and other en
 
 To create an Azure Time Series Insights Preview environment:
 
-1. On the **SKU** menu, select the **PAYG** button. Provide an environment name, and choose the subscription group and resource group to use. Then select a supported location to host the environment.
+1. Select **PAYG** as the **Tier**. Provide an environment name, and choose the subscription group and resource group to use. Then select a supported location to host the environment.
 
-   [![Create an Azure Time Series Insights instance.](media/v2-update-manage/manage-three.png)](media/v2-update-manage/manage-three.png#lightbox)
+   [![Create an Azure Time Series Insights instance.](media/v2-update-manage/create-and-manage-configuration.png)](media/v2-update-manage/create-and-manage-configuration.png#lightbox)
 
 1. Enter a Time Series ID.
 
-    >[!NOTE]
+    > [!NOTE]
     > * The Time Series ID is case-sensitive and immutable. (It can't be changed after it's set.)
     > * Time Series IDs can be up to three keys.
     > * For more information about selecting a Time Series ID, read [Choose a Time Series ID](./time-series-insights-update-how-to-id.md).
 
 1. Create an Azure storage account by selecting a storage account name and designating a replication choice. Doing so automatically creates an Azure Storage general-purpose v1 account. The account is created in the same region as the Azure Time Series Insights Preview environment that you previously selected.
 
-    [![Create an Azure storage account for your instance](media/v2-update-manage/manage-five.png)](media/v2-update-manage/manage-five.png#lightbox)
+    [![Cold storage configuration](media/v2-update-manage/create-and-manage-cold-store.png)](media/v2-update-manage/create-and-manage-cold-store.png#lightbox)
 
 1. **(Optional)** Enable warm store for your environment if you want faster and unlimited queries over most recent data in your environment. You can also create or delete a warm store through the **Storage Configuration** option in the left navigation pane, after you create a Time Series Insights Preview environment.
+
+    [![Warm storage configuration](media/v2-update-manage/create-and-manage-warm-storage.png)](media/v2-update-manage/create-and-manage-warm-storage.png#lightbox)
 
 1. **(Optional)** You can add an event source now. Alternatively, you can wait until the instance has been provisioned.
 
@@ -65,17 +67,18 @@ To create an Azure Time Series Insights Preview environment:
      > [!TIP]
      > The message-enqueued time might not be the best configured setting to use in batch event scenarios or historical data uploading scenarios. In such cases, make sure to verify your decision to use or not use a Timestamp property.
 
-     [![Event Source tab](media/v2-update-manage/manage-two.png)](media/v2-update-manage/manage-two.png#lightbox)
+     [![Event Source configuration tab](media/v2-update-manage/create-and-manage-event-source.png)](media/v2-update-manage/create-and-manage-event-source.png#lightbox)
 
-1. Confirm that your environment has been provisioned with the settings you want.
+1. Confirm that your environment has been provisioned and configured the way you want.
 
-    [![Review + Create tab](media/v2-update-manage/manage-three.png)](media/v2-update-manage/manage-three.png#lightbox)
+    [![Review + Create tab](media/v2-update-manage/create-and-manage-review-and-confirm.png)](media/v2-update-manage/create-and-manage-review-and-confirm.png#lightbox)
 
 ## Manage the environment
 
 You can manage your Azure Time Series Insights Preview environment by using the Azure portal. When you manage through the Azure portal, you see a few key differences between a pay-as-you-go Azure Time Series Insights Preview environment and the generally available S1 or S2 environments:
 
 * The Azure portal's **Overview** blade is unchanged in Azure Time Series Insights, except in the following ways:
+
   * Capacity is removed because it doesn't apply to pay-as-you-go environments.
   * The Time Series ID property is added. It determines how your data is partitioned.
   * Reference data sets are removed.
@@ -86,7 +89,7 @@ You can manage your Azure Time Series Insights Preview environment by using the 
 
 * The Azure portal's **Reference data** blade is removed in Azure Time Series Insights Preview because reference data isn't part of pay-as-you-go environments.
 
-[![Time Series Insights Preview environment in the Azure portal](media/v2-update-manage/manage-four.png)](media/v2-update-manage/manage-four.png#lightbox)
+[![Time Series Insights Preview environment in the Azure portal](media/v2-update-manage/create-and-manage-overview-confirm.png)](media/v2-update-manage/create-and-manage-overview-confirm.png#lightbox)
 
 ## Next steps
 
