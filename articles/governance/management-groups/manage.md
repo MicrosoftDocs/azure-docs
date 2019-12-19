@@ -60,7 +60,7 @@ To delete a management group, the following requirements must be met:
 
 1. There are no child management groups or subscriptions under the management group.
 
-   - To move a subscription or management group to another management group see [Moving management groups and subscriptions in the hierarchy](#moving-management-groups-and-subscriptions-in-the-hierarchy).
+   - To move a subscription or management group to another management group see [Moving management groups and subscriptions in the hierarchy](#moving-management-groups-and-subscriptions).
 
 1. You need write permissions on the management group ("Owner", "Contributor", or "Management Group Contributor"). To see what permissions you have, select the management group and then select **IAM**. To learn more on RBAC Roles, see [Manage access and permissions with RBAC](../../role-based-access-control/overview.md).  
 
