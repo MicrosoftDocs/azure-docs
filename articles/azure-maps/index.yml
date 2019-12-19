@@ -81,11 +81,11 @@ landingContent:
       - linkListType: reference
         links:
           - text: Map control
-            url: https://docs.microsoft.com/en-us/javascript/api/azure-maps-control/?view=azure-maps-typescript-latest
+            url: https://docs.microsoft.com/javascript/api/azure-maps-control/?view=azure-maps-typescript-latest
           - text: Drawing tools module
-            url: https://docs.microsoft.com/en-us/javascript/api/azure-maps-drawing-tools/?view=azure-maps-typescript-latest
+            url: https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/?view=azure-maps-typescript-latest
           - text: Service module
-            url: https://docs.microsoft.com/en-us/javascript/api/azure-maps-rest/?view=azure-maps-typescript-latest
+            url: https://docs.microsoft.com/javascript/api/azure-maps-rest/?view=azure-maps-typescript-latest
 
   # Card
   - title: Developing with Android SDK
@@ -123,13 +123,13 @@ landingContent:
       - linkListType: reference
         links:
           - text: Search Service
-            url: https://docs.microsoft.com/en-us/rest/api/maps/search
+            url: https://docs.microsoft.com/rest/api/maps/search
           - text: Route Service
-            url: https://docs.microsoft.com/en-us/rest/api/maps/route
+            url: https://docs.microsoft.com/rest/api/maps/route
           - text: Traffic Service
-            url: https://docs.microsoft.com/en-us/rest/api/maps/traffic
+            url: https://docs.microsoft.com/rest/api/maps/traffic
           - text: Time Zones Service
-            url: https://docs.microsoft.com/en-us/rest/api/maps/timezone
+            url: https://docs.microsoft.com/rest/api/maps/timezone
   
   # Card
   - title: Spatial Analytics
@@ -147,9 +147,9 @@ landingContent:
       - linkListType: reference
         links:
           - text: Data Service
-            url: https://docs.microsoft.com/en-us/rest/api/maps/data
+            url: https://docs.microsoft.com/rest/api/maps/data
           - text: Spatial Service
-            url: https://docs.microsoft.com/en-us/rest/api/maps/spatial
+            url: https://docs.microsoft.com/rest/api/maps/spatial
 
   # Card
   - title: Developing with Mobility services
@@ -167,7 +167,7 @@ landingContent:
       - linkListType: reference
         links:
           - text: Mobility Service
-            url: https://docs.microsoft.com/en-us/rest/api/maps/mobility
+            url: https://docs.microsoft.com/rest/api/maps/mobility
 
   # Card
   - title: Developing with Weather Services
@@ -183,4 +183,4 @@ landingContent:
       - linkListType: reference
         links:
           - text: Weather Service
-            url: https://docs.microsoft.com/en-us/rest/api/maps/weather
+            url: https://docs.microsoft.com/rest/api/maps/weather
