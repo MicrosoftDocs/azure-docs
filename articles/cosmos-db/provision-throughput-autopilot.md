@@ -102,6 +102,7 @@ The following table shows the maximum throughout and storage limits for differen
 
 ## Next steps
 
+* Review the [autopilot FAQ](autopilot-faq.md).
 * Learn more about [logical partitions](partition-data.md).
 * Learn how to [provision throughput on an Azure Cosmos container](how-to-provision-container-throughput.md).
 * Learn how to [provision throughput on an Azure Cosmos database](how-to-provision-database-throughput.md).

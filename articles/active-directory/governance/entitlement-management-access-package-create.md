@@ -1,5 +1,5 @@
 ---
-title: Create a new access package in Azure AD entitlement management - Azure Active Directory
+title: Create a new access package in entitlement management - Azure AD
 description: Learn how to create a new access package of resources you want to share in Azure Active Directory entitlement management.
 services: active-directory
 documentationCenter: ''
