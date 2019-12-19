@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/29/2019
+ms.date: 12/19/2019
 ms.author: mimart
 ms.reviewer: kasimpso
 ms.collection: M365-identity-device-management
@@ -41,7 +41,7 @@ Your users can use the My Apps (preview) portal to view and start the cloud-base
    ![User preview features](media/access-panel-workspaces/user-preview-features.png)
 
 > [!NOTE]
-> To open the My Apps portal, users can use the link `https://myapps.microsoft.com` or the customized link for your organization, such as `https://myapps.microsoft.com/contoso.com`. If users aren't redirected to the My Apps preview version, users should try `https://myapplications.microsoft.com` or `https://myapplications.microsoft.com/contoso.com`.
+> To open the My Apps portal, users can use the link `https://myapps.microsoft.com` or the customized link for your organization, such as `https://myapps.microsoft.com/contoso.com`. After you enable the new My Apps experience, the **An updated My Applications experience is available** banner will display at the top of the My Apps page, and users can select **Try it** to view the new experience. To stop using the new experience, users can select **Yes** from the **Leave new experience** banner at the top of the page.
 
 ## Create a workspace
 
@@ -93,7 +93,6 @@ The Audit logs record My Apps workspaces operations, including workspace creatio
 You can access audit logs in the [Azure portal](https://portal.azure.com) by selecting **Azure Active Directory** > **Enterprise Applications** > **Audit logs** in the Activity section. For **Service**, select **My Apps**.
 
    ![Assign roles to users and groups](media/access-panel-workspaces/audit-log-myapps.png)
-
 
 ## Next steps
 [End-user experiences for applications in Azure Active Directory](end-user-experiences.md)

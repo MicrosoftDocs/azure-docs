@@ -29,6 +29,7 @@ Azure Data Factory is a multitenant service that has the following default limit
 | Maximum parameters per pipeline | 50 | 50 |
 | ForEach items | 100,000 | 100,000 |
 | ForEach parallelism | 20 | 50 |
+| Maximum queued runs per pipeline | 100 | 100 |
 | Characters per expression | 8,192 | 8,192 |
 | Minimum tumbling window trigger interval | 15 min | 15 min |
 | Maximum timeout for pipeline activity runs | 7 days | 7 days |
