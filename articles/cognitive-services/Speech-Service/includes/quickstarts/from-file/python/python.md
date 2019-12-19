@@ -1,14 +1,17 @@
 ---
 title: 'Quickstart: Recognize speech from an audio file, Python - Speech service'
 titleSuffix: Azure Cognitive Services
-description: Use this guide to create a speech-to-text console application that uses the Speech SDK for Python. When finished, you can use your computer's microphone to transcribe speech to text in real time.
 services: cognitive-services
 author: chlandsi
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: quickstart
+ms.topic: include
+<<<<<<< HEAD
+ms.date: 12/17/2019
+=======
 ms.date: 07/05/2019
+>>>>>>> 34375507a6a9dabc49d422608c19b7fe54779f45
 ms.author: chlandsi
 ---
 

@@ -1,6 +1,7 @@
 ---
-title: Network topologies for Azure SQL Database Managed Instance migrations using Azure Database Migration Service | Microsoft Docs
-description: Learn the source and target configurations for Azure Database Migration Service.
+title: Network topologies for SQL managed instance migrations
+titleSuffix: Azure Database Migration Service
+description: Learn the source and target configurations for Azure SQL Database managed instance migrations using the Azure Database Migration Service.
 services: database-migration
 author: HJToland3
 ms.author: jtoland
@@ -8,7 +9,7 @@ manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
-ms.custom: mvc
+ms.custom: "seo-lt-2019"
 ms.topic: article
 ms.date: 06/07/2019
 ---

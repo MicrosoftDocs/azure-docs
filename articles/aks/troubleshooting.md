@@ -6,7 +6,7 @@ author: sauryadas
 
 ms.service: container-service
 ms.topic: troubleshooting
-ms.date: 08/13/2018
+ms.date: 12/13/2019
 ms.author: saudas
 ---
 
@@ -478,3 +478,17 @@ kubectl edit secret azure-storage-account-{storage-account-name}-secret
 ```
 
 After a few minutes, the agent node will retry the azure file mount with the updated storage key.
+
+### Cluster autoscaler fails to scale with error failed to fix node group sizes
+
+If your cluster autoscaler is not scaling up/down and you see an error like the below on the [cluster autoscaler logs][view-master-logs].
+
+```console
+E1114 09:58:55.367731 1 static_autoscaler.go:239] Failed to fix node group sizes: failed to decrease aks-default-35246781-vmss: attempt to delete existing nodes
+```
+
+This error is due to an upstream cluster autoscaler race condition where the cluster autoscaler ends with a different value than the one that is actually in the cluster. To get out of this state, simply disable and re-enable the [cluster autoscaler][cluster-autoscaler].
+
+<!-- LINKS - internal -->
+[view-master-logs]: view-master-logs.md
+[cluster-autoscaler]: cluster-autoscaler.md
