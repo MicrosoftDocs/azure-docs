@@ -21,7 +21,7 @@ View the Activity Log for all resources from the **Monitor** menu in the Azure p
 You can filter Activity Log events by the following fields:
 
 * **Timespan**: The start and end time for events.
-* **Category**: The event category as described in [Categories in the Activity Log](activity-logs-overview.md#categories-in-the-activity-log).
+* **Category**: The event category as described in [Categories in the Activity Log](activity-log-view.md#categories-in-the-activity-log).
 * **Subscription**: One or more Azure subscription names.
 * **Resource group**: One or more resource groups within the selected subscriptions.
 * **Resource (name)**: - The name of a specific resource.

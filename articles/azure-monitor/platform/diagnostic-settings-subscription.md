@@ -58,7 +58,7 @@ Use the following procedure to create a diagnostic setting in the Azure portal t
    
 4. 
 
-5. Follow the procedures in [Create diagnostic settings in Azure portal](diagnostic-settings.md#create-diagnostic-settings-in-azure-portal) to create a diagnostic setting. See [Categories in the Activity Log](activity-logs-overview.md#categories-in-the-activity-log) for an explanation of the categories you can use to filter events from the Activity log. 
+5. Follow the procedures in [Create diagnostic settings in Azure portal](diagnostic-settings.md#create-diagnostic-settings-in-azure-portal) to create a diagnostic setting. See [Categories in the Activity Log](activity-log-view.md#categories-in-the-activity-log) for an explanation of the categories you can use to filter events from the Activity log. 
 
 
 ## Differences in data

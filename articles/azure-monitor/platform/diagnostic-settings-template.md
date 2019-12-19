@@ -100,7 +100,7 @@ In the resources array of the resource for which you want to create the diagnost
 ]
 ```
 ### Activity log
-For the Azure Activity log, add a resource of type `Microsoft.Insights/diagnosticSettings"` using the same format as other resources. The available categories are listed in [Categories in the Activity Log](activity-logs-overview.md#categories-in-the-activity-log).
+For the Azure Activity log, add a resource of type `Microsoft.Insights/diagnosticSettings"` using the same format as other resources. The available categories are listed in [Categories in the Activity Log](activity-log-view.md#categories-in-the-activity-log).
 
 
 ```json
