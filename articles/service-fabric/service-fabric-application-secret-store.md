@@ -1,13 +1,9 @@
 ---
-title: Service Fabric Secrets Store | Microsoft Docs
+title: Service Fabric Secrets Store 
 description: This article describes how to use Service Fabric Secrets Store.
-services: service-fabric
-author: athinanthny 
 
-ms.service: service-fabric
 ms.topic: conceptual 
 ms.date: 07/25/2019
-ms.author: atsenthi 
 ---
 
 #  Service Fabric Secrets Store
