@@ -1,11 +1,11 @@
 ### YamlMime:Landing
 
 title: Azure IoT Edge documentation
-summary: Azure IoT Edge is a service in your IoT Hub that analyzes workloads, or "at the edge". It sends fewer messages to the cloud so devices can react faster to events.
+summary: Azure IoT Edge extends IoT Hub. Analyze device data locally instead of in the cloud to send less data to the cloud, react to events quickly, and operate offline.
 
 metadata:
   title: Azure IoT Edge documentation
-  description: Azure IoT Edge is a service in your IoT Hub that analyzes workloads, or "at the edge". It sends fewer messages to the cloud so devices can react faster to events.
+  description: Azure IoT Edge extends IoT Hub. Analyze device data locally instead of in the cloud to send less data to the cloud, react to events quickly, and operate offline.
   services: iot-edge
   ms.service: iot-edge
   ms.topic: landing-page
