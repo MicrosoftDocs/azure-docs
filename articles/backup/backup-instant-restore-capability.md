@@ -47,7 +47,7 @@ By default, snapshots are retained for two days. This feature allows restore ope
 
 ## Cost impact
 
-The incremental snapshots are stored in VM's storage account, which is used for instant recovery. Incremental snapshot means the space occupied by a snapshot is equal to the space occupied by pages that are written after the snapshot was created. Billing is still for the per GB used space occupied by the snapshot and the price per GB is same as mentioned in the [pricing page](https://azure.microsoft.com/pricing/details/managed-disks/).
+The incremental snapshots are stored in the VM's storage account, which is used for instant recovery. Incremental snapshot means the space occupied by a snapshot is equal to the space occupied by pages that are written after the snapshot was created. Billing is still for the per GB used space occupied by the snapshot, and the price per GB is same as mentioned on the [pricing page](https://azure.microsoft.com/pricing/details/managed-disks/). For VMs that use unmanaged disks, the snapshots can be seen in the menu for the VHD file of each disk. For managed disks, snapshots are stored in a restore point collection resource in a designated resource group, and the snapshots themselves are not directly visible.
 
 >[!NOTE]
 > Snapshot retention is fixed to 5 days for weekly policies.

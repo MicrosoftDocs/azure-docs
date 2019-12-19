@@ -172,6 +172,7 @@ Build IoT solutions such as:
 
 Now that you have an overview of IoT Central, here are suggested next steps:
 
+- Understand the available [Azure technologies and services for creating IoT solutions](../../iot-fundamentals/iot-services-and-technologies.md).
 - Familiarize yourself with the [Azure IoT Central UI](overview-iot-central-tour.md).
 - Get started by [creating an Azure IoT Central application](quick-deploy-iot-central.md).
 - Learn more about [IoT Plug and Play](../../iot-pnp/overview-iot-plug-and-play.md).

@@ -24,7 +24,7 @@ The communication between the control plane/API server, which is in an AKS-manag
 
 ## Before you begin
 
-* You need the Azure CLI version 2.0.70 or later and the aks-preview 0.4.18 extension
+* You need the Azure CLI version 2.0.77 or later and the aks-preview 0.4.18 extension
 
 ## Current supported regions
 * West US
