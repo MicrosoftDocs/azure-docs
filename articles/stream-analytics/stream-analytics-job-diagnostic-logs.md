@@ -63,7 +63,7 @@ Turning on diagnostic logs and sending them to Azure Monitor logs is highly reco
 
 3. When your Stream Analytics job starts, diagnostic logs are routed to your Log Analytics workspace. To view diagnostic logs for your job, select **Logs** under the **Monitoring** section.
 
-   ![Diagnostic Logs under Monitoring](./media/stream-analytics-job-diagnostic-logs/diag-logs.png)
+   ![Diagnostic Logs under Monitoring](./media/stream-analytics-job-diagnostic-logs/diagnostic-logs.png)
 
 4. Stream Analytics provides pre-defined queries that allows you to easily search for the logs that you are interested in. The 3 categories are **General**, **Input data errors** and **Output data errors**. For example, to see a summary of all the errors of your job in the last 7 days, you can select **Run** of the appropriate pre-defined query. 
 
