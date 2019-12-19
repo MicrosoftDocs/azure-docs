@@ -295,7 +295,7 @@ For more information on how to consume the deployed service, see [Create a clien
 
 ## Next steps
 
-* [Monitor your Azure Machine Learning models with Application Insights](service/how-to-enable-app-insights.md)
-* [Collect data for models in production](service/how-to-enable-data-collection.md)
+* [Monitor your Azure Machine Learning models with Application Insights](how-to-enable-app-insights.md)
+* [Collect data for models in production](how-to-enable-data-collection.md)
 * [How and where to deploy models](service/how-to-deploy-and-where.md)
 * [How to create a client for a deployed model](how-to-consume-web-service.md)

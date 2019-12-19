@@ -36,7 +36,7 @@ This how-to assumes basic knowledge of building pipelines in the designer. For a
 
 ### Sample pipeline
 
-The pipeline used in this article is an altered version of the one found in [Sample 3 - Income Prediction](how-to-designer-sample-classification-predict-income.md). It uses the [Import Data](../algorithm-module-reference/import-data.md) module instead of the sample dataset to show you how to train a model using your own data.
+The pipeline used in this article is an altered version of the one found in [Sample 3 - Income Prediction](../how-to-designer-sample-classification-predict-income.md). It uses the [Import Data](../algorithm-module-reference/import-data.md) module instead of the sample dataset to show you how to train a model using your own data.
 
 ![Screenshot showing the modified sample pipeline with a box highlighting the Import Data module](./media/how-to-retrain-designer/modified-sample-pipeline.png)
 

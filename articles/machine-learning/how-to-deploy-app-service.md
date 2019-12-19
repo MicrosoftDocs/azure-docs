@@ -31,7 +31,7 @@ With Azure Machine Learning, you can create Docker images from trained machine l
 For more information on features provided by Azure App Service, see the [App Service overview](/azure/app-service/overview).
 
 > [!IMPORTANT]
-> If you need the ability to log the scoring data used with your deployed model, or the results of scoring, you should instead deploy to Azure Kubernetes Service. For more information, see [Collect data on your production models](service/how-to-enable-data-collection.md).
+> If you need the ability to log the scoring data used with your deployed model, or the results of scoring, you should instead deploy to Azure Kubernetes Service. For more information, see [Collect data on your production models](how-to-enable-data-collection.md).
 
 ## Prerequisites
 

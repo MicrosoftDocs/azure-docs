@@ -121,4 +121,4 @@ After deployment finishes, you can test your real-time endpoint by going to the 
 In this tutorial, you learned the key steps in how to create, deploy, and consume a machine learning model in the designer. To learn more about how you can use the designer to solve other types of problems, see our other sample pipelines.
 
 > [!div class="nextstepaction"]
-> [Credit risk classification sample](how-to-designer-sample-classification-credit-risk-cost-sensitive.md)
+> [Credit risk classification sample](../how-to-designer-sample-classification-credit-risk-cost-sensitive.md)

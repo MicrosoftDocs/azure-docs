@@ -70,7 +70,7 @@ Using Azure Machine Learning, data drift is monitored through datasets or deploy
     print(model_name, image_name, service_name, model)
     ```
 
-- [Enable model data collection](how-to-enable-data-collection.md) to collect data from the AKS deployment of the model and confirm data is being collected in the `modeldata` blob container.
+- [Enable model data collection](../how-to-enable-data-collection.md) to collect data from the AKS deployment of the model and confirm data is being collected in the `modeldata` blob container.
 
 ## Configure data drift
 To configure data drift for your experiment, import dependencies as seen in the following Python example. 
@@ -168,7 +168,7 @@ To view results in your workspace in [Azure Machine Learning studio](https://ml.
 
 By setting the drift coefficient alerting threshold and providing an email address, an [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) email alert is automatically sent whenever the drift coefficient is above the threshold. 
 
-In order for you to set up custom alerts and actions, all data drift metrics are stored in the [Application Insights](how-to-enable-app-insights.md) resource that was created along with the Azure Machine Learning workspace. You can follow the link in the email alert to the Application Insights query.
+In order for you to set up custom alerts and actions, all data drift metrics are stored in the [Application Insights](../how-to-enable-app-insights.md) resource that was created along with the Azure Machine Learning workspace. You can follow the link in the email alert to the Application Insights query.
 
 ![Data Drift Email Alert](media/how-to-monitor-data-drift/drift_email.png)
 
