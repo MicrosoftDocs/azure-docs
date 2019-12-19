@@ -2,13 +2,13 @@
 title: Marketplace criteria content validation | Azure Marketplace 
 description: This article describes how to become a publisher on the marketplace.  
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-author: yijenj
-manager: nunoc
+author: qianw211
+manager: evansma
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 10/05/2018
-ms.author: pabutler
+ms.date: 12/31/2019
+ms.author: v-qiwe
 ---
 
 # Azure Marketplace listing guidelines
@@ -45,6 +45,25 @@ All offers must meet the [All Listing Requirements](https://docs.microsoft.com/a
 ---
 ## SaaS apps requirements
 
+SaaS apps can be published to Azure Marketplace and/or AppSource. If you intend to cross-list your offer, the value proposition should address both Storefront [audiences](https://docs.microsoft.com/azure/marketplace/comparing-appsource-azure-marketplace). You can view the offer gallery on [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps) and [AppSource](https://appsource.microsoft.com/en-us/marketplace/apps) to familiarize yourself with available categories and subcategories across each Storefront. The table below summarizes how publishing across each Storefront is determined for SaaS listings:
+
+| SaaS Offer    |     |          |           |    |    |     | Applicable Storefront |              |
+|:-------------:|:---:|:--------:|:---------:|:--:|:--:|:---:|:---------------------:|:-------------:|
+| Metered billing | Microsoft 365 add-ins | Contact me | Transact (at least 1 plan) | Private-only plan | Public-only plan | Public & private plans | AppSource | Azure Marketplace |
+|  | X |  |  |  |  |  | X |  |
+| X |  |  | X | X |  |  |  | X |
+| X |  |  | X |  | X |  |  | X |
+| X |  |  | X |  |  | X |  | X[^2] |
+|  |  |  | X | X |  |  |  | X |
+|  |  |  | X |  | X |  | X[^1] | X[^1] |
+|  |  |  | X |  |  | X | X[^1] | X[^1,2] |
+|  |  | X |  |  |  |  | x[^1] | X[^1] |
+
+[^1]: Depending on category/subcategory and industry selection.
+
+[^2]: Offers with private plans will be published to the Azure Portal.
+
+
 |  | Listing Element | Base Requirements | Optimal Requirements | 
 |:--- |:--- |:--- |:--- |
 | 1 | Offer title |<br>• Must consist only of lowercase, alphanumeric characters, dashes, or underscores. Cannot be modified once published. <br>• Descriptive of solution offering.<br>• Matches online promotion of solution in partner's website. | Contains key search words |
@@ -54,7 +73,7 @@ All offers must meet the [All Listing Requirements](https://docs.microsoft.com/a
 | 5 | Storefront details: Industries | Industries (Max 2): Select the industries that your app is best aligned and applicable to. | |
 | 6 | Offer Description | <br>•	Simple HTML is allowed, including p, em, ul, li, ol and header tags. Maximum of 3000 characters. <br>•	2-3 paragraphs <br>•	Solution offering is easily understood at a glance <br>•	Description is comprehensive and captures: target audience*, type of user, why it's valuable (value prop) <br>•	Offer description is in paragraph narrative form with short sentences that is easy to comprehend. | <br>•	Target industry is outlined (if relevant) <br>•	Good style formatting with each paragraph header having a one-sentence or phrase summarizing content that follows and inclusive of bullet points (when appropriate) to emphasize key benefits. The objective here is for the reader to understand the offering at a glance in an easy to view format and not have to read paragraphs. <br>•	There is spacing between each paragraph and reads like a car brochure. Meaning not technical features or code lingo but descriptive of the offering in simple terms and is comprehensive. | 
 | 7 | Marketing Artifacts | Logos display correctly | <br>•	Logo  includes "hero image," which is the large-format image in the Azure Portal <br>•	Logos: Small (48x48) & Large (216x216) are requirements <br>•	Hero image requirements: https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-solution-template-offer-publish <br>•	Screenshot (Max 5):  CPP requires a .png image with resolution 1280 x 720. |
-| 8 | Categories & Industries | <br>•	Categories match solution offering capabilities <br>•	At least 1 item(s) should be chosen from pop-up box <br>•	Do not extend to categories that solution does not fit <br>•	Optimal industry, or all industries selected (if not optimal industries <br>•	Do not extend to categories that solution does not fit <br>•	Optimal industry, or all industries selected (if not optimal industries) | Max. 3 categories selected if applicable. |
+| 8 | Categories & Industries | • Categories/subcategories match offer capabilities <br> • Do not select categories/subcategories that do not fit with your offer capabilities <br> • Target industry and verticals if offer is industry specific. If it is not industry specific, do not select an industry | • Select up to two (2) categories, including a primary and a secondary category (optional). <br> • Select up to two (2) subcategories for each primary and/or secondary category. If no subcategory is selected, you offer will still be discoverable on the selected category only. <br> • Select up to two (2) industries and two verticals per industry selected |
 | 9 | Lead Management | Select the system where your leads will be stored. Learn how to connect your CRM system [here](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-get-customer-leads) |  |
 | 10 | Contacts: Solution Support & Help | <br>•	Engineering contact name: Enter the name of the engineering contact for your app. This contact will receive technical communications from Microsoft.<br>•	Engineering contact email:  Enter the email address of the engineering contact for your app.<br>•	Engineering contacts Phone: Enter the phone number of the engineering contact. ISO phone number notations are supported; for details, see https://en.wikipedia.org/wiki/E.123.<br>•	Support contact Name: Enter the name of the support contact for your app. This contact will receive support-related communications from Microsoft.<br>•	Support contact email: Enter the email address of the support contact for your app. <br>•	Support contact phone: Enter the phone number of the support contact. ISO phone number notations are supported; for details, see https://en.wikipedia.org/wiki/E.123. <br>•	Support URL: Enter the URL to your support page. | <br>•	All support methods listed: telephone & email support. <br>•	Paid support offered free during trial or test drive period |
 | 11 | Legal |<br>•	Privacy policy URL: Enter the URL to your app's privacy policy in the Privacy policy URL field in CPP. <br>•	Terms of use: Enter the terms of use of your app. Customers are required to accept these terms before they can try your app. |	Policies or terms available via a public URL site |
