@@ -45,7 +45,7 @@ No behavior changes for this release. To get ready for upcoming behavior changes
 The following changes will happen in upcoming releases. 
 
 ### Transport Layer Security (TLS) 1.2 enforcement
-Transport Layer Security (TLS) and Secure Sockets Layer (SSL) are cryptographic protocols that provide communications security over a computer network (learn more about TLS [here](https://en.wikipedia.org/wiki/Transport_Layer_Security#SSL_1.0.2C_2.0_and_3.0)). While Azure HDInsight clusters accept TLS 1.2 connections on public HTTPS endpoints, TLS 1.1 is still supported for backward compatibility with older clients.
+Transport Layer Security (TLS) and Secure Sockets Layer (SSL) are cryptographic protocols that provide communications security over a computer network. For more information, see [Transport Layer Security](https://en.wikipedia.org/wiki/Transport_Layer_Security#SSL_1.0.2C_2.0_and_3.0). While Azure HDInsight clusters accept TLS 1.2 connections on public HTTPS endpoints, TLS 1.1 is still supported for backward compatibility with older clients.
 
 Starting from the next release, you will be able to opt-in and configure your new HDInsight clusters to only accept TLS 1.2 connections. 
 
