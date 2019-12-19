@@ -27,7 +27,7 @@ You can opt-in from the Azure portal for Cloud Services and Server Farms (Web Ap
 
 ## Virtual Machine scale sets
 For newer Virtual Machines created with Resource Manager (Virtual Machine scale sets), you can configure this using REST API, Resource Manager templates, PowerShell, and CLI. A portal interface is not yet available.
-When using the REST API or Resource Manager template, include the notifications element with the following options.
+When using the REST API or Resource Manager template, include the notifications element in your [autoscalesettings](https://docs.microsoft.com/en-us/azure/templates/microsoft.insights/2015-04-01/autoscalesettings) with the following options.
 
 ```
 "notifications": [
