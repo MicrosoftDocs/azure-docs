@@ -142,6 +142,10 @@
   - name: Azure Monitor
     tocHref: /azure/azure-monitor/
     topicHref: /azure/azure-monitor/
+    items:
+    - name: Application Insights
+      tocHref: /azure/azure-monitor/azure-monitor-app-hub
+      topicHref: /azure/azure-monitor/azure-monitor-app-hub
   - name: Azure Spatial Anchors
     tocHref: /azure/spatial-anchors/
     topicHref: /azure/spatial-anchors/
