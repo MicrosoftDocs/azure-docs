@@ -4,7 +4,7 @@ description: How to authenticate downstream devices or leaf devices to IoT Hub, 
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 0129/13/2019
+ms.date: 12/13/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
