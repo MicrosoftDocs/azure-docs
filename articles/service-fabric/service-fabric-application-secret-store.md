@@ -16,8 +16,8 @@ This article describes how to create and use secrets in Service Fabric applicati
     [
         ...
     {
+        "name":  "CentralSecretService",
         "parameters":  [
-            "name":  "CentralSecretService"
                 {
                     "name":  "IsEnabled",
                     "value":  "true"
@@ -38,6 +38,9 @@ This article describes how to create and use secrets in Service Fabric applicati
                 ],
             },
             ]
+     }
+        ...
+     ]
 ```
 ## Declare secret resource
 You can create a secret resource either using the Resource Manager template or using the REST API.
