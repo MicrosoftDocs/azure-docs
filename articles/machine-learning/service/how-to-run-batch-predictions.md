@@ -322,6 +322,9 @@ parallelrun_step = ParallelRunStep(
 )
 ```
 
+>[!Note]
+> The above step depends on `azureml-contrib-pipeline-steps`, as described in [Prerequisites](#prerequisites). 
+
 ### Run the pipeline
 
 Now, run the pipeline. First, create a `Pipeline` object by using your workspace reference and the pipeline step that you created. The `steps` parameter is an array of steps. In this case, there's only one step for batch scoring. To build pipelines that have multiple steps, place the steps in order in this array.

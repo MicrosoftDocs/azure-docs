@@ -117,6 +117,9 @@
           href: how-to-secure-web-service.md
         - name: Regenerate storage access keys
           href: how-to-change-storage-access-key.md
+      - name: Set up authentication
+        displayName: authentication, auth, oauth
+        href: how-to-setup-authentication.md
       - name: Monitor Azure Machine Learning
         href: monitor-azure-machine-learning.md
       - name: Event grid integration
