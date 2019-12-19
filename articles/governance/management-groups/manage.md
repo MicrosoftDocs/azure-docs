@@ -60,11 +60,9 @@ To delete a management group, the following requirements must be met:
 
 1. There are no child management groups or subscriptions under the management group.
 
-   - To move a subscription out of a management group, see [Move subscription to another management group](#move-subscriptions-in-the-hierarchy).
+   - To move a subscription or management group to another management group see [Moving management groups and subscriptions in the hierarchy](#moving-management-groups-and-subscriptions-in-the-hierarchy).
 
-   - To move a management group to another management group, see [Move management groups in the hierarchy](#move-management-groups-in-the-hierarchy).
-
-1. You have write permissions on the management group ("Owner", "Contributor", or "Management Group Contributor"). To see what permissions you have, select the management group and then select **IAM**. To learn more on RBAC Roles, see [Manage access and permissions with RBAC](../../role-based-access-control/overview.md).  
+1. You need write permissions on the management group ("Owner", "Contributor", or "Management Group Contributor"). To see what permissions you have, select the management group and then select **IAM**. To learn more on RBAC Roles, see [Manage access and permissions with RBAC](../../role-based-access-control/overview.md).  
 
 ### Delete in the portal
 
@@ -196,20 +194,20 @@ One reason to create a management group is to bundle subscriptions together. Onl
 and subscriptions can be made children of another management group. A subscription that moves to a
 management group inherits all user access and policies from the parent management group
 
-To move a management group or subscription to be a child of another management group three rules need to be evaluated as true.
+When moving a management group or subscription to be a child of another management group three rules need to be evaluated as true.
 
-If you are doing the move action, you must have: 
+If you're doing the move action, you need: 
 
-1.  Management group write and Role Assignment write permissions on the child subscription or management group.
-    1. Built-on role example **Owner**
-1. Management group write access on the target parent management group.
-    1. Built-in role example: **Owner**, **Contributor**, **Management Group Contributor**
-1. Management group write access on the existing parent management group.
-    1. Built-in role example: **Owner**, **Contributor**, **Management Group Contributor**
+-  Management group write and Role Assignment write permissions on the child subscription or management group.
+    - Built-on role example **Owner**
+- Management group write access on the target parent management group.
+    - Built-in role example: **Owner**, **Contributor**, **Management Group Contributor**
+- Management group write access on the existing parent management group.
+    - Built-in role example: **Owner**, **Contributor**, **Management Group Contributor**
 
 **Exception**: If the target or the existing parent management group is the Root management group, the permissions requirements don't apply. Since the Root management group is the default landing spot for all new management groups and subscriptions, you don't need permissions on it to move an item.
 
-If the Owner role on the subscription is inherited from the current management group, your move targets are limited. You can only move the subscription to another management group where you have the Owner role. You can't move it to a management group where you're a contributor because you would lose ownership of the subscription. If you're directly assigned to the Owner role for the subscription (not inherited from the management group), you can move it to any management group where you're a contributor. 
+If the Owner role on the subscription is inherited from the current management group, your move targets are limited. You can only move the subscription to another management group where you have the Owner role. You can't move it to a management group where you're a contributor because you would lose ownership of the subscription. If you're directly assigned to the Owner role for the subscription (not inherited from the management group), you're able to move it to any management group where you're a contributor. 
 
 To see what permissions you have in the Azure portal, select the management group and then select **IAM**. To learn more on RBAC Roles, see [Manage access and permissions with RBAC](../../role-based-access-control/overview.md).
 

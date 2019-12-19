@@ -14,11 +14,11 @@ groups, see [Organize your resources with Azure management groups](overview.md).
 
 The first management group created in the directory could take up to 15 minutes to complete. There
 are processes that run the first time to set up the management groups service within Azure for your
-directory. You receive a notification when the process is complete. See [initial setup of management groups](./overview.md#initial-setup-of-management-groups) for more information about this process.  
+directory. You receive a notification when the process is complete. For more information, see [initial setup of management groups](./overview.md#initial-setup-of-management-groups). 
 
 ## Create a management group
 
-Any Azure Active Directory (AAD) user in the tenant can create a management group without the management group write permission assigned to that user.  This new management group will be made a child of the Root Management Group and the creator will be given an "Owner" role assignment. Management group service allows this so that role assignments are not needed at the root level. As mentioned in the [initial setup of management groups](./overview.md#initial-setup-of-management-groups), no users are given access to the Root Management Group when it is created.  To avoid the hurdle of finding the AAD Global Admins to start using management groups, we allow the creation of the initial management groups at the root level.      
+Any Azure Active Directory (AAD) user in the tenant can create a management group without the management group write permission assigned to that user.  This new management group will be a child of the Root Management Group and the creator will be given an "Owner" role assignment. Management group service allows this ability so that role assignments are not needed at the root level. No users have access to the Root Management Group when it is created.  To avoid the hurdle of finding the AAD Global Admins to start using management groups, we allow the creation of the initial management groups at the root level.      
 
 You can create the management group by using the portal, PowerShell, or Azure CLI. Currently, you can't use Resource Manager templates to create management groups.
 
