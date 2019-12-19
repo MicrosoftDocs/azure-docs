@@ -103,6 +103,8 @@
       href: vmware-azure-configuration-server-requirements.md
     - name: VMware to Azure architecture
       href: vmware-azure-architecture.md
+    - name: About excluding disks from replication
+      href: exclude-disks-replication.md
     - name: Failback location options from Azure to VMware
       href: concepts-types-of-failback.md
     - name: Multi-tenant support for VMware disaster recovery
@@ -115,14 +117,16 @@
       href: hyper-v-azure-support-matrix.md
     - name: Hyper-V to Azure architecture
       href: hyper-v-azure-architecture.md
+    - name: About excluding disks from replication
+      href: exclude-disks-replication.md
   - name: About physical server disaster recovery 
     items:
     - name: VMware/physical to Azure support matrix
       href: vmware-physical-azure-support-matrix.md
     - name: Physical server to Azure architecture
       href: physical-azure-architecture.md
-  - name: About excluding disks from replication
-    href: exclude-disks-replication.md
+    - name: About excluding disks from replication
+      href: exclude-disks-replication.md
   - name: About networking for disaster recovery 
     items:
     - name: Azure Traffic Manager with Site Recovery
