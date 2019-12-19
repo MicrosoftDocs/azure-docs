@@ -17,7 +17,7 @@ ms.author: memildin
 
 # Security recommendations - a reference guide
 
-This article lists the recommendations you might see in Azure Security Center. The available recommendations in your environment depend on the resources you're protecting and your customized configuration.
+This article lists the recommendations you might see in Azure Security Center. The recommendations shown in your environment depend on the resources you're protecting and your customized configuration.
 
 To learn about how to respond to these recommendations, see [Remediate recommendations in Azure Security Center](security-center-remediate-recommendations.md).
 
