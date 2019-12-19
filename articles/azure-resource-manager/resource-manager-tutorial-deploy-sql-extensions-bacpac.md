@@ -198,7 +198,7 @@ The template used in this tutorial is stored in [GitHub](https://raw.githubuserc
 
 The completed template looks like:
 
-![code-json](~/resourcemanager-templates/tutorial-sql-extension/azuredeploy2.json?range=1-106&highlight=38-49,62-76,86-103)
+[!code-json[](~/resourcemanager-templates/tutorial-sql-extension/azuredeploy2.json?range=1-106&highlight=38-49,62-76,86-103)]
 
 ## Deploy the template
 

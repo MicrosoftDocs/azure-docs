@@ -156,7 +156,7 @@ In this session, you modify the template you created in [Tutorial: Import SQL BA
 
 The completed template looks like:
 
-![code-json](~/resourcemanager-templates/tutorial-sql-extension/azuredeploy3.json?range=1-106&highlight=38-43,95-97)
+[!code-json[](~/resourcemanager-templates/tutorial-sql-extension/azuredeploy3.json?range=1-106&highlight=38-43,95-97)]
 
 ## Deploy the template
 
