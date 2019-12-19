@@ -103,48 +103,46 @@ During the transition to a consolidated invoice, you'll receive a partial Market
 A customer's billing frequency is annual, quarterly, or monthly. The billing cycle is determined when a customer signs their agreement. Monthly billing is smallest billing interval.
 
 - **Approval** from Enterprise administrator is required to change a billing cycle change from annual to quarterly for direct enrollments. Approval from a partner administrator is required for indirect enrollments. The change becomes effective at the end of the current billing quarter.
-- **An amendment** to the agreement is required to change a billing cycle from annual or quarterly to monthly.  Any change to the existing enrollment billing cycle requires approval of an Enterprise administator or from the individual identified as the _Bill to Contact_ in your agreement.
+- **An amendment** to the agreement is required to change a billing cycle from annual or quarterly to monthly.  Any change to the existing enrollment billing cycle requires approval of an Enterprise administrator or from the individual identified as the _Bill to Contact_ in your agreement.
 - **Submit** your approval in the [Azure Enterprise portal Support](https://support.microsoft.com/supportrequestform/cf791efa-485b-95a3-6fad-3daf9cd4027c). Select the Issue Category: **Billing and Invoicing**. 
 
 The change becomes effective at the end of the current billing quarter.
 
 If an Amendment M503 is signed, you can move any agreement from any frequency to monthly billing. ​
 
-
-\***
-
 ## Credits and adjustments
 
-All credits or adjustments that are applied to your enrollment are visible at [https://ea.azure.com](https://ea.azure.com) in the **Reports** section.
+You can view all credits or adjustments applied to your enrollment in the **Reports** section of [the Enterprise portal](https://ea.azure.com).
 
-To view the credits, follow these steps:
+To view credits:
 
-1. Select the **Reports** section.
+1. In [the Enterprise portal](https://ea.azure.com), select the **Reports** section.
 1. Select **Usage Summary**.
 1. In the top-right corner, change the _M_ to _C_ view.
 1. Extend the adjustment field in the Azure service commitment table.
-1. In this line, you'll see the credits applied to your enrollment as well as a short explanation for example: Service Level Agreement Credit.
+1. You'll see credits applied to your enrollment as well as a short explanation. For example: Service Level Agreement Credit.
 
 ## Request an invoice copy
 
 To request a copy of your invoice, contact your partner.
 
-## Overage offset by customers
+## Overage offset
 
-If the customer has overages that they want to use with monetary commitment, the following criteria must be met:
+If you have apply your monetary commitment to overages, the following criteria must be met:
 
-- The customer should have overage charges that were incurred but haven't been paid and are within one year of the billed service's end date.
-- The available monetary commitment amount should cover the full number of incurred charges, including all past nonpaid Azure invoices.
-- The Billing term being requested to complete must be fully closed. Billing fully closes after the fifth day of each month.
-- The billing period being requested to offset must be fully closed.
-- ACD discounting is based on the actual new commitment minus any funds planned for the previous consumption. This requirement applies only to overage charges incurred. This only works for services that consume monetary commitment, so you can't cover marketplace charges. Marketplace charges are billed separately.
-- If a customer wants to complete an overage offset, they can open a support request. Or, the account team can open the support request. To complete the process, email approval from the Customer's EA Admin or the Bill to Contact is required.
+- You should have overage charges that were incurred but haven't been paid and are within one year of the billed service's end date.
+- Your available monetary commitment amount should cover the full number of incurred charges, including all past unpaid Azure invoices.
+- The Billing term that you want to complete must be fully closed. Billing fully closes after the fifth day of each month.
+- The billing period that you want to offset must be fully closed.
+- Your Azure Commitment Discount (ACD) is based on the actual new commitment minus any funds planned for the previous consumption. This requirement applies only to overage charges incurred. It's only valid for services that consume monetary commitment, so doesn't apply to marketplace charges. Marketplace charges are billed separately.
+
+To complete an overage offset, open a support request. Alternatively, the account team can open the support request. An emailed approval from your Enterprise administrator or Bill to Contact is required.
 
 ## View price sheet information
 
-Enterprise admins can view the price list associated with their enrollment for Azure services.
+Enterprise administrators can view the price list associated with their enrollment for Azure services.
 
-To View the current Price Sheet:
+To view the current price sheet:
 
 1. In the Azure Enterprise portal, select **Reports** and then select **Price Sheet**.
 2. View the price sheet or select **Download**.
@@ -158,15 +156,15 @@ To download a historical price list:
 
 ![Example showing where to download an older price sheet](./media/billing-ea-portal-enrollment-invoices/create-ea-view-price-sheet-download-historical-price-list.png)
 
-If you have questions about why there's a discrepancy in pricing, some reasons include:
+Some reasons why there might be a difference in pricing:
 
-Pricing might have changed between the previous enrollment and the new enrollment. Price changes occur because pricing is contractual for specific enrollment from the start date to end date of an agreement. When an enrollment is transferred to new enrollment, it follows the pricing of a new agreement. The pricing is defined by the customer's price sheet. So, prices might be higher in the new enrollment.
-
-If an enrollment goes into an extended term, the pricing also changes. Prices change to pay-as-you-go rates.
+- Pricing might have changed between the previous enrollment and the new enrollment. Price changes can occur because pricing is contractual for specific enrollment from the start date to end date of an agreement.
+- When you transfer to new enrollment, the pricing changes to the new agreement. The pricing is defined by your price sheet which might be higher in the new enrollment.
+- If an enrollment goes into an extended term, the pricing also changes. Prices change to pay-as-you-go rates.
 
 ## Request detailed usage information
 
-Enterprise admins can view a summary of their usage data, monetary commitment consumed, and charges associated with additional usage in the Azure Enterprise portal. The charges are presented at the summary level across all accounts and subscriptions.
+Enterprise administrators can view a summary of their usage data, monetary commitment consumed, and charges associated with additional usage in the Azure Enterprise portal. The charges are presented at the summary level across all accounts and subscriptions.
 
 To view detailed usage in specific accounts, you can download the Usage Detail report by navigating to **Reports** > **Download Usage**. The report doesn't include any applicable taxes. There might be a latency of up to eight hours from the time when usage was incurred to when it's reflected on the report.
 
@@ -643,7 +641,7 @@ If you're an account owner or department admin, please contact your Enterprise a
 1. Select the blue pencil next to AO (account owner) view charges.
 1. Select **Enabled** and save.
 
-This action will provide account owners and department admins with access to cost/pricing information on the usage reports.
+This action will provide account owners and department administrators with access to cost/pricing information on the usage reports.
 
 **Indirect enrollment**
 Please check with your partner that they've enabled the pricing feature for you. This can only be done by the partner and once they've turned on the feature, you can view the cost and pricing on your enrollment as an Enterprise administrator.
