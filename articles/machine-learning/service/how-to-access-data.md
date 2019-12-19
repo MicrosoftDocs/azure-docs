@@ -35,12 +35,12 @@ You'll need:
   
   Either [create an Azure Machine Learning workspace](how-to-manage-workspace.md) or use an existing one via the Python SDK:
 
-        ```Python
-        import azureml.core
-        from azureml.core import Workspace, Datastore
+   ```Python
+   import azureml.core
+   from azureml.core import Workspace, Datastore
         
-        ws = Workspace.from_config()
-        ```
+   ws = Workspace.from_config()
+   ```
 
 <a name="access"></a>
 
@@ -108,8 +108,8 @@ To register through SQL authentication:
 
 ```python
 sql_datastore_name="azsqlsdksql"
-server_name=os.getenv("SQL_SERVERNAME", "<my-server-name>") # Name of Azure SQL server
-database_name=os.getenv("SQL_DATBASENAME", "<my-database-name>") # Name of Azure SQL database
+server_name=os.getenv("SQL_SERVERNAME", "<my-server-name>") # Name of the Azure SQL server
+database_name=os.getenv("SQL_DATBASENAME", "<my-database-name>") # Name of the Azure SQL database
 username=os.getenv("SQL_USER_NAME", "<my-sql-user-name>") # Username of the database user to access the database
 password=os.getenv("SQL_USER_PASSWORD", "<my-sql-user-password>") # Password of the database user to access the database
 
@@ -156,7 +156,7 @@ Create a new datastore in a few steps in Azure Machine Learning Studio:
   
 You can find the information that you need to populate the form on the  [Azure portal](https://portal.azure.com). Select **Storage Accounts** on the left pane, and choose the storage account that you want to register. The **Overview** page provides information such as the account name, container, and file share name. For authentication items, like account key or SAS token, go to **Account Keys** on the **Settings** pane.
 
-The following example demonstrates what the form looks like for when you're creating an Azure blob datastore: 
+The following example demonstrates what the form looks like when you're creating an Azure blob datastore: 
     
  ![Form for a new datastore](media/how-to-access-data/new-datastore-form.png)
 
@@ -168,13 +168,13 @@ The following example demonstrates what the form looks like for when you're crea
 To get a specific datastore registered in the current workspace, use the [`get()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py#get-workspace--datastore-name-) static method on the `Datastore` class:
 
 ```Python
-#get a named datastore from the current workspace
+# Get a named datastore from the current workspace
 datastore = Datastore.get(ws, datastore_name='your datastore name')
 ```
 To get the list of datastores registered with a given workspace, you can use the [`datastores`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace%28class%29?view=azure-ml-py#datastores) property on a workspace object:
 
 ```Python
-#list all datastores registered in the current workspace
+# List all datastores registered in the current workspace
 datastores = ws.datastores
 for name, datastore in datastores.items():
     print(name, datastore.datastore_type)
@@ -191,7 +191,7 @@ datastore = ws.get_default_datastore()
 To define a different default datastore for the current workspace, use the [`set_default_datastore()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#set-default-datastore-name-) method on the workspace object:
 
 ```Python
-#define the default datastore for the current workspace
+# Define the default datastore for the current workspace
 ws.set_default_datastore('your datastore name')
 ```
 
@@ -244,10 +244,10 @@ Upload|[`as_upload()`](https://docs.microsoft.com/python/api/azureml-core/azurem
 To reference a specific folder or file in your datastore and make it available on the compute target, use the datastore [`path()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_storage_datastore.abstractazurestoragedatastore?view=azure-ml-py#path-path-none--data-reference-name-none-) method:
 
 ```Python
-#to mount the full contents in your storage to the compute target
+# To mount the full contents in your storage to the compute target
 datastore.as_mount()
 
-#to download the contents of only the `./bar` directory in your storage to the compute target
+# To download the contents of only the `./bar` directory in your storage to the compute target
 datastore.path('./bar').as_download()
 ```
 > [!NOTE]
@@ -262,7 +262,7 @@ The `script_params` variable is a dictionary that contains parameters to `entry_
 ```Python
 from azureml.train.estimator import Estimator
 
-# notice that '/' is in front, which indicates the absolute path
+# Notice that '/' is in front, which indicates the absolute path
 script_params = {
     '--data_dir': datastore.path('/bar').as_mount()
 }
@@ -307,7 +307,7 @@ output = PipelineData("output", datastore=def_blob_store)
 
 ### Compute and datastore matrix
 
-Datastores currently support storing connection information to the storage services listed in the following matrix. This matrix displays the available data access functionalities for the different compute targets and datastore scenarios. [Learn more about the compute targets for Azure Machine Learning](how-to-set-up-training-targets.md#compute-targets-for-training).
+Datastores currently support storing connection information to the storage services listed in the following matrix. This matrix displays the available data-access functionalities for the different compute targets and datastore scenarios. [Learn more about the compute targets for Azure Machine Learning](how-to-set-up-training-targets.md#compute-targets-for-training).
 
 |Compute|[AzureBlobDatastore](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_storage_datastore.azureblobdatastore?view=azure-ml-py)                                       |[AzureFileDatastore](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_storage_datastore.azurefiledatastore?view=azure-ml-py)                                      |[AzureDataLakeDatastore](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_data_lake_datastore.azuredatalakedatastore?view=azure-ml-py) |[AzureDataLakeGen2Datastore](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_data_lake_datastore.azuredatalakegen2datastore?view=azure-ml-py) [AzurePostgreSqlDatastore](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_postgre_sql_datastore.azurepostgresqldatastore?view=azure-ml-py) [AzureSqlDatabaseDatastore](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_sql_database_datastore.azuresqldatabasedatastore?view=azure-ml-py) |
 |--------------------------------|----------------------------------------------------------|----------------------------------------------------------|------------------------|----------------------------------------------------------------------------------------|
