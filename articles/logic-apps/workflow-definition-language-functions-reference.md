@@ -4869,8 +4869,7 @@ Here are the arguments:
 
   `"<?xml version="1.0"?> <produce> <item> <name>Gala</name> <type>apple</type> <count>20</count> </item> <item> <name>Honeycrisp</name> <type>apple</type> <count>10</count> </item> </produce>"`
 
-  The example uses the [parameters()](#parameters) function to get
-  the XML string from the "items" argument, but must also convert
+  The example uses the [parameters()](#parameters) function to get the XML string from the "items" argument, but must also convert
   the string to XML format by using the [xml()](#xml) function.
 
 * This XPath expression, which is passed as a string:
@@ -4891,7 +4890,16 @@ And returns this result: `30`
 
 *Example 3*
 
-For this example, both expressions find nodes that match the `<location></location>` node, in the specified arguments, which include XML with a namespace. The expressions use the backslash character (\\) as an escape character for the double quotation mark (").
+For this example, both expressions find nodes that match the `<location></location>` node, in the specified arguments, which include XML with a namespace. 
+
+> ![NOTE]
+> If you're working in code view, escape the double quotation mark (") by using the backslash character (\). 
+> If you're working in the expression editor, you don't need to escape the double quotation mark. For example:
+> 
+> Code view: `xpath(xml(body('Http')), '/*[name()=\"file\"]/*[name()=\"location\"]')`
+> Expression editor: `xpath(xml(body('Http')), '/*[name()="file"]/*[name()="location"]')`
+> 
+> The following examples apply to expressions that you enter in the expression editor.
 
 * *Expression 1*
 
