@@ -37,7 +37,7 @@ All functionality available in Azure Cost Management is also available with REST
 
 As a partner, Azure Cost Management is natively available only for subscriptions that are on the Azure plan.
 
-To enable Azure Cost Management in the Azure Portal, you must have confirmed customer acceptance of the Microsoft Customer Agreement (on behalf of the customer) and transitioned the customer to the Azure Plan. Only the costs for subscriptions that are transitioned to the Azure plan are available in Azure Cost Management.
+To enable Azure Cost Management in the Azure portal, you must have confirmed customer acceptance of the Microsoft Customer Agreement (on behalf of the customer) and transitioned the customer to the Azure Plan. Only the costs for subscriptions that are transitioned to the Azure plan are available in Azure Cost Management.
 
 Azure Cost Management requires read access to your billing account or subscription.
 
@@ -209,7 +209,7 @@ The following data fields are found in usage detail files and Cost Management AP
 | effectivePrice | The effective unit price of the service, in pricing currency. Unique for a product, service family, meter, and offer. Used with pricing in the price sheet for the billing account. When there is tiered pricing or an included quantity, it shows the blended price for consumption. | The unit price after adjustments are made. |
 | Quantity | Measured quantity purchased or consumed. The amount of the meter used during the billing period. | Number of units. Ensure it matches the information in your billing system during reconciliation. |
 | unitOfMeasure | Identifies the unit that the service is charged in. For example, GB and hours. | Identifies the unit that the service is charged in. For example, GB, hours, and 10,000s. |
-| pricingCurrency | The currency defining the unit price. | The currency in the pricelist.|
+| pricingCurrency | The currency defining the unit price. | The currency in the price list.|
 | billingCurrency | The currency defining the billed cost. | The currency of the customer's geographic region. |
 | chargeType | Defines the type of charge that the cost represents in Azure Cost Management like purchase and refund. | The type of charge or adjustment. Not available for current activity. |
 | costinBillingCurrency | ExtendedCost or blended cost before tax in the billed currency. | N/A |
