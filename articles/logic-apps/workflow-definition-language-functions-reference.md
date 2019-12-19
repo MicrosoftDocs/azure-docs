@@ -4892,7 +4892,7 @@ And returns this result: `30`
 
 For this example, both expressions find nodes that match the `<location></location>` node, in the specified arguments, which include XML with a namespace. 
 
-> ![NOTE]
+> [!NOTE]
 > If you're working in code view, escape the double quotation mark (") by using the backslash character (\). 
 > If you're working in the expression editor, you don't need to escape the double quotation mark because the 
 > backslash character is added automatically, for example:
