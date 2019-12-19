@@ -87,7 +87,6 @@ The following steps show you how to connect to your newly created virtual machin
 
 You're connected to your virtual machine in the Server Manager dashboard.
 
-############################################
 
 ## Export a database using SQLPackage
 
