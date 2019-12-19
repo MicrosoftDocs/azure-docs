@@ -182,7 +182,7 @@ There are a couple different options to fix this scenario:
 - Create an additional Custom Role that will be defined in the other branch.  This new role will require the role assignment to be changed on the subscription also.  
 
 ### Limitations  
-There are a few limitations that exist when using custom roles on management groups. 
+There are limitations that exist when using custom roles on management groups. 
 
  - You can only define one management group in the assignable scopes of a new role.  This limitation is in place to reduce the number of situations where role definitions and role assignments are disconnected.  This happens when a subscription or management group with a role assignment is moved to a different parent that doesn't have the role definition.   
  - RBAC Data Plane actions aren't allowed to be defined in management group custom roles.  This restriction is in place as there is a latency issue with RBAC actions updating the data plane resource providers. This latency issue is being worked on and these actions will be disabled from the role definition to reduce any risks.
