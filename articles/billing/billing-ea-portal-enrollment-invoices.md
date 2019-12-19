@@ -166,15 +166,18 @@ Some reasons why there might be a difference in pricing:
 
 Enterprise administrators can view a summary of their usage data, monetary commitment consumed, and charges associated with additional usage in the Azure Enterprise portal. The charges are presented at the summary level across all accounts and subscriptions.
 
-To view detailed usage in specific accounts, you can download the Usage Detail report by navigating to **Reports** > **Download Usage**. The report doesn't include any applicable taxes. There might be a latency of up to eight hours from the time when usage was incurred to when it's reflected on the report.
+To view detailed usage in specific accounts, download the Usage Detail report by going to **Reports** > **Download Usage**.
+
+> [!NOTE]
+> The Usage Detail report doesn't include any applicable taxes. There might be a latency of up to eight hours from the time usage was incurred to when it's reflected on the report.
 
 For indirect enrollments, your partner needs to enable the markup function before you can see any cost-related information.
 
 ## Reports
 
-Enterprise Administrators can view a summary of their usage data, monetary commitment consumed, and charges associated with additional usage in the Enterprise portal. The charges will be presented at the summary level across all accounts and subscriptions.
+Enterprise administrators can view a summary of their usage data, monetary commitment consumed, and charges associated with additional usage in the Azure Enterprise portal. The charges are presented at the summary level across all accounts and subscriptions.
 
-**EA Reports**
+### Azure Enterprise Reports
 
 - Usage summary and graphs
 - Service usage report
@@ -185,47 +188,55 @@ Enterprise Administrators can view a summary of their usage data, monetary commi
 - Advanced report download
 - CSV report formatting
 
-**To view the usage summary reports and graphs**
+### To view the usage summary reports and graphs:
 
-1. From the Azure Enterprise portal select **Reports** on the left navigation, and view the **Usage Summary** tab.
+1. Go to the Azure Enterprise portal.
+1. Select **Reports** on the left pane.
+1. Select the **Usage Summary** tab.
 1. Select the desired commitment term from the drop-down menu of date ranges on the top left.
 1. Select the desired period or month on the graph to view additional detail.
-1. View graph of month over month usage with a breakdown of utilized usage, service overcharge, charges billed separately, and marketplace charges.
-1. For the selected month, filter by departments, accounts, and subscriptions below the graph.
-1. Toggle between Charge by Services breakdown and Charge by Hierarchy breakdown.
-1. View Azure services, charges billed separately, and Azure marketplace charges in detail.
+1. One this tab, you can:
+   - View a graph of month-over-month usage with a breakdown of utilized usage, service overcharge, charges billed separately, and marketplace charges.
+   - Filter by departments, accounts, and subscriptions below the graph.
+   - Toggle between Charge-by-Services breakdown and Charge-by-Hierarchy breakdown.
+   - View the details of Azure services, charges billed separately, and Azure marketplace charges.
 
 ## Service usage report
 
-The Service Usage Report page allows enterprise administrators to view a summary of their service usage data. While usage will be presented at the summary level across all accounts and subscriptions, you can also filter the report by accounts or subscriptions to view detailed usage.
+The Service Usage Report page allows Enterprise administrators to view a summary of their service usage data. Usage is presented at the summary level across all accounts and subscriptions. To view detailed usage, you can filter the report by accounts or subscriptions.
 
-Please note that there may also be a latency of up to five days between the incurred usage date and when that usage is reflected on this report.
+> [!NOTE]
+> There may be a latency of up to five days between the incurred usage date and when that usage is reflected on this report.
 
 ### To view the report:
 
-1. Sign into the Enterprise portal.
+1. Sign in to the Azure Enterprise portal.
 1. Select **Reports** on the left navigation.
 1. Select the **Usage Summary** tab.
 1. Select the desired date range.
 1. Choose which accounts or subscriptions to view.
-1. Change the view from Charge by Services or Charge by Hierarchy to display different breakdowns.
-1. View details including Service Name, Unit of Measure, Consumed Units, Effective Rate, and Extended Cost.
+1. Optionally, you can:
+   - Change the view from Charge by Services or Charge by Hierarchy to display different breakdowns.
+   - View details. For example: Service Name, Unit of Measure, Consumed Units, Effective Rate, and Extended Cost.
 
 ## Download CSV reports
 
-The Monthly Report Download page allows enterprise administrators to download several reports as .csv files, including a Balance and Charge Report, Usage Detail Report, Marketplace Charges Report, and Price Sheet.
+The Monthly Report Download page allows Enterprise administrators to download several reports as CSV files. Downloadable reports include:
 
-## To download reports:
+- Balance and Charge report
+- Usage Detail report
+- Marketplace Charges report
+- Price Sheet
+
+### To download reports:
 
 1. From the Azure Enterprise portal, select **Report**.
 1. Select **Usage Download** from the top ribbon.
 1. Select **Download** next to the appropriate month's report.
 
+### CSV report formatting
 
-
-## CSV report formatting
-
-Customers viewing the Azure Enterprise portal's CSV reports in euros may run into formatting issues with regards to commas and periods.
+Customers viewing the Azure Enterprise portal's CSV reports in euros might encounter formatting issues that involve commas and periods.
 
 For example, you may see:
 
@@ -239,22 +250,22 @@ You should see:
 | --- | --- | --- | --- |
 | Hours | 24 | 0,0535960591133005 | 1,2863054187192120000000 |
 
-### Root cause
+\***
 
-Excel imports all fields as 'General' text and assumes that a number is separated in the mathematical standard: "1,000.00".  Thus a European currency that uses a period (.) for the thousand place separator and a comma for the decimal place separator (,) – "1.000,00" will display incorrectly. This may vary depending on your regional language setting.
+The root cause of this formatting issue is due to how Excel imports CSV fields. Excel imports all fields as 'General' text and assumes that a number is separated in the mathematical standard: "1,000.00".  Thus a European currency that uses a period (.) for the thousand place separator and a comma for the decimal place separator (,) – "1.000,00" will display incorrectly. This may vary depending on your regional language setting.
 
 ### When importing the CSV, use the following steps:
 
-1.    Open Excel, and go to File > Open.
-1.    The Text Import Wizard will appear.
-1.    Under Original Data Type, choose _delimited_.  Default is _Fixed Width_.
-1.    Hit **Next**.
-1.    Under Delimiters, select the checkbox for Comma. Default is 'Tab' (uncheck).
-1.    Hit **Next**.
-1.    Scroll over to the 'ResourceRate' and 'ExtendedCost' columns.
-1.    Select the 'ResourceRate' column (it will appear highlighted in black).
-9.    Under the Column Data Format section, select 'Text' instead of 'General.'  You'll see that the column header changes from 'General' to 'Text.'
-10. Repeat steps 8 and 9 for the 'Extended Cost' column. Select **Finish**.
+1. Open Excel, and go to File > Open.
+1. The Text Import Wizard will appear.
+1. Under Original Data Type, choose _delimited_.  Default is _Fixed Width_.
+1. Hit **Next**.
+1. Under Delimiters, select the checkbox for Comma. Default is 'Tab' (uncheck).
+1. Hit **Next**.
+1. Scroll over to the 'ResourceRate' and 'ExtendedCost' columns.
+1. Select the 'ResourceRate' column (it will appear highlighted in black).
+1. Under the Column Data Format section, select 'Text' instead of 'General.'  You'll see that the column header changes from 'General' to 'Text.'
+1. Repeat steps 8 and 9 for the 'Extended Cost' column. Select **Finish**.
 
 If you have Excel associated to automatically open \*.csv files, you must use the 'open' function in Excel instead. Open excel, go to File > open.
 
