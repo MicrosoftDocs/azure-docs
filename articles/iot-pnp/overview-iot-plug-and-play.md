@@ -83,6 +83,6 @@ During public preview, IoT Plug and Play devices send separate messages per inte
 
 Now that you have an overview of IoT Plug and Play, the suggested next step is to try out one of the quickstarts:
 
-- [Use a device capability model to create an IoT Plug and Play device](./quickstart-create-pnp-device.md)
-- [Connect a device to IoT Hub](./quickstart-connect-pnp-device.md)
-- [Connect to a device in your solution](./quickstart-connect-pnp-device-solution.md)
+- [Use a device capability model to create an IoT Plug and Play device](./quickstart-create-pnp-device-windows.md)
+- [Connect a device to IoT Hub](./quickstart-connect-pnp-device-c-windows.md)
+- [Connect to a device in your solution](./quickstart-connect-pnp-device-solution-node.md)
