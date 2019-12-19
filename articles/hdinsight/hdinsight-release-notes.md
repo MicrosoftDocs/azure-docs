@@ -36,7 +36,7 @@ You can now config custom Ambari DB from Azure Portal. HDInsight now offers a ne
 ![Custom Ambari DB](./media/hdinsight-release-notes/custom-ambari-db.png)
 
 ## Deprecation
-No deprecation for this release. To get ready with upcoming deprecations, see Upcoming changes and deprecations section.
+No deprecations for this release. To get ready for upcoming deprecations, see [Upcoming changes](#upcoming-changes).
 
 ## Behavior changes
 No behavior changes for this release. To get ready with upcoming behavior changes, see Upcoming changes and deprecations section
