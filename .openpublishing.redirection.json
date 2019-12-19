@@ -112,27 +112,27 @@
     },
     {
       "source_path": "articles/machine-learning/data-science-virtual-machine/dsvm-data-platforms.md",
-      "redirect_url": "articles/machine-learning/data-science-virtual-machine/dsvm-tools-data-platforms",
+      "redirect_url": "/azure/machine-learning/data-science-virtual-machine/dsvm-tools-data-platforms",
       "redirect_document_id": true
     },
     {
       "source_path": "articles/machine-learning/data-science-virtual-machine/dsvm-ml-data-science-tools.md",
-      "redirect_url": "articles/machine-learning/data-science-virtual-machine/dsvm-tools-data-science",
+      "redirect_url": "/azure/machine-learning/data-science-virtual-machine/dsvm-tools-data-science",
       "redirect_document_id": true
     },
     {
       "source_path": "articles/machine-learning/data-science-virtual-machine/dsvm-deep-learning-ai-frameworks.md",
-      "redirect_url": "articles/machine-learning/data-science-virtual-machine/dsvm-tools-deep-learning-frameworks",
+      "redirect_url": "/azure/machine-learning/data-science-virtual-machine/dsvm-tools-deep-learning-frameworks",
       "redirect_document_id": true
     },
     {
       "source_path": "articles/machine-learning/data-science-virtual-machine/dsvm-tools-explore-and-visualize.md",
-      "redirect_url": "articles/machine-learning/data-science-virtual-machine/dsvm-tools-productivity",
+      "redirect_url": "/azure/machine-learning/data-science-virtual-machine/dsvm-tools-productivity",
       "redirect_document_id": true
     },
     {
       "source_path": "articles/machine-learning/data-science-virtual-machine/dsvm-languages.md",
-      "redirect_url": "articles/machine-learning/data-science-virtual-machine/dsvm-tools-languages",
+      "redirect_url": "/azure/machine-learning/data-science-virtual-machine/dsvm-tools-languages",
       "redirect_document_id": true
     },
     {
