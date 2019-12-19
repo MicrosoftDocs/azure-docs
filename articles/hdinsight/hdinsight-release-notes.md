@@ -66,7 +66,7 @@ In the upcoming HDInsight 4.0 release, HBase version will be upgraded from versi
 HDInsight continues to make cluster reliability and performance improvements. 
 
 ## Component version change
-We've extended HDInsight 3.6 support to December 31, 2020. You can find more details [in this doc](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#supported-hdinsight-versions).
+We've extended HDInsight 3.6 support to December 31, 2020. You can find more details in [Supported HDInsight versions](hdinsight-component-versioning.md#supported-hdinsight-versions).
 
 No component version change for HDInsight 4.0.
 
