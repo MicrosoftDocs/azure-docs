@@ -514,7 +514,7 @@ If you're using scripting languages (for example, *.csx* or *.js* files) for dev
     "taskHub": "<Optional - name of the task hub>",
     "connectionName": "<Optional - name of the connection string app setting>",
     "type": "durableClient",
-    "direction": "out"
+    "direction": "in"
 }
 ```
 

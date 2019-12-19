@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
-ms.date: 09/13/2019
+ms.date: 12/17/2019
 
 ms.custom: seoapril2019
 ---
@@ -254,7 +254,7 @@ To use schema generation, include the `inference-schema` package in your Conda e
 
 ##### Example dependencies file
 
-The following YAML is an example of a Conda dependencies file for inference:
+The following YAML is an example of a Conda dependencies file for inference. Please note that you must indicate azureml-defaults with verion >= 1.0.45 as a pip dependency, because it contains the functionality needed to host the model as a web service.
 
 ```YAML
 name: project_environment
@@ -262,7 +262,8 @@ dependencies:
   - python=3.6.2
   - scikit-learn=0.20.0
   - pip:
-    - azureml-defaults
+      # You must list azureml-defaults as a pip dependency
+    - azureml-defaults>=1.0.45
     - inference-schema[numpy-support]
 ```
 
@@ -471,30 +472,22 @@ def run(request):
 
 The inference configuration describes how to configure the model to make predictions. This configuration isn't part of your entry script. It references your entry script and is used to locate all the resources required by the deployment. It's used later, when you deploy the model.
 
-Inference configuration can use Azure Machine Learning environments to define the software dependencies needed for your deployment. Environments allow you to create, manage, and reuse the software dependencies required for training and deployment. The following example demonstrates loading an environment from your workspace and then using it with the inference configuration:
+Inference configuration uses Azure Machine Learning environments to define the software dependencies needed for your deployment. Environments allow you to create, manage, and reuse the software dependencies required for training and deployment. The following example demonstrates loading an environment from your workspace and then using it with the inference configuration:
 
 ```python
-from azureml.core import Environment
+from azureml.core.environment import Environment
 from azureml.core.model import InferenceConfig
 
-deploy_env = Environment.get(workspace=ws,name="myenv",version="1")
+myenv = Environment.get(workspace=ws, name="myenv", version="1")
 inference_config = InferenceConfig(entry_script="x/y/score.py",
-                                   environment=deploy_env)
+                                   environment=myenv)
 ```
+
+If you are using a custom environment, make sure that it includes azureml-defaults package with version >= 1.0.45 as a pip dependency. This package contains the functionality needed to host the model as a web service.
 
 For more information on environments, see [Create and manage environments for training and deployment](how-to-use-environments.md).
 
-You can also directly specify the dependencies without using an environment. The following example demonstrates how to create an inference configuration that loads software dependencies from a Conda file:
-
-```python
-from azureml.core.model import InferenceConfig
-
-inference_config = InferenceConfig(runtime="python",
-                                   entry_script="x/y/score.py",
-                                   conda_file="env/myenv.yml")
-```
-
-For more information, see the [InferenceConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py) class documentation.
+For more information on inference configuration, see the [InferenceConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py) class documentation.
 
 For information on using a custom Docker image with an inference configuration, see [How to deploy a model using a custom Docker image](how-to-deploy-custom-docker-image.md).
 
@@ -608,9 +601,9 @@ az ml model deploy -m mymodel:1 --ic inferenceconfig.json --dc deploymentconfig.
 
 For more information, see the [az ml model deploy](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-deploy) documentation.
 
-### <a id="notebookvm"></a> Notebook VM web service (dev/test)
+### <a id="notebookvm"></a> Compute instance web service (dev/test)
 
-See [Deploy a model to Azure Machine Learning Notebook VM](how-to-deploy-local-container-notebook-vm.md).
+See [Deploy a model to Azure Machine Learning compute instance](how-to-deploy-local-container-notebook-vm.md).
 
 ### <a id="aci"></a> Azure Container Instances (dev/test)
 
@@ -622,9 +615,11 @@ See [Deploy to Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.
 
 ## Consume web services
 
-Every deployed web service provides a REST API, so you can create client applications in a variety of programming languages.
-If you've enabled key authentication for your service, you need to provide a service key as a token in your request header.
-If you've enabled token authentication for your service, you need to provide an Azure Machine Learning JWT token as a bearer token in your request header.
+Every deployed web service provides a REST endpoint, so you can create client applications in any programming language.
+If you've enabled key-based authentication for your service, you need to provide a service key as a token in your request header.
+If you've enabled token-based authentication for your service, you need to provide an Azure Machine Learning JSON Web Token (JWT) as a bearer token in your request header. 
+
+The primary difference is that **keys are static and can be regenerated manually**, and **tokens need to be refreshed upon expiration**. Key-based auth is supported for Azure Container Instance and Azure Kubernetes Service deployed web-services, and token-based auth is **only** available for Azure Kubernetes Service deployments. See the [how-to](how-to-setup-authentication.md#web-service-authentication) on authentication for more information and specific code samples.
 
 > [!TIP]
 > You can retrieve the schema JSON document after you deploy the service. Use the [swagger_uri property](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.local.localwebservice?view=azure-ml-py#swagger-uri) from the deployed web service (for example, `service.swagger_uri`) to get the URI to the local web service's Swagger file.

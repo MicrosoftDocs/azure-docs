@@ -15,7 +15,7 @@ ms.date: 08/22/2019
 ---
 # Azure SQL Database and SQL Data Warehouse data discovery & classification
 
-Data discovery & classification provides advanced capabilities built into Azure SQL Database for **discovering**, **classifying**, **labeling** & **protecting** the sensitive data in your databases.
+Data discovery & classification provides advanced capabilities built into Azure SQL Database for **discovering**, **classifying**, **labeling** & **reporting** the sensitive data in your databases.
 
 Discovering and classifying your most sensitive data (business, financial, healthcare, personally identifiable data (PII), and so on.) can play a pivotal role in your organizational information protection stature. It can serve as infrastructure for:
 

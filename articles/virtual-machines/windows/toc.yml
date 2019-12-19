@@ -185,7 +185,9 @@
       - name: GPU optimized
         href: sizes-gpu.md
       - name: Setup GPU drivers
-        href: n-series-driver-setup.md      
+        href: n-series-driver-setup.md
+      - name: Setup AMD GPU drivers
+        href: n-series-amd-driver-setup.md      
     - name: High performance compute
       displayName: H-series
       href: sizes-hpc.md   

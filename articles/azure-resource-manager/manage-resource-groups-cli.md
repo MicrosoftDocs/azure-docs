@@ -131,6 +131,10 @@ az group export --name $resourceGroupName
 
 The script displays the template on the console.  Copy the JSON, and save as a file.
 
+The export template feature doesn't support exporting Azure Data Factory resources. To learn about how you can export Data Factory resources, see [Copy or clone a data factory in Azure Data Factory](https://aka.ms/exportTemplateViaAdf).
+
+To export resources created through classic deployment model, you must [migrate them to the Resource Manager deployment model](https://aka.ms/migrateclassicresourcetoarm).
+
 For more information, see [Single and multi-resource export to template in Azure portal](./export-template-portal.md).
 
 ## Manage access to resource groups

@@ -50,13 +50,15 @@ Create a new Maps account with the following steps:
 
 ## Get the primary key for your account
 
-Once your Maps account is successfully created, retrieve the key that enables you to query the Maps APIs.
+Once your Maps account is successfully created, retrieve the key that enables you to query the Maps APIs. We recommend using your account's primary key as the subscription key when calling Azure Maps services.
 
 1. Open your Maps account in the portal.
 2. In the settings section, select **Authentication**.
 3. Copy the **Primary Key** to your clipboard. Save it locally to use later in this tutorial.
 
 ![Get Primary Key in Azure portal](./media/tutorial-search-location/get-key.png)
+
+For more details on authentication in Azure Maps, see [manage authentication in Azure Maps](how-to-manage-authentication.md).
 
 <a id="createmap"></a>
 

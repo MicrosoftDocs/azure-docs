@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: tutorial
-ms.date: 09/06/2019
+ms.date: 12/17/2019
 ms.author: helohr
 ---
 # Tutorial: Create a tenant in Windows Virtual Desktop
@@ -20,7 +20,9 @@ In this tutorial, learn how to:
 > * Assign the TenantCreator application role to a user in your Azure Active Directory tenant.
 > * Create a Windows Virtual Desktop tenant.
 
-Here's what you need to set up your Windows Virtual Desktop tenant:
+## What you need to set up a tenant
+
+Before you start setting up your Windows Virtual Desktop tenant, make sure you have these things:
 
 * The [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) tenant ID for Windows Virtual Desktop users.
 * A global administrator account within the Azure Active Directory tenant.
@@ -28,6 +30,8 @@ Here's what you need to set up your Windows Virtual Desktop tenant:
    * The administrator account must be sourced from the Azure Active Directory tenant in which you're trying to create the Windows Virtual Desktop tenant. This process doesn't support Azure Active Directory B2B (guest) accounts.
    * The administrator account must be a work or school account.
 * An Azure subscription.
+
+You must have the tenant ID, global administrator account, and Azure subscription ready so that the process described in this tutorial can work properly.
 
 ## Grant permissions to Windows Virtual Desktop
 
@@ -130,6 +134,12 @@ Replace the bracketed values with values relevant to your organization and tenan
 
 ```powershell
 New-RdsTenant -Name Contoso -AadTenantId 00000000-1111-2222-3333-444444444444 -AzureSubscriptionId 55555555-6666-7777-8888-999999999999
+```
+
+It's a good idea to assign administrative access to a second user in case you ever find yourself locked out of your account, or you go on vacation and need someone to act as the tenant admin in your absence. To assign admin access to a second user, run the following cmdlet with `<TenantName>` and `<Upn>` replaced with your tenant name and the second user's UPN.
+
+```powershell
+New-RdsRoleAssignment -TenantName <TenantName> -SignInName <Upn> -RoleDefinitionName "RDS Owner"
 ```
 
 ## Next steps

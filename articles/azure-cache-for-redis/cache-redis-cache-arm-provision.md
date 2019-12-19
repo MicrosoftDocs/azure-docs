@@ -1,6 +1,6 @@
 ---
 title: Deploy Azure Cache for Redis with Azure Resource Manager
-description: Use Azure Resource Manager template to deploy an Azure Cache for Redis.
+description: Learn how to use an Azure Resource Manager template to deploy an Azure Cache for Redis resource. Templates are provided for common scenarios. 
 author: yegu-ms
 ms.author: yegu
 ms.service: cache
@@ -11,8 +11,7 @@ ms.date: 01/23/2017
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-In this topic, you learn how to create an Azure Resource Manager template that deploys an Azure Cache for Redis. The cache can be used with an existing storage account to keep diagnostic data. You also learn how to define which resources are deployed and 
-how to define parameters that are specified when the deployment is executed. You can use this template for your own deployments, or customize it to meet your requirements.
+In this topic, you learn how to create an Azure Resource Manager template that deploys an Azure Cache for Redis. The cache can be used with an existing storage account to keep diagnostic data. You also learn how to define which resources are deployed and how to define parameters that are specified when the deployment is executed. You can use this template for your own deployments, or customize it to meet your requirements.
 
 Currently, diagnostic settings are shared for all caches in the same region for a subscription. Updating one cache in the region affects all other caches in the region.
 
@@ -112,8 +111,6 @@ Creates the Azure Cache for Redis.
       ]
     }
 
-
-
 ## Commands to run deployment
 [!INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
 
@@ -123,5 +120,3 @@ Creates the Azure Cache for Redis.
 
 ### Azure CLI
     azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-redis-cache/azuredeploy.json -g ExampleDeployGroup
-
-

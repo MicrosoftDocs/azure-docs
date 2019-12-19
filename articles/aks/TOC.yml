@@ -311,6 +311,9 @@
     - name: Use Azure Database for PostgreSQL
       href: ../postgresql/concepts-aks.md
       maintainContext: true
+    - name: Use Azure API Management
+      href: ../api-management/api-management-kubernetes.md
+      maintainContext: true
   - name: Select and deploy a service mesh
     items: 
     - name: About Service Meshes

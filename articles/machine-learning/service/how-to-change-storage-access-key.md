@@ -77,7 +77,7 @@ To update Azure Machine Learning to use the new key, use the following steps:
 > [!IMPORTANT]
 > Perform all steps, updating both the workspace using the CLI, and datastores using Python. Updating only one or the other may cause errors until both are updated.
 
-1. Regenerate the key. For information on regenerating an access key, see the [Manage a storage account](/azure/storage/common/storage-account-manage#access-keys) article. Save the new key.
+1. Regenerate the key. For information on regenerating an access key, see [Manage storage account access keys](../../storage/common/storage-account-keys-manage.md). Save the new key.
 
 1. To update the workspace to use the new key, use the following steps:
 

@@ -4,8 +4,8 @@ description: Answers to frequently asked questions about the Azure Monitor Logs 
 ms.service:  azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: MGoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 11/01/2019
 
 ---
@@ -73,11 +73,6 @@ A. Yes, the Logs page in Azure and the Advanced Analytics portal are based on th
 ### Q. How can I see my views and solutions in Azure portal? 
 
 A: The list of views and installed solutions are available in Azure portal. Click **All services**. In the list of resources, select **Monitor**, then click **...More**. The last used workspace is selected, but you can select any other workspace. 
-
-### Q. Why I can’t create workspaces in West Central US region? 
-
-A: This region is at temporary capacity limit. This limit is planned to be addressed by end of September, 2019.
-
 
 ### Q. Does Log Analytics use the same agent as Azure Security Center?
 
