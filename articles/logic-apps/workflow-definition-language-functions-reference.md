@@ -4838,10 +4838,7 @@ And returns this result XML:
 
 ### xpath
 
-Check XML for nodes or values that match an XPath (XML Path Language) expression,
-and return the matching nodes or values. An XPath expression, or just "XPath",
-helps you navigate an XML document structure so that you can select nodes
-or compute values in the XML content.
+Check XML for nodes or values that match an XPath (XML Path Language) expression, and return the matching nodes or values. An XPath expression, or just "XPath", helps you navigate an XML document structure so that you can select nodes or compute values in the XML content.
 
 ```
 xpath('<xml>', '<xpath>')
@@ -4862,8 +4859,7 @@ xpath('<xml>', '<xpath>')
 
 *Example 1*
 
-This example finds nodes that match the `<name></name>` node
-in the specified arguments, and returns an array with those node values:
+This example finds nodes that match the `<name></name>` node in the specified arguments, and returns an array with those node values:
 
 `xpath(xml(parameters('items')), '/produce/item/name')`
 
@@ -4887,8 +4883,7 @@ Here is the result array with the nodes that match `<name></name`:
 
 *Example 2*
 
-Following on Example 1, this example finds nodes that match the
-`<count></count>` node and adds those node values with the `sum()` function:
+Following on Example 1, this example finds nodes that match the `<count></count>` node and adds those node values with the `sum()` function:
 
 `xpath(xml(parameters('items')), 'sum(/produce/item/count)')`
 
@@ -4896,18 +4891,15 @@ And returns this result: `30`
 
 *Example 3*
 
-For this example, both expressions find nodes that match the
-`<location></location>` node, in the specified arguments,
-which include XML with a namespace. The expressions use the backslash
-character (\\) as an escape character for the double quotation mark (").
+For this example, both expressions find nodes that match the `<location></location>` node, in the specified arguments, which include XML with a namespace. The expressions use the backslash character (\\) as an escape character for the double quotation mark (").
 
 * *Expression 1*
 
-  `xpath(xml(body('Http')), '/*[name()=\"file\"]/*[name()=\"location\"]')`
+  `xpath(xml(body('Http')), '/*[name()="file"]/*[name()="location"]')`
 
 * *Expression 2*
 
-  `xpath(xml(body('Http')), '/*[local-name()=\"file\" and namespace-uri()=\"http://contoso.com\"]/*[local-name()=\"location\"]')`
+  `xpath(xml(body('Http')), '/*[local-name()="file" and namespace-uri()="http://contoso.com"]/*[local-name()="location"]')`
 
 Here are the arguments:
 
@@ -4919,9 +4911,9 @@ Here are the arguments:
 
 * Either XPath expression here:
 
-  * `/*[name()=\"file\"]/*[name()=\"location\"]`
+  * `/*[name()="file"]/*[name()="location"]`
 
-  * `/*[local-name()=\"file\" and namespace-uri()=\"http://contoso.com\"]/*[local-name()=\"location\"]`
+  * `/*[local-name()="file" and namespace-uri()="http://contoso.com"]/*[local-name()="location"]`
 
 Here is the result node that matches the `<location></location>` node:
 
@@ -4931,10 +4923,9 @@ Here is the result node that matches the `<location></location>` node:
 
 *Example 4*
 
-Following on Example 3, this example finds the value in the
-`<location></location>` node:
+Following on Example 3, this example finds the value in the `<location></location>` node:
 
-`xpath(xml(body('Http')), 'string(/*[name()=\"file\"]/*[name()=\"location\"])')`
+`xpath(xml(body('Http')), 'string(/*[name()="file"]/*[name()="location"])')`
 
 And returns this result: `"Paris"`
 
