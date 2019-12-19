@@ -18,15 +18,15 @@ This article summarizes the importance of the Time Series ID for your Azure Time
 
 ## Choose a Time Series ID
 
-Selecting an appropriate Time Series ID is critical. Choosing a Time Series ID is like choosing a partition key for a database. It needs to be selected while you're creating a Time Series Insights Preview environment. It's both a case-sensitive and an *immutable* property. That is, after you create a Time Series Insights Preview environment with a Time Series ID, you can't change it for that environment. 
+Selecting an appropriate Time Series ID is critical. Choosing a Time Series ID is like choosing a partition key for a database. It's required when you create a Time Series Insights Preview environment. 
 
 > [!IMPORTANT]
-> The Time Series ID is:
-> * A *case-sensitive* property - letter and character casings are used in searches, comparisons, updates, and when partitioning.
-> * An *immutable* property - once created it cannot be changed.
+> Time Series IDs are:
+> * A *case-sensitive* property: letter and character casings are used in searches, comparisons, updates, and when partitioning.
+> * An *immutable* property: once created it cannot be changed.
 
 > [!TIP]
-> If your event source is an IoT hub, your Time Series ID will most likely be ***iothub-connection-device-id***.
+> If your event source is an IoT hub, your Time Series ID will likely be ***iothub-connection-device-id***.
 
 Key best practices to follow include:
 
