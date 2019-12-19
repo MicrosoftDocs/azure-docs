@@ -188,7 +188,7 @@ To return a specific management group and all the levels of the hierarchy under 
 az account management-group show --name 'Contoso' -e -r
 ```
 
-## Moving management groups and subscriptions in the hierarchy  
+## Moving management groups and subscriptions   
 
 One reason to create a management group is to bundle subscriptions together. Only management groups
 and subscriptions can be made children of another management group. A subscription that moves to a
@@ -212,7 +212,7 @@ If the Owner role on the subscription is inherited from the current management g
 To see what permissions you have in the Azure portal, select the management group and then select **IAM**. To learn more on RBAC Roles, see [Manage access and permissions with RBAC](../../role-based-access-control/overview.md).
 
 
-## Move Subscriptions 
+## Move subscriptions 
 
 #### Add an existing Subscription to a management group in the portal
 

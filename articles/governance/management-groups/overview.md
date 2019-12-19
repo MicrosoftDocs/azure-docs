@@ -186,7 +186,7 @@ There are a few limitations that exist when using custom roles on management gro
 
  - You can only define one management group in the assignable scopes of a new role.  This limitation is in place to reduce the number of situations where role definitions and role assignments are disconnected.  This happens when a subscription or management group with a role assignment is moved to a different parent that doesn't have the role definition.   
  - RBAC Data Plane actions aren't allowed to be defined in management group custom roles.  This restriction is in place as there is a latency issue with RBAC actions updating the data plane resource providers. This latency issue is being worked on and these actions will be disabled from the role definition to reduce any risks.
- - The ARM service doesn't validate the management group's existence in the role definition's assignable scope.  If there is a typo or a incorrect management group ID listed, the role definition will still be created.   
+ - The Azure Resource Manager doesn't validate the management group's existence in the role definition's assignable scope.  If there is a typo or a incorrect management group ID listed, the role definition will still be created.   
 
 ## Moving management groups and subscriptions 
 
@@ -194,12 +194,12 @@ To a management group or subscription to be a child of another management group,
 
 If you're doing the move action, you need: 
 
-1.  Management group write and Role Assignment write permissions on the child subscription or management group.
-    1. Built-on role example **Owner**
-1. Management group write access on the target parent management group.
-    1. Built-in role example: **Owner**, **Contributor**, **Management Group Contributor**
-1. Management group write access on the existing parent management group.
-    1. Built-in role example: **Owner**, **Contributor**, **Management Group Contributor**
+-  Management group write and Role Assignment write permissions on the child subscription or management group.
+   - Built-on role example **Owner**
+- Management group write access on the target parent management group.
+   - Built-in role example: **Owner**, **Contributor**, **Management Group Contributor**
+- Management group write access on the existing parent management group.
+   - Built-in role example: **Owner**, **Contributor**, **Management Group Contributor**
 
 **Exception**: If the target or the existing parent management group is the Root management group, the permissions requirements don't apply. Since the Root management group is the default landing spot for all new management groups and subscriptions, you don't need permissions on it to move an item.
 
