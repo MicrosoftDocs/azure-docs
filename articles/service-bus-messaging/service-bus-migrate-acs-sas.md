@@ -1,5 +1,5 @@
 ---
-title: Migrate from Azure AD Access Control Service to SAS
+title: Service Bus - Migrate to Shared Access Signature authorization
 description: Learn about migrating from Azure Active Directory Access Control Service to Shared Access Signature authorization.
 services: service-bus-messaging
 documentationcenter: ''
