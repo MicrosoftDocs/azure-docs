@@ -102,7 +102,7 @@ In case you need to submit a support request for an issue with the Azure AD acco
 
 * For issues with the **Azure AD "My Account"** page, open a support request from within the Azure portal. Go to **Azure portal** > **Azure Active Directory** > **New support request**.
 
-* For issues with the **Office "My account"** page, open a support request from within the M365 admin center. Go to **M365 admin center** > **Support**. 
+* For issues with the **Office "My account"** page, open a support request from within the Microsoft 365 admin center. Go to **Microsoft 365 admin center** > **Support**. 
 
 ## Next steps
 [End-user experiences for applications in Azure Active Directory](end-user-experiences.md)
