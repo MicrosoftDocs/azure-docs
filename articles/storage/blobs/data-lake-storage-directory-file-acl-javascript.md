@@ -184,7 +184,7 @@ Need example here.
 
 ## Download from a directory
 
-First, create a **FileSystemClient** instance that represents the file that you want to download. Use the **FileSystemClient.read** method to read the file. Then, write the file. THis example uses the Node.js `fs` module to do that. 
+First, create a **FileSystemClient** instance that represents the file that you want to download. Use the **FileSystemClient.read** method to read the file. Then, write the file. This example uses the Node.js `fs` module to do that. 
 
 > [!NOTE]
 > This method of downloading a file works only for Node.js applications. If you plan to run your code in a browser, see the [Azure Storage File Data Lake client library for JavaScript](https://www.npmjs.com/package/@azure/storage-file-datalake) readme file for an example of how to do this in a browser. 
