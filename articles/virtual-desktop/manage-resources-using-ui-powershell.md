@@ -12,21 +12,22 @@ ms.author: helohr
 
 # Deploy a management tool using PowerShell
 
-The management tool provides a user interface (UI) for managing Microsoft Virtual Desktop resources. In these instructions, you'll learn how to deploy the management tool using PowerShell and connect to the management tool.
+This article will show you how to deploy the management tool using PowerShell.
 
 ## Important considerations
 
-Each Azure Active Directory (Azure AD) tenant's subscription will need its own separate deployment of the management tool. This tool doesn't support Azure AD Business-to-Business (B2B) scenarios. 
+Each Azure Active Directory (Azure AD) tenant's subscription needs its own separate deployment of the management tool. This tool doesn't support Azure AD Business-to-Business (B2B) scenarios. 
 
-This management tool is a sample. Microsoft will provide important security and quality updates. The [source code is available in GitHub](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/wvd-management-ux/deploy). Customers and partners are encouraged to customize the tool to fit their business needs.
+This management tool is a sample. Microsoft will provide important security and quality updates. [The source code is available in GitHub](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/wvd-management-ux/deploy). Whether you're a customer or partner, we encourage you to customize the tool to satisfy your business needs.
 
-To following browsers are compatible with the management tool:
+The following browsers are compatible with the management tool:
+
 - Google Chrome 68 or later
 - Microsoft Edge 40.15063 or later
 - Mozilla Firefox 52.0 or later
 - Safari 10 or later (macOS only)
 
-## Pre-requisites
+## What you need to deploy the management tool
 
 Before deploying the management tool, you'll need an Azure Active Directory user to create an app registration and deploy the management UI. This user must:
 
