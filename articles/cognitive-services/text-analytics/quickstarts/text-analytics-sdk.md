@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Text Analytics client library | Microsoft Docs"
+title: "Quickstart: Text Analytics client library v3 | Microsoft Docs"
 titleSuffix: Azure Cognitive Services
 description: In this quickstart, detect language by using the Text Analytics API from Azure Cognitive Services.
 services: cognitive-services
@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 11/19/2019
+ms.date: 12/19/2019
 ms.author: aahi
 zone_pivot_groups: programming-languages-set-five
 ---
 
-# Quickstart: Use the Text Analytics client library
+# Quickstart: Use the Text Analytics client library v3
 
 Get started with the Text Analytics client library. Follow these steps to install the package and try out the example code for basic tasks.
 
-Use the Text Analytics client library to perform:
+Use the Text Analytics client library v3 to perform:
 
 * Sentiment analysis
 * Language detection
@@ -26,31 +26,31 @@ Use the Text Analytics client library to perform:
 
 ::: zone pivot="programming-language-csharp"
 
-[!INCLUDE [C# quickstart](../includes/quickstarts/csharp.md)]
+[!INCLUDE [C# quickstart](../includes/quickstarts/v3/csharp.md)]
 
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
 
-[!INCLUDE [Python quickstart](../includes/quickstarts/python-sdk.md)]
+[!INCLUDE [Python quickstart](../includes/quickstarts/v3/python-sdk.md)]
 
 ::: zone-end
 
 ::: zone pivot="programming-language-nodejs"
 
-[!INCLUDE [NodeJS quickstart](../includes/quickstarts/nodejs-sdk.md)]
+[!INCLUDE [NodeJS quickstart](../includes/quickstarts/v3/nodejs-sdk.md)]
 
 ::: zone-end
 
 ::: zone pivot="programming-language-go"
 
-[!INCLUDE [Go quickstart](../includes/quickstarts/go-sdk.md)]
+[!INCLUDE [Go quickstart](../includes/quickstarts/v3/go-sdk.md)]
 
 ::: zone-end
 
 ::: zone pivot="programming-language-ruby"
 
-[!INCLUDE [Ruby quickstart](../includes/quickstarts/ruby-sdk.md)]
+[!INCLUDE [Ruby quickstart](../includes/quickstarts/v3/ruby-sdk.md)]
 
 ::: zone-end
 
