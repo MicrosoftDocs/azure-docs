@@ -39,7 +39,7 @@ HDInsight now allows you to use your own SQL DB for Apache Ambari. You can confi
 No deprecations for this release. To get ready for upcoming deprecations, see [Upcoming changes](#upcoming-changes).
 
 ## Behavior changes
-No behavior changes for this release. To get ready with upcoming behavior changes, see Upcoming changes and deprecations section
+No behavior changes for this release. To get ready for upcoming behavior changes, see [Upcoming changes](#upcoming-changes).
 
 ## Upcoming changes
 The following changes will happen in the upcoming releases. 
