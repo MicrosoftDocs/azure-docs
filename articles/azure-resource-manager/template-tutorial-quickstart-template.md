@@ -1,11 +1,7 @@
 ---
-title: Tutorial - Use Azure Quickstart templates | Microsoft Docs
+title: Tutorial - Use quickstart templates
 description: Learn how to use Azure Quickstart templates to complete your template development.
-services: azure-resource-manager
 author: mumian
-manager: carmonmills
-
-ms.service: azure-resource-manager
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
@@ -21,7 +17,7 @@ We recommend that you complete the [tutorial about exported templates](template-
 
 You must have Visual Studio Code with the Resource Manager Tools extension, and either Azure PowerShell or Azure CLI. For more information, see [template tools](template-tutorial-create-first-template.md#get-tools).
 
-## Review your template
+## Review template
 
 At the end of the previous tutorial, your template had the following JSON:
 
@@ -29,7 +25,7 @@ At the end of the previous tutorial, your template had the following JSON:
 
 This template works for deploying storage accounts and app service plans, but you might want to add a website to it. You can use pre-built templates to quickly discover the JSON required for deploying a resource.
 
-## Find a template
+## Find template
 
 1. Open [Azure Quickstart templates](https://azure.microsoft.com/resources/templates/)
 1. In **Search**, enter **deploy linux web app**.
@@ -40,13 +36,13 @@ This template works for deploying storage accounts and app service plans, but yo
 
     ![Resource Manager template quickstart web site](./media/template-tutorial-quickstart-template/resource-manager-template-quickstart-template-web-site.png)
 
-## Revise the existing template
+## Revise existing template
 
 Merge the quickstart template with the existing template:
 
 [!code-json[](~/resourcemanager-templates/get-started-with-templates/quickstart-template/azuredeploy.json?range=1-108&highlight=32-45,49,85-100)]
 
-The WebApp name needs to be unique across Azure. To prevent having duplicate names, the **webAppPortalName** variable has been updated from **"webAppPortalName": "[concat(parameters('webAppName'), '-webapp')]"** to **"webAppPortalName": "[concat(parameters('webAppName'), uniqueString(resourceGroup().id))]"**.
+The web app name needs to be unique across Azure. To prevent having duplicate names, the **webAppPortalName** variable has been updated from **"webAppPortalName": "[concat(parameters('webAppName'), '-webapp')]"** to **"webAppPortalName": "[concat(parameters('webAppName'), uniqueString(resourceGroup().id))]"**.
 
 Add a comma at the end of the `Microsoft.Web/serverfarms` definition to separate the resource definition from the `Microsoft.Web/sites` definition.
 
@@ -56,7 +52,7 @@ You'll notice it has an element named **dependsOn** that is set to the app servi
 
 The **serverFarmId** property uses the [resourceId](resource-group-template-functions-resource.md#resourceid) function. This function gets the unique identifier for a resource. In this case, it gets the unique identifier for the app service plan. The web app is associated with one specific app service plan.
 
-## Deploy the template
+## Deploy template
 
 Use either Azure CLI or Azure PowerShell to deploy a template.
 

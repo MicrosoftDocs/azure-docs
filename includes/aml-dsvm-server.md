@@ -11,7 +11,7 @@ ms.topic: "include"
 ms.date: 01/25/2019
 ---
 
-1. [Create an Azure Machine Learning service workspace](../articles/machine-learning/service/how-to-manage-workspace.md).
+1. [Create an Azure Machine Learning workspace](../articles/machine-learning/service/how-to-manage-workspace.md).
 
 1. Clone [the GitHub repository](https://aka.ms/aml-notebooks).
 

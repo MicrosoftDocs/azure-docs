@@ -1,12 +1,8 @@
 ---
 title: Handle Azure Functions bindings errors
 description: Learn to handle Azure Functions binding errors 
-services: functions
-documentationcenter: na
 author: craigshoemaker
-manager: gwallace
 
-ms.service: azure-functions
 ms.topic: reference
 ms.date: 09/12/2019
 ms.author: cshoe

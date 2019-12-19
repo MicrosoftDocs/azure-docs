@@ -1,5 +1,5 @@
 ---
-title: Primary key, foreign key, and unique key in Azure SQL Data Warehouse  | Microsoft Docs
+title: Primary, foreign, and unique keys  
 description: Table constraints support in Azure SQL Data Warehouse
 services: sql-data-warehouse
 author: XiaoyuMSFT
@@ -10,6 +10,7 @@ ms.subservice: development
 ms.date: 09/05/2019
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
+ms.custom: seo-lt-2019
 ---
 
 # Primary key, foreign key, and unique key in Azure SQL Data Warehouse

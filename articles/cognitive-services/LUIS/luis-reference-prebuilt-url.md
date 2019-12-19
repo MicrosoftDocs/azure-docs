@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/27/2019
+ms.date: 10/04/2019
 ms.author: diberry
 ---
 
@@ -21,92 +21,61 @@ Url is managed from the [Recognizers-text](https://github.com/Microsoft/Recogniz
 
 ## Resolution for prebuilt URL entity
 
-#### [V2 prediction endpoint response](#tab/V2)
+The following entity objects are returned for the query:
 
-The following example shows the resolution of the **builtin.url** entity.
+`https://www.luis.ai is a great cognitive services example of artificial intelligence`
 
-```json
-{
-  "query": "https://www.luis.ai is a great cognitive services example of artificial intelligence",
-  "topScoringIntent": {
-    "intent": "None",
-    "score": 0.781975448
-  },
-  "intents": [
-    {
-      "intent": "None",
-      "score": 0.781975448
-    }
-  ],
-  "entities": [
-    {
-      "entity": "https://www.luis.ai",
-      "type": "builtin.url",
-      "startIndex": 0,
-      "endIndex": 17
-    }
-  ]
-}
-```
-
-#### [V3 prediction endpoint response](#tab/V3)
+#### [V3 response](#tab/V3)
 
 The following JSON is with the `verbose` parameter set to `false`:
 
 ```json
-{
-    "query": "https://www.luis.ai is a great cognitive services example of artificial intelligence",
-    "prediction": {
-        "normalizedQuery": "https://www.luis.ai is a great cognitive services example of artificial intelligence",
-        "topIntent": "None",
-        "intents": {
-            "None": {
-                "score": 0.421936184
-            }
-        },
-        "entities": {
-            "url": [
-                "https://www.luis.ai"
-            ]
-        }
-    }
+"entities": {
+    "url": [
+        "https://www.luis.ai"
+    ]
 }
 ```
+#### [V3 verbose response](#tab/V3-verbose)
 
 The following JSON is with the `verbose` parameter set to `true`:
 
 ```json
-{
-    "query": "https://www.luis.ai is a great cognitive services example of artificial intelligence",
-    "prediction": {
-        "normalizedQuery": "https://www.luis.ai is a great cognitive services example of artificial intelligence",
-        "topIntent": "None",
-        "intents": {
-            "None": {
-                "score": 0.421936184
-            }
-        },
-        "entities": {
-            "url": [
-                "https://www.luis.ai"
-            ],
-            "$instance": {
-                "url": [
-                    {
-                        "type": "builtin.url",
-                        "text": "https://www.luis.ai",
-                        "startIndex": 0,
-                        "length": 19,
-                        "modelTypeId": 2,
-                        "modelType": "Prebuilt Entity Extractor"
-                    }
+"entities": {
+    "url": [
+        "https://www.luis.ai"
+    ],
+    "$instance": {
+        "url": [
+            {
+                "type": "builtin.url",
+                "text": "https://www.luis.ai",
+                "startIndex": 0,
+                "length": 17,
+                "modelTypeId": 2,
+                "modelType": "Prebuilt Entity Extractor",
+                "recognitionSources": [
+                    "model"
                 ]
             }
-        }
+        ]
     }
 }
 ```
+#### [V2 response](#tab/V2)
 
+The following example shows the resolution of the https://www.luis.ai is a great cognitive services example of artificial intelligence
+
+```json
+"entities": [
+    {
+        "entity": "https://www.luis.ai",
+        "type": "builtin.url",
+        "startIndex": 0,
+        "endIndex": 17
+    }
+]
+```
 
 * * * 
 

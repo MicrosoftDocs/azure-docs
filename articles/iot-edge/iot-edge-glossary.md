@@ -9,7 +9,6 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: menchi
-ms.custom: seodec18
 ---
 
 # Glossary of terms for Azure IoT Edge

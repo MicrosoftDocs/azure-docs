@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: tutorial
-ms.date: 06/04/2019
+ms.date: 11/09/2019
 ms.author: helohr
 ---
 # Tutorial: Deploy a management tool
@@ -58,10 +58,9 @@ Follow these instructions to deploy the Azure Resource Management template:
 ### Guidance for template parameters
 Here's how to enter parameters for configuring the tool:
 
-- This is the RD broker URL:  https:\//rdbroker.wvd.microsoft.com/
-- This is the resource URL:  https:\//mrs-prod.ame.gbl/mrs-RDInfra-prod
-- Use your AAD credentials with MFA disabled to sign in to Azure. See [What you need to run the Azure Resource Manager template](#what-you-need-to-run-the-azure-resource-manager-template).
-- Use a unique name for the application that will be registered in your Azure Active Directory for the management tool; for example, Apr3UX.
+- For the **isServicePrincipal** parameter, select **false**.
+- For the credentials, enter your Azure Active Directory credentials with multi-factor authentication disabled. These credentials will be the ones you use to sign in to Azure and create the Azure AD application and Azure web app resources. To learn more, see [What you need to run the Azure Resource Manager template](#what-you-need-to-run-the-azure-resource-manager-template).
+- For the **applicationName**, use a unique name for your app that will be registered in your Azure Active Directory. This name will also be used for the web app URL. For example, you can use a name like "Apr3UX."
 
 ## Provide consent for the management tool
 
@@ -98,9 +97,14 @@ Follow these instructions to launch the tool:
 1. Select the Azure App Services resource with the name you provided in the template (for example, Apr3UX) and navigate to the URL associated with it; for example,  <https://rdmimgmtweb-210520190304.azurewebsites.net>.
 2. Sign in using your Windows Virtual Desktop credentials.
 3. When prompted to choose a Tenant Group, select **Default Tenant Group** from the drop-down list.
+4. When you select Default Tenant Group, a menu should appear on the right side of your window. On this menu, find the name of your tenant group and select it.
 
 > [!NOTE]
 > If you have a custom Tenant Group, enter the name manually instead of choosing from the drop-down list.
+
+## Report issues
+
+If you encounter any issues with the management tool or other Windows Virtual Desktop tools, follow the directions in [ARM Templates for Remote Desktop Services](https://github.com/Azure/RDS-Templates/blob/master/README.md) to report them on GitHub.
 
 ## Next steps
 

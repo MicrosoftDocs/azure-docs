@@ -153,4 +153,6 @@ Log JSON strings include elements listed in the following table:
 
 ## Next steps
 
-[Use metrics to monitor cluster health](using-metrics.md)
+* [Tutorial: Ingest and query monitoring data in Azure Data Explorer](ingest-data-no-code.md)
+* [Use metrics to monitor cluster health](using-metrics.md)
+

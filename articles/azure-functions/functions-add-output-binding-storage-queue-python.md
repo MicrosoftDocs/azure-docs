@@ -1,12 +1,8 @@
 ---
 title: Add an Azure Storage queue binding to your Python function 
 description: Learn how to add an Azure Storage queue output binding to your Python function.
-author: ggailey777
-ms.author: glenga
 ms.date: 10/02/2019
 ms.topic: quickstart
-ms.service: azure-functions
-manager: gwallace
 ---
 
 # Add an Azure Storage queue binding to your Python function
@@ -54,7 +50,7 @@ func host start
 ```
 
 > [!NOTE]  
-> Because you enabled extension bundles in the host.json, the [Storage binding extension](functions-bindings-storage-blob.md#packages---functions-2x) was downloaded and installed for you during startup, along with the other Microsoft binding extensions.
+> Because you enabled extension bundles in the host.json, the [Storage binding extension](functions-bindings-storage-blob.md#packages---functions-2x-and-higher) was downloaded and installed for you during startup, along with the other Microsoft binding extensions.
 
 Copy the URL of your `HttpTrigger` function from the runtime output and paste it into your browser's address bar. Append the query string `?name=<yourname>` to this URL and run the request. You should see the same response in the browser as you did in the previous article.
 
@@ -86,7 +82,7 @@ You can [examine the Storage queue message](#query-the-storage-queue) again to v
 
 ## Next steps
 
-You've updated your HTTP-triggered function to write data to a Storage queue. To learn more about developing Azure Functions with Python, see the [Azure Functions Python developer guide](functions-reference-python.md) and [Azure Functions triggers and bindings](functions-triggers-bindings.md). For examples of complete Function projects in Python, see the [Python Functions samples](/samples/browse/?products=azure-functions&languages=python). 
+You've updated your HTTP-triggered function to write data to a Storage queue. To learn more about developing Azure Functions with Python, see the [Azure Functions Python developer guide](functions-reference-python.md) and [Azure Functions triggers and bindings](functions-triggers-bindings.md). For examples of complete Function projects in Python, see the [Python Functions samples](/samples/browse/?products=azure-functions&languages=python). To learn more about pricing, see the [Functions pricing page](https://azure.microsoft.com/pricing/details/functions/) and the [Estimating Consumption plan costs](functions-consumption-costs.md) article.
 
 Next, you should enable Application Insights monitoring for your function app:
 

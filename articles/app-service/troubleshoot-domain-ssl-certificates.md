@@ -1,16 +1,10 @@
 ---
-title: Troubleshoot domain and SSL certificates - Azure App Service | Microsoft Docs
-description: Troubleshoot domain and SSL certificate problems in Azure App Service
-services: app-service\web
-documentationcenter: ''
+title: Troubleshoot domain and SSL certificates
+description: Find solutions to the common problems that you might encounter when you configure a domain or SSL certificate in Azure App Service.
 author: genlin
 manager: dcscontentpm
-editor: ''
 tags: top-support-issue
 
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/01/2019
 ms.author: genli
@@ -66,7 +60,7 @@ Remove the SSL binding for that certificate from the apps. Then try to delete th
 ### You can't purchase an App Service certificate 
 
 #### Symptom
-You can't purchase an [Azure App Service certificate](./web-sites-purchase-ssl-web-site.md) from the Azure portal.
+You can't purchase an [Azure App Service certificate](./configure-ssl-certificate.md#import-an-app-service-certificate) from the Azure portal.
 
 #### Cause and solution
 This problem can occur for any of the following reasons:

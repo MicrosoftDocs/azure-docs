@@ -1,17 +1,17 @@
 ---
-title: Create an Azure-SSIS integration runtime in Azure Data Factory | Microsoft Docs
+title: Create an Azure-SSIS integration runtime in Azure Data Factory 
 description: Learn how to create an Azure-SSIS integration runtime in Azure Data Factory so you can deploy and run SSIS packages in Azure.
 services: data-factory
 documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
+
 ms.topic: conceptual
 ms.date: 09/15/2019
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
-manager: craigg
+manager: anandsub
 ---
 
 # Create an Azure-SSIS integration runtime in Azure Data Factory

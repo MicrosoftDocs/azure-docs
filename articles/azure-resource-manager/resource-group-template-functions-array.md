@@ -1,12 +1,8 @@
 ---
-title: Azure Resource Manager template functions - arrays and objects
+title: Template functions - arrays and objects
 description: Describes the functions to use in an Azure Resource Manager template for working with arrays and objects.
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 07/31/2019
-ms.author: tomfitz
-
 ---
 # Array and object functions for Azure Resource Manager templates
 
@@ -32,11 +28,8 @@ Resource Manager provides several functions for working with arrays and objects.
 
 To get an array of string values delimited by a value, see [split](resource-group-template-functions-string.md#split).
 
-<a id="array" />
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
 ## array
+
 `array(convertToArray)`
 
 Converts the value to an array.
@@ -112,9 +105,8 @@ To deploy this example template with PowerShell, use:
 New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/array.json
 ```
 
-<a id="coalesce" />
-
 ## coalesce
+
 `coalesce(arg1, arg2, arg3, ...)`
 
 Returns first non-null value from the parameters. Empty strings, empty arrays, and empty objects are not null.
@@ -200,9 +192,8 @@ To deploy this example template with PowerShell, use:
 New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/coalesce.json
 ```
 
-<a id="concat" />
-
 ## concat
+
 `concat(arg1, arg2, arg3, ...)`
 
 Combines multiple arrays and returns the concatenated array, or combines multiple string values and returns the concatenated string. 
@@ -214,9 +205,10 @@ Combines multiple arrays and returns the concatenated array, or combines multipl
 | arg1 |Yes |array or string |The first array or string for concatenation. |
 | additional arguments |No |array or string |Additional arrays or strings in sequential order for concatenation. |
 
-This function can take any number of arguments, and can accept either strings or arrays for the parameters.
+This function can take any number of arguments, and can accept either strings or arrays for the parameters. However, you can't provide both arrays and strings for parameters. Arrays are only concatenated with other arrays.
 
 ### Return value
+
 A string or array of concatenated values.
 
 ### Example
@@ -314,9 +306,8 @@ To deploy this example template with PowerShell, use:
 New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/concat-string.json
 ```
 
-<a id="contains" />
-
 ## contains
+
 `contains(container, itemToFind)`
 
 Checks whether an array contains a value, an object contains a key, or a string contains a substring. The string comparison is case-sensitive. However, when testing if an object contains a key, the comparison is case-insensitive.
@@ -408,9 +399,8 @@ To deploy this example template with PowerShell, use:
 New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/contains.json
 ```
 
-<a id="createarray" />
-
 ## createarray
+
 `createArray (arg1, arg2, arg3, ...)`
 
 Creates an array from the parameters.
@@ -487,8 +477,6 @@ To deploy this example template with PowerShell, use:
 ```azurepowershell-interactive
 New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/createarray.json
 ```
-
-<a id="empty" />
 
 ## empty
 
@@ -567,9 +555,8 @@ To deploy this example template with PowerShell, use:
 New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/empty.json
 ```
 
-<a id="first" />
-
 ## first
+
 `first(arg1)`
 
 Returns the first element of the array, or first character of the string.
@@ -632,9 +619,8 @@ To deploy this example template with PowerShell, use:
 New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/first.json
 ```
 
-<a id="intersection" />
-
 ## intersection
+
 `intersection(arg1, arg2, arg3, ...)`
 
 Returns a single array or object with the common elements from the parameters.
@@ -712,6 +698,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 ```
 
 ## json
+
 `json(arg1)`
 
 Returns a JSON object.
@@ -721,7 +708,6 @@ Returns a JSON object.
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
 | arg1 |Yes |string |The value to convert to JSON. |
-
 
 ### Return value
 
@@ -784,9 +770,8 @@ To deploy this example template with PowerShell, use:
 New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/json.json
 ```
 
-<a id="last" />
-
 ## last
+
 `last (arg1)`
 
 Returns the last element of the array, or last character of the string.
@@ -849,9 +834,8 @@ To deploy this example template with PowerShell, use:
 New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/last.json
 ```
 
-<a id="length" />
-
 ## length
+
 `length(arg1)`
 
 Returns the number of elements in an array, characters in a string, or root-level properties in an object.
@@ -949,9 +933,8 @@ You can use this function with an array to specify the number of iterations when
 
 For more information about using this function with an array, see [Create multiple instances of resources in Azure Resource Manager](resource-group-create-multiple.md).
 
-<a id="max" />
-
 ## max
+
 `max(arg1)`
 
 Returns the maximum value from an array of integers or a comma-separated list of integers.
@@ -1013,9 +996,8 @@ To deploy this example template with PowerShell, use:
 New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/max.json
 ```
 
-<a id="min" />
-
 ## min
+
 `min(arg1)`
 
 Returns the minimum value from an array of integers or a comma-separated list of integers.
@@ -1077,9 +1059,8 @@ To deploy this example template with PowerShell, use:
 New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/min.json
 ```
 
-<a id="range" />
-
 ## range
+
 `range(startingInteger, numberOfElements)`
 
 Creates an array of integers from a starting integer and containing a number of items.
@@ -1141,9 +1122,8 @@ To deploy this example template with PowerShell, use:
 New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/range.json
 ```
 
-<a id="skip" />
-
 ## skip
+
 `skip(originalValue, numberToSkip)`
 
 Returns an array with all the elements after the specified number in the array, or returns a string with all the characters after the specified number in the string.
@@ -1222,9 +1202,8 @@ To deploy this example template with PowerShell, use:
 New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/skip.json
 ```
 
-<a id="take" />
-
 ## take
+
 `take(originalValue, numberToTake)`
 
 Returns an array with the specified number of elements from the start of the array, or a string with the specified number of characters from the start of the string.
@@ -1303,9 +1282,8 @@ To deploy this example template with PowerShell, use:
 New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/take.json
 ```
 
-<a id="union" />
-
 ## union
+
 `union(arg1, arg2, arg3, ...)`
 
 Returns a single array or object with all elements from the parameters. Duplicate values or keys are only included once.
@@ -1383,6 +1361,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 ```
 
 ## Next steps
+
 * For a description of the sections in an Azure Resource Manager template, see [Authoring Azure Resource Manager templates](resource-group-authoring-templates.md).
 * To merge multiple templates, see [Using linked templates with Azure Resource Manager](resource-group-linked-templates.md).
 * To iterate a specified number of times when creating a type of resource, see [Create multiple instances of resources in Azure Resource Manager](resource-group-create-multiple.md).

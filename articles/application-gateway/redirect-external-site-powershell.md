@@ -1,20 +1,15 @@
 ---
-title: Create an application gateway with external redirection - Azure PowerShell | Microsoft Docs
+title: External redirection using PowerShell
+titleSuffix: Azure Application Gateway
 description: Learn how to create an application gateway that redirects web traffic to an external site using Azure Powershell.
 services: application-gateway
 author: vhorne
-manager: jpconnock
-editor: tysonn
-
 ms.service: application-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 01/24/2018
+ms.date: 11/14/2019
 ms.author: victorh
-
 ---
+
 # Create an application gateway with external redirection using Azure PowerShell
 
 You can use Azure Powershell to configure [web traffic redirection](multiple-site-overview.md) when you create an [application gateway](overview.md). In this tutorial, you configure a listener and rule that redirects web traffic that arrives at the application gateway to an external site.

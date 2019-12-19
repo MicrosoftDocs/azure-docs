@@ -1,5 +1,5 @@
 ---
-title: Manage roles in an Azure Machine Learning workspace
+title: Manage roles in your workspace
 titleSuffix: Azure Machine Learning
 description: Learn how to access to an Azure Machine Learning workspace using role-based access control (RBAC).
 services: machine-learning
@@ -9,13 +9,14 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: larryfr
 author: Blackmist
-ms.date: 07/10/2019
+ms.date: 11/06/2019
 ms.custom: seodec18
 
 ---
 
 
 # Manage access to an Azure Machine Learning workspace
+[!INCLUDE [aml-applies-to-enterprise-sku](../../../includes/aml-applies-to-enterprise-sku.md)]
 
 In this article, you learn how to manage access to an Azure Machine Learning workspace. [Role-based access control (RBAC)](/azure/role-based-access-control/overview) is used to manage access to Azure resources. Users in your Azure Active Directory are assigned specific roles, which grant access to resources. Azure provides both built-in roles and the ability to create custom roles.
 

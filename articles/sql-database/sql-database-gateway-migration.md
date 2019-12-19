@@ -1,5 +1,5 @@
 ---
-title: Gateway traffic migration notice for Azure SQL Database  | Microsoft Docs
+title: Gateway traffic migration notice
 description: Article provides notice to users about the migration of Azure SQL Database Gateways IP addresses
 services: sql-database
 ms.service: sql-database

@@ -5,7 +5,7 @@ author: amberbhargava
 manager: amberb
 editor: banders
 tags: billing
-ms.service: billing
+ms.service: cost-management-billing
 ms.topic: conceptual
 ms.workload: na
 ms.date: 10/01/2019

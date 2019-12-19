@@ -5,7 +5,7 @@ keywords: transfer azure subscription, azure transfer subscription, move azure s
 author: bandersmsft
 manager: amberb
 tags: billing,top-support-issue
-ms.service: billing
+ms.service: cost-management-billing
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -196,6 +196,10 @@ Your account is responsible for payment for any usage that is reported from the 
 ### Can I use a different payment method?
 
 Yes. While accepting the transfer request, you can select an existing payment method that is linked to your account or add a new payment method.
+
+### How can I transfer ownership of my Enterprise Agreement (EA) subscription account ownership if the original account owner is no longer with the organization?
+
+The Enterprise Administrator can update account ownership for any account even after the original account owner is no longer part of the organization. They can do so by following instructions for [Transferring Account Ownership for All Subscriptions](https://ea.azure.com/helpdocs/changeAccountOwnerForASubscription) in the EA portal.
 
 ## Troubleshooting
 

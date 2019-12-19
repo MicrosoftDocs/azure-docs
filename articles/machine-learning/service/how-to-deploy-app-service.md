@@ -15,6 +15,7 @@ ms.date: 08/27/2019
 ---
 
 # Deploy a machine learning model to Azure App Service (preview)
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Learn how to deploy a model from Azure Machine Learning as a web app in Azure App Service.
 
@@ -25,7 +26,7 @@ With Azure Machine Learning, you can create Docker images from trained machine l
 
 * Advanced [authentication](/azure/app-service/configure-authentication-provider-aad) for enhanced security. Authentication methods include both Azure Active Directory and multi-factor auth.
 * [Autoscale](/azure/azure-monitor/platform/autoscale-get-started?toc=%2fazure%2fapp-service%2ftoc.json) without having to redeploy.
-* [SSL support](/azure/app-service/app-service-web-ssl-cert-load) for secure communications between clients and the service.
+* [SSL support](/azure/app-service/configure-ssl-certificate-in-code) for secure communications between clients and the service.
 
 For more information on features provided by Azure App Service, see the [App Service overview](/azure/app-service/overview).
 
@@ -70,18 +71,21 @@ Before deploying, you must define what is needed to run the model as a web servi
 These entities are encapsulated into an __inference configuration__. The inference configuration references the entry script and other dependencies.
 
 > [!IMPORTANT]
-> When creating an inference configuration for use with Azure App Service, you must use an [Environment](https://docs.microsoft.com//python/api/azureml-core/azureml.core.environment%28class%29?view=azure-ml-py) object. The following example demonstrates creating an environment object and using it with an inference configuration:
+> When creating an inference configuration for use with Azure App Service, you must use an [Environment](https://docs.microsoft.com//python/api/azureml-core/azureml.core.environment%28class%29?view=azure-ml-py) object. Please note that if you are defining a custom environment, you must add azureml-defaults with version >= 1.0.45 as a pip dependency. This package contains the functionality needed to host the model as a web service. The following example demonstrates creating an environment object and using it with an inference configuration:
 >
 > ```python
-> from azureml.core import Environment
-> from azureml.core.environment import CondaDependencies
+> from azureml.core.environment import Environment
+> from azureml.core.conda_dependencies import CondaDependencies
+> from azureml.core.model import InferenceConfig
 >
 > # Create an environment and add conda dependencies to it
 > myenv = Environment(name="myenv")
 > # Enable Docker based environment
 > myenv.docker.enabled = True
 > # Build conda dependencies
-> myenv.python.conda_dependencies = CondaDependencies.create(conda_packages=['scikit-learn'])
+> myenv.python.conda_dependencies = CondaDependencies.create(conda_packages=['scikit-learn'],
+>                                                            pip_packages=['azureml-defaults'])
+> inference_config = InferenceConfig(entry_script="score.py", environment=myenv)
 > ```
 
 For more information on environments, see [Create and manage environments for training and deployment](how-to-use-environments.md).
@@ -93,7 +97,7 @@ For more information on inference configuration, see [Deploy models with Azure M
 
 ## Create the image
 
-To create the Docker image that is deployed to Azure App Service, use [Model.package](https://docs.microsoft.com//python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#package-workspace--models--inference-config--generate-dockerfile-false-). The following code snippet demonstrates how to build a new image from the model and inference configuration:
+To create the Docker image that is deployed to Azure App Service, use [Model.package](https://docs.microsoft.com//python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#package-workspace--models--inference-config-none--generate-dockerfile-false-). The following code snippet demonstrates how to build a new image from the model and inference configuration:
 
 > [!NOTE]
 > The code snippet assumes that `model` contains a registered model, and that `inference_config` contains the configuration for the inference environment. For more information, see [Deploy models with Azure Machine Learning](how-to-deploy-and-where.md).
@@ -264,6 +268,6 @@ print(response.json())
 
 * Learn to configure your Web App in the [App Service on Linux](/azure/app-service/containers/) documentation.
 * Learn more about scaling in [Get started with Autoscale in Azure](/azure/azure-monitor/platform/autoscale-get-started?toc=%2fazure%2fapp-service%2ftoc.json).
-* [Use an SSL certificate in your Azure App Service](/azure/app-service/app-service-web-ssl-cert-load).
+* [Use an SSL certificate in your Azure App Service](/azure/app-service/configure-ssl-certificate-in-code).
 * [Configure your App Service app to use Azure Active Directory sign-in](/azure/app-service/configure-authentication-provider-aad).
 * [Consume a ML Model deployed as a web service](how-to-consume-web-service.md)

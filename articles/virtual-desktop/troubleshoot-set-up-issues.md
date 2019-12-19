@@ -1,12 +1,12 @@
 ---
-title: Windows Virtual Desktop tenant and host pool creation - Azure
+title: Windows Virtual Desktop tenant host pool creation - Azure
 description: How to troubleshoot and resolve tenant and host pool issues during setup of a Windows Virtual Desktop tenant environment.
 services: virtual-desktop
 author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: troubleshooting
-ms.date: 07/10/2019
+ms.date: 12/17/2019
 ms.author: helohr
 ---
 # Tenant and host pool creation
@@ -54,7 +54,7 @@ Example of raw error:
 
 ## Creating Windows Virtual Desktop session host VMs
 
-Session host VMs can be created in several ways, but Remote Desktop Services/Windows Virtual Desktop teams only support VM provisioning issues related to the Azure Resource Manager template. The Azure Resource Manager template is available in [Azure Marketplace](https://azuremarketplace.microsoft.com/) and [GitHub](https://github.com/).
+Session host VMs can be created in several ways, but the Windows Virtual Desktop team only supports VM provisioning issues related to the [Azure Marketplace](https://azuremarketplace.microsoft.com/) offering. For more details, see [Issues using Windows Virtual Desktop - Provision a host pool Azure Marketplace offering](#issues-using-windows-virtual-desktop--provision-a-host-pool-azure-marketplace-offering).
 
 ## Issues using Windows Virtual Desktop – Provision a host pool Azure Marketplace offering
 
@@ -82,6 +82,27 @@ The Windows Virtual Desktop – Provision a host pool template is available from
     #create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%
     2FRDS-Templates%2Fmaster%2Fwvd-templates%2FCreate%20and%20provision%20WVD%20host%20pool%2FmainTemplate.json
     ```
+
+### Error: You receive "template deployment is not valid" error
+
+![Screenshot of "template deployment ... is not valid" error](media/troubleshooting-marketplace-validation-error-generic.png)
+
+Before taking specific action, you'll need to check the activity log to see the detailed error for the failed deployment validation.
+
+To view the error in the activity log:
+
+1. Exit the current Azure Marketplace deployment offering.
+2. In the top search bar, search for and select **Activity Log**.
+3. Find an activity named **Validate Deployment** that has a status of **Failed** and select the activity.
+   ![Screenshot of individual **Validate Deployment** activity with a **Failed** status](media/troubleshooting-marketplace-validation-error-activity-summary.png)
+
+4. Select JSON, then scroll down to the bottom of the screen until you see the "statusMessage" field.
+   ![Screenshot of failed activity, with a red box around the statusMessage property of the JSON text.](media/troubleshooting-marketplace-validation-error-json-boxed.png)
+
+If your operation template goes over the quota limit, you can do one of the following things to fix it:
+
+ - Run the Azure Marketplace with the parameters you used the first time, but this time use fewer VMs and VM cores.
+ - Open the link you see in the **statusMessage** field in a browser to submit a request to increase the quota for your Azure subscription for the specified VM SKU.
 
 ## Azure Resource Manager template and PowerShell Desired State Configuration (DSC) errors
 
@@ -341,9 +362,10 @@ If you're running the GitHub Azure Resource Manager template, provide values for
 
 - For an overview on troubleshooting Windows Virtual Desktop and the escalation tracks, see [Troubleshooting overview, feedback, and support](troubleshoot-set-up-overview.md).
 - To troubleshoot issues while configuring a virtual machine (VM) in Windows Virtual Desktop, see [Session host virtual machine configuration](troubleshoot-vm-configuration.md).
-- To troubleshoot issues with Windows Virtual Desktop client connections, see [Remote Desktop client connections](troubleshoot-client-connection.md).
+- To troubleshoot issues with Windows Virtual Desktop client connections, see [Windows Virtual Desktop service connections](troubleshoot-service-connection.md).
+- To troubleshoot issues with Remote Desktop clients, see [Troubleshoot the Remote Desktop client](troubleshoot-client.md)
 - To troubleshoot issues when using PowerShell with Windows Virtual Desktop, see [Windows Virtual Desktop PowerShell](troubleshoot-powershell.md).
-- To learn more about the service, see [Windows Virtual Desktop environment](https://docs.microsoft.com/azure/virtual-desktop/environment-setup).
-- To go through a troubleshoot tutorial, see [Tutorial: Troubleshoot Resource Manager template deployments](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-troubleshoot).
-- To learn about auditing actions, see [Audit operations with Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit).
-- To learn about actions to determine the errors during deployment, see [View deployment operations](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-operations).
+- To learn more about the service, see [Windows Virtual Desktop environment](environment-setup.md).
+- To go through a troubleshoot tutorial, see [Tutorial: Troubleshoot Resource Manager template deployments](../azure-resource-manager/resource-manager-tutorial-troubleshoot.md).
+- To learn about auditing actions, see [Audit operations with Resource Manager](../azure-resource-manager/resource-group-audit.md).
+- To learn about actions to determine the errors during deployment, see [View deployment operations](../azure-resource-manager/resource-manager-deployment-operations.md).

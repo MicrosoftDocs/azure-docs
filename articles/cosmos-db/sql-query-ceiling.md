@@ -1,6 +1,6 @@
 ---
 title: CEILING in Azure Cosmos DB query language
-description: Learn about SQL system function CEILING in Azure Cosmos DB.
+description: Learn about how the CEILING SQL system function in Azure Cosmos DB returns the principal value of the arc tangent of y/x, expressed in radians
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual

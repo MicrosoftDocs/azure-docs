@@ -1,21 +1,18 @@
 ---
-title: Enforce group naming policy on Office 365 groups - Azure Active Directory | Microsoft Docs
+title: Enforce group naming policy in Azure Active Directory | Microsoft Docs
 description: How to set up naming policy for Office 365 groups in Azure Active Directory
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
-editor: ''
-
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 05/06/2019
+ms.date: 11/08/2019
 ms.author: curtand                   
 ms.reviewer: krbain
 ms.custom: "it-pro;seo-update-azuread-jan"
-
 ms.collection: M365-identity-device-management
 ---
 

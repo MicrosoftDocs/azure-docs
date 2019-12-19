@@ -1,10 +1,10 @@
 ---
 title: Azure SignalR Service frequently asked questions
-description: FAQ for Azure SignalR Service.
+description: Have quick access to frequently asked questions on Azure SignalR Service, about troubleshooting and typical usage scenarios.
 author: sffamily
 ms.service: signalr
 ms.topic: overview
-ms.date: 03/01/2019
+ms.date: 11/13/2019
 ms.author: zhshang
 ---
 # Azure SignalR Service FAQ
@@ -53,7 +53,7 @@ In ASP.NET Core SignalR, `HubConnectionContext context` is the context from the 
 In Azure SignalR Service SDK, `HubConnectionContext context` is the context from logical client connection. The physical client connection is connected to the SignalR Service instance, so only a limited number of properties are provided.
 
 For now, only `HubConnectionContext.GetHttpContext()` and `HubConnectionContext.User` are available for access.
-You can check the source code [here](https://github.com/Azure/azure-signalr/blob/kevinzha/faq/src/Microsoft.Azure.SignalR/ServiceHubConnectionContext.cs).
+You can check the source code [here](https://github.com/Azure/azure-signalr/blob/dev/src/Microsoft.Azure.SignalR/HubHost/ServiceHubConnectionContext.cs).
 
 ## Can I configure the transports available in SignalR Service as configuring it on server side with ASP.NET Core SignalR? For example, disable WebSocket transport?
 
@@ -61,4 +61,4 @@ No.
 
 Azure SignalR Service provides all three transports that ASP.NET Core SignalR supports by default. It is not configurable. SignalR Service will handle connections and transports for all client connections.
 
-You can configure client-side transports as documented [here](https://docs.microsoft.com/aspnet/core/signalr/configuration?view=aspnetcore-2.1#configure-allowed-transports).
+You can configure client-side transports as documented [here](https://docs.microsoft.com/aspnet/core/signalr/configuration?view=aspnetcore-2.1&tabs=dotnet#configure-allowed-transports-2).

@@ -52,7 +52,7 @@ You can create custom analytic rules to help you search for the types of threats
     \| make-series dcount(ResourceId)  default=0 on EventSubmissionTimestamp in range(ago(7d), now(), 1d) by Caller`
 
    > [!NOTE]
-   > The query length should be between 1 and 1,000 characters and cannot contain “search \*” or “union \*”.
+   > The query length should be between 1 and 10,000 characters and cannot contain “search \*” or “union \*”.
 
     1. Under **Query scheduling**, set the following parameters:
 

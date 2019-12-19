@@ -11,7 +11,7 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 11/04/2019
+ms.date: 11/22/2019
 ms.author: apimpm
 ---
 
@@ -107,7 +107,7 @@ In the video below we demonstrate how to edit the content of the portal, customi
 
 > [!VIDEO https://www.youtube.com/embed/5mMtUSmfUlw]
 
-## Publish the portal
+## <a name="publish"> </a>Publish the portal
 
 To make your portal and its latest changes available to visitors, you need to publish it.
 
@@ -115,9 +115,12 @@ To make your portal and its latest changes available to visitors, you need to pu
 1. Click on **Publish website** in the **Operations** section of the menu. This operation may take a few minutes.  
     ![Publish portal](media/api-management-howto-developer-portal-customize/publish-portal.png)
 
+> [!NOTE]
+> The portal needs to be republished after API Management service configuration changes, such as assigning a custom domain, updating the identity providers, setting delegation, specifying sign-in and product terms, and more.
+
 ## Visit the published portal
 
-After you publish the portal, you can access it at the same URL as the administrative panel, for example `https://contoso-api.portal.azure-api.net`. Open it in a new browser tab to view it as an external visitor.
+After you publish the portal, you can access it at the same URL as the administrative panel, for example `https://contoso-api.developer.azure-api.net`. View it in a separate browser session (incognito / private browsing mode) as an external visitor.
 
 ## Next steps
 

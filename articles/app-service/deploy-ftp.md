@@ -1,19 +1,10 @@
 ---
-title: Deploy content using FTP/S - Azure App Service | Microsoft Docs 
-description: Learn how to deploy your app to Azure App Service using FTP or FTPS.
-services: app-service
-documentationcenter: ''
-author: cephalin
-manager: erikre
-editor: ''
+title: Deploy content using FTP/S
+description: Learn how to deploy your app to Azure App Service using FTP or FTPS. Improve website security by disabling unencrypted FTP.
 
 ms.assetid: ae78b410-1bc0-4d72-8fc4-ac69801247ae
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 09/18/2019
-ms.author: cephalin
 ms.reviewer: dariac
 ms.custom: seodec18
 

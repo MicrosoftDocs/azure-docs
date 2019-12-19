@@ -9,7 +9,7 @@ ms.topic: conceptual
 author: chris-lauren
 ms.author:  clauren
 ms.reviewer: jmartens
-ms.date: 07/09/2019
+ms.date: 10/25/2019
 ms.custom: seodec18
 ---
 
@@ -37,11 +37,21 @@ When deploying a model in Azure Machine Learning, the system performs a number o
 
 Learn more about this process in the [Model Management](concept-model-management-and-deployment.md) introduction.
 
+## Prerequisites
+
+* An **Azure subscription**. If you do not have one, try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree).
+* The [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
+* The [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+* The [CLI extension for Azure Machine Learning](reference-azure-machine-learning-cli.md).
+* To debug locally, you must have a working Docker installation on your local system.
+
+    To verify your Docker installation, use the command `docker run hello-world` from a terminal or command prompt. For information on installing Docker, or troubleshooting Docker errors, see the [Docker Documentation](https://docs.docker.com/).
+
 ## Before you begin
 
 If you run into any issue, the first thing to do is to break down the deployment task (previous described) into individual steps to isolate the problem.
 
-Breaking the deployment into tasks is helpful if you are using the [Webservice.deploy()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py#deploy-workspace--name--model-paths--image-config--deployment-config-none--deployment-target-none-) API, or [Webservice.deploy_from_model()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py#deploy-from-model-workspace--name--models--image-config--deployment-config-none--deployment-target-none-) API, as both of these functions perform the aforementioned steps as a single action. Typically those APIs are convenient, but it helps to break up the steps when troubleshooting by replacing them with the below API calls.
+Breaking the deployment into tasks is helpful if you are using the [Webservice.deploy()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py#deploy-workspace--name--model-paths--image-config--deployment-config-none--deployment-target-none--overwrite-false-) API, or [Webservice.deploy_from_model()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py#deploy-from-model-workspace--name--models--image-config--deployment-config-none--deployment-target-none--overwrite-false-) API, as both of these functions perform the aforementioned steps as a single action. Typically those APIs are convenient, but it helps to break up the steps when troubleshooting by replacing them with the below API calls.
 
 1. Register the model. Here's some sample code:
 
@@ -151,9 +161,6 @@ To avoid this problem, we recommend one of the following approaches:
 
 If you encounter problems deploying a model to ACI or AKS, try deploying it as a local web service. Using a local web service makes it easier to troubleshoot problems. The Docker image containing the model is downloaded and started on your local system.
 
-> [!IMPORTANT]
-> Local web service deployments require a working Docker installation on your local system. Docker must be running before you deploy a local web service. For information on installing and using Docker, see [https://www.docker.com/](https://www.docker.com/).
-
 > [!WARNING]
 > Local web service deployments are not supported for production scenarios.
 
@@ -161,12 +168,12 @@ To deploy locally, modify your code to use `LocalWebservice.deploy_configuration
 
 ```python
 from azureml.core.model import InferenceConfig, Model
+from azureml.core.environment import Environment
 from azureml.core.webservice import LocalWebservice
 
-# Create inference configuration. This creates a docker image that contains the model.
-inference_config = InferenceConfig(runtime="python",
-                                   entry_script="score.py",
-                                   conda_file="myenv.yml")
+# Create inference configuration based on the environment definition and the entry script
+myenv = Environment.from_conda_specification(name="env", file_path="myenv.yml")
+inference_config = InferenceConfig(entry_script="score.py", environment=myenv)
 
 # Create a local deployment, using port 8890 for the web service endpoint
 deployment_config = LocalWebservice.deploy_configuration(port=8890)
@@ -178,6 +185,8 @@ service.wait_for_deployment(True)
 # Display the port that the web service is available on
 print(service.port)
 ```
+
+Please note that if you are defining your own conda specification YAML, you must list azureml-defaults with version >= 1.0.45 as a pip dependency. This package contains the functionality needed to host the model as a web service.
 
 At this point, you can work with the service as normal. For example, the following code demonstrates sending data to the service:
 
@@ -320,8 +329,8 @@ In some cases, you may need to interactively debug the Python code contained in 
 
 > [!IMPORTANT]
 > This method of debugging does not work when using `Model.deploy()` and `LocalWebservice.deploy_configuration` to deploy a model locally. Instead, you must create an image using the [ContainerImage](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image.containerimage?view=azure-ml-py) class. 
->
-> Local web service deployments require a working Docker installation on your local system. Docker must be running before you deploy a local web service. For information on installing and using Docker, see [https://www.docker.com/](https://www.docker.com/).
+
+Local web service deployments require a working Docker installation on your local system. For more information on using Docker, see the [Docker Documentation](https://docs.docker.com/).
 
 ### Configure development environment
 
@@ -493,7 +502,7 @@ To make changes to files in the image, you can attach to the running container, 
     docker exec -it debug /bin/bash
     ```
 
-1. To find the files used by the service, use the following command from the bash shell in the container:
+1. To find the files used by the service, use the following command from the bash shell in the container if the default directory is different than `/var/azureml-app`:
 
     ```bash
     cd /var/azureml-app

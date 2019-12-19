@@ -18,7 +18,7 @@
       - name: Devices
         tocHref: /azure/active-directory/devices/
         topicHref: /azure/active-directory/devices/
-      - name: Conditional access
+      - name: Conditional Access
         tocHref: /azure/active-directory/conditional-access/
         topicHref: /azure/active-directory/conditional-access/
       - name: Authentication
@@ -115,6 +115,9 @@
     - name: Blockchain Service
       tocHref: /azure/blockchain/service/
       topicHref: /azure/blockchain/service/index
+    - name: Blockchain Tokens
+      tocHref: /azure/blockchain/tokens/
+      topicHref: /azure/blockchain/tokens/index
     - name: Blockchain Workbench
       tocHref: /azure/blockchain/workbench/
       topicHref: /azure/blockchain/workbench/
@@ -136,6 +139,10 @@
   - name: Azure Monitor
     tocHref: /azure/azure-monitor/
     topicHref: /azure/azure-monitor/
+    items:
+    - name: Application Insights
+      tocHref: /azure/azure-monitor/azure-monitor-app-hub
+      topicHref: /azure/azure-monitor/azure-monitor-app-hub
   - name: Azure Spatial Anchors
     tocHref: /azure/spatial-anchors/
     topicHref: /azure/spatial-anchors/
@@ -181,19 +188,22 @@
         tocHref: /azure/iot-central/
         topicHref: /azure/iot-central/
         items: 
-        - name: IoT Central core
+        - name: IoT Central
           tocHref: /azure/iot-central/core/
           topicHref: /azure/iot-central/core/
-        - name: IoT Central for Energy 
+        - name: IoT Central (preview features)
+          tocHref: /azure/iot-central/preview/
+          topicHref: /azure/iot-central/preview/
+        - name: IoT Central for Energy (preview features)
           tocHref: /azure/iot-central/energy/
           topicHref: /azure/iot-central/energy/
-        - name: IoT Central for Government 
+        - name: IoT Central for Government (preview features)
           tocHref: /azure/iot-central/government/
           topicHref: /azure/iot-central/government/
-        - name: IoT Central for Healthcare 
+        - name: IoT Central for Healthcare (preview features)
           tocHref: /azure/iot-central/healthcare/
           topicHref: /azure/iot-central/healthcare/
-        - name: IoT Central for Retail 
+        - name: IoT Central for Retail (preview features)
           tocHref: /azure/iot-central/retail/
           topicHref: /azure/iot-central/retail/
       - name: IoT Edge
@@ -259,6 +269,9 @@
   - name: Cloud Services
     tocHref: /azure/cloud-services/
     topicHref: /azure/cloud-services/
+  - name: Cognitive Search
+    tocHref: /azure/search/
+    topicHref: /azure/search/
   - name: Cognitive Services
     tocHref: /azure/cognitive-services/
     topicHref: /azure/cognitive-services/
@@ -454,6 +467,9 @@
   - name: Firewall
     tocHref: /azure/firewall/
     topicHref: /azure/firewall/
+  - name: Firewall Manager
+    tocHref: /azure/firewall-manager
+    topicHref: /azure/firewall-manager
   - name: Front Door Service
     tocHref: /azure/frontdoor/
     topicHref: /azure/frontdoor/
@@ -513,6 +529,13 @@
   - name: Azure API for FHIR
     tocHref: /azure/healthcare-apis
     topicHref: /azure/healthcare-apis
+  - name: Azure for Industry
+    tocHref: /azure/industry
+    topicHref: /azure/industry
+    items:
+      - name: Azure FarmBeats
+        tocHref: /azure/industry
+        topicHref: /azure/industry
 #  - name: Internet of Things
 #    tocHref: /azure/iot-fundamentals/
 #    topicHref: /azure/iot-fundamentals/
@@ -560,25 +583,21 @@
     tocHref: /azure/logic-apps/
     topicHref: /azure/logic-apps/
   - name: Machine Learning
-    tocHref: /azure/machine-learning/
+    tocHref: /azure/machine-learning
     topicHref: /azure/machine-learning/
     items:
-      - name: Service
-        tocHref: /azure/machine-learning/service
-        topicHref: /azure/machine-learning/service/
-        items:
-        - name: Algorithm and Module Reference
-          tocHref: /azure/machine-learning/algorithm-module-reference
-          topicHref: /azure/machine-learning/algorithm-module-reference/module-reference
-      - name: Studio
-        tocHref: /azure/machine-learning/studio
-        topicHref: /azure/machine-learning/studio/
-      - name: Team Data Science Process
-        tocHref: /azure/machine-learning/team-data-science-process
-        topicHref: /azure/machine-learning/team-data-science-process/overview
-      - name: Data Science Virtual Machine
-        tocHref: /azure/machine-learning/data-science-virtual-machine
-        topicHref: /azure/machine-learning/data-science-virtual-machine/
+    - name: Algorithm and Module Reference
+      tocHref: /azure/machine-learning/algorithm-module-reference
+      topicHref: /azure/machine-learning/algorithm-module-reference/module-reference
+    - name: Studio (classic)
+      tocHref: /azure/machine-learning/studio
+      topicHref: /azure/machine-learning/studio/
+    - name: Team Data Science Process
+      tocHref: /azure/machine-learning/team-data-science-process
+      topicHref: /azure/machine-learning/team-data-science-process/overview
+    - name: Data Science Virtual Machine
+      tocHref: /azure/machine-learning/data-science-virtual-machine
+      topicHref: /azure/machine-learning/data-science-virtual-machine/
   - name: Marketplace Consumer
     tocHref: /azure/marketplace-consumer/
     topicHref: /azure/marketplace-consumer/
@@ -665,9 +684,6 @@
   - name: Scheduler
     tocHref: /azure/scheduler/
     topicHref: /azure/scheduler/
-  - name: Search
-    tocHref: /azure/search/
-    topicHref: /azure/search/
   - name: Security
     tocHref: /azure/security/
     topicHref: /azure/security/
@@ -702,12 +718,15 @@
   - name: Site Recovery
     tocHref: /azure/site-recovery/
     topicHref: /azure/site-recovery/
-  - name: SQL Data Warehouse
+  - name: Synapse Analytics
     tocHref: /azure/sql-data-warehouse/
     topicHref: /azure/sql-data-warehouse/
   - name: SQL Database
     tocHref: /azure/sql-database/
     topicHref: /azure/sql-database/
+  - name: SQL Database Edge
+    tocHref: /azure/sql-database-edge/
+    topicHref: /azure/sql-database-edge/
   - name: SQL Server Stretch Database
     tocHref: /azure/sql-server-stretch-database/
     topicHref: /azure/sql-server-stretch-database/
@@ -736,6 +755,9 @@
   - name: Stream Analytics
     tocHref: /azure/stream-analytics/
     topicHref: /azure/stream-analytics/
+  - name: Internet Analyzer
+    tocHref: /azure/internet-analyzer/
+    topicHref: /azure/internet-analyzer/
   - name: Traffic Manager
     tocHref: /azure/traffic-manager/
     topicHref: /azure/traffic-manager/
@@ -782,9 +804,15 @@
   - name: Virtual Network
     tocHref: /azure/virtual-network/
     topicHref: /azure/virtual-network/
+  - name: Peering Service
+    tocHref: /azure/peering-service/
+    topicHref: /azure/peering-service/ 
   - name: VPN Gateway
     tocHref: /azure/vpn-gateway/
     topicHref: /azure/vpn-gateway/
+  - name: Web Application Firewall
+    tocHref: /azure/web-application-firewall/
+    topicHref: /azure/web-application-firewall/
   - name: Windows Virtual Desktop
     tocHref: /azure/virtual-desktop/
     topicHref: /azure/virtual-desktop/

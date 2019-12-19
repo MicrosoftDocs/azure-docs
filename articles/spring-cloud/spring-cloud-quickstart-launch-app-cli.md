@@ -1,15 +1,11 @@
 ---
-title: Launch a Java Spring application using the Azure CLI
+title: "Quickstart: Launch a Java Spring application using the Azure CLI"
 description: In this quickstart, you deploy a sample application to Azure Spring Cloud on the Azure CLI.
-services: spring-cloud
-author: v-vasuke
-manager: jeconnoc
-editor: ''
-
+author: jpconnock
 ms.service: spring-cloud
 ms.topic: quickstart
-ms.date: 10/04/2019
-ms.author: v-vasuke
+ms.date: 11/04/2019
+ms.author: jeconnoc
 
 ---
 # Quickstart: Launch a Java Spring application using the Azure CLI
@@ -30,7 +26,7 @@ Following this quickstart, you will learn how to:
 ## Prerequisites
 
 >[!Note]
-> Before beginning this quickstart, ensure that your Azure subscription has access to Azure Spring Cloud.  As a preview service, we ask that you reach out to us so that we can add your subscription to our allow-list.  If you would like to explore the capabilities of Azure Spring Cloud, please [fill out this form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR-LA2geqX-ZLhi-Ado1LD3tUNDk2VFpGUzYwVEJNVkhLRlcwNkZFUFZEUS4u).  While Azure Spring Cloud is in preview, Microsoft offers limited support without an SLA.  For more information about support during previews, please refer to this [Support FAQ](https://azure.microsoft.com/support/faq/).
+> Azure Spring Cloud is currently offered as a public preview. Public preview offerings allow customers to experiment with new features prior to their official release.  Public preview features and services are not meant for production use.  For more information about support during previews, please review our [FAQ](https://azure.microsoft.com/support/faq/) or file a [Support request](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) to learn more.
 
 >[!TIP]
 > The Azure Cloud Shell is a free interactive shell that you can use to run the steps in this article.  It has common Azure tools preinstalled, including the latest versions of Git, JDK, Maven, and the Azure CLI. If you are logged in to your Azure subscription, launch your [Azure Cloud Shell](https://shell.azure.com) from shell.azure.com.  You can learn more about Azure Cloud Shell by [reading our documentation](../cloud-shell/overview.md)
@@ -48,7 +44,7 @@ To complete this quickstart:
 Install the Azure Spring Cloud extension for the Azure CLI using the following command
 
 ```azurecli
-az extension add -y --source https://azureclitemp.blob.core.windows.net/spring-cloud/spring_cloud-0.1.0-py2.py3-none-any.whl
+az extension add --name spring-cloud
 ```
 
 ## Provision a service instance on the Azure CLI
@@ -105,7 +101,7 @@ az spring-cloud config-server git set -n <your-service-name> --uri https://githu
 2. Change directory and build the project.
 
     ```azurecli
-        cd PiggyMetrics
+        cd piggymetrics
         mvn clean package -D skipTests
     ```
 
@@ -145,7 +141,17 @@ Finally, query the **gateway** application for its public IP so you can verify t
 az spring-cloud app show --name gateway | grep url
 ```
 
-Navigate to the URL provided by the previous command to see the PiggyMetrics application running.
+Navigate to the URL provided by the previous command to run the PiggyMetrics application.
+    ![Screenshot of PiggyMetrics running](media/spring-cloud-quickstart-launch-app-cli/launch-app.png)
+
+You can also navigate the Azure portal to find the URL. 
+1. Navigate to the service
+1. Select **Apps**
+1. Select **gateway**
+
+    ![Screenshot of PiggyMetrics running](media/spring-cloud-quickstart-launch-app-cli/navigate-app1.png)
+1. Find the URL on the **gateway Overview** page
+    ![Screenshot of PiggyMetrics running](media/spring-cloud-quickstart-launch-app-cli/navigate-app2-url.png)
 
 ## Next Steps
 
@@ -153,3 +159,5 @@ In this quickstart, you've deployed a Spring Cloud application from the Azure CL
 
 > [!div class="nextstepaction"]
 > [Prepare your Azure Spring Cloud application for deployment](spring-cloud-tutorial-prepare-app-deployment.md)
+
+More samples are available on GitHub: [Azure Spring Cloud Samples](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples/tree/master/service-binding-cosmosdb-sql).

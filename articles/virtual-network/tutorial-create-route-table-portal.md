@@ -54,7 +54,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
     | Subscription | Select your subscription. |
     | Resource group | Select **Create new**, enter *myResourceGroup*, and select *OK*. |
     | Location | Leave the default **East US**.
-    | BGP route propagation | Leave the default **Enabled**. |
+    | Virtual Network Gateway route propagation | Leave the default **Enabled**. |
 
 1. Select **Create**.
 

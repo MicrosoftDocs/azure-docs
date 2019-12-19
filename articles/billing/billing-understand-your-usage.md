@@ -4,7 +4,7 @@ description: Learn how to read and understand your detailed usage and charges
 author: bandersmsft
 manager: micflan
 tags: billing
-ms.service: billing
+ms.service: cost-management-billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na

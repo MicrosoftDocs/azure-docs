@@ -1,5 +1,5 @@
 ---
-title: 'Migrate virtual networks from classic to Resource Manager - ExpressRoute: Azure: PowerShell | Microsoft Docs'
+title: 'Azure ExpressRoute: Migrate classic VNets to Resource Manager'
 description: This page describes how to migrate ExpressRoute-associated virtual networks to Resource Manager after moving your circuit.
 services: expressroute
 author: cherylmc
@@ -8,7 +8,6 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 06/13/2019
 ms.author: cherylmc
-ms.custom: seodec18
 
 ---
 # Migrate ExpressRoute-associated virtual networks from classic to Resource Manager

@@ -1,20 +1,12 @@
 ---
-title: Get Started with authentication for Mobile Apps in Xamarin Android
-description: Learn how to use Mobile Apps to authenticate users of your Xamarin Android app through a variety of identity providers, including AAD, Google, Facebook, Twitter, and Microsoft.
-services: app-service\mobile
-documentationcenter: xamarin
-author: elamalani
-manager: panarasi
-editor: ''
+title: Get Started with authentication in Xamarin Android
+description: Learn how to use Mobile Apps to authenticate users of your Xamarin Android app with identity providers like AAD, Google, Facebook, Twitter, and Microsoft.
 
 ms.assetid: 570fc12b-46a9-4722-b2e0-0d1c45fb2152
-ms.service: app-service-mobile
-ms.workload: mobile
 ms.tgt_pltfrm: mobile-xamarin-android
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/25/2019
-ms.author: emalani
 ---
 # Add authentication to your Xamarin.Android app
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]

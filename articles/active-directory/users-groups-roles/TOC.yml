@@ -86,6 +86,8 @@
       href: groups-members-owners-search.md
     - name: Create a group (Azure portal)    
       href: /azure/active-directory/fundamentals/active-directory-groups-create-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
+    - name: Assign sensitivity labels (preview)
+      href: groups-assign-sensitivity-labels.md
     - name: Manage groups PowerShell for Graph (v2)   
       href: groups-settings-v2-cmdlets.md
     - name: Manage groups PowerShell MSOnline    

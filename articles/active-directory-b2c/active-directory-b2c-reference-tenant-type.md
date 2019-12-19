@@ -1,6 +1,7 @@
 ---
-title: Region availability & data residency in Azure Active Directory B2C
-description: A topic on the types of Azure Active Directory B2C tenants.
+title: Region availability and data residency
+titleSuffix: Azure AD B2C
+description: Region availability, data residency, and information about Azure Active Directory B2C preview tenants.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg

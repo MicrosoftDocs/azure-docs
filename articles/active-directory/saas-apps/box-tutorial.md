@@ -42,8 +42,8 @@ To get started, you need the following items:
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * Box supports **SP** initiated SSO
+* Box supports [**Automated** user provisioning and deprovisioning](https://docs.microsoft.com/azure/active-directory/saas-apps/box-userprovisioning-tutorial) (recommended)
 * Box supports **Just In Time** user provisioning
-* Box supports [**Automated** user provisioning](https://docs.microsoft.com/azure/active-directory/saas-apps/box-userprovisioning-tutorial)
 
 ## Adding Box from the gallery
 

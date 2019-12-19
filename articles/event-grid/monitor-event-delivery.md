@@ -72,6 +72,12 @@ View the metrics for the custom event topic.
 
 ![View event metrics](./media/monitor-event-delivery/custom-topic-metrics.png)
 
+## Set alerts
+
+You can set alerts on the topic and domain level metrics for Custom Topics and Event Domains. In the overview blade for, select **Alerts** from the left had resource menu in order to view, manage, and create alert rules. [Learn more about Azure Monitor Alerts](../azure-monitor/platform/alerts-overview.md)
+
+![View event metrics](./media/monitor-event-delivery/select-alerts.png)
+
 ## Next steps
 
 * For information about event delivery and retries, [Event Grid message delivery and retry](delivery-and-retry.md).

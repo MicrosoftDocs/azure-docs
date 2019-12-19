@@ -1,7 +1,7 @@
 ---
 title: Troubleshooting - Personalizer
 titleSuffix: Azure Cognitive Services
-description: Troubleshooting questions about Personalizer can be found in this article.
+description: This article contains answers to frequently asked troubleshooting questions about Personalizer.
 author: diberry
 manager: nitinme
 services: cognitive-services

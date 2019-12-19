@@ -408,7 +408,7 @@ Added in version 1.3.
 The top-level element of the diagnostics configuration file.  
 
 **Attribute**  xmlns - The XML namespace for the diagnostics configuration file is:  
-http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration  
+`http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration`
 
 
 |Child Elements|Description|  

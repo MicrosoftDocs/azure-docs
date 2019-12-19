@@ -1,10 +1,10 @@
 ---
-title: Overview of Azure Digital Twins | Microsoft Docs
+title: Overview - Azure Digital Twins | Microsoft Docs
 description: Learn more about Azure Digital Twins, an Azure IoT solution for spatial intelligence.
 ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof
-ms.date: 09/17/2019
+ms.date: 11/05/2019
 ms.topic: overview
 ms.service: digital-twins
 services: digital-twins

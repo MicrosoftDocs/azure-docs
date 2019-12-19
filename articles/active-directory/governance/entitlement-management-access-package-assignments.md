@@ -75,6 +75,24 @@ In some cases, you might want to directly assign specific users to an access pac
 
     After a few moments, click **Refresh** to see the users in the Assignments list.
 
+## Remove an assignment
+
+**Prerequisite role:** Global administrator, User administrator, Catalog owner, or Access package manager
+
+1. In the Azure portal, click **Azure Active Directory** and then click **Identity Governance**.
+
+1. In the left menu, click **Access packages** and then open the access package.
+
+1. In the left menu, click **Assignments**.
+ 
+1. Click the check box next to the user whose assignment you want to remove from the access package. 
+
+1. Click the **Remove** button near the top of the left pane. 
+ 
+    ![Assignments - Remove user from access package](./media/entitlement-management-access-package-assignments/remove-assignment-select-remove-assignment.png)
+
+    A notification will appear informing you that the assignment has been removed. 
+
 ## Next steps
 
 - [Change request and settings for an access package](entitlement-management-access-package-request-policy.md)

@@ -1,5 +1,5 @@
 ---
-title: Security controls for Azure SQL Database
+title: Security controls
 description: A checklist of security controls for evaluating Azure SQL Database
 services: sql-database
 author: msmbaldwin
