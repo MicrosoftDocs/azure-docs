@@ -195,15 +195,22 @@ Here's the binding data in the *function.json* file:
 Here's the Python code:
 
 ```python
+import json
 import logging
+
 import azure.functions as func
 
-
 def main(event: func.EventGridEvent):
-    logging.info("Python Event Grid function processed a request.")
-    logging.info("  Subject: %s", event.subject)
-    logging.info("  Time: %s", event.event_time)
-    logging.info("  Data: %s", event.get_json())
+
+    result = json.dumps({
+        'id': event.id,
+        'data': event.get_json(),
+        'topic': event.topic,
+        'subject': event.subject,
+        'event_type': event.event_type,
+    })
+
+    logging.info('Python EventGrid trigger processed an event: %s', result)
 ```
 
 # [Java](#tab/java)
@@ -305,19 +312,19 @@ For a complete example, see C# example.
 
 # [C# Script](#tab/csharp-script)
 
-**TODO**
+Attributes are not supported by C# Script.
 
 # [JavaScript](#tab/javascript)
 
-**TODO**
+Attributes are not supported by JavaScript.
 
 # [Python](#tab/python)
 
-**TODO**
+Attributes are not supported by Python.
 
 # [Java](#tab/java)
 
-**TODO**
+The [EventGridTrigger](https://github.com/Azure/azure-functions-java-library/blob/master/src/main/java/com/microsoft/azure/functions/annotation/EventGridTrigger.java) annotation allows you to declaratively configure an Event Grid binding by providing configuration values. See the [example](#example) and [configuration](#configuration) sections for more detail.
 
 ---
 
@@ -345,23 +352,33 @@ In Azure Functions 2.x and higher, you also have the option to use the following
 * `Microsoft.Azure.EventGrid.Models.EventGridEvent`- Defines properties for the fields common to all event types.
 
 > [!NOTE]
-> In Functions v1 if you try to bind to `Microsoft.Azure.WebJobs.Extensions.EventGrid.EventGridEvent`, the compiler will display a "deprecated" message and advise you to use `Microsoft.Azure.EventGrid.Models.EventGridEvent` instead. To use the newer type, reference the [Microsoft.Azure.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.EventGrid) NuGet package and fully qualify the `EventGridEvent` type name by prefixing it with `Microsoft.Azure.EventGrid.Models`. For information about how to reference NuGet packages in a C# script function, see [Using NuGet packages](functions-reference-csharp.md#using-nuget-packages)
+> In Functions v1 if you try to bind to `Microsoft.Azure.WebJobs.Extensions.EventGrid.EventGridEvent`, the compiler will display a "deprecated" message and advise you to use `Microsoft.Azure.EventGrid.Models.EventGridEvent` instead. To use the newer type, reference the [Microsoft.Azure.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.EventGrid) NuGet package and fully qualify the `EventGridEvent` type name by prefixing it with `Microsoft.Azure.EventGrid.Models`.
 
 # [C# Script](#tab/csharp-script)
 
-**TODO**
+In Azure Functions 1.x, you can use the following parameter types for the Event Grid trigger:
+
+* `JObject`
+* `string`
+
+In Azure Functions 2.x and higher, you also have the option to use the following parameter type for the Event Grid trigger:
+
+* `Microsoft.Azure.EventGrid.Models.EventGridEvent`- Defines properties for the fields common to all event types.
+
+> [!NOTE]
+> In Functions v1 if you try to bind to `Microsoft.Azure.WebJobs.Extensions.EventGrid.EventGridEvent`, the compiler will display a "deprecated" message and advise you to use `Microsoft.Azure.EventGrid.Models.EventGridEvent` instead. To use the newer type, reference the [Microsoft.Azure.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.EventGrid) NuGet package and fully qualify the `EventGridEvent` type name by prefixing it with `Microsoft.Azure.EventGrid.Models`. For information about how to reference NuGet packages in a C# script function, see [Using NuGet packages](functions-reference-csharp.md#using-nuget-packages)
 
 # [JavaScript](#tab/javascript)
 
-The parameter named by the *function.json* `name` property has a reference to the event object.
+The Event Grid instance is available via the parameter configured in the *function.json* file's `name` property.
 
 # [Python](#tab/python)
 
-**TODO**
+The Event Grid instance is available via the parameter configured in the *function.json* file's `name` property, typed as `func.EventGridEvent`.
 
 # [Java](#tab/java)
 
-**TODO**
+The Event Grid event instance is available via the parameter associated to the `EventGridTrigger` attribute, typed as an `EventSchema`. See the [example](#example) for more detail.
 
 ---
 
@@ -661,11 +678,9 @@ If you use an HTTP trigger, you have to write code for what the Event Grid trigg
 * Sends a validation response to a [subscription validation request](../event-grid/security-authentication.md#webhook-event-delivery).
 * Invokes the function once per element of the event array contained in the request body.
 
-For information about the URL to use for invoking the function locally or when it runs in Azure, see the [HTTP trigger binding reference documentation](functions-bindings-http-webhook.md)
+For information about the URL to use for invoking the function locally or when it runs in Azure, see the [HTTP trigger binding reference documentation](functions-bindings-http-webhook.md).
 
 ### Event Grid schema
-
-**TODO**
 
 # [C#](#tab/csharp)
 
@@ -707,36 +722,6 @@ public static async Task<HttpResponseMessage> Run(
 }
 ```
 
-The following sample JavaScript code for an HTTP trigger simulates Event Grid trigger behavior. Use this example for events delivered in the Event Grid schema.
-
-```javascript
-module.exports = function (context, req) {
-    context.log('JavaScript HTTP trigger function processed a request.');
-
-    var messages = req.body;
-    // If the request is for subscription validation, send back the validation code.
-    if (messages.length > 0 && messages[0].eventType == "Microsoft.EventGrid.SubscriptionValidationEvent") {
-        context.log('Validate request received');
-        var code = messages[0].data.validationCode;
-        context.res = { status: 200, body: { "ValidationResponse": code } };
-    }
-    else {
-        // The request is not for subscription validation, so it's for one or more events.
-        // Event Grid schema delivers events in an array.
-        for (var i = 0; i < messages.length; i++) {
-            // Handle one event.
-            var message = messages[i];
-            context.log('Subject: ' + message.subject);
-            context.log('Time: ' + message.eventTime);
-            context.log('Data: ' + JSON.stringify(message.data));
-        }
-    }
-    context.done();
-};
-```
-
-Your event-handling code goes inside the loop through the `messages` array.
-
 ### CloudEvents schema
 
 The following sample C# code for an HTTP trigger simulates Event Grid trigger behavior.  Use this example for events delivered in the CloudEvents schema.
@@ -776,13 +761,14 @@ public static async Task<HttpResponseMessage> Run([HttpTrigger(AuthorizationLeve
     return req.CreateResponse(HttpStatusCode.OK);
 }
 ```
+
 # [C# Script](#tab/csharp-script)
 
 **TODO**
 
 # [JavaScript](#tab/javascript)
 
-The following sample JavaScript code for an HTTP trigger simulates Event Grid trigger behavior. Use this example for events delivered in the CloudEvents schema.
+The following sample simulates the Event Grid trigger behavior. Use this example for events delivered in the CloudEvents schema.
 
 ```javascript
 module.exports = function (context, req) {
