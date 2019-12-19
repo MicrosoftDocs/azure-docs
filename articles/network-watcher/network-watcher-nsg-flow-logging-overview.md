@@ -100,6 +100,8 @@ The text that follows is an example of a flow log. As you can see, there are mul
 
 **Inbound flows logged from internet IPs to VMs without public IPs**: VMs that don't have a public IP address assigned via a public IP address associated with the NIC as an instance-level public IP, or that are part of a basic load balancer back-end pool, use [default SNAT](../load-balancer/load-balancer-outbound-connections.md#defaultsnat) and have an IP address assigned by Azure to facilitate outbound connectivity. As a result, you might see flow log entries for flows from internet IP addresses, if the flow is destined to a port in the range of ports assigned for SNAT. While Azure won't allow these flows to the VM, the attempt is logged and appears in Network Watcher's NSG flow log by design. We recommend that unwanted inbound internet traffic be explicitly blocked with NSG.
 
+**Missing bytes and packet counts for Stateless flows**: Due to limitations in our routing infrastructure, the bytes and packets counts are not recorded continuously for stateless flows; they are recorded only for stateful flows. Due to this the the number of bytes reported in Flow Logs (and Traffic Analytics) will be different from actual flows. This limitation is slated to be fixed by June 2020.
+
 ## Sample log records
 
 The text that follows is an example of a flow log. As you can see, there are multiple records that follow the property list described in the preceding section.
