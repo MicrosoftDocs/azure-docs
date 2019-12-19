@@ -82,7 +82,7 @@ In this tutorial, you learn how to:
 
 9. Find **LogQuery** from **myApp** > **src** > **main** > **scala**> **sample**> **LogQuery**. This tutorial uses **LogQuery** to run.
 
-   ![Commands for creating a Scala class from Project](./media/apache-spark-intellij-tool-synapse/select-logquery-file.png)
+   ![Commands for creating a Scala class from Project](./media/apache-spark-intellij-tool-synapse/select-run-file.png)
 
 ## Connect to your Synapse Spark Pools
 
@@ -279,3 +279,7 @@ It's convenient for you to foresee the script result by sending some code to the
 
 ## Next steps
 
+In this tutorial, you learned how to use the Azure Toolkit for IntelliJ plug-in to develop Apache Spark applications, which are written in [Scala](https://www.scala-lang.org/), and then submit them to a Synapse Spark Pools directly from the IntelliJ integrated development environment (IDE). Advance to the next article to see how to use the Azure Toolkit for IntelliJ plug-in to develop Apache Spark applications written in [Scala](https://www.scala-lang.org/), and then submit them to an HDInsight Spark cluster directly from the IntelliJ integrated development environment (IDE).
+
+> [!div class="nextstepaction"]
+> [Submit job to an HDInsight Spark cluster](apache-spark-intellij-tool-plugin.md)
