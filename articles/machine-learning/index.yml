@@ -103,6 +103,8 @@ landingContent:
             url: service/concept-model-management-and-deployment.md
           - text: How & where to deploy
             url: service/how-to-deploy-and-where.md
+          - text: Authentication
+            url: service/how-to-setup-authentication.md
           - text: Realtime prediction
             url: service/how-to-consume-web-service.md
           - text: Batch prediction 

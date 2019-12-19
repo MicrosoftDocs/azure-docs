@@ -34,8 +34,8 @@ The following core APIs are supported.
 
 The following Environment APIs are available:
 
-* [Get Environment API](/rest/api/time-series-insights/management/environments/get): Returns the list of environments that the caller is authorized to access.
-* [Get Environment Availability API](/rest/api/time-series-insights/dataaccess(preview)/query/getavailability): Returns the distribution of event count over the event timestamp `$ts`. This API helps determine if there are any events in the timestamp by returning the count of events, if any exist.
+* [Get Environments API](/rest/api/time-series-insights/management/environments/get): Returns the list of environments that the caller is authorized to access.
+* [Get Environments Availability API](/rest/api/time-series-insights/dataaccess(preview)/query/getavailability): Returns the distribution of event count over the event timestamp `$ts`. This API helps determine if there are any events in the timestamp by returning the count of events, if any exist.
 * [Get Event Schema API](/rest/api/time-series-insights/dataaccess(preview)/query/geteventschema): Returns the event schema metadata for a given search span. This API helps retrieve all metadata and properties available in the schema for the given search span.
 
 ## Time Series Model-Query (TSM-Q) APIs

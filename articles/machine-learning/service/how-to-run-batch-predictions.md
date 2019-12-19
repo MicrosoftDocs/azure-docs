@@ -251,7 +251,7 @@ Now you have everything you need to build the pipeline.
 First, specify the dependencies for your script. You use this object later when you create the pipeline step.
 
 ```python
-from azureml.core import Environment
+from azureml.core.environment import Environment
 from azureml.core.conda_dependencies import CondaDependencies
 from azureml.core.runconfig import DEFAULT_GPU_IMAGE
 
@@ -321,6 +321,9 @@ parallelrun_step = ParallelRunStep(
     allow_reuse=True
 )
 ```
+
+>[!Note]
+> The above step depends on `azureml-contrib-pipeline-steps`, as described in [Prerequisites](#prerequisites). 
 
 ### Run the pipeline
 

@@ -36,7 +36,7 @@ If you don’t have an Azure subscription, create a free account before you begi
 * [Configure your development environment](how-to-configure-environment.md) to install the Azure Machine Learning SDK, or use an [Azure Machine Learning compute instance (preview)](concept-compute-instance.md) with the SDK already installed.
 
 > [!NOTE]
-> Compute instances are available only for workspaces with a region of **North Central US** or **UK South**.
+> Compute instances are currently available only for workspaces with a region of **North Central US** or **UK South**, with support for other regions coming soon.
 >If your workspace is in any other region, you can continue to create and use a [Notebook VM](concept-compute-instance.md#notebookvm) instead. 
 
 Start by attaching your workspace:
@@ -126,7 +126,7 @@ iris_tabular_dataset = Dataset.Tabular.from_delimited_files([(def_blob_store, 't
 
  You create a `FileDataset` using [from_files](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.filedatasetfactory?view=azure-ml-py#from-files-path--validate-true-).
 
- You can learn more about working with datasets from [Add & register datasets](how-to-create-register-datasets.md) or [this sample notebook](https://aka.ms/train-datasets).
+ You can learn more about working with datasets from [Add & register datasets](how-to-create-register-datasets.md) or [this sample notebook](https://aka.ms/pl-datasets).
 
 ## Set up compute target
 
@@ -430,7 +430,7 @@ You can publish a pipeline to run it with different inputs later. For the REST e
      arguments=["--comp_data1", comp_data1, "--comp_data2", comp_data2, "--output_data", out_data3, "--param1", pipeline_param],
      inputs=[ comp_data1, comp_data2],
      outputs=[out_data3],
-     target=compute_target,
+     compute_target=compute_target,
      source_directory=project_folder)
    ```
 
