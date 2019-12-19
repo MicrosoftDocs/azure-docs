@@ -10,7 +10,7 @@ ms.author: rogarana
 
 # Enable Azure Active Directory over SMB
 
-Azure Files supports identity-based authentication over Server Message Block (SMB) through two types of Domain Services: Azure Active Directory Domain Services (Azure AD DS) (GA) and Active Directory Domain Service (AD DS) (preview). This article focuses on the newly introduced preview support of leveraging Active Directory Domain Service for authentication to Azure Files. If you are interested in enabling Azure Active Directory Domain Service (Azure AD DS) authentication for Azure Files, please see [Enable Azure Active Directory Domain Services authentication over SMB for Azure Files](storage-files-active-directory-enable.md). 
+Azure Files supports identity-based authentication over Server Message Block (SMB) through two types of Domain Services: Azure Active Directory Domain Services (Azure AD DS) (GA) and Active Directory (AD) (preview). This article focuses on the newly introduced preview support of leveraging Active Directory Domain Service for authentication to Azure Files. If you are interested in enabling Azure Active Directory Domain Service (Azure AD DS) authentication for Azure Files, please see [Enable Azure Active Directory Domain Services authentication over SMB for Azure Files](storage-files-active-directory-enable.md). 
 
 > [!NOTE]
 > Azure Files only supports authentication against one domain service, either Azure Active Directory Domain Service (Azure AD DS) or Active Directory Domain Service (AD DS). 
@@ -23,7 +23,7 @@ Azure Files supports identity-based authentication over Server Message Block (
 > 
 > AD DS authentication for SMB access and NTFS DACL persistence is not supported for Azure file shares managed by Azure File Sync.
 
-When you enable AD DS Authentication for Azure Files over SMB access, your AD domain joined machines from on-premise or Azure can mount Azure Files using your existing AD credentials. You can enable this capability with an AD environment hosted in on-prem machines or in Azure. AD identities used to access Azure Files must be synced to Azure AD to enforce share level file permissions through the standard role-based access control (RBAC) model. NTFS DACLs on files/directories carried over from existing file servers will be preserved and enforced. This offers seamless integration with your enterprise AD domain infrastructure. As you replace on-prem file servers with Azure file shares, all existing users can access Azure file shares from their current clients with a single sign-on experience, without any change to the credentials in use.  
+When you enable AD for Azure Files over SMB access, your AD domain joined machines from on-premise or Azure can mount Azure Files using your existing AD credentials. You can enable this capability with an AD environment hosted in on-prem machines or in Azure. AD identities used to access Azure Files must be synced to Azure AD to enforce share level file permissions through the standard role-based access control (RBAC) model. NTFS DACLs on files/directories carried over from existing file servers will be preserved and enforced. This offers seamless integration with your enterprise AD domain infrastructure. As you replace on-prem file servers with Azure file shares, all existing users can access Azure file shares from their current clients with a single sign-on experience, without any change to the credentials in use.  
  
 ## Prerequisites 
 
