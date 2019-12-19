@@ -52,7 +52,7 @@ Once your Maps account is successfully created, retrieve the key that enables yo
 2. In the settings section, select **Authentication**.
 3. Copy the **Primary Key** to your clipboard. Save it locally to use later in this tutorial.
 
-![Get Primary Key in portal](./media/quick-demo-map-app/get-key.png)
+![Get Primary Key Azure Maps key in Azure portal](./media/quick-demo-map-app/get-key.png)
 
 ## Download the application
 
@@ -68,7 +68,7 @@ Once your Maps account is successfully created, retrieve the key that enables yo
 4. Try out the interactive search experience. In the search box on the upper-left corner of the demo web application, search for **restaurants**.
 5. Move your mouse over the list of addresses and locations that appear below the search box. Notice how the corresponding pin on the map pops out information about that location. For privacy of private businesses, fictitious names and addresses are shown.
 
-    ![Interactive search web application](./media/quick-demo-map-app/interactive-search.png)
+    ![Interactive map search web application](./media/quick-demo-map-app/interactive-search.png)
 
 ## Clean up resources
 
