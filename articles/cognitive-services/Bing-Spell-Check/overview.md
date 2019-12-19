@@ -5,7 +5,6 @@ description: Learn about the Bing Spell Check API, which uses machine learning a
 services: cognitive-services
 author: aahill
 manager: nitinme
-
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: overview
