@@ -14,6 +14,8 @@ ms.custom: mvc
 
 # Quickstart: Interact with an IoT Plug and Play Preview device that's connected to your solution (Node.js)
 
+[!INCLUDE [iot-pnp-quickstarts-3-selector.md](../../includes/iot-pnp-quickstarts-3-selector.md)]
+
 IoT Plug and Play Preview simplifies IoT by enabling you to interact with a device's capabilities without knowledge of the underlying device implementation. This quickstart shows you how to use Node.js to connect to and control an IoT Plug and Play device that's connected to your solution.
 
 ## Prerequisites
@@ -28,9 +30,15 @@ node --version
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-[!INCLUDE [iot-pnp-prepare-iot-hub-windows.md](../../includes/iot-pnp-prepare-iot-hub-windows.md)]
+[!INCLUDE [iot-pnp-prepare-iot-hub.md](../../includes/iot-pnp-prepare-iot-hub.md)]
 
-## Connect your device
+Run the following command to get the _IoT hub connection string_ for your hub (note for use later):
+
+```azurecli-interactive
+az iot hub show-connection-string --hub-name <YourIoTHubName> --output table
+```
+
+## Run the sample device
 
 In this quickstart, you use a sample environmental sensor that's written in Node.js as the IoT Plug and Play device. The following instructions show you how to install and run the device:
 
@@ -40,7 +48,7 @@ In this quickstart, you use a sample environmental sensor that's written in Node
     git clone https://github.com/azure-samples/azure-iot-samples-node
     ```
 
-1. This terminal window will now be used as your _device_ terminal. Go to your cloned repository and navigate to the **/azure-iot-samples-node/digital-twins/Quickstarts/Device** folder. Install all the dependencies by running the following command:
+1. This terminal window will now be used as your _device_ terminal. Go to the folder of your cloned repository, and navigate to the **/azure-iot-samples-node/digital-twins/Quickstarts/Device** folder. Install all the dependencies by running the following command:
 
     ```cmd/sh
     npm install
@@ -60,7 +68,7 @@ In this quickstart, you use a sample environmental sensor that's written in Node
 
 1. You see messages saying that the device has sent some information and reported itself online. This indicates that the device has begun sending telemetry data to the hub, and is now ready to receive commands and property updates. Don't close this terminal, you'll need it later to confirm the service samples also worked.
 
-## Build the solution
+## Run the sample solution
 
 In this quickstart, you use a sample IoT solution in Node.js to interact with the sample device.
 
@@ -84,7 +92,7 @@ In this quickstart, you use a sample IoT solution in Node.js to interact with th
     reported state property as online
     ```
 
-1. In the the **/azure-iot-samples-node/digital-twins/Quickstarts/Service** folder, open the file **get_digital_twin.js**. Replace the `<DEVICE_ID_GOES_HERE>` placeholder with your device ID and save the file.
+1. In the **/azure-iot-samples-node/digital-twins/Quickstarts/Service** folder, open the file **get_digital_twin.js**. Replace the `<DEVICE_ID_GOES_HERE>` placeholder with your device ID and save the file.
 
 1. Go to the _service_ terminal and use the following command to run the sample for reading device information:
 
