@@ -118,3 +118,22 @@ You must add the IP address of the Azure Web Site to the Key Vault in order for 
 If due to access policy: find the object id for the request and ensure that the object id matches the object to which the user is trying to assign the access policy. There will often be multiple objects in the AAD which have the same name, so choosing the correct one is very important. By deleting and re-adding the access policy, it is possible to see if multiple objects exist with the same name.
 
 In addition: most cases of access policies DO NOT require the use of the "Authorized application" as shown in the portal. This is used for "on-behalf-of" authentication scenarios and is not generally used.
+
+
+## HTTP 429: Too Many Requests
+
+Throttling occurs when the number of requests exceeds the stated maximum for the timeframe. If throttling occurs, the Key Vault's response will be HTTP 429. There are stated maximums for types of requests made. For instance: the creation of an HSM 2048-bit key is 5 requests per 10 seconds, but all other HSM transactions have a 1000 request/10 seconds limit. Therefore it is important to understand which types of calls are being made when determining the cause of throttling.
+In general, requests to the Key Vault are limited to 2000 requests/10 seconds. Exceptions to this rule are Key Operations and they are documented here: [Key Vault service limits](https://docs.microsoft.com/azure/key-vault/key-vault-service-limits)
+
+### Troubleshooting 429
+Throttling is worked around using these techniques:
+
+- Reduce number of requests made to the Key Vault by determining if there are patterns to a requested resource and attempting to cache them in the calling application. 
+
+- When Key Vault throttling occurs, adapt the requesting code to use a exponential backoff for retrying. The algorithm is explained here: [How to throttle your app](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-ovw-throttling#how-to-throttle-your-app-in-response-to-service-limits)
+
+- If the number of requests cannot be reduced by caching and timed backoff does not work, then consider splitting the keys up into multiple Key Vaults. Please note that service limits in a single subscription are limited to 5x the individual Key Vault limit. If using more than 5 Key Vaults, consideration should be given to using multiple subscriptions. 
+
+Detailed guidance including request to increase limits, can be find here: [Key Vault throttling guidance](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-ovw-throttling)
+
+
