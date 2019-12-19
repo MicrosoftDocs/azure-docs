@@ -53,16 +53,16 @@ SaaS apps can be published to Azure Marketplace and/or AppSource. If you intend 
 |  | X |  |  |  |  |  | X |  |
 | X |  |  | X | X |  |  |  | X |
 | X |  |  | X |  | X |  |  | X |
-| X |  |  | X |  |  | X |  | X[^2] |
+| X |  |  | X |  |  | X |  | X<sup>2</sup> |
 |  |  |  | X | X |  |  |  | X |
-|  |  |  | X |  | X |  | X[^1] | X[^1] |
-|  |  |  | X |  |  | X | X[^1] | X[^1,2] |
-|  |  | X |  |  |  |  | x[^1] | X[^1] |
+|  |  |  | X |  | X |  | X<sup>1</sup> | X<sup>1</sup> |
+|  |  |  | X |  |  | X | X<sup>1</sup> | X<sup>1,2</sup> |
+|  |  | X |  |  |  |  | x<sup>1</sup> | X<sup>1</sup> |
 
-[^1]: Depending on category/subcategory and industry selection.
+<sup>1</sup> Depending on category/subcategory and industry selection. <br>
+<sup>2</sup> Offers with private plans will be published to the Azure Portal.
 
-[^2]: Offers with private plans will be published to the Azure Portal.
-
+<br>
 
 |  | Listing Element | Base Requirements | Optimal Requirements | 
 |:--- |:--- |:--- |:--- |
