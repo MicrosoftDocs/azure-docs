@@ -11,7 +11,7 @@ ms.author: helohr
 ---
 # Deploy a management tool using a one-click deployment
 
-The management tool provides a user interface (UI) for managing Microsoft Virtual Desktop resources. In these instructions, you'll learn how to deploy using a user account and connect to the management tool.
+The instructions in this article will tell you how to deploy the UI by using a user account.
 
 ## Important considerations
 
@@ -25,16 +25,15 @@ To following browsers are compatible with the management tool:
 - Mozilla Firefox 52.0 or later
 - Safari 10 or later (macOS only)
 
-## Pre-requisites
+## What you need to deploy the management tool
 
-Before deploying the management tool, you'll need an Azure Active Directory user to create an app registration and deploy the management UI. This user must:
+Before deploying the management tool, you'll need an Azure Active Directory (Azure AD) user to create an app registration and deploy the management UI. This user must:
 
 - Have Azure Multi-Factor Authentication (MFA) disabled
 - Have permission to create resources in your Azure subscription
-- Have permission to create an Azure AD application. Follow these steps to check if your user has the [required permissions](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#required-permissions).
+- Have permission to create an Azure AD application. Follow these steps to check if your user has the required permissions by following the instructions in [Required permissions](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#required-permissions).
 
-After deploying the management tool, you'll want to launch the management UI to validate. This user must:
-- Have a role assignment to view or edit your Windows Virtual Desktop tenant
+After you deploy and configure the management tool, we recommend you ask a user to launch the management UI to make sure everything works. The user who launches the management UI must have a role assigment that lets them view or edit the Windows Virtual Desktop tenant.
 
 ## Deploy the management tool
 
@@ -53,7 +52,7 @@ Follow these instructions to deploy the Azure Resource Management template:
         5. Paste the link you copied to the text editor into the address bar.
 3. When entering the parameters, do the following:
     - For the **isServicePrincipal** parameter, select **false**.
-    - For the credentials, enter your Azure Active Directory credentials with multi-factor authentication disabled. These credentials will be used to create the Azure AD application and Azure resources. To learn more, see the [pre-requisites](#pre-requisites).
+    - For the credentials, enter your Azure AD credentials with multi-factor authentication disabled. These credentials will be used to create the Azure AD application and Azure resources. To learn more, see the [What you need to deploy the management tool](#What-you-need-to-deploy-the-management-tool).
     - For the **applicationName**, use a unique name for your app that will be registered in your Azure Active Directory. This name will also be used for the web app URL. For example, you can use a name like "Apr3UX."
 4. Once you provide the parameters, accept the terms and conditions and select **Purchase**.
 
@@ -61,7 +60,7 @@ Follow these instructions to deploy the Azure Resource Management template:
 
 After the GitHub Azure Resource Manager template completes, you'll find a resource group containing two app services along with one app service plan in the Azure portal.
 
-Before you sign in and use the management tool, you must provide consent for the new Azure Active Directory application that is associated with the management tool. Providing consent allows the management tool to make Windows Virtual Desktop management calls on behalf of the user who's signed into the tool.
+Before you sign in and use the management tool, you must provide consent for the new Azure AD application associated with the management tool. Providing consent lets the management tool make Windows Virtual Desktop management calls on behalf of the user currently signed in to the tool.
 
 ![A screenshot showing the permissions being provided when you consent to the UI management tool.](media/management-ui-delegated-permissions.png)
 
@@ -92,9 +91,10 @@ Follow these instructions to launch the tool:
 1. Select the Azure App Services resource with the name you provided in the template (for example, Apr3UX) and navigate to the URL associated with it; for example,  <https://rdmimgmtweb-210520190304.azurewebsites.net>.
 2. Sign in using your Windows Virtual Desktop credentials.
 3. When prompted to choose a Tenant Group, select **Default Tenant Group** from the drop-down list.
-4. When you select Default Tenant Group, a menu should appear on the left side of your window. In this menu, find the name of your tenant group and select it.
+4. When you select **Default Tenant Group**, a menu should appear on the left side of your window. In this menu, find the name of your tenant group and select it.
+  
   > [!NOTE]
-  > If you have a custom Tenant Group, enter the name manually instead of choosing from the drop-down list.
+  > If you have a custom tenant group, enter the name manually instead of choosing from the drop-down list.
 
 ## Report issues
 
@@ -102,6 +102,4 @@ If you come across any issues with the management tool or other Windows Virtual 
 
 ## Next steps
 
-Now that you've learned how to deploy and connect to the management tool, you can learn how to use Azure Service Health to monitor service issues and health advisories.
-
-* [Set up service alerts tutorial](./set-up-service-alerts.md)
+Now that you've learned how to deploy and connect to the management tool, you can learn how to use Azure Service help to monitor service issues and health advisories. To learn more, see our [Set up service alerts tutorial](./set-up-service-alerts.md).
