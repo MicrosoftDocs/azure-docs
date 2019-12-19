@@ -256,7 +256,7 @@ In this step, we establish connectivity with SuccessFactors and Active Directory
 
    * **Notification Email –** Enter your email address, and check the “send email if failure occurs” checkbox.
          > [!NOTE]
-         > The Azure AD Provisioning Service sends email notification if the provisioning job goes into a [quarantine](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning#quarantine) state.
+         > The Azure AD Provisioning Service sends email notification if the provisioning job goes into a [quarantine](/azure/active-directory/manage-apps/application-provisioning-quarantine-status) state.
 
    * Click the **Test Connection** button. If the connection test succeeds, click the **Save** button at  the top. If it fails, double-check that the SuccessFactors credentials and the AD credentials configured on the agent setup are valid.
     >[!div class="mx-imgBorder"]
