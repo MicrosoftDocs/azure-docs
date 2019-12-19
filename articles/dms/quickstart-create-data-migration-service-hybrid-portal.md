@@ -1,6 +1,7 @@
 ---
-title: "Quickstart: Create an Azure Database Migration Service hybrid mode instance using the Azure portal | Microsoft Docs"
-description: Use the Azure portal to create an instance of Azure Database Migration Service in hybrid mode
+title: "Quickstart: Create a hybrid mode instance with Azure portal"
+titleSuffix: Azure Database Migration Service
+description: Use the Azure portal to create a instance of Azure Database Migration Service in hybrid mode.
 services: database-migration
 author: HJToland3
 ms.author: jtoland
@@ -8,12 +9,12 @@ manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
-ms.custom: mvc
+ms.custom: "seo-lt-2019"
 ms.topic: quickstart
 ms.date: 12/17/2019
 ---
 
-# Quickstart: Create an instance of Azure Database Migration Service in hybrid mode using the Azure portal (Preview)
+# Quickstart: Create a hybrid mode instance with Azure portal & Azure Database Migration Service
 
 Azure Database Migration Service hybrid mode manages database migrations by using a migration worker that is hosted on-premises together with an instance of Azure Database Migration Service running in the cloud. Hybrid mode is especially useful for scenarios in which there's a lack of site-to-site connectivity between the on-premises network and Azure or if there's limited site-to-site connectivity bandwidth.
 

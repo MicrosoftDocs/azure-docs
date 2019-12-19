@@ -9,6 +9,8 @@ ms.date: 09/27/2018
 
 By following these best practices, you can help maximize the performance and cost-effective use of your private Docker registry in Azure.
 
+See also [Recommendations for tagging and versioning container images](container-registry-image-tag-version.md) for strategies to tag and version images in your registry. 
+
 ## Network-close deployment
 
 Create your container registry in the same Azure region in which you deploy containers. Placing your registry in a region that is network-close to your container hosts can help lower both latency and cost.
