@@ -70,9 +70,9 @@ For additional information, see [SqlPackage.exe](https://docs.microsoft.com/sql/
 
 ## Create a firewall rule to allow the VM access to the database
 
-Add the VM’s IP address in SQL Database firewall ( copy steps from https://docs.microsoft.com/en-us/azure/sql-database/sql-database-server-level-firewall-rule#create-a-server-level-ip-firewall-rule with Azure VM’s public IP address from Step 2)
+Add the virtual machine's public IP address to the SQL Database server firewall.
 
-The following steps create a server-level IP firewall rule for your virtual machine's IP address and enable connectivity from the virtual machine.
+The following steps create a server-level IP firewall rule for your virtual machine's public IP address and enables connectivity from the virtual machine.
 
 1. Select **SQL databases** from the left-hand menu and then select your database on the **SQL databases** page. The overview page for your database opens, showing you the fully qualified server name (such as **servername.database.windows.net**) and provides options for further configuration.
 
