@@ -10,7 +10,7 @@ The following table includes links to key Azure Resource Manager templates for A
 
 ## Onboarding customers to Azure delegated resource management
 
-[!INCLUDE [azure-lighthouse-samples-policy](../../../includes/azure-lighthouse-samples-onboarding.md)]
+[!INCLUDE [azure-lighthouse-samples-onboarding](../../../includes/azure-lighthouse-samples-onboarding.md)]
 
 ## Azure Policy
 
