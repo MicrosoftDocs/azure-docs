@@ -11,17 +11,21 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/30/2018
+ms.date: 12/19/2019
 ms.author: memildin
 ---
-# Monitor identity and access in Azure Security Center (Preview)
-This article helps you use Azure Security Center to monitor users' identity and access activity.
+# Monitor identity and access (Preview)
+When Security Center identifies potential security vulnerabilities, it creates recommendations that guide you through the process of configuring the needed controls to harden and protect your resources.
+
+This article explains the **Identity and Access** page of the resource security section of Azure Security Center.
+
+For a full list of the recommendations you might see on this page, see [Identity and Access recommendations](recommendations-reference.md#recs-identity).
 
 > [!NOTE]
 > Monitoring identity and access is in preview and available only on the Standard tier of Security Center. See [Pricing](security-center-pricing.md) to learn more about Security Center's pricing tiers.
 >
 
-Identity should be the control plane for your enterprise, and protecting your identity should be your top priority. The security perimeter has evolved from a network perimeter to an identity perimeter. Security becomes less about defending your network and more about defending your data, as well as managing the security of your apps and users. Nowadays, with more data and more apps moving to the cloud, identity becomes the new perimeter.
+Identity should be the control plane for your enterprise, and protecting identities should be your top priority. The security perimeter has evolved from a network perimeter to an identity perimeter. Security becomes less about defending your network and more about defending your data, as well as managing the security of your apps and users. Nowadays, with more data and more apps moving to the cloud, identity becomes the new perimeter.
 
 By monitoring identity activities, you can take proactive actions before an incident takes place or reactive actions to stop an attack attempt. The Identity & Access dashboard provides you with recommendations such as:
 
@@ -30,24 +34,14 @@ By monitoring identity activities, you can take proactive actions before an inci
 - Remove privileged external accounts from your subscription
 
 > [!NOTE]
-> If your subscription has more than 600 accounts, Security Center is unable to run the Identity recommendations against your subscription. Recommendations that are not run are listed under “unavailable assessments” which is discussed below.
+> If your subscription has more than 600 accounts, Security Center is unable to run the Identity recommendations against your subscription. Recommendations that are not run are listed under “unavailable assessments” below.
 Security Center is unable to run the Identity recommendations against a Cloud Solution Provider (CSP) partner's admin agents.
 >
 
-See [Recommendations](security-center-identity-access.md#recommendations) for a list of the Identity and Access recommendations provided by Security Center.
-
-## Monitoring security health
-You can monitor the security state of your resources on the **Security Center – Overview** dashboard. The **Resources** section is a health indicator showing the severities for each resource type.
-
-You can view a list of all issues by selecting **Recommendations**. Under **Resources**, you can view a list of issues specific to compute & apps, data security, networking, or identity & access. For more information about how to apply recommendations, see [Implementing security recommendations in Azure Security Center](security-center-recommendations.md).
-
-For a complete list of Identity and Access recommendations, see [recommendations](security-center-identity-access.md#recommendations).
-
-To continue, select **Identity & access** under **Resources** or the Security Center main menu.
-
-![Security Center dashboard][1]
-
 ## Monitor identity and access
+
+Open the list of identified Identity and Access issues by selecting **Identity & access** from the Security Center sidebar (under **Resources**), or from the overview page. 
+
 Under **Identity & Access**, there are two tabs:
 
 - **Overview**: recommendations identified by Security Center.
@@ -94,23 +88,6 @@ Under **Subscriptions**, there is a list of subscriptions. The first column list
 1. Select a passed assessment from the list for a description of the assessment and a list of healthy subscriptions. There is a tab for unhealthy subscriptions that lists all the subscriptions that failed.
 
    ![Passed assessments][8]
-
-## Recommendations
-Use the table below as a reference to help you understand the available Identity & Access recommendations and what each one does if you apply it.
-
-|Resource type|Secure score|Recommendation|Description|
-|----|----|----|----|
-|Subscription|50|MFA should be enabled on accounts with owner permissions on your subscription|Enable Multi-Factor Authentication (MFA) for all subscription accounts with administrator privileges to prevent a breach of accounts or resources.|
-|Subscription|40|MFA should be enabled on your subscription accounts with write permissions|Enable Multi-Factor Authentication (MFA) for all subscription accounts with write privileges to prevent a breach of accounts or resources.|
-|Subscription|30|External accounts with owner permissions should be removed from your subscription|Remove external accounts with owner permissions from your subscription in order to prevent unmonitored access.|
-|Subscription|30|MFA should be enabled on your subscription accounts with read permissions|Enable Multi-Factor Authentication (MFA) for all subscription accounts with read privileges to prevent a breach of accounts or resources.|
-|Subscription|25|External accounts with write permissions should be removed from your subscription|Remove external accounts with write permissions from your subscription in order to prevent unmonitored access. |
-|Subscription|20|Deprecated accounts with owner permissions should be removed from your subscription|Remove deprecated accounts with owner permissions from your subscriptions.|
-|Subscription|5|Deprecated accounts should be removed from your subscription|Remove deprecated accounts from your subscriptions to enable access to only current users. |
-|Subscription|5|There should be more than one owner assigned to your subscription|Designate more than one subscription owner in order to have administrator access redundancy.|
-|Subscription|5|A maximum of 3 owners should be designated for your subscription|Designate less than 3 subscription owners in order to reduce the potential for breach by a compromised owner.|
-|Key vault|5|Diagnostics logs in Key Vault should be enabled|Enable logs and retain them up to a year. This enables you to recreate activity trails for investigation purposes when a security incident occurs or your network is compromised. |
-|Subscription|15|External accounts with read permissions should be removed  from your subscription|Remove external accounts with read privileges from your subscription in order to prevent unmonitored access.| 
 
 > [!NOTE]
 > If you created a Conditional Access policy that necessitates MFA but has exclusions set, the Security Center MFA recommendation assessment considers the policy non-compliant, because it enables some users to sign in to Azure without MFA.

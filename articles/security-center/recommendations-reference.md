@@ -95,8 +95,19 @@ Your secure score is based on how many Security Center recommendations you have 
 |**Vulnerabilities on your SQL databases should be remediated**|SQL Vulnerability Assessment scans your database for security vulnerabilities and exposes any deviations from best practices such as misconfigurations, excessive permissions, and unprotected sensitive data. Resolving the vulnerabilities found can greatly improve your database security stature.<br>(Related policy: Vulnerabilities on your SQL databases should be remediated)|High|N|SQL|
 |**Access to storage accounts with firewall and virtual network configurations should be restricted**|Audit unrestricted network access in your storage account firewall settings. Instead, configure network rules so only applications from allowed networks can access the storage account. To allow connections from specific Internet or on-premises clients, you can grant access to traffic from specific Azure virtual networks or to public Internet IP address ranges.<br>(Related policy: Audit unrestricted network access to storage accounts)|Low|N|Storage account|
 |**Storage accounts should be migrated to new Azure Resource Manager resources**|Use new Azure Resource Manager v2 for your storage accounts to provide security enhancements such as: stronger access control (RBAC), better auditing, Resource Manager-based deployment and governance, access to managed identities, access to key vault for secrets, and Azure AD-based authentication and support for tags and resource groups for easier security management.<br>(Related policy: Storage accounts should be migrated to new Azure Resource Manager resources)|Low|N|Storage account|
-|||||
-
+||<a name="recs-identity"></a><h3>Identity and access recommendations|
+|**MFA should be enabled on accounts with read permissions on your subscription**|Enable Multi-Factor Authentication (MFA) for all subscription accounts with read privileges to prevent a breach of accounts or resources.<br>(Related policy: MFA should be enabled on accounts with read permissions on your subscription)|High|N|Subscription|
+|**MFA should be enabled on accounts with write permissions on your subscription**|Enable Multi-Factor Authentication (MFA) for all subscription accounts with write privileges to prevent a breach of accounts or resources.<br>(Related policy: MFA should be enabled on accounts with write permissions on your subscription)|High|N|Subscription|
+|**MFA should be enabled on accounts with owner permissions on your subscription**|Enable Multi-Factor Authentication (MFA) for all subscription accounts with owner privileges to prevent a breach of accounts or resources.<br>(Related policy: MFA should be enabled on accounts with owner permissions on your subscription)|High|N|Subscription|
+|**External accounts with read permissions should be removed from your subscription**|Remove external accounts with read privileges from your subscription in order to prevent unmonitored access.<br>(Related policy: External accounts with read permissions should be removed from your subscription)|High|N|Subscription|
+|**External accounts with write permissions should be removed from your subscription**|Remove external accounts with write privileges from your subscription in order to prevent unmonitored access.<br>(Related policy: External accounts with write permissions should be removed from your subscription)|High|N|Subscription|
+|**External accounts with owner permissions should be removed from your subscription**|Remove external accounts with owner privileges from your subscription in order to prevent unmonitored access.<br>(Related policy: External accounts with owner permissions should be removed from your subscription)|High|N|Subscription|
+|**Deprecated accounts with owner permissions should be removed from your subscription**|Remove deprecated accounts with owner permissions from your subscriptions.<br>(Related policy: Deprecated accounts with owner permissions should be removed from your subscription)|High|N|Subscription|
+|**Deprecated accounts should be removed from your subscription**|Remove deprecated accounts from your subscriptions to enable access to only current users.<br>(Related policy: Deprecated accounts should be removed from your subscription)|High|N|Subscription|
+|**There should be more than one owner assigned to your subscription**|Designate more than one subscription owner in order to have administrator access redundancy.<br>(Related policy: There should be more than one owner assigned to your subscription)|High|N|Subscription|
+|**A maximum of 3 owners should be designated for your subscription**|Designate fewer than three subscription owners in order to reduce the potential for breach by a compromised owner.<br>(Related policy: A maximum of 3 owners should be designated for your subscription)|High|N|Subscription|
+|**Diagnostic logs in Key Vault should be enabled**|Enable logs and retain them up to a year. This enables you to recreate activity trails for investigation purposes when a security incident occurs or your network is compromised.<br>(Related policy: Diagnostic logs in Key Vault should be enabled)|Low|**Y**|Key Vault|
+||||||
 
 ## Next steps
 To learn more about recommendations, see the following:
@@ -104,3 +115,8 @@ To learn more about recommendations, see the following:
 * [Security recommendations in Azure Security Center](security-center-recommendations.md)
 * [Protecting your machines and applications](security-center-virtual-machine-protection.md)
 * [Protecting your network in Azure Security Center](security-center-network-recommendations.md)
+
+
+
+
+. 
