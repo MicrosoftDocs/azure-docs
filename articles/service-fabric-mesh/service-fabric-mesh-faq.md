@@ -75,7 +75,7 @@ If you are developing on a Windows Fall Creators Update (version 1709) machine, 
 
 If you are developing on a Windows 10 April 2018 update (version 1803) machine, you can use either Windows version 1709 or Windows version 1803 docker images.
 
-The following container OS images can be used to deploy 
+The following container OS images can be used to deploy services:
 - Windows - windowsservercore and nanoserver
     - Windows Server 1709
     - Windows Server 1803

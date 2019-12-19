@@ -40,7 +40,8 @@ Before you begin this tutorial:
 
 One of the main advantages of deploying applications to Service Fabric Mesh is the ability for you to easily update your application configuration.  For example, the CPU or memory resources for your services.
 
-This tutorial uses the To Do List sample as an example, which was [deployed previously](service-fabric-mesh-tutorial-template-deploy-app.md) and should now be running. The application has two 
+This tutorial uses the To Do List sample as an example, which was [deployed previously](service-fabric-mesh-tutorial-template-deploy-app.md) and should now be running. The application has two services: WebFrontEnd and ToDoService. Each service was initially deployed with CPU resources of 0.5.  To view the CPU resources for the WebFrontEnd service, run the following:
+
 ```azurecli
 az mesh service show --resource-group myResourceGroup --name WebFrontEnd --app-name todolistapp
 ```

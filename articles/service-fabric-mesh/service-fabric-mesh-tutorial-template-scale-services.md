@@ -40,7 +40,8 @@ Before you begin this tutorial:
 
 One of the main advantages of deploying applications to Service Fabric Mesh is the ability for you to easily scale your services in or out. This should be used for handling varying amounts of load on your services, or improving availability.
 
-This tutorial uses the To Do List sample as an example, which was [deployed previously](service-fabric-mesh-tutorial-template-deploy-app.md) and should now be running. The application has two 
+This tutorial uses the To Do List sample as an example, which was [deployed previously](service-fabric-mesh-tutorial-template-deploy-app.md) and should now be running. The application has two services: WebFrontEnd and ToDoService. Each service was initially deployed with a replica count of 1.  To view the number of running replicas for the WebFrontEnd service, run the following:
+
 ```azurecli
 az mesh service show --resource-group myResourceGroup --name WebFrontEnd --app-name todolistapp --query "replicaCount"
 ```

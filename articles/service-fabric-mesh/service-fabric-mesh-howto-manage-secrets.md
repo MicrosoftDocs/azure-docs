@@ -62,7 +62,8 @@ The following is an example of how to declare Mesh Secrets resources in a JSON f
 ```
 The following is an example of how to declare Mesh Secrets resources in a YAML file:
 ```yaml
-          - name: helloWorldService
+    services:
+      - name: helloWorldService
         properties:
           description: Hello world service.
           osType: linux
@@ -144,7 +145,8 @@ The following is an example of how to declare Mesh Secrets/Values resources in a
 ```
 The following is an example of how to declare Mesh Secrets/Values resources in a YAML file:
 ```yaml
-          - name: helloWorldService
+    services:
+      - name: helloWorldService
         properties:
           description: Hello world service.
           osType: linux

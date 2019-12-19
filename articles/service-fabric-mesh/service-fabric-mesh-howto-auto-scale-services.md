@@ -84,7 +84,8 @@ application:
   schemaVersion: 1.0.0-preview2
   name: WorkerApp
   properties:
-          - name: WorkerService
+    services:
+      - name: WorkerService
         properties:
           description: WorkerService description.
           osType: Linux

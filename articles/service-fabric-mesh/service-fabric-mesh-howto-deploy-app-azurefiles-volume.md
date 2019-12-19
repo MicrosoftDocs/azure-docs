@@ -214,7 +214,8 @@ application:
   schemaVersion: 1.0.0-preview2
   name: VolumeTest
   properties:
-          - name: VolumeTestService
+    services:
+      - name: VolumeTestService
         properties:
           description: VolumeTestService description.
           osType: Windows
