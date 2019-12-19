@@ -3,7 +3,7 @@ title: "Team development on Kubernetes"
 services: azure-dev-spaces
 ms.date: 04/25/2019
 ms.topic: quickstart
-description: "Team Kubernetes development with containers and microservices on Azure"
+description: "This quickstart shows you how to do team Kubernetes development with containers and microservices with Azure Dev Spaces"
 keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, service mesh, service mesh routing, kubectl, k8s"
 manager: gwallace
 ---

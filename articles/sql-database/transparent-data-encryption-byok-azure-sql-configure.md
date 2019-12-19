@@ -7,8 +7,8 @@ ms.subservice: security
 ms.custom: seo-lt-2019
 ms.devlang: 
 ms.topic: conceptual
-author: rothja
-ms.author: jroth
+author: jaszymas
+ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 03/12/2019
 ---

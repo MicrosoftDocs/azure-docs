@@ -160,7 +160,7 @@ It also impacts Multi Device Synchronization where subordinate devices start up 
 
 ## Using Body Tracking SDK with Unreal
 
-To use the Body Tracking SDK with Unreal, make sure you have added `<SDK Installation Path>\tools` to the Environment variable path and copied `dnn_model_2_0.onnx` and `cudnn64_7.dll` to `Program Files/Epic Games/UE_4.23/Engine/Binaries/Win64`.
+To use the Body Tracking SDK with Unreal, make sure you have added `<SDK Installation Path>\tools` to the environment variable `PATH` and copied `dnn_model_2_0.onnx` and `cudnn64_7.dll` to `Program Files/Epic Games/UE_4.23/Engine/Binaries/Win64`.
 
 ## Next steps
 

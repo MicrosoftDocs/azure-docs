@@ -8,7 +8,7 @@ ms.custom: mvc, fasttrack-edit
 
 # Quickstart: Create your first function hosted on Linux using command line tools
 
-Azure Functions lets you execute your code in a [serverless](https://azure.com/serverless) Linux environment without having to first create a VM or publish a web application. Linux-hosting requires [the Functions 2.x runtime](functions-versions.md). Serverless functions run in the [Consumption plan](functions-scale.md#consumption-plan).
+Azure Functions lets you execute your code in a [serverless](https://azure.com/serverless) Linux environment without having to first create a VM or publish a web application. Linux-hosting requires [the Functions 2.x and later runtime](functions-versions.md). Serverless functions run in the [Consumption plan](functions-scale.md#consumption-plan).
 
 This quickstart article walks you through how to use the Azure CLI to create your first function app running on Linux. The function code is created locally and then deployed to Azure by using the [Azure Functions Core Tools](functions-run-local.md).
 

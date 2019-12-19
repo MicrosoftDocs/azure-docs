@@ -1,7 +1,7 @@
 ---
 title: "Use a custom traefik ingress controller and configure HTTPS"
 services: azure-dev-spaces
-ms.date: "08/13/2019"
+ms.date: "12/10/2019"
 ms.topic: "conceptual"
 description: "Learn how to configure Azure Dev Spaces to use a custom traefik ingress controller and configure HTTPS using that ingress controller"
 keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, service mesh, service mesh routing, kubectl, k8s"
@@ -17,7 +17,7 @@ This article shows you how to configure Azure Dev Spaces to use a custom traefik
 * [Azure CLI installed][az-cli].
 * [Azure Kubernetes Service (AKS) cluster with Azure Dev Spaces enabled][qs-cli].
 * [kubectl][kubectl] installed.
-* [Helm 2.13 - 2.16 installed][helm-installed].
+* [Helm 3 installed][helm-installed].
 * [A custom domain][custom-domain] with a [DNS Zone][dns-zone] in the same resource group as your AKS cluster.
 
 ## Configure a custom traefik ingress controller
@@ -36,12 +36,17 @@ NAME                                STATUS   ROLES   AGE    VERSION
 aks-nodepool1-12345678-vmssfedcba   Ready    agent   13m    v1.14.1
 ```
 
+Add the [official stable Helm repository][helm-stable-repo], which contains the traefik ingress controller Helm chart.
+
+```console
+helm repo add stable https://kubernetes-charts.storage.googleapis.com/
+```
+
 Create a Kubernetes namespace for the traefik ingress controller and install it using `helm`.
 
 ```console
 kubectl create ns traefik
-helm init --wait
-helm install stable/traefik --name traefik --namespace traefik --set kubernetes.ingressClass=traefik --set kubernetes.ingressEndpoint.useDefaultPublishedService=true
+helm install traefik stable/traefik --namespace traefik --set kubernetes.ingressClass=traefik --set kubernetes.ingressEndpoint.useDefaultPublishedService=true
 ```
 
 Get the IP address of the traefik ingress controller service using [kubectl get][kubectl-get].
@@ -101,18 +106,23 @@ gateway:
 
 Save your changes and close the file.
 
+Create the *dev* space with your sample application using `azds space select`.
+
+```console
+azds space select -n dev -y
+```
+
 Deploy the sample application using `helm install`.
 
 ```console
-helm install -n bikesharing . --dep-up --namespace dev --atomic
+helm install bikesharing . --dependency-update --namespace dev --atomic
 ```
 
 The above example deploys the sample application to the *dev* namespace.
 
-Select the *dev* space with your sample application using `azds space select` and display the URLs to access the sample application using `azds list-uris`.
+Display the URLs to access the sample application using `azds list-uris`.
 
 ```console
-azds space select -n dev
 azds list-uris
 ```
 
@@ -152,10 +162,13 @@ Create a `dev-spaces/samples/BikeSharingApp/traefik-values.yaml` file similar to
 ```yaml
 fullnameOverride: traefik
 replicas: 1
-cpuLimit: 400m
-memoryRequest: 200Mi
-memoryLimit: 500Mi
 externalTrafficPolicy: Local
+resources:
+  limits:
+    cpu: "400m"
+    memory: "500Mi"
+  requests:
+    memory: "200Mi"
 kubernetes:
   ingressClass: traefik
   ingressEndpoint:
@@ -174,7 +187,7 @@ accessLogs:
         Authorization: redact
 acme:
   enabled: true
-  email: "someone@example.com"
+  email: "MY_EMAIL_ADDRESS"
   staging: false
   challengeType: tls-alpn-01
 ssl:
@@ -192,7 +205,7 @@ ssl:
     - TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
 ```
 
-Update your *traefik* service using `helm repo update` and including the *traefik-values.yaml* file you created.
+Update your *traefik* service using `helm` and including the *traefik-values.yaml* file you created.
 
 ```console
 cd ..
@@ -279,7 +292,8 @@ Learn how Azure Dev Spaces helps you develop more complex applications across mu
 
 [azds-yaml]: https://github.com/Azure/dev-spaces/blob/master/samples/BikeSharingApp/BikeSharingWeb/azds.yaml
 [azure-account-create]: https://azure.microsoft.com/free
-[helm-installed]: https://v2.helm.sh/docs/using_helm/#installing-helm
+[helm-installed]: https://helm.sh/docs/intro/install/
+[helm-stable-repo]: https://helm.sh/docs/intro/quickstart/#initialize-a-helm-chart-repository
 [helpers-js]: https://github.com/Azure/dev-spaces/blob/master/samples/BikeSharingApp/BikeSharingWeb/pages/helpers.js#L7
 [kubectl]: https://kubernetes.io/docs/user-guide/kubectl/
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get

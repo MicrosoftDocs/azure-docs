@@ -1,5 +1,5 @@
 ---
-title: Get token & call Microsoft Graph APIs from console apps (v1.0) | Azure
+title: Acquire token & call Microsoft Graph (.NET Core Console) (v1.0) | Azure
 description: Build a .NET daemon application that integrates with Azure AD & calls Azure AD protected APIs using OAuth 2.0
 services: active-directory
 author: rwike77
@@ -18,7 +18,7 @@ ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ---
 
-# Quickstart: Acquire token and call Microsoft Graph API with console app's identity (v1.0) 
+# Quickstart: Acquire token and call Microsoft Graph using console app's identity (v1.0)
 
 [Microsoft identity platform](v2-overview.md) is an evolution of the Azure Active Directory (Azure AD) developer platform. It allows developers to build applications that sign in all Microsoft identities and get tokens to call Microsoft APIs such as Microsoft Graph or APIs that developers have built.
 

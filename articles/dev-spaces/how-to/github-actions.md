@@ -3,7 +3,7 @@ title: "GitHub Actions & Azure Kubernetes Service"
 services: azure-dev-spaces
 ms.date: 11/04/2019
 ms.topic: conceptual
-description: "Review and test changes from a pull request directly in Azure Kubernetes Service using GitHub Actions and Azure Dev Spaces."
+description: "Review and test changes from a pull request directly in Azure Kubernetes Service using GitHub Actions and Azure Dev Spaces"
 keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, GitHub Actions, Helm, service mesh, service mesh routing, kubectl, k8s"
 manager: gwallace
 ---

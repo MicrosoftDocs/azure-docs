@@ -178,6 +178,5 @@ For more information about the Azure Storage REST API, see [Azure Storage Servic
 
 ## Next steps
 
-* [Create a storage account](storage-quickstart-create-account.md)
-* [Create a block blob storage account](../blobs/storage-blob-create-account-block-blob.md)
-* [Manage Azure storage accounts](storage-account-manage.md)
+- [Create a storage account](storage-quickstart-create-account.md)
+- [Create a block blob storage account](../blobs/storage-blob-create-account-block-blob.md)
