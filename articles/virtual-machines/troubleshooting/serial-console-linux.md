@@ -26,7 +26,7 @@ Serial Console works in the same manner for VMs and virtual machine scale set in
 For Serial Console documentation for Windows, see [Serial Console for Windows](../windows/serial-console.md).
 
 > [!NOTE]
-> The Serial Console is generally available in global Azure regions. It is not yet available in Azure government or Azure China clouds.
+> The Serial Console is generally available in global Azure regions and in public preview in Azure Government. It is not yet available in the Azure China cloud.
 
 
 ## Prerequisites
@@ -166,7 +166,7 @@ A. Yes. Because the serial console doesn't require SSH keys, you only need to se
 ## Next steps
 * Use the serial console to [access GRUB and single user mode](serial-console-grub-single-user-mode.md).
 * Use the serial console for [NMI and SysRq calls](serial-console-nmi-sysrq.md).
-* Learn how to use the serial console to [enable GRUB in various distros](serial-console-grub-proactive-configuration.md) 
+* Learn how to use the serial console to [enable GRUB in various distros](serial-console-grub-proactive-configuration.md)
 * The serial console is also available for [Windows VMs](../windows/serial-console.md).
 * Learn more about [boot diagnostics](boot-diagnostics.md).
 

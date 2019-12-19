@@ -1,5 +1,5 @@
 ---
-title: Azure PowerShell script - Azure Cosmos DB get provisioned throughput (RU/s) for SQL (Core) API
+title: PowerShell script to get provisioned throughput (RU/s) for Azure Cosmos DB SQL (Core) API
 description: Azure PowerShell script - Azure Cosmos DB get provisioned throughput (RU/s) for SQL (Core) API
 author: markjbrown
 ms.service: cosmos-db

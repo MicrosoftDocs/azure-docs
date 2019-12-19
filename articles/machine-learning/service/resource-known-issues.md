@@ -261,7 +261,7 @@ kubectl get secret/azuremlfessl -o yaml
 Based on general observation, here are Azure ML recommendations to fix some of the common errors in Azure ML.
 
 ### Metric Document is too large
-Azure Machine Learning service has internal limits on the size of metric objects that can be logged at once from a training run. If you encounter "Metric Document is too large" error when logging a list-valued metric, try splitting the list into smaller chunks, for example:
+Azure Machine Learning has internal limits on the size of metric objects that can be logged at once from a training run. If you encounter "Metric Document is too large" error when logging a list-valued metric, try splitting the list into smaller chunks, for example:
 
 ```python
 run.log_list("my metric name", my_metric[:N])

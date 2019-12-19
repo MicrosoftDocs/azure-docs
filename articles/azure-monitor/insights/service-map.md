@@ -4,8 +4,8 @@ description: Service Map is a solution in Azure that automatically discovers app
 ms.service:  azure-monitor
 ms.subservice: 
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 07/24/2019
 
 ---
