@@ -13,7 +13,7 @@ ms.date: 11/04/2019
 Azure Cosmos DB allows you to provision throughput on your containers in either manual or autopilot mode. This article describes the benefits and use cases of autopilot mode.
 
 > [!NOTE]
-> Autopilot mode is currently available in public preview. To enable autopilot feature for your Azure Cosmos account, see the [enable autopilot](#enable-autopilot) section of this article. You can enable autopilot for new databases and containers only, it's not available for existing containers and databases.
+> Autopilot mode is currently available in public preview. You can [enable autopilot for new databases and containers](#create-a-database-or-a-container-with-autopilot-mode) only. It is not available for existing containers and databases.
 
 In addition to manual provisioning of throughput, you can now configure Azure cosmos containers in autopilot mode. Azure Cosmos containers and databases configured in autopilot mode will **automatically and instantly scale the provisioned throughput based on your application needs without compromising the SLAs.**
 
@@ -63,31 +63,21 @@ Solutions to the previous problems not only require an enormous amount of time i
 | **Pricing** | Manually provisioned RU/s per hour. | For single write region accounts, you pay for the throughput used on an hourly basis, by using the autopilot RU/s per hour rate. <br/><br/>For accounts with multiple write regions, there is no extra charge for autopilot. You pay for the throughput used on hourly basis using the same multi-master RU/s per hour rate. |
 | **Best suited for workload types** |  Predictable and stable workloads|   Unpredictable and variable workloads  |
 
-## <a id="enable-autopilot"></a> Enable autopilot from Azure portal
-
-You can try out autopilot in your Azure Cosmos accounts by enabling in from Azure portal. Use the following steps to enable the autopilot option:
-
-1. Sign in to the [Azure portal.](https://portal.azure.com)
-
-2. Navigate to your Azure Cosmos account and open the **New Features** tab. Select **Auto Pilot** and **Register** as shown in the following screenshot:
-
-![Create a container in autopilot mode](./media/provision-throughput-autopilot/enable-autopilot-azure-portal.png)
-
 ## Create a database or a container with autopilot mode
 
-You can configure autopilot for databases or containers while creating them. Use the following steps to a new database or container, enable autopilot, and specify the maximum throughput.
+You can configure autopilot for new databases or containers when creating them through the Azure portal. Use the following steps to create a new database or container, enable autopilot, and specify the maximum throughput (RU/s).
 
 1. Sign in to the [Azure portal](https://portal.azure.com) or the [Azure Cosmos explorer.](https://cosmos.azure.com/)
 
 1. Navigate to your Azure Cosmos account and open the **Data Explorer** tab.
 
-1. Select **New Container**, enter a name for your container, a partition key. Select the **Autopilot** option, and choose the maximum throughput that the container cannot exceed when using the autopilot option.
+1. Select **New Container.** Enter a name for your database, container, and a partition key. Select the **Autopilot** option, and choose the maximum throughput (RU/s) that the database or container cannot exceed when using the autopilot option.
 
    ![Create a container in autopilot mode](./media/provision-throughput-autopilot/create-container-autopilot-mode.png)
 
-1. Select **OK**
+1. Select **OK**.
 
-With similar steps, you can also create a database with provisioned throughput in autopilot mode.
+You can create a shared throughput database with autopilot mode by selecting the **Provision database throughput** option.
 
 ## <a id="autopilot-limits"></a> Throughput and storage limits for autopilot
 

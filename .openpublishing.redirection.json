@@ -571,6 +571,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/LUIS/luis-tutorial-pattern-roles.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/luis-tutorial-pattern",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/LUIS/luis-tutorial-pattern-any.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/luis-tutorial-pattern",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cognitive-services/LUIS/luis-quickstart-primary-and-secondary-data.md",
       "redirect_url": "/azure/cognitive-services/LUIS/tutorial-machine-learned-entity",
       "redirect_document_id": false
@@ -42206,6 +42216,31 @@
     {
       "source_path": "articles/iot-central/tutorial-monitor-devices-pnp.md",
       "redirect_url": "/azure/iot-central/preview/quick-monitor-devices/",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-pnp/quickstart-connect-pnp-device-linux.md",
+      "redirect_url": "/azure/iot-pnp/quickstart-connect-pnp-device-c-linux/",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-pnp/quickstart-connect-pnp-device.md",
+      "redirect_url": "/azure/iot-pnp/quickstart-connect-pnp-device-c-windows/",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-pnp/quickstart-connect-pnp-device-solution.md",
+      "redirect_url": "/azure/iot-pnp/quickstart-connect-pnp-device-solution-node/",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-pnp/quickstart-create-pnp-device.md",
+      "redirect_url": "/azure/iot-pnp/quickstart-create-pnp-device-windows/",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-central/core/overview-iot-options.md",
+      "redirect_url": "/azure/iot-fundamentals/iot-services-and-technologies/",
       "redirect_document_id": true
     },
     {
