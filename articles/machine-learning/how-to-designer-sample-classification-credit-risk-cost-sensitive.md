@@ -15,7 +15,7 @@ ms.date: 11/04/2019
 
 **Designer (preview) sample 4**
 
-[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
+[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
 This article shows you how to build a complex machine learning pipeline using the designer (preview). You'll learn how to implement custom logic using Python scripts and compare multiple models to choose the best option.
 
@@ -23,11 +23,11 @@ This sample trains a classifier to predict credit risk using credit application 
 
 Here's the completed graph for this pipeline:
 
-[![Graph of the pipeline](media/how-to-designer-sample-classification-predict-credit-risk-cost-sensitive/graph.png)](media/how-to-designer-sample-classification-predict-credit-risk-cost-sensitive/graph.png#lightbox)
+[![Graph of the pipeline](./media/how-to-designer-sample-classification-credit-risk-cost-sensitive/graph.png)](./media/how-to-designer-sample-classification-credit-risk-cost-sensitive/graph.png#lightbox)
 
 ## Prerequisites
 
-[!INCLUDE [aml-ui-prereq](../../../includes/aml-ui-prereq.md)]
+[!INCLUDE [aml-ui-prereq](../../includes/aml-ui-prereq.md)]
 
 4. Click sample 4 to open it.
 
@@ -48,7 +48,7 @@ The cost of misclassifying a low-risk example as high is 1, and the cost of misc
 
 Here's the graph of the pipeline:
 
-[![Graph of the pipeline](media/how-to-designer-sample-classification-predict-credit-risk-cost-sensitive/graph.png)](media/how-to-designer-sample-classification-predict-credit-risk-cost-sensitive/graph.png#lightbox)
+[![Graph of the pipeline](./media/how-to-designer-sample-classification-credit-risk-cost-sensitive/graph.png)](./media/how-to-designer-sample-classification-credit-risk-cost-sensitive/graph.png#lightbox)
 
 ## Data processing
 
@@ -104,7 +104,7 @@ This sample uses the standard data science workflow to create, train, and test t
 
 The following diagram shows a portion of this pipeline, in which the original and replicated training sets are used to train two different SVM models. **Train Model** is connected to the training set, and **Score Model** is connected to the test set.
 
-![Pipeline graph](media/how-to-designer-sample-classification-predict-credit-risk-cost-sensitive/score-part.png)
+![Pipeline graph](./media/how-to-designer-sample-classification-credit-risk-cost-sensitive/score-part.png)
 
 In the evaluation stage of the pipeline, you compute the accuracy of each of the four models. For this pipeline, use **Evaluate Model** to compare examples that have the same misclassification cost.
 
@@ -138,7 +138,7 @@ def azureml_main(dataframe1 = None, dataframe2 = None):
 
 To view the results of the pipeline, you can right-click the Visualize output of the last **Select Columns in Dataset** module.
 
-![Visualize output](media/how-to-designer-sample-classification-predict-credit-risk-cost-sensitive/result.png)
+![Visualize output](./media/how-to-designer-sample-classification-credit-risk-cost-sensitive/result.png)
 
 The first column lists the machine learning algorithm used to generate the model.
 
@@ -150,7 +150,7 @@ From these results, you can see that the best accuracy is provided by the model 
 
 ## Clean up resources
 
-[!INCLUDE [aml-ui-cleanup](../../../includes/aml-ui-cleanup.md)]
+[!INCLUDE [aml-ui-cleanup](../../includes/aml-ui-cleanup.md)]
 
 ## Next steps
 
@@ -159,6 +159,6 @@ Explore the other samples available for the designer:
 - [Sample 1 - Regression: Predict an automobile's price](how-to-designer-sample-regression-automobile-price-basic.md)
 - [Sample 2 - Regression: Compare algorithms for automobile price prediction](how-to-designer-sample-regression-automobile-price-compare-algorithms.md)
 - [Sample 3 - Classification with feature selection: Income Prediction](how-to-designer-sample-classification-predict-income.md)
-- [Sample 5 - Classification: Predict churn](how-to-designer-sample-classification-churn.md)
+- [Sample 5 - Classification: Predict churn](service/how-to-designer-sample-classification-churn.md)
 - [Sample 6 - Classification: Predict flight delays](how-to-designer-sample-classification-flight-delay.md)
 - [Sample 7 - Text Classification: Wikipedia SP 500 Dataset](how-to-designer-sample-text-classification.md)

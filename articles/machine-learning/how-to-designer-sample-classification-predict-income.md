@@ -15,7 +15,7 @@ ms.date: 11/04/2019
 
 **Designer (preview) sample 3**
 
-[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
+[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
 Learn how to build a machine learning classifier without writing a single line of code using the designer (preview). This sample trains a **two-class boosted decision tree** to predict adult census income (>=50K or <=50K).
 
@@ -23,11 +23,11 @@ Because the question is answering "Which one?" this is called a classification p
 
 Here's the final pipeline graph for this sample:
 
-![Graph of the pipeline](media/how-to-designer-sample-classification-predict-income/overall-graph.png)
+![Graph of the pipeline](./media/how-to-designer-sample-classification-predict-income/overall-graph.png)
 
 ## Prerequisites
 
-[!INCLUDE [aml-ui-prereq](../../../includes/aml-ui-prereq.md)]
+[!INCLUDE [aml-ui-prereq](../../includes/aml-ui-prereq.md)]
 
 4. Click the sample 3 to open it.
 
@@ -36,7 +36,7 @@ Here's the final pipeline graph for this sample:
 ## Data
 
 The dataset contains 14 features and one label column. There are multiple types of features, including numerical and categorical. The following diagram shows an excerpt from the dataset:
-![data](media/how-to-designer-sample-classification-predict-income/data.png)
+![data](./media/how-to-designer-sample-classification-predict-income/data.png)
 
 
 
@@ -50,7 +50,7 @@ Follow these steps to create the pipeline:
 1. Add a **Two-Class Boosted Decision Tree** module to initialize a boosted decision tree classifier.
 1. Add a **Train Model** module. Connect the classifier from the previous step to the left input port of the **Train Model**. Connect the filtered dataset from Filter Based Feature Selection module as training dataset.  The **Train Model** will train the classifier.
 1. Add Select Columns Transformation and Apply Transformation module to apply the same transformation (filtered based feature selection) to test dataset.
-![apply-transformation](media/how-to-designer-sample-classification-predict-income/transformation.png)
+![apply-transformation](./media/how-to-designer-sample-classification-predict-income/transformation.png)
 1. Add **Score Model** module and connect the **Train Model** module to it. Then add the test set (the output of Apply Transformation module which apply feature selection to test set too) to the **Score Model**. The **Score Model** will make the predictions. You can select its output port to see the predictions and the positive class probabilities.
 
 
@@ -60,13 +60,13 @@ Follow these steps to create the pipeline:
 
 ## Results
 
-![Evaluate the results](media/how-to-designer-sample-classification-predict-income/evaluate-result.png)
+![Evaluate the results](./media/how-to-designer-sample-classification-predict-income/evaluate-result.png)
 
 In the evaluation results, you can see that the curves like ROC, Precision-recall and confusion metrics. 
 
 ## Clean up resources
 
-[!INCLUDE [aml-ui-cleanup](../../../includes/aml-ui-cleanup.md)]
+[!INCLUDE [aml-ui-cleanup](../../includes/aml-ui-cleanup.md)]
 
 ## Next steps
 
@@ -74,7 +74,7 @@ Explore the other samples available for the designer:
 
 - [Sample 1 - Regression: Predict an automobile's price](how-to-designer-sample-regression-automobile-price-basic.md)
 - [Sample 2 - Regression: Compare algorithms for automobile price prediction](how-to-designer-sample-regression-automobile-price-compare-algorithms.md)
-- [Sample 4 - Classification: Predict credit risk (cost sensitive)](how-to-designer-sample-classification-credit-risk-cost-sensitive.md)
-- [Sample 5 - Classification: Predict churn](how-to-designer-sample-classification-churn.md)
-- [Sample 6 - Classification: Predict flight delays](how-to-designer-sample-classification-flight-delay.md)
+- [Sample 4 - Classification: Predict credit risk (cost sensitive)](service/how-to-designer-sample-classification-credit-risk-cost-sensitive.md)
+- [Sample 5 - Classification: Predict churn](service/how-to-designer-sample-classification-churn.md)
+- [Sample 6 - Classification: Predict flight delays](service/how-to-designer-sample-classification-flight-delay.md)
 - [Sample 7 - Text Classification: Wikipedia SP 500 Dataset](how-to-designer-sample-text-classification.md)

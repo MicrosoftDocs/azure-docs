@@ -15,17 +15,17 @@ ms.date: 11/04/2019
 
 **Designer (preview) sample 6**
 
-[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
+[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
 This pipeline uses historical flight and weather data to predict if a scheduled passenger flight will be delayed by more than 15 minutes. This problem can be approached as a classification problem, predicting two classes: delayed, or on time.
 
 Here's the final pipeline graph for this sample:
 
-[![Graph of the pipeline](media/how-to-designer-sample-classification-predict-flight-delay/pipeline-graph.png)](media/how-to-designer-sample-classification-predict-credit-risk-cost-sensitive/graph.png#lightbox)
+[![Graph of the pipeline](./media/how-to-designer-sample-classification-flight-delay/pipeline-graph.png)](media/how-to-designer-sample-classification-predict-credit-risk-cost-sensitive/graph.png#lightbox)
 
 ## Prerequisites
 
-[!INCLUDE [aml-ui-prereq](../../../includes/aml-ui-prereq.md)]
+[!INCLUDE [aml-ui-prereq](../../includes/aml-ui-prereq.md)]
 
 4. Click sample 6 to open it.
 
@@ -49,13 +49,13 @@ To supplement the flight data, the **Weather Dataset** is used. The weather data
 
 A dataset usually requires some pre-processing before it can be analyzed.
 
-![data-process](media/how-to-designer-sample-classification-predict-flight-delay/data-process.png)
+![data-process](./media/how-to-designer-sample-classification-flight-delay/data-process.png)
 
 ### Flight data
 
 The columns **Carrier**, **OriginAirportID**, and **DestAirportID** are saved as integers. However, they're  categorical attributes, use the **Edit Metadata** module to convert them to categorical.
 
-![edit-metadata](media/how-to-designer-sample-classification-predict-flight-delay/edit-metadata.png)
+![edit-metadata](./media/how-to-designer-sample-classification-flight-delay/edit-metadata.png)
 
 Then use the **Select Columns** in Dataset module to exclude from the dataset columns that are possible target leakers: **DepDelay**, **DepDel15**, **ArrDelay**, **Canceled**, **Year**. 
 
@@ -75,18 +75,18 @@ Since weather data is reported in local time, time zone differences are accounte
 
 Flight records are joined with weather data at origin of the flight (**OriginAirportID**) using the **Join Data** module.
 
- ![join flight and weather by origin](media/how-to-designer-sample-classification-predict-flight-delay/join-origin.png)
+ ![join flight and weather by origin](./media/how-to-designer-sample-classification-flight-delay/join-origin.png)
 
 
 Flight records are joined with weather data using the destination of the flight (**DestAirportID**).
 
- ![Join flight and weather by destination](media/how-to-designer-sample-classification-predict-flight-delay/join-destination.png)
+ ![Join flight and weather by destination](./media/how-to-designer-sample-classification-flight-delay/join-destination.png)
 
 ### Preparing Training and Test Samples
 
 The **Split Data** module splits the data into April through September records for training, and October records for test.
 
- ![Split training and test data](media/how-to-designer-sample-classification-predict-flight-delay/split.png)
+ ![Split training and test data](./media/how-to-designer-sample-classification-flight-delay/split.png)
 
 Year, month, and timezone columns are removed from the training dataset using the Select Columns module.
 
@@ -109,7 +109,7 @@ Finally, to test the quality of the results, add the **Evaluate Model** module t
 ## Evaluate
 The logistic regression model has AUC of 0.631 on the test set.
 
- ![evaluate](media/how-to-designer-sample-classification-predict-flight-delay/evaluate.png)
+ ![evaluate](./media/how-to-designer-sample-classification-flight-delay/evaluate.png)
 
 ## Next steps
 
@@ -118,6 +118,6 @@ Explore the other samples available for the designer:
 - [Sample 1 - Regression: Predict an automobile's price](how-to-designer-sample-regression-automobile-price-basic.md)
 - [Sample 2 - Regression: Compare algorithms for automobile price prediction](how-to-designer-sample-regression-automobile-price-compare-algorithms.md)
 - [Sample 3 - Classification with feature selection: Income Prediction](how-to-designer-sample-classification-predict-income.md)
-- [Sample 4 - Classification: Predict credit risk (cost sensitive)](how-to-designer-sample-classification-credit-risk-cost-sensitive.md)
-- [Sample 5 - Classification: Predict churn](how-to-designer-sample-classification-churn.md)
+- [Sample 4 - Classification: Predict credit risk (cost sensitive)](service/how-to-designer-sample-classification-credit-risk-cost-sensitive.md)
+- [Sample 5 - Classification: Predict churn](service/how-to-designer-sample-classification-churn.md)
 - [Sample 7 - Text Classification: Wikipedia SP 500 Dataset](how-to-designer-sample-text-classification.md)

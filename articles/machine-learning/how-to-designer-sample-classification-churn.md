@@ -16,7 +16,7 @@ ms.date: 11/04/2019
 
 **Designer (preview) sample 5**
 
-[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
+[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
 Learn how to build a complex machine learning pipeline without writing a single line of code using the designer (preview).
 
@@ -26,11 +26,11 @@ Because you're trying to answer the question "Which one?" this is called a class
 
 Here's the completed graph for this pipeline:
 
-![Pipeline graph](./media/how-to-designer-sample-classification-predict-churn/pipeline-graph.png)
+![Pipeline graph](./media/how-to-designer-sample-classification-churn/pipeline-graph.png)
 
 ## Prerequisites
 
-[!INCLUDE [aml-ui-prereq](../../../includes/aml-ui-prereq.md)]
+[!INCLUDE [aml-ui-prereq](../../includes/aml-ui-prereq.md)]
 
 4. Click sample 5 to open it. 
 
@@ -46,11 +46,11 @@ First, some simple data processing.
 
 - The raw dataset has many missing values. Use the **Clean Missing Data** module to replace the missing values with 0.
 
-    ![Clean the dataset](./media/how-to-designer-sample-classification-predict-churn/cleaned-dataset.png)
+    ![Clean the dataset](./media/how-to-designer-sample-classification-churn/cleaned-dataset.png)
 
 - The features and the corresponding churn are in different datasets. Use the **Add Columns** module to append the label columns to the feature columns. The first column, **Col1**, is the label column. From the visualization result we can see the dataset is unbalanced. There way more negative (-1) examples than positive examples (+1). We will use **SMOTE** module to increase underrepresented cases later.
 
-    ![Add the column dataset](./media/how-to-designer-sample-classification-predict-churn/added-column1.png)
+    ![Add the column dataset](./media/how-to-designer-sample-classification-churn/added-column1.png)
 
 
 
@@ -58,19 +58,19 @@ First, some simple data processing.
 
 - Then use the Boosted Decision Tree binary classifier with the default parameters to build the prediction models. Build one model per task, that is, one model each to predict up-selling, appetency, and churn.
 
-- In the right part of the pipeline, we use **SMOTE** module to increase the percentage of positive examples. The SMOTE percentage is set to 100 to double the positive examples. Learn more on how SMOTE module works with [SMOTE module reference0](../././algorithm-module-reference/SMOTE.md).
+- In the right part of the pipeline, we use **SMOTE** module to increase the percentage of positive examples. The SMOTE percentage is set to 100 to double the positive examples. Learn more on how SMOTE module works with [SMOTE module reference0](algorithm-module-reference/smote.md).
 
 ## Results
 
 Visualize the output of the **Evaluate Model** module to see the performance of the model on the test set. 
 
-![Evaluate the results](./media/how-to-designer-sample-classification-predict-churn/evaluate-result.png)
+![Evaluate the results](./media/how-to-designer-sample-classification-churn/evaluate-result.png)
 
  You can move the **Threshold** slider and see the metrics change for the binary classification task. 
 
 ## Clean up resources
 
-[!INCLUDE [aml-ui-cleanup](../../../includes/aml-ui-cleanup.md)]
+[!INCLUDE [aml-ui-cleanup](../../includes/aml-ui-cleanup.md)]
 
 ## Next steps
 

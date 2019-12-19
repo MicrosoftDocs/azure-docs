@@ -15,7 +15,7 @@ ms.custom: seodec18
 ---
 # Collect data for models in production
 
-[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
+[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 >[!IMPORTANT]
 > The Azure Machine Learning Monitoring SDK will be retired soon. The SDK is still appropriate for developers who currently use the SDK to monitor data drift in models. But for new customers, we recommend using the simplified [data monitoring with Application Insights](https://docs.microsoft.com/azure/machine-learning/service/how-to-enable-app-insights).
@@ -24,7 +24,7 @@ This article shows how to collect input model data from Azure Machine Learning. 
 
 Once collection is enabled, the data you collect helps you:
 
-* [Monitor data drifts](how-to-monitor-data-drift.md) as production data enters your model.
+* [Monitor data drifts](service/how-to-monitor-data-drift.md) as production data enters your model.
 
 * Make better decisions about when to retrain or optimize your model.
 
@@ -58,13 +58,13 @@ The path to the output data in the blob follows this syntax:
 - If you don't have an Azure subscription, create a
  [free account](https://aka.ms/AMLFree) before you begin.
 
-- A AzureMachine Learning workspace, a local directory containing your scripts, and the Azure Machine Learning SDK for Python must be installed. To learn how to install them, see [How to configure a development environment](../how-to-configure-environment.md).
+- A AzureMachine Learning workspace, a local directory containing your scripts, and the Azure Machine Learning SDK for Python must be installed. To learn how to install them, see [How to configure a development environment](how-to-configure-environment.md).
 
-- You need a trained machine-learning model to be deployed to AKS. If you don't have a model, see the [Train image classification model](tutorial-train-models-with-aml.md) tutorial.
+- You need a trained machine-learning model to be deployed to AKS. If you don't have a model, see the [Train image classification model](service/tutorial-train-models-with-aml.md) tutorial.
 
-- You need an AKS cluster. For information on how to create one and deploy to it, see [How to deploy and where](../how-to-deploy-and-where.md).
+- You need an AKS cluster. For information on how to create one and deploy to it, see [How to deploy and where](how-to-deploy-and-where.md).
 
-- [Set up your environment](../how-to-configure-environment.md) and install the [Azure Machine Learning Monitoring SDK](https://aka.ms/aml-monitoring-sdk).
+- [Set up your environment](how-to-configure-environment.md) and install the [Azure Machine Learning Monitoring SDK](https://aka.ms/aml-monitoring-sdk).
 
 ## Enable data collection
 
@@ -113,7 +113,7 @@ To enable data collection, you need to:
     aks_config = AksWebservice.deploy_configuration(collect_model_data=True, enable_app_insights=True)
     ```
 
-1. To create a new image and deploy the machine learning model, see [How to deploy and where](../how-to-deploy-and-where.md).
+1. To create a new image and deploy the machine learning model, see [How to deploy and where](how-to-deploy-and-where.md).
 
 If you already have a service with the dependencies installed in your environment file and scoring file, enable data collection by following these steps:
 
@@ -123,11 +123,11 @@ If you already have a service with the dependencies installed in your environmen
 
 1. Select **Deployments** > **Select service** > **Edit**.
 
-   ![Edit the service](media/how-to-enable-data-collection/EditService.PNG)
+   ![Edit the service](././media/how-to-enable-data-collection/EditService.PNG)
 
 1. In **Advanced Settings**, select **Enable Model data collection**.
 
-    [![Select data collection](media/how-to-enable-data-collection/CheckDataCollection.png)](./media/how-to-enable-data-collection/CheckDataCollection.png#lightbox)
+    [![Select data collection](./media/how-to-enable-data-collection/CheckDataCollection.png)](././media/how-to-enable-data-collection/CheckDataCollection.png#lightbox)
 
    You can also select **Enable AppInsights diagnostics** to track the health of your service.
 
@@ -145,11 +145,11 @@ You can stop collecting data at any time. Use Python code or Azure Machine Learn
 
 1. Select **Deployments** > **Select service** > **Edit**.
 
-   [![Select the Edit option](media/how-to-enable-data-collection/EditService.PNG)](./media/how-to-enable-data-collection/EditService.PNG#lightbox)
+   [![Select the Edit option](././media/how-to-enable-data-collection/EditService.PNG)](./././media/how-to-enable-data-collection/EditService.PNG#lightbox)
 
 1. In **Advanced Settings**, clear **Enable Model data collection**.
 
-    [![Clear the data collection checkbox](media/how-to-enable-data-collection/UncheckDataCollection.png)](./media/how-to-enable-data-collection/UncheckDataCollection.png#lightbox)
+    [![Clear the data collection checkbox](./media/how-to-enable-data-collection/UncheckDataCollection.png)](././media/how-to-enable-data-collection/UncheckDataCollection.png#lightbox)
 
 1. Select **Update** to apply the change.
 
@@ -174,7 +174,7 @@ You can choose a tool of your preference to analyze the data collected in your B
 
 1. Select **Storage**.
 
-    [![Select the Storage option](media/how-to-enable-data-collection/StorageLocation.png)](./media/how-to-enable-data-collection/StorageLocation.png#lightbox)
+    [![Select the Storage option](./media/how-to-enable-data-collection/StorageLocation.png)](././media/how-to-enable-data-collection/StorageLocation.png#lightbox)
 
 1. Follow the path to the blob's output data with this syntax:
 
@@ -189,13 +189,13 @@ You can choose a tool of your preference to analyze the data collected in your B
 
 1. Select **Get Data** and select [**Azure Blob Storage**](https://docs.microsoft.com/power-bi/desktop-data-sources).
 
-    [![Power BI blob setup](media/how-to-enable-data-collection/PBIBlob.png)](./media/how-to-enable-data-collection/PBIBlob.png#lightbox)
+    [![Power BI blob setup](./media/how-to-enable-data-collection/PBIBlob.png)](././media/how-to-enable-data-collection/PBIBlob.png#lightbox)
 
 1. Add your storage account name and enter your storage key. You can find this information by selecting **Settings** > **Access keys** in your blob.
 
 1. Select the **model data** container and select **Edit**.
 
-    [![Power BI Navigator](media/how-to-enable-data-collection/pbiNavigator.png)](./media/how-to-enable-data-collection/pbiNavigator.png#lightbox)
+    [![Power BI Navigator](./media/how-to-enable-data-collection/pbiNavigator.png)](././media/how-to-enable-data-collection/pbiNavigator.png#lightbox)
 
 1. In the query editor, click under the **Name** column and add your storage account.
 
@@ -207,11 +207,11 @@ You can choose a tool of your preference to analyze the data collected in your B
 
 1. Select the downward double arrows next to the **Content** column heading to combine the files.
 
-    [![Power BI Content](media/how-to-enable-data-collection/pbiContent.png)](./media/how-to-enable-data-collection/pbiContent.png#lightbox)
+    [![Power BI Content](./media/how-to-enable-data-collection/pbiContent.png)](././media/how-to-enable-data-collection/pbiContent.png#lightbox)
 
 1. Select **OK**. The data preloads.
 
-    [![Power BI Combine Files](media/how-to-enable-data-collection/pbiCombine.png)](./media/how-to-enable-data-collection/pbiCombine.png#lightbox)
+    [![Power BI Combine Files](./media/how-to-enable-data-collection/pbiCombine.png)](././media/how-to-enable-data-collection/pbiCombine.png#lightbox)
 
 1. Select **Close and Apply**.
 
@@ -227,11 +227,11 @@ You can choose a tool of your preference to analyze the data collected in your B
 
 1. In your Databricks workspace, select **Upload Data**.
 
-    [![Selecting Databricks Upload Data option](media/how-to-enable-data-collection/dbupload.png)](./media/how-to-enable-data-collection/dbupload.png#lightbox)
+    [![Selecting Databricks Upload Data option](./media/how-to-enable-data-collection/dbupload.png)](././media/how-to-enable-data-collection/dbupload.png#lightbox)
 
 1. Select **Create New Table** and select **Other Data Sources** > **Azure Blob Storage** > **Create Table in Notebook**.
 
-    [![Databricks table creation](media/how-to-enable-data-collection/dbtable.PNG)](./media/how-to-enable-data-collection/dbtable.PNG#lightbox)
+    [![Databricks table creation](./media/how-to-enable-data-collection/dbtable.PNG)](././media/how-to-enable-data-collection/dbtable.PNG#lightbox)
 
 1. Update the location of your data. Here is an example:
 
@@ -240,6 +240,6 @@ You can choose a tool of your preference to analyze the data collected in your B
     file_type = "csv"
     ```
 
-    [![Databricks setup](media/how-to-enable-data-collection/dbsetup.png)](./media/how-to-enable-data-collection/dbsetup.png#lightbox)
+    [![Databricks setup](./media/how-to-enable-data-collection/dbsetup.png)](././media/how-to-enable-data-collection/dbsetup.png#lightbox)
 
 1. Follow the steps on the template to view and analyze your data.

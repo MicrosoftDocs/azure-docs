@@ -15,7 +15,7 @@ ms.date: 11/04/2019
 
 **Designer (preview) sample 1**
 
-[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
+[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
 Learn how to build a machine learning regression model without writing a single line of code using the designer (preview).
 
@@ -30,11 +30,11 @@ The fundamental steps of a training machine learning model are:
 
 Here's the final, completed graph of the pipeline. This article provides the rationale for all the modules so you can make similar decisions on your own.
 
-![Graph of the pipeline](media/how-to-designer-sample-regression-predict-automobile-price-basic/overall-graph.png)
+![Graph of the pipeline](./media/how-to-designer-sample-regression-automobile-price-basic/overall-graph.png)
 
 ## Prerequisites
 
-[!INCLUDE [aml-ui-prereq](../../../includes/aml-ui-prereq.md)]
+[!INCLUDE [aml-ui-prereq](../../includes/aml-ui-prereq.md)]
 
 4. Click the sample 1 to open it。
 
@@ -49,7 +49,7 @@ The main data preparation tasks include data cleaning, integration, transformati
 
 Use the **Select Columns in Dataset** module to exclude normalized-losses that have many missing values. Then use **Clean Missing Data** to remove the rows that have missing values. This helps to create a clean set of training data.
 
-![Data pre-processing](./media/how-to-designer-sample-regression-predict-automobile-price-basic/data-processing.png)
+![Data pre-processing](./media/how-to-designer-sample-regression-automobile-price-basic/data-processing.png)
 
 ## Train the model
 
@@ -67,23 +67,23 @@ After the model is trained, you can use the **Score Model** and **Evaluate Model
 
 **Score Model** generates predictions for the test dataset by using the trained model. To check the result, select the output port of **Score Model** and then select **Visualize**.
 
-![Score result](./media/how-to-designer-sample-regression-predict-automobile-price-basic/score-result.png)
+![Score result](./media/how-to-designer-sample-regression-automobile-price-basic/score-result.png)
 
 Pass the scores to the **Evaluate Model** module to generate evaluation metrics. To check the result, select the output port of the **Evaluate Model** and then select **Visualize**.
 
-![Evaluate result](./media/how-to-designer-sample-regression-predict-automobile-price-basic/evaluate-result.png)
+![Evaluate result](./media/how-to-designer-sample-regression-automobile-price-basic/evaluate-result.png)
 
 ## Clean up resources
 
-[!INCLUDE [aml-ui-cleanup](../../../includes/aml-ui-cleanup.md)]
+[!INCLUDE [aml-ui-cleanup](../../includes/aml-ui-cleanup.md)]
 
 ## Next steps
 
 Explore the other samples available for the designer:
 
 - [Sample 2 - Regression: Compare algorithms for automobile price prediction](how-to-designer-sample-regression-automobile-price-compare-algorithms.md)
-- [Sample 3 - Classification with feature selection: Income Prediction](how-to-designer-sample-classification-predict-income.md)
-- [Sample 4 - Classification: Predict credit risk (cost sensitive)](how-to-designer-sample-classification-credit-risk-cost-sensitive.md)
-- [Sample 5 - Classification: Predict churn](how-to-designer-sample-classification-churn.md)
-- [Sample 6 - Classification: Predict flight delays](how-to-designer-sample-classification-flight-delay.md)
+- [Sample 3 - Classification with feature selection: Income Prediction](service/how-to-designer-sample-classification-predict-income.md)
+- [Sample 4 - Classification: Predict credit risk (cost sensitive)](service/how-to-designer-sample-classification-credit-risk-cost-sensitive.md)
+- [Sample 5 - Classification: Predict churn](service/how-to-designer-sample-classification-churn.md)
+- [Sample 6 - Classification: Predict flight delays](service/how-to-designer-sample-classification-flight-delay.md)
 - [Sample 7 - Text Classification: Wikipedia SP 500 Dataset](how-to-designer-sample-text-classification.md)
