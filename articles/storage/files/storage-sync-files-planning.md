@@ -332,13 +332,13 @@ To support the failover integration between geo-redundant storage and Azure File
 
 ## Recommended Azure File Sync machine configuration
 
-Azure File Sync machine requirements are determined by the number of objects in the namespace and the churn on the dataset. A single server can be attached to multiple sync groups and the number of objects listed in the following table accounts for the full namespace that a server is attached to. For example, server endpoint A with 10 million objects + server endpoint B with 10 million objects =  20 million objects. For that example deployment, we would recommend 8CPU, 16GB of memory for steady state, and (if possible) 48GB of memory for the initial migration.
+Azure File Sync machine requirements are determined by the number of objects in the namespace and the churn on the dataset. A single server can be attached to multiple sync groups and the number of objects listed in the following table accounts for the full namespace that a server is attached to. For example, server endpoint A with 10 million objects + server endpoint B with 10 million objects =  20 million objects. For that example deployment, we would recommend 8CPU, 16GiB of memory for steady state, and (if possible) 48GiB of memory for the initial migration.
  
 Namespace data is stored in memory for performance reasons. Because of that, bigger namespaces require more memory to maintain good performance, and more churn requires more CPU to process. 
  
-In the following table, we have provided both the size of the namespace as well as a conversion to capacity for typical general purpose file shares, where the average file size is 500KB. If your file sizes are smaller, consider adding additional memory for the same amount of capacity. Base your memory configuration on the size of the namespace.
+In the following table, we have provided both the size of the namespace as well as a conversion to capacity for typical general purpose file shares, where the average file size is 512KiB. If your file sizes are smaller, consider adding additional memory for the same amount of capacity. Base your memory configuration on the size of the namespace.
 
-| Namespace size - files & directories (millions)  | Typical capacity (TiB)  | CPU Cores  | Recommended memory (GB) |
+| Namespace size - files & directories (millions)  | Typical capacity (TiB)  | CPU Cores  | Recommended memory (GiB) |
 |---------|---------|---------|---------|
 | 3        | 1.27     | 2        | 8 (initial sync)/ 2 (typical churn)      |
 | 5        | 2.09     | 2        | 16 (initial sync)/ 4 (typical churn)    |
