@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
-ms.date: 09/13/2019
+ms.date: 12/17/2019
 
 ms.custom: seoapril2019
 ---
@@ -615,9 +615,11 @@ See [Deploy to Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.
 
 ## Consume web services
 
-Every deployed web service provides a REST API, so you can create client applications in a variety of programming languages.
-If you've enabled key authentication for your service, you need to provide a service key as a token in your request header.
-If you've enabled token authentication for your service, you need to provide an Azure Machine Learning JWT token as a bearer token in your request header.
+Every deployed web service provides a REST endpoint, so you can create client applications in any programming language.
+If you've enabled key-based authentication for your service, you need to provide a service key as a token in your request header.
+If you've enabled token-based authentication for your service, you need to provide an Azure Machine Learning JSON Web Token (JWT) as a bearer token in your request header. 
+
+The primary difference is that **keys are static and can be regenerated manually**, and **tokens need to be refreshed upon expiration**. Key-based auth is supported for Azure Container Instance and Azure Kubernetes Service deployed web-services, and token-based auth is **only** available for Azure Kubernetes Service deployments. See the [how-to](how-to-setup-authentication.md#web-service-authentication) on authentication for more information and specific code samples.
 
 > [!TIP]
 > You can retrieve the schema JSON document after you deploy the service. Use the [swagger_uri property](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.local.localwebservice?view=azure-ml-py#swagger-uri) from the deployed web service (for example, `service.swagger_uri`) to get the URI to the local web service's Swagger file.
