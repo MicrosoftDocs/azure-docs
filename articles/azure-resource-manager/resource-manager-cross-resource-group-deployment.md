@@ -210,7 +210,7 @@ The following table shows whether the functions resolve to the parent or embedde
 | nested        | inner | Sub resource group |
 | linked        | N/A   | Sub resource group |
 
-The following [example template]((https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/crossresourcegroupproperties.json)) shows:
+The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/crossresourcegroupproperties.json) shows:
 
 * nested template with default (outer) scope
 * nested template with inner scope
