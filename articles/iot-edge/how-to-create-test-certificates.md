@@ -4,7 +4,7 @@ description: Create test certificates and learn how to install them on an Azure 
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 11/07/2019
+ms.date: 12/07/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge

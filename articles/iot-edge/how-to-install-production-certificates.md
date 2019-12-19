@@ -16,8 +16,8 @@ All IoT Edge devices use certificates to create secure connections between the r
 IoT Edge devices functioning as gateways use these same certificates to connect to their downstream devices, too. 
 
 When you first install IoT Edge and provision your device, the device is set up with temporary certificates so that you can test the service.
-These certificates expire in 30 days, or can be reset by restarting your machine.
-Once you're ready to move your devices into a production scenario you need to provide your own certificates for security and maintenance.
+These temporary certificates expire in 90 days, or can be reset by restarting your machine.
+Once you're ready to move your devices into a production scenario, or you want to create a gateway scenario, you need to provide your own certificates.
 This article demonstrates the steps to install certificates on your IoT Edge devices.
 
 To learn more about the different types of certificates and their roles in an IoT Edge scenario, see [Understand how Azure IoT Edge uses certificates](iot-edge-certs.md).
@@ -34,10 +34,6 @@ If you don't have a root certificate authority yet, but want to try out IoT Edge
 
 ## Create production certificates
 
-<!-- TODO:
-What's our guidance around creating certificates? Is this a standard process in cert management? Is there any special property that needs to be in a Device CA certificate, or a special way of creating them?
--->
-
 You should use your own certificate authority to create the following files:
 * Root CA
 * Device CA certificate
@@ -45,13 +41,9 @@ You should use your own certificate authority to create the following files:
 
 In this article, what we refer to as the *root CA* is not the topmost certificate authority for an organization. It's the topmost certificate authority for the IoT Edge scenario, which the IoT Edge hub module, user modules, and any downstream devices use to establish trust between each other. 
 
+To see an example of these certificates, review the scripts that create demo certificates in [Managing test CA certificates for samples and tutorials](https://github.com/Azure/iotedge/tree/master/tools/CACertificates). 
+
 ## Install certificates on the device
-
-<!-- TODO:
-For provisioning, we used URIs to point to the certificates on the device (file:///path/certificate.pem). Is that best practice for production certs as well?
-
-Will all the certificates and keys have consistent file extensions that we could use to help guide customers to understand what goes where?
- -->
 
 Install your certificate chain on the IoT Edge device and configure the IoT Edge runtime to reference the new certificates. 
 
