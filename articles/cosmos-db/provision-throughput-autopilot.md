@@ -65,7 +65,7 @@ Solutions to the previous problems not only require an enormous amount of time i
 
 ## Create a database or a container with autopilot mode
 
-You can configure autopilot for new databases or containers when creating them through the Azure Portal. Use the following steps to create a new database or container, enable autopilot, and specify the maximum throughput (RU/s).
+You can configure autopilot for new databases or containers when creating them through the Azure portal. Use the following steps to create a new database or container, enable autopilot, and specify the maximum throughput (RU/s).
 
 1. Sign in to the [Azure portal](https://portal.azure.com) or the [Azure Cosmos explorer.](https://cosmos.azure.com/)
 
