@@ -43,6 +43,8 @@ In this tutorial, you'll learn how to:
 ```                   
 Note that the *<share_acc_name>* is the name of your Data Share Account. If you have not created a Data Share account as yet, you can come back to this pre-requisite later.  
 
+* An [Azure SQL Database User with `db_owner` access](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-manage-logins#non-administrator-users) to navigate and select the tables and/or views you wish to share. 
+
 * Client IP SQL Server Firewall access: This can be done through the following steps: 
         1. Navigate to *Firewalls and Virtual Networks*
         1. Click the **on** toggle to allow access to Azure Services. 
@@ -95,7 +97,7 @@ Create an Azure Data Share resource in an Azure resource group.
 
     ![Datasets](./media/datasets.png "Datasets")
 
-1. Select the dataset type that you would like to add. 
+1. Select the dataset type that you would like to add. If sharing from an Azure SQL Database or Azure SQL Datawarehouse, you will be prompted for some SQL credentials. Authenticate using the user you created as part of the prerequisites.
 
     ![AddDatasets](./media/add-datasets.png "Add Datasets")    
 
