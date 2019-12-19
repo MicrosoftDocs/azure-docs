@@ -18,7 +18,7 @@ Azure API for FHIR provides a fully managed deployment of the Microsoft FHIR Ser
 
 Latest version supported: `4.0.0`
 
-Previous versions also currently supported include : `3.0.1`
+Previous versions also currently supported include: `3.0.1`
 
 ## REST API
 
@@ -103,13 +103,13 @@ All search parameter types are supported. Chained parameters and reverse chainin
 
 The Microsoft FHIR Server has a pluggable persistence module (see [`Microsoft.Health.Fhir.Core.Features.Persistence`](https://github.com/Microsoft/fhir-server/tree/master/src/Microsoft.Health.Fhir.Core/Features/Persistence)).
 
-Currently the FHIR Server open source code includes an implementation for [Azure Cosmos DB](../cosmos-db/index-overview.md) and [SQL Database](https://azure.microsoft.com/services/sql-database/).
+Currently the FHIR Server open-source code includes an implementation for [Azure Cosmos DB](../cosmos-db/index-overview.md) and [SQL Database](https://azure.microsoft.com/services/sql-database/).
 
 Cosmos DB is a globally distributed multi-model (SQL API, MongoDB API, etc.) database. It supports different [consistency levels](../cosmos-db/consistency-levels.md). The default deployment template configures the FHIR Server with `Strong` consistency, but the consistency policy can be modified (generally relaxed) on a request by request basis using the `x-ms-consistency-level` request header.
 
-## Role based access control
+## Role-based access control
 
-The FHIR Server uses [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) for access control. Specifically, Role Based Access Control (RBAC) is enforced, if the `FhirServer:Security:Enabled` configuration parameter is set to `true`, and all requests (except `/metadata`) to the FHIR Server must have `Authorization` request header set to `Bearer <TOKEN>`. The token must contain one or more roles as defined in the `roles` claim. A request will be allowed if the token contains a role that allows the specified action on the specified resource.
+The FHIR Server uses [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) for access control. Specifically, Role-Based Access Control (RBAC) is enforced, if the `FhirServer:Security:Enabled` configuration parameter is set to `true`, and all requests (except `/metadata`) to the FHIR Server must have `Authorization` request header set to `Bearer <TOKEN>`. The token must contain one or more roles as defined in the `roles` claim. A request will be allowed if the token contains a role that allows the specified action on the specified resource.
 
 Currently, the allowed actions for a given role are applied *globally* on the API.
 
