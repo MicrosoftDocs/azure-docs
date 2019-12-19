@@ -24,11 +24,6 @@ Newer metric alerts support alerting for metrics that use dimensions. You can us
 
 Here's the full list of Azure monitor metric sources supported by the newer alerts:
 
-## Metrics and Dimensions Supported
-Newer metric alerts support alerting for metrics that use dimensions. You can use dimensions to filter your metric to the right level. All supported metrics along with applicable dimensions can be explored and visualized from [Azure Monitor - Metrics Explorer](../../azure-monitor/platform/metrics-charts.md).
-
-Here's the full list of Azure monitor metric sources supported by the newer alerts:
-
 |Resource type  |Dimensions Supported |Multi-resource alerts| Metrics Available|
 |---------|---------|-----|----------|
 |Microsoft.ApiManagement/service | Yes| No | [API Management](../../azure-monitor/platform/metrics-supported.md#microsoftapimanagementservice)|
