@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 12/10/2019
+ms.date: 12/19/2019
 ms.author: diberry
 ---
 
@@ -150,6 +150,12 @@ Use the following chart to understand how to find the field values for optional 
     > ![Exported knowledge base with metadata](../media/batch-test/exported-knowledge-base-with-metadata.png)
 
 ## Create a second batch test
+
+There are two main scenarios for batch testing:
+* **Process chat log files** - Determine the top answer for a previously unseen question - the most common situation is when you need to process are log file of queries, such as a chat bot's user questions. Create a batch file test, with only the required columns. The test returns the top answer for each question. That doesn't mean it the top answer is the correct answer. Once you complete this test, move on to the validation test.
+* **Validation test** - Validate the expected answer. This test requires that all the questions and matching expected answers in the batch test have been validated. This may require some manual process.
+
+The following procedure assumes the scenario is to process chat logs with 
 
 1. Create a new batch test file to include optional data, `batch-test-data-2.tsv`. Add the 6 rows from the original batch test input file, then add the metadata, top, and QnA set ID for each row.
 
