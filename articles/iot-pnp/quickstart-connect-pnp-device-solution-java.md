@@ -44,7 +44,7 @@ In this quickstart, you use a sample environmental sensor that's written in Java
     git clone https://github.com/Azure-Samples/azure-iot-samples-java
     ```
 
-1. This terminal window will now be used as your _device_ terminal. Go to the folder of your cloned repository, and navigate to the **/azure-iot-samples-java/digital-twin** folder. Install the required libraries and build the simulated device application by running the following command:
+1. This terminal window will now be used as your _device_ terminal. Go to the folder of your cloned repository, and navigate to the **/azure-iot-samples-java/digital-twin/Samples/device/JdkSample** folder. Install the required libraries and build the simulated device application by running the following command:
 
     ```cmd/sh
     mvn clean install -DskipTests
@@ -59,7 +59,7 @@ In this quickstart, you use a sample environmental sensor that's written in Java
 1. Run the following command to run the sample from the device folder.
 
     ```cmd/sh
-    java -jar device-samples\target\environmental-sensor-sample-with-deps.jar
+    java -jar environmental-sensor-sample\target\environmental-sensor-sample-with-deps.jar
     ```
 
 1. You see messages saying that the device is connected and waiting for service updates, followed by telemetry logs. This indicates that the device is now ready to receive commands and property updates, and has begun sending telemetry data to the hub. Keep the sample running as you complete the next steps. Don't close this terminal, you'll need it later to confirm the service samples also worked.
@@ -68,7 +68,7 @@ In this quickstart, you use a sample environmental sensor that's written in Java
 
 In this quickstart, you use a sample IoT solution in Java to interact with the sample device.
 
-1. Open another terminal window (this will be your _service_ terminal). Go to the folder of your cloned repository, and navigate to the **/azure-iot-samples-java/digital-twin** folder.
+1. Open another terminal window (this will be your _service_ terminal). Go to the folder of your cloned repository, and navigate to the **/azure-iot-samples-java\digital-twin\Samples\service\JdkSample** folder.
 
 1. Configure the _IoT hub connection string_ and _device ID_ to allow the service to connect to both of these:
 
@@ -88,7 +88,7 @@ In this quickstart, you use a sample IoT solution in Java to interact with the s
 1. Go to the _service_ terminal and use the following command to run the service sample for reading device information:
 
     ```cmd/sh
-    java -jar service-samples/get-digital-twin/target/get-digital-twin-with-deps.jar
+    java -jar get-digital-twin/target/get-digital-twin-with-deps.jar
     ```
 
 1. In the _service_ terminal output, scroll to the `environmentalSensor` component. You see that the `state` property has been reported as _true_:
@@ -119,7 +119,7 @@ In this quickstart, you use a sample IoT solution in Java to interact with the s
 1. Use the following command to run the service sample for updating the property:
 
     ```cmd/sh
-    java -jar service-samples/update-digital-twin/target/update-digital-twin-with-deps.jar
+    java -jar update-digital-twin/target/update-digital-twin-with-deps.jar
     ```
 
 1. The _service_ terminal output shows the updated device information. Scroll to the `environmentalSensor` component to see the new brightness value of 42.
@@ -147,7 +147,7 @@ In this quickstart, you use a sample IoT solution in Java to interact with the s
 2. Go back to your _service_ terminal and run the below command to get the device information again, to confirm the property has been updated.
     
     ```cmd/sh
-    java -jar service-samples/get-digital-twin/target/get-digital-twin-with-deps.jar
+    java -jar get-digital-twin/target/get-digital-twin-with-deps.jar
     ```
 3. In the _service_ terminal output, under the `environmentalSensor` component, you see the updated brightness value has been reported. Note: it might take a while for the device to finish the update. You can repeat this step until the device has actually processed the property update.
     
@@ -186,7 +186,7 @@ In this quickstart, you use a sample IoT solution in Java to interact with the s
 1. Use the following command to run the service sample for invoking the command:
 
     ```cmd/sh
-    java -jar service-samples/invoke-digital-twin-command/target/invoke-digital-twin-command-with-deps.jar
+    java -jar invoke-digital-twin-command/target/invoke-digital-twin-command-with-deps.jar
     ```
 
 1. Output in the _service_ terminal should show the following confirmation:

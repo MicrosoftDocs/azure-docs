@@ -54,7 +54,7 @@ This operation may take several minutes to complete.
 
 You use the cloned sample code to build an application simulating a device that connects to an IoT hub. The application sends telemetry and properties and receives commands.
 
-1. In a local terminal window, go to the folder of your cloned repository and navigate to the **/azure-iot-samples-java/digital-twin** folder. Then run the following command to install the required libraries and build the simulated device application:
+1. In a local terminal window, go to the folder of your cloned repository and navigate to the **/azure-iot-samples-java/digital-twin/Samples/device/JdkSample** folder. Then run the following command to install the required libraries and build the simulated device application:
 
     ```cmd/sh
     mvn clean install -DskipTests
@@ -71,7 +71,7 @@ You use the cloned sample code to build an application simulating a device that 
 Run a sample application to simulate an IoT Plug and Play device that sends telemetry to your IoT hub. To run the sample application, use the following command:
 
 ```cmd\sh
-java -jar device-samples\target\environmental-sensor-sample-with-deps.jar
+java -jar environmental-sensor-sample\target\environmental-sensor-sample-with-deps.jar
 ```
 
 You see the following output, indicating the device is now ready to receive commands and property updates, and has begun sending telemetry data to the hub.
