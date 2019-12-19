@@ -147,8 +147,8 @@ These steps help you configure your connection to connect automatically with Alw
 You can modify the downloaded profile XML file and add the **\<dnssuffixes>\<dnssufix> \</dnssufix>\</dnssuffixes>** tags
 
 ```
-<clientconfig>
 <azvpnprofile>
+<clientconfig>
 
     <dnssuffixes>
           <dnssuffix>.mycorp.com</dnssuffix>
