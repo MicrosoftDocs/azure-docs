@@ -1,7 +1,7 @@
 ---
 title: How to work with your management groups - Azure Governance
 description: Learn how to view, maintain, update, and delete your management group hierarchy.
-ms.date: 05/22/2019
+ms.date: 12/18/2019
 ms.topic: conceptual
 ---
 # Manage your resources with management groups
@@ -190,27 +190,33 @@ To return a specific management group and all the levels of the hierarchy under 
 az account management-group show --name 'Contoso' -e -r
 ```
 
-## Move subscriptions in the hierarchy
+## Moving management groups and subscriptions in the hierarchy  
 
 One reason to create a management group is to bundle subscriptions together. Only management groups
 and subscriptions can be made children of another management group. A subscription that moves to a
-management group inherits all user access and policies from the parent management group.
+management group inherits all user access and policies from the parent management group
 
-To move the subscription, all of the following RBAC permissions need to be true:
+To move a management group or subscription to be a child of another management group three rules need to be evaluated as true.
 
-- "Owner" role on the child subscription.
-- "Owner", "Contributor", or "Management Group Contributor" role on the target parent management group.
-- "Owner", "Contributor", or "Management Group Contributor" role on the existing parent management group.
+If you are doing the move action, you must have: 
 
-If the target or the existing parent management group is the Root management group, the permissions requirements don't apply. Since the Root management group is the default landing spot for all new management groups and subscriptions, you don't need permissions on it to move an item.
+1.  Management group write and Role Assignment write permissions on the child subscription or management group.
+    1. Built-on role example **Owner**
+1. Management group write access on the target parent management group.
+    1. Built-in role example: **Owner**, **Contributor**, **Management Group Contributor**
+1. Management group write access on the existing parent management group.
+    1. Built-in role example: **Owner**, **Contributor**, **Management Group Contributor**
 
-If the Owner role on the subscription is inherited from the current management group, your move targets are limited. You can only move the subscription to another management group where you have the Owner role. You can't move it to a management group where you're a contributor because you would lose ownership of the subscription. If you're directly assigned to the Owner role for the subscription (not inherited from the management group), you can move it to any management group where you're a contributor.
+**Exception**: If the target or the existing parent management group is the Root management group, the permissions requirements don't apply. Since the Root management group is the default landing spot for all new management groups and subscriptions, you don't need permissions on it to move an item.
+
+If the Owner role on the subscription is inherited from the current management group, your move targets are limited. You can only move the subscription to another management group where you have the Owner role. You can't move it to a management group where you're a contributor because you would lose ownership of the subscription. If you're directly assigned to the Owner role for the subscription (not inherited from the management group), you can move it to any management group where you're a contributor. 
 
 To see what permissions you have in the Azure portal, select the management group and then select **IAM**. To learn more on RBAC Roles, see [Manage access and permissions with RBAC](../../role-based-access-control/overview.md).
 
-### Move subscriptions in the portal
 
-#### Add an existing Subscription to a management group
+## Move Subscriptions 
+
+#### Add an existing Subscription to a management group in the portal
 
 1. Log into the [Azure portal](https://portal.azure.com).
 
@@ -226,7 +232,7 @@ To see what permissions you have in the Azure portal, select the management grou
 
 1. Select "Save".
 
-#### Remove a subscription from a management group
+#### Remove a subscription from a management group in the portal
 
 1. Log into the [Azure portal](https://portal.azure.com).
 
@@ -274,9 +280,7 @@ To remove the subscription from the management group, use the subscription remov
 az account management-group subscription remove --name 'Contoso' --subscription '12345678-1234-1234-1234-123456789012'
 ```
 
-## Move management groups in the hierarchy  
-
-When you move a parent management group, the hierarchy under that group moves with it. For the access you need to move management groups, see [Management group access](overview.md#management-group-access).
+## Move management groups 
 
 ### Move management groups in the portal
 

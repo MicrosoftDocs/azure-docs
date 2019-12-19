@@ -29,7 +29,7 @@ example of creating a hierarchy for governance using management groups.
 ![Example of a management group hierarchy tree](./media/tree.png)
 
 You can create a hierarchy that applies a policy, for example, which limits VM locations
-to the US West Region in the group called "Production". This policy will inherit onto both EA subscriptions under that management
+to the US West Region in the group called "Production". This policy will inherit onto all the EA subscriptions that are descendants of that management
 group and will apply to all VMs under those subscriptions. This security policy cannot be altered by the resource or
 subscription owner allowing for improved governance.
 
@@ -104,7 +104,7 @@ If you have questions on this backfill process, contact: managementgroups@micros
 
 Azure management groups support [Azure Role-Based Access Control
 (RBAC)](../../role-based-access-control/overview.md) for all resource accesses and role definitions.
-These permissions are inherited to child resources that exist in the hierarchy. Any built-in RBAC
+These permissions are inherited to child resources that exist in the hierarchy. Any RBAC
 role can be assigned to a management group that will inherit down the hierarchy to the resources.
 For example, the RBAC role VM contributor can be assigned to a management group. This role has no
 action on the management group, but will inherit to all VMs under that management group.
@@ -126,7 +126,7 @@ The following chart shows the list of roles and the supported actions on managem
 
 ## Custom RBAC role definition and assignment
 
-Custom RBAC role support for management groups is currently supported with some [limitations](#Limitations).  You are able to define the management group scope in the Role Definition's assignable scope.  That custom RBAC Role will then be available for assignment on that management group and any management group, subscription, resource group, or resource under it. This custom role will inherit down the hierarchy like any built-in role.    
+Custom RBAC role support for management groups is currently supported with some [limitations](#limitations).  You are able to define the management group scope in the Role Definition's assignable scope.  That custom RBAC Role will then be available for assignment on that management group and any management group, subscription, resource group, or resource under it. This custom role will inherit down the hierarchy like any built-in role.    
 
 ### Example definition
 [Defining and creating a custom role](../../role-based-access-control/custom-roles.md) does not change with the inclusion of management groups. Use the full path to define the management group **/providers/Microsoft.Management/managementgroups/{groupId}**. 
@@ -183,11 +183,28 @@ There are a couple different options to fix this scenario:
 - Create an additional Custom Role that will be defined in the other branch.  This new role will require the role assignment to be changed on the subscription also.  
 
 
-### Limitations  
+### <a name="limitations" /)>Limitations  
 There are a few limitations that exist when using custom roles on management groups within the Public Preview. 
 
  - You can only define one management group in the assignable scopes of a new role.  This limitation is in place to reduce the the number of situations where role definitions and role assignments are disconnected.  This situation happens when a child subscription or management group with a role assignment is moved to a different parent that doesn't have the role definition.   
- - RBAC Data Plane actions are not allowed to be defined in management group custom roles.  This restriction is in place as there is a latency issue with RBAC actions updating the data plane resource providers. This latency issue is being worked on and these actions will be disabled from the role definition to reduce any risks.    
+ - RBAC Data Plane actions are not allowed to be defined in management group custom roles.  This restriction is in place as there is a latency issue with RBAC actions updating the data plane resource providers. This latency issue is being worked on and these actions will be disabled from the role definition to reduce any risks.   
+
+## Moving management groups and subscriptions 
+
+To move a management group or subscription to be a child of another management group three rules need to be evaluated as true.
+
+If you are doing the move action, you must have: 
+
+1.  Management group write and Role Assignment write permissions on the child subscription or management group.
+    1. Built-on role example **Owner**
+1. Management group write access on the target parent management group.
+    1. Built-in role example: **Owner**, **Contributor**, **Management Group Contributor**
+1. Management group write access on the existing parent management group.
+    1. Built-in role example: **Owner**, **Contributor**, **Management Group Contributor**
+
+**Exception**: If the target or the existing parent management group is the Root management group, the permissions requirements don't apply. Since the Root management group is the default landing spot for all new management groups and subscriptions, you don't need permissions on it to move an item.
+
+If the Owner role on the subscription is inherited from the current management group, your move targets are limited. You can only move the subscription to another management group where you have the Owner role. You can't move it to a management group where you're a contributor because you would lose ownership of the subscription. If you're directly assigned to the Owner role for the subscription (not inherited from the management group), you can move it to any management group where you're a contributor. 
 
 ## Audit management groups using activity logs
 
