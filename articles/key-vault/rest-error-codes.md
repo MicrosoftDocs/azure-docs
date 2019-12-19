@@ -29,7 +29,7 @@ There are several different reason why a request may return 401.
 
 ### No authentication token attached to the request. 
 
-Here is an example PUT request, set the value of a secret:
+Here is an example PUT request, setting the value of a secret:
 
 ``` 
 PUT https://putreqexample.vault.azure.net//secrets/DatabaseRotatingPassword?api-version=7.0 HTTP/1.1
@@ -46,60 +46,86 @@ Content-Length: 31
 }
 ```
 
-The "Authorization" header is the access token that is required with every call to the Key Vault for data-plane operations. If this header is missing, then the response must be 401.
+The "Authorization" header is the access token that is required with every call to the Key Vault for data-plane operations. If the header is missing, then the response must be 401.
 
 ### The token lacks the correct resource associated with it. 
 
-When requesting an access token from the Azure OAUTH endpoint, a parameter called "resource" is mandatory. The value is important for the token provider because it scopes the token for its intended use. The resource for ALL tokens that want to access a Key Vault is: <https://vault.keyvault.net>. Note that there is no trailing slash on the resource.
+When requesting an access token from the Azure OAUTH endpoint, a parameter called "resource" is mandatory. The value is important for the token provider because it scopes the token for its intended use. The resource for **all* tokens to access a Key Vault is <https://vault.keyvault.net> (with no trailing slash).
 
 ### The token is expired
 
-We can check the values in any access token by decoding it. Tokens are base64 encoded and there are a lot of websites that will decode it for you, such as <http://jwt.calebb.net>. This is the token from the above decoded:
+Tokens are base64 encoded and the values can be decoded at websites such as [http://jwt.calebb.net](http://jwt.calebb.net). Here is the above token decoded:
+
+```
+	{
+ typ: "JWT",
+ alg: "RS256",
+ x5t: "nbCwW11w3XkB-xUaXwKRSLjMHGQ",
+ kid: "nbCwW11w3XkB-xUaXwKRSLjMHGQ"
+}.
+{
+ aud: "https://vault.azure.net",
+ iss: "https://sts.windows.net/72f988bf-86f1-41af-91ab-2d7cd011db47/",
+ iat: 1548697513,
+ nbf: 1548697513,
+ exp: 1548701413,
+ aio: "42JgYHh85jiPgdqyfTFdNStv7le/BAA=",
+ appid: "fad7d5b3-69d6-4b48-9259-8d12124e1cf1",
+ appidacr: "1",
+ idp: "https://sts.windows.net/72f988bf-86f1-41af-91ab-2d7cd011db47/",
+ oid: "3975aeed-7d08-453b-b6f4-445f32698091",
+ sub: "3975aeed-7d08-453b-b6f4-445f32698091",
+ tid: "72f988bf-86f1-41af-91ab-2d7cd011db47",
+ uti: "2-grhRkeIk6BeY-Ln42mAA",
+ ver: "1.0"
+}.
+[signature]
+```
 
 We can see many important parts in this token:
 
 - aud (audience): The resource of the token. Notice that this is <https://vault.azure.net>. This token will NOT work for any resource that does not explicitly match this value, such as graph.
-- iat (\[issued at): The number of ticks since the start of the epoch when the token was issued.
-- nbf (\[not before): The number of ticks since the start of the epoch when this token becomes valid.
+- iat (issued at): The number of ticks since the start of the epoch when the token was issued.
+- nbf (not before): The number of ticks since the start of the epoch when this token becomes valid.
 - exp (expiration): The number of ticks since the start of the epoch when this token expires.
-- appid (application id): The GUID for the application id making this request.
-- tid (tenant id): The GUID for the tenant id of the principal making this request
+- appid (application ID): The GUID for the application ID making this request.
+- tid (tenant ID): The GUID for the tenant ID of the principal making this request
 
 It is important that all of the values be properly identified in the token in order for the request to work. If everything is correct, then the request will not result in 401.
 
 ### Troubleshooting 401
 
-401s need to be investigated from the point of generation of the token, before the request is made to the Key Vault. Generally code is being used to request the token. Once the token is received, it is passed into the Key Vault request. If the code is running locally, you can use Fiddler to capture the request/response to <https://login.microsoftonline.com>. This is what a request looks like:
+401s should be investigated from the point of token generation, before the request is made to the key vault. Generally code is being used to request the token. Once the token is received, it is passed into the Key Vault request. If the code is running locally, you can use Fiddler to capture the request/response to https://login.microsoftonline.com. A request looks like this:
 
 ``` 
-POST https://login.microsoftonline.com/<key vault tenant id>/oauth2/token HTTP/1.1
+POST https://login.microsoftonline.com/<key vault tenant ID>/oauth2/token HTTP/1.1
 Accept: application/json
 Content-Type: application/x-www-form-urlencoded; charset=utf-8
 Host: login.microsoftonline.com
 Content-Length: 192
 
-resource=https%3A%2F%2Fvault.azure.net&client_id=<registered app id>&client_secret=<registered app secret>&client_info=1&grant_type=client_credentials
+resource=https%3A%2F%2Fvault.azure.net&client_id=<registered-app-ID>&client_secret=<registered-app-secret>&client_info=1&grant_type=client_credentials
 ```
 
 The following user-supplied information mush be correct:
 
-- The key vault tenant id
+- The key vault tenant ID
 - Resource value set to https%3A%2F%2Fvault.azure.net (URL encoded)
-- Client id
+- Client ID
 - Client secret
 
 Ensure the rest of the request is nearly identical.
 
-If you can only get the response access token, you can decode it (as shown above) to ensure the tenant id, the client id (app id), and the resource.
+If you can only get the response access token, you can decode it (as shown above) to ensure the tenant ID, the client ID (app ID), and the resource.
 
 ## HTTP 403: Insufficient Permissions
 
-HTTP 403 means that the request was authenticated (it knows the requesting identity) but the identity does not have permission to access the requested resource. There are two reasons for this:
+HTTP 403 means that the request was authenticated (it knows the requesting identity) but the identity does not have permission to access the requested resource. There are two causes:
 
 - There is no access policy for the identity.
 - The IP address of the requesting resource is not whitelisted in the key vault's firewall settings.
 
-HTTP 403 often occurs when the customer's application is not using the client id that the customer thinks it is. That usually means that the access policies is not correctly set up for the actual calling identity.
+HTTP 403 often occurs when the customer's application is not using the client ID that the customer thinks it is. That usually means that the access policies is not correctly set up for the actual calling identity.
 
 ### Troubleshooting 403
 
@@ -115,25 +141,25 @@ There is a limited list of "Azure Trusted Services". Azure Web Sites are **not**
 
 You must add the IP address of the Azure Web Site to the Key Vault in order for it to work.
 
-If due to access policy: find the object id for the request and ensure that the object id matches the object to which the user is trying to assign the access policy. There will often be multiple objects in the AAD which have the same name, so choosing the correct one is very important. By deleting and re-adding the access policy, it is possible to see if multiple objects exist with the same name.
+If due to access policy: find the object ID for the request and ensure that the object ID matches the object to which the user is trying to assign the access policy. There will often be multiple objects in the AAD which have the same name, so choosing the correct one is very important. By deleting and re-adding the access policy, it is possible to see if multiple objects exist with the same name.
 
-In addition: most cases of access policies DO NOT require the use of the "Authorized application" as shown in the portal. This is used for "on-behalf-of" authentication scenarios and is not generally used.
+In addition, most access policies do not require the use of the "Authorized application" as shown in the portal. Authorized application are used for "on-behalf-of" authentication scenarios, which are rare. 
 
 
 ## HTTP 429: Too Many Requests
 
 Throttling occurs when the number of requests exceeds the stated maximum for the timeframe. If throttling occurs, the Key Vault's response will be HTTP 429. There are stated maximums for types of requests made. For instance: the creation of an HSM 2048-bit key is 5 requests per 10 seconds, but all other HSM transactions have a 1000 request/10 seconds limit. Therefore it is important to understand which types of calls are being made when determining the cause of throttling.
-In general, requests to the Key Vault are limited to 2000 requests/10 seconds. Exceptions to this rule are Key Operations and they are documented here: [Key Vault service limits](https://docs.microsoft.com/azure/key-vault/key-vault-service-limits)
+In general, requests to the Key Vault are limited to 2000 requests/10 seconds. Exceptions are Key Operations, as documented in [Key Vault service limits](key-vault-service-limits)
 
 ### Troubleshooting 429
 Throttling is worked around using these techniques:
 
 - Reduce number of requests made to the Key Vault by determining if there are patterns to a requested resource and attempting to cache them in the calling application. 
 
-- When Key Vault throttling occurs, adapt the requesting code to use a exponential backoff for retrying. The algorithm is explained here: [How to throttle your app](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-ovw-throttling#how-to-throttle-your-app-in-response-to-service-limits)
+- When Key Vault throttling occurs, adapt the requesting code to use a exponential backoff for retrying. The algorithm is explained here: [How to throttle your app](key-vault-ovw-throttling.md#how-to-throttle-your-app-in-response-to-service-limits)
 
-- If the number of requests cannot be reduced by caching and timed backoff does not work, then consider splitting the keys up into multiple Key Vaults. Please note that service limits in a single subscription are limited to 5x the individual Key Vault limit. If using more than 5 Key Vaults, consideration should be given to using multiple subscriptions. 
+- If the number of requests cannot be reduced by caching and timed backoff does not work, then consider splitting the keys up into multiple Key Vaults. The service limit for a single subscription is 5x the individual Key Vault limit. If using more than 5 Key Vaults, consideration should be given to using multiple subscriptions. 
 
-Detailed guidance including request to increase limits, can be find here: [Key Vault throttling guidance](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-ovw-throttling)
+Detailed guidance including request to increase limits, can be find here: [Key Vault throttling guidance](key-vault-ovw-throttling.md)
 
 
