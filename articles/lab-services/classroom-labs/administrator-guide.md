@@ -201,25 +201,3 @@ You shouldn't delete replication to specific regions as a way to reduce the cost
 
 ## Next steps
 See the tutorial for step-by-step instructions to create a lab account and a lab: [Tutorial: set up a lab account](tutorial-setup-lab-account.md)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-## Next steps
-See the following articles:
-
-- [As a lab owner, create and manage labs](how-to-manage-classroom-labs.md)
-- [As a lab owner, set up and publish templates](how-to-create-manage-template.md)
-- [As a lab owner, configure and control usage of a lab](how-to-configure-student-usage.md)
-- [As a lab user, access classroom labs](how-to-use-classroom-lab.md)
