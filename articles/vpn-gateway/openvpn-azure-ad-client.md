@@ -6,7 +6,7 @@ author: anzaman
 
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 11/07/2019
+ms.date: 12/18/2019
 ms.author: alzam
 
 ---
@@ -139,6 +139,20 @@ These steps help you configure your connection to connect automatically with Alw
 4. View the diagnosis results.
 
     ![diagnose](./media/openvpn-azure-ad-client/diagnose/diagnose4.jpg)
+
+## FAQ
+
+### How do I add DNS suffixes to the VPN client?
+
+You can modify the downloaded profile XML file and add the **\<dnssuffixes>\<dnssufix> \</dnssufix>\</dnssuffixes>** tags
+
+```
+<dnssuffixes>
+      <dnssuffix>.mycorp.com</dnssuffix>
+      <dnssuffix>.xyz.com</dnssuffix>
+      <dnssuffix>.etc.net</dnssuffix>
+</dnssuffixes>
+```
 
 ## Next steps
 

@@ -36,7 +36,7 @@ ms.date: 12/06/2019
 
     1. Enable the implicit grant flow by checking **Access tokens** or **ID tokens**.
 
-   [![Create a new client secret](media/time-series-insights-aad-registration/active-directory-auth-blade.png)](media/time-series-insights-aad-registration/active-directory-auth-blade.png#lightbox)
+   [![Create Redirect URIs and configure Implicit grant](media/time-series-insights-aad-registration/active-directory-auth-blade.png)](media/time-series-insights-aad-registration/active-directory-auth-blade.png#lightbox)
 
    Click **Save**.
 
