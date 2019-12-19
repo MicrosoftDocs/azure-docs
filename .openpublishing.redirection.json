@@ -3756,6 +3756,26 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/azure-resource-manager/move-limitations/app-service-move-limitations.md",
+      "redirect_url": "/azure/azure-resource-manager/management/move-limitations/app-service-move-limitations",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/move-limitations/classic-model-move-limitations.md",
+      "redirect_url": "/azure/azure-resource-manager/management/move-limitations/classic-model-move-limitations",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/move-limitations/networking-move-limitations.md",
+      "redirect_url": "/azure/azure-resource-manager/management/move-limitations/networking-move-limitations",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/move-limitations/virtual-machines-move-limitations.md",
+      "redirect_url": "/azure/azure-resource-manager/management/move-limitations/virtual-machines-move-limitations",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md",
       "redirect_url": "/azure/azure-resource-manager/templates/create-visual-studio-deployment-project",
       "redirect_document_id": false
