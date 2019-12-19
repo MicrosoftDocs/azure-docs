@@ -90,6 +90,8 @@ Device administrators are assigned to all Azure AD Joined devices. They can't be
 
 When you remove users from the device administrator role, they still have the local administrator privilege on a device as long as they are signed in to it. The privilege is revoked during the next sign-in, or after 4 hours when a new primary refresh token is issued.
 
+This scenario is not supported on VDI environments. 
+
 ## Next steps
 
 - To get an overview of how to manage device in the Azure portal, see [managing devices using the Azure portal](device-management-azure-portal.md)
