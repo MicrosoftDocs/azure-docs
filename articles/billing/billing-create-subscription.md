@@ -1,5 +1,5 @@
 ---
-title: Create an additional Azure subscription | Microsoft Docs
+title: Create an additional Azure subscription
 description: Learn how to add a new Azure subscription in the Azure portal.
 services: 'billing'
 documentationcenter: ''

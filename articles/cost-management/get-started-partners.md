@@ -5,7 +5,7 @@ services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 11/15/2019
+ms.date: 12/19/2019
 ms.topic: conceptual
 ms.service: cost-management-billing
 manager: aparnag
@@ -23,6 +23,7 @@ CSP partners use Cost Management to:
 - View resource costs that have Partner Earned Credit (PEC) applied in Cost Analysis.
 - Set up notifications and automation using programmatic [budgets](tutorial-acm-create-budgets.md) and alerts when costs exceed budgets.
 - Enable the Azure Resource Manager policy that provides customer access to Cost Management data. Customers can then view consumption cost data for their subscriptions using [pay-as-you-go rates](https://azure.microsoft.com/pricing/calculator/).
+- Export their cost and usage data to a storage blob with a pay-as-you-go subscription.
 
 Here's an example showing costs for all customers.
 ![Example showing costs for all customers](./media/get-started-partners/customer-costs1.png)
@@ -34,9 +35,15 @@ All functionality available in Azure Cost Management is also available with REST
 
 ## Prerequisites
 
-Azure Cost Management requires read access to your billing account or subscription. Access can be granted at any level above your resources, from the billing account or a management group down to individual resource groups where you manage your apps. For more information about enabling and assigning access to Azure Cost Management for a billing account, see [Assign users roles and permissions](/partner-center/permissions-overview). The **Global admin** and **Admin agent** roles can manage costs for a billing account.
+As a partner, Azure Cost Management is natively available only for subscriptions that are on the Azure plan.
 
-To view a full list of supported account types, see [Understand Cost Management data](understand-cost-mgt-data.md).
+To enable Azure Cost Management in the Azure Portal, you must have confirmed customer acceptance of the Microsoft Customer Agreement (on behalf of the customer) and transitioned the customer to the Azure Plan. Only the costs for subscriptions that are transitioned to the Azure plan are available in Azure Cost Management.
+
+Azure Cost Management requires read access to your billing account or subscription.
+
+For more information about enabling and assigning access to Azure Cost Management for a billing account, see [Assign users roles and permissions](/partner-center/permissions-overview). The **Global admin** and **Admin agent** roles can manage costs for a billing account.
+
+To access Azure Cost Management at the subscription scope, any user with RBAC access to a subscription can view costs at retail (pay-as-you-go) rates. However the cost visibility policy for the customer tenant must be enabled. To view a full list of supported account types, see [Understand Cost Management data](understand-cost-mgt-data.md).
 
 
 ## How Cost Management uses scopes
@@ -108,13 +115,13 @@ Regardless of the policy, partners can also view the costs if they have access t
 
 Partners use the following information to enable to the policy to view Azure usage charges for their customers.
 
-In the Azure portal, sign in to the partner tenant and click **Cost Management + Billing**. Select a billing account and then click **Customers**. The list of customers is associated with the billing account.
+In the Azure portal, sign in to the partner tenant and select **Cost Management + Billing**. Select a billing account and then select **Customers**. The list of customers is associated with the billing account.
 
 In the list of customers, select the customer that you want to allow to view costs.
 
 ![Select customers in Cost Management](./media/get-started-partners/customer-list.png)
 
-Under **Settings**, click **Policies**.
+Under **Settings**, select **Policies**.
 
 The current cost visibility policy is shown for **Azure Usage** charges associated to the subscriptions for the selected customer.
 ![Policy to allow customers to view pay-as-you-go charges](./media/get-started-partners/cost-management-billing-policies.png)
@@ -125,15 +132,15 @@ When the cost policy is set to **Yes**, subscription users associated to the cus
 
 When the cost visibility policy is enabled, all services that have subscription usage show costs at pay-as-you-go rates. Reservation usage appears with zero charges for actual and amortized costs. Purchases and entitlements are not associated to a specific subscription. So, purchases aren't displayed at the subscription scope.
 
-To view costs for the customer tenant, open Cost Management + Billing and then click Billing accounts. In the list of billing accounts, click a billing account.
+To view costs for the customer tenant, open Cost Management + Billing and then select Billing accounts. In the list of billing accounts, select a billing account.
 
 ![Select a billing account](./media/get-started-partners/select-billing-account.png)
 
-Under **Billing**, click **Azure subscriptions**, and then click a customer.
+Under **Billing**, select **Azure subscriptions**, and then select a customer.
 
 ![Select an Azure subscription customer](./media/get-started-partners/subscriptions-select-customer.png)
 
-Click **Cost analysis** and start reviewing costs.
+select **Cost analysis** and start reviewing costs.
 Cost analysis, budgets, and alerts are available for the subscription and resource group RBAC scopes at pay-as-you-go rate-based costs.
 
 ![View cost analysis as a customer ](./media/get-started-partners/customer-tenant-view-cost-analysis.png)
@@ -142,7 +149,9 @@ Amortized views and actual costs for reserved instances in the RBAC scopes show 
 
 ## Analyze costs in cost analysis
 
-Partners can explore and analyze costs in cost analysis across customers for a specific customer or for an invoice. In the [cost analysis](quick-acm-cost-analysis.md) view, you can also [save views](quick-acm-cost-analysis.md#saving-and-sharing-customized-views) and export data to [CSV and PNG files](quick-acm-cost-analysis.md#automation-and-offline-analysis).
+Partners with access to billing scopes in the partner tenant can explore and analyze invoiced costs in cost analysis across customers for a specific customer or for an invoice. In the [cost analysis](quick-acm-cost-analysis.md) view, you can also [save views](quick-acm-cost-analysis.md#saving-and-sharing-customized-views) and export data to [CSV and PNG files](quick-acm-cost-analysis.md#automation-and-offline-analysis).
+
+RBAC users with access to the subscription in the customer tenant can also analyze retail costs for subscriptions in the customer tenant, save views, and export data to CSV and PNG files.
 
 You can use filter and group by features in cost analysis to analyze costs by multiple fields. Partner-specific fields are shown in the next section.
 
@@ -222,11 +231,11 @@ The following data fields are found in usage detail files and Cost Management AP
 
 In Azure Cost Management, partners can use cost analysis to view costs that received the PEC benefits.
 
-In the Azure portal, sign in to the partner tenant and select **Cost Management + Billing**. Under **Cost Management**, click **Cost analysis**.
+In the Azure portal, sign in to the partner tenant and select **Cost Management + Billing**. Under **Cost Management**, select **Cost analysis**.
 
 The Cost analysis view shows costs of the billing account for the partner. Select the **Scope** as needed for the partner, a specific customer, or a billing profile to reconcile invoices.
 
-In a donut chart, click the drop-down list and select **PartnerEarnedCreditApplied** to drill into PEC costs.
+In a donut chart, select the drop-down list and select **PartnerEarnedCreditApplied** to drill into PEC costs.
 
 ![Example showing how to view partner-earned credit](./media/get-started-partners/cost-analysis-pec1.png)
 
@@ -240,6 +249,26 @@ Service usage data normally takes 8-24 hours to appear in Cost Management. For m
 You can also group and filter by the **PartnerEarnedCreditApplied** property using the **Group by** options. Use the options to examine costs that do and don't have PEC.
 
 ![Group or filter by partner-earned credit](./media/get-started-partners/cost-analysis-pec2.png)
+
+## Export cost data to Azure Storage
+
+Partners with access to billing scopes in a partner tenant can export their cost and usage data to an Azure Storage blob. The blob must be on a subscription in the partner tenant that's not a shared service subscription or a customer’s subscription. To enable cost data export, we recommended that you set up an independent pay-as-you-go subscription in the partner tenant to host the exported cost data. The export storage account is created on the Azure Storage blob hosted in the pay-as-you-go subscription. Based on the scope where the partner creates the export, the associated data is exported to the storage account automatically on a recurring.
+
+Users with RBAC access to the subscription can also export the cost data to an Azure storage blob hosted in any subscription in the customer tenant.
+
+### Create an export in a partner tenant or customer tenant
+
+In the Azure portal, sign in to the partner tenant or customer tenant and select **Cost Management + Billing**. Select an appropriate scope, for example a billing account, and then select **Cost Analysis**. When the page loads, select **Export**. select **View all exports** under Schedule Export.
+
+Next, select  **Add** and type the name and select an export type. select the **Storage** tab and enter required information.
+
+When you create an export in the partner tenant, select the pay-as-you-go subscription in the partner tenant. Create an Azure Storage account using that subscription.
+
+For RBAC users in the customer tenant, select a subscription in the customer tenant. Create an Azure Storage account using the subscription.
+
+Review the content and then select **Create** to schedule an export.
+
+To verify data in the export list, select the storage account name. On the storage account page, select **Containers** and then select the container. Navigate to the corresponding folder and select the CSV file. select **Download** to get the CSV file and open it. The exported data exported resembles cost data similar to usage details from the Azure portal.
 
 ## Cost Management REST APIs
 

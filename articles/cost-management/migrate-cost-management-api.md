@@ -1,5 +1,5 @@
 ---
-title: Migrate from Enterprise Agreement to Microsoft Customer Agreement APIs - Azure | Microsoft Docs
+title: Migrate EA to Microsoft Customer Agreement APIs - Azure
 description: This article helps you understand the consequences of migrating a Microsoft Enterprise Agreement (EA) to a Microsoft Customer Agreement.
 services: cost-management
 keywords:
