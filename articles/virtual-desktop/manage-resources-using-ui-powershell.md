@@ -85,8 +85,8 @@ $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
 $templateParameters = @{
     isServicePrincipal = $true
     azureAdminUserPrincipalNameOrApplicationId = $ServicePrincipalCredentials.UserName
-    azureAdminPassword $servicePrincipalCredentials.Password
-    applicationName $appName
+    azureAdminPassword = $servicePrincipalCredentials.Password
+    applicationName = $appName
 }
 
 Get-AzSubscription -SubscriptionId $subscriptionId | Select-AzSubscription
@@ -127,7 +127,7 @@ To verify the Azure AD application configuration and provide consent:
 
 1. Open your internet browser and sign in to the [Azure portal](https://portal.azure.com/) with your administrative account.
 2. From the search bar at the top of the Azure portal, search for **App registrations** and select the item under **Services**.
-3. Select **All applications** and search the unique app name you provided for the PowerShell script in [Create an Azure Active Directory app registration](#Create-an-Azure-Active-Directory-app-registration).
+3. Select **All applications** and search the unique app name you provided for the PowerShell script in [Create an Azure Active Directory app registration](#create-an-azure-active-directory-app-registration).
 4. In the panel on the left side of the browser, select **Authentication** and make sure the redirect URI is the same as the web app URL for the management tool, as shown in the following image.
    
    ![The authentication page with the entered redirect URI](media/management-ui-redirect-uri.png)
