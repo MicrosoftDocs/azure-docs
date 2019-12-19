@@ -31,7 +31,7 @@ A compute instance is a managed virtual machine (VM), optimized to be your machi
 * **Managed and secure**:  Reduce your security footprint and add compliance with enterprise security requirements. Compute instances  provide robust management policies and secure networking configurations such as:
     * Automated provisioning through Resource Manager templates or Azure Machine Learning SDK
     * [Role-based access control (RBAC)](/azure/role-based-access-control/overview).
-    * Virtual network support. You can [create a compute instance in a virtual network](how-to-enable-virtual-network.md#compute-instance).
+    * Virtual network support. You can [create a compute instance in a virtual network](../how-to-enable-virtual-network.md#compute-instance).
     * SSH policy to enable/disable SSH access
 * **Preconfigured for machine learning**: Save time on setup tasks with pre-configured and up-to-date ML packages, deep learning frameworks, GPU drivers.
 * **Fully customizable**: Broad support for Azure VM types including GPUs and persisted low-level customization such as installing packages and drivers makes advanced scenarios a breeze. 

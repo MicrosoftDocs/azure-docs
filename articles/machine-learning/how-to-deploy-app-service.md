@@ -35,7 +35,7 @@ For more information on features provided by Azure App Service, see the [App Ser
 
 ## Prerequisites
 
-* An Azure Machine Learning workspace. For more information, see the [Create a workspace](service/how-to-manage-workspace.md) article.
+* An Azure Machine Learning workspace. For more information, see the [Create a workspace](how-to-manage-workspace.md) article.
 * The [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 * A trained machine learning model registered in your workspace. If you do not have a model, use the [Image classification tutorial: train model](service/tutorial-train-models-with-aml.md) to train and register one.
 

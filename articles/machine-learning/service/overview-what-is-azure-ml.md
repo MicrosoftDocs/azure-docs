@@ -101,7 +101,7 @@ Azure Machine Learning works with other services on the Azure platform, and also
 + __Azure Event Grid__. For more information, see [Consume Azure Machine Learning events](../concept-event-grid-integration.md).
 + __Azure Monitor__. For more information, see [Monitoring Azure Machine Learning](monitor-azure-machine-learning.md).
 + Data stores such as __Azure Storage accounts__, __Azure Data Lake Storage__, __Azure SQL Database__, __Azure Database for PostgreSQL__, and __Azure Open Datasets__. For more information, see [Access data in Azure storage services](../how-to-access-data.md) and [Create datasets with Azure Open Datasets](../how-to-create-register-datasets.md#create-datasets-with-azure-open-datasets).
-+ __Azure Virtual Networks__. For more information, see [Secure experimentation and inference in a virtual network](how-to-enable-virtual-network.md).
++ __Azure Virtual Networks__. For more information, see [Secure experimentation and inference in a virtual network](../how-to-enable-virtual-network.md).
 + __Azure Pipelines__. For more information, see [Train and deploy machine learning models](/azure/devops/pipelines/targets/azure-machine-learning).
 + __Git repository logs__. For more information, see [Git integration](../concept-train-model-git-integration.md).
 + __MLFlow__. For more information, see [MLflow to track metrics and deploy models](how-to-use-mlflow.md) 
@@ -109,7 +109,7 @@ Azure Machine Learning works with other services on the Azure platform, and also
 
 ### Secure communications
 
-Your Azure Storage account, compute targets, and other resources can be used securely inside a virtual network to train models and perform inference. For more information, see [Secure experimentation and inference in a virtual network](how-to-enable-virtual-network.md).
+Your Azure Storage account, compute targets, and other resources can be used securely inside a virtual network to train models and perform inference. For more information, see [Secure experimentation and inference in a virtual network](../how-to-enable-virtual-network.md).
 
 ## <a name="sku"></a>Basic & Enterprise editions
 
@@ -121,7 +121,7 @@ These editions determine which machine learning tools are available to developer
 
 Basic workspaces allow you to continue using Azure Machine Learning and pay for only the Azure resources consumed during the machine learning process. Enterprise edition workspaces will be charged only for their Azure consumption while the edition is in preview. Learn more about what's available in the Azure Machine Learning [edition overview & pricing page](https://azure.microsoft.com/pricing/details/machine-learning/). 
 
-You assign the edition whenever you create a workspace. And, pre-existing workspaces have been converted to the Basic edition for you. Basic edition includes all features that were already generally available as of October 2019. Any experiments in those workspaces that were built using Enterprise edition features will continue to be available to you in read-only until you upgrade to Enterprise. Learn how to [upgrade a Basic workspace to Enterprise edition](how-to-manage-workspace.md#upgrade). 
+You assign the edition whenever you create a workspace. And, pre-existing workspaces have been converted to the Basic edition for you. Basic edition includes all features that were already generally available as of October 2019. Any experiments in those workspaces that were built using Enterprise edition features will continue to be available to you in read-only until you upgrade to Enterprise. Learn how to [upgrade a Basic workspace to Enterprise edition](../how-to-manage-workspace.md#upgrade). 
 
 Customers are responsible for costs incurred on compute and other Azure resources during this time.
 

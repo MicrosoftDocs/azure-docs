@@ -207,4 +207,4 @@ The following [notebook](https://github.com/Azure/MachineLearningNotebooks/blob/
 ## Next steps
 
 * Learn [how to configure settings for automatic training](how-to-configure-auto-train.md).
-* See the [how-to](service/how-to-machine-learning-interpretability-automl.md) on enabling model interpretability features in automated ML experiments.
+* See the [how-to](how-to-machine-learning-interpretability-automl.md) on enabling model interpretability features in automated ML experiments.

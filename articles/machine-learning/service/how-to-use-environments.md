@@ -52,7 +52,7 @@ System-managed environments are used when you want [Conda](https://conda.io/docs
 ## Prerequisites
 
 * The Azure Machine Learning SDK for Python [installed](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
-* An [Azure Machine Learning workspace](how-to-manage-workspace.md).
+* An [Azure Machine Learning workspace](../how-to-manage-workspace.md).
 
 
 ## Create an environment

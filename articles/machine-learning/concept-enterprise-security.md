@@ -94,7 +94,7 @@ Azure Machine Learning creates an additional application (the name starts with `
 
 Azure Machine Learning relies on other Azure services for compute resources. Compute resources (compute targets) are used to train and deploy models. You can create these compute targets in a virtual network. For example, you can use Azure Data Science Virtual Machine to train a model and then deploy the model to AKS.  
 
-For more information, see [How to run experiments and inference in a virtual network](service/how-to-enable-virtual-network.md).
+For more information, see [How to run experiments and inference in a virtual network](how-to-enable-virtual-network.md).
 
 ## Data encryption
 
@@ -249,6 +249,6 @@ Here are the details:
 * [Monitor your Azure Machine Learning models with Application Insights](how-to-enable-app-insights.md)
 * [Collect data for models in production](how-to-enable-data-collection.md)
 * [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)
-* [Use Azure Machine Learning with Azure Virtual Network](service/how-to-enable-virtual-network.md)
+* [Use Azure Machine Learning with Azure Virtual Network](how-to-enable-virtual-network.md)
 * [Best practices for building recommendation systems](https://github.com/Microsoft/Recommenders)
 * [Build a real-time recommendation API on Azure](https://docs.microsoft.com/azure/architecture/reference-architectures/ai/real-time-recommendation)

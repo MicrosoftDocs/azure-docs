@@ -85,14 +85,14 @@ When you create a workspace, you decide whether to create it with [Basic or Ente
 
 There are multiple ways to create a workspace:  
 
-* Use the [Azure portal](service/how-to-manage-workspace.md) for a point-and-click interface to walk you through each step.
+* Use the [Azure portal](how-to-manage-workspace.md) for a point-and-click interface to walk you through each step.
 * Use the [Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py#workspace) to create a workspace on the fly from Python scripts or Jupiter notebooks
 * Use an [Azure Resource Manager template](how-to-create-workspace-template.md) or the [Azure Machine Learning CLI](service/reference-azure-machine-learning-cli.md) when you need to automate or customize the creation with corporate security standards.
 * If you work in Visual Studio Code, use the [VS Code extension](service/how-to-vscode-tools.md#get-started-with-azure-machine-learning-for-visual-studio-code).
 
 ## <a name="upgrade"></a> Upgrade to Enterprise edition
 
-You can [upgrade your workspace from Basic to Enterprise edition](service/how-to-manage-workspace.md#upgrade) using Azure portal. You cannot downgrade an Enterprise edition workspace to a Basic edition workspace. 
+You can [upgrade your workspace from Basic to Enterprise edition](how-to-manage-workspace.md#upgrade) using Azure portal. You cannot downgrade an Enterprise edition workspace to a Basic edition workspace. 
 
 ## <a name="resources"></a> Associated resources
 
@@ -111,8 +111,8 @@ When you create a new workspace, it automatically creates several Azure resource
 To get started with Azure Machine Learning, see:
 
 + [Azure Machine Learning overview](service/overview-what-is-azure-ml.md)
-+ [Create a workspace](service/how-to-manage-workspace.md)
-+ [Manage a workspace](service/how-to-manage-workspace.md)
++ [Create a workspace](how-to-manage-workspace.md)
++ [Manage a workspace](how-to-manage-workspace.md)
 + [Tutorial: Get started creating your first ML experiment with the Python SDK](service/tutorial-1st-experiment-sdk-setup.md)
 + [Tutorial: Get started with Azure Machine Learning with the R SDK](service/tutorial-1st-r-experiment.md)
 + [Tutorial: Create your first classification model with automated machine learning](service/tutorial-first-experiment-automated-ml.md) (Available only in [Enterprise edition](service/overview-what-is-azure-ml.md#sku) workspaces)

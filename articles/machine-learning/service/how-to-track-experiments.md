@@ -224,7 +224,7 @@ This example expands on the basic sklearn Ridge model from above. It does a simp
 
 ## Manage a run
 
-The [Start, monitor, and cancel training runs](how-to-manage-runs.md) article highlights specific Azure Machine Learning workflows for how to manage your experiments.
+The [Start, monitor, and cancel training runs](../how-to-manage-runs.md) article highlights specific Azure Machine Learning workflows for how to manage your experiments.
 
 ## View run details
 
