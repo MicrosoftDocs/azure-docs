@@ -94,6 +94,9 @@ Per **step 3**, separating your application's and your user credentials allows y
 
 This section describes common HTTP request headers and parameters used to make queries against the Time Series Insights GA and Preview APIs. API-specific requirements are covered in greater detail in the [Time Series Insights REST API reference documentation](https://docs.microsoft.com/rest/api/time-series-insights/).
 
+> [!TIP]
+> Read the [Azure REST API Reference](https://docs.microsoft.com/rest/api/azure/) to learn more about how to consume REST APIs, make HTTP requests, and handle HTTP responses.
+
 ### Authentication
 
 To perform authenticated queries against the [Time Series Insights REST APIs](https://docs.microsoft.com/rest/api/time-series-insights/), a valid OAuth 2.0 bearer token must be passed in the [Authorization header](/rest/api/apimanagement/2019-01-01/authorizationserver/createorupdate) using a REST client of your choice (Postman, JavaScript, C#). 
@@ -132,6 +135,7 @@ Optional but recommended response headers are described below.
 | --- | --- |
 | Content-type | Only `application/json` is supported. |
 | x-ms-request-id | Server-generated request ID. Can be used to contact Microsoft to investigate a request. |
+| x-ms-property-not-found-behavior | GA API optional response header. Possible values are `ThrowError` (default) or `UseNull`. |
 
 ### HTTP parameters
 
@@ -158,6 +162,6 @@ Optional URL query string parameters include setting a timeout for HTTP request 
 
 - For Preview Time Series Insights API code samples, see [Query Preview data using C#](./time-series-insights-update-query-data-csharp.md).
 
-- For API reference information, see [Query API reference](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api).
+- For API reference information, see the [Query API reference](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api) documentation.
 
 - Learn how to [create a service principal](../active-directory/develop/howto-create-service-principal-portal.md).

@@ -58,7 +58,7 @@ After the vault is created, it appears in the Recovery Services vaults list. If 
 ![List of backup vaults](./media/backup-azure-arm-vms-prepare/rs-list-of-vaults.png)
 
 >[!NOTE]
-> Azure Backup now allows customization of the resource group name created by the Azure Backup service. For more information, see [Customize resource group name](backup-during-vm-creation.md#customize-resource-group-name).
+> Azure Backup now allows customization of the resource group name created by the Azure Backup service. For more information, see [Azure Backup resource group for Virtual Machines](backup-during-vm-creation.md#azure-backup-resource-group-for-virtual-machines).
 
 ### Modify storage replication
 

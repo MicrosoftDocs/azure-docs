@@ -2,12 +2,10 @@
   href: index.yml
 - name: Overview
   items:
-    - name: What is Azure IoT Central
-      href: overview-iot-central.md
-    - name: IoT Solution options
-      href: overview-iot-options.md
-    - name: Tour of the UI
-      href: overview-iot-central-tour.md
+  - name: What is Azure IoT Central
+    href: overview-iot-central.md
+  - name: Tour of the UI
+    href: overview-iot-central-tour.md    
 - name: Quickstarts
   expanded: true
   items:
