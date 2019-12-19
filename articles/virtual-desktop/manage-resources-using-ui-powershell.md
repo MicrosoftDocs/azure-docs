@@ -127,7 +127,7 @@ To verify the Azure AD application configuration and provide consent:
 
 1. Open your internet browser and sign in to the [Azure portal](https://portal.azure.com/) with your administrative account.
 2. From the search bar at the top of the Azure portal, search for **App registrations** and select the item under **Services**.
-3. Select **All applications** and search for it using the unique app name you provided for the PowerShell script.
+3. Select **All applications** and search the unique app name you provided for the PowerShell script in [Create an Azure Active Directory app registration](#Create-an-Azure-Active-Directory-app-registration).
 4. In the panel on the left side of the browser, select **Authentication** and make sure the redirect URI is the same as the web app URL for the management tool, as shown in the following image.
    
    ![The authentication page with the entered redirect URI](media/management-ui-redirect-uri.png)
@@ -142,7 +142,7 @@ You can now start using the management tool.
 
 Now that you've set up the management tool at any time, you can launch it anytime, anywhere. Here's how to launch the tool:
 
-1. In a web browser, enter the URL of the web app, for example <https://wvdmgmt20200101.azurewebsites.net>. If you don't remember it, sign in to Azure, find the app service you deployed, then click on the URL.
+1. Open the URL of the web app in a web browser. If you don't remember the URL, you can sign in to Azure, find the app service you deployed for the management tool, and then select the URL.
 2. Sign in using your Windows Virtual Desktop credentials.
    
    > [!NOTE]
