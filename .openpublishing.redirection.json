@@ -571,6 +571,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/LUIS/luis-tutorial-pattern-roles.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/luis-tutorial-pattern",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/LUIS/luis-tutorial-pattern-any.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/luis-tutorial-pattern",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cognitive-services/LUIS/luis-quickstart-primary-and-secondary-data.md",
       "redirect_url": "/azure/cognitive-services/LUIS/tutorial-machine-learned-entity",
       "redirect_document_id": false
