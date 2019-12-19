@@ -43,7 +43,7 @@ In this tutorial, you'll learn how to:
 ```                   
 Note that the *<share_acc_name>* is the name of your Data Share Account. If you have not created a Data Share account as yet, you can come back to this pre-requisite later.  
 
-* An [Azure SQL Database User with `db_owner` access](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-manage-logins#non-administrator-users) to navigate and select the tables and/or views you wish to share. 
+* An [Azure SQL Database User with `db_owner` access](https://docs.microsoft.com/azure/sql-database/sql-database-manage-logins#non-administrator-users) to navigate and select the tables and/or views you wish to share. 
 
 * Client IP SQL Server Firewall access: This can be done through the following steps: 
         1. Navigate to *Firewalls and Virtual Networks*
