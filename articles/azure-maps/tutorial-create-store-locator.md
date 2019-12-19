@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Create a store locator using Azure Maps'
+title: 'Tutorial: Create a store locator application using Azure Maps | Microsoft Docs'
 description: 'Tutorial: In this tutorial, you will learn how to create a store locator application by using Azure Maps.'
 author: walsehgal
 ms.author: v-musehg
@@ -39,14 +39,14 @@ Before you jump into the code, it's a good idea to begin with a design. Your sto
 <br/>
 <center>
 
-![Wireframe of a store locator for Contoso Coffee coffee shop locations](./media/tutorial-create-store-locator/SimpleStoreLocatorWireframe.png)</center>
+![Wireframe of a store locator application for Contoso Coffee shop locations](./media/tutorial-create-store-locator/SimpleStoreLocatorWireframe.png)</center>
 
 To maximize the usefulness of this store locator, we include a responsive layout that adjusts when a user's screen width is smaller than 700 pixels wide. A responsive layout makes it easy to use the store locator on a small screen, like on a mobile device. Here's a wireframe of a small-screen layout:  
 
 <br/>
 <center>
 
-![Wireframe of the Contoso Coffee store locator on a mobile device](./media/tutorial-create-store-locator/SimpleStoreLocatorMobileWireframe.png)</center>
+![Wireframe of the Contoso Coffee store locator application on a mobile device](./media/tutorial-create-store-locator/SimpleStoreLocatorMobileWireframe.png)</center>
 
 The wireframes show a fairly straightforward application. The application has a search box, a list of nearby stores, a map that has some markers (symbols), and a pop-up window that displays additional information when the user selects a marker. In more detail, here are the features we build into this store locator in this tutorial:
 

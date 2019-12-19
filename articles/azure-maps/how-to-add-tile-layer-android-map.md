@@ -1,6 +1,6 @@
 ---
 title: Add a tile layer to Android maps in Azure Maps| Microsoft Docs
-description: In this article, you will learn how to add a tile layer to a map using Azure Maps Android SDK.
+description: In this article, you will learn how to render a tile layer on a map using the Azure Maps Android SDK.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 04/26/2019

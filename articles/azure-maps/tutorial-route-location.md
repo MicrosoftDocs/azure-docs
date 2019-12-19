@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Find route with Azure Maps'
-description: 'Tutorial: This tutorial shows you how to route to a point of interest using Azure Maps routing service'
+title: 'Tutorial: Find route to a location with Azure Maps | Microsoft Docs'
+description: 'Tutorial: This tutorial shows you how to route to a location (point of interest) using Azure Maps routing service'
 author: walsehgal
 ms.author: v-musehg
 ms.date: 11/12/2019
@@ -163,7 +163,7 @@ In this tutorial, a simple route will be rendered using a symbol icon for the st
 
 3. Save the **MapRoute.html** file and refresh your browser. Now the map is centered over Seattle, and you can see the blue pin marking the start point and the round blue pin marking the finish point.
 
-   ![View map with start and end points marked](media/tutorial-route-location/map-pins.png)
+   ![View routes start and end point on the map](media/tutorial-route-location/map-pins.png)
 
 <a id="getroute"></a>
 

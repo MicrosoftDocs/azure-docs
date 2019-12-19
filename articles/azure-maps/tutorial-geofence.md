@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Create a geofence using Azure Maps'
+title: 'Tutorial: Create a geofence and track devices using Azure Maps | Microsoft Docs'
 description: 'Tutorial: In this tutorial, learn how to setup a geofence and track devices relative to the geofence by using Azure Maps spatial service.'
 author: walsehgal
 ms.author: v-musehg
@@ -53,7 +53,7 @@ Open the Postman app and follow the following steps to upload the construction s
 
 3. Click **Params**, and enter the following Key/Value pairs to be used for the POST request URL. Replace subscription-key value with your Azure Maps key.
    
-    ![Key-Value params Postman](./media/tutorial-geofence/postman-key-vals.png)
+    ![Parameters for upload data (geofence) in Postman](./media/tutorial-geofence/postman-key-vals.png)
 
 4. Click **Body** then select raw input format and choose JSON as the input format from the dropdown list. Provide the following JSON as data to be uploaded:
 
@@ -172,7 +172,7 @@ You can see all [supported event handlers](https://docs.microsoft.com/azure/even
 
 1. Create a Logic App in Azure portal
 
-   ![create Logic Apps](./media/tutorial-geofence/logic-app.png)
+   ![Create Azure Logic Apps to handle geofence events](./media/tutorial-geofence/logic-app.png)
 
 2. Select an HTTP request trigger and then select "send an email" as an action in the outlook connector
   
@@ -180,7 +180,7 @@ You can see all [supported event handlers](https://docs.microsoft.com/azure/even
 
 3. Save the logic app to generate the HTTP URL endpoint and copy the HTTP URL.
 
-   ![Logic Apps endpoint](./media/tutorial-geofence/logic-app-endpoint.png)
+   ![Generate a Logic Apps endpoint](./media/tutorial-geofence/logic-app-endpoint.png)
 
 
 ## Create an Azure Maps Events subscription
@@ -191,15 +191,15 @@ Follow the steps below to create an event subscription for the geofence enter ev
 
 1. Navigate to your Azure Maps account via [this portal link](https://ms.portal.azure.com/#@microsoft.onmicrosoft.com/dashboard/) and select the events Tab.
 
-   ![Azure Maps Events](./media/tutorial-geofence/events-tab.png)
+   ![Navigate to Azure Maps account Events](./media/tutorial-geofence/events-tab.png)
 
 2. To create an event subscription, select Event Subscription from the events page.
 
-   ![Azure Maps Events subscription](./media/tutorial-geofence/create-event-subscription.png)
+   ![Create an Azure Maps Events subscription](./media/tutorial-geofence/create-event-subscription.png)
 
 3. Name the events subscription, and subscribe to the Enter event type. Now, select Web Hook as "Endpoint Type" and copy your Logic App HTTP URL endpoint into "Endpoint"
 
-   ![Events subscription](./media/tutorial-geofence/events-subscription.png)
+   ![Azure Maps Events subscription details](./media/tutorial-geofence/events-subscription.png)
 
 
 ## Use Geofence API
@@ -209,7 +209,7 @@ You can use the Geofence API to check whether a **device** (equipment is part of
 > [!Note]
 > The above scenario and behavior is based on the same **device id** so that it reflects the five different locations as in the figure below.
 
-![Geofence Map](./media/tutorial-geofence/geofence.png)
+![Geofence Map in Azure Maps](./media/tutorial-geofence/geofence.png)
 
 In the Postman app, open a new tab in the same collection you created above. Select GET HTTP method on the builder tab:
 
