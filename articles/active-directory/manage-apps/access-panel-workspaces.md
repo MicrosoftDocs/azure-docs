@@ -94,5 +94,15 @@ You can access audit logs in the [Azure portal](https://portal.azure.com) by sel
 
    ![Assign roles to users and groups](media/access-panel-workspaces/audit-log-myapps.png)
 
+## Get support for My Account pages
+
+From the My Apps page, a user can select **My account** > **View my account** to open their account settings. On the Azure AD **My Account** page, users can manage their security info, devices, passwords, and more. They can also access their Office account settings.
+
+In case you need to submit a support request for an issue with the Azure AD account page or the Office account page, follow these steps so your request is routed properly: 
+
+* For issues with the **Azure AD "My Account"** page, open a support request from within the Azure portal. Go to **Azure portal** > **Azure Active Directory** > **New support request**.
+
+* For issues with the **Office "My account"** page, open a support request from within the M365 admin center. Go to **M365 admin center** > **Support**. 
+
 ## Next steps
 [End-user experiences for applications in Azure Active Directory](end-user-experiences.md)
