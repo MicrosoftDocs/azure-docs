@@ -4894,7 +4894,8 @@ For this example, both expressions find nodes that match the `<location></locati
 
 > ![NOTE]
 > If you're working in code view, escape the double quotation mark (") by using the backslash character (\). 
-> If you're working in the expression editor, you don't need to escape the double quotation mark. For example:
+> If you're working in the expression editor, you don't need to escape the double quotation mark because the 
+> backslash character is added automatically, for example:
 > 
 > Code view: `xpath(xml(body('Http')), '/*[name()=\"file\"]/*[name()=\"location\"]')`
 > Expression editor: `xpath(xml(body('Http')), '/*[name()="file"]/*[name()="location"]')`
