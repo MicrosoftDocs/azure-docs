@@ -91,7 +91,7 @@ You also need a valid Azure AD Premium P1 or higher subscription license for eve
 | | [How to deploy user provisioning in Active Azure Directory?](https://youtu.be/pKzyts6kfrw) |
 | Tutorials | See the [list of tutorials on how to integrate SaaS apps with Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) |
 | | [Tutorial: Configure Workday for automatic user provisioning](https://docs.microsoft.com/azure/active-directory/saas-apps/workday-inbound-tutorial#frequently-asked-questions-faq) |
-| FAQ | [Automated user provisioning](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning#frequently-asked-questions) |
+| FAQ | [Automated user provisioning](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning#what-applications-and-systems-can-i-use-with-azure-ad-automatic-user-provisioning) |
 | | [Provisioning from Workday to Azure AD](https://docs.microsoft.com/azure/active-directory/saas-apps/workday-inbound-tutorial#frequently-asked-questions-faq) |
 
 ### Solution architecture
@@ -314,14 +314,14 @@ SSPR is a simple means for IT administrators to enable users to reset their pass
 
 ## Plan for initial cycle
 
-When the Azure AD provisioning service runs for the first time, it performs an [initial cycle](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning#what-happens-during-provisioning) against the cloud HR app to create a snapshot of all user objects in the cloud HR app. The time taken for initial cycles is directly dependent on how many users are present in the source system. The initial cycle for some cloud HR app tenants with over 100,000 users can take a long time.
+When the Azure AD provisioning service runs for the first time, it performs an [initial cycle](https://docs.microsoft.com/azure/active-directory/manage-apps/how-provisioning-works#initial-cycle) against the cloud HR app to create a snapshot of all user objects in the cloud HR app. The time taken for initial cycles is directly dependent on how many users are present in the source system. The initial cycle for some cloud HR app tenants with over 100,000 users can take a long time.
 
 **For large cloud HR app tenants (> 30,000 users), we recommend** you run the initial cycle in progressive stages and launch the incremental updates only after validating that the correct attributes are set in AD for different user provisioning scenarios. Follow the order below:
 
 1. Run the initial cycle only for a limited set of users by setting the [scoping filter](#plan-scoping-filters-and-attribute-mapping).
 2. Verify AD account provisioning and attribute values set for the users selected for the first run. If the result meets your expectations, expand the scoping filter to progressively include more users and verify the results for the second run.
 
-Once you are satisfied with the results of the initial cycle for test users, you can launch the [incremental updates](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning#incremental-cycles).
+Once you are satisfied with the results of the initial cycle for test users, you can launch the [incremental updates](https://docs.microsoft.com/azure/active-directory/manage-apps/how-provisioning-works#incremental-cycles).
 
 ## Plan testing and security
 
@@ -369,7 +369,7 @@ Azure AD can provide additional insights into your organization’s user provisi
 
 ### Gain insights from reports and logs
 
-After a successful [initial cycle](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning#what-happens-during-provisioning), the Azure AD provisioning service will continue to run back-to-back incremental updates indefinitely, at intervals defined in the tutorials specific to each app, until one of the following events occurs:
+After a successful [initial cycle](https://docs.microsoft.com/azure/active-directory/manage-apps/how-provisioning-works#initial-cycle), the Azure AD provisioning service will continue to run back-to-back incremental updates indefinitely, at intervals defined in the tutorials specific to each app, until one of the following events occurs:
 
 - The service is manually stopped, and a new initial cycle triggered using the [Azure portal](https://portal.azure.com/) or using the appropriate [Microsoft Graph API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview) command.
 - A new initial cycle is triggered due to a change in attribute mappings or scoping filters.

@@ -27,7 +27,7 @@
       - name: Java
         href: Quickstarts/create-new-kb-java.md
       - name: Node.js
-        href: Quickstarts/create-knowledge-rest-api-nodejs.md
+        href: Quickstarts/publish-kb-nodejs.md
       - name: Python
         href: Quickstarts/create-new-kb-python.md
     - name: Publish a knowledge base
@@ -39,7 +39,7 @@
       - name: Java
         href: Quickstarts/publish-kb-java.md
       - name: Node.js
-        href: Quickstarts/create-knowledge-rest-api-nodejs.md##publish-a-knowledge-base
+        href: Quickstarts/publish-kb-nodejs.md#publish-a-knowledge-base
       - name: Python
         href: Quickstarts/publish-kb-python.md
     - name: Get answer

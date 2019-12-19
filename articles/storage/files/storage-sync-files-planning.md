@@ -137,7 +137,8 @@ To display the results in CSV:
 | File/folder | Note |
 |-|-|
 | Desktop.ini | File specific to system |
-| ethumbs.db$ | Temporary file for thumbnails |
+| thumbs.db | Temporary file for thumbnails |
+| ehthumbs.db | Temporary file for media thumbnails |
 | ~$\*.\* | Office temporary file |
 | \*.tmp | Temporary file |
 | \*.laccdb | Access DB locking file|
