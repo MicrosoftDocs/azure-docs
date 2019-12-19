@@ -115,7 +115,7 @@ The API server endpoint has no public IP address. Consequently, you must create 
 * The Private Link service is supported on Standard Load Balancer only. Basic Load Balancer is not supported.  
 
 ## Limitations 
-* [Azure Private Link service limitations][private-link-service] apply to private clusters, Azure Private Endpoints and Virtual Network service endpoints, which are not currently supported in the same virtual network.
+* [Azure Private Link service limitations][private-link-service] apply to private clusters, Azure private endpoints, and virtual network service endpoints, which are not currently supported in the same virtual network.
 * No support for virtual nodes in a private cluster to spin private Cisco Application Centric Infrastructure (ACI) instances in a private Azure virtual network.
 * No support for Azure DevOps integration out of the box with private clusters.
 * For customers that need to enable Azure Container Registry to work with private AKS, the Container Registry virtual network must be peered with the agent cluster virtual network.
