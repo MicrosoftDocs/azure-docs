@@ -46,7 +46,7 @@ Here's the full list of Azure monitor metric sources supported by the newer aler
 |Microsoft.Compute/virtualMachineScaleSets |N/A | Yes |[Virtual machine scale sets](../../azure-monitor/platform/metrics-supported.md#microsoftcomputevirtualmachinescalesets)|
 |Microsoft.ContainerInstance/containerGroups | Yes| No | [Container groups](../../azure-monitor/platform/metrics-supported.md#microsoftcontainerinstancecontainergroups)|
 |Microsoft.ContainerService/managedClusters | Yes | No | [Managed Clusters](../../azure-monitor/platform/metrics-supported.md#microsoftcontainerservicemanagedclusters)|
-|Microsoft.DataBoxEdge/dataBoxEdgeDevices | Yes | Yes | [DataBox](../../azure-monitor/platform/metrics-supported#microsoftdataboxedgedataboxedgedevices)
+|Microsoft.DataBoxEdge/dataBoxEdgeDevices | Yes | Yes | |
 |Microsoft.DataFactory/datafactories| Yes| No | [Data Factories V1](../../azure-monitor/platform/metrics-supported.md#microsoftdatafactorydatafactories)|
 |Microsoft.DataFactory/factories |Yes | No |[Data Factories V2](../../azure-monitor/platform/metrics-supported.md#microsoftdatafactoryfactories)|
 |Microsoft.DataShare/accounts |No| Yes|
