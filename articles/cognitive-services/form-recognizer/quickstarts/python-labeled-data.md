@@ -191,7 +191,7 @@ To train a model with labeled data, call the **Train Custom Model** API by runni
 
 1. Replace `<Endpoint>` with the endpoint URL for your Form Recognizer resource.
 1. Replace `<SAS URL>` with the Azure Blob storage container's shared access signature (SAS) URL. To retrieve the SAS URL, open the Microsoft Azure Storage Explorer, right-click your container, and select **Get shared access signature**. Make sure the **Read** and **List** permissions are checked, and click **Create**. Then copy the value in the **URL** section. It should have the form: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
-1. Replace `<prefix>` with the folder name in your blob container where the input data is located. Or, if your data is at the root, leave this blank and remove the `"prefix"` field from the body of the HTTP request.
+1. Replace `<Blob folder name>` with the folder name in your blob container where the input data is located. Or, if your data is at the root, leave this blank and remove the `"prefix"` field from the body of the HTTP request.
 
 ```python
 ########### Python Form Recognizer Labeled Async Train #############
@@ -203,14 +203,14 @@ from requests import get, post
 endpoint = r"<Endpoint>"
 post_url = endpoint + r"/formrecognizer/v2.0-preview/custom/models"
 source = r"<SAS URL>"
-prefix = "<folder name>"
+prefix = "<Blob folder name>"
 includeSubFolders = False
 useLabelFile = True
 
 headers = {
     # Request headers
     'Content-Type': 'application/json',
-    'Ocp-Apim-Subscription-Key': '<Subscription Key>',
+    'Ocp-Apim-Subscription-Key': '<subsription key>',
 }
 
 body = 	{
@@ -225,7 +225,7 @@ body = 	{
 try:
     resp = post(url = post_url, json = body, headers = headers)
     if resp.status_code != 201:
-        print("POST model failed:\n%s" % resp.text)
+        print("POST model failed (%s):\n%s" % (resp.status_code, json.dumps(resp.json())))
         quit()
     print("POST model succeeded:\n%s" % resp.headers)
     get_url = resp.headers["location"]
@@ -236,25 +236,36 @@ except Exception as e:
 
 ## Get training results
 
-After you've started the train operation, you use the returned ID to get the status of the operation. Add the following code to the bottom of your Python script. This extracts the ID value from the training call and passes it to a new API call. The training operation is asynchronous, so this script calls the API at regular intervals until the training status is completed. We recommend an interval of one second or more.
+After you've started the train operation, you use the returned ID to get the status of the operation. Add the following code to the bottom of your Python script. This uses the ID value from the training call in a new API call. The training operation is asynchronous, so this script calls the API at regular intervals until the training status is completed. We recommend an interval of one second or more.
 
 ```python 
-operationId = operationURL.split("operations/")[1]
-
-conn = http.client.HTTPSConnection('<Endpoint>')
-while True:
+n_tries = 15
+n_try = 0
+wait_sec = 5
+max_wait_sec = 60
+while n_try < n_tries:
     try:
-        conn.request("GET", f"/formrecognizer/v1.0-preview/custom/models/{operationId}", "", headers)
-        responseString = conn.getresponse().read().decode('utf-8')
-        responseDict = json.loads(responseString)
-        conn.close()
-        print(responseString)
-        if 'status' in responseDict and responseDict['status'] not in ['creating','created']:
-            break
-        time.sleep(1)
+        resp = get(url = get_url, headers = headers)
+        resp_json = resp.json()
+        if resp.status_code != 200:
+            print("GET model failed (%s):\n%s" % (resp.status_code, json.dumps(resp_json)))
+            quit()
+        model_status = resp_json["modelInfo"]["status"]
+        if model_status == "ready":
+            print("Training succeeded:\n%s" % json.dumps(resp_json))
+            quit()
+        if model_status == "invalid":
+            print("Training failed. Model is invalid:\n%s" % json.dumps(resp_json))
+            quit()
+        # Training still running. Wait and retry.
+        time.sleep(wait_sec)
+        n_try += 1
+        wait_sec = min(2*wait_sec, max_wait_sec)     
     except Exception as e:
-        print(e)
-        exit()
+        msg = "GET model failed:\n%s" % str(e)
+        print(msg)
+        quit()
+print("Train operation did not complete within the allocated time.")
 ```
 
 When the training process is completed, you'll receive a `201 (Success)` response with JSON content like the following. The response has been shortened for simplicity.
