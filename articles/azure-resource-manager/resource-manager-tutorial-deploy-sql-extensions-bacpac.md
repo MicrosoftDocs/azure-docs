@@ -29,7 +29,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 To complete this article, you need:
 
 * Visual Studio Code with the Resource Manager Tools extension. See [Use Visual Studio Code to create Azure Resource Manager templates](./resource-manager-tools-vs-code.md).
-* To increase security, use a generated password for the Azure SQL Server administrator account. Here's a sample you can use to generate a password.
+* To increase security, use a generated password for the Azure SQL Server administrator account. Here's a sample you can use to generate a password:
 
     ```azurecli-interactive
     openssl rand -base64 32
@@ -45,7 +45,7 @@ The BACPAC file must be stored in an Azure Storage account before it can be impo
 
 * Download the BACPAC file.
 * Create an Azure Storage account.
-* Create a Storage account blob container.
+* Create a storage account blob container.
 * Upload the BACPAC file to the container.
 * Display the storage account key and the blob URL.
 
@@ -107,7 +107,7 @@ The template used in this tutorial is stored in [GitHub](https://raw.githubuserc
     There are two resources defined in the template:
 
    * `Microsoft.Sql/servers`. See the [template reference](https://docs.microsoft.com/azure/templates/microsoft.sql/servers).
-   * `Microsoft.SQL.servers/databases`.  See the [template reference](https://docs.microsoft.com/azure/templates/microsoft.sql/servers/databases).
+   * `Microsoft.SQL.servers/databases`. See the [template reference](https://docs.microsoft.com/azure/templates/microsoft.sql/servers/databases).
 
         It's helpful to get some basic understanding of the template before you customize it.
 1. Select **File** > **Save As** to save a copy of the file to your local computer with the name *azuredeploy.json*.
@@ -192,7 +192,7 @@ The template used in this tutorial is stored in [GitHub](https://raw.githubuserc
 
         * **dependsOn**: The extension resource must be created after the SQL database has been created.
         * **storageKeyType**: Specify the type of the storage key to use. The value can be either `StorageAccessKey` or `SharedAccessKey`. Use `StorageAccessKey` in this tutorial.
-        * **storageKey**: Specify the key for the storage account where the BACPAC file is stored. If the storage key type is SharedAccessKey, it must be preceded with a "?".
+        * **storageKey**: Specify the key for the storage account where the BACPAC file is stored. If the storage key type is `SharedAccessKey`, it must be preceded with a "?".
         * **storageUri**: Specify the URL of the BACPAC file stored in a storage account.
         * **administratorLoginPassword**: The password of the SQL administrator. Use a generated password. See [Prerequisites](#prerequisites).
 
@@ -250,7 +250,7 @@ When the Azure resources are no longer needed, clean up the resources you deploy
 
 ## Next steps
 
-In this tutorial, you deployed a SQL server and a SQL database and imported a BACPAC file. The BACPAC file is stored in an Azure storage account. Anybody with the URL can access the file. To learn how to secure the BACPAC file (artifact), see
+In this tutorial, you deployed a SQL server and a SQL database and imported a BACPAC file. The BACPAC file is stored in an Azure Storage account. Anybody with the URL can access the file. To learn how to secure the BACPAC file (artifact), see:
 
 > [!div class="nextstepaction"]
 > [Secure the artifacts](./resource-manager-tutorial-secure-artifacts.md)

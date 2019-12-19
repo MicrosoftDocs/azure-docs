@@ -9,7 +9,7 @@ ms.author: jgao
 
 # Tutorial: Secure artifacts in Azure Resource Manager template deployments
 
-Learn how to secure the artifacts used in your Azure Resource Manager templates by using an Azure Storage account with shared access signatures (SAS). Deployment artifacts are any files, in addition to the main template file, that are needed to complete a deployment. For example, in [Tutorial: Import SQL BACPAC files with Azure Resource Manager templates](./resource-manager-tutorial-deploy-sql-extensions-bacpac.md), the main template creates an Azure SQL database. It also calls a BACPAC file to create tables and insert data. The BACPAC file is an artifact and is stored in an Azure Storage account. A storage account key was used to access the artifact. 
+Learn how to secure the artifacts used in your Azure Resource Manager templates by using an Azure Storage account with shared access signatures (SAS). Deployment artifacts are any files, in addition to the main template file, that are needed to complete a deployment. For example, in [Tutorial: Import SQL BACPAC files with Azure Resource Manager templates](./resource-manager-tutorial-deploy-sql-extensions-bacpac.md), the main template creates an Azure SQL Database instance. It also calls a BACPAC file to create tables and insert data. The BACPAC file is an artifact and is stored in an Azure Storage account. A storage account key was used to access the artifact. 
 
 In this tutorial, you use SAS to grant limited access to the BACPAC file in your own Azure Storage account. For more information about SAS, see [Using shared access signatures (SAS)](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
 
@@ -125,8 +125,8 @@ In this session, you modify the template you created in [Tutorial: Import SQL BA
 
    * `Microsoft.Sql/servers`. See the [template reference](https://docs.microsoft.com/azure/templates/microsoft.sql/2015-05-01-preview/servers).
    * `Microsoft.SQL/servers/firewallRules`. See the [template reference](https://docs.microsoft.com/azure/templates/microsoft.sql/2015-05-01-preview/servers/firewallrules).
-   * `Microsoft.SQL/servers/databases`.  See the [template reference](https://docs.microsoft.com/azure/templates/microsoft.sql/servers/databases).
-   * `Microsoft.SQL/server/databases/extensions`.  See the [template reference](https://docs.microsoft.com/azure/templates/microsoft.sql/2014-04-01/servers/databases/extensions).
+   * `Microsoft.SQL/servers/databases`. See the [template reference](https://docs.microsoft.com/azure/templates/microsoft.sql/servers/databases).
+   * `Microsoft.SQL/server/databases/extensions`. See the [template reference](https://docs.microsoft.com/azure/templates/microsoft.sql/2014-04-01/servers/databases/extensions).
 
         It's helpful to get some basic understanding of the template before you customize it.
 1. Select **File** > **Save As** to save a copy of the file to your local computer with the name *azuredeploy.json*.
@@ -206,7 +206,7 @@ When the Azure resources are no longer needed, clean up the resources you deploy
 
 ## Next steps
 
-In this tutorial, you deployed a SQL server and a SQL database and imported a BACPAC file by using an SAS token. To learn how to create an Azure pipeline to continuously develop and deploy Resource Manager templates, see
+In this tutorial, you deployed a SQL server and a SQL database and imported a BACPAC file by using an SAS token. To learn how to create an Azure pipeline to continuously develop and deploy Resource Manager templates, see:
 
 > [!div class="nextstepaction"]
 > [Continuous integration with Azure Pipeline](./resource-manager-tutorial-use-azure-pipelines.md)
