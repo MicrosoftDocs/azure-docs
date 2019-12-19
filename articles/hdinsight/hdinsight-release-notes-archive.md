@@ -27,7 +27,7 @@ This release applies both for HDInsight 3.6 and 4.0.
 
 #### HDInsight Identity Broker (HIB) (Preview)
 
-HDInsight Identity Broker (HIB) enables users to sign in to Apache Ambari using multi-factor authentication (MFA) and get the required Kerberos tickets without needing password hashes in Azure Active Directory Domain Services (AAD-DS). Currently HIB is only available for clusters deployed through ARM template.
+HDInsight Identity Broker (HIB) enables users to sign in to Apache Ambari using multi-factor authentication (MFA) and get the required Kerberos tickets without needing password hashes in Azure Active Directory Domain Services (AAD-DS). Currently HIB is only available for clusters deployed through Azure Resource Management (ARM) template.
 
 #### Kafka Rest API Proxy (Preview)
 
@@ -666,7 +666,7 @@ This release provides Hive 1.2.1 and Hive 2.1.0 in addition to the following pat
 
 -   [*HIVE-18879*](https://issues.apache.org/jira/browse/HIVE-18879): Disallow embedded element in UDFXPathUtil needs to work if xercesImpl.jar in classpath.
 
--   [*HIVE-18944*](https://issues.apache.org/jira/browse/HIVE-18944): Groupping sets position is set incorrectly during DPP.
+-   [*HIVE-18944*](https://issues.apache.org/jira/browse/HIVE-18944): Grouping sets position is set incorrectly during DPP.
 
 #### Kafka
 
