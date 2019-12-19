@@ -278,7 +278,7 @@ In addition, you can add entries to the route table to route traffic that has on
 
 If the virtual network includes a custom DNS, the custom DNS server must be able to resolve public dns records. Using additional features like Azure AD Authentication might require resolving additional FQDNs. For more information, see [Set up a custom DNS](sql-database-managed-instance-custom-dns.md).
 
-### [Depricated] Network requirements without service-aided subnet configuation
+### [Deprecated] Network requirements without service-aided subnet configuration
 
 Deploy a managed instance in a dedicated subnet inside the virtual network. The subnet must have these characteristics:
 
