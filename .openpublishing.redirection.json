@@ -12906,6 +12906,56 @@
             "redirect_document_id": true
         },
         {
+            "source_path": "articles/machine-learning/service/how-to-designer-sample-classification-churn.md",
+            "redirect_url": "/azure/machine-learning/how-to-designer-sample-classification-churn",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/machine-learning/service/how-to-designer-sample-classification-credit-risk-cost-sensitive.md",
+            "redirect_url": "/azure/machine-learning/how-to-designer-sample-classification-credit-risk-cost-sensitive",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/machine-learning/service/how-to-designer-sample-classification-flight-delay.md",
+            "redirect_url": "/azure/machine-learning/how-to-designer-sample-classification-flight-delay",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/machine-learning/service/how-to-designer-sample-classification-predict-income.md",
+            "redirect_url": "/azure/machine-learning/how-to-designer-sample-classification-predict-income",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/machine-learning/service/how-to-designer-sample-regression-automobile-price-basic.md",
+            "redirect_url": "/azure/machine-learning/how-to-designer-sample-regression-automobile-price-basic",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/machine-learning/service/how-to-designer-sample-regression-automobile-price-compare-algorithms.md",
+            "redirect_url": "/azure/machine-learning/how-to-designer-sample-regression-automobile-price-compare-algorithms",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/machine-learning/service/how-to-designer-sample-text-classification.md",
+            "redirect_url": "/azure/machine-learning/how-to-designer-sample-text-classification",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/machine-learning/service/how-to-enable-app-insights.md",
+            "redirect_url": "/azure/machine-learning/how-to-enable-app-insights",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/machine-learning/service/how-to-enable-data-collection.md",
+            "redirect_url": "/azure/machine-learning/how-to-enable-data-collection",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/machine-learning/service/how-to-enable-logging.md",
+            "redirect_url": "/azure/machine-learning/how-to-enable-logging",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/log-analytics/log-analytics-add-solutions.md",
             "redirect_url": "/azure/monitoring/monitoring-solutions",
             "redirect_document_id": false
