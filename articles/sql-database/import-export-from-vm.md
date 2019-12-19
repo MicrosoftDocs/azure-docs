@@ -1,6 +1,6 @@
 ---
-title: Import or export from an Azure virtual machine to SQL Database
-description: Create a new Azure SQL database by importing a BACPAC file.
+title: Export from an Azure virtual machine to a SQL database
+description: Create a new Azure SQL database by exporting the data from an Azure virtual machine.
 services: sql-database
 ms.service: sql-database
 ms.subservice: migration
@@ -12,9 +12,9 @@ ms.author: sstein
 ms.reviewer: 
 ms.date: 12/18/2019
 ---
-# Import or export from an Azure virtual machine to SQL Database
+# Export from an Azure virtual machine to SQL Database
 
-This quickstart shows you how to 
+This article shows you how to import and export a database from an Azure virtual machine to an Azure SQL database when *Allow Azure Services* is set to *OFF* on the Azure SQL server.
 
 ## Sign in to the Azure portal
 
