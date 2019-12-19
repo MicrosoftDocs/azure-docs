@@ -5,7 +5,7 @@ author: anirudhcavale
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: reference
-ms.date: 11/25/2019
+ms.date: 12/18/2019
 ms.author: ancav
 ms.subservice: metrics
 ---
@@ -2418,7 +2418,7 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |TcpLastAck|TCP Last Ack|Count|Average|TCP Last Ack|Instance|
 |TcpTimeWait|TCP Time Wait|Count|Average|TCP Time Wait|Instance|
 
-## Microsoft.Web/sites
+## Microsoft.Web/sites (excluding functions)
 
 |Metric|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|
@@ -2438,9 +2438,6 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |MemoryWorkingSet|Memory working set|Bytes|Average|Memory working set|Instance|
 |AverageMemoryWorkingSet|Average memory working set|Bytes|Average|Average memory working set|Instance|
 |AverageResponseTime|Average Response Time|Seconds|Average|Average Response Time|Instance|
-|HttpResponseTime|Response Time|Seconds|Average|Response Time|Instance|
-|FunctionExecutionUnits|Function Execution Units|Count|Total|Function Execution Units|Instance|
-|FunctionExecutionCount|Function Execution Count|Count|Total|Function Execution Count|Instance|
 |AppConnections|Connections|Count|Average|Connections|Instance|
 |Handles|Handle Count|Count|Average|Handle Count|Instance|
 |Threads|Thread Count|Count|Average|Thread Count|Instance|
@@ -2460,6 +2457,35 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |Gen2Collections|Gen 2 Garbage Collections|Count|Total|Gen 2 Garbage Collections|Instance|
 |HealthCheckStatus|Health check status|Count|Average|Health check status|Instance|
 |FileSystemUsage|File System Usage|Bytes|Average|File System Usage|None|
+
+## Microsoft.Web/sites (functions)
+
+|Metric|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
+|---|---|---|---|---|---|
+|BytesReceived|Data In|Bytes|Total|Data In|Instance|
+|BytesSent|Data Out|Bytes|Total|Data Out|Instance|
+|Http5xx|Http Server Errors|Count|Total|Http Server Errors|Instance|
+|MemoryWorkingSet|Memory working set|Bytes|Average|Memory working set|Instance|
+|AverageMemoryWorkingSet|Average memory working set|Bytes|Average|Average memory working set|Instance|
+|FunctionExecutionUnits|Function Execution Units|MB / Milliseconds|Total|[Function Execution Units](https://github.com/Azure/Azure-Functions/wiki/Consumption-Plan-Cost-Billing-FAQ#how-can-i-view-graphs-of-execution-count-and-gb-seconds)|Instance|
+|FunctionExecutionCount|Function Execution Count|Count|Total|Function Execution Count|Instance|
+|PrivateBytes|Private Bytes|Bytes|Average|Private Bytes|Instance|
+|IoReadBytesPerSecond|IO Read Bytes Per Second|BytesPerSecond|Total|IO Read Bytes Per Second|Instance|
+|IoWriteBytesPerSecond|IO Write Bytes Per Second|BytesPerSecond|Total|IO Write Bytes Per Second|Instance|
+|IoOtherBytesPerSecond|IO Other Bytes Per Second|BytesPerSecond|Total|IO Other Bytes Per Second|Instance|
+|IoReadOperationsPerSecond|IO Read Operations Per Second|BytesPerSecond|Total|IO Read Operations Per Second|Instance|
+|IoWriteOperationsPerSecond|IO Write Operations Per Second|BytesPerSecond|Total|IO Write Operations Per Second|Instance|
+|IoOtherOperationsPerSecond|IO Other Operations Per Second|BytesPerSecond|Total|IO Other Operations Per Second|Instance|
+|RequestsInApplicationQueue|Requests In Application Queue|Count|Average|Requests In Application Queue|Instance|
+|CurrentAssemblies|Current Assemblies|Count|Average|Current Assemblies|Instance|
+|TotalAppDomains|Total App Domains|Count|Average|Total App Domains|Instance|
+|TotalAppDomainsUnloaded|Total App Domains Unloaded|Count|Average|Total App Domains Unloaded|Instance|
+|Gen0Collections|Gen 0 Garbage Collections|Count|Total|Gen 0 Garbage Collections|Instance|
+|Gen1Collections|Gen 1 Garbage Collections|Count|Total|Gen 1 Garbage Collections|Instance|
+|Gen2Collections|Gen 2 Garbage Collections|Count|Total|Gen 2 Garbage Collections|Instance|
+|HealthCheckStatus|Health check status|Count|Average|Health check status|Instance|
+|FileSystemUsage|File System Usage|Bytes|Average|File System Usage|None|
+
 
 ## Microsoft.Web/sites/slots
 
