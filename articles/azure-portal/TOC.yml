@@ -15,7 +15,11 @@
   - name: Programmatically create Azure dashboards
     href: azure-portal-dashboards-create-programmatically.md
 - name: How-to guides
-  items:  
+  items:
+  - name: Set your Azure portal preferences
+    href: azure-portal-set-preferences.md
+  - name: Set inactive sign-out settings for all users
+    href: azure-portal-admin-timeout.md
   - name: Turn on high contrast or change theme
     href: azure-portal-change-theme-high-contrast.md
   - name: Add, remove, and sort favorites

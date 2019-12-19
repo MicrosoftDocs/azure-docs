@@ -35,6 +35,8 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
+          - text: Set your portal preferences
+            url: azure-portal-set-preferences.md
           - text: Create and share custom dashboards
             url: azure-portal-dashboards.md
           - text: Manage your favorites
