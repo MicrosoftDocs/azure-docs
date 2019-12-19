@@ -43,12 +43,14 @@ az backup job list --resource-group saphanaResourceGroup \
 
 The output will look something like this:
 
->Name   |                               Operation      |      Status  |   Item Name   |    Start Time UTC
->------------------------------------ | ---------------  |    --------- | ----------   |   -------------------  
->e0f15dae-7cac-4475-a833-f52c50e5b6c3 | ConfigureBackup  |    Completed |  hxe       |     2019-12-03T03:09:210831+00:00  
->ccdb4dce-8b15-47c5-8c46-b0985352238f | Backup (Full)   |     Completed  | hxe [hxehost] |  2019-12-01T10:30:58.867489+00:00
->4980af91-1090-49a6-ab96-13bc905a5282 | Backup (Differential) | Completed |  hxe [hxehost] | 2019-12-01T10:36:00.563909+00:00
->F7c68818-039f-4a0f-8d73-e0747e68a813 | Restore (Log)   |     Completed |  hxe [hxehost] | 2019-12-03T05:44:51.081607+00:00
+```output
+Name                                  Operation              Status      Item Name       Start Time UTC
+------------------------------------  ---------------        ---------   ----------      -------------------  
+e0f15dae-7cac-4475-a833-f52c50e5b6c3  ConfigureBackup        Completed   hxe             2019-12-03T03:09:210831+00:00  
+ccdb4dce-8b15-47c5-8c46-b0985352238f  Backup (Full)          Completed   hxe [hxehost]   2019-12-01T10:30:58.867489+00:00
+4980af91-1090-49a6-ab96-13bc905a5282  Backup (Differential)  Completed   hxe [hxehost]   2019-12-01T10:36:00.563909+00:00
+F7c68818-039f-4a0f-8d73-e0747e68a813  Restore (Log)          Completed   hxe [hxehost]   2019-12-03T05:44:51.081607+00:00
+```
 
 ## Change policy
 
@@ -64,9 +66,11 @@ az backup item set policy --resource-group saphanaResourceGroup \
 
 The output should look like this:
 
->Name | Resource Group
->--- | ---
->cb110094-9b15-4c55-ad45-6899200eb8dd | SAPHANA
+```output
+Name                                  Resource Group
+------------------------------------- --------------
+cb110094-9b15-4c55-ad45-6899200eb8dd  SAPHANA
+```
 
 ## Protect new databases added to an SAP HANA instance
 
@@ -92,11 +96,13 @@ az backup protectable-item list --resource-group saphanaResourceGroup \
 
 The new database that you want to back up will show up in this list, which will look as follows:
 
->Name            |                Protectable Item Type  |    ParentName   |   ServerName  |    IsProtected
->---------------------------     ----------------------   ------------  -----------   ------------
->saphanasystem;hxe           |      SAPHanaSystem     |         HXE       |       hxehost     |   NotProtected  
->saphanadatabase;hxe;systemdb   |   SAPHanaDatabase      |      HXE         |     hxehost    |    NotProtected
->saphanadatabase;hxe;newhxe    |    SAPHanaDatabase     |       HXE      |        hxehost   |     NotProtected
+```output
+Name                            Protectable Item Type    ParentName    ServerName    IsProtected
+---------------------------     ----------------------   ------------  -----------   ------------
+saphanasystem;hxe               SAPHanaSystem            HXE           hxehost       NotProtected  
+saphanadatabase;hxe;systemdb    SAPHanaDatabase          HXE           hxehost       NotProtected
+saphanadatabase;hxe;newhxe      SAPHanaDatabase          HXE           hxehost       NotProtected
+```
 
 ## Stop protection for an SAP HANA database
 
@@ -128,9 +134,11 @@ az backup protection disable --resource-group saphanaResourceGroup \
 
 The output should look like this:
 
->Name                |                  ResourceGroup
->------------------------------------ | ---------------  
->g0f15dae-7cac-4475-d833-f52c50e5b6c3 | saphanaResourceGroup
+```output
+Name                                  ResourceGroup
+------------------------------------  ---------------  
+g0f15dae-7cac-4475-d833-f52c50e5b6c3  saphanaResourceGroup
+```
 
 To check the status of this operation, use the [az backup job show](https://docs.microsoft.com/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-show) cmdlet.
 
@@ -150,9 +158,11 @@ az backup protection disable --resource-group saphanaResourceGroup \
 
 The output should look like this:
 
->Name                  |                ResourceGroup
->------------------------------------ | ---------------  
->g0f15dae-7cac-4475-d833-f52c50e5b6c3 | saphanaResourceGroup
+```output
+Name                                  ResourceGroup
+------------------------------------  ---------------  
+g0f15dae-7cac-4475-d833-f52c50e5b6c3  saphanaResourceGroup
+```
 
 To check the status of this operation, use the [az backup job show](https://docs.microsoft.com/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-show) cmdlet.
 
@@ -172,9 +182,11 @@ az backup protection resume --resource-group saphanaResourceGroup \
 
 The output should look like this:
 
->Name                       |           ResourceGroup
->------------------------------------ | ---------------  
->b2a7f108-1020-4529-870f-6c4c43e2bb9e | saphanaResourceGroup
+```output
+Name                                  ResourceGroup
+------------------------------------  ---------------  
+b2a7f108-1020-4529-870f-6c4c43e2bb9e  saphanaResourceGroup
+```
 
 To check the status of this operation, use the [az backup job show](https://docs.microsoft.com/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-show) cmdlet.
 

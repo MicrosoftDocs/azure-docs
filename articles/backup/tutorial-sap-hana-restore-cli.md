@@ -40,11 +40,13 @@ az backup recoverypoint list --resource-group saphanaResourceGroup \
 
 The list of recovery points will look as follows:
 
->Name        |          Time      |                         BackupManagementType |  Item Name    |           RecoveryPointType
->------------------- | --------------------------------- | --------------------- | ---------------------- | ------------------
->7660777527047692711 |  2019-12-10T04:00:32.346000+00:00 |  AzureWorkload   |       SAPHanaDtabase;hxe;hxe | Full
->7896624824685666836  | 2019-12-15T10:33:32.346000+00:00  | AzureWorkload   |       SAPHanaDtabase;hxe;hxe | Differential
->DefaultRangeRecoveryPoint          |       |               AzureWorkload    |      SAPHanaDtabase;hxe;hxe | Log
+```output
+Name                      Time                               BackupManagementType   Item Name               RecoveryPointType
+-------------------       ---------------------------------  ---------------------  ----------------------  ------------------
+7660777527047692711       2019-12-10T04:00:32.346000+00:00   AzureWorkload          SAPHanaDtabase;hxe;hxe  Full
+7896624824685666836       2019-12-15T10:33:32.346000+00:00   AzureWorkload          SAPHanaDtabase;hxe;hxe  Differential
+DefaultRangeRecoveryPoint                                    AzureWorkload          SAPHanaDtabase;hxe;hxe  Log
+```
 
 As you can see, the list above contains three recovery points: one each for full, differential, and log backup.
 
@@ -118,9 +120,11 @@ az backup restore restore-azurewl --resource-group saphanaResourceGroup \
 
 The output will look like this:
 
->Name | Resource
->--- | ---
->5b198508-9712-43df-844b-977e5dfc30ea | SAPHANA
+```output
+Name                                  Resource
+------------------------------------  -------
+5b198508-9712-43df-844b-977e5dfc30ea  SAPHANA
+```
 
 The response will give you the job name. This job name can be used to track the job status using [az backup job show](https://docs.microsoft.com/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-show) cmdlet.
 
@@ -157,9 +161,11 @@ az backup restore restore-azurewl --resource-group saphanaResourceGroup \
 
 The output will look like this:
 
->Name | Resource
->--- | ---
->5b198508-9712-43df-844b-977e5dfc30ea | SAPHANA
+```output
+Name                                  Resource
+------------------------------------  --------
+5b198508-9712-43df-844b-977e5dfc30ea  SAPHANA
+```
 
 The response will give you the job name. This job name can be used to track the job status using the [az backup job show](https://docs.microsoft.com/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-show) cmdlet.
 

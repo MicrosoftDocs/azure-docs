@@ -83,9 +83,11 @@ Registering the SAP HANA instance automatically discovers all its current databa
 
 To check if the SAP HANA instance is successfully registered with your vault, use the [az backup container list]() cmdlet. You'll see the following response:
 
->Name     |        Friendly Name   |  Resource Group    |   Type      |    Registration Status
->----------------------------------------- | -------------- |  ----------------  |   --------- |    ----------------------
->VMAppContainer;Compute;saphanaResourceGroup;saphanaVM | saphanaVM    |     saphanaResourceGroup |  AzureWorkload  | Registered
+```output
+Name                                                    Friendly Name    Resource Group        Type           Registration Status
+------------------------------------------------------  --------------   --------------------  ---------      ----------------------
+VMAppContainer;Compute;saphanaResourceGroup;saphanaVM   saphanaVM        saphanaResourceGroup  AzureWorkload  Registered
+```
 
 Note that “name” in the above output refers to the container name, this container name will be used in the next sections to enable backups and trigger them. Which in this case, is *VMAppContainer;Compute;saphanaResourceGroup;saphanaVM*.
 
@@ -102,11 +104,13 @@ az backup protectable-item list --resource-group saphanaResourceGroup \
 
 You should find the database that you want to back up in this list, which will look as follows:
 
->Name     |                    Protectable Item Type  |  ParentName  |  ServerName  |  IsProtected
->--------------------------- | ---------------------- |  ------------ | ----------- |  ------------
->saphanasystem;hxe      |      SAPHanaSystem        |    HXE        |   hxehost  |    NotProtected  
->saphanadatabase;hxe;systemdb | SAPHanaDatabase  |        HXE   |        hxehost   |   NotProtected
->saphanadatabase;hxe;hxe  |    SAPHanaDatabase    |      HXE      |     hxehost    |  NotProtected
+```output
+Name                           Protectable Item Type    ParentName    ServerName    IsProtected
+-----------------------------  ----------------------   ------------  -----------   ------------
+saphanasystem;hxe              SAPHanaSystem            HXE           hxehost       NotProtected  
+saphanadatabase;hxe;systemdb   SAPHanaDatabase          HXE           hxehost       NotProtected
+saphanadatabase;hxe;hxe        SAPHanaDatabase          HXE           hxehost       NotProtected
+```
 
 As you can see from the above output, the SID of the SAP HANA system is HXE. In this tutorial, we'll configure backup for the *saphanadatabase;hxe;hxe* database that resides on the *hxehost* server.
 
@@ -124,9 +128,11 @@ az backup protection enable-for-azurewl --resource-group saphanaResourceGroup \
 
 You can check if the above backup configuration is complete using the [az backup job list](https://docs.microsoft.com/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-list) cmdlet. The output will display as follows:
 
->Name         |                         Operation   |     Status  |   Item Name | Start Time UTC
->------------------------------------ | ---------------  | --------- | ---------- | -------------------  
->e0f15dae-7cac-4475-a833-f52c50e5b6c3 | ConfigureBackup | Completed |  hxe    |   2019-12-03T03:09:210831+00:00  
+```output
+Name                                  Operation         Status     Item Name   Start Time UTC
+------------------------------------  ---------------   ---------  ----------  -------------------  
+e0f15dae-7cac-4475-a833-f52c50e5b6c3  ConfigureBackup   Completed  hxe         2019-12-03T03:09:210831+00:00  
+```
 
 The [az backup job list](https://docs.microsoft.com/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-list) cmdlet lists out all the backup jobs (scheduled or on-demand) that have run or are currently running on the protected database, in addition to other operations like register, configure backup, delete backup data etc.
 
@@ -149,9 +155,11 @@ az backup protection backup-now --resource-group saphanaResourceGroup \
 
 The output will display as follows:
 
->Name | ResourceGroup
->--- | ----
->e0f15dae-7cac-4475-a833-f52c50e5b6c3 | saphanaResourceGroup
+```output
+Name                                  ResourceGroup
+------------------------------------  -------------
+e0f15dae-7cac-4475-a833-f52c50e5b6c3  saphanaResourceGroup
+```
 
 The response will give you the job name. This job name can be used to track the job status using the [az backup job show](https://docs.microsoft.com/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-show) cmdlet.
 
