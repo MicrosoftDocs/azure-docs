@@ -70,7 +70,7 @@ Your Azure Stack Edge device could be a 1-node device or a 4-node device. All th
    
     |Type |Subject name (SN)  |Subject alternative name (SAN)  |Subject name example |
     |---------|---------|---------|---------|
-    |Node|`<DeviceSerialNo>.<DnsDomain>`|`*.<DnsDomain><DeviceSerialNo>.<DnsDomain>`|`mydevice1.microsoftdatabox.com` |
+    |Node|`<DeviceSerialNo>.<DnsDomain>`|`*.<DnsDomain>`<br>`<DeviceSerialNo>.<DnsDomain>`|`mydevice1.microsoftdatabox.com` |
    
 
 ## Endpoint certificates
@@ -93,7 +93,7 @@ When you bring in a signed certificate of your own, you also need the correspond
     |---------|---------|---------|---------|
     |Azure Resource Manager|`management.<Device name>.<Dns Domain>`|`login.<Device name>.<Dns Domain>`<br>`management.<Device name>.<Dns Domain>`|`management.mydevice1.microsoftdatabox.com` |
     |Blob storage|`*.blob.<Device name>.<Dns Domain>`|`*.blob.< Device name>.<Dns Domain>`|`*.blob.mydevice1.microsoftdatabox.com` |
-    |Multi-SAN single certificate for both endpoints|`<Device name>.<dnsdomain>`|`login.<Device name>.<Dns Domain>`<br>`management.<Device name>.<Dns Domain>`<br>`*.blob.<Device name>.<Dns Domain>`|`mydevice1.microsoftdatabox.com` |
+    |Multi-SAN single certificate for both endpoints|`<Device name>.<dnsdomain>`|`<Device name>.<dnsdomain>`<br>`login.<Device name>.<Dns Domain>`<br>`management.<Device name>.<Dns Domain>`<br>`*.blob.<Device name>.<Dns Domain>`|`mydevice1.microsoftdatabox.com` |
 
 
 ## Local UI certificates
@@ -214,7 +214,7 @@ Create a certificate for the Azure Resource Manager endpoints in your personal s
 $AppName = "DBE-HWDC1T2"
 $domain = "microsoftdatabox.com"
 
-New-SelfSignedCertificate -Type Custom -DnsName "management.$AppName.$domain","login.$AppName.$domain" -Subject "CN=$AppName.$domain" -KeyExportPolicy Exportable  -HashAlgorithm sha256 -KeyLength 2048  -CertStoreLocation "Cert:\LocalMachine\My" -Signer $cert -KeySpec KeyExchange -TextExtension @("2.5.29.37={text}1.3.6.1.5.5.7.3.1")
+New-SelfSignedCertificate -Type Custom -DnsName "management.$AppName.$domain","login.$AppName.$domain" -Subject "CN=management.$AppName.$domain" -KeyExportPolicy Exportable  -HashAlgorithm sha256 -KeyLength 2048  -CertStoreLocation "Cert:\LocalMachine\My" -Signer $cert -KeySpec KeyExchange -TextExtension @("2.5.29.37={text}1.3.6.1.5.5.7.3.1")
 ```
 
 **Device local web UI certificate**
@@ -235,8 +235,9 @@ Create a single certificate for all the endpoints in your personal store.
 ```azurepowershell
 $AppName = "DBE-HWDC1T2"
 $domain = "microsoftdatabox.com"
+$DeviceSerial = "HWDC1T2"
 
-New-SelfSignedCertificate -Type Custom -DnsName "$AppName.$domain","*.$AppName.$domain","*.blob.$AppName.$domain" -Subject "CN=$AppName.$domain" -KeyExportPolicy Exportable  -HashAlgorithm sha256 -KeyLength 2048  -CertStoreLocation "Cert:\LocalMachine\My" -Signer $cert -KeySpec KeyExchange -TextExtension @("2.5.29.37={text}1.3.6.1.5.5.7.3.1")
+New-SelfSignedCertificate -Type Custom -DnsName "$AppName.$domain","$DeviceSerial.$domain","management.$AppName.$domain","login.$AppName.$domain","*.blob.$AppName.$domain" -Subject "CN=$AppName.$domain" -KeyExportPolicy Exportable  -HashAlgorithm sha256 -KeyLength 2048  -CertStoreLocation "Cert:\LocalMachine\My" -Signer $cert -KeySpec KeyExchange -TextExtension @("2.5.29.37={text}1.3.6.1.5.5.7.3.1")
 ```
 
 Once the certificates are created, the next step is to upload the certificates on your Azure Stack Edge device
