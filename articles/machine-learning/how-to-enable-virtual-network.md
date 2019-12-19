@@ -14,13 +14,13 @@ ms.date: 11/13/2019
 ---
 
 # Secure Azure ML experimentation and inference jobs within an Azure Virtual Network
-[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
+[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 In this article, you'll learn how to secure experimentation/training jobs and inference/scoring jobs in Azure Machine Learning within an Azure Virtual Network (vnet).
 
 A **virtual network** acts as a security boundary, isolating your Azure resources from the public internet. You can also join an Azure virtual network to your on-premises network. By joining networks, you can securely train your models and access your deployed models for inference.
 
-Azure Machine Learning relies on other Azure services for compute resources. Compute resources, or [compute targets](../concept-compute-target.md), are used to train and deploy models. The targets can be created within a virtual network. For example, you can use Microsoft Data Science Virtual Machine to train a model and then deploy the model to Azure Kubernetes Service (AKS). For more information about virtual networks, see [Azure Virtual Network overview](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview).
+Azure Machine Learning relies on other Azure services for compute resources. Compute resources, or [compute targets](concept-compute-target.md), are used to train and deploy models. The targets can be created within a virtual network. For example, you can use Microsoft Data Science Virtual Machine to train a model and then deploy the model to Azure Kubernetes Service (AKS). For more information about virtual networks, see [Azure Virtual Network overview](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview).
 
 This article also provides detailed information about *advanced security settings*, information that isn't necessary for basic or experimental use cases. Certain sections of this article provide configuration information for a variety of scenarios. You don't need to complete the instructions in order or in their entirety.
 
@@ -189,7 +189,7 @@ When you add the UDRs, define the route for each related Batch IP address prefix
 
 ![Example of a UDR for an address prefix](./media/how-to-enable-virtual-network/user-defined-route.png)
 
-For more information, see [Create an Azure Batch pool in a virtual network](../../batch/batch-virtual-network.md#user-defined-routes-for-forced-tunneling).
+For more information, see [Create an Azure Batch pool in a virtual network](../batch/batch-virtual-network.md#user-defined-routes-for-forced-tunneling).
 
 ### Create a compute cluster in a virtual network
 
@@ -247,7 +247,7 @@ except ComputeTargetException:
     cpu_cluster.wait_for_completion(show_output=True)
 ```
 
-When the creation process finishes, you train your model by using the cluster in an experiment. For more information, see [Select and use a compute target for training](how-to-set-up-training-targets.md).
+When the creation process finishes, you train your model by using the cluster in an experiment. For more information, see [Select and use a compute target for training](service/how-to-set-up-training-targets.md).
 
 ## Use Azure Databricks
 
@@ -296,7 +296,7 @@ To use a virtual machine or Azure HDInsight cluster in a virtual network with yo
 
     If you don't want to use the default outbound rules and you do want to limit the outbound access of your virtual network, see the [Limit outbound connectivity from the virtual network](#limiting-outbound-from-vnet) section.
 
-1. Attach the VM or HDInsight cluster to your Azure Machine Learning workspace. For more information, see [Set up compute targets for model training](how-to-set-up-training-targets.md).
+1. Attach the VM or HDInsight cluster to your Azure Machine Learning workspace. For more information, see [Set up compute targets for model training](service/how-to-set-up-training-targets.md).
 
 <a id="aksvnet"></a>
 
@@ -381,7 +381,7 @@ For more information on configuring a network rule, see [Deploy and configure Az
 
 ## Next steps
 
-* [Set up training environments](how-to-set-up-training-targets.md)
-* [Where to deploy models](../how-to-deploy-and-where.md)
-* [Securely deploy models with SSL](how-to-secure-web-service.md)
+* [Set up training environments](service/how-to-set-up-training-targets.md)
+* [Where to deploy models](how-to-deploy-and-where.md)
+* [Securely deploy models with SSL](service/how-to-secure-web-service.md)
 

@@ -15,9 +15,9 @@ ms.custom: seodec18
 ---
 
 # Create and manage Azure Machine Learning workspaces in the Azure portal
-[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
+[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-In this article, you'll create, view, and delete [**Azure Machine Learning workspaces**](../concept-workspace.md) in the Azure portal for [Azure Machine Learning](overview-what-is-azure-ml.md).  The portal is the easiest way to get started with workspaces but as your needs change or requirements for automation increase you can also create and delete workspaces [using the CLI](reference-azure-machine-learning-cli.md), [with Python code](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) or [via the VS Code extension](how-to-vscode-tools.md#get-started-with-azure-machine-learning-for-visual-studio-code).
+In this article, you'll create, view, and delete [**Azure Machine Learning workspaces**](concept-workspace.md) in the Azure portal for [Azure Machine Learning](service/overview-what-is-azure-ml.md).  The portal is the easiest way to get started with workspaces but as your needs change or requirements for automation increase you can also create and delete workspaces [using the CLI](service/reference-azure-machine-learning-cli.md), [with Python code](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) or [via the VS Code extension](how-to-vscode-tools.md#get-started-with-azure-machine-learning-for-visual-studio-code).
 
 ## Create a workspace
 
@@ -27,7 +27,7 @@ To create a workspace, you need an Azure subscription. If you don’t have an Az
 
 1. In the upper-left corner of Azure portal, select **+ Create a resource**.
 
-      ![Create a new resource](../../../includes/media/aml-create-in-portal/create-workspace.gif)
+      ![Create a new resource](./media/how-to-manage-workspace/create-workspace.gif)
 
 1. Use the search bar to find **Machine Learning**.
 
@@ -43,9 +43,9 @@ To create a workspace, you need an Azure subscription. If you don’t have an Az
    Subscription |Select the Azure subscription that you want to use.
    Resource group | Use an existing resource group in your subscription or enter a name to create a new resource group. A resource group holds related resources for an Azure solution. In this example, we use **docs-aml**. 
    Location | Select the location closest to your users and the data resources to create your workspace.
-   Workspace edition | Select **Basic** or **Enterprise**.  This workspace edition determines the features to which you’ll have access and pricing. Learn more about [Basic and Enterprise edition offerings](overview-what-is-azure-ml.md#sku). 
+   Workspace edition | Select **Basic** or **Enterprise**.  This workspace edition determines the features to which you’ll have access and pricing. Learn more about [Basic and Enterprise edition offerings](service/overview-what-is-azure-ml.md#sku). 
 
-    ![Configure your workspace](media/how-to-manage-workspace/select-edition.png)
+    ![Configure your workspace](./media/how-to-manage-workspace/select-edition.png)
 
 1. After you are finished configuring the workspace, select **Create**. 
 
@@ -58,7 +58,7 @@ To create a workspace, you need an Azure subscription. If you don’t have an Az
 
 ### Download a configuration file
 
-1. If you will be creating a [compute instance](tutorial-1st-experiment-sdk-setup.md#azure), skip this step.
+1. If you will be creating a [compute instance](service/tutorial-1st-experiment-sdk-setup.md#azure), skip this step.
 
 1. If you plan to use code on your local environment that references this workspace, select  **Download config.json** from the **Overview** section of the workspace.  
 
@@ -76,7 +76,7 @@ You can upgrade your workspace from Basic edition to Enterprise edition to take 
 
 1. Select **Learn more**  at the top right of the page.
 
-   [ ![Upgrade a workspace](media/how-to-manage-workspace/upgrade.png) ](media/how-to-manage-workspace/upgrade.png#lightbox)
+   [ ![Upgrade a workspace](./media/how-to-manage-workspace/upgrade.png) ](./media/how-to-manage-workspace/upgrade.png#lightbox)
 
 1. Select **Upgrade** in the window that appears.
 
@@ -90,7 +90,7 @@ You can upgrade your workspace from Basic edition to Enterprise edition to take 
 
 1. Select **Machine Learning**.
 
-   ![Search for Azure Machine Learning workspace](media/how-to-manage-workspace/find-workspaces.png)
+   ![Search for Azure Machine Learning workspace](./media/how-to-manage-workspace/find-workspaces.png)
 
 1. Look through the list of workspaces found. You can filter based on subscription, resource groups, and locations.  
 
@@ -100,16 +100,16 @@ You can upgrade your workspace from Basic edition to Enterprise edition to take 
 
 Use the Delete button at the top of the workspace you wish to delete.
 
-  ![Delete button](media/how-to-manage-workspace/delete-workspace.png)
+  ![Delete button](./media/how-to-manage-workspace/delete-workspace.png)
 
 
 ## Clean up resources
 
-[!INCLUDE [aml-delete-resource-group](../../../includes/aml-delete-resource-group.md)]
+[!INCLUDE [aml-delete-resource-group](../../includes/aml-delete-resource-group.md)]
 
 ## Next steps
 
 Follow the full-length tutorial to learn how to use a workspace to build, train, and deploy models with Azure Machine Learning.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Train models](tutorial-train-models-with-aml.md)
+> [Tutorial: Train models](service/tutorial-train-models-with-aml.md)

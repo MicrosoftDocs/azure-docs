@@ -15,7 +15,7 @@ ms.date: 10/25/2019
 
 # Model interpretability in automated machine learning
 
-[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
+[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 In this article, you learn how to enable the interpretability features for automated machine learning (ML) in Azure Machine Learning. Automated ML helps you understand both raw and engineered feature importance. In order to use model interpretability, set `model_explainability=True` in the `AutoMLConfig` object.  
 
@@ -28,7 +28,7 @@ In this article, you learn how to:
 ## Prerequisites
 
 - Interpretability features. Run `pip install azureml-interpret azureml-contrib-interpret` to get the necessary packages.
-- Knowledge of building automated ML experiments. For more information on how to use the Azure Machine Learning SDK, complete this [regression model tutorial](tutorial-auto-train-models.md) or see how to [configure automated ML experiments](../how-to-configure-auto-train.md).
+- Knowledge of building automated ML experiments. For more information on how to use the Azure Machine Learning SDK, complete this [regression model tutorial](service/tutorial-auto-train-models.md) or see how to [configure automated ML experiments](how-to-configure-auto-train.md).
 
 ## Interpretability during training for the best model
 
@@ -224,7 +224,7 @@ if service.state == 'Healthy':
 
 You can visualize the feature importance chart in your workspace in [Azure Machine Learning studio](https://ml.azure.com). After your automated ML run is complete, select **View model details** to view a specific run. Select the **Explanations** tab to see the explanation visualization dashboard.
 
-[![Machine Learning Interpretability Architecture](./media/machine-learning-interpretability-explainability/automl-explainability.png)](./media/machine-learning-interpretability-explainability/automl-explainability.png#lightbox)
+[![Machine Learning Interpretability Architecture](./media/how-to-machine-learning-interpretability-automl/automl-explainability.png)](./media/how-to-machine-learning-interpretability-automl/automl-explainability.png#lightbox)
 
 ## Next steps
 

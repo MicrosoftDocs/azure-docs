@@ -13,7 +13,7 @@ ms.date: 11/05/2019
 ---
 
 # Create a workspace for Azure Machine Learning with Azure CLI
-[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
+[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 In this article, you learn how to create an Azure Machine Learning workspace using the Azure CLI. The Azure CLI provides commands for managing Azure resources. The machine learning extension to the CLI provides commands for working with Azure Machine Learning resources.
 
@@ -97,7 +97,7 @@ For more information on working with resource groups, see [az group](https://doc
 To create a new workspace where the __services are automatically created__, use the following command:
 
 > [!TIP]
-> The commands in this section create a basic edition workspace. To create an enterprise workspace, use the `--sku enterprise` switch with the `az ml workspace create` command. For more information on Azure Machine Learning editions, see [What is Azure Machine Learning](overview-what-is-azure-ml.md#sku).
+> The commands in this section create a basic edition workspace. To create an enterprise workspace, use the `--sku enterprise` switch with the `az ml workspace create` command. For more information on Azure Machine Learning editions, see [What is Azure Machine Learning](service/overview-what-is-azure-ml.md#sku).
 
 ```azurecli-interactive
 az ml workspace create -w <workspace-name> -g <resource-group-name>
@@ -302,7 +302,7 @@ To share a workspace with another user on your subscription, use the following c
 az ml workspace share -w <workspace-name> -g <resource-group-name> --user <user> --role <role>
 ```
 
-For more information on roles-based access control (RBAC) with Azure Machine Learning, see [Manage users and roles](../how-to-assign-roles.md).
+For more information on roles-based access control (RBAC) with Azure Machine Learning, see [Manage users and roles](how-to-assign-roles.md).
 
 For more information, see the [az ml workspace share](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/workspace?view=azure-cli-latest#ext-azure-cli-ml-az-ml-workspace-share) documentation.
 
@@ -314,7 +314,7 @@ If you change access keys for one of the resources used by your workspace, use t
 az ml workspace sync-keys -w <workspace-name> -g <resource-group-name>
 ```
 
-For more information on changing keys, see [Regenerate storage access keys](../how-to-change-storage-access-key.md).
+For more information on changing keys, see [Regenerate storage access keys](how-to-change-storage-access-key.md).
 
 For more information, see the [az ml workspace sync-keys](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/workspace?view=azure-cli-latest#ext-azure-cli-ml-az-ml-workspace-sync-keys) documentation.
 
