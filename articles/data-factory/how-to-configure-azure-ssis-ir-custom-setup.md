@@ -191,7 +191,11 @@ To customize your Azure-SSIS IR, you need the following things:
 
       ![Folders in the user scenarios folder](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image12.png)
 
-   1. To try these custom setup samples, copy and paste the content from selected folder into your container. When you provision or reconfigure your Azure-SSIS IR with Data Factory UI, select the **Customize your Azure-SSIS Integration Runtime with additional system configurations/component installations** check box on the **Advanced Settings** panel and enter the SAS URI of your container in the **Custom setup container SAS URI** field. When you provision or reconfigure your Azure-SSIS IR with PowerShell, run the `Set-AzDataFactoryV2IntegrationRuntime` cmdlet with the SAS URI of your container as the value for `SetupScriptContainerSasUri` parameter.
+   1. To try these custom setup samples, copy and paste the content from selected folder into your container.
+   
+      When you provision or reconfigure your Azure-SSIS IR with Data Factory UI, select the **Customize your Azure-SSIS Integration Runtime with additional system configurations/component installations** check box on the **Advanced Settings** panel and enter the SAS URI of your container in the **Custom setup container SAS URI** field.
+   
+      When you provision or reconfigure your Azure-SSIS IR with PowerShell, run the `Set-AzDataFactoryV2IntegrationRuntime` cmdlet with the SAS URI of your container as the value for `SetupScriptContainerSasUri` parameter.
 
 ## Next steps
 
