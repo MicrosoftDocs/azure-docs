@@ -1,7 +1,7 @@
 ---
 title: Retrain models using Azure Machine Learning designer (preview)
 titleSuffix: Azure Machine Learning
-description: Learn how to retrain models using published pipelines in Azure Machine Learning designer (preview).
+description: Learn how to retrain models with published pipelines in Azure Machine Learning designer (preview).
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -14,9 +14,8 @@ ms.date: 12/15/2019
 # Retrain models with Azure Machine Learning designer (preview)
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-In this how-to, you learn how to use Azure Machine Learning designer to retrain a machine learning model. You can use published pipelines to help you do this. 
+In this how-to, you learn how to use Azure Machine Learning designer to retrain a machine learning model. Find out how to  use published pipelines to automate your workflow and reuse training pipelines for retraining;
 
-Published pipelines let you reuse existing pipelines for repeatability and automation.
 
 In this article you learn how to:
 
@@ -36,13 +35,13 @@ This how-to assumes basic knowledge of building pipelines in the designer. For a
 
 ### Sample pipeline
 
-The pipeline used in this article is an altered version of the one found in [Sample 3 - Income Prediction](how-to-designer-sample-classification-predict-income.md). It uses the [Import Data](../algorithm-module-reference/import-data.md) module instead of the sample dataset to show you how to train a model using your own data.
+The pipeline used in this article is an altered version of the one found in [Sample 3 - Income Prediction](how-to-designer-sample-classification-predict-income.md). It uses the [Import Data](../algorithm-module-reference/import-data.md) module instead of the sample dataset to show you how to use your own data.
 
 ![Screenshot showing the modified sample pipeline with a box highlighting the Import Data module](./media/how-to-retrain-designer/modified-sample-pipeline.png)
 
 ## Train a machine learning model
 
-In order to retrain a model, you first need an initial model. In this section, you learn how to train a model and access it using the designer.
+In order to retrain a model, you first need an initial model. In this section, you learn how to train a model and access the saved model using the designer.
 
 1. Select the **Import Data** module.
 1. In the properties pane, specify a data source.
@@ -51,7 +50,7 @@ In order to retrain a model, you first need an initial model. In this section, y
 
     For this example, the data is stored in an [Azure datastore](how-to-access-data.md). If you don't already have a datastore, you can create one now by selecting **New datastore**.
 
-1. Specify the path to your data. You can also select **Browse path** to visually browse your datastore. 
+1. Specify the path to your data. You can also select **Browse path** to visually navigate your datastore. 
 
 1. Select **Run** at the top of the canvas to run the pipeline.
     
@@ -60,7 +59,7 @@ In order to retrain a model, you first need an initial model. In this section, y
 
 ### Locate your trained model
 
-By default, the designer saves all pipeline output, including trained models, to the default storage account. You can access storage through the portal or programatically. You can also access the trained model directly in the designer:
+By default, the designer saves all pipeline outputs, including trained models, to the default storage account. You can access your storage through the portal or programatically. However, you can also access the trained model directly in the designer:
 
 1. Wait for the pipeline to finish running.
 
@@ -74,7 +73,7 @@ By default, the designer saves all pipeline output, including trained models, to
 
 ## Create a pipeline parameter
 
-You can add pipeline parameters to dynamically set variables at runtime. For this pipeline, add a pipeline parameter for the training data path so that you can retrain your model on new data as its made available.
+You can add pipeline parameters to dynamically set variables at runtime. For this pipeline, add a pipeline parameter for the training data path so that you can retrain your model on new datasets.
 
 1. Select the **Import Data** module.
 1. In the settings pane, select the ellipses above the **Path** field.
@@ -88,19 +87,19 @@ You can add pipeline parameters to dynamically set variables at runtime. For thi
 
 ## Publish a training pipeline
 
-When you publish a pipeline, it creates a pipeline endpoint. Pipeline endpoints let you reuse and manage and your pipelines for repeatability and automation. In this scenario, you can publish your training pipeline to reuse it for retraining.
+When you publish a pipeline, it creates a pipeline endpoint. Pipeline endpoints let you reuse and manage your pipelines for repeatability and automation. For this scenario, publish your training pipeline to reuse it for retraining.
 
 1. Select **Publish** above the designer canvas.
 1. Select, or create, a new pipeline endpoint.
 
     > [!NOTE]
-    > You can publish multiple pipelines to a single pipeline endpoint. Each pipeline is given a version number, which you can specify when you call the pipeline endpoint.
+    > You can publish multiple pipelines to a single endpoint. Each pipeline in the endpoint is given a version number, which you can specify when you call the pipeline endpoint.
 
 1. Select **Publish**.
 
 ## Retrain your model
 
-Now that you have a published training pipeline, you can use it to retrain your model using new data. You can submit runs from a pipeline endpoint either in the portal or programatically.
+Now that you have a published training pipeline, you can use it to retrain your model using new data. You can submit runs from a pipeline endpoint from either portal or programatically.
 
 ### Submit runs with the designer
 
