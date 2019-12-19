@@ -1,6 +1,6 @@
 ---
-title: Export from an Azure virtual machine to a SQL database
-description: Create a new Azure SQL database by exporting the data from an Azure virtual machine.
+title: Import export a SQL database
+description: Import or export an Azure SQL database without allowing Azure services to access the server.
 services: sql-database
 ms.service: sql-database
 ms.subservice: migration
@@ -12,55 +12,32 @@ ms.author: sstein
 ms.reviewer: 
 ms.date: 12/18/2019
 ---
-# Export from an Azure virtual machine to SQL Database
+# Import or export an Azure SQL database without allowing Azure services to access the server
 
-This article shows you how to import and export a database from an Azure virtual machine to an Azure SQL database when *Allow Azure Services* is set to *OFF* on the Azure SQL server.
+This article shows you how to import or export an Azure SQL database when *Allow Azure Services* is set to *OFF* on the Azure SQL server. The workflow uses an Azure virtual machine to run SqlPackage to perform the import or export operation.
 
 ## Sign in to the Azure portal
 
 Sign in to the [Azure portal](https://portal.azure.com/).
 
-## Prepare the Azure virtual machine
+## Create the Azure virtual machine
 
-Since SQL Managed Instance is placed in your private Virtual Network, you need to create an Azure VM with an installed SQL client tool, like SQL Server Management Studio or Azure Data Studio. This tool lets you connect to the Managed Instance and execute queries. This quickstart uses SQL Server Management Studio.
+Create an Azure virtual machine by selecting the **Deploy to Azure** button.
 
-The easiest way to create a client virtual machine with all necessary tools is to use the Azure Resource Manager templates.
+This template allows you to deploy a simple Windows virtual machine using a few different options for the Windows version, using the latest patched version. This will deploy a A2 size VM in the resource group location and return the fully qualified domain name of the VM.
+<br><br>
 
-1. Make sure that you're signed in to the Azure portal in another browser tab. Then, select the following button to create a client virtual machine and install SQL Server Management Studio:
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-vm-simple-windows%2Fazuredeploy.json" target="_blank">
+    <img src="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png"/>
+</a>
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjovanpop-msft%2Fazure-quickstart-templates%2Fsql-win-vm-w-tools%2F201-vm-win-vnet-sql-tools%2Fazuredeploy.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"/></a>
+For more information, see [Very simple deployment of a Windows VM](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows).
 
-2. Fill out the form using the information in the following table:
 
-   | Setting| Suggested value | Description |
-   | ---------------- | ----------------- | ----------- |
-   | **Subscription** | A valid subscription | Must be a subscription in which you have permission to create new resources. |
-   | **Resource Group** |The resource group that you specified in the [Create Managed Instance](sql-database-managed-instance-get-started.md) quickstart.|This resource group must be the one in which the VNet exists.|
-   | **Location** | The location for the resource group | This value is populated based on the resource group selected. |
-   | **Virtual machine name**  | Any valid name | For valid names, see [Naming rules and restrictions](/azure/architecture/best-practices/resource-naming).|
-   |**Admin Username**|Any valid username|For valid names, see [Naming rules and restrictions](/azure/architecture/best-practices/resource-naming). Don't use "serveradmin" as that is a reserved server-level role.<br>You use this username anytime you [connect to the VM](#connect-to-virtual-machine).|
-   |**Password**|Any valid password|The password must be at least 12 characters long and meet the [defined complexity requirements](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).<br>You use this password anytime you [connect to the VM](#connect-to-virtual-machine).|
-   | **Virtual Machine Size** | Any valid size | The default in this template of **Standard_B2s** is sufficient for this quickstart. |
-   | **Location**|[resourceGroup().location].| Don't change this value. |
-   | **Virtual Network Name**|The virtual network in which you created the Managed Instance.|
-   | **Subnet name**|The name of the subnet that you created in the previous procedure| Don't choose the subnet in which you created the Managed Instance.|
-   | **artifacts Location** | [deployment().properties.templateLink.uri] | Don't change this value. |
-   | **artifacts Location Sas token** | leave blank | Don't change this value. |
 
-   ![create client VM](./media/import-export-from-vm/create-client-sql-vm.png)
+## Connect to the virtual machine
 
-   If you used the suggested VNet name and the default subnet in [creating your Managed Instance](sql-database-managed-instance-get-started.md), you don't need to change last two parameters. Otherwise you should change these values to the values that you entered when you set up the network environment.
-
-3. Select the **I agree to the terms and conditions stated above** checkbox.
-4. Select **Purchase** to deploy the Azure VM in your network.
-5. Select the **Notifications** icon to view the status of deployment.
-
-> [!IMPORTANT]
-> Do not continue until approximately 15 minutes after the virtual machine is created to give time for the post-creation scripts to install SQL Server Management Studio.
-
-## Connect to virtual machine
-
-The following steps show you how to connect to your newly created virtual machine using a remote desktop connection.
+The following steps show you how to connect to your virtual machine using a remote desktop connection.
 
 1. After deployment completes, go to the virtual machine resource.
 
@@ -85,7 +62,34 @@ The following steps show you how to connect to your newly created virtual machin
 
 8. You might receive a certificate warning during the sign-in process. Choose **Yes** or **Continue** to proceed with the connection.
 
-You're connected to your virtual machine in the Server Manager dashboard.
+## Install SqlPackage
+
+[Download and install the latest version of SqlPackage](https://docs.microsoft.com/sql/tools/sqlpackage-download).
+
+For additional information, see [SqlPackage.exe](https://docs.microsoft.com/sql/tools/sqlpackage).
+
+## Create a firewall rule to allow the VM access to the database
+
+Add the VM’s IP address in SQL Database firewall ( copy steps from https://docs.microsoft.com/en-us/azure/sql-database/sql-database-server-level-firewall-rule#create-a-server-level-ip-firewall-rule with Azure VM’s public IP address from Step 2)
+
+The following steps create a server-level IP firewall rule for your virtual machine's IP address and enable connectivity from the virtual machine.
+
+1. Select **SQL databases** from the left-hand menu and then select your database on the **SQL databases** page. The overview page for your database opens, showing you the fully qualified server name (such as **servername.database.windows.net**) and provides options for further configuration.
+
+2. Copy this fully qualified server name to use when connecting to your server and its databases.
+
+   ![server name](./media/sql-database-get-started-portal/server-name.png)
+
+3. Select **Set server firewall** on the toolbar. The **Firewall settings** page for the database server opens.
+
+   ![server-level IP firewall rule](./media/sql-database-get-started-portal/server-firewall-rule.png)
+
+4. Choose **Add client IP** on the toolbar to add your virtual machine's public IP address to a new server-level IP firewall rule. A server-level IP firewall rule can open port 1433 for a single IP address or a range of IP addresses.
+
+5. Select **Save**. A server-level IP firewall rule is created for your virtual machine's public IP address opening port 1433 on the SQL Database server.
+
+6. Close the **Firewall settings** page.
+
 
 
 ## Export a database using SqlPackage
