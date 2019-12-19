@@ -117,7 +117,7 @@
     - name: Payment issues
       href: billing-troubleshoot-azure-payment-issues.md
     - name: Declined card
-      href: billing-troubleshoot-declined-card.md
+      href: troubleshoot-declined-card.md
     - name: Sign up issues
       href: troubleshoot-azure-sign-up.md
     - name: Subscription sign-in issues

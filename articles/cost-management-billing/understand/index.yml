@@ -92,4 +92,4 @@ landingContent:
     - linkListType: concept
       links:
       - text: Get started in the Azure EA portal
-        url: ./manage/ea-portal-get-started.md
+        url: ../manage/ea-portal-get-started.md

@@ -64,7 +64,7 @@ If it says **Not available** there are several reasons that you don't see usage 
 - It's less than 30 days from the day you subscribed to Azure.
 - There's no usage for the billing period.
 - An invoice isn't generated yet. Wait until the end of the billing period.
-- You don't have permission to view invoices. You might not see old invoices unless you're the Account Administrator. To learn more about getting access to billing information, see [Manage access to Azure billing using roles](manage-billing-access.md).
+- You don't have permission to view invoices. You might not see old invoices unless you're the Account Administrator. To learn more about getting access to billing information, see [Manage access to Azure billing using roles](..manage/manage-billing-access.md).
 - If you have a Free Trial or a monthly credit amount with your subscription that you didn't exceed, you won't get an invoice unless you have a Microsoft Customer Agreement.
 
 Next, you review the charges. Your invoice shows values for taxes and your usage charges.
@@ -153,7 +153,7 @@ If you set up a credit card as your payment method, the payment is charged autom
 
 To change the credit card that's charged, see [Add, update, or remove a credit card for Azure](../manage/change-credit-card.md).
 
-If you [pay by invoice](billing-how-to-pay-by-invoice.md), send your payment to the location listed at the bottom of your invoice.
+If you [pay by invoice](../manage/pay-by-invoice.md), send your payment to the location listed at the bottom of your invoice.
 
 To check the status of your payment, [create a support ticket](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
