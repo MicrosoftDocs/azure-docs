@@ -107,7 +107,7 @@ The API server endpoint has no public IP address. Consequently, you must create 
      a. Go to the MC_* resource group in the Azure portal.  
      b. Select the private DNS zone.   
      c. In the left pane, select the **Virtual network** link.  
-     d. Create a new link to add the virtual network of the VM to the private DNS zone. *(It takes a few minutes for the DNS zone link to become available.)*
+     d. Create a new link to add the virtual network of the VM to the private DNS zone. It takes a few minutes for the DNS zone link to become available.
 1. Access the VM via Secure Shell (SSH).
 1. Install the Kubectl tool, and run the Kubectl commands.
 
