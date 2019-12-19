@@ -6,13 +6,13 @@ ms.author: jeanb
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 06/21/2019
+ms.date: 12/19/2019
 ---
 # Troubleshoot Azure Stream Analytics by using diagnostics logs
 
 Occasionally, an Azure Stream Analytics job unexpectedly stops processing. It's important to be able to troubleshoot this kind of event. Failures can be caused by an unexpected query result, by connectivity to devices, or by an unexpected service outage. The diagnostics logs in Stream Analytics can help you identify the cause of issues when they occur and reduce recovery time.
 
-It is highly recommended to enable diagnostic logs for all production jobs.
+It is highly recommended to enable diagnostic logs for all jobs as this will greatly help with debugging and monitoring.
 
 ## Log types
 
