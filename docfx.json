@@ -195,6 +195,47 @@
       }
     },
     "fileMetadata": {
+<<<<<<< HEAD
+=======
+      "author": {
+        "articles/connectors/*.md": "ecfan",
+        "articles/logic-apps/*.md": "ecfan",
+        "articles/governance/*.md": "DCtheGeek",
+        "articles/governance/blueprints/**/*.md": "DCtheGeek",
+        "articles/governance/policy/**/*.md": "DCtheGeek",
+        "articles/governance/management-groups/**/*.md": "rthorn17",
+        "articles/governance/resource-graph/**/*.md": "DCtheGeek",
+        "articles/azure-functions/**/*.md": "ggailey777",
+        "articles/azure-monitor/insights/container-insights*.md": "mgoedtel",
+        "articles/app-service/*.md": "cephalin",
+        "articles/app-service/containers/*.md": "cephalin",
+        "articles/app-service/scripts/*.md": "cephalin",
+        "articles/app-service/environment/*.md": "ccompy",
+        "articles/app-service-mobile/**/*.md": "elamalani",
+        "articles/ansible/**/*.md": "TomArcherMsft",
+        "articles/automation/**/*.md": "mgoedtel",
+        "articles/backup/**/*.md": "dcurwin",
+        "articles/blockchain/**/*.md": "PatAltimore",
+        "articles/chef/**/*.md": "TomArcherMsft",
+        "articles/container-instances/**/*.md": "dlepow",
+        "articles/container-registry/**/*.md": "dlepow",
+        "articles/jenkins/**/*.md": "TomArcherMsft",
+        "articles/terraform/**/*.md": "TomArcherMsft",
+        "articles/lighthouse/**/*.md": "JnHs",
+        "articles/azure-resource-manager/**/*.md": "tfitzmac",
+        "articles/dev-spaces/**/*.md": "zr-msft",
+        "articles/site-recovery/*.md": "rayne-wiselman",
+        "articles/migrate/*.md": "rayne-wiselman",
+        "articles/virtual-machines/linux/*.md": "cynthn",
+        "articles/virtual-machines/windows/*.md": "cynthn",
+        "articles/virtual-machines/*.md": "cynthn",
+        "articles/virtual-machines-scale-sets/*.md": "ju-shim",
+        "articles/batch/*.md": "ju-shim",
+        "articles/service-fabric/*.md": "athinanthny",
+        "articles/service-fabric-mesh/*.md": "athinanthny",
+        "articles/notebooks/*.md": "kraigb"
+      },
+>>>>>>> 58ec7a394c9346b4217993b5606bbc203ddf35c1
       "feedback_system": {
         "articles/virtual-machines/windows/classic/**/*": "None",
         "articles/virtual-machines/linux/classic/**/*": "None",
@@ -457,6 +498,7 @@
         "articles/virtual-machines/*.md": "cynthn",
         "articles/virtual-machines-scale-sets/*.md": "jushiman",
         "articles/batch/*.md": "jushiman",
+<<<<<<< HEAD
         "articles/notebooks/*.md": "kraigb",
         "articles/servcie-health/*.md": "stbaron"  
       },
@@ -474,6 +516,11 @@
         "articles/virtual-machines/**/*.md": "gwallace",
         "articles/virtual-machine-scale-sets/**/*.md": "gwallace",
         "articles/notebooks/*.md": "barbkess"
+=======
+        "articles/service-fabric/*.md": "atsenthi",
+        "articles/service-fabric-mesh/*md": "atsenthi",
+        "articles/notebooks/*.md": "kraigb"
+>>>>>>> 58ec7a394c9346b4217993b5606bbc203ddf35c1
       },
       "ms.service": {
         "articles/connectors/*.md": "logic-apps",
@@ -483,6 +530,7 @@
         "articles/governance/policy/**/*.md": "azure-policy",
         "articles/governance/management-groups/**/*.md": "governance",
         "articles/governance/resource-graph/**/*.md": "resource-graph",
+        "articles/advisor/**/*.md": "advisor",
         "articles/azure-functions/**/*.md": "azure-functions",
         "articles/azure-monitor/**/*.md": "azure-monitor",
         "articles/app-service/**/*.md": "app-service",
@@ -504,8 +552,9 @@
         "articles/dev-spaces/**/*.md": "azure-dev-spaces",
         "articles/site-recovery/*.md": "site-recovery",
         "articles/migrate/*.md": "azure-migrate",
-        "articles/notebooks/*.md": "azure-notebooks"
-
+        "articles/notebooks/*.md": "azure-notebooks",
+        "articles/service-fabric/*.md": "service-fabric",
+        "articles/service-fabric-mesh/*.md": "service-fabric-mesh"
       },
       "ms.subservice": {
         "articles/industry/agriculture/**/*.md": "agriculture",
@@ -598,8 +647,13 @@
         "articles/batch/*.yml": "Azure Batch",
         "articles/app-service-mobile/**/*.md": "Azure Mobile Apps",
         "articles/app-service-mobile/**/*.yml": "Azure Mobile Apps",
+<<<<<<< HEAD
         "articles/azure-monitor/**/*.yml" : "Azure Monitor",
         "articles/azure-monitor/**/*.md" : "Azure Monitor"
+=======
+        "articles/service-fabric/*.md": "Azure Service Fabric",
+        "articles/service-fabric-mesh/*.md": "Azure Service Fabric Mesh"
+>>>>>>> 58ec7a394c9346b4217993b5606bbc203ddf35c1
       },
       "featureFlags": {
         "articles/**/*.md": [

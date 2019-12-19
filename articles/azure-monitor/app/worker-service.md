@@ -1,12 +1,12 @@
 ---
-title: Application Insights for Worker Service apps (non-HTTP apps) | Microsoft Docs
-description: Monitoring .NET Core/.NET Framework non-HTTP apps with Application Insights.
+title: Application Insights for Worker Service apps (non-HTTP apps)
+description: Monitoring .NET Core/.NET Framework non-HTTP apps with Azure Monitor Application Insights.
 ms.service:  azure-monitor
 ms.subservice: application-insights
 ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 09/15/2019
+ms.date: 12/16/2019
 
 ---
 
@@ -248,7 +248,8 @@ Full example is shared [here](https://github.com/microsoft/ApplicationInsights-H
                 IServiceCollection services = new ServiceCollection();
 
                 // Being a regular console app, there is no appsettings.json or configuration providers enabled by default.
-                // Hence instrumentation key must be specified here.
+                // Hence instrumentation key and any changes to default logging level must be specified here.
+                services.AddLogging(loggingBuilder => loggingBuilder.AddFilter<Microsoft.Extensions.Logging.ApplicationInsights.ApplicationInsightsLoggerProvider>("Category", LogLevel.Information));
                 services.AddApplicationInsightsTelemetryWorkerService("instrumentationkeyhere");
 
                 // Build ServiceProvider.

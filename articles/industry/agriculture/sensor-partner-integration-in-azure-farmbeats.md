@@ -145,8 +145,8 @@ FarmBeats Datahub has the following APIs that enable device partners to create a
 
   **DeviceModel** |  |
   --- | ---
-  Type (node, gateway)  | 1 Star |
-  Manufacturer  | 2 Star |
+  Type (node, gateway)  | Type of the device - Node or Gateway |
+  Manufacturer  | Name of the manufacturer |
   ProductCode  | Device product code or model name or number. For example, EnviroMonitor#6800. |
   Ports  | Port name and type, which is digital or analog.  |
   Name  | Name to identify resource. For example, model name or product name. |
@@ -247,11 +247,11 @@ The canonical message format is as follows:
       "sensordata": [
         {
           "timestamp": "< timestamp in ISO 8601 format >",
-          "<sensor measure name (as defined in the Sensor Model)>": "<value>"
+          "<sensor measure name (as defined in the Sensor Model)>": <value>
         },
         {
           "timestamp": "<timestamp in ISO 8601 format>",
-          "<sensor measure name (as defined in the Sensor Model)>": "<value>"
+          "<sensor measure name (as defined in the Sensor Model)>": <value>
         }
       ]
     }
