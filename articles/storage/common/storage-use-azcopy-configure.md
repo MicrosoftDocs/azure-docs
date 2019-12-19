@@ -56,14 +56,16 @@ Use the following command to run a performance benchmark test.
 
 This command runs a performance benchmark by uploading test data to a specified destination. The test data is generated in memory, uploaded to the destination, then deleted from the destination after the test is complete. You can specify how many files to generate and what size you'd like them to be by using optional command parameters.
 
+For detailed reference docs, see [azcopy bench](storage-ref-azcopy-bench.md).
+
 To view detailed help guidance for this command, type `azcopy bench -h` and then press the ENTER key.
 
 ### Optimize throughput
 
-You can use the `cap-mbps` flag to place a ceiling on the throughput data rate. For example, the following command caps throughput to `10` megabits (MB) per second.
+You can use the `cap-mbps` flag in your commands to place a ceiling on the throughput data rate. For example, the following command resumes a job and caps throughput to `10` megabits (MB) per second. 
 
 ```azcopy
-azcopy --cap-mbps 10
+azcopy jobs resume <job-id> --cap-mbps 10
 ```
 
 Throughput can decrease when transferring small files. You can you can increase throughput by setting the `AZCOPY_CONCURRENCY_VALUE` environment variable. This variable specifies the number of concurrent requests that can occur.  
