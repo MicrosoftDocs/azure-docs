@@ -55,9 +55,11 @@ az backup vault backup-properties set \
 
 To see if your vault was successfully created, use the [az backup vault list](https://docs.microsoft.com/cli/azure/backup/vault?view=azure-cli-latest#az-backup-vault-list) cmdlet. You'll see the following response:
 
->Location  |    Name       |     ResourceGroup
->---------- | --------------- | -----------------  
->westus2   |   saphanaVault  |   saphanaResourceGroup
+```output
+Location   Name             ResourceGroup
+---------  ---------------  -------------  
+westus2    saphanaVault     saphanaResourceGroup
+```
 
 ## Register and protect the SAP HANA instance
 
