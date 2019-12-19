@@ -114,7 +114,7 @@ To understand privacy and data management, go to the [Trust Center](https://serv
 
 ## Support
 
-Cognitive Services provide several [support options](cognitive-services-support-options).
+Cognitive Services provide several [support options](cognitive-services-support-options.md).
 
 ## Next steps
 
