@@ -356,6 +356,8 @@
         href: sql-database-design-first-database-csharp.md
     - name: Load and move data
       items:
+      - name: Import or export from an SQL VM
+        href: import-export-from-vm.md
       - name: Import a database from a BACPAC file
         href: sql-database-import.md
       - name: Export a database to a BACPAC file
