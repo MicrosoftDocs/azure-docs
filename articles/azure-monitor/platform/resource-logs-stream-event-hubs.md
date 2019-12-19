@@ -129,7 +129,8 @@ Following is sample output data from Event Hubs for a resource log:
 
 ## Next steps
 
+* [Read more about resource logs](resource-logs-overview.md).
+* [Create diagnostic setting to collect logs and metrics in Azure](diagnostic-settings.md).
 * [Stream Azure Active Directory logs with Azure Monitor](../../active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md).
-* [Read more about Azure resource logs](resource-logs-overview.md).
 * [Get started with Event Hubs](../../event-hubs/event-hubs-dotnet-standard-getstarted-send.md).
 

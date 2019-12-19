@@ -58,7 +58,7 @@ Within the PT1H.json file, each event is stored with the following format. This 
 
 ## Next steps
 
+* [Read more about resource logs](resource-logs-overview.md).
+* [Create diagnostic setting to collect logs and metrics in Azure](diagnostic-settings.md).
 * [Download blobs for analysis](../../storage/blobs/storage-quickstart-blobs-dotnet.md).
 * [Archive Azure Active Directory logs with Azure Monitor](../../active-directory/reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account.md).
-* [Read more about resource logs](../../azure-monitor/platform/resource-logs-overview.md).
-
