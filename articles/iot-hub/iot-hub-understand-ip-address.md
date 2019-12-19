@@ -34,7 +34,7 @@ The IP address prefixes of IoT Hub public endpoints are published periodically u
 
 * IoT Hub IP filter feature has a limit of 10 rules. This limit and can be raised via requests through Azure Customer Support. 
 
-* IP filtering rules are only enforced on your IoT Hub endpoint and not your hub's built-in Event Hub. If you intend to enforce IP filtering on the event hub as well, you may do so only by provisioning your own event hub and setting up message routing to send your messages to that resource. In this case, your messages will no longer be stored in your IoT Hub's built-in Event Hub and you may configure your desired IP filtering rules on your provisioned event hub resource directly. Finally, as discussed in the table above, to enable routing messages ensure that you also allow connectivity from IoT Hub's IP address prefixes to your provisioned event hub resource.
+* IP filtering rules are only enforced on your IoT Hub endpoint and not your hub's built-in Event Hub. If you intend to enforce IP filtering on the event hub as well, you may do so only by provisioning your own event hub and setting up message routing to send your messages to that resource. In this case, your messages will no longer be stored in your IoT Hub's built-in Event Hub and you may configure your desired IP filtering rules on your provisioned event hub resource directly. Finally, as discussed in the table above, to enable message routing functionality you also need to allow connectivity from IoT Hub's IP address prefixes to your provisioned event hub resource.
 
 * When routing to a storage account, allowing traffic from IoT Hub's IP address prefixes is only possible when the storage account is in a different region as your IoT Hub.
 
