@@ -18,7 +18,7 @@ ms.author: timothy.basham
 
 ### Azure Windows VM restart is stuck on "Restarting", “Shutting Down”, or “Stopping services”
 
-This article describes the "Restarting", “Shutting Down”, or “Stopping services” messages that you may encounter when you reboot a Windows virtual machine (VM) in Microsoft Azure, and provides steps to resolve the issue.
+This article provides steps to resolve the issues of "Restarting", “Shutting Down”, or “Stopping services” messages that you may encounter when you reboot a Windows virtual machine (VM) in Microsoft Azure.
 
 ## Symptoms
 
@@ -28,13 +28,13 @@ When you use [Boot diagnostics](https://docs.microsoft.com/azure/virtual-machine
  
 ## Cause
 
-Windows uses the shutdown process to perform system maintenance operations and process changes such as updates, roles, and features. This process is critical and should not be interrupted until it completes, if the process is stopped, it is very likely that the OS will become corrupt. To determine the cause a memory dump will need to be collected and analyzed.
+Windows uses the shutdown process to perform system maintenance operations, and process changes such as updates, roles, and features. Don't interrupt this critical process until it completes. If the process is stopped, it the OS will likely become corrupt. To determine the cause, a memory dump must be collected and analyzed.
 
 ## Solution
 
 ### Collect a Process memory dump
 
-1. Download [Procdump tool](http://download.sysinternals.com/files/Procdump.zip) into a new or existing data disk which is attached to a working VM from the same region.
+1. Download [Procdump tool](http://download.sysinternals.com/files/Procdump.zip) into a new or existing data disk, which is attached to a working VM from the same region.
 
 2. Detach the disk containing the files needed from the working VM and attach the disk to your broken VM. We are calling this disk the **Utility disk**.
 
@@ -70,7 +70,7 @@ Once the OS starts again, if it boots normally, then just ensure the OS consiste
 dism /online /cleanup-image /restorehealth
 ``
 
-If you are unable to collect a process memory dump or  this is a recurring issue and you require a root cause analysis, proceed with collecting an OS memory dump below, the proceed to open a support request.
+If you are unable to collect a process memory dump, or this issue is recursive and you require a root cause analysis, proceed with collecting an OS memory dump below, the proceed to open a support request.
 
 ### Collect an OS memory dump
 
@@ -128,7 +128,7 @@ To enable dump log and Serial Console, run the following script.
 
 3. Verify that there's enough space on the disk to allocate as much memory as the RAM, which depends on the size that you are selecting for this VM.
 
-4. If there's not enough space or this is a large size VM (G, GS or E series), you could then change the location where this file will be created and refer that to any other data disk which is attached to the VM. To do this, you will need to change the following key:
+4. If there's not enough space or the VM is large (G, GS or E series), you could change the location where this file will be created and refer that to any other data disk, which is attached to the VM. To change the location, you must change the following key:
 
    ```
    reg load HKLM\BROKENSYSTEM F:\windows\system32\config\SYSTEM.hiv
@@ -139,7 +139,7 @@ To enable dump log and Serial Console, run the following script.
    reg unload HKLM\BROKENSYSTEM
    ```
 
-5. [Detach the OS disk and then Re-attach the OS disk to the affected VM](https://docs.microsoft.com/azure/virtual-machines/windows/troubleshoot-recovery-disks-portal).
+5. [Detach the OS disk and then reattach the OS disk to the affected VM](https://docs.microsoft.com/azure/virtual-machines/windows/troubleshoot-recovery-disks-portal).
 
 6. Start the VM and access the Serial Console.
 
