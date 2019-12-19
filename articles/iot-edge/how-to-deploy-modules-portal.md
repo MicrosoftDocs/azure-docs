@@ -1,5 +1,5 @@
 ---
-title: Deploy IoT Edge modules from Azure portal - Azure IoT Edge 
+title: Deploy modules from Azure portal - Azure IoT Edge 
 description: Use the Azure portal to create IoT Edge modules and push them to your IoT Edge devices from your Azure IoT hub, as configured by a deployment manifest.
 author: kgremban
 manager: philmea
