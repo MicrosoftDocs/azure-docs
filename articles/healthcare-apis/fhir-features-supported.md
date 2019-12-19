@@ -103,7 +103,7 @@ All search parameter types are supported. Chained parameters and reverse chainin
 
 The Microsoft FHIR Server has a pluggable persistence module (see [`Microsoft.Health.Fhir.Core.Features.Persistence`](https://github.com/Microsoft/fhir-server/tree/master/src/Microsoft.Health.Fhir.Core/Features/Persistence)).
 
-Currently the FHIR Server open source code includes an implementation for [Azure Cosmos DB](../cosmos-db/index-overview.md) and [SQL Database](https://azure.microsoft.com/en-us/services/sql-database/).
+Currently the FHIR Server open source code includes an implementation for [Azure Cosmos DB](../cosmos-db/index-overview.md) and [SQL Database](https://azure.microsoft.com/services/sql-database/).
 
 Cosmos DB is a globally distributed multi-model (SQL API, MongoDB API, etc.) database. It supports different [consistency levels](../cosmos-db/consistency-levels.md). The default deployment template configures the FHIR Server with `Strong` consistency, but the consistency policy can be modified (generally relaxed) on a request by request basis using the `x-ms-consistency-level` request header.
 
