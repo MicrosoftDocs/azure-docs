@@ -4,7 +4,7 @@ description: Links to additional information about Avere vFXT for Azure
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 01/09/2019
+ms.date: 12/19/2019
 ms.author: rohogue
 ---
 
@@ -28,4 +28,4 @@ Additional Avere cluster documentation can be found on the website at <https://a
 
 ## vFXT creation and management documentation
 
-A full guide for using vfxt.py, the cloud cluster creation and management utility, is provided on GitHub: [Cloud cluster management with vfxt.py](https://github.com/Azure/AvereSDK/blob/master/docs/README.md).
+A full guide for using vfxt.py, a script-based cloud cluster creation and management utility, is provided on GitHub: [Cloud cluster management with vfxt.py](https://github.com/Azure/AvereSDK/blob/master/docs/README.md).

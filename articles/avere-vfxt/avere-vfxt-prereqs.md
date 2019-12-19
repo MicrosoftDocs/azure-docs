@@ -49,6 +49,7 @@ You must have sufficient quota for the following Azure components. If needed, [r
 |Premium SSD storage|200 GB OS space plus 1 TB to 4 TB cache space per node |
 |Storage account (optional) |v2|
 |Data backend storage (optional) |One new LRS Blob container |
+<!-- this table also appears in the overview - update it there if updating here -->
 
 ## Accept software terms
 

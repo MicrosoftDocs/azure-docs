@@ -5,12 +5,12 @@ ms.service: avere-vfxt
 author: ekpgh
 ms.author: rohogue
 ms.topic: conceptual
-ms.date: 02/13/2019
+ms.date: 12/19/2019
 ---
 
 # Azure vFTX for Azure whitepapers and other resources
 
-The resources in this table include case studies, technology whitepapers, infographics, and other articles that can help you understand how Avere vFXT for Azure fits into your workflow.
+This article lists case studies, technology whitepapers, infographics, and other resources that can help you understand how Avere vFXT for Azure fits into your workflow.
 
 ## Deploy Agisoft PhotoScan on Azure
 
