@@ -38,7 +38,7 @@ Azure Cognitive Services are APIs, SDKs, and services available to help develope
 |[Translator Speech](https://docs.microsoft.com/azure/cognitive-services/translator-speech/ "Translator Speech") (Retiring)|Translator Speech is a machine translation service.|
 
 > [!NOTE]
-> Looking for [Azure Cognitive Search]( https://docs.microsoft.com/ azure/search/)? Although it uses Cognitive Services for some tasks, it’s a different search technology that supports other scenarios.
+> Looking for [Azure Cognitive Search](https://docs.microsoft.com/azure/search/)? Although it uses Cognitive Services for some tasks, it’s a different search technology that supports other scenarios.
 
 
 ## Language APIs
