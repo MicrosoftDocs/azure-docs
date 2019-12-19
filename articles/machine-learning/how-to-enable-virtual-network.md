@@ -341,7 +341,7 @@ To add AKS in a virtual network to your workspace, do the following:
 
    [![An inbound security rule](./media/how-to-enable-virtual-network/aks-vnet-inbound-nsg-scoring.png)](./media/how-to-enable-virtual-network/aks-vnet-inbound-nsg-scoring.png#lightbox)
 
-You can also use the Azure Machine Learning SDK to add Azure Kubernetes Service in a virtual network. If you already have an AKS cluster in a virtual network, attach it to the workspace as described in [How to deploy to AKS](how-to-deploy-to-aks.md). The following code creates a new AKS instance in the `default` subnet of a virtual network named `mynetwork`:
+You can also use the Azure Machine Learning SDK to add Azure Kubernetes Service in a virtual network. If you already have an AKS cluster in a virtual network, attach it to the workspace as described in [How to deploy to AKS](how-to-deploy-and-where.md). The following code creates a new AKS instance in the `default` subnet of a virtual network named `mynetwork`:
 
 ```python
 from azureml.core.compute import ComputeTarget, AksCompute
@@ -361,7 +361,7 @@ aks_target = ComputeTarget.create(workspace=ws,
                                   provisioning_configuration=config)
 ```
 
-When the creation process is completed, you can run inference, or model scoring, on an AKS cluster behind a virtual network. For more information, see [How to deploy to AKS](how-to-deploy-to-aks.md).
+When the creation process is completed, you can run inference, or model scoring, on an AKS cluster behind a virtual network. For more information, see [How to deploy to AKS](how-to-deploy-and-where.md).
 
 ## Use Azure Firewall
 
