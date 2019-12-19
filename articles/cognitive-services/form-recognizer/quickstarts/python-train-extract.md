@@ -45,6 +45,7 @@ To train a Form Recognizer model with the documents in your Azure blob container
 1. Replace `<SAS URL>` with the Azure Blob storage container's shared access signature (SAS) URL. To retrieve the SAS URL, open the Microsoft Azure Storage Explorer, right-click your container, and select **Get shared access signature**. Make sure the **Read** and **List** permissions are checked, and click **Create**. Then copy the value in the **URL** section. It should have the form: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
 1. Replace `<subscription key>` with the subscription key you copied from the previous step.
 1. Replace `<endpoint>` with the endpoint URL for your Form Recognizer resource.
+1. Replace `<Blob folder name>` with the path to the folder in blob storage where your forms are located. If your forms are at the root of your container, leave this string empty.
 
     ```python
     ########### Python Form Recognizer Labeled Async Train #############
