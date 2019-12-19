@@ -11,15 +11,15 @@ This Microsoft FAQ is a list of commonly asked questions about Azure Monitor for
 
 ## I don't see Image and Name property values populated when I query the ContainerLog table.
 
-Starting with agent version ciprod12042019 and later, by default these two properties are not populated for every log line to minimize cost incurred on log data collected. There are two options to query the table that include these properties with their values:
+For agent version ciprod12042019 and later, by default these two properties are not populated for every log line to minimize cost incurred on log data collected. There are two options to query the table that include these properties with their values:
 
-### Option-1 
+### Option 1 
 
 Join other tables to include these property values in the results.
 
 Modify your queries to include Image and ImageTag properties from the ```ContainerInventory``` table by joining on ContainerID property. You can include the Name property (as it previously appeared in the ```ContainerLog``` table) from KubepodInventory table's ContaineName field by joining on the ContainerID property.This is the recommended option.
 
-The following example is a sample detailed query that explains how to get these field values with joins
+The following example is a sample detailed query that explains how to get these field values with joins.
 
 ```
 //lets say we are querying an hour worth of logs
@@ -41,11 +41,11 @@ ContainerLog
 
 ```
 
-### Option-2
+### Option 2
 
 Re-enable collection for these properties for every container log line.
 
-If the first option is not convenient due to query changes involved, you can re-enable collecting these fields by enabling the setting ```log_collection_settings.enrich_container_logs``` in the agent config map as described in the data collection configuration settings [here](./container-insights-agent-config.md)
+If the first option is not convenient due to query changes involved, you can re-enable collecting these fields by enabling the setting ```log_collection_settings.enrich_container_logs``` in the agent config map as described in the [data collection configuration settings](./container-insights-agent-config.md).
 
 > [!NOTE]
 > The second option is not recommend with large clusters that have more than 50 nodes, as it generates API server calls from every node > in the cluster to perform this enrichment. This option also increases data size for every log line collected.
