@@ -846,7 +846,7 @@ This release provides Spark 2.3.0 and the following Apache patches:
 
 -   [SPARK-23434](https://issues.apache.org/jira/browse/SPARK-23434): Spark should not warn \`metadata directory\` for a HDFS file path.
 
--   [SPARK-23436](https://issues.apache.org/jira/browse/SPARK-23436): Infer partition as Date only if it can be casted to Date.
+-   [SPARK-23436](https://issues.apache.org/jira/browse/SPARK-23436): Infer partition as Date only if it can be cast to Date.
 
 -   [SPARK-23457](https://issues.apache.org/jira/browse/SPARK-23457): Register task completion listeners first in ParquetFileFormat.
 
