@@ -16,7 +16,7 @@ ms.date: 12/16/2019
  
 The following error codes could be returned by an operation on an Azure Key Vault web service.
  
-## Unauthenticated Request (HTTP 401)
+## HTTP 401: Unauthenticated Request
 
 401 means that the request is unauthenticated for Key Vault. 
 
@@ -92,18 +92,18 @@ Ensure the rest of the request is nearly identical.
 
 If you can only get the response access token, you can decode it (as shown above) to ensure the tenant id, the client id (app id), and the resource.
 
-## HTTP 403
+## HTTP 403: Insufficient Permissions
 
 HTTP 403 means that the request was authenticated (it knows the requesting identity) but the identity does not have permission to access the requested resource. There are two reasons for this:
 
-- There is not access policy for the identity
-- The IP address of the requesting resource is not whitelisted in the Key Vault's firewall settings.
+- There is no access policy for the identity.
+- The IP address of the requesting resource is not whitelisted in the key vault's firewall settings.
 
 HTTP 403 often occurs when the customer's application is not using the client id that the customer thinks it is. That usually means that the access policies is not correctly set up for the actual calling identity.
 
 ### Troubleshooting 403
 
-The number one step to quickly troubleshooting 403 is to turn the customer's logging on; for instructions on how to do so, see [Azure Key Vault logging](key-vault-logging.md).
+First, turn on logging. For instructions on how to do so, see [Azure Key Vault logging](key-vault-logging.md).
 
 Once logging is turned on, you can determine if the 403 is due to access policy or firewall policy.
 
@@ -111,7 +111,7 @@ Once logging is turned on, you can determine if the 403 is due to access policy 
 
 "Client address (00.00.00.00) is not authorized and caller is not a trusted service"
 
-There is a limited list of "Azure Trusted Services". Azure Web Sites are \*not\* a Trusted Azure Service. For more information, see the blog post [Key Vault Firewall access by Azure App Services](https://azidentity.azurewebsites.net/post/2019/01/03/key-vault-firewall-access-by-azure-app-services).
+There is a limited list of "Azure Trusted Services". Azure Web Sites are **not** a Trusted Azure Service. For more information, see the blog post [Key Vault Firewall access by Azure App Services](https://azidentity.azurewebsites.net/post/2019/01/03/key-vault-firewall-access-by-azure-app-services).
 
 You must add the IP address of the Azure Web Site to the Key Vault in order for it to work.
 
