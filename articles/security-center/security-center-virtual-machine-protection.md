@@ -16,11 +16,12 @@ ms.author: memildin
 
 ---
 # Protect your machines and applications
-When Security Center identifies potential security vulnerabilities, it creates recommendations that guide you through the process of configuring the necessary controls. 
+When Azure Security Center identifies potential security vulnerabilities, it creates recommendations that guide you through the process of configuring the needed controls to harden and protect your resources.
 
-This article explains the **Compute and apps** page of the Azure Security Center's resource security section. It also describes some of the recommendations you'll see there.
+This article explains the **Compute and Apps** page of Security Center's resource security section.
 
-For a full list of the recommendations for Compute and App services, see [Compute and App recommendations](recommendations-compute-and-apps.md).
+For a full list of the recommendations you might see on this page, see [Data and Storage recommendations](recommendations-reference.md#recs-computeapp).
+
 
 ## View the security of your compute and apps resources
 
@@ -136,6 +137,7 @@ If you want to set all existing scale sets to install the Microsoft Monitoring A
 ## Next steps
 To learn more about recommendations that apply to other Azure resource types, see the following articles:
 
+* [Full reference list of Azure Security Center's security recommendations](recommendations-reference.md)
 * [Monitor identity and access in Azure Security Center](security-center-identity-access.md)
 * [Protecting your network in Azure Security Center](security-center-network-recommendations.md)
 * [Protecting your Azure SQL service in Azure Security Center](security-center-sql-service-recommendations.md)

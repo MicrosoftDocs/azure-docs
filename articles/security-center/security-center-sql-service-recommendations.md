@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/19/2019
+ms.date: 12/19/2019
 ms.author: memildin
 ---
 
-# Protect Azure data and storage services in Azure Security Center
-When Security Center identifies potential security vulnerabilities, it creates recommendations that guide you through the process of configuring the needed controls to harden and protect your resources.
+# Protect Azure data and storage services
+When Azure Security Center identifies potential security vulnerabilities, it creates recommendations that guide you through the process of configuring the needed controls to harden and protect your resources.
 
-This article explains the Data Security page of the resource security section of Azure Security Center and some of the recommendations you'll see there.
+This article explains the **Data Security page** of the resource security section of Security Center.
 
 For a full list of the recommendations you might see on this page, see [Data and Storage recommendations](recommendations-reference.md#recs-datastorage).
 
@@ -63,5 +63,6 @@ For a full list of the recommendations you might see on this page, see [Data and
 
 To learn more about recommendations that apply to other Azure resource types, see the following topics:
 
+* [Full reference list of Azure Security Center's security recommendations](recommendations-reference.md)
 * [Protecting your machines and applications in Azure Security Center](security-center-virtual-machine-protection.md)
 * [Protecting your network in Azure Security Center](security-center-network-recommendations.md)

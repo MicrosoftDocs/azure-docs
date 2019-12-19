@@ -18,9 +18,9 @@ ms.author: memildin
 # Protect your network resources
 Azure Security Center continuously analyzes the security state of your Azure resources for network security best practices. When Security Center identifies potential security vulnerabilities, it creates recommendations that guide you through the process of configuring the needed controls to harden and protect your resources.
 
-This article explains the **Networking** page of the resource security section of Azure Security Center and some of the recommendations you'll see there.
+This article explains the **Networking** page of the resource security section of Security Center.
 
-For a full list of the recommendations for Networking, see [Networking recommendations](recommendations-network.md).
+For a full list of the recommendations for Networking, see [Networking recommendations](recommendations-reference.md#recs-network).
 
 This article addresses recommendations that apply to your Azure resources from a network security perspective. Networking recommendations center around next generation firewalls, Network Security Groups, JIT VM access, overly permissive inbound traffic rules, and more. For a list of networking recommendations and remediation actions, see [Managing security recommendations in Azure Security Center](security-center-recommendations.md).
 
@@ -130,7 +130,8 @@ In this topology view, the first level displays Vnets. The second displays subne
 
 The third level displays virtual machines, which is similar to what is described previously. You can click any resource to learn more or apply the required security control or configuration.
 
-## See also
+## Next steps
+
 To learn more about recommendations that apply to other Azure resource types, see the following:
 
 * [Protecting your machines and applications in Azure Security Center](security-center-virtual-machine-protection.md)
