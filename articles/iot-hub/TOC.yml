@@ -370,7 +370,6 @@
               href: iot-hub-monitoring-notifications-with-azure-logic-apps.md
     - name: Troubleshoot
       items:
-<<<<<<< HEAD
       - name: Manage cloud device messaging with Azure IoT Tools for VS Code
         href: iot-hub-vscode-iot-toolkit-cloud-device-messaging.md
       - name: Manage cloud device messaging with Cloud Explorer for Visual Studio
@@ -423,10 +422,6 @@
         href: iot-hub-troubleshoot-error-no-code-unauthorized.md
     - name: Device disconnections TO BE REMOVED
       href: iot-hub-troubleshoot-connectivity.md
-=======
-        - name: Device disconnections
-          href: iot-hub-troubleshoot-connectivity.md
->>>>>>> b05ee0f3b39ee463a9e28596cabe5be618ea7380
 - name: Reference
   items:
     - name: Azure CLI
