@@ -170,6 +170,10 @@ Main capabilities of the SDK include:
 
 See the [package website](https://azure.github.io/azureml-sdk-for-r) for complete documentation.
 
+### Azure Machine Learning integration with Event Grid 
+
+Azure Machine Learning is now a resource provider for Event Grid, you can configure machine learning events through the Azure portal or Azure CLI. Users can create events for run completion, model registration, model deployment and data drift detected. These events can be routed to event handlers supported by Event Grid for consumption. See machine learning event [schema](https://docs.microsoft.com/azure/event-grid/event-schema-machine-learning), [concepts](https://docs.microsoft.com/azure/machine-learning/service/concept-event-grid-integration) and [tutorial](https://docs.microsoft.com/azure/machine-learning/service/how-to-use-event-grid) articles for more details.
+
 ## 2019-10-31
 
 ### Azure Machine Learning SDK for Python v1.0.72

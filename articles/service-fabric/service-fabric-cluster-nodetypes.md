@@ -1,21 +1,10 @@
 ---
-title: Azure Service Fabric node types and virtual machine scale sets | Microsoft Docs
+title: Azure Service Fabric node types and virtual machine scale sets 
 description: Learn how Azure Service Fabric node types relate to virtual machine scale sets, and how to remotely connect to a scale set instance or cluster node.
-services: service-fabric
-documentationcenter: .net
-author: ChackDan
-manager: chackdan
-editor: ''
 
-ms.assetid: 5441e7e0-d842-4398-b060-8c9d34b07c48
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 03/23/2018
 ms.author: pepogors
-
 ---
 # Azure Service Fabric node types and virtual machine scale sets
 [Virtual machine scale sets](/azure/virtual-machine-scale-sets) are an Azure compute resource. You can use scale sets to deploy and manage a collection of virtual machines as a set. Each node type that you define in an Azure Service Fabric cluster sets up a separate scale.  The Service Fabric runtime installed on each virtual machine in the scale set by the Microsoft.Azure.ServiceFabric Virtual Machine extension. You can independently scale each node type up or down, change the OS SKU running on each cluster node, have different sets of ports open, and use different capacity metrics.

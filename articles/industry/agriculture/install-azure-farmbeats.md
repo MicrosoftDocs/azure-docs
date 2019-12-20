@@ -126,6 +126,9 @@ In this case, request your IT administrator to follow the below steps to automat
 
 Once your IT administrator provides you with the required details, make a note of the **AAD Client ID, AAD Client Secret, Datahub website name & Accelerator website name**.
 
+   > [!NOTE]
+   > If you are following instructions from Case 2, do not forget to add the AAD Client ID & AAD Client Secret as separate parameters in the [Parameters file](#prepare-parameters-file)
+
 Now, you have all the information required to proceed to the next section.
 
 ### Complete Azure Marketplace sign-up
