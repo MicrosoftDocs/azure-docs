@@ -8,12 +8,12 @@ ms.date: 12/12/2019
 ms.author: rogarana
 ---
 
-# Enable Azure Active Directory over SMB
+# Enable active directory over SMB for Azure Files
 
 Azure Files supports identity-based authentication over Server Message Block (SMB) through two types of Domain Services: Azure Active Directory Domain Services (Azure AD DS) (GA) and Active Directory (AD) (preview). This article focuses on the newly introduced preview support of leveraging Active Directory Domain Service for authentication to Azure Files. If you are interested in enabling Azure Active Directory Domain Service (Azure AD DS) authentication for Azure Files, please see [Enable Azure Active Directory Domain Services authentication over SMB for Azure Files](storage-files-active-directory-enable.md). 
 
 > [!NOTE]
-> Azure Files only supports authentication against one domain service, either Azure Active Directory Domain Service (Azure AD DS) or Active Directory Domain Service (AD DS). 
+> Azure Files only supports authentication against one domain service, either Azure Active Directory Domain Service (Azure AD DS) or Active Directory (AD). 
 >
 > AD identities used for Azure Files authentication must be synced to Azure AD. Password hash synchronization (PSH) is optional. 
 > 
@@ -161,10 +161,9 @@ You've now successfully enabled the feature on your storage account. Even though
 
 If you register the AD account that represent the storage account under an OU that enforces password expiration, you must rotate the password before the maximum password age. Failing to update the password of the AD account will result in authentication failures to access Azure file shares.  
 
-To trigger password rotation, you can run the PowerShell command Update-AzStorageAccountADCredential. The workflow is similar to storage account key rotation where you get the secondary Kerberos key of the storage account and use it to update the password of the registered account in AD. When completely, it will regenerate the primary Kerberos key on the storage account.  
+To trigger password rotation, you can run the `Update-AzStorageAccountADObjectPassword` command from the AzureFilesActiveDirectoryUtilities.psm1. The cmdlet performs actions similar to storage account key rotation. It gets the second kerberos key of the storage account and uses it to update the password of the registered account in AD. Then it regenerates the primary kerberos key on the storage account.
 
-PS: 
-
-Update-AzStorageAccountADCredential -ResourceGroupName "<resource-group-name>" -Name "<storage-account-name>" 
-
-## Next steps 
+```PowerShell
+#Update the password of the AD account registered for the storage account
+Update-AzStorageAccountADObjectPassword -RotateToKerbKey kerb2 -ResourceGroupName "your-resource-group-name-here" -StorageAccountName "your-storage-account-name-here"
+```
