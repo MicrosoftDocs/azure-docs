@@ -24,7 +24,7 @@ Unlike with a managed instance, migrating to an Azure VM does not require recert
 
 The rest of this article provides considerations for migrating your SQL Server instance to an Azure VM.
 
-For more information about end of support options, see [End of support](/sql/sql-server/end-of-support/sql-server-end-of-life-overview)
+For more information about end of support options, see [End of support](/sql/sql-server/end-of-support/sql-server-end-of-life-overview).
 
 ## Provisioning
 
@@ -87,4 +87,4 @@ Get answers to commonly asked questions about SQL Server VMs:
 
 Find out more about end of support options, and extended security updates:
 
-* [End of support](/sql/sql-server/end-of-support/sql-server-end-of-life-overview) & [Extended security updates]()
+* [End of support](/sql/sql-server/end-of-support/sql-server-end-of-life-overview) & [Extended Security Updates](/sql/sql-server/end-of-support/sql-server-extended-security-updates)
