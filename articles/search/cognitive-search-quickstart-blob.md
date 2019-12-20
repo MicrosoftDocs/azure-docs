@@ -135,7 +135,7 @@ After an index is created, you can run queries to return results. In the portal,
 
 1. Select **Change Index** at the top to select the index you created.
 
-1. Enter a search string to query the index, such as `search=Microsoft&searchFields=organizations&$select=people,organizations,locations,imageTags`.
+1. Enter a search string to query the index, such as `search=Microsoft&$select=people,organizations,locations,imageTags`.
 
 Results are returned as JSON, which can be verbose and hard to read, especially in large documents originating from Azure blobs. Some tips for searching in this tool include the following techniques:
 
