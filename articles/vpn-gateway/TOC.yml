@@ -227,7 +227,7 @@
         href: vpn-gateway-troubleshoot-site-to-site-cannot-connect.md
       - name: Site-to-Site connection disconnects intermittently
         href: vpn-gateway-troubleshoot-site-to-site-disconnected-intermittently.md
-  - name: Classic deployment model articles
+  - name: Classic deployment model articles 
     items:
     - name: Configure a Site-to-Site connection
       href: vpn-gateway-howto-site-to-site-classic-portal.md
