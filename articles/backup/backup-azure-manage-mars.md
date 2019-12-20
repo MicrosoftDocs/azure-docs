@@ -95,14 +95,18 @@ There are two ways to stop protecting Files and Folders backup:
 ### Stop protection and retain backup data
 
 1. Open the MARS management console, go to the **Actions pane**, and **select Schedule Backup**.
+
     ![Modify or stop a scheduled backup.](./media/backup-azure-manage-mars/mars-actions.png)
 1. In **Select Policy Item** page, select **Modify a backup schedule for your files and folders** and click **Next**.
+
     ![Modify or stop a scheduled backup.](./media/backup-azure-manage-mars/select-policy-item-retain-data.png)
-1. From the **Modify or Stop a Scheduled Backup** page, select **Stop using this backup schedule, but keep the stored backups until a schedule is activated again**. Then, select **Next**.  
+1. From the **Modify or Stop a Scheduled Backup** page, select **Stop using this backup schedule, but keep the stored backups until a schedule is activated again**. Then, select **Next**.
+
     ![Modify or stop a scheduled backup.](./media/backup-azure-manage-mars/stop-schedule-backup.png)
-1. In **Pause Scheduled Backup** review the information and click **Finish**
+1. In **Pause Scheduled Backup** review the information and click **Finish**.
+
     ![Modify or stop a scheduled backup.](./media/backup-azure-manage-mars/pause-schedule-backup.png)
-1. in **Modify backup process** check your schedule backup pause is in success status and click **close** to finish.
+1. In **Modify backup process** check your schedule backup pause is in success status and click **close** to finish.
 
 ### Stop protection and delete backup data
 
@@ -132,13 +136,32 @@ After you delete the on-premises backup items, follow the next steps from the po
 If you stopped protection while retaining data and decided to resume protection, then you can re-enable the backup schedule using modify backup policy.
 
 1. On **Actions** select **Schedule backup**.
-1. Select **Re-enable backup schedule. You can also modify backup items or times** and click **Next**.
+1. Select **Re-enable backup schedule. You can also modify backup items or times** and click **Next**.<br>
+
     ![Delete the backup infrastructure.](./media/backup-azure-manage-mars/re-enable-policy-next.png)
 1. In **Select Items to Backup**, click **Next**.
+
     ![Delete the backup infrastructure.](./media/backup-azure-manage-mars/re-enable-next.png)
 1. In **Specify Backup Schedule**, specify the backup schedule and click **Next**.
 1. In **Select Retention Policy**, specify retention duration and click **Next**.
 1. Finally in **Conformation** screen, review the policy details and click **Finish**.
+
+## Re-generate passphrase
+
+Passphrase is used to encrypt and decrypt the data while doing backup or restore of you on-prem/local machine using MARS agent to Azure. If you lost/forgot passphrase, then you can regenerate the passphrase (provided your machine is still registered with Recovery Services Vault and Backup are happening) by following these steps:
+
+- From MARS agent console, go to **Actions Pane** > **Change properties** > go to **Encryption tab** > **Change Passphrase** > **Generate passphrase**<br>
+- Once you click the generate passphrase, it will generate a new Passphrase.<br>
+- And click Browse to save your Passphrase.<br>
+
+    ![Generate passphrase.](./media/backup-azure-manage-mars/passphrase.png)
+- Click **OK** to apply changes.  If [Security Feature](https://docs.microsoft.com/azure/backup/backup-azure-security-feature#enable-security-features) is enabled on Azure Portal for the Recovery Services Vault, then you will be prompted to enter Security PIN. To receive the PIN follow steps listed in this [article](https://docs.microsoft.com/azure/backup/backup-azure-security-feature#authentication-to-perform-critical-operations).<br>
+- Paste the security PIN from the portal and click **OK** to apply the changes.<br>
+
+    ![Generate passphrase.](./media/backup-azure-manage-mars/passphrase2.png)
+- Ensure Passphrase is securely saved in an alternate location (other than source machine), preferably in Azure Key Vault. Keep track of all the passphrases if you have multiple machines being backed up with MARS agents).
+
+
 
 ## Next steps
 
