@@ -6,7 +6,7 @@ ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
 ms.custom: seo-lt-2019
-ms.date: 10/07/2019
+ms.date: 12/19/2019
 ---
 
 # Mapping data flows performance and tuning guide
@@ -76,7 +76,7 @@ Even if you don't have your data partitioned in your destination tables, its rec
 
 ### Disable indexes on write
 
-In your pipeline, add a [Stored Procedure activity](transform-data-using-stored-procedure.md) before your Data Flow activity that disables indexes on your target tables written from your Sink. After your Data Flow activity, add another Stored Procedure activity that enables those indexes.
+In your pipeline, add a [Stored Procedure activity](transform-data-using-stored-procedure.md) before your Data Flow activity that disables indexes on your target tables written from your Sink. After your Data Flow activity, add another Stored Procedure activity that enables those indexes. Or utilize the pre-processing and post-processing scripts in a database sink.
 
 ### Increase the size of your Azure SQL DB and DW
 
