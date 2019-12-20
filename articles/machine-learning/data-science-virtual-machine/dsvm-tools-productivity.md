@@ -9,7 +9,7 @@ ms.subservice: data-science-vm
 author: lobrien
 ms.author: laobri
 ms.topic: conceptual
-ms.date: 12/12/2019
+ms.date: 12/20/2019
 ---
 
 # Productivity tools on the Data Science Virtual Machine
