@@ -82,28 +82,19 @@ Configuration parameters are provided as JSON:
 
 Use these optional properties to configure transcription:
 
-| Parameter || Description |
-|-----------|:-:| ------------|
-|`ProfanityFilterMode`||Specifies how to handle profanity in recognition results
-||`Masked`|Default. Replaces profanity with asterisks
-||`None`|Disables profanity filtering
-||`Removed`|Removes all profanity from the result
-||`Tags`|Adds profanity tags
-|`PunctuationMode`||Specifies how to handle punctuation in recognition results
-||`DictatedAndAutomatic`|Default. Dictated and automatic punctuation
-||`None`|Disables punctuation
-||`Dictated`|Dictated (spoken) punctuation
-||`Automatic`|The service inserts punctuation
-|`AddWordLevelTimestamps`||Specifies if word level timestamps should be added to the output
-||`False`|Default. Disable word level timestamps
-||`True`|Enables word level timestamps
-|`AddSentiment`||Specifies if sentiment analysis is added to the utterance
-||`False`|Default. Disable sentiment
-||`True`|Enables sentiment per utterance
-|`AddDiarization`||Specifies if diarization analysis is carried out. If `true`, the input is expected to be mono channel audio containing a maximum of two voices. `AddWordLevelTimestamps` needs to be set to `true`.
-||`False`|Default. Disable diarization
-||`True`|Enables diarization
-|`TranscriptionResultsContainerUrl`||Optional SAS token to a writeable container in Azure. The result will be stored in this container
+| Parameter | Description |
+|-----------|------------|
+|`ProfanityFilterMode`|Specifies how to handle profanity in recognition results
+||`Masked` - Default. Replaces profanity with asterisks<br>`None` - Disables profanity filtering<br>`Removed` - Removes all profanity from the result<br>`Tags` - Adds profanity tags
+|`PunctuationMode`|Specifies how to handle punctuation in recognition results
+||`DictatedAndAutomatic` - Default. Dictated and automatic punctuation<br>`None` - Disables punctuation<br>`Dictated` - Dictated (spoken) punctuation<br>`Automatic` - The service inserts punctuation
+|`AddWordLevelTimestamps`|Specifies if word level timestamps should be added to the output
+||`False` - Default. Disable word level timestamps<br>`True` - Enables word level timestamps
+|`AddSentiment`|Specifies if sentiment analysis is added to the utterance
+||`False` - Default. Disable sentiment<br>`True` - Enables sentiment per utterance
+|`AddDiarization`|Specifies if diarization analysis is carried out. If `true`, the input is expected to be mono channel audio containing a maximum of two voices. `AddWordLevelTimestamps` needs to be set to `true`
+||`False` - Default. Disable diarization<br>`True` - Enables diarization
+|`TranscriptionResultsContainerUrl`|Optional SAS token to a writeable container in Azure. The result will be stored in this container
 
 ### Storage
 
@@ -179,7 +170,7 @@ The result contains these forms:
 |Form|Content|
 |-|-|
 |`Lexical`|The actual words recognized.
-|`ITN`|Iinverse-text-normalized form of the recognized text. Abbreviations ("doctor smith" to "dr smith"), phone numbers, and other transformations are applied.
+|`ITN`|Inverse-text-normalized form of the recognized text. Abbreviations ("doctor smith" to "dr smith"), phone numbers, and other transformations are applied.
 |`MaskedITN`|The ITN form with profanity masking applied.
 |`Display`|The display form of the recognized text. This includes added punctuation and capitalization.
 
