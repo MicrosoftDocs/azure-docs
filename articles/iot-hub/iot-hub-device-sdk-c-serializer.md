@@ -535,7 +535,7 @@ This section described everything you need to know when sending events and recei
 
 If you’re using the **Serializer** library an important part of the SDK to be aware of is found in the azure-c-shared-utility library.
 
-If you have cloned the Azure-iot-sdk-c repository from GitHub using the --recursive option, then you will find this shared utility library here:
+If you have cloned the Azure-iot-sdk-c repository from GitHub and issued the `git submodule update --init` command, then you will find this shared utility library here:
 
 ```C
 .\\c-utility
