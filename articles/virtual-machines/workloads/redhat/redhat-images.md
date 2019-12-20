@@ -23,7 +23,7 @@ This article describes available Red Hat Enterprise Linux (RHEL) images in the A
 Information on Red Hat support policies for all versions of RHEL can be found on the [Red Hat Enterprise Linux Life Cycle](https://access.redhat.com/support/policy/updates/errata) page. For pricing details, visit the [Azure Pricing Calculator](https://azure.microsoft.com/pricing/details/virtual-machines/linux/).
 
 >[!IMPORTANT]
-> RHEL images currently available in the Azure marketplace support either Bring-Your-Own-Subscription (BYOS) or Pay-As-You-Go (PAYG) licensing models. The [Azure Hybrid Use Benefit](../windows/hybrid-use-benefit-licensing.md) and dynamic switching between BYOS and PAYG is not supported. Switching licensing mode requires redeploying the VM from the corresponding image.
+> RHEL images currently available in the Azure marketplace support either Bring-Your-Own-Subscription (BYOS) or Pay-As-You-Go (PAYG) licensing models. The [Azure Hybrid Use Benefit](https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing) and dynamic switching between BYOS and PAYG is not supported. Switching licensing mode requires redeploying the VM from the corresponding image.
 
 >[!NOTE]
 > For any issue related to RHEL images in the Azure marketplace gallery please file a support ticket with Microsoft.
