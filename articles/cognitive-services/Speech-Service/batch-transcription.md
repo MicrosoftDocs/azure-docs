@@ -85,15 +85,15 @@ Use these optional properties to configure transcription:
 | Parameter | Description |
 |-----------|------------|
 |`ProfanityFilterMode`|Specifies how to handle profanity in recognition results
-||`Masked` - Default. Replaces profanity with asterisks<br>`None` - Disables profanity filtering<br>`Removed` - Removes all profanity from the result<br>`Tags` - Adds profanity tags
-|`PunctuationMode`|Specifies how to handle punctuation in recognition results
-||`DictatedAndAutomatic` - Default. Dictated and automatic punctuation<br>`None` - Disables punctuation<br>`Dictated` - Dictated (spoken) punctuation<br>`Automatic` - The service inserts punctuation
+||**`Masked`** - Default. Replaces profanity with asterisks<br>`None` - Disables profanity filtering<br>`Removed` - Removes all profanity from the result<br>`Tags` - Adds profanity tags
+|`PunctuationMode`|Specifies to handle punctuation in recognition results
+||`Automatic` - The service inserts punctuation<br>`Dictated` - Dictated (spoken) punctuation<br>**`DictatedAndAutomatic`** - Default. Dictated and automatic punctuation<br>`None` - Disables punctuation
 |`AddWordLevelTimestamps`|Specifies if word level timestamps should be added to the output
-||`False` - Default. Disable word level timestamps<br>`True` - Enables word level timestamps
+||`True` - Enables word level timestamps<br>**`False`** - Default. Disable word level timestamps
 |`AddSentiment`|Specifies if sentiment analysis is added to the utterance
-||`False` - Default. Disable sentiment<br>`True` - Enables sentiment per utterance
+||`True` - Enables sentiment per utterance<br>**`False`** - Default. Disable sentiment
 |`AddDiarization`|Specifies if diarization analysis is carried out. If `true`, the input is expected to be mono channel audio containing a maximum of two voices. `AddWordLevelTimestamps` needs to be set to `true`
-||`False` - Default. Disable diarization<br>`True` - Enables diarization
+||`True` - Enables diarization<br>**`False`** - Default. Disable diarization
 |`TranscriptionResultsContainerUrl`|Optional SAS token to a writeable container in Azure. The result will be stored in this container
 
 ### Storage
@@ -141,7 +141,7 @@ For mono input audio, one transcription result file is being created. For stereo
               "MaskedITN": string
               "Display": string
               "Sentiment":
-                {                                          'this is ommitted if sentiment is
+                {                                          'this is omitted if sentiment is
                                                             not requested'
                   "Negative": number                        'between 0 and 1'
                   "Neutral": number                         'between 0 and 1'
