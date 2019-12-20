@@ -14,6 +14,8 @@
     href: quickstarts/add-question-metadata-portal.md
   - name: Get answer with Postman or cURL
     href: Quickstarts/get-answer-from-knowledge-base-using-url-tool.md
+  - name: Test with batch file
+    href: Quickstarts/batch-testing.md
   - name: Using REST APIs
     items:
     - name: Create a new knowledge base
