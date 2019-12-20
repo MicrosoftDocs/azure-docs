@@ -114,7 +114,7 @@ RedHat:RHEL:7.6:7.6.2019102813
 ```
 In this case, `RedHat:RHEL:7.6:7.6.2019102813` will be attached to EUS repositories by default (SKU value of 7.4), and `RedHat:RHEL:7-LVM:7.6.2019062414` will be attached to non-EUS repositories by default (SKU value of 7-LVM).
 
-If you wnt to use regular (non-EUS) repositories, deploy using an image that does not contain a minor version number in the SKU.
+If you want to use regular (non-EUS) repositories, deploy using an image that does not contain a minor version number in the SKU.
 
 #### RHEL images with EUS
 The following table will apply for RHEL images that are connected to EUS repositories.
