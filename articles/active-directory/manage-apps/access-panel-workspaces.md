@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/29/2019
+ms.date: 12/19/2019
 ms.author: mimart
 ms.reviewer: kasimpso
 ms.collection: M365-identity-device-management
@@ -41,7 +41,7 @@ Your users can use the My Apps (preview) portal to view and start the cloud-base
    ![User preview features](media/access-panel-workspaces/user-preview-features.png)
 
 > [!NOTE]
-> To open the My Apps portal, users can use the link `https://myapps.microsoft.com` or the customized link for your organization, such as `https://myapps.microsoft.com/contoso.com`. If users aren't redirected to the My Apps preview version, users should try `https://myapplications.microsoft.com` or `https://myapplications.microsoft.com/contoso.com`.
+> To open the My Apps portal, users can use the link `https://myapps.microsoft.com` or the customized link for your organization, such as `https://myapps.microsoft.com/contoso.com`. After you enable the new My Apps experience, the **An updated My Applications experience is available** banner will display at the top of the My Apps page, and users can select **Try it** to view the new experience. To stop using the new experience, users can select **Yes** from the **Leave new experience** banner at the top of the page.
 
 ## Create a workspace
 
@@ -94,6 +94,15 @@ You can access audit logs in the [Azure portal](https://portal.azure.com) by sel
 
    ![Assign roles to users and groups](media/access-panel-workspaces/audit-log-myapps.png)
 
+## Get support for My Account pages
+
+From the My Apps page, a user can select **My account** > **View my account** to open their account settings. On the Azure AD **My Account** page, users can manage their security info, devices, passwords, and more. They can also access their Office account settings.
+
+In case you need to submit a support request for an issue with the Azure AD account page or the Office account page, follow these steps so your request is routed properly: 
+
+* For issues with the **Azure AD "My Account"** page, open a support request from within the Azure portal. Go to **Azure portal** > **Azure Active Directory** > **New support request**.
+
+* For issues with the **Office "My account"** page, open a support request from within the Microsoft 365 admin center. Go to **Microsoft 365 admin center** > **Support**. 
 
 ## Next steps
 [End-user experiences for applications in Azure Active Directory](end-user-experiences.md)

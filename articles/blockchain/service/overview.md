@@ -15,7 +15,7 @@ Azure Blockchain Service is a fully managed ledger service that enables users th
 * Built-in consortium management
 * Develop smart contracts with familiar development tools
 
-Azure Blockchain Service is designed to support multiple ledger protocols. Currently, it provides support for the Ethereum [Quorum](https://www.jpmorgan.com/Quorum) ledger using the [IBFT](https://github.com/jpmorganchase/quorum/wiki/Quorum-Consensus) consensus mechanism.
+Azure Blockchain Service is designed to support multiple ledger protocols. Currently, it provides support for the Ethereum [Quorum](https://www.goquorum.com/) ledger using the [IBFT](https://github.com/jpmorganchase/quorum/wiki/Quorum-Consensus) consensus mechanism.
 
 These capabilities require almost no administration and all are provided at no additional cost. You can focus on app development and business logic rather than allocating time and resources to managing virtual machines and infrastructure. In addition, you can continue to develop your application with the open-source tools and platform of your choice to deliver your solutions without having to learn new skills.
 
