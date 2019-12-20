@@ -152,14 +152,14 @@
       href: concept-train-model-git-integration.md 
   - name: Work with data
     items:
-    - name: Get data from a datastore
+    - name: Connect to data in Azure Storage
       displayName: blob, get, fileshare, access storage, mount, download
       href: how-to-access-data.md
-    - name: Add & register datasets
-      displayName: data, dataset
+    - name: Get data from a datastore
+      displayName: data, data set, register, access data
       href: how-to-create-register-datasets.md
     - name: Train with datasets
-      displayName: data, dataset
+      displayName: data, dataset, mount
       href: how-to-train-with-datasets.md
     - name: Detect drift on datasets
       displayName: data, dataset
