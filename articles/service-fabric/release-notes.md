@@ -1,12 +1,8 @@
 ---
 title: Azure Service Fabric releases
 description: Release notes for the latest features and improvements in Service Fabric.
-author: athinanthny
-manager: gamonroy
-ms.author: atsenthi
 ms.date: 06/10/2019
 ms.topic: conceptual
-ms.service: service-fabric
 hide_comments: true
 hideEdit: true
 ---
