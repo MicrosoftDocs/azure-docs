@@ -68,12 +68,7 @@ The following diagram illustrates the end-to-end workflow for enabling Azure AD 
 https://microsoft.sharepoint.com/teams/AzureStorage/Private%20Test/2016/Azure%20Files/Planning/AccessControl&AAD/ADDSAuthentication-Feature-Enablement.vsdx 
 
 > [!NOTE]
-> AD DS authentication over SMB for Azure Files is supported only on machines or VMs running on OS versions above Windows 7 or Windows Server 2008 R2. 
-
-
-
-<START HERE, ROY>
-
+> AD authentication over SMB for Azure Files is supported only on machines or VMs running on OS versions newer than Windows 7 or Windows Server 2008 R2. 
 
 ## Enable AD DS authentication for your account 
 
@@ -113,25 +108,28 @@ Select-AzureSubscription -SubscriptionId <yourSubscriptionIdHere>
 #Register the target storage account with your active directory environment under the target OU
 join-AzStorageAccountForAuth -ResourceGroupName "<resource-group-name-here>" -Name "<storage-account-name-here>" -DomainAccountType <ServiceLogonAccount|ComputerAccount> -OrganizationUnitName "<ou-name-here>"
 ```
-Here is a detailed workflow of the actions that is performed in the `join-AzStorageAccountForAuth` command. You may perform these steps manually if you prefer: 
 
-- Perform a setup check against the environment that the command is being executed.
-    - Check if [Active Directory PowerShell](https://docs.microsoft.com/en-us/powershell/module/addsadministration/?view=win10-ps) is installed
-    - Ensure the PowerShell is being executed with administrator privileges
-- Create an identity in AD to represent the storage account
-    - Create either a service logon account (recommended) or a computer account
+The following is a description of the actions performed when the `join-AzStorageAccountForAuth` command is used. You may perform these steps manually, if you prefer not to use the command:
 
-Check if there is a service or computer account in your AD that has already been created with SPN/UPN as "cifs/<yourStorageAccountNameHere>.file.core.windows.net." If there isn't, then create a new kerberos key of the storage account using New-AzStorageAccountKey. Then, use the kerberos key as the password, this key is only used during setup and cannot be used for any control or data plane operations against the storage account. Next, create a service logon or computer account under your OU. Use the following specification:
-SPN: "cifs"
-Password: Kerberos key of the storage account.
+### Checking environment
 
-If your OU enforces password expiration, you must update the password before the maximum password age to prevent authentication failures when accessing Azure File shares. See Update AD Account password for details.
+First, it checks your environment. Specifically it checks if the [Active Directory PowerShell](https://docs.microsoft.com/en-us/powershell/module/addsadministration/?view=win10-ps) is installed and if the shell is being executed with administrator privileges. If those checks pass, then it will check your AD to see if there is either a service (recommended) or computer account that has already been created with SPN/UPN as "cifs/your-storage-account-name-here.file.core.windows.net" and create one if it doesn't exist.
+
+### Creating an identity representing the storage account in your AD manually
+
+To create this account manually, create a new kerberos key for your storage account using `New-AzStorageAccountKey`. Then, use that kerberos key as the password for your account. This key is only used during setup and cannot be used for any control or data plane operations against the storage account.
+
+Once you have that key, create either a service (recommended) or computer account under your OU. Use the following specification:
+SPN: "cifs/your-storage-account-name-here.file.core.windows.net"
+Password: Kerberos key for your storage account.
+
+If your OU enforces password expiration, you must update the password before the maximum password age to prevent authentication failures when accessing Azure File shares. See [Update AD account password](#update-ad-account-password) for details.
 
 Keep the SID of the newly account, you'll need it for the next step.
 
-Enable the feature on the storage account
+### Enable the feature on your storage account
 
-You'll need to enable the feature on the storage account and provide some configuration details for the domain properties. The storage account SID required in the following input is the SID of the identity you created in AD.
+The script would then enable the feature on your storage account. To do this manually provide some configuration details for the domain properties. The storage account SID required in the following script is the SID of the identity you created in AD.
 
 ```PowerShell
 #Set the feature flag on the target storage account and provide the required AD domain information
@@ -140,6 +138,8 @@ Set-AzStorageAccount -ResourceGroupName "<your-resource-group-name-here>" -Name 
 ```
 
 You've now successfully enabled the feature on your storage account. Even though the feature is enabled, you still need to complete additional actions to be able to use the feature properly.
+
+### Check if the feature is enabled
 
 If you want to check whether the feature is enabled on your storage account, you can use the following script:
 
@@ -155,7 +155,7 @@ $storageAccount.AzureFilesIdentityBasedAuth.ActiveDirectoryProperties
 ```
  
 
-Update AD account password
+## Update AD account password
 
 If you register the AD account that represent the storage account under an OU that enforces password expiration, you must rotate the password before the maximum password age. Failing to update the password of the AD account will result in authentication failures to access Azure file shares.  
 
