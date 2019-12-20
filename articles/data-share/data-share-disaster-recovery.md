@@ -18,9 +18,9 @@ If the data consumers have an active share subscription in a secondary environme
 
 Data consumers can either have an active share subscription that's idle for DR purposes, or data providers can add them in at a later point in time as part of manual failover procedures. 
 
-# Related information
+## Related information
 - [Business Continuity and Disaster Recovery](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)
-- [Build high availability into your BCDR strategy](https://docs.microsoft.com/en-us/azure/architecture/solution-ideas/articles/build-high-availability-into-your-bcdr-strategy)
+- [Build high availability into your BCDR strategy](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/build-high-availability-into-your-bcdr-strategy)
 
 
 
