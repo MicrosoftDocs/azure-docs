@@ -168,7 +168,7 @@ For detailed reference docs, see [azcopy copy](storage-ref-azcopy-copy.md).
 |--------|-----------|
 | **Syntax** | `azcopy copy 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>/<directory-path>' '<local-directory-path>' --recursive` |
 | **Example** | `azcopy copy 'https://mystorageaccount.blob.core.windows.net/mycontainer/myBlobDirectory' 'C:\myDirectory'  --recursive` |
-| **Example** (hierarchical namespace) | `azcopy copy 'https://mystorageaccount.dfs.core.windows.net/mycontainer/myBlobDirectory 'C:\myDirectory'  --recursive` |
+| **Example** (hierarchical namespace) | `azcopy copy 'https://mystorageaccount.dfs.core.windows.net/mycontainer/myBlobDirectory' 'C:\myDirectory'  --recursive` |
 
 This example results in a directory named `C:\myDirectory\myBlobDirectory` that contains all of the downloaded files.
 
