@@ -27,7 +27,7 @@ You can change the default settings of the Azure portal to meet your own prefere
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Select **Settings** from the global page header.
 
-    ![Screenshot showing global page header icons with settings highlighted](./media/azure-portal-set-preferences/set-preferences-header-settings.png)
+    ![Screenshot showing global page header icons with settings highlighted](./media/set-preferences/header-settings.png)
 
 ### Change the idle duration for inactive sign-out
 
@@ -35,7 +35,7 @@ The inactivity timeout setting helps to protect  resources from unauthorized acc
 
 Select the drop-down under **Sign me out when inactive**. Choose the duration after which your Azure portal session is  signed out if you’re idle.
 
-   ![Screenshot showing portal settings with inactive timeout settings highlighted](./media/azure-portal-set-preferences/set-preferences-inactive-signout-user.png)
+   ![Screenshot showing portal settings with inactive timeout settings highlighted](./media/set-preferences/inactive-signout-user.png)
 
 The change is saved automatically. If you’re idle, your Azure portal session will sign out after the duration you set.
 
@@ -43,18 +43,18 @@ This setting can also be made by an admin at the directory level to enforce a ma
 
 If your admin has enabled an inactivity timeout policy, select the **Override the directory inactivity timeout policy** checkbox. Set a time interval that is less than the policy setting.
 
-   ![Screenshot showing portal settings with override the directory inactivity timeout policy setting highlighted](./media/azure-portal-set-preferences/set-preferences-inactive-signout-override.png)
+   ![Screenshot showing portal settings with override the directory inactivity timeout policy setting highlighted](./media/set-preferences/inactive-signout-override.png)
 
 
 > [!NOTE]
-> If you’re an admin, and you want to enforce an inactive timeout setting for all users of the Azure portal, see [Set directory-level inactivity timeout for users of the Azure portal](azure-portal-admin-timeout.md)
+> If you’re an admin, and you want to enforce an inactive timeout setting for all users of the Azure portal, see [Set directory-level inactivity timeout for users of the Azure portal](admin-timeout.md)
 >
 
 ### Choose your default view 
 
 You can change the page that opens by default when your sign-in to the Azure portal.
 
-   ![Screenshot showing Azure portal settings with default view highlighted](./media/azure-portal-set-preferences/set-preferences-default-view.png)
+   ![Screenshot showing Azure portal settings with default view highlighted](./media/set-preferences/default-view.png)
 
 The default view setting controls which Azure portal view is shown when you sign in. You can choose to open Azure Home by default, or the Dashboard view.
 
@@ -72,7 +72,7 @@ The default mode for the portal menu controls how much space the portal menu tak
 
 The theme that you choose affects the background and font colors that appear in the Azure portal. You can select from one of four preset color themes. Select each thumbnail to find the theme that best suits you.
 
-   ![Screenshot showing Azure portal settings with themes highlighted](./media/azure-portal-set-preferences/set-preferences-theme.png)
+   ![Screenshot showing Azure portal settings with themes highlighted](./media/set-preferences/theme.png)
 
 You can choose one of the high-contrast themes instead. The high contrast settings make the Azure portal easier to read for vision-impaired users and override all other theme selections. For more information, see [Turn on high contrast or change theme](azure-portal-change-theme-high-contrast.md).
 
@@ -82,11 +82,11 @@ Notifications are system messages related to your current session. They provide 
 
 To enable or disable pop-up notifications, select or de-select the **Enable pop-up notifications** checkbox.
 
-   ![Screenshot showing Azure portal settings with pop-up notifications highlighted](./media/azure-portal-set-preferences/set-preferences-popup-notifications.png)
+   ![Screenshot showing Azure portal settings with pop-up notifications highlighted](./media/set-preferences/popup-notifications.png)
 
 To read all notifications received during your current session, select **Notifications** from the global header.
 
-   ![Screenshot showing Azure portal global header with notifications highlighted](./media/azure-portal-set-preferences/set-preferences-read-notifications.png)
+   ![Screenshot showing Azure portal global header with notifications highlighted](./media/set-preferences/read-notifications.png)
 
 If you want to read notifications from previous sessions, look for events in the Activity log. To learn more, read [View and retrieve Azure Activity log events](/azure/azure-monitor/platform/activity-log-view).
 
@@ -108,7 +108,7 @@ For example, if you select English as your language, and then select United Stat
 
 Select **Apply** to update your language and regional format settings.
 
-   ![Screenshot showing language and regional format settings](./media/azure-portal-set-preferences/set-preferences-language.png)
+   ![Screenshot showing language and regional format settings](./media/set-preferences/language.png)
 
 >[!NOTE]
 >These language and regional settings affect only the Azure portal. Documentation links that open in a new tab or window will use your browser's language settings to determine the language to display.

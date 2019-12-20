@@ -23,17 +23,17 @@ If you’re an admin, and you want to enforce an idle timeout setting for all us
 2. Select **Settings** from the global page header.
 3. Select the link text **Configure directory level timeout**.
 
-    ![Screenshot showing portal settings with link text highlighted](./media/azure-portal-admin-timeout/admin-timeout-settings.png)
+    ![Screenshot showing portal settings with link text highlighted](./media/admin-timeout/settings.png)
 
 4. A new page opens. On the **Configure directory level inactivity timeout** page, select **Enable directory level idle timeout for the Azure portal** to turn on the setting.
 5. Next, enter the **Hours** and **Minutes** for the maximum time that a user can be idle before their session is automatically signed out.
 6. Select **Apply**.
 
-    ![Screenshot showing page to set directory-level inactivity timeout](./media/azure-portal-admin-timeout/admin-timeout-configure.png)
+    ![Screenshot showing page to set directory-level inactivity timeout](./media/admin-timeout/configure.png)
 
 To confirm that the inactivity timeout policy is set correctly, select **Notifications** from the global page header. Verify that a success notification is listed.
 
-  ![Screenshot showing successful notification message for directory-level inactivity timeout](./media/azure-portal-admin-timeout/admin-timeout-confirmation.png)
+  ![Screenshot showing successful notification message for directory-level inactivity timeout](./media/admin-timeout/confirmation.png)
 
 The setting takes effect for new sessions. It won’t apply immediately to any users who are already signed in.
 
@@ -43,6 +43,6 @@ The setting takes effect for new sessions. It won’t apply immediately to any u
 
 ## Next steps
 
-* [Set your Azure portal preferences](azure-portal-set-preferences.md)
+* [Set your Azure portal preferences](set-preferences.md)
 * [Export or delete user settings](azure-portal-export-delete-settings.md)
 * [Turn on high contrast or change theme](azure-portal-change-theme-high-contrast.md)
