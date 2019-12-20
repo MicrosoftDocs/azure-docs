@@ -87,7 +87,6 @@ String endpoint = "<replace-with-your-text-analytics-endpoint-here>";
 ```
 
 In the application's `main` method, create variables for your resource's Azure endpoint and key.
-<!-- Use the below example variable names and example strings, for consistency with the other quickstart variables -->
 <!-- 
     Be sure the main method calls the example task functions in this quickstart.
 -->
