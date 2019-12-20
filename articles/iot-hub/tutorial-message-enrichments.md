@@ -25,11 +25,11 @@ Here are the tasks you perform to complete this tutorial:
 
 **Using IoT Hub message enrichments**
 > [!div class="checklist"]
-> * First method
->   * Create resources and configure message routing using the Azure CLI.
->   * Configure the message enrichments manually using the [Azure portal](https://portal.azure.com).
-> * Second method
->   * Create resources, configure message routing and message enrichments using an Azure Resource Manager template. 
+> * First method: manual message enrichments
+>   - Create resources and configure message routing using the Azure CLI.
+>   - Configure the message enrichments manually using the [Azure portal](https://portal.azure.com).
+> * Second method: using an RM template
+>   - Create resources, configure message routing and message enrichments using an Azure Resource Manager template. 
 > * Run an app that simulates an IoT Device sending messages to the hub.
 > * View the results and verify the message enrichments are working as expected.
 
