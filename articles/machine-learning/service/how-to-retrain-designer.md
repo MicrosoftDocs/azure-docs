@@ -14,8 +14,7 @@ ms.date: 12/15/2019
 # Retrain models with Azure Machine Learning designer (preview)
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-In this how-to, you learn how to use Azure Machine Learning designer to retrain a machine learning model. Find out how to  use published pipelines to automate your workflow and reuse training pipelines for retraining;
-
+In this how-to, you learn how to use Azure Machine Learning designer to retrain a machine learning model. Find out how to use published pipelines to automate machine learning workflows for retraining.
 
 In this article you learn how to:
 
@@ -31,7 +30,7 @@ In this article you learn how to:
 
 * An Azure Machine Learning workspace with the Enterprise SKU.
 
-This how-to assumes basic knowledge of building pipelines in the designer. For a guided introduction to the designer, complete the [tutorial](tutorial-designer-automobile-price-train-score.md). 
+This how-to assumes you have basic knowledge of building pipelines in the designer. For a guided introduction to the designer, complete the [tutorial](tutorial-designer-automobile-price-train-score.md). 
 
 ### Sample pipeline
 
@@ -41,7 +40,7 @@ The pipeline used in this article is an altered version of the one found in [Sam
 
 ## Train a machine learning model
 
-In order to retrain a model, you first need an initial model. In this section, you learn how to train a model and access the saved model using the designer.
+To retrain a model, you need an initial model. In this section, you learn how to train a model and access the saved model using the designer.
 
 1. Select the **Import Data** module.
 1. In the properties pane, specify a data source.
@@ -59,7 +58,7 @@ In order to retrain a model, you first need an initial model. In this section, y
 
 ### Locate your trained model
 
-By default, the designer saves all pipeline outputs, including trained models, to the default storage account. You can access your storage through the portal or programatically. However, you can also access the trained model directly in the designer:
+The designer saves all pipeline outputs, including trained models, to the default storage account. You can also access the trained model directly in the designer:
 
 1. Wait for the pipeline to finish running.
 

@@ -34,7 +34,7 @@ ID Broker allows you to sign in to ESP clusters by using Multi-Factor Authentica
 To create an ESP cluster with ID Broker enabled, take the following steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Follow the basic creation steps for an ESP cluster. For more information, see [Create an HDInsight cluster with ESP](apache-domain-joined-configure-using-azure-adds.md#create-a-hdinsight-cluster-with-esp).
+1. Follow the basic creation steps for an ESP cluster. For more information, see [Create an HDInsight cluster with ESP](apache-domain-joined-configure-using-azure-adds.md#create-an-hdinsight-cluster-with-esp).
 1. Select **Enable HDInsight ID Broker**.
 
 The ID Broker feature will add one extra VM to the cluster. This VM is the ID Broker node and includes server components to support authentication. The ID Broker node is domain joined to the Azure AD DS domain.
