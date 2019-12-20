@@ -30,7 +30,7 @@ To complete this tutorial, you need:
 - [Visual Studio Code](https://code.visualstudio.com/download)
 - [Azure IoT Tools for VS Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) extension pack
 
-You also need the IoT Plug and Play device that you create in the [Quickstart: Use a device capability model to create a device](quickstart-create-pnp-device.md).
+You also need the IoT Plug and Play device that you create in the [Quickstart: Use a device capability model to create a device](quickstart-create-pnp-device-windows.md).
 
 ## Store a capability model and interfaces
 
@@ -53,7 +53,7 @@ To pass the certification process, you must include and implement the **Device I
 ```
 
 > [!NOTE]
-> If you completed the [Quickstart: Use a device capability model to create a device](quickstart-create-pnp-device.md), you've already included the **Device Information** interface in your model.
+> If you completed the [Quickstart: Use a device capability model to create a device](quickstart-create-pnp-device-windows.md), you've already included the **Device Information** interface in your model.
 
 To include the **Device Information** interface in your device model, add the interface ID to the `implements` property of the capability model:
 

@@ -14,6 +14,8 @@ ms.custom: mvc
 
 # Quickstart: Connect a sample IoT Plug and Play Preview device application running on Linux to IoT Hub (C Linux)
 
+[!INCLUDE [iot-pnp-quickstarts-2-selector.md](../../includes/iot-pnp-quickstarts-2-selector.md)]
+
 This quickstart shows you how to build a sample IoT Plug and Play device application on Linux, connect it to your IoT bub, and use the Azure CLI to view the information it sends to the hub. The sample application is written in C and is included in the Azure IoT device SDK for C. A solution developer can use the Azure CLI to understand the capabilities of an IoT Plug and Play device without the need to view any device code.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
@@ -38,41 +40,7 @@ cmake --version
 gcc --version
 ```
 
-## Prepare an IoT hub
-
-You also need an Azure IoT hub in your Azure subscription to complete this quickstart. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin. If you don't have an IoT hub, follow [these instructions to create one](../iot-hub/iot-hub-create-using-cli.md).
-
-> [!IMPORTANT]
-> During public preview, IoT Plug and Play features are only available on IoT hubs created in the **Central US**, **North Europe**, and **Japan East** regions.
-
-If you're using the Azure CLI locally, the `az` version should be **2.0.73** or later; the Azure Cloud Shell uses the latest version. Use the `az --version` command to check the version installed on your machine.
-
-Run the following command to add the Microsoft Azure IoT Extension for Azure CLI to your Cloud Shell instance:
-```azurecli-interactive
-az extension add --name azure-cli-iot-ext
-```
-
-The steps in this quickstart require version **0.8.5** or later of the extension. Use the `az extension list` command to check the version you have installed, and the `az extension update` command to update if necessary.
-
-If you're using CLI locally, sign in to your Azure subscription with the following command:
-
-```bash
-az login
-```
-
-If you're using Azure Cloud Shell, you're already automatically signed in.
-
-Run the following command to create the device identity in your IoT hub. Replace the **YourIoTHubName** and **YourDeviceID** placeholders with your own _IoT Hub name_ and a _device ID_ of your choice.
-
-```azurecli-interactive
-az iot hub device-identity create --hub-name <YourIoTHubName> --device-id <YourDeviceID>
-```
-
-Run the following command to get the _device connection string_ for the device you just registered (note for use later):
-
-```azurecli-interactive
-az iot hub device-identity show-connection-string --hub-name <YourIoTHubName> --device-id <YourDevice> --output table
-```
+[!INCLUDE [iot-pnp-prepare-iot-hub.md](../../includes/iot-pnp-prepare-iot-hub.md)]
 
 ## Prepare the development environment
 
