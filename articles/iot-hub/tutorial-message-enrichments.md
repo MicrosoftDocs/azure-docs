@@ -43,13 +43,13 @@ Here are the tasks you perform to complete this tutorial:
 
 ## Retrieve the IoT C# Samples repository
 
-Download the [IoT C# Samples](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip) from github and unzip them. This repository has several applications, scripts, and Resource Manager templates in it. The ones to be used for this tutorial are as follows:
+Download the [IoT C# Samples](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip) from GitHub and unzip them. This repository has several applications, scripts, and Resource Manager templates in it. The ones to be used for this tutorial are as follows:
 
 * For the manual method, there is a CLI script for creating the resources. This script is in **/azure-iot-samples-csharp/iot-hub/Tutorials/Routing/SimulatedDevice/resources/iothub_msgenrichment_cli.azcli**. This script creates the resources and configures the message routing. After running this, you create the message enrichments manually using the [Azure portal](https://portal.azure.com) and then run the DeviceSimulation app to see the enrichments working.
 
-* For the automated method, there is an Azure Resource Manager template. Thie template is in **/azure-iot-samples-csharp/iot-hub/Tutorials/Routing/SimulatedDevice/resources/template_msgenrichments.json**. This template creates the resources, configures the message routing, and lastly, configures the message enrichemnts. After loading this template, you then run the Device Simulation app to see the enrichments working.
+* For the automated method, there is an Azure Resource Manager template. The template is in **/azure-iot-samples-csharp/iot-hub/Tutorials/Routing/SimulatedDevice/resources/template_msgenrichments.json**. This template creates the resources, configures the message routing, and lastly, configures the message enrichments. After loading this template, you then run the Device Simulation app to see the enrichments working.
 
-* The third application you use is the Device Simulation app, which you use to send messages to the IoT hub and test the message enhancements.
+* The third application you use is the Device Simulation app, which you use to send messages to the IoT hub and test the message enrichments.
 
 ## Manual set up and configuration using Azure CLI
 
@@ -273,7 +273,7 @@ At this point, the resources are all set up and the message routing is configure
 
 4. Select **Apply** to save the changes. Skip to the [testing message enrichments](#testing-message-enrichments) section.
 
-## Use an ARM template to create and configure the resources, message routing, and message enrichments 
+## Use an RM template to create and configure the resources, message routing, and message enrichments 
 
 1. Log into the Azure portal. Click **+ Create a Resource**. This brings up the search box. Search for **template deployment**. In the results pane, select **Template deployment (deploy using custom template)**.
 
