@@ -10,6 +10,10 @@
     href: deployment-models.md
   - name: Azure common security attributes
     href: azure-resource-manager-security-controls.md
+  - name: Resource providers by service
+    href: azure-services-resource-providers.md
+  - name: Resource instance limit
+    href: resources-without-resource-group-limit.md
 - name: How to
   items:
   - name: Move - resource groups/subscriptions
@@ -104,10 +108,6 @@
     href: async-operations.md
 - name: Reference
   items:
-  - name: Resource instance limit
-    href: resources-without-resource-group-limit.md
-  - name: Resource providers by service
-    href: azure-services-resource-providers.md
   - name: REST
     href: /rest/api/resources/
   - name: Azure PowerShell

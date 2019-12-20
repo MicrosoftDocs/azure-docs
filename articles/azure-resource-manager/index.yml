@@ -1,7 +1,7 @@
 ### YamlMime:Hub
 
 title: Azure Resource Manager documentation
-summary: Azure Resource Manager is the deployment and management service for Azure. Reliably deploy and manage your infrastructure in Azure.
+summary: Azure Resource Manager is the deployment and management service for Azure. Use infrastructure as code to reliably deploy and manage your Azure solutions.
 # brand: aspnet | azure | dotnet | dynamics | m365 | ms-graph | office | power-platform | sql | sql-server | vs | visual-studio | windows | xamarin
 brand: azure
 
@@ -21,7 +21,7 @@ highlightedContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
   items:
      # Card
-    - title: What are ARM templates?
+    - title: What are templates?
       itemType: overview
       url: templates/overview.md
     # Card
@@ -38,7 +38,7 @@ conceptualContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
   items:
     # Card
-    - title: Deploy ARM templates
+    - title: Deploy Resource Manager templates
       links:
         - url: templates/overview.md
           itemType: overview

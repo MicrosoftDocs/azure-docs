@@ -19,7 +19,7 @@ metadata:
 
 landingContent:
   # Card (optional)
-  - title: About managing resources
+  - title: About Azure resources
     linkLists:
       - linkListType: overview
         links:
@@ -31,36 +31,6 @@ landingContent:
             url: resource-providers-and-types.md
           - text: Resource Manager and classic deployment
             url: deployment-models.md
-
-  # Card
-  - title: Manage resources
-    linkLists:
-      - linkListType: how-to-guide
-        links:
-          - text: Move resources
-            url: move-resource-group-and-subscription.md
-          - text: Move regions
-            url: move-region.md
-          - text: Tag resources
-            url: tag-resources.md
-          - text: Lock resources
-            url: lock-resources.md
-          - text: Delete resource groups
-            url: delete-resource-group.md
-
-  # Card
-  - title: Monitor
-    linkLists:
-      - linkListType: how-to-guide
-        links:
-          - text: View activity logs
-            url: view-activity-logs.md
-          - text: Request limits and throttling
-            url: request-limits-and-throttling.md
-        
-  # Card
-  - title: Resource capabilities
-    linkLists:
       - linkListType: reference
         links:
           - text: Move support
@@ -69,6 +39,22 @@ landingContent:
             url: tag-support.md
           - text: Resource instance limits
             url: resources-without-resource-group-limit.md
+
+  # Card
+  - title: Manage resources
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Move across resource group and subscriptions
+            url: move-resource-group-and-subscription.md
+          - text: Move across regions
+            url: move-region.md
+          - text: Tag resources
+            url: tag-resources.md
+          - text: Lock resources
+            url: lock-resources.md
+          - text: Delete resource groups
+            url: delete-resource-group.md
 
   # Card
   - title: SDKs and tools
@@ -85,3 +71,13 @@ landingContent:
             url: /java/api/com.microsoft.azure.management.resources
           - text: Python
             url: /python/api/overview/azure/resources?view=azure-python
+
+   # Card
+  - title: Monitor
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: View activity logs
+            url: view-activity-logs.md
+          - text: Request limits and throttling
+            url: request-limits-and-throttling.md

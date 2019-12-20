@@ -43,9 +43,9 @@ landingContent:
         links:
           - text: Create templates - portal
             url: quickstart-create-templates-use-the-portal.md
-          - text: create templates - VS Code
+          - text: Create templates - VS Code
             url: quickstart-create-templates-use-visual-studio-code.md
-          - text: create templates - Visual Studio
+          - text: Create templates - Visual Studio
             url: create-visual-studio-deployment-project.md
 
       - linkListType: tutorial
@@ -119,3 +119,15 @@ landingContent:
         links:
         - text: Template reference
           url: /azure/templates/
+        - text: REST API
+          url: /rest/api/resources/
+        - text: Azure PowerShell
+          url: /powershell/module/az.resources
+        - text: Azure CLI
+          url: /cli/azure/resource
+        - text: .NET
+          url: /dotnet/api/microsoft.azure.management.resourcemanager
+        - text: Java
+          url: /java/api/com.microsoft.azure.management.resources
+        - text: Python
+          url: /python/api/overview/azure/resources?view=azure-python
