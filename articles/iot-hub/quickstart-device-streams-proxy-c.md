@@ -106,6 +106,9 @@ For this quickstart, you use the [Azure IoT device SDK for C](iot-hub-device-sdk
       rem Or for VS2017
       cmake .. -G "Visual Studio 15 2017"
 
+      rem Or for VS2019
+      cmake .. -G "Visual Studio 16 2019"
+
       rem Then build the project
       cmake --build . -- /m /p:Configuration=Release
       ```
