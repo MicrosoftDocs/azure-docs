@@ -136,6 +136,8 @@
       items:
       - name: Configure a tenant
         href: openvpn-azure-ad-tenant.md
+      - name: Configure a tenant with multiple client apps
+        href: openvpn-azure-ad-tenant-multi-app.md
       - name: Configure Multi-Factor Authentication (MFA)
         href: openvpn-azure-ad-mfa.md
       - name: Configure a VPN client
@@ -225,7 +227,7 @@
         href: vpn-gateway-troubleshoot-site-to-site-cannot-connect.md
       - name: Site-to-Site connection disconnects intermittently
         href: vpn-gateway-troubleshoot-site-to-site-disconnected-intermittently.md
-  - name: Classic deployment model articles
+  - name: Classic deployment model articles 
     items:
     - name: Configure a Site-to-Site connection
       href: vpn-gateway-howto-site-to-site-classic-portal.md
