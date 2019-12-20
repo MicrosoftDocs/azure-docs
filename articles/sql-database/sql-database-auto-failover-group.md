@@ -287,9 +287,9 @@ When you set up a failover group between primary and secondary managed instances
 1. The two managed instances need to be in different Azure regions.
 2. The two managed instances need to be the same service tier, and have the same storage size.
 3. Your secondary managed instance must be empty (no user databases).
-4. The virtual networks used by the managed instances need to be connected through a [VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md) or Express Route. When two virtual networks connect through an on-premises network, ensure there is no firewall rule blocking ports 5022, and 11000-11999. Global VNet Peering is not supported.
+4. The virtual networks used by the managed instances need to be connected through a [VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md) or [Express Route](../expressroute/expressroute-howto-circuit-portal-resource-manager.md). When two virtual networks connect through an on-premises network, ensure there is no firewall rule blocking ports 5022, and 11000-11999. Global VNet Peering is not supported.
 5. The two managed instance VNets cannot have overlapping IP addresses.
-6. You need to set up your Network Security Groups (NSG) such that ports 5022 and the range 11000~12000 are open inbound and outbound for connections from the other managed instanced subnet. This is to allow replication traffic between the instances
+6. You need to set up your Network Security Groups (NSG) such that ports 5022 and the range 11000~12000 are open inbound and outbound for connections from the subnet of the other managed instance. This is to allow replication traffic between the instances.
 
    > [!IMPORTANT]
    > Misconfigured NSG security rules leads to stuck database copy operations.
@@ -301,29 +301,29 @@ When you set up a failover group between primary and secondary managed instances
 
 ## Changing failover group regions
 
-I some cases you may need to change the primary or secondary region of the failover group. You can do it by following the below process. Changing failover group regions will result in some downtime, but the process ensures that the primary databases always remain protected by at least one secondary.
+In some cases you may need to change the primary or secondary region of the failover group. Changing failover group regions will result in some downtime, but the process ensures that the primary databases always remain protected by at least one secondary.
 
 ### Updating secondary region of the failover group
 
-Let’s assume that server A is the primary server, server B is the existing secondary server, and server C is the new secondary in the third region.  To make the transition, follow these steps:
+Let's assume that server A is the primary server, server B is the existing secondary server, and server C is the new secondary in the third region.  To make the transition, follow these steps:
 
 1.	Create additional secondaries of each database on server A to server C using [active geo-replication](sql-database-active-geo-replication.md). Each database on server A will have two secondaries, one on server B and one on server C.
-2.	Delete the failover group and re-create it with the same name between servers A and C
-3.	Add all primary databases on server A to the new failover group
+2.	Delete the failover group and re-create it with the same name between servers A and C.
+3.	Add all primary databases on server A to the new failover group.
 4.	Drop server B. All databases on B will be deleted automatically. 
 
    > [!NOTE]
-   > During step 2, logins will be failing after the group is deleted and until it is re-cred. This is because the SQL aliases for the failover group listeners will have been deleted and gateway will not recognize the failover group name.
+   > During step 2, logins will fail after the group is deleted and until it is re-created. This is because the SQL aliases for the failover group listeners have been deleted and the gateway does not recognize the failover group name.
    
 ### Updating primary region of the failover group
 
-Let’s assume server A is the primary server, server B is the existing secondary server, and server C is the new primary in the third region.  To make the transition, follow these steps:
+Let's assume server A is the primary server, server B is the existing secondary server, and server C is the new primary in the third region.  To make the transition, follow these steps:
 
-1.	Call planned failover to switch the primary server to B. Server A will become the new secondary server.
+1.	Perform a planned failover to switch the primary server to B. Server A will become the new secondary server.
 2.	Create additional secondaries of each database on server B to server C using [active geo-replication](sql-database-active-geo-replication.md). Each database on server B will have two secondaries, one on server A and one on server C.
 3.	Delete the failover group and re-create it with the same name between servers B and C.
-4.	Add all primary databases on B to the new FOG
-5.	Call planned failover of the failover group to switch B and C. Now server C will become the primary and B - the secondary. All secondary databases on server A will be automatically linked to the primaries on C.
+4.	Add all primary databases on B to the new failover group. 
+5.	Perform a planned failover of the failover group to switch B and C. Now server C will become the primary and B - the secondary. All secondary databases on server A will be automatically linked to the primaries on C.
 6.	Drop the server A. All databases on A will be deleted automatically.
 
    > [!NOTE]
