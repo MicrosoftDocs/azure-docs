@@ -1,5 +1,5 @@
 ---
-title: Report on search traffic analysis data
+title: Collect search traffic telemetry data
 titleSuffix: Azure Cognitive Search
 description: Enable search traffic analytics for Azure Cognitive Search, collect telemetry and user-initiated events using Application Insights, and then analyze findings in a Power BI report.
 
@@ -9,10 +9,10 @@ ms.author: heidist
 
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 12/11/2019
+ms.date: 12/20/2019
 ---
 
-# Implement search traffic analytics in Azure Cognitive Search
+# Collect search traffic telemety data in Azure Cognitive Search
 
 Search traffic analytics is a pattern for implementing a feedback loop for your search service. The objective is to collect telemetry on user-initiated click events and keyboard inputs. Using this information, you can determine the effectiveness of your search solution, including popular search terms, clickthrough rate, and which query inputs yield zero results.
 

@@ -9,7 +9,7 @@ ms.author: heidist
 tags: azure-portal
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 12/10/2019
 ---
 
 # Monitor resource consumption and query activity in Azure Cognitive Search
