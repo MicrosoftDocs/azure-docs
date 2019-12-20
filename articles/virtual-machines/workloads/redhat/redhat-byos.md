@@ -1,5 +1,5 @@
 ---
-title: Red Hat Enterprise Linux Bring-Your-Own-Susbcription images | Microsoft Docs
+title: Red Hat Enterprise Linux bring-your-own-susbcription images
 description: Learn about bring-your-own-subscription images for Red Hat Enterprise Linux on Azure
 services: virtual-machines-linux
 documentationcenter: ''
@@ -115,19 +115,19 @@ The following set of instructions will walk you through the initial deployment p
 
 1. SSH into your VM and verify that you have an unentitled image. TO do this, run `sudo yum repolist`. The output will ask you to use subscription-manager to register the VM with Red Hat.
 
-## Additional Information
+## Additional information
 - If you attempt to provision a VM on a subscription that is not enabled for this offer, you will get the following error and you should contact Microsoft or Red Hat to enable your subscription.
-```
-"Offer with PublisherId: redhat, OfferId: rhel-byos, PlanId: rhel-lvm75 is private and can not be purchased by subscriptionId: GUID"
-```
+    ```
+    "Offer with PublisherId: redhat, OfferId: rhel-byos, PlanId: rhel-lvm75 is private and can not be purchased by subscriptionId: GUID"
+    ```
 
 - If you create a snapshot from the RHEL BYOS image AND publish the image in [Shared Image Gallery](https://docs.microsoft.com/azure/virtual-machines/linux/shared-image-galleries), you will need to provide plan information that matches the original source of the snapshot. For example, the command might look like (note the plan parameters in the final line):
-```azurecli
-az vm create –image \
-"/subscriptions/GUID/resourceGroups/GroupName/providers/Microsoft.Compute/galleries/GalleryName/images/ImageName/versions/1.0.0" \
--g AnotherGroupName --location EastUS2 -n VMName \
---plan-publisher redhat --plan-product rhel-byos --plan-name rhel-lvm75
-```
+    ```azurecli
+    az vm create –image \
+    "/subscriptions/GUID/resourceGroups/GroupName/providers/Microsoft.Compute/galleries/GalleryName/images/ImageName/versions/1.0.0" \
+    -g AnotherGroupName --location EastUS2 -n VMName \
+    --plan-publisher redhat --plan-product rhel-byos --plan-name rhel-lvm75
+    ```
 
 - If you are using automation to provision VMs from the RHEL BYOS images, you will need to provide plan parameters similar to what was shown above. For example, if you are using Terraform, you would provide the plan information in a [plan block](https://www.terraform.io/docs/providers/azurerm/r/virtual_machine.html#plan).
 
