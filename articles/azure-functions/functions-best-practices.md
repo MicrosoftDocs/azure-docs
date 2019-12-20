@@ -81,7 +81,7 @@ Don't use verbose logging in production code, which has a negative performance i
 
 ### Use async code but avoid blocking calls
 
-Asynchronous programming is a recommended best practice.
+Asynchronous programming is a recommended best practice, especially when blocking I/O operations are involved.
 
 In C#, always avoid referencing the `Result` property or calling `Wait` method on a `Task` instance. This approach can lead to thread exhaustion.
 
@@ -89,12 +89,9 @@ In C#, always avoid referencing the `Result` property or calling `Wait` method o
 
 ### Use multiple worker processes
 
-For single-threaded runtimes like Python and Node.js, you can improve performance by using two additional methods:
+By default, any host instance for Functions uses a single worker process. To improve performance, especially with single-threaded runtimes like Python, use the [FUNCTIONS_WORKER_PROCESS_COUNT](functions-app-settings.md#functions_worker_process_count) to increase the number of worker processes per host (up to 10). Azure Functions then tries to evenly distribute simultaneous function invocations across these workers. 
 
-- Use async functions for blocking I/O operations.
-- Use the [FUNCTIONS_WORKER_PROCESS_COUNT](functions-app-settings.md#functions_worker_process_count) to increase the number of worker processes per host (up to 10).
-
-For more information, see [Azure Functions Python developer guide - Scaling and concurrency](functions-reference-python.md#scaling-and-concurrency) and [Azure Functions Node.js developer guide - Scaling and concurrency](functions-reference-node.md#scaling-and-concurrency).
+The FUNCTIONS_WORKER_PROCESS_COUNT applies to each host that Functions creates when scaling out your application to meet demand. 
 
 ### Receive messages in batch whenever possible
 

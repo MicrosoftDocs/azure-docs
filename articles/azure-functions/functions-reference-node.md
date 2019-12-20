@@ -406,28 +406,7 @@ When you work with HTTP triggers, you can access the HTTP request and response o
 
 By default, Azure Functions automatically monitors the load on your application and creates additional host instances for Node.js as needed. Functions uses built-in (not user configurable) thresholds for different trigger types to decide when to add instances, such the age of messages and queue size for QueueTrigger. For more information, see [How the consumption and premium plans work](functions-scale.md#how-the-consumption-and-premium-plans-work).
 
-This scaling behavior is sufficient for many applications. Applications with any of the following characteristics, however, may not scale as effectively:
-
-- The application needs to handle many concurrent invocations.
-- The application processes a large number of I/O events.
-- The application is I/O bound.
-
-In such cases, you can improve performance further by employing async patterns and by using multiple language worker processes.
-
-### Async
-
-Because Node.js is a single-threaded runtime, a host instance for Node.js can process only one function invocation at a time. For applications that process a large number of I/O events and/or is I/O bound, you can improve performance by running functions asynchronously.
-
-To run a function asynchronously, use the `async function` statement (available in Node.js 8 or later, which requires version 2.x of the Functions runtime).
-
-```javascript
-async function myAsyncFunction(args) {
-    // Code that uses await, etc.
-    ...
-}
-```
-
-### Use multiple language worker processes
+This scaling behavior is sufficient for many Node.js applications. For CPU-bound applications, you can improve performance further by using multiple language worker processes.
 
 By default, every Functions host instance has a single language worker process. You can increase the number of worker processes per host (up to 10) by using the [FUNCTIONS_WORKER_PROCESS_COUNT](functions-app-settings.md#functions_worker_process_count) application setting. Azure Functions then tries to evenly distribute simultaneous function invocations across these workers. 
 
