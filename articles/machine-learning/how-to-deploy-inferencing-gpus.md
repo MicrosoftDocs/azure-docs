@@ -182,7 +182,7 @@ myenv.docker.base_image = DEFAULT_GPU_IMAGE
 inference_config = InferenceConfig(entry_script="score.py", environment=myenv)
 ```
 
-For more information on environments, see [Create and manage environments for training and deployment](how-to-use-environments.md).
+For more information on environments, see [Create and manage environments for training and deployment](service/how-to-use-environments.md).
 For more information, see the reference documentation for [InferenceConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py).
 
 ## Deploy the model

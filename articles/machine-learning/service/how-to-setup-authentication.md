@@ -30,7 +30,7 @@ See the [concept article](concept-enterprise-security.md) for a general overview
 ## Prerequisites
 
 * Create an [Azure Machine Learning workspace](how-to-manage-workspace.md).
-* [Configure your development environment](how-to-configure-environment.md) to install the Azure Machine Learning SDK, or use a [Azure Machine Learning Notebook VM](concept-azure-machine-learning-architecture.md#compute-instance) with the SDK already installed.
+* [Configure your development environment](how-to-configure-environment.md) to install the Azure Machine Learning SDK, or use a [Azure Machine Learning Notebook VM](../concept-azure-machine-learning-architecture.md#compute-instance) with the SDK already installed.
 
 ## Interactive authentication
 

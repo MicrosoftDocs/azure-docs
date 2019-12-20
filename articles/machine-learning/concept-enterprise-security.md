@@ -28,7 +28,7 @@ Multi-factor authentication is supported if Azure Active Directory (Azure AD) is
 
 [![Authentication in Azure Machine Learning](media/concept-enterprise-security/authentication.png)](media/concept-enterprise-security/authentication-expanded.png#lightbox)
 
-See the [Set up authentication](how-to-setup-authentication.md) how-to for detailed examples and instructions on setting up authentication, including service principal authentication for automated workflows.
+See the [Set up authentication](service/how-to-setup-authentication.md) how-to for detailed examples and instructions on setting up authentication, including service principal authentication for automated workflows.
 
 ### Authentication for web service deployment
 
@@ -39,7 +39,7 @@ Azure Machine Learning supports two forms of authentication for web services: ke
 |Key|Keys are static and do not need to be refreshed. Keys can be regenerated manually.|Disabled by default| Enabled by default|
 |Token|Tokens expire after a specified time period and need to be refreshed.| Not available| Disabled by default |
 
-See the [web-service authentication section](how-to-setup-authentication.md#web-service-authentication) for code examples on authenticating to web-services in Azure Machine Learning.
+See the [web-service authentication section](service/how-to-setup-authentication.md#web-service-authentication) for code examples on authenticating to web-services in Azure Machine Learning.
 
 ## Authorization
 
