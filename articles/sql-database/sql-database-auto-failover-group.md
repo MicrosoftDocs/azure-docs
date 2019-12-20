@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
-ms.date: 11/07/2019
+ms.date: 12/20/2019
 ---
 
 # Use auto-failover groups to enable transparent and coordinated failover of multiple databases
@@ -285,19 +285,49 @@ The above configuration will ensure that the automatic failover will not block c
 When you set up a failover group between primary and secondary managed instances in two different regions, each instance is isolated using an independent virtual network. To allow replication traffic between these VNets ensure these prerequisites are met:
 
 1. The two managed instances need to be in different Azure regions.
-1. The two managed instances need to be the same service tier, and have the same storage size.
-1. Your secondary managed instance must be empty (no user databases).
-1. The virtual networks used by the managed instances need to be connected through a [VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md) or Express Route. When two virtual networks connect through an on-premises network, ensure there is no firewall rule blocking ports 5022, and 11000-11999. Global VNet Peering is not supported.
-1. The two managed instance VNets cannot have overlapping IP addresses.
-1. You need to set up your Network Security Groups (NSG) such that ports 5022 and the range 11000~12000 are open inbound and outbound for connections from the other managed instanced subnet. This is to allow replication traffic between the instances
+2. The two managed instances need to be the same service tier, and have the same storage size.
+3. Your secondary managed instance must be empty (no user databases).
+4. The virtual networks used by the managed instances need to be connected through a [VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md) or Express Route. When two virtual networks connect through an on-premises network, ensure there is no firewall rule blocking ports 5022, and 11000-11999. Global VNet Peering is not supported.
+5. The two managed instance VNets cannot have overlapping IP addresses.
+6. You need to set up your Network Security Groups (NSG) such that ports 5022 and the range 11000~12000 are open inbound and outbound for connections from the other managed instanced subnet. This is to allow replication traffic between the instances
 
    > [!IMPORTANT]
    > Misconfigured NSG security rules leads to stuck database copy operations.
 
-1. The secondary instance is configured with the correct DNS zone ID. DNS zone is a property of a managed instance and virtual cluster, and its ID is included in the host name address. The zone ID is generated as a random string when the first managed instance is created in each VNet and the same ID is assigned to all other instances in the same subnet. Once assigned, the DNS zone cannot be modified. Managed instances included in the same failover group must share the DNS zone. You accomplish this by passing the primary instance's zone ID as the value of DnsZonePartner parameter when creating the secondary instance. 
+7. The secondary instance is configured with the correct DNS zone ID. DNS zone is a property of a managed instance and virtual cluster, and its ID is included in the host name address. The zone ID is generated as a random string when the first managed instance is created in each VNet and the same ID is assigned to all other instances in the same subnet. Once assigned, the DNS zone cannot be modified. Managed instances included in the same failover group must share the DNS zone. You accomplish this by passing the primary instance's zone ID as the value of DnsZonePartner parameter when creating the secondary instance. 
 
    > [!NOTE]
    > For a detailed tutorial on configuring failover groups with managed instance, see [add a managed instance to a failover group](sql-database-managed-instance-failover-group-tutorial.md).
+
+## Changing failover group regions
+
+I some cases you may need to change the primary or secondary region of the failover group. You can do by following the below process. Changing failover group regions will result in some downtime, but the update process ensures that the primary databases always remain protected by at least one secondary.
+
+### Updating secondary region of the failover group
+
+Let’s assume that server A is the primary server, server B is the existing secondary server, and server C is the new secondary in the third region.  To make the transition, follow these steps:
+
+1.	Create additional secondaries of each database on server A to server C using [active geo-replication](sql-database-active-geo-replication.md). Each database on server A will have two secondaries, one on server B and one on server C.
+2.	Delete the failover group and re-create it with the same name between servers A and C
+3.	Add all primary databases on server A to the new failover group
+4.	Drop server B. All databases on B will be deleted automatically. 
+
+   > [!NOTE]
+   > During step 2, logins will be failing after the group is deleted and until it is re-cred. This is because the SQL aliases for the failover group listeners will have been deleted and gateway will not recognize the failover group name.
+   
+### Updating primary region of the failover group
+
+Let’s assume server A is the primary server, server B is the existing secondary server, and server C is the new primary in the third region.  To make the transition, follow these steps:
+
+1.	Call planned failover to switch the primary server to B. Server A will become the new secondary server.
+2.	Create additional secondaries of each database on server B to server C using [active geo-replication](sql-database-active-geo-replication.md). Each database on server B will have two secondaries, one on server A and one on server C.
+3.	Delete the failover group and re-create it with the same name between servers B and C.
+4.	Add all primary databases on B to the new FOG
+5.	Call planned failover of the failover group to switch B and C. Now server C will become the primary and B - the secondary. All secondary databases on server A will be automatically linked to the primaries on C.
+6.	Drop the server A. All databases on A will be deleted automatically.
+
+   > [!NOTE]
+   > Each failover will result several minutes of downtime. The actual time will depend on the size of failover group. 
 
 ## Upgrading or downgrading a primary database
 
