@@ -29,19 +29,21 @@ To complete the steps in this article, you need the following resources:
 
 ## Get device connection details
 
-1. In your Azure IoT Central application, select the **Device Templates** tab and select **New**. In the section of **Use a preconfigured device template**, choose **MXChip IoT DevKit** from the list. And choose **Next: Customize** and **Create**.
+1. In your Azure IoT Central application, select the **Device Templates** tab and select **+ New**. In the section **Use a preconfigured device template**, select **MXChip IoT DevKit**.
 
     ![Device template for MXChip IoT DevKit](media/howto-connect-devkit/device-template.png)
 
-1. Select **Devices** tab, in the devices list, select **MXChip IoT DevKit** and select **New** to create a new device from Device Template.
+1. Select **Next: Customize** and then **Create**.
+
+1. Select **Devices** tab. In the devices list, select **MXChip IoT DevKit** and select **+ New** to create a new device from the template.
 
     ![New device](media/howto-connect-devkit/new-device.png)
 
-1. In the pop-up window, enter the **Device ID** as `SampleDevKit` and **Device Name** as `MXChip IoT DevKit - Sample`. Ensure **Simulated** option is off. Then select **Create**.
+1. In the pop-up window, enter the **Device ID** as `SampleDevKit` and **Device Name** as `MXChip IoT DevKit - Sample`. Make sure the **Simulated** option is off. Then select **Create**.
 
     ![Device ID and name](media/howto-connect-devkit/device-id-name.png)
 
-1. Click the device you just created and select **Connect**. Make a note of the **ID Scope**, **Device ID** and **Primary key**.
+1. Select the device you created and then select **Connect**. Make a note of the **ID Scope**, **Device ID**, and **Primary key**. You need these values later in this how-to article.
 
     ![Device connection info](media/howto-connect-devkit/device-connection-info.png)
 
@@ -68,7 +70,7 @@ To complete the steps in this article, you need the following resources:
 
     - The name of your WiFi network (SSID).
     - Your WiFi network password.
-    - The connection details: enter the **Device ID**, **ID Scope** and **SAS Primary Key** you made a note of previously.
+    - The connection details: enter the **Device ID**, **ID Scope**, and **SAS Primary Key** you made a note of previously.
 
     > [!NOTE]
     > Currently, the IoT DevKit only can connect to 2.4 GHz Wi-Fi, 5 GHz is not supported due to hardware restrictions.
