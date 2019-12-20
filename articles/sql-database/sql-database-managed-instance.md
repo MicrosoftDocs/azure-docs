@@ -178,7 +178,35 @@ Managed instances are available during update operations but there is a short do
 
 [Accelerated database recovery](sql-database-accelerated-database-recovery.md) is not currently available for Azure SQL Database managed instances. Once enabled, this feature will significantly reduce variability of failover time, even in case of long-running transactions.
 
+### Canceling management operations
 
+The following table summarizes ability to cancel specific management operations and typical overall durations:
+
+Category  |Operation  |Cancelable  |Estimated duration  |
+|---------|---------|---------|---------|
+|Deployment |Instance creation |No |  |
+|Update |Instance storage scaling up/down (General Purpose) |No |  |
+|Update |Instance storage scaling up/down (Business Critical) |Yes |90% of operations finish in 5 minutes |
+|Update |Instance compute (vCores) scaling up and down (General Purpose) |Yes |90% of operations finish in 5 minutes |
+|Update |Instance compute (vCores) scaling up and down (Business Critical) |Yes |90% of operations finish in 5 minutes |
+|Update |Instance service tier change (General Purpose to Business Critical and vice versa) |Yes |90% of operations finish in 5 minutes |
+|Delete |Instance deletion |No |  |
+|Delete |Virtual cluster deletion (as user-initiated operation) |No |  |
+
+In order to cancel the management operation, go to the overview blade and click on notification box of ongoing operation. From the right side, a screen with ongoing operation will appear and there will be button for canceling operation. After first click, you will be asked to click again and confirm that you want to cancel the operation.
+
+[![](./media/sql-database-managed-instance/canceling-operation.png)](./media/sql-database-managed-instance/canceling-operation.png#lightbox)
+
+After cancel request has been submitted and processed, you will get notification if cancel submission has been successful or not. 
+
+In case of cancel success, management operation will be canceled in couple of minutes resulting with a failure.
+
+![canceling operation result](./media/sql-database-managed-instance/canceling-operation-result.png)
+
+If cancel request fails or cancel button is not active, that means that management operation has entered not cancelable state and that it will finish in couple of minutes. Management operation will continue its execution until it is completed.
+
+> [!IMPORTANT]
+> Canceling operation is currently supported only in Portal.
 
 ## Advanced security and compliance
 
