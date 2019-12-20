@@ -150,7 +150,7 @@ $storageaccount = Get-AzStorageAccount -ResourceGroupName "your-resource-group-n
 #List the directory service of the selected service account
 $storageAccount.AzureFilesIdentityBasedAuth.DirectoryServiceOptions
 
-#List the directory domain information if the storage account is enabeld for AD authentication for Files
+#List the directory domain information if the storage account is enabled for AD authentication for Files
 $storageAccount.AzureFilesIdentityBasedAuth.ActiveDirectoryProperties
 ```
  
