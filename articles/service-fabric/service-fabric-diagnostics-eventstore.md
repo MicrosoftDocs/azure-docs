@@ -1,21 +1,11 @@
 ---
-title: Azure Service Fabric Event Store  | Microsoft Docs
+title: Azure Service Fabric Event Store  
 description: Learn about Azure Service Fabric's EventStore
-services: service-fabric
-documentationcenter: .net
 author: srrengar
-manager: chackdan
-editor: ''
 
-ms.assetid:
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 6/6/2019
 ms.author: srrengar
-
 ---
 
 # EventStore Overview
