@@ -41,7 +41,7 @@ If you don’t have an Azure subscription, create a free account before you begi
 * Complete the [Tutorial: Get started creating your first Azure ML experiment](tutorial-1st-experiment-sdk-setup.md) to:
     * Create a workspace
     * Clone the tutorials notebook to your folder in the workspace.
-    * Create a cloud-based Notebook VM.
+    * Create a cloud-based compute instance.
 
 * In your cloned **tutorials** folder, open the **img-classification-part1-training.ipynb** notebook. 
 

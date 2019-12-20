@@ -2,7 +2,7 @@
 title: Export template in Azure portal
 description: Use Azure portal to export an Azure Resource Manager template from resources in your subscription.
 ms.topic: conceptual
-ms.date: 12/03/2019
+ms.date: 12/12/2019
 ---
 # Single and multi-resource export to a template in Azure portal
 
@@ -39,6 +39,14 @@ Export the template before deployment or from the history, when:
 * You want an easy-to-reuse template.
 * You don't need to include changes you made after the original deployment.
 
+## Limitations
+
+When exporting from a resource group or resource, the exported template is generated from the [published schemas](https://github.com/Azure/azure-resource-manager-schemas/tree/master/schemas) for each resource type. Occasionally, the schema doesn't have the latest version for a resource type. Check your exported template to make sure it includes the properties you need. If necessary, edit the exported template to use the API version you need.
+
+The export template feature doesn't support exporting Azure Data Factory resources. To learn about how you can export Data Factory resources, see [Copy or clone a data factory in Azure Data Factory](https://aka.ms/exportTemplateViaAdf).
+
+To export resources created through classic deployment model, you must [migrate them to the Resource Manager deployment model](https://aka.ms/migrateclassicresourcetoarm).
+
 ## Export template from a resource group
 
 To export one or more resources from a resource group:
@@ -57,8 +65,6 @@ To export one or more resources from a resource group:
    ![Show template](./media/export-template-portal/show-template.png)
 
    **Include parameters** is selected by default.  When selected, all template parameters will be included when the template is generated. If you’d like to author your own parameters, toggle this checkbox to not include them.
-
-The exported template is generated from the [published schemas](https://github.com/Azure/azure-resource-manager-schemas/tree/master/schemas) for each resource type. Occasionally, the schema doesn't have the latest version for a resource type. Check your exported template to make sure it includes the properties you need. If necessary, edit the exported template to use the API version you need.
 
 ## Export template from a resource
 

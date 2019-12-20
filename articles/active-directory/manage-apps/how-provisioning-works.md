@@ -58,13 +58,9 @@ You can customize the default attribute-mappings according to your business need
 
 When you configure provisioning to a SaaS application, one of the types of attribute mappings that you can specify is an expression mapping. For these mappings, you must write a script-like expression that allows you to transform your users’ data into formats that are more acceptable for the SaaS application. For details, see [Writing expressions for attribute mappings](functions-for-customizing-application-data.md).
 
-## Scoping users and groups for provisioning
+### Assignment-based scoping
 
-Scoping allows the Azure Active Directory (Azure AD) provisioning service to include or exclude users from provisioning. Depending on the type of application, there are different ways to determine which users should be in scope.
-
-### Assignments
-
-For outbound provisioning from Azure AD to a SaaS application, relying on [user or group assignments](assign-user-or-group-access-portal.md) is the most common way to determine which users are in scope for provisioning. Because user assignments are also used for enabling single sign-on, the same method can be used for managing both access and provisioning. Assignment-based scoping doesn't apply to inbound provisioning scenarios, for example from HCM systems.
+For outbound provisioning from Azure AD to a SaaS application, relying on [user or group assignments](assign-user-or-group-access-portal.md) is the most common way to determine which users are in scope for provisioning. Because user assignments are also used for enabling single sign-on, the same method can be used for managing both access and provisioning. Assignment-based scoping doesn't apply to inbound provisioning scenarios such as Workday and Successfactors.
 
 * **Groups.** With an Azure AD Premium license plan, you can use groups to assign access to a SaaS application. Then, when the provisioning scope is set to **Sync only assigned users and groups**, the Azure AD provisioning service will provision or de-provision users based on whether they're members of a group that's assigned to the application. The group object itself isn't provisioned unless the application supports group objects.
 
@@ -78,7 +74,7 @@ For outbound provisioning from Azure AD to a SaaS application, relying on [user 
 
 * **Nested groups.** The Azure AD user provisioning service can't read or provision users in nested groups. The service can only read and provision users that are immediate members of an explicitly assigned group. This limitation of "group-based assignments to applications" also affects single sign-on (see [Using a group to manage access to SaaS applications](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-saasapps)). Instead, directly assign or otherwise [scope in](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts) the groups that contain the users who need to be provisioned.
 
-### Attribute-based scoping filters
+### Attribute-based scoping 
 
 You can use scoping filters to define attribute-based rules that determine which users are provisioned to an application. This method is commonly used for inbound provisioning from HCM applications to Azure AD and Active Directory. Scoping filters are configured as part of the attribute mappings for each Azure AD user provisioning connector. For details about configuring attribute-based scoping filters, see [Attribute-based application provisioning with scoping filters](define-conditional-rules-for-provisioning-user-accounts.md).
 

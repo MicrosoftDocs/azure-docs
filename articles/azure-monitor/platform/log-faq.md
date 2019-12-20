@@ -4,8 +4,8 @@ description: Answers to frequently asked questions about the Azure Monitor Logs 
 ms.service:  azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: MGoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 11/01/2019
 
 ---

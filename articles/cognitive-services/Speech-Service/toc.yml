@@ -295,6 +295,8 @@
       href: quickstart-custom-speech-commands-create-new.md
     - name: 'Create a Custom Command with parameters (Preview)'
       href: quickstart-custom-speech-commands-create-parameters.md
+    - name: 'Use Custom Commands with Custom Voice (Preview)'
+      href: quickstart-custom-speech-commands-select-custom-voice.md
     - name: 'Use Custom Commands with the Speech SDK (Preview)'
       href: quickstart-custom-speech-commands-speech-sdk.md
   - name: How-to guides
@@ -370,6 +372,8 @@
       items:
       - name: "How-to: Audio Content Creation"
         href: how-to-audio-content-creation.md
+  - name: Custom keyword naming guidelines
+    href: speech-devices-sdk-kws-guidelines.md
   - name: Custom keyword spotting
     href: speech-devices-sdk-create-kws.md
 - name: Speech Service
