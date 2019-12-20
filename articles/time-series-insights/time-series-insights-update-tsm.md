@@ -19,6 +19,7 @@ This article describes Time Series Model, the capabilities, and how to start bui
 > [!TIP]
 >  * Go to the [Contoso Wind Farm demo](https://insights.timeseries.azure.com/preview/samples) environment for a live Time Series Model example.
 > * Read about the [Azure Time Series Insights Preview explorer](time-series-insights-update-explorer.md) to learn how to navigate your Time Series Model UI.
+> * Learn [How to work with Time Series Model](time-series-insights-update-how-to-tsm.md) using the Time Series Insights web explorer.
 
 ## Summary
 
