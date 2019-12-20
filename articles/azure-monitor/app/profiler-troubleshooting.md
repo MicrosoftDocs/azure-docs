@@ -161,6 +161,11 @@ To check the settings that were used to configure Azure Diagnostics:
     When the trace is being uploaded, the following message is displayed: *Start to upload trace*. 
 
 
+## Edit network proxy or firewall rules
+
+If your application connects to the Internet via a proxy or a firewall, you may need to edit the rules to allow your application to communicate with the Application Insights Profiler service. The IPs used by Application Insights Profiler are included in the Azure Monitor service tag.
+
+
 [profiler-search-telemetry]:./media/profiler-troubleshooting/Profiler-Search-Telemetry.png
 [profiler-webjob]:./media/profiler-troubleshooting/Profiler-webjob.png
 [profiler-webjob-log]:./media/profiler-troubleshooting/Profiler-webjob-log.png

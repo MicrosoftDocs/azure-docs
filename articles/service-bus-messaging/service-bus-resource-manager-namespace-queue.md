@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Create Azure Service Bus namespace and queue using Azure Resource Manager template'
+title: Create Azure Service Bus namespace and queue using Azure template
 description: 'Quickstart: Create a Service Bus namespace and a queue using Azure Resource Manager template'
 services: service-bus-messaging
 documentationcenter: .net
@@ -13,7 +13,7 @@ ms.devlang: tbd
 ms.topic: quickstart
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 11/05/2019
+ms.date: 12/20/2019
 ms.author: spelluru
 
 ---
