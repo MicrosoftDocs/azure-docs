@@ -35,7 +35,7 @@ You can find HDInsight template samples at [Azure quickstart templates](https://
 
 For more information about Resource Manager templates, see the following articles and examples:
 
-* [Author Azure Resource Manager templates](../azure-resource-manager/resource-group-authoring-templates.md)
+* [Author Azure Resource Manager templates](../azure-resource-manager/templates/template-syntax.md)
 * [Deploy an application with Azure Resource Manager templates](../azure-resource-manager/resource-group-template-deploy.md)
 * [Microsoft.HDInsight/clusters](/azure/templates/microsoft.hdinsight/allversions) template reference
 * [Azure quickstart templates](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Hdinsight&pageNumber=1&sort=Popular)
@@ -78,5 +78,5 @@ In this article, you have learned several ways to create an HDInsight cluster. T
 * For an example of deploying resources through the .NET client library, see [Deploy resources by using .NET libraries and a template](../virtual-machines/windows/csharp-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 * For an in-depth example of deploying an application, see [Provision and deploy microservices predictably in Azure](../app-service/deploy-complex-application-predictably.md).
 * For guidance on deploying your solution to different environments, see [Development and test environments in Microsoft Azure](../solution-dev-test-environments.md).
-* To learn about the sections of the Azure Resource Manager template, see [Authoring templates](../azure-resource-manager/resource-group-authoring-templates.md).
+* To learn about the sections of the Azure Resource Manager template, see [Authoring templates](../azure-resource-manager/templates/template-syntax.md).
 * For a list of the functions you can use in an Azure Resource Manager template, see [Template functions](../azure-resource-manager/resource-group-template-functions.md).

@@ -20,7 +20,7 @@ Visual studio Code supports MacOS, Windows, and Linux.  It can be installed from
 1. Open Visual Studio Code.
 1. Select **Extensions** from the left menu. Or from the **View** menu, select **Extensions** to open the Extensions pane.
 
-    ![Install Visual Studio Code Resource Manager Tools extension](./media/resource-manager-tools-vs-code/resource-manager-visual-studio-code-tools-extension.png)
+    ![Install Visual Studio Code Resource Manager Tools extension](./media/use-vs-code-to-create-template/resource-manager-visual-studio-code-tools-extension.png)
 1. Search for **Resource Manager**.
 1. Select **Install** under **Azure Resource Manager Tools**.
 
@@ -30,7 +30,7 @@ Visual studio Code supports MacOS, Windows, and Linux.  It can be installed from
 
 Parameters, variables, functions, names, and expressions are color-coded as shown in the following screenshot:
 
-![Visual Studio Code Resource Manager tools extensions colorization](./media/resource-manager-tools-vs-code/resource-manager-tools-extension-colorization.png)
+![Visual Studio Code Resource Manager tools extensions colorization](./media/use-vs-code-to-create-template/resource-manager-tools-extension-colorization.png)
 
 The template outline view makes it easy to navigate through large templates.
 
@@ -40,19 +40,19 @@ The Resource Manager template extension knows possible completions for function 
 
 - Built-in function names
 
-    ![Visual Studio Code Resource Manager tools extensions intellisense functions](./media/resource-manager-tools-vs-code/resource-manager-tools-extension-intellisense-functions.png)
+    ![Visual Studio Code Resource Manager tools extensions intellisense functions](./media/use-vs-code-to-create-template/resource-manager-tools-extension-intellisense-functions.png)
 
 - Parameter references
 
-    ![Visual Studio Code Resource Manager tools extensions intellisense parameters](./media/resource-manager-tools-vs-code/resource-manager-tools-extension-intellisense-parameters.png)
+    ![Visual Studio Code Resource Manager tools extensions intellisense parameters](./media/use-vs-code-to-create-template/resource-manager-tools-extension-intellisense-parameters.png)
 
 - Variable references
 
-    ![Visual Studio Code Resource Manager tools extensions intellisense variables](./media/resource-manager-tools-vs-code/resource-manager-tools-extension-intellisense-variables.png)
+    ![Visual Studio Code Resource Manager tools extensions intellisense variables](./media/use-vs-code-to-create-template/resource-manager-tools-extension-intellisense-variables.png)
 
 - resourceGroup() properties
 
-    ![Visual Studio Code Resource Manager tools extensions intellisense functions](./media/resource-manager-tools-vs-code/resource-manager-tools-extension-intellisense-resourcegroup.png)
+    ![Visual Studio Code Resource Manager tools extensions intellisense functions](./media/use-vs-code-to-create-template/resource-manager-tools-extension-intellisense-resourcegroup.png)
 
 In addition, intellisense also works with subscription() properties and the properties of references to variables that are objects.
 
@@ -60,12 +60,12 @@ In addition, intellisense also works with subscription() properties and the prop
 
 When hovering over function names, the extension shows the signature help for function parameters.
 
-![Visual Studio Code Resource Manager tools extensions signature function](./media/resource-manager-tools-vs-code/resource-manager-tools-extension-signature-function.png)
+![Visual Studio Code Resource Manager tools extensions signature function](./media/use-vs-code-to-create-template/resource-manager-tools-extension-signature-function.png)
 
 ### Go To Definition for variable and parameter references
 
 You can jump to the definition with **Ctrl+Click**, or by using the context menu as shown in the screenshot:
-![Visual Studio Code Resource Manager tools extensions go to definition](./media/resource-manager-tools-vs-code/resource-manager-tools-extension-context-menu.png)
+![Visual Studio Code Resource Manager tools extensions go to definition](./media/use-vs-code-to-create-template/resource-manager-tools-extension-context-menu.png)
 
 You can open the definition to the side with **Ctrl+Alt+Click**.
 
@@ -75,7 +75,7 @@ To open peeked editor, use the context menu as shown in the previous screenshot.
 
 The following screenshot shows the peek editor:
 
-![Visual Studio Code Resource Manager tools extensions peek editor](./media/resource-manager-tools-vs-code/resource-manager-tools-extension-peek-editor.png)
+![Visual Studio Code Resource Manager tools extensions peek editor](./media/use-vs-code-to-create-template/resource-manager-tools-extension-peek-editor.png)
 
 ### Find all references for variables and parameters
 
@@ -83,7 +83,7 @@ To find all references, use the context menu as shown in the previous screenshot
 
 The following screenshot shows how the references are highlighted:
 
-![Visual Studio Code Resource Manager tools extensions find all references](./media/resource-manager-tools-vs-code/resource-manager-tools-extension-find-all-references.png)
+![Visual Studio Code Resource Manager tools extensions find all references](./media/use-vs-code-to-create-template/resource-manager-tools-extension-find-all-references.png)
 
 ### Rename all references for variables and parameters
 
@@ -91,13 +91,13 @@ To rename all references for variables and parameters, use the context menu as s
 
 ### Hover for parameter description
 
-![Visual Studio Code Resource Manager tools extensions hover definition](./media/resource-manager-tools-vs-code/resource-manager-tools-extension-hover-parameters.png)
+![Visual Studio Code Resource Manager tools extensions hover definition](./media/use-vs-code-to-create-template/resource-manager-tools-extension-hover-parameters.png)
 
 ### Brace matching
 
 Matching brackets is highlighted as soon as the cursor is near one of them. When you click a brace, the matching brace is also highlighted as shown in the following screenshot:
 
-![Visual Studio Code Resource Manager tools extensions brace matching](./media/resource-manager-tools-vs-code/resource-manager-tools-extension-brace-matching.png)
+![Visual Studio Code Resource Manager tools extensions brace matching](./media/use-vs-code-to-create-template/resource-manager-tools-extension-brace-matching.png)
 
 ### Show errors and warnings
 
@@ -117,4 +117,4 @@ The warnings include:
 ## Next steps
 
 - To learn about creating Azure Resource Manager templates, see [Tutorial: Create and deploy your first Azure Resource Manager template](template-tutorial-create-first-template.md).
-- To go through a quickstart by using Visual Studio Code, see [Quickstart: Create Azure Resource Manager templates by using Visual Studio Code](./resource-manager-quickstart-create-templates-use-visual-studio-code.md)
+- To go through a quickstart by using Visual Studio Code, see [Quickstart: Create Azure Resource Manager templates by using Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md)

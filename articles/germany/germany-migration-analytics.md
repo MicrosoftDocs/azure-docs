@@ -47,7 +47,7 @@ For more information:
 - Review the [Event Hubs overview](../event-hubs/event-hubs-about.md).
 - Refresh your knowledge by completing the [Event Hubs tutorials](https://docs.microsoft.com/azure/event-hubs).
 - Check the migration steps for [Azure Service Bus](./germany-migration-integration.md#service-bus).
-- Become familiar with how to [export Azure Resource Manager templates](../azure-resource-manager/manage-resource-groups-portal.md#export-resource-groups-to-templates) or read the overview of [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
+- Become familiar with how to [export Azure Resource Manager templates](../azure-resource-manager/manage-resource-groups-portal.md#export-resource-groups-to-templates) or read the overview of [Azure Resource Manager](../azure-resource-manager/management/overview.md).
 
 ## HDInsight
 

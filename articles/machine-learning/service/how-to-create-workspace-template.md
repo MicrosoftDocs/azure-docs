@@ -197,7 +197,7 @@ The example template has two parameters:
 
 For more information on templates, see the following articles:
 
-* [Author Azure Resource Manager templates](../../azure-resource-manager/resource-group-authoring-templates.md)
+* [Author Azure Resource Manager templates](../../azure-resource-manager/templates/template-syntax.md)
 * [Deploy an application with Azure Resource Manager templates](../../azure-resource-manager/resource-group-template-deploy.md)
 * [Microsoft.MachineLearningServices resource types](https://docs.microsoft.com/azure/templates/microsoft.machinelearningservices/allversions)
 

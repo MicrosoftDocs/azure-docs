@@ -32,7 +32,7 @@ please delete some resources of this type before creating a new one.
 ## Cause
 
 Quotas are applied per resource group, subscriptions, accounts, and other scopes. For example, your subscription may be configured to limit the number of cores for a region. If you attempt to deploy a virtual machine with more cores than the permitted amount, you receive an error stating the quota has been exceeded.
-For complete quota information, see [Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md).
+For complete quota information, see [Azure subscription and service limits, quotas, and constraints](../../azure-subscription-service-limits.md).
 
 ## Troubleshooting
 
@@ -89,20 +89,20 @@ To request a quota increase, go to the portal and file a support issue. In the s
 
 1. Select **Subscriptions**.
 
-   ![Subscriptions](./media/resource-manager-quota-errors/subscriptions.png)
+   ![Subscriptions](./media/error-resource-quota/subscriptions.png)
 
 2. Select the subscription that needs an increased quota.
 
-   ![Select subscription](./media/resource-manager-quota-errors/select-subscription.png)
+   ![Select subscription](./media/error-resource-quota/select-subscription.png)
 
 3. Select **Usage + quotas**
 
-   ![Select usage and quotas](./media/resource-manager-quota-errors/select-usage-quotas.png)
+   ![Select usage and quotas](./media/error-resource-quota/select-usage-quotas.png)
 
 4. In the upper right corner, select **Request increase**.
 
-   ![Request increase](./media/resource-manager-quota-errors/request-increase.png)
+   ![Request increase](./media/error-resource-quota/request-increase.png)
 
 5. Fill in the forms for the type of quota you need to increase.
 
-   ![Fill in form](./media/resource-manager-quota-errors/forms.png)
+   ![Fill in form](./media/error-resource-quota/forms.png)

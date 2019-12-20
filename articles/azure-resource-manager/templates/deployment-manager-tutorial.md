@@ -47,7 +47,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 To complete this article, you need:
 
-* Some experience with developing [Azure Resource Manager templates](./resource-group-overview.md).
+* Some experience with developing [Azure Resource Manager templates](overview.md).
 * Azure PowerShell. For more information, see [Get started with Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
 * Deployment Manager cmdlets. To install these prerelease cmdlets, you need the latest version of PowerShellGet. To get the latest version, see [Installing PowerShellGet](/powershell/scripting/gallery/installing-psget). After installing PowerShellGet, close your PowerShell window. Open a new elevated PowerShell window, and use the following command:
 
@@ -183,7 +183,7 @@ Later in the tutorial, you deploy a rollout. A user-assigned managed identity is
 You need to create a user-assigned managed identity and configure the access control for your subscription.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Create a [user-assigned managed identity](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md).
+2. Create a [user-assigned managed identity](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md).
 3. From the portal, select **Subscriptions** from the left menu, and then select your subscription.
 4. Select **Access control (IAM)**, and then select **Add role assignment**.
 5. Enter or select the following values:
