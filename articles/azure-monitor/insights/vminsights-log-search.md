@@ -200,10 +200,10 @@ Records with a type of *VMComputer* have inventory data for servers with the Dep
 |AzureImageSku | The SKU of the Azure VM image | 
 |AzureImageVersion | The version of the Azure VM image | 
 |AzureCloudServiceName | The name of the Azure cloud service |
-|AzureCloudServiceDeployment | Deployment id for the Cloud Service |
+|AzureCloudServiceDeployment | Deployment ID for the Cloud Service |
 |AzureCloudServiceRoleName | Cloud Service role name |
 |AzureCloudServiceRoleType | Cloud Service role type: *worker* or *web* |
-|AzureCloudServiceInstanceId | Cloud Service role instance id |
+|AzureCloudServiceInstanceId | Cloud Service role instance ID |
 |AzureVmScaleSetName | The name of the virtual machine scale set |
 |AzureVmScaleSetDeployment | VM scale set deployment ID |
 |AzureVmScaleSetResourceId | The unique identifier of the virtual machine scale set resource.|
