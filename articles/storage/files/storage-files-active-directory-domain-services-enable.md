@@ -4,7 +4,7 @@ description: Learn how to enable identity-based authentication over Server Messa
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 08/08/2019
+ms.date: 12/12/2019
 ms.author: rogarana
 ---
 
@@ -17,11 +17,11 @@ Azure Files supports identity-based authentication over Server Message Block (
 >
 > AD identities used for Azure Files authentication must be synced to Azure AD. Password hash synchronization (PSH) is optional. 
 > 
-> AD DS authentication does not support authentication against Computer accounts created in AD DS. 
+> AD authentication does not support authentication against Computer accounts created in AD DS. 
 > 
-> AD DS authentication can only be supported against one AD forest where the storage account is registered to. Hence, you can only access Azure file share with the AD credentials from the single AD forest.  
+> AD authentication can only be supported against one AD forest where the storage account is registered to. Hence, you can only access Azure file share with the AD credentials from the single AD forest.  
 > 
-> AD DS authentication for SMB access and NTFS DACL persistence is not supported for Azure file shares managed by Azure File Sync.
+> AD authentication for SMB access and NTFS DACL persistence is not supported for Azure file shares managed by Azure File Sync.
 
 When you enable AD for Azure Files over SMB access, your AD domain joined machines from on-premise or Azure can mount Azure Files using your existing AD credentials. You can enable this capability with an AD environment hosted in on-prem machines or in Azure. AD identities used to access Azure Files must be synced to Azure AD to enforce share level file permissions through the standard role-based access control (RBAC) model. NTFS DACLs on files/directories carried over from existing file servers will be preserved and enforced. This offers seamless integration with your enterprise AD domain infrastructure. As you replace on-prem file servers with Azure file shares, existing users can access Azure file shares from their current clients with a single sign-on experience, without any change to the credentials in use.  
  
@@ -51,11 +51,11 @@ Before you enable AD Authentication for Azure Files, make sure you have complete
 
 ## Workflow overview
 
-Before you enable AD DS Authentication over SMB for Azure Files, we recommend that you walk through the prerequisites to make sure you've completed all the required steps. This will validate that your AD, Azure AD and Azure Storage environments are properly configured. 
+Before you enable AD Authentication over SMB for Azure Files, we recommend that you walk through the prerequisites to make sure you've completed all the required steps. This will validate that your AD, Azure AD and Azure Storage environments are properly configured. 
 
 Next, grant access to Azure Files resources with AD credentials by following these steps: 
 
-- Enable Azure Files AD DS authentication on your storage account.  
+- Enable Azure Files AD authentication on your storage account.  
 
 - Assign access permissions for a share to the Azure AD identity (a user, group, or service principal) that is in sync with the target AD identity. 
 
@@ -137,7 +137,6 @@ The script would then enable the feature on your storage account. To do this man
 Set-AzStorageAccount -ResourceGroupName "<your-resource-group-name-here>" -Name "<your-storage-account-name-here>" -EnableActiveDirectoryDomainServiesForFile $true -ActiveDirectoryDomainName "<your-domain-name-here>" -ActiveDirectoryNetBiosDomainName "<your-netbios-domain-name-here>" -ActiveDirectoryForestName "<your-forest-name-here>" -ActiveDirectoryDomainGuid "<your-guid-here>" -ActiveDirectoryDomainsid "your-domain-sid-here" -ActiveDirectoryAzureStirageSid "your-storage-account-sid"
 ```
 
-You've now successfully enabled the feature on your storage account. Even though the feature is enabled, you still need to complete additional actions to be able to use the feature properly.
 
 ### Check if the feature is enabled
 
@@ -153,7 +152,10 @@ $storageAccount.AzureFilesIdentityBasedAuth.DirectoryServiceOptions
 #List the directory domain information if the storage account is enabled for AD authentication for Files
 $storageAccount.AzureFilesIdentityBasedAuth.ActiveDirectoryProperties
 ```
- 
+
+You've now successfully enabled the feature on your storage account. Even though the feature is enabled, you still need to complete additional actions to be able to use the feature properly.
+
+[!INCLUDE [storage-files-aad-permissions-and-mounting](../../../includes/storage-files-aad-permissions-and-mounting.md)]
 
 ## Update AD account password
 
@@ -164,13 +166,5 @@ To trigger password rotation, you can run the PowerShell command Update-AzStorag
 PS: 
 
 Update-AzStorageAccountADCredential -ResourceGroupName "<resource-group-name>" -Name "<storage-account-name>" 
-
- 
-
-Assign access permissions to an identity 
-
-Configure NTFS permissions over SMB 
-
-Mount a file share from a domain-joined VM 
 
 ## Next steps 

@@ -1,14 +1,16 @@
 ---
-title: Enable Azure Active Directory authentication over SMB for Azure Files - Azure Storage
-description: Learn how to enable identity-based authentication over Server Message Block (SMB) for Azure Files through Azure Active Directory Domain Services. Your domain-joined Windows virtual machines (VMs) can then access Azure file shares by using Azure AD credentials. 
-author: roygara
-ms.service: storage
-ms.topic: conceptual
-ms.date: 12/12/2019
-ms.author: rogarana
+ title: include file
+ description: include file
+ services: storage
+ author: tamram
+ ms.service: storage
+ ms.topic: include
+ ms.date: 12/12/2019
+ ms.author: rogara
+ ms.custom: include file
 ---
 
-# Assign access permissions to an identity
+## Assign access permissions to an identity
 
 To access Azure Files resources with Azure AD credentials, an identity (a user, group, or service principal) must have the necessary permissions at the share level. This process is similar to specifying Windows share permissions, where you specify the type of access that a particular user has to a file share. The guidance in this section demonstrates how to assign read, write, or delete permissions for a file share to an identity.
 
@@ -109,7 +111,7 @@ The following process verifies that your Azure AD credentials were set up correc
 
 Sign in to the VM by using the Azure AD identity to which you have granted permissions, as shown in the following image.
 
-![Screenshot showing Azure AD sign-in screen for user authentication](media/storage-files-active-directory-enable/azure-active-directory-authentication-dialog.png)
+![Screenshot showing Azure AD sign-in screen for user authentication](media/storage-files-aad-permissions-and-mounting/azure-active-directory-authentication-dialog.png)
 
 Use the following command to mount the Azure file share. Remember to replace the placeholder values with your own values. Because you have already been authenticated, you don't need to provide the storage account key or the Azure AD user name and password. Azure AD over SMB supports a single sign-on experience with Azure AD credentials.
 
