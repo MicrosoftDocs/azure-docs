@@ -28,7 +28,7 @@ When you use [Boot diagnostics](https://docs.microsoft.com/azure/virtual-machine
  
 ## Cause
 
-Windows uses the shutdown process to perform system maintenance operations, and process changes such as updates, roles, and features. Don't interrupt this critical process until it completes. If the process is stopped, it the OS will likely become corrupt. To determine the cause, a memory dump must be collected and analyzed.
+Windows uses the shutdown process to perform system maintenance operations, and process changes such as updates, roles, and features. It's not recommended to interrupt this critical process until it completes. Depending on the number of updates/changes and the VM size, the process may take a long time. If the process is stopped, it's possible for the OS to become corrupt. Only interrupt the process if it's taking excessively long.
 
 ## Solution
 
