@@ -71,7 +71,7 @@ To verify the connection, you would typically need the following information (ma
 
 You already have the storage account name and the blob service endpoint. You can get the storage account access key by connecting to the device via the Azure Resource Manager using an Azure PowerShell client.
 
-Follow the steps in [Connect to the device via Azure Resource Manager](azure-stack-edge-r-series-placeholder.md). Once you have signed into the local device APIs via the Azure Resource Manager, get the list of storage accounts on the device. Run the following cmdlet:
+Follow the steps in [Connect to the device via Azure Resource Manager](azure-stack-edge-r-series-connect-resource-manager.md). Once you have signed into the local device APIs via the Azure Resource Manager, get the list of storage accounts on the device. Run the following cmdlet:
 
 `Get-AzureRMStorageAccount`
 
