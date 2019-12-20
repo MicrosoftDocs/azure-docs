@@ -109,7 +109,7 @@ Use the steps in [this article](../active-directory/fundamentals/add-users-azure
 	- 	Enter **41b23e61-6c1e-4545-b367-cd054e0ed4b4** for Azure **Public**
 	- 	Enter **51bb15d4-3a4f-4ebf-9dca-40096fe32426** for Azure **Government**
 	- 	Enter **538ee9e6-310a-468d-afef-ea97365856a9** for Azure **Germany**
-	- 	Enter **49f817b6-84ae-4cc0-928c-73f27289b3aa** for Azure **China 21 Vianet**
+	- 	Enter **49f817b6-84ae-4cc0-928c-73f27289b3aa** for Azure **China 21Vianet**
 
 
 8. Click **Add application**
