@@ -80,6 +80,8 @@ In this step, you use the Data Factory UI or app to create a pipeline. You add a
    Alternatively, you can use secrets stored in your key vault as their values (see previous). These credentials are used to access your package and child packages in Execute Package Task, all from their own path or the same project, as well as configurations, which include those specified in your packages. 
 
    If you select **Embedded package** as your package location, drag and drop your package to run or **Upload** it from a file folder into the box provided. Your package will be automatically compressed and embedded in the activity payload. Once embedded, you can **Download** your package later for editing. You can also **Parameterize** your embedded package by assigning it to a pipeline parameter that can be used in multiple activities, hence optimizing the size of your pipeline payload. If your embedded package is not all encrypted and we detect the use of Execute Package Task in it, the **Execute Package Task** check box will be automatically selected and the relevant child packages with their file system references will be automatically added for you to also embed them. If we can't detect the use of Execute Package Task, you'll have to manually select the **Execute Package Task** check box and add the relevant child packages with their file system references one by one for you to also embed them. If the child packages use SQL Server references, please ensure that the SQL Server is accessible by your Azure-SSIS IR.  The use of project references for child packages is currently unsupported.
+
+   **Embedded package** accepts only `.dtsx` file, so please ensure your package does not include Execute Package Task with `Project Reference` and parameter/connection manager with project scope. 
    
    ![Set properties on the Settings tab - Manual](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings5.png)
    
@@ -110,6 +112,10 @@ In this step, you use the Data Factory UI or app to create a pipeline. You add a
    When you assign values to your connection manager properties, you can add dynamic content by using expressions, functions, Data Factory system variables, and Data Factory pipeline parameters or variables. Alternatively, you can use secrets stored in your key vault as their values (see previous).
 
    ![Set properties on the Connection Managers tab](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-connection-managers.png)
+
+   If you want to override connection manager property manually, please find connection manager **NAME** and **PROPERTY** from SSDT. Click **New** button to add a new connection manager with an empty property. If you want to override multiple properties, please hover the first row of connection manager, click the plus button to add more properties.
+
+   ![Add connection manager property manually](media/how-to-invoke-ssis-package-ssis-activity/add-connection-manager-property-manaully.png)
 
 1. On the **Property Overrides** tab for the Execute SSIS Package activity, enter the paths of existing properties in your selected package one by one to assign values to them manually. Make sure that they exist and are correctly entered for your package execution to succeed. For example, to override the value of your user variable, enter its path in the following format: `\Package.Variables[User::<variable name>].Value`. 
    
