@@ -193,6 +193,7 @@ Hot add/remove disk	| Not supported | If you add or remove data disk on the VM, 
 Exclude disk | [supported through powershell](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-powershell#replicate-azure-virtual-machine) |	Temporary disk is excluded by default.
 Storage Spaces Direct  | Supported for crash consistent recovery points. Application consistent recovery points are not supported. |
 Scale-out File Server  | Supported for crash consistent recovery points. Application consistent recovery points are not supported. |
+DRBD | Disks that are part of a DRBD setup are not supported. |
 LRS | Supported |
 GRS | Supported |
 RA-GRS | Supported |
