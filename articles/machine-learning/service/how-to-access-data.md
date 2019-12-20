@@ -46,7 +46,7 @@ You'll need:
 
 ## Create and register datastores
 
-When you register an Azure Storage solution as a datastore, you automatically create that datastore in a specific workspace. You can create and register datastores to a workspace by using the Python SDK or Azure Machine Learning Studio.
+When you register an Azure Storage solution as a datastore, you automatically create that datastore in a specific workspace. You can create and register datastores to a workspace by using the Python SDK or Azure Machine Learning studio.
 
 ### Python SDK
 
@@ -147,9 +147,9 @@ We recommend an Azure blob container. Both standard and premium storage are avai
 
 ### Azure Machine Learning studio 
 
-Create a new datastore in a few steps in Azure Machine Learning Studio:
+Create a new datastore in a few steps in Azure Machine Learning studio:
 
-1. Sign in to [Azure Machine Learning Studio](https://ml.azure.com/).
+1. Sign in to [Azure Machine Learning studio](https://ml.azure.com/).
 1. Select **Datastores** on the left pane under **Manage**.
 1. Select **+ New datastore**.
 1. Complete the form for a new datastore. The form intelligently updates itself based on your selections for Azure Storage type and authentication type.
