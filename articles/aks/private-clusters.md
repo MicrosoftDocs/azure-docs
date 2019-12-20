@@ -107,7 +107,7 @@ The API server endpoint has no public IP address. Consequently, you must create 
      a. Go to the MC_* resource group in the Azure portal.  
      b. Select the private DNS zone.   
      c. In the left pane, select the **Virtual network** link.  
-     d. Create a new link to add the virtual network of the VM to the private DNS zone. *(It takes a few minutes for the DNS zone link to become available.)*
+     d. Create a new link to add the virtual network of the VM to the private DNS zone. It takes a few minutes for the DNS zone link to become available.
 1. Access the VM via Secure Shell (SSH).
 1. Install the Kubectl tool, and run the Kubectl commands.
 
@@ -115,7 +115,7 @@ The API server endpoint has no public IP address. Consequently, you must create 
 * The Private Link service is supported on Standard Load Balancer only. Basic Load Balancer is not supported.  
 
 ## Limitations 
-* [Azure Private Link service limitations][private-link-service] apply to private clusters, Azure Private Endpoint, and virtual network service endpoints, which are not currently supported in the same virtual network.
+* [Azure Private Link service limitations][private-link-service] apply to private clusters, Azure private endpoints, and virtual network service endpoints, which are not currently supported in the same virtual network.
 * No support for virtual nodes in a private cluster to spin private Cisco Application Centric Infrastructure (ACI) instances in a private Azure virtual network.
 * No support for Azure DevOps integration out of the box with private clusters.
 * For customers that need to enable Azure Container Registry to work with private AKS, the Container Registry virtual network must be peered with the agent cluster virtual network.
