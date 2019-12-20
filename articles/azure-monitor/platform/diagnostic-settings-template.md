@@ -87,7 +87,7 @@ Following is an example that creates a diagnostic setting for an autoscale setti
 		"workspaceId": {
 			"type": "string",
 			"metadata": {
-				"description": "ResourceID of the Log Analytics workspace in which resource logs should be saved."
+				"description": "ResourceIDl of the Log Analytics workspace in which resource logs should be saved."
 			}
 		},
 		"storageAccountId": {
@@ -119,19 +119,19 @@ Following is an example that creates a diagnostic setting for an autoscale setti
         "[resourceId('Microsoft.Insights/autoscalesettings', parameters('autoscaleSettingName'))]"
       ],
       "properties": {
-				"workspaceId": "[parameters('workspaceId')]",
-				"storageAccountId": "[parameters('storageAccountId')]",
-				"eventHubAuthorizationRuleId": "[parameters('eventHubAuthorizationRuleId')]",
+		"workspaceId": "[parameters('workspaceId')]",
+		"storageAccountId": "[parameters('storageAccountId')]",
+		"eventHubAuthorizationRuleId": "[parameters('eventHubAuthorizationRuleId')]",
         "eventHubName": "[parameters('eventHubName')]",
         "logs": [
-          {
-            "category": "AutoscaleScaleActions",
-            "enabled": true
-          },
-          {
-            "category": "AutoscaleEvaluations",
-            "enabled": true
-          }
+		  {
+			"category": "AutoscaleScaleActions",
+		 	"enabled": true
+		  },
+		  {
+		    "category": "AutoscaleEvaluations",
+		    "enabled": true
+		  }
         ]
       }
     }
