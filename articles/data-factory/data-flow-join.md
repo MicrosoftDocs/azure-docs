@@ -43,7 +43,7 @@ Cross join outputs the cross product of the two streams based upon a condition. 
 
 You can use this join type for non-equi joins and ```OR``` conditions.
 
-If you would like to explicity produce a full cartesian product, use the Derived Column transformation in each of the two independent streams before the join to create a synthetic key to match on. For example, create a new column in Derived Column in each stream called ```SyntheticKey``` and set it equal to ```1```. Then use ```a.SyntheticKey == b.SyntheticKey``` as your custom join expression.
+If you would like to explicitly produce a full cartesian product, use the Derived Column transformation in each of the two independent streams before the join to create a synthetic key to match on. For example, create a new column in Derived Column in each stream called ```SyntheticKey``` and set it equal to ```1```. Then use ```a.SyntheticKey == b.SyntheticKey``` as your custom join expression.
 
 > [!NOTE]
 > Make sure to include at least one column from each side of your left and right relationship in a custom cross join. Executing cross joins with static values instead of columns from each side will result in full scans of the entire dataset, causing your data flow to perform poorly.
