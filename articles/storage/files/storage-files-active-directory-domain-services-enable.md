@@ -79,6 +79,21 @@ https://microsoft.sharepoint.com/teams/AzureStorage/Private%20Test/2016/Azure%20
 
 To enable AD authentication over SMB for Azure Files, you need to first register your storage account with AD and then set the required domain properties on the storage account. When the feature is enabled on the storage account, it applies to all new and existing file shares in the account. Use `join-AzStorageAccountForAuth` to enable the feature. You can find the detailed description of the end to end workflow in the section below. 
 
+> [!IMPORTANT]
+> The join-AzStorageAccountForAuth cmdlet will make modifications to your AD environment. Read the following explanation to better understand what it is doing to ensure you have the proper permissions to execute the command and that the applied changes align with the compliance and security policies. 
+
+The `join-AzStorageAccountForAuth` cmdlet will perform the equivalent of an offline domain join on behalf of the indicated storage account. It will create an account in your AD domain, either a service logon account (recommended) or a computer account. The created AD account represents the storage account in the AD domain. If the AD account is created under an AD Organizational Unit (OU) that enforces password expiration, you must update the password before the maximum password age. Failing to update the password of the AD account will result in authentication failures in accessing Azure file shares. To learn how to update the password, go to Update AD Account Password
+
+You can either use the following script to perform the registration and enable the feature. Alternatively. you can perform the operations that ths script would, manually. Those operations are described in the section following the script. You do not need to do both.
+
+### Script prerequisites
+
+- Download the AzureFilesActiveDirectoryUtilities.psm1 module
+- Install and execute the module in a device that is domain joined to AD with AD credentials that have permissions to create a service logon account or a computer account in the target AD.
+- Run the script with an Azure AD credential that has either storage account owner or contributor RBAC roles.
+- Make sure your storage account is in the France Central region.
+- Make sure your storage account is LRS.
+
 ```PowerShell 
 #Import the latest Azure module
 Install-Module -Name Az -AllowClobber -Scope CurrentUser
@@ -250,8 +265,4 @@ Configure NTFS permissions over SMB
 
 Mount a file share from a domain-joined VM 
 
-Next steps 
-
-Shape 
-
- 
+## Next steps 
