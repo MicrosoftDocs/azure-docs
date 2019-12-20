@@ -64,11 +64,11 @@ landingContent:
       - text: Cosmos DB reserved capacity
         url: understand-cosmosdb-reservation-charges.md
       - text: SQL Database reserved capacity
-        url: understand-reservation-charges.md
+        url: ../manage/understand-reservation-charges.md
       - text: SQL Data Warehouse
         url: reservation-discount-azure-sql-dw.md
       - text: Azure Data Explorer
-        url: nderstand-azure-data-explorer-reservation-charges.md
+        url: understand-azure-data-explorer-reservation-charges.md
       - text: Azure Databricks
         url: reservation-discount-databricks.md
       - text: App Service
