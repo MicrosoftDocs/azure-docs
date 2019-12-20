@@ -19,7 +19,7 @@ metadata:
 
 landingContent:
   # Card (optional)
-  - title: About Azure resources
+  - title: About Azure Resource Manager
     linkLists:
       - linkListType: overview
         links:
@@ -27,10 +27,16 @@ landingContent:
             url: overview.md
       - linkListType: concept
         links:
-          - text: Resource providers and types
-            url: resource-providers-and-types.md
           - text: Resource Manager and classic deployment
             url: deployment-models.md
+
+  # Card
+  - title: About Azure resources
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Resource providers and types
+            url: resource-providers-and-types.md
       - linkListType: reference
         links:
           - text: Move support
@@ -73,7 +79,7 @@ landingContent:
             url: /python/api/overview/azure/resources?view=azure-python
 
    # Card
-  - title: Monitor
+  - title: Track operations
     linkLists:
       - linkListType: how-to-guide
         links:
@@ -81,3 +87,5 @@ landingContent:
             url: view-activity-logs.md
           - text: Request limits and throttling
             url: request-limits-and-throttling.md
+          - text: Asynchronous operations
+            url: async-operations.md
