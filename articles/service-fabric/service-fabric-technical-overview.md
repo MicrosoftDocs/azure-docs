@@ -1,21 +1,11 @@
 ---
-title: Learn Azure Service Fabric terminology | Microsoft Docs
+title: Learn Azure Service Fabric terminology 
 description: A terminology overview of Service Fabric. Discusses key terminology concepts and terms used in the rest of the documentation.
-services: service-fabric
-documentationcenter: .net
 author: masnider
-manager: chackdan
-editor: chackdan;subramar
 
-ms.assetid: 3a970679-e19e-43b3-9be8-71773f307c57
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 09/17/2018
 ms.author: masnider
-
 ---
 # Service Fabric terminology overview
 Azure Service Fabric is a distributed systems platform that makes it easy to package, deploy, and manage scalable and reliable microservices.  You can [host Service Fabric clusters anywhere](service-fabric-deploy-anywhere.md): Azure, in an on-premises datacenter, or on any cloud provider.  Service Fabric is the orchestrator that powers [Azure Service Fabric Mesh](/azure/service-fabric-mesh). You can use any framework to write your services and choose where to run the application from multiple environment choices. This article details the terminology used by Service Fabric to understand the terms used in the documentation.

@@ -1,20 +1,9 @@
 ---
-title: Azure PowerShell Samples - Service Fabric | Microsoft Docs
+title: Azure PowerShell Samples - Service Fabric 
 description: Azure PowerShell Samples - Service Fabric
-services: service-fabric
-documentationcenter: service-fabric
-author: athinanthny
-manager: chackdan
-editor: 
-tags: 
 
-ms.assetid: b48d1137-8c04-46e0-b430-101e07d7e470
-ms.service: service-fabric
 ms.topic: sample
-ms.tgt_pltfrm: na
-ms.workload: service-fabric
 ms.date: 11/29/2018
-ms.author: atsenthi
 ms.custom: mvc
 ---
 # Azure PowerShell samples

@@ -47,7 +47,7 @@ To complete the steps in this article, you need the following resources:
 
 ## Prepare the device
 
-1. Download the latest [pre-built Azure IoT Central Plug and Play firmware](https://github.com/MXCHIP/IoTDevKit/raw/master/pnp/iotc_devkit/bin/iotc_devkit.bin) for the DevKit device from GitHub.
+1. Download the latest [pre-built Azure IoT Central Plug and Play firmware](https://github.com/Azure-Samples/mxchip-iot-devkit-pnp/raw/master/bin/iotc_devkit.bin) for the DevKit device from GitHub.
 
 1. Connect the DevKit device to your development machine using a USB cable. In Windows, a file explorer window opens on a drive mapped to the storage on the DevKit device. For example, the drive might be called **AZ3166 (D:)**.
 

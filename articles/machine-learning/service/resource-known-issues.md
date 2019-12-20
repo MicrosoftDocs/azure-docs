@@ -260,6 +260,16 @@ kubectl get secret/azuremlfessl -o yaml
 ## Recommendations for error fix
 Based on general observation, here are Azure ML recommendations to fix some of the common errors in Azure ML.
 
+### Metric Document is too large
+Azure Machine Learning has internal limits on the size of metric objects that can be logged at once from a training run. If you encounter "Metric Document is too large" error when logging a list-valued metric, try splitting the list into smaller chunks, for example:
+
+```python
+run.log_list("my metric name", my_metric[:N])
+run.log_list("my metric name", my_metric[N:])
+```
+
+ Internally, the run history service concatenates the blocks with same metric name into a contiguous list.
+
 ### ModuleErrors (No module named)
 If you are running into ModuleErrors while submitting experiments in Azure ML, it means that the training script is expecting a package to be installed but it isn't added. Once you provide the package name, Azure ML will install the package in the environment used for your training. 
 

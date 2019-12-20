@@ -8,7 +8,7 @@ manager: yetian
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 10/09/2019
+ms.date: 12/09/2019
 ms.author: donkim
 ---
 
@@ -19,10 +19,15 @@ The application will recognize an utterance like "turn on the tv" and respond wi
 
 ## Prerequisites
 
-- A Speech subscription. [Try the speech service for free](~/articles/cognitive-services/speech-service/get-started.md).
+- A Speech subscription. 
+
+If you don't have a speech subscription, you can create one by navigating to the [Speech Studio](https://speech.microsoft.com/) and selecting **Create a Speech Resource**.
+
+  > [!div class="mx-imgBorder"]
+  > [ ![Create a project](media/custom-speech-commands/create-new-subscription.png) ](media/custom-speech-commands/create-new-subscription.png#lightbox)
 
   > [!NOTE]
-  > During preview, only the westus2 region is supported for subscription keys.
+  > During preview, only the westus2 region is supported.
 
 ## Go to the Speech Studio for Custom Commands
 
@@ -60,6 +65,20 @@ The default view is a list of the Custom Commands applications you created.
 1. Once created, select your project.
 
 Your view should now be an overview of your Custom Commands application.
+
+## Update LUIS Resources (Optional)
+
+You can update the authoring resource set in the new project window, and set a prediction resource used to recognize inputs during runtime. 
+
+> [!NOTE]
+> You will need to set a prediction resource before your application requests predictions beyond the 1,000 requests provided by the authoring resource.
+
+> [!div class="mx-imgBorder"]
+> ![Set LUIS Resources](media/custom-speech-commands/set-luis-resources.png)
+
+1. Navigate to the LUIS Resources pane by selecting **Settings** from the left pane, and then **LUIS Resources** from the middle pane.
+1. Select a prediction resource, or create one by selecting **Create new resource**
+1. Select **Save**
 
 ## Create a new Command
 
@@ -111,11 +130,10 @@ Now add a Completion Rule to respond to the user indicating that an action is be
 > [!div class="mx-imgBorder"]
 > ![Create a completion rule](media/custom-speech-commands/create-basic-completion-response-rule.png)
 
-
-| Setting    | Suggested value                        | Description                                        |
-| ---------- | -------------------------------------- | -------------------------------------------------- |
-| Rule Name  | "ConfirmationResponse"                 | A name describing the purpose of the rule          |
-| Conditions | None                                   | Conditions that determine when the rule can run    |
+| Setting    | Suggested value                          | Description                                        |
+| ---------- | ---------------------------------------- | -------------------------------------------------- |
+| Rule Name  | "ConfirmationResponse"                   | A name describing the purpose of the rule          |
+| Conditions | None                                     | Conditions that determine when the rule can run    |
 | Actions    | SpeechResponse "- Ok, turning on the TV" | The action to take when the rule condition is true |
 
 ## Try it out

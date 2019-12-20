@@ -94,7 +94,7 @@ Next, we will show you how to create a C# application to simulate the X.509 devi
 
 1. Add the following `using` statements at the top of the **Program.cs** file:
 
-    ```CSharp
+    ```csharp
         using Microsoft.Azure.Devices.Client;
         using Microsoft.Azure.Devices.Shared;
         using System.Security.Cryptography.X509Certificates;
@@ -102,7 +102,7 @@ Next, we will show you how to create a C# application to simulate the X.509 devi
 
 1. Add the following fields to the **Program** class:
 
-    ```CSharp
+    ```csharp
         private static int MESSAGE_COUNT = 5;
         private const int TEMPERATURE_THRESHOLD = 30;
         private static String deviceId = "<your-device-id>";
@@ -115,7 +115,7 @@ Next, we will show you how to create a C# application to simulate the X.509 devi
 
 1. Add the following function to create random numbers for temperature and humidity and send these values to the hub:
 
-    ```CSharp
+    ```csharp
     static async Task SendEvent(DeviceClient deviceClient)
     {
         string dataBuffer;
@@ -137,7 +137,7 @@ Next, we will show you how to create a C# application to simulate the X.509 devi
 
 1. Finally, add the following lines of code to the **Main** function, replacing the placeholders _device-id_, _your-iot-hub-name_, and _absolute-path-to-your-device-pfx-file_ as required by your setup.
 
-    ```CSharp
+    ```csharp
     try
     {
         var cert = new X509Certificate2(@"<absolute-path-to-your-device-pfx-file>", "1234");

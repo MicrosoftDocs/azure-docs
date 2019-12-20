@@ -168,12 +168,12 @@ To deploy locally, modify your code to use `LocalWebservice.deploy_configuration
 
 ```python
 from azureml.core.model import InferenceConfig, Model
+from azureml.core.environment import Environment
 from azureml.core.webservice import LocalWebservice
 
-# Create inference configuration. This creates a docker image that contains the model.
-inference_config = InferenceConfig(runtime="python",
-                                   entry_script="score.py",
-                                   conda_file="myenv.yml")
+# Create inference configuration based on the environment definition and the entry script
+myenv = Environment.from_conda_specification(name="env", file_path="myenv.yml")
+inference_config = InferenceConfig(entry_script="score.py", environment=myenv)
 
 # Create a local deployment, using port 8890 for the web service endpoint
 deployment_config = LocalWebservice.deploy_configuration(port=8890)
@@ -185,6 +185,8 @@ service.wait_for_deployment(True)
 # Display the port that the web service is available on
 print(service.port)
 ```
+
+Please note that if you are defining your own conda specification YAML, you must list azureml-defaults with version >= 1.0.45 as a pip dependency. This package contains the functionality needed to host the model as a web service.
 
 At this point, you can work with the service as normal. For example, the following code demonstrates sending data to the service:
 
@@ -500,7 +502,7 @@ To make changes to files in the image, you can attach to the running container, 
     docker exec -it debug /bin/bash
     ```
 
-1. To find the files used by the service, use the following command from the bash shell in the container:
+1. To find the files used by the service, use the following command from the bash shell in the container if the default directory is different than `/var/azureml-app`:
 
     ```bash
     cd /var/azureml-app

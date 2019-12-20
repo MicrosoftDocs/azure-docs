@@ -137,7 +137,8 @@ To display the results in CSV:
 | File/folder | Note |
 |-|-|
 | Desktop.ini | File specific to system |
-| ethumbs.db$ | Temporary file for thumbnails |
+| thumbs.db | Temporary file for thumbnails |
+| ehthumbs.db | Temporary file for media thumbnails |
 | ~$\*.\* | Office temporary file |
 | \*.tmp | Temporary file |
 | \*.laccdb | Access DB locking file|
@@ -222,7 +223,7 @@ If you are using an on-premises backup solution, backups should be performed on 
 > Bare-metal (BMR) restore can cause unexpected results and is not currently supported.
 
 > [!Note]  
-> With Version 9 of the Azure File SYnc agent, VSS snapshots (including Previous Versions tab) are now supported on volumes which have cloud tiering enabled. However, you must enable previous version compatibility through PowerShell. [Learn how](storage-files-deployment-guide.md).
+> With Version 9 of the Azure File Sync agent, VSS snapshots (including Previous Versions tab) are now supported on volumes which have cloud tiering enabled. However, you must enable previous version compatibility through PowerShell. [Learn how](storage-files-deployment-guide.md).
 
 ### Encryption solutions
 Support for encryption solutions depends on how they are implemented. Azure File Sync is known to work with:

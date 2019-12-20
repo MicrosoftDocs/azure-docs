@@ -1,5 +1,6 @@
 ---
-title: Authorize developer accounts by using Azure Active Directory B2C - Azure API Management | Microsoft Docs
+title: Authorize developer accounts by using Azure Active Directory B2C
+titleSuffix: Azure API Management
 description: Learn how to authorize users by using Azure Active Directory B2C in API Management.
 services: api-management
 documentationcenter: API Management

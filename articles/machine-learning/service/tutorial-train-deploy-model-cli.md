@@ -8,7 +8,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 09/12/2019
+ms.date: 12/04/2019
 ---
 
 # Tutorial: Train and deploy a model from the CLI
@@ -24,6 +24,7 @@ Learn how to take the following actions:
 > * Install the machine learning extension
 > * Create an Azure Machine Learning workspace
 > * Create the compute resource used to train the model
+> * Define and register the dataset used to train the model
 > * Start a training run
 > * Register and download a model
 > * Deploy the model as a web service
@@ -39,7 +40,7 @@ Learn how to take the following actions:
 
 ## Download the example project
 
-For this tutorial, download the [https://github.com/microsoft/MLOps](https://github.com/microsoft/MLOps) project. The files in the `model-training` and `model-deployment` directories are used by the steps in this tutorial.
+For this tutorial, download the [https://github.com/microsoft/MLOps](https://github.com/microsoft/MLOps) project. The files in the `examples/cli-train-deploy` directory are used by the steps in this tutorial.
 
 To get a local copy of the files, either [download a .zip archive](https://github.com/microsoft/MLOps/archive/master.zip), or use the following Git command to clone the repository:
 
@@ -49,23 +50,23 @@ git clone https://github.com/microsoft/MLOps.git
 
 ### Training files
 
-The `model-training` directory contains the following files, which are used when training a model:
+The `examples/cli-train-delpoy` directory from the project contains the following files, which are used when training a model:
 
-* `.azureml\sklearn.runconfig`: A __run configuration__ file. This file defines the runtime environment needed to train the model.
-* `train-sklearn.py`: The training script. This file trains the model.
-* `mylib.py`: A helper module, used by `train-sklearn.py`.
-* `training-env.yml`: Defines the software dependencies needed to run the training script.
-
-The training script uses the diabetes dataset provided with scikit-learn to train a model.
+* `.azureml\mnist.runconfig`: A __run configuration__ file. This file defines the runtime environment needed to train the model. In this example, it also mounts the data used to train the model into the training environment.
+* `scripts\train.py`: The training script. This file trains the model.
+* `scripts\utils.py`: A helper file used by the training script.
+* `.azureml\conda_dependencies.yml`: Defines the software dependencies needed to run the training script.
+* `dataset.json`: The dataset definition. Used to register the MNIST dataset in the Azure Machine Learning workspace.
 
 ### Deployment files
 
-The `model-deployment` directory contains the following files, which are used to deploy the trained model as a web service:
+The repository contains the following files, which are used to deploy the trained model as a web service:
 
 * `aciDeploymentConfig.yml`: A __deployment configuration__ file. This file defines the hosting environment needed for the model.
 * `inferenceConfig.yml`: An inference configuration__ file. This file defines the software environment used by the service to score data with the model.
 * `score.py`: A python script that accepts incoming data, scores it using the model, and then returns a response.
 * `scoring-env.yml`: The conda dependencies needed to run the model and `score.py` script.
+* `testdata.json`: A data file that can be used to test the deployed web service.
 
 ## Connect to your Azure subscription
 
@@ -155,10 +156,10 @@ The output of this command is similar to the following JSON:
 
 ## Connect local project to workspace
 
-From a terminal or command prompt, use the following commands change directories to the `mlops` directory, then connect to your workspace:
+From a terminal or command prompt, use the following commands change directories to the `cli-train-deploy` directory, then connect to your workspace:
 
 ```azurecli-interactive
-cd ~/mlops
+cd ~/MLOps/examples/cli-train-deploy
 az ml folder attach -w <workspace-name> -g <resource-group-name>
 ```
 
@@ -167,7 +168,7 @@ The output of this command is similar to the following JSON:
 ```json
 {
   "Experiment name": "model-training",
-  "Project path": "/Code/MLOps/model-training",
+  "Project path": "/home/user/MLOps/examples/cli-train-deploy",
   "Resource group": "<resource-group-name>",
   "Subscription id": "<subscription-id>",
   "Workspace name": "<workspace-name>"
@@ -178,10 +179,10 @@ This command creates a `.azureml/config.json` file, which contains information n
 
 ## Create the compute target for training
 
-This example uses an Azure Machine Learning Notebook VM to train the model. To create a new Notebook VM, use the following command:
+This example uses an Azure Machine Learning Compute cluster to train the model. To create a new compute cluster, use the following command:
 
 ```azurecli-interactive
-az ml computetarget create amlcompute -n cpu --max-nodes 4 --vm-size Standard_D2_V2
+az ml computetarget create amlcompute -n cpu-cluster --max-nodes 4 --vm-size Standard_D2_V2
 ```
 
 The output of this command is similar to the following JSON:
@@ -189,7 +190,7 @@ The output of this command is similar to the following JSON:
 ```json
 {
   "location": "<location>",
-  "name": "cpu",
+  "name": "cpu-cluster",
   "provisioningErrors": null,
   "provisioningState": "Succeeded"
 }
@@ -198,53 +199,132 @@ The output of this command is similar to the following JSON:
 This command creates a new compute target named `cpu`, with a maximum of four nodes. The VM size selected provides a VM with a GPU resource. For information on the VM size, see [VM types and sizes].
 
 > [!IMPORTANT]
-> The name of the compute target (`cpu` in this case), is important; it is referenced by the `.azureml/sklearn.runconfig` file used in the next section.
+> The name of the compute target (`cpu` in this case), is important; it is referenced by the `.azureml/mnist.runconfig` file used in the next section.
+
+## Define the dataset
+
+To train a model, you can provide the training data using a dataset. To create a dataset from the CLI, you must provide a dataset definition file. The `dataset.json` file provided in the repo creates a new dataset using the MNIST data. The dataset it creates is named `mnist-dataset`.
+
+To register the dataset using the `dataset.json` file, use the following command:
+
+```azurecli-interactive
+az ml dataset register -f dataset.json
+```
+
+The output of this command is similar to the following JSON:
+
+```json
+{
+  "definition": [
+    "GetFiles"
+  ],
+  "registration": {
+    "description": "mnist dataset",
+    "id": "a13a4034-02d1-40bd-8107-b5d591a464b7",
+    "name": "mnist-dataset",
+    "tags": {
+      "sample-tag": "mnist"
+    },
+    "version": 1,
+    "workspace": "Workspace.create(name='myworkspace', subscription_id='mysubscriptionid', resource_group='myresourcegroup')"
+  },
+  "source": [
+    "http://yann.lecun.com/exdb/mnist/train-images-idx3-ubyte.gz",
+    "http://yann.lecun.com/exdb/mnist/train-labels-idx1-ubyte.gz",
+    "http://yann.lecun.com/exdb/mnist/t10k-images-idx3-ubyte.gz",
+    "http://yann.lecun.com/exdb/mnist/t10k-labels-idx1-ubyte.gz"
+  ]
+}
+```
+
+> [!IMPORTANT]
+> Copy the value of the `id` entry, as it is used in the next section.
+
+## Reference the dataset
+
+To make the dataset available in the training environment, you must reference it from the runconfig file. The `.azureml/mnist.runconfig` file contains the following YAML entries:
+
+```yaml
+# The arguments to the script file.
+arguments:
+- --data-folder
+- DatasetConsumptionConfig:mnist
+
+.....
+
+# The configuration details for data.
+data:
+  mnist:
+# Data Location
+    dataLocation:
+# the Dataset used for this run.
+      dataset:
+# Id of the dataset.
+        id: a13a4034-02d1-40bd-8107-b5d591a464b7
+# the DataPath used for this run.
+      datapath:
+# Whether to create new folder.
+    createOutputDirectories: false
+# The mode to handle
+    mechanism: mount
+# Point where the data is download or mount or upload.
+    environmentVariableName: mnist
+# relative path where the data is download or mount or upload.
+    pathOnCompute:
+# Whether to overwrite the data if existing.
+    overwrite: false
+```
+
+Change the value of the `id` entry to match the value returned when you registered the dataset. This value is used to load the data into the compute target during training.
+
+This YAML does the following:
+
+* Mounts the dataset (based on the ID of the dataset) in the training environment, and stores the path to the mount point in the `mnist` environment variable..
+* Passes the location of the data (mount point) inside the training environment to the script using the `--data-folder` argument.
+
+The runconfig file also contains information used to configure the environment used by the training run. If you inspect this file, you'll see that it references the `cpu-compute` compute target you created earlier. It also lists the number of nodes to use when training (`"nodeCount": "4"`), and contains a `"condaDependencies"` section that lists the Python packages needed to run the training script.
+
+> [!TIP]
+> While it is possible to manually create a runconfig file, the one in this example was created using the `generate-runconfig.py` file included in the repository. This file gets a reference to the registered dataset, creates a run config programatically, and then persists it to file.
+
+For more information on run configuration files, see [Set up and use compute targets for model training](how-to-set-up-training-targets.md#create-run-configuration-and-submit-run-using-azure-machine-learning-cli), or reference this [JSON file](https://github.com/microsoft/MLOps/blob/b4bdcf8c369d188e83f40be8b748b49821f71cf2/infra-as-code/runconfigschema.json) to see the full schema for a runconfig.
 
 ## Submit the training run
 
-To start a training run on the `cpu` compute target, change directories to the `model-training` directory and then use the following command:
+To start a training run on the `cpu-compute` compute target, use the following command:
 
 ```azurecli-interactive
-cd ~/mlops/model-training
-az ml run submit-script -e myexperiment -c sklearn -d training-env.yml -t runoutput.json train-sklearn.py
+az ml run submit-script -c mnist -e myexperiment --source-directory scripts -t runoutput.json
 ```
 
 This command specifies a name for the experiment (`myexperiment`). The experiment stores information about this run in the workspace.
 
-The `-c sklearn` parameter specifies the `.azureml/sklearn.runconfig` file. As mentioned earlier, this file contains information used to configure the environment used by the training run. If you inspect this file, you'll see that it references the `cpu` compute target you created earlier. It also lists the number of nodes to use when training (`"nodeCount": "4"`), and contains a `"condaDependenciees"` section that lists the Python packages needed to run the training script.
-
-For more information on run configuration files, see [Set up and use compute targets for model training](how-to-set-up-training-targets.md#create-run-configuration-and-submit-run-using-azure-machine-learning-cli), or reference this [JSON file](https://github.com/microsoft/MLOps/blob/b4bdcf8c369d188e83f40be8b748b49821f71cf2/infra-as-code/runconfigschema.json) to see the full schema for a runconfig.
+The `-c mnist` parameter specifies the `.azureml/mnist.runconfig` file.
 
 The `-t` parameter stores a reference to this run in a JSON file, and will be used in the next steps to register and download the model.
 
 As the training run processes, it streams information from the training session on the remote compute resource. Part of the information is similar to the following text:
 
 ```text
-alpha is 0.80, and mse is 3340.02
-alpha is 0.85, and mse is 3349.36
-alpha is 0.90, and mse is 3359.09
-alpha is 0.95, and mse is 3369.13
-
-
-The experiment completed successfully. Finalizing run...
-Cleaning up all outstanding Run operations, waiting 300.0 seconds
+Predict the test set
+Accuracy is 0.9185
 ```
 
-This text is logged from the training script (`train-sklearn.py`) and displays two of the performance metrics for this model. In this case, we want the model with the highest alpha value. The performance metrics are specific to the model you are training. Other models will have different performance metrics.
+This text is logged from the training script and displays the accuracy of the model. Other models will have different performance metrics.
 
-If you inspect the `train-sklearn.py`, you'll notice that it also uses the alpha value when it stores the trained model(s) to file. In this case, it trains several models. The one with the highest alpha should be the best one. Looking at the output above, and the code, the model with an alpha of 0.95 was saved as `./outputs/ridge_0.95.pkl`
+If you inspect the training script, you'll notice that it also uses the alpha value when it stores the trained model to `outputs/sklearn_mnist_model.pkl`.
 
-The model was saved to the `./outputs` directory on the compute target where it was trained. In this case, the Azure Machine Learning Notebook VM in the Azure cloud. The training process automatically uploads the contents of the `./outputs` directory from the compute target where training occurs to your Azure Machine Learning workspace. It's stored as part of the experiment (`myexperiment` in this example).
+The model was saved to the `./outputs` directory on the compute target where it was trained. In this case, the Azure Machine Learning Compute instance in the Azure cloud. The training process automatically uploads the contents of the `./outputs` directory from the compute target where training occurs to your Azure Machine Learning workspace. It's stored as part of the experiment (`myexperiment` in this example).
 
 ## Register the model
 
 To register the model directly from the stored version in your experiment, use the following command:
 
 ```azurecli-interactive
-az ml model register -n mymodel -f runoutput.json --asset-path "outputs/ridge_0.95.pkl" -t registeredmodel.json
+az ml model register -n mymodel -f runoutput.json --asset-path "outputs/sklearn_mnist_model.pkl" -t registeredmodel.json
 ```
 
-This command registers the `outputs/ridge_0.95.pkl` file created by the training run as a new model registration named `mymodel`. The `--assets-path` references a path in an experiment. In this case, the experiment and run information are loaded from the `runoutput.json` file created by the training command. The `-t registeredmodel.json` creates a JSON file that references the new registered model created by this command, and is used by other CLI commands that work with registered models.
+This command registers the `outputs/sklearn_mnist_model.pkl` file created by the training run as a new model registration named `mymodel`. The `--assets-path` references a path in an experiment. In this case, the experiment and run information are loaded from the `runoutput.json` file created by the training command. The `-t registeredmodel.json` creates a JSON file that references the new registered model created by this command, and is used by other CLI commands that work with registered models.
 
 The output of this command is similar to the following JSON:
 
@@ -270,21 +350,18 @@ Note the version number returned for the model. The version is incremented each 
 
 ```azurecli-interactive
 az ml model download -i "mymodel:1" -t .
-az ml model register -n mymodel -p "ridge_0.95.pkl"
+az ml model register -n mymodel -p "sklearn_mnist_model.pkl"
 ```
 
-The first command downloads the registered model to the current directory. The file name is `ridge_0.95.pkl`, which is the file referenced when you registered the model. The second command registers the local model (`-p "ridge_0.95.pkl"`) with the same name as the previous registration (`mymodel`). This time, the JSON data returned lists the version as 2.
+The first command downloads the registered model to the current directory. The file name is `sklearn_mnist_model.pkl`, which is the file referenced when you registered the model. The second command registers the local model (`-p "sklearn_mnist_model.pkl"`) with the same name as the previous registration (`mymodel`). This time, the JSON data returned lists the version as 2.
 
 ## Deploy the model
 
-To deploy a model, change directories to the `model-deployment` directory and then use the following command:
+To deploy a model, use the following command:
 
 ```azurecli-interactive
-cd ~/mlops/model-deployment
 az ml model deploy -n myservice -m "mymodel:1" --ic inferenceConfig.yml --dc aciDeploymentConfig.yml
 ```
-
-You may receive the message "Failed to create Docker client". You can ignore this message. The CLI can deploy a web service to a local Docker container and checks for Docker. In this case, we are not using a local deployment.
 
 This command deploys a new service named `myservice`, using version 1 of the model that you registered previously.
 
@@ -326,13 +403,13 @@ The REST endpoint can be used to send data to the service. For information on cr
 
 ### Send data to the service
 
-While you can create a client application to call the endpoint, the machine learning CLI provides a utility that can act as a test client. Use the following command to send test data to the service:
+While you can create a client application to call the endpoint, the machine learning CLI provides a utility that can act as a test client. Use the following command to send data in the `testdata.json` file to the service:
 
 ```azurecli-interactive
-az ml service run -n myservice -d '{"data":[[1,2,3,4,5,6,7,8,9,10]]}'
+az ml service run -n myservice -d @testdata.json
 ```
 
-The response from the command is similar to `[4684.920839774082]`.
+The response from the command is similar to `[ 3 ]`.
 
 ## Clean up resources
 
@@ -351,7 +428,7 @@ This command returns a JSON document that contains the name of the deleted servi
 
 ### Delete the training compute
 
-If you plan on continuing to use the Azure Machine Learning workspace, but want to get rid of the `cpu` compute target created for training, use the following command:
+If you plan on continuing to use the Azure Machine Learning workspace, but want to get rid of the `cpu-compute` compute target created for training, use the following command:
 
 ```azurecli-interactive
 az ml computetarget delete -n cpu
@@ -377,6 +454,7 @@ In this Azure Machine Learning tutorial, you used the machine learning CLI for t
 > * Install the machine learning extension
 > * Create an Azure Machine Learning workspace
 > * Create the compute resource used to train the model
+> * Define and register the dataset used to train the model
 > * Start a training run
 > * Register and download a model
 > * Deploy the model as a web service
