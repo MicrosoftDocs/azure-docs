@@ -103,11 +103,11 @@ Install the security daemon. The package is installed at `/etc/iotedge/`.
    sudo apt-get install iotedge
    ```
 
-Once IoT Edge is successfully installed, the output will prompt you to update the configuration file. Follow the steps in the [Configure the Azure IoT Edge security daemon](#configure-the-security-daemon) section to finish provisioning your device. 
+Once IoT Edge is successfully installed, the output will prompt you to update the configuration file. Follow the steps in the [Configure the security daemon](#configure-the-security-daemon) section to finish provisioning your device. 
 
 ## Install a specific runtime version
 
-If you want to install a specific version of the Azure IoT Edge runtime, you can target the component files directly from the IoT Edge GitHub repository. Use the following steps to get all of the IoT Edge components onto your device: the Moby engine and CLI, the libiothsm, and finally the IoT Edge security daemon.
+If you want to install a specific version of Moby and the Azure IoT Edge runtime instead of using the latest versions, you can target the component files directly from the IoT Edge GitHub repository. Use the following steps to get all of the IoT Edge components onto your device: the Moby engine and CLI, the libiothsm, and finally the IoT Edge security daemon. Skip to the next section, [Configure the security daemon](#configure-the-security-daemon), if you do not want to change to a specifc runtime version.
 
 1. Navigate to the [Azure IoT Edge releases](https://github.com/Azure/azure-iotedge/releases), and find the release version that you want to target. 
 
@@ -260,13 +260,15 @@ Run an automated check for the most common configuration and networking errors:
 sudo iotedge check
 ```
 
-And, list running modules:
+>Until you deploy your first module to IoT Edge on your device, the **$edgeHub** system module will not be deployed to the device. As a result, the automated check will return an error for the `Edge Hub can bind to ports on host` connectivty check. This error can be ingored unless it occurs after deploying a module to the device.
+
+Finally, list running modules:
 
 ```bash
 sudo iotedge list
 ```
 
-After installing IoT Edge on your device, the only module you should see running is **edgeAgent**. Once you create your first deployment, the other system module **$edgeHub** will start on the device as well. For more information, see [deploy IoT Edge modules](how-to-deploy-modules-portal.md).
+>After installing IoT Edge on your device, the only module you should see running is **edgeAgent**. Once you create your first deployment, the other system module **$edgeHub** will start on the device as well. For more information, see [deploy IoT Edge modules](how-to-deploy-modules-portal.md).
 
 ## Tips and troubleshooting
 
