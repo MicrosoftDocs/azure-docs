@@ -22,7 +22,7 @@ Virtual machines in Azure can support many workloads. Each workload can have spe
 
 - [High performance computing](./hpc/overview.md) in Azure uses CPU or GPU optimized virtual machines to solve complex, compute-intensive problems.
 - [SAP](./sap/get-started.md) on Azure can run your mission critical SAP workloads and scenarios on a scalable, compliant, and enterprise-proven platform.
-- [Oracle](./oracle/oracle-considerations.md)  supports running Oracle DB 12.1 Standard and Enterprise editions in Azure on virtual machine images based on Oracle Linux.
+- [Oracle](./oracle/oracle-considerations.md) supports running Oracle DB 12.1 Standard and Enterprise editions in Azure on virtual machine images based on Oracle Linux.
 - [Red Hat](./redhat/redhat-overview.md) on Azure is supported via a variety of Red Hat Enterprise Linux image offerings and Red Hat Update Infrastructure to deliver updates on-demand.
 - [Mainframe rehosting](./mainframe-rehosting/overview.md)
 
