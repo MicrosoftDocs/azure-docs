@@ -6,6 +6,7 @@ documentationcenter: ''
 author: asinn826
 manager: BorisB2015
 
+ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
@@ -18,7 +19,7 @@ ms.author: alsin
 
 Red Hat Enterprise Linux (RHEL) Pay-As-You-Go (PAYG) images come preconfigured to access Azure RHUI. No additional configuration is needed. To get the latest updates, run `sudo yum update` after your RHEL instance is ready. This service is included as part of the RHEL PAYG software fees.
 
-Additional information on RHEL images in Azure, including publishing and retention policies, is available [here](./rhel-images.md).
+Additional information on RHEL images in Azure, including publishing and retention policies, is available [here](./redhat-images.md).
 
 Information on Red Hat support policies for all versions of RHEL can be found on the [Red Hat Enterprise Linux Life Cycle](https://access.redhat.com/support/policy/updates/errata) page.
 
@@ -208,5 +209,5 @@ This procedure is provided for reference only. RHEL PAYG images already have the
 
 ## Next steps
 * To create a Red Hat Enterprise Linux VM from an Azure Marketplace PAYG image and to use Azure-hosted RHUI, go to the [Azure Marketplace](https://azure.microsoft.com/marketplace/partners/redhat/).
-* To learn more about the Red Hat images in Azure, go to the [documentation page](./rhel-images.md).
+* To learn more about the Red Hat images in Azure, go to the [documentation page](./redhat-images.md).
 * Information on Red Hat support policies for all versions of RHEL can be found on the [Red Hat Enterprise Linux Life Cycle](https://access.redhat.com/support/policy/updates/errata) page.
