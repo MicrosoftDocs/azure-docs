@@ -82,8 +82,8 @@ In the application's class, create variables for your resource's key and endpoin
 
 <!-- Use the below example variable names and example strings, for consistency with the other quickstart variables -->
 ```csharp
-private static readonly string key = "<replace-with-your-text-analytics-key-here>";
-private static readonly string endpoint = "<replace-with-your-text-analytics-endpoint-here>";
+String key = "<replace-with-your-text-analytics-key-here>";
+String endpoint = "<replace-with-your-text-analytics-endpoint-here>";
 ```
 
 In the application's `main` method, create variables for your resource's Azure endpoint and key.
@@ -95,8 +95,6 @@ In the application's `main` method, create variables for your resource's Azure e
 ```java
 static void Main(string[] args)
 {
-    private string key = "<replace-with-your-text-analytics-key-here>";
-    private string endpoint = "<replace-with-your-text-analytics-endpoint-here>";
     var client = authenticateClient(key, endpoint);
 
     sentimentAnalysisExample(client);
