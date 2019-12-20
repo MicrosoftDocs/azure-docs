@@ -70,7 +70,7 @@ In this quickstart, you use a sample IoT solution in Java to interact with the s
 
 1. Open another terminal window (this will be your _service_ terminal). Go to the folder of your cloned repository, and navigate to the **/azure-iot-samples-java\digital-twin\Samples\service\JdkSample** folder.
 
-1. Install the required libraries and build the simulated device application by running the following command:
+1. Install the required libraries and build the service sample by running the following command:
 
     ```cmd/sh
     mvn clean install -DskipTests

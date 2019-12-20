@@ -1,5 +1,5 @@
 ---
-title: Overview of Azure Service Bus messaging queues, topics, and subscriptions | Microsoft Docs
+title: Azure Service Bus messaging - queues, topics, and subscriptions
 description: Overview of Service Bus messaging entities.
 services: service-bus-messaging
 documentationcenter: na
