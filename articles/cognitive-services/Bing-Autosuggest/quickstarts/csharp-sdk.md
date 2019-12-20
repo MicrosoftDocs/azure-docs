@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-autosuggest
 ms.topic: quickstart
-ms.date: 12/18/2019
+ms.date: 12/20/2019
 ms.author: aahi
 ---
 
@@ -46,8 +46,8 @@ Use the instructions for your operating system.
 #### [Windows](#tab/windows)
 
 ```console
-setx PRODUCT_NAME_KEY <replace-with-your-product-name-key>
-setx PRODUCT_NAME_ENDPOINT <replace-with-your-product-name-endpoint>
+setx AUTOSUGGEST_SUBSCRIPTION_KEY <replace-with-your-autosuggest-api-key>
+setx AUTOSUGGEST_ENDPOINT <replace-with-your-autosuggest-api-endpoint>
 ```
 
 After you add the environment variable, restart the console window.
@@ -55,8 +55,8 @@ After you add the environment variable, restart the console window.
 #### [Linux](#tab/linux)
 
 ```bash
-export PRODUCT_NAME_KEY=<replace-with-your-product-name-key>
-export PRODUCT_NAME_ENDPOINT=<replace-with-your-product-name-endpoint>
+export AUTOSUGGEST_SUBSCRIPTION_KEY=<replace-with-your-autosuggest-api-key>
+export AUTOSUGGEST_ENDPOINT=<replace-with-your-autosuggest-api-endpoint>
 ```
 
 After you add the environment variable, run `source ~/.bashrc` from your console window to make the changes effective.
@@ -66,8 +66,8 @@ After you add the environment variable, run `source ~/.bashrc` from your console
 Edit your `.bash_profile`, and add the environment variable:
 
 ```bash
-export PRODUCT_NAME_KEY=<replace-with-your-product-name-key>
-export PRODUCT_NAME_ENDPOINT=<replace-with-your-product-name-endpoint>
+export AUTOSUGGEST_SUBSCRIPTION_KEY=<replace-with-your-autosuggest-api-key>
+export AUTOSUGGEST_ENDPOINT=<replace-with-your-autosuggest-api-endpoint>
 ```
 
 After you add the environment variable, run `source .bash_profile` from your console window to make the changes effective.
@@ -143,15 +143,15 @@ If you're using the Visual Studio IDE, the client library is available as a down
 
 ## Code examples
 
-These code snippets show you how to do the following tasks with the [Product Name] client library for .NET:
+These code snippets show you how to do the following tasks with the Bing Autosuggest client library for .NET:
 
 * [Authenticate the client](#authenticate-the-client)
-* [Send an API request](#send-an-api-request)
+* [Send an autosuggest request](#send-an-api-request)
 
 ## Authenticate the client
 
 > [!NOTE]
-> This quickstart assumes you've [created an environment variable](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) for your [Product Name] key, named `TBD_KEY`.
+> This quickstart assumes you've [created an environment variable](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) for your Bing Autosuggest key, named `AUTOSUGGEST_SUBSCRIPTION_KEY`, and one for your endpoint named `AUTOSUGGEST_ENDPOINT`.
 
 
 In a new asynchronous method, instantiate a client with your endpoint and key. Create an [ApiKeyServiceClientCredentials](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.search.autosuggest.apikeyserviceclientcredentials?view=azure-dotnet) object with your key, and use it with your endpoint to create an [AutosuggestClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.search.autosuggest.autosuggestclient?view=azure-dotnet) object.
@@ -168,7 +168,7 @@ async static Task RunQuickstart()
 }
 ```
 
-## Send an API request
+## Send an autosuggest request
 
 In the same method, use the client's [AutoSuggestMethodAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.search.autosuggest.autosuggestclientextensions.autosuggestmethodasync?view=azure-dotnet#Microsoft_Azure_CognitiveServices_Search_AutoSuggest_AutoSuggestClientExtensions_AutoSuggestMethodAsync_Microsoft_Azure_CognitiveServices_Search_AutoSuggest_IAutoSuggestClient_System_String_System_String_System_String_System_String_System_String_System_String_System_String_System_String_System_String_System_String_System_String_System_Collections_Generic_IList_System_String__System_Threading_CancellationToken_) method to send a query to Bing. Then iterate over the [Suggestions](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.search.autosuggest.models.suggestions?view=azure-dotnet) response, and print the first suggestion.
 
@@ -219,4 +219,4 @@ If you want to clean up and remove a Cognitive Services subscription, you can de
 ## See also
 
 - [What is Bing Autosuggest?](../get-suggested-search-terms.md)
-- [Bing Autosuggest API v7 reference](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference)
+- [Bing Autosuggest dotnet reference](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingautosuggest?view=azure-dotnet)

@@ -37,8 +37,8 @@ Begin using the Bing Autosuggest client library by creating an Azure resource. C
 
 Using your key and endpoint from the resource you created, create two environment variables for authentication:
 <!-- replace the below variable names with the names expected in the code sample.-->
-* `PRODUCT_NAME_KEY` - The resource key for authenticating your requests.
-* `PRODUCT_NAME_ENDPOINT` - The resource endpoint for sending API requests. It will look like this: 
+* `AUTOSUGGEST_SUBSCRIPTION_KEY` - The resource key for authenticating your requests.
+* `AUTOSUGGEST_ENDPOINT` - The resource endpoint for sending API requests. It will look like this: 
   * `https://<your-custom-subdomain>.api.cognitive.microsoft.com` 
 
 Use the instructions for your operating system.
@@ -46,8 +46,8 @@ Use the instructions for your operating system.
 #### [Windows](#tab/windows)
 
 ```console
-setx BING_AUTOSUGGEST_SUBSCRIPTION_KEY <replace-with-your-product-name-key>
-setx BING_AUTOSUGGEST_ENDPOINT <replace-with-your-product-name-endpoint>
+setx BING_AUTOSUGGEST_SUBSCRIPTION_KEY <replace-with-your-autosuggest-api-key>
+setx BING_AUTOSUGGEST_ENDPOINT <replace-with-your-autosuggest-api-endpoint>
 ```
 
 After you add the environment variable, restart the console window.
@@ -55,8 +55,8 @@ After you add the environment variable, restart the console window.
 #### [Linux](#tab/linux)
 
 ```bash
-export PRODUCT_NAME_KEY=<replace-with-your-product-name-key>
-export PRODUCT_NAME_ENDPOINT=<replace-with-your-product-name-endpoint>
+export AUTOSUGGEST_SUBSCRIPTION_KEY=<replace-with-your-autosuggest-api-key>
+export AUTOSUGGEST_ENDPOINT=<replace-with-your-autosuggest-api-endpoint>
 ```
 
 After you add the environment variable, run `source ~/.bashrc` from your console window to make the changes effective.
@@ -66,8 +66,8 @@ After you add the environment variable, run `source ~/.bashrc` from your console
 Edit your `.bash_profile`, and add the environment variable:
 
 ```bash
-export PRODUCT_NAME_KEY=<replace-with-your-product-name-key>
-export PRODUCT_NAME_ENDPOINT=<replace-with-your-product-name-endpoint>
+export AUTOSUGGEST_SUBSCRIPTION_KEY=<replace-with-your-autosuggest-api-key>
+export AUTOSUGGEST_ENDPOINT=<replace-with-your-autosuggest-api-endpoint>
 ```
 
 After you add the environment variable, run `source .bash_profile` from your console window to make the changes effective.
@@ -149,7 +149,7 @@ func main() {
 
 ## Code examples
 
-These code samples show you how to complete basic tasks using the [Product Name] client library for Go:
+These code samples show you how to complete basic tasks using the Bing Autosuggest client library for Go:
 
 * [Authenticate the client](#authenticate-the-client)
 * [Send an API request](#send-an-api-request)
@@ -157,7 +157,7 @@ These code samples show you how to complete basic tasks using the [Product Name]
 ## Authenticate the client
 
 > [!NOTE] 
-> This quickstart assumes you've [created an environment variable](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) for your [Product Name] key, named `TBD_KEY`.
+> This quickstart assumes you've [created an environment variable](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) for your Bing autosuggest key, named `BING_AUTOSUGGEST_SUBSCRIPTION_KEY`, and one for your endpoint named `BING_AUTOSUGGEST_ENDPOINT`.
 
 In the `main()` function, instantiate a client with your endpoint and key. 
 
