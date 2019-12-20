@@ -20,11 +20,13 @@ In this tutorial, you learn how to:
 > - Configure a Managed Instance as a replication Distributor. 
 > - Configure a SQL Server as a subscriber. 
 
+![Replication between a SQL MI pub, SQL MI Dist, and a SQL Server sub](media/sql-database-managed-instance-failover-group-tutorial/sqlmi-to-sql-replication.png)
+
 This tutorial is intended for an experienced audience and assumes that the user is familiar with deploying and connecting to both managed instances, and SQL Server VMs within Azure. As such, certain steps in this tutorial are glossed over. 
 
 To learn more, see the [Azure SQL Database managed instance overview](sql-database-managed-instance-index.yml), [capabilities](sql-database-managed-instance.md), and [SQL Transactional Replication](sql-database-managed-instance-transactional-replication.md) articles.
 
-To configure replication between a managed instance publisher and a managed instance subscriber, see the [Configure transactional replication between two managed instances tutorial](replication-with-sql-database-managed-instance.md). 
+To configure replication between a managed instance publisher and a managed instance subscriber, see [Configure transactional replication between two managed instances](replication-with-sql-database-managed-instance.md). 
 
 ## Prerequisites
 
