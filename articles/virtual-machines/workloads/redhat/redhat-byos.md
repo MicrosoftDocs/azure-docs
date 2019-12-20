@@ -1,6 +1,6 @@
 ---
-title: Red Hat Enterprise Linux BYOS images | Microsoft Docs
-description: Learn about bring-your-own-subscription images for RHEL on Azure
+title: Red Hat Enterprise Linux Bring-Your-Own-Susbcription images | Microsoft Docs
+description: Learn about bring-your-own-subscription images for Red Hat Enterprise Linux on Azure
 services: virtual-machines-linux
 documentationcenter: ''
 author: asinn826
@@ -31,11 +31,11 @@ Red Hat Enterprise Linux (RHEL) images are available in Azure via a pay-as-you-g
 
 - The VMs provisioned from RHEL BYOS images do not carry RHEL fees associated with RHEL PAYG images
 
-- The images are unentitled, i.e. you must use subscription-manager to register and subscribe the VMs to get updates from Red Hat directly
+- The images are unentitled, so you must use subscription-manager to register and subscribe the VMs to get updates from Red Hat directly
 
 - It is currently not possible to dynamically switch between BYOS and PAYG billing models for Linux images. Redeploying the VM from the respective image is required to switch the billing model
 
-- Azure Disk Encryption (ADE) is supported on these RHEL BYOS images. ADE support is currently in preview. You must register with Red Hat subscription-manager before configuring ADE. Once registered, to configure ADE refer to: Enable Azure Disk Encryption for Linux IaaS VMs
+- Azure Disk Encryption (ADE) is supported on these RHEL BYOS images. ADE support is currently in preview. You must register with Red Hat using subscription-manager before configuring ADE. Once registered, to configure ADE refer to: Enable Azure Disk Encryption for Linux IaaS VMs
 
 - While the images won’t change (beyond standard updates and patches), the registration process is in preview and the flow will be further improved to streamline the process
 
@@ -51,19 +51,19 @@ Red Hat Enterprise Linux (RHEL) images are available in Azure via a pay-as-you-g
 
 ### Expected time for image access
 
-Upon completing the RHEL BYOS form and accepting terms, Red Hat will validate your eligibility for the BYOS images within 3 business days and, if valid, you will receive access to the BYOS images within 1 business day afterward.
+Upon completing the RHEL BYOS form and accepting terms, Red Hat will validate your eligibility for the BYOS images within three business days and, if valid, you will receive access to the BYOS images within one business day afterward.
 
 ## Use the RHEL BYOS images from the Azure Portal
 
-After your subscription is enabled for RHEL BYOS images, you can locate it in the [Azure portal](https://portal.azure.com) by navigating to **Create a Resource** and then **See all**.
+1. After your subscription is enabled for RHEL BYOS images, you can locate it in the [Azure portal](https://portal.azure.com) by navigating to **Create a Resource** and then **See all**.
 
-At the top of the page, you will see that you have private offers.
+1. At the top of the page, you will see that you have private offers.
 
-![Marketplace private offers](./media/rhel-byos-privateoffers.png)
+    ![Marketplace private offers](./media/rhel-byos-privateoffers.png)
 
-You can click on the purple link or scroll down to the bottom of the page to see your private offers.
+1. You can click on the purple link or scroll down to the bottom of the page to see your private offers.
 
-The rest of provisioning in the UI will be no different to any other existing Red Hat image. Choose your RHEL version and follow the prompts to provision your VM. This will also let you accept the terms of the image at the final step.
+1. The rest of provisioning in the UI will be no different to any other existing Red Hat image. Choose your RHEL version and follow the prompts to provision your VM. This process will also let you accept the terms of the image at the final step.
 
 >[!NOTE]
 >These steps so far will not enable your RHEL BYOS image for programmatic deployment – an additional step will be required as described in the “Additional Information” section below.
@@ -116,7 +116,7 @@ The following set of instructions will walk you through the initial deployment p
 1. SSH into your VM and verify that you have an unentitled image. TO do this, run `sudo yum repolist`. The output will ask you to use subscription-manager to register the VM with Red Hat.
 
 ## Additional Information
-- If you attempt to provision a VM on a subscription that is not enabled for this offer you will get the following error and you should contact Microsoft or Red Hat to enable your subscription.
+- If you attempt to provision a VM on a subscription that is not enabled for this offer, you will get the following error and you should contact Microsoft or Red Hat to enable your subscription.
 ```
 "Offer with PublisherId: redhat, OfferId: rhel-byos, PlanId: rhel-lvm75 is private and can not be purchased by subscriptionId: GUID"
 ```
