@@ -17,7 +17,7 @@ ms.date: 11/04/2019
 An Azure Machine Learning compute instance (preview) is a fully managed cloud-based workstation for data scientists. Compute instance makes it  easy to get started with Azure Machine Learning development. Compute instance provides management and enterprise readiness capabilities for IT administrators.  Use a compute instance as your fully configured and managed development environment in the cloud.
 
 > [!NOTE]
-> Compute instances are available only for workspaces with a region of **North Central US** or **UK South**.
+> Compute instances are currently available only for workspaces with a region of **North Central US** or **UK South**, with support for other regions coming soon.
 >If your workspace is in any other region, you can continue to create and use a [Notebook VM](concept-compute-instance.md#notebookvm) instead. 
 
 ## Why use a compute instance?
