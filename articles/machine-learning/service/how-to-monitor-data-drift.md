@@ -36,7 +36,7 @@ With Azure Machine Learning, you can monitor the inputs to a model deployed on A
 
 ### How data drift is monitored in Azure Machine Learning
 
-Using Azure Machine Learning, data drift is monitored through datasets or deployments. To monitor for data drift, a baseline dataset - usually the training dataset for a model - is specified. A second dataset - usually model input data gathered from a deployment - is tested against the baseline dataset. Both datasets are profiled and input to the data drift monitoring service. A machine learning model is trained to detect differences between the two datasets. The model's performance is converted to the drift coefficient, which measures the magnitude of drift between the two datasets. Using [model interpretability](how-to-machine-learning-interpretability.md), the features that contribute to the drift coefficient are computed. From the dataset profile, statistical information about each feature is tracked. 
+Using Azure Machine Learning, data drift is monitored through datasets or deployments. To monitor for data drift, a baseline dataset - usually the training dataset for a model - is specified. A second dataset - usually model input data gathered from a deployment - is tested against the baseline dataset. Both datasets are profiled and input to the data drift monitoring service. A machine learning model is trained to detect differences between the two datasets. The model's performance is converted to the drift coefficient, which measures the magnitude of drift between the two datasets. Using [model interpretability](../how-to-machine-learning-interpretability.md), the features that contribute to the drift coefficient are computed. From the dataset profile, statistical information about each feature is tracked. 
 
 ## Prerequisites
 
@@ -47,7 +47,7 @@ Using Azure Machine Learning, data drift is monitored through datasets or deploy
     - Create a Miniconda environment
     - Install the Azure Machine Learning SDK for Python
 
-- An [Azure Machine Learning workspace](how-to-manage-workspace.md).
+- An [Azure Machine Learning workspace](../how-to-manage-workspace.md).
 
 - A workspace [configuration file](../how-to-configure-environment.md#workspace).
 

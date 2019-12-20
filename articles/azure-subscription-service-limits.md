@@ -168,7 +168,7 @@ The following table details the features and limits of the Basic, Standard, and 
 
 ### Azure Machine Learning limits
 
-The latest values for Azure Machine Learning Compute quotas can be found in the [Azure Machine Learning quota page](../articles/machine-learning/service/how-to-manage-quotas.md)
+The latest values for Azure Machine Learning Compute quotas can be found in the [Azure Machine Learning quota page](machine-learning/how-to-manage-quotas.md)
 
 ### Networking limits
 

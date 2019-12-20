@@ -1438,7 +1438,7 @@ Azure Machine Learning Compute can be created in Python, using Azure portal, or 
 
 ### Azure portal: new features
 + Create and manage [Azure Machine Learning Compute](service/how-to-set-up-training-targets.md#amlcompute) types in the portal.
-+ Monitor quota usage and [request quota](service/how-to-manage-quotas.md) for Azure Machine Learning Compute.
++ Monitor quota usage and [request quota](how-to-manage-quotas.md) for Azure Machine Learning Compute.
 + View Azure Machine Learning Compute cluster status in real time.
 + Virtual network support was added for Azure Machine Learning Compute and Azure Kubernetes Service creation.
 + Rerun your published pipelines with existing parameters.

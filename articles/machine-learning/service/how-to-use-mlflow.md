@@ -54,7 +54,7 @@ The following diagram illustrates that with MLflow Tracking, you track an experi
 
 * [Install MLflow.](https://mlflow.org/docs/latest/quickstart.html)
 * [Install the Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py) on your local computer  The SDK provides the connectivity for MLflow to access your workspace.
-* [Create an Azure Machine Learning Workspace](how-to-manage-workspace.md).
+* [Create an Azure Machine Learning Workspace](../how-to-manage-workspace.md).
 
 ## Track local runs
 
@@ -161,7 +161,7 @@ In the **Package** field, type azureml-mlflow and then click install. Repeat thi
 
 Once your cluster is set up, import your experiment notebook, open it and attach your cluster to it.
 
-The following code should be in your experiment notebook. This code gets the details of your Azure subscription to instantiate your workspace. This code assumes you have an existing resource group and Azure Machine Learning workspace, otherwise you can [create them](how-to-manage-workspace.md). 
+The following code should be in your experiment notebook. This code gets the details of your Azure subscription to instantiate your workspace. This code assumes you have an existing resource group and Azure Machine Learning workspace, otherwise you can [create them](../how-to-manage-workspace.md). 
 
 ```python
 import mlflow

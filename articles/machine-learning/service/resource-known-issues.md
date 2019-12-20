@@ -190,7 +190,7 @@ Some of these actions appear in the __Activities__ area of your workspace, howev
 
 ## Resource quotas
 
-Learn about the [resource quotas](how-to-manage-quotas.md) you might encounter when working with Azure Machine Learning.
+Learn about the [resource quotas](../how-to-manage-quotas.md) you might encounter when working with Azure Machine Learning.
 
 ## Authentication errors
 

@@ -37,7 +37,7 @@ You'll need
 - The [Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py), or access to [Azure Machine Learning studio](https://ml.azure.com/).
 
 - An Azure Machine Learning workspace. 
-    - Either [Create an Azure Machine Learning workspace](service/how-to-manage-workspace.md) or use an existing one using the Python SDK.
+    - Either [Create an Azure Machine Learning workspace](how-to-manage-workspace.md) or use an existing one using the Python SDK.
 
         ```Python
         import azureml.core

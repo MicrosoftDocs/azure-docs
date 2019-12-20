@@ -109,7 +109,7 @@ You can deploy a model as a web service on FPGAs with Azure Machine Learning Har
 
     If you do not have quota, then submit a request at [https://aka.ms/accelerateAI](https://aka.ms/accelerateAI).
 
-- An Azure Machine Learning workspace and the Azure Machine Learning SDK for Python installed. For more information, see [Create a workspace](service/how-to-manage-workspace.md).
+- An Azure Machine Learning workspace and the Azure Machine Learning SDK for Python installed. For more information, see [Create a workspace](how-to-manage-workspace.md).
  
 - The Python SDK for hardware-accelerated models:
 

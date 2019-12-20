@@ -23,7 +23,7 @@ While you can use a different kind of pipeline called an [Azure Pipeline](https:
 
 Each phase of an ML pipeline, such as data preparation and model training, can include one or more steps.
 
-The ML pipelines you create are visible to the members of your Azure Machine Learning [workspace](service/how-to-manage-workspace.md). 
+The ML pipelines you create are visible to the members of your Azure Machine Learning [workspace](how-to-manage-workspace.md). 
 
 ML pipelines use remote compute targets for computation and the storage of the intermediate and final data associated with that pipeline. They can read and write data to and from supported [Azure Storage](https://docs.microsoft.com/azure/storage/) locations.
 
@@ -31,7 +31,7 @@ If you don’t have an Azure subscription, create a free account before you begi
 
 ## Prerequisites
 
-* Create an [Azure Machine Learning workspace](service/how-to-manage-workspace.md) to hold all your pipeline resources.
+* Create an [Azure Machine Learning workspace](how-to-manage-workspace.md) to hold all your pipeline resources.
 
 * [Configure your development environment](service/how-to-configure-environment.md) to install the Azure Machine Learning SDK, or use an [Azure Machine Learning compute instance (preview)](service/concept-compute-instance.md) with the SDK already installed.
 
@@ -397,7 +397,7 @@ See the list of all your pipelines and their run details in the studio:
 
 1. Sign in to [Azure Machine Learning studio](https://ml.azure.com).
 
-1. [View your workspace](service/how-to-manage-workspace.md#view).
+1. [View your workspace](how-to-manage-workspace.md#view).
 
 1. On the left, select **Pipelines** to see all your pipeline runs.
  ![list of machine learning pipelines](./media/how-to-create-your-first-pipeline/pipelines.png)
@@ -499,7 +499,7 @@ You can also run a published pipeline from the studio:
 
 1. Sign in to [Azure Machine Learning studio](https://ml.azure.com).
 
-1. [View your workspace](service/how-to-manage-workspace.md#view).
+1. [View your workspace](how-to-manage-workspace.md#view).
 
 1. On the left, select **Endpoints**.
 

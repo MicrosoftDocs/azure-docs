@@ -237,5 +237,5 @@ For an example, see [Tutorial: Train an image classification model with Azure Ma
 To get started with Azure Machine Learning, see:
 
 * [What is Azure Machine Learning?](service/overview-what-is-azure-ml.md)
-* [Create an Azure Machine Learning workspace](service/how-to-manage-workspace.md)
+* [Create an Azure Machine Learning workspace](how-to-manage-workspace.md)
 * [Tutorial (part 1): Train a model](service/tutorial-train-models-with-aml.md)

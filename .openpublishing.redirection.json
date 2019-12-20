@@ -12970,6 +12970,57 @@
         "redirect_url": "/azure/machine-learning/how-to-enable-logging",
         "redirect_document_id": true
     },
+
+    {
+      "source_path": "articles/machine-learning/service/how-to-enable-virtual-network.md",
+      "redirect_url": "/azure/machine-learning/how-to-enable-virtual-network",
+      "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/machine-learning/service/how-to-export-delete-data.md",
+        "redirect_url": "/azure/machine-learning/how-to-export-delete-data",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/machine-learning/service/how-to-label-images.md",
+        "redirect_url": "/azure/machine-learning/how-to-label-images",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/machine-learning/service/how-to-machine-learning-interpretability-aml.md",
+        "redirect_url": "/azure/machine-learning/how-to-machine-learning-interpretability-aml",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/machine-learning/service/how-to-machine-learning-interpretability-automl.md",
+        "redirect_url": "/azure/machine-learning/how-to-machine-learning-interpretability-automl",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/machine-learning/service/how-to-machine-learning-interpretability.md",
+        "redirect_url": "/azure/machine-learning/how-to-machine-learning-interpretability",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/machine-learning/service/how-to-manage-quotas.md",
+        "redirect_url": "/azure/machine-learning/how-to-manage-quotas",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/machine-learning/service/how-to-manage-runs.md",
+        "redirect_url": "/azure/machine-learning/how-to-manage-runs",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/machine-learning/service/how-to-manage-workspace.md",
+        "redirect_url": "/azure/machine-learning/how-to-manage-workspace",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/machine-learning/service/how-to-manage-workspace-cli.md",
+        "redirect_url": "/azure/machine-learning/how-to-manage-workspace-cli",
+        "redirect_document_id": true
+    },
     {
       "source_path": "articles/log-analytics/log-analytics-add-solutions.md",
       "redirect_url": "/azure/monitoring/monitoring-solutions",

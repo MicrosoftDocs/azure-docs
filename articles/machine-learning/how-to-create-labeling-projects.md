@@ -39,7 +39,7 @@ In this article, you'll learn how to:
 * The set of labels that you want to apply.
 * The instructions for labeling.
 * An Azure subscription. If you don’t have an Azure subscription, create a [free account](https://aka.ms/AMLFree) before you begin.
-* A Machine Learning workspace. See [Create an Azure Machine Learning workspace](service/how-to-manage-workspace.md).
+* A Machine Learning workspace. See [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).
 
 ## Create a labeling project
 
@@ -155,5 +155,5 @@ The COCO file is created in the default blob store of the Azure Machine Learning
 
 ## Next steps
 
-* Label images for [image classification or object detection](service/how-to-label-images.md)
+* Label images for [image classification or object detection](how-to-label-images.md)
 * Learn more about [Azure Machine Learning and Machine Learning Studio (classic)](compare-azure-ml-to-studio-classic.md)
