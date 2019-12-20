@@ -1,10 +1,10 @@
 ---
 title: The structure of Azure Dashboards | Microsoft Docs
-description: This article explains the JSON structure of an Azure Dashboard
+description: Walk through the JSON structure of an Azure Dashboard using an example dashboard. Includes reference to resource properties.
 services: azure-portal
 documentationcenter: ''
 author: adamabmsft
-manager: dougeby
+manager: mtillman
 editor: tysonn
 
 ms.service: azure-portal
