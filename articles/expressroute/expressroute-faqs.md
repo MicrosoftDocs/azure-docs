@@ -6,9 +6,8 @@ author: jaredr80
 
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 10/28/2019
+ms.date: 12/13/2019
 ms.author: jaredro
-ms.custom: seodec18
 
 ---
 # ExpressRoute FAQ
@@ -51,38 +50,39 @@ For information, see the [ExpressRoute SLA](https://azure.microsoft.com/support/
 
 ## Supported services
 
-ExpressRoute supports [three routing domains](expressroute-circuit-peerings.md) for various types of services: private peering, Microsoft peering, and public peering.
+ExpressRoute supports [three routing domains](expressroute-circuit-peerings.md) for various types of services: private peering, Microsoft peering, and public peering (deprecated).
 
 ### Private peering
+
+**Supported:**
 
 * Virtual networks, including all virtual machines and cloud services
 
 ### Microsoft peering
+
+If your ExpressRoute circuit is enabled for Azure Microsoft peering, you can access the [public IP address ranges](../virtual-network/virtual-network-ip-addresses-overview-arm.md#public-ip-addresses) used in Azure over the circuit. Azure Microsoft peering will provide access to services currently hosted on Azure (with geo-restrictions depending on your circuit's SKU). To validate availability for a specific service, you can check the documentation for that service to see if there is a reserved range published for that service. Then, look up the IP ranges of the target service and compare with the ranges listed in the [Azure IP Ranges and Service Tags – Public Cloud XML file](https://www.microsoft.com/download/details.aspx?id=56519). Alternatively, you can open a support ticket for the service in question for clarification.
+
+**Supported:**
 
 * [Office 365](https://aka.ms/ExpressRouteOffice365)
 * Power BI - Available via an Azure Regional Community, see [here](https://docs.microsoft.com/power-bi/service-admin-where-is-my-tenant-located) for how to find out the region of your Power BI tenant.
 * Azure Active Directory
 * [Windows Virtual Desktop](https://azure.microsoft.com/services/virtual-desktop/)
 * [Azure DevOps](https://blogs.msdn.microsoft.com/devops/2018/10/23/expressroute-for-azure-devops/) (Azure Global Services community)
-* Most of the Azure services are supported. Please check directly with the service that you want to use to verify support.<br><br>**The following services are NOT supported**:
-    * CDN
-    * Azure Front Door
-    * Multi-factor Authentication Server (legacy)
-    * Traffic Manager
+* Most of the Azure services are supported. Please check directly with the service that you want to use to verify support.
+
+**Not supported:**
+
+* CDN
+* Azure Front Door
+* Multi-factor Authentication Server (legacy)
+* Traffic Manager
 
 ### Public peering
 
->[!NOTE]
->Public peering has been disabled on new ExpressRoute circuits. Azure services are available on Microsoft peering.
->
+Public peering has been disabled on new ExpressRoute circuits. Azure services are now available on Microsoft peering. If you a circuit that was created prior to public peering being deprecated, you can choose to use Microsoft peering or public peering, depending on the services that you want.
 
-* Power BI
-* Most of the Azure services are supported. Please check directly with the service that you want to use to verify support.<br><br>
-  **The following services are NOT supported**:
-    * CDN
-    * Azure Front Door
-    * Multi-factor Authentication Server (legacy)
-    * Traffic Manager
+For more information and configuration steps for public peering, see [ExpressRoute public peering](about-public-peering.md).
 
 ### Why I see 'Advertised public prefixes' status as 'Validation needed', while configuring Microsoft peering?
 
@@ -145,7 +145,7 @@ See [here](https://docs.microsoft.com/azure/expressroute/designing-for-high-avai
 
 You can achieve high availability by connecting ExpressRoute circuits in different peering locations (for example, Singapore, Singapore2) to your virtual network. If one ExpressRoute circuit goes down, connectivity will fail over to another ExpressRoute circuit. By default, traffic leaving your virtual network is routed based on Equal Cost Multi-path Routing (ECMP). You can use Connection Weight to prefer one circuit to another. For more information, see [Optimizing ExpressRoute Routing](expressroute-optimize-routing.md).
 
-### How do I ensure that my traffic destined for Azure Public services like Azure Storage and Azure SQL on Microsoft or Public Peering is preferred on the ExpressRoute path?
+### How do I ensure that my traffic destined for Azure Public services like Azure Storage and Azure SQL on Microsoft peering or public peering is preferred on the ExpressRoute path?
 
 You must implement the *Local Preference* attribute on your router(s) to ensure that the path from on-premises to Azure is always preferred on your ExpressRoute circuit(s).
 

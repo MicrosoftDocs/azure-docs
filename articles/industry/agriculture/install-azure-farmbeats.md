@@ -72,7 +72,7 @@ Your Azure FarmBeats setup enables you to get free satellite imagery from Europe
 
 Follow the steps to create a free account with Sentinel:
 
-1. Go to the official sign-up page, [self-resgistation](https://scihub.copernicus.eu/dhus/#/self-registration).
+1. Go to the official [sign-up](https://scihub.copernicus.eu/dhus/#/self-registration) page.
 2. Provide the required details (first name, last name, username, password, and email ID) and complete the form.
 3. A verification link will be sent to the registered email ID. Select the link provided in the email and complete the verification.
 
@@ -125,6 +125,9 @@ In this case, request your IT administrator to follow the below steps to automat
 7. Enter the **Datahub website** name and the **Accelerator website** name. Make a note of the output of the script and share it with the person installing Azure FarmBeats.
 
 Once your IT administrator provides you with the required details, make a note of the **AAD Client ID, AAD Client Secret, Datahub website name & Accelerator website name**.
+
+   > [!NOTE]
+   > If you are following instructions from Case 2, do not forget to add the AAD Client ID & AAD Client Secret as separate parameters in the [Parameters file](#prepare-parameters-file)
 
 Now, you have all the information required to proceed to the next section.
 

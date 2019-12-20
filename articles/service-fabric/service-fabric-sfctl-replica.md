@@ -1,21 +1,11 @@
 ---
-title: Azure Service Fabric CLI- sfctl replica| Microsoft Docs
+title: Azure Service Fabric CLI- sfctl replica
 description: Describes the Service Fabric CLI sfctl replica commands.
-services: service-fabric
-documentationcenter: na
 author: jeffj6123
-manager: chackdan
-editor: ''
 
-ms.assetid: 
-ms.service: service-fabric
-ms.devlang: cli
 ms.topic: reference
-ms.tgt_pltfrm: na
-ms.workload: multiple
 ms.date: 9/17/2019
 ms.author: jejarry
-
 ---
 
 # sfctl replica

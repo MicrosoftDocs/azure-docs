@@ -81,8 +81,8 @@ The following example shows how to use the SDK to create an environment and then
 
 ```python
 from azureml.core.model import InferenceConfig
-from azureml.core import Environment
-from azureml.core.environment import CondaDependencies
+from azureml.core.environment import Environment
+from azureml.core.conda_dependencies import CondaDependencies
 
 # Create the environment
 myenv = Environment(name="myenv")
@@ -92,6 +92,8 @@ conda_dep = CondaDependencies()
 conda_dep.add_conda_package("tensorflow")
 conda_dep.add_conda_package("numpy")
 conda_dep.add_conda_package("scikit-learn")
+# You must list azureml-defaults as a pip dependency
+conda_dep.add_pip_package("azureml-defaults")
 conda_dep.add_pip_package("keras")
 
 # Adds dependencies to PythonSection of myenv

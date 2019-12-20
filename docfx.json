@@ -229,6 +229,8 @@
         "articles/virtual-machines/*.md": "cynthn",
         "articles/virtual-machines-scale-sets/*.md": "ju-shim",
         "articles/batch/*.md": "ju-shim",
+        "articles/service-fabric/*.md": "athinanthny",
+        "articles/service-fabric-mesh/*.md": "athinanthny",
         "articles/notebooks/*.md": "kraigb"
       },
       "feedback_system": {
@@ -458,6 +460,8 @@
         "articles/virtual-machines/*.md": "cynthn",
         "articles/virtual-machines-scale-sets/*.md": "jushiman",
         "articles/batch/*.md": "jushiman",
+        "articles/service-fabric/*.md": "atsenthi",
+        "articles/service-fabric-mesh/*md": "atsenthi",
         "articles/notebooks/*.md": "kraigb"
       },
       "ms.service": {
@@ -489,7 +493,9 @@
         "articles/dev-spaces/**/*.md": "azure-dev-spaces",
         "articles/site-recovery/*.md": "site-recovery",
         "articles/migrate/*.md": "azure-migrate",
-        "articles/notebooks/*.md": "azure-notebooks"
+        "articles/notebooks/*.md": "azure-notebooks",
+        "articles/service-fabric/*.md": "service-fabric",
+        "articles/service-fabric-mesh/*.md": "service-fabric-mesh"
       },
       "ms.subservice": {
         "articles/industry/agriculture/**/*.md": "agriculture"
@@ -579,7 +585,9 @@
         "articles/batch/*.md": "Azure Batch",
         "articles/batch/*.yml": "Azure Batch",
         "articles/app-service-mobile/**/*.md": "Azure Mobile Apps",
-        "articles/app-service-mobile/**/*.yml": "Azure Mobile Apps"
+        "articles/app-service-mobile/**/*.yml": "Azure Mobile Apps",
+        "articles/service-fabric/*.md": "Azure Service Fabric",
+        "articles/service-fabric-mesh/*.md": "Azure Service Fabric Mesh"
       },
       "featureFlags": {
         "articles/**/*.md": [
