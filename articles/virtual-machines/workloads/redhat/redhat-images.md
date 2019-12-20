@@ -29,7 +29,7 @@ Information on Red Hat support policies for all versions of RHEL can be found on
 > For any issue related to RHEL images in the Azure marketplace gallery please file a support ticket with Microsoft.
 
 ## Images available in Azure
-When you search for “Red Hat” in the Marketplace or when you create a resource in Azure portal UI, you'll see a subset of available RHEL images and related Red Hat products. You can always obtain the full set of available VM images using the Azure CLI/PowerShell/API.
+When you search for “Red Hat” in the Marketplace or when you create a resource in Azure portal UI, you'll see only a subset of all available RHEL images. You can always obtain the full set of available VM images using the Azure CLI/PowerShell/API.
 
 To see the full set of available Red Hat images in Azure, run the following command
 
@@ -65,7 +65,7 @@ For RHEL 6.x images, the image types are as follows:
 |Publisher | Offer | SKU value | Version | Details
 |----------|-------|-----------|---------|--------
 |RedHat | RHEL | Minor version (e.g. 6.9) | Concatenated values of the RHEL minor version and the date published (e.g. 6.9.2018010506) | All standard RHEL 6.x images follow this convention
-|RedHat | rhel-byos | rhel-raw69 | Concatenated values of the RHEL minor version and the date published (e.g. 6.9.20181023) | This is a RHEL 6.9 BYOS image.
+|RedHat | rhel-byos | rhel-raw69 | Concatenated values of the RHEL minor version and the date published (e.g. 6.9.20181023) | This image is a RHEL 6.9 BYOS image.
 |RedHat | RHEL | RHEL-SAP-APPS | Concatenated values of the RHEL minor version and the date published (e.g. 6.8.2017053118) | This is a RHEL 6.8 for SAP Applications image. It is entitled to access SAP Applications repositories as well as base RHEL repositories.
 |RedHat | RHEL | RHEL-SAP-HANA | Concatenated values of the RHEL minor version and the date published (e.g. 6.7.2017053121) | This is a RHEL 6.7 for SAP HANA image. It is entitled to access SAP HANA repositories as well as base RHEL repositories.
 
@@ -81,9 +81,9 @@ Unless otherwise indicated, all images are LVM-partitioned and will connect to r
 |RedHat | RHEL | 7-RAW | Concatenated values of the RHEL minor version and the date published (e.g. 7.6.2019102813) | These images are raw-partitioned (i.e. no logical volumes have been added).
 |RedHat | RHEL | 7-RAW-CI | Concatenated values of the RHEL minor version and the date published (e.g. 7.6.2019072418) | These images are raw-partitioned (i.e. no logical volumes have been added), and will use cloud-init for provisioning.
 |RedHat | RHEL | 7-LVM | Concatenated values of the RHEL minor version and the date published (e.g. 7.6.2019062414) | These images are LVM-partitioned.
-|RedHat | rhel-byos | rhel-{lvm,raw} | Concatenated values of the RHEL minor version and the date published (e.g. 7.7.20190819) | These are the RHEL 7 BYOS images. THey are not attached to any repositories and will not charge the RHEL premium fee. If you are interested in the RHEL BYOS images, please [request access](https://aka.ms/rhel-byos). SKU values end with the minor version and denote whether the image is raw or LVM-partitioned. For example, a SKU value of rhel-lvm77 indicates an LVM-partitioned RHEL 7.7 image.
-|RedHat | RHEL | RHEL-SAP | Concatenated values of the RHEL minor version and the date published (e.g. 7.6.2019071300) | These are RHEL for SAP images. They are entitled to access the SAP HANA and Applications repositories as well as RHEL E4S repositories. Billing includes the RHEL premium and the SAP premium on top of the base compute fee.
-|RedHat | RHEL | RHEL-SAP-HA | Concatenated values of the RHEL minor version and the date published (e.g. 7.6.2019062320) | These are RHEL for SAP with High Availability and Update Services images. They are entitled to access the SAP HANA and Applications repositories and the High Availability repositories as well as RHEL E4S repositories. Billing includes the RHEL premium, SAP premium, and HA premium on top of the base compute fee.
+|RedHat | rhel-byos | rhel-{lvm,raw} | Concatenated values of the RHEL minor version and the date published (e.g. 7.7.20190819) | These images are the RHEL 7 BYOS images. THey are not attached to any repositories and will not charge the RHEL premium fee. If you are interested in the RHEL BYOS images, [request access](https://aka.ms/rhel-byos). SKU values end with the minor version and denote whether the image is raw or LVM-partitioned. For example, a SKU value of rhel-lvm77 indicates an LVM-partitioned RHEL 7.7 image.
+|RedHat | RHEL | RHEL-SAP | Concatenated values of the RHEL minor version and the date published (e.g. 7.6.2019071300) | These images are RHEL for SAP images. They are entitled to access the SAP HANA and Applications repositories as well as RHEL E4S repositories. Billing includes the RHEL premium and the SAP premium on top of the base compute fee.
+|RedHat | RHEL | RHEL-SAP-HA | Concatenated values of the RHEL minor version and the date published (e.g. 7.6.2019062320) | These images are RHEL for SAP with High Availability and Update Services images. They are entitled to access the SAP HANA and Applications repositories and the High Availability repositories as well as RHEL E4S repositories. Billing includes the RHEL premium, SAP premium, and HA premium on top of the base compute fee.
 |RedHat | RHEL | RHEL-HA | Concatenated values of the RHEL minor version and the date published (e.g. 7.6.2019062019) | These are RHEL images that are also entitled to access the High Availability add-on. They will charge slightly extra on top of the RHEL and base compute fee due to the HA add-on premium.
 |RedHat | RHEL | RHEL-SAP-APPS | Concatenated values of the RHEL minor version and the date published (e.g. 7.3.2017053118) | These images are out of date as the SAP Applications and SAP HANA repositories have been combined into the SAP repositories. These are RHEL for SAP Applications images. They are entitled to access SAP Applications repositories as well as base RHEL repositories.
 |RedHat | RHEL | RHEL-SAP-HANA | Concatenated values of the RHEL minor version and the date published (e.g. 7.3.2018051421) | These images are out of date as the SAP Applications and SAP HANA repositories have been combined into the SAP repositories. These are RHEL for SAP HANA images. They are entitled to access SAP HANA repositories as well as base RHEL repositories.
@@ -107,17 +107,17 @@ Switching to EUS repositories is possible and is supported. Instructions on how 
 ### Differentiating between regular and EUS images.
 Customers that want to use images that are attached to EUS repositories should use the RHEL image that contains a RHEL minor version number in the SKU.
 
-For example, you may see the following 2 RHEL 7.4 images available:
+For example, you may see the following two RHEL 7.4 images available:
 ```bash
 RedHat:RHEL:7-LVM:7.6.2019062414
 RedHat:RHEL:7.6:7.6.2019102813
 ```
 In this case, `RedHat:RHEL:7.6:7.6.2019102813` will be attached to EUS repositories by default (SKU value of 7.4), and `RedHat:RHEL:7-LVM:7.6.2019062414` will be attached to non-EUS repositories by default (SKU value of 7-LVM).
 
-If you don't want to use an image that is connected to EUS by default, deploy using an image that does not contain a minor version number in the SKU.
+If you wnt to use regular (non-EUS) repositories, deploy using an image that does not contain a minor version number in the SKU.
 
 #### RHEL images with EUS
-The following table will apply for RHEL images that are conneted to EUS repositories.
+The following table will apply for RHEL images that are connected to EUS repositories.
 
 >[!NOTE]
 > At the time of writing, only RHEL 7.4 and later minor versions have EUS support. EUS is no longer supported for RHEL <= 7.3.
