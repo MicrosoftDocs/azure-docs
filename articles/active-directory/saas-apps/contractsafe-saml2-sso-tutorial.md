@@ -62,7 +62,7 @@ To configure and test Azure AD SSO with ContractSafe Saml2 SSO, complete the fol
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
     * **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
     * **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
-1. **[Configure ContractSafe Saml2 SSO](#configure-contractsafe-saml2-sso-sso)** - to configure the single sign-on settings on application side.
+1. **[Configure ContractSafe Saml2 SSO](#configure-contractsafe-saml2-sso)** - to configure the single sign-on settings on application side.
     * **[Create ContractSafe Saml2 SSO test user](#create-contractsafe-saml2-sso-test-user)** - to have a counterpart of B.Simon in ContractSafe Saml2 SSO that is linked to the Azure AD representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
