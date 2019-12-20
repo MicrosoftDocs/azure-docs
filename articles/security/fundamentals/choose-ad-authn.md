@@ -186,7 +186,7 @@ The following diagrams outline the high-level architecture components required f
 > Custom controls in Azure AD Conditional Access do not currently support device registration.
 
 ## Recommendations
-Your identity system ensures your users' access to cloud apps and the line-of-business apps that you migrate and make available in the cloud. To keep authorized users productive and bad actors out of your organization’s sensitive data, authentication controls access to applications.
+Your identity system ensures your users' access to cloud apps and the line-of-business apps that you migrate and make available in the cloud. To keep authorized users productive and bad actors out of your organization’s sensitive data, authentication controls access to apps.
 
 Use or enable password hash synchronization for whichever authentication method you choose, for the following reasons:
 
