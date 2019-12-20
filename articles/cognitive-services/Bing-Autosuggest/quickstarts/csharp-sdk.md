@@ -146,7 +146,7 @@ If you're using the Visual Studio IDE, the client library is available as a down
 These code snippets show you how to do the following tasks with the Bing Autosuggest client library for .NET:
 
 * [Authenticate the client](#authenticate-the-client)
-* [Send an autosuggest request](#send-an-api-request)
+* [Send an autosuggest request](#send-an-autosuggest-request)
 
 ## Authenticate the client
 
