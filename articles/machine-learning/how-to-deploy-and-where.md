@@ -71,7 +71,7 @@ Machine learning models are registered in your Azure Machine Learning workspace.
 The code snippets in this section demonstrate how to register a model from a training run:
 
 > [!IMPORTANT]
-> To use these snippets, you need to have previously performed a training run and you need to have access to the `Run` object (SDK example) or the run ID value (CLI example). For more information on training models, see [Set up compute targets for model training](service/how-to-set-up-training-targets.md).
+> To use these snippets, you need to have previously performed a training run and you need to have access to the `Run` object (SDK example) or the run ID value (CLI example). For more information on training models, see [Set up compute targets for model training](how-to-set-up-training-targets.md).
 
 + **Using the SDK**
 
@@ -174,7 +174,7 @@ To deploy the model, you need the following items:
     >
     > * The Azure Machine Learning SDK doesn't provide a way for web services or IoT Edge deployments to access your data store or datasets. If your deployed model needs to access data stored outside the deployment, like data in an Azure storage account, you must develop a custom code solution by using the relevant SDK. For example, the [Azure Storage SDK for Python](https://github.com/Azure/azure-storage-python).
     >
-    >   An alternative that might work for your scenario is [batch prediction](service/how-to-run-batch-predictions.md), which does provide access to data stores during scoring.
+    >   An alternative that might work for your scenario is [batch prediction](how-to-run-batch-predictions.md), which does provide access to data stores during scoring.
 
 * **Dependencies**, like helper scripts or Python/Conda packages required to run the entry script or model.
 
@@ -572,7 +572,7 @@ Deployment uses the inference configuration deployment configuration to deploy t
 
 ### Securing deployments with SSL
 
-For more information on how to secure a web service deployment, see [Use SSL to secure a web service](service/how-to-secure-web-service.md#enable).
+For more information on how to secure a web service deployment, see [Use SSL to secure a web service](how-to-secure-web-service.md#enable).
 
 ### <a id="local"></a> Local deployment
 
@@ -1074,7 +1074,7 @@ For more information, see the documentation for [WebService.delete()](https://do
 
 * [How to deploy a model using a custom Docker image](how-to-deploy-custom-docker-image.md)
 * [Deployment troubleshooting](service/how-to-troubleshoot-deployment.md)
-* [Secure Azure Machine Learning web services with SSL](service/how-to-secure-web-service.md)
+* [Secure Azure Machine Learning web services with SSL](how-to-secure-web-service.md)
 * [Consume an Azure Machine Learning model deployed as a web service](how-to-consume-web-service.md)
 * [Monitor your Azure Machine Learning models with Application Insights](how-to-enable-app-insights.md)
 * [Collect data for models in production](how-to-enable-data-collection.md)

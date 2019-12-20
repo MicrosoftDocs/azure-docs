@@ -24,7 +24,7 @@ This article shows how to collect input model data from Azure Machine Learning. 
 
 Once collection is enabled, the data you collect helps you:
 
-* [Monitor data drifts](service/how-to-monitor-data-drift.md) as production data enters your model.
+* [Monitor data drifts](how-to-monitor-data-drift.md) as production data enters your model.
 
 * Make better decisions about when to retrain or optimize your model.
 

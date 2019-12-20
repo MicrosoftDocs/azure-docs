@@ -422,7 +422,7 @@ All [Azure Data Box Edge devices](https://docs.microsoft.com/azure/databox-onlin
 
 ## Secure FPGA web services
 
-To secure your FPGA web services, see the [Secure web services](service/how-to-secure-web-service.md) document.
+To secure your FPGA web services, see the [Secure web services](how-to-secure-web-service.md) document.
 
 ## Next steps
 

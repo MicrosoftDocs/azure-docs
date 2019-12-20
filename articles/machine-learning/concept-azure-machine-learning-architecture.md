@@ -86,7 +86,7 @@ Activities can provide notifications through the SDK or the web UI so that you c
 > Compute instances are available only for workspaces with a region of **North Central US** or **UK South**.
 >If your workspace is in any other region, you can continue to create and use a [Notebook VM](service/concept-compute-instance.md#notebookvm) instead. 
 
-An **Azure Machine Learning compute instance** (formerly Notebook VM) is a fully managed cloud-based workstation that includes multiple tools and environments installed for machine learning. Compute instances can be used as a compute target for training and inferencing jobs. For large tasks, [Azure Machine Learning compute clusters](service/how-to-set-up-training-targets.md#amlcompute) with multi-node scaling capabilities is a better compute target choice.
+An **Azure Machine Learning compute instance** (formerly Notebook VM) is a fully managed cloud-based workstation that includes multiple tools and environments installed for machine learning. Compute instances can be used as a compute target for training and inferencing jobs. For large tasks, [Azure Machine Learning compute clusters](how-to-set-up-training-targets.md#amlcompute) with multi-node scaling capabilities is a better compute target choice.
 
 Learn more about [compute instances](service/concept-compute-instance.md).
 
@@ -214,7 +214,7 @@ A run configuration is a set of instructions that defines how a script should be
 
 A run configuration can be persisted into a file inside the directory that contains your training script, or it can be constructed as an in-memory object and used to submit a run.
 
-For example run configurations, see [Select and use a compute target to train your model](service/how-to-set-up-training-targets.md).
+For example run configurations, see [Select and use a compute target to train your model](how-to-set-up-training-targets.md).
 ### Snapshots
 
 When you submit a run, Azure Machine Learning compresses the directory that contains the script as a zip file and sends it to the compute target. The zip file is then extracted, and the script is run there. Azure Machine Learning also stores the zip file as a snapshot as part of the run record. Anyone with access to the workspace can browse a run record and download the snapshot.

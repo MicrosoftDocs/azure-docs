@@ -17,14 +17,14 @@ ms.custom: seodec18
 # Train models with Azure Machine Learning using estimator
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-With Azure Machine Learning, you can easily submit your training script to [various compute targets](how-to-set-up-training-targets.md#compute-targets-for-training), using a [RunConfiguration object](how-to-set-up-training-targets.md#whats-a-run-configuration) and a [ScriptRunConfig object](how-to-set-up-training-targets.md#submit). That pattern gives you a lot of flexibility and maximum control.
+With Azure Machine Learning, you can easily submit your training script to [various compute targets](../how-to-set-up-training-targets.md#compute-targets-for-training), using a [RunConfiguration object](../how-to-set-up-training-targets.md#whats-a-run-configuration) and a [ScriptRunConfig object](../how-to-set-up-training-targets.md#submit). That pattern gives you a lot of flexibility and maximum control.
 
 To facilitate deep learning model training, the Azure Machine Learning Python SDK provides an alternative higher-level abstraction, the estimator class, which allows users to easily construct run configurations. You can create and use a generic [Estimator](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py) to submit training script using any learning framework you choose (such as scikit-learn) on any compute target you choose, whether it's your local machine, a single VM in Azure, or a GPU cluster in Azure. For PyTorch, TensorFlow and Chainer tasks, Azure Machine Learning also provides respective [PyTorch](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py), [TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py), and [Chainer](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py) estimators to simplify using these frameworks.
 
 ## Train with an estimator
 
 Once you've created your [workspace](../concept-workspace.md) and set up your [development environment](../how-to-configure-environment.md), training a model in Azure Machine Learning involves the following steps:  
-1. Create a [remote compute target](how-to-set-up-training-targets.md) (note you can also use local computer as compute target)
+1. Create a [remote compute target](../how-to-set-up-training-targets.md) (note you can also use local computer as compute target)
 2. Upload your [training data](../how-to-access-data.md) to datastore (Optional)
 3. Create your [training script](tutorial-train-models-with-aml.md#create-a-training-script)
 4. Create an `Estimator` object
@@ -34,7 +34,7 @@ This article focuses on steps 4-5. For steps 1-3, refer to the [train a model tu
 
 ### Single-node training
 
-Use an `Estimator` for a single-node training run on remote compute in Azure for a scikit-learn model. You should have already created your [compute target](how-to-set-up-training-targets.md#amlcompute) object `compute_target` and your [datastore](../how-to-access-data.md) object `ds`.
+Use an `Estimator` for a single-node training run on remote compute in Azure for a scikit-learn model. You should have already created your [compute target](../how-to-set-up-training-targets.md#amlcompute) object `compute_target` and your [datastore](../how-to-access-data.md) object `ds`.
 
 ```Python
 from azureml.train.estimator import Estimator
@@ -58,7 +58,7 @@ Parameter | Description
 --|--
 `source_directory`| Local directory that contains all of your code needed for the training job. This folder gets copied from your local machine to the remote compute.
 `script_params`| Dictionary specifying the command-line arguments to pass to your training script `entry_script`, in the form of `<command-line argument, value>` pairs. To specify a verbose flag in `script_params`, use `<command-line argument, "">`.
-`compute_target`| Remote compute target that your training script will run on, in this case an Azure Machine Learning Compute ([AmlCompute](how-to-set-up-training-targets.md#amlcompute)) cluster. (Note even though AmlCompute cluster is the commonly used target, it is also possible to choose other compute target types such as Azure VMs or even local computer.)
+`compute_target`| Remote compute target that your training script will run on, in this case an Azure Machine Learning Compute ([AmlCompute](../how-to-set-up-training-targets.md#amlcompute)) cluster. (Note even though AmlCompute cluster is the commonly used target, it is also possible to choose other compute target types such as Azure VMs or even local computer.)
 `entry_script`| Filepath (relative to the `source_directory`) of the training script to be run on the remote compute. This file, and any additional files it depends on, should be located in this folder.
 `conda_packages`| List of Python packages to be installed via conda needed by your training script.  
 
@@ -90,7 +90,7 @@ There are two additional training scenarios you can carry out with the `Estimato
 
 The following code shows how to carry out distributed training for a Keras model. In addition, instead of using the default Azure Machine Learning images, it specifies a custom docker image from Docker Hub `continuumio/miniconda` for training.
 
-You should have already created your [compute target](how-to-set-up-training-targets.md#amlcompute) object `compute_target`. You create the estimator as follows:
+You should have already created your [compute target](../how-to-set-up-training-targets.md#amlcompute) object `compute_target`. You create the estimator as follows:
 
 ```Python
 from azureml.train.estimator import Estimator
@@ -151,7 +151,7 @@ For notebooks on training models by using deep-learning-framework specific estim
 
 ## Next steps
 
-* [Track run metrics during training](how-to-track-experiments.md)
+* [Track run metrics during training](../how-to-track-experiments.md)
 * [Train PyTorch models](how-to-train-pytorch.md)
 * [Train TensorFlow models](how-to-train-tensorflow.md)
 * [Tune hyperparameters](how-to-tune-hyperparameters.md)

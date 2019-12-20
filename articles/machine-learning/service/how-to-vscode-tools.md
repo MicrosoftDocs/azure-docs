@@ -193,7 +193,7 @@ One or more experiments can be created in your workspace to track and analyze in
 
 With Azure Machine Learning for Visual Studio Code, you can prepare your data, train models, and deploy them both locally and on remote compute targets.
 
-The extension supports several remote compute targets for Azure Machine Learning. For more information, see the full list of supported [compute targets for Azure Machine Learning](how-to-set-up-training-targets.md).
+The extension supports several remote compute targets for Azure Machine Learning. For more information, see the full list of supported [compute targets for Azure Machine Learning](../how-to-set-up-training-targets.md).
 
 ### Create compute targets for Azure Machine Learning in Visual Studio Code
 

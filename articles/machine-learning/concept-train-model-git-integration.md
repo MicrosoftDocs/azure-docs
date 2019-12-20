@@ -86,4 +86,4 @@ For more information, see the [az ml run](https://docs.microsoft.com/cli/azure/e
 
 ## Next steps
 
-* [Set up and use compute targets for model training](service/how-to-set-up-training-targets.md)
+* [Set up and use compute targets for model training](how-to-set-up-training-targets.md)

@@ -103,7 +103,7 @@ To learn how to deploy your model, see [Tutorial: Deploy a machine learning mode
 
 You can also publish a pipeline to a **pipeline endpoint**. Similar to a real-time endpoint, a pipeline endpoint lets you submit new pipeline runs from external applications using REST calls. However, you cannot send or receive data in real-time using a pipeline endpoint.
 
-Published pipelines are flexible, they can be used to train or retrain models, [perform batch inferencing](service/how-to-run-batch-predictions-designer.md), process new data, and much more. You can publish multiple pipelines to a single pipeline endpoint and specify which pipeline version to run.
+Published pipelines are flexible, they can be used to train or retrain models, [perform batch inferencing](how-to-run-batch-predictions-designer.md), process new data, and much more. You can publish multiple pipelines to a single pipeline endpoint and specify which pipeline version to run.
 
 A published pipeline runs on the compute resources you define in the pipeline draft for each module.
 
