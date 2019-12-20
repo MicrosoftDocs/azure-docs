@@ -17,7 +17,7 @@ In this tutorial, you see two ways to create and configure the resources needed 
 
 * The first method is to use the Azure CLI to create the resources and configure the message routing. Then you define the enrichments manually using the [Azure portal](https://portal.azure.com). 
 
-* The second method is to use an Azure Resource Manager template to create both the resources *and* the configurations for the routing and the message enrichments. 
+* The second method is to use an Azure Resource Manager template to create both the resources *and* the configurations for the message routing and message enrichments. 
 
 After the configurations for the message routing and message enrichments are complete, you use an application to send messages to the IoT Hub, which then routes them to both storage containers. Only the messages sent to the endpoint for the **enriched** storage container are enriched.
 
@@ -28,7 +28,7 @@ Here are the tasks you perform to complete this tutorial:
 > * Create the resources and configure the message routing using the Azure CLI.
 > * Configure the message enrichments manually using the [Azure portal](https://portal.azure.com).
 > * OR
-> * Create the resources and configure the routing and message enrichments with an Azure Resource Manager template. 
+> * Create the resources and configure the message routing and message enrichments with an Azure Resource Manager template. 
 > * Run an app that simulates an IoT Device sending messages to the hub.
 > * View the results and verify the message enrichments are working as expected.
 
@@ -46,13 +46,13 @@ Download the [IoT C# Samples](https://github.com/Azure-Samples/azure-iot-samples
 
 * For the manual method, there is a CLI script for creating the resources. This script is in **/azure-iot-samples-csharp/iot-hub/Tutorials/Routing/SimulatedDevice/resources/iothub_msgenrichment_cli.azcli**. This script creates the resources and configures the message routing. After running this, you create the message enrichments manually using the [Azure portal](https://portal.azure.com) and then run the DeviceSimulation app to see the enrichments working.
 
-* For the automated method, there is an Azure Resource Manager template. Thie template is in **/azure-iot-samples-csharp/iot-hub/Tutorials/Routing/SimulatedDevice/resources/template_msgenrichments.json**. This template creates the resources, configures the message routing, and lastly, configures the message enrichemnts. After loading this template, you then run the Device SDimulation app to see the enrichments working.
+* For the automated method, there is an Azure Resource Manager template. Thie template is in **/azure-iot-samples-csharp/iot-hub/Tutorials/Routing/SimulatedDevice/resources/template_msgenrichments.json**. This template creates the resources, configures the message routing, and lastly, configures the message enrichemnts. After loading this template, you then run the Device Simulation app to see the enrichments working.
 
-* The third application you use is Device Simulation, which you use to send messages to the IoT hub and test the message enhancements.
+* The third application you use is the Device Simulation app, which you use to send messages to the IoT hub and test the message enhancements.
 
 ## Manual set up and configuration using Azure CLI
 
-In addition to creating the necessary resources, the Azure CLI script also configures the two routes to the endpoints that are separate storage containers. For more information on configuring the routing, see the [routing tutorial](tutorial-routing.md). After the resources are set up, you use the [Azure portal](https://portal.azure.com) to configure message enrichments for each endpoint, and then continue to the testing step.
+In addition to creating the necessary resources, the Azure CLI script also configures the two routes to the endpoints that are separate storage containers. For more information on configuring the message routing, see the [routing tutorial](tutorial-routing.md). After the resources are set up, you use the [Azure portal](https://portal.azure.com) to configure message enrichments for each endpoint, and then continue to the testing step.
 
 > [!NOTE]
 > All messages are routed to both endpoints, but only the messages going to the endpoint with configured message enrichments will be enriched.
@@ -241,7 +241,7 @@ az iot hub route create \
   --condition $condition
 ```
 
-At this point, the resources are all set up and the routing is configured. You can view the message routing configuration in the portal and set up the message enrichments for messages going to the **enriched** storage container.
+At this point, the resources are all set up and the message routing is configured. You can view the message routing configuration in the portal and set up the message enrichments for messages going to the **enriched** storage container.
 
 ### Manually configure the message enrichments using the Azure portal
 
@@ -290,7 +290,7 @@ At this point, the resources are all set up and the routing is configured. You c
 
    This template is set up to use a globally unique IoT Hub name and storage account name by adding a random value to the end of the default names, so you can use the template without making any changes to it. 
 
-   Here are the resources created by loading the template. **Enriched** means that resource is for messages with enrichments. **Original** means that resource is for messages that are not enriched. These are the same values set when you use the manual method of the Azure CLI script.
+   Here are the resources created by loading the template. **Enriched** means that resource is for messages with enrichments. **Original** means that resource is for messages that are not enriched. These are the same values used in the Azure CLI script.
 
    | Name | Value |
    |-----|-----|
@@ -305,7 +305,7 @@ At this point, the resources are all set up and the routing is configured. You c
    | route Name 1 | ContosoStorageRouteOriginal |
    | route Name 2 | ContosoStorageRouteEnriched |
 
-1. Select **Save**, and the Custom deployment displays, showing all of the parameters used by the template. The only field you need to set is the **resource group**. Either create a new one or select one from the dropdown list.
+1. Select **Save**, and the Custom deployment pane is displayed, showing all of the parameters used by the template. The only field you need to set is the **resource group**. Either create a new one or select one from the dropdown list.
 
 Here's the top half of the custom deployment pane. You can see where you fill in the resource group.
 
@@ -345,7 +345,7 @@ If you don't have the device key, you can retrieve it from the portal. After log
 
 ### Run and test
 
-Run the console application. Wait a few minutes. The messages that are being sent are displayed on the console screen of the application.
+Run the console application for a few minutes. The messages that are being sent are displayed on the console screen of the application.
 
 The app sends a new device-to-cloud message to the IoT hub every second. The message contains a JSON-serialized object with the device ID, temperature, humidity, and message level, which defaults to `normal`. It randomly assigns a level of `critical` or `storage`, causing the message to be routed to the storage account or to the default endpoint. The messages sent to the **enriched** container in the storage account will be enriched.
 
