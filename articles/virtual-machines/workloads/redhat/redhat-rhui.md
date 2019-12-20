@@ -74,7 +74,7 @@ Some customers may want to lock their RHEL VMs to a certain RHEL minor release a
 >[!NOTE]
 > EUS is not supported on RHEL Extras. This means that if you are installing a package that is usually available from the RHEL Extras channel, you will not be able to do so while on EUS. The Red Hat Extras Product Life Cycle is detailed [here](https://access.redhat.com/support/policy/updates/extras/).
 
-At the time of this writing, EUS support has ended for RHEL <= 7.3. See the "Red Hat Enterprise Linux Longer Support Add-Ons" section in the [Red Hat documentation](https://access.redhat.com/support/policy/updates/errata/) for more details.
+At the time of this writing, EUS support has ended for RHEL <= 7.4. See the "Red Hat Enterprise Linux Longer Support Add-Ons" section in the [Red Hat documentation](https://access.redhat.com/support/policy/updates/errata/) for more details.
 * RHEL 7.4 EUS support ends August 31, 2019
 * RHEL 7.5 EUS support ends April 30, 2020
 * RHEL 7.6 EUS support ends October 31, 2020
