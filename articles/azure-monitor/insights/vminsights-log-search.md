@@ -6,7 +6,7 @@ ms.subservice:
 ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
-ms.date: 12/12/2019
+ms.date: 12/19/2019
 
 ---
 
@@ -36,8 +36,8 @@ Records in these tables are generated from data reported by the Dependency Agent
 The following fields and conventions apply to both VMConnection and VMBoundPort: 
 
 - Computer: Fully-qualified domain name of reporting machine 
-- AgentID: The unique identifier for a machine with the Log Analytics agent  
-- Machine: Name of the Azure Resource Manager resource for the machine exposed by ServiceMap. It is of the form *m-{GUID}*, where *GUID* is the same GUID as AgentID  
+- AgentId: The unique identifier for a machine with the Log Analytics agent  
+- Machine: Name of the Azure Resource Manager resource for the machine exposed by ServiceMap. It is of the form *m-{GUID}*, where *GUID* is the same GUID as AgentId  
 - Process: Name of the Azure Resource Manager resource for the process exposed by ServiceMap. It is of the form *p-{hex string}*. Process is unique within a machine scope and to generate a unique process ID across machines, combine Machine and Process fields. 
 - ProcessName: Executable name of the reporting process.
 - All IP addresses are strings in IPv4 canonical format, for example *13.107.3.160* 
@@ -160,7 +160,7 @@ Records with a type of *VMComputer* have inventory data for servers with the Dep
 |TimeGenerated | Timestamp of the record (UTC) |
 |Computer | The computer FQDN | 
 |AgentId | The unique ID of the Log Analytics agent |
-|Machine | Name of the Azure Resource Manager resource for the machine exposed by ServiceMap. It is of the form *m-{GUID}*, where *GUID* is the same GUID as AgentID. | 
+|Machine | Name of the Azure Resource Manager resource for the machine exposed by ServiceMap. It is of the form *m-{GUID}*, where *GUID* is the same GUID as AgentId. | 
 |DisplayName | Display name | 
 |FullDisplayName | Full display name | 
 |HostName | The name of machine without domain name |
@@ -189,7 +189,7 @@ Records with a type of *VMComputer* have inventory data for servers with the Dep
 |_ResourceId | The unique identifier for an Azure resource |
 |AzureSubscriptionId | A globally unique identifier that identifies your subscription | 
 |AzureResourceGroup | The name of the Azure resource group the machine is a member of. |
-|AzureResourceName | |
+|AzureResourceName | The name of the Azure resource |
 |AzureLocation | The location of the Azure resource |
 |AzureUpdateDomain | The name of the Azure update domain |
 |AzureFaultDomain | The name of the Azure fault domain |
@@ -200,14 +200,14 @@ Records with a type of *VMComputer* have inventory data for servers with the Dep
 |AzureImageSku | The SKU of the Azure VM image | 
 |AzureImageVersion | The version of the Azure VM image | 
 |AzureCloudServiceName | The name of the Azure cloud service |
-|AzureCloudServiceDeployment | |
-|AzureCloudServiceRoleName | |
-|AzureCloudServiceRoleType | |
-|AzureCloudServiceInstanceId | |
+|AzureCloudServiceDeployment | Deployment id for the Cloud Service |
+|AzureCloudServiceRoleName | Cloud Service role name |
+|AzureCloudServiceRoleType | Cloud Service role type: *worker* or *web* |
+|AzureCloudServiceInstanceId | Cloud Service role instance id |
 |AzureVmScaleSetName | The name of the virtual machine scale set |
-|AzureVmScaleSetDeployment | |
+|AzureVmScaleSetDeployment | VM scale set deployment ID |
 |AzureVmScaleSetResourceId | The unique identifier of the virtual machine scale set resource.|
-|AzureVmScaleSetInstanceId | The unique identifier of the |
+|AzureVmScaleSetInstanceId | The unique identifier of the virtual machine scale set |
 |AzureServiceFabricClusterId | The unique identifer of the Azure Service Fabric cluster | 
 |AzureServiceFabricClusterName | The name of the Azure Service Fabric cluster |
 
@@ -222,12 +222,12 @@ Records with a type of *VMProcess* have inventory data for TCP-connected process
 |TimeGenerated | Timestamp of the record (UTC) |
 |Computer | The computer FQDN | 
 |AgentId | The unique ID of the Log Analytics agent |
-|Machine | Name of the Azure Resource Manager resource for the machine exposed by ServiceMap. It is of the form *m-{GUID}*, where *GUID* is the same GUID as AgentID. | 
+|Machine | Name of the Azure Resource Manager resource for the machine exposed by ServiceMap. It is of the form *m-{GUID}*, where *GUID* is  the same GUID as AgentId. | 
 |Process | The unique identifier of the Service Map process. It is in the form of *p-{GUID}*. 
 |ExecutableName | The name of the process executable | 
-|DisplayName | |
-|Role | |
-|Group | |
+|DisplayName | Process display name |
+|Role | Process role: *webserver*, *appServer*, *databaseServer*, *ldapServer*, *smbServer* |
+|Group | Process group name. Processes in the same group are logically related, e.g., part of the same product or system component. |
 |StartTime | The process pool start time |
 |FirstPid | The first PID in the process pool |
 |Description | The process description |
