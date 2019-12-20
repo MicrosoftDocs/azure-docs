@@ -116,7 +116,7 @@ join-AzStorageAccountForAuth -ResourceGroupName "<resource-group-name-here>" -Na
 Here is a detailed workflow of the actions that is performed in the `join-AzStorageAccountForAuth` command. You may perform these steps manually if you prefer: 
 
 - Perform a setup check against the environment that the command is being executed.
-    - Check if Active Directory PowerShell is installed
+    - Check if [Active Directory PowerShell](https://docs.microsoft.com/en-us/powershell/module/addsadministration/?view=win10-ps) is installed
     - Ensure the PowerShell is being executed with administrator privileges
 - Create an identity in AD to represent the storage account
     - Create either a service logon account (recommended) or a computer account
