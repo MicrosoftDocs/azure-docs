@@ -25,7 +25,7 @@ Red Hat Enterprise Linux (RHEL) images are available in Azure via a pay-as-you-g
 
 - The RHEL BYOS images provided in this program are production-ready RHEL images similar the RHEL PAYG images in the Azure Gallery/Marketplace. The registration process to obtain the images is in preview.
 
-- The images follow our current policies described in [Red Hat Enterprise Linux images on Azure](./rhel-images.md)
+- The images follow our current policies described in [Red Hat Enterprise Linux images on Azure](./redhat-images.md)
 
 - Standard support policies apply to VMs created from these images
 
@@ -45,7 +45,7 @@ Red Hat Enterprise Linux (RHEL) images are available in Azure via a pay-as-you-g
 
 1. Get familiar with the [Red Hat Cloud Access program](https://www.redhat.com/en/technologies/cloud-computing/cloud-access) terms and register at [Red Hat's Cloud Access registration page](https://access.redhat.com/cloude/manager/image_imports/new)
 
-1. Complete the [RHEL BYOS access request form](http://aka.ms/rhel-byos). You will need to have on hand your Red Hat account number as well as your Azure subscription(s) that you with to access the RHEL BYOS images with.
+1. Complete the [RHEL BYOS access request form](https://aka.ms/rhel-byos). You will need to have on hand your Red Hat account number as well as your Azure subscription(s) that you with to access the RHEL BYOS images with.
 
 1. Upon review and approval by both Red Hat and Microsoft, your Azure subscription(s) will be enabled for image access.
 
@@ -55,7 +55,7 @@ Upon completing the RHEL BYOS form and accepting terms, Red Hat will validate yo
 
 ## Use the RHEL BYOS images from the Azure Portal
 
-After your subscription is enabled for RHEL BYOS images, you can locate it in the [Azure portal](http://portal.azure.com) by navigating to **Create a Resource** and then **See all**.
+After your subscription is enabled for RHEL BYOS images, you can locate it in the [Azure portal](https://portal.azure.com) by navigating to **Create a Resource** and then **See all**.
 
 At the top of the page, you will see that you have private offers.
 
@@ -132,6 +132,6 @@ az vm create –image \
 - If you are using automation to provision VMs from the RHEL BYOS images, you will need to provide plan parameters similar to what was shown above. For example, if you are using Terraform, you would provide the plan information in a [plan block](https://www.terraform.io/docs/providers/azurerm/r/virtual_machine.html#plan).
 
 ## Next steps
-* Learn more about the [Azure Red Hat Update Infrastructure](./update-infrastructure-redhat.md).
-* To learn more about the Red Hat images in Azure, go to the [documentation page](./rhel-images.md).
+* Learn more about the [Azure Red Hat Update Infrastructure](./redhat-rhui.md).
+* To learn more about the Red Hat images in Azure, go to the [documentation page](./redhat-images.md).
 * Information on Red Hat support policies for all versions of RHEL can be found on the [Red Hat Enterprise Linux Life Cycle](https://access.redhat.com/support/policy/updates/errata) page.
