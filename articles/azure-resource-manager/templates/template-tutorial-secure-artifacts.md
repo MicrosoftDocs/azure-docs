@@ -9,18 +9,20 @@ ms.author: jgao
 
 # Tutorial: Secure artifacts in Azure Resource Manager template deployments
 
-Learn how to secure the artifacts used in your Azure Resource Manager templates using Azure Storage account with shared access signatures (SAS). Deployment artifacts are any files, in addition to the main template file, that are needed to complete a deployment. For example, in [Tutorial: Import SQL BACPAC files with Azure Resource Manager templates](./template-tutorial-deploy-sql-extensions-bacpac.md), the main template creates an Azure SQL Database; it also calls a BACPAC file to create tables and insert data. The BACPAC file is an artifact is stored in an Azure storage account. Storage account key was used to access the artifact. In this tutorial, you use SAS to grant limited access to the BACPAC file in your own Azure Storage account. For more information about SAS, see [Using shared access signatures (SAS)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md).
+Learn how to secure the artifacts used in your Azure Resource Manager templates by using an Azure Storage account with shared access signatures (SAS). Deployment artifacts are any files, in addition to the main template file, that are needed to complete a deployment. For example, in [Tutorial: Import SQL BACPAC files with Azure Resource Manager templates](./template-tutorial-deploy-sql-extensions-bacpac.md), the main template creates an Azure SQL Database instance. It also calls a BACPAC file to create tables and insert data. The BACPAC file is an artifact and is stored in an Azure Storage account. A storage account key was used to access the artifact. 
 
-To learn how to secure linked template, see [Tutorial: Create linked Azure Resource Manager templates](./template-tutorial-create-linked-templates.md).
+In this tutorial, you use SAS to grant limited access to the BACPAC file in your own Azure Storage account. For more information about SAS, see [Using shared access signatures (SAS)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md).
+
+To learn how to secure a linked template, see [Tutorial: Create linked Azure Resource Manager templates](./template-tutorial-create-linked-templates.md).
 
 This tutorial covers the following tasks:
 
 > [!div class="checklist"]
-> * Prepare a BACPAC file
-> * Open an existing template
-> * Edit the template
-> * Deploy the template
-> * Verify the deployment
+> * Prepare a BACPAC file.
+> * Open an existing template.
+> * Edit the template.
+> * Deploy the template.
+> * Verify the deployment.
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
@@ -28,9 +30,9 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 To complete this article, you need:
 
-* Visual Studio Code with Resource Manager Tools extension. See [Use Visual Studio Code to create Azure Resource Manager templates](use-vs-code-to-create-template.md).
+* Visual Studio Code with a Resource Manager Tools extension. See [Use Visual Studio Code to create Azure Resource Manager templates](./use-vs-code-to-create-template.md).
 * Review [Tutorial: Import SQL BACPAC files with Azure Resource Manager templates](./template-tutorial-deploy-sql-extensions-bacpac.md). The template used in this tutorial is the one developed in that tutorial. A download link of the completed template is provided in this article.
-* To increase security, use a generated password for the SQL Server administrator account. Here is a sample for generating a password:
+* To increase security, use a generated password for the SQL Server administrator account. Here's a sample you can use to generate a password:
 
     ```azurecli-interactive
     openssl rand -base64 32
@@ -40,15 +42,15 @@ To complete this article, you need:
 
 ## Prepare a BACPAC file
 
-In this section, you prepare the BACPAC file so the file is accessible securely when you deploy the Resource Manager template. There are five procedures in this section:
+In this section, you prepare the BACPAC file so that the file is accessible securely when you deploy the Resource Manager template. There are five procedures in this section:
 
 * Download the BACPAC file.
 * Create an Azure Storage account.
-* Create a Storage account Blob container.
+* Create a storage account blob container.
 * Upload the BACPAC file to the container.
 * Retrieve the SAS token of the BACPAC file.
 
-1. Select **Try it** to open the cloud shell, and then paste the following PowerShell script into the shell window.
+1. Select **Try it** to open the cloud shell. Then paste the following PowerShell script into the shell window.
 
     ```azurepowershell-interactive
     $projectName = Read-Host -Prompt "Enter a project name"   # This name is used to generate names for Azure resources, such as storage account name.
@@ -108,43 +110,43 @@ In this section, you prepare the BACPAC file so the file is accessible securely 
 
 ## Open an existing template
 
-In this session, you modify the template you created in [Tutorial: Import SQL BACPAC files with Azure Resource Manager templates](./template-tutorial-deploy-sql-extensions-bacpac.md) to call the BACPAC file with a SAS token.  The template developed in the SQL extension tutorial is shared in [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-sql-extension/azuredeploy.json).
+In this session, you modify the template you created in [Tutorial: Import SQL BACPAC files with Azure Resource Manager templates](./template-tutorial-deploy-sql-extensions-bacpac.md) to call the BACPAC file with an SAS token. The template developed in the SQL extension tutorial is shared in [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-sql-extension/azuredeploy.json).
 
-1. From Visual Studio Code, select **File**>**Open File**.
-2. In **File name**, paste the following URL:
+1. From Visual Studio Code, select **File** > **Open File**.
+1. In **File name**, paste the following URL:
 
     ```url
     https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-sql-extension/azuredeploy2.json
     ```
 
-3. Select **Open** to open the file.
+1. Select **Open** to open the file.
 
     There are four resources defined in the template:
 
    * `Microsoft.Sql/servers`. See the [template reference](https://docs.microsoft.com/azure/templates/microsoft.sql/2015-05-01-preview/servers).
    * `Microsoft.SQL/servers/firewallRules`. See the [template reference](https://docs.microsoft.com/azure/templates/microsoft.sql/2015-05-01-preview/servers/firewallrules).
-   * `Microsoft.SQL/servers/databases`.  See the [template reference](https://docs.microsoft.com/azure/templates/microsoft.sql/servers/databases).
-   * `Microsoft.SQL/server/databases/extensions`.  See the [template reference](https://docs.microsoft.com/azure/templates/microsoft.sql/2014-04-01/servers/databases/extensions).
+   * `Microsoft.SQL/servers/databases`. See the [template reference](https://docs.microsoft.com/azure/templates/microsoft.sql/servers/databases).
+   * `Microsoft.SQL/server/databases/extensions`. See the [template reference](https://docs.microsoft.com/azure/templates/microsoft.sql/2014-04-01/servers/databases/extensions).
 
-     It is helpful to get some basic understanding of the template before customizing it.
-4. Select **File**>**Save As** to save a copy of the file to your local computer with the name **azuredeploy.json**.
+        It's helpful to get some basic understanding of the template before you customize it.
+1. Select **File** > **Save As** to save a copy of the file to your local computer with the name *azuredeploy.json*.
 
 ## Edit the template
 
-1. Replace the storageAccountKey parameter definition with the following parameter definition:
+1. Replace the storageAccountKey parameter definition with the following parameter definition: 
 
     ```json
-    "_artifactsLocationSasToken": {
-      "type": "securestring",
-      "metadata": {
-        "description": "Specifies the SAS token required to access the artifact location."
-      }
-    },
+        "_artifactsLocationSasToken": {
+          "type": "securestring",
+          "metadata": {
+            "description": "Specifies the SAS token required to access the artifact location."
+          }
+        },
     ```
 
     ![Resource Manager tutorial secure artifacts parameters](./media/template-tutorial-secure-artifacts/resource-manager-tutorial-secure-artifacts-parameters.png)
 
-2. Update the value of the following three elements of the SQL extension resource:
+1. Update the value of the following three elements of the SQL extension resource:
 
     ```json
     "storageKeyType": "SharedAccessKey",
@@ -160,7 +162,7 @@ The completed template looks like:
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Refer to the [Deploy the template](./template-tutorial-create-multiple-instances.md#deploy-the-template) section for the deployment procedure. Use the following PowerShell deployment script instead:
+See the [Deploy the template](./template-tutorial-create-multiple-instances.md#deploy-the-template) section for the deployment procedure. Use the following PowerShell deployment script instead.
 
 ```azurepowershell
 $projectName = Read-Host -Prompt "Enter the project name that is used earlier"   # This name is used to generate names for Azure resources, such as storage account name.
@@ -185,26 +187,26 @@ Write-Host "Press [ENTER] to continue ..."
 ```
 
 Use a generated password. See [Prerequisites](#prerequisites).
-For the values of _artifactsLocation, _artifactsLocationSasToken and bacpacFileName, see [Prepare a BACPAC file](#prepare-a-bacpac-file).
+For the values of _artifactsLocation, _artifactsLocationSasToken, and bacpacFileName, see [Prepare a BACPAC file](#prepare-a-bacpac-file).
 
 ## Verify the deployment
 
-In the portal, select the SQL database from the newly deployed resource group. Select **Query editor (preview)**, and then enter the administrator credentials. You shall see two tables imported into the database:
+In the portal, select the SQL database from the newly deployed resource group. Select **Query editor (preview)**, and then enter the administrator credentials. You'll see two tables imported into the database.
 
-![Azure Resource Manager deploy sql extensions BACPAC](./media/template-tutorial-deploy-sql-extensions-bacpac/resource-manager-tutorial-deploy-sql-extensions-bacpac-query-editor.png)
+![Query editor (preview)](./media/template-tutorial-deploy-sql-extensions-bacpac/resource-manager-tutorial-deploy-sql-extensions-bacpac-query-editor.png)
 
 ## Clean up resources
 
 When the Azure resources are no longer needed, clean up the resources you deployed by deleting the resource group.
 
-1. From the Azure portal, select **Resource group** from the left menu.
+1. In the Azure portal, select **Resource group** from the left menu.
 2. Enter the resource group name in the **Filter by name** field.
-3. Select the resource group name.  You shall see a total of six resources in the resource group.
+3. Select the resource group name. You'll see a total of six resources in the resource group.
 4. Select **Delete resource group** from the top menu.
 
 ## Next steps
 
-In this tutorial, you deployed a SQL Server, a SQL Database, and imported a BACPAC file using SAS token. To learn how to create an Azure Pipeline to continuously develop and deploy Resource Manager templates, see
+In this tutorial, you deployed a SQL server and a SQL database and imported a BACPAC file by using an SAS token. To learn how to create an Azure pipeline to continuously develop and deploy Resource Manager templates, see:
 
 > [!div class="nextstepaction"]
 > [Continuous integration with Azure Pipeline](./template-tutorial-use-azure-pipelines.md)
