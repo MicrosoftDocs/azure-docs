@@ -35,7 +35,7 @@ Red Hat Enterprise Linux (RHEL) images are available in Azure via a pay-as-you-g
 
 - It is currently not possible to dynamically switch between BYOS and PAYG billing models for Linux images. Redeploying the VM from the respective image is required to switch the billing model
 
-- Azure Disk Encryption (ADE) is supported on these RHEL BYOS images. ADE support is currently in preview. You must register with Red Hat using subscription-manager before configuring ADE. Once registered, to configure ADE refer to: Enable Azure Disk Encryption for Linux IaaS VMs
+- Azure Disk Encryption (ADE) is supported on these RHEL BYOS images. ADE support is currently in preview. You must register with Red Hat using subscription-manager before configuring ADE. Once registered, to configure ADE refer to: [Enable Azure Disk Encryption for Linux IaaS VMs](https://docs.microsoft.com/azure/virtual-machines/linux/disk-encryption-overview)
 
 - While the images won’t change (beyond standard updates and patches), the registration process is in preview and the flow will be further improved to streamline the process
 
