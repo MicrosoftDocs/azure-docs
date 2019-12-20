@@ -248,7 +248,7 @@ CREATE EXTENSION IF NOT EXISTS timescaledb CASCADE;
 You can now create a TimescaleDB hypertable [from scratch](https://docs.timescale.com/getting-started/creating-hypertables) or migrate [existing time-series data in PostgreSQL](https://docs.timescale.com/getting-started/migrating-data).
 
 ### Restoring a Timescale database
-To restore a Timescale database using pg_dump and pg_restore, you need to run two helper procedures in the destination database: `timescaledb_pre_restore` and `timescaledb_post restore`.
+To restore a Timescale database using pg_dump and pg_restore, you need to run two helper procedures in the destination database: `timescaledb_pre_restore()` and `timescaledb_post restore()`.
 
 First prepare the destination database:
 
