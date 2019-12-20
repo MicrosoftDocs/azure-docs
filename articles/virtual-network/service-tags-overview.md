@@ -58,61 +58,59 @@ By default, service tags reflect the ranges for the entire cloud. Some service t
 | **CognitiveServicesManagement** | The address ranges for traffic for Cognitive Services. | Outbound | No | No |
 | **Dynamics365ForMarketingEmail** | The address ranges for the marketing email service of Dynamics 365. | Outbound | Yes | No |
 | **EventHub** | Azure Event Hubs. | Outbound | Yes | Yes |
-| **GatewayManager** | Management traffic for deployments dedicated to VPN/App Gateways. | Inbound | No | No |
-| **Internet** | The IP address space that is outside the virtual network and reachable by the public Internet.<br/><br/>The address range includes the [Azure owned public IP address space](https://www.microsoft.com/download/details.aspx?id=41653). | Both | No | No |
-| **MicrosoftContainerRegistry** | Microsoft Container Registry service. | Outbound | Yes | Yes |
-| **ServiceBus** | Azure Service Bus service using the Premium service tier. | Outbound | Yes | Yes |
-| **ServiceFabric** | Service Fabric service. | Outbound | No | No |
-| **Sql** | Azure SQL Database, Azure Database for MySQL, Azure Database for PostgreSQL, and Azure SQL Data Warehouse services.<br/><br/>*Note:* This tag represents the service, but not specific instances of the service. For example, the tag represents the Azure SQL Database service, but not a specific SQL database or server. | Outbound | Yes | Yes |
-| **SqlManagement** | Management traffic for SQL dedicated deployments. | Both | No | Yes |
-| **Storage** | Azure Storage service. <br/><br/>*Note:* The tag represents the service, but not specific instances of the service. For example, the tag represents the Azure Storage service, but not a specific Azure Storage account. | Outbound | Yes | Yes |
-| **VirtualNetwork** | The virtual network address space (all IP address ranges defined for the virtual network), all connected on-premises address spaces, [peered](virtual-network-peering-overview.md) virtual networks, or virtual network connected to a [virtual network gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%3ftoc.json), the [virtual IP address of the host](security-overview.md#azure-platform-considerations) and address prefixes used on [user-defined routes](virtual-networks-udr-overview.md). Be aware that this tag may also contain default routes. | Both | No | No |
+| **GatewayManager** | Management traffic for deployments dedicated to VPN Gateway and Application Gateway. | Inbound | No | No |
+| **Internet** | The IP address space that's outside the virtual network and reachable by the public internet.<br/><br/>The address range includes the [Azure-owned public IP address space](https://www.microsoft.com/download/details.aspx?id=41653). | Both | No | No |
+| **MicrosoftContainerRegistry** | Azure Container Registry. | Outbound | Yes | Yes |
+| **ServiceBus** | Azure Service Bus traffic that uses the Premium service tier. | Outbound | Yes | Yes |
+| **ServiceFabric** | Azure Service Fabric. | Outbound | No | No |
+| **Sql** | Azure SQL Database, Azure Database for MySQL, Azure Database for PostgreSQL, and Azure SQL Data Warehouse.<br/><br/>*Note:* This tag represents the service, but not specific instances of the service. For example, the tag represents the Azure SQL Database service, but not a specific SQL database or server. | Outbound | Yes | Yes |
+| **SqlManagement** | Management traffic for SQL-dedicated deployments. | Both | No | Yes |
+| **Storage** | Azure Storage. <br/><br/>*Note:* This tag represents the service, but not specific instances of the service. For example, the tag represents the Azure Storage service, but not a specific Azure Storage account. | Outbound | Yes | Yes |
+| **VirtualNetwork** | The virtual network address space (all IP address ranges defined for the virtual network), all connected on-premises address spaces, [peered](virtual-network-peering-overview.md) virtual networks, virtual networks connected to a [virtual network gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%3ftoc.json), the [virtual IP address of the host](security-overview.md#azure-platform-considerations), and address prefixes used on [user-defined routes](virtual-networks-udr-overview.md). Be aware that this tag might also contain default routes. | Both | No | No |
 
 >[!NOTE]
->When working in the *Classic* (pre-Azure Resource Manager) environment, a select set of the above tags are supported.  These use an alternative spelling:
-
-| Classic spelling | Equivalent Resource Manager tag |
-|---|---|
-| AZURE_LOADBALANCER | AzureLoadBalancer |
-| INTERNET | Internet |
-| VIRTUAL_NETWORK | VirtualNetwork |
-
-> [!NOTE]
-> Service tags of Azure services denotes the address prefixes from the specific cloud being used. e.g. the underlying IP ranges corresponding to the **Sql** tag value will differ between the Azure Public cloud and the Azure China cloud.
+>In the classic deployment model (before Azure Resource Manager), a subset of the tags in the previous table are supported. These tags are spelled differently:
+>
+>| Classic spelling | Equivalent Resource Manager tag |
+>|---|---|
+>| AZURE_LOADBALANCER | AzureLoadBalancer |
+>| INTERNET | Internet |
+>| VIRTUAL_NETWORK | VirtualNetwork |
 
 > [!NOTE]
-> If you implement a [virtual network service endpoint](virtual-network-service-endpoints-overview.md) for a service, such as Azure Storage or Azure SQL Database, Azure adds a [route](virtual-networks-udr-overview.md#optional-default-routes) to a virtual network subnet for the service. The address prefixes in the route are the same address prefixes, or CIDR ranges, as the corresponding service tag.
+> Service tags of Azure services denote the address prefixes from the specific cloud being used. For example, the underlying IP ranges that correspond to the **Sql** tag value on the Azure public cloud will be different from the underlying ranges on the Azure China cloud.
 
+> [!NOTE]
+> If you implement a [virtual network service endpoint](virtual-network-service-endpoints-overview.md) for a service, such as Azure Storage or Azure SQL Database, Azure adds a [route](virtual-networks-udr-overview.md#optional-default-routes) to a virtual network subnet for the service. The address prefixes in the route are the same address prefixes, or CIDR ranges, as those of the corresponding service tag.
 
+## Service tags on-premises  
+You can obtain the current service tag and range information to include as part of your on-premises firewall configurations. This information is the current point-in-time list of the IP ranges that correspond to each service tag. The information can be obtained programmatically or via JSON file download, as described in the following sections.
 
-## Service tags in on-premises  
-You can obtain the current service tag and range information to include as part of your on-premises firewall configurations.  This information is the current point-in-time list of the IP ranges corresponding to each service tag.  The information can be obtained programmatically or via JSON file download as follows.
-
-### Service tag Discovery API (Public Preview)
-You can programmatically retrieve the current list of service tags with IP address range details:
+### Use the Service Tag Discovery API (Public Preview)
+You can programmatically retrieve the current list of service tags together with IP address range details:
 
 - [REST](https://docs.microsoft.com/rest/api/virtualnetwork/servicetags/list)
 - [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.network/Get-AzNetworkServiceTag?view=azps-2.8.0&viewFallbackFrom=azps-2.3.2)
 - [Azure CLI](https://docs.microsoft.com/cli/azure/network?view=azure-cli-latest#az-network-list-service-tags)
 
 > [!NOTE]
-> While in Public Preview, the Discovery API may return information that is not as current as the JSON downloads (below).
+> While it's in public preview, the Discovery API might return information that's less current than information returned by the JSON downloads. (See the next section.)
 
 
-### Discover service tags using downloadable JSON files 
-You can download JSON files containing the current list of service tags with IP address range details. These are updated and published weekly.  Locations for each cloud are:
+### Discover service tags by using downloadable JSON files 
+You can download JSON files that contain the current list of service tags together with IP address range details. These lists are updated and published weekly. Locations for each cloud are:
 
 - [Azure Public](https://www.microsoft.com/download/details.aspx?id=56519)
-- [Azure Government](https://www.microsoft.com/download/details.aspx?id=57063)  
+- [Azure US Government](https://www.microsoft.com/download/details.aspx?id=57063)  
 - [Azure China](https://www.microsoft.com/download/details.aspx?id=57062) 
 - [Azure Germany](https://www.microsoft.com/download/details.aspx?id=57064)   
 
 > [!NOTE]
->A subset of this information has previously been published in XML files for [Azure Public](https://www.microsoft.com/download/details.aspx?id=41653), [Azure China](https://www.microsoft.com/download/details.aspx?id=42064) and [Azure Germany](https://www.microsoft.com/download/details.aspx?id=54770). These XML downloads will be deprecated by June 30, 2020 and will no longer be available after that date. Please migrate to using the Discovery API or JSON file downloads as described above.
+>A subset of this information has been published in XML files for [Azure Public](https://www.microsoft.com/download/details.aspx?id=41653), [Azure China](https://www.microsoft.com/download/details.aspx?id=42064), and [Azure Germany](https://www.microsoft.com/download/details.aspx?id=54770). These XML downloads will be deprecated by June 30, 2020 and will no longer be available after that date. You should migrate to using the Discovery API or JSON file downloads as described in the previous sections.
 
 ### Tips 
-- You can detect updates from one publishing to the next via increased *changeNumber* values within the JSON file. Each subsection (e.g. **Storage.WestUS**) has its own *changeNumber* that is incremented as changes occur.  The top level of the file's *changeNumber* is incremented when any of the subsections has changed.
-- For examples of how to parse the service tag information (e.g. get all address ranges for Storage in WestUS), please refer to the [Service Tag Discovery API PowerShell](https://aka.ms/discoveryapi_powershell) documentation.
+- You can detect updates from one publication to the next by noting increased *changeNumber* values in the JSON file. Each subsection (for example, **Storage.WestUS**) has its own *changeNumber* that's incremented as changes occur. The top level of the file's *changeNumber* is incremented when any of the subsections is changed.
+- For examples of how to parse the service tag information (for example, get all address ranges for Storage in WestUS), refer to the [Service Tag Discovery API PowerShell](https://aka.ms/discoveryapi_powershell) documentation.
 
 ## Next steps
 - Learn how to [Create a network security group](tutorial-filter-network-traffic.md).
