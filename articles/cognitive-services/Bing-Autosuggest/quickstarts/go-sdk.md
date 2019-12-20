@@ -147,7 +147,6 @@ func main() {
     var endpoint string = os.Getenv("BING_AUTOSUGGEST_ENDPOINT")
 }
 ```
-## Object model 
 
 ## Code examples
 
@@ -159,7 +158,7 @@ These code samples show you how to complete basic tasks using the Bing Autosugge
 ## Authenticate the client
 
 > [!NOTE] 
-> This quickstart assumes you've [created an environment variable](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) for your Bing autosuggest key, named `BING_AUTOSUGGEST_SUBSCRIPTION_KEY`, and one for your endpoint named `BING_AUTOSUGGEST_ENDPOINT`.
+> This quickstart assumes you've [created an environment variable](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication)  for your Bing autosuggest key, named `BING_AUTOSUGGEST_SUBSCRIPTION_KEY`, and one for your endpoint named `BING_AUTOSUGGEST_ENDPOINT`.
 
 In the `main()` function, instantiate a client with your endpoint and key. 
 
