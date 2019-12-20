@@ -1,5 +1,5 @@
 ---
-title:  Azure Relay - Migrate to Shared Access Signature authorization | Microsoft Docs
+title:  Azure Relay - Migrate to Shared Access Signature authorization
 description: Migrate applications from Access Control Service to SAS
 services: service-bus-relay
 documentationcenter: ''
