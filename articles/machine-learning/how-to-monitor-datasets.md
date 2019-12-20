@@ -323,5 +323,5 @@ Columns, or features, in the dataset are classified as categorical or numeric ba
 ## Next steps
 
 * Head to the [Azure Machine Learning studio](https://ml.azure.com) or the [Python notebook](https://aka.ms/datadrift-notebook) to set up a dataset monitor.
-* See how to set up data drift on [models deployed to Azure Kubernetes Service](service/how-to-monitor-data-drift.md).
+* See how to set up data drift on [models deployed to Azure Kubernetes Service](how-to-monitor-data-drift.md).
 * Set up dataset drift monitors with [event grid](service/how-to-use-event-grid.md). 

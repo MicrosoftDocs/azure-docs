@@ -146,7 +146,7 @@ compute_target.wait_for_completion(show_output=True, min_node_count=None)
 
 ### Submit run with TensorFlow estimator
 
-The TensorFlow estimator provides a simple way of launching a TensorFlow training job on a compute target. It's implemented through the generic [`estimator`](https://docs.microsoft.com//python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py) class, which can be used to support any framework. For more information about training models using the generic estimator, see [train models with Azure Machine Learning using estimator](how-to-train-ml-models.md)
+The TensorFlow estimator provides a simple way of launching a TensorFlow training job on a compute target. It's implemented through the generic [`estimator`](https://docs.microsoft.com//python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py) class, which can be used to support any framework. For more information about training models using the generic estimator, see [train models with Azure Machine Learning using estimator](service/how-to-train-ml-models.md)
 
 ```Python
 from azureml.train.dnn import TensorFlow

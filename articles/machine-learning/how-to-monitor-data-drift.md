@@ -23,7 +23,7 @@ In the context of machine learning, data drift is the change in model input data
 
 ## What can I monitor?
 
-With Azure Machine Learning, you can monitor the inputs to a model deployed on AKS and compare this data to the training dataset for the model. At regular intervals, the inference data is [snapshot and profiled](how-to-explore-prepare-data.md), then computed against the baseline dataset to produce a data drift analysis that: 
+With Azure Machine Learning, you can monitor the inputs to a model deployed on AKS and compare this data to the training dataset for the model. At regular intervals, the inference data is [snapshot and profiled](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py), then computed against the baseline dataset to produce a data drift analysis that: 
 
 + Measures the magnitude of data drift, called the drift coefficient.
 + Measures the data drift contribution by feature, indicating which features caused data drift.
@@ -32,7 +32,7 @@ With Azure Machine Learning, you can monitor the inputs to a model deployed on A
 + Send alerts to data drift by email.
 
 > [!Note]
-> This service is in (preview) and limited in configuration options. Please see our [API Documentation](https://docs.microsoft.com/python/api/azureml-datadrift/) and [Release Notes](../azure-machine-learning-release-notes.md) for details and updates. 
+> This service is in (preview) and limited in configuration options. Please see our [API Documentation](https://docs.microsoft.com/python/api/azureml-datadrift/) and [Release Notes](azure-machine-learning-release-notes.md) for details and updates. 
 
 ### How data drift is monitored in Azure Machine Learning
 
