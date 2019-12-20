@@ -29,7 +29,7 @@ First, download the AzCopy V10 executable file to any directory on your computer
 - [Linux](https://aka.ms/downloadazcopy-v10-linux) (tar)
 - [MacOS](https://aka.ms/downloadazcopy-v10-mac) (zip)
 
-These files are compressed as a zip file (Windows and Mac) or a tar file (Linux).
+These files are compressed as a zip file (Windows and Mac) or a tar file (Linux). To decompress a tar file, see the documentation for your Linux distribution.
 
 You can use these commands to download and decompress the tar file on Linux.
 
