@@ -1,5 +1,5 @@
 ---
-title: Azure Resource Health FAQ | Microsoft Docs
+title: Azure Resource Health FAQ
 description: Overview of Azure Resource Health
 ms.topic: conceptual
 ms.date: 01/29/2019

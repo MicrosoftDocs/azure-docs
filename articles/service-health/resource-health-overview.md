@@ -1,6 +1,7 @@
 ---
-title: Azure Resource Health overview | Microsoft Docs
+title: Azure Resource Health overview
 description: Overview of Azure Resource Health
+ms.topic: conceptual
 ms.date: 05/10/2019
 
 ---

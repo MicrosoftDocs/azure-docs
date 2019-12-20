@@ -479,7 +479,7 @@
         "articles/service-fabric/*.md": "atsenthi",
         "articles/service-fabric-mesh/*md": "atsenthi",
         "articles/notebooks/*.md": "kraigb",
-        "articles/servcie-health/*.md": "stbaron"  
+        "articles/service-health/*.md": "stbaron"  
       },
       "ms.service": {
         "articles/connectors/*.md": "logic-apps",
@@ -513,7 +513,8 @@
         "articles/migrate/*.md": "azure-migrate",
         "articles/notebooks/*.md": "azure-notebooks",
         "articles/service-fabric/*.md": "service-fabric",
-        "articles/service-fabric-mesh/*.md": "service-fabric-mesh"
+        "articles/service-fabric-mesh/*.md": "service-fabric-mesh",
+        "articles/service-health/**/*.md": "service-health"  
       },
       "ms.subservice": {
         "articles/industry/agriculture/**/*.md": "agriculture",
