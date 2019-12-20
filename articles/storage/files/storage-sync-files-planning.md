@@ -340,12 +340,12 @@ In the following table, we have provided both the size of the namespace as well 
 
 | Namespace size - files & directories (millions)  | Typical capacity (TiB)  | CPU Cores  | Recommended memory (GiB) |
 |---------|---------|---------|---------|
-| 3        | 1.27     | 2        | 8 (initial sync)/ 2 (typical churn)      |
-| 5        | 2.09     | 2        | 16 (initial sync)/ 4 (typical churn)    |
-| 10       | 4.27     | 4        | 32  (initial sync)/ 8 (typical churn)   |
-| 30       | 12.73    | 8        | 48 (initial sync)/ 16 (typical churn)   |
-| 50       | 21.91    | 16       | 64  (initial sync)/ 32 (typical churn)  |
-| 100*     | 42.38    | 32       | 128 (initial sync)/ 32 (typical churn)  |
+| 3        | 1.4     | 2        | 8 (initial sync)/ 2 (typical churn)      |
+| 5        | 2.3     | 2        | 16 (initial sync)/ 4 (typical churn)    |
+| 10       | 4.7     | 4        | 32  (initial sync)/ 8 (typical churn)   |
+| 30       | 14.0    | 8        | 48 (initial sync)/ 16 (typical churn)   |
+| 50       | 23.3    | 16       | 64  (initial sync)/ 32 (typical churn)  |
+| 100*     | 46.6    | 32       | 128 (initial sync)/ 32 (typical churn)  |
 
 \*More than 100 million files & directories is not supported at this time. This is a soft limit.
 
