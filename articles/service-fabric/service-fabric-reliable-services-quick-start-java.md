@@ -1,21 +1,11 @@
 ---
-title: Create your first Azure Service Fabric reliable service in Java | Microsoft Docs
+title: Create your first Azure Service Fabric reliable service in Java 
 description: Introduction to creating a Microsoft Azure Service Fabric application with stateless and stateful services.
-services: service-fabric
-documentationcenter: java
 author: suhuruli
-manager: chackdan
-editor: ''
 
-ms.assetid: 7831886f-7ec4-4aef-95c5-b2469a5b7b5d
-ms.service: service-fabric
-ms.devlang: java
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/02/2017
 ms.author: suhuruli
-
 ---
 # Get started with Reliable Services
 > [!div class="op_single_selector"]
