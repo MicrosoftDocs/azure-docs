@@ -62,13 +62,19 @@ In this quickstart, you use a sample environmental sensor that's written in Java
     java -jar environmental-sensor-sample\target\environmental-sensor-sample-with-deps.jar
     ```
 
-1. You see messages saying that the device is connected and waiting for service updates, followed by telemetry logs. This indicates that the device is now ready to receive commands and property updates, and has begun sending telemetry data to the hub. Keep the sample running as you complete the next steps. Don't close this terminal, you'll need it later to confirm the service samples also worked.
+1. You see messages saying that the device is connected, performing various setup steps, and waiting for service updates, followed by telemetry logs. This indicates that the device is now ready to receive commands and property updates, and has begun sending telemetry data to the hub. Keep the sample running as you complete the next steps. Don't close this terminal, you'll need it later to confirm the service samples also worked.
 
 ## Run the sample solution
 
 In this quickstart, you use a sample IoT solution in Java to interact with the sample device.
 
 1. Open another terminal window (this will be your _service_ terminal). Go to the folder of your cloned repository, and navigate to the **/azure-iot-samples-java\digital-twin\Samples\service\JdkSample** folder.
+
+1. Install the required libraries and build the simulated device application by running the following command:
+
+    ```cmd/sh
+    mvn clean install -DskipTests
+    ```
 
 1. Configure the _IoT hub connection string_ and _device ID_ to allow the service to connect to both of these:
 
@@ -79,7 +85,7 @@ In this quickstart, you use a sample IoT solution in Java to interact with the s
 
 ### Read a property
 
-1. When you connected the _device_ in its terminal, you saw the following message indicating its online status. The `state` property, which is used to indicate whether or not the device is online, is _true_:
+1. When you connected the _device_ in its terminal, one of the output messages was the following message to indicate its online status. The `state` property, which is used to indicate whether or not the device is online, is _true_:
 
     ```cmd/sh
     State of environmental sensor was set to true
@@ -133,9 +139,7 @@ In this quickstart, you use a sample IoT solution in Java to interact with the s
                 "desired": {
                     "value": "42"
                 }
-            }
-        }
-    }
+            },
     ```
 
 1. Go to your _device_ terminal, you see the device has received the update:
@@ -152,26 +156,33 @@ In this quickstart, you use a sample IoT solution in Java to interact with the s
 3. In the _service_ terminal output, under the `environmentalSensor` component, you see the updated brightness value has been reported. Note: it might take a while for the device to finish the update. You can repeat this step until the device has actually processed the property update.
     
     ```json
-     "environmentalSensor": {
-        "name": "environmentalSensor",
-        "properties": {
-            "brightness": {
-                "reported": {
-                    "value": {
-                        "value": "42"
-                    },
-                    "desiredState": {
-                        "code": 200,
-                        "version": 2,
-                        "description": "OK"
-                    }
-                },
-                "desired": {
-                    "value": "42"
-                }
+    "environmentalSensor" : {
+      "name" : "environmentalSensor",
+      "properties" : {
+        "brightness" : {
+          "reported" : {
+            "value" : {
+              "value" : "42"
+            },
+            "desiredState" : {
+              "code" : 200,
+              "version" : 2,
+              "description" : "OK"
             }
+          },
+          "desired" : {
+            "value" : "42"
+          }
+        },
+        "state" : {
+          "reported" : {
+            "value" : true,
+            "desiredState" : null
+          },
+          "desired" : null
         }
-     }        
+      }
+    },       
     ```
 
 ### Invoke a command
@@ -193,14 +204,14 @@ In this quickstart, you use a sample IoT solution in Java to interact with the s
 
     ```cmd/sh
     Invoking blink on device <YourDeviceID> with interface instance name environmentalSensor
-    Command invoked on the device successfully, the returned status was 500 and the request id was <some ID value>
+    Command invoked on the device successfully, the returned status was 200 and the request id was <some ID value>
     The returned PAYLOAD was
     ```
 
 1. Go to the _device_ terminal, you see the command has been acknowledged:
 
     ```cmd/sh
-    OnCommandReceived called: commandName=blink, requestId=5372ccd9-0636-4a34-83e5-685286cf3728, commandPayload="10"
+    OnCommandReceived called: commandName=blink, requestId=<some ID value>, commandPayload="10"
     EnvironmentalSensor is blinking every 10 seconds.
     ```
 
