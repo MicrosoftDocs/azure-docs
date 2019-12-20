@@ -127,4 +127,4 @@
       - name: Cloudyn FAQ
         href: ../cloudyn/cost-mgt-faq.md
       - name: Contact Cloudyn support
-        href: ../costs/open-support-request.md
+        href: open-support-request.md

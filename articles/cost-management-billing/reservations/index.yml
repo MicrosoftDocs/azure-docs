@@ -27,10 +27,10 @@ landingContent:
         url: save-compute-costs-reservations.md
       - text: Reservation exchanges and refunds
         url: exchange-and-refund-azure-reservations.md
-    - linkListType: how-to-guide
-      links:
       - text: Buy a reservation with monthly payments
         url: monthly-payments-reservations.md
+    - linkListType: how-to-guide
+      links:
       - text: Renew reservations
         url: reservation-renew.md
       - text: SQL Data Warehouse
@@ -71,17 +71,22 @@ landingContent:
         url: nderstand-azure-data-explorer-reservation-charges.md
       - text: Azure Databricks
         url: reservation-discount-databricks.md
+      - text: App Service
+        url: reservation-discount-app-service-isolated-stamp.md
+      - text: Azure software charges
+        url: understand-suse-reservation-charges.md
+
+  # Card (optional)
+  - title: How discounts apply to Azure Database
+    linkLists:
+    - linkListType: concept
+      links:
       - text: Azure Database for MySQL
         url: understand-reservation-charges-mysql.md
       - text: Azure Database for PostgreSQL
         url: understand-reservation-charges-postgresql.md
       - text: Azure Database for MariaDB
         url: understand-reservation-charges-mariadb.md
-      - text: App Service
-        url: reservation-discount-app-service-isolated-stamp.md
-      - text: Azure software charges
-        url: understand-suse-reservation-charges.md
-
 
   # Card (optional)
   - title: Manage reservations
