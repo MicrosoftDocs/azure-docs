@@ -20,7 +20,7 @@
   - name: Roles and requirements 
     href: concepts-roles-permissions.md
   - name: Disaster recovery
-    href: data-share-disaster-recovery.md
+    href: disaster-recovery.md
 - name: Samples
   items:
   - name: Code samples
