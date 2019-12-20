@@ -13,7 +13,7 @@ ms.author: alsin
 ---
 
 # Red Hat workloads on Azure
-Red Hat workloads are supported through a variety of offerings on Azure. Red Hat Enterprise Linux (RHEL) images are at the core of RHEL workloads, as is to Red Hat Update Infrastructure.
+Red Hat workloads are supported through a variety of offerings on Azure. Red Hat Enterprise Linux (RHEL) images are at the core of RHEL workloads, as is the Red Hat Update Infrastructure (RHUI).
 
 ## Red Hat Enterprise Linux (RHEL) images
 Azure offers a wide offering of RHEL images on Azure. These images are made available through two different licensing models: pay-as-you-go (PAYG), and bring-your-own-subscription (BYOS). New RHEL images on Azure are published when new RHEL versions are released and updated throughout their lifecycles as necessary.
