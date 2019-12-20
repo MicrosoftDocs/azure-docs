@@ -43,7 +43,7 @@ Red Hat Enterprise Linux (RHEL) images are available in Azure via a pay-as-you-g
 
 ## Requirements and conditions to access the RHEL BYOS images
 
-1. Get familiar with the [Red Hat Cloud Access program](https://www.redhat.com/en/technologies/cloud-computing/cloud-access) terms and register at [Red Hat's Cloud Access registration page](https://access.redhat.com/cloude/manager/image_imports/new)
+1. Get familiar with the [Red Hat Cloud Access program](https://www.redhat.com/en/technologies/cloud-computing/cloud-access) terms and register at [Red Hat's Cloud Access registration page](https://access.redhat.com/cloude/manager/image_imports/new).
 
 1. Complete the [RHEL BYOS access request form](https://aka.ms/rhel-byos). You will need to have on hand your Red Hat account number as well as your Azure subscription(s) that you with to access the RHEL BYOS images with.
 
@@ -95,7 +95,7 @@ The following set of instructions will walk you through the initial deployment p
 
     OR
 
-    az vm image terms acept --urn RedHat:rhel-byos:rhel-lvm8:8.0.20190620
+    az vm image terms accept --urn RedHat:rhel-byos:rhel-lvm8:8.0.20190620
     ```
     >[!NOTE]
     >These terms need to be accepted *once per Azure subscription, per image SKU*.
@@ -105,7 +105,7 @@ The following set of instructions will walk you through the initial deployment p
     az vm create -n <VM name> -g <resource group name> --image <image urn> --validate
 
     # Example:
-    az vm create -n rhel-byos-vm -g rhel-byos-group --image redhat:rhel-byos:rhel-lvm75:latest --validate
+    az vm create -n rhel-byos-vm -g rhel-byos-group --image RedHat:rhel-byos:rhel-lvm75:7.5.20190620
     ```
 
 1. Provision your VM by running the same command as above without the `--validate` argument:
