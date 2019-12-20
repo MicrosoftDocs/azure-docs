@@ -359,6 +359,7 @@ The `context.res` (response) object has the following properties:
 | _headers_ | An object that contains the response headers.             |
 | _isRaw_   | Indicates that formatting is skipped for the response.    |
 | _status_  | The HTTP status code of the response.                     |
+| _cookies_ | An array of HTTP cookies to set with the response. An HTTP cookie can be defined as an object with name, value, and other cookie properties (such as maxAge and sameSite) |
 
 ### Accessing the request and response 
 
