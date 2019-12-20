@@ -16,7 +16,7 @@ ms.author: aahi
 Get started with the Text Analytics client library for Java. Follow these steps to install the package and try out the example code for basic tasks. 
 
 <!--
-    Include the following single line of links targeting the library's companion content at the bottom of the introduction; make adjustments as necessary, but try not to include any other links or content in the introduction.
+    These links aren't for the java language, and are included as examples. Include the following single line of links targeting the library's companion content at the bottom of the introduction; make adjustments as necessary, but try not to include any other links or content in the introduction.
 -->
 
 [Reference documentation](https://docs.microsoft.com/dotnet/api/Microsoft.Azure.CognitiveServices.AnomalyDetector?view=azure-dotnet-preview) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/AnomalyDetector) | [Artifact (Maven)](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-customsearch/1.0.2/jar) | [Samples](https://github.com/Azure-Samples/anomalydetector)
@@ -30,13 +30,7 @@ Get started with the Text Analytics client library for Java. Follow these steps 
 ## Setting up
 
 <!--
-    Walk the reader through preparing their environment for working with the client library. Include instructions for creating the Azure resources required to make calls to the service, obtaining credentials, and setting up their local development environment.
-
-    See the "setting up" section for more details: 
-    https://review.docs.microsoft.com/en-us/help/contribute/contribute-how-to-write-library-quickstart-v2?branch=pr-en-us-2187#setting-up -->
-
-<!-- 
-    Consider turning this setup section into a reusable include file for your service 
+Add any extra steps preparing an environment for working with the client library. 
 -->
 
 ### Create a Text Analytics Azure resource
@@ -48,6 +42,8 @@ These files are used to display text across multiple articles at once. Consider 
 [!INCLUDE [text-analytics-resource-creation](resource-creation.md)]
 
 ### Create a new Gradle project
+
+If you're using the command line, use these steps to setup your application.
 
 In a console window (such as cmd, PowerShell, or Bash), create a new directory for your app, and navigate to it. 
 
@@ -86,18 +82,28 @@ In the application's class, create variables for your resource's key and endpoin
 
 <!-- Use the below example variable names and example strings, for consistency with the other quickstart variables -->
 ```csharp
-private static readonly string key = "<replace-with-your-text-analytics-key-here>";
-private static readonly string endpoint = "<replace-with-your-text-analytics-endpoint-here>";
+String key = "<replace-with-your-text-analytics-key-here>";
+String endpoint = "<replace-with-your-text-analytics-endpoint-here>";
 ```
 
-In the application's `main` method, create variables for your resource's Azure endpoint and key. If you created the environment variable after you launched the application, you will need to close and reopen the editor, IDE, or shell running it to access the variable. You will define the methods later.
-
+In the application's `main` method, create variables for your resource's Azure endpoint and key.
+<!-- Use the below example variable names and example strings, for consistency with the other quickstart variables -->
 <!-- 
     Be sure the main method calls the example task functions in this quickstart.
 -->
 
 ```java
+static void Main(string[] args)
+{
+    var client = authenticateClient(key, endpoint);
 
+    sentimentAnalysisExample(client);
+    languageDetectionExample(client);
+    entityRecognitionExample(client);
+    keyPhraseExtractionExample(client);
+    Console.Write("Press any key to exit.");
+    Console.ReadKey();
+}
 ```
 
 ### Install the client library
@@ -141,16 +147,15 @@ In a new method, instantiate a client with your endpoint and key. Create an [Api
 ```
 
 ## Example task 1
+(Example from a different article. See the other languages for specific examples of tasks and text layout): Create a new function called `SentimentAnalysisExample()` that takes the client that you created earlier, and call its [Sentiment()](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.textanalyticsclientextensions.sentiment?view=azure-dotnet) function. The returned [SentimentResult](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.models.sentimentresult?view=azure-dotnet) object will contain the sentiment `Score` if successful, and an `errorMessage` if not. 
 
-Example: Create a new method to read in the data and add it to a [Request](https://docs.microsoft.com/dotnet/) object as an array of [Points](https://docs.microsoft.com/dotnet/). Send the request with the [send()](https://docs.microsoft.com/dotnet/) method
+A score that's close to 0 indicates a negative sentiment, while a score that's closer to 1 indicates a positive sentiment.
 
 ```java
 
 ```
 
 ## Example task 2
-
-Example: Create a new method to read in the data and add it to a [Request](https://docs.microsoft.com/dotnet/) object as an array of [Points](https://docs.microsoft.com/dotnet/). Send the request with the [send()](https://docs.microsoft.com/dotnet/) method
 
 ```java
 
@@ -169,20 +174,3 @@ Run the application with the `run` goal:
 ```console
 gradle run
 ```
-
-## Clean up resources
-
-If you want to clean up and remove a Cognitive Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
-
-* [Portal](../../../../cognitive-services-apis-create-account.md#clean-up-resources)
-* [Azure CLI](../../../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
-
-## Next steps
-
-> [!div class="nextstepaction"]
->[Next article]()
-
-* [What is the [Product Name] API?](../overview.md)
-* [Article2](../overview.md)
-* [Article3](../overview.md)
-* The source code for this sample can be found on [GitHub]().
