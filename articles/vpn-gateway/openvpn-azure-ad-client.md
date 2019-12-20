@@ -147,11 +147,17 @@ These steps help you configure your connection to connect automatically with Alw
 You can modify the downloaded profile XML file and add the **\<dnssuffixes>\<dnssufix> \</dnssufix>\</dnssuffixes>** tags
 
 ```
-<dnssuffixes>
-      <dnssuffix>.mycorp.com</dnssuffix>
-      <dnssuffix>.xyz.com</dnssuffix>
-      <dnssuffix>.etc.net</dnssuffix>
-</dnssuffixes>
+<azvpnprofile>
+<clientconfig>
+
+    <dnssuffixes>
+          <dnssuffix>.mycorp.com</dnssuffix>
+          <dnssuffix>.xyz.com</dnssuffix>
+          <dnssuffix>.etc.net</dnssuffix>
+    </dnssuffixes>
+    
+</clientconfig>
+</azvpnprofile>
 ```
 
 ## Next steps
