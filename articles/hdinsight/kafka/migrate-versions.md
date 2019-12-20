@@ -59,7 +59,7 @@ Note that it does not mean that the client supports older brokers.  For more inf
 
 The following migration guidance assumes an Apache Kafka 1.0.0 or 1.1.0 cluster deployed on HDInsight 3.6 in a single virtual network. The existing broker has some topics and is being actively used by producers and consumers.
 
-    ![Current Kafka presumed environment](./media/upgrade-threesix-to-four/apache-kafka-presumed-environment.png)
+![Current Kafka presumed environment](./media/upgrade-threesix-to-four/apache-kafka-presumed-environment.png)
 
 To complete the migration, do the following steps:
 
