@@ -94,11 +94,11 @@ The **Properties** page lets you define the categories and industries used to gr
 
 ### Category
 
-Select a minimum of one and a maximum of three categories. These will be used to place your offer into the appropriate marketplace search areas. Be sure to call out how your offer supports these categories in the offer description. 
+Select up to two (2) categories, including a primary and a secondary category (optional). Select up to two (2) subcategories for each primary and/or secondary category. If no subcategory is selected, you offer will still be discoverable in the selected category.
 
 ### Industry
 
-[!INCLUDE [Industry Taxonomy](./includes/industry-taxonomy.md)]
+You can optionally select up to two industries and two verticals under each industry. These categories are used for displaying your offer, when industry and verticals are used in search filters and applied in the Storefront.  If your offer is targeting a specific industry and/or vertical, make sure to describe how your offer supports the selected industries or verticals in the offer description.  Otherwise, if your offer is not industry-specific, do not make a selection and leave this section blank.
 
 ### App version
 
