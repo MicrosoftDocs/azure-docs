@@ -14,6 +14,8 @@ ms.custom: mvc
 
 # Quickstart: Connect a sample IoT Plug and Play Preview device application running on Windows to IoT Hub (C Windows)
 
+[!INCLUDE [iot-pnp-quickstarts-2-selector.md](../../includes/iot-pnp-quickstarts-2-selector.md)]
+
 This quickstart shows you how to build a sample IoT Plug and Play device application, connect it to your IoT hub, and use the Azure IoT explorer tool to view the information it sends to the hub. The sample application is written in C and is included in the Azure IoT Hub Device C SDK. A solution developer can use the Azure IoT explorer tool to understand the capabilities of an IoT Plug and Play device without the need to view any device code.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
@@ -30,7 +32,13 @@ To complete this quickstart, you need to install the following software on your 
 
 Download and install the latest release of **Azure IoT explorer** from the tool's [repository](https://github.com/Azure/azure-iot-explorer/releases) page, by selecting the .msi file under "Assets" for the most recent update.
 
-[!INCLUDE [iot-pnp-prepare-iot-hub-windows.md](../../includes/iot-pnp-prepare-iot-hub-windows.md)]
+[!INCLUDE [iot-pnp-prepare-iot-hub.md](../../includes/iot-pnp-prepare-iot-hub.md)]
+
+Run the following command to get the _IoT hub connection string_ for your hub (note for use later):
+
+```azurecli-interactive
+az iot hub show-connection-string --hub-name <YourIoTHubName> --output table
+```
 
 ## Prepare the development environment
 
@@ -80,33 +88,15 @@ The device is now ready to receive commands and property updates, and has begun 
 
 ## Use the Azure IoT explorer to validate the code
 
-1. Open Azure IoT explorer. You see the **App configurations** page.
+[!INCLUDE [iot-pnp-iot-explorer-1.md](../../includes/iot-pnp-iot-explorer-1.md)]
 
-1. Enter your _IoT Hub connection string_ and select **Connect**.
-
-1. After you connect, you see the **Devices** overview page.
-
-1. To ensure the tool can read the interface model definitions from your device, select **Settings**. In the Settings menu, **On the connected device** may already appear in the Plug and Play configurations; if it does not, select **+ Add module definition source** and then **On the connected device** to add it.
+4. To ensure the tool can read the interface model definitions from your device, select **Settings**. In the Settings menu, **On the connected device** may already appear in the Plug and Play configurations; if it does not, select **+ Add module definition source** and then **On the connected device** to add it.
 
 1. Back on the **Devices** overview page, find the device identity you created previously. With the device application still running in the command prompt, check that the device's **Connection state** in Azure IoT explorer is reporting as _Connected_ (if not, hit **Refresh** until it is). Select the device to view more details.
 
 1. Expand the interface with ID **urn:YOUR_COMPANY_NAME_HERE:EnvironmentalSensor:1** to reveal the interface and IoT Plug and Play primitives—properties, commands, and telemetry.
 
-1. Select the **Telemetry** page and hit _Start_ to view the telemetry data the device is sending.
-
-1. Select the **Properties (non-writable)** page to view the non-writable properties reported by the device.
-
-1. Select the **Properties (writable)** page to view the writable properties you can update.
-
-1. Expand property **name**, update with a new name and select **Update writable property**. 
-
-1. To see the new name show up in the **Reported Property** column, select the **Refresh** button on top of the page.
-
-1. Select the **Commands** page to view all the commands the device supports.
-
-1. Expand the **blink** command and set a new blink time interval. Select **Send command** to call the command on the device.
-
-1. Go to the simulated device command prompt and read through the printed confirmation messages, to verify that the commands have executed as expected.
+[!INCLUDE [iot-pnp-iot-explorer-2.md](../../includes/iot-pnp-iot-explorer-2.md)]
 
 [!INCLUDE [iot-pnp-clean-resources.md](../../includes/iot-pnp-clean-resources.md)]
 
