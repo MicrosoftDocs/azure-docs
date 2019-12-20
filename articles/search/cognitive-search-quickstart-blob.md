@@ -115,7 +115,7 @@ Cognitive skills indexing takes longer to complete than typical text-based index
 
   ![Azure Cognitive Search notification](./media/cognitive-search-quickstart-blob/indexer-notification.png)
 
-Warnings are normal given the wide range of content types. Some content types aren't valid for certain skills and on lower tiers its common to encounter [indexer limits](search-limits-quotas-capacity#.mdindexer-limits). For example, truncation notifications of 32,000 characters are an indexer limit on the Free tier. If you ran this demo on a higher tier, many truncation warnings would go away.
+Warnings are normal given the wide range of content types. Some content types aren't valid for certain skills and on lower tiers its common to encounter [indexer limits](search-limits-quotas-capacity.md#indexer-limits). For example, truncation notifications of 32,000 characters are an indexer limit on the Free tier. If you ran this demo on a higher tier, many truncation warnings would go away.
 
 To check warnings or errors, click on the Warning status on the Indexers list to open the Execution History page.
 
