@@ -63,7 +63,7 @@ The following policy applies to all selected users, who attempt to register usin
 
 ![Create a CA policy to control security info registration](media/howto-registration-mfa-sspr-combined/require-registration-from-trusted-location.png)
 
-1. In the **Azure portal**, browse to **Azure Active Directory** > **Conditional Access**
+1. In the **Azure portal**, browse to **Azure Active Directory** > **Security** > **Conditional Access**
 1. Select **New policy**
 1. In Name, Enter a Name for this policy. For example, **Combined Security Info Registration on Trusted Networks**
 1. Under **Assignments**, click **Users and groups**, and select the users and groups you want this policy to apply to
