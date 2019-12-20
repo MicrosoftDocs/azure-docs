@@ -26,7 +26,3 @@ If you confirmed that the device is online and still get the error, it's likely 
 ## Solution
 
 To configure your device properly for direct method callback, see [Handle a direct method on a device](iot-hub-devguide-direct-methods.md#handle-a-direct-method-on-a-device).
-
-## Next steps
-
-Include this section if there are 1 -3 concrete, highly relevant next steps the user should take. Delete if there are no next steps. This is not a place for a list of links. If you include links to next steps, make sure to include text to explain why the next steps are relevant or important.

@@ -17,16 +17,28 @@ This article describes the causes and solutions for **404104 DeviceConnectionClo
 
 ## Symptoms
 
-Devices seem to disconnect randomly and logs 404104 DeviceConnectionClosedRemotely in IoT Hub diagnostic logs. Typically, this is also accompanied by a device connection event less than a minute later.
+Devices disconnect either randomly or at a regular interval (every 65 minutes) and logs `404104 DeviceConnectionClosedRemotely` in IoT Hub diagnostic logs. Sometimes, this is also accompanied by a device connection event less than a minute later.
 
 ## Cause
 
-The connection was closed by the device, but IoT Hub doesn't know why. Common causes include MQTT/AMQP timeout and internet connectivity loss.
+### Cause 1
+
+The device lost underlying network connectivity for a period longer than the [MQTT keep-alive](iot-hub-mqtt-support.md), which could be different per device, and was not able to communicate with IoT Hub, resulting in a remote idle timeout. 
+
+### Cause 2
+
+The [SAS token used to connect to IoT Hub](iot-hub-devguide-security.md#security-tokens) expired, and then the connection is re-established when the token is refreshed. This is also the likely cause of the regular disconnect because the SAS token expires every hour by default.
+
+### Cause 3
+
+The device sent a TCP/IP-level reset but didn't send an application-level `MQTT DISCONNECT`. Basically, the device abruptly closed the underlying socket connection.
 
 ## Solution
 
-Make sure the device can connect to IoT Hub by [testing the connection](tutorial-connectivity.md). If the connection is good, but the device disconnects intermittently, make sure to implement proper keep alive device logic for your choice of protocol (MQTT/AMPQ).
+- Make sure the device can connect to IoT Hub by [testing the connection](tutorial-connectivity.md). 
+- If your device's network connection is flaky, increase the keep-alive timeout.
+- Use the latest versions of the [device SDKs](iot-hub-devguide-sdks.md)
 
 ## Next steps
 
-Include this section if there are 1 -3 concrete, highly relevant next steps the user should take. Delete if there are no next steps. This is not a place for a list of links. If you include links to next steps, make sure to include text to explain why the next steps are relevant or important.
+We recommend using Azure IoT device SDKs to manage connection reliably. To learn more, see [Manage connectivity and reliable messaging by using Azure IoT Hub device SDKs](iot-hub-reliability-features-in-sdks.md)

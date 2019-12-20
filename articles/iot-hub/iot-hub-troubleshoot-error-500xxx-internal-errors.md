@@ -17,26 +17,20 @@ This article describes the causes and solutions for **500xxx Internal errors**.
 
 ## Symptoms
 
-Precisely describe what the customer should be experiencing when encountering the problem. If the title can't contain the complete message, expand on it here. If there is relevant general troubleshooting information available, link to it from here.
+Request to IoT Hub fails with errors that begin with 500 and/or some sort of "server error". Some possibilities are:
 
-## Cause
-
-Some common 500xxx errors returned are:
-
-* **5000001 ServerError**: IoT Hub ran into a server-side issue.
+* **500001 ServerError**: IoT Hub ran into a server-side issue.
 
 * **500008 GenericTimeout**: IoT Hub couldn't complete the connection request before timing out.
 
-* **ServiceUnavailable (no error code)**:
+* **ServiceUnavailable (no error code)**: IoT Hub encountered an internal error.
 
 * **InternalServerError (no error code)**: IoT Hub encountered an internal error.
+
+## Cause
 
 There can be a number of causes for a 500xxx error response. In all cases, the issue is most likely transient. While the IoT Hub team works hard to maintain [the SLA](https://azure.microsoft.com/support/legal/sla/iot-hub/), small subsets of IoT Hub nodes can occasionally experience transient faults. When your device tries to connect to a node that's having issues, you receive this error.
 
 ## Solution
 
 To mitigate 500xxx errors, issue a retry from the device. To [automatically manage retries](./iot-hub-reliability-features-in-sdks.md#connection-and-retry), make sure you use the latest version of the [Azure IoT SDKs](./iot-hub-devguide-sdks.md). For best practice on transient fault handling and retries, see [Transient fault handling](https://docs.microsoft.com/azure/architecture/best-practices/transient-faults).  If the problem persists, check [Resource Health](./iot-hub-monitor-resource-health.md#use-azure-resource-health) and [Azure Status](https://azure.microsoft.com/status/history/) to see if IoT Hub has a known problem. You can also use the [manual failover feature](./tutorial-manual-failover.md). If there are no known problems and the issue continues, [contact support](https://azure.microsoft.com/support/options/) for further investigation.
-
-## Next steps
-
-Include this section if there are 1 -3 concrete, highly relevant next steps the user should take. Delete if there are no next steps. This is not a place for a list of links. If you include links to next steps, make sure to include text to explain why the next steps are relevant or important.
