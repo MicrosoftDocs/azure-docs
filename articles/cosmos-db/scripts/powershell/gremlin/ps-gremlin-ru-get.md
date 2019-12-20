@@ -1,5 +1,5 @@
 ---
-title: Azure PowerShell script - Azure Cosmos DB Get Throughput (RU/s) for Gremlin API
+title: PowerShell script to get throughput (RU/s) for Azure Cosmos DB Gremlin API
 description: Azure PowerShell script - Azure Cosmos DB Get Throughput (RU/s) for Gremlin API
 author: markjbrown
 ms.service: cosmos-db

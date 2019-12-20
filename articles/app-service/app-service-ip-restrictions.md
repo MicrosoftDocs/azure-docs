@@ -1,16 +1,9 @@
 ---
-title: "Restrict access - Azure App Service | Microsoft Docs" 
-description: "How to use Access Restrictions with Azure App Service" 
+title: Restrict access for IP addresses 
+description: Learn how to secure your app in Azure App Service by explicitly whitelisting client IP addresses or address ranges. 
 author: ccompy
-manager: stefsch
-editor: ''
-services: app-service\web
-documentationcenter: ''
 
 ms.assetid: 3be1f4bd-8a81-4565-8a56-528c037b24bd
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 06/06/2019
 ms.author: ccompy

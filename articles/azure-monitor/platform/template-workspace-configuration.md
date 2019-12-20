@@ -4,8 +4,8 @@ description: You can use Azure Resource Manager templates to create and configur
 ms.service:  azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: MGoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 10/22/2019
 
 ---
@@ -180,7 +180,7 @@ The following template sample illustrates how to:
     },
     "immediatePurgeDataOn30Days": {
       "type": "bool",
-      "defaultValue": "false",
+      "defaultValue": "[bool('false')]",
       "metadata": {
         "description": "If set to true when changing retention to 30 days, older data will be immediately deleted. Use this with extreme caution. This only applies when retention is being set to 30 days."
       }

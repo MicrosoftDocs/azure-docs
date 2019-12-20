@@ -1,18 +1,11 @@
 ---
-# required metadata
-title: Connect to Office 365 Outlook - Azure Logic Apps | Microsoft Docs
+title: Connect to Office 365 Outlook
 description: Manage email, contacts, and calendars with Office 365 REST APIs and Azure Logic Apps 
-author: ecfan
-manager: jeconnoc
-ms.author: estfan
-ms.date: 10/18/2016
-ms.topic: article
-ms.service: logic-apps
 services: logic-apps
-
-# optional metadata
-ms.reviewer: klam, LADocs
 ms.suite: integration
+ms.reviewer: klam, logicappspm
+ms.topic: article
+ms.date: 10/18/2016
 tags: connectors
 ---
 
@@ -89,6 +82,6 @@ An action is an operation carried out by the workflow defined in a logic app. [L
 
 View any triggers and actions defined in the swagger, and also see any limits in the [connector details](/connectors/office365connector/). 
 
-## Next Steps
-[Create a logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md). Explore the other available connectors in Logic Apps at our [APIs list](apis-list.md).
+## Next steps
 
+* Learn about other [Logic Apps connectors](../connectors/apis-list.md)

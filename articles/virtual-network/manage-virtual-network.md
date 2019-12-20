@@ -34,7 +34,7 @@ Complete the following tasks before completing steps in any section of this arti
 
 1. Select **+ Create a resource** > **Networking** > **Virtual network**.
 2. Enter or select values for the following settings, then select **Create**:
-   - **Name**: The name must be unique in the [resource group](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group) that you select to create the virtual network in. You cannot change the name after the virtual network is created. You can create multiple virtual networks over time. For naming suggestions, see [Naming conventions](/azure/cloud-adoption-framework/ready/considerations/naming-and-tagging#resource-naming). Following a naming convention can help make it easier to manage multiple virtual networks.
+   - **Name**: The name must be unique in the [resource group](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group) that you select to create the virtual network in. You cannot change the name after the virtual network is created. You can create multiple virtual networks over time. For naming suggestions, see [Naming conventions](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging#naming-and-tagging-resources). Following a naming convention can help make it easier to manage multiple virtual networks.
    - **Address space**: The address space for a virtual network is composed of one or more non-overlapping address ranges that are specified in CIDR notation. The address range you define can be public or private (RFC 1918). Whether you define the address range as public or private, the address range is reachable only from within the virtual network, from interconnected virtual networks, and from any on-premises networks that you have connected to the virtual network. You cannot add the following address ranges:
      - 224.0.0.0/4 (Multicast)
      - 255.255.255.255/32 (Broadcast)
@@ -98,9 +98,9 @@ Complete the following tasks before completing steps in any section of this arti
 
 You can add and remove address ranges for a virtual network. An address range must be specified in CIDR notation, and cannot overlap with other address ranges within the same virtual network. The address ranges you define can be public or private (RFC 1918). Whether you define the address range as public or private, the address range is reachable only from within the virtual network, from interconnected virtual networks, and from any on-premises networks that you have connected to the virtual network. 
 
-You can decrease the address range for a virtual network if you don't have any subnets associated with it. Otherwise, you can only extend the address range, for example, changing a /16 to /8. You could begin with a small address range, and then extend it later or add additional ranges.
+You can decrease the address range for a virtual network as long as it still includes the ranges of any associated subnets. Additionally, you can extend the address range, for example, changing a /16 to /8. 
 
-<!-- the last two sentences above are added per GitHub issue https://github.com/MicrosoftDocs/azure-docs/issues/20572 -->
+<!-- the above statement has been edited to reflect the most recent comments on the reopened issue: https://github.com/MicrosoftDocs/azure-docs/issues/20572 -->
 
 You cannot add the following address ranges:
 

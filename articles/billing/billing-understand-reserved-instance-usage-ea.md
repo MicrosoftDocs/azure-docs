@@ -4,7 +4,7 @@ description: Learn how to read your usage to understand how the Azure reservatio
 author: bandersmsft
 manager: yashar
 tags: billing
-ms.service: billing
+ms.service: cost-management-billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na

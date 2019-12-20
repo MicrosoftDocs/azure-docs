@@ -1,13 +1,8 @@
 ---
-title: Java developer reference for Azure Functions | Microsoft Docs
+title: Java developer reference for Azure Functions 
 description: Understand how to develop functions with Java.
-author: ggailey777
-manager: gwallace
-keywords: azure functions, functions, event processing, webhooks, dynamic compute, serverless architecture, java
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 09/14/2018
-ms.author: glenga
 ---
 
 # Azure Functions Java developer guide
@@ -28,7 +23,7 @@ To make it easier to create Java functions, there are Maven-based tooling and ar
 
 ### Maven-based tooling
 
-The following developer environments have tooling that lets you create Java function projects: 
+The following developer environments have Azure Functions tooling that lets you create Java function projects: 
 
 + [Visual Studio Code](https://code.visualstudio.com/docs/java/java-azurefunctions)
 + [Eclipse](functions-create-maven-eclipse.md)

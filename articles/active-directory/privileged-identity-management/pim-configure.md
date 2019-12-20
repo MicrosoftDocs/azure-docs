@@ -1,5 +1,5 @@
 ---
-title: What is Privileged Identity Management? - Azure Active Directory | Microsoft Docs
+title: What is Privileged Identity Management? - Azure AD | Microsoft Docs
 description: Provides an overview of Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: pim
 ms.topic: overview
-ms.date: 04/09/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.custom: pim 
 ms.collection: M365-identity-device-management
@@ -40,7 +40,7 @@ Privileged Identity Management provides time-based and approval-based role activ
 
 Once you set up Privileged Identity Management, you'll see **Tasks**, **Manage**, and **Activity** options in the left navigation menu. As an administrator, you'll choose between managing **Azure AD roles** and **Azure resource** roles. When you choose the type of roles to manage, you see a similar set of options for that role type.
 
-![Screenshot of Privileged Identity Management in the Azure portal](./media/pim-configure/pim-overview.png)
+![Screenshot of Privileged Identity Management in the Azure portal](./media/pim-configure/pim-quickstart.png)
 
 ## Who can do what?
 

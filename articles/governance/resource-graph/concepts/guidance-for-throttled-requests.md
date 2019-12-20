@@ -1,11 +1,8 @@
 ---
 title: Guidance for throttled requests
-description: Learn to create better queries to avoid requests to Azure Resource Graph from being throttled.
-author: DCtheGeek
-ms.author: dacoulte
-ms.date: 10/18/2019
+description: Learn to batch, stagger, paginate, and query in parallel to avoid requests being throttled by Azure Resource Graph.
+ms.date: 11/21/2019
 ms.topic: conceptual
-ms.service: resource-graph
 ---
 # Guidance for throttled requests in Azure Resource Graph
 
@@ -42,7 +39,8 @@ To illustrate how the headers work, let's look at a query response that has the 
 - In 3 seconds, the values of `x-ms-user-quota-remaining` and `x-ms-user-quota-resets-after` will be
   reset to `15` and `00:00:05` respectively.
 
-To see an example of using the headers to _backoff_ on query requests, see the sample in [Query in Parallel](#query-in-parallel).
+To see an example of using the headers to _backoff_ on query requests, see the sample in
+[Query in Parallel](#query-in-parallel).
 
 ## Batching queries
 
@@ -196,9 +194,9 @@ async Task ExecuteQueries(IEnumerable<string> queries)
 
 ## Pagination
 
-Since Azure Resource Graph returns at most 1000 entries in a single query response, you may need to [paginate](./work-with-data.md#paging-results)
-your queries to get the complete dataset you're looking for. However, some Azure Resource Graph
-clients handle pagination differently than others.
+Since Azure Resource Graph returns at most 1000 entries in a single query response, you may need to
+[paginate](./work-with-data.md#paging-results) your queries to get the complete dataset you're
+looking for. However, some Azure Resource Graph clients handle pagination differently than others.
 
 - C# SDK
 
@@ -237,16 +235,17 @@ clients handle pagination differently than others.
   single run of the query may consume up to five query quota:
 
   ```azurecli-interactive
-  az graph query -q 'Resources | project id, name, type' -top 5000
+  az graph query -q 'Resources | project id, name, type' --first 5000
   ```
 
   ```azurepowershell-interactive
-  Search-AzGraph -Query 'Resources | project id, name, type' -Top 5000
+  Search-AzGraph -Query 'Resources | project id, name, type' -First 5000
   ```
 
 ## Still get throttled?
 
-If you're getting throttled after exercising the above recommendations, contact the team at [resourcegraphsupport@microsoft.com](mailto:resourcegraphsupport@microsoft.com).
+If you're getting throttled after exercising the above recommendations, contact the team at
+[resourcegraphsupport@microsoft.com](mailto:resourcegraphsupport@microsoft.com).
 
 Provide these details:
 
@@ -259,4 +258,4 @@ Provide these details:
 
 - See the language in use in [Starter queries](../samples/starter.md).
 - See advanced uses in [Advanced queries](../samples/advanced.md).
-- Learn to [explore resources](explore-resources.md).
+- Learn more about how to [explore resources](explore-resources.md).

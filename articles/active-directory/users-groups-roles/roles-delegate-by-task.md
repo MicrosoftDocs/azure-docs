@@ -1,12 +1,10 @@
 ---
-title: Delegate least privileged roles by administrator task - Azure Active Directory | Microsoft Docs
+title: Delegate roles by admin task - Azure Active Directory | Microsoft Docs
 description: Roles to delegate for identity tasks in Azure Active Directory
 services: active-directory
 documentationcenter: ''
 author: curtand
 manager: mtillman
-editor: ''
-
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles

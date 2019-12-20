@@ -1,7 +1,7 @@
 ---
 title: Use the Offline Evaluation method - Personalizer
 titleSuffix: Azure Cognitive Services
-description: Create feedback loop in this C# quickstart with the Personalizer service.
+description: This article will explain how to use offline evaluation to measure effectiveness of your app and analyze your learning loop.
 services: cognitive-services
 author: diberry
 manager: nitinme

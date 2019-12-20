@@ -1,15 +1,15 @@
 ---
-title: Azure Multi-Factor Authentication user data collection - Azure Active Directory
+title: Azure MFA user data collection - Azure Active Directory
 description: What information is used to help authenticate users by Azure Multi-Factor Authentication?
 
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 11/21/2019
 
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 
@@ -113,7 +113,7 @@ Bypasses (used for reporting):
 - Completion Reason
 - Bypass Used
 
-Changes (used to sync user changes to MFA Server or AAD):
+Changes (used to sync user changes to MFA Server or Azure AD):
 
 - Change Timestamp
 - Username

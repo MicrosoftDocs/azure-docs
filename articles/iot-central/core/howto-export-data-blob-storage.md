@@ -129,7 +129,7 @@ The following example shows a record in a decoded Avro file:
 When continuous data export is first turned on, a single snapshot with all devices is exported. Each device includes:
 - `id` of the device in IoT Central
 - `name` of the device
-- `deviceId` from [Device Provisioning Service](https://aka.ms/iotcentraldocsdps)
+- `deviceId` from [Device Provisioning Service](/azure/iot-central/core/howto-connect-nodejs)
 - Device template information
 - Property values
 - Setting values

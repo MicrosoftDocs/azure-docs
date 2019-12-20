@@ -68,7 +68,7 @@ Use this table as a guide:
 | Storage type | Currently supported method of authorization |
 |--|--|
 |**Blob storage** | Azure AD & SAS |
-|**Blob storage (hierarchial namespace)** | Azure AD & SAS |
+|**Blob storage (hierarchical   namespace)** | Azure AD & SAS |
 |**File storage** | SAS only |
 
 ### Option 1: Use Azure Active Directory
@@ -300,16 +300,9 @@ If you plan to use [Jenkins](https://jenkins.io/) to run scripts, make sure to p
 /usr/bin/keyctl new_session
 ```
 
-## Use AzCopy in Storage Explorer
+## Use AzCopy in Azure Storage Explorer
 
-If you want to leverage the performance advantages of AzCopy, but you prefer to use Storage Explorer rather than the command line to interact with your files, then enable AzCopy in Storage Explorer.
-
-In Storage Explorer, choose **Preview**->**Use AzCopy for Improved Blob Upload and Download**.
-
-![Enable AzCopy as a transfer engine in Azure Storage Explorer](media/storage-use-azcopy-v10/enable-azcopy-storage-explorer.jpg)
-
-> [!NOTE]
-> You don't have to enable this setting if you've enabled a hierarchical namespace on your storage account. That's because Storage Explorer automatically uses AzCopy on storage accounts that have a hierarchical namespace.  
+[Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) uses AzCopy to perform all of it's data transfer operations. You can use [Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) if you want to leverage the performance advantages of AzCopy, but you prefer to use a graphical user interface rather than the command line to interact with your files.
 
 Storage Explorer uses your account key to perform operations, so after you sign into Storage Explorer, you won't need to provide additional authorization credentials.
 

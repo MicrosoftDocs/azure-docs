@@ -4,9 +4,12 @@ description: Identify and troubleshoot the failure to delete files from Azure Fi
 author: v-miegge
 ms.topic: troubleshooting
 ms.author: kartup
+manager: dcscontentpm
 ms.date: 10/25/2019
 ms.service: storage
 ms.subservice: common
+services: storage
+tags: ''
 ---
 
 # Azure file share – failed to delete files from Azure file share

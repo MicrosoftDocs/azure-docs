@@ -1,12 +1,9 @@
 ---
-title: Secure access and data - Azure Logic Apps
+title: Secure access and data
 description: Add security to protect inputs, outputs, request-based triggers, run history, management tasks, and access to other resources in Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 10/11/2019
 ---
@@ -31,7 +28,7 @@ Here are the ways that you can secure access to this trigger type:
 
 * [Generate shared access signatures](#sas)
 * [Restrict inbound IP addresses](#restrict-inbound-ip-addresses)
-* [Add Azure Active Directory, OAuth, or other security](#add-authentication)
+* [Add Azure Active Directory OAuth or other security](#add-authentication)
 
 <a name="sas"></a>
 
@@ -161,9 +158,9 @@ If you [automate deployment for logic apps by using Resource Manager templates](
 
 <a name="add-authentication"></a>
 
-### Add Azure Active Directory, OAuth, or other security
+### Add Azure Active Directory OAuth or other security
 
-To add more authorization protocols to your logic app, consider using the [Azure API Management](../api-management/api-management-key-concepts.md) service. This service helps you expose your logic app as an API and offers rich monitoring, security, policy, and documentation for any endpoint. API Management can expose a public or private endpoint for your logic app. You can then use Azure Active Directory, OAuth, certificate, or other security standards for authorizing access to that endpoint. When API Management receives a request, the service sends the request to your logic app, also making any necessary transformations or restrictions along the way. To let only API Management trigger your logic app, you can use your logic app's inbound IP range settings.
+To add more authorization protocols to your logic app, consider using the [Azure API Management](../api-management/api-management-key-concepts.md) service. This service helps you expose your logic app as an API and offers rich monitoring, security, policy, and documentation for any endpoint. API Management can expose a public or private endpoint for your logic app. To authorize access to this endpoint, you can use [Azure Active Directory OAuth](#azure-active-directory-oauth-authentication), [client certificate](#client-certificate-authentication), or other security standards for authorizing access to that endpoint. When API Management receives a request, the service sends the request to your logic app, also making any necessary transformations or restrictions along the way. To let only API Management trigger your logic app, you can use your logic app's inbound IP range settings.
 
 <a name="secure-operations"></a>
 
@@ -359,7 +356,7 @@ Here are some [considerations to review](#obfuscation-considerations) when you u
 
 If you deploy across different environments, consider parameterizing the values in your workflow definition that vary based on those environments. That way, you can avoid hard-coded data by using an [Azure Resource Manager template](../azure-resource-manager/template-deployment-overview.md) to deploy your logic app, protect sensitive data by defining secured parameters, and pass that data as separate inputs through the [template's parameters](../azure-resource-manager/template-parameters.md) by using a [parameter file](../azure-resource-manager/resource-manager-parameter-files.md).
 
-For example, if you authenticate HTTP actions with [Azure Active Directory](#azure-active-directory-oauth-authentication), you can define and secure the parameters that accept the client ID and client secret that are used for authentication. To define these parameters in your logic app, use the `parameters` section in your logic app's workflow definition and Resource Manager template for deployment. To hide parameter values that you don't want shown when editing your logic app or viewing run history, define the parameters by using the `securestring` or `secureobject` type and use encoding as necessary. Parameters that have this type aren't returned with the resource definition and aren't accessible when viewing the resource after deployment. To access these parameter values during runtime, use the `@parameters('<parameter-name>')` expression inside your workflow definition. This expression is evaluated only at runtime and is described by the [Workflow Definition Language](../logic-apps/logic-apps-workflow-definition-language.md).
+For example, if you authenticate HTTP actions with [Azure Active Directory OAuth](#azure-active-directory-oauth-authentication), you can define and secure the parameters that accept the client ID and client secret that are used for authentication. To define these parameters in your logic app, use the `parameters` section in your logic app's workflow definition and Resource Manager template for deployment. To hide parameter values that you don't want shown when editing your logic app or viewing run history, define the parameters by using the `securestring` or `secureobject` type and use encoding as necessary. Parameters that have this type aren't returned with the resource definition and aren't accessible when viewing the resource after deployment. To access these parameter values during runtime, use the `@parameters('<parameter-name>')` expression inside your workflow definition. This expression is evaluated only at runtime and is described by the [Workflow Definition Language](../logic-apps/logic-apps-workflow-definition-language.md).
 
 > [!NOTE]
 > If you use a parameter in a request header or body, that parameter might be visible when you view your logic app's 
@@ -574,7 +571,17 @@ Here are some ways that you can secure endpoints that receive calls or requests 
 
 * Add authentication to outbound requests.
 
-  When you work with an HTTP-based trigger or action that makes outbound calls, such as HTTP, HTTP + Swagger, or Webhook, you can add authentication to the request that's sent by your logic app. For example, you can use basic authentication, client certificate authentication, [Active Directory OAuth](../active-directory/develop/about-microsoft-identity-platform.md) authentication, or a managed identity. For more information, see [Add authentication to outbound calls](#add-authentication-outbound) later in this topic.
+  When you work with an HTTP-based trigger or action that makes outbound calls, such as HTTP, HTTP + Swagger, or Webhook, you can add authentication to the request that's sent by your logic app. For example, you can use these authentication types:
+
+  * [Basic authentication](#basic-authentication)
+
+  * [Client certificate authentication](#client-certificate-authentication)
+
+  * [Active Directory OAuth authentication](#azure-active-directory-oauth-authentication)
+
+  * [Managed identity authentication](#managed-identity-authentication)
+  
+  For more information, see [Add authentication to outbound calls](#add-authentication-outbound) later in this topic.
 
 * Restrict access from logic app IP addresses.
 
@@ -653,8 +660,8 @@ If the [Client Certificate](../active-directory/authentication/active-directory-
 | Property (designer) | Property (JSON) | Required | Value | Description |
 |---------------------|-----------------|----------|-------|-------------|
 | **Authentication** | `type` | Yes | **Client Certificate** <br>or <br>`ClientCertificate` | The authentication type to use for Secure Sockets Layer (SSL) client certificates. While self-signed certificates are supported, self-signed certificates for SSL aren't supported. |
-| **Pfx** | `pfx` | Yes | <*encoded-pfx-file-content*> | The base64-encoded content from a Personal Information Exchange (PFX) file |
-| **Password** | `password`| Yes | <*password-for-pfx-file*> | The password for accessing the PFX file |
+| **Pfx** | `pfx` | Yes | <*encoded-pfx-file-content*> | The base64-encoded content from a Personal Information Exchange (PFX) file <p><p>To convert the PFX file into base64-encoded format, you can use PowerShell by following these steps: <p>1. Save the certificate content into a variable: <p>   `$pfx_cert = get-content 'c:\certificate.pfx' -Encoding Byte` <p>2. Convert the certificate content by using the `ToBase64String()` function and save that content to a text file: <p>   `[System.Convert]::ToBase64String($pfx_cert) | Out-File 'pfx-encoded-bytes.txt'` |
+| **Password** | `password`| See description | <*password-for-pfx-file*> | The password for accessing the PFX file. <p><p>**Note**: This property value is required when you work in the Logic App Designer and is *not* required when you work in code view. |
 |||||
 
 When you use [secured parameters](#secure-action-parameters) to handle and protect sensitive information, for example, in an [Azure Resource Manager template for automating deployment](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md), you can use expressions to access these parameter values at runtime. This example HTTP action definition specifies the authentication `type` as `ClientCertificate` and uses the [parameters() function](../logic-apps/workflow-definition-language-functions-reference.md#parameters) to get the parameter values:
@@ -681,7 +688,7 @@ For more information about securing services by using client certificate authent
 * [Secure back-end services using client certificate authentication in Azure API Management](../api-management/api-management-howto-mutual-certificates.md)
 * [Secure your RESTfuL service by using client certificates](../active-directory-b2c/active-directory-b2c-custom-rest-api-netfw-secure-cert.md)
 * [Certificate credentials for application authentication](../active-directory/develop/active-directory-certificate-credentials.md)
-* [Use an SSL certificate in your application code in Azure App Service](../app-service/app-service-web-ssl-cert-load.md)
+* [Use an SSL certificate in your application code in Azure App Service](../app-service/configure-ssl-certificate-in-code.md)
 
 <a name="azure-active-directory-oauth-authentication"></a>
 
@@ -774,9 +781,9 @@ If the [Managed Identity](../active-directory/managed-identities-azure-resources
 
 1. Before your logic app can use the system-assigned identity, follow the steps in [Authenticate access to Azure resources by using managed identities in Azure Logic Apps](../logic-apps/create-managed-service-identity.md). These steps enable the managed identity on your logic app and set up that identity's access to the target Azure resource.
 
-1. Before an Azure function can use the system-assigned identity, first [enable authentication for Azure functions](../logic-apps/logic-apps-azure-functions.md#enable-authentication-for-azure-functions).
+2. Before an Azure function can use the system-assigned identity, first [enable authentication for Azure functions](../logic-apps/logic-apps-azure-functions.md#enable-authentication-for-azure-functions).
 
-1. In the trigger or action where you want to use the managed identity, specify these property values:
+3. In the trigger or action where you want to use the managed identity, specify these property values:
 
    | Property (designer) | Property (JSON) | Required | Value | Description |
    |---------------------|-----------------|----------|-------|-------------|

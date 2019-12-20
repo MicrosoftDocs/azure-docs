@@ -1,12 +1,12 @@
 ---
-title: Azure DNS FAQ
-description: Frequently asked questions about Azure DNS
+title: FAQ - Azure DNS
+description: In this article, learn about frequently asked questions about Azure DNS
 services: dns
-author: vhorne
+author: asudbring
 ms.service: dns
 ms.topic: article
 ms.date: 6/15/2019
-ms.author: victorh
+ms.author: allensu
 ---
 
 # Azure DNS FAQ

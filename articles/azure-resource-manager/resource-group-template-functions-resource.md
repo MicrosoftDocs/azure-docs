@@ -1,12 +1,8 @@
 ---
-title: Azure Resource Manager template functions - resources | Microsoft Docs
+title: Template functions - resources
 description: Describes the functions to use in an Azure Resource Manager template to retrieve values about resources.
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 10/26/2019
-ms.author: tomfitz
-
+ms.date: 12/09/2019
 ---
 # Resource functions for Azure Resource Manager templates
 
@@ -481,7 +477,7 @@ Use `'Full'` when you need resource values that aren't part of the properties sc
 
 The reference function can only be used in the properties of a resource definition and the outputs section of a template or deployment. When used with [property iteration](resource-group-create-multiple.md#property-iteration), you can use the reference function for `input` because the expression is assigned to the resource property. You can't use it with `count` because the count must be determined before the reference function is resolved.
 
-You can't use the reference function in the outputs of a [nested template](resource-group-linked-templates.md#nested-template) to return a resource you've deployed in the nested template. Instead, use a [linked template](resource-group-linked-templates.md#external-template).
+You can't use the reference function in the outputs of a [nested template](resource-group-linked-templates.md#nested-template) to return a resource you've deployed in the nested template. Instead, use a [linked template](resource-group-linked-templates.md#linked-template).
 
 If you use the **reference** function in a resource that is conditionally deployed, the function is evaluated even if the resource isn't deployed.  You get an error if the **reference** function refers to a resource that doesn't exist. Use the **if** function to make sure the function is only evaluated when the resource is being deployed. See the [if function](resource-group-template-functions-logical.md#if) for a sample template that uses if and reference with a conditionally deployed resource.
 
@@ -671,21 +667,20 @@ The **managedBy** property is returned only for resource groups that contain res
 
 The `resourceGroup()` function can't be used in a template that is [deployed at the subscription level](deploy-to-subscription.md). It can only be used in templates that are deployed to a resource group.
 
-A common use of the resourceGroup function is to create resources in the same location as the resource group. The following example uses the resource group location to assign the location for a web site.
+A common use of the resourceGroup function is to create resources in the same location as the resource group. The following example uses the resource group location for a default parameter value.
 
 ```json
-"resources": [
-   {
-      "apiVersion": "2016-08-01",
-      "type": "Microsoft.Web/sites",
-      "name": "[parameters('siteName')]",
-      "location": "[resourceGroup().location]",
-      ...
-   }
-]
+"parameters": {
+    "location": {
+      "type": "string",
+      "defaultValue": "[resourceGroup().location]"
+    }
+}
 ```
 
 You can also use the resourceGroup function to apply tags from the resource group to a resource. For more information, see [Apply tags from resource group](resource-group-using-tags.md#apply-tags-from-resource-group).
+
+When using nested templates to deploy to multiple resource groups, you can specify the scope for evaluating the resourceGroup function. For more information, see [Deploy Azure resources to more than one subscription or resource group](resource-manager-cross-resource-group-deployment.md).
 
 ### Resource group example
 
@@ -890,6 +885,10 @@ The function returns the following format:
     "displayName": "{name-of-subscription}"
 }
 ```
+
+### Remarks
+
+When using nested templates to deploy to multiple subscriptions, you can specify the scope for evaluating the subscription function. For more information, see [Deploy Azure resources to more than one subscription or resource group](resource-manager-cross-resource-group-deployment.md).
 
 ### Subscription example
 

@@ -1,12 +1,8 @@
 ---
-title: Azure Resource Manager template functions - comparison | Microsoft Docs
+title: Template functions - comparison
 description: Describes the functions to use in an Azure Resource Manager template to compare values.
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 09/05/2017
-ms.author: tomfitz
-
 ---
 # Comparison functions for Azure Resource Manager templates
 

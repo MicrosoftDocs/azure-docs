@@ -140,6 +140,8 @@
           href: learn/quick-create-workspace-posh.md
       - name: Delete and recover a workspace
         href: platform/delete-workspace.md
+      - name: Move a workspace
+        href: platform/move-workspace.md
       - name: Design for service providers
         href: platform/service-providers.md
       - name: Manage access
@@ -175,35 +177,38 @@
         href: app/ilogger.md
       - name: Java
         items:
-        - name: Web apps
-          displayname: java
-          href: app/java-get-started.md
-        - name: Docker apps
-          href: app/docker.md
-        - name: Log traces
-          href: app/java-trace-logs.md
-        - name: Unix metrics
-          href: app/java-collectd.md
-        - name: Dependencies
-          href: app/java-agent.md
-        - name: Filter telemetry
-          href: app/java-filter-telemetry.md
-        - name: Micrometer Metrics
-          displayname: java
-          href: app/micrometer-java.md
-        - name: Spring Boot app
-          displayname: java
-          href: /java/azure/spring-framework/configure-spring-boot-java-applicationinsights
-        - name: Troubleshoot
-          href: app/java-troubleshoot.md
+          - name: Web apps
+            displayname: java
+            href: app/java-get-started.md
+          - name: Docker apps
+            href: app/docker.md
+          - name: Log traces
+            href: app/java-trace-logs.md
+          - name: Unix metrics
+            href: app/java-collectd.md
+          - name: Dependencies
+            href: app/java-agent.md
+          - name: Filter telemetry
+            href: app/java-filter-telemetry.md
+          - name: Micrometer Metrics
+            displayname: java
+            href: app/micrometer-java.md
+          - name: Spring Boot app
+            displayname: java
+            href: /java/azure/spring-framework/configure-spring-boot-java-applicationinsights
+          - name: Troubleshoot
+            href: app/java-troubleshoot.md
       - name: Node.js 
         href: app/nodejs.md
       - name: Python
         items:
         - name: Overview
+          displayname: python, Python, OpenCenus, OpenTelemetry, py
           href: app/opencensus-python.md
         - name: Dependencies 
           href: app/opencensus-python-dependency.md
+        - name: Requests 
+          href: app/opencensus-python-request.md
       - name: Web pages
         items:
         - name: Client-side JavaScript
@@ -479,26 +484,39 @@
     - name: Resource logs
       items: 
       - name: Overview
+        displayname: Resource logs
         href: platform/resource-logs-overview.md 
       - name: Collect in Azure Monitor Logs
+        displayname: Resource logs
         href: platform/resource-logs-collect-workspace.md
       - name: Archive to storage
+        displayname: Resource logs
         href: platform/resource-logs-collect-storage.md
       - name: Stream to Event Hubs
+        displayname: Resource logs
         href: platform/resource-logs-stream-event-hubs.md
     - name: Activity log
       items:
       - name: Overview
+        displayname: Activity log
         href: platform/activity-logs-overview.md
+      - name: Collect with diagnostic setting
+        displayname: Activity log
+        href: platform/diagnostic-settings-subscription.md
       - name: View and retrieve
+        displayname: Activity log
         href: platform/activity-log-view.md
       - name: Collect and analyze
+        displayname: Activity log
         href: platform/activity-log-collect.md
       - name: Collect across tenants
+        displayname: Activity log
         href: platform/activity-log-collect-tenants.md
       - name: Export 
+        displayname: Activity log
         href: platform/activity-log-export.md
       - name: Schema
+        displayname: Activity log
         href: platform/activity-log-schema.md
     - name: Diagnostic settings
       items: 
@@ -507,6 +525,7 @@
       - name: Create diagnostic setting with Resource Manager
         href: platform/diagnostic-settings-template.md
       - name: Change to blob storage format
+        displayname: Diagnostic settings
         href: platform/resource-logs-blob-format.md
     - name: Stream data to Event Hubs
       href: platform/stream-monitoring-data-event-hubs.md 
@@ -544,7 +563,7 @@
               href: platform/collect-custom-metrics-guestos-vm-classic.md  
             - name: Cloud service
               href: platform/collect-custom-metrics-guestos-vm-cloud-service-classic.md 
-          - name: JSON Lines diagnostic logs format
+          - name: JSON Lines resource logs format
             href: platform/diagnostic-logs-append-blobs.md
           - name: Troubleshooting
             href: platform/diagnostics-extension-troubleshooting.md
@@ -663,28 +682,48 @@
         items:
         - name: Enable monitoring overview 
           href: insights/container-insights-onboard.md
-        - name: Enable for new cluster
+        - name: Enable for new AKS cluster
           href: insights/container-insights-enable-new-cluster.md
-        - name: Enable for existing cluster
+        - name: Enable for existing AKS cluster
           href: insights/container-insights-enable-existing-clusters.md
+        - name: Enable for hybrid cluster
+          href: insights/container-insights-hybrid-setup.md
+        - name: Enable for Azure Red Hat OpenShift
+          href: insights/container-insights-azure-redhat-setup.md
         - name: Region mappings
           href: insights/container-insights-region-mapping.md
-      - name: Analyze 
+      - name: Monitor performance
         href: insights/container-insights-analyze.md
-      - name: Disable monitoring
-        href: insights/container-insights-optout.md
-      - name: View live logs
-        href: insights/container-insights-live-logs.md
+      - name: Monitor health
+        href: insights/container-insights-health.md
+      - name: View live data
+        items:
+        - name: Live Data (preview) overview
+          href: insights/container-insights-livedata-overview.md
+        - name: Setup
+          href: insights/container-insights-livedata-setup.md
+        - name: View cluster metrics
+          href: insights/container-insights-livedata-metrics.md
+        - name: View deployments
+          href: insights/container-insights-livedata-deployments.md
       - name: Analyze data with log queries
         href: insights/container-insights-log-search.md
       - name: Alerting
         href: insights/container-insights-alerts.md
       - name: Agent management
         href: insights/container-insights-manage-agent.md
+      - name: Configure Prometheus metric scraping
+        href: insights/container-insights-prometheus-integration.md
       - name: Configure agent collection settings
         href: insights/container-insights-agent-config.md
       - name: Update to enable metrics
         href: insights/container-insights-update-metrics.md
+      - name: Health monitoring configuration
+        href: insights/container-insights-health-monitors-config.md
+      - name: Disable monitoring AKS
+        href: insights/container-insights-optout.md
+      - name: Disable monitoring Red Hat OpenShift
+        href: insights/container-insights-optout-openshift.md  
       - name: Troubleshooting
         href: insights/container-insights-troubleshoot.md
     - name: Docker and Windows Container monitoring
@@ -702,8 +741,12 @@
         href: insights/azure-sql.md
       - name: SQL Server
         href: insights/sql-assessment.md
+      - name: Azure Cosmos DB
+        href: insights/cosmosdb-insights-overview.md
     - name: Networks
       items:
+      - name: Azure Monitor for Networks
+        href: insights/network-insights-overview.md
       - name: Networking Analytics
         href: insights/azure-networking-analytics.md
       - name: DNS
@@ -871,7 +914,31 @@
       - name: Export application data
         href: app/export-power-bi.md 
     - name: Workbooks
-      href: app/usage-workbooks.md
+      items:
+      - name: Overview
+        href: platform/workbooks-overview.md
+      - name: Visualizations
+        href: platform/workbooks-visualizations.md
+      - name: Data sources
+        href: platform/workbooks-data-sources.md
+      - name: Deploy with Azure Resource Manager
+        href: platform/workbooks-automate.md
+      - name: Configuration
+        items:
+        - name: Access control
+          href: platform/workbooks-access-control.md
+        - name: Parameters
+          items:
+          - name: Parameter summary
+            href: platform/workbooks-parameters.md
+          - name: Drop down parameters
+            href: platform/workbooks-dropdowns.md
+          - name: Interactive parameters
+            href: platform/workbooks-interactive.md
+          - name: Time parameters
+            href: platform/workbooks-time.md
+          - name: Text parameters
+            href: platform/workbooks-text.md
     - name: Dashboards
       items:
       - name: Dashboard using log data
@@ -992,7 +1059,7 @@
         href: platform/autoscale-overview.md
       - name: Walkthrough
         href: platform/autoscale-get-started.md
-      - name: Settings
+      - name: Configuration settings
         href: platform/autoscale-understanding-settings.md
       - name: Best practices
         href: platform/autoscale-best-practices.md
@@ -1008,21 +1075,23 @@
         href: platform/autoscale-virtual-machine-scale-sets.md
       - name: Use webhooks and email notifications
         href: platform/autoscale-webhook-email.md
+      - name: Troubleshooting
+        href: platform/autoscale-troubleshoot.md
+      - name: Resource Log schemas
+        href: platform/autoscale-resource-log-schema.md    
     - name: PowerShell
       items:  
-      - name: Azure PowerShell samples
+      - name: Managing with PowerShell
         href: platform/powershell-quickstart-samples.md
-      - name: PowerShell cmdlets
+      - name: Create alerts
+        href: app/powershell-alerts.md  
+      - name: Manage Log Analytics
         href: platform/powershell-workspace-configuration.md
-      - name: Applications
+      - name: Application Insights
         items:
-        - name: Create Application Insights resources 
+        - name: Manage Application Insights
           href: app/powershell.md
-        - name: Create resources
-          href: app/powershell-script-create-resource.md
-        - name: Set alerts
-          href: app/powershell-alerts.md
-        - name: Get Azure diagnostics
+        - name: Manage Azure Cloud Services
           href: app/powershell-azure-diagnostics.md
     - name: Azure CLI samples
       href: platform/cli-samples.md
@@ -1092,9 +1161,11 @@
     items:
     - name: Supported metrics
       href: platform/metrics-supported.md
+    - name: Metrics exportable with Diagnostic Settings
+      href: platform/metrics-supported-export-diagnostic-settings.md
     - name: Supported metrics for newer alerts
-      href: platform/alerts-metric-near-real-time.md
-  - name: Resource log services, categories, and schemas
+      href: platform/alerts-metric-near-real-time.md 
+  - name: Platform log services, categories, and schemas
     href: platform/diagnostic-logs-schema.md
   - name: Azure CLI
     href: /cli/azure/monitor?view=azure-cli-latest

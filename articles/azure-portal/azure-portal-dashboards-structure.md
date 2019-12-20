@@ -291,7 +291,7 @@ Let’s break down the relevant sections of the JSON.  The top-level properties,
 
 ### The id property
 
-The Azure resource id, subject to the [naming conventions of Azure resources](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). When the portal creates a dashboard it generally chooses an id in the form of a guid, but you are free to use any valid name when you create them programmatically. 
+The Azure resource id, subject to the [naming conventions of Azure resources](/azure/architecture/best-practices/resource-naming). When the portal creates a dashboard it generally chooses an id in the form of a guid, but you are free to use any valid name when you create them programmatically. 
 
 ### The name property
 The name is the segment of the resource Id that does not include the subscription, resource type, or resource group information. Essentially, it is the last segment of the resource id.

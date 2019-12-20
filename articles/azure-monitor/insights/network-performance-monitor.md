@@ -35,10 +35,14 @@ More information on the various capabilities supported by [Network Performance M
 NPM can monitor connectivity between networks and applications in any part of the world, from a workspace that is hosted in one of the following regions:
 * West Europe
 * West Central US
+* North Central US
 * East US
+* East US 2
 * East Japan
 * South East Asia
 * South East Australia
+* Australia Central
+* Australia East
 * South UK
 * Central India
 * US Government Virginia

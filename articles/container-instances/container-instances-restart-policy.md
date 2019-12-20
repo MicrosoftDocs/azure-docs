@@ -1,14 +1,8 @@
 ---
-title: Use restart policies with containerized tasks in Azure Container Instances 
+title: Restart policy for run-once tasks 
 description: Learn how to use Azure Container Instances to execute tasks that run to completion, such as in build, test, or image rendering jobs.
-services: container-instances
-author: dlepow
-manager: gwallace
-
-ms.service: container-instances
 ms.topic: article
 ms.date: 04/15/2019
-ms.author: danlep
 ---
 
 # Run containerized tasks with restart policies

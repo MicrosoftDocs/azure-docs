@@ -1,16 +1,9 @@
 ---
-title: Create a web app in an App Service Environment v1 - Azure
-description: Learn how to create web apps and app service plans in an App Service Environment v1
-services: app-service
-documentationcenter: ''
+title: Create a web app in ASE v1
+description: Learn how to create web apps in an App Service Environment v1. This doc is provided only for customers who use the legacy v1 ASE.
 author: ccompy
-manager: stefsch
-editor: ''
 
 ms.assetid: 983ba055-e9e4-495a-9342-fd3708dcc9ac
-ms.service: app-service
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: ccompy

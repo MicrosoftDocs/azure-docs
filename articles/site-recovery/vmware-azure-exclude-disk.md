@@ -1,5 +1,5 @@
 ---
-title: Exclude disks from replication for VMware disaster recovery to Azure using Azure Site Recovery | Microsoft Docs
+title: Exclude VMware VM disks from disaster recovery to Azure with Azure Site Recovery 
 description: Describes why and how to exclude VM disks from replication for VMware disaster recovery to Azure.
 author: mayurigupta13
 manager: rochakm
@@ -11,7 +11,7 @@ ms.topic: conceptual
 
 ---
 
-# Exclude disks from replication of VMware VMs to Azure
+# Exclude disks from VMware VM replication to Azure
 
 This article describes how to exclude disks when replicating VMware VMs to Azure. This exclusion can optimize the consumed replication bandwidth or optimize the target-side resources that such disks utilize. If you need information about excluding disks for Hyper-V, read [this article](hyper-v-exclude-disk.md)
 

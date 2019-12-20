@@ -1,6 +1,6 @@
 ---
-title: Create Azure Service Bus namespace and queue using Azure Resource Manager template | Microsoft Docs
-description: Create a Service Bus namespace and a queue using Azure Resource Manager template
+title: 'Quickstart: Create Azure Service Bus namespace and queue using Azure Resource Manager template'
+description: 'Quickstart: Create a Service Bus namespace and a queue using Azure Resource Manager template'
 services: service-bus-messaging
 documentationcenter: .net
 author: spelluru
@@ -10,14 +10,14 @@ editor: ''
 ms.assetid: a6bfb5fd-7b98-4588-8aa1-9d5f91b599b6
 ms.service: service-bus-messaging
 ms.devlang: tbd
-ms.topic: article
+ms.topic: quickstart
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 01/23/2019
+ms.date: 11/05/2019
 ms.author: spelluru
 
 ---
-# Create a Service Bus namespace and a queue using an Azure Resource Manager template
+# Quickstart: Create a Service Bus namespace and a queue using an Azure Resource Manager template
 
 This article shows how to use an Azure Resource Manager template that creates a Service Bus namespace and a queue within that namespace. The article explains how to specify which resources are deployed and how to define parameters that are specified when the deployment is executed. You can use this template for your own deployments, or customize it to meet your requirements.
 
@@ -90,16 +90,17 @@ The Service Bus API version of the template.
 Creates a standard Service Bus namespace of type **Messaging**, with a queue.
 
 ```json
-"resources ": [{
-        "apiVersion": "[variables('sbVersion')]",
-        "name": "[parameters('serviceBusNamespaceName')]",
-        "type": "Microsoft.ServiceBus/Namespaces",
-        "location": "[variables('location')]",
-        "kind": "Messaging",
-        "sku": {
-            "name": "Standard",
-        },
-        "resources": [{
+{
+	"resources": [{
+		"apiVersion": "2017-04-01",
+		"name": "[parameters('serviceBusNamespaceName')]",
+		"type": "Microsoft.ServiceBus/namespaces",
+		"location": "[parameters('location')]",
+		"sku": {
+			"name": "Standard"
+		},
+		"properties": {},
+		"resources": [{
             "apiVersion": "[variables('sbVersion')]",
             "name": "[parameters('serviceBusQueueName')]",
             "type": "Queues",
@@ -107,10 +108,11 @@ Creates a standard Service Bus namespace of type **Messaging**, with a queue.
                 "[concat('Microsoft.ServiceBus/namespaces/', parameters('serviceBusNamespaceName'))]"
             ],
             "properties": {
-                "path": "[parameters('serviceBusQueueName')]",
+                "path": "[parameters('serviceBusQueueName')]"
             }
         }]
-    }]
+	}]
+}
 ```
 
 For JSON syntax and properties, see [namespaces](/azure/templates/microsoft.servicebus/namespaces) and [queues](/azure/templates/microsoft.servicebus/namespaces/queues).

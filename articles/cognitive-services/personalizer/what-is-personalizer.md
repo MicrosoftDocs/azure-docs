@@ -8,19 +8,21 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: overview
-ms.date: 09/19/2019
+ms.date: 10/23/2019
 ms.author: diberry
 #Customer intent: 
 ---
 
 # What is Personalizer?
 
-Azure Personalizer is a cloud-based API service that allows you to choose the best experience to show to your users, learning from their collective real-time behavior.
+Azure Personalizer is a cloud-based API service that allows your application to choose the best experience to show to your users, learning from their collective real-time behavior.
 
 * Provide information about your users and content and receive the top action to show your users. 
 * No need to clean and label data before using Personalizer.
 * Provide feedback to Personalizer when it is convenient to you. 
 * View real-time analytics. 
+
+See a demonstration of [how Personalizer works](https://personalizercontentdemo.azurewebsites.net/)
 
 ## How does Personalizer work?
 
@@ -54,8 +56,8 @@ Personalizer is not a service to persist and manage user profile information, or
 
 Personalizer Service has two APIs:
 
-* Send information (_features_) about your users and the content (_actions_) to personalize. Personalizer responds with the top action.
-* Send feedback to Personalizer about how well the ranking worked as a [reward score](concept-rewards.md). 
+* *Rank*: Use the Rank API to determine which _action_ to show, in the current _context_. Actions are sent as an array of JSON objects, with an ID and information (_features_) about each; context is sent as another JSON object. The API returns the actionId that your application should render to the user.
+* *Reward*: After your user interacts with your application, you measure how well the personalization worked as a number between 0 and 1 and send it as a [reward score](concept-rewards.md). 
 
 ![Basic sequence of events for Personalization](media/what-is-personalizer/personalization-intro.png)
 

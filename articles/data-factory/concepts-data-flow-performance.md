@@ -1,10 +1,11 @@
 ---
-title: Mapping data flow performance and tuning guide in Azure Data Factory | Microsoft Docs
+title: Mapping data flow performance and tuning guide
 description: Learn about key factors that affect the performance of mapping data flows in Azure Data Factory.
 author: kromerm
 ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
+ms.custom: seo-lt-2019
 ms.date: 10/07/2019
 ---
 
@@ -108,13 +109,21 @@ To avoid exhausting compute node resources, keep the default, optimized scheme i
 
 ### Looping through file lists
 
-A mapping data flow will execute better when the Source transformation iterates over multiple files instead of looping via the For Each activity. We recommend using wildcards or file lists in your source transformation. The Data Flow process will execute faster by allowing the looping to occur inside the Spark cluster. For more information, see [Wildcarding in Source Transformation](data-flow-source.md#file-based-source-options).
+A mapping data flow will execute better when the Source transformation iterates over multiple files instead of looping via the For Each activity. We recommend using wildcards or file lists in your source transformation. The Data Flow process will execute faster by allowing the looping to occur inside the Spark cluster. For more information, see [Wildcarding in Source Transformation](connector-azure-data-lake-storage.md#mapping-data-flow-properties).
 
 For example, if you have a list of data files from July 2019 that you wish to process in a folder in Blob Storage, below is a wildcard you can use in your Source transformation.
 
 ```DateFiles/*_201907*.txt```
 
 By using wildcarding, your pipeline will only contain one Data Flow activity. This will perform better than a Lookup against the Blob Store that then iterates across all matched files using a ForEach with an Execute Data Flow activity inside.
+
+### Optimizing for CosmosDB
+
+Setting throughput and batch properties on CosmosDB sinks only take effect during the execution of that data flow from a pipeline data flow activity. The original collection settings will be honored by CosmosDB after your data flow execution.
+
+* Batch size: Calculate the rough row size of your data, and make sure that rowSize * batch size is less than two million. If it is, increase the batch size to get better throughput
+* Throughput: Set a higher throughput setting here to allow documents to write faster to CosmosDB. Please keep in mind the higher RU costs based upon a high throughput setting.
+*	Write Throughput Budget: Use a value which is smaller than total RUs per minute. If you have a data flow with a high number of Spark partitionings, setting a a budget throughput will allow more balance across those partitions.
 
 ## Next steps
 

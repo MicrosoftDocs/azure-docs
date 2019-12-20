@@ -1,11 +1,8 @@
 ---
 title: Sample - Use approved subnet for VM NICs
-description: This sample policy definition requires that network interfaces use an approved subnet.
-author: DCtheGeek
-ms.service: azure-policy
-ms.topic: sample
+description: This sample policy definition requires that network interfaces use an approved subnet defined in a parameter.
 ms.date: 01/23/2019
-ms.author: dacoulte
+ms.topic: sample
 ---
 # Sample - Use approved subnet for VM network interfaces
 

@@ -1,17 +1,15 @@
 ﻿---
-title: Delegate application administrator creation and management permissions - Azure Active Directory | Microsoft Docs
+title: Delegate application admin management perms - Azure AD | Microsoft Docs
 description: Grant permissions for application access management in Azure Active Directory
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
-editor: ''
-
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 09/04/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro

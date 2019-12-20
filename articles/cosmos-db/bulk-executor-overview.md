@@ -1,5 +1,5 @@
 ---
-title: Bulk import and update data in Azure Cosmos DB using the bulk executor library
+title: Azure Cosmos DB bulk executor library overview
 description: Perform bulk operations in Azure Cosmos DB through bulk import and bulk update APIs offered by the bulk executor library.
 author: tknandu
 ms.service: cosmos-db

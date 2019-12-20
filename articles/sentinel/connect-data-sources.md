@@ -14,15 +14,11 @@ ms.topic: overview
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/23/2019
+ms.date: 11/04/2019
 ms.author: rkarlin
 
 ---
 # Connect data sources
-
-
-
-
 
 To on-board Azure Sentinel, you first need to connect to your data sources. Azure Sentinel comes with a number of connectors for Microsoft solutions, available out of the box and providing real-time integration, including Microsoft Threat Protection solutions, and Microsoft 365 sources, including Office 365, Azure AD, Azure ATP, and Microsoft Cloud App Security, and more. In addition, there are built-in connectors to the broader security ecosystem for non-Microsoft solutions. You can also use common event format, Syslog or REST-API to connect your data sources with Azure Sentinel as well.  
 
@@ -58,7 +54,9 @@ The following data connection methods are supported by Azure Sentinel:
 - **External solutions via API**: Some data sources are connected using APIs that are provided by the connected data source. Typically, most security technologies provide a set of APIs through which event logs can be retrieved.The APIs connect to Azure Sentinel and gather specific data types and send them to Azure Log Analytics. Appliances connected via API include:
     - [Barracuda](connect-barracuda.md)
     - [Symantec](connect-symantec.md)
-- **External solutions via agent**: Azure Sentinel can be connected to all other data sources that can perform real-time log streaming using the Syslog protocol, via an agent. <br>Most appliances use the Syslog protocol to send event messages that include the log itself and data about the log. The format of the logs varies, but most appliances support the Common Event Format (CEF) standard. <br>The Azure Sentinel agent, which is based on the Log Analytics agent, converts CEF formatted logs into a format that can be ingested by Log Analytics. Depending on the appliance type, the agent is installed either directly on the appliance, or on a dedicated Linux server. The agent for Linux receives events from the Syslog daemon over UDP, but if a Linux machine is expected to collect a high volume of Syslog events, they are sent over TCP from the Syslog daemon to the agent and from there to Log Analytics.
+    - [Citrix Analytics (Security)](connect-citrix-analytics.md)
+
+- **External solutions via agent**: Azure Sentinel can be connected to all other data sources that can perform real-time log streaming using the Syslog protocol, via an agent. <br>Most appliances use the Syslog protocol to send event messages that include the log itself and data about the log. The format of the logs varies, but most appliances support the Common Event Format (CEF) based formatting for logs data. <br>The Azure Sentinel agent, which is based on the Log Analytics agent, converts CEF formatted logs into a format that can be ingested by Log Analytics. Depending on the appliance type, the agent is installed either directly on the appliance, or on a dedicated Linux server. The agent for Linux receives events from the Syslog daemon over UDP, but if a Linux machine is expected to collect a high volume of Syslog events, they are sent over TCP from the Syslog daemon to the agent and from there to Log Analytics.
     - Firewalls, proxies, and endpoints:
         - [F5](connect-f5.md)
         - [Check Point](connect-checkpoint.md)
@@ -67,6 +65,10 @@ The following data connection methods are supported by Azure Sentinel:
         - [Palo Alto](connect-paloalto.md)
         - [Other CEF appliances](connect-common-event-format.md)
         - [Other Syslog appliances](connect-syslog.md)
+        - [Barracuda CloudGen Firewall](connect-barracuda-cloudgen-firewall.md)
+        - [ExtraHop Reveal(x)](connect-extrahop.md)
+        - [One Identity Safeguard](connect-one-identity.md)
+        - [Trend Micro Deep Security](connect-trend-micro.md)
     - DLP solutions
     - [Threat intelligence providers](connect-threat-intelligence.md)
     - [DNS machines](connect-dns.md) - agent installed directly on the DNS machine

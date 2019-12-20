@@ -2,7 +2,7 @@
   href: index.yml
 - name: Overview
   items:
-  - name: Overview of Azure Policy
+  - name: What is Azure Policy?
     displayName: rbac, assign, initiative, parameters, count
     href: overview.md
 - name: Quickstarts
@@ -28,6 +28,9 @@
   - name: Create a custom policy definition
     displayName: disabled, parameters, rule, mode
     href: ./tutorials/create-custom-policy-definition.md
+  - name: Manage tag governance
+    displayName: modify, append, effects
+    href: ./tutorials/govern-tags.md
   - name: Hands-on Labs - Exploring Azure Policy
     displayName: create, policy, training, learn
     href: https://handsonlabs.microsoft.com/handsonlabs/SelfPacedLabs?storyId=story://content-private/content/sp-azuregovernance/1-azpolicy/a-policy
@@ -215,9 +218,6 @@
       - name: Audit SQL Server level audit setting
         displayName: auditIfNotExists
         href: samples/audit-sql-server-audit-setting.md
-      - name: Require SQL Server version 12.0
-        displayName: deny, builtin
-        href: samples/require-sql-12.md
     - name: SQL Databases
       items:
       - name: Allowed SQL DB SKUs
@@ -263,14 +263,25 @@
   - name: Evaluate the impact of a new policy
     displayName: audit, enforcementmode, compliance
     href: ./concepts/evaluate-impact.md
+  - name: Design Policy as Code workflows
+    displayName: devops, infrastructure as code, iac, release, continuous, delivery, deploy
+    href: ./concepts/policy-as-code.md
   - name: Azure Policy for Kubernetes
-    displayName: aks, rego, k8s, opa, open policy agent, gatekeeper
-    href: ./concepts/rego-for-aks.md
+    items:
+    - name: Policy for AKS
+      displayName: aks, rego, k8s, opa, open policy agent, gatekeeper, v2
+      href: ./concepts/rego-for-aks.md
+    - name: Policy for AKS Engine
+      displayName: aks, k8s, opa, open policy agent, gatekeeper, v3, crd, constraints
+      href: ./concepts/aks-engine.md
   - name: Audit VMs with Guest Configuration
     displayName: provider, tools, definition
     href: ./concepts/guest-configuration.md
 - name: How-to guides
   items:
+  - name: Azure Policy extension for VS Code
+    displayName: visual studio code
+    href: ./how-to/extension-for-vscode.md
   - name: Programmatically create policies
     displayName: assign, definition
     href: ./how-to/programmatically-create.md
@@ -289,9 +300,24 @@
   - name: Remediate non-compliant resources
     displayName: managed identity, task, definition, roleDefinitionIds
     href: ./how-to/remediate-resources.md
-  - name: Enable Azure Monitor for VMs (preview)
-    displayName: insights, log analytics, builtin
-    href: ../../azure-monitor/insights/vminsights-enable-at-scale-policy.md?toc=/azure/governance/policy/toc.json
+  - name: Azure Key Vault integration
+    items:
+    - name: Integrate Key Vault with Azure Policy
+      displayName: key vault, certificate, key
+      href: ../../key-vault/azure-policy.md?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
+  - name: Azure Lighthouse integration
+    items:
+    - name: Deploy a policy at scale
+      displayName: lighthouse, scale, deploy
+      href: ../../lighthouse/how-to/policy-at-scale.md?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
+    - name: Deploy a policy that can be remediated
+      displayName: lighthouse, scale, remediate
+      href: ../../lighthouse/how-to/deploy-policy-remediation.md?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
+  - name: Azure Monitor integration
+    items:
+    - name: Enable Azure Monitor for VMs (preview)
+      displayName: monitor, insights, log analytics, builtin
+      href: ../../azure-monitor/insights/vminsights-enable-at-scale-policy.md?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
 - name: Reference
   items:
   - name: Azure CLI
@@ -310,6 +336,14 @@
       href: /dotnet/api/microsoft.azure.management.resourcemanager.models.policyassignment
     - name: Policy Definitions
       href: /dotnet/api/microsoft.azure.management.resourcemanager.models.policydefinition
+  - name: Azure SDK for Python
+    items:
+    - name: Policy
+      href: /python/api/azure-mgmt-resource/azure.mgmt.resource.policy
+    - name: Policy client
+      href: /python/api/azure-mgmt-resource/azure.mgmt.resource.policyclient
+    - name: Policy Insights
+      href: /python/api/azure-mgmt-policyinsights/azure.mgmt.policyinsights
   - name: REST
     items:
     - name: Events

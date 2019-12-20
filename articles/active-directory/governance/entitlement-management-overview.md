@@ -1,5 +1,5 @@
 ---
-title: What is Azure AD entitlement management? (Preview) - Azure Active Directory
+title: What is entitlement management? - Azure AD
 description: Get an overview of Azure Active Directory entitlement management and how you can use it to manage access to groups, applications, and SharePoint Online sites for internal and external users.
 services: active-directory
 documentationCenter: ''
@@ -21,14 +21,9 @@ ms.collection: M365-identity-device-management
 #Customer intent: As a administrator, I want learn about entitlement management so that see how I can use it to manage access to resources in my organization.
 
 ---
-# What is Azure AD entitlement management? (Preview)
+# What is Azure AD entitlement management?
 
-> [!IMPORTANT]
-> Azure Active Directory (Azure AD) entitlement management is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-Azure Active Directory (Azure AD) entitlement management is a [identity governance](identity-governance-overview.md) feature that  enables organizations to manage identity and access lifecycle at scale, by automating access request workflows, access assignments, reviews, and expiration.
+Azure Active Directory (Azure AD) entitlement management is an [identity governance](identity-governance-overview.md) feature that  enables organizations to manage identity and access lifecycle at scale, by automating access request workflows, access assignments, reviews, and expiration.
 
 Employees in organizations need access to various groups, applications, and sites to perform their job. Managing this access is challenging, as requirements change - new applications are added or users need additional access rights.  This scenario gets more complicated when you collaborate with outside organizations - you may not know who in the other organization needs access to your organization's resources, and they won't know what applications, groups or sites your organization is using.
 
@@ -135,7 +130,7 @@ To better understand entitlement management and its documentation, you can refer
 
 [!INCLUDE [Azure AD Premium P2 license](../../../includes/active-directory-p2-license.md)]
 
-Specialized clouds, such as Azure Government, Azure Germany, and Azure China 21Vianet, are not currently available for use in this preview.
+Specialized clouds, such as Azure Government, Azure Germany, and Azure China 21Vianet, are not currently available for use.
 
 ### Which users must have licenses?
 

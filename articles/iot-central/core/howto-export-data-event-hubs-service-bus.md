@@ -155,7 +155,7 @@ Messages containing device data are sent to your event hub or Service Bus queue 
 Each message represents one or more changes to a device since the last exported message. Information that will be sent in each message includes:
 - `id` of the device in IoT Central
 - `name` of the device
-- `deviceId` from [Device Provisioning Service](https://aka.ms/iotcentraldocsdps)
+- `deviceId` from [Device Provisioning Service](/azure/iot-central/core/howto-connect-nodejs)
 - Device template information
 - Property values
 - Setting values

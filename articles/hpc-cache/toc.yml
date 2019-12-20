@@ -33,6 +33,8 @@
           href: hpc-cache-ingest-msrsync.md
         - name: Populate the cache by manual file copy 
           href: hpc-cache-ingest-manual.md
+    - name: Edit storage targets
+      href: hpc-cache-edit-storage.md
   - name: Connect to the cache
     href: hpc-cache-mount.md
   - name: Manage the cache 
@@ -42,6 +44,8 @@
   items: 
   - name: Open a support ticket
     href: hpc-cache-support-ticket.md
+  - name: Work around Blob storage account firewall settings
+    href: hpc-cache-blob-firewall-fix.md
   - name: Recover from a regional outage
     href: hpc-region-recovery.md
   - name: Use Azure NetApp Files with Azure HPC Cache

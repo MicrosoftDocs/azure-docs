@@ -1,5 +1,5 @@
 ---
-title: Send guest OS metrics to the Azure Monitor metric store by using an Azure Resource Manager template for a Windows virtual machine scale set
+title: Collect Windows scale set metrics in Azure Monitor with template
 description: Send guest OS metrics to the Azure Monitor metric store by using a Resource Manager template for a Windows virtual machine scale set
 author: anirudhcavale
 services: azure-monitor

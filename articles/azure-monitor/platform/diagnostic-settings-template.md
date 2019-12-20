@@ -1,11 +1,11 @@
 ---
-title: Create diagnostic setting in Azure using a Resource Manager template | Microsoft Docs
+title: Create diagnostic setting in Azure using Resource Manager template
 description: Create diagnostic settings using a Resource Manager template to forward Azure platform logs to Azure Monitor Logs, Azure storage, or Azure Event Hubs.
 author: bwren
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 07/31/2019
+ms.date: 12/13/2019
 ms.author: bwren
 ms.subservice: ""
 ---
@@ -31,6 +31,12 @@ Depending on the [destinations](diagnostic-settings.md#destinations) for the dia
   "type": "string",
   "metadata": {
     "description": "Name of the Storage Account in which platform logs should be saved."
+  }
+},
+"resourceName": {
+  "type": "string",
+  "metadata": {
+    "description": "Name of the resource you are creating the diagnostic setting for."
   }
 },
 "eventHubAuthorizationRuleId": {
@@ -59,8 +65,8 @@ In the resources array of the resource for which you want to create the diagnost
 ```json
 "resources": [
   {
-    "type": "providers/diagnosticSettings",
-    "name": "[concat('Microsoft.Insights/', parameters('settingName'))]",
+    "type": "[concat(parameters('resourceName'),'/diagnosticSettings')]"
+    "name": "[concat(parameters('resourceName'),'/microsoft.insights/', parameters('settingName'))]",
     "dependsOn": [
       "[/*resource Id for which resource logs will be enabled>*/]"
     ],
@@ -150,8 +156,8 @@ Following is a complete example that creates a Logic App and creates a diagnosti
   "variables": {},
   "resources": [
     {
-      "type": "Microsoft.Logic/workflows",
-      "name": "[parameters('logicAppName')]",
+      "type": "microsoft.logic/workflows/providers/diagnosticsettings",
+      "name": "[concat(parameters('logicAppName'),'/microsoft.insights/', parameters('settingName'))]",
       "apiVersion": "2016-06-01",
       "location": "[resourceGroup().location]",
       "properties": {

@@ -1,6 +1,6 @@
 ---
-title: Approve or deny access requests in Azure AD entitlement management (Preview) - Azure Active Directory
-description: Learn how to use the My Access portal to approve or deny requests to an access package in Azure Active Directory entitlement management (Preview).
+title: Approve or deny access requests - Azure AD entitlement management
+description: Learn how to use the My Access portal to approve or deny requests to an access package in Azure Active Directory entitlement management.
 services: active-directory
 documentationCenter: ''
 author: msaburnley
@@ -21,12 +21,7 @@ ms.collection: M365-identity-device-management
 #Customer intent: As a approver, I want steps for how to approve requests for access packages so that I can unlock requestors who need to use the resoruces.
 
 ---
-# Approve or deny access requests in Azure AD entitlement management (Preview)
-
-> [!IMPORTANT]
-> Azure Active Directory (Azure AD) entitlement management is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# Approve or deny access requests in Azure AD entitlement management
 
 With Azure AD entitlement management, you can configure policies to require approval for access packages, and choose one or more approvers. This article describes how designated approvers can approve or deny requests for access packages.
 
@@ -38,7 +33,7 @@ The first step to approve or deny access requests is to find and open the access
 
 1. Look for an email from Microsoft Azure that asks you to approve or deny a request. Here is an example email:
 
-    ![Approve request to access package email](./media/entitlement-management-shared/email-approve-request.png)
+    ![Approve request to access package email](./media/entitlement-management-shared/approver-request-email.png)
 
 1. Click the **Approve or deny request** link to open the access request.
 

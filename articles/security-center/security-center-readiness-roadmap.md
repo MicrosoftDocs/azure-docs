@@ -110,7 +110,7 @@ Articles
 * [Identity security best practices](https://docs.microsoft.com/azure/security/fundamentals/identity-management-best-practices)
 * [Network security best practices](https://docs.microsoft.com/azure/security/fundamentals/network-best-practices)
 * [PaaS recommendations](https://docs.microsoft.com/azure/security/security-paas-deployments)
-* [Compliance](https://www.microsoft.com/en-us/trustcenter/compliance/due-diligence-checklist)
+* [Compliance](https://www.microsoft.com/trustcenter/compliance/due-diligence-checklist)
 * [Log analytics customers can now use Azure Security Center to protect their hybrid cloud workloads](https://blogs.technet.microsoft.com/msoms/2017/09/25/oms-customers-can-now-use-azure-security-center-to-protect-their-hybrid-cloud-workloads/)
 
 ## Community Resources

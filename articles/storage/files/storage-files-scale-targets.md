@@ -93,7 +93,7 @@ To help you plan your deployment for each of the stages, below are the results o
 | Number of objects synced| 125,000 objects (~1% churn) |
 | Dataset Size| 50 GiB |
 | Average File Size | ~500 KiB |
-| Upload Throughput | 30 objects per second |
+| Upload Throughput | 20 objects per second |
 | Full Download Throughput* | 60 objects per second |
 
 *If cloud tiering is enabled, you are likely to observe better performance as only some of the file data is downloaded. Azure File Sync only downloads the data of cached files when they are changed on any of the endpoints. For any tiered or newly created files, the agent does not download the file data, and instead only syncs the namespace to all the server endpoints. The agent also supports partial downloads of tiered files as they are accessed by the user. 

@@ -1,6 +1,6 @@
 ---
-title: Add correlation IDs to IoT messages with distributed tracing (preview)
-description: 
+title: Add correlation IDs to IoT messages w/distributed tracing (pre)
+description: Learn how to use the distributed tracing ability to trace IoT messages throughout the Azure services used by your solution.
 author: jlian
 manager: briz
 ms.service: iot-hub
@@ -23,7 +23,7 @@ Enabling distributed tracing for IoT Hub gives you the ability to:
 - Measure and understand message flow and latency from devices to IoT Hub and routing endpoints.
 - Start considering how you want to implement distributed tracing for the non-Azure services in your IoT solution.
 
-In this article, you use the [Azure IoT device SDK for C](./iot-hub-device-sdk-c-intro.md) with distributed tracing. Distributed tracing support is still in progress for the other SDKs.
+In this article, you use the [Azure IoT device SDK for C](iot-hub-device-sdk-c-intro.md) with distributed tracing. Distributed tracing support is still in progress for the other SDKs.
 
 ## Prerequisites
 
@@ -33,7 +33,7 @@ In this article, you use the [Azure IoT device SDK for C](./iot-hub-device-sdk-c
   - **Southeast Asia**
   - **West US 2**
 
-- This article assumes that you're familiar with sending telemetry messages to your IoT hub. Make sure you've completed the [Send telemetry C Quickstart](./quickstart-send-telemetry-c.md).
+- This article assumes that you're familiar with sending telemetry messages to your IoT hub. Make sure you've completed the [Send telemetry C Quickstart](quickstart-send-telemetry-c.md).
 
 - Register a device with your IoT hub (steps available in each Quickstart) and note down the connection string.
 

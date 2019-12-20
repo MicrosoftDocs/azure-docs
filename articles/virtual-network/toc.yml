@@ -39,6 +39,8 @@
     href: security-overview.md
   - name: Routing
     href: virtual-networks-udr-overview.md
+  - name: Service tags 
+    href: service-tags-overview.md
   - name: Service endpoints
     href: virtual-network-service-endpoints-overview.md
   - name: Service endpoint policies
@@ -65,6 +67,10 @@
     href: ipv6-public-ip-address-prefix.md
   - name: DDoS protection
     href: ddos-protection-overview.md
+  - name: Subnet extension 
+    href: subnet-extension.md
+  - name: Subnet delegation
+    href: subnet-delegation-overview.md
   - name: Backend Connectivity Interoperability
     items:
     - name: Preface and Test Setup
@@ -119,6 +125,8 @@
           href: ipv6-configure-standard-load-balancer-template-json.md
       - name: Standard Internal Load Balancer
         href: ipv6-dual-stack-standard-internal-load-balancer-powershell.md
+      - name: Virtual machine scale set with IPv6
+        href: ipv6-virtual-machine-scale-set.md    
     - name: Network security groups
       items:
       - name: Azure PowerShell
@@ -174,6 +182,8 @@
           href: virtual-network-deploy-static-pip-arm-cli.md
       - name: Add public IP address to existing VM
         href: associate-public-ip-address-vm.md
+      - name: Dissociate public IP address from a VM
+        href: remove-public-ip-address-vm.md
       - name: Create VM - Static private IP address
         items:
         - name: Azure portal
@@ -295,6 +305,8 @@
       href: diagnose-network-routing-problem.md
     - name: Throughput testing
       href: virtual-network-bandwidth-testing.md
+    - name: Test VM network latency
+      href: virtual-network-test-latency.md
     - name: Cannot delete virtual networks
       href: virtual-network-troubleshoot-cannot-delete-vnet.md
     - name: VM to VM connectivity problems

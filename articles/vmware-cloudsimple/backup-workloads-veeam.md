@@ -116,7 +116,7 @@ Configure infrastructure services in the Private Cloud to make it easy to manage
 
 * You can add an external identity provider as described in [Set up vCenter identity sources to use Active Directory](set-vcenter-identity.md) if any of the following apply:
 
-  * You want to identify users from your on-premise Active Directory (AD) in your Private Cloud.
+  * You want to identify users from your on-premises Active Directory (AD) in your Private Cloud.
   * You want to set up an AD in your Private Cloud for all users.
   * You want to use Azure AD.
 * To provide IP address lookup, IP address management, and name resolution services for your workloads in the Private Cloud, set up a DHCP and DNS server as described in [Set up DNS and DHCP applications and workloads in your CloudSimple Private Cloud](dns-dhcp-setup.md).
@@ -189,7 +189,7 @@ Connect your virtual network to the Private Cloud by following the instructions 
 
 ### Configure Azure blob storage for long term data retention
 
-1. Create a general purpose storage account (GPv2) of standard type and a blob container as described in the Microsoft video [Getting Started with Azure Storage](https://azure.microsoft.com/en-gb/resources/videos/get-started-with-azure-storage).
+1. Create a general purpose storage account (GPv2) of standard type and a blob container as described in the Microsoft video [Getting Started with Azure Storage](https://azure.microsoft.com/resources/videos/get-started-with-azure-storage).
 2. Create an Azure storage container, as described in the [Create Container](https://docs.microsoft.com/rest/api/storageservices/create-container) reference.
 2. Download the `azcopy` command line utility for Linux from Microsoft. You can use the following commands in the bash shell in CentOS 7.5.
 
@@ -285,7 +285,7 @@ To de-escalate privileges, see [De-escalate privileges](escalate-private-cloud-p
 * [Connect a VNet to a circuit - different subscription](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md#connect-a-vnet-to-a-circuit---different-subscription)
 * [Create a Linux virtual machine in the Azure portal](../virtual-machines/linux/quick-create-portal.md)
 * [How to attach a managed data disk to a Windows VM in the Azure portal](../virtual-machines/windows/attach-managed-disk-portal.md)
-* [Getting Started with Azure Storage - Video](https://azure.microsoft.com/en-gb/resources/videos/get-started-with-azure-storage)
+* [Getting Started with Azure Storage - Video](https://azure.microsoft.com/resources/videos/get-started-with-azure-storage)
 * [Create Container](https://docs.microsoft.com/rest/api/storageservices/create-container)
 * [Transfer data with AzCopy on Linux](../storage/common/storage-use-azcopy-linux.md)
 

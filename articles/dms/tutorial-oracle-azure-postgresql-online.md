@@ -1,5 +1,6 @@
 ---
-title: "Tutorial: Use Azure Database Migration Service to perform an online migration of Oracle to Azure Database for PostgreSQL | Microsoft Docs"
+title: "Tutorial: Migrate Oracle online to Azure Database for PostgreSQL"
+titleSuffix: Azure Database Migration Service
 description: Learn to perform an online migration from Oracle on-premises or on virtual machines to Azure Database for PostgreSQL by using Azure Database Migration Service.
 services: dms
 author: HJToland3
@@ -8,7 +9,7 @@ manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
-ms.custom: mvc, tutorial
+ms.custom: "seo-lt-2019"
 ms.topic: article
 ms.date: 09/10/2019
 ---
@@ -238,8 +239,8 @@ To get started:
     | ------------- | ------------- | ------------- |
     | HR | targetHR.public | public.countries.country_id |
     | HR | targetHR.trgthr | trgthr.countries.country_id |
-    | HR | targetHR.TARGETHR | “TARGETHR”.”COUNTRIES”.”COUNTRY_ID” |
-    | HR | targetHR.HR | “HR”.”COUNTRIES”.”COUNTRY_ID” |
+    | HR | targetHR.TARGETHR | "TARGETHR"."COUNTRIES"."COUNTRY_ID" |
+    | HR | targetHR.HR | "HR"."COUNTRIES"."COUNTRY_ID" |
     | HR | targetHR.Hr | *Unable to map mixed cases |
 
     *To create mixed case schema and table names in target PostgreSQL, contact [dmsfeedback@microsoft.com](mailto:dmsfeedback@microsoft.com). We can provide a script to set up mixed case table schema in the target PostgreSQL database.

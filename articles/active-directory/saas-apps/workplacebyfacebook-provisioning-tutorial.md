@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/26/2018
+ms.date: 12/10/2019
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -95,7 +95,7 @@ For more information on how to configure automatic provisioning, see [https://de
 You can now create a test account. Wait for up to 20 minutes to verify that the account has been synchronized to Workplace by Facebook.
 
 > [!NOTE]
-> We are working closely with the Workplace by Facebook team to ensure that the Azure AD application is approved and meets their new guidelines.   
+> The Azure AD third party application in Workplace by Facebook has been approved. Customers will not have an interruption of service on December 16th. You will see a note in the Workplace by Facebook Admin console indicating a deadline of 28-February-2020 by when you will need to transition to the new application. We are working to keep the transition as simple as possible and will provide an update here on the transition by end of month.
 
 ## Additional resources
 

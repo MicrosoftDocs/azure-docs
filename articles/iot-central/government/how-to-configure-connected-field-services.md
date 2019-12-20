@@ -30,5 +30,5 @@ The below end-to-end integration processes can be easily implemented based on a 
 
 ## Next steps
 * Learn more about [IoT Central government templates](./overview-iot-central-government.md)
-* Learn more about [IoT Central](https://docs.microsoft.com/azure/iot-central/overview-iot-central)
+* Learn more about [IoT Central](https://docs.microsoft.com/azure/iot-central/core/overview-iot-central)
 * Learn more about [Dynamics 365 Field Services](https://docs.microsoft.com/dynamics365/field-service/cfs-iot-overview)

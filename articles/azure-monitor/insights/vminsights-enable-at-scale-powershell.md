@@ -1,11 +1,11 @@
 ---
-title: Enable Azure Monitor for VMs (preview) using Azure PowerShell or Resource Manager templates | Microsoft Docs
+title: Enable Azure Monitor for VMs (classic) with PowerShell or templates
 description: This article describes how you enable Azure Monitor for VMs for one or more Azure virtual machines or virtual machine scale sets by using Azure PowerShell or Azure Resource Manager templates.
 ms.service:  azure-monitor
 ms.subservice: 
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 10/14/2019
 
 ---
@@ -179,7 +179,7 @@ To enable Azure Monitor for VMs for multiple VMs or virtual machine scale sets, 
 - The scoped resource group that's specified by *ResourceGroup*. 
 - A single VM or virtual machine scale set that's specified by *Name*.
 
-For each VM or virtual machine scale set, the script verifies whether the VM extension is already installed. If the VM extension isn't installed, the script tries to reinstall it. If the VM extension is installed, the script installs the Log Analytics and Dependency agent VM extensions.
+For each VM or virtual machine scale set, the script verifies whether the VM extension is already installed. If the VM extension is installed, the script tries to reinstall it. If the VM extension isn't installed, the script installs the Log Analytics and Dependency agent VM extensions.
 
 Verify you are using Azure PowerShell module Az version 1.0.0 or later with `Enable-AzureRM` compatibility aliases enabled. Run `Get-Module -ListAvailable Az` to find the version. If you need to upgrade, see [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps). If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
 

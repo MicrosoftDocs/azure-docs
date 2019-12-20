@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2019
+ms.date: 10/31/2019
 ms.author: spelluru
 
 ---
@@ -31,7 +31,7 @@ To increase or decrease the lab capacity (number of virtual machines in a lab), 
 3. Then, select **Save**. 
 
     ![Start all button](../media/how-to-set-virtual-machine-passwords/number-of-vms-in-lab.png)
-4. If you increased the capacity, you can see the VM or VMs being created. 
+4. If you increased the capacity, you can see the VM or VMs being created. If you don't see the new VM in the list, refresh the page. 
 
     ![VM being created](../media/how-to-set-virtual-machine-passwords/vm-being-created.png)
 
@@ -47,11 +47,13 @@ To increase or decrease the lab capacity (number of virtual machines in a lab), 
     ![Stop all button](../media/how-to-set-virtual-machine-passwords/stop-all-vms-button.png)
 
 ### Start selected VMs
-There are two ways to start selected VMs (one or more). First way is to select the VM or VMs in the list, and then select **Start** on the toolbar. The second way is to select the VM or VMs in the list, select dropdown in the **State** column in one of the rows, and then select **Start**. 
+There are two ways to start selected VMs (one or more). First way is to select the VM or VMs in the list, and then select **Start** on the toolbar. 
+
+The second way is to select one or more VMs in the list, and toggle the button in the **State** column. 
 
 ![Start selected VMs](../media/how-to-set-virtual-machine-passwords/start-selected-vms.png)
 
-Similarly, you can stop one or more VMs by using the drop-down list in the **State** column or **Stop** on the toolbar. 
+Similarly, you can stop one or more VMs by toggling the button in the **State** column or selecting **Stop** on the toolbar. 
 
 ## Reset VMs
 To reset one or more VMs, select them in the list, and then select **Reset** on the toolbar. 
@@ -77,11 +79,19 @@ By enabling/disabling the **Use same password for all virtual machines** option 
 ### Reset password later
 
 1. On the **Template** page of the lab, select **Reset password** on the toolbar. 
-
-    ![Reset password menu on the home page](../media/how-to-set-virtual-machine-passwords/reset-password-menu-dashboard.png)
 1. On the **Reset password** dialog box, enter a password, and select **Reset password**.
     
     ![Set password dialog box](../media/how-to-set-virtual-machine-passwords/set-password.png)
+
+## Connect to student VMs
+The lab creator (instructor/professor) can connect to a student VM if the following conditions are met: 
+
+- The **Use same password for all virtual machines** option was selected when creating the lab
+- The VM is running 
+
+ To connect to the student VM, hover the mouse on the VM in the list and select the computer button.  
+
+![Connect to student VM button](../media/how-to-set-virtual-machine-passwords/connect-student-vm.png)
 
 ## Next steps
 To learn about other student usage options you (as a lab owner) can configure, see the following article: [Configure student usage](how-to-configure-student-usage.md).

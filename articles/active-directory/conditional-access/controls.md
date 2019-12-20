@@ -1,12 +1,12 @@
 ---
-title: What are access controls in Azure Active Directory Conditional Access? | Microsoft Docs
+title: Access controls in Azure Active Directory Conditional Access
 description: Learn how access controls in Azure Active Directory Conditional Access work.
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: article
-ms.date: 06/15/2019
+ms.date: 11/21/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -74,7 +74,7 @@ For more information, see [how to require managed devices for cloud app access w
 
 ### Hybrid Azure AD joined device
 
-Requiring a Hybrid Azure AD joined device is another option you have to configure device-based Conditional Access policies. This requirement refers to Windows desktops, laptops, and enterprise tablets that are joined to an on-premises Active Directory. If this option is selected, your Conditional Access policy grants access to access attempts made with devices that are joined to your on-premises Active Directory and your Azure Active Directory.  
+Requiring a hybrid Azure AD joined device is another option you have to configure device-based Conditional Access policies. This requirement refers to Windows desktops, laptops, and enterprise tablets that are joined to an on-premises Active Directory. If this option is selected, your Conditional Access policy grants access to access attempts made with devices that are joined to your on-premises Active Directory and your Azure Active Directory. Mac devices do not support hybrid Azure AD join.
 
 For more information, see [set up Azure Active Directory device-based Conditional Access policies](require-managed-devices.md).
 
