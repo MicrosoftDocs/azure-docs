@@ -228,7 +228,6 @@ AzCopy uses [server-to-server](https://docs.microsoft.com/rest/api/storageservic
 > [!NOTE]
 > This scenario has the following limitations in the current release.
 >
-> - Only accounts that don't have a hierarchical namespace are supported.
 > - You have to append a SAS token to each source URL. If you provide authorization credentials by using Azure Active Directory (AD), you can omit the SAS token only from the destination URL.
 >-  Premium block blob storage accounts don't support access tiers. Omit the access tier of a blob from the copy operation by setting the `s2s-preserve-access-tier` to `false` (For example: `--s2s-preserve-access-tier=false`).
 
@@ -239,6 +238,8 @@ This section contains the following examples:
 > * Copy a directory to another storage account
 > * Copy a container to another storage account
 > * Copy all containers, directories, and files to another storage account
+
+These examples also work with accounts that have a hierarchical namespace.
 
 For detailed reference docs, see [azcopy copy](storage-ref-azcopy-copy.md).
 
@@ -275,10 +276,10 @@ For detailed reference docs, see [azcopy copy](storage-ref-azcopy-copy.md).
 
 ## Synchronize files
 
-You can synchronize the contents of a local file system with a blob container. You can also synchronize containers and virtual directories with one another. Synchronization is one-way. In other words, you choose which of these two endpoints is the source and which one is the destination. Synchronization also uses server to server APIs.
+You can synchronize the contents of a local file system with a blob container. You can also synchronize containers and virtual directories with one another. Synchronization is one-way. In other words, you choose which of these two endpoints is the source and which one is the destination. Synchronization also uses server to server APIs. The examples presented in this section also work with accounts that have a hierarchical namespace. 
 
 > [!NOTE]
-> Currently, this scenario is supported only for accounts that don't have a hierarchical namespace. The current release of AzCopy doesn't synchronize between other sources and destinations (For example: File storage or Amazon Web Services (AWS) S3 buckets).
+> The current release of AzCopy doesn't synchronize between other sources and destinations (For example: File storage or Amazon Web Services (AWS) S3 buckets).
 
 The [sync](storage-ref-azcopy-sync.md) command compares file names and last modified timestamps. Set the `--delete-destination` optional flag to a value of `true` or `prompt` to delete files in the destination directory if those files no longer exist in the source directory.
 
@@ -294,7 +295,7 @@ For detailed reference docs, see [azcopy sync](storage-ref-azcopy-sync.md).
 
 ### Update a container with changes to a local file system
 
-In this case, the container is the destination, and the local file system is the source.
+In this case, the container is the destination, and the local file system is the source. 
 
 |    |     |
 |--------|-----------|
@@ -309,7 +310,6 @@ In this case, the local file system is the destination, and the container is the
 |--------|-----------|
 | **Syntax** | `azcopy sync 'https://<storage-account-name>.blob.core.windows.net/<container-name>' 'C:\myDirectory' --recursive` |
 | **Example** | `azcopy sync 'https://mystorageaccount.blob.core.windows.net/mycontainer' 'C:\myDirectory' --recursive` |
-|
 
 ### Update a container with changes in another container
 

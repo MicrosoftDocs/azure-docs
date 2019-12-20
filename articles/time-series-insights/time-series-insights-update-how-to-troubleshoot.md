@@ -8,7 +8,7 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 10/22/2019
+ms.date: 12/13/2019
 ms.custom: seodec18
 ---
 
@@ -20,7 +20,7 @@ This article summarizes several common problems you might encounter when you wor
 
 This problem might occur if you don’t have permissions to access the Time Series Insights environment. Users need a reader-level access role to view their Time Series Insights environment. To verify the current access levels and grant additional access, go to the **Data Access Policies** section on the Time Series Insights resource in the [Azure portal](https://portal.azure.com/).
 
-  [![Environment](media/v2-update-diagnose-and-troubleshoot/environment.png)](media/v2-update-diagnose-and-troubleshoot/environment.png#lightbox)
+  [![Verify data access policies.](media/preview-troubleshoot/verify-data-access-policies.png)](media/preview-troubleshoot/verify-data-access-policies.png#lightbox)
 
 ## Problem: No data is seen in the preview explorer
 
@@ -30,7 +30,7 @@ There are several common reasons why you might not see your data in the [Azure T
 
     Verify that your event source, which is an event hub or an IoT hub, is receiving data from your tags or instances. To verify, go to the overview page of your resource in the Azure portal.
 
-    [![Dashboard-insights](media/v2-update-diagnose-and-troubleshoot/dashboard-insights.png)](media/v2-update-diagnose-and-troubleshoot/dashboard-insights.png#lightbox)
+    [![Review dashboard metrics overview.](media/preview-troubleshoot/verify-dashboard-metrics.png)](media/preview-troubleshoot/verify-dashboard-metrics.png#lightbox)
 
 - Your event source data isn't in JSON format.
 
@@ -40,14 +40,15 @@ There are several common reasons why you might not see your data in the [Azure T
 
   * For an IoT hub, you need to provide the key that has **service connect** permission.
 
-    [![Configuration](media/v2-update-diagnose-and-troubleshoot/configuration.png)](media/v2-update-diagnose-and-troubleshoot/configuration.png#lightbox)
+    [![Verify IoT hub permissions.](media/preview-troubleshoot/verify-correct-permissions.png)](media/preview-troubleshoot/verify-correct-permissions.png#lightbox)
 
-  * As shown in the preceding image, both of the policies **iothubowner** and **service** work because they have **service connect** permission.
+    * Both the policies **iothubowner** and **service** work because they have **service connect** permission.
+
   * For an event hub, you need to provide the key that has **Listen** permission.
   
-    [![Permissions](media/v2-update-diagnose-and-troubleshoot/permissions.png)](media/v2-update-diagnose-and-troubleshoot/permissions.png#lightbox)
+    [![Review event hub permissions.](media/preview-troubleshoot/verify-eh-permissions.png)](media/preview-troubleshoot/verify-eh-permissions.png#lightbox)
 
-  * As shown in the preceding image, both of the **read** and **manage** policies work because they have **Listen** permission.
+    * Both the **Read** and **Manage** policies work because they have **Listen** permission.
 
 - Your consumer group provided isn't exclusive to Time Series Insights.
 
@@ -93,7 +94,7 @@ If the Timestamp property isn’t explicitly specified, an event’s IoT hub or 
 
    Time Series Models are supported only in pay-as-you-go environments. For more information on how to access your S1 or S2 environment from the Time Series Insights Preview explorer, see [Visualize data in the explorer](./time-series-insights-update-explorer.md).
 
-   [![Access](media/v2-update-diagnose-and-troubleshoot/access.png)](media/v2-update-diagnose-and-troubleshoot/access.png#lightbox)
+   [![No events in environment.](media/preview-troubleshoot/troubleshoot-no-events.png)](media/preview-troubleshoot/troubleshoot-no-events.png#lightbox)
 
 - You might not have permissions to view and edit the model.
 
@@ -103,10 +104,12 @@ If the Timestamp property isn’t explicitly specified, an event’s IoT hub or 
 
 This problem might occur if your environment doesn’t have a Time Series Model hierarchy defined. For more information, see [Work with Time Series Models](./time-series-insights-update-how-to-tsm.md).
 
-  [![Time Series Models](media/v2-update-diagnose-and-troubleshoot/tsm.png)](media/v2-update-diagnose-and-troubleshoot/tsm.png#lightbox)
+  [![Unparented instances will display a warning.](media/preview-troubleshoot/unparented-instances.png)](media/preview-troubleshoot/unparented-instances.png#lightbox)
 
 ## Next steps
 
 - Read [Work with Time Series Models](./time-series-insights-update-how-to-tsm.md).
+
 - Learn about [supported JSON shapes](./how-to-shape-query-json.md).
+
 - Review [planning and limits](./time-series-insights-update-plan.md) in Azure Time Series Insights Preview.

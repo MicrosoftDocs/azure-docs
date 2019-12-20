@@ -1,7 +1,7 @@
 ---
-title: Get labels for data
+title: Create a data labeling project
 titleSuffix: Azure Machine Learning
-description: This article shows you how to create and run labeling projects to tag data for machine learning.
+description: Learn ho to create and run labeling projects to tag data for machine learning.
 author: lobrien
 ms.author: laobri
 ms.service: machine-learning
@@ -10,7 +10,7 @@ ms.date: 11/04/2019
 
 ---
 
-# Get labels for data
+# Create a data labeling project and export labels 
 
 Labeling voluminous data in machine learning projects is often a headache. Projects that have a computer-vision component, such as image classification or object detection, generally require labels for thousands of images.
  

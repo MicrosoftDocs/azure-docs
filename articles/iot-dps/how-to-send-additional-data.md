@@ -1,6 +1,6 @@
 ---
 title: How to transfer additional data between device and Azure Device Provisioning Service
-description: This document describes how to transfer additional data between device and DPS
+description: This document describes how to transfer additional data between device and Device Provisioning Service (DPS)
 author: menchi
 ms.author: menchi
 ms.date: 10/29/2019

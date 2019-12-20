@@ -1,5 +1,5 @@
 ---
-title: Developer guidance for Azure Active Directory Conditional Access
+title: Azure AD Conditional Access developer guidance
 description: Developer guidance and scenarios for Azure AD Conditional Access
 services: active-directory
 author: rwike77

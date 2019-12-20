@@ -109,7 +109,7 @@ To avoid exhausting compute node resources, keep the default, optimized scheme i
 
 ### Looping through file lists
 
-A mapping data flow will execute better when the Source transformation iterates over multiple files instead of looping via the For Each activity. We recommend using wildcards or file lists in your source transformation. The Data Flow process will execute faster by allowing the looping to occur inside the Spark cluster. For more information, see [Wildcarding in Source Transformation](data-flow-source.md#file-based-source-options).
+A mapping data flow will execute better when the Source transformation iterates over multiple files instead of looping via the For Each activity. We recommend using wildcards or file lists in your source transformation. The Data Flow process will execute faster by allowing the looping to occur inside the Spark cluster. For more information, see [Wildcarding in Source Transformation](connector-azure-data-lake-storage.md#mapping-data-flow-properties).
 
 For example, if you have a list of data files from July 2019 that you wish to process in a folder in Blob Storage, below is a wildcard you can use in your Source transformation.
 

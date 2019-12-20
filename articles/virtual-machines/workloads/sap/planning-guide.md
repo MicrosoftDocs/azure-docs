@@ -1,5 +1,5 @@
 ---
-title: Azure Virtual Machines planning and implementation for SAP NetWeaver | Microsoft Docs
+title: 'SAP on Azure: Planning and Implementation Guide'
 description: Azure Virtual Machines planning and implementation for SAP NetWeaver
 services: virtual-machines-linux,virtual-machines-windows
 documentationcenter: ''
@@ -15,7 +15,7 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 09/16/2019
+ms.date: 12/13/2019
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
 ---
@@ -307,7 +307,7 @@ ms.custom: H1Hack27Feb2017
 [xplat-cli-azure-resource-manager]:../../../xplat-cli-azure-resource-manager.md
 [capture-image-linux-step-2-create-vm-image]:../../linux/capture-image.md#step-2-create-vm-image
 
-[!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
+
 
 Microsoft Azure enables companies to acquire compute and storage resources in minimal time without lengthy procurement cycles. Azure Virtual Machine service allows companies to deploy classical applications, like SAP NetWeaver based applications into Azure and extend their reliability and availability without having further resources available on-premises. Azure Virtual Machine Services also supports cross-premises connectivity, which enables companies to actively integrate Azure Virtual Machines into their on-premises domains, their Private Clouds and their SAP System Landscape.
 This white paper describes the fundamentals of Microsoft Azure Virtual Machine and provides a walk-through of planning and implementation considerations for SAP NetWeaver installations in Azure and as such should be the document to read before starting actual deployments of SAP NetWeaver on Azure.
@@ -325,7 +325,7 @@ With Microsoft Azure Virtual Machine Services, Microsoft offers a comprehensive 
 The paper itself focuses on two main aspects:
 
 * The first part describes two supported deployment patterns for SAP NetWeaver based applications on Azure. It also describes general handling of Azure with SAP deployments in mind.
-* The second part details implementing the two different scenarios described in the first part.
+* The second part details implementing the different scenarios described in the first part.
 
 For additional resources, see chapter [Resources][planning-guide-1.2] in this document.
 
@@ -387,8 +387,7 @@ General default limitations and maximum limitations of Azure subscriptions can b
 ## Possible Scenarios
 SAP is often seen as one of the most mission-critical applications within enterprises. The architecture and operations of these applications is mostly complex and ensuring that you meet requirements on availability and performance is important.
 
-Thus enterprises have to think carefully about which cloud provider to choose for running such business critical business processes on. Azure is the ideal public cloud platform for business critical SAP applications and business processes. Given the wide variety of Azure infrastructure,  nearly all existing SAP NetWeaver and S/4HANA systems can be hosted in Azure today. Azure provides VMs with many Terabytes of memory and more than 200 CPUs. Beyond that Azure offers [HANA Large Instances](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture), which allow scale-out HANA deployments of up to 24TB and scale-out ANA deployments of up to 120TB. 
-
+Thus enterprises have to think carefully about which cloud provider to choose for running such business critical business processes on. Azure is the ideal public cloud platform for business critical SAP applications and business processes. Given the wide variety of Azure infrastructure,  nearly all existing SAP NetWeaver and S/4HANA systems can be hosted in Azure today. Azure provides VMs with many Terabytes of memory and more than 200 CPUs. Beyond that Azure offers [HANA Large Instances](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture), which allow scale-out HANA deployments of up to 24TB and scale-out ANA deployments of up to 120TB. One can state today that nearly all on-premise SAP scenarios can be run in Azure as well. 
 
 In order to successfully deploy SAP systems into either Azure IaaS or IaaS in general, it is important to understand the significant differences between the offerings of traditional outsourcers or hosters and IaaS offerings. Whereas the traditional hoster or outsourcer adapts infrastructure (network, storage and server type) to the workload a customer wants to host, it is instead the customer's  or partner's responsibility to characterize the workload and choose the correct Azure components of VMs, storage and network for IaaS deployments.
 
@@ -453,6 +452,18 @@ Read [this article][vpn-gateway-create-site-to-site-rm-powershell] for more info
 * Supported operating system releases, database system releases supported on Azure Virtual Machine Services in conjunction with SAP software are documented in SAP Note [1928533].
 * SAP applications and releases supported on Azure Virtual Machine Services are documented in SAP Note [1928533].
 * Only 64Bit images are supported to run as Guest VMs in Azure for SAP scenarios. As a result, only 64-bit SAP applications and databases are supported.
+
+
+## First steps planning a deployment
+The first step in deployment planning is NOT to check for VMs available to run SAP. The first step can be one that is time consuming, but most important, is to work with compliance and security teams in your company on what the boundary conditions are for deploying which type of SAP workload or business process into public cloud. If your company deployed other software before into Azure, the process can be easy. If your company is more at the beginning of the journey, there might be larger discussions necessary in order to figure out the boundary conditions, security conditions, that allow certain SAP data and SAP business processes to be hosted in public cloud.
+
+As useful help you can point to [Microsoft compliance offerings](https://docs.microsoft.com/microsoft-365/compliance/offering-home) for a list of compliance offers Microsoft can provide. 
+
+Other areas of concerns like data encryption for data at rest or other encryption in Azure service is documented in [Azure encryption overview](https://docs.microsoft.com/azure/security/fundamentals/encryption-overview).
+
+Don't underestimate this phase of the project in your planning. Only when you have agreement and rules around this topic, you need to go to the next step which is the planning of the network architecture that you deploy in Azure.
+
+
 
 ## Microsoft Azure Virtual Machine Services
 The Microsoft Azure platform is an internet-scale cloud services platform hosted and operated in Microsoft data centers. The platform includes the Microsoft Azure Virtual Machine Services (Infrastructure as a Service, or IaaS) and a set of rich Platform as a Service (PaaS) capabilities.
@@ -1636,8 +1647,6 @@ You run an SAP landscape and want to divide the deployment between bare-metal fo
 The cross-premises or hybrid scenario can be roughly described like in the graphics below:
 
 ![Site-to-Site connectivity between on-premises and Azure assets][planning-guide-figure-2100]
-
-The scenario shown above describes a scenario where the on-premises
 
 The minimum requirement is the use of secure communication protocols such as SSL/TLS for browser access or VPN-based connections for system access to the Azure services. The assumption is that companies handle the VPN connection between their corporate network and Azure differently. Some companies might blankly open all the ports. Some other companies might want to be precise in which ports they need to open, etc.
 

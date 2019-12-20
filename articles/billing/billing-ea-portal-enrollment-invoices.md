@@ -4,7 +4,7 @@ description: This article explains how to manage and act on your Azure Enterpris
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 12/04/2019
+ms.date: 12/11/2019
 ms.topic: conceptual
 ms.service: cost-management-billing
 manager: boalcsva
@@ -17,8 +17,6 @@ This article explains how to manage and act on your Azure Enterprise invoice. Yo
 ## Change a PO number for an overage invoice
 
 The Azure EA portal automatically generates a default purchase order (PO) number unless the EA admin sets one before the invoice date. An EA admin can update the PO number up to seven days after receiving an automated invoice notification email.
-
-A Purchase Order number can also be entered for a specific account or subscription. Reports will default to the lowest level Purchase Order number set in the hierarchy, meaning if no subscription Purchase Order number is entered, the account Purchase Order number will be used, and if no account Purchase Order is entered, the department Purchase Order will be used.
 
 ### To update the Azure services purchase order number:
 

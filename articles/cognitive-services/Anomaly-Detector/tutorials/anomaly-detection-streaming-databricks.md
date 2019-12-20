@@ -1,7 +1,7 @@
 ---
 title: "Tutorial: Anomaly detection on streaming data using Azure Databricks"
 titleSuffix: Azure Cognitive Services
-description: Use the Anomaly Detector API and Azure Databricks to monitor anomalies in your data.
+description: Learn how to use the Anomaly Detector API and Azure Databricks to monitor anomalies in your data.
 titlesuffix: Azure Cognitive Services
 services: cognitive-services
 author: aahill
@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: tutorial
-ms.date: 10/01/2019
+ms.date: 12/19/2019
 ms.author: aahi
 ---
 

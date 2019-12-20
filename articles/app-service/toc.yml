@@ -82,11 +82,15 @@
     - name: Security overview
       href: overview-security.md
   - name: Networking features
-    href: networking-features.md
+    items:
+    - name: Overview
+      href: networking-features.md
+    - name: Application Gateway with service endpoints
+      href: networking/app-gateway-with-service-endpoints.md
   - name: Inbound and outbound IPs
     href: overview-inbound-outbound-ips.md
   - name: Virtual Network Integration
-    href: web-sites-integrate-with-vnet.md  
+    href: web-sites-integrate-with-vnet.md
   - name: Hybrid connections
     href: app-service-hybrid-connections.md
   - name: Traffic Manager integration

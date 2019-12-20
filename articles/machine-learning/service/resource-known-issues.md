@@ -88,9 +88,23 @@ Binary classification charts (precision-recall, ROC, gain curve etc.) shown in a
 
 These are known issues for Azure Machine Learning Datasets.
 
+### TypeError: FileNotFound: No such file or directory
+
+This error occurs if the file path you provide isn't where the file is located. You need to make sure the way you refer to the file is consistent with where you mounted your dataset on your compute target. To ensure a deterministic state, we recommend using the abstract path when mounting a dataset to a compute target. For example, in the following code we mount the dataset under the root of the filesystem of the compute target, `/tmp`. 
+
+```python
+# Note the leading / in '/tmp/dataset'
+script_params = {
+    '--data-folder': dset.as_named_input('dogscats_train').as_mount('/tmp/dataset'),
+} 
+```
+
+If you don't include the leading forward slash, '/',  you'll need to prefix the working directory e.g.
+`/mnt/batch/.../tmp/dataset` on the compute target to indicate where you want the dataset to be mounted. 
+
 ### Fail to read Parquet file from HTTP or ADLS Gen 2
 
-There is a known issue in AzureML DataPrep SDK version 1.1.25 that causes a failure when creating a dataset by reading Parquet files from HTTP or ADLS Gen 2. It will fail with `Cannot seek once reading started.`. To fix this issue, please upgrade `azureml-dataprep` to a version higher than 1.1.26, or downgrade to a version lower than 1.1.24.
+There is a known issue in the AzureML DataPrep SDK version 1.1.25 that causes a failure when creating a dataset by reading Parquet files from HTTP or ADLS Gen 2. It will fail with `Cannot seek once reading started.`. To fix this issue, please upgrade `azureml-dataprep` to a version higher than 1.1.26, or downgrade to a version lower than 1.1.24.
 
 ```python
 pip install --upgrade azureml-dataprep
@@ -126,7 +140,7 @@ When you use automated machine learning capabilities on Azure Databricks, to can
 
 In automated machine learning settings, if you have more than 10 iterations, set `show_output` to `False` when you submit the run.
 
-### Widget for the Azure Machine Learning SDK/automated machine learning
+### Widget for the Azure Machine Learning SDK and automated machine learning
 
 The Azure Machine Learning SDK widget isn't supported in a Databricks notebook because the notebooks can't parse HTML widgets. You can view the widget in the portal by using this Python code in your Azure Databricks notebook cell:
 
@@ -211,9 +225,9 @@ az aks get-credentials -g <rg> -n <aks cluster name>
 Updates to Azure Machine Learning components installed in an Azure Kubernetes Service cluster must be manually applied. 
 
 > [!WARNING]
-> Before performing the following actions, check the version of your Azure Kubernetes Service cluster. If the cluster version is equal to or greater than 1.14, you will not be able to re-attach your cluster to the Azure Machine Learning workspace.
+> Before performing the following actions, check the version of your Azure Kubernetes Service cluster. If the cluster version is equal to or greater than 1.14, you will not be able to reattach your cluster to the Azure Machine Learning workspace.
 
-You can apply these updates by detaching the cluster from the Azure Machine Learning workspace, and then re-attaching the cluster to the workspace. If SSL is enabled in the cluster, you will need to supply the SSL certificate and private key when re-attaching the cluster. 
+You can apply these updates by detaching the cluster from the Azure Machine Learning workspace, and then reattaching the cluster to the workspace. If SSL is enabled in the cluster, you will need to supply the SSL certificate and private key when reattaching the cluster. 
 
 ```python
 compute_target = ComputeTarget(workspace=ws, name=clusterWorkspaceName)
@@ -246,24 +260,34 @@ kubectl get secret/azuremlfessl -o yaml
 ## Recommendations for error fix
 Based on general observation, here are Azure ML recommendations to fix some of the common errors in Azure ML.
 
+### Metric Document is too large
+Azure Machine Learning has internal limits on the size of metric objects that can be logged at once from a training run. If you encounter "Metric Document is too large" error when logging a list-valued metric, try splitting the list into smaller chunks, for example:
+
+```python
+run.log_list("my metric name", my_metric[:N])
+run.log_list("my metric name", my_metric[N:])
+```
+
+ Internally, the run history service concatenates the blocks with same metric name into a contiguous list.
+
 ### ModuleErrors (No module named)
 If you are running into ModuleErrors while submitting experiments in Azure ML, it means that the training script is expecting a package to be installed but it isn't added. Once you provide the package name, Azure ML will install the package in the environment used for your training. 
 
 If you are using [Estimators](concept-azure-machine-learning-architecture.md#estimators) to submit experiments, you can specify a package name via `pip_packages` or `conda_packages` parameter in the estimator based on from which source you want to install the package. You can also specify a yml file with all your dependencies using `conda_dependencies_file`or list all your pip requirements in a txt file using `pip_requirements_file` parameter.
 
-Azure ML also provides framework specific estimators for Tensorflow, PyTorch, Chainer and SKLearn. Using these estimators will make sure that the framework dependencies are installed on your behalf in the environment used for training. You have the option to specify extra dependencies as described above. 
+Azure ML also provides framework-specific estimators for Tensorflow, PyTorch, Chainer and SKLearn. Using these estimators will make sure that the framework dependencies are installed on your behalf in the environment used for training. You have the option to specify extra dependencies as described above. 
  
- Azure ML maintained docker images and their contents can be seen in [AzureML Containers](https://github.com/Azure/AzureML-Containers).
-Framework specific dependencies  are listed in the respective framework documentation - [Chainer](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py#remarks), [PyTorch](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py#remarks), [TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py#remarks), [SKLearn](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py#remarks).
+Azure ML maintained docker images and their contents can be seen in [AzureML Containers](https://github.com/Azure/AzureML-Containers).
+Framework-specific dependencies  are listed in the respective framework documentation - [Chainer](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py#remarks), [PyTorch](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py#remarks), [TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py#remarks), [SKLearn](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py#remarks).
 
->[Note!]
+> [!Note]
 > If you think a particular package is common enough to be added in Azure ML maintained images and environments please raise a GitHub issue in [AzureML Containers](https://github.com/Azure/AzureML-Containers). 
  
  ### NameError (Name not defined), AttributeError (Object has no attribute)
 This exception should come from your training scripts. You can look at the log files from Azure portal to get more information about the specific name not defined or attribute error. From the SDK, you can use `run.get_details()` to look at the error message. This will also list all the log files generated for your run. Please make sure to take a look at your training script, fix the error before retrying. 
 
-### Horovod is shutdown
-In most cases, this exception means there was an underlying exception in one of the processes that caused horovod to shutdown. Each rank in the MPI job gets it own dedicated log file in Azure ML. These logs are named `70_driver_logs`. In case of distributed training, the log names are suffixed with `_rank` to make it easy to differentiate the logs. To find the exact error that caused horovod shutdown, go through all the log files and look for `Traceback` at the end of the driver_log files. One of these files will give you the actual underlying exception. 
+### Horovod is shut down
+In most cases, this exception means there was an underlying exception in one of the processes that caused horovod to shut down. Each rank in the MPI job gets it own dedicated log file in Azure ML. These logs are named `70_driver_logs`. In case of distributed training, the log names are suffixed with `_rank` to make it easy to differentiate the logs. To find the exact error that caused horovod shutdown, go through all the log files and look for `Traceback` at the end of the driver_log files. One of these files will give you the actual underlying exception. 
 
 ## Labeling projects issues
 
@@ -281,6 +305,6 @@ Manually refresh the page. Initialization should proceed at roughly 20 datapoint
 
 To load all labeled images, choose the **First** button. The **First** button will take you back to the front of the list, but loads all labeled data.
 
-### Pressing Esc key while labeling for object detection creates a zero size label on the top left corner. Submitting labels in this state fails.
+### Pressing Esc key while labeling for object detection creates a zero size label on the top-left corner. Submitting labels in this state fails.
 
 Delete the label by clicking on the cross mark next to it.

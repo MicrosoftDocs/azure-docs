@@ -1,6 +1,7 @@
 ---
-title: Configure the resource owner password credentials flow in Azure Active Directory B2C | Microsoft Docs
-description: Learn how to configure the resource owner password credentials flow in Azure AD B2C.
+title: Configure the resource owner password credentials flow
+titleSuffix: Azure AD B2C
+description: Learn how to configure the ROPC flow in Azure AD B2C.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg

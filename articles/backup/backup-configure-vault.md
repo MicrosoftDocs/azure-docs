@@ -58,14 +58,17 @@ If your machine has limited internet access, ensure that firewall settings on th
 * 20.190.128.0/18
 * 40.126.0.0/18
 
+Access to all of the URLs and IP addresses listed above uses the HTTPS protocol on port 443.
+
 ## Create a Recovery Services vault
 
 A Recovery Services vault stores all the backups and recovery points you create over time, and contains the backup policy applied to backed up machines. Create a vault as follows:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) using your Azure subscription.
-2. In search, type **Recovery Services** and click **Recovery Services vaults**.
 
-    ![Create Recovery Services Vault step 1](./media/backup-try-azure-backup-in-10-mins/open-rs-vault-list.png)
+2. Search for and select **Recovery Services vaults**.
+
+    ![Create Recovery Services Vault step 1](./media/backup-configure-vault/open-recovery-services-vaults.png)
 
 3. On the **Recovery Services vaults** menu, click **+Add**.
 

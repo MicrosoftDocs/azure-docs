@@ -88,8 +88,8 @@ To modify your project so that Azure can be made aware of important information 
     import azureml
     from azureml.core import Run
 
-    # access the Azure ML run
-    # init run param to check if running within AML
+    # Access the Azure ML run
+    # Init run param to check if running within AML
     def get_AMLRun():
         try:
             run = Run.get_submitted_run()
@@ -122,7 +122,7 @@ To modify your project so that Azure can be made aware of important information 
     ...
             acc_val = acc_op.eval(feed_dict = {X: X_test, y: y_test})
 
-            # log accuracies to AML logger if using AML
+            # Log accuracies to AML logger if using AML
             if run != None:
                 run.log('Validation Accuracy', np.float(acc_val))
                 run.log('Training Accuracy', np.float(acc_train))
@@ -131,14 +131,14 @@ To modify your project so that Azure can be made aware of important information 
     ...
     ```
 ### Run the script in Azure
-That's it! Now just use the extension to run your script in the cloud! Note that the following walkthrough video takes the liberty of compressing the amount of time it takes to create a new Azure ML workspace and compute, as well as the time it takes to run the training script.
+That's it! Now just use the extension to run your script in the cloud! Note that the following walkthrough video takes the liberty of compressing the amount of time it takes to create a new Azure Machine Learning workspace and compute, as well as the time it takes to run the training script.
 
    [![Start an Azure ML experiment](./media/vscode-tools-for-ai/start-golden-path.gif)](./media/vscode-tools-for-ai/start-golden-path.gif#lightbox)
 
 After clicking the Run Experiment button, answer the prompts as follows:
 
-1. Choose your Azure subscription
-1. Choose to create a *new* Azure ML workspace
+1. Choose your Azure subscription.
+1. Choose to create a *new* Azure Machine Learning workspace.
 1. Pick from a set of pre-configured templates to initialize the Python environment for the runs. The templates provide a starting point and include settings for:
     1. **PyTorch**, **TensorFlow**, or **Scikit-learn**
     1. **Single** or **Distributed** compute training
