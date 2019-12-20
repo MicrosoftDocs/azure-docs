@@ -1,18 +1,8 @@
 ---
-title: Common questions about Microsoft Azure Service Fabric | Microsoft Docs
+title: Common questions about Microsoft Azure Service Fabric 
 description: Frequently asked questions about Service Fabric and their answers
-services: service-fabric
-documentationcenter: .net
-author: chackdan
-manager: chackdan
-editor: ''
 
-ms.assetid: 5a179703-ff0c-4b8e-98cd-377253295d12
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: troubleshooting
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 08/18/2017
 ms.author: pepogors
 ---

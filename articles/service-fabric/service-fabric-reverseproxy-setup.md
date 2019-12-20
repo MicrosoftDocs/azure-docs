@@ -1,20 +1,10 @@
 ---
-title: Azure Service Fabric set up reverse proxy | Microsoft Docs
+title: Azure Service Fabric set up reverse proxy 
 description: Understand how to set up and configure Service Fabric's reverse proxy.
-services: service-fabric
-documentationcenter: na
-author: jimacoMS2
-manager: chackdan
-editor: 
 
-ms.assetid: 
-ms.service: service-fabric
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: required
 ms.date: 11/13/2018
 ms.author: pepogors
-
 ---
 # Set up and configure reverse proxy in Azure Service Fabric
 Reverse proxy is an optional Azure Service Fabric service that helps microservices running in a Service Fabric cluster discover and communicate with other services that have http endpoints. To learn more, see [Reverse proxy in Azure Service Fabric](service-fabric-reverseproxy.md). This article shows you how to set up and configure reverse proxy in your cluster. 
