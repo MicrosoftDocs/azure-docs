@@ -168,6 +168,12 @@ This article provides answers to some of the most common questions about running
 
    Yes. You can use any setup media to upgrade the version and edition of SQL Server, and then you can upgrade your [SQL IaaS extension mode](virtual-machines-windows-sql-register-with-resource-provider.md#management-modes)) from _no agent_ to _full_. Doing so will give you access to all the benefits of the SQL IaaS extension such as portal manageability, automated backups, and automated patching. 
 
+1. **How can I get free extended security updates for my end of support SQL Server 2008 and SQL Server 2008 R2 instances?**
+
+   You can get [free extended security updates](virtual-machines-windows-sql-server-2008-eos-extend-support.md) by moving your SQL Server as-is to an Azure SQL virtual machine. For more information, see [end of support options](/sql/sql-server/end-of-support/sql-server-end-of-life-overview). 
+  
+   
+
 ## General
 
 1. **Are SQL Server Failover Cluster Instances (FCI) supported on Azure VMs?**
