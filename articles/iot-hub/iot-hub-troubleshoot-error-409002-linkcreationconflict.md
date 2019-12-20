@@ -19,6 +19,8 @@ This article describes the causes and solutions for **409002 LinkCreationConflic
 
 You see the error `LinkCreationConflict` logged in diagnostic logs along with device disconnection. 
 
+When using AMQP?
+
 ## Cause
 
 A device has more than one connection. When a new connection request comes for a device, IoT Hub closes the previous one with this error.
