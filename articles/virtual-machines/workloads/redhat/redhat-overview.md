@@ -36,7 +36,7 @@ Azure also offers RHEL BYOS images. These images may be useful to customers who 
 Azure provides Red Hat Update Infrastructure only for PAYG RHEL virtual machines (VMs). RHUI is effectively a mirror of the Red Hat CDNs but is only accessible to the Azure PAYG RHEL VMs. You will have access to the appropriate packages depending on which RHEL image you have deployed. For example, a RHEL for SAP image will have access to the SAP packages in addition to base RHEL packages.
 
 ### RHUI update behavior
-RHEL images connected to RHUI will, by default, update to the latest minor version of RHEL when a `yum update` is run. This behavior means that a RHEL 7.4 VM may get upgraded to RHEL 7.7 if a `yum update` operation is run on it. This is by design of RHUI. However, this upgrade behavior can be mitigated by switching from regular RHEL repositories to the [Extended Update Support (EUS) repositories](./redhat-rhui.md#RHEL-EUS-and-version-locking-RHEL-VMs).
+RHEL images connected to RHUI will, by default, update to the latest minor version of RHEL when a `yum update` is run. This behavior means that a RHEL 7.4 VM may get upgraded to RHEL 7.7 if a `yum update` operation is run on it. This is by design of RHUI. However, this upgrade behavior can be mitigated by switching from regular RHEL repositories to the [Extended Update Support (EUS) repositories](./redhat-rhui.md#rhel-eus-and-version-locking-rhel-vms).
 
 ## Next steps
 * Learn more about [RHEL images on Azure](./redhat-images.md)
