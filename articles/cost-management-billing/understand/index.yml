@@ -19,7 +19,7 @@ landingContent:
 # Cards and links should be based on top customer tasks or top subjects
 # Start card title with a verb
   # Card (optional)
-  - title: Review individal accounts
+  - title: Review individual accounts
     linkLists:
     - linkListType: tutorial
       links:

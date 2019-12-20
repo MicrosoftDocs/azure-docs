@@ -27,7 +27,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-You must have a payed *Microsoft Online Services Program* billing account. The account is created when you sign up for Azure through the Azure website. For example, if you have an [account with pay-as-you-go rates](https://azure.microsoft.com/offers/ms-azr-0003p/) or if you are a [Visual Studio subscriber](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/).
+You must have a paid *Microsoft Online Services Program* billing account. The account is created when you sign up for Azure through the Azure website. For example, if you have an [account with pay-as-you-go rates](https://azure.microsoft.com/offers/ms-azr-0003p/) or if you are a [Visual Studio subscriber](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/).
 
 Invoices for [Azure Free Accounts](https://azure.microsoft.com/offers/ms-azr-0044p/) are created only when the monthly credit amount is exceeded.
 

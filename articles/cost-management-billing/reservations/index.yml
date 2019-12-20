@@ -58,13 +58,13 @@ landingContent:
     - linkListType: concept
       links:
       - text: Reserved VM instances
-        url: understand-vm-reservation-charges.md
+        url: ../manage/understand-vm-reservation-charges.md
       - text: Azure Strorage reserved capacity
         url: understand-storage-charges.md
       - text: Cosmos DB reserved capacity
         url: understand-cosmosdb-reservation-charges.md
       - text: SQL Database reserved capacity
-        url: ../manage/understand-reservation-charges.md
+        url: understand-reservation-charges.md
       - text: SQL Data Warehouse
         url: reservation-discount-azure-sql-dw.md
       - text: Azure Data Explorer
