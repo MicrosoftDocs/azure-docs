@@ -170,10 +170,18 @@ This error occurs when the indexer is unable to finish processing a single docum
 
 <a name="could-not-execute-skill-because-a-skill-input-was-invalid"/>
 
-## Warning: Could not execute skill because a skill input was invalid
-Indexer was not able to run a skill in the skillset because an input to the skill was missing, the wrong type, or otherwise invalid.
+## Warning: Skill input was invalid
+An input to the skill was missing, the wrong type, or otherwise invalid. The warning message will indicate the impact:
+1) Could not execute skill
+2) Skill executed but may have unexpected results
 
-Cognitive skills have required inputs and optional inputs. For example the [Key phrase extraction skill](cognitive-search-skill-keyphrases.md) has two required inputs `text`, `languageCode`, and no optional inputs. If any required inputs are invalid, the skill gets skipped and generates a warning. Skipped skills do not generate any outputs, so if other skills use outputs of the skipped skill they may generate additional warnings.
+Cognitive skills have required inputs and optional inputs. For example the [Key phrase extraction skill](cognitive-search-skill-keyphrases.md) has two required inputs `text`, `languageCode`, and no optional inputs. Custom skill inputs are all considered optional inputs.
+
+If any required inputs are missing or if any input is not the right type, the skill gets skipped and generates a warning. Skipped skills do not generate any outputs, so if other skills use outputs of the skipped skill they may generate additional warnings.
+
+If an optional input is missing, the skill will still run but may produce unexpected output due to the missing input.
+
+In both cases, this warning may be expected due to the shape of your data. For example, if you have a document containing information about people with the fields `firstName`, `middleName`, and `lastName`, you may have some documents which do not have an entry for `middleName`. If you to pass `middleName` as an input to a skill in the pipeline, then it is expected that this skill input may be missing some of the time. You will need to evaluate your data and scenario to determine whether or not any action is required as a result of this warning.
 
 If you want to provide a default value in case of missing input, you can use the [Conditional skill](cognitive-search-skill-conditional.md) to generate a default value and then use the output of the [Conditional skill](cognitive-search-skill-conditional.md) as the skill input.
 
