@@ -82,12 +82,11 @@ Run the following PowerShell commands to deploy the management tool and associat
 ```powershell
 $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
 $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
-$templateParameters = @{
-    isServicePrincipal = $true
-    azureAdminUserPrincipalNameOrApplicationId = $ServicePrincipalCredentials.UserName
-    azureAdminPassword = $servicePrincipalCredentials.Password
-    applicationName = $appName
-}
+$templateParameters = @{}
+$templateParameters.Add('isServicePrincipal', $true)
+$templateParameters.Add('azureAdminUserPrincipalNameOrApplicationId', $ServicePrincipalCredentials.UserName)
+$templateParameters.Add('azureAdminPassword', $servicePrincipalCredentials.Password)
+$templateParameters.Add('applicationName', $appName)
 
 Get-AzSubscription -SubscriptionId $subscriptionId | Select-AzSubscription
 New-AzResourceGroup -Name $resourceGroupName -Location $location
