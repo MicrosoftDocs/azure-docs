@@ -34,6 +34,6 @@ Microsoft provides Red Hat Update Infrastructure only for PAYG RHEL virtual mach
 RHEL images connected to RHUI will, by default, update to the latest minor version of RHEL when a `yum update` is run. This will mean that a RHEL 7.4 VM may get upgraded to RHEL 7.7 if a `yum update` operation is run on it. This is by design of RHUI, but can be mitigated by switching from regular RHEL repositories to the Extended Update Support (EUS) repositories.
 
 ## Next Steps
-* Learn more about RHEL images on Azure
-* Learn more about Red Hat Update Infrastructure
-* Learn more about the RHEL BYOS offer
+* Learn more about [RHEL images on Azure](./redhat-images.md)
+* Learn more about [Red Hat Update Infrastructure](./redhat-rhui.md)
+* Learn more about the [RHEL BYOS offer](./redhat-byos.md)
