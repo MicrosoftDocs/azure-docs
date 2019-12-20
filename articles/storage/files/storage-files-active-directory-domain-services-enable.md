@@ -113,7 +113,7 @@ The following is a description of the actions performed when the `join-AzStorage
 
 ### Checking environment
 
-First, it checks your environment. Specifically it checks if the [Active Directory PowerShell](https://docs.microsoft.com/en-us/powershell/module/addsadministration/?view=win10-ps) is installed and if the shell is being executed with administrator privileges. If those checks pass, then it will check your AD to see if there is either a service (recommended) or computer account that has already been created with SPN/UPN as "cifs/your-storage-account-name-here.file.core.windows.net" and create one if it doesn't exist.
+First, it checks your environment. Specifically it checks if the [Active Directory PowerShell](https://docs.microsoft.com/powershell/module/addsadministration/?view=win10-ps) is installed and if the shell is being executed with administrator privileges. If those checks pass, then it will check your AD to see if there is either a service (recommended) or computer account that has already been created with SPN/UPN as "cifs/your-storage-account-name-here.file.core.windows.net" and create one if it doesn't exist.
 
 ### Creating an identity representing the storage account in your AD manually
 
