@@ -1,6 +1,6 @@
 ﻿---
 title: 'Data querying in Preview - Azure Time Series Insights | Microsoft Docs'
-description: Learn about Azure Time Series Insights Preview data querying.
+description: Data querying concepts and HTTP REST API overview in Azure Time Series Insights Preview.
 author: deepakpalled
 ms.author: dpalled
 manager: cshankar

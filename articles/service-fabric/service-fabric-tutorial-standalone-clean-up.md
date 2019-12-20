@@ -1,18 +1,9 @@
 ---
-title: Tutorial cleanup Service Fabric standalone cluster - Azure Service Fabric | Microsoft Docs
+title: Tutorial cleanup Service Fabric standalone cluster - Azure Service Fabric 
 description: In this tutorial you learn how to clean up your standalone cluster
-services: service-fabric
-documentationcenter: .net
 author: dkkapur
-manager: chackdan
-editor: ''
 
-ms.assetid: 
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 07/22/2019
 ms.author: dekapur
 ms.custom: mvc
