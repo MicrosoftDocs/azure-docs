@@ -18,7 +18,7 @@ ms.author: alsin
 ---
 
 # Red Hat Enterprise Linux images available in Azure
-This is a comprehensive list of RHEL images available in Azure. Unless otherwise stated, all images are LVM-partitioned and attached to regular RHEL repositories (not EUS, not E4S). The following images are currently available for general use:
+This is a list of RHEL images available in Azure. Unless otherwise stated, all images are LVM-partitioned and attached to regular RHEL repositories (not EUS, not E4S). The following images are currently available for general use:
 
 Offer| SKU | Partitioning | Provisioning | Notes
 :----|:----|:-------------|:-------------|:-----
