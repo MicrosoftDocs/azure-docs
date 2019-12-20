@@ -301,7 +301,7 @@ When you set up a failover group between primary and secondary managed instances
 
 ## Changing failover group regions
 
-I some cases you may need to change the primary or secondary region of the failover group. You can do by following the below process. Changing failover group regions will result in some downtime, but the update process ensures that the primary databases always remain protected by at least one secondary.
+I some cases you may need to change the primary or secondary region of the failover group. You can do it by following the below process. Changing failover group regions will result in some downtime, but the process ensures that the primary databases always remain protected by at least one secondary.
 
 ### Updating secondary region of the failover group
 
