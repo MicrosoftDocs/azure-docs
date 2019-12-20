@@ -41,7 +41,7 @@ Automated ML provides users with both native time-series and deep learning model
 
 Automated ML's deep learning allows for forecasting univariate and multivariate time series data.
 
-Deep learning models have three intrinsic capbailities:
+Deep learning models have three intrinsic capabilities:
 1. They can learn from arbitrary mappings from inputs to outputs
 1. They support multiple inputs and outputs
 1. They can automatically extract patterns in input data that spans over long sequences
