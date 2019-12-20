@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Process Apache Kafka events using Stream analytics - Azure Event Hubs'
+title: 'Azure Event Hubs - Process Apache Kafka events'
 description: 'Tutorial: This article shows how to process Kafka events that are ingested through event hubs by using Azure Stream Analytics'
 services: event-hubs
 documentationcenter: ''
