@@ -1,5 +1,6 @@
 - name: Azure Reservations documentation
   href: index.yml
+  items:
   - name: Overview
     expanded: true
     items:
@@ -69,7 +70,7 @@
       href: understand-reserved-instance-usage.md
     - name: Usage data for Enterprise customers
       href: understand-reserved-instance-usage-ea.md
-- name: Reference
-  items:
-  - name: Azure Reservation APIs
-    href: reservation-apis.md
+  - name: Reference
+    items:
+    - name: Azure Reservation APIs
+      href: reservation-apis.md
