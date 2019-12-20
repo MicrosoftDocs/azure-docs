@@ -9,7 +9,7 @@
   - name: Resource Manager and classic deployment
     href: deployment-models.md
   - name: Azure common security attributes
-    href: azure-resource-manager-security-attributes.md
+    href: azure-resource-manager-security-controls.md
 - name: How to
   items:
   - name: Move - resource groups/subscriptions
@@ -31,7 +31,7 @@
       - name: Networking
         href: ./move-limitations/networking-move-limitations.md
       - name: Recovery Services
-        href: ../backup/backup-azure-move-recovery-services-vault.md?toc=/azure/azure-resource-manager/toc.json
+        href: ../../backup/backup-azure-move-recovery-services-vault.md?toc=/azure/azure-resource-manager/toc.json
       - name: Virtual Machines
         href: ./move-limitations/virtual-machines-move-limitations.md
   - name: Move - regions

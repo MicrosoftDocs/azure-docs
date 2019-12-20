@@ -23,7 +23,7 @@ highlightedContent:
      # Card
     - title: What are ARM templates?
       itemType: overview
-      url: templates/template-deployment-overview.md
+      url: templates/overview.md
     # Card
     - title: Create your first template
       itemType: tutorial
@@ -31,7 +31,7 @@ highlightedContent:
     # Card
     - title: What is Resource Manager?
       itemType: overview
-      url: management/resource-group-overview.md
+      url: management/overview.md
     
 # conceptualContent section (optional)
 conceptualContent:
@@ -40,19 +40,19 @@ conceptualContent:
     # Card
     - title: Deploy ARM templates
       links:
-        - url: templates/template-deployment-overview.md
+        - url: templates/overview.md
           itemType: overview
           text: Overview
         - url: templates/template-tutorial-create-first-template.md
           itemType: tutorial
           text: Beginner tutorial series
-        - url: templates/resource-group-authoring-templates.md
+        - url: templates/template-syntax.md
           itemType: reference
           text: Template file structure
-        - url: templates/resource-group-template-functions.md
+        - url: templates/template-functions.md
           itemType: reference
           text: Template functions
-        - url: templates/resource-group-template-deploy.md
+        - url: templates/deploy-powershell.md
           itemType: how-to-guide
           text: Deploy
         - url: templates/template-best-practices.md
@@ -65,19 +65,19 @@ conceptualContent:
     # Card
     - title: Manage resources
       links:
-        - url: management/resource-group-overview.md
+        - url: management/overview.md
           itemType: overview
           text: Overview
-        - url: management/resource-group-using-tags.md
+        - url: management/tag-resources.md
           itemType: how-to-guide
           text: Tag resources
-        - url: management/resource-group-move-resources.md
+        - url: management/move-resource-group-and-subscription.md
           itemType: concept
           text: Move resources
-        - url: management/resource-group-lock-resources.md
+        - url: management/lock-resources.md
           itemType: how-to-guide
           text: Lock resources
-        - url: management/resource-manager-supported-services.md
+        - url: management/resource-providers-and-types.md
           itemType: concept
           text: Resource providers and types
       # footerLink (optional)
