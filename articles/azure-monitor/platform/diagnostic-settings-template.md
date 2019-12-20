@@ -72,12 +72,12 @@ Following is an example that creates a diagnostic setting for an autoscale setti
 	"$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
 	"contentVersion": "1.0.0.0",
 	"parameters": {
-    "autoscaleSettingName": {
-      "type": "string",
-      "metadata": {
-        "description": "The name of the autoscale setting"
-      }
-    },
+		"autoscaleSettingName": {
+			"type": "string",
+			"metadata": {
+				"description": "The name of the autoscale setting"
+			}
+    	},
 		"settingName": {
 			"type": "string",
 			"metadata": {
