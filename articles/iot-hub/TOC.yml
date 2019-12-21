@@ -367,41 +367,41 @@
             - name: Device management with IoT extension for Azure CLI
               href: iot-hub-device-management-iot-extension-azure-cli-2-0.md
             - name: Remote monitoring and notifications with ​Logic ​Apps
-              href: iot-hub-monitoring-notifications-with-azure-logic-apps.md
-  - name: Troubleshoot
-    items:
-    - name: Find Azure IoT Hub errors
-      href: iot-hub-troubleshoot-errors.md
-    - name: Problem resolution
+              href: iot-hub-monitoring-notifications-with-azure-logic-apps.md     
+    - name: Troubleshoot
       items:
-      - name: 401002 AuthenticationFailed
-        href: iot-hub-troubleshoot-error-401002-authenticationfailed.md
-      - name: 401003 IoTHubUnauthorized
-        href: iot-hub-troubleshoot-error-401003-iothubunauthorized.md
-      - name: 403004 DeviceMaximumQueueDepthExceeded
-        href: iot-hub-troubleshoot-error-403004-devicemaximumqueuedepthexceeded.md
-      - name: 403006 Number of active file upload requests exceeded limit
-        href: iot-hub-troubleshoot-error-403006-number-of-active-file-upload-requests-exceeded-limit.md
-      - name: 404001 DeviceNotFound
-        href: iot-hub-troubleshoot-error-404001-devicenotfound.md
-      - name: 404003 DeviceNotOnline
-        href: iot-hub-troubleshoot-error-404103-devicenotonline.md
-      - name: 404104 DeviceConnectionClosedRemotely
-        href: iot-hub-troubleshoot-error-404104-deviceconnectionclosedremotely.md
-      - name: 409002 LinkCreationConflict
-        href: iot-hub-troubleshoot-error-409002-linkcreationconflict.md
-      - name: 429001 ThrottlingException
-        href: iot-hub-troubleshoot-error-429001-throttlingexception.md
-      - name: 500xxx Internal errors
-        href: iot-hub-troubleshoot-error-500xxx-internal-errors.md
-      - name: DeliveryCountExceeded (no error code)
-        href: iot-hub-troubleshoot-error-no-code-deliverycountexceeded.md
-      - name: MessageExpired (no error code)
-        href: iot-hub-troubleshoot-error-no-code-messageexpired.md
-      - name: Unauthorized (no error code)
-        href: iot-hub-troubleshoot-error-no-code-unauthorized.md
-    - name: Device disconnections TO BE REMOVED
-      href: iot-hub-troubleshoot-connectivity.md
+        - name: Find Azure IoT Hub errors
+          href: iot-hub-troubleshoot-errors.md
+        - name: Problem resolution
+          items:
+            - name: 401002 AuthenticationFailed
+              href: iot-hub-troubleshoot-error-401002-authenticationfailed.md
+            - name: 401003 IoTHubUnauthorized
+              href: iot-hub-troubleshoot-error-401003-iothubunauthorized.md
+            - name: 403004 DeviceMaximumQueueDepthExceeded
+              href: iot-hub-troubleshoot-error-403004-devicemaximumqueuedepthexceeded.md
+            - name: 403006 Number of active file upload requests exceeded limit
+              href: iot-hub-troubleshoot-error-403006-number-of-active-file-upload-requests-exceeded-limit.md
+            - name: 404001 DeviceNotFound
+              href: iot-hub-troubleshoot-error-404001-devicenotfound.md
+            - name: 404003 DeviceNotOnline
+              href: iot-hub-troubleshoot-error-404103-devicenotonline.md
+            - name: 404104 DeviceConnectionClosedRemotely
+              href: iot-hub-troubleshoot-error-404104-deviceconnectionclosedremotely.md
+            - name: 409002 LinkCreationConflict
+              href: iot-hub-troubleshoot-error-409002-linkcreationconflict.md
+            - name: 429001 ThrottlingException
+              href: iot-hub-troubleshoot-error-429001-throttlingexception.md
+            - name: 500xxx Internal errors
+              href: iot-hub-troubleshoot-error-500xxx-internal-errors.md
+            - name: DeliveryCountExceeded (no error code)
+              href: iot-hub-troubleshoot-error-no-code-deliverycountexceeded.md
+            - name: MessageExpired (no error code)
+              href: iot-hub-troubleshoot-error-no-code-messageexpired.md
+            - name: Unauthorized (no error code)
+              href: iot-hub-troubleshoot-error-no-code-unauthorized.md
+        - name: Device disconnections TO BE REMOVED
+          href: iot-hub-troubleshoot-connectivity.md
 - name: Reference
   items:
     - name: Azure CLI
