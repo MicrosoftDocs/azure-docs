@@ -3,8 +3,8 @@ title: Quickstart to learn how to use Azure App Configuration | Microsoft Docs
 description: A quickstart for using Azure App Configuration with Java Spring apps.
 services: azure-app-configuration
 documentationcenter: ''
-author: yidon
-manager: jeffya
+author: lisaguthrie
+manager: maiye
 editor: ''
 
 ms.assetid: 
@@ -13,8 +13,8 @@ ms.devlang: java
 ms.topic: quickstart
 ms.tgt_pltfrm: Spring
 ms.workload: tbd
-ms.date: 01/08/2019
-ms.author: yidon
+ms.date: 12/17/2019
+ms.author: lcozzens
 
 #Customer intent: As a Java Spring developer, I want to manage all my app settings in one place.
 ---
@@ -65,7 +65,7 @@ You use the [Spring Initializr](https://start.spring.io/) to create a new Spring
     <dependency>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>spring-cloud-starter-azure-appconfiguration-config</artifactId>
-        <version>1.1.0.M5</version>
+        <version>1.1.0.M6</version>
     </dependency>
     ```
 
