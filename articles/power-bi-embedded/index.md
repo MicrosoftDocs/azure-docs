@@ -1,5 +1,5 @@
 ---
-title: Azure Power BI Embedded Documentation - Tutorials, API Reference | Microsoft Docs
+title: Azure Power BI Embedded Documentation
 description: Learn how to embed Power BI data visualizations and interactive reports into apps. Tutorials, API references, and other documentation.
 services: power-bi-embedded
 author: rkarlin
