@@ -10,7 +10,7 @@ ms.date: 12/15/2019
 ---
 
 # Quickstart: Monitor an Azure resource with Azure Monitor
-[Azure Monitor](../overview.md) starts collecting data from Azure resources the moment that they're created. This quickstart provides a brief walkthrough of the data that's collected and how to view it in the Azure portal for a particular resource. Once you understand the data that's available, you can go to the **Azure Monitor** menu to use the same tools to access data collected for all the resources in your subscription.
+[Azure Monitor](../overview.md) starts collecting data from Azure resources the moment that they're created. This quickstart provides a brief walkthrough of the data that's automatically collected for a resource and how to view it in the Azure portal for a particular resource. Later, you can add configuration to collect additional data and can go to the Azure Monitor menu to use the same tools to access data collected for all the resources in your subscription.
 
 For more detailed descriptions of monitoring data collected from Azure resources  see [Monitoring Azure resources with Azure Monitor](../insights/monitor-azure-resource.md).
 
@@ -28,6 +28,8 @@ Many services will include monitoring data on their **Overview** page as a quick
 
     ![Overview page](media/quick-monitor-azure-resource/overview.png)
 
+3. You can click on any of the graphs to open the data in metrics explorer which is described below.
+
 ## View the Activity log
 The Activity log provides insight into the operations on each Azure resource in the subscription. This will include such information as when a resource is created or modified, when a job is started, or when a particular operation occurs.
 
@@ -43,7 +45,7 @@ The Activity log provides insight into the operations on each Azure resource in 
 
 
 ## View metrics
-Metrics are numerical values that describe some aspect of your resource at a particular time. Azure Monitor automatically collects platform metrics at one minute intervals from all Azure resources. You can view these metrics using Metrics explorer.
+Metrics are numerical values that describe some aspect of your resource at a particular time. Azure Monitor automatically collects platform metrics at one minute intervals from all Azure resources. You can view these metrics using metrics explorer.
 
 1. Under the **Monitoring** section of your resource's menu, select **Metrics**. This opens metrics explorer with the scope set to your resource.
 2. Click **Add metric** to add a metric to the chart.

@@ -11,7 +11,7 @@ ms.date: 12/15/2019
 
 # Tutorial: Collect and analyze resource logs from an Azure resource
 
-Resource logs provide insight into the detailed operation of an Azure resource and are useful for monitoring their health and availability. Azure resources generate resource logs automatically, but you must configure where these logs should be collected. This tutorial takes you through the process of creating a diagnostic setting to collect resource logs for a resource in your Azure subscription and analyzing it with a log query.
+Resource logs provide insight into the detailed operation of an Azure resource and are useful for monitoring their health and availability. Azure resources generate resource logs automatically, but you must configure where they should be collected. This tutorial takes you through the process of creating a diagnostic setting to collect resource logs for a resource in your Azure subscription and analyzing it with a log query.
 
 In this tutorial, you learn how to:
 
@@ -31,7 +31,7 @@ Log in to the Azure portal at [https://portal.azure.com](https://portal.azure.co
 
 
 ## Create a Log Analytics workspace
-A Log Analytics workspace in Azure Monitor collects nd indexes log data from a variety of sources and allows advanced analysis using a powerful query language. The Log Analytics workspace needs to exist before you create a diagnostic setting to send data into it. You can use an existing workspace in your Azure subscription or create one with the following procedure. 
+A Log Analytics workspace in Azure Monitor collects and indexes log data from a variety of sources and allows advanced analysis using a powerful query language. The Log Analytics workspace needs to exist before you create a diagnostic setting to send data into it. You can use an existing workspace in your Azure subscription or create one with the following procedure. 
 
 > [!NOTE]
 > While you can work with data in Log Analytics workspaces in the **Azure Monitor** menu, you create and manage workspaces in the **Log Analytics workspaces** menu.
@@ -57,17 +57,17 @@ A Log Analytics workspace in Azure Monitor collects nd indexes log data from a v
     ![Diagnostic settings](media/tutorial-resource-logs/diagnostic-settings.png)
 
 3. Each diagnostic setting has three basic parts:
-4. 
+ 
    - **Name**: This has no significant effect and should simply be descriptive to you.
-   - **Destinations**: One or more destinations to send the logs. These will be the same three destinations for all Azure services. Each diagnostic setting can define one or more destinations but no more than one destination of a particular type. 
+   - **Destinations**: One or more destinations to send the logs. All Azure services share the same set of three possible destinations. Each diagnostic setting can define one or more destinations but no more than one destination of a particular type. 
    - **Categories**: Categories of logs to send to each of the destinations. The set of categories will vary for each Azure service.
 
-5. Select **Send to Log Analytics workspace** and then select the workspace that you created.
-6. Select the categories that you want to collect. See the documentation for the services for a definition of its available categories.
+4. Select **Send to Log Analytics workspace** and then select the workspace that you created.
+5. Select the categories that you want to collect. See the documentation for each service for a definition of its available categories.
 
     ![Diagnostic setting](media/tutorial-resource-logs/diagnostic-setting.png)
 
-7. Click **Save** to save the diagnostic settings.
+6. Click **Save** to save the diagnostic settings.
 
     
  

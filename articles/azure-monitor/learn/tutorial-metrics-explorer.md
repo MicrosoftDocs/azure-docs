@@ -1,5 +1,5 @@
 ---
-title: Create a metrics chart in Azure Monitor
+title: Tutorial - Create a metrics chart in Azure Monitor
 description: Learn how to create your first metric chart with Azure metrics explorer.
 author: bwren
 services: azure-monitor
@@ -19,7 +19,6 @@ In this tutorial, you learn how to:
 > * Add a metric value to a chart
 > * Perform different aggregations on metric values
 > * Modify the time range and granularity for the chart
-> * Identify resources to help with advanced features that provide additional analysis on metric data
 
 ## Prerequisites
 
@@ -34,7 +33,7 @@ You can open metrics explorer either from the Azure Monitor menu or from a resou
 
 1. Select **Metrics** from the **Azure Monitor** menu or from the **Monitoring** section of a resource's menu.
 
-1. Select the **Scope** which is the resource you want to see metrics for. The scope is already populated if you opened metrics explorer from a resource's menu.
+1. Select the **Scope**, which is the resource you want to see metrics for. The scope is already populated if you opened metrics explorer from a resource's menu.
 
     ![Select a scope](media/tutorial-metrics-explorer/scope-picker.png)
 
@@ -52,7 +51,7 @@ You can open metrics explorer either from the Azure Monitor menu or from a resou
 
 ## Select a time range and granularity
 
-By default, the chart shows the most recent 24 hours of metrics data. Use the time picker to change the **Time range** for the chart or the **Time granularity** which defines the time range for each data point. The chart uses the specified aggregation to calculate all sampled values over the time granularity specified 
+By default, the chart shows the most recent 24 hours of metrics data. Use the time picker to change the **Time range** for the chart or the **Time granularity** which defines the time range for each data point. The chart uses the specified aggregation to calculate all sampled values over the time granularity specified.
 
 ![Change time range panel](media/tutorial-metrics-explorer/time-picker.png)
 
@@ -64,11 +63,11 @@ Use the **time brush** to investigate an interesting area of the chart such as a
 ## Apply dimension filters and splitting
 See the following references for advanced features that allow you to perform additional analysis on your metrics and identify potential outliers in your data.
 
-- [Filtering](../platform/metrics-charts.md#apply-filters-to-charts) lets you choose which dimension values are included in the chart. For example, you might want to show successful requests when charting the *server response time* metric. 
+- [Filtering](../platform/metrics-charts.md#apply-filters-to-charts) lets you choose which dimension values are included in the chart. For example, you might want to show only successful requests when charting a *server response time* metric. 
 
-- [Splitting](../platform/metrics-charts.md#apply-splitting-to-a-chart) controls whether the chart displays separate lines for each value of a dimension, or aggregates the values into a single line. For example, you can see one line for an average response time across all server instances, or see separate lines for each server. 
+- [Splitting](../platform/metrics-charts.md#apply-splitting-to-a-chart) controls whether the chart displays separate lines for each value of a dimension, or aggregates the values into a single line. For example, you might want to see one line for an average response time across all server instances or you may want separate lines for each server. 
 
-See [examples of the charts](../platform/metric-chart-samples.md) that have filtering and splitting applied. The article shows the steps were used to configure the charts.
+See [examples of the charts](../platform/metric-chart-samples.md) that have filtering and splitting applied.
 
 ## Advanced chart settings
 
