@@ -42,7 +42,7 @@ The image below shows an invoice with two invoice sections - Engineering and Mar
 
 ![Image showing an invoice with sections](./media/billing-mca-section-invoice/mca-invoice-with-sections.png)
 
-## Structure your billing account to organize your costs
+## Billing account structure for common scenarios
 
 This section describes common scenarios for organizing costs and corresponding billing account structures:
 
@@ -64,7 +64,7 @@ This section describes common scenarios for organizing costs and corresponding b
 
 ![Info graphic for a simple billing scenario](./media/billing-mca-section-invoice/organize-billing-scenario3.png)
 
-## Create an invoice section in the Azure portal
+## Create a new invoice section
 
 To create an invoice section, you need to be a **billing profile owner** or a **billing profile contributor**. For more information, see [Manage invoice sections for billing profile](billing-understand-mca-roles.md#manage-invoice-sections-for-billing-profile).
 
@@ -88,7 +88,7 @@ To create an invoice section, you need to be a **billing profile owner** or a **
 
 6. Select **Create**.
 
-## Create a billing profile in the Azure portal
+## Create a new billing profile
 
 To create a billing profile, you need to be a **billing account owner** or a **billing account contributor**. For more information, see [Manage billing profiles for billing account](billing-understand-mca-roles.md#manage-billing-profiles-for-billing-account).
 
@@ -119,11 +119,11 @@ To create a billing profile, you need to be a **billing account owner** or a **b
 
 5. Select **Create**.
 
-## Link charges to an invoice section and a billing profile
+## Link charges to invoice sections and billing profiles
 
 Once you have customized your billing account based on your needs, you can link subscriptions and other products to your desired invoice section and billing profile.
 
-### Link a new subscription
+### Create a new subscription
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -149,7 +149,7 @@ Once you have customized your billing account based on your needs, you can link 
 
 Your new subscription is created. The charges for Azure usage and other purchases for this subscription will be billed to the selected billing profile. They will be displayed under the selected invoice section of the billing profile's invoice.
 
-### Link existing subscriptions and other products
+### Link existing subscriptions and products
 
 If you have existing Azure subscriptions or other products such as Azure Marketplace and App source resources, you can move them from their existing invoice section to another invoice section to reorganize their costs. 
 
@@ -175,9 +175,9 @@ If you have existing Azure subscriptions or other products such as Azure Marketp
 
 6. Select **Save**.
 
-## Things to consider before creating new billing profiles
+## Things to consider when creating new billing profiles
 
-### Cost of Azure usage may increase
+### Azure usage charges may increase
 
 In your billing account for a Microsoft Customer Agreement, Azure usage is aggregated monthly for each billing profile. The prices for Azure resources with tiered pricing are determined based on the usage for each billing profile separately. The usage is not aggregated across billing profiles when calculating the price. This may impact overall cost of Azure usage for accounts with multiple billing profiles.
 
@@ -217,7 +217,7 @@ Now, let's assume you created another billing profile and used 50 GB through sub
 
 The total charges for using 100 TB of data in this scenario is **184.0** (92.0 * 2).
 
-### Azure reservation benefits might not be applied to all subscriptions
+### Azure reservation benefits might not apply to all subscriptions
 
 Azure reservations with shared scope are applied to subscriptions in a single billing profile and are not shared across billing profiles. 
 
