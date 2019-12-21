@@ -82,7 +82,7 @@ If you wish to customize and share the report, create a workspace and do the fol
 4. Enter the name of the storage account that was configured in the previous step 5, and select **Next**.
 
     ![Enter storage account name](./media/backup-azure-configure-reports/content-pack-storage-account-name.png)
-5. Using Authentication method "Key", enter the storage account key for this storage account. To [view and copy storage access keys](../storage/common/storage-account-manage.md#access-keys), go to your storage account in the Azure portal.
+5. Using Authentication method "Key", enter the storage account key for this storage account. You can find your storage account access keys in the Azure portal. For more information, see [Manage storage account access keys](../storage/common/storage-account-keys-manage.md).
 
      ![Enter storage account](./media/backup-azure-configure-reports/content-pack-storage-account-key.png) <br/>
 

@@ -73,6 +73,22 @@
         href: ./hdinsight-hadoop-create-linux-clusters-curl-rest.md
       - name: Create clusters using .NET
         href: ./hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md
+      - name: Cluster creation errors
+        href: ./create-cluster-error-dictionary.md
+        title: 
+        summary: 
+        abstract: 
+        achievement: 
+        iconUrl: 
+        levels:
+          - 
+        roles:
+          - 
+        products:
+          - 
+        units:
+          - 
+        
     - name: Use cluster storage
       items:
       - name: Using Azure Storage
@@ -533,6 +549,8 @@
       href: ./hdinsight-apache-kafka-spark-structured-streaming.md
   - name: Concepts
     items:
+    - name: Migrate Kafka workloads to 4.0
+      href: ./kafka/migrate-versions.md
     - name: Storage and scalability
       href: ./kafka/apache-kafka-scalability.md
     - name: High availability of data
@@ -545,6 +563,8 @@
     items:
     - name: Develop
       items:
+      - name: Use Kafka REST proxy
+        href: ./kafka/rest-proxy.md
       - name: Enable auto topic creation
         href: ./kafka/apache-kafka-auto-create-topics.md
       - name: Use Apache Kafka with IoT Hub
@@ -835,14 +855,14 @@
       href: ./hdinsight-service-tags.md
   - name: How to
     items:
+    - name: Use ID Broker for credential management
+      href: ./domain-joined/identity-broker.md    
     - name: Create ESP clusters and sync with on-premises
       href: ./domain-joined/apache-domain-joined-create-configure-enterprise-security-cluster.md
     - name: Create VNETs for HDInsight
       href: ./hdinsight-create-virtual-network.md
     - name: Connect HDInsight with on-premises network
       href: ./connect-on-premises-network.md
-    - name: Configure enterprise security in HDInsight
-      href: ./domain-joined/apache-domain-joined-configure.md
     - name: Configure ESP clusters using Azure AD DS
       href: ./domain-joined/apache-domain-joined-configure-using-azure-adds.md
     - name: Synchronize Azure AD users to an HDInsight cluster

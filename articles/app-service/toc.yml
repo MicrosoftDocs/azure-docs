@@ -163,7 +163,7 @@
         href: configure-authentication-provider-twitter.md
     - name: Advanced auth
       href: app-service-authentication-how-to.md
-    - name: Restrict IPs
+    - name: Restrict access
       href: app-service-ip-restrictions.md
     - name: Use a managed identity
       href: overview-managed-identity.md
