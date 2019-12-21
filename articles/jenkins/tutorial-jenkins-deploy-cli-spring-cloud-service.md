@@ -68,13 +68,13 @@ Your local machine needs to meet the same prerequisite as the Jenkins build serv
 
     ```bash
         mkdir source-code
-        git clone https://github.com/<your GiHub id>/piggymetrics
+        git clone https://github.com/<your GitHub id>/piggymetrics
     ```
 
-5. Set up your configuration server. Make sure you replace &lt;your GiHub id&gt; with the correct value.
+5. Set up your configuration server. Make sure you replace &lt;your GitHub id&gt; with the correct value.
 
     ```Azure CLI
-        az spring-cloud config-server git set -n <your-service-name> --uri https://github.com/<your GiHub id>/piggymetrics --label config
+        az spring-cloud config-server git set -n <your-service-name> --uri https://github.com/<your GitHub id>/piggymetrics --label config
     ```
 
 6. Build the project:
@@ -187,7 +187,7 @@ The sample pipeline uses Maven to build and Az CLI to deploy to the service inst
     ```
 
 ## Create a Jenkinsfile
-1. In your own repo (https://github.com/&lt;your GiHub id&gt;/piggymetrics), create a **Jenkinsfile** in the root.
+1. In your own repo (https://github.com/&lt;your GitHub id&gt;/piggymetrics), create a **Jenkinsfile** in the root.
 
 2. Update the file as follows. Make sure you replace the values of **\<resource group name>** and **\<service name>**. Replace **azure_service_principal** with the right ID if you use a different value when you added the credential in Jenkins. 
 
@@ -233,7 +233,7 @@ The sample pipeline uses Maven to build and Az CLI to deploy to the service inst
 
 5. For **SCM**, select **Git**.
 
-6. Enter the GitHub URL for your forked repo: **https://github.com/&lt;your GiHub id&gt;/piggymetrics.git**
+6. Enter the GitHub URL for your forked repo: **https://github.com/&lt;your GitHub id&gt;/piggymetrics.git**
 
 7. Make sure **Branch Specifier (black for 'any')** is ***/Azure**
 
