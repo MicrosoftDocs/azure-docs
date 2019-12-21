@@ -1,7 +1,7 @@
 ---
-title: Run your first query using Azure Resource Graph Explorer
-description: This article walks you through the steps to run your first query from Azure portal using Azure Resource Graph Explorer.
-ms.date: 10/21/2019
+title: "Quickstart: Your first portal query"
+description: In this quickstart, you follow the steps to run your first query from Azure portal using Azure Resource Graph Explorer.
+ms.date: 11/21/2019
 ms.topic: quickstart
 ---
 # Quickstart: Run your first Resource Graph query using Azure Resource Graph Explorer
@@ -14,6 +14,8 @@ of some queries into a chart that can be pinned to an Azure dashboard.
 
 At the end of this quickstart, you'll have used Azure portal and Resource Graph Explorer to run your
 first Resource Graph query and pinned the results to a dashboard.
+
+## Prerequisites
 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account
 before you begin.
@@ -133,13 +135,15 @@ your Azure portal workflow, try out these example dashboards.
 
 1. In Azure portal, select **Dashboard** from the left pane.
 
-1. Select **Upload**, then locate and select the downloaded sample dashboard file. Then select **Open**.
+1. Select **Upload**, then locate and select the downloaded sample dashboard file. Then select
+   **Open**.
 
 The imported dashboard is automatically displayed. Since it now exists in your Azure portal, you may
 explore and make changes as needed or create new dashboards from the example to share with your
-teams. For more information about working with dashboards, see [Create and share dashboards in the Azure portal](../../azure-portal/azure-portal-dashboards.md).
+teams. For more information about working with dashboards, see
+[Create and share dashboards in the Azure portal](../../azure-portal/azure-portal-dashboards.md).
 
-## Clean-up resources
+## Clean up resources
 
 If you wish to remove the sample Resource Graph dashboards from your Azure portal environment, you
 can do so with the following steps:
@@ -153,9 +157,9 @@ can do so with the following steps:
 
 ## Next steps
 
-- Get more information about the [query language](./concepts/query-language.md).
-- Learn more about how to [explore resources](./concepts/explore-resources.md).
-- Run your first query with [Azure CLI](first-query-azurecli.md).
-- See samples of [Starter queries](./samples/starter.md).
-- See samples of [Advanced queries](./samples/advanced.md).
-- Provide feedback on [UserVoice](https://feedback.azure.com/forums/915958-azure-governance).
+In this quickstart, you've used Azure Resource Graph Explorer to run your first query and looked at
+dashboard examples powered by Resource Graph. To learn more about the Resource graph language,
+continue to the query language details page.
+
+> [!div class="nextstepaction"]
+> [Get more information about the query language](./concepts/query-language.md)

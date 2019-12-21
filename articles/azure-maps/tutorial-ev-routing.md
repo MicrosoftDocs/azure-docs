@@ -1,9 +1,9 @@
 ---
-title: Route electric vehicles by using Azure Notebooks (Python) | Microsoft Docs
-description: Route electric vehicles by using Azure Maps routing APIs and Azure Notebooks.
+title: 'Tutorial: Route electric vehicles by using Azure Notebooks (Python)'
+description: 'Tutorial: Route electric vehicles by using Azure Maps routing APIs and Azure Notebooks.'
 author: walsehgal
 ms.author: v-musehg
-ms.date: 10/01/2019
+ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
@@ -11,7 +11,7 @@ manager: philmea
 ms.custom: mvc
 ---
 
-# Route electric vehicles by using Azure Notebooks (Python)
+# Tutorial: Route electric vehicles by using Azure Notebooks (Python)
 
 Azure Maps is a portfolio of geospatial service APIs that are natively integrated into Azure. With these APIs, developers, enterprises, and ISVs can create location-aware apps and IoT, mobility, logistics, and asset tracking solutions. 
 
@@ -34,9 +34,11 @@ In this tutorial, you will:
 
 To complete this tutorial, you first need to create an Azure Maps account and get your primary key (subscription key). 
 
-To create an Azure Maps account subscription in the S1 pricing tier, follow the instructions in [Manage your Azure Maps account](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys#create-a-new-account). 
+To create an Azure Maps account subscription in the S1 pricing tier, follow instructions in [Create an account](quick-demo-map-app.md#create-an-account-with-azure-maps) to create an Azure Maps account subscription with S1 pricing tier. 
 
-To get the primary subscription key for your account, follow the instructions in [Create an account and get your key](https://docs.microsoft.com/azure/azure-maps/quick-demo-map-app#create-an-account-and-get-your-key).
+To get the primary subscription key for your account, follow the instructions in [get primary key](quick-demo-map-app.md#get-the-primary-key-for-your-account).
+
+For more details on authentication in Azure Maps, see [manage authentication in Azure Maps](./how-to-manage-authentication.md).
 
 ## Create an Azure notebook
 
@@ -106,7 +108,7 @@ Because the company prefers to use routes that require a balance of economy and 
 To determine the boundaries for the electric vehicle's reachable range, run the script in the following cell:
 
 ```python
-subscriptionKey = "Your Azure Maps primary subscription key"
+subscriptionKey = "Your Azure Maps key"
 currentLocation = [34.028115,-118.5184279]
 session = aiohttp.ClientSession()
 

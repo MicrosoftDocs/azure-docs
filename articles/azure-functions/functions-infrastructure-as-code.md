@@ -1,15 +1,10 @@
 ---
-title: Automate resource deployment for a function app in Azure Functions | Microsoft Docs
+title: Automate function app resource deployment to Azure
 description: Learn how to build an Azure Resource Manager template that deploys your function app.
-author: ggailey777
-manager: gwallace
-keywords: azure functions, functions, serverless architecture, infrastructure as code, azure resource manager
 
 ms.assetid: d20743e3-aab6-442c-a836-9bcea09bfd32
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 04/03/2019
-ms.author: glenga
 ---
 
 # Automate resource deployment for your function app in Azure Functions

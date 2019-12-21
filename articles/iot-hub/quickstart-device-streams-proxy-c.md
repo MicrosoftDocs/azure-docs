@@ -1,5 +1,5 @@
 ---
-title: Azure IoT Hub device streams C quickstart for SSH and RDP (preview) | Microsoft Docs
+title: Azure IoT Hub device streams C quickstart for SSH and RDP
 description: In this quickstart, you run a sample C application that acts as a proxy to enable SSH and RDP scenarios over IoT Hub device streams.
 author: robinsh
 ms.service: iot-hub
@@ -71,18 +71,19 @@ For this quickstart, you use the [Azure IoT device SDK for C](iot-hub-device-sdk
 
     It's important that the Visual Studio prerequisites (Visual Studio and the *Desktop development with C++* workload) are installed on your machine, *before* you start the CMake installation. After the prerequisites are in place and the download is verified, you can install the CMake build system.
 
-1. Open a command prompt or Git Bash shell. Execute the following command to clone the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) GitHub repository:
+1. Open a command prompt or Git Bash shell. Run the following commands to clone the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) GitHub repository:
 
-    ```
-    git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive -b public-preview
-    ```
-
-    You should expect this operation to take a few minutes.
-
-1. Create a *cmake* subdirectory in the root directory of the Git repository, as shown in the following command, and navigate to that folder.
-
-    ```
+    ```cmd/sh
+    git clone -b public-preview https://github.com/Azure/azure-iot-sdk-c.git
     cd azure-iot-sdk-c
+    git submodule update --init
+    ```
+
+    This operation should take a few minutes.
+
+1. Create a *cmake* subdirectory in the root directory of the git repository, and navigate to that folder. Run the following commands from the *azure-iot-sdk-c* directory:
+
+    ```cmd/sh
     mkdir cmake
     cd cmake
     ```
@@ -104,6 +105,9 @@ For this quickstart, you use the [Azure IoT device SDK for C](iot-hub-device-sdk
 
       rem Or for VS2017
       cmake .. -G "Visual Studio 15 2017"
+
+      rem Or for VS2019
+      cmake .. -G "Visual Studio 16 2019"
 
       rem Then build the project
       cmake --build . -- /m /p:Configuration=Release

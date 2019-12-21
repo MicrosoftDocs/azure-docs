@@ -1,5 +1,5 @@
 ---
-title: Send custom metrics for an Azure resource to the Azure Monitor metric store by using a REST API
+title: Send metrics to the Azure Monitor metric database using REST API
 description: Send custom metrics for an Azure resource to the Azure Monitor metric store by using a REST API
 author: anirudhcavale
 services: azure-monitor

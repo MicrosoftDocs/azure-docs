@@ -91,7 +91,7 @@
       items:
       - name: 1 - Make your application highly available
         href: storage-create-geo-redundant-storage.md
-      - name: 2 - Simulate a failure with RA-GRS storage
+      - name: 2 - Simulate a failure in reading data from the primary region
         href: storage-simulate-failure-ragrs-account-app.md
     - name: Encrypt and decrypt blobs using Azure Key Vault
       href: storage-encrypt-decrypt-blobs-key-vault.md
@@ -115,11 +115,11 @@
       href: ../common/storage-account-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Security
       items:
-      - name: Security overview
-        href: ../common/storage-security-guide.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: Security recommendations
+        href: security-recommendations.md
       - name: Azure Storage encryption
         href: ../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Authorization
+      - name: Authorizing data operations
         href: ../common/storage-auth.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         items:
         - name: Authorize with Azure AD
@@ -130,6 +130,8 @@
           href: ../common/storage-sas-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Anonymous access to blobs
           href: storage-manage-access-to-resources.md
+      - name: Authorizing management operations
+        href: ../common/authorization-resource-provider.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Immutable blobs
         href: storage-blob-immutable-storage.md
       - name: Advanced threat protection
@@ -151,7 +153,7 @@
         href: ../common/storage-redundancy-gzrs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Disaster recovery and failover
         href: ../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Designing HA Apps using RA-GRS
+      - name: Design highly available applications
         href: ../common/storage-designing-ha-apps-with-ragrs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Access and performance tiers
       items:
@@ -259,11 +261,9 @@
       items:
       - name: Create a general-purpose storage account
         displayName: Resource Manager, Resource Manager template, template, ARM
-        href: ../common/storage-quickstart-create-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        href: ../common/storage-account-create.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Create a block blob storage account
         href: storage-blob-create-account-block-blob.md
-      - name: Manage a storage account
-        href: ../common/storage-account-manage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Upgrade a storage account
         href: ../common/storage-account-upgrade.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Get account type and SKU name (.NET)
@@ -312,6 +312,8 @@
             href: ../common/storage-auth-aad-app.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Authorize with Shared Key
           items:
+          - name: View and manage account keys
+            href: ../common/storage-account-keys-manage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
           - name: Configure connection strings
             href: ../common/storage-configure-connection-string.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
           - name: Use the Azure Storage REST API
@@ -332,14 +334,24 @@
             href: ../common/storage-account-sas-create-dotnet.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
           - name: Define a stored access policy
             href: ../common/storage-stored-access-policy-define-dotnet.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Use customer-managed keys for encryption
+      - name: Manage Azure Storage encryption
         items:
-        - name: Portal
-          href: ../common/storage-encryption-keys-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: PowerShell
-          href: ../common/storage-encryption-keys-powershell.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Azure CLI
-          href: ../common/storage-encryption-keys-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Check whether a blob is encrypted
+          href: storage-blob-encryption-status.md
+        - name: Manage encryption keys for the storage account
+          items:
+          - name: Check the encryption key model for the account
+            href: ../common/storage-encryption-key-model-get.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+          - name: Configure customer-managed encryption keys
+            items:  
+            - name: Portal
+              href: ../common/storage-encryption-keys-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: PowerShell
+              href: ../common/storage-encryption-keys-powershell.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Azure CLI
+              href: ../common/storage-encryption-keys-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Provide an encryption key on a request
+          href: storage-blob-customer-provided-key.md
       - name: Configure client-side encryption
         items:
         - name: .NET
@@ -356,6 +368,8 @@
           href: ../common/storage-network-security.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Enable Transport Layer Security
           href: ../common/storage-security-tls.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: Set and manage immutability policies
+        href: storage-blob-immutability-policies-manage.md
     - name: Disaster recovery
       items:
       - name: Initiate account failover
@@ -394,6 +408,8 @@
         href: ../../data-factory/connector-azure-blob-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Mount Blob storage as a file system on Linux
         href: storage-how-to-mount-container-linux.md
+      - name: Transfer data with the Data Movement library
+        href: ../common/storage-use-data-movement-library.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Storage migration FAQ
         href: ../common/storage-migration-faq.md
     - name: Develop with blobs
@@ -539,11 +555,11 @@
       items:
       - name: Microsoft.Azure.Storage.Common (version 11.x)
         href: https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/
-      - name: Azure.Storage.Common (version 12.x - preview)
+      - name: Azure.Storage.Common (version 12.x)
         href: https://www.nuget.org/packages/Azure.Storage.Common/
       - name: Microsoft.Azure.Storage.Blob (version 11.x)
         href: https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/
-      - name: Azure.Storage.Blob (version 12.x - preview)
+      - name: Azure.Storage.Blob (version 12.x)
         href: https://www.nuget.org/packages/Azure.Storage.Blobs/
       - name: Azure Configuration Manager
         href: https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager/
@@ -557,7 +573,7 @@
         items:
         - name: Azure Storage client library
           items:
-          - name: Version 12.x (preview)
+          - name: Version 12.x
             href: https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage
           - name: Version 11.x and earlier
             href: https://github.com/Azure/azure-storage-net
@@ -567,19 +583,19 @@
           href: https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Microsoft.Azure.Management.Storage
       - name: Java
         items:
-        - name: Azure Storage client library version 12.x (preview)
+        - name: Azure Storage client library version 12.x
           href: https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage
         - name: Azure Storage client library version 8.x and earlier
           href: https://github.com/Azure/azure-storage-java
       - name: Node.js
         items:
-        - name: Azure Storage client library version 12.x (preview)
+        - name: Azure Storage client library version 12.x
           href: https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage
         - name: Azure Storage client library version 10.x
           href: https://github.com/Azure/azure-storage-node
       - name: Python
         items:
-        - name: Azure Storage client library version 12.x (preview)
+        - name: Azure Storage client library version 12.x
           href: https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage
         - name: Azure Storage client library version 2.1
           href: https://github.com/Azure/azure-storage-python
@@ -661,13 +677,25 @@
       items:
       - name: Create a storage account for your Data Lake
         href: ../blobs/data-lake-storage-quickstart-create-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Manage a storage account
-        href: ../common/storage-account-manage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Manage data with Storage Explorer
         href: ../blobs/data-lake-storage-explorer.md
       - name: Upgrade a storage account
         href: ../common/storage-account-upgrade.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Ingest data
+    - name: Manage directories, files, and ACLs
+      items:
+      - name: .NET
+        href: data-lake-storage-directory-file-acl-dotnet.md
+      - name: Java
+        href: data-lake-storage-directory-file-acl-java.md
+      - name: Python
+        href: data-lake-storage-directory-file-acl-python.md
+      - name: PowerShell
+        href: data-lake-storage-directory-file-acl-powershell.md
+      - name: CLI
+        href: data-lake-storage-directory-file-acl-cli.md
+      - name: Storage Explorer
+        href: data-lake-storage-how-to-set-permissions-storage-explorer.md
+    - name: Transfer data
       items:
       - name: AzCopy
         items:
@@ -717,10 +745,16 @@
         href: ../blobs/data-lake-storage-performance-tuning-storm.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Manage files (blobs)
       items:
-      - name: PowerShell
-        href: /powershell/module/azure.storage
-      - name: Azure CLI
-        href: ../common/storage-azure-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Overview
+          href: ../blobs/data-lake-storage-performance-tuning-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Optimize Spark on HDInsight
+          href: ../blobs/data-lake-storage-performance-tuning-spark.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Optimize Hive on HDInsight
+          href: ../blobs/data-lake-storage-performance-tuning-hive.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Optimize MapReduce on HDInsight
+          href: ../blobs/data-lake-storage-performance-tuning-mapreduce.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Optimize Storm on HDInsight
+          href: ../blobs/data-lake-storage-performance-tuning-storm.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Migrate data
       items:
       - name: Upgrade from Data Lake Storage Gen1
@@ -754,7 +788,7 @@
       - name: Storage Resource Provider
         href: /java/api/overview/azure/storage/management
     - name: JavaScript (version 12.x)
-      href: /javascript/api/@azure/storage-blob/?view=azure-node-preview
+      href: /javascript/api/@azure/storage-blob/
     - name: Python (version 12.x)
       href: /python/api/azure-storage-blob/
     - name: REST

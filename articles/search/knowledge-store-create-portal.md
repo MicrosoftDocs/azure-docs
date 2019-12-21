@@ -3,12 +3,12 @@ title: Create a knowledge store (preview) in the Azure portal
 titleSuffix: Azure Cognitive Search
 description: Use the Import data wizard to create a knowledge store used for persisting enriched content. Connect to a knowledge store for analysis from other apps, or send enriched content to downstream processes. This feature is currently in public preview.
 
-author: lisaleib
+author: HeidiSteen
+ms.author: heidist
 manager: nitinme
-ms.author: v-lilei
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 11/04/2019
+ms.date: 11/25/2019
 ---
 
 # Quickstart: Create an Azure Cognitive Search knowledge store in the Azure portal
@@ -18,9 +18,9 @@ ms.date: 11/04/2019
 
 Knowledge store is a feature of Azure Cognitive Search that persists output from a cognitive skills pipeline for subsequent analyses or downstream processing. 
 
-A pipeline accepts images and unstructured text as raw content, applies AI through Cognitive Services (such as image and natural language processing), and creates enriched content (new structures and information) as output. One of the physical artifacts created by a pipeline is a [knowledge store](knowledge-store-concept-intro.md), which you can access through tools to analyze and explore content.
+A pipeline accepts images and unstructured text as raw content, applies AI through Cognitive Services (such as image and natural language processing), extracts information, and outputs new structures and information. One of the physical artifacts created by a pipeline is a [knowledge store](knowledge-store-concept-intro.md), which you can access through tools to analyze and explore content.
 
-In this quickstart, you'll combine services and data in the Azure cloud to create a knowledge store. Once everything is in place, you'll run the **Import data** wizard in the portal to pull it all together. The end result is original plus AI-generated content that you can view in the portal ([Storage explorer](knowledge-store-view-storage-explorer.md)).
+In this quickstart, you'll combine services and data in the Azure cloud to create a knowledge store. Once everything is in place, you'll run the **Import data** wizard in the portal to pull it all together. The end result is original text content plus AI-generated content that you can view in the portal ([Storage explorer](knowledge-store-view-storage-explorer.md)).
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -50,9 +50,9 @@ Because the workload is so small, Cognitive Services is tapped behind the scenes
 
     ![Create the Azure Blob container](media/knowledge-store-create-portal/hotel-reviews-blob-container.png "Create the Azure Blob container")
 
-<!-- 1. You are almost done with this resource, but before you leave these pages, use a link on the left navigation pane to open the **Access Keys** page. Get a connection string to retrieve data from Blob storage. A connection string looks similar to the following example: `DefaultEndpointsProtocol=https;AccountName=<YOUR-ACCOUNT-NAME>;AccountKey=<YOUR-ACCOUNT-KEY>;EndpointSuffix=core.windows.net` -->
+1. You are almost done with this resource, but before you leave these pages, use a link on the left navigation pane to open the **Access Keys** page. Get a connection string to retrieve data from Blob storage. A connection string looks similar to the following example: `DefaultEndpointsProtocol=https;AccountName=<YOUR-ACCOUNT-NAME>;AccountKey=<YOUR-ACCOUNT-KEY>;EndpointSuffix=core.windows.net`
 
-1. [Create an Azure Cognitive Search service](search-create-service-portal.md) or [find an existing service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under the same subscription. You can use a free service for this quickstart.
+1. Still in the portal, switch to Azure Cognitive Search. [Create a new service](search-create-service-portal.md) or [find an existing service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices). You can use a free service for this quickstart.
 
 You are now ready to move on the Import data wizard.
 
@@ -67,11 +67,12 @@ In the search service Overview page, click **Import data** on the command bar to
 1. In **Connect to your data**, choose **Azure Blob storage**, select the account and container you created. 
 1. For the **Name**, enter `hotel-reviews-ds`.
 1. For **Parsing mode**, select **Delimited text**, and then select the **First Line Contains Header** checkbox. Make sure the **Delimiter character** is a comma (,).
-1. Enter your storage service **Connection String** that you saved in a previous step.
-1. For **Container name**, enter `hotel-reviews`.
-1. Click **Next: Add AI enrichment (Optional)**.
+1. In **Connection String**, paste in the connection string you copied from the **Access Keys** page in Azure Storage.
+1. In **Containers**, enter the name of the blob container holding the data.
 
-      ![Create a data source object](media/knowledge-store-create-portal/hotel-reviews-ds.png "Create a data source object")
+    Your page should look similar to the following screenshot.
+
+    ![Create a data source object](media/knowledge-store-create-portal/hotel-reviews-ds.png "Create a data source object")
 
 1. Continue to the next page.
 
@@ -85,9 +86,10 @@ In this wizard step, you will create a skillset with cognitive skill enrichments
 1. For **Source data field**, select **reviews_text**.
 1. For **Enrichment granularity level**, select **Pages (5000 characters chunks)**
 1. Select these cognitive skills:
+    + **Extract people names**
+    + **Extract organization names**
+    + **Extract location names**
     + **Extract key phrases**
-    + **Detect language**
-    + **Detect sentiment**
 
       ![Create a skillset](media/knowledge-store-create-portal/hotel-reviews-ss.png "Create a skillset")
 

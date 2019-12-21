@@ -90,7 +90,7 @@ Service endpoints are another way to apply control over your traffic. You can li
 
 Learn more:
 
-* [Service endpoints](../../virtual-network/virtual-network-service-endpoints-overview.md#securing-azure-services-to-virtual-networks)
+* [Service endpoints](../../virtual-network/virtual-network-service-endpoints-overview.md#secure-azure-services-to-virtual-networks)
 
 ### Route control and forced tunneling
 

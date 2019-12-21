@@ -303,13 +303,14 @@ Azure AD DS needs a network security group to secure the ports needed for the ma
 
 If there's an error when you run the PowerShell cmdlet to prepare for migration in step 2 or for the migration itself in step 3, the Azure AD DS managed domain can roll back to the original configuration. This roll back requires the original Classic virtual network. Note that the IP addresses may still change after rollback.
 
-Run the `Migrate-Aadds` cmdlet using the *-Abort* parameter. Provide the *-ManagedDomainFqdn* for your own Azure AD DS managed domain prepared in a previous section, such as *contoso.com*:
+Run the `Migrate-Aadds` cmdlet using the *-Abort* parameter. Provide the *-ManagedDomainFqdn* for your own Azure AD DS managed domain prepared in a previous section, such as *contoso.com*, and the Classic virtual network name, such as *myClassicVnet*:
 
 ```powershell
 Migrate-Aadds `
     -Abort `
     -ManagedDomainFqdn contoso.com `
-    -Credentials $creds​
+    -ClassicVirtualNetworkName myClassicVnet `
+    -Credentials $creds
 ```
 
 ### Restore
@@ -357,4 +358,4 @@ With your Azure AD DS managed domain migrated to the Resource Manager deployment
 [get-credential]: /powershell/module/microsoft.powershell.security/get-credential
 
 <!-- EXTERNAL LINKS -->
-[powershell-script]: https://www.powershellgallery.com/packages/Migrate-Aadds/1.0
+[powershell-script]: https://www.powershellgallery.com/packages/Migrate-Aadds/

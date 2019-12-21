@@ -24,6 +24,8 @@ ms.author: willzhan
 
 - Microsoft PlayReady
 - Google Widevine
+    
+    Widevine is a service provided by Google Inc. and subject to the terms of service and Privacy Policy of Google, Inc.
 - Apple FairPlay
 - AES-128 encryption
 

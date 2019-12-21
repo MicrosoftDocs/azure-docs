@@ -60,6 +60,17 @@ For a hands-on overview on using Intelligent Insights with Azure SQL Analytics a
 
 Intelligent Insights shines in discovering and troubleshooting SQL Database performance issues. In order to use Intelligent Insights to troubleshoot SQL Database and Managed Instance database performance issues, see [Troubleshoot Azure SQL Database performance issues with Intelligent Insights](sql-database-intelligent-insights-troubleshoot-performance.md).
 
+## Intelligent Insights options
+
+Intelligent Insights options available in Azure SQL Database are:
+
+| Intelligent Insights option | Single database and pooled database support | Instance database support |
+| :----------------------------- | ----- | ----- |
+| **Configure Intelligent Insights** - Configure Intelligent Insights analysis for your databases. | Yes | Yes | 
+| **Stream insights to Azure SQL Analytics** -- Stream insights to Azure SQL Analytics monitoring solution for Azure SQL Database. | Yes | Yes | 
+| **Stream insights to Event Hub** - Stream insights to Event Hubs for further custom integrations. | Yes | Yes | 
+| **Stream insights to Azure Storage** - Stream insights to Azure Storage for further analysis and long term archival. | Yes | Yes |
+
 ## Configure Intelligent Insights
 
 Output of the Intelligent Insights is a smart performance diagnostics log. This log can be consumed in several ways - through streaming it to Azure SQL Analytics, Azure Event Hubs and Azure storage, or a third party product.

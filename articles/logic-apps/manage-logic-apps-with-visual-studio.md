@@ -1,12 +1,9 @@
 ---
-title: Manage logic apps by using Visual Studio - Azure Logic Apps
-description: Manage logic apps and other Azure assets by using Visual Studio with Cloud Explorer
+title: Edit and manage logic apps by using Visual Studio with Cloud Explorer
+description: Edit, update, manage, add to source control, and deploy logic apps by using Visual Studio with Cloud Explorer
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.custom: mvc
 ms.date: 10/29/2019

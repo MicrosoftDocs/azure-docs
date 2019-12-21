@@ -1,5 +1,5 @@
 ---
-title: Azure Database for PostgreSQL – Hyperscale (Citus) performance options
+title: Performance options – Hyperscale (Citus) - Azure Database for PostgreSQL
 description: Options for a Hyperscale (Citus) server group, including node compute, storage, and regions.
 author: jonels-msft
 ms.author: jonels

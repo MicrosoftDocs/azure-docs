@@ -1,6 +1,6 @@
 ---
 title: Azure Media Services diagnostic logs schemas - Azure
-description: This article shows the Azure Media Services diagnostic logs schemas.
+description: This article demonstrates the Azure Media Services diagnostic logs schemas.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -104,6 +104,10 @@ Properties of the key delivery requests schema.
     }
 } 
 ```
+
+## Additional notes
+
+* Widevine is a service provided by Google Inc. and subject to the terms of service and Privacy Policy of Google, Inc.
 
 ## Next steps
 

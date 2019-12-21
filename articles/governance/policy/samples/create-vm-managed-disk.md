@@ -1,11 +1,8 @@
 ---
 title: Sample - Audit VM not using managed disk 
 description: This json sample definition audits when a virtual machine is created that does not use managed disks.
-author: DCtheGeek
-ms.service: azure-policy
-ms.topic: sample
 ms.date: 01/23/2019
-ms.author: dacoulte
+ms.topic: sample
 ---
 # Sample - Audit when VM does not use managed disk
 

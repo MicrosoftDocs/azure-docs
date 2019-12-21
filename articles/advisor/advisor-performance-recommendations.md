@@ -1,13 +1,8 @@
 ﻿---
-title: Improve performance of Azure applications with Azure Advisor | Microsoft Docs
+title: Improve performance of Azure applications with Azure Advisor
 description: Use Advisor to optimize the performance of your Azure deployments.
-services: advisor
-documentationcenter: NA
-author: kasparks
-ms.service: advisor
 ms.topic: article
 ms.date: 01/29/2019
-ms.author: kasparks
 ---
 
 # Improve performance of Azure applications with Azure Advisor
@@ -117,6 +112,7 @@ To learn more about Advisor recommendations, see:
 
 * [Introduction to Advisor](advisor-overview.md)
 * [Get started with Advisor](advisor-get-started.md)
-* [Advisor Cost recommendations](advisor-performance-recommendations.md)
+* [Advisor Cost recommendations](advisor-cost-recommendations.md)
 * [Advisor High Availability recommendations](advisor-high-availability-recommendations.md)
 * [Advisor Security recommendations](advisor-security-recommendations.md)
+* [Advisor Operational Excellence recommendations](advisor-operational-excellence-recommendations.md)

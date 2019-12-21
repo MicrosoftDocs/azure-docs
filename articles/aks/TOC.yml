@@ -216,6 +216,10 @@
     - name: Use Kubernetes RBAC with Azure AD integration
       href: azure-ad-rbac.md
       maintainContext: true
+    - name: Rotate certificates
+      href: certificate-rotation.md
+    - name: Create a private cluster
+      href: private-clusters.md
   - name: Monitoring and logging
     items:
     - name: Azure Monitor for containers
@@ -306,6 +310,9 @@
       href: gpu-cluster.md
     - name: Use Azure Database for PostgreSQL
       href: ../postgresql/concepts-aks.md
+      maintainContext: true
+    - name: Use Azure API Management
+      href: ../api-management/api-management-kubernetes.md
       maintainContext: true
   - name: Select and deploy a service mesh
     items: 

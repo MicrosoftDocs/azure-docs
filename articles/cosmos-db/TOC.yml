@@ -129,6 +129,8 @@
         href: set-throughput.md
       - name: Provision throughput - autopilot mode
         href: provision-throughput-autopilot.md
+      - name: Autopilot FAQ
+        href: autopilot-faq.md        
     - name: SQL query reference      
       items:
       - name: Getting started
@@ -568,6 +570,8 @@
           href: cassandra-import-data.md
       - name: How-to guides
         items:
+        - name: Change feed 
+          href: cassandra-change-feed.md
         - name: Store and manage Spring Data 
           href: /java/azure/spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db 
           maintainContext: true
@@ -672,6 +676,8 @@
           href: mongodb-readpreference.md
         - name: Time to live - MongoDB
           href: mongodb-time-to-live.md
+        - name: Change streams
+          href: mongodb-change-streams.md
         - name: Manage data indexing
           href: mongodb-indexing.md
         - name: Store and manage Spring Data 
@@ -968,25 +974,27 @@
         href: access-secrets-from-keyvault.md
       - name: Certificate-based authentication with Azure AD
         href: certificate-based-authentication.md
+      - name: Restrict user access to data operations only
+        href: how-to-restrict-user-data.md
     - name: Enterprise readiness 
       items:
       - name: Restore data from a backup
         href: how-to-backup-and-restore.md
-    - name : Logging
+    - name : Monitor
       items:
-      - name: Diagnostic logging
-        href: logging.md
+      - name: Monitor Cosmos DB
+        href: monitor-cosmos-db.md
+      - name: Monitor with diagnostic logs
+        href: cosmosdb-monitor-resource-logs.md
+      - name: Azure Monitor for Cosmos (preview) 
+        href: ../azure-monitor/insights/cosmosdb-insights-overview.md?toc=/azure/cosmos-db/toc.json
+      - name: View metrics from Cosmos DB account 
+        href: use-metrics.md
       - name: Application logging with Logic Apps
         href: /azure/logic-apps/logic-apps-scenario-error-and-exception-handling
         maintainContext: true 
-    - name : Monitor with metrics
-      items:
-      - name: View metrics from Cosmos DB account 
-        href: use-metrics.md
-      - name: View metrics from Azure Monitor
-        href: cosmos-db-azure-monitor-metrics.md
-      - name: Monitor SLAs
-        href: monitor-accounts.md
+      - name: Monitoring data reference
+        href: monitor-cosmos-db-reference.md
     - name: Develop locally
       items:
       - name: Use the emulator

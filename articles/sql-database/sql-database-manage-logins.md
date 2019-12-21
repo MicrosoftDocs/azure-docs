@@ -48,6 +48,9 @@ The **Server admin** and **Azure AD admin** accounts have the following characte
 - Can create, alter, and drop databases, logins, users in master, and server-level IP firewall rules.
 - Can add and remove members to the `dbmanager` and `loginmanager` roles.
 - Can view the `sys.sql_logins` system table.
+- Cannot be renamed.
+- To change the Azure AD admin account, use the Portal or Azure CLI.
+- The Server Admin account cannot be changed afterwards.
 
 ### Configuring the firewall
 

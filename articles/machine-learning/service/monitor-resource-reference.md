@@ -120,7 +120,7 @@ The following table lists the properties for Azure Machine Learning resource log
 
 ### Metrics
 
-The following tables list the platform metrics collected for Azure Machine Learning All metrics are stored in the namespace **Azure Machine Learning Service Workspace**.
+The following tables list the platform metrics collected for Azure Machine Learning All metrics are stored in the namespace **Azure Machine Learning Workspace**.
 
 **Model**
 

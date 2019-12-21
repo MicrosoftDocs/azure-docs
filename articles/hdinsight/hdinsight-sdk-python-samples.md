@@ -17,6 +17,9 @@ ms.date: 11/08/2019
 > * [Java Examples](hdinsight-sdk-java-samples.md)
 <!-- * [Go Examples](hdinsight-sdk-go-samples.md)-->
 
+> [!Important]
+> Python 2.7 will be deprecated on January 1st 2020. If you are still using Python 2.7, upgrade to 3.7 in order to use the HDInsight Python SDK.  
+
 This article provides:
 
 * Links to samples for cluster creation tasks.

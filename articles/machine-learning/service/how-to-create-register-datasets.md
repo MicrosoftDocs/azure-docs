@@ -83,7 +83,7 @@ To create datasets from an [Azure datastore](how-to-access-data.md) by using the
 
 You can create TabularDatasets through the SDK or by using Azure Machine Learning Studio. You can specify a time stamp from a column in the data or from the path pattern that the data is stored in to enable a time series trait. This specification allows for easy and efficient filtering by time.
 
-Use the [`from_delimited_files()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory?view=azure-ml-py#from-delimited-files-path--validate-true--include-path-false--infer-column-types-true--set-column-types-none--separator------header--promoteheadersbehavior-all-files-have-same-headers--3---partition-format-none-) method on the `TabularDatasetFactory` class to read files in .csv or .tsv format, and to create an unregistered TabularDataset. If you're reading from multiple files, results will be aggregated into one tabular representation.
+Use the [`from_delimited_files()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory?view=azure-ml-py#from-delimited-files-path--validate-true--include-path-false--infer-column-types-true--set-column-types-none--separator------header-true--partition-format-none-) method on the `TabularDatasetFactory` class to read files in .csv or .tsv format, and to create an unregistered TabularDataset. If you're reading from multiple files, results will be aggregated into one tabular representation.
 
 ```Python
 # create a TabularDataset from multiple paths in datastore
@@ -166,7 +166,7 @@ mnist_ds = Dataset.File.from_files(path=web_paths)
 ```
 
 #### On the web 
-The following steps and animation show how to create a dataset in Azure Machine Learning Studio, https://ml.azure.com.
+The following steps and animation show how to create a dataset in Azure Machine Learning studio, https://ml.azure.com.
 
 ![Create a dataset with the UI](media/how-to-create-register-datasets/create-dataset-ui.gif)
 

@@ -1,13 +1,8 @@
 ---
-title: Use Azure Backup Server to back up workloads to Azure
+title: Use Azure Backup Server to back up workloads
 description: In this article, learn how to prepare your environment to protect and back up workloads using Microsoft Azure Backup Server (MABS).
-ms.reviewer: kasinh
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.author: dacurwin
 ---
 
 # Install and upgrade Azure Backup Server
@@ -331,8 +326,6 @@ Use the following steps to upgrade MABS:
    > [!NOTE]
    >
    > Do not exit while your SQL instance is being upgraded, exiting will uninstall the SQL reporting instance and hence an attempt to re-upgrade MABS will fail.
-
-
 
    > [!IMPORTANT]
    >

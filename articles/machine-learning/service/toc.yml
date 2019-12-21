@@ -15,6 +15,17 @@
 
 - name: Tutorials
   items:
+  - name: Studio & Designer
+    items:
+    - name: 'Designer: 1. Train a regression model'
+      displayName: studio
+      href: tutorial-designer-automobile-price-train-score.md
+    - name: 'Designer: 2. Deploy that model'
+      displayName: studio
+      href: tutorial-designer-automobile-price-deploy.md
+    - name: Create an automated ML experiment
+      displayName: automl, automated, auto ml, portal, ui
+      href: tutorial-first-experiment-automated-ml.md
   - name: Python SDK
     items:
     - name: Create first ML experiment
@@ -44,19 +55,9 @@
     items:
     - name: Create first ML experiment (R)
       href: tutorial-1st-r-experiment.md
-  - name: Designer
-    items:
-    - name: 1. Train regression model
-      displayName: studio
-      href: tutorial-designer-automobile-price-train-score.md
-    - name: 2. Deploy regression model
-      displayName: studio
-      href: tutorial-designer-automobile-price-deploy.md
-  - name: Automated ML (interface)
-    displayName: automl, automated, auto ml, portal, ui
-    href: tutorial-first-experiment-automated-ml.md
   - name: Machine Learning CLI
     href: tutorial-train-deploy-model-cli.md
+
 - name: Samples
   items:
   - name: Jupyter Notebooks
@@ -66,10 +67,13 @@
     href: /azure/open-datasets/samples?context=azure/machine-learning/service/context/ml-context
   - name: End-to-end MLOps examples
     href: https://github.com/microsoft/MLOps
+
 - name: Concepts
   items:
   - name: Workspace
     href: concept-workspace.md
+  - name: Data
+    href: concept-data.md    
   - name: Model training
     displayName: run config, estimator, machine learning pipeline, ml pipeline, train model
     href: concept-train-machine-learning-model.md
@@ -87,6 +91,9 @@
   - name: Automated machine learning
     displayName: automl, auto ml
     href: concept-automated-ml.md
+  - name: Compute instance
+    displayName: resource, dsvm, Data Science Virtual Machine
+    href: concept-compute-instance.md
   - name: Compute target
     displayName: resource, dsvm, AKS, kubernetes, amlcompute, Data Science Virtual Machine, local, cluster, ACI, container instance, ADB, Databricks, data lake, lake, HDI, HDInsight
     href: concept-compute-target.md
@@ -104,12 +111,15 @@
         - name: Manage users and roles
           href: how-to-assign-roles.md
         - name: Use virtual networks
-          displayName: vnet
+          displayName: vnet, blob
           href: how-to-enable-virtual-network.md
         - name: Secure web services with SSL
           href: how-to-secure-web-service.md
         - name: Regenerate storage access keys
           href: how-to-change-storage-access-key.md
+      - name: Set up authentication
+        displayName: authentication, auth, oauth
+        href: how-to-setup-authentication.md
       - name: Monitor Azure Machine Learning
         href: monitor-azure-machine-learning.md
       - name: Event grid integration
@@ -117,6 +127,7 @@
   - name: Deep learning
     displayName: deep learning vs machine learning, deep learning, vs, versus
     href: concept-deep-learning-vs-machine-learning.md
+
 - name: How-to guides
   items:
   - name: Create & manage workspaces
@@ -145,13 +156,16 @@
     - name: Use VS Code extension
       displayName: Visual Studio Code, VSCode, tools, ai, vs
       href: how-to-vscode-tools.md
+    - name: Interactive debugging
+      displayName: Visual Studio Code, VSCode, debug, bugs, remote, compute, instance
+      href: ../how-to-set-up-vs-code-remote.md
     - name: Git integration
       displayName: github gitlab
       href: concept-train-model-git-integration.md 
   - name: Work with data
     items:
     - name: Get data from a datastore
-      displayName: blob, get, fileshare, access storage
+      displayName: blob, get, fileshare, access storage, mount, download
       href: how-to-access-data.md
     - name: Add & register datasets
       displayName: data, dataset
@@ -194,7 +208,7 @@
       - name: "Predict flight delays"
         displayName: classification, studio
         href:  how-to-designer-sample-classification-flight-delay.md
-      - name: "Test classification"
+      - name: "Text classification"
         displayName: classification, studio
         href:  how-to-designer-sample-text-classification.md
     - name: Use estimators for ML
@@ -281,7 +295,10 @@
     - name: Azure App Service
       displayName: web app
       href: how-to-deploy-app-service.md
-    - name: Notebook VMs
+    - name: Azure Functions
+      displayName: functions app
+      href: how-to-deploy-functions.md
+    - name: Compute instances
       href: how-to-deploy-local-container-notebook-vm.md
     - name: Use custom Docker image
       href: how-to-deploy-custom-docker-image.md
@@ -296,11 +313,14 @@
       displayName: create client consume request response synchronous
       href: how-to-consume-web-service.md
     - name: Run batch predictions
-      displayName: score scoring asynchronous consume pipeline parallelrunstep inference
+      displayName: score scoring batch consume pipeline parallelrunstep inference
       href: how-to-run-batch-predictions.md
-    - name: Use the designer for batch predictions
-      displayName: score scoring asynchronous consume pipeline parallelrunstep inference
-      href: how-to-run-batch-predictions-ui.md
+    - name: Designer batch predictions
+      displayName: score scoring asynchronous consume pipeline parallelrunstep inference designer
+      href: how-to-run-batch-predictions-designer.md
+    - name: Debug & troubleshoot batch predictions
+      displayName: debug_batch consume pipeline parallelrunstep inference
+      href: how-to-debug-batch-predictions.md
   - name: Monitor models
     items:
     - name: Collect & evaluate model data
@@ -322,6 +342,9 @@
     - name: 'Azure Pipelines for CI/CD'
       displayName: continuous, integration, delivery
       href: /azure/devops/pipelines/targets/azure-machine-learning?context=azure/machine-learning/service/context/ml-context
+    - name: 'Designer: Retrain using published pipelines'
+      displayName: retrain, designer, published pipeline
+      href: how-to-retrain-designer.md
   - name: Manage resource quotas
     displayName: limits
     href: how-to-manage-quotas.md

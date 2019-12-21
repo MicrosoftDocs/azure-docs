@@ -137,8 +137,6 @@
     href: functions-networking-options.md
   - name: IP addresses
     href: ip-addresses.md 
-  - name: Functions in Kubernetes
-    href: functions-kubernetes-keda.md 
 - name: How-to guides
   items:
   - name: Develop
@@ -228,6 +226,9 @@
       href: deployment-zip-push.md
     - name: Run from package
       href: run-functions-from-deployment-package.md
+    - name: Functions in Kubernetes
+      href: functions-kubernetes-keda.md 
+      displayName: keda
     - name: Automate resource deployment
       href: functions-infrastructure-as-code.md
     - name: On-premises functions
@@ -361,6 +362,8 @@
       href: functions-bindings-timer.md
     - name: Twilio
       href: functions-bindings-twilio.md    
+    - name: Warmup
+      href: functions-bindings-warmup.md
   - name: host.json 2.x reference
     href: functions-host-json.md      
   - name: host.json 1.x reference

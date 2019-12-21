@@ -1,7 +1,7 @@
 ---
-title: 'Designer: Predict credit risk (cost sensitive)'
+title: 'Designer: Predict credit risk example'
 titleSuffix: Azure Machine Learning
-description: This article shows you how to build a complex machine learning pipeline using the designer (preview). You'll learn how to implement custom Python scripts and compare multiple models to choose the best option.
+description: Build a classifier and use custom Python scripts to predict credit risk using Azure Machine Learning designer.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,8 +11,10 @@ ms.author: zhanxia
 ms.reviewer: peterlu
 ms.date: 11/04/2019
 ---
+# Build a classifier & use Python scripts to predict credit risk using Azure Machine Learning designer
 
-# Sample 4 - Classification with custom Python script: Predict credit risk
+**Designer (preview) sample 4**
+
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
 
 This article shows you how to build a complex machine learning pipeline using the designer (preview). You'll learn how to implement custom logic using Python scripts and compare multiple models to choose the best option.
@@ -21,7 +23,7 @@ This sample trains a classifier to predict credit risk using credit application 
 
 Here's the completed graph for this pipeline:
 
-[![Graph of the pipeline](media/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png)](media/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png#lightbox)
+[![Graph of the pipeline](media/how-to-designer-sample-classification-predict-credit-risk-cost-sensitive/graph.png)](media/how-to-designer-sample-classification-predict-credit-risk-cost-sensitive/graph.png#lightbox)
 
 ## Prerequisites
 
@@ -46,7 +48,7 @@ The cost of misclassifying a low-risk example as high is 1, and the cost of misc
 
 Here's the graph of the pipeline:
 
-[![Graph of the pipeline](media/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png)](media/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png#lightbox)
+[![Graph of the pipeline](media/how-to-designer-sample-classification-predict-credit-risk-cost-sensitive/graph.png)](media/how-to-designer-sample-classification-predict-credit-risk-cost-sensitive/graph.png#lightbox)
 
 ## Data processing
 
@@ -102,7 +104,7 @@ This sample uses the standard data science workflow to create, train, and test t
 
 The following diagram shows a portion of this pipeline, in which the original and replicated training sets are used to train two different SVM models. **Train Model** is connected to the training set, and **Score Model** is connected to the test set.
 
-![Pipeline graph](media/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive/score-part.png)
+![Pipeline graph](media/how-to-designer-sample-classification-predict-credit-risk-cost-sensitive/score-part.png)
 
 In the evaluation stage of the pipeline, you compute the accuracy of each of the four models. For this pipeline, use **Evaluate Model** to compare examples that have the same misclassification cost.
 
@@ -136,7 +138,7 @@ def azureml_main(dataframe1 = None, dataframe2 = None):
 
 To view the results of the pipeline, you can right-click the Visualize output of the last **Select Columns in Dataset** module.
 
-![Visualize output](media/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive/result.png)
+![Visualize output](media/how-to-designer-sample-classification-predict-credit-risk-cost-sensitive/result.png)
 
 The first column lists the machine learning algorithm used to generate the model.
 

@@ -1,12 +1,13 @@
 ---
-title: Migrating legacy Azure DNS Private Zones to New Resource Model
+title: Migrating legacy Azure DNS Private Zones to new resource model
+titleSuffix: Azure DNS
 description: This guide provides step by step instruction on how to migrate legacy private DNS zones to latest resource model
 services: dns
-author: rohinkoul
+author: asudbring
 ms.service: dns
 ms.topic: tutorial
 ms.date: 06/18/2019
-ms.author: rohink
+ms.author: allensu
 ---
 
 # Migrating legacy Azure DNS private zones to new resource model

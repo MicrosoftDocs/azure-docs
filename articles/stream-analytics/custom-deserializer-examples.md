@@ -1,7 +1,6 @@
 ---
 title: Use .NET deserializers for Azure Stream Analytics jobs
 description: This article explains the serialization format and the interfaces that define custom .NET deserializers for Azure Stream Analytics cloud and edge jobs.
-services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
@@ -221,12 +220,12 @@ The following Javascript code is an example of the .NET deserializer serializati
 
 This feature is available in the following regions:
 
-* West Central US (available)
-* North Europe (available)
-* East US (available)
-* West US (rolling out soon)
-* East US 2 (rolling out soon)
-* West Europe (rolling out soon)
+* West Central US
+* North Europe
+* East US
+* West US
+* East US 2
+* West Europe
 
 You can [request support](https://aka.ms/ccodereqregion) for additional regions.
 

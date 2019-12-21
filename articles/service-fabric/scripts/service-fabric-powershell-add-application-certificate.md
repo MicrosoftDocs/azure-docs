@@ -36,6 +36,33 @@ $policy = New-AzKeyVaultCertificatePolicy -SubjectName $SubjectName -IssuerName 
 Add-AzKeyVaultCertificate -VaultName $VaultName -Name $CertName -CertificatePolicy $policy
 ```
 
+## Or upload an existing certificate into Key Vault
+
+```powershell
+$VaultName= ""
+$CertName= ""
+$CertPassword= ""
+$PathToPFX= ""
+
+$Cert = new-object System.Security.Cryptography.X509Certificates.X509Certificate2 $PathToPFX, $CertPassword
+
+$bytes = [System.IO.File]::ReadAllBytes($ExistingPfxFilePath)
+$base64 = [System.Convert]::ToBase64String($bytes)
+$jsonBlob = @{
+   data = $base64
+   dataType = 'pfx'
+   password = $CertPassword
+   } | ConvertTo-Json
+$contentbytes = [System.Text.Encoding]::UTF8.GetBytes($jsonBlob)
+$content = [System.Convert]::ToBase64String($contentbytes)
+
+$SecretValue = ConvertTo-SecureString -String $content -AsPlainText -Force
+
+# Upload the certificate to the key vault as a secret
+$Secret = Set-AzureKeyVaultSecret -VaultName $VaultName -Name $CertName -SecretValue $SecretValue
+
+```
+
 ## Update virtual machine scale sets profile with certificate
 
 ```powershell

@@ -51,7 +51,7 @@ If you have an Azure Machine Learning workspace with an Enterprise edition, [ski
 
 1. Select **Designer**.
 
-    ![Screenshot of the visual workspace showing how to access the designer](./media/ui-tutorial-automobile-price-train-score/launch-visual-interface.png)
+    ![Screenshot of the visual workspace showing how to access the designer](./media/tutorial-designer-automobile-price-train-score/launch-designer.png)
 
 1. Select **Easy-to-use prebuilt modules**.
 
@@ -65,7 +65,7 @@ There are several sample datasets included in the designer for you to experiment
 
 1. Select the dataset **Automobile price data (Raw)**, and drag it onto the canvas.
 
-   ![Drag data to canvas](./media/ui-tutorial-automobile-price-train-score/drag-data.gif)
+   ![Drag data to canvas](./media/tutorial-designer-automobile-price-train-score/drag-data.gif)
 
 ### Visualize the data
 
@@ -77,7 +77,7 @@ You can visualize the data to understand the dataset that you'll use.
 
 1. Select the graph icon to visualize the data.
 
-    ![Visualize the data](./media/ui-tutorial-automobile-price-train-score/visualize-data.png)
+    ![Visualize the data](./media/tutorial-designer-automobile-price-train-score/visualize-data.png)
 
 1. Select the different columns in the data window to view information about each one.
 
@@ -101,7 +101,7 @@ When you train a model, you have to do something about the data that's missing. 
     > You create a flow of data through your pipeline when you connect the output port of one module to an input port of another.
     >
 
-    ![Connect modules](./media/ui-tutorial-automobile-price-train-score/connect-modules.gif)
+    ![Connect modules](./media/tutorial-designer-automobile-price-train-score/connect-modules.gif)
 
 1. Select the **Select Columns in Dataset** module.
 
@@ -115,7 +115,7 @@ When you train a model, you have to do something about the data that's missing. 
 
 1. In the lower right, select **Save** to close the column selector.
 
-    ![Exclude a column](./media/ui-tutorial-automobile-price-train-score/exclude-column.png)
+    ![Exclude a column](./media/tutorial-designer-automobile-price-train-score/exclude-column.png)
         
     The properties pane shows that the **normalized-losses** column is excluded.
 
@@ -140,7 +140,7 @@ Your dataset still has missing values after you remove the **normalized-losses**
 
     Your pipeline should now look something like this:
     
-    ![Select-column](./media/ui-tutorial-automobile-price-train-score/pipeline-clean.png)
+    ![Select-column](./media/tutorial-designer-automobile-price-train-score/pipeline-clean.png)
 
 ## Train a machine learning model
 
@@ -184,7 +184,7 @@ Train the model by giving it a set of data that includes the price. The model sc
 
 1. Connect the training data output (left port) of the **Split Data** module to the right input of the **Train Model** module.
 
-    ![Screenshot showing the correct configuration of the Train Model module. The Linear Regression module connects to left port of Train Model module and the Split Data module connects to right port of Train Model](./media/ui-tutorial-automobile-price-train-score/pipeline-train-model.png)
+    ![Screenshot showing the correct configuration of the Train Model module. The Linear Regression module connects to left port of Train Model module and the Split Data module connects to right port of Train Model](./media/tutorial-designer-automobile-price-train-score/pipeline-train-model.png)
 
 1. Select the **Train Model** module.
 
@@ -196,7 +196,7 @@ Train the model by giving it a set of data that includes the price. The model sc
 
     Your pipeline should look like this:
 
-    ![Screenshot showing the correct configuration of the pipeline after adding the Train Model module.](./media/ui-tutorial-automobile-price-train-score/pipeline-train-graph.png)
+    ![Screenshot showing the correct configuration of the pipeline after adding the Train Model module.](./media/tutorial-designer-automobile-price-train-score/pipeline-train-graph.png)
 
 ## Evaluate a machine learning model
 
@@ -212,7 +212,7 @@ After you train your model by using 70 percent of the data, you can use it to sc
 
     The final pipeline should look something like this:
 
-    ![Screenshot showing the correct configuration of the pipeline.](./media/ui-tutorial-automobile-price-train-score/pipeline-final-graph.png)
+    ![Screenshot showing the correct configuration of the pipeline.](./media/tutorial-designer-automobile-price-train-score/pipeline-final-graph.png)
 
 ### Run the pipeline
 
@@ -228,7 +228,7 @@ After the run completes, you can view the results of the pipeline run.
 
     Here you can see the predicted prices and the actual prices from the testing data.
 
-    ![Screenshot of the output visualization highlighting the Scored Label column](./media/ui-tutorial-automobile-price-train-score/score-result.png)
+    ![Screenshot of the output visualization highlighting the Scored Label column](./media/tutorial-designer-automobile-price-train-score/score-result.png)
 
 1. Select the **Evaluate Model** module to view its output.
 

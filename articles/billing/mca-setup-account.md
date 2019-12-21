@@ -1,11 +1,11 @@
 ---
-title: Set up your billing account for a Microsoft Customer Agreement - Azure
+title: Set up billing for Microsoft Customer Agreement - Azure
 description: Learn how to set up your billing account for a Microsoft Customer Agreement.
 author: amberbhargava
 manager: amberb
 editor: banders
 tags: billing
-ms.service: billing
+ms.service: cost-management-billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
@@ -182,7 +182,7 @@ To complete the setup, you need access to both the new billing account and the E
     - A billing hierarchy corresponding to your Enterprise Agreement hierarchy is created in the new billing account. For more information, see [understand changes to your billing hierarchy](#understand-changes-to-your-billing-hierarchy).
     - Administrators from your Enterprise Agreement enrollment are given access to the new billing account so that they continue to manage billing for your organization.
     - The billing of your Azure subscriptions is transitioned to the new account. **There won’t be any impact on your Azure services during this transition. They’ll keep running without any disruption**.
-    - If you have Azure Reservations, they are moved to your new billing account with no change to benefits or term. 
+    - If you have Azure Reservations, they are moved to your new billing account with no change to benefits or term.
 
 4. You can monitor the status of the transition on the **Transition status** page.
 

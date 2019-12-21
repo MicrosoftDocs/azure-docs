@@ -1,11 +1,8 @@
 ---
-title: User-defined functions in Azure Resource Manager template
+title: User-defined functions in templates
 description: Describes how to define and use user-defined functions in an Azure Resource Manager template. 
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 09/05/2019
-ms.author: tomfitz
 ---
 # User-defined functions in Azure Resource Manager template
 

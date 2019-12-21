@@ -8,12 +8,12 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 11/06/2019
+ms.date: 12/17/2019
 ms.author: aahi
 zone_pivot_groups: programming-languages-set-five
 ---
 
-# Quickstart: Use the Text Analytics client library for detecting language
+# Quickstart: Use the Text Analytics client library
 
 Get started with the Text Analytics client library. Follow these steps to install the package and try out the example code for basic tasks.
 

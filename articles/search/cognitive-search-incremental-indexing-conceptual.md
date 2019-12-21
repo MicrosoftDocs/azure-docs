@@ -1,5 +1,5 @@
 ---
-title: Introduction to Incremental Indexing (preview)
+title: Incremental indexing (preview)
 titleSuffix: Azure Cognitive Search
 description: Configure your AI enrichment pipeline to drive your data to eventual consistency to handle any updates to skills, skillsets, indexers, or data sources. This feature is currently in public preview
 
@@ -44,7 +44,7 @@ You'll need to set the `cache` property on the indexer to start benefitting from
     },
     "fieldMappings" : [],
     "outputFieldMappings": [],
-    "parameters":{}
+    "parameters": {}
 }
 ```
 

@@ -1,13 +1,13 @@
 ---
 title: Create a new SaaS offer in the Commercial Marketplace 
 description: How to create a new Software as a Service (SaaS) offer for listing or selling in the Azure Marketplace, AppSource, or through the Cloud Solution Provider (CSP) program using the Commercial Marketplace portal on Microsoft Partner Center. 
-author: qianw211 
+author: ChJenk 
 manager: evansma
-ms.author: v-qiwe
+ms.author: v-chjen
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 10/04/2019
+ms.date: 11/19/2019
 ---
 
 # Create a new SaaS offer
@@ -28,7 +28,6 @@ If you select another offer type, you may be redirected to the older [Cloud Part
 The **New offer** dialog box is displayed. 
 
 ![New offer dialog box](./media/new-offer-popup.png)
-
 
 ## Offer ID and alias
 
@@ -70,7 +69,7 @@ The **Offer setup** tab asks for the following information. Select **Save** afte
 
 Selling through Microsoft provides better customer discovery and acquisition, allows Microsoft to host marketplace transactions on your behalf, and takes advantage of Microsoft's globally available commerce capabilities.
 
-#### SaaS Offer Requirements
+#### SaaS offer requirements
 
 In order to list Software as a Service (SaaS) offers with Commercial Marketplace on Partner Center, the following criteria must be met:
 
@@ -100,16 +99,6 @@ The following table shows an example break down of costs and payouts to demonstr
 > [!NOTE]
 > **Reduced Marketplace Service Fee**: For certain SaaS offers that you have published on our Commercial Marketplace, Microsoft will reduce its Marketplace Service Fee from 20% (as described in the Microsoft Publisher Agreement) to 10%. In order for your offer to qualify, at least one of your offers must have been designated by Microsoft as being either IP co-sell ready or IP co-sell prioritized.  Eligibility must be met at least five (5) business days before the end of each calendar month in order to receive this reduced Marketplace Service Fee for the month.  The Reduced Marketplace Service Fee does not apply to VMs, Managed Apps or any other products made available through our Commercial Marketplace.  The Reduced Marketplace Service Fee will only be available to qualified offers for license charges collected by Microsoft between May 1, 2019 and June 30, 2020.  After this time, the Marketplace Service Fee will return to its normal amount. 
 
-
-
-
-#### CSP Program Opt-in
-The [Cloud Solution Provider (CSP)](https://docs.microsoft.com/azure/marketplace/cloud-solution-providers) program enables software offers to reach millions of qualified Microsoft customers with minimal marketing and sales investment.
-
-- **Channels: Make my offer available in the CSP program** (check box)
-
-Electing to make your offer available in the CSP program enables Cloud Solution Providers to sell your product as part of a bundled solution to their customers. 
-
 ### List through Microsoft
 
 Promote your business with Microsoft by creating a marketplace listing. Selecting to list your offer only and not transact through Microsoft means that Microsoft doesn't participate directly in software license transactions. There is no associated transaction fee and the publisher keeps 100% of any software licensing fees collected from the customer. However, the publisher is responsible for supporting all aspects of the software license transaction, including but not limited to: order fulfillment, metering, billing, invoicing, payment, and collection. 
@@ -136,7 +125,7 @@ Collect customer contact information by connecting your Customer Relationship Ma
 
 A test drive is a great way to showcase your offer to potential customers by giving them the option to 'try before you buy', resulting in increased conversion and the generation of highly qualified leads. [Learn more about test drives.](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/what-is-test-drive)
 
-- **Enable a test drive** (checkbox) 
+- **Enable a test drive** (checkbox)
 
 By enabling test drive, you will be asked to configure a demonstration environment for customers to try your offer for a fixed period of time. 
 
@@ -326,7 +315,6 @@ Remember to **Save** before moving on to the next section!
 
 - [Best practices for marketplace offer listings](https://docs.microsoft.com/azure/marketplace/gtm-offer-listing-best-practices)
 
-
 ## Preview
 
 The **Preview** tab enables you to define a limited **Preview Audience** for releasing your offer prior to publishing your offer live to the broader marketplace audience.
@@ -384,7 +372,7 @@ Selecting one of the plan languages will display the **plan listing** informatio
 
 Select **Save** after completing these fields.
 
-#### Plan Pricing and availability
+#### Plan pricing and availability
 
 The **Pricing and availability** tab enables you to configure the markets that this plan will be available in, the desired monetization model, price, and billing term. In addition, you can indicate whether to make the plan visible to everyone or only to specific customers (a private audience).
 
@@ -411,8 +399,7 @@ To obtain information on customer subscriptions currently participating in a fre
 
 - **Edit markets** (optional)
 
-Every plan must be available in at least one market. Select the checkbox for any market location where you would like to make this plan available. A search box and button for selecting "Tax Remitted" countries, in which Microsoft remits sales and use tax on your behalf, are included to help. 
-
+Every plan must be available in at least one market. Select the checkbox for any market location where you would like to make this plan available. A search box and button for selecting "Tax Remitted" countries, in which Microsoft remits sales and use tax on your behalf, are included to help.
 
 If you have already set prices for your plan in United States Dollars (USD) and add another market location, the price for the new market will be calculated according to the current exchange rates. You should always review the price for each market before publishing. Pricing can be reviewed by using the "Export prices (xlsx)" link after saving your changes.
 
@@ -470,11 +457,15 @@ While SaaS offers use tenant IDs to define a private audience, other offer types
 
 [!INCLUDE [Test drive content](./includes/commercial-marketplace-test-drive.md)]
 
+## Cloud Solution Provider (CSP) Reseller Audience
+
+Electing to make your offer available in the CSP program enables Cloud Solution Providers to sell your product as part of a bundled solution to their customers. For more information, see [Cloud Solution Providers](https://go.microsoft.com/fwlink/?linkid=2111109).
+
 ## Publish
 
-#### Submit offer to preview
+Once you have completed all the required sections of the offer, select **publish** in the top-right corner of the portal. You will be re-directed to the **Review and publish** page.
 
-Once you have completed all the required sections of the offer, select **publish** in the top-right corner of the portal. You will be re-directed to the **Review and publish** page. 
+#### Submit offer to preview
 
 If this is your first time publishing this offer, you can:
 

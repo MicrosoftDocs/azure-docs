@@ -1,5 +1,6 @@
 ---
-title: Set up sign-in with a Twitter account by using custom policies in Azure Active Directory B2C | Microsoft Docs
+title: Set up sign-in with a Twitter account by using custom policies
+titleSuffix: Azure AD B2C
 description: Set up sign-in with a Twitter account by using custom policies in Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy

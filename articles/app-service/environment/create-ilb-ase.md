@@ -1,15 +1,9 @@
 ---
-title: Create internal load balancer with App Service Environment - Azure
-description: Details on how to create and use an internet-isolated Azure App Service Environment
-services: app-service
-documentationcenter: na
+title: Create an ILB ASE with ARM
+description: Learn how to create an App Service environment with an internal load balancer (ILB ASE) using Azure Resource Manager templates. Fully isolate your apps from the internet.
 author: ccompy
-manager: stefsch
 
 ms.assetid: 0f4c1fa4-e344-46e7-8d24-a25e247ae138
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 08/05/2019
 ms.author: ccompy

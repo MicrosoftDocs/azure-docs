@@ -5,7 +5,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 08/11/2019
+ms.date: 11/18/2019
 ms.author: raynew
 ms.custom: mvc
 ---
@@ -114,10 +114,8 @@ Check that the zipped file is secure, before you deploy it.
 
   **Algorithm** | **Hash value**
   --- | ---
-  MD5 | d0a68e76ea24ba4e4a494c0dab95e90e
-  SHA256 | 0551221d2a9de75c352c201ccc88f7f10e87e5df1ecda42bfd4ec6c8defc57c0
-
-
+  MD5 | 29a7531f32bcf69f32d964fa5ae950bc
+  SHA256 | 37b3f27bc44f475872e355f04fcb8f38606c84534c117d1609f2d12444569b31
 
 ### Create the appliance VM
 
@@ -218,7 +216,7 @@ Connect from the appliance to Hyper-V hosts or clusters, and start VM discovery.
     - You can add a cluster, even if there are issues with specific hosts in the cluster.
 4. After validation, click **Save and start discovery** to start the discovery process.
 
-This starts discovery. It takes around 15 minutes for metadata of discovered VMs to appear in the Azure portal.
+This starts discovery. It takes around 1.5 minutes per host for metadata of discovered servers to appear in the Azure portal.
 
 ### Verify VMs in the portal
 

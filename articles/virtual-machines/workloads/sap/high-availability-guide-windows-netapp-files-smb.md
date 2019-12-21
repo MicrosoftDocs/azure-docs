@@ -76,8 +76,8 @@ Read the following SAP Notes and papers first:
 * SAP Note [662452](https://launchpad.support.sap.com/#/notes/662452) has recommendation(deactivating 8.3 name generation) to address Poor file system performance/errors during data accesses.
 * [Install SAP NetWeaver high availability on a Windows failover cluster and file share for SAP ASCS/SCS instances on Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-installation-wsfc-file-share) 
 * [Azure Virtual Machines high-availability architecture and scenarios for SAP NetWeaver](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-architecture-scenarios)
-* [Add probe port in ASCS cluster configuration](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-installation-wsfc-file-share#create-a-new-sap-service-and-sap-instance-resources)
-* [Installation of an (A)SCS Instance on a Failover Cluster](https:\www.sap.com\documents\2017\07\f453332f-c97c-0010-82c7-eda71af511fa.html) 
+* [Add probe port in ASCS cluster configuration](sap-high-availability-installation-wsfc-file-share.md)
+* [Installation of an (A)SCS Instance on a Failover Cluster](https://www.sap.com/documents/2017/07/f453332f-c97c-0010-82c7-eda71af511fa.html)
 * [Create an SMB volume for Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-create-volumes-smb#requirements-for-active-directory-connections)
 * [NetApp SAP Applications on Microsoft Azure using Azure NetApp Files][anf-sap-applications-azure]
 
@@ -171,7 +171,7 @@ Complete your SAP installation, by installing:
    * A primary SAP application server  
    * An additional SAP application server  
 
-## Test the SAP ASCS/SCS Instance failover 
+## Test the SAP ASCS/SCS instance failover 
 
 ### Fail over from cluster node A to cluster node B and back
 In this test scenario we will refer to cluster node sapascs1 as node A,  and to cluster node sapascs2 as node B.
@@ -183,7 +183,7 @@ In this test scenario we will refer to cluster node sapascs1 as node A,  and to 
 ![Figure 2: Windows Server failover cluster resources running on node B after the failover test](./media/virtual-machines-shared-sap-high-availability-guide/high-availability-windows-azure-netapp-files-smb-figure-2.png)  
 
 
-## Lock Entry test
+## Lock entry test
 
 1.Verify that the SAP Enqueue Replication Server (ERS) is active  
 2. Log on to the SAP system, execute transaction SU01 and open a user ID in change mode. That will generate SAP lock entry.  

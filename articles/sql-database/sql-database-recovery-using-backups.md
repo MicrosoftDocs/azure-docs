@@ -100,13 +100,15 @@ You restore deleted databases from the Azure portal from the server and instance
 
 #### Single Azure SQL database
 
-To recover a single or pooled deleted database by using the Azure portal, open the server overview page, and select **Deleted databases**. Select a deleted database that you want to restore, and type the name for the new database that will be created with data restored from the backup.
+To recover a single or pooled deleted database to the deletion time by using the Azure portal, open the server overview page, and select **Deleted databases**. Select a deleted database that you want to restore, and type the name for the new database that will be created with data restored from the backup.
 
-  ![Screenshot of Deleted databases options](./media/sql-database-recovery-using-backups/restore-deleted-sql-database-annotated.png)
+  ![Screenshot of restore deleted Azure SQL database](./media/sql-database-recovery-using-backups/restore-deleted-sql-database-annotated.png)
 
 #### Managed instance database
 
-You can't use the Azure portal to restore a deleted database on a managed instance. You can use PowerShell for this purpose. 
+To recover a managed database by using the Azure portal, open the managed instance overview page, and select **Deleted databases**. Select a deleted database that you want to restore, and type the name for the new database that will be created with data restored from the backup.
+
+  ![Screenshot of restore deleted Azure SQL instance database](./media/sql-database-recovery-using-backups/restore-deleted-sql-managed-instance-annotated.png)
 
 ### Deleted database restore by using PowerShell
 

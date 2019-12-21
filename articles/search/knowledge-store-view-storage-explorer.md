@@ -4,11 +4,11 @@ titleSuffix: Azure Cognitive Search
 description: View and analyze an Azure Cognitive Search knowledge store with the Azure portal's Storage Explorer. knowledge store is currently in public preview.  
 
 manager: nitinme
-author: lisaleib
-ms.author: v-lilei
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 11/26/2019
 ---
 
 # View a knowledge store with Storage Explorer

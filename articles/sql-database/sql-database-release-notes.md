@@ -73,6 +73,9 @@ The following features are enabled in Managed instance deployment model in H1 20
 ## Fixed known issues
 
 - **Aug 2019** - Contained databases are fully supported in managed instance.
+- **Oct 2019** - Built-in point-in-time database restore from Business Critical tier to General Purpose tier will not succeed if source database contains in-memory OLTP objects.
+- **Oct 2019** - You can use **Database Mail** feature with external (non-Azure) mail servers using secure connection.
+- **Nov 2019** - Database consistency is verified using `DBCC CHECKDB` after restore database from Azure Blob Storage.
 
 ## Updates
 

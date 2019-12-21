@@ -1,6 +1,6 @@
 ---
-title: Manage your two-factor verification settings - Azure AD
-description: Learn how to change your security verification method details as it relates to two-factor verification.
+title: Change your two-factor verification method and settings - Azure AD
+description: Learn how to change the security verification method and settings for your work or school account, from the Additional security verification page.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -16,7 +16,7 @@ ms.author: lizross
 ms.collection: M365-identity-device-management
 ---
 
-# Manage your two-factor verification method settings
+# Change your two-factor verification method and settings
 
 After you set up your security verification methods for your work or school account, you can update any of the related details, including:
 

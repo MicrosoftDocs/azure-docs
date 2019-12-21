@@ -1,5 +1,5 @@
 ---
-title: Azure regions for Windows VMs | Microsoft Docs
+title: Azure regions for Windows VMs 
 description: Learn about the regions for running Windows virtual machines in Azure
 services: virtual-machines-windows
 documentationcenter: ''

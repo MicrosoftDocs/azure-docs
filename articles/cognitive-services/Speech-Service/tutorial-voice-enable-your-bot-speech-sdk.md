@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Voices enable your bot using Speech SDK"
+title: "Tutorial: Voices enable your bot using Speech SDK - Speech service"
 titleSuffix: Azure Cognitive Services
 description: In this tutorial, you'll create an Echo Bot using Microsoft Bot-Framework, deploy it to Azure, and register it with the Bot-Framework Direct Line Speech channel. Then you'll configure a sample client app for Windows that lets you speak to your bot and hear it respond back to you.
 services: cognitive-services
@@ -14,7 +14,7 @@ ms.author: dcohen
 
 # Tutorial: Voice-enable your bot using the Speech SDK
 
-You can now use the power of the Speech Services to easily voice-enable a chat bot.
+You can now use the power of the Speech service to easily voice-enable a chat bot.
 
 In this tutorial, you'll create an Echo Bot using Microsoft Bot-Framework, deploy it to Azure, and register it with the Bot-Framework Direct Line Speech channel. Then you'll configure a sample client app for Windows that lets you speak to your bot and hear it respond back to you.
 
@@ -34,7 +34,7 @@ At the end of this exercise, you'll have set up a system that will operate as fo
 ![diagram-tag](media/tutorial-voice-enable-your-bot-speech-sdk/diagram.png "The Speech Channel flow")
 
 > [!NOTE]
-> The steps in this tutorial do not require a paid service. As a new Azure user, you'll be able to use credits from your free Azure trial subscription and the free tier of Speech Services to complete this tutorial.
+> The steps in this tutorial do not require a paid service. As a new Azure user, you'll be able to use credits from your free Azure trial subscription and the free tier of the Speech service to complete this tutorial.
 
 Here's what this tutorial covers:
 > [!div class="checklist"]
@@ -58,7 +58,7 @@ Here's what you'll need to complete this tutorial:
 
 ## Create a resource group
 
-The client app that you'll create in this tutorial uses a handful of Azure services. To reduce the round-trip time for responses from your bot, you'll want to make sure that these services are located in the same Azure region. In this section, you'll create a resource group in the **West US** region. This resource group will be used when creating individual resources for the Bot-Framework, the  Direct Line Speech channel, and Speech Services.
+The client app that you'll create in this tutorial uses a handful of Azure services. To reduce the round-trip time for responses from your bot, you'll want to make sure that these services are located in the same Azure region. In this section, you'll create a resource group in the **West US** region. This resource group will be used when creating individual resources for the Bot-Framework, the  Direct Line Speech channel, and the Speech service.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. From the left navigation, select **Resource groups**. Then click **Add** to add a new resource group.
@@ -84,7 +84,7 @@ For more information about regions, see [Azure locations](https://azure.microsof
 
 Now that you have a resource group in the **West US** region, the next step is to create individual resources for each service that you'll use in this tutorial.
 
-### Create a Speech Services resource
+### Create a Speech service resource
 
 Follow these instructions to create a Speech resource:
 
@@ -421,7 +421,7 @@ If you're not going to continue using the echo-bot deployed in this tutorial, yo
 * Deploying to an [Azure region that supports high quality Neural TTS voices](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#standard-and-neural-voices)
 * Pricing associated with Direct Line Speech channel:
   * [Bot Service pricing](https://azure.microsoft.com/pricing/details/bot-service/)
-  * [Speech Services](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/)
+  * [Speech service](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/)
 * Building and deploying your own voice-enabled bot:
   * Build a [Bot-Framework bot](https://dev.botframework.com/). Register it with [Direct Line Speech channel](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech?view=azure-bot-service-4.0) and [customize your bot for voice](https://docs.microsoft.com/azure/bot-service/directline-speech-bot?view=azure-bot-service-4.0)
   * Explore existing [Bot-Framework solutions](https://microsoft.github.io/botframework-solutions/index): Build a [virtual assistant](https://microsoft.github.io/botframework-solutions/overview/virtual-assistant-solution/) and [extend it to Direct Line Speech](https://microsoft.github.io/botframework-solutions/clients-and-channels/tutorials/enable-speech/1-intro/)

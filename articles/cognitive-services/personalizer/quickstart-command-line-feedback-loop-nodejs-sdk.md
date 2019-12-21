@@ -1,7 +1,7 @@
 ---
-title: "Quickstart: Personalizer client library for Node.js | Microsoft Docs"
+title: "Quickstart: Personalizer client library for Node.js"
 titleSuffix: Azure Cognitive Services
-description:  Get started with the Personalizer client library for Node.js using a learning loop. 
+description:  This quickstart shows how to get started with the Personalizer client library for Node.js using a learning loop. 
 services: cognitive-services
 author: diberry
 manager: nitinme

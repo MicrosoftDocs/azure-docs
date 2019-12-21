@@ -1,12 +1,12 @@
 ---
-title: 'Configure a VPN client for OpenVPN protocol P2S connections: Azure AD authentication| Microsoft Docs'
+title: 'VPN Gateway: VPN client for OpenVPN protocol P2S connections: Azure AD authentication'
 description: You can use P2S VPN to connect to your VNet using Azure AD authentication
 services: vpn-gateway
 author: anzaman
 
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 11/07/2019
+ms.date: 12/18/2019
 ms.author: alzam
 
 ---
@@ -139,6 +139,26 @@ These steps help you configure your connection to connect automatically with Alw
 4. View the diagnosis results.
 
     ![diagnose](./media/openvpn-azure-ad-client/diagnose/diagnose4.jpg)
+
+## FAQ
+
+### How do I add DNS suffixes to the VPN client?
+
+You can modify the downloaded profile XML file and add the **\<dnssuffixes>\<dnssufix> \</dnssufix>\</dnssuffixes>** tags
+
+```
+<azvpnprofile>
+<clientconfig>
+
+    <dnssuffixes>
+          <dnssuffix>.mycorp.com</dnssuffix>
+          <dnssuffix>.xyz.com</dnssuffix>
+          <dnssuffix>.etc.net</dnssuffix>
+    </dnssuffixes>
+    
+</clientconfig>
+</azvpnprofile>
+```
 
 ## Next steps
 

@@ -160,4 +160,4 @@ Use **Alerts** from a resource's menu to view alerts and manage alert rules for 
 
 ## Next steps
 
-* See [Supported services, schemas, and categories for Azure Diagnostic Logs](../platform/diagnostic-logs-schema.md) for details of resource logs for different Azure services.  
+* See [Supported services, schemas, and categories for Azure Resource Logs](../platform/diagnostic-logs-schema.md) for details of resource logs for different Azure services.  

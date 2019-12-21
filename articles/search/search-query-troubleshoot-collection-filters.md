@@ -1,7 +1,7 @@
 ---
 title: Troubleshooting OData collection filters
 titleSuffix: Azure Cognitive Search
-description: Troubleshooting OData collection filter errors in Azure Cognitive Search queries.
+description: Learn approaches for resolving OData collection filter errors in Azure Cognitive Search queries.
 
 manager: nitinme
 author: brjohnstmsft

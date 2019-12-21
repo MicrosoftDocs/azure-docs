@@ -4,7 +4,7 @@ description: This article describes how to invoke a SQL Server Integration Servi
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
 
 ms.service: data-factory

@@ -1,14 +1,16 @@
 ---
-title: Quickstart - Configure end-to-end SSL encryption with Azure Application Gateway - Azure portal | Microsoft Docs
+title: Configure end-to-end SSL encryption using the portal
+titleSuffix: Azure Application Gateway
 description: Learn how to use the Azure portal to create an application gateway with end-to-end SSL encryption.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 4/30/2019
+ms.date: 11/14/2019
 ms.author: absha
 ms.custom: mvc
 ---
+
 # Configure end-to-end SSL by using Application Gateway with the portal
 
 This article describes how to use the Azure portal to configure end-to-end Secure Sockets Layer (SSL) encryption through Azure Application Gateway v1 SKU.

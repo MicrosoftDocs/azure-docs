@@ -1,17 +1,13 @@
 ---
-title: Microsoft identity platform Python web app quickstart | Azure
+title: Add sign-in with Microsoft to a Microsoft identity platform Python web app | Azure
 description: Learn how to implement Microsoft Sign-In on a Python Web App using OAuth2
 services: active-directory
-documentationcenter: dev-center-name
 author: abhidnya13
-editor: ''
+manager: CelesteDG
 
-ms.assetid: 9551f0b5-04f2-44d7-87b5-756409180fe9
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: quickstart
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/25/2019
 ms.author: abpati

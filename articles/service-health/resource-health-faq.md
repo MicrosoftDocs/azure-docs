@@ -1,13 +1,8 @@
 ---
-title: Azure Resource Health FAQ | Microsoft Docs
+title: Azure Resource Health FAQ
 description: Overview of Azure Resource Health
-author: stephbaron
-ms.author: stbaron
 ms.topic: conceptual
-ms.service: service-health
 ms.date: 01/29/2019
-ms.workload: Supportability
-
 ---
 
 # Azure Resource Health FAQ

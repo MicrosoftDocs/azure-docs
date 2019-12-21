@@ -42,7 +42,7 @@ After making changes, click **OK** to update the storage target, or click **Canc
 
 ## Update an Azure Blob storage target
 
-The details page for a Blob storage target lets you modify the virtual namespace path. 
+The details page for a Blob storage target lets you modify the virtual namespace path.
 
 ![screenshot of the edit page for a blob storage target](media/hpc-cache-edit-storage-blob.png)
 

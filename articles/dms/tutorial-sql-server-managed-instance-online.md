@@ -1,5 +1,6 @@
 ---
-title: "Tutorial: Use Azure Database Migration Service to perform an online migration of SQL Server to an Azure SQL Database managed instance | Microsoft Docs"
+title: "Tutorial: Migrate SQL Server online to a SQL managed instance"
+titleSuffix: Azure Database Migration Service
 description: Learn to perform an online migration from SQL Server on-premises to an Azure SQL Database managed instance by using Azure Database Migration Service.
 services: dms
 author: HJToland3
@@ -8,9 +9,9 @@ manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
-ms.custom: mvc, tutorial
+ms.custom: "seo-lt-2019"
 ms.topic: article
-ms.date: 11/06/2019
+ms.date: 12/04/2019
 ---
 
 # Tutorial: Migrate SQL Server to an Azure SQL Database managed instance online using DMS
@@ -199,13 +200,18 @@ After an instance of the service is created, locate it within the Azure portal, 
 
     | | |
     |--------|---------|
-    |**SMB Network location share** | The local SMB network share that contains the Full database backup files and transaction log backup files that Azure Database Migration Service can use for migration. The service account running the source SQL Server instance must have read\write privileges on this network share. Provide an FQDN or IP addresses of the server in the network share, for example, '\\\servername.domainname.com\backupfolder' or '\\\IP address\backupfolder'.|
-    |**User name** | Make sure that the Windows user has full control privilege on the network share that you provided above. Azure Database Migration Service will impersonate the user credential to upload the backup files to Azure storage container for restore operation. |
-    |**Password** | Password for the user. |
+    |**SMB Network location share** | The local SMB network share or Azure file share that contains the Full database backup files and transaction log backup files that Azure Database Migration Service can use for migration. The service account running the source SQL Server instance must have read\write privileges on this network share. Provide an FQDN or IP addresses of the server in the network share, for example, '\\\servername.domainname.com\backupfolder' or '\\\IP address\backupfolder'.|
+    |**User name** | Make sure that the Windows user has full control privilege on the network share that you provided above. Azure Database Migration Service will impersonate the user credential to upload the backup files to Azure storage container for restore operation. If using Azure File share, use the storage account name pre-pended with AZURE\ as the username. |
+    |**Password** | Password for the user. If using Azure file share, use a storage account key as the password. |
     |**Subscription of the Azure Storage Account** | Select the subscription that contains the Azure Storage Account. |
     |**Azure Storage Account** | Select the Azure Storage Account that DMS can upload the backup files from the SMB network share to and use for database migration.  We recommend selecting the Storage Account in the same region as the DMS service for optimal file upload performance. |
 
     ![Configure Migration Settings](media/tutorial-sql-server-to-managed-instance-online/dms-configure-migration-settings4.png)
+
+
+> [!NOTE]
+  > If Azure Database Migration Service shows error ‘System Error 53’ or ‘System Error 57’, the cause might result frm an inability of Azure Database Migration Service to access Azure file share. If you encounter one of these errors, please grant access to the storage account from the virtual network using the instructions [here](https://docs.microsoft.com/azure/storage/common/storage-network-security?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access-from-a-virtual-network).
+
 
 2. Select **Save**.
 

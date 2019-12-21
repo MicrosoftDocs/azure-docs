@@ -1,14 +1,8 @@
 ---
-title: Azure Container Registry authentication with a service principal
+title: Authenticate with service principal
 description: Provide access to images in your private container registry by using an Azure Active Directory service principal.
-services: container-registry
-author: dlepow
-manager: gwallace
-
-ms.service: container-registry
 ms.topic: article
 ms.date: 10/04/2019
-ms.author: danlep
 ---
 
 # Azure Container Registry authentication with service principals
@@ -109,4 +103,4 @@ The CLI uses the token created when you ran `az login` to authenticate your sess
 <!-- LINKS - Internal -->
 [az-acr-login]: /cli/azure/acr#az-acr-login
 [az-login]: /cli/azure/reference-index#az-login
-[az-ad-sp-credential-reset]: /cli/azure/ad/sp/credential#[az-ad-sp-credential-reset]
+[az-ad-sp-credential-reset]: /cli/azure/ad/sp/credential#az-ad-sp-credential-reset

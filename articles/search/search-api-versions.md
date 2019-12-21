@@ -1,5 +1,5 @@
 ---
-title: API version management for .NET SDK and REST APIs
+title: API version management for .NET and REST
 titleSuffix: Azure Cognitive Search
 description: Version policy for Azure Cognitive Search REST APIs and the client library in the .NET SDK.
 

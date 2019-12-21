@@ -41,7 +41,7 @@ To obtain a model in the ONNX format:
 
 Currently, not all ONNX models are supported by Azure SQL Database Edge. The support is limited to models with **numeric data types**:
 
-- [int and bigint](https://docs.microsoft.com/sql/t-sql/data-types/int-bigint-smallint-and-tinyint-transact-sql5)
+- [int and bigint](https://docs.microsoft.com/sql/t-sql/data-types/int-bigint-smallint-and-tinyint-transact-sql)
 - [real and float](https://docs.microsoft.com/sql/t-sql/data-types/float-and-real-transact-sql).
   
 Other numeric types can be converted to supported types by using [CAST and CONVERT](https://docs.microsoft.com/sql/t-sql/functions/cast-and-convert-transact-sql).

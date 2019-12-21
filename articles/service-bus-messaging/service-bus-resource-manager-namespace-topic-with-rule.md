@@ -1,5 +1,5 @@
 ---
-title: Create Azure Service Bus topic subscription and rule using Azure Resource Manager template | Microsoft Docs
+title: Create Service Bus topic subscription and rule using Azure template
 description: Create a Service Bus namespace with topic, subscription, and rule using Azure Resource Manager template
 services: service-bus-messaging
 documentationcenter: .net
@@ -13,7 +13,7 @@ ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 01/23/2019
+ms.date: 11/27/2019
 ms.author: spelluru
 
 ---
@@ -175,9 +175,6 @@ azure group deployment create \<my-resource-group\> \<my-deployment-name\> --tem
 ```
 
 ## Next steps
-See the following topic that shows how to create a subscription filter: 
-[Create a Service Bus namespace with topic, subscription, and rule using an Azure Resource Manager template](service-bus-resource-manager-namespace-topic-with-rule.md)
-
 Learn how to manage these resources by viewing these articles:
 
 * [Manage Azure Service Bus](service-bus-management-libraries.md)

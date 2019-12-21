@@ -2,19 +2,15 @@
 title: Authentication in Microsoft identity platform | Azure
 description: Learn about the basics of authentication in the Microsoft identity platform (v2.0).
 services: active-directory
-documentationcenter: dev-center-name
 author: rwike77
 manager: CelesteDG
-editor: ''
 
 ms.assetid: 0c84e7d0-16aa-4897-82f2-f53c6c990fd9
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/15/2019
+ms.date: 12/18/2019
 ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda, sureshja, hirsin
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
@@ -145,7 +141,7 @@ This attribute causes ASP.NET to check for the presence of a session cookie cont
 ### How a web app delegates sign-in to Azure AD and obtains a token
 
 User authentication happens via the browser. The OpenID protocol uses standard HTTP protocol messages.
-- The web app sends an HTTP 202 (redirect) to the browser to use Azure AD.
+- The web app sends an HTTP 302 (redirect) to the browser to use Azure AD.
 - When the user is authenticated, Azure AD sends the token to the web app by using a redirect through the browser.
 - The redirect is provided by the web app in the form of a redirect URI. This redirect URI is registered with the Azure AD application object. There can be several redirect URIs because the application may be deployed at several URLs. So the web app will also need to specify the redirect URi to use.
 - Azure AD verifies that the redirect URI sent by the web app is one of the registered redirect URIs for the app.
@@ -156,7 +152,7 @@ The flow described above applies, with slight differences, to desktop and mobile
 
 Desktop and mobile applications can use an embedded Web control, or a system browser, for authentication. The following diagram shows how a Desktop or mobile app uses the Microsoft authentication library (MSAL) to acquire access tokens and call web APIs.
 
-![Desktop app how it appears to be](media/authentication-scenarios/web-app-how-it-appears-to-be.png)
+![Desktop app how it appears to be](media/authentication-scenarios/desktop-app-how-it-appears-to-be.png)
 
 MSAL uses a browser to get tokens, and as with web apps, delegates authentication to Azure AD.
 
@@ -166,6 +162,7 @@ By default, MSAL uses the system browser except for .NET Framework desktop appli
 
 ## Next steps
 
-See the [Microsoft identity platform developer glossary](developer-glossary.md) to get familiar with common terms.
-See [Authentication flows and app scenarios](authentication-flows-app-scenarios.md) to learn more about other scenarios for authenticating users supported by the Microsoft identity platform.
-See [MSAL libraries](msal-overview.md) to learn about the Microsoft libraries that help you develop applications that work with Microsoft Accounts, Azure AD accounts, and Azure AD B2C users all in a single, streamlined programming model.
+- See the [Microsoft identity platform developer glossary](developer-glossary.md) to get familiar with common terms.
+- See [Authentication flows and app scenarios](authentication-flows-app-scenarios.md) to learn more about other scenarios for authenticating users supported by the Microsoft identity platform.
+- See [MSAL libraries](msal-overview.md) to learn about the Microsoft libraries that help you develop applications that work with Microsoft Accounts, Azure AD accounts, and Azure AD B2C users all in a single, streamlined programming model.
+- See [Integrate App Service with Microsfot identity platform](/azure/app-service/configure-authentication-provider-aad) to learn how to configure authentication for your App Service app.

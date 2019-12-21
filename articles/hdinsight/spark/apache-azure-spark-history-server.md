@@ -5,14 +5,14 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 09/04/2019
+ms.custom: hdinsightactive,hdiseo17may2017
+ms.date: 11/25/2019
 ---
 
 # Use extended Apache Spark History Server to debug and diagnose Apache Spark applications
 
-This article provides guidance on how to use extended Apache Spark History Server to debug and diagnose completed and running Spark applications. The extension includes data tab and graph tab and diagnosis tab. On the **Data** tab, users can check the input and output data of the Spark job. On the **Graph** tab, users can check the data flow and replay the job graph. On the **Diagnosis** tab, user can refer to **Data Skew**, **Time Skew** and **Executor Usage Analysis**.
+This article provides guidance on how to use extended Apache Spark History Server to debug and diagnose completed and running Spark applications. The extension includes data tab and graph tab and diagnosis tab. On the **Data** tab, users can check the input and output data of the Spark job. On the **Graph** tab, users can check the data flow and replay the job graph. On the **Diagnosis** tab, user can refer to **Data Skew**, **Time Skew**, and **Executor Usage Analysis**.
 
 ## Get access to Apache Spark History Server
 
@@ -21,35 +21,31 @@ Apache Spark History Server is the web UI for completed and running Spark applic
 ### Open the Apache Spark History Server Web UI from Azure portal
 
 1. From the [Azure portal](https://portal.azure.com/), open the Spark cluster. For more information, see [List and show clusters](../hdinsight-administer-use-portal-linux.md#showClusters).
-2. From **Quick Links**, click **Cluster Dashboard**, and then click **Spark History Server**. When prompted, enter the admin credentials for the Spark cluster.
+2. From **Cluster dashboards**, select  **Spark history server**. When prompted, enter the admin credentials for the Spark cluster.
 
-    ![portal launch Spark History Server](./media/apache-azure-spark-history-server/launch-history-server.png "Spark History Server")
+    ![portal launch Spark History Server](./media/apache-azure-spark-history-server/azure-portal-dashboard-spark-history.png "Spark History Server")
 
 ### Open the Spark History Server Web UI by URL
 
-Open the Spark History Server by browsing to the following URL, replace `<ClusterName>` with Spark cluster name of customer.
+Open the Spark History Server by browsing to `https://CLUSTERNAME.azurehdinsight.net/sparkhistory` where CLUSTERNAME is the name of your Spark cluster.
 
-   ```
-   https://<ClusterName>.azurehdinsight.net/sparkhistory
-   ```
-
-The Spark History Server web UI looks like:
+The Spark History Server web UI may look similar to:
 
 ![HDInsight Spark History Server](./media/apache-azure-spark-history-server/hdinsight-spark-history-server.png)
 
 ## Data tab in Spark History Server
 
-Select job ID then click **Data** on the tool menu to get the data view.
+Select job ID then select **Data** on the tool menu to get the data view.
 
-+ Check the **Inputs**, **Outputs**, and **Table Operations** by selecting the tabs separately.
++ Review the **Inputs**, **Outputs**, and **Table Operations** by selecting the tabs separately.
 
     ![Data for Spark application tabs](./media/apache-azure-spark-history-server/apache-spark-data-tabs.png)
 
-+ Copy all rows by clicking button **Copy**.
++ Copy all rows by selecting button **Copy**.
 
     ![Data for Spark application copy](./media/apache-azure-spark-history-server/apache-spark-data-copy.png)
 
-+ Save all data as CSV file by clicking button **csv**.
++ Save all data as CSV file by selecting button **csv**.
 
     ![Data for Spark application save](./media/apache-azure-spark-history-server/apache-spark-data-save.png)
 
@@ -57,23 +53,23 @@ Select job ID then click **Data** on the tool menu to get the data view.
 
     ![Data for Spark application search](./media/apache-azure-spark-history-server/apache-spark-data-search.png)
 
-+ Click the column header to sort table, click the plus sign to expand a row to show more details, or click the minus sign to collapse a row.
++ Select the column header to sort table, select the plus sign to expand a row to show more details, or select the minus sign to collapse a row.
 
     ![Data for Spark application table](./media/apache-azure-spark-history-server/apache-spark-data-table.png)
 
-+ Download single file by clicking button **Partial Download** that place at the right, then the selected file will be downloaded to local, if the file does not exist any more, it will open a new tab to show the error messages.
++ Download single file by selecting button **Partial Download** that place at the right, then the selected file will be downloaded to local, if the file doesn't exist anymore, it will open a new tab to show the error messages.
 
     ![Data for Spark application download row](./media/apache-azure-spark-history-server/sparkui-data-download-row.png)
 
-+ Copy full path or relative path by selecting the **Copy Full Path**, **Copy Relative Path** that expands from download menu. For azure data lake storage files, **Open in Azure Storage Explorer** will launch Azure Storage Explorer, and locate to the folder when sign-in.
++ Copy full path or relative path by selecting the **Copy Full Path**, **Copy Relative Path** that expands from download menu. For azure data lake storage files, **Open in Azure Storage Explorer** will launch Azure Storage Explorer, and locate to the folder when sign in.
 
     ![Data for Spark application copy path](./media/apache-azure-spark-history-server/sparkui-data-copy-path.png)
 
-+ Click the number below the table to navigate pages when too many rows to display in one page.
++ Select the number below the table to navigate pages when too many rows to display in one page.
 
     ![Data for Spark application page](./media/apache-azure-spark-history-server/apache-spark-data-page.png)
 
-+ Hover on the question mark beside Data to show the tooltip, or click the question mark to get more information.
++ Hover on the question mark beside Data to show the tooltip, or select the question mark to get more information.
 
     ![Data for Spark application more info](./media/apache-azure-spark-history-server/sparkui-data-more-info.png)
 
@@ -85,7 +81,7 @@ Select job ID then click **Data** on the tool menu to get the data view.
 
 Select job ID then click **Graph** on the tool menu to get the job graph view.
 
-+ Check overview of your job by the generated job graph.
++ Review overview of your job by the generated job graph.
 
 + By default, it will show all jobs, and it could be filtered by **Job ID**.
 
@@ -99,13 +95,15 @@ Select job ID then click **Graph** on the tool menu to get the job graph view.
 
     ![Spark application and job graph heatmap](./media/apache-azure-spark-history-server/sparkui-graph-heatmap.png)
 
-+ Play back the job by clicking the **Playback** button and stop anytime by clicking the stop button. The task display in color to show different status when playback:
++ Play back the job by selecting the **Playback** button and stop anytime by selecting the stop button. The task display in color to show different status when playback:
 
-  + Green for succeeded: The job has completed successfully.
-  + Orange for retried: Instances of tasks that failed but do not affect the final result of the job. These tasks had duplicate or retry instances that may succeed later.
-  + Blue for running: The task is running.
-  + White for waiting or skipped: The task is waiting to run, or the stage has skipped.
-  + Red for failed: The task has failed.
+    |Color |Description |
+    |---|---|
+    |Green|The job has completed successfully.|
+    |Orange|Instances of tasks that failed but don't affect the final result of the job. These tasks had duplicate or retry instances that may succeed later.|
+    |Blue|The task is running.|
+    |White|The task is waiting to run, or the stage has skipped.|
+    |Red|The task has failed.|
 
     ![Spark application and job graph color sample, running](./media/apache-azure-spark-history-server/sparkui-graph-color-running.png)
 
@@ -147,25 +145,25 @@ Select job ID then click **Graph** on the tool menu to get the job graph view.
     > [!NOTE]  
     > For data size of read and write we use 1MB = 1000 KB = 1000 * 1000 Bytes.
 
-+ Send feedback with issues by clicking **Provide us feedback**.
++ Send feedback with issues by selecting **Provide us feedback**.
 
     ![Spark application and job graph feedback](./media/apache-azure-spark-history-server/sparkui-graph-feedback.png)
 
 ## Diagnosis tab in Apache Spark History Server
 
-Select job ID then click **Diagnosis** on the tool menu to get the job Diagnosis view. The diagnosis tab includes **Data Skew**, **Time Skew**, and **Executor Usage Analysis**.
+Select job ID then select **Diagnosis** on the tool menu to get the job Diagnosis view. The diagnosis tab includes **Data Skew**, **Time Skew**, and **Executor Usage Analysis**.
 
-+ Check the **Data Skew**, **Time Skew**, and **Executor Usage Analysis** by selecting the tabs respectively.
++ Review **Data Skew**, **Time Skew**, and **Executor Usage Analysis** by selecting the tabs respectively.
 
     ![SparkUI diagnosis data skew tab again](./media/apache-azure-spark-history-server/sparkui-diagnosis-tabs.png)
 
 ### Data Skew
 
-Click **Data Skew** tab, the corresponding skewed tasks are displayed based on the specified parameters.
+Select **Data Skew** tab, the corresponding skewed tasks are displayed based on the specified parameters.
 
-+ **Specify Parameters** - The first section displays the parameters which are used to detect Data Skew. The built-in rule is: Task Data Read is greater than 3 times of the average task data read, and the task data read is more than 10MB. If you want to define your own rule for skewed tasks, you can choose your parameters, the **Skewed Stage**, and **Skew Char** section will be refreshed accordingly.
++ **Specify Parameters** - The first section displays the parameters, which are used to detect Data Skew. The built-in rule is: Task Data Read is greater than three times of the average task data read, and the task data read is more than 10 MB. If you want to define your own rule for skewed tasks, you can choose your parameters, the **Skewed Stage**, and **Skew Char** section will be refreshed accordingly.
 
-+ **Skewed Stage** - The second section displays stages which have skewed tasks meeting the criteria specified above. If there are more than one skewed task in a stage, the skewed stage table only displays the most skewed task (e.g. the largest data for data skew).
++ **Skewed Stage** - The second section displays stages, which have skewed tasks meeting the criteria specified above. If there's more than one skewed task in a stage, the skewed stage table only displays the most skewed task (e.g. the largest data for data skew).
 
     ![sparkui diagnosis data skew tab](./media/apache-azure-spark-history-server/sparkui-diagnosis-dataskew-section2.png)
 
@@ -177,9 +175,9 @@ Click **Data Skew** tab, the corresponding skewed tasks are displayed based on t
 
 The **Time Skew** tab displays skewed tasks based on task execution time.
 
-+ **Specify Parameters** - The first section displays the parameters which are used to detect Time Skew. The default criteria to detect time skew is: task execution time is greater than 3 times of average execution time and task execution time is greater than 30 seconds. You can change the parameters based on your needs. The **Skewed Stage** and **Skew Chart** display the corresponding stages and tasks information just like the **Data Skew** tab above.
++ **Specify Parameters** - The first section displays the parameters, which are used to detect Time Skew. The default criteria to detect time skew is: task execution time is greater than three times of average execution time and task execution time is greater than 30 seconds. You can change the parameters based on your needs. The **Skewed Stage** and **Skew Chart** display the corresponding stages and tasks information just like the **Data Skew** tab above.
 
-+ Click **Time Skew**, then filtered result is displayed in **Skewed Stage** section according to the parameters set in section **Specify Parameters**. Click one item in **Skewed Stage** section, then the corresponding chart is drafted in section3, and the task details are displayed in right bottom panel.
++ Select **Time Skew**, then filtered result is displayed in **Skewed Stage** section according to the parameters set in section **Specify Parameters**. Select one item in **Skewed Stage** section, then the corresponding chart is drafted in section3, and the task details are displayed in right bottom panel.
 
     ![sparkui diagnosis time skew section](./media/apache-azure-spark-history-server/sparkui-diagnosis-timeskew-section2.png)
 
@@ -187,11 +185,11 @@ The **Time Skew** tab displays skewed tasks based on task execution time.
 
 The Executor Usage Graph visualizes the Spark job actual executor allocation and running status.  
 
-+ Click **Executor Usage Analysis**, then four types curves about executor usage are drafted, including **Allocated Executors**, **Running Executors**,**idle Executors**, and **Max Executor Instances**. Regarding allocated executors, each "Executor added" or "Executor removed" event will increase or decrease the allocated executors, you can check "Event Timeline" in the “Jobs" tab for more comparison.
++ Select **Executor Usage Analysis**, then four types curves about executor usage are drafted, including **Allocated Executors**, **Running Executors**, **idle Executors**, and **Max Executor Instances**. Regarding allocated executors, each "Executor added" or "Executor removed" event will increase or decrease the allocated executors, you can check "Event Timeline" in the “Jobs" tab for more comparison.
 
     ![sparkui diagnosis executors tab](./media/apache-azure-spark-history-server/sparkui-diagnosis-executors.png)
 
-+ Click the color icon to select or unselect the corresponding content in all drafts.
++ Select the color icon to select or unselect the corresponding content in all drafts.
 
     ![sparkui diagnosis select chart](./media/apache-azure-spark-history-server/sparkui-diagnosis-select-chart.png)
 
@@ -201,33 +199,32 @@ The Executor Usage Graph visualizes the Spark job actual executor allocation and
 
 To revert to community version, do the following steps:
 
-1. Open cluster in Ambari. Click **Spark2** in left panel.
-2. Click **Configs** tab.
-3. Expand the group **Custom spark2-defaults**.
-4. Click **Add Property**, add **spark.ui.enhancement.enabled=false**, save.
-5. The property sets to **false** now.
-6. Click **Save** to save the configuration.
+1. Open cluster in Ambari.
+1. Navigate to **Spark2** > **Configs** > **Custom spark2-defaults**.
+1. Select **Add Property ...**, add **spark.ui.enhancement.enabled=false**, save.
+1. The property sets to **false** now.
+1. Select **Save** to save the configuration.
 
     ![Apache Ambari feature turns off](./media/apache-azure-spark-history-server/apache-spark-turn-off.png)
 
-7. Click **Spark2** in left panel, under **Summary** tab, click **Spark2 History Server**.
+1. Select **Spark2** in left panel, under **Summary** tab, select **Spark2 History Server**.
 
     ![Apache Ambari Spark2 Summary view](./media/apache-azure-spark-history-server/apache-spark-restart1.png)
 
-8. Restart history server by clicking **Restart** of **Spark2 History Server**.
+1. Restart history server by selecting **Restart** of **Spark2 History Server**.
 
     ![Apache Ambari Spark2 History restart](./media/apache-azure-spark-history-server/apache-spark-restart2.png)  
-9. Refresh the Spark history server web UI, it will be reverted to community version.
+1. Refresh the Spark history server web UI, it will be reverted to community version.
 
 ### 2. Upload history server event
 
 If you run into history server error, follow the steps to provide the event:
 
-1. Download event by clicking **Download** in history server web UI.
+1. Download event by selecting **Download** in history server web UI.
 
     ![Spark2 History Server download](./media/apache-azure-spark-history-server/sparkui-download-event.png)
 
-2. Click **Provide us feedback** from data/graph tab.
+2. Select **Provide us feedback** from data/graph tab.
 
     ![Spark graph provide us feedback](./media/apache-azure-spark-history-server/sparkui-graph-feedback.png)
 
@@ -297,32 +294,29 @@ If you want to upgrade with hotfix, use the script below which will upgrade spar
 **To use the bash file from Azure portal**
 
 1. Launch [Azure portal](https://ms.portal.azure.com), and select your cluster.
-2. Click **Script actions**, then **Submit new**. Complete the **Submit script action** form, then click **Create** button.
+2. Complete a [script action](../hdinsight-hadoop-customize-cluster-linux.md) with the following parameters:
 
-    + **Script type**: select **Custom**.
-    + **Name**: specify a script name.
-    + **Bash script URI**: upload the bash file to private cluster then copy URL here. Alternatively, use the URI provided.
-
-   ```upgrade_spark_enhancement
-    https://hdinsighttoolingstorage.blob.core.windows.net/shsscriptactions/upgrade_spark_enhancement.sh
-   ```
-
-   + Check on **Head** and **Worker**.
-   + **Parameters**: set the parameters follow the bash usage.
+    |Property |Value |
+    |---|---|
+    |Script type|- Custom|
+    |Name|UpgradeJar|
+    |Bash script URI|`https://hdinsighttoolingstorage.blob.core.windows.net/shsscriptactions/upgrade_spark_enhancement.sh`|
+    |Node type(s)|Head, Worker|
+    |Parameters|`https://${account_name}.blob.core.windows.net/packages/jars/spark-enhancement-${version}.jar`|
 
      ![Azure portal submit script action](./media/apache-azure-spark-history-server/apache-spark-upload1.png)
 
 ## Known issues
 
-1. Currently, it only works for Spark 2.3 and 2.4 cluster.
++ Currently, it only works for Spark 2.3 and 2.4 cluster.
 
-2. Input/output data using RDD will not show in data tab.
++ Input/output data using RDD won't show in data tab.
 
 ## Next steps
 
-* [Manage resources for an Apache Spark cluster on HDInsight](apache-spark-resource-manager.md)
-* [Configure Apache Spark settings](apache-spark-settings.md)
++ [Manage resources for an Apache Spark cluster on HDInsight](apache-spark-resource-manager.md)
++ [Configure Apache Spark settings](apache-spark-settings.md)
 
 ## Contact us
 
-If you have any feedback, or if you encounter any other problems when using this tool, send an email at ([hdivstool@microsoft.com](mailto:hdivstool@microsoft.com)).
+If you have any feedback, or come across any issues when using this tool, send an email at ([hdivstool@microsoft.com](mailto:hdivstool@microsoft.com)).

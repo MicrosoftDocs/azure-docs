@@ -1,6 +1,6 @@
 ---
 title: Stream Azure resource logs to an event hub
-description: Learn how to stream Azure resource logs to an event hub.
+description: Learn how to stream Azure resource logs to an event hub to send data to external systems such as third-party SIEMs and other log analytics solutions.
 author: bwren
 services: azure-monitor
 ms.service: azure-monitor

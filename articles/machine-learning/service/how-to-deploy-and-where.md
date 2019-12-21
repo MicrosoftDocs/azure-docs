@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
-ms.date: 09/13/2019
+ms.date: 12/17/2019
 
 ms.custom: seoapril2019
 ---
@@ -75,7 +75,7 @@ The code snippets in this section demonstrate how to register a model from a tra
 
 + **Using the SDK**
 
-  When you use the SDK to train a model, you can receive either a [Run](https://review.docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py&branch=master) object or an [AutoMLRun](https://review.docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.run.automlrun?view=azure-ml-py&branch=master) object, depending on how you trained the model. Each object can be used to register a model created by an experiment run.
+  When you use the SDK to train a model, you can receive either a [Run](https://review.docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py&branch=master) object or an [AutoMLRun](/python/api/azureml-train-automl-client/azureml.train.automl.run.automlrun) object, depending on how you trained the model. Each object can be used to register a model created by an experiment run.
 
   + Register a model from an `azureml.core.Run` object:
  
@@ -97,7 +97,7 @@ The code snippets in this section demonstrate how to register a model from a tra
 
     In this example, the `metric` and `iteration` parameters aren't specified, so the iteration with the best primary metric will be registered. The `model_id` value returned from the run is used instead of a model name.
 
-    For more information, see the [AutoMLRun.register_model](https://review.docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.run.automlrun?view=azure-ml-py&branch=master#register-model-description-none--tags-none--iteration-none--metric-none-) documentation.
+    For more information, see the [AutoMLRun.register_model]/python/api/azureml-train-automl-client/azureml.train.automl.run.automlrun#register-model-model-name-none--description-none--tags-none--iteration-none--metric-none-) documentation.
 
 + **Using the CLI**
 
@@ -254,7 +254,7 @@ To use schema generation, include the `inference-schema` package in your Conda e
 
 ##### Example dependencies file
 
-The following YAML is an example of a Conda dependencies file for inference:
+The following YAML is an example of a Conda dependencies file for inference. Please note that you must indicate azureml-defaults with verion >= 1.0.45 as a pip dependency, because it contains the functionality needed to host the model as a web service.
 
 ```YAML
 name: project_environment
@@ -262,7 +262,8 @@ dependencies:
   - python=3.6.2
   - scikit-learn=0.20.0
   - pip:
-    - azureml-defaults
+      # You must list azureml-defaults as a pip dependency
+    - azureml-defaults>=1.0.45
     - inference-schema[numpy-support]
 ```
 
@@ -471,30 +472,22 @@ def run(request):
 
 The inference configuration describes how to configure the model to make predictions. This configuration isn't part of your entry script. It references your entry script and is used to locate all the resources required by the deployment. It's used later, when you deploy the model.
 
-Inference configuration can use Azure Machine Learning environments to define the software dependencies needed for your deployment. Environments allow you to create, manage, and reuse the software dependencies required for training and deployment. The following example demonstrates loading an environment from your workspace and then using it with the inference configuration:
+Inference configuration uses Azure Machine Learning environments to define the software dependencies needed for your deployment. Environments allow you to create, manage, and reuse the software dependencies required for training and deployment. The following example demonstrates loading an environment from your workspace and then using it with the inference configuration:
 
 ```python
-from azureml.core import Environment
+from azureml.core.environment import Environment
 from azureml.core.model import InferenceConfig
 
-deploy_env = Environment.get(workspace=ws,name="myenv",version="1")
+myenv = Environment.get(workspace=ws, name="myenv", version="1")
 inference_config = InferenceConfig(entry_script="x/y/score.py",
-                                   environment=deploy_env)
+                                   environment=myenv)
 ```
+
+If you are using a custom environment, make sure that it includes azureml-defaults package with version >= 1.0.45 as a pip dependency. This package contains the functionality needed to host the model as a web service.
 
 For more information on environments, see [Create and manage environments for training and deployment](how-to-use-environments.md).
 
-You can also directly specify the dependencies without using an environment. The following example demonstrates how to create an inference configuration that loads software dependencies from a Conda file:
-
-```python
-from azureml.core.model import InferenceConfig
-
-inference_config = InferenceConfig(runtime="python",
-                                   entry_script="x/y/score.py",
-                                   conda_file="env/myenv.yml")
-```
-
-For more information, see the [InferenceConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py) class documentation.
+For more information on inference configuration, see the [InferenceConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py) class documentation.
 
 For information on using a custom Docker image with an inference configuration, see [How to deploy a model using a custom Docker image](how-to-deploy-custom-docker-image.md).
 
@@ -575,6 +568,10 @@ For more information, see these documents:
 
 Deployment uses the inference configuration deployment configuration to deploy the models. The deployment process is similar regardless of the compute target. Deploying to AKS is slightly different because you must provide a reference to the AKS cluster.
 
+### Securing deployments with SSL
+
+For more information on how to secure a web service deployment, see [Use SSL to secure a web service](how-to-secure-web-service.md#enable).
+
 ### <a id="local"></a> Local deployment
 
 To deploy a model locally, you need to have Docker installed on your local machine.
@@ -590,7 +587,7 @@ service.wait_for_deployment(show_output = True)
 print(service.state)
 ```
 
-For more information, see the documentation for [LocalWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.local.localwebservice?view=azure-ml-py), [Model.deploy()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#deploy-workspace--name--models--inference-config--deployment-config-none--deployment-target-none-), and [Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice?view=azure-ml-py).
+For more information, see the documentation for [LocalWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.local.localwebservice?view=azure-ml-py), [Model.deploy()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-), and [Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice?view=azure-ml-py).
 
 #### Using the CLI
 
@@ -604,9 +601,9 @@ az ml model deploy -m mymodel:1 --ic inferenceconfig.json --dc deploymentconfig.
 
 For more information, see the [az ml model deploy](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-deploy) documentation.
 
-### <a id="notebookvm"></a> Notebook VM web service (dev/test)
+### <a id="notebookvm"></a> Compute instance web service (dev/test)
 
-See [Deploy a model to Azure Machine Learning Notebook VM](how-to-deploy-local-container-notebook-vm.md).
+See [Deploy a model to Azure Machine Learning compute instance](how-to-deploy-local-container-notebook-vm.md).
 
 ### <a id="aci"></a> Azure Container Instances (dev/test)
 
@@ -618,9 +615,11 @@ See [Deploy to Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.
 
 ## Consume web services
 
-Every deployed web service provides a REST API, so you can create client applications in a variety of programming languages.
-If you've enabled key authentication for your service, you need to provide a service key as a token in your request header.
-If you've enabled token authentication for your service, you need to provide an Azure Machine Learning JWT token as a bearer token in your request header.
+Every deployed web service provides a REST endpoint, so you can create client applications in any programming language.
+If you've enabled key-based authentication for your service, you need to provide a service key as a token in your request header.
+If you've enabled token-based authentication for your service, you need to provide an Azure Machine Learning JSON Web Token (JWT) as a bearer token in your request header. 
+
+The primary difference is that **keys are static and can be regenerated manually**, and **tokens need to be refreshed upon expiration**. Key-based auth is supported for Azure Container Instance and Azure Kubernetes Service deployed web-services, and token-based auth is **only** available for Azure Kubernetes Service deployments. See the [how-to](how-to-setup-authentication.md#web-service-authentication) on authentication for more information and specific code samples.
 
 > [!TIP]
 > You can retrieve the schema JSON document after you deploy the service. Use the [swagger_uri property](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.local.localwebservice?view=azure-ml-py#swagger-uri) from the deployed web service (for example, `service.swagger_uri`) to get the URI to the local web service's Swagger file.
@@ -859,6 +858,9 @@ az ml model download --model-id mymodel:1 --target-dir model_folder
 No-code model deployment is currently in preview and supports the following machine learning frameworks:
 
 ### Tensorflow SavedModel format
+Tensorflow models need to be registered in **SavedModel format** to work with no-code model deployment.
+
+Please see [this link](https://www.tensorflow.org/guide/saved_model) for information on how to create a SavedModel.
 
 ```python
 from azureml.core import Model
@@ -1057,78 +1059,6 @@ To stop the container, use the following command from a different shell or comma
 
 ```bash
 docker kill mycontainer
-```
-
-## (Preview) No-code model deployment
-
-No-code model deployment is currently in preview and supports the following machine learning frameworks:
-
-### Tensorflow SavedModel format
-
-```python
-from azureml.core import Model
-
-model = Model.register(workspace=ws,
-                       model_name='flowers',                        # Name of the registered model in your workspace.
-                       model_path='./flowers_model',                # Local Tensorflow SavedModel folder to upload and register as a model.
-                       model_framework=Model.Framework.TENSORFLOW,  # Framework used to create the model.
-                       model_framework_version='1.14.0',            # Version of Tensorflow used to create the model.
-                       description='Flowers model')
-
-service_name = 'tensorflow-flower-service'
-service = Model.deploy(ws, service_name, [model])
-```
-
-### ONNX models
-
-ONNX model registration and deployment is supported for any ONNX inference graph. Preprocess and postprocess steps are not currently supported.
-
-Here is an example of how to register and deploy an MNIST ONNX model:
-
-```python
-from azureml.core import Model
-
-model = Model.register(workspace=ws,
-                       model_name='mnist-sample',                  # Name of the registered model in your workspace.
-                       model_path='mnist-model.onnx',              # Local ONNX model to upload and register as a model.
-                       model_framework=Model.Framework.ONNX ,      # Framework used to create the model.
-                       model_framework_version='1.3',              # Version of ONNX used to create the model.
-                       description='Onnx MNIST model')
-
-service_name = 'onnx-mnist-service'
-service = Model.deploy(ws, service_name, [model])
-```
-
-### Scikit-learn models
-
-No code model deployment is supported for all built-in scikit-learn model types.
-
-Here is an example of how to register and deploy a sklearn model with no extra code:
-
-```python
-from azureml.core import Model
-from azureml.core.resource_configuration import ResourceConfiguration
-
-model = Model.register(workspace=ws,
-                       model_name='my-sklearn-model',                # Name of the registered model in your workspace.
-                       model_path='./sklearn_regression_model.pkl',  # Local file to upload and register as a model.
-                       model_framework=Model.Framework.SCIKITLEARN,  # Framework used to create the model.
-                       model_framework_version='0.19.1',             # Version of scikit-learn used to create the model.
-                       resource_configuration=ResourceConfiguration(cpu=1, memory_in_gb=0.5),
-                       description='Ridge regression model to predict diabetes progression.',
-                       tags={'area': 'diabetes', 'type': 'regression'})
-                       
-service_name = 'my-sklearn-service'
-service = Model.deploy(ws, service_name, [model])
-```
-
-NOTE: These dependencies are included in the prebuilt sklearn inference container:
-
-```yaml
-    - azureml-defaults
-    - inference-schema[numpy-support]
-    - scikit-learn
-    - numpy
 ```
 
 ## Clean up resources

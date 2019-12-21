@@ -1,15 +1,9 @@
 ---
-title: Create App Service environment with Resource Manager template - Azure
-description: Explains how to create an External or ILB Azure App Service environment by using a Resource Manager template
-services: app-service
-documentationcenter: na
+title: Create an ASE with ARM
+description: Learn how to create an external or ILB App Service environment by using an Azure Resource Manager template.
 author: ccompy
-manager: stefsch
 
 ms.assetid: 6eb7d43d-e820-4a47-818c-80ff7d3b6f8e
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
