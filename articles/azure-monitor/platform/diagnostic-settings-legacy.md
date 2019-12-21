@@ -6,7 +6,7 @@ ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 ms.author: bwren
-ms.date: 10/31/2019
+ms.date: 12/20/2019
 
 ---
 
