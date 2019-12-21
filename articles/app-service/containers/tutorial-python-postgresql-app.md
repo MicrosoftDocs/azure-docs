@@ -1,29 +1,21 @@
 ---
-title: 'Tutorial: Build a Python Django web app with PostgreSQL in Azure App Service'
-description: Learn how to run a PostgreSQL database-driven Python Django web app in Azure.
-services: app-service\web
-documentationcenter: python
-author: cephalin
-manager: gwallace
-ms.service: app-service-web
-ms.workload: web
+title: 'Tutorial: Linux Python app with Postgre'
+description: Learn how to get a Linux Python app working in Azure App Service, with connection to a PostgreSQL database in Azure. Django is used in this tutorial.
 ms.devlang: python
 ms.topic: tutorial
 ms.date: 12/14/2019
-ms.author: cephalin
 ms.custom: [mvc, seodec18, seo-python-october2019]
 ---
-# Tutorial: Run a Python Django web app with PostgreSQL in Azure App Service
+# Tutorial: Run a Python (Django) web app with PostgreSQL in Azure App Service
 
-[Azure App Service](app-service-linux-intro.md) provides a highly scalable, self-patching web hosting service. [Azure Database for PostgreSQL](/azure/postgresql/overview) is a relational database service based on the open-source PostgreSQL database engine. This tutorial shows how to connect a data-driven Python Django web app to an Azure Database for PostgreSQL database, and deploy and run the app on Azure App Service.
+[Azure App Service](app-service-linux-intro.md) provides a highly scalable, self-patching web hosting service. This tutorial shows how to connect a data-driven Python Django web app to an Azure Database for PostgreSQL database, and deploy and run the app on Azure App Service.
 
 ![Python Django web app in Azure App Service](./media/tutorial-python-postgresql-app/run-python-django-app-in-azure.png)
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Connect a Python Django web app to a local PostgreSQL database
-> * Create an Azure Database for PostgreSQL database and connect the web app to it
+> * Create an Azure Database for PostgreSQL database and connect a web app to it
 > * Deploy the web app to Azure App Service
 > * View diagnostic logs
 > * Manage the web app in the Azure portal
@@ -39,7 +31,7 @@ Before you start this tutorial:
 - Install [Python 3](https://www.python.org/downloads/).
 - Install and run [PostgreSQL](https://www.postgresql.org/download/).
 
-## Create a local PostgreSQL database
+## Test PostgreSQL installation and create a database
 
 First, connect to your local PostgreSQL server and create a database: 
 
@@ -49,7 +41,7 @@ In a local terminal window, run `psql` to connect to your local PostgreSQL serve
 psql -U postgres
 ```
 
-If the connection isn't successful, make sure your PostgreSQL server is running, or restart it if necessary. 
+If your connection is successful, your PostgreSQL database is running. If not, make sure that your local PostgresQL database is started by following the instructions for your operating system at [Downloads - PostgreSQL Core Distribution](https://www.postgresql.org/download/).
 
 Create a new database called *pollsdb*, and set up a database user named *manager* with password *supersecretpass*:
 
@@ -62,11 +54,11 @@ GRANT ALL PRIVILEGES ON DATABASE pollsdb TO manager;
 Type `\q` to exit the PostgreSQL client.
 
 <a name="step2"></a>
-## Create and run the Python app
+## Create and run the local Python app
 
 Next, set up and run the sample Python Django web app.
 
-The [djangoapp](https://github.com/Azure-Samples/djangoapp) sample repository contains the data-driven [Django](https://www.djangoproject.com/) polls app you get by following [Writing your first Django app](https://docs.djangoproject.com/en/2.1/intro/tutorial01/) in the Django documentation. You can connect this, or any other data-driven Python Django web app, to a local or cloud PostgreSQL database back end.
+The [djangoapp](https://github.com/Azure-Samples/djangoapp) sample repository contains the data-driven [Django](https://www.djangoproject.com/) polls app you get by following [Writing your first Django app](https://docs.djangoproject.com/en/2.1/intro/tutorial01/) in the Django documentation.
 
 ### Clone the sample app
 
@@ -126,7 +118,7 @@ System check identified no issues (0 silenced).
 December 13, 2019 - 10:54:59
 Django version 2.1.2, using settings 'azuresite.settings'
 Starting development server at http://127.0.0.1:8000/
-Quit the server with CTRL-BREAK.
+Quit the server with CONTROL-C.
 ```
 
 Go to *http:\//localhost:8000* in a browser. You should see the message **No polls are available**. 
@@ -281,7 +273,7 @@ In this step, you deploy the Azure Database for PostgreSQL database-connected Py
 
 ### Configure repository
 
-You need to change and add some settings in your *djangoapp/azuresite/settings.py* file to work with Azure App Service. 
+Because this tutorial uses a Django sample, you need to change and add some settings in your *djangoapp/azuresite/settings.py* file to work with Azure App Service. 
 
 1. Django validates the `HTTP_HOST` header in incoming requests. For your Django web app to work in App Service, you need to add the fully qualified domain name of the app to the allowed hosts. 
    
@@ -321,7 +313,7 @@ Commit your changes into your fork of the *djangoapp* repository:
 git commit -am "configure for App Service"
 ```
 
-### Configure deployment user
+### Configure a deployment user
 
 [!INCLUDE [Configure deployment user](../../../includes/configure-deployment-user-no-h.md)]
 
@@ -399,7 +391,7 @@ In the [Azure portal](https://portal.azure.com), search for and select the app y
 
 ![Navigate to your Python Django app in the Azure portal](./media/tutorial-python-postgresql-app/navigate-to-django-app-in-app-services-in-the-azure-portal.png)
 
-By default, the portal shows your app's **Overview** page. This page gives you a view of how your app is doing. Here, you can also perform basic management tasks like browse, stop, swap, restart, and delete. The tabs on the left side of the page show the different configuration pages you can open.
+By default, the portal shows your app's **Overview** page. This page gives you a view of how your app is doing. Here, you can also perform basic management tasks like browse, stop, restart, and delete. The tabs on the left side of the page show the different configuration pages you can open.
 
 ![Manage your Python Django app in the Overview page in the Azure portal](./media/tutorial-python-postgresql-app/manage-django-app-in-app-services-in-the-azure-portal.png)
 
