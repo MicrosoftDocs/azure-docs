@@ -65,18 +65,19 @@ For this quickstart, you use the [Azure IoT device SDK for C](iot-hub-device-sdk
 
 1. Install the [CMake build system](https://cmake.org/download/) as described on the download page.
 
-1. Open a command prompt or Git Bash shell. Run the following command to clone the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) GitHub repository:
+1. Open a command prompt or Git Bash shell. Run the following commands to clone the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) GitHub repository:
 
-    ```cmd
-    git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive -b public-preview
+    ```cmd/sh
+    git clone -b public-preview https://github.com/Azure/azure-iot-sdk-c.git
+    cd azure-iot-sdk-c
+    git submodule update --init
     ```
 
     This operation should take a few minutes.
 
-1. Create a *cmake* directory in the root directory of the Git repository, as shown in the following command, and then go to that folder.
+1. Create a *cmake* subdirectory in the root directory of the git repository, and navigate to that folder. Run the following commands from the *azure-iot-sdk-c* directory:
 
-    ```cmd
-    cd azure-iot-sdk-c
+    ```cmd/sh
     mkdir cmake
     cd cmake
     ```
