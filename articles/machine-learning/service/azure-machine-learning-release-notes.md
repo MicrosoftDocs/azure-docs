@@ -27,7 +27,7 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
     + Removed featurizationConfig to be logged
       + Updated logging to log "auto"/"off"/"customized" only.
   + **azureml-automl-runtime**
-    + Added support for pandas. Series and pandas.Categorical for detecting column data type. Previously only supported numpy.ndarray
+    + Added support for pandas. Series and pandas. Categorical for detecting column data type. Previously only supported numpy.ndarray
       + Added related code changes to handle categorical dtype correctly.
     + The forecast function interface was improved: the y_pred parameter was made optional. -The docstrings were improved.
   + **azureml-contrib-dataset**
@@ -170,6 +170,10 @@ Main capabilities of the SDK include:
 
 See the [package website](https://azure.github.io/azureml-sdk-for-r) for complete documentation.
 
+### Azure Machine Learning integration with Event Grid 
+
+Azure Machine Learning is now a resource provider for Event Grid, you can configure machine learning events through the Azure portal or Azure CLI. Users can create events for run completion, model registration, model deployment and data drift detected. These events can be routed to event handlers supported by Event Grid for consumption. See machine learning event [schema](https://docs.microsoft.com/azure/event-grid/event-schema-machine-learning), [concepts](https://docs.microsoft.com/azure/machine-learning/service/concept-event-grid-integration) and [tutorial](https://docs.microsoft.com/azure/machine-learning/service/how-to-use-event-grid) articles for more details.
+
 ## 2019-10-31
 
 ### Azure Machine Learning SDK for Python v1.0.72
@@ -218,7 +222,7 @@ See the [package website](https://azure.github.io/azureml-sdk-for-r) for complet
     + Added a guardrail for forecasting tasks, to check whether a specified max_horizon will cause a memory issue on the given machine or not. If it will, a guardrail message will be displayed.
     + Added support for complex frequencies like 2 years and 1 month. -Added comprehensible error message if frequency can not be determined.
     + Add azureml-defaults to auto generated conda env to solve the model deployment failure
-    + Allow intermediate data in Azure Machine Learning pPipeline to be converted to tabular dataset and used in `AutoMLStep`.
+    + Allow intermediate data in Azure Machine Learning Pipeline to be converted to tabular dataset and used in `AutoMLStep`.
     + Implemented column purpose update for streaming.
     + Implemented transformer parameter update for Imputer and HashOneHotEncoder for streaming.
     + Added the current data size and the minimum required data size to the validation error messages.
