@@ -9,11 +9,11 @@ ms.author: pafarley
 
 ## Analyze forms for key-value pairs and tables
 
-Next, you'll use your newly trained model to analyze a document and extract key-value pairs and tables from it. Call the **Analyze Form** API by running the following code in a new Python script. Before you run the script, make these changes:
+Next, you'll use your newly trained model to analyze a document and extract key-value pairs and tables from it. Call the **[Analyze Form](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeWithCustomForm)** API by running the following code in a new Python script. Before you run the script, make these changes:
 
-1. Replace `<path to your form>` with the file path of your form (for example, C:\temp\file.pdf). This can also be the URL of a remote file. For this quickstart, you can use the files under the **Test** folder of the [sample data set](https://go.microsoft.com/fwlink/?linkid=2090451).
-1. Replace `<modelID>` with the model ID you received in the previous section.
-1. Replace `<Endpoint>` with the endpoint that you obtained with your Form Recognizer subscription key. You can find it on your Form Recognizer resource **Overview** tab.
+1. Replace `<file path>` with the file path of your form (for example, C:\temp\file.pdf). This can also be the URL of a remote file. For this quickstart, you can use the files under the **Test** folder of the [sample data set](https://go.microsoft.com/fwlink/?linkid=2090451).
+1. Replace `<model_id>` with the model ID you received in the previous section.
+1. Replace `<endpoint>` with the endpoint that you obtained with your Form Recognizer subscription key. You can find it on your Form Recognizer resource **Overview** tab.
 1. Replace `<file type>` with the file type. Supported types: `application/pdf`, `image/jpeg`, `image/png`, `image/tiff`.
 1. Replace `<subscription key>` with your subscription key.
 
@@ -24,12 +24,11 @@ Next, you'll use your newly trained model to analyze a document and extract key-
     from requests import get, post
     
     # Endpoint URL
-    endpoint = r"<Endpoint>"
-    apim_key = "<Subscription Key>"
-    model_id = "<modelID>"
+    endpoint = r"<endpoint>"
+    apim_key = "<subsription key>"
+    model_id = "<model_id>"
     post_url = endpoint + "/formrecognizer/v2.0-preview/custom/models/%s/analyze" % model_id
-    source = r"<path or url to your form>"
-    prefix = "<prefix string>"
+    source = r"<file path>"
     params = {
         "includeTextDetails": True
     }
@@ -45,7 +44,7 @@ Next, you'll use your newly trained model to analyze a document and extract key-
     try:
         resp = post(url = post_url, data = data_bytes, headers = headers, params = params)
         if resp.status_code != 202:
-            print("POST analyze failed:\n%s" % resp.text)
+            print("POST analyze failed:\n%s" % json.dumps(resp.json()))
             quit()
         print("POST analyze succeeded:\n%s" % resp.headers)
         get_url = resp.headers["operation-location"]
@@ -65,28 +64,31 @@ When you call the **Analyze Form** API, you'll receive a `201 (Success)` respons
 Add the following code to the bottom of your Python script. This uses the ID value from the previous call in a new API call to retrieve the analysis results. The **Analyze Form** operation is asynchronous, so this script calls the API at regular intervals until the results are available. We recommend an interval of one second or more.
 
 ```python 
-n_tries = 10
+n_tries = 15
 n_try = 0
-wait_sec = 6
+wait_sec = 5
+max_wait_sec = 60
 while n_try < n_tries:
     try:
         resp = get(url = get_url, headers = {"Ocp-Apim-Subscription-Key": apim_key})
-        resp_json = json.loads(resp.text)
+        resp_json = resp.json()
         if resp.status_code != 200:
-            print("GET analyze results failed:\n%s" % resp_json)
+            print("GET analyze results failed:\n%s" % json.dumps(resp_json))
             quit()
         status = resp_json["status"]
         if status == "succeeded":
-            print("Analysis succeeded:\n%s" % resp_json)
+            print("Analysis succeeded:\n%s" % json.dumps(resp_json))
             quit()
         if status == "failed":
-            print("Analysis failed:\n%s" % resp_json)
+            print("Analysis failed:\n%s" % json.dumps(resp_json))
             quit()
         # Analysis still running. Wait and retry.
         time.sleep(wait_sec)
-        n_try += 1     
+        n_try += 1
+        wait_sec = min(2*wait_sec, max_wait_sec)     
     except Exception as e:
         msg = "GET analyze results failed:\n%s" % str(e)
         print(msg)
         quit()
+print("Analyze operation did not complete within the allocated time.")
 ```
