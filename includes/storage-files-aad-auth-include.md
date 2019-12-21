@@ -14,7 +14,7 @@
 
 Azure Files enforces authorization on the user access on both share and directory/file level. Share-level permission assignment can be assigned to Azure AD user or groups managed through the typical [role-based access control (RBAC)](../articles/role-based-access-control/overview.md) model. With RBAC, the credentials you plan to use for file access should be available or synced to Azure AD. You can assign built-in RBAC roles like Storage File Data SMB Share Reader to a user of groups in Azure AD to grant read access to an Azure file share.
 
-On directory/file level, Azure Files supports preserving, inheriting, and enforcing [NTFS DACLs](https://technet.microsoft.com/library/2006.01.howitworksntfs.aspx) just like any Windows File servers. If you copy data over SMB from a file share to Azure Files, or vice versa, you can choos to keep NTFS DACLs. Whether you plan to enforce authorization or not, you can leverage Azure Files to backup ACLs along with your data. 
+On directory/file level, Azure Files supports preserving, inheriting, and enforcing [NTFS DACLs](https://technet.microsoft.com/library/2006.01.howitworksntfs.aspx) just like any Windows File servers. If you copy data over SMB from a file share to Azure Files, or vice versa, you can choose to keep NTFS DACLs. Whether you plan to enforce authorization or not, you can leverage Azure Files to backup ACLs along with your data. 
 
 
 > [!NOTE]

@@ -81,7 +81,7 @@ To enable AD authentication over SMB for Azure Files, you need to first register
 
 The `join-AzStorageAccountForAuth` cmdlet will perform the equivalent of an offline domain join on behalf of the indicated storage account. It will create an account in your AD domain, either a [service logon account](https://docs.microsoft.com/windows/win32/ad/about-service-logon-accounts) (recommended) or a [computer account](https://docs.microsoft.com/windows/security/identity-protection/access-control/active-directory-accounts#manage-default-local-accounts-in-active-directory). The created AD account represents the storage account in the AD domain. If the AD account is created under an AD Organizational Unit (OU) that enforces password expiration, you must update the password before the maximum password age. Failing to update the password of the AD account will result in authentication failures in accessing Azure file shares. To learn how to update the password, see [Update AD account password](#update-ad-account-password)
 
-You can either use the following script to perform the registration and enable the feature. Alternatively. you can perform the operations that ths script would, manually. Those operations are described in the section following the script. You do not need to do both.
+You can either use the following script to perform the registration and enable the feature. Alternatively. you can perform the operations that the script would, manually. Those operations are described in the section following the script. You do not need to do both.
 
 ### Script prerequisites
 
@@ -161,7 +161,7 @@ You've now successfully enabled the feature on your storage account. Even though
 
 ## Update AD account password
 
-If you register the AD account that represent the storage account under an OU that enforces password expiration, you must rotate the password before the maximum password age. Failing to update the password of the AD account will result in authentication failures to access Azure file shares.  
+If you register the AD account that represents the storage account under an OU that enforces password expiration, you must rotate the password before the maximum password age. Failing to update the password of the AD account will result in authentication failures to access Azure file shares.  
 
 To trigger password rotation, you can run the `Update-AzStorageAccountADObjectPassword` command from the AzureFilesActiveDirectoryUtilities.psm1. The cmdlet performs actions similar to storage account key rotation. It gets the second kerberos key of the storage account and uses it to update the password of the registered account in AD. Then it regenerates the primary kerberos key on the storage account.
 
