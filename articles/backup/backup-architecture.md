@@ -1,12 +1,8 @@
 ---
-title: Azure Backup architecture
+title: Architecture Overview 
 description: Provides an overview of the architecture, components, and processes used by the Azure Backup service.
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 02/19/2019
-ms.author: dacurwin
 ---
 
 # Azure Backup architecture and components
@@ -91,7 +87,7 @@ Storage consumption, recovery time objective (RTO), and network consumption vari
 
 The following table summarizes the supported features for the different types of backup:
 
-**Feature** | **On-premises Windows Server machines (direct)** | **Azure VMs** | **Machines or apps with DPM/MABS**
+**Feature** | **Direct Backup of Files and Folders (using MARS Agent)** | **Azure VM Backup** | **Machines or apps with DPM/MABS**
 --- | --- | --- | ---
 Back up to vault | ![Yes][green] | ![Yes][green] | ![Yes][green]
 Back up to DPM/MABS disk, then to Azure | | | ![Yes][green]
@@ -101,7 +97,7 @@ Back up deduplicated disks | | | ![Partially][yellow]<br/><br/> For DPM/MABS ser
 
 ![Table key](./media/backup-architecture/table-key.png)
 
-## Architecture: Direct backup of Azure VMs
+## Architecture: Built-in Azure VM Backup
 
 1. When you enable backup for an Azure VM, a backup runs according to the schedule you specify.
 1. During the first backup, a backup extension is installed on the VM if the VM is running.
@@ -115,7 +111,7 @@ Back up deduplicated disks | | | ![Partially][yellow]<br/><br/> For DPM/MABS ser
     - Only blocks of data that changed since the last backup are copied.
     - Data isn't encrypted. Azure Backup can back up Azure VMs that were encrypted by using Azure Disk Encryption.
     - Snapshot data might not be immediately copied to the vault. At peak times, the backup might take some hours. Total backup time for a VM will be less than 24 hours for daily backup policies.
-1. After the data is sent to the vault, a recovery point is created. By default, snapshots are retained for two days before they are deleted. This feature allows restore operation from these snapshots, thereby cutting down the restore times. It reduces the time that's required to transform and copy data back from the vault. See [Azure Backup Instant Restore Capability](https://docs.microsoft.com/en-us/azure/backup/backup-instant-restore-capability).
+1. After the data is sent to the vault, a recovery point is created. By default, snapshots are retained for two days before they are deleted. This feature allows restore operation from these snapshots, thereby cutting down the restore times. It reduces the time that's required to transform and copy data back from the vault. See [Azure Backup Instant Restore Capability](https://docs.microsoft.com/azure/backup/backup-instant-restore-capability).
 
 Azure VMs need internet access for control commands. If you're backing up workloads inside the VM (for example, SQL Server database backups), the back-end data also needs internet access.
 
@@ -129,7 +125,7 @@ Azure VMs need internet access for control commands. If you're backing up worklo
     - The MARS agent uses only the Windows system write operation to capture the snapshot.
     - Because the agent doesn't use any application VSS writers, it doesn't capture app-consistent snapshots.
 1. After taking the snapshot with VSS, the MARS agent creates a virtual hard disk (VHD) in the cache folder you specified when you configured the backup. The agent also stores checksums for each data block.
-1. Incremental backups run according to the schedule you specify, unless you run an ad-hoc backup.
+1. Incremental backups run according to the schedule you specify, unless you run an on-demand backup.
 1. In incremental backups, changed files are identified and a new VHD is created. The VHD is compressed and encrypted, and then it's sent to the vault.
 1. After the incremental backup finishes, the new VHD is merged with the VHD created after the initial replication. This merged VHD provides the latest state to be used for comparison for ongoing backup.
 
@@ -143,7 +139,7 @@ Azure VMs need internet access for control commands. If you're backing up worklo
     - With DPM/MABS, you can protect backup volumes, shares, files, and folders. You can also protect a machine's system state (bare metal), and you can protect specific apps with app-aware backup settings.
 1. When you set up protection for a machine or app in DPM/MABS, you select to back up to the MABS/DPM local disk for short-term storage and to Azure for online protection. You also specify when the backup to local DPM/MABS storage should run and when the online backup to Azure should run.
 1. The disk of the protected workload is backed up to the local MABS/DPM disks, according to the schedule you specified.
-4. The DPM/MABS disks are backed up to the vault by the MARS agent that's running on the DPM/MABS server.
+1. The DPM/MABS disks are backed up to the vault by the MARS agent that's running on the DPM/MABS server.
 
 ![Backup of machines and workloads protected by DPM or MABS](./media/backup-architecture/architecture-dpm-mabs.png)
 

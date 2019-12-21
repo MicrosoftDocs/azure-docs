@@ -4,8 +4,8 @@ description: Provides an overview of assessment calculations in the Azure Migrat
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 08/06/2019
-ms.author: raynew
+ms.date: 10/15/2019
+ms.author: hamusa
 ---
 
 # Assessment calculations in Azure Migrate
@@ -34,7 +34,7 @@ Server Assessment is a tool in Azure Migrate that assesses on-premises servers f
 
 ## How are assessments calculated?
 
-An assessment in Azure Migrate Server Assessment is calculated by using the metadata collected about the on-premises servers. The assessment calculation is handled in three stages. For each server, assessment calculation starts with an Azure suitability analysis, followed by sizing, and lastly, a monthly cost estimation. A server moves along to a later stage only if it passes the previous one. For example, if a server fails the Azure suitability check, it’s marked as unsuitable for Azure, and sizing and costing is not done for that server.
+An assessment in Azure Migrate Server Assessment is calculated by using the metadata collected about the on-premises servers. If the discovery source is an import using a .CSV file, the assessment is calculated using the metadata provided by the user about the servers. The assessment calculation is handled in three stages. For each server, assessment calculation starts with an Azure suitability analysis, followed by sizing, and lastly, a monthly cost estimation. A server moves along to a later stage only if it passes the previous one. For example, if a server fails the Azure suitability check, it’s marked as unsuitable for Azure, and sizing and costing is not done for that server.
 
 ## Azure suitability analysis
 
@@ -87,7 +87,7 @@ OS specified as **Other** in vCenter Server | Azure Migrate cannot identify the 
 
 After a machine is marked as ready for Azure, Server Assessment makes sizing recommendations, which involves identifying the appropriate Azure VM and disk SKU for the on-premises VM. These recommendations vary, depending on the assessment properties specified.
 
-- If the assessment uses *performance-based sizing*, Azure Migrate considers the performance history of the machine to identify the VM size and disk type in Azure. This method is especially helpful if you've over-allocated the on-premises VM, but utilization is low and you want to right-size the VM in Azure to save costs. This method will help you optimize the sizes during migration.
+- If the assessment uses *performance-based sizing*, Azure Migrate considers the performance history of the machine to identify the VM size and disk type in Azure. In the case of servers with discovery source as import, the performance utilization values specified by the user are considered. This method is especially helpful if you've over-allocated the on-premises VM, but utilization is low and you want to right-size the VM in Azure to save costs. This method will help you optimize the sizes during migration.
 - If you don't want to consider the performance data for VM sizing and want to take the on-premises machines as-is to Azure, you can set the sizing criteria to *as on-premises*. Then, Server Assessment will size the VMs based on the on-premises configuration without considering the utilization data. In this case, disk-sizing activities are based on the storage type you specify in the assessment properties (Standard HDD, Standard SSD, or Premium disks).
 
 ### Performance-based sizing
@@ -96,12 +96,15 @@ For performance-based sizing, Server Assessment starts with the disks attached t
 
 **Performance data collection steps:**
 
-1. For VMware VMs, the Azure Migrate appliance collects a real-time sample point at every 20-second interval. For Hyper-V VMs, the real-time sample point is collected at every 30-second interval.
-1. The appliance rolls up the sample points collected every 10 minutes and sends the maximum value for the last 10 minutes to  Server Assessment.
-1. Server Assessment stores all the 10-minute sample points for the last one month. Then, depending on the assessment properties specified for *Performance history* and *Percentile utilization*, it identifies the appropriate data point to use for right-sizing. For example, if the performance history is set to 1 day and the percentile utilization is the 95th percentile, Server Assessment uses the 10-minute sample points for the last one day, sorts them in ascending order, and picks the 95th percentile value for right-sizing.
-1. This value is multiplied by the comfort factor to get the effective performance utilization data for each metric (CPU utilization, memory utilization, disk IOPS (read and write), disk throughput (read and write), and network throughput (in and out) that the appliance collects.
+1. For VMware VMs, the Azure Migrate appliance collects a real-time sample point at every 20-second interval. For Hyper-V VMs, the real-time sample point is collected at every 30-second interval. For physical servers, the real-time sample point is collected at every 5-minute interval. 
+2. The appliance rolls up the sample points collected every 10 minutes and sends the maximum value for the last 10 minutes to  Server Assessment. 
+3. Server Assessment stores all the 10-minute sample points for the last one month. Then, depending on the assessment properties specified for *Performance history* and *Percentile utilization*, it identifies the appropriate data point to use for right-sizing. For example, if the performance history is set to 1 day and the percentile utilization is the 95th percentile, Server Assessment uses the 10-minute sample points for the last one day, sorts them in ascending order, and picks the 95th percentile value for right-sizing. 
+4. This value is multiplied by the comfort factor to get the effective performance utilization data for each metric (CPU utilization, memory utilization, disk IOPS (read and write), disk throughput (read and write), and network throughput (in and out) that the appliance collects.
 
 After the effective utilization value is determined, the storage, network, and compute sizing is handled as follows.
+
+> [!NOTE]
+> For servers added via import, the performance data provided by the user is used directly for right-sizing.
 
 **Storage sizing**: Azure Migrate tries to map every disk attached to the machine to a disk in Azure.
 
@@ -119,6 +122,9 @@ After the effective utilization value is determined, the storage, network, and c
 - To get the effective network performance of the on-premises VM, Server Assessment aggregates the data transmitted per second (MBps) out of the machine (network out), across all network adapters, and applies the comfort factor. It uses this number to find an Azure VM that can support the required network performance.
 - Along with network performance, Server Assessment also considers whether the Azure VM can support the required the number of network adapters.
 - If no network performance data is available, Server Assessment considers only the network adapter count for VM sizing.
+
+> [!NOTE]
+> Specifying number of network adapters is currently not supported for imported servers
 
 **Compute sizing**: After it calculates storage and network requirements, Server Assessment considers CPU and memory requirements to find a suitable VM size in Azure.
 - Azure Migrate looks at the effective utilized cores and memory to find a suitable VM size in Azure.
@@ -151,6 +157,9 @@ Depending on the percentage of data points available, the confidence rating for 
    41-60% | 3 stars
    61-80% | 4 stars
    81-100% | 5 stars
+
+> [!NOTE]
+> Confidence ratings are not assigned to assessments of servers imported using .CSV file into Azure Migrate. 
 
 ### Low confidence ratings
 

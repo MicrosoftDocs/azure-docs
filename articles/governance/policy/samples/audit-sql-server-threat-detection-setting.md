@@ -1,11 +1,8 @@
 ---
 title: Sample - Audit server level threat detection
 description: This sample policy definition audits SQL server security alert policies if those policies are not set to the specified state.
-author: DCtheGeek
-ms.service: azure-policy
-ms.topic: sample
 ms.date: 01/23/2019
-ms.author: dacoulte
+ms.topic: sample
 ---
 # Sample - Audit server level threat detection setting
 

@@ -1,5 +1,5 @@
 ---
-title: Quickstart - Create an Azure Database for PostgreSQL - Single Server using the Azure portal
+title: 'Quickstart: Create server - Azure portal - Azure Database for PostgreSQL - Single Server'
 description: Quickstart guide to creating and managing an Azure Database for PostgreSQL - Single Server by using the Azure portal user interface.
 author: rachel-msft
 ms.author: raagyema

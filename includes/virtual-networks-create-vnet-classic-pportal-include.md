@@ -14,7 +14,7 @@
 ## How to create a classic VNet in the Azure portal
 To create a classic VNet based on the preceding scenario, follow these steps.
 
-1. From a browser, navigate to http://portal.azure.com and, if necessary, sign in with your Azure account.
+1. From a browser, navigate to https://portal.azure.com and, if necessary, sign in with your Azure account.
 2. Click **Create a resource** > **Networking** > **Virtual network**. Notice that the **Select a deployment model** list already shows **Classic**. 3. Click **Create** as shown in the following figure.
    
     ![Create VNet in Azure portal](./media/virtual-networks-create-vnet-classic-pportal-include/vnet-create-pportal-figure1.gif)

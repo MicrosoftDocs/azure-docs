@@ -69,6 +69,9 @@ Cloud Shell machines are temporary, but your files are persisted in two ways: th
 
 Read more to learn how to mount a [new or existing storage account](persisting-shell-storage.md) or to learn about the [persistence mechanisms used in Cloud Shell](persisting-shell-storage.md#how-cloud-shell-storage-works).
 
+> [!NOTE]
+> Azure storage firewall is not supported for cloud shell storage accounts.
+
 ## Concepts
 * Cloud Shell runs on a temporary host provided on a per-session, per-user basis
 * Cloud Shell times out after 20 minutes without interactive activity

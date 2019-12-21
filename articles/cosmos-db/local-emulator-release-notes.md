@@ -1,6 +1,6 @@
 ---
 title: Azure Cosmos Emulator download and release notes
-description: Read the Azure Cosmos Emulator release notes and download it.
+description: Get the Azure Cosmos emulator release notes for different versions and download information. 
 ms.service: cosmos-db
 ms.topic: tutorial
 author: markjbrown
@@ -20,6 +20,10 @@ This article shows the Azure Cosmos emulator release notes with a list of featur
 |**Get started**|[Develop locally with Azure Cosmos emulator](local-emulator.md)|
 
 ## Release notes
+
+### 2.7.2
+
+- This release adds MongoDB version 3.6 server support to the Cosmos Emulator. To start a MongoDB endpoint that target version 3.6 of the service, start the emulator from an Administrator command line with "/EnableMongoDBEndpoint=3.6" option.
 
 ### 2.7.0
 

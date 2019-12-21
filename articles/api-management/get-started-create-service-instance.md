@@ -23,25 +23,27 @@ This quickstart describes the steps for creating a new API Management instance u
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-![new instance](./media/get-started-create-service-instance/get-started-create-service-instance-created.png)
+![API Management instance](./media/get-started-create-service-instance/get-started-create-service-instance-created.png)
 
-## Log in to Azure
+## Sign in to Azure
 
-Log in to the Azure portal at https://portal.azure.com.
+Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Create a new service
 
-![New Azure API Management instance](./media/get-started-create-service-instance/00-CreateResource-01.png)
-
-1. In the [Azure portal](https://portal.azure.com/), select **Create a resource** > **Enterprise Integration** > **API management**.
-
-    Alternatively, choose **New**, type `API management` in the search box, and press Enter. Click **Create**.
-
-2. In the **API Management service** window, enter settings.
-
-    ![new instance](./media/get-started-create-service-instance/get-started-create-service-instance-create-new.png)
-
-    | Setting                 | Suggested value                               | Description                                                                                                                                                                                                                                                                                                                         |
+1. From the Azure portal menu, select **Create a resource**. You can also select **Create a resource** on the Azure **Home** page. 
+   
+   ![Select Create a resource](./media/get-started-create-service-instance/00-CreateResource-01.png)
+   
+1. On the **New** screen, select **Integration** and then select **API Management**.
+   
+   ![New Azure API Management instance](./media/get-started-create-service-instance/00-CreateResource-02.png)
+   
+1. In the **API Management service** screen, enter settings.
+   
+   ![new instance](./media/get-started-create-service-instance/get-started-create-service-instance-create-new.png)
+   
+   | Setting                 | Suggested value                               | Description                                                                                                                                                                                                                                                                                                                         |
 |-------------------------|-----------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **Name**                | A unique name for your API Management service | The name can't be changed later. Service name is used to generate a default domain name in the form of *{name}.azure-api.net.* If you would like to use a custom domain name, see [Configure a custom domain](configure-custom-domain.md). <br/> Service name is used to refer to the service and the corresponding Azure resource. |
 | **Subscription**        | Your subscription                             | The subscription under which this new service instance will be created. You can select the subscription among the different Azure subscriptions that you have access to.                                                                                                                                                            |
@@ -56,24 +58,25 @@ Log in to the Azure portal at https://portal.azure.com.
     > [!TIP]
     > It usually takes between 20 and 30 minutes to create an API Management service. Selecting **Pin to dashboard** makes finding a newly created service easier.
 
-[!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
+[!INCLUDE [api-management-navigate-to-instance](../../includes/api-management-navigate-to-instance.md)]
 
 ## Clean up resources
 
 When no longer needed, you can remove the resource group and all related resources by following these steps:
 
-1. In the Azure portal, select **All services**.
-2. Input `resource groups` in the search box and click on the result.
+1. In the Azure portal, search for and select **Resource groups**. You can also select **Resource groups** on the **Home** page. 
 
-    ![Resource groups navigation](./media/get-started-create-service-instance/00-DeleteResource-01.png)
+   ![Resource groups navigation](./media/get-started-create-service-instance/00-DeleteResource-01.png)
 
-3. Find your resource group and click on it.
-4. Click **Delete resource group**.
+1. On the **Resource groups** page, select your resource group.
 
-    ![Resource groups navigation](./media/get-started-create-service-instance/00-DeleteResource-02.png)
+   ![Resource groups navigation](./media/get-started-create-service-instance/00-DeleteResource-02.png)
 
-5. Confirm the deletion by inputting the name of your resource group.
-6. Click **Delete**.
+1. On the resource group page, select **Delete resource group**. 
+   
+1. Type the name of your resource group, and then select **Delete**.
+
+   ![Delete resource group](./media/get-started-create-service-instance/00-DeleteResource-03.png)
 
 ## Next steps
 

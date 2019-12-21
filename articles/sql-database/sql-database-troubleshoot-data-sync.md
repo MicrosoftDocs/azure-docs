@@ -1,5 +1,5 @@
 ---
-title: "Troubleshoot Azure SQL Data Sync | Microsoft Docs"
+title: Troubleshoot SQL Data Sync
 description: "Learn how to troubleshoot common issues with Azure SQL Data Sync."
 services: sql-database
 ms.service: sql-database

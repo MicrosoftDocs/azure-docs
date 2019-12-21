@@ -1,24 +1,12 @@
 ---
-title: Secure an Azure Service Fabric cluster | Microsoft Docs
+title: Secure an Azure Service Fabric cluster 
 description: Learn about security scenarios for an Azure Service Fabric cluster, and the various technologies you can use to implement them.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
 
-ms.assetid: 26b58724-6a43-4f20-b965-2da3f086cf8a
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 08/14/2018
-ms.author: atsenthi
-
 ---
 # Service Fabric cluster security scenarios
-An Azure Service Fabric cluster is a resource that you own. It is your responsibility to secure your clusters to help prevent unauthorized users from connecting to them. A secure cluster is especially important when you are running production workloads on the cluster. Although it's possible to create an unsecured cluster, if the cluster exposes management endpoints to the public internet, anonymous users can connect to it. Unsecured clusters are not supported for production workloads. 
+An Azure Service Fabric cluster is a resource that you own. It is your responsibility to secure your clusters to help prevent unauthorized users from connecting to them. A secure cluster is especially important when you are running production workloads on the cluster. It is possible to create an unsecured cluster, however if the cluster exposes management endpoints to the public internet, anonymous users can connect to it. Unsecured clusters are not supported for production workloads. 
 
 This article is an overview of security scenarios for Azure clusters and standalone clusters, and the various technologies you can use to implement them:
 
@@ -53,7 +41,7 @@ Client-to-node security authenticates clients and helps secure communication bet
 Clusters running on Azure and standalone clusters running on Windows both can use either [certificate security](https://msdn.microsoft.com/library/ff649801.aspx) or [Windows security](https://msdn.microsoft.com/library/ff649396.aspx).
 
 ### Client-to-node certificate security
-Set up client-to-node certificate security when you create the cluster, either in the Azure portal, by using a Resource Manager template, or by using a standalone JSON template. To create the certificate, specify an admin client certificate or a user client certificate. As a best practice, the admin client and user client certificates you specify should be different from the primary and secondary certificates you specify for [node-to-node security](#node-to-node-security). By default, the cluster certificates for node-to-node security are added to the allowed client admin certificates list.
+Set up client-to-node certificate security when you create the cluster, either in the Azure portal, by using a Resource Manager template, or by using a standalone JSON template. To create the certificate, specify an admin client certificate or a user client certificate. As a best practice, the admin client and user client certificates you specify should be different from the primary and secondary certificates you specify for [node-to-node security](#node-to-node-security). Cluster certificates have the same rights as client admin certificates. However, they should be used only by cluster and not by administrative users as a security best practice.
 
 Clients that connect to the cluster by using the admin certificate have full access to management capabilities. Clients that connect to the cluster by using the read-only user client certificate have only read access to management capabilities. These certificates are used for the RBAC that is described later in this article.
 

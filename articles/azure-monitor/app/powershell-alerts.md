@@ -127,7 +127,7 @@ The metrics are sent by different telemetry modules:
 You can [automate your response to an alert](../../azure-monitor/platform/alerts-webhooks.md). Azure will call a web address of your choice when an alert is raised.
 
 ## See also
-* [Script to configure Application Insights](powershell-script-create-resource.md)
+* [Script to configure Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource#creating-a-resource-automatically)
 * [Create Application Insights and web test resources from templates](powershell.md)
 * [Automate coupling Microsoft Azure Diagnostics to Application Insights](powershell-azure-diagnostics.md)
 * [Automate your response to an alert](../../azure-monitor/platform/alerts-webhooks.md)

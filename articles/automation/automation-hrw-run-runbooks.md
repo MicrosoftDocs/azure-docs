@@ -2,19 +2,15 @@
 title: Run runbooks on Azure Automation Hybrid Runbook Worker
 description: This article provides information about running runbooks on machines in your local datacenter or cloud provider with the Hybrid Runbook Worker role.
 services: automation
-ms.service: automation
 ms.subservice: process-automation
-author: bobbytreed
-ms.author: robreed
 ms.date: 01/29/2019
 ms.topic: conceptual
-manager: carmonm
 ---
 # Running runbooks on a Hybrid Runbook Worker
 
 There's no difference in the structure of runbooks that run in Azure Automation and runbooks that run on a Hybrid Runbook Worker. Runbooks that you use with each most likely differ significantly. This difference is because runbooks that target a Hybrid Runbook Worker typically manage resources on the local computer itself or against resources in the local environment where it's deployed. Runbooks in Azure Automation typically manage resources in the Azure cloud.
 
-When you author runbooks to run on a Hybrid Runbook Worker, you should edit and test the runbooks within the machine that hosts the Hybrid worker. The host machine has all of the PowerShell modules and network access you need to manage and access the local resources. Once a runbook is tested on the Hybrid worker machine, you can then upload it to the Azure Automation environment where it's available to run in the Hybrid worker. It's important to know that jobs that run under the Local System account for Windows or a special user account `nxautomation` on Linux. On Linux, this means that you must ensure that the `nxautomation` account has access to the location where you store your modules. When you use the [Install-Module](/powershell/module/powershellget/install-module) cmdlet, specify **AllUsers** to the `-Scope` parameter to confirm that the `naxautomation` account has access.
+When you author runbooks to run on a Hybrid Runbook Worker, you should edit and test the runbooks within the machine that hosts the Hybrid worker. The host machine has all of the PowerShell modules and network access you need to manage and access the local resources. Once a runbook is tested on the Hybrid worker machine, you can then upload it to the Azure Automation environment where it's available to run in the Hybrid worker. It's important to know that jobs that run under the Local System account for Windows or a special user account `nxautomation` on Linux. On Linux, this means that you must ensure that the `nxautomation` account has access to the location where you store your modules. When you use the [Install-Module](/powershell/module/powershellget/install-module) cmdlet, specify **AllUsers** to the `-Scope` parameter to confirm that the `nxautomation` account has access.
 
 For more information on PowerShell on Linux, see [Known Issues for PowerShell on Non-Windows Platforms](https://docs.microsoft.com/powershell/scripting/whats-new/known-issues-ps6?view=powershell-6#known-issues-for-powershell-on-non-windows-platforms).
 
@@ -137,7 +133,6 @@ This allows the use of the AzureRunAsConnection to authenticate to Azure and man
 .\Export-RunAsCertificateToHybridWorker
 
 .NOTES
-AUTHOR: Azure Automation Team
 LASTEDIT: 2016.10.13
 #>
 
@@ -311,4 +306,4 @@ The signed runbook can now be uploaded to Azure Automation, and can be executed 
 * To learn more about the different methods that can be used to start a runbook, see [Starting a Runbook in Azure Automation](automation-starting-a-runbook.md).
 * To understand the different ways to work with PowerShell runbooks in Azure Automation using the textual editor, see [Editing a Runbook in Azure Automation](automation-edit-textual-runbook.md)
 * If your runbooks aren't completing successfully, review the troubleshooting guide on [runbook execution failures](troubleshoot/hybrid-runbook-worker.md#runbook-execution-fails).
-* For more information on PowerShell, including language reference and learning modules, refer to the [PowerShell Docs](https://docs.microsoft.com/en-us/powershell/scripting/overview).
+* For more information on PowerShell, including language reference and learning modules, refer to the [PowerShell Docs](https://docs.microsoft.com/powershell/scripting/overview).

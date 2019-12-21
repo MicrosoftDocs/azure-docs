@@ -1,5 +1,5 @@
 ---
-title: Access and start apps from the My Apps (preview) portal - Azure Active Directory | Microsoft Docs
+title: Access and start apps from My Apps (preview) portal - Azure AD
 description: Learn how to access and start your organization's cloud-based apps from the My Apps (preview) portal.
 services: active-directory
 author: eross-msft
@@ -22,7 +22,7 @@ You can use your work or school account with the web-based **My Apps** (preview)
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-my-apps-and-workspaces.md)]
 
 >[!Important]
->This content is intended for users. If you're an administrator, you can find more information about how to set up and manage your cloud-based apps in the [Application Management Documentation](https://docs.microsoft.com/azure/active-directory/manage-apps).
+>This content is intended for users. If you're an administrator, you can find more information about how to set up and manage your cloud-based apps in the [Application Management Documentation](https://docs.microsoft.com/azure/active-directory/manage-apps/access-panel-workspaces).
 
 ## Supported browsers
 
@@ -103,8 +103,8 @@ After you get to the **My Apps** portal, you can:
 
 ## Related articles
 
-- [Update your profile and account info](myprofile-portal-overview.md). Instructions about how to update your personal information that appears on the **My Profile** (preview) portal.
+- [Update your profile and account info](my-account-portal-overview.md). Instructions about how to update your personal information that appears on the **My Profile** (preview) portal.
 
-- [Manage your organizations](myprofile-portal-organizations-page.md). Instructions about how to view and manage your organization-related information on the **Organizations** page of the **My Profile** portal.
+- [Manage your organizations](my-account-portal-organizations-page.md). Instructions about how to view and manage your organization-related information on the **Organizations** page of the **My Profile** portal.
 
-- [Manage your connected devices](myprofile-portal-devices-page.md). Instructions about how to manage the devices you're connected to using your work or school account, on the **Devices** page of the **My Profile** portal.
+- [Manage your connected devices](my-account-portal-devices-page.md). Instructions about how to manage the devices you're connected to using your work or school account, on the **Devices** page of the **My Profile** portal.

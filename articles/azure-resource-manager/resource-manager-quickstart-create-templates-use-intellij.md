@@ -1,19 +1,9 @@
 ---
-title: Deploy Azure Resource Manager template - IntelliJ IDEA
+title: Deploy template - IntelliJ IDEA
 description: Learn how to create your first Azure Resource Manager template using the IntelliJ IDEA, and how to deploy it.
-services: azure-resource-manager
-documentationcenter: ''
-author: yucwan
-manager:
-editor:
-
-ms.service: azure-resource-manager
-ms.workload: multiple
-ms.tgt_pltfrm: na
 ms.devlang: java
 ms.date: 08/01/2019
 ms.topic: quickstart
-ms.author: yucwan
 #Customer intent: As a developer new to Azure deployment, I want to learn how to use the IntelliJ IDEA to create and edit Resource Manager templates, so I can use the templates to deploy Azure resources.
 ---
 

@@ -94,7 +94,7 @@ A basic scenario is to create or connect to an Azure NetApp Files volume from a 
 
 If you have additional VNets in the same region that need access to each other’s resources, the VNets can be connected using [VNet peering](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) to enable secure connectivity through the Azure infrastructure. 
 
-Consider VNet 2 and VNet 3 in the diagram above. If VM 2 needs to connect to VM 3 or Volume 2, or if VM 3 needs to connect to VM 2 or Volume 1, then you need to enable VNet peering between VNet 2 and VNet 3. 
+Consider VNet 2 and VNet 3 in the diagram above. If VM 1 needs to connect to VM 2 or Volume 2, or if VM 2 needs to connect to VM 1 or Volume 1, then you need to enable VNet peering between VNet 2 and VNet 3. 
 
 Additionally, consider a scenario where VNet 1 is peered with VNet 2, and VNet 2 is peered with VNet 3 in the same region. The resources from VNet 1 can connect to resources in VNet 2 but it cannot connect to resources in VNet 3, unless VNet 1 and VNet 3 are peered. 
 

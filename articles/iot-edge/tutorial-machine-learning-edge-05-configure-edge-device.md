@@ -1,10 +1,10 @@
 ---
-title: Configure IoT Edge device - Machine Learning on Azure IoT Edge | Microsoft Docs 
-description: Configure an Azure Virtual Machine running Linux as an Azure IoT Edge device that acts as a transparent gateway.
+title: 'Tutorial: Configure IoT Edge device - Machine Learning on Azure IoT Edge'
+description: 'In this tutorial, you will configure an Azure Virtual Machine running Linux as an Azure IoT Edge device that acts as a transparent gateway.'
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 06/13/2019
+ms.date: 11/11/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
@@ -23,7 +23,7 @@ The steps in this article are typically performed by a cloud developer.
 
 For a device to function as a gateway it needs to be able to securely connect to downstream devices. Azure IoT Edge allows you to use a public key infrastructure (PKI) to set up secure connections between devices. In this case, we’re allowing a downstream device to connect to an IoT Edge device acting as a transparent gateway. To maintain reasonable security, the downstream device should confirm the identity of the IoT Edge device. For more information about how IoT Edge devices use certificates, see [Azure IoT Edge certificate usage details](iot-edge-certs.md).
 
-In this section, we create the self-signed certificates using a Docker image that we then build and run. We chose to use a Docker image to complete this step as it significantly reduced the number of steps needed to create the certificates on the Windows development machine. See [Generate certificates with Windows](how-to-create-transparent-gateway.md#generate-certificates-with-windows) for the details on how to produce the certificates without using a container. [Generate certificates with Linux](how-to-create-transparent-gateway.md#generate-certificates-with-linux) has the set of instructions that we automated with the Docker image.
+In this section, we create the self-signed certificates using a Docker image that we then build and run. We chose to use a Docker image to complete this step as it significantly reduced the number of steps needed to create the certificates on the Windows development machine. See [Create demo certificates to test IoT Edge device features](how-to-create-test-certificates.md) to understand what we automated with the Docker image.
 
 1. Sign in to your development virtual machine.
 
@@ -68,11 +68,11 @@ In this section, we create the self-signed certificates using a Docker image tha
 
 ## Upload certificates to Azure Key Vault
 
-To store our certificates securely and to make them accessible from multiple devices, we will upload the certificates into Azure Key Vault. As you can see from the list above, we have two types of certificate files: PFX and PEM. We will treat the PFX as Key Vault Certificates to be uploaded to Key Vault. The PEM files are plain text and we will treat them as Key Vault Secrets. We will use the Key Vault associated with the Azure Machine Learning service workspace we created by running the [Azure Notebooks](tutorial-machine-learning-edge-04-train-model.md#run-azure-notebooks).
+To store our certificates securely and to make them accessible from multiple devices, we will upload the certificates into Azure Key Vault. As you can see from the list above, we have two types of certificate files: PFX and PEM. We will treat the PFX as Key Vault Certificates to be uploaded to Key Vault. The PEM files are plain text and we will treat them as Key Vault Secrets. We will use the Key Vault associated with the Azure Machine Learning workspace we created by running the [Azure Notebooks](tutorial-machine-learning-edge-04-train-model.md#run-azure-notebooks).
 
-1. From the [Azure portal](https://portal.azure.com), navigate to your Azure Machine Learning service workspace.
+1. From the [Azure portal](https://portal.azure.com), navigate to your Azure Machine Learning workspace.
 
-2. From the overview page of the Azure Machine Learning service workspace, find the name of the **Key Vault**.
+2. From the overview page of the Azure Machine Learning workspace, find the name of the **Key Vault**.
 
     ![Copy key vault name](media/tutorial-machine-learning-edge-05-configure-edge-device/find-key-vault-name.png)
 

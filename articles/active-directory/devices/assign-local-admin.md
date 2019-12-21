@@ -1,5 +1,5 @@
 ---
-title: How to manage the local administrators group on Azure AD joined devices | Microsoft Docs
+title: How to manage local administrators on Azure AD joined devices
 description: Learn how to assign Azure roles to the local administrators group of a Windows device.
 
 services: active-directory
@@ -47,7 +47,7 @@ To view and update the membership of the global administrator role, see:
 In the Azure portal, you can manage the device administrator role on the **Devices** page. To open the **Devices** page:
 
 1. Sign in to your [Azure portal](https://portal.azure.com) as a global administrator or device administrator.
-1. On the left navbar, click **Azure Active Directory**. 
+1. Search for and select *Azure Active Directory*.
 1. In the **Manage** section, click **Devices**.
 1. On the **Devices** page, click **Device settings**.
 

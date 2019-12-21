@@ -1,12 +1,8 @@
 ---
-title: Azure Resource Manager Overview | Microsoft Docs
+title: Overview
 description: Describes how to use Azure Resource Manager for deployment, management, and access control of resources on Azure.
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: overview
 ms.date: 08/29/2019
-ms.author: tomfitz
-
 ---
 # Azure Resource Manager overview
 
@@ -82,7 +78,7 @@ There are some important factors to consider when defining your resource group:
 
 When creating a resource group, you need to provide a location for that resource group. You may be wondering, "Why does a resource group need a location? And, if the resources can have different locations than the resource group, why does the resource group location matter at all?" The resource group stores metadata about the resources. When you specify a location for the resource group, you're specifying where that metadata is stored. For compliance reasons, you may need to ensure that your data is stored in a particular region.
 
-If the resource group's region is temporarily unavailable, you can't update resources in the resource group because the metadata is unavailable. The resources in other regions will still function as expected, but you can't update them. For more information about building reliable applications, see [Designing reliable Azure applications](/azure/architecture/reliability/).
+If the resource group's region is temporarily unavailable, you can't update resources in the resource group because the metadata is unavailable. The resources in other regions will still function as expected, but you can't update them. For more information about building reliable applications, see [Designing reliable Azure applications](/azure/architecture/checklist/resiliency-per-service).
 
 ## Resiliency of Azure Resource Manager
 

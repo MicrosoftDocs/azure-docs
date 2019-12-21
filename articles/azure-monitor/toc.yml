@@ -140,6 +140,8 @@
           href: learn/quick-create-workspace-posh.md
       - name: Delete and recover a workspace
         href: platform/delete-workspace.md
+      - name: Move a workspace
+        href: platform/move-workspace.md
       - name: Design for service providers
         href: platform/service-providers.md
       - name: Manage access
@@ -175,149 +177,38 @@
         href: app/ilogger.md
       - name: Java
         items:
-        - name: Log-based & pre-aggregated metrics
-          href: app/pre-aggregated-metrics-log-metrics.md
-        - name: Log-based metrics definitions
-          href: platform/app-insights-metrics.md
-        - name: Classic metrics explorer   
-          href: app/metrics-explorer.md
-      - name: Search
-        href: app/diagnostic-search.md
-      - name: Profiler
-        items:
-        - name: Overview
-          displayname: profiling, debugging, code performance, perf
-          href: app/profiler-overview.md 
-        - name: Enable Profiler for an App Service
-          href: app/profiler.md
-        - name: Enable the Profiler for a Cloud Service
-          href: app/profiler-cloudservice.md 
-        - name: Enable Profiler for a Service Fabric Application
-          href: app/profiler-servicefabric.md 
-        - name: Enable Profiler for an Azure VM
-          href: app/profiler-vm.md
-        - name: Profiler for Linux App services (preview)
-          href: app/profiler-aspnetcore-linux.md
-        - name: Profiler Settings
-          href: app/profiler-settings.md 
-        - name: Track Requests for Profiling
-          href: app/profiler-trackrequests.md 
-        - name: Profiler Troubleshooting
-          href: app/profiler-troubleshooting.md 
-      - name: Snapshot Debugger
-        items:
-        - name: Overview
-          displayname: snapshot, debug, debugger, snapshot debugger, snapshotdebugger
-          href: app/snapshot-debugger.md 
-        - name: Enable Snapshot Debugger for an App Service
-          href: app/snapshot-debugger-appservice.md
-        - name: Enable Snapshot Debugger for other environments
-          href: app/snapshot-debugger-vm.md
-        - name: Upgrade Snapshot Debugger
-          href: app/snapshot-debugger-upgrade.md
-        - name: Snapshot Debugger troubleshooting
-          displayname: troubleshoot, troubleshooting
-          href: app/snapshot-debugger-troubleshoot.md
-      - name: Smart Detection
-        href: app/proactive-diagnostics.md
-        items:
-        - name: Failure anomalies
-          href: app/proactive-failure-diagnostics.md
-        - name: Performance anomalies
-          href: app/proactive-performance-diagnostics.md
-        - name: Trace degradation
-          href: app/proactive-trace-severity.md
-        - name: Exception volume
-          href: app/proactive-exception-volume.md
-        - name: Memory leak
-          href: app/proactive-potential-memory-leak.md
-        - name: Security detection
-          href: app/proactive-application-security-detection-pack.md
-        - name: Azure Cloud Services
-          href: app/proactive-cloud-services.md
-        - name: Manage smart detection rules
-          href: app/proactive-arm-config.md
-        - name: E-mail notification
-          href: app/proactive-email-notification.md
-      - name: Usage (user behavior analytics)
-        items:
-        - name: Overview
-          displayname: user behavior analytics, user behavior, usage, behavioral analytics
-          href: app/usage-overview.md
-        - name: Send user context
-          href: app/usage-send-user-context.md
-        - name: Users, Sessions, Events
-          href: app/usage-segmentation.md
-        - name: Funnels
-          href: app/usage-funnels.md
-        - name: Cohorts
-          href: app/usage-cohorts.md
-        - name: Impact
-          href: app/usage-impact.md
-        - name: Retention
-          href: app/usage-retention.md
-        - name: User Flows
-          href: app/usage-flows.md
-        - name: Usage analytics
-          href: app/usage-troubleshoot.md
-        - name: Workbooks
-          href: app/usage-workbooks.md
-      - name: Azure DevOps
-        items: 
-        - name: Release annotations
-          href: app/annotations.md
-        - name: Continuous monitoring
-          href: app/continuous-monitoring.md
-      - name: Advanced configuration
-        items:
-        - name: Access control
-          href: app/resources-roles-access-control.md
-        - name: IP address collection
-          href: app/ip-collection.md
-          displayname: geolocation, IP collection, IP tracking, IP storage
-        - name: Sampling
-          displayname: adaptive sampling, fixed rate sample, fixed sampling, ingestion sampling
-          href: app/sampling.md
-        - name: TelemetryChannels
-          dispayname: in memory, server telemetry channel, channel, inmemory, servertelemetry 
-          href: app/telemetry-channels.md
-        - name: TelemetryProcessors
-          displayname: processors, filtering, telemetry filtering, telemetry processor
-          href: app/api-filtering-sampling.md
-        - name: Telemetry correlation
-          href: app/correlation.md
-          displayname: correlation headers, w3c, distributed tracing
-        - name: Track custom operations in .NET SDK
-          href: app/custom-operations-tracking.md
-          displayname: correlation, dependency, dependencies, track dependency, OWIN, queue, service bus, background tasks, long running background tasks, outgoing dependency tracking, parallel operations, System.Diagnostics.Activity, System.Diagnostics.DiagnosticSource, StartOperation, StopOperation
-        - name: Custom email reports
-          href: app/automate-custom-reports.md
-        - name: Exceptions
-          href: app/asp-net-exceptions.md
-        - name: Log traces
-          href: app/java-trace-logs.md
-        - name: Unix metrics
-          href: app/java-collectd.md
-        - name: Dependencies
-          href: app/java-agent.md
-        - name: Filter telemetry
-          href: app/java-filter-telemetry.md
-        - name: Micrometer Metrics
-          displayname: java
-          href: app/micrometer-java.md
-        - name: Spring Boot app
-          displayname: java
-          href: /java/azure/spring-framework/configure-spring-boot-java-applicationinsights
-        - name: Troubleshoot
-          href: app/java-troubleshoot.md
+          - name: Web apps
+            displayname: java
+            href: app/java-get-started.md
+          - name: Docker apps
+            href: app/docker.md
+          - name: Log traces
+            href: app/java-trace-logs.md
+          - name: Unix metrics
+            href: app/java-collectd.md
+          - name: Dependencies
+            href: app/java-agent.md
+          - name: Filter telemetry
+            href: app/java-filter-telemetry.md
+          - name: Micrometer Metrics
+            displayname: java
+            href: app/micrometer-java.md
+          - name: Spring Boot app
+            displayname: java
+            href: /java/azure/spring-framework/configure-spring-boot-java-applicationinsights
+          - name: Troubleshoot
+            href: app/java-troubleshoot.md
       - name: Node.js 
         href: app/nodejs.md
       - name: Python
         items:
         - name: Overview
+          displayname: python, Python, OpenCenus, OpenTelemetry, py
           href: app/opencensus-python.md
         - name: Dependencies 
           href: app/opencensus-python-dependency.md
+        - name: Requests 
+          href: app/opencensus-python-request.md
       - name: Web pages
         items:
         - name: Client-side JavaScript
@@ -593,26 +484,39 @@
     - name: Resource logs
       items: 
       - name: Overview
+        displayname: Resource logs
         href: platform/resource-logs-overview.md 
       - name: Collect in Azure Monitor Logs
+        displayname: Resource logs
         href: platform/resource-logs-collect-workspace.md
       - name: Archive to storage
+        displayname: Resource logs
         href: platform/resource-logs-collect-storage.md
       - name: Stream to Event Hubs
+        displayname: Resource logs
         href: platform/resource-logs-stream-event-hubs.md
     - name: Activity log
       items:
       - name: Overview
+        displayname: Activity log
         href: platform/activity-logs-overview.md
+      - name: Collect with diagnostic setting
+        displayname: Activity log
+        href: platform/diagnostic-settings-subscription.md
       - name: View and retrieve
+        displayname: Activity log
         href: platform/activity-log-view.md
       - name: Collect and analyze
+        displayname: Activity log
         href: platform/activity-log-collect.md
       - name: Collect across tenants
+        displayname: Activity log
         href: platform/activity-log-collect-tenants.md
       - name: Export 
+        displayname: Activity log
         href: platform/activity-log-export.md
       - name: Schema
+        displayname: Activity log
         href: platform/activity-log-schema.md
     - name: Diagnostic settings
       items: 
@@ -621,6 +525,7 @@
       - name: Create diagnostic setting with Resource Manager
         href: platform/diagnostic-settings-template.md
       - name: Change to blob storage format
+        displayname: Diagnostic settings
         href: platform/resource-logs-blob-format.md
     - name: Stream data to Event Hubs
       href: platform/stream-monitoring-data-event-hubs.md 
@@ -658,7 +563,7 @@
               href: platform/collect-custom-metrics-guestos-vm-classic.md  
             - name: Cloud service
               href: platform/collect-custom-metrics-guestos-vm-cloud-service-classic.md 
-          - name: JSON Lines diagnostic logs format
+          - name: JSON Lines resource logs format
             href: platform/diagnostic-logs-append-blobs.md
           - name: Troubleshooting
             href: platform/diagnostics-extension-troubleshooting.md
@@ -777,28 +682,48 @@
         items:
         - name: Enable monitoring overview 
           href: insights/container-insights-onboard.md
-        - name: Enable for new cluster
+        - name: Enable for new AKS cluster
           href: insights/container-insights-enable-new-cluster.md
-        - name: Enable for existing cluster
+        - name: Enable for existing AKS cluster
           href: insights/container-insights-enable-existing-clusters.md
+        - name: Enable for hybrid cluster
+          href: insights/container-insights-hybrid-setup.md
+        - name: Enable for Azure Red Hat OpenShift
+          href: insights/container-insights-azure-redhat-setup.md
         - name: Region mappings
           href: insights/container-insights-region-mapping.md
-      - name: Analyze 
+      - name: Monitor performance
         href: insights/container-insights-analyze.md
-      - name: Disable monitoring
-        href: insights/container-insights-optout.md
-      - name: View live logs
-        href: insights/container-insights-live-logs.md
+      - name: Monitor health
+        href: insights/container-insights-health.md
+      - name: View live data
+        items:
+        - name: Live Data (preview) overview
+          href: insights/container-insights-livedata-overview.md
+        - name: Setup
+          href: insights/container-insights-livedata-setup.md
+        - name: View cluster metrics
+          href: insights/container-insights-livedata-metrics.md
+        - name: View deployments
+          href: insights/container-insights-livedata-deployments.md
       - name: Analyze data with log queries
         href: insights/container-insights-log-search.md
       - name: Alerting
         href: insights/container-insights-alerts.md
       - name: Agent management
         href: insights/container-insights-manage-agent.md
+      - name: Configure Prometheus metric scraping
+        href: insights/container-insights-prometheus-integration.md
       - name: Configure agent collection settings
         href: insights/container-insights-agent-config.md
       - name: Update to enable metrics
         href: insights/container-insights-update-metrics.md
+      - name: Health monitoring configuration
+        href: insights/container-insights-health-monitors-config.md
+      - name: Disable monitoring AKS
+        href: insights/container-insights-optout.md
+      - name: Disable monitoring Red Hat OpenShift
+        href: insights/container-insights-optout-openshift.md  
       - name: Troubleshooting
         href: insights/container-insights-troubleshoot.md
     - name: Docker and Windows Container monitoring
@@ -820,6 +745,8 @@
         href: insights/cosmosdb-insights-overview.md
     - name: Networks
       items:
+      - name: Azure Monitor for Networks
+        href: insights/network-insights-overview.md
       - name: Networking Analytics
         href: insights/azure-networking-analytics.md
       - name: DNS
@@ -1132,7 +1059,7 @@
         href: platform/autoscale-overview.md
       - name: Walkthrough
         href: platform/autoscale-get-started.md
-      - name: Settings
+      - name: Configuration settings
         href: platform/autoscale-understanding-settings.md
       - name: Best practices
         href: platform/autoscale-best-practices.md
@@ -1148,21 +1075,23 @@
         href: platform/autoscale-virtual-machine-scale-sets.md
       - name: Use webhooks and email notifications
         href: platform/autoscale-webhook-email.md
+      - name: Troubleshooting
+        href: platform/autoscale-troubleshoot.md
+      - name: Resource Log schemas
+        href: platform/autoscale-resource-log-schema.md    
     - name: PowerShell
       items:  
-      - name: Azure PowerShell samples
+      - name: Managing with PowerShell
         href: platform/powershell-quickstart-samples.md
-      - name: PowerShell cmdlets
+      - name: Create alerts
+        href: app/powershell-alerts.md  
+      - name: Manage Log Analytics
         href: platform/powershell-workspace-configuration.md
-      - name: Applications
+      - name: Application Insights
         items:
-        - name: Create Application Insights resources 
+        - name: Manage Application Insights
           href: app/powershell.md
-        - name: Create resources
-          href: app/powershell-script-create-resource.md
-        - name: Set alerts
-          href: app/powershell-alerts.md
-        - name: Get Azure diagnostics
+        - name: Manage Azure Cloud Services
           href: app/powershell-azure-diagnostics.md
     - name: Azure CLI samples
       href: platform/cli-samples.md
@@ -1232,9 +1161,11 @@
     items:
     - name: Supported metrics
       href: platform/metrics-supported.md
+    - name: Metrics exportable with Diagnostic Settings
+      href: platform/metrics-supported-export-diagnostic-settings.md
     - name: Supported metrics for newer alerts
-      href: platform/alerts-metric-near-real-time.md
-  - name: Resource log services, categories, and schemas
+      href: platform/alerts-metric-near-real-time.md 
+  - name: Platform log services, categories, and schemas
     href: platform/diagnostic-logs-schema.md
   - name: Azure CLI
     href: /cli/azure/monitor?view=azure-cli-latest

@@ -2,9 +2,6 @@
 title: HTTP features in Durable Functions - Azure Functions
 description: Learn about the integrated HTTP features in the Durable Functions extension for Azure Functions.
 author: cgillum
-manager: gwallace
-keywords:
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: azfuncdf
@@ -30,7 +27,8 @@ The following built-in HTTP APIs are supported.
 * [Send an external event to an orchestration](durable-functions-http-api.md#raise-event)
 * [Purge orchestration history](durable-functions-http-api.md#purge-single-instance-history)
 * [Send an operation event to an entity](durable-functions-http-api.md#signal-entity)
-* [Query the state of an entity](durable-functions-http-api.md#query-entity)
+* [Get the state of an entity](durable-functions-http-api.md#get-entity)
+* [Query the list of entities](durable-functions-http-api.md#list-entities)
 
 See the [HTTP APIs article](durable-functions-http-api.md) for a full description of all the built-in HTTP APIs exposed by the Durable Functions extension.
 

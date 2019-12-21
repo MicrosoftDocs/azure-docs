@@ -50,7 +50,7 @@ To learn more about the supported features for the Windows operating systems, li
 
 * CentOS 6 and 7
 * Amazon Linux 2017.09
-* Oracle Linux 6 and 7
+* Oracle Linux 6 and Oracle Linux 7
 * Red Hat Enterprise Linux Server 6 and 7
 * Debian GNU/Linux 8 and 9
 * Ubuntu Linux 14.04 LTS, 16.04 LTS, and 18.04 LTS
@@ -107,6 +107,8 @@ The following Azure PaaS resources are supported by Azure Security Center:
 * Key vault
 
 To learn more about the supported features for the above list of PaaS resources, see [PaaS services supported features](security-center-services.md#paas-services).
+
+Protection for Virtual Machines residing in Azure Stack is also supported. For more information about Security Center’s integration with Azure Stack, see [Onboard your Azure Stack virtual machines to Security Center](https://docs.microsoft.com/azure/security-center/quick-onboard-azure-stack).
 
 ## Next steps
 

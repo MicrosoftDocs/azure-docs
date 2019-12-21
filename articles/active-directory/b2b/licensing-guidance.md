@@ -23,7 +23,7 @@ With Azure Active Directory (Azure AD) business-to-business (B2B) collaboration,
 > [!NOTE]
 > Refer to [Azure Active Directory pricing](https://azure.microsoft.com/pricing/details/active-directory/) for details about Azure AD pricing and B2B collaboration features.
 
-B2B guest user licensing is automatically calculated and reported based on the 1:5 ratio. Currently, it’s not possible to assign B2B guest user licenses directly to guest users.
+B2B guest user licensing is automatically calculated and reported based on the 1:5 ratio. 
 
 Additionally, guest users can use free Azure AD features with no additional licensing requirements. Guest users have access to free Azure AD features even if you don’t have any paid Azure AD licenses. 
 

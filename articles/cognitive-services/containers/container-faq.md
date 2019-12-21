@@ -7,7 +7,7 @@ author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 09/24/2019
+ms.date: 11/11/2019
 ms.author: dapine
 ---
 
@@ -27,7 +27,6 @@ ms.author: dapine
 > * [Language Understanding (LUIS)][lu-containers]
 > * [Speech Service API][sp-containers]
 > * [Text Analytics][ta-containers]
-<!-- > * [Translator Text][tt-containers] -->
 
 **Q: Is there any difference between the Cognitive Services cloud and the containers?**
 
@@ -110,7 +109,6 @@ Explore the following tags for potential questions and answers that align with y
 * [Language Understanding (LUIS)][lu-containers-billing]
 * [Speech Service API][sp-containers-billing]
 * [Text Analytics][ta-containers-billing]
-<!-- * [Translator Text][tt-containers-billing] -->
 
 > [!IMPORTANT]
 > Cognitive Services containers are not licensed to run without being connected to Azure for metering. Customers need to enable the containers to communicate billing information with the metering service at all times. Cognitive Services containers do not send customer data to Microsoft.
@@ -138,7 +136,6 @@ Explore the following tags for potential questions and answers that align with y
 * [Language Understanding (LUIS)][lu-containers-recommendations]
 * [Speech Service API][sp-containers-recommendations]
 * [Text Analytics][ta-containers-recommendations]
-<!-- * [Translator Text][tt-containers-recommendations] -->
  
 **Q: Are these containers currently supported on Windows?**
 
@@ -169,7 +166,6 @@ Explore the following tags for potential questions and answers that align with y
 [lu-containers]: ../luis/luis-container-howto.md
 [sp-containers]: ../speech-service/speech-container-howto.md
 [ta-containers]: ../text-analytics/how-tos/text-analytics-how-to-install-containers.md
-<!-- [tt-containers]: ../translator/how-to-install-containers.md -->
 
 [ad-containers-billing]: ../anomaly-Detector/anomaly-detector-container-howto.md#billing
 [cv-containers-billing]: ../computer-vision/computer-vision-how-to-install-containers.md#billing
@@ -178,7 +174,6 @@ Explore the following tags for potential questions and answers that align with y
 [lu-containers-billing]: ../luis/luis-container-howto.md#billing
 [sp-containers-billing]: ../speech-service/speech-container-howto.md#billing
 [ta-containers-billing]: ../text-analytics/how-tos/text-analytics-how-to-install-containers.md#billing
-<!-- [tt-containers-billing]: ../translator/how-to-install-containers.md#billing -->
 
 [ad-containers-recommendations]: ../anomaly-Detector/anomaly-detector-container-howto.md#container-requirements-and-recommendations
 [cv-containers-recommendations]: ../computer-vision/computer-vision-how-to-install-containers.md#container-requirements-and-recommendations
@@ -187,4 +182,3 @@ Explore the following tags for potential questions and answers that align with y
 [lu-containers-recommendations]: ../luis/luis-container-howto.md#container-requirements-and-recommendations
 [sp-containers-recommendations]: ../speech-service/speech-container-howto.md#container-requirements-and-recommendations
 [ta-containers-recommendations]: ../text-analytics/how-tos/text-analytics-how-to-install-containers.md#container-requirements-and-recommendations
-<!-- [tt-containers-recommendations]: ../translator/how-to-install-containers.md#container-requirements-and-recommendations -->

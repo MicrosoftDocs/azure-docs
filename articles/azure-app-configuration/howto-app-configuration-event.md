@@ -1,5 +1,6 @@
 ---
-title: Tutorial for setting up Azure App Configuration to send events to a web endpoint | Microsoft Docs
+title: "Tutorial: Use Azure App Configuration to send events to a web endpoint"
+titleSuffix: Azure App Configuration
 description: In this tutorial, you learn how to set up Azure App Configuration event subscriptions to send key-value modification events to a web endpoint.
 services: azure-app-configuration
 documentationcenter: ''
@@ -46,7 +47,7 @@ az group create --name <resource_group_name> --location westus
 
 ## Create an App Configuration
 
-Replace `<appconfig_name>` with a unique name for your app configuration, and `<resource_group_name>` with the resource group you created earlier. The name must be unique because it is used as a DNS name.
+Replace `<appconfig_name>` with a unique name for your App Configuration, and `<resource_group_name>` with the resource group you created earlier. The name must be unique because it is used as a DNS name.
 
 ```azurecli-interactive
 az appconfig create \
@@ -78,7 +79,7 @@ You should see the site with no messages currently displayed.
 
 ## Subscribe to your App Configuration
 
-You subscribe to a topic to tell Event Grid which events you want to track and where to send those events. The following example subscribes to the app configuration you created, and passes the URL from your web app as the endpoint for event notification. Replace `<event_subscription_name>` with a name for your event subscription. For `<resource_group_name>` and `<appconfig_name>`, use the values you created earlier.
+You subscribe to a topic to tell Event Grid which events you want to track and where to send those events. The following example subscribes to the App Configuration you created, and passes the URL from your web app as the endpoint for event notification. Replace `<event_subscription_name>` with a name for your event subscription. For `<resource_group_name>` and `<appconfig_name>`, use the values you created earlier.
 
 The endpoint for your web app must include the suffix `/api/updates/`.
 
@@ -124,7 +125,7 @@ You've triggered the event, and Event Grid sent the message to the endpoint you 
 ```
 
 ## Clean up resources
-If you plan to continue working with this app configuration and event subscription, do not clean up the resources created in this article. If you do not plan to continue, use the following command to delete the resources you created in this article.
+If you plan to continue working with this App Configuration and event subscription, do not clean up the resources created in this article. If you do not plan to continue, use the following command to delete the resources you created in this article.
 
 Replace `<resource_group_name>` with the resource group you created above.
 

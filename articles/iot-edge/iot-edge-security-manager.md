@@ -1,5 +1,5 @@
 ---
-title: Learn how the security manager protects devices, software - Azure IoT Edge | Microsoft Docs 
+title: Azure IoT Edge security manager - Azure IoT Edge
 description: Manages the IoT Edge device security stance and the integrity of security services.
 services: iot-edge
 keywords: security, secure element, enclave, TEE, IoT Edge
@@ -8,9 +8,8 @@ manager: philmea
 
 ms.author: eustacea
 ms.date: 08/30/2019
-ms.topic: article
+ms.topic: conceptual
 ms.service: iot-edge
-ms.custom: seodec18
 ---
 # Azure IoT Edge security manager
 

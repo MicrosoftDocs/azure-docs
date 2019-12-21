@@ -37,7 +37,8 @@ Platform logs can be sent to the destinations in the following table. The config
 | [Azure storage account](resource-logs-collect-storage.md) | Archiving logs to an Azure storage account is useful for audit, static analysis, or backup. |
 
 
-
+> [!IMPORTANT]
+> Azure Data Lake Storage Gen2 accounts are not currently supported as a destination for diagnostic settings even though they may be listed as a valid option in the Azure portal.
 
 ## Create diagnostic settings in Azure portal
 You can configure diagnostic settings in the Azure portal either from the Azure Monitor menu or from the menu for the resource.
@@ -87,7 +88,7 @@ After a few moments, the new setting appears in your list of settings for this r
 
 
 ## Create diagnostic settings using PowerShell
-Use the [Set-AzDiagnosticSetting](https://docs.microsoft.com/en-us/powershell/module/az.monitor/set-azdiagnosticsetting) cmdlet to create a diagnostic setting with [Azure PowerShell](powershell-quickstart-samples.md). See the documentation for this cmdlet for descriptions of its parameters.
+Use the [Set-AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.monitor/set-azdiagnosticsetting) cmdlet to create a diagnostic setting with [Azure PowerShell](powershell-quickstart-samples.md). See the documentation for this cmdlet for descriptions of its parameters.
 
 Following is an example PowerShell cmdlet to create a diagnostic setting using all three destinations.
 

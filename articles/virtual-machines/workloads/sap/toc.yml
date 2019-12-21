@@ -104,6 +104,8 @@
       href: hana-vm-troubleshoot-scale-out-ha-on-sles.md
     - name: SAP HANA scale-out with standby node with Azure NetApp Files on SLES
       href: sap-hana-scale-out-standby-netapp-files-suse.md
+    - name: SAP HANA scale-out with standby node with Azure NetApp Files on RHEL
+      href: sap-hana-scale-out-standby-netapp-files-rhel.md
   - name: SAP HANA backup overview
     href: sap-hana-backup-guide.md
   - name: SAP HANA file level backup
@@ -166,6 +168,8 @@
         href: sap-high-availability-guide-wsfc-shared-disk.md
       - name: HA on Windows with SOFS File Share for (A)SCS Instance
         href: sap-high-availability-guide-wsfc-file-share.md
+      - name: HA for SAP NetWeaver on Windows with Azure NetApp Files (SMB)
+        href: high-availability-guide-windows-netapp-files-smb.md
       - name: HA on SUSE Linux for (A)SCS Instance
         href: high-availability-guide-suse.md
       - name: HA on SUSE Linux for (A)SCS Instance with Azure NetApp Files
@@ -196,6 +200,8 @@
         href: sap-high-availability-installation-wsfc-shared-disk.md
       - name: Windows with SOFS File Share for (A)SCS Instance
         href: sap-high-availability-installation-wsfc-file-share.md
+      - name: HA for SAP NetWeaver on Windows with Azure NetApp Files (SMB)
+        href: high-availability-guide-windows-netapp-files-smb.md
       - name: SUSE Linux with NFS for (A)SCS Instance
         href: high-availability-guide-suse.md
       - name: SUSE Linux with NFS for (A)SCS Instance with Azure NetApp Files

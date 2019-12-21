@@ -13,8 +13,8 @@ ms.author: tisande
 The GROUP BY clause divides the query's results according to the values of one or more specified properties.
 
 > [!NOTE]
-> Azure Cosmos DB currently supports GROUP BY in [.NET SDK 3.3](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/3.3.0) or later.
-> Support for other language SDK's and the Azure Portal is not currently available but is planned.
+> Azure Cosmos DB currently supports GROUP BY in .NET SDK 3.3 and above as well as JavaScript SDK 3.4 and above.
+> Support for other language SDK's is not currently available but is planned.
 
 ## Syntax
 

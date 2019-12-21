@@ -1,20 +1,16 @@
 ---
-title: Security considerations in Azure Data Factory | Microsoft Docs
+title: Security considerations
 description: Describes basic security infrastructure that data movement services in Azure Data Factory use to help secure your data.  
 services: data-factory
-documentationcenter: ''
+ms.author: abnarain
 author: nabhishek
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
-
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
-
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 06/15/2018
-ms.author: abnarain
-
 ---
 
 #  Security considerations for data movement in Azure Data Factory

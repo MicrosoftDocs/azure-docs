@@ -1,5 +1,5 @@
 ---
-title: Configure a failover group for Azure SQL Database
+title: Configure a failover group
 description: Learn how to configure an auto-failover group for an Azure SQL Database single database, elastic pool, and managed instance using the Azure portal, the Az CLI, and PowerShell. 
 services: sql-database
 ms.service: sql-database

@@ -1,13 +1,8 @@
 ---
 title: Back up SQL Server databases to Azure 
-description: This tutorial explains how to back up SQL Server to Azure. The article also explains SQL Server recovery.
-author: dcurwin
-manager: carmonm
-ms.service: backup
-ms.topic: tutorial
+description: This article explains how to back up SQL Server to Azure. The article also explains SQL Server recovery.
+ms.topic: conceptual
 ms.date: 06/18/2019
-ms.author: dacurwin
-
 ---
 # About SQL Server Backup in Azure VMs
 
@@ -50,7 +45,7 @@ Before you start, verify the below:
 * SQL Server backup can be configured in the Azure portal or **PowerShell**. We do not support CLI.
 * The solution is supported on both kinds of [deployments](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-model) - Azure Resource Manager VMs and classic VMs.
 * VM running SQL Server requires internet connectivity to access Azure public IP addresses.
-* SQL Server **Failover Cluster Instance (FCI)** and SQL Server Always on Failover Cluster Instance are not supported.
+* SQL Server **Failover Cluster Instance (FCI)** is not supported.
 * Back up and restore operations for mirror databases and database snapshots aren't supported.
 * Using more than one backup solutions to back up your standalone SQL Server instance or SQL Always on availability group may lead to backup failure; refrain from doing so.
 * Backing up two nodes of an availability group individually with same or different solutions, may also lead to backup failure.
@@ -58,7 +53,7 @@ Before you start, verify the below:
 * Databases with large number of files can't be protected. The maximum number of files that is supported is **~1000**.  
 * You can back up to **~2000** SQL Server databases in a vault. You can create multiple vaults in case you have a greater number of databases.
 * You can configure backup for up to **50** databases in one go; this restriction helps optimize backup loads.
-* We support databases up to **2 TB** in size; for sizes greater than that, performance issues may come up.
+* We support databases up to **2 TB** in size; for sizes greater than that performance issues may come up.
 * To have a sense of as to how many databases can be protected per server, we need to consider factors such as bandwidth, VM size, backup frequency, database size, etc. [Download](https://download.microsoft.com/download/A/B/5/AB5D86F0-DCB7-4DC3-9872-6155C96DE500/SQL%20Server%20in%20Azure%20VM%20Backup%20Scale%20Calculator.xlsx) the resource planner that gives the approximate number of databases you can have per server based on the VM resources and the backup policy.
 * In case of availability groups, backups are taken from the different nodes based on a few factors. The backup behavior for an availability group is summarized below.
 

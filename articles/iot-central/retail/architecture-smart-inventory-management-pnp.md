@@ -4,6 +4,7 @@ description: An architecture of IoT Smart Inventory Management template for IoT 
 author: KishorIoT
 ms.author: nandab
 ms.service: iot-central
+ms.subservice: iot-central-retail
 ms.topic: overview
 ms.date: 10/20/2019
 ---
@@ -49,4 +50,4 @@ IoT Central platform provides rich extensibility options via Continuous Data Exp
 ## Next steps
 * Learn how to deploy [smart inventory management template](./tutorial-iot-central-smart-inventory-management-pnp.md)
 * Learn more about [IoT Central retail templates](./overview-iot-central-retail-pnp.md)
-* Learn more about IoT Central refer to [IoT Central overview](../core/overview-iot-central-pnp.md)
+* Learn more about IoT Central refer to [IoT Central overview](../preview/overview-iot-central.md)

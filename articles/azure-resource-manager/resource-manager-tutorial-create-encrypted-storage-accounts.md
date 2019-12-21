@@ -1,16 +1,7 @@
 ﻿---
-title: Utilize the Azure Resource Manager template reference | Microsoft Docs
+title: Utilize template reference
 description: Utilize the Azure Resource Manager template reference to create a template for deploying an encrypted storage account.
-services: azure-resource-manager
-documentationcenter: ''
 author: mumian
-manager: dougeby
-editor: tysonn
-
-ms.service: azure-resource-manager
-ms.workload: multiple
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.date: 03/04/2019
 ms.topic: tutorial
 ms.author: jgao
@@ -40,7 +31,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 To complete this article, you need:
 
-* [Visual Studio Code](https://code.visualstudio.com/) with [Resource Manager Tools extension](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites).
+* Visual Studio Code with Resource Manager Tools extension. See [Use Visual Studio Code to create Azure Resource Manager templates](./resource-manager-tools-vs-code.md).
 
 ## Open a Quickstart template
 
@@ -82,7 +73,7 @@ To complete this article, you need:
 
     If you don't know which version to choose, use the latest version.
 
-4. Find the encryption-related definition information.  
+4. Find the encryption-related definition information.
 
     ```json
     "encryption": {

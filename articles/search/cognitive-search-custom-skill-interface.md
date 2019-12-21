@@ -1,20 +1,21 @@
 ---
-title: Interface definition for custom skills in cognitive search - Azure Search
-description: Custom data extraction interface for web-api custom skill in cognitive search pipeline in Azure Search.
+title: Interface definition for custom skills
+titleSuffix: Azure Cognitive Search
+description: Custom data extraction interface for web-api custom skill in an AI enrichment pipeline in Azure Cognitive Search.
+
 manager: nitinme
 author: luiscabrer
-services: search
-ms.service: search
-ms.topic: conceptual
-ms.date: 05/02/2019
 ms.author: luisca
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
 ---
 
-# How to add a custom skill to a cognitive search pipeline
+# How to add a custom skill to an Azure Cognitive Search enrichment pipeline
 
-A [cognitive search indexing pipeline](cognitive-search-concept-intro.md) in Azure Search can be assembled from [predefined skills](cognitive-search-predefined-skills.md) as well as [custom skills](cognitive-search-custom-skill-web-api.md) that you personally create and add to the pipeline. In this article, learn how to create a custom skill that exposes an interface allowing it to be included in a cognitive search pipeline. 
+An [enrichment pipeline](cognitive-search-concept-intro.md) in Azure Cognitive Search can be assembled from [built-in cognitive skills](cognitive-search-predefined-skills.md) as well as [custom skills](cognitive-search-custom-skill-web-api.md) that you personally create and add to the pipeline. In this article, learn how to create a custom skill that exposes an interface allowing it to be included in an AI enrichment pipeline. 
 
-Building a custom skill gives you a way to insert transformations unique to your content. A custom skill executes independently, applying whatever enrichment step you require. For example, you could define field-specific custom entities, build custom classification models to differentiate business and financial contracts and documents, or add a speech recognition skill to reach deeper into audio files for relevant content. For a step-by-step example, see [Example: Creating a custom skill for cognitive search](cognitive-search-create-custom-skill-example.md).
+Building a custom skill gives you a way to insert transformations unique to your content. A custom skill executes independently, applying whatever enrichment step you require. For example, you could define field-specific custom entities, build custom classification models to differentiate business and financial contracts and documents, or add a speech recognition skill to reach deeper into audio files for relevant content. For a step-by-step example, see [Example: Creating a custom skill for AI enrichment](cognitive-search-create-custom-skill-example.md).
 
  Whatever custom capability you require, there is a simple and clear interface for connecting a custom skill to the rest of the enrichment pipeline. The only requirement for inclusion in a [skillset](cognitive-search-defining-skillset.md) is the ability to accept inputs and emit outputs in ways that are consumable within the skillset as a whole. The focus of this article is on the input and output formats that the enrichment pipeline requires.
 
@@ -149,8 +150,10 @@ When you create a Web API enricher, you can describe HTTP headers and parameters
 
 ## Next steps
 
-+ [Power Skills: a repository of custom skills](https://aka.ms/powerskills)
-+ [Example: Creating a custom skill for cognitive search](cognitive-search-create-custom-skill-example.md)
+This article covered the interface requirements necessary for integrating a custom skill into a skillset. Click the following links to learn more about custom skills and skillset composition.
+
++ [Power Skills: a repository of custom skills](https://github.com/Azure-Samples/azure-search-power-skills)
++ [Example: Creating a custom skill for AI enrichment](cognitive-search-create-custom-skill-example.md)
 + [How to define a skillset](cognitive-search-defining-skillset.md)
 + [Create Skillset (REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
 + [How to map enriched fields](cognitive-search-output-field-mapping.md)

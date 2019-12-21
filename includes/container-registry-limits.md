@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: container-registry
 ms.topic: include
-ms.date: 05/14/2019
+ms.date: 11/05/2019
 ms.author: danlep
 ms.custom: include file
 ---
@@ -19,9 +19,15 @@ ms.custom: include file
 | WriteOps per minute<sup>2, 4</sup> | 100 | 500 | 2,000 |
 | Download bandwidth MBps<sup>2</sup> | 30 | 60 | 100 |
 | Upload bandwidth MBps<sup>2</sup> | 10 | 20 | 50 |
-| Webhooks | 2 | 10 | 100 |
+| Webhooks | 2 | 10 | 500 |
 | Geo-replication | N/A | N/A | [Supported][geo-replication] |
 | Content trust | N/A | N/A | [Supported][content-trust] |
+| Virtual network access | N/A | N/A | [Preview][vnet] |
+| Repository-scoped permissions | N/A | N/A | [Preview][token]|
+| &bull; Tokens | N/A | N/A | 20,000 |
+| &bull; Scope maps | N/A | N/A | 20,000 |
+| &bull; Repositories per scope map | N/A | N/A | 500 |
+
 
 <sup>1</sup>The specified storage limits are the amount of *included* storage for each tier. You're charged an additional daily rate per GiB for image storage above these limits. For rate information, see [Azure Container Registry pricing][pricing].
 
@@ -37,3 +43,5 @@ ms.custom: include file
 <!-- LINKS - Internal -->
 [geo-replication]: ../articles/container-registry/container-registry-geo-replication.md
 [content-trust]: ../articles/container-registry/container-registry-content-trust.md
+[vnet]: ../articles/container-registry/container-registry-vnet.md
+[token]: ../articles/container-registry/container-registry-repository-scoped-permissions.md

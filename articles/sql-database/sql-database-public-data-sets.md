@@ -1,5 +1,5 @@
 ---
-title: Public data sets for Azure analytics | Microsoft Docs
+title: Public data sets for Azure analytics 
 description: Learn about public data sets that you can use to prototype and test Azure analytics services and solutions.
 services: sql-database
 ms.service: sql-database
@@ -20,7 +20,7 @@ Browse this list of public data sets for data that you can use to prototype and 
 
 | Data source | About the data | About the files |
 |---|---|---|
-| [US Government data](https://www.census.gov/data.html) | Over 190,000 data sets covering agriculture, climate, consumer, ecosystems, education, energy, finance, health, local government, manufacturing, maritime, ocean, public safety, and science and research in the U.S. | Files of various sizes in various formats including HTML, XML, CSV, JSON, Excel, and many others. You can filter available data sets by file format. |
+| [US Government data](https://catalog.data.gov/dataset) | Over 250,000 data sets covering agriculture, climate, consumer, ecosystems, education, energy, finance, health, local government, manufacturing, maritime, ocean, public safety, and science and research in the U.S. | Files of various sizes in various formats including HTML, XML, CSV, JSON, Excel, and many others. You can filter available data sets by file format. |
 | [US Census data](https://www.census.gov/data.html) | Statistical data about the population of the U.S. | Data sets are in various formats. |
 | [Earth science data from NASA](https://earthdata.nasa.gov/) | Over 32,000 data collections covering agriculture, atmosphere, biosphere, climate, cryosphere, human dimensions, hydrosphere, land surface, oceans, sun-earth interactions, and more. | Data sets are in various formats. |
 | [Airline flight delays and other transportation data](https://www.transtats.bts.gov/OT_Delay/OT_DelayCause1.asp) | "The U.S. Department of Transportation's (DOT) Bureau of Transportation Statistics (BTS) tracks the on-time performance of domestic flights operated by large air carriers. Summary information on the number of on-time, delayed, canceled, and diverted flights appears ... in summary tables posted on this website." | Files are in CSV format. |
@@ -36,7 +36,7 @@ Browse this list of public data sets for data that you can use to prototype and 
 | [New York City taxi data](http://www.nyc.gov/html/tlc/html/about/trip_record_data.shtml) | "Taxi trip records include fields capturing pick-up and dropoff dates/times, pick-up and dropoff locations, trip distances, itemized fares, rate types, payment types, and driver-reported passenger counts." | Data sets are in CSV files by month. |
 | [Microsoft Research data sets - "Data Science for Research"](https://www.microsoft.com/research/academic-program/data-science-microsoft-research/) | Multiple data sets covering human-computer interaction, audio/video, data mining/information retrieval, geospatial/location, natural language processing, and robotics/computer vision. | Data sets are in various formats, zipped for download. |
 | [Public genome data](https://www.completegenomics.com/public-data/) | "A diverse data set of whole human genomes are freely available for public use to enhance any genomic study..." The provider, Complete Genomics, is a private for-profit corporation. | Data sets, after extraction, are in UNIX text format. Analysis tools are also available. |
-| [Open Science Data Cloud data](https://www.opensciencedatacloud.org/) | "The Open Science Data Cloud provides the scientific community with resources for storing, sharing, and analyzing terabyte and petabyte-scale scientific datasets."| Data sets are in various formats. |
+| [Open Science Data Cloud data](https://www.opensciencedatacloud.org/projects/) | "The Open Science Data Cloud provides the scientific community with resources for storing, sharing, and analyzing terabyte and petabyte-scale scientific datasets."| Data sets are in various formats. |
 | [Global climate data - WorldClim](https://worldclim.org/) | "WorldClim is a set of global climate layers (gridded climate data) with a spatial resolution of about 1 km2. These data can be used for mapping and spatial modeling." | These files contain geospatial data. For more info, see [Data format](https://worldclim.org/formats1). |
 | [Data about human society - The GDELT Project](https://www.gdeltproject.org/data.html) | "The GDELT Project is the largest, most comprehensive, and highest resolution open database of human society ever created." | The raw data files are in CSV format. |
 | [Advertising click prediction data for machine learning from Criteo](https://labs.criteo.com/2013/12/download-terabyte-click-logs/) | "The largest ever publicly released ML dataset." For more info, see [Criteo's 1 TB Click Prediction Dataset](https://blogs.technet.microsoft.com/machinelearning/20../../now-available-on-azure-ml-criteos-1tb-click-prediction-dataset/). | |

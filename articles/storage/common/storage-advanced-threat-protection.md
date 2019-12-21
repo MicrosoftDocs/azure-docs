@@ -26,7 +26,7 @@ Advanced threat protection for Azure Storage ingests diagnostic logs of read, wr
 
 Advanced threat protection is enabled for your storage account by default. You can configure advanced threat protection in any of several ways, described in the following sections.
 
-### Use the Azure portal
+### [Portal](#tab/azure-portal)
 
 1. Launch the [Azure portal](https://portal.azure.com/).
 1. Navigate to your Azure Storage account. Under **Settings**, select **Advanced security**.
@@ -36,7 +36,7 @@ Advanced threat protection is enabled for your storage account by default. You c
 
     ![Turn on Azure Storage advanced threat protection](./media/storage-advanced-threat-protection/storage-advanced-threat-protection-turn-on.png)
 
-### Using Azure Security Center
+### [Azure Security Center](#tab/azure-security-center)
 
 When you subscribe to the Standard tier in Azure Security Center, advanced threat protection is automatically set up on all of your storage accounts. You can enable or disable advanced threat protection for your storage accounts under a specific subscription as follows:
 
@@ -52,12 +52,12 @@ When you subscribe to the Standard tier in Azure Security Center, advanced threa
     ![Enable ATP in Security Center](./media/storage-advanced-threat-protection/storage-advanced-threat-protection-pricing2.png)
 1. Click **Save**.
 
-### Using Azure Resource Manager templates
+### [Template](#tab/template)
 
 Use an Azure Resource Manager template to deploy an Azure Storage account with advanced threat protection enabled. For more information, see
 [Storage account with advanced threat protection](https://azure.microsoft.com/resources/templates/201-storage-advanced-threat-protection-create/).
 
-### Using an Azure Policy
+### [Azure Policy](#tab/azure-policy)
 
 Use an Azure Policy to enable advanced threat protection across storage accounts under a specific subscription or resource group.
 
@@ -75,20 +75,22 @@ Use an Azure Policy to enable advanced threat protection across storage accounts
 
     ![Policy Definitions Page](./media/storage-advanced-threat-protection/storage-atp-policy1.png)
 
-### Using the REST API
+### [REST API](#tab/rest-api)
 
 Use Rest API commands to create, update, or get the advanced threat protection setting for a specific storage account.
 
 * [Advanced threat protection - Create](https://docs.microsoft.com/rest/api/securitycenter/advancedthreatprotection/create)
 * [Advanced threat protection - Get](https://docs.microsoft.com/rest/api/securitycenter/advancedthreatprotection/get)
 
-### Using Azure PowerShell
+### [PowerShell](#tab/azure-powershell)
 
 Use the following PowerShell cmdlets:
 
 * [Enable advanced threat protection](https://docs.microsoft.com/powershell/module/az.security/enable-azsecurityadvancedthreatprotection)
 * [Get advanced threat protection](https://docs.microsoft.com/powershell/module/az.security/get-azsecurityadvancedthreatprotection)
 * [Disable advanced threat protection](https://docs.microsoft.com/powershell/module/az.security/disable-azsecurityadvancedthreatprotection)
+
+---
 
 ## Explore security anomalies
 

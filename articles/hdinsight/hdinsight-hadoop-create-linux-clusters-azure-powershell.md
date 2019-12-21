@@ -1,5 +1,5 @@
 ---
-title: Create Apache Hadoop clusters using PowerShell - Azure HDInsight 
+title: Create Apache Hadoop clusters using PowerShell - Azure HDInsight
 description: Learn how to create Apache Hadoop, Apache HBase, Apache Storm, or Apache Spark clusters on Linux for HDInsight by using Azure PowerShell.
 author: hrasheed-msft
 ms.reviewer: jasonh

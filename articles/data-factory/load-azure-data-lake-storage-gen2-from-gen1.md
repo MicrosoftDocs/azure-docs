@@ -1,17 +1,17 @@
 ---
-title: Copy data from Azure Data Lake Storage Gen1 to Gen2 with Azure Data Factory
+title: Copy data from Azure Data Lake Storage Gen1 to Gen2
 description: 'Use Azure Data Factory to copy data from Azure Data Lake Storage Gen1 to Gen2'
 services: data-factory
 documentationcenter: ''
+ms.author: jingwang
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
-
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 05/13/2019
-ms.author: jingwang
 ---
 
 # Copy data from Azure Data Lake Storage Gen1 to Gen2 with Azure Data Factory

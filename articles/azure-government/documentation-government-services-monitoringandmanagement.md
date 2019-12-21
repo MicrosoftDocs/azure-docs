@@ -8,7 +8,7 @@ ms.assetid: 4b7720c1-699e-432b-9246-6e49fb77f497
 ms.service: azure-government
 ms.topic: article
 ms.workload: azure-government
-ms.date: 04/22/2019
+ms.date: 12/11/2019
 ms.author: gsacavdm
 
 ---
@@ -135,13 +135,34 @@ For more information on using PowerShell, see [public documentation](https://doc
 Metrics are generally available in Azure Government. However, multi-dimensional metrics are supported only via the REST API. The ability to [show multi-dimensional metrics](../azure-monitor/platform/metrics-charts.md) is in preview in the Azure Government portal.
 
 #### Metric Alerts
-The first generation of metrics alerts is generally available in both Azure Government and commercial Azure. The first generation is called *Alerts (Classic)*.  The second generation of metric alerts (also called the [unified alerts experience](../azure-monitor/platform/alerts-overview.md)) is now also available, but with a reduced set of resource providers [compared to the public cloud](../azure-monitor/platform/alerts-metric-near-real-time.md). More will be added over time. 
+The first generation of metrics alerts is generally available in both Azure Government and commercial Azure. The first generation is called *Alerts (Classic)*. The second generation of metric alerts (also called the [unified alerts experience](../azure-monitor/platform/alerts-overview.md)) is now also available, but with a reduced set of resource providers [compared to the public cloud](../azure-monitor/platform/alerts-metric-near-real-time.md). More will be added over time. 
 
 The resources currently supported in the second generation alerts experience are:
+- Microsoft.ApiManagement/service
 - Microsoft.Compute/virtualMachines
+- Microsoft.DBforMySQL/servers
+- Microsoft.DBforPostgreSQL/servers
+- Microsoft.DBforMariaDB/servers
+- Microsoft.Devices/IotHubs
+- Microsoft.EventGrid/topics
+- Microsoft.EventGrid/domains
+- Microsoft.EventHub/clusters
+- Microsoft.EventHub/namespaces
+- Microsoft.Insights/components
+- Microsoft.Network/dnszones
+- Microsoft.Network/loadBalancers
+- Microsoft.Network/natGateways
+- Microsoft.Network/privateEndpoints
+- Microsoft.Network/privateLinkServices
 - Microsoft.OperationalInsights/workspaces
 - Microsoft.PowerBIDedicated/capacities
-- Microsoft.Storage/accounts
+- Microsoft.Relay/namespaces
+- Microsoft.ServiceBus/namespaces
+- Microsoft.Storage/storageAccounts
+- Microsoft.Storage/storageAccounts/blobServices
+- Microsoft.Storage/storageAccounts/fileServices
+- Microsoft.Storage/storageAccounts/queueServices
+- Microsoft.Storage/storageAccounts/tableServices
 
 You can still use [classic alerts](../azure-monitor/platform/alerts-classic.overview.md) for resources not yet available in the second generation of alerts. 
 

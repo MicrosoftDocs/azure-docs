@@ -1,22 +1,18 @@
 ---
-title: Back up and restore Azure Files with Azure Backup and PowerShell
-description: Back up and restore Azure Files using Azure Backup and PowerShell. 
-author: dcurwin
-manager: carmonm
-ms.service: backup
+title: Back up and restore Azure Files with PowerShell
+description: In this article, learn how to back up and restore Azure Files using the Azure Backup service and PowerShell. 
 ms.topic: conceptual
 ms.date: 08/20/2019
-ms.author: dacurwin
-ms.reviewer: pullabhk
 ---
 
 # Back up and restore Azure Files with PowerShell
 
 This article describes how to use Azure PowerShell to back up and recover an Azure Files file share using an [Azure Backup](backup-overview.md) Recovery Services vault.
 
-This tutorial explains how to:
+This article explains how to:
 
 > [!div class="checklist"]
+>
 > * Set up PowerShell and register the Azure Recovery Services Provider.
 > * Create a Recovery Services vault.
 > * Configure backup for an Azure file share.
@@ -270,9 +266,9 @@ Azure file share snapshots are used while the backups are taken, so usually the 
 
 ### Using on-demand backups to extend retention
 
-On-demand backups can be used to retain your snapshots for 10 years. Schedulers can be used to run on-demand PowerShell scripts with chosen retention and thus take snapshots at regular intervals every week, month, or year. While taking regular snapshots refer to the [limitations of on-demand backups](https://docs.microsoft.com/azure/backup/backup-azure-files-faq#how-many-on-demand-backups-can-i-take-per-file-share-) using Azure backup.
+On-demand backups can be used to retain your snapshots for 10 years. Schedulers can be used to run on-demand PowerShell scripts with chosen retention and thus take snapshots at regular intervals every week, month, or year. While taking regular snapshots, refer to the [limitations of on-demand backups](https://docs.microsoft.com/azure/backup/backup-azure-files-faq#how-many-on-demand-backups-can-i-take-per-file-share) using Azure backup.
 
-If you are looking for sample scripts, you can refer to the sample script on github (<https://github.com/Azure-Samples/Use-PowerShell-for-long-term-retention-of-Azure-Files-Backup)> using Azure Automation runbook that enables you to schedule backups on a periodic basis and retain them even up to 10 years.
+If you are looking for sample scripts, you can refer to the sample script on GitHub (<https://github.com/Azure-Samples/Use-PowerShell-for-long-term-retention-of-Azure-Files-Backup>) using Azure Automation runbook that enables you to schedule backups on a periodic basis and retain them even up to 10 years.
 
 ### Modify the protection policy
 

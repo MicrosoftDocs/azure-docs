@@ -1,20 +1,16 @@
 ---
 title: Azure create UI definition element | Microsoft Docs
 description: Describes the elements to use when constructing UI definitions for Azure portal.
-services: managed-applications
-documentationcenter: na
 author: tfitzmac
 
 ms.service: managed-applications
-ms.devlang: na
 ms.topic: reference
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 09/19/2018
+ms.date: 11/11/2019
 ms.author: tomfitz
 
 ---
 # CreateUiDefinition elements
+
 This article describes the schema and properties for all supported elements of a CreateUiDefinition. 
 
 ## Schema
@@ -55,6 +51,7 @@ The documentation for each element contains a UI sample, schema, remarks on the 
 - [Microsoft.Common.OptionsGroup](microsoft-common-optionsgroup.md)
 - [Microsoft.Common.PasswordBox](microsoft-common-passwordbox.md)
 - [Microsoft.Common.Section](microsoft-common-section.md)
+- [Microsoft.Common.TagsByResource](microsoft-common-tagsbyresource.md)
 - [Microsoft.Common.TextBlock](microsoft-common-textblock.md)
 - [Microsoft.Common.TextBox](microsoft-common-textbox.md)
 - [Microsoft.Compute.CredentialsCombo](microsoft-compute-credentialscombo.md)
@@ -66,4 +63,5 @@ The documentation for each element contains a UI sample, schema, remarks on the 
 - [Microsoft.Storage.StorageAccountSelector](microsoft-storage-storageaccountselector.md)
 
 ## Next steps
+
 For an introduction to creating UI definitions, see [Getting started with CreateUiDefinition](create-uidefinition-overview.md).

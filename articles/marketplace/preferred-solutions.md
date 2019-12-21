@@ -4,6 +4,7 @@ description: Overview of preferred solutions within the Marketplace and how they
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: ellacroi
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 06/27/2018
 ms.author: ellacroi

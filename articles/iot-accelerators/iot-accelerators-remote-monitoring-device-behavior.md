@@ -1,5 +1,5 @@
 ---
-title: Simulated device behavior in remote monitoring solution - Azure | Microsoft Docs
+title: Simulated device in Remote Monitoring solution - Azure | Microsoft Docs
 description: This article describes how to use JavaScript to define the behavior of a simulated device in the remote monitoring solution.
 author: dominicbetts
 manager: timlt

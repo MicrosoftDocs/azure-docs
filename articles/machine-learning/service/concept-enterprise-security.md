@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 08/07/2019
+ms.date: 12/17/2019
 ---
 
 # Enterprise security for Azure Machine Learning
@@ -28,58 +28,18 @@ Multi-factor authentication is supported if Azure Active Directory (Azure AD) is
 
 [![Authentication in Azure Machine Learning](./media/enterprise-readiness/authentication.png)](./media/enterprise-readiness/authentication-expanded.png)
 
+See the [Set up authentication](how-to-setup-authentication.md) how-to for detailed examples and instructions on setting up authentication, including service principal authentication for automated workflows.
+
 ### Authentication for web service deployment
 
 Azure Machine Learning supports two forms of authentication for web services: key and token. Each web service can enable only one form of authentication at a time.
 
-|Authentication method|Azure Container Instances|AKS|
-|---|---|---|
-|Key|Disabled by default| Enabled by default|
-|Token| Not available| Disabled by default |
+|Authentication method|Description|Azure Container Instances|AKS|
+|---|---|---|---|
+|Key|Keys are static and do not need to be refreshed. Keys can be regenerated manually.|Disabled by default| Enabled by default|
+|Token|Tokens expire after a specified time period and need to be refreshed.| Not available| Disabled by default |
 
-#### Authentication with keys
-
-When you enable key authentication for a deployment, you automatically create authentication keys.
-
-* Authentication is enabled by default when you deploy to Azure Kubernetes Service (AKS).
-* Authentication is disabled by default when you deploy to Azure Container Instances.
-
-To enable key authentication, use the `auth_enabled` parameter when you create or update a deployment.
-
-If key authentication is enabled, you can use the `get_keys` method to retrieve a primary and secondary authentication key:
-
-```python
-primary, secondary = service.get_keys()
-print(primary)
-```
-
-> [!IMPORTANT]
-> If you need to regenerate a key, use [`service.regen_key`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py).
-
-#### Authentication with tokens
-
-When you enable token authentication for a web service, users must present an Azure Machine Learning JSON Web Token to the web service to access it.
-
-* Token authentication is disabled by default when you deploy to Azure Kubernetes Service.
-* Token authentication isn't supported when you deploy to Azure Container Instances.
-
-To control token authentication, use the `token_auth_enabled` parameter when you create or update a deployment.
-
-If token authentication is enabled, you can use the `get_token` method to retrieve a JSON Web Token (JWT) and that token's expiration time:
-
-```python
-token, refresh_by = service.get_token()
-print(token)
-```
-
-> [!IMPORTANT]
-> You'll need to request a new token after the token's `refresh_by` time.
->
-> We strongly recommend that you create your Azure Machine Learning workspace in the same region as your Azure Kubernetes Service cluster. 
->
-> To authenticate with a token, the web service will make a call to the region in which your Azure Machine Learning workspace is created. If your workspace's region is unavailable, you won't be able to fetch a token for your web service, even if your cluster is in a different region from your workspace. The result is that Azure AD Authentication is unavailable until your workspace's region is available again. 
->
-> Also, the greater the distance between your cluster's region and your workspace's region, the longer it will take to fetch a token.
+See the [web-service authentication section](how-to-setup-authentication.md#web-service-authentication) for code examples on authenticating to web-services in Azure Machine Learning.
 
 ## Authorization
 
@@ -95,6 +55,7 @@ The following table lists some of the major Azure Machine Learning operations an
 | ---- |:----:|:----:|:----:|
 | Create workspace | ✓ | ✓ | |
 | Share workspace | ✓ | |  |
+| Upgrade workspace to Enterprise edition | ✓ | |
 | Create compute target | ✓ | ✓ | |
 | Attach compute target | ✓ | ✓ | |
 | Attach data stores | ✓ | ✓ | |

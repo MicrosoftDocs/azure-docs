@@ -1,6 +1,6 @@
 ﻿---
-title: 'Plan your Azure Time Series Insights Preview environment | Microsoft Docs'
-description: Plan your Azure Time Series Insights Preview environment.
+title: 'Plan your Preview environment - Azure Time Series Insights | Microsoft Docs'
+description: Best practices to configure, manage, plan, and deploy your Azure Time Series Insights Preview environment.
 author: deepakpalled
 ms.author: dpalled
 manager: cshankar
@@ -8,7 +8,7 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 09/24/2019
+ms.date: 11/22/2019
 ms.custom: seodec18
 ---
 
@@ -38,12 +38,12 @@ When you provision a Time Series Insights Preview environment, you create two Az
 * An Azure Time Series Insights Preview environment
 * An Azure Storage general-purpose V1 account
 
-As part of the provisioning process, you specify whether you want to enable a warm store. Warm store provides you with a tiered query experience. When enabled, you must specify a retention period between 7 and 30 days. Queries executed within the warm store retention period generally provide faster response times. When a query spans over the warm store retention period, it's served from cold storage.
+As part of the provisioning process, you specify whether you want to enable a warm store. Warm store provides you with a tiered query experience. When enabled, you must specify a retention period between 7 and 30 days. Queries executed within the warm store retention period generally provide faster response times. When a query spans over the warm store retention period, it's served from cold store.
 
 Queries on warm store are free, while queries on cold store incur costs. It's important to understand your query patterns and plan your warm store configuration accordingly. We recommend that interactive analytics on the most recent data reside in your warm store and pattern analysis and long-term trends reside in cold.
 
 > [!NOTE]
-> We currently support a maximum of 1,000 properties with warm store.
+> To read more about how to query your warm data, [see here](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/query/execute#uri-parameters).
 
 To start, you need three additional items:
 

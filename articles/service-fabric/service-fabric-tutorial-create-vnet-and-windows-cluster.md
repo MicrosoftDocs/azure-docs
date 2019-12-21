@@ -1,20 +1,9 @@
 ---
-title: Create a Service Fabric cluster running Windows in Azure | Microsoft Docs
+title: Create a Service Fabric cluster running Windows in Azure 
 description: In this tutorial, you learn how to deploy a Windows Service Fabric cluster into an Azure virtual network and network security group by using PowerShell.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
 
-ms.assetid:
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 07/22/2019
-ms.author: atsenthi
 ms.custom: mvc
 ---
 # Tutorial: Deploy a Service Fabric cluster running Windows into an Azure virtual network
@@ -107,6 +96,7 @@ The following inbound traffic rules are enabled in the **Microsoft.Network/netwo
 
 * ClientConnectionEndpoint (TCP): 19000
 * HttpGatewayEndpoint (HTTP/TCP): 19080
+* SMB: 445
 * Internodecommunication: 1025, 1026, 1027
 * Ephemeral port range: 49152 to 65534 (need a minimum of 256 ports).
 * Ports for application use: 80 and 443

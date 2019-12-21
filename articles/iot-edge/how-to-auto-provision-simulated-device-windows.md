@@ -8,7 +8,6 @@ ms.date: 01/09/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.custom: seodec18
 ---
 
 # Create and provision a simulated IoT Edge device with a virtual TPM on Windows

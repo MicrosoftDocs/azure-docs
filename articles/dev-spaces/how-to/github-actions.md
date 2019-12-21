@@ -1,13 +1,9 @@
 ---
 title: "GitHub Actions & Azure Kubernetes Service"
-titleSuffix: Azure Dev Spaces
-author: zr-msft
 services: azure-dev-spaces
-ms.service: azure-dev-spaces
-ms.author: zarhoads
-ms.date: 10/24/2019
+ms.date: 11/04/2019
 ms.topic: conceptual
-description: "Review and test changes from a pull request directly in Azure Kubernetes Service using GitHub Actions and Azure Dev Spaces."
+description: "Review and test changes from a pull request directly in Azure Kubernetes Service using GitHub Actions and Azure Dev Spaces"
 keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, GitHub Actions, Helm, service mesh, service mesh routing, kubectl, k8s"
 manager: gwallace
 ---
@@ -17,40 +13,21 @@ Azure Dev Spaces provides a workflow using GitHub Actions that allows you to tes
 
 In this guide, you will learn how to:
 
-- Set up Azure Dev Spaces on a managed Kubernetes cluster in Azure.
-- Deploy a large application with multiple microservices to a dev space.
-- Set up CI/CD with GitHub actions.
-- Test a single microservice in an isolated dev space within the context of the full application.
+* Set up Azure Dev Spaces on a managed Kubernetes cluster in Azure.
+* Deploy a large application with multiple microservices to a dev space.
+* Set up CI/CD with GitHub actions.
+* Test a single microservice in an isolated dev space within the context of the full application.
 
 > [!IMPORTANT]
 > This feature is currently in preview. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of this feature may change prior to general availability (GA).
 
 ## Prerequisites
 
-- An Azure subscription. If you don't have an Azure subscription, you can create a [free account](https://azure.microsoft.com/free).
-- [Azure CLI installed][azure-cli-installed].
-- [Helm 2.13 or greater installed][helm-installed].
-- A GitHub Account with [GitHub Actions enabled][github-actions-beta-signup].
-
-## Create an Azure Kubernetes Service cluster
-
-You must create an AKS cluster in a [supported region][supported-regions]. The below commands create a resource group called *MyResourceGroup* and an AKS cluster called *MyAKS*.
-
-```cmd
-az group create --name MyResourceGroup --location eastus
-az aks create -g MyResourceGroup -n MyAKS --location eastus --disable-rbac --generate-ssh-keys
-```
-
-## Enable Azure Dev Spaces on your AKS cluster
-
-Use the `use-dev-spaces` command to enable Dev Spaces on your AKS cluster and follow the prompts. The below command enables Dev Spaces on the *MyAKS* cluster in the *MyResourceGroup* group and creates a dev space called *dev*.
-
-> [!NOTE]
-> The `use-dev-spaces` command will also install the Azure Dev Spaces CLI if its not already installed. You cannot install the Azure Dev Spaces CLI in the Azure Cloud Shell.
-
-```cmd
-az aks use-dev-spaces -g MyResourceGroup -n MyAKS --space dev --yes
-```
+* An Azure subscription. If you don't have an Azure subscription, you can create a [free account](https://azure.microsoft.com/free).
+* [Azure CLI installed][azure-cli-installed].
+* [Helm 3 installed][helm-installed].
+* A GitHub Account with [GitHub Actions enabled][github-actions-beta-signup].
+* The [Azure Dev Spaces Bike Sharing sample application](https://github.com/Azure/dev-spaces/tree/master/samples/BikeSharingApp/README.md) running on an AKS cluster.
 
 ## Create an Azure Container Registry
 
@@ -98,87 +75,10 @@ az role assignment create --assignee <ClientId>  --scope <ACRId> --role AcrPush
 > [!IMPORTANT]
 > You must be the owner of both your AKS cluster and ACR in order to give your service principal access to those resources.
 
-## Get sample application code
-
-In this article, you use the [Azure Dev Spaces Bike Sharing sample application][bike-sharing-gh] to demonstrate using Azure Dev Spaces with GitHub actions.
-
-Fork the Azure Dev Spaces sample repository then navigate to your forked repository. Click on the *Actions* tab and choose to enable actions for this repository.
-
-Clone your forked repository and navigate into its directory:
-
-```cmd
-git clone https://github.com/USERNAME/dev-spaces
-cd dev-spaces/samples/BikeSharingApp/
-```
-
-## Retrieve the HostSuffix for *dev*
-
-Use the `azds show-context` command to show the HostSuffix for *dev*.
-
-```cmd
-$ azds show-context
-
-Name                ResourceGroup     DevSpace  HostSuffix
-------------------  ----------------  --------  -----------------------
-MyAKS               MyResourceGroup   dev       fedcab0987.eus.azds.io
-```
-
-## Update the Helm chart with your HostSuffix
-
-Open [charts/values.yaml][bike-sharing-values-yaml] and replace all instances of `<REPLACE_ME_WITH_HOST_SUFFIX>` with the HostSuffix value you retrieved earlier. Save your changes and close the file.
-
-## Run the sample application in Kubernetes
-
-The commands for running the sample application on Kubernetes are part of an existing process and have no dependency on Azure Dev Spaces tooling. In this case, Helm is the tooling used to run this sample application but other tooling could be used to run your entire application in a namespace within a cluster. The Helm commands are targeting the dev space named *dev* you created earlier, but this dev space is also a Kubernetes namespace. As a result, dev spaces can be targeted by other tooling the same as other namespaces.
-
-You can use Azure Dev Spaces for development after an application is running in a cluster regardless of the tooling used to deploy it.
-
-Use the `helm init` and `helm install` commands to set up and install the sample application on your cluster.
-
-```cmd
-cd charts/
-helm init --wait
-helm install -n bikesharing . --dep-up --namespace dev --atomic
-```
-
-> [!Note]
-> **If you are using an RBAC-enabled cluster**, be sure to configure [a service account for Tiller][tiller-rbac]. Otherwise, `helm` commands will fail.
-
-The `helm install` command may take several minutes to complete. The output of the command shows the status of all the services it deployed to the cluster when completed:
-
-```cmd
-$ cd charts/
-$ helm init --wait
-...
-Happy Helming!
-
-$ helm install -n bikesharing . --dep-up --namespace dev --atomic
-
-Hang tight while we grab the latest from your chart repositories...
-...
-NAME               READY  UP-TO-DATE  AVAILABLE  AGE
-bikes              1/1    1           1          4m32s
-bikesharingweb     1/1    1           1          4m32s
-billing            1/1    1           1          4m32s
-gateway            1/1    1           1          4m32s
-reservation        1/1    1           1          4m32s
-reservationengine  1/1    1           1          4m32s
-users              1/1    1           1          4m32s
-```
-
-After the sample application is installed on your cluster and since you have Dev Spaces enabled on your cluster, use the `azds list-uris` command to display the URLs for the sample application in *dev* that is currently selected.
-
-```cmd
-$ azds list-uris
-Uri                                                 Status
---------------------------------------------------  ---------
-http://dev.bikesharingweb.fedcab0987.eus.azds.io/  Available
-http://dev.gateway.fedcab0987.eus.azds.io/         Available
-```
-
-Navigate to the *bikesharingweb* service by opening the public URL from the `azds list-uris` command. In the above example, the public URL for the *bikesharingweb* service is `http://dev.bikesharingweb.fedcab0987.eus.azds.io/`. Select *Aurelia Briggs (customer)* as the user, then select a bike to rent. Verify you see a placeholder image for the bike.
-
 ## Configure your GitHub action
+
+> [!IMPORTANT]
+> You must have GitHub Actions enabled for your repository. To enable GitHub Actions for your repository, navigate to your repository on GitHub, click on the Actions tab, and choose to enable actions for this repository.
 
 Navigate to your forked repository and click *Settings*. Click on *Secrets* in the left sidebar. Click *Add a new secret* to add each new secret below:
 
@@ -187,6 +87,7 @@ Navigate to your forked repository and click *Settings*. Click on *Secrets* in t
 1. *CLUSTER_NAME*: the name of your AKS cluster, which in this example is *MyAKS*.
 1. *CONTAINER_REGISTRY*: the *loginServer* for the ACR.
 1. *HOST*: the host for your Dev Space, which takes the form *<MASTER_SPACE>.<APP_NAME>.<HOST_SUFFIX>*, which in this example is *dev.bikesharingweb.fedcab0987.eus.azds.io*.
+1. *HOST_SUFFIX*: the host suffix for your Dev Space, which in this example is *fedcab0987.eus.azds.io*.
 1. *IMAGE_PULL_SECRET*: the name of the secret you wish to use, for example *demo-secret*.
 1. *MASTER_SPACE*: the name of your parent Dev Space, which in this example is *dev*.
 1. *REGISTRY_USERNAME*: the *clientId* from the JSON output from the service principal creation.
@@ -197,10 +98,10 @@ Navigate to your forked repository and click *Settings*. Click on *Secrets* in t
 
 ## Create a new branch for code changes
 
-Navigate back to `BikeSharingApp/` and create a new branch called *bike-images*.
+Navigate to `BikeSharingApp/` and create a new branch called *bike-images*.
 
 ```cmd
-cd ..
+cd dev-spaces/samples/BikeSharingApp/
 git checkout -b bike-images
 ```
 
@@ -234,7 +135,7 @@ Use `git push` to push your new branch to your forked repository:
 git push origin bike-images
 ```
 
-After the push is complete, navigate to your forked repository on GitHub create a pull request with the *master* in your forked repository as the base branch compared to the *bike-images* branch.
+After the push is complete, navigate to your forked repository on GitHub to create a pull request with the *master* branch in your forked repository as the base branch compared to the *bike-images* branch.
 
 After your pull request is opened, navigate to the *Actions* tab. Verify a new action has started and is building the *Bikes* service.
 
@@ -246,6 +147,8 @@ After the action has completed, you will see a comment with a URL to your new ch
 > ![GitHub Action Url](../media/github-actions/github-action-url.png)
 
 Navigate to the *bikesharingweb* service by opening the URL from the comment. Select *Aurelia Briggs (customer)* as the user, then select a bike to rent. Verify you no longer see the placeholder image for the bike.
+
+If you merge your changes into the *master* branch in your fork, another action will run to rebuild and run your entire application in the parent dev space. In this example, the parent space is *dev*. This action is configured in [.github/workflows/bikesharing.yml][github-action-bikesharing-yaml].
 
 ## Clean up your Azure resources
 
@@ -271,8 +174,7 @@ Learn how Azure Dev Spaces helps you develop more complex applications across mu
 [github-actions-beta-signup]: https://github.com/features/actions
 [github-action-yaml]: https://github.com/Azure/dev-spaces/blob/master/.github/workflows/bikes.yml
 [github-action-bikesharing-yaml]: https://github.com/Azure/dev-spaces/blob/master/.github/workflows/bikesharing.yml
-[helm-installed]: https://helm.sh/docs/using_helm/#installing-helm
-[tiller-rbac]: https://helm.sh/docs/using_helm/#role-based-access-control
+[helm-installed]: https://helm.sh/docs/intro/install/
 [supported-regions]: ../about.md#supported-regions-and-configurations
 [sp-acr]: ../../container-registry/container-registry-auth-service-principal.md
 [sp-aks]: ../../aks/kubernetes-service-principal.md

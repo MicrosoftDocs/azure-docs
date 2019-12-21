@@ -1,12 +1,11 @@
 ---
-title: Using recovery plans in disaster recovery with Azure Site Recovery 
+title: About recovery plans in Azure Site Recovery 
 description: Learn about using recovery plans for disaster recovery with the Azure Site Recovery service. 
 author: rayne-wiselman
 manager: carmonm
-services: site-recovery
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/15/2019
+ms.date: 11/12/2019
 ms.author: raynew
 
 ---

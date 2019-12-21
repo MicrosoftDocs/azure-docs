@@ -1,13 +1,9 @@
 ﻿---
-title: Manage and monitor Azure VM backups with the Azure Backup service
+title: Manage and monitor Azure VM backups
 description: Learn how to manage and monitor Azure VM backups by using the Azure Backup service.
 ms.reviewer: sogup
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 09/18/2019
-ms.author: dacurwin
 ---
 # Manage Azure VM backups with Azure Backup service
 
@@ -161,7 +157,7 @@ There are two ways to delete a VM's backup data:
 
 ### Backup item where primary data source no longer exists
 
-* If Azure VMs configured for Azure backup are either deleted or moved without stopping protection, then both scheduled backup jobs and on demand (ad-hoc) backup jobs will fail with the error UserErrorVmNotFoundV2. The backup pre-check will appear as critical only for failed ad-hoc backup jobs (failed scheduled jobs are not displayed).
+* If Azure VMs configured for Azure backup are either deleted or moved without stopping protection, then both scheduled backup jobs and on demand (ad-hoc) backup jobs will fail with the error UserErrorVmNotFoundV2. The backup pre-check will appear as critical only for failed on-demand backup jobs (failed scheduled jobs are not displayed).
 * These backup items remain active in the system adhering to the backup and retention policy set by the user. The backed-up data for these Azure VMs will be retained according to the retention policy. The expired recovery points (except the last recovery point) are cleaned according to the retention range set in the backup policy.
 * Users are recommended to delete the backup items where the primary data source no longer exists to avoid any additional cost, if the backup item/data for the delete resources is no longer required as the last recovery point is retained forever and the user is charged as per the backup pricing applicable.
 

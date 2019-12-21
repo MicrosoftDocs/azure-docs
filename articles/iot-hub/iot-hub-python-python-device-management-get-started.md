@@ -58,10 +58,6 @@ In this section, you:
     pip install azure-iot-device
     ```
 
-   > [!NOTE]
-   > The pip packages for azure-iothub-service-client is available only for Windows OS. For Linux/Mac OS, please refer to the Linux and Mac OS-specific sections on the [Prepare your development environment for Python](https://github.com/Azure/azure-iot-sdk-python/blob/master/doc/python-devbox-setup.md) post.
-   >
-
 2. Using a text editor, create a file named **dmpatterns_getstarted_device.py** in your working directory.
 
 3. Add the following `import` statements at the start of the **dmpatterns_getstarted_device.py** file.
@@ -156,7 +152,7 @@ In this section, you create a Python console app that initiates a remote reboot 
     ```
 
    > [!NOTE]
-   > The pip packages for azure-iothub-service-client and azure-iothub-device-client are currently available only for Windows OS. For Linux/Mac OS, please refer to the Linux and Mac OS-specific sections on the [Prepare your development environment for Python](https://github.com/Azure/azure-iot-sdk-python/blob/master/doc/python-devbox-setup.md) post.
+   > The pip package for azure-iothub-service-client is currently available only for Windows OS. For Linux/Mac OS, please refer to the Linux and Mac OS-specific sections on the [Prepare your development environment for Python](https://github.com/Azure/azure-iot-sdk-python/blob/v1-deprecated/doc/python-devbox-setup.md) post.
    >
 
 2. Using a text editor, create a file named **dmpatterns_getstarted_service.py** in your working directory.

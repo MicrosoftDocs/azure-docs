@@ -1,11 +1,8 @@
 ---
-title: Authenticate across tenants - Azure Resource Manager
+title: Authenticate across tenants
 description: Describes how Azure Resource Manager handles authentication requests across tenants.
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 10/11/2019
-ms.author: tomfitz
 ---
 
 # Authenticate requests across tenants
