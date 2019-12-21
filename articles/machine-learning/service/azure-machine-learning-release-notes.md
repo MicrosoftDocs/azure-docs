@@ -27,7 +27,7 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
     + Removed featurizationConfig to be logged
       + Updated logging to log "auto"/"off"/"customized" only.
   + **azureml-automl-runtime**
-    + Added support for pandas. Series and pandas.Categorical for detecting column data type. Previously only supported numpy.ndarray
+    + Added support for pandas. Series and pandas. Categorical for detecting column data type. Previously only supported numpy.ndarray
       + Added related code changes to handle categorical dtype correctly.
     + The forecast function interface was improved: the y_pred parameter was made optional. -The docstrings were improved.
   + **azureml-contrib-dataset**
@@ -222,7 +222,7 @@ Azure Machine Learning is now a resource provider for Event Grid, you can config
     + Added a guardrail for forecasting tasks, to check whether a specified max_horizon will cause a memory issue on the given machine or not. If it will, a guardrail message will be displayed.
     + Added support for complex frequencies like 2 years and 1 month. -Added comprehensible error message if frequency can not be determined.
     + Add azureml-defaults to auto generated conda env to solve the model deployment failure
-    + Allow intermediate data in Azure Machine Learning pPipeline to be converted to tabular dataset and used in `AutoMLStep`.
+    + Allow intermediate data in Azure Machine Learning Pipeline to be converted to tabular dataset and used in `AutoMLStep`.
     + Implemented column purpose update for streaming.
     + Implemented transformer parameter update for Imputer and HashOneHotEncoder for streaming.
     + Added the current data size and the minimum required data size to the validation error messages.

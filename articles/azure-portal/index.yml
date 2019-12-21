@@ -5,7 +5,7 @@ summary: The Azure portal is a web-based, unified console that provides an alter
 
 metadata:
   title: Azure portal documentation
-  description: Learn how to manage your Azure subscription and resources using the Azure portal web-based console.
+  description: Learn how to manage your Azure subscriptions and resources using the Azure portal web-based console. The Azure portal is an alternative to using command-line tools.
   services: Azure portal
   ms.service: azure-portal
   ms.subservice: 
