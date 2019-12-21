@@ -1,5 +1,5 @@
 ---
-title: Understanding Azure AD application consent experiences 
+title: Azure AD app consent experiences
 titleSuffix: Microsoft identity platform
 description: Learn more about the Azure AD consent experiences to see how you can use it when managing and developing applications on Azure AD
 services: active-directory

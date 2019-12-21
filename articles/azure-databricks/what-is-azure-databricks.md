@@ -32,7 +32,7 @@ Azure Databricks comprises the complete open-source Apache Spark cluster technol
 
 * **Streaming**: Real-time data processing and analysis for analytical and interactive applications. Integrates with HDFS, Flume, and Kafka.
 
-* **MLib**: Machine Learning library consisting of common learning algorithms and utilities, including classification, regression, clustering, collaborative filtering, dimensionality reduction, as well as underlying optimization primitives.
+* **MLlib**: Machine Learning library consisting of common learning algorithms and utilities, including classification, regression, clustering, collaborative filtering, dimensionality reduction, as well as underlying optimization primitives.
 
 * **GraphX**: Graphs and graph computation for a broad scope of use cases from cognitive analytics to data exploration.
 

@@ -1,6 +1,6 @@
 ---
 title: Dataset versioning
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: Learn how to best version your datasets and how versioning works with machine learning pipelines.
 services: machine-learning
 ms.service: machine-learning
@@ -123,6 +123,7 @@ Because Machine Learning pipelines populate the output of each step into a new f
 from azureml.core import Dataset
 from azureml.pipeline.steps import PythonScriptStep
 from azureml.pipeline.core import Pipeline, PipelineData
+from azureml.core. runconfig import CondaDependencies, RunConfiguration
 
 # get input dataset 
 input_ds = Dataset.get_by_name(workspace, 'weather_ds')
@@ -131,10 +132,19 @@ input_ds = Dataset.get_by_name(workspace, 'weather_ds')
 output_ds = PipelineData('prepared_weather_ds', datastore=datastore).as_dataset()
 output_ds = output_ds.register(name='prepared_weather_ds', create_new_version=True)
 
+conda = CondaDependencies.create(
+    pip_packages=['azureml-defaults', 'azureml-dataprep[fuse,pandas]'], 
+    pin_sdk_version=False)
+
+run_config = RunConfiguration()
+run_config.environment.docker.enabled = True
+run_config.environment.python.conda_dependencies = conda
+
 # configure pipeline step to use dataset as the input and output
 prep_step = PythonScriptStep(script_name="prepare.py",
                              inputs=[input_ds.as_named_input('weather_ds')],
                              outputs=[output_ds],
+                             runconfig=run_config,
                              compute_target=compute_target,
                              source_directory=project_folder)
 ```
@@ -143,7 +153,24 @@ prep_step = PythonScriptStep(script_name="prepare.py",
 
 ## Track datasets in experiments
 
-For each Machine Learning experiment, you can easily trace the datasets used as the input through the registered model's  `Run` object.
+For each Machine Learning experiment, you can easily trace the datasets used as the input through the experiment `Run` object.
+
+The following code uses the [`get_details()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#get-details--) method to track which input datasets were used with the experiment run:
+
+```Python
+# get input datasets
+inputs = run.get_details()['inputDatasets']
+input_dataset = inputs[0]['dataset']
+
+# list the files referenced by input_dataset
+input_dataset.to_path()
+```
+
+You can also find the `input_datasets` from experiments by using [Azure Machine Learning Studio (classic)](https://ml.azure.com/). 
+
+The following image shows where to find the input dataset of an experiment on Azure Machine Learning Studio (classic). For this example, go to your **Experiments** pane and open the **Properties** tab for a specific run of your experiment, `keras-mnist`.
+
+![Input datasets](media/how-to-version-datasets/input-datasets.png)
 
 Use the following code to register models with datasets:
 
@@ -153,26 +180,7 @@ model = run.register_model(model_name='keras-mlp-mnist',
                            datasets =[('training data',train_dataset)])
 ```
 
-After registration, you can see the list of models registered with the dataset by using Python or [Azure Machine Learning Studio](https://ml.azure.com/).
-
-The following code uses the [`get_details()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#get-details--) method to track which input datasets were used with the experiment run:
-
-```Python
-# get input datasets
-inputs = run.get_details()['inputDatasets']
-train_dataset = inputs[0]['dataset']
-
-# list the files referenced by train_dataset
-train_dataset.to_path()
-```
-
-You can also find the `input_datasets` from experiments by using [Azure Machine Learning Studio](https://ml.azure.com/). 
-
-The following image shows where to find the input dataset of an experiment on Azure Machine Learning Studio. For this example, go to your **Experiments** pane and open the **Properties** tab for a specific run of your experiment, `keras-mnist`.
-
-![Input datasets](media/how-to-version-datasets/input-datasets.png)
-
-You can also find the models that used your dataset. The following view is from the **Datasets** pane under **Assets**. Select the dataset and then select the **Models** tab for a list of the models that are using that dataset. 
+After registration, you can see the list of models registered with the dataset by using Python or [Azure Machine Learning Studio (classic)](https://ml.azure.com/). The following view is from the **Datasets** pane under **Assets**. Select the dataset and then select the **Models** tab for a list of the models that are registered with the dataset. 
 
 ![Input datasets models](media/how-to-version-datasets/dataset-models.png)
 

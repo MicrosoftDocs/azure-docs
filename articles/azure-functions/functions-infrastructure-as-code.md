@@ -1,5 +1,5 @@
 ---
-title: Automate resource deployment for a function app in Azure Functions 
+title: Automate function app resource deployment to Azure
 description: Learn how to build an Azure Resource Manager template that deploys your function app.
 
 ms.assetid: d20743e3-aab6-442c-a836-9bcea09bfd32

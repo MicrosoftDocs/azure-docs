@@ -1,7 +1,7 @@
 ---
 title: Use time-shifting and Live Outputs to create on-demand video playback
 titleSuffix: Azure Media Services
-description: Learn how to use time-shifting and Live Outputs to record Live Streams and create on-demand playback.
+description: This article describes how to use time-shifting and Live Outputs to record Live Streams and create on-demand playback.
 services: media-services
 documentationcenter: ''
 author: Juliako

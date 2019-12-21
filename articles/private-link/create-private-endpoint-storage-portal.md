@@ -2,7 +2,7 @@
 title: 'Connect privately to a storage account using Azure Private Endpoint'
 description: Learn how to connect privately to a storage account in Azure using a Private Endpoint.
 services: private-link
-author: asudbring
+author: malopMSFT
 ms.service: private-link
 ms.topic: article
 ms.date: 09/16/2019
@@ -14,6 +14,8 @@ Azure Private Endpoint is the fundamental building block for Private Link in Azu
 
 In this Quickstart, you will learn how to create a VM on an Azure virtual network, a storage account with a Private Endpoint using the Azure portal. Then, you can securely access the storage account from the VM.
 
+> [!NOTE]
+> Private endpoint(s) are not permitted in conjunction with service endpoints in the same subnet!
 
 ## Sign in to Azure
 
@@ -127,7 +129,7 @@ In this section, you will create a private storage account using a Private Endpo
     | Subnet | Select *mySubnet*. |
     | **PRIVATE DNS INTEGRATION**|  |
     | Integrate with private DNS zone  | Leave the default **Yes**. |
-    | Private DNS zone  | Leave the default ** (New) privatelink.blob.core.windows.net**. |
+    | Private DNS zone  | Leave the default **(New) privatelink.blob.core.windows.net**. |
     |||
 7. Select **OK**. 
 8. Select **Review + create**. You're taken to the **Review + create** page where Azure validates your configuration. 
@@ -146,7 +148,7 @@ Connect to the VM *myVm* from the internet as follows:
 
 1. Select **Download RDP File**. Azure creates a Remote Desktop Protocol (*.rdp*) file and downloads it to your computer.
 
-1. Open the downloaded.rdp* file.
+1. Open the *downloaded.rdp* file.
 
     1. If prompted, select **Connect**.
 

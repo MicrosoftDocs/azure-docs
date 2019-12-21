@@ -185,7 +185,9 @@
       - name: GPU optimized
         href: sizes-gpu.md
       - name: Setup GPU drivers
-        href: n-series-driver-setup.md      
+        href: n-series-driver-setup.md
+      - name: Setup AMD GPU drivers
+        href: n-series-amd-driver-setup.md      
     - name: High performance compute
       displayName: H-series
       href: sizes-hpc.md   
@@ -409,7 +411,7 @@
     - name: Maintenance notifications
       items:
       - name: Overview
-        href: maintenance-notifications.md
+        href: ../maintenance-notifications.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
       - name: CLI
         href: ../maintenance-notifications-cli.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
       - name: Portal
@@ -418,6 +420,8 @@
         href: ../maintenance-notifications-powershell.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Maintenance control
       items:
+      - name: PowerShell
+        href: ../maintenance-control-powershell.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
       - name: CLI
         href: ../maintenance-control-cli.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Scheduled events

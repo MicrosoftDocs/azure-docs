@@ -1,5 +1,6 @@
 ---
-title: Connectivity and networking issues for Microsoft Azure Cloud Services FAQ| Microsoft Docs
+title: Connectivity and networking issues
+titleSuffix: Azure Cloud Services
 description: This article lists the frequently asked questions about connectivity and networking for Microsoft Azure Cloud Services.
 services: cloud-services
 documentationcenter: ''

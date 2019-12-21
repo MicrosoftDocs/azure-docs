@@ -122,7 +122,7 @@ This example creates a VM named *myVMfromImage* from the *myImage* image, in *my
 New-AzVm `
     -ResourceGroupName "myResourceGroup" `
     -Name "myVMfromImage" `
-	-ImageName "myImage" `
+    -ImageName "myImage" `
     -Location "East US" `
     -VirtualNetworkName "myImageVnet" `
     -SubnetName "myImageSubnet" `

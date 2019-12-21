@@ -10,7 +10,7 @@
  ms.custom: include file
 ---
 
-1. To view the tags for a resource or a resource group, looks for existing tags in the overview. If you have not previously applied tags, the list is empty.
+1. To view the tags for a resource or a resource group, look for existing tags in the overview. If you have not previously applied tags, the list is empty.
    
      ![View tags for resource or resource group](./media/resource-manager-tag-resources/view-tags.png)
 1. To add a tag, select **Click here to add tags**.

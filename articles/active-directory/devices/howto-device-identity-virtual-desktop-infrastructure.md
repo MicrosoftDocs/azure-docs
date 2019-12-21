@@ -79,7 +79,7 @@ If you are relying on a Virtual Machine (VM) snapshot to create additional VMs, 
 When deploying non-persistent VDI, IT administrators should pay close attention to managing stale devices in Azure AD. Microsoft recommends that IT administrators implement the guidance below. Failure to do so will result in your directory having lots of stale Hybrid Azure AD joined devices that were registered from your non-persistent VDI platform.
 
 - Create and use a prefix for the display name of the computer that indicates the desktop as VDI-based.
-- Implement the following commands as part of logoff script. These commands will trigger a best effort call to Azure AD to delete the device.
+- Implement the following command as part of logoff script. This command will trigger a best effort call to Azure AD to delete the device.
    - For Windows down-level devices – autoworkplace.exe /leave
 - Define and implement process for [managing stale devices](manage-stale-devices.md).
    - Once you have a strategy to identify your non-persistent Hybrid Azure AD joined devices, you can be more aggressive on the clean-up of these devices to ensure your directory does not get consumed with lots of stale devices.

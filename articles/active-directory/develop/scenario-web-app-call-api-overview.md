@@ -1,5 +1,5 @@
 ---
-title: Web app that calls web APIs (overview) - Microsoft identity platform
+title: Build a web app that calls web APIs - Microsoft identity platform | Azure
 description: Learn how to build a web app that calls web APIs (overview)
 services: active-directory
 documentationcenter: dev-center-name
@@ -21,7 +21,7 @@ ms.collection: M365-identity-device-management
 
 # Scenario: Web app that calls web APIs
 
-Learn how to build a web app signing-in users on the Microsoft identity platform and that calls web APIs on behalf of the signed-in user.
+Learn how to build a web app that signs in users on the Microsoft identity platform and then calls web APIs on behalf of the signed-in user.
 
 ## Prerequisites
 

@@ -239,7 +239,7 @@ Ascertain that external data resides in the same Azure region as your Azure Data
  
 ### File size
  
-Optimal file size is hundreds of Mb (up to 1 Gb) per file. Avoid many small files that require unneeded overhead, such as slower file enumeration process and limited use of columnar format. Note that the number of files must be greater than the number of CPU cores in your Azure Data Explorer cluster. 
+Optimal file size is hundreds of Mb (up to 1 Gb) per file. Avoid many small files that require unneeded overhead, such as slower file enumeration process and limited use of columnar format. Note that the number of files should be greater than the number of CPU cores in your Azure Data Explorer cluster. 
  
 ### Compression
  

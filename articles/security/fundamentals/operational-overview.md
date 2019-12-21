@@ -46,7 +46,7 @@ You can consolidate data from a variety of sources and combine data from your Az
 
 Azure Backup offers components that you download and deploy on the appropriate computer or server, or in the cloud. The component, or agent, that you deploy depends on what you want to protect. All Azure Backup components (whether you're protecting data on-premises or in the cloud) can be used to back up data to an Azure Recovery Services vault in Azure.
 
-For more information, see the [Azure Backup components table](/azure/backup/backup-introduction-to-azure-backup#which-backup-agent-should-i-use).
+For more information, see the [Azure Backup components table](/azure/backup/backup-overview#what-can-i-back-up).
 
 ### Site Recovery
 

@@ -1,5 +1,5 @@
 ---
-title: Working with geospatial data in Azure Cosmos DB SQL API account
+title: Use geospatial data in Azure Cosmos DB SQL API account
 description: Understand how to create, index and query spatial objects with Azure Cosmos DB and the SQL API.
 author: SnehaGunda
 ms.service: cosmos-db
@@ -89,7 +89,7 @@ In addition to Point, LineString, and Polygon, GeoJSON also specifies the repres
 ### Coordinate reference systems
 Since the shape of the earth is irregular, coordinates of geospatial data are represented in many coordinate reference systems (CRS), each with their own frames of reference and units of measurement. For example, the "National Grid of Britain" is a reference system is accurate for the United Kingdom, but not outside it. 
 
-The most popular CRS in use today is the World Geodetic System  [WGS-84](http://earth-info.nga.mil/GandG/wgs84/). GPS devices, and many mapping services including Google Maps and Bing Maps APIs use WGS-84. Azure Cosmos DB supports indexing and querying of geospatial data using the WGS-84 CRS only. 
+The most popular CRS in use today is the World Geodetic System  [WGS-84](https://earth-info.nga.mil/GandG/update/index.php). GPS devices, and many mapping services including Google Maps and Bing Maps APIs use WGS-84. Azure Cosmos DB supports indexing and querying of geospatial data using the WGS-84 CRS only. 
 
 ## Creating documents with spatial data
 When you create documents that contain GeoJSON values, they are automatically indexed with a spatial index in accordance to the indexing policy of the container. If you're working with an Azure Cosmos DB SDK in a dynamically typed language like Python or Node.js, you must create valid GeoJSON.

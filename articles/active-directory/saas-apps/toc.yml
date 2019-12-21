@@ -465,6 +465,8 @@
         href: evernote-tutorial.md
       - name: Evidence.com
         href: evidence-tutorial.md
+      - name: ExactCare SSO
+        href: exactcare-sso-tutorial.md
       - name: ExcelityGlobal
         href: excelityglobal-tutorial.md
       - name: ExpenseIn
@@ -1052,6 +1054,8 @@
         href: predictixordering-tutorial.md
       - name: Predictix Price Reporting
         href: predictixpricereporting-tutorial.md
+      - name: PrinterLogic SaaS
+        href: printerlogic-saas-tutorial.md
       - name: Printix
         href: printix-tutorial.md
       - name: Prisma Cloud
@@ -1346,6 +1350,8 @@
         href: target-process-tutorial.md
       - name: TAS
         href: tas-tutorial.md
+      - name: Taskize Connect
+        href: taskize-connect-tutorial.md
       - name: Teamphoria
         href: teamphoria-tutorial.md
       - name: TeamSeer
@@ -1687,6 +1693,10 @@
         href: sap-cloud-platform-identity-authentication-provisioning-tutorial.md
       - name: SAP SuccessFactors to Active Directory
         href: sap-successfactors-inbound-provisioning-tutorial.md
+      - name: SAP SuccessFactors to Azure AD
+        href: sap-successfactors-inbound-provisioning-cloud-only-tutorial.md
+      - name: SAP SuccessFactors Writeback
+        href: sap-successfactors-writeback-tutorial.md
       - name: ServiceNow
         href: servicenow-provisioning-tutorial.md
       - name: Slack

@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Language Understanding (LUIS) authoring client library for Python"
 titleSuffix: Azure Cognitive Services 
-description: Get started with the LUIS client library for Python. Follow these steps to install the package and try out the example code for basic tasks.
+description: Get started with the LUIS client library for Python with this quickstart. Follow these steps to install the package and try out the example code for basic tasks.
 services: cognitive-services
 author: diberry
 manager: nitinme
