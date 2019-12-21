@@ -182,7 +182,7 @@ Managed instances are available during update operations but there is a short do
 
 The following table summarizes ability to cancel specific management operations and typical overall durations:
 
-Category  |Operation  |Cancelable  |Estimated duration  |
+Category  |Operation  |Cancelable  |Estimated cancel duration  |
 |---------|---------|---------|---------|
 |Deployment |Instance creation |No |  |
 |Update |Instance storage scaling up/down (General Purpose) |No |  |
