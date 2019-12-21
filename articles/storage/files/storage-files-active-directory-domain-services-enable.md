@@ -67,7 +67,7 @@ Next, grant access to Azure Files resources with AD credentials by following the
 
 The following diagram illustrates the end-to-end workflow for enabling Azure AD DS authentication over SMB for Azure Files. 
 
-https://microsoft.sharepoint.com/teams/AzureStorage/Private%20Test/2016/Azure%20Files/Planning/AccessControl&AAD/ADDSAuthentication-Feature-Enablement.vsdx 
+![Files AD workflow diagram](media/storage-files-active-directory-domain-services-enable/diagram-files-ad.png)
 
 > [!NOTE]
 > AD authentication over SMB for Azure Files is supported only on machines or VMs running on OS versions newer than Windows 7 or Windows Server 2008 R2. 
