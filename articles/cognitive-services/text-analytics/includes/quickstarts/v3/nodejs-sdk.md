@@ -42,17 +42,27 @@ Run the `npm init` command to create a node application with a `package.json` fi
 ```console
 npm init
 ```
+### Install the client library
+
+Install the `@azure/ms-rest-js` and `@azure/cognitiveservices-textanalytics` NPM packages:
+
+```console
+npm install @azure/cognitiveservices-textanalytics @azure/ms-rest-js
+```
+
+Your app's `package.json` file will be updated with the dependencies.
 
 Create a file named `index.js` and add the following libraries:
 
 ```javascript
 "use strict";
 
-const os = require("os");
-const CognitiveServicesCredentials = require("@azure/ms-rest-js");
-const TextAnalyticsAPIClient = require("@azure/cognitiveservices-textanalytics");
+const os = require("os"); // Why do we need os ? If we are just doing console.log(os.EOL);, we should remove this dependency.
+const { TextAnalyticsClient, CognitiveServicesCredential } = require("@azure/cognitiveservices-textanalytics");
 ```
 
+<!-- QUESTION: Why does this titles "Create variables for your resource's Azure endpoint and subscription key" ?
+The key and endpoint are generated as soon as the resource is provisioned. This step should be just after creating a new resource above and can be referenced here when creating index file.-->
 Create variables for your resource's Azure endpoint and subscription key.
 
 [!INCLUDE [text-analytics-find-resource-information](../find-azure-resource-info.md)]
@@ -63,15 +73,7 @@ const subscription_key = '<paste-your-text-analytics-key-here>';
 const endpoint = `<paste-your-text-analytics-endpoint-here>`;
 ```
 
-### Install the client library
-
-Install the `@azure/ms-rest-js` and `@azure/cognitiveservices-textanalytics` NPM packages:
-
-```console
-npm install @azure/cognitiveservices-textanalytics @azure/ms-rest-js
-```
-
-Your app's `package.json` file will be updated with the dependencies.
+The `subscription_key` and `endpoint` variables are generated when the text analytics resource is created and can be found in **Quick Start** section of the resource.
 
 ## Object model
 
@@ -87,22 +89,64 @@ The response object is a list containing the analysis information for each docum
 
 ## Code examples
 <!-- If you add more code examples, add a link to them here-->
-* [Authenticate the client](#authenticate-the-client)
+* [Client Authentication](#client-authentication)
+* [Language Detection](#language-detection)
 * [Sentiment Analysis](#sentiment-analysis)
-* [Language detection](#language-detection)
-* [Entity recognition](#entity-recognition)
-* [Key phrase extraction](#key-phrase-extraction)
+* [Key Phrase Extraction](#key-phrase-extraction)
+* [Named Entity Recognition](#named-entity-recognition)
+* [Recognition of Personally Identifiable Information](#recognition-of-personally-identifiable-information)
+* [Linked Entity Recognition](#linked-entity-recognition)
 
-
-## Authenticate the client
+## Client Authentication
 
 Create a new [TextAnalyticsClient](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-textanalytics/textanalyticsclient) object with `credentials` and `endpoint` as a parameter.
 
 ```javascript
-const creds = new CognitiveServicesCredentials.ApiKeyCredentials({ inHeader: { 'Ocp-Apim-Subscription-Key': subscription_key } });
-const textAnalyticsClient = new TextAnalyticsAPIClient.TextAnalyticsClient(creds, endpoint);
+const client = new TextAnalyticsClient(endpoint,  new CognitiveServicesCredential(subscription_key));
 ```
 
+## Language detection
+<!-- TODO: Change description pointing to the latest methods and classes -->
+Create an array of strings containing your documents. Call the client's [detectLanguages()](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-textanalytics/textanalyticsclient#detectlanguage-models-textanalyticsclientdetectlanguageoptionalparams-) method and get the returned [LanguageBatchResult](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-textanalytics/languagebatchresult). Then iterate through the results, and print each document's ID, and language.
+
+```javascript
+async function languageDetection(client) {
+
+    const languageInputArray = [
+        "This is a document written in English.",
+        "Este es un document escrito en Español.",
+        "这是一个用中文写的文件"
+    ]
+
+    const languageResult = await client.detectLanguages(languageInputArray);
+
+    result.forEach(document => {
+        console.log(`ID: ${document.id}`);
+        document.detectedLanguages.forEach(language =>
+        console.log(`\tDetected Language ${language.name}`) // Q: Do we need to show both of the languages ? (Detected vs Primary)
+        );
+        console.log(`\tPrimary Language ${document.primaryLanguage.name}`)
+    });
+    console.log(os.EOL); // Do we need this, this is an unnecessary dependency to a developer.
+}
+languageDetection(textAnalyticsClient);
+```
+
+Run your code with `node index.js` in your console window.
+
+### Output
+
+```console
+ID: 0
+        Detected Language English
+        Primary Language English
+ID: 1
+        Detected Language Spanish
+        Primary Language Spanish
+ID: 2
+        Detected Language Chinese_Simplified
+        Primary Language Chinese_Simplified
+```
 
 ## Sentiment analysis
 
@@ -129,8 +173,7 @@ async function sentimentAnalysis(client){
             {
                 language: "it",
                 id: "4",
-                text:
-                    "L'hotel veneziano era meraviglioso. È un bellissimo pezzo di architettura."
+                text: "L'hotel veneziano era meraviglioso. È un bellissimo pezzo di architettura."
             }
         ]
     };
@@ -153,47 +196,6 @@ Run your code with `node index.js` in your console window.
 [ { id: '2', score: 0.11 } ]
 [ { id: '3', score: 0.44 } ]
 [ { id: '4', score: 1.00 } ]
-```
-
-## Language detection
-
-Create a list of dictionary objects containing your documents. Call the client's [detectLanguage()](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-textanalytics/textanalyticsclient#detectlanguage-models-textanalyticsclientdetectlanguageoptionalparams-) method and get the returned [LanguageBatchResult](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-textanalytics/languagebatchresult). Then iterate through the results, and print each document's ID, and language.
-
-```javascript
-async function languageDetection(client) {
-
-    console.log("1. This will detect the languages of the inputs.");
-    const languageInput = {
-        documents: [
-            { id: "1", text: "This is a document written in English." },
-            { id: "2", text: "Este es un document escrito en Español." },
-            { id: "3", text: "这是一个用中文写的文件" }
-        ]
-    };
-
-    const languageResult = await client.detectLanguage({
-        languageBatchInput: languageInput
-    });
-
-    languageResult.documents.forEach(document => {
-        console.log(`ID: ${document.id}`);
-        document.detectedLanguages.forEach(language =>
-            console.log(`\tLanguage ${language.name}`)
-        );
-    });
-    console.log(os.EOL);
-}
-languageDetection(textAnalyticsClient);
-```
-
-Run your code with `node index.js` in your console window.
-
-### Output
-
-```console
-Document ID: 1 , Language: English
-Document ID: 2 , Language: Spanish
-Document ID: 3 , Language: Chinese_Simplified
 ```
 
 ## Entity recognition
