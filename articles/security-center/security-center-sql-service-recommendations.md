@@ -31,7 +31,7 @@ For a full list of the recommendations you might see on this page, see [Data and
 
     The **Data security** page opens with recommendations for data resources.
 
-    ![Data Resources](./media/security-center-monitoring/sql-overview.png)
+    [![Data Resources](./media/security-center-monitoring/sql-overview.png)](./media/security-center-monitoring/sql-overview.png)#lightbox)
 
     From this page, you can:
 

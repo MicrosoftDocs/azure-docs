@@ -47,7 +47,7 @@ Under **Identity & Access**, there are two tabs:
 - **Overview**: recommendations identified by Security Center.
 - **Subscriptions**: list of your subscriptions and current security state of each.
 
-![Identity & Access][2]
+[![Identity & Access](./media/security-center-identity-access/identity-dashboard.png)](./media/security-center-identity-access/identity-dashboard.png#lightbox)
 
 ### Overview section
 Under **Overview**, there is a list of recommendations. The first column lists the recommendation. The second column shows the total number of subscriptions that are affected by that recommendation. The third column shows the severity of the issue.
@@ -58,14 +58,14 @@ Under **Overview**, there is a list of recommendations. The first column lists t
    - List of unhealthy and healthy subscriptions
    - List of resources that are unscanned due to a failed assessment or the resource is under a subscription running on the Free tier and is not assessed
 
-   ![Recommendation's window][3]
+    [![Recommendations window](./media/security-center-identity-access/select-subscription.png)](./media/security-center-identity-access/select-subscription.png#lightbox)
 
 1. Select a subscription in the list for additional detail.
 
 ### Subscriptions section
 Under **Subscriptions**, there is a list of subscriptions. The first column lists the subscriptions. The second column shows the total number of recommendations for each subscription. The third column shows the severities of the issues.
 
-![Subscriptions tab][4]
+[![Subscriptions tab](./media/security-center-identity-access/subscriptions.png)](./media/security-center-identity-access/subscriptions.png#lightbox)
 
 1. Select a subscription. A summary view opens with three tabs:
 
@@ -75,19 +75,19 @@ Under **Subscriptions**, there is a list of subscriptions. The first column list
 
    Under **Recommendations** is a list of the recommendations for the selected subscription and severity of each recommendation.
 
-   ![Recommendations for select subscription][5]
+   [![Recommendations for select subscription](./media/security-center-identity-access/recommendations.png)](./media/security-center-identity-access/recommendations.png#lightbox)
 
 1. Select a recommendation for a description of the recommendation, a list of unhealthy and healthy subscriptions, and a list of unscanned resources.
 
-   ![Description of recommendation][6]
+   [![Description of recommendation](./media/security-center-identity-access/designate.png)](./media/security-center-identity-access/designate.png#lightbox)
 
    Under **Passed assessments** is a list of passed assessments.  Severity of these assessments is always green.
 
-   ![Passed assessments][7]
+   [![Passed assessments](./media/security-center-identity-access/passed-assessments.png)](./media/security-center-identity-access/passed-assessments.png#lightbox)
 
 1. Select a passed assessment from the list for a description of the assessment and a list of healthy subscriptions. There is a tab for unhealthy subscriptions that lists all the subscriptions that failed.
 
-   ![Passed assessments][8]
+   [![Passed assessments](./media/security-center-identity-access/remove.png)](./media/security-center-identity-access/remove.png#lightbox)
 
 > [!NOTE]
 > If you created a Conditional Access policy that necessitates MFA but has exclusions set, the Security Center MFA recommendation assessment considers the policy non-compliant, because it enables some users to sign in to Azure without MFA.
@@ -98,19 +98,3 @@ To learn more about recommendations that apply to other Azure resource types, se
 - [Protecting your machines and applications in Azure Security Center](security-center-virtual-machine-protection.md)
 - [Protecting your network in Azure Security Center](security-center-network-recommendations.md)
 - [Protecting your Azure SQL service and data in Azure Security Center](security-center-sql-service-recommendations.md)
-
-To learn more about Security Center, see the following articles:
-* [Manage and respond to security alerts in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts). Learn how to manage alerts and respond to security incidents in Security Center.
-* [Understand security alerts in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-alerts-type). Learn about the different types of security alerts.
-* [Azure Security Center FAQ](security-center-faq.md). Find answers to frequently asked questions about using Security Center.
-
-
-<!--Image references-->
-[1]: ./media/security-center-identity-access/overview.png
-[2]: ./media/security-center-identity-access/identity-dashboard.png
-[3]: ./media/security-center-identity-access/select-subscription.png
-[4]: ./media/security-center-identity-access/subscriptions.png
-[5]: ./media/security-center-identity-access/recommendations.png
-[6]: ./media/security-center-identity-access/designate.png
-[7]: ./media/security-center-identity-access/passed-assessments.png
-[8]: ./media/security-center-identity-access/remove.png

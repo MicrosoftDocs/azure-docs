@@ -25,7 +25,7 @@ For a full list of the recommendations you might see on this page, see [Data and
 
 ## View the security of your compute and apps resources
 
-![Security Center dashboard](./media/security-center-virtual-machine-recommendations/overview.png)
+[![Security Center dashboard](./media/security-center-virtual-machine-recommendations/overview.png)](rd](./media/security-center-virtual-machine-recommendations/overview.#lightbox)
 
 To view the status of your compute and apps resources, select **Compute & apps** under **Resources** in the Security Center sidebar. The following tabs are available:
 
@@ -70,7 +70,7 @@ The icon that appears under each recommendation helps you to quickly identify th
 
 To drill down into the security recommendations for each VM, click on the VM.
 Here you see the security details for the VM or computer. At the bottom, you can see the recommended action and the severity of each issue.
-![Cloud services](./media/security-center-virtual-machine-recommendations/recommendation-list.png)
+[![Cloud services](./media/security-center-virtual-machine-recommendations/recommendation-list.png)](./media/security-center-virtual-machine-recommendations/recommendation-list#lightbox)
 
 ### <a name="cloud-services"></a>Cloud services
 For cloud services, a recommendation is created when the operating system version is out of date.

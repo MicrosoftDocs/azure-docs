@@ -35,7 +35,7 @@ The **Networking** page provides an overview of the sections you can deep dive i
 - Networking security recommendations.
 - Legacy **Networking** blade (the previous networking blade) 
  
-![Networking pane](./media/security-center-network-recommendations/networking-pane.png)
+[![Networking pane](./media/security-center-network-recommendations/networking-pane.png)](./media/security-center-network-recommendations/networking-pane.png#lightbox)
 
 ## Network map
 The interactive network map provides a graphical view with security overlays giving you recommendations and insights for hardening your network resources. Using the map you can see the network topology of your Azure workloads, connections between your virtual machines and subnets, and the capability to drill down from the map into specific resources and the recommendations for those resources.
@@ -54,7 +54,7 @@ The default view of the topology map displays:
 - Internet facing resources
 - The map is optimized for the subscriptions you selected in Azure. If you modify your selection, the map is recalculated and re-optimized based on your new settings.  
 
-![Networking topology map](./media/security-center-network-recommendations/network-map-info.png)
+[![Networking topology map](./media/security-center-network-recommendations/network-map-info.png)](./media/security-center-network-recommendations/network-map-info.png#lightbox)
 
 ## Understanding the Network map
 
@@ -106,7 +106,8 @@ To drill down into a resource:
 
 **This data is based on analysis of the Network Security Groups as well as advanced machine learning algorithms that analyze multiple rules to understand their crossovers and interactions.** 
 
-![Networking traffic map](./media/security-center-network-recommendations/network-map-traffic.png)
+[![Networking traffic map](./media/security-center-network-recommendations/network-map-traffic.png)](./media/security-center-network-recommendations/network-map-traffic.png#lightbox)
+
 
 ## Legacy networking <a name ="legacy-networking"></a>
 
@@ -114,7 +115,7 @@ If you don't have Security Center Standard tier, this section explains how to vi
 
 To access this information, in the Networking blade, click **View legacy networking**. 
 
-![Legacy Networking](./media/security-center-network-recommendations/legacy-networking.png)
+[![Legacy Networking](./media/security-center-network-recommendations/legacy-networking.png)](./media/security-center-network-recommendations/legacy-networking.png#lightbox)
 
 ### Internet facing endpoints section
 In the **Internet facing endpoints** section, you can see the virtual machines that are currently configured with an Internet facing endpoint and its status.
