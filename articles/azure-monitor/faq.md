@@ -23,7 +23,7 @@ This Microsoft FAQ is a list of commonly asked questions about Azure Monitor. If
 ### What's the difference between Azure Monitor, Log Analytics, and Application Insights?
 In September 2018, Microsoft combined Azure Monitor, Log Analytics, and Application Insights into a single service to provide powerful end-to-end monitoring of your applications and the components they rely on. Features in Log Analytics and Application Insights have not changed, although some features have been rebranded to Azure Monitor in order to better reflect their new scope. The log data engine and query language of Log Analytics is now referred to as Azure Monitor Logs. See [Azure Monitor terminology updates](terminology.md).
 
-### What is the cost of Azure Monitor?
+### What does Azure Monitor cost?
 Features of Azure Monitor that are automatically enabled such as collection of metrics and activity logs are provided at no cost. There is a cost associated with other features such as log queries and alerting. See the [Azure Monitor pricing page](https://azure.microsoft.com/pricing/details/monitor/) for detailed pricing information.
 
 ### How do I enable Azure Monitor?
@@ -31,6 +31,18 @@ Azure Monitor is enabled the moment that you create a new Azure subscription, an
 
 ### How do I access Azure Monitor?
 Access all Azure Monitor features and data from the **Monitor** menu in the Azure portal. The **Monitoring** section of the menu for different Azure services provide access to the same tools with data filtered to a particular resource. Azure Monitor data is also accessible for a variety of scenarios using CLI, PowerShell, and a REST API.
+
+### Is there an on-premises version of Azure Monitor?
+No. Azure Monitor is a scalable cloud service that processes and stores large amounts of data, although Azure Monitor can monitor resources that are on-premises and in other clouds.
+
+### Can Azure Monitor monitor on-premises resources?
+Yes, in addition to collecting monitoring data from Azure resources, Azure Monitor can collect data from virtual machines and applications in other clouds and on-premises. See [Sources of monitoring data for Azure Monitor](platform/data-sources.md).
+
+### Does Azure Monitor integrate with System Center Operations Manager?
+You can connect your existing System Center Operations Manager management group to Azure Monitor to collect data from agents into Azure Monitor Logs. This allows you to use log queries and solution to analyze data collected from agents. You can also configure existing SCOM agents to send data directly to Azure Monitor. See [Connect Operations Manager to Azure Monitor](platform/om-agents.md).
+
+
+## Data collected
 
 ### Where does Azure Monitor get its data?
 Azure Monitor collects data from a variety of sources including logs and metrics from Azure platform and resources, custom applications, and agents running on virtual machines. Other services such as Azure Security Center and Network Watcher collect data into a Log Analytics workspace so it can be analyzed with Azure Monitor data. You can also send custom data to Azure Monitor using the REST API for logs or metrics. See [Sources of monitoring data for Azure Monitor](platform/data-sources.md).
@@ -43,18 +55,6 @@ There is no limit to the amount of metric data you can collect, but this data is
 
 ### How do I access data collected by Azure Monitor?
 Insights and solutions provide a custom experience for working with data stored in Azure Monitor. You can work directly with log data using a log query written in Kusto Query Language (KQL). In the Azure portal, you can write and run queries and interactively analyze data using Log Analytics. Analyze metrics in the Azure portal with the Metrics Explorer. See [Analyze log data in Azure Monitor](log-query/log-query-overview.md) and [Getting started with Azure Metrics Explorer](platform/metrics-getting-started.md).
-
-### What's the difference between Azure Monitor Logs and Azure Data Explorer?
-Azure Data Explorer is a fast and highly scalable data exploration service for log and telemetry data. Azure Monitor Logs is built on top of Azure Data Explorer and uses the same Kusto Query Language (KQL) with some minor differences. See [Azure Monitor log query language differences](log-query/data-explorer-difference.md).
-
-### Is there an on-premises version of Azure Monitor?
-No. Azure Monitor is a scalable cloud service that processes and stores large amounts of data, although Azure Monitor can monitor resources that are on-premises and in other clouds.
-
-### Can Azure Monitor monitor on-premises resources?
-Yes, in addition to collecting monitoring data from Azure resources, Azure Monitor can collect data from virtual machines and applications in other clouds and on-premises. See [Sources of monitoring data for Azure Monitor](platform/data-sources.md).
-
-### Does Azure Monitor integrate with System Center Operations Manager?
-You can connect your existing System Center Operations Manager management group to Azure Monitor to collect data from agents into Azure Monitor Logs. This allows you to use log queries and solution to analyze data collected from agents. You can also configure existing SCOM agents to send data directly to Azure Monitor. See [Connect Operations Manager to Azure Monitor](platform/om-agents.md).
 
 
 
@@ -79,16 +79,35 @@ To view solutions in the Azure portal, click **...More** in the **Insights** sec
 
 ## Logs
 
+### What's the difference between Azure Monitor Logs and Azure Data Explorer?
+Azure Data Explorer is a fast and highly scalable data exploration service for log and telemetry data. Azure Monitor Logs is built on top of Azure Data Explorer and uses the same Kusto Query Language (KQL) with some minor differences. See [Azure Monitor log query language differences](log-query/data-explorer-difference.md).
+
 ### How do I retrieve log data?
+All data is retrieved from a Log Analytics workspace using a log query written using Kusto Query Language (KQL). You can write your own queries or use solutions and insights that include log queries for a particular application or service. See [Overview of log queries in Azure Monitor](log-query/log-query-overview.md).
 
 ### What is a Log Analytics workspace?
+All log data collected by Azure Monitor is stored in a Log Analytics workspace. A workspace is essentially a container where log data is collected from a variety of sources. You may have a single Log Analytics workspace for all your monitoring data or may have requirements for multiple workspaces. See [Designing your Azure Monitor Logs deployment](platform/design-logs-deployment.md).
 
 ### Can you move an existing Log Analytics workspace to another Azure subscription?
-See [Move a Log Analytics workspace to different subscription or resource group](/platform/move-workspace.md) for details on moving a workspace between resource groups or subscriptions. You cannot move a workspace to a different region.
+You can move a workspace between resource groups or subscriptions but not to a different region. See [Move a Log Analytics workspace to different subscription or resource group](/platform/move-workspace.md).
 
 
+## Alerts
+
+### What is an alert in Azure Monitor?
+Alerts proactively notify you when important conditions are found in your monitoring data. They allow you to identify and address issues before the users of your system notice them. There are multiple kinds of alerts:
+
+- Metric - Metric value exceeds a threshold.
+- Log query - Results of a log query match defined criteria.
+- Activity log - Activity log event matches defined criteria.
+- Web test - Results of availability test match defined criteria.
 
 
+See [Overview of alerts in Microsoft Azure](platform/alerts-overview.md).
+
+
+### What is an action group?
+An action group is a collection of notifications and actions that can be triggered by an alert. Multiple alerts can use a single action group allowing you to leverage common sets of notifications and actions.
 
 
 ## Agents
@@ -98,20 +117,16 @@ An agent is only required to collect data from the operating system and workload
 
 
 ### What's the difference between the Azure Monitor agents?
-Azure Diagnostic extension is for Azure virtual machines and collects data to Azure Monitor Metrics, Azure Storage, and Azure Event Hubs. The Log Analytics agent is for virtual machines in Azure, another cloud environment, or on-premises and collects data to Azure Monitor Logs. The Dependency agent requires the Log Analytics agent and collected process details and dependencies. See [Overview of the Azure Monitor agents](platform/agents-overview.md) for a more detailed comparison.
-
-### What IP addresses does Azure Monitor use?
-See [IP addresses used by Application Insights and Log Analytics](app/ip-addresses.md) for a listing of the IP addresses and ports required for agents and other external resources to access Azure Monitor. See [Network firewall requirements]
+Azure Diagnostic extension is for Azure virtual machines and collects data to Azure Monitor Metrics, Azure Storage, and Azure Event Hubs. The Log Analytics agent is for virtual machines in Azure, another cloud environment, or on-premises and collects data to Azure Monitor Logs. The Dependency agent requires the Log Analytics agent and collected process details and dependencies. See [Overview of the Azure Monitor agents](platform/agents-overview.md).
 
 
 ### Does my agent traffic use my ExpressRoute connection?
-The different types of ExpressRoute traffic are described in the [ExpressRoute documentation](../expressroute/expressroute-faqs.md#supported-services). Traffic to Azure Monitor uses the Microsoft peering ExpressRoute circuit.
+Traffic to Azure Monitor uses the Microsoft peering ExpressRoute circuit. See [ExpressRoute documentation](../expressroute/expressroute-faqs.md#supported-services) for a description of the different types of ExpressRoute traffic. 
 
 ### How can I confirm that the Log Analytics agent is able to communicate with Azure Monitor?
 From Control Panel on the agent computer, select **Security & Settings**, **Microsoft Monitoring Agent** . Under the **Azure Log Analytics (OMS)** tab, a green check mark icon confirms that the agent is able to communicate with Azure Monitor. A yellow warning icon means the agent is having issues. One common reason is the **Microsoft Monitoring Agent** service has stopped. Use service control manager to restart the service.
 
 ### How do I stop the Log Analytics agent from communicating with Azure Monitor?
-
 For agents connected to Log Analytics directly, open the Control Panel and select **Security & Settings**, **Microsoft Monitoring Agent**. Under the **Azure Log Analytics (OMS)** tab, remove all workspaces listed. In System Center Operations Manager, remove the computer from the Log Analytics managed computers list. Operations Manager updates the configuration of the agent to no longer report to Log Analytics. 
 
 ### How much data is sent per agent?
@@ -655,9 +670,17 @@ If you have configured Azure Monitor with a Log Analytics workspace using the *F
 Under this condition, you will be prompted with the **Try Now** option when you open the VM and select **Insights (preview)** from the left-hand pane, even after it has been installed already on the VM.  However, you are not prompted with options as would normally occur if this VM were not onboarded to Azure Monitor for VMs. 
 
 
+
 <!--Link references-->
 
 [data]: app/data-retention-privacy.md
 [platforms]: app/platforms.md
 [start]: app/app-insights-overview.md
 [windows]: app/app-insights-windows-get-started.md
+
+
+
+## Research
+
+### What IP addresses does Azure Monitor use?
+See [IP addresses used by Application Insights and Log Analytics](app/ip-addresses.md) for a listing of the IP addresses and ports required for agents and other external resources to access Azure Monitor. See [Network firewall requirements] for .
