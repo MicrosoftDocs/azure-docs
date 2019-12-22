@@ -9,29 +9,34 @@ ms.author: ramamill
 
 # Automate Mobility Service installation
 
-This article describes how to automate and scale installation and updates for the Mobility service agent in [Azure Site Recovery](site-recovery-overview.md).
+This article describes how to automate installation and updates for the Mobility service agent in [Azure Site Recovery](site-recovery-overview.md).
 
-When you deploy Site Recovery for disaster recovery of on-premises VMware VMs and physical servers to Azure, you install the Mobility service agent on each VMware VM and physical server you want to protect. The Mobility service captures data writes on the machine, and forwards them to the Site Recovery process server for replication. You can deploy the Mobility Service in a couple of ways:
+When you deploy Site Recovery for disaster recovery of on-premises VMware VMs and physical servers to Azure, you install the Mobility service agent on eachmachine you want to replicate. The Mobility service captures data writes on the machine, and forwards them to the Site Recovery process server for replication. You can deploy the Mobility Service in a couple of ways:
 
-- **Push installation**: Let Site Recovery installs Mobility service agent manually when you enable replication for a machine in the Azure portal.
+- **Push installation**: Let Site Recovery install  the Mobility service agent when you enable replication for a machine in the Azure portal.
 - **Manual installation**: Install the Mobility service manually on each machine. [Learn more](/vmware-physical-mobility-service-overview.md) about push and manual installation.
-- **Automated deployment**: You can automate installation with software deployment tools such as System Center Configuration Manager, or third-party tools such as [JetPatch](https://jetpatch.com/microsoft-azure-site-recovery/). 
+- **Automated deployment**: Automate installation with software deployment tools such as System Center Configuration Manager, or third-party tools such as Intigua JetPatch.
 
-Automated installation and updating provides a number of advantages:
+Automated installation and updating provides a solution if:
 
-- A solution if your organization does not allow for push installation on protected servers.
-- A solution if your organization policy requires passwords to be changed periodically, since you have to specify a password for the push installation.
-- A solution if your security policy doesn't permit adding firewall exceptions for specific machines.
-- Useful if you're acting as a hosting service provider and don't want to provide customer VM credentials required for push installation to Site Recovery,
-- Scale agent installation to lots of servers simultaneously.
-- Schedule installations and upgrades during planned maintenance windows.
+- Your organization doesn't allow for push installation on protected servers.
+- Your company policy requires passwords to be changed periodically. You have to specify a password for the push installation.
+- Your security policy doesn't permit adding firewall exceptions for specific machines.
+- You're acting as a hosting service provider and don't want to provide customer machine credentials that are needed for push installation with Site Recovery.
+- You need to scale gent installation to lots of servers simultaneously.
+- You want to schedule installations and upgrades during planned maintenance windows.
 
 
 
 ## Prerequisites
 
-- A software installation solution such as Jetpatch or Configuration Manager deployed in your environment.
-- Set up disaster recovery for [VMware VMs](vmware-azure-tutorial.md) or [physical servers](physical-azure-disaster-recovery.md), including:
+For automated installation you need the following:
+
+- A deployed software installation solution such as [JetPatch](https://jetpatch.com/microsoft-azure-site-recovery/).  or Configuration Manager.
+-  Deployment prererequisites in place in [Azure](tutorial-prepare-azure.md) and [on-premises](vmware-azure-tutorial-prepare-on-premises.md) for VMware disaster recovery, or for [physical server](physical-azure-disaster-recovery.md) disaster recovery.
+
+
+
     - Deploying a Site Recovery configuration server as a VMware VM. You deploy the VM using a downloaded OVA file as an OVF template for the VM.
     - You register the configuration server VM with Site Recovery, and discover the VMs you want to replicate to Azure.
     - You enable replication for the VMs, and install the Mobility service on those VMs.
@@ -39,12 +44,12 @@ Automated installation and updating provides a number of advantages:
 
 ## Prepare for automated deployment
 
-The following table summarizes tools that can be used to automate deployment.
+The following table summarizes tools and processes for automating Mobility service deployment.
 
 **Tool** | **Details** | **Instructions**
 --- | --- | ---
-**Configuration Manager** | You create a network share containing the configuration server passphrase and Mobility service installation files.<br/><br/> You create a Configuration Manager package containing the installation or updates, and prepare for Mobility service deployment. | [Automate with Configuration Manager](#automate-with-configuration-manager),
-**JetPatch** | You set up the configuration server by downloading JetPatch Agent Manager for Site Recovery. You deploy the configuration server as a VMware VM.<br/><br/> You set up the JetPatch Agent Manager to deploy the Mobility service, and then create a policy rule to push the Mobility service to all or specified machines. | Automate with JetPatch Agent Manager(https://jetpatch.com/microsoft-azure-site-recovery-deployment-guide/).<br/><br/> [Troubleshoot](https://kc.jetpatch.com/hc/articles/360035981812) agent installation in JetPatch.
+**Configuration Manager** | You deploy disaster recovery by setting up the source environment, including download of an OVA file to deploy the Site Recovery configuration server as a VMware VM using an OVF template.<br/><br/> You register the configuration server with the Site Recovery service, set up the target Azure environment, and configure a replication policy.<br/><br/> For automated Mobility service deployment, you create a network share containing the configuration server passphrase and Mobility service installation files.<br/><br/> You create a Configuration Manager package containing the installation or updates, and prepare for Mobility service deployment.<br/><br/> You can then enable replication to Azure for the machines that have the Mobility service installed. | [Automate with Configuration Manager](#automate-with-configuration-manager),
+**JetPatch** | You deploy disaster recovery by setting up the source environment, including download of the JetPatch Agent Manager for Azure Site Recovery OVA file to deploy the Site Recovery configuration server as a VMware VM usng an OVF template.<br/><br/> You register the configuration server with Site Recovery, set up the target Azure environment, and configure a replication policy.<br/><br/>  with the Site Recovery service.<br/><br/> For automated deployment, you set up the JetPatch Agent Manager to deploy the Mobility service, and then create a policy rule to push the Mobility service to all or specified machines.<br/><br/> You can then enable replication to Azure for the machines that have the Mobility service installed. | [Automate with JetPatch Agent Manager](https://jetpatch.com/microsoft-azure-site-recovery-deployment-guide/).<br/><br/> [Troubleshoot](https://kc.jetpatch.com/hc/articles/360035981812) agent installation in JetPatch.
 
 ## Automate with Configuration Manager
 
