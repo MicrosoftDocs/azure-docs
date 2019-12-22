@@ -239,9 +239,9 @@
         items:
         - name: Mobility service overview and installation
           href: vmware-physical-mobility-service-overview.md
-        - name: Prepare for push installation of the Mobility service
+        - name: Prepare for push installation
           href: vmware-azure-install-mobility-service.md
-        - name: Deploy the Mobility service with System Center Configuration Manager
+        - name: Automate Mobility service deployment
           href: vmware-azure-mobility-install-configuration-mgr.md
       - name: Enable replication for VMware VMs
         href: vmware-azure-enable-replication.md
@@ -269,7 +269,7 @@
         href: vmware-azure-install-linux-master-target.md
     - name: Manage
       items: 
-      - name: Manage mobility agent for VMware 
+      - name: Manage the Mobility agent 
         href: vmware-physical-manage-mobility-service.md 
       - name: Manage the configuration server for VMware 
         href: vmware-azure-manage-configuration-server.md
@@ -313,9 +313,9 @@
       href: physical-to-azure-failover-failback.md
     - name: Manage
       items:
-      - name: Manage mobility agent for physical server 
+      - name: Manage the Mobility service
         href: vmware-physical-manage-mobility-service.md
-      - name: Manage the configuration server for physical server replication
+      - name: Manage the configuration server
         href: physical-manage-configuration-server.md
       - name: Manage process servers
         href: vmware-azure-manage-process-server.md
