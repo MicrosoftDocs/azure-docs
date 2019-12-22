@@ -144,23 +144,22 @@ If you stopped protection while retaining data and decided to resume protection,
     ![Delete the backup infrastructure.](./media/backup-azure-manage-mars/re-enable-next.png)
 1. In **Specify Backup Schedule**, specify the backup schedule and click **Next**.
 1. In **Select Retention Policy**, specify retention duration and click **Next**.
-1. Finally in **Conformation** screen, review the policy details and click **Finish**.
+1. Finally in the **Confirmation** screen, review the policy details and click **Finish**.
 
 ## Re-generate passphrase
 
-Passphrase is used to encrypt and decrypt the data while doing backup or restore of you on-prem/local machine using MARS agent to Azure. If you lost/forgot passphrase, then you can regenerate the passphrase (provided your machine is still registered with Recovery Services Vault and Backup are happening) by following these steps:
+A passphrase is used to encrypt and decrypt data while backing up or restoring your on-premises or local machine using the MARS agent to or from Azure. If you lost or forgot the passphrase, then you can regenerate the passphrase (provided your machine is still registered with Recovery Services Vault and the backup is configured) by following these steps:
 
-- From MARS agent console, go to **Actions Pane** > **Change properties** > go to **Encryption tab** > **Change Passphrase** > **Generate passphrase**<br>
-- Once you click the generate passphrase, it will generate a new Passphrase.<br>
-- And click Browse to save your Passphrase.<br>
+- From MARS agent console, go to **Actions Pane** > **Change properties**.  Then go to **Encryption tab** > **Change Passphrase** > **Generate passphrase**<br>
+- Once you click **Generate passphrase**, it will generate a new passphrase.<br>
+- Click Browse to save your passphrase.<br>
 
     ![Generate passphrase.](./media/backup-azure-manage-mars/passphrase.png)
-- Click **OK** to apply changes.  If [Security Feature](https://docs.microsoft.com/azure/backup/backup-azure-security-feature#enable-security-features) is enabled on Azure Portal for the Recovery Services Vault, then you will be prompted to enter Security PIN. To receive the PIN follow steps listed in this [article](https://docs.microsoft.com/azure/backup/backup-azure-security-feature#authentication-to-perform-critical-operations).<br>
+- Click **OK** to apply changes.  If the [Security Feature](https://docs.microsoft.com/azure/backup/backup-azure-security-feature#enable-security-features) is enabled on the Azure Portal for the Recovery Services Vault, then you will be prompted to enter the Security PIN. To receive the PIN, follow the steps listed in this [article](https://docs.microsoft.com/azure/backup/backup-azure-security-feature#authentication-to-perform-critical-operations).<br>
 - Paste the security PIN from the portal and click **OK** to apply the changes.<br>
 
     ![Generate passphrase.](./media/backup-azure-manage-mars/passphrase2.png)
-- Ensure Passphrase is securely saved in an alternate location (other than source machine), preferably in Azure Key Vault. Keep track of all the passphrases if you have multiple machines being backed up with MARS agents).
-
+- Ensure that the passphrase is securely saved in an alternate location (other than source machine), preferably in the Azure Key Vault. Keep track of all the passphrases if you have multiple machines being backed up with MARS agents).
 
 
 ## Next steps
