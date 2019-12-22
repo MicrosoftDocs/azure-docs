@@ -18,7 +18,7 @@ Your billing account for Microsoft Customer Agreement provides you flexibility t
 
 This article describes how you can use the Azure portal to organize your costs. It applies to a billing account for a Microsoft Customer Agreement. [Check if you have access to a Microsoft Customer Agreement](#check-access-to-a-microsoft-customer-agreement).
 
-## Use billing profiles and invoice sections to organize costs
+## Structure your account with billing profiles and invoice sections
 
 In the billing account for a Microsoft Customer Agreement, you use billing profiles and invoice sections to organize your costs.
 
@@ -32,7 +32,7 @@ A billing profile is automatically created along with your billing account when 
 
 > [!IMPORTANT]
 >
-> Creating additional billing profiles may impact your overall cost. For more information, see [Things to consider before creating new billing profiles](#things-to-consider-before-creating-new-billing-profiles).
+> Creating additional billing profiles may impact your overall cost. For more information, see [Things to consider when creating new billing profiles](#things-to-consider-when-creating-new-billing-profiles).
 
 ### Invoice section
 
@@ -94,7 +94,7 @@ To create a billing profile, you need to be a **billing account owner** or a **b
 
 > [!IMPORTANT]
 >
-> Creating additional billing profiles may impact your overall cost. For more information, see [Things to consider before creating new billing profiles](#things-to-consider-before-creating-new-billing-profiles).
+> Creating additional billing profiles may impact your overall cost. For more information, see [Things to consider when creating new billing profiles](#things-to-consider-when-creating-new-billing-profiles).
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -123,7 +123,7 @@ To create a billing profile, you need to be a **billing account owner** or a **b
 
 Once you have customized your billing account based on your needs, you can link subscriptions and other products to your desired invoice section and billing profile.
 
-### Create a new subscription
+### Link a new subscription
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -139,7 +139,7 @@ Once you have customized your billing account based on your needs, you can link 
 
    ![Screenshot that shows the Add button in Subscriptions view](./media/billing-mca-section-invoice/mca-create-azure-subscription.png)
 
-5. Select the billing profile that will be billed for the subscription's usage. The charges for Azure usage and other purchases for this subscription will be displayed on the selected billing profile's invoice.
+5. Select the billing profile that will be billed for the subscription's usage. The charges for Azure usage and other purchases for this subscription will be billed to the selected billing profile's invoice.
 
 6. Select the invoice section to link the subscription's charges. The charges will be displayed under this section on the billing profile's invoice.
 
@@ -147,11 +147,9 @@ Once you have customized your billing account based on your needs, you can link 
 
 9. Click **Create**.  
 
-Your new subscription is created. The charges for Azure usage and other purchases for this subscription will be billed to the selected billing profile. They will be displayed under the selected invoice section of the billing profile's invoice.
-
 ### Link existing subscriptions and products
 
-If you have existing Azure subscriptions or other products such as Azure Marketplace and App source resources, you can move them from their existing invoice section to another invoice section to reorganize their costs. 
+If you have existing Azure subscriptions or other products such as Azure Marketplace and App source resources, you can move them from their existing invoice section to another invoice section to reorganize your costs. 
 
 > [!IMPORTANT]
 >
@@ -223,7 +221,7 @@ Azure reservations with shared scope are applied to subscriptions in a single bi
 
 ![Info graphic for reservation application for different billing account structure](./media/billing-mca-section-invoice/mca-reservations-benefits-by-bg.png)
 
-In the first scenario in the above image, contoso has two subscriptions - subscription 1 and subscription 2, both billed to the engineering billing profile. In this scenario, Reservation 1 is applied to the engineering billing profile and would provide benefits to either of the subscriptions. In the second scenario, subscription 1 is billed to engineering billing profile and subscription 2 to the marketing billing profile. Reservation 1 is  applied to the engineering billing profile. However, it will provide benefits to subscription 1, which is the only subscription billed to the engineering billing profile.
+In the first scenario in the above image, contoso has two subscriptions - subscription 1 and subscription 2, both billed to the engineering billing profile. In this scenario, reservation 1 is applied to the engineering billing profile and would provide benefits to either of the subscriptions. In the second scenario, subscription 1 is billed to engineering billing profile and subscription 2 to the marketing billing profile. reservation 1 is  applied to the engineering billing profile. Therefore, it will provide benefits to subscription 1, which is the only subscription billed to the engineering billing profile.
 
 ## Check access to a Microsoft Customer Agreement
 [!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]
