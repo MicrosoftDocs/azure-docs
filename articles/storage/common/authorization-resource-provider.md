@@ -74,4 +74,4 @@ For more information about Azure deployment models, see [Resource Manager and cl
 
 - [Azure Resource Manager overview](/azure/azure-resource-manager/resource-group-overview.md)
 - [What is role-based access control (RBAC) for Azure resources?](../../role-based-access-control/overview.md)
-- [Authorize access to blobs and queues using Active Directory](storage-auth-aad.md)
+- [Scalability targets for the Azure Storage resource provider](scalability-targets-resource-provider.md)

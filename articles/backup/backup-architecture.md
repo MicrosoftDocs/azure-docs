@@ -169,7 +169,7 @@ For more information about disk storage and the available disk types for VMs, se
 You can back up Azure VMs by using premium storage with Azure Backup:
 
 - During the process of backing up VMs with premium storage, the Backup service creates a temporary staging location, named *AzureBackup-*, in the storage account. The size of the staging location equals the size of the recovery point snapshot.
-- Make sure that the premium storage account has adequate free space to accommodate the temporary staging location. For more information, see **Scale targets for premium page blob storage accounts** in [Scalability and performance targets for Blob storage](../blobs/scalability-targets.md#scale-targets-for-premium-page-blob-storage-accounts). Don't modify the staging location.
+- Make sure that the premium storage account has adequate free space to accommodate the temporary staging location. For more information, see [Scalability targets for premium page blob storage accounts](../storage/blobs/scalability-targets-premium-page-blobs.md). Don't modify the staging location.
 - After the backup job finishes, the staging location is deleted.
 - The price of storage used for the staging location is consistent with [premium storage pricing](../virtual-machines/windows/disks-types.md#billing).
 

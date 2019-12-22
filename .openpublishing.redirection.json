@@ -24676,7 +24676,7 @@
     },
     {
       "source_path": "articles/storage/common/storage-scalability-targets.md",
-      "redirect_url": "/azure/storage/blobs/scalability-targets",
+      "redirect_url": "/azure/storage/common/scalability-targets-standard-account",
       "redirect_document_id": true
     },
     {
