@@ -281,8 +281,7 @@ Verify current SQL Server VM registration status using either Az CLI or PowerShe
 # [PowerShell](#tab/powershell)
 
   ```powershell-interactive
-  Get-AzResource -ResourceName <vm_name> -ResourceGroupName <resource_group> `
-  -ResourceType Microsoft.SqlVirtualMachine/sqlVirtualMachines
+  Get-AzSqlVM -Name <vm_name> -ResourceGroupName <resource_group>
   ```
 
 ---
