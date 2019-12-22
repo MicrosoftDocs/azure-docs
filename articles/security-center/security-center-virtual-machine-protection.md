@@ -70,7 +70,8 @@ The icon that appears under each recommendation helps you to quickly identify th
 
 To drill down into the security recommendations for each VM, click on the VM.
 Here you see the security details for the VM or computer. At the bottom, you can see the recommended action and the severity of each issue.
-[![Cloud services](./media/security-center-virtual-machine-recommendations/recommendation-list.png)](./media/security-center-virtual-machine-recommendations/recommendation-list#lightbox)
+
+[![Cloud services](./media/security-center-virtual-machine-recommendations/recommendation-list.png)](./media/security-center-virtual-machine-recommendations/recommendation-list.png#lightbox)
 
 ### <a name="cloud-services"></a>Cloud services
 For cloud services, a recommendation is created when the operating system version is out of date.
