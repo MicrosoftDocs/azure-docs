@@ -181,7 +181,7 @@ return new NoContentResult();
 
 The first line makes a `DELETE /api/Todo/{id}` call to the back-end API app.
 
-Save your all your changes. In the local terminal window, deploy your changes to the front-end app with the following Git commands:
+Save all your changes. In the local terminal window, deploy your changes to the front-end app with the following Git commands:
 
 ```bash
 git add .
