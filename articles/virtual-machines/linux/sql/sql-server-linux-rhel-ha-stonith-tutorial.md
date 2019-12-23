@@ -11,6 +11,9 @@ ms.date: 12/12/2019
 ---
 # Tutorial: Create RHEL Virtual machines in Azure and set up High Availability with STONITH
 
+> [!NOTE]
+> The tutorial presented is in **public preview**. 
+
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
@@ -77,32 +80,71 @@ You should get the following results once the command completes:
 
 ## Create RHEL VMs inside the Availability Set
 
-> [!IMPORTANT]
-> Machine names must be less than 15 characters to set up Availability Group. Username cannot contain upper case characters, and passwords must have more than 12 characters.
+> [!WARNING]
+> If you choose a Pay-As-You-Go (PAYG) RHEL image, and configure High Availability (HA), you may be required to register your subscription. This can cause you to pay twice for the subscription, as you will be charged for the Microsoft Azure RHEL subscription for the VM, and a subscription to Red Hat. For more information, see https://access.redhat.com/solutions/2458541. </br></br>To avoid being "double billed", use a RHEL HA image when creating the Azure VM.
 
-We want to create 3 VMs in the Availability Set. Replace the following in the command below:
+1. Get a list of Virtual Machine (VM) images that offer RHEL with HA:
 
-- `<resourceGroupName>`
-- `<VM-basename>`
-- `<availabilitySetName>`
-- `<VM-Size>` - An example would be "Standard_D16_v3"
-- `<username>`
-- `<adminPassword>`
+    ```azurecli-interactive
+    az vm image list --all --offer "RHEL-HA"
+    ```
 
-```azurecli-interactive
-for i in `seq 1 3`; do
-   az vm create \
-     --resource-group <resourceGroupName> \
-     --name <VM-basename>$i \
-     --availability-set <availabilitySetName> \
-     --size "<VM-Size>"  \
-     --image "RedHat:RHEL-HA:7.6:7.6.2019062019" \
-     --admin-username "<username>" \
-     --admin-password "<adminPassword>" \
-     --authentication-type all \
-     --generate-ssh-keys
-done
-```
+    You should see the following results:
+
+    ```output
+    [
+            {
+              "offer": "RHEL-HA",
+              "publisher": "RedHat",
+              "sku": "7.4",
+              "urn": "RedHat:RHEL-HA:7.4:7.4.2019062021",
+              "version": "7.4.2019062021"
+            },
+            {
+              "offer": "RHEL-HA",
+              "publisher": "RedHat",
+              "sku": "7.5",
+              "urn": "RedHat:RHEL-HA:7.5:7.5.2019062021",
+              "version": "7.5.2019062021"
+            },
+            {
+              "offer": "RHEL-HA",
+              "publisher": "RedHat",
+              "sku": "7.6",
+              "urn": "RedHat:RHEL-HA:7.6:7.6.2019062019",
+              "version": "7.6.2019062019"
+            }
+    ]
+    ```
+
+    For this tutorial, we're choosing the image `RedHat:RHEL-HA:7.6:7.6.2019062019`.
+
+    > [!IMPORTANT]
+    > Machine names must be less than 15 characters to set up Availability Group. Username cannot contain upper case characters, and passwords must have more than 12 characters.
+
+1. We want to create 3 VMs in the Availability Set. Replace the following in the command below:
+
+    - `<resourceGroupName>`
+    - `<VM-basename>`
+    - `<availabilitySetName>`
+    - `<VM-Size>` - An example would be "Standard_D16_v3"
+    - `<username>`
+    - `<adminPassword>`
+
+    ```azurecli-interactive
+    for i in `seq 1 3`; do
+           az vm create \
+             --resource-group <resourceGroupName> \
+             --name <VM-basename>$i \
+             --availability-set <availabilitySetName> \
+             --size "<VM-Size>"  \
+             --image "RedHat:RHEL-HA:7.6:7.6.2019062019" \
+             --admin-username "<username>" \
+             --admin-password "<adminPassword>" \
+             --authentication-type all \
+             --generate-ssh-keys
+    done
+    ```
 
 You should get results similar to the following once the command completes for each VM:
 
@@ -120,6 +162,9 @@ You should get results similar to the following once the command completes for e
 }
 ```
 
+> [!IMPORTANT]
+> The default image that is created with the above command creates a 32GB OS disk by default. You could potentially run out of space with this default installation. You can use the following parameter added to the above `az vm create` command to create an OS disk with 128GB as an example: `--os-disk-size-gb 128`. </br></br>You can then [configure Logical Volume Manager (LVM)](../../../virtual-machines/linux/configure-lvm.md) if you need to expand appropriate folder volumes to accomodate your installation.
+
 ### Test connection to the created VMs
 
 Connect to VM1 or the other VMs using the following command in Azure Cloud Shell. If you are unable to find your VM IPs, follow this [Quickstart on Azure Cloud Shell](../../../cloud-shell/quickstart.md#ssh-into-your-linux-vm).
@@ -136,10 +181,10 @@ If the connection is successful, you should see the following output representin
 
 Type `exit` to leave the SSH session.
 
-## Register VMs to a RHEL subscription and enable HA
+## Enable High Availability
 
 > [!IMPORTANT]
-> In order to complete this portion of the tutorial, you must have a subscription for RHEL and the High Availability Add-on. You can register for a developer account at <https://developers.redhat.com>.
+> In order to complete this portion of the tutorial, you must have a subscription for RHEL and the High Availability Add-on. If you are using an image recommended in the previous section, you do not have to register another subscription.
  
 Connect to each VM node and follow the guide to [enable the high availability subscription for RHEL](/sql/linux/sql-server-linux-availability-group-cluster-rhel#enable-the-high-availability-subscription-for-rhel).
 
@@ -186,7 +231,7 @@ Connect to each VM node and follow the guide to [enable the high availability su
     ```
 
     > [!IMPORTANT]
-    > We recommend that you use your **Private IP** address above. Using the Public IP address in this configuration will cause the setup to fail if you have not configured your Network Security Groups (NSG) and firewall appropriately.
+    > We recommend that you use your **Private IP** address above. Using the Public IP address in this configuration will cause the setup to fail and we don't recommend exposing your VM to external networks.
 
     To exit the **vi** editor, first hit the **Esc** key, and then enter the command `:wq` to write the file and quit.
 
@@ -202,7 +247,7 @@ The following commands are used to install SQL Server:
 sudo curl -o /etc/yum.repos.d/mssql-server.repo https://packages.microsoft.com/config/rhel/7/mssql-server-2017.repo
 sudo yum install -y mssql-server
 sudo /opt/mssql/bin/mssql-conf setup
-sudo yum install mssql-server-ha mssql-server-agent
+sudo yum install mssql-server-ha
 ```
 
 ### Open firewall port 1433 for remote connections
@@ -267,6 +312,8 @@ sudo systemctl restart mssql-server
 ```
 
 ### Create a certificate
+
+We currently don't support AD authentication to the AG endpoint. Therefore, we must use a certificate for AG endpoint encryption.
  
 1. Connect to the primary replica using SQL Server Management Studio (SSMS) or SQL CMD. 
 
@@ -471,7 +518,7 @@ If the `synchronization_state_desc` list SYNCHRONIZED for `db1`, this means the 
 
 ## Create the Pacemaker cluster
 
-In this section, we will enable and start the pcsd service, and then configure the cluster. For more information, see the article on [configuring a failover cluster instance for RHEL](/sql/linux/sql-server-linux-shared-disk-cluster-red-hat-7-configure#install-and-configure-pacemaker-on-each-cluster-node)
+In this section, we will enable and start the pcsd service, and then configure the cluster. For SQL Server on Linux, the cluster resources are not created automatically. We'll need to enable and create the pacemaker resources manually. For more information, see the article on [configuring a failover cluster instance for RHEL](/sql/linux/sql-server-linux-shared-disk-cluster-red-hat-7-configure#install-and-configure-pacemaker-on-each-cluster-node)
 
 ### Enable and start pcsd service and Pacemaker
 
@@ -507,7 +554,7 @@ In this section, we will enable and start the pcsd service, and then configure t
     sudo pcs status
     ```
 
-    If all nodes are online, you will see the following output:
+    If all nodes are online, you will see an output similar to the following:
 
     ```output
     Cluster name: az-hacluster
