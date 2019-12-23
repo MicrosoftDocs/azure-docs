@@ -130,7 +130,7 @@ Install the latest version of Azure PowerShell if you don't already have it on y
 
 ## Create a data factory
 
-1. Define a variable for the resource group name that you'll use later in PowerShell commands. Copy the following command to PowerShell, specify a name for the [Azure resource group](../azure-resource-manager/resource-group-overview.md) (enclosed in double quotation marks; for example, `"adfrg"`), and then run the command. 
+1. Define a variable for the resource group name that you'll use later in PowerShell commands. Copy the following command to PowerShell, specify a name for the [Azure resource group](../azure-resource-manager/management/overview.md) (enclosed in double quotation marks; for example, `"adfrg"`), and then run the command. 
    
     ```powershell
     $resourceGroupName = "ADFTutorialResourceGroup"
