@@ -58,7 +58,7 @@ The default view of the topology map displays:
 
 ## Understanding the Network map
 
-The Network map can show you your Azure resources in a **Topology** view and a **Traffic** view.
+The Network map can show you your Azure resources in a **Topology** view and a **Traffic** view. 
 
 ### The topology view
 
