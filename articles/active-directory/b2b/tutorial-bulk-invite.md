@@ -9,8 +9,8 @@ ms.subservice: B2B
 ms.topic: tutorial
 ms.date: 9/19/2019
 
-ms.author: mimart
-author: msmimart
+ms.author: aashiman
+author: aashiman
 manager: celestedg
 ms.reviewer: mal
 
