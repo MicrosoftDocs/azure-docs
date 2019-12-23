@@ -94,7 +94,7 @@ Use the steps in [this article](../active-directory/fundamentals/add-users-azure
     Set-AzVirtualNetworkGateway -VirtualNetworkGateway $gw -AadTenantUri "https://login.microsoftonline.com/<your Directory ID>" -AadAudienceId "41b23e61-6c1e-4545-b367-cd054e0ed4b4" -AadIssuerUri "https://sts.windows.net/<your Directory ID>/" -VpnClientAddressPool 192.168.0.0/24
     ```
 
-9. Create and download the profile by running the following commands. Change the -ResourcGroupName and -Name values to match your own.
+9. Create and download the profile by running the following commands. Change the -ResourceGroupName and -Name values to match your own.
 
     ```azurepowershell-interactive
     $profile = New-AzVpnClientConfiguration -Name <name of VPN gateway> -ResourceGroupName <Resource group> -AuthenticationMethod "EapTls"
