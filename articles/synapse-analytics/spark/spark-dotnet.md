@@ -46,12 +46,12 @@ The following features are available when you use .NET for Apache Spark in the A
 * Simple C# statements (such as assignments, printing to console, throwing exceptions, and so on).
 * Multi-line C# code blocks (such as if statements, foreach loops, class definitions, and so on).
 * Access to the standard C# library (such as System, LINQ, Enumerables, and so on).
-* Support for [C# 8.0 language features](../../dotnet/csharp/whats-new/csharp-8).
+* Support for [C# 8.0 language features](https://docs.microsoft.com/dotnet/csharp/whats-new/csharp-8).
 * 'spark' as a pre-defined variable to give you access to your Apache Spark session.
-* Support for defining [.NET user-defined functions that can run within Apache Spark](https://github.com/dotnet/spark/blob/master/examples/Microsoft.Spark.CSharp.Examples/Sql/Basic.cs#L65).
+* Support for defining [.NET user-defined functions that can run within Apache Spark](https://github.com/dotnet/spark/blob/master/examples/Microsoft.Spark.CSharp.Examples/Sql).
 * Support for visualizing output from your Spark jobs using different charts (such as line, bar, or histogram) and layouts (such as single, overlaid, and so on).
 
 ## Next steps
 
-* [.NET for Apache Spark documentation](../../dotnet/spark)
+* [.NET for Apache Spark documentation](https://docs.microsoft.com/dotnet/spark)
 <!---* [Azure Synapse Analytics documentation](index.md)--->

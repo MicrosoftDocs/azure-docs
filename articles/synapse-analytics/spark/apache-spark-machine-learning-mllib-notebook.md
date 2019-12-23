@@ -32,7 +32,7 @@ In summary, the process of logistic regression produces a *logistic function* th
 
 ## Predictive analysis example on NYC Taxi data
 
-In this example, you use Spark to perform some predictive analysis on taxi trip tip data from New York. The data was acquired through Azure Open datasets, see [Azure Open Datasets](https://azure.microsoft.com/en-us/services/open-datasets/catalog/nyc-taxi-limousine-commission-yellow-taxi-trip-records/). This subset of the dataset contains information about yellow taxi trips, including information about each trip, the start, and end time and locations, the cost, and other interesting attributes.
+In this example, you use Spark to perform some predictive analysis on taxi trip tip data from New York. The data was acquired through Azure Open datasets, see [Azure Open Datasets](https://azure.microsoft.com/services/open-datasets/catalog/nyc-taxi-limousine-commission-yellow-taxi-trip-records/). This subset of the dataset contains information about yellow taxi trips, including information about each trip, the start, and end time and locations, the cost, and other interesting attributes.
 
 > [!IMPORTANT]
 > There may be additional charges for pulling this data from its storage location
