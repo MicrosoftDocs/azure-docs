@@ -59,8 +59,7 @@ The following limits apply only for networking resources managed through Azure R
 | Load balancers | 1,000 | 
 | Rules per resource, Basic | 250 |
 | Rules per resource, Standard | 1,500 | 
-| Rules per IP configuration | 299 |
-| Rules per NIC | 300 |
+| Rules per NIC (across all IPs on a NIC) | 300 |
 | Front-end IP configurations, Basic | 200 |
 | Front-end IP configurations, Standard | 600 |
 | Back-end pool, Basic | 100, single availability set |

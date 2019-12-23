@@ -1,5 +1,5 @@
 ---
-title: Register single-page applications - Microsoft identity platform | Azure
+title: Register single-page apps - Microsoft identity platform | Azure
 description: Learn how to build a single-page application (app registration)
 services: active-directory
 documentationcenter: dev-center-name

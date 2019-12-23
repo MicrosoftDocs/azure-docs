@@ -1,5 +1,5 @@
 ---
-title: Continuously deliver function code updates by using Azure DevOps - Azure Functions
+title: Continuously update function app code using Azure DevOps
 description: Learn how to set up an Azure DevOps pipeline that targets Azure Functions.
 author: ahmedelnably
 

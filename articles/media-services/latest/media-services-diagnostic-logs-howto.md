@@ -171,6 +171,10 @@ You may need to wait up to five minutes before the event appears in the storage 
 }
 ```
 
+## Additional notes
+
+* Widevine is a service provided by Google Inc. and subject to the terms of service and Privacy Policy of Google, Inc.
+
 ## See also
 
 * [Azure Monitor Metrics](../../azure-monitor/platform/data-platform.md)

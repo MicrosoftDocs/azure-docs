@@ -68,13 +68,11 @@ The script first creates a resource group in the east US location for the applic
 |Template          | The application template to use. For more information, see the following table: |
 |DisplayName       |The name of the application as displayed in the UI. |
 
-**Application templates with generally available features**
+**Application template with generally available features**
 
 | Template name            | Description |
 | ------------------------ | ----------- |
-| iotc-default@1.0.0       | Creates an empty application for you to populate with your own device templates and devices. |
-| iotc-demo@1.0.0          | Creates an application that includes a device template already created for a Refrigerated Vending Machine. Use this template to get started exploring Azure IoT Central. |
-| iotc-devkit-sample@1.0.0 | Creates an application with device templates ready for you to connect an MXChip or Raspberry Pi device. Use this template if you're a device developer experimenting with any of these devices. |
+| iotc-default@1.0.0       | Creates an empty application for you to populate with your own device templates and devices.
 
 
 **Application templates with public preview features**

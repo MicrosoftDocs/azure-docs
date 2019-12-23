@@ -2,13 +2,9 @@
 title: View Azure Update Management update assessments
 description: This article describes how to view update assessments for update deployments.
 services: automation
-ms.service: automation
 ms.subservice: update-management
-author: mgoedtel
-ms.author: magoedte
 ms.date: 05/17/2019
 ms.topic: conceptual
-manager: carmonm
 ---
 # View Azure Update Management update assessments
 

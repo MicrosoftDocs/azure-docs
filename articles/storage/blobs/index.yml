@@ -98,10 +98,14 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Use .NET
+          - text: Azure Blob storage for .NET
             url: storage-quickstart-blobs-dotnet.md
-          - text: Use Python
+          - text: Azure Blob storage for Java
+            url: storage-quickstart-blobs-java.md
+          - text: Azure Blob storage for Python
             url: storage-quickstart-blobs-python.md
+          - text: Azure Blob storage for JavaScript
+            url: storage-quickstart-blobs-nodejs.md
           - text: Route events to a web endpoint
             url: ../../event-grid/blob-event-quickstart-portal.md
           - text: Host a static website

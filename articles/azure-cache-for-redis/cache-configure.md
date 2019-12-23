@@ -116,7 +116,7 @@ The following settings are configured on the **Advanced settings** blade.
 By default, non-SSL access is disabled for new caches. To enable the non-SSL port, click **No** for **Allow access only via SSL** on the **Advanced settings** blade and then click **Save**.
 
 > [!NOTE]
-> SSL access to Azure Cache for Redis supports TLS 1.0 by default. The minimum supported TLS version can be raised up to TLS 1.2 if desired by using the **Minimum TLS version** dropdown on the **Advanced settings** blade and then click **Save**.
+> SSL  access to Azure Cache for Redis supports TLS 1.0, 1.1 and 1.2 currently, but versions 1.0 and 1.1 are being retired soon.  Please read our [Remove TLS 1.0 and 1.1 page](cache-remove-tls-10-11.md) for more details.
 
 ![Azure Cache for Redis Access Ports](./media/cache-configure/redis-cache-access-ports.png)
 
