@@ -6,7 +6,7 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
-ms.date: 12/19/2019
+ms.date: 12/23/2019
 ---
 
 # Exception when running queries from Apache Ambari Hive View in Azure HDInsight
@@ -28,13 +28,13 @@ Cannot create property 'errors' on string '<!DOCTYPE html PUBLIC '-//W3C//DTD XH
 
 A Gateway timeout.
 
-The Gateway timeout value is 2 minutes. Queries from Ambari Hive View are submitted to the `/hive2` endpoint through the gateway. Once the query is successfully compiled and accepted, the hiveserver returns a `queryid`. Clients then keep polling for the status of the query. During this process, if the hiveserver doesn't return an HTTP response within 2 minutes, the HDI Gateway throws a 502.3 Gateway timeout error to the caller. The errors could happen when the query is submitted for processing (more likely) and also in the get status call (less likely). Users could see either of them.
+The Gateway timeout value is 2 minutes. Queries from Ambari Hive View are submitted to the `/hive2` endpoint through the gateway. Once the query is successfully compiled and accepted, the HiveServer returns a `queryid`. Clients then keep polling for the status of the query. During this process, if the HiveServer doesn't return an HTTP response within 2 minutes, the HDI Gateway throws a 502.3 Gateway timeout error to the caller. The errors could happen when the query is submitted for processing (more likely) and also in the get status call (less likely). Users could see either of them.
 
 The http handler thread is supposed to be quick: prepare the job and return a `queryid`. However, due to several reasons, all the handler threads could be busy resulting in timeouts for new queries and the get status calls.
 
-### Responsibilities of the Http handler thread
+### Responsibilities of the HTTP handler thread
 
-When the client submits a query to hiveserver, it does the following in the foreground thread
+When the client submits a query to HiveServer, it does the following in the foreground thread
 
 * Parse the request, do semantic verification
 * Acquire lock
