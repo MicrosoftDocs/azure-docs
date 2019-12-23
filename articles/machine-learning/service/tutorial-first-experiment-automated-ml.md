@@ -217,7 +217,7 @@ In this automated machine learning tutorial, you used Azure Machine Learning stu
 + Learn more about [preprocessing](../how-to-create-portal-experiments.md#preprocess).
 + Learn more about [data profiling](../how-to-create-portal-experiments.md#profile).
 + Learn more about [automated machine learning](../concept-automated-ml.md).
-+ For more information on classification metrics and charts, see the [Understand automated machine learning results](how-to-understand-automated-ml.md#classification) article.
++ For more information on classification metrics and charts, see the [Understand automated machine learning results](../how-to-understand-automated-ml.md#classification) article.
 
 >[!NOTE]
 > This Bank Marketing dataset is made available under the [Creative Commons (CCO: Public Domain) License](https://creativecommons.org/publicdomain/zero/1.0/). Any rights in individual contents of the database are licensed under the [Database Contents License](https://creativecommons.org/publicdomain/zero/1.0/) and available on [Kaggle](https://www.kaggle.com/janiobachmann/bank-marketing-dataset). This dataset was originally available within the [UCI Machine Learning Database](https://archive.ics.uci.edu/ml/datasets/bank+marketing).<br><br>

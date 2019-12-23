@@ -77,7 +77,7 @@ Additional datasets capabilities can be found in the following documentation:
 
 With datasets, you can accomplish a number of machine learning tasks through seamless integration with Azure Machine Learning features. 
 
-+ [Train machine learning models](service/how-to-train-with-datasets.md).
++ [Train machine learning models](how-to-train-with-datasets.md).
 + Consume datasets in 
      + [automated ML experiments](how-to-create-portal-experiments.md)
      + the [designer](service/tutorial-designer-automobile-price-train-score.md#import-data) 

@@ -103,7 +103,7 @@ For remote executions, training data must be accessible from the remote compute.
 * easily transfer data from static files or URL sources into your workspace
 * make your data available to training scripts when running on cloud compute resources
 
-See the [how-to](service/how-to-train-with-datasets.md#option-2--mount-files-to-a-remote-compute-target) for an example of using the `Dataset` class to mount data to your compute target.
+See the [how-to](how-to-train-with-datasets.md#option-2--mount-files-to-a-remote-compute-target) for an example of using the `Dataset` class to mount data to your compute target.
 
 ## Train and validation data
 
@@ -179,7 +179,7 @@ The primary metric determines the metric to be used during model training for op
 |norm_macro_recall | normalized_mean_absolute_error | normalized_mean_absolute_error
 |precision_score_weighted |
 
-Learn about the specific definitions of these in [Understand automated machine learning results](service/how-to-understand-automated-ml.md).
+Learn about the specific definitions of these in [Understand automated machine learning results](how-to-understand-automated-ml.md).
 
 ### Data preprocessing & featurization
 

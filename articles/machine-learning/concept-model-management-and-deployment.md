@@ -57,7 +57,7 @@ Before deploying a model into production, it is packaged into a Docker image. In
 
 If you run into problems with the deployment, you can deploy on your local development environment for troubleshooting and debugging.
 
-For more information, see [Deploy models](how-to-deploy-and-where.md#registermodel) and [Troubleshooting deployments](service/how-to-troubleshoot-deployment.md).
+For more information, see [Deploy models](how-to-deploy-and-where.md#registermodel) and [Troubleshooting deployments](how-to-troubleshoot-deployment.md).
 
 ### Validate and profile models
 

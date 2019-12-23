@@ -88,7 +88,7 @@ See [deploy your models with VS Code](service/how-to-vscode-tools.md#deploy-and-
 ## Next steps
 
 * [How to deploy a model using a custom Docker image](how-to-deploy-custom-docker-image.md)
-* [Deployment troubleshooting](service/how-to-troubleshoot-deployment.md)
+* [Deployment troubleshooting](how-to-troubleshoot-deployment.md)
 * [Secure Azure Machine Learning web services with SSL](how-to-secure-web-service.md)
 * [Consume a ML Model deployed as a web service](how-to-consume-web-service.md)
 * [Monitor your Azure Machine Learning models with Application Insights](how-to-enable-app-insights.md)

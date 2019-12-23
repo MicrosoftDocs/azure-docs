@@ -181,7 +181,7 @@ The **Models** tab contains a list of the models created ordered by the metric s
 
 ### View training run details
 
-Drill down on any of the completed models to see training run details, like run metrics on the **Model details** tab or performance charts on the **Visualizations** tab. [Learn more about charts](service/how-to-understand-automated-ml.md).
+Drill down on any of the completed models to see training run details, like run metrics on the **Model details** tab or performance charts on the **Visualizations** tab. [Learn more about charts](how-to-understand-automated-ml.md).
 
 [![Iteration details](media/how-to-create-portal-experiments/iteration-details.png)](media/how-to-create-portal-experiments/iteration-details-expanded.png)
 
@@ -221,5 +221,5 @@ Now you have an operational web service to generate predictions! You can test th
 
 * Try the end to end [tutorial for creating your first automated ML experiment with Azure Machine Learning](service/tutorial-first-experiment-automated-ml.md). 
 * [Learn more about automated machine learning](concept-automated-ml.md) and Azure Machine Learning.
-* [Understand automated machine learning results](service/how-to-understand-automated-ml.md).
+* [Understand automated machine learning results](how-to-understand-automated-ml.md).
 * [Learn how to consume a web service](https://docs.microsoft.com/azure/machine-learning/service/how-to-consume-web-service).

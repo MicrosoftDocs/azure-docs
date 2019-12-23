@@ -307,7 +307,7 @@ If you don't specify the environment in your run configuration, the service will
 
 ### Train with an estimator
 
-If you are using an [estimator](how-to-train-ml-models.md) for training, you can simply submit the estimator instance directly, as it already encapsulates the environment and compute target.
+If you are using an [estimator](../how-to-train-ml-models.md) for training, you can simply submit the estimator instance directly, as it already encapsulates the environment and compute target.
 
 The following code uses an estimator for a single-node training run on a remote compute for a scikit-learn model, and assumes a  previously created compute target object, `compute_target` and datastore object, `ds`.
 

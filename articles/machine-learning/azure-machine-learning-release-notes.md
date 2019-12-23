@@ -1446,7 +1446,7 @@ Azure Machine Learning Compute can be created in Python, using Azure portal, or 
 + View Azure Machine Learning Compute cluster status in real time.
 + Virtual network support was added for Azure Machine Learning Compute and Azure Kubernetes Service creation.
 + Rerun your published pipelines with existing parameters.
-+ New [automated machine learning charts](service/how-to-understand-automated-ml.md) for classification models (lift, gains, calibration, feature importance chart with model explainability) and regression models (residuals and feature importance chart with model explainability). 
++ New [automated machine learning charts](how-to-understand-automated-ml.md) for classification models (lift, gains, calibration, feature importance chart with model explainability) and regression models (residuals and feature importance chart with model explainability). 
 + Pipelines can be viewed in Azure portal
 
 

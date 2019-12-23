@@ -52,7 +52,7 @@ To facilitate model training using popular frameworks, the Azure Machine Learnin
 
 For PyTorch, TensorFlow, and Chainer tasks, Azure Machine Learning also provides respective [PyTorch](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py), [TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py), and [Chainer](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py) estimators to simplify using these frameworks.
 
-For more information, see [Train ML Models with estimators](service/how-to-train-ml-models.md).
+For more information, see [Train ML Models with estimators](how-to-train-ml-models.md).
 
 ## What's an ML Pipeline?
 
@@ -407,8 +407,8 @@ Switch the same experiment to run in a different compute target by using a diffe
 
 Or you can:
 
-* Submit the experiment with an `Estimator` object as shown in [Train ML models with estimators](service/how-to-train-ml-models.md).
-* Submit a HyperDrive run for [hyperparameter tuning](service/how-to-tune-hyperparameters.md).
+* Submit the experiment with an `Estimator` object as shown in [Train ML models with estimators](how-to-train-ml-models.md).
+* Submit a HyperDrive run for [hyperparameter tuning](how-to-tune-hyperparameters.md).
 * Submit an experiment via the [VS Code extension](service/how-to-vscode-tools.md#train-and-tune-models).
 
 For more information, see the [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py) and [RunConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfiguration?view=azure-ml-py) documentation.
@@ -460,7 +460,7 @@ az ml run submit-script -e <experiment> -c <runconfig> my_train.py
 
 ### HyperDrive run
 
-You can use HyperDrive with Azure CLI to perform parameter tuning runs. First, create a HyperDrive configuration file in the following format. See [Tune hyperparameters for your model](service/how-to-tune-hyperparameters.md) article for details on hyperparameter tuning parameters.
+You can use HyperDrive with Azure CLI to perform parameter tuning runs. First, create a HyperDrive configuration file in the following format. See [Tune hyperparameters for your model](how-to-tune-hyperparameters.md) article for details on hyperparameter tuning parameters.
 
 ```yml
 # hdconfig.yml
@@ -508,7 +508,7 @@ See these notebooks for examples of training with various compute targets:
 ## Next steps
 
 * [Tutorial: Train a model](service/tutorial-train-models-with-aml.md) uses a managed compute target to  train a model.
-* Learn how to [efficiently tune hyperparameters](service/how-to-tune-hyperparameters.md) to build better models.
+* Learn how to [efficiently tune hyperparameters](how-to-tune-hyperparameters.md) to build better models.
 * Once you have a trained model, learn [how and where to deploy models](how-to-deploy-and-where.md).
 * View the [RunConfiguration class](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.runconfiguration?view=azure-ml-py) SDK reference.
 * [Use Azure Machine Learning with Azure Virtual Networks](how-to-enable-virtual-network.md)

@@ -59,7 +59,7 @@ Using **Azure Machine Learning**, you can design and run your automated ML train
 
 During training, Azure Machine Learning creates a number of in parallel pipelines that try different algorithms and parameters. It will stop once it hits the exit criteria defined in the experiment.
 
-You can also inspect the logged run information, which [contains metrics](service/how-to-understand-automated-ml.md) gathered during the run. The training run produces a Python serialized object (`.pkl` file) that contains the model and data preprocessing.
+You can also inspect the logged run information, which [contains metrics](how-to-understand-automated-ml.md) gathered during the run. The training run produces a Python serialized object (`.pkl` file) that contains the model and data preprocessing.
 
 While model building is automated, you can also [learn how important or relevant features are](how-to-configure-auto-train.md#explain) to the generated models.
 
@@ -194,9 +194,9 @@ In addition, automated ML runs generate the following charts automatically, whic
 
 Chart| Description
 ---|---
-[Confusion Matrix](service/how-to-understand-automated-ml.md#confusion-matrix)| Evaluates the correctly classified labels against the actual labels of the data. 
-[Precision-recall](service/how-to-understand-automated-ml.md#precision-recall-chart)| Evaluates the ratio of correct labels against the ratio of found label instances of the data 
-[ROC Curves](service/how-to-understand-automated-ml.md#roc)| Evaluates the ratio of correct labels against the ratio of false-positive labels.
+[Confusion Matrix](how-to-understand-automated-ml.md#confusion-matrix)| Evaluates the correctly classified labels against the actual labels of the data. 
+[Precision-recall](how-to-understand-automated-ml.md#precision-recall-chart)| Evaluates the ratio of correct labels against the ratio of found label instances of the data 
+[ROC Curves](how-to-understand-automated-ml.md#roc)| Evaluates the ratio of correct labels against the ratio of false-positive labels.
 
 ### Handle imbalanced data 
 

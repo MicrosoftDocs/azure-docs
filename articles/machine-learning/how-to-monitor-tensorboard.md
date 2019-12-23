@@ -146,7 +146,7 @@ compute_target.wait_for_completion(show_output=True, min_node_count=None)
 
 ### Submit run with TensorFlow estimator
 
-The TensorFlow estimator provides a simple way of launching a TensorFlow training job on a compute target. It's implemented through the generic [`estimator`](https://docs.microsoft.com//python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py) class, which can be used to support any framework. For more information about training models using the generic estimator, see [train models with Azure Machine Learning using estimator](service/how-to-train-ml-models.md)
+The TensorFlow estimator provides a simple way of launching a TensorFlow training job on a compute target. It's implemented through the generic [`estimator`](https://docs.microsoft.com//python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py) class, which can be used to support any framework. For more information about training models using the generic estimator, see [train models with Azure Machine Learning using estimator](how-to-train-ml-models.md)
 
 ```Python
 from azureml.train.dnn import TensorFlow
@@ -290,4 +290,4 @@ tb.stop()
 In this how-to you, created two experiments and learned how to launch TensorBoard against their run histories to identify areas for potential tuning and retraining. 
 
 * If you are satisfied with your model, head over to our [How to deploy a model](how-to-deploy-and-where.md) article. 
-* Learn more about [hyperparameter tuning](service/how-to-tune-hyperparameters.md). 
+* Learn more about [hyperparameter tuning](how-to-tune-hyperparameters.md). 

@@ -283,6 +283,6 @@ df = titanic_ds.to_pandas_dataframe()
 
 ## Next steps
 
-* Learn [how to train with datasets](service/how-to-train-with-datasets.md).
+* Learn [how to train with datasets](how-to-train-with-datasets.md).
 * Use automated machine learning to [train with TabularDatasets](https://aka.ms/automl-dataset).
 * For more dataset training examples, see the [sample notebooks](https://aka.ms/dataset-tutorial).

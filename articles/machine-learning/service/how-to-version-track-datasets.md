@@ -186,5 +186,5 @@ After registration, you can see the list of models registered with the dataset b
 
 ## Next steps
 
-* [Train with datasets](how-to-train-with-datasets.md)
+* [Train with datasets](../how-to-train-with-datasets.md)
 * [More sample dataset notebooks](https://aka.ms/dataset-tutorial)
