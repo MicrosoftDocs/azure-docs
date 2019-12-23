@@ -36,7 +36,7 @@ For an existing cluster, you can export the Resource Manager template for the cl
 
 After you have a Resource Manager template, you can enable the reverse proxy with the following steps:
 
-1. Define a port for the reverse proxy in the [Parameters section](../azure-resource-manager/resource-group-authoring-templates.md) of the template.
+1. Define a port for the reverse proxy in the [Parameters section](../azure-resource-manager/templates/template-syntax.md) of the template.
 
     ```json
     "SFReverseProxyPort": {
@@ -47,7 +47,7 @@ After you have a Resource Manager template, you can enable the reverse proxy wit
         }
     },
     ```
-2. Specify the port for each of the nodetype objects in the [**Microsoft.ServiceFabric/clusters**](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/clusters) [Resource type section](../azure-resource-manager/resource-group-authoring-templates.md).
+2. Specify the port for each of the nodetype objects in the [**Microsoft.ServiceFabric/clusters**](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/clusters) [Resource type section](../azure-resource-manager/templates/template-syntax.md).
 
     The port is identified by the parameter name, reverseProxyEndpointPort.
 

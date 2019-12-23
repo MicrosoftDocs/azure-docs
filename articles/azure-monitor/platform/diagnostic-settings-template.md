@@ -11,7 +11,7 @@ ms.subservice: ""
 ---
 
 # Create diagnostic setting in Azure using a Resource Manager template
-[Platform logs](platform-logs-overview.md) in Azure provide detailed diagnostic and auditing information for Azure resources and the Azure platform they depend on. This article provides details on using an [Azure Resource Manager template](../../azure-resource-manager/resource-group-authoring-templates.md) to configure diagnostic settings to collect platform logs to different destinations. This enables you to automatically start collecting platform logs when a resource is created.
+[Platform logs](platform-logs-overview.md) in Azure provide detailed diagnostic and auditing information for Azure resources and the Azure platform they depend on. This article provides details on using an [Azure Resource Manager template](../../azure-resource-manager/templates/template-syntax.md) to configure diagnostic settings to collect platform logs to different destinations. This enables you to automatically start collecting platform logs when a resource is created.
 
 
 ## Resource Manager template
