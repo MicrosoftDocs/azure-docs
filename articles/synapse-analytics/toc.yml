@@ -20,8 +20,8 @@
     href: quickstart-create-a-workspace.md
   - name: Create pools
     items:
-  #   - name: Create Spark pool template
-  #     href: article-template.md
+    - name: Create Spark pool
+      href: ./spark/apache-spark-notebook-create-spark-use-sql.md
   #   - name: Create SQL Analytics pool
   #     href: article-template.md
   # - name: Ingest data into Data Lake
@@ -42,8 +42,10 @@
     href: ./sql-analytics/tutorial-power-bi-professional.md
   - name: Data Scientist
     items:
-    - name: Predict food inspection results
-      href: tutorial-predict-food-inspection-results.md 
+    - name: Predict NYC Taxi cab tips
+      href: ./spark/apache-spark-machine-learning-mllib-notebook.md 
+    - name: Augmenting Apache Spark with additional libraries
+      href: ./spark/apache-spark-azure-portal-add-libraries.md
     # - name: Analyze website logs
     #   href: article-template.md
     # - name: use Tensorflow for deep learning
@@ -70,8 +72,8 @@
     #   href: article-template.md
     - name: SQL on-demand
       href: sql-analytics/sql-analytics-on-demand-workspace-overview.md
-    # - name: Spark pool template
-    #   href: article-template.md
+    - name: Spark pools 
+      href: ./spark/apache-spark-overview.md
   - name: Pipeline and activity
     href: ../data-factory/concepts-pipelines-activities.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
   - name: Execution and trigger
@@ -104,8 +106,8 @@
       #   href: article-template.md
     - name: Code artifacts
       items:
-      # - name: Notebooks
-      #   href: article-template.md
+      - name: Apache Spark Notebooks
+        href: ./spark/apache-spark-development-using-notebooks.md
       # - name: SQL script
       #   href: article-template.md
       # - name: Mapping Data Flow
@@ -140,8 +142,8 @@
           href: ../sql-data-warehouse/sql-data-warehouse-overview-manageability-monitoring.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
         - name: Resource utilization & query activity 
           href: ../sql-data-warehouse/sql-data-warehouse-concept-resource-utilization-query-activity.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json 
-      # - name: Spark Pool
-      #   href: article-template.md
+      - name: Spark pool History server
+        href: ./spark/apache-spark-history-server.md
   - name: Security
     items:
     - name: Network Security
@@ -206,8 +208,12 @@
     items:
     - name: Overview
       items:
-      # - name: Runtime language and library support
-      #   href: article-template.md
+      - name: Apache Spark Overview
+        href: ./spark/apache-spark-overview.md
+      - name: Runtime language and library support
+        href: ./spark/apache-spark-version-support.md
+      - name: What is Delta Lake
+        href: ./spark/apache-spark-what-is-delta-lake.md        
       # - name: Apache Spark pool sizes
       #   href: article-template.md
       # - name: Cheat sheet
@@ -215,11 +221,11 @@
     - name: Development
       items:
       # - name: Overview, using tools to interact with Apache Spark
-      #   href: article-template.md
+      #  href: article-template.md
       # - name: Spark Job definitions
       #   href: article-template.md
-      # - name: Azure Synapse studio notebooks
-      #   href: article-template.md
+      - name: Azure Synapse studio notebooks
+        href: ./spark/apache-spark-development-using-notebooks.md
       #  items:
         
       #   - name: Tips and tricks
@@ -230,14 +236,12 @@
       #   href: article-template.md
       - name: .NET for Apache Spark
         href: spark-dotnet.md
-      # - name: Interactive Spark shell
-      #   href: article-template.md
       # - name: Remote jobs with Apache Livy
       #   href: article-template.md
       # - name: Debug jobs remotely with IntelliJ through VPN
       #   href: article-template.md
-      - name: Apache Spark streaming
-        items:
+      # - name: Apache Spark streaming
+      #  items:
         # - name: Streaming overview
         #   href: article-template.md
         # - name: Structured streaming overview
@@ -250,8 +254,8 @@
         items:
       #   - name: Machine Learning overview
       #     href: article-template.md
-      #   - name: Create an Apache Spark machine learning pipeline
-      #     href: article-template.md
+        - name: Create an Apache Spark machine learning pipeline
+          href: ./spark/apache-spark-machine-learning-mllib-notebook.md
       # - name: Querying
       #   href: article-template.md
       # - name: Workload Management
@@ -956,8 +960,6 @@
         href: sql-analytics/get-started-visual-studio.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
       - name: Connect to Power BI Desktop
         href: sql-analytics/get-started-power-bi-professional.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-    # - name: Spark pool
-    #   href: article-template.md
 - name: Reference
   items:
   # - name: .Net SDK
