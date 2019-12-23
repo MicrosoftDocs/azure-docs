@@ -1,5 +1,5 @@
 ---
-title: Scalability targets for the Azure Storage resource provider
+title: Scalability for the Azure Storage resource provider
 description: Scalability and performance targets for operations against the Azure Storage resource provider. The resource provider implements Azure Resource Manager for Azure Storage.
 services: storage
 author: tamram
@@ -11,8 +11,15 @@ ms.author: tamram
 ms.subservice: common
 ---
 
-# Scalability targets for the Azure Storage resource provider
+# Scalability and performance targets for the Azure Storage resource provider
 
 [!INCLUDE [storage-scalability-intro-include](../../../includes/storage-scalability-intro-include.md)]
 
+## Scale targets for the resource provider
+
 [!INCLUDE [azure-storage-limits-azure-resource-manager](../../../includes/azure-storage-limits-azure-resource-manager.md)]
+
+## See also
+
+- [Scalability and performance targets for standard storage accounts](scalability-targets-standard-account.md)
+- [Scalability targets for premium block blob storage accounts](../blobs/scalability-targets-premium-block-blobs.md)

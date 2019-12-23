@@ -84,7 +84,7 @@ When naming your storage account, keep these rules in mind:
 General-purpose storage accounts may be configured for either of the following performance tiers:
 
 - A standard performance tier for storing blobs, files, tables, queues, and Azure virtual machine disks. For more information about scalability targets for standard storage accounts, see [Scalability targets for standard storage accounts](scalability-targets-standard-account.md).
-- A premium performance tier for storing unmanaged virtual machine disks only. For more information about scalability targets for the premium performance tier, see [Scalability targets for premium page blob storage accounts](../blobs/scalability-targets-premium-page-blobs.md).
+- A premium performance tier for storing unmanaged virtual machine disks only. Microsoft recommends using managed disks with Azure virtual machines  instead of unmanaged disks. For more information about scalability targets for the premium performance tier, see [Scalability targets for premium page blob storage accounts](../blobs/scalability-targets-premium-page-blobs.md).
 
 BlockBlobStorage storage accounts provide a premium performance tier for storing block blobs and append blobs. For more information, see [Scalability targets for premium block blob storage accounts](../blobs/scalability-targets-premium-block-blobs.md).
 
