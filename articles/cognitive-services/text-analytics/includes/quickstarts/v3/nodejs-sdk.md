@@ -323,7 +323,7 @@ async function entityPiiRecognition(client){
         });
     });
 }
-entityRecognition(textAnalyticsClient);
+entityPiiRecognition(textAnalyticsClient);
 ```
 
 Run your code with `node index.js` in your console window.
@@ -340,6 +340,58 @@ Document ID: 1
 Document ID: 2
         Name: 998.214.865-68    Type: Brazil CPF Number         Sub Type: N/A
         Offset: 3, Length: 14   Score: 0.85
+```
+
+## Linked Entity Recognition
+<!-- TODO: Add description for Linked Entity Recognition and updated links-->
+<!--
+Create a list of objects, containing your documents. Call the client's [recognizeEntities()](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-textanalytics/textanalyticsclient#entities-models-textanalyticscliententitiesoptionalparams-) method and get the [EntitiesBatchResult](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-textanalytics/entitiesbatchresult) object. Iterate through the list of results, and print each document's ID. For each detected entity, print its wikipedia name, the type and sub-types (if exists) as well as the locations in the original text. -->
+
+```javascript
+async function linkedEntityRecognition(client){
+
+    const linkedEntityInput = [
+        "I had a wonderful trip to Seattle last week.",
+        "I work at Microsoft.",
+        "I visited Space Needle 2 times."
+    ]
+    const entityResults = await client.recognizeLinkedEntities(linkedEntityInput);
+
+    result.forEach(document => {
+        console.log(`Document ID: ${document.id}`);
+        document.entities.forEach(entity => {
+            console.log(`\tName: ${entity.name} \tID: ${entity.id} \tURL: ${entity.url} \tData Source: ${entity.dataSource}`);
+            console.log(`\tMatches:`)
+            entity.matches.forEach(match => {
+                console.log(`\t\tName: ${match.text}`);
+                console.log(`\t\tOffset: ${match.offset}, Length: ${match.length} \tScore: ${match.score}`);
+            })
+        });
+    });
+}
+linkedEntityRecognition(textAnalyticsClient);
+```
+
+Run your code with `node index.js` in your console window.
+
+### Output
+
+```console
+Document ID: 0
+        Name: Seattle   ID: Seattle     URL: https://en.wikipedia.org/wiki/Seattle      Data Source: Wikipedia
+        Matches:
+                Name: Seattle
+                Offset: 26, Length: 7   Score: 0.11472424095537814
+Document ID: 1
+        Name: Microsoft         ID: Microsoft   URL: https://en.wikipedia.org/wiki/Microsoft    Data Source: Wikipedia
+        Matches:
+                Name: Microsoft
+                Offset: 10, Length: 9   Score: 0.1869365971673207
+Document ID: 2
+        Name: Space Needle      ID: Space Needle        URL: https://en.wikipedia.org/wiki/Space_Needle         Data Source: Wikipedia
+        Matches:
+                Name: Space Needle
+                Offset: 10, Length: 12  Score: 0.155903620065595
 ```
 
 ## Run the application
