@@ -150,7 +150,7 @@ public ModelAndView getUserFromGraph(HttpServletRequest httpRequest, HttpServlet
 
 In the python sample, the code calling Microsoft graph is in [app.py#L53-L62](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/48637475ed7d7733795ebeac55c5d58663714c60/app.py#L53-L62).
 
-It attempts to get a token from the token cache, and then calls the eb API after setting the authorization header. If it can't, it re-signs in the user.
+It attempts to get a token from the token cache, and then calls the web API after setting the authorization header. If it can't, it re-signs in the user.
 
 ```python
 @app.route("/graphcall")

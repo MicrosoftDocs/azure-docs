@@ -35,7 +35,7 @@ To complete this quickstart, you must have:
 
 ## Analyze a receipt
 
-To start analyzing a receipt, you call the **Analyze Receipt** API using the cURL command below. Before you run the command, make these changes:
+To start analyzing a receipt, you call the **[Analyze Receipt](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeReceiptAsync)** API using the cURL command below. Before you run the command, make these changes:
 
 1. Replace `<Endpoint>` with the endpoint that you obtained with your Form Recognizer subscription.
 1. Replace `<your receipt URL>` with the URL address of a receipt image.
@@ -53,7 +53,7 @@ https://cognitiveservice/formrecognizer/v2.0-preview/prebuilt/receipt/operations
 
 ## Get the receipt results
 
-After you've called the **Analyze Receipt** API, you call the **Get Receipt Result** API to get the status of the operation and the extracted data. Before you run the command, make these changes:
+After you've called the **Analyze Receipt** API, you call the **[Get Analyze Receipt Result](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/GetAnalyzeReceiptResult)** API to get the status of the operation and the extracted data. Before you run the command, make these changes:
 
 1. Replace `<Endpoint>` with the endpoint that you obtained with your Form Recognizer subscription key. You can find it on your Form Recognizer resource **Overview** tab.
 1. Replace `<operationId>` with the operation ID from the previous step.
