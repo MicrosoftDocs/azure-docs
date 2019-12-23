@@ -20,16 +20,7 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
 
 ## 2019-12-23
 
-### Azure Machine Learning SDK for Python v1.0.TBD
-
-+ **New features**
-  + [Insert new features below. Reference articles and/or doc pages]
-
-  + **Preview features**
-    + [Contrib features below]
-
-+ **Breaking changes**
-  + [Reference upcoming breaking changes and old API support drop date]
+### Azure Machine Learning SDK for Python v1.0.81
 
 + **Bug fixes and improvements**
   + **azureml-contrib-interpret**
