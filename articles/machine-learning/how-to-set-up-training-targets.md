@@ -42,7 +42,7 @@ Azure Machine Learning has varying support across different compute targets. A t
 
 When training, it is common to start on your local computer, and later run that training script on a different compute target. With Azure Machine Learning, you can run your script on various compute targets without having to change your script.
 
-All you need to do is define the environment for each compute target within a **run configuration**.  Then, when you want to run your training experiment on a different compute target, specify the run configuration for that compute. For details of specifying an environment and binding it to run configuration, see [Create and manage environments for training and deployment](service/how-to-use-environments.md).
+All you need to do is define the environment for each compute target within a **run configuration**.  Then, when you want to run your training experiment on a different compute target, specify the run configuration for that compute. For details of specifying an environment and binding it to run configuration, see [Create and manage environments for training and deployment](how-to-use-environments.md).
 
 Learn more about [submitting experiments](#submit) at the end of this article.
 
@@ -359,7 +359,7 @@ For more information, see [Resource management](service/reference-azure-machine-
 
 ## Set up with VS Code
 
-You can access, create, and manage the compute targets that are associated with your workspace using the [VS Code extension](service/how-to-vscode-tools.md#create-and-manage-compute-targets) for Azure Machine Learning.
+You can access, create, and manage the compute targets that are associated with your workspace using the [VS Code extension](how-to-vscode-tools.md#create-and-manage-compute-targets) for Azure Machine Learning.
 
 ## <a id="submit"></a>Submit training run using Azure Machine Learning SDK
 
@@ -409,7 +409,7 @@ Or you can:
 
 * Submit the experiment with an `Estimator` object as shown in [Train ML models with estimators](how-to-train-ml-models.md).
 * Submit a HyperDrive run for [hyperparameter tuning](how-to-tune-hyperparameters.md).
-* Submit an experiment via the [VS Code extension](service/how-to-vscode-tools.md#train-and-tune-models).
+* Submit an experiment via the [VS Code extension](how-to-vscode-tools.md#train-and-tune-models).
 
 For more information, see the [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py) and [RunConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfiguration?view=azure-ml-py) documentation.
 
@@ -433,7 +433,7 @@ The run configuration file is YAML formatted, with following sections
  * The script to run and its arguments
  * Compute target name, either "local" or name of a compute under the workspace.
  * Parameters for executing the run: framework, communicator for distributed runs, maximum duration, and number of compute nodes.
- * Environment section. See [Create and manage environments for training and deployment](service/how-to-use-environments.md) for details of the fields in this section.
+ * Environment section. See [Create and manage environments for training and deployment](how-to-use-environments.md) for details of the fields in this section.
    * To specify Python packages to install for the run, create [conda environment file](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#create-env-file-manually), and set __condaDependenciesFile__ field.
  * Run history details to specify log file folder, and to enable or disable output collection and run history snapshots.
  * Configuration details specific to the framework selected.

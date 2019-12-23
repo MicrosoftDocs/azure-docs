@@ -1604,4 +1604,4 @@ A new, refreshed release of Azure Machine Learning: Read more about this release
 
 ## Next steps
 
-Read the overview for [Azure Machine Learning](service/overview-what-is-azure-ml.md).
+Read the overview for [Azure Machine Learning](overview-what-is-azure-ml.md).

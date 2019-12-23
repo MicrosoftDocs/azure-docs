@@ -51,7 +51,7 @@ In reinforcement learning, the algorithm gets to choose an action in response to
 
 ## Next steps
 
-* [Learn about studio in Azure Machine Learning and the Azure portal](service/overview-what-is-azure-ml.md).
+* [Learn about studio in Azure Machine Learning and the Azure portal](overview-what-is-azure-ml.md).
 
 * See a list of algorithms and modules in the [Algorithm and module reference](algorithm-module-reference/module-reference.md).
 

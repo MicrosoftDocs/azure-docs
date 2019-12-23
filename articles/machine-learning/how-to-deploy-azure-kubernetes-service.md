@@ -38,7 +38,7 @@ When deploying to Azure Kubernetes Service, you deploy to an AKS cluster that is
 
 - A machine learning model registered in your workspace. If you don't have a registered model, see [How and where to deploy models](service/how-to-deploy-and-where.md).
 
-- The [Azure CLI extension for Machine Learning service](service/reference-azure-machine-learning-cli.md), [Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py), or the [Azure Machine Learning Visual Studio Code extension](service/how-to-vscode-tools.md).
+- The [Azure CLI extension for Machine Learning service](service/reference-azure-machine-learning-cli.md), [Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py), or the [Azure Machine Learning Visual Studio Code extension](how-to-vscode-tools.md).
 
 - The __Python__ code snippets in this article assume that the following variables are set:
 
@@ -222,7 +222,7 @@ For more information, see the [az ml model deploy](https://docs.microsoft.com/cl
 
 ### Using VS Code
 
-For information on using VS Code, see [deploy to AKS via the VS Code extension](service/how-to-vscode-tools.md#deploy-and-manage-models).
+For information on using VS Code, see [deploy to AKS via the VS Code extension](how-to-vscode-tools.md#deploy-and-manage-models).
 
 > [!IMPORTANT] 
 > Deploying through VS Code requires the AKS cluster to be created or attached to your workspace in advance.

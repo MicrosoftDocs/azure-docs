@@ -34,7 +34,7 @@ For more information on the concepts involved in the deployment workflow, see [M
 
 - A model. If you don't have a trained model, you can use the model and dependency files provided in [this tutorial](https://aka.ms/azml-deploy-cloud).
 
-- The [Azure CLI extension for the Machine Learning service](service/reference-azure-machine-learning-cli.md), the [Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py), or the [Azure Machine Learning Visual Studio Code extension](service/how-to-vscode-tools.md).
+- The [Azure CLI extension for the Machine Learning service](service/reference-azure-machine-learning-cli.md), the [Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py), or the [Azure Machine Learning Visual Studio Code extension](how-to-vscode-tools.md).
 
 ## Connect to your workspace
 
@@ -55,7 +55,7 @@ The following code shows how to connect to an Azure Machine Learning workspace b
 
 + **Using VS Code**
 
-   When you use VS Code, you select the workspace by using a graphical interface. For more information, see [Deploy and manage models](service/how-to-vscode-tools.md#deploy-and-manage-models) in the VS Code extension documentation.
+   When you use VS Code, you select the workspace by using a graphical interface. For more information, see [Deploy and manage models](how-to-vscode-tools.md#deploy-and-manage-models) in the VS Code extension documentation.
 
 ## <a id="registermodel"></a> Register your model
 
@@ -111,7 +111,7 @@ The code snippets in this section demonstrate how to register a model from a tra
 
 + **Using VS Code**
 
-  Register models using any model files or folders by using the [VS Code](service/how-to-vscode-tools.md#deploy-and-manage-models) extension.
+  Register models using any model files or folders by using the [VS Code](how-to-vscode-tools.md#deploy-and-manage-models) extension.
 
 ### Register a model from a local file
 
@@ -483,11 +483,11 @@ inference_config = InferenceConfig(entry_script="x/y/score.py",
                                    environment=myenv)
 ```
 
-For more information on environments, see [Create and manage environments for training and deployment](service/how-to-use-environments.md).
+For more information on environments, see [Create and manage environments for training and deployment](how-to-use-environments.md).
 
 You can also directly specify the dependencies without using an environment. The following example demonstrates how to create an inference configuration that loads software dependencies from a Conda file:
 
-For more information on environments, see [Create and manage environments for training and deployment](service/how-to-use-environments.md).
+For more information on environments, see [Create and manage environments for training and deployment](how-to-use-environments.md).
 
 For more information on inference configuration, see the [InferenceConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py) class documentation.
 

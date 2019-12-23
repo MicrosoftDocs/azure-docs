@@ -33,7 +33,7 @@ There is no programming required, visually connect datasets and modules to const
 <a name="compare"></a>
 ## How does Machine Learning Studio (classic) differ from Azure Machine Learning?
 
-[Azure Machine Learning](../service/overview-what-is-azure-ml.md) provides both SDKs **-and-** the Azure Machine Learning designer (preview), to quickly prep data, train and deploy machine learning models. The designer provides a similar drag-and-drop experience to Studio (classic). However, unlike the proprietary compute platform of Studio (classic), the designer uses your own compute resources and is fully integrated into Azure Machine Learning.
+[Azure Machine Learning](../overview-what-is-azure-ml.md) provides both SDKs **-and-** the Azure Machine Learning designer (preview), to quickly prep data, train and deploy machine learning models. The designer provides a similar drag-and-drop experience to Studio (classic). However, unlike the proprietary compute platform of Studio (classic), the designer uses your own compute resources and is fully integrated into Azure Machine Learning.
 
 Here is a quick comparison:
 
