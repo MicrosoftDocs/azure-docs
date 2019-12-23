@@ -6,7 +6,7 @@ ms.subservice: security
 author: VanMSFT
 ms.author: vanto
 ms.topic: article
-ms.date: 10/28/2019
+ms.date: 12/23/2019
 ms.reviewer: ""
 ---
 
@@ -18,7 +18,7 @@ This document provides guidance on how to solve common security requirements for
 
 ### Azure SQL Database deployment offers covered in this guide
 
-- [SQL databases](https://docs.microsoft.com/azure/sql-database/sql-database-single-index): [single databases](sql-database-single-database.md) and [elastic pools](sql-database-elastic-pool.md) in [Azure SQL Database servers](sql-database-servers.md)
+- [SQL Databases](https://docs.microsoft.com/azure/sql-database/sql-database-single-index): [single databases](sql-database-single-database.md) and [elastic pools](sql-database-elastic-pool.md) in [Azure SQL Database servers](sql-database-servers.md)
 - [Managed instances](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-index)
 
 ### SQL deployment offers not covered in this guide
@@ -52,7 +52,7 @@ Unless otherwise stated, we recommend you follow all best practices listed in ea
 
 ### Feedback
 
-We plan on continuing to update the recommendations and best practices listed here. Please provide input or any corrections for this document using the **Feedback** link at the bottom of this article.
+We plan on continuing to update the recommendations and best practices listed here. Provide input or any corrections for this document using the **Feedback** link at the bottom of this article.
 
 ## Authentication
 
@@ -215,7 +215,7 @@ Access management is the process of controlling and managing authorized users' a
 > [!NOTE]
 > Mentioned in: FedRamp controls AC-06, NIST: AC-6, OSA Practice #3
 
-The principle of least privilege states that users shouldn't have more privileges than needed to complete their tasks. See the article, [Just enough administration](https://docs.microsoft.com/powershell/scripting/learn/remoting/jea/overview) for more information.
+The principle of least privilege states that users shouldn't have more privileges than needed to complete their tasks. For more information, see the article [Just enough administration](https://docs.microsoft.com/powershell/scripting/learn/remoting/jea/overview).
 
 **How to implement**:
 
@@ -274,14 +274,14 @@ The following best practices are optional but will result in better manageabilit
 > [!NOTE]
 > Mentioned in: FedRamp: AC-04, NIST: AC-5, ISO: A.6.1.2, PCI 6.4.2, SOC: CM-3, SDL-3
 
-Separation of Duties, also called Segregation of Duties decribes the requirement to split sensitive tasks into multiple tasks that are assigned to different users, usually to prevent data breaches.
+Separation of Duties, also called Segregation of Duties describes the requirement to split sensitive tasks into multiple tasks that are assigned to different users, usually to prevent data breaches.
 
 **How to implement**:
 
 - Identify the required level of Separation of Duties. Examples: 
   - Between Development/Test and Production environments 
   - Security-wise sensitive tasks vs Database Administrator (DBA) management level tasks vs developer tasks. 
-    - Examples: Auditor, creation of security policy for Role-level Security (RLS), Implementing SQL database objects with DDL-permissions.
+    - Examples: Auditor, creation of security policy for Role-level Security (RLS), Implementing SQL Database objects with DDL-permissions.
 
 - Identify a comprehensive hierarchy of users (and automated processes) that access the system.
 
@@ -305,7 +305,7 @@ Separation of Duties, also called Segregation of Duties decribes the requirement
 
 **Best practices**:
 
-- Make sure that different accounts are used for Development/Test and Production environments. Different accounts helps to comply with separation of Test & Production systems.
+- Make sure that different accounts are used for Development/Test and Production environments. Different accounts help to comply with separation of Test & Production systems.
 
 - Refrain from assigning permissions to individual users. Use roles (database or server roles) consistently instead. Having roles helps greatly with reporting and troubleshooting permissions.
 
@@ -377,7 +377,7 @@ Separation of Duties is not limited to the data in database, but includes applic
 Data protection is a set of capabilities for safeguarding important information from compromise by encryption or obfuscation.
 
 > [!NOTE]
-> Microsoft attests to Azure SQL Database as being FIPS 140-2 Level 1 compliant. This is done after verifying the strict use of FIPS 140-2 Level 1 acceptable algorithms and FIPS 140-2 Level 1 validated instances of those algorithms including consistency with required key lengths, key management, key generation, and key storage. This attestation is meant to allow our customers to respond to the need or requirement for the use of FIPS 140-2 Level 1 validated instances in the processing of data or delivery of systems or applications. We define the terms  “FIPS 140-2 Level 1 compliant” and “FIPS 140-2 Level 1 compliance” used in the above statement to demonstrate their intended applicability to U.S. and Canadian government use of the different term “FIPS 140-2 Level 1 validated.” 
+> Microsoft attests to Azure SQL Database as being FIPS 140-2 Level 1 compliant. This is done after verifying the strict use of FIPS 140-2 Level 1 acceptable algorithms and FIPS 140-2 Level 1 validated instances of those algorithms including consistency with required key lengths, key management, key generation, and key storage. This attestation is meant to allow our customers to respond to the need or requirement for the use of FIPS 140-2 Level 1 validated instances in the processing of data or delivery of systems or applications. We define the terms "FIPS 140-2 Level 1 compliant" and "FIPS 140-2 Level 1 compliance" used in the above statement to demonstrate their intended applicability to U.S. and Canadian government use of the different term "FIPS 140-2 Level 1 validated." 
 
 
 ### Encrypt data in transit
@@ -431,7 +431,7 @@ Data in use is the data stored in memory of the database system during the execu
 
 - Use deterministic encryption if computations (equality) on data need to be supported. Otherwise, use randomized encryption. Avoid using deterministic encryption for low-entropy data sets, or data sets with publicly known distribution. 
 
-- If you are concerned about 3rd party access your data legally without your consent, ensure that all application and tools that have access to the keys and data in plaintext run outside of Microsoft Azure Cloud. Without access to the keys, the 3rd party will have no way of decrypting the data unless they bypass the encryption.
+- If you are concerned about third party access your data legally without your consent, ensure that all application and tools that have access to the keys and data in plaintext run outside of Microsoft Azure Cloud. Without access to the keys, the third party will have no way of decrypting the data unless they bypass the encryption.
 
 - Always Encrypted doesn't easily support granting temporary access to the keys (and the protected data). For example, if you need to share the keys with a DBA, to allow the DBA to perform some cleansing operations on sensitive and encrypted data, the only way to reliability revoke the access to the data from the DBA will be to rotate both the column encryption keys and the column master keys protecting the data, which is an expensive operation. 
 
@@ -523,7 +523,7 @@ Minimize the number of features that can be attacked by a malicious user by impl
 In an Azure SQL Database server (containing singleton database or elastic pools):
 - Set Allow Access to Azure services to OFF.
 
-- Use VNet Service endpoints and VNet Firewall Rules.
+- Use virtual network Service endpoints and virtual network Firewall Rules.
 
 - Use Private Link (preview).
 
@@ -533,10 +533,10 @@ In a managed instance:
 **Best practices**:
 
 - Restricting access to Azure SQL Database by connecting on a private endpoint (for example, using a private data path): 
-  - A managed instance can be isolated inside a virtual network to prevent external access. Applications and tools that reside in the same or peered virtual network in the same region could access it directly. Applications and tools that are in different region could utilize VNet-to-VNet connection or Express route circuit peering to establish connection. Customer should use Network Security Groups (NSG) to restrict access over port 1433 only to resources that require access to a managed instance 
-  - For a SQL Database server (containing single databases or elastic pools), use the [Private Link](sql-database-private-endpoint-overview.md) feature that provides a dedicated private IP for the SQL Database server inside your virtual network. You can also use [VNet Service endpoints with VNet Firewall Rules](sql-database-vnet-service-endpoint-rule-overview.md) to restrict access to your SQL Database servers.
+  - A managed instance can be isolated inside a virtual network to prevent external access. Applications and tools that reside in the same or peered virtual network in the same region could access it directly. Applications and tools that are in different region could utilize VNet-to-VNet connection or ExpressRoute circuit peering to establish connection. Customer should use Network Security Groups (NSG) to restrict access over port 1433 only to resources that require access to a managed instance 
+  - For a SQL Database server (containing single databases or elastic pools), use the [Private Link](sql-database-private-endpoint-overview.md) feature that provides a dedicated private IP for the SQL Database server inside your virtual network. You can also use [virtual network Service endpoints with virtual network Firewall Rules](sql-database-vnet-service-endpoint-rule-overview.md) to restrict access to your SQL Database servers.
   - Mobile users should utilize point-to-site VPN connections to connect over the data path.
-  - Users connected to their on-premises network should utilize site-to-site VPN connection or Express Route to connect over the data path.
+  - Users connected to their on-premises network should utilize site-to-site VPN connection or ExpressRoute to connect over the data path.
 
 - You can access Azure SQL Database by connecting to a public endpoint (for example, using a public data path). The following best practices should be considered: 
   - For a SQL Database server, use [IP firewall rules](sql-database-firewall-configure.md) to restrict access to only authorized IP addresses.
@@ -641,21 +641,21 @@ Advanced threat protection enables you to detect and respond to potential threat
 
 - Configure [Advanced Data Security](sql-database-advanced-data-security.md#getting-started-with-ads) for Azure SQL Database for a specific SQL Database server or a managed instance or for all SQL Database servers and managed instances in a subscription by switching to [Azure Security Center Standard tier](../security-center/security-center-pricing.md). 
 
-- For a full investigation experience, it's recommended to enable [SQL Database Auditing](sql-database-auditing.md) to track database events and write them to an audit log in an Azure storage account or Azure Log Analytics workspace. 
+- For a full investigation experience, it's recommended to enable [SQL Database Auditing](sql-database-auditing.md) to track database events and write them to an audit log in an Azure Storage account or Azure Log Analytics workspace. 
 
 ### Audit critical security events
 Tracking of database events helps you understand database activity, and gain insight into discrepancies and anomalies that could indicate business concerns or suspected security violations. It also enables and facilitates adherence to compliance standards. 
 
 **How to implement**:
 
-- Enable [SQL Database Auditing](sql-database-auditing.md) to track database events and write them to an audit log in your Azure storage account, Log Analytics workspace (preview), or Event Hubs (preview). 
+- Enable [SQL Database Auditing](sql-database-auditing.md) to track database events and write them to an audit log in your Azure Storage account, Log Analytics workspace (preview), or Event Hubs (preview). 
 
-- Audit logs can be written to an Azure storage account, to a Log Analytics workspace for consumption by Azure Monitor logs, or to event hub for consumption using event hub. You can configure any combination of these options, and audit logs will be written to each. 
+- Audit logs can be written to an Azure Storage account, to a Log Analytics workspace for consumption by Azure Monitor logs, or to event hub for consumption using event hub. You can configure any combination of these options, and audit logs will be written to each. 
 
 **Best practices**:
 
 - By configuring [SQL Database Auditing](sql-database-auditing.md) on your database server to audit events, all existing and newly created databases on that server will be audited.
-- By default auditing policy includes all actions (queries, stored procedures and successful and failed logins) against the databases, which may result in high volume of audit logs. It is recommended for customers to [configure auditing for different types of actions and action groups using PowerShell](sql-database-auditing.md#subheading-7), to control the amount of audited actions, and to minimize the risk of event loss. This will allow customers to capture only the truly needed audit data.
+- By default auditing policy includes all actions (queries, stored procedures and successful and failed logins) against the databases, which may result in high volume of audit logs. It is recommended for customers to [configure auditing for different types of actions and action groups using PowerShell](sql-database-auditing.md#subheading-7), to control the number of audited actions, and to minimize the risk of event loss. This will allow customers to capture only the truly needed audit data.
 - Audit logs can be consumed directly in the [Azure portal](https://portal.azure.com/), or from the storage location that was configured. 
 
 
@@ -684,7 +684,7 @@ To support separation of duties and to separate DBA from Auditors, it is key to 
 
 ## Security Management
 
-This section describes the different aspects and best practices for managing your databases security posture. It includes best practices for ensuring your databases are configures to meet security standards, for discovering and for classifying and tracking access to potentially sensitive data in your databases. 
+This section describes the different aspects and best practices for managing your databases security posture. It includes best practices for ensuring your databases are configured to meet security standards, for discovering and for classifying and tracking access to potentially sensitive data in your databases. 
 
 ### Ensure that the database(s) are configured to meet security best practices 
 
@@ -744,7 +744,7 @@ Monitor who accesses sensitive data and capture queries on sensitive data in aud
 
 ### Visualize security and compliance status 
 
-Use a unified infrastructure security management system that strengthens the security posture of your data centers (including SQL databases). View a list of recommendations concerning the security of your databases and compliance status.
+Use a unified infrastructure security management system that strengthens the security posture of your data centers (including SQL Databases). View a list of recommendations concerning the security of your databases and compliance status.
 
 **How to implement**:
 
@@ -760,7 +760,7 @@ Data exfiltration is the unauthorized copying, transfer, or retrieval of data fr
 
 Connecting to Azure SQL Database server over a public endpoint presents a data exfiltration risk as it requires customers to open their firewalls to public IPs.  
 
-**Scenario 1**: An application on an Azure VM connects to a database in an Azure SQL Database server. A rogue actor gets access to the VM and compromises it. In this scenario, data exfiltration means that an external entity using the rogue VM connects to the database, copies Personal Identifiable information (PII) data and stores it in a blob storage or a different SQL database in a different subscription.
+**Scenario 1**: An application on an Azure VM connects to a database in an Azure SQL Database server. A rogue actor gets access to the VM and compromises it. In this scenario, data exfiltration means that an external entity using the rogue VM connects to the database, copies Personal Identifiable information (PII) data and stores it in a blob storage or a different SQL Database in a different subscription.
 
 **Scenario 2**: A Rouge DBA. This scenario is often raised by security sensitive customers from regulated industries. In this scenario, a high privilege user might copy data from Azure SQL Database to another subscription not controlled by the data owner.
 
@@ -785,11 +785,10 @@ Most security standards address data availability in terms of operational contin
 - The Business Critical tier includes failover groups, multi-availability zones, full and differential log backups, and point-in-time-restore backups enabled by default:  
   - [High-availability and Azure SQL Database - Zone redundant configuration](sql-database-high-availability.md#zone-redundant-configuration)
   - [Automated backups](sql-database-automated-backups.md)
-  - [Recover an Azure SQL database using automated database backups - Point-in-time restore](sql-database-recovery-using-backups.md#point-in-time-restore)
+  - [Recover an Azure SQL Database using automated database backups - Point-in-time restore](sql-database-recovery-using-backups.md#point-in-time-restore)
 
 - Additional business continuity features such as auto-failover groups across different Azure geos can be configured as described here: [Overview of business continuity with Azure SQL Database](sql-database-business-continuity.md)
 
-## Feedback
+## Next steps
 
-> [!IMPORTANT]
-> **Please provide feedback to the SQL Security Team: <dpsqlsecpm@microsoft.com>**
+- See [An overview of Azure SQL Database security capabilities](sql-database-security-overview.md)
