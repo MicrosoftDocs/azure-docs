@@ -25255,6 +25255,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/storage/common/storage-scalability-targets.md",
+      "redirect_url": "/azure/storage/common/scalability-targets-standard-account",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/storage/storage-security-guide.md",
       "redirect_url": "/azure/storage/common/storage-security-guide",
       "redirect_document_id": true
