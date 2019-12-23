@@ -250,50 +250,26 @@ ID: 3
         Document Key Phrases: mi,encanta,fútbol
 ```
 
-## Entity recognition
+## Named Entity Recognition
 
-Create a list of objects, containing your documents. Call the client's [entities()](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-textanalytics/textanalyticsclient#entities-models-textanalyticscliententitiesoptionalparams-) method and get the [EntitiesBatchResult](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-textanalytics/entitiesbatchresult) object. Iterate through the list of results, and print each document's ID. For each detected entity, print its wikipedia name, the type and sub-types (if exists) as well as the locations in the original text.
+Create a list of objects, containing your documents. Call the client's [recognizeEntities()](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-textanalytics/textanalyticsclient#entities-models-textanalyticscliententitiesoptionalparams-) method and get the [EntitiesBatchResult](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-textanalytics/entitiesbatchresult) object. Iterate through the list of results, and print each document's ID. For each detected entity, print its wikipedia name, the type and sub-types (if exists) as well as the locations in the original text.
 
 ```javascript
 async function entityRecognition(client){
-    console.log("3. This will perform Entity recognition on the sentences.");
 
-    const entityInputs = {
-        documents: [
-            {
-                language: "en",
-                id: "1",
-                text:
-                    "Microsoft was founded by Bill Gates and Paul Allen on April 4, 1975, to develop and sell BASIC interpreters for the Altair 8800"
-            },
-            {
-                language: "es",
-                id: "2",
-                text:
-                    "La sede principal de Microsoft se encuentra en la ciudad de Redmond, a 21 kilómetros de Seattle."
-            }
-        ]
-    };
+    const entityInputs = [
+        "Microsoft was founded by Bill Gates and Paul Allen on April 4, 1975, to develop and sell BASIC interpreters for the Altair 8800",
+        "La sede principal de Microsoft se encuentra en la ciudad de Redmond, a 21 kilómetros de Seattle."
+    ];
 
-    const entityResults = await client.entities({
-        multiLanguageBatchInput: entityInputs
-    });
+    const entityResults = await client.recognizeEntities(entityInputs);
 
-    entityResults.documents.forEach(document => {
+    entityResults.forEach(document => {
         console.log(`Document ID: ${document.id}`);
-        document.entities.forEach(e => {
-            console.log(`\tName: ${e.name} Type: ${e.type} Sub Type: ${e.type}`);
-            e.matches.forEach(match =>
-                console.log(
-                    `\t\tOffset: ${match.offset} Length: ${match.length} Score: ${
-                    match.entityTypeScore
-                    }`
-                )
-            );
+        document.entities.forEach(entity => {
+            console.log(`\tName: ${entity.text} Type: ${entity.type} Sub Type: ${entity.subtype ? entity.subtype : "N/A"}`);
         });
     });
-
-    console.log(os.EOL);
 }
 entityRecognition(textAnalyticsClient);
 ```
@@ -303,31 +279,24 @@ Run your code with `node index.js` in your console window.
 ### Output
 
 ```console
+Document ID: 0
+        Name: Microsoft         Type: Organization      Sub Type: N/A
+        Offset: 0, Length: 9    Score: 1
+        Name: Bill Gates        Type: Person    Sub Type: N/A
+        Offset: 25, Length: 10  Score: 0.999786376953125
+        Name: Paul Allen        Type: Person    Sub Type: N/A
+        Offset: 40, Length: 10  Score: 0.9988105297088623
+        Name: April 4, 1975     Type: DateTime  Sub Type: Date
+        Offset: 54, Length: 13  Score: 0.8
+        Name: Altair    Type: Organization      Sub Type: N/A
+        Offset: 116, Length: 6  Score: 0.7996330857276917
+        Name: 8800      Type: Quantity  Sub Type: Number
+        Offset: 123, Length: 4  Score: 0.8
 Document ID: 1
-    Name: Microsoft,        Type: Organization,     Sub-Type: N/A
-    Offset: 0, Length: 9,   Score: 1.0
-    Name: Bill Gates,       Type: Person,   Sub-Type: N/A
-    Offset: 25, Length: 10, Score: 0.999847412109375
-    Name: Paul Allen,       Type: Person,   Sub-Type: N/A
-    Offset: 40, Length: 10, Score: 0.9988409876823425
-    Name: April 4,  Type: Other,    Sub-Type: N/A
-    Offset: 54, Length: 7,  Score: 0.8
-    Name: April 4, 1975,    Type: DateTime, Sub-Type: Date
-    Offset: 54, Length: 13, Score: 0.8
-    Name: BASIC,    Type: Other,    Sub-Type: N/A
-    Offset: 89, Length: 5,  Score: 0.8
-    Name: Altair 8800,      Type: Other,    Sub-Type: N/A
-    Offset: 116, Length: 11,        Score: 0.8
-
-Document ID: 2
-    Name: Microsoft,        Type: Organization,     Sub-Type: N/A
-    Offset: 21, Length: 9,  Score: 0.999755859375
-    Name: Redmond (Washington),     Type: Location, Sub-Type: N/A
-    Offset: 60, Length: 7,  Score: 0.9911284446716309
-    Name: 21 kilómetros,    Type: Quantity, Sub-Type: Dimension
-    Offset: 71, Length: 13, Score: 0.8
-    Name: Seattle,  Type: Location, Sub-Type: N/A
-    Offset: 88, Length: 7,  Score: 0.9998779296875
+        Name: Microsoft         Type: Organization      Sub Type: N/A
+        Offset: 21, Length: 9   Score: 0.9837456345558167
+        Name: 21        Type: Quantity  Sub Type: Number
+        Offset: 71, Length: 2   Score: 0.8
 ```
 
 ## Run the application
