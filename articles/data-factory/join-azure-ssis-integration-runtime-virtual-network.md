@@ -348,7 +348,7 @@ After you've configured your Azure Resource Manager virtual network or classic v
 
    1. Select the **Bring static public IP addresses for your Azure-SSIS Integration Runtime** check box to choose whether you want to bring your own static public IP addresses for Azure-SSIS IR, so you can allow them on the firewall for your data sources.
 
-   If you select the check box, complete the following steps.
+      If you select the check box, complete the following steps.
 
       1. For **First static public IP address**, select the first static public IP address that [meets the requirements](#publicIP) for your Azure-SSIS IR. If you don't have any, click **Create new** link to create static public IP addresses on Azure portal and then click the refresh button here, so you can select them.
 	  
