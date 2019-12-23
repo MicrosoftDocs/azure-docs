@@ -94,7 +94,7 @@ For an overview of the service, read [What is Azure Machine Learning?](overview-
 
 Create your first experiment with your preferred method:
   + [Use Python notebooks](service/tutorial-1st-experiment-sdk-setup.md)
-  + [Use R Markdown]( tutorial-1st-r-experiment.md) 
-  + [Use automated machine learning](ui-tutorial-automobile-price-train-score.md) 
+  + [Use R Markdown](service/tutorial-1st-r-experiment.md) 
+  + [Use automated machine learning](service/tutorial-designer-automobile-price-train-score.md) 
   + [Use the designer's drag & drop capabilities](service/tutorial-first-experiment-automated-ml.md) 
   + [Use the ML extension to the CLI](service/tutorial-train-deploy-model-cli.md)
