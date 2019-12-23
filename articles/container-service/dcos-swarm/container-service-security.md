@@ -11,7 +11,7 @@ ms.custom: mvc
 
 # (DEPRECATED) Securing Docker containers in Azure Container Service
 
-[!INCLUDE [ACS deprecation](container-service-deprecation.md)]
+[!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
 This article introduces considerations and recommendations for securing Docker containers deployed in Azure Container Service. Many of these considerations apply generally to Docker containers deployed in Azure or other environments. 
 
@@ -48,7 +48,7 @@ Once an application is deployed in production, it is essential to set a few rule
 ## Host-level container isolation
 When a customer deploys container applications on Azure resources, they are deployed at a subscription level in resource groups and are not multi-tenant. This means that if a customer shares a subscription with others, there are no boundaries that can be built between two deployments in the same subscription. Therefore, container-level security is not guaranteed. 
 
-It is also critical to understand that containers share the kernel and the resources of the host (which in Azure Container Service is an Azure VM in a cluster). Therefore, containers running in production must be run in non-privileged user mode. Running a container with root privileges can compromise the entire environment. With root-level access in a container, a hacker can gain access to the full root privileges on the host. In addition, it is important to run containers with read-only file systems. This prevents someone who has access to the compromised container to write malicious scripts to the file system and gain access to other files. Similarly, it is important to limit the resources (such as memory, CPU, and network bandwidth) allocated to a container. This helps prevent hackers from hogging resources and pursuing illegal activities such as credit card fraud or bitcoin mining, which could prevent other containers from running on the host or cluster.
+It is also critical to understand that containers share the kernel and the resources of the host (which in Azure Container Service is an Azure VM in a cluster). Therefore, containers running in production must be run in non-privileged user mode. Running a container with root privileges can compromise the entire environment. With root-level access in a container, a hacker can gain access to the full root privileges on the host. In addition, it is important to run containers with read-only file systems. This prevents someone who has access to the compromised container to write malicious scripts to the file system and gain access to other files. Similarly, it is important to limit the resources (such as memory, CPU, and network bandwidth) allocated to a container. This helps prevent hackers from hogging resources and pursuing illegal activities such as credit card fraud or bit coin mining, which could prevent other containers from running on the host or cluster.
 
 ## Orchestrator considerations
 
@@ -66,4 +66,4 @@ For additional orchestrator-specific security information, see the following res
 
 * For more about Docker architecture and container security, see [Introduction to Container Security](https://www.docker.com/sites/default/files/WP_IntrotoContainerSecurity_08.19.2016.pdf).
 
-* For information about Azure platform security, see the [Azure Security Center](https://www.microsoft.com/en-us/trustcenter/cloudservices/azure).
+* For information about Azure platform security, see the [Azure Security Center](https://www.microsoft.com/trustcenter/cloudservices/azure).
