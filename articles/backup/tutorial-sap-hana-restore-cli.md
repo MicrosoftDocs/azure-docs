@@ -55,7 +55,7 @@ As you can see, the list above contains three recovery points: one each for full
 
 ## Prerequisites to restore a database
 
-Before restoring a database, note the following:
+Ensure that the following prerequisites are met before restoring a database:
 
 * You can restore the database only to an SAP HANA instance that is in the same region
 * The target instance must be registered with the same vault as the source

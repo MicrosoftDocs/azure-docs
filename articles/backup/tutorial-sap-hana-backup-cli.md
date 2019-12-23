@@ -89,7 +89,8 @@ Name                                                    Friendly Name    Resourc
 VMAppContainer;Compute;saphanaResourceGroup;saphanaVM   saphanaVM        saphanaResourceGroup  AzureWorkload  Registered
 ```
 
-Note that “name” in the above output refers to the container name, this container name will be used in the next sections to enable backups and trigger them. Which in this case, is *VMAppContainer;Compute;saphanaResourceGroup;saphanaVM*.
+>[!NOTE]
+> The column “name” in the above output refers to the container name. This container name will be used in the next sections to enable backups and trigger them. Which in this case, is *VMAppContainer;Compute;saphanaResourceGroup;saphanaVM*.
 
 ## Enable backup on SAP HANA database
 
@@ -138,7 +139,7 @@ The [az backup job list](https://docs.microsoft.com/cli/azure/backup/job?view=az
 
 ## Trigger an on-demand backup
 
-While the above section details how to configure a scheduled backup, this section talks about triggering an on-demand backup. To do this, we use the [az backup protection backup-now] cmdlet.
+While the above section details how to configure a scheduled backup, this section talks about triggering an on-demand backup. To do this, we use the [az backup protection backup-now](https://docs.microsoft.com/cli/azure/backup/protection#az-backup-protection-backup-now) cmdlet.
 
 >[!NOTE]
 > The retention policy of an on-demand backup is determined by the underlying retention policy for the database.
