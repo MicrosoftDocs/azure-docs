@@ -13,7 +13,7 @@ ms.service: azure-remote-rendering
 
 ARR uses the same authentication mechanism as Azure Spatial Anchors (ASA), for detailed documentation, see https://docs.microsoft.com/azure/spatial-anchors/concepts/authentication?tabs=csharp. Clients need to set AccountKey, AuthenticationToken or AccessToken to call the REST APIs successfully. AccountKey can be obtained in the "Keys" tab for the Remote Rendering account on the Azure portal. AuthenticationToken is an Azure AD token, which can be obtained by using the ADAL library. AccessToken is an MR token, which can be obtained from Azure Mixed Reality Security Token Service (STS). (Azure AD token is not supported yet)
 
-# AzureFrontendAccountInfo
+## AzureFrontendAccountInfo
 
 AzureFrontendAccountInfo is used to set up the authentication information for an AzureFrontend. 
 
@@ -50,7 +50,7 @@ The important fields are:
 
 ```SessionLocation.ignore``` can be used to pass the AccountDomain directly to the underlying authentication service.
 
-# Azure Frontend
+## Azure Frontend
 
 The relevant classes are ```AzureFrontend``` and ```AzureSession```. ```AzureFrontend``` is used for account management and account level functionality which includes: asset ingestion and rendering session creation. ```AzureSession``` is used for session level functionality and it includes: session update, queries, and stopping.
 
@@ -79,11 +79,11 @@ void GetRenderingSessionProperties(AzureSession session)
 
 ```AzureSession``` will keep a local cache of the last known session properties based on calls to GetRenderingSessionProperties.
 
-## Threading
+### Threading
 
 All AzureSession and AzureFrontend async calls are completed in a background thread, not the main application thread.
 
-## Redundant calls on a session object
+### Redundant calls on a session object
 
 At any given point in time, only a single call of a particular type for a session can be issued. For example, if the user has called ```AzureSession.StopRenderingSession``` and, before the first call has returned, calls ```AzureSession.StopRenderingSession``` again, the second call will fail with ARRResult.AlreadyExists.
 
@@ -100,15 +100,15 @@ It is possible to call the function again from within the completion routine of 
     session.GetRenderingSessionPropertiesAsync(); // Fails due to redundancy
 ```
 
-## Azure Frontend APIs
+### Azure Frontend APIs
 
 This section will cover Azure Frontend APIs, which are C++ and C# APIs to interact with ingestion service and rendering service REST APIs.
 
-## Ingestion APIs
+### Ingestion APIs
 
 For detailed documentation about ingestion service, see the [article](../how-tos/ingest-models.md).
 
-### Start asset ingestion
+#### Start asset ingestion
 
 ``` cpp
 void StartAssetIngestion(AzureFrontend& frontend, const char* modelName, const char* modelUrl, const char* assetContainerUrl)
@@ -147,7 +147,7 @@ void StartAssetIngestion(AzureFrontend frontend, string modelName, string modelU
 }
 ```
 
-### Get ingestion status
+#### Get ingestion status
 
 ``` cpp
 void GetIngestionStatus(AzureFrontend& frontend, const char* assetId)
@@ -185,13 +185,13 @@ void GetIngestionStatus(AzureFrontend frontend, string assetId)
 }
 ```
 
-## Rendering APIs
+### Rendering APIs
 
 For detailed documentation about rendering service, see the [article](../quickstarts/launching-virtual-machines.md).
 
 A rendering session can either be created dynamically on the service or an already existing session id can be 'opened' into an AzureSession object.
 
-### Create rendering session
+#### Create rendering session
 
 ``` cpp
 void CreateRenderingSession(AzureFrontend& frontend, ARRRenderingSessionVmSize vmSize, uint32_t maxLeaseTimeHours)
@@ -230,7 +230,7 @@ void CreateRenderingSession(AzureFrontend frontend, ARRRenderingSessionVmSize vm
 }
 ```
 
-### Open an existing rendering session
+#### Open an existing rendering session
 
 ``` cpp
 void OpenRenderingSession(AzureFrontend& frontend, const char* sessionId)
@@ -249,7 +249,7 @@ void CreateRenderingSession(AzureFrontend frontend, string sessionId)
 }
 ```
 
-### Get current rendering sessions
+#### Get current rendering sessions
 
 ``` cpp
 void AzureFrontendTest::GetCurrentRenderingSessions(AzureFrontend& frontend)
@@ -286,9 +286,9 @@ void GetCurrentRenderingSessions(AzureFrontend frontend)
 }
 ```
 
-## Session APIs
+### Session APIs
 
-### Get rendering session properties
+#### Get rendering session properties
 
 ``` cpp
 void GetRenderingSessionProperties(RenderingSession& session)
@@ -326,7 +326,7 @@ void GetRenderingSessionProperties(AzureSession session)
 }
 ```
 
-### Update rendering session
+#### Update rendering session
 
 ``` cpp
 void UpdateRenderingSession(RenderingSession& session, uint32_t maxLeaseTimeHours, maxLeaseTimeMinutes)
@@ -365,7 +365,7 @@ void UpdateRenderingSession(AzureSession sessionId, uint maxLeaseTimeHours, uint
 }
 ```
 
-### Stop rendering session
+#### Stop rendering session
 
 ``` cpp
 void StopRenderingSession(RenderingSession& session)
@@ -403,7 +403,7 @@ void StopRenderingSession(AzureSession session)
 }
 ```
 
-### Connect to ARR inspector
+#### Connect to ARR inspector
 
 
 ``` cpp
@@ -457,4 +457,5 @@ void ConnectToArrInspector(AzureSession session)
 }
 ```
 
-*Note*: ConnectToArrInspector will use the locally cached hostname in the AzureSession. Make sure to call GetRenderingSessionProperties at least once to set the hostname.
+> [!NOTE]
+> ConnectToArrInspector will use the locally cached hostname in the AzureSession. Make sure to call GetRenderingSessionProperties at least once to set the hostname.

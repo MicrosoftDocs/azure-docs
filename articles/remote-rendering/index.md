@@ -6,7 +6,7 @@ manager: jlyons
 services: azure-remote-rendering
 ms.author: flborn
 ms.date: 12/11/2019
-ms.topic: introduction
+ms.topic: article
 ms.service: azure-remote-rendering
 ---
 # Azure Remote Rendering
