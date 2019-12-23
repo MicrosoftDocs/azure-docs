@@ -16,7 +16,7 @@ ms.date: 12/23/2019
 
 # Configure Self-Hosted IR as a proxy for Azure-SSIS IR in ADF
 
-This article describes how to run SQL Server Integration Services (SSIS) packages on Azure-SSIS Integration Runtime (IR) in Azure Data Factory (ADF) with Self-Hosted IR configured as a proxy.  This feature allows you to access data on premises without [joining your Azure-SSIS IR to a virtual network](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network).  This is useful when your corporate network has an overly complex configuration/restrictive policy for you to inject your Azure-SSIS IR in it.
+This article describes how to run SQL Server Integration Services (SSIS) packages on Azure-SSIS Integration Runtime (IR) in Azure Data Factory (ADF) with Self-Hosted IR configured as a proxy.  This feature allows you to access data on premises without [joining your Azure-SSIS IR to a virtual network](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network).  It is useful when your corporate network has an overly complex configuration/restrictive policy for you to inject your Azure-SSIS IR in it.
 
 This feature will split your package containing a Data Flow Task with on-premises data source into two staging tasks: the first one running on your Self-Hosted IR will first move data from the on-premises data source into a staging area in your Azure Blob Storage, while the second one running on your Azure-SSIS IR will then move data from the staging area into the intended data destination.
 
@@ -29,13 +29,13 @@ In order to use this feature, you will first need to create an ADF and provision
 You will then need to provision your Self-Hosted IR under the same ADF where your Azure-SSIS IR is provisioned by following the [How to create a Self-Hosted IR](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime) article.
 
 Finally, you will need to download and install the latest version of Self-Hosted IR, as well as the additional drivers and runtime, on your on-premises machine/Azure Virtual Machine (VM) as follows:
-- Please download and install the latest version of Self-Hosted IR from [here](https://www.microsoft.com/download/details.aspx?id=39717).
-- If you use OLEDB connectors in your packages, please download and install the relevant OLEDB drivers on the same machine where Self-Hosted IR is installed if you have not done so already.  If you use the earlier version of OLEDB driver for SQL Server (SQLNCLI), you can download the 64-bit version from [here](https://www.microsoft.com/download/details.aspx?id=50402).  If you use the latest version of OLEDB driver for SQL Server (MSOLEDBSQL), you can download the 64-bit version from [here](https://www.microsoft.com/download/details.aspx?id=56730).  If you use OLEDB drivers for other database systems, such as PostgreSQL, MySQL, Oracle, etc., you can download the 64-bit version from their respective websites.
-- Please download and install Visual C++ (VC) runtime on the same machine where Self-Hosted IR is installed if you have not done so already.  You can download the 64-bit version from [here](https://www.microsoft.com/download/details.aspx?id=40784).
+- Download and install the latest version of Self-Hosted IR from [here](https://www.microsoft.com/download/details.aspx?id=39717).
+- If you use OLEDB connectors in your packages, download and install the relevant OLEDB drivers on the same machine where Self-Hosted IR is installed if you have not done so already.  If you use the earlier version of OLEDB driver for SQL Server (SQLNCLI), you can download the 64-bit version from [here](https://www.microsoft.com/download/details.aspx?id=50402).  If you use the latest version of OLEDB driver for SQL Server (MSOLEDBSQL), you can download the 64-bit version from [here](https://www.microsoft.com/download/details.aspx?id=56730).  If you use OLEDB drivers for other database systems, such as PostgreSQL, MySQL, Oracle, etc., you can download the 64-bit version from their respective websites.
+- Download and install Visual C++ (VC) runtime on the same machine where Self-Hosted IR is installed if you have not done so already.  You can download the 64-bit version from [here](https://www.microsoft.com/download/details.aspx?id=40784).
 
 ## Prepare Azure Blob Storage linked service for staging
 
-Please create an Azure Blob Storage linked service under the same ADF where your Azure-SSIS IR is provisioned, if you have not done so already, by following the [How to create an ADF linked service](https://docs.microsoft.com/azure/data-factory/quickstart-create-data-factory-portal#create-a-linked-service) article.  Please ensure the following:
+Create an Azure Blob Storage linked service under the same ADF where your Azure-SSIS IR is provisioned, if you have not done so already, by following the [How to create an ADF linked service](https://docs.microsoft.com/azure/data-factory/quickstart-create-data-factory-portal#create-a-linked-service) article.  Please ensure the following:
 - **Azure Blob Storage** is selected for **Data Store**
 - **AutoResolveIntegrationRuntime** is selected for **Connect via integration runtime**
 - Either **Account key**/**SAS URI**/**Service Principal** is selected for **Authentication method**
@@ -44,7 +44,7 @@ Please create an Azure Blob Storage linked service under the same ADF where your
 
 ## Configure Azure-SSIS IR with Self-Hosted IR as a proxy
 
-Having prepared your Self-Hosted IR and Azure Blob Storage linked service for staging, you can now configure your new/existing Azure-SSIS IR with Self-Hosted IR as a proxy on ADF portal/app.  If your existing Azure-SSIS IR is running, please stop it before you do this and then restart it afterwards.
+Having prepared your Self-Hosted IR and Azure Blob Storage linked service for staging, you can now configure your new/existing Azure-SSIS IR with Self-Hosted IR as a proxy on ADF portal/app.  If your existing Azure-SSIS IR is running, stop it before you do this and then restart it afterwards.
 
 1. On the integration runtime setup panel, advance through the **General Settings** and **SQL Settings** sections by selecting the **Next** button. 
 
@@ -96,7 +96,7 @@ On your Self-Hosted IR, you can find the runtime logs in `C:\ProgramData\SSISTel
 ## Using Windows authentication in staging tasks
 
 If your staging tasks on Self-Hosted IR require Windows authentication, you need to [configure your SSIS packages to use the same Windows authentication](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-connect-with-windows-auth?view=sql-server-ver15). Your staging tasks will be invoked with the Self-Hosted IR service account (`NT SERVICE\DIAHostService` by default) and your data stores will be accessed with the Windows authentication account. Both accounts require certain security policies to be assigned to them. Consequently, on the Self-Hosted IR machine, open `Local Security Policy` -> `Local Policies` -> `User Rights Assignment` and complete the following steps.
-- Assign the **Adjust memory quotas for a process** and **Replace a process level token** policies to the Self-Hosted IR service account. This should be automatically done when installing your Self-Hosted IR with the default service account. If you use a different service account, please assign the same policies to it.
+- Assign the **Adjust memory quotas for a process** and **Replace a process level token** policies to the Self-Hosted IR service account. This should be automatically done when installing your Self-Hosted IR with the default service account. If you use a different service account, assign the same policies to it.
 - Assign the **Log on as a service** policy to the Windows Authentication account.
 
 ## Billing for the first and second staging tasks
