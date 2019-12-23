@@ -2,7 +2,6 @@
 title: (DEPRECATED) Container security in Azure Container Service
 description: Considerations for securing Docker containers deployed in Azure Container Service and related Azure services.
 author: sauryadas
-manager: jeconnoc
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 03/28/2017
