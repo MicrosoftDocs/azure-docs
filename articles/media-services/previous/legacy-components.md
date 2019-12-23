@@ -12,7 +12,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/13/2019
+ms.date: 11/22/2019
 ms.author: juliako
  
 ---
@@ -22,7 +22,7 @@ Over time, there have been steady improvements and enhancements to Media Service
  
 ## Retirement plans of legacy components and migration guidance
 
-We are announcing deprecation of the *Windows Azure Media Encoder* (WAME) and *Azure Media Encoder* (AME) media processors. These processors are being retired on November 30, 2019.
+We are announcing deprecation of the *Windows Azure Media Encoder* (WAME) and *Azure Media Encoder* (AME) media processors. These processors are being retired on March 31, 2020.
 
 * [Migrate from Windows Azure Media Encoder to Media Encoder Standard](migrate-windows-azure-media-encoder.md)
 * [Migrate from Azure Media Encoder to Media Encoder Standard](migrate-azure-media-encoder.md)

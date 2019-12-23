@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 10/15/2019
+ms.date: 12/09/2019
 ms.author: cherylmc
 # Customer intent: As someone with a networking background, I want to create an Azure Bastion host.
 
@@ -31,7 +31,7 @@ Bastion is available in the following Azure public regions:
 
 This section helps you create a new Azure Bastion resource from the Azure portal.
 
-1. From the home page in the [Azure portal](https://portal.azure.com), click **+ Create a resource**.
+1. On the [Azure portal](https://portal.azure.com) menu or from the **Home** page, select **Create a resource**.
 
 1. On the **New** page, in the *Search the Marketplace* field, type **Bastion**, then click **Enter** to get to the search results.
 
@@ -62,7 +62,7 @@ This section helps you create a new Azure Bastion resource from the Azure portal
 
 If you create a bastion host in the portal by using an existing VM, various settings will automatically default corresponding to your virtual machine and/or virtual network.
 
-1. Open the [Azure portal](https://portal.azure.com). Navigate to your virtual machine, then click **Connect**.
+1. Open the [Azure portal](https://portal.azure.com). Go to your virtual machine, then click **Connect**.
 
    ![VM Connect](./media/bastion-create-host-portal/vmsettings.png)
 1. On the right sidebar, click **Bastion**, then **Use Bastion**.

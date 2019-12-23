@@ -24,7 +24,7 @@ The timer trigger is provided in the [Microsoft.Azure.WebJobs.Extensions](https:
 
 [!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
-## Packages - Functions 2.x
+## Packages - Functions 2.x and higher
 
 The timer trigger is provided in the [Microsoft.Azure.WebJobs.Extensions](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions) NuGet package, version 3.x. Source code for the package is in the [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/) GitHub repository.
 
@@ -281,7 +281,10 @@ Here are some examples of NCRONTAB expressions you can use for the timer trigger
 
 The numbers in a CRON expression refer to a time and date, not a time span. For example, a 5 in the `hour` field refers to 5:00 AM, not every 5 hours.
 
-The default time zone used with the CRON expressions is Coordinated Universal Time (UTC). To have your CRON expression based on another time zone, create an app setting for your function app named `WEBSITE_TIME_ZONE`. Set the value to the name of the desired time zone as shown in the [Microsoft Time Zone Index](https://technet.microsoft.com/library/cc749073). 
+The default time zone used with the CRON expressions is Coordinated Universal Time (UTC). To have your CRON expression based on another time zone, create an app setting for your function app named `WEBSITE_TIME_ZONE`. Set the value to the name of the desired time zone as shown in the [Microsoft Time Zone Index](https://technet.microsoft.com/library/cc749073).
+
+  > [!NOTE]
+  > `WEBSITE_TIME_ZONE` is not currently supported on the Linux Consumption plan.
 
 For example, *Eastern Standard Time* is UTC-05:00. To have your timer trigger fire at 10:00 AM EST every day, use the following NCRONTAB expression that accounts for UTC time zone:
 
@@ -322,7 +325,7 @@ If you are sharing storage accounts across function apps that are not deployed t
 
 | Functions version | Setting                                              |
 | ----------------- | ---------------------------------------------------- |
-| 2.x               | `AzureFunctionsWebHost__hostid` environment variable |
+| 2.x (and higher)  | `AzureFunctionsWebHost__hostid` environment variable |
 | 1.x               | `id` in *host.json*                                  |
 
 You can omit the identifying value or manually set each function app's identifying configuration to a different value.

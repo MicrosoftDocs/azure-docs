@@ -1,10 +1,9 @@
 ---
 title: Understand outputs from Azure Stream Analytics
 description: This article describes data output options available in Azure Stream Analytics, including Power BI for analysis results.
-services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/8/2019

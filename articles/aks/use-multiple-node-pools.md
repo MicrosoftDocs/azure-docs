@@ -34,7 +34,7 @@ The following limitations apply when you create and manage AKS clusters that sup
 * You can't add or delete node pools using an existing Resource Manager template as with most operations. Instead, [use a separate Resource Manager template](#manage-node-pools-using-a-resource-manager-template) to make changes to node pools in an AKS cluster.
 * The name of a node pool may only contain lowercase alphanumeric characters and must begin with a lowercase letter. For Linux node pools the length must be between 1 and 12 characters, for Windows node pools the length must be between 1 and 6 characters.
 * The AKS cluster can have a maximum of eight node pools.
-* The AKS cluster can have a maximum of 400 nodes across those eight node pools.
+* The AKS cluster can have a maximum of 800 nodes across those eight node pools.
 * All node pools must reside in the same subnet.
 
 ## Create an AKS cluster
@@ -204,12 +204,12 @@ Upgrading individual node pools requires using `az aks nodepool upgrade`. This u
 
 ### Validation rules for upgrades
 
-The valid upgrades for Kubernetes versions held by a cluster's control plane or node pools are validated by the following sets of rules.
+The valid Kubernetes upgrades for a cluster's control plane and node pools are validated by the following sets of rules.
 
-* Rules for valid versions to upgrade to:
+* Rules for valid versions to upgrade node pools:
    * The node pool version must have the same *major* version as the control plane.
-   * The node pool version may be two *minor* versions less than the control plane version.
-   * The node pool version may be two *patch* versions less than the control plane version.
+   * The node pool *minor* version must be within two *minor* versions of the control plane version.
+   * The node pool version cannot be greater than the control `major.minor.patch` version.
 
 * Rules for submitting an upgrade operation:
    * You cannot downgrade the control plane or a node pool Kubernetes version.

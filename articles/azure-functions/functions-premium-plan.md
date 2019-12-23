@@ -10,7 +10,7 @@ ms.author: jehollan
 
 # Azure Functions Premium plan
 
-The Azure Functions Premium plan is a hosting option for function apps. The Premium plan provides features like VNet connectivity, no cold start, and premium hardware.  Multiple function apps can be deployed to the same Premium plan, and the plan allows you to configure compute instance size, base plan size, and maximum plan size.  For a comparison of the Premium plan and other plan and hosting types, see [function scale and hosting options](functions-scale.md).
+The Azure Functions Premium plan (sometimes referred to as Elastic Premium plan)  is a hosting option for function apps. The Premium plan provides features like VNet connectivity, no cold start, and premium hardware.  Multiple function apps can be deployed to the same Premium plan, and the plan allows you to configure compute instance size, base plan size, and maximum plan size.  For a comparison of the Premium plan and other plan and hosting types, see [function scale and hosting options](functions-scale.md).
 
 ## Create a Premium plan
 
@@ -25,7 +25,7 @@ az functionapp plan create --resource-group <RESOURCE_GROUP> --name <PLAN_NAME> 
 
 In this example, replace `<RESOURCE_GROUP>` with your resource group and `<PLAN_NAME>` with a name for your plan that is unique in the resource group. Specify a [supported `<REGION>`](#regions). To create a Premium plan that supports Linux, include the `--is-linux` option.
 
-With the plan created, you can use [az functionapp create](/cli/azure/functionapp#az-functionapp-create) to create your function app. In the portal, both the plan and the app are created at the same time. 
+With the plan created, you can use [az functionapp create](/cli/azure/functionapp#az-functionapp-create) to create your function app. In the portal, both the plan and the app are created at the same time. For an example of a complete Azure CLI script, see [Create a function app in a Premium plan](scripts/functions-cli-create-premium-plan.md).
 
 ## Features
 
@@ -59,9 +59,9 @@ Fore more information, see [integrate your function app with a VNet](functions-c
 
 Additional compute instances are automatically added for your app using the same rapid scaling logic as the Consumption plan.  To learn more about how scaling works, see [Function scale and hosting](./functions-scale.md#how-the-consumption-and-premium-plans-work).
 
-### Unbounded run duration
+### Longer run duration
 
-Azure Functions in a Consumption plan are limited to 10 minutes for a single execution.  In the Premium plan, the run duration defaults to 30 minutes to prevent runaway executions. However, you can [modify the host.json configuration](./functions-host-json.md#functiontimeout) to make this unbounded for Premium plan apps.
+Azure Functions in a Consumption plan are limited to 10 minutes for a single execution.  In the Premium plan, the run duration defaults to 30 minutes to prevent runaway executions. However, you can [modify the host.json configuration](./functions-host-json.md#functiontimeout) to make this 60 minutes for Premium plan apps.
 
 ## Plan and SKU settings
 
@@ -99,27 +99,28 @@ Below are the currently supported regions for each OS.
 |Australia Central| ✔<sup>1</sup> | |
 |Australia Central 2| ✔<sup>1</sup> | |
 |Australia East| ✔ | |
-|Australia Southeast | ✔ | ✔ |
+|Australia Southeast | ✔ | ✔<sup>1</sup> |
 |Brazil South| ✔<sup>2</sup> |  |
 |Canada Central| ✔ |  |
 |Central US| ✔ |  |
 |East Asia| ✔ |  |
-|East US | ✔ | ✔ |
+|East US | ✔ | ✔<sup>1</sup> |
 |East US 2| ✔ |  |
 |France Central| ✔ |  |
-|Japan East| ✔ | ✔ |
+|Germany West Central| ✔ | |
+|Japan East| ✔ | ✔<sup>1</sup> |
 |Japan West| ✔ | |
 |Korea Central| ✔ |  |
 |North Central US| ✔ |  |
-|North Europe| ✔ | ✔ |
-|South Central US| ✔ |  |
+|North Europe| ✔ | ✔<sup>1</sup> |
+|South Central US| ✔ | ✔<sup>1</sup> |
 |South India | ✔ | |
-|Southeast Asia| ✔ | ✔ |
+|Southeast Asia| ✔ | ✔<sup>1</sup> |
 |UK South| ✔ | |
 |UK West| ✔ |  |
-|West Europe| ✔ | ✔ |
+|West Europe| ✔ | ✔<sup>1</sup> |
 |West India| ✔ |  |
-|West US| ✔ | ✔ |
+|West US| ✔ | ✔<sup>1</sup> |
 |West US 2| ✔ |  |
 
 <sup>1</sup>Maximum scale out limited to 20 instances.  

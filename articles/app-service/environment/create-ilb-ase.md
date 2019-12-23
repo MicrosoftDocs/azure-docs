@@ -1,15 +1,9 @@
 ---
-title: Create internal load balancer with App Service Environment - Azure
-description: Details on how to create and use an internet-isolated Azure App Service Environment
-services: app-service
-documentationcenter: na
+title: Create an ILB ASE with ARM
+description: Learn how to create an App Service environment with an internal load balancer (ILB ASE) using Azure Resource Manager templates. Fully isolate your apps from the internet.
 author: ccompy
-manager: stefsch
 
 ms.assetid: 0f4c1fa4-e344-46e7-8d24-a25e247ae138
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 08/05/2019
 ms.author: ccompy
@@ -153,7 +147,7 @@ ILB ASEs that were made before May 2019 required you to set the domain suffix du
 [mobileapps]: ../../app-service-mobile/app-service-mobile-value-prop.md
 [Functions]: ../../azure-functions/index.yml
 [Pricing]: https://azure.microsoft.com/pricing/details/app-service/
-[ARMOverview]: ../../azure-resource-manager/resource-group-overview.md
+[ARMOverview]: ../../azure-resource-manager/management/overview.md
 [ConfigureSSL]: ../configure-ssl-certificate.md
 [Kudu]: https://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md

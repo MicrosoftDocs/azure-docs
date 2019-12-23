@@ -4,11 +4,11 @@ description: Learn how to copy data from a cloud or on-premises REST source to s
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
+
 ms.topic: conceptual
 ms.date: 11/20/2019
 ms.author: jingwang
@@ -212,7 +212,7 @@ The following properties are supported in the copy activity **source** section:
 | requestInterval | The time to wait before sending the request for next page. The default value is **00:00:01** |  No |
 
 >[!NOTE]
->REST connector ignores any "Accept" header specified in `additionalHeaders`. As REST connector only support response in JSON, tt will auto generate a header of `Accept: application/json`.
+>REST connector ignores any "Accept" header specified in `additionalHeaders`. As REST connector only support response in JSON, it will auto generate a header of `Accept: application/json`.
 
 **Example 1: Using the Get method with pagination**
 

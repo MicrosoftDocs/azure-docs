@@ -1,5 +1,6 @@
 ---
-title: Add your own attributes to custom policies in Azure Active Directory B2C | Microsoft Docs
+title: Add your own attributes to custom policies
+titleSuffix: Azure AD B2C
 description: A walkthrough on using extension properties and custom attributes and including them in the user interface.
 services: active-directory-b2c
 author: mmacy
@@ -297,3 +298,4 @@ For more information on extension properties, see the article [Directory schema 
 > * A **TechnicalProfile** is an element type, or function, that defines an endpoint’s name, metadata, and protocol. The **TechnicalProfile** details the exchange of claims that the Identity Experience Framework performs. When this function is called in an orchestration step or from another **TechnicalProfile**, the **InputClaims** and **OutputClaims** are provided as parameters by the caller.
 > * Extension attributes in the Graph API are named by using the convention `extension_ApplicationObjectID_attributename`.
 > * Custom policies refer to extension attributes as **extension_attributename**. This reference omits the **ApplicationObjectId** in XML.
+> * You have to specify the attribute ID in the following format **extension_attributename** wherever it is being referenced.

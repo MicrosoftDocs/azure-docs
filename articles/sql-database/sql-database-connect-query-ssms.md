@@ -71,7 +71,7 @@ In SMSS, connect to your Azure SQL Database server.
 
    ![connect to server](./media/sql-database-connect-query-ssms/connect.png)  
 
-3. Select **Options** in the **Connect to Server** dialog box. In the **Connect to database** drop-down menu, select **mySampleDatabase**.
+3. Select **Options** in the **Connect to Server** dialog box. In the **Connect to database** drop-down menu, select **mySampleDatabase**.If you leave the drop down to default, the connection is made to **master** database.
 
    ![connect to db on server](./media/sql-database-connect-query-ssms/options-connect-to-db.png)  
 

@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Recognize speech, intents, and entities - Speech Service"
+title: "Quickstart: Recognize speech, intents, and entities - Speech service"
 titleSuffix: Azure Cognitive Services
 description: In this quickstart, you'll use the Speech SDK to interactively recognize speech from audio data captured from a microphone.
 services: cognitive-services

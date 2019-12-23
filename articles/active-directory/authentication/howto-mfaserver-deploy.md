@@ -1,15 +1,15 @@
 ---
-title: Getting started Azure Multi-Factor Authentication Server - Azure Active Directory
+title: Getting started Azure MFA Server - Azure Active Directory
 description: Step-by-step get started with Azure MFA Server on-premises
 
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 05/20/2019
+ms.date: 11/21/2019
 
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 
@@ -119,6 +119,9 @@ Now that you have downloaded the server you can install and configure it. Be sur
    ![Skip using the Authentication Configuration Wizard](./media/howto-mfaserver-deploy/skip2.png)
 
 5. Back on the page that you downloaded the server from, click the **Generate Activation Credentials** button. Copy this information into the Azure MFA Server in the boxes provided and click **Activate**.
+
+> [!NOTE]
+> Only global administrators are able to generate activation credentials in the Azure portal.
 
 ## Send users an email
 

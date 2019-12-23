@@ -1,6 +1,6 @@
 ---
 title: Sample - Require encryption for Data Lake Store
-description: This sample policy definition requires Data Lake Store encryption to be enabled.
+description: This sample policy definition requires the encryption state on Data Lake Store accounts to be enabled.
 ms.date: 01/23/2019
 ms.topic: sample
 ---

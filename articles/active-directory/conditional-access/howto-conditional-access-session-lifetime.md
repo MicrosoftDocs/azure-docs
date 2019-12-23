@@ -1,5 +1,5 @@
 ---
-title: Configure authentication session management with Azure Active Directory Conditional Access
+title: Configure authentication session management - Azure Active Directory
 description: Customize Azure AD authentication session configuration including user sign in frequency and browser session persistence.
 
 services: active-directory
@@ -36,7 +36,7 @@ The Azure Active Directory (Azure AD) default configuration for user sign in fre
 
 It might sound alarming to not ask for a user to sign back in, in reality any violation of IT policies will revoke the session. Some examples include (but are not limited to) a password change, an incompliant device, or account disable. You can also explicitly [revoke users’ sessions using PowerShell](https://docs.microsoft.com/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0). The Azure AD default configuration comes down to “don’t ask users to provide their credentials if security posture of their sessions has not changed”.
 
-Sign-in frequency setting works with apps that have implemented OAUTH2 or OIDC protocols according to the standards. Most Microsoft native apps for Windows, Mac, and Mobile including the following comply with the setting.
+Sign-in frequency setting works with apps that have implemented OAUTH2 or OIDC protocols according to the standards. Most Microsoft native apps for Windows, Mac, and Mobile including the following web applications comply with the setting.
 
 - Word, Excel, PowerPoint Online
 - OneNote Online

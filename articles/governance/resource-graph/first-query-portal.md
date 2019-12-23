@@ -135,14 +135,15 @@ your Azure portal workflow, try out these example dashboards.
 
 1. In Azure portal, select **Dashboard** from the left pane.
 
-1. Select **Upload**, then locate and select the downloaded sample dashboard file. Then select **Open**.
+1. Select **Upload**, then locate and select the downloaded sample dashboard file. Then select
+   **Open**.
 
 The imported dashboard is automatically displayed. Since it now exists in your Azure portal, you may
 explore and make changes as needed or create new dashboards from the example to share with your
 teams. For more information about working with dashboards, see
 [Create and share dashboards in the Azure portal](../../azure-portal/azure-portal-dashboards.md).
 
-## Clean-up resources
+## Clean up resources
 
 If you wish to remove the sample Resource Graph dashboards from your Azure portal environment, you
 can do so with the following steps:

@@ -76,6 +76,8 @@ landingContent:
             url: batch-pool-vm-sizes.md
           - text: Quotas and limits
             url: batch-quota-limit.md
+          - text: Best practices
+            url: best-practices.md
 
   - title: API reference
     linkLists:

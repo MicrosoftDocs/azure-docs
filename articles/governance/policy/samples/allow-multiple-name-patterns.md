@@ -1,6 +1,6 @@
 ---
 title: Sample - multiple name patterns
-description: This sample policy definition requires that resource match one of the provided name patterns.
+description: This sample policy definition requires that a resource matches one of the provided digit or number name patterns.
 ms.date: 01/23/2019
 ms.topic: sample
 ---

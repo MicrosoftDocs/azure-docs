@@ -26,7 +26,7 @@ With Azure Machine Learning dataset monitors, you can:
 * **Profile features in data** to track how statistical properties change over time.
 * **Set up alerts on data drift** for early warnings to potential issues. 
 
-Metrics and insights are available through the [Azure Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) resource associated with the Azure Machine Learning service workspace.
+Metrics and insights are available through the [Azure Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) resource associated with the Azure Machine Learning workspace.
 
 > [!Important]
 > Please note that monitoring data drift with the SDK is available in all editions, while monitoring data drift through the studio on the web is Enterprise edition only.
@@ -61,12 +61,12 @@ Conceptually, there are three primary scenarios for setting up dataset monitors 
 Scenario | Description
 ---|---
 Monitoring a model's serving data for drift from the model's training data | Results from this scenario can be interpreted as monitoring a proxy for the model's accuracy, given that model accuracy degrades if the serving data drifts from the training data.
-Monitoring a time series dataset for drift from a previous time period. | This scenario is more general, and can be used to monitor datasets involved upstream or downstream of model building.  The target dataset must have a timestamp column, while the baseline dataset can be any tabular dataset which has features in common with the target dataset.
-Performing analysis on past data. | This can be used to understand historical data and inform decisions in settings for dataset monitors.
+Monitoring a time series dataset for drift from a previous time period. | This scenario is more general, and can be used to monitor datasets involved upstream or downstream of model building.  The target dataset must have a timestamp column, while the baseline dataset can be any tabular dataset that has features in common with the target dataset.
+Performing analysis on past data. | This scenario can be used to understand historical data and inform decisions in settings for dataset monitors.
 
 ## How dataset can monitor data
 
-Using Azure Machine Learning, data drift is monitored through datasets. To monitor for data drift, a baseline dataset - usually the training dataset for a model - is specified. A target dataset - usually model input data - is compared over time to your baseline dataset. This means that your target dataset must have a timestamp column specified.
+Using Azure Machine Learning, data drift is monitored through datasets. To monitor for data drift, a baseline dataset - usually the training dataset for a model - is specified. A target dataset - usually model input data - is compared over time to your baseline dataset. This comparison means that your target dataset must have a timestamp column specified.
 
 ### Set the `timeseries` trait in the target dataset
 
@@ -130,19 +130,19 @@ This table contains basic settings used for the dataset monitor.
 | ------- | ----------- | ---- | ------- | 
 | Name | Name of the dataset monitor. | | No |
 | Baseline dataset | Tabular dataset that will be used as the baseline for comparison of the target dataset over time. | The baseline dataset must have features in common with the target dataset. Generally, the baseline should be set to a model's training dataset or a slice of the target dataset. | No |
-| Target dataset | Tabular dataset with timestamp column specified which will be analyzed for data drift | The target dataset must have features in common with the baseline dataset, and should be a `timeseries` dataset which new data is appended to. Historical data in the target dataset can be analyzed, or new data can be monitored. | No | 
-| Frequency | This is the frequency which will be used to schedule the pipeline job and analyze historical data if running a backfill. Options include daily, weekly, or monthly. | Adjust this setting to include a comparable size of data to the baseline. | No | 
-| Features | List of features which will be analyzed for data drift over time | Set to a model's output feature(s) to measure concept drift. Do not include features that naturally drift over time (month, year, index, etc.). You can backfill and existing data drift monitor after adjusting the list of features. | Yes | 
+| Target dataset | Tabular dataset with timestamp column specified which will be analyzed for data drift. | The target dataset must have features in common with the baseline dataset, and should be a `timeseries` dataset, which new data is appended to. Historical data in the target dataset can be analyzed, or new data can be monitored. | No | 
+| Frequency | The frequency that will be used to schedule the pipeline job and analyze historical data if running a backfill. Options include daily, weekly, or monthly. | Adjust this setting to include a comparable size of data to the baseline. | No | 
+| Features | List of features that will be analyzed for data drift over time. | Set to a model's output feature(s) to measure concept drift. Do not include features that naturally drift over time (month, year, index, etc.). You can backfill and existing data drift monitor after adjusting the list of features. | Yes | 
 | Compute target | Azure Machine Learning compute target to run the dataset monitor jobs. | | Yes | 
 
 ### Monitor settings
 
-These settings are for the scheduled dataset monitor pipeline which will be created. 
+These settings are for the scheduled dataset monitor pipeline, which will be created. 
 
 | Setting | Description | Tips | Mutable | 
 | ------- | ----------- | ---- | ------- |
-| Enable | Enable or disable the schedule on the dataset monitor pipeline | Disable this to analyze historical data with the backfill setting. It can be enabled after the dataset monitor is created. | Yes | 
-| Latency | Time, in hours, it takes for data to arrive in the dataset. For instance, if it takes three days for data to arrive in the SQL DB my dataset encapsulates, set the latency to 72. | Cannot be changed after the dataset monitor is created | No | 
+| Enable | Enable or disable the schedule on the dataset monitor pipeline | Disable the schedule to analyze historical data with the backfill setting. It can be enabled after the dataset monitor is created. | Yes | 
+| Latency | Time, in hours, it takes for data to arrive in the dataset. For instance, if it takes three days for data to arrive in the SQL DB the dataset encapsulates, set the latency to 72. | Cannot be changed after the dataset monitor is created | No | 
 | Email addresses | Email addresses for alerting based on breach of the data drift percentage threshold. | Emails are sent through Azure Monitor. | Yes | 
 | Threshold | Data drift percentage threshold for email alerting. | Further alerts and events can be set on many other metrics in the workspace's associated Application Insights resource. | Yes | 
 
@@ -153,7 +153,7 @@ These settings are for running a backfill on past data for data drift metrics.
 | Setting | Description | Tips |
 | ------- | ----------- | ---- |
 | Start date | Start date of the backfill job. | | 
-| End date | End date of the backfill job. | This cannot be more than 31*frequency units of time from the start date. On an existing dataset monitor, metrics can be backfilled to analyze historical data or replace metrics with updated settings. |
+| End date | End date of the backfill job. | The end date cannot be more than 31*frequency units of time from the start date. On an existing dataset monitor, metrics can be backfilled to analyze historical data or replace metrics with updated settings. |
 
 ## Create dataset monitors 
 
@@ -178,7 +178,7 @@ The resulting dataset monitor will appear in the list. Select it to go to that m
 
 See the [Python SDK reference documentation on data drift](/python/api/azureml-datadrift/azureml.datadrift) for full details. 
 
-The following is an example of creation of a dataset monitor using the Python SDK
+The following example shows how to create a dataset monitor using the Python SDK
 
 ```python
 from azureml.core import Workspace, Dataset
@@ -249,7 +249,7 @@ The following image is an example of charts seen in the **Drift overview**  resu
 
 The **Feature details** section contains feature-level insights into the change in the selected feature's distribution, as well as other statistics, over time. 
 
-The target dataset is also profiled over time. The statistical distance between the baseline distribution of each feature is compared with the target dataset's over time, which is conceptually similar to the data drift magnitude with the exception that this is for an individual feature. Min, max, and mean are also available. 
+The target dataset is also profiled over time. The statistical distance between the baseline distribution of each feature is compared with the target dataset's over time, which is conceptually similar to the data drift magnitude with the exception that this statistical distance is for an individual feature. Min, max, and mean are also available. 
 
 In the Azure Machine Learning studio, if you click on a data point in the graph the distribution of the feature being shown will adjust accordingly. By default, it shows the baseline dataset's distribution and the most recent run's distribution of the same feature. 
 
@@ -292,7 +292,7 @@ Select Logs (Analytics) under Monitoring on the left pane:
 
 ![Application insights overview](media/how-to-monitor-datasets/ai-overview.png)
 
-The dataset monitor metrics are stored as `customMetrics`. You can write and run a simple query after setting up a dataset monitor to view them:
+The dataset monitor metrics are stored as `customMetrics`. You can write and run a query after setting up a dataset monitor to view them:
 
 [![Log analytics query](media/how-to-monitor-datasets/simple-query.png)](media/how-to-monitor-datasets/simple-query-expanded.png)
 
@@ -318,7 +318,7 @@ Columns, or features, in the dataset are classified as categorical or numeric ba
 | Feature type | Data type | Condition | Limitations | 
 | ------------ | --------- | --------- | ----------- |
 | Categorical | string, bool, int, float | The number of unique values in the feature is less than 100 and less than 5% of the number of rows. | Null is treated as its own category. | 
-| Numerical | int, float | Of a numerical data type and does not meet conditions for a categorical feature. | Feature dropped if >15% of values are null. | 
+| Numerical | int, float | The values in the feature are of a numerical data type and do not meet the condition for a categorical feature. | Feature dropped if >15% of values are null. | 
 
 ## Next steps
 

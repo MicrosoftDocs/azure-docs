@@ -184,7 +184,7 @@ az keyvault secret show --vault-name <your-unique-keyvault-name> --name mySecret
 When no longer needed, you can use the Azure CLI or Azure PowerShell to remove your key vault and the corresponding  resource group.
 
 ```azurecli
-az group delete -g "myResourceGroup" -l "EastUS" 
+az group delete -g "myResourceGroup"
 ```
 
 ```azurepowershell
@@ -199,14 +199,13 @@ import cmd
 from azure.keyvault.secrets import SecretClient
 from azure.identity import DefaultAzureCredential
 
-secretName = "mySecret";
-
 keyVaultName = os.environ["KEY_VAULT_NAME"];
 KVUri = "https://" + keyVaultName + ".vault.azure.net";
 
 credential = DefaultAzureCredential()
-
 client = SecretClient(vault_endpoint=KVUri, credential=credential)
+
+secretName = "mySecret";
 
 print("Input the value of your secret > ");
 secretValue = raw_input();
@@ -235,9 +234,7 @@ print(" done.");
 
 ## Next steps
 
-In this quickstart you created a key vault, stored a secret, and retrieved that secret. See the [entire console app in GitHub](https://github.com/Azure-Samples/key-vault-dotnet-core-quickstart/tree/master/key-vault-console-app).
-
-To learn more about Key Vault and how to integrate it with your applications, continue on to the articles below.
+In this quickstart you created a key vault, stored a secret, and retrieved that secret. To learn more about Key Vault and how to integrate it with your applications, continue on to the articles below.
 
 - Read an [Overview of Azure Key Vault](key-vault-overview.md)
 - See the [Azure Key Vault developer's guide](key-vault-developers-guide.md)

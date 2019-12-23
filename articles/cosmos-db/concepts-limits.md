@@ -25,7 +25,8 @@ After you create an Azure Cosmos account under your subscription, you can manage
 | Maximum number of distinct (logical) partition keys | Unlimited |
 | Maximum storage per container | Unlimited |
 | Maximum storage per database | Unlimited |
-| Maximum attachment size per Account (Attachment feature is being depreciated) | 2 GB | 
+| Maximum attachment size per Account (Attachment feature is being depreciated) | 2 GB |
+| Minimum RUs required per 1 GB | 10 RU/s |
 
 > [!NOTE]
 > To learn about best practices for managing workloads that have partition keys requiring higher limits for storage or throughput, see [Create a synthetic partition key](synthetic-partition-keys.md).
@@ -109,13 +110,14 @@ There are no restrictions on the item payloads like number of properties and nes
 
 ## Per-request limits
 
-Cosmos DB supports [CRUD and query operations](https://docs.microsoft.com/rest/api/cosmos-db/) against resources like containers, items, and databases.  
+Azure Cosmos DB supports [CRUD and query operations](https://docs.microsoft.com/rest/api/cosmos-db/) against resources like containers, items, and databases. It also supports [transactional batch requests](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.transactionalbatch) against multiple items with the same partition key in a container.
 
 | Resource | Default limit |
 | --- | --- |
 | Maximum execution time for a single operation (like a stored procedure execution or a single query page retrieval)| 5 sec |
-| Maximum request size (stored procedure, CRUD)| 2 MB |
+| Maximum request size (for example, stored procedure, CRUD)| 2 MB |
 | Maximum response size (for example, paginated query) | 4 MB |
+| Maximum number of operations in a transactional batch | 100 |
 
 Once an operation like query reaches the execution timeout or response size limit, it returns a page of results and a continuation token to the client to resume execution. There is no practical limit on the duration a single query can run across pages/continuations.
 
@@ -129,6 +131,10 @@ Cosmos DB uses HMAC for authorization. You can use either a master key, or a [re
 | Maximum clock skew for token authorization| 15 min |
 
 Cosmos DB supports execution of triggers during writes. The service supports a maximum of one pre-trigger and one post-trigger per write operation. 
+
+## Autopilot mode limits
+
+See the [Autopilot](provision-throughput-autopilot.md#autopilot-limits) article for the throughput and storage limits in autopilot mode.
 
 ## SQL query limits
 

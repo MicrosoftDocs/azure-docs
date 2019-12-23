@@ -1,14 +1,9 @@
 ---
-title: Service Fabric Azure Files Volume Driver (GA) | Microsoft Docs
+title: Service Fabric Azure Files Volume Driver (GA) 
 description: Service Fabric supports using Azure Files to backup volumes from your container.
-services: service-fabric
-author: athinanthny
-manager: chackdan
-ms.assetid: ab49c4b9-74a8-4907-b75b-8d2ee84c6d90
-ms.service: service-fabric
+
 ms.topic: conceptual
 ms.date: 6/10/2018
-ms.author: atsenthi
 ---
 
 # Service Fabric Azure Files Volume Driver
@@ -80,7 +75,7 @@ Once you've successfully run the script, you can skip to the [configuring your a
 
 ### Manual deployment for standalone clusters
 
-The Service Fabric application that provides the volumes for your containers can be downloaded from the [Service Fabric download site](https://sfazfilevd.blob.core.windows.net/sfazfilevd/AzureFilesVolumePlugin.6.5.516.9494.zip). The application can be deployed to the cluster via [PowerShell](./service-fabric-deploy-remove-applications.md), [CLI](./service-fabric-application-lifecycle-sfctl.md) or [FabricClient APIs](./service-fabric-deploy-remove-applications-fabricclient.md).
+The Service Fabric application that provides the volumes for your containers can be downloaded from the [Service Fabric download site](https://sfazfilevd.blob.core.windows.net/sfazfilevd/AzureFilesVolumePlugin.6.5.661.9590.zip). The application can be deployed to the cluster via [PowerShell](./service-fabric-deploy-remove-applications.md), [CLI](./service-fabric-application-lifecycle-sfctl.md) or [FabricClient APIs](./service-fabric-deploy-remove-applications-fabricclient.md).
 
 1. Using the command line, change directory to the root directory of the downloaded application package.
 

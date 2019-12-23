@@ -46,14 +46,16 @@ By default, service tags reflect the ranges for the entire cloud.  Some service 
 | **AzureContainerRegistry** | Azure Container Registry service. | Outbound | Yes | Yes |
 | **AzureCosmosDB** | Azure Cosmos Database service. | Outbound | Yes | Yes |
 | **AzureDataLake** | Azure Data Lake service. | Outbound | No | Yes |
+| **AzureHDInsight** | Azure HDInsight service. | Inbound | Yes | No |
+| **AzureIoTHub** | Azure IoT Hub service. | Outbound | No | No |
 | **AzureKeyVault** | Azure KeyVault service.<br/><br/>*Note:* This tag has a dependency on the **AzureActiveDirectory** tag. | Outbound | Yes | Yes |
 | **AzureLoadBalancer** | Azure's infrastructure load balancer. The tag translates to the [Virtual IP address of the host](security-overview.md#azure-platform-considerations) (168.63.129.16) where Azure's health probes originate. If you are not using the Azure load balancer, you can override this rule. | Both | No | No |
-| **AzureMachineLearning** | Azure Machine Learning service. | Outbound | No | Yes |
+| **AzureMachineLearning** | Azure Machine Learning. | Outbound | No | Yes |
 | **AzureMonitor** | Log Analytics, App Insights, AzMon, and custom metrics (GiG endpoints).<br/><br/>*Note:* For Log Analytics, this tag has dependency on the **Storage** tag. | Outbound | No | Yes |
 | **AzurePlatformDNS** | The basic infrastructure (default) DNS service.<br/><br>You can use this tag to disable the default DNS. Please exercise caution in using this tag. Reading [Azure platform considerations](https://docs.microsoft.com/azure/virtual-network/security-overview#azure-platform-considerations) is recommended. Testing is recommended before using this tag. | Outbound | No | No |
 | **AzurePlatformIMDS** | IMDS, which is a basic infrastructure service.<br/><br/>You can use this tag to disable the default IMDS.  Please exercise caution in using this tag. Reading [Azure platform considerations](https://docs.microsoft.com/azure/virtual-network/security-overview#azure-platform-considerations) is recommended. Testing is recommended before using this tag. | Outbound | No | No |
 | **AzurePlatformLKM** | Windows licensing or key management service.<br/><br/>You can use this tag to disable the defaults for licensing. Please exercise caution in using this tag.  Reading [Azure platform considerations](https://docs.microsoft.com/azure/virtual-network/security-overview#azure-platform-considerations) is recommended. Testing is recommended before using this tag. | Outbound | No | No |
-| **AzureTrafficManaged** | Azure Traffic Manager probe IP addresses.<br/><br/>More information on Traffic Manager probe IP addresses can be found in the [Azure Traffic Manager FAQ](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs). | Inbound | No | Yes |  
+| **AzureTrafficManager** | Azure Traffic Manager probe IP addresses.<br/><br/>More information on Traffic Manager probe IP addresses can be found in the [Azure Traffic Manager FAQ](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs). | Inbound | No | Yes |  
 | **BatchNodeManagement** | Management traffic for Azure Batch dedicated deployments. | Both | No | Yes |
 | **CognitiveServicesManagement** | The address ranges for traffic for Cognitive Services | Outbound | No | No |
 | **Dynamics365ForMarketingEmail** | The address ranges for the marketing email service of Dynamics 365. | Outbound | Yes | No |

@@ -2,15 +2,12 @@
 title: Microsoft identity platform ID token reference | Microsoft Docs
 description: Learn how to use id_tokens emitted by the Azure AD v1.0 and Microsoft identity platform (v2.0) endpoints. 
 services: active-directory
-documentationcenter: ''
 author: rwike77
 manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/27/2019
 ms.author: ryanwi

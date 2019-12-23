@@ -1,5 +1,5 @@
 ---
-title: Convert Azure managed disks storage from Standard to Premium or Premium to Standard 
+title: Convert managed disks storage between standard and premium SSD
 description: How to convert Azure managed disks from Standard to Premium or Premium to Standard by using Azure PowerShell.
 author: roygara
 ms.service: virtual-machines-windows

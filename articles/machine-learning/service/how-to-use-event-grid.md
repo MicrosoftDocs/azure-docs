@@ -15,7 +15,7 @@ ms.date: 11/04/2019
 
 # Create event driven machine learning workflows (Preview)
 
-[Azure Event Grid](https://docs.microsoft.com/azure/event-grid/) supports Azure Machine Learning service events. For example, you can use events from run completion, model registration, model deployment, and data drift detection scoped to a workspace.
+[Azure Event Grid](https://docs.microsoft.com/azure/event-grid/) supports Azure Machine Learning events. For example, you can use events from run completion, model registration, model deployment, and data drift detection scoped to a workspace.
 
 For more information, see [Azure Machine Learning integration with Event Grid](concept-event-grid-integration.md) and the [Azure Machine Learning event grid schema](/azure/event-grid/event-schema-machine-learning).
 
@@ -26,7 +26,7 @@ Use Event Grid to enable common scenarios such as:
 
 ## Prerequisites
 
-* Contributor or owner access to the Azure Machine learning service workspace you will create events for.
+* Contributor or owner access to the Azure Machine Learning workspace you will create events for.
 * Select an event handler endpoint such as a webhook or Event Hub. For more information, see [event handlers](https://docs.microsoft.com/azure/event-grid/event-handlers). 
 
 ## Register resource providers

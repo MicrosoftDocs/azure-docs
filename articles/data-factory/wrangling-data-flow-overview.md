@@ -29,12 +29,12 @@ Multiple data engineers and citizen data integrators can interactively explore a
 
 Citizen data integrators spend more than 60% of their time looking for and preparing data. They're looking to do it in a code free manner to improve operational productivity. Allowing citizen data integrators to enrich, shape, and publish data using known tools like Power Query Online in a scalable manner drastically improves their productivity. Wrangling data flow in Azure Data Factory enables the familiar Power Query Online mashup editor to allow citizen data integrators to fix errors quickly, standardize data, and produce high-quality data to support business decisions.
 
-### Data Validation
+### Data validation
 
 Visually scan your data in a code-free manner to remove any outliers, anomalies,
 and conform it to a shape for fast analytics.
 
-## Supported Sources
+## Supported sources
 
 | Connector | Data format | Authentication type |
 | -- | -- | --|

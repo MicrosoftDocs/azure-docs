@@ -72,6 +72,9 @@ StreamingLocator locator = await client.StreamingLocators.CreateAsync(
 
 If you also want to encrypt your HLS stream with CBCS (FairPlay), use 'Predefined_MultiDrmStreaming'.
 
+> [!NOTE]
+> Widevine is a service provided by Google Inc. and subject to the terms of service and Privacy Policy of Google, Inc.
+
 ## Associate filters with Streaming Locators
 
 See [Filters: associate with Streaming Locators](filters-concept.md#associating-filters-with-streaming-locator).

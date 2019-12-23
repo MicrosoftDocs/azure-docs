@@ -1,6 +1,6 @@
 ---
 title: Sample - Not allowed resource types
-description: This sample policy definition prohibits the deployment of specified resource types.
+description: This sample policy definition prohibits the deployment of specified resource types defined in a parameter.
 ms.date: 01/23/2019
 ms.topic: sample
 ---

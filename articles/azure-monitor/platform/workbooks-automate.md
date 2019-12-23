@@ -1,5 +1,5 @@
 ---
-title: Programatically manage Azure Monitor Workbooks with Azure Resource Manager Templates | Microsoft docs
+title: Azure Monitor Workbooks and Azure Resource Manager Templates 
 description: Simplify complex reporting with prebuilt and custom parameterized Azure Monitor Workbooks deployed via Azure Resource Manager Templates
 services: azure-monitor
 author: mrbullwinkle

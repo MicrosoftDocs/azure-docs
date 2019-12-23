@@ -1,15 +1,9 @@
 ---
-title: Introduction to App Service Environments - Azure
-description: Brief overview of Azure App Service Environments
-services: app-service
-documentationcenter: na
+title: Introduction
+description: Learn how Azure App Service Environments help you scale, secure, and optimize your apps in a fully isolated and dedicated environment.
 author: ccompy
-manager: stefsch
 
 ms.assetid: 3c7eaefa-1850-4643-8540-428e8982b7cb
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: overview
 ms.date: 04/19/2018
 ms.author: ccompy
@@ -99,7 +93,7 @@ ASEv1 uses a different pricing model from ASEv2. In ASEv1, you pay for each vCPU
 [mobileapps]: ../../app-service-mobile/app-service-mobile-value-prop.md
 [Functions]: ../../azure-functions/index.yml
 [Pricing]: https://azure.microsoft.com/pricing/details/app-service/
-[ARMOverview]: ../../azure-resource-manager/resource-group-overview.md
+[ARMOverview]: ../../azure-resource-manager/management/overview.md
 [ConfigureSSL]: ../configure-ssl-certificate.md
 [Kudu]: https://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md

@@ -1,15 +1,15 @@
 ---
-title: Troubleshoot error codes for the Azure MFA NPS extension - Azure Active Directory
+title: Troubleshooting Azure MFA NPS extension - Azure Active Directory
 description: Get help resolving issues with the NPS extension for Azure Multi-Factor Authentication
 
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 11/13/2018
+ms.date: 11/21/2019
 
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 
@@ -92,6 +92,10 @@ If you encounter one of these errors, we recommend that you [contact support](#c
 ### Troubleshoot user accounts
 
 If your users are [Having trouble with two-step verification](../user-help/multi-factor-authentication-end-user-troubleshoot.md), help them self-diagnose problems.
+
+### Health check script
+
+The [Azure MFA NPS Extension health check script](https://gallery.technet.microsoft.com/Azure-MFA-NPS-Extension-648de6bb) is available on the TechNet Gallery to perform a basic health check when troubleshooting the NPS extension. Run the script and choose option 3.
 
 ### Contact Microsoft support
 

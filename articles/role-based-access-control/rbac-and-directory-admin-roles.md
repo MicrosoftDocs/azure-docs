@@ -46,7 +46,7 @@ Account Administrator, Service Administrator, and Co-Administrator are the three
 
 In the Azure portal, you can manage Co-Administrators or view the Service Administrator by using the **Classic administrators** tab.
 
-![Azure classic subscription administrators in the Azure portal](./media/rbac-and-directory-admin-roles/classic-administrators.png)
+![Azure classic subscription administrators in the Azure portal](./media/rbac-and-directory-admin-roles/subscription-view-classic-administrators.png)
 
 In the Azure portal, you can view or change the Service Administrator or view the Account Administrator on the properties blade of your subscription.
 
@@ -66,7 +66,7 @@ Accounts and subscriptions are managed in the [Azure Account Center](https://acc
 
 ## Azure RBAC roles
 
-Azure RBAC is an authorization system built on [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) that provides fine-grained access management to Azure resources, such as compute and storage. Azure RBAC includes over 70 built-in roles. There are four fundamental RBAC roles. The first three apply to all resource types:
+Azure RBAC is an authorization system built on [Azure Resource Manager](../azure-resource-manager/management/overview.md) that provides fine-grained access management to Azure resources, such as compute and storage. Azure RBAC includes over 70 built-in roles. There are four fundamental RBAC roles. The first three apply to all resource types:
 
 | Azure RBAC role | Permissions | Notes |
 | --- | --- | --- |

@@ -1,6 +1,6 @@
 ---
 title: Learn to audit the contents of virtual machines
-description: Learn how Azure Policy uses Guest Configuration to audit settings inside an Azure machine. 
+description: Learn how Azure Policy uses the Guest Configuration agent to audit settings inside virtual machines.
 ms.date: 11/04/2019
 ms.topic: conceptual
 ---

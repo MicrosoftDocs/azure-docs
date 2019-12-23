@@ -1,6 +1,6 @@
 ---
 title: Azure policy definitions monitored in Azure Security Center | Microsoft Docs
-description: Azure policy definitions monitored in Azure Security Center.
+description: This article provides a list of Azure Policy definitions that you can monitor in Azure Security Center.
 services: security-center
 author: memildin
 manager: rkarlin
