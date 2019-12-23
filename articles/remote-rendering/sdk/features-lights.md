@@ -18,7 +18,7 @@ Lights can be added to the scene to change the lighting conditions of all remote
 Lights are added to the scene as components of respective type attached to a game object. The game object serves as the spatial transform of the light source.
 
 > [!NOTE]
-> Lights only affect [Pbr material types](../sdk/concepts-materials.md#Pbr-material), not [Color materials](../sdk/concepts-materials.md#Color-material)
+> Lights only affect [Pbr material types](../concepts/materials-overview.md#pbr-material), not [Color materials](../concepts/materials-overview.md#color-material)
 
 The way how Pbr materials respond to lights is defined by the pbr material properties such as albedo color, roughness or metalness.
 
@@ -65,7 +65,7 @@ Directional lights are represented by component `DirectionalLightComponent`. A d
 
 
 ## Performance considerations
-Light sources have a significant implication on rendering performance so they should be used carefully and only if required by the application. Note that any static global lighting condition, including a static directional component, can be achieved with a [custom sky texture](../sdk/features-sky.md#Api-usage) with no additional rendering cost associated.
+Light sources have a significant implication on rendering performance so they should be used carefully and only if required by the application. Note that any static global lighting condition, including a static directional component, can be achieved with a [custom sky texture](../sdk/features-sky.md#api-usage) with no additional rendering cost associated.
 
 
 ## See also

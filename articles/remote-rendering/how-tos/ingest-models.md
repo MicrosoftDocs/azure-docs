@@ -37,7 +37,7 @@ The script and its configuration are described here: [Powershell example scripts
 ## Accounts
 If you don't have a Remote Rendering account, [create one](../how-tos/create-an-account.md). Each resource is identified by an *account ID* and the *account ID* is used throughout the session APIs.
 
-## Asset conversion REST API
+## <span id="rest">Asset conversion REST API
  
 We provide two REST API endpoints to:
 - start model conversion 
@@ -78,7 +78,7 @@ Returns a JSON document with a "status" field that can have the following values
 - "Success"
 - "Failure"
 
-## Prepare Azure blob storage accounts
+## <span id="prepare">Prepare Azure blob storage accounts
 
 - create a storage account (StorageV2)
 - create an input blob container in the storage account (for example named 
@@ -108,7 +108,7 @@ A SAS URI can be generated using one of:
 - [Azure Storage Explorer](https://azure.microsoft.com/en-us/features/storage-explorer/)
     - right click on container "Get Shared Access Signature" (read, list access for input container, write access for output container)
 
-## Upload an input model
+## <span id="upload">Upload an input model
 In order to start ingesting a model, you need to upload it using one of the following options:
 - [Azure storage explorer](https://azure.microsoft.com/en-us/features/storage-explorer/) - a convenient UI to upload/download/manage files on azure blob storage
     
@@ -119,7 +119,7 @@ In order to start ingesting a model, you need to upload it using one of the foll
 - [Using a storage SDK (Python, C# ... )](https://docs.microsoft.com/en-us/azure/storage/)
 - [Using the azure Storage REST APIs](https://docs.microsoft.com/en-us/rest/api/storageservices/blob-service-rest-api)
 
-## <span id="ingested" >Get a SAS URI for your ingested model</span>
+## <span id="ingested">Get a SAS URI for your ingested model</span>
 This step is similar to the [Retrieve stored access signatures for the storage containers](#prepare) step above. But this time we need to retrieve a SAS URI for the model file that was written to the output container. 
 All of the methods work for the model file as well. 
 

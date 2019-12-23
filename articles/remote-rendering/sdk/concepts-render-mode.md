@@ -68,7 +68,7 @@ In terms of performance, this mode is better than Quality mode for opaque geomet
 
 ### Quality
 
-The second available render mode `Quality` offers a gain in rendering quality at the cost of resource consumption. Especially in terms of memory usage this mode will consume vastly more of the VMs resources, which makes this mode unsuitable for huge scenes (many objects/triangles, a large amount of large textures). The main advantage of `Quality` mode is the fact that artifacts mentioned for the `Balanced` mode will be reduced significantly, which can be seen in the following illustration [in comparison](#Balanced).
+The second available render mode `Quality` offers a gain in rendering quality at the cost of resource consumption. Especially in terms of memory usage this mode will consume vastly more of the VMs resources, which makes this mode unsuitable for huge scenes (many objects/triangles, a large amount of large textures). The main advantage of `Quality` mode is the fact that artifacts mentioned for the `Balanced` mode will be reduced significantly, which can be seen in the following illustration [in comparison](#balanced).
 
 ![QualityMode](./media/service-render-mode-quality.png)
 

@@ -71,8 +71,3 @@ Welcome to Azure Remote Rendering.
 * [Tutorial 1 : Getting-started](tutorials/tutorial-1-getting-started.md)
 * [Tutorial 2 : Working with remote entities](tutorials/tutorial-2-working-with-remote-entities.md)
 * [Tutorial 3 : Changing environment and materials](tutorials/tutorial-3-changing-environment-and-materials.md)
-
-
-## API documentation
-* [Remote Rendering C# API](<xref:Microsoft.Azure.RemoteRendering>)
-* [Remote Rendering C# API Unity Extensions](<xref:Microsoft.Azure.RemoteRendering.Unity>)

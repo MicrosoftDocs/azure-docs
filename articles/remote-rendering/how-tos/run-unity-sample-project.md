@@ -128,7 +128,7 @@ There are also models placed within the scene:
 ## Using your own model
 
 In AzureRemoteRenderingSample\Assets\Scripts, replace 
-"builtin://UnitySampleModel" with the URL of your model. Retrieve a SAS URI for your ingested model stored in azure blob storage as described in [Ingesting model in the Unity editor](#ingesting-model-in-the-unity-editor) or [Using the model ingestion REST API](../how-tos/ingest-models.md)
+"builtin://UnitySampleModel" with the URL of your model. Retrieve a SAS URI for your ingested model stored in azure blob storage as described in [Using the model ingestion REST API](../how-tos/ingest-models.md)
 
 
 

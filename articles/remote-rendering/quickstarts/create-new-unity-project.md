@@ -12,13 +12,13 @@ ms.service: azure-remote-rendering
 
 # Create a new Unity project
 
-Make sure you have all the prerequisites in the [Unity Sample Project Documentation](../how-tos/run-unity-sample-project.md#Prerequisites) fulfilled. 
+Make sure you have all the prerequisites in the [Unity Sample Project Documentation](../how-tos/run-unity-sample-project.md#prerequisites) fulfilled. 
 
 For the time being, it is advised to make a copy of the [UnitySampleProject](../how-tos/run-unity-sample-project.md) instead of creating a new project in Unity.
 
 ## Local Unity packages
 
-Keep in mind that the sample project references packages via relative paths, namely the [remote rendering](../how-tos/install-remote-rendering-unity-package.md#Unity/com.microsoft.azure.remote_rendering) and [scriptable render pipeline](../how-tos/install-remote-rendering-unity-package.md#Unity/ScriptableRenderPipeline) packages.
+Keep in mind that the sample project references packages via relative paths, namely the [remote rendering](../how-tos/install-remote-rendering-unity-package.md#manage-the-remote-rendering-packages-in-unity) and [scriptable render pipeline](../how-tos/install-remote-rendering-unity-package.md#scriptablerenderpipeline) packages.
 
 You'll have to adjust these entries in your **Project/Packages/manifest.json** to be valid paths:
 
@@ -40,7 +40,7 @@ Go to the "XR Settings" group:
 * Use "Enable Depth Buffer Sharing" to activate depth LSR for Hololens.
 * Switch "Stereo Rendering Mode" to "Single Pass Instanced" as that is the only supported mode in ARR right now.
 
-If you want to use the [simulation graphics API](../sdk/concepts-graphics-binding.md#Simulation) to deploy a flat UWP desktop app, you need to disable "Virtual Reality Support". If your app should support both Hololens 2 and flat desktop, you will currently have to toggle this setting accordingly before building the app. This is because Unity does not distinguish between these two cases in the UI.
+If you want to use the [simulation graphics API](../sdk/concepts-graphics-binding.md#simulation) to deploy a flat UWP desktop app, you need to disable "Virtual Reality Support". If your app should support both Hololens 2 and flat desktop, you will currently have to toggle this setting accordingly before building the app. This is because Unity does not distinguish between these two cases in the UI.
 
 ## Project settings
 

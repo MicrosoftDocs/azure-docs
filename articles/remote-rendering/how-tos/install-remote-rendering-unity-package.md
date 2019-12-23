@@ -35,7 +35,7 @@ To add the package to a Unity project, using the 'Add package from disk...' opti
 [flborn], Is the following chapter still valid?
 -->
 
-## Unity/ScriptableRenderPipeline
+## ScriptableRenderPipeline
 
 To maximize performance and integrate Azure Remote Rendering seamlessly with Unity, changes needed to be made on Unity's side that are not publicly available yet.
 In the meantime, we have created a modified version of Unity's scriptable render pipeline that gives the same benefits if used.

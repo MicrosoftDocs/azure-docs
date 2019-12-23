@@ -59,7 +59,7 @@ All pixels with alpha value less than the threshold are not visible and they do 
 
 `isDoubleSided` is a `bool`. It enables/disables double-sidedness of this material. The default is `false`.
 
-## Basic color material (also known as unlit material)
+## <span id="color-material">Basic color material (also known as unlit material)
 
 In some situations, there is no need to have complex lighting and sometimes assets already have baked lighting (for instance photogrammetry models).
 In situations such as these, you can define the material as a Basic color material.
@@ -83,7 +83,7 @@ The formula used is: `NewPixel = Pixel * (1 - Alpha) + Surface * Alpha`, where `
 
 3. `Additive` mode is similar to AlphaBlended, but uses a simpler formula to combine the values: `NewPixel = Pixel + Surface * Alpha`. As above, alpha value could be pre-multiplied. This mode doesn't require additional sorting because of commutative law (`A + B = B + A`).
 
-## Physically based rendering material (also known as PBR)
+## <span id="pbr-material">Physically based rendering material (also known as PBR)
 
 As the name suggests, this material type uses a close-to-real-world model of lights and on-surface light distribution.  
 Physically based rendering materials work equally well in all lighting environments, so values of properties can be set up independently from any environment/conditions and lighting. Additionally, a PBR material's properties are mostly independent, providing an intuitive way to define a surface's properties.
