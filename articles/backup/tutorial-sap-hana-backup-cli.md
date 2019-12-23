@@ -65,7 +65,7 @@ westus2    saphanaVault     saphanaResourceGroup
 
 For the SAP HANA instance (the VM with SAP HANA installed on it) to be discovered by the Azure services, a [pre-registration script](https://aka.ms/scriptforpermsonhana) must be run on the SAP HANA machine. Make sure that all the [prerequisites](https://docs.microsoft.com/azure/backup/tutorial-backup-sap-hana-db#prerequisites) are met before running the script. To learn more about what the script does, refer to the [setting up permissions](https://docs.microsoft.com/azure/backup/tutorial-backup-sap-hana-db#setting-up-permissions) section.
 
-Once the script is run, the SAP HANA instance can be registered with the recovery services vault we created earlier. To register the instance, use the [az backup container register]() cmdlet. *VMResourceId* is the resource ID of the VM that you created to install SAP HANA.
+Once the script is run, the SAP HANA instance can be registered with the recovery services vault we created earlier. To register the instance, use the [az backup container register](https://docs.microsoft.com/cli/azure/backup/container?view=azure-cli-latest#az-backup-container-register) cmdlet. *VMResourceId* is the resource ID of the VM that you created to install SAP HANA.
 
 ```azurecli-interactive
 az backup container register --resource-group saphanaResourceGroup \
@@ -79,9 +79,9 @@ az backup container register --resource-group saphanaResourceGroup \
 >[!NOTE]
 >If the VM is not in the same resource group as the vault, then *saphanaResourceGroup* refers to the resource group where the vault was created.
 
-Registering the SAP HANA instance automatically discovers all its current databases. However, to discover any new databases that may be added in the future refer to the [Discovering new databases added to the registered SAP HANA]() instance section.
+Registering the SAP HANA instance automatically discovers all its current databases. However, to discover any new databases that may be added in the future refer to the [Discovering new databases added to the registered SAP HANA](tutorial-sap-hana-manage-cli.md#protect-new-databases-added-to-an-sap-hana-instance) instance section.
 
-To check if the SAP HANA instance is successfully registered with your vault, use the [az backup container list]() cmdlet. You'll see the following response:
+To check if the SAP HANA instance is successfully registered with your vault, use the [az backup container list](https://docs.microsoft.com/cli/azure/backup/container?view=azure-cli-latest#az-backup-container-list) cmdlet. You'll see the following response:
 
 ```output
 Name                                                    Friendly Name    Resource Group        Type           Registration Status
@@ -93,7 +93,7 @@ Note that “name” in the above output refers to the container name, this cont
 
 ## Enable backup on SAP HANA database
 
-The [az backup protectable-item list]() cmdlet lists out all the databases discovered on the SAP HANA instance that you registered in the previous step.
+The [az backup protectable-item list](https://docs.microsoft.com/cli/azure/backup/protectable-item?view=azure-cli-latest#az-backup-protectable-item-list) cmdlet lists out all the databases discovered on the SAP HANA instance that you registered in the previous step.
 
 ```azurecli-interactive
 az backup protectable-item list --resource-group saphanaResourceGroup \
@@ -114,7 +114,7 @@ saphanadatabase;hxe;hxe        SAPHanaDatabase          HXE           hxehost   
 
 As you can see from the above output, the SID of the SAP HANA system is HXE. In this tutorial, we'll configure backup for the *saphanadatabase;hxe;hxe* database that resides on the *hxehost* server.
 
-To protect and configure backup on a database, one at a time, we use the [az backup protection enable-for-azurewl]() cmdlet. Provide the name of the policy that you want to use. To create a policy using CLI, use the [az backup policy create](https://docs.microsoft.com//cli/azure/backup/policy?view=azure-cli-latest#az-backup-policy-create) cmdlet. For this tutorial, we'll be using the *sapahanaPolicy* policy.
+To protect and configure backup on a database, one at a time, we use the [az backup protection enable-for-azurewl](https://docs.microsoft.com/cli/azure/backup/protection?view=azure-cli-latest#az-backup-protection-enable-for-azurewl) cmdlet. Provide the name of the policy that you want to use. To create a policy using CLI, use the [az backup policy create](https://docs.microsoft.com//cli/azure/backup/policy?view=azure-cli-latest#az-backup-policy-create) cmdlet. For this tutorial, we'll be using the *sapahanaPolicy* policy.
 
 ```azurecli-interactive
 az backup protection enable-for-azurewl --resource-group saphanaResourceGroup \
@@ -170,6 +170,6 @@ The response will give you the job name. This job name can be used to track the 
 
 ## Next steps
 
-* To learn how to restore an SAP HANA database in Azure VM using CLI, continue to the tutorial – [Restore an SAP HANA database in Azure VM using CLI]()
+* To learn how to restore an SAP HANA database in Azure VM using CLI, continue to the tutorial – [Restore an SAP HANA database in Azure VM using CLI](tutorial-sap-hana-restore-cli.md)
 
-* To learn how to back up an SAP HANA database running in Azure VM using Azure portal, refer to [Backup an SAP HANA databases on Azure VMs](https://docs.microsoft.com/azure/backup/backup-azure-sap-hana-database-troubleshoot)
+* To learn how to back up an SAP HANA database running in Azure VM using Azure portal, refer to [Backup an SAP HANA databases on Azure VMs](https://docs.microsoft.com/azure/backup/backup-azure-sap-hana-database)

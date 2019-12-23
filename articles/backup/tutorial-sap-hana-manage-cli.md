@@ -76,7 +76,7 @@ cb110094-9b15-4c55-ad45-6899200eb8dd  SAPHANA
 
 [Registering an SAP HANA instance with a recovery services vault](tutorial-sap-hana-backup-cli.md#register-and-protect-the-sap-hana-instance) automatically discovers all the databases on this instance.
 
-However, in cases when new databases are added to the SAP HANA instance later, use the [az backup protectable-item initialize]() cmdlet. This cmdlet discovers the new databases added.
+However, in cases when new databases are added to the SAP HANA instance later, use the [az backup protectable-item initialize](https://docs.microsoft.com/cli/azure/backup/protectable-item?view=azure-cli-latest#az-backup-protectable-item-initialize) cmdlet. This cmdlet discovers the new databases added.
 
 ```azurecli-interactive
 az backup protectable-item initialize --resource-group saphanaResourceGroup \
@@ -85,7 +85,7 @@ az backup protectable-item initialize --resource-group saphanaResourceGroup \
     --workload-type SAPHANA
 ```
 
-Then use the [az backup protectable-item list]() cmdlet to list all the databases that have been discovered on your SAP HANA instance. This list, however, excludes those databases on which backup has already been configured. Once the database to be backed-up is discovered, refer to  [Enable backup on SAP HANA database](tutorial-sap-hana-backup-cli.md#enable-backup-on-sap-hana-database).
+Then use the [az backup protectable-item list](https://docs.microsoft.com/cli/azure/backup/protectable-item?view=azure-cli-latest#az-backup-protectable-item-list) cmdlet to list all the databases that have been discovered on your SAP HANA instance. This list, however, excludes those databases on which backup has already been configured. Once the database to be backed-up is discovered, refer to  [Enable backup on SAP HANA database](tutorial-sap-hana-backup-cli.md#enable-backup-on-sap-hana-database).
 
 ```azurecli-interactive
 az backup protectable-item list --resource-group saphanaResourceGroup \
@@ -170,7 +170,7 @@ To check the status of this operation, use the [az backup job show](https://docs
 
 When you stop protection for the SAP HANA database with retain data, you can later resume protection. If you don't retain the backed-up data, you won't be able to resume protection.
 
-To resume protection, use the [az backup protection resume]() cmdlet.
+To resume protection, use the [az backup protection resume](https://docs.microsoft.com/cli/azure/backup/protection?view=azure-cli-latest#az-backup-protection-resume) cmdlet.
 
 ```azurecli-interactive
 az backup protection resume --resource-group saphanaResourceGroup \
