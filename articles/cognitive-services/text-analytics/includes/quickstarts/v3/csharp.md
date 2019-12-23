@@ -2,8 +2,8 @@
 author: aahill
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 10/28/2019
-ms.author: aahi
+ms.date: 01/08/2020
+ms.author: assafi
 ---
 
 <a name="HOLTop"></a>
@@ -12,7 +12,7 @@ ms.author: aahi
 [Reference documentation](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/textanalytics?view=azure-dotnet-preview) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Language.TextAnalytics) | [Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.TextAnalytics/) | [Samples](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples)
 
 > [!NOTE]
-> The code in this article uses the synchronous methods of the Text Analytics .NET SDK for simplicity. For production scenarios, we recommend using the batched asynchronous methods for performance and scalability. For example, calling [SentimentBatchAsync()](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.textanalyticsclientextensions.sentimentbatchasync?view=azure-dotnet&viewFallbackFrom=azure-dotnet-preview) instead of [Sentiment()](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.textanalyticsclientextensions.sentiment?view=azure-dotnet).
+> The code in this article uses the synchronous methods of the Text Analytics .NET SDK as well as un-secured credentials use for simplicity reasons. For production scenarios, we recommend using the batched asynchronous methods for performance and scalability. For example, calling [SentimentBatchAsync()](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.textanalyticsclientextensions.sentimentbatchasync?view=azure-dotnet&viewFallbackFrom=azure-dotnet-preview) instead of [Sentiment()](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.textanalyticsclientextensions.sentiment?view=azure-dotnet). For secured use of credentials we recommend using Azure [Key Vault](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-overview) to store all access keys and the use of [AAD authentication](https://docs.microsoft.com/en-us/azure/cognitive-services/authentication#authenticate-with-azure-active-directory) for all role based access controls. **Remember to never store access keys in code.**
 
 ## Prerequisites
 
@@ -37,29 +37,23 @@ These files are used to display text across multiple articles at once. Consider 
 
 Using the Visual Studio IDE, create a new .NET Core console app. This will create a simple "Hello World" project with a single C# source file: *program.cs*.
 
-Install the client library by right-clicking on the solution in the **Solution Explorer** and selecting **Manage NuGet Packages**. In the package manager that opens, select **Browse** and search for `Microsoft.Azure.CognitiveServices.Language.TextAnalytics`. Click on it, and then **Install**. You can also use the [Package Manager Console](https://docs.microsoft.com/nuget/consume-packages/install-use-packages-powershell#find-and-install-a-package).
+Install the client library by right-clicking on the solution in the **Solution Explorer** and selecting **Manage NuGet Packages**. In the package manager that opens select **Browse**, check **Include prerelease**, and search for `Azure.AI.TextAnalytics`. Click on it, and then **Install**. You can also use the [Package Manager Console](https://docs.microsoft.com/nuget/consume-packages/install-use-packages-powershell#find-and-install-a-package).
 
 Open the *program.cs* file and add the following `using` directives:
 
 ```csharp
 using System;
-using System.Collections.Generic;
-using System.Net.Http;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.Azure.CognitiveServices.Language.TextAnalytics;
-using Microsoft.Azure.CognitiveServices.Language.TextAnalytics.Models;
-using Microsoft.Rest;
+using Azure.AI.TextAnalytics;
 ```
 
-In the application's `Program` class, create variables for your resource's key and endpoint. 
+In the application's `Program` class, create variables for your resource's key and endpoint.
 
 [!INCLUDE [text-analytics-find-resource-information](../find-azure-resource-info.md)]
 
 <!-- Use the below example variable names and example strings, for consistency with the other quickstart variables -->
 ```csharp
 private static readonly string key = "<replace-with-your-text-analytics-key-here>";
-private static readonly string endpoint = "<replace-with-your-text-analytics-endpoint-here>";
+private static readonly Uri endpoint = new Uri("<replace-with-your-text-analytics-endpoint-here>");
 ```
 
 Replace the application's `Main` method. You will define the methods called here later.
@@ -67,12 +61,15 @@ Replace the application's `Main` method. You will define the methods called here
 ```csharp
 static void Main(string[] args)
 {
-    var client = authenticateClient();
+    var client = new TextAnalyticsClient(endpoint, key);
 
-    sentimentAnalysisExample(client);
-    languageDetectionExample(client);
-    entityRecognitionExample(client);
-    keyPhraseExtractionExample(client);
+    SentimentAnalysisExample(client);
+    LanguageDetectionExample(client);
+    KeyPhraseExtractionExample(client);
+    EntityRecognitionExample(client);
+    EntityLinkingExample(client);
+    EntityPIIExample(client);
+
     Console.Write("Press any key to exit.");
     Console.ReadKey();
 }
@@ -84,76 +81,62 @@ static void Main(string[] args)
     Briefly introduce and describe the functionality of the library's main classes. Include links to their reference pages. If needed, briefly explain the object hierarchy and how the classes work together to manipulate resources in the service.
 -->
 
-The Text Analytics client is a [TextAnalyticsClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.textanalyticsclient?view=azure-dotnet) object that authenticates to Azure using your key, and provides functions to accept text as single strings or as a batch. You can send text to the API synchronously, or asynchronously. The response object will contain the analysis information for each document you send. 
+<!-- TODO: Update client docs link -->
+The Text Analytics client is a [TextAnalyticsClient]() object that authenticates to Azure using your key, and provides functions to accept text as single strings or as a batch. You can send text to the API synchronously, or asynchronously. The response object will contain the analysis information for each document you send. An optional, `TextAnalyticsClientOptions` instance can be used to initialize the client with various default settings (e.g. default language or country hint).
+
+<!-- TODO: Update samples link to deeper v3 link -->
+Additional examples, including AAD authentication and the use of client default settings can be found [here](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples).
 
 ## Code examples
 <!-- If you add more code examples, add a link to them here-->
-* [Authenticate the client](#authenticate-the-client)
 * [Sentiment Analysis](#sentiment-analysis)
 * [Language detection](#language-detection)
 * [Entity recognition](#entity-recognition)
+* [Entity recognition - PII](#entity-pii)
 * [Key phrase extraction](#key-phrase-extraction)
-
-## Authenticate the client
-
-Create a new `ApiKeyServiceClientCredentials` class to store the credentials and add them to the client's requests. Within it, create an override for `ProcessHttpRequestAsync()` that adds your key to the `Ocp-Apim-Subscription-Key` header.
-
-```csharp
-class ApiKeyServiceClientCredentials : ServiceClientCredentials
-{
-    private readonly string apiKey;
-
-    public ApiKeyServiceClientCredentials(string apiKey)
-    {
-        this.apiKey = apiKey;
-    }
-
-    public override Task ProcessHttpRequestAsync(HttpRequestMessage request, CancellationToken cancellationToken)
-    {
-        if (request == null)
-        {
-            throw new ArgumentNullException("request");
-        }
-        request.Headers.Add("Ocp-Apim-Subscription-Key", this.apiKey);
-        return base.ProcessHttpRequestAsync(request, cancellationToken);
-    }
-}
-```
-
-Create a method to instantiate the [TextAnalyticsClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.textanalyticsclient?view=azure-dotnet) object with your endpoint and a `ApiKeyServiceClientCredentials` object containing your key.
-
-```csharp
-static TextAnalyticsClient authenticateClient()
-{
-    ApiKeyServiceClientCredentials credentials = new ApiKeyServiceClientCredentials(key);
-    TextAnalyticsClient client = new TextAnalyticsClient(credentials)
-    {
-        Endpoint = endpoint
-    };
-    return client;
-}
-```
+* [Entity linking](#entity-linking)
 
 In your program's `main()` method, call the authentication method to instantiate the client.
 
 ## Sentiment analysis
 
-Create a new function called `SentimentAnalysisExample()` that takes the client that you created earlier, and call its [Sentiment()](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.textanalyticsclientextensions.sentiment?view=azure-dotnet) function. The returned [SentimentResult](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.models.sentimentresult?view=azure-dotnet) object will contain the sentiment `Score` if successful, and an `errorMessage` if not. 
+<!-- TODO: Update client docs links -->
+Create a new function called `SentimentAnalysisExample()` that takes the client that you created earlier, and call its [AnalyzeSentiment()]() function. The returned [AnalyzeSentimentResult]() object will contain the sentiment label and score of the entire input document, as well as a sentiment analysis for each sentence.
 
 A score that's close to 0 indicates a negative sentiment, while a score that's closer to 1 indicates a positive sentiment.
 
 ```csharp
 static void sentimentAnalysisExample(ITextAnalyticsClient client)
 {
-    var result = client.Sentiment("I had the best day of my life.", "en");
-    Console.WriteLine($"Sentiment Score: {result.Score:0.00}");
+    var response = client.AnalyzeSentiment("I had the best day of my life. I wish you were there with me.");
+    Console.WriteLine($"Document sentiment: {response.Value.DocumentSentiment.SentimentClass}\n");
+    foreach (var sentence in response.Value.SentenceSentiments)
+    {
+        Console.WriteLine($"Sentence [offset {sentence.Offset}, length {sentence.Length}]");
+        Console.WriteLine($"Sentence sentiment: {sentence.SentimentClass}");
+        Console.WriteLine($"Positive score: {sentence.PositiveScore:0.00}");
+        Console.WriteLine($"Negative score: {sentence.NegativeScore:0.00}");
+        Console.WriteLine($"Neutral score: {sentence.NeutralScore:0.00}\n");
+    }
 }
 ```
 
 ### Output
 
 ```console
-Sentiment Score: 0.87
+Document sentiment: Positive
+
+Sentence [offset 0, length 30]
+Sentence sentiment: Positive
+Positive score: 1.00
+Negative score: 0.00
+Neutral score: 0.00
+
+Sentence [offset 31, length 30]
+Sentence sentiment: Neutral
+Positive score: 0.21
+Negative score: 0.02
+Neutral score: 0.77
 ```
 
 ## Language detection
