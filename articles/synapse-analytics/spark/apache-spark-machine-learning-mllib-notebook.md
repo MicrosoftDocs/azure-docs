@@ -37,7 +37,7 @@ In this example, you use Spark to perform some predictive analysis on taxi trip 
 > [!IMPORTANT]
 > There may be additional charges for pulling this data from its storage location
 
-In the steps below, you develop a model to predict whether a particular trip will include a tip or not.
+In the steps below, you develop a model to predict whether a particular trip includes a tip or not.
 
 ## Create an Apache Spark MLlib machine learning app
 
@@ -82,7 +82,7 @@ Because the raw data is in a Parquet format, you can use the Spark context to pu
     df = spark.read.parquet(wasbs_path)
     ```
 
-2. Pulling all of this data will generate around 1.5 billion rows, depending on the size of your Spark pool the raw data may be too large or take too much time to operate on. You can filter this data down to something smaller. Add the following lines to filter the data down to around 2 million rows for a more responsive experience if needed. Using these parameters will pull one week of data.
+2. Pulling all of this data generates about 1.5 billion rows. Depending on the size of your Spark pool, the raw data may be too large or take too much time to operate on. You can filter this data down to something smaller. If needed, add the following lines to filter the data down to about 2 million rows for a more responsive experience. Use these parameters to pull one week of data.
 
     ```python
     # Create an ingestion filter
@@ -92,7 +92,7 @@ Because the raw data is in a Parquet format, you can use the Spark context to pu
     filtered_df = df.filter('tpepPickupDateTime > "' + start_date + '" and tpepPickupDateTime < "' + end_date + '"')
     ```
 
-3. The downside to simple filtering is that from a statistical perspective it may introduce bias into the data, another approach is to use the sampling built into Spark. The code below will reduce the dataset down to around 2000 rows if applied after the code above. A sampling step can be used instead of the simple filter above or in conjunction with.
+3. The downside to simple filtering is that, from a statistical perspective, it may introduce bias into the data. Another approach is to use the sampling built into Spark. The code below reduces the dataset down to about 2000 rows, if applied after the code above. A sampling step can be used instead of the simple  or in conjunction with the previous filter.
 
     ```python
     #To make development easier, faster and less expensive down sample for now
@@ -111,7 +111,7 @@ Because the raw data is in a Parquet format, you can use the Spark context to pu
     * Save the dataframe as a temporary table or view
     * Save the dataframe as a permanent table
 
-Examples are included of the first 2 of these approaches below. The write and load lines should be uncommented out depending on whether you are writing to the file cache or reading from the file cache. This cache will be persisted between sessions and Spark instance restarts.
+Examples are included of the first 2 of these approaches below. The write and load lines should be uncommented out depending on whether you are writing to the file cache or reading from the file cache. This cache persists between sessions and Spark instance restarts.
 
 Creating a temp table or view provides different access paths to the data but only lasts for the duration of the Spark instance session.
 
@@ -150,7 +150,7 @@ plt.show()
 # How many passengers tip'd by various amounts
 ax2 = sampled_taxi_pd_df.boxplot(column=['tipAmount'], by=['passengerCount'])
 ax2.set_title('Tip amount by Passenger count')
-ax2.set_xlabel('Passenger count') 
+ax2.set_xlabel('Passenger count')
 ax2.set_ylabel('Tip Amount ($)')
 plt.suptitle('')
 plt.show()
@@ -239,8 +239,8 @@ A second pass is then made over the data to add the final features
 sqlStatement2Select = """
 SELECT totalAmount, fareAmount, tipAmount, paymentType, passengerCount, tripDistance, weekdayString, pickupHour, tripTimeSecs, tipped,
     CASE
-        WHEN (pickupHour <= 6 OR pickupHour >= 20) THEN "Night" 
-        WHEN (pickupHour >= 7 AND pickupHour <= 10) THEN "AMRush" 
+        WHEN (pickupHour <= 6 OR pickupHour >= 20) THEN "Night"
+        WHEN (pickupHour >= 7 AND pickupHour <= 10) THEN "AMRush"
         WHEN (pickupHour >= 11 AND pickupHour <= 15) THEN "Afternoon"
         WHEN (pickupHour >= 16 AND pickupHour <= 19) THEN "PMRush"
     END as trafficTimeBins"""
@@ -278,7 +278,7 @@ The final task is to convert the labeled data into a format that can be analyzed
 
 ```python
 # The sample uses an algorithm that only works with numeric features convert them so they can be consumed
-sI1 = StringIndexer(inputCol="trafficTimeBins", outputCol="trafficTimeBinsIndex") 
+sI1 = StringIndexer(inputCol="trafficTimeBins", outputCol="trafficTimeBinsIndex")
 en1 = OneHotEncoder(dropLast=False, inputCol="trafficTimeBinsIndex", outputCol="trafficTimeBinsVec")
 sI2 = StringIndexer(inputCol="weekdayString", outputCol="weekdayIndex")
 en2 = OneHotEncoder(dropLast=False, inputCol="weekdayIndex", outputCol="weekdayVec")
@@ -377,3 +377,8 @@ After you have finished running the application, you should shut down the notebo
 
 > TODO Need to rewrite this section
 --->
+
+## Next steps
+
+* [.NET for Apache Spark documentation](https://docs.microsoft.com/dotnet/spark)
+* [Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics)

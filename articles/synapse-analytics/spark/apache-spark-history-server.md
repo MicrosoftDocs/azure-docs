@@ -21,28 +21,28 @@ Apache Spark History Server is the web UI for completed and running Spark applic
 
 ### Open the Apache Spark History Server Web UI from Azure Synapse Studio
 
-1. From the an Azure Synapse Studio notebook, select **Spark history server** from the job execution output cell or from the status panel at the bottom of the notebook document select **Session details** and then **Spark history server** from the slide out panel.
+From the Azure Synapse Studio notebook, select **Spark history server** from the job execution output cell or from the status panel at the bottom of the notebook document select **Session details** and then **Spark history server** from the slide out panel.
 
 ![Launch Spark History Server](./media/apache-spark-history-server/launch-history-server2.png "Launch Spark History Server")
 ![Launch Spark History Server](./media/apache-spark-history-server/launch-history-server.png "Launch Spark History Server")
 
 ## Data tab in Spark History Server
 
-Select job ID then click **Data** on the tool menu to get the data view.
+Select job ID, and then click **Data** on the tool menu to get the data view.
 
 + Check the **Inputs**, **Outputs**, and **Table Operations** by selecting the tabs separately.
 
     ![Data for Spark application tabs](./media/apache-spark-history-server/apache-spark-data-tabs.png)
 
-+ Copy all rows by clicking button **Copy**.
++ Copy all rows by clicking **Copy**.
 
     ![Data for Spark application copy](./media/apache-spark-history-server/apache-spark-data-copy.png)
 
-+ Save all data as CSV file by clicking button **csv**.
++ Save all data as CSV file by clicking **csv**.
 
     ![Data for Spark application save](./media/apache-spark-history-server/apache-spark-data-save.png)
 
-+ Search by entering keywords in field **Search**, the search result will display immediately.
++ Search by entering keywords in field **Search**, the search results display immediately.
 
     ![Data for Spark application search](./media/apache-spark-history-server/apache-spark-data-search.png)
 
@@ -50,11 +50,11 @@ Select job ID then click **Data** on the tool menu to get the data view.
 
     ![Data for Spark application table](./media/apache-spark-history-server/apache-spark-data-table.png)
 
-+ Download single file by clicking button **Partial Download** that place at the right, then the selected file will be downloaded to local, if the file does not exist anymore, it will open a new tab to show the error messages.
++ Download single file by clicking **Partial Download** and then the selected file is downloaded to local. If the file does not exist anymore, it opens a new tab to show the error message.
 
     ![Data for Spark application download row](./media/apache-spark-history-server/sparkui-data-download-row.png)
 
-+ Copy full path or relative path by selecting the **Copy Full Path**, **Copy Relative Path** that expands from download menu. For Azure Data Lake Storage files, **Open in Azure Storage Explorer** will launch Azure Storage Explorer, and locate to the folder when sign in.
++ Copy full path or relative path by selecting the **Copy Full Path**, **Copy Relative Path** that expands from download menu. For Azure Data Lake Storage files, **Open in Azure Storage Explorer** launches Azure Storage Explorer, and locate the folder when signed in.
 
     ![Data for Spark application copy path](./media/apache-spark-history-server/sparkui-data-copy-path.png)
 
@@ -72,15 +72,15 @@ Select job ID then click **Data** on the tool menu to get the data view.
 
 ## Graph tab in Apache Spark History Server
 
-Select job ID then click **Graph** on the tool menu to get the job graph view.
+Select job ID, and then click **Graph** on the tool menu to get the job graph view.
 
 + Check overview of your job by the generated job graph.
 
-+ By default, it will show all jobs, and it could be filtered by **Job ID**.
++ By default, it shows all jobs, and it could be filtered by **Job ID**.
 
     ![Spark application and job graph job ID](./media/apache-spark-history-server/apache-spark-graph-jobid.png)
 
-+ By default, **Progress** is selected, user could check the data flow by selecting **Read/Written** in the dropdown list of **Display**.
++ By default, **Progress** is selected. You can check the data flow by selecting **Read/Written** in the **Display** dropdown list.
 
     ![Spark application and job graph display](./media/apache-spark-history-server/sparkui-graph-display.png)
 
@@ -88,7 +88,7 @@ Select job ID then click **Graph** on the tool menu to get the job graph view.
 
     ![Spark application and job graph heatmap](./media/apache-spark-history-server/sparkui-graph-heatmap.png)
 
-+ Play back the job by clicking the **Playback** button and stop anytime by clicking the stop button. The task display in color to show different status when play back:
++ Play back the job by clicking **Playback** and stop anytime by clicking **Stop**. The task display in color to show different status when playing back:
 
   + Green for succeeded: The job has completed successfully.
   + Orange for retried: Instances of tasks that failed but do not affect the final result of the job. These tasks had duplicate or retry instances that may succeed later.
@@ -114,13 +114,13 @@ Select job ID then click **Graph** on the tool menu to get the job graph view.
 
     ![Spark application and job graph tooltip](./media/apache-spark-history-server/sparkui-graph-tooltip.png)
 
-+ In job graph tab, stages will have tooltip and small icon displayed if they have tasks meet the below conditions:
++ In job graph tab, stages have a tooltip and a small icon displayed if they have tasks meet the below conditions:
   + Data skew: data read size > average data read size of all tasks inside this stage * 2 and data read size > 10 MB.
-  + Time skew: execution time > average execution time of all tasks inside this stage * 2 and execution time > 2 mins.
+  + Time skew: execution time > average execution time of all tasks inside this stage * 2 and execution time > 2 minutes.
 
     ![Spark application and job graph skew icon](./media/apache-spark-history-server/sparkui-graph-skew-icon.png)
 
-+ The job graph node will display the following information of each stage:
++ The job graph node displays the following information of each stage:
   + ID.
   + Name or description.
   + Total task number.
@@ -131,9 +131,8 @@ Select job ID then click **Graph** on the tool menu to get the job graph view.
   + Progress.
 
     > [!NOTE]  
-    > By default, the job graph node will display information from last attempt of each stage (except for stage execution time), but during playback graph node will show information of each attempt.
-
-    > [!NOTE]  
+    > By default, the job graph node displays information from last attempt of each stage (except for stage execution time), but during playback graph node shows information of each attempt.
+    >  
     > For data size of read and write we use 1MB = 1000 KB = 1000 * 1000 Bytes.
 
 + Send feedback with issues by clicking **Provide us feedback**.
@@ -142,7 +141,7 @@ Select job ID then click **Graph** on the tool menu to get the job graph view.
 
 ## Diagnosis tab in Apache Spark History Server
 
-Select job ID then click **Diagnosis** on the tool menu to get the job Diagnosis view. The diagnosis tab includes **Data Skew**, **Time Skew**, and **Executor Usage Analysis**.
++ Select job ID, and then click **Diagnosis** on the tool menu to get the job Diagnosis view. The diagnosis tab includes **Data Skew**, **Time Skew**, and **Executor Usage Analysis**.
 
 + Check the **Data Skew**, **Time Skew**, and **Executor Usage Analysis** by selecting the tabs respectively.
 
@@ -152,7 +151,7 @@ Select job ID then click **Diagnosis** on the tool menu to get the job Diagnosis
 
 Click **Data Skew** tab, the corresponding skewed tasks are displayed based on the specified parameters.
 
-+ **Specify Parameters** - The first section displays the parameters, which are used to detect Data Skew. The built-in rule is: Task Data Read is greater than three times of the average task data read, and the task data read is more than 10 MB. If you want to define your own rule for skewed tasks, you can choose your parameters, the **Skewed Stage**, and **Skew Char** section will be refreshed accordingly.
++ **Specify Parameters** - The first section displays the parameters, which are used to detect Data Skew. The built-in rule is: Task Data Read is greater than three times of the average task data read, and the task data read is more than 10 MB. If you want to define your own rule for skewed tasks, you can choose your parameters, the **Skewed Stage** and **Skew Char** sections are refreshed accordingly.
 
 + **Skewed Stage** - The second section displays stages, which have skewed tasks meeting the criteria specified above. If there is more than one skewed task in a stage, the skewed stage table only displays the most skewed task (for example, the largest data for data skew).
 
@@ -176,7 +175,7 @@ The **Time Skew** tab displays skewed tasks based on task execution time.
 
 The Executor Usage Graph visualizes the Spark job actual executor allocation and running status.  
 
-+ Click **Executor Usage Analysis**, then four types curves about executor usage are drafted, including **Allocated Executors**, **Running Executors**, idle Executors**, and **Max Executor Instances**. Regarding allocated executors, each "Executor added" or "Executor removed" event will increase or decrease the allocated executors, you can check "Event Timeline" in the “Jobs" tab for more comparison.
++ Click **Executor Usage Analysis**, then four types curves about executor usage are drafted, including **Allocated Executors**, **Running Executors**, idle Executors**, and **Max Executor Instances**. Regarding allocated executors, each "Executor added" or "Executor removed" event increases or decreases the allocated executors, you can check "Event Timeline" in the “Jobs" tab for more comparison.
 
     ![sparkui diagnosis executors tab](./media/apache-spark-history-server/sparkui-diagnosis-executors.png)
 
@@ -186,7 +185,7 @@ The Executor Usage Graph visualizes the Spark job actual executor allocation and
 
 ## Known issues
 
-1. Input/output data using RDD will not show in data tab.
+Input/output data using Resilient Distributed Datasets (RDDs) does not show in data tab.
 
 <!--- TODO: Need to replace this diagram
 ## Next steps
@@ -195,3 +194,8 @@ The Executor Usage Graph visualizes the Spark job actual executor allocation and
 + [Configure Apache Spark settings](apache-spark-settings.md)
 
 --->
+
+## Next steps
+
++ [.NET for Apache Spark documentation](https://docs.microsoft.com/dotnet/spark)
++ [Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics)

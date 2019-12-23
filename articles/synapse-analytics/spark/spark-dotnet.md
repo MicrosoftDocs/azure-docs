@@ -32,7 +32,7 @@ To use .NET for Apache Spark in your Azure Synapse Analytics notebook, select **
 
 ## .NET for Apache Spark scenarios
 
-Notebooks are a great option for prototyping your .NET for Apache Spark pipelines and scenarios. You can start working with, understanding, filtering, displaying and visualizing your data quickly and efficiently. Data engineers, data scientists, business analysts, and machine learning engineers are all able to collaborate over a shared, highly interactive document. You see immediate results from data exploration, and can visualize your data in the same notebook.
+Notebooks are a great option for prototyping your .NET for Apache Spark pipelines and scenarios. You can start working with, understanding, filtering, displaying, and visualizing your data quickly and efficiently. Data engineers, data scientists, business analysts, and machine learning engineers are all able to collaborate over a shared, highly interactive document. You see immediate results from data exploration, and can visualize your data in the same notebook.
 
 Azure Synapse Analytics notebooks provide a smooth tooling experience with minimal setup, and allow for quick prototyping of big data queries in C# as you learn and practice solving your problems with Apache Spark.
 
@@ -54,4 +54,4 @@ The following features are available when you use .NET for Apache Spark in the A
 ## Next steps
 
 * [.NET for Apache Spark documentation](https://docs.microsoft.com/dotnet/spark)
-<!---* [Azure Synapse Analytics documentation](index.md)--->
+* [Azure Synapse Analytics](https://docs.microsoft.com/en-us/azure/synapse-analytics)

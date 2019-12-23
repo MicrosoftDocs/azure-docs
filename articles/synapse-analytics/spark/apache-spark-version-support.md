@@ -1243,3 +1243,8 @@ zict==0.1.2
 zipp==0.6.0
 
 zlib==1.2.8
+
+## Next steps
+
+- [.NET for Apache Spark documentation](https://docs.microsoft.com/dotnet/spark)
+- [Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics)
