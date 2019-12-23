@@ -15,7 +15,7 @@ ms.custom: seodec18
 ---
 
 # Use secrets in training runs
-[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
+[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 In this article, you learn how to use secrets in training runs securely. For example, to connect to an external database to query training data, you would need to pass your username and password to the remote run context. Coding such values into training scripts in cleartext is insecure as it would expose the secret. 
 
@@ -66,4 +66,4 @@ The set and get methods also have batch versions [set_secrets](https://docs.micr
 ## Next steps
 
  * [View example notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/manage-azureml-service/authentication-in-azureml/authentication-in-azureml.ipynb)
- * [Learn about enterprise security with Azure Machine Learning](../concept-enterprise-security.md)
+ * [Learn about enterprise security with Azure Machine Learning](concept-enterprise-security.md)
