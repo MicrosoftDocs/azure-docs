@@ -373,7 +373,7 @@ Additionally, you can visually identify the correlation between performance and 
 
 [![hyperparameter tuning parallel coordinates](media/how-to-tune-hyperparameters/HyperparameterTuningParallelCoordinates.png)](media/how-to-tune-hyperparameters/hyperparameter-tuning-parallel-coordinates-expanded.png)
 
-You can visualize all your hyperparameter tuning runs in the Azure web portal as well. For more information on how to view an experiment in the web portal, see [how to track experiments](how-to-track-experiments.md#view-the-experiment-in-the-web-portal).
+You can visualize all your hyperparameter tuning runs in the Azure web portal as well. For more information on how to view an experiment in the web portal, see [how to track experiments](../how-to-track-experiments.md#view-the-experiment-in-the-web-portal).
 
 ## Find the best model
 
@@ -398,5 +398,5 @@ Refer to train-hyperparameter-* notebooks in this folder:
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 
 ## Next steps
-* [Track an experiment](how-to-track-experiments.md)
+* [Track an experiment](../how-to-track-experiments.md)
 * [Deploy a trained model](../how-to-deploy-and-where.md)

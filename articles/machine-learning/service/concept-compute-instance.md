@@ -20,7 +20,7 @@ Compute instances make it easy to get started with Azure Machine Learning develo
 
 Use a compute instance as your fully configured and managed development environment in the cloud.
 
-Compute instances are typically used as development environments.  They can also be used as a compute target for training and inferencing for development and testing.  For large tasks, an [Azure Machine Learning compute cluster](how-to-set-up-training-targets.md#amlcompute) with multi-node scaling capabilities is a better compute target choice.
+Compute instances are typically used as development environments.  They can also be used as a compute target for training and inferencing for development and testing.  For large tasks, an [Azure Machine Learning compute cluster](../how-to-set-up-training-targets.md#amlcompute) with multi-node scaling capabilities is a better compute target choice.
 
 > [!NOTE]
 > Compute instances are currently available only for workspaces with a region of **North Central US** or **UK South**, with support for other regions coming soon.
@@ -75,6 +75,7 @@ These tools and environments are installed on the compute instance:
 |ONNX packages|`keras2onnx`</br>`onnx`</br>`onnxconverter-common`</br>`skl2onnx`</br>`onnxmltools`|                           
 |Azure Machine Learning Python & R SDK samples||
 
+Compute instances are typically used as development environments.  They can also be used as a compute target for training and inferencing for development and testing.  For large tasks, an [Azure Machine Learning compute cluster](../how-to-set-up-training-targets.md#amlcompute) with multi-node scaling capabilities is a better compute target choice.
 
 
 ## Accessing files

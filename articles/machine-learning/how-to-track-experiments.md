@@ -16,7 +16,7 @@ ms.custom: seodec18
 ---
 
 # Monitor Azure ML experiment runs and metrics
-[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
+[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Enhance the model creation process by tracking your experiments and monitoring run metrics. In this article, learn how to add logging code to your training script, submit an experiment run, monitor that run, and inspect the results in Azure Machine Learning.
 
@@ -24,7 +24,7 @@ Enhance the model creation process by tracking your experiments and monitoring r
 > Azure Machine Learning may also log information from other sources during training, such as automated machine learning runs, or the Docker container that runs the training job. These logs are not documented. If you encounter problems and contact Microsoft support, they may be able to use these logs during troubleshooting.
 
 > [!TIP]
-> The information in this document is primarily for data scientists and developers who want to monitor the model training process. If you are an administrator interested in monitoring resource usage and events from Azure Machine learning, such as quotas, completed training runs, or completed model deployments, see [Monitoring Azure Machine Learning](monitor-azure-machine-learning.md).
+> The information in this document is primarily for data scientists and developers who want to monitor the model training process. If you are an administrator interested in monitoring resource usage and events from Azure Machine learning, such as quotas, completed training runs, or completed model deployments, see [Monitoring Azure Machine Learning](service/monitor-azure-machine-learning.md).
 
 ## Available metrics to track
 
@@ -52,7 +52,7 @@ If you want to track or monitor your experiment, you must add code to start logg
 ## Set up the workspace
 Before adding logging and submitting an experiment, you must set up the workspace.
 
-1. Load the workspace. To learn more about setting the workspace configuration, see [workspace configuration file](../how-to-configure-environment.md#workspace).
+1. Load the workspace. To learn more about setting the workspace configuration, see [workspace configuration file](how-to-configure-environment.md#workspace).
 
    ```python
    from azureml.core import Experiment, Run, Workspace
@@ -224,7 +224,7 @@ This example expands on the basic sklearn Ridge model from above. It does a simp
 
 ## Manage a run
 
-The [Start, monitor, and cancel training runs](../how-to-manage-runs.md) article highlights specific Azure Machine Learning workflows for how to manage your experiments.
+The [Start, monitor, and cancel training runs](how-to-manage-runs.md) article highlights specific Azure Machine Learning workflows for how to manage your experiments.
 
 ## View run details
 
@@ -321,12 +321,12 @@ The following notebooks demonstrate concepts in this article:
 * [how-to-use-azureml/training/train-on-local](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-on-local)
 * [how-to-use-azureml/training/logging-api/logging-api.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/logging-api)
 
-[!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
+[!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-clone-for-examples.md)]
 
 ## Next steps
 
 Try these next steps to learn how to use the Azure Machine Learning SDK for Python:
 
-* See an example of how to register the best model and deploy it in the tutorial, [Train an image classification model with Azure Machine Learning](tutorial-train-models-with-aml.md).
+* See an example of how to register the best model and deploy it in the tutorial, [Train an image classification model with Azure Machine Learning](service/tutorial-train-models-with-aml.md).
 
-* Learn how to [Train PyTorch Models with Azure Machine Learning](how-to-train-pytorch.md).
+* Learn how to [Train PyTorch Models with Azure Machine Learning](service/how-to-train-pytorch.md).

@@ -85,7 +85,7 @@ You also provide the configuration of the target deployment platform. For exampl
 When the image is created, components required by Azure Machine Learning are also added. For example, assets needed to run the web service and interact with IoT Edge.
 
 #### Batch scoring
-Batch scoring is supported through ML pipelines. For more information, see [Batch predictions on big data](service/how-to-run-batch-predictions.md).
+Batch scoring is supported through ML pipelines. For more information, see [Batch predictions on big data](how-to-run-batch-predictions.md).
 
 #### Real-time web services
 
@@ -117,7 +117,7 @@ Microsoft Power BI supports using machine learning models for data analytics. Fo
 
 Azure ML gives you the capability to track the end-to-end audit trail of all of your ML assets. Specifically:
 
-- Azure ML [integrates with Git](service/how-to-set-up-training-targets.md#gitintegration) to track information on which repository / branch / commit your code came from.
+- Azure ML [integrates with Git](how-to-set-up-training-targets.md#gitintegration) to track information on which repository / branch / commit your code came from.
 - [Azure ML Datasets](how-to-create-register-datasets.md) help you track, profile, and version data. 
 - Azure ML Run history stores a snapshot of the code, data, and compute used to train a model.
 - The Azure ML Model Registry captures all of the metadata associated with your model (which experiment trained it, where it is being deployed, if its deployments are healthy).

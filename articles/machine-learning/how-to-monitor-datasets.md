@@ -15,7 +15,7 @@ ms.date: 11/04/2019
 ---
 
 # Detect data drift (preview) on datasets
-[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
+[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 In this article, you learn how to create Azure Machine Learning dataset monitors (preview), monitor for data drift and statistical changes in datasets, and set up alerts.
 
@@ -35,7 +35,7 @@ Metrics and insights are available through the [Azure Application Insights](http
 
 To create and work with dataset monitors, you need:
 * An Azure subscription. If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree) today.
-* An [Azure Machine Learning workspace](../how-to-manage-workspace.md).
+* An [Azure Machine Learning workspace](how-to-manage-workspace.md).
 * The [Azure Machine Learning SDK for Python installed](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py), which includes the azureml-datasets package.
 * Structured (tabular) data with a timestamp specified in the file path, file name, or column in the data.
 
@@ -104,17 +104,17 @@ dset = dset.register(ws, 'target')
 For a full example of using the `timeseries` trait of datasets, see the [example notebook](https://aka.ms/azureml-tsd-notebook) or the [datasets SDK documentation](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#with-timestamp-columns-fine-grain-timestamp--coarse-grain-timestamp-none--validate-false-).
 
 #### Azure Machine Learning studio
-[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku-inline.md)]
+[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku-inline.md)]
 
 If you create your dataset using Azure Machine Learning studio, ensure the path to your data contains timestamp information, include all subfolders with data, and set the partition format. 
 
 In the following example, all data under the subfolder *NoaaIsdFlorida/2019* is taken, and the partition format specifies the timestamp's year, month, and day. 
 
-[![Partition format](media/how-to-monitor-datasets/partition-format.png)](media/how-to-monitor-datasets/partition-format-expand.png)
+[![Partition format](./media/how-to-monitor-datasets/partition-format.png)](media/how-to-monitor-datasets/partition-format-expand.png)
 
 In the **Schema** settings, specify the timestamp column from a virtual or real column in the specified dataset:
 
-![Timestamp](media/how-to-monitor-datasets/timestamp.png)
+![Timestamp](./media/how-to-monitor-datasets/timestamp.png)
 
 ## Dataset monitor settings
 
@@ -160,17 +160,17 @@ These settings are for running a backfill on past data for data drift metrics.
 Create dataset monitors to detect and alert to data drift on a new dataset with Azure Machine Learning studio or the Python SDK. 
 
 ### Azure Machine Learning studio
-[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku-inline.md)]
+[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku-inline.md)]
 
 To set up alerts on your dataset monitor, the workspace that contains the dataset you want to create a monitor for must have Enterprise edition capabilities. 
 
 After the workspace functionality is confirmed, navigate to the studio's homepage and select the Datasets tab on the left. Select Dataset monitors.
 
-![Monitor list](media/how-to-monitor-datasets/monitor-list.png)
+![Monitor list](./media/how-to-monitor-datasets/monitor-list.png)
 
 Click on the **+Create monitor** button and continue through the wizard by clicking **Next**.
 
-![Wizard](media/how-to-monitor-datasets/wizard.png)
+![Wizard](./media/how-to-monitor-datasets/wizard.png)
 
 The resulting dataset monitor will appear in the list. Select it to go to that monitor's details page.
 
@@ -230,7 +230,7 @@ For a full example of setting up a `timeseries` dataset and data drift detector,
 
 The data monitor produces two groups of results: Drift overview and Feature details. The following animation shows the available drift monitor charts based on the selected feature and metric. 
 
-![Demo video](media/how-to-monitor-datasets/video.gif)
+![Demo video](./media/how-to-monitor-datasets/video.gif)
 
 ### Drift overview
 
@@ -243,7 +243,7 @@ The **Drift overview** section contains top-level insights into the magnitude of
 
 The following image is an example of charts seen in the **Drift overview**  results in Azure Machine Learning studio, resulting from a backfill of [NOAA Integrated Surface Data](https://azure.microsoft.com/services/open-datasets/catalog/noaa-integrated-surface-data/). Data was sampled to `stationName contains 'FLORIDA'`, with January 2019 being used as the baseline dataset and all 2019 data used as the target.
  
-![Drift overview](media/how-to-monitor-datasets/drift-overview.png)
+![Drift overview](./media/how-to-monitor-datasets/drift-overview.png)
 
 ### Feature details
 
@@ -266,7 +266,7 @@ Numeric features are profiled in each dataset monitor run. The following are exp
 | Min value | Minimum value of the feature. |
 | Max value | Maximum value of the feature. |
 
-![Feature details numeric](media/how-to-monitor-datasets/feature-details.png)
+![Feature details numeric](./media/how-to-monitor-datasets/feature-details.png)
 
 #### Categorical features 
 
@@ -278,7 +278,7 @@ Numeric features are profiled in each dataset monitor run. The following are exp
 | Unique values | Number of unique values (cardinality) of the feature. |
 
 
-![Feature details categorical](media/how-to-monitor-datasets/feature-details2.png)
+![Feature details categorical](./media/how-to-monitor-datasets/feature-details2.png)
 
 ## Metrics, alerts, and events
 
@@ -286,23 +286,23 @@ Metrics can be queried in the [Azure Application Insights](https://docs.microsof
 
 To get started, navigate to the Azure portal and select your workspace's **Overview** page.  The associated Application Insights resource is on the far right:
 
-[![Azure portal overview](media/how-to-monitor-datasets/ap-overview.png)](media/how-to-monitor-datasets/ap-overview-expanded.png)
+[![Azure portal overview](./media/how-to-monitor-datasets/ap-overview.png)](media/how-to-monitor-datasets/ap-overview-expanded.png)
 
 Select Logs (Analytics) under Monitoring on the left pane:
 
-![Application insights overview](media/how-to-monitor-datasets/ai-overview.png)
+![Application insights overview](./media/how-to-monitor-datasets/ai-overview.png)
 
 The dataset monitor metrics are stored as `customMetrics`. You can write and run a query after setting up a dataset monitor to view them:
 
-[![Log analytics query](media/how-to-monitor-datasets/simple-query.png)](media/how-to-monitor-datasets/simple-query-expanded.png)
+[![Log analytics query](./media/how-to-monitor-datasets/simple-query.png)](media/how-to-monitor-datasets/simple-query-expanded.png)
 
 After identifying metrics to set up alert rules, create a new alert rule:
 
-![New alert rule](media/how-to-monitor-datasets/alert-rule.png)
+![New alert rule](./media/how-to-monitor-datasets/alert-rule.png)
 
 You can use an existing action group, or create a new one to define the action to be taken when the set conditions are met:
 
-![New action group](media/how-to-monitor-datasets/action-group.png)
+![New action group](./media/how-to-monitor-datasets/action-group.png)
 
 ## Troubleshooting
 
@@ -324,4 +324,4 @@ Columns, or features, in the dataset are classified as categorical or numeric ba
 
 * Head to the [Azure Machine Learning studio](https://ml.azure.com) or the [Python notebook](https://aka.ms/datadrift-notebook) to set up a dataset monitor.
 * See how to set up data drift on [models deployed to Azure Kubernetes Service](how-to-monitor-data-drift.md).
-* Set up dataset drift monitors with [event grid](how-to-use-event-grid.md). 
+* Set up dataset drift monitors with [event grid](service/how-to-use-event-grid.md). 

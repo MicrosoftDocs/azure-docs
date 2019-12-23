@@ -316,7 +316,7 @@ There are a few options you can define to end your experiment.
 
 ### Explore model metrics
 
-You can view your training results in a widget or inline if you are in a notebook. See [Track and evaluate models](service/how-to-track-experiments.md#view-run-details) for more details.
+You can view your training results in a widget or inline if you are in a notebook. See [Track and evaluate models](how-to-track-experiments.md#view-run-details) for more details.
 
 ## Understand automated ML models
 

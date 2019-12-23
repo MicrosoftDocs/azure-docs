@@ -15,7 +15,7 @@ ms.custom: Ignite2019
 ---
 
 # Run batch inference on large amounts of data by using Azure Machine Learning
-[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
+[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Learn how to get inferences on large amounts of data asynchronously and in parallel by using Azure Machine Learning. The batch inference capability described here is in public preview. It's a high-performance and high-throughput way to generate inferences and processing data. It provides asynchronous capabilities out of the box.
 
@@ -25,16 +25,16 @@ In this article, you learn the following tasks:
 
 > * Create a remote compute resource.
 > * Write a custom inference script.
-> * Create a [machine learning pipeline](../concept-ml-pipelines.md) to register a pre-trained image classification model based on the [MNIST](https://publicdataset.azurewebsites.net/dataDetail/mnist/) dataset. 
+> * Create a [machine learning pipeline](concept-ml-pipelines.md) to register a pre-trained image classification model based on the [MNIST](https://publicdataset.azurewebsites.net/dataDetail/mnist/) dataset. 
 > * Use the model to run batch inference on sample images available in your Azure Blob storage account. 
 
 ## Prerequisites
 
 * If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of the Azure Machine Learning](https://aka.ms/AMLFree).
 
-* For a guided quickstart, complete the [setup tutorial](tutorial-1st-experiment-sdk-setup.md) if you don't already have an Azure Machine Learning workspace or notebook virtual machine. 
+* For a guided quickstart, complete the [setup tutorial](service/tutorial-1st-experiment-sdk-setup.md) if you don't already have an Azure Machine Learning workspace or notebook virtual machine. 
 
-* To manage your own environment and dependencies, see the [how-to guide](../how-to-configure-environment.md) on configuring your own environment. Run `pip install azureml-sdk[notebooks] azureml-pipeline-core azureml-contrib-pipeline-steps` in your environment to download the necessary dependencies.
+* To manage your own environment and dependencies, see the [how-to guide](how-to-configure-environment.md) on configuring your own environment. Run `pip install azureml-sdk[notebooks] azureml-pipeline-core azureml-contrib-pipeline-steps` in your environment to download the necessary dependencies.
 
 ## Set up machine learning resources
 
@@ -357,9 +357,9 @@ pipeline_run.wait_for_completion(show_output=True)
 
 To see this process working end to end, try the [batch inference notebook](https://aka.ms/batch-inference-notebooks). 
 
-For debugging and troubleshooting guidance for ParallelRunStep, see the [how-to guide](../how-to-debug-batch-predictions.md).
+For debugging and troubleshooting guidance for ParallelRunStep, see the [how-to guide](how-to-debug-batch-predictions.md).
 
-For debugging and troubleshooting guidance for pipelines, see the [how-to guide](../how-to-debug-pipelines.md).
+For debugging and troubleshooting guidance for pipelines, see the [how-to guide](how-to-debug-pipelines.md).
 
-[!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
+[!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-clone-for-examples.md)]
 

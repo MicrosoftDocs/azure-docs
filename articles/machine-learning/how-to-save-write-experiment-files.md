@@ -15,7 +15,7 @@ ms.date: 11/04/2019
 
 ---
 # Where to save and write files for Azure Machine Learning experiments
-[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
+[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 In this article, you learn where to save input files, and where to write output files from your experiments to prevent storage limit errors and experiment latency.
 
@@ -29,7 +29,7 @@ Azure Machine Learning runs training scripts by copying the entire script folder
 
 For this reason, we recommend:
 
-* **Storing your files in an Azure Machine Learning [datastore](https://docs.microsoft.com/python/api/azureml-core/azureml.data?view=azure-ml-py).** This prevents experiment latency issues, and has the advantages of accessing data from a remote compute target, which means authentication and mounting are managed by Azure Machine Learning. Learn more about specifying a datastore as your source directory, and uploading files to your datastore in the [Access data from your datastores](../how-to-access-data.md) article.
+* **Storing your files in an Azure Machine Learning [datastore](https://docs.microsoft.com/python/api/azureml-core/azureml.data?view=azure-ml-py).** This prevents experiment latency issues, and has the advantages of accessing data from a remote compute target, which means authentication and mounting are managed by Azure Machine Learning. Learn more about specifying a datastore as your source directory, and uploading files to your datastore in the [Access data from your datastores](how-to-access-data.md) article.
 
 * **If you only need a couple data files and dependency scripts and can't use a datastore,** place the files in the same folder directory as your training script. Specify this folder as your `source_directory` directly in your training script, or in the code that calls your training script.
 
@@ -57,7 +57,7 @@ Jupyter notebooks| Create a `.amlignore` file or move your notebook into a new, 
 
 Due to the isolation of training experiments, the changes to files that happen during runs are not necessarily persisted outside of your environment. If your script modifies the files local to compute, the changes are not persisted for your next experiment run, and they're not propagated back to the client machine automatically. Therefore, the changes made during the first experiment run don't and shouldn't affect those in the second.
 
-When writing changes, we recommend writing files to an Azure Machine Learning datastore. See [Access data from your datastores](../how-to-access-data.md).
+When writing changes, we recommend writing files to an Azure Machine Learning datastore. See [Access data from your datastores](how-to-access-data.md).
 
 If you don't require a datastore, write files to the `./outputs` and/or `./logs` folder.
 
@@ -70,6 +70,6 @@ If you don't require a datastore, write files to the `./outputs` and/or `./logs`
 
 ## Next steps
 
-* Learn more about [accessing data from your datastores](../how-to-access-data.md).
+* Learn more about [accessing data from your datastores](how-to-access-data.md).
 
 * Learn more about [How to Set Up Training Targets](how-to-set-up-training-targets.md).

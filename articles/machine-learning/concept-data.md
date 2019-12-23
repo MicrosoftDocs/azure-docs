@@ -67,7 +67,7 @@ The following diagram shows that if you don't have an Azure storage service, you
 Additional datasets capabilities can be found in the following documentation:
 
 + [Version and track](service/how-to-version-track-datasets.md) dataset lineage.
-+ [Monitor your dataset](service/how-to-monitor-datasets.md) to help with data drift detection.
++ [Monitor your dataset](how-to-monitor-datasets.md) to help with data drift detection.
 +  See the following for documentation on the two types of datasets:
     + [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) represents data in a tabular format by parsing the provided file or list of files. Which lets you materialize the data into a Pandas or Spark DataFrame for further manipulation and cleansing. For a complete list of files you can create TabularDatasets from, see the [TabularDatasetFactory class](https://aka.ms/tabulardataset-api-reference).
 
@@ -108,7 +108,7 @@ Azure Machine Learning gives you a central location to create, manage, and monit
 ## Data drift
 
 In the context of machine learning, data drift is the change in model input data that leads to model performance degradation. It is one of the top reasons model accuracy degrades over time, thus monitoring data drift helps detect model performance issues.
-See the [Create a dataset monitor](service/how-to-monitor-datasets.md) article, to learn more about how to detect and alert to data drift on new data in a dataset.
+See the [Create a dataset monitor](how-to-monitor-datasets.md) article, to learn more about how to detect and alert to data drift on new data in a dataset.
 
 ## Next steps 
 

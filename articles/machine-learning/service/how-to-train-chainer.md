@@ -213,6 +213,6 @@ In this article, you trained and registered a deep learning, neural network usin
 
 * [Tune hyperparameters](how-to-tune-hyperparameters.md)
 
-* [Track run metrics during training](how-to-track-experiments.md)
+* [Track run metrics during training](../how-to-track-experiments.md)
 
 * [View our reference architecture for distributed deep learning training in Azure](/azure/architecture/reference-architectures/ai/training-deep-learning)

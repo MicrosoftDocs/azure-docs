@@ -185,7 +185,7 @@ See the [energy demand notebook](https://github.com/Azure/MachineLearningNoteboo
 In order to leverage DNNs for forecasting, you will need to set the `enable_dnn` parameter in the AutoMLConfig to true. 
 
 In order to use DNNs, we recommend using an AML Compute cluster with GPU SKUs and at least 2 nodes as the compute target. 
-See the [AML Compute documentation](service/how-to-set-up-training-targets.md#amlcompute) for more information. 
+See the [AML Compute documentation](how-to-set-up-training-targets.md#amlcompute) for more information. 
 See [GPU optimized virtual machine sizes](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu) for more information on the VM sizes that include GPUs.
 
 To allow sufficient time for the DNN training to complete, we recommend setting the experiment timeout to at least a couple of hours.

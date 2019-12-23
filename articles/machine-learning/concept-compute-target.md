@@ -29,7 +29,7 @@ Azure Machine Learning has varying support across different compute resources.  
 
 [!INCLUDE [aml-compute-target-train](../../includes/aml-compute-target-train.md)]
 
-Learn more about [setting up and using a compute target for model training](service/how-to-set-up-training-targets.md).
+Learn more about [setting up and using a compute target for model training](how-to-set-up-training-targets.md).
 
 ## <a name="deploy"></a>Deployment targets
 
@@ -75,5 +75,5 @@ An unmanaged compute target is *not* managed by Azure Machine Learning. You crea
 ## Next steps
 
 Learn how to:
-* [Set up a compute target to train your model](service/how-to-set-up-training-targets.md)
+* [Set up a compute target to train your model](how-to-set-up-training-targets.md)
 * [Deploy your model to a compute target](how-to-deploy-and-where.md)

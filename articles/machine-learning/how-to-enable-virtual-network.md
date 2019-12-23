@@ -247,7 +247,7 @@ except ComputeTargetException:
     cpu_cluster.wait_for_completion(show_output=True)
 ```
 
-When the creation process finishes, you train your model by using the cluster in an experiment. For more information, see [Select and use a compute target for training](service/how-to-set-up-training-targets.md).
+When the creation process finishes, you train your model by using the cluster in an experiment. For more information, see [Select and use a compute target for training](how-to-set-up-training-targets.md).
 
 ## Use Azure Databricks
 
@@ -296,7 +296,7 @@ To use a virtual machine or Azure HDInsight cluster in a virtual network with yo
 
     If you don't want to use the default outbound rules and you do want to limit the outbound access of your virtual network, see the [Limit outbound connectivity from the virtual network](#limiting-outbound-from-vnet) section.
 
-1. Attach the VM or HDInsight cluster to your Azure Machine Learning workspace. For more information, see [Set up compute targets for model training](service/how-to-set-up-training-targets.md).
+1. Attach the VM or HDInsight cluster to your Azure Machine Learning workspace. For more information, see [Set up compute targets for model training](how-to-set-up-training-targets.md).
 
 <a id="aksvnet"></a>
 
@@ -381,7 +381,7 @@ For more information on configuring a network rule, see [Deploy and configure Az
 
 ## Next steps
 
-* [Set up training environments](service/how-to-set-up-training-targets.md)
+* [Set up training environments](how-to-set-up-training-targets.md)
 * [Where to deploy models](how-to-deploy-and-where.md)
-* [Securely deploy models with SSL](service/how-to-secure-web-service.md)
+* [Securely deploy models with SSL](how-to-secure-web-service.md)
 

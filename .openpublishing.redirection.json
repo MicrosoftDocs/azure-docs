@@ -13022,6 +13022,56 @@
         "redirect_document_id": true
     },
     {
+      "source_path": "articles/machine-learning/service/how-to-monitor-data-drift.md",
+      "redirect_url": "/azure/machine-learning/how-to-monitor-data-drift",
+      "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/machine-learning/service/how-to-monitor-datasets.md",
+        "redirect_url": "/azure/machine-learning/how-to-monitor-datasets",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/machine-learning/service/how-to-monitor-tensorboard.md",
+        "redirect_url": "/azure/machine-learning/how-to-monitor-tensorboard",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/machine-learning/service/how-to-run-batch-predictions-designer.md",
+        "redirect_url": "/azure/machine-learning/how-to-run-batch-predictions-designer",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/machine-learning/service/how-to-run-batch-predictions.md",
+        "redirect_url": "/azure/machine-learning/how-to-run-batch-predictions",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/machine-learning/service/how-to-save-write-experiment-files.md",
+        "redirect_url": "/azure/machine-learning/how-to-save-write-experiment-files",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/machine-learning/service/how-to-schedule-pipelines.md",
+        "redirect_url": "/azure/machine-learning/how-to-schedule-pipelines",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/machine-learning/service/how-to-secure-web-service.md",
+        "redirect_url": "/azure/machine-learning/how-to-secure-web-service",
+        "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/machine-learning/service/how-to-set-up-training-targets.md",
+      "redirect_url": "/azure/machine-learning/how-to-set-up-training-targets",
+      "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/machine-learning/service/how-to-track-experiments.md",
+        "redirect_url": "/azure/machine-learning/how-to-track-experiments",
+        "redirect_document_id": true
+    },
+    {
       "source_path": "articles/log-analytics/log-analytics-add-solutions.md",
       "redirect_url": "/azure/monitoring/monitoring-solutions",
       "redirect_document_id": false

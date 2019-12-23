@@ -21,9 +21,9 @@ In this article, you'll learn how to programmatically schedule a pipeline to run
 
 * An Azure subscription. If you don’t have an Azure subscription, create a [free account](https://aka.ms/AMLFree).
 
-* A Python environment in which the Azure Machine Learning SDK for Python is installed. For more information, see [Create and manage reusable environments for training and deployment with Azure Machine Learning.](how-to-use-environments.md)
+* A Python environment in which the Azure Machine Learning SDK for Python is installed. For more information, see [Create and manage reusable environments for training and deployment with Azure Machine Learning.](service/how-to-use-environments.md)
 
-* A Machine Learning workspace with a published pipeline. You can use the one built in [Create and run machine learning pipelines with Azure Machine Learning SDK](../how-to-create-your-first-pipeline.md).
+* A Machine Learning workspace with a published pipeline. You can use the one built in [Create and run machine learning pipelines with Azure Machine Learning SDK](how-to-create-your-first-pipeline.md).
 
 ## Initialize the workspace & get data
 
@@ -93,7 +93,7 @@ In addition to the arguments discussed previously, you may set the `status` argu
 
 In your Web browser, navigate to Azure Machine Learning. From the **Endpoints** section of the navigation panel, choose **Pipeline endpoints**. This takes you to a list of the pipelines published in the Workspace.
 
-![Pipelines page of AML](media/how-to-schedule-pipelines/scheduled-pipelines.png)
+![Pipelines page of AML](./media/how-to-schedule-pipelines/scheduled-pipelines.png)
 
 In this page you can see summary information about all the pipelines in the Workspace: names, descriptions, status, and so forth. Drill in by clicking in your pipeline. On the resulting page, there are more details about your pipeline and you may drill down into individual runs.
 
@@ -134,7 +134,7 @@ In this article, you used the Azure Machine Learning SDK for Python to schedule 
 For more information, see:
 
 > [!div class="nextstepaction"]
-> [Use Azure Machine Learning Pipelines for batch scoring](tutorial-pipeline-batch-scoring-classification.md)
+> [Use Azure Machine Learning Pipelines for batch scoring](service/tutorial-pipeline-batch-scoring-classification.md)
 
-* Learn more about [pipelines](../concept-ml-pipelines.md)
-* Learn more about [exploring Azure Machine Learning with Jupyter](samples-notebooks.md)
+* Learn more about [pipelines](concept-ml-pipelines.md)
+* Learn more about [exploring Azure Machine Learning with Jupyter](service/samples-notebooks.md)
