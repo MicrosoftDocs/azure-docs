@@ -47,7 +47,7 @@ npm init
 Install the `@azure/ms-rest-js` and `@azure/cognitiveservices-textanalytics` NPM packages:
 
 ```console
-npm install @azure/cognitiveservices-textanalytics @azure/ms-rest-js
+npm install --save @azure/cognitiveservices-textanalytics
 ```
 
 Your app's `package.json` file will be updated with the dependencies.
