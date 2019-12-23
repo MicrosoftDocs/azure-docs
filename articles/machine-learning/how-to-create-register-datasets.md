@@ -12,6 +12,8 @@ manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 11/04/2019
 
+# Customer intent: As an experienced data scientist, I need to package my data into a consumable and reusable object to train my machine learning models.
+
 ---
 
 # Create Azure Machine Learning datasets

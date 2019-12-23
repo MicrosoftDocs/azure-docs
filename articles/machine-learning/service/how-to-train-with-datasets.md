@@ -12,6 +12,8 @@ manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 09/25/2019
 
+# Customer intent: As an experienced Python developer, I need to make my data available to my remote compute to train my machine learning models.
+
 ---
 
 # Train with datasets in Azure Machine Learning
