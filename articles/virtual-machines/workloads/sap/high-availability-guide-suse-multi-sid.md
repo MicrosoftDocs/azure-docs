@@ -518,7 +518,7 @@ This documentation assumes that:
 
    The following picture shows how the resources would look like in the HA Web Konsole(Hawk), with the resources for SAP system **NW2** expanded.  
 
-   [![SAP NetWeaver High Availability overview](./media/high-availability-guide-suse/ha-suse-multi-sid-hawk.png)](./media/high-availability-guide-suse/ha-suse-multi-sid-hawk.png#lightbox)
+   [![SAP NetWeaver High Availability overview](./media/high-availability-guide-suse/ha-suse-multi-sid-hawk.png)](./media/high-availability-guide-suse/ha-suse-multi-sid-hawk-detail.png#lightbox)
 
 ### Proceed with the SAP installation 
 
