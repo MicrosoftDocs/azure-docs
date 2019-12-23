@@ -25,7 +25,7 @@ For a full list of the recommendations you might see on this page, see [Data and
 
 ## View the security of your compute and apps resources
 
-[![Security Center dashboard](./media/security-center-virtual-machine-recommendations/overview.png)](rd](./media/security-center-virtual-machine-recommendations/overview.#lightbox)
+[![Security Center dashboard](./media/security-center-virtual-machine-recommendations/overview.png)](./media/security-center-virtual-machine-recommendations/overview.png#lightbox)
 
 To view the status of your compute and apps resources, select **Compute & apps** under **Resources** in the Security Center sidebar. The following tabs are available:
 
