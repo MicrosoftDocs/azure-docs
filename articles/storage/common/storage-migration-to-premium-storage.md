@@ -66,7 +66,7 @@ Premium Storage accounts have the following scalability targets in addition to t
 |:--- |:--- |
 | Disk capacity: 35TB<br />Snapshot capacity: 10 TB |Up to 50 gigabits per second for Inbound + Outbound |
 
-For the more information on Premium Storage specifications, see **Scale targets for premium page blob storage accounts** in [Scalability and performance targets for Blob storage](../blobs/scalability-targets.md#scale-targets-for-premium-page-blob-storage-accounts).
+For the more information on Premium Storage specifications, see [Scalability targets for premium page blob storage accounts](../blobs/scalability-targets-premium-page-blobs.md).
 
 #### Disk caching policy
 By default, disk caching policy is *Read-Only* for all the Premium data disks, and *Read-Write* for the Premium operating system disk attached to the VM. This configuration setting is recommended to achieve the optimal performance for your application's IOs. For write-heavy or write-only data disks (such as SQL Server log files), disable disk caching so that you can achieve better application performance. The cache settings for existing data disks can be updated by using the [Azure portal](https://portal.azure.com) or the *-HostCaching* parameter of the *Set-AzureDataDisk* cmdlet.
