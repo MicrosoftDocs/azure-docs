@@ -1,6 +1,6 @@
 ﻿---
 title: 'Plan your Preview environment - Azure Time Series Insights | Microsoft Docs'
-description: Learn how to plan your Azure Time Series Insights Preview environment.
+description: Best practices to configure, manage, plan, and deploy your Azure Time Series Insights Preview environment.
 author: deepakpalled
 ms.author: dpalled
 manager: cshankar
