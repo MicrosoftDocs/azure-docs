@@ -1,5 +1,5 @@
 ---
-title: Authenticating and authorizing with Power BI Workspace Collections | Microsoft Docs
+title: Authenticate and authorize - Power BI Workspace Collections
 description: Authenticating and authorizing with Power BI Workspace Collections.
 services: power-bi-workspace-collections
 author: rkarlin
