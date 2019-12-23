@@ -68,7 +68,7 @@ Register the Microsoft.DataMigration resource provider before you create your fi
 
 ## Clean up resources
 
-You can clean up the resources created in this Quickstart by deleting the [Azure resource group](../azure-resource-manager/resource-group-overview.md). To delete the resource group, navigate to the instance of the Azure Database Migration Service that you created. Select the **Resource group** name, and then select **Delete resource group**. This action deletes all assets in the resource group as well as the group itself.
+You can clean up the resources created in this Quickstart by deleting the [Azure resource group](../azure-resource-manager/management/overview.md). To delete the resource group, navigate to the instance of the Azure Database Migration Service that you created. Select the **Resource group** name, and then select **Delete resource group**. This action deletes all assets in the resource group as well as the group itself.
 
 ## Next steps
 
