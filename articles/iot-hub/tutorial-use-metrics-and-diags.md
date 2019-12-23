@@ -46,7 +46,7 @@ For this tutorial, you need an IoT hub, a storage account, and a simulated IoT d
 
 These are the required steps.
 
-1. Create a [resource group](../azure-resource-manager/resource-group-overview.md). 
+1. Create a [resource group](../azure-resource-manager/management/overview.md). 
 
 2. Create an IoT hub.
 

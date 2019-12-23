@@ -97,20 +97,20 @@ You can see the registration status and register a resource provider namespace t
 
 1. From the portal, select **All services**.
 
-   ![Select all services](./media/resource-manager-register-provider-errors/select-all-services.png)
+   ![Select all services](./media/error-register-resource-provider/select-all-services.png)
 
 1. Select **Subscriptions**.
 
-   ![Select subscriptions](./media/resource-manager-register-provider-errors/select-subscriptions.png)
+   ![Select subscriptions](./media/error-register-resource-provider/select-subscriptions.png)
 
 1. From the list of subscriptions, select the subscription you want to use for registering the resource provider.
 
-   ![Select subscription to register resource provider](./media/resource-manager-register-provider-errors/select-subscription-to-register.png)
+   ![Select subscription to register resource provider](./media/error-register-resource-provider/select-subscription-to-register.png)
 
 1. For your subscription, select **Resource providers**.
 
-   ![Select resource providers](./media/resource-manager-register-provider-errors/select-resource-provider.png)
+   ![Select resource providers](./media/error-register-resource-provider/select-resource-provider.png)
 
 1. Look at the list of resource providers, and if necessary, select the **Register** link to register the resource provider of the type you're trying to deploy.
 
-   ![List resource providers](./media/resource-manager-register-provider-errors/list-resource-providers.png)
+   ![List resource providers](./media/error-register-resource-provider/list-resource-providers.png)

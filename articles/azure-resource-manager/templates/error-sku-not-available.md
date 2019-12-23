@@ -24,7 +24,7 @@ for subscription '<subscriptionID>'. Please try another tier or deploy to a diff
 
 You receive this error when the resource SKU you've selected (such as VM size) isn't available for the location you've selected.
 
-If you are deploying an Azure Spot VM or Spot scale set instance, there isn't any capacity for Azure Spot in this location. For more information, see [Spot error messages](../virtual-machines/error-codes-spot.md).
+If you are deploying an Azure Spot VM or Spot scale set instance, there isn't any capacity for Azure Spot in this location. For more information, see [Spot error messages](../../virtual-machines/error-codes-spot.md).
 
 ## Solution 1 - PowerShell
 
@@ -70,11 +70,11 @@ To determine which SKUs are available in a region, use the [portal](https://port
 
 For example, start the process of creating a virtual machine. To see other available size, select **Change size**.
 
-![Create VM](./media/resource-manager-sku-not-available-errors/create-vm.png)
+![Create VM](./media/error-sku-not-available/create-vm.png)
 
 You can filter and scroll through the available sizes.
 
-![Available SKUs](./media/resource-manager-sku-not-available-errors/available-sizes.png)
+![Available SKUs](./media/error-sku-not-available/available-sizes.png)
 
 ## Solution 4 - REST
 

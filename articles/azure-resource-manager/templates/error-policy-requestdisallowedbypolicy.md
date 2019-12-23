@@ -52,5 +52,5 @@ To resolve this problem, review the resource policies, and determine how to depl
 
 For more information, see the following articles:
 
-- [What is Azure Policy?](../governance/policy/overview.md)
-- [Create and manage policies to enforce compliance](../governance/policy/tutorials/create-and-manage.md)
+- [What is Azure Policy?](../../governance/policy/overview.md)
+- [Create and manage policies to enforce compliance](../../governance/policy/tutorials/create-and-manage.md)

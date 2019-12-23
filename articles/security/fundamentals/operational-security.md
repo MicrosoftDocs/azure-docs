@@ -111,7 +111,7 @@ When you create a deployment, runbooks in [Azure Automation](../../automation/au
 
 ## Azure Security Center
 
-Azure Security Center helps protect your Azure resources. It provides integrated security monitoring and policy management across your Azure subscriptions. Within the service,you are able to define polices not only against your Azure subscriptions, but also against [Resource Groups](../../azure-resource-manager/resource-group-overview.md#resource-groups), so you can be more granular.
+Azure Security Center helps protect your Azure resources. It provides integrated security monitoring and policy management across your Azure subscriptions. Within the service,you are able to define polices not only against your Azure subscriptions, but also against [Resource Groups](../../azure-resource-manager/management/overview.md#resource-groups), so you can be more granular.
 
 ### Security policies and recommendations
 
