@@ -32,7 +32,7 @@ Azure Cognitive Services are APIs, SDKs, and services available to help develope
 
 |Service Name|Service Description|
 |:-----------|:------------------|
-|[Speech Service](https://docs.microsoft.com/azure/cognitive-services/speech-service/ "Speech Service")|Speech Service adds speech-enabled features to applications.|
+|[Speech service](https://docs.microsoft.com/azure/cognitive-services/speech-service/ "Speech service")|Speech service adds speech-enabled features to applications.|
 |[Speaker Recognition API](https://docs.microsoft.com/azure/cognitive-services/speaker-recognition/home "Speaker Recognition API") (Preview)|The Speaker Recognition API provides algorithms for speaker identification and verification.|
 |[Bing Speech](https://docs.microsoft.com/azure/cognitive-services/speech/home "Bing Speech") (Retiring)|The Bing Speech API provides you with an easy way to create speech-enabled features in your applications.|
 |[Translator Speech](https://docs.microsoft.com/azure/cognitive-services/translator-speech/ "Translator Speech") (Retiring)|Translator Speech is a machine translation service.|
