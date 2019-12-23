@@ -148,9 +148,9 @@ If you stopped protection while retaining data and decided to resume protection,
 
 ## Re-generate passphrase
 
-A passphrase is used to encrypt and decrypt data while backing up or restoring your on-premises or local machine using the MARS agent to or from Azure. If you lost or forgot the passphrase, then you can regenerate the passphrase (provided your machine is still registered with Recovery Services Vault and the backup is configured) by following these steps:
+A passphrase is used to encrypt and decrypt data while backing up or restoring your on-premises or local machine using the MARS agent to or from Azure. If you lost or forgot the passphrase, then you can regenerate the passphrase (provided your machine is still registered with the Recovery Services Vault and the backup is configured) by following these steps:
 
-- From MARS agent console, go to **Actions Pane** > **Change properties**.  Then go to **Encryption tab** > **Change Passphrase** > **Generate passphrase**<br>
+- From the MARS agent console, go to **Actions Pane** > **Change properties**.  Then go to **Encryption tab** > **Change Passphrase** > **Generate passphrase**<br>
 - Once you click **Generate passphrase**, it will generate a new passphrase.<br>
 - Click Browse to save your passphrase.<br>
 
@@ -159,10 +159,10 @@ A passphrase is used to encrypt and decrypt data while backing up or restoring y
 - Paste the security PIN from the portal and click **OK** to apply the changes.<br>
 
     ![Generate passphrase.](./media/backup-azure-manage-mars/passphrase2.png)
-- Ensure that the passphrase is securely saved in an alternate location (other than source machine), preferably in the Azure Key Vault. Keep track of all the passphrases if you have multiple machines being backed up with MARS agents).
+- Ensure that the passphrase is securely saved in an alternate location (other than the source machine), preferably in the Azure Key Vault. Keep track of all the passphrases if you have multiple machines being backed up with the MARS agents.
 
 
 ## Next steps
 
-- For information about supported scenarios and limitations, refer to the [Support Matrix for MARS](https://docs.microsoft.com/azure/backup/backup-support-matrix-mars-agent).
+- For information about supported scenarios and limitations, refer to the [Support Matrix for the MARS](https://docs.microsoft.com/azure/backup/backup-support-matrix-mars-agent).
 - Learn more about [On demand backup policy retention behavior](backup-configure-vault.md#on-demand-backup-policy-retention-behavior).
