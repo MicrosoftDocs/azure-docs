@@ -66,7 +66,7 @@ In the search box at the top of the portal, enter *network security groups*. Whe
 	*	[Access control (IAM)](../role-based-access-control/overview.md)
 	*	[Tags](../azure-resource-manager/resource-group-using-tags.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 	*	[Locks](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-	*	[Automation script](../azure-resource-manager/manage-resource-groups-portal.md#export-resource-groups-to-templates)
+	*	[Automation script](../azure-resource-manager/templates/export-template-portal.md)
 
 **Commands**
 

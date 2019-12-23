@@ -22,7 +22,7 @@ ms.author: spelluru
 A namespace is a scoping container for all your Azure Relay components. Multiple relays can reside in a single namespace, and namespaces often serve as application containers. There are currently two different ways to create a relay namespace:
 
 1. Azure portal (this article).
-2. [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) templates.
+2. [Azure Resource Manager](../azure-resource-manager/management/overview.md) templates.
 
 ## Create a namespace in the Azure portal
 
