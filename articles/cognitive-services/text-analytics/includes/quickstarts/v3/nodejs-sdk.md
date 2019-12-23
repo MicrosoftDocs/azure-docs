@@ -57,12 +57,9 @@ Create a file named `index.js` and add the following libraries:
 ```javascript
 "use strict";
 
-const os = require("os"); // Why do we need os ? If we are just doing console.log(os.EOL);, we should remove this dependency.
 const { TextAnalyticsClient, CognitiveServicesCredential } = require("@azure/cognitiveservices-textanalytics");
 ```
 
-<!-- QUESTION: Why does this titles "Create variables for your resource's Azure endpoint and subscription key" ?
-The key and endpoint are generated as soon as the resource is provisioned. This step should be just after creating a new resource above and can be referenced here when creating index file.-->
 Create variables for your resource's Azure endpoint and subscription key.
 
 [!INCLUDE [text-analytics-find-resource-information](../find-azure-resource-info.md)]
@@ -127,7 +124,6 @@ async function languageDetection(client) {
         );
         console.log(`\tPrimary Language ${document.primaryLanguage.name}`)
     });
-    console.log(os.EOL); // Do we need this, this is an unnecessary dependency to a developer.
 }
 languageDetection(textAnalyticsClient);
 ```
@@ -159,7 +155,7 @@ async function sentimentAnalysis(client){
         "I had the best day of my life.",
         "This was a waste of my time. The speaker put me to sleep.",
         "No tengo dinero ni nada que dar...",
-        "L'hotel veneziano era meraviglioso. È un bellissimo pezzo di architettura."
+        "I am happy for my friend. But I am sad for myself."
     ]
 
     const sentimentResult = await client.analyseSentiment(sentimentInput);
@@ -184,22 +180,48 @@ Run your code with `node index.js` in your console window.
 ```console
 ID: 0
         Document Sentiment: positive
+        Document Scores:
+                Positive: 0.9992358684539795    Negative: 0.9992358684539795    Neutral: 0.0006491420208476
         Sentences Sentiment(1):
                 Sentence sentiment: positive
+                Sentences Scores:
+                Positive: 0.9992358684539795    Negative: 0.9992358684539795    Neutral: 0.0006491420208476
+                Length: 30, Offset: 0
 ID: 1
         Document Sentiment: negative
+        Document Scores:
+                Positive: 0.0611404217779636    Negative: 0.0611404217779636    Neutral: 0.4256836175918579
         Sentences Sentiment(2):
                 Sentence sentiment: negative
+                Sentences Scores:
+                Positive: 0.0000168700626091    Negative: 0.0000168700626091    Neutral: 0.0000066324328145
+                Length: 28, Offset: 0
                 Sentence sentiment: neutral
+                Sentences Scores:
+                Positive: 0.1222639754414558    Negative: 0.1222639754414558    Neutral: 0.8513606190681458
+                Length: 28, Offset: 29
 ID: 2
         Document Sentiment: negative
+        Document Scores:
+                Positive: 0.0255409516394138    Negative: 0.0255409516394138    Neutral: 0.0314255990087986
         Sentences Sentiment(1):
                 Sentence sentiment: negative
+                Sentences Scores:
+                Positive: 0.0255409516394138    Negative: 0.0255409516394138    Neutral: 0.0314255990087986
+                Length: 34, Offset: 0
 ID: 3
-        Document Sentiment: neutral
+        Document Sentiment: mixed
+        Document Scores:
+                Positive: 0.484170526266098     Negative: 0.484170526266098     Neutral: 0.0193013790994883
         Sentences Sentiment(2):
-                Sentence sentiment: neutral
-                Sentence sentiment: neutral
+                Sentence sentiment: positive
+                Sentences Scores:
+                Positive: 0.9675248861312866    Negative: 0.9675248861312866    Neutral: 0.0312887355685234
+                Length: 25, Offset: 0
+                Sentence sentiment: negative
+                Sentences Scores:
+                Positive: 0.0008161555742845    Negative: 0.0008161555742845    Neutral: 0.0073140212334692
+                Length: 24, Offset: 26
 ```
 
 
@@ -309,7 +331,7 @@ Create a list of objects, containing your documents. Call the client's [recogniz
 async function entityPiiRecognition(client){
 
     const entityPiiInput = [
-        "Microsoft employee with ssn 859-98-0987 is using our awesome API's.",
+        "Microsoft employee with ssn 123-12-1234 is using our awesome API's.",
         "Your ABA number - 111000025 - is the first 9 digits in the lower left hand corner of your personal check.",
         "Is 998.214.865-68 your Brazilian CPF number?"
     ]
@@ -352,7 +374,7 @@ async function linkedEntityRecognition(client){
 
     const linkedEntityInput = [
         "I had a wonderful trip to Seattle last week.",
-        "I work at Microsoft.",
+        "Text Analytics web services are built with best-in-class Microsoft machine learning algorithms.",
         "I visited Space Needle 2 times."
     ]
     const entityResults = await client.recognizeLinkedEntities(linkedEntityInput);
