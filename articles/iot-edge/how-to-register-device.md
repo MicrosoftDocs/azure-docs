@@ -4,7 +4,7 @@ description: Use the IoT extension for Azure CLI to register a new IoT Edge devi
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 10/21/2019
+ms.date: 11/12/2019
 ms.topic: conceptual
 ms.reviewer: menchi
 ms.service: iot-edge
@@ -50,7 +50,7 @@ All the edge-enabled devices that connect to your IoT hub are listed on the **Io
 When you're ready to set up your device, you need the connection string that links your physical device with its identity in the IoT hub.
 
 1. From the **IoT Edge** page in the portal, click on the device ID from the list of IoT Edge devices.
-2. Copy the value of either **Connection string (primary key)** or **Connection string (secondary key)**.
+2. Copy the value of either **Primary Connection String** or **Secondary Connection String**.
 
 ## Register with Visual Studio Code
 

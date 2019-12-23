@@ -1,6 +1,6 @@
 ---
 title: 'Plan your GA environment - Azure Time Series Insights | Microsoft Docs'
-description: Learn about best practices to follow as you plan your GA environment.
+description: Best practices for preparing, configuring, and deploying your Azure Time Series Insights GA environment.
 services: time-series-insights
 ms.service: time-series-insights
 author: deepakpalled

@@ -58,7 +58,7 @@ Once your Maps account is successfully created, retrieve the key that enables yo
 
 ![Get Primary Key in portal](./media/tutorial-search-location/get-key.png)
 
-For more details on authentication in Azure Maps, see [manage authentication in Azure Maps](/how-to-manage-authentication.md).
+For more details on authentication in Azure Maps, see [manage authentication in Azure Maps](how-to-manage-authentication.md).
 
 <a id="createmap"></a>
 
