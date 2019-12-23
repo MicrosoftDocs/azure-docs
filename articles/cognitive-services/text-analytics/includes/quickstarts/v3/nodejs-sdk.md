@@ -44,7 +44,7 @@ npm init
 ```
 ### Install the client library
 
-Install the `@azure/ms-rest-js` and `@azure/cognitiveservices-textanalytics` NPM packages:
+Install the `@azure/cognitiveservices-textanalytics` NPM packages:
 
 ```console
 npm install --save @azure/cognitiveservices-textanalytics
