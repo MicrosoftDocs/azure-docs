@@ -92,11 +92,7 @@ This sample uses two small sets of data that describe seven fictional hotels. On
 
    ![Create a blob container](media/tutorial-multiple-data-sources/blob-add-container.png "Create a blob container")
 
-1. After the container is created, open it and select **Upload** on the command bar.
-
-   ![Upload on command bar](media/search-semi-structured-data/upload-command-bar.png "Upload on command bar")
-
-1. Navigate to the folder containing the sample files. Select all of them and then click **Upload**.
+1. After the container is created, open it and select **Upload** on the command bar. Navigate to the folder containing the sample files. Select all of them and then click **Upload**.
 
    ![Upload files](media/tutorial-multiple-data-sources/blob-upload.png "Upload files")
 
