@@ -17,7 +17,7 @@ This article introduces considerations and recommendations for securing Docker c
 
 ## Image security
 
-Containers are built from images that are stored in one or more repositories. These repositories can belong to public or private container registries. An example of a public registry is [Docker Hub](https://hub.docker.com/). An example of a private registry is the [Docker Trusted Registry](https://docs.docker.com/datacenter/dtr/2.0/), which can be installed on-premises or in a virtual private cloud. There are also cloud-based private container registry services including [Azure Container Registry](../articles/container-registry/container-registry-intro.md).
+Containers are built from images that are stored in one or more repositories. These repositories can belong to public or private container registries. An example of a public registry is [Docker Hub](https://hub.docker.com/). An example of a private registry is the [Docker Trusted Registry](https://docs.docker.com/datacenter/dtr/2.0/), which can be installed on-premises or in a virtual private cloud. There are also cloud-based private container registry services including [Azure Container Registry](../../container-registry/container-registry-intro.md).
 
 ### Public and private images
 In general, as with any publicly published software package, a publicly available container image does not guarantee security. Container images consist of multiple software layers, and each software layer could have vulnerabilities. It is key to understand the origin of the container image, including the owner of the image (to determine if it is a reliable source or not), the software layers it consists of, and the software versions. 
@@ -26,7 +26,7 @@ For example, if you go to the official [nginx repository](https://hub.docker.com
 
 ![Nginx images in Docker Hub](./media/container-service-security/docker-hub-nginx.png)
 
-Enterprises care deeply about security, and to protect themselves from security attack should store and retrieve images from a private registry, such as Azure Container Registry or Docker Trusted Registry. In addition to providing a managed private registry, Azure Container Registry supports [service principal-based authentication](../articles/container-registry/container-registry-authentication.md) through Azure Active Directory for basic authentication flows, including role-based access for read-only, write, and owner permissions.
+Enterprises care deeply about security, and to protect themselves from security attack should store and retrieve images from a private registry, such as Azure Container Registry or Docker Trusted Registry. In addition to providing a managed private registry, Azure Container Registry supports [service principal-based authentication](../../container-registry/container-registry-authentication.md) through Azure Active Directory for basic authentication flows, including role-based access for read-only, write, and owner permissions.
 
 ### Image security scanning
 
@@ -52,7 +52,7 @@ It is also critical to understand that containers share the kernel and the resou
 
 ## Orchestrator considerations
 
-Each orchestrator available in Azure Container Service has its own security considerations. For example, you should limit direct SSH access to orchestrator nodes in Container Service. Instead, you should use each orchestrator's UI or command-line tools (such as `kubectl` for Kubernetes) to manage the container environment without accessing the hosts. For more information, see [Make a remote connection to a Kubernetes, DC/OS, or Docker Swarm cluster](../articles/container-service/kubernetes/container-service-connect.md).
+Each orchestrator available in Azure Container Service has its own security considerations. For example, you should limit direct SSH access to orchestrator nodes in Container Service. Instead, you should use each orchestrator's UI or command-line tools (such as `kubectl` for Kubernetes) to manage the container environment without accessing the hosts.
 
 For additional orchestrator-specific security information, see the following resources:
 
