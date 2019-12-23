@@ -23,11 +23,7 @@ By doing so, ADF will scan all the files from the source store, apply the file f
 > [!NOTE]
 > If you're new to Azure Data Factory, see [Introduction to Azure Data Factory](introduction.md).
 
-<<<<<<< HEAD
-In this tutorial, you'll perform the following steps:
-=======
 In this tutorial, you will perform the following tasks:
->>>>>>> 146ab4a790ff3afe18a28e6105b5315222e8b8c2
 
 > [!div class="checklist"]
 > * Create a data factory.
