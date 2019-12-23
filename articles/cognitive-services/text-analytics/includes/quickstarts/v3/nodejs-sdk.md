@@ -155,34 +155,24 @@ Create a list of dictionary objects, containing the documents you want to analyz
 ```javascript
 async function sentimentAnalysis(client){
 
-    console.log("3. This will perform sentiment analysis on the sentences.");
+    const sentimentInput = [
+        "I had the best day of my life.",
+        "This was a waste of my time. The speaker put me to sleep.",
+        "No tengo dinero ni nada que dar...",
+        "L'hotel veneziano era meraviglioso. È un bellissimo pezzo di architettura."
+    ]
 
-    const sentimentInput = {
-        documents: [
-            { language: "en", id: "1", text: "I had the best day of my life." },
-            {
-                language: "en",
-                id: "2",
-                text: "This was a waste of my time. The speaker put me to sleep."
-            },
-            {
-                language: "es",
-                id: "3",
-                text: "No tengo dinero ni nada que dar..."
-            },
-            {
-                language: "it",
-                id: "4",
-                text: "L'hotel veneziano era meraviglioso. È un bellissimo pezzo di architettura."
-            }
-        ]
-    };
+    const sentimentResult = await client.analyseSentiment(sentimentInput);
 
-    const sentimentResult = await client.sentiment({
-        multiLanguageBatchInput: sentimentInput
+    result.forEach(document => {
+        console.log(`ID: ${document.id}`);
+        console.log(`\tDocument Sentiment: ${document.sentiment}`);
+        console.log(`\tSentences Sentiment(${document.sentences.length}):`);
+
+        document.sentences.forEach(sentence => {
+            console.log(`\t\tSentence sentiment: ${sentence.sentiment}`)
+        })
     });
-    console.log(sentimentResult.documents);
-    console.log(os.EOL);
 }
 sentimentAnalysis(textAnalyticsClient)
 ```
@@ -192,10 +182,72 @@ Run your code with `node index.js` in your console window.
 ### Output
 
 ```console
-[ { id: '1', score: 0.87 } ]
-[ { id: '2', score: 0.11 } ]
-[ { id: '3', score: 0.44 } ]
-[ { id: '4', score: 1.00 } ]
+ID: 0
+        Document Sentiment: positive
+        Sentences Sentiment(1):
+                Sentence sentiment: positive
+ID: 1
+        Document Sentiment: negative
+        Sentences Sentiment(2):
+                Sentence sentiment: negative
+                Sentence sentiment: neutral
+ID: 2
+        Document Sentiment: negative
+        Sentences Sentiment(1):
+                Sentence sentiment: negative
+ID: 3
+        Document Sentiment: neutral
+        Sentences Sentiment(2):
+                Sentence sentiment: neutral
+                Sentence sentiment: neutral
+```
+
+
+## Key phrase extraction
+<!-- TODO: Update language and check for updated links  -->
+Create a list of objects, containing your documents. Call the client's [extractKeyPhrases()](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-textanalytics/textanalyticsclient#keyphrases-models-textanalyticsclientkeyphrasesoptionalparams-) method and get the returned     [KeyPhraseBatchResult](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-textanalytics/keyphrasebatchresult) object. Iterate through the results and print each document's ID, and any detected key phrases.
+
+```javascript
+async function keyPhraseExtraction(client){
+
+    const keyPhrasesInput = [
+        "猫は幸せ",
+        "Fahrt nach Stuttgart und dann zum Hotel zu Fu.",
+        "My cat might need to see a veterinarian.",
+        "A mi me encanta el fútbol!"
+    ]
+
+    const result = await client.extractKeyPhrases(keyPhrasesInput)
+
+
+    result.forEach(document => {
+        console.log(`ID: ${document.id}`);
+        console.log(`\tDocument Key Phrases: ${document.keyPhrases}`);
+    });
+}
+keyPhraseExtraction(textAnalyticsClient);
+```
+
+Run your code with `node index.js` in your console window.
+
+### Output
+<!-- Q- When compared with V2 the extracted key phrases are different. Is this a good example ?
+[
+    { id: '1', keyPhrases: [ '幸せ' ] }
+    { id: '2', keyPhrases: [ 'Stuttgart', "hotel", "Fahrt", "Fu" ] }
+    { id: '3', keyPhrases: [ 'cat', 'veterinarian' ] }
+    { id: '3', keyPhrases: [ 'fútbol' ] }
+] -->
+
+```console
+ID: 0
+        Document Key Phrases: 猫は幸せ
+ID: 1
+        Document Key Phrases: Fahrt nach Stuttgart und dann zum Hotel zu Fu
+ID: 2
+        Document Key Phrases: cat,veterinarian
+ID: 3
+        Document Key Phrases: mi,encanta,fútbol
 ```
 
 ## Entity recognition
@@ -276,53 +328,6 @@ Document ID: 2
     Offset: 71, Length: 13, Score: 0.8
     Name: Seattle,  Type: Location, Sub-Type: N/A
     Offset: 88, Length: 7,  Score: 0.9998779296875
-```
-
-## Key phrase extraction
-
-Create a list of objects, containing your documents. Call the client's [keyPhrases()](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-textanalytics/textanalyticsclient#keyphrases-models-textanalyticsclientkeyphrasesoptionalparams-) method and get the returned     [KeyPhraseBatchResult](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-textanalytics/keyphrasebatchresult) object. Iterate through the results and print each document's ID, and any detected key phrases.
-
-```javascript
-async function keyPhraseExtraction(client){
-
-    console.log("2. This will extract key phrases from the sentences.");
-    const keyPhrasesInput = {
-        documents: [
-            { language: "ja", id: "1", text: "猫は幸せ" },
-            {
-                language: "de",
-                id: "2",
-                text: "Fahrt nach Stuttgart und dann zum Hotel zu Fu."
-            },
-            {
-                language: "en",
-                id: "3",
-                text: "My cat might need to see a veterinarian."
-            },
-            { language: "es", id: "4", text: "A mi me encanta el fútbol!" }
-        ]
-    };
-
-    const keyPhraseResult = await client.keyPhrases({
-        multiLanguageBatchInput: keyPhrasesInput
-    });
-    console.log(keyPhraseResult.documents);
-    console.log(os.EOL);
-}
-keyPhraseExtraction(textAnalyticsClient);
-```
-
-Run your code with `node index.js` in your console window.
-
-### Output
-
-```console
-[
-    { id: '1', keyPhrases: [ '幸せ' ] }
-    { id: '2', keyPhrases: [ 'Stuttgart', "hotel", "Fahrt", "Fu" ] }
-    { id: '3', keyPhrases: [ 'cat', 'veterinarian' ] }
-    { id: '3', keyPhrases: [ 'fútbol' ] }
-]
 ```
 
 ## Run the application
