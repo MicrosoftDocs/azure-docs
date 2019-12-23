@@ -44,6 +44,9 @@ Choosing a **High** threshold reduces the number of times a policy is triggered 
 
 All of the policies allow for excluding users such as your [emergency access or break-glass administrator accounts](../users-groups-roles/directory-emergency-access.md). Organizations may determine they need to exclude other accounts from specific policies based on the way the accounts are used. All exclusions should be reviewed regularly to see if they are still applicable.
 
+Trust locations are excluded from the access control for "Require multi-factor authentication" for user risk and sign-in risk policies by adding the [location condition](https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/location-condition) in Azure Active Directory Conditional Access and marking the location "Mark as trusted location".
+
+
 ## Enable policies
 
 To enable the user risk and sign-in risk policies complete the following steps.
