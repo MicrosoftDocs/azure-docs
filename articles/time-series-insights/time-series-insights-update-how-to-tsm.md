@@ -59,11 +59,11 @@ To begin, select the **Model** view from the Time Series Insights explorer **Ana
 
 ### Delete an instance
 
-* Select the type, and select the **delete** or **waste bin icon**.
+1. Select the type, and select the **delete** or **waste bin icon**.
 
    [![Delete a type by selecting Delete.](media/v2-update-how-to-tsm/how-to-tsm-delete-instance.png)](media/v2-update-how-to-tsm/how-to-tsm-delete-instance.png#lightbox)
 
-* Confirm deletion by selecting **Delete**.
+1. Confirm deletion by selecting **Delete**.
 
 > [!NOTE]
 > An instance must successfully pass a field validation check to be deleted.
@@ -112,14 +112,11 @@ To begin, select the **Model** view from the Time Series Insights explorer **Ana
 
 ### Delete a hierarchy
 
-* Select the hierarchy, and select the **delete** or **waste bin icon**. 
+1. Select the hierarchy, and select the **delete** or **waste bin icon**. 
 
     [![Delete a hierarchy by selecting the Delete button.](media/v2-update-how-to-tsm/how-to-tsm-delete-hierarchy.png)](media/v2-update-how-to-tsm/how-to-tsm-delete-hierarchy.png#lightbox)
 
-* Confirm deletion by selecting **Delete**.
-
-> [!NOTE]
-> To delete a type, no instances must be currently associated with it.
+1. Confirm deletion by selecting **Delete**.
 
 ## Types
 
@@ -158,14 +155,11 @@ To begin, select the **Model** view from the Time Series Insights explorer **Ana
 
 ### Delete a type
 
-* Select the type, and select the **delete** or **waste bin icon**. .
+1. Select the type, and select the **delete** or **waste bin icon**. .
 
    [![Delete a type by selecting Delete.](media/v2-update-how-to-tsm/how-to-tsm-delete-type.png)](media/v2-update-how-to-tsm/how-to-tsm-delete-type.png#lightbox)
 
-* Confirm deletion by selecting **Delete**.
-
-> [!NOTE]
-> To delete a type, no instances must be currently associated with it.
+1. Confirm deletion by selecting **Delete**.
 
 ## Next steps
 
