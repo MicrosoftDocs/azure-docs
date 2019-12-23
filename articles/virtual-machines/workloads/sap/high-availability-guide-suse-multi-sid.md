@@ -51,6 +51,7 @@ ms.author: radeltch
 [nfs-ha]:high-availability-guide-suse-nfs.md
 
 This article describes how to deploy multiple SAP NetWeaver highly available systems(that is, multi-SID) in a two node cluster on Azure VMs with SUSE Linux Enterprise Server for SAP applications.  
+
 In the example configurations, installation commands etc. three SAP NetWeaver 7.50 systems are deployed in a single, two node high availability cluster. The SAP systems SIDs are:
 * **NW1**: ASCS instance number **00** and virtual host name **msnw1ascs**; ERS instance number **02** and virtual host name **msnw1ers**.  
 * **NW2**: ASCS instance number **10** and virtual hostname **msnw2ascs**; ERS instance number **12** and virtual host name **msnw2ers**.  
@@ -87,6 +88,7 @@ Before you begin, refer to the following SAP Notes and papers first:
 ## Overview
 
 The virtual machines, that participate in the cluster must be sized to be able to run all resources, in case failover occurs. Each SAP SID can fail over independent from each other in the multi-SID high availability cluster.  If using SBD fencing, the SBD devices can be shared between multiple clusters.  
+
 To achieve high availability, SAP NetWeaver requires highly available NFS shares. In this example we assume the SAP NFS shares are either hosted on highly available [NFS file server](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-nfs), which can be used by multiple SAP systems. Or the shares are deployed on [Azure NetApp files NFS volumes](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-create-volumes).  
 
 ![SAP NetWeaver High Availability overview](./media/high-availability-guide-suse/ha-suse-multi-sid.png)
@@ -190,44 +192,44 @@ This documentation assumes that:
 
 2. **[A]** Set up name resolution for the additional SAP systems. You can either use DNS server or modify `/etc/hosts` on all nodes. This example shows how to use the `/etc/hosts` file.  Adapt the IP addresses and the host names to your environment. 
 
-    <pre><code>
+    ```
     sudo vi /etc/hosts
-    # IP address of the load balancer frontend configuration for <b>NW2</b> ASCS
-    <b>10.3.1.16 msnw2ascs</b>
+    # IP address of the load balancer frontend configuration for NW2 ASCS
+    10.3.1.16 msnw2ascs
     # IP address of the load balancer frontend configuration for <b>NW3</b> ASCS
-    <b>10.3.1.13 msnw3ascs</b>
-    # IP address of the load balancer frontend configuration for <b>NW2</b> ERS
-    <b>10.3.1.17 msnw2ers</b>
-    # IP address of the load balancer frontend configuration for <b>NW3</b> ERS
-    <b>10.3.1.19 msnw3ers</b>
-    # IP address for virtual host name for the NFS server for <b>NW2</b>
-    <b>10.3.1.31 nw2-nfs</b>
-    # IP address for virtual host name for the NFS server for <b>NW3</b>
-    <b>10.3.1.32 nw3-nfs</b>
-   </code></pre>
+    10.3.1.13 msnw3ascs
+    # IP address of the load balancer frontend configuration for NW2 ERS
+    10.3.1.17 msnw2ers
+    # IP address of the load balancer frontend configuration for NW3 ERS
+    10.3.1.19 msnw3ers
+    # IP address for virtual host name for the NFS server for NW2
+    10.3.1.31 nw2-nfs
+    # IP address for virtual host name for the NFS server for NW3
+    10.3.1.32 nw3-nfs
+   ```
 
 3. **[A]** Create the shared directories for the additional **NW2** and **NW3** SAP systems that you are deploying to the cluster. 
 
-    <pre><code>
-    sudo mkdir -p /sapmnt/<b>NW2</b>
-    sudo mkdir -p /usr/sap/<b>NW2</b>/SYS
-    sudo mkdir -p /usr/sap/<b>NW2</b>/ASCS<b>10</b>
-    sudo mkdir -p /usr/sap/<b>NW2</b>/ERS<b>12</b>
-    sudo mkdir -p /sapmnt/<b>NW3</b>
-    sudo mkdir -p /usr/sap/<b>NW3</b>/SYS
-    sudo mkdir -p /usr/sap/<b>NW3</b>/ASCS<b>20</b>
-    sudo mkdir -p /usr/sap/<b>NW3</b>/ERS<b>22</b>
+    ```
+    sudo mkdir -p /sapmnt/NW2
+    sudo mkdir -p /usr/sap/NW2/SYS
+    sudo mkdir -p /usr/sap/NW2/ASCS10
+    sudo mkdir -p /usr/sap/NW2/ERS12
+    sudo mkdir -p /sapmnt/NW3
+    sudo mkdir -p /usr/sap/NW3/SYS
+    sudo mkdir -p /usr/sap/NW3/ASCS20
+    sudo mkdir -p /usr/sap/NW3/ERS22
 
     
-    sudo chattr +i /sapmnt/<b>NW2</b>
-    sudo chattr +i /usr/sap/<b>NW2</b>/SYS
-    sudo chattr +i /usr/sap/<b>NW2</b>/ASCS<b>10</b>
-    sudo chattr +i /usr/sap/<b>NW2</b>/ERS<b>12</b>
-    sudo chattr +i /sapmnt/<b>NW3</b>
-    sudo chattr +i /usr/sap/<b>NW3</b>/SYS
-    sudo chattr +i /usr/sap/<b>NW3</b>/ASCS<b>20</b>
-    sudo chattr +i /usr/sap/<b>NW3</b>/ERS<b>22</b>
-   </code></pre>
+    sudo chattr +i /sapmnt/NW2
+    sudo chattr +i /usr/sap/NW2/SYS
+    sudo chattr +i /usr/sap/NW2/ASCS10
+    sudo chattr +i /usr/sap/NW2/ERS12
+    sudo chattr +i /sapmnt/NW3
+    sudo chattr +i /usr/sap/NW3/SYS
+    sudo chattr +i /usr/sap/NW3/ASCS20
+    sudo chattr +i /usr/sap/NW3/ERS22
+   ```
 
 4. **[A]** Configure `autofs` to mount the /sapmnt/SID and /usr/sap/SID/SYS file systems for the additional SAP systems that you are deploying to the cluster. In this example **NW2** and **NW3**.  
 
@@ -244,41 +246,42 @@ This documentation assumes that:
 
    > [!IMPORTANT]
    > Recent testing revealed situations, where netcat stops responding to requests due to backlog and its limitation of handling only one connection. The netcat resource stops listening to the Azure Load balancer requests and the floating IP becomes unavailable.  
+   > 
    > For existing Pacemaker clusters, we recommend replacing netcat with socat, following the instructions in [Azure Load-Balancer Detection Hardening](https://www.suse.com/support/kb/doc/?id=7024128). Note that the change will require brief downtime.  
 
-    <pre><code>
-      sudo crm configure primitive fs_<b>NW2</b>_ASCS Filesystem device='<b>nw2-nfs</b>:/<b>NW2</b>/ASCS' directory='/usr/sap/<b>NW2</b>/ASCS<b>10</b>' fstype='nfs4' \
+    ```
+      sudo crm configure primitive fs_NW2_ASCS Filesystem device='nw2-nfs:/NW2/ASCS' directory='/usr/sap/NW2/ASCS10' fstype='nfs4' \
        op start timeout=60s interval=0 \
        op stop timeout=60s interval=0 \
        op monitor interval=20s timeout=40s
    
-      sudo crm configure primitive vip_<b>NW2</b>_ASCS IPaddr2 \
-        params ip=<b>10.3.1.16</b> cidr_netmask=<b>24</b> \
+      sudo crm configure primitive vip_NW2_ASCS IPaddr2 \
+        params ip=10.3.1.16 cidr_netmask=24 \
         op monitor interval=10 timeout=20
    
-      sudo crm configure primitive nc_<b>NW2</b>_ASCS anything \
-        params binfile="/usr/bin/socat" cmdline_options="-U TCP-LISTEN:620<b>10</b>,backlog=10,fork,reuseaddr /dev/null" \
+      sudo crm configure primitive nc_NW2_ASCS anything \
+        params binfile="/usr/bin/socat" cmdline_options="-U TCP-LISTEN:62010</b>,backlog=10,fork,reuseaddr /dev/null" \
         op monitor timeout=20s interval=10 depth=0
    
-      sudo crm configure group g-<b>NW2</b>_ASCS fs_<b>NW2</b>_ASCS nc_<b>NW2</b>_ASCS vip_<b>NW2</b>_ASCS \
+      sudo crm configure group g-NW2_ASCS fs_NW2_ASCS nc_NW2_ASCS vip_NW2_ASCS \
          meta resource-stickiness=3000
 
-      sudo crm configure primitive fs_<b>NW3</b>_ASCS Filesystem device='<b>nw3-nfs</b>:/<b>NW3</b>/ASCS' directory='/usr/sap/<b>NW3</b>/ASCS<b>20</b>' fstype='nfs4' \
+      sudo crm configure primitive fs_NW3_ASCS Filesystem device='nw3-nfs:/NW3/ASCS' directory='/usr/sap/NW3/ASCS20' fstype='nfs4' \
         op start timeout=60s interval=0 \
         op stop timeout=60s interval=0 \
         op monitor interval=20s timeout=40s
    
-      sudo crm configure primitive vip_<b>NW3</b>_ASCS IPaddr2 \
-       params ip=<b>10.3.1.13</b> cidr_netmask=<b>24</b> \
+      sudo crm configure primitive vip_NW3_ASCS IPaddr2 \
+       params ip=10.3.1.13 cidr_netmask=24 \
        op monitor interval=10 timeout=20
    
-      sudo crm configure primitive nc_<b>NW3</b>_ASCS anything \
-        params binfile="/usr/bin/socat" cmdline_options="-U TCP-LISTEN:620<b>20</b>,backlog=10,fork,reuseaddr /dev/null" \
+      sudo crm configure primitive nc_NW3_ASCS anything \
+        params binfile="/usr/bin/socat" cmdline_options="-U TCP-LISTEN:62020,backlog=10,fork,reuseaddr /dev/null" \
         op monitor timeout=20s interval=10 depth=0
    
-      sudo crm configure group g-<b>NW3</b>_ASCS fs_<b>NW3</b>_ASCS nc_<b>NW3</b>_ASCS vip_<b>NW3</b>_ASCS \
+      sudo crm configure group g-NW3_ASCS fs_NW3_ASCS nc_NW3_ASCS vip_NW3_ASCS \
         meta resource-stickiness=3000
-    </code></pre>
+    ```
 
    As you creating the resources they may be assigned to different cluster resources. When you group them, they will migrate to one of the cluster nodes. Make sure the cluster status is ok and that all resources are started. It is not important on which node the resources are running.
 
@@ -288,59 +291,59 @@ This documentation assumes that:
 
    You can use the sapinst parameter SAPINST_REMOTE_ACCESS_USER to allow a non-root user to connect to sapinst. You can use parameter SAPINST_USE_HOSTNAME to install SAP, using virtual host name.  
 
-     <pre><code>
-      sudo &lt;swpm&gt;/sapinst SAPINST_REMOTE_ACCESS_USER=<b>sapadmin</b> SAPINST_USE_HOSTNAME=<b>virtual_hostname</b>
-     </code></pre>
+     ```
+      sudo swpm/sapinst SAPINST_REMOTE_ACCESS_USER=sapadmin SAPINST_USE_HOSTNAME=virtual_hostname
+     ```
 
    If the installation fails to create a subfolder in /usr/sap/**SID**/ASCS**Instance#**, try setting the owner to **sid**adm and group to sapsys of the ASCS**Instance#** and retry.
 
 3. **[1]** Create a virtual IP and health-probe cluster resources for the ERS instance of the additional SAP system you are deploying to the cluster. The example shown here is for **NW2** and **NW3** ERS, using highly available NFS server. 
 
-   <pre><code>
-    sudo crm configure primitive fs_<b>NW2</b>_ERS Filesystem device='<b>nw2-nfs</b>:/<b>NW2</b>/ASCSERS' directory='/usr/sap/<b>NW2</b>/ERS<b>12</b>' fstype='nfs4' \
+   ```
+    sudo crm configure primitive fs_NW2_ERS Filesystem device='nw2-nfs:/NW2/ASCSERS' directory='/usr/sap/NW2/ERS12' fstype='nfs4' \
       op start timeout=60s interval=0 \
       op stop timeout=60s interval=0 \
       op monitor interval=20s timeout=40s
    
-    sudo crm configure primitive vip_<b>NW2</b>_ERS IPaddr2 \
-      params ip=<b>10.3.1.17</b> cidr_netmask=<b>24</b> \
+    sudo crm configure primitive vip_NW2_ERS IPaddr2 \
+      params ip=10.3.1.17 cidr_netmask=24 \
       op monitor interval=10 timeout=20
    
-    sudo crm configure primitive nc_<b>NW2</b>_ERS anything \
-     params binfile="/usr/bin/socat" cmdline_options="-U TCP-LISTEN:621<b>12</b>,backlog=10,fork,reuseaddr /dev/null" \
+    sudo crm configure primitive nc_NW2_ERS anything \
+     params binfile="/usr/bin/socat" cmdline_options="-U TCP-LISTEN:62112,backlog=10,fork,reuseaddr /dev/null" \
      op monitor timeout=20s interval=10 depth=0
    
     # WARNING: Resources nc_NW2_ASCS,nc_NW2_ERS violate uniqueness for parameter "binfile": "/usr/bin/socat"
     # Do you still want to commit (y/n)? y
    
-    sudo crm configure group g-<b>NW2</b>_ERS fs_<b>NW2</b>_ERS nc_<b>NW2</b>_ERS vip_<b>NW2</b>_ERS
+    sudo crm configure group g-NW2_ERS fs_NW2_ERS nc_NW2_ERS vip_NW2_ERS
 
-    sudo crm configure primitive fs_<b>NW3</b>_ERS Filesystem device='<b>nw3-nfs</b>:/<b>NW3</b>/ASCSERS' directory='/usr/sap/<b>NW3</b>/ERS<b>22</b>' fstype='nfs4' \
+    sudo crm configure primitive fs_NW3_ERS Filesystem device='nw3-nfs:/NW3/ASCSERS' directory='/usr/sap/NW3/ERS22' fstype='nfs4' \
       op start timeout=60s interval=0 \
       op stop timeout=60s interval=0 \
       op monitor interval=20s timeout=40s
    
-    sudo crm configure primitive vip_<b>NW3</b>_ERS IPaddr2 \
-      params ip=<b>10.3.1.19</b> cidr_netmask=<b>24</b> \
+    sudo crm configure primitive vip_NW3_ERS IPaddr2 \
+      params ip=10.3.1.19 cidr_netmask=24 \
       op monitor interval=10 timeout=20
    
-    sudo crm configure primitive nc_<b>NW3</b>_ERS anything \
-     params binfile="/usr/bin/socat" cmdline_options="-U TCP-LISTEN:621<b>22</b>,backlog=10,fork,reuseaddr /dev/null" \
+    sudo crm configure primitive nc_NW3_ERS anything \
+     params binfile="/usr/bin/socat" cmdline_options="-U TCP-LISTEN:62122,backlog=10,fork,reuseaddr /dev/null" \
      op monitor timeout=20s interval=10 depth=0
    
     # WARNING: Resources nc_NW3_ASCS,nc_NW3_ERS violate uniqueness for parameter "binfile": "/usr/bin/socat"
     # Do you still want to commit (y/n)? y
    
-    sudo crm configure group g-<b>NW3</b>_ERS fs_<b>NW3</b>_ERS nc_<b>NW3</b>_ERS vip_<b>NW3</b>_ERS
-   </code></pre>
+    sudo crm configure group g-NW3_ERS fs_NW3_ERS nc_NW3_ERS vip_NW3_ERS
+   ```
 
    As you creating the resources they may be assigned to different cluster nodes. When you group them, they will migrate to one of the cluster nodes. Make sure the cluster status is ok and that all resources are started.  
 
    Next, make sure that the resources of the newly created ERS group, are running on the cluster node, opposite to the cluster node where the ASCS instance for the same SAP system was installed.  For example, if NW2 ASCS was installed on `slesmsscl1`, then make sure the NW2 ERS group is running on `slesmsscl2`.  You can migrate the  NW2 ERS group to `slesmsscl2` by running the following command: 
 
-    <pre><code>
-      crm resource migrate g-<b>NW2</b>_ERS <b>slesmsscl2</b> force
-    </code></pre>
+    ```
+      crm resource migrate g-NW2_ERS slesmsscl2 force
+    ```
 
 4. **[2]** Install SAP NetWeaver ERS
 
@@ -348,9 +351,9 @@ This documentation assumes that:
 
    You can use the sapinst parameter SAPINST_REMOTE_ACCESS_USER to allow a non-root user to connect to sapinst. You can use parameter SAPINST_USE_HOSTNAME to install SAP, using virtual host name.  
 
-    <pre><code>
-     sudo &lt;swpm&gt;/sapinst SAPINST_REMOTE_ACCESS_USER=<b>sapadmin</b> SAPINST_USE_HOSTNAME=<b>virtual_hostname</b>
-    </code></pre>
+    ```
+     sudo swpm/sapinst SAPINST_REMOTE_ACCESS_USER=sapadmin SAPINST_USE_HOSTNAME=virtual_hostname
+    ```
 
    > [!NOTE]
    > Use SWPM SP 20 PL 05 or higher. Lower versions do not set the permissions correctly and the installation will fail.
@@ -359,16 +362,17 @@ This documentation assumes that:
 
    If it was necessary for you to migrate the ERS group of the newly deployed SAP system to a different cluster node, don't forget to remove the location constraint for the ERS group. You can remove the constraint by running the following command (the example is given for SAP systems **NW2** and **NW3**).  
 
-    <pre><code>
-      crm resource unmigrate g-<b>NW2</b>_ERS
-      crm resource unmigrate g-<b>NW3</b>_ERS
-    </code></pre>
+    ```
+      crm resource unmigrate g-NW2_ERS
+      crm resource unmigrate g-NW3_ERS
+    ```
 
 5. **[1]** Adapt the ASCS/SCS and ERS instance profiles for the newly installed SAP system(s). The example shown below is for NW2. You will need to adapt the ASCS/SCS and ERS profiles for all SAP instances added to the cluster.  
  
  * ASCS/SCS profile
 
-   <pre><code>sudo vi /sapmnt/<b>NW2</b>/profile/<b>NW2</b>_<b>ASCS10</b>_<b>msnw2ascs</b>
+   ```
+   sudo vi /sapmnt/NW2/profile/NW2_ASCS10_msnw2ascs
    
    # Change the restart command to a start command
    #Restart_Program_01 = local $(_EN) pf=$(_PF)
@@ -380,11 +384,12 @@ This documentation assumes that:
    
    # Add the keep alive parameter
    enque/encni/set_so_keepalive = true
-   </code></pre>
+   ```
 
  * ERS profile
 
-   <pre><code>sudo vi /sapmnt/<b>NW2</b>/profile/<b>NW2</b>_ERS<b>12</b>_<b>msnw2ers</b>
+   ```
+   sudo vi /sapmnt/NW2/profile/NW2_ERS12_msnw2ers
    
    # Change the restart command to a start command
    #Restart_Program_00 = local $(_ER) pf=$(_PFL) NR=$(SCSID)
@@ -396,81 +401,82 @@ This documentation assumes that:
    
    # remove Autostart from ERS profile
    # Autostart = 1
-   </code></pre>
+   ```
 
 6. **[A]** Configure the SAP users for the newly deployed SAP system, in this example **NW2** and **NW3**. 
 
-   <pre><code># Add sidadm to the haclient group
-   sudo usermod -aG haclient <b>nw2</b>adm
-   sudo usermod -aG haclient <b>nw3</b>adm
-   </code></pre>
+   ```
+   # Add sidadm to the haclient group
+   sudo usermod -aG haclient nw2adm
+   sudo usermod -aG haclient nw3adm
+   ```
 
 7. Add the ASCS and ERS SAP services for the newly installed SAP system to the `sapservice` file. The example shown below is for SAP systems **NW2** and **NW3**.  
 
    Add the ASCS service entry to the second node and copy the ERS service entry to the first node. Execute the commands for each SAP system on the node, where the ASCS instance for the SAP system was installed.  
 
-    <pre><code>
-     # Execute the following commands on <b>slesmsscl1</b>,assuming the NW2 ASCS instance was installed on <b>slesmsscl1</b>
-     cat /usr/sap/sapservices | grep ASCS<b>10</b> | sudo ssh <b>slesmsscl2</b> "cat >>/usr/sap/sapservices"
-     sudo ssh <b>slesmsscl2</b> "cat /usr/sap/sapservices" | grep ERS<b>12</b> | sudo tee -a /usr/sap/sapservices
-     # Execute the following commands on <b>slesmsscl2</b>, assuming the NW3 ASCS instance was installed on <b>slesmsscl2</b>
-     cat /usr/sap/sapservices | grep ASCS<b>20</b> | sudo ssh <b>slesmsscl1</b> "cat >>/usr/sap/sapservices"
-     sudo ssh <b>slesmsscl1</b> "cat /usr/sap/sapservices" | grep ERS<b>22</b> | sudo tee -a /usr/sap/sapservices
-    </code></pre>
+    ```
+     # Execute the following commands on slesmsscl1,assuming the NW2 ASCS instance was installed on slesmsscl1
+     cat /usr/sap/sapservices | grep ASCS10 | sudo ssh slesmsscl2 "cat >>/usr/sap/sapservices"
+     sudo ssh slesmsscl2 "cat /usr/sap/sapservices" | grep ERS12 | sudo tee -a /usr/sap/sapservices
+     # Execute the following commands on slesmsscl2, assuming the NW3 ASCS instance was installed on slesmsscl2
+     cat /usr/sap/sapservices | grep ASCS20 | sudo ssh slesmsscl1 "cat >>/usr/sap/sapservices"
+     sudo ssh slesmsscl1 "cat /usr/sap/sapservices" | grep ERS22 | sudo tee -a /usr/sap/sapservices
+    ```
 
 8. **[1]** Create the SAP cluster resources for the newly installed SAP system. 
 
    The example shown here is for SAP systems **NW2** and **NW3**, assuming that it is using enqueue server 1 architecture (ENSA1):
 
-    <pre><code>
+    ```
      sudo crm configure property maintenance-mode="true"
     
-     sudo crm configure primitive rsc_sap_<b>NW2</b>_ASCS<b>10</b> SAPInstance \
-      operations \$id=rsc_sap_<b>NW2</b>_ASCS<b>10</b>-operations \
+     sudo crm configure primitive rsc_sap_NW2_ASCS10 SAPInstance \
+      operations \$id=rsc_sap_NW2_ASCS10-operations \
       op monitor interval=11 timeout=60 on_fail=restart \
-      params InstanceName=<b>NW2</b>_ASCS<b>10</b>_<b>msnw2ascs</b> START_PROFILE="/sapmnt/<b>NW2</b>/profile/<b>NW2</b>_ASCS<b>10</b>_<b>msnw2ascs</b>" \
+      params InstanceName=NW2_ASCS10_msnw2ascs START_PROFILE="/sapmnt/NW2/profile/NW2_ASCS10_msnw2ascs" \
       AUTOMATIC_RECOVER=false \
       meta resource-stickiness=5000 failure-timeout=60 migration-threshold=1 priority=10
     
-     sudo crm configure primitive rsc_sap_<b>NW2</b>_ERS<b>12</b> SAPInstance \
-      operations \$id=rsc_sap_<b>NW2</b>_ERS<b>12</b>-operations \
+     sudo crm configure primitive rsc_sap_NW2_ERS12 SAPInstance \
+      operations \$id=rsc_sap_NW2_ERS12-operations \
       op monitor interval=11 timeout=60 on_fail=restart \
-      params InstanceName=<b>NW2</b>_ERS<b>12</b>_<b>msnw2ers</b> START_PROFILE="/sapmnt/<b>NW2</b>/profile/<b>NW2</b>_ERS<b>12</b>_<b>msnw2ers</b>" AUTOMATIC_RECOVER=false IS_ERS=true \
+      params InstanceName=NW2_ERS12_msnw2ers START_PROFILE="/sapmnt/NW2/profile/NW2_ERS12_msnw2ers" AUTOMATIC_RECOVER=false IS_ERS=true \
       meta priority=1000
     
-     sudo crm configure modgroup g-<b>NW2</b>_ASCS add rsc_sap_<b>NW2</b>_ASCS<b>10</b>
-     sudo crm configure modgroup g-<b>NW2</b>_ERS add rsc_sap_<b>NW2</b>_ERS<b>12</b>
+     sudo crm configure modgroup g-NW2_ASCS add rsc_sap_NW2_ASCS10
+     sudo crm configure modgroup g-NW2_ERS add rsc_sap_NW2_ERS12
     
-     sudo crm configure colocation col_sap_<b>NW2</b>_no_both -5000: g-<b>NW2</b>_ERS g-<b>NW2</b>_ASCS
-     sudo crm configure location loc_sap_<b>NW2</b>_failover_to_ers rsc_sap_<b>NW2</b>_ASCS<b>10</b> rule 2000: runs_ers_<b>NW2</b> eq 1
-     sudo crm configure order ord_sap_<b>NW2</b>_first_start_ascs Optional: rsc_sap_<b>NW2</b>_ASCS<b>10</b>:start rsc_sap_<b>NW2</b>_ERS<b>12</b>:stop symmetrical=false
+     sudo crm configure colocation col_sap_NW2_no_both -5000: g-NW2_ERS g-NW2_ASCS
+     sudo crm configure location loc_sap_NW2_failover_to_ers rsc_sap_NW2_ASCS10 rule 2000: runs_ers_NW2 eq 1
+     sudo crm configure order ord_sap_NW2_first_start_ascs Optional: rsc_sap_NW2_ASCS10:start rsc_sap_NW2_ERS12:stop symmetrical=false
    
-     sudo crm configure primitive rsc_sap_<b>NW3</b>_ASCS<b>20</b> SAPInstance \
-      operations \$id=rsc_sap_<b>NW3</b>_ASCS<b>20</b>-operations \
+     sudo crm configure primitive rsc_sap_NW3_ASCS20 SAPInstance \
+      operations \$id=rsc_sap_NW3_ASCS20-operations \
       op monitor interval=11 timeout=60 on_fail=restart \
-      params InstanceName=<b>NW3</b>_ASCS<b>10</b>_<b>msnw3ascs</b> START_PROFILE="/sapmnt/<b>NW3</b>/profile/<b>NW3</b>_ASCS<b>20</b>_<b>msnw3ascs</b>" \
+      params InstanceName=NW3_ASCS10_msnw3ascs START_PROFILE="/sapmnt/NW3/profile/NW3_ASCS20_msnw3ascs" \
       AUTOMATIC_RECOVER=false \
       meta resource-stickiness=5000 failure-timeout=60 migration-threshold=1 priority=10
     
-     sudo crm configure primitive rsc_sap_<b>NW3</b>_ERS<b>22</b> SAPInstance \
-      operations \$id=rsc_sap_<b>NW3</b>_ERS<b>22</b>-operations \
+     sudo crm configure primitive rsc_sap_NW3_ERS22 SAPInstance \
+      operations \$id=rsc_sap_NW3_ERS22-operations \
       op monitor interval=11 timeout=60 on_fail=restart \
-      params InstanceName=<b>NW3</b>_ERS<b>22</b>_<b>msnw3ers</b> START_PROFILE="/sapmnt/<b>NW3</b>/profile/<b>NW3</b>_ERS<b>22</b>_<b>msnw2ers</b>" AUTOMATIC_RECOVER=false IS_ERS=true \
+      params InstanceName=NW3_ERS22_msnw3ers START_PROFILE="/sapmnt/NW3/profile/NW3_ERS22_msnw2ers" AUTOMATIC_RECOVER=false IS_ERS=true \
       meta priority=1000
     
-     sudo crm configure modgroup g-<b>NW3</b>_ASCS add rsc_sap_<b>NW3</b>_ASCS<b>20</b>
-     sudo crm configure modgroup g-<b>NW3</b>_ERS add rsc_sap_<b>NW3</b>_ERS<b>22</b>
+     sudo crm configure modgroup g-NW3_ASCS add rsc_sap_NW3_ASCS20
+     sudo crm configure modgroup g-NW3_ERS add rsc_sap_NW3_ERS22
     
-     sudo crm configure colocation col_sap_<b>NW3</b>_no_both -5000: g-<b>NW3</b>_ERS g-<b>NW3</b>_ASCS
-     sudo crm configure location loc_sap_<b>NW3</b>_failover_to_ers rsc_sap_<b>NW3</b>_ASCS<b>10</b> rule 2000: runs_ers_<b>NW3</b> eq 1
-     sudo crm configure order ord_sap_<b>NW3</b>_first_start_ascs Optional: rsc_sap_<b>NW3</b>_ASCS<b>20</b>:start rsc_sap_<b>NW3</b>_ERS<b>22</b>:stop symmetrical=false
+     sudo crm configure colocation col_sap_NW3_no_both -5000: g-NW3_ERS g-NW3_ASCS
+     sudo crm configure location loc_sap_NW3_failover_to_ers rsc_sap_NW3_ASCS10 rule 2000: runs_ers_NW3 eq 1
+     sudo crm configure order ord_sap_NW3_first_start_ascs Optional: rsc_sap_NW3_ASCS20:start rsc_sap_NW3_ERS22:stop symmetrical=false
      sudo crm configure property maintenance-mode="false"
-    </code></pre>
+    ```
 
    Make sure that the cluster status is ok and that all resources are started. It is not important on which node the resources are running.
    The following example shows the cluster resources status, after SAP systems **NW2** and **NW3** were added to the cluster. 
 
-    <pre><code>
+    ```
      sudo crm_mon -r
     
     # Online: [ slesmsscl1 slesmsscl2 ]
@@ -508,11 +514,11 @@ This documentation assumes that:
     #     nc_NW3_ERS (ocf::heartbeat:anything):      <b>Started slesmsscl2</b>
     #     vip_NW3_ERS        (ocf::heartbeat:IPaddr2):       <b>Started slesmsscl2</b>
     #     rsc_sap_NW3_ERS22  (ocf::heartbeat:SAPInstance):   <b>Started slesmsscl2</b>
-    </code></pre>
+    ```
 
    The following picture shows how the resources would look like in the HA Web Konsole(Hawk), with the resources for SAP system **NW2** expanded.  
 
-![SAP NetWeaver High Availability overview](./media/high-availability-guide-suse/ha-suse-multi-sid-hawk.png)
+   ![SAP NetWeaver High Availability overview](./media/high-availability-guide-suse/ha-suse-multi-sid-hawk.png)
 
 ### Proceed with the SAP installation 
 
@@ -537,7 +543,7 @@ The tests that are presented are in a two node, multi-SID cluster with three SAP
 
    Run the following commands as <sapsid>adm on the node where the ASCS instance is currently running. If the commands fail with FAIL: Insufficient memory, it might be caused by dashes in your hostname. This is a known issue and will be fixed by SUSE in the sap-suse-cluster-connector package.
 
-   <pre><code>
+   ```
     slesmsscl1:nw1adm 57> sapcontrol -nr 00 -function HAGetFailoverConfig
 
    # 10.12.2019 21:33:08
@@ -597,11 +603,11 @@ The tests that are presented are in a two node, multi-SID cluster with three SAP
     # OK
     # state, category, description, comment
     # SUCCESS, SAP CONFIGURATION, SAPInstance RA sufficient version, SAPInstance includes is-ers patch
-   </code></pre>
+   ```
 
 2. Manually migrate the ASCS instance. The example shows migrating the ASCS instance for SAP system NW2.  
    Resource state, before starting the test:
-   <pre><code>
+   ```
     Full list of resources:
     stonith-sbd     (stonith:external/sbd): Started slesmsscl1
      Resource Group: g-NW1_ASCS
@@ -634,11 +640,11 @@ The tests that are presented are in a two node, multi-SID cluster with three SAP
          nc_NW3_ERS (ocf::heartbeat:anything):      Started slesmsscl1
          vip_NW3_ERS        (ocf::heartbeat:IPaddr2):       Started slesmsscl1
          rsc_sap_NW3_ERS22  (ocf::heartbeat:SAPInstance):   Started slesmsscl1
-   </code></pre>
+   ```
 
    Run the following commands as root to migrate the NW2 ASCS instance.
 
-   <pre><code>
+   ```
     crm resource migrate rsc_sap_NW2_ASCS10 force
     # INFO: Move constraint created for rsc_sap_NW2_ASCS10
     
@@ -647,11 +653,11 @@ The tests that are presented are in a two node, multi-SID cluster with three SAP
    
    # Remove failed actions for the ERS that occurred as part of the migration
     crm resource cleanup rsc_sap_NW2_ERS12
-   </code></pre>
+   ```
 
    Resource state after the test:
 
-   <pre><code>stonith-sbd     (stonith:external/sbd): Started nw1-cl-0
+   ```
     Full list of resources:
     stonith-sbd     (stonith:external/sbd): Started slesmsscl1
      Resource Group: g-NW1_ASCS
@@ -684,13 +690,13 @@ The tests that are presented are in a two node, multi-SID cluster with three SAP
          nc_NW3_ERS (ocf::heartbeat:anything):      Started slesmsscl1
          vip_NW3_ERS        (ocf::heartbeat:IPaddr2):       Started slesmsscl1
          rsc_sap_NW3_ERS22  (ocf::heartbeat:SAPInstance):   Started slesmsscl1
-   </code></pre>
+   ```
 
 1. Test HAFailoverToNode. The test presented here shows migrating the ASCS instance for SAP system NW2.  
 
    Resource state before starting the test:
 
-   <pre><code>
+   ```
     Full list of resources:
     stonith-sbd     (stonith:external/sbd): Started slesmsscl1
      Resource Group: g-NW1_ASCS
@@ -723,24 +729,24 @@ The tests that are presented are in a two node, multi-SID cluster with three SAP
          nc_NW3_ERS (ocf::heartbeat:anything):      Started slesmsscl1
          vip_NW3_ERS        (ocf::heartbeat:IPaddr2):       Started slesmsscl1
          rsc_sap_NW3_ERS22  (ocf::heartbeat:SAPInstance):   Started slesmsscl1
-   </code></pre>
+   ```
 
    Run the following commands as **nw2**adm to migrate the NW2 ASCS instance.
 
-   <pre><code>
-    slesmsscl2:nw2adm 53> sapcontrol -nr 10 -host msnw2ascs -user nw2adm &lt;password&gt; -function HAFailoverToNode ""
+   ```
+    slesmsscl2:nw2adm 53> sapcontrol -nr 10 -host msnw2ascs -user nw2adm password -function HAFailoverToNode ""
    
    # run as root
    # Remove failed actions for the ERS that occurred as part of the migration
-   nw1-cl-0:~ # crm resource cleanup rsc_sap_NW2_ERS12
+   crm resource cleanup rsc_sap_NW2_ERS12
    # Remove migration constraints
-   nw1-cl-0:~ # crm resource clear rsc_sap_NW2_ASCS10
+   crm resource clear rsc_sap_NW2_ASCS10
    #INFO: Removed migration constraints for rsc_sap_NW2_ASCS10
-   </code></pre>
+   ```
 
    Resource state after the test:
 
-   <pre><code>
+   ```
     Full list of resources:
     stonith-sbd     (stonith:external/sbd): Started slesmsscl1
      Resource Group: g-NW1_ASCS
@@ -773,13 +779,13 @@ The tests that are presented are in a two node, multi-SID cluster with three SAP
          nc_NW3_ERS (ocf::heartbeat:anything):      Started slesmsscl1
          vip_NW3_ERS        (ocf::heartbeat:IPaddr2):       Started slesmsscl1
          rsc_sap_NW3_ERS22  (ocf::heartbeat:SAPInstance):   Started slesmsscl1
-   </code></pre>
+   ```
 
 1. Simulate node crash
 
    Resource state before starting the test:
 
-   <pre><code>
+   ```
     Full list of resources:
     stonith-sbd     (stonith:external/sbd): Started slesmsscl1
      Resource Group: g-NW1_ASCS
@@ -812,17 +818,17 @@ The tests that are presented are in a two node, multi-SID cluster with three SAP
          nc_NW3_ERS (ocf::heartbeat:anything):      Started slesmsscl1
          vip_NW3_ERS        (ocf::heartbeat:IPaddr2):       Started slesmsscl1
          rsc_sap_NW3_ERS22  (ocf::heartbeat:SAPInstance):   Started slesmsscl1
-   </code></pre>
+   ```
 
    Run the following command as root on the node where at least one ASCS instance is running. In this example, we executed the command on `slesmsscl2`, where the ASCS instances for NW1 and NW3 are running.  
 
-   <pre><code>
+   ```
     slesmsscl2:~ # echo b > /proc/sysrq-trigger
-   </code></pre>
+   ```
 
    If you use SBD, Pacemaker should not automatically start on the killed node. The status after the node is started again should look like this.
 
-   <pre><code>
+   ```
     Online: [ slesmsscl1 ]
     OFFLINE: [ slesmsscl2 ]
     Full list of resources:
@@ -866,11 +872,11 @@ The tests that are presented are in a two node, multi-SID cluster with three SAP
         last-rc-change='Fri Dec 13 19:32:10 2019', queued=0ms, exec=0ms
     * rsc_sap_NW3_ERS22_monitor_11000 on slesmsscl1 'not running' (7): call=127, status=complete, exitreason='',
         last-rc-change='Fri Dec 13 19:32:10 2019', queued=0ms, exec=0ms
-   </code></pre>
+   ```
 
    Use the following commands to start Pacemaker on the killed node, clean the SBD messages, and clean the failed resources.
 
-   <pre><code># run as root
+   ```# run as root
    # list the SBD device(s)
    slesmsscl2:~ # cat /etc/sysconfig/sbd | grep SBD_DEVICE=
    # SBD_DEVICE="/dev/disk/by-id/scsi-36001405772fe8401e6240c985857e116;/dev/disk/by-id/scsi-36001405034a84428af24ddd8c3a3e9e1;/dev/disk/by-id/scsi-36001405cdd5ac8d40e548449318510c3"
@@ -881,11 +887,11 @@ The tests that are presented are in a two node, multi-SID cluster with three SAP
    slesmsscl2:~ # crm resource cleanup rsc_sap_NW1_ERS02
    slesmsscl2:~ # crm resource cleanup rsc_sap_NW2_ERS12
    slesmsscl2:~ # crm resource cleanup rsc_sap_NW3_ERS22
-   </code></pre>
+   ```
 
    Resource state after the test:
 
-   <pre><code>
+   ```
     Full list of resources:
     stonith-sbd     (stonith:external/sbd): Started slesmsscl1
      Resource Group: g-NW1_ASCS
@@ -918,7 +924,7 @@ The tests that are presented are in a two node, multi-SID cluster with three SAP
          nc_NW3_ERS (ocf::heartbeat:anything):      Started slesmsscl2
          vip_NW3_ERS        (ocf::heartbeat:IPaddr2):       Started slesmsscl2
          rsc_sap_NW3_ERS22  (ocf::heartbeat:SAPInstance):   Started slesmsscl2
-   </code></pre>
+   ```
 
 ## Next steps
 
