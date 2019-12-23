@@ -1,7 +1,7 @@
 ---
 title: Scalability and performance targets for Queue storage
 titleSuffix: Azure Storage
-description: Learn about scalability and performance targets for Azure storage accounts and for Queue storage.
+description: Learn about scalability and performance targets for Queue storage.
 services: storage
 author: tamram
 
@@ -14,22 +14,14 @@ ms.subservice: queues
 
 # Scalability and performance targets for Queue storage
 
-This article details the scalability and performance targets for Azure storage accounts and for Queue storage. The scalability and performance targets listed here are high-end targets, but are achievable. In all cases, the request rate and bandwidth achieved by your storage account depends upon the size of objects stored, the access patterns utilized, and the type of workload your application performs.
-
-Be sure to test your application to determine whether its performance meets your requirements. If possible, avoid sudden spikes in the rate of traffic and ensure that traffic is well-distributed across partitions. For more information about how to design your application for optimal performance, see [Performance and scalability checklist for Queue storage](storage-performance-checklist.md).
-
-## Scale targets for standard storage accounts
-
-[!INCLUDE [azure-storage-account-limits-standard](../../../includes/azure-storage-account-limits-standard.md)]
+[!INCLUDE [storage-scalability-intro-include](../../../includes/storage-scalability-intro-include.md)]
 
 ## Scale targets for Queue storage
 
 [!INCLUDE [storage-queues-scale-targets](../../../includes/storage-queues-scale-targets.md)]
 
-## Scale targets for the Azure Storage resource provider
-
-[!INCLUDE [azure-storage-limits-azure-resource-manager](../../../includes/azure-storage-limits-azure-resource-manager.md)]
-
 ## See also
 
-[Performance and scalability checklist for Queue storage](storage-performance-checklist.md)
+- [Performance and scalability checklist for Queue storage](storage-performance-checklist.md)
+- [Scalability targets for standard storage accounts](../common/scalability-targets-standard-account.md)
+- [Scalability targets for the Azure Storage resource provider](../common/scalability-targets-resource-provider.md)
