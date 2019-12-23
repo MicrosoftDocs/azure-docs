@@ -23,7 +23,7 @@ You will learn how to:
 ## Prerequisites
 The following must be installed to complete this tutorial:
 - GIT [(download)](https://git-scm.com/downloads "GIT")
-- Windows SDK 10.0.18362.0 [(download)](https://developer.microsoft.com/en-us/windows/downloads/windows-10-sdk "Windows SDK")
+- Windows SDK 10.0.18362.0 [(download)](https://developer.microsoft.com/windows/downloads/windows-10-sdk "Windows SDK")
 - Unity 2019.1 [(download)](https://unity3d.com/get-unity/download "Unity")
 - The nuget command-line and a companion credential manager:
   - These should be downloaded from the [https://dev.azure.com/arrClient/arrClient](https://dev.azure.com/arrClient/arrClient) site.
@@ -36,7 +36,7 @@ The following must be installed to complete this tutorial:
     - Add the "arrPackages" feed with the following nuget command:
         `nuget.exe sources Add -Name "ArrPackages" -Source "https://pkgs.dev.azure.com/arrClient/_packaging/ArrPackages/nuget/v3/index.json"`
 - Latest version of Visual Studio 2017 [(download)](https://visualstudio.microsoft.com/vs/older-downloads/ "Visual Studio 2017")
-- Azure Storage Explorer [(download)](https://azure.microsoft.com/en-us/features/storage-explorer/ "Microsoft Azure Explorer")
+- Azure Storage Explorer [(download)](https://azure.microsoft.com/features/storage-explorer/ "Microsoft Azure Explorer")
 
 ## Clone the sample app
 
@@ -118,7 +118,7 @@ You will need to have:
 For this guide, we will describe how to use Azure Remote Rendering with a free Azure account.
 The same setup will apply if you are an existing user.
 
-Go to  [https://azure.microsoft.com/en-us/get-started/](https://azure.microsoft.com/en-us/get-started/) or if you already have an account go to [https://ms.portal.azure.com/#home](https://ms.portal.azure.com/#home).
+Go to  [https://azure.microsoft.com/get-started/](https://azure.microsoft.com/get-started/) or if you already have an account go to [https://ms.portal.azure.com/#home](https://ms.portal.azure.com/#home).
 If you do not have an Azure account, then click on the free account option on the home page and follow those instructions.
 Once complete, you will be forwarded to the portal page in the second link.
 
@@ -216,7 +216,7 @@ Here is an example `arrconfig.json` file for a `robot.fbx` at the path mentioned
 ## Running the asset conversion script
 You are now ready to have the script upload your model, call the ingestion REST API and retrieve a link to the ingested model in your output container.
 
-Open a powershell window. Make sure you have the [Azure Powershell](https://docs.microsoft.com/en-us/powershell/azure/) package installed. To install the package, run the following in powershell with admin rights:
+Open a powershell window. Make sure you have the [Azure Powershell](https://docs.microsoft.com/powershell/azure/) package installed. To install the package, run the following in powershell with admin rights:
 ```powershell
 PS> $ Install-Module -Name Az -AllowClobber
 ```

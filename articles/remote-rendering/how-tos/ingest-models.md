@@ -90,40 +90,40 @@ Returns a JSON document with a "status" field that can have the following values
 
 The creation of the storage account and the blob containers can be done with one of the following:
 - [Azure Portal](https://portal.azure.com) 
-- [az commandline](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)
-- [Azure Storage Explorer](https://azure.microsoft.com/en-us/features/storage-explorer/)
+- [az commandline](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
+- [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)
 - SDKs (C#, Python ... )
 
 
 ## Retrieve stored access signatures for the storage containers
 Stored access signatures (SAS) are used to grant read access for input and write access for output. It is recommended to generate the URIs on the fly each time a model is ingested instead of persisting them since they will eventually expire leading to unexpected breakages.
 
-Details about SAS can be found at the [SAS documentation](https://docs.microsoft.com/en-us/azure/storage/common/storage-dotnet-shared-access-signature-part-1>)
+Details about SAS can be found at the [SAS documentation](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1>)
 
 A SAS URI can be generated using one of:
 - az powershell module
     - see the  [Powershell example scripts](../quickstarts/powershell-example-scripts-for-frontend.md)
-- [az commandline](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)
+- [az commandline](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
 - SDKS (C#, Python ... )
-- [Azure Storage Explorer](https://azure.microsoft.com/en-us/features/storage-explorer/)
+- [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)
     - right click on container "Get Shared Access Signature" (read, list access for input container, write access for output container)
 
 ## <span id="upload">Upload an input model
 In order to start ingesting a model, you need to upload it using one of the following options:
-- [Azure storage explorer](https://azure.microsoft.com/en-us/features/storage-explorer/) - a convenient UI to upload/download/manage files on azure blob storage
+- [Azure storage explorer](https://azure.microsoft.com/features/storage-explorer/) - a convenient UI to upload/download/manage files on azure blob storage
     
-- [Azure command line](https://docs.microsoft.com/en-us/azure/storage/common/storage-azure-cli)
+- [Azure command line](https://docs.microsoft.com/azure/storage/common/storage-azure-cli)
 
-- [Azure powershell module](https://docs.microsoft.com/en-us/powershell/azure/install-az-ps?view=azps-2.2.0)
+- [Azure powershell module](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-2.2.0)
     - see the  [Powershell example scripts](../quickstarts/powershell-example-scripts-for-frontend.md)
-- [Using a storage SDK (Python, C# ... )](https://docs.microsoft.com/en-us/azure/storage/)
-- [Using the azure Storage REST APIs](https://docs.microsoft.com/en-us/rest/api/storageservices/blob-service-rest-api)
+- [Using a storage SDK (Python, C# ... )](https://docs.microsoft.com/azure/storage/)
+- [Using the azure Storage REST APIs](https://docs.microsoft.com/rest/api/storageservices/blob-service-rest-api)
 
 ## <span id="ingested">Get a SAS URI for your ingested model</span>
 This step is similar to the [Retrieve stored access signatures for the storage containers](#prepare) step above. But this time we need to retrieve a SAS URI for the model file that was written to the output container. 
 All of the methods work for the model file as well. 
 
-For example, to retrieve as SAS URI via the [Azure Storage explorer](https://azure.microsoft.com/en-us/features/storage-explorer/) right-click on the model file and select "Get Shared Access Signature"). Copy the URL. 
+For example, to retrieve as SAS URI via the [Azure Storage explorer](https://azure.microsoft.com/features/storage-explorer/) right-click on the model file and select "Get Shared Access Signature"). Copy the URL. 
 
 ## <span id="configuringIngestion">Configuring ingestion</span>
 There is a dedicated chapter about [configuring ingestion](../how-tos/configure-model-ingestion.md) which describes the ingestion settings and makes some recommendations.

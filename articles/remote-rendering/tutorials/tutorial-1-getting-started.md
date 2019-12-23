@@ -81,7 +81,7 @@ nuget.exe sources Add -Name "ArrPackages" -Source <https://pkgs.dev.azure.com/ar
     Supported Device Families:
     - Holographic (Desktop optional)
 
-    _see [Mixed Reality Documentation](https://docs.microsoft.com/en-us/windows/mixed-reality/unity-development-overview) for more information on recommended settings and capabilities._
+    _see [Mixed Reality Documentation](https://docs.microsoft.com/windows/mixed-reality/unity-development-overview) for more information on recommended settings and capabilities._
 
 ## Initialize the RemoteManger
 
@@ -509,7 +509,7 @@ Again, test the functionality to ensure you have successfully connected to the r
 
 ## Loading a model
 
-Create a load function that will use the built-in model. The _[WorldAnchor](https://docs.unity3d.com/ScriptReference/XR.WSA.WorldAnchor.html)_ is an important component used for [hologram stability](https://docs.microsoft.com/en-us/windows/mixed-reality/hologram-stability). This will only have effect when deployed on a Mixed Reality device.
+Create a load function that will use the built-in model. The _[WorldAnchor](https://docs.unity3d.com/ScriptReference/XR.WSA.WorldAnchor.html)_ is an important component used for [hologram stability](https://docs.microsoft.com/windows/mixed-reality/hologram-stability). This will only have effect when deployed on a Mixed Reality device.
 
 ```csharp
 #if UNITY_WSA

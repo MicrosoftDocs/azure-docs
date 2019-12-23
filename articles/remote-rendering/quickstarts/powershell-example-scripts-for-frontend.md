@@ -21,7 +21,7 @@ Prior to invoking the script you need to install the Azure Powershell module and
 
 ## Install Azure Powershell
 
-More information about Azure Powershell can be found at: https://docs.microsoft.com/en-us/powershell/azure/ 
+More information about Azure Powershell can be found at: https://docs.microsoft.com/powershell/azure/ 
 
 In powershell with admin rights:
 ```powershell
@@ -29,7 +29,7 @@ PS> $ Install-Module -Name Az -AllowClobber
 ```
 ## Allow Powershell scripts to be executed
 If you get an error about running scripts, ensure your execution policy is set appropriately
-Open Powershell as an admin and run  the command below to allow unrestricted execution. For more details, read [Set-Execution Policy](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-6)
+Open Powershell as an admin and run  the command below to allow unrestricted execution. For more details, read [Set-Execution Policy](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-6)
 
 In a powershell window:
 ```powershell
@@ -48,7 +48,7 @@ PS> $ Connect-AzAccount -Subscription "<your azure subscription id>"
 ```
 This will open a browser window for you to log in to your subscription.
 
-# Fill out the configuration file 
+## Fill out the configuration file 
 Next to the `.ps1` files in the Scripts directory there is a arrconfig.json that needs to be filled out.
 
 All of the values are strings, so use the "key":"value" notation. 
@@ -74,7 +74,7 @@ azureStorageSettings contain values used by the Ingestion.ps1 script. Fill it ou
 modelSettings is used to select which model you want to convert - it does not need to be filled out if you provide command-line parameters to the Ingestion.ps1 script:
 - modelSettings.modelLocation: can be also provided to the Ingestion.ps1 via the -ModelLocation parameter. Path to the local file on disc. for example: "C:\\\\models\\\\box.fbx". Make sure to properly escape the backslash in the path and use "\\\\"
 
-# RenderingSession.ps1: 
+## RenderingSession.ps1: 
 Make sure you have filled out the accountSettings and renderingSessionSettings sections in arrconfig.json next to the RenderingSession.ps1 script.
 
 All commands can be executed in a powershell window:
@@ -141,7 +141,7 @@ At the moment, we only support changing the maxLeaseTime of a VM. The lease time
 PS> $ .\RenderingSession.ps1 -UpdateSession -Id <sessionID> -MaxLeaseTime <hh:mm:ss>
 ```
 
-# Converting an asset using Ingestion.ps1:
+## Converting an asset using Ingestion.ps1:
 Make sure you have filled out the accountSettings and azureStorageSettings sections in arrconfig.json next to the Ingestion.ps1 script.
 Open a powershell in the Scripts folder and make sure you are logged into the Azure subscription under which your storage account exists
 ```powershell

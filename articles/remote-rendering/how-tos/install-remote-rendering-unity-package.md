@@ -22,7 +22,7 @@ Following Unity's naming scheme for packages, the package is called **com.micros
 
 The package is not part of the [arrClient](https://dev.azure.com/arrClient/arrClient/_git/arrClient) repository, and currently it is not available from Unity's internal package registry. For now, it has to be obtained and added to projects manually.
 
-Ensure you have the [nuget command-line interface](https://docs.microsoft.com/en-us/nuget/tools/nuget-exe-cli-reference) and [authentication to access Azure DevOps feeds](https://docs.microsoft.com/en-us/azure/devops/artifacts/nuget/nuget-exe?view=azure-devops). 
+Ensure you have the [nuget command-line interface](https://docs.microsoft.com/nuget/tools/nuget-exe-cli-reference) and [authentication to access Azure DevOps feeds](https://docs.microsoft.com/azure/devops/artifacts/nuget/nuget-exe?view=azure-devops). 
 Then call the following command to pull the latest version of the package into the current directory:
 
 * `nuget install com.microsoft.azure.remote_rendering`
