@@ -139,7 +139,7 @@ This error occurs when you try to change the license model on a SQL Server VM th
 You'll need to register your subscription with the resource provider, and then [register your SQL Server VM with the resource provider](virtual-machines-windows-sql-register-with-resource-provider.md). 
 
 
-## The virtual machine '\<vmname\>' has more than one NIC associated
+### The virtual machine '\<vmname\>' has more than one NIC associated
 
 This error occurs on virtual machines that have more than one NIC. Remove one of the NICs before you change the licensing model. Although you can add the NIC back to the VM after you change the license model, operations in the Azure portal such as automatic backup and patching will no longer be supported. 
 
