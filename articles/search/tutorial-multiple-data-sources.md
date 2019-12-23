@@ -68,7 +68,7 @@ This sample uses two small sets of data that describe seven fictional hotels. On
 
 1. Select **Data Explorer** and then select **New Database**.
 
-   ![Create a new database](media/tutorial-multiple-data-sources/cosmosdb-newdb.png "Create a new database")
+   ![Create a new database](media/tutorial-multiple-data-sources/cosmos-newdb.png "Create a new database")
 
 1. Enter the name **hotel-rooms-db**. Accept default values for the remaining settings.
 
