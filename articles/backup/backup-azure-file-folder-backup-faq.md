@@ -163,7 +163,7 @@ Consider the following conditions:
  - *Different passphrase*, then you will not be able to restore your backed up data.
 -	If you install the agent on a *different machine* with<br>
   - the same passphrase (used in the original machine), then you will be able to restore your backed up data.<br>
-  - a different passphrase, you will not be able to restore your backed data.<br>
+  - a different passphrase, you will not be able to restore your backed up data.<br>
 -	Additionally, if your original machine is corrupted (preventing you from regenerating the passphrase through the MARS console); but you are able to restore/access the original scratch folder used by the MARS agent, then you might be able to restore (if you forgot the password). For more assistance, contact Customer Support.
 
 **How do I recover if I lost my original machine (where backups were taken)?**<br>
@@ -172,7 +172,7 @@ If you have the same passphrase (that you provided during registration) of the o
 
 | Original Machine | Passphrase | Available Options |
 | --- | --- | --- |
-| Lost |Available |You can install and register the MARS agent on another machine with the same passphrase that you provided during registration of the original machine. Choose **Recovery Option** > **Another location** to perform your restore. For more information, see 
+| Lost |Available |You can install and register the MARS agent on another machine with the same passphrase that you provided during registration of the original machine. Choose **Recovery Option** > **Another location** to perform your restore. For more information, see
 | Lost |Lost |Not possible to recover the data or Data is not available |
 
 
