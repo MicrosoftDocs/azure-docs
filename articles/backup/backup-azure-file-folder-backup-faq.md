@@ -173,7 +173,7 @@ If you have the same passphrase (that you provided during registration) of the o
 | Original Machine | Passphrase | Available Options |
 | --- | --- | --- |
 | Lost |Available |You can install and register the MARS agent on another machine with the same passphrase that you provided during registration of the original machine. Choose **Recovery Option** > **Another location** to perform your restore. For more information, see
-| Lost |Lost |Not possible to recover the data or Data is not available |
+| Lost |Lost |Not possible to recover the data or data is not available |
 
 
 ### What happens if I cancel an ongoing restore job?

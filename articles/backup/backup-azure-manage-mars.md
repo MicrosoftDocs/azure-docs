@@ -150,9 +150,10 @@ If you stopped protection while retaining data and decided to resume protection,
 
 A passphrase is used to encrypt and decrypt data while backing up or restoring your on-premises or local machine using the MARS agent to or from Azure. If you lost or forgot the passphrase, then you can regenerate the passphrase (provided your machine is still registered with the Recovery Services Vault and the backup is configured) by following these steps:
 
-- From the MARS agent console, go to **Actions Pane** > **Change properties**.  Then go to **Encryption tab** > **Change Passphrase** > **Generate passphrase**<br>
-- Once you click **Generate passphrase**, it will generate a new passphrase.<br>
-- Click Browse to save your passphrase.<br>
+- From the MARS agent console, go to **Actions Pane** > **Change properties** >. Then go to **Encryption tab**.<br>
+- Select **Change Passphrase** checkbox.<br>
+- Enter a new passphrase or click **Generate Passphrase**.
+- Click **Browse** to save the new passphrase.
 
     ![Generate passphrase.](./media/backup-azure-manage-mars/passphrase.png)
 - Click **OK** to apply changes.  If the [Security Feature](https://docs.microsoft.com/azure/backup/backup-azure-security-feature#enable-security-features) is enabled on the Azure Portal for the Recovery Services Vault, then you will be prompted to enter the Security PIN. To receive the PIN, follow the steps listed in this [article](https://docs.microsoft.com/azure/backup/backup-azure-security-feature#authentication-to-perform-critical-operations).<br>
@@ -164,5 +165,5 @@ A passphrase is used to encrypt and decrypt data while backing up or restoring y
 
 ## Next steps
 
-- For information about supported scenarios and limitations, refer to the [Support Matrix for the MARS](https://docs.microsoft.com/azure/backup/backup-support-matrix-mars-agent).
+- For information about supported scenarios and limitations, refer to the [Support Matrix for the MARS Agent](https://docs.microsoft.com/azure/backup/backup-support-matrix-mars-agent).
 - Learn more about [On demand backup policy retention behavior](backup-configure-vault.md#on-demand-backup-policy-retention-behavior).
