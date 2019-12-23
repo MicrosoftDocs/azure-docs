@@ -13,7 +13,7 @@ ms.date: 12/05/2019
 ---
 
 # Understand automated machine learning results
-[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
+[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 In this article, you learn how to view and understand the charts and metrics for each of your automated machine learning runs. 
 
@@ -28,8 +28,8 @@ Learn more about:
 
 * Create an experiment for your automated machine learning run, either with the SDK, or in Azure Machine Learning studio.
 
-    * Use the SDK to build a [classification model](../how-to-auto-train-remote.md) or [regression model](tutorial-auto-train-models.md)
-    * Use [Azure Machine Learning studio](../how-to-create-portal-experiments.md) to create a classification or regression model by uploading the appropriate data.
+    * Use the SDK to build a [classification model](how-to-auto-train-remote.md) or [regression model](service/tutorial-auto-train-models.md)
+    * Use [Azure Machine Learning studio](how-to-create-portal-experiments.md) to create a classification or regression model by uploading the appropriate data.
 
 ## View the run
 
@@ -259,9 +259,9 @@ A good model will typically have a bell curve or errors around zero.
 
 ## <a name="explain-model"></a> Model interpretability and feature importance
 Automated ML provides a machine learning interpretability dashboard for your runs.
-For more information on enabling interpretability features, see the [how-to](../how-to-machine-learning-interpretability-automl.md) on enabling interpretability in automated ML experiments.
+For more information on enabling interpretability features, see the [how-to](how-to-machine-learning-interpretability-automl.md) on enabling interpretability in automated ML experiments.
 
 ## Next steps
 
-+ Learn more about [automated ml](../concept-automated-ml.md) in Azure Machine Learning.
++ Learn more about [automated ml](concept-automated-ml.md) in Azure Machine Learning.
 + Try the [Automated Machine Learning Model Explanation](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model) sample notebooks.

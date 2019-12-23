@@ -35,14 +35,14 @@ When deploying a model in Azure Machine Learning, the system performs a number o
 
 4. Start up a new container (or containers) in ACI or AKS. 
 
-Learn more about this process in the [Model Management](../concept-model-management-and-deployment.md) introduction.
+Learn more about this process in the [Model Management](concept-model-management-and-deployment.md) introduction.
 
 ## Prerequisites
 
 * An **Azure subscription**. If you do not have one, try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree).
 * The [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
 * The [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
-* The [CLI extension for Azure Machine Learning](reference-azure-machine-learning-cli.md).
+* The [CLI extension for Azure Machine Learning](service/reference-azure-machine-learning-cli.md).
 * To debug locally, you must have a working Docker installation on your local system.
 
     To verify your Docker installation, use the command `docker run hello-world` from a terminal or command prompt. For information on installing Docker, or troubleshooting Docker errors, see the [Docker Documentation](https://docs.docker.com/).
@@ -209,7 +209,7 @@ print(prediction)
 During local testing, you may need to update the `score.py` file to add logging or attempt to resolve any problems that you've discovered. To reload changes to the `score.py` file, use `reload()`. For example, the following code reloads the script for the service, and then sends data to it. The data is scored using the updated `score.py` file:
 
 > [!IMPORTANT]
-> The `reload` method is only available for local deployments. For information on updating a deployment to another compute target, see the update section of [Deploy models](../how-to-deploy-and-where.md#update).
+> The `reload` method is only available for local deployments. For information on updating a deployment to another compute target, see the update section of [Deploy models](how-to-deploy-and-where.md#update).
 
 ```python
 service.reload()
@@ -485,7 +485,7 @@ In this text example, the registry name is `myregistry` and the image is named `
 
 1. To attach VS Code to PTVSD inside the container, open VS Code and use the F5 key or select __Debug__. When prompted, select the __Azure Machine Learning: Docker Debug__ configuration. You can also select the debug icon from the side bar, the __Azure Machine Learning: Docker Debug__ entry from the Debug dropdown menu, and then use the green arrow to attach the debugger.
 
-    ![The debug icon, start debugging button, and configuration selector](media/how-to-troubleshoot-deployment/start-debugging.png)
+    ![The debug icon, start debugging button, and configuration selector](./media/how-to-troubleshoot-deployment/start-debugging.png)
 
 At this point, VS Code connects to PTVSD inside the Docker container and stops at the breakpoint you set previously. You can now step through the code as it runs, view variables, etc.
 
@@ -535,5 +535,5 @@ docker stop debug
 
 Learn more about deployment:
 
-* [How to deploy and where](../how-to-deploy-and-where.md)
-* [Tutorial: Train & deploy models](tutorial-train-models-with-aml.md)
+* [How to deploy and where](how-to-deploy-and-where.md)
+* [Tutorial: Train & deploy models](service/tutorial-train-models-with-aml.md)
