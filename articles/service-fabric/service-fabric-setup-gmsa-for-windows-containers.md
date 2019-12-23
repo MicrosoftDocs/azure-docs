@@ -1,20 +1,9 @@
 ---
-title: Setup gMSA for Azure Service Fabric container services| Microsoft Docs
+title: Setup gMSA for Azure Service Fabric container services
 description: Learn now to setup gMSA for a container running in Azure Service Fabric.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
 
-ms.assetid: ab49c4b9-74a8-4907-b75b-8d2ee84c6d90
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 03/20/2019
-ms.author: atsenthi
 ---
 
 # Set up gMSA for Windows containers running on Service Fabric

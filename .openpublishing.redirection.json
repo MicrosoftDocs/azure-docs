@@ -42219,6 +42219,26 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/iot-pnp/quickstart-connect-pnp-device-linux.md",
+      "redirect_url": "/azure/iot-pnp/quickstart-connect-pnp-device-c-linux/",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-pnp/quickstart-connect-pnp-device.md",
+      "redirect_url": "/azure/iot-pnp/quickstart-connect-pnp-device-c-windows/",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-pnp/quickstart-connect-pnp-device-solution.md",
+      "redirect_url": "/azure/iot-pnp/quickstart-connect-pnp-device-solution-node/",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-pnp/quickstart-create-pnp-device.md",
+      "redirect_url": "/azure/iot-pnp/quickstart-create-pnp-device-windows/",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/iot-central/core/overview-iot-options.md",
       "redirect_url": "/azure/iot-fundamentals/iot-services-and-technologies/",
       "redirect_document_id": true
