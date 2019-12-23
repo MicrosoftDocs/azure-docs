@@ -267,7 +267,8 @@ async function entityRecognition(client){
     entityResults.forEach(document => {
         console.log(`Document ID: ${document.id}`);
         document.entities.forEach(entity => {
-            console.log(`\tName: ${entity.text} Type: ${entity.type} Sub Type: ${entity.subtype ? entity.subtype : "N/A"}`);
+            console.log(`\tName: ${entity.text} \tType: ${entity.type} \tSub Type: ${entity.subtype != "" ? entity.subtype : "N/A"}`);
+            console.log(`\tOffset: ${entity.offset}, Length: ${entity.length} \tScore: ${entity.score}`);
         });
     });
 }
@@ -297,6 +298,48 @@ Document ID: 1
         Offset: 21, Length: 9   Score: 0.9837456345558167
         Name: 21        Type: Quantity  Sub Type: Number
         Offset: 71, Length: 2   Score: 0.8
+```
+
+## Recognition of Personally Identifiable Information
+<!-- TODO: Add description for PII and updated links-->
+<!--
+Create a list of objects, containing your documents. Call the client's [recognizeEntities()](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-textanalytics/textanalyticsclient#entities-models-textanalyticscliententitiesoptionalparams-) method and get the [EntitiesBatchResult](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-textanalytics/entitiesbatchresult) object. Iterate through the list of results, and print each document's ID. For each detected entity, print its wikipedia name, the type and sub-types (if exists) as well as the locations in the original text. -->
+
+```javascript
+async function entityPiiRecognition(client){
+
+    const entityPiiInput = [
+        "Microsoft employee with ssn 859-98-0987 is using our awesome API's.",
+        "Your ABA number - 111000025 - is the first 9 digits in the lower left hand corner of your personal check.",
+        "Is 998.214.865-68 your Brazilian CPF number?"
+    ]
+    const entityResults = await client.recognizePiiEntities(entityPiiInput);
+
+    result.forEach(document => {
+        console.log(`Document ID: ${document.id}`);
+        document.entities.forEach(entity => {
+            console.log(`\tName: ${entity.text} \tType: ${entity.type} \tSub Type: ${entity.subtype != "" ? entity.subtype : "N/A"}`);
+            console.log(`\tOffset: ${entity.offset}, Length: ${entity.length} \tScore: ${entity.score}`);
+        });
+    });
+}
+entityRecognition(textAnalyticsClient);
+```
+
+Run your code with `node index.js` in your console window.
+
+### Output
+
+```console
+Document ID: 0
+        Name: 859-98-0987       Type: U.S. Social Security Number (SSN)         Sub Type: N/A
+        Offset: 28, Length: 11  Score: 0.65
+Document ID: 1
+        Name: 111000025         Type: ABA Routing Number        Sub Type: N/A
+        Offset: 18, Length: 9   Score: 0.75
+Document ID: 2
+        Name: 998.214.865-68    Type: Brazil CPF Number         Sub Type: N/A
+        Offset: 3, Length: 14   Score: 0.85
 ```
 
 ## Run the application
