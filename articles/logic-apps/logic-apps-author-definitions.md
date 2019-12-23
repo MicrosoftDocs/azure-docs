@@ -113,7 +113,7 @@ Follow these general steps to *parameterize*, or define and use parameters for, 
 
    When you specify the values for your workflow definition parameters, you can reference template parameters by using the parameters section that's outside your workflow definition but still inside the resource definition for your logic app. That way, you can pass template parameter values into your workflow definition parameters.
 
-1. Store the values for your parameters in a separate [parameter file](../azure-resource-manager/resource-group-template-deploy.md#parameter-files) and include that file with your deployment.
+1. Store the values for your parameters in a separate [parameter file](../azure-resource-manager/templates/parameter-files.md) and include that file with your deployment.
 
 ## Process strings with functions
 

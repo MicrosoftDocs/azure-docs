@@ -109,7 +109,7 @@ You can see the registration status and register a resource provider namespace t
 
 1. For your subscription, select **Resource providers**.
 
-   ![Select resource providers](./media/rerror-register-resource-provider/select-resource-provider.png)
+   ![Select resource providers](./media/error-register-resource-provider/select-resource-provider.png)
 
 1. Look at the list of resource providers, and if necessary, select the **Register** link to register the resource provider of the type you're trying to deploy.
 

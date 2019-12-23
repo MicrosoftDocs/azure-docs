@@ -19,7 +19,7 @@ ms.custom: seoapril2019
 
 In this article, you learn several ways to create an Azure Machine Learning workspace using Azure Resource Manager templates. A Resource Manager template makes it easy to create resources as a single, coordinated operation. A template is a JSON document that defines the resources that are needed for a deployment. It may also specify deployment parameters. Parameters are used to provide input values when using the template.
 
-For more information, see [Deploy an application with Azure Resource Manager template](../../azure-resource-manager/resource-group-template-deploy.md).
+For more information, see [Deploy an application with Azure Resource Manager template](../../azure-resource-manager/templates/deploy-powershell.md).
 
 ## Prerequisites
 
@@ -211,7 +211,7 @@ For more information on templates, see the following articles:
    * Workspace name: The name to use for the Azure Machine Learning workspace that will be created. The workspace name must be between 3 and 33 characters. It may only contain alphanumeric characters and '-'.
    * Location: Select the location where the resources will be created.
 
-For more information, see [Deploy resources from custom template](../../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template).
+For more information, see [Deploy resources from custom template](../../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template).
 
 ## Use Azure PowerShell
 

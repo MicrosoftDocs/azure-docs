@@ -12,7 +12,7 @@ ms.date: 07/25/2019
 
 When you're ready to automate creating and deploying your logic app, you can expand your logic app's underlying workflow definition into an [Azure Resource Manager template](../azure-resource-manager/management/overview.md). This template defines the infrastructure, resources, parameters, and other information for provisioning and deploying your logic app. By defining parameters for values that vary at deployment, also known as *parameterizing*, you can repeatedly and consistently deploy logic apps based on different deployment needs.
 
-For example, if you deploy to environments for development, test, and production, you likely use different connection strings for each environment. You can declare template parameters that accept different connection strings and then store those strings in a separate [parameters file](../azure-resource-manager/resource-group-template-deploy.md#parameter-files). That way, you can change those values without having to update and redeploy the template. For scenarios where you have parameter values that are sensitive or must be secured, such as passwords and secrets, you can store those values in [Azure Key Vault](../azure-resource-manager/resource-manager-keyvault-parameter.md) and have your parameters file retrieve those values. However, in these scenarios, you'd redeploy to retrieve the current values.
+For example, if you deploy to environments for development, test, and production, you likely use different connection strings for each environment. You can declare template parameters that accept different connection strings and then store those strings in a separate [parameters file](../azure-resource-manager/templates/parameter-files.md). That way, you can change those values without having to update and redeploy the template. For scenarios where you have parameter values that are sensitive or must be secured, such as passwords and secrets, you can store those values in [Azure Key Vault](../azure-resource-manager/resource-manager-keyvault-parameter.md) and have your parameters file retrieve those values. However, in these scenarios, you'd redeploy to retrieve the current values.
 
 This overview describes the attributes in a Resource Manager template that includes a logic app workflow definition. Both the template and your workflow definition use JSON syntax, but some differences exist because the workflow definition also follows the [Workflow Definition Language schema](../logic-apps/logic-apps-workflow-definition-language.md). For example, template expressions and workflow definition expressions differ in how they [reference parameters](#parameter-references) and the values that they can accept.
 
@@ -142,7 +142,7 @@ Except for parameters that handle values that are sensitive or must be secured, 
 
 To secure template parameters, see these topics:
 
-* [Security recommendations for template parameters](../azure-resource-manager/template-best-practices.md#parameters)
+* [Security recommendations for template parameters](../azure-resource-manager/templates/template-best-practices.md#parameters)
 * [Secure template parameters](../logic-apps/logic-apps-securing-a-logic-app.md#secure-parameters-deployment-template)
 * [Pass secure parameter values with Azure Key Vault](../azure-resource-manager/resource-manager-keyvault-parameter.md)
 
@@ -164,7 +164,7 @@ Here are some best practices for defining parameters:
 
 * Include the `defaultValue` attribute, which can specify empty values, for all parameters except for values that are sensitive or must be secured. Always use secured parameters for user names, passwords, and secrets. To hide or protect sensitive parameter values, follow the guidance in these topics:
 
-  * [Security recommendations for template parameters](../azure-resource-manager/template-best-practices.md#parameters)
+  * [Security recommendations for template parameters](../azure-resource-manager/templates/template-best-practices.md#parameters)
 
   * [Secure template parameters](../logic-apps/logic-apps-securing-a-logic-app.md#secure-parameters-deployment-template)
 
@@ -172,13 +172,13 @@ Here are some best practices for defining parameters:
 
 * To differentiate template parameter names from workflow definition parameter names, you can use descriptive template parameter names, for example: `TemplateFabrikamPassword`
 
-For more template best practices, see [Best practices for template parameters](../azure-resource-manager/template-best-practices.md#parameters).
+For more template best practices, see [Best practices for template parameters](../azure-resource-manager/templates/template-best-practices.md#parameters).
 
 <a name="template-parameter-files"></a>
 
 ## Template parameters file
 
-To provide the values for template parameters, store those values in a [parameters file](../azure-resource-manager/resource-group-template-deploy.md#parameter-files). That way, you can use different parameters files based on your deployment needs. Here is the file name format to use:
+To provide the values for template parameters, store those values in a [parameters file](../azure-resource-manager/templates/parameter-files.md). That way, you can use different parameters files based on your deployment needs. Here is the file name format to use:
 
 * Logic app template file name: **<*logic-app-name*>.json**
 * Parameters file name: **<*logic-app-name*>.parameters.json**
@@ -263,7 +263,7 @@ Your template has a `resources` object, which is an array that contains definiti
 For general information about template resources and their attributes, see these topics:
 
 * [Resources - Resource Manager template structure and syntax](../azure-resource-manager/templates/template-syntax.md#resources)
-* [Best practices for template resources](../azure-resource-manager/template-best-practices.md#resources)
+* [Best practices for template resources](../azure-resource-manager/templates/template-best-practices.md#resources)
 
 <a name="logic-app-resource-definition"></a>
 

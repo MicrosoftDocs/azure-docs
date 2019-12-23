@@ -42,11 +42,11 @@ For more information about Resource Manager templates, see the following article
 
 ## Generate templates
 
-Resource Manager enables you to export a Resource Manager template from existing resources in your subscription using different tools. You can use that generated template to learn about the template syntax or to automate the redeployment of your solution as needed. For more information, see [Export templates](../azure-resource-manager/manage-resource-groups-portal.md#export-resource-groups-to-templates).
+Resource Manager enables you to export a Resource Manager template from existing resources in your subscription using different tools. You can use that generated template to learn about the template syntax or to automate the redeployment of your solution as needed. For more information, see [Export templates](../azure-resource-manager/templates/export-template-portal.md).
 
 ## Deploy using the portal
 
-You can deploy a Resource Manager template using the Azure portal. For more information, see [Deploy resources from custom template](../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template).
+You can deploy a Resource Manager template using the Azure portal. For more information, see [Deploy resources from custom template](../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template).
 
 ## Deploy using PowerShell
 

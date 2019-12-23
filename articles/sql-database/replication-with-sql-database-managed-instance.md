@@ -328,7 +328,7 @@ EXEC sp_dropdistributor @no_checks = 1
 GO
 ```
 
-You can clean up your Azure resources by [deleting the managed instance resources from the resource group](../azure-resource-manager/manage-resources-portal.md#delete-resources) and then deleting the resource group `SQLMI-Repl`. 
+You can clean up your Azure resources by [deleting the managed instance resources from the resource group](../azure-resource-manager/management/manage-resources-portal.md#delete-resources) and then deleting the resource group `SQLMI-Repl`. 
 
    
 ## See Also

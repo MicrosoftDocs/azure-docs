@@ -153,7 +153,7 @@ To use an optional parameters file, copy the [201-servicebus-create-queue](https
 }
 ```
 
-For more information, see the [Parameters](../azure-resource-manager/resource-group-template-deploy.md#parameter-files) article.
+For more information, see the [Parameters](../azure-resource-manager/templates/parameter-files.md) article.
 
 ### Log in to Azure and set the Azure subscription
 

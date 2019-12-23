@@ -36,7 +36,7 @@ To run the deployment automatically, click the following button:
 [!INCLUDE [cache-deploy-parameters](../../includes/cache-deploy-parameters.md)]
 
 ## Variables for names
-This template uses variables to construct names for the resources. It uses the [uniqueString](../azure-resource-manager/resource-group-template-functions-string.md#uniquestring) function to construct a value based on the
+This template uses variables to construct names for the resources. It uses the [uniqueString](../azure-resource-manager/templates/template-functions-string.md#uniquestring) function to construct a value based on the
 resource group id.
 
     "variables": {
