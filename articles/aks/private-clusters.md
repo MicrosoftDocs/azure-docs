@@ -14,7 +14,7 @@ ms.author: mlearned
 
 In a private cluster, the Control Plane/API server will have internal IP addresses defined in [RFC1918](https://tools.ietf.org/html/rfc1918).  By using a private cluster, you can ensure network traffic between your API server and your node pools remains on the private network only.
 
-The communication between the control plane/API server, which is in an AKS-managed Azure subscription, and the customers cluster/node pool, which is in a customer subscription, can communicate with each other through the private link service in the API server VNET and a private endpoint exposed in the subnet of the customer AKS cluster.
+The communication between the control plane/API server, which is in an AKS-managed Azure subscription, and the customers cluster/node pool, which is in a customer subscription, can communicate with each other through the [private link service][private-link-service] in the API server VNET and a private endpoint exposed in the subnet of the customer AKS cluster.
 
 > [!IMPORTANT]
 > AKS preview features are self-service opt-in. Previews are provided "as-is" and "as available" and are excluded from the service level agreements and limited warranty. AKS Previews are partially covered by customer support on best effort basis. As such, these features are not meant for production use. For additional infromation, please see the following support articles:
@@ -24,7 +24,7 @@ The communication between the control plane/API server, which is in an AKS-manag
 
 ## Before you begin
 
-* You need the Azure CLI version 2.0.70 or later and the aks-preview 0.4.18 extension
+* You need the Azure CLI version 2.0.77 or later and the aks-preview 0.4.18 extension
 
 ## Current supported regions
 * West US
@@ -111,6 +111,7 @@ The API server end point has no public IP address. Consequently, users will need
 * Standard LB Only - no support for basic load balancer  
 
 ## Limitations 
+* The same [Azure Private Link service limitations][private-link-service] apply to private clusters, Azure Private Endpoints and Virtual Network service endpoints are not currently supported in the same VNET
 * No support for virtual nodes in a private cluster to spin private ACI instances in a private Azure VNET
 * No support for Azure DevOps integration out of the box with private clusters
 * If customers need to enable ACR to work with private AKS, then the ACR's VNET will need to be peered with the agent cluster VNET
@@ -120,8 +121,10 @@ The API server end point has no public IP address. Consequently, users will need
 * Azure Monitor for containers Live Data isn't currently supported
 * Bring your own DNS isn't currently supported
 
+
 <!-- LINKS - internal -->
 [az-provider-register]: /cli/azure/provider?view=azure-cli-latest#az-provider-register
 [az-feature-list]: /cli/azure/feature?view=azure-cli-latest#az-feature-list
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-extension-update]: /cli/azure/extension#az-extension-update
+[private-link-service]: https://docs.microsoft.com/azure/private-link/private-link-service-overview

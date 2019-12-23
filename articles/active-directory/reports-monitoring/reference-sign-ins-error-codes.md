@@ -33,9 +33,13 @@ When a sign-in fails, you will see an error code corresponding to the failure. T
 
 ## How can I display failed sign-ins? 
 
-Navigate to the [Sign-ins report](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/SignIns) in the [Azure portal](https://portal.azure.com).
+On the [Azure portal](https://portal.azure.com) menu, select **Azure Active Directory**, or search for and select **Azure Active Directory** from any page.
 
-![Sign-in activity](./media/reference-sign-ins-error-codes/61.png "Sign-in activity")
+![Select Azure Active Directory](./media/reference-sign-ins-error-codes/select-azure-active-directory.png "Azure Active Directory")
+
+Under **Monitoring**, select **Sign-ins** to open the [Sign-ins report](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/SignIns).
+
+![Sign-in activity](./media/reference-sign-ins-error-codes/monitoring-sign-ins-in-azure-active-directory.png "Sign-in activity")
 
 Filter the report to display all failed sign-ins by selecting **Failure** from the **Sign-in status** drop-down box.
 

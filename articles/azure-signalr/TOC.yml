@@ -28,6 +28,10 @@
   items:
   - name: Build a serverless real-time app with authentication
     href: signalr-tutorial-authenticate-azure-functions.md
+  - name: Monitor
+    items: 
+    - name: Use diagnostic logs to monitor SignalR Service 
+      href: signalr-tutorial-diagnostic-logs.md
 
 - name: Samples
   items:
