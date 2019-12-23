@@ -180,6 +180,12 @@ If you have the same passphrase (you provided during registration) of Original M
 
 If an ongoing restore job is canceled, the restore process stops. All files restored before the cancellation stay in configured destination (original or alternate location), without any rollbacks.
 
+### Does the MARS agent back up and restore ACLs set on files, Folders and volumes?
+
+* The MARS agent backs up ACLs set on files, folders and volumes
+* For Volume Restore recovery option, the MARS agent provides an option to skip restoring ACL permissions to the file or folder being recovered
+* For the individual file and folders recovery option, the MARS agent will restore with ACL permissions (there is no option to skip ACL restore).
+
 ## Next steps
 
 [Learn](tutorial-backup-windows-server-to-azure.md) how to back up a Windows machine.
