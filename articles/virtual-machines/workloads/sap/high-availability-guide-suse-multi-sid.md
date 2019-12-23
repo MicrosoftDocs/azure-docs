@@ -196,7 +196,7 @@ This documentation assumes that:
     sudo vi /etc/hosts
     # IP address of the load balancer frontend configuration for NW2 ASCS
     10.3.1.16 msnw2ascs
-    # IP address of the load balancer frontend configuration for <b>NW3</b> ASCS
+    # IP address of the load balancer frontend configuration for NW3 ASCS
     10.3.1.13 msnw3ascs
     # IP address of the load balancer frontend configuration for NW2 ERS
     10.3.1.17 msnw2ers
@@ -260,7 +260,7 @@ This documentation assumes that:
         op monitor interval=10 timeout=20
    
       sudo crm configure primitive nc_NW2_ASCS anything \
-        params binfile="/usr/bin/socat" cmdline_options="-U TCP-LISTEN:62010</b>,backlog=10,fork,reuseaddr /dev/null" \
+        params binfile="/usr/bin/socat" cmdline_options="-U TCP-LISTEN:62010,backlog=10,fork,reuseaddr /dev/null" \
         op monitor timeout=20s interval=10 depth=0
    
       sudo crm configure group g-NW2_ASCS fs_NW2_ASCS nc_NW2_ASCS vip_NW2_ASCS \
@@ -483,42 +483,42 @@ This documentation assumes that:
     
     #Full list of resources:
     
-    #stonith-sbd     (stonith:external/sbd): Started <b>slesmsscl1</b>
+    #stonith-sbd     (stonith:external/sbd): Started slesmsscl1
     # Resource Group: g-NW1_ASCS
-    #     fs_NW1_ASCS        (ocf::heartbeat:Filesystem):    <b>Started slesmsscl2</b>
-    #     nc_NW1_ASCS        (ocf::heartbeat:anything):      <b>Started slesmsscl2</b>
-    #     vip_NW1_ASCS       (ocf::heartbeat:IPaddr2):       <b>Started slesmsscl2</b>
-    #     rsc_sap_NW1_ASCS00 (ocf::heartbeat:SAPInstance):   <b>Started slesmsscl2</b>
+    #     fs_NW1_ASCS        (ocf::heartbeat:Filesystem):    Started slesmsscl2
+    #     nc_NW1_ASCS        (ocf::heartbeat:anything):      Started slesmsscl2
+    #     vip_NW1_ASCS       (ocf::heartbeat:IPaddr2):       Started slesmsscl2
+    #     rsc_sap_NW1_ASCS00 (ocf::heartbeat:SAPInstance):   Started slesmsscl2
     # Resource Group: g-NW1_ERS
-    #     fs_NW1_ERS (ocf::heartbeat:Filesystem):    <b>Started slesmsscl1</b>
-    #     nc_NW1_ERS (ocf::heartbeat:anything):      <b>Started slesmsscl1</b>
-    #     vip_NW1_ERS        (ocf::heartbeat:IPaddr2):       <b>Started slesmsscl1</b>
-    #     rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   <b>Started slesmsscl1</b>
+    #     fs_NW1_ERS (ocf::heartbeat:Filesystem):    Started slesmsscl1
+    #     nc_NW1_ERS (ocf::heartbeat:anything):      Started slesmsscl1
+    #     vip_NW1_ERS        (ocf::heartbeat:IPaddr2):       Started slesmsscl1
+    #     rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started slesmsscl1
     # Resource Group: g-NW2_ASCS
-    #     fs_NW2_ASCS        (ocf::heartbeat:Filesystem):    <b>Started slesmsscl1</b>
-    #     nc_NW2_ASCS        (ocf::heartbeat:anything):      <b>Started slesmsscl1</b>
-    #     vip_NW2_ASCS       (ocf::heartbeat:IPaddr2):       <b>Started slesmsscl1</b>
-    #     rsc_sap_NW2_ASCS10 (ocf::heartbeat:SAPInstance):   <b>Started slesmsscl1</b>
+    #     fs_NW2_ASCS        (ocf::heartbeat:Filesystem):    Started slesmsscl1
+    #     nc_NW2_ASCS        (ocf::heartbeat:anything):      Started slesmsscl1
+    #     vip_NW2_ASCS       (ocf::heartbeat:IPaddr2):       Started slesmsscl1
+    #     rsc_sap_NW2_ASCS10 (ocf::heartbeat:SAPInstance):   Started slesmsscl1
     # Resource Group: g-NW2_ERS
-    #     fs_NW2_ERS (ocf::heartbeat:Filesystem):    <b>Started slesmsscl2</b>
-    #     nc_NW2_ERS (ocf::heartbeat:anything):      <b>Started slesmsscl2</b>
-    #     vip_NW2_ERS        (ocf::heartbeat:IPaddr2):       <b>Started slesmsscl2</b>
-    #     rsc_sap_NW2_ERS12  (ocf::heartbeat:SAPInstance):   <b>Started slesmsscl2</b>
+    #     fs_NW2_ERS (ocf::heartbeat:Filesystem):    Started slesmsscl2
+    #     nc_NW2_ERS (ocf::heartbeat:anything):      Started slesmsscl2
+    #     vip_NW2_ERS        (ocf::heartbeat:IPaddr2):       Started slesmsscl2
+    #     rsc_sap_NW2_ERS12  (ocf::heartbeat:SAPInstance):   Started slesmsscl2
     # Resource Group: g-NW3_ASCS
-    #     fs_NW3_ASCS        (ocf::heartbeat:Filesystem):    <b>Started slesmsscl1</b>
-    #     nc_NW3_ASCS        (ocf::heartbeat:anything):      <b>Started slesmsscl1</b>
-    #     vip_NW3_ASCS       (ocf::heartbeat:IPaddr2):       <b>Started slesmsscl1</b>
-    #     rsc_sap_NW3_ASCS20 (ocf::heartbeat:SAPInstance):   <b>Started slesmsscl1</b>
+    #     fs_NW3_ASCS        (ocf::heartbeat:Filesystem):    Started slesmsscl1
+    #     nc_NW3_ASCS        (ocf::heartbeat:anything):      Started slesmsscl1
+    #     vip_NW3_ASCS       (ocf::heartbeat:IPaddr2):       Started slesmsscl1
+    #     rsc_sap_NW3_ASCS20 (ocf::heartbeat:SAPInstance):   Started slesmsscl1
     # Resource Group: g-NW3_ERS
-    #     fs_NW3_ERS (ocf::heartbeat:Filesystem):    <b>Started slesmsscl2</b>
-    #     nc_NW3_ERS (ocf::heartbeat:anything):      <b>Started slesmsscl2</b>
-    #     vip_NW3_ERS        (ocf::heartbeat:IPaddr2):       <b>Started slesmsscl2</b>
-    #     rsc_sap_NW3_ERS22  (ocf::heartbeat:SAPInstance):   <b>Started slesmsscl2</b>
+    #     fs_NW3_ERS (ocf::heartbeat:Filesystem):    Started slesmsscl2
+    #     nc_NW3_ERS (ocf::heartbeat:anything):      Started slesmsscl2
+    #     vip_NW3_ERS        (ocf::heartbeat:IPaddr2):       Started slesmsscl2
+    #     rsc_sap_NW3_ERS22  (ocf::heartbeat:SAPInstance):   Started slesmsscl2
     ```
 
    The following picture shows how the resources would look like in the HA Web Konsole(Hawk), with the resources for SAP system **NW2** expanded.  
 
-   ![SAP NetWeaver High Availability overview](./media/high-availability-guide-suse/ha-suse-multi-sid-hawk.png)
+   [![SAP NetWeaver High Availability overview](./media/high-availability-guide-suse/ha-suse-multi-sid-hawk.png)](./media/high-availability-guide-suse/ha-suse-multi-sid-hawk.png#lightbox)
 
 ### Proceed with the SAP installation 
 
