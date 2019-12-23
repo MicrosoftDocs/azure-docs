@@ -32,7 +32,7 @@ To begin, select the **Model** view from the Time Series Insights explorer **Ana
 
     [![Create a single instance by first selecting Instances.](media/v2-update-how-to-tsm/how-to-tsm-instances-panel.png)](media/v2-update-how-to-tsm/how-to-tsm-instances-panel.png#lightbox)
 
-1. Select **Add**.
+1. Select **+ Add**.
 
     [![Add an instance by selecting the + Add button.](media/v2-update-how-to-tsm/how-to-tsm-add-instance.png)](media/v2-update-how-to-tsm/how-to-tsm-add-instance.png#lightbox)
 
@@ -52,16 +52,18 @@ To begin, select the **Model** view from the Time Series Insights explorer **Ana
 
 ### Edit a single instance
 
-1. Select the instance, and select **Edit**. 
+1. Select the instance, and select the **edit** or **pencil icon**. 
 1. Make the required changes, and select **Save**.
 
     [![Edit a single instance.](media/v2-update-how-to-tsm/how-to-tsm-edit-instance.png)](media/v2-update-how-to-tsm/how-to-tsm-edit-instance.png#lightbox)
 
 ### Delete an instance
 
-* Select the type, and select **Delete**.
+* Select the type, and select the **delete** or **waste bin icon**.
 
    [![Delete a type by selecting Delete.](media/v2-update-how-to-tsm/how-to-tsm-delete-instance.png)](media/v2-update-how-to-tsm/how-to-tsm-delete-instance.png#lightbox)
+
+* Confirm deletion by selecting **Delete**.
 
 > [!NOTE]
 > An instance must successfully pass a field validation check to be deleted.
@@ -82,7 +84,7 @@ To begin, select the **Model** view from the Time Series Insights explorer **Ana
 
     [![Hierarchy + Add button.](media/v2-update-how-to-tsm/how-to-tsm-add-new-hierarchy.png)](media/v2-update-how-to-tsm/how-to-tsm-add-new-hierarchy.png#lightbox)
 
-1. Select **+ Add Level** in the right pane.
+1. Select **+ Add level** in the right pane.
 
     [![Add a level to the hierarchy.](media/v2-update-how-to-tsm/how-to-tsm-save-hierarchy-levels.png)](media/v2-update-how-to-tsm/how-to-tsm-save-hierarchy-levels.png#lightbox)
 
@@ -103,16 +105,18 @@ To begin, select the **Model** view from the Time Series Insights explorer **Ana
 
 ### Edit a single hierarchy
 
-1. Select the hierarchy, and select **Edit**.
+1. Select the hierarchy, and select the **edit** or **pencil icon**.
 1. Make the required changes, and select **Save**.
 
     [![Selections for editing a single hierarchy.](media/v2-update-how-to-tsm/how-to-tsm-edit-hierarchy.png)](media/v2-update-how-to-tsm/how-to-tsm-edit-hierarchy.png#lightbox)
 
 ### Delete a hierarchy
 
-* Select the hierarchy, and select **Delete**. 
+* Select the hierarchy, and select the **delete** or **waste bin icon**. 
 
     [![Delete a hierarchy by selecting the Delete button.](media/v2-update-how-to-tsm/how-to-tsm-delete-hierarchy.png)](media/v2-update-how-to-tsm/how-to-tsm-delete-hierarchy.png#lightbox)
+
+* Confirm deletion by selecting **Delete**.
 
 > [!NOTE]
 > To delete a type, no instances must be currently associated with it.
@@ -147,16 +151,18 @@ To begin, select the **Model** view from the Time Series Insights explorer **Ana
 
 ### Edit a single type
 
-1. Select the type, and select **Edit**. 
+1. Select the type, and select the **edit** or **pencil icon**.
 1. Make the required changes, and select **Save**.
 
     [![Edit a type in the pane.](media/v2-update-how-to-tsm/how-to-tsm-edit-type.png)](media/v2-update-how-to-tsm/how-to-tsm-edit-type.png#lightbox)
 
 ### Delete a type
 
-* Select the type, and select **Delete**.
+* Select the type, and select the **delete** or **waste bin icon**. .
 
    [![Delete a type by selecting Delete.](media/v2-update-how-to-tsm/how-to-tsm-delete-type.png)](media/v2-update-how-to-tsm/how-to-tsm-delete-type.png#lightbox)
+
+* Confirm deletion by selecting **Delete**.
 
 > [!NOTE]
 > To delete a type, no instances must be currently associated with it.
