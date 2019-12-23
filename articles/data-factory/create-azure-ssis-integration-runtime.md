@@ -123,27 +123,27 @@ After your data factory is created, open its overview page in the Azure portal. 
     
       If you select the check box, you'll need to bring your own database server to host the SSISDB instance that we'll create and manage on your behalf.
    
-   1. For **Subscription**, select the Azure subscription that has your database server to host SSISDB. 
+      1. For **Subscription**, select the Azure subscription that has your database server to host SSISDB. 
 
-   1. For **Location**, select the location of your database server to host SSISDB. We recommend that you select the same location of your integration runtime. 
+      1. For **Location**, select the location of your database server to host SSISDB. We recommend that you select the same location of your integration runtime. 
 
-   1. For **Catalog Database Server Endpoint**, select the endpoint of your database server to host SSISDB. 
+      1. For **Catalog Database Server Endpoint**, select the endpoint of your database server to host SSISDB. 
     
-      Based on the selected database server, the SSISDB instance can be created on your behalf as a single database, as part of an elastic pool, or in a managed instance. It can be accessible in a public network or by joining a virtual network. For guidance in choosing the type of database server to host SSISDB, see the [Compare an Azure SQL Database single database, elastic pool, and managed instance](#comparison-of-a-sql-database-single-database-elastic-pool-and-managed-instance) section in this article. 
+         Based on the selected database server, the SSISDB instance can be created on your behalf as a single database, as part of an elastic pool, or in a managed instance. It can be accessible in a public network or by joining a virtual network. For guidance in choosing the type of database server to host SSISDB, see the [Compare an Azure SQL Database single database, elastic pool, and managed instance](#comparison-of-a-sql-database-single-database-elastic-pool-and-managed-instance) section in this article. 
     
-      If you select an Azure SQL Database server with IP firewall rules/virtual network service endpoints or a managed instance with private endpoint to host SSISDB, or if you require access to on-premises data without configuring a self-hosted IR, you need to join your Azure-SSIS IR to a virtual network. For more information, see [Join an Azure-SSIS IR to a virtual network](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network). 
+         If you select an Azure SQL Database server with IP firewall rules/virtual network service endpoints or a managed instance with private endpoint to host SSISDB, or if you require access to on-premises data without configuring a self-hosted IR, you need to join your Azure-SSIS IR to a virtual network. For more information, see [Join an Azure-SSIS IR to a virtual network](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network). 
 
-   1. Select the **Use AAD authentication with the managed identity for your ADF** check box to choose the authentication method for your database server to host SSISDB. You'll choose either SQL authentication or Azure AD authentication with the managed identity for your data factory. 
+      1. Select the **Use AAD authentication with the managed identity for your ADF** check box to choose the authentication method for your database server to host SSISDB. You'll choose either SQL authentication or Azure AD authentication with the managed identity for your data factory. 
     
       If you select the check box, you'll need to add the managed identity for your data factory into an Azure AD group with access permissions to your database server. For more information, see [Enable Azure AD authentication for an Azure-SSIS IR](https://docs.microsoft.com/azure/data-factory/enable-aad-authentication-azure-ssis-ir). 
 
-   1. For **Admin Username**, enter the SQL authentication username for your database server to host SSISDB. 
+      1. For **Admin Username**, enter the SQL authentication username for your database server to host SSISDB. 
 
-   1. For **Admin Password**, enter the SQL authentication password for your database server to host SSISDB. 
+      1. For **Admin Password**, enter the SQL authentication password for your database server to host SSISDB. 
 
-   1. For **Catalog Database Service Tier**, select the service tier for your database server to host SSISDB. Select the Basic, Standard, or Premium tier, or select an elastic pool name. 
+      1. For **Catalog Database Service Tier**, select the service tier for your database server to host SSISDB. Select the Basic, Standard, or Premium tier, or select an elastic pool name. 
 
-   1. Select **Test Connection**. If the test is successful, select **Next**. 
+      1. Select **Test Connection**. If the test is successful, select **Next**. 
 
 1. On the **Advanced Settings** section, complete the following steps.
 
@@ -157,13 +157,13 @@ After your data factory is created, open its overview page in the Azure portal. 
 
       ![Advanced settings with custom setups](./media/tutorial-create-azure-ssis-runtime-portal/advanced-settings-custom.png)
    
-   1. For **Custom setup container SAS URI**, enter the SAS URI of your container where you store scripts and associated files for standard custom setups.
+      1. For **Custom setup container SAS URI**, enter the SAS URI of your container where you store scripts and associated files for standard custom setups.
 
-   1. For **Express custom setup**, select **New** to open the **Add express custom setup** panel and then select any types under the **Express custom setup type** dropdown menu, e.g. **Run cmdkey command**, **Add environment variable**, **Install licensed component**, etc.
+      1. For **Express custom setup**, select **New** to open the **Add express custom setup** panel and then select any types under the **Express custom setup type** dropdown menu, e.g. **Run cmdkey command**, **Add environment variable**, **Install licensed component**, etc.
 
-      If you select the **Install licensed component** type, you can then select any integrated components from our ISV partners under the **Component name** dropdwon menu and if required, enter the product license key that you purchased from them in the **License key** field.
+         If you select the **Install licensed component** type, you can then select any integrated components from our ISV partners under the **Component name** dropdwon menu and if required, enter the product license key that you purchased from them in the **License key** field.
   
-      Your added express custom setups will appear on the **Advanced Settings** section. To remove them, you can select their check boxes and then select **Delete**.
+         Your added express custom setups will appear on the **Advanced Settings** section. To remove them, you can select their check boxes and then select **Delete**.
 
    1. Select the **Select a VNet for your Azure-SSIS Integration Runtime to join, allow ADF to create certain network resources, and optionally bring your own static public IP addresses** check box to choose whether you want to join your integration runtime to a virtual network. 
 
@@ -173,23 +173,23 @@ After your data factory is created, open its overview page in the Azure portal. 
 
       ![Advanced settings with a virtual network](./media/tutorial-create-azure-ssis-runtime-portal/advanced-settings-vnet.png)
 
-   1. For **Subscription**, select the Azure subscription that has your virtual network.
+      1. For **Subscription**, select the Azure subscription that has your virtual network.
 
-   1. For **Location**, the same location of your integration runtime is selected.
+      1. For **Location**, the same location of your integration runtime is selected.
 
-   1. For **Type**, select the type of your virtual network: classic or Azure Resource Manager. We recommend that you select an Azure Resource Manager virtual network, because classic virtual networks will be deprecated soon.
+      1. For **Type**, select the type of your virtual network: classic or Azure Resource Manager. We recommend that you select an Azure Resource Manager virtual network, because classic virtual networks will be deprecated soon.
 
-   1. For **VNet Name**, select the name of your virtual network. It should be the same one used for your Azure SQL Database server with virtual network service endpoints or managed instance with private endpoint to host SSISDB. Or it should be the same one connected to your on-premises network. Otherwise, it can be any virtual network to bring your own static public IP addresses for Azure-SSIS IR.
+      1. For **VNet Name**, select the name of your virtual network. It should be the same one used for your Azure SQL Database server with virtual network service endpoints or managed instance with private endpoint to host SSISDB. Or it should be the same one connected to your on-premises network. Otherwise, it can be any virtual network to bring your own static public IP addresses for Azure-SSIS IR.
 
-   1. For **Subnet Name**, select the name of subnet for your virtual network. It should be the same one used for your Azure SQL Database server with virtual network service endpoints to host SSISDB. Or it should be a different subnet from the one used for your managed instance with private endpoint to host SSISDB. Otherwise, it can be any subnet to bring your own static public IP addresses for Azure-SSIS IR.
+      1. For **Subnet Name**, select the name of subnet for your virtual network. It should be the same one used for your Azure SQL Database server with virtual network service endpoints to host SSISDB. Or it should be a different subnet from the one used for your managed instance with private endpoint to host SSISDB. Otherwise, it can be any subnet to bring your own static public IP addresses for Azure-SSIS IR.
 
-   1. Select the **Bring static public IP addresses for your Azure-SSIS Integration Runtime** check box to choose whether you want to bring your own static public IP addresses for Azure-SSIS IR, so you can allow them on the firewall for your data sources.
+      1. Select the **Bring static public IP addresses for your Azure-SSIS Integration Runtime** check box to choose whether you want to bring your own static public IP addresses for Azure-SSIS IR, so you can allow them on the firewall for your data sources.
 
-      If you select the check box, complete the following steps.
+         If you select the check box, complete the following steps.
 
-   1. For **First static public IP address**, select the first static public IP address that meets the requirements for your Azure-SSIS IR. If you don't have any, click **Create new** link to create static public IP addresses on Azure portal and then click the refresh button here, so you can select them.
+         1. For **First static public IP address**, select the first static public IP address that meets the requirements for your Azure-SSIS IR. If you don't have any, click **Create new** link to create static public IP addresses on Azure portal and then click the refresh button here, so you can select them.
 	  
-   1. For **Second static public IP address**, select the second static public IP address that meets the requirements for your Azure-SSIS IR. If you don't have any, click **Create new** link to create static public IP addresses on Azure portal and then click the refresh button here, so you can select them.
+         1. For **Second static public IP address**, select the second static public IP address that meets the requirements for your Azure-SSIS IR. If you don't have any, click **Create new** link to create static public IP addresses on Azure portal and then click the refresh button here, so you can select them.
 
    1. Select the **Set up Self-Hosted Integration Runtime as a proxy for your Azure-SSIS Integration Runtime** check box to choose whether you want to configure a self-hosted IR as proxy for your Azure-SSIS IR. For more information, see [Set up a self-hosted IR as proxy](https://docs.microsoft.com/azure/data-factory/self-hosted-integration-runtime-proxy-ssis). 
 
@@ -197,11 +197,11 @@ After your data factory is created, open its overview page in the Azure portal. 
 
       ![Advanced settings with a self-hosted IR](./media/tutorial-create-azure-ssis-runtime-portal/advanced-settings-shir.png)
 
-   1. For **Self-Hosted Integration Runtime**, select your existing self-hosted IR as a proxy for Azure-SSIS IR.
+      1. For **Self-Hosted Integration Runtime**, select your existing self-hosted IR as a proxy for Azure-SSIS IR.
 
-   1. For **Staging Storage Linked Service**, select your existing Azure Blob storage linked service or create a new one for staging.
+      1. For **Staging Storage Linked Service**, select your existing Azure Blob storage linked service or create a new one for staging.
 
-   1. For **Staging Path**, specify a blob container in your selected Azure Blob storage account or leave it empty to use a default one for staging.
+      1. For **Staging Path**, specify a blob container in your selected Azure Blob storage account or leave it empty to use a default one for staging.
 
    1. Select **VNet Validation** > **Continue**. 
 
