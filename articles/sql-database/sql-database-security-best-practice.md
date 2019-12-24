@@ -409,7 +409,7 @@ Encryption at rest is the cryptographic protection of data when it is persisted 
 
 ### Protect sensitive data in use from high-privileged, unauthorized users
 
-Data in use is the data stored in memory of the database system during the execution of SQL queries. If your database stores sensitive data, your organization may be required to ensure that high-privileged users, such as Microsoft operators or DBAs in your organization, are prevented from exfiltrating the data from the memory of the SQL Server process and are not able to view the plaintext data when querying the database.
+Data in use is the data stored in memory of the database system during the execution of SQL queries. If your database stores sensitive data, your organization may be required to ensure that high-privileged users, such as Microsoft operators or DBAs in your organization, are prevented from extracting the data from the memory of the SQL Server process and are not able to view the plaintext data when querying the database.
 
 **How to implement**:
 
@@ -760,7 +760,7 @@ Data exfiltration is the unauthorized copying, transfer, or retrieval of data fr
 
 Connecting to Azure SQL Database server over a public endpoint presents a data exfiltration risk as it requires customers to open their firewalls to public IPs.  
 
-**Scenario 1**: An application on an Azure VM connects to a database in an Azure SQL Database server. A rogue actor gets access to the VM and compromises it. In this scenario, data exfiltration means that an external entity using the rogue VM connects to the database, copies Personal Identifiable information (PII) data and stores it in a blob storage or a different SQL Database in a different subscription.
+**Scenario 1**: An application on an Azure VM connects to a database in an Azure SQL Database server. A rogue actor gets access to the VM and compromises it. In this scenario, data exfiltration means that an external entity using the rogue VM connects to the database, copies personal data and stores it in a blob storage or a different SQL Database in a different subscription.
 
 **Scenario 2**: A Rouge DBA. This scenario is often raised by security sensitive customers from regulated industries. In this scenario, a high privilege user might copy data from Azure SQL Database to another subscription not controlled by the data owner.
 
