@@ -24,7 +24,7 @@ This article has information that can help you migrate Azure integration resourc
 
 ## Service Bus
 
-Azure Service Bus services don't have data export or import capabilities. To migrate Service Bus resources from Azure Germany to global Azure, you can export the resources [as an Azure Resource Manager template](../azure-resource-manager/manage-resource-groups-portal.md#export-resource-groups-to-templates). Then, adapt the exported template for global Azure and re-create the resources.
+Azure Service Bus services don't have data export or import capabilities. To migrate Service Bus resources from Azure Germany to global Azure, you can export the resources [as an Azure Resource Manager template](../azure-resource-manager/templates/export-template-portal.md). Then, adapt the exported template for global Azure and re-create the resources.
 
 > [!NOTE]
 > Exporting a Resource Manager template doesn't copy the data (for example, messages). Exporting a template only re-creates the metadata.
@@ -83,7 +83,7 @@ Endpoint=sb://myProdnamespaceName.**servicebus.windows.net**/;SharedAccessKeyNam
 For more information:
 
 - Refresh your knowledge by completing the [Service Bus tutorials](https://docs.microsoft.com/azure/service-bus-messaging/).
-- Become familiar with how to [export Resource Manager templates](../azure-resource-manager/manage-resource-groups-portal.md#export-resource-groups-to-templates) or read the overview of [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
+- Become familiar with how to [export Resource Manager templates](../azure-resource-manager/templates/export-template-portal.md) or read the overview of [Azure Resource Manager](../azure-resource-manager/management/overview.md).
 - Review the [Service Bus overview](../service-bus-messaging/service-bus-messaging-overview.md).
 
 ## Logic Apps

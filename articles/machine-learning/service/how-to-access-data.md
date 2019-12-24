@@ -1,7 +1,7 @@
 ---
 title: Access data in Azure storage services
 titleSuffix: Azure Machine Learning
-description: Learn how to use datastores to access Azure storage services during training with Azure Machine Learning
+description: Learn how to use datastores to securely connect to Azure storage services during training with Azure Machine Learning
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
