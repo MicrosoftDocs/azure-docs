@@ -145,10 +145,10 @@ Next, you'll use your newly trained model to analyze a document and extract key-
 1. Replace `<subscription key>` with your subscription key.
 
 ```bash
-curl -X POST "https://<Endpoint>/formrecognizer/v2.0-preview/custom/models/<model ID>/analyze" -H "Content-Type: multipart/form-data" -F "form=@\"<path to your form>\";type=<file type>" -H "Ocp-Apim-Subscription-Key: <subscription key>"
+curl -v "https://{endpoint}/formrecognizer/v2.0-preview/custom/models/{model_id}/analyze" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {sub_key}" -d "{ \”source\”: \””sas_url”\” } "
 ```
 
-You'll receive a `202 (Success)` response with an **Operation-Location** header. The value of this header is an ID you use to track the results of the Analyze operation. Save this ID for the next step.
+You'll receive a `202 (Success)` response with an **Operation-Location** header. The value of this header includes a results ID you use to track the results of the Analyze operation. Save this results ID for the next step.
 
 ## Get the Analyze results
 
