@@ -12,4 +12,4 @@ ms.reviewer:
 ---
 
 # Using Azure Synapse Analytics studio SQL Script
- 
+Azure Synapse Analytics studio SQL script is a web interface for you to author SQL pool and SQL On-demand. 
