@@ -114,7 +114,7 @@ To customize your Azure-SSIS IR, you need the following things:
    
    1. If you select the **Add environment variable** type, you can add Windows environment variables to use in your packages that run on Azure-SSIS IR by entering your environment variable name and value in the **Variable name** and **Variable value** fields, respectively. This is similar to running Windows [set](https://docs.microsoft.com/windows-server/administration/windows-commands/set_1) command on your local machine.
 
-   1. If you select the **Install licensed component** type, you can then select any integrated components from our ISV partners under the **Component name** dropdwon menu:
+   1. If you select the **Install licensed component** type, you can then select any integrated components from our ISV partners under the **Component name** dropdown menu:
 
       1. If you select the **SentryOne's Task Factory** component, you can install the [Task Factory](https://www.sentryone.com/products/task-factory/high-performance-ssis-components) suite of components from SentryOne on your Azure-SSIS IR by entering the product license key that you purchased from them in the **License key** field. The current integrated version is **2019.4.3**.
 
