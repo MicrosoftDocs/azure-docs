@@ -61,7 +61,7 @@ Then load the paket generator:
 #load "Paket.Generated.Refs.fsx"
 ```
 
-Open the libray:
+Open the library:
 ```fsharp
 open MathNet.Numerics
 ```
