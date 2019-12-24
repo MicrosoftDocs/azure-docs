@@ -17,4 +17,4 @@ Azure Synapse Analytics studio SQL script is a web interface for you to author S
 ## Create a SQL Script
 There are a few ways to create a new SQL Script: 
 1. "Add new resource" 
-<img src=".\media\authoring-sql-script\NewSQLScript.PNG" alt="Create SQL Script" width="350"/>
+<img src=".\media\authoring-sql-script\NewSQLScript.PNG" alt="Create SQL Script" width="700"/>
