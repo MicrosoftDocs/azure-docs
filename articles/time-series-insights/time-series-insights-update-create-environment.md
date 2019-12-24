@@ -143,19 +143,15 @@ This section describes how to create an Azure Time Series Insights Preview envir
 
 Now that you've deployed your Time Series Insights environment, begin streaming data for analysis.
 
-1. Navigate back to the [Azure IoT solution accelerators page](https://www.azureiotsolutions.com/Accelerators). Locate your solution in your solution accelerator dashboard, then select **Launch**:
+1. Go back to your [Solution accelerators dashboard](https://www.azureiotsolutions.com/Accelerators#dashboard). Sign in again, if necessary, by using the same Azure account you've been using in this tutorial. Select your "Device Solution" and then **Go to your solution accelerator** to launch your deployed solution.
 
-    [![Launch the device simulation solution](media/v2-update-provision/device-three-launch.png)](media/v2-update-provision/device-three-launch.png#lightbox)
+   [![Solution accelerators dashboard](media/v2-update-provision/iot-solution-accelerator-ready.png)](media/v2-update-provision/iot-solution-accelerator-ready.png#lightbox)
 
-1. Select **Go to your solution accelerator**.
+1. The device simulation web app begins by prompting you to grant the web application the **Sign you in and read your profile** permission. This permission allows the application to retrieve the user profile information necessary to support the functioning of the application.
 
-    [![Launch the device simulation solution](media/v2-update-provision/device-accelerator.png)](media/v2-update-provision/device-accelerator.png#lightbox)
+   [![Device simulation web application consent](media/v2-update-provision/sawa-signin-consent.png)](media/v2-update-provision/sawa-signin-consent.png#lightbox)
 
-1. You're redirected to the **Microsoft Azure IoT Device Simulation** page. In the upper-right corner of the page, select **New simulation**.
-
-    [![Azure IoT simulation page](media/v2-update-provision/device-four-iot-sim-page.png)](media/v2-update-provision/device-four-iot-sim-page.png#lightbox)
-
-1. In the **Simulation setup** pane, set the following parameters:
+1. Select **+ New simulation**. After the **Simulation setup** page loads, enter the required parameters.
 
     | Parameter | Action |
     | --- | --- |
@@ -165,13 +161,13 @@ Now that you've deployed your Time Series Insights environment, begin streaming 
     | **Device model** | Click + **Add a device type** <br />**Name**: Enter **Elevator**. <br />**Amount**: Enter **3**. <br /> Leave the remaining default values |
     | **Target IoT Hub** | Set to **Use pre-provisioned IoT Hub**. |
 
-    [![Parameters to set](media/v2-update-provision/device-five-params.png)](media/v2-update-provision/device-five-params.png#lightbox)
+    [![Configure parameters and launch](media/v2-update-provision/tsi-launch-solution-accelerator.png)](media/v2-update-provision/tsi-launch-solution-accelerator.png#lightbox)
 
     Select **Start simulation**.
 
     In the device simulation dashboard, you will see **Active devices** and **Total messages**.
 
-    [![Azure IoT simulation dashboard](media/v2-update-provision/device-seven-dashboard.png)](media/v2-update-provision/device-seven-dashboard.png#lightbox)
+    [![Azure IoT simulation dashboard](media/v2-update-provision/tsi-see-active-devices-and-messages.png)](media/v2-update-provision/tsi-see-active-devices-and-messages.png#lightbox)
 
 ## Analyze data
 
@@ -179,34 +175,29 @@ In this section, you perform basic analytics on your time series data by using t
 
 1. Go to your Azure Time Series Insights Preview explorer by selecting the URL from the resource page in the [Azure portal](https://portal.azure.com/).
 
-    [![The Time Series Insights Preview explorer URL](media/v2-update-provision/analyze-one-portal.png)](media/v2-update-provision/analyze-one-portal.png#lightbox)
+    [![The Time Series Insights Preview explorer URL](media/v2-update-provision/tsi-select-explorer-url.png)](media/v2-update-provision/tsi-select-explorer-url.png#lightbox)
 
 1. In the Time Series Insights explorer, you will see a bar spanning the top of the screen. This is your availability picker. Ensure that you have at least two 2m selected, and if needed, expand the time frame by selecting and dragging the picker handles to the left and right.
 
 1. You will be able to see **Time Series Instances** on the left.
 
+    [![List of unparented instances](media/v2-update-provision/tsi-explorer-unparented-instances.png)](media/v2-update-provision/tsi-explorer-unparented-instances.png#lightbox)
 
-    [![List of unparented instances](media/v2-update-provision/analyze-two-unparented.png)](media/v2-update-provision/analyze-two-unparented.png#lightbox)
+1. Select the first time series instance. Then, select **Show temperature**.
 
-1. Select the first time series instance. Then, select **Show pressure**.
-
-    [![Selected time series instance with menu command to show average pressure](media/v2-update-provision/analyze-three-show-pressure.png)](media/v2-update-provision/analyze-three-show-pressure.png#lightbox)
+    [![Selected time series instance with menu command to show average temperature](media/v2-update-provision/select-instance-and-temperature.png)](media/v2-update-provision/select-instance-and-temperature.png#lightbox)
 
     A time series chart appears. Change the **Interval** to **30s**.
 
-    [![Time series chart](media/v2-update-provision/analyze-four-chart.png)](media/v2-update-provision/analyze-four-chart.png#lightbox)
-
 1. Repeat step 3 with the other two time series instances so that you’re viewing all three, as shown in this chart:
 
-    [![Chart for all time series](media/v2-update-provision/analyze-five-chart.png)](media/v2-update-provision/analyze-five-chart.png#lightbox)
+    [![Chart for all time series](media/v2-update-provision/tsi-explorer-add-three-instances.png)](media/v2-update-provision/tsi-explorer-add-three-instances.png#lightbox)
 
-1. Select the time span picker in the upper right corner. Here you can select specific start and end times down to the millisecond, or choose from pre-configured options such as last hour. You can also change the default time zone.
+1. Select the time span picker in the upper right corner. Here you can select specific start and end times down to the millisecond, or choose from pre-configured options such as **Last 30 minutes**. You can also change the default time zone.
 
-    [![Set the time range to an hour](media/v2-update-provision/analyze-six-time.png)](media/v2-update-provision/analyze-six-time.png#lightbox)
+    [![Set the time range to the last thirty minute](media/v2-update-provision/tsi-explorer-thirty-minute-time-range.png)](media/v2-update-provision/tsi-explorer-thirty-minute-time-range.png#lightbox)
 
-    Below is a screen capture of the charting pane after running the simulation for an hour:
-
-    [![Charting pane](media/v2-update-provision/analyze-seven-time.png)](media/v2-update-provision/analyze-seven-time.png#lightbox)
+    The solution accelerator's progress over the **Last 30 minutes** is now displayed in the Time Series Insights explorer.
 
 ## Define and apply a model
 
