@@ -7,86 +7,79 @@ ms.service: mysql
 ms.custom: mvc
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 12/02/2019
+ms.date: 12/23/2019
 ms.custom: seo-python-october2019
 ---
 
 # Quickstart: Use Python to connect and query data with Azure Database for MySQL
-This article demonstrates how to use [Python](https://python.org) to connect to an Azure Database for MySQL. It uses SQL statements to query, insert, update, and delete data in the database from Mac OS, Ubuntu Linux, and Windows platforms. 
+This quickstart demonstrates how to use [Python](https://python.org) to connect to an Azure Database for MySQL. The article uses SQL statements to query, insert, update, and delete data in the database from Mac OS, Ubuntu Linux, and Windows platforms. 
 
-This topic assumes that you are familiar with developing using Python and that you are new to working with Azure Database for MySQL.
+This article assumes that you're familiar with developing using Python, but you're new to working with Azure Database for MySQL.
 
-## Prerequisites
-This quickstart uses the resources created in either of these guides as a starting point:
-- [Create an Azure Database for MySQL server using Azure portal](./quickstart-create-mysql-server-database-using-azure-portal.md)
-- [Create an Azure Database for MySQL server using Azure CLI](./quickstart-create-mysql-server-database-using-azure-cli.md)
+## Create an Azure Database for MySQL 
+Create an Azure Database for MySQL server and database by following the procedures at [Create an Azure Database for MySQL server using Azure portal](quickstart-create-mysql-server-database-using-azure-portal.md) or [Create an Azure Database for MySQL server using Azure CLI](quickstart-create-mysql-server-database-using-azure-cli.md). 
 
 ## Install Python and the MySQL connector
-Install [Python](https://www.python.org/downloads/) and the [MySQL connector for Python](https://dev.mysql.com/downloads/connector/python/) on your own machine. Depending on your platform, follow the steps in the appropriate section below. 
+Install [Python](https://www.python.org/downloads/) and the [MySQL connector for Python](https://dev.mysql.com/downloads/connector/python/) on your computer by using the following steps, depending on your platform. 
 
 > [!NOTE]
-> This quickstart uses a raw SQL query approach to connect to MySQL to run queries. If you are using a web framework, use the recommended connector for those frameworks. For example, [mysqlclient](https://pypi.org/project/mysqlclient/) is suggested for use with Django.
+> This quickstart uses a raw SQL query approach to connect to MySQL. If you're using a web framework, use the recommended connector for the framework, for example, [mysqlclient](https://pypi.org/project/mysqlclient/) for Django.
 >
 
 ### Windows
-1. Download and Install Python 3.7 from [python.org](https://www.python.org/downloads/windows/). 
-2. Check the Python installation by launching the command prompt. Run the command `C:\python37\python.exe -V` using the uppercase V switch to see the version number.
-3. Install the Python connector for MySQL from [mysql.com](https://dev.mysql.com/downloads/connector/python/) corresponding to your version of Python.
+1. Download and install Python 3.7 from [python.org](https://www.python.org/downloads/windows/). 
+1. Open a command prompt, and check the Python version number by running `C:\python37\python.exe -V` with the uppercase V switch.
+1. Install the corresponding version Python connector for MySQL from [mysql.com](https://dev.mysql.com/downloads/connector/python/).
 
-### Linux (Ubuntu)
-1. In Linux (Ubuntu), Python is typically installed as part of the default installation.
-2. Check the Python installation by launching the bash shell. Run the command `python -V` using the uppercase V switch to see the version number.
-3. Check the PIP installation by running the `pip show pip -V` command to see the version number. 
-4. PIP may be included in some versions of Python. If PIP is not installed, you may install the [PIP](https://pip.pypa.io/en/stable/installing/) package, by running command `sudo apt-get install python-pip`.
-5. Update PIP to the latest version, by running the `pip install -U pip` command.
-6. Install the MySQL connector for Python, and its dependencies by using the PIP command:
+### Linux (Ubuntu) or MacOS
+1. Python is usually part of the default Linux (Ubuntu) or MacOS installation.
+1. Check the Python version number by launching a `bash` shell and running `python -V` with the uppercase V switch.
+1. The `pip` package installer is included in some versions of Python. Check the `pip` installation by running `pip show pip -V` to see the version number. If `pip` isn't installed, install the [pip](https://pip.pypa.io/en/stable/installing/) package by running `sudo apt-get install python-pip`.
+1. Update `pip` to the latest version by running `pip install -U pip`.
+1. Install the MySQL connector for Python and its dependencies by using `pip`:
 
    ```bash
    sudo pip install mysql-connector-python-rf
    ```
- 
-### MacOS
-1. In Mac OS, Python is typically installed as part of the default OS installation.
-2. Check the Python installation by launching the bash shell. Run the command `python -V` using the uppercase V switch to see the version number.
-3. Check the PIP installation by running the `pip show pip -V` command to see the version number.
-4. PIP may be included in some versions of Python. If PIP is not installed, you may install the [PIP](https://pip.pypa.io/en/stable/installing/) package.
-5. Update PIP to the latest version, by running the `pip install -U pip` command.
-6. Install the MySQL connector for Python, and its dependencies by using the PIP command:
-
-   ```bash
-   pip install mysql-connector-python-rf
-   ``` 
 
 ## Get connection information
-Get the connection information needed to connect to the Azure Database for MySQL. You need the fully qualified server name and login credentials.
+Get the connection information you need to connect to Azure Database for MySQL from the Azure portal. You need the server name, database name, and login credentials.
 
-1. Log in to the [Azure portal](https://portal.azure.com/).
-2. From the left-hand menu in Azure portal, select **All resources**, and then search for the server you have created (such as **mydemoserver**).
+1. Sign in to the [Azure portal](https://portal.azure.com/).
+2. From the Search bar, search for the Azure Database for MySQL server you created, such as **mydemoserver**.
 3. Select the server name.
-4. From the server's **Overview** panel, make a note of the **Server name** and **Server admin login name**. If you forget your password, you can also reset the password from this panel.
- ![Azure Database for MySQL server name](./media/connect-python/azure-database-for-mysql-server-overview-name-login.png)
+4. From the server's **Overview** page, make a note of the **Server name** and **Server admin login name**. If you forget your password, you can also reset the password from this page.
+   ![Azure Database for MySQL server name](./media/connect-python/azure-database-for-mysql-server-overview-name-login.png)
 
-## Run Python code
-- Paste the code into a text file, and then save the file into a project folder with file extension .py (such as C:\pythonmysql\createtable.py or /home/username/pythonmysql/createtable.py).
-- To run the code, launch the command prompt or Bash shell. Change directory into your project folder `cd pythonmysql`. Then type the python command followed by the file name `python createtable.py` to run the application. On the Windows OS, if python.exe is not found, you may need to provide the full path to the executable or add the Python path into the path environment variable. `C:\python27\python.exe createtable.py`
+## Run the Python examples
+For each code example in this article:
 
-## Connect, create table, and insert data
-Use the following code to connect to the server, create a table, and load the data by using an **INSERT** SQL statement. 
+1. Create a new file in a text editor.
+   
+1. Add the code example to the file. In the code, replace the `<mydemoserver>`, `<myadmin>`, `<mypassword>`, and `<quickstartdb>` placeholders with the values for your MySQL server and database.
+   
+1. Save the file in a project folder with a *.py* extension, such as *C:\pythonmysql\createtable.py* or */home/username/pythonmysql/createtable.py*.
+   
+1. To run the code, open a command prompt or `bash` shell and change directory into your project folder, for example `cd pythonmysql`. Type the `python` command followed by the file name, for example `python createtable.py`, and press Enter. 
+   
+   > [!NOTE]
+   > On Windows, if *python.exe* is not found, you may need to add the Python path into your PATH environment variable, or provide the full path to *python.exe*, for example `C:\python27\python.exe createtable.py`.
 
-In the code, the mysql.connector library is imported. The [connect()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysql-connector-connect.html) function is used to connect to Azure Database for MySQL using the [connection arguments](https://dev.mysql.com/doc/connector-python/en/connector-python-connectargs.html) in the config collection. The code uses a cursor on the connection, and method [cursor.execute()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysqlcursor-execute.html) executes the SQL query against MySQL database. 
+## Create a table and insert data
+Use the following code to connect to the server and database, create a table, and load data by using an **INSERT** SQL statement. 
 
-Replace the `host`, `user`, `password`, and `database` parameters with the values that you specified when you created the server and database.
+The code imports the mysql.connector library, and uses the [connect()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysql-connector-connect.html) function to connect to Azure Database for MySQL using the [connection arguments](https://dev.mysql.com/doc/connector-python/en/connector-python-connectargs.html) in the config collection. The code uses a cursor on the connection, and the [cursor.execute()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysqlcursor-execute.html) method executes the SQL query against the MySQL database. 
 
-```Python
+```python
 import mysql.connector
 from mysql.connector import errorcode
 
 # Obtain connection string information from the portal
 config = {
-  'host':'mydemoserver.mysql.database.azure.com',
-  'user':'myadmin@mydemoserver',
-  'password':'yourpassword',
-  'database':'quickstartdb'
+  'host':'<mydemoserver>.mysql.database.azure.com',
+  'user':'<myadmin>@<mydemoserver>',
+  'password':'<mypassword>',
+  'database':'<quickstartdb>'
 }
 
 # Construct connection string
@@ -129,20 +122,20 @@ else:
 ## Read data
 Use the following code to connect and read the data by using a **SELECT** SQL statement. 
 
-In the code, the mysql.connector library is imported. The [connect()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysql-connector-connect.html) function is used to connect to Azure Database for MySQL using the [connection arguments](https://dev.mysql.com/doc/connector-python/en/connector-python-connectargs.html) in the config collection. The code uses a cursor on the connection, and method [cursor.execute()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysqlcursor-execute.html) executes the SQL statement against MySQL database. The data rows are read using method [fetchall()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysqlcursor-fetchall.html). The result set is kept in a collection row and a for iterator is used to loop over the rows.
+The code imports the mysql.connector library, and uses the [connect()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysql-connector-connect.html) function to connect to Azure Database for MySQL using the [connection arguments](https://dev.mysql.com/doc/connector-python/en/connector-python-connectargs.html) in the config collection. The code uses a cursor on the connection, and the [cursor.execute()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysqlcursor-execute.html) method executes the SQL query against the MySQL database. 
 
-Replace the `host`, `user`, `password`, and `database` parameters with the values that you specified when you created the server and database.
+The code reads the data rows using the [fetchall()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysqlcursor-fetchall.html) method, keeps the result set in a collection row, and uses a `for` iterator to loop over the rows.
 
-```Python
+```python
 import mysql.connector
 from mysql.connector import errorcode
 
 # Obtain connection string information from the portal
 config = {
-  'host':'mydemoserver.mysql.database.azure.com',
-  'user':'myadmin@mydemoserver',
-  'password':'yourpassword',
-  'database':'quickstartdb'
+  'host':'<mydemoserver>.mysql.database.azure.com',
+  'user':'<myadmin>@<mydemoserver>',
+  'password':'<mypassword>',
+  'database':'<quickstartdb>'
 }
 
 # Construct connection string
@@ -178,20 +171,18 @@ else:
 ## Update data
 Use the following code to connect and update the data by using an **UPDATE** SQL statement. 
 
-In the code, the mysql.connector library is imported.  The [connect()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysql-connector-connect.html) function is used to connect to Azure Database for MySQL using the [connection arguments](https://dev.mysql.com/doc/connector-python/en/connector-python-connectargs.html) in the config collection. The code uses a cursor on the connection, and method [cursor.execute()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysqlcursor-execute.html) executes the SQL statement against MySQL database. 
+The code imports the mysql.connector library, and uses the [connect()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysql-connector-connect.html) function to connect to Azure Database for MySQL using the [connection arguments](https://dev.mysql.com/doc/connector-python/en/connector-python-connectargs.html) in the config collection. The code uses a cursor on the connection, and the [cursor.execute()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysqlcursor-execute.html) method executes the SQL query against the MySQL database. 
 
-Replace the `host`, `user`, `password`, and `database` parameters with the values that you specified when you created the server and database.
-
-```Python
+```python
 import mysql.connector
 from mysql.connector import errorcode
 
 # Obtain connection string information from the portal
 config = {
-  'host':'mydemoserver.mysql.database.azure.com',
-  'user':'myadmin@mydemoserver',
-  'password':'yourpassword',
-  'database':'quickstartdb'
+  'host':'<mydemoserver>.mysql.database.azure.com',
+  'user':'<myadmin>@<mydemoserver>',
+  'password':'<mypassword>',
+  'database':'<quickstartdb>'
 }
 
 # Construct connection string
@@ -222,20 +213,18 @@ else:
 ## Delete data
 Use the following code to connect and remove data by using a **DELETE** SQL statement. 
 
-In the code, the mysql.connector library is imported.  The [connect()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysql-connector-connect.html) function is used to connect to Azure Database for MySQL using the [connection arguments](https://dev.mysql.com/doc/connector-python/en/connector-python-connectargs.html) in the config collection. The code uses a cursor on the connection, and method [cursor.execute()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysqlcursor-execute.html) executes the SQL query against MySQL database. 
+The code imports the mysql.connector library, and uses the [connect()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysql-connector-connect.html) function to connect to Azure Database for MySQL using the [connection arguments](https://dev.mysql.com/doc/connector-python/en/connector-python-connectargs.html) in the config collection. The code uses a cursor on the connection, and the [cursor.execute()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysqlcursor-execute.html) method executes the SQL query against the MySQL database. 
 
-Replace the `host`, `user`, `password`, and `database` parameters with the values that you specified when you created the server and database.
-
-```Python
+```python
 import mysql.connector
 from mysql.connector import errorcode
 
 # Obtain connection string information from the portal
 config = {
-  'host':'mydemoserver.mysql.database.azure.com',
-  'user':'myadmin@mydemoserver',
-  'password':'yourpassword',
-  'database':'quickstartdb'
+  'host':'<mydemoserver>.mysql.database.azure.com',
+  'user':'<myadmin>@<mydemoserver>',
+  'password':'<mypassword>',
+  'database':'<quickstartdb>'
 }
 
 # Construct connection string
