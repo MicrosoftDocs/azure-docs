@@ -13,7 +13,7 @@ ms.date: 11/04/2019
 ---
 
 # Tutorial: Train and deploy your first model in R with Azure Machine Learning
-[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
+[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 In this tutorial, you learn the foundational design patterns in Azure Machine Learning.  You'll train and deploy a **caret** model to predict the likelihood of a fatality in an automobile accident. After completing this tutorial, you'll have the practical knowledge of the R SDK to scale up to developing more-complex experiments and workflows.
 
@@ -44,6 +44,7 @@ You create a workspace via the Azure portal, a web-based console for managing yo
 
 
 ## <a name="azure"></a>Clone a notebook folder
+[!INCLUDE [aml-create-portal](../../includes/aml-create-in-portal.md)]
 
 This example uses the cloud notebook server in your workspace for an install-free and pre-configured experience. Use [your own environment](../how-to-configure-environment.md#local) if you prefer to have control over your environment, packages and dependencies.
 
@@ -384,7 +385,7 @@ delete_compute(compute)
 
 ### Delete everything
 
-[!INCLUDE [aml-delete-resource-group](../../../includes/aml-delete-resource-group.md)]
+[!INCLUDE [aml-delete-resource-group](../../includes/aml-delete-resource-group.md)]
 
 You can also keep the resource group but delete a single workspace. Display the workspace properties and select **Delete**.
 

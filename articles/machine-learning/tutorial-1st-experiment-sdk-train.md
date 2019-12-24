@@ -14,7 +14,7 @@ ms.date: 11/04/2019
 
 # Tutorial: Train your first ML model
 
-[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
+[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 This tutorial is **part two of a two-part tutorial series**. In the previous tutorial, you [created a workspace and chose a development environment](tutorial-1st-experiment-sdk-setup.md). In this tutorial, you learn the foundational design patterns in Azure Machine Learning, and train a simple scikit-learn model based on the diabetes data set. After completing this tutorial, you will have the practical knowledge of the SDK to scale up to developing more-complex experiments and workflows.
 
@@ -137,11 +137,11 @@ Following the **Link to Azure portal** takes you to the main experiment page. He
 
 When training models at scale over hundreds and thousands of separate runs, this page makes it easy to see every model you trained, specifically how they were trained, and how your unique metrics have changed over time.
 
-![Main Experiment page in Portal](./media/tutorial-quickstart/experiment-main.png)
+![Main Experiment page in Portal](./media/tutorial-1st-experiment-sdk-train/experiment-main.png)
 
 Clicking on a run number link in the `RUN NUMBER` column takes you to the page for each individual run. The default tab **Details** shows you more-detailed information on each run. Navigate to the **Outputs** tab, and you see the `.pkl` file for the model that was uploaded to the run during each training iteration. Here you can download the model file, rather than having to retrain it manually.
 
-![Run details page in Portal](./media/tutorial-quickstart/model-download.png)
+![Run details page in Portal](./media/tutorial-1st-experiment-sdk-train/model-download.png)
 
 ## Get the best model
 
@@ -195,11 +195,11 @@ Do not complete this section if you plan on running other Azure Machine Learning
 
 ### Stop the compute instance
 
-[!INCLUDE [aml-stop-server](../../../includes/aml-stop-server.md)]
+[!INCLUDE [aml-stop-server](../../includes/aml-stop-server.md)]
 
 ### Delete everything
 
-[!INCLUDE [aml-delete-resource-group](../../../includes/aml-delete-resource-group.md)]
+[!INCLUDE [aml-delete-resource-group](../../includes/aml-delete-resource-group.md)]
 
 You can also keep the resource group but delete a single workspace. Display the workspace properties and select **Delete**.
 

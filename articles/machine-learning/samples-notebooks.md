@@ -39,21 +39,21 @@ The easiest way to get started with the samples is to complete the [Tutorial: Se
 
 If you'd like to bring your own notebook server for local development, follow these steps:
 
-[!INCLUDE [aml-your-server](../../../includes/aml-your-server.md)]
+[!INCLUDE [aml-your-server](../../includes/aml-your-server.md)]
 
 These instructions install the base SDK packages necessary for the quickstart and tutorial notebooks. Other sample notebooks may require you to install extra components. For more information, see [Install the Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/install).
 
 <a name="dsvm"></a>
 ## Get samples on DSVM
 
-The Data Science Virtual Machine (DSVM) is a customized VM image built specifically for doing data science. If you [create a DSVM](../how-to-configure-environment.md#dsvm), the SDK and notebook server are installed and configured for you. However, you'll still need to create a workspace and clone the sample repository.
+The Data Science Virtual Machine (DSVM) is a customized VM image built specifically for doing data science. If you [create a DSVM](how-to-configure-environment.md#dsvm), the SDK and notebook server are installed and configured for you. However, you'll still need to create a workspace and clone the sample repository.
 
-[!INCLUDE [aml-dsvm-server](../../../includes/aml-dsvm-server.md)]
+[!INCLUDE [aml-dsvm-server](../../includes/aml-dsvm-server.md)]
 
 ## Next steps
 
 Explore the [sample notebooks](https://aka.ms/aml-notebooks) to discover what Azure Machine Learning can do, or try these tutorials:
 
-- [Train and deploy an image classification model with MNIST](tutorial-train-models-with-aml.md)
+- [Train and deploy an image classification model with MNIST](service/tutorial-train-models-with-aml.md)
 
 - [Prepare data and use automated machine learning to train a regression model with the NYC taxi data set](tutorial-auto-train-models.md)

@@ -13,7 +13,7 @@ ms.date: 11/04/2019
 ---
 
 # Tutorial: Use automated machine learning to predict taxi fares
-[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
+[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 In this tutorial, you use automated machine learning in Azure Machine Learning to create a regression model to predict NYC taxi fare prices. This process accepts training data and configuration settings, and automatically iterates through combinations of different feature normalization/standardization methods, models, and hyperparameter settings to arrive at the best model.
 
@@ -896,7 +896,7 @@ To automatically train a model, take the following steps:
 
 ### Define training settings
 
-Define the experiment parameter and model settings for training. View the full list of [settings](../how-to-configure-auto-train.md). Submitting the experiment with these default settings will take approximately 5-20 min, but if you want a shorter run time, reduce the `experiment_timeout_minutes` parameter.
+Define the experiment parameter and model settings for training. View the full list of [settings](how-to-configure-auto-train.md). Submitting the experiment with these default settings will take approximately 5-20 min, but if you want a shorter run time, reduce the `experiment_timeout_minutes` parameter.
 
 |Property| Value in this tutorial |Description|
 |----|----|---|
@@ -1071,7 +1071,7 @@ Do not complete this section if you plan on running other Azure Machine Learning
 
 ### Stop the compute instance
 
-[!INCLUDE [aml-stop-server](../../../includes/aml-stop-server.md)]
+[!INCLUDE [aml-stop-server](../../includes/aml-stop-server.md)]
 
 ### Delete everything
 

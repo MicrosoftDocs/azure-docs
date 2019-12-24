@@ -190,7 +190,7 @@ Some of these actions appear in the __Activities__ area of your workspace, howev
 
 ## Resource quotas
 
-Learn about the [resource quotas](../how-to-manage-quotas.md) you might encounter when working with Azure Machine Learning.
+Learn about the [resource quotas](how-to-manage-quotas.md) you might encounter when working with Azure Machine Learning.
 
 ## Authentication errors
 
@@ -273,7 +273,7 @@ run.log_list("my metric name", my_metric[N:])
 ### ModuleErrors (No module named)
 If you are running into ModuleErrors while submitting experiments in Azure ML, it means that the training script is expecting a package to be installed but it isn't added. Once you provide the package name, Azure ML will install the package in the environment used for your training. 
 
-If you are using [Estimators](../concept-azure-machine-learning-architecture.md#estimators) to submit experiments, you can specify a package name via `pip_packages` or `conda_packages` parameter in the estimator based on from which source you want to install the package. You can also specify a yml file with all your dependencies using `conda_dependencies_file`or list all your pip requirements in a txt file using `pip_requirements_file` parameter.
+If you are using [Estimators](concept-azure-machine-learning-architecture.md#estimators) to submit experiments, you can specify a package name via `pip_packages` or `conda_packages` parameter in the estimator based on from which source you want to install the package. You can also specify a yml file with all your dependencies using `conda_dependencies_file`or list all your pip requirements in a txt file using `pip_requirements_file` parameter.
 
 Azure ML also provides framework-specific estimators for Tensorflow, PyTorch, Chainer and SKLearn. Using these estimators will make sure that the framework dependencies are installed on your behalf in the environment used for training. You have the option to specify extra dependencies as described above. 
  
