@@ -194,12 +194,12 @@ Site Recovery doesn't explicitly install anything on Hyper-V VMs enabled for rep
 
 You can run a planned or unplanned failover from on-premises Hyper-V VMs to Azure.
 
-    - If you run a planned failover, then source VMs are shut down to ensure no data loss.
-    - You can run an unplanned failover if your primary site isn't accessible.
-    - You can fail over a single machine, or create recovery plans, to orchestrate failover of multiple machines.
-    - Failover is in two parts:
-        - After the first stage of failover completes, you should be able to see the created replica VMs in Azure. You can assign a public IP address to the VM if required.
-        - You then commit the failover, to start accessing the workload from the replica Azure VM.
+- If you run a planned failover, then source VMs are shut down to ensure no data loss.
+- You can run an unplanned failover if your primary site isn't accessible.
+- You can fail over a single machine, or create recovery plans, to orchestrate failover of multiple machines.
+- Failover is in two parts:
+    - After the first stage of failover completes, you should be able to see the created replica VMs in Azure. You can assign a public IP address to the VM if required.
+    - You then commit the failover, to start accessing the workload from the replica Azure VM.
    
 
 ### How do I access Azure VMs after failover?
