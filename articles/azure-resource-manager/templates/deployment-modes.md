@@ -2,7 +2,7 @@
 title: Deployment modes
 description: Describes how to specify whether to use a complete or incremental deployment mode with Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 11/11/2019
+ms.date: 12/23/2019
 ---
 # Azure Resource Manager deployment modes
 
@@ -38,9 +38,9 @@ If the resource group is [locked](../management/lock-resources.md), complete mod
 
 ## Incremental mode
 
-In incremental mode, Resource Manager **leaves unchanged** resources that exist in the resource group but aren't specified in the template.
+In incremental mode, Resource Manager **leaves unchanged** resources that exist in the resource group but aren't specified in the template. Resources in the template **are added** to the resource group.
 
-However, when redeploying an existing resource in incremental mode, the outcome is a different. Specify all properties for the resource, not just the ones you're updating. A common misunderstanding is to think properties that aren't specified are left unchanged. If you don't specify certain properties, Resource Manager interprets the update as overwriting those values.
+It's important to note that incremental mode applies to the whole resource, not to individual properties on an existing resource. When redeploying an existing resource in incremental mode, all properties are reapplied. The **properties aren't incrementally added**. A common misunderstanding is to think properties that aren't specified in the template are left unchanged. If you don't specify certain properties, Resource Manager interprets the deployment as overwriting those values. Properties that aren't included in the template are reset to the default values set by the resource provider. Specify all non-default values for the resource, not just the ones you're updating. The resource definition in the template always contains the final state of the resource. It can't represent a partial update to an existing resource.
 
 ## Example result
 
