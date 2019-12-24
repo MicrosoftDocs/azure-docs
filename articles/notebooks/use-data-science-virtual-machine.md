@@ -52,7 +52,7 @@ When a project is run on a VM, the files are mounted on the root directory of th
 
 If multiple users share a DSVM, you can avoid blocking each other by creating and using a DSVM user for each notebook user:
 
-1. On the [Azure Portal](https://portal.azure.com), navigate to your virtual machine.
+1. On the [Azure portal](https://portal.azure.com), navigate to your virtual machine.
 1. Under **Support + troubleshooting** in the left margin, select **Reset password**.
 1. Enter a new username and password and select **Update**. (Existing usernames are not affected.)
 1. Repeat the previous step for any additional users.
