@@ -6,8 +6,8 @@ summary: Azure Table storage is a service that stores structured NoSQL data in t
 metadata:
   title: Azure Table storage documentation # Required; page title displayed in search results. Include the brand. < 60 chars.
   description: Azure Table storage is a service that stores structured NoSQL data in the cloud, providing a key/attribute store with a schemaless design. # Required; article description that is displayed in search results. < 160 chars.
-  ms.service: storage #Required; service per approved list. service slug assigned to your service by ACOM.
-  ms.subservice: tables # Optional; Remove if no subservice is used.
+  ms.service: storage #Required; service per approved list. Service slug assigned to your service by ACOM.
+  ms.subservice: tables # Optional; remove if no subservice is used.
   ms.topic: landing-page # Required
   ms.collection: collection # Optional; Remove if no collection is used.
   author: tamram #Required; your GitHub user alias, with correct capitalization.
@@ -28,7 +28,6 @@ landingContent:
             url: table-storage-overview.md
           - text: Choose Table storage or Table API
             url: ../../cosmos-db/table-support?toc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fstorage%2Ftables%2FTOC.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fbread%2Ftoc.json
-
   # Card (optional)
   - title: Get started
     linkLists:
@@ -36,7 +35,6 @@ landingContent:
         links:
           - text: Create an table in the Azure portal
             url: table-storage-quickstart-portal.md
-
   # Card
   - title: Table design guidance
     linkLists:
@@ -48,25 +46,18 @@ landingContent:
             url: table-storage-design-for-query.md
           - text: Design for data modification
             url: table-storage-design-for-modification.md
-      - linkListType: linkListType
-        links:
-          - text: linktext1
-            url: file1.md
-          - text: linktext2
-            url: file2.md
-
+          - text: Table design patterns
+            url: table-storage-design-patterns.md
   # Card
-  - title: cardtitle4
+  - title: Performance, scaling, and cost optimization
     linkLists:
-      - linkListType: linkListType
+      - linkListType: concept
         links:
-          - text: linktext1
-            url: file1.md
-          - text: linktext2
-            url: file2.md
-      - linkListType: linkListType
+          - text: Performance and scalability checklist for Table storage
+            url: storage-performance-checklist.md
+          - text: Design for optimal performance
+            url: table-storage-design.md
+      - linkListType: reference
         links:
-          - text: linktext1
-            url: file1.md
-          - text: linktext2
-            url: file2.md
+          - text: Scalability and performance targets for Table storage
+            url: scalability-targets.md
