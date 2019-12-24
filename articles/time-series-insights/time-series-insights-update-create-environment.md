@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: tutorial
-ms.date: 11/11/2019
+ms.date: 12/23/2019
 ms.custom: seodec18
 # Customer intent: As a data analyst or developer, I want to learn how to create a Time Series Insights Preview environment so that I can use Time Series Insights queries to understand device behavior. 
 ---
 
 # Tutorial: Set up an Azure Time Series Insights Preview environment
 
-This tutorial guides you through the process of creating an Azure Time Series Insights Preview pay-as-you-go (PAYG) environment.
+This tutorial guides you through the process of creating an Azure Time Series Insights Preview *pay-as-you-go* (PAYG) environment.
 
 In this tutorial, you learn how to:
 
@@ -43,37 +43,41 @@ In this section, you will create three simulated devices that send data to an Az
 
 1. Go to the [Azure IoT solution accelerators page](https://www.azureiotsolutions.com/Accelerators). The page displays several prebuilt examples. Sign in by using your Azure account. Then, select **Device Simulation**.
 
-   [![Azure IoT solution accelerators page](media/v2-update-provision/device-one-accelerator.png)](media/v2-update-provision/device-one-accelerator.png#lightbox)
+   [![Azure IoT solution accelerators page](media/v2-update-provision/iot-solution-accelerators-landing-page.png)](media/v2-update-provision/iot-solution-accelerators-landing-page.png#lightbox)
 
-1. On the next page, select **Try Now**.
+1. On the next page, select **Try Now**. Then, enter the required parameters on the **Create Device Simulation solution** page.
 
-   [![Device Simulation page](media/v2-update-provision/device-two-try.png)](media/v2-update-provision/device-two-try.png#lightbox)
+   Parameter|Description
+   ---|---
+   **Deployment name** | This unique value is used to create a new resource group. The listed Azure resources are created and assigned to the resource group.
+   **Azure subscription** | Specify the same subscription that was used to create your Time Series Insights environment in the previous section.
+   **Deployment options** | Select **Provision new IoT Hub** to create a new IoT hub specific to this tutorial.
+   **Azure location** | Specify the same region that was used to create your Time Series Insights environment in the previous section.
 
-1. On the **Create Device Simulation solution** page, set the following parameters:
+   When you're finished, select **Create** to provision the solution's Azure resources. It may take up to 20 minutes to complete this process.
 
-    | Parameter | Action |
-    | --- | --- |
-    | **Deployment name** | Enter a unique value for a new resource group. The listed Azure resources are created and assigned to the resource group. |
-    | **Azure subscription** | Select the subscription where you will create your Time Series Insights environment. |
-    | **Azure location** | Select the region where you intend to store your Time Series Insights environment. Note that the device simulator is only offered in a limited number of regions, thus, if you do not see your desired region you may choose to select a location solely for the tutorial and then create a new TSI environment when you’re ready to move onto your next phase of on-boarding.  |
-    | **Deployment options** | Select **Provision new IoT Hub**. |
+   [![Provision the device simulation solution](media/v2-update-provision/iot-solution-accelerators-configuration.png)](media/v2-update-provision/iot-solution-accelerators-configuration.png#lightbox)
 
-    1. Select **Create**.
-    [![Device Simulation page](media/v2-update-provision/device-two-create.png)](media/v2-update-provision/device-two-create.png#lightbox)
+1. After provisioning has finished, you will see two updates displaying that the deployment state has moved from **Provisioning** to **Ready**. 
 
-1. After about 20 minutes, your solution accelerator will be ready.
+   >[!IMPORTANT]
+   > Don't enter your solution accelerator yet! Keep this web page open because you'll return to it later.
 
-    [![Device Simulation page](media/v2-update-provision/device-two-ready.png)](media/v2-update-provision/device-two-ready.png#lightbox)
+   [![Device simulation solution provisioning complete](media/v2-update-provision/iot-solution-accelerator-ready.png)](media/v2-update-provision/iot-solution-accelerator-ready.png#lightbox)
+
+1. Now, inspect the newly created resources in the Azure portal. On the **Resource groups** page, notice that a new resource group was created by using the **Solution name** provided in the last step. Make note of the resources that were created for the device simulation.
+
+   [![Device simulation resources](media/v2-update-provision/tsi-device-sim-solution-resources.png)](media/v2-update-provision/tsi-device-sim-solution-resources.png#lightbox)
 
 ## Create a Preview PAYG environment
 
 This section describes how to create an Azure Time Series Insights Preview environment and connect it to the IoT hub created by the IoT Solution Accelerator using the [Azure portal](https://portal.azure.com/).
 
-1. Sign in to the Azure portal by using your subscription account.
+1. Sign in to the [Azure portal](https://portal.azure.com) by using your Azure subscription account. 
+1. Select **+ Create a resource** in the upper left. 
+1. Select the **Internet of Things** category, and then select **Time Series Insights**. 
 
-1. Select **Create a resource** > **Internet of Things** > **Time Series Insights**.
-
-   [![Select Internet of Things, and then select Time Series Insights](media/v2-update-provision/payg-one-azure.png)](media/v2-update-provision/payg-one-azure.png#lightbox)
+   [![Select the Time Series Insights environment resource](media/v2-update-provision/tsi-create-new-environment.png)](media/v2-update-provision/tsi-create-new-environment.png#lightbox)
 
 1. In the **Create Time Series Insights environment** pane, on the **Basics** tab, set the following parameters:
 
@@ -84,15 +88,17 @@ This section describes how to create an Azure Time Series Insights Preview envir
     | **Resource group** | Select an existing resource group or create a new resource group for the Azure Time Series Insights Preview environment resource. A resource group is a container for Azure resources. A best practice is to use the same resource group as the other IoT resources that are created by the device simulator. |
     | **Location** | Select a data center region for your Azure Time Series Insights Preview environment. To avoid additional latency, it's best to create your Azure Time Series Insights Preview environment in the same region as your IoT hub created by the device simulator. |
     | **Tier** |  Select **PAYG** (*pay-as-you-go*). This is the SKU for the Azure Time Series Insights Preview product. |
-    | **Property ID** | Enter a value that uniquely identifies your time series instance. The value you enter in the **Property ID** box cannot be changed later. For this tutorial, enter **iothub-connection-device-id**. To learn more about Time Series ID, see [Best practices for choosing a Time Series ID](./time-series-insights-update-how-to-id.md). |
+    | **Property name** | Enter a value that uniquely identifies your time series instance. The value you enter in the **Property ID** box cannot be changed later. For this tutorial, enter ***iothub-connection-device-id***. To learn more about Time Series ID, see [Best practices for choosing a Time Series ID](./time-series-insights-update-how-to-id.md). |
     | **Storage account name** | Enter a globally unique name for a new storage account.|
-    |**Enable warm store**|Select **Yes** to enable warm store.|
+    |**Enable warm store**|Select **Yes** to enable warm store. You can come back later and enable this setting. |
     |**Data retention (in days)**|Choose the default option of 7 days. |
 
     Select **Next: Event Source**.
 
-   [![Pane for creating a Time Series Insights environment](media/v2-update-provision/payg-two-1-create.png)](media/v2-update-provision/payg-two-1-create.png#lightbox)
-   [![Pane for creating a Time Series Insights environment](media/v2-update-provision/payg-two-2-create.png)](media/v2-update-provision/payg-two-2-create.png#lightbox)
+   [![New Time Series Insights environment configuration](media/v2-update-provision/tsi-environment-configuration.png)](media/v2-update-provision/tsi-environment-configuration.png#lightbox)
+
+
+   [![Configure Time Series ID for the environment](media/v2-update-provision/tsi-time-series-id-selection.png)](media/v2-update-provision/tsi-time-series-id-selection.png#lightbox)
 
 1. On the **Event Source** tab, set the following parameters:
 
@@ -110,29 +116,28 @@ This section describes how to create an Azure Time Series Insights Preview envir
 
    Select **Review + create**.
 
-   [![Configure an Event Source](media/v2-update-provision/payg-five-event-source.png)](media/v2-update-provision/payg-five-event-source.png#lightbox)
+   [![Configure the created IoT hub as an event source ](media/v2-update-provision/tsi-configure-event-source.png)](media/v2-update-provision/tsi-configure-event-source.png#lightbox)
 
 1. Select **Create**.
 
-    [![Review + Create page, with Create button](media/v2-update-provision/payg-six-review.png)](media/v2-update-provision/payg-six-review.png#lightbox)
+    [![Review + Create page, with Create button](media/v2-update-provision/tsi-environment-confirmation.png)](media/v2-update-provision/tsi-environment-confirmation.png#lightbox)
 
     You can see the status of your deployment:
 
-    [![Notification that deployment is complete](media/v2-update-provision/payg-seven-deploy.png)](media/v2-update-provision/payg-seven-deploy.png#lightbox)
+    [![Notification that deployment is complete](media/v2-update-provision/tsi-deployment-notification.png)](media/v2-update-provision/tsi-deployment-notification.png#lightbox)
 
 1. You have access to your Azure Time Series Insights Preview environment by default if you are an owner of the Azure subscription. Verify that you have access:
 
    1. Search for your resource group, and then select your newly created Azure Time Series Insights Preview environment. 
-      [![Selected environment](media/v2-update-provision/payg-eight-environment.png)](media/v2-update-provision/payg-eight-environment.png#lightbox)
+      [![Selected environment](media/v2-update-provision/verify-tsi-resource-in-group.png)](media/v2-update-provision/verify-tsi-resource-in-group.png#lightbox)
 
    1. On the Azure Time Series Insights Preview page, select **Data Access Policies**:
-      [![Data access policies](media/v2-update-provision/payg-nine-data-access.png)](media/v2-update-provision/payg-nine-data-access.png#lightbox)
+
+      [![Data access policies](media/v2-update-provision/tsi-data-access-panel.png)](media/v2-update-provision/tsi-data-access-panel.png#lightbox)
 
    1. Verify that your credentials are listed:
 
-      [![Listed credentials](media/v2-update-provision/payg-ten-verify.png)](media/v2-update-provision/payg-ten-verify.png#lightbox)
-
-   If your credentials aren't listed, you must grant yourself permission to access the environment by selecting Add and searching for your credentials. To learn more about setting permissions, read [Grant data access](./time-series-insights-data-access.md).
+      If your credentials aren't listed, you must grant yourself permission to access the environment by selecting Add and searching for your credentials. To learn more about setting permissions, read [Grant data access](./time-series-insights-data-access.md).
 
 ## Stream data
 
