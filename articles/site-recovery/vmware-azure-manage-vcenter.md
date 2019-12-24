@@ -71,7 +71,7 @@ If required, you can modify the credentials used to connect to the vCenter Serve
 
    ![modify-account](./media/vmware-azure-manage-vcenter/modify-vcente-creds.png)
 
-## Remove the vCenter Server from the vault
+## Delete a vCenter Server 
 
 1. In the vault > **Site Recovery Infrastructure** > **Configuration Severs**, open the configuration server.
 2. On the **Details** page, select the vCenter server.
