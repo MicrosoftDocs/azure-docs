@@ -28,7 +28,7 @@ In part one of the tutorial, you'll learn how to:
 > * Train a machine learning model.
 > * Evaluate a machine learning model.
 
-In [part two](tutorial-designer-automobile-price-deploy.md) of the tutorial, you'll learn how to deploy your predictive model as a real-time inferencing endpoint to predict the price of any car based on technical specifications you send it. 
+In [part two](../tutorial-designer-automobile-price-deploy.md) of the tutorial, you'll learn how to deploy your predictive model as a real-time inferencing endpoint to predict the price of any car based on technical specifications you send it. 
 
 > [!NOTE]
 >A completed version of this tutorial is available as a sample pipeline.
@@ -260,4 +260,4 @@ In part one of this tutorial, you completed the following tasks:
 In part two, you'll learn how to deploy your model as a real-time endpoint.
 
 > [!div class="nextstepaction"]
-> [Continue to deploying models](tutorial-designer-automobile-price-deploy.md)
+> [Continue to deploying models](../tutorial-designer-automobile-price-deploy.md)

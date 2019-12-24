@@ -31,7 +31,7 @@ In this how-to, you learn the following tasks:
 
 1. If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of the Azure Machine Learning](https://aka.ms/AMLFree).
 
-1. Create a [workspace](service/tutorial-1st-experiment-sdk-setup.md).
+1. Create a [workspace](tutorial-1st-experiment-sdk-setup.md).
 
 1. Sign in to [Azure Machine Learning studio](https://ml.azure.com/).
 

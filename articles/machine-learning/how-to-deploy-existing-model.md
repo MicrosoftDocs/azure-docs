@@ -37,7 +37,7 @@ If you have a machine learning model that was trained outside Azure Machine Lear
 
 * The [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).  
 
-* The [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) and [Machine Learning CLI extension](service/reference-azure-machine-learning-cli.md).
+* The [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) and [Machine Learning CLI extension](reference-azure-machine-learning-cli.md).
 
 * A trained model. The model must be persisted to one or more files on your development environment.
 

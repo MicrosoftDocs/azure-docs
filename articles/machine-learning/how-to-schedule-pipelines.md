@@ -137,4 +137,4 @@ For more information, see:
 > [Use Azure Machine Learning Pipelines for batch scoring](service/tutorial-pipeline-batch-scoring-classification.md)
 
 * Learn more about [pipelines](concept-ml-pipelines.md)
-* Learn more about [exploring Azure Machine Learning with Jupyter](service/samples-notebooks.md)
+* Learn more about [exploring Azure Machine Learning with Jupyter](samples-notebooks.md)

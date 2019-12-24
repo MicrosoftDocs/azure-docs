@@ -57,12 +57,12 @@ The Azure Machine Learning [compute instance (preview)](service/concept-compute-
 > Compute instances are available only for workspaces with a region of **North Central US** or **UK South**.
 >If your workspace is in any other region, you can continue to create and use a [Notebook VM](service/concept-compute-instance.md#notebookvm) instead.
 
-There is nothing to install or configure for a compute instance.  Create one anytime from within your Azure Machine Learning workspace. Provide just a name and specify an Azure VM type. Try it now with this [Tutorial: Setup environment and workspace](service/tutorial-1st-experiment-sdk-setup.md).
+There is nothing to install or configure for a compute instance.  Create one anytime from within your Azure Machine Learning workspace. Provide just a name and specify an Azure VM type. Try it now with this [Tutorial: Setup environment and workspace](tutorial-1st-experiment-sdk-setup.md).
 
 
 Learn more about [compute instances](service/concept-compute-instance.md).
 
-To stop incurring compute charges, [stop the compute instance](service/tutorial-1st-experiment-sdk-train.md#clean-up-resources).
+To stop incurring compute charges, [stop the compute instance](tutorial-1st-experiment-sdk-train.md#clean-up-resources).
 
 ## <a id="dsvm"></a>Data Science Virtual Machine
 

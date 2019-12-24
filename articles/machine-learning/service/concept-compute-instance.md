@@ -135,4 +135,4 @@ In regions where compute instances are available, new Notebook VMs cannot be cre
 
 ## Next steps
 
- * [Tutorial: Train your first ML model](tutorial-1st-experiment-sdk-train.md) shows how to use a compute instance with an integrated notebook.
+ * [Tutorial: Train your first ML model](../tutorial-1st-experiment-sdk-train.md) shows how to use a compute instance with an integrated notebook.

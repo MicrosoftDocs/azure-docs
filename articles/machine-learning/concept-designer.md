@@ -97,7 +97,7 @@ To perform real-time inferencing, you must deploy a pipeline as a **real-time en
 
 Real-time endpoints must be deployed to an Azure Kubernetes Service cluster.
 
-To learn how to deploy your model, see [Tutorial: Deploy a machine learning model with the designer](service/tutorial-designer-automobile-price-deploy.md).
+To learn how to deploy your model, see [Tutorial: Deploy a machine learning model with the designer](tutorial-designer-automobile-price-deploy.md).
 
 ## Publish
 

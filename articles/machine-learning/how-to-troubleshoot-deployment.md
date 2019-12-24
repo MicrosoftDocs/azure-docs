@@ -42,7 +42,7 @@ Learn more about this process in the [Model Management](concept-model-management
 * An **Azure subscription**. If you do not have one, try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree).
 * The [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
 * The [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
-* The [CLI extension for Azure Machine Learning](service/reference-azure-machine-learning-cli.md).
+* The [CLI extension for Azure Machine Learning](reference-azure-machine-learning-cli.md).
 * To debug locally, you must have a working Docker installation on your local system.
 
     To verify your Docker installation, use the command `docker run hello-world` from a terminal or command prompt. For information on installing Docker, or troubleshooting Docker errors, see the [Docker Documentation](https://docs.docker.com/).

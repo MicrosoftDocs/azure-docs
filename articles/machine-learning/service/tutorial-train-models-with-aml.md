@@ -29,7 +29,7 @@ Learn how to take the following actions:
 > * Train a simple logistic regression model on a remote cluster.
 > * Review training results and register the best model.
 
-You learn how to select a model and deploy it in [part two of this tutorial](tutorial-deploy-models-with-aml.md).
+You learn how to select a model and deploy it in [part two of this tutorial](../tutorial-deploy-models-with-aml.md).
 
 If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree) today.
 
@@ -38,7 +38,7 @@ If you don’t have an Azure subscription, create a free account before you begi
 
 ## Prerequisites
 
-* Complete the [Tutorial: Get started creating your first Azure ML experiment](tutorial-1st-experiment-sdk-setup.md) to:
+* Complete the [Tutorial: Get started creating your first Azure ML experiment](../tutorial-1st-experiment-sdk-setup.md) to:
     * Create a workspace
     * Clone the tutorials notebook to your folder in the workspace.
     * Create a cloud-based compute instance.
@@ -445,4 +445,4 @@ In this Azure Machine Learning tutorial, you used Python for the following tasks
 You're ready to deploy this registered model by using the instructions in the next part of the tutorial series:
 
 > [!div class="nextstepaction"]
-> [Tutorial 2 - Deploy models](tutorial-deploy-models-with-aml.md)
+> [Tutorial 2 - Deploy models](../tutorial-deploy-models-with-aml.md)

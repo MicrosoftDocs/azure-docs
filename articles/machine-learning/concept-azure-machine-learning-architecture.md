@@ -118,7 +118,7 @@ Azure helps you monitor your web service by collecting Application Insights tele
 
 If you've enabled automatic scaling, Azure automatically scales your deployment.
 
-For an example of deploying a model as a web service , see [Deploy an image classification model in Azure Container Instances](service/tutorial-deploy-models-with-aml.md).
+For an example of deploying a model as a web service , see [Deploy an image classification model in Azure Container Instances](tutorial-deploy-models-with-aml.md).
 
 #### IoT module endpoints
 
@@ -153,7 +153,7 @@ For more information, see the following articles:
 
 An experiment is a grouping of many runs from a specified script. It always belongs to a workspace. When you submit a run, you provide an experiment name. Information for the run is stored under that experiment. If you submit a run and specify an experiment name that doesn't exist, a new experiment with that newly specified name is automatically created.
 
-For an example of using an experiment, see [Tutorial: Train your first model](service/tutorial-1st-experiment-sdk-train.md).
+For an example of using an experiment, see [Tutorial: Train your first model](tutorial-1st-experiment-sdk-train.md).
 
 
 ### GitHub tracking and integration
