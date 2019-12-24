@@ -162,12 +162,12 @@ When performing OLTP operations, use `<fog-name>.database.windows.net` as the se
 
 If you have a logically isolated read-only workload that is tolerant to certain staleness of data, you can use the secondary database in the application. For read-only sessions, use `<fog-name>.secondary.database.windows.net` as the server URL and the connection is automatically directed to the secondary. It is also recommended that you indicate in connection string read intent by using `ApplicationIntent=ReadOnly`. If you want to ensure that the read-only workload can reconnect after failover or in case the secondary server goes offline, make sure to configure the `AllowReadOnlyFailoverToPrimary` property of the failover policy.
 
-### Preparing for perf degradation
+### Preparing for performance degradation
 
-SQL failover decision is independent from the rest of the application or other services used. The application may be “mixed” with some components in one region and some in another. To avoid the degradation, ensure the redundant application deployment in the DR region and follow these [network security guidelines](#failover-groups-and-network-security).
+A typical Azure application uses multiple Azure service and consists of multiple components. The automated failover of the failover group is triggered based on the state the Azure SQL components alone. Other Azure services in the primary region may not be affected by the outage and their components may still be availabe in that region. Once the primary databases switch to the DR region, the latency between the dependent components may increase. To avoid the impact of highler latency on the application's performance, ensure the redundancy of all the application's components in the DR region and follow these [network security guidelines](#failover-groups-and-network-security).
 
 > [!NOTE]
-> The application in the DR region does not have to use a different connection string.  
+> The application in the DR region does not have to use a different SQL connection string.  
 
 ### Preparing for data loss
 
@@ -252,9 +252,12 @@ If you have a logically isolated read-only workload that is tolerant to certain 
 > - To connect to a read-only replica in the primary location, use `<fog-name>.zone_id.database.windows.net`.
 > - To connect to a read-only replica in the secondary location, use `<fog-name>.secondary.zone_id.database.windows.net`.
 
-### Preparing for perf degradation
+### Preparing for performance degradation
 
-SQL failover decision is independent from the rest of the application or other services used. The application may be “mixed” with some components in one region and some in another. To avoid the degradation, ensure the redundant application deployment in the DR region and follow these [network security guidelines](#failover-groups-and-network-security).
+A typical Azure application uses multiple Azure service and consists of multiple components. The automated failover of the failover group is triggered based on the state the Azure SQL components alone. Other Azure services in the primary region may not be affected by the outage and their components may still be availabe in that region. Once the primary databases switch to the DR region, the latency between the dependent components may increase. To avoid the impact of highler latency on the application's performance, ensure the redundancy of all the application's components in the DR region and follow these [network security guidelines](#failover-groups-and-network-security).
+
+> [!NOTE]
+> The application in the DR region does not have to use a different SQL connection string.  
 
 ### Preparing for data loss**
 
