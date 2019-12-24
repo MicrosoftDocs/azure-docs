@@ -140,15 +140,15 @@ The following table lists some of the most common grouping and filtering options
 | **Department** / **Invoice section** | Break down costs by EA department or MCA invoice section. This option is available only for EA/MCA billing accounts and MCA billing profiles. |
 | **Enrollment account** | Break down costs by EA account owner. This option is available only for EA billing accounts and departments. |
 | **Frequency** | Break down usage-based, one-time, and recurring costs. |
-| **Meter** | Break down costs by Azure usage meter. This option is available only for Azure usage. All purchases and Marketplace usage will show as **Not specified** or **unassigned**. |
+| **Meter** | Break down costs by Azure usage meter. This option is available only for Azure usage. All purchases and Marketplace usage will show as **Not applicable** or **unassigned**. |
 | **Publisher type** | Break down AWS, Azure, and Marketplace costs. |
-| **Reservation** | Break down costs by reservation. Any usage that doesn't include a reservation will show as **Not specified**. |
-| **Resource** | Break down costs by resource. All purchases will show as **Not specified**, because they're applied at an EA/PAYG billing account or MCA billing profile level.  |
-| **Resource group** | Break down costs by resource group. This option is available only for non-classic usage. Classic resource usage will show as **other**, and purchases will show as **Not specified**. |
-| **Resource type** | Break down costs by resource type. This option is available only for non-classic usage. Classic resource usage will show as **other**, and purchases will show as **Not specified**. |
-| **Service name** or **Meter category** | Break down cost by Azure service. This option is available only for Azure usage. All purchases and Marketplace usage will show as **Not specified** or **unassigned**. |
-| **Service tier** or **Meter subcategory** | Break down cost by Azure usage meter subclassification. This option is available only for Azure usage. All purchases and Marketplace usage will show as **Not specified** or **unassigned**. |
-| **Subscription** | Break down costs by subscription. All purchases show as **Not specified**. |
+| **Reservation** | Break down costs by reservation. Any usage that doesn't include a reservation will show as **Not applicable**. |
+| **Resource** | Break down costs by resource. All purchases will show as **Not applicable**, because they're applied at an EA/PAYG billing account or MCA billing profile level.  |
+| **Resource group** | Break down costs by resource group. This option is available only for non-classic usage. Classic resource usage will show as **other**, and purchases will show as **Not applicable**. |
+| **Resource type** | Break down costs by resource type. This option is available only for non-classic usage. Classic resource usage will show as **other**, and purchases will show as **Not applicable**. |
+| **Service name** or **Meter category** | Break down cost by Azure service. This option is available only for Azure usage. All purchases and Marketplace usage will show as **Not applicable** or **unassigned**. |
+| **Service tier** or **Meter subcategory** | Break down cost by Azure usage meter subclassification. This option is available only for Azure usage. All purchases and Marketplace usage will show as **Not applicable** or **unassigned**. |
+| **Subscription** | Break down costs by subscription. All purchases show as **Not applicable**. |
 | **Tag** | Break down costs by tag values for a specific tag key. |
 
 For more information about terms, see [Understand the terms used in the Azure usage and charges file](../billing/billing-understand-your-usage.md).
