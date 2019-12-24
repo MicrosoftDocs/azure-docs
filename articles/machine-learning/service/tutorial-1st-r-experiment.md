@@ -30,46 +30,66 @@ In this tutorial, you learn the following tasks:
 
 If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree) today.
 
-## Prerequisites
 
-1. Follow the [installation instructions](https://azure.github.io/azureml-sdk-for-r/articles/installation.html) to:
-    + Install Anaconda
-    + Install `azuremlsdk`
-    + Install the Azure Machine Learning SDK for Python
+## Create a workspace
 
-1. Get the three tutorial files from [GitHub](https://github.com/Azure/azureml-sdk-for-r/tree/master/vignettes/train-and-deploy-to-aci).  Save them into a **tutorials** directory.
+An Azure Machine Learning workspace is a foundational resource in the cloud that you use to experiment, train, and deploy machine learning models. It ties your Azure subscription and resource group to an easily consumed object in the service. 
 
-2. Create an Azure Machine Learning workspace and download its configuration file using the steps below.
-
-
-### Create a workspace
-
-An Azure Machine Learning workspace is a foundational resource in the cloud that you use to experiment, train, and deploy machine learning models. It ties your Azure subscription and resource group to an easily consumed object in the SDK. If you already have an Azure Machine Learning workspace, [skip to the next section](#config). Otherwise, create one now.
+You create a workspace via the Azure portal, a web-based console for managing your Azure resources. 
 
 [!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal.md)]
 
-### <a name="config"></a> Download config.json file
+>[!IMPORTANT] 
+> Take note of your **workspace** and **subscription**. You'll need these to ensure you create your experiment in the right place. 
 
-1. On the top of the workspace page, select **Download config.json**.
 
-    ![Download config.json file](media/tutorial-1st-r-experiment/download-config.png)  
+## <a name="azure"></a>Clone a notebook folder
 
-1. Add this file to your **tutorials** directory.
+This example uses the cloud notebook server in your workspace for an install-free and pre-configured experience. Use [your own environment](how-to-configure-environment.md#local) if you prefer to have control over your environment, packages and dependencies.
 
-You are now ready to run the tutorial.
+You complete the following experiment set-up and run steps in Azure Machine Learning studio, a consolidated interface that includes machine learning tools to perform data science scenarios for data science practitioners of all skill levels.
 
-We recommend using RStudio to run this tutorial. In RStudio, choose File > New Project > Existing Directory and select the **tutorials** directory you created above.
+1. Sign in to [Azure Machine Learning studio](https://ml.azure.com/).
+
+1. Select your subscription and the workspace you created.
+
+1. Select **Notebooks** on the left.
+
+1. Open the **Samples** folder.
+
+1. Open the **R** folder.
+
+1. Open the folder with a version number on it.  This number represents the current release for the R SDK.
+
+1. Open the **vignettes** folder.
+
+1. Select the **"..."** at the right of the **train-and-deploy-to-aci** folder and then select **Clone**.
+
+    ![Clone folder](media/tutorial-1st-r-experiment/clone-folder.png)
+
+1. A list of folders displays showing each user who accesses the workspace.  Select your folder to clone the **train-and-deploy-to-aci**  folder there.
+
+## <a name="open">Open RStudio
+
+Use RStudio on a compute instance or Notebook VM to run this tutorial.  
+
+1. Select **Compute** on the left.
+
+1. Add a compute resource if one does not already exist.
+
+1. Once the compute is running, use the **RStudio** link to open RStudio.
+
+1. In RStudio, your **train-and--deploy-to-aci** folder is a few levels down from **Users** in the **Files** section on the lower right.  Select the **train-and-deploy-to-aci** folder to find the files needed in this tutorial.
 
 > [!Important]
-> The rest of this article contains the same content as you see in the  **train-and-deploy-to-aci.Rmd** file.  
-> If you are experienced with RMarkdown, feel free to use the code from that file.  Or you can copy/paste the code snippets from there, or from this article into an R script or the command line.
-
+> The rest of this article contains the same content as you see in the  **train-and-deploy-to-aci.Rmd** file. 
+> If you are experienced with RMarkdown, feel free to use the code from that file.  Or you can copy/paste the code snippets from there, or from this article into an R script or the command line.  
 
 ## Set up your development environment
 The setup for your development work in this tutorial includes the following actions:
 
 * Install required packages
-* Connect to a workspace, so that your local computer can communicate with remote resources
+* Connect to a workspace, so that your compute instance can communicate with remote resources
 * Create an experiment to track your runs
 * Create a remote compute target to use for training
 
