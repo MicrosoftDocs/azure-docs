@@ -62,7 +62,7 @@ We have these disks on the source Windows VM SalesDB.
 DB-Disk0-OS | Disk0 | C:\ | Operating system disk.
 DB-Disk1| Disk1 | D:\ | SQL system database and User Database1.
 DB-Disk2 (Excluded the disk from protection) | Disk2 | E:\ | Temp files.
-DB-Disk3 (Excluded the disk from protection) | Disk3 | F:\ | SQL tempdb database.<br/><br/> Folder path - F:\MSSQL\Data\). Make a note of the folder path before failover.
+DB-Disk3 (Excluded the disk from protection) | Disk3 | F:\ | SQL tempdb database.<br/><br/> Folder path - F:\MSSQL\Data\. Make a note of the folder path before failover.
 DB-Disk4 | Disk4 |G:\ | User Database2
 
 1. We enable replication for the SalesDB VM.
