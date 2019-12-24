@@ -1,12 +1,9 @@
 ---
 title: Support matrix for Azure VM disaster recovery with Azure Site Recovery 
 description: Summarizes support for Azure VMs disaster recovery to a secondary region with Azure Site Recovery.
-author: rayne-wiselman
-manager: carmonm
-ms.service: site-recovery
 ms.topic: article
-ms.date: 11/15/2019
-ms.author: raynew
+ms.date: 12/23/2019
+
 
 ---
 # Support matrix for Azure VM disaster recovery between Azure regions
@@ -174,7 +171,7 @@ Extensions | Not supported | Extensions are not replicated to the failover VM in
 
 **Action** | **Details**
 -- | ---
-Resize disk on replicated VM | Supported
+Resize disk on replicated VM | Supported on the source VM before failover. No need to disable/re-enable replication.<br/><br/> If you change the source VM after failover, the changes aren't captured.<br/><br/> If you change the disk size on the Azure VM after failover, changes aren't captured by Site Recovery, and failback will be to the original VM size.
 Add a disk to a replicated VM | Supported
 
 ## Replicated machines - storage
