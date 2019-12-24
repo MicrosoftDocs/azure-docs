@@ -205,11 +205,9 @@ In this section, you apply a model to structure your data. To complete the model
 
 1. In the explorer, select the **Model** tab:
 
-   [![Model tab in the explorer](media/v2-update-provision/define-one-model.png)](media/v2-update-provision/define-one-model.png#lightbox)
+   [![Model tab in the explorer](media/v2-update-provision/tsi-select-model-view.png)](media/v2-update-provision/tsi-select-model-view.png#lightbox)
 
-1. In the **Types** tab, select **Add**.
-
-   [![The Add button for types](media/v2-update-provision/define-two-add.png)](media/v2-update-provision/define-two-add.png#lightbox)
+   In the **Types** tab, select **+ Add**.
 
 1. Enter the following parameters:
 
@@ -218,10 +216,7 @@ In this section, you apply a model to structure your data. To complete the model
     | **Name** | Enter **Elevator** |
     | **Description** | Enter **This is a type definition for Elevator** |
 
-    [![The Add button for types](media/v2-update-provision/define-three-properties.png)](media/v2-update-provision/define-three-properties.png#lightbox)
-
 1. Next, select the **Variables** tab.
-[![Select variables tab](media/v2-update-provision/define-four-variables.png)](media/v2-update-provision/define-four-variables.png#lightbox)
 
 1. Select **+ Add Variable** and fill in the following values for the first variable of the Elevator type. You will author three variables in total.
 
@@ -232,11 +227,7 @@ In this section, you apply a model to structure your data. To complete the model
     | **Value** | Select from preset: Select **temperature (Double)**. <br /> Note: It might take a few minutes for **Value** to be automatically populated after Azure Time Series Insights Preview starts receiving events.|
     | **Aggregation Operation** | Expand **Advanced Options**. <br /> Select **AVG**. |
 
-    [![Selections for defining temperature](media/v2-update-provision/define-five-variable.png)](media/v2-update-provision/define-five-variable.png#lightbox)
-
-    Select **Apply**.
-
-    Select **+ Add Variable** again, and set the following values:
+    Select **Apply**. Then, **+ Add Variable** again, and set the following values:
 
     | Parameter | Action |
     | --- | --- |
@@ -245,11 +236,7 @@ In this section, you apply a model to structure your data. To complete the model
     | **Value** | Select from preset: Select **vibration (Double)**. <br /> Note: It might take a few minutes for **Value** to be automatically populated after Azure Time Series Insights Preview starts receiving events.|
     | **Aggregation Operation** | Expand **Advanced Options**. <br /> Select **AVG**. |
 
-    [![Selections for defining vibration](media/v2-update-provision/define-five-vibration.png)](media/v2-update-provision/define-five-vibration.png#lightbox)
-
-    Select **Apply**.
-
-    Select **+ Add Variable** again, and set the following values for the third and final variable:
+    Select **Apply**. Then, **+ Add Variable** again, and set the following values for the third and final variable:
 
     | Parameter | Action |
     | --- | --- |
@@ -259,19 +246,11 @@ In this section, you apply a model to structure your data. To complete the model
     | **Categories** | <span style="text-decoration: underline">Label </span>  - <span style="text-decoration: underline">Values</span> <br /> Lower: 1,2,3,4 <br /> Middle: 5,6,7,8,9 <br /> Upper: 10,11,12,13,14,15 |
     | **Default Category** | Enter **Unknown** |
 
-    [![Selections for defining vibration](media/v2-update-provision/define-five-floor.png)](media/v2-update-provision/define-five-floor.png#lightbox)
+    Select **Apply**. You should see three variables created.
 
-    Select **Apply**. You should see three variables created:
+1. Select **Save**. You will see the type created:
 
-    [![Selections for defining vibration](media/v2-update-provision/define-five-floor2.png)](media/v2-update-provision/define-five-floor2.png#lightbox)
-
-   Select **Save**. You will see the **Type** Created:
-
-    [![Selections for defining vibration](media/v2-update-provision/define-five-floor3.png)](media/v2-update-provision/define-five-floor3.png#lightbox)
-
-1. Select the **Hierarchies** tab. Select **+Add**.
-
-    [![Hierarchies tab with Add button](media/v2-update-provision/define-seven-hierarchy.png)](media/v2-update-provision/define-seven-hierarchy.png#lightbox)
+1. Select the **Hierarchies** tab. Select **+ Add**.
 
 1. In the **Edit Hierarchy** pane, set the following parameters:
 
@@ -281,12 +260,8 @@ In this section, you apply a model to structure your data. To complete the model
    |**Levels**| Enter **Country** as the name of the first level <br> Select **+ Add Level** <br> Enter **City** for the second level, then select **+ Add Level** <br> Enter **Building** as the name of the third and final level |
 
    Select **Save**.
-
-    [![Hierarchy fields with Create button](media/v2-update-provision/define-eight-add-hierarchy.png)](media/v2-update-provision/define-eight-add-hierarchy.png#lightbox)
-
+   
    You can see the hierarchy that you created:
-
-    [![Information about the hierarchy](media/v2-update-provision/define-nine-created.png)](media/v2-update-provision/define-nine-created.png#lightbox)
 
 1. Navigate to **Instances**. Under **Actions** on the far right, and select the pencil icon to edit the first instance with the following values:
 
@@ -295,8 +270,6 @@ In this section, you apply a model to structure your data. To complete the model
     | **Type** | Select **Elevator**. |
     | **Name** | Enter **Elevator 1**|
     | **Description** | Enter **Instance for Elevator 1** |
-
-    [![Selecting the Edit button for an instance](media/v2-update-provision/define-ten-edit.png)](media/v2-update-provision/define-ten-edit.png#lightbox)
 
     Navigate to **Instance Fields** and enter the following:
 
@@ -307,13 +280,11 @@ In this section, you apply a model to structure your data. To complete the model
     | **City** | Enter **Seattle** |
     | **Building** | Enter **Space Needle** |
 
-    [![Selecting the Edit button for an instance](media/v2-update-provision/define-ten2-edit.png)](media/v2-update-provision/define-ten2-edit.png#lightbox)
-
     Select **Save**.
 
 1. Repeat Step 8 with the other two instances with the following values:
 
-    <span style="text-decoration: underline;">For Elevator 2</span>:
+    **For Elevator 2:**
 
     | Parameter | Action |
     | --- | --- |
@@ -325,7 +296,7 @@ In this section, you apply a model to structure your data. To complete the model
     | **City** | Enter **Seattle** |
     | **Building** | Enter **Pacific Science Center** |
 
-    <span style="text-decoration: underline;">For Elevator 3</span>:
+    **For Elevator 3:**
 
     | Parameter | Action |
     | --- | --- |
@@ -339,15 +310,10 @@ In this section, you apply a model to structure your data. To complete the model
 
 1. Navigate back to the **Analyze** tab to view the charting pane. Under **Location Hierarchy**, expand all hierarchy levels to display the time series instances:
 
-   [![The Analyze tab](media/v2-update-provision/define-twelve.png)](media/v2-update-provision/define-twelve.png#lightbox)
 
 1. Under **Pacific Science Center**, select the Time Series Instance **Elevator 2**, and then select **Show Average Temperature**.
 
-    [![Time Series Instance Show Average Temperature](media/v2-update-provision/define-eleven-temperature.png)](media/v2-update-provision/define-eleven-temperature.png#lightbox)
-
 1. For the same instance, **Elevator 2**, select **Show Floor**.
-
-    [![Time Series Instance Show Floor](media/v2-update-provision/define-twelve-floor.png)](media/v2-update-provision/define-twelve-floor.png#lightbox)
 
     With your categorical variable, you can determine how much time the elevator spent on the upper, lower, and middle floors.
 
