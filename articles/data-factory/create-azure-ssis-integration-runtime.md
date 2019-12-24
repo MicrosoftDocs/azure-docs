@@ -161,7 +161,7 @@ After your data factory is created, open its overview page in the Azure portal. 
 
       1. For **Express custom setup**, select **New** to open the **Add express custom setup** panel and then select any types under the **Express custom setup type** dropdown menu, e.g. **Run cmdkey command**, **Add environment variable**, **Install licensed component**, etc.
 
-         If you select the **Install licensed component** type, you can then select any integrated components from our ISV partners under the **Component name** dropdwon menu and if required, enter the product license key that you purchased from them in the **License key** field.
+         If you select the **Install licensed component** type, you can then select any integrated components from our ISV partners under the **Component name** dropdown menu and if required, enter the product license key that you purchased from them in the **License key** field.
   
          Your added express custom setups will appear on the **Advanced Settings** section. To remove them, you can select their check boxes and then select **Delete**.
 
