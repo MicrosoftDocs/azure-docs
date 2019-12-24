@@ -2,7 +2,7 @@
 title: About failover and failback in Azure Site Recovery
 description: Learn about failover and failable in Azure Site Recovery. 
 ms.topic: conceptual
-ms.date: 12/16/2019
+ms.date: 12/24/2019
 
 ---
 # About on-premises disaster recovery failover/failback
@@ -36,7 +36,7 @@ Failover is a two-phase activity:
     
 ## Connect to Azure after failover
 
-To connect to the Azure VMs created after failuver using RDP/SSH, there are a number of requirements.
+To connect to the Azure VMs created after failover using RDP/SSH, there are a number of requirements.
 
 **Failover** | **Location** | **Actions**
 --- | --- | ---
