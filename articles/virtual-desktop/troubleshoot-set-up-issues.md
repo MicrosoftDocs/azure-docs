@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: troubleshooting
-ms.date: 07/10/2019
+ms.date: 12/17/2019
 ms.author: helohr
 ---
 # Tenant and host pool creation
@@ -82,6 +82,27 @@ The Windows Virtual Desktop – Provision a host pool template is available from
     #create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%
     2FRDS-Templates%2Fmaster%2Fwvd-templates%2FCreate%20and%20provision%20WVD%20host%20pool%2FmainTemplate.json
     ```
+
+### Error: You receive "template deployment is not valid" error
+
+![Screenshot of "template deployment ... is not valid" error](media/troubleshooting-marketplace-validation-error-generic.png)
+
+Before taking specific action, you'll need to check the activity log to see the detailed error for the failed deployment validation.
+
+To view the error in the activity log:
+
+1. Exit the current Azure Marketplace deployment offering.
+2. In the top search bar, search for and select **Activity Log**.
+3. Find an activity named **Validate Deployment** that has a status of **Failed** and select the activity.
+   ![Screenshot of individual **Validate Deployment** activity with a **Failed** status](media/troubleshooting-marketplace-validation-error-activity-summary.png)
+
+4. Select JSON, then scroll down to the bottom of the screen until you see the "statusMessage" field.
+   ![Screenshot of failed activity, with a red box around the statusMessage property of the JSON text.](media/troubleshooting-marketplace-validation-error-json-boxed.png)
+
+If your operation template goes over the quota limit, you can do one of the following things to fix it:
+
+ - Run the Azure Marketplace with the parameters you used the first time, but this time use fewer VMs and VM cores.
+ - Open the link you see in the **statusMessage** field in a browser to submit a request to increase the quota for your Azure subscription for the specified VM SKU.
 
 ## Azure Resource Manager template and PowerShell Desired State Configuration (DSC) errors
 
