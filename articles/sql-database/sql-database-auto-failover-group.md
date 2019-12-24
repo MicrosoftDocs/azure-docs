@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
-ms.date: 12/20/2019
+ms.date: 12/23/2019
 ---
 
 # Use auto-failover groups to enable transparent and coordinated failover of multiple databases
@@ -147,29 +147,29 @@ The auto-failover group must be configured on the primary SQL Database server an
 
 When designing a service with business continuity in mind, follow these general guidelines:
 
-- **Use one or several failover groups to manage failover of multiple databases**
+### Using one or several failover groups to manage failover of multiple databases
 
   One or many failover groups can be created between two servers in different regions (primary and secondary servers). Each group can include one or several databases that are recovered as a unit in case all or some primary databases become unavailable due to an outage in the primary region. The failover group creates geo-secondary database with the same service objective as the primary. If you add an existing geo-replication relationship to the failover group, make sure the geo-secondary is configured with the same service tier and compute size as the primary.
   
   > [!IMPORTANT]
   > Creating failover groups between two servers in different subscriptions is not currently supported for single databases and elastic pools. If you move the primary or secondary server to a different subscription after the failover group has been created, it could result in failures of the failover requests and other operations.
 
-- **Use read-write listener for OLTP workload**
+### Using read-write listener for OLTP workload
 
   When performing OLTP operations, use `<fog-name>.database.windows.net` as the server URL and the connections are automatically directed to the primary. This URL does not change after the failover. Note the failover involves updating the DNS record so the client connections are redirected to the new primary only after the client DNS cache is refreshed.
 
-- **Use read-only listener for read-only workload**
+### Using read-only listener for read-only workload
 
   If you have a logically isolated read-only workload that is tolerant to certain staleness of data, you can use the secondary database in the application. For read-only sessions, use `<fog-name>.secondary.database.windows.net` as the server URL and the connection is automatically directed to the secondary. It is also recommended that you indicate in connection string read intent by using `ApplicationIntent=ReadOnly`. If you want to ensure that the read-only workload can reconnect after failover or in case the secondary server goes offline, make sure to configure the `AllowReadOnlyFailoverToPrimary` property of the failover policy.
 
-- **Be prepared for perf degradation**
+### Preparing for perf degradation
 
   SQL failover decision is independent from the rest of the application or other services used. The application may be “mixed” with some components in one region and some in another. To avoid the degradation, ensure the redundant application deployment in the DR region and follow these [network security guidelines](#failover-groups-and-network-security).
 
   > [!NOTE]
   > The application in the DR region does not have to use a different connection string.  
 
-- **Prepare for data loss**
+### Preparing for data loss
 
   If an outage is detected, SQL waits for the period you specified by `GracePeriodWithDataLossHours`. The default value is 1 hour. If you cannot afford data loss, make sure to set `GracePeriodWithDataLossHours` to a sufficiently large number, such as 24 hours. Use manual group failover to fail back from the secondary to the primary.
 
@@ -189,7 +189,7 @@ The following diagram illustrates a typical configuration of a geo-redundant clo
 
 If your application uses managed instance as the data tier, follow these general guidelines when designing for business continuity:
 
-- **Create the secondary instance in the same DNS zone as the primary instance**
+### Creating the secondary instance 
 
   To ensure non-interrupted connectivity to the primary instance after failover both the primary and secondary instances must be in the same DNS zone. It will guarantee that the same multi-domain (SAN) certificate can be used to authenticate the client connections to either of the two instances in the failover group. When your application is ready for production deployment, create a secondary instance in a different region and make sure it shares the DNS zone with the primary instance. You can do it by specifying a `DNS Zone Partner` optional parameter using the Azure portal, PowerShell, or the REST API.
 
@@ -198,29 +198,29 @@ If your application uses managed instance as the data tier, follow these general
 
   For more information about creating the secondary instance in the same DNS zone as the primary instance, see [Create a secondary managed instance](sql-database-managed-instance-failover-group-tutorial.md#3---create-a-secondary-managed-instance).
 
-- **Enable replication traffic between two instances**
+### Enabling replication traffic between two instances
 
   Because each instance is isolated in its own VNet, two-directional traffic between these VNets must be allowed. See [Azure VPN gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md)
 
-- **Create a failover group between managed instances in different subscriptions**
+### Creating a failover group between managed instances in different subscriptions
 
   You can create a failover group between managed instances in two different subscriptions. When using PowerShell API you can do it by  specifying the `PartnerSubscriptionId` parameter for the secondary instance. When using REST API, each instance ID included in the `properties.managedInstancePairs` parameter can have its own subscriptionID.
   
   > [!IMPORTANT]
   > Azure Portal does not support failover groups across different subscriptions.
 
-- **Configure a failover group to manage failover of entire instance**
+### Managing failover to secondary instance
 
   The failover group will manage the failover of all the databases in the instance. When a group is created, each database in the instance will be automatically geo-replicated to the secondary instance. You cannot use failover groups to initiate a partial failover of a subset of the databases.
 
   > [!IMPORTANT]
   > If a database is removed from the primary instance, it will also be dropped automatically on the geo secondary instance.
 
-- **Use read-write listener for OLTP workload**
+### Using read-write listener for OLTP workload
 
   When performing OLTP operations, use `<fog-name>.zone_id.database.windows.net` as the server URL and the connections are automatically directed to the primary. This URL does not change after the failover. The failover involves updating the DNS record, so the client connections are redirected to the new primary only after the client DNS cache is refreshed. Because the secondary instance shares the DNS zone with the primary, the client application will be able to reconnect to it using the same SAN certificate.
 
-- **Connect directly to geo-replicated secondary for read-only queries**
+### Using read-only listener to connect to the secondary instance
 
   If you have a logically isolated read-only workload that is tolerant to certain staleness of data, you can use the secondary database in the application. To connect directly to the geo-replicated secondary, use `server.secondary.zone_id.database.windows.net` as the server URL and the connection is made directly to the geo-replicated secondary.
 
@@ -229,11 +229,11 @@ If your application uses managed instance as the data tier, follow these general
   > - To connect to a read-only replica in the primary location, use `<fog-name>.zone_id.database.windows.net`.
   > - To connect to a read-only replica in the secondary location, use `<fog-name>.secondary.zone_id.database.windows.net`.
 
-- **Be prepared for perf degradation**
+### Preparing for perf degradation
 
   SQL failover decision is independent from the rest of the application or other services used. The application may be “mixed” with some components in one region and some in another. To avoid the degradation, ensure the redundant application deployment in the DR region and follow these [network security guidelines](#failover-groups-and-network-security).
 
-- **Prepare for data loss**
+### Preparing for data loss**
 
   If an outage is detected, SQL automatically triggers read-write failover if there is zero data loss to the best of our knowledge. Otherwise, it waits for the period you specified by `GracePeriodWithDataLossHours`. If you specified `GracePeriodWithDataLossHours`, be prepared for data loss. In general, during outages, Azure favors availability. If you cannot afford data loss, make sure to set GracePeriodWithDataLossHours to a sufficiently large number, such as 24 hours.
 
@@ -241,10 +241,6 @@ If your application uses managed instance as the data tier, follow these general
 
   > [!IMPORTANT]
   > Use manual group failover to move primaries back to the original location. When the outage that caused the failover is mitigated, you can move your primary databases to the original location. To do that you should initiate the manual failover of the group.
-
-- **Acknowledge known limitations of failover groups**
-
-  Database rename is not supported for instances in failover group. You will need to temporarily delete failover group to be able to rename a database.
 
 ## Failover groups and network security
 
@@ -348,6 +344,10 @@ Due to the high latency of wide area networks, continuous copy uses an asynchron
 ## Failover groups and point-in-time restore
 
 For information about using point-in-time restore with failover groups, see [Point in Time Recovery (PITR)](sql-database-recovery-using-backups.md#point-in-time-restore).
+
+## Limitations of failover groups
+
+Database rename is not supported for instances in failover group. You will need to temporarily delete failover group to be able to rename a database.
 
 ## Programmatically managing failover groups
 
