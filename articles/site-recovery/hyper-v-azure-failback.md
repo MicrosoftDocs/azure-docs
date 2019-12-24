@@ -1,5 +1,5 @@
 ---
-title: Fail back Hyper-v VMs from Azure with Azure Site Recovery 
+title: Fail back Hyper-V VMs from Azure with Azure Site Recovery 
 description: How to fail back Hyper-V VMs to an on-premises site from Azure with Azure Site Recovery.
 services: site-recovery
 author: rajani-janaki-ram
@@ -25,7 +25,7 @@ This article describes how to fail back Azure VMs that were created after failov
 2. Ensure that the Azure VMs are using a storage account and not managed disks. Failback of Hyper-V VMs replicated using managed disks isn't supported.
 3. Check that the on-premises Hyper-V host (or System Center VMM server if you're using with Site Recovery) is running and connected to Azure. 
 4. Make sure that failover and commit are complete for the VMs. You don't need to set up any specific Site Recovery components for failback of Hyper-V VMs from Azure.
-5. The time need to complete data synchronization and start the on-premises VM will depend on a number of factors. To speed up data download, you can configure the Microsoft Recovery Services agent to use more threads to parallelize the download. [Learn more](https://support.microsoft.com/help/3056159/how-to-manage-on-premises-to-azure-protection-network-bandwidth-usage).
+5. The time needed to complete data synchronization and start the on-premises VM will depend on a number of factors. To speed up data download, you can configure the Microsoft Recovery Services agent to use more threads to parallelize the download. [Learn more](https://support.microsoft.com/help/3056159/how-to-manage-on-premises-to-azure-protection-network-bandwidth-usage).
 
 
 ## Fail back to the original location
@@ -69,8 +69,8 @@ Fail back to an alternate location as follows:
 	
 7. Click the checkmark to begin the failover (failback).
 8. After the initial synchronization finishes and you're ready to shut down the Azure VM, click **Jobs** > \<planned failover job> > **Complete Failover**. This shuts down the Azure machine, transfers the latest changes to the on-premises VM, and starts it.
-9. You can log into the on-premises VM to verify that everything is working as expected.
-10. Click **Commit** to finish the failover. Commit deletes the Azure VM and its disksa, nd prepares the on-premises VM to be protected again.
+9. You can sign into the on-premises VM to verify that everything is working as expected.
+10. Click **Commit** to finish the failover. Commit deletes the Azure VM and its disks, and prepares the on-premises VM to be protected again.
 10. Click **Reverse Replicate** to start replicating the on-premises VM to Azure. Only the delta changes since the VM was turned off in Azure will be replicated.
 
     > [!NOTE]
