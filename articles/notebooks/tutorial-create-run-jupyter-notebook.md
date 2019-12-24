@@ -11,6 +11,15 @@ This tutorial walks you through the process of using Azure Notebooks to create a
 
 The completed notebook can be found on [GitHub - Azure Notebooks Samples](https://github.com/Microsoft/AzureNotebooks/tree/master/Samples/Linear%20Regression%20-%20Cricket%20Chirps). This tutorial, however, begins with a new project and an empty notebook so you can experience creating it step by step.
 
+In this tutorial, you learn how to:
+
+> [!div class="checklist"]
+> * Create a project notebook with some sample data
+> * Use the notebook interface to create a variety of types of cells
+> * Run the notebook
+> * Save the notebook
+> * Debug the notebook in Visual Studio Code
+
 ## Create the project
 
 1. Go to [Azure Notebooks](https://notebooks.azure.com) and sign in. (For details, see [Quickstart - Sign in to Azure Notebooks](quickstart-sign-in-azure-notebooks.md)).
@@ -25,10 +34,10 @@ The completed notebook can be found on [GitHub - Azure Notebooks Samples](https:
 
 1. In the **Create New Project** popup that appears, enter or set the following details, then select **Create**:
 
-    - **Project name**: Linear Regression Example - Cricket Chirps
-    - **Project ID**: linear-regression-example
-    - **Public project**: (cleared)
-    - **Create a README.md**: (cleared)
+   - **Project name**: Linear Regression Example - Cricket Chirps
+   - **Project ID**: linear-regression-example
+   - **Public project**: (cleared)
+   - **Create a README.md**: (cleared)
 
 1. After a few moments, Azure Notebooks navigates you to the new project.
 

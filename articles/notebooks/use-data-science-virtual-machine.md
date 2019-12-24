@@ -1,10 +1,10 @@
 ---
 title: Use Azure Data Science Virtual Machines
-description: Connect to an Azure Data Science Virtual Machine (DSVM) to extend the compute power available to Azure Notebooks.
+description: Learn how to connect to an Azure Data Science Virtual Machine (DSVM) to extend the compute power available to Azure Notebooks.
 author: getroyer
 manager: andneil
 ms.author: getroyer
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/13/2019
 ---
 
