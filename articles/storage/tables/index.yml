@@ -28,13 +28,6 @@ landingContent:
             url: table-storage-overview.md
           - text: Choose Table storage or Table API
             url: ../../cosmos-db/table-support.md?toc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fstorage%2Ftables%2FTOC.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fbread%2Ftoc.json
-  # Card (optional)
-  - title: Get started
-    linkLists:
-      - linkListType: quickstart
-        links:
-          - text: Create an table in the Azure portal
-            url: table-storage-quickstart-portal.md
   # Card
   - title: Table design guidance
     linkLists:
@@ -61,3 +54,10 @@ landingContent:
         links:
           - text: Scalability and performance targets for Table storage
             url: scalability-targets.md
+  # Card (optional)
+  - title: Get started
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Create an table in the Azure portal
+            url: table-storage-quickstart-portal.md
