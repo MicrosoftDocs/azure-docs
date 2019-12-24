@@ -35,6 +35,10 @@ landingContent:
             url: linked-templates.md
           - text: Subscription level deployment
             url: deploy-to-subscription.md
+      - linkListType: video
+        links:
+          - text: What's new?
+            url: https://youtu.be/3D-JIKShrws
 
   # Card (optional)
   - title: Get started
