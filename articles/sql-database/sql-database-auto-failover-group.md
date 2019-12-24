@@ -241,6 +241,31 @@ If your application uses managed instance as the data tier, follow these general
 
   > [!IMPORTANT]
   > Use manual group failover to move primaries back to the original location. When the outage that caused the failover is mitigated, you can move your primary databases to the original location. To do that you should initiate the manual failover of the group.
+  
+### Changing secondary region of the failover group
+
+Let’s assume that instance A is the primary instance, instance B is the existing secondary instance, and instance C is the new secondary instance in the third region.  To make the transition, follow these steps:
+
+1.	Create instance C with same size as A and in the same DNS zone. 
+2.	Delete the failover group between instances A and B. At this point the logins will be failing because the SQL aliases for the failover group listeners have been deleted and the gateway will not recognize the failover group name. The secondary databases will be disconnected from the primaries and will become read-write databases. 
+3.	Create a failover group with the same name between instance A and C. Follow the instructions in this tutorial <link>. This is a size-of-data operation and will complete when all databases from instance A are seeded and synchronized.
+4.	Delete instance B if not needed to avoid unnecessary charges.
+
+   > [!NOTE]
+   > After step 6 and until step 3 is completed the databases in instance A will remain unprotected from a catastrophic failure of instance A.
+
+### Changing primary region of the failover group
+
+Let’s assume instance A is the primary instance, instance B is the existing secondary instance, and instance C is the new primary instance in the third region.  To make the transition, follow these steps:
+
+1.	Create instance C with same size as B and in the same DNS zone. 
+2.	Connect to instance B and call planned failover to switch the primary instance to B. Instance A will become the new secondary instance automatically.
+3.	Delete the failover group between instances A and B. At this point the logins will be failing because the SQL aliases for the failover group listeners have been deleted and the gateway will not recognize the failover group name. The secondary databases will be disconnected from the primaries and will become read-write databases. 
+4.	Create a failover group with the same name between instance A and C. Follow the instructions in this tutorial <link>. This is a size-of-data operation and will complete when all databases from instance A are seeded and synchronized.
+5.	Delete instance A if not needed to avoid unnecessary charges.
+
+   > [!NOTE] 
+   > After step 3 and until step 4 is completed the databases in instance A will remain unprotected from a catastrophic failure of instance A.
 
 ## Failover groups and network security
 
@@ -255,8 +280,8 @@ If you are using [Virtual Network service endpoints and rules](sql-database-vnet
 3. Enable the [front-end failover using a Traffic manager configuration](sql-database-designing-cloud-solutions-for-disaster-recovery.md#scenario-1-using-two-azure-regions-for-business-continuity-with-minimal-downtime)
 4. Initiate manual failover when the outage is detected. This option is optimized for the applications that require consistent latency between the front-end and the data tier and supports recovery when either front end, data tier or both are impacted by the outage.
 
-> [!NOTE]
-> If you are using the **read-only listener** to load-balance a read-only workload, make sure that this workload is executed in a VM or other resource in the secondary region so it can connect to the secondary database.
+   > [!NOTE]
+   > If you are using the **read-only listener** to load-balance a read-only workload, make sure that this workload is executed in a VM or other resource in the secondary region so it can connect to the secondary database.
 
 ### Using failover groups and SQL database firewall rules
 
@@ -273,8 +298,8 @@ For more information about on how to configure outbound access and what IP to us
 
 The above configuration will ensure that the automatic failover will not block connections from the front-end components and assumes that the application can tolerate the longer latency between the front end and the data tier.
 
-> [!IMPORTANT]
-> To guarantee business continuity for regional outages you must ensure geographic redundancy for both front-end components and the databases.
+   > [!IMPORTANT]
+   > To guarantee business continuity for regional outages you must ensure geographic redundancy for both front-end components and the databases.
 
 ## Enabling geo-replication between managed instances and their VNets
 
