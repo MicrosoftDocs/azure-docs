@@ -4,9 +4,9 @@ description: This article describes how add and manage VMware vCenter for disast
 author: Rajeswari-Mamilla
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 03/13/2019
+ms.date: 12/24/2019
 ms.author: ramamill
-
+---
 
 
 # Manage VMware vCenter server
@@ -120,4 +120,4 @@ If you only want to migrate a few of your replicating VMs to a new vCenter serve
 4. [Re-enable replication](vmware-azure-tutorial.md#enable-replication) for the VMs that remain on the old server.
  
  ## Next steps
-If you encounter any issues, [troubleshoot](vmware-azure-troubleshoot-vcenter-discovery-failures) vCenter Server failures.
+If you encounter any issues, [troubleshoot](vmware-azure-troubleshoot-vcenter-discovery-failures.md) vCenter Server failures.
