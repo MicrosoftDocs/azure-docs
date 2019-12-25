@@ -152,6 +152,9 @@ If authentication is required in either case, you need to specify the username a
     sudo /opt/microsoft/omsagent/bin/service_control restart [<workspace id>]
     ``` 
 
+## Upgrade from a previous release
+Upgrading from version, starting with version 1.0.0-47 and higher, is supported in this release. Perform the installation with the `--upgrade` parameter will upgrade all components of the agent to the latest version.
+
 ## Next steps
 
 - Review [Managing and maintaining the Log Analytics agent for Windows and Linux](agent-manage.md) to learn about how to reconfigure, upgrade, or remove the agent from the virtual machine.
