@@ -3,7 +3,7 @@ title: 'Quickstart: Collect data from a hybrid Linux Computer with Azure Monitor
 description: In this quickstart, you'll learn how to deploy the Log Analytics agent for Linux computers running outside of Azure and enable data collection with Azure Monitor Logs.
 services: azure-monitor
 documentationcenter: azure-monitor
-author: mgoedtel
+author: bwren
 manager: carmonm
 editor: ''
 ms.assetid: 
@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 12/24/2019
-ms.author: magoedte
+ms.author: bwren
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
 ---
 

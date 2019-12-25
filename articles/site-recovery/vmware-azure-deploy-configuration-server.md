@@ -137,6 +137,10 @@ To upgrade the configuration server to the latest version, see [Manage the confi
 
 To avoid interruptions in ongoing replication, ensure that the IP address of the configuration server doesn't change after the configuration server is registered to a vault. To learn more about common configuration server management tasks, see [Manage the configuration server for VMware VM disaster recovery](vmware-azure-manage-configuration-server.md).
 
+## Troubleshoot deployment issues
+
+Refer to our [troubleshooting article](vmware-azure-troubleshoot-configuration-server.md) to resolve deployment & connectivity issues.
+
 ## FAQs
 
 * How long is the license provided on a configuration server deployed through OVF valid? What happens if I don't reactivate the license?
@@ -178,13 +182,11 @@ To avoid interruptions in ongoing replication, ensure that the IP address of the
 
     Set up a configuration server in an on-premises environment with a direct line-of-sight with v-Center and to minimize data transfer latencies. You can take scheduled backups of configuration server for [failback purposes](vmware-azure-manage-configuration-server.md#failback-requirements).
 
+* Can I change cache driver on a configuration server or scale-out process server?
+
+    No, Cache driver cannot be changed once set up is complete.
+
 For more FAQs on configuration servers, see [Configuration server common questions](vmware-azure-common-questions.md#configuration-server).
-
-## Troubleshoot deployment issues
-
-[!INCLUDE [site-recovery-vmware-to-azure-install-register-issues](../../includes/site-recovery-vmware-to-azure-install-register-issues.md)]
-
-
 
 ## Next steps
 

@@ -1,20 +1,11 @@
 ---
-title: Quickstart to learn how to use Azure App Configuration | Microsoft Docs
+title: Quickstart to learn how to use Azure App Configuration
 description: A quickstart for using Azure App Configuration with Java Spring apps.
-services: azure-app-configuration
-documentationcenter: ''
 author: yidon
-manager: jeffya
-editor: ''
-
-ms.assetid: 
-ms.service: azure-app-configuration
-ms.devlang: java
-ms.topic: quickstart
-ms.tgt_pltfrm: Spring
-ms.workload: tbd
-ms.date: 01/08/2019
 ms.author: yidon
+ms.service: azure-app-configuration
+ms.topic: quickstart
+ms.date: 12/17/2019
 
 #Customer intent: As a Java Spring developer, I want to manage all my app settings in one place.
 ---
@@ -42,7 +33,7 @@ In this quickstart, you incorporate Azure App Configuration into a Java Spring a
 
 ## Create a Spring Boot app
 
-You use the [Spring Initializr](https://start.spring.io/) to create a new Spring Boot project.
+Use the [Spring Initializr](https://start.spring.io/) to create a new Spring Boot project.
 
 1. Browse to <https://start.spring.io/>.
 
@@ -118,7 +109,7 @@ You use the [Spring Initializr](https://start.spring.io/) to create a new Spring
 
 6. Create a new file named `bootstrap.properties` under the resources directory of your app, and add the following lines to the file. Replace the sample values with the appropriate properties for your App Configuration store.
 
-    ```properties
+    ```CLI
     spring.cloud.azure.appconfiguration.stores[0].connection-string=[your-connection-string]
     ```
 
@@ -126,13 +117,13 @@ You use the [Spring Initializr](https://start.spring.io/) to create a new Spring
 
 1. Build your Spring Boot application with Maven and run it, for example:
 
-    ```shell
+    ```CLI
     mvn clean package
     mvn spring-boot:run
     ```
 2. After your application is running, use *curl* to test your application, for example:
 
-      ```shell
+      ```CLI
       curl -X GET http://localhost:8080/
       ```
     You see the message that you entered in the App Configuration store.

@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Content Moderator client library for Java"
 titleSuffix: Azure Cognitive Services
-description: Learn how to get started with the Azure Cognitive Services Content Moderator client library for Java.
+description: In this quickstart, learn how to get started with the Azure Cognitive Services Content Moderator client library for Java.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme

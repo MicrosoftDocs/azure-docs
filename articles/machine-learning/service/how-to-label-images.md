@@ -1,7 +1,7 @@
 ---
-title: How to use the Azure Machine Learning data labeling tool
+title: Tag images in a labeling project
 title.suffix: Azure Machine Learning
-description: This article teaches you how to use the data tagging tools in an Azure Machine Learning labeling project.
+description: Learn how to use the data tagging tools in an Azure Machine Learning labeling project.
 author: lobrien
 ms.author: laobri
 ms.service: machine-learning
@@ -12,7 +12,7 @@ ms.date: 11/04/2019
 
 # Tag images in a labeling project
 
-After your project administrator creates a labeling project in Azure Machine Learning, you can use the labeling tool to rapidly prepare data for a Machine Learning project. This article describes:
+After your project administrator [creates a labeling project](https://docs.microsoft.com/azure/machine-learning/service/how-to-create-labeling-projects#create-a-labeling-project) in Azure Machine Learning, you can use the labeling tool to rapidly prepare data for a Machine Learning project. This article describes:
 
 > [!div class="checklist"]
 > * How to access your labeling projects
@@ -104,7 +104,7 @@ After you create the bounding boxes for an image, select **Submit** to save your
 
 ## Finish up
 
-When you submit a page of tagged data, Azure new unlabeled data to you from a work queue. If there's no more unlabeled data available, you'll get a message noting this along with a link to the portal home page.
+When you submit a page of tagged data, Azure assigns new unlabeled data to you from a work queue. If there's no more unlabeled data available, you'll get a message noting this along with a link to the portal home page.
 
 When you're done labeling, select your name in the upper-right corner of the labeling portal and then select **sign-out**. If you don't sign out, eventually Azure will "time you out" and assign your data to another labeler.
 

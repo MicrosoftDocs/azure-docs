@@ -1,6 +1,6 @@
 ---
 title: Diagnose and troubleshoot disconnects with Azure IoT Hub DPS
-description: Learn to diagnose and troubleshoot common errors with device connectivity for Azure IoT Hub DPS
+description: Learn to diagnose and troubleshoot common errors with device connectivity for Azure IoT Hub Device Provisioning Service (DPS)
 author: xujing-ms
 manager: nberdy
 ms.service: iot-dps

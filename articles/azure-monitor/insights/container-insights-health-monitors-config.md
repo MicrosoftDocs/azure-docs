@@ -1,17 +1,8 @@
 ---
 title: Azure Monitor for containers health monitors configuration | Microsoft Docs
 description: This article provides content describing the detailed configuration of the health monitors in Azure Monitor for containers. 
-services: azure-monitor
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: 
-ms.assetid: 
-ms.service: azure-monitor
 ms.topic: conceptual
-ms.workload: infrastructure-services
-ms.date: 11/12/2019
-ms.author: magoedte
+ms.date: 12/01/2019
 ---
 
 # Azure Monitor for containers health monitor configuration guide

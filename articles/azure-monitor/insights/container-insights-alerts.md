@@ -1,11 +1,7 @@
 ---
 title: Create performance alerts for Azure Monitor for containers | Microsoft Docs
 description: This article describes how to create custom alerts based on log queries for memory and CPU utilization from Azure Monitor for containers.
-ms.service:  azure-monitor
-ms.subservice: 
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
 ms.date: 04/26/2019
 
 ---

@@ -89,7 +89,7 @@ For migrating Azure API Management APIs protected by Azure AD B2C, see the [Migr
 
 If you're using [MSAL.NET][msal-dotnet] v2 or earlier, set the **ValidateAuthority** property to `false` on client instantiation to allow redirects to *b2clogin.com*. This setting is not required for MSAL.NET v3 and above.
 
-```CSharp
+```csharp
 ConfidentialClientApplication client = new ConfidentialClientApplication(...); // Can also be PublicClientApplication
 client.ValidateAuthority = false; // MSAL.NET v2 and earlier **ONLY**
 ```
