@@ -83,16 +83,16 @@ For Azure VMs, we recommend you install the agent on them using the [Azure Log A
     sudo sh ./omsagent-*.universal.x64.sh --install -w <workspace id> -s <shared key>
     ```
 
-3. To configure the Linux agent to install and connect to a Log Analytics workspace through a Log Analytics gateway, run the following command providing the proxy, workspace ID, and workspace key parameters.
+3. To configure the Linux agent to install and connect to a Log Analytics workspace through a Log Analytics gateway, run the following command providing the proxy, workspace ID, and workspace key parameters. This configuration can be specified on the command line by including `-p [protocol://][user:password@]proxyhost[:port]`. The *protocol* property accepts `http` or `https`, and the *proxyhost* property accepts a fully qualified domain name or IP address of the proxy server.  
 
     ```
-    sudo sh ./omsagent-*.universal.x64.sh --upgrade -p http://<proxy address>:<proxy port> -w <workspace id> -s <shared key>
+    sudo sh ./omsagent-*.universal.x64.sh --upgrade -p https://<proxy address>:<proxy port> -w <workspace id> -s <shared key>
     ```
 
     If authentication is required, you need to specify the username and password. For example: 
     
     ```
-    sudo sh ./omsagent-*.universal.x64.sh --upgrade -p http://<proxy user>:<proxy password>@<proxy address>:<proxy port> -w <workspace id> -s <shared key>
+    sudo sh ./omsagent-*.universal.x64.sh --upgrade -p https://<proxy user>:<proxy password>@<proxy address>:<proxy port> -w <workspace id> -s <shared key>
     ```
 
 4. To configure the Linux computer to connect to a Log Analytics workspace in Azure Government cloud, run the following command providing the workspace ID and primary key copied earlier.
@@ -117,7 +117,7 @@ sudo sh ./omsagent-*.universal.x64.sh --extract
 
 The following steps configure setup of the agent for Log Analytics in Azure and Azure Government cloud using the wrapper script for Linux computers that can communicate directly or through a proxy server to the Internet in order to download and install the agent.  
 
-If your Linux computer needs to communicate through a proxy server to Log Analytics, this configuration can be specified on the command line by including `-p [protocol://][user:password@]proxyhost[:port]`. The *proxyhost* property accepts a fully qualified domain name or IP address of the proxy server. 
+If your Linux computer needs to communicate through a proxy server to Log Analytics, this configuration can be specified on the command line by including `-p [protocol://][user:password@]proxyhost[:port]`. The *protocol* property accepts `http` or `https`, and the *proxyhost* property accepts a fully qualified domain name or IP address of the proxy server. 
 
 For example: `https://proxy01.contoso.com:30443`
 
