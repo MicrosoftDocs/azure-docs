@@ -48,3 +48,12 @@ There are few ways to start the authoring experience in SQL script. You can crea
 >> <img src=".\media\authoring-sql-script\NewSQLScript2Actions.PNG" alt="Create SQL Script" width="700"/>
 >> 2.2 Choose "Import" from the "Actions" menu under Develop SQL scripts and select an existing SQL script from your local storage. Then continue the authoring process following the instructions from step 1.1   
 >> <img src=".\media\authoring-sql-script\NewSQLScript3Actions.PNG" alt="Create SQL Script" width="700"/>
+
+## Next steps
+For more information about authoring a SQL script, see: 
+- [(articles\synapse-analytics\sql-analytics\sql-analytics-on-demand-workspace-overview.md)]
+- [Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics)
+
+>3. Exploring Data from Storage accounts and Database using "SQL script"
+>> You can explore data in the Storage Account using SQL  
+><img src=".\media\authoring-sql-script\NewSQLScript.PNG" alt="Create SQL Script" width="700"/>
