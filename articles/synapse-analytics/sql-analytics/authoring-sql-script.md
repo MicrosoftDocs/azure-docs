@@ -36,3 +36,7 @@ There are a few ways to start the authoring experience in SQL script. You can cr
 >> Click the "Run" button to execute your SQL script. The results are displayed by default in a table  
 
 >>   <img src=".\media\authoring-sql-script\NewSQLScriptResultsTable.PNG" alt="Create SQL Script" width="700"/>
+
+>> You can use the search feature by typing text you are searching for. You can also export the results to your local storage in different formats including: CSV, Excel, JSON, XML. You can also visualize the SQL script results in a chart as indicated below
+
+>>   <img src=".\media\authoring-sql-script\NewSQLScriptResultsChart.PNG" alt="Create SQL Script" width="700"/>
