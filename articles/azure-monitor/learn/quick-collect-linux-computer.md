@@ -50,7 +50,7 @@ While the information is verified and the workspace is created, you can track it
 
 ## Obtain workspace ID and key
 
-Before installing the Log Analytics agent for Linux, you need the workspace ID and key for your Log Analytics workspace.  This information is required by the agent wrapper script to properly configure the agent and ensure it can successfully communicate with Azure Monitor.
+Before installing the Log Analytics agent for Linux, you need the workspace ID and key for your Log Analytics workspace. This information is required by the agent wrapper script to properly configure the agent and ensure it can successfully communicate with Azure Monitor.
 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]  
 
