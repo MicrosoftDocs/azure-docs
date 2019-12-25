@@ -153,7 +153,8 @@ If authentication is required in either case, you need to specify the username a
     ``` 
 
 ## Upgrade from a previous release
-Upgrading from version, starting with version 1.0.0-47 and higher, is supported in this release. Perform the installation with the `--upgrade` parameter will upgrade all components of the agent to the latest version.
+
+Upgrading from a previous version, starting with version 1.0.0-47, is supported in each release. Perform the installation with the `--upgrade` parameter will upgrade all components of the agent to the latest version.
 
 ## Next steps
 
