@@ -166,9 +166,6 @@ If you have a logically isolated read-only workload that is tolerant to certain 
 
 A typical Azure application uses multiple Azure service and consists of multiple components. The automated failover of the failover group is triggered based on the state the Azure SQL components alone. Other Azure services in the primary region may not be affected by the outage and their components may still be available in that region. Once the primary databases switch to the DR region, the latency between the dependent components may increase. To avoid the impact of higher latency on the application's performance, ensure the redundancy of all the application's components in the DR region and follow these [network security guidelines](#failover-groups-and-network-security).
 
-> [!NOTE]
-> The application in the DR region does not have to use a different SQL connection string.  
-
 ### Preparing for data loss
 
 If an outage is detected, SQL waits for the period you specified by `GracePeriodWithDataLossHours`. The default value is 1 hour. If you cannot afford data loss, make sure to set `GracePeriodWithDataLossHours` to a sufficiently large number, such as 24 hours. Use manual group failover to fail back from the secondary to the primary.
@@ -255,9 +252,6 @@ If you have a logically isolated read-only workload that is tolerant to certain 
 ### Preparing for performance degradation
 
 A typical Azure application uses multiple Azure service and consists of multiple components. The automated failover of the failover group is triggered based on the state the Azure SQL components alone. Other Azure services in the primary region may not be affected by the outage and their components may still be available in that region. Once the primary databases switch to the DR region, the latency between the dependent components may increase. To avoid the impact of higher latency on the application's performance, ensure the redundancy of all the application's components in the DR region and follow these [network security guidelines](#failover-groups-and-network-security).
-
-> [!NOTE]
-> The application in the DR region does not have to use a different SQL connection string.  
 
 ### Preparing for data loss**
 
