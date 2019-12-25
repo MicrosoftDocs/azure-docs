@@ -37,6 +37,7 @@ There are a few ways to start the authoring experience in SQL script. You can cr
 
 >>   <img src=".\media\authoring-sql-script\NewSQLScriptResultsTable.PNG" alt="Create SQL Script" width="700"/>
 
->> You can use the search feature by typing text you are searching for. You can also export the results to your local storage in different formats including: CSV, Excel, JSON, XML. You can also visualize the SQL script results in a chart as indicated below
+>> You can export the results to your local storage in different formats (including CSV, Excel, JSON, XML) by clicking "Export results" and choose the extension. 
+>> You can also visualize the SQL script results in a chart by clicking on the "Chart" button. Select the "Chart type" and "Category column". You can finally export the chart into a picture by clicking on "Save as image".  
 
 >>   <img src=".\media\authoring-sql-script\NewSQLScriptResultsChart.PNG" alt="Create SQL Script" width="700"/>
