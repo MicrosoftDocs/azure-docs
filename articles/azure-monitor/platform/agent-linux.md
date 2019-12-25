@@ -40,7 +40,7 @@ apache-cimprov | 1.0.1 | Apache HTTP Server performance monitoring provider for 
 mysql-cimprov | 1.0.1 | MySQL Server performance monitoring provider for OMI. Only installed if MySQL/MariaDB server is detected.
 docker-cimprov | 1.0.0 | Docker provider for OMI. Only installed if Docker is detected.
 
-### Additional installation artifacts
+### Agent installation background details
 
 After installing the Log Analytics agent for Linux packages, the following additional system-wide configuration changes are applied. These artifacts are removed when the omsagent package is uninstalled.
 
