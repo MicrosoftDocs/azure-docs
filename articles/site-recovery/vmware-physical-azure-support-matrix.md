@@ -1,12 +1,10 @@
 ---
 title: Support matrix for VMware/physical disaster recovery in Azure Site Recovery 
 description: Summarizes support for disaster recovery of VMware VMs and physical server to Azure using Azure Site Recovery.
-author: rayne-wiselman
-manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/15/2019
-ms.author: raynew
+ms.date: 12/23/2019
+
 
 ---
 # Support matrix for disaster recovery  of VMware VMs and physical servers to Azure
@@ -144,7 +142,7 @@ BTRFS | BTRFS is supported from [Update Rollup 34](https://support.microsoft.com
 
 **Action** | **Details**
 --- | ---
-Resize disk on replicated VM | Supported.
+Resize disk on replicated VM | Supported on the source VM before failover, directly in the VM properties. No need to disable/re-enable replication.<br/><br/> If you change the source VM after failover, the changes aren't captures.<br/><br/> If you change the disk size on the Azure VM after failover, when you fail back, Site Recovery creates a new VM with the updates.
 Add disk on replicated VM | Not supported.<br/> Disable replication for the VM, add the disk, and then re-enable replication.
 
 ## Network

@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Set up an Azure Time Series Insights Preview environment'
-description: 'Tutorial: Learn how to set up your environment in Azure Time Series Insights Preview.'
+title: 'Tutorial: Set up a Preview environment - Azure Time Series Insights | Microsoft Docs'
+description: 'Tutorial: Learn how to set up an environment in Azure Time Series Insights Preview.'
 author: deepakpalled
 ms.author: dpalled
 manager: cshankar
@@ -183,7 +183,7 @@ In this section, you perform basic analytics on your time series data by using t
 
     [![List of unparented instances](media/v2-update-provision/analyze-two-unparented.png)](media/v2-update-provision/analyze-two-unparented.png#lightbox)
 
-1. Select the first time series instance. Then, select **Show pressure**.
+1. Select the first time series instance. Then, select **Show temperature**.
 
     [![Selected time series instance with menu command to show average pressure](media/v2-update-provision/analyze-three-show-pressure.png)](media/v2-update-provision/analyze-three-show-pressure.png#lightbox)
 

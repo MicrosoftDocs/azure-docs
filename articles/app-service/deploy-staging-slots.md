@@ -28,7 +28,7 @@ To scale your app to a different tier, make sure that the target tier supports t
 ## Add a slot
 The app must be running in the **Standard**, **Premium**, or **Isolated** tier in order for you to enable multiple deployment slots.
 
-1. In the [Azure portal](https://portal.azure.com/), open your app's [resource page](../azure-resource-manager/manage-resources-portal.md#manage-resources).
+1. In the [Azure portal](https://portal.azure.com/), open your app's [resource page](../azure-resource-manager/management/manage-resources-portal.md#manage-resources).
 
 2. In the left pane, select **Deployment slots** > **Add Slot**.
    
