@@ -48,6 +48,24 @@ After installing the Log Analytics agent for Linux packages, the following addit
 * A sudoers *include* file is created in `/etc/sudoers.d/omsagent`. This authorizes `omsagent` to restart the syslog and omsagent daemons. If sudo *include* directives are not supported in the installed version of sudo, these entries will be written to `/etc/sudoers`.
 * The syslog configuration is modified to forward a subset of events to the agent. For more information, see [Configure Syslog data collection](data-sources-syslog.md).
 
+## Obtain workspace ID and key
+
+Before installing the Log Analytics agent for Linux, you need the workspace ID and key for your Log Analytics workspace. This information is required during setup of the agent to properly configure it and ensure it can successfully communicate with Azure Monitor.
+
+[!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]  
+
+1. In the upper-left corner of the Azure portal, select **All services**. In the search box, enter **Log Analytics**. As you type, the list filters based on your input. Select **Log Analytics workspaces**.
+
+2. In your list of Log Analytics workspaces, select the workspace you created earlier. (You might have named it **DefaultLAWorkspace**.)
+
+3. Select **Advanced settings**:
+
+    ![Advanced Settings menu for Log Analytics in the Azure portal](media/quick-collect-azurevm/log-analytics-advanced-settings-azure-portal.png) 
+ 
+4. Select **Connected Sources**, and then select **Linux Servers**.
+
+5. The value to the right of **Workspace ID** and **Primary Key**. Copy and paste both into your favorite editor.
+
 ## Install the agent manually
 
 The Log Analytics agent for Linux is provided in a self-extracting and installable shell script bundle. This bundle contains Debian and RPM packages for each of the agent components and can be installed directly or extracted to retrieve the individual packages. One bundle is provided for x64 and one for x86 architectures. 
