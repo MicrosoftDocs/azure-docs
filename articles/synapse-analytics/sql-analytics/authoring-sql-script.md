@@ -31,3 +31,8 @@ There are a few ways to start the authoring experience in SQL script. You can cr
 >> 1.3 Start authoring your SQL script and leverage the intellisense feature
 
 >>   <img src=".\media\authoring-sql-script\NewSQLIntellisense.PNG" alt="Create SQL Script" width="350"/>
+
+>> 1.4 Run your SQL script
+>> Click the "Run" button to execute your SQL script. The results are displayed by default in a table  
+
+>>   <img src=".\media\authoring-sql-script\NewSQLScriptResultsTable.PNG" alt="Create SQL Script" width="700"/>
