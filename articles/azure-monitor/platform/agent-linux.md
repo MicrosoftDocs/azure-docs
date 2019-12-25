@@ -115,9 +115,9 @@ sudo sh ./omsagent-*.universal.x64.sh --extract
 
 ## Install the agent using wrapper script
 
-The following steps configure setup of the agent for Log Analytics in Azure and Azure Government cloud.  
+The following steps configure setup of the agent for Log Analytics in Azure and Azure Government cloud using the wrapper script for Linux computers that can communicate directly or through a proxy server to the Internet in order to download, install, and configure the agent. 
 
-If your Linux computer needs to communicate through a proxy server or Log Analytics Gateway to Log Analytics, this configuration can be specified on the command line by including `-p [protocol://][user:password@]proxyhost[:port]`.  The *proxyhost* property accepts a fully qualified domain name or IP address of the proxy or Log Analytics Gateawy server. 
+If your Linux computer needs to communicate through a proxy server to Log Analytics, this configuration can be specified on the command line by including `-p [protocol://][user:password@]proxyhost[:port]`. The *proxyhost* property accepts a fully qualified domain name or IP address of the proxy or Log Analytics Gateawy server. 
 
 For example: `https://proxy01.contoso.com:30443`
 
@@ -132,7 +132,7 @@ If authentication is required in either case, you need to specify the username a
     The following command includes the `-p` proxy parameter and example syntax when authentication is required by your proxy server or Log Analytics Gateway:
 
    ```
-    wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -p [protocol://]<proxyhost>[:port] -w <YOUR WORKSPACE ID> -s <YOUR WORKSPACE PRIMARY KEY>
+    wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -p [protocol://]<username:password>@<proxyhost>[:port] -w <YOUR WORKSPACE ID> -s <YOUR WORKSPACE PRIMARY KEY>
     ```
 
 2. To configure the Linux computer to connect to Log Analytics workspace in Azure Government cloud, run the following command providing the workspace ID and primary key copied earlier. The following command downloads the agent, validates its checksum, and installs it. 
@@ -144,7 +144,7 @@ If authentication is required in either case, you need to specify the username a
     The following command includes the `-p` proxy parameter and example syntax when authentication is required by your proxy server or Log Analytics Gateway:
 
    ```
-    wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -p [protocol://]<proxyhost>[:port] -w <YOUR WORKSPACE ID> -s <YOUR WORKSPACE PRIMARY KEY> -d opinsights.azure.us
+    wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -p [protocol://]<username:password>@<proxyhost>[:port] -w <YOUR WORKSPACE ID> -s <YOUR WORKSPACE PRIMARY KEY> -d opinsights.azure.us
     ```
 2. Restart the agent by running the following command: 
 
