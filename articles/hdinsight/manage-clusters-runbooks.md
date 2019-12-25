@@ -26,7 +26,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 ## Prerequisites
 
 1. An existing Azure Automation account.
-1. An existing Azure storage account which will be used as cluster storage.
+1. An existing Azure Storage account, which will be used as cluster storage.
 
 ## Install HDInsight modules
 
@@ -39,7 +39,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 1. Return to the modules gallery by clicking **Modules gallery** under **Shared Resources**.
 1. Type **HDInsight**. Click **AzureRM.HDInsight**.
 
-![browse HDInsight modules](./media/manage-clusters-runbooks/browse-modules.png)
+![browse HDInsight modules](./media/manage-clusters-runbooks/browse-modules-hdinsight.png)
 
 1. On the **AzureRM.HDInsight** panel, click **Import** and **OK**.
 
@@ -47,9 +47,9 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 ## Create credentials
 
-1. Under **Shared Resources** click **Credentials**.
+1. Under **Shared Resources**, click **Credentials**.
 1. Click **Add a credential**.
-1. Enter the required information on the **New Credential** panel. This credential is to store the cluster password which will enable you to login to Ambari.
+1. Enter the required information on the **New Credential** panel. This credential is to store the cluster password, which will enable you to log in to Ambari.
 
 | Property | Value |
 | --- | --- |
@@ -67,7 +67,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 1. Click **Runbooks** under **Process Automation**.
 1. Click **Create a runbook**.
-1. On the **Create a runbook** panel, enter a name for the runbook and select **Powershell** from the **Runbook type** dropdown.
+1. On the **Create a runbook** panel, enter a name for the runbook. Select **Powershell** from the **Runbook type** dropdown.
 1. Click **Create**.
 
 ![create runbook](./media/manage-clusters-runbooks/create-runbook.png)
