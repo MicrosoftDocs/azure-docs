@@ -15,9 +15,9 @@ ms.reviewer: omafnan
 Azure Synapse Analytics studio SQL script is a web interface for you to author SQL pool and SQL On-demand. 
 
 ## Create a SQL Script and author its content
-There are a few ways to start the authoring experience in SQL script. You can create a new SQL script: 
+There are few ways to start the authoring experience in SQL script. You can create a new SQL script: 
 
->1. Click on the "+" icon: Add new resource and choose "SQL script" 
+>1. Add new resource by clicking on the "+" icon and choose "SQL script"  
 ><img src=".\media\authoring-sql-script\NewSQLScript.PNG" alt="Create SQL Script" width="700"/>
 
 >> 1.1 Choose a name for your SQL script by clicking on the "Property" button   and replace the default name assigned to the SQL script
@@ -41,3 +41,10 @@ There are a few ways to start the authoring experience in SQL script. You can cr
 >> You can also visualize the SQL script results in a chart by clicking on the "Chart" button. Select the "Chart type" and "Category column". You can finally export the chart into a picture by clicking on "Save as image".  
 
 >>   <img src=".\media\authoring-sql-script\NewSQLScriptResultsChart.PNG" alt="Create SQL Script" width="700"/>
+
+>2. Other methods to create a new SQL Script
+
+>> 2.1 Choose "New SQL script" from the "Actions" menu under Develop SQL scripts. Then continue the authoring process following steps 1.1   
+>> <img src=".\media\authoring-sql-script\NewSQLScript2.Actions.PNG" alt="Create SQL Script" width="700"/>
+>> 2.2 Choose "Import" from the "Actions" menu under Develop SQL scripts and select an existing SQL script from your local storage. Then continue the authoring process following steps 1.1   
+>> <img src=".\media\authoring-sql-script\NewSQLScript3.Actions.PNG" alt="Create SQL Script" width="700"/>
