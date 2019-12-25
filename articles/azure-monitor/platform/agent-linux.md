@@ -83,12 +83,14 @@ For Azure VMs, you can install the agent on them using the [Azure Log Analytics 
     sudo sh ./omsagent-*.universal.x64.sh --upgrade -w <workspace id> -s <shared key> -d opinsights.azure.us
     ```
 
-**To install the agent packages and onboard at a later time:**
+If you want to install the agent packages and configure it to report to a specific Log Analytics workspace at a later time, run the following command:
+
 ```
 sudo sh ./omsagent-*.universal.x64.sh --upgrade
 ```
 
-**To extract the agent packages from the bundle without installing:**
+If you want to extract the agent packages from the bundle without installing the agent, run the following command:
+
 ```
 sudo sh ./omsagent-*.universal.x64.sh --extract
 ```
