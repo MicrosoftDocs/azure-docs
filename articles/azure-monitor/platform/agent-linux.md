@@ -111,7 +111,7 @@ If authentication is required in either case, you need to specify the username a
     wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w <YOUR WORKSPACE ID> -s <YOUR WORKSPACE PRIMARY KEY>
     ```
 
-    The following command includes the `-p` proxy parameter and example syntax.
+    The following command includes the `-p` proxy parameter and example syntax when authentication is required by your proxy server or Log Analytics Gateway:.
 
    ```
     wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -p [protocol://]<proxyhost>[:port] -w <YOUR WORKSPACE ID> -s <YOUR WORKSPACE PRIMARY KEY>
@@ -123,7 +123,7 @@ If authentication is required in either case, you need to specify the username a
     wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w <YOUR WORKSPACE ID> -s <YOUR WORKSPACE PRIMARY KEY> -d opinsights.azure.us
     ``` 
 
-    The following command includes the `-p` proxy parameter and example syntax.
+    The following command includes the `-p` proxy parameter and example syntax when authentication is required by your proxy server or Log Analytics Gateway:.
 
    ```
     wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -p [protocol://]<proxyhost>[:port] -w <YOUR WORKSPACE ID> -s <YOUR WORKSPACE PRIMARY KEY> -d opinsights.azure.us
@@ -133,3 +133,5 @@ If authentication is required in either case, you need to specify the username a
     ```
     sudo /opt/microsoft/omsagent/bin/service_control restart [<workspace id>]
     ``` 
+
+## Next steps
