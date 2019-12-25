@@ -1,14 +1,11 @@
 ---
-title: Quickstart to learn how to use Azure App Configuration | Microsoft Docs
+title: Quickstart to learn how to use Azure App Configuration
 description: A quickstart for using Azure App Configuration with Java Spring apps.
-services: azure-app-configuration
 author: yidon
-
-
+ms.author: yidon
 ms.service: azure-app-configuration
 ms.topic: quickstart
 ms.date: 12/17/2019
-ms.author: yidon
 
 #Customer intent: As a Java Spring developer, I want to manage all my app settings in one place.
 ---

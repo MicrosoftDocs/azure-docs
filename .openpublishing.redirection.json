@@ -2032,7 +2032,7 @@
     },
     {
       "source_path": "articles/marketplace-consumer/mytemplates-getstarted.md",
-      "redirect_url": "/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal",
+      "redirect_url": "/azure/azure-resource-manager/templates/quickstart-create-templates-use-the-portal",
       "redirect_document_id": true
     },
     {
@@ -3221,88 +3221,668 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/azure-resource-manager/azure-resource-manager-security-controls.md",
+      "redirect_url": "/azure/azure-resource-manager/management/azure-resource-manager-security-controls",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/azure-services-resource-providers.md",
+      "redirect_url": "/azure/azure-resource-manager/management/azure-services-resource-providers",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/child-resource-name-type.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/child-resource-name-type",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/complete-mode-deletion.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/complete-mode-deletion",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/conditional-resource-deployment.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/conditional-resource-deployment",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/deployment-manager-health-check.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/deployment-manager-health-check",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/deployment-manager-overview.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/deployment-manager-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/deployment-manager-tutorial.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/deployment-manager-tutorial",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/deployment-manager-tutorial-health-check.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/deployment-manager-tutorial-health-check",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/deployment-modes.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/deployment-modes",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/deployment-quota-exceeded.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/deployment-quota-exceeded",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/deploy-to-management-group.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/deploy-to-management-group",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/deploy-to-subscription.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/deploy-to-subscription",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/export-template-portal.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/export-template-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/extension-resource-types.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/extension-resource-types",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/grant-access-to-create-subscription.md",
+      "redirect_url": "/azure/azure-resource-manager/management/grant-access-to-create-subscription",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/manage-resource-groups-cli.md",
+      "redirect_url": "/azure/azure-resource-manager/management/manage-resource-groups-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/manage-resource-groups-portal.md",
+      "redirect_url": "/azure/azure-resource-manager/management/manage-resource-groups-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/manage-resource-groups-powershell.md",
+      "redirect_url": "/azure/azure-resource-manager/management/manage-resource-groups-powershell",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/manage-resources-cli.md",
+      "redirect_url": "/azure/azure-resource-manager/management/manage-resources-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/manage-resources-portal.md",
+      "redirect_url": "/azure/azure-resource-manager/management/manage-resources-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/manage-resources-powershell.md",
+      "redirect_url": "/azure/azure-resource-manager/management/manage-resources-powershell",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/move-support-resources.md",
+      "redirect_url": "/azure/azure-resource-manager/management/move-support-resources",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/programmatically-create-subscription.md",
+      "redirect_url": "/azure/azure-resource-manager/management/programmatically-create-subscription",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/region-move-support.md",
+      "redirect_url": "/azure/azure-resource-manager/management/region-move-support",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/resource-group-audit.md",
+      "redirect_url": "/azure/azure-resource-manager/management/view-activity-logs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/resource-group-authoring-templates.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/template-syntax",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/resource-group-create-multiple.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/create-multiple-instances",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/resource-group-define-dependencies.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/define-resource-dependency",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/resource-group-delete.md",
+      "redirect_url": "/azure/azure-resource-manager/management/delete-resource-group",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/resource-group-linked-templates.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/linked-templates",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/resource-group-lock-resources.md",
+      "redirect_url": "/azure/azure-resource-manager/management/lock-resources",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/resource-group-move-region.md",
+      "redirect_url": "/azure/azure-resource-manager/management/move-region",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/resource-group-move-resources.md",
+      "redirect_url": "/azure/azure-resource-manager/management/move-resource-group-and-subscription",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/resource-group-overview.md",
+      "redirect_url": "/azure/azure-resource-manager/management/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/resource-group-template-deploy.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/deploy-powershell",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/resource-group-template-deploy-cli.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/deploy-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/resource-group-template-deploy-portal.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/deploy-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/resource-group-template-deploy-rest.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/deploy-rest",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/resource-group-template-functions.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/template-functions",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/resource-group-template-functions-array.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/template-functions-array",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/resource-group-template-functions-comparison.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/template-functions-comparison",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/resource-group-template-functions-deployment.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/template-functions-deployment",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/resource-group-template-functions-logical.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/template-functions-logical",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/resource-group-template-functions-numeric.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/template-functions-numeric",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/resource-group-template-functions-resource.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/template-functions-resource",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/resource-group-template-functions-string.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/template-functions-string",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/resource-group-using-tags.md",
+      "redirect_url": "/azure/azure-resource-manager/management/tag-resources",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/resource-location.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/resource-location",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/resource-manager-async-operations.md",
+      "redirect_url": "/azure/azure-resource-manager/management/async-operations",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/resource-manager-common-deployment-errors.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/common-deployment-errors",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/resource-manager-cross-resource-group-deployment.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/cross-resource-group-deployment",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/resource-manager-deployment-model.md",
+      "redirect_url": "/azure/azure-resource-manager/management/deployment-models",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/resource-manager-deployment-operations.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/deployment-history",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/resource-manager-invalid-template-errors.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/error-invalid-template",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/resource-manager-keyvault-parameter.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/key-vault-parameter",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/resource-manager-not-found-errors.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/error-not-found",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/resource-manager-parameter-files.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/parameter-files",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/resource-manager-parent-resource-errors.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/error-parent-resource",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/resource-manager-personal-data.md",
+      "redirect_url": "/azure/azure-resource-manager/management/resource-manager-personal-data",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/resource-manager-policy-requestdisallowedbypolicy-error.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/error-policy-requestdisallowedbypolicy",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/resource-manager-quickstart-create-templates-use-intellij.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/create-templates-use-intellij",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/quickstart-create-templates-use-the-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/resource-manager-quickstart-create-templates-use-visual-studio-code.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/quickstart-create-templates-use-visual-studio-code",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/resource-manager-quota-errors.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/error-resource-quota",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/resource-manager-register-provider-errors.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/error-register-resource-provider",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/resource-manager-request-limits.md",
+      "redirect_url": "/azure/azure-resource-manager/management/request-limits-and-throttling",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/resource-manager-reserved-resource-name.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/error-reserved-resource-name",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/resource-manager-sku-not-available-errors.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/error-sku-not-available",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/resource-manager-storage-account-name-errors.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/error-storage-account-name",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/resource-manager-supported-services.md",
+      "redirect_url": "/azure/azure-resource-manager/management/resource-providers-and-types",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/resource-manager-tools-vs-code.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/use-vs-code-to-create-template",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/resource-manager-tutorial-create-encrypted-storage-accounts.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/template-tutorial-create-encrypted-storage-accounts",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/resource-manager-tutorial-create-linked-templates.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/template-tutorial-create-linked-templates",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/resource-manager-tutorial-create-multiple-instances.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/template-tutorial-create-multiple-instances",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/resource-manager-tutorial-create-templates-with-dependent-resources.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/template-tutorial-create-templates-with-dependent-resources",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/resource-manager-tutorial-deploy-sql-extensions-bacpac.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/template-tutorial-deploy-sql-extensions-bacpac",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/resource-manager-tutorial-deploy-vm-extensions.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/template-tutorial-deploy-vm-extensions",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/resource-manager-tutorial-secure-artifacts.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/template-tutorial-secure-artifacts",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/resource-manager-tutorial-troubleshoot.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/template-tutorial-troubleshoot",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/resource-manager-tutorial-use-azure-pipelines.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/template-tutorial-use-azure-pipelines",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/resource-manager-tutorial-use-conditions.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/template-tutorial-use-conditions",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/resource-manager-tutorial-use-key-vault.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/template-tutorial-use-key-vault",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/resource-manager-use-extensions.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/add-resource-extensions",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/resources-without-rg-limit.md",
+      "redirect_url": "/azure/azure-resource-manager/management/resources-without-resource-group-limit",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/rollback-on-error.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/rollback-on-error",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/secure-template-with-sas-token.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/secure-template-with-sas-token",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/tag-support.md",
+      "redirect_url": "/azure/azure-resource-manager/management/tag-support",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/template-best-practices.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/template-best-practices",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/template-deployment-overview.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/template-deploy-what-if.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/template-deploy-what-if",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/template-expressions.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/template-expressions",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/template-outputs.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/template-outputs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/template-parameters.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/template-parameters",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/template-samples.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/template-samples",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/templates-cloud-consistency.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/templates-cloud-consistency",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/template-tutorial-add-functions.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/template-tutorial-add-functions",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/template-tutorial-add-outputs.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/template-tutorial-add-outputs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/template-tutorial-add-parameters.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/template-tutorial-add-parameters",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/template-tutorial-add-resource.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/template-tutorial-add-resource",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/template-tutorial-add-tags.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/template-tutorial-add-tags",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/template-tutorial-add-variables.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/template-tutorial-add-variables",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/template-tutorial-create-first-template.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/template-tutorial-create-first-template",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/template-tutorial-export-template.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/template-tutorial-export-template",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/template-tutorial-quickstart-template.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/template-tutorial-quickstart-template",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/template-tutorial-use-parameter-file.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/template-tutorial-use-parameter-file",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/template-user-defined-functions.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/template-user-defined-functions",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/template-variables.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/template-variables",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/troubleshoot-move.md",
+      "redirect_url": "/azure/azure-resource-manager/management/troubleshoot-move",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/move-limitations/app-service-move-limitations.md",
+      "redirect_url": "/azure/azure-resource-manager/management/move-limitations/app-service-move-limitations",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/move-limitations/classic-model-move-limitations.md",
+      "redirect_url": "/azure/azure-resource-manager/management/move-limitations/classic-model-move-limitations",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/move-limitations/networking-move-limitations.md",
+      "redirect_url": "/azure/azure-resource-manager/management/move-limitations/networking-move-limitations",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/move-limitations/virtual-machines-move-limitations.md",
+      "redirect_url": "/azure/azure-resource-manager/management/move-limitations/virtual-machines-move-limitations",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/create-visual-studio-deployment-project",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/vs-azure-tools-update-deploy-script-to-az-powershell.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/update-visual-studio-deployment-script",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/vs-resource-groups-project-devops-pipelines.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/add-template-to-azure-pipelines",
+      "redirect_document_id": false
+    },    
+    {
       "source_path": "articles/azure-resource-manager/how-to-create-template.md",
-      "redirect_url": "/azure/azure-resource-manager/resource-group-authoring-templates",
+      "redirect_url": "/azure/azure-resource-manager/templates/template-syntax",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/azure-resource-manager/move-limitations/virtual-network-move-limitations.md",
-      "redirect_url": "/azure/azure-resource-manager/move-limitations/networking-move-limitations",
+      "redirect_url": "/azure/azure-resource-manager/management/move-limitations/networking-move-limitations",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/azure-resource-manager/resource-manager-powershell-sas-token.md",
-      "redirect_url": "/azure/azure-resource-manager/secure-template-with-sas-token",
+      "redirect_url": "/azure/azure-resource-manager/templates/secure-template-with-sas-token",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/azure-resource-manager/resource-manager-cli-sas-token.md",
-      "redirect_url": "/azure/azure-resource-manager/secure-template-with-sas-token",
+      "redirect_url": "/azure/azure-resource-manager/templates/secure-template-with-sas-token",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/azure-resource-manager/resource-manager-tutorial-move-resources.md",
-      "redirect_url": "/azure/azure-resource-manager/resource-group-move-resources",
+      "redirect_url": "/azure/azure-resource-manager/management/move-resource-group-and-subscription",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/azure-resource-manager/resource-manager-templates-parameters.md",
-      "redirect_url": "/azure/azure-resource-manager/resource-group-authoring-templates#parameters",
+      "redirect_url": "/azure/azure-resource-manager/templates/template-parameters",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/azure-resource-manager/resource-manager-templates-outputs.md",
-      "redirect_url": "/azure/azure-resource-manager/resource-group-authoring-templates#outputs",
+      "redirect_url": "/azure/azure-resource-manager/templates/template-outputs",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/azure-resource-manager/resource-manager-templates-variables.md",
-      "redirect_url": "/azure/azure-resource-manager/resource-group-authoring-templates#variables",
+      "redirect_url": "/azure/azure-resource-manager/templates/template-variables",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/azure-resource-manager/resource-manager-templates-resources.md",
-      "redirect_url": "/azure/azure-resource-manager/resource-group-authoring-templates#resources",
+      "redirect_url": "/azure/azure-resource-manager/templates/template-syntax#resources",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/azure-resource-manager/resource-manager-export-template.md",
-      "redirect_url": "/azure/azure-resource-manager/manage-resources-portal",
+      "redirect_url": "/azure/azure-resource-manager/templates/export-template-portal",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/azure-resource-manager/resource-manager-export-template-cli.md",
-      "redirect_url": "/azure/azure-resource-manager/manage-resources-cli",
+      "redirect_url": "/azure/azure-resource-manager/management/manage-resources-cli",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/azure-resource-manager/resource-manager-export-template-powershell.md",
-      "redirect_url": "/azure/azure-resource-manager/manage-resources-powershell",
+      "redirect_url": "/azure/azure-resource-manager/management/manage-resources-powershell",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/azure-resource-manager/resource-group-portal.md",
-      "redirect_url": "/azure/azure-resource-manager/manage-resources-portal",
+      "redirect_url": "/azure/azure-resource-manager/management/manage-resources-portal",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/azure-resource-manager/powershell-azure-resource-manager.md",
-      "redirect_url": "/azure/azure-resource-manager/manage-resources-powershell",
+      "redirect_url": "/azure/azure-resource-manager/management/manage-resources-powershell",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/azure-resource-manager/cli-azure-resource-manager.md",
-      "redirect_url": "/azure/azure-resource-manager/manage-resources-cli",
+      "redirect_url": "/azure/azure-resource-manager/management/manage-resources-cli",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/azure-resource-manager/create-resource-group-in-template.md",
-      "redirect_url": "/azure/azure-resource-manager/deploy-to-subscription",
+      "redirect_url": "/azure/azure-resource-manager/templates/deploy-to-subscription",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/azure-resource-manager/resource-manager-troubleshoot-tips.md",
-      "redirect_url": "/azure/azure-resource-manager/resource-manager-common-deployment-errors",
+      "redirect_url": "/azure/azure-resource-manager/templates/common-deployment-errors",
       "redirect_document_id": false
     },
     {
@@ -3372,12 +3952,12 @@
     },
     {
       "source_path": "articles/best-practices-resource-manager-design-templates.md",
-      "redirect_url": "/azure/azure-resource-manager/resource-group-authoring-templates",
+      "redirect_url": "/azure/azure-resource-manager/templates/template-syntax",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/azure-resource-manager/best-practices-resource-manager-design-templates.md",
-      "redirect_url": "/azure/azure-resource-manager/resource-group-authoring-templates",
+      "redirect_url": "/azure/azure-resource-manager/templates/template-syntax",
       "redirect_document_id": false
     },
     {
@@ -3387,7 +3967,7 @@
     },
     {
       "source_path": "articles/best-practices-resource-manager-state.md",
-      "redirect_url": "/azure/azure-resource-manager/resource-group-linked-templates",
+      "redirect_url": "/azure/azure-resource-manager/templates/linked-templates",
       "redirect_document_id": false
     },
     {
@@ -3547,22 +4127,22 @@
     },
     {
       "source_path": "articles/azure-resource-manager/resource-manager-template-location.md",
-      "redirect_url": "/azure/azure-resource-manager/resource-group-authoring-templates#resources",
+      "redirect_url": "/azure/azure-resource-manager/templates/resource-location",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/azure-resource-manager/resource-manager-template-tags.md",
-      "redirect_url": "/azure/azure-resource-manager/resource-group-authoring-templates#resources",
+      "redirect_url": "/azure/azure-resource-manager/management/tag-resources",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/azure-resource-manager/resource-manager-template-child-resource.md",
-      "redirect_url": "/azure/azure-resource-manager/resource-group-authoring-templates#resources",
+      "redirect_url": "/azure/azure-resource-manager/templates/child-resource-name-type",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/powershell-azure-resource-manager.md",
-      "redirect_url": "/azure/azure-resource-manager/manage-resources-powershell",
+      "redirect_url": "/azure/azure-resource-manager/management/manage-resources-powershell",
       "redirect_document_id": false
     },
     {
@@ -3572,7 +4152,7 @@
     },
     {
       "source_path": "articles/resource-group-audit.md",
-      "redirect_url": "/azure/azure-resource-manager/resource-group-audit",
+      "redirect_url": "/azure/azure-resource-manager/management/view-activity-logs",
       "redirect_document_id": false
     },
     {
@@ -3582,12 +4162,12 @@
     },
     {
       "source_path": "articles/azure-resource-manager/resource-manager-samples-powershell-deploy.md",
-      "redirect_url": "/azure/azure-resource-manager/resource-group-template-deploy",
+      "redirect_url": "/azure/azure-resource-manager/templates/deploy-powershell",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/azure-resource-manager/resource-manager-samples-cli-deploy.md",
-      "redirect_url": "/azure/azure-resource-manager/resource-group-template-deploy-cli",
+      "redirect_url": "/azure/azure-resource-manager/templates/deploy-cli",
       "redirect_document_id": false
     },
     {
@@ -3647,12 +4227,12 @@
     },
     {
       "source_path": "articles/resource-group-authoring-templates.md",
-      "redirect_url": "/azure/azure-resource-manager/resource-group-authoring-templates",
+      "redirect_url": "/azure/azure-resource-manager/templates/template-syntax",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/resource-group-create-multiple.md",
-      "redirect_url": "/azure/azure-resource-manager/resource-group-create-multiple",
+      "redirect_url": "/azure/azure-resource-manager/templates/create-multiple-instances",
       "redirect_document_id": false
     },
     {
@@ -3667,7 +4247,7 @@
     },
     {
       "source_path": "articles/resource-group-define-dependencies.md",
-      "redirect_url": "/azure/azure-resource-manager/resource-group-define-dependencies",
+      "redirect_url": "/azure/azure-resource-manager/templates/define-resource-dependency",
       "redirect_document_id": false
     },
     {
@@ -3677,12 +4257,12 @@
     },
     {
       "source_path": "articles/resource-group-linked-templates.md",
-      "redirect_url": "/azure/azure-resource-manager/resource-group-linked-templates",
+      "redirect_url": "/azure/azure-resource-manager/templates/linked-templates",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/resource-group-lock-resources.md",
-      "redirect_url": "/azure/azure-resource-manager/resource-group-lock-resources",
+      "redirect_url": "/azure/azure-resource-manager/management/lock-resources",
       "redirect_document_id": false
     },
     {
@@ -3692,37 +4272,37 @@
     },
     {
       "source_path": "articles/resource-group-move-resources.md",
-      "redirect_url": "/azure/azure-resource-manager/resource-group-move-resources",
+      "redirect_url": "/azure/azure-resource-manager/management/move-resource-group-and-subscription",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/resource-group-template-deploy-cli.md",
-      "redirect_url": "/azure/azure-resource-manager/resource-group-template-deploy-cli",
+      "redirect_url": "/azure/azure-resource-manager/templates/deploy-cli",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/resource-group-template-deploy-portal.md",
-      "redirect_url": "/azure/azure-resource-manager/resource-group-template-deploy-portal",
+      "redirect_url": "/azure/azure-resource-manager/templates/deploy-portal",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/resource-group-template-deploy-rest.md",
-      "redirect_url": "/azure/azure-resource-manager/resource-group-template-deploy-rest",
+      "redirect_url": "/azure/azure-resource-manager/templates/deploy-rest",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/resource-group-template-deploy.md",
-      "redirect_url": "/azure/azure-resource-manager/resource-group-template-deploy",
+      "redirect_url": "/azure/azure-resource-manager/templates/deploy-powershell",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/resource-group-template-functions.md",
-      "redirect_url": "/azure/azure-resource-manager/resource-group-template-functions",
+      "redirect_url": "/azure/azure-resource-manager/templates/template-functions",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/resource-group-using-tags.md",
-      "redirect_url": "/azure/azure-resource-manager/resource-group-using-tags",
+      "redirect_url": "/azure/azure-resource-manager/management/tag-resources",
       "redirect_document_id": false
     },
     {
@@ -3737,22 +4317,22 @@
     },
     {
       "source_path": "articles/resource-manager-common-deployment-errors.md",
-      "redirect_url": "/azure/azure-resource-manager/resource-manager-common-deployment-errors",
+      "redirect_url": "/azure/azure-resource-manager/templates/common-deployment-errors",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/resource-manager-deployment-model.md",
-      "redirect_url": "/azure/azure-resource-manager/resource-manager-deployment-model",
+      "redirect_url": "/azure/azure-resource-manager/management/deployment-models",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/resource-manager-export-template.md",
-      "redirect_url": "/azure/azure-resource-manager/manage-resources-portal",
+      "redirect_url": "/azure/azure-resource-manager/templates/export-template-portal",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/resource-manager-keyvault-parameter.md",
-      "redirect_url": "/azure/azure-resource-manager/resource-manager-keyvault-parameter",
+      "redirect_url": "/azure/azure-resource-manager/templates/key-vault-parameter",
       "redirect_document_id": false
     },
     {
@@ -3762,7 +4342,7 @@
     },
     {
       "source_path": "articles/resource-manager-request-limits.md",
-      "redirect_url": "/azure/azure-resource-manager/resource-manager-request-limits",
+      "redirect_url": "/azure/azure-resource-manager/management/request-limits-and-throttling",
       "redirect_document_id": false
     },
     {
@@ -3792,12 +4372,12 @@
     },
     {
       "source_path": "articles/resource-manager-supported-services.md",
-      "redirect_url": "/azure/azure-resource-manager/resource-manager-supported-services",
+      "redirect_url": "/azure/azure-resource-manager/management/resource-providers-and-types",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/resource-manager-template-best-practices.md",
-      "redirect_url": "/azure/azure-resource-manager/resource-group-authoring-templates",
+      "redirect_url": "/azure/azure-resource-manager/templates/template-best-practices",
       "redirect_document_id": false
     },
     {
@@ -3817,12 +4397,12 @@
     },
     {
       "source_path": "articles/azure-resource-manager/resource-manager-template-best-practices.md",
-      "redirect_url": "/azure/azure-resource-manager/resource-group-authoring-templates",
+      "redirect_url": "/azure/azure-resource-manager/templates/template-best-practices",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/azure-resource-manager/best-practices-resource-manager-state.md",
-      "redirect_url": "/azure/azure-resource-manager/resource-group-linked-templates",
+      "redirect_url": "/azure/azure-resource-manager/templates/linked-templates",
       "redirect_document_id": false
     },
     {
@@ -3842,27 +4422,27 @@
     },
     {
       "source_path": "articles/resource-manager-template-walkthrough.md",
-      "redirect_url": "/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal",
+      "redirect_url": "/azure/azure-resource-manager/templates/quickstart-create-templates-use-the-portal",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/resource-manager-troubleshoot-deployments-cli.md",
-      "redirect_url": "/azure/azure-resource-manager/resource-manager-deployment-operations",
+      "redirect_url": "/azure/azure-resource-manager/templates/deployment-history",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/resource-manager-troubleshoot-deployments-portal.md",
-      "redirect_url": "/azure/azure-resource-manager/resource-manager-deployment-operations",
+      "redirect_url": "/azure/azure-resource-manager/templates/deployment-history",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/resource-manager-troubleshoot-deployments-powershell.md",
-      "redirect_url": "/azure/azure-resource-manager/resource-manager-deployment-operations",
+      "redirect_url": "/azure/azure-resource-manager/templates/deployment-history",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/resource-manager-vs-code.md",
-      "redirect_url": "/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal",
+      "redirect_url": "/azure/azure-resource-manager/templates/quickstart-create-templates-use-visual-studio-code",
       "redirect_document_id": false
     },
     {
@@ -4002,17 +4582,17 @@
     },
     {
       "source_path": "articles/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md",
-      "redirect_url": "/azure/azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy",
+      "redirect_url": "/azure/azure-resource-manager/templates/create-visual-studio-deployment-project",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/vs-azure-tools-resource-groups-how-script-works.md",
-      "redirect_url": "/azure/azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy",
+      "redirect_url": "/azure/azure-resource-manager/templates/create-visual-studio-deployment-project",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/vs-azure-tools-resource-groups-ci-in-vsts.md",
-      "redirect_url": "/azure/azure-resource-manager/vs-resource-groups-project-devops-pipelines",
+      "redirect_url": "/azure/azure-resource-manager/templates/add-template-to-azure-pipelines",
       "redirect_document_id": false
     },
     {
@@ -4027,12 +4607,12 @@
     },
     {
       "source_path": "articles/xplat-cli-azure-resource-manager.md",
-      "redirect_url": "/azure/azure-resource-manager/manage-resources-cli",
+      "redirect_url": "/azure/azure-resource-manager/management/manage-resources-cli",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/azure-resource-manager/xplat-cli-azure-resource-manager.md",
-      "redirect_url": "/azure/azure-resource-manager/manage-resources-cli",
+      "redirect_url": "/azure/azure-resource-manager/management/manage-resources-cli",
       "redirect_document_id": false
     },
     {
@@ -4377,7 +4957,7 @@
     },
     {
       "source_path": "articles/app-service/app-service-move-resources.md",
-      "redirect_url": "/azure/azure-resource-manager/resource-group-move-resources#app-service-limitations",
+      "redirect_url": "/azure/azure-resource-manager/management/move-limitations/app-service-move-limitations",
       "redirect_document_id": false
     },
     {
@@ -5472,7 +6052,7 @@
     },
     {
       "source_path": "articles/automation/automation-migrate-account-subscription.md",
-      "redirect_url": "/azure/azure-resource-manager/resource-group-move-resources",
+      "redirect_url": "/azure/azure-resource-manager/management/move-resource-group-and-subscription",
       "redirect_document_id": false
     },
     {
@@ -5542,7 +6122,7 @@
     },
     {
       "source_path": "articles/azure-portal/resource-group-portal.md",
-      "redirect_url": "/azure/azure-resource-manager/manage-resources-portal",
+      "redirect_url": "/azure/azure-resource-manager/management/manage-resources-portal",
       "redirect_document_id": false
     },
     {
@@ -6137,7 +6717,7 @@
     },
     {
       "source_path": "articles/app-service-web/app-service-move-resources.md",
-      "redirect_url": "/azure/azure-resource-manager/resource-group-move-resources#app-service-limitations",
+      "redirect_url": "/azure/azure-resource-manager/management/move-limitations/app-service-move-limitations",
       "redirect_document_id": false
     },
     {
@@ -10287,17 +10867,17 @@
     },
     {
       "source_path": "articles/azure-resource-manager/resource-manager-property-copy.md",
-      "redirect_url": "/azure/azure-resource-manager/resource-group-create-multiple",
+      "redirect_url": "/azure/azure-resource-manager/templates/create-multiple-instances",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/azure-resource-manager/resource-manager-resource-explorer.md",
-      "redirect_url": "/azure/azure-resource-manager/resource-manager-rest-api",
+      "redirect_url": "/azure/azure-resource-manager/templates/export-template-portal",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/azure-resource-manager/resource-manager-sequential-loop.md",
-      "redirect_url": "/azure/azure-resource-manager/resource-group-create-multiple",
+      "redirect_url": "/azure/azure-resource-manager/templates/create-multiple-instances",
       "redirect_document_id": false
     },
     {
@@ -10332,32 +10912,32 @@
     },
     {
       "source_path": "articles/azure-resource-manager/resource-manager-template-walkthrough.md",
-      "redirect_url": "/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal",
+      "redirect_url": "/azure/azure-resource-manager/templates/quickstart-create-templates-use-the-portal",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/azure-resource-manager/resource-manager-troubleshoot-deployments-cli.md",
-      "redirect_url": "/azure/azure-resource-manager/resource-manager-deployment-operations",
+      "redirect_url": "/azure/azure-resource-manager/templates/deployment-history",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/azure-resource-manager/resource-manager-troubleshoot-deployments-portal.md",
-      "redirect_url": "/azure/azure-resource-manager/resource-manager-deployment-operations",
+      "redirect_url": "/azure/azure-resource-manager/templates/deployment-history",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/azure-resource-manager/resource-manager-troubleshoot-deployments-powershell.md",
-      "redirect_url": "/azure/azure-resource-manager/resource-manager-deployment-operations",
+      "redirect_url": "/azure/azure-resource-manager/templates/deployment-history",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/azure-resource-manager/resource-manager-troubleshoot-deployments-rest.md",
-      "redirect_url": "/azure/azure-resource-manager/resource-manager-deployment-operations",
+      "redirect_url": "/azure/azure-resource-manager/templates/deployment-history",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/resource-manager-troubleshoot-deployments-rest.md",
-      "redirect_url": "/azure/azure-resource-manager/resource-manager-deployment-operations",
+      "redirect_url": "/azure/azure-resource-manager/templates/deployment-history",
       "redirect_document_id": false
     },
     {
@@ -10367,7 +10947,7 @@
     },
     {
       "source_path": "articles/azure-resource-manager/resource-manager-vs-code.md",
-      "redirect_url": "/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal",
+      "redirect_url": "/azure/azure-resource-manager/templates/quickstart-create-templates-use-the-portal",
       "redirect_document_id": false
     },
     {
@@ -10377,12 +10957,12 @@
     },
     {
       "source_path": "articles/azure-resource-manager/resource-manager-create-first-template.md",
-      "redirect_url": "/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal",
+      "redirect_url": "/azure/azure-resource-manager/templates/quickstart-create-templates-use-the-portal",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/azure-resource-manager/resource-manager-vscode-extension.md",
-      "redirect_url": "/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal",
+      "redirect_url": "/azure/azure-resource-manager/templates/quickstart-create-templates-use-visual-studio-code",
       "redirect_document_id": false
     },
     {
@@ -13947,7 +14527,7 @@
     },
     {
       "source_path": "articles/monitoring-and-diagnostics/insights-debugging-with-events.md",
-      "redirect_url": "/azure/azure-resource-manager/resource-group-audit",
+      "redirect_url": "/azure/azure-resource-manager/management/view-activity-logs",
       "redirect_document_id": false
     },
     {
@@ -23221,7 +23801,7 @@
     },
     {
       "source_path": "articles/azure-resource-manager/resource-manager-quickstart-deploy.md",
-      "redirect_url": "/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal",
+      "redirect_url": "/azure/azure-resource-manager/templates/quickstart-create-templates-use-the-portal",
       "redirect_document_id": false
     },
     {
@@ -24001,7 +24581,7 @@
     },
     {
       "source_path": "articles/azure-classic-rm.md",
-      "redirect_url": "./azure-resource-manager/resource-manager-deployment-model",
+      "redirect_url": "./azure-resource-manager/management/deployment-models",
       "redirect_document_id": false
     },
     {
@@ -24672,6 +25252,11 @@
     {
       "source_path": "articles/storage/storage-scalability-targets.md",
       "redirect_url": "/azure/storage/common/storage-scalability-targets",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/storage/common/storage-scalability-targets.md",
+      "redirect_url": "/azure/storage/common/scalability-targets-standard-account",
       "redirect_document_id": true
     },
     {
@@ -28641,7 +29226,7 @@
     },
     {
       "source_path": "articles/azure-resource-manager/azure-resource-manager-security-attributes.md",
-      "redirect_url": "/azure/azure-resource-manager/azure-resource-manager-security-controls",
+      "redirect_url": "/azure/azure-resource-manager/management/azure-resource-manager-security-controls",
       "redirect_document_id": false
     },
     {
@@ -29061,12 +29646,12 @@
     },
     {
       "source_path": "articles/billing/billing-enterprise-mgmt-group-overview.md",
-      "redirect_url": "/azure/azure-resource-manager/management-groups-overview",
+      "redirect_url": "/azure/governance/management-groups/overview",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/billing/billing-enterprise-mgmt-grp-find.md",
-      "redirect_url": "/azure/azure-resource-manager/management-groups-overview",
+      "redirect_url": "/azure/governance/management-groups/overview",
       "redirect_document_id": false
     },
     {
