@@ -51,7 +51,7 @@ There are few ways to start the authoring experience in SQL script. You can crea
 
 ## Next steps
 For more information about authoring a SQL script, see: 
-- [(articles\synapse-analytics\sql-analytics\sql-analytics-on-demand-workspace-overview.md)]
+- [Azure Synapse Analytics](https://docs.microsoft.com/azure/SQL Analytics on-demand)
 - [Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics)
 
 >3. Exploring Data from Storage accounts and Database using "SQL script"
