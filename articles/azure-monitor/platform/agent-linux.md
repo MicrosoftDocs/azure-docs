@@ -77,11 +77,11 @@ For Azure VMs, you can install the agent on them using the [Azure Log Analytics 
     sudo sh ./omsagent-*.universal.x64.sh --upgrade -p http://<proxy user>:<proxy password>@<proxy address>:<proxy port> -w <workspace id> -s <shared key>
     ```
 
-If the Linux computer should connect to Log Analytics workspace in Azure Government cloud, run the following command providing the workspace ID and primary key copied earlier. 
+4. To configure the Linux computer to connect to a Log Analytics workspace in Azure Government cloud, run the following command providing the workspace ID and primary key copied earlier.
 
-```
-sudo sh ./omsagent-*.universal.x64.sh --upgrade -w <workspace id> -s <shared key> -d opinsights.azure.us
-```
+    ```
+    sudo sh ./omsagent-*.universal.x64.sh --upgrade -w <workspace id> -s <shared key> -d opinsights.azure.us
+    ```
 
 **To install the agent packages and onboard at a later time:**
 ```
