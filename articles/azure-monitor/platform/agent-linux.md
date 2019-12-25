@@ -52,7 +52,7 @@ After installing the Log Analytics agent for Linux packages, the following addit
 
 The Log Analytics agent for Linux is provided in a self-extracting and installable shell script bundle. This bundle contains Debian and RPM packages for each of the agent components and can be installed directly or extracted to retrieve the individual packages. One bundle is provided for x64 and one for x86 architectures. 
 
-For Azure VMs, you can install the agent on them using the [Azure Log Analytics VM extension](../../virtual-machines/extensions/oms-linux.md) for Linux. 
+For Azure VMs, we recommend you install the agent on them using the [Azure Log Analytics VM extension](../../virtual-machines/extensions/oms-linux.md) for Linux. 
 
 1. Transfer the appropriate bundle (x86 or x64) to your Linux VM or physical computer, using scp/sftp.
 
