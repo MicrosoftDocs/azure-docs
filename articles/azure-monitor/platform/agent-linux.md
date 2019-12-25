@@ -60,7 +60,7 @@ Before installing the Log Analytics agent for Linux, you need the workspace ID a
 
 3. Select **Advanced settings**:
 
-    ![Advanced Settings menu for Log Analytics in the Azure portal](media/quick-collect-azurevm/log-analytics-advanced-settings-azure-portal.png) 
+    ![Advanced Settings menu for Log Analytics in the Azure portal](../learn/media/quick-collect-azurevm/log-analytics-advanced-settings-azure-portal.png) 
  
 4. Select **Connected Sources**, and then select **Linux Servers**.
 
