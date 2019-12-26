@@ -381,8 +381,6 @@
         href: digicert-tutorial.md
       - name: Direct
         href: direct-tutorial.md
-      - name: Directions on Microsoft
-        href: directions-microsoft-tutorial.md
       - name: Discovery Benefits SSO
         href: discovery-benefits-sso-tutorial.md
       - name: Displayr
@@ -1344,6 +1342,8 @@
         href: talentlms-tutorial.md
       - name: Talent Palette
         href: talent-palette-tutorial.md
+      - name: Talentsoft
+        href: talentsoft-tutorial.md
       - name: Tango Analytics
         href: tangoanalytics-tutorial.md
       - name: Tangoe Command Premium Mobile
