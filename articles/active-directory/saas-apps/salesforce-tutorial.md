@@ -59,7 +59,6 @@ To configure the integration of Salesforce into Azure AD, you need to add Salesf
 1. In the **Add from the gallery** section, type **Salesforce** in the search box.
 1. Select **Salesforce** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
-
 ## Configure and test Azure AD single sign-on for Salesforce
 
 Configure and test Azure AD SSO with Salesforce using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Salesforce.
@@ -140,48 +139,56 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Salesforce SSO
 
-1. Open a new tab in your browser and sign in to your Salesforce administrator account.
+1. To automate the configuration within Salesforce Single Sign-On, you need to install **My Apps Secure Sign-in browser extension** by clicking **Install the extension**.
 
-2. Click on the **Setup** under **settings icon** on the top right corner of the page.
+	![My apps extension](common/install-myappssecure-extension.png)
+
+1. After adding extension to the browser, click on **Set up Salesforce Single Sign-On** will direct you to the Salesforce Single Sign-On application. From there, provide the admin credentials to sign into Salesforce Single Sign-On. The browser extension will automatically configure the application for you and automate steps 3-13.
+
+	![Setup configuration](common/setup-sso.png)
+
+1. If you want to setup Salesforce Single Sign-On manually, open a new web browser window and sign into your Salesforce Single Sign-On company site as an administrator and perform the following steps:
+
+1. Click on the **Setup** under **settings icon** on the top right corner of the page.
 
 	![Configure Single Sign-On](./media/salesforce-tutorial/configure1.png)
 
-3. Scroll down to the **SETTINGS** in the navigation pane, click **Identity** to expand the related section. Then click **Single Sign-On Settings**.
+1. Scroll down to the **SETTINGS** in the navigation pane, click **Identity** to expand the related section. Then click **Single Sign-On Settings**.
 
     ![Configure Single Sign-On](./media/salesforce-tutorial/sf-admin-sso.png)
 
-4. On the **Single Sign-On Settings** page, click the **Edit** button.
+1. On the **Single Sign-On Settings** page, click the **Edit** button.
 
     ![Configure Single Sign-On](./media/salesforce-tutorial/sf-admin-sso-edit.png)
 
     > [!NOTE]
     > If you are unable to enable Single Sign-On settings for your Salesforce account, you may need to contact [Salesforce Client support team](https://help.salesforce.com/support).
 
-5. Select **SAML Enabled**, and then click **Save**.
+1. Select **SAML Enabled**, and then click **Save**.
 
-      ![Configure Single Sign-On](./media/salesforce-tutorial/sf-enable-saml.png)
+    ![Configure Single Sign-On](./media/salesforce-tutorial/sf-enable-saml.png)
 
-6. To configure your SAML single sign-on settings, click **New from Metadata File**.
+1. To configure your SAML single sign-on settings, click **New from Metadata File**.
 
     ![Configure Single Sign-On](./media/salesforce-tutorial/sf-admin-sso-new.png)
 
-7. Click **Choose File** to upload the metadata XML file which you have downloaded from the Azure portal and click **Create**.
+1. Click **Choose File** to upload the metadata XML file which you have downloaded from the Azure portal and click **Create**.
 
     ![Configure Single Sign-On](./media/salesforce-tutorial/xmlchoose.png)
 
-8. On the **SAML Single Sign-On Settings** page, fields populate automatically and click save.
+1. On the **SAML Single Sign-On Settings** page, fields populate automatically and click save.
 
     ![Configure Single Sign-On](./media/salesforce-tutorial/salesforcexml.png)
 
-9. On the left navigation pane in Salesforce, click **Company Settings** to expand the related section, and then click **My Domain**.
+1. On the left navigation pane in Salesforce, click **Company Settings** to expand the related section, and then click **My Domain**.
 
     ![Configure Single Sign-On](./media/salesforce-tutorial/sf-my-domain.png)
 
-10. Scroll down to the **Authentication Configuration** section, and click the **Edit** button.
+1. Scroll down to the **Authentication Configuration** section, and click the **Edit** button.
 
     ![Configure Single Sign-On](./media/salesforce-tutorial/sf-edit-auth-config.png)
 
-11. In the **Authentication Configuration** section, Check the **AzureSSO** as **Authentication Service** of your SAML SSO configuration, and then click **Save**.
+1. In the **Authentication Configuration** section, Check the **AzureSSO** as **Authentication Service** of your SAML SSO configuration, and then click **Save**.
 
     ![Configure Single Sign-On](./media/salesforce-tutorial/sf-auth-config.png)
 
@@ -222,7 +229,6 @@ When you click the Salesforce tile in the Access Panel, you should be automatica
     ![Salesforce mobile app](media/salesforce-tutorial/mobile-app6.png)
 
 ## Additional resources
-
 
 - [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
