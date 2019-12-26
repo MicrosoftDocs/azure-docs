@@ -134,6 +134,9 @@ Specify the policy settings as follows:
 9. Click **OK** to save the policy and return to the main **Backup policy** menu.
 10. After you finish defining the backup policy, click **OK**.
 
+> [!NOTE]
+> Each log backup is chained to the previous full backup to form a recovery chain. This full backup will be retained until the retention of the last log backup has expired. This might mean that the full backup is retained for an extra period to make sure all the logs can be recovered. Let’s assume user has a weekly full backup, daily differential and 2 hour logs. All of them are retained for 30 days. But, the weekly full can be really cleaned up/deleted only after the next full backup is available i.e., after 30 + 7 days. Say, a weekly full backup happens on Nov 16th. As per the retention policy, it should be retained until Dec 16th. The last log backup for this full happens before the next scheduled full, on Nov 22nd. Until this log is available until Dec 22nd, the Nov 16th full can't be deleted. So, the Nov 16th full is retained until Dec 22nd.
+
 ## Run an on-demand backup
 
 Backups run in accordance with the policy schedule. You can run a backup on-demand as follows:
