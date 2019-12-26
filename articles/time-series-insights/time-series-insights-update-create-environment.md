@@ -183,7 +183,7 @@ In this section, you perform basic analytics on your time series data by using t
 
     [![List of unparented instances](media/v2-update-provision/analyze-two-unparented.png)](media/v2-update-provision/analyze-two-unparented.png#lightbox)
 
-1. Select the first time series instance. Then, select **Show pressure**.
+1. Select the first time series instance. Then, select **Show temperature**.
 
     [![Selected time series instance with menu command to show average pressure](media/v2-update-provision/analyze-three-show-pressure.png)](media/v2-update-provision/analyze-three-show-pressure.png#lightbox)
 

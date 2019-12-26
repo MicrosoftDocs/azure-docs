@@ -108,6 +108,11 @@ AppVM1           Undelete             Completed            12/5/2019 12:47:28 PM
 
 The 'DeleteState' of the backup item will revert to 'NotDeleted'. But the protection is still stopped. You need to [resume the backup](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#change-policy-for-backup-items) to re-enable the protection.
 
+### Soft delete for VMs using REST API
+
+- Delete the backups using REST API as mentioned [here](backup-azure-arm-userestapi-backupazurevms.md#stop-protection-and-delete-data).
+- If user wishes to undo these delete operations, refer to steps mentioned [here](backup-azure-arm-userestapi-backupazurevms.md#undo-the-stop-protection-and-delete-data).
+
 ## Disabling soft delete
 
 Soft delete is enabled by default on newly created vaults to protect backup data from accidental or malicious deletes.  Disabling this feature is not recommended. The only circumstance where you should consider disabling soft delete is if you are planning on moving your protected items to a new vault, and cannot wait the 14 days required before deleting and reprotecting (such as in a test environment.) Only a Backup Administrator can disable this feature. If you disable this feature, all deletions of protected items will result in immediate removal, without the ability to restore. Backup data in soft deleted state prior disabling this feature, will remain in soft deleted state. If you wish to permanently delete these immediately, then you need to undelete and delete them again to get permanently deleted.
@@ -140,6 +145,10 @@ EnhancedSecurityState  : Enabled
 SoftDeleteFeatureState : Disabled
 ```
 
+### Disabling soft delete using REST API
+
+To disable the soft-delete functionality using REST API, refer to the steps mentioned [here](use-restapi-update-vault-properties.md#update-soft-delete-state-using-rest-api).
+
 ## Permanently deleting soft deleted backup items
 
 Backup data in soft deleted state prior disabling this feature, will remain in soft deleted state. If you wish to permanently delete these immediately, then undelete and delete them again to get permanently deleted.
@@ -148,7 +157,7 @@ Backup data in soft deleted state prior disabling this feature, will remain in s
 
 Follow these steps:
 
-1. Follow the steps to [disable soft delete](#disabling-soft-delete). 
+1. Follow the steps to [disable soft delete](#disabling-soft-delete).
 2. In the Azure portal, go to your vault, go to **Backup Items** and choose the soft deleted VM
 
 ![Choose soft deleted VM](./media/backup-azure-security-feature-cloud/vm-soft-delete.png)
@@ -209,6 +218,14 @@ WorkloadName     Operation            Status               StartTime            
 AppVM1           DeleteBackupData     Completed            12/5/2019 12:44:15 PM     12/5/2019 12:44:50 PM     0488c3c2-accc-4a91-a1e0-fba09a67d2fb
 ```
 
+### Using REST API
+
+If items were deleted before soft-delete was disabled, then they will be in a soft-deleted state. To immediately delete them, the deletion operation needs to reversed and then performed again.
+
+1. First, undo the delete operations with the steps mentioned [here](backup-azure-arm-userestapi-backupazurevms.md#undo-the-stop-protection-and-delete-data).
+2. Then disable the soft-delete functionality using REST API using the steps mentioned [here](use-restapi-update-vault-properties.md#update-soft-delete-state-using-rest-api).
+3. Then delete the backups using REST API as mentioned [here](backup-azure-arm-userestapi-backupazurevms.md#stop-protection-and-delete-data).
+
 ## Other security features
 
 ### Storage side encryption
@@ -231,7 +248,7 @@ For more information, please see [Use Role-Based Access Control to manage Azure 
 
 ## Frequently asked questions
 
-### Soft delete
+### For Soft delete
 
 #### Do I need to enable the soft-delete feature on every vault?
 
