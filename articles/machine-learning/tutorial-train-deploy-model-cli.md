@@ -12,7 +12,7 @@ ms.date: 12/04/2019
 ---
 
 # Tutorial: Train and deploy a model from the CLI
-[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
+[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 In this tutorial, you use the machine learning extension for the Azure CLI to train, register, and deploy a model.
 
@@ -287,7 +287,7 @@ The runconfig file also contains information used to configure the environment u
 > [!TIP]
 > While it is possible to manually create a runconfig file, the one in this example was created using the `generate-runconfig.py` file included in the repository. This file gets a reference to the registered dataset, creates a run config programatically, and then persists it to file.
 
-For more information on run configuration files, see [Set up and use compute targets for model training](../how-to-set-up-training-targets.md#create-run-configuration-and-submit-run-using-azure-machine-learning-cli), or reference this [JSON file](https://github.com/microsoft/MLOps/blob/b4bdcf8c369d188e83f40be8b748b49821f71cf2/infra-as-code/runconfigschema.json) to see the full schema for a runconfig.
+For more information on run configuration files, see [Set up and use compute targets for model training](how-to-set-up-training-targets.md#create-run-configuration-and-submit-run-using-azure-machine-learning-cli), or reference this [JSON file](https://github.com/microsoft/MLOps/blob/b4bdcf8c369d188e83f40be8b748b49821f71cf2/infra-as-code/runconfigschema.json) to see the full schema for a runconfig.
 
 ## Submit the training run
 
@@ -365,14 +365,14 @@ az ml model deploy -n myservice -m "mymodel:1" --ic inferenceConfig.yml --dc aci
 
 This command deploys a new service named `myservice`, using version 1 of the model that you registered previously.
 
-The `inferenceConfig.yml` file provides information on how to perform inference, such as the entry script (`score.py`) and software dependencies. For more information on the structure of this file, see the [Inference configuration schema](../reference-azure-machine-learning-cli.md#inference-configuration-schema). For more information on entry scripts, see [Deploy models with the Azure Machine Learning](../how-to-deploy-and-where.md#prepare-to-deploy).
+The `inferenceConfig.yml` file provides information on how to perform inference, such as the entry script (`score.py`) and software dependencies. For more information on the structure of this file, see the [Inference configuration schema](reference-azure-machine-learning-cli.md#inference-configuration-schema). For more information on entry scripts, see [Deploy models with the Azure Machine Learning](how-to-deploy-and-where.md#prepare-to-deploy).
 
-The `aciDeploymentConfig.yml` describes the deployment environment used to host the service. The deployment configuration is specific to the compute type that you use for the deployment. In this case, an Azure Container Instance is used. For more information, see the [Deployment configuration schema](../reference-azure-machine-learning-cli.md#deployment-configuration-schema).
+The `aciDeploymentConfig.yml` describes the deployment environment used to host the service. The deployment configuration is specific to the compute type that you use for the deployment. In this case, an Azure Container Instance is used. For more information, see the [Deployment configuration schema](reference-azure-machine-learning-cli.md#deployment-configuration-schema).
 
 It will take several minutes before the deployment process completes.
 
 > [!TIP]
-> In this example, Azure Container Instances is used. Deployments to ACI automatically create the needed ACI resource. If you were to instead deploy to Azure Kubernetes Service, you must create an AKS cluster ahead of time and specify it as part of the `az ml model deploy` command. For an example of deploying to AKS, see [Deploy a model to an Azure Kubernetes Service cluster](../how-to-deploy-azure-kubernetes-service.md).
+> In this example, Azure Container Instances is used. Deployments to ACI automatically create the needed ACI resource. If you were to instead deploy to Azure Kubernetes Service, you must create an AKS cluster ahead of time and specify it as part of the `az ml model deploy` command. For an example of deploying to AKS, see [Deploy a model to an Azure Kubernetes Service cluster](how-to-deploy-azure-kubernetes-service.md).
 
 After several minutes, information similar to the following JSON is returned:
 
@@ -399,7 +399,7 @@ az ml service show -n myservice
 
 This command returns the same JSON document, including the `scoringUri`.
 
-The REST endpoint can be used to send data to the service. For information on creating a client application that sends data to the service, see [Consume an Azure Machine Learning model deployed as a web service](../how-to-consume-web-service.md)
+The REST endpoint can be used to send data to the service. For information on creating a client application that sends data to the service, see [Consume an Azure Machine Learning model deployed as a web service](how-to-consume-web-service.md)
 
 ### Send data to the service
 
@@ -460,4 +460,4 @@ In this Azure Machine Learning tutorial, you used the machine learning CLI for t
 > * Deploy the model as a web service
 > * Score data using the web service
 
-For more information on using the CLI, see [Use the CLI extension for Azure Machine Learning](../reference-azure-machine-learning-cli.md).
+For more information on using the CLI, see [Use the CLI extension for Azure Machine Learning](reference-azure-machine-learning-cli.md).

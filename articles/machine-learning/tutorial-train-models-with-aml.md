@@ -15,7 +15,7 @@ ms.custom: seodec18
 ---
 
 # Tutorial: Train image classification models with MNIST data and scikit-learn using Azure Machine Learning
-[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
+[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 In this tutorial, you train a machine learning model on remote compute resources. You'll use the training and deployment workflow for Azure Machine Learning in a Python Jupyter notebook.  You can then use the notebook as a template to train your own machine learning model with your own data. This tutorial is **part one of a two-part tutorial series**.  
 
@@ -29,7 +29,7 @@ Learn how to take the following actions:
 > * Train a simple logistic regression model on a remote cluster.
 > * Review training results and register the best model.
 
-You learn how to select a model and deploy it in [part two of this tutorial](../tutorial-deploy-models-with-aml.md).
+You learn how to select a model and deploy it in [part two of this tutorial](tutorial-deploy-models-with-aml.md).
 
 If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree) today.
 
@@ -38,7 +38,7 @@ If you don’t have an Azure subscription, create a free account before you begi
 
 ## Prerequisites
 
-* Complete the [Tutorial: Get started creating your first Azure ML experiment](../tutorial-1st-experiment-sdk-setup.md) to:
+* Complete the [Tutorial: Get started creating your first Azure ML experiment](tutorial-1st-experiment-sdk-setup.md) to:
     * Create a workspace
     * Clone the tutorials notebook to your folder in the workspace.
     * Create a cloud-based compute instance.
@@ -158,7 +158,7 @@ Use Azure Open Datasets to get the raw MNIST data files. [Azure Open Datasets](h
 
 This code retrieves the data as a `FileDataset` object, which is a subclass of `Dataset`. A `FileDataset` references single or multiple files of any format in your datastores or public urls. The class provides you with the ability to download or mount the files to your compute by creating a reference to the data source location. Additionally, you register the Dataset to your workspace for easy retrieval during training.
 
-Follow the [how-to](../how-to-create-register-datasets.md) to learn more about Datasets and their usage in the SDK.
+Follow the [how-to](how-to-create-register-datasets.md) to learn more about Datasets and their usage in the SDK.
 
 ```python
 from azureml.core import Dataset
@@ -423,7 +423,7 @@ print(model.name, model.id, model.version, sep='\t')
 
 ## Clean up resources
 
-[!INCLUDE [aml-delete-resource-group](../../../includes/aml-delete-resource-group.md)]
+[!INCLUDE [aml-delete-resource-group](../../includes/aml-delete-resource-group.md)]
 
 You can also delete just the Azure Machine Learning Compute cluster. However, autoscale is turned on, and the cluster minimum is zero. So this particular resource won't incur additional compute charges when not in use:
 
@@ -445,4 +445,4 @@ In this Azure Machine Learning tutorial, you used Python for the following tasks
 You're ready to deploy this registered model by using the instructions in the next part of the tutorial series:
 
 > [!div class="nextstepaction"]
-> [Tutorial 2 - Deploy models](../tutorial-deploy-models-with-aml.md)
+> [Tutorial 2 - Deploy models](tutorial-deploy-models-with-aml.md)

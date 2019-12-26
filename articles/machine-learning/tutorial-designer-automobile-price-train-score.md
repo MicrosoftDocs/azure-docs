@@ -13,7 +13,7 @@ ms.date: 11/04/2019
 ---
 
 # Tutorial: Predict automobile price with the designer (preview)
-[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
+[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
 In this two-part tutorial, you learn how to use the Azure Machine Learning designer to develop and deploy a predictive analytics solution that predicts the price of any car. 
 
@@ -28,7 +28,7 @@ In part one of the tutorial, you'll learn how to:
 > * Train a machine learning model.
 > * Evaluate a machine learning model.
 
-In [part two](../tutorial-designer-automobile-price-deploy.md) of the tutorial, you'll learn how to deploy your predictive model as a real-time inferencing endpoint to predict the price of any car based on technical specifications you send it. 
+In [part two](tutorial-designer-automobile-price-deploy.md) of the tutorial, you'll learn how to deploy your predictive model as a real-time inferencing endpoint to predict the price of any car based on technical specifications you send it. 
 
 > [!NOTE]
 >A completed version of this tutorial is available as a sample pipeline.
@@ -43,7 +43,7 @@ Azure Machine Learning pipelines organize multiple, dependent machine learning a
 
 If you have an Azure Machine Learning workspace with an Enterprise edition, [skip to the next section](#create-the-pipeline).
 
-[!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal-enterprise.md)]
+[!INCLUDE [aml-create-portal](../../includes/aml-create-in-portal-enterprise.md)]
 
 ### Create the pipeline
 
@@ -216,7 +216,7 @@ After you train your model by using 70 percent of the data, you can use it to sc
 
 ### Run the pipeline
 
-[!INCLUDE [aml-ui-create-training-compute](../../../includes/aml-ui-create-training-compute.md)]
+[!INCLUDE [aml-ui-create-training-compute](../../includes/aml-ui-create-training-compute.md)]
 
 ### View results
 
@@ -246,7 +246,7 @@ For each of the error statistics, smaller is better. A smaller value indicates t
 
 ## Clean up resources
 
-[!INCLUDE [aml-ui-cleanup](../../../includes/aml-ui-cleanup.md)]
+[!INCLUDE [aml-ui-cleanup](../../includes/aml-ui-cleanup.md)]
 
 ## Next steps
 
@@ -260,4 +260,4 @@ In part one of this tutorial, you completed the following tasks:
 In part two, you'll learn how to deploy your model as a real-time endpoint.
 
 > [!div class="nextstepaction"]
-> [Continue to deploying models](../tutorial-designer-automobile-price-deploy.md)
+> [Continue to deploying models](tutorial-designer-automobile-price-deploy.md)

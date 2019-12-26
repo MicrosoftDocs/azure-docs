@@ -15,7 +15,7 @@ ms.date: 11/04/2019
 ---
 
 # Tutorial: Create your first classification model with automated machine learning
-[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
+[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
 In this tutorial, you learn how to create your first automated machine learning experiment through Azure Machine Learning studio without writing a single line of code. This example creates a classification model to predict if a client will subscribe to a fixed term deposit with a financial institution.
 
@@ -41,7 +41,7 @@ An Azure Machine Learning workspace is a foundational resource in the cloud that
 
 You create a workspace via the Azure Machine Learning studio, a web-based console for managing your Azure resources.
 
-[!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal-enterprise.md)]
+[!INCLUDE [aml-create-portal](../../includes/aml-create-in-portal-enterprise.md)]
 
 >[!IMPORTANT] 
 > Take note of your **workspace** and **subscription**. You'll need these to ensure you create your experiment in the right place. 
@@ -60,7 +60,7 @@ You complete the following experiment set-up and run steps in Azure Machine Lear
 
    Since this is your first automated ML experiment, you'll see an empty list and links to documentation.
 
-   ![Azure Machine Learning studio](media/tutorial-1st-experiment-automated-ml/get-started.png)
+   ![Azure Machine Learning studio](./media/tutorial-first-experiment-automated-ml/get-started.png)
 
 1. Select **New automated ML run**. 
 
@@ -90,7 +90,7 @@ You complete the following experiment set-up and run steps in Azure Machine Lear
 
     1. The **Schema** form allows for further configuration of your data for this experiment. For this example, select the toggle switch for the **day_of_week** feature, so as to not include it for this experiment. Select **Next**.
 
-        ![Preview tab configuration](media/tutorial-1st-experiment-automated-ml/schema-tab-config.gif)
+        ![Preview tab configuration](./media/tutorial-first-experiment-automated-ml/schema-tab-config.gif)
 
     1. On the **Confirm details** form, verify the information matches what was previously  populated on the **Basic info** and **Settings and preview** forms.
     1. Select **Create** to complete the creation of your dataset.
@@ -154,7 +154,7 @@ While you wait for all of the experiment models to finish, select the **Algorith
 
 The following navigates through the **Model details** and the **Visualizations** tabs to view the selected model's properties, metrics and performance charts. 
 
-![Run iteration detail](media/tutorial-1st-experiment-automated-ml/run-detail.gif)
+![Run iteration detail](./media/tutorial-first-experiment-automated-ml/run-detail.gif)
 
 ## Deploy the model
 
@@ -205,19 +205,19 @@ Delete just the deployment instance from the Azure Machine Learning studio, if y
 
 ### Delete the resource group
 
-[!INCLUDE [aml-delete-resource-group](../../../includes/aml-delete-resource-group.md)]
+[!INCLUDE [aml-delete-resource-group](../../includes/aml-delete-resource-group.md)]
 
 ## Next steps
 
 In this automated machine learning tutorial, you used Azure Machine Learning studio to create and deploy a classification model. See these articles for more information and next steps:
 
 > [!div class="nextstepaction"]
-> [Consume a web service](../how-to-consume-web-service.md#consume-the-service-from-power-bi)
+> [Consume a web service](how-to-consume-web-service.md#consume-the-service-from-power-bi)
 
-+ Learn more about [preprocessing](../how-to-create-portal-experiments.md#preprocess).
-+ Learn more about [data profiling](../how-to-create-portal-experiments.md#profile).
-+ Learn more about [automated machine learning](../concept-automated-ml.md).
-+ For more information on classification metrics and charts, see the [Understand automated machine learning results](../how-to-understand-automated-ml.md#classification) article.
++ Learn more about [preprocessing](how-to-create-portal-experiments.md#preprocess).
++ Learn more about [data profiling](how-to-create-portal-experiments.md#profile).
++ Learn more about [automated machine learning](concept-automated-ml.md).
++ For more information on classification metrics and charts, see the [Understand automated machine learning results](how-to-understand-automated-ml.md#classification) article.
 
 >[!NOTE]
 > This Bank Marketing dataset is made available under the [Creative Commons (CCO: Public Domain) License](https://creativecommons.org/publicdomain/zero/1.0/). Any rights in individual contents of the database are licensed under the [Database Contents License](https://creativecommons.org/publicdomain/zero/1.0/) and available on [Kaggle](https://www.kaggle.com/janiobachmann/bank-marketing-dataset). This dataset was originally available within the [UCI Machine Learning Database](https://archive.ics.uci.edu/ml/datasets/bank+marketing).<br><br>
