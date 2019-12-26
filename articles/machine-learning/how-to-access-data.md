@@ -231,7 +231,7 @@ The `target_path` parameter is the location of the local directory to download t
 ## Access your data during training
 
 > [!IMPORTANT]
-> Using [Azure Machine Learning datasets](how-to-create-register-datasets.md) is the new recommended way to access your data in training. Datasets provide functions that load tabular data into pandas or spark DataFrame, and the ability to download or mount files of any format from Azure Blob, Azure File, Azure Data Lake Gen 1, Azure Data Lake Gen 2, Azure SQL, Azure PostgreSQL. Learn more about [how to train with datasets](service/how-to-train-with-datasets.md).
+> Using [Azure Machine Learning datasets](how-to-create-register-datasets.md) is the new recommended way to access your data in training. Datasets provide functions that load tabular data into pandas or spark DataFrame, and the ability to download or mount files of any format from Azure Blob, Azure File, Azure Data Lake Gen 1, Azure Data Lake Gen 2, Azure SQL, Azure PostgreSQL. Learn more about [how to train with datasets](how-to-train-with-datasets.md).
 
 The following table lists the methods that tell the compute target how to use the datastores during runs. 
 
@@ -353,6 +353,6 @@ Azure Machine Learning supports accessing data from Azure Blob, Azure File, Azur
 
 ## Next steps
 
-* [Train a model](service/how-to-train-ml-models.md).
+* [Train a model](how-to-train-ml-models.md).
 
 * [Deploy a model](how-to-deploy-and-where.md).

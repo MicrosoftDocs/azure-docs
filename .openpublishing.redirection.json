@@ -13070,6 +13070,106 @@
         "source_path": "articles/machine-learning/service/how-to-track-experiments.md",
         "redirect_url": "/azure/machine-learning/how-to-track-experiments",
         "redirect_document_id": true
+    },    
+    {
+        "source_path": "articles/machine-learning/service/how-to-train-chainer.md",
+        "redirect_url": "/azure/machine-learning/how-to-train-chainer",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/machine-learning/service/how-to-train-keras.md",
+        "redirect_url": "/azure/machine-learning/how-to-train-keras",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/machine-learning/service/how-to-train-ml-models.md",
+        "redirect_url": "/azure/machine-learning/how-to-train-ml-models",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/machine-learning/service/how-to-train-pytorch.md",
+        "redirect_url": "/azure/machine-learning/how-to-train-pytorch",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/machine-learning/service/how-to-train-scikit-learn.md",
+        "redirect_url": "/azure/machine-learning/how-to-train-scikit-learn",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/machine-learning/service/how-to-train-tensorflow.md",
+        "redirect_url": "/azure/machine-learning/how-to-train-tensorflow",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/machine-learning/service/how-to-train-with-datasets.md",
+        "redirect_url": "/azure/machine-learning/how-to-train-with-datasets",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/machine-learning/service/how-to-troubleshoot-deployment.md",
+        "redirect_url": "/azure/machine-learning/how-to-troubleshoot-deployment",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/machine-learning/service/how-to-tune-hyperparameters.md",
+        "redirect_url": "/azure/machine-learning/how-to-tune-hyperparameters",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/machine-learning/service/how-to-understand-automated-ml.md",
+        "redirect_url": "/azure/machine-learning/how-to-understand-automated-ml",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/machine-learning/service/how-to-use-environments.md",
+        "redirect_url": "/azure/machine-learning/how-to-use-environments",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/machine-learning/service/how-to-use-event-grid.md",
+        "redirect_url": "/azure/machine-learning/how-to-use-event-grid",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/machine-learning/service/how-to-use-mlflow.md",
+        "redirect_url": "/azure/machine-learning/how-to-use-mlflow",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/machine-learning/service/how-to-use-secrets-in-runs.md",
+        "redirect_url": "/azure/machine-learning/how-to-use-secrets-in-runs",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/machine-learning/service/how-to-version-track-datasets.md",
+        "redirect_url": "/azure/machine-learning/how-to-version-track-datasets",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/machine-learning/service/how-to-vscode-tools.md",
+        "redirect_url": "/azure/machine-learning/how-to-vscode-tools",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/machine-learning/service/monitor-azure-machine-learning.md",
+        "redirect_url": "/azure/machine-learning/monitor-azure-machine-learning",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/machine-learning/service/monitor-resource-reference.md",
+        "redirect_url": "/azure/machine-learning/monitor-resource-reference",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/machine-learning/service/overview-what-happened-to-workbench.md",
+        "redirect_url": "/azure/machine-learning/overview-what-happened-to-workbench",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/machine-learning/service/overview-what-is-azure-ml.md",
+        "redirect_url": "/azure/machine-learning/overview-what-is-azure-ml",
+        "redirect_document_id": true
     },
     {
       "source_path": "articles/log-analytics/log-analytics-add-solutions.md",

@@ -74,7 +74,7 @@ These entities are encapsulated into an __inference configuration__. The inferen
 > inference_config = InferenceConfig(entry_script="score.py", environment=myenv)
 > ```
 
-For more information on environments, see [Create and manage environments for training and deployment](service/how-to-use-environments.md).
+For more information on environments, see [Create and manage environments for training and deployment](how-to-use-environments.md).
 
 For more information on inference configuration, see [Deploy models with Azure Machine Learning](service/how-to-deploy-and-where.md).
 

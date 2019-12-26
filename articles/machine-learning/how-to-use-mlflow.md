@@ -14,7 +14,7 @@ ms.custom: seodec18
 ---
 
 # Track metrics and deploy models with MLflow and Azure Machine Learning (preview)
-[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
+[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 This article demonstrates how to enable MLflow's tracking URI and logging API, collectively known as [MLflow Tracking](https://mlflow.org/docs/latest/quickstart.html#using-the-tracking-api), with Azure Machine Learning. Doing so enables you to:
 
@@ -26,7 +26,7 @@ This article demonstrates how to enable MLflow's tracking URI and logging API, c
 
 The following diagram illustrates that with MLflow Tracking, you track an experiment's run metrics and store model artifacts in your Azure Machine Learning workspace.
 
-![mlflow with azure machine learning diagram](media/how-to-use-mlflow/mlflow-diagram-track.png)
+![mlflow with azure machine learning diagram](./media/how-to-use-mlflow/mlflow-diagram-track.png)
 
 > [!TIP]
 > The information in this document is primarily for data scientists and developers who want to monitor the model training process. If you are an administrator interested in monitoring resource usage and events from Azure Machine learning, such as quotas, completed training runs, or completed model deployments, see [Monitoring Azure Machine Learning](monitor-azure-machine-learning.md).
@@ -54,7 +54,7 @@ The following diagram illustrates that with MLflow Tracking, you track an experi
 
 * [Install MLflow.](https://mlflow.org/docs/latest/quickstart.html)
 * [Install the Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py) on your local computer  The SDK provides the connectivity for MLflow to access your workspace.
-* [Create an Azure Machine Learning Workspace](../how-to-manage-workspace.md).
+* [Create an Azure Machine Learning Workspace](how-to-manage-workspace.md).
 
 ## Track local runs
 
@@ -99,7 +99,7 @@ with mlflow.start_run():
 
 MLflow Tracking with Azure Machine Learning lets you store the logged metrics and artifacts from your remote runs into your Azure Machine Learning workspace.
 
-Remote runs let you train your models on more powerful computes, such as GPU enabled virtual machines, or Machine Learning Compute clusters. See [Set up compute targets for model training](../how-to-set-up-training-targets.md) to learn about different compute options.
+Remote runs let you train your models on more powerful computes, such as GPU enabled virtual machines, or Machine Learning Compute clusters. See [Set up compute targets for model training](how-to-set-up-training-targets.md) to learn about different compute options.
 
 Configure your compute and training run environment with the [`Environment`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py) class. Include `mlflow` and `azure-contrib-run` pip packages in environment's [`CondaDependencies`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.conda_dependencies.condadependencies?view=azure-ml-py) section. Then construct  [`ScriptRunConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.script_run_config.scriptrunconfig?view=azure-ml-py) with your remote compute as the compute target.
 
@@ -151,17 +151,17 @@ From here, import your experiment notebook, attach your cluster to it and run yo
 
 To install libraries on your cluster, navigate to the **Libraries** tab and click **Install New**
 
- ![mlflow with azure machine learning diagram](media/how-to-use-mlflow/azure-databricks-cluster-libraries.png)
+ ![mlflow with azure machine learning diagram](./media/how-to-use-mlflow/azure-databricks-cluster-libraries.png)
 
 In the **Package** field, type azureml-mlflow and then click install. Repeat this step as necessary to install other additional packages to your cluster for your experiment.
 
- ![mlflow with azure machine learning diagram](media/how-to-use-mlflow/install-libraries.png)
+ ![mlflow with azure machine learning diagram](./media/how-to-use-mlflow/install-libraries.png)
 
 ### Set up your notebook and workspace
 
 Once your cluster is set up, import your experiment notebook, open it and attach your cluster to it.
 
-The following code should be in your experiment notebook. This code gets the details of your Azure subscription to instantiate your workspace. This code assumes you have an existing resource group and Azure Machine Learning workspace, otherwise you can [create them](../how-to-manage-workspace.md). 
+The following code should be in your experiment notebook. This code gets the details of your Azure subscription to instantiate your workspace. This code assumes you have an existing resource group and Azure Machine Learning workspace, otherwise you can [create them](how-to-manage-workspace.md). 
 
 ```python
 import mlflow
@@ -229,7 +229,7 @@ Deploying your MLflow experiments as an Azure Machine Learning web service allow
 
 The following diagram demonstrates that with the MLflow deploy API you can deploy your existing MLflow models as an Azure Machine Learning web service, despite their frameworks--PyTorch, Tensorflow, scikit-learn, ONNX, etc., and manage your production models in your workspace.
 
-![mlflow with azure machine learning diagram](media/how-to-use-mlflow/mlflow-diagram-deploy.png)
+![mlflow with azure machine learning diagram](./media/how-to-use-mlflow/mlflow-diagram-deploy.png)
 
 ### Log your model
 
@@ -375,7 +375,7 @@ If you don't plan to use the logged metrics and artifacts in your workspace, the
 
 1. In the Azure portal, select **Resource groups** on the far left.
 
-   ![Delete in the Azure portal](media/how-to-use-mlflow/delete-resources.png)
+   ![Delete in the Azure portal](./media/how-to-use-mlflow/delete-resources.png)
 
 1. From the list, select the resource group you created.
 
@@ -389,5 +389,5 @@ If you don't plan to use the logged metrics and artifacts in your workspace, the
 The [MLflow with Azure ML notebooks](https://aka.ms/azureml-mlflow-examples) demonstrate and expand upon concepts presented in this article.
 
 ## Next steps
-* [Manage your models](../concept-model-management-and-deployment.md).
-* Monitor your production models for [data drift](../how-to-monitor-data-drift.md).
+* [Manage your models](concept-model-management-and-deployment.md).
+* Monitor your production models for [data drift](how-to-monitor-data-drift.md).

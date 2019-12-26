@@ -28,7 +28,7 @@ For information on quota and region availability for ACI, see [Quotas and region
 
 - A machine learning model registered in your workspace. If you don't have a registered model, see [How and where to deploy models](service/how-to-deploy-and-where.md).
 
-- The [Azure CLI extension for Machine Learning service](service/reference-azure-machine-learning-cli.md), [Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py), or the [Azure Machine Learning Visual Studio Code extension](service/how-to-vscode-tools.md).
+- The [Azure CLI extension for Machine Learning service](service/reference-azure-machine-learning-cli.md), [Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py), or the [Azure Machine Learning Visual Studio Code extension](how-to-vscode-tools.md).
 
 - The __Python__ code snippets in this article assume that the following variables are set:
 
@@ -76,7 +76,7 @@ For more information, see the [az ml model deploy](https://docs.microsoft.com/cl
 
 ## Using VS Code
 
-See [deploy your models with VS Code](service/how-to-vscode-tools.md#deploy-and-manage-models).
+See [deploy your models with VS Code](how-to-vscode-tools.md#deploy-and-manage-models).
 
 > [!IMPORTANT]
 > You don't need to create an ACI container to test in advance. ACI containers are created as needed.
@@ -88,7 +88,7 @@ See [deploy your models with VS Code](service/how-to-vscode-tools.md#deploy-and-
 ## Next steps
 
 * [How to deploy a model using a custom Docker image](how-to-deploy-custom-docker-image.md)
-* [Deployment troubleshooting](service/how-to-troubleshoot-deployment.md)
+* [Deployment troubleshooting](how-to-troubleshoot-deployment.md)
 * [Secure Azure Machine Learning web services with SSL](how-to-secure-web-service.md)
 * [Consume a ML Model deployed as a web service](how-to-consume-web-service.md)
 * [Monitor your Azure Machine Learning models with Application Insights](how-to-enable-app-insights.md)

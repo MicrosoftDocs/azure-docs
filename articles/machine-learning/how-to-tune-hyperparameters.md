@@ -15,7 +15,7 @@ ms.custom: seodec18
 ---
 
 # Tune hyperparameters for your model with Azure Machine Learning
-[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
+[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Efficiently tune hyperparameters for your model using Azure Machine Learning.  Hyperparameter tuning includes the following steps:
 
@@ -310,7 +310,7 @@ experiment = Experiment(workspace, experiment_name)
 hyperdrive_run = experiment.submit(hyperdrive_run_config)
 ```
 
-`experiment_name` is the name you assign to your hyperparameter tuning experiment, and `workspace` is the workspace in which you want to create the experiment (For more information on experiments, see [How does Azure Machine Learning work?](../concept-azure-machine-learning-architecture.md))
+`experiment_name` is the name you assign to your hyperparameter tuning experiment, and `workspace` is the workspace in which you want to create the experiment (For more information on experiments, see [How does Azure Machine Learning work?](concept-azure-machine-learning-architecture.md))
 
 ## Warm start your hyperparameter tuning experiment (optional)
 
@@ -363,17 +363,17 @@ RunDetails(hyperdrive_run).show()
 
 This code displays a table with details about the training runs for each of the hyperparameter configurations.
 
-![hyperparameter tuning table](media/how-to-tune-hyperparameters/HyperparameterTuningTable.png)
+![hyperparameter tuning table](./media/how-to-tune-hyperparameters/HyperparameterTuningTable.png)
 
 You can also visualize the performance of each of the runs as training progresses. 
 
-![hyperparameter tuning plot](media/how-to-tune-hyperparameters/HyperparameterTuningPlot.png)
+![hyperparameter tuning plot](./media/how-to-tune-hyperparameters/HyperparameterTuningPlot.png)
 
 Additionally, you can visually identify the correlation between performance and values of individual hyperparameters using a Parallel Coordinates Plot. 
 
-[![hyperparameter tuning parallel coordinates](media/how-to-tune-hyperparameters/HyperparameterTuningParallelCoordinates.png)](media/how-to-tune-hyperparameters/hyperparameter-tuning-parallel-coordinates-expanded.png)
+[![hyperparameter tuning parallel coordinates](./media/how-to-tune-hyperparameters/HyperparameterTuningParallelCoordinates.png)](media/how-to-tune-hyperparameters/hyperparameter-tuning-parallel-coordinates-expanded.png)
 
-You can visualize all your hyperparameter tuning runs in the Azure web portal as well. For more information on how to view an experiment in the web portal, see [how to track experiments](../how-to-track-experiments.md#view-the-experiment-in-the-web-portal).
+You can visualize all your hyperparameter tuning runs in the Azure web portal as well. For more information on how to view an experiment in the web portal, see [how to track experiments](how-to-track-experiments.md#view-the-experiment-in-the-web-portal).
 
 ## Find the best model
 
@@ -395,8 +395,8 @@ print('\n batch size:',parameter_values[7])
 Refer to train-hyperparameter-* notebooks in this folder:
 * [how-to-use-azureml/training-with-deep-learning](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning)
 
-[!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
+[!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-clone-for-examples.md)]
 
 ## Next steps
-* [Track an experiment](../how-to-track-experiments.md)
-* [Deploy a trained model](../how-to-deploy-and-where.md)
+* [Track an experiment](how-to-track-experiments.md)
+* [Deploy a trained model](how-to-deploy-and-where.md)

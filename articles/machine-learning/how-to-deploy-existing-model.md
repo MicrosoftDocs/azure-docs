@@ -75,7 +75,7 @@ For more information on model registration in general, see [Manage, deploy, and 
 The inference configuration defines the environment used to run the deployed model. The inference configuration references the following entities, which are used to run the model when it's deployed:
 
 * An entry script. This file (named `score.py`) loads the model when the deployed service starts. It is also responsible for receiving data, passing it to the model, and then returning a response.
-* An Azure Machine Learning [environment](service/how-to-use-environments.md). An environment defines the software dependencies needed to run the model and entry script.
+* An Azure Machine Learning [environment](how-to-use-environments.md). An environment defines the software dependencies needed to run the model and entry script.
 
 The following example shows how to use the SDK to create an environment and then use it with an inference configuration:
 
@@ -105,7 +105,7 @@ inference_config = InferenceConfig(entry_script="score.py",
 
 For more information, see the following articles:
 
-+ [How to use environments](service/how-to-use-environments.md).
++ [How to use environments](how-to-use-environments.md).
 + [InferenceConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py) reference.
 
 

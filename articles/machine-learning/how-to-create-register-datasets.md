@@ -243,7 +243,7 @@ The dataset is now available in your workspace under **Datasets**. You can use i
 
 ## Version datasets
 
-You can register a new dataset under the same name by creating a new version. A dataset version is a way to bookmark the state of your data so that you can apply a specific version of the dataset for experimentation or future reproduction. Learn more about [dataset versions](service/how-to-version-track-datasets.md).
+You can register a new dataset under the same name by creating a new version. A dataset version is a way to bookmark the state of your data so that you can apply a specific version of the dataset for experimentation or future reproduction. Learn more about [dataset versions](how-to-version-track-datasets.md).
 ```Python
 # create a TabularDataset from Titanic training data
 web_paths = [
@@ -283,6 +283,6 @@ df = titanic_ds.to_pandas_dataframe()
 
 ## Next steps
 
-* Learn [how to train with datasets](service/how-to-train-with-datasets.md).
+* Learn [how to train with datasets](how-to-train-with-datasets.md).
 * Use automated machine learning to [train with TabularDatasets](https://aka.ms/automl-dataset).
 * For more dataset training examples, see the [sample notebooks](https://aka.ms/dataset-tutorial).

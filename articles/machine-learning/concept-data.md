@@ -66,7 +66,7 @@ The following diagram shows that if you don't have an Azure storage service, you
 
 Additional datasets capabilities can be found in the following documentation:
 
-+ [Version and track](service/how-to-version-track-datasets.md) dataset lineage.
++ [Version and track](how-to-version-track-datasets.md) dataset lineage.
 + [Monitor your dataset](how-to-monitor-datasets.md) to help with data drift detection.
 +  See the following for documentation on the two types of datasets:
     + [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) represents data in a tabular format by parsing the provided file or list of files. Which lets you materialize the data into a Pandas or Spark DataFrame for further manipulation and cleansing. For a complete list of files you can create TabularDatasets from, see the [TabularDatasetFactory class](https://aka.ms/tabulardataset-api-reference).
@@ -77,7 +77,7 @@ Additional datasets capabilities can be found in the following documentation:
 
 With datasets, you can accomplish a number of machine learning tasks through seamless integration with Azure Machine Learning features. 
 
-+ [Train machine learning models](service/how-to-train-with-datasets.md).
++ [Train machine learning models](how-to-train-with-datasets.md).
 + Consume datasets in 
      + [automated ML experiments](how-to-create-portal-experiments.md)
      + the [designer](service/tutorial-designer-automobile-price-train-score.md#import-data) 

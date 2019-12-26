@@ -16,7 +16,7 @@ ms.custom:
 ---
 
 # Version and track datasets in experiments
-[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
+[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 In this article, you'll learn how to version and track Azure Machine Learning datasets for reproducibility. Dataset versioning is a way to bookmark the state of your data so that you can apply a specific version of the dataset for future experiments.
 
@@ -31,7 +31,7 @@ For this tutorial, you need:
 
 - [Azure Machine Learning SDK for Python installed](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py). This SDK includes the [azureml-datasets](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset?view=azure-ml-py) package.
     
-- An [Azure Machine Learning workspace](../concept-workspace.md). Retrieve an existing one by running the following code, or [create a new workspace](../how-to-manage-workspace.md).
+- An [Azure Machine Learning workspace](concept-workspace.md). Retrieve an existing one by running the following code, or [create a new workspace](how-to-manage-workspace.md).
 
     ```Python
     import azureml.core
@@ -39,7 +39,7 @@ For this tutorial, you need:
     
     ws = Workspace.from_config()
     ```
-- An [Azure Machine Learning dataset](../how-to-create-register-datasets.md).
+- An [Azure Machine Learning dataset](how-to-create-register-datasets.md).
 
 <a name="register"></a>
 
@@ -85,7 +85,7 @@ When you load data from a dataset, the current data content referenced by the da
 
 The following image and sample code show the recommended way to structure your data folders and to create dataset versions that reference those folders:
 
-![Folder structure](media/how-to-version-datasets/folder-image.png)
+![Folder structure](./media/how-to-version-track-datasets/folder-image.png)
 
 ```Python
 from azureml.core import Dataset
@@ -170,7 +170,7 @@ You can also find the `input_datasets` from experiments by using [Azure Machine 
 
 The following image shows where to find the input dataset of an experiment on Azure Machine Learning Studio (classic). For this example, go to your **Experiments** pane and open the **Properties** tab for a specific run of your experiment, `keras-mnist`.
 
-![Input datasets](media/how-to-version-datasets/input-datasets.png)
+![Input datasets](./media/how-to-version-track-datasets/input-datasets.png)
 
 Use the following code to register models with datasets:
 
@@ -182,7 +182,7 @@ model = run.register_model(model_name='keras-mlp-mnist',
 
 After registration, you can see the list of models registered with the dataset by using Python or [Azure Machine Learning Studio (classic)](https://ml.azure.com/). The following view is from the **Datasets** pane under **Assets**. Select the dataset and then select the **Models** tab for a list of the models that are registered with the dataset. 
 
-![Input datasets models](media/how-to-version-datasets/dataset-models.png)
+![Input datasets models](./media/how-to-version-track-datasets/dataset-models.png)
 
 ## Next steps
 

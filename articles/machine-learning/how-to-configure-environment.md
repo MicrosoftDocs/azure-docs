@@ -254,7 +254,7 @@ To use Visual Studio Code for development:
 
 1. Install the Azure Machine Learning extension for Visual Studio Code, see [Azure Machine Learning](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai).
 
-    For more information, see [Use Azure Machine Learning for Visual Studio Code](service/how-to-vscode-tools.md).
+    For more information, see [Use Azure Machine Learning for Visual Studio Code](how-to-vscode-tools.md).
 
 1. Learn how to use Visual Studio Code for any type of Python development, see [Get started with Python in VSCode](https://code.visualstudio.com/docs/python/python-tutorial).
 

@@ -71,7 +71,7 @@ Estimators make it easy to train models using popular ML frameworks. If you're u
 * [What are estimators?](concept-azure-machine-learning-architecture.md#estimators)
 * [Tutorial: Train image classification models with MNIST data and scikit-learn using Azure Machine Learning](service/tutorial-train-models-with-aml.md)
 * [Examples: Jupyter Notebook examples of using estimators](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning)
-* [How to: Create estimators in training](service/how-to-train-ml-models.md)
+* [How to: Create estimators in training](how-to-train-ml-models.md)
 
 ### Machine learning pipeline
 

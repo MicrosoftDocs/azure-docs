@@ -38,7 +38,7 @@ Inference, or model scoring, is the phase where the deployed model is used to ma
 
     * To learn how to register models, see [Deploy Models](how-to-deploy-and-where.md#registermodel).
 
-    * To create and register the Tensorflow model used to create this document, see [How to Train a TensorFlow Model](service/how-to-train-tensorflow.md).
+    * To create and register the Tensorflow model used to create this document, see [How to Train a TensorFlow Model](how-to-train-tensorflow.md).
 
 * A general understanding of [How and where to deploy models](service/how-to-deploy-and-where.md).
 
@@ -182,7 +182,7 @@ myenv.docker.base_image = DEFAULT_GPU_IMAGE
 inference_config = InferenceConfig(entry_script="score.py", environment=myenv)
 ```
 
-For more information on environments, see [Create and manage environments for training and deployment](service/how-to-use-environments.md).
+For more information on environments, see [Create and manage environments for training and deployment](how-to-use-environments.md).
 For more information, see the reference documentation for [InferenceConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py).
 
 ## Deploy the model
@@ -286,4 +286,4 @@ aks_target.delete()
 
 * [Deploy model on FPGA](service/how-to-deploy-fpga-web-service.md)
 * [Deploy model with ONNX](concept-onnx.md#deploy-onnx-models-in-azure)
-* [Train Tensorflow DNN Models](service/how-to-train-tensorflow.md)
+* [Train Tensorflow DNN Models](how-to-train-tensorflow.md)

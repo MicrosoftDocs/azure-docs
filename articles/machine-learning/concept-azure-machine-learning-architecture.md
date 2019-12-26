@@ -44,7 +44,7 @@ Use these tools for Azure Machine Learning:
 +  Interact with the service in any Python environment with the [Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
 + Interact with the service in any R environment with the [Azure Machine Learning SDK for R](https://azure.github.io/azureml-sdk-for-r/reference/index.html).
 + Automate your machine learning activities with the [Azure Machine Learning CLI](https://docs.microsoft.com/azure/machine-learning/service/reference-azure-machine-learning-cli).
-+ Write code in Visual Studio Code with [Azure Machine Learning VS Code extension](service/how-to-vscode-tools.md)
++ Write code in Visual Studio Code with [Azure Machine Learning VS Code extension](how-to-vscode-tools.md)
 + Use [Azure Machine Learning designer (preview)](concept-designer.md) to perform the workflow steps without writing code.
 
 
@@ -134,7 +134,7 @@ Azure ML Environments are used to specify the configuration (Docker / Python / S
 
 You can use an environment object on your local compute to develop your training script, reuse that same environment on Azure Machine Learning Compute for model training at scale, and even deploy your model with that same environment. 
 
-Learn [how to create and manage a reusable ML environment](service/how-to-use-environments.md) for training and inference.
+Learn [how to create and manage a reusable ML environment](how-to-use-environments.md) for training and inference.
 
 ### Estimators
 
@@ -144,10 +144,10 @@ For PyTorch, TensorFlow, and Chainer tasks, Azure Machine Learning also provides
 
 For more information, see the following articles:
 
-* [Train ML models with estimators](service/how-to-train-ml-models.md).
-* [Train Pytorch deep learning models at scale with Azure Machine Learning](service/how-to-train-pytorch.md).
-* [Train and register TensorFlow models at scale with Azure Machine Learning](service/how-to-train-tensorflow.md).
-* [Train and register Chainer models at scale with Azure Machine Learning](service/how-to-train-chainer.md).
+* [Train ML models with estimators](how-to-train-ml-models.md).
+* [Train Pytorch deep learning models at scale with Azure Machine Learning](how-to-train-pytorch.md).
+* [Train and register TensorFlow models at scale with Azure Machine Learning](how-to-train-tensorflow.md).
+* [Train and register Chainer models at scale with Azure Machine Learning](how-to-train-chainer.md).
 
 ### Experiments
 
@@ -236,6 +236,6 @@ For an example, see [Tutorial: Train an image classification model with Azure Ma
 
 To get started with Azure Machine Learning, see:
 
-* [What is Azure Machine Learning?](service/overview-what-is-azure-ml.md)
+* [What is Azure Machine Learning?](overview-what-is-azure-ml.md)
 * [Create an Azure Machine Learning workspace](how-to-manage-workspace.md)
 * [Tutorial (part 1): Train a model](service/tutorial-train-models-with-aml.md)
