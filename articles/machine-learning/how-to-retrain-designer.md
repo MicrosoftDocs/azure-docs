@@ -12,7 +12,7 @@ ms.date: 12/15/2019
 ---
 
 # Retrain models with Azure Machine Learning designer (preview)
-[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
+[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 In this how-to, you learn how to use Azure Machine Learning designer to retrain a machine learning model. Find out how to use published pipelines to automate machine learning workflows for retraining.
 
@@ -30,11 +30,11 @@ In this article you learn how to:
 
 * An Azure Machine Learning workspace with the Enterprise SKU.
 
-This how-to assumes you have basic knowledge of building pipelines in the designer. For a guided introduction to the designer, complete the [tutorial](../tutorial-designer-automobile-price-train-score.md). 
+This how-to assumes you have basic knowledge of building pipelines in the designer. For a guided introduction to the designer, complete the [tutorial](tutorial-designer-automobile-price-train-score.md). 
 
 ### Sample pipeline
 
-The pipeline used in this article is an altered version of the one found in [Sample 3 - Income Prediction](../how-to-designer-sample-classification-predict-income.md). It uses the [Import Data](../algorithm-module-reference/import-data.md) module instead of the sample dataset to show you how to train a model using your own data.
+The pipeline used in this article is an altered version of the one found in [Sample 3 - Income Prediction](how-to-designer-sample-classification-predict-income.md). It uses the [Import Data](../algorithm-module-reference/import-data.md) module instead of the sample dataset to show you how to train a model using your own data.
 
 ![Screenshot showing the modified sample pipeline with a box highlighting the Import Data module](./media/how-to-retrain-designer/modified-sample-pipeline.png)
 
@@ -47,7 +47,7 @@ To retrain a model, you need an initial model. In this section, you learn how to
 
     ![Screenshot showing a sample configuration of the Import Data module](./media/how-to-retrain-designer/import-data-settings.png)
 
-    For this example, the data is stored in an [Azure datastore](../how-to-access-data.md). If you don't already have a datastore, you can create one now by selecting **New datastore**.
+    For this example, the data is stored in an [Azure datastore](how-to-access-data.md). If you don't already have a datastore, you can create one now by selecting **New datastore**.
 
 1. Specify the path to your data. You can also select **Browse path** to visually navigate your datastore. 
 
@@ -126,4 +126,4 @@ There are multiple ways to access your REST endpoint programatically depending o
 
 ## Next steps
 
-Follow the designer [tutorial](../tutorial-designer-automobile-price-train-score.md) to train and deploy a regression model.
+Follow the designer [tutorial](tutorial-designer-automobile-price-train-score.md) to train and deploy a regression model.

@@ -20,7 +20,7 @@ Compute instances make it easy to get started with Azure Machine Learning develo
 
 Use a compute instance as your fully configured and managed development environment in the cloud.
 
-Compute instances are typically used as development environments.  They can also be used as a compute target for training and inferencing for development and testing.  For large tasks, an [Azure Machine Learning compute cluster](../how-to-set-up-training-targets.md#amlcompute) with multi-node scaling capabilities is a better compute target choice.
+Compute instances are typically used as development environments.  They can also be used as a compute target for training and inferencing for development and testing.  For large tasks, an [Azure Machine Learning compute cluster](how-to-set-up-training-targets.md#amlcompute) with multi-node scaling capabilities is a better compute target choice.
 
 > [!NOTE]
 > Compute instances are currently available only for workspaces with a region of **North Central US** or **UK South**, with support for other regions coming soon.
@@ -75,7 +75,7 @@ These tools and environments are installed on the compute instance:
 |ONNX packages|`keras2onnx`</br>`onnx`</br>`onnxconverter-common`</br>`skl2onnx`</br>`onnxmltools`|                           
 |Azure Machine Learning Python & R SDK samples||
 
-Compute instances are typically used as development environments.  They can also be used as a compute target for training and inferencing for development and testing.  For large tasks, an [Azure Machine Learning compute cluster](../how-to-set-up-training-targets.md#amlcompute) with multi-node scaling capabilities is a better compute target choice.
+Compute instances are typically used as development environments.  They can also be used as a compute target for training and inferencing for development and testing.  For large tasks, an [Azure Machine Learning compute cluster](how-to-set-up-training-targets.md#amlcompute) with multi-node scaling capabilities is a better compute target choice.
 
 
 ## Accessing files
@@ -94,7 +94,7 @@ Writing small files can be slower on network drives than writing to the VM itsel
 
 In your workspace in Azure Machine Learning studio, select **Compute**, then select **Compute Instance** on the top.
 
-![Manage a compute instance](media/concept-compute-instance/manage-compute-instance.png)
+![Manage a compute instance](./media/concept-compute-instance/manage-compute-instance.png)
 
 You can perform the following actions:
 
@@ -121,7 +121,7 @@ The dedicated cores per region quota, which applies to compute instance creation
 
 ## Compute Target
 
-Compute instances can be used as a [training compute target](../concept-compute-target.md#train) similar to Azure Machine Learning compute training clusters. Provision a multi-GPU VM to run distributed training jobs using TensorFlow/PyTorch estimators. You can also create a run configuration and use it to run your experiment on compute instance. 
+Compute instances can be used as a [training compute target](concept-compute-target.md#train) similar to Azure Machine Learning compute training clusters. Provision a multi-GPU VM to run distributed training jobs using TensorFlow/PyTorch estimators. You can also create a run configuration and use it to run your experiment on compute instance. 
 You can use compute instance as a local inferencing deployment target for testing/debugging scenarios.
 
 ## <a name="notebookvm"></a>What happened to Notebook VM?
@@ -135,4 +135,4 @@ In regions where compute instances are available, new Notebook VMs cannot be cre
 
 ## Next steps
 
- * [Tutorial: Train your first ML model](../tutorial-1st-experiment-sdk-train.md) shows how to use a compute instance with an integrated notebook.
+ * [Tutorial: Train your first ML model](tutorial-1st-experiment-sdk-train.md) shows how to use a compute instance with an integrated notebook.
