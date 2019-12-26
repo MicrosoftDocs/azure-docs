@@ -235,10 +235,8 @@
         "articles/virtual-machines/windows/*.md": "cynthn",
         "articles/virtual-machines/*.md": "cynthn",
         "articles/virtual-machines-scale-sets/*.md": "ju-shim",
-        "articles/batch/*.md": "ju-shim",
         "articles/service-fabric/*.md": "athinanthny",
-        "articles/service-fabric-mesh/*.md": "athinanthny",
-        "articles/notebooks/*.md": "kraigb"
+        "articles/service-fabric-mesh/*.md": "athinanthny"
       },
       "feedback_system": {
         "articles/virtual-machines/windows/classic/**/*": "None",
