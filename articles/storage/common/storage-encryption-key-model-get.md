@@ -1,5 +1,6 @@
 ---
-title: Determine which encryption key model is in use for the storage account - Azure Storage
+title: Determine which encryption key model is in use for the storage account
+titleSuffix: Azure Storage
 description: Use Azure portal, PowerShell, or Azure CLI to check how encryption keys are being managed for the storage account. Keys may be managed by Microsoft (the default), or by the customer. Customer-managed keys must be stored in Azure Key Vault.
 services: storage
 author: tamram
