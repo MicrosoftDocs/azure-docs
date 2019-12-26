@@ -8,7 +8,7 @@
     href: overview-what-is-azure-ml.md
   - name: Azure Machine Learning vs Studio
     displayName: AML, Studio, designer
-    href: ../compare-azure-ml-to-studio-classic.md
+    href: compare-azure-ml-to-studio-classic.md
   - name: Architecture & terms
     displayName: architecture, concepts, definitions, glossary
     href: concept-azure-machine-learning-architecture.md
@@ -158,7 +158,7 @@
       href: how-to-vscode-tools.md
     - name: Interactive debugging
       displayName: Visual Studio Code, VSCode, debug, bugs, remote, compute, instance
-      href: ../how-to-set-up-vs-code-remote.md
+      href: how-to-set-up-vs-code-remote.md
     - name: Git integration
       displayName: github gitlab
       href: concept-train-model-git-integration.md 
@@ -369,7 +369,7 @@
     href: https://docs.microsoft.com/rest/api/azureml/
   - name: Designer module reference
     displayName: module, reference, algorithm, studio
-    href: ../algorithm-module-reference/module-reference.md
+    href: algorithm-module-reference/module-reference.md
   - name: ML at scale
     href: /azure/architecture/data-guide/big-data/machine-learning-at-scale
   - name: Monitor data reference
