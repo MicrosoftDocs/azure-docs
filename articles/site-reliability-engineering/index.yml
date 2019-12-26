@@ -1,0 +1,43 @@
+### YamlMime:Hub
+
+title: Site Reliability Engineering documentation # < 60 chars
+summary: Site Reliability Engineering is an engineering discipline devoted to helping an organization sustainably achieve the appropriate level of reliability in their systems, services, and products. # < 160 chars
+# brand: aspnet | azure | dotnet | dynamics | m365 | ms-graph | office | power-bi | power-platform | sql | sql-server | vs | visual-studio | windows | xamarin
+brand: azure
+
+metadata:
+  title: title # Required; page title displayed in search results. Include the brand. < 60 chars.
+  description: Site Reliability Engineering is an engineering discipline devoted to helping an organization sustainably achieve the appropriate level of reliability in their systems, services, and products. # Required; article description that is displayed in search results. < 160 chars.
+  services: site-reliability-engineering
+  ms.service: site-reliability-engineering #Required; service per approved list. service slug assigned to your service by ACOM.
+  ms.topic: hub-page # Required
+  author: dnblankedelman #Required; your GitHub user alias, with correct capitalization.
+  ms.author: dnb #Required; microsoft alias of author; optional team alias.
+  ms.date: 12/23/2019 #Required; mm/dd/yyyy format.
+
+# productDirectory section (optional)
+productDirectory:
+  title: Learn about SRE # < 60 chars (optional)
+  #summary: sectionsummary # < 160 chars (optional)
+  items:
+    # Card
+    - title: What is SRE?
+      # imageSrc should be square in ratio with no whitespace
+      imageSrc: ./media/index/video.svg
+      summary: Part 1 of a quick video intro to SRE
+      url: https://channel9.msdn.com/Shows/IT-Ops-Talk/Introduction-to-Site-Reliability-Engineering--Part-1/player
+    # Card
+    - title: SRE Principles and Practices
+      imageSrc: ./media/index/video.svg
+      summary: Part 2 of a quick video intro to SRE
+      url: https://channel9.msdn.com/Shows/IT-Ops-Talk/Introduction-to-Site-Reliability-Engineering--Part-2/player
+    # Card
+    - title: Getting Started
+      imageSrc: ./media/index/video.svg
+      summary: Part 3 of a quick video intro to SRE
+      url: https://channel9.msdn.com/Shows/IT-Ops-Talk/Introduction-to-Site-Reliability-Engineering--Part-3/player
+    # Card
+    - title: Intro to SRE Online Course
+      imageSrc: ./media/index/learn.svg
+      summary: Learn the basics of SRE in a free online course
+      url: https://docs.microsoft.com/learn/modules/intro-to-site-reliability-engineering/
