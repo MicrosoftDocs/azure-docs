@@ -50,7 +50,7 @@ When preparing your text file, make sure it:
 After preparing the input content, follow the [long-form audio synthesis quickstart](https://aka.ms/long-audio-python) to submit the request. If you have more than 1 input files, you will need to submit multiple requests. There are some limitations that needs to be aware. 
 * Client is allowed to submit up to 5 requests to server per second for each Azure subscription account. If it exceeds the limitation, client will get a 429 error code(too many requests). Please reduce the request amount per second
 * Server is allowed to run and queue up to 120 requests for each Azure subscription account. If it exceeds the limitation, server will return a 429 error code(too many requests). Please wait and avoid submitting new request until some requests are completed
-* Server will keep up to 20,000 requests for each Azure subscription account. If it exceeds the limitation, please delete some requests before submiting new ones
+* Server will keep up to 20,000 requests for each Azure subscription account. If it exceeds the limitation, please delete some requests before submitting new ones
 
 ## Audio output formats
 
