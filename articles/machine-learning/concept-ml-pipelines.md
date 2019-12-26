@@ -47,7 +47,7 @@ An Azure Machine Learning pipeline is an independently executable workflow of a 
 
 + Data preparation including importing, validating and cleaning, munging and transformation, normalization, and staging
 + Training configuration including parameterizing arguments, filepaths, and logging / reporting configurations
-+ Training and validating efficiently and repeatably, which might include specifying specific data subsets, different hardware compute resources, distributed processing, and progress monitoring
++ Training and validating efficiently and repeatedly, which might include specifying specific data subsets, different hardware compute resources, distributed processing, and progress monitoring
 + Deployment, including versioning, scaling, provisioning, and access control 
 
 Independent steps allow multiple data scientists to work on the same pipeline at the same time without over-taxing compute resources. Separate steps also make it easy to use different compute types/sizes for each step.
