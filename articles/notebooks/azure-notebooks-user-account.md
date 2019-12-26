@@ -1,7 +1,7 @@
 ---
 title: Sign into Azure Notebooks
 description: Configure your user account for Azure Notebooks using a Microsoft account or a work/school account.
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/15/2019
 ---
 
