@@ -16,7 +16,7 @@ The hosting plan you choose dictates the following behaviors:
 
 * How your function app is scaled.
 * The resources available to each function app instance.
-* Support for advanced features, such as VNet connectivity.
+* Support for advanced features, such as Azure Virtual Network (VNet) connectivity.
 
 Both Consumption and Premium plans automatically add compute power when your code is running. Your app is scaled out when needed to handle load, and scaled in when code stops running. For the Consumption plan, you also don't have to pay for idle VMs or reserve capacity in advance.  
 
