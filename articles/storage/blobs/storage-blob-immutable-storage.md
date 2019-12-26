@@ -100,7 +100,7 @@ There is no additional charge for using this feature. Immutable data is priced i
 
 **Can you provide documentation of WORM compliance?**
 
-Yes. To document compliance, Microsoft retained a leading independent assessment firm that specializes in records management and information governance, Cohasset Associates, to evaluate immutable Blob storage and its compliance with requirements specific to the financial services industry. Cohasset validated that immutable Blob storage, when used to retain time-based Blobs in a WORM state, meets the relevant storage requirements of CFTC Rule 1.31(c)-(d), FINRA Rule 4511, and SEC Rule 17a-4. Microsoft targeted this set of rules, as they represent the most prescriptive guidance globally for records retention for financial institutions. The Cohasset report is available in the [Microsoft Service Trust Center](https://aka.ms/AzureWormStorage). To request a letter of attestation from Microsoft regarding WORM compliance, please contact Azure support.
+Yes. To document compliance, Microsoft retained a leading independent assessment firm that specializes in records management and information governance, Cohasset Associates, to evaluate immutable Blob storage and its compliance with requirements specific to the financial services industry. Cohasset validated that immutable Blob storage, when used to retain time-based Blobs in a WORM state, meets the relevant storage requirements of CFTC Rule 1.31(c)-(d), FINRA Rule 4511, and SEC Rule 17a-4. Microsoft targeted this set of rules, as they represent the most prescriptive guidance globally for records retention for financial institutions. The Cohasset report is available in the [Microsoft Service Trust Center](https://aka.ms/AzureWormStorage). To request a letter of attestation from Microsoft regarding WORM immutability compliance, please contact Azure support.
 
 **Does the feature apply to only block blobs, or to page and append blobs as well?**
 
@@ -108,7 +108,7 @@ Immutable storage can be used with any blob type as it is set at the container l
 
 **Do I need to create a new storage account to use this feature?**
 
-No, you can use immutable storage with any existing or newly created general-purpose v1, general-purpose v2, BlobStorage or BlockBlobStorage accounts. General-purpose v1 storage accounts are supported but we recommend upgrading to general-purpose v2 such that you can take advantage of more features. For information on upgrading an existing general-purpose v1 storage account, see [Upgrade a storage account](../common/storage-account-upgrade.md).
+No, you can use immutable storage with any existing or newly created general-purpose v1, general-purpose v2, BlobStorage, or BlockBlobStorage accounts. General-purpose v1 storage accounts are supported but we recommend upgrading to general-purpose v2 such that you can take advantage of more features. For information on upgrading an existing general-purpose v1 storage account, see [Upgrade a storage account](../common/storage-account-upgrade.md).
 
 **Can I apply both a legal hold and time-based retention policy?**
 
@@ -148,7 +148,7 @@ Yes, if your compliance requirements allow for soft delete to be enabled. [Soft 
 
 **Where is the feature available?**
 
-Immutable storage is available in Azure Public, China, and Government regions. If immutable storage is not available in your region, please contact support and email azurestoragefeedback@microsoft.com.
+Immutable storage is available in Azure Public, China, and Government regions. If immutable storage is not available in your region, please contact Azure support and email azurestoragefeedback@microsoft.com.
 
 ## Next steps
 
