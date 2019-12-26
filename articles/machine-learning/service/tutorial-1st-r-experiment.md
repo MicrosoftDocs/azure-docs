@@ -45,7 +45,7 @@ You create a workspace via the Azure portal, a web-based console for managing yo
 
 ## <a name="azure"></a>Clone a notebook folder
 
-This example uses the cloud notebook server in your workspace for an install-free and pre-configured experience. Use [your own environment](how-to-configure-environment.md#local) if you prefer to have control over your environment, packages and dependencies.
+This example uses the cloud notebook server in your workspace for an install-free and pre-configured experience. Use [your own environment](../how-to-configure-environment.md#local) if you prefer to have control over your environment, packages and dependencies.
 
 You complete the following experiment set-up and run steps in Azure Machine Learning studio, a consolidated interface that includes machine learning tools to perform data science scenarios for data science practitioners of all skill levels.
 
