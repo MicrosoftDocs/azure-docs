@@ -528,6 +528,12 @@ A managed instance places verbose information in error logs. There are many inte
 
 ## <a name="Issues"></a> Known issues
 
+### SQL Agent jobs can be interrupted by Agent process restart
+
+**Date:** Dec 2019
+
+SQL Agent creates a new session each time job is started, gradually increasing memory consumption. To avoid hitting the internal memory limit which would block execution of scheduled jobs, Agent process will be restarted once its memory consumption reaches threshold. It may result in interrupting execution of jobs running at the moment of restart.
+
 ### In-memory OLTP memory limits are not applied
 
 **Date:** Oct 2019
