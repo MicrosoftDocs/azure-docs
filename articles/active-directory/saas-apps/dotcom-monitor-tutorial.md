@@ -64,8 +64,8 @@ To configure and test Azure AD SSO with Dotcom-Monitor, complete the following b
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
     * **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
     * **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
-1. **[Configure Dotcom-Monitor SSO](#configure-dotcommonitor-sso)** - to configure the single sign-on settings on application side.
-    * **[Create Dotcom-Monitor test user](#create-dotcommonitor-test-user)** - to have a counterpart of B.Simon in Dotcom-Monitor that is linked to the Azure AD representation of user.
+1. **[Configure Dotcom Monitor SSO](#configure-dotcom-monitor-sso)** - to configure the single sign-on settings on application side.
+    * **[Create Dotcom Monitor test user](#create-dotcom-monitor-test-user)** - to have a counterpart of B.Simon in Dotcom-Monitor that is linked to the Azure AD representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
 ## Configure Azure AD SSO
