@@ -8,7 +8,7 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: tutorial
-ms.date: 12/23/2019
+ms.date: 12/26/2019
 ms.custom: seodec18
 # Customer intent: As a data analyst or developer, I want to learn how to create a Time Series Insights Preview environment so that I can use Time Series Insights queries to understand device behavior. 
 ---
@@ -111,10 +111,10 @@ This section describes how to create an Azure Time Series Insights Preview envir
    | **Subscription** | Select the subscription that you used for the device simulator. |
    | **IoT Hub name** | Select the IoT hub name you created for the device simulator. |
    | **IoT Hub access policy** | Select **iothubowner**. |
-   | **IoT Hub consumer group** | Select **New**, enter a unique name, and then select **Add**. The consumer group must be a unique value in Azure Time Series Insights Preview. |
+   | **IoT Hub consumer group** | Select **New**, enter a unique name, and then select **+ Add**. The consumer group must be a unique value in Azure Time Series Insights Preview. |
    | **Timestamp property** | This value is used to identify the **Timestamp** property in your incoming telemetry data. For this tutorial, leave this box empty. This simulator uses the incoming timestamp from IoT Hub, which Time Series Insights defaults to. |
 
-   Select **Review + create**.
+   Select **Review + Create**.
 
    [![Configure the created IoT hub as an event source ](media/v2-update-provision/tsi-configure-event-source.png)](media/v2-update-provision/tsi-configure-event-source.png#lightbox)
 
@@ -189,7 +189,7 @@ In this section, you perform basic analytics on your time series data by using t
 
     A time series chart appears. Change the **Interval** to **30s**.
 
-1. Repeat step 3 with the other two time series instances so that you’re viewing all three, as shown in this chart:
+1. Repeat the previous step with the other two time series instances so that you’re viewing all three, as shown in this chart:
 
     [![Chart for all time series](media/v2-update-provision/tsi-explorer-add-three-instances.png)](media/v2-update-provision/tsi-explorer-add-three-instances.png#lightbox)
 
@@ -216,9 +216,9 @@ In this section, you apply a model to structure your data. To complete the model
     | **Name** | Enter **Elevator** |
     | **Description** | Enter **This is a type definition for Elevator** |
 
-1. Next, select the **Variables** tab.
+1. Next, select the **Variables** tab. 
 
-1. Select **+ Add Variable** and fill in the following values for the first variable of the Elevator type. You will author three variables in total.
+   Select **+ Add Variable** and fill in the following values for the first variable of the Elevator type. You will author three variables in total.
 
     | Parameter | Action |
     | --- | --- |
@@ -246,13 +246,17 @@ In this section, you apply a model to structure your data. To complete the model
     | **Categories** | <span style="text-decoration: underline">Label </span>  - <span style="text-decoration: underline">Values</span> <br /> Lower: 1,2,3,4 <br /> Middle: 5,6,7,8,9 <br /> Upper: 10,11,12,13,14,15 |
     | **Default Category** | Enter **Unknown** |
 
-    Select **Apply**. You should see three variables created.
+    [![Add type variables.](media/v2-update-provision/tsi-add-type-variables.png)](media/v2-update-provision/tsi-add-type-variables.png#lightbox)
 
-1. Select **Save**. You will see the type created:
+    Select **Apply**.
 
-1. Select the **Hierarchies** tab. Select **+ Add**.
+1. Select **Save**. You should see three variables created.
 
-1. In the **Edit Hierarchy** pane, set the following parameters:
+    [![After adding the type, see it in the model view.](media/v2-update-provision/tsi-add-type-and-view.png)](media/v2-update-provision/tsi-add-type-and-view.png#lightbox)
+
+1. Select the **Hierarchies** tab. Then, select **+ Add**.
+   
+   In the **Edit Hierarchy** pane, set the following parameters:
 
    | Parameter | Action |
    | --- | ---|
@@ -260,8 +264,8 @@ In this section, you apply a model to structure your data. To complete the model
    |**Levels**| Enter **Country** as the name of the first level <br> Select **+ Add Level** <br> Enter **City** for the second level, then select **+ Add Level** <br> Enter **Building** as the name of the third and final level |
 
    Select **Save**.
-   
-   You can see the hierarchy that you created:
+
+   [![](media/v2-update-provision/tsi-add-hierarchy-and-view.png)](media/v2-update-provision/tsi-add-hierarchy-and-view.png#lightbox)
 
 1. Navigate to **Instances**. Under **Actions** on the far right, and select the pencil icon to edit the first instance with the following values:
 
@@ -282,7 +286,7 @@ In this section, you apply a model to structure your data. To complete the model
 
     Select **Save**.
 
-1. Repeat Step 8 with the other two instances with the following values:
+1. Repeat the previous step with the other two instances while using the following values:
 
     **For Elevator 2:**
 
@@ -308,14 +312,19 @@ In this section, you apply a model to structure your data. To complete the model
     | **City** | Enter **New York** |
     | **Building** | Enter **Empire State Building** |
 
+    [![View the updated instances](media/v2-update-provision/iot-solution-accelerator-instances.png)](media/v2-update-provision/iot-solution-accelerator-instances.png#lightbox)
+
 1. Navigate back to the **Analyze** tab to view the charting pane. Under **Location Hierarchy**, expand all hierarchy levels to display the time series instances:
 
+    [![View all hierarchies in chart view](media/v2-update-provision/iot-solution-accelerator-view-hierarchies.png)](media/v2-update-provision/iot-solution-accelerator-view-hierarchies.png#lightbox)
 
 1. Under **Pacific Science Center**, select the Time Series Instance **Elevator 2**, and then select **Show Average Temperature**.
 
 1. For the same instance, **Elevator 2**, select **Show Floor**.
 
     With your categorical variable, you can determine how much time the elevator spent on the upper, lower, and middle floors.
+
+    [![Visualize Elevator 2 with hierarchy and data](media/v2-update-provision/iot-solution-accelerator-elevator-two.png)](media/v2-update-provision/iot-solution-accelerator-elevator-two.png#lightbox)
 
 ## Clean up resources
 
