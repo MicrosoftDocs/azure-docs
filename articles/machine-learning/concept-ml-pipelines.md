@@ -204,7 +204,7 @@ Azure ML pipelines are a powerful facility that begins delivering value in the e
 
 + Learn how to [create your first pipeline](how-to-create-your-first-pipeline.md).
 
-+ Learn how to [run batch predictions on large data](service/tutorial-pipeline-batch-scoring-classification.md ).
++ Learn how to [run batch predictions on large data](tutorial-pipeline-batch-scoring-classification.md ).
 
 + See the SDK reference docs for [pipeline core](https://docs.microsoft.com/python/api/azureml-pipeline-core/?view=azure-ml-py) and [pipeline steps](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py).
 

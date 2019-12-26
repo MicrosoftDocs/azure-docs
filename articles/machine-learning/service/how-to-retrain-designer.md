@@ -30,7 +30,7 @@ In this article you learn how to:
 
 * An Azure Machine Learning workspace with the Enterprise SKU.
 
-This how-to assumes you have basic knowledge of building pipelines in the designer. For a guided introduction to the designer, complete the [tutorial](tutorial-designer-automobile-price-train-score.md). 
+This how-to assumes you have basic knowledge of building pipelines in the designer. For a guided introduction to the designer, complete the [tutorial](../tutorial-designer-automobile-price-train-score.md). 
 
 ### Sample pipeline
 
@@ -126,4 +126,4 @@ There are multiple ways to access your REST endpoint programatically depending o
 
 ## Next steps
 
-Follow the designer [tutorial](tutorial-designer-automobile-price-train-score.md) to train and deploy a regression model.
+Follow the designer [tutorial](../tutorial-designer-automobile-price-train-score.md) to train and deploy a regression model.

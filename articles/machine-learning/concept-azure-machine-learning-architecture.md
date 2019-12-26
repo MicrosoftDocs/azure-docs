@@ -182,7 +182,7 @@ A model is produced by a run in Azure Machine Learning. You can also use a model
 
 Azure Machine Learning is framework agnostic. When you create a model, you can use any popular machine learning framework, such as Scikit-learn, XGBoost, PyTorch, TensorFlow, and Chainer.
 
-For an example of training a model using Scikit-learn and an estimator, see [Tutorial: Train an image classification model with Azure Machine Learning](service/tutorial-train-models-with-aml.md).
+For an example of training a model using Scikit-learn and an estimator, see [Tutorial: Train an image classification model with Azure Machine Learning](tutorial-train-models-with-aml.md).
 
 The **model registry** keeps track of all the models in your Azure Machine Learning workspace.
 
@@ -195,7 +195,7 @@ When you register the model, you can provide additional metadata tags and then u
 
 You can't delete a registered model that is being used by an active deployment.
 
-For an example of registering a model, see [Train an image classification model with Azure Machine Learning](service/tutorial-train-models-with-aml.md).
+For an example of registering a model, see [Train an image classification model with Azure Machine Learning](tutorial-train-models-with-aml.md).
 
 ### Runs
 
@@ -226,7 +226,7 @@ When you submit a run, Azure Machine Learning compresses the directory that cont
 
 To train a model, you specify the directory that contains the training script and associated files. You also specify an experiment name, which is used to store information that's gathered during training. During training, the entire directory is copied to the training environment (compute target), and the script that's specified by the run configuration is started. A snapshot of the directory is also stored under the experiment in the workspace.
 
-For an example, see [Tutorial: Train an image classification model with Azure Machine Learning](service/tutorial-train-models-with-aml.md).
+For an example, see [Tutorial: Train an image classification model with Azure Machine Learning](tutorial-train-models-with-aml.md).
 
 ### Workspaces
 
@@ -238,4 +238,4 @@ To get started with Azure Machine Learning, see:
 
 * [What is Azure Machine Learning?](overview-what-is-azure-ml.md)
 * [Create an Azure Machine Learning workspace](how-to-manage-workspace.md)
-* [Tutorial (part 1): Train a model](service/tutorial-train-models-with-aml.md)
+* [Tutorial (part 1): Train a model](tutorial-train-models-with-aml.md)

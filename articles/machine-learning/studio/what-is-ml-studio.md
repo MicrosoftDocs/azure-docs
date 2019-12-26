@@ -49,7 +49,7 @@ Here is a quick comparison:
 | Model format | Proprietary format, Studio (classic) only | Standard format depending on training job type |
 |Automated model training and hyperparameter tuning | No | Not yet in the designer <br/> ([Supported in the SDK and workspace landing page](../concept-automated-ml.md)) | 
 
-Try out the designer with [Tutorial: Predict automobile price with the designer](../service/tutorial-designer-automobile-price-train-score.md)
+Try out the designer with [Tutorial: Predict automobile price with the designer](../tutorial-designer-automobile-price-train-score.md)
 
 > [!NOTE]
 > Models created in Studio (classic) can't be deployed or managed by Azure Machine Learning. However, models created and deployed in the designer can be managed through the Azure Machine Learning workspace.

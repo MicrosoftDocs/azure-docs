@@ -801,7 +801,7 @@ For a utility that can create client libraries from the specification, see [swag
 ### <a id="azuremlcompute"></a> Batch inference
 Azure Machine Learning Compute targets are created and managed by Azure Machine Learning. They can be used for batch prediction from Azure Machine Learning pipelines.
 
-For a walkthrough of batch inference with Azure Machine Learning Compute, see [How to run batch predictions](service/tutorial-pipeline-batch-scoring-classification.md).
+For a walkthrough of batch inference with Azure Machine Learning Compute, see [How to run batch predictions](tutorial-pipeline-batch-scoring-classification.md).
 
 ### <a id="iotedge"></a> IoT Edge inference
 Support for deploying to the edge is in preview. For more information, see [Deploy Azure Machine Learning as an IoT Edge module](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-machine-learning).

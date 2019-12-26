@@ -170,7 +170,7 @@ Access the following web-based authoring tools from the studio:
 | Web-based tool | Description | Edition |
 |-|-|-|
 | Notebook VM(preview) | Fully managed cloud-based workstation | Basic & Enterprise |
-| [Automated machine learning](service/tutorial-first-experiment-automated-ml.md) (preview) | No code experience for automating machine learning model development | Enterprise |
+| [Automated machine learning](tutorial-first-experiment-automated-ml.md) (preview) | No code experience for automating machine learning model development | Enterprise |
 | [Designer](concept-designer.md) (preview) | Drag-and-drop machine learning modeling tool formerly known as the the designer | Enterprise |
 
 
@@ -545,7 +545,7 @@ The new web experience enables data scientists and data engineers to complete th
 
 Using this new Azure Machine Learning interface, you can now:
 + Manage your notebooks or link out to Jupyter
-+ [Run automated ML experiments](service/tutorial-first-experiment-automated-ml.md)
++ [Run automated ML experiments](tutorial-first-experiment-automated-ml.md)
 + [Create datasets from local files, datastores, & web files](how-to-create-register-datasets.md)
 + Explore & prepare datasets for model creation
 + Monitor data drift for your models

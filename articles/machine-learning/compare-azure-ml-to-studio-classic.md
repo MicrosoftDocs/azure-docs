@@ -48,9 +48,9 @@ Here is a quick comparison.
 
 The following resources can help you get started with Azure Machine Learning
 
-- Read the [Azure Machine Learning overview](service/tutorial-first-experiment-automated-ml.md) 
+- Read the [Azure Machine Learning overview](tutorial-first-experiment-automated-ml.md) 
 
-- [Create your first designer pipeline](service/tutorial-designer-automobile-price-train-score.md) to predict auto prices.
+- [Create your first designer pipeline](tutorial-designer-automobile-price-train-score.md) to predict auto prices.
 
 ![Azure Machine Learning designer example](media/concept-designer/designer-drag-and-drop.gif)
 
@@ -59,6 +59,6 @@ The following resources can help you get started with Azure Machine Learning
 In addition to the drag-and-drop capabilities in the designer, Azure Machine Learning has other tools available:  
   + [Use Python notebooks to train & deploy ML models](tutorial-1st-experiment-sdk-setup.md)
   + [Use R Markdown to train & deploy ML models](tutorial-1st-r-experiment.md) 
-  + [Use automated machine learning to train & deploy ML models](./service/tutorial-designer-automobile-price-train-score.md) 
-  + [Use the machine learning CLI to train and deploy a model](./service/tutorial-train-deploy-model-cli.md)
+  + [Use automated machine learning to train & deploy ML models](tutorial-designer-automobile-price-train-score.md) 
+  + [Use the machine learning CLI to train and deploy a model](tutorial-train-deploy-model-cli.md)
 

@@ -17,7 +17,7 @@ ms.custom: seodec18
 # Tutorial: Deploy an image classification model in Azure Container Instances
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-This tutorial is **part two of a two-part tutorial series**. In the [previous tutorial](service/tutorial-train-models-with-aml.md), you trained machine learning models and then registered a model in your workspace on the cloud.  
+This tutorial is **part two of a two-part tutorial series**. In the [previous tutorial](tutorial-train-models-with-aml.md), you trained machine learning models and then registered a model in your workspace on the cloud.  
 
 Now you're ready to deploy the model as a web service in [Azure Container Instances](https://docs.microsoft.com/azure/container-instances/). A web service is an image, in this case a Docker image. It encapsulates the scoring logic and the model itself. 
 
@@ -37,7 +37,7 @@ Container Instances is a great solution for testing and understanding the workfl
 
 ## Prerequisites
 
-To run the notebook, first complete the model training in [Tutorial (part 1): Train an image classification model](service/tutorial-train-models-with-aml.md).   Then open the  **img-classification-part2-deploy.ipynb** notebook in your cloned **tutorials** folder.
+To run the notebook, first complete the model training in [Tutorial (part 1): Train an image classification model](tutorial-train-models-with-aml.md).   Then open the  **img-classification-part2-deploy.ipynb** notebook in your cloned **tutorials** folder.
 
 This tutorial is also available on [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials) if you wish to use it on your own [local environment](how-to-configure-environment.md#local).  Make sure you have installed `matplotlib` and `scikit-learn` in your environment. 
 

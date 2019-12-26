@@ -15,7 +15,7 @@ ms.date: 11/04/2019
 # Tutorial: Deploy a machine learning model with the designer (preview)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
-You can deploy the predictive model developed in [part one of the tutorial](service/tutorial-designer-automobile-price-train-score.md) to give others a chance to use it. In part one, you trained your model. Now, it's time to generate new predictions based on user input. In this part of the tutorial, you will:
+You can deploy the predictive model developed in [part one of the tutorial](tutorial-designer-automobile-price-train-score.md) to give others a chance to use it. In part one, you trained your model. Now, it's time to generate new predictions based on user input. In this part of the tutorial, you will:
 
 > [!div class="checklist"]
 > * Create a real-time inference pipeline.
@@ -25,7 +25,7 @@ You can deploy the predictive model developed in [part one of the tutorial](serv
 
 ## Prerequisites
 
-Complete [part one of the tutorial](service/tutorial-designer-automobile-price-train-score.md) to learn how to train and score a machine learning model in the designer.
+Complete [part one of the tutorial](tutorial-designer-automobile-price-train-score.md) to learn how to train and score a machine learning model in the designer.
 
 ## Create a real-time inference pipeline
 

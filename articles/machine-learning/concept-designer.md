@@ -15,7 +15,7 @@ ms.date: 11/12/2019
 # What is Azure Machine Learning designer (preview)? 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
-Azure Machine Learning designer lets you visually connect [datasets](#datasets) and [modules](#module) on an interactive canvas to create machine learning models. To learn how to get started with the designer, see [Tutorial: Predict automobile price with the designer](service/tutorial-designer-automobile-price-train-score.md)
+Azure Machine Learning designer lets you visually connect [datasets](#datasets) and [modules](#module) on an interactive canvas to create machine learning models. To learn how to get started with the designer, see [Tutorial: Predict automobile price with the designer](tutorial-designer-automobile-price-train-score.md)
 
 ![Azure Machine Learning designer example](./media/concept-designer/designer-drag-and-drop.gif)
 
@@ -130,7 +130,7 @@ You can convert existing visual interface experiments and web services to pipeli
 
 ## Next steps
 
-* Learn the basics of predictive analytics and machine learning with [Tutorial: Predict automobile price with the designer](service/tutorial-designer-automobile-price-train-score.md)
+* Learn the basics of predictive analytics and machine learning with [Tutorial: Predict automobile price with the designer](tutorial-designer-automobile-price-train-score.md)
 * Use one of the samples and modify to suite your needs:
 
 - [Sample 1 - Regression: Predict an automobile's price](how-to-designer-sample-regression-automobile-price-basic.md)

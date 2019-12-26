@@ -134,7 +134,7 @@ In this article, you used the Azure Machine Learning SDK for Python to schedule 
 For more information, see:
 
 > [!div class="nextstepaction"]
-> [Use Azure Machine Learning Pipelines for batch scoring](service/tutorial-pipeline-batch-scoring-classification.md)
+> [Use Azure Machine Learning Pipelines for batch scoring](tutorial-pipeline-batch-scoring-classification.md)
 
 * Learn more about [pipelines](concept-ml-pipelines.md)
 * Learn more about [exploring Azure Machine Learning with Jupyter](samples-notebooks.md)

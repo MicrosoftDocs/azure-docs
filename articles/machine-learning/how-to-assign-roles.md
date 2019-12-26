@@ -113,5 +113,5 @@ For more information on the operations (actions) usable with custom roles, see [
 
 - [Enterprise security overview](concept-enterprise-security.md)
 - [Securely run experiments and inference/score inside a virtual network](how-to-enable-virtual-network.md)
-- [Tutorial: Train models](service/tutorial-train-models-with-aml.md)
+- [Tutorial: Train models](tutorial-train-models-with-aml.md)
 - [Resource provider operations](/azure/role-based-access-control/resource-provider-operations#microsoftmachinelearningservices)

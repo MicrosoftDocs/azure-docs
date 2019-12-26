@@ -314,5 +314,5 @@ print(token)
 
 ## Next steps
 
-* [Train and deploy an image classification model](tutorial-train-models-with-aml.md).
+* [Train and deploy an image classification model](../tutorial-train-models-with-aml.md).
 * [Consume an Azure Machine Learning model deployed as a web service](how-to-consume-web-service.md).

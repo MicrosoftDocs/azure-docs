@@ -14,7 +14,7 @@ ms.date: 11/04/2019
 
 In this article, you learn about Azure Machine Learning, a cloud-based environment you can use to train, deploy, automate, manage, and track ML models. 
 
-Azure Machine Learning can be used for any kind of machine learning, from classical ml to deep learning, supervised, and unsupervised learning. Whether you prefer to write Python or R code or zero-code/low-code options such as the [designer](service/tutorial-designer-automobile-price-train-score.md), you can build, train, and track highly accurate machine learning and deep-learning models in an Azure Machine Learning Workspace. 
+Azure Machine Learning can be used for any kind of machine learning, from classical ml to deep learning, supervised, and unsupervised learning. Whether you prefer to write Python or R code or zero-code/low-code options such as the [designer](tutorial-designer-automobile-price-train-score.md), you can build, train, and track highly accurate machine learning and deep-learning models in an Azure Machine Learning Workspace. 
 
 Start training on your local machine and then scale out to the cloud. 
 
@@ -35,7 +35,7 @@ Forecasts or predictions from machine learning can make apps and devices smarter
 ## Machine learning tools to fit each task 
 
 Azure Machine Learning provides all the tools developers and data scientists need for their machine learning workflows, including:
-+ The [Azure Machine Learning designer](service/tutorial-designer-automobile-price-train-score.md) (preview): drag-n-drop modules to build your experiments and then deploy pipelines.
++ The [Azure Machine Learning designer](tutorial-designer-automobile-price-train-score.md) (preview): drag-n-drop modules to build your experiments and then deploy pipelines.
 
 + Jupyter notebooks: use our [example notebooks](https://aka.ms/aml-notebooks) or create your own notebooks to leverage our <a href="https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">SDK for Python</a> samples for your machine learning. 
 
@@ -63,7 +63,7 @@ For code-free or low-code training and deployment, try:
 
 + **Azure Machine Learning designer (preview)**
 
-  Use the designer to prep data, train, test, deploy, manage, and track machine learning models without writing any code. There is no programming required, you visually connect datasets and modules to construct your model. Try out the [designer tutorial](service/tutorial-designer-automobile-price-train-score.md).
+  Use the designer to prep data, train, test, deploy, manage, and track machine learning models without writing any code. There is no programming required, you visually connect datasets and modules to construct your model. Try out the [designer tutorial](tutorial-designer-automobile-price-train-score.md).
 
   Learn more in [the Azure Machine Learning designer overview article](concept-designer.md). 
 
@@ -71,7 +71,7 @@ For code-free or low-code training and deployment, try:
 
 + **Automated machine learning UI**
 
-  Learn how to create [automated ML experiments](service/tutorial-first-experiment-automated-ml.md) in the easy-to-use interface. 
+  Learn how to create [automated ML experiments](tutorial-first-experiment-automated-ml.md) in the easy-to-use interface. 
 
   [![Azure Machine Learning studio navigation pane](./media/overview-what-is-azure-ml/azure-machine-learning-automated-ml-ui.jpg)](./media/overview-what-is-azure-ml/azure-machine-learning-automated-ml-ui.jpg)
 
@@ -131,8 +131,8 @@ Customers are responsible for costs incurred on compute and other Azure resource
   + [Use Python notebooks to train & deploy ML models](tutorial-1st-experiment-sdk-setup.md)
   + [Use R Markdown to train & deploy ML models](tutorial-1st-r-experiment.md) 
   + [Use automated machine learning to train & deploy ML models](  service/tutorial-first-experiment-automated-ml.md) 
-  + [Use the designer's drag & drop capabilities to train & deploy](service/tutorial-designer-automobile-price-train-score.md) 
-  + [Use the machine learning CLI to train and deploy a model](service/tutorial-train-deploy-model-cli.md)
+  + [Use the designer's drag & drop capabilities to train & deploy](tutorial-designer-automobile-price-train-score.md) 
+  + [Use the machine learning CLI to train and deploy a model](tutorial-train-deploy-model-cli.md)
 
 - Learn about [machine learning pipelines](/azure/machine-learning/service/concept-ml-pipelines) to build, optimize, and manage your machine learning scenarios.
 

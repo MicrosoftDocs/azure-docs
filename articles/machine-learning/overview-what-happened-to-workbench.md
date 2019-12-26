@@ -56,7 +56,7 @@ The portal's workspace dashboard is supported on Microsoft Edge, Chrome, and Fir
 
 [![Online portal](./media/overview-what-happened-to-workbench/image001.png)](./media/overview-what-happened-to-workbench/image001.png#lightbox)
 
-Start training your models and tracking the run histories using the new CLI and SDK. You can learn how with the [Tutorial: train models with Azure Machine Learning](service/tutorial-train-models-with-aml.md).
+Start training your models and tracking the run histories using the new CLI and SDK. You can learn how with the [Tutorial: train models with Azure Machine Learning](tutorial-train-models-with-aml.md).
 
 ## Will projects persist?
 
@@ -95,6 +95,6 @@ For an overview of the service, read [What is Azure Machine Learning?](overview-
 Create your first experiment with your preferred method:
   + [Use Python notebooks](tutorial-1st-experiment-sdk-setup.md)
   + [Use R Markdown](tutorial-1st-r-experiment.md) 
-  + [Use automated machine learning](service/tutorial-designer-automobile-price-train-score.md) 
-  + [Use the designer's drag & drop capabilities](service/tutorial-first-experiment-automated-ml.md) 
-  + [Use the ML extension to the CLI](service/tutorial-train-deploy-model-cli.md)
+  + [Use automated machine learning](tutorial-designer-automobile-price-train-score.md) 
+  + [Use the designer's drag & drop capabilities](tutorial-first-experiment-automated-ml.md) 
+  + [Use the ML extension to the CLI](tutorial-train-deploy-model-cli.md)

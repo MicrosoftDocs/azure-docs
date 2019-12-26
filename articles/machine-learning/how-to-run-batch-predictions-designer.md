@@ -35,7 +35,7 @@ In this how-to, you learn the following tasks:
 
 1. Sign in to [Azure Machine Learning studio](https://ml.azure.com/).
 
-This how-to assumes basic knowledge of building a simple pipeline in the designer. For a guided introduction to the designer, complete the [tutorial](service/tutorial-designer-automobile-price-train-score.md). 
+This how-to assumes basic knowledge of building a simple pipeline in the designer. For a guided introduction to the designer, complete the [tutorial](tutorial-designer-automobile-price-train-score.md). 
 
 ## Create a pipeline
 
@@ -99,8 +99,8 @@ In the run setup, you can provide a description for the run, and change the valu
 
 ![Pipeline run](./media/how-to-run-batch-predictions-designer/designer-batch-scoring-15.png)
 
-The **Consume** tab contains the REST endpoint for rerunning your pipeline. To make a rest call, you will need an OAuth 2.0 bearer-type authentication header. See the following [tutorial section](service/tutorial-pipeline-batch-scoring-classification.md#publish-and-run-from-a-rest-endpoint) for more detail on setting up authentication to your workspace and making a parameterized REST call.
+The **Consume** tab contains the REST endpoint for rerunning your pipeline. To make a rest call, you will need an OAuth 2.0 bearer-type authentication header. See the following [tutorial section](tutorial-pipeline-batch-scoring-classification.md#publish-and-run-from-a-rest-endpoint) for more detail on setting up authentication to your workspace and making a parameterized REST call.
 
 ## Next steps
 
-Follow the designer [tutorial](service/tutorial-designer-automobile-price-train-score.md) to train and deploy a regression model.
+Follow the designer [tutorial](tutorial-designer-automobile-price-train-score.md) to train and deploy a regression model.
