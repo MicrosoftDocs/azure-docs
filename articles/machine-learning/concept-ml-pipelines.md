@@ -47,7 +47,7 @@ An Azure Machine Learning pipeline is an independently executable workflow of a 
 
 + Data preparation including importing, validating and cleaning, munging and transformation, normalization, and staging
 + Training configuration including parameterizing arguments, filepaths, and logging / reporting configurations
-+ Training and validating efficiently and repeatably, which might include specifying specific data subsets, different hardware compute resources, distributed processing, and progress monitoring
++ Training and validating efficiently and repeatedly, which might include specifying specific data subsets, different hardware compute resources, distributed processing, and progress monitoring
 + Deployment, including versioning, scaling, provisioning, and access control 
 
 Independent steps allow multiple data scientists to work on the same pipeline at the same time without over-taxing compute resources. Separate steps also make it easy to use different compute types/sizes for each step.
@@ -204,8 +204,8 @@ Azure ML pipelines are a powerful facility that begins delivering value in the e
 
 + Learn how to [create your first pipeline](how-to-create-your-first-pipeline.md).
 
-+ Learn how to [run batch predictions on large data](service/tutorial-pipeline-batch-scoring-classification.md ).
++ Learn how to [run batch predictions on large data](tutorial-pipeline-batch-scoring-classification.md ).
 
 + See the SDK reference docs for [pipeline core](https://docs.microsoft.com/python/api/azureml-pipeline-core/?view=azure-ml-py) and [pipeline steps](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py).
 
-+ Try out example Jupyter notebooks showcasing [Azure Machine Learning pipelines](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines). Learn how to [run notebooks to explore this service](service/samples-notebooks.md).
++ Try out example Jupyter notebooks showcasing [Azure Machine Learning pipelines](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines). Learn how to [run notebooks to explore this service](samples-notebooks.md).

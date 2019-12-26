@@ -13,7 +13,7 @@ ms.date: 11/04/2019
 ---
 
 # Tutorial: Deploy a machine learning model with the designer (preview)
-[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
+[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
 You can deploy the predictive model developed in [part one of the tutorial](tutorial-designer-automobile-price-train-score.md) to give others a chance to use it. In part one, you trained your model. Now, it's time to generate new predictions based on user input. In this part of the tutorial, you will:
 
@@ -114,11 +114,11 @@ After deployment finishes, you can test your real-time endpoint by going to the 
 
 ## Clean up resources
 
-[!INCLUDE [aml-ui-cleanup](../../../includes/aml-ui-cleanup.md)]
+[!INCLUDE [aml-ui-cleanup](../../includes/aml-ui-cleanup.md)]
 
 ## Next steps
 
 In this tutorial, you learned the key steps in how to create, deploy, and consume a machine learning model in the designer. To learn more about how you can use the designer to solve other types of problems, see our other sample pipelines.
 
 > [!div class="nextstepaction"]
-> [Credit risk classification sample](../how-to-designer-sample-classification-credit-risk-cost-sensitive.md)
+> [Credit risk classification sample](how-to-designer-sample-classification-credit-risk-cost-sensitive.md)

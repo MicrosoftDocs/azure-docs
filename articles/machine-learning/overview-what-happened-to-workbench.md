@@ -16,7 +16,7 @@ ms.custom: seodec18
 
 The Azure Machine Learning Workbench application and some other early features were deprecated and replaced in the **September 2018** release to make way for an improved [architecture](concept-azure-machine-learning-architecture.md).
 
-To improve your experience, the release contains many significant updates prompted by customer feedback. The core functionality from experiment runs to model deployment hasn't changed. But now, you can use the robust <a href="https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">Python SDK</a>, R SDK, and the [Azure CLI](service/reference-azure-machine-learning-cli.md) to accomplish your machine learning tasks and pipelines.
+To improve your experience, the release contains many significant updates prompted by customer feedback. The core functionality from experiment runs to model deployment hasn't changed. But now, you can use the robust <a href="https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">Python SDK</a>, R SDK, and the [Azure CLI](reference-azure-machine-learning-cli.md) to accomplish your machine learning tasks and pipelines.
 
 Most of the artifacts that were created in the earlier version of Azure Machine Learning are stored in your own local or cloud storage. These artifacts won't ever disappear.
 
@@ -32,7 +32,7 @@ The latest release of Azure Machine Learning includes the following features:
 + A [simplified Azure resources model](concept-azure-machine-learning-architecture.md).
 + A [new portal UI](how-to-track-experiments.md) to manage your experiments and compute targets.
 + A new, more comprehensive Python <a href="https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">SDK</a>.
-+ The new expanded [Azure CLI extension](service/reference-azure-machine-learning-cli.md) for machine learning.
++ The new expanded [Azure CLI extension](reference-azure-machine-learning-cli.md) for machine learning.
 
 The [architecture](concept-azure-machine-learning-architecture.md) was redesigned for ease of use. Instead of multiple Azure resources and accounts, you only need an [Azure Machine Learning Workspace](concept-workspace.md). You can create workspaces quickly in the [Azure portal](how-to-manage-workspace.md). By using a workspace, multiple users can store training and deployment compute targets, model experiments, Docker images, deployed models, and so on.
 
@@ -44,7 +44,7 @@ Although there are new improved CLI and SDK clients in the current release, the 
 
 On January 9th, 2019 support for Machine Learning Workbench, Azure Machine Learning Experimentation and Model Management accounts, and their associated SDK and CLI has ended.
 
-All the latest capabilities are available by using this <a href="https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">SDK</a>, the [CLI](service/reference-azure-machine-learning-cli.md), and the [portal](how-to-manage-workspace.md).
+All the latest capabilities are available by using this <a href="https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">SDK</a>, the [CLI](reference-azure-machine-learning-cli.md), and the [portal](how-to-manage-workspace.md).
 
 ## What about run histories?
 
@@ -56,7 +56,7 @@ The portal's workspace dashboard is supported on Microsoft Edge, Chrome, and Fir
 
 [![Online portal](./media/overview-what-happened-to-workbench/image001.png)](./media/overview-what-happened-to-workbench/image001.png#lightbox)
 
-Start training your models and tracking the run histories using the new CLI and SDK. You can learn how with the [Tutorial: train models with Azure Machine Learning](service/tutorial-train-models-with-aml.md).
+Start training your models and tracking the run histories using the new CLI and SDK. You can learn how with the [Tutorial: train models with Azure Machine Learning](tutorial-train-models-with-aml.md).
 
 ## Will projects persist?
 
@@ -84,7 +84,7 @@ In the latest version, models are deployed as web services to Azure Container In
 
 Learn more in these articles:
 + [Where and how to deploy models](how-to-deploy-and-where.md)
-+ [Tutorial: Deploy models with Azure Machine Learning](service/tutorial-deploy-models-with-aml.md)
++ [Tutorial: Deploy models with Azure Machine Learning](tutorial-deploy-models-with-aml.md)
 
 ## Next steps
 
@@ -93,8 +93,8 @@ Learn about the [latest architecture for Azure Machine Learning](concept-azure-m
 For an overview of the service, read [What is Azure Machine Learning?](overview-what-is-azure-ml.md).
 
 Create your first experiment with your preferred method:
-  + [Use Python notebooks](service/tutorial-1st-experiment-sdk-setup.md)
-  + [Use R Markdown](service/tutorial-1st-r-experiment.md) 
-  + [Use automated machine learning](service/tutorial-designer-automobile-price-train-score.md) 
-  + [Use the designer's drag & drop capabilities](service/tutorial-first-experiment-automated-ml.md) 
-  + [Use the ML extension to the CLI](service/tutorial-train-deploy-model-cli.md)
+  + [Use Python notebooks](tutorial-1st-experiment-sdk-setup.md)
+  + [Use R Markdown](tutorial-1st-r-experiment.md) 
+  + [Use automated machine learning](tutorial-designer-automobile-price-train-score.md) 
+  + [Use the designer's drag & drop capabilities](tutorial-first-experiment-automated-ml.md) 
+  + [Use the ML extension to the CLI](tutorial-train-deploy-model-cli.md)

@@ -26,11 +26,11 @@ To facilitate deep learning model training, the Azure Machine Learning Python SD
 Once you've created your [workspace](concept-workspace.md) and set up your [development environment](how-to-configure-environment.md), training a model in Azure Machine Learning involves the following steps:  
 1. Create a [remote compute target](how-to-set-up-training-targets.md) (note you can also use local computer as compute target)
 2. Upload your [training data](how-to-access-data.md) to datastore (Optional)
-3. Create your [training script](service/tutorial-train-models-with-aml.md#create-a-training-script)
+3. Create your [training script](tutorial-train-models-with-aml.md#create-a-training-script)
 4. Create an `Estimator` object
 5. Submit the estimator to an experiment object under the workspace
 
-This article focuses on steps 4-5. For steps 1-3, refer to the [train a model tutorial](service/tutorial-train-models-with-aml.md) for an example.
+This article focuses on steps 4-5. For steps 1-3, refer to the [train a model tutorial](tutorial-train-models-with-aml.md) for an example.
 
 ### Single-node training
 

@@ -32,7 +32,7 @@ In this article, you learn the following tasks:
 
 * If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of the Azure Machine Learning](https://aka.ms/AMLFree).
 
-* For a guided quickstart, complete the [setup tutorial](service/tutorial-1st-experiment-sdk-setup.md) if you don't already have an Azure Machine Learning workspace or notebook virtual machine. 
+* For a guided quickstart, complete the [setup tutorial](tutorial-1st-experiment-sdk-setup.md) if you don't already have an Azure Machine Learning workspace or notebook virtual machine. 
 
 * To manage your own environment and dependencies, see the [how-to guide](how-to-configure-environment.md) on configuring your own environment. Run `pip install azureml-sdk[notebooks] azureml-pipeline-core azureml-contrib-pipeline-steps` in your environment to download the necessary dependencies.
 

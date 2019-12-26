@@ -45,7 +45,7 @@ A generic training job with Azure Machine Learning can be defined using the [Run
 You may start with a run configuration for your local computer, and then switch to one for a cloud-based compute target as needed. When changing the compute target, you only change the run configuration you use. A run also logs information about the training job, such as the inputs, outputs, and logs.
 
 * [What is a run configuration?](concept-azure-machine-learning-architecture.md#run-configurations)
-* [Tutorial: Train your first ML model](service/tutorial-1st-experiment-sdk-train.md)
+* [Tutorial: Train your first ML model](tutorial-1st-experiment-sdk-train.md)
 * [Examples: Jupyter Notebook examples of training models](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training)
 * [How to: Set up and use compute targets for model training](how-to-set-up-training-targets.md)
 
@@ -57,8 +57,8 @@ Define the iterations, hyperparameter settings, featurization, and other setting
 > In addtion to the Python SDK, you can also use Automated ML through [Azure Machine Learning studio](https://ml.azure.com).
 
 * [What is automated machine learning?](concept-automated-ml.md)
-* [Tutorial: Create your first classification model with automated machine learning](service/tutorial-first-experiment-automated-ml.md)
-* [Tutorial: Use automated machine learning to predict taxi fares](service/tutorial-auto-train-models.md)
+* [Tutorial: Create your first classification model with automated machine learning](tutorial-first-experiment-automated-ml.md)
+* [Tutorial: Use automated machine learning to predict taxi fares](tutorial-auto-train-models.md)
 * [Examples: Jupyter Notebook examples for automated machine learning](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning)
 * [How to: Configure automated ML experiments in Python](how-to-configure-auto-train.md)
 * [How to: Autotrain a time-series forecast model](how-to-auto-train-forecast.md)
@@ -69,7 +69,7 @@ Define the iterations, hyperparameter settings, featurization, and other setting
 Estimators make it easy to train models using popular ML frameworks. If you're using **Scikit-learn**, **PyTorch**, **TensorFlow**, or **Chainer**, you should consider using an estimator for training. There is also a generic estimator that can be used with frameworks that do not already have a dedicated estimator class. You don't have to worry about defining a run configuration when using estimators.
 
 * [What are estimators?](concept-azure-machine-learning-architecture.md#estimators)
-* [Tutorial: Train image classification models with MNIST data and scikit-learn using Azure Machine Learning](service/tutorial-train-models-with-aml.md)
+* [Tutorial: Train image classification models with MNIST data and scikit-learn using Azure Machine Learning](tutorial-train-models-with-aml.md)
 * [Examples: Jupyter Notebook examples of using estimators](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning)
 * [How to: Create estimators in training](how-to-train-ml-models.md)
 
@@ -79,7 +79,7 @@ Machine learning pipelines can use the previously mentioned training methods (ru
 
 * [What are ML pipelines in Azure Machine Learning?](concept-ml-pipelines.md)
 * [Create and run machine learning pipelines with Azure Machine Learning SDK](how-to-create-your-first-pipeline.md)
-* [Tutorial: Use Azure Machine Learning Pipelines for batch scoring](service/tutorial-pipeline-batch-scoring-classification.md)
+* [Tutorial: Use Azure Machine Learning Pipelines for batch scoring](tutorial-pipeline-batch-scoring-classification.md)
 * [Examples: Jupyter Notebook examples for machine learning pipelines](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/machine-learning-pipelines)
 * [Examples: Pipeline with automated machine learning](https://aka.ms/pl-automl)
 * [Examples: Pipeline with estimators](https://aka.ms/pl-estimator)
@@ -89,7 +89,7 @@ Machine learning pipelines can use the previously mentioned training methods (ru
 The designer lets you to train models using a drag and drop interface in your web browser.
 
 + [What is the designer?](concept-designer.md)
-+ [Tutorial : Predict automobile price](service/tutorial-designer-automobile-price-train-score.md)
++ [Tutorial : Predict automobile price](tutorial-designer-automobile-price-train-score.md)
 + [Regression: Predict price](how-to-designer-sample-regression-automobile-price-basic.md)
 + [Classification: Predict income](how-to-designer-sample-classification-predict-income.md)
 + [Classification: Predict churn, appetency, and up-selling](how-to-designer-sample-classification-churn.md)
@@ -100,7 +100,7 @@ The designer lets you to train models using a drag and drop interface in your we
 
 The machine learning CLI is an extension for the Azure CLI. It provides cross-platform CLI commands for working with Azure Machine Learning. Typically, you use the CLI to automate tasks, such as training a machine learning model.
 
-* [Use the CLI extension for Azure Machine Learning](service/reference-azure-machine-learning-cli.md)
+* [Use the CLI extension for Azure Machine Learning](reference-azure-machine-learning-cli.md)
 * [MLOps on Azure](https://github.com/microsoft/MLOps)
 
 ## Next steps

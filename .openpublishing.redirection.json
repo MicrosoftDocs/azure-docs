@@ -13752,6 +13752,96 @@
         "redirect_document_id": true
     },
     {
+        "source_path": "articles/machine-learning/service/concept-compute-instance.md",
+        "redirect_url": "/azure/machine-learning/concept-compute-instance",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/machine-learning/service/how-to-retrain-designer.md",
+        "redirect_url": "/azure/machine-learning/how-to-retrain-designer",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/machine-learning/service/how-to-setup-authentication.md",
+        "redirect_url": "/azure/machine-learning/how-to-setup-authentication",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/machine-learning/service/reference-azure-machine-learning-cli.md",
+        "redirect_url": "/azure/machine-learning/reference-azure-machine-learning-cli",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/machine-learning/service/reference-pipeline-yaml.md",
+        "redirect_url": "/azure/machine-learning/reference-pipeline-yaml",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/machine-learning/service/samples-notebooks.md",
+        "redirect_url": "/azure/machine-learning/samples-notebooks",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/machine-learning/service/resource-known-issues.md",
+        "redirect_url": "/azure/machine-learning/resource-known-issues",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/machine-learning/service/tutorial-1st-experiment-sdk-setup.md",
+        "redirect_url": "/azure/machine-learning/tutorial-1st-experiment-sdk-setup",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/machine-learning/service/tutorial-1st-experiment-sdk-train.md",
+        "redirect_url": "/azure/machine-learning/tutorial-1st-experiment-sdk-train",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/machine-learning/service/tutorial-1st-r-experiment.md",
+        "redirect_url": "/azure/machine-learning/tutorial-1st-r-experiment",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/machine-learning/service/tutorial-auto-train-models.md",
+        "redirect_url": "/azure/machine-learning/tutorial-auto-train-models",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/machine-learning/service/tutorial-deploy-models-with-aml.md",
+        "redirect_url": "/azure/machine-learning/tutorial-deploy-models-with-aml",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/machine-learning/service/tutorial-designer-automobile-price-deploy.md",
+        "redirect_url": "/azure/machine-learning/tutorial-designer-automobile-price-deploy",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/machine-learning/service/tutorial-designer-automobile-price-train-score.md",
+        "redirect_url": "/azure/machine-learning/tutorial-designer-automobile-price-train-score",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/machine-learning/service/tutorial-first-experiment-automated-ml.md",
+        "redirect_url": "/azure/machine-learning/tutorial-first-experiment-automated-ml",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/machine-learning/service/tutorial-pipeline-batch-scoring-classification.md",
+        "redirect_url": "/azure/machine-learning/tutorial-pipeline-batch-scoring-classification",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/machine-learning/service/tutorial-train-deploy-model-cli.md",
+        "redirect_url": "/azure/machine-learning/tutorial-train-deploy-model-cli",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/machine-learning/service/tutorial-train-models-with-aml.md",
+        "redirect_url": "/azure/machine-learning/tutorial-train-models-with-aml",
+        "redirect_document_id": true
+    },
+    {
       "source_path": "articles/log-analytics/log-analytics-add-solutions.md",
       "redirect_url": "/azure/monitoring/monitoring-solutions",
       "redirect_document_id": false

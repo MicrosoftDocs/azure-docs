@@ -13,14 +13,14 @@ ms.date: 09/25/2019
 ---
 
 # Tutorial: Get started creating your first ML experiment with the Python SDK
-[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
+[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 In this tutorial, you complete the end-to-end steps to get started with the Azure Machine Learning Python SDK running in Jupyter notebooks. This tutorial is **part one of a two-part tutorial series**, and covers Python environment setup and configuration, as well as creating a workspace to manage your experiments and machine learning models. [**Part two**](tutorial-1st-experiment-sdk-train.md) builds on this to train multiple machine learning models and introduce the model management process using both Azure Machine Learning studio and the SDK.
 
 In this tutorial, you:
 
 > [!div class="checklist"]
-> * Create an [Azure Machine Learning Workspace](../concept-workspace.md) to use in the next tutorial.
+> * Create an [Azure Machine Learning Workspace](concept-workspace.md) to use in the next tutorial.
 > * Clone the tutorials notebook to your folder in the workspace.
 > * Create a cloud-based compute instance with Azure Machine Learning Python SDK installed and pre-configured.
 
@@ -33,7 +33,7 @@ An Azure Machine Learning workspace is a foundational resource in the cloud that
 
 You create a workspace via the Azure portal, a web-based console for managing your Azure resources. 
 
-[!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal.md)]
+[!INCLUDE [aml-create-portal](../../includes/aml-create-in-portal.md)]
 
 >[!IMPORTANT] 
 > Take note of your **workspace** and **subscription**. You'll need these to ensure you create your experiment in the right place. 
@@ -41,7 +41,7 @@ You create a workspace via the Azure portal, a web-based console for managing yo
 
 ## <a name="azure"></a>Clone a notebook folder
 
-This example uses the cloud notebook server in your workspace for an install-free and pre-configured experience. Use [your own environment](../how-to-configure-environment.md#local) if you prefer to have control over your environment, packages and dependencies.
+This example uses the cloud notebook server in your workspace for an install-free and pre-configured experience. Use [your own environment](how-to-configure-environment.md#local) if you prefer to have control over your environment, packages and dependencies.
 
 You complete the following experiment set-up and run steps in Azure Machine Learning studio, a consolidated interface that includes machine learning tools to perform data science scenarios for data science practitioners of all skill levels.
 
@@ -59,7 +59,7 @@ You complete the following experiment set-up and run steps in Azure Machine Lear
 
 1. Select the **"..."** at the right of the **tutorials** folder and then select **Clone**.
 
-    ![Clone folder](media/tutorial-1st-experiment-sdk-setup/clone-tutorials.png)
+    ![Clone folder](./media/tutorial-1st-experiment-sdk-setup/clone-tutorials.png)
 
 1. A list of folders displays showing each user who accesses the workspace.  Select your folder to clone the **tutorials**  folder there.
 
@@ -67,7 +67,7 @@ You complete the following experiment set-up and run steps in Azure Machine Lear
 
 1. Under **User Files** open your folder and then open the cloned **tutorials** folder.
 
-    ![Open tutorials folder](media/tutorial-1st-experiment-sdk-setup/expand-user-folder.png)
+    ![Open tutorials folder](./media/tutorial-1st-experiment-sdk-setup/expand-user-folder.png)
 
     > [!IMPORTANT]
     > You can view notebooks in the **samples** folder but you cannot run a notebook from there.  In order to run a notebook, make sure you open the cloned version of the notebook in the **User Files** section.

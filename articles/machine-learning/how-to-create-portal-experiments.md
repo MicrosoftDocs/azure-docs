@@ -219,7 +219,7 @@ Now you have an operational web service to generate predictions! You can test th
 
 ## Next steps
 
-* Try the end to end [tutorial for creating your first automated ML experiment with Azure Machine Learning](service/tutorial-first-experiment-automated-ml.md). 
+* Try the end to end [tutorial for creating your first automated ML experiment with Azure Machine Learning](tutorial-first-experiment-automated-ml.md). 
 * [Learn more about automated machine learning](concept-automated-ml.md) and Azure Machine Learning.
 * [Understand automated machine learning results](how-to-understand-automated-ml.md).
 * [Learn how to consume a web service](https://docs.microsoft.com/azure/machine-learning/service/how-to-consume-web-service).

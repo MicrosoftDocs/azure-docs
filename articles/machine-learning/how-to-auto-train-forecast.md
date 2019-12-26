@@ -55,7 +55,7 @@ AutoRegressive Integrated Moving Average(ARIMA) is a popular statistical method 
 ## Prerequisites
 
 * An Azure Machine Learning workspace. To create the workspace, see [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).
-* This article assumes basic familiarity with setting up an automated machine learning experiment. Follow the [tutorial](service/tutorial-auto-train-models.md) or [how-to](how-to-configure-auto-train.md) to see the basic automated machine learning experiment design patterns.
+* This article assumes basic familiarity with setting up an automated machine learning experiment. Follow the [tutorial](tutorial-auto-train-models.md) or [how-to](how-to-configure-auto-train.md) to see the basic automated machine learning experiment design patterns.
 
 ## Preparing data
 
@@ -248,5 +248,5 @@ Repeat the necessary steps to load this future data to a dataframe and then run 
 
 ## Next steps
 
-* Follow the [tutorial](service/tutorial-auto-train-models.md) to learn how to create experiments with automated machine learning.
+* Follow the [tutorial](tutorial-auto-train-models.md) to learn how to create experiments with automated machine learning.
 * View the [Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) reference documentation.

@@ -84,11 +84,11 @@ Activities can provide notifications through the SDK or the web UI so that you c
 
 > [!NOTE]
 > Compute instances are available only for workspaces with a region of **North Central US** or **UK South**.
->If your workspace is in any other region, you can continue to create and use a [Notebook VM](service/concept-compute-instance.md#notebookvm) instead. 
+>If your workspace is in any other region, you can continue to create and use a [Notebook VM](concept-compute-instance.md#notebookvm) instead. 
 
 An **Azure Machine Learning compute instance** (formerly Notebook VM) is a fully managed cloud-based workstation that includes multiple tools and environments installed for machine learning. Compute instances can be used as a compute target for training and inferencing jobs. For large tasks, [Azure Machine Learning compute clusters](how-to-set-up-training-targets.md#amlcompute) with multi-node scaling capabilities is a better compute target choice.
 
-Learn more about [compute instances](service/concept-compute-instance.md).
+Learn more about [compute instances](concept-compute-instance.md).
 
 ### Compute targets
 
@@ -118,7 +118,7 @@ Azure helps you monitor your web service by collecting Application Insights tele
 
 If you've enabled automatic scaling, Azure automatically scales your deployment.
 
-For an example of deploying a model as a web service , see [Deploy an image classification model in Azure Container Instances](service/tutorial-deploy-models-with-aml.md).
+For an example of deploying a model as a web service , see [Deploy an image classification model in Azure Container Instances](tutorial-deploy-models-with-aml.md).
 
 #### IoT module endpoints
 
@@ -153,7 +153,7 @@ For more information, see the following articles:
 
 An experiment is a grouping of many runs from a specified script. It always belongs to a workspace. When you submit a run, you provide an experiment name. Information for the run is stored under that experiment. If you submit a run and specify an experiment name that doesn't exist, a new experiment with that newly specified name is automatically created.
 
-For an example of using an experiment, see [Tutorial: Train your first model](service/tutorial-1st-experiment-sdk-train.md).
+For an example of using an experiment, see [Tutorial: Train your first model](tutorial-1st-experiment-sdk-train.md).
 
 
 ### GitHub tracking and integration
@@ -182,7 +182,7 @@ A model is produced by a run in Azure Machine Learning. You can also use a model
 
 Azure Machine Learning is framework agnostic. When you create a model, you can use any popular machine learning framework, such as Scikit-learn, XGBoost, PyTorch, TensorFlow, and Chainer.
 
-For an example of training a model using Scikit-learn and an estimator, see [Tutorial: Train an image classification model with Azure Machine Learning](service/tutorial-train-models-with-aml.md).
+For an example of training a model using Scikit-learn and an estimator, see [Tutorial: Train an image classification model with Azure Machine Learning](tutorial-train-models-with-aml.md).
 
 The **model registry** keeps track of all the models in your Azure Machine Learning workspace.
 
@@ -195,7 +195,7 @@ When you register the model, you can provide additional metadata tags and then u
 
 You can't delete a registered model that is being used by an active deployment.
 
-For an example of registering a model, see [Train an image classification model with Azure Machine Learning](service/tutorial-train-models-with-aml.md).
+For an example of registering a model, see [Train an image classification model with Azure Machine Learning](tutorial-train-models-with-aml.md).
 
 ### Runs
 
@@ -226,7 +226,7 @@ When you submit a run, Azure Machine Learning compresses the directory that cont
 
 To train a model, you specify the directory that contains the training script and associated files. You also specify an experiment name, which is used to store information that's gathered during training. During training, the entire directory is copied to the training environment (compute target), and the script that's specified by the run configuration is started. A snapshot of the directory is also stored under the experiment in the workspace.
 
-For an example, see [Tutorial: Train an image classification model with Azure Machine Learning](service/tutorial-train-models-with-aml.md).
+For an example, see [Tutorial: Train an image classification model with Azure Machine Learning](tutorial-train-models-with-aml.md).
 
 ### Workspaces
 
@@ -238,4 +238,4 @@ To get started with Azure Machine Learning, see:
 
 * [What is Azure Machine Learning?](overview-what-is-azure-ml.md)
 * [Create an Azure Machine Learning workspace](how-to-manage-workspace.md)
-* [Tutorial (part 1): Train a model](service/tutorial-train-models-with-aml.md)
+* [Tutorial (part 1): Train a model](tutorial-train-models-with-aml.md)

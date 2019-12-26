@@ -13,7 +13,7 @@ ms.date: 12/17/2019
 ---
 
 # Set up authentication for Azure Machine Learning resources and workflows
-[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
+[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 In this article, you learn how to set up and configure authentication for various resources and workflows in Azure Machine Learning. There are multiple ways to authenticate to the service, ranging from simple UI-based auth for development or testing purposes to full Azure Active Directory service principal authentication. This article also explains the differences in how web-service authentication works, as well as how to authenticate to the Azure Machine Learning REST API.
 
@@ -30,7 +30,7 @@ See the [concept article](concept-enterprise-security.md) for a general overview
 ## Prerequisites
 
 * Create an [Azure Machine Learning workspace](how-to-manage-workspace.md).
-* [Configure your development environment](how-to-configure-environment.md) to install the Azure Machine Learning SDK, or use a [Azure Machine Learning Notebook VM](../concept-azure-machine-learning-architecture.md#compute-instance) with the SDK already installed.
+* [Configure your development environment](how-to-configure-environment.md) to install the Azure Machine Learning SDK, or use a [Azure Machine Learning Notebook VM](concept-azure-machine-learning-architecture.md#compute-instance) with the SDK already installed.
 
 ## Interactive authentication
 

@@ -349,13 +349,13 @@ Follow the steps described earlier to view the list of compute targets. Then use
 
 ## Set up with CLI
 
-You can access the compute targets that are associated with your workspace using the [CLI extension](service/reference-azure-machine-learning-cli.md) for Azure Machine Learning.  You can use the CLI to:
+You can access the compute targets that are associated with your workspace using the [CLI extension](reference-azure-machine-learning-cli.md) for Azure Machine Learning.  You can use the CLI to:
 
 * Create a managed compute target
 * Update a managed compute target
 * Attach an unmanaged compute target
 
-For more information, see [Resource management](service/reference-azure-machine-learning-cli.md#resource-management).
+For more information, see [Resource management](reference-azure-machine-learning-cli.md#resource-management).
 
 ## Set up with VS Code
 
@@ -415,7 +415,7 @@ For more information, see the [ScriptRunConfig](https://docs.microsoft.com/pytho
 
 ## Create run configuration and submit run using Azure Machine Learning CLI
 
-You can use [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) and [Machine Learning CLI extension](service/reference-azure-machine-learning-cli.md) to create run configurations and submit runs on different compute targets. The following examples assume that you have an existing Azure Machine Learning Workspace and you have logged in to Azure using `az login` CLI command. 
+You can use [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) and [Machine Learning CLI extension](reference-azure-machine-learning-cli.md) to create run configurations and submit runs on different compute targets. The following examples assume that you have an existing Azure Machine Learning Workspace and you have logged in to Azure using `az login` CLI command. 
 
 ### Create run configuration
 
@@ -489,7 +489,7 @@ az ml run submit-hyperdrive -e <experiment> -c <runconfig> --hyperdrive-configur
 Note the *arguments* section in runconfig and *parameter space* in HyperDrive config. They contain the command-line arguments to be passed to training script. The value in runconfig stays the same for each iteration, while the range in HyperDrive config is iterated over. Do not specify the same argument in both files.
 
 For more details on these ```az ml``` CLI commands and full set of arguments, see 
-[the reference documentation](service/reference-azure-machine-learning-cli.md).
+[the reference documentation](reference-azure-machine-learning-cli.md).
 
 <a id="gitintegration"></a>
 
@@ -507,7 +507,7 @@ See these notebooks for examples of training with various compute targets:
 
 ## Next steps
 
-* [Tutorial: Train a model](service/tutorial-train-models-with-aml.md) uses a managed compute target to  train a model.
+* [Tutorial: Train a model](tutorial-train-models-with-aml.md) uses a managed compute target to  train a model.
 * Learn how to [efficiently tune hyperparameters](how-to-tune-hyperparameters.md) to build better models.
 * Once you have a trained model, learn [how and where to deploy models](how-to-deploy-and-where.md).
 * View the [RunConfiguration class](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.runconfiguration?view=azure-ml-py) SDK reference.

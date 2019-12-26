@@ -13,7 +13,7 @@ ms.date: 11/04/2019
 ---
 
 # Tutorial: Train and deploy your first model in R with Azure Machine Learning
-[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
+[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 In this tutorial, you learn the foundational design patterns in Azure Machine Learning.  You'll train and deploy a **caret** model to predict the likelihood of a fatality in an automobile accident. After completing this tutorial, you'll have the practical knowledge of the R SDK to scale up to developing more-complex experiments and workflows.
 
@@ -37,7 +37,7 @@ An Azure Machine Learning workspace is a foundational resource in the cloud that
 
 You create a workspace via the Azure portal, a web-based console for managing your Azure resources. 
 
-[!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal.md)]
+[!INCLUDE [aml-create-portal](../../includes/aml-create-in-portal.md)]
 
 >[!IMPORTANT] 
 > Take note of your **workspace** and **subscription**. You'll need these to ensure you create your experiment in the right place. 
@@ -45,7 +45,7 @@ You create a workspace via the Azure portal, a web-based console for managing yo
 
 ## <a name="azure"></a>Clone a notebook folder
 
-This example uses the cloud notebook server in your workspace for an install-free and pre-configured experience. Use [your own environment](../how-to-configure-environment.md#local) if you prefer to have control over your environment, packages and dependencies.
+This example uses the cloud notebook server in your workspace for an install-free and pre-configured experience. Use [your own environment](how-to-configure-environment.md#local) if you prefer to have control over your environment, packages and dependencies.
 
 You complete the following experiment set-up and run steps in Azure Machine Learning studio, a consolidated interface that includes machine learning tools to perform data science scenarios for data science practitioners of all skill levels.
 
@@ -384,7 +384,7 @@ delete_compute(compute)
 
 ### Delete everything
 
-[!INCLUDE [aml-delete-resource-group](../../../includes/aml-delete-resource-group.md)]
+[!INCLUDE [aml-delete-resource-group](../../includes/aml-delete-resource-group.md)]
 
 You can also keep the resource group but delete a single workspace. Display the workspace properties and select **Delete**.
 

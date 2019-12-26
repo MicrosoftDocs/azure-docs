@@ -18,7 +18,7 @@ ms.date: 10/25/2019
 
 > [!NOTE]
 > Compute instances (preview) are available only for workspaces with a region of **North Central US** or **UK South**.
->If your workspace is in any other region, you can continue to create and use a [Notebook VM](service/concept-compute-instance.md#notebookvm) instead.  You can deploy a model to either a compute instance or a Notebook VM using the steps in this article.
+>If your workspace is in any other region, you can continue to create and use a [Notebook VM](concept-compute-instance.md#notebookvm) instead.  You can deploy a model to either a compute instance or a Notebook VM using the steps in this article.
 
 Learn how to use Azure Machine Learning to deploy a model as a web service on your Azure Machine Learning compute instance. Use compute instances if one of the following conditions is true:
 
@@ -30,7 +30,7 @@ Learn how to use Azure Machine Learning to deploy a model as a web service on yo
 
 ## Prerequisites
 
-- An Azure Machine Learning workspace with a compute instance running. For more information, see [Setup environment and workspace](service/tutorial-1st-experiment-sdk-setup.md).
+- An Azure Machine Learning workspace with a compute instance running. For more information, see [Setup environment and workspace](tutorial-1st-experiment-sdk-setup.md).
 
 ## Deploy to the compute instances
 

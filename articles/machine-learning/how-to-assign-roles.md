@@ -44,7 +44,7 @@ If you're an owner of a workspace, you can add and remove roles for the workspac
 - [REST API](/azure/role-based-access-control/role-assignments-rest)
 - [Azure Resource Manager templates](/azure/role-based-access-control/role-assignments-template)
 
-If you have installed the [Azure Machine Learning CLI](service/reference-azure-machine-learning-cli.md), you can also use a CLI command to assign roles to users.
+If you have installed the [Azure Machine Learning CLI](reference-azure-machine-learning-cli.md), you can also use a CLI command to assign roles to users.
 
 ```azurecli-interactive 
 az ml workspace share -w <workspace_name> -g <resource_group_name> --role <role_name> --user <user_corp_email_address>
@@ -113,5 +113,5 @@ For more information on the operations (actions) usable with custom roles, see [
 
 - [Enterprise security overview](concept-enterprise-security.md)
 - [Securely run experiments and inference/score inside a virtual network](how-to-enable-virtual-network.md)
-- [Tutorial: Train models](service/tutorial-train-models-with-aml.md)
+- [Tutorial: Train models](tutorial-train-models-with-aml.md)
 - [Resource provider operations](/azure/role-based-access-control/resource-provider-operations#microsoftmachinelearningservices)

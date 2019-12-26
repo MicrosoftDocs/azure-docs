@@ -365,6 +365,6 @@ This [example notebook](https://github.com/Azure/MachineLearningNotebooks/tree/m
 
 ## Next steps
 
-* [Tutorial: Train a model](service/tutorial-train-models-with-aml.md) uses a managed compute target to  train a model.
+* [Tutorial: Train a model](tutorial-train-models-with-aml.md) uses a managed compute target to  train a model.
 * Once you have a trained model, learn [how and where to deploy models](how-to-deploy-and-where.md).
 * View the [Environment class](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment(class)?view=azure-ml-py) SDK reference.

@@ -17,7 +17,7 @@ ms.custom: seodec18
 # Create and manage Azure Machine Learning workspaces in the Azure portal
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-In this article, you'll create, view, and delete [**Azure Machine Learning workspaces**](concept-workspace.md) in the Azure portal for [Azure Machine Learning](overview-what-is-azure-ml.md).  The portal is the easiest way to get started with workspaces but as your needs change or requirements for automation increase you can also create and delete workspaces [using the CLI](service/reference-azure-machine-learning-cli.md), [with Python code](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) or [via the VS Code extension](how-to-vscode-tools.md#get-started-with-azure-machine-learning-for-visual-studio-code).
+In this article, you'll create, view, and delete [**Azure Machine Learning workspaces**](concept-workspace.md) in the Azure portal for [Azure Machine Learning](overview-what-is-azure-ml.md).  The portal is the easiest way to get started with workspaces but as your needs change or requirements for automation increase you can also create and delete workspaces [using the CLI](reference-azure-machine-learning-cli.md), [with Python code](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) or [via the VS Code extension](how-to-vscode-tools.md#get-started-with-azure-machine-learning-for-visual-studio-code).
 
 ## Create a workspace
 
@@ -58,7 +58,7 @@ To create a workspace, you need an Azure subscription. If you don’t have an Az
 
 ### Download a configuration file
 
-1. If you will be creating a [compute instance](service/tutorial-1st-experiment-sdk-setup.md#azure), skip this step.
+1. If you will be creating a [compute instance](tutorial-1st-experiment-sdk-setup.md#azure), skip this step.
 
 1. If you plan to use code on your local environment that references this workspace, select  **Download config.json** from the **Overview** section of the workspace.  
 
@@ -112,4 +112,4 @@ Use the Delete button at the top of the workspace you wish to delete.
 Follow the full-length tutorial to learn how to use a workspace to build, train, and deploy models with Azure Machine Learning.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Train models](service/tutorial-train-models-with-aml.md)
+> [Tutorial: Train models](tutorial-train-models-with-aml.md)

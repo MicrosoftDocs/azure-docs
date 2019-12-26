@@ -13,7 +13,7 @@ ms.date: 11/04/2019
 ---
 
 # Tutorial: Predict automobile price with the designer (preview)
-[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
+[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
 In this two-part tutorial, you learn how to use the Azure Machine Learning designer to develop and deploy a predictive analytics solution that predicts the price of any car. 
 
@@ -43,7 +43,7 @@ Azure Machine Learning pipelines organize multiple, dependent machine learning a
 
 If you have an Azure Machine Learning workspace with an Enterprise edition, [skip to the next section](#create-the-pipeline).
 
-[!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal-enterprise.md)]
+[!INCLUDE [aml-create-portal](../../includes/aml-create-in-portal-enterprise.md)]
 
 ### Create the pipeline
 
@@ -216,7 +216,7 @@ After you train your model by using 70 percent of the data, you can use it to sc
 
 ### Run the pipeline
 
-[!INCLUDE [aml-ui-create-training-compute](../../../includes/aml-ui-create-training-compute.md)]
+[!INCLUDE [aml-ui-create-training-compute](../../includes/aml-ui-create-training-compute.md)]
 
 ### View results
 
@@ -246,7 +246,7 @@ For each of the error statistics, smaller is better. A smaller value indicates t
 
 ## Clean up resources
 
-[!INCLUDE [aml-ui-cleanup](../../../includes/aml-ui-cleanup.md)]
+[!INCLUDE [aml-ui-cleanup](../../includes/aml-ui-cleanup.md)]
 
 ## Next steps
 
