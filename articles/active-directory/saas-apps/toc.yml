@@ -592,6 +592,8 @@
         href: helper-helper-tutorial.md
       - name: Help Scout
         href: helpscout-tutorial.md
+      - name: Helpshift
+        href: helpshift-tutorial.md
       - name: Heroku
         href: heroku-tutorial.md
       - name: HeyBuddy
@@ -1054,8 +1056,6 @@
         href: predictixordering-tutorial.md
       - name: Predictix Price Reporting
         href: predictixpricereporting-tutorial.md
-      - name: PrinterLogic SaaS
-        href: printerlogic-saas-tutorial.md
       - name: Printix
         href: printix-tutorial.md
       - name: Prisma Cloud
@@ -1352,8 +1352,6 @@
         href: target-process-tutorial.md
       - name: TAS
         href: tas-tutorial.md
-      - name: Taskize Connect
-        href: taskize-connect-tutorial.md
       - name: Teamphoria
         href: teamphoria-tutorial.md
       - name: TeamSeer
