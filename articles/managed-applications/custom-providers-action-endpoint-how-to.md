@@ -136,7 +136,7 @@ request-body | *no* | The request body that will be sent to the **endpoint**.
 ### Azure Resource Manager Template
 
 > [!NOTE]
-> Actions have limited support in Azure Resource Manager Templates. In order for the action to be called inside a template, it must contain the [`list`](../azure-resource-manager/resource-group-template-functions-resource.md#list) prefix in its name.
+> Actions have limited support in Azure Resource Manager Templates. In order for the action to be called inside a template, it must contain the [`list`](../azure-resource-manager/templates/template-functions-resource.md#list) prefix in its name.
 
 Sample **ResourceProvider** with List Action:
 

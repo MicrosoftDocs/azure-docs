@@ -64,7 +64,7 @@ az extension add --name spring-cloud
     ```azurecli
         az group create --location eastus --name <resource group name>
     ```
-    Learn more about [Azure Resource Groups](../azure-resource-manager/resource-group-overview.md).
+    Learn more about [Azure Resource Groups](../azure-resource-manager/management/overview.md).
 
 4. Open an Azure CLI window and run the following commands to provision an instance of Azure Spring Cloud.
 

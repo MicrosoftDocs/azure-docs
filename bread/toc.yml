@@ -174,7 +174,7 @@
   - name: Azure VMware Solution by CloudSimple
     tocHref: /azure/vmware-cloudsimple/
     topicHref: /azure/vmware-cloudsimple/
-  - name: Azure portal customization
+  - name: Azure portal documentation
     tocHref: /azure/azure-portal/
     topicHref: /azure/azure-portal/\
   - name: Internet of Things
@@ -230,6 +230,13 @@
   - name: Resource Manager
     tocHref: /azure/azure-resource-manager/
     topicHref: /azure/azure-resource-manager/
+    items:
+      - name: Templates
+        tocHref: /azure/azure-resource-manager/templates/
+        topicHref: /azure/azure-resource-manager/templates/
+      - name: Management
+        tocHref: /azure/azure-resource-manager/management/
+        topicHref: /azure/azure-resource-manager/management/
   - name: SignalR Service
     tocHref: /azure/azure-signalr/
     topicHref: /azure/azure-signalr/
