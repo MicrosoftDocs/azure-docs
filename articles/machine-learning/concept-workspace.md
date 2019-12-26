@@ -29,7 +29,7 @@ A taxonomy of the workspace is illustrated in the following diagram:
 
 The diagram shows the following components of a workspace:
 
-+ A workspace can contain [Azure Machine Learning compute instances](service/concept-compute-instance.md), cloud resources configured with the Python environment necessary to run Azure Machine Learning.
++ A workspace can contain [Azure Machine Learning compute instances](concept-compute-instance.md), cloud resources configured with the Python environment necessary to run Azure Machine Learning.
 
 + [User roles](how-to-assign-roles.md) enable you to share your workspace with other users, teams or projects.
 + [Compute targets](concept-azure-machine-learning-architecture.md#compute-targets) are used to run your experiments.
@@ -77,7 +77,7 @@ You can also perform the following workspace management tasks:
 
 > [!NOTE]
 > Compute instances are available only for workspaces with a region of **North Central US** or **UK South**.
->If your workspace is in any other region, you can continue to create and use a [Notebook VM](service/concept-compute-instance.md#notebookvm) instead.
+>If your workspace is in any other region, you can continue to create and use a [Notebook VM](concept-compute-instance.md#notebookvm) instead.
 
 ## <a name='create-workspace'></a> Create a workspace
 
