@@ -36,6 +36,9 @@ productDirectory:
       imageSrc: ./media/index/video.svg
       summary: Part 3 of a quick video intro to SRE
       url: https://channel9.msdn.com/Shows/IT-Ops-Talk/Introduction-to-Site-Reliability-Engineering--Part-3/player
+
+productDirectory:
+  items:
     # Card
     - title: Intro to SRE Online Course
       imageSrc: ./media/index/learn.svg
