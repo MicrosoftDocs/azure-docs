@@ -15,7 +15,7 @@ This article summarizes management actions on a VMware vCenter Server in [Azure 
 
 ## Verify prerequisites for vCenter Server
 
-The prequisites for vCenter Servers and VMs during disaster recovery of VMware VMs to Azure are listed in the [support matrix](vmware-physical-azure-support-matrix.md#replicated-machines).
+The prerequisites for vCenter Servers and VMs during disaster recovery of VMware VMs to Azure are listed in the [support matrix](vmware-physical-azure-support-matrix.md#replicated-machines).
 
 
 ## Set up an account for automatic discovery
