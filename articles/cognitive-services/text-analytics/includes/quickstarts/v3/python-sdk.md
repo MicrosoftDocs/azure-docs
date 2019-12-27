@@ -11,6 +11,8 @@ ms.author: aahi
 <!-- these links are for v2. Make sure to update them to the correct v3 content -->
 [Reference documentation]() | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics) | [Package (PiPy)]() | [Samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics/azure-ai-textanalytics/samples)
 
+> [!NOTE]
+> The code in this article uses the synchronous methods of the Text Analytics Python SDK as well as un-secured credentials use for simplicity reasons. For production scenarios, we recommend using the batched asynchronous methods for performance and scalability. For example, calling [analyze_sentiment_async]() instead of [analyze_sentiment()](). For secured use of credentials we recommend using [Azure Key Vault](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-overview) to store all access keys and the use of [AAD authentication](https://docs.microsoft.com/en-us/azure/cognitive-services/authentication#authenticate-with-azure-active-directory) for all role based access controls. **Remember to never store access keys in code.**
 
 ## Prerequisites
 
@@ -83,7 +85,7 @@ These code snippets show you how to do the following with the Text Analytics cli
 
 ## Authenticate the client
 
-Create a new [TextAnalyticsClient](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-textanalytics/azure.cognitiveservices.language.textanalytics.textanalyticsclient?view=azure-python) with your endpoint, and a `CognitiveServicesCredentials` object containing your key.
+Create a new [TextAnalyticsClient]() with your endpoint and your subscription key.
 
 ```python
 from azure.ai.textanalytics import TextAnalyticsClient
