@@ -70,7 +70,7 @@ Before you configure and enable automatic user provisioning, decide which users 
    
 1. Select **Submit**.
 
-1. Copy the **Key**. You'll enter this value in the Secret Token field in the Provisioning tab of your Harness application in the Azure portal.
+1. Copy the **Key** for later use in this tutorial.
 
 	![Harness Create Token](media/harness-provisioning-tutorial/token.png)
 
@@ -126,8 +126,8 @@ To configure automatic user provisioning for Harness in Azure AD, do the followi
 
 	![Tenant URL + Token](common/provisioning-testconnection-tenanturltoken.png)
  
-   a. In the **Tenant URL** box, enter **https://app.harness.io/gateway/api/scim/account/XCPzWkCIQ46ypIu2DeT7yw**.  
-   b. In the **Secret Token** box, enter the SCIM Authentication Token value that you saved earlier.  
+   a. In the **Tenant URL** box, enter **`https://app.harness.io/gateway/api/scim/account/XCPzWkCIQ46ypIu2DeT7yw`**.  
+   b. In the **Secret Token** box, enter the SCIM Authentication Token value that you saved in step 6 of the "Set up Harness for provisioning" section.  
    c. Click **Test Connection** to ensure that Azure AD can connect to Harness. If the connection fails, ensure that your Harness account has *Admin* permissions, and then try again.
 
 1. In the **Notification Email** box, enter the email address of a person or group that should receive the provisioning error notifications, and then select the **Send an email notification when a failure occurs** check box.
@@ -166,7 +166,7 @@ To configure automatic user provisioning for Harness in Azure AD, do the followi
 
 	![The provisioning Save button](common/provisioning-configuration-save.png)
 
-This operation starts the initial synchronization of all users or groups defined in **Scope** in the **Settings** section. The initial sync takes longer to perform than subsequent syncs, Syncs occur approximately every 40 minutes, as long as the Azure AD provisioning service is running. You can use the **Synchronization Details** section to monitor progress. You can also follow links to a provisioning activity report, which describes all actions performed by the Azure AD provisioning service on Harness.
+This operation starts the initial sync of the users or groups you're provisioning. The initial sync takes longer to perform than later ones. Syncs occur approximately every 40 minutes, as long as the Azure AD provisioning service is running. To monitor progress, go to the **Synchronization Details** section. You can also follow links to a provisioning activity report, which describes all actions performed by the Azure AD provisioning service on Harness.
 
 For more information about how to read the Azure AD provisioning logs, see [Report on automatic user account provisioning](../manage-apps/check-status-user-account-provisioning.md).
 
