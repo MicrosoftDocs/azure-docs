@@ -187,7 +187,7 @@ python voice_synthesis_client.py --submit -key <your_key> -region <Region> -file
 > * Client is allowed to submit up to **5** requests to server per second for each Azure subscription account. If it exceeds the limitation, client will get a 429 error code(too many requests). Please reduce the request amount per second
 > * Server is allowed to run and queue up to **120** requests for each Azure subscription account. If it exceeds the limitation, server will return a 429 error code(too many requests). Please wait and avoid submitting new request until some requests are completed
 
-You will get the output like this:
+ see an output that looks like this:
 
 ```console
 Submit synthesis request successful
