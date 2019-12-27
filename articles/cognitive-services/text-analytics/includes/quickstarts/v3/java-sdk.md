@@ -94,7 +94,7 @@ public static void main(String[] args) {
     sentimentAnalysisExample(client);
     detectLanguageExample(client);
     recognizeEntitiesExample(client);
-    recognizePiiEntitiesExample(client);
+    recognizePIIEntitiesExample(client);
     recognizeLinkedEntitiesExample(client);
     extractKeyPhrasesExample(client);
 }
@@ -233,17 +233,17 @@ Recognized NamedEntity Text: Microsoft, Type: Organization, Subtype: N/A, Offset
 ```
 ## PII entity recognition
 
-Create a new function called `recognizePiiEntitiesExample()` that takes the client that you created earlier, and call its [recognizePiiEntities()](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.textanalyticsclientextensions.sentiment?view=azure-dotnet) function. The returned [RecognizePiiEntitiesResult](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.models.sentimentresult?view=azure-dotnet) object will contains a list of [NamedEntity](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.models.sentimentresult?view=azure-dotnet), and an `errorMessage` if not. 
+Create a new function called `recognizePIIEntitiesExample()` that takes the client that you created earlier, and call its [recognizePiiEntities()](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.textanalyticsclientextensions.sentiment?view=azure-dotnet) function. The returned [RecognizePiiEntitiesResult](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.models.sentimentresult?view=azure-dotnet) object will contains a list of [NamedEntity](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.models.sentimentresult?view=azure-dotnet), and an `errorMessage` if not. 
 
 ```java
-static void recognizePiiEntitiesExample(TextAnalyticsClient client)
+static void recognizePIIEntitiesExample(TextAnalyticsClient client)
 {
     // The text that need be analysed.
     String text = "My SSN is 555-55-5555";
     
-    RecognizePiiEntitiesResult recognizePiiEntitiesResult = client.recognizePiiEntities(text);
+    RecognizePiiEntitiesResult recognizePIIEntitiesResult = client.recognizePiiEntities(text);
 
-    for (NamedEntity entity : recognizePiiEntitiesResult.getNamedEntities()) {
+    for (NamedEntity entity : recognizePIIEntitiesResult.getNamedEntities()) {
         System.out.printf(
             "Recognized PII Entity Text: %s, Type: %s, Subtype: %s, Offset: %s, Length: %s, Score: %s.%n",
             entity.getText(),
