@@ -6,7 +6,7 @@ author: anzaman
 
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 12/19/2019
+ms.date: 12/20/2019
 ms.author: alzam
 
 ---
