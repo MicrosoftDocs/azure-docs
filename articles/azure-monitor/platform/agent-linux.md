@@ -4,7 +4,7 @@ description: This article describes how to connect Linux computers hosted in oth
 ms.service:  azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: MGoedtel
+author: mgoedtel
 ms.author: magoedte
 ms.date: 12/24/2019
 
@@ -115,7 +115,7 @@ sudo sh ./omsagent-*.universal.x64.sh --extract
 
 ## Install the agent using wrapper script
 
-The following steps configure setup of the agent for Log Analytics in Azure and Azure Government cloud using the wrapper script for Linux computers that can communicate directly or through a proxy server to the Internet in order to download and install the agent.  
+The following steps configure setup of the agent for Log Analytics in Azure and Azure Government cloud using the wrapper script for Linux computers that can communicate directly or through a proxy server to download the agent hosted on GitHub and install the agent.  
 
 If your Linux computer needs to communicate through a proxy server to Log Analytics, this configuration can be specified on the command line by including `-p [protocol://][user:password@]proxyhost[:port]`. The *protocol* property accepts `http` or `https`, and the *proxyhost* property accepts a fully qualified domain name or IP address of the proxy server. 
 
