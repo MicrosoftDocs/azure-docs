@@ -87,7 +87,7 @@ Configure IP advertising to enable a client to connect using broker IP addresses
 
 1. Go to the Ambari dashboard for the primary cluster: `https://PRIMARYCLUSTERNAME.azurehdinsight.net`.
 1. Select **Services** > **Kafka**. CliSelectck the **Configs** tab.
-1. Add the following config lines to the bottom **kafka-env template** section. Select **Save**. 
+1. Add the following config lines to the bottom **kafka-env template** section. Select **Save**.
 
     ```
     # Configure Kafka to advertise IP addresses instead of FQDN
