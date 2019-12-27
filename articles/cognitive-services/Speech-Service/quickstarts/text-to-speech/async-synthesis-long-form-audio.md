@@ -101,7 +101,7 @@ Prepare an input text file. It can be either plain text or SSML text. For the in
 
 ## Convert text to speech
 
-After getting the input text file ready, add the code for speech synthesis to `voice_synthesis_client.py`:
+After preparing the input text file, add this code for speech synthesis to `voice_synthesis_client.py`:
 
 > [!NOTE]
 > 'concatenateResult' is an optional parameter. If this parameter isn't defined, the audio outputs will be generated per paragraph. You can also concatenate the audios into 1 output by setting the parameter. 
