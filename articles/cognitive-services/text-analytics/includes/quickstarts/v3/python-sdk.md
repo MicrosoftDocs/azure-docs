@@ -94,7 +94,8 @@ def authenticateClient():
 
 ## Sentiment analysis
 
-Authenticate a client object, and call the [sentiment()](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-textanalytics/azure.cognitiveservices.language.textanalytics.textanalyticsclient?view=azure-python#sentiment-show-stats-none--documents-none--custom-headers-none--raw-false----operation-config-) function. Iterate through the results, and print each document's ID, and sentiment score. A score closer to 0 indicates a negative sentiment, while a score closer to 1 indicates a positive sentiment.
+Create a new function called `sentiment()` that creates a client and calls its [analyze_sentiment()]() function. The returned response object will contain the sentiment label and score of the entire input document, as well as a sentiment analysis for each sentence.
+
 
 ```python
 def print_sentiment_scores(documents, response):
@@ -227,54 +228,6 @@ Document Id:  1 , Language:  English
 Document Id:  2 , Language:  Spanish
 Document Id:  3 , Language:  Chinese_Simplified
 ```
-
-## Entity recognition
-
-Using the client created earlier, call the [entities()](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-textanalytics/azure.cognitiveservices.language.textanalytics.textanalyticsclient?view=azure-python#entities-show-stats-none--documents-none--custom-headers-none--raw-false----operation-config-) function and get the result. Then iterate through the results, and print each document's ID, and the entities contained in it.
-
-```python
-def entity_recognition():
-    
-    client = authenticate_client()
-
-    try:
-        documents = [
-            {"id": "1", "language": "en", "text": "Microsoft was founded by Bill Gates and Paul Allen on April 4, 1975, to develop and sell BASIC interpreters for the Altair 8800."},
-            {"id": "2", "language": "es",
-                "text": "La sede principal de Microsoft se encuentra en la ciudad de Redmond, a 21 kilómetros de Seattle."}
-        ]
-        result = client.recognize_entities(documents)
-        docs = [doc for doc in result if not doc.is_error]
-
-        for idx, doc in enumerate(docs):
-            print("\nDocument text: {}".format(documents[idx]))
-            for entity in doc.entities:
-                print("Entity: \t", entity.text, "\tType: \t", entity.type,
-                      "\tConfidence Score: \t", round(entity.score, 3))
-
-    except Exception as err:
-        print("Encountered exception. {}".format(err))
-entity_recognition()
-```
-
-### Output
-
-```console
-Document text: {'id': '1', 'language': 'en', 'text': 'Microsoft was founded by Bill Gates and Paul Allen on April 4, 1975, to develop and sell BASIC interpreters for the Altair 8800.'}
-Entity: 	 Microsoft 	Type: 	 Organization 	Confidence Score: 	 1.0
-Entity: 	 Bill Gates 	Type: 	 Person 	Confidence Score: 	 1.0
-Entity: 	 Paul Allen 	Type: 	 Person 	Confidence Score: 	 0.999
-Entity: 	 April 4, 1975 	Type: 	 DateTime 	Confidence Score: 	 0.8
-Entity: 	 Altair 	Type: 	 Organization 	Confidence Score: 	 0.525
-Entity: 	 8800 	Type: 	 Quantity 	Confidence Score: 	 0.8
-
-Document text: {'id': '2', 'language': 'es', 'text': 'La sede principal de Microsoft se encuentra en la ciudad de Redmond, a 21 kilómetros de Seattle.'}
-Entity: 	 Microsoft 	Type: 	 Organization 	Confidence Score: 	 1.0
-Entity: 	 Redmond 	Type: 	 Location 	Confidence Score: 	 0.991
-Entity: 	 21 kilómetros 	Type: 	 Quantity 	Confidence Score: 	 0.8
-Entity: 	 Seattle 	Type: 	 Location 	Confidence Score: 	 1.0
-```
-
 ## Key phrase extraction
 
 Using the client created earlier, call the [key_phrases()](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-textanalytics/azure.cognitiveservices.language.textanalytics.textanalyticsclient?view=azure-python#key-phrases-show-stats-none--documents-none--custom-headers-none--raw-false----operation-config-) function and get the result. Then iterate through the results, and print each document's ID, and the key phrases contained in it.
@@ -334,4 +287,210 @@ Document Id:  3
 Document Id:  4
 	Key Phrases:
 		 fútbol
+```
+
+## Entity recognition
+
+Using the client created earlier, call the [recognize_entities()](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-textanalytics/azure.cognitiveservices.language.textanalytics.textanalyticsclient?view=azure-python#entities-show-stats-none--documents-none--custom-headers-none--raw-false----operation-config-) function and get the result. Then iterate through the results, and print each document's ID, and the entities contained in it.
+
+```python
+def entity_recognition():
+    
+    client = authenticate_client()
+
+    try:
+        documents = [
+            {"id": "1", "language": "en", "text": "Microsoft was founded by Bill Gates and Paul Allen on April 4, 1975, to develop and sell BASIC interpreters for the Altair 8800."},
+            {"id": "2", "language": "es",
+                "text": "La sede principal de Microsoft se encuentra en la ciudad de Redmond, a 21 kilómetros de Seattle."}
+        ]
+        result = client.recognize_entities(documents)
+        docs = [doc for doc in result if not doc.is_error]
+
+        for idx, doc in enumerate(docs):
+            print("\nDocument text: {}".format(documents[idx]))
+            for entity in doc.entities:
+                print("Entity: \t", entity.text, "\tType: \t", entity.type,
+                      "\tConfidence Score: \t", round(entity.score, 3))
+
+    except Exception as err:
+        print("Encountered exception. {}".format(err))
+entity_recognition()
+```
+
+### Output
+
+```console
+Document text: {'id': '1', 'language': 'en', 'text': 'Microsoft was founded by Bill Gates and Paul Allen on April 4, 1975, to develop and sell BASIC interpreters for the Altair 8800.'}
+Entity: 	 Microsoft 	Type: 	 Organization 	Confidence Score: 	 1.0
+Entity: 	 Bill Gates 	Type: 	 Person 	Confidence Score: 	 1.0
+Entity: 	 Paul Allen 	Type: 	 Person 	Confidence Score: 	 0.999
+Entity: 	 April 4, 1975 	Type: 	 DateTime 	Confidence Score: 	 0.8
+Entity: 	 Altair 	Type: 	 Organization 	Confidence Score: 	 0.525
+Entity: 	 8800 	Type: 	 Quantity 	Confidence Score: 	 0.8
+
+Document text: {'id': '2', 'language': 'es', 'text': 'La sede principal de Microsoft se encuentra en la ciudad de Redmond, a 21 kilómetros de Seattle.'}
+Entity: 	 Microsoft 	Type: 	 Organization 	Confidence Score: 	 1.0
+Entity: 	 Redmond 	Type: 	 Location 	Confidence Score: 	 0.991
+Entity: 	 21 kilómetros 	Type: 	 Quantity 	Confidence Score: 	 0.8
+Entity: 	 Seattle 	Type: 	 Location 	Confidence Score: 	 1.0
+```
+
+## Entity Linking
+
+Using the client created earlier, call the [recognize_linked_entities()](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-textanalytics/azure.cognitiveservices.language.textanalytics.textanalyticsclient?view=azure-python#entities-show-stats-none--documents-none--custom-headers-none--raw-false----operation-config-) function and get the result. Then iterate through the results, and print each document's ID, and the entities contained in it.
+
+```python
+def entity_linking():
+    
+    client = authenticate_client()
+
+    try:
+        documents = [
+            {"id": "0", "language": "en", "text": "Microsoft moved its headquarters to Bellevue, Washington in January 1979."},
+            {"id": "1", "language": "en", "text": "Steve Ballmer stepped down as CEO of Microsoft and was succeeded by Satya Nadella."},
+            {"id": "2", "language": "es", "text": "Microsoft superó a Apple Inc. como la compañía más valiosa que cotiza en bolsa en el mundo."},
+        ]
+        result = client.recognize_linked_entities(documents)
+        docs = [doc for doc in result if not doc.is_error]
+
+        for idx, doc in enumerate(docs):
+            print("Document text: {}\n".format(documents[idx]))
+            for entity in doc.entities:
+                print("Entity: {}".format(entity.name))
+                print("Url: {}".format(entity.url))
+                print("Data Source: {}".format(entity.data_source))
+                for match in entity.matches:
+                    print("Score: {0:.3f}".format(match.score))
+                    print("Offset: {}".format(match.offset))
+                    print("Length: {}\n".format(match.length))
+            print("------------------------------------------")
+
+    except Exception as err:
+        print("Encountered exception. {}".format(err))
+entity_linking()
+```
+
+### Output
+
+```console
+Document text: {'id': '0', 'language': 'en', 'text': 'Microsoft moved its headquarters to Bellevue, Washington in January 1979.'}
+
+Entity: Bellevue, Washington
+Url: https://en.wikipedia.org/wiki/Bellevue,_Washington
+Data Source: Wikipedia
+Score: 0.774
+Offset: 36
+Length: 20
+
+Entity: Microsoft
+Url: https://en.wikipedia.org/wiki/Microsoft
+Data Source: Wikipedia
+Score: 0.335
+Offset: 0
+Length: 9
+
+Entity: Briann January
+Url: https://en.wikipedia.org/wiki/Briann_January
+Data Source: Wikipedia
+Score: 0.059
+Offset: 60
+Length: 7
+
+------------------------------------------
+Document text: {'id': '1', 'language': 'en', 'text': 'Steve Ballmer stepped down as CEO of Microsoft and was succeeded by Satya Nadella.'}
+
+Entity: Steve Ballmer
+Url: https://en.wikipedia.org/wiki/Steve_Ballmer
+Data Source: Wikipedia
+Score: 0.849
+Offset: 0
+Length: 13
+
+Entity: Satya Nadella
+Url: https://en.wikipedia.org/wiki/Satya_Nadella
+Data Source: Wikipedia
+Score: 0.823
+Offset: 68
+Length: 13
+
+Entity: Microsoft
+Url: https://en.wikipedia.org/wiki/Microsoft
+Data Source: Wikipedia
+Score: 0.296
+Offset: 37
+Length: 9
+
+Entity: Chief executive officer
+Url: https://en.wikipedia.org/wiki/Chief_executive_officer
+Data Source: Wikipedia
+Score: 0.196
+Offset: 30
+Length: 3
+
+------------------------------------------
+Document text: {'id': '2', 'language': 'es', 'text': 'Microsoft superó a Apple Inc. como la compañía más valiosa que cotiza en bolsa en el mundo.'}
+
+Entity: Apple
+Url: https://es.wikipedia.org/wiki/Apple
+Data Source: Wikipedia
+Score: 0.833
+Offset: 19
+Length: 10
+
+Entity: Microsoft
+Url: https://es.wikipedia.org/wiki/Microsoft
+Data Source: Wikipedia
+Score: 0.183
+Offset: 0
+Length: 9
+
+------------------------------------------
+```
+
+## Personal Identifiable Information (PII) Entity recognition
+
+Using the client created earlier, call the [recognize_pii_entities()] function and get the result. Then iterate through the results, and print each document's ID, and the entities contained in it.
+
+```python
+def recognize_pii_entities():
+
+        client = authenticate_client()
+        documents = [
+            {"id": "0", "language": "en", "text": "The employee's SSN is 555-55-5555."},
+            {"id": "1", "language": "en", "text": "Your ABA number - 111000025 - is the first 9 digits in the lower left hand corner of your personal check."},
+            {"id": "2", "language": "en", "text": "Is 998.214.865-68 your Brazilian CPF number?"}
+        ]
+
+
+        result = client.recognize_pii_entities(documents)
+        docs = [doc for doc in result if not doc.is_error]
+
+        for idx, doc in enumerate(docs):
+            print("Document text: {}".format(documents[idx]))
+            for entity in doc.entities:
+                print("Entity: {}".format(entity.text))
+                print("Type: {}".format(entity.type))
+                print("Confidence Score: {}\n".format(entity.score))
+        
+recognize_pii_entities()
+```
+
+### Output
+
+```console
+Document text: {'id': '0', 'language': 'en', 'text': "The employee's SSN is 555-55-5555."}
+Entity: 555-55-5555
+Type: U.S. Social Security Number (SSN)
+Confidence Score: 0.85
+
+Document text: {'id': '1', 'language': 'en', 'text': 'Your ABA number - 111000025 - is the first 9 digits in the lower left hand corner of your personal check.'}
+Entity: 111000025
+Type: ABA Routing Number
+Confidence Score: 0.75
+
+Document text: {'id': '2', 'language': 'en', 'text': 'Is 998.214.865-68 your Brazilian CPF number?'}
+Entity: 998.214.865-68
+Type: Brazil CPF Number
+Confidence Score: 0.85
 ```
