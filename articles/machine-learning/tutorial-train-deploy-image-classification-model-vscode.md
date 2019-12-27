@@ -8,7 +8,7 @@ ms.subservice: core
 ms.topic: tutorial
 author: luisquintanilla
 ms.author: luquinta
-ms.date: 12/26/2019
+ms.date: 12/27/2019
 #Customer intent: As a professional data scientist, I want to develop, deploy, and managge Azure Machine Learning projects locally in Visual Studio Code
 ---
 
@@ -39,7 +39,7 @@ The first thing you have to do to build an application in Azure Machine Learning
 
 1. On the Visual Studio Code activity bar, select the **Azure** icon to open the Azure Machine Learning view.
 
-    [![Create a workspace](./media/how-to-vscode-tools/create-workspace.gif)](./media/how-to-vscode-tools/create-workspace.gif#lightbox)
+    [![Create a workspace](./media/tutorial-train-deploy-image-classification-model-vscodetools/create-workspace.gif)](./media/tutorial-train-deploy-image-classification-model-vscodetools/create-workspace.gif#lightbox)
 
 1. Right-click your Azure subscription and select **Create Workspace**. By default a name is generated containing the date and time of creation. Change the name to "TeamWorkspace" and press **Enter**.
 1. Create a new resource group. It's recommended to choose a location that is closest to the location you plan to deploy your model. In this case, choose **West US 2** and press **Enter**.
@@ -59,7 +59,7 @@ Like workspaces, a request is sent to Azure to create an experiment with the pro
 
 Set the experiment to active by right-clicking the experiment. Setting an experiment to active links the experiment to the directory currently open in Visual Studio code. This is the directory should contain the Python scripts you want to run in Azure. Additionally, setting an experiment as active stores key metrics for all training runs within the experiment.
 
-[![Create an Experiment](./media/how-to-vscode-tools/create-experiment.gif)](./media/how-to-vscode-tools/create-experiment.gif#lightbox)
+[![Create an Experiment](./media/tutorial-train-deploy-image-classification-model-vscodetools/create-experiment.gif)](./media/tutorial-train-deploy-image-classification-model-vscodetools/create-experiment.gif#lightbox)
 
 ## Configure Compute Targets
 
@@ -76,13 +76,13 @@ To create a compute target:
 1. After entering the name, the compute will be created using default parameters. 
 1. In the json that is displayed, make desired changes then click the "Save and continue" CodeLens (using the keyboard you can press **Ctrl+Shift+P** (**Cmd+Shift+P**) to invoke the command palette and run the **Azure ML: Save and Continue** command).
 
-[![Create AML compute in Visual Studio Code](./media/how-to-vscode-tools/create-remote-compute.gif)](./media/how-to-vscode-tools/create-remote-compute.gif#lightbox)
+[![Create AML compute in Visual Studio Code](./media/tutorial-train-deploy-image-classification-model-vscodetools/create-remote-compute.gif)](./media/tutorial-train-deploy-image-classification-model-vscodetools/create-remote-compute.gif#lightbox)
 
 ## Understand the run configuration file
 
 To run an Azure Machine Learning experiment on a compute, that compute needs to be configured appropriately. A run configuration file is the mechanism by which this environment is specified.
 
-[![Create a run configuration for a compute](./media/how-to-vscode-tools/create-runconfig.gif)](./media/how-to-vscode-tools/create-runconfig.gif#lightbox)
+[![Create a run configuration for a compute](./media/tutorial-train-deploy-image-classification-model-vscodetools/create-runconfig.gif)](./media/tutorial-train-deploy-image-classification-model-vscodetools/create-runconfig.gif#lightbox)
 
 To run Azure ML experiments on your local machine a run configuration file is still required. When creating a local run configuration the Python environment used will default to the path to the interpreter you have set within VS Code.
 
@@ -106,7 +106,7 @@ To run an Azure Machine Learning experiment:
 
 Here's an example of how to run an experiment on the compute previously created:
 
-[![Run an experiment locally](./media/how-to-vscode-tools/run-experiment.gif)](./media/how-to-vscode-tools/run-experiment.gif#lightbox)
+[![Run an experiment locally](./media/tutorial-train-deploy-image-classification-model-vscodetools/run-experiment.gif)](./media/tutorial-train-deploy-image-classification-model-vscodetools/run-experiment.gif#lightbox)
 
 ## Register the model
 
@@ -124,7 +124,7 @@ To register your model:
 
 Here's an example of how to register your model to Azure Machine Learning:
 
-[![Registering a Model to AML](./media/how-to-vscode-tools/register-model.gif)](./media/how-to-vscode-tools/register-model.gif#lightbox)
+[![Registering a Model to AML](./media/tutorial-train-deploy-image-classification-model-vscodetools/register-model.gif)](./media/tutorial-train-deploy-image-classification-model-vscodetools/register-model.gif#lightbox)
 
 ## Deploy the model
 
@@ -151,7 +151,7 @@ The web service is now deployed.
 
 Here's an example of how to deploy a web service:
 
-[![Deploy a web service](./media/how-to-vscode-tools/create-image.gif)](./media/how-to-vscode-tools/create-image.gif#lightbox)
+[![Deploy a web service](./media/tutorial-train-deploy-image-classification-model-vscodetools/create-image.gif)](./media/tutorial-train-deploy-image-classification-model-vscodetools/create-image.gif#lightbox)
 
 ## Next steps
 
