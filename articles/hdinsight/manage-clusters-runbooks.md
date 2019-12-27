@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Use Azure Automation Runbooks to create HDInsight clusters'
+title: 'Tutorial: Use Azure Automation Runbooks to create Azure HDInsight clusters'
 description: Learn how to create HDInsight clusters using Azure Automation runbooks.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -10,69 +10,71 @@ ms.topic: tutorial
 ms.date: 12/24/2019
 ---
 
-# Tutorial: Manage HDInsight clusters with Azure Automation
+# Tutorial: Create HDInsight clusters with Azure Automation
 
-Azure Automation allows you to create scripts to automatically manage Azure resources. This article will describe how to create a PowerShell Runbook to create and delete HDInsight clusters.
+Azure Automation allows you to create scripts to automatically manage Azure resources. This article describes how to create a PowerShell Runbook to create and delete HDInsight clusters.
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Install modules necessary for interacting with HDInsight.
 > * Create and store credentials needed during cluster creation.
-> * Create a new Azure Automation runbook to create an HDInsight cluster.
+> * Create a new Azure Automation Runbook to create an HDInsight cluster.
 
 If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prerequisites
 
-1. An existing Azure Automation account.
-1. An existing Azure Storage account, which will be used as cluster storage.
+1. An existing [Azure Automation account](../automation/automation-quickstart-create-account.md).
+1. An existing [Azure Storage account](../storage/blobs/storage-quickstart-blobs-portal.md), which will be used as cluster storage.
 
 ## Install HDInsight modules
 
-1. Click **Modules gallery** under **Shared Resources**.
+1. Sign in to the the [Azure portal](https://portal.azure.com).
+1. Select your Azure Automation Accounts.
+1. Select **Modules gallery** under **Shared Resources**.
 1. Type **AzureRM.Profile** in the box and hit enter to search. Select the available search result.
-1. On the **AzureRM.profile** screen click **Import**. Check the box to update Azure modules and then click **OK**.
+1. On the **AzureRM.profile** screen Select **Import**. Check the box to update Azure modules and then Select **OK**.
 
-![import AzureRM.profile module](./media/manage-clusters-runbooks/import-azurermprofile-module.png)
+    ![import AzureRM.profile module](./media/manage-clusters-runbooks/import-azurermprofile-module.png)
 
-1. Return to the modules gallery by clicking **Modules gallery** under **Shared Resources**.
-1. Type **HDInsight**. Click **AzureRM.HDInsight**.
+1. Return to the modules gallery by Selecting **Modules gallery** under **Shared Resources**.
+1. Type **HDInsight**. Select **AzureRM.HDInsight**.
 
-![browse HDInsight modules](./media/manage-clusters-runbooks/browse-modules-hdinsight.png)
+    ![browse HDInsight modules](./media/manage-clusters-runbooks/browse-modules-hdinsight.png)
 
-1. On the **AzureRM.HDInsight** panel, click **Import** and **OK**.
+1. On the **AzureRM.HDInsight** panel, Select **Import** and **OK**.
 
-![import AzureRM.HDInsight module](./media/manage-clusters-runbooks/import-azurermhdinsight-module.png)
+    ![import AzureRM.HDInsight module](./media/manage-clusters-runbooks/import-azurermhdinsight-module.png)
 
 ## Create credentials
 
-1. Under **Shared Resources**, click **Credentials**.
-1. Click **Add a credential**.
+1. Under **Shared Resources**, Select **Credentials**.
+1. Select **Add a credential**.
 1. Enter the required information on the **New Credential** panel. This credential is to store the cluster password, which will enable you to log in to Ambari.
 
-| Property | Value |
-| --- | --- |
-| Name | `cluster-password` |
-| User name | `admin` |
-| Password | `SECURE_PASSWORD` |
-| Confirm password | `SECURE_PASSWORD` |
+    | Property | Value |
+    | --- | --- |
+    | Name | `cluster-password` |
+    | User name | `admin` |
+    | Password | `SECURE_PASSWORD` |
+    | Confirm password | `SECURE_PASSWORD` |
 
-1. Click **Create**
-1. Repeat the same process for a new credential `ssh-password` with username `sshuser` and a password of your choice. Click **Create**. This credential is to store the SSH password for your cluster.
+1. Select **Create**
+1. Repeat the same process for a new credential `ssh-password` with username `sshuser` and a password of your choice. Select **Create**. This credential is to store the SSH password for your cluster.
 
 ![create credential](./media/manage-clusters-runbooks/create-credentials.png)
 
-## Create a Runbook
+## Create a Runbook to create a cluster
 
-1. Click **Runbooks** under **Process Automation**.
-1. Click **Create a runbook**.
-1. On the **Create a runbook** panel, enter a name for the runbook. Select **Powershell** from the **Runbook type** dropdown.
-1. Click **Create**.
+1. Select **Runbooks** under **Process Automation**.
+1. Select **Create a runbook**.
+1. On the **Create a runbook** panel, enter a name for the runbook, such as `hdinsight-cluster-create`. Select **Powershell** from the **Runbook type** dropdown.
+1. Select **Create**.
 
-![create runbook](./media/manage-clusters-runbooks/create-runbook.png)
+    ![create runbook](./media/manage-clusters-runbooks/create-runbook.png)
 
-Enter the following code on the **Edit PowerShell Runbook** screen and click **Publish**:
+Enter the following code on the **Edit PowerShell Runbook** screen and Select **Publish**:
 
 ![publish runbook](./media/manage-clusters-runbooks/publish-runbook.png)
 
@@ -118,9 +120,44 @@ $location = Get-AzureRmStorageAccount –StorageAccountName $storageAccount –R
 ### Provision HDInsight cluster
 New-AzureRmHDInsightCluster –ClusterName $clusterName –ResourceGroupName $resourceGroup –Location $location –DefaultStorageAccountName "$storageAccount.blob.core.windows.net" –DefaultStorageAccountKey $storageAccountKey -DefaultStorageContainer $containerName –ClusterType $clusterType –OSType $clusterOS –Version “3.6” –HttpCredential $clusterCreds –SshCredential $sshCreds –ClusterSizeInNodes $clusterWorkerNodes –HeadNodeSize $clusterNodeSize –WorkerNodeSize $clusterNodeSize
 ```
+
+## Create a Runbook to delete a cluster
+
+1. Select **Runbooks** under **Process Automation**.
+1. Select **Create a runbook**.
+1. On the **Create a runbook** panel, enter a name for the runbook, such as `hdinsight-cluster-delete`. Select **Powershell** from the **Runbook type** dropdown.
+1. Select **Create**.
+
+Enter the following code on the **Edit PowerShell Runbook** screen and Select **Publish**:
+
+```powershell
+Param
+(
+  [Parameter (Mandatory= $true)]
+  [String] $clusterName
+)
+
+### Authenticate to Azure 
+$Conn = Get-AutomationConnection -Name 'AzureRunAsConnection'
+Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
+
+Remove-AzureRmHDInsightCluster -ClusterName $clusterName
+```
+
+## Execute Runbooks
+
+1. Return to the Runbook list for your Automation account, by Selecting **Runbooks** under **Process Automation**.
+1. Select `hdinsight-cluster-create`, or the name that you used for your cluster creation Runbook.
+1. Select **Start** execute the Runbook immediately.
+1. Enter the required parameters for the script and Select **OK**.
+
+![execute create cluster runbook](./media/manage-clusters-runbooks/execute-create-runbook.png)
+
+Delete the cluster by selecting the `hdinsight-cluster-delete` Runbook that you created. Select **Start**, enter the **CLUSTERNAME** parameter and Select **OK**.
+
 ## Clean up resources
 
-When no longer needed, delete the cluster that was created to avoid unintended charges. To do so, select the resource group that you specified in the Runbook and click **Delete**.
+When no longer needed, delete the Azure Automation Account that was created to avoid unintended charges. To do so, navigate to the Azure portal, select the resource group where you created the Azure Automation Account, Select the Automation Account and then Select **Delete**.
 
 ## Next steps
 
