@@ -5,7 +5,7 @@ author: MikeDodaro
 ms.author: barbkess
 ms.service: spring-cloud
 ms.topic: tutorial
-ms.date: 11/18/2019
+ms.date: 12/29/2019
 
 ---
 # Tutorial: Monitor Spring Cloud resources using alerts and action groups
@@ -21,7 +21,7 @@ In addition to the Azure Spring requirements, this tutorial depends on the follo
 
 * A deployed Azure Spring Cloud instance.  Follow our [quickstart](spring-cloud-quickstart-launch-app-cli.md) to get started.
 
-* An Azure resource to monitor, for example the database implemented in this article: [How to use Spring Data Apache Cassandra API with Azure Cosmos DB](https://docs.microsoft.com/azure/java/spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db)
+* An Azure resource to monitor. This example monitors a Spring Cloud instance.
  
 The following procedures initialize both **Action Group** and **Alert** starting from the **Alerts** option in the left navigation pane of a Spring Cloud instance. (The procedure can also start from the **Monitor Overview** page of the Azure portal.) 
 
@@ -78,6 +78,10 @@ To configure an **Alert**, navigate back to the **Alerts** page, and click **Man
 Verify that the new alert rule is enabled.
 
   ![Screenshot Portal new alert rule](media/alerts-action-groups/alerts-5.png)
+
+Navigate to the Alert just created. Select an Action Group to attach to the Alert rule.
+
+  ![Screenshot Portal new alert rule](media/alerts-action-groups/alerts-6.png)
 
 ## Next steps
 * [Create and manage action groups in the Azure portal](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups)
