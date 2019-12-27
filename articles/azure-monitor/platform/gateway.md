@@ -175,7 +175,7 @@ If you need to provide credentials to authenticate with the proxy, type the foll
 Msiexec.exe /I "oms gateway.msi" /qn PORTNUMBER=8080 PROXY="10.80.2.200" HASPROXY=1 HASAUTH=1 USERNAME="<username>" PASSWORD="<password>" LicenseAccepted=1 
 ```
 
-After installation, you can confirm the settings are accepted (exlcuding the username and password) using the following PowerShell cmdlets:
+After installation, you can confirm the settings are accepted (excluding the username and password) using the following PowerShell cmdlets:
 
 - **Get-OMSGatewayConfig** – Returns the TCP Port the gateway is configured to listen on.
 - **Get-OMSGatewayRelayProxy** – Returns the IP address of the proxy server you configured it to communicate with.
