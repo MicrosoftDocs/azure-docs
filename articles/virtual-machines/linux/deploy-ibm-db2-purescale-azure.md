@@ -62,7 +62,7 @@ The deployment scripts run these general steps:
 
 1.  Set up a shared storage cluster on Azure. This step involves at least two Linux nodes.
 
-2.  Set up an iSCSI Direct interface on target Linux servers for the shared storage clulster.
+2.  Set up an iSCSI Direct interface on target Linux servers for the shared storage cluster.
 
 3.  Set up the iSCSI initiator on the Linux virtual machines. The initiator will access the shared storage cluster by using an iSCSI target. For setup details, see [How To Configure An iSCSI Target And Initiator In Linux](https://www.rootusers.com/how-to-configure-an-iscsi-target-and-initiator-in-linux/) in the RootUsers documentation.
 
