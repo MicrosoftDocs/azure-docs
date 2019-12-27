@@ -39505,6 +39505,21 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/azure-monitor/platform/activity-logs-overview.md",
+      "redirect_url": "/azure/azure-monitor/platform/platform-logs-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/platform/resource-logs-overview.md",
+      "redirect_url": "/azure/azure-monitor/platform/platform-logs-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/platform/diagnostic-settings-subscription.md",
+      "redirect_url": "/azure/azure-monitor/platform/diagnostic-settings-legacy",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/machine-learning/service/how-to-automated-ml.md",
       "redirect_url": "/azure/machine-learning/service/concept-automated-ml",
       "redirect_document_id": true
