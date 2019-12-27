@@ -180,7 +180,7 @@ How to create an Azure Blueprint:
 
 https://docs.microsoft.com/azure/governance/blueprints/create-blueprint-portal
 
-## 1.1: Document traffic configuration rules
+## 1.10: Document traffic configuration rules
 
 | Azure ID | CIS IDs | Responsibility |
 |--|--|--|

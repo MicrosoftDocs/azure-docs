@@ -147,7 +147,7 @@ How to remediate recommendations in Azure Security Center:
 
 https://docs.microsoft.com/azure/security-center/security-center-remediate-recommendations
 
-## 7.1: Implement Automated Configuration Monitoring for Operating Systems
+## 7.10: Implement Automated Configuration Monitoring for Operating Systems
 
 | Azure ID | CIS IDs | Responsibility |
 |--|--|--|

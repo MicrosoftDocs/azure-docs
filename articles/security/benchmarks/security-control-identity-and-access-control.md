@@ -126,7 +126,7 @@ How to configure Named Locations in Azure:
 
 https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations
 
-## 3.1: Use Azure Active Directory
+## 3.10: Use Azure Active Directory
 
 | Azure ID | CIS IDs | Responsibility |
 |--|--|--|

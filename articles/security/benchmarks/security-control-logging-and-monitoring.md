@@ -163,7 +163,7 @@ https://docs.microsoft.com/azure/security/fundamentals/antimalware
 
 Implement third party solution for dns logging.
 
-## 2.1: Enable Command-line Audit Logging
+## 2.10: Enable Command-line Audit Logging
 
 | Azure ID | CIS IDs | Responsibility |
 |--|--|--|

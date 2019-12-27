@@ -154,7 +154,7 @@ How to deny a specific resource type with Azure Policy:
 
 https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-types
 
-## 6.1: Implement approved application list
+## 6.10: Implement approved application list
 
 | Azure ID | CIS IDs | Responsibility |
 |--|--|--|

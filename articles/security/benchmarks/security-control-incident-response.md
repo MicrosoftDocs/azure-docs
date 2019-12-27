@@ -48,6 +48,18 @@ Security Center assigns a severity to alerts, to help you prioritize the order i
 
 Additionally, clearly mark subscriptions (for ex. production, non-prod) and create a naming system to clearly identify and categorize Azure resources.
 
+## 10.3: Test Security Response Procedures
+
+| Azure ID | CIS IDs | Responsibility |
+|--|--|--|
+| 10.3 | 19 | Customer |
+
+Conduct exercises to test your systems’ incident response capabilities on a regular cadence. Identify weak points and gaps and revise plan as needed.
+
+Refer to NIST's publication: Guide to Test, Training, and Exercise Programs for IT Plans and Capabilities:
+
+https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf
+
 ## 10.4: Provide Security Incident Contact Details and Configure Alert Notifications &nbsp;for Security Incidents
 
 | Azure ID | CIS IDs | Responsibility |
@@ -88,15 +100,4 @@ How to configure Workflow Automation and Logic Apps:
 
 https://docs.microsoft.com/azure/security-center/workflow-automation
 
-## 10.3: Test Security Response Procedures
-
-| Azure ID | CIS IDs | Responsibility |
-|--|--|--|
-| 10.3 | 19 | Customer |
-
-Conduct exercises to test your systems’ incident response capabilities on a regular cadence. Identify weak points and gaps and revise plan as needed.
-
-Refer to NIST's publication: Guide to Test, Training, and Exercise Programs for IT Plans and Capabilities:
-
-https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf
 
