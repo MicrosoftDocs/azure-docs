@@ -168,7 +168,7 @@ if args.submit:
 
 ### Test your code
 
-Let's try to make a request to synthesize text using your input file as a source. You'll need to update a few things in the request below:
+Let's make a request to synthesize text using your input file as the source. You'll need to update a few things in the request below:
 
 * Replace `<your_key>` with your Speech service subscription key. This information is available in the **Overview** tab for your resource in the [Azure portal](https://aka.ms/azureportal).
 * Replace `<region>` with the region where your Speech resource was created (for example: `eastus` or `westus`). This information is available in the **Overview** tab for your resource in the [Azure portal](https://aka.ms/azureportal).
