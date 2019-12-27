@@ -137,12 +137,12 @@ Create a new function called `sentimentAnalysisExample()` that takes the client 
 static void sentimentAnalysisExample(TextAnalyticsClient client)
 {
     // The text that need be analyzed.
-    String text = "The hotel was dark and unclean.";
+    String text = "I had the best day of my life. I wish you were there with me.";
 
     AnalyzeSentimentResult sentimentResult = client.analyzeSentiment(text);
     TextSentiment documentSentiment = sentimentResult.getDocumentSentiment();
     System.out.printf(
-        "Recognized TextSentiment: %s, Positive Score: %s, Neutral Score: %s, Negative Score: %s.%n",
+        "Recognized TextSentiment: %s, Positive Score: %.2f, Neutral Score: %.2f, Negative Score: %.2f.%n",
         documentSentiment.getTextSentimentClass(),
         documentSentiment.getPositiveScore(),
         documentSentiment.getNeutralScore(),
@@ -151,7 +151,7 @@ static void sentimentAnalysisExample(TextAnalyticsClient client)
     List<TextSentiment> sentiments = sentimentResult.getSentenceSentiments();
     for (TextSentiment textSentiment : sentiments) {
         System.out.printf(
-            "Recognized Sentence TextSentiment: %s, Positive Score: %s, Neutral Score: %s, Negative Score: %s.%n",
+            "Recognized Sentence TextSentiment: %s, Positive Score: %.2f, Neutral Score: %.2f, Negative Score: %.2f.%n",
             textSentiment.getTextSentimentClass(),
             textSentiment.getPositiveScore(),
             textSentiment.getNeutralScore(),
@@ -163,8 +163,9 @@ static void sentimentAnalysisExample(TextAnalyticsClient client)
 ### Output
 
 ```console
-Recognized TextSentiment: negative, Positive Score: 4.08880950999E-5, Neutral Score: 4.88696241518E-5, Negative Score: 0.9999102354049683.
-Recognized Sentence TextSentiment: negative, Positive Score: 4.08880950999E-5, Neutral Score: 4.88696241518E-5, Negative Score: 0.9999102354049683.
+Recognized TextSentiment: positive, Positive Score: 1.00, Neutral Score: 0.00, Negative Score: 0.00.
+Recognized Sentence TextSentiment: positive, Positive Score: 1.00, Neutral Score: 0.00, Negative Score: 0.00.
+Recognized Sentence TextSentiment: neutral, Positive Score: 0.21, Neutral Score: 0.77, Negative Score: 0.02.
 ```
 ## Language detection
 
@@ -213,10 +214,10 @@ static void recognizeEntitiesExample(TextAnalyticsClient client)
 
     for (NamedEntity entity : recognizeEntitiesResult.getNamedEntities()) {
         System.out.printf(
-            "Recognized NamedEntity Text: %s, Type: %s, Subtype: %s, Offset: %s, Length: %s, Score: %s.%n",
+            "Recognized NamedEntity Text: %s, Type: %s, Subtype: %s, Offset: %s, Length: %s, Score: %.2f.%n",
             entity.getText(),
             entity.getType(),
-            entity.getSubtype(),
+            entity.getSubtype() == null || entity.getSubtype().isEmpty() ? "N/A" : entity.getSubtype(),
             entity.getOffset(),
             entity.getLength(),
             entity.getScore());
@@ -227,8 +228,8 @@ static void recognizeEntitiesExample(TextAnalyticsClient client)
 ### Output
 
 ```console
-Recognized NamedEntity Text: Satya Nadella, Type: Person, Subtype: null, Offset: 0, Length: 13, Score: 0.9992754459381104.
-Recognized NamedEntity Text: Microsoft, Type: Organization, Subtype: null, Offset: 28, Length: 9, Score: 1.0.
+Recognized NamedEntity Text: Satya Nadella, Type: Person, Subtype: N/A, Offset: 0, Length: 13, Score: 1.00.
+Recognized NamedEntity Text: Microsoft, Type: Organization, Subtype: N/A, Offset: 28, Length: 9, Score: 1.00.
 ```
 ## PII entity recognition
 
