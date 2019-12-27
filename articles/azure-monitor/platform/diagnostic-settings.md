@@ -76,14 +76,12 @@ You can configure diagnostic settings in the Azure portal either from the Azure 
 
 5. Check the box for each of the categories of data to send to the specified destinations. The list of categories will vary for each Azure service.
 
+   > [!NOTE]
+   > Sending multi-dimensional metrics via diagnostic settings is not currently supported. Metrics with dimensions are exported as flattened single dimensional metrics, aggregated across dimension values.
+   >
+   > *For example*: The 'Incoming Messages' metric on an Event Hub can be explored and charted on a per queue level. However, when exported via diagnostic settings the metric will be represented as all incoming messages across all queues in the Event Hub.
 
-
-> [!NOTE]
-> Sending multi-dimensional metrics via diagnostic settings is not currently supported. Metrics with dimensions are exported as flattened single dimensional metrics, aggregated across dimension values.
->
-> *For example*: The 'Incoming Messages' metric on an Event Hub can be explored and charted on a per queue level. However, when exported via diagnostic settings the metric will be represented as all incoming messages across all queues in the Event Hub.
-
-4. Click **Save**.
+6. Click **Save**.
 
 After a few moments, the new setting appears in your list of settings for this resource, and logs are streamed to the specified destinations as new event data is generated. Note that there may be up to fifteen minutes between when an event is emitted and when it [appears in a Log Analytics workspace](data-ingestion-time.md).
 
