@@ -39,7 +39,7 @@ You can open metrics explorer either from the Azure Monitor menu or from a resou
 
 2. Select a **Namespace** if the scope has more than one. The namespace is just a way to organize metrics so that you can easily find them. For example, storage accounts have separate namespaces for storing Files, Tables, Blobs, and Queues metrics. Many resource types only have one namespace.
 
-3. Select a metric from a list of available metrics for the selected scope and namspace.
+3. Select a metric from a list of available metrics for the selected scope and namespace.
 
     ![Select a metric](media/tutorial-metrics-explorer/metric-picker.png)
 
