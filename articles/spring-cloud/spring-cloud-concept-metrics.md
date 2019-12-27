@@ -79,7 +79,7 @@ YOu can also use the **Apply splitting** option, which will draw multiple lines 
 ## User portal metrics options
 
 The following table shows the available metrics and details.
-
+[!div class="mx-tdBreakAll"]
 | Name | Display Name | Spring Actuator Metric Name | Unit | Details |
 |:----|----|:----|:----|:------------|
 | SystemCpuUsagePercentage | System CPU Usage Percentage | system.cpu.usage | Percent | Recent CPU usage for the whole system. This value is a double in the [0.0,1.0] interval. A value of 0.0 means that all CPUs were idle during the recent period of time observed, while a value of 1.0 means that all CPUs were actively running 100% of the time during the recent period being observed. All values between 0.0 and 1.0 are possible depending on the activities going on in the system. If the system recent cpu usage is not available, the method returns a negative value. |
