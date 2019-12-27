@@ -51,11 +51,9 @@ WITH
 
 #### Arguments
 
-data_source_name
-Specifies the user-defined name for the data source. The name must be unique within the database in SQL Server.
+data_source_name -Specifies the user-defined name for the data source. The name must be unique within the database in SQL Server.
 
-LOCATION = `'<prefix>://<path>'` - 
-Provides the connectivity protocol and path to the external data source. The path can include a container in the form of  `'<prefix>://<path>/container'`, and a folder in the form of `'<prefix>://<path>/container/folder'`.
+LOCATION = `'<prefix>://<path>'`   - Provides the connectivity protocol and path to the external data source. The path can include a container in the form of  `'<prefix>://<path>/container'`, and a folder in the form of `'<prefix>://<path>/container/folder'`.
 
 | External Data Source       | Location prefix | Location path                                       |
 | -------------------------- | --------------- | --------------------------------------------------- |
@@ -77,7 +75,9 @@ WITH
 
 ### CREATE EXTERNAL FILE FORMAT
 
-Creates an external file format object that defines external data stored in Azure Blob Storage or Azure Data Lake Store. Creating an external file format is a prerequisite for creating an external table. By creating an external file format, you specify the actual layout of the data referenced by an external table. SQL on-demand supports the following file formats:
+Creates an external file format object that defines external data stored in Azure Blob Storage or Azure Data Lake Store. Creating an external file format is a prerequisite for creating an external table. 
+
+By creating an external file format, you specify the actual layout of the data referenced by an external table. SQL on-demand supports the following file formats:
 
 - Delimited Text
 - Parquet
@@ -113,10 +113,9 @@ WITH (
 
 #### Arguments
 
-file_format_name - 
-Specifies a name for the external file format.
+file_format_name- Specifies a name for the external file format.
 
-FORMAT_TYPE = [ PARQUET | DELIMITEDTEXT] - Specifies the format of the external data.
+FORMAT_TYPE = [ PARQUET | DELIMITEDTEXT]- Specifies the format of the external data.
 
 - PARQUET - Specifies a Parquet format.
 - DELIMITEDTEXT - Specifies a text format with column delimiters, also called field terminators.
@@ -146,7 +145,7 @@ USE_TYPE_DEFAULT = { TRUE | **FALSE** } -
 Specifies how to handle missing values in delimited text files when retrieving data from the text file.
 
 TRUE - 
-When retrieving data from the text file, store each missing value by using the default value for the data type of the corresponding column in the external table definition. For example, replace a missing value with:
+If you're retrieving data from the text file, store each missing value by using the default value's data type for the corresponding column in the external table definition. For example, replace a missing value with:
 
 - 0 if the column is defined as a numeric column. Decimal columns aren't supported and will cause an error.
 - Empty string ("") if the column is a string column.
