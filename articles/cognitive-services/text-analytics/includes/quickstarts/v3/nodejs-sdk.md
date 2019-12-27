@@ -104,7 +104,6 @@ const client = new TextAnalyticsClient(endpoint,  new CognitiveServicesCredentia
 
 ## Language detection
 <!-- TODO: Change description pointing to the latest methods and classes -->
-Create an array of strings containing your documents. Call the client's [detectLanguages()](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-textanalytics/textanalyticsclient#detectlanguage-models-textanalyticsclientdetectlanguageoptionalparams-) method and get the returned [LanguageBatchResult](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-textanalytics/languagebatchresult). Then iterate through the results, and print each document's ID, and language.
 
 ```javascript
 async function languageDetection(client) {
@@ -146,7 +145,7 @@ ID: 2
 
 ## Sentiment analysis
 
-Create a list of dictionary objects, containing the documents you want to analyze. Call the client's [sentiment()](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-textanalytics/textanalyticsclient#sentiment-models-textanalyticsclientsentimentoptionalparams-) method and get the returned [SentimentBatchResult](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-textanalytics/sentimentbatchresult). Iterate through the list of results, and print each document's ID and sentiment score. A score closer to 0 indicates a negative sentiment, while a score closer to 1 indicates a positive sentiment.
+<!-- TODO: Change description pointing to the latest methods and classes -->
 
 ```javascript
 async function sentimentAnalysis(client){
@@ -159,16 +158,20 @@ async function sentimentAnalysis(client){
     ]
 
     const sentimentResult = await client.analyseSentiment(sentimentInput);
-
     result.forEach(document => {
         console.log(`ID: ${document.id}`);
         console.log(`\tDocument Sentiment: ${document.sentiment}`);
+        console.log(`\tDocument Scores:`);
+        console.log(`\t\tPositive: ${document.documentScores.positive} \tNegative: ${document.documentScores.negative} \tNeutral: ${document.documentScores.neutral}`);
         console.log(`\tSentences Sentiment(${document.sentences.length}):`);
-
         document.sentences.forEach(sentence => {
             console.log(`\t\tSentence sentiment: ${sentence.sentiment}`)
+            console.log(`\t\tSentences Scores:`);
+            console.log(`\t\tPositive: ${sentence.sentenceScores.positive} \tNegative: ${sentence.sentenceScores.negative} \tNeutral: ${sentence.sentenceScores.neutral}`);
+            console.log(`\t\tLength: ${sentence.length}, Offset: ${sentence.offset}`);
         })
     });
+
 }
 sentimentAnalysis(textAnalyticsClient)
 ```
@@ -181,53 +184,51 @@ Run your code with `node index.js` in your console window.
 ID: 0
         Document Sentiment: positive
         Document Scores:
-                Positive: 0.9992358684539795    Negative: 0.9992358684539795    Neutral: 0.0006491420208476
+                Positive: 0.9992358684539795    Negative: 0.0001150449024863    Neutral: 0.0006491420208476
         Sentences Sentiment(1):
                 Sentence sentiment: positive
                 Sentences Scores:
-                Positive: 0.9992358684539795    Negative: 0.9992358684539795    Neutral: 0.0006491420208476
+                Positive: 0.9992358684539795    Negative: 0.0001150449024863    Neutral: 0.0006491420208476
                 Length: 30, Offset: 0
 ID: 1
         Document Sentiment: negative
         Document Scores:
-                Positive: 0.0611404217779636    Negative: 0.0611404217779636    Neutral: 0.4256836175918579
+                Positive: 0.0611404217779636    Negative: 0.513175904750824     Neutral: 0.4256836175918579
         Sentences Sentiment(2):
                 Sentence sentiment: negative
                 Sentences Scores:
-                Positive: 0.0000168700626091    Negative: 0.0000168700626091    Neutral: 0.0000066324328145
+                Positive: 0.0000168700626091    Negative: 0.999976396560669     Neutral: 0.0000066324328145
                 Length: 28, Offset: 0
                 Sentence sentiment: neutral
                 Sentences Scores:
-                Positive: 0.1222639754414558    Negative: 0.1222639754414558    Neutral: 0.8513606190681458
+                Positive: 0.1222639754414558    Negative: 0.0263753551989794    Neutral: 0.8513606190681458
                 Length: 28, Offset: 29
 ID: 2
         Document Sentiment: negative
         Document Scores:
-                Positive: 0.0255409516394138    Negative: 0.0255409516394138    Neutral: 0.0314255990087986
+                Positive: 0.0255409516394138    Negative: 0.9430333375930786    Neutral: 0.0314255990087986
         Sentences Sentiment(1):
                 Sentence sentiment: negative
                 Sentences Scores:
-                Positive: 0.0255409516394138    Negative: 0.0255409516394138    Neutral: 0.0314255990087986
+                Positive: 0.0255409516394138    Negative: 0.9430333375930786    Neutral: 0.0314255990087986
                 Length: 34, Offset: 0
 ID: 3
         Document Sentiment: mixed
         Document Scores:
-                Positive: 0.484170526266098     Negative: 0.484170526266098     Neutral: 0.0193013790994883
+                Positive: 0.484170526266098     Negative: 0.4965281188488007    Neutral: 0.0193013790994883
         Sentences Sentiment(2):
                 Sentence sentiment: positive
                 Sentences Scores:
-                Positive: 0.9675248861312866    Negative: 0.9675248861312866    Neutral: 0.0312887355685234
+                Positive: 0.9675248861312866    Negative: 0.0011864280095324    Neutral: 0.0312887355685234
                 Length: 25, Offset: 0
                 Sentence sentiment: negative
                 Sentences Scores:
-                Positive: 0.0008161555742845    Negative: 0.0008161555742845    Neutral: 0.0073140212334692
+                Positive: 0.0008161555742845    Negative: 0.9918698072433472    Neutral: 0.0073140212334692
                 Length: 24, Offset: 26
 ```
 
-
 ## Key phrase extraction
-<!-- TODO: Update language and check for updated links  -->
-Create a list of objects, containing your documents. Call the client's [extractKeyPhrases()](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-textanalytics/textanalyticsclient#keyphrases-models-textanalyticsclientkeyphrasesoptionalparams-) method and get the returned     [KeyPhraseBatchResult](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-textanalytics/keyphrasebatchresult) object. Iterate through the results and print each document's ID, and any detected key phrases.
+<!-- TODO: Change description pointing to the latest methods and classes -->
 
 ```javascript
 async function keyPhraseExtraction(client){
@@ -274,7 +275,7 @@ ID: 3
 
 ## Named Entity Recognition
 
-Create a list of objects, containing your documents. Call the client's [recognizeEntities()](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-textanalytics/textanalyticsclient#entities-models-textanalyticscliententitiesoptionalparams-) method and get the [EntitiesBatchResult](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-textanalytics/entitiesbatchresult) object. Iterate through the list of results, and print each document's ID. For each detected entity, print its wikipedia name, the type and sub-types (if exists) as well as the locations in the original text.
+<!-- TODO: Change description pointing to the latest methods and classes -->
 
 ```javascript
 async function entityRecognition(client){
@@ -324,14 +325,12 @@ Document ID: 1
 
 ## Recognition of Personally Identifiable Information
 <!-- TODO: Add description for PII and updated links-->
-<!--
-Create a list of objects, containing your documents. Call the client's [recognizeEntities()](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-textanalytics/textanalyticsclient#entities-models-textanalyticscliententitiesoptionalparams-) method and get the [EntitiesBatchResult](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-textanalytics/entitiesbatchresult) object. Iterate through the list of results, and print each document's ID. For each detected entity, print its wikipedia name, the type and sub-types (if exists) as well as the locations in the original text. -->
 
 ```javascript
 async function entityPiiRecognition(client){
 
     const entityPiiInput = [
-        "Microsoft employee with ssn 123-12-1234 is using our awesome API's.",
+        "Insurance policy for SSN on file 123-12-1234 is here by approved.",
         "Your ABA number - 111000025 - is the first 9 digits in the lower left hand corner of your personal check.",
         "Is 998.214.865-68 your Brazilian CPF number?"
     ]
@@ -354,8 +353,8 @@ Run your code with `node index.js` in your console window.
 
 ```console
 Document ID: 0
-        Name: 859-98-0987       Type: U.S. Social Security Number (SSN)         Sub Type: N/A
-        Offset: 28, Length: 11  Score: 0.65
+        Name: 123-12-1234       Type: U.S. Social Security Number (SSN)         Sub Type: N/A
+        Offset: 33, Length: 11  Score: 0.85
 Document ID: 1
         Name: 111000025         Type: ABA Routing Number        Sub Type: N/A
         Offset: 18, Length: 9   Score: 0.75
@@ -366,16 +365,12 @@ Document ID: 2
 
 ## Linked Entity Recognition
 <!-- TODO: Add description for Linked Entity Recognition and updated links-->
-<!--
-Create a list of objects, containing your documents. Call the client's [recognizeEntities()](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-textanalytics/textanalyticsclient#entities-models-textanalyticscliententitiesoptionalparams-) method and get the [EntitiesBatchResult](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-textanalytics/entitiesbatchresult) object. Iterate through the list of results, and print each document's ID. For each detected entity, print its wikipedia name, the type and sub-types (if exists) as well as the locations in the original text. -->
 
 ```javascript
 async function linkedEntityRecognition(client){
 
     const linkedEntityInput = [
-        "I had a wonderful trip to Seattle last week.",
-        "Text Analytics web services are built with best-in-class Microsoft machine learning algorithms.",
-        "I visited Space Needle 2 times."
+        "Microsoft was founded by Bill Gates and Paul Allen on April 4, 1975, to develop and sell BASIC interpreters for the Altair 8800. During his career at Microsoft, Gates held the positions of chairman, chief executive officer, president and chief software architect, while also being the largest individual shareholder until May 2014."
     ]
     const entityResults = await client.recognizeLinkedEntities(linkedEntityInput);
 
@@ -385,7 +380,7 @@ async function linkedEntityRecognition(client){
             console.log(`\tName: ${entity.name} \tID: ${entity.id} \tURL: ${entity.url} \tData Source: ${entity.dataSource}`);
             console.log(`\tMatches:`)
             entity.matches.forEach(match => {
-                console.log(`\t\tName: ${match.text}`);
+                console.log(`\t\tText: ${match.text}`);
                 console.log(`\t\tOffset: ${match.offset}, Length: ${match.length} \tScore: ${match.score}`);
             })
         });
@@ -400,20 +395,33 @@ Run your code with `node index.js` in your console window.
 
 ```console
 Document ID: 0
-        Name: Seattle   ID: Seattle     URL: https://en.wikipedia.org/wiki/Seattle      Data Source: Wikipedia
+        Name: Altair 8800       ID: Altair 8800         URL: https://en.wikipedia.org/wiki/Altair_8800  Data Source: Wikipedia
         Matches:
-                Name: Seattle
-                Offset: 26, Length: 7   Score: 0.11472424095537814
-Document ID: 1
+                Name: Altair 8800
+                Offset: 116, Length: 11         Score: 0.6497076686568852
+        Name: Bill Gates        ID: Bill Gates  URL: https://en.wikipedia.org/wiki/Bill_Gates   Data Source: Wikipedia
+        Matches:
+                Name: Bill Gates
+                Offset: 25, Length: 10  Score: 0.24316751200861875
+                Name: Gates
+                Offset: 161, Length: 5  Score: 0.24316751200861875
+        Name: Paul Allen        ID: Paul Allen  URL: https://en.wikipedia.org/wiki/Paul_Allen   Data Source: Wikipedia
+        Matches:
+                Name: Paul Allen
+                Offset: 40, Length: 10  Score: 0.1741547531559975
         Name: Microsoft         ID: Microsoft   URL: https://en.wikipedia.org/wiki/Microsoft    Data Source: Wikipedia
         Matches:
                 Name: Microsoft
-                Offset: 10, Length: 9   Score: 0.1869365971673207
-Document ID: 2
-        Name: Space Needle      ID: Space Needle        URL: https://en.wikipedia.org/wiki/Space_Needle         Data Source: Wikipedia
+                Offset: 0, Length: 9    Score: 0.1958064065029148
+                Name: Microsoft
+                Offset: 150, Length: 9  Score: 0.1958064065029148
+        Name: April 4   ID: April 4     URL: https://en.wikipedia.org/wiki/April_4      Data Source: Wikipedia
         Matches:
-                Name: Space Needle
-                Offset: 10, Length: 12  Score: 0.155903620065595
+                Name: April 4
+                Offset: 54, Length: 7   Score: 0.1372928982221484
+        Name: BASIC     ID: BASIC       URL: https://en.wikipedia.org/wiki/BASIC        Data Source: Wikipedia
+        Matches:
+                Name: BASIC
 ```
 
 ## Run the application
