@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Use Azure Automation runbooks to create Azure HDInsight clusters'
+title: 'Tutorial: Use Azure Automation runbooks to create clusters - Azure HDInsight'
 description: Learn how to create HDInsight clusters using Azure Automation runbooks.
 author: hrasheed-msft
 ms.author: hrasheed
