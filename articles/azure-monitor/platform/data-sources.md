@@ -6,7 +6,7 @@ ms.subservice:
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 05/23/2019
+ms.date: 12/19/2019
 
 ---
 
@@ -127,6 +127,7 @@ Install the Log Analytics agent for comprehensive monitoring and management of y
 | Destination | Description | Reference |
 |:---|:---|:---|
 | Azure Monitor Logs | The Log Analytics agent connects to Azure Monitor either directly or through System Center Operations Manager and allows you to collect data from data sources that you configure or from monitoring solutions that provide additional insights into applications running on the virtual machine. | [Agent data sources in Azure Monitor](agent-data-sources.md)<br>[Connect Operations Manager to Azure Monitor](om-agents.md) |
+| VM Storage | Azure Monitor for VMs uses the Log Analytics agent to store heath state information in a custom location. See the next section for more information.  |
 
 
 ### Azure Monitor for VMs 
@@ -135,7 +136,7 @@ Install the Log Analytics agent for comprehensive monitoring and management of y
 | Destination | Description | Reference |
 |:---|:---|:---|
 | Azure Monitor Logs | Stores data about processes and dependencies on the agent. | [Using Azure Monitor for VMs (preview) Map to understand application components](../insights/vminsights-maps.md) |
-| VM Storage | Azure Monitor for VMs stores heath state information in a custom location. This is only available to Azure Monitor for VMs in the Azure portal in addition to the [Azure Resource health REST API](/rest/api/resourcehealth/). | [Understand the health of your Azure virtual machines](../insights/vminsights-health.md)<br>[Azure Resource health REST API](https://docs.microsoft.com/rest/api/resourcehealth/) |
+| VM Storage | Azure Monitor for VMs uses the Log Analytics agent to store heath state information in a custom location. This is only available to Azure Monitor for VMs in the Azure portal in addition to the [Azure Resource health REST API](/rest/api/resourcehealth/). | [Understand the health of your Azure virtual machines](../insights/vminsights-health.md)<br>[Azure Resource health REST API](https://docs.microsoft.com/rest/api/resourcehealth/) |
 
 
 
