@@ -18,7 +18,7 @@ This tutorial demonstrates the basics of using .NET to develop applications that
 
 * Get the contents of a file.
 * Set the maximum size or *quota* for the file share.
-* Create a shared access signature (SAS key) for a file that uses a shared access policy defined on the share.
+* Create a shared access signature (SAS key) for a file that uses a stored access policy defined on the share.
 * Copy a file to another file in the same storage account.
 * Copy a file to a blob in the same storage account.
 * Use Azure Storage Metrics for troubleshooting.
@@ -187,9 +187,9 @@ if (share.Exists())
 
 ### Generate a shared access signature for a file or file share
 
-Beginning with version 5.x of the Azure Storage Client Library, you can generate a shared access signature (SAS) for a file share or for an individual file. You can also create a shared access policy on a file share to manage shared access signatures. We recommend creating a shared access policy because it lets you revoke the SAS if it becomes compromised.
+Beginning with version 5.x of the Azure Storage Client Library, you can generate a shared access signature (SAS) for a file share or for an individual file. You can also create a stored access policy on a file share to manage shared access signatures. We recommend creating a stored access policy because it lets you revoke the SAS if it becomes compromised.
 
-The following example creates a shared access policy on a share. The example uses that policy to provide the constraints for a SAS on a file in the share.
+The following example creates a stored access policy on a share. The example uses that policy to provide the constraints for a SAS on a file in the share.
 
 ```csharp
 // Parse the connection string for the storage account.
@@ -207,7 +207,7 @@ if (share.Exists())
 {
     string policyName = "sampleSharePolicy" + DateTime.UtcNow.Ticks;
 
-    // Create a new shared access policy and define its constraints.
+    // Create a new stored access policy and define its constraints.
     SharedAccessFilePolicy sharedPolicy = new SharedAccessFilePolicy()
         {
             SharedAccessExpiryTime = DateTime.UtcNow.AddHours(24),
@@ -217,7 +217,7 @@ if (share.Exists())
     // Get existing permissions for the share.
     FileSharePermissions permissions = share.GetPermissions();
 
-    // Add the shared access policy to the share's policies. Note that each policy must have a unique name.
+    // Add the stored access policy to the share's policies. Note that each policy must have a unique name.
     permissions.SharedAccessPolicies.Add(policyName, sharedPolicy);
     share.SetPermissions(permissions);
 

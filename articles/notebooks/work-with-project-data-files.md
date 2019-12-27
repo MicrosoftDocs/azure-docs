@@ -1,7 +1,7 @@
 ---
 title: Import and export data with projects with Azure Notebooks
-description: How to bring data into an Azure Notebooks project from external sources, and how to export data from a project.
-ms.topic: article
+description: Learn how to bring data into an Azure Notebooks project from external sources, and how to export data from a project.
+ms.topic: how-to
 ms.date: 12/04/2018
 ---
 
