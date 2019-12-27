@@ -7,7 +7,7 @@ author: cherylmc
 
 ms.service: bastion
 ms.topic: overview
-ms.date: 11/04/2019
+ms.date: 12/09/2019
 ms.author: cherylmc
 
 ---

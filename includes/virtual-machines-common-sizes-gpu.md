@@ -18,6 +18,9 @@ GPU optimized VM sizes are specialized virtual machines available with single or
 
 * **NV and NVv3** sizes are optimized and designed for remote visualization, streaming, gaming, encoding, and VDI scenarios using frameworks such as OpenGL and DirectX.  These VMs are backed by the NVIDIA Tesla M60 GPU.
 
+* **NVv4** sizes are optimized and designed for VDI and remote visualization. With partioned GPUs, NVv4 offers the right size for workloads requiring smaller GPU resources.  These VMs are backed by the AMD Radeon Instinct MI25 GPU.
+
+
 ## NC-series
 
 Premium Storage:  Not Supported
@@ -162,3 +165,26 @@ Each GPU in NVv3 instances comes with a GRID license. This license gives you the
 1 GPU = one-half M60 card.
 
 <sup>1</sup> NVv3-series VMs feature Intel Hyper-Threading Technology
+
+## NVv4-series (Preview)  <sup>1</sup>
+
+Premium Storage:  Supported
+
+Premium Storage caching:  Supported
+
+The NVv4-series virtual machines are powered by [AMD Radeon Instinct MI25](https://www.amd.com/en/products/professional-graphics/instinct-mi25) GPUs and AMD EPYC 7V12(Rome) CPUs. With NVv4-series Azure is introducing virtual machines with partial GPUs. Pick the right sized virtual machine for GPU accelerated graphics applications and virtual desktops starting at 1/8th of a GPU with 2 GiB frame buffer to a full GPU with 16 GiB frame buffer. NVv4 virtual machines currently support only Windows guest operating system.
+
+[Sign-up and get access to these machines during preview](https://aka.ms/nvv4signup).
+<br>
+
+| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | GPU | GPU memory: GiB | Max data disks | Max NICs |
+| --- | --- | --- | --- | --- | --- | --- | --- | 
+| Standard_NV4as_v4 |4 |14 |88 | 1/8 | 2 | 4 | 2 |
+| Standard_NV8as_v4 |8 |28 |176 | 1/4 | 4 | 8 | 4 |
+| Standard_NV16as_v4 |16 |56 |352 | 1/2 | 8 | 16 | 8 | 
+| Standard_NV32as_v4 |32 |112 |704 | 1 | 16 | 32 | 8 | 
+
+
+
+<sup>1</sup> NVv4-series VMs feature AMD Simultaneous multithreading Technology
+

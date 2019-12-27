@@ -1,7 +1,7 @@
 ---
 title: "Tune Model Hyperparameters"
-titleSuffix: Azure Machine Learning service
-description: Learn how to use the Tune Model Hyperparameters module in the Azure Machine Learning service to perform a parameter sweep on a model to determine the optimum parameter settings.
+titleSuffix: Azure Machine Learning
+description: Learn how to use the Tune Model Hyperparameters module in Azure Machine Learning to perform a parameter sweep on a model to determine the optimum parameter settings.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -150,5 +150,5 @@ Almost all learners in Azure Machine Learning support cross-validation with an i
 
 ## Next steps
 
-See the [set of modules available](module-reference.md) to the Azure Machine Learning service. 
+See the [set of modules available](module-reference.md) to Azure Machine Learning. 
 

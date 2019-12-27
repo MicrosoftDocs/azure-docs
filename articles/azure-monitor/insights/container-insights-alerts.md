@@ -1,16 +1,13 @@
 ---
-title: Create performance alerts by using Azure Monitor for containers | Microsoft Docs
-description: This article describes how to use Azure Monitor for containers to create custom alerts based on log queries for memory and CPU utilization.
-ms.service:  azure-monitor
-ms.subservice: 
+title: Create performance alerts for Azure Monitor for containers | Microsoft Docs
+description: This article describes how to create custom alerts based on log queries for memory and CPU utilization from Azure Monitor for containers.
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
 ms.date: 04/26/2019
 
 ---
 
 # How to set up alerts for performance problems in Azure Monitor for containers
+
 Azure Monitor for containers monitors the performance of container workloads that are deployed to Azure Container Instances or to managed Kubernetes clusters that are hosted on Azure Kubernetes Service (AKS).
 
 This article describes how to enable alerts for the following situations:
@@ -26,6 +23,7 @@ To alert for high CPU or memory utilization, or low free disk space on cluster n
 If you're not familiar with Azure Monitor alerts, see [Overview of alerts in Microsoft Azure](../platform/alerts-overview.md) before you start. To learn more about alerts that use log queries, see [Log alerts in Azure Monitor](../platform/alerts-unified-log.md). For more about metric alerts, see [Metric alerts in Azure Monitor](../platform/alerts-metric-overview.md).
 
 ## Resource utilization log search queries
+
 The queries in this section support each alerting scenario. They're used in step 7 of the [create alert](#create-an-alert-rule) section of this article.
 
 The following query calculates average CPU utilization as an average of member nodes' CPU utilization every minute.  
@@ -274,7 +272,8 @@ InsightsMetrics
 ```
 
 ## Create an alert rule
-Follow these steps to create a log alert in Azure Monitor by using one of the log search rules that was provided earlier.  
+
+Follow these steps to create a log alert in Azure Monitor by using one of the log search rules that was provided earlier. To create using an ARM template, see [Sample Log alert creation using Azure Resource Template](../platform/alerts-log.md#sample-log-alert-creation-using-azure-resource-template).
 
 >[!NOTE]
 >The following procedure to create an alert rule for container resource utilization requires you to switch to a new log alerts API as described in [Switch API preference for log alerts](../platform/alerts-log-api-switch.md).

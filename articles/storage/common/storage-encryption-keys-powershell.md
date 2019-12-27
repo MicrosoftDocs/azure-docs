@@ -1,18 +1,19 @@
 ---
-title: Configure customer-managed keys with Azure Key Vault by using PowerShell - Azure Storage
+title: Use PowerShell to configure customer-managed keys
+titleSuffix: Azure Storage
 description: Learn how to use PowerShell to configure customer-managed keys for Azure Storage encryption. Customer-managed keys enable you to create, rotate, disable, and revoke access controls.
 services: storage
 author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 11/20/2019
+ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
 ---
 
-# Configure customer-managed keys for Azure Storage by using PowerShell
+# Configure customer-managed keys with Azure Key Vault by using PowerShell
 
 [!INCLUDE [storage-encryption-configure-keys-include](../../../includes/storage-encryption-configure-keys-include.md)]
 

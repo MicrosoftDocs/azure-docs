@@ -1,5 +1,5 @@
 ---
-title: Azure PowerShell script - Azure Cosmos DB list and get operations for MongoDB API
+title: PowerShell script to list and get operations in Azure Cosmos DB's API for MongoDB
 description: Azure PowerShell script - Azure Cosmos DB list and get operations for MongoDB API
 author: markjbrown
 ms.service: cosmos-db

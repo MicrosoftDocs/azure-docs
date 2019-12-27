@@ -226,11 +226,12 @@ To create a backup policy:
 
     ![Edit the log backup policy](./media/backup-azure-sql-database/log-backup-policy-editor.png)
 
-13. On the **Backup policy** menu, choose whether to enable **SQL Backup Compression**.
-    * Compression is disabled by default.
-    * On the back end, Azure Backup uses SQL native backup compression.
+13. On the **Backup policy** menu, choose whether to enable **SQL Backup Compression** or not. This option is disabled by default. If enabled, SQL Server will send a compressed backup stream to the VDI.  Please note that Azure Backup overrides instance level defaults with COMPRESSION / NO_COMPRESSION clause depending on the value of this control.
 
 14. After you complete the edits to the backup policy, select **OK**.
+
+> [!NOTE]
+> Each log backup is chained to the previous full backup to form a recovery chain. This full backup will be retained until the retention of the last log backup has expired. This might mean that the full backup is retained for an extra period to make sure all the logs can be recovered. Let’s assume user has a weekly full backup, daily differential and 2 hour logs. All of them are retained for 30 days. But, the weekly full can be really cleaned up/deleted only after the next full backup is available i.e., after 30 + 7 days. Say, a weekly full backup happens on Nov 16th. As per the retention policy, it should be retained until Dec 16th. The last log backup for this full happens before the next scheduled full, on Nov 22nd. Until this log is available until Dec 22nd, the Nov 16th full can't be deleted. So, the Nov 16th full is retained until Dec 22nd.
 
 ## Enable auto-protection  
 

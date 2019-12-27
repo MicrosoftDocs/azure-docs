@@ -1,5 +1,6 @@
 ---
-title: Restrictions and known issues in Azure API Management API import | Microsoft Docs
+title: Restrictions and known issues in API import
+titleSuffix: Azure API Management
 description: Details of known issues and restrictions on import into Azure API Management using the Open API, WSDL or WADL formats.
 services: api-management
 documentationcenter: ''

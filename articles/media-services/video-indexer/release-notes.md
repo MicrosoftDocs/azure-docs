@@ -11,11 +11,13 @@ ms.service: media-services
 ms.subservice: video-indexer
 ms.workload: na
 ms.topic: article
-ms.date: 10/27/2019
+ms.date: 12/19/2019
 ms.author: juliako
 ---
 
 # Azure Media Services Video Indexer release notes
+
+>Get notified about when to revisit this page for updates by copying and pasting this URL: `https://docs.microsoft.com/api/search/rss?search=%22Azure+Media+Services+Video+Indexer+release+notes%22&locale=en-us` into your RSS feed reader.
 
 To stay up-to-date with the most recent developments, this article provides you with information about:
 
@@ -24,6 +26,17 @@ To stay up-to-date with the most recent developments, this article provides you 
 * Bug fixes
 * Deprecated functionality
 
+## November 2019
+ 
+* Korean custom language models support
+
+    Video indexer now supports custom language models in Korean (`ko-KR`) in both the API and portal. 
+* New languages supported for speech-to-text (STT)
+
+    Video Indexer APIs now support STT in Arabic Levantine (ar-SY), English UK dialect (en-GB), and English Australian dialect (en-AU).
+    
+    For video upload, we replaced zh-HANS to zh-CN, both are supported but zh-CN is recommended and more accurate.
+    
 ## October 2019
  
 * Search for animated characters in the gallery

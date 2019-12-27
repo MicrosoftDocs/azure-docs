@@ -42,9 +42,9 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * Salesforce supports **SP** initiated SSO
 
-* Salesforce supports **Just In Time** user provisioning
+* Salesforce supports [**Automated** user provisioning and deprovisioning](salesforce-provisioning-tutorial.md) (recommended)
 
-* Salesforce supports [**Automated** user provisioning](salesforce-provisioning-tutorial.md)
+* Salesforce supports **Just In Time** user provisioning
 
 * Salesforce Mobile application can now be configured with Azure AD for enabling SSO. In this tutorial, you configure and test Azure AD SSO in a test environment.
 

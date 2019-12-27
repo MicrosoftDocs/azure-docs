@@ -9,7 +9,7 @@ ms.reviewer:
 manager: 
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
+
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/04/2019

@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Translate speech-to-speech, C++ (Windows) - Speech Service'
+title: 'Quickstart: Translate speech-to-speech, C++ (Windows) - Speech service'
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services
@@ -7,8 +7,8 @@ author: wolfma61
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: quickstart
-ms.date: 08/24/2019
+ms.topic: include
+ms.date: 12/09/2019
 ms.author: erhopf
 ---
 
@@ -119,7 +119,7 @@ Before you get started, make sure to:
 
 1. Choose **Debug** > **Start Debugging** (or press **F5**) to start the **helloworld** application.
 
-1. Speak an English phrase or sentence. The application transmits your speech to the Speech Services, which translates and transcribes to text (in this case, to German). The Speech Services then sends the synthesized audio and the text back to the application for display.
+1. Speak an English phrase or sentence. The application transmits your speech to the Speech service, which translates and transcribes to text (in this case, to German). The Speech service then sends the synthesized audio and the text back to the application for display.
 
 ````
 Say something...

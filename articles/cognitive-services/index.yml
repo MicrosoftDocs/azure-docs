@@ -88,7 +88,7 @@ conceptualContent:
       links:
         - url: ./speech-service/index.md
           itemType: overview
-          text: Speech Services
+          text: Speech service
         - url: ./speaker-recognition/home.md
           itemType: overview
           text: Speaker Recognition (Preview)
@@ -113,34 +113,37 @@ conceptualContent:
     - title: Search
       summary: Add Bing Search APIs to your apps and harness the ability to comb billions of webpages, images, videos, and news with a single API call.
       links:
-        - url: ./Bing-Autosuggest/index.yml
+        - url: ./Bing-web-search/index.yml
+          itemType: overview
+          text: Bing Search APIs hub page
+        - url: ./Bing-Autosuggest/get-suggested-search-terms.md
           itemType: overview
           text: Autosuggest Search
-        - url: ./bing-custom-search/index.yml
+        - url: ./bing-custom-search/overview.md
           itemType: overview
           text: Custom Search
-        - url: ./bing-entities-search/index.yml
+        - url: ./bing-entities-search/overview.md
           itemType: overview
           text: Entity Search
-        - url: ./bing-image-search/index.yml
+        - url: ./bing-image-search/overview.md
           itemType: overview
           text: Image Search
-        - url: ./bing-local-business-search/index.yml
+        - url: ./bing-local-business-search/overview.md
           itemType: overview
           text: Local Business Search (Preview)
-        - url: ./bing-news-search/index.yml
+        - url: ./bing-news-search/search-the-web.md
           itemType: overview
           text: News Search
-        - url: ./bing-spell-check/index.yml
+        - url: ./bing-spell-check/overview.md
           itemType: overview
           text: Spell Check
-        - url: ./Bing-Video-Search/index.yml
+        - url: ./Bing-Video-Search/overview.md
           itemType: overview
           text: Video Search
-        - url: ./bing-visual-search/index.yml
+        - url: ./bing-visual-search/overview.md
           itemType: overview
           text: Visual Search
-        - url: ./bing-web-search/index.yml
+        - url: ./bing-web-search/overview.md
           itemType: overview
           text: Web Search
     - title: Cognitive Service Containers
@@ -161,9 +164,6 @@ conceptualContent:
         - url: ./containers/docker-compose-recipe.md
           itemType: get-started
           text: Use Docker Compose to deploy multiple containers
-        - url: ./containers/container-image-tags.md
-          itemType: reference
-          text: Cognitive Services container image tags
         - url: ./containers/container-faq.md
           itemType: reference
           text: Cognitive Services containers FAQ
@@ -173,12 +173,10 @@ additionalContent:
     - items:
       - title: Additional resources
         links:
-          - text: Support & help options
-            url: cognitive-services-support-options.md
           - text: Azure CLI
             url: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest
           - text: PowerShell
-            url: https://docs.microsoft.com/powershell/module/az.cognitiveservices/?view=azps-3.0.0#cognitive_services
+            url: https://docs.microsoft.com/powershell/module/az.cognitiveservices/?view=azps-2.5.0#cognitive_services
       - title: REST APIs
         links:
           - text: Cognitive Services Management

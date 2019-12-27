@@ -186,7 +186,8 @@ In this section, you create a C app on your simulated device that updates the mo
     ![Azure portal module detail](./media/iot-hub-c-c-module-twin-getstarted/module-detail.png)
 
 2. **Create UpdateModuleTwinReportedProperties app**
-Add the following `using` statements at the top of the **Program.cs** file:
+   
+   Add the following to your C file:
 
     ```C
     #include <stdio.h>

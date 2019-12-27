@@ -1,21 +1,13 @@
 ---
-title: Create a Java web app on Linux - Azure App Service
-description: In this quickstart, you deploy your first Java Hello World in Azure App Service on Linux in minutes.
+title: 'Quickstart: Create a Linux Java app'
+description: Get started with Linux apps on Azure App Service by deploying your first Java app to a Linux container in App Service.
 keywords: azure, app service, web app, linux, java, maven, quickstart
-services: app-service\web
-documentationcenter: ''
-author: msangapu
-manager: jeconnoc
-editor: ''
+author: msangapu-msft
 
 ms.assetid: 582bb3c2-164b-42f5-b081-95bfcb7a502a
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: quickstart
 ms.date: 03/27/2019
-ms.author: msangapu
 ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019
 #Customer intent: As a Java developer, I want deploy a java app so that it is hosted on Azure App Service.
 ---
@@ -25,7 +17,7 @@ ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019
 
 > [!NOTE]
 >
-> The same thing can also be done using popular IDEs like IntelliJ and Eclipse. Check out our similar documents at [Azure Toolkit for IntelliJ Quickstart](/java/azure/intellij/azure-toolkit-for-intellij-create-hello-world-web-app) or [Azure Toolkit for Eclipse Quickstart](/java/azure/eclipse/azure-toolkit-for-eclipse-create-hello-world-web-app).
+> The same thing can also be done using popular IDEs like IntelliJ, Eclipse and VS Code. Check out our similar documents at [Azure Toolkit for IntelliJ Quickstart](/java/azure/intellij/azure-toolkit-for-intellij-create-hello-world-web-app), [Azure Toolkit for Eclipse Quickstart](/java/azure/eclipse/azure-toolkit-for-eclipse-create-hello-world-web-app) or [VS Code Quickstart](https://code.visualstudio.com/docs/java/java-webapp).
 >
 ![Sample app running in Azure App Service](media/quickstart-java/java-hello-world-in-browser-azure-app-service.png)
 
@@ -38,7 +30,7 @@ ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019
 Execute the following Maven command in the Cloud Shell prompt to create a new app named `helloworld`:
 
 ```bash
-mvn archetype:generate -DgroupId=example.demo -DartifactId=helloworld -DarchetypeArtifactId=maven-archetype-webapp
+mvn archetype:generate "-DgroupId=example.demo" "-DartifactId=helloworld" "-DarchetypeArtifactId=maven-archetype-webapp"
 ```
 
 ## Configure the Maven plugin

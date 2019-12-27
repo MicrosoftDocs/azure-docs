@@ -1,5 +1,5 @@
 ---
-title: Create an OpenAPI definition for a serverless API using Azure API Management
+title: Expose your functions with OpenAPI using Azure API Management
 description: Create an OpenAPI definition that enables other apps and services to call your function in Azure.
 ms.topic: tutorial
 ms.date: 05/08/2019
@@ -134,7 +134,7 @@ Now you're ready to generate the OpenAPI definition.
     | ------------ |  ------- | -------------------------------------------------- |
     | **Name** | Globally unique name | A name is generated based on the name of your function app. |
     | **Subscription** | Your subscription | The subscription under which this new resource is created. |  
-    | **[Resource Group](../azure-resource-manager/resource-group-overview.md)** |  myResourceGroup | The same resource as your function app, which should get set for you. |
+    | **[Resource Group](../azure-resource-manager/management/overview.md)** |  myResourceGroup | The same resource as your function app, which should get set for you. |
     | **Location** | West US | Choose the West US location. |
     | **Organization name** | Contoso | The name of the organization used in the developer portal and for email notifications. |
     | **Administrator email** | your email | Email that received system notifications from API Management. |

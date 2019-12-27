@@ -14,7 +14,7 @@ ms.author: billmath
 ms.collection: M365-identity-device-management
 ---
 
-# Azure AD Pass-through Authentication agent: Version Release History 
+# Azure AD Pass-through Authentication agent: Version release history 
  
 The agents installed on-premises that enable Pass-through Authentication are updated regularly to provide new capabilities. This article lists the versions and features that are added when new functionality is introduced. Pass-through authentication agents are updated automatically when a new version is released. 
 

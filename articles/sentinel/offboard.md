@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/26/2019
+ms.date: 12/02/2019
 ms.author: rkarlin
 
 ---
-# Remove Azure Sentinel from your tenant
+# Remove Azure Sentinel from your workspace
 
-If you no longer want to use the Azure Sentinel, this article explains how to remove it from your tenant.
+If you no longer want to use the Azure Sentinel, this article explains how to remove it from your workspace.
 
 ## How to delete Azure Sentinel
 

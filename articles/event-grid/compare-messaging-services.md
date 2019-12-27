@@ -94,7 +94,7 @@ In other cases, you link them together to form an event and data pipeline. You u
 
 ## Next steps
 See the following articles: 
-
+- [Asynchronous messaging options in Azure](/azure/architecture/guide/technology-choices/messaging)
 - [Events, Data Points, and Messages - Choosing the right Azure messaging service for your data](https://azure.microsoft.com/blog/events-data-points-and-messages-choosing-the-right-azure-messaging-service-for-your-data/).
 - [Storage queues and Service Bus queues - compared and contrasted](../service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted.md)
 - To get started with Event Grid, see [Create and route custom events with Azure Event Grid](custom-event-quickstart.md).

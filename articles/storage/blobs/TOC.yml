@@ -91,7 +91,7 @@
       items:
       - name: 1 - Make your application highly available
         href: storage-create-geo-redundant-storage.md
-      - name: 2 - Simulate a failure with RA-GRS storage
+      - name: 2 - Simulate a failure in reading data from the primary region
         href: storage-simulate-failure-ragrs-account-app.md
     - name: Encrypt and decrypt blobs using Azure Key Vault
       href: storage-encrypt-decrypt-blobs-key-vault.md
@@ -115,11 +115,11 @@
       href: ../common/storage-account-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Security
       items:
-      - name: Security overview
-        href: ../common/storage-security-guide.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: Security recommendations
+        href: security-recommendations.md
       - name: Azure Storage encryption
         href: ../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Authorization
+      - name: Authorizing data operations
         href: ../common/storage-auth.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         items:
         - name: Authorize with Azure AD
@@ -130,6 +130,8 @@
           href: ../common/storage-sas-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Anonymous access to blobs
           href: storage-manage-access-to-resources.md
+      - name: Authorizing management operations
+        href: ../common/authorization-resource-provider.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Immutable blobs
         href: storage-blob-immutable-storage.md
       - name: Advanced threat protection
@@ -151,7 +153,7 @@
         href: ../common/storage-redundancy-gzrs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Disaster recovery and failover
         href: ../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Designing HA Apps using RA-GRS
+      - name: Design highly available applications
         href: ../common/storage-designing-ha-apps-with-ragrs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Access and performance tiers
       items:
@@ -165,8 +167,6 @@
         href: storage-lifecycle-management-concepts.md
     - name: Performance, scaling, and cost optimization
       items:
-      - name: Scalability and performance targets
-        href: ../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Performance and scalability checklist
         href: storage-performance-checklist.md
       - name: Latency in Blob storage
@@ -259,11 +259,9 @@
       items:
       - name: Create a general-purpose storage account
         displayName: Resource Manager, Resource Manager template, template, ARM
-        href: ../common/storage-quickstart-create-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        href: ../common/storage-account-create.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Create a block blob storage account
         href: storage-blob-create-account-block-blob.md
-      - name: Manage a storage account
-        href: ../common/storage-account-manage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Upgrade a storage account
         href: ../common/storage-account-upgrade.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Get account type and SKU name (.NET)
@@ -276,8 +274,6 @@
         href: storage-blob-containers-list.md
       - name: Manage properties and metadata (.NET)
         href: storage-blob-container-properties-metadata.md
-      - name: Set and manage immutability policies
-        href: storage-blob-immutability-policies-manage.md
     - name: Create and manage blobs
       items:
       - name: List blobs (.NET)
@@ -314,6 +310,8 @@
             href: ../common/storage-auth-aad-app.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Authorize with Shared Key
           items:
+          - name: View and manage account keys
+            href: ../common/storage-account-keys-manage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
           - name: Configure connection strings
             href: ../common/storage-configure-connection-string.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
           - name: Use the Azure Storage REST API
@@ -368,6 +366,8 @@
           href: ../common/storage-network-security.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Enable Transport Layer Security
           href: ../common/storage-security-tls.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: Set and manage immutability policies
+        href: storage-blob-immutability-policies-manage.md
     - name: Disaster recovery
       items:
       - name: Initiate account failover
@@ -406,6 +406,8 @@
         href: ../../data-factory/connector-azure-blob-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Mount Blob storage as a file system on Linux
         href: storage-how-to-mount-container-linux.md
+      - name: Transfer data with the Data Movement library
+        href: ../common/storage-use-data-movement-library.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Storage migration FAQ
         href: ../common/storage-migration-faq.md
     - name: Develop with blobs
@@ -440,6 +442,18 @@
         href: ../common/troubleshoot-latency-storage-analytics-logs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
   - name: Reference
     items:
+    - name: Scalability and performance targets
+      items:
+      - name: Blob storage
+        href: scalability-targets.md
+      - name: Standard storage accounts
+        href: ../common/scalability-targets-standard-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: Premium block blob storage accounts
+        href: scalability-targets-premium-block-blobs.md
+      - name: Premium page blob storage accounts
+        href: scalability-targets-premium-page-blobs.md
+      - name: Storage resource provider
+        href: ../common/scalability-targets-resource-provider.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Azure PowerShell
       href: /powershell/module/az.storage
     - name: Azure CLI
@@ -673,8 +687,6 @@
       items:
       - name: Create a storage account for your Data Lake
         href: ../blobs/data-lake-storage-quickstart-create-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Manage a storage account
-        href: ../common/storage-account-manage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Manage data with Storage Explorer
         href: ../blobs/data-lake-storage-explorer.md
       - name: Upgrade a storage account

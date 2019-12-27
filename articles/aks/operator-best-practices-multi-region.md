@@ -8,6 +8,7 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: thfalgou
+ms.custom: fasttrack-edit
 #Customer intent: As an AKS cluster operator, I want to plan for business continuity or disaster recovery to help protect my cluster from region problems.
 ---
 # Best practices for business continuity and disaster recovery in Azure Kubernetes Service (AKS)
@@ -57,6 +58,12 @@ For information on how to set up endpoints and routing, see [Configure the geogr
 ### Layer 7 application routing with Azure Front Door Service
 
 Traffic Manager uses DNS (layer 3) to shape traffic. [Azure Front Door Service](https://docs.microsoft.com/azure/frontdoor/front-door-overview) provides an HTTP/HTTPS (layer 7) routing option. Additional features of Azure Front Door Service include SSL termination, custom domain, web application firewall, URL Rewrite, and session affinity. Review the needs of your application traffic to understand which solution is the most suitable.
+
+### Interconnect regions with global virtual network peering
+
+If the clusters need to talk to each other, connecting both virtual networks to each other can be achieved through [virtual network peering](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview). This technology interconnects virtual networks to each other providing high bandwidth across Microsoft's backbone network, even across different geographic regions.
+
+A prerequisite to peer the virtual networks where AKS clusters are running is to use the standard Load Balancer in your AKS cluster, so that kubernetes services are reachable across the virtual network peering.
 
 ## Enable geo-replication for container images
 
@@ -112,7 +119,7 @@ The typical strategy is to provide a common storage point where applications can
 
 If you use Azure Managed Disks, you can choose replication and DR solutions such as these:
 
-* [Velero on Azure](https://github.com/heptio/velero/blob/master/site/docs/master/azure-config.md)
+* [Velero on Azure](https://github.com/vmware-tanzu/velero-plugin-for-microsoft-azure/blob/master/README.md)
 * [Azure Site Recovery](https://azure.microsoft.com/blog/asr-managed-disks-between-azure-regions/)
 
 ### Application-based asynchronous replication
