@@ -17,6 +17,8 @@
         href: ./hdinsight-administer-use-dotnet-sdk.md
       - name: Manage HDInsight clusters - Powershell
         href: ./hdinsight-administer-use-powershell.md
+      - name: Create clusters with Runbooks
+        href: ./manage-clusters-runbooks.md
       - name: Build an ETL pipeline
         href: ./hdinsight-sales-insights-etl.md      
   - name: Samples
