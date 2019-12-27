@@ -17,7 +17,7 @@ ms.author: atsenthi
 ms.custom: 
 ---
 
-# Add an application certificate to a Service Fabric cluster
+# Update an application using the Service Fabric CLI
 
 This sample script uploads a new version of an existing application, and then upgrades a deployed application with the new bits.
 
