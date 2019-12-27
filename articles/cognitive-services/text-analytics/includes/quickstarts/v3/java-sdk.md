@@ -110,7 +110,7 @@ The Text Analytics client is a [TextAnalyticsClient](https://docs.microsoft.com/
 * [Sentiment Analysis](#sentiment-analysis)
 * [Language detection](#language-detection)
 * [Entity recognition](#entity-recognition)
-* [PII entity recognition](#entity-pii-recognition)
+* [Entity recognition - PII](#entity-pii)
 * [Entity linking](#entity-linking)
 * [Key phrase extraction](#key-phrase-extraction)
 
@@ -231,7 +231,8 @@ static void recognizeEntitiesExample(TextAnalyticsClient client)
 Recognized NamedEntity Text: Satya Nadella, Type: Person, Subtype: N/A, Offset: 0, Length: 13, Score: 1.00.
 Recognized NamedEntity Text: Microsoft, Type: Organization, Subtype: N/A, Offset: 28, Length: 9, Score: 1.00.
 ```
-## PII entity recognition
+
+## Entity recognition - PII
 
 Create a new function called `recognizePIIEntitiesExample()` that takes the client that you created earlier, and call its [recognizePiiEntities()](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.textanalyticsclientextensions.sentiment?view=azure-dotnet) function. The returned [RecognizePiiEntitiesResult](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.models.sentimentresult?view=azure-dotnet) object will contains a list of [NamedEntity](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.models.sentimentresult?view=azure-dotnet), and an `errorMessage` if not. 
 
