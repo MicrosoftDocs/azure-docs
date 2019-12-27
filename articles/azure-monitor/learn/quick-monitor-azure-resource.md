@@ -49,7 +49,7 @@ Metrics are numerical values that describe some aspect of your resource at a par
 
 1. Under the **Monitoring** section of your resource's menu, select **Metrics**. This opens metrics explorer with the scope set to your resource.
 2. Click **Add metric** to add a metric to the chart.
-3.   
+   
    ![Metrics explorer](media/quick-monitor-azure-resource/metrics-explorer-01.png)
    
 4. Select a **Metric** from the dropdown list and then an **Aggregation**. This defines how the collected values will be sampled over each time interval.

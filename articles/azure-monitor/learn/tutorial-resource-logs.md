@@ -30,7 +30,7 @@ To complete this tutorial you need an Azure resource to monitor. You can use any
 Log in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
 
 
-## Create a Log Analytics workspace
+## Create a workspace
 A Log Analytics workspace in Azure Monitor collects and indexes log data from a variety of sources and allows advanced analysis using a powerful query language. The Log Analytics workspace needs to exist before you create a diagnostic setting to send data into it. You can use an existing workspace in your Azure subscription or create one with the following procedure. 
 
 > [!NOTE]
@@ -75,18 +75,21 @@ A Log Analytics workspace in Azure Monitor collects and indexes log data from a 
 Data is retrieved from a Log Analytics workspace using a log query written in Kusto Query Language (KQL). Insights and solutions in Azure Monitor will provide log queries to retrieve data for a particular service, but you can work directly with log queries and their results in the Azure portal with Log Analytics. If you start Log Analytics from the Azure Monitor menu, you will have access to all records in the workspace. If you start Log Analytics from the resource's menu, you will have access to only records from that resource. 
 
 1. Under the **Monitoring** section of your resource's menu, select **Logs**.
-2. Log Analytics opens with an empty query window. Note that the scope is set to your resource. If you opened Logs from the Azure Monitor menu, the scope would be set to the Log Analytics workspace.
+2. Log Analytics opens with an empty query window with the scope set to your resource. 
+
+    > [!NOTE]
+    > If you opened Logs from the Azure Monitor menu, the scope would be set to the Log Analytics workspace.
    
     ![Logs](media/tutorial-resource-logs/logs.png)
 
-3. The service shown in the example writes resource logs to the **AzureDiagnostics** table, but other services may write to other tables. See [Supported services, schemas, and categories for Azure Resource Logs](../platform/diagnostic-logs-schema.md) for tables used by different Azure services.
+4. The service shown in the example writes resource logs to the **AzureDiagnostics** table, but other services may write to other tables. See [Supported services, schemas, and categories for Azure Resource Logs](../platform/diagnostic-logs-schema.md) for tables used by different Azure services.
 
     > [!NOTE]
     > Multiple services write resource logs to the AzureDiagnostics table. If you start Log Analytics from the Azure Monitor menu, then you would need to add a `where` statement with the `ResourceProvider` column to specify your particular service. When you start Log Analytics from a resource's menu, then the scope is set to only records from this resource so this column isn't required. See the service's documentation for sample queries.
 
 
-4. Type in a query and click **Run** to inspect results. 
-5. See [Get started with log queries in Azure Monitor](../log-query/get-started-queries.md) for a tutorial on writing log queries.
+5. Type in a query and click **Run** to inspect results. 
+6. See [Get started with log queries in Azure Monitor](../log-query/get-started-queries.md) for a tutorial on writing log queries.
 
     ![Log query](media/tutorial-resource-logs/log-query-1.png)
 
