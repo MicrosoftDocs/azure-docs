@@ -25,7 +25,7 @@ This article describes the supported scenarios and architecture details for HANA
 Before you proceed with the HLI unit provisioning, validate the design with SAP or your service implementation partner.
 
 ## Terms and definitions
-Let's understand the terms and definitions used in the article.
+Let's understand the terms and definitions that are used in this article:
 
 - **SID**: A system identifier for the HANA system
 - **HLI**: Hana Large Instances
@@ -51,12 +51,12 @@ This article describes the details of the two components in each supported archi
 
 ### Ethernet
 
-Each provisioned server comes preconfigured with sets of Ethernet interfaces. The Ethernet interfaces configured on each HLI unit are categorized as four types:
+Each provisioned server comes preconfigured with sets of Ethernet interfaces. The Ethernet interfaces configured on each HLI unit are categorized into four types:
 
 - **A**: Used for or by client access.
 - **B**: Used for node-to-node communication. This interface is configured on all servers (irrespective of the topology requested) but used only for  scale-out scenarios.
 - **C**: Used for node-to-storage connectivity.
-- **D**: Used for node-to-iSCSI device connection for STONITH setup. This interface is configured only when High-availability Seamless Redundancy (HSR) setup is requested.  
+- **D**: Used for node-to-iSCSI device connection for STONITH setup. This interface is configured only when an HSR setup is requested.  
 
 | NIC logical interface | SKU type | Name with SUSE OS | Name with RHEL OS | Use case|
 | --- | --- | --- | --- | --- |
@@ -69,25 +69,25 @@ Each provisioned server comes preconfigured with sets of Ethernet interfaces. Th
 | C | TYPE II | vlan\<tenantNo+1> | team0.tenant+1 | Node-to-storage |
 | D | TYPE II | vlan\<tenantNo+3> | team0.tenant+3 | STONITH |
 
-You choose the interface based on the topology that's configured on the HLI unit. For example, interface “B” is set up for node-to-node communication, which is useful when you have a scale-out topology configured. In the case of single node scale-up configuration, this interface is not used. For more information about interface usage, review your required scenarios (later in this article). 
+You choose the interface based on the topology that's configured on the HLI unit. For example, interface “B” is set up for node-to-node communication, which is useful when you have a scale-out topology configured. This interface isn't used for single node, scale-up configurations. For more information about interface usage, review your required scenarios (later in this article). 
 
 If necessary, you can define additional NIC cards on your own. However, the configurations of existing NICs *can't* be changed.
 
 >[!NOTE]
->You might still find additional interfaces that are physical interfaces or bonding. 
-You should consider the previously mentioned interfaces for your use case. Any others can be ignored.
+>You might find additional interfaces that are physical interfaces or bonding. 
+You should consider only the previously mentioned interfaces for your use case. Any others can be ignored.
 
 The distribution for units with two assigned IP addresses should look like:
 
 - Ethernet “A” should have an assigned IP address that's within the server IP pool address range that you submitted to Microsoft. This IP address should be maintained in the */etc/hosts* directory of the OS.
 
-- Ethernet “C” should have an assigned IP address that's used for communication to NFS. Therefore, this address does *not* need to be maintained in the *etc/hosts* directory to allow instance-to-instance traffic within the tenant.
+- Ethernet “C” should have an assigned IP address that's used for communication to NFS. This address does *not* need to be maintained in the *etc/hosts* directory to allow instance-to-instance traffic within the tenant.
 
-For HANA System Replication or HANA scale-out deployment, a blade configuration with two assigned IP addresses is not suitable. If you have only two assigned IP addresses and you want to deploy such a configuration, contact SAP HANA on Azure Service Management to be assigned a third IP address in a third VLAN. For HANA Large Instances units with three assigned IP addresses on three NIC ports, the following usage rules apply:
+For HANA System Replication or HANA scale-out deployment, a blade configuration with two assigned IP addresses is not suitable. If you have only two assigned IP addresses and you want to deploy such a configuration, contact SAP HANA on Azure Service Management. They can assign you a third IP address in a third VLAN. For HANA Large Instances units with three assigned IP addresses on three NIC ports, the following usage rules apply:
 
-- Ethernet “A” should have an assigned IP address that's outside of the server IP pool address range that you submitted to Microsoft. And this IP address should not be maintained in the *etc/hosts* directory of the OS.
+- Ethernet “A” should have an assigned IP address that's outside of the server IP pool address range that you submitted to Microsoft. This IP address should not be maintained in the *etc/hosts* directory of the OS.
 
-- Ethernet “B” should be maintained exclusively in the *etc/hosts* directory for communication between the various instances. These addresses are the IP addresses to be maintained in scale-out HANA configurations as the IP addresses that HANA uses for the inter-node configuration.
+- Ethernet “B” should be maintained exclusively in the *etc/hosts* directory for communication between the various instances. These are the IP addresses to be maintained in scale-out HANA configurations as the IP addresses that HANA uses for the inter-node configuration.
 
 - Ethernet “C” should have an assigned IP address that's used for communication to NFS storage. This type of address should not be maintained in the *etc/hosts* directory.
 
@@ -95,7 +95,7 @@ For HANA System Replication or HANA scale-out deployment, a blade configuration 
 
 
 ### Storage
-Storage is preconfigured based on the requested topology. The volume sizes and mount point vary depending on the number of servers, the number of SKUs, and the configured topology. For more information, review your required scenarios (later in this article). If you require more storage, you can purchase it in 1-TB increments.
+Storage is preconfigured based on the requested topology. The volume sizes and mount points vary depending on the number of servers, the number of SKUs, and the configured topology. For more information, review your required scenarios (later in this article). If you require more storage, you can purchase it in 1-TB increments.
 
 >[!NOTE]
 >The mount point /usr/sap/\<SID> is a symbolic link to the /hana/shared mount point.
@@ -197,7 +197,7 @@ The following mount points are preconfigured:
 
 ## Single node with DR using storage replication
  
-This topology supports one node in a scale-up configuration with one or multiple SIDs, with storage-based replication to the DR site for a primary SID. In the diagram, only a single-SID system is depicted at the primary site, but multi-SID (MCOS) systems are supported as well.
+This topology supports one node in a scale-up configuration with one or multiple SIDs, with storage-based replication to the DR site for a primary SID. In the diagram, only a single-SID system is depicted at the primary site, but MCOS systems are supported as well.
 
 ### Architecture diagram  
 
@@ -233,7 +233,7 @@ The following mount points are preconfigured:
 - For MCOS: Volume size distribution is based on the database size in memory. To learn what database sizes in memory are supported in a multi-SID environment, see [Overview and architecture](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture).
 - At the DR: The volumes and mount points are configured (marked as “Required for HANA installation”) for the production HANA instance installation at the DR HLI unit. 
 - At the DR: The data, log backups, and shared volumes (marked as “Storage Replication”) are replicated via snapshot from the production site. These volumes are mounted during failover only. For more information, see [Disaster recovery failover procedure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery).
-- The boot volume for *SKU Type I class* is replicated to DR node.
+- The boot volume for *SKU Type I class* is replicated to the DR node.
 
 
 ## Single node with DR (multipurpose) using storage replication
@@ -438,7 +438,7 @@ The following mount points are preconfigured:
 
 ## Scale-out with standby
  
-This topology supports multiple nodes in a scale-out configuration. There is one node with a master role, one or more nodes with a worker role, and one or more nodes as standby. However, there can be only one master node at any given point of time.
+This topology supports multiple nodes in a scale-out configuration. There is one node with a master role, one or more nodes with a worker role, and one or more nodes as standby. However, there can be only one master node at any single point in time.
 
 
 ### Architecture diagram  
@@ -473,7 +473,7 @@ The following mount points are preconfigured:
 
 ## Scale-out without standby
  
-This topology supports multiple nodes in a scale-out configuration. There is one node with a master role, and one or more nodes with a worker role. However, there can be only one master node at any given point of time.
+This topology supports multiple nodes in a scale-out configuration. There is one node with a master role, and one or more nodes with a worker role. However, there can be only one master node at any single point in time.
 
 
 ### Architecture diagram  
@@ -744,7 +744,7 @@ The following mount points are preconfigured:
 
 ## Scale-out with DR using HSR
  
-This topology supports multiple nodes in a scale-out with a DR. You can request this topology with or without the standby node. ?The primary site node syncs with the DR site node by using HANA System Replication (async mode).
+This topology supports multiple nodes in a scale-out with a DR. You can request this topology with or without the standby node. The primary site node syncs with the DR site node by using HANA System Replication (async mode).
 
 
 ### Architecture diagram  
