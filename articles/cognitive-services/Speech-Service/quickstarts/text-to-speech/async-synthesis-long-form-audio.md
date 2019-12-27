@@ -86,7 +86,7 @@ Run this command:
 python voice_synthesis_client.py --voices -key <your_key> -region <Region>
 ```
 
-You will get the output like this:
+You'll see an output that looks like this:
 
 ```console
 There are xx voices available:
