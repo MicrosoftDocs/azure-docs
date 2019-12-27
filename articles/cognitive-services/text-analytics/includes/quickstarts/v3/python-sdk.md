@@ -94,170 +94,94 @@ def authenticateClient():
 
 ## Sentiment analysis
 
-Create a new function called `sentiment()` that creates a client and calls its [analyze_sentiment()]() function. The returned response object will contain the sentiment label and score of the entire input document, as well as a sentiment analysis for each sentence.
+Create a new function called `sentiment_analysis_example()` that takes the client created earlier, then calls the [analyze_sentiment()]() function. The returned response object will contain the sentiment label and score of the entire input document, as well as a sentiment analysis for each sentence.
 
 
 ```python
-def print_sentiment_scores(documents, response):
-    docs = [doc for doc in response if not doc.is_error]
+def sentiment_analysis_example(client):
 
-    for idx, doc in enumerate(docs):
-        print("Document text: {}".format(documents[idx]))
-        print("Overall sentiment: {}".format(doc.sentiment))
-    # [END batch_analyze_sentiment]
+    documents = ["I had the best day of my life. I wish you were there with me."]
+
+    response = client.analyze_sentiment(documents)
+    for doc in response:
+        print("Document Sentiment: {}".format(doc.sentiment))
         print("Overall scores: positive={0:.3f}; neutral={1:.3f}; negative={2:.3f} \n".format(
             doc.document_scores.positive,
             doc.document_scores.neutral,
             doc.document_scores.negative,
         ))
         for idx, sentence in enumerate(doc.sentences):
+            print("[Offset: {}, Length: {}]".format(sentence.offset, sentence.length))
             print("Sentence {} sentiment: {}".format(idx+1, sentence.sentiment))
-            print("Sentence score: positive={0:.3f}; neutral={1:.3f}; negative={2:.3f}".format(
+            print("Sentence score:\nPositive={0:.3f}\nNeutral={1:.3f}\nNegative={2:.3f}\n".format(
                 sentence.sentence_scores.positive,
                 sentence.sentence_scores.neutral,
                 sentence.sentence_scores.negative,
             ))
-            print("Offset: {}".format(sentence.offset))
-            print("Length: {}\n".format(sentence.length))
-        print("------------------------------------")
 
-def sentiment():
-
-    client = authenticate_client()
-    documents = [
-            {"id": "0", "language": "en", "text": "I had the best day of my life."},
-            {"id": "1", "language": "en",
-             "text": "This was a waste of my time. The speaker put me to sleep."},
-            {"id": "2", "language": "es", "text": "No tengo dinero ni nada que dar..."},
-            {"id": "3", "language": "fr",
-             "text": "L'hôtel n'était pas très confortable. L'éclairage était trop sombre."}
-        ]
-
-    response = client.analyze_sentiment(documents)
-    print_sentiment_scores(documents, response)
-
-sentiment()
+            
+sentiment_analysis_example(client)
 ```
 
 ### Output
 
 ```console
-Document text: {'id': '0', 'language': 'en', 'text': 'I had the best day of my life.'}
-Overall sentiment: positive
+Document Sentiment: positive
 Overall scores: positive=0.999; neutral=0.001; negative=0.000 
 
+[Offset: 0, Length: 30]
 Sentence 1 sentiment: positive
-Sentence score: positive=0.999; neutral=0.001; negative=0.000
-Offset: 0
-Length: 30
+Sentence score:
+positive=0.999
+neutral=0.001
+negative=0.000
 
-------------------------------------
-Document text: {'id': '1', 'language': 'en', 'text': 'This was a waste of my time. The speaker put me to sleep.'}
-Overall sentiment: negative
-Overall scores: positive=0.000; neutral=0.000; negative=1.000 
-
-Sentence 1 sentiment: negative
-Sentence score: positive=0.000; neutral=0.000; negative=1.000
-Offset: 0
-Length: 28
-
+[Offset: 31, Length: 30]
 Sentence 2 sentiment: neutral
-Sentence score: positive=0.122; neutral=0.851; negative=0.026
-Offset: 29
-Length: 28
-
-------------------------------------
-Document text: {'id': '2', 'language': 'es', 'text': 'No tengo dinero ni nada que dar...'}
-Overall sentiment: negative
-Overall scores: positive=0.032; neutral=0.074; negative=0.894 
-
-Sentence 1 sentiment: negative
-Sentence score: positive=0.032; neutral=0.074; negative=0.894
-Offset: 0
-Length: 34
-
-------------------------------------
-Document text: {'id': '3', 'language': 'fr', 'text': "L'hôtel n'était pas très confortable. L'éclairage était trop sombre."}
-Overall sentiment: negative
-Overall scores: positive=0.000; neutral=0.000; negative=1.000 
-
-Sentence 1 sentiment: negative
-Sentence score: positive=0.000; neutral=0.000; negative=1.000
-Offset: 0
-Length: 37
-
-Sentence 2 sentiment: negative
-Sentence score: positive=0.000; neutral=0.000; negative=1.000
-Offset: 38
-Length: 30
-
-------------------------------------
+Sentence score:
+positive=0.212
+neutral=0.771
+negative=0.017
 ```
 
 ## Language detection
 
-Create a new function called `language_detection()` which creates a client and calls its  [detect_languages()]() function. The returned response object will contain the detected language in `detected_languages` if successful, and an `error` if not.
+Create a new function called `language_detection_example()` that takes the client created earlier, then calls the [detect_languages()]() function. The returned response object will contain the detected language in `detected_languages` if successful, and an `error` if not.
 
 > [!Tip]
 > In some cases it may be hard to disambiguate languages based on the input. You can use the `country_hint` parameter to specify a 2-letter country code. By default the API is using the "US" as the default countryHint, to remove this behavior you can reset this parameter by setting this value to empty string `country_hint : ""`. 
 
 ```python
-# Language Detection 
-def language_detection():
-    client = authenticate_client()
-
+def language_detection_example(client):
     try:
-        documents = [
-            {'id': '1', 'text': 'This is a document written in English.'},
-            {'id': '2', 'text': 'Este es un document escrito en Español.'},
-            {'id': '3', 'text': '这是一个用中文写的文件'}
-        ]
-        response = client.detect_languages(inputs=documents)
-        for document in response:
-            print("Document Id: ", document.id, ", Language: ",
-                  document.detected_languages[0].name)
+        documents = ["Ce document est rédigé en Français."]
+        response = client.detect_languages(documents)
+        print("Language: ", response[0].detected_languages[0].name)
 
     except Exception as err:
         print("Encountered exception. {}".format(err))
-
-language_detection()
+language_detection_example(client)
 ```
 
 
 ### Output
 
 ```console
-Document Id:  1 , Language:  English
-Document Id:  2 , Language:  Spanish
-Document Id:  3 , Language:  Chinese_Simplified
+Language:  French
 ```
 ## Key phrase extraction
 
-Create a new function called `key_phrase()` that creates a client and call its [extract_key_phrases()]() function. The result will contain the list of detected key phrases in `key_phrases` if successful, and an `error` if not. Print any detected key phrases.
+Create a new function called `key_phrase_extraction_example()` that takes the client created earlier, then calls the [extract_key_phrases()]() function. The result will contain the list of detected key phrases in `key_phrases` if successful, and an `error` if not. Print any detected key phrases.
 
 ```python
-def key_phrases():
-    
-    client = authenticate_client()
+def key_phrase_extraction_example(client):
 
     try:
-        documents = [
-            {"id": "1", "language": "ja", "text": "猫は幸せ"},
-            {"id": "2", "language": "de",
-                "text": "Fahrt nach Stuttgart und dann zum Hotel zu Fu."},
-            {"id": "3", "language": "en",
-                "text": "My cat might need to see a veterinarian."},
-            {"id": "4", "language": "es", "text": "A mi me encanta el fútbol!"}
-        ]
-
-        for document in documents:
-            print(
-                "Asking key-phrases on '{}' (id: {})".format(document['text'], document['id']))
+        documents = ["My cat might need to see a veterinarian."]
 
         response = client.extract_key_phrases(documents)
         for document in response:
             if not document.is_error:
-                print("Document Id: ", document.id)
                 print("\tKey Phrases:")
                 for phrase in document.key_phrases:
                     print("\t\t", phrase)
@@ -267,233 +191,158 @@ def key_phrases():
     except Exception as err:
         print("Encountered exception. {}".format(err))
         
-key_phrases()
+key_phrase_extraction_example(client)
 ```
 
 
 ### Output
 
 ```console
-Document Id:  1
-	Key Phrases:
-		 幸せ
-Document Id:  2
-	Key Phrases:
-		 Stuttgart
-		 Hotel
-		 Fahrt
-		 Fu
-Document Id:  3
 	Key Phrases:
 		 cat
 		 veterinarian
-Document Id:  4
-	Key Phrases:
-		 fútbol
 ```
 
 ## Entity recognition
 
-Create a new function called `entity_recognition` creates a client, then calls its [recognize_entities()]() function and iterate through the results. The returned response object will contain the list of detected entities in `entity` if successful, and an `error` if not. For each detected entity, print its Type and Sub-Type if exists.
+Create a new function called `entity_recognition_example` that takes the client created earlier, then calls the [recognize_entities()]() function and iterates through the results. The returned response object will contain the list of detected entities in `entity` if successful, and an `error` if not. For each detected entity, print its Type and Sub-Type if exists.
 
 ```python
-def entity_recognition():
-    
-    client = authenticate_client()
+def entity_recognition_example(client):
 
     try:
-        documents = [
-            {"id": "1", "language": "en", "text": "Microsoft was founded by Bill Gates and Paul Allen on April 4, 1975, to develop and sell BASIC interpreters for the Altair 8800."},
-            {"id": "2", "language": "es",
-                "text": "La sede principal de Microsoft se encuentra en la ciudad de Redmond, a 21 kilómetros de Seattle."}
-        ]
+        documents = ["I had a wonderful trip to Seattle last week."]
         result = client.recognize_entities(documents)
-        docs = [doc for doc in result if not doc.is_error]
-
-        for idx, doc in enumerate(docs):
-            print("\nDocument text: {}".format(documents[idx]))
-            for entity in doc.entities:
-                print("Entity: \t", entity.text, "\tType: \t", entity.type,
-                      "\tConfidence Score: \t", round(entity.score, 3))
+        
+        print("Named Entities:\n")
+        for entity in result[0].entities:
+                print("\tText: \t", entity.text, "\tType: \t", entity.type, "\tSubType: \t", entity.subtype,
+                      "\n\tOffset: \t", entity.offset, "\tLength: \t", entity.offset, 
+                      "\tConfidence Score: \t", round(entity.score, 3), "\n")
 
     except Exception as err:
         print("Encountered exception. {}".format(err))
-entity_recognition()
+entity_recognition_example(client)
 ```
 
 ### Output
 
 ```console
-Document text: {'id': '1', 'language': 'en', 'text': 'Microsoft was founded by Bill Gates and Paul Allen on April 4, 1975, to develop and sell BASIC interpreters for the Altair 8800.'}
-Entity: 	 Microsoft 	Type: 	 Organization 	Confidence Score: 	 1.0
-Entity: 	 Bill Gates 	Type: 	 Person 	Confidence Score: 	 1.0
-Entity: 	 Paul Allen 	Type: 	 Person 	Confidence Score: 	 0.999
-Entity: 	 April 4, 1975 	Type: 	 DateTime 	Confidence Score: 	 0.8
-Entity: 	 Altair 	Type: 	 Organization 	Confidence Score: 	 0.525
-Entity: 	 8800 	Type: 	 Quantity 	Confidence Score: 	 0.8
+Named Entities:
 
-Document text: {'id': '2', 'language': 'es', 'text': 'La sede principal de Microsoft se encuentra en la ciudad de Redmond, a 21 kilómetros de Seattle.'}
-Entity: 	 Microsoft 	Type: 	 Organization 	Confidence Score: 	 1.0
-Entity: 	 Redmond 	Type: 	 Location 	Confidence Score: 	 0.991
-Entity: 	 21 kilómetros 	Type: 	 Quantity 	Confidence Score: 	 0.8
-Entity: 	 Seattle 	Type: 	 Location 	Confidence Score: 	 1.0
+	Text: 	 Seattle 	Type: 	 Location 	SubType: 	 None 
+	Offset: 	 26 	Length: 	 26 	Confidence Score: 	 0.806 
+
+	Text: 	 last week 	Type: 	 DateTime 	SubType: 	 DateRange 
+	Offset: 	 34 	Length: 	 34 	Confidence Score: 	 0.8 
 ```
 
 ## Entity Linking
 
-Create a new function called `entity_linking()` that creates a  client then calls its [recognize_linked_entities()]() function and iterate through the results. The returned response object will contain the list of detected entities in `entities` if successful, and an `error` if not. Since linked entities are uniquely identified, occurrences of the same entity are grouped under a `entity` object as a list of `match` objects.
+Create a new function called `entity_linking_example()` that takes the client created earlier, then calls the [recognize_linked_entities()]() function and iterates through the results. The returned response object will contain the list of detected entities in `entities` if successful, and an `error` if not. Since linked entities are uniquely identified, occurrences of the same entity are grouped under a `entity` object as a list of `match` objects.
 
 ```python
-def entity_linking():
-    
-    client = authenticate_client()
+def entity_linking_example(client):
 
     try:
-        documents = [
-            {"id": "0", "language": "en", "text": "Microsoft moved its headquarters to Bellevue, Washington in January 1979."},
-            {"id": "1", "language": "en", "text": "Steve Ballmer stepped down as CEO of Microsoft and was succeeded by Satya Nadella."},
-            {"id": "2", "language": "es", "text": "Microsoft superó a Apple Inc. como la compañía más valiosa que cotiza en bolsa en el mundo."},
-        ]
+        documents = ["Microsoft was founded by Bill Gates and Paul Allen on April 4, 1975, " +
+        "to develop and sell BASIC interpreters for the Altair 8800. " +
+        "During his career at Microsoft, Gates held the positions of chairman, " +
+        "chief executive officer, president and chief software architect, " +
+        "while also being the largest individual shareholder until May 2014."]
         result = client.recognize_linked_entities(documents)
         docs = [doc for doc in result if not doc.is_error]
 
+        print("Linked Entities:\n")
         for idx, doc in enumerate(docs):
-            print("Document text: {}\n".format(documents[idx]))
             for entity in doc.entities:
-                print("Entity: {}".format(entity.name))
-                print("Url: {}".format(entity.url))
-                print("Data Source: {}".format(entity.data_source))
+                print("\tName: ", entity.name, "\tId: ", entity.id, "\tUrl: ", entity.url,
+                "\n\tData Source: ", entity.data_source)
+                print("\tMatches:")
                 for match in entity.matches:
-                    print("Score: {0:.3f}".format(match.score))
-                    print("Offset: {}".format(match.offset))
-                    print("Length: {}\n".format(match.length))
-            print("------------------------------------------")
-
+                    print("\t\tText:", match.text)
+                    print("\t\tScore: {0:.3f}".format(match.score), "\tOffset: ", match.offset, 
+                          "\tLength: {}\n".format(match.length))
+            
     except Exception as err:
         print("Encountered exception. {}".format(err))
-entity_linking()
+entity_linking_example(client)
 ```
 
 ### Output
 
 ```console
-Document text: {'id': '0', 'language': 'en', 'text': 'Microsoft moved its headquarters to Bellevue, Washington in January 1979.'}
+Linked Entities:
 
-Entity: Bellevue, Washington
-Url: https://en.wikipedia.org/wiki/Bellevue,_Washington
-Data Source: Wikipedia
-Score: 0.774
-Offset: 36
-Length: 20
+	Name:  Altair 8800 	Id:  Altair 8800 	Url:  https://en.wikipedia.org/wiki/Altair_8800 
+	Data Source:  Wikipedia
+	Matches:
+		Text: Altair 8800
+		Score: 0.777 	Offset:  116 	Length: 11
 
-Entity: Microsoft
-Url: https://en.wikipedia.org/wiki/Microsoft
-Data Source: Wikipedia
-Score: 0.335
-Offset: 0
-Length: 9
+	Name:  Bill Gates 	Id:  Bill Gates 	Url:  https://en.wikipedia.org/wiki/Bill_Gates 
+	Data Source:  Wikipedia
+	Matches:
+		Text: Bill Gates
+		Score: 0.555 	Offset:  25 	Length: 10
 
-Entity: Briann January
-Url: https://en.wikipedia.org/wiki/Briann_January
-Data Source: Wikipedia
-Score: 0.059
-Offset: 60
-Length: 7
+		Text: Gates
+		Score: 0.555 	Offset:  161 	Length: 5
 
-------------------------------------------
-Document text: {'id': '1', 'language': 'en', 'text': 'Steve Ballmer stepped down as CEO of Microsoft and was succeeded by Satya Nadella.'}
+	Name:  Paul Allen 	Id:  Paul Allen 	Url:  https://en.wikipedia.org/wiki/Paul_Allen 
+	Data Source:  Wikipedia
+	Matches:
+		Text: Paul Allen
+		Score: 0.533 	Offset:  40 	Length: 10
 
-Entity: Steve Ballmer
-Url: https://en.wikipedia.org/wiki/Steve_Ballmer
-Data Source: Wikipedia
-Score: 0.849
-Offset: 0
-Length: 13
+	Name:  Microsoft 	Id:  Microsoft 	Url:  https://en.wikipedia.org/wiki/Microsoft 
+	Data Source:  Wikipedia
+	Matches:
+		Text: Microsoft
+		Score: 0.469 	Offset:  0 	Length: 9
 
-Entity: Satya Nadella
-Url: https://en.wikipedia.org/wiki/Satya_Nadella
-Data Source: Wikipedia
-Score: 0.823
-Offset: 68
-Length: 13
+		Text: Microsoft
+		Score: 0.469 	Offset:  150 	Length: 9
 
-Entity: Microsoft
-Url: https://en.wikipedia.org/wiki/Microsoft
-Data Source: Wikipedia
-Score: 0.296
-Offset: 37
-Length: 9
+	Name:  April 4 	Id:  April 4 	Url:  https://en.wikipedia.org/wiki/April_4 
+	Data Source:  Wikipedia
+	Matches:
+		Text: April 4
+		Score: 0.248 	Offset:  54 	Length: 7
 
-Entity: Chief executive officer
-Url: https://en.wikipedia.org/wiki/Chief_executive_officer
-Data Source: Wikipedia
-Score: 0.196
-Offset: 30
-Length: 3
-
-------------------------------------------
-Document text: {'id': '2', 'language': 'es', 'text': 'Microsoft superó a Apple Inc. como la compañía más valiosa que cotiza en bolsa en el mundo.'}
-
-Entity: Apple
-Url: https://es.wikipedia.org/wiki/Apple
-Data Source: Wikipedia
-Score: 0.833
-Offset: 19
-Length: 10
-
-Entity: Microsoft
-Url: https://es.wikipedia.org/wiki/Microsoft
-Data Source: Wikipedia
-Score: 0.183
-Offset: 0
-Length: 9
-
-------------------------------------------
+	Name:  BASIC 	Id:  BASIC 	Url:  https://en.wikipedia.org/wiki/BASIC 
+	Data Source:  Wikipedia
+	Matches:
+		Text: BASIC
+		Score: 0.281 	Offset:  89 	Length: 5
 ```
 
 ## Personal Identifiable Information (PII) Entity recognition
 
-Using the client created earlier, call the [recognize_pii_entities()] function and get the result. Then iterate through the results, and print each document's ID, and the entities contained in it.
+Create a new functions called `entity_pii_example()` that takes the client created earlier, then calls the [recognize_pii_entities()] function and gets the result. Then iterate through the results and print the PII entities.
 
 ```python
-def recognize_pii_entities():
+def entity_pii_example(client):
 
-        client = authenticate_client()
-        documents = [
-            {"id": "0", "language": "en", "text": "The employee's SSN is 555-55-5555."},
-            {"id": "1", "language": "en", "text": "Your ABA number - 111000025 - is the first 9 digits in the lower left hand corner of your personal check."},
-            {"id": "2", "language": "en", "text": "Is 998.214.865-68 your Brazilian CPF number?"}
-        ]
+        documents = ["Insurance policy for SSN on file 123-12-1234 is here by approved."]
 
 
         result = client.recognize_pii_entities(documents)
         docs = [doc for doc in result if not doc.is_error]
 
+        print("Personally Identifiable Information Entities: ")
         for idx, doc in enumerate(docs):
-            print("Document text: {}".format(documents[idx]))
             for entity in doc.entities:
-                print("Entity: {}".format(entity.text))
-                print("Type: {}".format(entity.type))
-                print("Confidence Score: {}\n".format(entity.score))
+                print("\tText: ",entity.text,"\tType: ", entity.type,"\tSub-Type: ", entity.subtype)
+                print("\t\tOffset: ", entity.offset, "\tLength: ", entity.length, "\tScore: {0:.3f}".format(entity.score), "\n")
         
-recognize_pii_entities()
+entity_pii_example(client)
 ```
 
 ### Output
 
 ```console
-Document text: {'id': '0', 'language': 'en', 'text': "The employee's SSN is 555-55-5555."}
-Entity: 555-55-5555
-Type: U.S. Social Security Number (SSN)
-Confidence Score: 0.85
-
-Document text: {'id': '1', 'language': 'en', 'text': 'Your ABA number - 111000025 - is the first 9 digits in the lower left hand corner of your personal check.'}
-Entity: 111000025
-Type: ABA Routing Number
-Confidence Score: 0.75
-
-Document text: {'id': '2', 'language': 'en', 'text': 'Is 998.214.865-68 your Brazilian CPF number?'}
-Entity: 998.214.865-68
-Type: Brazil CPF Number
-Confidence Score: 0.85
+Personally Identifiable Information Entities: 
+	Text:  123-12-1234 	Type:  U.S. Social Security Number (SSN) 	Sub-Type:  
+		Offset:  33 	Length:  11 	Score: 0.850 
 ```
