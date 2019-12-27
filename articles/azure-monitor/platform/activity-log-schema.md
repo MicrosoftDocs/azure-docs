@@ -12,7 +12,7 @@ ms.subservice: logs
 # Azure Activity Log event schema
 The [Azure Activity log](activity-logs-overview.md) provides insight into any subscription-level events that have occurred in Azure. This article describes the event schema for each category. 
 
-The examples below show the schema when you access the Activity log from the portal, PowerShell, CLI, and REST API. The schema is different when you [stream the Activity log to storage or Event Hubs](resource-logs-stream-event-hubs.md. A mapping of the properties to the [resource logs schema](diagnostic-logs-schema.md) is provided at the end of the article.
+The examples below show the schema when you access the Activity log from the portal, PowerShell, CLI, and REST API. The schema is different when you [stream the Activity log to storage or Event Hubs](resource-logs-stream-event-hubs.md). A mapping of the properties to the [resource logs schema](diagnostic-logs-schema.md) is provided at the end of the article.
 
 ## Administrative
 This category contains the record of all create, update, delete, and action operations performed through Resource Manager. Examples of the types of events you would see in this category include "create virtual machine" and "delete network security group" Every action taken by a user or application using Resource Manager is modeled as an operation on a particular resource type. If the operation type is Write, Delete, or Action, the records of both the start and success or fail of that operation are recorded in the Administrative category. The Administrative category also includes any changes to role-based access control in a subscription.
@@ -774,6 +774,7 @@ resource.
 ## Schema from storage account and event hubs
 When streaming the Azure Activity log to a storage account or event hub, the data follows the [resource log schema](diagnostic-logs-schema.md). The table below provides a mapping of properties from the schema above to the resource logs schema.
 
+> [!IMPORTANT]
 > The format of Activity log data written to a storage account changed to JSON Lines on Nov. 1st, 2018. See [Prepare for format change to Azure Monitor resource logs archived to a storage account](diagnostic-logs-append-blobs.md) for details on this format change.
 
 

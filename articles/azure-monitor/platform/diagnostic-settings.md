@@ -43,15 +43,15 @@ You can configure diagnostic settings in the Azure portal either from the Azure 
 
    - For a single resource, click **Diagnostic settings** under **Monitor** in the resource's menu.
 
-    ![Diagnostic settings](media/diagnostic-settings/menu-resource.png)
+        ![Diagnostic settings](media/diagnostic-settings/menu-resource.png)
 
     - For one or more resources, click **Diagnostic settings** under **Settings** in the Azure Monitor menu and then click on the resource.
     
-    ![Diagnostic settings](media/diagnostic-settings/menu-monitor.png)
+        ![Diagnostic settings](media/diagnostic-settings/menu-monitor.png)
 
     - For the Activity log, click **Activity log** in the **Azure Monitor** menu and then **Diagnostic settings**. Make sure you disable any legacy configuration for the Activity log. See [Disable existing settings](diagnostic-settings-legacy.md#disable-existing-settings) for details.
 
-    ![Diagnostic settings](media/diagnostic-settings/menu-activity-log.png)
+        ![Diagnostic settings](media/diagnostic-settings/menu-activity-log.png)
 
 2. If no settings exist on the resource you have selected, you are prompted to create a setting. Click **Add diagnostic setting**.
 

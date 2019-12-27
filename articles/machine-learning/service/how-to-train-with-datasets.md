@@ -12,6 +12,8 @@ manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 09/25/2019
 
+# Customer intent: As an experienced Python developer, I need to make my data available to my remote compute to train my machine learning models.
+
 ---
 
 # Train with datasets in Azure Machine Learning
@@ -100,10 +102,10 @@ experiment_run.wait_for_completion(show_output=True)
 
 If you want to make your data files available on the compute target for training, use [FileDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.file_dataset.filedataset?view=azure-ml-py) to mount or download files referred by it.
 
-When you mount a file system, you attach that file system to a directory (mount point) and make it available on the compute target. Mounting is instantaneous because files are loaded only at the time of processing. Mounting is supported and recommended for Linux-based computes, including Azure Machine Learning Compute, virtual machines, and HDInsight. For non-Linux-based compute, only downloading is supported.  
+### Mount v.s. Download
+When you mount a dataset, you attach the files referenced by the dataset to a directory (mount point) and make it available on the compute target. Mounting is supported for Linux-based computes, including Azure Machine Learning Compute, virtual machines, and HDInsight. If your data size exceeds the compute disk size, or you are only loading part of dataset in your script, mounting is recommended. Because downloading a dataset bigger than the disk size will fail, and mounting will only load the part of data used by your script at the time of processing. 
+When you download a dataset, all the files referenced by the dataset will be downloaded to the compute target. Downloading is supported for all compute types. If your script process all files referenced by the dataset, and your compute disk can fit in your full dataset, downloading is recommended to avoid the overhead of streaming data from storage services.
 
->[!WARNING]
-> If your data size exceeds the storage limit of the compute target, downloading will fail.
 
 ### Create a FileDataset
 

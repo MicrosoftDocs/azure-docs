@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-autosuggest
 ms.topic: tutorial
-ms.date: 09/13/2019
+ms.date: 12/17/2019
 ms.author: aahi
 ---
 # Tutorial: Get search suggestions on a web page

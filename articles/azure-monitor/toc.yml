@@ -489,7 +489,7 @@
         href: platform/activity-log-view.md
       - name: Send to destinations
         items:
-        - name: Log Analytisc workspace
+        - name: Log Analytics workspace
           displayname: Resource logs, Activity log, Platform logs
           href: platform/resource-logs-collect-workspace.md
         - name: Azure storage

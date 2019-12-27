@@ -31,7 +31,7 @@ You can filter Activity Log events by the following fields:
 * **Event initiated by**: The user who performed the operation.
 * **Open search**: Open text search box that searches for that string across all fields in all events.
 
-## Categories in the Activity Log
+## Categories in the Activity log
 Each event in the Activity Log has a particular category that are described in the following table. For full details on the schemata of these categories, see [Azure Activity Log event schema](activity-log-schema.md). 
 
 | Category | Description |
@@ -194,7 +194,7 @@ Click the **Azure Activity Logs** tile to open the **Azure Activity Logs** view.
 
 
 
-## Next Steps
+## Next steps
 
 * [Read an overview of platform logs](platform-logs-overview.md)
 * [Create diagnostic setting to send Activity logs to other destinations](diagnostic-settings.md)

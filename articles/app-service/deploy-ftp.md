@@ -19,7 +19,7 @@ The FTP/S endpoint for your app is already active. No configuration is necessary
 
 ## Open FTP dashboard
 
-In the [Azure portal](https://portal.azure.com), open your app's [resource page](../azure-resource-manager/manage-resources-portal.md#manage-resources).
+In the [Azure portal](https://portal.azure.com), open your app's [resource page](../azure-resource-manager/management/manage-resources-portal.md#manage-resources).
 
 To open the FTP dashboard, click **Deployment Center** > **FTP** > **Dashboard**.
 
