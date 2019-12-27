@@ -21,23 +21,19 @@ productDirectory:
   #summary: sectionsummary # < 160 chars (optional)
   items:
     # Card
-    - title: What is SRE?
+    - title: Introduction to SRE video series
       # imageSrc should be square in ratio with no whitespace
       imageSrc: ./media/index/video.svg
-      summary: Part 1 of a quick video intro to SRE
-      url: https://channel9.msdn.com/Shows/IT-Ops-Talk/Introduction-to-Site-Reliability-Engineering--Part-1/player
-    # Card
-    - title: SRE Principles and Practices
-      imageSrc: ./media/index/video.svg
-      summary: Part 2 of a quick video intro to SRE
-      url: https://channel9.msdn.com/Shows/IT-Ops-Talk/Introduction-to-Site-Reliability-Engineering--Part-2/player
-    # Card
-    - title: Getting Started
-      imageSrc: ./media/index/video.svg
-      summary: Part 3 of a quick video intro to SRE
-      url: https://channel9.msdn.com/Shows/IT-Ops-Talk/Introduction-to-Site-Reliability-Engineering--Part-3/player
+      links: 
+        - url: https://channel9.msdn.com/Shows/IT-Ops-Talk/Introduction-to-Site-Reliability-Engineering--Part-1/player
+          text: What is SRE?
+        - url: https://channel9.msdn.com/Shows/IT-Ops-Talk/Introduction-to-Site-Reliability-Engineering--Part-2/player  
+          text: SRE Principles and Practices
+        - url: https://channel9.msdn.com/Shows/IT-Ops-Talk/Introduction-to-Site-Reliability-Engineering--Part-3/playeraåå
+          text: Getting Started
     # Card
     - title: Intro to SRE Online Course
       imageSrc: ./media/index/learn.svg
-      summary: Learn the basics of SRE in a free online course
-      url: https://docs.microsoft.com/learn/modules/intro-to-site-reliability-engineering/
+      links:
+        - url: https://docs.microsoft.com/learn/modules/intro-to-site-reliability-engineering/
+          text: Learn the basics of SRE in a free online course
