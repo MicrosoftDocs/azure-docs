@@ -279,7 +279,7 @@ Run this command:
 python voice_synthesis_client.py --delete -key <your_key> -region <Region> -synthesisId <synthesis_id>
 ```
 
-You will get the output like this:
+You'll see an output like this:
 
 ```console
 delete voice synthesis xxx
