@@ -209,7 +209,7 @@ The result contains the input text and the audio output files that are generated
 
 ## Remove previous requests
 
-Server will keep up to **20,000** requests for each Azure subscription account. If your request amount exceeds the limitation, please remove previous requests before making new ones. If you don't remove existing request timely, you'll receive an error notification.
+The server will keep up to **20,000** requests for each Azure subscription account. If your request amount exceeds this limitation, please remove previous requests before making new ones. If you don't remove existing requests, you'll receive an error notification.
 
 Add the code to `voice_synthesis_client.py`:
 
