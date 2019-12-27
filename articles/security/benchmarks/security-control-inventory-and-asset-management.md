@@ -36,7 +36,7 @@ Understanding Azure RBAC:
 
 https://docs.microsoft.com/azure/role-based-access-control/overview
 
-## 6.2: Maintain Asset Metadata
+## 6.2: Maintain asset metadata
 
 | Azure ID | CIS IDs | Responsibility |
 |--|--|--|
@@ -48,7 +48,7 @@ How to create and use Tags:
 
 https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
 
-## 6.3: Delete Unauthorized Azure Resources
+## 6.3: Delete unauthorized Azure resources
 
 | Azure ID | CIS IDs | Responsibility |
 |--|--|--|
@@ -76,7 +76,7 @@ https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tag
 
 Define approved Azure resources and approved software for compute resources.
 
-## 6.5: Monitor for Unapproved Azure Resources
+## 6.5: Monitor for unapproved Azure resources
 
 | Azure ID | CIS IDs | Responsibility |
 |--|--|--|
@@ -94,19 +94,19 @@ How to create queries with Azure Graph:
 
 https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
-## 6.6: Monitor for Unapproved Software Applications within Compute Resources
+## 6.6: Monitor for unapproved software applications within compute resources
 
 | Azure ID | CIS IDs | Responsibility |
 |--|--|--|
 | 6.6 | 2.3/2.4 | Customer |
 
-Use Azure Virtual Machine Inventory to automate the collection of information about all software on Virtual Machines. Note: Software Name, Version, Publisher, and Refresh time are available from the Azure Portal. To get access to install date and other information, enable guest-level diagnostics and bring the Windows Event logs into a Log Analytics Workspace.
+Use Azure Virtual Machine Inventory to automate the collection of information about all software on Virtual Machines. Note: Software Name, Version, Publisher, and Refresh time are available from the Azure Portal. To get access to install date and other information, enable guest-level diagnostics and bring the Windows Event Logs into a Log Analytics Workspace.
 
 How to enable Azure VM Inventory:
 
 https://docs.microsoft.com/azure/automation/automation-tutorial-installed-software
 
-## 6.7: Remove Unapproved Azure Resources and Software Applications
+## 6.7: Remove unapproved Azure resources and software applications
 
 | Azure ID | CIS IDs | Responsibility |
 |--|--|--|
@@ -138,7 +138,7 @@ How to use Azure Security Center Adaptive Application Controls:
 
 https://docs.microsoft.com/azure/security-center/security-center-adaptive-application
 
-## 6.9: Use only approved Azure Services
+## 6.9: Use only approved Azure services
 
 | Azure ID | CIS IDs | Responsibility |
 |--|--|--|
@@ -168,7 +168,7 @@ How to use Azure Security Center Adaptive Application Controls:
 
 https://docs.microsoft.com/azure/security-center/security-center-adaptive-application
 
-## 6.11: Limit Users' Ability to interact with ARM via Scripts
+## 6.11: Limit users' ability to interact with ARM via scripts
 
 | Azure ID | CIS IDs | Responsibility |
 |--|--|--|
@@ -180,7 +180,7 @@ How to configure Conditional Access to block access to ARM:
 
 https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management
 
-## 6.12: Limit Users' Ability to Execute Scripts within Compute Resources
+## 6.12: Limit users' Ability to execute scripts within compute resources
 
 | Azure ID | CIS IDs | Responsibility |
 |--|--|--|
@@ -191,13 +191,13 @@ Use operating system specific configurations or third-party resources to limit u
 For example, how to control PowerShell script execution in Windows Environments:
 https://docs.microsoft.com/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-6
 
-## 6.13: Physically or Logically Segregate High Risk Applications
+## 6.13: Physically or logically segregate high risk applications
 
 | Azure ID | CIS IDs | Responsibility |
 |--|--|--|
 | 6.13 | 2.9 | Customer |
 
-Software that is required for business operations but may incur higher risk for the organization should be isolated within its own Virtual Machine and/or Virtual Network and sufficiently secured with either an Azure Firewall or Network Security Group.
+Software that is required for business operations, but may incur higher risk for the organization, should be isolated within its own Virtual Machine and/or Virtual Network and sufficiently secured with either an Azure Firewall or Network Security Group.
 
 How to create a Virtual Network:
 

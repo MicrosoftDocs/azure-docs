@@ -32,7 +32,7 @@ https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tag
 |--|--|--|
 | 4.2 | 13.2 | Customer |
 
-Implement separate subscriptions and/or management groups for development, test, and production. Resources should be separated by VNet/Subnet, tagged appropriately, and secured within an NSG or Azure Firewall. Resources storing or processing sensitive data should be sufficiently isolated. For Virtual Machines storing or processing sensitive data, implement policy and procedure(s) to turn them off when not in use.
+Implement separate subscriptions and/or management groups for development, test, and production. Resources should be separated by VNet/Subnet, tagged appropriately, and secured by an NSG or Azure Firewall. Resources storing or processing sensitive data should be sufficiently isolated. For Virtual Machines storing or processing sensitive data, implement policy and procedure(s) to turn them off when not in use.
 
 How to create additional Azure subscriptions:
 
@@ -90,7 +90,7 @@ https://docs.microsoft.com/azure/security/fundamentals/encryption-overview#encry
 |--|--|--|
 | 4.5 | 14.5 | Customer |
 
-When no feature is available for your specific service in Azure, use a third party active discovery tool to identify all sensitive information stored, processed, or transmitted by the organization's technology systems, including those located on-site, or at a remote service provider, and update the organization's sensitive information inventory.
+When no feature is available for your specific service in Azure, use a third-party active discovery tool to identify all sensitive information stored, processed, or transmitted by the organization's technology systems, including those located on-site, or at a remote service provider, and update the organization's sensitive information inventory.
 
 Use Azure Information Protection for identifying sensitive information within Office 365 documents.
 
@@ -128,13 +128,13 @@ https://docs.microsoft.com/azure/role-based-access-control/role-assignments-port
 
 Implement a third-party tool, such as an automated host-based Data Loss Prevention solution, to enforce access controls to data even when data is copied off a system.
 
-## 4.8: Encrypt Sensitive Information at Rest
+## 4.8: Encrypt sensitive information at rest
 
 | Azure ID | CIS IDs | Responsibility |
 |--|--|--|
 | 4.8 | 14.8 | Customer |
 
-Use&nbsp; encryption at rest on all Azure resources. Allow Microsoft Azure to manage your encryption keys, however there is the option for you to manage your own keys in some instances.
+Use  encryption at rest on all Azure resources. Microsoft recommends allowing Azure to manage your encryption keys, however there is the option for you to manage your own keys in some instances. 
 
 Understand encryption at rest in Azure:
 

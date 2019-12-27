@@ -14,7 +14,7 @@ ms.custom: security-recommendations
 
 # Security Control: Logging and Monitoring
 
-## 2.1: Use Approved Time Synchronization Sources
+## 2.1: Use approved time synchronization sources
 
 | Azure ID | CIS IDs | Responsibility |
 |--|--|--|
@@ -26,7 +26,7 @@ How to configure time synchronization for Azure compute resources:
 
 https://docs.microsoft.com/azure/virtual-machines/windows/time-sync
 
-## 2.2: Configure Central Security Log Management
+## 2.2: Configure central security log management
 
 | Azure ID | CIS IDs | Responsibility |
 |--|--|--|
@@ -50,13 +50,13 @@ How to get started with Azure Monitor and third-party SIEM integration:
 
 https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/
 
-## 2.3: Enable audit logging for Azure Resources
+## 2.3: Enable audit logging for Azure resources
 
 | Azure ID | CIS IDs | Responsibility |
 |--|--|--|
 | 2.3 | 6.2, 6.3 | Customer |
 
-Enable Diagnostic Settings on Azure Resources for access to audit, security, and diagnostic logs. Activity logs, which are automatically available, include event source, date, user, timestamp, source addresses, destination addresses, and other useful elements.
+Enable Diagnostic Settings on Azure resources for access to audit, security, and diagnostic logs. Activity logs, which are automatically available, include event source, date, user, timestamp, source addresses, destination addresses, and other useful elements.
 
 How to collect platform logs and metrics with Azure Monitor:
 
@@ -66,13 +66,13 @@ Understanding logging and different log types in Azure:
 
 https://docs.microsoft.com/azure/azure-monitor/platform/platform-logs-overview
 
-## 2.4: Collect Security Logs from Operating System
+## 2.4: Collect security logs from operating systems
 
 | Azure ID | CIS IDs | Responsibility |
 |--|--|--|
 | 2.4 | 6.2, 6.3 | Customer |
 
-If the compute resource is owned by Microsoft, then Microsoft is responsible for monitoring it. If the compute resource is owned by your organization, it's your responsibility to monitor it. You can use Azure Security Center to monitor the OS. Data collected by Security Center from the operating system includes OS type and version, OS (Windows event logs), running processes, machine name, IP addresses, and logged in user. The Log Analytics Agent also collects crash dump files.
+If the compute resource is owned by Microsoft, then Microsoft is responsible for monitoring it. If the compute resource is owned by your organization, it's your responsibility to monitor it. You can use Azure Security Center to monitor the OS. Data collected by Security Center from the operating system includes OS type and version, OS (Windows Event Logs), running processes, machine name, IP addresses, and logged in user. The Log Analytics Agent also collects crash dump files.
 
 How to collect Azure Virtual Machine internal host logs with Azure Monitor:
 https://docs.microsoft.com/azure/azure-monitor/learn/quick-collect-azurevm
@@ -80,7 +80,7 @@ https://docs.microsoft.com/azure/azure-monitor/learn/quick-collect-azurevm
 Understanding Azure Security Center data collection:
 https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection
 
-## 2.5: Configure Security Log Storage Retention
+## 2.5: Configure security log storage retention
 
 | Azure ID | CIS IDs | Responsibility |
 |--|--|--|
@@ -91,7 +91,7 @@ Within Azure Monitor, set your Log Analytics Workspace retention period accordin
 How to set log retention parameters for Log Analytics Workspaces:
 https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period
 
-## 2.6: Monitor and Review Logs
+## 2.6: Monitor and review Logs
 
 | Azure ID | CIS IDs | Responsibility |
 |--|--|--|
@@ -113,7 +113,7 @@ How to perform custom queries in Azure Monitor:
 
 https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-queries
 
-## 2.7: Enable Alerts for Anomalous Activity
+## 2.7: Enable alerts for anomalous activity
 
 | Azure ID | CIS IDs | Responsibility |
 |--|--|--|
@@ -135,7 +135,7 @@ How to alert on log analytics log data:
 
 https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-response
 
-## 2.8: Centralize Anti-malware Logging
+## 2.8: Centralize anti-malware logging
 
 | Azure ID | CIS IDs | Responsibility |
 |--|--|--|
@@ -161,9 +161,9 @@ https://docs.microsoft.com/azure/security/fundamentals/antimalware
 |--|--|--|
 | 2.9 | 8.7 | Customer |
 
-Implement third party solution for dns logging.
+Implement third-party solution for DNS logging.
 
-## 2.10: Enable Command-line Audit Logging
+## 2.10: Enable command-line audit logging
 
 | Azure ID | CIS IDs | Responsibility |
 |--|--|--|

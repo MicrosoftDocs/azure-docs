@@ -14,7 +14,7 @@ ms.custom: security-recommendations
 
 # Security Control: Incident Response
 
-## 10.1: Create incident response guide
+## 10.1: Create an incident response guide
 
 | Azure ID | CIS IDs | Responsibility |
 |--|--|--|
@@ -38,17 +38,17 @@ Customer may also leverage NIST's Computer Security Incident Handling Guide to a
 
 https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf
 
-## 10.2: Create Incident Scoring and Prioritization Procedure
+## 10.2: Create an incident scoring and prioritization procedure
 
 | Azure ID | CIS IDs | Responsibility |
 |--|--|--|
 | 10.2 | 19.8 | Customer |
 
-Security Center assigns a severity to alerts, to help you prioritize the order in which you attend to each alert, so that when a resource is compromised, you can get to it right away. The severity is based on how confident Security Center is in the finding or the analytic used to issue the alert as well as the confidence level that there was malicious intent behind the activity that led to the alert.
+Security Center assigns a severity to each alert to help you prioritize which alerts should be investigated first. The severity is based on how confident Security Center is in the finding or the analytic used to issue the alert as well as the confidence level that there was malicious intent behind the activity that led to the alert.
 
 Additionally, clearly mark subscriptions (for ex. production, non-prod) and create a naming system to clearly identify and categorize Azure resources.
 
-## 10.3: Test Security Response Procedures
+## 10.3: Test security response procedures
 
 | Azure ID | CIS IDs | Responsibility |
 |--|--|--|
@@ -60,13 +60,13 @@ Refer to NIST's publication: Guide to Test, Training, and Exercise Programs for 
 
 https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf
 
-## 10.4: Provide Security Incident Contact Details and Configure Alert Notifications &nbsp;for Security Incidents
+## 10.4: Provide security incident contact details and configure alert notifications &nbsp;for security incidents
 
 | Azure ID | CIS IDs | Responsibility |
 |--|--|--|
 | 10.4 | 19.5 | Customer |
 
-Security incident contact information will be used by Microsoft to contact the customer if the Microsoft Security Response Center (MSRC) discovers that the customer's data has been accessed by an unlawful or unauthorized party.  Review incident after the fact to ensure that the issue is resolved.
+Security incident contact information will be used by Microsoft to contact you if the Microsoft Security Response Center (MSRC) discovers that the customer's data has been accessed by an unlawful or unauthorized party.  Review incidents after the fact to ensure that issues are resolved.
 
 How to set the Azure Security Center Security Contact:
 

@@ -32,7 +32,7 @@ The terms "Control", "Benchmark", and "Baseline" are used often in the Azure Sec
 | Term | Description | Example |
 |--|--|--|
 | Control | A **control** is a high-level description of a feature or activity that needs to be addressed. It is neither technology nor implementation specific. | Data Protection is one of the security controls. This control contains specific actions that need to be addressed to help ensure data is protected. |
-| Benchmark | A **benchmark** contains security recommendations for a specific technology, such as Azure. The recommendations are categorized by the control to which they belong. | The Azure Security Benchmark is based on the security controls defined by the Azure Security Controls Benchmark. |
+| Benchmark | A **benchmark** contains security recommendations for a specific technology, such as Azure. The Azure Security benchmark comprises the security recommendations specific to the Azure platform. | The Azure Security Benchmark is based on the security controls defined by the Azure Security Controls Benchmark. |
 | Baseline | A **baseline** is the security requirements for an organization. The security requirements are based on benchmark recommendations. Each organization decides which benchmark recommendations to include in their baseline. | The Contoso company creates its security baseline by choosing to require specific recommendations in the Azure Security Benchmark. |
 
 We welcome your feedback on the Azure Security Benchmark! We encourage you to provide comments in the feedback area below. If you prefer to share your input more privately with the Azure Security Benchmark team, you are welcome to fill out the form at https://aka.ms/AzSecBenchmark 

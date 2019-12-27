@@ -14,7 +14,7 @@ ms.custom: security-recommendations
 
 # Security Control: Secure Configuration
 
-## 7.1: Establish Secure Configurations for all Azure Resources
+## 7.1: Establish secure configurations for all Azure resources
 
 | Azure ID | CIS IDs | Responsibility |
 |--|--|--|
@@ -25,7 +25,7 @@ Use Azure Policy or Azure Security Center to maintain security configurations fo
 How to configure and manage Azure Policy:
 https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
-## 7.2: Establish Secure Configurations for your Operating System
+## 7.2: Establish secure operating system configurations
 
 | Azure ID | CIS IDs | Responsibility |
 |--|--|--|
@@ -41,7 +41,7 @@ How to remediate Azure Security Center recommendations:
 
 https://docs.microsoft.com/azure/security-center/security-center-remediate-recommendations
 
-## 7.3: Maintain Secure Configurations for all Azure Resources
+## 7.3: Maintain secure Azure resource configurations
 
 | Azure ID | CIS IDs | Responsibility |
 |--|--|--|
@@ -57,13 +57,13 @@ Understanding Azure Policy Effects:
 
 https://docs.microsoft.com/azure/governance/policy/concepts/effects
 
-## 7.4: Maintain Secure Configurations for Operating Systems
+## 7.4: Maintain secure operating system configurations
 
 | Azure ID | CIS IDs | Responsibility |
 |--|--|--|
 | 7.4 | 5.2 | Shared |
 
-Base Operating System Images are managed and maintained by Microsoft.
+Base operating system Images are managed and maintained by Microsoft.
 
 However, you can apply security settings required by your organization using ARM templates and/or Desired State Configuration.
 
@@ -75,7 +75,7 @@ Understand Desired State Configuration for Azure Virtual Machines:
 
 https://docs.microsoft.com/azure/virtual-machines/extensions/dsc-overview
 
-## 7.5: Securely Store Configuration of Azure Resources
+## 7.5: Securely store configuration of Azure resources
 
 | Azure ID | CIS IDs | Responsibility |
 |--|--|--|
@@ -91,7 +91,7 @@ Azure Repos Documentation:
 
 https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops
 
-## 7.6: Securely Store Custom Operating System Images
+## 7.6: Securely store custom operating system images
 
 | Azure ID | CIS IDs | Responsibility |
 |--|--|--|
@@ -111,7 +111,7 @@ How to configure RBAC in Azure:
 
 https://docs.microsoft.com/azure/role-based-access-control/quickstart-assign-role-user-portal
 
-## 7.7: Deploy System Configuration Management Tools
+## 7.7: Deploy system configuration management tools
 
 | Azure ID | CIS IDs | Responsibility |
 |--|--|--|
@@ -123,7 +123,7 @@ How to configure and manage Azure Policy:
 
 https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
-## 7.8: Deploy System Configuration Management Tools for Operating Systems
+## 7.8: Deploy system configuration management tools for operating systems
 
 | Azure ID | CIS IDs | Responsibility |
 |--|--|--|
@@ -135,7 +135,7 @@ How to install Virtual Machine Extensions in Azure:
 
 https://docs.microsoft.com/azure/virtual-machines/extensions/overview#how-can-i-install-an-extension
 
-## 7.9: Implement Automated Configuration Monitoring for Azure Services
+## 7.9: Implement automated configuration Monitoring for Azure Services
 
 | Azure ID | CIS IDs | Responsibility |
 |--|--|--|
@@ -147,19 +147,19 @@ How to remediate recommendations in Azure Security Center:
 
 https://docs.microsoft.com/azure/security-center/security-center-remediate-recommendations
 
-## 7.10: Implement Automated Configuration Monitoring for Operating Systems
+## 7.10: Implement automated configuration monitoring for operating systems
 
 | Azure ID | CIS IDs | Responsibility |
 |--|--|--|
 | 7.1 | 5.5 | Customer |
 
-Use Azure Security Center to perform baseline scans for OS and Docker Settings for Containers.
+Use Azure Security Center to perform baseline scans for OS and Docker Settings for containers.
 
 Understanding Azure Security Center container recommendations:
 
 https://docs.microsoft.com/azure/security-center/security-center-container-recommendations
 
-## 7.11: Securely manage Azure secrets
+## 7.11: Manage Azure secrets&nbsp;<span style="display:inline !important;">securely<span>&nbsp;</span></span>
 
 | Azure ID | CIS IDs | Responsibility |
 |--|--|--|
@@ -176,7 +176,7 @@ https://docs.microsoft.com/azure/key-vault/quick-create-portal
 How to provide Key Vault authentication with a managed identity:
 https://docs.microsoft.com/azure/key-vault/managed-identity
 
-## 7.12: Securely and automatically manage identities
+## 7.12: <span style="display:inline !important;">Manage identities s</span>ecurely and automatically&nbsp;
 
 | Azure ID | CIS IDs | Responsibility |
 |--|--|--|

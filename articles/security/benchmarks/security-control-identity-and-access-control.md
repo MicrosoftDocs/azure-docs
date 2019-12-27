@@ -14,27 +14,27 @@ ms.custom: security-recommendations
 
 # Security Control: Identity and Access Control
 
-## 3.1: Maintain Inventory of Administrative Accounts
+## 3.1: Maintain an inventory of administrative accounts
 
 | Azure ID | CIS IDs | Responsibility |
 |--|--|--|
 | 3.1 | 4.1 | Customer |
 
-Azure AD has built-in roles that must be explicitly assigned and are queryable. Use the Azure AD PowerShell module to perform adhoc queries to discover accounts that are members of administrative groups.
+Azure AD has built-in roles that must be explicitly assigned and are queryable. Use the Azure AD PowerShell module to perform ad hoc queries to discover accounts that are members of administrative groups.
 
 How to query Azure AD Roles and Role membership with PowerShell:
 https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0
 https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0
 
-## 3.2: Change Default Passwords where Applicable
+## 3.2: Change default passwords where applicable
 
 | Azure ID | CIS IDs | Responsibility |
 |--|--|--|
 | 3.2 | 4.2 | Customer |
 
-Azure AD does not have the concept of default passwords. Other Azure resources requiring a password forces a password to be created with complexity requirements and a minimum password length, which differs depending on the service. Customer responsible for third party applications and marketplace services that may use default passwords.
+Azure AD does not have the concept of default passwords. Other Azure resources requiring a password forces a password to be created with complexity requirements and a minimum password length, which differs depending on the service. You are responsible for third-party applications and marketplace services that may use default passwords.
 
-## 3.3: Ensure the Use of Dedicated Administrative Accounts
+## 3.3: Use dedicated administrative accounts
 
 | Azure ID | CIS IDs | Responsibility |
 |--|--|--|
@@ -46,7 +46,7 @@ You can also enable a Just-In-Time / Just-Enough-Access by using Azure AD Privil
 
 Learn more: https://docs.microsoft.com/azure/active-directory/privileged-identity-management/
 
-## 3.4: Utilize Single Sign-On (SSO) with Azure Active Directory
+## 3.4: Use single sign-on (SSO) with Azure Active Directory
 
 | Azure ID | CIS IDs | Responsibility |
 |--|--|--|
@@ -57,7 +57,7 @@ Wherever possible, use Azure Active Directory SSO instead than configuring indiv
 Understanding SSO with Azure AD:
 https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on
 
-## 3.5: Use Multifactor Authentication for all Azure Active Directory based access.
+## 3.5: Use multi-factor authentication for all Azure Active Directory based access.
 
 | Azure ID | CIS IDs | Responsibility |
 |--|--|--|
@@ -73,7 +73,7 @@ How to monitor identity and access within Azure Security Center:
 
 https://docs.microsoft.com/azure/security-center/security-center-identity-access
 
-## 3.6: Use Dedicated Machines (Privileged Access Workstations) for all Administrative Tasks
+## 3.6: Use dedicated machines (Privileged Access Workstations) for all administrative tasks
 
 | Azure ID | CIS IDs | Responsibility |
 |--|--|--|
@@ -87,7 +87,7 @@ https://docs.microsoft.com/windows-server/identity/securing-privileged-access/pr
 How to enable MFA in Azure:
 https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted
 
-## 3.7: Limit users' ability to interact with ARM via scripting tools.
+## 3.7: Limit users' ability to interact with ARM via scripting tools
 
 | Azure ID | CIS IDs | Responsibility |
 |--|--|--|
@@ -98,7 +98,7 @@ Use Azure Conditional Access to limit users' ability to interact with ARM by con
 How to configure Conditional Access to block access to ARM:
 https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management
 
-## 3.8: Log and Alert on Suspicious Activity from Administrative Accounts
+## 3.8: Log and alert on suspicious activity from administrative accounts
 
 | Azure ID | CIS IDs | Responsibility |
 |--|--|--|
@@ -114,7 +114,7 @@ How to monitor users' identity and access activity in Azure Security Center:
 
 https://docs.microsoft.com/azure/security-center/security-center-identity-access
 
-## 3.9: Manage Azure Resource from only Approved Locations
+## 3.9: Manage Azure resources from only approved locations
 
 | Azure ID | CIS IDs | Responsibility |
 |--|--|--|
@@ -137,7 +137,7 @@ Use Azure Active Directory (AAD) as the central authentication and authorization
 How to create and configure an AAD instance:
 https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant
 
-## 3.11: Regularly Review and Reconcile User Access
+## 3.11: Regularly review and reconcile user access
 
 | Azure ID | CIS IDs | Responsibility |
 |--|--|--|
@@ -151,13 +151,13 @@ https://docs.microsoft.com/azure/active-directory/reports-monitoring/
 How to use Azure Identity Access Reviews:
 https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview
 
-## 3.12: Monitor Attempts to Access Deactivated Accounts
+## 3.12: Monitor attempts to access deactivated accounts
 
 | Azure ID | CIS IDs | Responsibility |
 |--|--|--|
 | 3.12 | 16.12 | Customer |
 
-You have access to Azure AD Sign in Activity, Audit and Risk Event log sources, which allow you to integrate with any SIEM / Monitoring tool.
+You have access to Azure AD Sign-in Activity, Audit and Risk Event log sources, which allow you to integrate with any SIEM/Monitoring tool.
 
 You can streamline this process by creating Diagnostic Settings for Azure Active Directory user accounts and sending the audit logs and sign-in logs to a Log Analytics Workspace. You can configure desired Alerts within Log Analytics Workspace.
 
@@ -165,7 +165,7 @@ How to integrate Azure Activity Logs into Azure Monitor:
 
 https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics
 
-## 3.13: Alert on Account Login Behavior Deviation
+## 3.13: Alert on account login behavior deviation
 
 | Azure ID | CIS IDs | Responsibility |
 |--|--|--|
@@ -191,7 +191,7 @@ https://docs.microsoft.com/azure/sentinel/quickstart-onboard
 |--|--|--|
 | 3.14 | 16 | Customer |
 
-In support scenarios where Microsoft needs to access customer data, Customer Lockbox provides an interface for customers to review and approve or reject customer data access requests.
+In support scenarios where Microsoft needs to access customer data, Customer Lockbox provides an interface for you to review, and approve or reject customer data access requests.
 
 Understanding Customer Lockbox:
 
