@@ -18,12 +18,12 @@ This article shows you how to build and publish a Java function to Azure Functio
 
 ## Prerequisites
 
-To develop functions using Java, you need to:
+To develop functions using Java, you must have the following installed:
 
-- Install [Java Developer Kit](https://aka.ms/azure-jdks), version 8
-- Install [Apache Maven](https://maven.apache.org), version 3.0 or above
-- Install [Azure CLI]
-- Install [Azure Functions Core Tools](./functions-run-local.md#v2) version 2.6.666 or above
+- [Java Developer Kit](https://aka.ms/azure-jdks), version 8
+- [Apache Maven](https://maven.apache.org), version 3.0 or above
+- [Azure CLI]
+- [Azure Functions Core Tools](./functions-run-local.md#v2) version 2.6.666 or above
 
 You also need an active Azure subscription. [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
