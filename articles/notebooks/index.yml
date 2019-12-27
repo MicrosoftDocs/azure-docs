@@ -27,10 +27,15 @@ landingContent:
       - linkListType: get-started
         links:
           - text: Access your Azure notebooks
-            url: https://notebooks.azure.com/  
+            url: https://notebooks.azure.com/
+
   # Card
-  - title: Get started
+  - title: Get started with Azure Notebooks
     linkLists:
+      - linkListType: learn
+        links:
+          - text: Analyze climate data with Azure Notebooks
+            url: /learn/modules/analyze-climate-data-with-azure-notebooks/
       - linkListType: tutorial
         links:
           - text: Create and run a Jupyter notebook with Python
@@ -48,7 +53,7 @@ landingContent:
           - text: Create a project with a custom environment
             url: quickstart-create-jupyter-notebook-project-environment.md
   # Card
-  - title: Top tasks
+  - title: Top tasks for Azure Notebooks
     linkLists:
       - linkListType: how-to-guide
         links:
