@@ -83,11 +83,12 @@ These code snippets show you how to do the following with the Text Analytics cli
 
 Create a new [TextAnalyticsClient](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-textanalytics/azure.cognitiveservices.language.textanalytics.textanalyticsclient?view=azure-python) with your endpoint, and a `CognitiveServicesCredentials` object containing your key.
 
-```csharp
+```python
+from azure.ai.textanalytics import TextAnalyticsClient
+
 def authenticateClient():
-    credentials = CognitiveServicesCredentials(subscription_key)
     text_analytics_client = TextAnalyticsClient(
-        endpoint=endpoint, credentials=credentials)
+        endpoint=endpoint, credential=subscription_key)
     return text_analytics_client
 ```
 
