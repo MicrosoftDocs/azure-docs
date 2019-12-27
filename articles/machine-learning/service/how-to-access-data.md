@@ -1,5 +1,5 @@
 ---
-title: Access data in Azure storage services
+title: Access data in Azure Storage services
 titleSuffix: Azure Machine Learning
 description: Learn how to use datastores to securely connect to Azure storage services during training with Azure Machine Learning
 services: machine-learning
@@ -12,197 +12,197 @@ ms.reviewer: nibaccam
 ms.date: 12/10/2019
 ms.custom: seodec18
 
-# Customer intent: As an experienced Python developer, I need to make my data in Azure storage available to my remote compute to train my machine learning models.
+# Customer intent: As an experienced Python developer, I need to make my data in Azure Storage available to my remote compute to train my machine learning models.
 
 ---
 
-# Access data in Azure storage services
+# Access data in Azure Storage services
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-In this article, learn how to easily access your data in Azure storage services via Azure Machine Learning datastores. Datastores are used to store connection information, like your subscription ID and token authorization. Using datastores allows you to access your storage without having to hard code connection information in your scripts. You can create datastores from these [Azure storage solutions](#matrix). For unsupported storage solutions, and to save data egress cost during machine learning experiments, we recommend you move your data to our supported Azure storage solutions. [Learn how to move your data](#move). 
+In this article, learn how to easily access your data in Azure Storage services via Azure Machine Learning datastores. Datastores are used to store connection information, like your subscription ID and token authorization. When you use datastores, you can access your storage without having to hard code connection information in your scripts. 
 
-This how-to shows examples of the following tasks:
-* Register datastores
-* Get datastores from workspace
-* Upload and download data using datastores
-* Access data during training
-* Move data to an Azure storage service
+You can create datastores from [these Azure Storage solutions](#matrix). For unsupported storage solutions, and to save data egress cost during machine learning experiments, we recommend that you [move your data](#move) to supported Azure Storage solutions. 
 
 ## Prerequisites
-You'll need
-- An Azure subscription. If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree) today.
+You'll need:
+- An Azure subscription. If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree).
 
-- An Azure storage account with an [Azure Blob Container](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) or [Azure File Share](https://docs.microsoft.com/azure/storage/files/storage-files-introduction).
+- An Azure storage account with an [Azure blob container](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) or [Azure file share](https://docs.microsoft.com/azure/storage/files/storage-files-introduction).
 
 - The [Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py), or access to [Azure Machine Learning studio](https://ml.azure.com/).
 
-- An Azure Machine Learning workspace. 
-    - Either [Create an Azure Machine Learning workspace](how-to-manage-workspace.md) or use an existing one using the Python SDK.
+- An Azure Machine Learning workspace.
+  
+  Either [create an Azure Machine Learning workspace](how-to-manage-workspace.md) or use an existing one via the Python SDK:
 
-        ```Python
-        import azureml.core
-        from azureml.core import Workspace, Datastore
+   ```Python
+   import azureml.core
+   from azureml.core import Workspace, Datastore
         
-        ws = Workspace.from_config()
-        ```
+   ws = Workspace.from_config()
+   ```
 
 <a name="access"></a>
 
 ## Create and register datastores
 
-When you register an Azure storage solution as a datastore, you automatically create that datastore in a specific workspace. You can create and register datastores to a workspace using the Python SDK or Azure Machine Learning studio.
+When you register an Azure Storage solution as a datastore, you automatically create that datastore in a specific workspace. You can create and register datastores to a workspace by using the Python SDK or Azure Machine Learning studio.
 
-### Using the Python SDK
+### Python SDK
 
-All the register methods are on the [`Datastore`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py) class and have the form register_azure_*.
+All the register methods are on the [`Datastore`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py) class and have the form `register_azure_*`.
 
-The information you need to populate the register() method can be found via the [Azure portal](https://portal.azure.com) and these steps
+You can find the information that you need to populate the `register()` method by using the [Azure portal](https://portal.azure.com):
 
-1. Select **Storage Accounts** on the left pane and choose the storage account you want to register. 
-2. The **Overview** page provides information such as, the account name and container or file share name. 
-3. For authentication information, like account key or SAS token, navigate to **Access Keys** under the **Settings** pane on the left. 
+1. Select **Storage Accounts** on the left pane, and choose the storage account that you want to register. 
+2. For information like the account name, container, and file share name, go to the **Overview** page. For authentication information, like account key or SAS token, go to **Access Keys** on the **Settings** pane. 
 
 > [!IMPORTANT]
-> If your storage account is in a VNET, only Azure blob datastore creation is supported. Set the parameter, `grant_workspace_access` to `True` to grant your workspace access to your storage account.
+> If your storage account is in a virtual network, only the creation of an Azure blob datastore is supported. To grant your workspace access to your storage account, set the parameter `grant_workspace_access` to `True`.
 
-The following examples show how to register an Azure Blob Container,   an Azure File Share or an Azure SQL data as a datastore.
+The following examples show how to register an Azure blob container, an Azure file share, and Azure SQL data as a datastore.
 
-+ For an **Azure Blob Container Datastore**, use [`register_azure_blob-container()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py#register-azure-blob-container-workspace--datastore-name--container-name--account-name--sas-token-none--account-key-none--protocol-none--endpoint-none--overwrite-false--create-if-not-exists-false--skip-validation-false--blob-cache-timeout-none--grant-workspace-access-false--subscription-id-none--resource-group-none-)
+#### Blob container
 
-    The following code creates and registers the datastore, `blob_datastore_name`, to the workspace, `ws`. This datastore accesses the Azure blob container `my-container-name`, on the Azure storage account, `my-account-name` using the provided account key.
+To register an Azure blob container as a datastore, use [`register_azure_blob-container()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py#register-azure-blob-container-workspace--datastore-name--container-name--account-name--sas-token-none--account-key-none--protocol-none--endpoint-none--overwrite-false--create-if-not-exists-false--skip-validation-false--blob-cache-timeout-none--grant-workspace-access-false--subscription-id-none--resource-group-none-).
 
-    ```Python
-    blob_datastore_name='azblobsdk' # Name of the Datastore  to workspace
-    container_name=os.getenv("BLOB_CONTAINER", "<my-container-name>") # Name of Azure blob container
-    account_name=os.getenv("BLOB_ACCOUNTNAME", "<my-account-name>") # Storage account name
-    account_key=os.getenv("BLOB_ACCOUNT_KEY", "<my-account-key>") # Storage account key
+The following code creates and registers the `blob_datastore_name` datastore to the `ws` workspace. This datastore accesses the `my-container-name` blob container on the `my-account-name` storage account, by using the provided account key.
 
-    blob_datastore = Datastore.register_azure_blob_container(workspace=ws, 
-                                                             datastore_name=blob_datastore_name, 
-                                                             container_name=container_name, 
-                                                             account_name=account_name,
-                                                             account_key=account_key)
-    ```
+```Python
+blob_datastore_name='azblobsdk' # Name of the datastore to workspace
+container_name=os.getenv("BLOB_CONTAINER", "<my-container-name>") # Name of Azure blob container
+account_name=os.getenv("BLOB_ACCOUNTNAME", "<my-account-name>") # Storage account name
+account_key=os.getenv("BLOB_ACCOUNT_KEY", "<my-account-key>") # Storage account key
 
-+ For an **Azure File Share Datastore**, use [`register_azure_file_share()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py#register-azure-file-share-workspace--datastore-name--file-share-name--account-name--sas-token-none--account-key-none--protocol-none--endpoint-none--overwrite-false--create-if-not-exists-false--skip-validation-false-). 
+blob_datastore = Datastore.register_azure_blob_container(workspace=ws, 
+                                                         datastore_name=blob_datastore_name, 
+                                                         container_name=container_name, 
+                                                         account_name=account_name,
+                                                         account_key=account_key)
+```
 
-    The following code creates and registers the datastore, `file_datastore_name`, to the workspace, `ws`. This datastore accesses the Azure file share, `my-fileshare-name`, on the Azure storage account, `my-account-name` using the provided account key.
+#### File share
 
-    ```Python
-    file_datastore_name='azfilesharesdk' # Name of the Datastore to workspace
-    file_share_name=os.getenv("FILE_SHARE_CONTAINER", "<my-fileshare-name>") # Name of Azure file share container
-    account_name=os.getenv("FILE_SHARE_ACCOUNTNAME", "<my-account-name>") # Storage account name
-    account_key=os.getenv("FILE_SHARE_ACCOUNT_KEY", "<my-account-key>") # Storage Account Key
+To register an Azure file share as a datastore, use [`register_azure_file_share()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py#register-azure-file-share-workspace--datastore-name--file-share-name--account-name--sas-token-none--account-key-none--protocol-none--endpoint-none--overwrite-false--create-if-not-exists-false--skip-validation-false-). 
 
-    file_datastore = Datastore.register_azure_file_share(workspace=ws,
-                                                     datastore_name=file_datastore_name, 
-                                                     file_share_name=file_share_name, 
-                                                     account_name=account_name,
-                                                     account_key=account_key)
-    ```
+The following code creates and registers the `file_datastore_name` datastore to the `ws` workspace. This datastore accesses the `my-fileshare-name` file share on the `my-account-name` storage account, by using the provided account key.
 
-+ For an **Azure SQL Datastore**, use [register_azure_sql_database()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore.datastore?view=azure-ml-py#register-azure-sql-database-workspace--datastore-name--server-name--database-name--tenant-id-none--client-id-none--client-secret-none--resource-url-none--authority-url-none--endpoint-none--overwrite-false--username-none--password-none-) to register a credential Datastore connected to an Azure SQL database.  with SQL authentication or service principal permissions. 
+```Python
+file_datastore_name='azfilesharesdk' # Name of the datastore to workspace
+file_share_name=os.getenv("FILE_SHARE_CONTAINER", "<my-fileshare-name>") # Name of Azure file share container
+account_name=os.getenv("FILE_SHARE_ACCOUNTNAME", "<my-account-name>") # Storage account name
+account_key=os.getenv("FILE_SHARE_ACCOUNT_KEY", "<my-account-key>") # Storage account key
 
-    #### By SQL authentication
+file_datastore = Datastore.register_azure_file_share(workspace=ws,
+                                                 datastore_name=file_datastore_name, 
+                                                 file_share_name=file_share_name, 
+                                                 account_name=account_name,
+                                                 account_key=account_key)
+```
 
-    ```python
-    sql_datastore_name="azsqlsdksql"
-    server_name=os.getenv("SQL_SERVERNAME", "<my-server-name>") # Name of Azure SQL server
-    database_name=os.getenv("SQL_DATBASENAME", "<my-database-name>") # Name of Azure SQL database
-    username=os.getenv("SQL_USER_NAME", "<my-sql-user-name>") # The username of the database user to access the database.
-    password=os.getenv("SQL_USER_PASSWORD", "<my-sql-user-password>") # The password of the database user to access the database.
+#### SQL data
 
-    sql_datastore = Datastore.register_azure_sql_database(workspace=ws,
+For an Azure SQL datastore, use [register_azure_sql_database()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore.datastore?view=azure-ml-py#register-azure-sql-database-workspace--datastore-name--server-name--database-name--tenant-id-none--client-id-none--client-secret-none--resource-url-none--authority-url-none--endpoint-none--overwrite-false--username-none--password-none-) to register a credential datastore connected to an Azure SQL database with SQL authentication or service principal permissions. 
+
+To register through SQL authentication:
+
+```python
+sql_datastore_name="azsqlsdksql"
+server_name=os.getenv("SQL_SERVERNAME", "<my-server-name>") # Name of the Azure SQL server
+database_name=os.getenv("SQL_DATBASENAME", "<my-database-name>") # Name of the Azure SQL database
+username=os.getenv("SQL_USER_NAME", "<my-sql-user-name>") # Username of the database user to access the database
+password=os.getenv("SQL_USER_PASSWORD", "<my-sql-user-password>") # Password of the database user to access the database
+
+sql_datastore = Datastore.register_azure_sql_database(workspace=ws,
+                                                  datastore_name=sql_datastore_name,
+                                                  server_name=server_name,
+                                                  database_name=database_name,
+                                                  username=username,
+                                                  password=password)
+
+```
+
+To register through a service principal:
+
+```python 
+sql_datastore_name="azsqlsdksp"
+server_name=os.getenv("SQL_SERVERNAME", "<my-server-name>") # Name of the SQL server
+database_name=os.getenv("SQL_DATBASENAME", "<my-database-name>") # Name of the SQL database
+client_id=os.getenv("SQL_CLIENTNAME", "<my-client-id>") # Client ID of the service principal with permissions to access the database
+client_secret=os.getenv("SQL_CLIENTSECRET", "<my-client-secret>") # Secret of the service principal
+tenant_id=os.getenv("SQL_TENANTID", "<my-tenant-id>") # Tenant ID of the service principal
+
+sql_datastore = Datastore.register_azure_sql_database(workspace=ws,
                                                       datastore_name=sql_datastore_name,
                                                       server_name=server_name,
                                                       database_name=database_name,
-                                                      username=username,
-                                                      password=password)
+                                                      client_id=client_id,
+                                                      client_secret=client_secret,
+                                                      tenant_id=tenant_id)
+```
 
-    ```
+#### Storage guidance
 
-    #### By service principal
+We recommend an Azure blob container. Both standard and premium storage are available for blobs. Although premium storage is more expensive, its faster throughput speeds might improve the speed of your training runs, particularly if you train against a large dataset. For information about the cost of storage accounts, see the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/?service=machine-learning-service).
 
-    ```python 
-    sql_datastore_name="azsqlsdksp"
-    server_name=os.getenv("SQL_SERVERNAME", "<my-server-name>") # Name of SQL server
-    database_name=os.getenv("SQL_DATBASENAME", "<my-database-name>") # Name of SQL database
-    client_id=os.getenv("SQL_CLIENTNAME", "<my-client-id>") # client id of service principal with permissions to access database
-    client_secret=os.getenv("SQL_CLIENTSECRET", "<my-client-secret>") # the secret of service principal
-    tenant_id=os.getenv("SQL_TENANTID", "<my-tenant-id>") # tenant id of service principal
+### Azure Machine Learning studio 
 
-    sql_datastore = Datastore.register_azure_sql_database(workspace=ws,
-                                                          datastore_name=sql_datastore_name,
-                                                          server_name=server_name,
-                                                          database_name=database_name,
-                                                          client_id=client_id,
-                                                          client_secret=client_secret,
-                                                          tenant_id=tenant_id)
-    ```
-
-####  Storage guidance
-
-We recommend Azure Blob Container. Both standard and premium storage are available for blobs. Although more expensive, we suggest premium storage due to faster throughput speeds that may improve the speed of your training runs, particularly if you train against a large data set. See the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/?service=machine-learning-service) for storage account cost information.
-
-### Using Azure Machine Learning studio 
-
-Create a new datastore in a few steps in Azure Machine Learning studio.
+Create a new datastore in a few steps in Azure Machine Learning studio:
 
 1. Sign in to [Azure Machine Learning studio](https://ml.azure.com/).
-1. Select **Datastores** in the left pane under **Manage**.
+1. Select **Datastores** on the left pane under **Manage**.
 1. Select **+ New datastore**.
-1. Complete the New datastore form. The form intelligently updates based on the Azure storage type and authentication type selections.
+1. Complete the form for a new datastore. The form intelligently updates itself based on your selections for Azure Storage type and authentication type.
   
-The information you need to populate the form can be found via  [Azure portal](https://portal.azure.com). Select **Storage Accounts** on the left pane and choose the storage account you want to register. The **Overview** page provides information such as, the account name and container or file share name. For authentication items, like account key or SAS token, navigate to **Account Keys** under the **Settings** pane on the left.
+You can find the information that you need to populate the form on the  [Azure portal](https://portal.azure.com). Select **Storage Accounts** on the left pane, and choose the storage account that you want to register. The **Overview** page provides information such as the account name, container, and file share name. For authentication items, like account key or SAS token, go to **Account Keys** on the **Settings** pane.
 
-The following example demonstrates what the form looks like for Azure blob datastore creation. 
+The following example demonstrates what the form looks like when you create an Azure blob datastore: 
     
- ![New datastore](media/how-to-access-data/new-datastore-form.png)
+![Form for a new datastore](media/how-to-access-data/new-datastore-form.png)
 
 
 <a name="get"></a>
 
 ## Get datastores from your workspace
 
-To get a specific datastore registered in the current workspace, use the [`get()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py#get-workspace--datastore-name-) static method on Datastore class:
+To get a specific datastore registered in the current workspace, use the [`get()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py#get-workspace--datastore-name-) static method on the `Datastore` class:
 
 ```Python
-#get named datastore from current workspace
+# Get a named datastore from the current workspace
 datastore = Datastore.get(ws, datastore_name='your datastore name')
 ```
 To get the list of datastores registered with a given workspace, you can use the [`datastores`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace%28class%29?view=azure-ml-py#datastores) property on a workspace object:
 
 ```Python
-#list all datastores registered in current workspace
+# List all datastores registered in the current workspace
 datastores = ws.datastores
 for name, datastore in datastores.items():
     print(name, datastore.datastore_type)
 ```
 
-When you create a workspace, an Azure Blob Container and an Azure File Share are automatically registered to the workspace named `workspaceblobstore` and `workspacefilestore` respectively. These store the connection information of the Blob Container and the File Share that is provisioned in the storage account attached to the workspace. The `workspaceblobstore` is set as the default datastore.
+When you create a workspace, an Azure blob container and an Azure file share are automatically registered to the workspace. They're named `workspaceblobstore` and `workspacefilestore`, respectively. They store the connection information for the blob container and the file share that are provisioned in the storage account attached to the workspace. The `workspaceblobstore` container is set as the default datastore.
 
-To get the workspace's default datastore:
+To get the workspace's default datastore, use this line:
 
 ```Python
 datastore = ws.get_default_datastore()
 ```
 
-To define a different default datastore for the current workspace, use [`set_default_datastore()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#set-default-datastore-name-) method on the workspace object:
+To define a different default datastore for the current workspace, use the [`set_default_datastore()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#set-default-datastore-name-) method on the workspace object:
 
 ```Python
-#define default datastore for current workspace
+# Define the default datastore for the current workspace
 ws.set_default_datastore('your datastore name')
 ```
 
 <a name="up-and-down"></a>
-## Upload & download data
-The [`upload()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_storage_datastore.azureblobdatastore?view=azure-ml-py#upload-src-dir--target-path-none--overwrite-false--show-progress-true-) and [`download()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_storage_datastore.azureblobdatastore?view=azure-ml-py#download-target-path--prefix-none--overwrite-false--show-progress-true-) methods described in the following examples are specific to and operate identically for the [AzureBlobDatastore](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_storage_datastore.azureblobdatastore?view=azure-ml-py) and [AzureFileDatastore](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_storage_datastore.azurefiledatastore?view=azure-ml-py) classes.
+## Upload and download data
+
+The [`upload()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_storage_datastore.azureblobdatastore?view=azure-ml-py#upload-src-dir--target-path-none--overwrite-false--show-progress-true-) and [`download()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_storage_datastore.azureblobdatastore?view=azure-ml-py#download-target-path--prefix-none--overwrite-false--show-progress-true-) methods described in the following examples are specific to, and operate identically for, the [AzureBlobDatastore](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_storage_datastore.azureblobdatastore?view=azure-ml-py) and [AzureFileDatastore](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_storage_datastore.azurefiledatastore?view=azure-ml-py) classes.
 
 ### Upload
 
- Upload either a directory or individual files to the datastore using the Python SDK.
-
-To upload a directory to a datastore `datastore`:
+Upload either a directory or individual files to the datastore by using the Python SDK:
 
 ```Python
 datastore.upload(src_dir='your source directory',
@@ -211,13 +211,13 @@ datastore.upload(src_dir='your source directory',
                  show_progress=True)
 ```
 
-The `target_path` parameter specifies the location in the file share (or blob container) to upload. It defaults to `None`, in which case the data gets uploaded to root. Otherwise, if `overwrite=True` any existing data at `target_path` is overwritten.
+The `target_path` parameter specifies the location in the file share (or blob container) to upload. It defaults to `None`, so the data is uploaded to root. If `overwrite=True`, any existing data at `target_path` is overwritten.
 
-Or upload a list of individual files to the datastore via the `upload_files()` method.
+You can also upload a list of individual files to the datastore via the `upload_files()` method.
 
 ### Download
 
-Similarly, download data from a datastore to your local file system.
+Download data from a datastore to your local file system:
 
 ```Python
 datastore.download(target_path='your target path',
@@ -225,44 +225,44 @@ datastore.download(target_path='your target path',
                    show_progress=True)
 ```
 
-The `target_path` parameter is the location of the local directory to download the data to. To specify a path to the folder in the file share (or blob container) to download, provide that path to `prefix`. If `prefix` is `None`, all the contents of your file share (or blob container) will get downloaded.
+The `target_path` parameter is the location of the local directory to download the data to. To specify a path to the folder in the file share (or blob container) to download, provide that path to `prefix`. If `prefix` is `None`, all the contents of your file share (or blob container) will be downloaded.
 
 <a name="train"></a>
 ## Access your data during training
 
 > [!IMPORTANT]
-> Using [Azure Machine Learning datasets](how-to-create-register-datasets.md) is the new recommended way to access your data in training. Datasets provide functions that load tabular data into pandas or spark DataFrame, and the ability to download or mount files of any format from Azure Blob, Azure File, Azure Data Lake Gen 1, Azure Data Lake Gen 2, Azure SQL, Azure PostgreSQL. Learn more about [how to train with datasets](how-to-train-with-datasets.md).
+> We now recommend using [Azure Machine Learning datasets](how-to-create-register-datasets.md) to access your data in training. Datasets provide functions that load tabular data into a pandas or Spark DataFrame. Datasets also provide the ability to download or mount files of any format from Azure Blob storage, Azure Files, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, Azure SQL Database, and Azure Database for PostgreSQL. [Learn more about how to train with datasets](how-to-train-with-datasets.md).
 
-The following table lists the methods that tell the compute target how to use the datastores during runs. 
+The following table lists the methods that tell the compute target how to use the datastores during runs: 
 
 Way|Method|Description|
 ----|-----|--------
-Mount| [`as_mount()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_storage_datastore.abstractazurestoragedatastore?view=azure-ml-py#as-mount--)| Use to mount the datastore on the compute target. When mounted, all files of your datastore are made accessible to your compute target.
+Mount| [`as_mount()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_storage_datastore.abstractazurestoragedatastore?view=azure-ml-py#as-mount--)| Use to mount the datastore on the compute target. When the datastore is mounted, all files of your datastore are made accessible to your compute target.
 Download|[`as_download()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_storage_datastore.abstractazurestoragedatastore?view=azure-ml-py#as-download-path-on-compute-none-)|Use to download the contents of your datastore to the location specified by `path_on_compute`. <br><br> This download happens before the run.
-Upload|[`as_upload()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_storage_datastore.abstractazurestoragedatastore?view=azure-ml-py#as-upload-path-on-compute-none-)| Use to upload a file from the location specified by `path_on_compute` to your datastore. <br><br> This upload happens after your run.
+Upload|[`as_upload()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_storage_datastore.abstractazurestoragedatastore?view=azure-ml-py#as-upload-path-on-compute-none-)| Use to upload a file from the location specified by `path_on_compute` to your datastore. <br><br> This upload happens after the run.
 
-To reference a specific folder or file in your datastore and make it available on the compute target, use the datastore [`path()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_storage_datastore.abstractazurestoragedatastore?view=azure-ml-py#path-path-none--data-reference-name-none-) method.
+To reference a specific folder or file in your datastore and make it available on the compute target, use the datastore [`path()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_storage_datastore.abstractazurestoragedatastore?view=azure-ml-py#path-path-none--data-reference-name-none-) method:
 
 ```Python
-#to mount the full contents in your storage to the compute target
+# To mount the full contents in your storage to the compute target
 datastore.as_mount()
 
-#to download the contents of only the `./bar` directory in your storage to the compute target
+# To download the contents of only the `./bar` directory in your storage to the compute target
 datastore.path('./bar').as_download()
 ```
 > [!NOTE]
-> Any specified `datastore` or `datastore.path` object resolves to an environment variable name of the format `"$AZUREML_DATAREFERENCE_XXXX"`, whose value represents the mount/download path on the target compute. The datastore path on the target compute might not be the same as the execution path for the training script.
+> Any specified `datastore` or `datastore.path` object resolves to an environment variable name of the format `"$AZUREML_DATAREFERENCE_XXXX"`. The value of this name represents the mount/download path on the compute target. The datastore path on the compute target might not be the same as the execution path for the training script.
 
 ### Examples 
 
 We recommend using the [`Estimator`](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py) class for accessing data during training. 
 
-The `script_params` variable is a dictionary containing parameters to the entry_script. Use it to pass in a datastore and describe how data is made available on the compute target. Learn more from our end-to-end [tutorial](tutorial-train-models-with-aml.md).
+The `script_params` variable is a dictionary that contains parameters to `entry_script`. Use it to pass in a datastore and describe how data is made available on the compute target. Learn more from the [end-to-end tutorial](tutorial-train-models-with-aml.md).
 
 ```Python
 from azureml.train.estimator import Estimator
 
-# notice '/' is in front, this indicates the absolute path
+# Notice that '/' is in front, which indicates the absolute path
 script_params = {
     '--data_dir': datastore.path('/bar').as_mount()
 }
@@ -274,10 +274,10 @@ est = Estimator(source_directory='your code directory',
                 )
 ```
 
-You can also pass in a list of datastores to the Estimator constructor `inputs` parameter to mount or copy data to/from your datastore(s). This code example:
-* Downloads all the contents in `datastore1` to the compute target before your training script `train.py` is run
-* Downloads the folder `'./foo'` in `datastore2` to the compute target before `train.py` is run
-* Uploads the file `'./bar.pkl'` from the compute target to the `datastore3` after your script has run
+You can also pass in a list of datastores to the `Estimator` constructor's `inputs` parameter to mount or copy data to/from your datastore. This code example:
+* Downloads all the contents in `datastore1` to the compute target before the `train.py` training script is run.
+* Downloads the `'./foo'` folder in `datastore2` to the compute target before `train.py` is run.
+* Uploads the `'./bar.pkl'` file from the compute target to `datastore3` after your script has run.
 
 ```Python
 est = Estimator(source_directory='your code directory',
@@ -285,9 +285,9 @@ est = Estimator(source_directory='your code directory',
                 entry_script='train.py',
                 inputs=[datastore1.as_download(), datastore2.path('./foo').as_download(), datastore3.as_upload(path_on_compute='./bar.pkl')])
 ```
-If you prefer to use a RunConfig object for training, you need to set up a [DataReference](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py) object. 
+If you prefer to use a `RunConfig` object for training, you need to set up a [`DataReference`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py) object. 
 
-The following code shows how to work with a DataReference object in an estimation pipeline. For the full example, see this [notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/intro-to-pipelines/aml-pipelines-how-to-use-estimatorstep.ipynb).
+The following code shows how to work with a `DataReference` object in an estimation pipeline. For the full example, see [this notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/intro-to-pipelines/aml-pipelines-how-to-use-estimatorstep.ipynb).
 
 ```Python
 from azureml.core import Datastore
@@ -307,27 +307,27 @@ output = PipelineData("output", datastore=def_blob_store)
 
 ### Compute and datastore matrix
 
-Datastores currently support storing connection information to the storage services listed in the following matrix. This matrix displays the available data access functionalities for the different compute targets and datastore scenarios. Learn more about the [compute targets for Azure Machine Learning](how-to-set-up-training-targets.md#compute-targets-for-training).
+Datastores currently support storing connection information to the storage services listed in the following matrix. This matrix displays the available data-access functionalities for the different compute targets and datastore scenarios. [Learn more about the compute targets for Azure Machine Learning](how-to-set-up-training-targets.md#compute-targets-for-training).
 
 |Compute|[AzureBlobDatastore](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_storage_datastore.azureblobdatastore?view=azure-ml-py)                                       |[AzureFileDatastore](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_storage_datastore.azurefiledatastore?view=azure-ml-py)                                      |[AzureDataLakeDatastore](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_data_lake_datastore.azuredatalakedatastore?view=azure-ml-py) |[AzureDataLakeGen2Datastore](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_data_lake_datastore.azuredatalakegen2datastore?view=azure-ml-py) [AzurePostgreSqlDatastore](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_postgre_sql_datastore.azurepostgresqldatastore?view=azure-ml-py) [AzureSqlDatabaseDatastore](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_sql_database_datastore.azuresqldatabasedatastore?view=azure-ml-py) |
 |--------------------------------|----------------------------------------------------------|----------------------------------------------------------|------------------------|----------------------------------------------------------------------------------------|
 | Local|[as_download()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-download-path-on-compute-none--overwrite-false-), [as_upload()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-upload-path-on-compute-none--overwrite-false-)|[as_download()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-download-path-on-compute-none--overwrite-false-), [as_upload()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-upload-path-on-compute-none--overwrite-false-)|N/A         |N/A                                                                         |
-| Azure Machine Learning Compute |[as_mount()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-mount--), [as_download()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-download-path-on-compute-none--overwrite-false-), [as_upload()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-upload-path-on-compute-none--overwrite-false-), [ML&nbsp;pipelines](concept-ml-pipelines.md)|[as_mount()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-mount--), [as_download()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-download-path-on-compute-none--overwrite-false-), [as_upload()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-upload-path-on-compute-none--overwrite-false-), [ML&nbsp;pipelines](concept-ml-pipelines.md)|N/A         |N/A                                                                         |
+| Azure Machine Learning compute |[as_mount()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-mount--), [as_download()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-download-path-on-compute-none--overwrite-false-), [as_upload()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-upload-path-on-compute-none--overwrite-false-), [Machine Learning pipelines](concept-ml-pipelines.md)|[as_mount()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-mount--), [as_download()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-download-path-on-compute-none--overwrite-false-), [as_upload()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-upload-path-on-compute-none--overwrite-false-), [Machine Learning pipelines](concept-ml-pipelines.md)|N/A         |N/A                                                                         |
 | Virtual machines               |[as_download()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-download-path-on-compute-none--overwrite-false-), [as_upload()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-upload-path-on-compute-none--overwrite-false-)                           | [as_download()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-download-path-on-compute-none--overwrite-false-) [as_upload()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-upload-path-on-compute-none--overwrite-false-)                            |N/A         |N/A                                                                         |
-| HDInsight                      |[as_download()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-download-path-on-compute-none--overwrite-false-) [as_upload()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-upload-path-on-compute-none--overwrite-false-)                            | [as_download()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-download-path-on-compute-none--overwrite-false-) [as_upload()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-upload-path-on-compute-none--overwrite-false-)                            |N/A         |N/A                                                                         |
-| Data transfer                  |[ML&nbsp;pipelines](concept-ml-pipelines.md)                                               |N/A                                           |[ML&nbsp;pipelines](concept-ml-pipelines.md)            |[ML&nbsp;pipelines](concept-ml-pipelines.md)                                                                            |
-| Databricks                     |[ML&nbsp;pipelines](concept-ml-pipelines.md)                                              |N/A                                           |[ML&nbsp;pipelines](concept-ml-pipelines.md)             |N/A                                                                         |
-| Azure Batch                    |[ML&nbsp;pipelines](concept-ml-pipelines.md)                                               |N/A                                           |N/A         |N/A                                                                         |
-| Azure DataLake Analytics       |N/A                                           |N/A                                           |[ML&nbsp;pipelines](concept-ml-pipelines.md)             |N/A                                                                         |
+| Azure HDInsight                      |[as_download()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-download-path-on-compute-none--overwrite-false-) [as_upload()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-upload-path-on-compute-none--overwrite-false-)                            | [as_download()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-download-path-on-compute-none--overwrite-false-) [as_upload()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-upload-path-on-compute-none--overwrite-false-)                            |N/A         |N/A                                                                         |
+| Data transfer                  |[Machine Learning pipelines](concept-ml-pipelines.md)                                               |N/A                                           |[Machine Learning pipelines](concept-ml-pipelines.md)            |[Machine Learning pipelines](concept-ml-pipelines.md)                                                                            |
+| Azure Databricks                     |[Machine Learning pipelines](concept-ml-pipelines.md)                                              |N/A                                           |[Machine Learning pipelines](concept-ml-pipelines.md)             |N/A                                                                         |
+| Azure Batch                    |[Machine Learning pipelines](concept-ml-pipelines.md)                                               |N/A                                           |N/A         |N/A                                                                         |
+| Azure Data Lake Analytics       |N/A                                           |N/A                                           |[Machine Learning pipelines](concept-ml-pipelines.md)             |N/A                                                                         |
 
 > [!NOTE]
-> There may be scenarios in which highly iterative, large data processes run faster using `as_download()` instead of `as_mount()`; this can be validated experimentally.
+> There might be scenarios in which highly iterative, large data processes run faster using `as_download()` instead of `as_mount()`. You can validate this experimentally.
 
 ### Accessing source code during training
 
-Azure blob storage has higher throughput speeds than Azure file share and will scale to large numbers of jobs started in parallel. For this reason, we recommend configuring your runs to use blob storage for transferring source code files.
+Azure Blob storage has higher throughput speeds than an Azure file share and will scale to large numbers of jobs started in parallel. For this reason, we recommend configuring your runs to use Blob storage for transferring source code files.
 
-The following code example specifies in the run configuration which blob datastore to use for source code transfers.
+The following code example specifies in the run configuration which blob datastore to use for source code transfers:
 
 ```python 
 # workspaceblobstore is the default blob storage
@@ -336,23 +336,24 @@ run_config.source_directory_data_store = "workspaceblobstore"
 
 ## Access data during scoring
 
-Azure Machine Learning provides several ways to use your models for scoring. Some of these methods do not provide access to datastores. Use the following table to understand which methods allow you to access datastores during scoring:
+Azure Machine Learning provides several ways to use your models for scoring. Some of these methods don't provide access to datastores. Use the following table to understand which methods allow you to access datastores during scoring:
 
 | Method | Datastore access | Description |
 | ----- | :-----: | ----- |
 | [Batch prediction](how-to-run-batch-predictions.md) | ✔ | Make predictions on large quantities of data asynchronously. |
-| [Web service](how-to-deploy-and-where.md) | &nbsp; | Deploy model(s) as a web service. |
-| [IoT Edge module](how-to-deploy-and-where.md) | &nbsp; | Deploy model(s) to IoT Edge devices. |
+| [Web service](how-to-deploy-and-where.md) | &nbsp; | Deploy models as a web service. |
+| [Azure IoT Edge module](how-to-deploy-and-where.md) | &nbsp; | Deploy models to IoT Edge devices. |
 
-For situations where the SDK doesn't provide access to datastores, you may be able to create custom code using the relevant Azure SDK to access the data. For example, the [Azure Storage SDK for Python](https://github.com/Azure/azure-storage-python) is a client library that you can use to access data stored in blobs or files.
+For situations where the SDK doesn't provide access to datastores, you might be able to create custom code by using the relevant Azure SDK to access the data. For example, the [Azure Storage SDK for Python](https://github.com/Azure/azure-storage-python) is a client library that you can use to access data stored in blobs or files.
 
 <a name="move"></a>
-## Move data to supported Azure storage solutions
+## Move data to supported Azure Storage solutions
 
-Azure Machine Learning supports accessing data from Azure Blob, Azure File, Azure Data Lake Gen 1, Azure Data Lake Gen 2, Azure SQL, Azure PostgreSQL. For unsupported storage, to save data egress cost during machine learning experiments, we recommend you move your data to our supported Azure storage solutions using Azure Data Factory. Azure Data Factory provides efficient and resilient data transfer with more than 80 prebuilt connectors—including Azure data services, on-premises data sources, Amazon S3 and Redshift, and Google BigQuery—at no additional cost. [Follow step by step guide to move your data using Azure Data Factory](https://docs.microsoft.com/azure/data-factory/quickstart-create-data-factory-copy-data-tool).
+Azure Machine Learning supports accessing data from Azure Blob storage, Azure Files, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, Azure SQL Database, and Azure Database for PostgreSQL. If you're using unsupported storage, we recommend that you move your data to supported Azure Storage solutions by using Azure Data Factory. Moving data to supported storage can help you save data egress costs during machine learning experiments. 
+
+Azure Data Factory provides efficient and resilient data transfer with more than 80 prebuilt connectors at no additional cost. These connectors include Azure data services, on-premises data sources, Amazon S3 and Redshift, and Google BigQuery. [Follow the step-by-step guide to move your data by using Azure Data Factory](https://docs.microsoft.com/azure/data-factory/quickstart-create-data-factory-copy-data-tool).
 
 ## Next steps
 
-* [Train a model](how-to-train-ml-models.md).
-
-* [Deploy a model](how-to-deploy-and-where.md).
+* [Train a model](how-to-train-ml-models.md)
+* [Deploy a model](how-to-deploy-and-where.md)
