@@ -196,7 +196,10 @@ Length: 30
 
 ## Language detection
 
-Using the client created earlier, call [detect_language()](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-textanalytics/azure.cognitiveservices.language.textanalytics.textanalyticsclient?view=azure-python#detect-language-show-stats-none--documents-none--custom-headers-none--raw-false----operation-config-) and get the result. Then iterate through the results, and print each document's ID, and the first returned language.
+Create a new function called `language_detection()` which creates a client and calls its  [detect_languages()]() function. The returned response object will contain the detected language in `detected_languages` if successful, and an `error` if not.
+
+> [!Tip]
+> In some cases it may be hard to disambiguate languages based on the input. You can use the `country_hint` parameter to specify a 2-letter country code. By default the API is using the "US" as the default countryHint, to remove this behavior you can reset this parameter by setting this value to empty string `country_hint : ""`. 
 
 ```python
 # Language Detection 
@@ -230,7 +233,7 @@ Document Id:  3 , Language:  Chinese_Simplified
 ```
 ## Key phrase extraction
 
-Using the client created earlier, call the [key_phrases()](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-textanalytics/azure.cognitiveservices.language.textanalytics.textanalyticsclient?view=azure-python#key-phrases-show-stats-none--documents-none--custom-headers-none--raw-false----operation-config-) function and get the result. Then iterate through the results, and print each document's ID, and the key phrases contained in it.
+Create a new function called `key_phrase()` that creates a client and call its [extract_key_phrases()]() function. The result will contain the list of detected key phrases in `key_phrases` if successful, and an `error` if not. Print any detected key phrases.
 
 ```python
 def key_phrases():
@@ -259,7 +262,7 @@ def key_phrases():
                 for phrase in document.key_phrases:
                     print("\t\t", phrase)
             else:
-                print(doc.id, doc.error)
+                print(document.id, document.error)
 
     except Exception as err:
         print("Encountered exception. {}".format(err))
@@ -291,7 +294,7 @@ Document Id:  4
 
 ## Entity recognition
 
-Using the client created earlier, call the [recognize_entities()](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-textanalytics/azure.cognitiveservices.language.textanalytics.textanalyticsclient?view=azure-python#entities-show-stats-none--documents-none--custom-headers-none--raw-false----operation-config-) function and get the result. Then iterate through the results, and print each document's ID, and the entities contained in it.
+Create a new function called `entity_recognition` creates a client, then calls its [recognize_entities()]() function and iterate through the results. The returned response object will contain the list of detected entities in `entity` if successful, and an `error` if not. For each detected entity, print its Type and Sub-Type if exists.
 
 ```python
 def entity_recognition():
@@ -338,7 +341,7 @@ Entity: 	 Seattle 	Type: 	 Location 	Confidence Score: 	 1.0
 
 ## Entity Linking
 
-Using the client created earlier, call the [recognize_linked_entities()](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-textanalytics/azure.cognitiveservices.language.textanalytics.textanalyticsclient?view=azure-python#entities-show-stats-none--documents-none--custom-headers-none--raw-false----operation-config-) function and get the result. Then iterate through the results, and print each document's ID, and the entities contained in it.
+Create a new function called `entity_linking()` that creates a  client then calls its [recognize_linked_entities()]() function and iterate through the results. The returned response object will contain the list of detected entities in `entities` if successful, and an `error` if not. Since linked entities are uniquely identified, occurrences of the same entity are grouped under a `entity` object as a list of `match` objects.
 
 ```python
 def entity_linking():
