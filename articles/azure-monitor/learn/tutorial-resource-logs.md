@@ -72,13 +72,13 @@ A Log Analytics workspace in Azure Monitor collects and indexes log data from a 
     
  
  ## Use a log query to retrieve logs
-Data is retrieved from a Log Analytics workspace using a log query written in Kusto Query Language (KQL). Insights and solutions in Azure Monitor will provide log queries to retrieve data for a particular service, but you can work directly with log queries and their results in the Azure portal with Log Analytics. If you start Log Analytics from the Azure Monitor menu, you will have access to all records in the workspace. If you start Log Analytics from the resource's menu, you will have access to only records from that resource. 
+Data is retrieved from a Log Analytics workspace using a log query written in Kusto Query Language (KQL). Insights and solutions in Azure Monitor will provide log queries to retrieve data for a particular service, but you can work directly with log queries and their results in the Azure portal with Log Analytics. 
 
 1. Under the **Monitoring** section of your resource's menu, select **Logs**.
-2. Log Analytics opens with an empty query window with the scope set to your resource. 
+2. Log Analytics opens with an empty query window with the scope set to your resource. Any queries will include only records from that resource.
 
     > [!NOTE]
-    > If you opened Logs from the Azure Monitor menu, the scope would be set to the Log Analytics workspace.
+    > If you opened Logs from the Azure Monitor menu, the scope would be set to the Log Analytics workspace. In this case, any queries will include all records in the workspace.
    
     ![Logs](media/tutorial-resource-logs/logs.png)
 
