@@ -13296,6 +13296,552 @@
       "redirect_document_id": false
     },
     {
+        "source_path": "articles/machine-learning/service/azure-machine-learning-release-notes.md",
+        "redirect_url": "/azure/machine-learning/azure-machine-learning-release-notes",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/machine-learning/service/concept-automated-ml.md",
+        "redirect_url": "/azure/machine-learning/concept-automated-ml",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/machine-learning/service/concept-azure-machine-learning-architecture.md",
+        "redirect_url": "/azure/machine-learning/concept-azure-machine-learning-architecture",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/machine-learning/service/concept-compute-target.md",
+        "redirect_url": "/azure/machine-learning/concept-compute-target",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/machine-learning/service/concept-data.md",
+        "redirect_url": "/azure/machine-learning/concept-data",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/machine-learning/service/concept-deep-learning-vs-machine-learning.md",
+        "redirect_url": "/azure/machine-learning/concept-deep-learning-vs-machine-learning",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/machine-learning/service/concept-designer.md",
+        "redirect_url": "/azure/machine-learning/concept-designer",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/machine-learning/service/concept-enterprise-security.md",
+        "redirect_url": "/azure/machine-learning/concept-enterprise-security",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/machine-learning/service/concept-event-grid-integration.md",
+        "redirect_url": "/azure/machine-learning/concept-event-grid-integration",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/machine-learning/service/concept-ml-pipelines.md",
+        "redirect_url": "/azure/machine-learning/concept-ml-pipelines",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/machine-learning/service/concept-model-management-and-deployment.md",
+        "redirect_url": "/azure/machine-learning/concept-model-management-and-deployment",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/machine-learning/service/concept-onnx.md",
+        "redirect_url": "/azure/machine-learning/concept-onnx",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/machine-learning/service/concept-train-machine-learning-model.md",
+        "redirect_url": "/azure/machine-learning/concept-train-machine-learning-model",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/machine-learning/service/concept-train-model-git-integration.md",
+        "redirect_url": "/azure/machine-learning/concept-train-model-git-integration",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/machine-learning/service/concept-workspace.md",
+        "redirect_url": "/azure/machine-learning/concept-workspace",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/machine-learning/service/how-to-access-data.md",
+        "redirect_url": "/azure/machine-learning/how-to-access-data",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/machine-learning/service/how-to-assign-roles.md",
+        "redirect_url": "/azure/machine-learning/how-to-assign-roles",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/machine-learning/service/how-to-auto-train-forecast.md",
+        "redirect_url": "/azure/machine-learning/how-to-auto-train-forecast",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/machine-learning/service/how-to-auto-train-remote.md",
+        "redirect_url": "/azure/machine-learning/how-to-auto-train-remote",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/machine-learning/service/how-to-change-storage-access-key.md",
+        "redirect_url": "/azure/machine-learning/how-to-change-storage-access-key",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/machine-learning/service/how-to-configure-auto-train.md",
+        "redirect_url": "/azure/machine-learning/how-to-configure-auto-train",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/machine-learning/service/how-to-configure-environment.md",
+        "redirect_url": "/azure/machine-learning/how-to-configure-environment",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/machine-learning/service/how-to-consume-web-service.md",
+        "redirect_url": "/azure/machine-learning/how-to-consume-web-service",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/machine-learning/service/how-to-create-labeling-projects.md",
+        "redirect_url": "/azure/machine-learning/how-to-create-labeling-projects",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/machine-learning/service/how-to-create-portal-experiments.md",
+        "redirect_url": "/azure/machine-learning/how-to-create-portal-experiments",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/machine-learning/service/how-to-create-register-datasets.md",
+        "redirect_url": "/azure/machine-learning/how-to-create-register-datasets",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/machine-learning/service/how-to-create-workspace-template.md",
+        "redirect_url": "/azure/machine-learning/how-to-create-workspace-template",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/machine-learning/service/how-to-create-your-first-pipeline.md",
+        "redirect_url": "/azure/machine-learning/how-to-create-your-first-pipeline",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/machine-learning/service/how-to-debug-batch-predictions.md",
+        "redirect_url": "/azure/machine-learning/how-to-debug-batch-predictions",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/machine-learning/service/how-to-debug-pipelines.md",
+        "redirect_url": "/azure/machine-learning/how-to-debug-pipelines",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/machine-learning/service/how-to-define-task-type.md",
+        "redirect_url": "/azure/machine-learning/how-to-define-task-type",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/machine-learning/service/how-to-deploy-app-service.md",
+        "redirect_url": "/azure/machine-learning/how-to-deploy-app-service",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/machine-learning/service/how-to-deploy-and-where.md",
+        "redirect_url": "/azure/machine-learning/how-to-deploy-and-where",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/machine-learning/service/how-to-deploy-azure-container-instance.md",
+        "redirect_url": "/azure/machine-learning/how-to-deploy-azure-container-instance",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/machine-learning/service/how-to-deploy-azure-kubernetes-service.md",
+        "redirect_url": "/azure/machine-learning/how-to-deploy-azure-kubernetes-service",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/machine-learning/service/how-to-deploy-existing-model.md",
+        "redirect_url": "/azure/machine-learning/how-to-deploy-existing-model",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/machine-learning/service/how-to-deploy-custom-docker-image.md",
+        "redirect_url": "/azure/machine-learning/how-to-deploy-custom-docker-image",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/machine-learning/service/how-to-deploy-fpga-web-service.md",
+        "redirect_url": "/azure/machine-learning/how-to-deploy-fpga-web-service",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/machine-learning/service/how-to-deploy-functions.md",
+        "redirect_url": "/azure/machine-learning/how-to-deploy-functions",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/machine-learning/service/how-to-deploy-inferencing-gpus.md",
+        "redirect_url": "/azure/machine-learning/how-to-deploy-inferencing-gpus",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/machine-learning/service/how-to-deploy-local-container-notebook-vm.md",
+        "redirect_url": "/azure/machine-learning/how-to-deploy-local-container-notebook-vm",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/machine-learning/service/how-to-designer-sample-classification-churn.md",
+        "redirect_url": "/azure/machine-learning/how-to-designer-sample-classification-churn",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/machine-learning/service/how-to-designer-sample-classification-credit-risk-cost-sensitive.md",
+        "redirect_url": "/azure/machine-learning/how-to-designer-sample-classification-credit-risk-cost-sensitive",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/machine-learning/service/how-to-designer-sample-classification-flight-delay.md",
+        "redirect_url": "/azure/machine-learning/how-to-designer-sample-classification-flight-delay",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/machine-learning/service/how-to-designer-sample-classification-predict-income.md",
+        "redirect_url": "/azure/machine-learning/how-to-designer-sample-classification-predict-income",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/machine-learning/service/how-to-designer-sample-regression-automobile-price-basic.md",
+        "redirect_url": "/azure/machine-learning/how-to-designer-sample-regression-automobile-price-basic",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/machine-learning/service/how-to-designer-sample-regression-automobile-price-compare-algorithms.md",
+        "redirect_url": "/azure/machine-learning/how-to-designer-sample-regression-automobile-price-compare-algorithms",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/machine-learning/service/how-to-designer-sample-text-classification.md",
+        "redirect_url": "/azure/machine-learning/how-to-designer-sample-text-classification",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/machine-learning/service/how-to-enable-app-insights.md",
+        "redirect_url": "/azure/machine-learning/how-to-enable-app-insights",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/machine-learning/service/how-to-enable-data-collection.md",
+        "redirect_url": "/azure/machine-learning/how-to-enable-data-collection",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/machine-learning/service/how-to-enable-logging.md",
+        "redirect_url": "/azure/machine-learning/how-to-enable-logging",
+        "redirect_document_id": true
+    },
+
+    {
+      "source_path": "articles/machine-learning/service/how-to-enable-virtual-network.md",
+      "redirect_url": "/azure/machine-learning/how-to-enable-virtual-network",
+      "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/machine-learning/service/how-to-export-delete-data.md",
+        "redirect_url": "/azure/machine-learning/how-to-export-delete-data",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/machine-learning/service/how-to-label-images.md",
+        "redirect_url": "/azure/machine-learning/how-to-label-images",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/machine-learning/service/how-to-machine-learning-interpretability-aml.md",
+        "redirect_url": "/azure/machine-learning/how-to-machine-learning-interpretability-aml",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/machine-learning/service/how-to-machine-learning-interpretability-automl.md",
+        "redirect_url": "/azure/machine-learning/how-to-machine-learning-interpretability-automl",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/machine-learning/service/how-to-machine-learning-interpretability.md",
+        "redirect_url": "/azure/machine-learning/how-to-machine-learning-interpretability",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/machine-learning/service/how-to-manage-quotas.md",
+        "redirect_url": "/azure/machine-learning/how-to-manage-quotas",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/machine-learning/service/how-to-manage-runs.md",
+        "redirect_url": "/azure/machine-learning/how-to-manage-runs",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/machine-learning/service/how-to-manage-workspace.md",
+        "redirect_url": "/azure/machine-learning/how-to-manage-workspace",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/machine-learning/service/how-to-manage-workspace-cli.md",
+        "redirect_url": "/azure/machine-learning/how-to-manage-workspace-cli",
+        "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/machine-learning/service/how-to-monitor-data-drift.md",
+      "redirect_url": "/azure/machine-learning/how-to-monitor-data-drift",
+      "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/machine-learning/service/how-to-monitor-datasets.md",
+        "redirect_url": "/azure/machine-learning/how-to-monitor-datasets",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/machine-learning/service/how-to-monitor-tensorboard.md",
+        "redirect_url": "/azure/machine-learning/how-to-monitor-tensorboard",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/machine-learning/service/how-to-run-batch-predictions-designer.md",
+        "redirect_url": "/azure/machine-learning/how-to-run-batch-predictions-designer",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/machine-learning/service/how-to-run-batch-predictions.md",
+        "redirect_url": "/azure/machine-learning/how-to-run-batch-predictions",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/machine-learning/service/how-to-save-write-experiment-files.md",
+        "redirect_url": "/azure/machine-learning/how-to-save-write-experiment-files",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/machine-learning/service/how-to-schedule-pipelines.md",
+        "redirect_url": "/azure/machine-learning/how-to-schedule-pipelines",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/machine-learning/service/how-to-secure-web-service.md",
+        "redirect_url": "/azure/machine-learning/how-to-secure-web-service",
+        "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/machine-learning/service/how-to-set-up-training-targets.md",
+      "redirect_url": "/azure/machine-learning/how-to-set-up-training-targets",
+      "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/machine-learning/service/how-to-track-experiments.md",
+        "redirect_url": "/azure/machine-learning/how-to-track-experiments",
+        "redirect_document_id": true
+    },    
+    {
+        "source_path": "articles/machine-learning/service/how-to-train-chainer.md",
+        "redirect_url": "/azure/machine-learning/how-to-train-chainer",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/machine-learning/service/how-to-train-keras.md",
+        "redirect_url": "/azure/machine-learning/how-to-train-keras",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/machine-learning/service/how-to-train-ml-models.md",
+        "redirect_url": "/azure/machine-learning/how-to-train-ml-models",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/machine-learning/service/how-to-train-pytorch.md",
+        "redirect_url": "/azure/machine-learning/how-to-train-pytorch",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/machine-learning/service/how-to-train-scikit-learn.md",
+        "redirect_url": "/azure/machine-learning/how-to-train-scikit-learn",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/machine-learning/service/how-to-train-tensorflow.md",
+        "redirect_url": "/azure/machine-learning/how-to-train-tensorflow",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/machine-learning/service/how-to-train-with-datasets.md",
+        "redirect_url": "/azure/machine-learning/how-to-train-with-datasets",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/machine-learning/service/how-to-troubleshoot-deployment.md",
+        "redirect_url": "/azure/machine-learning/how-to-troubleshoot-deployment",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/machine-learning/service/how-to-tune-hyperparameters.md",
+        "redirect_url": "/azure/machine-learning/how-to-tune-hyperparameters",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/machine-learning/service/how-to-understand-automated-ml.md",
+        "redirect_url": "/azure/machine-learning/how-to-understand-automated-ml",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/machine-learning/service/how-to-use-environments.md",
+        "redirect_url": "/azure/machine-learning/how-to-use-environments",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/machine-learning/service/how-to-use-event-grid.md",
+        "redirect_url": "/azure/machine-learning/how-to-use-event-grid",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/machine-learning/service/how-to-use-mlflow.md",
+        "redirect_url": "/azure/machine-learning/how-to-use-mlflow",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/machine-learning/service/how-to-use-secrets-in-runs.md",
+        "redirect_url": "/azure/machine-learning/how-to-use-secrets-in-runs",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/machine-learning/service/how-to-version-track-datasets.md",
+        "redirect_url": "/azure/machine-learning/how-to-version-track-datasets",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/machine-learning/service/how-to-vscode-tools.md",
+        "redirect_url": "/azure/machine-learning/how-to-vscode-tools",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/machine-learning/service/monitor-azure-machine-learning.md",
+        "redirect_url": "/azure/machine-learning/monitor-azure-machine-learning",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/machine-learning/service/monitor-resource-reference.md",
+        "redirect_url": "/azure/machine-learning/monitor-resource-reference",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/machine-learning/service/overview-what-happened-to-workbench.md",
+        "redirect_url": "/azure/machine-learning/overview-what-happened-to-workbench",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/machine-learning/service/overview-what-is-azure-ml.md",
+        "redirect_url": "/azure/machine-learning/overview-what-is-azure-ml",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/machine-learning/service/concept-compute-instance.md",
+        "redirect_url": "/azure/machine-learning/concept-compute-instance",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/machine-learning/service/how-to-retrain-designer.md",
+        "redirect_url": "/azure/machine-learning/how-to-retrain-designer",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/machine-learning/service/how-to-setup-authentication.md",
+        "redirect_url": "/azure/machine-learning/how-to-setup-authentication",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/machine-learning/service/reference-azure-machine-learning-cli.md",
+        "redirect_url": "/azure/machine-learning/reference-azure-machine-learning-cli",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/machine-learning/service/reference-pipeline-yaml.md",
+        "redirect_url": "/azure/machine-learning/reference-pipeline-yaml",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/machine-learning/service/samples-notebooks.md",
+        "redirect_url": "/azure/machine-learning/samples-notebooks",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/machine-learning/service/resource-known-issues.md",
+        "redirect_url": "/azure/machine-learning/resource-known-issues",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/machine-learning/service/tutorial-1st-experiment-sdk-setup.md",
+        "redirect_url": "/azure/machine-learning/tutorial-1st-experiment-sdk-setup",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/machine-learning/service/tutorial-1st-experiment-sdk-train.md",
+        "redirect_url": "/azure/machine-learning/tutorial-1st-experiment-sdk-train",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/machine-learning/service/tutorial-1st-r-experiment.md",
+        "redirect_url": "/azure/machine-learning/tutorial-1st-r-experiment",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/machine-learning/service/tutorial-auto-train-models.md",
+        "redirect_url": "/azure/machine-learning/tutorial-auto-train-models",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/machine-learning/service/tutorial-deploy-models-with-aml.md",
+        "redirect_url": "/azure/machine-learning/tutorial-deploy-models-with-aml",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/machine-learning/service/tutorial-designer-automobile-price-deploy.md",
+        "redirect_url": "/azure/machine-learning/tutorial-designer-automobile-price-deploy",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/machine-learning/service/tutorial-designer-automobile-price-train-score.md",
+        "redirect_url": "/azure/machine-learning/tutorial-designer-automobile-price-train-score",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/machine-learning/service/tutorial-first-experiment-automated-ml.md",
+        "redirect_url": "/azure/machine-learning/tutorial-first-experiment-automated-ml",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/machine-learning/service/tutorial-pipeline-batch-scoring-classification.md",
+        "redirect_url": "/azure/machine-learning/tutorial-pipeline-batch-scoring-classification",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/machine-learning/service/tutorial-train-deploy-model-cli.md",
+        "redirect_url": "/azure/machine-learning/tutorial-train-deploy-model-cli",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/machine-learning/service/tutorial-train-models-with-aml.md",
+        "redirect_url": "/azure/machine-learning/tutorial-train-models-with-aml",
+        "redirect_document_id": true
+    },
+    {
       "source_path": "articles/log-analytics/log-analytics-add-solutions.md",
       "redirect_url": "/azure/monitoring/monitoring-solutions",
       "redirect_document_id": false
@@ -38956,6 +39502,21 @@
     {
       "source_path": "articles/azure-monitor/platform/azure-logs-metrics.md",
       "redirect_url": "/azure/azure-monitor/platform/data-platform",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/platform/activity-logs-overview.md",
+      "redirect_url": "/azure/azure-monitor/platform/platform-logs-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/platform/resource-logs-overview.md",
+      "redirect_url": "/azure/azure-monitor/platform/platform-logs-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/platform/diagnostic-settings-subscription.md",
+      "redirect_url": "/azure/azure-monitor/platform/diagnostic-settings-legacy",
       "redirect_document_id": false
     },
     {
