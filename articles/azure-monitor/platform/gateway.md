@@ -155,8 +155,8 @@ The following table highlights the parameters supported by setup.
 |PORTNUMBER | TCP port number for gateway to listen on |
 |PROXY | IP address of proxy server |
 |INSTALLDIR | Fully qualified path to specify install directory of gateway software files |
-|USERNAME | User Id to authenticate with proxy server |
-|PASSWORD | Password of the user Id to authenticate with proxy |
+|USERNAME | User ID to authenticate with proxy server |
+|PASSWORD | Password of the user ID to authenticate with proxy |
 |LicenseAccepted | Specify a value of **1** to verify you accept license agreement |
 |HASAUTH | Specify a value of **1** when USERNAME/PASSWORD parameters are specified |
 |HASPROXY | Specify a value of **1** when specifying IP address for **PROXY** parameter |
