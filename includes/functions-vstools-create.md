@@ -10,7 +10,7 @@ ms.author: glenga
 ms.custom: include file
 ---
 
-The Azure Functions project template in Visual Studio creates a project that can be published to a function app in Azure. You can use a function app to group functions as a logical unit for management, deployment, and sharing of resources.
+The Azure Functions project template in Visual Studio creates a project that can be published to a function app in Azure. You can use a function app to group functions as a logical unit for easier management, deployment, scaling, and sharing of resources.
 
 1. In Visual Studio, on the **File** menu, select **New** > **Project**.
 
