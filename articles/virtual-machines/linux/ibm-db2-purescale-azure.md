@@ -59,7 +59,7 @@ This approach is a template that you can modify for the size and scale of your o
 
 -   Two or more database members are combined with at least two CF nodes. The nodes manage a global buffer pool (GBP) for shared memory and global lock manager (GLM) services to control shared access and lock contention from active members. One CF node acts as the primary and the other as the secondary, failover CF node. To avoid a single point of failure in the environment, a DB2 pureScale cluster requires at least four nodes.
 
--   High-performance shared storage (shown in P30 size in the diagram). Each nods uses this storage.
+-   High-performance shared storage (shown in P30 size in the diagram). Each node uses this storage.
 
 -   High-performance networking for the data members and shared storage.
 
