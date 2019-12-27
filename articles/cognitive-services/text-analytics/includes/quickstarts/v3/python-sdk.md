@@ -97,37 +97,100 @@ def authenticateClient():
 Authenticate a client object, and call the [sentiment()](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-textanalytics/azure.cognitiveservices.language.textanalytics.textanalyticsclient?view=azure-python#sentiment-show-stats-none--documents-none--custom-headers-none--raw-false----operation-config-) function. Iterate through the results, and print each document's ID, and sentiment score. A score closer to 0 indicates a negative sentiment, while a score closer to 1 indicates a positive sentiment.
 
 ```python
-def sentiment():
-    
-    client = authenticateClient()
+def print_sentiment_scores(documents, response):
+    docs = [doc for doc in response if not doc.is_error]
 
-    try:
-        documents = [
-            {"id": "1", "language": "en", "text": "I had the best day of my life."},
-            {"id": "2", "language": "en",
-                "text": "This was a waste of my time. The speaker put me to sleep."},
-            {"id": "3", "language": "es", "text": "No tengo dinero ni nada que dar..."},
-            {"id": "4", "language": "it",
-                "text": "L'hotel veneziano era meraviglioso. È un bellissimo pezzo di architettura."}
+    for idx, doc in enumerate(docs):
+        print("Document text: {}".format(documents[idx]))
+        print("Overall sentiment: {}".format(doc.sentiment))
+    # [END batch_analyze_sentiment]
+        print("Overall scores: positive={0:.3f}; neutral={1:.3f}; negative={2:.3f} \n".format(
+            doc.document_scores.positive,
+            doc.document_scores.neutral,
+            doc.document_scores.negative,
+        ))
+        for idx, sentence in enumerate(doc.sentences):
+            print("Sentence {} sentiment: {}".format(idx+1, sentence.sentiment))
+            print("Sentence score: positive={0:.3f}; neutral={1:.3f}; negative={2:.3f}".format(
+                sentence.sentence_scores.positive,
+                sentence.sentence_scores.neutral,
+                sentence.sentence_scores.negative,
+            ))
+            print("Offset: {}".format(sentence.offset))
+            print("Length: {}\n".format(sentence.length))
+        print("------------------------------------")
+
+def sentiment():
+
+    client = authenticate_client()
+    documents = [
+            {"id": "0", "language": "en", "text": "I had the best day of my life."},
+            {"id": "1", "language": "en",
+             "text": "This was a waste of my time. The speaker put me to sleep."},
+            {"id": "2", "language": "es", "text": "No tengo dinero ni nada que dar..."},
+            {"id": "3", "language": "fr",
+             "text": "L'hôtel n'était pas très confortable. L'éclairage était trop sombre."}
         ]
 
-        response = client.sentiment(documents=documents)
-        for document in response.documents:
-            print("Document Id: ", document.id, ", Sentiment Score: ",
-                  "{:.2f}".format(document.score))
+    response = client.analyze_sentiment(documents)
+    print_sentiment_scores(documents, response)
 
-    except Exception as err:
-        print("Encountered exception. {}".format(err))
 sentiment()
 ```
 
 ### Output
 
 ```console
-Document ID: 1 , Sentiment Score: 0.87
-Document ID: 2 , Sentiment Score: 0.11
-Document ID: 3 , Sentiment Score: 0.44
-Document ID: 4 , Sentiment Score: 1.00
+Document text: {'id': '0', 'language': 'en', 'text': 'I had the best day of my life.'}
+Overall sentiment: positive
+Overall scores: positive=0.999; neutral=0.001; negative=0.000 
+
+Sentence 1 sentiment: positive
+Sentence score: positive=0.999; neutral=0.001; negative=0.000
+Offset: 0
+Length: 30
+
+------------------------------------
+Document text: {'id': '1', 'language': 'en', 'text': 'This was a waste of my time. The speaker put me to sleep.'}
+Overall sentiment: negative
+Overall scores: positive=0.000; neutral=0.000; negative=1.000 
+
+Sentence 1 sentiment: negative
+Sentence score: positive=0.000; neutral=0.000; negative=1.000
+Offset: 0
+Length: 28
+
+Sentence 2 sentiment: neutral
+Sentence score: positive=0.122; neutral=0.851; negative=0.026
+Offset: 29
+Length: 28
+
+------------------------------------
+Document text: {'id': '2', 'language': 'es', 'text': 'No tengo dinero ni nada que dar...'}
+Overall sentiment: negative
+Overall scores: positive=0.032; neutral=0.074; negative=0.894 
+
+Sentence 1 sentiment: negative
+Sentence score: positive=0.032; neutral=0.074; negative=0.894
+Offset: 0
+Length: 34
+
+------------------------------------
+Document text: {'id': '3', 'language': 'fr', 'text': "L'hôtel n'était pas très confortable. L'éclairage était trop sombre."}
+Overall sentiment: negative
+Overall scores: positive=0.000; neutral=0.000; negative=1.000 
+
+Sentence 1 sentiment: negative
+Sentence score: positive=0.000; neutral=0.000; negative=1.000
+Offset: 0
+Length: 37
+
+Sentence 2 sentiment: negative
+Sentence score: positive=0.000; neutral=0.000; negative=1.000
+Offset: 38
+Length: 30
+
+------------------------------------
 ```
 
 ## Language detection
@@ -135,8 +198,9 @@ Document ID: 4 , Sentiment Score: 1.00
 Using the client created earlier, call [detect_language()](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-textanalytics/azure.cognitiveservices.language.textanalytics.textanalyticsclient?view=azure-python#detect-language-show-stats-none--documents-none--custom-headers-none--raw-false----operation-config-) and get the result. Then iterate through the results, and print each document's ID, and the first returned language.
 
 ```python
+# Language Detection 
 def language_detection():
-    client = authenticateClient()
+    client = authenticate_client()
 
     try:
         documents = [
@@ -144,14 +208,14 @@ def language_detection():
             {'id': '2', 'text': 'Este es un document escrito en Español.'},
             {'id': '3', 'text': '这是一个用中文写的文件'}
         ]
-        response = client.detect_language(documents=documents)
-
-        for document in response.documents:
+        response = client.detect_languages(inputs=documents)
+        for document in response:
             print("Document Id: ", document.id, ", Language: ",
                   document.detected_languages[0].name)
 
     except Exception as err:
         print("Encountered exception. {}".format(err))
+
 language_detection()
 ```
 
@@ -159,9 +223,9 @@ language_detection()
 ### Output
 
 ```console
-Document ID: 1 , Language: English
-Document ID: 2 , Language: Spanish
-Document ID: 3 , Language: Chinese_Simplified
+Document Id:  1 , Language:  English
+Document Id:  2 , Language:  Spanish
+Document Id:  3 , Language:  Chinese_Simplified
 ```
 
 ## Entity recognition
@@ -171,7 +235,7 @@ Using the client created earlier, call the [entities()](https://docs.microsoft.c
 ```python
 def entity_recognition():
     
-    client = authenticateClient()
+    client = authenticate_client()
 
     try:
         documents = [
@@ -179,17 +243,14 @@ def entity_recognition():
             {"id": "2", "language": "es",
                 "text": "La sede principal de Microsoft se encuentra en la ciudad de Redmond, a 21 kilómetros de Seattle."}
         ]
-        response = client.entities(documents=documents)
+        result = client.recognize_entities(documents)
+        docs = [doc for doc in result if not doc.is_error]
 
-        for document in response.documents:
-            print("Document Id: ", document.id)
-            print("\tKey Entities:")
-            for entity in document.entities:
-                print("\t\t", "NAME: ", entity.name, "\tType: ",
-                      entity.type, "\tSub-type: ", entity.sub_type)
-                for match in entity.matches:
-                    print("\t\t\tOffset: ", match.offset, "\tLength: ", match.length, "\tScore: ",
-                          "{:.2f}".format(match.entity_type_score))
+        for idx, doc in enumerate(docs):
+            print("\nDocument text: {}".format(documents[idx]))
+            for entity in doc.entities:
+                print("Entity: \t", entity.text, "\tType: \t", entity.type,
+                      "\tConfidence Score: \t", round(entity.score, 3))
 
     except Exception as err:
         print("Encountered exception. {}".format(err))
@@ -199,40 +260,19 @@ entity_recognition()
 ### Output
 
 ```console
-Document ID: 1
-        Name: Microsoft,        Type: Organization,     Sub-Type: N/A
-        Offset: 0, Length: 9,   Score: 1.0
+Document text: {'id': '1', 'language': 'en', 'text': 'Microsoft was founded by Bill Gates and Paul Allen on April 4, 1975, to develop and sell BASIC interpreters for the Altair 8800.'}
+Entity: 	 Microsoft 	Type: 	 Organization 	Confidence Score: 	 1.0
+Entity: 	 Bill Gates 	Type: 	 Person 	Confidence Score: 	 1.0
+Entity: 	 Paul Allen 	Type: 	 Person 	Confidence Score: 	 0.999
+Entity: 	 April 4, 1975 	Type: 	 DateTime 	Confidence Score: 	 0.8
+Entity: 	 Altair 	Type: 	 Organization 	Confidence Score: 	 0.525
+Entity: 	 8800 	Type: 	 Quantity 	Confidence Score: 	 0.8
 
-        Name: Bill Gates,       Type: Person,   Sub-Type: N/A
-        Offset: 25, Length: 10, Score: 0.999847412109375
-
-        Name: Paul Allen,       Type: Person,   Sub-Type: N/A
-        Offset: 40, Length: 10, Score: 0.9988409876823425
-
-        Name: April 4,  Type: Other,    Sub-Type: N/A
-        Offset: 54, Length: 7,  Score: 0.8
-
-        Name: April 4, 1975,    Type: DateTime, Sub-Type: Date
-        Offset: 54, Length: 13, Score: 0.8
-
-        Name: BASIC,    Type: Other,    Sub-Type: N/A
-        Offset: 89, Length: 5,  Score: 0.8
-
-        Name: Altair 8800,      Type: Other,    Sub-Type: N/A
-        Offset: 116, Length: 11,        Score: 0.8
-
-Document ID: 2
-        Name: Microsoft,        Type: Organization,     Sub-Type: N/A
-        Offset: 21, Length: 9,  Score: 0.999755859375
-
-        Name: Redmond (Washington),     Type: Location, Sub-Type: N/A
-        Offset: 60, Length: 7,  Score: 0.9911284446716309
-
-        Name: 21 kilómetros,    Type: Quantity, Sub-Type: Dimension
-        Offset: 71, Length: 13, Score: 0.8
-
-        Name: Seattle,  Type: Location, Sub-Type: N/A
-        Offset: 88, Length: 7,  Score: 0.9998779296875
+Document text: {'id': '2', 'language': 'es', 'text': 'La sede principal de Microsoft se encuentra en la ciudad de Redmond, a 21 kilómetros de Seattle.'}
+Entity: 	 Microsoft 	Type: 	 Organization 	Confidence Score: 	 1.0
+Entity: 	 Redmond 	Type: 	 Location 	Confidence Score: 	 0.991
+Entity: 	 21 kilómetros 	Type: 	 Quantity 	Confidence Score: 	 0.8
+Entity: 	 Seattle 	Type: 	 Location 	Confidence Score: 	 1.0
 ```
 
 ## Key phrase extraction
@@ -242,7 +282,7 @@ Using the client created earlier, call the [key_phrases()](https://docs.microsof
 ```python
 def key_phrases():
     
-    client = authenticateClient()
+    client = authenticate_client()
 
     try:
         documents = [
@@ -258,16 +298,19 @@ def key_phrases():
             print(
                 "Asking key-phrases on '{}' (id: {})".format(document['text'], document['id']))
 
-        response = client.key_phrases(documents=documents)
-
-        for document in response.documents:
-            print("Document Id: ", document.id)
-            print("\tKey Phrases:")
-            for phrase in document.key_phrases:
-                print("\t\t", phrase)
+        response = client.extract_key_phrases(documents)
+        for document in response:
+            if not document.is_error:
+                print("Document Id: ", document.id)
+                print("\tKey Phrases:")
+                for phrase in document.key_phrases:
+                    print("\t\t", phrase)
+            else:
+                print(doc.id, doc.error)
 
     except Exception as err:
         print("Encountered exception. {}".format(err))
+        
 key_phrases()
 ```
 
@@ -275,20 +318,20 @@ key_phrases()
 ### Output
 
 ```console
-Document ID: 1
-         Key phrases:
-                幸せ
-Document ID: 2
-         Key phrases:
-                Stuttgart
-                Hotel
-                Fahrt
-                Fu
-Document ID: 3
-         Key phrases:
-                cat
-                veterinarian
-Document ID: 4
-         Key phrases:
-                fútbol
+Document Id:  1
+	Key Phrases:
+		 幸せ
+Document Id:  2
+	Key Phrases:
+		 Stuttgart
+		 Hotel
+		 Fahrt
+		 Fu
+Document Id:  3
+	Key Phrases:
+		 cat
+		 veterinarian
+Document Id:  4
+	Key Phrases:
+		 fútbol
 ```
