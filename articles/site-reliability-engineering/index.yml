@@ -32,8 +32,18 @@ productDirectory:
         - url: https://channel9.msdn.com/Shows/IT-Ops-Talk/Introduction-to-Site-Reliability-Engineering--Part-3/playeraåå
           text: Getting Started
     # Card
-    - title: Intro to SRE Online Course
+    - title: Intro to SRE online course
       imageSrc: ./media/index/learn.svg
       links:
         - url: https://docs.microsoft.com/learn/modules/intro-to-site-reliability-engineering/
           text: Learn the basics of SRE in a free online course
+    # Card
+    - title: SRE Resources
+      imageSrc: ./media/index/reference.svg
+      links:
+        - url: resources/books.md
+          text: books
+        - url: resources/events.md
+          text: events
+        - url: resources/links.md
+          text: links
