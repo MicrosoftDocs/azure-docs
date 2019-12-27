@@ -255,7 +255,7 @@ Run this command:
 python voice_synthesis_client.py --syntheses -key <your_key> -region <Region>
 ```
 
-This will return a list of synthesis you've requested. You will get the output like this:
+This will return a list of synthesis requests that you've made. You'll see an output like this:
 
 ```console
 There are <number> synthesis requests submitted:
