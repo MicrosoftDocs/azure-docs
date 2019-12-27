@@ -102,7 +102,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 6. Click **User Provisioning** and click on **Create a directory**. Copy the **Directory base URL** and **Bearer Token** to the **Tenant URL** and **Secret Token** fields respectively.
 
 	![Atlassian Cloud Provisioning](./media/atlassian-cloud-provisioning-tutorial/secret-token-1.png)
-
+	![Atlassian Cloud Provisioning](./media/atlassian-cloud-provisioning-tutorial/secret-token-2.png)
 	![Atlassian Cloud Provisioning](./media/atlassian-cloud-provisioning-tutorial/secret-token-3.png)
 
 7. Under the **Admin Credentials** section, input the **Tenant URL** and **Secret Token** of your Atlassian Cloud's account. Examples of these values are:
