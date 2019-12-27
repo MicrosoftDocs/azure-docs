@@ -24,6 +24,10 @@ landingContent:
         links:
           - text: Samples of Azure Notebooks
             url: azure-notebooks-samples.md
+      - linkListType: get-started
+        links:
+          - text: 'Access your Azure notebooks'
+            url: https://notebooks.azure.com/  
   # Card
   - title: Get started
     linkLists:
