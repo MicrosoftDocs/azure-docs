@@ -472,57 +472,53 @@
       - name: SharePoint sites
         href: app/sharepoint.md
       - name: Windows desktop
-        href: app/windows-desktop.md        
+        href: app/windows-desktop.md
   - name: Monitor Azure resources
     items:
     - name: Monitor Azure service
       href: insights/monitor-azure-resource.md
     - name: Monitor resource groups
       href: insights/resource-group-insights.md
-    - name: Platform logs overview
-      href: platform/platform-logs-overview.md 
-    - name: Resource logs
-      items: 
-      - name: Overview
-        displayname: Resource logs
-        href: platform/resource-logs-overview.md 
-      - name: Collect in Azure Monitor Logs
-        displayname: Resource logs
-        href: platform/resource-logs-collect-workspace.md
-      - name: Archive to storage
-        displayname: Resource logs
-        href: platform/resource-logs-collect-storage.md
-      - name: Stream to Event Hubs
-        displayname: Resource logs
-        href: platform/resource-logs-stream-event-hubs.md
-    - name: Activity log
+    - name: Platform logs
       items:
       - name: Overview
-        displayname: Activity log
-        href: platform/activity-logs-overview.md
-      - name: Collect with diagnostic setting
-        displayname: Activity log
-        href: platform/diagnostic-settings-subscription.md
-      - name: View and retrieve
-        displayname: Activity log
+        displayName: Platform logs, Resource logs, Activity log
+        href: platform/platform-logs-overview.md 
+      - name: View Activity log
+        displayName: Platform logs
         href: platform/activity-log-view.md
-      - name: Collect and analyze
-        displayname: Activity log
-        href: platform/activity-log-collect.md
-      - name: Collect across tenants
-        displayname: Activity log
-        href: platform/activity-log-collect-tenants.md
-      - name: Export 
-        displayname: Activity log
-        href: platform/activity-log-export.md
-      - name: Schema
-        displayname: Activity log
-        href: platform/activity-log-schema.md
+      - name: Send to destinations
+        items:
+        - name: Log Analytics workspace
+          displayname: Resource logs, Activity log, Platform logs
+          href: platform/resource-logs-collect-workspace.md
+        - name: Azure storage
+          displayname: Resource logs, Activity log, Platform logs
+          href: platform/resource-logs-collect-storage.md
+        - name: Event Hubs
+          displayname: Resource logs, Activity log, Platform logs
+          href: platform/resource-logs-stream-event-hubs.md
+      - name: Legacy Activity log collection
+        items:
+        - name: Overview
+          displayName: Resource logs
+          href: platform/diagnostic-settings-legacy.md
+        - name: Collect and analyze
+          displayname: Activity log
+          href: platform/activity-log-collect.md
+        - name: Collect across tenants
+          displayname: Activity log
+          href: platform/activity-log-collect-tenants.md
+        - name: Export 
+          displayname: Activity log
+          href: platform/activity-log-export.md
     - name: Diagnostic settings
       items: 
       - name: Create diagnostic setting
+        displayName: Platform logs, Resource logs, Activity log
         href: platform/diagnostic-settings.md
-      - name: Create diagnostic setting with Resource Manager
+      - name: Create with Resource Manager
+        displayName: diagnostic setting, Platform logs, Resource logs, Activity log
         href: platform/diagnostic-settings-template.md
       - name: Change to blob storage format
         displayname: Diagnostic settings
@@ -1164,9 +1160,13 @@
     - name: Metrics exportable with Diagnostic Settings
       href: platform/metrics-supported-export-diagnostic-settings.md
     - name: Supported metrics for newer alerts
-      href: platform/alerts-metric-near-real-time.md 
-  - name: Platform log services, categories, and schemas
-    href: platform/diagnostic-logs-schema.md
+      href: platform/alerts-metric-near-real-time.md
+  - name: Platform logs
+    items:
+    - name: Resource log services, categories, and schemas
+      href: platform/diagnostic-logs-schema.md
+    - name: Activity log schema
+      href: platform/activity-log-schema.md
   - name: Azure CLI
     href: /cli/azure/monitor?view=azure-cli-latest
   - name: Azure CLI - Application Insights (Preview)
