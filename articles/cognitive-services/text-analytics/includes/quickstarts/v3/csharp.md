@@ -65,10 +65,10 @@ static void Main(string[] args)
 
     SentimentAnalysisExample(client);
     LanguageDetectionExample(client);
-    KeyPhraseExtractionExample(client);
     EntityRecognitionExample(client);
-    EntityLinkingExample(client);
     EntityPIIExample(client);
+    EntityLinkingExample(client);
+    KeyPhraseExtractionExample(client);
 
     Console.Write("Press any key to exit.");
     Console.ReadKey();
@@ -93,8 +93,8 @@ Additional examples, including AAD authentication and the use of client default 
 * [Language detection](#language-detection)
 * [Entity recognition](#entity-recognition)
 * [Entity recognition - PII](#entity-pii)
-* [Key phrase extraction](#key-phrase-extraction)
 * [Entity linking](#entity-linking)
+* [Key phrase extraction](#key-phrase-extraction)
 
 In your program's `main()` method, call the authentication method to instantiate the client.
 
