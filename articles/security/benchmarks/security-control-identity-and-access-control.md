@@ -6,17 +6,13 @@ manager: rkarlin
 
 ms.service: security
 ms.topic: conceptual
-ms.date: 12/17/2019
+ms.date: 12/27/2019
 ms.author: mbaldwin
 ms.custom: security-recommendations
 
 ---
 
 # Security Control: Identity and Access Control
-
-Identity and access management recommendations focus on addressing issues related to identity-basedaccess control, locking down administrative access, alerting on identity-related events, abnormal account behavior, and role-based access control.
-
-The following sections list the recommendations for Identity and Access Control.
 
 ## 3.1: Maintain Inventory of Administrative Accounts
 
@@ -36,9 +32,9 @@ https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemem
 |--|--|--|
 | 3.2 | 4.2 | Customer |
 
-Azure AD does not have the concept of default passwords. Other Azure resources requiring a password forces a password to be created with complexity requirements and a minimum password length, which differs depending on the service. Customer responsible for third party applications and marketplace services that may utilize default passwords.
+Azure AD does not have the concept of default passwords. Other Azure resources requiring a password forces a password to be created with complexity requirements and a minimum password length, which differs depending on the service. Customer responsible for third party applications and marketplace services that may use default passwords.
 
-## 3.3: Use Dedicated Administrative Accounts
+## 3.3: Ensure the Use of Dedicated Administrative Accounts
 
 | Azure ID | CIS IDs | Responsibility |
 |--|--|--|
@@ -50,7 +46,7 @@ You can also enable a Just-In-Time / Just-Enough-Access by using Azure AD Privil
 
 Learn more: https://docs.microsoft.com/azure/active-directory/privileged-identity-management/
 
-## 3.4: Use Azure Active Directory Single Sign-On (SSO)
+## 3.4: Utilize Single Sign-On (SSO) with Azure Active Directory
 
 | Azure ID | CIS IDs | Responsibility |
 |--|--|--|
@@ -108,12 +104,14 @@ https://docs.microsoft.com/azure/role-based-access-control/conditional-access-az
 |--|--|--|
 | 3.8 | 4.8, 4.9 | Customer |
 
-Use Azure Active Directory security reports for generation of logs and alerts when suspicious or unsafe activity occurs in the environment. Use Azure Security Center to monitor identity and access activity
+Use Azure Active Directory security reports for generation of logs and alerts when suspicious or unsafe activity occurs in the environment. Use Azure Security Center to monitor identity and access activity.
 
 How to identify Azure AD users flagged for risky activity:
+
 https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-user-at-risk
 
-How to monitor users identity and access activity in Azure Security Center:
+How to monitor users' identity and access activity in Azure Security Center:
+
 https://docs.microsoft.com/azure/security-center/security-center-identity-access
 
 ## 3.9: Manage Azure Resource from only Approved Locations
@@ -128,11 +126,11 @@ How to configure Named Locations in Azure:
 
 https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations
 
-## 3.10: Use Azure Active Directory
+## 3.1: Use Azure Active Directory
 
 | Azure ID | CIS IDs | Responsibility |
 |--|--|--|
-| 3.10 | 16.1, 16.2, 16.4, 16.5, 16.6 | Customer |
+| 3.1 | 16.1, 16.2, 16.4, 16.5, 16.6 | Customer |
 
 Use Azure Active Directory (AAD) as the central authentication and authorization system. AAD protects data by using strong encryption for data at rest and in transit. AAD also salts, hashes, and securely stores user credentials.
 
@@ -161,9 +159,10 @@ https://docs.microsoft.com/azure/active-directory/governance/access-reviews-over
 
 You have access to Azure AD Sign in Activity, Audit and Risk Event log sources, which allow you to integrate with any SIEM / Monitoring tool.
 
- You can streamline this process by creating Diagnostic Settings for Azure Active Directory user accounts and sending the audit logs and sign-in logs to a Log Analytics Workspace. You can configure desired Alerts within Log Analytics Workspace.
+You can streamline this process by creating Diagnostic Settings for Azure Active Directory user accounts and sending the audit logs and sign-in logs to a Log Analytics Workspace. You can configure desired Alerts within Log Analytics Workspace.
 
 How to integrate Azure Activity Logs into Azure Monitor:
+
 https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics
 
 ## 3.13: Alert on Account Login Behavior Deviation
@@ -175,19 +174,26 @@ https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integ
 Use Azure AD Risk and Identity Protection features to configure automated responses to detected suspicious actions related to user identities. You can also ingest data into Azure Sentinel for further investigation.
 
 How to view Azure AD risky sign-ins:
+
 https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risky-sign-ins
 
 How to configure and enable Identity Protection risk policies:
+
 https://docs.microsoft.com/azure/active-directory/identity-protection/howto-identity-protection-configure-risk-policies
 
-## 3.14: Regulate third-party access to company data
+How to onboard Azure Sentinel:
+
+https://docs.microsoft.com/azure/sentinel/quickstart-onboard
+
+## 3.14: <div style="box-sizing:border-box;font-family:&quot;Segoe UI&quot;, &quot;Helvetica Neue&quot;, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, Helvetica, Arial, sans-serif;font-size:14.6667px;">Provide Microsoft with access to relevant customer data during support scenarios
 
 | Azure ID | CIS IDs | Responsibility |
 |--|--|--|
 | 3.14 | 16 | Customer |
 
-In cases where a third party needs to access customer data (such as during a support request), use Customer Lockbox for Azure to review, approve, or reject customer data access requests.
+In support scenarios where Microsoft needs to access customer data, Customer Lockbox provides an interface for customers to review and approve or reject customer data access requests.
 
 Understanding Customer Lockbox:
-https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview#next-steps
+
+https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview
 

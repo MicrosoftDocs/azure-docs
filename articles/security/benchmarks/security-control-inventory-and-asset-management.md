@@ -6,7 +6,7 @@ manager: rkarlin
 
 ms.service: security
 ms.topic: conceptual
-ms.date: 12/17/2019
+ms.date: 12/27/2019
 ms.author: mbaldwin
 ms.custom: security-recommendations
 
@@ -14,27 +14,26 @@ ms.custom: security-recommendations
 
 # Security Control: Inventory and Asset Management
 
-Inventory and Asset Management recommendations focus on addressing issues related to actively managing (inventory, track, and correct) all Azure resources so that only authorized resources are given access, and unauthorized and unmanaged resources are identified and removed.
-
-The following sections list the Azure security recommendations for Inventory and Asset Management Control.
-
 ## 6.1: Use Azure Asset Discovery
 
 | Azure ID | CIS IDs | Responsibility |
 |--|--|--|
 | 6.1 | 1.1, 1.2, 1.3, 1.4, 9.1, 12.1 | Customer |
 
-Use Azure Resource Graph to query/discover all resources (such as compute, storage, network, ports, and protocols etc.) within your subscription(s). &nbsp;Ensure appropriate (read) permissions in your tenant and enumerate all Azure subscriptions as well as resources within your subscriptions.
+Use Azure Resource Graph to query/discover all resources (such as compute, storage, network, ports, and protocols etc.) within your subscription(s).  Ensure appropriate (read) permissions in your tenant and enumerate all Azure subscriptions as well as resources within your subscriptions.
 
-Although classic Azure resources may be discovered via Resource Graph, it is highly recommended to create and utilize ARM resources going forward.
+Although classic Azure resources may be discovered via Resource Graph, it is highly recommended to create and use ARM resources going forward.
 
-How to create queries with Azure Graph:
+How to create queries with Azure Resource Graph:
+
 https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
 How to view your Azure Subscriptions:
+
 https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0
 
 Understanding Azure RBAC:
+
 https://docs.microsoft.com/azure/role-based-access-control/overview
 
 ## 6.2: Maintain Asset Metadata
@@ -45,7 +44,7 @@ https://docs.microsoft.com/azure/role-based-access-control/overview
 
 Apply tags to Azure resources giving metadata to logically organize them into a taxonomy.
 
-How to create and utilize Tags:
+How to create and use Tags:
 
 https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
 
@@ -65,7 +64,7 @@ How to create Management Groups:
 
 https://docs.microsoft.com/azure/governance/management-groups/create
 
-How to create and utilize Tags:
+How to create and use Tags:
 
 https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
 
@@ -113,15 +112,19 @@ https://docs.microsoft.com/azure/automation/automation-tutorial-installed-softwa
 |--|--|--|
 | 6.7 | 2.5 | Customer |
 
-Use Change Tracking and VM Inventory to identify all software installed on Virtual Machines. Implement a process for removing unauthorized VMs and software. When Change Tracking and VM Inventory not available, use third-party solutions to identify unapproved software.&nbsp;
+Use Azure Security Center's File Integrity Monitoring (Change Tracking) and VM Inventory to identify all software installed on Virtual Machines. You can implement your own process for removing unauthorized software. You can also use a third party solution to identify unapproved software.
+
+How to use File Integrity Monitoring:
+
+https://docs.microsoft.com/azure/security-center/security-center-file-integrity-monitoring#using-file-integrity-monitoring
+
+Understanding Azure Change Tracking:
+
+https://docs.microsoft.com/azure/automation/change-tracking
 
 How to enable Azure VM Inventory:
 
 https://docs.microsoft.com/azure/automation/automation-tutorial-installed-software
-
-Understanding Change Tracking:
-
-https://docs.microsoft.com/azure/automation/change-tracking
 
 ## 6.8: Use only approved applications
 
@@ -151,11 +154,11 @@ How to deny a specific resource type with Azure Policy:
 
 https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-types
 
-## 6.10: Implement approved application list
+## 6.1: Implement approved application list
 
 | Azure ID | CIS IDs | Responsibility |
 |--|--|--|
-| 6.10 | 2.7 | Customer |
+| 6.1 | 2.7 | Customer |
 
 Use Azure Security Center Adaptive Application Controls to specify which file types a rule may or may not apply to.
 

@@ -6,17 +6,13 @@ manager: rkarlin
 
 ms.service: security
 ms.topic: conceptual
-ms.date: 12/17/2019
+ms.date: 12/27/2019
 ms.author: mbaldwin
 ms.custom: security-recommendations
 
 ---
 
 # Security Control: Data Recovery
-
-Ensure that all system data, configurations, and secrets, are automatically backed up on a regular basis.
-
-The following sections listthe Azure security recommendations for Data Recovery control
 
 ## 9.1: Ensure Regular Automated Back Ups
 
@@ -65,16 +61,9 @@ https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyva
 |--|--|--|
 | 9.4 | 10.4 | Customer |
 
-For on-premises backup, encryption-at-rest is provided using the passphrase you provide when backing up to Azure. For Azure VMs, data is encrypted-at-rest using Storage Service Encryption (SSE). Customer to enable Soft-Delete in Key Vault to protect keys against accidental or malicious deletion.
+For on-premises backup, encryption-at-rest is provided using the passphrase you provide when backing up to Azure. For Azure VMs, data is encrypted-at-rest using Storage Service Encryption (SSE). You may enable Soft-Delete in Key Vault to protect keys against accidental or malicious deletion.
 
 How to enable Soft-Delete in Key Vault:
+
 https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal
-
-## 9.5: Ensure Backups Have At least One Non-Continuously Addressable Destination
-
-| Azure ID | CIS IDs | Responsibility |
-|--|--|--|
-| 9.5 | 10.5 | Customer |
-
-Azure Backup data is stored in a Recovery Service vault, separate from the storage location (VM, SQL Server, File Share). Contents of the vault are not directly accessible via the source/OS.
 

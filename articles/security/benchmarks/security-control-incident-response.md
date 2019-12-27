@@ -6,7 +6,7 @@ manager: rkarlin
 
 ms.service: security
 ms.topic: conceptual
-ms.date: 12/17/2019
+ms.date: 12/27/2019
 ms.author: mbaldwin
 ms.custom: security-recommendations
 
@@ -14,20 +14,29 @@ ms.custom: security-recommendations
 
 # Security Control: Incident Response
 
-Protect the organization's information, as well as its reputation, by developing and implementing an incident response infrastructure (e.g., plans, defined roles, training, communications, management oversight) for quickly discovering an attack and then effectively containing the damage, eradicating the attacker's presence, and restoring the integrity of the network and systems.
-
-The following sections list the Azure security recommendations for Incident Response control.
-
 ## 10.1: Create incident response guide
 
 | Azure ID | CIS IDs | Responsibility |
 |--|--|--|
 | 10.1 | 19.1, 19.2, 19.3 | Customer |
 
-Ensure that there are written incident response plans that defines roles of personnel as well as phases of incident handling/management.
+Build out an incident response guide for your organization. Ensure that there are written incident response plans that define all roles of personnel as well as phases of incident handling/management from detection to post-incident review.
 
 How to configure Workflow Automations within Azure Security Center:
+
 https://docs.microsoft.com/azure/security-center/security-center-planning-and-operations-guide
+
+Guidance on building your own security incident response process:
+
+https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/
+
+Microsoft Security Response Center's Anatomy of an Incident:
+
+https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/
+
+Customer may also leverage NIST's Computer Security Incident Handling Guide to aid in the creation of their own incident response plan:
+
+https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf
 
 ## 10.2: Create Incident Scoring and Prioritization Procedure
 
@@ -37,39 +46,57 @@ https://docs.microsoft.com/azure/security-center/security-center-planning-and-op
 
 Security Center assigns a severity to alerts, to help you prioritize the order in which you attend to each alert, so that when a resource is compromised, you can get to it right away. The severity is based on how confident Security Center is in the finding or the analytic used to issue the alert as well as the confidence level that there was malicious intent behind the activity that led to the alert.
 
-## 10.3: Provide Security Incident Contact Details and Configure Alert Notifications &nbsp;for Security Incidents
+Additionally, clearly mark subscriptions (for ex. production, non-prod) and create a naming system to clearly identify and categorize Azure resources.
+
+## 10.4: Provide Security Incident Contact Details and Configure Alert Notifications &nbsp;for Security Incidents
 
 | Azure ID | CIS IDs | Responsibility |
 |--|--|--|
-| 10.3 | 19.5 | Customer |
+| 10.4 | 19.5 | Customer |
 
-Security incident contact information will be used by Microsoft to contact the customer if the Microsoft Security Response Center (MSRC) discovers that the customer's data has been accessed by an unlawful or unauthorized party.
+Security incident contact information will be used by Microsoft to contact the customer if the Microsoft Security Response Center (MSRC) discovers that the customer's data has been accessed by an unlawful or unauthorized party.  Review incident after the fact to ensure that the issue is resolved.
 
 How to set the Azure Security Center Security Contact:
+
 https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details
 
-## 10.4: Incorporate security alerts into your incident response system
+## 10.5: Incorporate security alerts into your incident response system
 
 | Azure ID | CIS IDs | Responsibility |
 |--|--|--|
-| 10.4 | 19.6 | Customer |
+| 10.5 | 19.6 | Customer |
 
-Export your Azure Security Center alerts and recommendations using the Continuous Export feature. Continuous Export allows you to export alerts and recommendations either manually or in an ongoing, continuous fashion. Customer may utilize the Azure Security Center data connector to stream the alerts Sentinel.
+Export your Azure Security Center alerts and recommendations using the Continuous Export feature. Continuous Export allows you to export alerts and recommendations either manually or in an ongoing, continuous fashion. You may use the Azure Security Center data connector to stream the alerts Sentinel.
 
 How to configure continuous export:
+
 https://docs.microsoft.com/azure/security-center/continuous-export
 
 How to stream alerts into Azure Sentinel:
+
 https://docs.microsoft.com/azure/sentinel/connect-azure-security-center
 
-## 10.5: Automate the response to security alerts
+## 10.6: Automate the response to security alerts
 
 | Azure ID | CIS IDs | Responsibility |
 |--|--|--|
-| 10.5 | 19 | Customer |
+| 10.6 | 19 | Customer |
 
-Utilize the Workflow Automation feature in Azure Security Center to automatically trigger responses via &quot;Logic Apps&quot; on security alerts and recommendations.
+Use the Workflow Automation feature in Azure Security Center to automatically trigger responses via &quot;Logic Apps&quot; on security alerts and recommendations.
 
 How to configure Workflow Automation and Logic Apps:
+
 https://docs.microsoft.com/azure/security-center/workflow-automation
+
+## 10.3: Test Security Response Procedures
+
+| Azure ID | CIS IDs | Responsibility |
+|--|--|--|
+| 10.3 | 19 | Customer |
+
+Conduct exercises to test your systems’ incident response capabilities on a regular cadence. Identify weak points and gaps and revise plan as needed.
+
+Refer to NIST's publication: Guide to Test, Training, and Exercise Programs for IT Plans and Capabilities:
+
+https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf
 

@@ -12,13 +12,13 @@ ms.custom: security-baselines
 
 ---
 
-# Introduction
+# Azure security benchmarks introduction
 
-You may have several years or even decades of experience with on-premises computing. You know how to secure those deployments. But the cloud is different. How do you know if your cloud deployments are secure? What are the differences between on-premises security practices and those in the cloud? 
+You may have several years or even decades of experience with on-premises computing. You know how to secure those deployments. But the cloud is different. How do you know if your cloud deployments are secure? What are the differences between on-premises security practices and those in the cloud?
 
 There is a large collection white papers, best practices, reference architectures, web guidance, open source tools, commercial solutions, intelligence feeds, and more that can be used to help secure the cloud. Which option should you use? What can you do to get an acceptable level of security in the cloud? 
 
-One of the best ways to secure your cloud deployments is to focus on cloud security benchmark recommendations. Benchmark recommendations for securing any service begin with a fundamental understanding of cybersecurity risk and how to manage it. You can then use this understanding by adopting benchmark security recommendations from your cloud service provider to help guide specific security configuration settings in your environment.  
+One of the best ways to secure your cloud deployments is to focus on cloud security benchmark recommendations. Benchmark recommendations for securing any service begin with a fundamental understanding of cybersecurity risk and how to manage it. You can then use this understanding by adopting benchmark security recommendations from your cloud service provider to help guide specific security configuration settings in your environment. 
 
 The Azure Security Benchmark includes a collection of high-impact security recommendations you can use to help secure most of the services you use in Azure. You can think of these recommendations as "general" or "organizational" as they are applicable to most Azure services. The Azure Security Benchmark recommendations are then customized for each Azure service, and this customized guidance is contained in service recommendations articles. 
 
@@ -31,10 +31,8 @@ The terms "Control", "Benchmark", and "Baseline" are used often in the Azure Sec
 
 | Term | Description | Example |
 |--|--|--|
-Control | A **control** is a high-level description of a feature or activity that needs to be addressed. It is neither technology nor implementation specific. | Data Protection is one of the CIS security controls. This control contains specific actions that need to be addressed to help ensure data is protected. |
-| Benchmark | A **benchmark** contains security recommendations for a specific technology, such as Azure.  The recommendations are categorized by the control to which they belong. | The Azure Security Cloud Benchmark is based on the security controls defined by the Azure Security Controls Benchmark. |
-| Baseline | A **baseline** is the security requirements for an organization.  The security requirements are based on benchmark recommendations.  Each organization decides which benchmark recommendations to include in their baseline. | The Contoso company creates its security baseline by choosing to require specific recommendations in the Azure Security Cloud Benchmark. |
+| Control | A **control** is a high-level description of a feature or activity that needs to be addressed. It is neither technology nor implementation specific. | Data Protection is one of the security controls. This control contains specific actions that need to be addressed to help ensure data is protected. |
+| Benchmark | A **benchmark** contains security recommendations for a specific technology, such as Azure. The recommendations are categorized by the control to which they belong. | The Azure Security Benchmark is based on the security controls defined by the Azure Security Controls Benchmark. |
+| Baseline | A **baseline** is the security requirements for an organization. The security requirements are based on benchmark recommendations. Each organization decides which benchmark recommendations to include in their baseline. | The Contoso company creates its security baseline by choosing to require specific recommendations in the Azure Security Benchmark. |
 
-We welcome your feedback on the Azure Security Controls Benchmark! We encourage you to provide comments in the feedback area below. If you prefer to share your input more privately with the Azure Security Control Benchmark team, you are welcome to fill out the form at https://aka.ms/AzSecBenchmark   
-
- 
+We welcome your feedback on the Azure Security Benchmark! We encourage you to provide comments in the feedback area below. If you prefer to share your input more privately with the Azure Security Benchmark team, you are welcome to fill out the form at https://aka.ms/AzSecBenchmark 

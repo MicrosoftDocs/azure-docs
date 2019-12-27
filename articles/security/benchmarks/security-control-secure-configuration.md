@@ -6,17 +6,13 @@ manager: rkarlin
 
 ms.service: security
 ms.topic: conceptual
-ms.date: 12/17/2019
+ms.date: 12/27/2019
 ms.author: mbaldwin
 ms.custom: security-recommendations
 
 ---
 
 # Security Control: Secure Configuration
-
-Establish, implement, and actively manage (track, report on, correct) the security configuration of Azure resources in order to prevent attackers from exploiting vulnerable services and settings.
-
-The following sections list the Azure security recommendations for Secure Configuration control.
 
 ## 7.1: Establish Secure Configurations for all Azure Resources
 
@@ -85,7 +81,7 @@ https://docs.microsoft.com/azure/virtual-machines/extensions/dsc-overview
 |--|--|--|
 | 7.5 | 5.3 | Customer |
 
-If using custom Azure policy definitions, utilize Azure DevOps/Repos to securely store and manage your code.
+If using custom Azure policy definitions, use Azure DevOps/Repos to securely store and manage your code.
 
 How to store code in Azure DevOps:
 
@@ -101,7 +97,7 @@ https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops
 |--|--|--|
 | 7.6 | 5.3 | Customer |
 
-If using custom images, utilize RBAC to ensure only authorized users may access the images. For container images, store them in Azure Container Registry and leverage RBAC to ensure only authorized users may access the images.
+If using custom images, use RBAC to ensure only authorized users may access the images. For container images, store them in Azure Container Registry and leverage RBAC to ensure only authorized users may access the images.
 
 Understand RBAC in Azure:
 
@@ -151,11 +147,11 @@ How to remediate recommendations in Azure Security Center:
 
 https://docs.microsoft.com/azure/security-center/security-center-remediate-recommendations
 
-## 7.10: Implement Automated Configuration Monitoring for Operating Systems
+## 7.1: Implement Automated Configuration Monitoring for Operating Systems
 
 | Azure ID | CIS IDs | Responsibility |
 |--|--|--|
-| 7.10 | 5.5 | Customer |
+| 7.1 | 5.5 | Customer |
 
 Use Azure Security Center to perform baseline scans for OS and Docker Settings for Containers.
 

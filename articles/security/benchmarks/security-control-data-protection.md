@@ -6,17 +6,13 @@ manager: rkarlin
 
 ms.service: security
 ms.topic: conceptual
-ms.date: 12/17/2019
+ms.date: 12/27/2019
 ms.author: mbaldwin
 ms.custom: security-recommendations
 
 ---
 
 # Security Control: Data Protection
-
-Data protection recommendations focus on addressing issues related to encryption, access control lists, identity-based access control, and audit logging for data access.
-
-The following sections list the recommendations for Data Protection.
 
 ## 4.1: Maintain an inventory of sensitive Information
 
@@ -36,27 +32,34 @@ https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tag
 |--|--|--|
 | 4.2 | 13.2 | Customer |
 
-Customer to implement separate subscriptions and/or management groups for development, test, and production. Resources should be separated by VNet/Subnet, tagged appropriately, and secured within an NSG or Azure Firewall. Resources storing or processing sensitive data should be sufficiently isolated. For Virtual Machines storing or processing sensitive data, implement policy and procedure(s) to turn them off when not in use.
+Implement separate subscriptions and/or management groups for development, test, and production. Resources should be separated by VNet/Subnet, tagged appropriately, and secured within an NSG or Azure Firewall. Resources storing or processing sensitive data should be sufficiently isolated. For Virtual Machines storing or processing sensitive data, implement policy and procedure(s) to turn them off when not in use.
 
 How to create additional Azure subscriptions:
+
 https://docs.microsoft.com/azure/billing/billing-create-subscription
 
 How to create Management Groups:
+
 https://docs.microsoft.com/azure/governance/management-groups/create
 
-How to create and utilize Tags:
+How to create and use Tags:
+
 https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
 
 How to create a Virtual Network:
+
 https://docs.microsoft.com/azure/virtual-network/quick-create-portal
 
 How to create an NSG with a Security Config:
+
 https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic
 
 How to deploy Azure Firewall:
+
 https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal
 
 How to configure alert or alert and deny with Azure Firewall:
+
 https://docs.microsoft.com/azure/firewall/threat-intel
 
 ## 4.3: Monitor and block unauthorized transfer of sensitive information.
@@ -75,7 +78,10 @@ Deploy an automated tool on network perimeters that monitors for unauthorized tr
 
 Encrypt all sensitive information in transit. Ensure that any clients connecting to your Azure resources are able to negotiate TLS 1.2 or greater.
 
+Follow Azure Security Center recommendations for encryption at rest and encryption in transit, where applicable.
+
 Understanding encryption in transit with Azure:
+
 https://docs.microsoft.com/azure/security/fundamentals/encryption-overview#encryption-of-data-in-transit
 
 ## 4.5: Use an active discovery tool to identify sensitive data
@@ -84,7 +90,7 @@ https://docs.microsoft.com/azure/security/fundamentals/encryption-overview#encry
 |--|--|--|
 | 4.5 | 14.5 | Customer |
 
-When no feature is available for your specific service in Azure, use a third party active discovery tool to identify all sensitive information stored, processed, or transmitted by the organization's technology systems, including those located on-site or at a remote service provider and update the organization's sensitive information inventory.
+When no feature is available for your specific service in Azure, use a third party active discovery tool to identify all sensitive information stored, processed, or transmitted by the organization's technology systems, including those located on-site, or at a remote service provider, and update the organization's sensitive information inventory.
 
 Use Azure Information Protection for identifying sensitive information within Office 365 documents.
 

@@ -1,10 +1,10 @@
 ### YamlMime:Landing
 
-title: Azure Security benchmarks documentation
+title: Azure security benchmarks documentation
 summary: Learn how to secure your cloud solutions on Azure with our best practices and guidance.
 
 metadata:
-  title: Azure Security benchmarks 
+  title: Azure security benchmarks
   description: The Azure Security Controls Benchmark contains recommendations that help you improve the security of your applications and data on Azure.
   services: security
   ms.service: security
