@@ -40,6 +40,9 @@ Create an Azure Blob Storage linked service under the same ADF where your Azure-
 - **AutoResolveIntegrationRuntime** is selected for **Connect via integration runtime**
 - Either **Account key**/**SAS URI**/**Service Principal** is selected for **Authentication method**
 
+>[!TIP]
+>When **Service Principle** is selected,  grant at least **Storage Blob Data Contributor role**. For more info, refer to [Azure Blob Storage connector](connector-azure-blob-storage.md#linked-service-properties).
+
 ![Prepare Azure Blob Storage linked service for staging](media/self-hosted-integration-runtime-proxy-ssis/shir-azure-blob-storage-linked-service.png)
 
 ## Configure Azure-SSIS IR with Self-Hosted IR as a proxy
