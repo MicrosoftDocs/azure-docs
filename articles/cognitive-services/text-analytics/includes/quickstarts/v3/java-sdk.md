@@ -2,174 +2,312 @@
 title: "Quickstart: Text Analytics client library for Java | Microsoft Docs"
 description: Get started with the Text Analytics client library for Java...
 services: cognitive-services
-author: aahill
-manager: nitinme
+author: tasharm
+manager: assafi
 ms.service: cognitive-services
 ms.subservice: 
 ms.topic: quickstart
-ms.date: 12/20/2019
-ms.author: aahi
+ms.date: 12/27/2019
+ms.author: tasharm
 ---
 
-# Quickstart: Text Analytics client library for Java
+<a name="HOLTop"></a>
 
-Get started with the Text Analytics client library for Java. Follow these steps to install the package and try out the example code for basic tasks. 
+[Reference documentation](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/textanalytics?view=azure-dotnet-preview) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Language.TextAnalytics) | [Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.TextAnalytics/) | [Samples](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples)
 
-<!--
-    These links aren't for the java language, and are included as examples. Include the following single line of links targeting the library's companion content at the bottom of the introduction; make adjustments as necessary, but try not to include any other links or content in the introduction.
--->
-
-[Reference documentation](https://docs.microsoft.com/dotnet/api/Microsoft.Azure.CognitiveServices.AnomalyDetector?view=azure-dotnet-preview) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/AnomalyDetector) | [Artifact (Maven)](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-customsearch/1.0.2/jar) | [Samples](https://github.com/Azure-Samples/anomalydetector)
+> [!NOTE]
+> The code in this article uses the synchronous methods of the Text Analytics java SDK for simplicity. For production scenarios, we recommend using the batched asynchronous methods for performance and scalability. For example, calling [SentimentBatchAsync()](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.textanalyticsclientextensions.sentimentbatchasync?view=azure-dotnet&viewFallbackFrom=azure-dotnet-preview) instead of [Sentiment()](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.textanalyticsclientextensions.sentiment?view=azure-dotnet).
 
 ## Prerequisites
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/)
-* The current version of the [Java Development Kit(JDK)](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
-* The [Gradle build tool](https://gradle.org/install/), or another dependency manager.
+* Eclipse IDE - [Install from here](https://www.eclipse.org/downloads/)
+* Java Development Kit (JDK) with version 8 or above
 
 ## Setting up
 
-<!--
-Add any extra steps preparing an environment for working with the client library. 
--->
-
 ### Create a Text Analytics Azure resource
-<!-- NOTE
-The below is an "include" file, which is a text file that will be referenced, and rendered on the docs site.
-These files are used to display text across multiple articles at once. Consider keeping them in-place for consistency with other articles.
- -->
 
 [!INCLUDE [text-analytics-resource-creation](resource-creation.md)]
 
-### Create a new Gradle project
+### Create a new maven project in eclipse
 
-If you're using the command line, use these steps to setup your application.
+Using the eclipse IDE, create a new maven project.
 
-In a console window (such as cmd, PowerShell, or Bash), create a new directory for your app, and navigate to it. 
-
-```console
-mkdir myapp && cd myapp
-```
-
-Run the `gradle init` command from your working directory. This command will create essential build files for Gradle, including *build.gradle.kts* which is used at runtime to create and configure your application.
+Add the following dependencies to your pom file.
 
 ```console
-gradle init --type basic
+<dependencies>
+ 	<dependency>
+        <groupId>com.azure</groupId>
+        <artifactId>azure-ai-textanalytics</artifactId>
+        <version>1.0.0-beta.1</version>
+    </dependency>
+    <dependency>
+        <groupId>com.azure</groupId>
+        <artifactId>azure-core</artifactId>
+       	<version>1.1.0</version>
+    </dependency>
+    <dependency>
+        <groupId>com.azure</groupId>
+        <artifactId>azure-core-http-netty</artifactId>
+        <version>1.1.0</version>
+    </dependency>
+</dependencies>
 ```
+Create a new java file with under `\src\main\java`. 
 
-When prompted to choose a **DSL**, select **Kotlin**.
-
-Locate *build.gradle.kts* and open it with your preferred IDE or text editor. Then copy in this build configuration:
-
-```kotlin
-
-```
-
-Create a folder for your sample app. From your working directory, run the following command:
-
-```console
-mkdir -p src/main/java
-```
-<!-- replace <classname> with a descriptive name for your service-->
-Navigate to the new folder and create a file called *<classname>.java*. Open it in your preferred editor or IDE and add the following `import` statements:
+Open the java file and add the following `import` statements:
 
 ```java
+import com.azure.ai.textanalytics.models.AnalyzeSentimentResult;
+import com.azure.ai.textanalytics.models.DetectLanguageResult;
+import com.azure.ai.textanalytics.models.DetectedLanguage;
+import com.azure.ai.textanalytics.models.ExtractKeyPhraseResult;
+import com.azure.ai.textanalytics.models.LinkedEntity;
+import com.azure.ai.textanalytics.models.NamedEntity;
+import com.azure.ai.textanalytics.models.RecognizeEntitiesResult;
+import com.azure.ai.textanalytics.models.RecognizeLinkedEntitiesResult;
+import com.azure.ai.textanalytics.models.RecognizePiiEntitiesResult;
+import com.azure.ai.textanalytics.models.TextSentiment;
+import com.azure.ai.textanalytics.TextAnalyticsClientBuilder;
+import com.azure.ai.textanalytics.TextAnalyticsClient;
+import java.util.List;
 ```
 
-In the application's class, create variables for your resource's key and endpoint. 
-
-[!INCLUDE [text-analytics-find-resource-information](../find-azure-resource-info.md)]
-
-<!-- Use the below example variable names and example strings, for consistency with the other quickstart variables -->
-```csharp
-String key = "<replace-with-your-text-analytics-key-here>";
-String endpoint = "<replace-with-your-text-analytics-endpoint-here>";
-```
-
-In the application's `main` method, create variables for your resource's Azure endpoint and key.
-<!-- 
-    Be sure the main method calls the example task functions in this quickstart.
--->
+In the java file, add a new class and add your azure resource's key and endpoint as shown below.
 
 ```java
-static void Main(string[] args)
-{
-    var client = authenticateClient(key, endpoint);
-
-    sentimentAnalysisExample(client);
-    languageDetectionExample(client);
-    entityRecognitionExample(client);
-    keyPhraseExtractionExample(client);
-    Console.Write("Press any key to exit.");
-    Console.ReadKey();
+public class TextAnalyticsSample {
+    private static String SUBSCRIPTION_KEY = "8351dfef0e8c45daa7ec33a449a22d62";
+    private static String ENDPOINT = "https://canadacentral.api.cognitive.microsoft.com/";
 }
 ```
 
-### Install the client library
-<!-- remember to replace the code samples and links with ones relevant for the JAVA V3 version -->
-This quickstart uses the Gradle dependency manager. You can find the client library and information for other dependency managers on the [Maven Central Repository](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-textanalytics/).
+Add the following main method to the class. You will define the methods called here later.
 
-In your project's *build.gradle.kts* file, be sure to include the client library as an `implementation` statement. 
-
-```kotlin
-dependencies {
-    compile("com.squareup.okhttp:okhttp:2.5.0")
-    compile("com.microsoft....") <!-- Consider highlighting the line containing the library-->
+```java
+public static void main(String[] args) {
+    
+    TextAnalyticsClient client = authenticateClient(SUBSCRIPTION_KEY, ENDPOINT);
+    
+    sentimentAnalysisExample(client);
+    detectLanguageExample(client);
+    recognizeEntitiesExample(client);
+    recognizePiiEntitiesExample(client);
+    recognizeLinkedEntitiesExample(client);
+    extractKeyPhrasesExample(client);
 }
 ```
 
 ## Object model
 
-<!-- 
-    Briefly introduce and describe the functionality of the library's main classes. Include links to their reference pages.
-    Briefly explain the object hierarchy and how the classes work together to manipulate resources in the service.
--->
-
 The Text Analytics client is a [TextAnalyticsClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.textanalyticsclient?view=azure-dotnet) object that authenticates to Azure using your key, and provides functions to accept text as single strings or as a batch. You can send text to the API synchronously, or asynchronously. The response object will contain the analysis information for each document you send. 
 
 ## Code examples
 
-These code snippets show you how to do the following tasks with the [Product Name] client library for Java:
-<!-- If you add more code examples, add a link to them here-->
 * [Authenticate the client](#authenticate-the-client)
 * [Sentiment Analysis](#sentiment-analysis)
 * [Language detection](#language-detection)
 * [Entity recognition](#entity-recognition)
+* [PII entity recognition](#entity-pii-recognition)
+* [Entity linking](#entity-linking)
 * [Key phrase extraction](#key-phrase-extraction)
 
 ## Authenticate the client
 
-In a new method, instantiate a client with your endpoint and key. Create an [ApiKeyServiceClientCredentials]() object with your key, and use it with your endpoint to create an [ApiClient]() object.
+Create a method to instantiate the [TextAnalyticsClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.textanalyticsclient?view=azure-dotnet) object with your `SUBSCRIPTION_KEY` AND `ENDPOINT` created above.
 
 ```java
-
+static TextAnalyticsClient authenticateClient(String subscriptionKey, String endpoint) {
+    return new TextAnalyticsClientBuilder()
+    .subscriptionKey(subscriptionKey)
+    .endpoint(endpoint)
+    .buildClient();
+}
 ```
 
-## Example task 1
-(Example from a different article. See the other languages for specific examples of tasks and text layout): Create a new function called `SentimentAnalysisExample()` that takes the client that you created earlier, and call its [Sentiment()](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.textanalyticsclientextensions.sentiment?view=azure-dotnet) function. The returned [SentimentResult](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.models.sentimentresult?view=azure-dotnet) object will contain the sentiment `Score` if successful, and an `errorMessage` if not. 
+In your program's `main()` method, call the authentication method to instantiate the client.
 
-A score that's close to 0 indicates a negative sentiment, while a score that's closer to 1 indicates a positive sentiment.
+## Sentiment analysis
+
+Create a new function called `sentimentAnalysisExample()` that takes the client that you created earlier, and call its [analyzeSentiment()](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.textanalyticsclientextensions.sentiment?view=azure-dotnet) function. The returned [AnalyzeSentimentResult](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.models.sentimentresult?view=azure-dotnet) object will contain [documentSentiment](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.models.sentimentresult?view=azure-dotnet) and [sentenceSentiments](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.models.sentimentresult?view=azure-dotnet) if successful, and an `errorMessage` if not. 
 
 ```java
+static void sentimentAnalysisExample(TextAnalyticsClient client)
+{
+    // The text that need be analyzed.
+    String text = "The hotel was dark and unclean.";
 
+    AnalyzeSentimentResult sentimentResult = client.analyzeSentiment(text);
+    TextSentiment documentSentiment = sentimentResult.getDocumentSentiment();
+    System.out.printf(
+        "Recognized TextSentiment: %s, Positive Score: %s, Neutral Score: %s, Negative Score: %s.%n",
+        documentSentiment.getTextSentimentClass(),
+        documentSentiment.getPositiveScore(),
+        documentSentiment.getNeutralScore(),
+        documentSentiment.getNegativeScore());
+
+    List<TextSentiment> sentiments = sentimentResult.getSentenceSentiments();
+    for (TextSentiment textSentiment : sentiments) {
+        System.out.printf(
+            "Recognized Sentence TextSentiment: %s, Positive Score: %s, Neutral Score: %s, Negative Score: %s.%n",
+            textSentiment.getTextSentimentClass(),
+            textSentiment.getPositiveScore(),
+            textSentiment.getNeutralScore(),
+            textSentiment.getNegativeScore());
+    }
+}
 ```
 
-## Example task 2
-
-```java
-
-```
-
-## Run the application
-
-You can build the app with:
+### Output
 
 ```console
-gradle build
+Recognized TextSentiment: negative, Positive Score: 4.08880950999E-5, Neutral Score: 4.88696241518E-5, Negative Score: 0.9999102354049683.
+Recognized Sentence TextSentiment: negative, Positive Score: 4.08880950999E-5, Neutral Score: 4.88696241518E-5, Negative Score: 0.9999102354049683.
+```
+## Language detection
+
+Create a new function called `detectLanguageExample()` that takes the client that you created earlier, and call its [detectLanguage()](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.textanalyticsclientextensions.sentiment?view=azure-dotnet) function. The returned [DetectLanguageResult](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.models.sentimentresult?view=azure-dotnet) object will contains a primary language detected, a list of other languages detected, and an `errorMessage` if not. 
+
+```java
+static void detectLanguageExample(TextAnalyticsClient client)
+{
+    // The text that need be analyzed.
+    String text = "Hello world";
+
+    DetectLanguageResult detectLanguageResult = client.detectLanguage(text, "US");
+    DetectedLanguage detectedDocumentLanguage = detectLanguageResult.getPrimaryLanguage();
+    System.out.printf("Detected Primary Language: %s, ISO 6391 Name: %s, Score: %s.%n",
+        detectedDocumentLanguage.getName(),
+        detectedDocumentLanguage.getIso6391Name(),
+        detectedDocumentLanguage.getScore());
+
+    List<DetectedLanguage> detectedLanguages = detectLanguageResult.getDetectedLanguages();
+    for (DetectedLanguage detectedLanguage : detectedLanguages) {
+        System.out.printf("Other detected languages: %s, ISO 6391 Name: %s, Score: %s.%n",
+            detectedLanguage.getName(),
+            detectedLanguage.getIso6391Name(),
+            detectedLanguage.getScore());
+    }
+}
 ```
 
-Run the application with the `run` goal:
+### Output
 
 ```console
-gradle run
+Detected Primary Language: English, ISO 6391 Name: en, Score: 1.0.
+Other detected languages: English, ISO 6391 Name: en, Score: 1.0.
+```
+## Entity recognition
+
+Create a new function called `recognizeEntitiesExample()` that takes the client that you created earlier, and call its [recognizeEntities()](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.textanalyticsclientextensions.sentiment?view=azure-dotnet) function. The returned [RecognizeEntitiesResult](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.models.sentimentresult?view=azure-dotnet) object will contains a list of [NamedEntity](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.models.sentimentresult?view=azure-dotnet), and an `errorMessage` if not. 
+
+```java
+static void recognizeEntitiesExample(TextAnalyticsClient client)
+{
+    // The text that need be analysed.
+    String text = "Satya Nadella is the CEO of Microsoft";
+    
+    RecognizeEntitiesResult recognizeEntitiesResult = client.recognizeEntities(text);
+
+    for (NamedEntity entity : recognizeEntitiesResult.getNamedEntities()) {
+        System.out.printf(
+            "Recognized NamedEntity Text: %s, Type: %s, Subtype: %s, Offset: %s, Length: %s, Score: %s.%n",
+            entity.getText(),
+            entity.getType(),
+            entity.getSubtype(),
+            entity.getOffset(),
+            entity.getLength(),
+            entity.getScore());
+    }
+}
+```
+
+### Output
+
+```console
+Recognized NamedEntity Text: Satya Nadella, Type: Person, Subtype: null, Offset: 0, Length: 13, Score: 0.9992754459381104.
+Recognized NamedEntity Text: Microsoft, Type: Organization, Subtype: null, Offset: 28, Length: 9, Score: 1.0.
+```
+## PII entity recognition
+
+Create a new function called `recognizePiiEntitiesExample()` that takes the client that you created earlier, and call its [recognizePiiEntities()](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.textanalyticsclientextensions.sentiment?view=azure-dotnet) function. The returned [RecognizePiiEntitiesResult](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.models.sentimentresult?view=azure-dotnet) object will contains a list of [NamedEntity](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.models.sentimentresult?view=azure-dotnet), and an `errorMessage` if not. 
+
+```java
+static void recognizePiiEntitiesExample(TextAnalyticsClient client)
+{
+    // The text that need be analysed.
+    String text = "My SSN is 555-55-5555";
+    
+    RecognizePiiEntitiesResult recognizePiiEntitiesResult = client.recognizePiiEntities(text);
+
+    for (NamedEntity entity : recognizePiiEntitiesResult.getNamedEntities()) {
+        System.out.printf(
+            "Recognized PII Entity Text: %s, Type: %s, Subtype: %s, Offset: %s, Length: %s, Score: %s.%n",
+            entity.getText(),
+            entity.getType(),
+            entity.getSubtype(),
+            entity.getOffset(),
+            entity.getLength(),
+            entity.getScore());
+    }
+}
+```
+
+### Output
+
+```console
+Recognized PII Entity Text: 555-55-5555, Type: U.S. Social Security Number (SSN), Subtype: , Offset: 10, Length: 11, Score: 0.85.
+```
+## Entity linking
+
+Create a new function called `recognizeLinkedEntitiesExample()` that takes the client that you created earlier, and call its [recognizeLinkedEntities()](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.textanalyticsclientextensions.sentiment?view=azure-dotnet) function. The returned [RecognizeLinkedEntitiesResult](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.models.sentimentresult?view=azure-dotnet) object will contains a list of [LinkedEntity](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.models.sentimentresult?view=azure-dotnet), and an `errorMessage` if not. 
+
+```java
+static void recognizeLinkedEntitiesExample(TextAnalyticsClient client)
+{
+    // The text that need be analysed.
+    String text = "Old Faithful is a geyser at Yellowstone Park.";
+    
+    RecognizeLinkedEntitiesResult recognizeLinkedEntitiesResult = client.recognizeLinkedEntities(text);
+
+    for (LinkedEntity linkedEntity : recognizeLinkedEntitiesResult.getLinkedEntities()) {
+        System.out.printf("Recognized Linked NamedEntity: %s, URL: %s, Data Source: %s.%n",
+            linkedEntity.getName(),
+            linkedEntity.getUrl(),
+            linkedEntity.getDataSource());
+    }
+}
+```
+
+### Output
+
+```console
+Recognized Linked NamedEntity: Yellowstone National Park, URL: https://en.wikipedia.org/wiki/Yellowstone_National_Park, Data Source: Wikipedia.
+Recognized Linked NamedEntity: Old Faithful, URL: https://en.wikipedia.org/wiki/Old_Faithful, Data Source: Wikipedia.
+```
+## Key phrase extraction
+
+Create a new function called `extractKeyPhrasesExample()` that takes the client that you created earlier, and call its [extractKeyPhrases()](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.textanalyticsclientextensions.sentiment?view=azure-dotnet) function. The returned [ExtractKeyPhraseResult](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.models.sentimentresult?view=azure-dotnet) object will contains a list of key phrases if successful, and an `errorMessage` if not. 
+
+```java
+static void extractKeyPhrasesExample(TextAnalyticsClient client)
+{
+    // The text that need be analyzed.
+    String text = "My cat might need to see a veterinarian.";
+    
+    ExtractKeyPhraseResult keyPhraseResult = client.extractKeyPhrases(text);
+
+    for (String keyPhrase : keyPhraseResult.getKeyPhrases()) {
+        System.out.printf("Recognized Phrases: %s.%n", keyPhrase);
+    }
+}
+```
+
+### Output
+
+```console
+Recognized Phrases: cat.
+Recognized Phrases: veterinarian.
 ```
