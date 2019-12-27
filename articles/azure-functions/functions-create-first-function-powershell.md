@@ -43,7 +43,7 @@ To complete this quickstart:
 
 ## Create a function app project
 
-The Azure Functions project template in Visual Studio Code creates a project that can be published to a function app in Azure. A function app lets you group functions as a logical unit for management, deployment, and sharing of resources. 
+The Azure Functions project template in Visual Studio Code creates a project that can be published to a function app in Azure. A function app lets you group functions as a logical unit for easier management, deployment, scaling, and sharing of resources. 
 
 1. In Visual Studio Code, select the Azure logo to display the **Azure: Functions** area, and then select the Create New Project icon.
 
@@ -63,7 +63,7 @@ The Azure Functions project template in Visual Studio Code creates a project tha
 
 1. When prompted, choose **Add to workspace**.
 
-Visual Studio Code creates the PowerShell function app project in a new workspace. This project contains the [host.json](functions-host-json.md) and [local.settings.json](functions-run-local.md#local-settings-file) configuration files, which apply to all function in the project. This [PowerShell project](functions-reference-powershell.md#folder-structure) is the same as a function app running in Azure.
+Visual Studio Code creates the PowerShell function app project in a new workspace. This project contains the [host.json](functions-host-json.md) and [local.settings.json](functions-run-local.md#local-settings-file) configuration files, which apply to all functions in the project. This [PowerShell project](functions-reference-powershell.md#folder-structure) is the same as a function app running in Azure.
 
 ## Run the function locally
 
