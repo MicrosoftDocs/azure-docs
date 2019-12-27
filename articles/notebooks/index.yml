@@ -1,6 +1,6 @@
 ### YamlMime:Landing
 title: Azure Notebooks Documentation
-summary: Azure Notebooks is a free hosted service to develop and run Jupyter notebooks in the cloud with no installation. Jupyter (formerly IPython) is an open source project that lets you easily combine markdown text, executable code (Python, R, and F#), persistent data, graphics, and visualizations onto a single, sharable canvas called a notebook.
+summary: Azure Notebooks is a free hosted service to develop and run Jupyter notebooks in the cloud with no installation. Jupyter (formerly IPython) is an open-source project that lets you easily combine markdown text, executable code (Python, R, and F#), persistent data, graphics, and visualizations onto a single, sharable canvas called a notebook.
 metadata:
   title: Azure Notebooks Documentation
   description: Learn how to create, run, and share Jupyter notebooks through the hosted Azure Notebooks service.
@@ -22,7 +22,7 @@ landingContent:
             url: azure-notebooks-overview.md
       - linkListType: deploy
         links:
-          - text: Samples of Notebooks
+          - text: Samples of Azure Notebooks
             url: azure-notebooks-samples.md
   # Card
   - title: Get started
