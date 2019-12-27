@@ -9,7 +9,7 @@ ms.author: aahi
 <a name="HOLTop"></a>
 
 <!-- these links are for v2. Make sure to update them to the correct v3 content -->
-[Reference documentation](https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/textanalytics?view=azure-python) | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-language-textanalytics) | [Package (PiPy)](https://pypi.org/project/azure-cognitiveservices-language-textanalytics/) | [Samples](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples)
+[Reference documentation]() | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics) | [Package (PiPy)]() | [Samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics/azure-ai-textanalytics/samples)
 
 
 ## Prerequisites
@@ -76,8 +76,10 @@ These code snippets show you how to do the following with the Text Analytics cli
 * [Authenticate the client](#authenticate-the-client)
 * [Sentiment Analysis](#sentiment-analysis)
 * [Language detection](#language-detection)
-* [Entity recognition](#entity-recognition)
 * [Key phrase extraction](#key-phrase-extraction)
+* [Entity recognition](#entity-recognition)
+* [Entity linking](#entity-linking)
+* [PII Entity recognition](#Personal-identifiable-information-(PII)-entity-recognition)
 
 ## Authenticate the client
 
