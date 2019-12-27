@@ -8,7 +8,17 @@
     href: terminology.md
 - name: Quickstarts
   items:
-  - name: Applications
+  - name: Monitor Azure resource
+    href: learn/quick-monitor-azure-resource.md
+  - name: Monitor virtual machines
+    items:
+    - name: Collect - Azure VMs
+      href: learn/quick-collect-azurevm.md
+    - name: Collect - Linux computer
+      href: learn/quick-collect-linux-computer.md
+    - name: Collect - Windows computer
+      href: learn/quick-collect-windows-computer.md
+  - name: Monitor applications
     items:
     - name: .NET application
       href: learn/quick-monitor-portal.md
@@ -20,26 +30,20 @@
       href: learn/mobile-center-quickstart.md
     - name: Web application
       href: app/website-monitoring.md 
-  - name: Virtual machines
-    items:
-    - name: Collect - Azure VMs
-      href: learn/quick-collect-azurevm.md
-    - name: Collect - Linux computer
-      href: learn/quick-collect-linux-computer.md
-    - name: Collect - Windows computer
-      href: learn/quick-collect-windows-computer.md
 - name: Tutorials
   items:
-  - name: Logs
-    items: 
-    - name: Log Analytics
-      href: log-query/get-started-portal.md
-    - name: Log queries
-      href: log-query/get-started-queries.md
-    - name: Dashboard with log data
-      href: learn/tutorial-logs-dashboards.md
-    - name: Alert on log data
-      href: learn/tutorial-response.md
+  - name: Create a metrics chart
+    href: learn/tutorial-metrics-explorer.md
+  - name: Collect logs from Azure resource
+    href: learn/tutorial-resource-logs.md
+  - name: Write log queries
+    href: log-query/get-started-queries.md
+  - name: Create a dashboard from log query
+    href: learn/tutorial-logs-dashboards.md
+  - name: Create alert from log query
+    href: learn/tutorial-response.md
+  - name: Autoscale on performance and schedule
+    href: learn/tutorial-autoscale-performance-schedule.md
   - name: Application Insights
     items:  
     - name: Find application run-time exceptions
@@ -52,10 +56,6 @@
       href: learn/tutorial-users.md
     - name: Dashboard with application data
       href: learn/tutorial-app-dashboards.md
-  - name: Archive platform metric and log data 
-    href: learn/tutorial-archive-data.md
-  - name: Autoscale on performance and schedule
-    href: learn/tutorial-autoscale-performance-schedule.md
 - name: Samples
   items:
   - name: Azure PowerShell
