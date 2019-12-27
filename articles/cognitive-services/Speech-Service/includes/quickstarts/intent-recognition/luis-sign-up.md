@@ -19,7 +19,7 @@ The first thing you'll need to do is create a LUIS account and app using the LUI
 
 Follow these instructions to create your LUIS app: 
 
-* [Quickstart: Build prebuilt domain app](../luis/luis-get-started-create-app.md)
+* [Quickstart: Build prebuilt domain app](../../../../luis/luis-get-started-create-app.md)
 
 When you're done, you'll need three things: 
 
