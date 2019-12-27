@@ -36,7 +36,7 @@ These files are used to display text across multiple articles at once. Consider 
 After installing Python, you can install the client library with:
 
 ```console
-pip install --upgrade azure-cognitiveservices-language-textanalytics
+pip install azure-ai-textanalytics --pre
 ```
 
 ### Create a new python application
