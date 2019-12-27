@@ -9,7 +9,7 @@ ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 11/21/2019
+ms.date: 12/27/2019
 ms.custom: seodec18
 ---
 # Set up and use compute targets for model training 
@@ -359,7 +359,7 @@ For more information, see [Resource management](reference-azure-machine-learning
 
 ## Set up with VS Code
 
-You can access, create, and manage the compute targets that are associated with your workspace using the [VS Code extension](how-to-vscode-tools.md#create-and-manage-compute-targets) for Azure Machine Learning.
+You can access, create, and manage the compute targets that are associated with your workspace using the [VS Code extension](tutorial-train-deploy-image-classification-model-vscode.md#configure-compute-targets) for Azure Machine Learning.
 
 ## <a id="submit"></a>Submit training run using Azure Machine Learning SDK
 
@@ -409,7 +409,7 @@ Or you can:
 
 * Submit the experiment with an `Estimator` object as shown in [Train ML models with estimators](how-to-train-ml-models.md).
 * Submit a HyperDrive run for [hyperparameter tuning](how-to-tune-hyperparameters.md).
-* Submit an experiment via the [VS Code extension](how-to-vscode-tools.md#train-and-tune-models).
+* Submit an experiment via the [VS Code extension](tutorial-train-deploy-image-classification-model-vscode.md#train-the-model).
 
 For more information, see the [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py) and [RunConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfiguration?view=azure-ml-py) documentation.
 

@@ -14168,9 +14168,9 @@
       "redirect_document_id": true
     },
     {
-      "source_path": "articles/machine-learning/service/how-to-vscode-tools.md",
-      "redirect_url": "/azure/machine-learning/how-to-vscode-tools",
-      "redirect_document_id": true
+        "source_path": "articles/machine-learning/service/how-to-vscode-tools.md",
+        "redirect_url": "/azure/machine-learning/tutorial-setup-vscode-extension",
+        "redirect_document_id": true
     },
     {
       "source_path": "articles/machine-learning/service/monitor-azure-machine-learning.md",
