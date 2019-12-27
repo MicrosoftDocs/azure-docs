@@ -79,8 +79,8 @@ In the java file, add a new class and add your azure resource's key and endpoint
 
 ```java
 public class TextAnalyticsSample {
-    private static String SUBSCRIPTION_KEY = "8351dfef0e8c45daa7ec33a449a22d62";
-    private static String ENDPOINT = "https://canadacentral.api.cognitive.microsoft.com/";
+    private static String SUBSCRIPTION_KEY = "<<enter-your-key-here>>";
+    private static String ENDPOINT = "<<enter-your-endpoint-here>>";
 }
 ```
 
