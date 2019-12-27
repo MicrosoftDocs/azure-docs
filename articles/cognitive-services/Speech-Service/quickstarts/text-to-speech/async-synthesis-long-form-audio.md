@@ -104,7 +104,7 @@ Prepare an input text file. It can be either plain text or SSML text. For the in
 After getting the input text file ready, add the code for speech synthesis to `voice_synthesis_client.py`:
 
 > [!NOTE]
-> 'concatenateResult' is an optional parameter. If this parameter isn't defined, the audio outputs will be generated per paragraph. You can also concatenate the audios into 1 output by setting the parameter to 'true'. 
+> 'concatenateResult' is an optional parameter. If this parameter isn't defined, the audio outputs will be generated per paragraph. You can also concatenate the audios into 1 output by setting the parameter. 
 > By default, the audio output is set to riff-16khz-16bit-mono-pcm. For more information about supported audio outputs, see [Audio output formats](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/long-audio-api#audio-output-formats).
 
 ```python
@@ -126,7 +126,7 @@ def submitSynthesis():
 	    files = {'script': (scriptfilename, open(args.file, 'rb'), 'text/plain')}
     response = requests.post(baseAddress+"voicesynthesis", data, headers={"Ocp-Apim-Subscription-Key":args.key}, files=files, verify=False)
     if response.status_code == 202:
-        location = response.headers['Operation-Location']
+        location = response.headers['Location']
         id = location.split("/")[-1]
         print("Submit synthesis request successful")
         return id
@@ -252,7 +252,7 @@ Let's check your submitted requests before. You'll need to update a few things i
 Run this command:
 
 ```console
-python voice_synthesis_client.py – syntheses -key <your_key> -region <Region>
+python voice_synthesis_client.py --syntheses -key <your_key> -region <Region>
 ```
 
 This will return a list of synthesis you've requested. You will get the output like this:
@@ -276,7 +276,7 @@ Now let's try to remove/delete previously submitted requests. You'll need to upd
 Run this command:
 
 ```console
-python voice_synthesis_client.py – delete -key <your_key> -region <Region> -synthesisId <synthesis_id>
+python voice_synthesis_client.py --delete -key <your_key> -region <Region> -synthesisId <synthesis_id>
 ```
 
 You will get the output like this:
