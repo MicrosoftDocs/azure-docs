@@ -14,6 +14,8 @@ ms.custom: security-recommendations
 
 # Security Control: Secure Configuration
 
+Establish, implement, and actively manage (track, report on, correct) the security configuration of Azure resources in order to prevent attackers from exploiting vulnerable services and settings.
+
 ## 7.1: Establish secure configurations for all Azure resources
 
 | Azure ID | CIS IDs | Responsibility |

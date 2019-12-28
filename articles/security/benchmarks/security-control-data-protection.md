@@ -14,6 +14,8 @@ ms.custom: security-recommendations
 
 # Security Control: Data Protection
 
+Data protection recommendations focus on addressing issues related to encryption, access control lists, identity-based access control, and audit logging for data access.
+
 ## 4.1: Maintain an inventory of sensitive Information
 
 | Azure ID | CIS IDs | Responsibility |

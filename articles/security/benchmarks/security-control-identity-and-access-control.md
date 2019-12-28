@@ -14,6 +14,9 @@ ms.custom: security-recommendations
 
 # Security Control: Identity and Access Control
 
+Identity and access management recommendations focus on addressing issues related to identity-based access control, locking down administrative access, alerting on identity-related events, abnormal
+account behavior, and role-based access control. 
+
 ## 3.1: Maintain an inventory of administrative accounts
 
 | Azure ID | CIS IDs | Responsibility |

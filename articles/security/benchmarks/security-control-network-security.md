@@ -14,6 +14,8 @@ ms.custom: security-recommendations
 
 # Security Control: Network Security
 
+Network security recommendations focus on specifying which network protocols, TCP/UDP ports, and network connected services are allowed or denied access to Azure services.
+
 ## 1.1: Protect resources using Network Security Groups or Azure Firewall on your Virtual Network
 
 | Azure ID | CIS IDs | Responsibility |

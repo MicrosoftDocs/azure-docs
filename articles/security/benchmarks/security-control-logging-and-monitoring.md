@@ -14,6 +14,8 @@ ms.custom: security-recommendations
 
 # Security Control: Logging and Monitoring
 
+Security logging recommendations focus on activities related to enabling, acquiring, and storing audit logs for Azure services. 
+
 ## 2.1: Use approved time synchronization sources
 
 | Azure ID | CIS IDs | Responsibility |

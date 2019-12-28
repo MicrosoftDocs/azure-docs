@@ -14,6 +14,8 @@ ms.custom: security-recommendations
 
 # Security Control: Penetration Tests and Red Team Exercises
 
+Test the overall strength of an organization's defense (the technology, the processes, and the people) bysimulating the objectives and actions of an attacker.
+
 ## 11.1: Conduct regular penetration testing of your Azure resources and ensure remediation of all critical security findings within 60 days.
 
 | Azure ID | CIS IDs | Responsibility |

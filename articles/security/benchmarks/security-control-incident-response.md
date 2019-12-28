@@ -14,6 +14,8 @@ ms.custom: security-recommendations
 
 # Security Control: Incident Response
 
+Protect the organization's information, as well as its reputation, by developing and implementing anincident response infrastructure (e.g., plans, defined roles, training, communications, managementoversight) for quickly discovering an attack and then effectively containing the damage, eradicating the attacker's presence, and restoring the integrity of the network and systems.
+
 ## 10.1: Create an incident response guide
 
 | Azure ID | CIS IDs | Responsibility |

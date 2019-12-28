@@ -14,6 +14,8 @@ ms.custom: security-recommendations
 
 # Security Control: Data Recovery
 
+Ensure that all system data, configurations, and secrets, are automatically backed up on a regular basis.
+
 ## 9.1: Ensure regular automated back ups
 
 | Azure ID | CIS IDs | Responsibility |

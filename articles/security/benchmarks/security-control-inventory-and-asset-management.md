@@ -14,6 +14,8 @@ ms.custom: security-recommendations
 
 # Security Control: Inventory and Asset Management
 
+Inventory and Asset Management recommendations focus on addressing issues related to actively managing (inventory, track, and correct) all Azure resources so that only authorized resources are given access, and unauthorized and unmanaged resources are identified and removed.
+
 ## 6.1: Use Azure Asset Discovery
 
 | Azure ID | CIS IDs | Responsibility |
