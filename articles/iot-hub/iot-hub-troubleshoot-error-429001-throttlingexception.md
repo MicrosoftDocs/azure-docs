@@ -17,11 +17,11 @@ This article describes the causes and solutions for **429001 ThrottlingException
 
 ## Symptoms
 
-Precisely describe what the customer should be experiencing when encountering the problem. If the title can't contain the complete message, expand on it here. If there is relevant general troubleshooting information available, link to it from here.
+Your requests to IoT Hub fails with the error **429001 ThrottlingException**.
 
 ## Cause
 
-IoT Hub [throttling limits](./iot-hub-devguide-quotas-throttling.md) have been exceeded.
+IoT Hub [throttling limits](./iot-hub-devguide-quotas-throttling.md) have been exceeded for the requested operation.
 
 ## Solution
 
@@ -29,8 +29,6 @@ Check if you're hitting the throttling limit by comparing your *Telemetry messag
 
 IoT Hub returns 429 ThrottlingException only after the limit has been violated for too long a period. This is done so that your messages aren't dropped if your IoT hub gets burst traffic. In the meantime, IoT Hub processes the messages at the operation throttle rate, which might be slow if there's too much traffic in the backlog. To learn more, see [IoT Hub traffic shaping](./iot-hub-devguide-quotas-throttling.md#traffic-shaping).
 
-Consider [scaling up your IoT Hub](./iot-hub-scaling.md) if you're running into quota or throttling limits.
-
 ## Next steps
 
-Include this section if there are 1 -3 concrete, highly relevant next steps the user should take. Delete if there are no next steps. This is not a place for a list of links. If you include links to next steps, make sure to include text to explain why the next steps are relevant or important.
+Consider [scaling up your IoT Hub](./iot-hub-scaling.md) if you're running into quota or throttling limits.

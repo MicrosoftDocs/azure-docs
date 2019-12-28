@@ -19,11 +19,11 @@ This article describes the causes and solutions for **401003 IoTHubUnauthorized*
 
 Several possible symptoms fall under this error code. In general, the error shows when trying during requests to IoT Hub service for almost anything. Additional detail is included in the error message which could include:
 
->* Authorization header missing
->* IotHub '\*' does not contain the specified device '\*'
->* Authorization rule '\*' does not allow access for '\*'
->* Authentication failed for this device, renew token or certificate and reconnect
->* Thumbprint does not match configuration: Thumbprint: SHA1Hash=\*, SHA2Hash=\*; Configuration: PrimaryThumbprint=\*, SecondaryThumbprint=\*
+* Authorization header missing
+* IotHub '\*' does not contain the specified device '\*'
+* Authorization rule '\*' does not allow access for '\*'
+* Authentication failed for this device, renew token or certificate and reconnect
+* Thumbprint does not match configuration: Thumbprint: SHA1Hash=\*, SHA2Hash=\*; Configuration: PrimaryThumbprint=\*, SecondaryThumbprint=\*
 
 ## Cause
 
