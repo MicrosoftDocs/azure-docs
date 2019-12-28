@@ -101,7 +101,7 @@ In your program's `main()` method, call the authentication method to instantiate
 ## Sentiment analysis
 
 <!-- TODO: Update client docs links -->
-Create a new function called `SentimentAnalysisExample()` that takes the client that you created earlier, and call its [AnalyzeSentiment()]() function. The returned [Response\<AnalyzeSentimentResult\>]() object will contain the sentiment label and score of the entire input document, as well as a sentiment analysis for each sentence.
+Create a new function called `SentimentAnalysisExample()` that takes the client that you created earlier, and call its [AnalyzeSentiment()]() function. The returned [Response\<AnalyzeSentimentResult\>]() object will contain the sentiment label and score of the entire input document, as well as a sentiment analysis for each sentence if successful, and a `Value.ErrorMessage` if not.
 
 ```csharp
 static void SentimentAnalysisExample(TextAnalyticsClient client)
@@ -110,11 +110,11 @@ static void SentimentAnalysisExample(TextAnalyticsClient client)
     Console.WriteLine($"Document sentiment: {response.Value.DocumentSentiment.SentimentClass}\n");
     foreach (var sentence in response.Value.SentenceSentiments)
     {
-        Console.WriteLine($"Sentence [offset {sentence.Offset}, length {sentence.Length}]");
-        Console.WriteLine($"Sentence sentiment: {sentence.SentimentClass}");
-        Console.WriteLine($"Positive score: {sentence.PositiveScore:0.00}");
-        Console.WriteLine($"Negative score: {sentence.NegativeScore:0.00}");
-        Console.WriteLine($"Neutral score: {sentence.NeutralScore:0.00}\n");
+        Console.WriteLine($"\tSentence [offset {sentence.Offset}, length {sentence.Length}]");
+        Console.WriteLine($"\tSentence sentiment: {sentence.SentimentClass}");
+        Console.WriteLine($"\tPositive score: {sentence.PositiveScore:0.00}");
+        Console.WriteLine($"\tNegative score: {sentence.NegativeScore:0.00}");
+        Console.WriteLine($"\tNeutral score: {sentence.NeutralScore:0.00}\n");
     }
 }
 ```
@@ -124,23 +124,23 @@ static void SentimentAnalysisExample(TextAnalyticsClient client)
 ```console
 Document sentiment: Positive
 
-Sentence [offset 0, length 30]
-Sentence sentiment: Positive
-Positive score: 1.00
-Negative score: 0.00
-Neutral score: 0.00
+        Sentence [offset 0, length 30]
+        Sentence sentiment: Positive
+        Positive score: 1.00
+        Negative score: 0.00
+        Neutral score: 0.00
 
-Sentence [offset 31, length 30]
-Sentence sentiment: Neutral
-Positive score: 0.21
-Negative score: 0.02
-Neutral score: 0.77
+        Sentence [offset 31, length 30]
+        Sentence sentiment: Neutral
+        Positive score: 0.21
+        Negative score: 0.02
+        Neutral score: 0.77
 ```
 
 ## Language detection
 
 <!-- TODO: Update client docs links -->
-Create a new function called `LanguageDetectionExample()` that takes the client that you created earlier, and call its  [DetectLanguage()]() function. The returned [Response\<DetectLanguageResult>]() object will contain the detected language in `Value.PrimaryLanguage` if successful, and an `Value.ErrorMessage` if not.
+Create a new function called `LanguageDetectionExample()` that takes the client that you created earlier, and call its  [DetectLanguage()]() function. The returned [Response\<DetectLanguageResult>]() object will contain the detected language in `Value.PrimaryLanguage` if successful, and a `Value.ErrorMessage` if not.
 
 > [!Tip]
 > In some cases it may be hard to disambiguate languages based on the input. You can use the `countryHint` parameter to specify a 2-letter country code. By default the API is using the "US" as the default countryHint, to remove this behavior you can reset this parameter by setting this value to empty string `countryHint = ""`. To set a different default, set the `TextAnalyticsClientOptions.DefaultCountryHint` property and pass it during the client's initialization.
@@ -149,20 +149,23 @@ Create a new function called `LanguageDetectionExample()` that takes the client 
 static void LanguageDetectionExample(TextAnalyticsClient client)
 {
     var response = client.DetectLanguage("Ce document est rédigé en Français.");
-    Console.WriteLine($"Language: {response.Value.PrimaryLanguage.Name}\n");
+    var detectedLanguage = response.Value.PrimaryLanguage;
+    Console.WriteLine("Language:");
+    Console.WriteLine($"\t{detectedLanguage.Name},\tISO-6391: {detectedLanguage.Iso6391Name}\n");
 }
 ```
 
 ### Output
 
 ```console
-Language: French
+Language:
+        French, ISO-6391: fr
 ```
 
 ## Entity recognition
 
 <!-- TODO: Update client docs link -->
-Create a new function called `EntityRecognitionExample()` that takes the client that you created earlier, call its [RecognizeEntities()]() function and iterate through the results. The returned [Response\<RecognizeEntitiesResult\>]() object will contain the list of detected entities in `Value.NamedEntities` if successful, and an `Value.ErrorMessage` if not. For each detected entity, print its Type and Sub-Type if exists.
+Create a new function called `EntityRecognitionExample()` that takes the client that you created earlier, call its [RecognizeEntities()]() function and iterate through the results. The returned [Response\<RecognizeEntitiesResult\>]() object will contain the list of detected entities in `Value.NamedEntities` if successful, and a `Value.ErrorMessage` if not. For each detected entity, print its Type and Sub-Type if exists.
 
 ```csharp
 static void EntityRecognitionExample(TextAnalyticsClient client)
@@ -191,7 +194,7 @@ Named Entities:
 ## Personal Identifiable Information (PII) Entity recognition
 
 <!-- TODO: Update client docs link -->
-Create a new function called `EntityPIIExample()` that takes the client that you created earlier, call its [RecognizePiiEntities()]() function and iterate through the results. Similar to the previous function the returned [Response\<RecognizeEntitiesResult\>]() object will contain the list of detected entities in `Value.NamedEntities` if successful, and an `Value.ErrorMessage` if not.
+Create a new function called `EntityPIIExample()` that takes the client that you created earlier, call its [RecognizePiiEntities()]() function and iterate through the results. Similar to the previous function the returned [Response\<RecognizeEntitiesResult\>]() object will contain the list of detected entities in `Value.NamedEntities` if successful, and a `Value.ErrorMessage` if not.
 
 ```csharp
 static void EntityPIIExample(TextAnalyticsClient client)
@@ -217,7 +220,7 @@ Personally Identifiable Information Entities:
 ## Entity Linking
 
 <!-- TODO: Update client docs link -->
-Create a new function called `EntityLinkingExample()` that takes the client that you created earlier, call its [RecognizeLinkedEntities()]() function and iterate through the results. The returned [Response\<RecognizeLinkedEntitiesResult\>]() object will contain the list of detected entities in `Value.LinkedEntities` if successful, and an `Value.ErrorMessage` if not. Since linked entities are uniquely identified, occurrences of the same entity are grouped under a `LinkedEntity` object as a list of `LinkedEntityMatch` objects.
+Create a new function called `EntityLinkingExample()` that takes the client that you created earlier, call its [RecognizeLinkedEntities()]() function and iterate through the results. The returned [Response\<RecognizeLinkedEntitiesResult\>]() object will contain the list of detected entities in `Value.LinkedEntities` if successful, and a `Value.ErrorMessage` if not. Since linked entities are uniquely identified, occurrences of the same entity are grouped under a `LinkedEntity` object as a list of `LinkedEntityMatch` objects.
 
 ```csharp
 static void EntityLinkingExample(TextAnalyticsClient client)
@@ -286,7 +289,7 @@ Linked Entities:
 ## Key phrase extraction
 
 <!-- TODO: Update client docs link -->
-Create a new function called `KeyPhraseExtractionExample()` that takes the client that you created earlier and call its [ExtractKeyPhrases()]() function. The result will contain the list of detected key phrases in `KeyPhrases` if successful, and an `ErrorMessage` if not. Print any detected key phrases.
+Create a new function called `KeyPhraseExtractionExample()` that takes the client that you created earlier and call its [ExtractKeyPhrases()]() function. The result will contain the list of detected key phrases in `Value.KeyPhrases` if successful, and a `Value.ErrorMessage` if not. Print any detected key phrases.
 
 ```csharp
 static void KeyPhraseExtractionExample(TextAnalyticsClient client)
