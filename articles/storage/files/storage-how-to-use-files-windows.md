@@ -17,23 +17,23 @@ In order to use an Azure file share outside of the Azure region it is hosted in,
 You can use Azure file shares on a Windows installation that is running either in an Azure VM or on-premises. The following table illustrates which OS versions support accessing file shares in which environment:
 
 | Windows version        | SMB version | Mountable in Azure VM | Mountable On-Premises |
-|------------------------|-------------|-----------------------|----------------------|
-| Windows Server 2019    | SMB 3.0 | Yes | Yes |
+|------------------------|-------------|-----------------------|-----------------------|
+| Windows Server 2019 | SMB 3.0 | Yes | Yes |
 | Windows 10<sup>1</sup> | SMB 3.0 | Yes | Yes |
 | Windows Server semi-annual channel<sup>2</sup> | SMB 3.0 | Yes | Yes |
-| Windows Server 2016    | SMB 3.0     | Yes                   | Yes                  |
-| Windows 8.1            | SMB 3.0     | Yes                   | Yes                  |
-| Windows Server 2012 R2 | SMB 3.0     | Yes                   | Yes                  |
-| Windows Server 2012    | SMB 3.0     | Yes                   | Yes                  |
-| Windows 7              | SMB 2.1     | Yes                   | No                   |
-| Windows Server 2008 R2 | SMB 2.1     | Yes                   | No                   |
+| Windows Server 2016 | SMB 3.0 | Yes | Yes |
+| Windows 8.1 | SMB 3.0 | Yes | Yes |
+| Windows Server 2012 R2 | SMB 3.0 | Yes | Yes |
+| Windows Server 2012 | SMB 3.0 | Yes | Yes |
+| Windows 7<sup>3</sup> | SMB 2.1 | Yes | No |
+| Windows Server 2008 R2<sup>3</sup> | SMB 2.1 | Yes | No |
 
-<sup>1</sup>Windows 10, versions 1507, 1607, 1703, 1709, 1803, 1809, and 1903.  
-<sup>2</sup>Windows Server, versions 1803, 1809, and 1903.
+<sup>1</sup>Windows 10, versions 1507, 1607, 1709, 1803, 1809, 1903, and 1909.
+<sup>2</sup>Windows Server, versions 1809, 1903, and 1909.
+<sup>3</sup>Regular Microsoft support for Windows 7 and Windows Server 2008 R2 has ended. It is possible to purchase additional support for security updates only through the [Extended Security Update (ESU) program](https://support.microsoft.com/help/4497181/lifecycle-faq-extended-security-updates). We strongly recommend migrating off of these operating systems.
 
 > [!Note]  
 > We always recommend taking the most recent KB for your version of Windows.
-
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
