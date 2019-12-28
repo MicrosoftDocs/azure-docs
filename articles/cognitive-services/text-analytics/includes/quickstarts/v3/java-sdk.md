@@ -65,6 +65,7 @@ import com.azure.ai.textanalytics.models.DetectLanguageResult;
 import com.azure.ai.textanalytics.models.DetectedLanguage;
 import com.azure.ai.textanalytics.models.ExtractKeyPhraseResult;
 import com.azure.ai.textanalytics.models.LinkedEntity;
+import com.azure.ai.textanalytics.models.LinkedEntityMatch;
 import com.azure.ai.textanalytics.models.NamedEntity;
 import com.azure.ai.textanalytics.models.RecognizeEntitiesResult;
 import com.azure.ai.textanalytics.models.RecognizeLinkedEntitiesResult;
@@ -79,8 +80,8 @@ In the java file, add a new class and add your azure resource's key and endpoint
 
 ```java
 public class TextAnalyticsSample {
-    private static String SUBSCRIPTION_KEY = "<<enter-your-key-here>>";
-    private static String ENDPOINT = "<<enter-your-endpoint-here>>";
+    private static String SUBSCRIPTION_KEY = "<replace-with-your-text-analytics-key-here>";
+    private static String ENDPOINT = "<replace-with-your-text-analytics-endpoint-here>";
 }
 ```
 
@@ -175,30 +176,21 @@ Create a new function called `detectLanguageExample()` that takes the client tha
 static void detectLanguageExample(TextAnalyticsClient client)
 {
     // The text that need be analyzed.
-    String text = "Hello world";
+    String text = "Ce document est rédigé en Français.";
 
     DetectLanguageResult detectLanguageResult = client.detectLanguage(text, "US");
     DetectedLanguage detectedDocumentLanguage = detectLanguageResult.getPrimaryLanguage();
-    System.out.printf("Detected Primary Language: %s, ISO 6391 Name: %s, Score: %s.%n",
+    System.out.printf("Language: %s, ISO 6391 Name: %s, Score: %s.%n",
         detectedDocumentLanguage.getName(),
         detectedDocumentLanguage.getIso6391Name(),
         detectedDocumentLanguage.getScore());
-
-    List<DetectedLanguage> detectedLanguages = detectLanguageResult.getDetectedLanguages();
-    for (DetectedLanguage detectedLanguage : detectedLanguages) {
-        System.out.printf("Other detected languages: %s, ISO 6391 Name: %s, Score: %s.%n",
-            detectedLanguage.getName(),
-            detectedLanguage.getIso6391Name(),
-            detectedLanguage.getScore());
-    }
 }
 ```
 
 ### Output
 
 ```console
-Detected Primary Language: English, ISO 6391 Name: en, Score: 1.0.
-Other detected languages: English, ISO 6391 Name: en, Score: 1.0.
+Language: French, ISO 6391 Name: fr, Score: 1.0.
 ```
 ## Entity recognition
 
@@ -208,13 +200,13 @@ Create a new function called `recognizeEntitiesExample()` that takes the client 
 static void recognizeEntitiesExample(TextAnalyticsClient client)
 {
     // The text that need be analysed.
-    String text = "Satya Nadella is the CEO of Microsoft";
+    String text = "I had a wonderful trip to Seattle last week.";
     
     RecognizeEntitiesResult recognizeEntitiesResult = client.recognizeEntities(text);
 
     for (NamedEntity entity : recognizeEntitiesResult.getNamedEntities()) {
         System.out.printf(
-            "Recognized NamedEntity Text: %s, Type: %s, Subtype: %s, Offset: %s, Length: %s, Score: %.2f.%n",
+            "Recognized NamedEntity Text: %s, Type: %s, Subtype: %s, Offset: %s, Length: %s, Score: %.3f.%n",
             entity.getText(),
             entity.getType(),
             entity.getSubtype() == null || entity.getSubtype().isEmpty() ? "N/A" : entity.getSubtype(),
@@ -228,8 +220,8 @@ static void recognizeEntitiesExample(TextAnalyticsClient client)
 ### Output
 
 ```console
-Recognized NamedEntity Text: Satya Nadella, Type: Person, Subtype: N/A, Offset: 0, Length: 13, Score: 1.00.
-Recognized NamedEntity Text: Microsoft, Type: Organization, Subtype: N/A, Offset: 28, Length: 9, Score: 1.00.
+Recognized NamedEntity Text: Seattle, Type: Location, Subtype: N/A, Offset: 26, Length: 7, Score: 0.806.
+Recognized NamedEntity Text: last week, Type: DateTime, Subtype: DateRange, Offset: 34, Length: 9, Score: 0.800.
 ```
 
 ## Entity recognition - PII
@@ -240,16 +232,16 @@ Create a new function called `recognizePIIEntitiesExample()` that takes the clie
 static void recognizePIIEntitiesExample(TextAnalyticsClient client)
 {
     // The text that need be analysed.
-    String text = "My SSN is 555-55-5555";
+    String text = "Insurance policy for SSN on file 123-12-1234 is here by approved.";
     
     RecognizePiiEntitiesResult recognizePIIEntitiesResult = client.recognizePiiEntities(text);
 
     for (NamedEntity entity : recognizePIIEntitiesResult.getNamedEntities()) {
         System.out.printf(
-            "Recognized PII Entity Text: %s, Type: %s, Subtype: %s, Offset: %s, Length: %s, Score: %s.%n",
+            "Personally Identifiable Information Entities Text: %s, Type: %s, Subtype: %s, Offset: %s, Length: %s, Score: %s.%n",
             entity.getText(),
             entity.getType(),
-            entity.getSubtype(),
+            entity.getSubtype() == null || entity.getSubtype().isEmpty() ? "N/A" : entity.getSubtype(),
             entity.getOffset(),
             entity.getLength(),
             entity.getScore());
@@ -260,25 +252,40 @@ static void recognizePIIEntitiesExample(TextAnalyticsClient client)
 ### Output
 
 ```console
-Recognized PII Entity Text: 555-55-5555, Type: U.S. Social Security Number (SSN), Subtype: , Offset: 10, Length: 11, Score: 0.85.
+Personally Identifiable Information Entities Text: 123-12-1234, Type: U.S. Social Security Number (SSN), Subtype: N/A, Offset: 33, Length: 11, Score: 0.85.
 ```
 ## Entity linking
 
-Create a new function called `recognizeLinkedEntitiesExample()` that takes the client that you created earlier, and call its [recognizeLinkedEntities()](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.textanalyticsclientextensions.sentiment?view=azure-dotnet) function. The returned [RecognizeLinkedEntitiesResult](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.models.sentimentresult?view=azure-dotnet) object will contains a list of [LinkedEntity](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.models.sentimentresult?view=azure-dotnet), and an `errorMessage` if not. 
+Create a new function called `recognizeLinkedEntitiesExample()` that takes the client that you created earlier, and call its [recognizeLinkedEntities()](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.textanalyticsclientextensions.sentiment?view=azure-dotnet) function. The returned [RecognizeLinkedEntitiesResult](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.models.sentimentresult?view=azure-dotnet) object will contains a list of [LinkedEntity](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.models.sentimentresult?view=azure-dotnet), and an `errorMessage` if not. Since linked entities are uniquely identified, occurrences of the same entity are grouped under a `LinkedEntity` object as a list of `LinkedEntityMatch` objects.
 
 ```java
 static void recognizeLinkedEntitiesExample(TextAnalyticsClient client)
 {
     // The text that need be analysed.
-    String text = "Old Faithful is a geyser at Yellowstone Park.";
+    String text = "Microsoft was founded by Bill Gates and Paul Allen on April 4, 1975, " +
+            "to develop and sell BASIC interpreters for the Altair 8800. " +
+            "During his career at Microsoft, Gates held the positions of chairman, " +
+            "chief executive officer, president and chief software architect, " +
+            "while also being the largest individual shareholder until May 2014.";
     
     RecognizeLinkedEntitiesResult recognizeLinkedEntitiesResult = client.recognizeLinkedEntities(text);
 
+    System.out.printf("Linked Entities:%n");
     for (LinkedEntity linkedEntity : recognizeLinkedEntitiesResult.getLinkedEntities()) {
-        System.out.printf("Recognized Linked NamedEntity: %s, URL: %s, Data Source: %s.%n",
+        System.out.printf("Name: %s, ID: %s, URL: %s, Data Source: %s.%n",
             linkedEntity.getName(),
+            linkedEntity.getId(),
             linkedEntity.getUrl(),
             linkedEntity.getDataSource());
+        System.out.printf("tMatches:%n");
+        for (LinkedEntityMatch linkedEntityMatch : linkedEntity.getLinkedEntityMatches()) {
+            System.out.printf("Text: %s, Offset: %s, Length: %s, Score: %.2f.%n",
+                linkedEntityMatch.getText(),
+                linkedEntityMatch.getOffset(),
+                linkedEntityMatch.getLength(),
+                linkedEntityMatch.getScore());
+            
+        }
     }
 }
 ```
@@ -286,8 +293,27 @@ static void recognizeLinkedEntitiesExample(TextAnalyticsClient client)
 ### Output
 
 ```console
-Recognized Linked NamedEntity: Yellowstone National Park, URL: https://en.wikipedia.org/wiki/Yellowstone_National_Park, Data Source: Wikipedia.
-Recognized Linked NamedEntity: Old Faithful, URL: https://en.wikipedia.org/wiki/Old_Faithful, Data Source: Wikipedia.
+Linked Entities:
+Name: Altair 8800, ID: Altair 8800, URL: https://en.wikipedia.org/wiki/Altair_8800, Data Source: Wikipedia.
+tMatches:
+Text: Altair 8800, Offset: 11, Length: 116, Score: 0.65.
+Name: Bill Gates, ID: Bill Gates, URL: https://en.wikipedia.org/wiki/Bill_Gates, Data Source: Wikipedia.
+tMatches:
+Text: Bill Gates, Offset: 10, Length: 25, Score: 0.24.
+Text: Gates, Offset: 5, Length: 161, Score: 0.24.
+Name: Paul Allen, ID: Paul Allen, URL: https://en.wikipedia.org/wiki/Paul_Allen, Data Source: Wikipedia.
+tMatches:
+Text: Paul Allen, Offset: 10, Length: 40, Score: 0.17.
+Name: Microsoft, ID: Microsoft, URL: https://en.wikipedia.org/wiki/Microsoft, Data Source: Wikipedia.
+tMatches:
+Text: Microsoft, Offset: 9, Length: 0, Score: 0.20.
+Text: Microsoft, Offset: 9, Length: 150, Score: 0.20.
+Name: April 4, ID: April 4, URL: https://en.wikipedia.org/wiki/April_4, Data Source: Wikipedia.
+tMatches:
+Text: April 4, Offset: 7, Length: 54, Score: 0.14.
+Name: BASIC, ID: BASIC, URL: https://en.wikipedia.org/wiki/BASIC, Data Source: Wikipedia.
+tMatches:
+Text: BASIC, Offset: 5, Length: 89, Score: 0.05.
 ```
 ## Key phrase extraction
 
