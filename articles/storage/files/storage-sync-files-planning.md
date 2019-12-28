@@ -143,7 +143,7 @@ The following table shows the interop state of NTFS file system features:
 | Sparse files | Fully supported | Sparse files sync (are not blocked), but they sync to the cloud as a full file. If the file contents change in the cloud (or on another server), the file is no longer sparse when the change is downloaded. |
 | Alternate Data Streams (ADS) | Preserved, but not synced | For example, classification tags created by the File Classification Infrastructure are not synced. Existing classification tags on files on each of the server endpoints are left untouched. |
 
-Azure File Sync will also skip certain temporary files and system folders:
+<a id="files-skipped"></a>Azure File Sync will also skip certain temporary files and system folders:
 
 | File/folder | Note |
 |-|-|
@@ -275,7 +275,7 @@ For more information about encryption in transit, see [requiring secure transfer
 [!INCLUDE [storage-files-tiers-overview](../../../includes/storage-files-tiers-overview.md)]
 
 ### Enable standard file shares to span up to 100 TiB
-[!INCLUDE [storage-files-tiers-enable-large-shares](../../../includes/storage-files-tiers-enable-large-tiers.md)]
+[!INCLUDE [storage-files-tiers-enable-large-shares](../../../includes/storage-files-tiers-enable-large-shares.md)]
 
 #### Regional availability
 [!INCLUDE [storage-files-tiers-large-file-share-availability](../../../includes/storage-files-tiers-large-file-share-availability.md)]
