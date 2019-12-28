@@ -114,7 +114,7 @@ The following procedure describes how to use PowerShell to deploy an Azure Resou
      }
      ```
   
-    * For more information, see the [Parameters](../azure-resource-manager/resource-group-template-deploy.md#parameter-files) article.
+    * For more information, see the [Parameters](../azure-resource-manager/templates/parameter-files.md) article.
 
 ## Deploy the quickstart template locally using PowerShell
 

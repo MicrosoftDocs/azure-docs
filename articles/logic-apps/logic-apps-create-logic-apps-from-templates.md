@@ -49,7 +49,7 @@ If you don't have an Azure subscription,
    | ------- | ----- | ----------- | 
    | **Name** | *your-logic-app-name* | Provide a unique logic app name. | 
    | **Subscription** | *your-Azure-subscription-name* | Select the Azure subscription that you want to use. | 
-   | **Resource group** | *your-Azure-resource-group-name* | Create or select an [Azure resource group](../azure-resource-manager/resource-group-overview.md) for this logic app and to organize all resources associated with this app. | 
+   | **Resource group** | *your-Azure-resource-group-name* | Create or select an [Azure resource group](../azure-resource-manager/management/overview.md) for this logic app and to organize all resources associated with this app. | 
    | **Location** | *your-Azure-datacenter-region* | Select the datacenter region for deploying your logic app, for example, West US. | 
    | **Log Analytics** | **Off** (default) or **On** | Turn on [diagnostic logging](../logic-apps/logic-apps-monitor-your-logic-apps.md#turn-on-diagnostics-logging-for-your-logic-app) for your logic app through [Azure Monitor logs](../log-analytics/log-analytics-overview.md). Requires that you already have a Log Analytics workspace. | 
    |||| 
