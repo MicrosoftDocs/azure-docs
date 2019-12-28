@@ -35,8 +35,6 @@ You can use Azure file shares on a Windows installation that is running either i
 > [!Note]  
 > We always recommend taking the most recent KB for your version of Windows.
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
-
 ## Prerequisites 
 * **Storage account name**: To mount an Azure file share, you will need the name of the storage account.
 

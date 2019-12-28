@@ -16,7 +16,20 @@ ms.subservice: files
 
 For an overview of Azure AD authentication over SMB for Azure file shares, see [Overview of Azure Active Directory authentication over SMB for Azure Files](storage-files-active-directory-overview.md). This article is focused on how to enable authentication with Azure Active Directory Domain Services (Azure AD DS) on Azure Files.
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+## Overview of the workflow
+
+Before you enable Azure AD DS Authentication over SMB for Azure Files, verify that your Azure AD and Azure Storage environments are properly configured. We recommend that you walk through the [prerequisites](#prerequisites) to make sure you've completed all the required steps.
+
+Next, grant access to Azure Files resources with Azure AD credentials by following these steps: 
+
+1. Enable Azure AD DS authentication over SMB for your storage account to register the storage account with the associated Azure AD DS deployment.
+2. Assign access permissions for a share to an Azure AD identity (a user, group, or service principal).
+3. Configure NTFS permissions over SMB for directories and files.
+4. Mount an Azure file share from a domain-joined VM.
+
+The following diagram illustrates the end-to-end workflow for enabling Azure AD DS authentication over SMB for Azure Files.
+
+![Diagram showing Azure AD over SMB for Azure Files workflow](media/storage-files-active-directory-enable/azure-active-directory-over-smb-workflow.png)
 
 ## Prerequisites
 
