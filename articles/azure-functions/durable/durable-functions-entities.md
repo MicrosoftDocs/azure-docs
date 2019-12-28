@@ -162,14 +162,14 @@ Entities can be accessed from within client functions, from within orchestrator 
 
 The following examples illustrate these various ways of accessing entities.
 
-> [!NOTE]
-> For simplicity, the following examples show the loosely typed syntax for accessing entities. In general, we recommend that you [access entities through interfaces](durable-functions-dotnet-entities.md#accessing-entities-through-interfaces) because it provides more type checking.
-
 ### Example: Client signals an entity
 
 To access entities from an ordinary Azure Function, which is also known as a client function, use the [entity client binding](durable-functions-bindings.md#entity-client). The following example shows a queue-triggered function signaling an entity using this binding.
 
 # [C#](#tab/csharp)
+
+> [!NOTE]
+> For simplicity, the following examples show the loosely typed syntax for accessing entities. In general, we recommend that you [access entities through interfaces](durable-functions-dotnet-entities.md#accessing-entities-through-interfaces) because it provides more type checking.
 
 ```csharp
 [FunctionName("AddFromQueue")]
