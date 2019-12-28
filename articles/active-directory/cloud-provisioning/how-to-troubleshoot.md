@@ -56,7 +56,7 @@ https://aadap-portcheck.connectorporttest.msappproxy.net/
 
 This test verifies that your agents can communicate with Azure over port 443. Open a browser, and go to the previous URL from the server where the agent is installed.
 
- ![Verification of port reachability](media/how-to-install/verify2.png)
+![Verification of port reachability](media/how-to-install/verify2.png)
 
 ### On the local server
 
@@ -92,7 +92,7 @@ To resolve this problem, follow these steps.
 
 You might get the following error message when you attempt to register the agent.
 
- ![Time-out error message](media/how-to-troubleshoot/troubleshoot4.png)
+![Time-out error message](media/how-to-troubleshoot/troubleshoot4.png)
 
 This problem is usually caused by the agent being unable to connect to the Hybrid Identity Service and requires you to configure an HTTP proxy. To resolve this problem, configure an outbound proxy. 
 
@@ -130,27 +130,27 @@ To gather additional details for troubleshooting agent-related problems, follow 
 1. Create a copy of the original config file: *C:\Program Files\Microsoft Azure AD Connect Provisioning Agent\AADConnectProvisioningAgent.exe.config*.
 1. Replace the existing `<system.diagnostics>` section with the following, and all trace messages will go to the file *ProvAgentTrace.log*.
 
-          ```xml
-            <system.diagnostics>
-                <sources>
-                <source name="AAD Connect Provisioning Agent">
-                    <listeners>
-                    <add name="console"/>
-                    <add name="etw"/>
-                    <add name="textWriterListener"/>
-                    </listeners>
-                </source>
-                </sources>
-                <sharedListeners>
-                <add name="console" type="System.Diagnostics.ConsoleTraceListener" initializeData="false"/>
-                <add name="etw" type="System.Diagnostics.EventLogTraceListener" initializeData="Azure AD Connect Provisioning Agent">
-                    <filter type="System.Diagnostics.EventTypeFilter" initializeData="All"/>
-                </add>
-                <add name="textWriterListener" type="System.Diagnostics.TextWriterTraceListener" initializeData="C:/ProgramData/Microsoft/Azure AD Connect Provisioning Agent/Trace/ProvAgentTrace.log"/>
-                </sharedListeners>
-            </system.diagnostics>
+   ```xml
+     <system.diagnostics>
+         <sources>
+         <source name="AAD Connect Provisioning Agent">
+             <listeners>
+             <add name="console"/>
+             <add name="etw"/>
+             <add name="textWriterListener"/>
+             </listeners>
+         </source>
+         </sources>
+         <sharedListeners>
+         <add name="console" type="System.Diagnostics.ConsoleTraceListener" initializeData="false"/>
+         <add name="etw" type="System.Diagnostics.EventLogTraceListener" initializeData="Azure AD Connect Provisioning Agent">
+             <filter type="System.Diagnostics.EventTypeFilter" initializeData="All"/>
+         </add>
+         <add name="textWriterListener" type="System.Diagnostics.TextWriterTraceListener" initializeData="C:/ProgramData/Microsoft/Azure AD Connect Provisioning Agent/Trace/ProvAgentTrace.log"/>
+         </sharedListeners>
+     </system.diagnostics>
     
-          ```
+   ```
 1. Start the service **Microsoft Azure AD Connect Provisioning Agent**.
 1. Use the following command to tail the file and debug problems. 
     ```
@@ -164,15 +164,15 @@ The following section contains information on troubleshooting object synchroniza
 
 In the Azure portal, provisioning logs can be used to help track down and troubleshoot object synchronization problems. To view the logs, select **Logs**.
 
- ![Logs button](media/how-to-troubleshoot/log1.png)
+![Logs button](media/how-to-troubleshoot/log1.png)
 
 Provisioning logs provide a wealth of information on the state of the objects being synchronized between your on-premises Active Directory environment and Azure.
 
- ![Provisioning Logs screen](media/how-to-troubleshoot/log2.png)
+![Provisioning Logs screen](media/how-to-troubleshoot/log2.png)
 
 You can use the drop-down boxes at the top of the page to filter the view to zero in on specific problems, such as dates. Double-click an individual event to see additional information.
 
- ![Provisioning Logs drop-down box information](media/how-to-troubleshoot/log3.png)
+![Provisioning Logs drop-down box information](media/how-to-troubleshoot/log3.png)
 
 This information provides detailed steps and where the synchronization problem is occurring. In this way, you can pinpoint the exact spot of the problem.
 
@@ -181,11 +181,11 @@ This information provides detailed steps and where the synchronization problem i
 
 Cloud provisioning monitors the health of your configuration and places unhealthy objects in a quarantine state. If most or all of the calls made against the target system consistently fail because of an error, for example, invalid admin credentials, the provisioning job is marked as in quarantine.
 
- ![Quarantine status](media/how-to-troubleshoot/quarantine1.png)
+![Quarantine status](media/how-to-troubleshoot/quarantine1.png)
 
 By selecting the status, you can see additional information about the quarantine. You can also obtain the error code and message.
 
- ![Quarantine status information](media/how-to-troubleshoot/quarantine2.png)
+![Quarantine status information](media/how-to-troubleshoot/quarantine2.png)
 
 ### Resolve a quarantine
 
