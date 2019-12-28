@@ -19,13 +19,7 @@ ms.subservice: files
 This article primarily addresses deployment considerations for deploying an Azure file share to be directly mounted by an on-premises or cloud client. To plan for an Azure File Sync deployment, see [Planning for an Azure File Sync deployment](storage-sync-files-planning.md).
 
 ## Management concepts
-Azure file shares are deployed into *storage accounts*, which are top-level objects that represent a shared pool of storage. This pool of storage can be used to deploy multiple file shares, as well as other storage resources such as blob containers, queues, or tables. All storage resources that are deployed into a storage account share the limits that apply to that storage account. To see the current limits for a storage account, see [Azure Files scalability and performance targets](storage-files-scale-targets.md).
-
-There are two main types of storage accounts you will use for Azure Files deployments: 
-- **General purpose version 2 (GPv2) storage accounts**: GPv2 storage accounts allow you to deploy Azure file shares on standard/hard disk-based (HDD-based) hardware. In addition to storing Azure file shares, GPv2 storage accounts can store other storage resources such as blob containers, queues, or tables. 
-- **FileStorage storage accounts**: FileStorage storage accounts allow you to deploy Azure file shares on premium/solid-state disk-based (SSD-based) hardware. FileStorage accounts can only be used to store Azure file shares; no other storage resources (blob containers, queues, tables, etc.) can be deployed in a FileStorage account.
-
-There are several other storage account types you may come across in the Azure portal, PowerShell, or CLI. Two storage account types, BlockBlobStorage and BlobStorage storage accounts, cannot contain Azure file shares. The other two storage account types you may see are general purpose version 1 (GPv1) and classic storage accounts, both of which can contain Azure file shares. Although GPv1 and classic storage accounts may contain Azure file shares, most new features of Azure Files are available only in GPv2 and FileStorage storage accounts. We therefore recommend to only use GPv2 and FileStorage storage accounts for new deployments, and to upgrade GPv1 and classic storage accounts if they already exist in your environment.  
+[!INCLUDE [storage-files-file-share-management-concepts](../../../includes/storage-files-file-share-management-concepts.md)]
 
 When deploying Azure file shares into storage accounts, we recommend:
 
@@ -69,17 +63,10 @@ We strongly recommend ensuring encryption of data in-transit is enabled.
 For more information about encryption in transit, see [requiring secure transfer in Azure storage](../common/storage-require-secure-transfer.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 
 ### Encryption at rest
-All data stored in Azure Files is encrypted at rest. This functionality works similarly to how BitLocker works on-premises; data is encrypted beneath the file system level. This means that when you read the data, you don't have to have access to the underlying key to decrypt it at the client side.
-
-By default, data stored in Azure Files is encrypted with Microsoft-managed keys. This means that Microsoft holds the keys to encrypt/decrypt the data, and is responsible for rotating them on a regular basis. You can also choose to manage your own keys, which gives you control over the rotation process. If you choose to encrypt your file shares with customer-managed keys, Azure Files is authorized to access your keys to fulfill read and write requests from your clients. With customer-managed keys, you can revoke this authorization at any time, but this means that your Azure file share will no longer be accessible via SMB or the FileREST API.
-
-Azure Files uses the same encryption scheme as the other Azure storage services such as Azure Blob storage. To learn more about Azure storage service encryption (SSE), see [Azure storage encryption for data at rest](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
+[!INCLUDE [storage-files-encryption-at-rest](../../../includes/storage-files-encryption-at-rest.md)]
 
 ## Storage tiers
-Azure Files offers two different tiers of storage, premium and standard, to allow you to tailor your shares to the performance and price requirements of your scenario:
-
-- **Premium file shares**: Premium file shares are backed by solid-state drives (SSDs) and are deployed in the **FileStorage storage account** type. Premium file shares provide consistent high performance and low latency, within single-digit milliseconds for most IO operations, for IO-intensive workloads. This makes them suitable for a wide variety of workloads like databases, web site hosting, and development environments. Premium file shares are only available in a provisioned billing model. For more information on the provisioned billing model for premium file shares, see [Understanding provisioning for premium file shares](#understanding-provisoning-for-premium-file-shares).
-- **Standard file shares**: Standard file shares are backed by hard disk drives (HDDs) and are deployed in the **general purpose version 2 (GPv2) storage account** type. Standard file shares provide reliable performance for IO workloads that are less sensitive to performance variability such as general-purpose file shares and dev/test environments. Standard file shares are only available in a pay-as-you-go billing model.
+[!INCLUDE [storage-files-tiers-overview](../../../includes/storage-files-tiers-overview.md)]
 
 In general, Azure Files features and interoperability with other services are the same between premium file shares and standard file shares, however there are a few important differences:
 - **Billing model**
@@ -153,34 +140,13 @@ Share credits have three states:
 New file shares start with the full number of credits in its burst bucket. Burst credits will not be accrued if the share IOPS fall below baseline IOPS due to throttling by the server.
 
 ### Enable standard file shares to span up to 100 TiB
-By default, standard file shares can span only up to 5 TiB, although the share limit can be increased to 100 TiB. To do this, *large file share* feature must be enabled at the storage account-level. Enabling this flag is only required for standard file shares; all premium file shares are already enabled for provisioning up to the full 100 TiB capacity.
-
-You can enable large file shares when you create a new storage account or on an existing storage account, however this can only be done on a locally redundant or zone redundant storage account. Note that enabling the large file share feature on a locally redundant or zone redundant storage account also disables the ability to convert the storage account to geo-redundant or geo-zone-redundant storage in the future.
-
-You can learn more about how to enable large file shares on a new storage account by following the steps in the [creating an Azure file share](storage-how-to-create-file-share.md) how to guide. To enable large file shares on an existing storage account, navigate to the **Configuration** view in the storage account's table of contents, and switch the large file share rocker switch to enabled:
-
-![A screenshot of the enable large file share rocker switch in the Azure portal](media/storage-files-planning/enable-LFS-1.png)
-
-This can also be done through the [`Set-AzStorageAccount`](https://docs.microsoft.com/powershell/module/az.storage/set-azstorageaccount) PowerShell cmdlet and the [`az storage account update`](https://docs.microsoft.com/cli/azure/storage/account#az-storage-account-update) Azure CLI command.
+[!INCLUDE [storage-files-tiers-enable-large-shares](../../../includes/storage-files-tiers-enable-large-tiers.md)]
 
 #### Regional availability
-Standard file shares with 100 TiB capacity limit are available globally in all Azure regions, except:
-
-- Locally redundant storage: All regions, except for South Africa North, South Africa West, Germany West Central, and Germany North.
-- Zone redundant storage: Supported for all regions where Zone redundant storage is supported, except for Japan East, North Europe, South Africa North.
-- Geo-redundant/GeoZone redundant storage: Not supported.
+[!INCLUDE [storage-files-tiers-large-file-share-availability](../../../includes/storage-files-tiers-large-file-share-availability.md)]
 
 ## Redundancy
-To protect your data against data loss or corruption, all Azure file shares store multiple copies of each file as they are written. Depending on the requirements of your workload, you can select additional degrees of redundancy. Azure Files currently supports the following data redundancy options:
-
-- **Locally redundant**: Locally redundant storage, often referred to as LRS, means that every file is stored three times within an Azure storage cluster. This protects against loss of data due to hardware faults, such as a bad disk drive.
-- **Zone redundant**: Zone redundant storage, often referred to as ZRS, means that every file is stored three times across three distinct Azure storage clusters. The three distinct Azure storage clusters each store the file three times, just like with locally redundant storage, and are physically isolated in different Azure *availability zones*. Availability zones are unique physical locations within an Azure region. Each zone is made up of one or more datacenters equipped with independent power, cooling, and networking. A write to storage is not accepted until it is written to the storage clusters in all three availability zones. This means that zone redundant storage provides 9 copies of your data within a given Azure region.
-- **Geo-redundant**: Geo-redundant storage, often referred to as GRS, is like locally redundant storage, in that a file is stored three times within an Azure storage cluster in the primary region. All writes are then asynchronously replicated to a Microsoft-defined secondary region. This means that geo-redundant storage provides 6 copies of your data spread between two Azure regions. In the event of a major disaster such as the permanent loss of an Azure region due to a natural disaster or other similar event, Microsoft will perform a failover so that the secondary in effect becomes the primary, serving all operations. Since the replication between the primary and secondary regions are asynchronous, in the event of a major disaster, data not yet replicated to the secondary region will be lost. You can also perform a manual failover of a geo-redundant storage account.
-- **GeoZone redundant**: Geo-zone-redundant storage, often referred to as GZRS, is like zone redundant storage, in that a file is stored nine times across 3 distinct storage clusters in the primary region. All writes are then asynchronously replicated to a Microsoft-defined secondary region. This means that geo-zone-redundant storage provides 18 copies of your data spread between three availability zones in the primary region and three availability zones in the secondary region. The failover process for geo-zone-redundant storage works the same as it does for geo-redundant storage.
-
-Standard Azure file shares support all four redundancy types, while premium Azure file shares only support locally redundant and zone redundant storage.
-
-General purpose version 2 (GPv2) storage accounts provide two additional redundancy options that are not supported by Azure Files: read accessible geo-redundant storage, often referred to as RA-GRS, and read accessible geo-zone-redundant storage, often referred to as RA-GZRS. You can provision Azure file shares in storage accounts with these options set, however the Azure file share will not be read accessible in the secondary region and will be billed as geo-redundant or geo-zone-redundant storage, respectively.
+[!INCLUDE [storage-files-redundancy-overview](../../../includes/storage-files-redundancy-overview.md)]
 
 ## Migration
 In many cases, you will not be establishing a net new file share for your organization, but instead migrating an existing file share from an on-premises file server or NAS device to Azure Files. There are many tools, provided both by Microsoft and 3rd parties, to do a migration to a file share, but they can roughly be divided into two categories:
