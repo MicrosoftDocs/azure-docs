@@ -2,7 +2,7 @@
 title: Tag resources for logical organization
 description: Shows how to apply tags to organize Azure resources for billing and managing.
 ms.topic: conceptual
-ms.date: 12/05/2019
+ms.date: 12/27/2019
 ---
 # Use tags to organize your Azure resources
 
@@ -169,7 +169,7 @@ Set-AzResourceGroup -Tag @{} -Name examplegroup
 
 To see the existing tags for a *resource group*, use:
 
-```azurecli
+```azurecli-interactive
 az group show -n examplegroup --query tags
 ```
 
@@ -184,82 +184,95 @@ That script returns the following format:
 
 Or, to see the existing tags for a *resource that has a specified name, type, and resource group*, use:
 
-```azurecli
+```azurecli-interactive
 az resource show -n examplevnet -g examplegroup --resource-type "Microsoft.Network/virtualNetworks" --query tags
 ```
 
 When looping through a collection of resources, you might want to show the resource by resource ID. A complete example is shown later in this article. To see the existing tags for a *resource that has a specified resource ID*, use:
 
-```azurecli
+```azurecli-interactive
 az resource show --id <resource-id> --query tags
 ```
 
 To get resource groups that have a specific tag, use `az group list`:
 
-```azurecli
+```azurecli-interactive
 az group list --tag Dept=IT
 ```
 
 To get all the resources that have a particular tag and value, use `az resource list`:
 
-```azurecli
+```azurecli-interactive
 az resource list --tag Dept=Finance
 ```
 
-Every time you apply tags to a resource or a resource group, you overwrite the existing tags on that resource or resource group. Therefore, you must use a different approach based on whether the resource or resource group has existing tags.
+When adding tags to a resource group or resource, you can either overwrite the existing tags or append new tags to existing tags.
 
-To add tags to a *resource group without existing tags*, use:
+To overwrite the existing tags on a resource group, use:
 
-```azurecli
-az group update -n examplegroup --set tags.Environment=Test tags.Dept=IT
+```azurecli-interactive
+az group update -n examplegroup --tags 'Environment=Test' 'Dept=IT'
 ```
 
-To add tags to a *resource without existing tags*, use:
+To append a tag to the existing tags on a resource group, use:
 
-```azurecli
-az resource tag --tags Dept=IT Environment=Test -g examplegroup -n examplevnet --resource-type "Microsoft.Network/virtualNetworks"
+```azurecli-interactive
+az group update -n examplegroup --set tags.'Status'='Approved'
 ```
 
-To add tags to a resource that already has tags, retrieve the existing tags, reformat that value, and reapply the existing and new tags:
+To overwrite the tags on a resource, use:
 
-```azurecli
-jsonrtag=$(az resource show -g examplegroup -n examplevnet --resource-type "Microsoft.Network/virtualNetworks" --query tags -o json)
-rt=$(echo $jsonrtag | tr -d '"{},' | sed 's/: /=/g')
-az resource tag --tags $rt Project=Redesign -g examplegroup -n examplevnet --resource-type "Microsoft.Network/virtualNetworks"
+```azurecli-interactive
+az resource tag --tags 'Dept=IT' 'Environment=Test' -g examplegroup -n examplevnet --resource-type "Microsoft.Network/virtualNetworks"
+```
+
+To append a tag to the existing tags on a resource, use:
+
+```azurecli-interactive
+az resource update --set tags.'Status'='Approved' -g examplegroup -n examplevnet --resource-type "Microsoft.Network/virtualNetworks"
 ```
 
 To apply all tags from a resource group to its resources, and *not keep existing tags on the resources*, use the following script:
 
-```azurecli
-groups=$(az group list --query [].name --output tsv)
-for rg in $groups
+```azurecli-interactive
+jsontags=$(az group show --name examplegroup --query tags -o json)
+tags=$(echo $jsontags | tr -d '"{},' | sed 's/: /=/g')
+resourceids=$(az resource list -g examplegroup --query [].id --output tsv)
+for id in $resourceids
 do
-  jsontag=$(az group show -n $rg --query tags -o json)
-  t=$(echo $jsontag | tr -d '"{},' | sed 's/: /=/g')
-  r=$(az resource list -g $rg --query [].id --output tsv)
-  for resid in $r
-  do
-    az resource tag --tags $t --id $resid
-  done
+  az resource tag --tags $tags --id $id
 done
 ```
 
 To apply all tags from a resource group to its resources, and *keep existing tags on resources*, use the following script:
 
-```azurecli
-groups=$(az group list --query [].name --output tsv)
-for rg in $groups
+```azurecli-interactive
+jsontags=$(az group show --name examplegroup --query tags -o json)
+tags=$(echo $jsontags | tr -d '"{},' | sed 's/: /=/g')
+
+resourceids=$(az resource list -g examplegroup --query [].id --output tsv)
+for id in $resourceids
 do
-  jsontag=$(az group show -n $rg --query tags -o json)
-  t=$(echo $jsontag | tr -d '"{},' | sed 's/: /=/g')
-  r=$(az resource list -g $rg --query [].id --output tsv)
-  for resid in $r
-  do
-    jsonrtag=$(az resource show --id $resid --query tags -o json)
-    rt=$(echo $jsonrtag | tr -d '"{},' | sed 's/: /=/g')
-    az resource tag --tags $t$rt --id $resid
-  done
+  resourcejsontags=$(az resource show --id $id --query tags -o json)
+  resourcetags=$(echo $resourcejsontags | tr -d '"{},' | sed 's/: /=/g')
+  az resource tag --tags $tags$resourcetags --id $id
 done
+```
+
+If your tag names or values include spaces, you must take a couple of extra steps. The following example applies all tags from a resource group to its resources when the tags may contain spaces.
+
+```azurecli-interactive
+jsontags=$(az group show --name examplegroup --query tags -o json)
+tags=$(echo $jsontags | tr -d '{}"' | sed 's/: /=/g' | sed "s/\"/'/g" | sed 's/, /,/g' | sed 's/ *$//g' | sed 's/^ *//g')
+origIFS=$IFS
+IFS=','
+read -a tagarr <<< "$tags"
+resourceids=$(az resource list -g examplegroup --query [].id --output tsv)
+for id in $resourceids
+do
+  az resource tag --tags "${tagarr[@]}" --id $id
+done
+IFS=$origIFS
 ```
 
 ## Templates
