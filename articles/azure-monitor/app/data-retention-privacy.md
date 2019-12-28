@@ -76,7 +76,7 @@ This would be possible by writing a [telemetry processor plugin](../../azure-mon
 ## How long is the data kept?
 Raw data points (that is, items that you can query in Analytics and inspect in Search) are kept for up to 730 days. You can [select a retention duration](https://docs.microsoft.com/azure/azure-monitor/app/pricing#change-the-data-retention-period) of 30, 60, 90, 120, 180, 270, 365, 550 or 730 days. If you need to keep data longer than 730 days, you can use [Continuous Export](../../azure-monitor/app/export-telemetry.md) to copy it to a storage account during data ingestion. 
 
-Data kept longer than 90 days will incur addition charges. Learn more about Application Insights pricing on the [Azure Monitor pricing page](https://azure.microsoft.com/pricing/details/monitor/).
+Data kept longer than 31 days will incur addition charges. Learn more about Application Insights pricing on the [Azure Monitor pricing page](https://azure.microsoft.com/pricing/details/monitor/).
 
 Aggregated data (that is, counts, averages and other statistical data that you see in Metric Explorer) are retained at a grain of 1 minute for 90 days.
 
