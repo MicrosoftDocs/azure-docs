@@ -76,8 +76,9 @@ The following sections show Security Center features that are available for thei
 |Third-party vulnerability assessment|✔|-|-|Free|
 |[Network security assessment](https://docs.microsoft.com/azure/security-center/security-center-network-recommendations)|✔|✔|-|Free|
 
+--- 
 
-### Supported endpoint protection solutions <a name="endpoint-supported"></a>
+## Supported endpoint protection solutions <a name="endpoint-supported"></a>
 
 The following table provides a matrix of:
 
