@@ -17,13 +17,13 @@ ms.date: 12/29/2019
 
 
 > [!IMPORTANT]
-> This solution has been replaced by the [Office 365](../../sentinel/connect-office-365.md) and [Azure AD](../../sentinel/connect-azure-active-directory.md) connectors in [Azure Sentinel](../../sentinel/overview.md). This is an updated version of the solution with an improved configuration experience. The operation of the solution hasn't changed so you can use this article for those details. You can continue to use the existing solution until March 15, 2020.
+> This solution has been replaced by the [Office 365](../../sentinel/connect-office-365.md) and [Azure AD](../../sentinel/connect-azure-active-directory.md) connectors in [Azure Sentinel](../../sentinel/overview.md). This is an updated version of the solution with an improved configuration experience. The operation of the solution hasn't changed, so you can use this article for those details. You can continue to use the existing solution until March 15, 2020.
 > 
 > The Azure Sentinel solution currently provides the SharePoint activity and Exchange management logs, and will provide more activity records in the future. To connect Azure AD logs, you can use either the Azure Sentinel Azure AD connector or configure Azure AD diagnostic settings, which provides richer log data than the Office 365 management logs with lower latency.
 >
-> Using Azure Sentinel Office 365 solution requires you to [enable the Azure Sentinel solution](../../sentinel/quickstart-onboard.md) on your relevant workspace. If you are using the existing solution, you must first uninstall it using the script in the [Uninstall](#uninstall) section below and then enable the udated solution using the [Azure Sentinel Office 365 instructions](../../sentinel/connect-office-365.md).
+> Using Azure Sentinel Office 365 solution requires you to [enable the Azure Sentinel solution](../../sentinel/quickstart-onboard.md) on your relevant workspace. If you are using the existing solution, you must first uninstall it using the script in the [Uninstall](#uninstall) section below and then enable the updated solution using the [Azure Sentinel Office 365 instructions](../../sentinel/connect-office-365.md).
 >
-> This update changes the way you are charged in Azure.  See [Azure Sentinel pricing](https://azure.microsoft.com/pricing/details/azure-sentinel/) for more information.
+> This update changes the way you are charged.  See [Azure Sentinel pricing](https://azure.microsoft.com/pricing/details/azure-sentinel/) for more information.
 
 The Office 365 management solution allows you to monitor your Office 365 environment in Azure Monitor.
 
