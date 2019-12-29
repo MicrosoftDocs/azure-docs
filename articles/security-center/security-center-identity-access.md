@@ -14,7 +14,7 @@ ms.workload: na
 ms.date: 12/19/2019
 ms.author: memildin
 ---
-# Monitor identity and access (Preview)
+# Monitor identity and access (preview)
 When Security Center identifies potential security vulnerabilities, it creates recommendations that guide you through the process of configuring the needed controls to harden and protect your resources.
 
 This article explains the **Identity and Access** page of the resource security section of Azure Security Center.
