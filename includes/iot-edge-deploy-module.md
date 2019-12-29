@@ -18,23 +18,23 @@ To deploy your first module from the Azure Marketplace, use the following steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to your IoT hub.
 
-1. Select **IoT Edge** from the menu.
+1. On the menu, under **Automatic Device Management**, select **IoT Edge**.
 
 1. Click on the Device ID of the target device from the list of devices.
 
 1. On the upper bar, select **Set Modules**.
 
-1. In the **IoT Edge Modules** section of the page, select **Add**.
+1. In the **IoT Edge Modules** section of the page, click the **Add** drop down.
 
 1. In the drop-down list, select **Marketplace Module**.
 
    ![Simulated Temperature Sensor in Azure portal search](./media/iot-edge-deploy-module/search-for-temperature-sensor.png)
 
-1. In the **IoT Edge Module Marketplace**, search for the "Simulated Temperature Sensor" module and select it.
+1. In the **IoT Edge Module Marketplace**, search for "Simulated Temperature Sensor" module and select the module.
 
    The module will be automatically configured for your Azure subscription, IoT Hub, and the currently selected IoT Edge device.
 
-1. Now that you've chosen an IoT Edge module from the Azure Marketplace, and chosen an IoT Edge device to receive the module, continue with the tabbed wizard that helps you define exactly how to deploy the module.
+1. Now that you've chosen an IoT Edge module from the Azure Marketplace for your IoT Edge device, continue with the tabbed wizard that helps you define exactly how to deploy the module.
 
    ![Set modules on device](./media/iot-edge-deploy-module/set-modules-on-device.png)
 
