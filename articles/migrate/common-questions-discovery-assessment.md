@@ -40,8 +40,8 @@ Yes, Azure Migrate needs vCenter Server to perform discovery in a VMware environ
 With as-on-premises sizing, Azure Migrate doesn't consider VM performance data for assessment. It assesses VM sizes based on the on-premises configuration. With performance-based sizing, sizing is based on utilization data.
 
 - For example, if an on-premises VM has 4 cores and 8 GB of memory at 50% CPU utilization and 50% memory utilization, the following will occur:
-    - As-on-premises sizing will recommend an Azure VM SKU that has four cores and 8 GB of memory.
-    - Performance-based sizing will recommend a VM SKU that has two cores and 4 GB of memory, because the utilization percentage is considered.
+    - As-on-premises sizing will recommend an Azure VM SKU that has 4 cores and 8 GB of memory.
+    - Performance-based sizing will recommend a VM SKU that has 2 cores and 4 GB of memory, because the utilization percentage is considered.
 
 - Similarly, disk sizing depends on two assessment properties: sizing criteria and storage type.
     - If the sizing criteria is performance-based and the storage type is automatic, Azure Migrate takes the IOPS and throughput values of the disk into account when it identifies the target disk type (standard or premium).
