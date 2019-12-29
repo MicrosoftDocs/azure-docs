@@ -39,13 +39,13 @@ Before you begin this tutorial, you must have the following:
 
     ![URL](media/data-lake-storage-use-power-bi/adls-url.png)
 
-5. In the next dialog box, click **Sign in** to sign into your storage account. You'll be redirected to your organization's sign in page. Follow the prompts to sign into the account.
+5. In the next dialog box, you can choose from two authorization options to the storage account: Organizational account or Shared Key. Organizational accounts are reccommended as they offer fine-grained control over a client's access to resources and will be used in this turotial. Click **Sign in** to sign into your storage account. You'll be redirected to your organization's sign in page. Follow the prompts to sign into the account.
 
-    ![Sign in page](media/data-lake-storage-use-power-bi/sign-in.png)
+    ![Sign in page](media/data-lake-storage-use-power-bi/sign-in2.png)
 
 6. After you've successfully signed in, click **Connect**.
 
-    ![Signed in page](media/data-lake-storage-use-power-bi/signed-in.png)
+    ![Signed in page](media/data-lake-storage-use-power-bi/signed-in2.png)
 
 7. The next dialog box shows all files under the URL you provided in step 4 above including the file that you uploaded to your storage account. Verify the information, and then click **Load**.
 
@@ -103,4 +103,7 @@ Before you begin this tutorial, you must have the following:
 
 ## Publish report to Power BI service
 
-After you've created the visualizations in Power BI Desktop, you can share it with others by publishing it to the Power BI service. For instructions on how to do that, see [Publish from Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-upload-desktop-files/).
+After you've created the visualizations in Power BI Desktop, you can share it with others by publishing it to the Power BI service. For instructions on how to do that, see [Publish from Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-upload-desktop-files/). 
+
+## Keep your data up-to-date in Power BI service
+To make sure the data in your Power BI reports and dashboards is recent, you can refresh the data in Power BI service. For instructions on how to do that, see [Data refresh in Power BI](https://docs.microsoft.com/en-us/power-bi/refresh-data)
