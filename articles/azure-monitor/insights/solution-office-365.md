@@ -6,7 +6,7 @@ ms.subservice:
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 08/13/2019
+ms.date: 12/29/2019
 
 ---
 
@@ -15,12 +15,15 @@ ms.date: 08/13/2019
 ![Office 365 logo](media/solution-office-365/icon.png)
 
 
-> [!NOTE]
-> The recommended method to install and configure the Office 365 solution is enabling the [Office 365 connector](../../sentinel/connect-office-365.md) in [Azure Sentinel](../../sentinel/overview.md) instead of using the steps in this article. This is an updated version of the Office 365 solution with an improved configuration experience. To connect Azure AD logs, you can use either the [Azure Sentinel Azure AD connector](../../sentinel/connect-azure-active-directory.md) or [configure Azure AD diagnostic settings](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md), which provides richer log data than the Office 365 management logs. 
+
+> [!IMPORTANT]
+> This solution has been replaced by the [Office 365](../sentinel/connect-office-365.md) and [Azure AD](../sentinel/connect-azure-active-directory.md) connectors in [Azure Sentinel](../sentinel/overview.md). This is an updated version of the solution with an improved configuration experience. The operation of the solution hasn't changed so you can use this article for those details. You can continue to use the existing solution until March 15, 2020.
+> 
+> The Azure Sentinel solution currently provides the SharePoint activity and Exchange management logs, and will provide more activity records in the future. To connect Azure AD logs, you can use either the Azure Sentinel Azure AD connector or configure Azure AD diagnostic settings, which provides richer log data than the Office 365 management logs with lower latency.
 >
-> When you [onboard Azure Sentinel](../../sentinel/quickstart-onboard.md), specify the Log Analytics workspace  that you want the Office 365 solution installed in. Once you enable the connector, the solution will be available in the workspace and used exactly the same as any other monitoring solutions you have installed.
+> Using Azure Sentinel Office 365 solution requires you to [enable the Azure Sentinel solution](../sentinel/quickstart-onboard.md) on your relevant workspace. If you are using the existing solution, you must first uninstall it using the script in the [Uninstall](#uninstall) section below and then enable the udated solution using the [Azure Sentinel Office 365 instructions](../sentinel/connect-office-365.md).
 >
-> Users of the Azure government cloud must install the Office 365 using the steps in this article since Azure Sentinel is not yet available in the government cloud.
+> This update changes the way you are charged in Azure.  See [Azure Sentinel pricing](https://azure.microsoft.com/pricing/details/azure-sentinel/) for more information.
 
 The Office 365 management solution allows you to monitor your Office 365 environment in Azure Monitor.
 
@@ -41,364 +44,6 @@ The following is required prior to this solution being installed and configured.
 - Credentials for a user account that is a Global Administrator.
 - To receive audit data, you must [configure auditing](https://support.office.com/article/Search-the-audit-log-in-the-Office-365-Security-Compliance-Center-0d4d0f35-390b-4518-800e-0c7ec95e946c?ui=en-US&rs=en-US&ad=US#PickTab=Before_you_begin) in your Office 365 subscription.  Note that [mailbox auditing](https://technet.microsoft.com/library/dn879651.aspx) is configured separately.  You can still install the solution and collect other data if auditing is not configured.
  
-
-## Management packs
-
-This solution does not install any management packs in [connected management groups](../platform/om-agents.md).
-  
-
-## Install and configure
-
-Start by adding the [Office 365 solution to your subscription](solutions.md#install-a-monitoring-solution). Once it's added, you must perform the configuration steps in this section to give it access to your Office 365 subscription.
-
-### Required information
-
-Before you start this procedure, gather the following information.
-
-From your Log Analytics workspace:
-
-- Workspace name: The workspace where the Office 365 data will be collected.
-- Resource group name: The resource group that contains the workspace.
-- Azure subscription ID: The subscription that contains the workspace.
-
-From your Office 365 subscription:
-
-- Username: Email address of an administrative account.
-- Tenant ID: Unique ID for Office 365 subscription.
-
-The following information should be gathered during the creation and configuration of Office 365 application in Azure Active Directory:
-
-- Application (Client) ID: 16-character string that represents Office 365 client.
-- Client Secret: Encrypted string necessary for authentication.
-
-### Create an Office 365 application in Azure Active Directory
-
-The first step is to create an application in Azure Active Directory that the management solution will use to access your Office 365 solution.
-
-1. Log in to the Azure portal at [https://portal.azure.com](https://portal.azure.com/).
-1. Select **Azure Active Directory** and then **App registrations**.
-1. Click **New registration**.
-
-    ![Add app registration](media/solution-office-365/add-app-registration.png)
-1. Enter an application **Name**. Select **Accounts in any organizational directory (Any Azure AD directory - Multitenant)** for the **Supported account types**.
-    
-    ![Create application](media/solution-office-365/create-application.png)
-1. Click **Register** and validate the application information.
-
-    ![Registered app](media/solution-office-365/registered-app.png)
-
-1. Save the application (client) ID along with the rest of the information that was gathered before.
-
-
-### Configure application for Office 365
-
-1. Select **Authentication** and verify that **Accounts in any organizational directory (Any Azure AD directory - Multitenant)** is selected under **Supported account types**.
-
-    ![Settings multitenant](media/solution-office-365/settings-multitenant.png)
-
-1. Select **API permissions** and then **Add a permission**.
-1. Click **Office 365 Management APIs**. 
-
-    ![Select API](media/solution-office-365/select-api.png)
-
-1. Under **What type of permissions does your application require?** select the following options for both **Application permissions** and **Delegated permissions**:
-   - Read service health information for your organization
-   - Read activity data for your organization
-   - Read activity reports for your organization
-
-     ![Select API](media/solution-office-365/select-permissions-01.png)![Select API](media/solution-office-365/select-permissions-02.png)
-
-1. Click **Add permissions**.
-1. Click **Grant admin consent** and then click **Yes** when asked for verification.
-
-
-### Add a secret for the application
-
-1. Select **Certificates & secrets** and then **New client secret**.
-
-    ![Keys](media/solution-office-365/secret.png)
- 
-1. Type in a **Description** and **Duration** for the new key.
-1. Click **Add** and then save the **Value** that was generated as the client secret along with the rest of the information that was gathered before.
-
-    ![Keys](media/solution-office-365/keys.png)
-
-### Add admin consent
-
-To enable the administrative account for the first time, you must provide administrative consent for the application. You can do this with a PowerShell script. 
-
-1. Save the following script as *office365_consent.ps1*.
-
-    ```powershell
-    param (
-        [Parameter(Mandatory=$True)][string]$WorkspaceName,     
-        [Parameter(Mandatory=$True)][string]$ResourceGroupName,
-        [Parameter(Mandatory=$True)][string]$SubscriptionId
-    )
-    
-    $option = [System.StringSplitOptions]::RemoveEmptyEntries 
-    
-    IF ($Subscription -eq $null)
-        {Login-AzAccount -ErrorAction Stop}
-    $Subscription = (Select-AzSubscription -SubscriptionId $($SubscriptionId) -ErrorAction Stop)
-    $Subscription
-    $Workspace = (Set-AzOperationalInsightsWorkspace -Name $($WorkspaceName) -ResourceGroupName $($ResourceGroupName) -ErrorAction Stop)
-    $WorkspaceLocation= $Workspace.Location
-    $WorkspaceLocation
-    
-    Function AdminConsent{
-    
-    $domain='login.microsoftonline.com'
-    switch ($WorkspaceLocation.Replace(" ","").ToLower()) {
-           "eastus"   {$OfficeAppClientId="d7eb65b0-8167-4b5d-b371-719a2e5e30cc"; break}
-           "westeurope"   {$OfficeAppClientId="c9005da2-023d-40f1-a17a-2b7d91af4ede"; break}
-           "southeastasia"   {$OfficeAppClientId="09c5b521-648d-4e29-81ff-7f3a71b27270"; break}
-           "australiasoutheast"  {$OfficeAppClientId="f553e464-612b-480f-adb9-14fd8b6cbff8"; break}   
-           "westcentralus"  {$OfficeAppClientId="98a2a546-84b4-49c0-88b8-11b011dc8c4e"; break}
-           "japaneast"   {$OfficeAppClientId="b07d97d3-731b-4247-93d1-755b5dae91cb"; break}
-           "uksouth"   {$OfficeAppClientId="f232cf9b-e7a9-4ebb-a143-be00850cd22a"; break}
-           "centralindia"   {$OfficeAppClientId="ffbd6cf4-cba8-4bea-8b08-4fb5ee2a60bd"; break}
-           "canadacentral"  {$OfficeAppClientId="c2d686db-f759-43c9-ade5-9d7aeec19455"; break}
-           "eastus2"  {$OfficeAppClientId="7eb65b0-8167-4b5d-b371-719a2e5e30cc"; break}
-           "westus2"  {$OfficeAppClientId="98a2a546-84b4-49c0-88b8-11b011dc8c4e"; break} #Need to check
-           "usgovvirginia" {$OfficeAppClientId="c8b41a87-f8c5-4d10-98a4-f8c11c3933fe"; 
-                             $domain='login.microsoftonline.us'; break}
-           default {$OfficeAppClientId="55b65fb5-b825-43b5-8972-c8b6875867c1";
-                    $domain='login.windows-ppe.net'; break} #Int
-        }
-    
-        $domain
-        Start-Process -FilePath  "https://$($domain)/common/adminconsent?client_id=$($OfficeAppClientId)&state=12345"
-    }
-    
-    AdminConsent -ErrorAction Stop
-    ```
-
-2. Run the script with the following command. You will be prompted twice for credentials. Provide the credentials for your Log Analytics workspace first and then the global admin credentials for your Office 365 tenant.
-
-    ```
-    .\office365_consent.ps1 -WorkspaceName <Workspace name> -ResourceGroupName <Resource group name> -SubscriptionId <Subscription ID>
-    ```
-
-    Example:
-
-    ```
-    .\office365_consent.ps1 -WorkspaceName MyWorkspace -ResourceGroupName MyResourceGroup -SubscriptionId '60b79d74-f4e4-4867-b631- yyyyyyyyyyyy'
-    ```
-
-1. You will be presented with a window similar to the one below. Click **Accept**.
-    
-    ![Admin consent](media/solution-office-365/admin-consent.png)
-
-> [!NOTE]
-> You might be redirected to a page that doesn't exist. Consider it as a success.
-
-### Subscribe to Log Analytics workspace
-
-The last step is to subscribe the application to your Log Analytics workspace. You also do this with a PowerShell script.
-
-1. Save the following script as *office365_subscription.ps1*.
-
-    ```powershell
-    param (
-        [Parameter(Mandatory=$True)][string]$WorkspaceName,
-        [Parameter(Mandatory=$True)][string]$ResourceGroupName,
-        [Parameter(Mandatory=$True)][string]$SubscriptionId,
-        [Parameter(Mandatory=$True)][string]$OfficeUsername,
-        [Parameter(Mandatory=$True)][string]$OfficeTennantId,
-        [Parameter(Mandatory=$True)][string]$OfficeClientId,
-        [Parameter(Mandatory=$True)][string]$OfficeClientSecret
-    )
-    $line='#-------------------------------------------------------------------------------------------------------------------------------------------------------------------------'
-    $line
-    IF ($Subscription -eq $null)
-        {Login-AzAccount -ErrorAction Stop}
-    $Subscription = (Select-AzSubscription -SubscriptionId $($SubscriptionId) -ErrorAction Stop)
-    $Subscription
-    $option = [System.StringSplitOptions]::RemoveEmptyEntries 
-    $Workspace = (Set-AzOperationalInsightsWorkspace -Name $($WorkspaceName) -ResourceGroupName $($ResourceGroupName) -ErrorAction Stop)
-    $Workspace
-    $WorkspaceLocation= $Workspace.Location
-    $OfficeClientSecret =[uri]::EscapeDataString($OfficeClientSecret)
-    
-    # Client ID for Azure PowerShell
-    $clientId = "1950a258-227b-4e31-a9cf-717495945fc2"
-    # Set redirect URI for Azure PowerShell
-    $redirectUri = "urn:ietf:wg:oauth:2.0:oob"
-    $domain='login.microsoftonline.com'
-    $adTenant = $Subscription[0].Tenant.Id
-    $authority = "https://login.windows.net/$adTenant";
-    $ARMResource ="https://management.azure.com/";
-    $xms_client_tenant_Id ='55b65fb5-b825-43b5-8972-c8b6875867c1'
-    
-    switch ($WorkspaceLocation) {
-           "USGov Virginia" { 
-                             $domain='login.microsoftonline.us';
-                              $authority = "https://login.microsoftonline.us/$adTenant";
-                              $ARMResource ="https://management.usgovcloudapi.net/"; break} # US Gov Virginia
-           default {
-                    $domain='login.microsoftonline.com'; 
-                    $authority = "https://login.windows.net/$adTenant";
-                    $ARMResource ="https://management.azure.com/";break} 
-                    }
-
-    Function RESTAPI-Auth { 
-    $global:SubscriptionID = $Subscription.Subscription.Id
-    # Set Resource URI to Azure Service Management API
-    $resourceAppIdURIARM=$ARMResource
-    # Authenticate and Acquire Token 
-    # Create Authentication Context tied to Azure AD Tenant
-    $authContext = New-Object "Microsoft.IdentityModel.Clients.ActiveDirectory.AuthenticationContext" -ArgumentList $authority
-    # Acquire token
-    $platformParameters = New-Object "Microsoft.IdentityModel.Clients.ActiveDirectory.PlatformParameters" -ArgumentList "Auto"
-    $global:authResultARM = $authContext.AcquireTokenAsync($resourceAppIdURIARM, $clientId, $redirectUri, $platformParameters)
-    $global:authResultARM.Wait()
-    $authHeader = $global:authResultARM.Result.CreateAuthorizationHeader()
-
-    $authHeader
-    }
-    
-    Function Failure {
-    $line
-    $formatstring = "{0} : {1}`n{2}`n" +
-                    "    + CategoryInfo          : {3}`n" +
-                    "    + FullyQualifiedErrorId : {4}`n"
-    $fields = $_.InvocationInfo.MyCommand.Name,
-              $_.ErrorDetails.Message,
-              $_.InvocationInfo.PositionMessage,
-              $_.CategoryInfo.ToString(),
-              $_.FullyQualifiedErrorId
-    
-    $formatstring -f $fields
-    $_.Exception.Response
-    
-    $line
-    break
-    }
-    
-    Function Connection-API
-    {
-    $authHeader = $global:authResultARM.Result.CreateAuthorizationHeader()
-    $ResourceName = "https://manage.office.com"
-    $SubscriptionId   =  $Subscription[0].Subscription.Id
-    
-    $line
-    $connectionAPIUrl = $ARMResource + 'subscriptions/' + $SubscriptionId + '/resourceGroups/' + $ResourceGroupName + '/providers/Microsoft.OperationalInsights/workspaces/' + $WorkspaceName + '/connections/office365connection_' + $SubscriptionId + $OfficeTennantId + '?api-version=2017-04-26-preview'
-    $connectionAPIUrl
-    $line
-    
-    $xms_client_tenant_Id ='1da8f770-27f4-4351-8cb3-43ee54f14759'
-    
-    $BodyString = "{
-                    'properties': {
-                                    'AuthProvider':'Office365',
-                                    'clientId': '" + $OfficeClientId + "',
-                                    'clientSecret': '" + $OfficeClientSecret + "',
-                                    'Username': '" + $OfficeUsername   + "',
-                                    'Url': 'https://$($domain)/" + $OfficeTennantId + "/oauth2/token',
-                                  },
-                    'etag': '*',
-                    'kind': 'Connection',
-                    'solution': 'Connection',
-                   }"
-    
-    $params = @{
-        ContentType = 'application/json'
-        Headers = @{
-        'Authorization'="$($authHeader)"
-        'x-ms-client-tenant-id'=$xms_client_tenant_Id #Prod-'1da8f770-27f4-4351-8cb3-43ee54f14759'
-        'Content-Type' = 'application/json'
-        }
-        Body = $BodyString
-        Method = 'Put'
-        URI = $connectionAPIUrl
-    }
-    $response = Invoke-WebRequest @params 
-    $response
-    $line
-    
-    }
-    
-    Function Office-Subscribe-Call{
-    try{
-    #----------------------------------------------------------------------------------------------------------------------------------------------
-    $authHeader = $global:authResultARM.Result.CreateAuthorizationHeader()
-    $SubscriptionId   =  $Subscription[0].Subscription.Id
-    $OfficeAPIUrl = $ARMResource + 'subscriptions/' + $SubscriptionId + '/resourceGroups/' + $ResourceGroupName + '/providers/Microsoft.OperationalInsights/workspaces/' + $WorkspaceName + '/datasources/office365datasources_' + $SubscriptionId + $OfficeTennantId + '?api-version=2015-11-01-preview'
-    
-    $OfficeBodyString = "{
-                    'properties': {
-                                    'AuthProvider':'Office365',
-                                    'office365TenantID': '" + $OfficeTennantId + "',
-                                    'connectionID': 'office365connection_" + $SubscriptionId + $OfficeTennantId + "',
-                                    'office365AdminUsername': '" + $OfficeUsername + "',
-                                    'contentTypes':'Audit.Exchange,Audit.AzureActiveDirectory,Audit.SharePoint'
-                                  },
-                    'etag': '*',
-                    'kind': 'Office365',
-                    'solution': 'Office365',
-                   }"
-    
-    $Officeparams = @{
-        ContentType = 'application/json'
-        Headers = @{
-        'Authorization'="$($authHeader)"
-        'x-ms-client-tenant-id'=$xms_client_tenant_Id
-        'Content-Type' = 'application/json'
-        }
-        Body = $OfficeBodyString
-        Method = 'Put'
-        URI = $OfficeAPIUrl
-      }
-    
-    $officeresponse = Invoke-WebRequest @Officeparams 
-    $officeresponse
-    }
-    catch{ Failure }
-    }
-    
-    #GetDetails 
-    RESTAPI-Auth -ErrorAction Stop
-    Connection-API -ErrorAction Stop
-    Office-Subscribe-Call -ErrorAction Stop
-    ```
-
-2. Run the script with the following command:
-
-    ```
-    .\office365_subscription.ps1 -WorkspaceName <Log Analytics workspace name> -ResourceGroupName <Resource Group name> -SubscriptionId <Subscription ID> -OfficeUsername <OfficeUsername> -OfficeTennantID <Tenant ID> -OfficeClientId <Client ID> -OfficeClientSecret <Client secret>
-    ```
-
-    Example:
-
-    ```powershell
-    .\office365_subscription.ps1 -WorkspaceName MyWorkspace -ResourceGroupName MyResourceGroup -SubscriptionId '60b79d74-f4e4-4867-b631-yyyyyyyyyyyy' -OfficeUsername 'admin@contoso.com' -OfficeTennantID 'ce4464f8-a172-4dcf-b675-xxxxxxxxxxxx' -OfficeClientId 'f8f14c50-5438-4c51-8956-zzzzzzzzzzzz' -OfficeClientSecret 'y5Lrwthu6n5QgLOWlqhvKqtVUZXX0exrA2KRHmtHgQb='
-    ```
-
-### Troubleshooting
-
-You may see the following error if your application is already subscribed to this workspace or if this tenant is subscribed to another workspace.
-
-```Output
-Invoke-WebRequest : {"Message":"An error has occurred."}
-At C:\Users\v-tanmah\Desktop\ps scripts\office365_subscription.ps1:161 char:19
-+ $officeresponse = Invoke-WebRequest @Officeparams
-+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    + CategoryInfo          : InvalidOperation: (System.Net.HttpWebRequest:HttpWebRequest) [Invoke-WebRequest], WebException
-    + FullyQualifiedErrorId : WebCmdletWebResponseException,Microsoft.PowerShell.Commands.InvokeWebRequestCommand 
-```
-
-You may see the following error if invalid parameter values are provided.
-
-```Output
-Select-AzSubscription : Please provide a valid tenant or a valid subscription.
-At line:12 char:18
-+ ... cription = (Select-AzSubscription -SubscriptionId $($Subscriptio ...
-+                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    + CategoryInfo          : CloseError: (:) [Set-AzContext], ArgumentException
-    + FullyQualifiedErrorId : Microsoft.Azure.Commands.Profile.SetAzContextCommand
-
-```
 
 ## Uninstall
 
@@ -506,12 +151,6 @@ You can remove the Office 365 management solution using the process in [Remove a
 You will be prompted for credentials. Provide the credentials for your Log Analytics workspace.
 
 ## Data collection
-
-### Supported agents
-
-The Office 365 solution doesn't retrieve data from any of the [Log Analytics agents](../platform/agent-data-sources.md).  It retrieves data directly from Office 365.
-
-### Collection frequency
 
 It may take a few hours for data to initially be collected. Once it starts collecting, Office 365 sends a [webhook notification](https://msdn.microsoft.com/office-365/office-365-management-activity-api-reference#receiving-notifications) with detailed data to Azure Monitor each time a record is created. This record is available in Azure Monitor within a few minutes after being received.
 
@@ -743,16 +382,15 @@ These records are created in response to file operations in SharePoint.
 
 
 
-## Sample log searches
+## Sample log queries
 
-The following table provides sample log searches for update records collected by this solution.
+The following table provides sample log queries for update records collected by this solution.
 
 | Query | Description |
 | --- | --- |
 |Count of all the operations on your Office 365 subscription |OfficeActivity &#124; summarize count() by Operation |
 |Usage of SharePoint sites|OfficeActivity &#124; where OfficeWorkload =~ "sharepoint" &#124; summarize count() by SiteUrl \| sort by Count asc|
-|File access operations by user type|search in (OfficeActivity) OfficeWorkload =~ "azureactivedirectory" and "MyTest"|
-|Search with a specific keyword|Type=OfficeActivity OfficeWorkload=azureactivedirectory "MyTest"|
+|File access operations by user type | OfficeActivity &#124; summarize count() by UserType |
 |Monitor external actions on Exchange|OfficeActivity &#124; where OfficeWorkload =~ "exchange" and ExternalAccess == true|
 
 
