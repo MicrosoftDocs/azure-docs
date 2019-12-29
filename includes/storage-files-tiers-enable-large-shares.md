@@ -13,7 +13,7 @@ By default, standard file shares can span only up to 5 TiB, although the share l
 
 You can enable large file shares when you create a new storage account or on an existing storage account, however this can only be done on a locally redundant or zone redundant storage account. Note that enabling the large file share feature on a locally redundant or zone redundant storage account also disables the ability to convert the storage account to geo-redundant or geo-zone-redundant storage in the future.
 
-You can learn more about how to enable large file shares on a new storage account by following the steps in the [creating an Azure file share](storage-how-to-create-file-share.md) how to guide. To enable large file shares on an existing storage account, navigate to the **Configuration** view in the storage account's table of contents, and switch the large file share rocker switch to enabled:
+You can learn more about how to enable large file shares on a new storage account by following the steps in the [creating an Azure file share](../articles/storage/files/storage-how-to-create-file-share.md) how to guide. To enable large file shares on an existing storage account, navigate to the **Configuration** view in the storage account's table of contents, and switch the large file share rocker switch to enabled:
 
 ![A screenshot of the enable large file share rocker switch in the Azure portal](media/storage-files-tiers-enable-large-shares/enable-LFS-1.png)
 
