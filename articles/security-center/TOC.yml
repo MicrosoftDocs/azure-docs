@@ -129,14 +129,12 @@
       href: security-center-remediate-recommendations.md
     - name: Strengthen security posture
       href: security-center-monitoring.md
+    - name: Reference list of recommendations
+      href: recommendations-reference.md
     - name: Protect your machines and apps
       href: security-center-virtual-machine-protection.md
-    - name: Machines and apps recommendations reference
-      href: recommendations-compute-and-apps.md
     - name: Protect network resources
       href: security-center-network-recommendations.md
-    - name: Network recommendations reference
-      href: recommendations-network.md
     - name: Protect data and storage services
       href: security-center-sql-service-recommendations.md
     - name: Protect identity and access
