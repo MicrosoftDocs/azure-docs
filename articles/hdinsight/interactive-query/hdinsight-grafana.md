@@ -13,7 +13,7 @@ ms.date: 12/27/2019
 
 [Grafana](https://grafana.com/) is a popular, open-source graph and dashboard builder. Grafana is feature rich; not only does it let users create customizable and shareable dashboards, it also offers templated/scripted dashboards, LDAP integration, multiple data sources, and more.
 
-Currently, in Azure HDInsight, Grafana is supported with the Hbase, Kafka and Interactive Query cluster types. It is not supported for clusters with Enterprise Security Pack enabled.
+Currently, in Azure HDInsight, Grafana is supported with the HBase, Kafka and Interactive Query cluster types. It is not supported for clusters with Enterprise Security Pack enabled.
 
 If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
