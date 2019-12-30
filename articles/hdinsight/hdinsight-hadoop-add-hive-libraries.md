@@ -47,7 +47,7 @@ Using the script action in this article makes the libraries available when using
 
 1. Start provisioning a cluster by using the steps in [Provision HDInsight clusters on Linux](hdinsight-hadoop-provision-linux-clusters.md), but don't complete provisioning. You can also use Azure PowerShell or the HDInsight .NET SDK to create a cluster using this script. For more information on using these methods, see [Customize HDInsight clusters with Script Actions](hdinsight-hadoop-customize-cluster-linux.md). For the Azure portal, you must select the **Go to classic create experience** option, and then **Custom(size, settings, apps)**.
 
-1. For **Storage**, if the storage account containing the library of jar files will be different than the account used for the cluster, complete **Additional storage acounts**.
+1. For **Storage**, if the storage account containing the library of jar files will be different than the account used for the cluster, complete **Additional storage accounts**.
 
 1. For **Script Actions**, provide the following information:
 
