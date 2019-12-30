@@ -85,7 +85,7 @@ To configure an **Alert**, navigate back to the **Alerts** page, and click **Man
 
   ![Screenshot Portal new alert rule](media/alerts-action-groups/alerts-3.3.png) 
 
-1. Under **ALERT DETAILS**, Name the alert rule.
+1. Scroll down, and under **ALERT DETAILS**, Name the alert rule.
 
 1. Set the **Severity**.
 
