@@ -18,7 +18,7 @@ ms.date: 12/30/2019
 
 Knowledge store is a feature of Azure Cognitive Search that persists output from a cognitive skills pipeline for subsequent analyses or downstream processing. 
 
-A pipeline accepts unstructured text and images as raw content, applies AI through Cognitive Services (such as OCR,image analysis, and natural language processing), extracts information, and outputs new structures and information. One of the physical artifacts created by a pipeline is a [knowledge store](knowledge-store-concept-intro.md), which you can access through tools to analyze and explore content.
+A pipeline accepts unstructured text and images as raw content, applies AI through Cognitive Services (such as OCR, image analysis, and natural language processing), extracts information, and outputs new structures and information. One of the physical artifacts created by a pipeline is a [knowledge store](knowledge-store-concept-intro.md), which you can access through tools to analyze and explore content.
 
 In this quickstart, you'll combine services and data in the Azure cloud to create a knowledge store. Once everything is in place, you'll run the **Import data** wizard in the portal to pull it all together. The end result is original text content plus AI-generated content that you can view in the portal ([Storage explorer](knowledge-store-view-storage-explorer.md)).
 
