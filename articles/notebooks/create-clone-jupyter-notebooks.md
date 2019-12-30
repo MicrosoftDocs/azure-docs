@@ -1,7 +1,7 @@
 ---
 title: Create and clone Jupyter notebooks on Azure
 description: Azure Notebooks projects manage a collection of notebooks and related files, which you can create new or clone from another source.
-ms.topic: article
+ms.topic: how-to
 ms.date: 02/25/2019
 ---
 
