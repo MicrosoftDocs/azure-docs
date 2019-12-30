@@ -34,7 +34,7 @@ The http handler thread is supposed to be quick: prepare the job and return a `q
 
 ### Responsibilities of the HTTP handler thread
 
-When the client submits a query to HiveServer, it does the following in the foreground thread
+When the client submits a query to HiveServer, it does the following in the foreground thread:
 
 * Parse the request, do semantic verification
 * Acquire lock
@@ -47,9 +47,9 @@ When the client submits a query to HiveServer, it does the following in the fore
 
 Some general recommendations to you to improve the situation:
 
-* If using external hive metastore, please check the DB metrics and make sure that the database isn't overloaded. Consider scaling the metastore database layer.
+* If using an external hive metastore, check the DB metrics and make sure that the database isn't overloaded. Consider scaling the metastore database layer.
 
-* Ensure that parallel ops is turned on (this enables the http handler threads to operate in parallel). To verify the value, launch [Apache Ambari](../hdinsight-hadoop-manage-ambari.md) and navigate to **Hive** > **Configs** > **Advanced** > **Custom hive-site**. The value for `hive.server2.parallel.ops.in.session` should be `true`.
+* Ensure that parallel ops is turned on (this enables the HTTP handler threads to run in parallel). To verify the value, launch [Apache Ambari](../hdinsight-hadoop-manage-ambari.md) and navigate to **Hive** > **Configs** > **Advanced** > **Custom hive-site**. The value for `hive.server2.parallel.ops.in.session` should be `true`.
 
 * Ensure that the cluster's VM SKU isn't too small for the load. Consider to splitting the work among multiple clusters. For more information, see [Choose a cluster type](../hdinsight-capacity-planning.md#choose-a-cluster-type).
 
