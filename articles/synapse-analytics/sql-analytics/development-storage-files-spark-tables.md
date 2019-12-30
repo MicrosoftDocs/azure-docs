@@ -1,6 +1,6 @@
 ---
-title: Querying Spark tables using SQL Analytics on-demand
-description: Describes querying Spark tables using SQL Analytics on-demand
+title: Query Spark tables in Synapse Analytics using SQL on-demand
+description: Overview of how to query Spark tables using SQL on-demand
 services: synapse-analytics 
 author: julieMSFT
 ms.service: synapse-analytics 
@@ -11,35 +11,35 @@ ms.author: jrasnick
 ms.reviewer: jrasnick
 ---
 
-# Querying Spark tables
-SQL Analytics on-demand can synchronize metadata from Spark automatically. A SQL Analytics on-demand database will be created for each database existing in Spark. For each Spark table, there will be external table created in the SQL Analytics on-demand database. As such, you can shut down your Spark cluster and still query Spark tables from SQL Analytics on-demand.
+# Query Spark tables in Synapse Analytics using SQL on-demand
+The SQL on-demand resource can automatically synchronize metadata from Spark. A SQL on-demand database will be created for each database existing in Spark. For each Spark table, an external table is created in the SQL on-demand database. As such, you can shut down your Spark cluster and still query Spark tables from SQL on-demand.
 
-When a table is partitioned in Spark, files in storage are organized by folders. SQL Analytics on-demand will utilize partitioning metadata and target only folders and files relevant for your query.
+When a table is partitioned in Spark, files in storage are organized by folders. SQL on-demand will partition the metadata and only target your query relevant folders and files.
 
 Metadata synchronization is automatically configured for each Spark pool provisioned in the Azure Synapse workspace. You can start querying Spark tables instantly.
 
-Each Spark table is represented with an external table in a dbo schema that corresponds to a SQL Analytics on-demand database. To query a Spark table (spark_table) from a db Spark database, run a query that targets a spark_table external table. Before running the example below, make sure you have the appropriate [access to storage account](development-storage-files-storage-access-control.md) where the files reside. Example:
+Each Spark table is represented with an external table in a dbo schema that corresponds to a SQL on-demand database. For Spark table queries, run a query that targets an external [spark_table]. Before running the example below, make sure you have the correct [access to storage account](development-storage-files-storage-access-control.md) where the files are located.
 
 ```sql
 SELECT * FROM [db].dbo.[spark_table]
 ```
 
-## Connecting SQL Analytics on-demand to additional Spark instances
+## Connecting SQL on-demand to additional Spark instances
 
-Metadata synchronization is automatically configured for each Spark pool provisioned in the Azure Synapse workspace. Furthermore, you can control metadata synchronization by using the stored procedures below:
+Metadata synchronization is autoconfigured for each Spark pool provisioned in the Azure Synapse workspace. Furthermore, you can control metadata synchronization by using the stored procedures below:
 
 - **sp_metadata_sync_connector_add**
-  Initiates the connector to Spark for metadata synchronization.
+    Starts the connector to Spark for metadata synchronization.
 - **sp_metadata_sync_connectors_status**
   Returns connectors statuses.
 - **sp_metadata_sync_connector_drop**
-  Stops synchronization and drops connector to Spark from SQL Analytics on-demand.
+  Stops synchronization and drops connector to Spark from SQL on-demand.
 
 
 
 ### sp_metadata_sync_connector_add
 
-Initiates the connection to Spark for metadata synchronization.
+Starts the connection to Spark for metadata synchronization.
 
 #### Syntax
 
@@ -59,49 +59,29 @@ sp_metadata_sync_connector_add [ @unique_name = ] 'connector_name'
 
 #### Arguments
 
-[ @type = ] 'Spark'
+[ @type = ] 'Spark' Specifies the type of connector to be used. Currently, only Spark is supported.
 
-Specifies the type of connector to be used. Currently, only Spark is supported.
-
-[ @jdbc_connection_url = ] 'jdbc_connection_url'
-
-JDBC connection url for Spark pool database. Example: 
+[ @jdbc_connection_url = ] 'jdbc_connection_url' Indicates the JDBC connection url for Spark pool database. See the example below. 
 
 ```
 jdbc:sqlserver://mdsyncmetastoreserver.database.windows.net;database=MdSyncMetastore;encrypt=true;trustServerCertificate=true;create=false;loginTimeout=300
 ```
 
-[ @driver_name = ] 'com.microsoft.sqlserver.jdbc.SQLServerDriver'
+[ @driver_name = ] 'com.microsoft.sqlserver.jdbc.SQLServerDriver' Is the Driver used to connect to the metastore. Currently, only SQLServerDriver is supported.
 
-Driver used to connect to the metastore. Currently, only SQLServerDriver is supported.
+[ @username = ] 'metastore_username' Specifies the username that the connector will use to access the metastore.
 
-[ @username = ] 'metastore_username'
+[ @password = ] 'metastore_password' Indicates the password that the connector will use to access the metastore.
 
-Username that the connector will use to access the metastore.
+[ , [ @max_retry_count = ] max_retry_count ] Is the number of retries that connector will attempt to make if there's a connection error. The default is 3 and can't be changed at this time. Provided argument value will be ignored at this time.
 
-[ @password = ] 'metastore_password'
+[ , [ @retry_interval_ms = ] retry_interval_ms ] Specifies the number of milliseconds between retries. The default is 200. Provided argument value will be ignored at this time.
 
-Password that the connector will use to access the metastore.
+[ , [ @sql_command_timeout_sec = ] sql_command_timeout_sec ] Specifies the number of seconds until command timeouts. The default is 60. Provided argument value will be ignored at this time.
 
-[ , [ @max_retry_count = ] max_retry_count ]
+[ , [ @sync_interval_sec = ] sync_interval_sec ] Includes the number of seconds between two synchronizations. The default is 20. Provided argument value will be ignored at this time.
 
-Number of retries that connector will attempt to make If there is a connection error. The default is 3 and cannot be changed at this time. Provided argument value will be ignored at this time.
-
-[ , [ @retry_interval_ms = ] retry_interval_ms ]
-
-Number of milliseconds between retries. The default is 200. Provided argument value will be ignored at this time.
-
-[ , [ @sql_command_timeout_sec = ] sql_command_timeout_sec ]
-
-Number of seconds until command timeouts. The default is 60. Provided argument value will be ignored at this time.
-
-[ , [ @sync_interval_sec = ] sync_interval_sec ]
-
-Number of seconds between two synchronizations. The default is 20. Provided argument value will be ignored at this time.
-
-[ , [ @mappings_json = ] mappings_json]
-
-Argument is not used at this time. Provided argument value will be ignored.
+[ , [ @mappings_json = ] mappings_json] Isn't an argument used at this time. Any argument value provided will be ignored.
 
 #### Result set
 
@@ -109,7 +89,7 @@ No result set. An error will be provided if the operation fails.
 
 #### Example
 
-The following example adds a connector for Spark with the metastore server *mymetastoreserver* and database name *metastore*. It will initiate a metadata sync synchronization.
+The following example adds a connector for Spark with the metastore server *mymetastoreserver* and database name *metastore*. It will start a metadata sync synchronization.
 
 ```sql
 exec sys.sp_metadata_sync_connector_add 
@@ -180,8 +160,7 @@ sp_metadata_sync_connector_drop { @unique_name = 'connector_name' }
 #### Arguments
 
 { @unique_name = 'connector_name' }
-
-The specified connector will be dropped and synchronization will stop.
+Specifies that the specified connector will be dropped and stops synchronization.
 
 #### Result set
 
@@ -189,7 +168,7 @@ No result set. An error will be provided if the operation fails.
 
 #### Example
 
-The following example stops synchronization for a specified connector and drops it.
+The example below stops synchronization for a specified connector and drops it.
 
 ```sql
 exec sys.sp_metadata_sync_connector_drop @unique_name = 'ConnectorForMYSpark'
@@ -199,6 +178,5 @@ exec sys.sp_metadata_sync_connector_drop @unique_name = 'ConnectorForMYSpark'
 
 ## Next steps
 
-Advance to the next article to learn more about storage access control.
-> [!div class="nextstepaction"]
-> [Storage Access Control](development-storage-files-storage-access-control.md)
+Advance to the [Storage Access Control](development-storage-files-storage-access-control.md) article to learn more about storage access control.
+ 
