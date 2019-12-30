@@ -29,7 +29,7 @@ Personalizer is not a service:
 
 * You have content you want presented in a ranked order.
 * You have information describing the content you want ranked: _actions_ and _context_ - explained below.
-* You have enough real-time traffic (~XK transactions/day) to give to Personalizer to rank the content.
+* You have enough real-time traffic (~4K transactions/day) to give to Personalizer to rank the content.
 
 ## How does Personalizer rank your content?
 
@@ -57,8 +57,6 @@ Personalizer's **Rank** [API](https://go.microsoft.com/fwlink/?linkid=2092082) i
 Personalizer's **Reward** API can be called in real-time or delayed to better fit your infrastructure. You determine the reward score based on your business needs. That can be a single value such as 1 for good, and 0 for bad, or an algorithm you create based on your business needs.
 
 ## How do you get started?
-
-[architectural image]
 
 1. Design and plan for content, **_actions_**, and **_context_**. Determine the reward algorithm for the **_reward_** score.
 1. Each Personalizer Resource you create is considered 1 Learning Loop. The loop is the combination of both the Rank and Reward calls for each _event_.
