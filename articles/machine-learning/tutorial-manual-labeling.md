@@ -177,6 +177,7 @@ Now that you have your list of labelers and access to the data you want to have 
 1.   On the **Select or create a dataset** form, select the second choice, **Create a dataset**, then select the link **From datastore**.
 
 1. Use the following input for the **Create dataset from datastore** form:
+
     Field|Description 
     ---|---
     Name | Give the dataset a name, here we'll use **images-for-tutorial**.
