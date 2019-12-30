@@ -15,11 +15,11 @@ ms.date: 12/13/2019
 ms.author: rogirdh
 ms.custom: 
 ---
-# Reference Architectures for Oracle Database (EE) on Azure
+# Reference architectures for Oracle Database Enterprise Edition on Azure
 
-This guide details information on deploying a highly available Oracle database on Azure. In addition, this guide also dives into disaster recovery considerations. These architectures have been created based on customer deployments. This guide only applies to Oracle Database Enterprise Edition.
+This guide details information on deploying a highly available Oracle database on Azure. In addition, this guide dives into disaster recovery considerations. These architectures have been created based on customer deployments. This guide only applies to Oracle Database Enterprise Edition.
 
-If you're interested in learning more about maximizing the performance of your Oracle Database, see [Architect an Oracle DB](oracle-design.md).
+If you're interested in learning more about maximizing the performance of your Oracle database, see [Architect an Oracle DB](oracle-design.md).
 
 ## Assumptions
 
