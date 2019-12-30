@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: overview
-ms.date: 10/23/2019
+ms.date: 12/30/2019
 ms.author: diberry
 #Customer intent:
 ---
@@ -35,16 +35,16 @@ Personalizer is not a service:
 
 Personalizer uses reinforcement learning to rank information about your content:
 
-* **Actions** - information about the content
-* **Context** - information about the context
+* **Action features** - features of your content
+* **Context features** - features of the context
 
-You need to determine the information groups for actions and context based on your scenario. Several example scenarios are:
+You need to determine the information groups for action features and context features based on your scenario. Several example scenarios are:
 
-|Content|**Actions**|**Context**|
+|Content|**Action features**|**Context features**|
 |--|--|--|
-|News|News type<br>Subject<br>Content type (text, image, video)|Device news is read from<br>Month, or season<br>|
-|Movies|Movie genre<br>Main actors<br>Directory<br>Film rating<br>length|Device movie is watched from<br>screen size<br>Month, or season<br>|
-|Products|Price<br>Size<br>Availability<br>Time to package<br>Time to ship<br>On Sale|Device shopping  is read from<br>Spending tier of user<br>Month, or season|
+|News list|News type<br>Subject<br>Content type (text, image, video)|Device news is read from<br>Month, or season<br>|
+|Movies list|Movie genre<br>Main actors<br>Directory<br>Film rating<br>length|Device movie is watched from<br>screen size<br>Month, or season<br>|
+|Products list|Price<br>Size<br>Availability<br>Time to package<br>Time to ship<br>On Sale|Device shopping  is read from<br>Spending tier of user<br>Month, or season|
 
 ## Personalizer can rank content from a recommendation engine
 
