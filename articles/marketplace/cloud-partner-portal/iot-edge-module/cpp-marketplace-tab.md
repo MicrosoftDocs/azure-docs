@@ -32,7 +32,7 @@ The following table describes the purpose and content of these fields. Required 
 | **Marketing Identifier\***  | A unique URL to associate to this offer, typically includes your organization and solution name, maximum length 50 characters.  For example: <br/> `https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sampleIoTEdgeModule`  |
 | **Preview Subscription IDs** | Add one to 100 subscription identifiers of previewers. These white-listed subscriptions will have access to the offer once it's published, before it goes live. |
 | **Useful Links**          | Multi-selection of business and technical categories that offer can be best associated with.  A maximum of 10 allowed. Make sure to add at least one link to your documentation and one link to the compatible IoT Edge devices from the [Azure IoT device catalog](https://catalog.azureiotsolutions.com/). |
-| **Suggested Categories\*** | Pick up to five categories. They'll be shown on your product details page. In the browse pages, all IoT Edge modules are shown under the *Internet of Things \> IoT Edge module* category.|
+| **Suggested Categories\*** | Select Internet of Things and then the IoT Edge Modules subcategory. All IoT Edge modules are shown under the *Internet of Things \> IoT Edge module* category.|
 |  |  |
 
 
