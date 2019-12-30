@@ -1,5 +1,5 @@
 ---
-title: Microsoft Azure FXT Edge Filer cluster configuration - add nodes
+title: 'Tutorial: Add nodes to an Azure FXT Edge Filer cluster'
 description: How to add nodes to the Azure FXT Edge Filer storage cache 
 author: ekpgh
 ms.author: rohogue
@@ -8,7 +8,7 @@ ms.topic: tutorial
 ms.date: 06/20/2019
 ---
 
-# Tutorial: Add cluster nodes 
+# Tutorial: Add cluster nodes to an Azure FXT Edge Filer cluster
 
 A new Azure FXT Edge Filer cluster is created with only one node. You should add at least two more nodes and enable high availability before doing other configuration. 
 
