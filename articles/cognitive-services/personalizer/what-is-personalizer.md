@@ -48,11 +48,11 @@ You need to determine the information groups for action features and context fea
 
 ## Personalizer can rank content from a recommendation engine
 
-Personalizer can be used _with_ your existing recommendation engine as a last-step ranker, selecting the _top_ choice of content, from the list of choices provided by the recommendation engine. Learn how to [use Personalizer with recommendation engines]().
+Personalizer can be used _with_ your existing recommendation engine as a last-step ranker, selecting the _top_ choice of content, from the list of choices provided by the recommendation engine. Learn how to [use Personalizer with recommendation engines](where-can-you-use-personalizer.md#use-personalizer-with-recommendation-engines).
 
 ## When to call Personalizer
 
-Personalizer's **Rank** API is called _every time_ you present content, in real-time. This is known as an **event**, noted with an _event ID_.
+Personalizer's **Rank** [API](https://go.microsoft.com/fwlink/?linkid=2092082) is called _every time_ you present content, in real-time. This is known as an **event**, noted with an _event ID_.
 
 Personalizer's **Reward** API can be called in real-time or delayed to better fit your infrastructure. You determine the reward score based on your business needs. That can be a single value such as 1 for good, and 0 for bad, or an algorithm you create based on your business needs.
 
@@ -63,7 +63,7 @@ Personalizer's **Reward** API can be called in real-time or delayed to better fi
 1. Design and plan for content, **_actions_**, and **_context_**. Determine the reward algorithm for the **_reward_** score.
 1. Each Personalizer Resource you create is considered 1 Learning Loop. The loop is the combination of both the Rank and Reward calls for each _event_.
 1. Add Personalizer to your website or content system:
-    1. Add a **Rank** call to Personalizer in your application, website or system to determine the ranking of content before the content is shown to the user.
+    1. Add a **Rank** call to Personalizer in your application, website, or system to determine the ranking of content before the content is shown to the user.
     1. Display ranked content to user.
     1. Collect information about how the user behaved when presented with the ranked content, such as:
         * Immediately selected top-ranked content
