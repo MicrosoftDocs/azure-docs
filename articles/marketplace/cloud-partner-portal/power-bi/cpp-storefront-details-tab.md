@@ -34,15 +34,15 @@ The following table provides more information about these fields. Required field
 
 The **Listing Details** section gathers information about the context of your app: industries where it's typically used, the app category, compatible products, and associated search terms.
 
-![Listing Details section of the Storefront Details tab](./media/listing-details-section.png)
+![Listing Details section of the Storefront Details tab]
 
 To complete the fields in this section, use the following table.  Required fields are indicted by an asterisk (*).
  
 |   Field                                  |   Description                                                        |
 | --------------                           | ---------------------                                                |
-| **Industries**                           | Select the industry where your app fits best. If your app relates to multiple industries, leave this field blank.      |
-| **Categories\***                           | Select up to three categories that relate to your app.     |
-| **Help link for your app\***               | Provide a URL to a page that offers online help for your app.           |
+| **Industries**                           | Select up to two (2) industries and two verticals per industry selected.|
+| **Categories\***                         | Select up to two (2) categories, including a primary and a secondary category (optional). Select up to two (2) subcategories for each primary and/or secondary category. If no subcategory is selected, you offer will still be discoverable on the selected category only. |
+| **Help link for your app\***             | Provide a URL to a page that offers online help for your app.           |
 | **Products your app works with (Max 3)** | Select the **New** plus sign to create a text field. In the field, enter the name of a product that your app works with. List up to three products.       |
 | **Search keywords (Max 3)**              | Enter up to three keywords that users will likely use to search for your application in AppSource. For example, if the application is called "My Emailing app," your keywords might be **emails**, **mailing**, and **mail app**. |
 |  |  |
