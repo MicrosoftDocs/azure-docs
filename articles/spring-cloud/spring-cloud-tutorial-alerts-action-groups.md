@@ -97,6 +97,10 @@ Verify that the new alert rule is enabled.
 
   ![Screenshot Portal new alert rule](media/alerts-action-groups/alerts-4.png)
 
+A rule can also be created using the **Metrics** page:
+
+  ![Screenshot Portal new alert rule](media/alerts-action-groups/alerts-5.png)
+
 ## Next steps
 * [User portal metrics options](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-concept-metrics#user-portal-metrics-options)
 * [Create and manage action groups in the Azure portal](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups)
