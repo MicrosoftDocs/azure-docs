@@ -38,10 +38,10 @@ For all operations, a SQL Server VM requires connectivity to Azure public IP add
 Establish connectivity by using one of the following options:
 
 #### **Allow the Azure datacenter IP ranges**.
-This option allows [IP ranges](https://www.microsoft.com/download/details.aspx?id=41653) in the download. To access a network security group (NSG), use the Set-AzureNetworkSecurityRule cmdlet. If you're safe recipients list only region-specific IPs, you'll also need to update the safe recipients list the Azure Active Directory (Azure AD) service tag to enable authentication.
+This option allows the [IP ranges](https://www.microsoft.com/download/details.aspx?id=41653) in the downloaded file. To access a network security group (NSG), use the Set-AzureNetworkSecurityRule cmdlet. If your safe recipient's list only includes region-specific IPs, you'll also need to update the safe recipients list the Azure Active Directory (Azure AD) service tag to enable authentication.
 
 #### **Allow access using NSG tags**.
-If you use NSG to restrict connectivity, then you should use AzureBackup service tag to allows outbound access to Azure Backup. In addition, you should also allow connectivity for authentication and data transfer by using [rules](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags)  for Azure AD and Azure Storage. This can be done from portal or PowerShell.
+If you use NSG to restrict connectivity, then you should use AzureBackup service tag to allows outbound access to Azure Backup. In addition, you should also allow connectivity for authentication and data transfer by using [rules](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags)  for Azure AD and Azure Storage. This can be done from the Azure portal or via PowerShell.
 
 To create a rule using the portal:
 
