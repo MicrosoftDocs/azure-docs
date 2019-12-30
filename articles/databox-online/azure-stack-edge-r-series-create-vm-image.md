@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 12/29/2019
+ms.date: 12/30/2019
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand how to create and upload Azure VM images that I can use with my Azure Stack Edge device so that I can deploy VMs on the device.
 ---
@@ -21,7 +21,7 @@ To deploy VMs on your Azure Stack Edge device, you need to be able to create VM 
 The workflow requires you to create a virtual machine in Azure, customize the VM, and then download the VHD corresponding to that VM. After you download the VHD, you can use it to create VM on your Azure Stack Edge device. For more information, go to [Deploy a VM on your Azure Stack Edge device using Azure PowerShell](azure-stack-edge-r-series-deploy-vm-powershell.md).
 
 
-### Create a Windows VM image
+## Create a Windows VM image
 
 Do the following steps to create a Windows VM image.
 
@@ -39,7 +39,7 @@ Do the following steps to create a Windows VM image.
 
 Use this VHD to now create and deploy a VM on your Azure Stack Edge device.
 
-### Create a Linux VM image
+## Create a Linux VM image
 
 Do the following steps to create a Linux VM image.
 
