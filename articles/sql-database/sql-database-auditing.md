@@ -238,7 +238,7 @@ In production, you are likely to refresh your storage keys periodically. When wr
 - When using AAD Authentication, failed logins records will *not* appear in the SQL audit log. To view failed login audit records, you need to visit the [Azure Active Directory portal]( ../active-directory/reports-monitoring/reference-sign-ins-error-codes.md), which logs details of these events.
 
 
-## <a id="subheading-7"></a>Manage SQL database auditing using Azure PowerShell
+## <a id="subheading-7"></a>Manage Azure SQL Server and Database auditing using Azure PowerShell
 
 **PowerShell cmdlets (including WHERE clause support for additional filtering)**:
 
@@ -251,7 +251,7 @@ In production, you are likely to refresh your storage keys periodically. When wr
 
 For a script example, see [Configure auditing and threat detection using PowerShell](scripts/sql-database-auditing-and-threat-detection-powershell.md).
 
-## <a id="subheading-9"></a>Manage SQL database auditing using REST API
+## <a id="subheading-8"></a>Manage Azure SQL Server and Database auditing using REST API
 
 **REST API**:
 
@@ -267,7 +267,7 @@ Extended policy with WHERE clause support for additional filtering:
 - [Get Database *Extended* Auditing Policy](https://docs.microsoft.com/rest/api/sql/database%20extended%20auditing%20settings/get)
 - [Get Server *Extended* Auditing Policy](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/get)
 
-## <a id="subheading-10"></a>Manage SQL database auditing using Azure Resource Manager templates
+## <a id="subheading-9"></a>Manage Azure SQL Server and Database auditing using Azure Resource Manager templates
 
 You can manage Azure SQL database auditing using [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) templates, as shown in these examples:
 
@@ -284,10 +284,9 @@ You can manage Azure SQL database auditing using [Azure Resource Manager](https:
 [Analyze audit logs and reports]: #subheading-3
 [Practices for usage in production]: #subheading-5
 [Storage Key Regeneration]: #subheading-6
-[Manage SQL database auditing using Azure PowerShell]: #subheading-7
-[Blob/Table differences in Server auditing policy inheritance]: (#subheading-8)
-[Manage SQL database auditing using REST API]: #subheading-9
-[Manage SQL database auditing using ARM templates]: #subheading-10
+[Manage Azure SQL Server and Database auditing using Azure PowerShell]: #subheading-7
+[Manage SQL database auditing using REST API]: #subheading-8
+[Manage Azure SQL Server and Database auditing using ARM templates]: #subheading-9
 
 <!--Image references-->
 [1]: ./media/sql-database-auditing-get-started/1_auditing_get_started_settings.png
