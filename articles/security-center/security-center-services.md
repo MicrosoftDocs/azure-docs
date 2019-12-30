@@ -61,7 +61,7 @@ The following sections show Security Center features that are available for thei
 |[Microsoft Defender ATP integration](security-center-wdatp.md)|-|-|-|Standard|
 |[Virtual Machine Behavioral Analytics threat detection alerts](security-center-alerts-iaas.md)|✔ (on supported versions)|✔ (on supported versions)|✔|Recommendations (Free) Threat Detection (Standard)|
 |[Fileless threat detection alerts](security-center-alerts-iaas.md#fileless-attack-detection-)|-|-|-|Standard|
-|[Network-based threat detection alerts](security-center-alerts-service-layer#azure-network-layer.md)|✔|✔|-|Standard|
+|[Network-based threat detection alerts](security-center-alerts-service-layer.md#azure-network-layer)|✔|✔|-|Standard|
 |[Just-In-Time VM access](security-center-just-in-time.md)|✔|-|-|Standard|
 |[Native vulnerability analysis](built-in-vulnerability-assessment.md)|✔|-|-|Standard|
 |[File Integrity Monitoring](security-center-file-integrity-monitoring.md)|✔|✔|✔|Standard|
