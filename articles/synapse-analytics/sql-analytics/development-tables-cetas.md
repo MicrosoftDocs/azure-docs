@@ -15,7 +15,10 @@ ms.reviewer: jrasnick
 In either SQL pools or SQL on-demand, you can use CREATE EXTERNAL TABLE AS SELECT (CETAS) to complete the  following tasks:  
 
 1. Create an external table
-2. Export, in parallel, the results of a Transact-SQL SELECT statement to Hadoop, Azure Storage Blob, or Azure Date Lake Store Gen2.
+1. Export, in parallel, the results of a Transact-SQL SELECT statement to
+   1. Hadoop
+   1. Azure Storage Blob
+   1. Azure Data Lake Store Gen2
 
 ## CETAS in SQL pools
 For SQL pools CETAS usage and syntax, check the [CREATE EXTERNAL TABLE AS SELECT](/sql/t-sql/statements/create-external-table-as-select-transact-sql) article.
@@ -65,12 +68,12 @@ You need to have permissions to list folder content and write to LOCATION folder
 
 ### Examples
 
-The following examples use CETAS to save total population aggregated by year and state to an  aggregated_data folder in population_ds datasource. 
+These examples use CETAS to save total population aggregated by year and state to an aggregated_data folder that is located in the population_ds datasource. 
 
-This sample relies on the credential, data source, and external file format previously created in the [external tables](development-tables-external-tables.md) document. If you want to save query results to a different folder in the same data source, change the LOCATION argument. Also, if you want to save results to a different storage account, create and use a different data source for DATA_SOURCE argument.
+This sample relies on the credential, data source, and external file format created previously. Refer to the [external tables](development-tables-external-tables.md) document. To save query results to a different folder in the same data source, change the LOCATION argument. To save results to a different storage account, create and use a different data source for DATA_SOURCE argument.
 
 > [!NOTE]
-> Samples below use a public Azure Open Data storage account. It is read-only and, to be able to execute these queries, you need to provide the data source for which you have write permissions.
+> Samples below use a public Azure Open Data storage account. It is read-only. To execute these queries, you need to provide the data source for which you have write permissions.
 
 ```sql
 -- use CETAS to export select statement with OPENROWSET result to  storage
@@ -93,7 +96,7 @@ GO
 SELECT * FROM population_by_year_state
 ```
 
-The sample below uses an external table as the source for CETAS. It relies on the credential, data source, external file format, and external table previously created in the [external tables](development-tables-external-tables.md) document. 
+The sample below uses an external table as the source for CETAS. It relies on the credential, data source, external file format, and external table created previously. Refer to the [external tables](development-tables-external-tables.md) document. 
 
 ```sql
 -- use CETAS with select from external table
