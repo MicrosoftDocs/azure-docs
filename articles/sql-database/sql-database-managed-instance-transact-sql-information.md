@@ -9,7 +9,7 @@ ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab, bonova 
-ms.date: 11/04/2019
+ms.date: 12/30/2019
 ms.custom: seoapril2019
 ---
 
@@ -536,13 +536,15 @@ If non-sysadmin logins are added to any of SQL Agent fixed database roles, there
 
 **Workaround**: Once you add logins to either of SQL Agent fixed database roles: SQLAgentUserRole, SQLAgentReaderRole or SQLAgentOperatorRole, for each of the logins added to these roles execute the below T-SQL script to explicitly grant EXECUTE permissions to the stored procedures listed in the script.
 
-`USE [master]
+```tsql
+USE [master]
 GO
 CREATE USER [login_name] FOR LOGIN [login_name]
 GO
 GRANT EXECUTE ON master.dbo.xp_sqlagent_enum_jobs TO [login_name]
 GRANT EXECUTE ON master.dbo.xp_sqlagent_is_starting TO [login_name]
-GRANT EXECUTE ON master.dbo.xp_sqlagent_notify TO [login_name]`
+GRANT EXECUTE ON master.dbo.xp_sqlagent_notify TO [login_name]
+```
 
 ### SQL Agent jobs can be interrupted by Agent process restart
 
