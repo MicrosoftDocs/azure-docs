@@ -93,7 +93,7 @@ The **Properties** page lets you define the categories and industries used to gr
 
 ### Category
 
-Select a minimum of one and a maximum of three categories. These will be used to place your offer into the appropriate marketplace search areas. Be sure to call out how your offer supports these categories in the offer description. 
+Select up to two (2) categories, including a primary and a secondary category (optional). Select up to two (2) subcategories for each primary and/or secondary category. If no subcategory is selected, you offer will still be discoverable on the selected category. 
 
 ### Industry
 
