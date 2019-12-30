@@ -1,5 +1,5 @@
 ---
-title: "Azure Active Directory (Azure AD) authentication"
+title: "Create an Immersive Reader Resource"
 titleSuffix: Azure Cognitive Services
 description: This article will show you how to create a new Immersive Reader resource with a custom subdomain and then configure Azure AD in your Azure tenant.
 services: cognitive-services
@@ -13,120 +13,113 @@ ms.date: 07/22/2019
 ms.author: rwaller
 ---
 
-# Use Azure Active Directory (Azure AD) authentication with the Immersive Reader service
+This article shows how to create an Immersive Reader resource and configure it with Azure Active Directory authentication.
 
-In the following sections, you will use either the Azure Cloud Shell environment or Azure PowerShell to create a new Immersive Reader resource with a custom subdomain and then configure Azure AD in your Azure tenant. After completing that initial configuration, you will call Azure AD to obtain an access token, similar to how it will be done when using the Immersive Reader SDK. If you get stuck, links are provided in each section with all the available options for each of the Azure PowerShell commands.
+## Set up Powershell environment
 
-## Create an Immersive Reader resource with a custom subdomain
+1. Start by opening the [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview). Ensure that the cloud shell is set to PowerShell.
 
-1. Start by opening the [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview). Then [select a subscription](https://docs.microsoft.com/powershell/module/servicemanagement/azure/select-azuresubscription?view=azuresmps-4.0.0#description):
+1. Copy and paste the following code snippet into the shell.
 
-   ```azurepowershell-interactive
-   Select-AzSubscription -SubscriptionName <YOUR_SUBSCRIPTION>
-   ```
+    ```azurepowershell-interactive
+    function Create-ImmersiveReaderResource(
+        [Parameter(Mandatory=$true)] [String] $subscriptionName,
+        [Parameter(Mandatory=$true)] [String] $resourceGroupName,
+        [Parameter(Mandatory=$false)] [String] $resourceGroupLocation,
+        [Parameter(Mandatory=$true)] [String] $resourceName,
+        [Parameter(Mandatory=$true)] [String] $resourceLocation,
+        [Parameter(Mandatory=$true)] [String] $subdomain,
+        [Parameter(Mandatory=$true)] [String] $clientSecret
+    )
+    {
+        # Set the active subscription
+        az account set --subscription $subscriptionName
 
-2. Next, [create an Immersive Reader resource](https://docs.microsoft.com/powershell/module/az.cognitiveservices/new-azcognitiveservicesaccount?view=azps-1.8.0) with a custom subdomain.
+        # Create the resource group if it doesn't already exist
+        $resourceGroupExists = az group exists --name $resourceGroupName
+        if (-not $resourceGroupExists) {
+            az group create --name $resourceGroupName --location $resourceGroupLocation
+        }
 
-   >[!NOTE]
-   > The Subdomain name is used in Immersive Reader SDK when launching the Reader with the launchAsync function.
+        # Ensure a resource with that name doesn't already exist
+        $resourceId = az cognitiveservices account show --name $resourceName --resource-group $resourceGroupName --query "id" -o tsv
+        if ($resourceId) {
+            throw "Error: Resource with the name '$resourceName' already exists"
+        }
 
-   -SkuName can be F0 (Free tier) or S0 (Standard tier, also free during public preview). The S0 tier has a higher call rate limit and no monthly quota on the number of calls.
+        # Create the new Immersive Reader resource
+        $resourceId = az cognitiveservices account create `
+                        --name $resourceName `
+                        --resource-group $resourceGroupName `
+                        --kind ImmersiveReader `
+                        --sku S0 `
+                        --location $resourceLocation `
+                        --custom-domain $subdomain `
+                        --query "id" `
+                        -o tsv
 
-   -Location can be any of the following: `eastus`, `westus`, `australiaeast`, `centralindia`, `japaneast`, `northeurope`, `westeurope`
+        # Ensure the resource was created successfully
+        if (-not $resourceId) {
+            throw "Error: Failed to create Immersive Reader resource"
+        }
 
-   -CustomSubdomainName needs to be globally unique and cannot include special characters, such as: ".", "!", ",".
+        # Create an Azure Active Directory app if it doesn't already exist
+        $clientId = az ad app show --id "http://ImmersiveReaderAAD" --query "appId" -o tsv
+        if (-not $clientId) {
+            $secureClientSecret = ConvertTo-SecureString -String $clientSecret -AsPlainText -Force
+            $adApp = az ad app create --password $secureClientSecret --display-name "ImmersiveReaderAAD" --identifier-uris "http://ImmersiveReaderAAD"
+            $clientId = $adApp.ApplicationId
+        }
 
+        # Create a service principal if it doesn't already exist
+        $principalId = az ad sp show --id "http://ImmersiveReaderAAD" --query "objectId" -o tsv
+        if (-not $principalId) {
+            $principal = az ad sp create --id $clientId
+            $principalId = $principal.Id
+        }
 
-   ```azurepowershell-interactive
-   $resource = New-AzCognitiveServicesAccount -ResourceGroupName <RESOURCE_GROUP_NAME> -name <RESOURCE_NAME> -Type ImmersiveReader -SkuName S0 -Location <REGION> -CustomSubdomainName <UNIQUE_SUBDOMAIN>
+        # Grant the service principal access to the newly created Immersive Reader resource
+        az role assignment create --assignee $principalId --scope $resourceId --role "Cognitive Services User"
 
-   // Display the Resource info
-   $resource
-   ```
+        # Grab the tenant ID, which is needed when obtaining an Azure AD token
+        $tenantId = az account show --query "tenantId" -o tsv
 
-   If successful, the resource **Endpoint** should show the subdomain name unique to your resource.
+        # Collect the information needed to obtain an Azure AD token into one object
+        $result = @{}
+        $result.TenantId = $tenantId
+        $result.ClientId = $clientId
+        $result.ClientSecret = $clientSecret
+        $result.Subdomain = $subdomain
 
-   Here we are capturing the newly created resource object into a **$resource** variable, as it will be used later when granting access to this resource.
+        Write-Output (ConvertTo-Json $result)
+    }
+    ```
 
+1. Run the function `Create-ImmersiveReaderResource`, supplying the parameters as appropriate.
 
-   >[!NOTE]
-   > If you create a resource in the Azure portal, the resource 'Name' is used as the custom subdomain. You can check the subdomain name in the portal by going to the resource Overview page and finding the subdomain in the Endpoint listed there, for example, `https://[SUBDOMAIN].cognitiveservices.azure.com/`. You can also check here later when you need to get the subdomain for integrating with the SDK.
+    ```azurepowershell-interactive
+    Create-ImmersiveReaderResource <SUBSCRIPTION_NAME> <RESOURCE_GROUP_NAME> <RESOURCE_GROUP_LOCATION> <RESOURCE_NAME> <RESOURCE_LOCATION> <CUSTOM_SUBDOMAIN> <CLIENT_SECRET>
+    ```
 
-   If the resource was created in the portal, you can also [get an existing resource](https://docs.microsoft.com/powershell/module/az.cognitiveservices/get-azcognitiveservicesaccount?view=azps-1.8.0) now.
+    >[!NOTE]
+    > Use [az account list](https://docs.microsoft.com/en-us/cli/azure/account?view=azure-cli-latest#az-account-list) to get your subscription name.
+    >
+    > If the specified resource group does not exist, it will be created. If the specified resource group already exists, the resource group location parameter will be ignored.
+    >
+    > The resource location can be any of the following: `eastus`, `eastus2`, `southcentralus`, `westus`, `westus2`, `australiaeast`, `southeastasia`, `centralindia`, `japaneast`, `northeurope`, `uksouth`, `westeurope`.
+    >
+    > The custom subdomain needs to be globally unique and cannot include special characters, such as: ".", "!", ",".
 
-   ```azurepowershell-interactive
-   $resource = Get-AzCognitiveServicesAccount -ResourceGroupName <RESOURCE_GROUP_NAME> -name <RESOURCE_NAME>
+1. Copy the JSON output into a text file for later use. The output should look like the following.
 
-   // Display the Resource info
-   $resource
-   ```
-
-## Assign a role to a service principal
-
-Now that you have a custom subdomain associated with your resource, you need to assign a role to a service principal.
-
-1. First, let's [create an Azure AD application](https://docs.microsoft.com/powershell/module/Az.Resources/New-AzADApplication?view=azps-1.8.0).
-
-   >[!NOTE]
-   > The Password, also known as the 'client secret', will be used when obtaining authentication tokens.
-
-   ```azurepowershell-interactive
-   $password = "<YOUR_PASSWORD>"
-   $secureStringPassword = ConvertTo-SecureString -String $password -AsPlainText -Force
-   $aadApp = New-AzADApplication -DisplayName ImmersiveReaderAAD -IdentifierUris http://ImmersiveReaderAAD -Password $secureStringPassword
-
-   // Display the Azure AD app info
-   $aadApp
-   ```
-
-   Here we are capturing the newly created Azure AD app object into an **$aadApp** variable for use in the next step.
-
-2. Next, you need to [create a service principal](https://docs.microsoft.com/powershell/module/az.resources/new-azadserviceprincipal?view=azps-1.8.0) for the Azure AD application.
-
-   ```azurepowershell-interactive
-   $principal = New-AzADServicePrincipal -ApplicationId $aadApp.ApplicationId
-
-   // Display the service principal info
-   $principal
-   ```
-
-   Here we are capturing the newly created Service Principal object into a **$principal** variable for use in the next step.
-
-
-3. The last step is to [assign the "Cognitive Services User" role](https://docs.microsoft.com/powershell/module/az.Resources/New-azRoleAssignment?view=azps-1.8.0) to the service principal (scoped to the resource). By assigning a role, you are granting the service principal access to this resource. You can grant the same service principal access to multiple resources in your subscription.
-
-   ```azurepowershell-interactive
-   New-AzRoleAssignment -ObjectId $principal.Id -Scope $resource.Id -RoleDefinitionName "Cognitive Services User"
-   ```
-
-   >[!NOTE]
-   > This step needs to be performed for each Immersive Reader resource you create. For example, if you create multiple resources for different global regions, then you will need to perform this step for each of those regional resources so that the Azure AD authentication works for all of them. Or, if you create a new resource at a later point in time, you will need to perform this role assignment step for that new resource as well.
-
-
-## Obtain an Azure AD token
-
-In this example, your password is used to authenticate the service principal to obtain an Azure AD token.
-
-1. Get your **TenantId**:
-   ```azurepowershell-interactive
-   $context = Get-AzContext
-   $context.Tenant.Id
-   ```
-
-2. Get a token:
-   ```azurepowershell-interactive
-   $authority = "https://login.windows.net/" + $context.Tenant.Id
-   $resource = "https://cognitiveservices.azure.com/"
-   $authContext = New-Object "Microsoft.IdentityModel.Clients.ActiveDirectory.AuthenticationContext" -ArgumentList $authority
-   $clientCredential = New-Object "Microsoft.IdentityModel.Clients.ActiveDirectory.ClientCredential" -ArgumentList $aadApp.ApplicationId, $password
-   $token = $authContext.AcquireTokenAsync($resource, $clientCredential).Result
-   $token
-   ```
-
-   >[!NOTE]
-   > The Immersive Reader SDK uses the AccessToken property of the token, e.g. $token.AccessToken. See the SDK [reference](reference.md) and code [samples](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples) for details.
-
-Alternatively, the service principal can be authenticated with a certificate. In addition to a service principal, user principals are also supported by having permissions delegated through another Azure AD application. In this case, instead of passwords or certificates, users would be prompted for two-factor authentication when acquiring tokens.
+    ```json
+    {
+      "TenantId": YOUR_TENANT_ID,
+      "ClientId": YOUR_CLIENT_ID,
+      "ClientSecret": YOUR_CLIENT_SECRET,
+      "Subdomain": YOUR_SUBDOMAIN
+    }
+    ```
 
 ## Next steps
 
@@ -134,3 +127,7 @@ Alternatively, the service principal can be authenticated with a certificate. In
 * View the [Python tutorial](./tutorial-python.md) to see what else you can do with the Immersive Reader SDK using Python
 * View the [Swift tutorial](./tutorial-ios-picture-immersive-reader.md) to see what else you can do with the Immersive Reader SDK using Swift
 * Explore the [Immersive Reader SDK](https://github.com/microsoft/immersive-reader-sdk) and the [Immersive Reader SDK Reference](./reference.md)
+
+
+
+
