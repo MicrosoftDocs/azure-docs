@@ -37,6 +37,10 @@
     items:
     - name: Develop C# module
       href: azure-stack-edge-r-series-create-iot-edge-module.md
+    - name: Configure VPN
+      href: azure-stack-edge-r-series-configure-vpn.md
+    - name: Create VM image
+      href: azure-stack-edge-r-series-create-vm-image.md
     - name: Connect to Azure Resource Manager
       href: azure-stack-edge-r-series-connect-resource-manager.md
     - name: Deploy VMs - Azure PowerShell

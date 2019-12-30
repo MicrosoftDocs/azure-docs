@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 12/13/2019
+ms.date: 12/29/2019
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand how to connect to Azure Resource Manager on my Azure Stack Edge device so that I can manage resources.
 ---
@@ -305,17 +305,17 @@ Set the Azure Resource Manager environment and verify that your device to client
     > The Azure Resource Manager endpoint URL that you provide in the following cmdlet is case-sensitive. Make sure the endpoint URL is all in lowercase and matches what you provided in the hosts file. If the case doesn't match, then you will see an error.
 
     ```powershell
-    Add-AzureRmEnvironment -Name <Environment Name> -ARMEndpoint "https://management.<appliance name>.<DNSDomain>:443/"
+    Add-AzureRmEnvironment -Name <Environment Name> -ARMEndpoint "https://management.<appliance name>.<DNSDomain>/"
     ```
 
     A sample output is shown below:
     
     ```powershell
-    PS C:\windows\system32> Add-AzureRmEnvironment -Name AzDBE -ARMEndpoint https://management.dbe-n6hugc2ra.microsoftdatabox.com:443/
+    PS C:\windows\system32> Add-AzureRmEnvironment -Name AzDBE -ARMEndpoint https://management.dbe-n6hugc2ra.microsoftdatabox.com/
     
     Name  Resource Manager Url                    ActiveDirectory Authority
     ----  --------------------                   -------------------------
-    AzDBE https://management.dbe-n6hugc2ra.microsoftdatabox.com:443 https://login.dbe-n6hugc2ra.microsoftdatabox.com/adfs/
+    AzDBE https://management.dbe-n6hugc2ra.microsoftdatabox.com https://login.dbe-n6hugc2ra.microsoftdatabox.com/adfs/
     ```
 
 2. Set the environment as Azure Stack Edge and the port to be used for Azure Resource Manager calls as 443. You define the environment in two ways:
@@ -362,7 +362,7 @@ Set the Azure Resource Manager environment and verify that your device to client
             Here is a sample output of the command. 
          
             ```powershell
-            PS C:\Users\Administrator> login-AzureRMAccount -EnvironmentName AzDBE
+            PS C:\Users\Administrator> login-AzureRMAccount -EnvironmentName AzDBE -TenantId c0257de7-538f-415c-993a-1b87a031879d
             
             Account         SubscriptionName  TenantId              Environment
             -------         ----------------  --------              -------
