@@ -46,8 +46,8 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Authenticate with Azure Active Directory
-            url: azure-active-directory-authentication.md
+          - text: Create an Immersive Reader Resource
+            url: how-to-create-immersive-reader.md
       - linkListType: reference
         links:
           - text: JavaScript SDK
