@@ -16,7 +16,7 @@ ms.reviewer: euang
 Azure Synapse Analytics is compatible with Linux Foundation Delta Lake. Delta Lake is an open-source storage layer that brings ACID
 transactions to Apache Spark and big data workloads
 
-## Key Features
+## Key features
 
 | Feature | Description |
 | --- | --- |
