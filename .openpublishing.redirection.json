@@ -24186,6 +24186,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/storage/common/storage-auth-aad-script.md",
+      "redirect_url": "/azure/storage/common/authorize-active-directory-powershell",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/storage/storage-cannot-delete-storage-account-container-vhd.md",
       "redirect_url": "/azure/storage/storage-resource-manager-cannot-delete-storage-account-container-vhd",
       "redirect_document_id": false
