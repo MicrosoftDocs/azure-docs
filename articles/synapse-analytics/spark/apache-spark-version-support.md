@@ -19,7 +19,7 @@ The Apache Spark in Arcadia service supports several different run times and ser
 
 Spark 2.4 is the currently supported version.
 
-## Operating System version
+## Operating system version
 
 Apache Spark in Arcadia runs on Ubuntu version 16.04.
 
@@ -562,6 +562,7 @@ zookeeper-3.4.11.2.6.99.201-1240.jar
 zstd-jni-1.3.2-2.jar
 
 ## Python libraries
+
 _license==1.1
 
 absl-py==0.8.1

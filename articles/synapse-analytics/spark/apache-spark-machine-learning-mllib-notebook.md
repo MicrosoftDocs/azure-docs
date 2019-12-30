@@ -169,7 +169,7 @@ plt.show()
 ![Box Whisker Plot](./media/apache-spark-machine-learning-mllib-notebook/apache-spark-mllib-eda-box-whisker.png)
 ![Scatter Plot](./media/apache-spark-machine-learning-mllib-notebook/apache-spark-mllib-eda-scatter.png)
 
-## Preparing the data to be consumed by a logistic regression model
+## Preparing the data
 
 The data in its raw form is frequently not suitable for passing directly to a model. A series of actions must be performed on the data to get it into a state where the model can consume it.
 
@@ -272,7 +272,7 @@ taxi_featurised_df = taxi_df.select('totalAmount', 'fareAmount', 'tipAmount', 'p
                                        .filter((taxi_df.tripTimeSecs >= 30) & (taxi_df.tripTimeSecs <= 7200))
 ```
 
-## Create a logistic regression model from the input dataframe
+## Create a logistic regression model
 
 The final task is to convert the labeled data into a format that can be analyzed by logistic regression. The input to a logistic regression algorithm needs to be a set of *label-feature vector pairs*, where the "feature vector" is a vector of numbers representing the input point. So, we need to convert the categorical columns into numbers. The `trafficTimeBins` and `weekdayString` columns need converted into integer representations. There are multiple approaches to performing the conversion, however for this example the approach that is being taken is OneHotEncoding, a common approach.
 

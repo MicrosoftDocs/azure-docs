@@ -87,7 +87,7 @@ You can use the following articles to learn more about Apache Spark in Synapse A
 * [Tutorial: Machine learning using Apache Spark](./apache-spark-machine-learning-mllib-notebook.md)
 <!---TODO: * [Tutorial: Create a Scala Maven application using IntelliJ](./apache-spark-create-standalone-application.md)--->
 
-## Next Steps
+## Next steps
 
 In this overview, you get some basic understanding of Apache Spark in Azure HDInsight. Advance to the next article to learn how to create an HDInsight Spark cluster and run some Spark SQL queries:
 
