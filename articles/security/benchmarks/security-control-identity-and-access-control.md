@@ -25,9 +25,12 @@ Identity and access management recommendations focus on addressing issues relate
 Azure AD has built-in roles that must be explicitly assigned and are queryable. Use the Azure AD PowerShell module to perform ad hoc queries to discover accounts that are members of administrative groups.
 
 How to get a directory role in Azure AD with PowerShell:
+
 https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0
 
-How to get members of a directory role in Azure AD with PowerShell:https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0
+How to get members of a directory role in Azure AD with PowerShell:
+
+https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0
 
 ## 3.2: Change default passwords where applicable
 
@@ -90,16 +93,6 @@ https://docs.microsoft.com/windows-server/identity/securing-privileged-access/pr
 How to enable MFA in Azure:
 https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted
 
-## 3.7: Limit users' ability to interact with ARM via scripting tools
-
-| Azure ID | CIS IDs | Responsibility |
-|--|--|--|
-| 3.7 | 4.7 | Customer |
-
-Use Azure Conditional Access to limit users' ability to interact with ARM by configuring &quot;Block access&quot; for the &quot;Microsoft Azure Management&quot; App.
-
-How to configure Conditional Access to block access to ARM:
-https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management
 
 ## 3.7: Log and alert on suspicious activity from administrative accounts
 

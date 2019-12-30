@@ -50,9 +50,11 @@ https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal
 Use Azure Security Center and follow network protection recommendations to help secure your network resources in Azure. Enable NSG flow logs and send logs into a Storage Account for traffic audit.
 
 How to Enable NSG Flow Logs:
+
 https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal
 
 Understanding Network Security provided by Azure Security Center:
+
 https://docs.microsoft.com/azure/security-center/security-center-network-recommendations
 
 ## 1.3: Protect critical web applications
