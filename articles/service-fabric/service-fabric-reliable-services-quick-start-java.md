@@ -7,7 +7,7 @@ ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: suhuruli
 ---
-# Get started with Reliable Services
+# Get started with Reliable Services in Java
 > [!div class="op_single_selector"]
 > * [C# on Windows](service-fabric-reliable-services-quick-start.md)
 > * [Java on Linux](service-fabric-reliable-services-quick-start-java.md)
