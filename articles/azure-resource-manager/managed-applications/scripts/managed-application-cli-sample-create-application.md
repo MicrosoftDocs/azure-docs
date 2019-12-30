@@ -20,13 +20,13 @@ ms.author: tomfitz
 This script deploys a managed application definition from the service catalog. 
 
 
-[!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
+[!INCLUDE [sample-cli-install](../../../../includes/sample-cli-install.md)]
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 
 ## Sample script
 
-[!code-azurecli[main](../../../cli_scripts/managed-applications/create-application/create-application.sh "Create application")]
+[!code-azurecli[main](../../../../cli_scripts/managed-applications/create-application/create-application.sh "Create application")]
 
 
 ## Script explanation

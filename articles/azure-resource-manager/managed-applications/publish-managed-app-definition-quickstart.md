@@ -15,7 +15,7 @@ This quickstart provides an introduction to working with managed applications. Y
 
 When you're finished, you have a resource group named **appDefinitionGroup** that has the managed application definition.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 ## Create a resource group for definition
 

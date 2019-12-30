@@ -31,7 +31,7 @@ To complete this tutorial, you need to know:
 * How to [Deploy Service Catalog app through Azure portal](deploy-service-catalog-quickstart.md).
 * How to [Create Azure portal user interface for your managed application](create-uidefinition-overview.md).
 * [View definition artifact](concepts-view-definition.md) capabilities.
-* [Azure Custom Provider](custom-providers-overview.md) capabilities.
+* [Azure Custom Provider](../custom-providers/overview.md) capabilities.
 
 ## User interface definition
 
@@ -214,7 +214,7 @@ $blobUri=(Get-AzureStorageBlob -Container appcontainer -Blob app.zip -Context $c
 
 Run the Azure CLI script below or follow the steps in Azure portal to deploy a Service Catalog managed application definition:
 
-[!INCLUDE [sample-cli-install](../../includes/sample-cli-install.md)]
+[!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
 # [Azure CLI](#tab/azurecli-interactive)
 
@@ -246,7 +246,7 @@ az managedapp definition create \
 1. In the Azure portal, select **All services**. In the list of resources, type and select **Managed Applications Center**.
 2. On the **Managed Applications Center**, choose **Service Catalog application definition** and click **Add**. 
     
-    ![Add Service Catalog](./media/managed-application-with-custom-providers/service-catalog-managed-application.png)
+    ![Add Service Catalog](./media/tutorial-create-managed-app-with-custom-provider/service-catalog-managed-application.png)
 
 3. Provide values for creating a Service Catalog definition:
 
@@ -254,19 +254,19 @@ az managedapp definition create \
     * Select the **Subscription**, **Resource group**, and **Location** where application definition will be created. You can use the same resource group that is used for zip package or create a new resource group.
     * For a **Package File Uri**, provide the path to the zip file you created in previous step.
 
-    ![Provide values](./media/managed-application-with-custom-providers/add-service-catalog-managed-application.png)
+    ![Provide values](./media/tutorial-create-managed-app-with-custom-provider/add-service-catalog-managed-application.png)
 
 4. When you get to the Authentication and Lock Level section, select **Add Authorization**.
 
-    ![Add authorization](./media/managed-application-with-custom-providers/add-authorization.png)
+    ![Add authorization](./media/tutorial-create-managed-app-with-custom-provider/add-authorization.png)
 
 5. Select an Azure Active Directory group to manage the resources, and select **OK**.
 
-   ![Add authorization group](./media/managed-application-with-custom-providers/add-auth-group.png)
+   ![Add authorization group](./media/tutorial-create-managed-app-with-custom-provider/add-auth-group.png)
 
 6. When you have provided all the values, select **Create**.
 
-   ![Create managed application definition](./media/managed-application-with-custom-providers/create-service-catalog-definition.png)
+   ![Create managed application definition](./media/tutorial-create-managed-app-with-custom-provider/create-service-catalog-definition.png)
 
 ---
 
@@ -302,22 +302,22 @@ az managedapp create \
 1. In the Azure portal, select **All services**. In the list of resources, type and select **Managed Applications Center**.
 2. On the **Managed Applications Center**, choose **Service Catalog applications** and click **Add**. 
 
-    ![Add managed application](./media/managed-application-with-custom-providers/add-managed-application.png)
+    ![Add managed application](./media/tutorial-create-managed-app-with-custom-provider/add-managed-application.png)
 
 3. On the **Service Catalog applications** page type Service Catalog definition display name in search box. Select the definition created in previous step and click **Create**.
 
-    ![Select service catalog](./media/managed-application-with-custom-providers/select-service-catalog-definition.png)
+    ![Select service catalog](./media/tutorial-create-managed-application-with-custom-provider/select-service-catalog-definition.png)
 
 4. Provide values for creating a managed application instance from Service Catalog definition:
 
     * Select the **Subscription**, **Resource group**, and **Location** where application instance will be created.
     * Provide a unique Azure Function name and Azure Storage Account name.
 
-    ![Application settings](./media/managed-application-with-custom-providers/application-settings.png)
+    ![Application settings](./media/tutorial-create-managed-app-with-custom-provider/application-settings.png)
 
 5. When validation passed, click **OK** to deploy an instance of a managed application. 
     
-    ![Deploy managed application](./media/managed-application-with-custom-providers/deploy-managed-application.png)
+    ![Deploy managed application](./media/tutorial-create-managed-app-with-custom-provider/deploy-managed-application.png)
 
 ---
 
@@ -331,17 +331,17 @@ You can go to managed application instance and perform **custom action** in "Ove
 
 * Go to "Overview" page and click "Ping Action" button:
 
-![Perform custom action](./media/managed-application-with-custom-providers/perform-custom-action.png)
+![Perform custom action](./media/tutorial-create-managed-app-with-custom-provider/perform-custom-action.png)
 
 * Go to "Users" page and click "Add" button. Provide inputs for creating a resource and submit the form:
 
-![Create custom resource](./media/managed-application-with-custom-providers/create-custom-resource.png)
+![Create custom resource](./media/tutorial-create-managed-app-with-custom-provider/create-custom-resource.png)
 
 * Go to "Users" page, select a "users" resource and click "Custom Context Action":
 
-![Create custom resource](./media/managed-application-with-custom-providers/perform-custom-resource-action.png)
+![Create custom resource](./media/tutorial-create-managed-app-with-custom-provider/perform-custom-resource-action.png)
 
-[!INCLUDE [clean-up-section-portal](../../includes/clean-up-section-portal.md)]
+[!INCLUDE [clean-up-section-portal](../../../includes/clean-up-section-portal.md)]
 
 ## Looking for help
 
