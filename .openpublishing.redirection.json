@@ -27456,6 +27456,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/security-center/recommendations-network.md",
+      "redirect_url": "/azure/security-center/recommendations-reference#recs-network",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security-center/recommendations-compute-and-apps.md",
+      "redirect_url": "/azure/security-center/recommendations-reference#recs-computeapp",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "azure/security-center/security-center-resolve-endpoint-protection-health-alerts.md",
       "redirect_url": "/azure/security-center/security-center-faq",
       "redirect_document_id": false
