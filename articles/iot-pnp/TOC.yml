@@ -72,7 +72,7 @@
 - name: Reference
   items:
   - name: REST
-    href: https://docs.microsoft.com/rest/api/iothub/certificates/createorupdate
+    href: https://docs.microsoft.com/rest/api/iothub/digitaltwinmodel/createorupdatemodel
   - name: Generate a REST security token
     href: howto-generate-sas-token.md
 - name: Related
