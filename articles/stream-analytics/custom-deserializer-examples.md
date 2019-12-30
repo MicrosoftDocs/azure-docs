@@ -6,7 +6,7 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 05/06/2019
+ms.date: 12/30/2019
 ---
 
 # Use .NET deserializers for Azure Stream Analytics jobs
@@ -233,7 +233,7 @@ You can [request support](https://aka.ms/ccodereqregion) for additional regions.
 
 ### When will this feature be available in all Azure regions?
 
-This feature is available in 6 regions (#region-support). If you are interested in using this functionality in another region, you can [submit a request](https://aka.ms/ccodereqregion). Support for all Azure regions is on the roadmap.
+This feature is available in [6 regions](https://docs.microsoft.com/azure/stream-analytics/custom-deserializer-examples#region-support). If you are interested in using this functionality in another region, you can [submit a request](https://aka.ms/ccodereqregion). Support for all Azure regions is on the roadmap.
 
 ### Can I access MetadataPropertyValue from my inputs similar to GetMetadataPropertyValue function?
 
