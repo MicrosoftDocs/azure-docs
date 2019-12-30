@@ -2,7 +2,7 @@
 title: Mount Azure Files volume to container group
 description: Learn how to mount an Azure Files volume to persist state with Azure Container Instances
 ms.topic: article
-ms.date: 12/18/2019
+ms.date: 12/30/2019
 ms.custom: mvc
 ---
 
@@ -228,7 +228,7 @@ az group deployment create --resource-group myResourceGroup --template-file depl
 
 ## Mount multiple volumes
 
-To mount multiple volumes in a container instance, you must deploy using an [Azure Resource Manager template](/azure/templates/microsoft.containerinstance/containergroups), a YAML file, or another programmatic method. To use a template or YAML file, provide the share details and define the volumes by populating the `volumes` array in the `properties` section of the template. 
+To mount multiple volumes in a container instance, you must deploy using an [Azure Resource Manager template](/azure/templates/microsoft.containerinstance/containergroups), a YAML file, or another programmatic method. To use a template or YAML file, provide the share details and define the volumes by populating the `volumes` array in the `properties` section of the file. 
 
 For example, if you created two Azure Files shares named *share1* and *share2* in storage account *myStorageAccount*, the `volumes` array in a Resource Manager template would appear similar to the following:
 
