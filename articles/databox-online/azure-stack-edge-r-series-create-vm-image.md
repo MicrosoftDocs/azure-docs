@@ -18,7 +18,7 @@ To deploy VMs on your Azure Stack Edge device, you need to be able to create VM 
 
 ## VM image workflow
 
-The general workflows requires you to create a virtual machine in Azure, customize the VM, and then download the VHD corresponding to that VM. After you download the VHD, you can use it to create VM on your Azure Stack Edge device. For more information, go to [Deploy a VM on your Azure Stack Edge device using Azure PowerShell](azure-stack-edge-r-series-deploy-vm-powershell.md).
+The workflow requires you to create a virtual machine in Azure, customize the VM, and then download the VHD corresponding to that VM. After you download the VHD, you can use it to create VM on your Azure Stack Edge device. For more information, go to [Deploy a VM on your Azure Stack Edge device using Azure PowerShell](azure-stack-edge-r-series-deploy-vm-powershell.md).
 
 
 ### Create a Windows VM image
@@ -35,7 +35,7 @@ Do the following steps to create a Windows VM image.
     
         `c:\windows\system32\sysprep\sysprep.exe /oobe /generalize /shutdown /mode:vm`
 	
-	    You can also refer to this document: [](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview)
+	    You can also refer to [Sysprep (system preparation) overview](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview)
 
 Use this VHD to now create and deploy a VM on your Azure Stack Edge device.
 
