@@ -67,23 +67,38 @@ To configure an **Alert**, navigate back to the **Alerts** page, and click **Man
 
   ![Screenshot Portal new alert rule](media/alerts-action-groups/alerts-3.png)
 
-1. On the **Create rule** page, specify the **RESOURCE**, **CONDITION**, and **ACTIONS**.  From **ACTIONS** pane select the previously defined **Action Group**.
+1. On the **Create rule** page, specify the **RESOURCE**.
+
+1. The **CONDITION** setting provides many options for monitoring your **Spring Cloud** resources.  Click **Add** to open the **Configure signal logic** pane.
+
+1. Select a condition. This example uses **System CPU Usage Percentage**.
+
+  ![Screenshot Portal new alert rule](media/alerts-action-groups/alerts-3.1.png)
+
+1. Scroll down the **Configure signal logic** pane to set the **Threshhold value** to monitor.
+
+  ![Screenshot Portal new alert rule](media/alerts-action-groups/alerts-3.2.png)
+
+1. Click **Done**.
+
+ Under **ACTIONS**, click **Select action group**. From **ACTIONS** pane select the previously defined **Action Group**.
+
+  ![Screenshot Portal new alert rule](media/alerts-action-groups/alerts-3.3.png) 
 
 1. Under **ALERT DETAILS**, Name the alert rule.
 
+1. Set the **Severity**.
+
 1. Click **Create alert rule**.
 
-  ![Screenshot Portal new alert rule](media/alerts-action-groups/alerts-4.png)
+  ![Screenshot Portal new alert rule](media/alerts-action-groups/alerts-3.4.png)
 
 Verify that the new alert rule is enabled.
 
-  ![Screenshot Portal new alert rule](media/alerts-action-groups/alerts-5.png)
-
-Navigate to the Alert just created. Select an Action Group to attach to the Alert rule.
-
-  ![Screenshot Portal new alert rule](media/alerts-action-groups/alerts-6.png)
+  ![Screenshot Portal new alert rule](media/alerts-action-groups/alerts-4.png)
 
 ## Next steps
+* [User portal metrics options](https://docs.microsoft.com/en-us/azure/spring-cloud/spring-cloud-concept-metrics#user-portal-metrics-options)
 * [Create and manage action groups in the Azure portal](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups)
 * [SMS Alert Behavior in Action Groups](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-sms-behavior)
 * [Tutorial: Using Distributed Tracing with Azure Spring Cloud](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-tutorial-distributed-tracing)
