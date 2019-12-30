@@ -144,12 +144,9 @@ To find quotas, select **Settings** > **Quotas**. On the chart, you can review:
 1. Its current value.
 
 ![Metric chart in the Azure portal][metrics]
-You can access metrics directly from the **Resource** page. To customize the chart: 
-1. Select the chart.
-1. Select **Edit chart**.
-1. Edit the **Time Range**.
-1. Edit the **Chart type**.
-1. Edit the metrics you want to display.  
+You can access metrics directly from the resource **Overview** page. Here you will see charts representing some of the apps metrics.
+
+Clicking on any of those charts will take you to the metrics view where you can create custom charts, query different metrics and much more. 
 
 To learn more about metrics, see [Monitor service metrics](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md).
 
