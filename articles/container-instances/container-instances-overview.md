@@ -15,19 +15,15 @@ Azure Container Instances is a great solution for any scenario that can operate 
 ## Fast startup times
 
 Containers offer significant startup benefits over virtual machines (VMs). Azure Container Instances can start containers in Azure in seconds, without the need to provision and manage VMs.
-P
+
 ## Container access
 
 Azure Container Instances enables exposing your container groups directly to the internet with an IP address and a fully qualified domain name (FQDN). When you create a container instance, you can specify a custom DNS name label so your application is reachable at *customlabel*.*azureregion*.azurecontainer.io.
 
-
-
-Azure Container Instances also supports executing a command in a running container, for example to run an interactive shell to help with application development and troubleshooting. Access takes places over HTTPS, using TLS to secure client connections.
+Azure Container Instances also supports executing a command in a running container by providing an interactive shell to help with application development and troubleshooting. Access takes places over HTTPS, using TLS to secure client connections.
 
 > [!IMPORTANT]
 > Starting January 13, 2020, Azure Container Instances will require all secure connections from servers and applications to use TLS 1.2. Support for TLS 1.0 and 1.1 will be retired.
-
-
 
 ## Hypervisor-level security
 
