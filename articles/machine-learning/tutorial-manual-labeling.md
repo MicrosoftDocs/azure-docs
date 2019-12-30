@@ -19,7 +19,7 @@ ms.date: 01/15/2020
 
 If you want to train a machine learning model to classify images, you need hundreds or even thousands of images that are correctly labeled.  Azure Machine Learning helps you manage a team of labelers to manually tag your images.  
 
-This tutorial shows you how to set up and manage a project as the *project administrator*.  To complete the project, you will also play the role of a *labeler* to perform the tagging of images.  
+This tutorial shows you how to set up and manage a project as  the *project administrator*.  To complete the project, you will also play the role of a *labeler* to perform the tagging of images.  
 
 In this tutorial, you learn how to:
 
