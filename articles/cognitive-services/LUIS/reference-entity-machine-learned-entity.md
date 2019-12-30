@@ -28,9 +28,7 @@ Example utterances include:
 |`can I get a small pizza with onions peppers and olives`|
 |`pickup an extra large meat lovers pizza`|
 
-#### [V2 prediction endpoint response](#tab/V2)
 
-This entity isn't available in the V2 prediction runtime.
 
 #### [V3 prediction endpoint response](#tab/V3)
 
@@ -337,11 +335,13 @@ This is the JSON if `verbose=true` is set in the query string:
     }
 }
 ```
+#### [V2 prediction endpoint response](#tab/V2)
 
+This entity isn't available in the V2 prediction runtime.
 * * *
 
 ## Next steps
 
-Learn more about the machine-learned entity including a [tutorial](tutorial-machine-learned-entity.md), [concepts, and [how-to guide](luis-how-to-add-entities.md#create-a-machine-learned-entity).
+Learn more about the machine-learned entity including a [tutorial](tutorial-machine-learned-entity.md), [concepts](luis-concept-entity-types.md#design-entities-for-decomposition), and [how-to guide](luis-how-to-add-entities.md#create-a-machine-learned-entity).
 
 Learn about the [list](reference-entity-list.md) entity and [regular expression](reference-entity-regular-expression.md) entity.
