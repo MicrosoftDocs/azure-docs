@@ -38,7 +38,7 @@ This article shows you how to manage your DNS zones by using the Azure portal. Y
    |---|---|---|
    |**Name**|contoso.com|The name of the DNS zone|
    |**Subscription**|[Your subscription]|Select a subscription to create the DNS zone in.|
-   |**Resource group**|**Create new:** contosoDNSRG|Create a resource group. The resource group name must be unique within the subscription you selected. To learn more about resource groups, read the [Resource Manager](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fdns%2ftoc.json#resource-groups) overview article.|
+   |**Resource group**|**Create new:** contosoDNSRG|Create a resource group. The resource group name must be unique within the subscription you selected. To learn more about resource groups, read the [Resource Manager](../azure-resource-manager/management/overview.md?toc=%2fazure%2fdns%2ftoc.json#resource-groups) overview article.|
    |**Location**|West US||
 
 > [!NOTE]

@@ -227,7 +227,9 @@
         "articles/lighthouse/**/*.md": "JnHs",
         "articles/notebooks/*.md": "kraigb",
         "articles/service-health/*.md": "stephbaron",
-        "articles/azure-resource-manager/**/*.md": "tfitzmac",
+        "articles/azure-resource-manager/*.md": "tfitzmac",
+        "articles/azure-resource-manager/templates/**/*.md": "mumian",
+        "articles/azure-resource-manager/management/**/*.md": "tfitzmac",
         "articles/dev-spaces/**/*.md": "zr-msft",
         "articles/site-recovery/*.md": "rayne-wiselman",
         "articles/migrate/*.md": "rayne-wiselman",
@@ -235,10 +237,8 @@
         "articles/virtual-machines/windows/*.md": "cynthn",
         "articles/virtual-machines/*.md": "cynthn",
         "articles/virtual-machines-scale-sets/*.md": "ju-shim",
-        "articles/batch/*.md": "ju-shim",
         "articles/service-fabric/*.md": "athinanthny",
-        "articles/service-fabric-mesh/*.md": "athinanthny",
-        "articles/notebooks/*.md": "kraigb"
+        "articles/service-fabric-mesh/*.md": "athinanthny"
       },
       "feedback_system": {
         "articles/virtual-machines/windows/classic/**/*": "None",
@@ -467,7 +467,9 @@
         "articles/jenkins/**/*.md": "tarcher",
         "articles/terraform/**/*.md": "tarcher",
         "articles/lighthouse/**/*.md": "jenhayes",
-        "articles/azure-resource-manager/**/*.md": "tomfitz",
+        "articles/azure-resource-manager/*.md": "tomfitz",
+        "articles/azure-resource-manager/templates/**/*.md": "jgao",
+        "articles/azure-resource-manager/management/**/*.md": "tomfitz",
         "articles/dev-spaces/**/*.md": "zarhoads",
         "articles/site-recovery/*.md": "raynew",
         "articles/migrate/*.md": "raynew",
@@ -522,7 +524,9 @@
         "articles/azure-monitor/log-query/**/.md": "logs",
         "articles/azure-monitor/platform/autoscale-*.md": "autoscale",
         "articles/azure-monitor/platform/alert*.md": "alerts",
-        "articles/azure-monitor/platform/action-group*.md": "alerts"
+        "articles/azure-monitor/platform/action-group*.md": "alerts",
+        "articles/azure-resource-manager/templates/**/*.md": "templates",
+        "articles/azure-resource-manager/management/**/*.md": "management"
       },
       "searchScope": {
         "articles/azure-cache-for-redis/**/*.md": ["Azure","Cache for Redis"],

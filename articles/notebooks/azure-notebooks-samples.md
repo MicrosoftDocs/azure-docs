@@ -1,7 +1,7 @@
 ---
 title: Sample Jupyter notebooks for Azure Notebooks
 description: Samples are a great way to experience Jupyter notebooks running in the free Azure Notebooks cloud services.
-ms.topic: article
+ms.topic: sample
 ms.date: 01/11/2019
 ---
 
