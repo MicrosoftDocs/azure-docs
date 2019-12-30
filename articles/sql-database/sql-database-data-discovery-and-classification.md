@@ -143,7 +143,7 @@ You can use T-SQL to add/remove column classifications, as well as retrieve all 
 - View all classifications on the database: [sys.sensitivity_classifications](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-sensitivity-classifications-transact-sql)
 
 # [Rest APIs](#tab/azure-rest-api)
-You can also use REST APIs to programmatically manage classifications. The published REST APIs support the following operations:
+You can use REST APIs to programmatically manage classifications and recommendations. The published REST APIs support the following operations:
 
 - [Create Or Update](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/createorupdate) - Creates or updates the sensitivity label of a given column
 - [Delete](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/delete) - Deletes the sensitivity label of a given column
@@ -151,13 +151,12 @@ You can also use REST APIs to programmatically manage classifications. The publi
 - [Enable Recommendation](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/enablerecommendation) - Enables sensitivity recommendations on a given column (recommendations are enabled by default on all columns)
 - [Get](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/get)  - Gets the sensitivity label of a given column
 - [List Current By Database](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listcurrentbydatabase) - Gets the current sensitivity labels of a given database
-
 - [List Recommended By Database](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listrecommendedbydatabase) - Gets the recommended sensitivity labels of a given database
 
 # [PowerShell Cmdlet](#tab/azure-powelshell)
-You can use PowerShell to get all the recommended columns in an Azure SQL database and in a managed instance.
+You can use PowerShell to manage classifications and recommendations for Azure SQL Database and Managed Instance.
 
-### PowerShell Cmdlet for Azure SQL database
+### PowerShell Cmdlet for Azure SQL Database
 - [Get-AzSqlDatabaseSensitivityClassification](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabasesensitivityclassification)
 - [Set-AzSqlDatabaseSensitivityClassification](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabasesensitivityclassification)
 - [Remove-AzSqlDatabaseSensitivityClassification](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqldatabasesensitivityclassification)
