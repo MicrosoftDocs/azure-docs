@@ -178,14 +178,6 @@ SKUs are not mutable. Follow the steps in this section to move from one resource
 
 4. Attach all VM instances to the new Standard SKU resources.
 
-### Migrate from Standard to Basic SKU
-
-1. Create a new Basic resource (Load Balancer and Public IPs, as needed). Recreate your rules and probe definitions.  Change an HTTPS probe to a TCP probe to 443/tcp. 
-
-2. Remove the Standard SKU resources (Load Balancer and Public IPs, as applicable) from all VM instances. Be sure to also remove all VM instances of an availability set.
-
-3. Attach all VM instances to the new Basic SKU resources.
-
 >[!IMPORTANT]
 >
 >There are limitations regarding use of the Basic and Standard SKUs.
