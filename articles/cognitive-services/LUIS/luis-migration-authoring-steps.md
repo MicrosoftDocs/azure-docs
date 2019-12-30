@@ -60,7 +60,7 @@ The migration process is available if you are the owner of any LUIS apps.
 1. Choose to create a LUIS authoring resource by selecting to use an existing authoring resource or to create a new authoring resource.
 
     > [!div class="mx-imgBorder"]
-    > ![Create authoring resource](./media/migrate-authoring-key/choose-authoring-resource.png)
+    > ![Create authoring resource](./media/migrate-authoring-key/choose-existing-authoring-resource.png)
 
 1. In the next window, enter your resource key information. After you enter the information, select **Create resource**. You can have 10 free authoring resources per region, per subscription.
 
