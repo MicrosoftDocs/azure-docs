@@ -152,8 +152,24 @@ If needed, you can contact Quantium Solution Support (Japanese language) at the 
 
    If you encounter any issues, kindly reach out to Data Box Operations Asia at adbo@microsoft.com. Provide the job name in the subject header and the issue encountered.
 
-3. Hand over to the courier. 
+3. Hand over to the courier.
 
+### [In Self-Managed](#tab/in-selfmanaged)
+
+Customers using Data Box Disk in Japan, Singapore, Korea and West Europe who have selected the self-managed shipping option to use their own shipping during order creation should follow the instructions below. 
+
+1. Go to the Overview blade for your order in the Azure portal and go through the instructions displayed when you click Schedule pickup. You should see an Authorization code that will be used at the time of dropping off the order.
+
+2. Send an email to the Azure Data Box Operations team using the below template when you are ready to return the device.
+
+    ```
+    To: adbops@microsoft.com
+    Subject: Request for Azure Data Box Disk drop-off for order: ‘orderName’
+    Body: 
+     a. Order name
+     b. Contact name of the person coming for drop off (this will be validated with a Govt approved id that you need to carry during drop off)
+    ```
+3. Microsoft Operations team will work with you to arrange the drop-off to the Azure Datacenter.
 
 ::: zone target="docs"
 
