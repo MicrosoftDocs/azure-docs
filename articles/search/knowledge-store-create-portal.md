@@ -8,7 +8,7 @@ ms.author: heidist
 manager: nitinme
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 11/25/2019
+ms.date: 12/30/2019
 ---
 
 # Quickstart: Create an Azure Cognitive Search knowledge store in the Azure portal
@@ -18,7 +18,7 @@ ms.date: 11/25/2019
 
 Knowledge store is a feature of Azure Cognitive Search that persists output from a cognitive skills pipeline for subsequent analyses or downstream processing. 
 
-A pipeline accepts images and unstructured text as raw content, applies AI through Cognitive Services (such as image and natural language processing), extracts information, and outputs new structures and information. One of the physical artifacts created by a pipeline is a [knowledge store](knowledge-store-concept-intro.md), which you can access through tools to analyze and explore content.
+A pipeline accepts unstructured text and images as raw content, applies AI through Cognitive Services (such as OCR,image analysis, and natural language processing), extracts information, and outputs new structures and information. One of the physical artifacts created by a pipeline is a [knowledge store](knowledge-store-concept-intro.md), which you can access through tools to analyze and explore content.
 
 In this quickstart, you'll combine services and data in the Azure cloud to create a knowledge store. Once everything is in place, you'll run the **Import data** wizard in the portal to pull it all together. The end result is original text content plus AI-generated content that you can view in the portal ([Storage explorer](knowledge-store-view-storage-explorer.md)).
 
@@ -34,13 +34,9 @@ Because the workload is so small, Cognitive Services is tapped behind the scenes
 
 1. [Create an Azure storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal) or [find an existing account](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/) under your current subscription. You'll use Azure storage for both the raw content to be imported, and the knowledge store that is the end result.
 
-   There are two requirements for this account:
+   Choose the **StorageV2 (general purpose V2)** account type.
 
-   + Choose the same region as Azure Cognitive Search. 
-   
-   + Choose the StorageV2 (general purpose V2) account type. 
-
-1. Open the Blob services pages and create a container.  
+1. Open the Blob services pages and create a container named *hotel-reviews*.
 
 1. Click **Upload**.
 
@@ -78,7 +74,7 @@ In the search service Overview page, click **Import data** on the command bar to
 
 ### Step 2: Add cognitive skills
 
-In this wizard step, you will create a skillset with cognitive skill enrichments. The skills we use in this sample will extract key phrases and detect the language and sentiment. In a later step, these enrichments will be "projected" into a knowledge store as Azure tables.
+In this wizard step, you will create a skillset with cognitive skill enrichments. The source data consists of customer reviews in several languages. Skills that are relevant for this data set include key phrase extraction, sentiment detection, and text translation. In a later step, these enrichments will be "projected" into a knowledge store as Azure tables.
 
 1. Expand **Attach Cognitive Services**. **Free (Limited enrichments)** is selected by default. You can use this resource because number of records in HotelReviews-Free.csv is 19 and this free resource allows up to 20 transactions a day.
 1. Expand **Add cognitive skills**.
@@ -86,10 +82,9 @@ In this wizard step, you will create a skillset with cognitive skill enrichments
 1. For **Source data field**, select **reviews_text**.
 1. For **Enrichment granularity level**, select **Pages (5000 characters chunks)**
 1. Select these cognitive skills:
-    + **Extract people names**
-    + **Extract organization names**
-    + **Extract location names**
     + **Extract key phrases**
+    + **Translate text**
+    + **Detect sentiment**
 
       ![Create a skillset](media/knowledge-store-create-portal/hotel-reviews-ss.png "Create a skillset")
 
@@ -102,6 +97,8 @@ In this wizard step, you will create a skillset with cognitive skill enrichments
 
     ![Configure knowledge store](media/knowledge-store-create-portal/hotel-reviews-ks.png "Configure knowledge store")
 
+1. Optionally, download a Power BI template. When you access the template from the wizard, the local .pbit file is adapted to reflect the shape of your data.
+
 1. Continue to the next page.
 
 ### Step 3: Configure the index
@@ -109,10 +106,7 @@ In this wizard step, you will create a skillset with cognitive skill enrichments
 In this wizard step, you will configure an index for optional full-text search queries. The wizard will sample your data source to infer fields and data types. You only need to select the attributes for your desired behavior. For example, the **Retrievable** attribute will allow the search service to return a field value while the **Searchable** will enable full text search on the field.
 
 1. For **Index name**, enter `hotel-reviews-idx`.
-1. For attributes, make these selections:
-    + Select **Retrievable** for all fields.
-    + Select **Filterable** and **Facetable** for these fields: *Sentiment*, *Language*, *Keyphrases*
-    + Select **Searchable** for these fields: *city*, *name*, *reviews_text*, *language*, *Keyphrases*
+1. For attributes, accept the default selections: **Retrievable** and **Searchable** for the new fields that the pipeline is creating.
 
     Your index should look similar to the following image. Because the list is long, not all fields are visible in the image.
 
