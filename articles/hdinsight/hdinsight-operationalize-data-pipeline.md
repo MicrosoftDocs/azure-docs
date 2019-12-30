@@ -207,41 +207,41 @@ These three steps are coordinated by an Oozie workflow.
 1. From your local workstation, create a file called `job.properties`. Use the text below as the starting contents for the file.
 Then update the values for your specific environment. The table below the text summarizes each of the properties and indicates where you can find the values for your own environment.
 
-```text
-nameNode=wasbs://[CONTAINERNAME]@[ACCOUNTNAME].blob.core.windows.net
-jobTracker=[ACTIVERESOURCEMANAGER]:8050
-queueName=default
-oozie.use.system.libpath=true
-appBase=wasbs://[CONTAINERNAME]@[ACCOUNTNAME].blob.core.windows.net/oozie
-oozie.wf.application.path=${appBase}/load_flights_by_day
-hiveScriptLoadPartition=wasbs://[CONTAINERNAME]@[ACCOUNTNAME].blob.core.windows.net/oozie/load_flights_by_day/hive-load-flights-partition.hql
-hiveScriptCreateDailyTable=wasbs://[CONTAINERNAME]@[ACCOUNTNAME].blob.core.windows.net/oozie/load_flights_by_day/hive-create-daily-summary-table.hql
-hiveDailyTableName=dailyflights${year}${month}${day}
-hiveDataFolder=wasbs://[CONTAINERNAME]@[ACCOUNTNAME].blob.core.windows.net/example/data/flights/day/${year}/${month}/${day}
-sqlDatabaseConnectionString="jdbc:sqlserver://[SERVERNAME].database.windows.net;user=[USERNAME];password=[PASSWORD];database=[DATABASENAME]"
-sqlDatabaseTableName=dailyflights
-year=2017
-month=01
-day=03
-```
+    ```text
+    nameNode=wasbs://[CONTAINERNAME]@[ACCOUNTNAME].blob.core.windows.net
+    jobTracker=[ACTIVERESOURCEMANAGER]:8050
+    queueName=default
+    oozie.use.system.libpath=true
+    appBase=wasbs://[CONTAINERNAME]@[ACCOUNTNAME].blob.core.windows.net/oozie
+    oozie.wf.application.path=${appBase}/load_flights_by_day
+    hiveScriptLoadPartition=wasbs://[CONTAINERNAME]@[ACCOUNTNAME].blob.core.windows.net/oozie/load_flights_by_day/hive-load-flights-partition.hql
+    hiveScriptCreateDailyTable=wasbs://[CONTAINERNAME]@[ACCOUNTNAME].blob.core.windows.net/oozie/load_flights_by_day/hive-create-daily-summary-table.hql
+    hiveDailyTableName=dailyflights${year}${month}${day}
+    hiveDataFolder=wasbs://[CONTAINERNAME]@[ACCOUNTNAME].blob.core.windows.net/example/data/flights/day/${year}/${month}/${day}
+    sqlDatabaseConnectionString="jdbc:sqlserver://[SERVERNAME].database.windows.net;user=[USERNAME];password=[PASSWORD];database=[DATABASENAME]"
+    sqlDatabaseTableName=dailyflights
+    year=2017
+    month=01
+    day=03
+    ```
 
-| Property | Value source |
-| --- | --- |
-| nameNode | The full path to the Azure Storage Container attached to your HDInsight cluster. |
-| jobTracker | The internal hostname to your active cluster's YARN head node. On the Ambari home page, select YARN from the list of services, then choose Active Resource Manager. The hostname URI is displayed at the top of the page. Append the port 8050. |
-| queueName | The name of the YARN queue used when scheduling the Hive actions. Leave as default. |
-| oozie.use.system.libpath | Leave as true. |
-| appBase | The path to the subfolder in Azure Storage where you deploy the Oozie workflow and supporting files. |
-| oozie.wf.application.path | The location of the Oozie workflow `workflow.xml` to run. |
-| hiveScriptLoadPartition | The path in Azure Storage to the  Hive query file `hive-load-flights-partition.hql`. |
-| hiveScriptCreateDailyTable | The path in Azure Storage to the Hive query file `hive-create-daily-summary-table.hql`. |
-| hiveDailyTableName | The dynamically generated name to use for the staging table. |
-| hiveDataFolder | The path in Azure Storage to the data contained by the staging table. |
-| sqlDatabaseConnectionString | The JDBC syntax connection string to your Azure SQL Database. |
-| sqlDatabaseTableName | The name of the table in Azure SQL Database into which summary rows are inserted. Leave as `dailyflights`. |
-| year | The year component of the day for which flight summaries are computed. Leave as is. |
-| month | The month component of the day for which flight summaries are computed. Leave as is. |
-| day | The day of month component of the day for which flight summaries are computed. Leave as is. |
+    | Property | Value source |
+    | --- | --- |
+    | nameNode | The full path to the Azure Storage Container attached to your HDInsight cluster. |
+    | jobTracker | The internal hostname to your active cluster's YARN head node. On the Ambari home page, select YARN from the list of services, then choose Active Resource Manager. The hostname URI is displayed at the top of the page. Append the port 8050. |
+    | queueName | The name of the YARN queue used when scheduling the Hive actions. Leave as default. |
+    | oozie.use.system.libpath | Leave as true. |
+    | appBase | The path to the subfolder in Azure Storage where you deploy the Oozie workflow and supporting files. |
+    | oozie.wf.application.path | The location of the Oozie workflow `workflow.xml` to run. |
+    | hiveScriptLoadPartition | The path in Azure Storage to the  Hive query file `hive-load-flights-partition.hql`. |
+    | hiveScriptCreateDailyTable | The path in Azure Storage to the Hive query file `hive-create-daily-summary-table.hql`. |
+    | hiveDailyTableName | The dynamically generated name to use for the staging table. |
+    | hiveDataFolder | The path in Azure Storage to the data contained by the staging table. |
+    | sqlDatabaseConnectionString | The JDBC syntax connection string to your Azure SQL Database. |
+    | sqlDatabaseTableName | The name of the table in Azure SQL Database into which summary rows are inserted. Leave as `dailyflights`. |
+    | year | The year component of the day for which flight summaries are computed. Leave as is. |
+    | month | The month component of the day for which flight summaries are computed. Leave as is. |
+    | day | The day of month component of the day for which flight summaries are computed. Leave as is. |
 
 1. From your local workstation, create a file called `hive-load-flights-partition.hql`. Use the code below as the contents for the file.
 
