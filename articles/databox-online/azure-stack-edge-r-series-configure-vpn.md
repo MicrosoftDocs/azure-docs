@@ -31,19 +31,7 @@ The following table summarizes the various endpoints exposed on your device, the
 
 ## Need for VPN
 
-The process of connecting to local APIs of the device using Azure Resource Manager requires the following steps:
-
-| Step # | You'll do this step ... | .. on this location. |
-| --- | --- | --- |
-| 1. | [Configure your Azure Stack Edge device](#step-1-configure-azure-stack-edge-device) | Local web UI |
-| 2. | [Create and install certificates](#step-2-create-and-install-certificates) | Windows client/local web UI |
-| 3. | [Review and configure the prerequisites](#step-3-install-powershell-on-the-client) | Windows client |
-| 4. | [Set up Azure PowerShell on the client](#step-4-set-up-azure-powershell-on-the-client) | Windows client |
-| 5. | [Modify host file for endpoint name resolution](#step-5-modify-host-file-for-endpoint-name-resolution) | Windows client or DNS server |
-| 6. | [Check that the endpoint name is resolved](#step-6-verify-endpoint-name-resolution-on-the-client) | Windows client |
-| 7. | [Use Azure PowerShell cmdlets to verify connection to Azure Resource Manager](#step-7-set-azure-resource-manager-environment) | Windows client |
-
-The following sections detail each of the above steps in connecting to Azure Resource Manager.
+VPN provides an additional layer of security for data-in-motion.
 
 ## VPN configuration in the cloud  
 
