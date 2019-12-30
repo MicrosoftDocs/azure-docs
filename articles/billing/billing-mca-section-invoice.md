@@ -48,19 +48,19 @@ This section describes common scenarios for organizing costs and corresponding b
 
 |Scenario  |Structure  |
 |---------|---------|
-|Jack signs-up for Azure and wants a single monthly invoice. | A billing profile and an invoice section. This structure is automatically set up for Jack when he signs up for Azure and doesn't require any additional steps. |
+|Jack signs-up for Azure and needs a single monthly invoice. | A billing profile and an invoice section. This structure is automatically set up for Jack when he signs up for Azure and doesn't require any additional steps. |
 
 ![Info graphic for a simple billing scenario](./media/billing-mca-section-invoice/organize-billing-scenario1.png)
 
 |Scenario  |Structure  |
 |---------|---------|
-|Contoso is a small organization that wants a single monthly invoice but group costs by their departments - marketing and finance.  | A billing profile for Contoso and an invoice section each for marketing and finance departments. |
+|Contoso is a small organization that needs a single monthly invoice but group costs by their departments - marketing and finance.  | A billing profile for Contoso and an invoice section each for marketing and finance departments. |
 
 ![Info graphic for a simple billing scenario](./media/billing-mca-section-invoice/organize-billing-scenario2.png)
 
 |Scenario  |Structure  |
 |---------|---------|
-|Fabrikam wants separate invoices for their engineering and marketing departments. For engineering department, they want to group costs by environments - productions and development.  | A billing profile each for marketing and finance departments. For marketing department, an invoice section each for production and development environment. |
+|Fabrikam is a mid-size organization that needs separate invoices for their engineering and marketing departments. For engineering department, they want to group costs by environments - productions and development.  | A billing profile each for marketing and finance departments. For marketing department, an invoice section each for production and development environment. |
 
 ![Info graphic for a simple billing scenario](./media/billing-mca-section-invoice/organize-billing-scenario3.png)
 
@@ -161,7 +161,7 @@ If you have existing Azure subscriptions or other products such as Azure Marketp
 
    ![Screenshot that shows search in portal for subscription](./media/billing-mca-section-invoice/search-cmb.png)
 
-3. To link a subscription to a new invoice section, select **Azure subscriptions** from the left-side of the screen. For other products, select **Recurring charges**.
+3. To link a subscription to a new invoice section, select **Azure subscriptions** from the left-side of the screen. For other products such as Azure Marketplace and App source resources, select **Recurring charges**.
 
    ![Screenshot that shows the option to change invoice section](./media/billing-mca-section-invoice/mca-select-change-invoice-section.png)
 
@@ -175,7 +175,7 @@ If you have existing Azure subscriptions or other products such as Azure Marketp
 
 ## Things to consider when creating new billing profiles
 
-### Azure usage charges may increase
+### Azure usage charges may be impacted
 
 In your billing account for a Microsoft Customer Agreement, Azure usage is aggregated monthly for each billing profile. The prices for Azure resources with tiered pricing are determined based on the usage for each billing profile separately. The usage is not aggregated across billing profiles when calculating the price. This may impact overall cost of Azure usage for accounts with multiple billing profiles.
 
@@ -187,8 +187,8 @@ Let's assume you're using Azure block blob storage, which costs USD .00184 per G
 
 |  Tier pricing (USD) |Quantity | Amount (USD)|
 |---------|---------|---------|
-|.00184 for the first 50 TB/month    | 50 TB        | 92.0   |
-|.00177 for the next 450 TB/month    |  50 TB         | 88.5   |
+|.00184 per GB for the first 50 TB/month    | 50 TB        | 92.0   |
+|.00177 per GB for the next 450 TB/month    |  50 TB         | 88.5   |
 |Total     |     100 GB  | 180.5
 
 The total charges for using 100 TB of data in this scenario is **180.5**
@@ -201,16 +201,16 @@ Now, let's assume you created another billing profile and used 50 GB through sub
 
 |  Tier pricing (USD) |Quantity | Amount (USD)|
 |---------|---------|---------|
-|.00184 for the first 50 TB/month    | 50 TB        | 92.0  |
-|.00177 for the next 450 TB/month    |  0 TB         | 0.0  |
+|.00184 per GB for the first 50 TB/month    | 50 TB        | 92.0  |
+|.00177 per GB for the next 450 TB/month    |  0 TB         | 0.0  |
 |Total     |     50 GB  | 92.0 
 
 `Charges for the second billing profile`
 
 |  Tier pricing (USD) |Quantity | Amount (USD)|
 |---------|---------|---------|
-|.00184 for the first 50 TB/month    | 50 TB        | 92.0  |
-|.00177 for the next 450 TB/month    |  0 TB         | 0.0  |
+|.00184 per GB for the first 50 TB/month    | 50 TB        | 92.0  |
+|.00177 per GB for the next 450 TB/month    |  0 TB         | 0.0  |
 |Total     |     50 GB  | 92.0 
 
 The total charges for using 100 TB of data in this scenario is **184.0** (92.0 * 2).
@@ -221,7 +221,7 @@ Azure reservations with shared scope are applied to subscriptions in a single bi
 
 ![Info graphic for reservation application for different billing account structure](./media/billing-mca-section-invoice/mca-reservations-benefits-by-bg.png)
 
-In the first scenario in the above image, contoso has two subscriptions - subscription 1 and subscription 2, both billed to the engineering billing profile. In this scenario, reservation 1 is applied to the engineering billing profile and would provide benefits to either of the subscriptions. In the second scenario, subscription 1 is billed to engineering billing profile and subscription 2 to the marketing billing profile. reservation 1 is  applied to the engineering billing profile. Therefore, it will provide benefits to subscription 1, which is the only subscription billed to the engineering billing profile.
+In the above image, Contoso has 2 subscriptions. The Azure Reservation benefit is applied differently depending on how the billing account is structured. In the scenario on the left, the reservation benefit is applied to both subscriptions being billed to the engineering billing profile. In the scenario on the right, the reservation benefit will only be applied to subscription 1 since it’s the only subscription being billed to the engineering billing profile. 
 
 ## Check access to a Microsoft Customer Agreement
 [!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]
