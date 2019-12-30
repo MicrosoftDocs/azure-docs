@@ -1,5 +1,5 @@
 ---
-title: Back up SQL Server databases in Azure VMs 
+title: Back up SQL Server databases in Azure VMs
 description: In this article, learn how to back up SQL Server databases on Azure virtual machines with Azure Backup.
 ms.reviewer: vijayts
 ms.topic: conceptual
@@ -37,28 +37,38 @@ For all operations, a SQL Server VM requires connectivity to Azure public IP add
 
 Establish connectivity by using one of the following options:
 
-* **Allow the Azure datacenter IP ranges**. This option allows [IP ranges](https://www.microsoft.com/download/details.aspx?id=41653) in the download. To access a network security group (NSG), use the Set-AzureNetworkSecurityRule cmdlet. If you're safe recipients list only region-specific IPs, you'll also need to update the safe recipients list the Azure Active Directory (Azure AD) service tag to enable authentication.
+#### **Allow the Azure datacenter IP ranges**.
+This option allows [IP ranges](https://www.microsoft.com/download/details.aspx?id=41653) in the download. To access a network security group (NSG), use the Set-AzureNetworkSecurityRule cmdlet. If you're safe recipients list only region-specific IPs, you'll also need to update the safe recipients list the Azure Active Directory (Azure AD) service tag to enable authentication.
 
-* **Allow access using NSG tags**.  If you use NSG to restrict connectivity, then you should use AzureBackup service tag to allows outbound access to Azure Backup. In addition, you should also allow connectivity for authentication and data transfer by using [rules](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags)  for Azure AD and Azure Storage. This can be done from portal or PowerShell.
+#### **Allow access using NSG tags**.
+If you use NSG to restrict connectivity, then you should use AzureBackup service tag to allows outbound access to Azure Backup. In addition, you should also allow connectivity for authentication and data transfer by using [rules](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags)  for Azure AD and Azure Storage. This can be done from portal or PowerShell.
 
-    To create a rule using the portal:
+To create a rule using the portal:
 
   * In **All Services**, go to **Network security groups** and select the network security group.
   * Select **Outbound security rules** under **Settings**.
   * Select **Add**. Enter all the required details for creating a new rule as described in [security rule settings](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group#security-rule-settings). Ensure the option  **Destination** is set to **Service Tag** and **Destination service tag** is set to **AzureBackup**.
   * Click **Add**, to save the newly created outbound security rule.
 
-   To create a rule using Powershell:
+To create a rule using Powershell:<br>
+  -  Add Azure account credentials and update the national clouds<br/>
+      ``Add-AzureRmAccount``<br/>
+  - Select the NSG subscription<br/>
+      ```Select-AzureRmSubscription "<Subscription Id>"```
 
-  * Add Azure account credentials and update the national clouds<br/>
-    ``Add-AzureRmAccount``
-  * Select the NSG subscription<br/>
-    ``Select-AzureRmSubscription "<Subscription Id>"``
-  * Select the NSG<br/>
+  - Select the NSG<br/>
     ```$nsg = Get-AzureRmNetworkSecurityGroup -Name "<NSG name>" -ResourceGroupName "<NSG resource group name>"```
-  * Add allow outbound rule for Azure Backup service tag<br/>
-   ```Add-AzureRmNetworkSecurityRuleConfig -NetworkSecurityGroup $nsg -Name "AzureBackupAllowOutbound" -Access Allow -Protocol * -Direction Outbound -Priority <priority> -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix "AzureBackup" -DestinationPortRange 443 -Description "Allow outbound traffic to Azure Backup service"```
-  * Save the NSG<br/>
+
+  -   Add allow outbound rule for Azure Backup service tag<br/>
+    ```Add-AzureRmNetworkSecurityRuleConfig -NetworkSecurityGroup $nsg -Name "AzureBackupAllowOutbound" -Access Allow -Protocol * -Direction Outbound -Priority <priority> -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix "AzureBackup" -DestinationPortRange 443 -Description "Allow outbound traffic to Azure Backup service"```
+
+  -   Add allow outbound rule for Storage service tag<br/>
+    ```Add-AzureRmNetworkSecurityRuleConfig -NetworkSecurityGroup $nsg -Name "StorageAllowOutbound" -Access Allow -Protocol * -Direction Outbound -Priority <priority> -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix "Storage" -DestinationPortRange 443 -Description "Allow outbound traffic to Azure Backup service"```
+
+  -   Add allow outbound rule for AzureActiveDirectory service tag<br/>
+    ```Add-AzureRmNetworkSecurityRuleConfig -NetworkSecurityGroup $nsg -Name "AzureActiveDirectoryAllowOutbound" -Access Allow -Protocol * -Direction Outbound -Priority <priority> -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix "AzureActiveDirectory" -DestinationPortRange 443 -Description "Allow outbound traffic to AzureActiveDirectory service"```
+
+  -	 Save the NSG<br/>
     ```Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg```
 
 * **Allow access by using Azure Firewall tags**. If you're using Azure Firewall, create an application rule by using the AzureBackup [FQDN tag](https://docs.microsoft.com/azure/firewall/fqdn-tags). This allows outbound access to Azure Backup.

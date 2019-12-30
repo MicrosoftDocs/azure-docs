@@ -159,8 +159,8 @@ The Azure Backup agent requires a passphrase (that you provided during registrat
 
 Consider the following conditions:
 - If you uninstall & re-register the agent on the same original machine with
- - *Same passphrase*, then you will be able to restore your backed up data.<br>
- - *Different passphrase*, then you will not be able to restore your backed up data.
+  - *Same passphrase*, then you will be able to restore your backed up data.<br>
+  - *Different passphrase*, then you will not be able to restore your backed up data.
 -	If you install the agent on a *different machine* with<br>
   - the same passphrase (used in the original machine), then you will be able to restore your backed up data.<br>
   - a different passphrase, you will not be able to restore your backed up data.<br>
