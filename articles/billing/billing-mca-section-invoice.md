@@ -106,6 +106,10 @@ To create a billing profile, you need to be a **billing account owner** or a **b
 
    ![Screenshot that shows billing profile list](./media/billing-mca-section-invoice/mca-list-profiles.png)
 
+> [!IMPORTANT]
+>
+> If you don't see Add button in the Billing profile page, the feature is not available for your account. Currently, the feature is only available for accounts that have been set up while working with a Microsoft representative.
+
 4. Fill the form and click **Create**.
 
    ![Screenshot that shows invoice section creation page](./media/billing-mca-section-invoice/mca-add-profile.png)
@@ -221,7 +225,7 @@ Azure reservations with shared scope are applied to subscriptions in a single bi
 
 ![Info graphic for reservation application for different billing account structure](./media/billing-mca-section-invoice/mca-reservations-benefits-by-bg.png)
 
-In the above image, Contoso has 2 subscriptions. The Azure Reservation benefit is applied differently depending on how the billing account is structured. In the scenario on the left, the reservation benefit is applied to both subscriptions being billed to the engineering billing profile. In the scenario on the right, the reservation benefit will only be applied to subscription 1 since it’s the only subscription being billed to the engineering billing profile. 
+In the above image, Contoso has two subscriptions. The Azure Reservation benefit is applied differently depending on how the billing account is structured. In the scenario on the left, the reservation benefit is applied to both subscriptions being billed to the engineering billing profile. In the scenario on the right, the reservation benefit will only be applied to subscription 1 since it’s the only subscription being billed to the engineering billing profile. 
 
 ## Check access to a Microsoft Customer Agreement
 [!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]
