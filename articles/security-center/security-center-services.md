@@ -27,32 +27,60 @@ The following sections show Security Center features that are available for thei
 
 ## Virtual machine / server supported features <a name="vm-server-features"></a>
 
-> [!div class="mx-tableFixed"]
+### [Windows](#tab/features-windows)
 
-|Server|Windows|||Linux|||Pricing tier|
-|----|----|----|----|----|----|----|----|
-|**Environment**|**Azure**||**Non-Azure**|**Azure**||**Non-Azure**||
-||**Virtual Machine**|**Virtual Machine Scale Set**||**Virtual Machine**|**Virtual Machine Scale Set**|
-|[Microsoft Defender ATP integration](https://docs.microsoft.com/azure/security-center/security-center-wdatp)|✔ (on supported versions)|✔ (on supported versions)|✔|-|-|-|Standard|
-|[Virtual Machine Behavioral Analytics threat detection alerts](https://docs.microsoft.com/azure/security-center/security-center-alerts-iaas)|✔|✔|✔|✔ (on supported versions)|✔ (on supported versions)|✔|Recommendations (Free)<br> Threat Detection (Standard)|
-|[Fileless threat detection alerts](https://docs.microsoft.com/azure/security-center/security-center-alerts-iaas#fileless-attack-detection-)|✔|✔|✔|-|-|-|Standard|
-|[Network-based threat detection alerts](https://docs.microsoft.com/azure/security-center/security-center-alerts-service-layer#azure-network-layer)|✔|✔|-|✔|✔|-|Standard|
-|[Just-In-Time VM access](https://docs.microsoft.com/azure/security-center/security-center-just-in-time)|✔|-|-|✔|-|-|Standard|
-|[File Integrity Monitoring](https://docs.microsoft.com/azure/security-center/security-center-file-integrity-monitoring)|✔|✔|✔|✔|✔|✔|Standard|
-|[Adaptive application controls](https://docs.microsoft.com/azure/security-center/security-center-adaptive-application)|✔|-|✔|✔|-|✔|Standard|
-|[Network map](https://docs.microsoft.com/azure/security-center/security-center-network-recommendations#network-map)|✔|✔|-|✔|✔|-|Standard|
-|[Adaptive network hardening](https://docs.microsoft.com/azure/security-center/security-center-adaptive-network-hardening)|✔|-|-|✔|-|-|Standard|
-|Adaptive network controls|✔|✔|-|✔|✔|-|Standard|
-|[Regulatory Compliance dashboard & reports](https://docs.microsoft.com/azure/security-center/security-center-compliance-dashboard)|✔|✔|✔|✔|✔|✔|Standard|
-|Recommendations and threat detection on Docker-hosted IaaS containers|-|-|-|✔|✔|✔|Standard|
-|Missing OS patches assessment|✔|✔|✔|✔|✔|✔|Free|
-|Security misconfigurations assessment|✔|✔|✔|✔|✔|✔|Free|
-|[Endpoint protection assessment](https://docs.microsoft.com/azure/security-center/security-center-services#supported-endpoint-protection-solutions-)|✔|✔|✔|-|-|-|Free|
-|Disk encryption assessment|✔|✔|-|✔|✔|-|Free|
-|Third-party vulnerability assessment|✔|-|-|✔|-|-|Free|
-|[Network security assessment](https://docs.microsoft.com/azure/security-center/security-center-network-recommendations)|✔|✔|-|✔|✔|-|Free|
+|||||||||
+|----|:----:|:----:|:----:|:----:|:----:|:----:|:----:|
+||**Azure Virtual Machines**|**Azure Virtual Machine Scale Sets**|**Non-Azure Machines**|**Pricing**
+|[Microsoft Defender ATP integration](security-center-wdatp.md)|✔ (on supported versions)|✔ (on supported versions)|✔|Standard|
+|[Virtual Machine Behavioral Analytics threat detection alerts](security-center-alerts-iaas.md)|✔|✔|✔|Recommendations (Free) Threat Detection (Standard)|
+|[Fileless threat detection alerts](security-center-alerts-iaas.md#fileless-attack-detection-)|✔|✔|✔|Standard|
+|[Network-based threat detection alerts](security-center-alerts-service-layer.md#azure-network-layer)|✔|✔|-|Standard|
+|[Just-In-Time VM access](security-center-just-in-time.md)|✔|-|-|Standard|
+|[Native vulnerability assessment](built-in-vulnerability-assessment.md)|✔|-|-|Standard|
+|[File Integrity Monitoring](security-center-file-integrity-monitoring.md)|✔|✔|✔|Standard|
+|[Adaptive application controls](security-center-adaptive-application.md)|✔|-|✔|Standard|
+|[Network map](security-center-network-recommendations.md#network-map)|✔|✔|-|Standard|
+|[Adaptive network hardening](security-center-adaptive-network-hardening.md)|✔|-|-|Standard|
+|Adaptive network controls|✔|✔|-|Standard|
+|[Regulatory Compliance dashboard & reports](security-center-compliance-dashboard.md)|✔|✔|✔|Standard|
+|Recommendations and threat detection on Docker-hosted IaaS containers|-|-|-|Standard|
+|Missing OS patches assessment|✔|✔|✔|Free|
+|Security misconfigurations assessment|✔|✔|✔|Free|
+|[Endpoint protection assessment](security-center-services.md#supported-endpoint-protection-solutions-)|✔|✔|✔|Free|
+|Disk encryption assessment|✔|✔|-|Free|
+|Third-party vulnerability assessment|✔|-|-|Free|
+|[Network security assessment](security-center-network-recommendations.md)|✔|✔|-|Free|
 
-### Supported endpoint protection solutions <a name="endpoint-supported"></a>
+
+### [Linux](#tab/features-linux)
+
+|||||||||
+|----|:----:|:----:|:----:|:----:|:----:|:----:|:----:|
+||**Azure Virtual Machines**|**Azure Virtual Machine Scale Sets**|**Non-Azure Machines**|**Pricing**
+|[Microsoft Defender ATP integration](security-center-wdatp.md)|-|-|-|Standard|
+|[Virtual Machine Behavioral Analytics threat detection alerts](security-center-alerts-iaas.md)|✔ (on supported versions)|✔ (on supported versions)|✔|Recommendations (Free) Threat Detection (Standard)|
+|[Fileless threat detection alerts](security-center-alerts-iaas.md#fileless-attack-detection-)|-|-|-|Standard|
+|[Network-based threat detection alerts](security-center-alerts-service-layer.md#azure-network-layer)|✔|✔|-|Standard|
+|[Just-In-Time VM access](security-center-just-in-time.md)|✔|-|-|Standard|
+|[Native vulnerability assessment](built-in-vulnerability-assessment.md)|✔|-|-|Standard|
+|[File Integrity Monitoring](security-center-file-integrity-monitoring.md)|✔|✔|✔|Standard|
+|[Adaptive application controls](security-center-adaptive-application.md)|✔|-|✔|Standard|
+|[Network map](security-center-network-recommendations.md#network-map)|✔|✔|-|Standard|
+|[Adaptive network hardening](security-center-adaptive-network-hardening.md)|✔|-|-|Standard|
+|Adaptive network controls|✔|✔|-|Standard|
+|[Regulatory Compliance dashboard & reports](security-center-compliance-dashboard.md)|✔|✔|✔|Standard|
+|Recommendations and threat detection on Docker-hosted IaaS containers|✔|✔|✔|Standard|
+|Missing OS patches assessment|✔|✔|✔|Free|
+|Security misconfigurations assessment|✔|✔|✔|Free|
+|[Endpoint protection assessment](security-center-services.md#supported-endpoint-protection-solutions-)|-|-|-|Free|
+|Disk encryption assessment|✔|✔|-|Free|
+|Third-party vulnerability assessment|✔|-|-|Free|
+|[Network security assessment](security-center-network-recommendations.md)|✔|✔|-|Free|
+
+--- 
+
+## Supported endpoint protection solutions <a name="endpoint-supported"></a>
 
 The following table provides a matrix of:
 
