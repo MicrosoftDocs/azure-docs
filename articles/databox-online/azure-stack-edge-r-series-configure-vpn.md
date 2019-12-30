@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 12/17/2019
+ms.date: 12/29/2019
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand how to configure VPN on n my Azure Stack Edge device so that I can have a second layer of encryption for my data-in-flight.
 ---
