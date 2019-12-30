@@ -20,13 +20,13 @@ ms.author: tomfitz
 This script retrieves resources from a managed resource group, and resizes the VMs in that resource group.
 
 
-[!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
+[!INCLUDE [sample-cli-install](../../../../includes/sample-cli-install.md)]
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 
 ## Sample script
 
-[!code-azurecli[main](../../../cli_scripts/managed-applications/get-application/get-application.sh "Get application")]
+[!code-azurecli[main](../../../../cli_scripts/managed-applications/get-application/get-application.sh "Get application")]
 
 
 ## Script explanation
