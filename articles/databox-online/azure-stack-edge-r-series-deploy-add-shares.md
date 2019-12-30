@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 12/08/2019
+ms.date: 12/29/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to add and connect to shares on Azure Stack Edge so I can use it to transfer data to Azure.
 ---
@@ -176,6 +176,7 @@ On your Linux client connected to your Azure Stack Edge device, do the following
 > The following caveats are applicable to this release:
 > - After a file is created in the share, renaming of the file isn’t supported. 
 > - Deleting a file from a share does not delete the entry in the Azure Storage account.
+> - When using `rsync` to copy over NFS, use the `--inplace` flag. 
 
 ## Next steps
 
