@@ -23,7 +23,7 @@ Entities created with the V3 authoring APIs, either using the APIs or with the p
 
 Each subcomponent is also a machine-learned entity but with the added configuration options of constraints and descriptors.
 
-* **Constraints** are exact text matching rules that help the entity identify and extract data. The current constraints are the prebuilt, regular expression, and list entity types.
+* **Constraints** are exact text matching rules that that guarantee the entity belongs to a certain fixed type. The current constraints are the prebuilt, regular expression, and list entity types.
 * **Descriptors** are phrase lists or entities that are used to strongly indicate the entity.
 
 The V3 authoring provides one new entity type, the machine-learned entity, along with the ability to add relationships to the machine-learned entity and other entities or features of the application.
