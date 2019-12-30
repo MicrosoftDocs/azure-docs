@@ -13,6 +13,8 @@ ms.date: 07/22/2019
 ms.author: rwaller
 ---
 
+# Create an Immersive Reader resource and configure Azure Active Directory authentication
+
 This article shows how to create an Immersive Reader resource and configure it with Azure Active Directory authentication.
 
 ## Set up Powershell environment
@@ -102,7 +104,7 @@ This article shows how to create an Immersive Reader resource and configure it w
     ```
 
     >[!NOTE]
-    > Use [az account list](https://docs.microsoft.com/en-us/cli/azure/account?view=azure-cli-latest#az-account-list) to get your subscription name.
+    > Use [az account list](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az-account-list) to get your subscription name.
     >
     > If the specified resource group does not exist, it will be created. If the specified resource group already exists, the resource group location parameter will be ignored.
     >
