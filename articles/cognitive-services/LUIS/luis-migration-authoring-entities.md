@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date:
+ms.date: 12/30/2019
 ms.author: diberry
 ---
 
@@ -23,7 +23,7 @@ Entities created with the V3 authoring APIs, either using the [APIs](https://wes
 
 Each subcomponent is also a machine-learned entity but with the added configuration options of constraints and descriptors.
 
-* **Constraints** are exact text matching rules that guarantee an entity is extracted when it matches a rule. The rule is defined by an exact text matching entity, currently: a [prebuilt entity](luis-reference-prebuilt-entities), a [regular expression entity](reference-entity-regular-expression.md), or [list entity](reference-entity-list.md).
+* **Constraints** are exact text matching rules that guarantee an entity is extracted when it matches a rule. The rule is defined by an exact text matching entity, currently: a [prebuilt entity](luis-reference-prebuilt-entities.md), a [regular expression entity](reference-entity-regular-expression.md), or [list entity](reference-entity-list.md).
 * **Descriptors** are [features](luis-concept-feature.md), such as phrase lists or entities, that are used to strongly indicate the entity.
 
 The V3 authoring provides one new entity type, the machine-learned entity, along with the ability to add relationships to the machine-learned entity and other entities or features of the application.
