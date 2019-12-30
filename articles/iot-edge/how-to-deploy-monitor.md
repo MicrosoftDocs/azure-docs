@@ -71,8 +71,8 @@ You can add three types of modules:
 To add custom code as a module, or to manually add an Azure service module, follow these steps:
 
 1. In the **Container Registry Credentials** section of the page, provide the names and credentials for any private container registries that contain the module images for this deployment. The IoT Edge Agent will report error 500 if it can't find the container registry credential for a Docker image.
-1. In the **IoT Edge Modules** section of the page, click the **Add** dropdown.
-1. Select **IoT Edge Module**.
+1. In the **IoT Edge Modules** section of the page, click **Add**.
+1. Select **IoT Edge Module** from the drop-down menu.
 1. Give your module a **IoT Edge Module Name**.
 1. For the **Image URI** field, enter the container image for your module.
 1. Use the drop-down menu to select a **Restart policy**. Choose from the following options:
@@ -93,7 +93,7 @@ To add custom code as a module, or to manually add an Azure service module, foll
 To add a module from the Azure Marketplace, follow these steps:
 
 1. In the **IoT Edge Modules** section of the page, click **Add**.
-1. Select **Marketplace Module** from the dropdown menu.
+1. Select **Marketplace Module** from the drop-down menu.
 1. Choose a module from the **IoT Edge Module Marketplace** page. The module you select is automatically configured for your subscription, resource group, and device. It then appears in your list of IoT Edge modules. Some modules may require additional configuration. For more information, see [Deploy modules from Azure marketplace](how-to-deploy-modules-portal.md#deploy-modules-from-azure-marketplace).
 
 #### Add a Stream Analytics module
@@ -101,7 +101,7 @@ To add a module from the Azure Marketplace, follow these steps:
 To add a module from Azure Stream Analytics, follow these steps:
 
 1. In the **IoT Edge Modules** section of the page, click **Add**.
-1. Select **Azure Stream Analytics module** from the drop down menu.
+1. Select **Azure Stream Analytics module** from the drop-down menu.
 1. On the right pane, choose your **Subscription**.
 1. Choose your IoT **Edge job**.
 1. Select **Save** to add your module to the deployment.
