@@ -106,7 +106,7 @@ To create a billing profile, you need to be a **billing account owner** or a **b
 
    ![Screenshot that shows billing profile list](./media/billing-mca-section-invoice/mca-list-profiles.png)
 
-> [!IMPORTANT]
+> [!Note]
 >
 > If you don't see Add button in the Billing profile page, the feature is not available for your account. Currently, the feature is only available for accounts that have been set up while working with a Microsoft representative.
 
