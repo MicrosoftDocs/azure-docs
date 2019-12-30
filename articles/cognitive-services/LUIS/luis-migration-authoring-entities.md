@@ -19,24 +19,24 @@ The V3 authoring provides one new entity type, the machine-learned entity, along
 
 ## Entities are decomposable in V3
 
-Entities created with the V3 authoring APIs, either using the APIs or with the preview portal, allow you to build a layered entity model with a parent and children. The parent is known to as the **machine-learned entity** and the children are known as **subcomponents** of the machine learned entity.
+Entities created with the V3 authoring APIs, either using the [APIs](https://westeurope.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview) or with the [preview portal](https://preview.luis.ai/), allow you to build a layered entity model with a parent and children. The parent is known to as the **machine-learned entity** and the children are known as **subcomponents** of the machine learned entity.
 
 Each subcomponent is also a machine-learned entity but with the added configuration options of constraints and descriptors.
 
-* **Constraints** are exact text matching rules that that guarantee the entity belongs to a certain fixed type. The current constraints are the prebuilt, regular expression, and list entity types.
-* **Descriptors** are phrase lists or entities that are used to strongly indicate the entity.
+* **Constraints** are exact text matching rules that guarantee an entity is extracted when it matches a rule. The rule is defined by an exact text matching entity, currently: a [prebuilt entity](luis-reference-prebuilt-entities), a [regular expression entity](reference-entity-regular-expression.md), or [list entity](reference-entity-list.md).
+* **Descriptors** are [features](luis-concept-feature.md), such as phrase lists or entities, that are used to strongly indicate the entity.
 
 The V3 authoring provides one new entity type, the machine-learned entity, along with the ability to add relationships to the machine-learned entity and other entities or features of the application.
 
 ## How do these new relationships compare to V2 authoring
 
-V2 authoring provided hierarchical and composite entities along with roles and features to accomplish this same task. Because the entities, features, and roles were not explicitly related to each other, it was difficult to understand how LUIS implied the relationships.
+V2 authoring provided hierarchical and composite entities along with roles and features to accomplish this same task. Because the entities, features, and roles were not explicitly related to each other, it was difficult to understand how LUIS implied the relationships during prediction.
 
 With V3, the relationship is explicit and designed by the app authors. This allows you, as the app author, to:
 
 * Visually see how LUIS is predicting these relationships, in the example utterances
-* Test for these relationships either with the interactive test pane or at the endpoint
-* Use these relationships in the client application, via a well-structured, named, nested .json object
+* Test for these relationships either with the [interactive test pane](luis-interactive-test.md) or at the endpoint
+* Use these relationships in the client application, via a well-structured, named, nested [.json object]()
 
 ## Migrating from V2 entities
 
@@ -49,3 +49,5 @@ The following show three examples of moving from a V2 to a V3 entity design.
 |||
 
 ## Next steps
+
+* [Developer resources](developer-reference-resource.md)
