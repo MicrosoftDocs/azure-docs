@@ -17,6 +17,8 @@ ms.author: juliako
 
 # Azure Media Services v3 release notes
 
+>Get notified about when to revisit this page for updates by copying and pasting this URL: `https://docs.microsoft.com/api/search/rss?search=%22Azure+Media+Services+v3+release+notes%22&locale=en-us` into your RSS feed reader.
+
 To stay up-to-date with the most recent developments, this article provides you with information about:
 
 * The latest releases

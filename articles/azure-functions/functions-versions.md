@@ -111,7 +111,7 @@ The version of the Functions runtime used by published apps in Azure is dictated
 
 ### Locally developed application versions
 
-You can make the following updates function apps locally change targeted versions.
+You can make the following updates to function apps to locally change the targeted versions.
 
 #### Visual Studio runtime versions
 

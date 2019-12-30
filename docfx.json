@@ -196,7 +196,9 @@
     },
     "fileMetadata": {
       "author": {
+        "articles/advisor/*.md": "saket-ms",
         "articles/connectors/*.md": "ecfan",
+        "articles/batch/*.md": "ju-shim",
         "articles/logic-apps/*.md": "ecfan",
         "articles/governance/*.md": "DCtheGeek",
         "articles/governance/blueprints/**/*.md": "DCtheGeek",
@@ -205,6 +207,9 @@
         "articles/governance/resource-graph/**/*.md": "DCtheGeek",
         "articles/azure-functions/**/*.md": "ggailey777",
         "articles/azure-monitor/insights/container-insights*.md": "mgoedtel",
+        "articles/azure-monitor/app/*.md": "mrbullwinkle",
+        "articles/azure-monitor/log-query/*.md": "rboucher",
+        "articles/azure-monitor/platform/*.md": "rboucher",
         "articles/app-service/*.md": "cephalin",
         "articles/app-service/containers/*.md": "cephalin",
         "articles/app-service/scripts/*.md": "cephalin",
@@ -220,7 +225,11 @@
         "articles/jenkins/**/*.md": "TomArcherMsft",
         "articles/terraform/**/*.md": "TomArcherMsft",
         "articles/lighthouse/**/*.md": "JnHs",
-        "articles/azure-resource-manager/**/*.md": "tfitzmac",
+        "articles/notebooks/*.md": "kraigb",
+        "articles/service-health/*.md": "stephbaron",
+        "articles/azure-resource-manager/*.md": "tfitzmac",
+        "articles/azure-resource-manager/templates/**/*.md": "mumian",
+        "articles/azure-resource-manager/management/**/*.md": "tfitzmac",
         "articles/dev-spaces/**/*.md": "zr-msft",
         "articles/site-recovery/*.md": "rayne-wiselman",
         "articles/migrate/*.md": "rayne-wiselman",
@@ -228,8 +237,8 @@
         "articles/virtual-machines/windows/*.md": "cynthn",
         "articles/virtual-machines/*.md": "cynthn",
         "articles/virtual-machines-scale-sets/*.md": "ju-shim",
-        "articles/batch/*.md": "ju-shim",
-        "articles/notebooks/*.md": "kraigb"
+        "articles/service-fabric/*.md": "athinanthny",
+        "articles/service-fabric-mesh/*.md": "athinanthny"
       },
       "feedback_system": {
         "articles/virtual-machines/windows/classic/**/*": "None",
@@ -262,6 +271,10 @@
         "articles/azure-databricks/**/*.md": "https://feedback.azure.com/forums/909463-azure-databricks",
         "articles/azure-functions/**/*.md": "https://feedback.azure.com/forums/355860-azure-functions",
         "articles/azure-government/**/*.md": "https://feedback.azure.com/forums/558487-azure-government",
+        "articles/azure-monitor/**/*.md": "https://feedback.azure.com/forums/913690-azure-monitor",
+        "articles/azure-monitor/app/**/*.md": "https://feedback.azure.com/forums/357324-azure-monitor-application-insights",
+        "articles/azure-monitor/log-query/**/*.md": "https://feedback.azure.com/forums/267889-azure-monitor-log-analytics",
+        "articles/azure-monitor/platform/**/alert-*.md": "https://feedback.azure.com/forums/602299-azure-monitor-alert-management",
         "articles/industry/agriculture/**/*.md": "https://feedback.azure.com/forums/924718-Azure-farmbeats",
         "articles/azure-maps/**/*.md": "https://feedback.azure.com/forums/909172-azure-maps",
         "articles/azure-portal/**/*.md": "https://feedback.azure.com/forums/223579-azure-portal",
@@ -390,7 +403,7 @@
         "articles/service-bus-relay/**/*.md": "https://feedback.azure.com/forums/216926-service-bus",
         "articles/service-bus/**/*.md": "https://feedback.azure.com/forums/216926-service-bus",
         "articles/service-fabric/**/*.md": "https://feedback.azure.com/forums/293901-service-fabric",
-        "articles/service-health/**/*.md": "https://feedback.azure.com/forums/34192--general-feedback",
+        "articles/service-health/**/*.md": "https://feedback.azure.com/forums/919477-azure-service-health", 
         "articles/site-recovery/**/*.md": "https://feedback.azure.com/forums/256299-site-recovery",
         "articles/spatial-anchors/**/*.md": "https://feedback.azure.com/forums/919252-azure-spatial-anchors",
         "articles/sql-data-warehouse/**/*.md": "https://feedback.azure.com/forums/307516-sql-data-warehouse",
@@ -415,6 +428,7 @@
         "articles/azure-functions/**/*.md": "gwallace",
         "articles/app-service/**/*.md": "gwallace",
         "articles/app-service-mobile/**/*.md": "crdun",
+        "articles/azure-monitor/**/*.md": "carmonm",
         "articles/automation/**/*.md": "carmonm",
         "articles/backup/**/*.md": "carmonm",
         "articles/site-recovery/**/*.md": "carmonm",
@@ -423,8 +437,9 @@
         "articles/virtual-machines/**/*.md": "gwallace",
         "articles/virtual-machine-scale-sets/**/*.md": "gwallace",
         "articles/notebooks/*.md": "barbkess"
-      },
+   },
       "ms.author": {
+        "articles/advisor/*.md": "sagupt",
         "articles/connectors/*.md": "estfan",
         "articles/logic-apps/*.md": "estfan",
         "articles/governance/*.md": "dacoulte",
@@ -433,6 +448,9 @@
         "articles/governance/management-groups/**/*.md": "rithorn",
         "articles/governance/resource-graph/**/*.md": "dacoulte",
         "articles/azure-functions/**/*.md": "glenga",
+        "articles/azure-monitor/app/*.md": "mbullwin",
+        "articles/azure-monitor/log-query/*.md": "robb",
+        "articles/azure-monitor/platform/*.md": "robb",
         "articles/azure-monitor/insights/container-insights*.md": "magoedte",
         "articles/app-service/*.md": "cephalin",
         "articles/app-service/containers/*.md": "cephalin",
@@ -449,7 +467,9 @@
         "articles/jenkins/**/*.md": "tarcher",
         "articles/terraform/**/*.md": "tarcher",
         "articles/lighthouse/**/*.md": "jenhayes",
-        "articles/azure-resource-manager/**/*.md": "tomfitz",
+        "articles/azure-resource-manager/*.md": "tomfitz",
+        "articles/azure-resource-manager/templates/**/*.md": "jgao",
+        "articles/azure-resource-manager/management/**/*.md": "tomfitz",
         "articles/dev-spaces/**/*.md": "zarhoads",
         "articles/site-recovery/*.md": "raynew",
         "articles/migrate/*.md": "raynew",
@@ -458,7 +478,10 @@
         "articles/virtual-machines/*.md": "cynthn",
         "articles/virtual-machines-scale-sets/*.md": "jushiman",
         "articles/batch/*.md": "jushiman",
-        "articles/notebooks/*.md": "kraigb"
+        "articles/service-fabric/*.md": "atsenthi",
+        "articles/service-fabric-mesh/*md": "atsenthi",
+        "articles/notebooks/*.md": "kraigb",
+        "articles/service-health/*.md": "stbaron"  
       },
       "ms.service": {
         "articles/connectors/*.md": "logic-apps",
@@ -468,6 +491,7 @@
         "articles/governance/policy/**/*.md": "azure-policy",
         "articles/governance/management-groups/**/*.md": "governance",
         "articles/governance/resource-graph/**/*.md": "resource-graph",
+        "articles/advisor/**/*.md": "advisor",
         "articles/azure-functions/**/*.md": "azure-functions",
         "articles/azure-monitor/**/*.md": "azure-monitor",
         "articles/app-service/**/*.md": "app-service",
@@ -489,10 +513,20 @@
         "articles/dev-spaces/**/*.md": "azure-dev-spaces",
         "articles/site-recovery/*.md": "site-recovery",
         "articles/migrate/*.md": "azure-migrate",
-        "articles/notebooks/*.md": "azure-notebooks"
+        "articles/notebooks/*.md": "azure-notebooks",
+        "articles/service-fabric/*.md": "service-fabric",
+        "articles/service-fabric-mesh/*.md": "service-fabric-mesh",
+        "articles/service-health/**/*.md": "service-health"  
       },
       "ms.subservice": {
-        "articles/industry/agriculture/**/*.md": "agriculture"
+        "articles/industry/agriculture/**/*.md": "agriculture",
+        "articles/azure-monitor/app/**/*.md": "application-insights",
+        "articles/azure-monitor/log-query/**/.md": "logs",
+        "articles/azure-monitor/platform/autoscale-*.md": "autoscale",
+        "articles/azure-monitor/platform/alert*.md": "alerts",
+        "articles/azure-monitor/platform/action-group*.md": "alerts",
+        "articles/azure-resource-manager/templates/**/*.md": "templates",
+        "articles/azure-resource-manager/management/**/*.md": "management"
       },
       "searchScope": {
         "articles/azure-cache-for-redis/**/*.md": ["Azure","Cache for Redis"],
@@ -530,6 +564,10 @@
         "articles/app-service/**/*.md": ["Azure","App Service"]        
       },
       "titleSuffix": {
+        "articles/service-health/**/*.md": "Azure Service Health",
+        "articles/service-health/*.yml": "Azure Service Health",
+        "articles/advisor/**/*.md": "Azure Advisor",
+        "articles/advisor/*.yml": "Azure Advisor",
         "articles/connectors/*.md": "Azure Logic Apps",
         "articles/logic-apps/*.md": "Azure Logic Apps",
         "articles/governance/blueprints/**/*.md": "Azure Blueprints",
@@ -579,7 +617,11 @@
         "articles/batch/*.md": "Azure Batch",
         "articles/batch/*.yml": "Azure Batch",
         "articles/app-service-mobile/**/*.md": "Azure Mobile Apps",
-        "articles/app-service-mobile/**/*.yml": "Azure Mobile Apps"
+        "articles/app-service-mobile/**/*.yml": "Azure Mobile Apps",
+        "articles/azure-monitor/**/*.yml" : "Azure Monitor",
+        "articles/azure-monitor/**/*.md" : "Azure Monitor",
+        "articles/service-fabric/*.md": "Azure Service Fabric",
+        "articles/service-fabric-mesh/*.md": "Azure Service Fabric Mesh"
       },
       "featureFlags": {
         "articles/**/*.md": [
