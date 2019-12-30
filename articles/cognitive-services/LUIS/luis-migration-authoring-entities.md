@@ -57,6 +57,7 @@ When you migrate, consider the following in your migration plan:
     * Entities
         * Hierarchical entity
         * Composite entity
+    * Roles - roles can only be applied to a machine-learned (parent) entity. Roles can't be applied to subcomponents
     * Batch tests and patterns that use the hierarchical and composite entities
 
 When you design your migration plan, leave time to review the final machine-learned entities, after all hierarchical and composite entities have been migrated. While a straight migration will work, after you make the change and review your batch test results, and prediction JSON, the more unified JSON may lead you to make changes so the final information delivered to the client-side app is organized differently. This is similar to code refactoring and should be treated with the same review process your organization has in place.
