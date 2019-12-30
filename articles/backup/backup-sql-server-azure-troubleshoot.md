@@ -20,7 +20,7 @@ After creating and configuring a Recovery Services vault, discovering databases 
 
 ![sql](./media/backup-azure-sql-database/sql.png)
 
-During the backup configuration, if the SQL VM and its instances are not visible in the **Discovery DBs in VMs** and **Configure Backup** (refer to above image) because of the following steps.
+During the backup configuration, if the SQL VM and its instances are not visible in the **Discovery DBs in VMs** and **Configure Backup** (refer to above image) ensure that:
 
 **Step 1: Discovery DBs in VMs**
 <br>
@@ -30,7 +30,7 @@ During the backup configuration, if the SQL VM and its instances are not visible
 <br>
 - If the vault in which the SQL VM is registered in the same vault used to protect the databases, then follow the [Configure Backup](https://docs.microsoft.com/azure/backup/backup-sql-server-database-azure-vms#configure-backup) steps.<br>
 
-If the SQL VM needs to be registered in the new vault, then it must be unregistered from the old vault.  Unregistration of a SQL VM from a vault requires all the protected data sources to be stop protected and then delete backed up data. Deleting backed up data is a destructive operation.  After you have reviewed and taken all the precautions to proceed further to unregister the SQL VM, then register this same VM with a new vault and retry the backup operation.
+If the SQL VM needs to be registered in the new vault, then it must be unregistered from the old vault.  Unregistration of a SQL VM from the vault requires all the protected data sources to be stop protected and then you can delete the backed up data. Deleting backed up data is a destructive operation.  After you have reviewed and taken all the precautions to unregister the SQL VM, then register this same VM with a new vault and retry the backup operation.
 
 
 
@@ -143,7 +143,7 @@ Operation is blocked as the vault has reached its maximum limit for such operati
 
 | Error message | Possible causes | Recommended action |
 |---|---|---|
-The VM is not able to contact Azure Backup service due to internet connectivity issues. | The VM needs outbound connectivity to Azure Backup Service, Azure Storage or Azure Active Directory services.| - If you use NSG to restrict connectivity, then you should use the AzureBackup service tag to allows outbound access to Azure Backup to Azure Backup Service, Azure Storage or Azure Active Directory services. Follow these [steps](https://aka.ms/nsgrulesforsqlbackup) to grant access.<br>- Ensure DNS is resolving Azure endpoints.<br>- Check if the VM is behind a Load balancer blocking Internet access. By assigning public IP to the VMs, discovery will work.<br>- Verify there is no firewall/antivirus/proxy that is blocking calls to the above three target services.
+The VM is not able to contact Azure Backup service due to internet connectivity issues. | The VM needs outbound connectivity to Azure Backup Service, Azure Storage or Azure Active Directory services.| - If you use NSG to restrict connectivity, then you should use the AzureBackup service tag to allows outbound access to Azure Backup to Azure Backup Service, Azure Storage or Azure Active Directory services. Follow these [steps](https://aka.ms/nsgrulesforsqlbackup) to grant access.<br>- Ensure DNS is resolving Azure endpoints.<br>- Check if the VM is behind a load balancer blocking internet access. By assigning public IP to the VMs, discovery will work.<br>- Verify there is no firewall/antivirus/proxy that is blocking calls to the above three target services.
 
 
 ## Re-registration failures
