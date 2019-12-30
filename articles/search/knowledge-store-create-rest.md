@@ -69,7 +69,7 @@ Install and set up Postman.
 
 On the **Variables** tab, you can add values that Postman swaps in every time it encounters a specific variable inside double braces. For example, Postman replaces the symbol `{{admin-key}}` with the current value that you set for `admin-key`. Postman makes the substitution in URLs, headers, the request body, and so on. 
 
-To get the value for `admin-key`, go to the Azure Cognitive Search service and select the **Keys** tab. Change `search-service-name` and `storage-account-name` to the values you chose in [Create services](#create-services). Set `storage-connection-string` by using the value on the storage account's **Access Keys** tab. You can leave the defaults for the other values.
+To get the value for `admin-key`, go to the Azure Cognitive Search service and select the **Keys** tab. Change `search-service-name` and `storage-account-name` to the values you chose in [Create services](#create-services-and-load-data). Set `storage-connection-string` by using the value on the storage account's **Access Keys** tab. You can leave the defaults for the other values.
 
 ![Postman app variables tab](media/knowledge-store-create-rest/postman-variables-window.png "Postman's variables window")
 
@@ -150,7 +150,7 @@ Select **Send** to issue the PUT request. You should see the status `201 - Creat
 
 ## Create the datasource
 
-Next, connect Azure Cognitive Search to the hotel data you stored in [Store the data](#store-the-data). To create the datasource, send a POST request to `https://{{search-service-name}}.search.windows.net/datasources?api-version={{api-version}}`. You must set the `api-key` and `Content-Type` headers as discussed earlier. 
+Next, connect Azure Cognitive Search to the hotel data you stored in Blob storage. To create the datasource, send a POST request to `https://{{search-service-name}}.search.windows.net/datasources?api-version={{api-version}}`. You must set the `api-key` and `Content-Type` headers as discussed earlier. 
 
 In Postman, go to the **Create Datasource** request, and then to the **Body** pane. You should see the following code:
 
