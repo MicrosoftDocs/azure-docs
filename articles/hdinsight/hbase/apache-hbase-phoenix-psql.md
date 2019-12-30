@@ -99,7 +99,7 @@ Before you start loading data, verify that Phoenix is enabled and that query tim
     python psql.py /tmp/listCustomers.sql
     ```
 
-    Alternatively, you can use [HBase shell](./query-hbase-with-hbase-shell.md), or [Apache Zepellin](./apache-hbase-phoenix-zeppelin.md) to query the data.
+    Alternatively, you can use [HBase shell](./query-hbase-with-hbase-shell.md), or [Apache Zeppelin](./apache-hbase-phoenix-zeppelin.md) to query the data.
 
 1. Upload additional data. Now that the table already exists, the command specifies the table. Execute the command below:
 
@@ -160,7 +160,7 @@ For higher-throughput loading distributed over the cluster, use the MapReduce lo
     org.apache.phoenix.mapreduce.CsvBulkLoadTool --table Customers --input adl://hdinsightconf1.azuredatalakestore.net:443/hbase1/data/hbase/temp/input/customers.csv –zookeeper ZookeeperQuorum:2181:/hbase-unsecure --output  adl://hdinsightconf1.azuredatalakestore.net:443/hbase1/data/hbase/output1
     ```
 
-1. To query and view the data, you can use **psql** as described earlier. You can also use [HBase shell](./query-hbase-with-hbase-shell.md), or [Apache Zepellin](./apache-hbase-phoenix-zeppelin.md).
+1. To query and view the data, you can use **psql** as described earlier. You can also use [HBase shell](./query-hbase-with-hbase-shell.md), or [Apache Zeppelin](./apache-hbase-phoenix-zeppelin.md).
 
 ## Recommendations
 
