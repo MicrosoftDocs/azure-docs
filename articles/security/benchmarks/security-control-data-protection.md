@@ -6,7 +6,7 @@ manager: rkarlin
 
 ms.service: security
 ms.topic: conceptual
-ms.date: 12/27/2019
+ms.date: 12/30/2019
 ms.author: mbaldwin
 ms.custom: security-recommendations
 
@@ -24,7 +24,7 @@ Data protection recommendations focus on addressing issues related to encryption
 
 Use Tags to assist in tracking Azure resources that store or process sensitive information.
 
-How to create and utilize Tags:
+How to create and use Tags:
 
 https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
 
@@ -64,7 +64,7 @@ How to configure alert or alert and deny with Azure Firewall:
 
 https://docs.microsoft.com/azure/firewall/threat-intel
 
-## 4.3: Monitor and block unauthorized transfer of sensitive information.
+## 4.3: Monitor and block unauthorized transfer of sensitive information
 
 | Azure ID | CIS IDs | Responsibility |
 |--|--|--|
@@ -122,7 +122,7 @@ How to configure RBAC in Azure:
 
 https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal
 
-## 4.7: Use host-based Data Loss Prevention to enforce access control
+## 4.7: Use host-based data loss prevention to enforce access control
 
 | Azure ID | CIS IDs | Responsibility |
 |--|--|--|

@@ -6,7 +6,7 @@ manager: rkarlin
 
 ms.service: security
 ms.topic: conceptual
-ms.date: 12/27/2019
+ms.date: 12/30/2019
 ms.author: mbaldwin
 ms.custom: security-recommendations
 
@@ -70,7 +70,7 @@ How to create and use Tags:
 
 https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
 
-## 6.4: Maintain inventory of approved Azure resources and software titles.
+## 6.4: Maintain an inventory of approved Azure resources and software titles
 
 | Azure ID | CIS IDs | Responsibility |
 |--|--|--|
@@ -102,9 +102,9 @@ https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 |--|--|--|
 | 6.6 | 2.3/2.4 | Customer |
 
-Use Azure Virtual Machine Inventory to automate the collection of information about all software on Virtual Machines. Note: Software Name, Version, Publisher, and Refresh time are available from the Azure Portal. To get access to install date and other information, enable guest-level diagnostics and bring the Windows Event Logs into a Log Analytics Workspace.
+Use Azure virtual machine Inventory to automate the collection of information about all software on Virtual Machines. Note: Software Name, Version, Publisher, and Refresh time are available from the Azure Portal. To get access to install date and other information, enable guest-level diagnostics and bring the Windows Event Logs into a Log Analytics Workspace.
 
-How to enable Azure VM Inventory:
+How to enable Azure virtual machine Inventory:
 
 https://docs.microsoft.com/azure/automation/automation-tutorial-installed-software
 
@@ -114,7 +114,7 @@ https://docs.microsoft.com/azure/automation/automation-tutorial-installed-softwa
 |--|--|--|
 | 6.7 | 2.5 | Customer |
 
-Use Azure Security Center's File Integrity Monitoring (Change Tracking) and VM Inventory to identify all software installed on Virtual Machines. You can implement your own process for removing unauthorized software. You can also use a third party solution to identify unapproved software.
+Use Azure Security Center's File Integrity Monitoring (Change Tracking) and virtual machine Inventory to identify all software installed on Virtual Machines. You can implement your own process for removing unauthorized software. You can also use a third party solution to identify unapproved software.
 
 How to use File Integrity Monitoring:
 
@@ -124,7 +124,7 @@ Understanding Azure Change Tracking:
 
 https://docs.microsoft.com/azure/automation/change-tracking
 
-How to enable Azure VM Inventory:
+How to enable Azure virtual machine inventory:
 
 https://docs.microsoft.com/azure/automation/automation-tutorial-installed-software
 
@@ -182,7 +182,7 @@ How to configure Conditional Access to block access to ARM:
 
 https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management
 
-## 6.12: Limit users' Ability to execute scripts within compute resources
+## 6.12: Limit users' ability to execute scripts within compute resources
 
 | Azure ID | CIS IDs | Responsibility |
 |--|--|--|
@@ -199,13 +199,13 @@ https://docs.microsoft.com/powershell/module/microsoft.powershell.security/set-e
 |--|--|--|
 | 6.13 | 2.9 | Customer |
 
-Software that is required for business operations, but may incur higher risk for the organization, should be isolated within its own Virtual Machine and/or Virtual Network and sufficiently secured with either an Azure Firewall or Network Security Group.
+Software that is required for business operations, but may incur higher risk for the organization, should be isolated within its own virtual machine and/or virtual network and sufficiently secured with either an Azure Firewall or Network Security Group.
 
-How to create a Virtual Network:
+How to create a virtual network:
 
 https://docs.microsoft.com/azure/virtual-network/quick-create-portal
 
-How to create an NSG with a Security Config:
+How to create an NSG with a security config:
 
 https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic
 

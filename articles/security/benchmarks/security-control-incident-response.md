@@ -6,7 +6,7 @@ manager: rkarlin
 
 ms.service: security
 ms.topic: conceptual
-ms.date: 12/27/2019
+ms.date: 12/30/2019
 ms.author: mbaldwin
 ms.custom: security-recommendations
 

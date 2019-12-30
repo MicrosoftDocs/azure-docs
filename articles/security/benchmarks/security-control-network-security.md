@@ -6,7 +6,7 @@ manager: rkarlin
 
 ms.service: security
 ms.topic: conceptual
-ms.date: 12/27/2019
+ms.date: 12/30/2019
 ms.author: mbaldwin
 ms.custom: security-recommendations
 
@@ -27,10 +27,7 @@ Ensure that all Virtual Network subnet deployments have a Network Security Group
 Alternatively, if you has a specific use case, requirements can be met by implementing Azure Firewall.
 
 General Information on Private Link:
-
-https://azure.microsoft.com/services/private-link/
-
-For specific instructions on configuration of Private Link see documentation for resource type used.
+https://docs.microsoft.com/azure/private-link/private-link-overview
 
 How to create a Virtual Network:
 
@@ -44,7 +41,7 @@ How to deploy and configure Azure Firewall:
 
 https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal
 
-## 1.2: Monitor and log the configuration and traffic of Vnets, Subnets, and NICS
+## 1.2: Monitor and log the configuration and traffic of Vnets, Subnets, and NICs
 
 | Azure ID | CIS IDs | Responsibility |
 |--|--|--|
@@ -76,13 +73,13 @@ https://docs.microsoft.com/azure/web-application-firewall/ag/create-waf-policy-a
 |--|--|--|
 | 1.4 | 12.3 | Customer |
 
-Enable DDoS Standard protection on your Azure Virtual Networks to guard against DDoS attacks. Use Azure Security Center Integrated Threat Intelligence to deny communications with known malicious or unused Internet IP addresses.
+Enable DDoS Standard protection on your Azure Virtual Networks to guard against DDoS attacks. Use Azure Security Center Integrated Threat Intelligence to deny communications with known malicious IP addresses.
 
-Deploy Azure Firewall at each of the organization's network boundaries with Threat Intelligence enabled and configured to &quot;&quot;Alert and deny&quot;&quot; for malicious network traffic.
+Deploy Azure Firewall at each of the organization's network boundaries with Threat Intelligence enabled and configured to &quot;Alert and deny&quot; for malicious network traffic.
 
 Use Azure Security Center Just In Time Network access to configure NSGs to limit exposure of endpoints to approved IP addresses for a limited period.
 
-Use Azure Security Center Adaptive Network Hardening to recommend NSG configurations that limit Ports and Source IPs based on actual traffic and threat intelligence.
+Use Azure Security Center Adaptive Network Hardening to recommend NSG configurations that limit ports and source IPs based on actual traffic and threat intelligence.
 
 How to configure DDoS protection:
 
@@ -129,7 +126,7 @@ Deploy Azure Firewall at each of the organization's network boundaries with Thre
 How to deploy Azure Firewall:
 https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal
 
-How to configure alert or alert and deny with Azure Firewall:
+How to configure alerts with Azure Firewall:
 https://docs.microsoft.com/azure/firewall/threat-intel
 
 ## 1.7: Manage traffic to web applications

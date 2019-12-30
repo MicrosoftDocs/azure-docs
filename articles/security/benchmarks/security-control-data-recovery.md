@@ -6,7 +6,7 @@ manager: rkarlin
 
 ms.service: security
 ms.topic: conceptual
-ms.date: 12/27/2019
+ms.date: 12/30/2019
 ms.author: mbaldwin
 ms.custom: security-recommendations
 
@@ -14,7 +14,7 @@ ms.custom: security-recommendations
 
 # Security Control: Data Recovery
 
-Ensure that all system data, configurations, and secrets, are automatically backed up on a regular basis.
+Ensure that all system data, configurations, and secrets are automatically backed up on a regular basis.
 
 ## 9.1: Ensure regular automated back ups
 

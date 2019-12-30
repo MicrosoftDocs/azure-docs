@@ -6,7 +6,7 @@ manager: rkarlin
 
 ms.service: security
 ms.topic: conceptual
-ms.date: 12/27/2019
+ms.date: 12/30/2019
 ms.author: mbaldwin
 ms.custom: security-recommendations
 
@@ -65,7 +65,7 @@ https://docs.microsoft.com/azure/governance/policy/concepts/effects
 |--|--|--|
 | 7.4 | 5.2 | Shared |
 
-Base operating system Images are managed and maintained by Microsoft.
+Base operating system images are managed and maintained by Microsoft.
 
 However, you can apply security settings required by your organization using ARM templates and/or Desired State Configuration.
 
@@ -119,7 +119,7 @@ https://docs.microsoft.com/azure/role-based-access-control/quickstart-assign-rol
 |--|--|--|
 | 7.7 | 5.4 | Customer |
 
-Leverage Azure Policy to alert, audit, and enforce system configurations. Additionally, develop a process and pipeline for managing policy exceptions.
+Use Azure Policy to alert, audit, and enforce system configurations. Additionally, develop a process and pipeline for managing policy exceptions.
 
 How to configure and manage Azure Policy:
 
@@ -137,7 +137,7 @@ How to install Virtual Machine Extensions in Azure:
 
 https://docs.microsoft.com/azure/virtual-machines/extensions/overview#how-can-i-install-an-extension
 
-## 7.9: Implement automated configuration Monitoring for Azure Services
+## 7.9: Implement automated configuration monitoring for Azure services
 
 | Azure ID | CIS IDs | Responsibility |
 |--|--|--|
@@ -161,7 +161,7 @@ Understanding Azure Security Center container recommendations:
 
 https://docs.microsoft.com/azure/security-center/security-center-container-recommendations
 
-## 7.11: Manage Azure secrets&nbsp;<span style="display:inline !important;">securely<span>&nbsp;</span></span>
+## 7.11: Manage Azure secrets securely 
 
 | Azure ID | CIS IDs | Responsibility |
 |--|--|--|
@@ -178,7 +178,7 @@ https://docs.microsoft.com/azure/key-vault/quick-create-portal
 How to provide Key Vault authentication with a managed identity:
 https://docs.microsoft.com/azure/key-vault/managed-identity
 
-## 7.12: <span style="display:inline !important;">Manage identities s</span>ecurely and automatically&nbsp;
+## 7.12: Manage identities securely and automatically
 
 | Azure ID | CIS IDs | Responsibility |
 |--|--|--|
