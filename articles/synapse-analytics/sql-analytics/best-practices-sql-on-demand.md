@@ -60,6 +60,6 @@ You can use CETAS to store frequently used parts of queries, like joined referen
 
 As CETAS generates Parquet files, statistics will be automatically created when the first query targets this external table, resulting in improved performance.
 
-## Next Steps
+## Next steps
 
 Review the [Troubleshooting](../../sql-data-warehouse/sql-data-warehouse-troubleshoot.md) article for common issues and solutions. If you're working with SQL pools rather than SQL on-demand, please see the [Best Practices for SQL pools](best-practices-sql-pool.md) article for specific guidance.
