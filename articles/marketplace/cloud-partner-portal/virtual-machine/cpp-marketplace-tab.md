@@ -18,7 +18,7 @@ The **Marketplace** tab of the **New Offer** page enables you to provide your pr
 ## Overview section
 In this section, you enter the general information about your Azure Marketplace Offer.  An appended asterisk (*) on the field name indicates that it is required.
 
-![Overview section of the Marketplace tab for virtual machines](./media/publishvm_008.png)
+![Overview section of the Marketplace tab for virtual machines]
 
 The following table describes the purpose and content of these fields. Required fields are indicted by an asterisk (*).
 
