@@ -1,7 +1,7 @@
 ---
 title: Configure and manage Azure Notebook projects
-description: How to manage project metadata, project files, the project's environment and setup steps through both the Azure Notebooks UI and direct terminal access.
-ms.topic: article
+description: Learn how to manage project metadata, project files, the project's environment and setup steps through both the Azure Notebooks UI and direct terminal access.
+ms.topic: how-to
 ms.date: 05/13/2019
 ---
 

@@ -251,7 +251,7 @@ Services are specified in the template as properties of the application resource
                   "endpoints": [
                     {
                       "name": "ServiceAListener",
-                      "port": 20001
+                      "port": 80
                     }
                   ],
                   "resources": {

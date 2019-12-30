@@ -156,7 +156,7 @@ A passphrase is used to encrypt and decrypt data while backing up or restoring y
 - Click **Browse** to save the new passphrase.
 
     ![Generate passphrase.](./media/backup-azure-manage-mars/passphrase.png)
-- Click **OK** to apply changes.  If the [Security Feature](https://docs.microsoft.com/azure/backup/backup-azure-security-feature#enable-security-features) is enabled on the Azure Portal for the Recovery Services Vault, then you will be prompted to enter the Security PIN. To receive the PIN, follow the steps listed in this [article](https://docs.microsoft.com/azure/backup/backup-azure-security-feature#authentication-to-perform-critical-operations).<br>
+- Click **OK** to apply changes.  If the [Security Feature](https://docs.microsoft.com/azure/backup/backup-azure-security-feature#enable-security-features) is enabled on the Azure portal for the Recovery Services Vault, then you will be prompted to enter the Security PIN. To receive the PIN, follow the steps listed in this [article](https://docs.microsoft.com/azure/backup/backup-azure-security-feature#authentication-to-perform-critical-operations).<br>
 - Paste the security PIN from the portal and click **OK** to apply the changes.<br>
 
     ![Generate passphrase.](./media/backup-azure-manage-mars/passphrase2.png)
