@@ -168,7 +168,7 @@ The following table details the features and limits of the Basic, Standard, and 
 
 ### Azure Machine Learning limits
 
-The latest values for Azure Machine Learning Compute quotas can be found in the [Azure Machine Learning quota page](../articles/machine-learning/service/how-to-manage-quotas.md)
+The latest values for Azure Machine Learning Compute quotas can be found in the [Azure Machine Learning quota page](machine-learning/how-to-manage-quotas.md)
 
 ### Networking limits
 
@@ -218,9 +218,9 @@ The following table applies to v1, v2, Standard, and WAF SKUs unless otherwise s
 ### Storage limits
 
 <!--like # storage accts -->
-[!INCLUDE [azure-storage-limits](../includes/azure-storage-limits.md)]
+[!INCLUDE [azure-storage-account-limits-standard](../includes/azure-storage-account-limits-standard.md)]
 
-For more information on storage account limits, see [Azure Storage scalability and performance targets](storage/common/storage-scalability-targets.md).
+For more information on limits for standard storage accounts, see [Scalability targets for standard storage accounts](storage/common/scalability-targets-standard-account.md).
 
 #### Storage resource provider limits
 

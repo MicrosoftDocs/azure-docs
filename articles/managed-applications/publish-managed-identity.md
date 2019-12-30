@@ -43,7 +43,7 @@ Creating a Managed Application with a Managed Identity requires an additional pr
 }
 ```
 
-There are two common ways to create a Managed Application with **identity**: [CreateUIDefinition.json](./create-uidefinition-overview.md) and [Azure Resource Manager templates](../azure-resource-manager/resource-group-authoring-templates.md). For simple single create scenarios, CreateUIDefinition should be used to enable Managed Identity, because it provides a richer experience. However, when dealing with advanced or complex systems that require automated or multiple Managed Application deployments, templates can be used.
+There are two common ways to create a Managed Application with **identity**: [CreateUIDefinition.json](./create-uidefinition-overview.md) and [Azure Resource Manager templates](../azure-resource-manager/templates/template-syntax.md). For simple single create scenarios, CreateUIDefinition should be used to enable Managed Identity, because it provides a richer experience. However, when dealing with advanced or complex systems that require automated or multiple Managed Application deployments, templates can be used.
 
 ### Using CreateUIDefinition
 

@@ -1,7 +1,7 @@
 ---
 title: Install packages in a Jupyter notebook on Azure
-description: How to install Python, R, and F# packages from within a Jupyter notebook running on Azure.
-ms.topic: article
+description: Learn how to install Python, R, and F# packages from within a Jupyter notebook running on Azure.
+ms.topic: how-to
 ms.date: 12/04/2018
 ---
 
@@ -61,7 +61,7 @@ Then load the paket generator:
 #load "Paket.Generated.Refs.fsx"
 ```
 
-Open the libray:
+Open the library:
 ```fsharp
 open MathNet.Numerics
 ```
