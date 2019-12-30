@@ -101,6 +101,8 @@
     href: overview-diagnostics.md
 - name: How-To guides
   items:
+    - name: Restore deleted App Service
+      href: app-service-undelete.md
   - name: Configure app
     items:
     - name: Configure common settings
