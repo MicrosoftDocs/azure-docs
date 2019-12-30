@@ -205,9 +205,10 @@ Once the upload to Azure is complete, the Data Box erases the data on its disks 
         4. Preferred collection date
     ```
 
-  NOTE: For booking requests received on a business day - 
-  1. Before 3pm, pick up will be the next business day between 9 to 1pm
-  2. After 3pm, pick up will be the next business day between 2 to 6pm  
+   > [!NOTE]
+   > For booking requests received on a business day:
+   > - Before 3 PM, pickup will be the next business day between 9 AM and 1 PM.
+   > - After 3 PM, pickup will be the next business day between 2 PM to 6 PM.  
 
 ::: zone target="chromeless"
 
