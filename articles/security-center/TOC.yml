@@ -79,6 +79,14 @@
     href: security-center-secure-score.md
   - name: Upgrade to advanced security
     href: security-center-onboarding.md
+  - name: Scan your VMs for vulnerabilities
+    items:
+    - name: Vulnerability scanning overview
+      href: security-center-vulnerability-assessment-recommendations.md
+    - name: Integrated vulnerability scanner for VMs
+      href: built-in-vulnerability-assessment.md
+    - name: Using external scanners
+      href: partner-vulnerability-assessment.md
   - name: Protect your servers with Microsoft Defender ATP
     href: security-center-wdatp.md
   - name: Use advanced data security for SQL on Azure VMs
@@ -158,8 +166,6 @@
       href: security-center-apply-system-updates.md
     - name: Install Endpoint Protection
       href: security-center-install-endpoint-protection.md
-    - name: Vulnerability assessment not installed
-      href: security-center-vulnerability-assessment-recommendations.md
     - name: Threat reports
       href: security-center-threat-report.md
     - name: Alert confidence score
