@@ -107,7 +107,11 @@ See [Overview of alerts in Microsoft Azure](platform/alerts-overview.md).
 
 
 ### What is an action group?
-An action group is a collection of notifications and actions that can be triggered by an alert. Multiple alerts can use a single action group allowing you to leverage common sets of notifications and actions.
+An action group is a collection of notifications and actions that can be triggered by an alert. Multiple alerts can use a single action group allowing you to leverage common sets of notifications and actions. See [Create and manage action groups in the Azure portal](platform/action-groups.md).
+
+
+### What is an action rule?
+An action rule allows you to modify the behavior of a set of alerts that match a certain criteria. This allows you to to perform such requirements as disable alert actions during a maintenance window. You can also apply an action group to a set of alerts rather than applying them directly to the alert rules. See [Action rules](platform/alerts-action-rules.md).
 
 
 ## Agents
