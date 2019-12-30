@@ -98,7 +98,7 @@ Verify that the new alert rule is enabled.
   ![Screenshot Portal new alert rule](media/alerts-action-groups/alerts-4.png)
 
 ## Next steps
-* [User portal metrics options](https://docs.microsoft.com/en-us/azure/spring-cloud/spring-cloud-concept-metrics#user-portal-metrics-options)
+* [User portal metrics options](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-concept-metrics#user-portal-metrics-options)
 * [Create and manage action groups in the Azure portal](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups)
 * [SMS Alert Behavior in Action Groups](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-sms-behavior)
 * [Tutorial: Using Distributed Tracing with Azure Spring Cloud](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-tutorial-distributed-tracing)
