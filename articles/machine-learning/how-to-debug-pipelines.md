@@ -89,7 +89,7 @@ When you submit a pipeline run and stay in the authoring page, you can find the 
 1. In the properties pane, go to the  **Logs** tab.
 1. Select the log file `70_driver_log.txt`
 
-![Authoring page module logs](./media/how-to-debug-pipelines/pipelinerun-05.png)
+    ![Authoring page module logs](./media/how-to-debug-pipelines/pipelinerun-05.png)
 
 ### Access logs from pipeline runs
 
