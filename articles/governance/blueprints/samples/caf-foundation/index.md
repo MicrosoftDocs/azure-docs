@@ -49,7 +49,7 @@ All these elements abide to the proven practices published in the
 > You still need to deploy workloads behind this foundational architecture.
 
 For more information, see the
-[Microsoft Cloud Adoption Framework for Azure - Ready](https://docs.microsoft.com/en-us/azure/cloud-adoption-framework/ready/).
+[Microsoft Cloud Adoption Framework for Azure - Ready](/azure/cloud-adoption-framework/ready/).
 
 ## Next steps
 
