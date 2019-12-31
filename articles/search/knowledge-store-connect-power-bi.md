@@ -84,7 +84,7 @@ Click **Get Power BI Template** on the **Add cognitive skills** page to retrieve
 
 1. Double-click each relationship and make sure that the **Cross-filter direction** is set to **Both**.  This enables your visuals to refresh when a filter is applied.
 
-1. Click on the Report tile on the left navigation pane to explore data through visualzations. For text fields, tables and cards are useful visualizations. You can choose fields from each of the three tables to fill in the table or card. 
+1. Click on the Report tile on the left navigation pane to explore data through visualizations. For text fields, tables and cards are useful visualizations. You can choose fields from each of the three tables to fill in the table or card. 
 
 <!-- ## Try with larger data sets
 
