@@ -2,8 +2,8 @@
 author: aahill
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 10/28/2019
-ms.author: aahi
+ms.date: 12/31/2019
+ms.author: sumeh
 ---
 
 <a name="HOLTop"></a>
