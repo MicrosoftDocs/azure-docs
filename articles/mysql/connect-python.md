@@ -7,7 +7,7 @@ ms.service: mysql
 ms.custom: mvc
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 12/23/2019
+ms.date: 12/30/2019
 ms.custom: seo-python-october2019
 ---
 
@@ -17,7 +17,9 @@ This quickstart demonstrates how to use [Python](https://python.org) to connect 
 This article assumes that you're familiar with developing using Python, but you're new to working with Azure Database for MySQL.
 
 ## Create an Azure Database for MySQL 
-Create an Azure Database for MySQL server and database by following the procedures at [Create an Azure Database for MySQL server using Azure portal](quickstart-create-mysql-server-database-using-azure-portal.md) or [Create an Azure Database for MySQL server using Azure CLI](quickstart-create-mysql-server-database-using-azure-cli.md). 
+Create an Azure Database for MySQL server and database by following the instructions at 
+- [Create an Azure Database for MySQL server using Azure portal](quickstart-create-mysql-server-database-using-azure-portal.md) or 
+- [Create an Azure Database for MySQL server using Azure CLI](quickstart-create-mysql-server-database-using-azure-cli.md) 
 
 ## Install Python and the MySQL connector
 Install [Python](https://www.python.org/downloads/) and the [MySQL connector for Python](https://dev.mysql.com/downloads/connector/python/) on your computer by using the following steps, depending on your platform. 
@@ -29,15 +31,14 @@ Install [Python](https://www.python.org/downloads/) and the [MySQL connector for
 ### Windows
 1. Download and install Python 3.7 from [python.org](https://www.python.org/downloads/windows/). 
 1. Open a command prompt, and check the Python version number by running `C:\python37\python.exe -V` with the uppercase V switch.
-1. Install the corresponding version Python connector for MySQL from [mysql.com](https://dev.mysql.com/downloads/connector/python/).
+1. Install the Python connector for MySQL for your Python version from [mysql.com](https://dev.mysql.com/downloads/connector/python/).
 
 ### Linux (Ubuntu) or MacOS
-1. Python is usually part of the default Linux (Ubuntu) or MacOS installation.
-1. Check the Python version number by launching a `bash` shell and running `python -V` with the uppercase V switch.
+1. Python is usually part of the default Linux (Ubuntu) or MacOS installation. Check the Python version number by launching a `bash` shell and running `python -V` with the uppercase V switch.
 1. The `pip` package installer is included in some versions of Python. Check the `pip` installation by running `pip show pip -V` to see the version number. If `pip` isn't installed, install the [pip](https://pip.pypa.io/en/stable/installing/) package by running `sudo apt-get install python-pip`.
 1. Update `pip` to the latest version by running `pip install -U pip`.
-1. Install the MySQL connector for Python and its dependencies by using `pip`:
-
+1. Install the MySQL connector for Python and its dependencies by using `pip` installer:
+   
    ```bash
    sudo pip install mysql-connector-python-rf
    ```
@@ -46,7 +47,7 @@ Install [Python](https://www.python.org/downloads/) and the [MySQL connector for
 Get the connection information you need to connect to Azure Database for MySQL from the Azure portal. You need the server name, database name, and login credentials.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
-2. From the Search bar, search for the Azure Database for MySQL server you created, such as **mydemoserver**.
+2. In the portal search bar, search for the Azure Database for MySQL server you created, such as **mydemoserver**.
 3. Select the server name.
 4. From the server's **Overview** page, make a note of the **Server name** and **Server admin login name**. If you forget your password, you can also reset the password from this page.
    ![Azure Database for MySQL server name](./media/connect-python/azure-database-for-mysql-server-overview-name-login.png)
@@ -55,11 +56,8 @@ Get the connection information you need to connect to Azure Database for MySQL f
 For each code example in this article:
 
 1. Create a new file in a text editor.
-   
-1. Add the code example to the file. In the code, replace the `<mydemoserver>`, `<myadmin>`, `<mypassword>`, and `<quickstartdb>` placeholders with the values for your MySQL server and database.
-   
+1. Add the code example to the file. In the code, replace the `<mydemoserver>`, `<myadmin>`, `<mypassword>`, and `<mydatabase>` placeholders with the values for your MySQL server and database.
 1. Save the file in a project folder with a *.py* extension, such as *C:\pythonmysql\createtable.py* or */home/username/pythonmysql/createtable.py*.
-   
 1. To run the code, open a command prompt or `bash` shell and change directory into your project folder, for example `cd pythonmysql`. Type the `python` command followed by the file name, for example `python createtable.py`, and press Enter. 
    
    > [!NOTE]
@@ -79,7 +77,7 @@ config = {
   'host':'<mydemoserver>.mysql.database.azure.com',
   'user':'<myadmin>@<mydemoserver>',
   'password':'<mypassword>',
-  'database':'<quickstartdb>'
+  'database':'<mydatabase>'
 }
 
 # Construct connection string
@@ -135,7 +133,7 @@ config = {
   'host':'<mydemoserver>.mysql.database.azure.com',
   'user':'<myadmin>@<mydemoserver>',
   'password':'<mypassword>',
-  'database':'<quickstartdb>'
+  'database':'<mydatabase>'
 }
 
 # Construct connection string
@@ -182,7 +180,7 @@ config = {
   'host':'<mydemoserver>.mysql.database.azure.com',
   'user':'<myadmin>@<mydemoserver>',
   'password':'<mypassword>',
-  'database':'<quickstartdb>'
+  'database':'<mydatabase>'
 }
 
 # Construct connection string
@@ -224,7 +222,7 @@ config = {
   'host':'<mydemoserver>.mysql.database.azure.com',
   'user':'<myadmin>@<mydemoserver>',
   'password':'<mypassword>',
-  'database':'<quickstartdb>'
+  'database':'<mydatabase>'
 }
 
 # Construct connection string
