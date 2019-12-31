@@ -2,13 +2,13 @@
 author: alkohli
 ms.service: databox  
 ms.topic: include
-ms.date: 12/11/2019
+ms.date: 12/31/2019
 ms.author: alkohli
 ---
 
 1. In the [Azure portal](https://portal.azure.com/), select your Azure Stack Edge resource and then go to the **Overview**. Your device should be online.
 
-2. Select **+ Add storage account** on the device command bar. Alternatively, select **Storage accounts** tile.
+2. Select **+ Add storage account** on the device command bar. 
 
    ![Add a storage account](media/azure-stack-edge-gateway-add-storage-account/add-storage-account-1.png)
 
