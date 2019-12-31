@@ -1,5 +1,5 @@
 ---
-title: Azure CLI Samples
+title: Azure CLI samples
 description: Provides Azure CLI sample scripts to use when working with Azure Managed Applications.
 author: tfitzmac
 ms.topic: sample
