@@ -17,7 +17,7 @@ A custom provider is a contract between Azure and an endpoint. With custom provi
 > [!NOTE]
 > In this tutorial, you create a simple service endpoint that uses an Azure function app. However, a custom provider can use any publicly accessible endpoint. Alternatives include Azure Logic Apps, Azure API Management, and the Web Apps feature of Azure App Service.
 
-To start this tutorial, you should first follow the tutorial [Create your first Azure function app in the Azure portal](../azure-functions/functions-create-first-azure-function.md). That tutorial creates a .NET core webhook function that can be modified in the Azure portal. It is also the foundation for the current tutorial.
+To start this tutorial, you should first follow the tutorial [Create your first Azure function app in the Azure portal](../../azure-functions/functions-create-first-azure-function.md). That tutorial creates a .NET core webhook function that can be modified in the Azure portal. It is also the foundation for the current tutorial.
 
 ## Install Azure Table storage bindings
 
@@ -31,7 +31,7 @@ To install the Azure Table storage bindings:
 1. In the **Table name** box, enter **myCustomResources**.
 1. Select **Save** to save the updated input parameter.
 
-![Custom provider overview showing table bindings](./media/create-custom-providers/azure-functions-table-bindings.png)
+![Custom provider overview showing table bindings](./media/create-custom-provider/azure-functions-table-bindings.png)
 
 ## Update RESTful HTTP methods
 
@@ -40,14 +40,14 @@ To set up the Azure function to include the custom provider RESTful request meth
 1. Go to the **Integrate** tab for the HttpTrigger.
 1. Under **Selected HTTP methods**, select **GET**, **POST**, **DELETE**, and **PUT**.
 
-![Custom provider overview showing HTTP methods](./media/create-custom-providers/azure-functions-http-methods.png)
+![Custom provider overview showing HTTP methods](./media/create-custom-provider/azure-functions-http-methods.png)
 
 ## Add Azure Resource Manager NuGet packages
 
 > [!NOTE]
 > If your C# project file is missing from the project directory, you can add it manually. Or it will appear after the Microsoft.Azure.WebJobs.Extensions.Storage extension is installed on the function app.
 
-Next, update the C# project file to include helpful NuGet libraries. These libraries make it easier to parse incoming requests from custom providers. Follow the steps to [add extensions from the portal](../azure-functions/install-update-binding-extensions-manual.md) and update the C# project file to include the following package references:
+Next, update the C# project file to include helpful NuGet libraries. These libraries make it easier to parse incoming requests from custom providers. Follow the steps to [add extensions from the portal](../../azure-functions/install-update-binding-extensions-manual.md) and update the C# project file to include the following package references:
 
 ```xml
 <PackageReference Include="Microsoft.Azure.WebJobs.Extensions.Storage" Version="3.0.4" />

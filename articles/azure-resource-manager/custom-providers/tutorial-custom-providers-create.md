@@ -10,7 +10,7 @@ ms.author: jobreen
 
 # Create and use a custom provider
 
-A custom provider is a contract between Azure and an endpoint. With custom providers, you can change workflows on Azure. This tutorial shows the process of creating a custom provider. If you're unfamiliar with Azure Custom Providers, see [the overview of Azure Custom Resource Providers](./custom-providers-overview.md).
+A custom provider is a contract between Azure and an endpoint. With custom providers, you can change workflows on Azure. This tutorial shows the process of creating a custom provider. If you're unfamiliar with Azure Custom Providers, see [the overview of Azure Custom Resource Providers](overview.md).
 
 ## Create a custom provider
 

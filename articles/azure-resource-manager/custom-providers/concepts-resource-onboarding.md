@@ -10,7 +10,7 @@ ms.author: jobreen
 
 # Azure Custom Providers resource onboarding overview
 
-Azure Custom Providers resource onboarding is an extensibility model for Azure resource types. It allows you to apply operations or management across existing Azure resources at scale. For more information, see [How Azure Custom Providers can extend Azure](./custom-providers-overview.md). This article describes:
+Azure Custom Providers resource onboarding is an extensibility model for Azure resource types. It allows you to apply operations or management across existing Azure resources at scale. For more information, see [How Azure Custom Providers can extend Azure](overview.md). This article describes:
 
 - What resource onboarding can do.
 - Resource onboarding basics and how to use it.
@@ -152,8 +152,8 @@ If you have questions about Azure Custom Resource Providers development, try ask
 
 In this article, you learned about custom providers. See these articles to learn more:
 
-- [Tutorial: Resource onboarding with custom providers](./tutorial-custom-providers-resource-onboarding.md)
-- [Tutorial: Create custom actions and resources in Azure](./tutorial-custom-providers-101.md)
+- [Tutorial: Resource onboarding with custom providers](./tutorial-resource-onboarding.md)
+- [Tutorial: Create custom actions and resources in Azure](./tutorial-get-started-with-custom-providers.md)
 - [Quickstart: Create a custom resource provider and deploy custom resources](./create-custom-provider.md)
 - [How to: Adding custom actions to an Azure REST API](./custom-providers-action-endpoint-how-to.md)
 - [How to: Adding custom resources to an Azure REST API](./custom-providers-resources-endpoint-how-to.md)

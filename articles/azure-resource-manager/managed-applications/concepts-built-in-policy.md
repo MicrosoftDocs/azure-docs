@@ -21,7 +21,7 @@ Deploy associations for a managed application is a built-in policy that can be u
 - Association name prefix - This string is the prefix to be added to the name of the association resource being created. The default value is "DeployedByPolicy".
 
 The policy uses DeployIfNotExists evaluation. It runs after a Resource Provider has handled a create or update resource request of the selected resource type(s) and the evaluation has returned a success status code. After that, the association resource gets deployed using a template deployment.
-For more information on associations, see [Azure Custom Providers resource onboarding](./concepts-custom-providers-resourceonboarding.md)
+For more information on associations, see [Azure Custom Providers resource onboarding](../custom-providers/concepts-resource-onboarding.md)
 
 ## How to use the deploy associations built-in policy 
 
@@ -32,7 +32,7 @@ If the managed application needs permissions to the subscription to perform an a
 To use the built-in policy, create a policy assignment and assign the Deploy associations for a managed application policy. Once the policy has been assigned successfully, 
 the policy will identify non-compliant resources and deploy association for those resources.
 
-![Assign built-in policy](media/builtin-policy/assign-builtin-policy-managedapp.png)
+![Assign built-in policy](media/concepts-built-in-policy/assign-builtin-policy-managedapp.png)
 
 ## Getting help
 
@@ -42,9 +42,9 @@ If you have questions about Azure Custom Resource Providers development, try ask
 
 In this article, you learnt about using built-in policy to deploy associations. See these articles to learn more:
 
-- [Concepts: Azure Custom Providers resource onboarding](./concepts-custom-providers-resourceonboarding.md)
-- [Tutorial: Resource onboarding with custom providers](./tutorial-custom-providers-resource-onboarding.md)
-- [Tutorial: Create custom actions and resources in Azure](./tutorial-custom-providers-101.md)
-- [Quickstart: Create a custom resource provider and deploy custom resources](./create-custom-provider.md)
-- [How to: Adding custom actions to an Azure REST API](./custom-providers-action-endpoint-how-to.md)
-- [How to: Adding custom resources to an Azure REST API](./custom-providers-resources-endpoint-how-to.md)
+- [Concepts: Azure Custom Providers resource onboarding](../custom-providers/concepts-resource-onboarding.md)
+- [Tutorial: Resource onboarding with custom providers](../custom-providers/tutorial-resource-onboarding.md)
+- [Tutorial: Create custom actions and resources in Azure](../custom-providers/tutorial-get-started-with-custom-providers.md)
+- [Quickstart: Create a custom resource provider and deploy custom resources](../custom-providers/create-custom-provider.md)
+- [How to: Adding custom actions to an Azure REST API](../custom-providers/custom-providers-action-endpoint-how-to.md)
+- [How to: Adding custom resources to an Azure REST API](../custom-providers/custom-providers-resources-endpoint-how-to.md)

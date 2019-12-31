@@ -783,5 +783,5 @@ The following example returns `"1991-01-01T00:59:59.000Z"`:
 ```
 
 ## Next steps
-* For an introduction to Azure Resource Manager, see [Azure Resource Manager overview](../azure-resource-manager/management/overview.md).
+* For an introduction to Azure Resource Manager, see [Azure Resource Manager overview](../management/overview.md).
 

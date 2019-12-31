@@ -11,7 +11,7 @@ ms.author: evanhi
 
 # Quickstart: Create custom provider and deploy custom resources
 
-In this quickstart, you create your own resource provider and deploy custom resource types for that resource provider. For more information about custom providers, see [Azure Custom Providers Preview overview](custom-providers-overview.md).
+In this quickstart, you create your own resource provider and deploy custom resource types for that resource provider. For more information about custom providers, see [Azure Custom Providers Preview overview](overview.md).
 
 ## Prerequisites
 
@@ -50,7 +50,7 @@ Or, you can deploy the solution with the following button:
 
 In the portal, the custom provider is a hidden resource type. To confirm that the resource provider has been deployed, navigate to the resource group. Select the option to **Show hidden types**.
 
-![Show hidden resource types](./media/create-custom-providers/show-hidden.png)
+![Show hidden resource types](./media/create-custom-provider/show-hidden.png)
 
 To see the custom resource type that you deployed, use the GET operation on your resource type.
 
@@ -151,4 +151,4 @@ You receive the response:
 
 ## Next steps
 
-For an introduction to custom providers, see [Azure Custom Providers Preview overview](custom-providers-overview.md).
+For an introduction to custom providers, see [Azure Custom Providers Preview overview](overview.md).

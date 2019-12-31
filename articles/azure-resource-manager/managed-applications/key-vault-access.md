@@ -13,7 +13,7 @@ ms.author: tomfitz
 ---
 # Access Key Vault secret when deploying Azure Managed Applications
 
-When you need to pass a secure value (like a password) as a parameter during deployment, you can retrieve the value from an [Azure Key Vault](../key-vault/key-vault-overview.md). To access the Key Vault when deploying Managed Applications, you must grant access to the **Appliance Resource Provider** service principal. The Managed Applications service uses this identity to run operations. To successfully retrieve a value from a Key Vault during deployment, the service principal must be able to access the Key Vault.
+When you need to pass a secure value (like a password) as a parameter during deployment, you can retrieve the value from an [Azure Key Vault](../../key-vault/key-vault-overview.md). To access the Key Vault when deploying Managed Applications, you must grant access to the **Appliance Resource Provider** service principal. The Managed Applications service uses this identity to run operations. To successfully retrieve a value from a Key Vault during deployment, the service principal must be able to access the Key Vault.
 
 This article describes how to configure the Key Vault to work with Managed Applications.
 
@@ -51,7 +51,7 @@ This article describes how to configure the Key Vault to work with Managed Appli
 
 ## Reference Key Vault secret
 
-To pass a secret from a Key Vault to a template in your Managed Application, you must use a [linked template](../azure-resource-manager/resource-group-linked-templates.md) and reference the Key Vault in the parameters for the linked template. Provide the resource ID of the Key Vault and the name of the secret.
+To pass a secret from a Key Vault to a template in your Managed Application, you must use a [linked template](../template/linked-templates.md) and reference the Key Vault in the parameters for the linked template. Provide the resource ID of the Key Vault and the name of the secret.
 
 ```json
 "resources": [{
@@ -84,6 +84,6 @@ To pass a secret from a Key Vault to a template in your Managed Application, you
 
 You've configured your Key Vault to be accessible during deployment of a Managed Application.
 
-* For information about passing a value from a Key Vault as a template parameter, see [Use Azure Key Vault to pass secure parameter value during deployment](../azure-resource-manager/resource-manager-keyvault-parameter.md).
+* For information about passing a value from a Key Vault as a template parameter, see [Use Azure Key Vault to pass secure parameter value during deployment](../templates/key-vault-parameter.md).
 * For managed application examples, see [Sample projects for Azure managed applications](sample-projects.md).
 * To learn how to create a UI definition file for a managed application, see [Get started with CreateUiDefinition](create-uidefinition-overview.md).
