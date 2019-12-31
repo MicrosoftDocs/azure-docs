@@ -1,10 +1,9 @@
 ---
-title: Azure create UI definition element | Microsoft Docs
+title: Create UI definition elements
 description: Describes the elements to use when constructing UI definitions for Azure portal.
 author: tfitzmac
 
-ms.service: managed-applications
-ms.topic: reference
+ms.topic: conceptual
 ms.date: 11/11/2019
 ms.author: tomfitz
 

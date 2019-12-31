@@ -1,8 +1,7 @@
 ---
-title: Overview of Azure Custom Resource Providers
+title: Overview of custom providers
 description: Learn about Azure Custom Resource Providers and how to extend the Azure API plane to fit your workflows.
 author: jjbfour
-ms.service: managed-applications
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: jobreen

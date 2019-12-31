@@ -1,9 +1,7 @@
 ---
-title: Create resource provider with Azure Custom Providers Preview
+title: Create resource provider
 description: Describes how to create a resource provider and deploy its custom resource types.
-services: managed-applications
 author: MSEvanhi
-ms.service: managed-applications
 ms.topic: tutorial
 ms.date: 05/01/2019
 ms.author: evanhi

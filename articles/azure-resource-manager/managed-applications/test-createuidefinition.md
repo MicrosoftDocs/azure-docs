@@ -1,8 +1,7 @@
 ---
-title: Test the UI definition for Azure Managed Applications | Microsoft Docs
+title: Test the UI definition file
 description: Describes how to test the user experience for creating your Azure Managed Application through the portal.
 author: tfitzmac
-ms.service: managed-applications
 ms.topic: conceptual
 ms.date: 08/06/2019
 ms.author: tomfitz

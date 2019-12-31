@@ -1,8 +1,7 @@
 ---
-title: Create custom actions and resources in Azure
+title: Create custom actions and resources
 description: This tutorial goes over how to create custom actions and resources in Azure Resource Manager. It also shows how custom workflows interoperate with Azure Resource Manager Templates, Azure CLI, Azure Policy, and Azure Activity Log.
 author: jjbfour
-ms.service: managed-applications
 ms.topic: tutorial
 ms.date: 06/19/2019
 ms.author: jobreen

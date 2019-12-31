@@ -1,8 +1,7 @@
 ---
-title: Azure Custom Providers resource onboarding
+title: Resource onboarding
 description: Learn about performing resource onboarding by using Azure Custom Providers to apply management or configuration to other Azure resource types.
 author: jjbfour
-ms.service: managed-applications
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: jobreen

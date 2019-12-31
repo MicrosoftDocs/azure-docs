@@ -1,8 +1,6 @@
 ---
 title: Adding custom resources to Azure REST API
 description: Learn how to add custom resources to the Azure REST API. This article will walk through the requirements and best practices for endpoints that wish to implement custom resources.
-services: managed-applications
-ms.service: managed-applications
 ms.topic: conceptual
 ms.author: jobreen
 author: jjbfour

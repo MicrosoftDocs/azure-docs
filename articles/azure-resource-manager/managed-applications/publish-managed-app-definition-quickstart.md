@@ -1,10 +1,8 @@
 ---
-title: Create Azure managed application definition | Microsoft Docs
+title: Create managed app definition
 description: Shows how to create an Azure managed application that is intended for members of your organization.
-services: managed-applications
 author: tfitzmac
 
-ms.service: managed-applications
 ms.topic: quickstart
 ms.date: 09/13/2019
 ms.author: tomfitz

@@ -6,7 +6,7 @@ summary: Define custom APIs that extend the Azure experience
 metadata:
   title: Azure Custom Providers documentation
   description: Azure Custom Providers is an extensibility platform to Azure that enables you define to custom APIs
-  ms.service: managed-applications
+  ms.service: azure-custom-providers
   ms.topic: landing-page
   ms.collection: na
   author: tfitzmac

@@ -1,8 +1,7 @@
 ---
-title: Deploy associations for Azure Custom Provider using policy
+title: Deploy associations using policies
 description: Learn about deploying associations for a custom provider using Azure Policy service.
 author: msHich
-ms.service: managed-applications
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: hich

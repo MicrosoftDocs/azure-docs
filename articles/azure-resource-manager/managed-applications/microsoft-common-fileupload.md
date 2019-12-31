@@ -1,17 +1,9 @@
 ---
-title: Azure FileUpload UI element | Microsoft Docs
+title: FileUpload UI element
 description: Describes the Microsoft.Common.FileUpload UI element for Azure portal. Enables users need to upload files when deploying a managed application.
-services: managed-applications
-documentationcenter: na
 author: tfitzmac
-manager: timlt
-editor: tysonn
 
-ms.service: managed-applications
-ms.devlang: na
-ms.topic: reference
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: tomfitz
 

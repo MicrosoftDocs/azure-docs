@@ -1,16 +1,10 @@
 ---
 title:  Create managed application definition - Azure PowerShell
 description: Provides an Azure PowerShell script sample that creates a managed application definition in the Azure subscription.
-services: managed-applications
-documentationcenter: na
 author: tfitzmac
-manager: timlt
 
-ms.service: managed-applications
 ms.devlang: powershell
 ms.topic: sample
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 10/27/2017
 ms.author: tomfitz
 ---

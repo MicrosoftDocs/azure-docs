@@ -1,14 +1,9 @@
 ---
-title: Azure managed applications in the Marketplace | Microsoft Docs
+title: Managed apps in the Marketplace
 description: Describes Azure managed applications that are available through the Marketplace.
-services: managed-applications
 author: tfitzmac
-manager: timlt
 
-ms.service: managed-applications
-ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: na
 ms.date: 07/17/2019
 ms.author: tomfitz
 ---

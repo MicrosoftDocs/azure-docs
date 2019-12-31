@@ -1,13 +1,9 @@
 ---
-title: Publish Azure service catalog managed application
+title: Publish service catalog managed app
 description: Shows how to create an Azure managed application that is intended for members of your organization.
-services: managed-applications
 author: tfitzmac
 
-ms.service: managed-applications
-ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: na
 ms.date: 10/04/2018
 ms.author: tomfitz
 ---

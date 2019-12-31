@@ -1,8 +1,7 @@
 ---
-title: Deploy associations for Azure Managed Application using policy
+title: Deploy associations for managed application using policy
 description: Learn about deploying associations for a managed application using Azure Policy service.
 author: msHich
-ms.service: managed-applications
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: hich

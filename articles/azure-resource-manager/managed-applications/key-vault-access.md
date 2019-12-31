@@ -1,13 +1,9 @@
 ---
-title: Use Azure Key Vault with Managed Applications | Microsoft Docs
+title: Use Key Vault when deploying managed app
 description: Shows how to use access secrets in Azure Key Vault when deploying Managed Applications
-services: managed-applications
 author: tfitzmac
 
-ms.service: managed-applications
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.date: 01/30/2019
 ms.author: tomfitz
 ---
