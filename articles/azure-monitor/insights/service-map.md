@@ -23,7 +23,7 @@ This article describes the details of onboarding and using Service Map. For info
 * The Dependency agent installed on the Windows computer or Linux server.
 
 >[!NOTE]
->If you have already deployed Service Map, you can now also view your maps in Azure Monitor for VMs, which includes additional features to monitor VM health and performance. To learn more, see [Azure Monitor for VMs overview](../../azure-monitor/insights/vminsights-overview.md). To learn about the differences between the Service Map solution and Azure Monitor for VMs Map feature, see the following [FAQ](vminsights-faq.md#how-is-azure-monitor-for-vms-map-feature-different-from-service-map).
+>If you have already deployed Service Map, you can now also view your maps in Azure Monitor for VMs, which includes additional features to monitor VM health and performance. To learn more, see [Azure Monitor for VMs overview](../../azure-monitor/insights/vminsights-overview.md). To learn about the differences between the Service Map solution and Azure Monitor for VMs Map feature, see the following [FAQ](../faq.md#azure-monitor-for-vms-preview).
 
 ## Sign in to Azure
 
