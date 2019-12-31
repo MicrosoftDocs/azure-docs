@@ -41,9 +41,6 @@ The following table lists Azure services and the monitoring patterns they suppor
 ## Other solutions
 
 
-
-## Solutions
-
 [Activity log analytics](activity-log-collect.md)
 [Agent health](../insights/solution-agenthealth.md)
 [Alert management](alert-management-solution.md)
