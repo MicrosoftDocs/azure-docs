@@ -18,6 +18,9 @@ customize roles](../role-based-access-control/custom-roles.md).
 
 ## The server admin account
 
+The PostgreSQL engine uses privileges to control access to database objects, as
+discussed in the [PostgreSQL product
+documentation](https://www.postgresql.org/docs/current/static/sql-createrole.html).
 A newly created Hyperscale (Citus) server group comes with several roles
 pre-defined:
 
@@ -26,14 +29,11 @@ pre-defined:
 * *postgres*
 * *citus*
 
-The PostgreSQL engine uses privileges to control access to database objects, as
-discussed in the [PostgreSQL product
-documentation](https://www.postgresql.org/docs/current/static/sql-createrole.html).
-Your server admin user, *citus*, is a member of the *azure_pg_admin* role.
-However, it isn't part of the *postgres* (super user) role.  Since Hyperscale
-is a managed PaaS service, only Microsoft is part of the super user role. The
-*citus* user has limited permissions. While it can [create
-extensions](concepts-hyperscale-extensions.md), it can't create new databases.
+Since Hyperscale is a managed PaaS service, only Microsoft is part of the
+*postgres* super user role. Hyperscale provides a *citus* role with more
+limited administrative access. For instance, the role cannot create new
+databases, but it can [create PostgreSQL
+extensions](concepts-hyperscale-extensions.md).
 
 ## How to create additional users
 
