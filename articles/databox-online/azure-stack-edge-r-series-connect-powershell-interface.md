@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 12/12/2019
+ms.date: 12/31/2019
 ms.author: alkohli
 ---
 # Manage an Azure Stack Edge device via Windows PowerShell
