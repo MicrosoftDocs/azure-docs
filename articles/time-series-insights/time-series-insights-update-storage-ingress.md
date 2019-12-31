@@ -29,13 +29,11 @@ Time Series Insights Preview supports the following event sources:
 - [Azure IoT Hub](../iot-hub/about-iot-hub.md)
 - [Azure Event Hubs](../event-hubs/event-hubs-about.md)
 
-Time Series Insights Preview supports a maximum of two event sources per instance.
-  
-Azure Time Series Insights supports JSON submitted through Azure IoT Hub or Azure Event Hubs.
+Time Series Insights Preview supports a maximum of two event sources per instance. Azure Time Series Insights supports JSON submitted through Azure IoT Hub or Azure Event Hubs.
 
 > [!WARNING] 
 > * You may experience high initial latency when attaching an event source to your Preview environment. 
-> Event source latency depends on the number of events currently in your IoT Hub or Event Hub
+> Event source latency depends on the number of events currently in your IoT Hub or Event Hub.
 > * High latency will subside after event source data is first ingested. Please contact us by submitting a support ticket through the Azure portal if you experience continued high latency.
 
 ## Ingress best practices
@@ -48,10 +46,10 @@ We recommend that you employ the following best practices:
 
 ### Ingress scale and limitations in preview
 
-By default, Preview environments support ingress rates up to **1 megabyte per second (MB/s) per environment**. Customers may scale their Preview environments up to **16 MB/s** throughput if required.
+By default, Preview environments support ingress rates up to **1 megabyte per second (MB/s) per environment**. Customers may scale their Preview environments up to **16 MB/s** throughput if necessary.
 There is also a per-partition limit of **0.5 MB/s**. 
 
-This has implications for customers using IoT Hub specifically, given the affinity between an IoT Hub device a partition. In scenarios where one gateway device is forwarding messages to hub using its own device ID and connection string, there is the danger of reaching the 0.5 MB/s limit given that messages will arrive in a single partition, even if the event payload specifies different Time Series IDs. 
+The per-partition limit has implications for customers using IoT Hub. Specifically, given the affinity between an IoT Hub device and a partition. In scenarios where one gateway device is forwarding messages to hub using its own device ID and connection string, there is the danger of reaching the 0.5 MB/s limit given that messages will arrive in a single partition, even if the event payload specifies different Time Series IDs. 
 
 In general, ingress rates are viewed as the factor of the number of devices that are in your organization, event emission frequency, and the size of each event:
 
@@ -60,7 +58,7 @@ In general, ingress rates are viewed as the factor of the number of devices that
 > [!TIP]
 > For environments using IoT Hub as an event source, calculate the ingestion rate using the number of hub connections in use, rather than total devices in use or in the organization.
 
-Please refer to the following links for more information on throughput units and partitions:
+For more information about throughput units, limits, and partitions:
 
 * [IoT Hub Scale](https://docs.microsoft.com/azure/iot-hub/iot-hub-scaling)
 * [Event Hub Scale](https://docs.microsoft.com/azure/event-hubs/event-hubs-scalability#throughput-units)
