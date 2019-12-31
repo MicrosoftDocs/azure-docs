@@ -147,12 +147,12 @@ support guide to create the user B.Simon within your organization. Users must be
 ## Test SSO 
 
 In this section, you test your Azure AD single sign-on configuration using a Versal course embedded within your website.
-Please see the [Embedding Organizational Courses](https://support.versal.com/hc/en-us/articles/203271866-Embedding-organizational-courses) **SAML Single Sign-On**
+Please see the [Embedding Organizational Courses](https://support.versal.com/hc/articles/203271866-Embedding-organizational-courses) **SAML Single Sign-On**
 support guide for instructions on how to embed a Versal course with support for Azure AD single sign-on. 
 
 You will need to create a course, share it with your organization, and publish it in order to test course embedding. 
-Please see [Creating a course](https://support.versal.com/hc/en-us/articles/203722528-Create-a-course), [Publishing a course](https://support.versal.com/hc/en-us/articles/203753398-Publishing-a-course),
- and [Course and learner management](https://support.versal.com/hc/en-us/articles/206029467-Course-and-learner-management) for more information.
+Please see [Creating a course](https://support.versal.com/hc/articles/203722528-Create-a-course), [Publishing a course](https://support.versal.com/hc/articles/203753398-Publishing-a-course),
+ and [Course and learner management](https://support.versal.com/hc/articles/206029467-Course-and-learner-management) for more information.
 
 ## Additional resources
 
