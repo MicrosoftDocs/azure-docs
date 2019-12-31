@@ -85,7 +85,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. Click **Set additional URLs** and perform the following steps if you wish to configure the application in **SP** initiated mode:
 
-	a. In the **Sign-on URL** text box, type the URL:
+	In the **Sign-on URL** text box, type the URL:
     `https://supermood.co/app/#!/loginv2`
 
 1. Click **Save**.
