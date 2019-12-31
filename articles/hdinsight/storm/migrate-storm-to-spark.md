@@ -32,7 +32,7 @@ Apache Storm can provide different levels of guaranteed message processing. For 
 
 ### Spark streaming vs Spark structured streaming
 
-Spark Structured Streaming is replacing Spark Streaming (DStreams). Going forward, Structured Streaming will receive enhancements and maintenance, while DStreams will be in maintenance mode only. Structured Streaming is currently not as feature-complete as DStreams for the sources and sinks that it supports out of the box, so evaluate your requirements to choose the appropriate Spark stream processing option.
+Spark Structured Streaming is replacing Spark Streaming (DStreams). Structured Streaming will continue to receive enhancements and maintenance, while DStreams will be in maintenance mode only. Structured Streaming does not have as many features as DStreams for the sources and sinks that it supports out of the box, so evaluate your requirements to choose the appropriate Spark stream processing option.
 
 ## Streaming (Single event) processing vs Micro-Batch processing
 
@@ -40,19 +40,7 @@ Storm provides a model that processes each single event. This means that all inc
 
 ![streaming and micro-batch processing](./media/migrate-storm-to-spark/streaming-and-micro-batch-processing.png)
 
-## Storm architecture
-
-Storm consists of the following three daemons.
-
-|Daemon |Description |
-|---|---|
-|Nimbus|Similar to Hadoop JobTracker, it's responsible for distributing code around the cluster and assigning tasks to machines and monitoring for failures.|
-|Zookeeper|Used for cluster coordination.|
-|Supervisor|Listens for work assigned to its machine and starts and stops worker processes based on directives from Nimbus. Each worker process executes a subset of a topology. User’s application logic (Spouts and Bolt) run here.|
-
-![nimbus, zookeeper, and supervisor daemons](./media/migrate-storm-to-spark/nimbus-zookeeper-supervisor.png)
-
-## Storm concept
+## Storm architecture and components
 
 Storm topologies are composed of multiple components that are arranged in a directed acyclic graph (DAG). Data flows between the components in the graph. Each component consumes one or more data streams, and can optionally emit one or more streams.
 
@@ -62,6 +50,16 @@ Storm topologies are composed of multiple components that are arranged in a dire
 |Bolt|Consumes streams emitted from spouts or other bolts. Bolts might optionally emit streams into the topology. Bolts are also responsible for writing data to external services or storage, such as HDFS, Kafka, or HBase.|
 
 ![interaction of storm components](./media/migrate-storm-to-spark/apache-storm-components.png)
+
+Storm consists of the following three daemons which keep the Storm cluster functioning.
+
+|Daemon |Description |
+|---|---|
+|Nimbus|Similar to Hadoop JobTracker, it's responsible for distributing code around the cluster and assigning tasks to machines and monitoring for failures.|
+|Zookeeper|Used for cluster coordination.|
+|Supervisor|Listens for work assigned to its machine and starts and stops worker processes based on directives from Nimbus. Each worker process executes a subset of a topology. User’s application logic (Spouts and Bolt) run here.|
+
+![nimbus, zookeeper, and supervisor daemons](./media/migrate-storm-to-spark/nimbus-zookeeper-supervisor.png)
 
 ## Spark Streaming / Spark Structured Streaming
 
@@ -121,45 +119,6 @@ In Structured Streaming, data arrives at the system and is immediately ingested 
 ![processing of data in structured streaming](./media/migrate-storm-to-spark/structured-streaming-data-processing.png)
 
 ![programming model for structured streaming](./media/migrate-storm-to-spark/structured-streaming-model.png)
-
-## Spark structured streaming
-
-You can write the basic operations of Spark Structured Streaming code as follows. See [Overview of Apache Spark Structured Streaming](../spark/apache-spark-structured-streaming-overview.md) for more details.
-
-```spark
-case class DeviceData(device: String, deviceType: String, signal: Double, time: DateTime)
-val df: DataFrame = ... // streaming DataFrame with IOT device data with schema { device: string, deviceType: string, signal: double, time: string }
-val ds: Dataset[DeviceData] = df.as[DeviceData] // streaming Dataset with IOT device data
-// Select the devices which have signal more than 10
-df.select("device").where("signal > 10")
-// using untyped APIs
-ds.filter(_.signal > 10).map(_.device)  // using typed APIs
-// Running count of the number of updates for each device type
-df.groupBy("deviceType").count() // using untyped API
-// Running average signal for each device type
-import org.apache.spark.sql.expressions.scalalang.typed
-ds.groupByKey(_.deviceType).agg(typed.avg(_.signal)) // using typed API
-```
-
-SQL commands:
-
-```spark
-df.createOrReplaceTempView("updates")
-spark.sql("select count(*) from updates") // returns another streaming DF
-```
-
-Window operation:
-
-```spark
-val windowedCounts = words.groupBy(
- window($"timestamp", "10 minutes", "5 minutes"),
- $"word“
- ).count()
-```
-
-![diagram of structured streaming results](./media/migrate-storm-to-spark/structured-streaming-results.png)
-
-If the built-in operations don't meet the data transformation requirements, you can use UDF (User-Defined Functions).
 
 ## General migration flow
 
