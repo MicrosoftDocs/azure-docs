@@ -4,8 +4,8 @@ description: Server firewall exceptions required by Application Insights
 ms.service:  azure-monitor
 ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
+author: lgayhardt
+ms.author: lagayhar
 ms.date: 12/19/2019
 
 ---
