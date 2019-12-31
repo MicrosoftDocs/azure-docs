@@ -79,7 +79,7 @@ Windows Server 2019 DSVM has the following Jupyter kernels:-</br>
 &nbsp;&nbsp;&nbsp;&nbsp;d.	Julia 1.0.5</br>
 &nbsp;&nbsp;&nbsp;&nbsp;e.	R</br>
 
-Ubuntu 18.04 DSVM has the following conda environents:-</br>
+Ubuntu 18.04 DSVM has the following conda environments:-</br>
 &nbsp;&nbsp;&nbsp;&nbsp;a.	py37_base</br>
 &nbsp;&nbsp;&nbsp;&nbsp;b.	py37_tensorflow</br>
 &nbsp;&nbsp;&nbsp;&nbsp;c.	py37_pytorch</br>
@@ -87,7 +87,7 @@ Ubuntu 18.04 DSVM has the following conda environents:-</br>
 &nbsp;&nbsp;&nbsp;&nbsp;e.	azureml_py36_pytorch</br>
 &nbsp;&nbsp;&nbsp;&nbsp;f.	azureml_py36_automl</br>
 
-Windows Server 2019 DSVM has the following conda environents:-</br>
+Windows Server 2019 DSVM has the following conda environments:-</br>
 &nbsp;&nbsp;&nbsp;&nbsp;a.	base</br>
 &nbsp;&nbsp;&nbsp;&nbsp;b.	py37</br>
 &nbsp;&nbsp;&nbsp;&nbsp;c.	azureml_py36</br>
