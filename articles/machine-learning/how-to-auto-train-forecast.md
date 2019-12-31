@@ -39,7 +39,7 @@ Automated ML provides users with both native time-series and deep learning model
 + Auto-ARIMA
 + ForecastTCN
 
-Automated ML's deep learning allows for forecasting bivariate and multivariate time series data.
+Automated ML's deep learning allows for forecasting univariate and multivariate time series data.
 
 Deep learning models have three intrinsic capabilities:
 1. They can learn from arbitrary mappings from inputs to outputs
