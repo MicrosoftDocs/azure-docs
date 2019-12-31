@@ -147,10 +147,9 @@ For this process, there are pricing implications as it is at the storage level.
 >Before you begin:
 >
 >- CRR is a vault level opt-in feature for any GRS vault (turned off by default).
+>- Please use *"featureName": "CrossRegionRestore"* to onboard your subscription to this feature.
 >- If you are onboarded to this feature during public limited preview, the review approval email will include pricing policy details.
 >- After opting-in, it might take up to 48 hours for the backup items to be available in secondary regions.
->- Conditions to opt out are as follows:
->   - The account is billed as RA-GRS for an additional 30 days beyond the date that it was converted as per [Azure storage pricing policies](https://docs.microsoft.com/azure/storage/common/storage-redundancy).
 >- Currently CRR is supported only for Backup Management Type - ARM Azure VM (classic Azure VM will not be supported).  When additional management types support CRR, then they will be **automatically** enrolled.
 
 ### Configure Cross Region Restore
@@ -162,7 +161,9 @@ The vault that has been created with GRS redundancy will have the option to conf
 1. From the portal, go to Recovery Services vault > Settings > Properties.
 2. Click **Enable Cross Region Restore in this vault** to enable the functionality.
 
-   ![Click Enable Cross Region restore in this vault](./media/backup-azure-arm-restore-vms/backup-configuration.png)
+   ![Before you click Enable Cross Region restore in this vault](./media/backup-azure-arm-restore-vms/backup-configuration1.png)
+
+   ![After you click Enable Cross Region restore in this vault](./media/backup-azure-arm-restore-vms/backup-configuration2.png)
 
 >[!NOTE]
 >Note: If CRR is enabled and you disable it, then after opting-out the account is billed as RA-GRS for an additional 30 days beyond the date that it was converted, as per Azure storage pricing policies.
