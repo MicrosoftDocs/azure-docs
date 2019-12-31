@@ -32,7 +32,8 @@ documentation](https://www.postgresql.org/docs/current/static/sql-createrole.htm
 Your server admin user, *citus*, is a member of the *azure_pg_admin* role.
 However, it isn't part of the *postgres* (super user) role.  Since Hyperscale
 is a managed PaaS service, only Microsoft is part of the super user role. The
-*citus* user has limited permissions and can't e.g. create new databases.
+*citus* user has limited permissions. While it can [create
+extensions](concepts-hyperscale-extensions.md), it can't create new databases.
 
 ## How to create additional users
 
