@@ -36,6 +36,8 @@ These features make up the Speech service. Use the links in this table to learn 
 
 Learn what's new with the Speech service.
 
+- November 2019
+  - Added two new speaking styles, [`newscast`](speech-synthesis-markup.md#adjust-speaking-styles) and [`customerservice`](speech-synthesis-markup.md#adjust-speaking-styles) for the `en-US-JessaNeural` voice.
 - September 2019
   - Released Speech SDK 1.7.0. For a full list of updates, enhancements, and known issues, see [Release notes](releasenotes.md).
 - August 2019
