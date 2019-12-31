@@ -30,3 +30,6 @@ You can find more information on Microsoft’s strategy and execution of Red Tea
 
 https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e
 
+## Next steps
+
+Read more about [Azure Security Controls](overview.md)

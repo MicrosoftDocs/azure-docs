@@ -167,7 +167,7 @@ https://docs.microsoft.com/azure/virtual-network/service-tags-overview
 
 Define and implement standard security configurations for network resources with Azure Policy.
 
-You may also use Azure Blueprints to simplify large scale Azure deployments by packaging key environment artifacts, such as ARM templates, RBAC controls, and policies, in a single blueprint definition. You can apply the blueprint to new subscriptions and environments, and fine-tune control and management through versioning.
+You may also use Azure Blueprints to simplify large scale Azure deployments by packaging key environment artifacts, such as Azure Resource Manager templates, RBAC controls, and policies, in a single blueprint definition. You can apply the blueprint to new subscriptions and environments, and fine-tune control and management through versioning.
 
 How to configure and manage Azure Policy:
 
@@ -217,3 +217,6 @@ Azure Policy samples for networking:
 
 https://docs.microsoft.com/azure/governance/policy/samples/#network
 
+## Next steps
+
+- See the next security control: [Logging and Monitoring](security-control-logging-monitoring.md)

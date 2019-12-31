@@ -69,3 +69,6 @@ How to enable Soft-Delete in Key Vault:
 
 https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal
 
+## Next steps
+
+See the next security control: [Incident Response](security-control-incident-response.md)

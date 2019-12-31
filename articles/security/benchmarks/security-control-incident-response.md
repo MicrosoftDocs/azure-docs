@@ -14,7 +14,7 @@ ms.custom: security-recommendations
 
 # Security Control: Incident Response
 
-Protect the organization's information, as well as its reputation, by developing and implementing anincident response infrastructure (e.g., plans, defined roles, training, communications, managementoversight) for quickly discovering an attack and then effectively containing the damage, eradicating the attacker's presence, and restoring the integrity of the network and systems.
+Protect the organization's information, as well as its reputation, by developing and implementing an incident response infrastructure (e.g., plans, defined roles, training, communications, management oversight) for quickly discovering an attack and then effectively containing the damage, eradicating the attacker's presence, and restoring the integrity of the network and systems.
 
 ## 10.1: Create an incident response guide
 
@@ -102,4 +102,6 @@ How to configure Workflow Automation and Logic Apps:
 
 https://docs.microsoft.com/azure/security-center/workflow-automation
 
+## Next steps
 
+See the next security control: [Penetration Tests and Red Team Exercises](security-control-penetration-tests-red-team-exercises.md)

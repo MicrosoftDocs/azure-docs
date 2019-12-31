@@ -48,7 +48,7 @@ Azure AD does not have the concept of default passwords. Other Azure resources r
 
 Create standard operating procedures around the use of dedicated administrative accounts. Use Azure Security Center Identity and Access Management to monitor the number of administrative accounts.
 
-You can also enable a Just-In-Time / Just-Enough-Access by using Azure AD Privileged Identity Management Privileged Roles for Microsoft Services, and Azure ARM. 
+You can also enable a Just-In-Time / Just-Enough-Access by using Azure AD Privileged Identity Management Privileged Roles for Microsoft Services, and Azure Resource Manager. 
 
 Learn more: https://docs.microsoft.com/azure/active-directory/privileged-identity-management/
 
@@ -193,3 +193,6 @@ Understanding Customer Lockbox:
 
 https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview
 
+## Next steps
+
+See the next security control: [Data Protection](security-control-data-protection.md)

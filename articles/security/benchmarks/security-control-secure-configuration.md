@@ -67,9 +67,9 @@ https://docs.microsoft.com/azure/governance/policy/concepts/effects
 
 Base operating system images are managed and maintained by Microsoft.
 
-However, you can apply security settings required by your organization using ARM templates and/or Desired State Configuration.
+However, you can apply security settings required by your organization using Azure Resource Manager templates and/or Desired State Configuration.
 
-How to create an Azure Virtual Machine from an ARM template:
+How to create an Azure Virtual Machine from an Azure Resource Manager template:
 
 https://docs.microsoft.com/azure/virtual-machines/windows/ps-template
 
@@ -83,7 +83,7 @@ https://docs.microsoft.com/azure/virtual-machines/extensions/dsc-overview
 |--|--|--|
 | 7.5 | 5.3 | Customer |
 
-If using custom Azure policy definitions, use Azure DevOps/Repos to securely store and manage your code.
+If using custom Azure policy definitions, use Azure Azure DevOps or Azure Repos to securely store and manage your code.
 
 How to store code in Azure DevOps:
 
@@ -200,3 +200,6 @@ Implement Credential Scanner to identify credentials within code. Credential Sca
 How to setup Credential Scanner:
 https://secdevtools.azurewebsites.net/helpcredscan.html
 
+## Next steps
+
+See the next security control: [Malware Defense](security-control-malware-defense.md)

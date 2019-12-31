@@ -173,3 +173,6 @@ Implement a third-party solution for DNS logging.
 
 Manually configure console logging and PowerShell Transcription on a per-node basis.
 
+## Next steps
+
+See the next security control: [Identity and Access Control](security-control-identity-access-control.md)

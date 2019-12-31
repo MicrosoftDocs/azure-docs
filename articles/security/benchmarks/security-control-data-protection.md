@@ -162,3 +162,7 @@ How to create alerts for Azure Activity Log events:
 
 https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log
 
+## Next steps
+
+See the next security control: [Vulnerability Management](security-control-vulnerability-management.md)
+

@@ -14,7 +14,7 @@ ms.custom: security-baselines
 
 # Azure security benchmarks introduction
 
-You may have several years or even decades of experience with on-premises computing. You know how to secure those deployments. But the cloud is different. How do you know if your cloud deployments are secure? What are the differences between security practices for on-premise systems and security practices for cloud deployments?
+You may have several years or even decades of experience with on-premises computing. You know how to secure those deployments. But the cloud is different. How do you know if your cloud deployments are secure? What are the differences between security practices for on-premises systems and security practices for cloud deployments?
 
 There is a large collection of white papers, best practices, reference architectures, web guidance, open-source tools, commercial solutions, intelligence feeds, and more that can be used to help secure the cloud. Which option should you use? What can you do to get an acceptable level of security in the cloud? 
 
@@ -34,5 +34,5 @@ The terms "Control", "Benchmark", and "Baseline" are used often in the Azure Sec
 | Control | A **control** is a high-level description of a feature or activity that needs to be addressed, and is not specific to a technology or implementation. | Data Protection is one of the security controls. This control contains specific actions that need to be addressed to help ensure data is protected. |
 | Benchmark | A **benchmark** contains security recommendations for a specific technology, such as Azure. The recommendations are categorized by the control to which they belong. | The Azure Security benchmark comprises the security recommendations specific to the Azure platform  |
 | Baseline | A **baseline** is the security requirements for an organization. The security requirements are based on benchmark recommendations. Each organization decides which benchmark recommendations to include in their baseline. | The Contoso company creates its security baseline by choosing to require specific recommendations in the Azure Security Benchmark. |
-12/28/2019
+
 We welcome your feedback on the Azure Security Benchmark! We encourage you to provide comments in the feedback area below. If you prefer to share your input more privately with the Azure Security Benchmark team, you are welcome to fill out the form at https://aka.ms/AzSecBenchmark 

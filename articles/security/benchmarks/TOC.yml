@@ -9,15 +9,15 @@
   - name: Network Security
     href: security-control-network-security.md
   - name: Logging and Monitoring
-    href: security-control-logging-and-monitoring.md
+    href: security-control-logging-monitoring.md
   - name: Identity and Access Control
-    href: security-control-identity-and-access-control.md
+    href: security-control-identity-access-control.md
   - name: Data Protection
     href: security-control-data-protection.md
   - name: Vulnerability Management
     href: security-control-vulnerability-management.md
   - name: Inventory and Asset Management
-    href: security-control-inventory-and-asset-management.md
+    href: security-control-inventory-asset-management.md
   - name: Secure Configuration
     href: security-control-secure-configuration.md
   - name: Malware Defense
@@ -27,4 +27,4 @@
   - name: Incident Response
     href: security-control-incident-response.md
   - name: Penetration Tests and Red Team Exercises
-    href: security-control-penetration-tests-and-red-team-exercises.md
+    href: security-control-penetration-tests-red-team-exercises.md

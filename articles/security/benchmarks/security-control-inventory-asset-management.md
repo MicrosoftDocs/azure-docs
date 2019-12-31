@@ -24,7 +24,7 @@ Inventory and Asset Management recommendations focus on addressing issues relate
 
 Use Azure Resource Graph to query/discover all resources (such as compute, storage, network, ports, and protocols etc.) within your subscription(s).  Ensure appropriate (read) permissions in your tenant and enumerate all Azure subscriptions as well as resources within your subscriptions.
 
-Although classic Azure resources may be discovered via Resource Graph, it is highly recommended to create and use ARM resources going forward.
+Although classic Azure resources may be discovered via Resource Graph, it is highly recommended to create and use Azure Resource Manager resources going forward.
 
 How to create queries with Azure Resource Graph:
 
@@ -102,7 +102,7 @@ https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 |--|--|--|
 | 6.6 | 2.3/2.4 | Customer |
 
-Use Azure virtual machine Inventory to automate the collection of information about all software on Virtual Machines. Note: Software Name, Version, Publisher, and Refresh time are available from the Azure Portal. To get access to install date and other information, enable guest-level diagnostics and bring the Windows Event Logs into a Log Analytics Workspace.
+Use Azure virtual machine Inventory to automate the collection of information about all software on Virtual Machines. Software Name, Version, Publisher, and Refresh time are available from the Azure portal. To get access to install date and other information, enable guest-level diagnostics and bring the Windows Event Logs into a Log Analytics Workspace.
 
 How to enable Azure virtual machine Inventory:
 
@@ -170,15 +170,15 @@ How to use Azure Security Center Adaptive Application Controls:
 
 https://docs.microsoft.com/azure/security-center/security-center-adaptive-application
 
-## 6.11: Limit users' ability to interact with ARM via scripts
+## 6.11: Limit users' ability to interact with Azure Resource Manager via scripts
 
 | Azure ID | CIS IDs | Responsibility |
 |--|--|--|
 | 6.11 | 2.8 | Customer |
 
-Use Azure Conditional Access to limit users' ability to interact with ARM by configuring &quot;Block access&quot; for the &quot;Microsoft Azure Management&quot; App.
+Use Azure Conditional Access to limit users' ability to interact with Azure Resource Manager by configuring &quot;Block access&quot; for the &quot;Microsoft Azure Management&quot; App.
 
-How to configure Conditional Access to block access to ARM:
+How to configure Conditional Access to block access to Azure Resource Manager:
 
 https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management
 
@@ -209,3 +209,6 @@ How to create an NSG with a security config:
 
 https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic
 
+## Next steps
+
+See the next security control: [Secure Configuration](security-control-secure-configuration.md)
