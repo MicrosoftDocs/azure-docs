@@ -13,7 +13,7 @@ ms.date: 12/30/2019
 
 # Azure Monitor Frequently Asked Questions
 
-This Microsoft FAQ is a list of commonly asked questions about Azure Monitor. If you have any additional questions, go to the [discussion forum](https://feedback.azure.com/forums/34192--general-feedback) and post your questions. When a question is frequently asked, we add it to this article so that it can be found quickly.
+This Microsoft FAQ is a list of commonly asked questions about Azure Monitor.
 
 ## General
 

@@ -528,7 +528,7 @@
       - name: Agents overview
         href: platform/agents-overview.md
       - name: FAQ
-        href: platform/agent-faq.md
+        href: faq.md#agents
       - name: Azure Diagnostics extension
         items:
         - name: Overview
