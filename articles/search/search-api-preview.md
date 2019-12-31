@@ -20,7 +20,7 @@ This article describes the `api-version=2019-05-06-Preview` version of Search se
 
 ## New in 2019-05-06-Preview
 
-+ [Incremental indexing](cognitive-search-incremental-indexing-conceptual.md) is a new mode for indexing that adds state and caching to a skillset, allowing you to reuse existing output when source data, indexer, and skillset definitions are unchanged. This feature applies only to enrichments defined a cognitive skillset.
++ [Incremental enrichment](cognitive-search-incremental-indexing-conceptual.md) is a new mode for indexing that adds state and caching to a skillset, allowing you to reuse existing output when source data, indexer, and skillset definitions are unchanged. This feature applies only to enrichments defined a cognitive skillset.
 
 + [Cosmos DB indexer](search-howto-index-cosmosdb.md) supports MongoDB API, Gremlin API, and Cassandra API.
 

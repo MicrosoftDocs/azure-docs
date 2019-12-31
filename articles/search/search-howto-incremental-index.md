@@ -45,7 +45,7 @@ By default the `cache` property is null. Modify the cache object to include requ
 
 The `storageConnectionString` is required, and it must be set to an Azure storage connection string. 
 
-The `enableReprocessing` boolean property is optional (`true` by default), and enables reprocessing on all documents, existing and new alike. You should set it to `false` if you want to prioritize enrichment of new documents. While set to `false`, the indexer skips existing documents when applying the changes in the enrichment pipeline. Once the indexer is caught up with the new documents, flipping flag to true would then allow the indexer to start driving existing documents to eventual consistency. 
+The `enableReprocessing` boolean property is optional (`true` by default), and it indicates that incremental enrichment is enabled. You can set it to `false` to suspend incremental processing while other resource-intensive operations, such as indexing new documents, are underway.  
 
 ```json
 {

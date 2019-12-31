@@ -93,7 +93,7 @@
     href: knowledge-store-concept-intro.md
   - name: Projections
     href: knowledge-store-projection-overview.md
-  - name: Incremental indexing
+  - name: Incremental enrichment
     href: cognitive-search-incremental-indexing-conceptual.md
 - name: How-to guides
   items:
@@ -239,7 +239,7 @@
         href: cognitive-search-output-field-mapping.md
       - name: Process and extract information from images
         href: cognitive-search-concept-image-scenarios.md
-      - name: Set up incremental indexing
+      - name: Set up incremental enrichment
         href: search-howto-incremental-index.md
     - name: Custom skills
       items:
