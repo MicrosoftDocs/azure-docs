@@ -2,13 +2,9 @@
 title: Configure pre and post-scripts on your Update Management deployment in Azure
 description: This article describes how to configure and manage pre-scripts and post-scripts for update deployments.
 services: automation
-ms.service: automation
 ms.subservice: update-management
-author: mgoedtel
-ms.author: magoedte
 ms.date: 05/17/2019
 ms.topic: conceptual
-manager: carmonm
 ---
 # Manage pre and post-scripts
 

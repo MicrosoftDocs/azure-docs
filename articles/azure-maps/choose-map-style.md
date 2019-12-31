@@ -1,5 +1,6 @@
 ---
-title: Map style functionalities in Azure Maps| Microsoft Docs
+title: Choose a map style in Azure Maps
+titleSuffix: Azure Maps
 description: Learn about Azure Maps style related functionalities.
 author: walsehgal
 ms.author: v-musehg

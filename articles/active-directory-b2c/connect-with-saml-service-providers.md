@@ -61,7 +61,7 @@ If you don't yet have a SAML service provider and an associated metadata endpoin
 To build a trust relationship between your service provider and Azure AD B2C, you need to provide X509 certificates and their private keys.
 
 * **Service provider certificates**
-  * Certificate with a private key stored in your Web App. This certificate is used to by your service provider to sign the SAML request sent to Azure AD B2C. Azure AD B2C reads the public key from the service provider metadata to validate the signature.
+  * Certificate with a private key stored in your Web App. This certificate is used by your service provider to sign the SAML request sent to Azure AD B2C. Azure AD B2C reads the public key from the service provider metadata to validate the signature.
   * (Optional) Certificate with a private key stored in your Web App. Azure AD B2C reads the public key from the service provider metadata to encrypt the SAML assertion. The service provider then uses the private key to decrypt the assertion.
 * **Azure AD B2C certificates**
   * Certificate with a private key in Azure AD B2C. This certificate is used by Azure AD B2C to sign the SAML response sent to your service provider. Your service provider reads the Azure AD B2C metadata public key to validate the signature of the SAML response.
@@ -96,7 +96,7 @@ If you don't already have a certificate, you can use a self-signed certificate f
 Next, upload the SAML assertion and response signing certificate to Azure AD B2C.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and browse to your Azure AD B2C tenant.
-1. Select **Settings** > **Identity Experience Framework** > **Policy Keys**.
+1. Under **Policies**, select **Identity Experience Framework** and then **Policy keys**.
 1. Select **Add**, and then select **Options** > **Upload**.
 1. Enter a **Name**, for example *SamlIdpCert*. The prefix *B2C_1A_* is automatically added to the name of your key.
 1. Upload your certificate using the upload file control.
@@ -160,7 +160,7 @@ Now that your tenant can issue SAML assertions, you need to create the SAML rely
 
 1. Open the *SignUpOrSigninSAML.xml* file in your preferred editor.
 
-1. Change the `PolicyId` and `PublicPolicyUri` of the policy to _B2C_1A_signup_signin_saml_ and _http://tenant-name.onmicrosoft.com/B2C_1A_signup_signin_saml_ as seen below.
+1. Change the `PolicyId` and `PublicPolicyUri` of the policy to _B2C_1A_signup_signin_saml_ and `http://tenant-name.onmicrosoft.com/B2C_1A_signup_signin_saml` as seen below.
 
     ```XML
     <TrustFrameworkPolicy
@@ -318,7 +318,7 @@ For this tutorial, in which you use the SAML test application, set the `url` pro
 
 #### LogoutUrl (Optional)
 
-This optional property represents the `Logout` URL (`SingleLogoutService` URL in the relying party metadata), and the `BindingType` for this is assumed to be `HttpDirect`.
+This optional property represents the `Logout` URL (`SingleLogoutService` URL in the relying party metadata), and the `BindingType` for this is assumed to be `Http-Redirect`.
 
 For this tutorial which uses the SAML test application, leave `logoutUrl` set to `https://samltestapp2.azurewebsites.net/logout`:
 
