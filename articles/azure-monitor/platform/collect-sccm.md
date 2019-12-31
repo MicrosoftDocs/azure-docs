@@ -11,7 +11,7 @@ ms.date: 08/28/2019
 ---
 
 # Connect Configuration Manager to Azure Monitor
-You can connect your Configuration Manager environment to Azure Monitor to sync device collection data and reference these collections in Azure Monitor and Azure Automation.  
+You can connect your Microsoft Endpoint Configuration Manager environment to Azure Monitor to sync device collection data and reference these collections in Azure Monitor and Azure Automation.  
 
 ## Prerequisites
 

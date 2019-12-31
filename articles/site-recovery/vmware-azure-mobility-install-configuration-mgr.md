@@ -12,7 +12,7 @@ ms.author: ramamill
 
 The Mobility service is installed on VMware VMs and physical servers that you want to replicate to Azure using [Azure Site Recovery](site-recovery-overview.md)
 
-This article provides you an example of how you can use Configuration Manager to deploy the Azure Site Recovery Mobility Service on a VMware VM. Using a software deployment tool like Configuration Manager has the following advantages:
+This article provides you an example of how you can use Microsoft Endpoint Configuration Manager to deploy the Azure Site Recovery Mobility Service on a VMware VM. Using a software deployment tool like Configuration Manager has the following advantages:
 
 * Schedule fresh installations and upgrades during your planned maintenance window for software updates
 * Scale deployment to hundreds of servers simultaneously
