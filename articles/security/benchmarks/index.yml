@@ -36,15 +36,15 @@ landingContent:
           - text: Network Security
             url: security-control-network-security.md
           - text: Logging and Monitoring
-            url: security-control-logging-and-monitoring.md
+            url: security-control-logging-monitoring.md
           - text: Identity and Access Control
-            url: security-control-identity-and-access-control.md
+            url: security-control-identity-access-control.md
           - text: Data Protection
             url: security-control-data-protection.md
           - text: Vulnerability Management
             url: security-control-vulnerability-management.md
           - text: See more
-            url: security-control-inventory-and-asset-management.md
+            url: security-control-inventory-asset-management.md
   # Card
   - title: More Azure Security Information
     linkLists:
