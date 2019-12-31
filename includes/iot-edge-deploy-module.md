@@ -5,7 +5,7 @@
  author: kgremban
  ms.service: iot-edge
  ms.topic: include
- ms.date: 12/30/2019
+ ms.date: 12/31/2019
  ms.author: kgremban
  ms.custom: include file
 ---
@@ -18,13 +18,13 @@ To deploy your first module from the Azure Marketplace, use the following steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to your IoT hub.
 
-1. From then menu on left pane, under **Automatic Device Management**, select **IoT Edge**.
+1. From the menu on the left pane, under **Automatic Device Management**, select **IoT Edge**.
 
-1. Click on the Device ID of the target device from the list of devices.
+1. Click on the device ID of the target device from the list of devices.
 
 1. On the upper bar, select **Set Modules**.
 
-1. In the **IoT Edge Modules** section of the page, click the **Add** drop down.
+1. In the **IoT Edge Modules** section of the page, click the **Add**.
 
 1. From the drop-down menu, select **Marketplace Module**.
 
@@ -32,13 +32,9 @@ To deploy your first module from the Azure Marketplace, use the following steps:
 
 1. In the **IoT Edge Module Marketplace**, search for "Simulated Temperature Sensor" and select that module.
 
-   The module will be automatically configured for your Azure subscription and IoT Edge device and added to the list of modules in your IoT Hub.
-
-1. Now that you've chosen an IoT Edge module from the Azure Marketplace for your IoT Edge device, continue with the tabbed wizard that helps you define exactly how to deploy the module.
-
    ![Set modules on device](./media/iot-edge-deploy-module/set-modules-on-device.png)
 
-   Notice that the SimulatedTemperatureSensor module is auto populated. In the tutorials, you use this page to add additional modules to your deployment. For this quickstart, only deploy this one module. No credentials are required because its public.
+1. Notice that the SimulatedTemperatureSensor module is auto populated. In the tutorials, you use this page to add additional modules to your deployment. For this quickstart, only deploy this one module. No credentials are required because it's public.
 
    Select **Next: Routes** to continue to the next step of the wizard.
 
