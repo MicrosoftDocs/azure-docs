@@ -1,16 +1,9 @@
 ---
-title: Azure UserNameTextBox UI element | Microsoft Docs
+title: UserNameTextBox UI element
 description: Describes the Microsoft.Compute.UserNameTextBox UI element for Azure portal. Enables users to provide Windows or Linux user names.
-services: managed-applications
-documentationcenter: na
 author: tfitzmac
-editor: tysonn
 
-ms.service: managed-applications
-ms.devlang: na
-ms.topic: reference
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: tomfitz
 

@@ -1,14 +1,9 @@
 ---
-title: Publish an Azure managed application through portal | Microsoft Docs
+title: Publish managed apps through portal
 description: Shows how to use the Azure portal to create an Azure managed application that is intended for members of your organization.
-services: managed-applications
 author: tfitzmac
-manager: timlt
 
-ms.service: managed-applications
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.date: 11/02/2017
 ms.author: tomfitz
 ---

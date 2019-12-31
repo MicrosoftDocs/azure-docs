@@ -1,17 +1,9 @@
 ---
-title: Azure Managed Application create UI definition functions | Microsoft Docs
+title: Create UI definition functions
 description: Describes the functions to use when constructing UI definitions for Azure Managed Applications
-services: managed-applications
-documentationcenter: na
 author: tfitzmac
-manager: timlt
-editor: tysonn
 
-ms.service: managed-applications
-ms.devlang: na
-ms.topic: reference
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.topic: conceptual
 ms.date: 10/12/2017
 ms.author: tomfitz
 

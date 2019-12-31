@@ -1,8 +1,7 @@
 ---
-title: Approve just-in-time access - Azure Managed Application
+title: Approve just-in-time access
 description: Describes how consumers of Azure Managed Applications approve requests for just-in-time access to a managed application.
 author: MSEvanhi
-ms.service: managed-applications
 ms.topic: conceptual
 ms.date: 06/03/2019
 ms.author: evanhi

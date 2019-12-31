@@ -1,8 +1,6 @@
 ---
-title: Azure Managed Application with custom actions & resources
+title: Tutorial - custom actions & resources
 description: This tutorial describes how to create an Azure Managed Application with an Azure Custom Provider.
-services: managed-applications
-ms.service: managed-applications
 ms.topic: tutorial
 ms.author: lazinnat
 author: lazinnat

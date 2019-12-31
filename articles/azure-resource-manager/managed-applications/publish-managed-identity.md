@@ -1,10 +1,7 @@
 ---
-title: Azure Managed Application with Managed Identity
+title: Managed app with Managed Identity
 description: Configure Managed Application with Managed Identity for linking to existing resources, managing Azure resources, and providing operational identity for Activity Log.
-services: managed-applications
-ms.service: managed-applications
 ms.topic: conceptual
-ms.reviewer:
 ms.author: jobreen
 author: jjbfour
 ms.date: 05/13/2019

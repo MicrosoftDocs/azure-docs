@@ -1,8 +1,6 @@
 ---
 title: Custom resource proxy reference
 description: Custom resource proxy reference for Azure Custom Resource Providers. This article will go through the requirements for endpoints implementing proxy custom resources.
-services: managed-applications
-ms.service: managed-applications
 ms.topic: conceptual
 ms.author: jobreen
 author: jjbfour

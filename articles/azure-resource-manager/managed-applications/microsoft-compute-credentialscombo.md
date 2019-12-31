@@ -1,17 +1,9 @@
 ---
-title: Azure CredentialsCombo UI element | Microsoft Docs
+title: CredentialsCombo UI element
 description: Describes the Microsoft.Compute.CredentialsCombo UI element for Azure portal.
-services: managed-applications
-documentationcenter: na
 author: tfitzmac
-manager: timlt
-editor: tysonn
 
-ms.service: managed-applications
-ms.devlang: na
-ms.topic: reference
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.topic: conceptual
 ms.date: 09/29/2018
 ms.author: tomfitz
 

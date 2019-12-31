@@ -1,8 +1,7 @@
 ---
-title: Author a RESTful endpoint for custom providers
+title: Author a RESTful endpoint
 description: This tutorial shows how to author a RESTful endpoint for custom providers. It details how to handle requests and responses for the supported RESTful HTTP methods.
 author: jjbfour
-ms.service: managed-applications
 ms.topic: tutorial
 ms.date: 06/19/2019
 ms.author: jobreen

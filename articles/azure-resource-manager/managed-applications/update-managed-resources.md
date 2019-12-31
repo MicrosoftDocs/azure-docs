@@ -1,14 +1,9 @@
 ---
-title: Update resources in Azure managed applications | Microsoft Docs
+title: Update managed resources
 description: Describes how to work on resources in the managed resource group for an Azure managed application.
-services: managed-applications
 author: tfitzmac
-manager: timlt
 
-ms.service: managed-applications
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.date: 10/26/2017
 ms.author: tomfitz
 ---

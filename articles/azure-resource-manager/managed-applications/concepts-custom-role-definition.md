@@ -1,8 +1,6 @@
 ---
-title: Overview of custom role definitions in Azure Managed Applications | Microsoft Docs
+title: Overview of custom role definitions
 description: Describes the concept of creating custom role definitions for managed applications. 
-services: managed-applications
-ms.service: managed-applications
 ms.topic: conceptual
 ms.author: jobreen
 author: jjbfour

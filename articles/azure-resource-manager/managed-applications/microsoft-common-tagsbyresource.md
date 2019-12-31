@@ -1,10 +1,9 @@
 ---
-title: Azure TagsByResource UI element
+title: TagsByResource UI element
 description: Describes the Microsoft.Common.TagsByResource UI element for Azure portal. Use to apply tags to a resource during deployment.
 author: tfitzmac
 
-ms.service: managed-applications
-ms.topic: reference
+ms.topic: conceptual
 ms.date: 11/11/2019
 ms.author: tomfitz
 

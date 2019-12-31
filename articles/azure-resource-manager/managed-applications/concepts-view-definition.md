@@ -1,8 +1,6 @@
 ---
-title: Overview of view definition in Azure Managed Applications | Microsoft Docs
+title: Overview of view definition
 description: Describes the concept of creating view definition for Azure Managed Applications. 
-services: managed-applications
-ms.service: managed-applications
 ms.topic: conceptual
 ms.author: lazinnat
 author: lazinnat
