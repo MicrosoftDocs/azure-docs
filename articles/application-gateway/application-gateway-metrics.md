@@ -17,19 +17,21 @@ Application Gateway publishes data points, called metrics, to [Azure Monitor](ht
 
 ### Timing metrics
 
-The following metrics related to timing of the request and response are available. By analyzing these metrics, you can determine whether the slowdown in application in due to the WAN, the Application Gateway, the network between the Application Gateway and the backend, or the application performance.
+The following metrics related to timing of the request and response are available. By analyzing these metrics for a specific listener, you can determine whether the slowdown in application in due to the WAN, the Application Gateway, the network between the Application Gateway and the backend application, or the backend application performance.
+
+> [!NOTE]
+>
+> If there are more than one listener in the Application Gateway, then always filter by *Listener* dimension while comparing different latency metrics in order to get meaningful inference.
 
 - **Client RTT**
 
-  Average round trip time between clients and Application Gateway. This metric indicates how long it takes to establish connections and return acknowledgments.
+  Average round trip time between clients and Application Gateway. This metric indicates how long it takes to establish connections and return acknowledgments. 
 
 - **Application gateway total time**
 
   Average time that it takes for a request to be processed and its response to be sent. This is calculated as average of the interval from the time when Application Gateway receives the first byte of an HTTP request to the time when the response send operation finishes. It's important to note that this usually includes the Application Gateway processing time, time that the request and response packets are traveling over the network and the time the backend server took to respond.
-
-- **Backend connect time**
-
-  Time spent establishing a connection with a backend server. 
+  
+If the *Client RTT* is much more than the *Application gateway total time*, then it can be deduced that the latency observed by the client is due to the network connectivity between the client and Application Gateway. If both the latencies are comparable, then the high latency could be due to any of the following: Application Gateway, the network between the Application Gateway and the backend application, or the backend application performance.
 
 - **Backend first byte response time**
 
@@ -38,6 +40,13 @@ The following metrics related to timing of the request and response are availabl
 - **Backend last byte response time**
 
   Time interval between start of establishing a connection to backend server and receiving the last byte of the response body
+  
+If the *Application gateway total time* is much more than the *Backend last byte response time* for a specific listener, then it can be deduced that the high latency could be due the Application Gateway. On the other hand, if the two metrics are comparable, then the issue could either be because of the network between the Application Gateway and the backend application, or the performance of the backend application.
+
+- **Backend connect time**
+
+  Time spent establishing a connection with a backend application. In case of SSL, it includes the time spent on handshake. Note that this metric is different from the other latency metrics since this only measures the connection time and therefore, should not be directly compared in magnitude with the other latencies. However, comparing the pattern of *Backend connect time* with the pattern of the other latencies can indicate whether an increase in other latencies could be deduced due to a variation in the network betweent the Application Gatway and the backend application. 
+  
 
 ### Application Gateway metrics
 
@@ -109,6 +118,10 @@ For Application Gateway, the following metrics are available:
 ### Application Gateway metrics
 
 For Application Gateway, the following metrics are available:
+
+- **CPU Utilization**
+
+  Displays the utilization of the CPUs allocated to the Application Gateway.  Under normal conditions, CPU usage should not regularly exceed 90%, as this may cause latency in the websites hosted behind the Application Gateway and disrupt the client experience. You can indirectly control or improve CPU utilization by modifying the configuration of the Application Gateway by increasing the instance count or by moving to a larger SKU size, or doing both.
 
 - **Current connections**
 
