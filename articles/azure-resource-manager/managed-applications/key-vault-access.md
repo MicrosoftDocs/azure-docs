@@ -51,7 +51,7 @@ This article describes how to configure the Key Vault to work with Managed Appli
 
 ## Reference Key Vault secret
 
-To pass a secret from a Key Vault to a template in your Managed Application, you must use a [linked template](../template/linked-templates.md) and reference the Key Vault in the parameters for the linked template. Provide the resource ID of the Key Vault and the name of the secret.
+To pass a secret from a Key Vault to a template in your Managed Application, you must use a [linked template](../templates/linked-templates.md) and reference the Key Vault in the parameters for the linked template. Provide the resource ID of the Key Vault and the name of the secret.
 
 ```json
 "resources": [{
