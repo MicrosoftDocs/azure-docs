@@ -56,41 +56,39 @@ The Data Science Virtual Machine comes with the most useful data-science tools p
 | &nbsp;&nbsp;&nbsp;&nbsp; [Sparkmagic](https://github.com/jupyter-incubator/sparkmagic)                                                                                |                                                                                  <span class='red-x'>&#10060;</span>                                                                                 |                                                    <span class='green-check'>&#9989;</span></br> (Ubuntu only)                                                   |                                                                                                                                                                  |                                                                                                                                |                                                                                                                             |
 | &nbsp;&nbsp;&nbsp;&nbsp; SparkR                                                                                                                                       |                                                                                  <span class='red-x'>&#10060;</span>                                                                                 |                                                             <span class='green-check'>&#9989;</span>                                                             |                                                                                                                                                                   |                                                                                                                          |                                                                                                                             |
 
+**Ubuntu 18.04 DSVM** has the following Jupyter kernels:-</br>
+*	Python 3.7 - default</br>
+* Python 3.7 - PyTorch</br>
+* Python 3.7 - TensorFlow</br>
+* Python 3.6 - AzureML - TensorFlow</br>
+* Python 3.6 - AzureML - PyTorch</br>
+* Python 3.6 - AzureML – AutoML</br>
+* R</br>
+* Python 3.7 - Spark (local)</br>
+* Julia 1.2.0</br>
+* R Spark – HDInsight</br>
+* Scala Spark – HDInsight</br>
+* Python 3 Spark - HDInsight</br>
 
+**Windows Server 2019 DSVM** has the following Jupyter kernels:-</br>
+* Python 3.7 </br>
+* Python 3.6 - AzureML</br>
+* Python 3 Spark - local</br>
+* Julia 1.0.5</br>
+* R</br>
 
-Ubuntu 18.04 DSVM has the following Jupyter kernels:-</br>
-&nbsp;&nbsp;&nbsp;&nbsp;a.	Python 3.7 - default</br>
-&nbsp;&nbsp;&nbsp;&nbsp;b.	Python 3.7 - PyTorch</br>
-&nbsp;&nbsp;&nbsp;&nbsp;c.	Python 3.7 - TensorFlow</br>
-&nbsp;&nbsp;&nbsp;&nbsp;d.	Python 3.6 - AzureML - TensorFlow</br>
-&nbsp;&nbsp;&nbsp;&nbsp;e.	Python 3.6 - AzureML - PyTorch</br>
-&nbsp;&nbsp;&nbsp;&nbsp;f.	Python 3.6 - AzureML – AutoML</br>
-&nbsp;&nbsp;&nbsp;&nbsp;g.	R</br>
-&nbsp;&nbsp;&nbsp;&nbsp;h.	Python 3.7 - Spark (local)</br>
-&nbsp;&nbsp;&nbsp;&nbsp;i.	Julia 1.2.0</br>
-&nbsp;&nbsp;&nbsp;&nbsp;j.	R Spark – HDInsight</br>
-&nbsp;&nbsp;&nbsp;&nbsp;k.	Scala Spark – HDInsight</br>
-&nbsp;&nbsp;&nbsp;&nbsp;l.	Python 3 Spark - HDInsight</br>
+**Ubuntu 18.04 DSVM** has the following conda environments:-</br>
+* py37_base</br>
+* py37_tensorflow</br>
+* py37_pytorch</br>
+* azureml_py36_tensorflow</br>
+* azureml_py36_pytorch</br>
+* azureml_py36_automl</br>
 
-Windows Server 2019 DSVM has the following Jupyter kernels:-</br>
-&nbsp;&nbsp;&nbsp;&nbsp;a.	Python 3.7 </br>
-&nbsp;&nbsp;&nbsp;&nbsp;b.	Python 3.6 - AzureML</br>
-&nbsp;&nbsp;&nbsp;&nbsp;c.	Python 3 Spark - local</br>
-&nbsp;&nbsp;&nbsp;&nbsp;d.	Julia 1.0.5</br>
-&nbsp;&nbsp;&nbsp;&nbsp;e.	R</br>
-
-Ubuntu 18.04 DSVM has the following conda environments:-</br>
-&nbsp;&nbsp;&nbsp;&nbsp;a.	py37_base</br>
-&nbsp;&nbsp;&nbsp;&nbsp;b.	py37_tensorflow</br>
-&nbsp;&nbsp;&nbsp;&nbsp;c.	py37_pytorch</br>
-&nbsp;&nbsp;&nbsp;&nbsp;d.	azureml_py36_tensorflow</br>
-&nbsp;&nbsp;&nbsp;&nbsp;e.	azureml_py36_pytorch</br>
-&nbsp;&nbsp;&nbsp;&nbsp;f.	azureml_py36_automl</br>
-
-Windows Server 2019 DSVM has the following conda environments:-</br>
-&nbsp;&nbsp;&nbsp;&nbsp;a.	base</br>
-&nbsp;&nbsp;&nbsp;&nbsp;b.	py37</br>
-&nbsp;&nbsp;&nbsp;&nbsp;c.	azureml_py36</br>
+**Windows Server 2019 DSVM** has the following conda environments:-</br>
+* base</br>
+* py37</br>
+* azureml_py36</br>
 
 ## Use your preferred editor or IDE
 
