@@ -1,5 +1,5 @@
 ---
-title: Automated ML remote computes targets
+title: Automated ML remote compute targets
 titleSuffix: Azure Machine Learning
 description: Learn how to build models using automated machine learning on an Azure Machine Learning remote compute target with Azure Machine Learning
 services: machine-learning
