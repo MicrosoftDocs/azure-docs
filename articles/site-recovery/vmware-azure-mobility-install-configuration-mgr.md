@@ -1,16 +1,4 @@
 ---
-<<<<<<< HEAD
-title: Automate installation of the Azure Site Recovery Mobility Service for disaster recovery of VMware VMs and physical servers to Azure using using Configuration Manager | Microsoft Docs
-description: This article helps you automate installation of the Mobility Service with Configuration Manager, for disaster recovery of VMware VMs and physical servers to Azure using Site Recovery.
-author: Rajeswari-Mamilla
-ms.service: site-recovery
-ms.topic: conceptual
-ms.date: 12/11/2019
-ms.author: ramamill
----
-
-# Automate Mobility Service installation with Configuration Manager
-=======
 title: Automate Mobility Service for disaster recovery of installation in Azure Site Recovery
 description: How to automatically install the Mobility Service for VMware /physical server disaster recovery with Azure Site Recovery.
 author: Rajeswari-Mamilla
@@ -20,19 +8,14 @@ ms.author: ramamill
 ---
 
 # Automate Mobility Service installation
->>>>>>> d7ef405d16b3976b28f85ec0247066db85701705
 
 This article describes how to automate installation and updates for the Mobility service agent in [Azure Site Recovery](site-recovery-overview.md).
 
-<<<<<<< HEAD
-This article provides you an example of how you can use Microsoft Endpoint Configuration Manager to deploy the Azure Site Recovery Mobility Service on a VMware VM. Using a software deployment tool like Configuration Manager has the following advantages:
-=======
 When you deploy Site Recovery for disaster recovery of on-premises VMware VMs and physical servers to Azure, you install the Mobility service agent on each machine you want to replicate. The Mobility service captures data writes on the machine, and forwards them to the Site Recovery process server for replication. You can deploy the Mobility Service in a couple of ways:
->>>>>>> d7ef405d16b3976b28f85ec0247066db85701705
 
 - **Push installation**: Let Site Recovery install  the Mobility service agent when you enable replication for a machine in the Azure portal.
 - **Manual installation**: Install the Mobility service manually on each machine. [Learn more](/vmware-physical-mobility-service-overview.md) about push and manual installation.
-- **Automated deployment**: Automate installation with software deployment tools such as System Center Configuration Manager, or third-party tools such as Intigua JetPatch.
+- **Automated deployment**: Automate installation with software deployment tools such as Microsoft Endpoint Configuration Manager, or third-party tools such as Intigua JetPatch.
 
 Automated installation and updating provides a solution if:
 
@@ -43,10 +26,6 @@ Automated installation and updating provides a solution if:
 - You need to scale gent installation to lots of servers simultaneously.
 - You want to schedule installations and upgrades during planned maintenance windows.
 
-<<<<<<< HEAD
-This article uses Configuration Manager 2012 R2 to demonstrate the deployment activity. We assumes you are using version **9.9.4510.1** or higher of the Mobility service.
-=======
->>>>>>> d7ef405d16b3976b28f85ec0247066db85701705
 
 
 ## Prerequisites
