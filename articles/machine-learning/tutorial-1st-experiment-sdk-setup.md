@@ -90,7 +90,7 @@ If you have custom widgets or prefer using Jupyter/JupyterLab select the **Jupyt
 
 > [!NOTE]
 > Compute instances (preview) are currently available only for workspaces with a region of **North Central US** or **UK South**, with support for other regions coming soon.
->If your workspace is in any other region, you can continue to create and use a [Notebook VM](concept-compute-instance.md#notebookvm) instead.  You can use either a Notebook VM or a compute instance to run your notebook.
+>If your workspace is in any other region, you can continue to create and use a [Notebook VM](concept-compute-instance.md#notebookvm) instead.  You can use either a Notebook VM or a compute instance to run your notebook. A VM will continue running and incurring cost unless you stop it. You can stop it manually from the **Compute** tab in the Studio, or see the [blog post](https://techcommunity.microsoft.com/t5/educator-developer-blog/azure-virtual-machine-auto-shutdown/ba-p/379342) on enabling scheduled automatic shutdown for Azure VMs.
 
 ## Next steps
 
