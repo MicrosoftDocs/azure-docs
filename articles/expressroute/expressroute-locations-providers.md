@@ -159,7 +159,7 @@ Azure national clouds are isolated from each other and from global commerical Az
 | **Shanghai** |China Telecom |
 | **Shanghai2** | China Telecom, GDS |
 
-To learn more, see [ExpressRoute in China](http://www.windowsazure.cn/home/features/expressroute/)
+To learn more, see [ExpressRoute in China](https://www.windowsazure.cn/home/features/expressroute/)
 
 ### Germany
 | **Location** | **Service providers** |
