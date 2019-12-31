@@ -18,7 +18,9 @@ This article describes updates to data storage and ingress for Azure Time Series
 
 ## Data ingress
 
-Your Azure Time Series Insights environment contains an Ingestion Engine to collect, process, and store time-series data. When planning your environment, there are some considerations to take into account in order to ensure that all incoming data is processed, and to achieve high ingress scale and minimize ingestion latency (the time taken by TSI to read and process data from the event source). In Time Series Insights Preview, data ingress policies determine where data can be sourced from and what format the data should have.
+Your Azure Time Series Insights environment contains an Ingestion Engine to collect, process, and store time-series data. When planning your environment, there are some considerations to take into account in order to ensure that all incoming data is processed, and to achieve high ingress scale and minimize ingestion latency (the time taken by TSI to read and process data from the event source). 
+
+In Time Series Insights Preview, data ingress policies determine where data can be sourced from and what format the data should have.
 
 ### Ingress policies
 
@@ -32,7 +34,9 @@ Time Series Insights Preview supports a maximum of two event sources per instanc
 Azure Time Series Insights supports JSON submitted through Azure IoT Hub or Azure Event Hubs.
 
 > [!WARNING] 
-> When attaching a new event source to your Time Series Insights Preview environment, depending on the number of events currently in your IoT Hub or Event Hub, you may experience high initial ingestion latency. As data is ingested, you should expect this high latency to subside, but if your experience indicates otherwise please contact us by submitting a support ticket through the Azure portal.
+> * You may experience high initial latency when attaching an event source to your Preview environment. 
+> Event source latency depends on the number of events currently in your IoT Hub or Event Hub
+> * High latency will subside after event source data is first ingested. Please contact us by submitting a support ticket through the Azure portal if you experience continued high latency.
 
 ## Ingress best practices
 
@@ -44,10 +48,17 @@ We recommend that you employ the following best practices:
 
 ### Ingress scale and limitations in preview
 
-By default, Time Series Insights Preview supports an initial ingress scale of up to 1 megabyte per second (MB/s) per environment. Up to 16 MB/s throughput is available if required. Please contact us by submitting a support ticket in the Azure portal if this is needed. Additionally, there is a per-partition limit of 0.5 MB/s. This has implications for customers using IoT Hub specifically, given the affinity between an IoT Hub device a partition. In scenarios where one gateway device is forwarding messages to hub using its own device ID and connection string, there is the danger of reaching the 0.5 MB/s limit given that messages will arrive in a single partition, even if the event payload specifies different TS IDs. In general, ingress rate is viewed as a factor of the number of devices that are in your organization, event emission frequency, and the size of an event. When calculating ingestion rate, IoT Hub users should use the number of hub connections in use, rather than total devices in the organization. Enhanced scaling support is ongoing. This documentation will be updated to reflect those improvements. 
+By default, Preview environments support ingress rates up to **1 megabyte per second (MB/s) per environment**. Customers may scale their Preview environments up to **16 MB/s** throughput if required.
+There is also a per-partition limit of **0.5 MB/s**. 
+
+This has implications for customers using IoT Hub specifically, given the affinity between an IoT Hub device a partition. In scenarios where one gateway device is forwarding messages to hub using its own device ID and connection string, there is the danger of reaching the 0.5 MB/s limit given that messages will arrive in a single partition, even if the event payload specifies different Time Series IDs. 
+
+In general, ingress rates are viewed as the factor of the number of devices that are in your organization, event emission frequency, and the size of each event:
+
+*  **Number of devices** × **Event emission frequency** × **Size of each event**.
 
 > [!TIP]
-> For environments using IoT Hub as an event source, calculate ingestion rate using the number of hub devices in use.
+> For environments using IoT Hub as an event source, calculate the ingestion rate using the number of hub connections in use, rather than total devices in use or in the organization.
 
 Please refer to the following links for more information on throughput units and partitions:
 
