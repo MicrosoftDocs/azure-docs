@@ -63,7 +63,7 @@ In the search box at the top of the portal, enter *route tables* in the search b
     * [Access control (IAM)](../role-based-access-control/overview.md)<br>
     * [Tags](../azure-resource-manager/resource-group-using-tags.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br>
     * [Locks](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br>
-    * [Automation script](../azure-resource-manager/manage-resource-groups-portal.md#export-resource-groups-to-templates)
+    * [Automation script](../azure-resource-manager/templates/export-template-portal.md)
 
 ### View details of route table - commands
 
