@@ -4,8 +4,8 @@ description: This article shows the steps to connect Configuration Manager to wo
 ms.service:  azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: MGoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 08/28/2019
 
 ---

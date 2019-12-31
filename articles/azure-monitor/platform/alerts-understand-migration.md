@@ -256,7 +256,7 @@ Due to some recent changes to classic alert rules in your subscription, the subs
 
 ### Scope lock preventing us from migrating your rules
 
-As part of the migration, new metric alerts and new action groups will be created, and then classic alert rules will be deleted. However, a scope lock can prevent us from creating or deleting resources. Depending on the scope lock, some or all rules could not be migrated. You can resolve this problem by removing the scope lock for the subscription, resource group, or resource, which is listed in the [migration tool](https://portal.azure.com/#blade/Microsoft_Azure_Monitoring/MigrationBladeViewModel), and triggering the migration again. Scope lock can't be disabled and must be removed for the duration of the migration process. [Learn more about managing scope locks](../../azure-resource-manager/resource-group-lock-resources.md#portal).
+As part of the migration, new metric alerts and new action groups will be created, and then classic alert rules will be deleted. However, a scope lock can prevent us from creating or deleting resources. Depending on the scope lock, some or all rules could not be migrated. You can resolve this problem by removing the scope lock for the subscription, resource group, or resource, which is listed in the [migration tool](https://portal.azure.com/#blade/Microsoft_Azure_Monitoring/MigrationBladeViewModel), and triggering the migration again. Scope lock can't be disabled and must be removed for the duration of the migration process. [Learn more about managing scope locks](../../azure-resource-manager/management/lock-resources.md#portal).
 
 ### Policy with 'Deny' effect preventing us from migrating your rules
 

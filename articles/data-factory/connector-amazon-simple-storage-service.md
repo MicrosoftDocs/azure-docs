@@ -10,7 +10,7 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 12/10/2019
+ms.date: 12/13/2019
 ---
 
 # Copy data from Amazon Simple Storage Service using Azure Data Factory
@@ -33,7 +33,7 @@ This Amazon S3 connector is supported for the following activities:
 - [GetMetadata activity](control-flow-get-metadata-activity.md)
 - [Delete activity](delete-activity.md)
 
-Specifically, this Amazon S3 connector supports copying files as-is or parsing files with the [supported file formats and compression codecs](supported-file-formats-and-compression-codecs.md). It uses [AWS Signature Version 4](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html) to authenticate requests to S3.
+Specifically, this Amazon S3 connector supports copying files as-is or parsing files with the [supported file formats and compression codecs](supported-file-formats-and-compression-codecs.md). You can also choose to [Preserve file metadata during copy](#preserve-metadata-during-copy). The connector uses [AWS Signature Version 4](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html) to authenticate requests to S3.
 
 >[!TIP]
 >You can use this Amazon S3 connector to copy data from **any S3-compatible storage providers** e.g. [Google Cloud Storage](connector-google-cloud-storage.md). Specify the corresponding service URL in the linked service configuration.

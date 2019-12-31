@@ -2,13 +2,15 @@
 title: Target Updates using Configuration Manager Collections in Azure Automation - Update Management
 description: This article is intended to help you configure Configuration Manager with this solution to manage updates of Configuration Manager managed computers.
 services: automation
-ms.service: automation
 ms.subservice: update-management
+<<<<<<< HEAD
 author: mgoedtel
 ms.author: magoedte
 ms.date: 12/11/2019
+=======
+ms.date: 03/19/2018
+>>>>>>> d7ef405d16b3976b28f85ec0247066db85701705
 ms.topic: conceptual
-manager: carmonm
 ---
 
 # Integrate Configuration Manager with Update Management

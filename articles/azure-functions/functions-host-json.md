@@ -90,11 +90,15 @@ The following sections of this article explain each top-level property. All are 
 
 This setting is a child of [logging](#logging).
 
-Controls the [sampling feature in Application Insights](./functions-monitoring.md#configure-sampling).
+Controls options for Application Insights, including [sampling options](./functions-monitoring.md#configure-sampling).
 
 ```json
 {
-    "applicationInsights": {
+    "applicationInsights": {        
+        "enableDependencyTracking": true,
+        "enablePerformanceCountersCollection": true,
+        "samplingExcludedTypes": "Trace;Exception",
+        "samplingIncludedTypes": "Request;Dependency",
         "samplingSettings": {
           "isEnabled": true,
           "maxTelemetryItemsPerSecond" : 20
@@ -108,11 +112,12 @@ Controls the [sampling feature in Application Insights](./functions-monitoring.m
 
 |Property  |Default | Description |
 |---------|---------|---------| 
-|isEnabled|true|Enables or disables sampling.| 
-|maxTelemetryItemsPerSecond|20|The threshold at which sampling begins.| 
-|EnableLiveMetrics |true|Enables live metrics collection.|
-|EnableDependencyTracking|true|Enables dependency tracking.|
-|EnablePerformanceCountersCollection|true|Enables Kudu performance counters collection.|
+|enableDependencyTracking|true|Enables dependency tracking.|
+|enablePerformanceCountersCollection|true|Enables performance counters collection.|
+|samplingExcludedTypes|null|A semi-colon delimited list of types that you do not want to be sampled. Recognized types are: Dependency, Event, Exception, PageView, Request, Trace. All instances of the specified types are transmitted; the types that are not specified are sampled.| 
+|samplingIncludedTypes|null|A semi-colon delimited list of types that you want to be sampled. Recognized types are: Dependency, Event, Exception, PageView, Request, Trace. The specified types are sampled; all instances of the other types will always be transmitted.|
+|samplingSettings.isEnabled|true|Enables or disables sampling.| 
+|samplingSettings.maxTelemetryItemsPerSecond|20|The threshold at which sampling begins.|
 
 ## cosmosDb
 

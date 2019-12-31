@@ -1,6 +1,6 @@
 ---
-title: "Quickstart: Face client library for .NET | Microsoft Docs"
-description: Get started with the Face client library for .NET.
+title: "Quickstart: Face client library for .NET"
+description: Get started with the Face client library for .NET with this quickstart.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme

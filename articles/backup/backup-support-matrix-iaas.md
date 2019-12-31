@@ -149,11 +149,11 @@ Gen2 VMs | Supported <br> Azure Backup supports backup and restore of [Gen2 VMs]
 
 **Component** | **Support**
 --- | ---
-Azure VM data disks | Back up a VM with 16 or less data disks.
+Azure VM data disks | Back up a VM with 16 or fewer data disks.<BR> To sign up for the private preview of VMs with 16+ disks (up to 32 disks), write to us at AskAzureBackupTeam@microsoft.com
 Data disk size | Individual disk size can be up to 32 TB and a maximum of 256 TB combined for all disks in a VM.
 Storage type | Standard HDD, Standard SSD, Premium SSD.
 Managed disks | Supported.
-Encrypted disks | Supported (up to 4 TB).<br/><br/> Azure VMs enabled with Azure Disk Encryption can be backed up (with or without the Azure AD app).<br/><br/> Encrypted VMs can’t be recovered at the file/folder level. You must recover the entire VM.<br/><br/> You can enable encryption on VMs that are already protected by Azure Backup.
+Encrypted disks | Supported.<br/><br/> Azure VMs enabled with Azure Disk Encryption can be backed up (with or without the Azure AD app).<br/><br/> Encrypted VMs can’t be recovered at the file/folder level. You must recover the entire VM.<br/><br/> You can enable encryption on VMs that are already protected by Azure Backup.
 Disks with Write Accelerator enabled | Not supported.<br/><br/> Azure backup automatically excludes the Disks with Write Accelerator enabled during backup. Since they are not backed up, you will not be able to Restore these disks from Recovery-Points of the VM.
 Back up & Restore deduplicated VMs/disks | Azure Backup does not support deduplication. For more information, see this [article](https://docs.microsoft.com/azure/backup/backup-support-matrix#disk-deduplication-support) <br/> <br/>  - Azure Backup does not deduplicate across VMs in the Recovery Services vault <br/> <br/>  - If there are VMs in deduplication state during restore, the files can't be restored as vault does not understand the format
 Add disk to protected VM | Supported.

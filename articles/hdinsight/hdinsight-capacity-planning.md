@@ -90,7 +90,17 @@ Sometimes errors can occur due to the parallel execution of multiple maps and re
 
 ## Quotas
 
-After determining your target cluster VM size, scale, and type, check the current quota capacity limits of your subscription. When you reach a quota limit, you may not be able to deploy new clusters, or scale out existing clusters by adding more worker nodes. The only quota limit is the CPU Cores quota that exists at the region level for each subscription. For example, your subscription may have 30 core limit in the East US region. If you need to request a quota increase, do the following steps:
+After determining your target cluster VM size, scale, and type, check the current quota capacity limits of your subscription. When you reach a quota limit, you may not be able to deploy new clusters, or scale out existing clusters by adding more worker nodes. The only quota limit is the CPU Cores quota that exists at the region level for each subscription. For example, your subscription may have 30 core limit in the East US region. 
+
+To check your available cores, do the following steps:
+
+1. Sign in to the [Azure portal](https://portal.azure.com/).
+2. Navigate to the **Overview** page for the HDInsight cluster. 
+3. On the left menu, click **Quota limits**.
+
+   The page displays the number of cores in use, the number of available cores, and the total cores.
+
+If you need to request a quota increase, do the following steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. Select **Help + support** on the bottom-left side of the page.
