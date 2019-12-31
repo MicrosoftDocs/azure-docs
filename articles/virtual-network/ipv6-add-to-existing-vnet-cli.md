@@ -113,13 +113,13 @@ Add IPv6 address ranges to the virtual network and subnet hosting the load balan
 az network vnet update \
 --name myVnet  `
 --resource-group MyResourceGroupSLB \
---address-prefixes  "10.0.0.0/16"  "ace:cab:deca::/48"
+--address-prefixes  "10.0.0.0/16"  "fd12:3456:789a:bc00:/56"
 
 az network vnet subnet update \
 --vnet-name myVnet \
 --name mySubnet \
 --resource-group MyResourceGroupSLB \
---address-prefixes  "10.0.0.0/24"  "ace:cab:deca:deed::/64"  
+--address-prefixes  "10.0.0.0/24"  "fd12:3456:789a:bcde:/64"  
 ```
 
 ## Add IPv6 configuration to NICs
