@@ -673,7 +673,7 @@
       - name: Overview
         href: insights/container-insights-overview.md
       - name: FAQ
-        href: insights/container-insights-faq.md
+        href: faq.md#azure-monitor-for-containers
       - name: Enable monitoring
         items:
         - name: Enable monitoring overview 
