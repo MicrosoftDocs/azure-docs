@@ -31,7 +31,7 @@ The following table lists Azure services and the monitoring patterns they suppor
 
 | Service | Platform<br>Metrics | Diagnostic<br>Settings | Insight | Solution | Notes |
 |:---|:---|:---|:---|:---|:---|
-|Active Directory | No | Yes | No | [Yes](insights/ad-assessment.md)<br>[Yes](insights/ad-replication-status.md) |
+|Active Directory | No | Yes | No | [Yes](../insights/ad-assessment.md)<br>[Yes](../insights/ad-replication-status.md) |
 |Active Directory B2C | No | No | No | No |
 |Active Directory Domain Services | No | Yes | No | No |
 |Advanced Threat Protection | No | No | No | No |
@@ -91,7 +91,7 @@ The following table lists Azure services and the monitoring patterns they suppor
 |Intune | No | Yes | No | No |
 |IoT Central | No | No | No | No |
 |IoT Hub | Yes | Yes | No | No |
-|Key Vault | Yes | Yes | [Yes](Yes) | [Yes](insights/azure-key-vault.md) |
+|Key Vault | Yes | Yes | Yes | [Yes](../insights/azure-key-vault.md) |
 |Kubernetes Service (AKS) | No | No | No | No |
 |Load Balancer | Yes | Yes | No | No |
 |Logic Apps | Yes | Yes | No | No |
@@ -134,10 +134,10 @@ The following table lists Azure services and the monitoring patterns they suppor
 |Site Recovery | No | No | No | No |
 |Spring Cloud Service | No | No | No | No |
 |SQL Data Warehouse | Yes | Yes | No | No |
-|SQL Database | Yes | Yes | No | [Yes](insights/azure-sql.md)<br>[Yes](insights/sql-assessment.md) |
+|SQL Database | Yes | Yes | No | [Yes](../insights/azure-sql.md)<br>[Yes](../insights/sql-assessment.md) |
 |SQL Server Stretch Database | Yes | Yes | No | No |
 |Stack | No | No | No | No |
-|Storage | Yes | No | [Yes](Yes) | No |
+|Storage | Yes | No | Yes | No |
 |Storage Cache | No | No | No | No |
 |Storage Sync Services - Rob added | No | No | No | No |
 |Stream Analytics | Yes | Yes | No | No |
