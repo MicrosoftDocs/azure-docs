@@ -2,11 +2,46 @@
 author: alkohli
 ms.service: databox  
 ms.topic: include
-ms.date: 07/26/2019
+ms.date: 12/31/2019
 ms.author: alkohli
 ---
 
-On a Data Box Edge device that has the compute role configured, a subset of docker commands are available to monitor or troubleshoot modules. To see a list of available commands, [connect to the PowerShell interface](#connect-to-the-powershell-interface) and use the `dkrdbe` function.
+On an Azure Stack Edge device that has the compute role configured, you can troubleshoot or monitor the device using two different set of commands.
+
+- Using `iotedge` commands. These commands are available for basic operations for your device.
+- Using `dkrdbe` commands. These commands are available for an extensive set of operations for your device.
+
+To execute either of the above set of commands, you need to [Connect to the PowerShell interface](#connect-to-the-powershell-interface).
+
+### Use `iotedge` commands
+
+To see a list of available commands, [connect to the PowerShell interface](#connect-to-the-powershell-interface)and use the `dkrdbe` function.
+
+```powershell
+[10.100.10.10]: PS>iotedge -?                                                                                                                                                                                                 Usage: iotedge COMMAND
+
+Commands:
+   check
+   list
+   logs
+   restart
+
+[10.100.10.10]: PS>
+```
+
+<!--The following table has a brief description of the commands available for `iotedge`:
+
+|command  |Description |
+|---------|---------|
+|`check`     |        |
+|`list`     | List images         |
+|`logs`     | Fetch the logs for IoT Edge device         |
+|`restart`     | Stop and restart the IoT Edge device         |-->
+
+
+### Use `dkrdbe` commands
+
+To see a list of available commands, [connect to the PowerShell interface](#connect-to-the-powershell-interface) and use the `dkrdbe` function.
 
 ```powershell
 [10.100.10.10]: PS>dkrdbe -?

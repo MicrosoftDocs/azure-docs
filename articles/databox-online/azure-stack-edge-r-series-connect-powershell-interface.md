@@ -81,7 +81,7 @@ If the compute role is configured on your device, you can also get the compute l
 
 ## Monitor and troubleshoot compute modules
 
-[!INCLUDE [Monitor and troubleshoot compute modules](../../includes/data-box-edge-monitor-troubleshoot-compute.md)]
+[!INCLUDE [Monitor and troubleshoot compute modules](../../includes/azure-stack-edge-monitor-troubleshoot-compute.md)]
 
 ## Exit the remote session
 
