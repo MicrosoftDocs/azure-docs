@@ -9,7 +9,7 @@ ms.subservice: data-science-vm
 author: vijetajo
 ms.author: vijetaj
 ms.topic: overview
-ms.date: 02/22/2019
+ms.date: 12/31/2019
 
 ---
 
@@ -18,8 +18,8 @@ ms.date: 02/22/2019
 The Data Science Virtual Machine (DSVM) is a customized VM image on the Azure cloud platform built specifically for doing data science. It has many popular data science tools preinstalled and preconfigured to jumpstart building intelligent applications for advanced analytics. 
 
 The DSVM is available on:
-+ Windows Server 2019 (Preview)
-+ Ubuntu 18.04 LTS (Preview)
++ **Windows Server 2019 (Preview)**
++ **Ubuntu 18.04 LTS (Preview)**
 + Windows Server 2016
 + Ubuntu 16.04 LTS and CentOS 7.4
 
