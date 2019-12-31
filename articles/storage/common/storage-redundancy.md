@@ -40,7 +40,6 @@ The following table provides a quick overview of the scope of durability and ava
 | Availability SLA for write requests<sup>1</sup>  | At least 99.9% (99% for cool access tier) | At least 99.9% (99% for cool access tier) | At least 99.9% (99% for cool access tier) | At least 99.9% (99% for cool access tier) |
 
 <sup>1</sup> For information about Azure Storage guarantees for durability and availability, see the [Azure Storage SLA](https://azure.microsoft.com/support/legal/sla/storage/).
- 
 <sup>2</sup> For information for storage account types, see [Storage account overview](storage-account-overview.md).
 
 All data for all types of storage accounts are replicated, including block blobs, append blobs, page blobs, queues, tables, and files.
