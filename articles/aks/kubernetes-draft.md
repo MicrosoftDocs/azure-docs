@@ -22,7 +22,7 @@ This article shows you how to use Draft package and run an application on AKS.
 * An Azure subscription. If you don't have an Azure subscription, you can create a [free account](https://azure.microsoft.com/free).
 * [Azure CLI installed](/cli/azure/install-azure-cli?view=azure-cli-latest).
 * Docker installed and configured. Docker provides packages that configure Docker on a [Mac][docker-for-mac], [Windows][docker-for-windows], or [Linux][docker-for-linux] system.
-* [Helm installed](https://github.com/helm/helm#install).
+* [Helm installed](https://github.com/helm/helm#install).(<= Helm Version 2.16.1)
 * [Draft installed][draft-documentation].
 
 ## Create an Azure Kubernetes Service cluster
