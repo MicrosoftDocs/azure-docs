@@ -45,7 +45,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[Anautics](https://anautics.com)|
 |[APEX TECHNOLOGY MANAGEMENT INC](https://www.apex.com)|
 |[Applied Information Sciences, Inc.](https://www.appliedis.com)|
-|[Apollo Information Systems Corp.](http://www.apollo-is.com/)|
+|[Apollo Information Systems Corp.](https://www.apollo-is.com/)|
 |[Approved Contact, LLC](https://approvedcontact.com)|
 |[Apps4Rent](https://www.apps4rent.com)|
 |[Apptus](https://apttus.com)|
@@ -60,7 +60,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[Avtex Solutions](https://www.avtex.com)|
 |[BAE Systems Inc. and Affiliates](https://www.baesystems.com)|
 |[BEMO Corp](https://www.bemopro.com/)|
-|[Bio Automation Support](http://www.stacsdna.com/)|
+|[Bio Automation Support](https://www.stacsdna.com/)|
 |[Blackwood Associates, Inc. (dba BAI Federal)](https://www.blackwoodassociates.com/)|
 |[Blue Source Group, Inc.](https://www.blackwoodassociates.com/)|
 |[Blueforce Development Corporation](https://www.blueforcedev.com/)|
@@ -253,7 +253,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[Pharicode LLC](https://pharicode.com)|
 |[Picis Envision](https://www.picis.com/solution/analytics-suite/)|
 |[Pinao Consulting LLC](https://www.pcg-msp.com)|
-|[Pitech Solutions Inc](http://www.pitechsol.com/)|
+|[Pitech Solutions Inc](https://www.pitechsol.com/)|
 |[Planet Technologies](https://go-planet.com)|
 |[Plexhosted LLC](https://plexhosted.com/)|
 |[Principle Information Technology Company](https://www.principleinfotech.com/)|
