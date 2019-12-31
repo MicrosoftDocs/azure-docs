@@ -81,6 +81,8 @@ To configure an **Alert**, navigate back to the **Alerts** page, and click **Man
 
 1. Click **Done**.
 
+For details of the conditions available to monitor, see [User portal metrics options](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-concept-metrics#user-portal-metrics-options).
+
  Under **ACTIONS**, click **Select action group**. From **ACTIONS** pane select the previously defined **Action Group**.
 
   ![Screenshot Portal new alert rule](media/alerts-action-groups/alerts-3.3.png) 
@@ -102,7 +104,6 @@ A rule can also be created using the **Metrics** page:
   ![Screenshot Portal new alert rule](media/alerts-action-groups/alerts-5.png)
 
 ## Next steps
-* [User portal metrics options](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-concept-metrics#user-portal-metrics-options)
 * [Create and manage action groups in the Azure portal](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups)
 * [SMS Alert Behavior in Action Groups](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-sms-behavior)
 * [Tutorial: Using Distributed Tracing with Azure Spring Cloud](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-tutorial-distributed-tracing)
