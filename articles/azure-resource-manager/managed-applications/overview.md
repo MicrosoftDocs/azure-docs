@@ -48,7 +48,7 @@ For information about publishing a managed application to the Marketplace, see [
 
 Typically, the resources for a managed application are in two resource groups. The consumer manages one resource group, and the publisher manages the other resource group. When defining the managed application, the publisher specifies the levels of access. The publisher can request either a permanent role assignment, or [just-in-time access](request-just-in-time-access.md) for an assignment that is constrained to a time period.
 
-Restricting access for [data operations](../role-based-access-control/role-definitions.md) is currently not supported for all data providers in Azure.
+Restricting access for [data operations](../../role-based-access-control/role-definitions.md) is currently not supported for all data providers in Azure.
 
 The following image shows a scenario where the publisher requests the owner role for the managed resource group. The publisher placed a read-only lock on this resource group for the consumer. The publisher's identities that are granted access to the managed resource group are exempt from the lock.
 
@@ -70,7 +70,7 @@ When the consumer deletes the managed application, the managed resource group is
 
 ## Azure Policy
 
-You can apply an [Azure Policy](../governance/policy/overview.md) to your managed application. You apply policies to make sure deployed instances of your managed application fulfill data and security requirements. If your application interacts with sensitive data, make sure you've evaluated how that should be protected. For example, if your application interacts with data from Office 365, apply a policy to make sure data encryption is enabled.
+You can apply an [Azure Policy](../../governance/policy/overview.md) to your managed application. You apply policies to make sure deployed instances of your managed application fulfill data and security requirements. If your application interacts with sensitive data, make sure you've evaluated how that should be protected. For example, if your application interacts with data from Office 365, apply a policy to make sure data encryption is enabled.
 
 ## Next steps
 

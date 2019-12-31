@@ -33,7 +33,7 @@ There are several business prerequisites. They are:
 * Agree to the terms of the Azure Marketplace Participation Policies and Publisher Agreement.
 * Agree to comply with the Terms of Use, Microsoft Privacy Statement, and Microsoft Azure Certified Program Agreement.
 
-You must also have a Marketplace account. To create an account, see [How to create a Commercial Marketplace account in Partner Center](..//marketplace/partner-center-portal/create-account.md).
+You must also have a Marketplace account. To create an account, see [How to create a Commercial Marketplace account in Partner Center](../../marketplace/partner-center-portal/create-account.md).
 
 ## Create a new Azure application offer
 
@@ -95,16 +95,16 @@ A SKU appears under the parent offer in the marketplace. It appears as its own p
    * **Tenant ID**: The tenant ID for the account to get access.
    * **Enable JIT Access**: Select **Yes** to enable [just-in-time access control](request-just-in-time-access.md) for the account. When enabled, you request access to the consumer's account for a specified time period. To require that consumers of your managed application grant your account permanent access, select **No**.
    * **Customize allowed customer actions?**: Select **Yes** to specify which actions consumers can perform on the managed resources.
-   * **Allowed customer actions**: If you select **Yes** for the previous setting, you can specify which actions are permitted to consumers by using [deny assignments for Azure resources](../role-based-access-control/deny-assignments.md).
+   * **Allowed customer actions**: If you select **Yes** for the previous setting, you can specify which actions are permitted to consumers by using [deny assignments for Azure resources](../../role-based-access-control/deny-assignments.md).
 
-     For available actions, see [Azure Resource Manager resource provider operations](../role-based-access-control/resource-provider-operations.md). For example, to permit consumers to restart virtual machines, add `Microsoft.Compute/virtualMachines/restart/action` to the allowed actions. The `*/read` action is automatically allowed so you don't need to include that setting.
+     For available actions, see [Azure Resource Manager resource provider operations](../../role-based-access-control/resource-provider-operations.md). For example, to permit consumers to restart virtual machines, add `Microsoft.Compute/virtualMachines/restart/action` to the allowed actions. The `*/read` action is automatically allowed so you don't need to include that setting.
    * **PrincipalId**: This property is the Azure Active Directory (Azure AD) identifier of a user, user group, or application that's granted access to the resources in the customer's subscription. The Role Definition describes the permissions.
    * **Role Definition**: This property is a list of all the built-in Role-Based Access Control (RBAC) roles provided by Azure AD. You can select the role that's most appropriate to use to manage the resources on behalf of the customer.
-   * **Policy Settings**: Apply an [Azure Policy](../governance/policy/overview.md) to your managed application to specify compliance requirements for the deployed solutions. From the available options, select the policies to apply. For **Policy Parameters**, provide a JSON string with the parameter values. For policy definitions and the format of the parameter values, see [Azure Policy Samples](../governance/policy/samples/index.md).
+   * **Policy Settings**: Apply an [Azure Policy](../../governance/policy/overview.md) to your managed application to specify compliance requirements for the deployed solutions. From the available options, select the policies to apply. For **Policy Parameters**, provide a JSON string with the parameter values. For policy definitions and the format of the parameter values, see [Azure Policy Samples](../../governance/policy/samples/index.md).
 
 You can add several authorizations. We recommend that you create an AD user group and specify its ID in **PrincipalId**. This way, you can add more users to the user group without the need to update the SKU.
 
-For more information about RBAC, see [Get started with RBAC in the Azure portal](../role-based-access-control/overview.md).
+For more information about RBAC, see [Get started with RBAC in the Azure portal](../../role-based-access-control/overview.md).
 
 ## Marketplace form
 
@@ -173,6 +173,6 @@ After you fill out all the sections, select **Publish** to start the process tha
 
 ## Next steps
 
-* For information about what happens after you click **Publish**, see [Publish Azure application offer](../marketplace/cloud-partner-portal/azure-applications/cpp-publish-offer.md)
+* For information about what happens after you click **Publish**, see [Publish Azure application offer](../../marketplace/cloud-partner-portal/azure-applications/cpp-publish-offer.md)
 * For an introduction to managed applications, see [Managed application overview](overview.md).
 * For information about publishing a Service Catalog managed application, see [Create and publish a Service Catalog managed application](publish-service-catalog-app.md).

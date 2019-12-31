@@ -11,7 +11,7 @@ ms.date: 06/20/2019
 
 # Adding Custom Resources to Azure REST API
 
-This article will go through the requirements and best practices for creating Azure Custom Resource Provider endpoints that implements custom resources. If you are unfamiliar with Azure Custom Resource Providers, see [the overview on custom resource providers](./custom-providers-overview.md).
+This article will go through the requirements and best practices for creating Azure Custom Resource Provider endpoints that implements custom resources. If you are unfamiliar with Azure Custom Resource Providers, see [the overview on custom resource providers](overview.md).
 
 ## How to define a resource endpoint
 
@@ -62,7 +62,7 @@ The "`Proxy`" **routingType** proxies all request methods to the **endpoint** sp
 - Full control over the response is needed.
 - Integrating systems with existing resources.
 
-To learn more about "`Proxy`" resources, see [the custom resource proxy reference](./custom-providers-proxy-resource-endpoint-reference.md)
+To learn more about "`Proxy`" resources, see [the custom resource proxy reference](proxy-resource-endpoint-reference.md)
 
 ### proxy cache routing type
 
@@ -71,7 +71,7 @@ The "`Proxy, Cache`" **routingType** proxies only `PUT` and `DELETE` request met
 - Creating a new system that has no existing resources.
 - Work with existing Azure ecosystem.
 
-To learn more about "`Proxy, Cache`" resources, see [the custom resource cache reference](./custom-providers-proxy-cache-resource-endpoint-reference.md)
+To learn more about "`Proxy, Cache`" resources, see [the custom resource cache reference](proxy-cache-resource-endpoint-reference.md)
 
 ## Creating a custom resource
 
@@ -179,9 +179,9 @@ customResourceName | *yes* | The custom resource name.
 
 ## Next steps
 
-- [Overview on Azure Custom Resource Providers](./custom-providers-overview.md)
+- [Overview on Azure Custom Resource Providers](overview.md)
 - [Quickstart: Create Azure Custom Resource Provider and deploy custom resources](./create-custom-provider.md)
-- [Tutorial: Create custom actions and resources in Azure](./tutorial-custom-providers-101.md)
+- [Tutorial: Create custom actions and resources in Azure](./tutorial-get-started-with-custom-providers.md)
 - [How To: Adding Custom Actions to Azure REST API](./custom-providers-action-endpoint-how-to.md)
-- [Reference: Custom Resource Proxy Reference](./custom-providers-proxy-resource-endpoint-reference.md)
-- [Reference: Custom Resource Cache Reference](./custom-providers-proxy-cache-resource-endpoint-reference.md)
+- [Reference: Custom Resource Proxy Reference](proxy-resource-endpoint-reference.md)
+- [Reference: Custom Resource Cache Reference](proxy-cache-resource-endpoint-reference.md)

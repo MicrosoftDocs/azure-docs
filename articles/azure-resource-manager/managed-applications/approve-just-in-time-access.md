@@ -26,7 +26,7 @@ The work flow for granting access is:
 This article focuses on the actions consumers take to enable JIT access and approve requests. To learn about publishing a managed application with JIT access, see [Request just-in-time access in Azure Managed Applications](request-just-in-time-access.md).
 
 > [!NOTE]
-> To use just-in-time access, you must have a [Azure Active Directory P2 license](../active-directory/privileged-identity-management/subscription-requirements.md).
+> To use just-in-time access, you must have a [Azure Active Directory P2 license](../../active-directory/privileged-identity-management/subscription-requirements.md).
 
 ## Enable during deployment
 
@@ -74,7 +74,7 @@ To change the settings for a deployed managed application:
 
 ## Approve requests
 
-When the publisher requests access, you're notified of the request. You can approve JIT access requests either directly through the managed application, or across all managed applications through the Azure AD Privileged Identity Management service. To use just-in-time access, you must have a [Azure Active Directory P2 license](../active-directory/privileged-identity-management/subscription-requirements.md).
+When the publisher requests access, you're notified of the request. You can approve JIT access requests either directly through the managed application, or across all managed applications through the Azure AD Privileged Identity Management service. To use just-in-time access, you must have a [Azure Active Directory P2 license](../../active-directory/privileged-identity-management/subscription-requirements.md).
 
 To approve requests through the managed application:
 

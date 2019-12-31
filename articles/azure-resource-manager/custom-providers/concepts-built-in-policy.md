@@ -21,7 +21,7 @@ Deploy associations for a custom provider is a built-in policy that can be used 
 - Association name prefix - This string is the prefix to be added to the name of the association resource being created. The default value is "DeployedByPolicy".
 
 The policy uses DeployIfNotExists evaluation. It runs after a Resource Provider has handled a create or update resource request and the evaluation has returned a success status code. After that, the association resource gets deployed using a template deployment.
-For more information on associations, see [Azure Custom Providers resource onboarding](./concepts-custom-providers-resourceonboarding.md)
+For more information on associations, see [Azure Custom Providers resource onboarding](./concepts-resource-onboarding.md)
 
 ## How to use the deploy associations built-in policy 
 
@@ -31,7 +31,7 @@ If the custom provider needs permissions to the scope of the policy to perform a
 ### Policy assignment
 To use the built-in policy, create a policy assignment and assign the Deploy associations for a custom provider policy. The policy will then identify non-compliant resources and deploy association for those resources.
 
-![Assign built-in policy](media/builtin-policy/assign-builtin-policy-customprovider.png)
+![Assign built-in policy](media/concepts-built-in-policy/assign-builtin-policy-customprovider.png)
 
 ## Getting help
 
@@ -41,9 +41,9 @@ If you have questions about Azure Custom Resource Providers development, try ask
 
 In this article, you learnt about using built-in policy to deploy associations. See these articles to learn more:
 
-- [Concepts: Azure Custom Providers resource onboarding](./concepts-custom-providers-resourceonboarding.md)
-- [Tutorial: Resource onboarding with custom providers](./tutorial-custom-providers-resource-onboarding.md)
-- [Tutorial: Create custom actions and resources in Azure](./tutorial-custom-providers-101.md)
+- [Concepts: Azure Custom Providers resource onboarding](./concepts-resource-onboarding.md)
+- [Tutorial: Resource onboarding with custom providers](./tutorial-resource-onboarding.md)
+- [Tutorial: Create custom actions and resources in Azure](./tutorial-get-started-with-custom-providers.md)
 - [Quickstart: Create a custom resource provider and deploy custom resources](./create-custom-provider.md)
 - [How to: Adding custom actions to an Azure REST API](./custom-providers-action-endpoint-how-to.md)
 - [How to: Adding custom resources to an Azure REST API](./custom-providers-resources-endpoint-how-to.md)

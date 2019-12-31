@@ -11,7 +11,7 @@ ms.date: 06/20/2019
 
 # Custom provider C# RESTful endpoint reference
 
-This article is a basic reference for a custom provider C# RESTful endpoint. If you're unfamiliar with Azure Custom Providers, see [the overview on custom resource providers](./custom-providers-overview.md).
+This article is a basic reference for a custom provider C# RESTful endpoint. If you're unfamiliar with Azure Custom Providers, see [the overview on custom resource providers](overview.md).
 
 ## Azure function app RESTful endpoint
 
@@ -252,7 +252,7 @@ public static async Task<HttpResponseMessage> RemoveCustomResource(HttpRequestMe
 
 ## Next steps
 
-- [Overview of Azure Custom Resource Providers](./custom-providers-overview.md)
+- [Overview of Azure Custom Resource Providers](overview.md)
 - [Tutorial: Create an Azure custom resource provider and deploy custom resources](./create-custom-provider.md)
 - [How to: Adding custom actions to Azure REST API](./custom-providers-action-endpoint-how-to.md)
-- [Reference: Custom resource cache reference](./custom-providers-proxy-cache-resource-endpoint-reference.md)
+- [Reference: Custom resource cache reference](proxy-cache-resource-endpoint-reference.md)

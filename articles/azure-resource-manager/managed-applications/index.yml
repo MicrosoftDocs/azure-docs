@@ -1,50 +1,63 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Azure Managed Applications Documentation
+### YamlMime:Landing
+
+title: Managed Applications documentation
+summary: Offer cloud solutions that are easy for consumers to deploy and operate.
+
 metadata:
-  title: Azure Managed Applications Documentation
-  description: Use Azure Managed Applications to publish cloud solutions that are easier for consumers to maintain.
-  services: managed-applications
-  author: tfitzmac
-  manager: timlt
+  title: Azure Managed Applications documentation
+  description: Azure managed applications enable you to offer cloud solutions that are easy for consumers to deploy and operate.
   ms.service: managed-applications
-  ms.tgt_pltfrm: na
-  ms.devlang: na
   ms.topic: landing-page
-  ms.date: 10/25/2017
+  ms.collection: na
+  author: tfitzmac
   ms.author: tomfitz
-abstract:
-  description: Azure Managed Applications enables you to offer your cloud solutions to internal and external customers. You define the infrastructure for the solution, and the terms for ongoing management of the solution. The billing for your solution is handled through Azure billing.
-sections:
-- title: 5-Minute Quickstarts
-  items:
-  - type: paragraph
-    text: 'Learn how to publish and deploy a managed application.'
-  - type: list
-    style: icon48
-    items: 
-    - image: 
-        src: /azure/managed-applications/media/index/cli.svg
-      text: Azure CLI
-      href: /azure/managed-applications/managed-apps-quickstart-cli
-- title: Step-by-Step Tutorials
-  items:
-  - type: paragraph
-    text: Learn how to develop managed applications and offer them through the Azure Marketplace.
-  - type: list
-    style: ordered
-    items:
-    - html: <a href="/azure/managed-applications/publish-service-catalog-app">Publish managed application for internal users</a>
-    - html: <a href="/azure/managed-applications/publish-marketplace-app">Publish managed application for external users</a> 
-- title: Reference
-  items:
-  - type: list
-    style: cards
-    className: cardsD
-    items:
-    - title: Command-Line
-      html: <p><a href="/cli/azure/managedapp">Azure CLI</a></p><p><a href="/powershell/module/az.resources">PowerShell</a></p>
-    - title: REST APIs
-      html: <p><a href="/rest/api/resources/">REST</a></p>  
-    - title: User interface
-      html: <p><a href="/azure/managed-applications/create-uidefinition-elements">UI elements</a></p><p><a href="/azure/managed-applications/create-uidefinition-functions">UI functions</a></p>
+  ms.date: 12/31/2019
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+
+landingContent:
+  # Card (optional)
+  - title: About Managed Applications
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What are Azure Managed Applications?
+            url: overview.md
+      - linkListType: quickstart
+        links:
+          - text: Publish application definition
+            url: publish-managed-app-definition-quickstart.md
+          - text: Deploy service catalog app
+            url: deploy-service-catalog-quickstart.md
+
+  # Card
+  - title: Create Managed Applications
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Create definition files
+            url: publish-service-catalog-app.md
+          - text: Publish marketplace application 
+            url: publish-marketplace-app.md 
+          - text: Create managed application with custom provider
+            url: tutorial-create-managed-app-with-custom-provider.md
+      - linkListType: how-to-guide
+        links:
+          - text: Request just-in-time access
+            url: request-just-in-time-access.md
+          - text: Use secret from Key Vault
+            url: key-vault-access.md
+
+  # Card
+  - title: Create portal UI
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Create portal interface
+            url: create-uidefinition-overview.md
+          - text: Test portal interface
+            url: test-createuidefinition.md
+          - text: User interface elements artifact
+            url: reference-createuidefinition-artifact.md
+          - text: CreateUiDefinition elements
+            url: create-uidefinition-elements.md

@@ -16,7 +16,7 @@ Azure Custom Resource Providers is an extensibility platform to Azure. It allows
 - How to utilize Azure Custom Resource Providers to extend existing workflows.
 - Where to find guides and code samples to get started.
 
-![Custom provider overview](./media/custom-providers-overview/overview.png)
+![Custom provider overview](./media/overview/overview.png)
 
 > [!IMPORTANT]
 > Custom Providers is currently in public preview.
@@ -121,6 +121,6 @@ If you have questions for Azure Custom Resource Provider development, try asking
 In this article, you learned about custom providers. Go to the next article to create a custom provider.
 
 - [Quickstart: Create Azure Custom Resource Provider and deploy custom resources](./create-custom-provider.md)
-- [Tutorial: Create custom actions and resources in Azure](./tutorial-custom-providers-101.md)
+- [Tutorial: Create custom actions and resources in Azure](./tutorial-get-started-with-custom-providers.md)
 - [How To: Adding Custom Actions to Azure REST API](./custom-providers-action-endpoint-how-to.md)
 - [How To: Adding Custom Resources to Azure REST API](./custom-providers-resources-endpoint-how-to.md)

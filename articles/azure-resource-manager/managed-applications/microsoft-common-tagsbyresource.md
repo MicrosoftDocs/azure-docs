@@ -12,7 +12,7 @@ ms.author: tomfitz
 
 # Microsoft.Common.TagsByResource UI element
 
-A control for associating [tags](../azure-resource-manager/resource-group-using-tags.md) with the resources in a deployment.
+A control for associating [tags](../management/tag-resources.md) with the resources in a deployment.
 
 ## UI sample
 
@@ -67,7 +67,7 @@ A control for associating [tags](../azure-resource-manager/resource-group-using-
     ...
   ```
 
-- Use the [if](../azure-resource-manager/templates/template-functions-logical.md#if) function when accessing the tagsByResource parameter. It enables you to assign an empty object when no tags are assigned to the given resource type.
+- Use the [if](../templates/template-functions-logical.md#if) function when accessing the tagsByResource parameter. It enables you to assign an empty object when no tags are assigned to the given resource type.
 
 ## Next steps
 

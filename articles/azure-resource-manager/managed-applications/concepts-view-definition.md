@@ -134,7 +134,7 @@ When you provide this view in **viewDefinition.json**, it overrides the default 
 
 `"kind": "Metrics"`
 
-The metrics view enables you to collect and aggregate data from your managed application resources in [Azure Monitor Metrics](../azure-monitor/platform/data-platform-metrics.md).
+The metrics view enables you to collect and aggregate data from your managed application resources in [Azure Monitor Metrics](../../azure-monitor/platform/data-platform-metrics.md).
 
 ```json
 {
@@ -173,7 +173,7 @@ The metrics view enables you to collect and aggregate data from your managed app
 |---------|---------|---------|
 |displayName|Yes|The displayed title of the chart.|
 |chartType|No|The visualization to use for this chart. By default, it uses a line chart. Supported chart types: `Bar, Line, Area, Scatter`.|
-|metrics|Yes|The array of metrics to plot on this chart. To learn more about metrics supported in Azure portal, see [Supported metrics with Azure Monitor](../azure-monitor/platform/metrics-supported.md)|
+|metrics|Yes|The array of metrics to plot on this chart. To learn more about metrics supported in Azure portal, see [Supported metrics with Azure Monitor](../../azure-monitor/platform/metrics-supported.md)|
 
 ### Metric
 
@@ -191,7 +191,7 @@ The metrics view enables you to collect and aggregate data from your managed app
 
 `"kind": "CustomResources"`
 
-You can define multiple views of this type. Each view represents a **unique** custom resource type from the custom provider you defined in **mainTemplate.json**. For an introduction to custom providers, see [Azure Custom Providers Preview overview](custom-providers-overview.md).
+You can define multiple views of this type. Each view represents a **unique** custom resource type from the custom provider you defined in **mainTemplate.json**. For an introduction to custom providers, see [Azure Custom Providers Preview overview](../custom-providers/overview.md).
 
 In this view you can perform GET, PUT, DELETE and POST operations for your custom resource type. POST operations could be global custom actions or custom actions in a context of your custom resource type.
 
@@ -235,7 +235,7 @@ In this view you can perform GET, PUT, DELETE and POST operations for your custo
 
 ## Commands
 
-Commands is an array of additional toolbar buttons that are displayed on page. Each command represents a POST action from your Azure Custom Provider defined in **mainTemplate.json**. For an introduction to custom providers, see [Azure Custom Providers overview](custom-providers-overview.md).
+Commands is an array of additional toolbar buttons that are displayed on page. Each command represents a POST action from your Azure Custom Provider defined in **mainTemplate.json**. For an introduction to custom providers, see [Azure Custom Providers overview](../custom-providers/overview.md).
 
 ```json
 {
@@ -261,7 +261,7 @@ Commands is an array of additional toolbar buttons that are displayed on page. E
 
 `"kind": "Associations"`
 
-You can define multiple views of this type. This view allows you to link existing resources to the managed application through the custom provider you defined in **mainTemplate.json**. For an introduction to custom providers, see [Azure Custom Providers Preview overview](custom-providers-overview.md).
+You can define multiple views of this type. This view allows you to link existing resources to the managed application through the custom provider you defined in **mainTemplate.json**. For an introduction to custom providers, see [Azure Custom Providers Preview overview](../custom-providers/overview.md).
 
 In this view you can extend existing Azure resources based on the `targetResourceType`. When a resource is selected, it will create an onboarding request to the **public** custom provider, which can apply a side effect to the resource. 
 
@@ -291,5 +291,5 @@ If you have questions about Azure Managed Applications, try asking on [Stack Ove
 ## Next steps
 
 - For an introduction to managed applications, see [Azure Managed Application overview](overview.md).
-- For an introduction to custom providers, see [Azure Custom Providers overview](custom-providers-overview.md).
+- For an introduction to custom providers, see [Azure Custom Providers overview](../custom-providers/overview.md).
 - For creating an Azure Managed Application with Azure Custom Providers, see [Tutorial: Create managed application with custom provider actions and resource types](tutorial-create-managed-app-with-custom-provider.md)

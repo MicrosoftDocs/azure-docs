@@ -11,7 +11,7 @@ ms.date: 06/20/2019
 
 # Adding Custom Actions to Azure REST API
 
-This article will go through the requirements and best practices for creating Azure Custom Resource Provider endpoints that implement custom actions. If you are unfamiliar with Azure Custom Resource Providers, see [the overview on custom resource providers](./custom-providers-overview.md).
+This article will go through the requirements and best practices for creating Azure Custom Resource Provider endpoints that implement custom actions. If you are unfamiliar with Azure Custom Resource Providers, see [the overview on custom resource providers](overview.md).
 
 ## How to define an Action Endpoint
 
@@ -136,7 +136,7 @@ request-body | *no* | The request body that will be sent to the **endpoint**.
 ### Azure Resource Manager Template
 
 > [!NOTE]
-> Actions have limited support in Azure Resource Manager Templates. In order for the action to be called inside a template, it must contain the [`list`](../azure-resource-manager/templates/template-functions-resource.md#list) prefix in its name.
+> Actions have limited support in Azure Resource Manager Templates. In order for the action to be called inside a template, it must contain the [`list`](../templates/template-functions-resource.md#list) prefix in its name.
 
 Sample **ResourceProvider** with List Action:
 
@@ -189,7 +189,7 @@ functionValues | *no* | The request body that will be sent to the **endpoint**.
 
 ## Next steps
 
-- [Overview on Azure Custom Resource Providers](./custom-providers-overview.md)
+- [Overview on Azure Custom Resource Providers](overview.md)
 - [Quickstart: Create Azure Custom Resource Provider and deploy custom resources](./create-custom-provider.md)
-- [Tutorial: Create custom actions and resources in Azure](./tutorial-custom-providers-101.md)
+- [Tutorial: Create custom actions and resources in Azure](./tutorial-get-started-with-custom-providers.md)
 - [How To: Adding Custom Resources to Azure REST API](./custom-providers-resources-endpoint-how-to.md)

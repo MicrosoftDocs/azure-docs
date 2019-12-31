@@ -17,8 +17,8 @@ In this tutorial, you'll deploy to Azure a custom resource provider that extends
 
 To complete this tutorial, you need to know:
 
-* The capabilities of [Azure Custom Providers](custom-providers-overview.md).
-* Basic information about [resource onboarding with custom providers](concepts-custom-providers-resourceonboarding.md).
+* The capabilities of [Azure Custom Providers](overview.md).
+* Basic information about [resource onboarding with custom providers](concepts-resource-onboarding.md).
 
 ## Get started with resource onboarding
 
@@ -202,7 +202,7 @@ The template will use these resources:
 
 ### Deploy the custom provider infrastructure
 
-The first part of the template deploys the custom provider infrastructure. This infrastructure defines the effect of the associations resource. If you're not familiar with custom providers, see [Custom provider basics](custom-providers-overview.md).
+The first part of the template deploys the custom provider infrastructure. This infrastructure defines the effect of the associations resource. If you're not familiar with custom providers, see [Custom provider basics](overview.md).
 
 Let's deploy the custom provider infrastructure. Either copy, save, and deploy the preceding template, or follow along and deploy the infrastructure by using the Azure portal.
 
@@ -210,25 +210,25 @@ Let's deploy the custom provider infrastructure. Either copy, save, and deploy t
 
 2. Search for **templates** in **All Services** or by using the main search box:
 
-   ![Search for templates](media/custom-providers-resource-onboarding/templates.png)
+   ![Search for templates](media/tutorial-resource-onboarding/templates.png)
 
 3. Select **Add** on the **Templates** pane:
 
-   ![Select Add](media/custom-providers-resource-onboarding/templatesadd.png)
+   ![Select Add](media/tutorial-resource-onboarding/templatesadd.png)
 
 4. Under **General**, enter a **Name** and **Description** for the new template:
 
-   ![Template name and description](media/custom-providers-resource-onboarding/templatesdescription.png)
+   ![Template name and description](media/tutorial-resource-onboarding/templatesdescription.png)
 
 5. Create the Resource Manager template by copying in the JSON template from the "Get started with resource onboarding" section of this article:
 
-   ![Create a Resource Manager template](media/custom-providers-resource-onboarding/templatesarmtemplate.png)
+   ![Create a Resource Manager template](media/tutorial-resource-onboarding/templatesarmtemplate.png)
 
 6. Select **Add** to create the template. If the new template doesn't appear, select **Refresh**.
 
 7. Select the newly created template and then select **Deploy**:
 
-   ![Select the new template and then select Deploy](media/custom-providers-resource-onboarding/templateselectspecific.png)
+   ![Select the new template and then select Deploy](media/tutorial-resource-onboarding/templateselectspecific.png)
 
 8. Enter the settings for the required fields and then select the subscription and resource group. You can leave the **Custom Resource Provider Id** box empty.
 
@@ -242,19 +242,19 @@ Let's deploy the custom provider infrastructure. Either copy, save, and deploy t
 
    Sample parameters:
 
-   ![Enter template parameters](media/custom-providers-resource-onboarding/templatescustomprovider.png)
+   ![Enter template parameters](media/tutorial-resource-onboarding/templatescustomprovider.png)
 
 9. Go to the deployment and wait for it to finish. You should see something like the following screenshot. You should see the new association resource as an output:
 
-   ![Successful deployment](media/custom-providers-resource-onboarding/customproviderdeployment.png)
+   ![Successful deployment](media/tutorial-resource-onboarding/customproviderdeployment.png)
 
    Here's the resource group, with **Show hidden types** selected:
 
-   ![Custom provider deployment](media/custom-providers-resource-onboarding/showhidden.png)
+   ![Custom provider deployment](media/tutorial-resource-onboarding/showhidden.png)
 
 10. Explore the logic app **Runs history** tab to see the calls for the association create:
 
-    ![Logic app Runs history](media/custom-providers-resource-onboarding/logicapprun.png)
+    ![Logic app Runs history](media/tutorial-resource-onboarding/logicapprun.png)
 
 ## Deploy additional associations
 
@@ -262,23 +262,23 @@ After you have the custom provider infrastructure set up, you can easily deploy 
 
 1. Go to the custom provider **Microsoft.CustomProviders/resourceProviders** resource in the resource group of the previous deployment. You'll need to select the **Show hidden types** check box:
 
-   ![Go to the resource](media/custom-providers-resource-onboarding/showhidden.png)
+   ![Go to the resource](media/tutorial-resource-onboarding/showhidden.png)
 
 2. Copy the Resource ID property of the custom provider.
 
 3. Search for **templates** in **All Services** or by using the main search box:
 
-   ![Search for templates](media/custom-providers-resource-onboarding/templates.png)
+   ![Search for templates](media/tutorial-resource-onboarding/templates.png)
 
 4. Select the previously created template and then select **Deploy**:
 
-   ![Select the previously created template and then select Deploy](media/custom-providers-resource-onboarding/templateselectspecific.png)
+   ![Select the previously created template and then select Deploy](media/tutorial-resource-onboarding/templateselectspecific.png)
 
 5. Enter the settings for the required fields and then select the subscription and a different resource group. For the **Custom Resource Provider Id** setting, enter the Resource ID that you copied from the custom provider that you deployed earlier.
 
 6. Go to the deployment and wait for it to finish. It should now deploy only the new associations resource:
 
-   ![New associations resource](media/custom-providers-resource-onboarding/createdassociationresource.png)
+   ![New associations resource](media/tutorial-resource-onboarding/createdassociationresource.png)
 
 If you want, you can go back to the logic app **Run history** and see that another call was made to the logic app. You can update the logic app to augment additional functionality for each created association.
 

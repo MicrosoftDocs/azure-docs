@@ -306,7 +306,7 @@ az managedapp create \
 
 3. On the **Service Catalog applications** page type Service Catalog definition display name in search box. Select the definition created in previous step and click **Create**.
 
-    ![Select service catalog](./media/tutorial-create-managed-application-with-custom-provider/select-service-catalog-definition.png)
+    ![Select service catalog](./media/tutorial-create-managed-app-with-custom-provider/select-service-catalog-definition.png)
 
 4. Provide values for creating a managed application instance from Service Catalog definition:
 
@@ -325,7 +325,7 @@ az managedapp create \
 
 After the service catalog application instance has been deployed, you have two new resource groups. First resource group `applicationGroup` contains an instance of the managed application, second resource group `managedResourceGroup` holds the resources for the managed application, including **custom provider**.
 
-![Application resource groups](./media/managed-application-with-custom-providers/application-resource-groups.png)
+![Application resource groups](./media/tutorial-create-managed-app-with-custom-provider/application-resource-groups.png)
 
 You can go to managed application instance and perform **custom action** in "Overview" page, create **users** custom resource in "Users" page and run **custom context action** on custom resource.
 
