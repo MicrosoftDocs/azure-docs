@@ -1,5 +1,5 @@
 ---
-title: Configure Azure resource health alerts using Resource Manager templates | Microsoft Docs
+title: Make Azure resource health alerts - Resource Manager templates
 description: Create alerts programmatically that notify you when your Azure resources become unavailable.
 ms.topic: conceptual
 ms.date: 9/4/2018

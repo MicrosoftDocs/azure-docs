@@ -174,7 +174,7 @@ You can configure optional claims for your application through the UI or applica
                        }
                ]
            }
-	   ```
+	```
 
 2. When finished, click **Save**. Now the specified optional claims will be included in the tokens for your application.    
 
