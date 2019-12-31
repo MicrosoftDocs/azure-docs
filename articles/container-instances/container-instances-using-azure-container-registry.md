@@ -3,7 +3,7 @@ title: Deploy container image from Azure Container Registry
 description: Learn how to deploy containers in Azure Container Instances using container images in an Azure container registry.
 services: container-instances
 ms.topic: article
-ms.date: 12/19/2019
+ms.date: 12/30/2019
 ms.author: danlep
 ms.custom: mvc
 ---
@@ -20,7 +20,7 @@ ms.custom: mvc
 
 ## Configure registry authentication
 
-In a production scenario where you provide access to "headless" services and applications, configure access to an Azure container registry by using a [service principal](../container-registry/container-registry-auth-service-principal.md). A service principal allows you to provide [role-based access control](../container-registry/container-registry-roles.md) to your container images. For example, you can configure a service principal with pull-only access to a registry.
+In a production scenario where you provide access to "headless" services and applications, it's recommended to configure registry access by using a [service principal](../container-registry/container-registry-auth-service-principal.md). A service principal allows you to provide [role-based access control](../container-registry/container-registry-roles.md) to your container images. For example, you can configure a service principal with pull-only access to a registry.
 
 Azure Container Registry provides additional [authentication options](../container-registry/container-registry-authentication.md).
 
@@ -129,7 +129,7 @@ You can specify the properties of your Azure container registry in an Azure Reso
 [...]
 ```
 
-For complete container group settings, see the [ACI Resource Manager template reference](/azure/templates/Microsoft.ContainerInstance/2018-10-01/containerGroups).    
+For complete container group settings, see the [Resource Manager template reference](/azure/templates/Microsoft.ContainerInstance/2018-10-01/containerGroups).    
 
 For details on referencing Azure Key Vault secrets in a Resource Manager template, see [Use Azure Key Vault to pass secure parameter value during deployment](../azure-resource-manager/resource-manager-keyvault-parameter.md).
 
