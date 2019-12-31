@@ -1,5 +1,5 @@
 ---
-title: Security Control - Secure Configuration
+title: Azure Security Control - Secure Configuration
 description: Security Control Secure Configuration
 author: msmbaldwin
 manager: rkarlin

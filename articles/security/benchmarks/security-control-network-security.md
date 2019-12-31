@@ -1,5 +1,5 @@
 ---
-title: Security Control - Network Security
+title: Azure Security Control - Network Security
 description: Security Control Network Security
 author: msmbaldwin
 manager: rkarlin

@@ -1,5 +1,5 @@
 ---
-title: Security Control - Data Recovery
+title: Azure Security Control - Data Recovery
 description: Security Control Data Recovery
 author: msmbaldwin
 manager: rkarlin

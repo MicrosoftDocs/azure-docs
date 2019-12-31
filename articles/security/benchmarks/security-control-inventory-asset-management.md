@@ -1,5 +1,5 @@
 ---
-title: Security Control - Inventory and Asset Management
+title: Azure Security Control - Inventory and Asset Management
 description: Security Control Inventory and Asset Management
 author: msmbaldwin
 manager: rkarlin

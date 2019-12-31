@@ -1,5 +1,5 @@
 ---
-title: Security Control - Penetration Tests and Red Team Exercises
+title: Azure Security Control - Penetration Tests and Red Team Exercises
 description: Security Control Penetration Tests and Red Team Exercises
 author: msmbaldwin
 manager: rkarlin

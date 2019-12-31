@@ -1,5 +1,5 @@
 ---
-title: Security Control - Logging and Monitoring
+title: Azure Security Control - Logging and Monitoring
 description: Security Control Logging and Monitoring
 author: msmbaldwin
 manager: rkarlin

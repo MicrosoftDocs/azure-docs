@@ -1,5 +1,5 @@
 ---
-title: Security Benchmark Introduction
+title: Azure Security Benchmark Introduction
 description: Security Benchmark introduction
 author: msmbaldwin
 manager: rkarlin

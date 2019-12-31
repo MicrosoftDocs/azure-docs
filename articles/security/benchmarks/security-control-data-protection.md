@@ -1,5 +1,5 @@
 ---
-title: Security Control - Data Protection
+title: Azure Security Control - Data Protection
 description: Security Control Data Protection
 author: msmbaldwin
 manager: rkarlin
