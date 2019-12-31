@@ -18,6 +18,45 @@ In this article, learn about Azure Machine Learning releases.  For the full SDK 
 
 See [the list of known issues](resource-known-issues.md) to learn about known bugs and workarounds.
 
+## 2020-01-06
+
+### Azure Machine Learning SDK for Python v1.0.82
+
++ **New features**
+  + [Insert new features below. Reference articles and/or doc pages]
+  
+  + **Preview features**
+    + [Contrib features below] 
+
++ **Breaking changes**
+  + [Reference upcoming breaking changes and old API support drop date]
+
++ **Bug fixes and improvements**
+  + **azureml-automl-runtime**
+    + Fix a regression that caused a TypeError to be raised when running AutoML on Python versions below 3.5.4.
+  + **azureml-core**
+    + Fixed bug in `datastore.upload_files` where relative path that didn't start with `./` was not able to be used.
+    + Adds deprecation messages for all Image class codepaths
+    + Fix Model Management URL construction for Mooncake region.
+    + Fixes issue where models using source_dir couldn't be packaged for Azure Functions.
+    + Dataset: Fix the issue that `to_pandas_dataframe` silently fill nulls for error values in data. The default behavior now raise failure for data error. Two new arguments `on_error` and `out_of_range_datetime` are introduced to specify how to handle error values.
+    + Datastore of Blob Container and Data Lake datastore can now be registered without credential provided. Dataset created from credential-less datastore will use managed identity from compute resource or user identity from browser interactive login to authenticate the data access.
+    + Added an option to [Environment.build_local()](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.environment%28class%29?view=azure-ml-py) to push an image into AzureML workspace container registry
+    + Updated the SDK to use new token library on azure synapse in a back compatible manner.
+  + **azureml-dataprep**
+    +  Dataset: enable data access to credential-less Datastore of Storage Blob and Data Lake using compute or user identity. Please refer to these articles for permission configuration for identity based data access: [Storage Blob](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-datalake), [Data Lake](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/tutorial-vm-windows-access-storage).
+  + **azureml-interpret**
+    + Fixed bug where None was returned when no explanations were available for download. Now raises an exception, matching behavior elsewhere.
+  + **azureml-pipeline-steps**
+    + Disallow passing `DatasetConsumptionConfig`s to `Estimator`'s `inputs` parameter when the `Estimator` will be used in an `EstimatorStep`.
+  + **azureml-sdk**
+    + Added AutoML client to azureml-sdk package, enabling remote AutoML runs to be submitted without installing the full AutoML package.
+  + **azureml-train-automl-client**
+    + Correcting alignment on console output for automl runs
+    + Fixed a bug where incorrect version of pandas may be installed on remote amlcompute.
+
+
+
 ## 2019-12-23
 
 ### Azure Machine Learning SDK for Python v1.0.81
