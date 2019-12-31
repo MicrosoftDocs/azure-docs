@@ -99,7 +99,8 @@ This article shows how to create an Immersive Reader resource and configure it w
         $result.ClientSecret = $clientSecret
         $result.Subdomain = $subdomain
 
-        Write-Host "All set! Save the following JSON object to a text file for future reference:"
+        Write-Host "Success! " -ForegroundColor Green -NoNewline
+        Write-Host "Save the following JSON object to a text file for future reference:"
         Write-Output (ConvertTo-Json $result)
     }
     ```
