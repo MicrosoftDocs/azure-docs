@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 12/11/2019
+ms.date: 12/31/2019
 ms.author: aahi
 ---
 
@@ -19,7 +19,8 @@ The Text Analytics API lets you takes unstructured text and returns a list of di
 
 ### Entity Linking
 
-Entity linking is the ability to identify and disambiguate the identity of an entity found in text (for example, determining whether an occurrence of the word `Mars` refers to the planet, or to the Roman god of war). This process requires the presence of a knowledge base to which recognized entities are linked. Entity Linking uses [Wikipedia](https://www.wikipedia.org/) as this knowledge base.
+Entity linking is the ability to identify and disambiguate the identity of an entity found in text (for example, determining whether an occurrence of the word `Mars` refers to the planet, or to the Roman god of war). This process requires the presence of a knowledge base in an appropriate language, to link recognized entities in text. See the [language support](../language-support.md#sentiment-analysis-key-phrase-extraction-and-named-entity-recognition) article for more information.
+
 
 ### Named Entity Recognition (NER)
 
@@ -37,16 +38,12 @@ The Text Analytics API offers two versions of Named Entity Recognition - v2 and 
 | Separate endpoints for sending entity linking and NER requests. |        | X      |
 | Model versioning                                                |        | X      |
 
-### Language support
-
-Using entity linking in various languages requires using a corresponding knowledge base in each language. For entity linking in Text Analytics, this means each language that is supported by the `entities` endpoint will link to the corresponding Wikipedia corpus in that language. Since the size of corpora varies between languages, it is expected that the entity linking feature's recall will also vary. See the [language support](../language-support.md#sentiment-analysis-key-phrase-extraction-and-named-entity-recognition) article for more information.
-
 #### [Version 2](#tab/version-2)
 
-### Supported entity types for Named Entity Recognition v2
+### Entity types
 
 > [!NOTE]
-> The following entities are supported by Named Entity Recognition(NER) version 2. NER v3 is in public preview, and greatly expands the number and depth of the entities recognized in text.   
+> Named Entity Recognition(NER) version 2 only supports the following entities. NER v3 is in public preview, and greatly expands the number and depth of the entities recognized in text.   
 
 | Type  | SubType | Example |
 |:-----------   |:------------- |:---------|
@@ -89,7 +86,7 @@ Named Entity Recognition v3 provides expanded detection across multiple types. C
 * General
 * Personal Information 
 
-For a detailed list of supported entities and languages, see the [Named entity types](../named-entity-types.md) article.
+For a detailed list of supported entities and languages, see the [NER v3 supported entity types](../named-entity-types.md) article.
 
 ### Request endpoints
 
@@ -98,7 +95,7 @@ Named Entity Recognition v3 uses separate endpoints for NER and entity linking r
 NER
 * General entities - `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0-preview.1/entities/recognition/general`
 
-* Personal information entities - `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0-preview.1/entities/recognition/pii`
+* Personal information - `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0-preview.1/entities/recognition/pii`
 
 Entity linking
 * `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0-preview.1/entities/linking`
@@ -123,16 +120,16 @@ Create a POST request. You can [use Postman](text-analytics-how-to-call-api.md) 
 
 #### [Version 2](#tab/version-2)
 
-* [Named Entity Linking v2 reference](https://eastus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634)
+[Named Entity Linking v2 reference](https://eastus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634)
 
 #### [Version 3](#tab/version-3)
 
-* [Named Entity Linking v3 reference](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-Preview-1/operations/EntitiesRecognitionGeneral)
+[Named Entity Linking v3 reference](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-Preview-1/operations/EntitiesRecognitionGeneral)
 
 ---
 
-Set the endpoint by using either a Text Analytics resource on Azure or an instantiated [Text Analytics container](text-analytics-how-to-install-containers.md). You must include the correct URL for the version you want to use. For example:
-    
+Set the endpoint by using either a Text Analytics resource on Azure or an instantiated [Text Analytics container](text-analytics-how-to-install-containers.md). You must include the correct URL for the version you want to use.
+
 [!INCLUDE [text-analytics-find-resource-information](../includes/find-azure-resource-info.md)]
 
 #### [Version 2](#tab/version-2)
@@ -155,7 +152,7 @@ Entity linking
 
 Set a request header to include your Text Analytics API key. In the request body, provide the JSON documents you prepared.
 
-### Example Sentiment Analysis request 
+### Example NER request 
 
 The following is an example of content you might send to the API. The request format is the same for both versions of the API.
 
@@ -224,7 +221,7 @@ Output is returned immediately. You can stream the results to an application tha
 
 ### Example v3 responses
 
-Version 3 provides separate endpoints for NER and entity linking. The responses for both operations is below.
+Version 3 provides separate endpoints for NER and entity linking. The responses for both operations are below.
 
 #### Example NER response
 
