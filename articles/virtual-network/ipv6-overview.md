@@ -42,9 +42,11 @@ IPv6 for Azure VNET benefits:
 IPv6 for Azure VNet includes the following capabilities:
 
 - Azure customers can define their own IPv6 virtual network address space to meet the needs of their applications, customers, or seamlessly integrate into their on-premises IP space.
+    - The IPv6 address ranges you define can be Unique Local Addresses ([RFC 4193](https://tools.ietf.org/html/rfc4193)) for private networking, e.g. fd12:3456:789a:bc00::/56, or public addresses, e.g. 2001:db8:1234:5600::/56.
+    - Whether you define the address range as public or private, the address range is reachable only from within the virtual network, from interconnected virtual networks, and from any on-premises networks that you have connected to the virtual network.
 - Dual stack (IPv4 and IPv6) virtual networks with dual stack subnets enable applications to connect with both IPv4 and IPv6 resources in their virtual network or - the Internet.
     > [!IMPORTANT]
-    > The subnets for IPv6 must be exactly /64 in size.  This ensures future compatibility should you decide to enable routing of the subnet to an on-premises network since some routers can only accept /64 IPv6 routes.  
+    > The subnets for IPv6 must be exactly /64 in size, e.g. fd12:3456:789a:bcde::/64.  This ensures future compatibility should you decide to enable routing of the subnet to an on-premises network since some routers can only accept /64 IPv6 routes.
 - Protect your resources with IPv6 rules for Network Security Groups.
     - And the Azure platform's Distributed Denial of Service (DDoS) protections are extended to Internet-facing Public IP's
 - Customize the routing of IPv6 traffic in your virtual network with User-Defined Routes- especially when leveraging Network Virtual Appliances to augment your application.
