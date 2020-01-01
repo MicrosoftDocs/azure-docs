@@ -39,7 +39,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 You need set up permissions for Azure Migrate deployment.
 
 - Permissions for your Azure account to create an Azure Migrate project.
-- Permissions for your account to register the Azure Migrate appliance. The appliance is used for Hyper-V discovery and migration. During appliance registration, Azure Migrate creates two Azure Active Directory (Azure AD) apps that uniquely identify the appliance:
+- Permissions for your account to register the Azure Migrate appliance. The appliance is used for discovery and assessment of Hyper-V VMs you migrate. During appliance registration, Azure Migrate creates two Azure Active Directory (Azure AD) apps that uniquely identify the appliance:
     - The first app communicates with Azure Migrate service endpoints.
     - The second app accesses an Azure Key Vault that's created during registration, to store Azure AD app info and appliance configuration settings.
 
