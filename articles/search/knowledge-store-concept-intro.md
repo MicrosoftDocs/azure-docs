@@ -122,7 +122,7 @@ Once the enrichments exist in storage, any tool or technology that connects to A
 
 + [Storage Explorer](knowledge-store-view-storage-explorer.md) to view enriched document structure and content. Consider this as your baseline tool for viewing knowledge store contents.
 
-+ [Power BI](knowledge-store-connect-power-bi.md) for reporting and analysis. Visualizations are easier if enriched documents contain numeric data. For text, you can build word clouds, use custom visualizations, or consider [Q&A](https://docs.microsoft.com/power-bi/consumer/end-user-q-and-a) for natural language exploration.
++ [Power BI](knowledge-store-connect-power-bi.md) for reporting and analysis. 
 
 + [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/) for further manipulation.
 
