@@ -31,7 +31,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[ADNET Technologies](https://thinkadnet.com/)|
 |[Adoxio Business Solutions Limited](https://www.adoxio.com)|
 |[Aeon Nexus Corp.](https://www.aeonnexus.com/)|
-|[Affigent](https://www.affigent.com/)|
+|[Affigent](http://www.affigent.com/)|
 |[Agile IT](https://www.agileit.com/)|
 |[Airnet Group](https://www.airnetgroup.com/)|
 |[AIS Network](https://www.aisn.net/)|
@@ -92,7 +92,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[Computer Solutions Inc.](http://cs-inc.co/)|
 |[Computex Technology Solutions](https://www.computex-inc.com/)|
 |[ConvergeOne](https://www.convergeone.com)|
-|[Copper River Technologies, LLC](https://www.copperrivertech.com/)|
+|[Copper River Technologies, LLC](http://www.copperrivertech.com/)|
 |[Coretek Services](https://www.coretekservices.com/)|
 |[Cornerstone Technologies](https://www.cornerstonetechnologies.com/)|
 |[CorpInfo Services](https://www.corpinfo.com)|
@@ -120,7 +120,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[DirectApps, Inc. D.B.A. Direct Technology](https://directtechnology.com)|
 |[DominionTech Inc.](https://www.dominiontech.com)|
 |Domino Systems Inc.|
-|[DOT Personable Inc](https://solutions.personable.com/)|
+|[DOT Personable Inc](http://solutions.personable.com/)|
 |[Doublehorn, LLC](https://doublehorn.com/)|
 |[DXC Technology Services LLC](https://www.dxc.technology/services)|
 |[DXL Enterprises, Inc.](https://mahwahnjcoc.wliinc31.com/Supply-Chain-Management/DXL-Enterprises,-Inc-1349)|
@@ -242,7 +242,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[Opsgility](https://www.opsgility.com)|
 |[OpsPro](https://opspro.com/)|
 |[Orion Communications, Inc.](https://www.orioncom.com)|
-|[Outlook Insight, LLC](https://outlookinsight.com/)|
+|[Outlook Insight, LLC](http://outlookinsight.com/)|
 |[Paragon Software Solutions, Inc.](http://www.paragonhq.com/)|
 |[Patrocinium Systems, Inc.](https://www.patrocinium.com)|
 |[PCM](https://www.pcm.com/)|
@@ -261,7 +261,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[ProArch IT Solutions](https://www.proarch.com/)|
 |[Project Hosts Inc.](https://www.projecthosts.com)|
 |[Protected Trust](https://www.proarch.com/)|
-|[Pueo Business Solutions, LLC](https://www.pueobusinesssolutions.com)|
+|[Pueo Business Solutions, LLC](https://www.pueo.com/)|
 |[Quality Technology Services LLC](https://www.qtsdatacenters.com/)|
 |[Quisitive](https://quisitive.com)|
 |[Quite Professionals](https://www.quietprofessionalsllc.com)|
@@ -328,7 +328,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[Trigent Solutions Inc.](http://trigentsolutions.com/)|
 |[Triple Point Security Incorporated](https://www.triplepointsecurity.com)|
 |[U2Cloud LLC](https://www.u2cloud.com)|
-|[UDRI - SSG](https://ssg.udri.udayton.edu/)|
+|[UDRI - SSG](https://udayton.edu/udri/_resources/docs/ssg_v8.pdf)|
 |[Unisys Corp / Blue Bell](https://www.unisys.com)|
 |[United Data Technologies, Inc.](https://udtonline.com)|
 |[Universal EVoIP Transitions](https://universalevoiptransitions.com/contact)|

@@ -219,7 +219,7 @@ The principle of least privilege states that users shouldn't have more privilege
 
 **How to implement**:
 
-Assign only the necessary [permissions]((https://docs.microsoft.com/sql/relational-databases/security/permissions-database-engine)) to complete the required tasks:
+Assign only the necessary [permissions](https://docs.microsoft.com/sql/relational-databases/security/permissions-database-engine) to complete the required tasks:
 
 - In SQL Data Plane: 
     - Use granular permissions and user-defined database roles (or server-roles in MI): 
