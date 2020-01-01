@@ -82,13 +82,31 @@ No. There's a one-to-one mapping between an appliance and vCenter Server. To dis
 
 You can discover up to 10,000 VMware VMs and up to 5,000 Hyper-V VMs with a single appliance. If you have more machines in your on-premises environment, read about scaling [Hyper-V](scale-hyper-v-assessment.md) and [VMware](scale-vmware-assessment.md) assessment.
 
-### Can I delete an appliance?
+## Can I delete an appliance?
 
 Currently deletion of appliance from the project isn't supported.
 
 - The only way to delete the appliance is to delete the resource group that contains the Azure Migrate project associated with the appliance.
 - However, deleting the resource group will also delete other registered appliances, the discovered inventory, assessments and all other Azure components associated with the project in the resource group.
 
+
+## Can I use the appliance with a different subscription/project?
+
+After using the appliance to initiate discovery, you can't reconfigure it with a different Azure subscription, or in a different Azure Migrate project. You also can't discover VMs on a different vCenter Server. You need to set up a fresh appliance for these tasks.
+
+## Can I set up the appliance on an Azure VM?
+Not currently supported. 
+
+## Can I discover on an ESXi host?
+Not you need a vCenter Server to discover VMware VMs.
+
+## How do I update the appliance?
+
+By default, the appliance and its installed agents are updated automatically. The appliance checks for updates once every 24 hours. If there are any failures during the update process, there's a retry process. Automatic updates only update the appliance and appliance agents. The operating system isn't updated. Use Microsoft Updates to keep the operating system up-to-date.
+
+## Can I check agent health?
+
+In the portal, go the **Agent health** page in the Server Assessment or Server Migration tool. There, you can check the connection status between the discovery and assessment agents on the appliance and Azure.
 
 ## Next steps
 Read the [Azure Migrate overview](migrate-services-overview.md).
