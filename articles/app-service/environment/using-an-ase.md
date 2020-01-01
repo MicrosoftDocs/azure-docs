@@ -5,7 +5,7 @@ author: ccompy
 
 ms.assetid: a22450c4-9b8b-41d4-9568-c4646f4cf66b
 ms.topic: article
-ms.date: 05/28/2019
+ms.date: 01/01/2020
 ms.author: ccompy
 ms.custom: seodec18
 ---
@@ -123,6 +123,39 @@ The major difference with publishing is with respect to an ILB ASE. With an ILB 
 Out of the box, Internet-based CI systems, such as GitHub and Azure DevOps, don't work with an ILB ASE because the publishing endpoint is not Internet accessible. For Azure DevOps, you can work around this by installing a self-hosted release agent in your internal network where it can reach the ILB. Alternatively, you can also use a CI system that uses a pull model, such as Dropbox.
 
 The publishing endpoints for apps in an ILB ASE use the domain that the ILB ASE was created with. You can see it in the app's publishing profile and in the app's portal blade (in **Overview** > **Essentials** and also in **Properties**). 
+
+## Logging ##
+
+You can integrate your ASE with Azure Monitor to send logs about the ASE to Storage, Event Hub or Log Analytics. If you send your logs to Log Analytics, you can then set alerts for events that you are interested in. The items that are logged today are:
+
+| Situation | Message |
+|---------|----------|
+| ASE is unhealthy | The specified ASE is unhealthy, this may be due to an invalid virtual network configuration. The ASE will be suspended if this state continues. Please ensure the guidelines defined here are followed: https://docs.microsoft.com/azure/app-service/environment/network-info |
+| ASE subnet is almost out of space | The specified ASE is in a subnet that is almost out of space. There are {0} remaining addresses. Once these addresses are exhausted, the ASE will not be able to scale  |
+| ASE is approaching total instance limit | The specified ASE is approaching the total instance limit of the ASE. It currently contains {0} App Service Plan instances of a maximum 100 instances. Please contact support if more instances are needed |
+| ASE is unable to reach a dependency | The specified ASE is not able to reach {0}.  Please ensure the guidelines defined here are followed: https://docs.microsoft.com/azure/app-service/environment/network-info |
+| ASE is suspended | The specified ASE is suspended, this may be due to an account shortfall or an invalid virtual network configuration. Please resolve the root cause and resume it to continue serving traffic |
+| ASE upgrade has started | A platform upgrade to the specified ASE has begun. Expect delays in scaling operations |
+| ASE upgrade has completed | A platform upgrade to the specified ASE has finished |
+| Scale operations have started | An App Service plan ({0}) has begun scaling. Desired state: {1} I{2} workers 
+| Scale operations have completed | An App Service plan ({0}) has finished scaling. Current state: {1} I{2} workers |
+| Scale operations have failed | An App Service plan ({0}) has failed to scale. Current state: {1} I{2} workers |
+
+To enable logging on your ASE: 
+
+1. Go to Diagnostic settings in the portal.  
+1. Select Add diagnostic setting.
+1. Provide a name for the log integration
+1. Check and configure the desired log destinations. 
+1. Check AppServiceEnvironmentPlatformLogs
+
+![ASE diagnostic log settings][4]
+
+If you integrate with Log Analytics, you can see the logs by selecting Logs from the ASE portal and creating a query against the AppServiceEnvironmentPlatformLogs. 
+
+## Upgrade preference ##
+
+
 
 ## Pricing ##
 
