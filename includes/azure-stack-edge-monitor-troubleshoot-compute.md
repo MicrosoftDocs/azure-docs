@@ -15,7 +15,7 @@ To execute either of the above set of commands, you need to [Connect to the Powe
 
 ### Use `iotedge` commands
 
-To see a list of available commands, [connect to the PowerShell interface](#connect-to-the-powershell-interface)and use the `dkrdbe` function.
+To see a list of available commands, [connect to the PowerShell interface](#connect-to-the-powershell-interface) and use the `iotedge` function.
 
 ```powershell
 [10.100.10.10]: PS>iotedge -?                                                                                                                                                                                                 Usage: iotedge COMMAND
