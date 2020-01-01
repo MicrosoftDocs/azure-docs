@@ -543,7 +543,7 @@ When you're using a C# topology with a Linux-based HDInsight cluster, bolt and s
 
 The configuration for your project is passed into the Storm topology as a key and value pair in the topology context. It can be retrieved from the dictionary object that's passed to your components when they're initialized.
 
-For more information, see the [Use ConfigurationManager](#configurationmanager) section of this document.
+For more information, see the [Use ConfigurationManager](#use-configurationmanager) section of this document.
 
 ### System.TypeLoadException
 
