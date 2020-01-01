@@ -12,7 +12,7 @@ ms.custom: MVC
 
 # Migrate Hyper-V VMs to Azure 
 
-This article shows you how to migrate on-premises Hyper-V VMs to Azure, using agentless migration with the Azure Migrate Server Migration tool.
+This article shows you how to migrate on-premises Hyper-V VMs to Azure, using agentless migration with the Azure Migrate: Server Migration tool.
 
 [Azure Migrate](migrate-services-overview.md) provides a central hub to track discovery, assessment, and migration of your on-premises apps and workloads, and private/public cloud VMs, to Azure. The hub provides Azure Migrate tools for assessment and migration, as well as third-party independent software vendor (ISV) offerings.
 
@@ -38,12 +38,12 @@ Before you begin this tutorial, you should:
 2. [Complete the first tutorial](tutorial-prepare-hyper-v.md) in this series to set up Azure and Hyper-V for migration. In the first tutorial, you:
     - [Prepare Azure](tutorial-prepare-hyper-v.md#prepare-azure) for migration.
     - [Prepare the on-premises environment](tutorial-prepare-hyper-v.md#prepare-for-hyper-v-migration) for migration.
-3. We recommend that you try assessing Hyper-V VMs, using Azure Migrate Server Assessment, before migrating them to Azure. To do this, [complete the second tutorial](tutorial-assess-hyper-v.md) in this series. Although we recommend that you try out an assessment, you don't have to run an assessment before you migrate VMs.
+3. We recommend that you try assessing Hyper-V VMs, using Azure Migrate: Server Assessment, before migrating them to Azure. To do this, [complete the second tutorial](tutorial-assess-hyper-v.md) in this series. Although we recommend that you try out an assessment, you don't have to run an assessment before you migrate VMs.
 4. Make sure that your Azure account is assigned the Virtual Machine Contributor role, so that you have permissions to:
 
     - Create a VM in the selected resource group.
     - Create a VM in the selected virtual network.
-    - Write to an Azure managed disk.   
+    - Write to an Azure managed disk.
 5. [Set up an Azure network](../virtual-network/manage-virtual-network.md#create-a-virtual-network). When you migrate to Azure, the created Azure VMs are joined to an Azure network you specify when you set up migration.
 
 
@@ -51,7 +51,7 @@ Before you begin this tutorial, you should:
 
 If you didn't follow the second tutorial to assess Hyper-V VMs, you need to [follow these instructions](how-to-add-tool-first-time.md) to set up an Azure Migrate project, and add the Azure Migrate Server Migration tool to the project.
 
-If you followed the second tutorial and already have an Azure Migrate project set-up, add the Azure Migrate Server Migration tool as follows:
+If you followed the second tutorial and already have an Azure Migrate project, add the Azure Migrate: Server Migration tool as follows:
 
 1. In the Azure Migrate project, click **Overview**. 
 2. In **Discover, assess, and migration servers**, click **Assess and migrate servers**.
@@ -69,17 +69,17 @@ If you followed the second tutorial and already have an Azure Migrate project se
 Azure Migrate Server Migration runs a lightweight Hyper-V VM appliance.
 
 - The appliance performs VM discovery and sends VM metadata and performance data to Azure Migrate Server Migration.
-- The same appliance is also used by the Azure Migrate Server Assessment tool.
+- The appliance is also used by the Azure Migrate: Server Assessment tool, to migrate Hyper-V VMs to Azure.
 
 To set up the appliance:
-- If you followed the second tutorial to assess Hyper-V VMs, you already set up the appliance during that tutorial.
+- If you followed the second tutorial to assess Hyper-V VMs, you already set up the appliance during that tutorial, and don't need to do it again.
 - If you didn't follow that tutorial, you need to set up the appliance now. To do this, you: 
 
     - Download a compressed Hyper-V VHD from the Azure portal.
     - Create the appliance, and check that it can connect to Azure Migrate Server Assessment. 
     - Configure the appliance for the first time, and register it with the Azure Migrate project.
 
-    Follow the instructions in [this article](how-to-set-up-appliance-hyper-v.md) to set up the appliance.
+    Follow the detailed instructions in [this article](how-to-set-up-appliance-hyper-v.md) to set up the appliance.
 
 ## Prepare Hyper-V hosts
 
@@ -173,14 +173,14 @@ With discovery completed, you can begin replication of Hyper-V VMs to Azure.
 > [!NOTE]
 > You can update replication settings any time before replication starts, in **Manage** > **Replicating machines**. Settings can't be changed after replication starts.
 
-### Provisioning for the first time
+## Provisioning for the first time
 
-If this is the first VM you're replicating in the Azure Migrate project, Azure Migrate Server Migration automatically provisions these resources in same resource group as the project.
+If this is the first VM you're replicating in the Azure Migrate project, Azure Migrate: Server Migration automatically provisions these resources in same resource group as the project.
 
-- **Service bus**: Azure Migrate Server Migration uses the service bus to send replication orchestration messages to the appliance.
-- **Gateway storage account**: Server Migration uses the gateway storage account to store state information about the VMs being replicated.
+- **Service bus**: Azure Migrate: Server Migration uses the service bus to send replication orchestration messages to the appliance.
+- **Gateway storage account**: Azure Migrate: Server Migration uses the gateway storage account to store state information about the VMs being replicated.
 - **Log storage account**: The Azure Migrate appliance uploads replication logs for VMs to a log storage account. Azure Migrate applies the replication information to the replica managed disks.
-- **Key vault**: The Azure Migrate appliance uses the key vault to manage connection strings for the service bus, and access keys for the storage accounts used in replication. You should have set up the permissions that the key vault needs to access the storage account when you prepared. [Review these permissions](tutorial-prepare-vmware.md#assign-role-assignment-permissions).   
+- **Key vault**: The Azure Migrate appliance uses the key vault to manage connection strings for the service bus, and access keys for the storage accounts used in replication. You should have set up the permissions that the key vault needs to access the storage account when you prepared. [prepared Azure](tutorial-prepare-hyper-v.md#prepare-azure) for Hyper-V VM assessment and migration. 
 
 
 ## Track and monitor

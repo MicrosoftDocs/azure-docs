@@ -5,7 +5,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 11/18/2019
+ms.date: 01/01/2020
 ms.author: raynew
 ms.custom: mvc
 ---
@@ -39,6 +39,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 - Here's what you should have done in the first tutorial:
     - [Set up Azure permissions](tutorial-prepare-hyper-v.md#prepare-azure) for Azure Migrate.
     - [Prepare Hyper-V](tutorial-prepare-hyper-v.md#prepare-for-hyper-v-assessment) clusters, hosts, and VMs for assessment.
+    - [Prepare for deployment](tutorial-prepare-hyper-v.md#prepare-for-appliance-deployment) of the Azure Migrate appliance, used for Hyper-V VM discovery and assessment.
 
 ## Set up an Azure Migrate project
 
