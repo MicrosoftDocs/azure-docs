@@ -15,11 +15,11 @@ ms.author: aahi
 
 # How to use Named Entity Recognition in Text Analytics
 
-The Text Analytics API lets you takes unstructured text and returns a list of disambiguated entities, with links to more information on the web (Wikipedia and Bing). The API supports both named entity recognition (NER) and entity linking.
+The Text Analytics API lets you takes unstructured text and returns a list of disambiguated entities, with links to more information on the web. The API supports both named entity recognition (NER) and entity linking.
 
 ### Entity Linking
 
-Entity linking is the ability to identify and disambiguate the identity of an entity found in text (for example, determining whether an occurrence of the word `Mars` refers to the planet, or to the Roman god of war). This process requires the presence of a knowledge base in an appropriate language, to link recognized entities in text. See the [language support](../language-support.md#sentiment-analysis-key-phrase-extraction-and-named-entity-recognition) article for more information.
+Entity linking is the ability to identify and disambiguate the identity of an entity found in text (for example, determining whether an occurrence of the word `Mars` refers to the planet, or to the Roman god of war). This process requires the presence of a knowledge base in an appropriate language, to link recognized entities in text. 
 
 
 ### Named Entity Recognition (NER)
@@ -37,6 +37,8 @@ The Text Analytics API offers two versions of Named Entity Recognition - v2 and 
 | Expanded classification for recognized entities                 |        | X      |
 | Separate endpoints for sending entity linking and NER requests. |        | X      |
 | Model versioning                                                |        | X      |
+
+See [language support](../language-support.md#sentiment-analysis-key-phrase-extraction-and-named-entity-recognition)for information.
 
 #### [Version 2](#tab/version-2)
 
