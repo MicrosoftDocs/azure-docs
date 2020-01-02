@@ -367,6 +367,44 @@ The corresponding REST copy activity source configuration especially the `pagina
 }
 ```
 
+## Use OAuth
+This section describes how to use a solution template to copy data from REST connector into Azure Data Lake Store in JSON format using OAuth. 
+
+### About the solution template
+
+The template contains two activities:
+- **Web** activity retrieves the bearer token and then pass it to subsequent Copy activity as authorization.
+- **Copy** activity copies data from REST to Azure Data Lake Store.
+
+The template defines two parameters:
+- **SinkContainer** is the root folder path where the data is copied to in your Azure Data Lake Store. 
+- **SinkDirectory** is the directory path under the root where the data is copied to in your Azure Data Lake Store. 
+
+### How to use this solution template
+
+1. Go to the **Copy from REST or HTTP using OAuth** template. Create New connections for both the Source Connection and the Destination Connection. 
+    ![Create new connections](media/solution-template-copy-from-rest-or-http-using-oauth/connections-for-datasets.png)
+
+2. Select **Use this template**.
+    ![Use this template](media/solution-template-copy-from-rest-or-http-using-oauth/use-this-template.png)
+
+3. You will see the pipeline as shown in the following example:
+    ![Pipeline](media/solution-template-copy-from-rest-or-http-using-oauth/pipeline.png)
+
+4. Select **Web** activity. In **Settings**->**Body**, specify parameters for **< service principal ID >**, **< your resource >**, and **< service principal key >** according to your own data: 
+    ![Pipeline](media/solution-template-copy-from-rest-or-http-using-oauth/web-settings.png)
+
+   Below is an example:
+    
+    ```
+        grant_type=client_credentials&client_id=******&resource=https://management.core.windows.net/&client_secret=******
+    ```
+5. Select **Debug**, enter the **Parameters**, and then select **Finish**.
+   ![Pipeline run](media/solution-template-copy-from-rest-or-http-using-oauth/pipeline-run.png) 
+
+6. When the pipeline run completed successfully, you will see the result similar to the following example:
+   ![Pipeline run result](media/solution-template-copy-from-rest-or-http-using-oauth/run-result.png) 
+
 ## Export JSON response as-is
 
 You can use this REST connector to export REST API JSON response as-is to various file-based stores. To achieve such schema-agnostic copy, skip the "structure" (also called *schema*) section in dataset and schema mapping in copy activity.
