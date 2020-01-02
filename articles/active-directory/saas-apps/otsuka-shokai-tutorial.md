@@ -87,9 +87,9 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. Otsuka Shokai application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes, where as **nameidentifier** is mapped with **user.userprincipalname**. Otsuka Shokai application expects **nameidentifier** to be mapped with **user.objectid**, so you need to edit the attribute mapping by clicking on **Edit** icon and change the attribute mapping.
 
-	![image](common/edit-attribute.png)
+    ![image](common/default-attributes.png)
 
-1. In addition to above, Otsuka Shokai application expects few more attributes to be passed back in SAML response. In the **User Claims** section on the **User Attributes** dialog, perform the following steps to add SAML token attribute as shown in the below table:
+1. In addition to above, PureCloud by Genesys application expects few more attributes to be passed back in SAML response which are shown below. These attributes are also pre populated but you can review them as per your requirements.
 
 	| Name | Source Attribute|
 	| ---------------| --------------- |
@@ -97,24 +97,6 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	>[!NOTE]
 	>`<Application ID>` is the value which you have copied from the **Properties** tab of Azure portal.
-
-	a. Click **Add new claim** to open the **Manage user claims** dialog.
-
-	![image](common/new-save-attribute.png)
-
-	![image](common/new-attribute-details.png)
-
-	b. In the **Name** textbox, type the attribute name shown for that row.
-
-	c. Leave the **Namespace** blank.
-
-	d. Select Source as **Attribute**.
-
-	e. From the **Source attribute** list, type the attribute value shown for that row.
-
-	f. Click **Ok**
-
-	g. Click **Save**.
 
 ### Create an Azure AD test user
 
