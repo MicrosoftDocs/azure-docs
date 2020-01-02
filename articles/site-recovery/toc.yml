@@ -241,11 +241,7 @@
           href: vmware-physical-mobility-service-overview.md
         - name: Prepare for push installation
           href: vmware-azure-install-mobility-service.md
-<<<<<<< HEAD
-        - name: Deploy the Mobility service with Configuration Manager
-=======
         - name: Automate Mobility service deployment
->>>>>>> d7ef405d16b3976b28f85ec0247066db85701705
           href: vmware-azure-mobility-install-configuration-mgr.md
       - name: Enable replication for VMware VMs
         href: vmware-azure-enable-replication.md

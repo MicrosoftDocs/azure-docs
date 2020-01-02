@@ -48,43 +48,7 @@ Server Assessment is a migration planning tool. The Site Recovery Deployment Pla
 
 ## Which geographies are supported?
 
-<<<<<<< HEAD
-Use dependency visualization to assess groups of VMs for migration with greater confidence. Dependency visualization cross-checks machine dependencies before you run an assessment. It helps ensure that nothing is left behind, and thus helps to avoid unexpected outages when you migrate to Azure. Azure Migrate uses the Service Map solution in Azure Monitor to enable dependency visualization. [learn more](concepts-dependency-visualization.md).
-
-> [!NOTE]
-> Dependency visualization isn't available in Azure Government.
-
-### Do I need to pay to use dependency visualization?
-No. [Learn more](https://azure.microsoft.com/pricing/details/azure-migrate/) about Azure Migrate pricing.
-
-### Do I need to install anything for dependency visualization?
-
-To use dependency visualization, you need to download and install agents on each on-premises machine that you want to evaluate.
-
-You need to install the following agents on each machine:
-- [Microsoft Monitoring Agent (MMA)](https://docs.microsoft.com/azure/log-analytics/log-analytics-agent-windows).
-- [Dependency agent](../azure-monitor/platform/agents-overview.md#dependency-agent).
-- If you have machines with no internet connectivity, you need to download and install Log Analytics gateway on them.
-
-You don't need these agents unless you're using dependency visualization.
-
-### Can I use an existing workspace for dependency visualization?
-
-Yes, you can attach an existing workspace to the migration project and use it for dependency visualization. [Learn more](concepts-dependency-visualization.md#how-does-it-work).
-
-### Can I export the dependency visualization report?
-
-No, the dependency visualization can't be exported. However, Azure Migrate uses Service Map, and you can use the [Service Map REST API](https://docs.microsoft.com/rest/api/servicemap/machines/listconnections) to retrieve the dependencies in JSON format.
-
-### How can I automate the installation of Microsoft Monitoring Agent (MMA) and the Dependency agent?
-
-Use this [script to install the Dependency agent](../azure-monitor/insights/vminsights-enable-hybrid-cloud.md#installation-script-examples). Follow these [instructions to install MMA](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent#install-and-configure-agent) by using the command line or automation. For
-MMA, use [this script](https://gallery.technet.microsoft.com/scriptcenter/Install-OMS-Agent-with-2c9c99ab).
-
-In addition to scripts, you can also use deployment tools like Configuration Manager and [Intigua](https://www.intigua.com/getting-started-intigua-for-azure-migration) to deploy the agents.
-=======
 Review the Azure Migrate supported geographies for [VMware VM](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#azure-migrate-projects) and for [Hyper-V VMs](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-hyper-v#azure-migrate-projects).
->>>>>>> d7ef405d16b3976b28f85ec0247066db85701705
 
 ## How do I get started?
 
