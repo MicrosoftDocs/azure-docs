@@ -620,7 +620,7 @@ public static string Run([HttpTrigger] dynamic input, ILogger log)
 
 For a complete example, see [Output - example](#output---example).
 
-You can use the `ServiceBusAccount` attribute to specify the Service Bus account to use at class, method, or parameter level.  For more information, see [Trigger - attributes](#trigger---attributes).
+You can use the `ServiceBusAccount` attribute to specify the Service Bus account to use at class, method, or parameter level.  For more information, see [Trigger - attributes](#trigger---attributes-and-annotations).
 
 # [C# Script](#tab/csharp-script)
 
