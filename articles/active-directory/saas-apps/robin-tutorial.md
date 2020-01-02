@@ -12,9 +12,8 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/24/2019
+ms.date: 01/02/2020
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -34,21 +33,18 @@ To learn more about SaaS app integration with Azure AD, see [What is application
 
 To get started, you need the following items:
 
-* An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+* An Azure AD subscription. If you don't have a subscription, you can get one-month free trial [here](https://azure.microsoft.com/pricing/free-trial/).
 * Robin single sign-on (SSO) enabled subscription.
 
 ## Scenario description
 
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
-
-
 * Robin supports **SP and IDP** initiated SSO
 * Robin supports **Just In Time** user provisioning
 
 > [!NOTE]
 > Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
-
 
 ## Adding Robin from the gallery
 
@@ -60,7 +56,6 @@ To configure the integration of Robin into Azure AD, you need to add Robin from 
 1. To add new application, select **New application**.
 1. In the **Add from the gallery** section, type **Robin** in the search box.
 1. Select **Robin** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
-
 
 ## Configure and test Azure AD single sign-on for Robin
 
@@ -92,12 +87,9 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     In the **Sign-on URL** text box, type a URL:
     `https://dashboard.robinpowered.com/`
 
-    > [!NOTE]
-	> The value is not real. Update the value with the actual Sign-on URL. Contact [Robin Client support team](mailto:support@robinpowered.com) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
-
 1. Robin application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
 
-	![image](common/edit-attribute.png)
+	![image](common/default-attributes.png)
 
 1. In addition to above, Robin application expects few more attributes to be passed back in SAML response which are shown below. These attributes are also pre populated but you can review them as per your requirement.
 

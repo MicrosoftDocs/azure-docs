@@ -1,20 +1,11 @@
 ---
-title: Set up staging environments for web apps in Azure App Service | Microsoft Docs 
-description: Learn how to use staged publishing for web apps in Azure App Service.
-services: app-service
-documentationcenter: ''
-author: cephalin
-writer: cephalin
-manager: jpconnoc
-editor: mollybos
+title: Set up staging environments
+description: Learn how to deploy apps to a non-production slot and autoswap into production. Increase the reliability and eliminate app downtime from deployments.
 
 ms.assetid: e224fc4f-800d-469a-8d6a-72bcde612450
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 09/19/2019
-ms.author: cephalin
+ms.custom: fasttrack-edit
 
 ---
 # Set up staging environments in Azure App Service
@@ -37,7 +28,7 @@ To scale your app to a different tier, make sure that the target tier supports t
 ## Add a slot
 The app must be running in the **Standard**, **Premium**, or **Isolated** tier in order for you to enable multiple deployment slots.
 
-1. In the [Azure portal](https://portal.azure.com/), open your app's [resource page](../azure-resource-manager/manage-resources-portal.md#manage-resources).
+1. In the [Azure portal](https://portal.azure.com/), open your app's [resource page](../azure-resource-manager/management/manage-resources-portal.md#manage-resources).
 
 2. In the left pane, select **Deployment slots** > **Add Slot**.
    
@@ -215,7 +206,7 @@ You can also customize the warm-up behavior with one or both of the following [a
 - `WEBSITE_SWAP_WARMUP_PING_STATUSES`: Valid HTTP response codes for the warm-up operation. Add this app setting with a comma-separated list of HTTP codes. An example is `200,202` . If the returned status code isn't in the list, the warmup and swap operations are stopped. By default, all response codes are valid.
 
 > [!NOTE]
-> `<applicationInitialization>` is part each app start-up, where as these two app settings apply only to slot swaps.
+> The `<applicationInitialization>` configuration element is part of each app start-up, whereas the two warm-up behavior app settings apply only to slot swaps.
 
 If you have any problems, see [Troubleshoot swaps](#troubleshoot-swaps).
 
@@ -244,6 +235,10 @@ To route production traffic automatically:
 After the setting is saved, the specified percentage of clients is randomly routed to the non-production slot. 
 
 After a client is automatically routed to a specific slot, it's "pinned" to that slot for the life of that client session. On the client browser, you can see which slot your session is pinned to by looking at the `x-ms-routing-name` cookie in your HTTP headers. A request that's routed to the "staging" slot has the cookie `x-ms-routing-name=staging`. A request that's routed to the production slot has the cookie `x-ms-routing-name=self`.
+
+   > [!NOTE]
+   > Next to the Azure Portal, you can also use the [`az webapp traffic-routing set`](/cli/azure/webapp/traffic-routing#az-webapp-traffic-routing-set) command in the Azure CLI to set the routing percentages from CI/CD tools like DevOps pipelines or other automation systems.
+   > 
 
 ### Route production traffic manually
 
@@ -330,7 +325,7 @@ Remove-AzResource -ResourceGroupName [resource group name] -ResourceType Microso
 
 ## Automate with ARM templates
 
-[ARM Templates](https://docs.microsoft.com/en-us/azure/azure-resource-manager/template-deployment-overview) are declarative JSON files used to automate the deployment and configuration of Azure resources. To swap slots using ARM templates, you will set two properties on the *Microsoft.Web/sites/slots* and *Microsoft.Web/sites* resources:
+[ARM Templates](https://docs.microsoft.com/azure/azure-resource-manager/template-deployment-overview) are declarative JSON files used to automate the deployment and configuration of Azure resources. To swap slots using ARM templates, you will set two properties on the *Microsoft.Web/sites/slots* and *Microsoft.Web/sites* resources:
 
 - `buildVersion`: this is a string property which represents the current version of the app deployed in the slot. For example: "v1", "1.0.0.1", or "2019-09-20T11:53:25.2887393-07:00".
 - `targetBuildVersion`: this is a string property that specifies what `buildVersion` the slot should have. If the targetBuildVersion does not equal the current `buildVersion`, then this will trigger the swap operation by finding the slot which has the specified `buildVersion`.

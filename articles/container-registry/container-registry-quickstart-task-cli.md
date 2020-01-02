@@ -1,15 +1,8 @@
 ---
-title: Quickstart - Build and run a container image in Azure Container Registry
+title: Quickstart - Build & run container image
 description: Quickly run tasks with Azure Container Registry to build and run a container image on-demand, in the cloud.
-services: container-registry
-author: dlepow
-manager: gwallace
-
-ms.service: container-registry
 ms.topic: quickstart
 ms.date: 04/02/2019
-ms.author: danlep
-ms.custom: 
 ---
 # Quickstart: Build and run a container image using Azure Container Registry Tasks
 

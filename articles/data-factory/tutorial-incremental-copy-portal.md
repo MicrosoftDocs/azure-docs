@@ -1,19 +1,20 @@
 ---
-title: 'Incrementally copy a table by using Azure Data Factory | Microsoft Docs'
-description: 'In this tutorial, you create an Azure data factory pipeline that copies data incrementally from an Azure SQL database to Azure Blob storage.'
+title: Incrementally copy a table using Azure portal
+description: In this tutorial, you create an Azure data factory pipeline that copies data incrementally from an Azure SQL database to Azure Blob storage.
 services: data-factory
-documentationcenter: ''
 author: dearandyxu
-manager: craigg
+ms.author: yexu
+manager: anandsub
 ms.reviewer: douglasl
-
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
+ms.custom: seo-dt-2019
 ms.date: 01/11/2018
-ms.author: yexu
 ---
-# Incrementally load data from an Azure SQL database to Azure Blob storage
+
+# Incrementally load data from an Azure SQL database to Azure Blob storage using the Azure portal
+
 In this tutorial, you create an Azure data factory with a pipeline that loads delta data from a table in an Azure SQL database to Azure Blob storage. 
 
 You perform the following steps in this tutorial:
@@ -159,7 +160,7 @@ END
       - Select **Use existing**, and select an existing resource group from the drop-down list. 
       - Select **Create new**, and enter the name of a resource group.   
          
-        To learn about resource groups, see [Using resource groups to manage your Azure resources](../azure-resource-manager/resource-group-overview.md).  
+        To learn about resource groups, see [Using resource groups to manage your Azure resources](../azure-resource-manager/management/overview.md).  
 6. Select **V2** for the **version**.
 7. Select the **location** for the data factory. Only locations that are supported are displayed in the drop-down list. The data stores (Azure Storage, Azure SQL Database, etc.) and computes (HDInsight, etc.) used by data factory can be in other regions.
 8. Click **Create**.      

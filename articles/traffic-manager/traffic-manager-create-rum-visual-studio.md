@@ -1,5 +1,5 @@
 ---
-title: Real User Measurements to Azure Traffic Manager with Visual Studio Mobile Center | Microsoft Docs
+title: Real User Measurements with Visual Studio Mobile Center - Azure Traffic Manager
 description: Set up your mobile application developed using Visual Studio Mobile Center to send Real User Measurements to Traffic Manager
 services: traffic-manager
 documentationcenter: traffic-manager

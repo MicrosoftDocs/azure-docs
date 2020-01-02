@@ -1,5 +1,5 @@
 ---
-title: How to configure single sign-on to an Application Proxy application | Microsoft Docs
+title: How to configure single sign-on to an Application Proxy app
 description: How you can configure single sign-on to your application proxy application quickly
 services: active-directory
 documentationcenter: ''

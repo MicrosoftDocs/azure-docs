@@ -1,18 +1,16 @@
 ---
-title: Azure Application Insights Snapshot Debugger for .NET apps | Microsoft Docs
+title: Azure Application Insights Snapshot Debugger for .NET apps
 description: Debug snapshots are automatically collected when exceptions are thrown in production .NET apps
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service:  azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.reviewer: brahmnes
-ms.date: 10/23/2019
+author: mrbullwinkle
 ms.author: mbullwin
+ms.date: 10/23/2019
+
+ms.reviewer: brahmnes
 ---
+
 # Debug snapshots on exceptions in .NET apps
 When an exception occurs, you can automatically collect a debug snapshot from your live web application. The snapshot shows the state of source code and variables at the moment the exception was thrown. The Snapshot Debugger (preview) in [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) monitors exception telemetry from your web app. It collects snapshots on your top-throwing exceptions so that you have the information you need to diagnose issues in production. Include the [Snapshot collector NuGet package](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) in your application, and optionally configure collection parameters in [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md). Snapshots appear on [exceptions](../../azure-monitor/app/asp-net-exceptions.md) in the Application Insights portal.
 

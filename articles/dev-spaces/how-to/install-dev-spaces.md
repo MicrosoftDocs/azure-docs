@@ -1,10 +1,6 @@
 ---
-title: "Install Azure Dev Spaces on AKS and the client-side tooling"
-titleSuffix: Azure Dev Spaces
+title: "Install Azure Dev Spaces on AKS & the client-side tooling"
 services: azure-dev-spaces
-ms.service: azure-dev-spaces
-author: zr-msft
-ms.author: zarhoads
 ms.date: "07/24/2019"
 ms.topic: "conceptual"
 description: "Learn how to install Azure Dev Spaces on an AKS cluster and install the client-side tooling."

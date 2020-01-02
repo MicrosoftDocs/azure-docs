@@ -6,6 +6,14 @@
     href: migrate-services-overview.md
   - name: What's new
     href: whats-new.md
+  - name: Common questions
+    items:
+    - name: Questions about Azure Migrate
+      href: resources-faq.md
+    - name: Questions about Azure Migrate appliance
+      href: common-questions-appliance.md
+    - name: Questions about discovery, assessment/dependency visualization
+      href: common-questions-discovery-assessment.md
 - name: Tutorials
   items:
   - name: Assess and migrate VMware VMs
@@ -30,12 +38,20 @@
       href: tutorial-assess-hyper-v.md
     - name: Migrate Hyper-V VMs
       href: tutorial-migrate-hyper-v.md
-  - name: Migrate physical servers and VMs
-    href: tutorial-migrate-physical-virtual-machines.md
+  - name: Assess and migrate physical servers
+    items:
+    - name: Prepare physical servers for assessment and migration
+      href: tutorial-prepare-physical.md
+    - name: Assess physical servers
+      href: tutorial-assess-physical.md
+    - name: Migrate physical servers
+      href: tutorial-migrate-physical-virtual-machines.md
+  - name: Assess imported servers for migration
+    items:
+    - name: Assess imported servers for migration
+      href: tutorial-assess-import.md
 - name: Concepts
   items:
-  - name: Common questions
-    href: resources-faq.md
   - name: Support matrices
     items:
     - name: Support matrix for Azure Migrate
@@ -44,6 +60,8 @@
       href: migrate-support-matrix-vmware.md
     - name: Support matrix for Hyper-V assessment and migration
       href: migrate-support-matrix-hyper-v.md
+    - name: Support matrix for physical server assessment and migration
+      href: migrate-support-matrix-physical.md
   - name: Hyper-V migration architecture
     href: hyper-v-migration-architecture.md
   - name: Agent-based migration architecture
@@ -66,6 +84,10 @@
     href: how-to-set-up-appliance-vmware.md
   - name: Deploy a Hyper-V appliance
     href: how-to-set-up-appliance-hyper-v.md
+  - name: Deploy a physical server appliance
+    href: how-to-set-up-appliance-physical.md
+  - name: Discover applications/roles/features
+    href: how-to-discover-applications.md
   - name: Add a tool for the first time
     href: how-to-add-tool-first-time.md
   - name: Add assessment tools
@@ -73,7 +95,9 @@
   - name: Group machines for assessment
     href: how-to-create-a-group.md
   - name: Group machines using dependency visualization
-    href: how-to-create-group-machine-dependencies.md 
+    href: how-to-create-group-machine-dependencies.md
+  - name: Group machines using agentless dependency visualization
+    href: how-to-create-group-machine-dependencies-agentless.md
   - name: Create an assessment
     href: how-to-create-assessment.md
   - name: Assess a SQL Server database
@@ -84,6 +108,8 @@
     href: how-to-migrate.md
   - name: Prepare machines for migration
     href: prepare-for-migration.md
+  - name: Delete an Azure Migrate project
+    href: how-to-delete-project.md
 - name: Scale assessment and migration
   items:
   - name: Assess large numbers of VMware VMs

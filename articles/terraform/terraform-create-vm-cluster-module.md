@@ -1,17 +1,11 @@
 ---
-title: Use Terraform modules to create a VM cluster on Azure
+title: Tutorial - Create an Azure VM cluster with Terraform using the Module Registry
 description: Learn how to use Terraform modules to create a Windows virtual machine cluster in Azure
-services: terraform
-ms.service: azure
-keywords: terraform, devops, virtual machine, network, modules
-author: tomarchermsft
-manager: jeconnoc
-ms.author: tarcher
 ms.topic: tutorial
-ms.date: 09/20/2019
+ms.date: 10/26/2019
 ---
 
-# Create a VM cluster with Terraform using the Module Registry
+# Tutorial: Create an Azure VM cluster with Terraform using the Module Registry
 
 This article walks you through creating a small VM cluster with the Terraform [Azure compute module](https://registry.terraform.io/modules/Azure/compute/azurerm/1.0.2). In this tutorial you learn how to: 
 
@@ -55,10 +49,11 @@ module mycompute {
     location = "East US 2"
     admin_password = "ComplxP@assw0rd!"
     vm_os_simple = "WindowsServer"
+    is_windows_image = "true"
     remote_port = "3389"
     nb_instances = 2
     public_ip_dns = ["unique_dns_name"]
-    vnet_subnet_id = "${module.network.vnet_subnets[0]}"
+    vnet_subnet_id = module.network.vnet_subnets[0]
 }
 
 module "network" {
@@ -68,15 +63,15 @@ module "network" {
 }
 
 output "vm_public_name" {
-    value = "${module.mycompute.public_ip_dns_name}"
+    value = module.mycompute.public_ip_dns_name
 }
 
 output "vm_public_ip" {
-    value = "${module.mycompute.public_ip_address}"
+    value = module.mycompute.public_ip_address
 }
 
 output "vm_private_ips" {
-    value = "${module.mycompute.network_interface_private_ip}"
+    value = module.mycompute.network_interface_private_ip
 }
 ```
 
@@ -99,5 +94,5 @@ Run `terraform apply` to provision the VMs on Azure.
 
 ## Next steps
 
-- Browse the list of [Azure Terraform modules](https://registry.terraform.io/modules/Azure)
-- Create a [virtual machine scale set with Terraform](terraform-create-vm-scaleset-network-disks-hcl.md)
+> [!div class="nextstepaction"] 
+> [Browse the list of Azure Terraform modules](https://registry.terraform.io/modules/Azure)

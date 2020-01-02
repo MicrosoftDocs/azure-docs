@@ -1,12 +1,8 @@
 ---
 title: Azure Functions bindings expressions and patterns
 description: Learn to create different Azure Functions binding expressions based on common patterns.
-services: functions
-documentationcenter: na
 author: craigshoemaker
-manager: gwallace
 
-ms.service: azure-functions
 ms.topic: reference
 ms.date: 02/18/2019
 ms.author: cshoe

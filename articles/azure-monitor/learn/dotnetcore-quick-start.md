@@ -1,15 +1,14 @@
 ---
-title: Quickstart with Azure Application Insights | Microsoft Docs
-description: Provides instructions to quickly set up an ASP.NET Core Web App for monitoring with Application Insights
-services: application-insights
-keywords:
+title: Quickstart ASP.NET Core - Azure Monitor Application Insights 
+description: Provides instructions to quickly set up an ASP.NET Core Web App for monitoring with Azure Monitor Application Insights
+ms.service:  azure-monitor
+ms.subservice: application-insights
+ms.topic: quickstart
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 06/26/2019
-ms.service: application-insights
+
 ms.custom: mvc
-ms.topic: quickstart
-manager: carmonm
 ---
 
 # Start Monitoring Your ASP.NET Core Web Application
@@ -50,10 +49,12 @@ Application Insights can gather telemetry data from any internet-connected appli
    | Settings        |  Value           | Description  |
    | ------------- |:-------------|:-----|
    | **Name**      | Globally Unique Value | Name that identifies the app you are monitoring |
-   | **Resource Group**     | myResourceGroup      | Name for the new resource group to host App Insights data |
+   | **Resource Group**     | myResourceGroup      | Name for the new resource group to host App Insights data. You can create a new resource group or use an existing one. |
    | **Location** | East US | Choose a location near you, or near where your app is hosted |
 
 2. Click **Create**.
+
+
 
 ## Configure App Insights SDK
 
@@ -103,6 +104,9 @@ Application Insights can gather telemetry data from any internet-connected appli
 
 ## Clean up resources
 When you are done testing, you can delete the resource group and all related resources. To do so follow the steps below.
+
+> [!NOTE]
+> If you used an existing resource group the instructions below will not work and you will need to just delete the individual Application Insights resource. Keep in mind anytime you delete a resource group all underyling resources that are members of that group will be deleted.
 
 1. From the left-hand menu in the Azure portal, click **Resource groups** and then click **myResourceGroup**.
 2. On your resource group page, click **Delete**, type **myResourceGroup** in the text box, and then click **Delete**.

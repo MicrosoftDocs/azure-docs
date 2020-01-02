@@ -1,13 +1,9 @@
 ---
 title: Create Azure Functions on Linux using a custom image
 description: Learn how to create Azure Functions running on a custom Linux image.
-author: ggailey777
-ms.author: glenga
 ms.date: 09/27/2019
 ms.topic: tutorial
-ms.service: azure-functions
 ms.custom: mvc
-manager: gwallace                                                                                                            
 ---
 
 # Create a function on Linux using a custom image
@@ -31,7 +27,6 @@ In this tutorial, you learn how to:
 > * Enable continuous deployment.
 > * Enable SSH connections to the container.
 > * Add a Queue storage output binding. 
-> * Add Application Insights monitoring.
 
 The following steps are supported on a Mac, Windows, or Linux computer. 
 
@@ -52,7 +47,7 @@ You can also use the [Azure Cloud Shell](https://shell.azure.com/bash).
 
 ## Create the local project
 
-Run the following command from the command line to create a function app project in the `MyFunctionProj` folder of the current local directory. For a Python project, you [must be running in a virtual environment](functions-create-first-function-python.md#create-and-activate-a-virtual-environment-optional).
+Run the following command from the command line to create a function app project in the `MyFunctionProj` folder of the current local directory. For a Python project, you [must be running in a virtual environment](functions-create-first-function-python.md#create-and-activate-a-virtual-environment).
 
 ```bash
 func init MyFunctionProj --docker
@@ -175,8 +170,7 @@ storageConnectionString=$(az storage account show-connection-string \
 
 az functionapp config appsettings set --name <app_name> \
 --resource-group myResourceGroup \
---settings AzureWebJobsDashboard=$storageConnectionString \
-AzureWebJobsStorage=$storageConnectionString
+--settings AzureWebJobsStorage=$storageConnectionString
 ```
 
 > [!NOTE]

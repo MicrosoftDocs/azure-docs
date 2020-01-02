@@ -6,7 +6,7 @@ ms.author: omidm
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 05/06/2019
+ms.date: 10/30/2019
 ---
 
 # Use Apache Oozie with Apache Hadoop to define and run a workflow on Linux-based Azure HDInsight
@@ -23,14 +23,13 @@ You can also use Oozie to schedule jobs that are specific to a system, like Java
 > [!NOTE]  
 > Another option to define workflows with HDInsight is to use Azure Data Factory. To learn more about Data Factory, see [Use Apache Pig and Apache Hive with Data Factory][azure-data-factory-pig-hive]. To use Oozie on clusters with Enterprise Security Package please see [Run Apache Oozie in HDInsight Hadoop clusters with Enterprise Security Package](domain-joined/hdinsight-use-oozie-domain-joined-clusters.md).
 
-
 ## Prerequisites
 
 * **A Hadoop cluster on HDInsight**. See [Get Started with HDInsight on Linux](hadoop/apache-hadoop-linux-tutorial-get-started.md).
 
 * **An SSH client**. See [Connect to HDInsight (Apache Hadoop) using SSH](hdinsight-hadoop-linux-use-ssh-unix.md).
 
-* **An Azure SQL Database**.  See [Create an Azure SQL database in the Azure portal](../sql-database/sql-database-get-started.md).  This article uses a database named `oozietest`.
+* **An Azure SQL Database**.  See [Create an Azure SQL database in the Azure portal](../sql-database/sql-database-get-started.md).  This article uses a database named **oozietest**.
 
 * The [URI scheme](./hdinsight-hadoop-linux-information.md#URI-and-scheme) for your clusters primary storage. This would be `wasb://` for Azure Storage, `abfs://` for Azure Data Lake Storage Gen2 or `adl://` for Azure Data Lake Storage Gen1. If secure transfer is enabled for Azure Storage, the URI would be `wasbs://`. See also, [secure transfer](../storage/common/storage-require-secure-transfer.md).
 
@@ -59,10 +58,10 @@ The workflow used in this document contains two actions. Actions are definitions
 
 Oozie expects you to store all the resources required for a job in the same directory. This example uses `wasbs:///tutorials/useoozie`. To create this directory, complete the following steps:
 
-1. Edit the code below to replace `sshuser` with the SSH user name for the cluster, and replace `clustername` with the name of the cluster.  Then enter the code to connect to the HDInsight cluster by [using SSH](hdinsight-hadoop-linux-use-ssh-unix.md).  
+1. Edit the code below to replace `sshuser` with the SSH user name for the cluster, and replace `CLUSTERNAME` with the name of the cluster.  Then enter the code to connect to the HDInsight cluster by [using SSH](hdinsight-hadoop-linux-use-ssh-unix.md).  
 
     ```bash
-    ssh sshuser@clustername-ssh.azurehdinsight.net
+    ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
     ```
 
 2. To create the directory, use the following command:
@@ -74,10 +73,10 @@ Oozie expects you to store all the resources required for a job in the same dire
     > [!NOTE]  
     > The `-p` parameter causes the creation of all directories in the path. The `data` directory is used to hold the data used by the `useooziewf.hql` script.
 
-3. Edit the code below to replace `username` with your SSH user name.  To make sure that Oozie can impersonate your user account, use the following command:
+3. Edit the code below to replace `sshuser` with your SSH user name.  To make sure that Oozie can impersonate your user account, use the following command:
 
     ```bash
-    sudo adduser username users
+    sudo adduser sshuser users
     ```
 
     > [!NOTE]  
@@ -98,7 +97,7 @@ If your workflow used other resources, such as a jar that contains a MapReduce a
 
 ## Define the Hive query
 
-Use the following steps to create a Hive query language (HiveQL) script that defines a query. You will use the query in an Oozie workflow later in this document.
+Use the following steps to create a Hive query language (HiveQL) script that defines a query. You'll use the query in an Oozie workflow later in this document.
 
 1. From the SSH connection, use the following command to create a file named `useooziewf.hql`:
 
@@ -106,7 +105,7 @@ Use the following steps to create a Hive query language (HiveQL) script that def
     nano useooziewf.hql
     ```
 
-3. After the GNU nano editor opens, use the following query as the contents of the file:
+1. After the GNU nano editor opens, use the following query as the contents of the file:
 
     ```hiveql
     DROP TABLE ${hiveTableName};
@@ -123,9 +122,9 @@ Use the following steps to create a Hive query language (HiveQL) script that def
 
      The workflow definition file, workflow.xml in this article, passes these values to this HiveQL script at runtime.
 
-4. To save the file, select Ctrl+X, enter `Y`, and then select **Enter**.  
+1. To save the file, select **Ctrl+X**, enter **Y**, and then select **Enter**.  
 
-5. Use the following command to copy `useooziewf.hql` to `wasbs:///tutorials/useoozie/useooziewf.hql`:
+1. Use the following command to copy `useooziewf.hql` to `wasbs:///tutorials/useoozie/useooziewf.hql`:
 
     ```bash
     hdfs dfs -put useooziewf.hql /tutorials/useoozie/useooziewf.hql
@@ -204,11 +203,11 @@ Oozie workflow definitions are written in Hadoop Process Definition Language (hP
 
    * `RunSqoopExport`: This action exports the data created from the Hive script to a SQL database by using Sqoop. This action only runs if the `RunHiveScript` action is successful.
 
-     The workflow has several entries, such as `${jobTracker}`. You will replace these entries with the values you use in the job definition. You will create the job definition later in this document.
+     The workflow has several entries, such as `${jobTracker}`. You'll replace these entries with the values you use in the job definition. You'll create the job definition later in this document.
 
      Also note the `<archive>mssql-jdbc-7.0.0.jre8.jar</archive>` entry in the Sqoop section. This entry instructs Oozie to make this archive available for Sqoop when this action runs.
 
-3. To save the file, select Ctrl+X, enter `Y`, and then select **Enter**.  
+3. To save the file, select **Ctrl+X**, enter **Y**, and then select **Enter**.  
 
 4. Use the following command to copy the `workflow.xml` file to `/tutorials/useoozie/workflow.xml`:
 
@@ -361,7 +360,7 @@ The job definition describes where to find the workflow.xml. It also describes w
     </configuration>
     ```
 
-    Most of the information in this file is used to populate the values used in the workflow.xml or ooziewf.hql files, such as `${nameNode}`.  If the path is a `wasbs` path, you must use the full path. Do not shorten it to just `wasbs:///`. The `oozie.wf.application.path` entry defines where to find the workflow.xml file. This file contains the workflow that was run by this job.
+    Most of the information in this file is used to populate the values used in the workflow.xml or ooziewf.hql files, such as `${nameNode}`.  If the path is a `wasbs` path, you must use the full path. Don't shorten it to just `wasbs:///`. The `oozie.wf.application.path` entry defines where to find the workflow.xml file. This file contains the workflow that was run by this job.
 
 3. To create the Oozie job definition configuration, use the following command:
 
@@ -371,7 +370,7 @@ The job definition describes where to find the workflow.xml. It also describes w
 
 4. After the nano editor opens, paste the edited XML as the contents of the file.
 
-5. To save the file, select Ctrl+X, enter `Y`, and then select **Enter**.
+5. To save the file, select **Ctrl+X**, enter **Y**, and then select **Enter**.
 
 ## Submit and manage the job
 
@@ -407,7 +406,7 @@ The following steps use the Oozie command to submit and manage Oozie workflows o
     oozie job -config job.xml -submit
     ```
 
-    This command loads the job information from `job.xml` and submits it to Oozie, but does not run it.
+    This command loads the job information from `job.xml` and submits it to Oozie, but doesn't run it.
 
     After the command finishes, it should return the ID of the job, for example, `0000005-150622124850154-oozie-oozi-W`. This ID is used to manage the job.
 
@@ -444,7 +443,7 @@ The following steps use the Oozie command to submit and manage Oozie workflows o
 
     If you check the status after this command, it's in a running state, and information is returned for the actions within the job.  The job will take a few minutes to complete.
 
-6. Edit the code below to replace `<serverName>` with your Azure SQL server name, and `<sqlLogin>` with the Azure SQL server login.  After the task finishes successfully, you can verify that the data was generated and exported to the SQL database table by using the following command.  Enter the password at the prompt.
+6. Edit the code below to replace `<serverName>` with your Azure SQL server name, and `<sqlLogin>` with the Azure SQL server login.  *After the task finishes* successfully, you can verify that the data was generated and exported to the SQL database table by using the following command.  Enter the password at the prompt.
 
     ```bash
     TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <sqlLogin> -p 1433 -D oozietest
@@ -561,7 +560,7 @@ You can use the coordinator to specify a start, an end, and the occurrence frequ
     > * `${coordTimezone}`: Coordinator jobs are in a fixed time zone with no daylight savings time, typically represented by using UTC. This time zone is referred as the *Oozie processing timezone.*
     > * `${wfPath}`: The path to the workflow.xml.
 
-2. To save the file, select Ctrl+X, enter `Y`, and then select **Enter**.
+2. To save the file, select **Ctrl+X**, enter **Y**, and then select **Enter**.
 
 3. To copy the file to the working directory for this job, use the following command:
 
@@ -616,7 +615,7 @@ You can use the coordinator to specify a start, an end, and the occurrence frequ
 
        These values set the start time to 12:00 PM on May 10, 2018, and the end time to May 12, 2018. The interval for running this job is set to daily. The frequency is in minutes, so 24 hours x 60 minutes = 1440 minutes. Finally, the time zone is set to UTC.
 
-5. To save the file, select Ctrl+X, enter `Y`, and then select **Enter**.
+5. To save the file, select **Ctrl+X**, enter **Y**, and then select **Enter**.
 
 6. To submit and start the job, use the following command:
 
@@ -645,7 +644,7 @@ With the Oozie UI, you can view Oozie logs. The Oozie UI also contains links to 
 
    1. View the job in Oozie web UI.
 
-   2. If there is an error or failure for a specific action, select the action to see if the **Error Message** field provides more information on the failure.
+   2. If there's an error or failure for a specific action, select the action to see if the **Error Message** field provides more information on the failure.
 
    3. If available, use the URL from the action to view more details, such as the JobTracker logs, for the action.
 
@@ -669,7 +668,7 @@ The following are specific errors you might encounter and how to resolve them.
 
 **Cause**: The current permission settings don't allow Oozie to impersonate the specified user account.
 
-**Resolution**: Oozie can impersonate users in the **users** group. Use the `groups USERNAME` to see the groups that the user account is a member of. If the user is not a member of the **users** group, use the following command to add the user to the group:
+**Resolution**: Oozie can impersonate users in the **users** group. Use the `groups USERNAME` to see the groups that the user account is a member of. If the user isn't a member of the **users** group, use the following command to add the user to the group:
 
     sudo adduser USERNAME users
 
@@ -707,41 +706,10 @@ In this article, you learned how to define an Oozie workflow and how to run an O
 * [Upload data for Apache Hadoop jobs in HDInsight][hdinsight-upload-data]
 * [Use Apache Sqoop with Apache Hadoop in HDInsight][hdinsight-use-sqoop]
 * [Use Apache Hive with Apache Hadoop on HDInsight][hdinsight-use-hive]
-* [Use Apache Pig with Apache Hadoop on HDInsight][hdinsight-use-pig]
-* [Develop Java MapReduce programs for HDInsight][hdinsight-develop-mapreduce]
+* [Develop Java MapReduce programs for HDInsight](hadoop/apache-hadoop-develop-deploy-java-mapreduce-linux.md)
 
-[hdinsight-cmdlets-download]: https://go.microsoft.com/fwlink/?LinkID=325563
 [azure-data-factory-pig-hive]: ../data-factory/transform-data.md
 [hdinsight-versions]:  hdinsight-component-versioning.md
-[hdinsight-storage]: hdinsight-use-blob-storage.md
-[hdinsight-get-started]: hdinsight-get-started.md
 [hdinsight-use-sqoop]:hadoop/apache-hadoop-use-sqoop-mac-linux.md
-[hdinsight-provision]: hdinsight-hadoop-provision-linux-clusters.md
 [hdinsight-upload-data]: hdinsight-upload-data.md
-[hdinsight-use-mapreduce]:hadoop/hdinsight-use-mapreduce.md
 [hdinsight-use-hive]:hadoop/hdinsight-use-hive.md
-[hdinsight-use-pig]:hadoop/hdinsight-use-pig.md
-[hdinsight-storage]: hdinsight-use-blob-storage.md
-[hdinsight-get-started-emulator]: hdinsight-get-started-emulator.md
-[hdinsight-develop-mapreduce]:hadoop/apache-hadoop-develop-deploy-java-mapreduce-linux.md
-
-[sqldatabase-get-started]: sql-database-get-started.md
-
-[azure-create-storageaccount]:../storage/common/storage-create-storage-account.md
-
-[apache-hadoop]: https://hadoop.apache.org/
-[apache-oozie-400]: https://oozie.apache.org/docs/4.0.0/
-[apache-oozie-332]: https://oozie.apache.org/docs/3.3.2/
-
-[powershell-download]: https://azure.microsoft.com/downloads/
-[powershell-about-profiles]: https://go.microsoft.com/fwlink/?LinkID=113729
-[powershell-install-configure]: /powershell/azureps-cmdlets-docs
-[powershell-start]: https://technet.microsoft.com/library/hh847889.aspx
-[powershell-script]: https://technet.microsoft.com/library/ee176961.aspx
-
-[cindygross-hive-tables]: https://blogs.msdn.com/b/cindygross/archive/2013/02/06/hdinsight-hive-internal-and-external-tables-intro.aspx
-
-[img-preparation-output]: ./media/hdinsight-use-oozie-linux-mac/HDI.UseOozie.Preparation.Output1.png
-[img-runworkflow-output]: ./media/hdinsight-use-oozie/HDI.UseOozie.RunWF.Output.png
-
-[technetwiki-hive-error]: https://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx

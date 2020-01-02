@@ -1,20 +1,12 @@
 ---
-title: Create an iOS app on Azure App Service Mobile Apps | Microsoft Docs
-description: Follow this tutorial to get started with using Azure mobile app backends for iOS development in Objective-C or Swift
-services: app-service\mobile
-documentationcenter: ios
-author: elamalani
-manager: crdun
-editor: ''
+title: Create an iOS app
+description: Follow this tutorial to get started with using Azure mobile app backends for iOS development in Objective-C or Swift.
 
 ms.assetid: 6461a899-9340-42dd-b118-ffc5ba00e846
-ms.service: app-service-mobile
-ms.workload: na
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: conceptual
 ms.date: 06/25/2019
-ms.author: emalani
 ---
 # Create an iOS app
 

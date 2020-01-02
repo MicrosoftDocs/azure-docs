@@ -1,27 +1,24 @@
 ---
-title: Copy data from Impala by using Azure Data Factory (Preview) | Microsoft Docs
+title: Copy data from Impala by using Azure Data Factory 
 description: Learn how to copy data from Impala to supported sink data stores by using a copy activity in a data factory pipeline.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
 
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
+
 
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: jingwang
 
 ---
-# Copy data from Impala by using Azure Data Factory (Preview)
+# Copy data from Impala by using Azure Data Factory
 
 This article outlines how to use Copy Activity in Azure Data Factory to copy data from Impala. It builds on the [Copy Activity overview](copy-activity-overview.md) article that presents a general overview of the copy activity.
-
-> [!IMPORTANT]
-> This connector is currently in preview. You can try it out and provide feedback. If you want to take a dependency on preview connectors in your solution, please contact [Azure support](https://azure.microsoft.com/support/).
 
 ## Supported capabilities
 

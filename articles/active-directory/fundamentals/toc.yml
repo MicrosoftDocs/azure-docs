@@ -17,6 +17,14 @@
   items:
   - name: Identity secure score
     href: identity-secure-score.md 
+  - name: 'Security'
+    items:
+    - name: Enable MFA
+      href: concept-fundamentals-mfa-get-started.md
+    - name: Security defaults
+      href: concept-fundamentals-security-defaults.md
+    - name: Block legacy authentication
+      href: concept-fundamentals-block-legacy-authentication.md
   - name: Groups and access management
     href: active-directory-manage-groups.md
   - name: Group-based licensing
@@ -31,6 +39,18 @@
     href: active-directory-data-storage-eu.md
   - name: What's new in Microsoft 365 Government
     href: whats-new-microsoft-365-government.md
+  - name: Azure AD Operations reference
+    items:
+    - name: Introduction
+      href: active-directory-ops-guide-intro.md
+    - name: Identity and access management
+      href: active-directory-ops-guide-iam.md
+    - name: Authentication management
+      href: active-directory-ops-guide-auth.md
+    - name: Identity governance
+      href: active-directory-ops-guide-govern.md
+    - name: Operations
+      href: active-directory-ops-guide-ops.md
 - name: 'How-to guides'
   expanded: true
   items:

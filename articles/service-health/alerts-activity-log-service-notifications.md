@@ -1,10 +1,6 @@
 ---
 title: Receive activity log alerts on Azure service notifications
 description: Get notified via SMS, email, or webhook when Azure service occurs.
-author: stephbaron
-ms.author: stbaron
-services: monitoring
-ms.service: service-health
 ms.topic: conceptual
 ms.date: 06/27/2019
 ---

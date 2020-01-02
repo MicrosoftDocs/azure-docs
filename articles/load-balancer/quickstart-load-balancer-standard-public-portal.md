@@ -1,6 +1,6 @@
 ---
 title: Quickstart:Create a Standard Load Balancer - Azure portal
-titlesuffix: Azure Load Balancer
+titleSuffix: Azure Load Balancer
 description: This quickstart shows how to create a Standard Load Balancer by using the Azure portal.
 services: load-balancer
 documentationcenter: na

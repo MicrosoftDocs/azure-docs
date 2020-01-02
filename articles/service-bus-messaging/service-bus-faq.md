@@ -108,6 +108,13 @@ Any data transfer within a given Azure region is provided at no charge, as well 
 ### Does Service Bus charge for storage?
 No, Service Bus does not charge for storage. However, there is a quota limiting the maximum amount of data that can be persisted per queue/topic. See the next FAQ.
 
+### I have a Service Bus Standard namespace. Why do I see charges under resource group '$system'?
+Azure Service Bus recently upgraded the billing components. Due to this, if you have a Service Bus Standard namespace, you may see line items for the resource '/subscriptions/<azure_subscription_id>/resourceGroups/$system/providers/Microsoft.ServiceBus/namespaces/$system' under resource group '$system'.
+
+These charges represent the base charge per Azure subscription that has provisioned a Service Bus Standard namespace. 
+
+It is important to note that these are not new charges, i.e. they existed in the previous billing model too. The only change is that they are now listed under '$system'. This is done due to contraints in the new billing system which groups subscription level charges, not tied to a specific resource, under the '$system' resource id.
+
 ## Quotas
 
 For a list of Service Bus limits and quotas, see the [Service Bus quotas overview][Quotas overview].
@@ -139,7 +146,7 @@ You can move a namespace from one Azure subscription to another, using either th
 
 #### Portal
 
-To use the Azure portal to migrate Service Bus namespaces to another subscription, follow the directions [here](../azure-resource-manager/resource-group-move-resources.md#use-the-portal). 
+To use the Azure portal to migrate Service Bus namespaces to another subscription, follow the directions [here](../azure-resource-manager/management/move-resource-group-and-subscription.md#use-the-portal). 
 
 #### PowerShell
 

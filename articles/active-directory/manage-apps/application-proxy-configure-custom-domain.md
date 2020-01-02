@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/16/2019
+ms.date: 10/24/2019
 ms.author: mimart
 ms.reviewer: harshja
 ms.custom: it-pro
@@ -74,38 +74,40 @@ For more detailed instructions, see [Add your custom domain name using the Azure
 
 To publish your app through Application Proxy with a custom domain:
 
-1. For a new app, in Azure Active Directory, select **Enterprise applications** in the left navigation, select **New application**, and then select **On-premises application**. 
+1. For a new app, in Azure Active Directory, select **Enterprise applications** in the left navigation. Select **New application**. In the **On-premises applications** section, select **Add an on-premises application**. 
    
    For an app already in **Enterprise applications**, select it from the list, and then select **Application proxy** in the left navigation. 
 
-1. On the **Application proxy** page, in the **Internal Url** field, enter the internal URL for your app. 
+2. On the Application Proxy settings page, enter a **Name** if you're adding your own on-premises application.
+
+3.  In the **Internal Url** field, enter the internal URL for your app.
    
-1. In the **External Url** field, drop down the list and select the custom domain you want to use.
+4. In the **External Url** field, drop down the list and select the custom domain you want to use.
    
-1. Select **Save**.
+5. Select **Add**.
    
    ![Select custom domain](./media/application-proxy-configure-custom-domain/application-proxy.png)
    
-1. If the domain already has a certificate, the **Certificate** field displays the certificate information. Otherwise, select the **Certificate** field. 
+6. If the domain already has a certificate, the **Certificate** field displays the certificate information. Otherwise, select the **Certificate** field. 
    
    ![Click to upload a certificate](./media/application-proxy-configure-custom-domain/certificate.png)
    
-1. On the **SSL certificate** page, browse to and select your PFX certificate file. Enter the password for the certificate, and select **Upload Certificate**. For more information about certificates, see the [Certificates for custom domains](#certificates-for-custom-domains) section.
+7. On the **SSL certificate** page, browse to and select your PFX certificate file. Enter the password for the certificate, and select **Upload Certificate**. For more information about certificates, see the [Certificates for custom domains](#certificates-for-custom-domains) section.
    
    ![Upload Certificate](./media/application-proxy-configure-custom-domain/ssl-certificate.png)
    
    > [!TIP] 
    > A custom domain only needs its certificate uploaded once. After that, the uploaded certificate is applied automatically when you use the custom domain for other apps.
    
-1. If you added a certificate, on the **Application proxy** page, select **Save**. 
+8. If you added a certificate, on the **Application proxy** page, select **Save**. 
    
-1. In the information bar on the **Application proxy** page, note the CNAME entry you need to add to your DNS zone. 
+9. In the information bar on the **Application proxy** page, note the CNAME entry you need to add to your DNS zone. 
    
    ![Add CNAME DNS entry](./media/application-proxy-configure-custom-domain/dns-info.png)
    
-1. Follow the instructions at [Manage DNS records and record sets by using the Azure portal](../../dns/dns-operations-recordsets-portal.md) to add a DNS record that redirects the new external URL to the *msappproxy.net* domain.
+10. Follow the instructions at [Manage DNS records and record sets by using the Azure portal](../../dns/dns-operations-recordsets-portal.md) to add a DNS record that redirects the new external URL to the *msappproxy.net* domain.
    
-1. To check that the DNS record is configured correctly, use the [nslookup](https://social.technet.microsoft.com/wiki/contents/articles/29184.nslookup-for-beginners.aspx) command to confirm that your external URL is reachable and the *msapproxy.net* domain appears as an alias.
+11. To check that the DNS record is configured correctly, use the [nslookup](https://social.technet.microsoft.com/wiki/contents/articles/29184.nslookup-for-beginners.aspx) command to confirm that your external URL is reachable and the *msapproxy.net* domain appears as an alias.
 
 Your application is now set up to use the custom domain. Be sure to assign users to your application before you test or release it. 
 

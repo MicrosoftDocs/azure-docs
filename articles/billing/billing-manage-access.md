@@ -9,7 +9,7 @@ editor: ''
 tags: billing
 
 ms.assetid: e4c4d136-2826-4938-868f-a7e67ff6b025
-ms.service: billing
+ms.service: cost-management-billing
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -22,7 +22,7 @@ ms.custom: seodec18
 
 You can provide others access to the billing information for your account in the Azure portal. The type of billing roles and the instructions to provide access to the billing information vary by the type of your billing account. To determine the type of your billing account, see [Check the type of your billing account](#check-the-type-of-your-billing-account).
 
-The article applies to customers with Microsoft Online Service program accounts. If you're an Azure customer with an Enterprise Agreement (EA) and are the Enterprise Administrator, you can give permissions to the Department Administrators and Account Owners in the Enterprise portal. For more information, see [Understand Azure Enterprise Agreement administrative roles in Azure](billing-understand-ea-roles.md). If you are a Microsoft Customer Agreement customer, see, [Understand Microsoft Customer Agreement administrative roles in Azure](billing-understand-mca-roles.md). 
+The article applies to customers with Microsoft Online Service program accounts. If you're an Azure customer with an Enterprise Agreement (EA) and are the Enterprise Administrator, you can give permissions to the Department Administrators and Account Owners in the Enterprise portal. For more information, see [Understand Azure Enterprise Agreement administrative roles in Azure](billing-understand-ea-roles.md). If you are a Microsoft Customer Agreement customer, see, [Understand Microsoft Customer Agreement administrative roles in Azure](billing-understand-mca-roles.md).
 
 ## Account administrators for Microsoft Online Service program accounts
 
@@ -55,9 +55,9 @@ After an Account administrator has assigned the appropriate roles to other users
 1. Search on **Cost Management + Billing**.
 
     ![Screenshot that shows Azure portal search](./media/billing-manage-access/billing-search-cost-management-billing.png)
- 
+
 1. Select **Subscriptions** from the left-hand pane. Depending on your access, you may need to select a billing scope and then select **Subscriptions**.
- 
+
     ![Screenshot that shows selecting subscriptions](./media/billing-manage-access/billing-select-subscriptions.png)
 
 1. Select **Invoices** and then **Access to invoice**.
@@ -83,7 +83,7 @@ The Billing Reader feature is in preview, and does not yet support non-global cl
     ![Screenshot that shows Azure portal search](./media/billing-manage-access/billing-search-cost-management-billing.png)
 
 1. Select **Subscriptions** from the left-hand pane. Depending on your access, you may need to select a billing scope and then select **Subscriptions**.
- 
+
     ![Screenshot that shows selecting subscriptions](./media/billing-manage-access/billing-select-subscriptions.png)
 
 1. Select **Access control (IAM)**.

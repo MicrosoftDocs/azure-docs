@@ -3,10 +3,6 @@ title: Tutorial - Update the custom image of Azure virtual machine scale sets us
 description: Learn how to use Ansible to update virtual machine scale sets in Azure with custom image
 keywords: ansible, azure, devops, bash, playbook, virtual machine, virtual machine scale set, vmss
 ms.topic: tutorial
-ms.service: ansible
-author: tomarchermsft
-manager: jeconnoc
-ms.author: tarcher
 ms.date: 04/30/2019
 ---
 

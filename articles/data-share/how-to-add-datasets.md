@@ -1,6 +1,6 @@
 ---
-title: Add datasets to an existing Azure Data Share Preview
-description: Learn how to add datasets to an existing data share in Azure Data Share and share with the same recipients. 
+title: Add datasets to an existing Azure Data Share 
+description: Learn how to add datasets to an existing data share in Azure Data Share and share with the same recipients.
 author: joannapea
 ms.author: joanpo
 ms.service: data-share
@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 07/10/2019
 ---
 
-# How to add datasets to an existing share in Azure Data Share Preview
+# How to add datasets to an existing share in Azure Data Share
 
-This article explains how to add datasets to a pre-existing data share using Azure Data Share Preview. This allows you to share more data with the same recipients without having to create a new share.
+This article explains how to add datasets to a pre-existing data share using Azure Data Share. This allows you to share more data with the same recipients without having to create a new share.
 
 For information on how to add datasets as you create a share, see the [Share data](share-your-data.md) tutorial.
 
 ## Navigate to a sent data share
 
-In Azure Data Share Preview, navigate to your sent share and select the **Datasets** tab. Click **+ Add Datasets** button to add more datasets.
+In Azure Data Share, navigate to your sent share and select the **Datasets** tab. Click **+ Add Datasets** button to add more datasets.
 
 ![Add Datasets](./media/how-to/how-to-add-datasets/add-datasets.png)
 

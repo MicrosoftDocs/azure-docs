@@ -5,9 +5,9 @@ author: omidm1
 ms.author: omidm
 ms.reviewer: jasonh 
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 04/04/2017
+ms.custom: hdinsightactive
+ms.date: 12/06/2019
 ---
 
 # Upgrade HDInsight cluster to a newer version
@@ -27,18 +27,17 @@ The workflow to upgrade HDInsight Cluster is as follows.
 3. Copy existing jobs, data sources, and sinks to the new environment.
 4. Perform validation testing to make sure that your jobs work as expected on the new cluster.
 
-Once you have verified that everything works as expected, schedule
-downtime for the migration. During this downtime, do the following
-actions:
+Once you have verified that everything works as expected, schedule downtime for the migration. During this downtime, do the following actions:
 
-1.	Back up any transient data stored locally on the cluster nodes. For example, if you have data stored directly on a head node.
-2.	Delete the existing cluster.
-3.	Create a cluster in the same VNET subnet with latest (or supported) HDI version using the same default data store that the previous cluster used. This allows the new cluster to continue working against your existing production data.
-4.	Import any transient data you backed up.
-5.	Start jobs/continue processing using the new cluster.
+1. Back up any transient data stored locally on the cluster nodes. For example, if you have data stored directly on a head node.
+1. [Delete the existing cluster](./hdinsight-delete-cluster.md).
+1. Create a cluster in the same VNET subnet with latest (or supported) HDI version using the same default data store that the previous cluster used. This allows the new cluster to continue working against your existing production data.
+1. Import any transient data you backed up.
+1. Start jobs/continue processing using the new cluster.
 
 ## Next Steps
 
 * [Learn how to create Linux-based HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md)
 * [Connect to HDInsight using SSH](hdinsight-hadoop-linux-use-ssh-unix.md)
 * [Manage a Linux-based cluster using Apache Ambari](hdinsight-hadoop-manage-ambari.md)
+* [HDInsight release notes](./hdinsight-version-release.md)

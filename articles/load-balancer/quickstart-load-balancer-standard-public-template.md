@@ -1,6 +1,6 @@
 ---
-title: "Quickstart: Create a Standard load balancer - Azure Resource Manager template"
-titlesuffix: Azure Load Balancer
+title: "Quickstart: Create a Standard load balancer - Azure template"
+titleSuffix: Azure Load Balancer
 description: This quickstart shows how to create a Standard load balancer by using the Azure Resource Manager template.
 services: load-balancer
 documentationcenter: na

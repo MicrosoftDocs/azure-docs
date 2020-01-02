@@ -1,6 +1,7 @@
 ---
-title: Web API that calls other web APIs (acquire a token for the app) - Microsoft identity platform
-description: Learn how to build a web API that calls other web APIs (acquiring a token for the app).
+title: Get a token for a web API that calls web APIs | Azure
+titleSuffix: Microsoft identity platform
+description: Learn how to build a web API that calls web APIs that require acquiring a token for the app.
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -27,7 +28,7 @@ Once you've built a client application object, use it to acquire a token that yo
 
 Here's an example of code that will be called in the actions of the API controllers, calling a downstream API (named todolist).
 
-```CSharp
+```csharp
 private async Task GetTodoList(bool isAppStarting)
 {
  ...
@@ -50,7 +51,7 @@ private async Task GetTodoList(bool isAppStarting)
 
 The `GetAccountIdentifier` method uses the claims associated with the identity of the user for which the web API received the JWT:
 
-```CSharp
+```csharp
 public static string GetMsalAccountId(this ClaimsPrincipal claimsPrincipal)
 {
  string userObjectId = GetObjectId(claimsPrincipal);

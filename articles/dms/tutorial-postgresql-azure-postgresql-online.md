@@ -1,5 +1,6 @@
 ---
-title: "Tutorial: Use the Azure Database Migration Service to perform an online migration of PostgreSQL to Azure Database for PostgreSQL | Microsoft Docs"
+title: "Tutorial: Migrate PostgreSQL online to Azure Database for PostgreSQL"
+titleSuffix: Azure Database Migration Service
 description: Learn to perform an online migration from PostgreSQL on-premises to Azure Database for PostgreSQL by using Azure Database Migration Service.
 services: dms
 author: HJToland3
@@ -8,9 +9,9 @@ manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
-ms.custom: mvc, tutorial
+ms.custom: "seo-lt-2019"
 ms.topic: article
-ms.date: 09/06/2019
+ms.date: 10/28/2019
 ---
 
 # Tutorial: Migrate PostgreSQL to Azure Database for PostgreSQL online using DMS
@@ -58,7 +59,7 @@ To complete this tutorial, you need to:
 * Create a server-level [firewall rule](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) for Azure Database for PostgreSQL to allow Azure Database Migration Service to access to the target databases. Provide the subnet range of the VNet used for Azure Database Migration Service.
 * There are two methods for invoking the CLI:
 
-  * In the upper-right corner of the Azure postal, select the Cloud Shell button:
+  * In the upper-right corner of the Azure portal, select the Cloud Shell button:
 
        ![Cloud Shell button in the Azure portal](media/tutorial-postgresql-to-azure-postgresql-online/cloud-shell-button.png)
 

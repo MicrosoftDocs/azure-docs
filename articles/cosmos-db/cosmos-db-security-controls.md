@@ -1,15 +1,12 @@
 ﻿---
 title: Security controls for Azure Cosmos DB
-description: A checklist of security controls for evaluating Azure Cosmos DB
+description: Get a checklist of security controls such as network, monitoring, identity, and data protection to evaluate Azure Cosmos DB 
 services: cosmos-db
-documentationcenter: ''
-author: msmbaldwin
-manager: rkarlin
+author: SnehaGunda
 ms.service: cosmos-db
-
 ms.topic: conceptual
-ms.date: 09/04/2019
-ms.author: mbaldwin
+ms.date: 12/02/2019
+ms.author: sngun
 
 ---
 # Security controls for Azure Cosmos DB
@@ -23,8 +20,8 @@ This article documents the security controls built into Azure Cosmos DB.
 | Security control | Yes/no | Notes |
 |---|---|--|
 | Service endpoint support| Yes |  |
-| VNet injection support| Yes | With VNet service endpoint, you can configure an Azure Cosmos DB account to allow access only from a specific subnet of a virtual network (VNet). You can also combine VNet access with firewall rules.  See [Access Azure Cosmos DB from virtual networks](VNet-service-endpoint.md). |
-| Network Isolation and Firewalling support| Yes | With firewall support, you can configure your Azure Cosmos account to allow access only from an approved set of IP addresses, a range of IP addresses and/or cloud services. See [Configure IP firewall in Azure Cosmos DB](how-to-configure-firewall.md).|
+| VNet injection support| Yes | With VNet service endpoint, you can configure an Azure Cosmos DB account to allow access only from a specific subnet of a virtual network (VNet). You can also combine VNet access with firewall rules. To learn more, see [Access Azure Cosmos DB from virtual networks](VNet-service-endpoint.md). |
+| Network Isolation and Firewall support| Yes | With firewall support, you can configure your Azure Cosmos account to allow access only from an approved set of IP addresses, a range of IP addresses and/or cloud services. To learn more, see [Configure IP firewall in Azure Cosmos DB](how-to-configure-firewall.md).|
 | Forced tunneling support| Yes | Can be configured at the client side on the VNet where the virtual machines are located.   |
 
 ## Monitoring & logging
@@ -46,7 +43,7 @@ This article documents the security controls built into Azure Cosmos DB.
 
 | Security control | Yes/no | Notes |
 |---|---|--|
-| Server-side encryption at rest: Microsoft-managed keys | Yes | All Cosmos databases and backups are encrypted by default; see [Data encryption in Azure Cosmos DB](database-encryption-at-rest.md). Server-side encryption with customer-managed keys is not supported. |
+| Server-side encryption at rest: Microsoft-managed keys | Yes | All Azure Cosmos databases and backups are encrypted by default; see [Data encryption in Azure Cosmos DB](database-encryption-at-rest.md). Server-side encryption with customer-managed keys is not supported. |
 | Server-side encryption at rest: customer-managed keys (BYOK) | No |  |
 | Column level encryption (Azure Data Services)| Yes | Only in the Tables API Premium. Not all APIs support this feature. See [Introduction to Azure Cosmos DB: Table API](table-introduction.md). |
 | Encryption in transit (such as ExpressRoute encryption, in VNet encryption, and VNet-VNet encryption )| Yes | All Azure Cosmos DB data is encrypted at transit. |

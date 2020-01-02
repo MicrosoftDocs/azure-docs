@@ -9,6 +9,7 @@ author: v-miclar
 
 
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 
 
 
@@ -52,10 +53,10 @@ The following table lists the metrics that have been added or substantially chan
 | **New Term**                   |    **Definition**                                                             |
 |--------------------------------|  ---------------------------------------------------------------------------- |
 | Price (CC)                     | Price for a unit of usage for a given SKU (in the customer's currency).       |
-| Estimated Extended Charge (CC) | Estimated extended charge for the quantity of units of usage for a given SKU (in the customer’s currency). This value may not be exact due to rounding or truncation errors.   |
+| Estimated Extended Charge (CC) | Estimated extended charge for the quantity of units of usage for a given SKU (in the customer's currency). This value may not be exact due to rounding or truncation errors.   |
 | Publisher Currency (PC)        | Currency preferred by the publisher for payout.                               |
-| Estimated Price (PC)           | Estimated price for a unit of usage for a given SKU based on foreign exchange conversion on the date usage is calculated (in the publisher’s currency). This value may not be exact due to rounding or truncation errors.   |
-| Estimated Extended Charge (PC) | Estimated extended charge for the quantity of units of usage for a given SKU based on foreign exchange conversion on the date usage is calculated (in the publisher’s currency). This value may not be exact due to rounding or truncation errors. |
-| Estimated Payout (PC)          | Estimated payment for the quantity of units of usage for a given SKU based on foreign exchange conversion on the date the usage is calculated (in the publisher’s currency). This value may not be exact due to rounding or truncation errors.   |
+| Estimated Price (PC)           | Estimated price for a unit of usage for a given SKU based on foreign exchange conversion on the date usage is calculated (in the publisher's currency). This value may not be exact due to rounding or truncation errors.   |
+| Estimated Extended Charge (PC) | Estimated extended charge for the quantity of units of usage for a given SKU based on foreign exchange conversion on the date usage is calculated (in the publisher's currency). This value may not be exact due to rounding or truncation errors. |
+| Estimated Payout (PC)          | Estimated payment for the quantity of units of usage for a given SKU based on foreign exchange conversion on the date the usage is calculated (in the publisher's currency). This value may not be exact due to rounding or truncation errors.   |
 | Usage Reference                | The identifier for one or more days of customer usage for a given SKU associated with an entry in the payout report. |
 |  |  |

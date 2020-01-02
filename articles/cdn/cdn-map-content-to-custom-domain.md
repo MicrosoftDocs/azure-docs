@@ -142,7 +142,7 @@ After you have completed the registration of your custom domain, verify that the
  
 1. Ensure that you have public content that is cached at the endpoint. For example, if your CDN endpoint is associated with a storage account, Azure CDN will cache the content in a public container. To test the custom domain, verify that your container is set to allow public access and contains at least one file.
 
-2. In your browser, navigate to the address of the file by using the custom domain. For example, if your custom domain is www.contoso.com, the URL to the cached file should be similar to the following URL: http:\//www.contoso.com/my-public-container/my-file.jpg. Verify that the result is that same as when you access the CDN endpoint directly at *&lt;endpoint hostname&gt;*.azureedge.net.
+2. In your browser, navigate to the address of the file by using the custom domain. For example, if your custom domain is `www.contoso.com`, the URL to the cached file should be similar to the following URL: `http://www.contoso.com/my-public-container/my-file.jpg`. Verify that the result is that same as when you access the CDN endpoint directly at *&lt;endpoint hostname&gt;*.azureedge.net.
 
 
 ## Map the permanent custom domain

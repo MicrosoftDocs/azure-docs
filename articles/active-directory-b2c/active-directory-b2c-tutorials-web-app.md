@@ -1,12 +1,13 @@
 ---
-title: Tutorial - Enable authentication in a web application - Azure Active Directory B2C
+title: "Tutorial: Enable authentication in a web application"
+titleSuffix: Azure AD B2C
 description: Tutorial on how to use Azure Active Directory B2C to provide user login for an ASP.NET web application.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
 
 ms.author: marsma
-ms.date: 09/19/2019
+ms.date: 10/14/2019
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
@@ -31,9 +32,15 @@ In this tutorial, you learn how to:
 * [Create user flows](tutorial-create-user-flows.md) to enable user experiences in your application.
 * Install [Visual Studio 2019](https://www.visualstudio.com/downloads/) with the **ASP.NET and web development** workload.
 
-## Update the application
+## Update the application registration
 
-In the tutorial that you completed as part of the prerequisites, you added a web application in Azure AD B2C. To enable communication with the sample in this tutorial, you need to add a redirect URI to the application in Azure AD B2C.
+In the tutorial that you completed as part of the prerequisites, you registered a web application in Azure AD B2C. To enable communication with the sample in this tutorial, you need to add a redirect URI and create a client secret (key) for the registered application.
+
+### Add a redirect URI (reply URL)
+
+You can use the current **Applications** experience or our new unified **App registrations (Preview)** experience to update the application. [Learn more about the new experience](https://aka.ms/b2cappregintro).
+
+#### [Applications](#tab/applications/)
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Make sure you're using the directory that contains your Azure AD B2C tenant by selecting the **Directory + subscription** filter in the top menu and choosing the directory that contains your tenant.
@@ -41,8 +48,26 @@ In the tutorial that you completed as part of the prerequisites, you added a web
 1. Select **Applications**, and then select the *webapp1* application.
 1. Under **Reply URL**, add `https://localhost:44316`.
 1. Select **Save**.
-1. On the properties page, record the application ID that you'll use when you configure the web application.
-1. Select **Keys**, select **Generate key**, and select **Save**. Record the key that you'll use when you configure the web application.
+1. On the properties page, record the application ID for use in a later step when you configure the web application.
+
+#### [App registrations (Preview)](#tab/app-reg-preview/)
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Select the **Directory + subscription** filter in the top menu, and then select the directory that contains your Azure AD B2C tenant.
+1. In the left menu, select **Azure AD B2C**. Or, select **All services** and search for and select **Azure AD B2C**.
+1. Select **App registrations (Preview)**, select the **Owned applications** tab, and then select the *webapp1* application.
+1. Select **Authentication**, then select **Try out the new experience** (if shown).
+1. Under **Web**, select the **Add URI** link, enter `https://localhost:44316`, and then select **Save**.
+1. Select **Overview**.
+1. Record the **Application (client) ID** for use in a later step when you configure the web application.
+
+* * *
+
+### Create a client secret
+
+Next, create a client secret for the registered web application. The web application code sample uses this to prove its identity when requesting tokens.
+
+[!INCLUDE [active-directory-b2c-client-secret](../../includes/active-directory-b2c-client-secret.md)]
 
 ## Configure the sample
 
@@ -65,7 +90,7 @@ Update the settings in the Web.config file to work with your user flow:
 1. In the **TaskWebApp** project, open the **Web.config** file.
     1. Update the value of `ida:Tenant` and `ida:AadInstance` with the name of the Azure AD B2C tenant that you created. For example, replace `fabrikamb2c` with `contoso`.
     1. Replace the value of `ida:ClientId` with the application ID that you recorded.
-    1. Replace the value of `ida:ClientSecret` with the key that you recorded. You must XML-encode the client secret before adding it to your Web.config.
+    1. Replace the value of `ida:ClientSecret` with the key that you recorded. If the client secret contains any predefined XML entities, for example less than (`<`), greater than (`>`), ampersand (`&`), or double quote (`"`), you must escape those characters by XML-encoding the client secret before adding it to your Web.config.
     1. Replace the value of `ida:SignUpSignInPolicyId` with `b2c_1_signupsignin1`.
     1. Replace the value of `ida:EditProfilePolicyId` with `b2c_1_profileediting1`.
     1. Replace the value of `ida:ResetPasswordPolicyId` with `b2c_1_passwordreset1`.

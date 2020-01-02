@@ -1,22 +1,17 @@
 ---
 title: Create and share a Jupyter notebook on Azure
 description: Quickly create and run a Jupyter notebook on Azure Notebooks, then share that notebook with others.
-services: app-service
-documentationcenter: ''
-author: kraigb
-manager: barbkess
-ms.assetid: 5add60ad-0b4b-4fd5-adf5-eb50ce072d00
-ms.service: azure-notebooks
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 12/04/2018
-ms.author: kraigb
 ---
 
 # Quickstart: Create and share a notebook
 
-1. Go to [Azure Notebooks](https://notebooks.azure.com) and sign in. (For details, see [Quickstart - Sign in to Azure Notebooks](quickstart-sign-in-azure-notebooks.md)).
+In this quickstart, you learn how to quickly create and run a Jupyter notebook on Azure Notebooks, then share that notebook with others.
+
+## Create a new project and notebook
+
+1. Go to the [Azure Notebooks site (https://notebooks.azure.com)](https://notebooks.azure.com) and sign in. (For details, see [Quickstart - Sign in to Azure Notebooks](quickstart-sign-in-azure-notebooks.md)).
 
 1. From your public profile page, select **My Projects** at the top of the page:
 

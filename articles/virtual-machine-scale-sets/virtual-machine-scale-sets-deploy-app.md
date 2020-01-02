@@ -33,7 +33,7 @@ To reduce the configuration management and time to provision a VM, you can creat
 
 
 ## <a name="already-provisioned"></a>Install an app with the Custom Script Extension
-The Custom Script Extension downloads and executes scripts on Azure VMs. This extension is useful for post deployment configuration, software installation, or any other configuration / management task. Scripts can be downloaded from Azure storage or GitHub, or provided to the Azure portal at extension run-time. For more information on how to create and use a custom VM image with a scale set, see the following tutorials:
+The Custom Script Extension downloads and executes scripts on Azure VMs. This extension is useful for post deployment configuration, software installation, or any other configuration / management task. Scripts can be downloaded from Azure storage or GitHub, or provided to the Azure portal at extension run-time. For more information on how to install an app with a Custom Script Extension, see the following tutorials:
 
 - [Azure CLI](tutorial-install-apps-cli.md)
 - [Azure PowerShell](tutorial-install-apps-powershell.md)

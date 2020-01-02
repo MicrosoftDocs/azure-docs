@@ -9,7 +9,7 @@ editor: ''
 tags: billing
 
 ms.assetid: 3e817b43-0696-400c-a02e-47b7817f9b77
-ms.service: billing
+ms.service: cost-management-billing
 ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
@@ -67,4 +67,4 @@ Here are some of the scenarios that are made possible with the combination of th
 
   * [RateCard API code sample](https://github.com/Azure-Samples/billing-dotnet-ratecard-api)
 
-* To learn more about the Azure Resource Manager, see [Azure Resource Manager Overview](../azure-resource-manager/resource-group-overview.md).
+* To learn more about the Azure Resource Manager, see [Azure Resource Manager Overview](../azure-resource-manager/management/overview.md).
