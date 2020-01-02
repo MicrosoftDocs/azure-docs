@@ -1,13 +1,13 @@
 ---
-title: Troubleshoot Azure Migrate appliance deployment
-description: Get help with deploying the Azure Migrate appliance.
+title: Troubleshoot Azure Migrate appliance deployment and discovery
+description: Get help with deploying the Azure Migrate appliance and discovering machines.
 ms.topic: troubleshooting
 ms.date: 11/21/2019
 ---
 
-# Troubleshoot the Azure Migrate appliance
+# Troubleshoot the Azure Migrate appliance and discovery
 
-This article helps you troubleshoot issues when deploying the [Azure Migrate](migrate-services-overview.md) appliance.
+This article helps you troubleshoot issues when deploying the [Azure Migrate](migrate-services-overview.md) appliance, and using the appliance to discover on-premises machines.
 
 
 ## What's supported?
@@ -97,7 +97,6 @@ Error 60025: "An Azure AD operation failed. The error occurred while creating or
 - [Learn more](https://docs.microsoft.com/azure/migrate/migrate-appliance#appliance-deployment-requirements) about Azure Active Directory application permissions.
 
 
-
 ## Error: Can't connect to host or cluster
 
 Error 50004: "Can't connect to a host or cluster because the server name can't be resolved. WinRM error code: 0x803381B9" might occur if the Azure DNS service for the appliance can't resolve the cluster or host name you provided.
@@ -109,6 +108,34 @@ Error 50004: "Can't connect to a host or cluster because the server name can't b
     3. Add the IP address and host name in a row. Repeat for each host or cluster where you see this error.
     4. Save and close the hosts file.
     5. Check whether the appliance can connect to the hosts, using the appliance management app. After 30 minutes, you should see the latest information for these hosts in the Azure portal.
+
+## Common app discovery errors
+
+Azure Migrate supports discovery of applications, roles, and features, using Azure Migrate: Server Assessment. App discovery is currently supported for VMware only. [Learn more](how-to-discover-applications) about the requirements and steps for setting up app discovery.
+
+Typical app discovery errors are summarized in the table.
+
+**Error** | **Cause** | **Action**
+--- | --- | --- | ---
+10000: "Unable to discover the applications installed on the server". | This might occur if the machine operating system isn't Windows or Linux. | Only use app discovery for Windows/Linux.
+10001: "Unable to retrieve the applications installed the server". | Internal error - some missing files in appliance. | Contact Microsoft Support.
+10002: "Unable to retrieve the applications installed the server". | The discovery agent on the appliance might not be working properly. | If the issue doesn't resolve itself within 24 hours, contact support.
+10003 "Unable to retrieve the applications installed the server". | The discovery agent on the appliance might not be working properly. | If the issue doesn't resolve itself within 24 hours, contact support.
+10004: "Unable to discover installed applications for <Windows/Linux> machines." |  Credentials to access <Windows/Linux> machines weren't provided in the appliance.| Add a credential to the appliance that has access to the <Windows/Linux> machines.
+10005: "Unable to access the on-premises server". | The access credentials might be wrong. | Update the appliance credentials make sure you can access the relevant machine with them. 
+10006: "Unable to access the on-premises server". | This might occur if the machine operating system isn't Windows or Linux.|  Only use app discovery for Windows/Linux.
+9000/9001/9002: "Unable to discover the applications installed on the server". | VMware tools might not be installed or is corrupted. | Install/reinstall VMware tools on the relevant machine, and check it's running.
+9003: Unable to discover the applications installed on the server". | This might occur if the machine operating system isn't Windows or Linux. | Only use app discovery for Windows/Linux.
+9004: "Unable to discover the applications installed on the server". | This might happen if the VM is powered off. | For discovery, make sure the VM is on.
+9005: "Unable to discover the applications installed on the VM. | This might occur if the machine operating system isn't Windows or Linux. | Only use app discovery for Windows/Linux.
+9006/9007: "Unable to retrieve the applications installed the server". | The discovery agent on the appliance might not be working properly. | If the issue doesn't resolve itself within 24 hours, contact support.
+9008: "Unable to retrieve the applications installed the server". | Might be an internal error.  | Tf the issue doesn't resolve itself within 24 hours, contact support.
+9009: "Unable to retrieve the applications installed the server". | Can occur if the Windows User Account Control (UAC) settings on the server are restrictive, and prevent discovery of installed applications. | Search for 'User Account Control' settings on the server, and configure the UAC setting on the server to one of the lower two levels.
+9010: "Unable to retrieve the applications installed the server". | Might be an internal error.  | Tf the issue doesn't resolve itself within 24 hours, contact support.
+8084: "Unable to discover applications due to VMware error: <Exception from VMware>" | The Azure Migrate appliance uses VMware APIs to discover applications. This issue can happen if an exception is thrown by vCenter Server while trying to discover applications. The fault message from VMware is displayed in the error message shown in portal. | Search for the message in the [VMware documentation](https://pubs.vmware.com/vsphere-51/topic/com.vmware.wssdk.apiref.doc/index-faults.html), and follow the steps to fix. If you can't fix, contact Microsoft support.
+
+
+
 
 ## Next steps
 Set up an appliance for [VMware](how-to-set-up-appliance-vmware.md), [Hyper-V](how-to-set-up-appliance-hyper-v.md), or [physical servers](how-to-set-up-appliance-physical.md).

@@ -11,7 +11,7 @@ This article helps you troubleshoot issues when creating and managing [Azure Mig
 
 ## Add a new project?
 
-You can have multiple Azure Migrate projects in a subscription. [Learn how](how-to-add-tool-first-time.md) to create a project for the first time, or [add additional](create-manage-project.md#create-additional-projects) projects.
+You can have multiple Azure Migrate projects in a subscription. [Learn how](how-to-add-tool-first-time.md) to create a project for the first time, or [add additional](create-manage-projects.md#create-additional-projects) projects.
 
 ## Azure permissions?
 
@@ -19,7 +19,7 @@ You need Contributor or Owner permissions in the subscription to create an Azure
 
 ## Can't find project
 
-Finding an existing Azure Migrate project depends upon whether you're using the current or old version of Azure Migrate. [Follow](create-manage-project.md#find-a-project).
+Finding an existing Azure Migrate project depends upon whether you're using the current or old version of Azure Migrate. [Follow](create-manage-projects.md#find-a-project).
 
 
 ## Can't find a geography
