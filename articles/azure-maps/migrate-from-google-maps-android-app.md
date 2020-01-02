@@ -207,14 +207,14 @@ To display a map using the Azure Maps SDK for Android, the following steps need 
 
     The map control contains its own lifecycle methods for managing Android's OpenGL lifecycle, which must be called directly from the containing Activity. In order for your app to correctly, call the map control's lifecycle methods, you must override the following lifecycle methods in the Activity that contains the map control and call the respective map control method. 
 
-    * onCreate(Bundle) 
-    * onStart() 
-    * onResume() 
-    * onPause() 
-    * onStop() 
-    * onDestroy() 
-    * onSaveInstanceState(Bundle) 
-    * onLowMemory() 
+    * `onCreate(Bundle)` 
+    * `onStart()` 
+    * `onResume()` 
+    * `onPause()` 
+    * `onStop()` 
+    * `onDestroy()` 
+    * `onSaveInstanceState(Bundle)` 
+    * `onLowMemory()`
 
     Edit the **MainActivity.java** file as follows:
     

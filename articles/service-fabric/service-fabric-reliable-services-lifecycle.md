@@ -1,18 +1,9 @@
 ---
-title: Overview of the lifecycle of Azure Service Fabric Reliable Services | Microsoft Docs
+title: Overview of the lifecycle of Reliable Services 
 description: Learn about the different lifecycle events in Service Fabric Reliable Services
-services: Service-Fabric
-documentationcenter: .net
 author: masnider
-manager: chackdan
-editor: vturecek;
 
-ms.assetid:
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
 ---

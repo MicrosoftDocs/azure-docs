@@ -29,7 +29,7 @@ Azure virtual machines can be used in various ways. Some examples are:
 The number of VMs that your application uses can scale up and out to whatever is required to meet your needs.
 
 ## What do I need to think about before creating a VM?
-There are always a multitude of [design considerations](https://docs.microsoft.com/azure/architecture/reference-architectures/#vm-workloads) when you build out an application infrastructure in Azure. These aspects of a VM are important to think about before you start:
+There are always a multitude of [design considerations](https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/windows-vm) when you build out an application infrastructure in Azure. These aspects of a VM are important to think about before you start:
 
 * The names of your application resources
 * The location where the resources are stored
@@ -93,7 +93,7 @@ The resources in this table are used by the VM and need to exist or be created w
 
 | Resource | Required | Description |
 | --- | --- | --- |
-| [Resource group](../../azure-resource-manager/resource-group-overview.md) |Yes |The VM must be contained in a resource group. |
+| [Resource group](../../azure-resource-manager/management/overview.md) |Yes |The VM must be contained in a resource group. |
 | [Storage account](../../storage/common/storage-create-storage-account.md) |Yes |The VM needs the storage account to store its virtual hard disks. |
 | [Virtual network](../../virtual-network/virtual-networks-overview.md) |Yes |The VM must be a member of a virtual network. |
 | [Public IP address](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) |No |The VM can have a public IP address assigned to it to remotely access it. |

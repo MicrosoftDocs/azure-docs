@@ -3,7 +3,7 @@ title: Introduction to IoT Plug and Play Preview | Microsoft Docs
 description: Learn about IoT Plug and Play Preview. IoT Plug and Play is based on an open modeling language that enables IoT devices to declare their capabilities. IoT devices present that declaration, called a device capability model, when they connect to cloud solutions such as Azure IoT Central or partner applications. The cloud solution can then automatically understand the device and start interacting with it — all without writing any code.
 author: ChrisGMsft
 ms.author: chrisgre
-ms.date: 06/21/2019
+ms.date: 12/23/2019
 ms.topic: overview
 ms.custom: mvc
 ms.service: iot-pnp
@@ -83,6 +83,6 @@ During public preview, IoT Plug and Play devices send separate messages per inte
 
 Now that you have an overview of IoT Plug and Play, the suggested next step is to try out one of the quickstarts:
 
-- [Use a device capability model to create an IoT Plug and Play device](./quickstart-create-pnp-device.md)
-- [Connect a device to IoT Hub](./quickstart-connect-pnp-device.md)
-- [Connect to a device in your solution](./quickstart-connect-pnp-device-solution.md)
+- [Use a device capability model to create an IoT Plug and Play device](./quickstart-create-pnp-device-windows.md)
+- [Connect a device to IoT Hub](./quickstart-connect-pnp-device-c-windows.md)
+- [Connect to a device in your solution](./quickstart-connect-pnp-device-solution-node.md)

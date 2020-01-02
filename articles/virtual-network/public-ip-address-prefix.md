@@ -53,7 +53,7 @@ You can associate the following resources to a static public IP address from a p
 ## Constraints
 
 - You can't specify the IP addresses for the prefix. Azure allocates the IP addresses for the prefix, based on the size that you specify.
-- You can create a prefix of upto 16 IP addresses or a /28. For more information, see [Azure limits](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
+- You can create a prefix of up to 16 IP addresses or a /28. For more information, see [Azure limits](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 - You can't change the range, once you've created the prefix.
 - Only static public IP addresses created with the Standard SKU can be assigned from the prefix's range. To learn more about public IP address SKUs, see [public IP address](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses).
 - Addresses from the range can only be assigned to Azure Resource Manager resources. Addresses cannot be assigned to resources in the classic deployment model.
