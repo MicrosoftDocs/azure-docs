@@ -61,7 +61,6 @@ Azure Data Factory is a multitenant service that has the following default limit
 
 | **Resource** | **Default limit** | **Maximum limit** |
 | --- | --- | --- |
-| Data factories in an Azure subscription |50 |[Contact support](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Pipelines within a data factory |2,500 |[Contact support](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Data sets within a data factory |5,000 |[Contact support](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Concurrent slices per data set |10 |10 |
