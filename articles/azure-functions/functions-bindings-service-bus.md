@@ -660,6 +660,23 @@ The following table explains the binding configuration properties that you set i
 
 In Azure Functions 1.x, the runtime creates the queue if it doesn't exist and you have set `accessRights` to `manage`. In Functions version 2.x and higher, the queue or topic must already exist; if you specify a queue or topic that doesn't exist, the function will fail. 
 
+# [C#](#tab/csharp)
+
+Use the following parameter types for the output binding:
+
+* `out T paramName` - `T` can be any JSON-serializable type. If the parameter value is null when the function exits, Functions creates the message with a null object.
+* `out string` - If the parameter value is null when the function exits, Functions does not create a message.
+* `out byte[]` - If the parameter value is null when the function exits, Functions does not create a message.
+* `out BrokeredMessage` - If the parameter value is null when the function exits, Functions does not create a message (for Functions 1.x)
+* `out Message` - If the parameter value is null when the function exits, Functions does not create a message (for Functions 2.x and higher)
+* `ICollector<T>` or `IAsyncCollector<T>` - For creating multiple messages. A message is created when you call the `Add` method.
+
+When working with C# functions:
+
+* Async functions need a return value or `IAsyncCollector` instead of an `out` parameter.
+
+* To access the session ID, bind to a [`Message`](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.message) type and use the `sessionId` property.
+
 # [C# Script](#tab/csharp-script)
 
 Use the following parameter types for the output binding:
