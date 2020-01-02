@@ -121,7 +121,7 @@ You can use the Azure IoT extensions for Visual Studio Code to perform operation
 
 1. Select your IoT hub.
 
-## Create a deployment
+## Create deployment for single device
 
 You deploy modules to your target devices by creating a deployment that consists of the deployment manifest as well as other parameters.
 
@@ -141,6 +141,8 @@ You deploy modules to your device by applying the deployment manifest that you c
    ![Select Edge Deployment Manifest](./media/how-to-deploy-modules-vscode/select-deployment-manifest.png)
 
 The results of your deployment are printed in the VS Code output. Successful deployments are applied within a few minutes if the target device is running and connected to the internet.
+
+## Create deployment for multiple devices
 
 ## View modules on your device
 
