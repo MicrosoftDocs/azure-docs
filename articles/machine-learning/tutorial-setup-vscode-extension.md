@@ -8,7 +8,7 @@ ms.subservice: core
 ms.topic: tutorial
 author: luisquintanilla
 ms.author: luquinta
-ms.date: 12/27/2019
+ms.date: 01/02/2019
 #Customer intent: As a professional data scientist, I want to develop, deploy, and managge Azure Machine Learning projects locally in Visual Studio Code
 ---
 
@@ -42,7 +42,8 @@ In this tutorial, you learn the following tasks:
 
 In order to provision resources and run workloads on Azure, you have to sign in with your Azure account credentials. To assist with account management, Azure Machine Learning automatically installs the Azure Account extension. Visit the following site to [learn more about the Azure Account extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account).
 
-1. Open the command palette and enter the "Azure: Sign In" command into the text box to start the sign in process.
+1. Open the command palette by selecting **View > Command Palette** from the menu bar. 
+1. Enter the command "Azure: Sign In" into the text box to start the sign in process.
 
 ## Run a script in Azure
 
@@ -52,6 +53,9 @@ Now that you have signed into Azure with your account credentials, it's time to 
 1. Open the *mnist-vscode-docs-sample* directory in Visual Studio Code.
 1. Select the **Azure** icon in the **Activity Bar**.
 1. Select the **Run Experiment** icon at the top of the Azure Machine Learning View.
+
+    [Run Experiment](./media/tutorial-setup-vscode-extension/run-experiment.PNG)
+
 1. When the command palette expands, follow the prompts.
 
     1. Select your Azure subscription.
