@@ -274,7 +274,6 @@ static void recognizeLinkedEntitiesExample(TextAnalyticsClient client)
                 linkedEntityMatch.getOffset(),
                 linkedEntityMatch.getLength(),
                 linkedEntityMatch.getScore());
-            
         }
     }
 }
