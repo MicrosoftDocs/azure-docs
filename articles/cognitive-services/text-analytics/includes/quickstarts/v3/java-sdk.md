@@ -36,7 +36,7 @@ Using the eclipse IDE, create a new maven project.
 
 Add the following dependencies to your pom file.
 
-```console
+xml
 <dependencies>
  	<dependency>
         <groupId>com.azure</groupId>
