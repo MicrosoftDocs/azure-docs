@@ -1,8 +1,11 @@
 ---
-title: Troubleshoot assessment and dependency visualization in Azure Migrate
+title: Troubleshoot assessment/dependency visualization in Azure Migrate
 description: Get help with troubleshooting assessment and dependency visualization in Azure Migrate.
 ms.service: azure-migrate
 ms.topic: troubleshooting
+author: musa-57
+ms.manager: abhemraj
+ms.author: hamusa
 ms.date: 01/02/2020
 ---
 
@@ -31,7 +34,7 @@ VM not found in the specified location | Use a different target location before 
 One or more unsuitable disks | One or more disks attached to the VM don't meet Azure requirements.A<br/><br/> Azure Migrate: Server Assessment currently doesn't support Ultra SSD disks, and assesses the disks based on the disk limits for premium managed disks (32 TB).<br/><br/> For each disk attached to the VM, make sure that the size of the disk is < 64 TB (supported by Ultra SSD disks).<br/><br/> If it isn't, reduce the disk size before you migrate to Azure, or use multiple disks in Azure and [stripe them together](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#disk-striping) to get higher storage limits. Make sure that the performance (IOPS and throughput) needed by each disk is supported by Azure [managed virtual machine disks](https://docs.microsoft.com/azure/azure-subscription-service-limits#storage-limits).
 One or more unsuitable network adapters. | Remove unused network adapters from the machine before migration.
 Disk count exceeds limit | Remove unused disks from the machine before migration.
-Disk size exceeds limit | Azure Migrate: Server Assessment currently doesn't support Ultra SSD disks, and assesses the disks based on premium disk limits (32 TB).<br/><br/> However, Azure supports disks with up to 64 TB size (supported by Ultra SSD disks). Shrink disks to less than 64 TB before migration, or use multiple disks in Azure and [stripe them together](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#disk-striping) to get higher storage limits.
+Disk size exceeds limit | Azure Migrate: Server Assessment currently doesn't support Ultra SSD disks, and assesses the disks based on premium disk limits (32 TB).<br/><br/> However, Azure supports disks with up to 64-TB size (supported by Ultra SSD disks). Shrink disks to less than 64 TB before migration, or use multiple disks in Azure and [stripe them together](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#disk-striping) to get higher storage limits.
 Disk unavailable in the specified location | Make sure the disk is in your target location before you migrate.
 Disk unavailable for the specified redundancy | The disk should use the redundancy storage type defined in the assessment settings (LRS by default).
 Could not determine disk suitability because of an internal error | Try creating a new assessment for the group.
@@ -64,7 +67,7 @@ To show how this can affect recommendations, let's take an example:
 
 We have an on-premises VM with four cores and eight GB of memory, with 50% CPU utilization and 50% memory utilization, and a specified comfort factor of 1.3.
 
--  If the assessment is **As on-premises**, an Azure VM SKU with 4 cores and 8 GB of memory is recommended.
+-  If the assessment is **As on-premises**, an Azure VM SKU with four cores and 8 GB of memory is recommended.
 - If the assessment is performance-based, based on effective CPU and memory utilization (50% of 4 cores * 1.3 = 2.6 cores and 50% of 8-GB memory * 1.3 = 5.3-GB memory), the cheapest VM SKU of four cores (nearest supported core count) and eight GB of memory (nearest supported memory size) is recommended.
 - [Learn more](concepts-assessment-calculation.md#sizing-recommendations) about assessment sizing.
 
@@ -72,7 +75,7 @@ We have an on-premises VM with four cores and eight GB of memory, with 50% CPU u
 
 Azure Migrate Server Assessment might recommend a bigger disk based on the type of assessment.
 - Disk sizing in Server Assessment depends on two assessment properties: sizing criteria and storage type.
-- If the sizing criteria is **Performance-based**, and the storage type is set to **Automatic**, the IOPS and throughput values of the disk are considered when identifying the target disk type (Standard HDD, Standard SSD, or Premium). A disk SKU from the disk type is then recommended, and the recommendation considers the size requirements of the on-premises disk.
+- If the sizing criteria is **Performance-based**, and the storage type is set to **Automatic**, the IOPS, and throughput values of the disk are considered when identifying the target disk type (Standard HDD, Standard SSD, or Premium). A disk SKU from the disk type is then recommended, and the recommendation considers the size requirements of the on-premises disk.
 - If the sizing criteria is **Performance-based**, and the storage type is **Premium**, a premium disk SKU in Azure is recommended based on the IOPS, throughput, and size requirements of the on-premises disk. The same logic is used to perform disk sizing when the sizing criteria is **As on-premises** and the storage type is **Standard HDD**, **Standard SSD**, or **Premium**.
 
 As an example, if you have an on-premises disk with 32 GB of memory, but the aggregated read and write IOPS for the disk is 800 IOPS, Server Assessment recommends a premium disk (because of the higher IOPS requirements), and then recommends a disk SKU that can support the required IOPS and size. The nearest match in this example would be P15 (256 GB, 1100 IOPS). Even though the size required by the on-premises disk was 32 GB, Server Assessment recommends a larger disk because of the high IOPS requirement of the on-premises disk.
@@ -91,7 +94,7 @@ Azure Migrate Server Assessment currently considers the operating system license
 
 ## How does performance-based sizing work?
 
-Server Assessment continuously collects performance data of on-premises machines and uses it to recommend the VM SKU and disk SKU in Azure. [Learn how](concepts-assessment-calculation.md#performance-based-sizing) performance based data is collected.
+Server Assessment continuously collects performance data of on-premises machines and uses it to recommend the VM SKU and disk SKU in Azure. [Learn how](concepts-assessment-calculation.md#performance-based-sizing) performance-based data is collected.
 
 
 ## I can't find dependency visualization for Azure Government
@@ -114,7 +117,7 @@ For Linux VMs, make sure that the installation commands for MMA and the dependen
 - **MMS agent**: Review the supported [Windows](https://docs.microsoft.com/azure/log-analytics/log-analytics-concept-hybrid#supported-windows-operating-systems), and [Linux](https://docs.microsoft.com/azure/log-analytics/log-analytics-concept-hybrid#supported-linux-operating-systems) operating systems.
 - **Dependency agent**: the supported [Windows and Linux](../azure-monitor/insights/vminsights-enable-overview.md#supported-operating-systems) operating systems.
 
-## Visualize dependencies more than a hour
+## Visualize dependencies more than an hour
 
 Although Azure Migrate allows you to go back to a particular date in the last month, the maximum duration for which you can visualize the dependencies is one hour.
 
@@ -139,7 +142,7 @@ After migrating machines with dependency visualization enabled to Azure, machine
 
 ## Capture network traffic
 
-Collect metwork traffic logs as follows:
+Collect network traffic logs as follows:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Press F12 to start Developer Tools. If needed, clear the  **Clear entries on navigation** setting.

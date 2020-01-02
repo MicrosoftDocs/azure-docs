@@ -1,12 +1,8 @@
----
+ ---
 title: Migrate Hyper-V VMs to Azure with Azure Migrate Server Migration 
 description: Learn how to migrate on-premises Hyper-V VMs to Azure with Azure Migrate Server Migration
-author: rayne-wiselman
-manager: carmonm
-ms.service: azure-migrate
 ms.topic: tutorial
 ms.date: 11/18/2019
-ms.author: raynew
 ms.custom: MVC
 ---
 
@@ -145,7 +141,7 @@ With discovery completed, you can begin replication of Hyper-V VMs to Azure.
     ![Select VMs](./media/tutorial-migrate-hyper-v/select-vms.png)
 
 5. In **Target settings**, select the target region to which you'll migrate, the subscription, and the resource group in which the Azure VMs will reside after migration.
-7. In **Replication Storage Account**, select the Azure storage account in which replicated data will be stored in Azure.
+7. In **Replication Storage Account**, select the Azure Storage account in which replicated data will be stored in Azure.
 8. **Virtual Network**, select the Azure VNet/subnet to which the Azure VMs will be joined after migration.
 9. In **Azure Hybrid Benefit**:
 
@@ -177,9 +173,9 @@ With discovery completed, you can begin replication of Hyper-V VMs to Azure.
 
 If this is the first VM you're replicating in the Azure Migrate project, Azure Migrate: Server Migration automatically provisions these resources in same resource group as the project.
 
-- **Service bus**: Azure Migrate: Server Migration uses the service bus to send replication orchestration messages to the appliance.
+- **Service bus**: Azure Migrate: Server Migration uses the Service Bus to send replication orchestration messages to the appliance.
 - **Gateway storage account**: Azure Migrate: Server Migration uses the gateway storage account to store state information about the VMs being replicated.
-- **Log storage account**: The Azure Migrate appliance uploads replication logs for VMs to a log storage account. Azure Migrate applies the replication information to the replica managed disks.
+- **Log storage account**: The Azure Migrate appliance uploads replication logs for VMs to a log storage account. Azure Migrate applies the replication information to the replica-managed disks.
 - **Key vault**: The Azure Migrate appliance uses the key vault to manage connection strings for the service bus, and access keys for the storage accounts used in replication. You should have set up the permissions that the key vault needs to access the storage account when you prepared. [prepared Azure](tutorial-prepare-hyper-v.md#prepare-azure) for Hyper-V VM assessment and migration. 
 
 
@@ -203,7 +199,7 @@ You can monitor replication status by clicking on **Replicating servers** in **A
 When delta replication begins, you can run a test migration for the VMs, before running a full migration to Azure. We highly recommend that you do this at least once for each machine, before you migrate it.
 
 - Running a test migration checks that migration will work as expected, without impacting the on-premises machines, which remain operational, and continue replicating. 
-- Test migration simulates the migration by creating an Azure VM using replicated data (usually migrating to a non-production VNet in your Azure subscription).
+- Test migration simulates the migration by creating an Azure VM using replicated data (usually migrating to a non-production Azure VNet in your Azure subscription).
 - You can use the replicated test Azure VM to validate the migration, perform app testing, and address any issues before full migration.
 
 Do a test migration as follows:
@@ -217,7 +213,7 @@ Do a test migration as follows:
 
     ![Test migration](./media/tutorial-migrate-hyper-v/test-migrate.png)
 
-3. In **Test Migration**, select the Azure VNet in which the Azure VM will be located after the migration. We recommend you use a non-production VNet.
+3. In **Test Migration**, select the Azure virtual network in which the Azure VM will be located after the migration. We recommend you use a non-production virtual network.
 4. The **Test migration** job starts. Monitor the job in the portal notifications.
 5. After the migration finishes, view the migrated Azure VM in **Virtual Machines** in the Azure portal. The machine name has a suffix **-Test**.
 6. After the test is done, right-click the Azure VM in **Replicating machines**, and click **Clean up test migration**.
