@@ -18,7 +18,7 @@ Azure Backup provides a number of ways to restore a VM.
 **Create a new VM** | Quickly creates and gets a basic VM up and running from a restore point.<br/><br/> You can specify a name for the VM, select the resource group and virtual network (VNet) in which it will be placed, and specify a storage account for the restored VM. The new VM must be created in the same region as the source VM.
 **Restore disk** | Restores a VM disk, which can then be used to create a new VM.<br/><br/> Azure Backup provides a template to help you customize and create a VM. <br/><br> The restore job generates a template that you can download and use to specify custom VM settings, and create a VM.<br/><br/> The disks are copied to the Resource Group you specify.<br/><br/> Alternatively, you can attach the disk to an existing VM, or create a new VM using PowerShell.<br/><br/> This option is useful if you want to customize the VM, add configuration settings that weren't there at the time of backup, or add settings that must be configured using the template or PowerShell.
 **Replace existing** | You can restore a disk, and use it to replace a disk on the existing VM.<br/><br/> The current VM must exist. If it's been deleted, this option can't be used.<br/><br/> Azure Backup takes a snapshot of the existing VM before replacing the disk, and stores it in the staging location you specify. Existing disks connected to the VM are replaced with the selected restore point.<br/><br/> The snapshot is copied to the vault, and retained in accordance with the retention policy. <br/><br/> After the replace disk operation, the original disk is retained in the resource group. You can choose to manually delete the original disks if they are not needed. <br/><br/>Replace existing is supported for unencrypted managed VMs. It's not supported for unmanaged disks, [generalized VMs](https://docs.microsoft.com/azure/virtual-machines/windows/capture-image-resource), or for VMs [created using custom images](https://azure.microsoft.com/resources/videos/create-a-custom-virtual-machine-image-in-azure-resource-manager-with-powershell/).<br/><br/> If the restore point has more or less disks than the current VM, then the number of disks in the restore point will only reflect the VM configuration.
-**Cross Region (secondary region)** | Cross Region restore can be used to restore Azure VMs in the secondary region, which is an Azure paired region.<br><br> You will be able to restore all the Azure VMs for the selected recovery point if the backup is done in the secondary region.<br><br> This feature is available for the options below:<br> * [Create a VM](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#create-a-vm) <br> * [Restore Disks](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#restore-disks) <br><br> We do not currently support the [Replace existing disks](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#replace-existing-disks) option.<br><br> Permissions<br> The restore operation on secondary region can be performed by Backup Admins and App admins.
+**Cross Region (secondary region)** | Cross Region restore can be used to restore Azure VMs in the secondary region, which is an [Azure paired region](https://docs.microsoft.com/azure/best-practices-availability-paired-regions#what-are-paired-regions).<br><br> You will be able to restore all the Azure VMs for the selected recovery point if the backup is done in the secondary region.<br><br> This feature is available for the options below:<br> * [Create a VM](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#create-a-vm) <br> * [Restore Disks](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#restore-disks) <br><br> We do not currently support the [Replace existing disks](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#replace-existing-disks) option.<br><br> Permissions<br> The restore operation on secondary region can be performed by Backup Admins and App admins.
 
 > [!NOTE]
 > You can also recover specific files and folders on an Azure VM. [Learn more](backup-azure-restore-files-from-vm.md).
@@ -146,6 +146,7 @@ For this process, there are pricing implications as it is at the storage level.
 >[!NOTE]
 >Before you begin:
 >
+>- The Cross Region Restore (CRR) feature is currently only available in the WCUS region.
 >- CRR is a vault level opt-in feature for any GRS vault (turned off by default).
 >- Please use *"featureName": "CrossRegionRestore"* to onboard your subscription to this feature.
 >- If you are onboarded to this feature during public limited preview, the review approval email will include pricing policy details.
@@ -154,7 +155,7 @@ For this process, there are pricing implications as it is at the storage level.
 
 ### Configure Cross Region Restore
 
-The vault that has been created with GRS redundancy will have the option to configure the Cross Region Restore feature. Every GRS vault will have a banner that will take you to the Backup Configuration blade, which has the option to enable this feature.
+The vault that has been created with GRS redundancy will have the option to configure the Cross Region Restore feature. Every GRS vault will have a banner which will link to the documentation. To configure CRR for the vault, please go to the Backup Configuration blade, which has the option to enable this feature.
 
  ![Backup Configuration banner](./media/backup-azure-arm-restore-vms/banner.png)
 
@@ -165,22 +166,14 @@ The vault that has been created with GRS redundancy will have the option to conf
 
    ![After you click Enable Cross Region restore in this vault](./media/backup-azure-arm-restore-vms/backup-configuration2.png)
 
->[!NOTE]
->Note: If CRR is enabled and you disable it, then after opting-out the account is billed as RA-GRS for an additional 30 days beyond the date that it was converted, as per Azure storage pricing policies.
->
-
 ### View backup items in secondary region
 
 1. From the portal, go to **Recovery Services vault** > **Backup items**
 2. Click **Secondary Region** to view the items in the secondary region.
 
->[!NOTE]
-> Only Backup Management Type supporting the CRR feature will be shown in the list. Currently only support for restoring secondary region data to secondary region is allowed.
->
+![Virtual machines in secondary region](./media/backup-azure-arm-restore-vms/secbackedupitem.png)
 
 ![Select Secondary Region](./media/backup-azure-arm-restore-vms/backupitems_sec.png)
-
-![Virtual machines in secondary region](./media/backup-azure-arm-restore-vms/secbackedupitem.png)
 
 ### Restore in secondary region
 
