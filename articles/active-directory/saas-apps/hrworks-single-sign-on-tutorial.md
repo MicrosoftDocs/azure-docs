@@ -12,9 +12,8 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 11/05/2019
+ms.date: 01/02/2020
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -53,7 +52,6 @@ To configure the integration of HRworks Single Sign-On into Azure AD, you need t
 1. To add new application, select **New application**.
 1. In the **Add from the gallery** section, type **HRworks Single Sign-On** in the search box.
 1. Select **HRworks Single Sign-On** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
-
 
 ## Configure and test Azure AD single sign-on for HRworks Single Sign-On
 
