@@ -81,7 +81,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	a. Check **Set additional URLs**.
 	
-	b. If you wish to configure the application in **IDP** initiated mode, in the **Relay State** textbox, type a URL: `https://supermood.co/auth/sso/saml20`
+	b. In the **Relay State** textbox, type a URL: `https://supermood.co/auth/sso/saml20`
 
 1. Click **Set additional URLs** and perform the following steps if you wish to configure the application in **SP** initiated mode:
 
