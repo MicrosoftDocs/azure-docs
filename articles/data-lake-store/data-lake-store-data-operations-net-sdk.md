@@ -5,7 +5,7 @@ description: Use the Azure Data Lake Storage Gen1 .NET SDK for filesystem operat
 author: twooley
 ms.service: data-lake-store
 ms.topic: conceptual
-ms.date: 01/03/2030
+ms.date: 01/03/2020
 ms.author: twooley
 
 ---
@@ -70,10 +70,10 @@ The code sample available [on GitHub](https://github.com/Azure-Samples/data-lake
     ```
     namespace SdkSample
     {
-            class Program
-            {
-              private static string _adlsg1AccountName = "<DATA-LAKE-STORAGE-GEN1-NAME>.azuredatalakestore.net";
-            }
+        class Program
+        {
+            private static string _adlsg1AccountName = "<DATA-LAKE-STORAGE-GEN1-NAME>.azuredatalakestore.net";
+        }
     }
     ```
 
@@ -100,7 +100,8 @@ Add the following snippet to your application. This snippet adds a file and any 
 ```
 // Create a file - automatically creates any parent directories that don't exist
 // The AdlsOutputStream preserves record boundaries - it does not break records while writing to the store
-    using (var stream = client.CreateFile(fileName, IfExists.Overwrite))
+
+using (var stream = client.CreateFile(fileName, IfExists.Overwrite))
 {
     byte[] textByteArray = Encoding.UTF8.GetBytes("This is test data to write.\r\n");
     stream.Write(textByteArray, 0, textByteArray.Length);
@@ -116,6 +117,7 @@ The following snippet appends data to an existing file in Data Lake Storage Gen1
 
 ```
 // Append to existing file
+
 using (var stream = client.GetAppendStream(fileName))
 {
     byte[] textByteArray = Encoding.UTF8.GetBytes("This is the added line.\r\n");
@@ -129,6 +131,7 @@ The following snippet reads the contents of a file in Data Lake Storage Gen1.
 
 ```
 //Read file contents
+
 using (var readStream = new StreamReader(client.GetReadStream(fileName)))
 {
     string line;
