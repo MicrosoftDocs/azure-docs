@@ -155,7 +155,24 @@ If you integrate with Log Analytics, you can see the logs by selecting Logs from
 
 ## Upgrade preference ##
 
+If you have multiple ASEs, you may want to have some ASEs get upgraded before others. Within the ASE HostingEnvironment Resource Manager object, you can set the UpgradePreferences object. This can be set through template, ARMClient, or https://resources.azure.com.  The three value choices are:
 
+* None - this is the default and means that Azure will upgrade your ASE in no particular batch
+* Early - this means that your ASE will be upgraded in the first half of the App Service upgrades
+* Late - this means that your ASE will be upgraded in the second half of the App Service upgrades
+
+If you are using https://resources.azure.com, you can set this value by:
+
+1. Going to resources.azure.com and signing in with your Azure account
+1. Navigate through subscriptions\/\[subscription name\]\/resourceGroups\/\[resource group name\]\/providers\/Microsoft.Web\/hostingEnvironments\/\[ASE name\]
+1. Selecting Read/Write at the top
+1. Select Edit
+1. Change the value for upgradePreference to whatever is desired from the three choices.
+1. Select Patch
+
+![resources azure com display][5]
+
+This feature really makes the most sense when you have multiple ASEs as your "early" upgraded ASEs will be upgraded before your "late". In this situation, you should have your dev/test ASEs set to be "early" and your production ASEs to be set as "late".
 
 ## Pricing ##
 
