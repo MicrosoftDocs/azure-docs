@@ -47,9 +47,12 @@ Before you proceed to the steps of registering the Peering Service, you need to 
 
 ```azurepowershell-interactive
 Register-AzProviderFeature -FeatureName AllowPeeringService -ProviderNamespace Microsoft.Peering 
+```
+> [!IMPORTANT]
+> Please wait for *RegistrationState* to turn "Registered" before proceeding. It may take 5 to 30 minutes after you execute the command.
 
+```azurepowershell-interactive
 Register-AzResourceProvider -ProviderNamespace Microsoft.Peering 
-
 ```
 
 **Azure CLI**
