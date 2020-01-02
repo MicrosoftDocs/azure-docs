@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 12/12/2019
+ms.date: 12/31/2019
 ms.author: alkohli
 ---
 # Manage an Azure Stack Edge device via Windows PowerShell
@@ -81,7 +81,7 @@ If the compute role is configured on your device, you can also get the compute l
 
 ## Monitor and troubleshoot compute modules
 
-[!INCLUDE [Monitor and troubleshoot compute modules](../../includes/data-box-edge-monitor-troubleshoot-compute.md)]
+[!INCLUDE [Monitor and troubleshoot compute modules](../../includes/azure-stack-edge-monitor-troubleshoot-compute.md)]
 
 ## Exit the remote session
 

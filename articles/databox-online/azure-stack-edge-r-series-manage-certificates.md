@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 12/12/2019
+ms.date: 12/31/2019
 ms.author: alkohli
 ---
 # Use certificates with Azure Stack Edge Rugged series 
@@ -50,6 +50,7 @@ These certificates could be root certificates or the intermediate certificates. 
 
 ### Caveats
 
+- The root certificates should be signing chain certificates.
 - The root certificates can be uploaded on your device in the following format: 
     - **DER** – These are available as a `.cer` file extension.
     - **Base-64 encoded or PEM** – These are available as `.cer` extension also.
@@ -63,14 +64,14 @@ Your Azure Stack Edge device could be a 1-node device or a 4-node device. All th
 
 ### Caveats
 
-- The node certificate should be provided in `.pfx` format with a private key. 
+- The node certificate should be provided in `.pfx` format with a private key that can be exported. 
 - You can create and upload 1 wildcard node certificate or 4 individual node certificates. 
 - A node certificate must be changed if the DNS domain changes but the device name does not change. If you are bringing your own node certificate, then you can't change the device serial number, you can only change the domain name.
 - Use the following table to guide you when creating a node certificate.
    
     |Type |Subject name (SN)  |Subject alternative name (SAN)  |Subject name example |
     |---------|---------|---------|---------|
-    |Node|`<DeviceSerialNo>.<DnsDomain>`|`*.<DnsDomain>`<br>`<DeviceSerialNo>.<DnsDomain>`|`mydevice1.microsoftdatabox.com` |
+    |Node|`<DeviceSerialNo>.<DnsDomain>`|`*.<DnsDomain>`<br><br>`<DeviceSerialNo>.<DnsDomain>`|`mydevice1.microsoftdatabox.com` |
    
 
 ## Endpoint certificates
@@ -102,7 +103,7 @@ You can access the local web UI of your device via a browser. To ensure that thi
 
 ### Caveats
 
-- The local UI certificate is also uploaded in a `.pfx` format with a private key.
+- The local UI certificate is also uploaded in a `.pfx` format with a private key that can be exported.
 - After you upload the local UI certificate, you will need to restart the browser and clear the cache. Refer to the specific instructions for your browser.
 
     |Type |Subject name (SN)  |Subject alternative name (SAN)  |Subject name example |
@@ -163,7 +164,7 @@ You will have a defined way to create the certificates for the devices operating
 
 1. You can create any of the following types of certificates:
 
-    - Create a single certificate valid for use with a single fully qualified domain name (FQDN). For example, *www.mydomain.com*.
+    - Create a single certificate valid for use with a single fully qualified domain name (FQDN). For example, *mydomain.com*.
     - Create a wildcard certificate to secure the main domain name and multiple sub domains as well. For example, **.mydomain.com*.
     - Create a subject alternative name (SAN) certificate that will cover multiple domain names in a single certificate. 
 
