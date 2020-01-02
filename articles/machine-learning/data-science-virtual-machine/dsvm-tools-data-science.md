@@ -6,10 +6,10 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: data-science-vm
 
-author: gvashishtha
-ms.author: gopalv
+author: lobrien
+ms.author: laobri
 ms.topic: conceptual
-ms.date: 10/11/2019
+ms.date: 12/12/2019
 ---
 
 # Machine learning and data science tools on Azure Data Science Virtual Machines
@@ -98,5 +98,15 @@ There are several other machine-learning libraries on DSVMs, such as the popular
 | How to use or run it      | As a Python library (2.7 and 3.5), R package, and on-path command-line tool (`C:\dsvm\tools\xgboost\bin\xgboost.exe` for Windows and `/dsvm/tools/xgboost/xgboost` for Linux)    |
 | Links to samples      | Samples are included on the VM, in `/dsvm/tools/xgboost/demo` on Linux, and `C:\dsvm\tools\xgboost\demo` on Windows.   |
 | Related tools      | LightGBM, MXNet   |
+
+## Apache Drill
+|    |           |
+| ------------- | ------------- |
+| What is it?   | Open-source SQL query engine on big data    |
+| Supported DSVM versions      | Windows 2019 (Preview), Linux  |
+| How is it configured and installed on the DSVM?      |  Installed in `/dsvm/tools/drill*` in embedded mode only   |
+| Typical uses      |  For in-place data exploration without requiring extract, transform, load (ETL). Query different data sources and formats, including CSV, JSON, relational tables, and Hadoop.     |
+| How to use and run it      | Desktop shortcut  <br/> [Get started with Drill in 10 minutes](https://drill.apache.org/docs/drill-in-10-minutes/)  |
+| Related tools on the DSVM      |   Rattle, Weka, SQL Server Management Studio      |
 
 
