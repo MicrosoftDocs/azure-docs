@@ -75,7 +75,8 @@ Note that:
 
     - If you haven't deleted the Azure Migrate project, you can find the link to the workspace in **Essentials** > **Server Assessment**.
        ![LA Workspace](./media/create-manage-projects/loganalytics-workspace.png).
-       - If you've already deleted the Azure Migrate project, select **Resource Groups** in the left pane of the Azure portal and find the workspace.
+       
+    - If you've already deleted the Azure Migrate project, select **Resource Groups** in the left pane of the Azure portal and find the workspace.
        
 2. [Follow the instructions](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace) to delete the workspace.
 
