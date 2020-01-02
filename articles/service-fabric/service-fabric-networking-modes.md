@@ -1,5 +1,5 @@
 ---
-title: Configure networking modes for Azure Service Fabric container services 
+title: Configure networking modes for container services 
 description: Learn how to set up the different networking modes that are supported by Azure Service Fabric. 
 author: athinanthny
 

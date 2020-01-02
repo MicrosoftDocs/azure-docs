@@ -159,7 +159,7 @@ Your database size automatically grows as you insert/ingest more data.
 
 ### What is the smallest database size that Hyperscale supports or starts with
 
-10 GB.
+40 GB. An Hyperscale database will be created with a starting size of 10GB and it will grow by 10GB every 10 minutes, until it reaches the size of 40GB. Each of these 10GB chucks are allocated in a different page server in order to provide more I/O and better I/O parallelsim. Please note that if you choose a smaller database size, the database will grown to 40GB automatically.
 
 ### In what increments does my database size grow
 
@@ -316,7 +316,7 @@ Because the storage is shared and there is no direct physical replication happen
 
 ### How do I diagnose and troubleshoot performance problems in a Hyperscale database
 
-For most performance problems, particularly the ones not rooted in storage performance, common SQL Server diagnostic and troubleshooting steps apply. For Hyperscale-specific storage diagnostics, see [SQL Hyperscale performance troubleshooting diagnostics](/sql-database-hyperscale-performance-diagnostics).
+For most performance problems, particularly the ones not rooted in storage performance, common SQL Server diagnostic and troubleshooting steps apply. For Hyperscale-specific storage diagnostics, see [SQL Hyperscale performance troubleshooting diagnostics](sql-database-hyperscale-performance-diagnostics.md).
 
 ## Scalability Questions
 

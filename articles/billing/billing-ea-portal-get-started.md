@@ -4,7 +4,7 @@ description: This article explains how Azure Enterprise Agreement (Azure EA) cus
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 12/04/2019
+ms.date: 12/30/2019
 ms.topic: conceptual
 ms.service: cost-management-billing
 manager: boalcsva
@@ -102,7 +102,13 @@ The service administrator role has permissions to manage services in the Azure p
 
 To activate your service, the initial enterprise administrator opens the [Azure Enterprise portal](https://ea.azure.com) and signs in using the email address from the invitation email.
 
+<<<<<<< HEAD
 If you have more than one enrollment, choose one to activate. By default, only active enrollments are shown. To view enrollment history, clear the **Active** option in the top right of the Azure Enterprise portal.
+=======
+If you’ve been set up as the EA administrator, you don’t need to receive the activation email to log on to the Azure EA portal. You can proceed to [https://ea.azure.com](https://ea.azure.com) and log on with your email address (either work, school, or live ID) and password.
+
+If you have more than one enrollment, choose one to activate. By default, only active enrollments are shown. To view enrollment history, clear the **Active** option in the top right of the Azure EA portal.
+>>>>>>> 84ba1797cd05706b024e0788af1c10a2890bf9c5
 
 Under **Enrollment**, the status shows **Active**.
 

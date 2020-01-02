@@ -13,7 +13,7 @@ ms.author: memildin
 ---
 # Integration of Azure security products in Azure Security Center
 
-Azure Security Center provides you with additional Microsoft licenses to work with the following security products:
+Azure Security Center can integrate with the following security products, (a separate license for each product is required):
 
 * [Azure WAF](#azure-waf)
 * [Azure DDoS Protection](#azure-ddos)
