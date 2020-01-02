@@ -23,7 +23,7 @@ Section titles in product-specific steps below refer directly to section titles 
 ## Before you begin
 
 The documentation of most security products assumes you have cluster-admin privileges.
-Customer admins do not possess all privileges in Azure Red Hat OpenShift. Permissions required to modify cluster-wide resources are limited.
+Customer admins don't have all privileges in Azure Red Hat OpenShift. Permissions required to modify cluster-wide resources are limited.
 
 First, ensure the user is logged in to the cluster as a customer admin, by running
 `oc get scc`. All users that are members of the customer admin group have permissions to view the Security Context Constraints (SCCs) on the cluster.
@@ -41,9 +41,9 @@ kubernetes v1.11.0+d4cacc0
 ```
 
 ## Product-specific steps for Aqua Security
-The base instructions that are are going to be modified can be found in the [Aqua Security deployment documentation](https://docs.aquasec.com/docs/deploy-openshift). The steps here will run in conjunction to the Aqua deployment documentation.
+The base instructions that are going to be modified can be found in the [Aqua Security deployment documentation](https://docs.aquasec.com/docs/openshift-red-hat). The steps here will run in conjunction to the Aqua deployment documentation.
 
-The first step is to annotate the required SCCs that will be updated. These annotations prevent the cluster's Sync Pod from reverting the any changes to these SSCs.
+The first step is to annotate the required SCCs that will be updated. These annotations prevent the cluster's Sync Pod from reverting any changes to these SSCs.
 
 ```
 oc annotate scc hostaccess openshift.io/reconcile-protect=true
@@ -51,7 +51,7 @@ oc annotate scc privileged openshift.io/reconcile-protect=true
 ```
 
 ### Step 1: Prepare prerequisites
-Remember to log in to the cluster as a user with ARO Customer Admin privileges instead of the cluster-admin.
+Remember to log in to the cluster as an ARO Customer Admin instead of the cluster-admin role.
 
 Create the project and the service account.
 ```
@@ -66,14 +66,14 @@ oc adm policy add-scc-to-user privileged system:serviceaccount:aqua-security:aqu
 oc adm policy add-scc-to-user hostaccess system:serviceaccount:aqua-security:aqua-account
 ```
 
-Continue following the remaining instructions in Step 1.  This includes setting up the secret for the Aqua registry.
+Continue following the remaining instructions in Step 1.  Those instructions describe setting up the secret for the Aqua registry.
 
 ### Step 2: Deploy the Aqua Server, Database, and Gateway
-Follow the steps provided in the Aqua documentation for installing the aqua-console.yaml.  
+Follow the steps provided in the Aqua documentation for installing the aqua-console.yaml.
 
-This requires a modification to the provided `aqua-console.yaml`.  Remove the top two objects labeled, `kind: ClusterRole` and `kind: ClusterRoleBinding`.  These will fail during creation as the customer admin does not have permission at this time to modify `ClusterRole` and `ClusterRoleBinding` objects.
+Modify the provided `aqua-console.yaml`.  Remove the top two objects labeled, `kind: ClusterRole` and `kind: ClusterRoleBinding`.  These resources won't be created as the customer admin doesn't have permission at this time to modify `ClusterRole` and `ClusterRoleBinding` objects.
 
-The second modification will be to the `kind: Route` portion of the `aqua-console.yaml`.  Substitute the following yaml for the `kind: Route` object in the provided yaml.
+The second modification will be to the `kind: Route` portion of the `aqua-console.yaml`. Replace the following yaml for the `kind: Route` object in the `aqua-console.yaml` file.
 ```
 apiVersion: route.openshift.io/v1
 kind: Route
@@ -128,7 +128,7 @@ You can follow the documentation until the "Install Console" section, use the Pr
 ### Install Console
 
 During `oc create -f twistlock_console.yaml` in Step 2, you'll get an Error when creating the namespace.
-You can safely ignore it, the namespace has been created previoussly with the `oc new-project` command.
+You can safely ignore it, the namespace has been created previously with the `oc new-project` command.
 
 ### Create an external route to Console
 

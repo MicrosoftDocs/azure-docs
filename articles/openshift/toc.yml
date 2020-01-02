@@ -27,29 +27,29 @@
 - name: How-to guides
   expanded: true
   items:
-  - name: Set up your Azure Red Hat OpenShift dev environment
-    href: howto-setup-environment.md
-    expanded: true
-    items:
-    - name: Create an Azure AD tenant
-      href: howto-create-tenant.md
-    - name: Create an Azure AD app object and user
-      href: howto-aad-app-configuration.md
-  - name: Deploy a standalone prometheus in an Azure Red Hat OpenShift cluster
-    href: howto-deploy-prometheus.md
-  - name: Manage projects in an Azure Red Hat OpenShift cluster
-    href: howto-manage-projects.md
-  - name: Monitoring and logging
-    items:
-    - name: Azure Monitor for containers (preview)
+    - name: Set up your Azure Red Hat OpenShift dev environment
+      href: howto-setup-environment.md
+      expanded: true
       items:
-      - name: Configure Azure Monitor for containers
-        href: ../azure-monitor/insights/container-insights-azure-redhat-setup.md
-        maintainContext: true
-      - name: Disable Azure Monitor for containers
-        href: ../azure-monitor/insights/container-insights-optout-openshift.md
-        maintainContext: true
-  - name: Run privileged containers in an Azure Red Hat OpenShift cluster
+        - name: Create an Azure AD tenant
+          href: howto-create-tenant.md
+        - name: Create an Azure AD app object and user
+          href: howto-aad-app-configuration.md
+    - name: Deploy a standalone prometheus in an Azure Red Hat OpenShift cluster
+      href: howto-deploy-prometheus.md
+    - name: Manage projects in an Azure Red Hat OpenShift cluster
+      href: howto-manage-projects.md
+    - name: Monitoring and logging
+      items:
+        - name: Azure Monitor for containers (preview)
+          items:
+            - name: Configure Azure Monitor for containers
+              href: ../azure-monitor/insights/container-insights-azure-redhat-setup.md
+              maintainContext: true
+            - name: Disable Azure Monitor for containers
+              href: ../azure-monitor/insights/container-insights-optout-openshift.md
+              maintainContext: true
+    - name: Run privileged containers in an Azure Red Hat OpenShift cluster
       href: howto-run-privileged-containers.md
 - name: Reference
   items:
