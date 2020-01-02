@@ -1,5 +1,5 @@
 ---
-title: Restrictions and known issues in API import
+title: Restrictions and details of API formats support
 titleSuffix: Azure API Management
 description: Details of known issues and restrictions on Open API, WSDL, and WADL formats support in Azure API Management.
 services: api-management
