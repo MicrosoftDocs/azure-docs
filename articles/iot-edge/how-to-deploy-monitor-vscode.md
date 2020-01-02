@@ -142,7 +142,7 @@ You deploy modules to your device by applying the deployment manifest that you c
 
 The results of your deployment are printed in the VS Code output. Successful deployments are applied within a few minutes if the target device is running and connected to the internet.
 
-## Create deployment for multiple devices
+## Create a deployment for multiple devices
 
 ## View modules on your device
 
