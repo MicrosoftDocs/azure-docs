@@ -143,7 +143,7 @@ Reservation costs are available in [cost analysis](https://aka.ms/costanalysis).
 
 ![Example showing where to select amortized cost in cost analysis](./media/billing-understand-reserved-instance-usage-ea/portal-cost-analysis-amortized-view.png)
 
-Group by charge type to see a break down of usage, purchases, and refunds; or by reservation for a breakdown of reservation and on-demand costs. Remember the only reservation costs you will see when looking at actual cost are purchases, but costs will be allocated to the individual resources which used the benfit when looking at amortized cost. You will also see a new **UnusedReservation** charge type when looking at amortized cost.
+Group by charge type to see a break down of usage, purchases, and refunds; or by reservation for a breakdown of reservation and on-demand costs. Remember the only reservation costs you will see when looking at actual cost are purchases, but costs will be allocated to the individual resources which used the benefit when looking at amortized cost. You will also see a new **UnusedReservation** charge type when looking at amortized cost.
 
 ## Need help? Contact us.
 
