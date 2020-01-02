@@ -23,7 +23,7 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
 ### Azure Machine Learning SDK for Python v1.0.82
 
 + **New features**
-  + [Insert new features below. Reference articles and/or doc pages]
+  + Azure Blob and Data Lake datastore can now be registered without credential. Dataset created from credential-less datastore will use managed identity from compute resource or user identity from browser interactive login to authenticate the data access. Please refer to these articles for permission configuration for identity based data access: [Storage Blob](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-datalake), [Data Lake](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/tutorial-vm-windows-access-storage).
   
   + **Preview features**
     + [Contrib features below] 
@@ -40,11 +40,9 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
     + Fixed Model Management URL construction for Mooncake region.
     + Fixed issue where models using source_dir couldn't be packaged for Azure Functions.
     + Dataset: Fixed the issue that `to_pandas_dataframe` silently fill nulls for error values in data. The default behavior now raise failure for data error. Two new arguments `on_error` and `out_of_range_datetime` are introduced to specify how to handle error values.
-    + Datastore of Blob Container and Data Lake datastore can now be registered without credential provided. Dataset created from credential-less datastore will use managed identity from compute resource or user identity from browser interactive login to authenticate the data access.
+    
     + Added an option to [Environment.build_local()](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.environment%28class%29?view=azure-ml-py) to push an image into AzureML workspace container registry
     + Updated the SDK to use new token library on azure synapse in a back compatible manner.
-  + **azureml-dataprep**
-    +  Dataset: enabled data access to credential-less Datastore of Storage Blob and Data Lake using compute or user identity. Please refer to these articles for permission configuration for identity based data access: [Storage Blob](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-datalake), [Data Lake](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/tutorial-vm-windows-access-storage).
   + **azureml-interpret**
     + Fixed bug where None was returned when no explanations were available for download. Now raises an exception, matching behavior elsewhere.
   + **azureml-pipeline-steps**
