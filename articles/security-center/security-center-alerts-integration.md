@@ -32,12 +32,4 @@ A DDoS attack attempts to exhaust an application’s resources, making the appli
 
 Azure DDoS Protection, combined with application design best practices, provide a defense against DDoS attacks. DDoS Protection provides different service tiers. For more information, see [Azure DDoS Protection overview](https://docs.microsoft.com/azure/virtual-network/ddos-protection-overview).
 
-DDoS Protection Standard can mitigate the following types of attacks:
-
-> [!div class="mx-tableFixed"]
-
-|Alert|Description|
-|---|---|
-|**Volumetric attack detected**|This attack's goal is to flood the network layer with a substantial amount of seemingly legitimate traffic. It includes UDP floods, amplification floods, and other spoofed-packet floods. DDoS Protection Standard mitigates these potential multi-gigabyte attacks by absorbing and scrubbing them, with global network scale, automatically.|
-|**Protocol attack detected**|These attacks render a target inaccessible, by exploiting a weakness in the layer 3 and layer 4 protocol stacks. It includes SYN flood attacks, reflection attacks, and other protocol attacks. DDoS Protection Standard mitigates these attacks, differentiating between malicious and legitimate traffic, by interacting with the client, and blocking malicious traffic.|
-|**Resource (application) layer attack detected**|These attacks target web application packets, to disrupt the transmission of data between hosts. The attacks include HTTP protocol violations, SQL injection, cross-site scripting, and other layer 7 attacks. Use the Azure Application Gateway WAF, with DDoS Protection Standard, to defend against these attacks. There are also third-party WAF offerings available in Azure Marketplace.|
+For a list of the Azure DDoS Protection alerts, see the [Reference table of alerts](alerts-reference.md#alerts-azureddos).
