@@ -27,7 +27,7 @@ A user that has logged into SQL on-demand must be authorized to access and query
 > [!NOTE]
 > [AAD pass-through](#force-aad-pass-through) is the default behavior when you create a workspace. You can [disable this behavior](#disable-forcing-aad-pass-through).
 
-Depending on the user type, different authorization types are supported (or will be supported soon).
+In the table below you'll find the different authorization types that are either supported or will be supported soon.
 
 | Authorization type                    | *SQL user*    | *AAD user*     |
 | ------------------------------------- | ------------- | -----------    |
@@ -37,10 +37,10 @@ Depending on the user type, different authorization types are supported (or will
 
 ### Shared access signature
 
-**Shared access signature** (SAS) provides delegated access to resources in a storage account. With SAS, a customer can grant clients access to resources in a storage account without sharing account keys. SAS gives you granular control
-over the type of access you grant to clients who have an SAS: validity interval, granted permissions, acceptable IP address range, and the acceptable protocol (https/http).
+**Shared access signature (SAS)** provides delegated access to resources in a storage account. With SAS, a customer can grant clients access to resources in a storage account without sharing account keys. SAS gives you granular control
+over the type of access you grant to clients who have an SAS, including validity interval, granted permissions, acceptable IP address range, and the acceptable protocol (https/http).
 
-You can get an SAS token by navigating to Azure Portal -> Storage Account -> Shared access signature -> Configure permissions -> Generate SAS and connection string. 
+You can get an SAS token by navigating to **Azure Portal -> Storage Account -> Shared access signature -> Configure permissions -> Generate SAS and connection string.** 
 
 > [!IMPORTANT]
 > When an SAS token is generated, it includes a question mark ('?') at the beginning of the token. To use the token in SQL on-demand, you must remove the question mark ('?') when creating a credential. For example: 
@@ -49,14 +49,14 @@ You can get an SAS token by navigating to Azure Portal -> Storage Account -> Sha
 
 ### User Identity
 
-**User Identity** (also known as “pass-through”) is an authorization type where the identity of the AAD user that logged into
-SQL on-demand is used to authorize the access to data. Before accessing the data, the Azure Storage administrator must grant permissions to the AAD user for data access. This authorization type uses the AAD user that logged into SQL on-demand. It’s not supported for SQL user type.
+**User Identity**, also known as “pass-through", is an authorization type where the identity of the AAD user that logged into
+SQL on-demand is used to authorize data access. Before accessing the data, the Azure Storage administrator must grant permissions to the AAD user. As indicated in the table above, it's not supported for the SQL user type.
 
-> [!NOTE]
-> 
->To be able to user your identity to access the data you need to have Storage Blob Data Owner/Contributor/Reader role.
-> Even if you are an Owner of a Storage Account, you will still need to add yourself into one of the Storage Blob Data roles.
-> [Click here to read more about access control in Azure Data Lake Store Gen2.](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control)
+> [!IMPORTANT]
+> You need to have a Storage Blob Data Owner/Contributor/Reader role to use your identity to access the data.
+> Even if you are an Owner of a Storage Account, you still need to add yourself into one of the Storage Blob Data roles.
+>
+> To learn more about access control in Azure Data Lake Store Gen2, review the [Access control in Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control) article.
 >
 
 ### Managed Identity
@@ -82,7 +82,7 @@ CREDENTIAL NAME must match the full path to the container, folder, or file, in t
 | Azure Data Lake Store Gen1 | https  | <storage_account>.azuredatalakestore.net/webhdfs/v1 |
 | Azure Data Lake Store Gen2 | https  | <storage_account>.dfs.core.windows.net              |
 
- `'<storage_path>'` is a path within your storage that points to the folder or file you want to read.
+ '<storage_path>' is a path within your storage that points to the folder or file you want to read.
 
 > [!NOTE]
 > There is special CREDENTIAL NAME  `UserIdentity`  that [forces AAD pass-through](#force-aad-pass-through). Please read about the effect it has on [credential lookup](#credential-lookup) while executing queries.
@@ -106,9 +106,11 @@ You can use the following combinations of authorization and Azure Storage types:
 ### Examples
 
 
-Depending on the [authorization type](#supported-storage-authorization-types), you can create credentials using the syntax below.
+Depending on the [authorization type](#supported-storage-authorization-types), you can create credentials using the T-SQL syntax below. 
 
-T-SQL syntax for **Shared Access Signature and Blob Storage**. Exchange <*mystorageaccountname*> with your actual storage account name, and <*mystorageaccountcontainername*> with the actual container name:
+**Shared Access Signature and Blob Storage** 
+
+Exchange <*mystorageaccountname*> with your actual storage account name, and <*mystorageaccountcontainername*> with the actual container name:
 >
 > ```mssql
 > CREATE CREDENTIAL [https://<mystorageaccountname>.blob.core.windows.net/<mystorageaccountcontainername>]
@@ -117,7 +119,9 @@ T-SQL syntax for **Shared Access Signature and Blob Storage**. Exchange <*mystor
 > GO
 > ```
 
-T-SQL syntax for **User Identity and Azure Data Lake Store Gen1**. Exchange <*mystorageaccountname*> with your actual storage account name, and <*mystorageaccountcontainername*> with the actual container name:
+**User Identity and Azure Data Lake Store Gen1** 
+
+Exchange <*mystorageaccountname*> with your actual storage account name, and <*mystorageaccountcontainername*> with the actual container name:
 
 >```mssql
 >CREATE CREDENTIAL [https://<mystorageaccountname>.azuredatalakestore.net/webhdfs/v1/<mystorageaccountcontainername>]
@@ -125,7 +129,9 @@ T-SQL syntax for **User Identity and Azure Data Lake Store Gen1**. Exchange <*my
 >GO
 >```
 
-T-SQL syntax for **User Identity and Azure Data Lake Store Gen2**. Exchange *<*mystorageaccountname*> with your actual storage account name, and <*mystorageaccountcontainername*> with the actual container name:
+**User Identity and Azure Data Lake Store Gen2** 
+
+Exchange <*mystorageaccountname*> with your actual storage account name, and <*mystorageaccountcontainername*> with the actual container name:
 
 >```mssql
 >CREATE CREDENTIAL [https://<mystorageaccountname>.dfs.core.windows.net/<mystorageaccountcontainername>]
@@ -135,7 +141,7 @@ T-SQL syntax for **User Identity and Azure Data Lake Store Gen2**. Exchange *<*m
 
 ## Force AAD pass-through
 
-Forcing an AAD pass-through is a default behavior achieved by a special CREDENTIAL NAME `UserIdentity` that is created automatically during Azure Synapse workspace provisioning. It forces the usage of an AAD pass-through for each query of every AAD login, which will occur despite the existence of other credentials. 
+Forcing an AAD pass-through is a default behavior achieved by a special CREDENTIAL NAME, `UserIdentity`, that is created automatically during Azure Synapse workspace provisioning. It forces the usage of an AAD pass-through for each query of every AAD login, which will occur despite the existence of other credentials. 
 
 > [!NOTE]
 > AAD pass-through is a default behavior.
@@ -157,13 +163,13 @@ For more information on how SQL on-demandfinds credential to use, see [credentia
 
 ## Disable forcing AAD pass-through
 
-You can disable [forcing AAD pass-through for each query](#force-aad-pass-through). To disable it, drop `Userdentity` credential using:
+You can disable [forcing AAD pass-through for each query](#force-aad-pass-through). To disable it, drop the `Userdentity` credential using:
 
 ```sql
 DROP CREDENTIAL [UserIdentity]
 ```
 
-In case you want to enable it again, check [force AAD pass-through](#force-aad-pass-through). 
+If you want to re-enable it again, refer to the [force AAD pass-through](#force-aad-pass-through) section. 
 
 To disable forcing AAD pass-through for a specific user, you can deny a REFERENCE permission on credential `UserIdentity` for a particular user. The following example disables a forcing AAD pass-through for a user_name:
 
@@ -171,7 +177,7 @@ To disable forcing AAD pass-through for a specific user, you can deny a REFERENC
 DENY REFERENCES ON CREDENTIAL::[UserIdentity] TO USER [user_name]
 ```
 
-For more information on how SQL on-demandfinds credentials to use, see [credential lookup](#credential-lookup).
+For more information on how SQL on-demand finds credentials to use, see [credential lookup](#credential-lookup).
 
 ## Grant permissions to use credential
 
@@ -187,21 +193,21 @@ GRANT REFERENCES ON CREDENTIAL::[UserIdentity] TO [public]
 
 ## Credential lookup
 
-When authorizing queries, lookup of a credential to be used to access a storage account will be based on following rules:
+When authorizing queries, credential lookup is used to access a storage account and is based on following rules:
 
-- If the user is logged in as an AAD login
+- User is logged in as an AAD login
 
-   - if UserIdentity credential exists and user has reference permissions on it, AAD pass-through will be used, otherwise [lookup credential by path](#lookup-credential-by-path)
+   - If a UserIdentity credential exists, and the user has reference permissions on it, AAD pass-through will be used, otherwise [lookup credential by path](#lookup-credential-by-path)
 
-- If the user is logged in as a SQL login
+- User is logged in as a SQL login
 
-   - [lookup credential by path](#lookup-credential-by-path)
+   - Use [lookup credential by path](#lookup-credential-by-path)
 
 ### Lookup credential by path
 
-If forcing AAD pass-through is disabled, the lookup of a credential will be based on the storage path (depth first) and existence of a REFERENCES permission on that particular credential. When there are multiple credentials that can be used to access the same file, SQL on-demand will use the most specific one.  
+If forcing AAD pass-through is disabled, credential lookup will be based on the storage path (depth first) and the existence of a REFERENCES permission on that particular credential. When there are multiple credentials that can be used to access the same file, SQL on-demand will use the most specific one.  
 
-As an example, for a query over the  following file path: 
+Below is an example of a query over the following file path: 
 > "account.dfs.core.windows.net/filesystem/folder1/.../folderN/fileX.ext" 
 
 
@@ -213,11 +219,11 @@ Credential lookup will be completed in this order:
 > 4. "account.dfs.core.windows.net/filesystem"
 > 5. "account.dfs.core.windows.net"
 
-If a user has no REFERENCES permission on credential number 5, SQL on-demand will check that the user has REFERENCES permission on credential one level higher until it locates the credentials the user has REFERENCES permission on. If no such permission is found, an error message will be returned.
+If a user has no REFERENCES permission on credential number 5, SQL on-demand will check that the user has REFERENCES permission on a credential that is one level higher until it locates the credentials the user has REFERENCES permission on. If no such permission is found, an error message will be returned.
 
 ### Credential and path level
 
-Depending on path shape you want, the following requirements are in place for running queries: 
+Depending on the path shape you want, the following requirements are in place for running queries: 
 
 * If the query is targeting multiple files (folders, with or without wild cards), a user needs to have access to a credential on at least the root directory level (container level). This access level is needed since listing files are relative from the root directory  (Azure Storage limitations)
 
