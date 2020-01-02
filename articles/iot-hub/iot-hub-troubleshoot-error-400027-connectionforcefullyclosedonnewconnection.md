@@ -21,7 +21,7 @@ Your device-to-cloud twin operation (such as read or patch reported properties) 
 
 ## Cause
 
-The error means that the device created a new connection and so the previous connection was closed. This happens when more than one client tries to connect to IoT Hub using the same connection string.
+The device created a new connection to IoT Hub, so the previous connection was closed. This happens when more than one client tries to connect to IoT Hub using the same connection string.
 
 ## Solution
 
