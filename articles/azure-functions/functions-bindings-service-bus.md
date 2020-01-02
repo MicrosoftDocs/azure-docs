@@ -325,6 +325,7 @@ The following table explains the binding configuration properties that you set i
 |**subscriptionName**|**SubscriptionName**|Name of the subscription to monitor. Set only if monitoring a topic, not for a queue.|
 |**connection**|**Connection**|The name of an app setting that contains the Service Bus connection string to use for this binding. If the app setting name begins with "AzureWebJobs", you can specify only the remainder of the name. For example, if you set `connection` to "MyServiceBus", the Functions runtime looks for an app setting that is named "AzureWebJobsMyServiceBus." If you leave `connection` empty, the Functions runtime uses the default Service Bus connection string in the app setting that is named "AzureWebJobsServiceBus".<br><br>To obtain a connection string, follow the steps shown at [Get the management credentials](../service-bus-messaging/service-bus-quickstart-portal.md#get-the-connection-string). The connection string must be for a Service Bus namespace, not limited to a specific queue or topic. |
 |**accessRights**|**Access**|Access rights for the connection string. Available values are `manage` and `listen`. The default is `manage`, which indicates that the `connection` has the **Manage** permission. If you use a connection string that does not have the **Manage** permission, set `accessRights` to "listen". Otherwise, the Functions runtime might fail trying to do operations that require manage rights. In Azure Functions version 2.x and higher, this property is not available because the latest version of the Storage SDK doesn't support manage operations.|
+|**isSessionsEnabled**|**IsSessionsEnabled**|`true` if connecting to a [session-aware](../service-bus-messaging/message-sessions) queue or subscription. `false` otherwise, which is the default value.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -724,6 +725,12 @@ This section describes the global configuration settings available for this bind
                 "autoComplete": false,
                 "maxConcurrentCalls": 32,
                 "maxAutoRenewDuration": "00:55:00"
+            },
+            "sessionHandlerOptions": {
+                "autoComplete": false,
+                "messageWaitTimeout": "00:00:30",
+                "maxAutoRenewDuration": "00:55:00",
+                "maxConcurrentSessions": 16
             }
         }
     }
@@ -732,10 +739,14 @@ This section describes the global configuration settings available for this bind
 
 |Property  |Default | Description |
 |---------|---------|---------|
-|maxAutoRenewDuration|00:05:00|The maximum duration within which the message lock will be renewed automatically.|
-|autoComplete|true|Whether the trigger should immediately mark as complete (autocomplete) or wait for processing to call complete.|
-|maxConcurrentCalls|16|The maximum number of concurrent calls to the callback that the message pump should initiate. By default, the Functions runtime processes multiple messages concurrently. To direct the runtime to process only a single queue or topic message at a time, set `maxConcurrentCalls` to 1. |
 |prefetchCount|n/a|The default PrefetchCount that will be used by the underlying MessageReceiver.|
+|messageHandlerOptions.maxAutoRenewDuration|00:05:00|The maximum duration within which the message lock will be renewed automatically.|
+|messageHandlerOptions.autoComplete|true|Whether the trigger should immediately mark as complete (autocomplete) or wait for processing to call complete.|
+|messageHandlerOptions.maxConcurrentCalls|16|The maximum number of concurrent calls to the callback that the message pump should initiate. By default, the Functions runtime processes multiple messages concurrently. To direct the runtime to process only a single queue or topic message at a time, set `maxConcurrentCalls` to 1. |
+|sessionHandlerOptions.autoComplete|true|Whether the trigger should immediately mark as complete (autocomplete) or wait for processing to call complete.|
+|sessionHandlerOptions.messageWaitTimeout|00:01:00|The duration for which a session will remain open and wait for new messages.|
+|sessionHandlerOptions.maxAutoRenewDuration|00:05:00|The maximum duration within which the message lock will be renewed automatically.|
+|sessionHandlerOptions.maxConcurrentSessions|2000|The maximum number of concurrent sessions accepted by the session pump.|
 
 
 ## Next steps
