@@ -19,10 +19,10 @@ ms.collection: M365-identity-device-management
 # Manage app and resource access using Azure Active Directory groups
 Azure Active Directory (Azure AD) helps you to manage your cloud-based apps, on-premises apps, and your resources using your organization's groups. Your resources can be part of the directory, such as permissions to manage objects through roles in the directory, or external to the directory, such as for Software as a Service (SaaS) apps, Azure services, SharePoint sites, and on-premises resources.
 
-In the Azure portal, you can see some groups whose membership and group details you can't manage in the portal:
+In the Azure portal, you can see some groups whose membership and group details you can't manage in the portal. You can manage:
 
-- Groups synced from on-premises Active Directory, which can be managed only in on-premises Active Directory.
-- Other group types that can be only created and managed on Exchange admin center or Microsoft 365 admin center. The latter group types include distribution lists and mail-enabled security groups. You must sign in to Exchange admin center or Microsoft 365 admin center to manage these groups.
+- Groups synced from on-premises Active Directory only in on-premises Active Directory.
+- Other group types only in Exchange admin center or Microsoft 365 admin center. The latter group types include distribution lists and mail-enabled security groups. You must sign in to Exchange admin center or Microsoft 365 admin center to manage these groups.
 
 >[!NOTE]
 >To use Azure Active Directory, you need an Azure account. If you don't have an account, you can [sign up for a free Azure account](https://azure.microsoft.com/free/).
