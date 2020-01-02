@@ -37,105 +37,65 @@ LUIS includes the recognized value of a **`builtin.number`** entity in the `reso
 
 ## Resolution for prebuilt number
 
+The following entity objects are returned for the query:
 
-#### [V2 prediction endpoint response](#tab/V2)
+`order two dozen eggs`
 
-The following example shows a JSON response from LUIS, that includes the resolution of the value 24, for the utterance "two dozen".
-
-```json
-{
-  "query": "order two dozen eggs",
-  "topScoringIntent": {
-    "intent": "OrderFood",
-    "score": 0.105443209
-  },
-  "intents": [
-    {
-      "intent": "None",
-      "score": 0.105443209
-    },
-    {
-      "intent": "OrderFood",
-      "score": 0.9468431361
-    },
-    {
-      "intent": "Help",
-      "score": 0.000399122015
-    },
-  ],
-  "entities": [
-    {
-      "entity": "two dozen",
-      "type": "builtin.number",
-      "startIndex": 6,
-      "endIndex": 14,
-      "resolution": {
-        "subtype": "integer",
-        "value": "24"
-      }
-    }
-  ]
-}
-```
-
-#### [V3 prediction endpoint response](#tab/V3)
+#### [V3 response](#tab/V3)
 
 The following JSON is with the `verbose` parameter set to `false`:
 
 ```json
-{
-    "query": "order two dozen eggs",
-    "prediction": {
-        "normalizedQuery": "order two dozen eggs",
-        "topIntent": "None",
-        "intents": {
-            "None": {
-                "score": 0.7124502
-            }
-        },
-        "entities": {
-            "number": [
-                24
-            ]
-        }
-    }
+"entities": {
+    "number": [
+        24
+    ]
 }
 ```
+#### [V3 verbose response](#tab/V3-verbose)
 
 The following JSON is with the `verbose` parameter set to `true`:
 
 ```json
-{
-    "query": "order two dozen eggs",
-    "prediction": {
-        "normalizedQuery": "order two dozen eggs",
-        "topIntent": "None",
-        "intents": {
-            "None": {
-                "score": 0.7124502
-            }
-        },
-        "entities": {
-            "number": [
-                24
-            ],
-            "$instance": {
-                "number": [
-                    {
-                        "type": "builtin.number",
-                        "text": "two dozen",
-                        "startIndex": 6,
-                        "length": 9,
-                        "modelTypeId": 2,
-                        "modelType": "Prebuilt Entity Extractor"
-                    }
+"entities": {
+    "number": [
+        24
+    ],
+    "$instance": {
+        "number": [
+            {
+                "type": "builtin.number",
+                "text": "two dozen",
+                "startIndex": 6,
+                "length": 9,
+                "modelTypeId": 2,
+                "modelType": "Prebuilt Entity Extractor",
+                "recognitionSources": [
+                    "model"
                 ]
             }
-        }
+        ]
     }
 }
 ```
+#### [V2 response](#tab/V2)
 
+The following example shows a JSON response from LUIS, that includes the resolution of the value 24, for the utterance "two dozen".
+
+```json
+"entities": [
+  {
+    "entity": "two dozen",
+    "type": "builtin.number",
+    "startIndex": 6,
+    "endIndex": 14,
+    "resolution": {
+      "subtype": "integer",
+      "value": "24"
+    }
+  }
+]
+```
 * * * 
 
 ## Next steps

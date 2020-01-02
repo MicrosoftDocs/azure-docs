@@ -37,6 +37,9 @@ A group called **Cloud-Owner-Group** is created during the deployment of a Priva
 
 To grant individual users permissions to manage the Private Cloud, create user accounts add to the appropriate groups.
 
+> [!CAUTION]
+> New users must be added only to *Cloud-Owner-Group*, *Cloud-Global-Cluster-Admin-Group*, *Cloud-Global-Storage-Admin-Group*, *Cloud-Global-Network-Admin-Group* or, *Cloud-Global-VM-Admin-Group*.  Users added to *Administrators* group will be removed automatically.  Only service accounts must be added to *Administrators* group.
+
 ## List of vCenter privileges for default roles
 
 ### Cloud-Owner-Role

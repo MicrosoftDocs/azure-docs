@@ -1,5 +1,5 @@
 ---
-title: Learn to use an Apache Hadoop sandbox - emulator - Azure HDInsight 
+title: Learn to use an Apache Hadoop sandbox, emulator - Azure HDInsight
 description: 'To start learning about using the Apache Hadoop ecosystem, you can set up a Hadoop sandbox from Hortonworks on an Azure virtual machine. '
 keywords: hadoop emulator,hadoop sandbox
 ms.reviewer: jasonh

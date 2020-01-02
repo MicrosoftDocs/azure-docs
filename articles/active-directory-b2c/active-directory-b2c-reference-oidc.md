@@ -145,7 +145,7 @@ grant_type=authorization_code&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&sco
 | {tenant} | Yes | Name of your Azure AD B2C tenant |
 | {policy} | Yes | The user flow that was used to acquire the authorization code. You can't use a different user flow in this request. Add this parameter to the query string, not to the POST body. |
 | client_id | Yes | The application ID that the [Azure portal](https://portal.azure.com/) assigned to your application. |
-| client_secret | Yes | The application secret that was generated in the [Azure portal](https://portal.azure.com/). This application secret is an important security artifact. You should store it securely on your server. Change this client secret on a periodic basis. |
+| client_secret | Yes, in Web Apps | The application secret that was generated in the [Azure portal](https://portal.azure.com/). Client secrets are used in this flow for Web App scenarios, where the client can securely store a client secret. For Native App (public client) scenarios, client secrets cannot be securely stored, threfore not used on this flow. If using a client secret, please change it on a periodic basis. |
 | code | Yes | The authorization code that you acquired in the beginning of the user flow. |
 | grant_type | Yes | The type of grant, which must be `authorization_code` for the authorization code flow. |
 | redirect_uri | Yes | The `redirect_uri` parameter of the application where you received the authorization code. |
@@ -214,7 +214,7 @@ grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=op
 | {tenant} | Yes | Name of your Azure AD B2C tenant |
 | {policy} | Yes | The user flow that was used to acquire the original refresh token. You can't use a different user flow in this request. Add this parameter to the query string, not to the POST body. |
 | client_id | Yes | The application ID that the [Azure portal](https://portal.azure.com/) assigned to your application. |
-| client_secret | Yes | The application secret that was generated in the [Azure portal](https://portal.azure.com/). This application secret is an important security artifact. You should store it securely on your server. Change this client secret on a periodic basis. |
+| client_secret | Yes, in Web Apps | The application secret that was generated in the [Azure portal](https://portal.azure.com/). Client secrets are used in this flow for Web App scenarios, where the client can securely store a client secret. For Native App (public client) scenarios, client secrets cannot be securely stored, threfore not used on this call. If using a client secret, please change it on a periodic basis. |
 | grant_type | Yes | The type of grant, which must be a refresh token for this part of the authorization code flow. |
 | refresh_token | Yes | The original refresh token that was acquired in the second part of the flow. The `offline_access` scope must be used in both the authorization and token requests in order to receive a refresh token. |
 | redirect_uri | No | The `redirect_uri` parameter of the application where you received the authorization code. |
@@ -271,6 +271,7 @@ GET https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/
 | {tenant} | Yes | Name of your Azure AD B2C tenant |
 | {policy} | Yes | The user flow that you want to use to sign the user out of your application. |
 | id_token_hint| No | A previously issued ID token to pass to the logout endpoint as a hint about the end user's current authenticated session with the client. The `id_token_hint` ensures that the `post_logout_redirect_uri` is a registered reply URL in your Azure AD B2C application settings. |
+| client_id | No* | The application ID that the [Azure portal](https://portal.azure.com/) assigned to your application.<br><br>\**This is required when using `Application` isolation SSO configuration and _Require ID Token_ in logout request is set to `No`.* |
 | post_logout_redirect_uri | No | The URL that the user should be redirected to after successful sign out. If it isn't included, Azure AD B2C shows the user a generic message. Unless you provide an `id_token_hint`, you should not register this URL as a reply URL in your Azure AD B2C application settings. |
 | state | No | If a `state` parameter is included in the request, the same value should appear in the response. The application should verify that the `state` values in the request and response are identical. |
 

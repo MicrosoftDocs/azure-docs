@@ -53,9 +53,9 @@ You can read more about the different installation options and parameters in the
 
 1. If you haven't already, register a new IoT Edge device and retrieve the device connection string. Copy the connection string to use later in this section. You can complete this step using the following tools:
 
-   * [Azure portal](how-to-register-device-portal.md)
-   * [Azure CLI](how-to-register-device-cli.md)
-   * [Visual Studio Code](how-to-register-device-vscode.md)
+   * [Azure portal](how-to-register-device.md#register-in-the-azure-portal)
+   * [Azure CLI](how-to-register-device.md#register-with-the-azure-cli)
+   * [Visual Studio Code](how-to-register-device.md#register-with-visual-studio-code)
 
 2. Run PowerShell as an administrator.
 

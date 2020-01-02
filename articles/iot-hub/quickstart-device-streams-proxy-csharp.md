@@ -1,5 +1,5 @@
 ---
-title: Azure IoT Hub device streams C# quickstart for SSH and RDP (preview) | Microsoft Docs
+title: Azure IoT Hub device streams C# quickstart for SSH and RDP
 description: In this quickstart, you run two sample C# applications that enable SSH and RDP scenarios over an IoT Hub device stream.
 author: robinsh
 ms.service: iot-hub
@@ -48,6 +48,8 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
   * Central US
   * Central US EUAP
+  * Southeast Asia
+  * North Europe
 
 * The two sample applications that you run in this quickstart are written in C#. You need the .NET Core SDK 2.1.0 or later on your development machine.
 

@@ -100,7 +100,7 @@ The following example shows an event hub trigger binding in a *function.json* fi
 
 The following examples show Event Hubs binding data in the *function.json* file.
 
-#### Version 2.x
+#### Version 2.x and higher
 
 ```json
 {
@@ -181,7 +181,7 @@ The following example shows an event hub trigger binding in a *function.json* fi
 
 The following examples show Event Hubs binding data in the *function.json* file. 
 
-#### Version 2.x
+#### Version 2.x and higher
 
 ```json
 {
@@ -218,7 +218,7 @@ The following example shows an event hub trigger binding in a *function.json* fi
 
 The following examples show Event Hubs binding data in the *function.json* file.
 
-#### Version 2.x
+#### Version 2.x and higher
 
 ```json
 {
@@ -257,7 +257,7 @@ module.exports = function (context, myEventHubMessage) {
 
 To receive events in a batch, set `cardinality` to `many` in the *function.json* file, as shown in the following examples.
 
-#### Version 2.x
+#### Version 2.x and higher
 
 ```json
 {
@@ -360,7 +360,7 @@ public void eventHubProcessor(
 
 ## Trigger - attributes
 
-In [C# class libraries](../articles/azure-functions/functions-dotnet-class-library.md), use the [EventHubTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Extensions.EventHubs/EventHubTriggerAttribute.cs) attribute.
+In [C# class libraries](../articles/azure-functions/functions-dotnet-class-library.md), use the [EventHubTriggerAttribute](https://github.com/Azure/azure-functions-eventhubs-extension/blob/master/src/Microsoft.Azure.WebJobs.Extensions.EventHubs/EventHubTriggerAttribute.cs) attribute.
 
 The attribute's constructor takes the name of the event hub, the name of the consumer group, and the name of an app setting that contains the connection string. For more information about these settings, see the [trigger configuration section](#trigger---configuration). Here's an `EventHubTriggerAttribute` attribute example:
 
@@ -384,7 +384,7 @@ The following table explains the binding configuration properties that you set i
 |**direction** | n/a | Must be set to `in`. This property is set automatically when you create the trigger in the Azure portal. |
 |**name** | n/a | The name of the variable that represents the event item in function code. |
 |**path** |**EventHubName** | Functions 1.x only. The name of the event hub. When the event hub name is also present in the connection string, that value overrides this property at runtime. |
-|**eventHubName** |**EventHubName** | Functions 2.x only. The name of the event hub. When the event hub name is also present in the connection string, that value overrides this property at runtime. |
+|**eventHubName** |**EventHubName** | Functions 2.x and higher. The name of the event hub. When the event hub name is also present in the connection string, that value overrides this property at runtime. |
 |**consumerGroup** |**ConsumerGroup** | An optional property that sets the [consumer group](../articles/event-hubs/event-hubs-features.md#event-consumers) used to subscribe to events in the hub. If omitted, the `$Default` consumer group is used. |
 |**cardinality** | n/a | For Javascript. Set to `many` in order to enable batching.  If omitted or set to `one`, single message passed to function. |
 |**connection** |**Connection** | The name of an app setting that contains the connection string to the event hub's namespace. Copy this connection string by clicking the **Connection Information** button for the [namespace](../articles/event-hubs/event-hubs-create.md#create-an-event-hubs-namespace), not the event hub itself. This connection string must have at least read permissions to activate the trigger.|
@@ -418,7 +418,7 @@ The [host.json](../articles/azure-functions/functions-host-json.md#eventhub) fil
 
 Use the Event Hubs output binding to write events to an event stream. You must have send permission to an event hub to write events to it.
 
-Ensure the required package references are in place: Functions 1.x or Functions 2.x
+Make sure the required package references are in place before you try to implement an ouput binding.
 
 ## Output - example
 
@@ -469,7 +469,7 @@ public static async Task Run(
 
 The following example shows an event hub trigger binding in a *function.json* file and a [C# script function](../articles/azure-functions/functions-reference-csharp.md) that uses the binding. The function writes a message to an event hub.
 
-The following examples show Event Hubs binding data in the *function.json* file. The first example is for Functions 2.x, and the second one is for Functions 1.x. 
+The following examples show Event Hubs binding data in the *function.json* file. The first example is for Functions 2.x and higher, and the second one is for Functions 1.x. 
 
 ```json
 {
@@ -521,7 +521,7 @@ public static void Run(TimerInfo myTimer, ICollector<string> outputEventHubMessa
 
 The following example shows an event hub trigger binding in a *function.json* file and an [F# function](../articles/azure-functions/functions-reference-fsharp.md) that uses the binding. The function writes a message to an event hub.
 
-The following examples show Event Hubs binding data in the *function.json* file. The first example is for Functions 2.x, and the second one is for Functions 1.x. 
+The following examples show Event Hubs binding data in the *function.json* file. The first example is for Functions 2.x and higher, and the second one is for Functions 1.x. 
 
 ```json
 {
@@ -555,7 +555,7 @@ let Run(myTimer: TimerInfo, outputEventHubMessage: byref<string>, log: ILogger) 
 
 The following example shows an event hub trigger binding in a *function.json* file and a [JavaScript function](../articles/azure-functions/functions-reference-node.md) that uses the binding. The function writes a message to an event hub.
 
-The following examples show Event Hubs binding data in the *function.json* file. The first example is for Functions 2.x, and the second one is for Functions 1.x. 
+The following examples show Event Hubs binding data in the *function.json* file. The first example is for Functions 2.x and higher, and the second one is for Functions 1.x. 
 
 ```json
 {
@@ -638,7 +638,7 @@ def main(timer: func.TimerRequest) -> str:
 The following example shows a Java function that writes a message contianing the current time to an Event Hub.
 
 ```java
-@}FunctionName("sendTime")
+@FunctionName("sendTime")
 @EventHubOutput(name = "event", eventHubName = "samples-workitems", connection = "AzureEventHubConnection")
 public String sendTime(
    @TimerTrigger(name = "sendTimeTrigger", schedule = "0 *&#47;5 * * * *") String timerInfo)  {
@@ -675,7 +675,7 @@ The following table explains the binding configuration properties that you set i
 |**direction** | n/a | Must be set to "out". This parameter is set automatically when you create the binding in the Azure portal. |
 |**name** | n/a | The variable name used in function code that represents the event. |
 |**path** |**EventHubName** | Functions 1.x only. The name of the event hub. When the event hub name is also present in the connection string, that value overrides this property at runtime. |
-|**eventHubName** |**EventHubName** | Functions 2.x only. The name of the event hub. When the event hub name is also present in the connection string, that value overrides this property at runtime. |
+|**eventHubName** |**EventHubName** | Functions 2.x and higher. The name of the event hub. When the event hub name is also present in the connection string, that value overrides this property at runtime. |
 |**connection** |**Connection** | The name of an app setting that contains the connection string to the event hub's namespace. Copy this connection string by clicking the **Connection Information** button for the *namespace*, not the event hub itself. This connection string must have send permissions to send the message to the event stream.|
 
 [!INCLUDE [app settings to local.settings.json](../articles/azure-functions/../../includes/functions-app-settings-local.md)]
@@ -697,7 +697,7 @@ In JavaScript, access the output event by using `context.bindings.<name>`. `<nam
 
 ## host.json settings
 
-This section describes the global configuration settings available for this binding in version 2.x. The example host.json file below contains only the version 2.x settings for this binding. For more information about global configuration settings in version 2.x, see [host.json reference for Azure Functions version 2.x](../articles/azure-functions/functions-host-json.md).
+This section describes the global configuration settings available for this binding in versions 2.x and higher. The example host.json file below contains only the version 2.x+ settings for this binding. For more information about global configuration settings in versions 2.x and beyond, see [host.json reference for Azure Functions](../articles/azure-functions/functions-host-json.md).
 
 > [!NOTE]
 > For a reference of host.json in Functions 1.x, see [host.json reference for Azure Functions 1.x](../articles/azure-functions/functions-host-json-v1.md).

@@ -30,6 +30,13 @@ The sync command differs from the copy command in several ways:
 2. When syncing between virtual directories, add a trailing slash to the path (refer to examples) if there's a blob with the same name as one of the virtual directories.
 3. If the 'deleteDestination' flag is set to true or prompt, then sync will delete files and blobs at the destination that are not present at the source.
 
+## Related conceptual articles
+
+- [Get started with AzCopy](storage-use-azcopy-v10.md)
+- [Transfer data with AzCopy and Blob storage](storage-use-azcopy-blobs.md)
+- [Transfer data with AzCopy and file storage](storage-use-azcopy-files.md)
+- [Configure, optimize, and troubleshoot AzCopy](storage-use-azcopy-configure.md)
+
 ### Advanced
 
 If you don't specify a file extension, AzCopy automatically detects the content type of the files when uploading from the local disk, based on the file extension or content (if no extension is specified).
@@ -43,7 +50,7 @@ The built-in lookup table is small, but on Unix, it's augmented by the local sys
 On Windows, MIME types are extracted from the registry.
 
 ```azcopy
-azcopy sync [flags]
+azcopy sync <source> <destination> [flags]
 ```
 
 ## Examples
@@ -94,6 +101,7 @@ Sync a single blob:
 
 ```azcopy
 azcopy sync "https://[account].blob.core.windows.net/[container]/[path/to/blob]?[SAS]" "https://[account].blob.core.windows.net/[container]/[path/to/blob]"
+```
 
 Sync a virtual directory:
 
@@ -125,6 +133,8 @@ azcopy sync "https://[account].file.core.windows.net/[share]/[path/to/dir]?[SAS]
 **--delete-destination** string   Defines whether to delete extra files from the destination that are not present at the source. Could be set to true, false, or prompt. If set to prompt, the user will be asked a question before scheduling files and blobs for deletion. (default 'false'). (default "false")
 
 **--exclude-attributes** string   (Windows only) Exclude files whose attributes match the attribute list. For example: A;S;R
+
+**--exclude-path** string Exclude these paths when copying. This option does not support wildcard characters (*). Checks relative path prefix(For example: myFolder;myFolder/subDirName/file.pdf). When used in combination with account traversal, paths do not include the container name.
 
 **--exclude-pattern** string      Exclude files where the name matches the pattern list. For example: *.jpg;*.pdf;exactName
 

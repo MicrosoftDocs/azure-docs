@@ -1,14 +1,12 @@
 ---
-title: Encode or decode flat files - Azure Logic Apps | Microsoft Docs
+title: Encode or decode flat files
 description: Encode or decode flat files for enterprise integration with Azure Logic Apps and Enterprise Integration Pack
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
-ms.reviewer: jonfan, estfan, LADocs
+ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
-ms.assetid: 82152dab-c7ad-43df-b721-596559703be8
 ms.date: 07/08/2016
 ---
 

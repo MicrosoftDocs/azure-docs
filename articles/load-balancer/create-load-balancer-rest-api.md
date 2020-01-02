@@ -1,7 +1,7 @@
 ---
-title: Create an Azure Load Balancer using REST API
-titlesuffix: Azure Load Balancer
-description: Learn how to create an Azure Load Balancer using REST API.
+title: Create a load balancer using REST API
+titleSuffix: Azure Load Balancer
+description: In this article, learn how to create an Azure Load Balancer using REST API.
 services: load-balancer
 documentationcenter: na
 author: asudbring

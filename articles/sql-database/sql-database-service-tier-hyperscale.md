@@ -42,7 +42,7 @@ The Hyperscale service tier removes many of the practical limits traditionally s
 
 Additionally, the time required to create database backups or to scale up or down is no longer tied to the volume of data in the database. Hyperscale databases can be backed up virtually instantaneously. You can also scale a database in the tens of terabytes up or down in minutes. This capability frees you from concerns about being boxed in by your initial configuration choices.
 
-For more information about the compute sizes for the Hyperscale service tier, see [Service tier characteristics](sql-database-service-tiers-vcore.md#service-tier-characteristics).
+For more information about the compute sizes for the Hyperscale service tier, see [Service tier characteristics](sql-database-service-tiers-vcore.md#service-tiers).
 
 ## Who should consider the Hyperscale service tier
 
@@ -236,17 +236,19 @@ These are the current limitations to the Hyperscale service tier as of GA.  We a
 | :---- | :--------- |
 | The Manage Backups pane for a logical server does not show Hyperscale databases will be filtered from SQL server  | Hyperscale has a separate method for managing backups, and as such the Long-Term Retention and Point in Time backup Retention settings do not apply / are invalidated. Accordingly, Hyperscale databases do not appear in the Manage Backup pane. |
 | Point-in-time restore | Once a database is migrated into the Hyperscale service tier, restore to a point-in-time prior to the migration is not supported.|
-| Restore of non-Hyperscale DB to Hypserscale and vice-versa | You cannot restore a Hyperscale database into a non-Hyperscale database, nor can you restore a non-Hyperscale database into a Hyperscale database.|
+| Restore of non-Hyperscale DB to Hyperscale and vice-versa | You cannot restore a Hyperscale database into a non-Hyperscale database, nor can you restore a non-Hyperscale database into a Hyperscale database.|
 | If a database has one or more data files larger than 1 TB, migration fails | In some cases, it may be possible to work around this issue by shrinking the large files to be less than 1 TB. If migrating a database being used during the migration process, make sure that no file gets larger than 1 TB. Use the following query to determine the size of database files. `SELECT *, name AS file_name, size * 8. / 1024 / 1024 AS file_size_GB FROM sys.database_files WHERE type_desc = 'ROWS'`;|
 | Managed Instance | Azure SQL Database Managed Instance is not currently supported with Hyperscale databases. |
 | Elastic Pools |  Elastic Pools are not currently supported with SQL Database Hyperscale.|
 | Migration to Hyperscale is currently a one-way operation | Once a database is migrated to Hyperscale, it cannot be migrated directly to a non-Hyperscale service tier. At present, the only way to migrate a database from Hyperscale to non-Hyperscale is to export/import using a BACPAC file or other data movement technologies (Bulk Copy, Azure Data Factory, Azure Databricks, SSIS, etc.)|
 | Migration of databases with persistent in-memory objects | Hyperscale only supports non persistent In-Memory objects (table types, native SPs and functions).  Persistent In-Memory tables and other objects must be dropped and recreated as non-In-Memory objects before migrating a database to the Hyperscale service tier.|
-| Change Tracking | You cannot yet configure and use Change Tracking with Azure SQL Hyperscale databases. |
+| Change Tracking | Change Tracking is currently in public preview and can be enabled on new or existing Hyperscale databases. |
 | Geo Replication  | You cannot yet configure geo-replication for Azure SQL Database Hyperscale. |
 | Database Copy | You cannot yet use Database Copy to create a new database in Azure SQL Hyperscale. |
 | TDE/AKV Integration | Transparent Database Encryption using Azure Key Vault (commonly referred to as Bring-Your-Own-Key or BYOK) is not yet supported for Azure SQL Database Hyperscale, however TDE with Service Managed Keys is fully supported. |
 |Intelligent Database Features | With the exception of the "Force Plan" option, all other Automatic tuning options are not yet supported on Hyperscale: options may appear to be enabled, but there won't be any recommendations or actions made. |
+| Shrink Database | DBCC SHRINKDATABASE or DBCC SHRINKFILE is not currently supported for Hyperscale databases. |
+| Database integrity check | DBCC CHECKDB is not currently supported for Hyperscale databases. See [Data Integrity in Azure SQL Database](https://azure.microsoft.com/blog/data-integrity-in-azure-sql-database/) for details on data integrity management in Azure SQL Database. |
 
 ## Next steps
 

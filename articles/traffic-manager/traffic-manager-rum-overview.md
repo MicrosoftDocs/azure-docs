@@ -1,6 +1,6 @@
 ---
 title: Real User Measurements in Azure Traffic Manager
-description: Introduction to Real User Measurements in Traffic Manager
+description: In this introduction, learn how Azure Traffic Manager Real User Measurements work.
 services: traffic-manager
 documentationcenter: traffic-manager
 author: asudbring

@@ -1,12 +1,12 @@
 ---
-title: Reacting to Azure SignalR Service events
-description: Use Azure Event Grid to subscribe to Azure SignalR Service events. 
+title: React to Azure SignalR Service events
+description: Use Azure Event Grid to subscribe to Azure SignalR Service events. Other downstream services can be triggered by these events.
 services: azure-signalr,event-grid 
 author: chenyl
 
 ms.author: chenyl
 ms.reviewer: zhshang
-ms.date: 06/12/2019
+ms.date: 11/13/2019
 ms.topic: conceptual
 ms.service: signalr
 ---

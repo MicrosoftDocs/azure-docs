@@ -1,21 +1,11 @@
 ---
-title: Azure Cache for Redis FAQ | Microsoft Docs
+title: Azure Cache for Redis FAQ
 description: Learn the answers to common questions, patterns, and best practices for Azure Cache for Redis
-services: cache
-documentationcenter: ''
 author: yegu-ms
-manager: jhubbard
-editor: ''
-
-ms.assetid: c2c52b7d-b2d1-433a-b635-c20180e5cab2
-ms.service: cache
-ms.workload: tbd
-ms.tgt_pltfrm: cache
-ms.devlang: na
-ms.topic: article
-ms.date: 04/29/2019
 ms.author: yegu
-
+ms.service: cache
+ms.topic: conceptual
+ms.date: 04/29/2019
 ---
 # Azure Cache for Redis FAQ
 Learn the answers to common questions, patterns, and best practices for Azure Cache for Redis.
@@ -440,7 +430,7 @@ These tools enable you to monitor the health of your Azure Cache for Redis insta
 <a name="cache-timeouts"></a>
 
 ### Why am I seeing timeouts?
-Timeouts happen in the client that you use to talk to Redis. When a command is sent to the Redis server, the command is queued up and Redis server eventually picks up the command and executes it. However the client can time out during this process and if it does an exception is raised on the calling side. For more information on troubleshooting timeout issues, see [client-side troubleshooting](cache-how-to-troubleshoot-client.md) and [StackExchange.Redis timeout exceptions](cache-how-to-troubleshoot-timeouts.md#stackexchangeredis-timeout-exceptions).
+Timeouts happen in the client that you use to talk to Redis. When a command is sent to the Redis server, the command is queued up and Redis server eventually picks up the command and executes it. However the client can time out during this process and if it does an exception is raised on the calling side. For more information on troubleshooting timeout issues, see [client-side troubleshooting](cache-troubleshoot-client.md) and [StackExchange.Redis timeout exceptions](cache-troubleshoot-timeouts.md#stackexchangeredis-timeout-exceptions).
 
 <a name="cache-disconnect"></a>
 
@@ -475,7 +465,7 @@ Unlike traditional caches that deal only with key-value pairs, Redis is popular 
 
 Another key aspect to Redis success is the healthy, vibrant open- source ecosystem built around it. This is reflected in the diverse set of Redis clients available across multiple languages. This ecosystem and wide range of clients allow Azure Cache for Redis to be used by nearly any workload you would build inside of Azure.
 
-For more information about getting started with Azure Cache for Redis, see [How to Use Azure Cache for Redis](cache-dotnet-how-to-use-azure-redis-cache.md) and [Azure Cache for Redis documentation](index.md).
+For more information about getting started with Azure Cache for Redis, see [How to Use Azure Cache for Redis](cache-dotnet-how-to-use-azure-redis-cache.md) and [Azure Cache for Redis documentation](index.yml).
 
 ### Managed Cache service
 [Managed Cache service was retired November 30, 2016.](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/)

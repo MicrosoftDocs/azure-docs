@@ -26,7 +26,7 @@ These examples require:
 
 ## Create a new AKS cluster with ACR integration
 
-You can set up AKS and ACR integration during the initial creation of your AKS cluster.  To allow an AKS cluster to interact with ACR, an Azure Active Directory **service principal** is used. The following CLI command allows you to authorize an existing ACR in your subscription and configures the appropriate **ACRPull** role for the service principal. Supply valid values for your parameters below.  The parameters in brackets are optional.
+You can set up AKS and ACR integration during the initial creation of your AKS cluster.  To allow an AKS cluster to interact with ACR, an Azure Active Directory **service principal** is used. The following CLI command allows you to authorize an existing ACR in your subscription and configures the appropriate **ACRPull** role for the service principal. Supply valid values for your parameters below. 
 ```azurecli
 # set this to the name of your Azure Container Registry.  It must be globally unique
 MYACR=myContainerRegistry
@@ -35,7 +35,7 @@ MYACR=myContainerRegistry
 az acr create -n $MYACR -g myContainerRegistryResourceGroup --sku basic
 
 # Create an AKS cluster with ACR integration
-az aks create -n myAKSCluster -g myResourceGroup --attach-acr $MYACR
+az aks create -n myAKSCluster -g myResourceGroup --generate-ssh-keys --attach-acr $MYACR
 
 ```
 Alternatively, you can specify the ACR name using an ACR resource ID, which has has the following format:
@@ -43,7 +43,7 @@ Alternatively, you can specify the ACR name using an ACR resource ID, which has 
 /subscriptions/\<subscription-id\>/resourceGroups/\<resource-group-name\>/providers/Microsoft.ContainerRegistry/registries/\<name\> 
  
 ```azurecli
-az aks create -n myAKSCluster -g myResourceGroup --attach-acr /subscriptions/<subscription-id>/resourceGroups/myContainerRegistryResourceGroup/providers/Microsoft.ContainerRegistry/registries/myContainerRegistry
+az aks create -n myAKSCluster -g myResourceGroup --generate-ssh-keys --attach-acr /subscriptions/<subscription-id>/resourceGroups/myContainerRegistryResourceGroup/providers/Microsoft.ContainerRegistry/registries/myContainerRegistry
 ```
 
 This step may take several minutes to complete.

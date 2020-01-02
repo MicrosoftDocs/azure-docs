@@ -1,7 +1,7 @@
 ---
 title:  "Clip Values"
-titleSuffix: Azure Machine Learning service
-description: Learn how to use the Clip Values module in Azure Machine Learning service to detect outliers and clip or replace their values.
+titleSuffix: Azure Machine Learning
+description: Learn how to use the Clip Values module in Azure Machine Learning to detect outliers and clip or replace their values.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -14,7 +14,7 @@ ms.date: 09/09/2019
 
 # Clip Values
 
-This article describes a module of Azure Machine Learning visual interface.
+This article describes a module of Azure Machine Learning designer (preview).
 
 Use the Clip Values module to identify and optionally replace data values that are above or below a specified threshold with a mean, a constant, or other substitute value.  
 
@@ -116,4 +116,4 @@ Now try the same pipeline using 60 as the upper percentile threshold and 30 as t
  
 ## Next steps
 
-See the [set of modules available](module-reference.md) to Azure Machine Learning service. 
+See the [set of modules available](module-reference.md) to Azure Machine Learning. 

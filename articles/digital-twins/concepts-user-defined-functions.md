@@ -1,5 +1,5 @@
 ---
-title: 'Data processing and user-defined functions - Azure Digital Twins| Microsoft Docs'
+title: Data processing and user-defined functions - Azure Digital Twins| Microsoft Docs
 description: Overview of data processing, matchers, and user-defined functions with Azure Digital Twins.
 ms.author: alinast
 author: alinamstanciu
@@ -7,7 +7,7 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 09/17/2019
+ms.date: 11/07/2019
 ---
 
 # Data processing and user-defined functions
@@ -37,35 +37,40 @@ Matchers define a set of conditions that evaluate what actions take place based 
 
 - All sensors of datatype **Temperature** represented by the escaped String value `\"Temperature\"`
 - Having `01` in their port
-- Which belong to devices with the extended property key **Manufacturer** set to the escaped String value `\"GoodCorp\"`
+- Which belong to devices with the extended property key **Manufacturer** set to the escaped String value `\"Contoso\"`
 - Which belong to spaces of the type specified by the escaped String `\"Venue\"`
 - Which are descendants of parent **SpaceId** `DE8F06CA-1138-4AD7-89F4-F782CC6F69FD`
 
 ```JSON
 {
-  "SpaceId": "DE8F06CA-1138-4AD7-89F4-F782CC6F69FD",
-  "Name": "My custom matcher",
-  "Description": "All sensors of datatype Temperature with 01 in their port that belong to devices with the extended property key Manufacturer set to the value GoodCorp and that belong to spaces of type Venue that are somewhere below space Id DE8F06CA-1138-4AD7-89F4-F782CC6F69FD",
-  "Conditions": [
+  "id": "23535afafd-f39b-46c0-9b0c-0dd3892a1c30",
+  "name": "My custom matcher",
+  "spaceId": "DE8F06CA-1138-4AD7-89F4-F782CC6F69FD",
+  "description": "All sensors of datatype Temperature with 01 in their port that belong to devices with the extended property key Manufacturer set to the value Contoso and that belong to spaces of type Venue that are somewhere below space Id DE8F06CA-1138-4AD7-89F4-F782CC6F69FD",
+  "conditions": [
     {
+      "id": "43898sg43-e15a-4e9c-abb8-2gw464364",
       "target": "Sensor",
       "path": "$.dataType",
       "value": "\"Temperature\"",
       "comparison": "Equals"
     },
     {
+      "id": "wt3th44-e15a-35sg-seg3-235wf3ga463",
       "target": "Sensor",
       "path": "$.port",
       "value": "01",
       "comparison": "Contains"
     },
     {
+      "id": "735hs33-e15a-37jj-23532-db901d550af5",
       "target": "SensorDevice",
       "path": "$.properties[?(@.name == 'Manufacturer')].value",
-      "value": "\"GoodCorp\"",
+      "value": "\"Contoso\"",
       "comparison": "Equals"
     },
     {
+      "id": "222325-e15a-49fg-5744-463643644",
       "target": "SensorSpace",
       "path": "$.type",
       "value": "\"Venue\"",

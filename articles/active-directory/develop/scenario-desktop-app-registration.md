@@ -1,5 +1,5 @@
 ---
-title: Desktop app that calls web APIs (app registration) - Microsoft identity platform
+title: Register desktop apps that call web APIs - Microsoft identity platform | Azure
 description: Learn how to build a Desktop app that calls web APIs (app registration)
 services: active-directory
 documentationcenter: dev-center-name
@@ -23,7 +23,7 @@ ms.collection: M365-identity-device-management
 
 # Desktop app that calls web APIs - app registration
 
-This article contains the app registration specificities for a desktop application.
+This article covers the app registration specifics for a desktop application.
 
 ## Supported accounts types
 

@@ -7,7 +7,7 @@ author: bandersmsft
 ms.author: banders
 ms.date: 09/19/2019
 ms.topic: quickstart
-ms.service: cost-management
+ms.service: cost-management-billing
 manager: vitavor
 ms.custom: secdec18
 ---

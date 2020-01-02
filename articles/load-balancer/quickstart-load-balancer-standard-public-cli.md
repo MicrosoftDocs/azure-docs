@@ -1,6 +1,6 @@
 ---
 title: Quickstart:Create a public Standard Load Balancer - Azure CLI
-titlesuffix: Azure Load Balancer
+titleSuffix: Azure Load Balancer
 description: This quickstart shows how to create a public load balancer using the Azure CLI
 services: load-balancer
 documentationcenter: na
@@ -18,7 +18,7 @@ ms.date: 01/25/2019
 ms.author: allensu
 ms.custom: mvc
 ---
-# Quickstart: Create a Standard Load Balancer to load balance VMS using Azure CLI
+# Quickstart: Create a Standard Load Balancer to load balance VMs using Azure CLI
 
 This quickstart shows you how to create Standard Load Balancer. To test the load balancer, you deploy two virtual machines (VMs) running Ubuntu server and load balance a web app between the two VMs.
 

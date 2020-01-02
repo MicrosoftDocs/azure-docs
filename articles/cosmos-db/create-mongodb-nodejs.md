@@ -50,7 +50,7 @@ Run the following commands to clone the sample repository. This sample repositor
 1. Open a command prompt, create a new folder named git-samples, then close the command prompt.
 
     ```bash
-    md "C:\git-samples"
+    mkdir "C:\git-samples"
     ```
 
 2. Open a git terminal window, such as git bash, and use the `cd` command to change to the new folder to install the sample app.
@@ -92,7 +92,7 @@ If `cosmosdb` is not in the list of base commands, reinstall [Azure CLI]( /cli/a
 
 ## Create a resource group
 
-Create a [resource group](../azure-resource-manager/resource-group-overview.md) with the [az group create](/cli/azure/group#az-group-create). An Azure resource group is a logical container into which Azure resources like web apps, databases and storage accounts are deployed and managed. 
+Create a [resource group](../azure-resource-manager/management/overview.md) with the [az group create](/cli/azure/group#az-group-create). An Azure resource group is a logical container into which Azure resources like web apps, databases and storage accounts are deployed and managed. 
 
 The following example creates a resource group in the West Europe region. Choose a unique name for the resource group.
 

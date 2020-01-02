@@ -1,5 +1,5 @@
 ---
-title: Planning for migration of IaaS resources from classic to Azure Resource Manager | Microsoft Docs
+title: Planning for migration from classic to Azure Resource Manager 
 description: Planning for migration of IaaS resources from classic to Azure Resource Manager
 services: virtual-machines-windows
 documentationcenter: ''
@@ -129,7 +129,7 @@ The following were issues discovered in many of the larger migrations. This is n
 
     You can check your current Azure Resource Manager quotas using the following commands with the latest version of Azure PowerShell.
 	
-	[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+	 
 
     **Compute** *(Cores, Availability Sets)*
 
@@ -188,7 +188,7 @@ Not fully testing may cause issues and delay in the migration.
 
 ### Technical considerations and tradeoffs
 
-Now that you are in Azure Resource Manager, maximize the platform.  Read the [overview of Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md) to find out about additional benefits.
+Now that you are in Azure Resource Manager, maximize the platform.  Read the [overview of Azure Resource Manager](../../azure-resource-manager/management/overview.md) to find out about additional benefits.
 
 Things to consider:
 

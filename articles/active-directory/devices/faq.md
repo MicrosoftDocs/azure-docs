@@ -60,6 +60,8 @@ For more information, see [Require managed devices for cloud app access with Con
 - User disables the device from the My Apps portal. 
 - An administrator (or user) deletes or disables the device in the Azure portal or by using PowerShell
 - Hybrid Azure AD joined only: An administrator removes the devices OU out of sync scope resulting in the devices being deleted from Azure AD
+- Upgrading Azure AD connect to the version 1.4.xx.x. [Understanding Azure AD Connect 1.4.xx.x and device disappearance](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-device-disappearance).
+
 
 See below on how these actions can be rectified.
 
@@ -115,7 +117,7 @@ See below on how these actions can be rectified.
 
 ### Q: Does Windows 10 device registration in Azure AD support TPMs in FIPS mode?
 
-**A:** No, currently device registration on Windows 10 for all device states - Hybrid Azure AD join, Azure AD join, and Azure AD registered - does not support TPMs in FIPS mode. To successfully join or register to Azure AD, FIPS mode needs to be turned off for the TPMs on those devices
+**A:** Windows 10 device registration only supported for FIPS-compliant TPM 2.0 and not supported for TPM 1.2. If your devices have FIPS-compliant TPM 1.2, you must disable them before proceeding with Azure AD join or Hybrid Azure AD join. Note that Microsoft does not provide any tools for disabling FIPS mode for TPMs as it is dependent on the TPM manufacturer. Please contact your hardware OEM for support. 
 
 ---
 
@@ -130,11 +132,11 @@ See below on how these actions can be rectified.
 
 ### Q: Why are there devices marked as "Pending" under the REGISTERED column in the Azure portal?
 
-**A**:  Pending indicates the device is not registered. This state indicates that a device has been synchronized using Azure AD connect from on-premises AD and is ready for device registration. These device have the JOIN TYPE set to "Hybrid Azure AD joined". Learn more on [how to plan your hybrid Azure Active Directory join implementation](hybrid-azuread-join-plan.md).
+**A**:  Pending indicates that the device is not registered. This state indicates that a device has been synchronized using Azure AD connect from an on-premises AD and is ready for device registration. These devices have the JOIN TYPE set to "Hybrid Azure AD joined". Learn more on [how to plan your hybrid Azure Active Directory join implementation](hybrid-azuread-join-plan.md).
 
 >[!NOTE]
 >A device can also change from having a registered state to "Pending"
->* If a device is deleted and from Azure AD first and re-synchronized from on-premises AD.
+>* If a device is deleted from Azure AD first and re-synchronized from an on-premises AD.
 >* If a device is removed from a sync scope on Azure AD Connect and added back.
 >
 >In both cases, you must re-register the device manually on each of these devices. To review whether the device was previously registered, you can [troubleshoot devices using the dsregcmd command](troubleshoot-device-dsregcmd.md).

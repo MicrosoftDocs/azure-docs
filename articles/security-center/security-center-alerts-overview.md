@@ -8,7 +8,7 @@ manager: rkarlin
 ms.assetid: 1b71e8ad-3bd8-4475-b735-79ca9963b823
 ms.service: security-center
 ms.topic: conceptual
-ms.date: 10/16/2019
+ms.date: 11/04/2019
 ms.author: memildin
 ---
 # Security alerts in Azure Security Center
@@ -108,6 +108,10 @@ The following topics explain how Security Center uses the different telemetry th
 A security incident is a collection of related alerts, instead of listing each alert individually. Security Center uses [Cloud Smart Alert Correlation](security-center-alerts-cloud-smart.md) to correlate different alerts and low fidelity signals into security incidents.
 
 Using incidents, Security Center provides you with a single view of an attack campaign and all of the related alerts. This view enables you to quickly understand what actions the attacker took, and what resources were affected. For more information, see [Cloud smart alert correlation](security-center-alerts-cloud-smart.md).
+
+## Security alerts in Azure Activity Log
+
+In addition to being available in the Azure Portal or programmatically, Security alerts and incidents are audited as events in [Azure Activity Log](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view). For more information on the event schema, see [Security Alerts in Azure Activity log](https://go.microsoft.com/fwlink/?linkid=2114113).
 
 ## Next steps
 

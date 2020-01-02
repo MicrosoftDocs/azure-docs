@@ -1,7 +1,7 @@
 ---
 title: Common questions - FAQ
 titleSuffix: Microsoft Genomics
-description: Answers to common questions customers ask about Microsoft Genomics. 
+description: Get answers to common questions related to using the Microsoft Genomics service, including technical information, SLA, and billing. 
 services: genomics
 author: grhuynh
 manager: cgronlun

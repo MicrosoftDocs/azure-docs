@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Data Warehouse manageability and monitoring - query activity, resource utilization | Microsoft Docs
+title: Manageability and monitoring - query activity, resource utilization 
 description: Learn what capabilities are available to manage and monitor Azure SQL Data Warehouse. Use the Azure portal and Dynamic Management Views (DMVs) to understand query activity and resource utilization of your data warehouse.
 services: sql-data-warehouse
 author: kevinvngo
@@ -10,6 +10,7 @@ ms.subservice: manage
 ms.date: 08/09/2019
 ms.author: kevin
 ms.reviewer: igorstan
+ms.custom: seo-lt-2019
 ---
 
 # Monitoring resource utilization and query activity in Azure SQL Data Warehouse

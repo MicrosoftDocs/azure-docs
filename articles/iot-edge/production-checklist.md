@@ -1,5 +1,5 @@
 ---
-title: Prepare devices and deployments for production - Azure IoT Edge | Microsoft Docs 
+title: Prepare to deploy your solution in production - Azure IoT Edge
 description: Learn how to take your Azure IoT Edge solution from development to production, including setting up your devices with the appropriate certificates and making a deployment plan for future code updates. 
 author: kgremban
 manager: philmea
@@ -8,7 +8,6 @@ ms.date: 08/09/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.custom: seodec18
 ---
 
 # Prepare to deploy your IoT Edge solution in production
@@ -35,7 +34,7 @@ Every IoT Edge device in production needs a device certificate authority (CA) ce
 
 To understand the role of the device CA certificate, see [How Azure IoT Edge uses certificates](iot-edge-certs.md).
 
-For more information about how to install certificates on an IoT Edge device and reference them from the config.yaml file, see [Configure an IoT Edge device to act as a transparent gateway](how-to-create-transparent-gateway.md). The steps for configuring the certificates are the same whether the device is going to be used as a gateway or not. That article provides scripts to generate sample certificates for testing only. Don't use those sample certificates in production. 
+For more information about how to install certificates on an IoT Edge device and reference them from the config.yaml file, see [Install production certificates on an IoT Edge device](how-to-create-transparent-gateway.md). 
 
 ### Have a device management plan
 
@@ -97,6 +96,8 @@ If you're deploying constrained devices with limited memory available, you can c
 #### Don't optimize for performance on constrained devices
 
 The IoT Edge hub is optimized for performance by default, so it attempts to allocate large chunks of memory. This configuration can cause stability problems on smaller devices like the Raspberry Pi. If you're deploying devices with constrained resources, you may want to set the **OptimizeForPerformance** environment variable to **false** on the IoT Edge hub. 
+
+When **OptimizeForPerformance** is set to **true**, the MQTT protocol head uses the PooledByteBufferAllocator which has better performance but allocates more memory. The allocator does not work well on 32 bit operating systems or on devices with low memory. Additionally, when optimized for performance, RocksDb allocates more memory for its role as the local storage provider. 
 
 For more information, see [Stability issues on resource constrained devices](troubleshoot.md#stability-issues-on-resource-constrained-devices).
 

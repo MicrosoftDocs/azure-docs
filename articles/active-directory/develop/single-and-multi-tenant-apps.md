@@ -1,5 +1,6 @@
 ---
-title: Single and multi-tenant apps in Azure Active Directory
+title: Single and multi-tenant apps in Azure AD
+titleSuffix: Microsoft identity platform
 description: Learn about the features and differences between single-tenant and multi-tenant apps in Azure AD.
 services: active-directory
 documentationcenter: ''

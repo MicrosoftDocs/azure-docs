@@ -9,6 +9,7 @@ ms.reviewer: barbkess
 
 ms.assetid: 63502412-758b-4b46-a580-0e8e130791a1
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -39,7 +40,7 @@ To get started, you need the following items:
 
 * In this tutorial, you configure and test Azure AD SSO in a test environment. Dropbox for Business supports **SP** initiated SSO
 
-* Dropbox for Business supports **Just In Time** user provisioning
+* Dropbox for Business supports [Automated user provisioning and deprovisioning](dropboxforbusiness-tutorial.md)
 
 ## Adding Dropbox for Business from the gallery
 

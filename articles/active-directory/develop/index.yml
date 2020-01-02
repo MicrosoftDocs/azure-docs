@@ -7,6 +7,7 @@ metadata:
    ms.topic: landing-page
    ms.date: 06/22/2019
    author: CelesteDG
+   ms.author: celested
    ms.service: active-directory
    ms.subservice: develop
    ms.workload: identity   
@@ -22,6 +23,14 @@ landingContent:
             url: v2-overview.md
           - text: Azure Active Directory for developers (v1.0)
             url: v1-overview.md
+      - linkListType: concept
+        links:
+          - text: Authentication basics
+            url: authentication-scenarios.md
+          - text: Authentication flows and app scenarios
+            url: authentication-flows-app-scenarios.md
+          - text: Best practices and recommendations
+            url: identity-platform-integration-checklist.md
       - linkListType: learn
         links:
           - text: One Dev Minute - Microsoft identity platform
@@ -40,10 +49,6 @@ landingContent:
         links: 
           - text: JavaScript
             url: tutorial-v2-javascript-spa.md
-      - linkListType: deploy
-        links:
-          - text: Test app integration
-            url: identity-platform-integration-checklist.md
       - linkListType: download
         links:
           - text: Samples - JavaScript, Angular
@@ -66,10 +71,6 @@ landingContent:
         links: 
           - text: ASP.NET Core
             url: https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2
-      - linkListType: deploy
-        links:
-          - text: Test app integration
-            url: identity-platform-integration-checklist.md
       - linkListType: download
         links:
           - text: Samples - ASP.NET Core, ASP.NET
@@ -84,10 +85,6 @@ landingContent:
         links: 
           - text: ASP.NET Core
             url: https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2#scope-of-this-tutorial
-      - linkListType: deploy
-        links:
-          - text: Test app integration
-            url: identity-platform-integration-checklist.md
       - linkListType: download
         links:
           - text: Samples - ASP.NET Core, ASP.NET, Node.js, Ruby
@@ -102,10 +99,6 @@ landingContent:
         links: 
           - text: ASP.NET Core web API
             url: https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2
-      - linkListType: deploy
-        links:
-          - text: Test app integration
-            url: identity-platform-integration-checklist.md
       - linkListType: download
         links:
           - text: Sample - ASP.NET
@@ -120,10 +113,6 @@ landingContent:
         links: 
           - text: ASP.NET Core web API that calls Microsoft Graph
             url: https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/tree/master/2.%20Web%20API%20now%20calls%20Microsoft%20Graph
-      - linkListType: deploy
-        links:
-          - text: Test app integration
-            url: identity-platform-integration-checklist.md
   - title: Build a desktop app that calls web APIs
     linkLists:
       - linkListType: get-started
@@ -142,10 +131,6 @@ landingContent:
             url: tutorial-v2-windows-desktop.md
           - text: Call Microsoft Graph API (UWP)
             url: tutorial-v2-windows-uwp.md
-      - linkListType: deploy
-        links:
-          - text: Test app integration
-            url: identity-platform-integration-checklist.md
       - linkListType: download
         links:
           - text: Sample - .NET, .NET Core
@@ -162,10 +147,6 @@ landingContent:
             url: quickstart-v2-netcore-daemon.md
           - text: Acquire a token & call Microsoft Graph API (ASP.NET web app)
             url: https://github.com/Azure-Samples/ms-identity-aspnet-daemon-webapp
-      - linkListType: deploy
-        links:
-          - text: Test app integration
-            url: identity-platform-integration-checklist.md
       - linkListType: download
         links:
           - text: Samples - ASP.NET console, ASP.NET web
@@ -190,10 +171,6 @@ landingContent:
             url: tutorial-v2-android.md
           - text: Sign in users & call Microsoft Graph API (iOS)
             url: tutorial-v2-ios.md
-      - linkListType: deploy
-        links:
-          - text: Test app integration
-            url: identity-platform-integration-checklist.md
       - linkListType: download
         links:
           - text: Sample - Android, iOS, Xamarin

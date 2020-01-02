@@ -1,18 +1,15 @@
 ---
-title: "Azure Application Insights Agent API reference: Get status | Microsoft Docs"
+title: Azure Application Insights Agent API reference
 description: Application Insights Agent API reference. Get-ApplicationInsightsMonitoringStatus. Monitor website performance without redeploying the website. Works with ASP.NET web apps hosted on-premises, in VMs or on Azure.
-services: application-insights
-documentationcenter: .net
-author: TimothyMothra
-manager: alexklim
-ms.assetid: 769a5ea4-a8c6-4c18-b46c-657e864e24de
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service:  azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 04/23/2019
+author: TimothyMothra
 ms.author: tilee
+ms.date: 04/23/2019
+
 ---
+
 # Application Insights Agent API: Get-ApplicationInsightsMonitoringStatus
 
 This article describes a cmdlet that's a member of the [Az.ApplicationMonitor PowerShell module](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/).

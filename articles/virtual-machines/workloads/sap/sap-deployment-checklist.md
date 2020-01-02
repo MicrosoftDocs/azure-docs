@@ -14,7 +14,7 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 07/15/2019
+ms.date: 11/08/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 
@@ -75,7 +75,7 @@ During this phase, you plan the migration of your SAP workload to the Azure plat
 	- Naming conventions for VMs and other infrastructure components and/or logical names.
 5.	Microsoft Premier Support contract. Identify your Microsoft Technical Account Manager (TAM). For SAP support requirements, see [SAP support note #2015553](https://launchpad.support.sap.com/#/notes/2015553).
 6.	The number of Azure subscriptions and core quota for the subscriptions. [Open support requests to increase quotas of Azure subscriptions](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request) as needed.
-7.	Data reduction and data migration plan for migrating SAP data into Azure. For SAP NetWeaver systems, SAP has guidelines on how to limit the volume of large amounts of data. See [this SAP guide](https://help.sap.com/http.svc/rc/2eb2fba8f8b1421c9a37a8d7233da545/7.0/en-US/Data_Management_Guide_Version_70E.PDF) about data management in SAP ERP systems. Some of the content also applies to NetWeaver and S/4HANA systems in general.
+7.	Data reduction and data migration plan for migrating SAP data into Azure. For SAP NetWeaver systems, SAP has guidelines on how to limit the volume of large amounts of data. See [this SAP guide](https://wiki.scn.sap.com/wiki/download/attachments/247399467/DVM_%20Guide_7.2.pdf?version=1&modificationDate=1549365516000&api=v2) about data management in SAP ERP systems. Some of the content also applies to NetWeaver and S/4HANA systems in general.
 8.	An automated deployment approach. The goal of the automation of infrastructure deployments on Azure is to deploy in a deterministic way and get deterministic results. Many customers use PowerShell or CLI-based scripts. But there are various open-source technologies that you can use to deploy Azure infrastructure for SAP and even install SAP software. You can find examples on GitHub:
 	- [Automated SAP Deployments in Azure Cloud](https://github.com/Azure/sap-hana)
 	- [SAP HANA Installation](https://github.com/AzureCAT-GSI/SAP-HANA-ARM)
@@ -158,7 +158,7 @@ We recommend that you set up and validate a full HADR solution and security desi
    1.  Verify that [network security group and ASC](https://docs.microsoft.com/azure/virtual-network/security-overview) rules work as expected and shield the protected resources.
    1.  Make sure that all resources that need to be encrypted are encrypted. Define and implement processes to back up certificates, store and access those certificates, and restore the encrypted entities.
    1.  Use [Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption-faq) for OS disks where possible from an OS-support point of view.
-   1.  Be sure that you're not using too many layers of encryption. In some cases, it does make sense to use Azure Disk Encryption together with one of the DBMS Transparent Data Encryption methods.
+   1.  Be sure that you're not using too many layers of encryption. In some cases, it does make sense to use Azure Disk Encryption together with one of the DBMS Transparent Data Encryption methods to protect different disks or components on the same server.  For example on a SAP DBMS server, the Azure Disk Encryption (ADE) can be enabled on the operating system boot disk (if the OS supports ADE) and those data disk(s) not used by the DBMS data persistence files.  An example is to use ADE on the disk holding the DBMS TDE encryption keys.
 1. Performance testing. In SAP, based on SAP tracing and measurements, make these comparisons:
    - Where applicable, compare the top 10 online reports to your current implementation.
    - Where applicable, compare the top 10 batch jobs to your current implementation.

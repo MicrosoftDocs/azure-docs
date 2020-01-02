@@ -40,7 +40,7 @@ The following terms are used throughout the managed identities for Azure resourc
 - **Principal ID** - the object ID of the service principal object for your managed identity that is used to grant role-based access to an Azure resource.
 - **Azure Instance Metadata Service (IMDS)** - a REST endpoint accessible to all IaaS VMs created via the Azure Resource Manager. The endpoint is available at a well-known non-routable IP address (169.254.169.254) that can be accessed only from within the VM.
 
-## How does the managed identities for Azure resources work?<a name="how-does-it-work"></a>
+## How does the managed identities for Azure resources work?
 
 There are two types of managed identities:
 
@@ -119,23 +119,25 @@ Learn how to use a managed identity with a Windows VM:
 
 Learn how to use a managed identity with a Linux VM:
 
+* [Access Azure Container Registry](../../container-registry/container-registry-authentication-managed-identity.md)
 * [Access Azure Data Lake Store](tutorial-linux-vm-access-datalake.md)
 * [Access Azure Resource Manager](tutorial-linux-vm-access-arm.md)
 * [Access Azure Storage by using an access key](tutorial-linux-vm-access-storage.md)
 * [Access Azure Storage by using shared access signatures](tutorial-linux-vm-access-storage-sas.md)
 * [Access a non-Azure AD resource with Azure Key Vault](tutorial-linux-vm-access-nonaad.md)
-* [Access Azure Container Registry](../../container-registry/container-registry-authentication-managed-identity.md)
 
 Learn how to use a managed identity with other Azure services:
 
 * [Azure App Service](/azure/app-service/overview-managed-identity)
-* [Azure Functions](/azure/app-service/overview-managed-identity)
-* [Azure Logic Apps](/azure/logic-apps/create-managed-service-identity)
-* [Azure Service Bus](../../service-bus-messaging/service-bus-managed-service-identity.md)
-* [Azure Event Hubs](../../event-hubs/event-hubs-managed-service-identity.md)
 * [Azure API Management](../../api-management/api-management-howto-use-managed-service-identity.md)
 * [Azure Container Instances](../../container-instances/container-instances-managed-identity.md)
 * [Azure Container Registry Tasks](../../container-registry/container-registry-tasks-authentication-managed-identity.md)
+* [Azure Event Hubs](../../event-hubs/event-hubs-managed-service-identity.md)
+* [Azure Functions](/azure/app-service/overview-managed-identity)
+* [Azure Kubernetes Service](/azure/aks/use-managed-identity)
+* [Azure Logic Apps](/azure/logic-apps/create-managed-service-identity)
+* [Azure Service Bus](../../service-bus-messaging/service-bus-managed-service-identity.md)
+
 
 ## What Azure services support the feature?<a name="which-azure-services-support-managed-identity"></a>
 

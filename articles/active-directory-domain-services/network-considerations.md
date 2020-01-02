@@ -10,13 +10,13 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/09/2019
+ms.date: 10/23/2019
 ms.author: iainfou
 
 ---
 # Virtual network design considerations and configuration options for Azure AD Domain Services
 
-As Azure Active Directory Domain Services (AD DS) provides authentication and management services to other applications and workloads, network connectivity is a key component. Without appropriately configured virtual network resources, applications and workloads can't communicate with and use the features provides by Azure AD DS. If you plan your virtual network correctly, you make sure that Azure AD DS can serve your applications and workloads as needed.
+As Azure Active Directory Domain Services (AD DS) provides authentication and management services to other applications and workloads, network connectivity is a key component. Without appropriately configured virtual network resources, applications and workloads can't communicate with and use the features provided by Azure AD DS. If you plan your virtual network correctly, you make sure that Azure AD DS can serve your applications and workloads as needed.
 
 This article outlines design considerations and requirements for an Azure virtual network that supports Azure AD DS.
 
@@ -87,8 +87,8 @@ An Azure AD DS managed domain creates some networking resources during deploymen
 | Azure resource                          | Description |
 |:----------------------------------------|:---|
 | Network interface card                  | Azure AD DS hosts the managed domain on two domain controllers (DCs) that run on Windows Server as Azure VMs. Each VM has a virtual network interface that connects to your virtual network subnet. |
-| Dynamic basic public IP address         | Azure AD DS communicates with the synchronization and management service using a basic SKU public IP address. For more information about public IP addresses, see [IP address types and allocation methods in Azure](../virtual-network/virtual-network-ip-addresses-overview-arm.md). |
-| Azure basic load balancer               | Azure AD DS uses a basic SKU load balancer for network address translation (NAT) and load balancing (when used with secure LDAP). For more information about Azure load balancers, see [What is Azure Load Balancer?](../load-balancer/load-balancer-overview.md) |
+| Dynamic standard public IP address         | Azure AD DS communicates with the synchronization and management service using a standard SKU public IP address. For more information about public IP addresses, see [IP address types and allocation methods in Azure](../virtual-network/virtual-network-ip-addresses-overview-arm.md). |
+| Azure standard load balancer               | Azure AD DS uses a standard SKU load balancer for network address translation (NAT) and load balancing (when used with secure LDAP). For more information about Azure load balancers, see [What is Azure Load Balancer?](../load-balancer/load-balancer-overview.md) |
 | Network address translation (NAT) rules | Azure AD DS creates and uses three NAT rules on the load balancer - one rule for secure HTTP traffic, and two rules for secure PowerShell remoting. |
 | Load balancer rules                     | When an Azure AD DS managed domain is configured for secure LDAP on TCP port 636, three rules are created and used on a load balancer to distribute the traffic. |
 

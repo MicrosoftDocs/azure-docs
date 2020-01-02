@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Perform ETL operations using Azure Databricks'
-description: Learn how to extract data from Data Lake Storage Gen2 into Azure Databricks, transform the data, and then load the data into Azure SQL Data Warehouse. 
+title: 'Tutorial - Perform ETL operations using Azure Databricks'
+description: In this tutorial, learn how to extract data from Data Lake Storage Gen2 into Azure Databricks, transform the data, and then load the data into Azure SQL Data Warehouse. 
 author: mamccrea
 ms.author: mamccrea
 ms.reviewer: jasonh
@@ -35,7 +35,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 > [!Note]
 > This tutorial cannot be carried out using **Azure Free Trial Subscription**.
-> If you have a free account, go to your profile and change your subscription to **pay-as-you-go**. For more information, see [Azure free account](https://azure.microsoft.com/free/). Then, [remove the spending limit](https://docs.microsoft.com/azure/billing/billing-spending-limit#remove-the-spending-limit-in-account-center), and [request a quota increase](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request) for vCPUs in your region. When you create your Azure Databricks workspace, you can select the **Trial (Premium - 14-Days Free DBUs)** pricing tier to give the workspace access to free Premium Azure Databricks DBUs for 14 days.
+> If you have a free account, go to your profile and change your subscription to **pay-as-you-go**. For more information, see [Azure free account](https://azure.microsoft.com/free/). Then, [remove the spending limit](https://docs.microsoft.com/azure/billing/billing-spending-limit#why-you-might-want-to-remove-the-spending-limit), and [request a quota increase](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request) for vCPUs in your region. When you create your Azure Databricks workspace, you can select the **Trial (Premium - 14-Days Free DBUs)** pricing tier to give the workspace access to free Premium Azure Databricks DBUs for 14 days.
      
 ## Prerequisites
 
@@ -83,9 +83,15 @@ Make sure that you complete the prerequisites of this tutorial.
 
 In this section, you create an Azure Databricks service by using the Azure portal.
 
-1. In the Azure portal, select **Create a resource** > **Analytics** > **Azure Databricks**.
+1. From the Azure portal menu, select **Create a resource**.
 
-    ![Databricks on Azure portal](./media/databricks-extract-load-sql-data-warehouse/azure-databricks-on-portal.png "Databricks on Azure portal")
+    ![Create a resource on Azure portal](./media/databricks-extract-load-sql-data-warehouse/azure-databricks-on-portal.png)
+
+    Then, select **Analytics** > **Azure Databricks**.
+
+    ![Create Azure Databricks on Azure portal](./media/databricks-extract-load-sql-data-warehouse/azure-databricks-resource-create.png)
+
+
 
 2. Under **Azure Databricks Service**, provide the following values to create a Databricks service:
 
@@ -93,7 +99,7 @@ In this section, you create an Azure Databricks service by using the Azure porta
     |---------|---------|
     |**Workspace name**     | Provide a name for your Databricks workspace.        |
     |**Subscription**     | From the drop-down, select your Azure subscription.        |
-    |**Resource group**     | Specify whether you want to create a new resource group or use an existing one. A resource group is a container that holds related resources for an Azure solution. For more information, see [Azure Resource Group overview](../azure-resource-manager/resource-group-overview.md). |
+    |**Resource group**     | Specify whether you want to create a new resource group or use an existing one. A resource group is a container that holds related resources for an Azure solution. For more information, see [Azure Resource Group overview](../azure-resource-manager/management/overview.md). |
     |**Location**     | Select **West US 2**.  For other available regions, see [Azure services available by region](https://azure.microsoft.com/regions/services/).      |
     |**Pricing Tier**     |  Select **Standard**.     |
 
@@ -144,7 +150,6 @@ In this section, you create a notebook in Azure Databricks workspace and then ru
    ```scala
    val appID = "<appID>"
    val password = "<password>"
-   val fileSystemName = "<file-system-name>"
    val tenantID = "<tenant-id>"
 
    spark.conf.set("fs.azure.account.auth.type", "OAuth")
@@ -153,8 +158,6 @@ In this section, you create a notebook in Azure Databricks workspace and then ru
    spark.conf.set("fs.azure.account.oauth2.client.secret", "<password>")
    spark.conf.set("fs.azure.account.oauth2.client.endpoint", "https://login.microsoftonline.com/<tenant-id>/oauth2/token")
    spark.conf.set("fs.azure.createRemoteFileSystemDuringInitialization", "true")
-   dbutils.fs.ls("abfss://<file-system-name>@<storage-account-name>.dfs.core.windows.net/")
-   spark.conf.set("fs.azure.createRemoteFileSystemDuringInitialization", "false")
    ```
 
    **Account configuration**

@@ -1,5 +1,5 @@
 ---
-title: Set up CI/CD pipeline with the Azure Cosmos DB emulator build task
+title: Set up CI/CD pipeline with Azure Cosmos DB emulator build task
 description: Tutorial on how to set up build and release workflow in Azure DevOps using the Cosmos DB emulator build task
 author: deborahc
 ms.service: cosmos-db
@@ -44,7 +44,7 @@ Now that the extension is installed, sign in to your Azure DevOps account and fi
 3. Finally, select the desired template for the build pipeline. We'll select the **ASP.NET** template in this tutorial. 
 
 > [!NOTE]
-> The agent pool to be selected for this CI should have Docker for Windows installed unless the installation is done manually in a prior task as a part of the CI. See [Microsoft hosted agents](https://docs.microsoft.com/azure/devops/pipelines/agents/hosted?view=azure-devops&tabs=yaml) article for a selection of agent pools; we recommend to start with `Hosted VS2017` or `Hosted VS2019`. 
+> The agent pool to be selected for this CI should have Docker for Windows installed unless the installation is done manually in a prior task as a part of the CI. See [Microsoft hosted agents](https://docs.microsoft.com/azure/devops/pipelines/agents/hosted?view=azure-devops&tabs=yaml) article for a selection of agent pools; we recommend to start with `Hosted VS2017`.
 
 Now we have a build pipeline that we can set up to use the Azure Cosmos DB emulator build task. 
 
@@ -144,6 +144,24 @@ Once the build has started, observe the Cosmos DB emulator task has begun pullin
 After the build completes, observe that your tests pass, all running against the Cosmos DB emulator from the build task!
 
 ![Save and run the build](./media/tutorial-setup-ci-cd/buildComplete_1.png)
+
+## Set up using YAML
+
+If you are setting up the CI/CD pipeline by using a YAML task, you can define the YAML task as shown in the following code:
+
+```yml
+- task: azure-cosmosdb.emulator-public-preview.run-cosmosdbemulatorcontainer.CosmosDbEmulator@2
+  displayName: 'Run Azure Cosmos DB Emulator'
+
+- script: yarn test
+  displayName: 'Run API tests (Cosmos DB)'
+  env:
+    HOST: $(CosmosDbEmulator.Endpoint)
+    # Hardcoded key for emulator, not a secret
+    AUTH_KEY: C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==
+    # The emulator uses a self-signed cert, disable TLS auth errors
+    NODE_TLS_REJECT_UNAUTHORIZED: '0'
+```
 
 ## Next steps
 

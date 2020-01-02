@@ -1,21 +1,11 @@
 ---
-title: How-to specify environment variables for services in Azure Service Fabric | Microsoft Docs
+title: Specify environment variables for services
 description: Shows you how to use environment variables for applications in Service Fabric
-documentationcenter: .net
 author: mikkelhegn
-manager: markfuss
-editor: ''
 
-ms.service: service-fabric
-
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-
-ms.workload: NA
 ms.date: 12/06/2017
 ms.author: mikhegn
-
 ---
 # How to specify environment variables for services in Service Fabric
 
