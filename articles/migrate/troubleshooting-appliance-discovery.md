@@ -2,7 +2,7 @@
 title: Troubleshoot Azure Migrate appliance deployment and discovery
 description: Get help with deploying the Azure Migrate appliance and discovering machines.
 ms.topic: troubleshooting
-ms.date: 11/21/2019
+ms.date: 01/02/2020
 ---
 
 # Troubleshoot the Azure Migrate appliance and discovery
@@ -111,7 +111,7 @@ Error 50004: "Can't connect to a host or cluster because the server name can't b
 
 ## Common app discovery errors
 
-Azure Migrate supports discovery of applications, roles, and features, using Azure Migrate: Server Assessment. App discovery is currently supported for VMware only. [Learn more](how-to-discover-applications) about the requirements and steps for setting up app discovery.
+Azure Migrate supports discovery of applications, roles, and features, using Azure Migrate: Server Assessment. App discovery is currently supported for VMware only. [Learn more](how-to-discover-applications.md) about the requirements and steps for setting up app discovery.
 
 Typical app discovery errors are summarized in the table.
 
