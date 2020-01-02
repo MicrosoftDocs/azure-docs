@@ -1,28 +1,29 @@
 ---
 title: "Quickstart: Recognize speech, intents, and entities, C++ - Speech service"
 titleSuffix: Azure Cognitive Services
-description: TBD
 services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 10/28/2019
+ms.date: 01/02/2020
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-two
 ---
 
 ## Prerequisites
 
-Before you get started, make sure to:
+Before you get started:
 
 > [!div class="checklist"]
 >
-> * [Create an Azure Speech Resource](../../../../get-started.md)
-> * [Create a Language Understanding (LUIS) application and get an endpoint key](../../../../quickstarts/create-luis.md)
-> * [Setup your development environment](../../../../quickstarts/setup-platform.md?tabs=windows)
-> * [Create an empty sample project](../../../../quickstarts/create-project.md?tabs=windows)
+> * If this is your first C++ project, use this guide to [create an empty sample project](../../../../quickstarts/create-project.md?tabs=windows)
+> * [Install the Speech SDK for your development environment](../../../../quickstarts/setup-platform.md?tabs=windows)
+
+## Create a LUIS app for intent recognition
+
+[!INCLUDE [Header](../luis-sign-up.md)]
 
 ## Open your project in Visual Studio
 

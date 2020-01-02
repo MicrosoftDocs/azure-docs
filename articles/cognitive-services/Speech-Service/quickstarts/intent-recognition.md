@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 11/04/2019
+ms.date: 01/02/2020
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-two
 ---
@@ -18,7 +18,6 @@ zone_pivot_groups: programming-languages-set-two
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [Header](../includes/quickstarts/intent-recognition/header.md)]
 [!INCLUDE [Header](../includes/quickstarts/intent-recognition/csharp/header.md)]
-[!INCLUDE [Header](../includes/quickstarts/intent-recognition/luis-sign-up.md)]
 [!INCLUDE [chsarp](../includes/quickstarts/intent-recognition/csharp/csharp.md)]
 ::: zone-end
 
