@@ -46,6 +46,7 @@ There are few ways to start the authoring experience in SQL script. You can crea
 
 >> 2.1 Choose "New SQL script" from the "Actions" menu under Develop SQL scripts. Then continue the authoring process following the instructions from step 1.1   
 >> <img src=".\media\authoring-sql-script\NewSQLScript2Actions.PNG" alt="Create SQL Script" width="700"/>
+
 >> 2.2 Choose "Import" from the "Actions" menu under Develop SQL scripts and select an existing SQL script from your local storage. Then continue the authoring process following the instructions from step 1.1   
 >> <img src=".\media\authoring-sql-script\NewSQLScript3Actions.PNG" alt="Create SQL Script" width="700"/>
 
