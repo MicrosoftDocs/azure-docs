@@ -77,29 +77,27 @@ In this quickstart, you use a code sample to learn how a JavaScript single-page 
 > [Download the code sample]()
 
 > [!div renderon="docs"]
-#### Step 3: Configure your JavaScript app
+> #### Step 3: Configure your JavaScript app
 
 > [!div renderon="docs"]
 > In the *JavaScriptSPA* folder, edit *index.html*, and set the `clientID` and `authority` values under `msalConfig`.
-
-```javascript
-var msalConfig = {
-    auth: {
-        clientId: "Enter_the_Application_Id_here",
-        authority: "https://login.microsoftonline.com/Enter_the_Tenant_info_here",
-        redirectURI: "http://localhost:30662/"
-    },
-    cache: {
-        cacheLocation: "localStorage",
-        storeAuthStateInCookie: true
-    }
-};
+> ```javascript
+> var msalConfig = {
+>     auth: {
+>         clientId: "Enter_the_Application_Id_here",
+>         authority: "https://login.microsoftonline.com/Enter_the_Tenant_info_here",
+>         redirectURI: "http://localhost:30662/"
+>     },
+>     cache: {
+>         cacheLocation: "localStorage",
+>         storeAuthStateInCookie: true
+>     }
+> };
 
 ```
 > [!div renderon="portal"]
 > > [!NOTE]
 > > This quickstart supports Enter_the_Supported_Account_Info_Here.
-
 
 > [!div renderon="docs"]
 >
