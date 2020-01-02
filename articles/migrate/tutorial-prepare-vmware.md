@@ -119,7 +119,7 @@ Check appliance requirements before you deploy the appliance.
 
 1. [Verify](migrate-support-matrix-vmware.md#assessment-appliance-requirements) appliance requirements and limitations.
 2. If you're using a URL-based firewall proxy, [review](migrate-support-matrix-vmware.md#assessment-url-access-requirements) the Azure URLs that the appliance will need to access. Make sure that the proxy resolves any CNAME records received while looking up the URLs.
-3. Review the [performance data](migrate-appliance.md#collected-performance-data-vmware)] and [metadata](migrate-appliance.md#collected-metadata-vmware) that the appliance collects during discovery and assessment.
+3. Review the [performance data](migrate-appliance.md#collected-performance-data-vmware) and [metadata](migrate-appliance.md#collected-metadata-vmware) that the appliance collects during discovery and assessment.
 4. [Note](migrate-support-matrix-vmware.md#assessment-port-requirements) the ports accessed by the appliance.
 5. On vCenter Server, make sure that your account has permissions to create a VM using an OVA file. You deploy the Azure Migrate appliance as a VMware VM, using an OVA file.
 

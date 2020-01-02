@@ -13,7 +13,7 @@ ms.subservice: alerts
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-This article shows how you can use an [Azure Resource Manager template](../../azure-resource-manager/resource-group-authoring-templates.md) to configure [newer metric alerts](../../azure-monitor/platform/alerts-metric-near-real-time.md) in Azure Monitor. Resource Manager templates enable you to programmatically set up alerts in a consistent and reproducible way across your environments. Newer metric alerts are currently available on [this set of resource types](../../azure-monitor/platform/alerts-metric-near-real-time.md#metrics-and-dimensions-supported).
+This article shows how you can use an [Azure Resource Manager template](../../azure-resource-manager/templates/template-syntax.md) to configure [newer metric alerts](../../azure-monitor/platform/alerts-metric-near-real-time.md) in Azure Monitor. Resource Manager templates enable you to programmatically set up alerts in a consistent and reproducible way across your environments. Newer metric alerts are currently available on [this set of resource types](../../azure-monitor/platform/alerts-metric-near-real-time.md#metrics-and-dimensions-supported).
 
 > [!IMPORTANT]
 > Resource template for creating metric alerts for resource type: Azure Log Analytics Workspace (i.e.) `Microsoft.OperationalInsights/workspaces`, requires additional steps. For details, see the article on [Metric Alert for Logs - Resource Template](../../azure-monitor/platform/alerts-metric-logs.md#resource-template-for-metric-alerts-for-logs).
@@ -3546,6 +3546,11 @@ Save the json below as availabilityalert.json for the purpose of this walkthroug
 ```
 
 You can set the values for the parameters either on the command line or through a parameter file. A sample parameter file is provided below.
+
+
+> [!NOTE]
+>
+> `&amp`; is the HTML entity reference for &. URL parameters are still separated by a single &, but if you mention the URL in HTML, you need to encode it. So, if you have any "&" in your pingURL parameter value, you have to escape it with "`&amp`;"
 
 Save the json below as availabilityalert.parameters.json and modify it as required.
 

@@ -1,7 +1,7 @@
 ---
-title: "Quickstart: Personalizer client library for .NET | Microsoft Docs"
+title: "Quickstart: Personalizer client library for .NET"
 titleSuffix: Azure Cognitive Services
-description:  Get started with the Personalizer client library for .NET using a learning loop. 
+description:  This quickstart shows how to get started with the Personalizer client library for .NET using a learning loop. 
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -93,7 +93,7 @@ Build succeeded.
 Within the application directory, install the Personalizer client library for .NET with the following command:
 
 ```console
-dotnet add package Microsoft.Azure.CognitiveServices.Personalizer --version 0.8.0
+dotnet add package Microsoft.Azure.CognitiveServices.Personalizer --version 0.8.0-preview
 ```
 
 If you're using the Visual Studio IDE, the client library is available as a downloadable NuGet package.
@@ -134,9 +134,15 @@ Next, create a method to return a Personalizer client. The parameter to the meth
 
 [!code-csharp[Create the Personalizer client](~/samples-personalizer/quickstarts/csharp/PersonalizerExample/Program.cs?name=authorization)]
 
-## Get content choices represented as actions
+## Get food items as rankable actions
 
-Actions represent the content choices you want Personalizer to rank. Add the following methods to the Program class to get a user's input from the command line for the time of day and current food preference.
+Actions represent the content choices you want Personalizer to rank. Add the following methods to the Program class to represent the set of actions to rank.
+
+[!code-csharp[Food items as actions](~/samples-personalizer/quickstarts/csharp/PersonalizerExample/Program.cs?name=createAction)]
+
+## Get user preferences for context
+
+Add the following methods to the Program class to get a user's input from the command line for the time of day and current food preference. These will be uses as context when ranking the actions.
 
 [!code-csharp[Present time out day preference to the user](~/samples-personalizer/quickstarts/csharp/PersonalizerExample/Program.cs?name=createUserFeatureTimeOfDay)]
 
@@ -152,89 +158,14 @@ The Personalizer learning loop is a cycle of rank and reward calls. In this quic
 
 The following code in the `main` method of the program loops through a cycle of asking the user their preferences at the command line, sending that information to Personalizer to rank, presenting the ranked selection to the customer to choose from among the list, then sending a reward to Personalizer signaling how well the service did in ranking the selection.
 
-```csharp
-static void Main(string[] args)
-{
-    int iteration = 1;
-    bool runLoop = true;
+[!code-csharp[Learning loop](~/samples-personalizer/quickstarts/csharp/PersonalizerExample/Program.cs?name=mainLoop)]
 
-    // Get the actions list to choose from personalizer with their features.
-    IList<RankableAction> actions = GetActions();
+Add the following methods, which [get the content choices](#get-food-items-as-rankable-actions), before running the code file:
 
-    // Initialize Personalizer client.
-    PersonalizerClient client = InitializePersonalizerClient(ServiceEndpoint);
-
-    do
-    {
-        Console.WriteLine("\nIteration: " + iteration++);
-
-        // <rank>
-        // Get context information from the user.
-        string timeOfDayFeature = GetUsersTimeOfDay();
-        string tasteFeature = GetUsersTastePreference();
-
-        // Create current context from user specified data.
-        IList<object> currentContext = new List<object>() {
-            new { time = timeOfDayFeature },
-            new { taste = tasteFeature }
-        };
-
-        // Exclude an action for personalizer ranking. This action will be held at its current position.
-        // This simulates a business rule to force the action "juice" to be ignored in the ranking.
-        // As juice is excluded, the return of the API will always be with a probability of 0.
-        IList<string> excludeActions = new List<string> { "juice" };
-
-        // Generate an ID to associate with the request.
-        string eventId = Guid.NewGuid().ToString();
-
-        // Rank the actions
-        var request = new RankRequest(actions, currentContext, excludeActions, eventId);
-        RankResponse response = client.Rank(request);
-        // </rank>
-
-        Console.WriteLine("\nPersonalizer service thinks you would like to have: " + response.RewardActionId + ". Is this correct? (y/n)");
-
-        // <reward>
-        float reward = 0.0f;
-        string answer = GetKey();
-
-        if (answer == "Y")
-        {
-            reward = 1;
-            Console.WriteLine("\nGreat! Enjoy your food.");
-        }
-        else if (answer == "N")
-        {
-            reward = 0;
-            Console.WriteLine("\nYou didn't like the recommended food choice.");
-        }
-        else
-        {
-            Console.WriteLine("\nEntered choice is invalid. Service assumes that you didn't like the recommended food choice.");
-        }
-
-        Console.WriteLine("\nPersonalizer service ranked the actions with the probabilities as below:");
-        foreach (var rankedResponse in response.Ranking)
-        {
-            Console.WriteLine(rankedResponse.Id + " " + rankedResponse.Probability);
-        }
-
-        // Send the reward for the action based on user response.
-        client.Reward(response.EventId, new RewardRequest(reward));
-        // </reward>
-
-        Console.WriteLine("\nPress q to break, any other key to continue:");
-        runLoop = !(GetKey() == "Q");
-
-    } while (runLoop);
-}
-```
-
-Add the following methods, which [get the content choices](#get-content-choices-represented-as-actions), before running the code file:
-
-* GetUsersTimeOfDay
-* GetUsersTastePreference
-* GetKey
+* `GetActions`
+* `GetUsersTimeOfDay`
+* `GetUsersTastePreference`
+* `GetKey`
 
 ## Request a rank
 
@@ -279,4 +210,3 @@ If you want to clean up and remove a Cognitive Services subscription, you can de
 * [What is Personalizer?](what-is-personalizer.md)
 * [Where can you use Personalizer?](where-can-you-use-personalizer.md)
 * [Troubleshooting](troubleshooting.md)
-

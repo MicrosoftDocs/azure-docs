@@ -1,5 +1,5 @@
 ---
-title: Copy data from SAP BW using Azure Data Factory 
+title: Copy data from SAP BW
 description: Learn how to copy data from SAP Business Warehouse to supported sink data stores by using a copy activity in an Azure Data Factory pipeline.
 services: data-factory
 documentationcenter: ''
@@ -10,6 +10,7 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 09/04/2019
 ---
 

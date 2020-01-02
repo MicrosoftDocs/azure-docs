@@ -1,5 +1,5 @@
 ---
-title: Create users in Azure Database for PostgreSQL - Hyperscale (Citus)
+title: Create users - Hyperscale (Citus) - Azure Database for PostgreSQL
 description: This article describes how you can create new user accounts to interact with an Azure Database for PostgreSQL - Hyperscale (Citus).
 author: jonels-msft
 ms.author: jonels
@@ -26,20 +26,18 @@ pre-defined:
 * *postgres*
 * *citus*
 
-Your server admin user, *citus*, is a member of the *azure_pg_admin* role.
-However, it isn't part of the *postgres* (super user) role.  Since Hyperscale
-is a managed PaaS service, only Microsoft is part of the super user role.
-
 The PostgreSQL engine uses privileges to control access to database objects, as
 discussed in the [PostgreSQL product
 documentation](https://www.postgresql.org/docs/current/static/sql-createrole.html).
-In Azure Database for PostgreSQL, the server admin user is granted these
-privileges: LOGIN, NOSUPERUSER, INHERIT, CREATEDB, CREATEROLE, NOREPLICATION
+Your server admin user, *citus*, is a member of the *azure_pg_admin* role.
+However, it isn't part of the *postgres* (super user) role.  Since Hyperscale
+is a managed PaaS service, only Microsoft is part of the super user role. The
+*citus* user has limited permissions and can't e.g. create new databases.
 
 ## How to create additional users
 
-The *citus* admin account lacks permission to create additional users. To add
-a user, use the Azure portal instead.
+The *citus* admin account lacks permission to create additional users. To
+add a user, use the Azure portal interface.
 
 1. Go to the **Roles** page for your Hyperscale server group, and click **+ Add**:
 

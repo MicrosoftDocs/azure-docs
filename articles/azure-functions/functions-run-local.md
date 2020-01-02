@@ -26,35 +26,45 @@ Developing functions on your local computer and publishing them to Azure using C
 
 ## Core Tools versions
 
-There are two versions of Azure Functions Core Tools. The version you use depends on your local development environment, [choice of language](supported-languages.md), and level of support required:
+There are three versions of Azure Functions Core Tools. The version you use depends on your local development environment, [choice of language](supported-languages.md), and level of support required:
 
-+ Version 1.x: supports version 1.x of the runtime. This version of the tools is only supported on Windows computers and is installed from an [npm package](https://docs.npmjs.com/getting-started/what-is-npm). With this version, you can create functions in experimental languages that are not officially supported. For more information, see [Supported languages in Azure Functions](supported-languages.md)
++ **Version 1.x**: Supports version 1.x of the Azure Functions runtime. This version of the tools is only supported on Windows computers and is installed from an [npm package](https://www.npmjs.com/package/azure-functions-core-tools).
 
-+ [Version 2.x](#v2): supports [version 2.x of the runtime](functions-versions.md). This version supports [Windows](#windows-npm), [macOS](#brew), and [Linux](#linux). Uses platform-specific package managers or npm for installation.
++ [**Version 2.x/3.x**](#v2): Supports either [version 2.x or 3.x of the Azure Functions runtime](functions-versions.md). These versions support [Windows](#windows-npm), [macOS](#brew), and [Linux](#linux) and use platform-specific package managers or npm for installation.
 
-Unless otherwise noted, the examples in this article are for version 2.x.
+Unless otherwise noted, the examples in this article are for version 3.x.
 
 ## Install the Azure Functions Core Tools
 
 [Azure Functions Core Tools] includes a version of the same runtime that powers Azure Functions runtime that you can run on your local development computer. It also provides commands to create functions, connect to Azure, and deploy function projects.
 
-### <a name="v2"></a>Version 2.x
+### <a name="v2"></a>Version 2.x and 3.x
 
-Version 2.x of the tools uses the Azure Functions runtime 2.x that is built on .NET Core. This version is supported on all platforms .NET Core 2.x supports, including [Windows](#windows-npm), [macOS](#brew), and [Linux](#linux). 
+Version 2.x/3.x of the tools uses the Azure Functions runtime that is built on .NET Core. This version is supported on all platforms .NET Core supports, including [Windows](#windows-npm), [macOS](#brew), and [Linux](#linux). 
 
 > [!IMPORTANT]
-> You can bypass the requirement for installing the .NET Core 2.x SDK by using [extension bundles].
+> You can bypass the requirement for installing the .NET Core SDK by using [extension bundles].
 
 #### <a name="windows-npm"></a>Windows
 
 The following steps use npm to install Core Tools on Windows. You can also use [Chocolatey](https://chocolatey.org/). For more information, see the [Core Tools readme](https://github.com/Azure/azure-functions-core-tools/blob/master/README.md#windows).
 
-1. Install [Node.js], which includes npm. For version 2.x of the tools, only Node.js 8.5 and later versions are supported.
+1. Install [Node.js], which includes npm.
+    - For version 2.x of the tools, only Node.js 8.5 and later versions are supported.
+    - For version 3.x of the tools, only Node 10 and later versions are supported.
 
 1. Install the Core Tools package:
 
+    ##### v2.x
+
     ```bash
     npm install -g azure-functions-core-tools
+    ```
+
+    ##### v3.x
+
+    ```bash
+    npm install -g azure-functions-core-tools@3
     ```
 
    It may take a few minutes for npm to download and install the Core Tools package.
@@ -69,13 +79,21 @@ The following steps use Homebrew to install the Core Tools on macOS.
 
 1. Install the Core Tools package:
 
+    ##### v2.x
+
     ```bash
     brew tap azure/functions
     brew install azure-functions-core-tools
     ```
 
-1. If you do not plan to use [extension bundles], install [.NET Core 2.x SDK for macOS](https://www.microsoft.com/net/download/macos).
+    ##### v3.x
 
+    ```bash
+    brew tap azure/functions
+    brew install azure-functions-core-tools@3
+    # if upgrading on a machine that has 2.x installed
+    brew link --overwrite azure-functions-core-tools@3
+    ```
 
 #### <a name="linux"></a> Linux (Ubuntu/Debian) with APT
 
@@ -106,7 +124,6 @@ The following steps use [APT](https://wiki.debian.org/Apt) to install Core Tools
 
     | Linux distribution | Version |
     | --------------- | ----------- |
-    | Debian 10 | `buster` |
     | Debian 9 | `stretch` |
     | Debian 8 | `jessie` |
     | Ubuntu 18.10    | `cosmic`    |
@@ -207,7 +224,7 @@ When no valid storage connection string is set for [`AzureWebJobsStorage`] and t
 Even when using the storage emulator for development, you may want to test with an actual storage connection. Assuming you have already [created a storage account](../storage/common/storage-create-storage-account.md), you can get a valid storage connection string in one of the following ways:
 
 - From the [Azure portal], search for and select **Storage accounts**. 
-  ![Select Storagea accounts from Azure portal](./media/functions-run-local/select-storage-accounts.png)
+  ![Select Storage accounts from Azure portal](./media/functions-run-local/select-storage-accounts.png)
   
   Select your storage account, select **Access keys** in **Settings**, then copy one of the **Connection string** values.
   ![Copy connection string from Azure portal](./media/functions-run-local/copy-storage-connection-portal.png)
@@ -329,7 +346,7 @@ func host start
 | **`--cert`** | The path to a .pfx file that contains a private key. Only used with `--useHttps`. Version 2.x only. |
 | **`--cors-credentials`** | Allow cross-origin authenticated requests (i.e. cookies and the Authentication header) Version 2.x only. |
 | **`--cors`** | A comma-separated list of CORS origins, with no spaces. |
-| **`--language-worker`** | Arguments to configure the language worker. Version 2.x only. |
+| **`--language-worker`** | Arguments to configure the language worker. For example, you may enable debugging for language worker by providing [debug port and other required arguments](https://github.com/Azure/azure-functions-core-tools/wiki/Enable-Debugging-for-language-workers). Version 2.x only. |
 | **`--nodeDebugPort -n`** | The port for the node debugger to use. Default: A value from launch.json or 5858. Version 1.x only. |
 | **`--password`** | Either the password or a file that contains the password for a .pfx file. Only used with `--cert`. Version 2.x only. |
 | **`--port -p`** | The local port to listen on. Default value: 7071. |

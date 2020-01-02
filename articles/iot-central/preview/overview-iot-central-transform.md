@@ -3,7 +3,7 @@ title: Transform overview
 description: Learn about how to transform
 author: viv-liu
 ms.author: viviali
-ms.date: 10/11/2019
+ms.date: 12/09/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central

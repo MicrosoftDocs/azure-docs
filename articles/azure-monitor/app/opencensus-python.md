@@ -57,7 +57,17 @@ For a full list of packages and integrations, see [OpenCensus packages](https://
 
 The SDK uses three Azure Monitor exporters to send different types of telemetry to Azure Monitor: trace, metrics, and logs. For more information on these telemetry types, see [the data platform overview](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform). Use the following instructions to send these telemetry types via the three exporters.
 
+## Telemetry type mappings
+
+Here are the exporters that OpenCensus provides mapped to the types of telemetry that you will see in Azure Monitor.
+
+![Screenshot of mapping of telemetry types from OpenCensus to Azure Monitor](./media/opencensus-python/0012-telemetry-types.png)
+
 ### Trace
+
+> [!NOTE]
+> `Trace` in OpenCensus refers to [distributed tracing](https://docs.microsoft.com/azure/azure-monitor/app/distributed-tracing). The 
+`AzureExporter` sends `requests` and `dependency` telemetry to Azure Monitor.
 
 1. First, let's generate some trace data locally. In Python IDLE, or your editor of choice, enter the following code.
 
@@ -289,7 +299,10 @@ The SDK uses three Azure Monitor exporters to send different types of telemetry 
         main()
     ```
 
-4. The exporter will send log data to Azure Monitor. You can find the data under `traces`.
+4. The exporter will send log data to Azure Monitor. You can find the data under `traces`. 
+
+> [!NOTE]
+> `traces` in this context is not the same as `Tracing`. `traces` refers to the type of telemetry that you will see in Azure Monitor when utilizing the `AzureLogHandler`. `Tracing` refers to a concept in OpenCensus and relates to [distributed tracing](https://docs.microsoft.com/azure/azure-monitor/app/distributed-tracing).
 
 5. To format your log messages, you can use `formatters` in the built-in Python [logging API](https://docs.python.org/3/library/logging.html#formatter-objects).
 
@@ -337,7 +350,7 @@ The SDK uses three Azure Monitor exporters to send different types of telemetry 
     logger.warning('action', {'key-1': 'value-1', 'key-2': 'value2'})
     ```
 
-7. For details on how to enrich your logs with trace context data, see OpenCensus Python [logs integration](https://docs.microsoft.com/azure/azure-monitor/app/correlation#logs-correlation).
+7. For details on how to enrich your logs with trace context data, see OpenCensus Python [logs integration](https://docs.microsoft.com/azure/azure-monitor/app/correlation#log-correlation).
 
 ## View your data with queries
 

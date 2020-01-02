@@ -9,7 +9,7 @@ editor: v-miegge
 tags: azure-service-management
 ms.assetid:
 ms.service: virtual-machines-windows
-ms.topic: article
+ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 07/01/2019

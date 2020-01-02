@@ -1,6 +1,6 @@
 ---
 title: Compare Azure Government and global Azure | Microsoft Docs
-description: This article compares Azure Government and global Azure.
+description: Microsoft Azure Government uses same underlying technologies as global Azure, which includes the core components of Infrastructure-as-a-Service (IaaS), Platform-as-a-Service (PaaS), and Software-as-a-Service (SaaS). This article compares Azure Government and global Azure.
 services: azure-government
 cloud: gov
 documentationcenter: ''

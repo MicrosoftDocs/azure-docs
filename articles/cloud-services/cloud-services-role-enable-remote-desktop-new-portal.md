@@ -1,5 +1,6 @@
 ---
-title: Using the portal, enable Remote Desktop for a Role (Azure Cloud Services)
+title: Use the portal to enable Remote Desktop for a Role
+titleSuffix: Azure Cloud Services
 description: How to configure your azure cloud service application to allow remote desktop connections
 services: cloud-services
 documentationcenter: ''

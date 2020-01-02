@@ -6,6 +6,14 @@
     href: migrate-services-overview.md
   - name: What's new
     href: whats-new.md
+  - name: Common questions
+    items:
+    - name: Questions about Azure Migrate
+      href: resources-faq.md
+    - name: Questions about Azure Migrate appliance
+      href: common-questions-appliance.md
+    - name: Questions about discovery, assessment/dependency visualization
+      href: common-questions-discovery-assessment.md
 - name: Tutorials
   items:
   - name: Assess and migrate VMware VMs
@@ -44,8 +52,6 @@
       href: tutorial-assess-import.md
 - name: Concepts
   items:
-  - name: Common questions
-    href: resources-faq.md
   - name: Support matrices
     items:
     - name: Support matrix for Azure Migrate

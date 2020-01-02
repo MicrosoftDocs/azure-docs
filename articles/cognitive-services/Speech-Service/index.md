@@ -24,7 +24,7 @@ description: Get started with the Speech service. Recognize speech, synthesize s
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage bgdAccent1">
-                                                        <img src="media/hub/speech_recognition_from_microphone_file.jpg" alt="" />
+                                                        <img src="media/hub/speech-recognition-from-microphone-file.jpg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -43,7 +43,7 @@ description: Get started with the Speech service. Recognize speech, synthesize s
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage bgdAccent1">
-                                                        <img src="media/hub/speech_recognition_from_file_file.jpg" alt="" />
+                                                        <img src="media/hub/speech-recognition-from-file-file.jpg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -62,7 +62,7 @@ description: Get started with the Speech service. Recognize speech, synthesize s
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage bgdAccent1">
-                                                        <img src="media/hub/speech_recognition_from_blob.jpg" alt="" />
+                                                        <img src="media/hub/speech-recognition-from-blob.jpg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -81,7 +81,7 @@ description: Get started with the Speech service. Recognize speech, synthesize s
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage bgdAccent1">
-                                                        <img src="media/hub/speech_generic_programming_languages.jpg" alt="" />
+                                                        <img src="media/hub/speech-generic-programming-languages.jpg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -100,7 +100,7 @@ description: Get started with the Speech service. Recognize speech, synthesize s
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage bgdAccent1">
-                                                        <img src="media/hub/speech_pricing.jpg" alt="" />
+                                                        <img src="media/hub/speech-pricing.jpg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -119,7 +119,7 @@ description: Get started with the Speech service. Recognize speech, synthesize s
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage bgdAccent1">
-                                                        <img src="media/hub/speech_generic_reference.jpg" alt="" />
+                                                        <img src="media/hub/speech-generic-reference.jpg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -143,7 +143,7 @@ description: Get started with the Speech service. Recognize speech, synthesize s
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage bgdAccent1">
-                                                        <img src="media/hub/speech_synthesis_to_audio_out.jpg" alt="" />
+                                                        <img src="media/hub/speech-synthesis-to-audio-out.jpg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -162,7 +162,7 @@ description: Get started with the Speech service. Recognize speech, synthesize s
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage bgdAccent1">
-                                                        <img src="media/hub/speech_synthesis_to_file.jpg" alt="" />
+                                                        <img src="media/hub/speech-synthesis-to-file.jpg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -181,7 +181,7 @@ description: Get started with the Speech service. Recognize speech, synthesize s
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage bgdAccent1">
-                                                        <img src="media/hub/speech_generic_programming_languages.jpg" alt="" />
+                                                        <img src="media/hub/speech-generic-programming-languages.jpg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -200,7 +200,7 @@ description: Get started with the Speech service. Recognize speech, synthesize s
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage bgdAccent1">
-                                                        <img src="media/hub/speech_generic_programming_languages.jpg" alt="" />
+                                                        <img src="media/hub/speech-generic-programming-languages.jpg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -219,7 +219,7 @@ description: Get started with the Speech service. Recognize speech, synthesize s
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage bgdAccent1">
-                                                        <img src="media/hub/speech_pricing.jpg" alt="" />
+                                                        <img src="media/hub/speech-pricing.jpg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -238,7 +238,7 @@ description: Get started with the Speech service. Recognize speech, synthesize s
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage bgdAccent1">
-                                                        <img src="media/hub/speech_generic_reference.jpg" alt="" />
+                                                        <img src="media/hub/speech-generic-reference.jpg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -262,7 +262,7 @@ description: Get started with the Speech service. Recognize speech, synthesize s
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage bgdAccent1">
-                                                        <img src="media/hub/speech_intent_recognition.jpg" alt="" />
+                                                        <img src="media/hub/speech-intent-recognition.jpg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -281,7 +281,7 @@ description: Get started with the Speech service. Recognize speech, synthesize s
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage bgdAccent1">
-                                                        <img src="media/hub/speech_generic_reference.jpg" alt="" />
+                                                        <img src="media/hub/speech-generic-reference.jpg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -300,7 +300,7 @@ description: Get started with the Speech service. Recognize speech, synthesize s
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage bgdAccent1">
-                                                        <img src="media/hub/speech_generic_reference.jpg" alt="" />
+                                                        <img src="media/hub/speech-generic-reference.jpg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -324,7 +324,7 @@ description: Get started with the Speech service. Recognize speech, synthesize s
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage bgdAccent1">
-                                                        <img src="media/hub/speech_translation_from_file.jpg" alt="" />
+                                                        <img src="media/hub/speech-translation-from-file.jpg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -343,7 +343,7 @@ description: Get started with the Speech service. Recognize speech, synthesize s
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage bgdAccent1">
-                                                        <img src="media/hub/speech_translation_from_microphone_file.jpg" alt="" />
+                                                        <img src="media/hub/speech-translation-from-microphone-file.jpg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -362,7 +362,7 @@ description: Get started with the Speech service. Recognize speech, synthesize s
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage bgdAccent1">
-                                                        <img src="media/hub/speech_translation_from_microphone_audio_out.jpg" alt="" />
+                                                        <img src="media/hub/speech-translation-from-microphone-audio-out.jpg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -381,7 +381,7 @@ description: Get started with the Speech service. Recognize speech, synthesize s
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage bgdAccent1">
-                                                        <img src="media/hub/speech_generic_programming_languages.jpg" alt="" />
+                                                        <img src="media/hub/speech-generic-programming-languages.jpg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -400,7 +400,7 @@ description: Get started with the Speech service. Recognize speech, synthesize s
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage bgdAccent1">
-                                                        <img src="media/hub/speech_pricing.jpg" alt="" />
+                                                        <img src="media/hub/speech-pricing.jpg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -419,7 +419,7 @@ description: Get started with the Speech service. Recognize speech, synthesize s
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage bgdAccent1">
-                                                        <img src="media/hub/speech_generic_reference.jpg" alt="" />
+                                                        <img src="media/hub/speech-generic-reference.jpg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -443,7 +443,7 @@ description: Get started with the Speech service. Recognize speech, synthesize s
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage bgdAccent1">
-                                                        <img src="media/hub/speech_generic_reference.jpg" alt="" />
+                                                        <img src="media/hub/speech-generic-reference.jpg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -462,7 +462,7 @@ description: Get started with the Speech service. Recognize speech, synthesize s
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage bgdAccent1">
-                                                        <img src="media/hub/speech_conversation_transcription.jpg" alt="" />
+                                                        <img src="media/hub/speech-conversation-transcription.jpg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -481,7 +481,7 @@ description: Get started with the Speech service. Recognize speech, synthesize s
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage bgdAccent1">
-                                                        <img src="media/hub/speech_conversation_transcription.jpg" alt="" />
+                                                        <img src="media/hub/speech-conversation-transcription.jpg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -500,7 +500,7 @@ description: Get started with the Speech service. Recognize speech, synthesize s
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage bgdAccent1">
-                                                        <img src="media/hub/speech_generic_programming_languages.jpg" alt="" />
+                                                        <img src="media/hub/speech-generic-programming-languages.jpg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -519,7 +519,7 @@ description: Get started with the Speech service. Recognize speech, synthesize s
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage bgdAccent1">
-                                                        <img src="media/hub/speech_pricing.jpg" alt="" />
+                                                        <img src="media/hub/speech-pricing.jpg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -543,7 +543,7 @@ description: Get started with the Speech service. Recognize speech, synthesize s
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage bgdAccent1">
-                                                        <img src="media/hub/speech_generic_reference.jpg" alt="" />
+                                                        <img src="media/hub/speech-generic-reference.jpg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -562,7 +562,7 @@ description: Get started with the Speech service. Recognize speech, synthesize s
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage bgdAccent1">
-                                                        <img src="media/hub/speech_conversational_agent.jpg" alt="" />
+                                                        <img src="media/hub/speech-conversational-agent.jpg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -581,12 +581,12 @@ description: Get started with the Speech service. Recognize speech, synthesize s
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage bgdAccent1">
-                                                        <img src="media/hub/speech_generic_how_to.jpg" alt="" />
+                                                        <img src="media/hub/speech-generic-how-to.jpg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Use Custom Commands</h3>
-                                                    <p>Learn to build simple and robust command and control interactions with language understanding and error correction.</p>
+                                                    <p>Learn to easily build robust command and control voice applications, so that users can complete tasks by using their voice.</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -599,13 +599,13 @@ description: Get started with the Speech service. Recognize speech, synthesize s
                         <a href="#support">Support</a>
                         <ul id="support" class="cardsC">
                             <li>
-                                <a href="https://github.com/Azure-Samples?utf8=%E2%9C%93&q=cognitive&type=&language=">
+                                <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage bgdAccent1">
-                                                        <img src="https://docs.microsoft.com/media/logos/logo_octokitty.svg" style="width:140px" alt="" />
+                                                        <img src="media/hub/speech-github-issues.png" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -618,13 +618,13 @@ description: Get started with the Speech service. Recognize speech, synthesize s
                                 </a>
                             </li>
                             <li>
-                                <a href="https://stackoverflow.com/questions/tagged/microsoft-cognitive">
+                                <a href="https://stackoverflow.com/questions/tagged/microsoft-cognitive+speech">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage bgdAccent1">
-                                                        <img src="https://docs.microsoft.com/media/logos/logo_stackoverflow.svg" style="width:140px" alt="" />
+                                                        <img src="media/hub/speech-stackoverflow.png" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -643,7 +643,7 @@ description: Get started with the Speech service. Recognize speech, synthesize s
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage bgdAccent1">
-                                                        <img src="https://docs.microsoft.com/media/logos/logo-uservoice.svg" style="width:140px" alt="" />
+                                                        <img src="media/hub/speech-uservoice.png" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -672,7 +672,7 @@ description: Get started with the Speech service. Recognize speech, synthesize s
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage bgdAccent1">
-                                                        <img src="media/hub/speech_generic_how_to.jpg" alt="" />
+                                                        <img src="media/hub/speech-generic-how-to.jpg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -691,7 +691,7 @@ description: Get started with the Speech service. Recognize speech, synthesize s
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage bgdAccent1">
-                                                        <img src="media/hub/speech_generic_how_to.jpg" alt="" />
+                                                        <img src="media/hub/speech-generic-how-to.jpg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -710,7 +710,7 @@ description: Get started with the Speech service. Recognize speech, synthesize s
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage bgdAccent1">
-                                                        <img src="media/hub/speech_generic_how_to.jpg" alt="" />
+                                                        <img src="media/hub/speech-generic-how-to.jpg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -729,7 +729,7 @@ description: Get started with the Speech service. Recognize speech, synthesize s
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage bgdAccent1">
-                                                        <img src="media/hub/speech_generic_programming_languages.jpg" alt="" />
+                                                        <img src="media/hub/speech-generic-programming-languages.jpg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -748,7 +748,7 @@ description: Get started with the Speech service. Recognize speech, synthesize s
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage bgdAccent1">
-                                                        <img src="media/hub/speech_pricing.jpg" alt="" />
+                                                        <img src="media/hub/speech-pricing.jpg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -773,7 +773,7 @@ description: Get started with the Speech service. Recognize speech, synthesize s
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage bgdAccent1">
-                                                        <img src="media/hub/speech_generic_programming_languages.jpg" alt="" />
+                                                        <img src="media/hub/speech-generic-programming-languages.jpg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -793,7 +793,7 @@ description: Get started with the Speech service. Recognize speech, synthesize s
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage bgdAccent1">
-                                                        <img src="media/hub/speech_generic_how_to.jpg" alt="" />
+                                                        <img src="media/hub/speech-generic-how-to.jpg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -812,7 +812,7 @@ description: Get started with the Speech service. Recognize speech, synthesize s
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage bgdAccent1">
-                                                        <img src="media/hub/speech_generic_how_to.jpg" alt="" />
+                                                        <img src="media/hub/speech-generic-how-to.jpg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -831,7 +831,7 @@ description: Get started with the Speech service. Recognize speech, synthesize s
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage bgdAccent1">
-                                                        <img src="media/hub/speech_generic_human_languages.jpg" alt="" />
+                                                        <img src="media/hub/speech-generic-human-languages.jpg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -851,7 +851,7 @@ description: Get started with the Speech service. Recognize speech, synthesize s
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage bgdAccent1">
-                                                        <img src="media/hub/speech_pricing.jpg" alt="" />
+                                                        <img src="media/hub/speech-pricing.jpg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -881,7 +881,7 @@ description: Get started with the Speech service. Recognize speech, synthesize s
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage bgdAccent1">
-                                                        <img src="media/hub/speech_recognition_from_blob.jpg" alt="" />
+                                                        <img src="media/hub/speech-call-center-transcription.png" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -900,7 +900,7 @@ description: Get started with the Speech service. Recognize speech, synthesize s
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage bgdAccent1">
-                                                        <img src="media/hub/speech_generic_programming_languages.jpg" alt="" />
+                                                        <img src="media/hub/speech-generic-programming-languages.jpg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -924,7 +924,7 @@ description: Get started with the Speech service. Recognize speech, synthesize s
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage bgdAccent1">
-                                                        <img src="https://docs.microsoft.com/media/illustrations/virtualization-containers-about.svg" alt="" />
+                                                        <img src="media/hub/speech-containers.png" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -943,7 +943,7 @@ description: Get started with the Speech service. Recognize speech, synthesize s
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage bgdAccent1">
-                                                        <img src="media/hub/speech_generic_how_to.jpg" alt="" />
+                                                        <img src="media/hub/speech-regions.png" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
