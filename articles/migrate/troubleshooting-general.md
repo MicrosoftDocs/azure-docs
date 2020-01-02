@@ -31,4 +31,4 @@ Discovery of apps, roles, and features running on on-premises machines is curren
 
 ## Assessment isn't working
 
-[Review](troubleshoting-assessment.md) common assessment issues and errors.
+[Review](troubleshooting-assessment.md) common assessment issues and errors.
