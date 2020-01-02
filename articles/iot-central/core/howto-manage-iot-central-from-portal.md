@@ -36,7 +36,7 @@ Now, select **Create**.
 
 Fill in all the fields in the form. This form is similar to the form you fill out to create applications on the [Azure IoT Central application manager](https://aka.ms/iotcentral) website. For more information, see the [Create an IoT Central application](quick-deploy-iot-central.md) quickstart.
 
-You can create IoT Central application with general features by selecting **Sample Contoso**, **Custom application** and **Sample Devkits** as application templates, all the other application templates uses public preview features.
+You can create IoT Central application with generally available features by selecting **Legacy application** as application template, all the other application templates uses public preview features.
 
 ![create IoT Central form](media/howto-manage-iot-central-from-portal/image6a.png)
 

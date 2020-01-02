@@ -1,22 +1,23 @@
 ---
-title: Configure customer-managed keys for Azure Storage encryption from the Azure portal
-description: Learn how to use the Azure portal to configure customer-managed keys for Azure Storage encryption. Customer-managed keys enable you to create, rotate, disable, and revoke access controls.
+title: Use the Azure portal to configure customer-managed keys
+titleSuffix: Azure Storage
+description: Learn how to use the Azure portal to configure customer-managed keys with Azure Key Vault for Azure Storage encryption. Customer-managed keys enable you to create, rotate, disable, and revoke access controls.
 services: storage
 author: tamram
 
 ms.service: storage
-ms.topic: article
-ms.date: 10/15/2019
+ms.topic: how-to
+ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
 ---
 
-# Configure customer-managed keys for Azure Storage encryption from the Azure portal
+# Configure customer-managed keys with Azure Key Vault by using the Azure portal
 
 [!INCLUDE [storage-encryption-configure-keys-include](../../../includes/storage-encryption-configure-keys-include.md)]
 
-This article shows how to configure a key vault with customer-managed keys using the [Azure portal](https://portal.azure.com/). To learn how to create a key vault using the Azure portal, see [Quickstart: Set and retrieve a secret from Azure Key Vault using the Azure portal](../../key-vault/quick-create-portal.md). 
+This article shows how to configure an Azure Key Vault with customer-managed keys using the [Azure portal](https://portal.azure.com/). To learn how to create a key vault using the Azure portal, see [Quickstart: Set and retrieve a secret from Azure Key Vault using the Azure portal](../../key-vault/quick-create-portal.md).
 
 > [!IMPORTANT]
 > Using customer-managed keys with Azure Storage encryption requires that two properties be set on the key vault, **Soft Delete** and **Do Not Purge**. These properties are not enabled by default. To enable these properties, use either PowerShell or Azure CLI.

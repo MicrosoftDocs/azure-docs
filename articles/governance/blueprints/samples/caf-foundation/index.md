@@ -1,5 +1,5 @@
 ---
-title: CAF Foundation blueprint sample - Overview
+title: CAF Foundation blueprint sample overview
 description: Overview and architecture of the Cloud Adoption Framework (CAF) for Azure Foundation blueprint sample.
 ms.date: 08/20/2019
 ms.topic: sample
@@ -49,7 +49,7 @@ All these elements abide to the proven practices published in the
 > You still need to deploy workloads behind this foundational architecture.
 
 For more information, see the
-[Microsoft Cloud Adoption Framework for Azure - Ready](/azure/architecture/cloud-adoption/ready/azure-readiness-guide/govern-org-compliance?tabs=AzurePolicy).
+[Microsoft Cloud Adoption Framework for Azure - Ready](/azure/cloud-adoption-framework/ready/).
 
 ## Next steps
 

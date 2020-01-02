@@ -517,7 +517,7 @@ The uploading, downloading, and cross-region copying of disks are powered by AzC
 	./StorageExplorer.exe --disable-gpu
     ```
 
-* For Linux users, you will need to install [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
+* For Linux users, you will need to install [.NET Core 2.0](https://dotnet.microsoft.com/download/dotnet-core/2.0).
 * For users on Ubuntu 14.04, you will need to ensure GCC is up-to-date - this can be done by running the following commands, and then restarting your machine:
 
     ```
@@ -589,7 +589,7 @@ The uploading, downloading, and cross-region copying of disks are powered by AzC
 	./StorageExplorer.exe --disable-gpu
     ```
 
-* For Linux users, you will need to install [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
+* For Linux users, you will need to install [.NET Core 2.0](https://dotnet.microsoft.com/download/dotnet-core/2.0).
 * For users on Ubuntu 14.04, you will need to ensure GCC is up-to-date - this can be done by running the following commands, and then restarting your machine:
 
     ```
@@ -658,7 +658,7 @@ The uploading, downloading, and cross-region copying of disks are powered by AzC
 	./StorageExplorer.exe --disable-gpu
     ```
 
-* For Linux users, you will need to install [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
+* For Linux users, you will need to install [.NET Core 2.0](https://dotnet.microsoft.com/download/dotnet-core/2.0).
 * For users on Ubuntu 14.04, you will need to ensure GCC is up-to-date - this can be done by running the following commands, and then restarting your machine:
 
     ```
@@ -713,7 +713,7 @@ The uploading, downloading, and cross-region copying of disks are powered by AzC
 	./StorageExplorer.exe --disable-gpu
     ```
 
-* For Linux users, you will need to install [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
+* For Linux users, you will need to install [.NET Core 2.0](https://dotnet.microsoft.com/download/dotnet-core/2.0).
 * For users on Ubuntu 14.04, you will need to ensure GCC is up-to-date - this can be done by running the following commands, and then restarting your machine:
 
     ```
@@ -777,7 +777,7 @@ Finally, support for using AzCopy with File Shares will be coming in the future.
 	./StorageExplorer.exe --disable-gpu
     ```
 
-* For Linux users, you will need to install [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
+* For Linux users, you will need to install [.NET Core 2.0](https://dotnet.microsoft.com/download/dotnet-core/2.0).
 * For users on Ubuntu 14.04, you will need to ensure GCC is up-to-date - this can be done by running the following commands, and then restarting your machine:
 
     ```
@@ -834,7 +834,7 @@ Finally, support for using AzCopy with File Shares will be coming in the future.
     ./StorageExplorer.exe --disable-gpu
     ```
 
-* For Linux users, you will need to install [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
+* For Linux users, you will need to install [.NET Core 2.0](https://dotnet.microsoft.com/download/dotnet-core/2.0).
 * For users on Ubuntu 14.04, you will need to ensure GCC is up-to-date - this can be done by running the following commands, and then restarting your machine:
 
     ```
@@ -890,7 +890,7 @@ Finally, support for using AzCopy with File Shares will be coming in the future.
     ./StorageExplorer.exe --disable-gpu
     ```
 
-* For Linux users, you will need to install [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
+* For Linux users, you will need to install [.NET Core 2.0](https://dotnet.microsoft.com/download/dotnet-core/2.0).
 * For users on Ubuntu 14.04, you will need to ensure GCC is up-to-date - this can be done by running the following commands, and then restarting your machine:
 
     ```
@@ -945,7 +945,7 @@ Finally, support for using AzCopy with File Shares will be coming in the future.
     ./StorageExplorer.exe --disable-gpu
     ```
 
-* For Linux users, you will need to install [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
+* For Linux users, you will need to install [.NET Core 2.0](https://dotnet.microsoft.com/download/dotnet-core/2.0).
 * For users on Ubuntu 14.04, you will need to ensure GCC is up-to-date - this can be done by running the following commands, and then restarting your machine:
 
     ```
@@ -1005,7 +1005,7 @@ Finally, support for using AzCopy with File Shares will be coming in the future.
     ./StorageExplorer.exe --disable-gpu
     ```
 
-* For Linux users, you will need to install [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
+* For Linux users, you will need to install [.NET Core 2.0](https://dotnet.microsoft.com/download/dotnet-core/2.0).
 * For users on Ubuntu 14.04, you will need to ensure GCC is up-to-date - this can be done by running the following commands, and then restarting your machine:
 
     ```
@@ -1062,7 +1062,7 @@ Finally, support for using AzCopy with File Shares will be coming in the future.
     ./StorageExplorer.exe --disable-gpu
     ```
 
-* For Linux users, you will need to install [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
+* For Linux users, you will need to install [.NET Core 2.0](https://dotnet.microsoft.com/download/dotnet-core/2.0).
 * For users on Ubuntu 14.04, you will need to ensure GCC is up-to-date - this can be done by running the following commands, and then restarting your machine:
 
     ```
@@ -1119,7 +1119,7 @@ Finally, support for using AzCopy with File Shares will be coming in the future.
     ./StorageExplorer.exe --disable-gpu
     ```
 
-* For Linux users, you will need to install [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
+* For Linux users, you will need to install [.NET Core 2.0](https://dotnet.microsoft.com/download/dotnet-core/2.0).
 * For users on Ubuntu 14.04, you will need to ensure GCC is up-to-date - this can be done by running the following commands, and then restarting your machine:
 
     ```
@@ -1173,7 +1173,7 @@ Finally, support for using AzCopy with File Shares will be coming in the future.
     ./StorageExplorer.exe --disable-gpu
     ```
 
-* For Linux users, you will need to install [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
+* For Linux users, you will need to install [.NET Core 2.0](https://dotnet.microsoft.com/download/dotnet-core/2.0).
 * For users on Ubuntu 14.04, you will need to ensure GCC is up-to-date - this can be done by running the following commands, and then restarting your machine:
 
     ```
@@ -1239,7 +1239,7 @@ Finally, support for using AzCopy with File Shares will be coming in the future.
     ./StorageExplorer.exe --disable-gpu
     ```
 
-* For Linux users, you will need to install [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
+* For Linux users, you will need to install [.NET Core 2.0](https://dotnet.microsoft.com/download/dotnet-core/2.0).
 * For users on Ubuntu 14.04, you will need to ensure GCC is up-to-date - this can be done by running the following commands, and then restarting your machine:
 
     ```

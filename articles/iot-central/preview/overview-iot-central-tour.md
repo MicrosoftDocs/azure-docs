@@ -3,7 +3,7 @@ title: Take a tour of the Azure IoT Central UI | Microsoft Docs
 description: Become familiar with the key areas of the Azure IoT Central UI that you use to create, manage and use your IoT solution.
 author: lmasieri
 ms.author: lmasieri
-ms.date: 10/21/2019
+ms.date: 12/09/2019
 ms.topic: overview
 ms.service: iot-central
 services: iot-central

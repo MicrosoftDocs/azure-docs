@@ -32,7 +32,7 @@ For an alternative option using fully managed service for seamless migration of 
 To complete the steps in this article, you need the following prerequisites:
 
 - [Pvk2Pfx](https://docs.microsoft.com/windows-hardware/drivers/devtest/pvk2pfx) command-line tool installed on the on-premises server or other computer with access to the certificate exported as a file. Pvk2Pfx tool is part of the [Enterprise Windows Driver Kit](https://docs.microsoft.com/windows-hardware/drivers/download-the-wdk), a standalone self-contained command-line environment.
-- [Windows PowerShell](https://docs.microsoft.com/powershell/scripting/setup/installing-windows-powershell) version 5.0 or higher installed.
+- [Windows PowerShell](/powershell/scripting/install/installing-windows-powershell) version 5.0 or higher installed.
 
 # [PowerShell](#tab/azure-powershell)
 

@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: quickstart
-ms.date: 06/26/2019
+ms.date: 12/09/2019
 ms.author: aahi
 ---
 
@@ -33,7 +33,7 @@ Use this quickstart to make your first call to the Bing Video Search API and vie
     require 'json'
     ```
 
-2. Create variables for the API endpoint, video API search path, your subscription key, and search term.
+2. Create variables for the API endpoint, video API search path, your subscription key, and search term. `uri` can be the global endpoint below, or the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
 
     ```ruby
     uri  = "https://api.cognitive.microsoft.com"

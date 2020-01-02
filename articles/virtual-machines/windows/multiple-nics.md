@@ -215,7 +215,7 @@ To remove a virtual NIC from an existing VM, you deallocate the VM, remove the v
     ```   
 
 ## Create multiple NICs with templates
-Azure Resource Manager templates provide a way to create multiple instances of a resource during deployment, such as creating multiple NICs. Resource Manager templates use declarative JSON files to define your environment. For more information, see [overview of Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md). You can use *copy* to specify the number of instances to create:
+Azure Resource Manager templates provide a way to create multiple instances of a resource during deployment, such as creating multiple NICs. Resource Manager templates use declarative JSON files to define your environment. For more information, see [overview of Azure Resource Manager](../../azure-resource-manager/management/overview.md). You can use *copy* to specify the number of instances to create:
 
 ```json
 "copy": {

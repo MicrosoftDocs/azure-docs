@@ -38,7 +38,7 @@ If you plan to use the Azure PowerShell or Azure CLI examples in this article, b
 ## Overview
 
 Managed identities for Azure resources provides a [service principal object](../develop/developer-glossary.md#service-principal-object) 
-, which is [created upon enabling managed identities for Azure resources](overview.md#how-does-it-work) on the VM. The service principal can be given access to Azure resources, and used as an identity by script/command-line clients for sign in and resource access. Traditionally, in order to access secured resources under its own identity, a script client would need to:  
+, which is [created upon enabling managed identities for Azure resources](overview.md#how-does-the-managed-identities-for-azure-resources-work) on the VM. The service principal can be given access to Azure resources, and used as an identity by script/command-line clients for sign in and resource access. Traditionally, in order to access secured resources under its own identity, a script client would need to:  
 
    - be registered and consented with Azure AD as a confidential/web client application
    - sign in under its service principal, using the app's credentials (which are likely embedded in the script)

@@ -1,11 +1,7 @@
 ---
 title: How to enable Azure Monitor for containers | Microsoft Docs
-description: This article describes how you enable and configure Azure Monitor for containers so you can understand how your container is performing and what performance-related issues have been identified.
-ms.service:  azure-monitor
-ms.subservice: 
+description: This article describes how you enable and configure Azure Monitor for containers so you can understand how your container is performing and what performance-related issues have been identified. 
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
 ms.date: 11/18/2019
 
 ---

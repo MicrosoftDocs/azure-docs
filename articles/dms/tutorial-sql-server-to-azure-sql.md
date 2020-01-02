@@ -1,5 +1,6 @@
 ---
-title: "Tutorial: Use Azure Database Migration Service to migrate offline from SQL Server to a single/pooled database in Azure SQL Database | Microsoft Docs"
+title: "Tutorial: Migrate SQL Server  offline to a SQL single database"
+titleSuffix: Azure Database Migration Service
 description: Learn to migrate from SQL Server on-premises to a single database or pooled database in Azure SQL Database offline by using Azure Database Migration Service.
 services: dms
 author: HJToland3
@@ -8,7 +9,7 @@ manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
-ms.custom: mvc, tutorial
+ms.custom: "seo-lt-2019"
 ms.topic: article
 ms.date: 11/05/2019
 ---
@@ -142,7 +143,7 @@ To migrate the **AdventureWorks2012** schema to a single database or pooled data
 
 ## Register the Microsoft.DataMigration resource provider
 
-1. Sign in to the Azure portal, select **All services**, and then select **Subscriptions**.
+1. Sign in to the Azure portal. Search for and select **Subscriptions**.
 
    ![Show portal subscriptions](media/tutorial-sql-server-to-azure-sql/portal-select-subscription1.png)
 
@@ -150,13 +151,13 @@ To migrate the **AdventureWorks2012** schema to a single database or pooled data
 
     ![Show resource providers](media/tutorial-sql-server-to-azure-sql/portal-select-resource-provider.png)
 
-3. Search for migration, and then to the right of **Microsoft.DataMigration**, select **Register**.
+3. Search for migration, and then select **Register** for **Microsoft.DataMigration**.
 
     ![Register resource provider](media/tutorial-sql-server-to-azure-sql/portal-register-resource-provider.png)    
 
 ## Create an instance
 
-1. In the Azure portal, select + **Create a resource**, search for Azure Database Migration Service, and then select **Azure Database Migration Service** from the drop-down list.
+1. In the Azure portal menu or on the **Home** page, select **Create a resource**. Search for and select **Azure Database Migration Service**.
 
     ![Azure Marketplace](media/tutorial-sql-server-to-azure-sql/portal-marketplace.png)
 
@@ -186,15 +187,16 @@ To migrate the **AdventureWorks2012** schema to a single database or pooled data
 
 After the service is created, locate it within the Azure portal, open it, and then create a new migration project.
 
-1. In the Azure portal, select **All services**, search for Azure Database Migration Service, and then select **Azure Database Migration Services**.
+1. In the Azure portal menu, select **All services**. Search for and select **Azure Database Migration Services**.
 
      ![Locate all instances of Azure Database Migration Service](media/tutorial-sql-server-to-azure-sql/dms-search.png)
 
-2. On the **Azure Database Migration Services** screen, search for the name of the Azure Database Migration Service instance that you created, and then select the instance.
+2. On the **Azure Database Migration Services** screen, select the Azure Database Migration Service instance that you created.
 
-    ![Locate your instance of Azure Database Migration Service](media/tutorial-sql-server-to-azure-sql/dms-instance-search.png)
+3. Select **New Migration Project**.
 
-3. Select + **New Migration Project**.
+     ![Locate your instance of Azure Database Migration Service](media/tutorial-sql-server-to-azure-sql/dms-instance-search.png)
+
 4. On the **New migration project** screen, specify a name for the project, in the **Source server type** text box, select **SQL Server**, in the **Target server type** text box, select **Azure SQL Database**, and then for **Choose type of activity**, select **Offline data migration**.
 
     ![Create Database Migration Service Project](media/tutorial-sql-server-to-azure-sql/dms-create-project2.png)

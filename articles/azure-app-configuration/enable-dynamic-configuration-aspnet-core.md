@@ -1,5 +1,6 @@
 ---
-title: Tutorial for using Azure App Configuration dynamic configuration in an ASP.NET Core app | Microsoft Docs
+title: "Tutorial: Use App Configuration dynamic configuration in ASP.NET Core"
+titleSuffix: Azure App Configuration
 description: In this tutorial, you learn how to dynamically update the configuration data for ASP.NET Core apps
 services: azure-app-configuration
 documentationcenter: ''

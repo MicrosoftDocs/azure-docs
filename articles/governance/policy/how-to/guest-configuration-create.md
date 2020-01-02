@@ -1,8 +1,8 @@
 ---
 title: How to create Guest Configuration policies
 description: Learn how to create an Azure Policy Guest Configuration policy for Windows or Linux VMs with Azure PowerShell.
-ms.date: 11/21/2019
-ms.topic: conceptual
+ms.date: 12/16/2019
+ms.topic: how-to
 ---
 # How to create Guest Configuration policies
 
@@ -27,6 +27,10 @@ To create a Guest Configuration policy, the resource module must be added. This 
 be used with locally installed PowerShell, with [Azure Cloud Shell](https://shell.azure.com), or
 with the
 [Azure PowerShell Core Docker image](https://hub.docker.com/r/azuresdk/azure-powershell-core).
+
+> [!NOTE]
+> While the **GuestConfiguration** module works in the above environments, the steps to compile a
+> DSC configuration must be completed in Windows PowerShell 5.1.
 
 ### Base requirements
 
@@ -131,7 +135,7 @@ The following example creates a configuration named **baseline**, imports the **
 resource module, and uses the `ChefInSpecResource` resource set the name of the InSpec definition to
 **linux-patch-baseline**:
 
-```azurepowershell-interactive
+```powershell
 # Define the DSC configuration and import GuestConfiguration
 Configuration baseline
 {
@@ -159,7 +163,7 @@ The following example creates a configuration named **AuditBitLocker**, imports 
 **GuestConfiguration** resource module, and uses the `Service` resource to audit for a running
 service:
 
-```azurepowershell-interactive
+```powershell
 # Define the DSC configuration and import GuestConfiguration
 Configuration AuditBitLocker
 {
@@ -385,7 +389,7 @@ For Linux policies, include the property **AttributesYmlContent** in your config
 overwrite the values accordingly. The Guest Configuration agent automatically creates the YaML file
 used by InSpec to store attributes. See the example below.
 
-```azurepowershell-interactive
+```powershell
 Configuration FirewalldEnabled {
 
     Import-DscResource -ModuleName 'GuestConfiguration'
@@ -537,7 +541,7 @@ sample. Once this tag is in place, the policy definition generated using the
 `New-GuestConfigurationPolicy` cmdlet enables the requirement through the Guest Configuration
 extension.
 
-## [PREVIEW] Troubleshooting Guest Configuration policy assignments
+## Troubleshooting Guest Configuration policy assignments (Preview)
 
 A tool is available in preview to assist in troubleshooting Azure Policy Guest Configuration
 assignments. The tool is in preview and has been published to the PowerShell Gallery as module name

@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Perform ETL operations using Azure Databricks'
-description: Learn how to extract data from Data Lake Storage Gen2 into Azure Databricks, transform the data, and then load the data into Azure SQL Data Warehouse. 
+title: 'Tutorial - Perform ETL operations using Azure Databricks'
+description: In this tutorial, learn how to extract data from Data Lake Storage Gen2 into Azure Databricks, transform the data, and then load the data into Azure SQL Data Warehouse. 
 author: mamccrea
 ms.author: mamccrea
 ms.reviewer: jasonh
@@ -99,7 +99,7 @@ In this section, you create an Azure Databricks service by using the Azure porta
     |---------|---------|
     |**Workspace name**     | Provide a name for your Databricks workspace.        |
     |**Subscription**     | From the drop-down, select your Azure subscription.        |
-    |**Resource group**     | Specify whether you want to create a new resource group or use an existing one. A resource group is a container that holds related resources for an Azure solution. For more information, see [Azure Resource Group overview](../azure-resource-manager/resource-group-overview.md). |
+    |**Resource group**     | Specify whether you want to create a new resource group or use an existing one. A resource group is a container that holds related resources for an Azure solution. For more information, see [Azure Resource Group overview](../azure-resource-manager/management/overview.md). |
     |**Location**     | Select **West US 2**.  For other available regions, see [Azure services available by region](https://azure.microsoft.com/regions/services/).      |
     |**Pricing Tier**     |  Select **Standard**.     |
 
