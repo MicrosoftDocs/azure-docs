@@ -1,5 +1,6 @@
 ---
-title: Authorize developer accounts by using Azure Active Directory B2C - Azure API Management | Microsoft Docs
+title: Authorize developer accounts by using Azure Active Directory B2C
+titleSuffix: Azure API Management
 description: Learn how to authorize users by using Azure Active Directory B2C in API Management.
 services: api-management
 documentationcenter: API Management
@@ -88,6 +89,9 @@ In the developer portal, sign-in with AAD B2C is possible with the **OAuth butto
 ![AAD buttons widget](./media/api-management-howto-aad/portal-oauth-widget.png)
 
 Although a new account will be automatically created whenever a new user signs in with AAD B2C, you may consider adding the same widget to the sign-up page.
+
+> [!IMPORTANT]
+> You need to [republish the portal](api-management-howto-developer-portal-customize.md#publish) for the AAD changes to take effect.
 
 ## Legacy developer portal - how to sign up with Azure AD B2C
 

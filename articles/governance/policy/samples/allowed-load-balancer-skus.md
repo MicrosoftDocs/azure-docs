@@ -1,6 +1,6 @@
 ---
 title: Sample - Allowed load balancer SKUs
-description: This sample policy definition requires that load balancers use an approved SKU.
+description: This sample policy definition requires that load balancers use an approved SKU defined in a parameter.
 ms.date: 01/23/2019
 ms.topic: sample
 ---

@@ -52,26 +52,32 @@
       items:
       - name: Azure portal
         href: ingest-data-event-hub.md
-      - name: python
+      - name: Python
         href: data-connection-event-hub-python.md
       - name: C#
         href: data-connection-event-hub-csharp.md
+      - name: Azure Resource Manager template
+        href: data-connection-event-hub-resource-manager.md
     - name: Event Grid
       items:
       - name: Azure portal
         href: ingest-data-event-grid.md
-      - name: python
+      - name: Python
         href: data-connection-event-grid-python.md
       - name: C#
         href: data-connection-event-grid-csharp.md
+      - name: Azure Resource Manager template
+        href: data-connection-event-grid-resource-manager.md
     - name: IoT Hub
       items:
       - name: Azure portal
         href: ingest-data-iot-hub.md
-      - name: python
+      - name: Python
         href: data-connection-iot-hub-python.md
       - name: C#
         href: data-connection-iot-hub-csharp.md
+      - name: Azure Resource Manager template
+        href: data-connection-iot-hub-resource-manager.md
     - name: One-click ingestion
       href: ingest-data-one-click.md
     - name: Streaming ingestion
@@ -95,9 +101,13 @@
     - name: Query data in Azure Data Lake
       href: data-lake-query-data.md  
     - name: Query data in Azure Monitor
-      href: query-monitor-data.md  
-    - name: Python
-      href: python-query-data.md
+      href: query-monitor-data.md
+    - name: Debug KQL inline Python
+      href: debug-inline-python.md
+    - name: using SDKs
+      items:  
+      - name: Python
+        href: python-query-data.md
     - name: Time Series Analysis and Machine Learning
       items:
       - name: Time series analysis
@@ -168,7 +178,7 @@
         href: dealing-with-duplicates.md
   - name: Deploy
     items:
-    - name: Deploy your cluster into your VNet
+    - name: Deploy your cluster to your virtual network
       href: vnet-deployment.md  
   - name: Monitor
     items:

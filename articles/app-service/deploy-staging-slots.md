@@ -1,20 +1,10 @@
 ---
-title: Set up staging environments for web apps in Azure App Service | Microsoft Docs 
-description: Learn how to use staged publishing for web apps in Azure App Service.
-services: app-service
-documentationcenter: ''
-author: cephalin
-writer: cephalin
-manager: jpconnoc
-editor: mollybos
+title: Set up staging environments
+description: Learn how to deploy apps to a non-production slot and autoswap into production. Increase the reliability and eliminate app downtime from deployments.
 
 ms.assetid: e224fc4f-800d-469a-8d6a-72bcde612450
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 09/19/2019
-ms.author: cephalin
 ms.custom: fasttrack-edit
 
 ---
@@ -38,7 +28,7 @@ To scale your app to a different tier, make sure that the target tier supports t
 ## Add a slot
 The app must be running in the **Standard**, **Premium**, or **Isolated** tier in order for you to enable multiple deployment slots.
 
-1. In the [Azure portal](https://portal.azure.com/), open your app's [resource page](../azure-resource-manager/manage-resources-portal.md#manage-resources).
+1. In the [Azure portal](https://portal.azure.com/), open your app's [resource page](../azure-resource-manager/management/manage-resources-portal.md#manage-resources).
 
 2. In the left pane, select **Deployment slots** > **Add Slot**.
    
@@ -247,7 +237,7 @@ After the setting is saved, the specified percentage of clients is randomly rout
 After a client is automatically routed to a specific slot, it's "pinned" to that slot for the life of that client session. On the client browser, you can see which slot your session is pinned to by looking at the `x-ms-routing-name` cookie in your HTTP headers. A request that's routed to the "staging" slot has the cookie `x-ms-routing-name=staging`. A request that's routed to the production slot has the cookie `x-ms-routing-name=self`.
 
    > [!NOTE]
-   > Next to the Azure Portal, you can also use the [`az webapp traffic-routing set`](/cli/azure/webapp/traffic-routing.md#az-webapp-traffic-routing-set) command in the Azure CLI to set the routing percentages from CI/CD tools like DevOps pipelines or other automation systems.
+   > Next to the Azure Portal, you can also use the [`az webapp traffic-routing set`](/cli/azure/webapp/traffic-routing#az-webapp-traffic-routing-set) command in the Azure CLI to set the routing percentages from CI/CD tools like DevOps pipelines or other automation systems.
    > 
 
 ### Route production traffic manually

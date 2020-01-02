@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/14/2019
+ms.date: 12/03/2019
 ms.author: mimart
 ms.reviewer: arvindh, japere
 

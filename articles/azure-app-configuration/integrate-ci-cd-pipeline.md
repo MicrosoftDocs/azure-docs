@@ -1,5 +1,6 @@
 ---
-title: Tutorial for integrating with a continuous integration and delivery pipeline by using Azure App Configuration | Microsoft Docs
+title: "Tutorial: Integrate with a continuous integration and delivery pipeline"
+titleSuffix: Azure App Configuration
 description: In this tutorial, you learn how to generate a configuration file by using data in Azure App Configuration during continuous integration and delivery
 services: azure-app-configuration
 documentationcenter: ''

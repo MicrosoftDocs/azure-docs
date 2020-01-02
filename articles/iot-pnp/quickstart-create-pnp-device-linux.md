@@ -3,7 +3,7 @@ title: Create an Azure IoT Plug and Play Preview device (Linux) | Microsoft Docs
 description: Use a device capability model to generate device code. Then run the device code and see the device connect to your IoT Hub.
 author: dominicbetts
 ms.author: dobett
-ms.date: 09/10/2019
+ms.date: 12/27/2019
 ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
@@ -13,6 +13,8 @@ ms.custom: mvc
 ---
 
 # Quickstart: Use a device capability model to create an IoT Plug and Play Preview device (Linux)
+
+[!INCLUDE [iot-pnp-quickstarts-1-selector.md](../../includes/iot-pnp-quickstarts-1-selector.md)]
 
 A _device capability model_ (DCM) describes the capabilities of an IoT Plug and Play device. A DCM is often associated with a product SKU. The capabilities defined in the DCM are organized into reusable interfaces. You can generate skeleton device code from a DCM. This quickstart shows you how to use VS Code on Ubuntu Linux to create an IoT Plug and Play device using a DCM.
 
@@ -52,44 +54,23 @@ You can find your _company model repository connection string_ in the [Azure Cer
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## Prepare an IoT hub
+[!INCLUDE [iot-pnp-prepare-iot-hub.md](../../includes/iot-pnp-prepare-iot-hub.md)]
 
-You also need an Azure IoT hub in your Azure subscription to complete this quickstart. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin. If you don't already have an IoT hub to use, follow the rest of this section to create one.
+## Prepare the development environment
 
-If you're using the Azure CLI locally, the `az` version should be **2.0.75** or later, the Azure Cloud Shell uses the latest version. Use the `az --version` command to check the version installed on your machine.
+In this quickstart, you use the [Vcpkg](https://github.com/microsoft/vcpkg) library manager to install the Azure IoT C device SDK in your development environment.
 
-Run the following command to add the Microsoft Azure IoT Extension for Azure CLI to your Cloud Shell instance:
+Open a shell. Execute the following command to install Vcpkg:
 
-```azurecli-interactive
-az extension add --name azure-cli-iot-ext
+```bash
+cd ~
+git clone https://github.com/microsoft/vcpkg
+cd vcpkg
+./bootstrap-vcpkg.sh
+./vcpkg install azure-iot-sdk-c[public-preview,use_prov_client]
 ```
 
-The steps in this quickstart require version **0.8.5** or later of the extension. Use the `az extension list` command to check the version you have installed, and the `az extension update` command to update if necessary.
-
-If don't have an IoT hub, create one using the following commands, replacing `<YourIoTHubName>` with a unique name of your choice. If you're running these commands locally, first sign in to your Azure subscription using `az login`. If you're running these commands in the Azure cloud shell, you're signed in automatically:
-
-  ```azurecli-interactive
-  az group create --name pnpquickstarts_rg --location centralus
-  az iot hub create --name <YourIoTHubName> \
-    --resource-group pnpquickstarts_rg --sku S1
-  ```
-
-The previous commands create a resource group called `pnpquickstarts_rg` and an IoT hub in the central US region.
-
-> [!IMPORTANT]
-> During public preview, IoT Plug and Play features are only available on IoT hubs created in the **Central US**, **North Europe**, and **Japan East** regions.
-
-Run the following command to create a device identity in your IoT hub. Replace the **YourIoTHubName** and **YourDeviceID** placeholders with your own _IoT Hub name_ and a _device ID_ of your choice.
-
-```azurecli-interactive
-az iot hub device-identity create --hub-name <YourIoTHubName> --device-id <YourDeviceID>
-```
-
-Run the following commands to get the _device connection string_ for the device you just registered (note for use later).
-
-```azurecli-interactive
-az iot hub device-identity show-connection-string --hub-name <YourIoTHubName> --device-id <YourDevice> --output table
-```
+You should expect this operation to take several minutes to complete.
 
 ## Author your model
 
@@ -135,7 +116,7 @@ Now that you have a DCM and its associated interfaces, you can generate the devi
 
 1. Choose **CMake Project on Linux** as your project template.
 
-1. Choose **Via Source Code** as the way to include the device SDK.
+1. Choose **Via Vcpkg** as the way to include the device SDK.
 
 1. A new folder called **sample_device** is created in the same location as the DCM file, and in it are the generated device code stub files. VS Code opens a new window to display these.
     ![Device code](media/quickstart-create-pnp-device-linux/device-code.png)
@@ -143,13 +124,6 @@ Now that you have a DCM and its associated interfaces, you can generate the devi
 ## Build and run the code
 
 You use the device SDK source code to build the generated device code stub. The application you build simulates a device that connects to an IoT hub. The application sends telemetry and properties and receives commands.
-
-1. Run the following commands to download the device SDK source code:
-
-    ```bash
-    cd ~/pnp_app/sample_device
-    git clone https://github.com/Azure/azure-iot-sdk-c --recursive -b public-preview
-    ```
 
 1. Create a **CMake** build folder for the **sample_device** application:
 
@@ -159,10 +133,10 @@ You use the device SDK source code to build the generated device code stub. The 
     cd cmake
     ```
 
-1. Run CMake to build your app with the SDK:
+1. Run CMake to build your app with the SDK. The following command assumes you installed **vcpkg** in your home folder:
 
     ```bash
-    cmake .. -Duse_prov_client=ON -Dhsm_type_symm_key:BOOL=ON -Dskip_samples:BOOL=ON
+    cmake .. -DCMAKE_TOOLCHAIN_FILE=~/vcpkg/scripts/buildsystems/vcpkg.cmake -Duse_prov_client=ON -Dhsm_type_symm_key:BOOL=ON
     cmake --build .
     ```
 
@@ -204,14 +178,15 @@ After the device client sample starts, you can check that it's working with the 
 Use the following command to view the telemetry the sample device is sending. You may need to wait a minute or two before you see any telemetry in the output:
 
 ```azurecli-interactive
-az iot dt monitor-events --hub-name <YourIoTHubNme> --device-id <YourDevice>
+az iot dt monitor-events --hub-name <YourIoTHubNme> --device-id <YourDeviceID>
 ```
 
 Use the following command to view all the properties sent by the device:
 
 ```azurecli-interactive
-az iot dt list-properties --device-id <YourDevice> --hub-name <YourIoTHubNme> --source private --repo-login "<YourCompanyModelRepositoryConnectionString>"
+az iot dt list-properties --device-id <YourDeviceID> --hub-name <YourIoTHubNme> --source private --repo-login "<YourCompanyModelRepositoryConnectionString>"
 ```
+
 [!INCLUDE [iot-pnp-clean-resources.md](../../includes/iot-pnp-clean-resources.md)]
 
 ## Next steps

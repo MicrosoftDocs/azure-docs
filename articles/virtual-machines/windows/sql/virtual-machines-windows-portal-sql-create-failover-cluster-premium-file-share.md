@@ -40,9 +40,7 @@ You should also have a general understanding of these technologies:
 - [Azure resource groups](../../../azure-resource-manager/manage-resource-groups-portal.md)
 
 > [!IMPORTANT]
-> At this time, SQL Server failover cluster instances on Azure virtual machines are supported only with the [lightweight](virtual-machines-windows-sql-register-with-resource-provider.md#register-with-sql-vm-resource-provider) management mode of the [SQL Server IaaS Agent Extension](virtual-machines-windows-sql-server-agent-extension.md). To change from full extension mode to lightweight mode, delete the **SQL Virtual Machine** resource for the corresponding VMs and then register them with the SQL VM resource provider in [lightweight](virtual-machines-windows-sql-register-with-resource-provider.md#register-with-sql-vm-resource-provider) mode. When you delete the **SQL Virtual Machine** resource by using the Azure portal, clear the check box next to the correct virtual machine.
->
-> The full extension supports features like automated backup, patching, and advanced portal management. These features won't work for SQL Server VMs after the agent is reinstalled in [lightweight](virtual-machines-windows-sql-register-with-resource-provider.md#register-with-sql-vm-resource-provider) management mode.
+> At this time, SQL Server failover cluster instances on Azure virtual machines are only supported with the [lightweight management mode](virtual-machines-windows-sql-register-with-resource-provider.md#management-modes) of the [SQL Server IaaS Agent Extension](virtual-machines-windows-sql-server-agent-extension.md). To change from full extension mode to lightweight, delete the **SQL Virtual Machine** resource for the corresponding VMs and then register them with the SQL VM resource provider in lightweight mode. When deleting the **SQL Virtual Machine** resource using the Azure portal, **clear the checkbox next to the correct Virtual Machine**. The full extension supports features such as automated backup, patching, and advanced portal management. These features will not work for SQL VMs after the agent is reinstalled in lightweight management mode.
 
 Premium file shares provide IOPS and throughout capacities that will meet the needs of many workloads. For IO-intensive workloads, consider [SQL Server Failover Cluster Instances with Storage Spaces Direct](virtual-machines-windows-portal-sql-create-failover-cluster.md), based on managed premium disks or ultra disks.  
 
@@ -81,7 +79,6 @@ Before you complete the steps in this article, you should already have:
    - An IP address for each FCI.
 - DNS configured on the Azure network, pointing to the domain controllers.
 - A [premium file share](../../../storage/files/storage-how-to-create-premium-fileshare.md) based on the storage quota of your database for your data files.
-- A file share for backups that's different from the premium file share used for your data files. This file share can be either standard or premium.
 
 With these prerequisites in place, you can start building your failover cluster. The first step is to create the virtual machines.
 

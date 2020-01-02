@@ -1,6 +1,6 @@
 ---
 title: Understand resource locking
-description: Learn about the locking options to protect resources when assigning a blueprint.
+description: Learn about the locking options in Azure Blueprints to protect resources when assigning a blueprint.
 ms.date: 04/24/2019
 ms.topic: conceptual
 ---
@@ -8,8 +8,8 @@ ms.topic: conceptual
 
 The creation of consistent environments at scale is only truly valuable if there's a mechanism to
 maintain that consistency. This article explains how resource locking works in Azure Blueprints. To
-see an example of resource locking and application of _deny assignments_, see the [protecting new resources](../tutorials/protect-new-resources.md)
-tutorial.
+see an example of resource locking and application of _deny assignments_, see the
+[protecting new resources](../tutorials/protect-new-resources.md) tutorial.
 
 ## Locking modes and states
 
@@ -55,8 +55,8 @@ is left behind and would need to be deleted through normal means.
 ## How blueprint locks work
 
 An RBAC [deny assignments](../../../role-based-access-control/deny-assignments.md) deny action is
-applied to artifact resources during assignment of a blueprint if the assignment selected the
-**Read Only** or **Do Not Delete** option. The deny action is added by the managed identity of the
+applied to artifact resources during assignment of a blueprint if the assignment selected the **Read
+Only** or **Do Not Delete** option. The deny action is added by the managed identity of the
 blueprint assignment and can only be removed from the artifact resources by the same managed
 identity. This security measure enforces the locking mechanism and prevents removing the blueprint
 lock outside Blueprints.
@@ -80,10 +80,12 @@ of each mode are as follows:
 
 ## Exclude a principal from a deny assignment
 
-In some design or security scenarios, it may be necessary to exclude a principal from the [deny assignment](../../../role-based-access-control/deny-assignments.md)
-the blueprint assignment creates. This is done in REST API by adding up to five values to the
-**excludedPrincipals** array in the **locks** property when [creating the assignment](/rest/api/blueprints/assignments/createorupdate).
-This is an example of a request body that includes **excludedPrincipals**:
+In some design or security scenarios, it may be necessary to exclude a principal from the
+[deny assignment](../../../role-based-access-control/deny-assignments.md) the blueprint assignment
+creates. This is done in REST API by adding up to five values to the **excludedPrincipals** array in
+the **locks** property when
+[creating the assignment](/rest/api/blueprints/assignments/createorupdate). This is an example of a
+request body that includes **excludedPrincipals**:
 
 ```json
 {

@@ -65,7 +65,7 @@ Monitoring data from your subscription is now flowing into the storage account.
 
 ## Route resource data to the storage account
 
-Now we configure resource-level data (resource metrics and diagnostic logs) to be routed to the storage account by setting up **resource diagnostic settings**.
+Now we configure resource-level data (resource metrics and resource logs) to be routed to the storage account by setting up **resource diagnostic settings**.
 
 1. Click the **Monitor** button found on the left-hand navigation list, then on **Diagnostic Settings**. Here you see a list of all resources in your subscription that produce monitoring data through Azure Monitor. If you do not have any resources in this list, you can [create a logic app](../../logic-apps/quickstart-create-first-logic-app-workflow.md) before proceeding so that you have a resource that you can configure a diagnostic setting on.
 
@@ -157,7 +157,7 @@ If you have followed the preceding steps, data has begun flowing to your storage
 
 5. Navigate to the PT1H.json file by clicking into the containers for resource ID, date, and time. Click on the PT1H.json file and click **Download**. Each PT1H.json blob contains a JSON blob of events that occurred within the hour specified in the blob URL (for example, h=12). During the present hour, events are appended to the PT1H.json file as they occur. The minute value (m=00) is always 00, since log events are broken into individual blobs per hour.
 
-   You can now view the JSON event that was stored in the storage account. For resource diagnostic logs, the format for the blobs is:
+   You can now view the JSON event that was stored in the storage account. For resource resource logs, the format for the blobs is:
 
    insights-logs-{log category name}/resourceId=/{resource ID}/y={four-digit numeric year}/m={two-digit numeric month}/d={two-digit numeric day}/h={two-digit 24-hour clock hour}/m=00/PT1H.json
 

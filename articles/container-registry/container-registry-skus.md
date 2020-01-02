@@ -1,14 +1,8 @@
 ---
-title: Azure Container Registry SKUs
+title: Service tiers and SKUs
 description: Learn about the features and limits in the Basic, Standard, and Premium service tiers (SKUs) of Azure Container Registry.
-services: container-registry
-author: dlepow
-manager: gwallace
-
-ms.service: container-registry
 ms.topic: article
 ms.date: 11/05/2019
-ms.author: danlep
 ---
 
 # Azure Container Registry SKUs

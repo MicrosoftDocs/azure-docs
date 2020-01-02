@@ -42,15 +42,15 @@ This section walks you through preparing a project to work with the Azure Blob s
 
 ### Create the project
 
-Create a Java Core application named *blob-quickstart-v12*.
+Create a Java application named *blob-quickstart-v12*.
 
-1. In a console window (such as cmd, PowerShell, or Bash), use Maven to create a new console app with the name *blob-quickstart-v12*. Type the following **mvn** command all on a single line to create a simple "Hello world!" Java project. The command is displayed here on multiple lines for readability.
+1. In a console window (such as cmd, PowerShell, or Bash), use Maven to create a new console app with the name *blob-quickstart-v12*. Type the following **mvn** command to create a simple "Hello world!" Java project.
 
    ```console
-   mvn archetype:generate -DgroupId=com.blobs.quickstart
-                          -DartifactId=blob-quickstart-v12
-                          -DarchetypeArtifactId=maven-archetype-quickstart
-                          -DarchetypeVersion=1.4
+   mvn archetype:generate -DgroupId=com.blobs.quickstart \
+                          -DartifactId=blob-quickstart-v12 \
+                          -DarchetypeArtifactId=maven-archetype-quickstart \
+                          -DarchetypeVersion=1.4 \
                           -DinteractiveMode=false
    ```
 
@@ -144,44 +144,7 @@ public class App
 }
 ```
 
-### Copy your credentials from the Azure portal
-
-When the sample application makes a request to Azure Storage, it must be authorized. To authorize a request, add your storage account credentials to the application as a connection string. View your storage account credentials by following these steps:
-
-1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Locate your storage account.
-3. In the **Settings** section of the storage account overview, select **Access keys**. Here, you can view your account access keys and the complete connection string for each key.
-4. Find the **Connection string** value under **key1**, and select the **Copy** button to copy the connection string. You will add the connection string value to an environment variable in the next step.
-
-    ![Screenshot showing how to copy a connection string from the Azure portal](../../../includes/media/storage-copy-connection-string-portal/portal-connection-string.png)
-
-### Configure your storage connection string
-
-After you have copied your connection string, write it to a new environment variable on the local machine running the application. To set the environment variable, open a console window, and follow the instructions for your operating system. Replace `<yourconnectionstring>` with your actual connection string.
-
-#### Windows
-
-```cmd
-setx CONNECT_STR "<yourconnectionstring>"
-```
-
-After you add the environment variable in Windows, you must start a new instance of the command window.
-
-#### Linux
-
-```bash
-export CONNECT_STR="<yourconnectionstring>"
-```
-
-#### macOS
-
-```bash
-export CONNECT_STR="<yourconnectionstring>"
-```
-
-#### Restart programs
-
-After you add the environment variable, restart any running programs that will need to read the environment variable. For example, restart your development environment or editor before continuing.
+[!INCLUDE [storage-quickstart-credentials-include](../../../includes/storage-quickstart-credentials-include.md)]
 
 ## Object model
 
@@ -225,11 +188,11 @@ System.out.println("Azure Blob storage v12 - Java quickstart sample\n");
 
 // Retrieve the connection string for use with the application. The storage
 // connection string is stored in an environment variable on the machine
-// running the application called CONNECT_STR. If the environment variable
+// running the application called AZURE_STORAGE_CONNECTION_STRING. If the environment variable
 // is created after the application is launched in a console or with
 // Visual Studio, the shell or application needs to be closed and reloaded
 // to take the environment variable into account.
-String connectStr = System.getenv("CONNECT_STR");
+String connectStr = System.getenv("AZURE_STORAGE_CONNECTION_STRING");
 ```
 
 ### Create a container

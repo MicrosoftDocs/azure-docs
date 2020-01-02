@@ -1,11 +1,11 @@
 ---
-title: Read replicas in Azure Database for MySQL.
+title: Read replicas - Azure Database for MySQL.
 description: 'Learn about read replicas in Azure Database for MySQL: choosing regions, creating replicas, connecting to replicas, monitoring replication, and stopping replication.'
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 11/17/2019
+ms.date: 12/03/2019
 ---
 
 # Read replicas in Azure Database for MySQL
@@ -36,7 +36,9 @@ You can have a master server in any [Azure Database for MySQL region](https://az
 ### Universal replica regions
 You can create a read replica in any of the following regions, regardless of where your master server is located. The supported universal replica regions include:
 
-Australia East, Australia Southeast, Central US, East Asia, East US, East US 2, Japan East, Japan West, Korea Central, Korea South, North Central US, North Europe, South Central US, Southeast Asia, UK South, UK West, West Europe, West US, West US 2.
+Australia East, Australia Southeast, Central US, East Asia, East US, East US 2, Japan East, Japan West, Korea Central, Korea South, North Central US, North Europe, South Central US, Southeast Asia, UK South, UK West, West Europe, West US.
+
+*West US 2 is temporarily unavailable as a cross region replica location.
 
 
 ### Paired regions

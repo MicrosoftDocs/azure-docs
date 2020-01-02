@@ -63,7 +63,7 @@ Depending on the transaction option used, the publisher's software license fees 
 
 * Pay-as-you-go: Software license fees are presented as a per-hour, per-core (vCPU) pricing rate based on the Azure infrastructure used. This only applies to Virtual Machines and Azure Applications.
 
-* •	Subscription pricing: Software license fees are presented as a monthly or annual, recurring fee billed as a flat rate or per-seat. This only applies to SaaS Apps and Azure Applications - Managed Apps.
+* Subscription pricing: Software license fees are presented as a monthly or annual, recurring fee billed as a flat rate or per-seat. This only applies to SaaS Apps and Azure Applications - Managed Apps.
 
 * Free software trial: No charge for software licenses for 30-days or 90-days.
 
@@ -220,7 +220,7 @@ The transact requirements for different offer types are covered in this section.
 - A Microsoft account and financial information are required for the transact publishing option, regardless of the offer's pricing model.
 - Mandatory financial information includes payout account and tax profile.
 
-For more information on setting up these accounts, see [Manage Your Partner Center Account](https://docs.microsoft.com/azure/marketplace/partner-center-portal/manage-account#financial-details).
+For more information on setting up these accounts, see [Manage Your Partner Center Account](https://docs.microsoft.com/azure/marketplace/partner-center-portal/manage-account)).
 
 
 ### Requirements for specific offer types

@@ -1,22 +1,16 @@
 ---
-title: Add the query action in logic apps | Microsoft Docs
-description: Overview of the query action for performing actions like filter array.
-services: ''
-documentationcenter: ''
-author: jeffhollan
-manager: erikre
-editor: ''
-tags: connectors
-ms.assetid: 34e702c7-f9e5-4885-9266-fc7404adecfe
-ms.service: logic-apps
+title: Add the query action in logic apps
+description: Overview of the query action for performing actions like filter array
+services: logic-apps
+ms.suite: integration
+ms.reviewer: klam, logicappspm
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 07/20/2016
-ms.author: jehollan
-
+tags: connectors
 ---
+
 # Get started with the query action
+
 By using the query action, you can work with batches and arrays to accomplish workflows to:
 
 * Create a task for all high-priority records from a database.
@@ -25,6 +19,7 @@ By using the query action, you can work with batches and arrays to accomplish wo
 To get started using the query action in a logic app, see [Create a logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## Use the query action
+
 An action is an operation that is carried out by the workflow that is defined in a logic app. 
 [Learn more about actions](../connectors/apis-list.md).  
 

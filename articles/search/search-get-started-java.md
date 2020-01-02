@@ -1,11 +1,11 @@
 ---
 title: 'Quickstart: Create a search index in Java using REST APIs'
 titleSuffix: Azure Cognitive Search
-description: Explains how to create an index, load data, and run queries using Java and the Azure Cognitive Search REST APIs.
+description: In this Java quickstart, learn how to create an index, load data, and run queries using the Azure Cognitive Search REST APIs.
 
 manager: nitinme
-author: lisaleib
-ms.author: v-lilei
+author: HeidiSteen
+ms.author: heidist
 ms.devlang: java
 ms.service: cognitive-search
 ms.topic: quickstart
@@ -812,7 +812,7 @@ Now that you've loaded the hotels documents, you can create search queries to ac
 
     Look for a summary of each query and its results. The run should complete with BUILD SUCCESS message and a zero (0) exit code.
 
-## Clean up
+## Clean up resources
 
 When you're working in your own subscription, at the end of a project, it's a good idea to remove the resources that you no longer need. Resources left running can cost you money. You can delete resources individually or delete the resource group to delete the entire set of resources.
 
@@ -822,10 +822,7 @@ If you are using a free service, remember that you are limited to three indexes,
 
 ## Next steps
 
-In this Java quickstart, you worked through a series of tasks to create an index, load it with documents, and run queries. If you are comfortable with the basic concepts, we recommend the following articles for deeper learning.
+In this Java quickstart, you worked through a series of tasks to create an index, load it with documents, and run queries. If you are comfortable with the basic concepts, we recommend the following article that lists indexer operations in REST.
 
-+ [Index operations](/rest/api/searchservice/index-operations)
-
-+ [Document operations](/rest/api/searchservice/document-operations)
-
-+ [Indexer operations](/rest/api/searchservice/indexer-operations)
+> [!div class="nextstepaction"]
+> [Indexer operations](/rest/api/searchservice/indexer-operations)

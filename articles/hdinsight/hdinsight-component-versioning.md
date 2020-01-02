@@ -6,9 +6,9 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 11/13/2019
+ms.custom: hdinsightactive,hdiseo17may2017
+ms.date: 11/21/2019
 ---
 
 # What are the Apache Hadoop components and versions available with HDInsight?
@@ -19,7 +19,7 @@ Learn about the [Apache Hadoop](https://hadoop.apache.org/) ecosystem components
 
 Azure HDInsight supports multiple Hadoop cluster versions that can be deployed at any time. As of April 4, 2017, the default cluster version used by Azure HDInsight is 3.6.
 
-The component versions associated with HDInsight cluster versions are listed in the following table: 
+The component versions associated with HDInsight cluster versions are listed in the following table:
 
 > [!NOTE]  
 > The default version for the HDInsight service might change without notice. If you have a version dependency, specify the HDInsight version when you create your clusters with the .NET SDK with Azure PowerShell and Azure Classic CLI.
@@ -43,7 +43,7 @@ The component versions associated with HDInsight cluster versions are listed in 
 | Apache Livy            | 0.5           | 0.4, 0.4, 0.3               |
 | Apache Kafka           | 1.1.1, 2.1    | 1.1, 1.0 * (See Note below) |
 | Apache Ambari          | 2.7.0         | 2.6.0                       |
-| Apache Zeppelin        | 0.8.0         | 0.7.0                       |
+| Apache Zeppelin        | 0.8.0         | 0.7.3                       |
 | Mono                   | 4.2.1         | 4.2.1                       |
 
 > [!NOTE]
@@ -65,21 +65,21 @@ The following tables list the versions of HDInsight. The support expiration and 
 
 The following table lists the versions of HDInsight that are available in the Azure portal as well as other deployment methods like PowerShell and .NET SDK.
 
-| HDInsight version | VM OS | Release date | Support expiration date | Retirement date | High availability |  Availability in the Azure portal | 
+| HDInsight version | VM OS | Release date | Support expiration date | Retirement date | High availability |  Availability in the Azure portal |
 | --- | --- | --- | --- | --- | --- | --- |
 | HDInsight 4.0 |Ubuntu 16.0.4 LTS |September 24, 2018 | | |Yes |Yes |
-| HDInsight 3.6 |Ubuntu 16.0.4 LTS |April 4, 2017 | June 30, 2020 |December 31, 2020 |Yes |Yes |
+| HDInsight 3.6 |Ubuntu 16.0.4 LTS |April 4, 2017 | December 31, 2020 |December 31, 2020 |Yes |Yes |
 
+Spark 2.1, 2.2 & Kafka 1.0 support will expire on June 30th, 2020.
 
 > [!NOTE]  
 > After support for a version has expired, it might not be available through the Microsoft Azure portal. However, cluster versions continue to be available using the `Version` parameter in the Windows PowerShell [New-AzHDInsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster) command and the .NET SDK until the version retirement date.
->
 
 ### Retired versions
 
 The following table lists the versions of HDInsight that are **not** available in the Azure portal.
 
-| HDInsight version | HDP version | VM OS | Release date | Support expiration date | Retirement date | High availability |  Availability on the Azure portal | 
+| HDInsight version | HDP version | VM OS | Release date | Support expiration date | Retirement date | High availability |  Availability on the Azure portal |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | HDInsight 3.5 |HDP 2.5 |Ubuntu 16.0.4 LTS |September 30, 2016 |September 5, 2017 |June 28, 2018 |Yes |No |
 | HDInsight 3.4 |HDP 2.4 |Ubuntu 14.0.4 LTS |March 29, 2016 |December 29, 2016 |January 9, 2018 |Yes |No |
@@ -100,7 +100,7 @@ Enterprise Security is an optional package that you can add on your HDInsight cl
 
 - Integration with Active Directory for authentication.
 
-    In the past, you can only create HDInsight clusters with a local admin user and a local SSH user. The local admin user can access all the files, folders, tables, and columns.  With the Enterprise Security Package, you can enable role-based access control by integrating HDInsight clusters with your own Active Directory, which include on-premises Active Directory, Azure Active Directory Domain Services, or Active Directory on IaaS virtual machine. Domain administrator on the cluster can grant users to use their own corporate (domain) user-name and password to access the cluster. 
+    In the past, you can only create HDInsight clusters with a local admin user and a local SSH user. The local admin user can access all the files, folders, tables, and columns.  With the Enterprise Security Package, you can enable role-based access control by integrating HDInsight clusters with your own Active Directory, which include on-premises Active Directory, Azure Active Directory Domain Services, or Active Directory on IaaS virtual machine. Domain administrator on the cluster can grant users to use their own corporate (domain) user-name and password to access the cluster.
 
     For more information, see:
 
@@ -118,7 +118,7 @@ Enterprise Security is an optional package that you can add on your HDInsight cl
 
   - [Configure Apache Hive policies in Domain-joined HDInsight](./domain-joined/apache-domain-joined-run-hive.md)
 
-- View the audit logs to monitor accesses and the configured policies. 
+- View the audit logs to monitor accesses and the configured policies.
 
 ### Supported cluster types
 
@@ -136,15 +136,14 @@ The Enterprise Security Package supports using Azure Data Lake Storage as both t
 
 For information on pricing and SLA for the Enterprise Security Package, see [HDInsight pricing](https://azure.microsoft.com/pricing/details/hdinsight/).
 
-
 ## Service level agreement for HDInsight cluster versions
 
 The service level agreement (SLA) is defined in terms of a _support window_. The support window is the period of time that an HDInsight cluster version is supported by Microsoft Customer Service and Support. If the version has a _support expiration date_ that has passed, the HDInsight cluster is outside the support window. The support expiration date for a specified HDInsight version X (after a newer X+1 version is available) is calculated as the later of:  
 
-* Formula 1: Add 180 days to the date when the HDInsight cluster version X was released.
-* Formula 2: Add 90 days to the date when the HDInsight cluster version X+1 is made available in Azure portal.
+- Formula 1: Add 180 days to the date when the HDInsight cluster version X was released.
+- Formula 2: Add 90 days to the date when the HDInsight cluster version X+1 is made available in Azure portal.
 
-The _retirement date_ is the date after which the cluster version cannot be created on HDInsight. Starting July 31, 2017, you cannot resize an HDInsight cluster after its retirement date. 
+The _retirement date_ is the date after which the cluster version cannot be created on HDInsight. Starting July 31, 2017, you cannot resize an HDInsight cluster after its retirement date.
 
 > [!NOTE]  
 > HDInsight Windows clusters (including versions 2.1, 3.0, 3.1, 3.2 and 3.3) run on Azure Guest OS Family version 4, which uses the 64-bit version of Windows Server 2012 R2. Azure Guest OS Family version 4 supports the .NET Framework versions 4.0, 4.5, 4.5.1, and 4.5.2.
@@ -173,6 +172,7 @@ The section provides links to release notes for the Hortonworks Data Platform di
 For more information on which virtual machine SKUs to select for your cluster, see [Azure HDInsight cluster configuration details](hdinsight-supported-node-configuration.md).
 
 ## Next steps
+
 - [Cluster setup for Apache Hadoop, Spark, and more on HDInsight](hdinsight-hadoop-provision-linux-clusters.md)
 - [Work in Apache Hadoop on HDInsight from a Windows PC](hdinsight-hadoop-windows-tools.md)
 

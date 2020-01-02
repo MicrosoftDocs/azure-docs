@@ -1,5 +1,5 @@
 ---
-title: NIST SP 800-53 R4 blueprint sample - Deploy steps
+title: Deploy NIST SP 800-53 R4 blueprint sample
 description: Deploy steps for the NIST SP 800-53 R4 blueprint sample including blueprint artifact parameter details.
 ms.date: 11/18/2019
 ms.topic: sample

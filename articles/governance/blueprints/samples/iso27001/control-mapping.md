@@ -1,5 +1,5 @@
 ---
-title: ISO 27001 blueprint sample - Control mapping
+title: ISO 27001 blueprint sample controls
 description: Control mapping of the ISO 27001 blueprint sample. Each control is mapped to one or more Azure Policies that assist with assessment.
 ms.date: 07/22/2019
 ms.topic: sample

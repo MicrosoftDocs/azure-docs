@@ -88,7 +88,7 @@ If your device is under control of Intune or any other MDM solution, retire the 
 
 ### System-managed devices
 
-Don't delete system-managed devices. These are generally devices such as auto-pilot. Once deleted, these devices can't be reprovisioned. The new `get-msoldevice` cmdlet excludes system-managed devices by default. 
+Don't delete system-managed devices. These are generally devices such as Autopilot. Once deleted, these devices can't be reprovisioned. The new `get-msoldevice` cmdlet excludes system-managed devices by default. 
 
 ### Hybrid Azure AD joined devices
 
@@ -124,7 +124,7 @@ Disable or delete Azure AD registered devices in the Azure AD.
 
 ## Clean up stale devices in the Azure portal  
 
-While you can cleanup stale devices in the Azure portal, it is more efficient, to handle this process using a PowerShell script. Use the latest PowerShell V1 module to use the timestamp filter and to filter out system-managed devices such as auto-pilot. At this point, using PowerShell V2 is not recommended.
+While you can cleanup stale devices in the Azure portal, it is more efficient, to handle this process using a PowerShell script. Use the latest PowerShell V1 module to use the timestamp filter and to filter out system-managed devices such as Autopilot. At this point, using PowerShell V2 is not recommended.
 
 A typical routine consists of the following steps:
 

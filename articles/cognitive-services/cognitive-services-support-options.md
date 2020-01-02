@@ -7,7 +7,7 @@ author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 11/21/2019
+ms.date: 11/22/2019
 ms.author: dapine
 ---
 
@@ -58,7 +58,7 @@ If you can't find an answer to your problem via search, submit a new question to
     <img alt='UserVoice' src='https://docs.microsoft.com/media/logos/logo-uservoice.svg'>
 </div>
 
-To request new features, post them on UserVoice. Share your ideas for making Cognitive Services and the accompanying APIs work better for the applications you develop. Use our [growing Knowledge Base](https://cognitive.uservoice.com/knowledgebase) to find answers to common questions:
+To request new features, post them on UserVoice. Share your ideas for making Cognitive Services and the accompanying APIs work better for the applications you develop:
 
 | Service                       | Cognitive Services UserVoice URL |
 |-------------------------------|---------------|
@@ -111,7 +111,7 @@ You might find the answer you need in the documentation, the samples, or answers
 
  - https://stackoverflow.com/questions/tagged/azure-cognitive-services
 
-### Scoped Search
+### Scoped search
 
 For faster results, scope your search to relevant sites such as Stack Overflow, Microsoft docs, or GitHub code samples. Use the `site:` query notation in your [favorite search engine](https://bing.com):
 
@@ -174,3 +174,8 @@ Detail the Cognitive Services offering that you're attempting to use, and provid
 </div>
 
 Reddit is community driven web content rating and discussion website, offering the latest details of [Azure Cognitive Services](https://www.reddit.com/r/AZURE/search/?q=Cognitive%20Services&restrict_sr=1). Registered members can submit content and others can vote on it - organically enabling the most relevant content will rise to the top.
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [What are Azure Cognitive Services?](welcome.md)

@@ -1,14 +1,8 @@
 ---
-title: Lock an image in Azure Container Registry 
+title: Lock images
 description: Set attributes for a container image or repository so it can't be deleted or overwritten in an Azure container registry.
-services: container-registry
-author: dlepow
-manager: gwallace
-
-ms.service: container-registry
 ms.topic: article
 ms.date: 09/30/2019
-ms.author: danlep
 ---
 
 # Lock a container image in an Azure container registry
@@ -24,7 +18,11 @@ This article requires that you run the Azure CLI in Azure Cloud Shell or locally
 
 By default, a tagged image in Azure Container Registry is *mutable*, so with appropriate permissions you can repeatedly update and push an image with the same tag to a registry. Container images can also be [deleted](container-registry-delete.md) as needed. This behavior is useful when you develop images and need to maintain a size for your registry.
 
-However, when you deploy a container image to production, you might need an *immutable* container image. An immutable image is one that you can't accidentally delete or overwrite. Use the [az acr repository update][az-acr-repository-update] command to set repository attributes so you can:
+However, when you deploy a container image to production, you might need an *immutable* container image. An immutable image is one that you can't accidentally delete or overwrite.
+
+See [Recommendations for tagging and versioning container images](container-registry-image-tag-version.md) for strategies to tag and version images in your registry.
+
+Use the [az acr repository update][az-acr-repository-update] command to set repository attributes so you can:
 
 * Lock an image version, or an entire repository
 
@@ -32,7 +30,7 @@ However, when you deploy a container image to production, you might need an *imm
 
 * Prevent read (pull) operations on an image version, or an entire repository
 
-See the following sections for examples.
+See the following sections for examples. 
 
 ## Lock an image or repository 
 
