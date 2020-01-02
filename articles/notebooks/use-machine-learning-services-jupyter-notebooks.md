@@ -1,13 +1,15 @@
 ---
-title: Use Azure Machine Learning in Azure Notebooks
-description: An overview of the sample notebooks for Azure Machine Learning that you can use with Azure Notebooks.
+title: Use Azure Machine Learning in Azure Notebooks Preview
+description: An overview of the sample notebooks for Azure Machine Learning that you can use with Azure Notebooks Preview.
 ms.topic: how-to
 ms.date: 12/04/2018
 ---
 
-# Use Azure Machine Learning in a notebook
+# Use Azure Machine Learning in Azure Notebooks Preview
 
 Azure Notebooks comes pre-configured with the necessary environment to work with [Azure Machine Learning](/azure/machine-learning/service/). You can easily clone a sample project into your Notebooks account to explore a variety of Machine Learning scenarios.
+
+[!INCLUDE [notebooks-status](..\..\includes\notebooks-status.md)]
 
 ## Clone the sample into your account
 
