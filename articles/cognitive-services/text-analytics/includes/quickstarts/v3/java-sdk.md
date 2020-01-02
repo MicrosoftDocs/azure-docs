@@ -30,7 +30,7 @@ ms.author: tasharm
 
 [!INCLUDE [text-analytics-resource-creation](resource-creation.md)]
 
-### Create a new maven project in eclipse
+Create a new Maven project
 
 Using the eclipse IDE, create a new maven project.
 
