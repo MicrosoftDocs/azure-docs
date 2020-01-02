@@ -237,8 +237,14 @@ The output of this command is similar to the following JSON:
 }
 ```
 
+
 > [!IMPORTANT]
 > Copy the value of the `id` entry, as it is used in the next section.
+
+To check out a more comprehensive template for the JSON file that describe a dataset, use the following command:
+```azurecli-interactive
+az ml dataset register --show-template
+```
 
 ## Reference the dataset
 
