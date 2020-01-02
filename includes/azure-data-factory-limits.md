@@ -84,4 +84,4 @@ Azure Data Factory is a multitenant service that has the following default limit
 | Retry timeout value |1 second |1 second |
 
 #### Web service call limits
-Azure Resource Manager has limits for API calls. You can make API calls at a rate within the [Azure Resource Manager API limits](../articles/azure-resource-manager/management/azure-resource-manager/management/azure-resource-manager/management/azure-subscription-service-limits.md#resource-group-limits).
+Azure Resource Manager has limits for API calls. You can make API calls at a rate within the [Azure Resource Manager API limits](../articles/azure-resource-manager/management/azure-subscription-service-limits.md#resource-group-limits).
