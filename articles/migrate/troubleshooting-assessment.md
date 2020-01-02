@@ -66,7 +66,7 @@ We have an on-premises VM with four cores and eight GB of memory, with 50% CPU u
 
 -  If the assessment is **As on-premises**, an Azure VM SKU with 4 cores and 8 GB of memory is recommended.
 - If the assessment is performance-based, based on effective CPU and memory utilization (50% of 4 cores * 1.3 = 2.6 cores and 50% of 8-GB memory * 1.3 = 5.3-GB memory), the cheapest VM SKU of four cores (nearest supported core count) and eight GB of memory (nearest supported memory size) is recommended.
-- [Learn more](concepts-assessment-calculation.md#sizing) about assessment sizing.
+- [Learn more](concepts-assessment-calculation.md#sizing-recommendations) about assessment sizing.
 
 ## Azure disk SKUs bigger than on-premises
 
@@ -106,8 +106,6 @@ For Windows VMs:
 1. In the Control Panel, start MMA.
 2. In the **Microsoft Monitoring Agent properties** > **Azure Log Analytics (OMS)**, make sure that the **Status** for the workspace is green.
 3. If the status isn't green, try removing the workspace and adding it again to MMA.
-
-      ![MMA Properties dialog box](./media/troubleshooting-general/mma-status.png)
 
 For Linux VMs, make sure that the installation commands for MMA and the dependency agent succeeded.
 
