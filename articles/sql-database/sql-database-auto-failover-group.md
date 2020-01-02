@@ -264,7 +264,7 @@ The DNS update of the read-write listener will happen immediately after the fail
   
 ### Changing secondary region of the failover group
 
-Let’s assume that instance A is the primary instance, instance B is the existing secondary instance, and instance C is the new secondary instance in the third region.  To make the transition, follow these steps:
+Let's assume that instance A is the primary instance, instance B is the existing secondary instance, and instance C is the new secondary instance in the third region.  To make the transition, follow these steps:
 
 1.	Create instance C with same size as A and in the same DNS zone. 
 2.	Delete the failover group between instances A and B. At this point the logins will be failing because the SQL aliases for the failover group listeners have been deleted and the gateway will not recognize the failover group name. The secondary databases will be disconnected from the primaries and will become read-write databases. 
@@ -276,12 +276,12 @@ Let’s assume that instance A is the primary instance, instance B is the existi
 
 ### Changing primary region of the failover group
 
-Let’s assume instance A is the primary instance, instance B is the existing secondary instance, and instance C is the new primary instance in the third region.  To make the transition, follow these steps:
+Let's assume instance A is the primary instance, instance B is the existing secondary instance, and instance C is the new primary instance in the third region.  To make the transition, follow these steps:
 
 1.	Create instance C with same size as B and in the same DNS zone. 
-2.	Connect to instance B and call planned failover to switch the primary instance to B. Instance A will become the new secondary instance automatically.
+2.	Connect to instance B and manually failover to switch the primary instance to B. Instance A will become the new secondary instance automatically.
 3.	Delete the failover group between instances A and B. At this point the logins will be failing because the SQL aliases for the failover group listeners have been deleted and the gateway will not recognize the failover group name. The secondary databases will be disconnected from the primaries and will become read-write databases. 
-4.	Create a failover group with the same name between instance A and C. Follow the instructions in this tutorial <link>. This is a size-of-data operation and will complete when all databases from instance A are seeded and synchronized.
+4.	Create a failover group with the same name between instance A and C. Follow the instructions in the [failover group with managed instance tutorial](sql-database-managed-instance-failover-group-tutorial.md). This is a size-of-data operation and will complete when all databases from instance A are seeded and synchronized.
 5.	Delete instance A if not needed to avoid unnecessary charges.
 
 > [!NOTE] 
