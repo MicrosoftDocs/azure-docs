@@ -470,7 +470,7 @@
         "articles/cognitive-services/bing-local-business-search/**/*.md": "aahi",
         "articles/cognitive-services/Bing-News-Search/**/*.md": "aahi",
         "articles/cognitive-services/Bing-Spell-Check/**/*.md": "aahi",
-        "articles/cognitive-services/Bing-Video-Search/**/*.md": "aahih",
+        "articles/cognitive-services/Bing-Video-Search/**/*.md": "aahi",
         "articles/cognitive-services/bing-visual-search/**/*.md": "aahi",
         "articles/cognitive-services/Bing-Web-Search/**/*.md": "aahi",
         "articles/cognitive-services/Computer-vision/**/*.md": "pafarley",
