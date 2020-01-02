@@ -46,10 +46,13 @@ To view (and change) the policies for a lab, follow these steps:
     ![Autoshutdown](./media/devtest-lab-set-lab-policy/auto-shutdown.png)
 6. Select **On** to enable this policy, and **Off** to disable it.
 7. If you enable this policy, specify the time (and time zone) to shut down all VMs in the current lab.
-8. Specify **Yes** or **No** for the option to send a notification 15 minutes prior to the specified autoshutdown time. If you choose **Yes**, enter a webhook URL endpoint or email address specifying where you want the notification to be posted or sent. The user receives notification and is given the option to delay the shutdown. For more information, see the [Notifications](#notifications) section. 
+8. Specify **Yes** or **No** for the option to send a notification 30 minutes prior to the specified autoshutdown time. If you choose **Yes**, enter a webhook URL endpoint or email address specifying where you want the notification to be posted or sent. The user receives notification and is given the option to delay the shutdown. For more information, see the [Notifications](#notifications) section. 
 9. Select **Save**.
 
     By default, once enabled, this policy applies to all VMs in the current lab. To remove this setting from a specific VM, open the VM's management pane and change its **Autoshutdown** setting.
+    
+[!NOTE]
+If you update the autoshutdown schedule for your lab or a specific lab virtual machine within 30 mins of the current scheduled time, the updated shutdown time will apply towards the next day's schedule. 
 
 ### User sets a schedule and can opt out
 If you set your lab to this policy, the lab users can override or opt out of the lab schedule. This option grants lab users full control over auto shutdown schedule of their VMs. Lab users see no change in their VM auto shutdown schedule page.
@@ -67,7 +70,7 @@ If you set your lab to this policy, lab users can't override or opt out of the l
 ![Auto shut down policy option - 3](./media/devtest-lab-set-lab-policy/auto-shutdown-policy-option-3.png)
 
 ## Notifications
-Once autoshutdown set up by the lab owner, notifications will be sent to the lab users 15 minutes before the autoshutdown triggered if any of their VMs will be affected. This option gives lab users a chance to save their work before the shutdown. The notification also provides links for each VM for the following actions:
+Once autoshutdown set up by the lab owner, notifications will be sent to the lab users 30 minutes before the autoshutdown triggered if any of their VMs will be affected. This option gives lab users a chance to save their work before the shutdown. The notification also provides links for each VM for the following actions:
 
 - Skip the autoshutdown for this time
 - Snooze the autoshutdown for an hour or 2 hours, so that they can keep working on the VM.
