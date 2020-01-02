@@ -32,7 +32,7 @@ Azure Cosmos DB Graph engine closely follows [Apache TinkerPop](https://tinkerpo
 
 * ***GraphSONv3*** serializer isn't currently supported. Use `GraphSONv2` Serializer, Reader and Writer classes in the connection configuration.
 
-* **Lambda expressions and functions** aren't currently supported. This includes the `.map{<expression>}`, the `.by{<expression>}` and the `.filter{<expression>}` functions. Learn more at [A Note on Lambdas](http://tinkerpop.apache.org/docs/current/reference/#a-note-on-lambdas) and how to re-write them using Gremlin steps.
+* **Lambda expressions and functions** aren't currently supported. This includes the `.map{<expression>}`, the `.by{<expression>}` and the `.filter{<expression>}` functions. To learn more, see [A Note on Lambdas](http://tinkerpop.apache.org/docs/current/reference/#a-note-on-lambdas) article and how to rewrite them using Gremlin steps.
 
 * ***Transactions*** aren't supported because of distributed nature of the system.  Configure appropriate consistency model on Gremlin account to "read your own writes" and use optimistic concurrency to resolve conflicting writes.
 
