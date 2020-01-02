@@ -7,10 +7,10 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: data-science-vm
 
-author: gvashishtha
-ms.author: gopalv
+author: lobrien
+ms.author: laobri
 ms.topic: conceptual
-ms.date: 10/1/2019
+ms.date: 12/12/2019
 ---
 
 # Deep learning and AI frameworks for the Azure Data Science VM
@@ -77,7 +77,7 @@ Deep learning frameworks on the DSVM are listed below.
 | ------------- | ------------- |
 | Version(s) supported | 2.5.1 |
 | Supported DSVM editions      | Windows and Linux   |
-| How is it configured / installed on the DSVM?  | CNTK is installed in Python 3.6 on [Windows 2016](dsvm-languages.md#python-windows-server-2016-edition) and in Python 3.5 on [Linux](./dsvm-languages.md#python-linux-edition)) |
+| How is it configured / installed on the DSVM?  | CNTK is installed in Python 3.6 on [Windows 2016](dsvm-tools-languages.md#python-windows-server-2016-edition) and in Python 3.5 on [Linux](./dsvm-tools-languages.md#python-linux-edition)) |
 | How to run it      | Terminal: Activate the correct environment and run Python. <br/>Jupyter: Connect to [Jupyter](provision-vm.md) or [JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-ubuntu-data-science-virtual-machine), and then open the CNTK directory for samples. |
 
 ## [MXNet](https://mxnet.apache.org/)
@@ -85,7 +85,7 @@ Deep learning frameworks on the DSVM are listed below.
 | ------------- | ------------- |
 | Version(s) supported | 1.3.0 |
 | Supported DSVM editions      | Windows and Linux   |
-| How is it configured / installed on the DSVM?  | MXNet is installed in `C:\dsvm\tools\mxnet` on Windows and `/dsvm/tools/mxnet` on Ubuntu. Python bindings are installed in Python 3.6 on [Windows 2016](dsvm-languages.md#python-windows-server-2016-edition) and in Python 3.5 on [Linux](./dsvm-languages.md#python-linux-edition)) R bindings are also included in the Ubuntu DSVM. |
+| How is it configured / installed on the DSVM?  | MXNet is installed in `C:\dsvm\tools\mxnet` on Windows and `/dsvm/tools/mxnet` on Ubuntu. Python bindings are installed in Python 3.6 on [Windows 2016](dsvm-tools-languages.md#python-windows-server-2016-edition) and in Python 3.5 on [Linux](./dsvm-tools-languages.md#python-linux-edition)) R bindings are also included in the Ubuntu DSVM. |
 | How to run it      | Terminal: Activate the correct conda environment, then run `import mxnet`. <br/>Jupyter: Connect to [Jupyter](provision-vm.md#access-the-dsvm) or [JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-ubuntu-data-science-virtual-machine), and then open the `mxnet` directory for samples. |
 
 ## [MXNet Model Server](https://github.com/awslabs/mxnet-model-server#quick-start)
@@ -94,7 +94,7 @@ Deep learning frameworks on the DSVM are listed below.
 | ------------- | ------------- |
 | Version(s) supported | 1.0.1 |
 | Supported DSVM editions      | Windows and Linux   |
-| How is it configured / installed on the DSVM?  | MXNet Model Server is installed in Python 3.6 on [Windows 2016](dsvm-languages.md#python-windows-server-2016-edition) and in Python 3.5 on [Linux](./dsvm-languages.md#python-linux-edition)) |
+| How is it configured / installed on the DSVM?  | MXNet Model Server is installed in Python 3.6 on [Windows 2016](dsvm-tools-languages.md#python-windows-server-2016-edition) and in Python 3.5 on [Linux](./dsvm-tools-languages.md#python-linux-edition)) |
 | How to run it      | Terminal: Run `sudo systemctl stop jupyterhub` to stop the JupyterHub service first, because both listen on the same port. Then activate the correct conda environment and run `mxnet-model-server --start --models squeezenet=https://s3.amazonaws.com/model-server/model_archive_1.0/squeezenet_v1.1.mar` |
 
 ## [NVidia System Management Interface (nvidia-smi)](https://developer.nvidia.com/nvidia-system-management-interface)
@@ -113,7 +113,7 @@ Deep learning frameworks on the DSVM are listed below.
 | ------------- | ------------- |
 | Version(s) supported | 1.2.0 |
 | Supported DSVM editions      | Linux |
-| How is it configured / installed on the DSVM?  | Installed in [Python 3.5](dsvm-languages.md#python-linux-edition). Sample Jupyter notebooks are included, and samples are in /dsvm/samples/pytorch. |
+| How is it configured / installed on the DSVM?  | Installed in [Python 3.5](dsvm-tools-languages.md#python-linux-edition). Sample Jupyter notebooks are included, and samples are in /dsvm/samples/pytorch. |
 | How to run it      | Terminal: Activate the correct environment, and then run Python.<br/>* [JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-ubuntu-data-science-virtual-machine): Connect, and then open the PyTorch directory for samples.  |
 
 ## [TensorFlow](https://www.tensorflow.org/)
@@ -122,7 +122,7 @@ Deep learning frameworks on the DSVM are listed below.
 | ------------- | ------------- |
 | Version(s) supported | 1.13 |
 | Supported DSVM editions      | Windows, Linux |
-| How is it configured / installed on the DSVM?  | Installed in Python 3.5 on [Linux](dsvm-languages.md#python-linux-edition) and Python 3.6 on [Windows 2016](dsvm-languages.md#python-windows-server-2016-edition) |
+| How is it configured / installed on the DSVM?  | Installed in Python 3.5 on [Linux](dsvm-tools-languages.md#python-linux-edition) and Python 3.6 on [Windows 2016](dsvm-tools-languages.md#python-windows-server-2016-edition) |
 | How to run it      | Terminal: Activate the correct environment, and then run Python. <br/> * Jupyter: Connect to [Jupyter](provision-vm.md) or [JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-ubuntu-data-science-virtual-machine), and then open the TensorFlow directory for samples.   |
 
 ## [TensorFlow Serving](https://www.tensorflow.org/serving/)
