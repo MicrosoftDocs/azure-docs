@@ -6,7 +6,7 @@
     href: overview.md
   - name: About FHIR Server for Azure
     href: overview-open-source-server.md
-  -name: About SMART on FHIR
+  - name: About SMART on FHIR
     href: about-smart.md
 - name: Quickstarts
   expanded: true
