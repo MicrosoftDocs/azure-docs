@@ -15,7 +15,7 @@ This tutorial includes the following steps:
 
 > [!div class="checklist"]
 > * Author user interface definition file for creating a managed application instance
-> * Author deployment template with Azure Custom Provider, Azure Storage Account and Azure Function
+> * Author deployment template with [Azure Custom Provider](../custom-providers/overview.md), Azure Storage Account and Azure Function
 > * Author view definition artifact with custom actions and resources
 > * Deploy a managed application definition
 > * Deploy an instance of managed application
@@ -348,3 +348,5 @@ If you have questions about Azure Managed Applications, try asking on [Stack Ove
 ## Next steps
 
 To publish your managed application to the Azure Marketplace, see [Azure managed applications in the Marketplace](publish-marketplace-app.md).
+
+Learn more about [Azure Custom Providers](../custom-providers/overview.md).

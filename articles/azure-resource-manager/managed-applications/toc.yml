@@ -31,6 +31,10 @@
   items:
   - name: View definition artifact
     href: concepts-view-definition.md
+  - name: Azure Policy for associations
+    href: concepts-built-in-policy.md
+  - name: Role definition artifact
+    href: concepts-custom-role-definition.md
 - name: How-to guides
   items:
   - name: Publishers
@@ -49,6 +53,8 @@
       href: key-vault-access.md
     - name: Deploy with Managed Identity
       href: publish-managed-identity.md
+    - name: Deploy with notifications
+      href: publish-notifications.md
   - name: Consumers
     items:
     - name: Monitor managed application
@@ -90,6 +96,8 @@
         href: microsoft-common-passwordbox.md
       - name: Section
         href: microsoft-common-section.md
+      - name: TagsByResource
+        href: microsoft-common-tagsbyresource.md
       - name: TextBlock
         href: microsoft-common-textblock.md
       - name: TextBox
