@@ -20,12 +20,13 @@ This topic presents the Azure Security Center alerts available when monitoring t
 * [Azure management layer (Azure Resource Manager) (Preview)](#management-layer)
 * [Azure Key Vault](#azure-keyvault)
 
->[!NOTE]
->The following analytics are applicable to all resource types. They use the telemetry that Security Center provides by tapping into Azure internal feeds.
-
 ## Azure network layer<a name="network-layer"></a>
 
 Security Center network-layer analytics are based on sample [IPFIX data](https://en.wikipedia.org/wiki/IP_Flow_Information_Export), which are packet headers collected by Azure core routers. Based on this data feed, Security Center machine learning models identify and flag malicious traffic activities. To enrich IP addresses, Security Center makes use of the Microsoft Threat Intelligence database.
+
+### Supported scenarios for network alerts
+
+You'll get alerts for suspicious network activity if your virtual machine has a public IP address, or is on a load balancer with a public IP address. If your VM or load balancer don't have a public IP address, Security Center will not generate network security alerts.
 
 > [!div class="mx-tableFixed"]
 

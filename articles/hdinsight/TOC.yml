@@ -17,6 +17,8 @@
         href: ./hdinsight-administer-use-dotnet-sdk.md
       - name: Manage HDInsight clusters - Powershell
         href: ./hdinsight-administer-use-powershell.md
+      - name: Create clusters with Runbooks
+        href: ./manage-clusters-runbooks.md
       - name: Build an ETL pipeline
         href: ./hdinsight-sales-insights-etl.md      
   - name: Samples
@@ -549,6 +551,8 @@
       href: ./hdinsight-apache-kafka-spark-structured-streaming.md
   - name: Concepts
     items:
+    - name: Migrate Kafka workloads to 4.0
+      href: ./kafka/migrate-versions.md
     - name: Storage and scalability
       href: ./kafka/apache-kafka-scalability.md
     - name: High availability of data
@@ -561,6 +565,8 @@
     items:
     - name: Develop
       items:
+      - name: Use Kafka REST proxy
+        href: ./kafka/rest-proxy.md
       - name: Enable auto topic creation
         href: ./kafka/apache-kafka-auto-create-topics.md
       - name: Use Apache Kafka with IoT Hub
@@ -723,6 +729,8 @@
         href: ./interactive-query/interactive-query-troubleshoot-query-performance.md
       - name: Slow reducer
         href: ./interactive-query/interactive-query-troubleshoot-slow-reducer.md
+      - name: Apache Hive gateway timeout
+        href: ./interactive-query/troubleshoot-gateway-timeout.md
       - name: Apache Hive View time out
         href: ./interactive-query/interactive-query-troubleshoot-view-time-out.md
       - name: Permission error creating table
@@ -851,14 +859,14 @@
       href: ./hdinsight-service-tags.md
   - name: How to
     items:
+    - name: Use ID Broker for credential management
+      href: ./domain-joined/identity-broker.md    
     - name: Create ESP clusters and sync with on-premises
       href: ./domain-joined/apache-domain-joined-create-configure-enterprise-security-cluster.md
     - name: Create VNETs for HDInsight
       href: ./hdinsight-create-virtual-network.md
     - name: Connect HDInsight with on-premises network
       href: ./connect-on-premises-network.md
-    - name: Configure enterprise security in HDInsight
-      href: ./domain-joined/apache-domain-joined-configure.md
     - name: Configure ESP clusters using Azure AD DS
       href: ./domain-joined/apache-domain-joined-configure-using-azure-adds.md
     - name: Synchronize Azure AD users to an HDInsight cluster

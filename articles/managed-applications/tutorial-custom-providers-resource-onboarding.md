@@ -284,5 +284,5 @@ If you want, you can go back to the logic app **Run history** and see that anoth
 
 ## Getting help
 
-If you have questions about Azure Custom Providers, try asking them on [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-custom-providers). A similar question might have already been answered, so check first before posting. Add the tag `azure-custom-providers` to get a fast response!
+If you have questions about Azure Custom Providers, try asking them on [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-custom-providers). A similar question might have already been answered, so check first before posting. Add the tag `azure-custom-providers` to get a fast response!
 

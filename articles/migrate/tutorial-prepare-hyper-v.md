@@ -57,7 +57,7 @@ Check you have permissions to create an Azure Migrate project.
 
 ### Assign permissions to register the appliance
 
-You can assign permissions for Azure Migrate to create the Azure AD apps creating during appliance registration, using one of the following methods:
+You can assign permissions for Azure Migrate to create the Azure AD apps created during appliance registration, using one of the following methods:
 
 - A tenant/global admin can grant permissions to users in the tenant, to create and register Azure AD apps.
 - A tenant/global admin can assign the Application Developer role (that has the permissions) to the account.
