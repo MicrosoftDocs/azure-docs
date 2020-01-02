@@ -1,6 +1,6 @@
 ---
-title: Azure partner and customer usage attribution | Azure Marketplace
-description: Overview of how to track customer usage for Azure Marketplace solutions
+title: Azure customer usage attribution | Azure Marketplace
+description: Overview of how to tag resources created by Azure Marketplace solutions for enhanced usage tracking
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: yijenj
 ms.service: marketplace
@@ -12,9 +12,7 @@ ms.author: pabutler
 
 # Azure partner customer usage attribution
 
-As a software partner for Azure, your solutions require Azure components or they need to be deployed directly on the Azure infrastructure. Customers who deploy a partner solution and provision their own Azure resources can find it difficult to gain visibility into the status of the deployment, and get optics into the impact on Azure growth. When you add a higher level of visibility, you align with the Microsoft sales teams and gain credit for Microsoft partner programs.
-
-Microsoft now offers a method to help partners better track Azure usage of customer deployments of their software on Azure. The new method uses Azure Resource Manager to orchestrate the deployment of Azure services.
+Microsoft offers an additional method to help marketplace publishers better "tag" the Azure resources deployed by your offer(s), and therefore track the Azure usage of customer deployments of your software. This new method leverages Azure Resource Manager, which orchestrates the deployment of Azure services. When you adopt the tracking capability described below, Microsoft will have greater visibility into the Azure consumption your offers generate in customer subscriptions, and you will more closely align with Microsoft sales teams and gain credit to qualify for Microsoft partner programs.
 
 As a Microsoft partner, you can associate Azure usage with any Azure resources that you provision on a customer's behalf. You can form the association via the Azure Marketplace, the Quickstart repository, private GitHub repositories, and one-on-one customer engagement. Customer usage attribution supports three deployment options:
 
