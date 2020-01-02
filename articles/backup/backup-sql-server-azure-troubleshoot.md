@@ -157,7 +157,7 @@ Check for one or more of the following symptoms before you trigger the re-regist
   * Shutdown of the VM, so backups can’t take place.
   * Network issues.
 
-   !["Not reachable" status in re-registering a VM](./media/backup-azure-sql-database/re-register-vm.png/)
+   ![re-registering VM](./media/backup-azure-sql-database/re-register-vm.png)
 
 
 
