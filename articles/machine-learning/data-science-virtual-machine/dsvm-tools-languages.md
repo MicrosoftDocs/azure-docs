@@ -7,10 +7,10 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: data-science-vm
 
-author: gvashishtha
-ms.author: gopalv
+author: lobrien
+ms.author: laobri
 ms.topic: conceptual
-ms.date: 09/27/2019
+ms.date: 12/12/2019
 
 
 ---
@@ -23,14 +23,14 @@ The Data Science Virtual Machine (DSVM) comes with several pre-built languages a
 
 |    |           |
 | ------------- | ------------- |
-| Language versions supported | Python 2.7 and 3.6 |
+| Language versions supported | Python 2.7 and 3.7 |
 | Supported DSVM editions      | Windows Server 2016     |
-| How is it configured / installed on the DSVM?  | Two global `conda` environments are created: <br /> * The `root` environment located at `/anaconda/` is Python 3.6. <br/> * The `python2` environment located at `/anaconda/envs/python2` is Python 2.7.       |
+| How is it configured / installed on the DSVM?  | Two global `conda` environments are created: <br /> * The `root` environment located at `/anaconda/` is Python 3.7. <br/> * The `python2` environment located at `/anaconda/envs/python2` is Python 2.7.       |
 | Links to samples      | Sample Jupyter notebooks for Python are included.     |
 | Related tools on the DSVM      | PySpark, R, Julia.      |
 
 > [!NOTE]
-> Builds of Windows Server 2016 that were created before March 2018 contain Python 3.5 and Python 2.7. Python 2.7 is the conda **root** environment, and **py35** is the Python 3.5 environment.
+> Builds of Windows Server 2016 that were created before March 2018 contain Python 3.5 and Python 2.7. Python 2.7 is the conda **root** environment, and **py37** is the Python 3.7 environment.
 
 ### How to use and run it    
 
@@ -43,7 +43,7 @@ The Data Science Virtual Machine (DSVM) comes with several pre-built languages a
     activate python2
     python --version
     
-    # To run Python 3.6
+    # To run Python 3.7
     activate 
     python --version 
     ```
@@ -57,7 +57,7 @@ The Data Science Virtual Machine (DSVM) comes with several pre-built languages a
 
 * Use in Jupyter:
 
-  Open Jupyter and select **New** to create a new notebook. You can set the kernel type as _Python [Conda Root]_ for Python 3.6 and _Python [Conda env:python2]_ for Python 2.7.
+  Open Jupyter and select **New** to create a new notebook. You can set the kernel type as _Python [Conda Root]_ for Python 3.7 and _Python [Conda env:python2]_ for Python 2.7.
 
 * Install Python packages:
 

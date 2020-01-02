@@ -7,10 +7,10 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: data-science-vm
 
-author: gvashishtha
-ms.author: gopalv
+author: lobrien
+ms.author: laobri
 ms.topic: conceptual
-ms.date: 10/3/2019
+ms.date: 12/12/2019
 
 ---
 
@@ -20,23 +20,23 @@ With a Data Science Virtual Machine (DSVM), you can build your analytics against
 
 The following data platform tools are supported on the DSVM.
 
-## SQL Server 2017 Developer Edition
+## SQL Server Developer Edition
 
 | | |
 | ------------- | ------------- |
 | What is it?   | A local relational database instance      |
-| Supported DSVM editions      | Windows      |
+| Supported DSVM editions      | Windows: SQL Server 2017, Windows 2019 (Preview) : SQL Server 2019      |
 | Typical uses      | Rapid development locally with smaller dataset <br/> Run In-database R   |
 | Links to samples      |    A small sample of a New York City dataset is loaded into the SQL database:<br/>  `nyctaxi` <br/> Jupyter sample showing Microsoft Machine Learning Server and in-database analytics can be found at:<br/> `~notebooks/SQL_R_Services_End_to_End_Tutorial.ipynb`  |
 | Related tools on the DSVM       | SQL Server Management Studio <br/> ODBC/JDBC drivers<br/> pyodbc, RODBC<br />Apache Drill      |
 
 > [!NOTE]
-> SQL Server 2016 Developer Edition can be used only for development and test purposes. You need a license or one of the SQL Server VMs to run it in production.
+> SQL Server Developer Edition can be used only for development and test purposes. You need a license or one of the SQL Server VMs to run it in production.
 
 
 ### Setup
 
-The database server is already preconfigured and the Windows services related to SQL Server (like `SQL Server (MSSQLSERVER)`) are set to run automatically. The only manual step involves enabling In-database analytics by using Microsoft Machine Learning Server. You can do this by running the following command as a one-time action in SQL Server Management Studio (SSMS). Run this command after you log in as the machine administrator, open a new query in SSMS, and make sure the selected database is `master`:
+The database server is already preconfigured and the Windows services related to SQL Server (like `SQL Server (MSSQLSERVER)`) are set to run automatically. The only manual step involves enabling In-database analytics by using Microsoft Machine Learning Server. You can enable analytics by running the following command as a one-time action in SQL Server Management Studio (SSMS). Run this command after you log in as the machine administrator, open a new query in SSMS, and make sure the selected database is `master`:
 
         CREATE LOGIN [%COMPUTERNAME%\SQLRUserGroup] FROM WINDOWS 
 
@@ -60,7 +60,7 @@ Also, the DSVM comes with ODBC and JDBC drivers to talk to SQL Server, Azure SQL
 | | |
 | ------------- | ------------- |
 | What is it?   | A standalone (single node in-process) instance of the popular Apache Spark platform; a system for fast, large-scale data processing and machine-learning     |
-| Supported DSVM editions      | Linux <br /> Windows (Experimental)      |
+| Supported DSVM editions      | Linux     |
 | Typical uses      | * Rapid development of Spark/PySpark applications locally with a smaller dataset and later deployment on large Spark clusters such as Azure HDInsight<br/> * Test Microsoft Machine Learning Server Spark context <br />* Use SparkML or Microsoft's open-source [MMLSpark](https://github.com/Azure/mmlspark) library to build ML applications |
 | Links to samples      |    Jupyter sample: <br />&nbsp;&nbsp;* ~/notebooks/SparkML/pySpark <br /> &nbsp;&nbsp;* ~/notebooks/MMLSpark <br /> Microsoft Machine Learning Server (Spark context): /dsvm/samples/MRS/MRSSparkContextSample.R |
 | Related tools on the DSVM       | PySpark, Scala<br/>Jupyter (Spark/PySpark Kernels)<br/>Microsoft Machine Learning Server, SparkR, Sparklyr <br />Apache Drill      |
@@ -69,11 +69,6 @@ Also, the DSVM comes with ODBC and JDBC drivers to talk to SQL Server, Azure SQL
 You can submit Spark jobs on the command line by running the `spark-submit` or `pyspark` command. You can also create a Jupyter notebook by creating a new notebook with the Spark kernel.
 
 You can use Spark from R by using libraries like SparkR, Sparklyr, and Microsoft Machine Learning Server, which are available on the DSVM. See pointers to samples in the preceding table.
-
-> [!NOTE]
-> Running Microsoft Machine Learning Server in Spark context of DSVM is supported on the Ubuntu Linux DSVM edition only.
-
-
 
 ### Setup
 Before running in a Spark context in Microsoft Machine Learning Server on Ubuntu Linux DSVM edition, you must complete a one-time setup step to enable a local single node Hadoop HDFS and Yarn instance. By default, Hadoop services are installed but disabled on the DSVM. To enable them, run the following commands as root the first time:
@@ -94,7 +89,6 @@ A sample that demonstrates how to develop and test MRS in a remote Spark context
 ### How is it configured and installed on the DSVM? 
 |Platform|Install Location ($SPARK_HOME)|
 |:--------|:--------|
-|Windows | c:\dsvm\tools\spark-X.X.X-bin-hadoopX.X|
 |Linux   | /dsvm/tools/spark-X.X.X-bin-hadoopX.X|
 
 
