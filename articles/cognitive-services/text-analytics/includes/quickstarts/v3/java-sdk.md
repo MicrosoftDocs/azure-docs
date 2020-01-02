@@ -13,15 +13,14 @@ ms.author: tasharm
 
 <a name="HOLTop"></a>
 
-[Reference documentation](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/textanalytics?view=azure-dotnet-preview) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Language.TextAnalytics) | [Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.TextAnalytics/) | [Samples](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples)
+[Reference documentation]() | [Library source code](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/textanalytics/azure-ai-textanalytics/src/samples/java/com/azure/ai/textanalytics) | [Package (Maven)]() | [Samples](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/textanalytics/azure-ai-textanalytics/src/samples#azure-text-analytics-client-library-for-java-samples)
 
 > [!NOTE]
-> The code in this article uses the synchronous methods of the Text Analytics java SDK for simplicity. For production scenarios, we recommend using the batched asynchronous methods for performance and scalability. For example, calling [SentimentBatchAsync()](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.textanalyticsclientextensions.sentimentbatchasync?view=azure-dotnet&viewFallbackFrom=azure-dotnet-preview) instead of [Sentiment()](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.textanalyticsclientextensions.sentiment?view=azure-dotnet). For secured use of credentials we recommend using [Azure Key Vault](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-overview) to store all access keys and the use of [AAD authentication](https://docs.microsoft.com/en-us/azure/cognitive-services/authentication#authenticate-with-azure-active-directory) for all role based access controls. **Remember to never store access keys in code.**
+> The code in this article uses the synchronous methods of the Text Analytics java SDK for simplicity. For production scenarios, we recommend using the batched asynchronous methods for performance and scalability. For example, calling [SentimentBatchAsync()](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/textanalytics/azure-ai-textanalytics/src/samples/java/com/azure/ai/textanalytics/batch/AnalyzeSentimentBatchDocuments.java) instead of [Sentiment()](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/textanalytics/azure-ai-textanalytics/src/samples/java/com/azure/ai/textanalytics/AnalyzeSentiment.java). For secured use of credentials we recommend using [Azure Key Vault](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-overview) to store all access keys and the use of [AAD authentication](https://docs.microsoft.com/en-us/azure/cognitive-services/authentication#authenticate-with-azure-active-directory) for all role based access controls. **Remember to never store access keys in code.**
 
 ## Prerequisites
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/)
-* Eclipse IDE - [Install from here](https://www.eclipse.org/downloads/)
 * Java Development Kit (JDK) with version 8 or above
 
 ## Setting up
@@ -32,30 +31,18 @@ ms.author: tasharm
 
 Create a new Maven project
 
-Using the eclipse IDE, create a new maven project.
-
 Add the following dependencies to your pom file.
 
-xml
+```xml
 <dependencies>
  	<dependency>
         <groupId>com.azure</groupId>
         <artifactId>azure-ai-textanalytics</artifactId>
         <version>1.0.0-beta.1</version>
     </dependency>
-    <dependency>
-        <groupId>com.azure</groupId>
-        <artifactId>azure-core</artifactId>
-       	<version>1.1.0</version>
-    </dependency>
-    <dependency>
-        <groupId>com.azure</groupId>
-        <artifactId>azure-core-http-netty</artifactId>
-        <version>1.1.0</version>
-    </dependency>
 </dependencies>
 ```
-Create a new java file with under `\src\main\java`. 
+Create a new java file with under `\src\main\java`.
 
 Open the java file and add the following `import` statements:
 
@@ -103,7 +90,7 @@ public static void main(String[] args) {
 
 ## Object model
 
-The Text Analytics client is a [TextAnalyticsClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.textanalyticsclient?view=azure-dotnet) object that authenticates to Azure using your key, and provides functions to accept text as single strings or as a batch. You can send text to the API synchronously, or asynchronously. The response object will contain the analysis information for each document you send. 
+The Text Analytics client is a [TextAnalyticsClient]() object that authenticates to Azure using your key, and provides functions to accept text as single strings or as a batch. You can send text to the API synchronously, or asynchronously. The response object will contain the analysis information for each document you send. 
 
 ## Code examples
 
@@ -117,7 +104,7 @@ The Text Analytics client is a [TextAnalyticsClient](https://docs.microsoft.com/
 
 ## Authenticate the client
 
-Create a method to instantiate the [TextAnalyticsClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.textanalyticsclient?view=azure-dotnet) object with your `SUBSCRIPTION_KEY` AND `ENDPOINT` created above.
+Create a method to instantiate the [TextAnalyticsClient]() object with your `SUBSCRIPTION_KEY` AND `ENDPOINT` created above.
 
 ```java
 static TextAnalyticsClient authenticateClient(String subscriptionKey, String endpoint) {
@@ -132,7 +119,7 @@ In your program's `main()` method, call the authentication method to instantiate
 
 ## Sentiment analysis
 
-Create a new function called `sentimentAnalysisExample()` that takes the client that you created earlier, and call its [analyzeSentiment()](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.textanalyticsclientextensions.sentiment?view=azure-dotnet) function. The returned [AnalyzeSentimentResult](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.models.sentimentresult?view=azure-dotnet) object will contain [documentSentiment](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.models.sentimentresult?view=azure-dotnet) and [sentenceSentiments](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.models.sentimentresult?view=azure-dotnet) if successful, and an `errorMessage` if not. 
+Create a new function called `sentimentAnalysisExample()` that takes the client that you created earlier, and call its [analyzeSentiment()]() function. The returned [AnalyzeSentimentResult]() object will contain [documentSentiment]() and [sentenceSentiments]() if successful, and an `errorMessage` if not. 
 
 ```java
 static void sentimentAnalysisExample(TextAnalyticsClient client)
@@ -170,7 +157,7 @@ Recognized Sentence TextSentiment: neutral, Positive Score: 0.21, Neutral Score:
 ```
 ## Language detection
 
-Create a new function called `detectLanguageExample()` that takes the client that you created earlier, and call its [detectLanguage()](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.textanalyticsclientextensions.sentiment?view=azure-dotnet) function. The returned [DetectLanguageResult](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.models.sentimentresult?view=azure-dotnet) object will contains a primary language detected, a list of other languages detected, and an `errorMessage` if not.
+Create a new function called `detectLanguageExample()` that takes the client that you created earlier, and call its [detectLanguage()]() function. The returned [DetectLanguageResult]() object will contains a primary language detected, a list of other languages detected, and an `errorMessage` if not.
 
 > [!Tip]
 > In some cases it may be hard to disambiguate languages based on the input. You can use the `countryHint` parameter to specify a 2-letter country code. By default the API is using the "US" as the default countryHint, to remove this behavior you can reset this parameter by setting this value to empty string `countryHint = ""`. To set a different default, set the `TextAnalyticsClientOptions.DefaultCountryHint` property and pass it during the client's initialization.
@@ -197,7 +184,7 @@ Language: French, ISO 6391 Name: fr, Score: 1.0.
 ```
 ## Entity recognition
 
-Create a new function called `recognizeEntitiesExample()` that takes the client that you created earlier, and call its [recognizeEntities()](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.textanalyticsclientextensions.sentiment?view=azure-dotnet) function. The returned [RecognizeEntitiesResult](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.models.sentimentresult?view=azure-dotnet) object will contains a list of [NamedEntity](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.models.sentimentresult?view=azure-dotnet), and an `errorMessage` if not. 
+Create a new function called `recognizeEntitiesExample()` that takes the client that you created earlier, and call its [recognizeEntities()]() function. The returned [RecognizeEntitiesResult]() object will contains a list of [NamedEntity](), and an `errorMessage` if not. 
 
 ```java
 static void recognizeEntitiesExample(TextAnalyticsClient client)
@@ -229,7 +216,7 @@ Recognized NamedEntity Text: last week, Type: DateTime, Subtype: DateRange, Offs
 
 ## Entity recognition - PII
 
-Create a new function called `recognizePIIEntitiesExample()` that takes the client that you created earlier, and call its [recognizePiiEntities()](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.textanalyticsclientextensions.sentiment?view=azure-dotnet) function. The returned [RecognizePiiEntitiesResult](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.models.sentimentresult?view=azure-dotnet) object will contains a list of [NamedEntity](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.models.sentimentresult?view=azure-dotnet), and an `errorMessage` if not. 
+Create a new function called `recognizePIIEntitiesExample()` that takes the client that you created earlier, and call its [recognizePiiEntities()]() function. The returned [RecognizePiiEntitiesResult]() object will contains a list of [NamedEntity](), and an `errorMessage` if not. 
 
 ```java
 static void recognizePIIEntitiesExample(TextAnalyticsClient client)
@@ -259,7 +246,7 @@ Personally Identifiable Information Entities Text: 123-12-1234, Type: U.S. Socia
 ```
 ## Entity linking
 
-Create a new function called `recognizeLinkedEntitiesExample()` that takes the client that you created earlier, and call its [recognizeLinkedEntities()](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.textanalyticsclientextensions.sentiment?view=azure-dotnet) function. The returned [RecognizeLinkedEntitiesResult](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.models.sentimentresult?view=azure-dotnet) object will contains a list of [LinkedEntity](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.models.sentimentresult?view=azure-dotnet), and an `errorMessage` if not. Since linked entities are uniquely identified, occurrences of the same entity are grouped under a `LinkedEntity` object as a list of `LinkedEntityMatch` objects.
+Create a new function called `recognizeLinkedEntitiesExample()` that takes the client that you created earlier, and call its [recognizeLinkedEntities()]() function. The returned [RecognizeLinkedEntitiesResult]() object will contains a list of [LinkedEntity](), and an `errorMessage` if not. Since linked entities are uniquely identified, occurrences of the same entity are grouped under a `LinkedEntity` object as a list of `LinkedEntityMatch` objects.
 
 ```java
 static void recognizeLinkedEntitiesExample(TextAnalyticsClient client)
@@ -320,7 +307,7 @@ Text: BASIC, Offset: 5, Length: 89, Score: 0.05.
 ```
 ## Key phrase extraction
 
-Create a new function called `extractKeyPhrasesExample()` that takes the client that you created earlier, and call its [extractKeyPhrases()](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.textanalyticsclientextensions.sentiment?view=azure-dotnet) function. The returned [ExtractKeyPhraseResult](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.models.sentimentresult?view=azure-dotnet) object will contains a list of key phrases if successful, and an `errorMessage` if not. 
+Create a new function called `extractKeyPhrasesExample()` that takes the client that you created earlier, and call its [extractKeyPhrases()]() function. The returned [ExtractKeyPhraseResult]() object will contains a list of key phrases if successful, and an `errorMessage` if not. 
 
 ```java
 static void extractKeyPhrasesExample(TextAnalyticsClient client)
