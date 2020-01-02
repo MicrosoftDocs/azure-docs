@@ -379,8 +379,8 @@ Yes. If your configuration matches following scenario, you won't see allowed tra
 ### How do I use Application Gateway V2 with only private frontend IP address?
 
 Application Gateway V2 currently does not support only private IP mode. It supports the following combinations
-1. Private IP and Public IP
-2. Public IP only
+* Private IP and Public IP
+* Public IP only
 
 But if you'd like to use Application Gateway V2 with only private IP, you can follow the process below:
 1. Create an Application Gateway with both public and private frontend IP address
