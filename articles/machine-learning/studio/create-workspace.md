@@ -1,6 +1,6 @@
 ---
-title: Create a Machine Learning Studio (classic) workspace
-titleSuffix: Azure Machine Learning Studio (classic)
+title: Create a workspace
+titleSuffix: ML Studio (classic) - Azure
 description: To use Azure Machine Learning Studio (classic), you need to have a Machine Learning Studio (classic) workspace. This workspace contains the tools you need to create, manage, and publish experiments.
 services: machine-learning
 ms.service: machine-learning
@@ -43,7 +43,7 @@ To use Azure Machine Learning Studio (classic), you need to have a Machine Learn
 > Machine Learning Studio (classic) relies on an Azure storage account that you provide to save intermediary data when it executes the workflow. After the workspace is created, if the storage account is deleted, or if the access keys are changed, the workspace will stop functioning and all experiments in that workspace will fail.
 If you accidentally delete the storage account, recreate the storage account with the same name in the same region as the deleted storage account and resync the access key. If you changed storage account access keys, resync the access keys in the workspace by using the Azure portal.
 
-Once the workspace is deployed, you can open it in classic version of Machine Learning Studio.
+Once the workspace is deployed, you can open it in Machine Learning Studio (classic).
 
 1. Browse to Machine Learning Studio (classic) at [https://studio.azureml.net/](https://studio.azureml.net/).
 
@@ -72,7 +72,7 @@ Once a Machine Learning Studio (classic) workspace is created, you can invite us
 
 ### To share a Studio (classic) workspace
 
-1. Sign in to classic version of Machine Learning Studio at [https://studio.azureml.net/Home](https://studio.azureml.net/Home)
+1. Sign in to Machine Learning Studio (classic) at [https://studio.azureml.net/Home](https://studio.azureml.net/Home)
 
 2. In the left panel, click **SETTINGS**
 

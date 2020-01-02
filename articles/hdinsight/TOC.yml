@@ -17,6 +17,8 @@
         href: ./hdinsight-administer-use-dotnet-sdk.md
       - name: Manage HDInsight clusters - Powershell
         href: ./hdinsight-administer-use-powershell.md
+      - name: Create clusters with Runbooks
+        href: ./manage-clusters-runbooks.md
       - name: Build an ETL pipeline
         href: ./hdinsight-sales-insights-etl.md      
   - name: Samples
@@ -35,6 +37,8 @@
     items: 
     - name: Apache Hadoop components on HDInsight
       href: ./hdinsight-component-versioning.md
+    - name: High availability components
+      href: ./hdinsight-high-availability-components.md     
     - name: Machine learning in HDInsight
       href: ./hdinsight-machine-learning-overview.md
     - name: Streaming at scale in HDInsight
@@ -47,6 +51,8 @@
       href: ./hdinsight-selecting-vm-size.md
     - name: Cluster capacity planning
       href: ./hdinsight-capacity-planning.md
+    - name: Cluster management best practices
+      href: ./cluster-management-best-practices.md
     - name: Availability and reliability
       href: ./hdinsight-high-availability-linux.md
     - name: Compare storage options
@@ -69,6 +75,22 @@
         href: ./hdinsight-hadoop-create-linux-clusters-curl-rest.md
       - name: Create clusters using .NET
         href: ./hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md
+      - name: Cluster creation errors
+        href: ./create-cluster-error-dictionary.md
+        title: 
+        summary: 
+        abstract: 
+        achievement: 
+        iconUrl: 
+        levels:
+          - 
+        roles:
+          - 
+        products:
+          - 
+        units:
+          - 
+        
     - name: Use cluster storage
       items:
       - name: Using Azure Storage
@@ -223,9 +245,9 @@
       items:
       - name: What's new in HDInsight 4.0
         href: ./hdinsight-version-release.md
-      - name: HDInsight 4.0 full release notes
+      - name: Release notes
         href: ./hdinsight-release-notes.md    
-      - name: HDInsight 3.6 full release notes
+      - name: Archived release notes for Azure HDInsight
         href: ./hdinsight-release-notes-archive.md 
     - name: Frequently asked questions (FAQ)
       href: ./hdinsight-faq.md
@@ -241,14 +263,8 @@
       href: ./hdinsight-hadoop-collect-debug-heap-dump-linux.md
     - name: Understand and resolve WebHCat errors
       href: ./hdinsight-hadoop-templeton-webhcat-debug-errors.md
-    - name: Azure Roadmap
-      href: https://azure.microsoft.com/roadmap/?category=intelligence-analytics
     - name: Get help on the forum
       href: https://social.msdn.microsoft.com/forums/azure/home?forum=hdinsight
-    - name: Learning path
-      href: https://azure.microsoft.com/documentation/learning-paths/hdinsight-self-guided-hadoop-training/
-    - name: Microsoft Professional Program for Big Data
-      href: https://academy.microsoft.com/en-us/professional-program/tracks/big-data/
     - name: Pricing calculator
       href: https://azure.microsoft.com/pricing/calculator/
     - name: Windows tools for HDInsight
@@ -277,8 +293,6 @@
         href: ./spark/apache-spark-intellij-tool-failure-debug.md
       - name: Analyze data using BI tools
         href: ./spark/apache-spark-use-bi-tools.md
-      - name: Run a streaming job
-        href: ./spark/apache-spark-eventhub-streaming.md
       - name: Create a machine learning app
         href: ./spark/apache-spark-ipython-notebook-machine-learning.md
       - name: Create an Apache Spark app in IntelliJ
@@ -353,7 +367,7 @@
           href: ./spark/apache-spark-jupyter-notebook-kernels.md
         - name: Use external packages with Jupyter using cell magic
           href: ./spark/apache-spark-jupyter-notebook-use-external-packages.md
-        - name: Use external packages with Jupyter using script action
+        - name: Safely manage Python environment on Azure HDInsight using Script Action
           href: ./spark/apache-spark-python-package-installation.md
         - name: Use Apache Zeppelin notebooks
           href: ./spark/apache-spark-zeppelin-notebook.md
@@ -537,6 +551,8 @@
       href: ./hdinsight-apache-kafka-spark-structured-streaming.md
   - name: Concepts
     items:
+    - name: Migrate Kafka workloads to 4.0
+      href: ./kafka/migrate-versions.md
     - name: Storage and scalability
       href: ./kafka/apache-kafka-scalability.md
     - name: High availability of data
@@ -549,6 +565,8 @@
     items:
     - name: Develop
       items:
+      - name: Use Kafka REST proxy
+        href: ./kafka/rest-proxy.md
       - name: Enable auto topic creation
         href: ./kafka/apache-kafka-auto-create-topics.md
       - name: Use Apache Kafka with IoT Hub
@@ -711,6 +729,8 @@
         href: ./interactive-query/interactive-query-troubleshoot-query-performance.md
       - name: Slow reducer
         href: ./interactive-query/interactive-query-troubleshoot-slow-reducer.md
+      - name: Apache Hive gateway timeout
+        href: ./interactive-query/troubleshoot-gateway-timeout.md
       - name: Apache Hive View time out
         href: ./interactive-query/interactive-query-troubleshoot-view-time-out.md
       - name: Permission error creating table
@@ -835,16 +855,18 @@
       href: ./hdinsight-plan-virtual-network-deployment.md
     - name: Required IP Addresses for NSGs and UDRs
       href: ./hdinsight-management-ip-addresses.md
+    - name: Service tags for Azure firewall
+      href: ./hdinsight-service-tags.md
   - name: How to
     items:
+    - name: Use ID Broker for credential management
+      href: ./domain-joined/identity-broker.md    
     - name: Create ESP clusters and sync with on-premises
       href: ./domain-joined/apache-domain-joined-create-configure-enterprise-security-cluster.md
     - name: Create VNETs for HDInsight
       href: ./hdinsight-create-virtual-network.md
     - name: Connect HDInsight with on-premises network
       href: ./connect-on-premises-network.md
-    - name: Configure enterprise security in HDInsight
-      href: ./domain-joined/apache-domain-joined-configure.md
     - name: Configure ESP clusters using Azure AD DS
       href: ./domain-joined/apache-domain-joined-configure-using-azure-adds.md
     - name: Synchronize Azure AD users to an HDInsight cluster

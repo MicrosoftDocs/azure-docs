@@ -1,6 +1,6 @@
 ---
-title: 'Data storage and ingress in Azure Time Series Insights Preview | Microsoft Docs'
-description: Understanding data storage and ingress in Azure Time Series Insights Preview.
+title: 'Data storage and ingress in Preview - Azure Time Series Insights | Microsoft Docs'
+description: Learn about data storage and ingress in Azure Time Series Insights Preview.
 author: deepakpalled
 ms.author: dpalled
 manager: cshankar
@@ -8,7 +8,7 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 12/31/2019
 ms.custom: seodec18
 ---
 
@@ -18,7 +18,9 @@ This article describes updates to data storage and ingress for Azure Time Series
 
 ## Data ingress
 
-Your Azure Time Series Insights environment contains an Ingestion Engine to collect, process, and store time-series data. When planning your environment, there are some considerations to take into account in order to ensure that all incoming data is processed, and to achieve high ingress scale and minimize ingestion latency (the time taken by TSI to read and process data from the event source). In Time Series Insights Preview, data ingress policies determine where data can be sourced from and what format the data should have.
+Your Azure Time Series Insights environment contains an Ingestion Engine to collect, process, and store time-series data. When planning your environment, there are some considerations to take into account in order to ensure that all incoming data is processed, and to achieve high ingress scale and minimize ingestion latency (the time taken by TSI to read and process data from the event source). 
+
+In Time Series Insights Preview, data ingress policies determine where data can be sourced from and what format the data should have.
 
 ### Ingress policies
 
@@ -27,12 +29,12 @@ Time Series Insights Preview supports the following event sources:
 - [Azure IoT Hub](../iot-hub/about-iot-hub.md)
 - [Azure Event Hubs](../event-hubs/event-hubs-about.md)
 
-Time Series Insights Preview supports a maximum of two event sources per instance.
-  
-Azure Time Series Insights supports JSON submitted through Azure IoT Hub or Azure Event Hubs.
+Time Series Insights Preview supports a maximum of two event sources per instance. Azure Time Series Insights supports JSON submitted through Azure IoT Hub or Azure Event Hubs.
 
 > [!WARNING] 
-> When attaching a new event source to your Time Series Insights Preview environment, depending on the number of events currently in your IoT Hub or Event Hub, you may experience high initial ingestion latency. As data is ingested, you should expect this high latency to subside, but if your experience indicates otherwise please contact us by submitting a support ticket through the Azure portal.
+> * You may experience high initial latency when attaching an event source to your Preview environment. 
+> Event source latency depends on the number of events currently in your IoT Hub or Event Hub.
+> * High latency will subside after event source data is first ingested. Please contact us by submitting a support ticket through the Azure portal if you experience continued high latency.
 
 ## Ingress best practices
 
@@ -44,12 +46,19 @@ We recommend that you employ the following best practices:
 
 ### Ingress scale and limitations in preview
 
-By default, Time Series Insights Preview supports an initial ingress scale of up to 1 megabyte per second (MB/s) per environment. Up to 16 MB/s throughput is available if required, please contact us by submitting a support ticket in the Azure portal if this is needed. Additionally, there is a per-partition limit of 0.5 MB/s. This has implications for customers using IoT Hub specifically, given the affinity between an IoT Hub device an partition. In scenarios where one gateway device is forwarding messages to hub using it's own device ID and connection string, there is the danger of reaching the 0.5 MB/s limit given that messages will arrive in a single partition, even if the event payload specifies different TS IDs. In general, ingress rate is viewed as a factor of the number of devices that are in your organization, event emission frequency, and the size of an event. When calculating ingestion rate, IoT Hub users should use the number of hub connections in use, rather than total devices in the organization. Enhanced scaling support is ongoing. This documentation will be updated to reflect those improvements. 
+By default, Preview environments support ingress rates up to **1 megabyte per second (MB/s) per environment**. Customers may scale their Preview environments up to **16 MB/s** throughput if necessary.
+There is also a per-partition limit of **0.5 MB/s**. 
 
-> [!WARNING]
-> For environments using IoT Hub as an event source, calculate ingestion rate using the number of hub devices in use.
+The per-partition limit has implications for customers using IoT Hub. Specifically, given the affinity between an IoT Hub device and a partition. In scenarios where one gateway device is forwarding messages to hub using its own device ID and connection string, there is the danger of reaching the 0.5 MB/s limit given that messages will arrive in a single partition, even if the event payload specifies different Time Series IDs. 
 
-Please refer to the following links for more information on throughput units and partitions:
+In general, ingress rates are viewed as the factor of the number of devices that are in your organization, event emission frequency, and the size of each event:
+
+*  **Number of devices** × **Event emission frequency** × **Size of each event**.
+
+> [!TIP]
+> For environments using IoT Hub as an event source, calculate the ingestion rate using the number of hub connections in use, rather than total devices in use or in the organization.
+
+For more information about throughput units, limits, and partitions:
 
 * [IoT Hub Scale](https://docs.microsoft.com/azure/iot-hub/iot-hub-scaling)
 * [Event Hub Scale](https://docs.microsoft.com/azure/event-hubs/event-hubs-scalability#throughput-units)
@@ -86,11 +95,11 @@ For a thorough description of Azure Blob storage, read the [Storage blobs introd
 
 When you create a Time Series Insights Preview pay-as-you-go environment, an Azure Storage general-purpose V1 blob account is created as your long-term cold store.  
 
-Time Series Insights Preview publishes up to two copies of each event in your Azure storage account. The initial copy has events ordered by ingestion time and is always preserved, so you can use other services to access it. You can use Spark, Hadoop, and other familiar tools to process the raw Parquet files. 
+Time Series Insights Preview publishes up to two copies of each event in your Azure Storage account. The initial copy has events ordered by ingestion time and is always preserved, so you can use other services to access it. You can use Spark, Hadoop, and other familiar tools to process the raw Parquet files. 
 
 Time Series Insights Preview repartitions the Parquet files to optimize for the Time Series Insights query. This repartitioned copy of the data is also saved.
 
-During public preview, data is stored indefinitely in your Azure storage account.
+During public preview, data is stored indefinitely in your Azure Storage account.
 
 ### Writing and editing Time Series Insights blobs
 
@@ -104,11 +113,11 @@ You can access your data in three general ways:
 
 * From the Time Series Insights Preview explorer. You can export data as a CSV file from the explorer. For more information, see [Time Series Insights Preview explorer](./time-series-insights-update-explorer.md).
 * From the Time Series Insights Preview API. You can reach the API endpoint at `/getRecorded`. To learn more about this API, see [Time Series Query](./time-series-insights-update-tsq.md).
-* Directly from an Azure storage account. You need read access to whatever account you're using to access your Time Series Insights Preview data. For more information, see [Manage access to your storage account resources](../storage/blobs/storage-manage-access-to-resources.md).
+* Directly from an Azure Storage account. You need read access to whatever account you're using to access your Time Series Insights Preview data. For more information, see [Manage access to your storage account resources](../storage/blobs/storage-manage-access-to-resources.md).
 
 ### Data deletion
 
-Don't delete your Time Series Insights Preview files. You should manage related data from within Time Series Insights Preview only.
+Don't delete your Time Series Insights Preview files. Manage related data from within Time Series Insights Preview only.
 
 ## Parquet file format and folder structure
 

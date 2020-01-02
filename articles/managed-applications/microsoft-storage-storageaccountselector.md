@@ -17,6 +17,7 @@ ms.author: tomfitz
 
 ---
 # Microsoft.Storage.StorageAccountSelector UI element
+
 A control for selecting a new or existing storage account.
 
 ## UI sample
@@ -52,12 +53,6 @@ The control enables the user to create a new storage account or select an existi
 }
 ```
 
-## Remarks
-- If specified, `defaultValue.name` is automatically validated for uniqueness. If the storage account name isn't unique, the user must specify a different name or choose an existing storage account.
-- The default value for `defaultValue.type` is **Premium_LRS**.
-- Any type not specified in `constraints.allowedTypes` is hidden, and any type not specified in `constraints.excludedTypes` is shown. `constraints.allowedTypes` and `constraints.excludedTypes` are both optional, but can't be used simultaneously.
-- If `options.hideExisting` is **true**, the user can't choose an existing storage account. The default value is **false**.
-
 ## Sample output
 
 ```json
@@ -68,6 +63,13 @@ The control enables the user to create a new storage account or select an existi
   "newOrExisting": "new"
 }
 ```
+
+## Remarks
+
+- If specified, `defaultValue.name` is automatically validated for uniqueness. If the storage account name isn't unique, the user must specify a different name or choose an existing storage account.
+- The default value for `defaultValue.type` is **Premium_LRS**.
+- Any type not specified in `constraints.allowedTypes` is hidden, and any type not specified in `constraints.excludedTypes` is shown. `constraints.allowedTypes` and `constraints.excludedTypes` are both optional, but can't be used simultaneously.
+- If `options.hideExisting` is **true**, the user can't choose an existing storage account. The default value is **false**.
 
 ## Next steps
 * For an introduction to creating UI definitions, see [Getting started with CreateUiDefinition](create-uidefinition-overview.md).

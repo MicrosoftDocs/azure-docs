@@ -1,5 +1,5 @@
 ---
-title: Update machine learning models using Azure Data Factory | Microsoft Docs
+title: Update machine learning models using Azure Data Factory 
 description: Describes how to create create predictive pipelines using Azure Data Factory and machine learning
 services: data-factory
 documentationcenter: ''

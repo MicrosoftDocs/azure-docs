@@ -1,10 +1,10 @@
 ---
-title: Group machines in Azure Migrate using agentless dependency visualization 
+title: Group machines in Azure Migrate using agentless dependency visualization
 description: Describes how to create groups using machine dependencies in an agentless manner.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 10/23/2019
+ms.date: 11/18/2019
 ms.author: hamusa
 ---
 
@@ -15,10 +15,10 @@ This article describes how to set up agentless dependency mapping in Azure Migra
 
 > [!IMPORTANT]
 > Agentless dependency visualization is currently in preview for Azure VMware VMs discovered using an Azure Migrate appliance.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> Certain features might not be supported or might have constrained capabilities. This preview is covered by customer support and can be used for production workloads.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## About dependency mapping 
+## About dependency mapping
 
 Dependency mapping helps you to visualize dependencies across machines that you want to assess and migrate. You typically use dependency mapping when you want to assess machines with higher levels of confidence.
 
@@ -40,7 +40,7 @@ Agentless dependency visualization doesn't require you to install any agents on 
 ## Current limitations
 
 - Agentless dependency visualization is currently available for VMware VMs only.
-- Right now you can't add or remove a server from a group, in the dependency analysis view. 
+- Right now you can't add or remove a server from a group, in the dependency analysis view.
 - Dependency map for a group of servers is currently not available.
 - Currently, the dependency data cannot be downloaded in tabular format.
 
@@ -54,12 +54,12 @@ Agentless dependency visualization doesn't require you to install any agents on 
 
 
 ### Supported operating systems
- 
+
 Supported operating systems for agentless dependency visualization are as follows.
 
 **Type** | **Supported operating systems**
---- | --- 
-**Windows** | Microsoft Windows Server 2016 <br/> Microsoft Windows Server 2012 R2 <br/> Microsoft Windows Server 2012 <br/> Microsoft Windows Server 2008 R2 (64-bit) 
+--- | ---
+**Windows** | Microsoft Windows Server 2016 <br/> Microsoft Windows Server 2012 R2 <br/> Microsoft Windows Server 2012 <br/> Microsoft Windows Server 2008 R2 (64-bit)
 **Linux** | Red Hat Enterprise Linux 7, 6, 5 <br/> Ubuntu Linux 14.04, 16.04 <br/> Debian 7, 8 <br/> Oracle Linux 6, 7 <br/> CentOS 5, 6, 7  
 
 
@@ -78,7 +78,7 @@ Add the account as follows:
 
 1. Open the appliance management app. Navigate to the **Provide vCenter details** panel.
 2. In the **Discover application and dependencies on VMs** section, click **Add credentials**
-3. Choose the **Operating system**. 
+3. Choose the **Operating system**.
 4. Provide a friendly name for the account.
 5. Provide the **User name** and **Password**
 6. Click **Save**.
@@ -107,8 +107,8 @@ You will be able to visualize dependencies 6 hours after starting dependency dis
 2. Search for the machine for which you want to view the dependency map.
 3. Click **View dependencies** in the **Dependencies** column.
 4. Change the time period for which you want to view the map using the **Time duration** dropdown.
-5. Expand the **Client** group to list the machines that have a dependency on the selected machine. 
-6. Expand the **Port** group to list the machines that have a dependency from the selected machine. 
+5. Expand the **Client** group to list the machines that have a dependency on the selected machine.
+6. Expand the **Port** group to list the machines that have a dependency from the selected machine.
 7. To navigate to the map view of any of the dependent machines, click on the machine name, and then click **Load server map**
 
     ![Expand Server port group and load server map](./media/how-to-create-group-machine-dependencies-agentless/load-server-map.png)

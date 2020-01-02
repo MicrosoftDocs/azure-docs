@@ -84,7 +84,7 @@ You use the [Spring Initializr](https://start.spring.io/) to create a new Spring
 
 ## Connect to an App Configuration store
 
-1. Open `bootstrap.properties` which is under the resources directory of your app, and add the following lines to the file. Add the app configuration information.
+1. Open `bootstrap.properties` which is under the resources directory of your app, and add the following lines to the file. Add the App Configuration information.
 
     ```properties
     spring.cloud.azure.appconfiguration.stores[0].name= ${APP_CONFIGURATION_CONNECTION_STRING}

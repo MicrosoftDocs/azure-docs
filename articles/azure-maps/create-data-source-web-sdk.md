@@ -7,7 +7,7 @@ ms.date: 08/08/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-manager: 
+manager: cpendle
 ms.custom: codepen
 ---
 

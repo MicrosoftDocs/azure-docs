@@ -3,7 +3,7 @@ title: Quickstart Download a sign-in report using the Azure portal | Microsoft D
 description: Learn how to download a sign-in report using the Azure portal 
 services: active-directory
 documentationcenter: ''
-author: cawrites
+author: MarkusVi
 manager: daveba
 editor: ''
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 11/13/2018
-ms.author: chadam
+ms.author: markvi
 ms.reviewer: dhanyahk
 
 # Customer intent: As an IT administrator, I want to learn how to download a sign report from the Azure portal so that I can understand who is using my environment.

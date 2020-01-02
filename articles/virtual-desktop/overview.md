@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: overview
-ms.date: 08/07/2019
+ms.date: 12/17/2019
 ms.author: helohr
 ---
 # What is Windows Virtual Desktop? 
@@ -68,12 +68,10 @@ We plan to add support for the following OSes, so make sure you have the [approp
 Your infrastructure needs the following things to support Windows Virtual Desktop:
 
 * An [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/)
-* A Windows Server Active Directory in sync with Azure Active Directory. This can be enabled through:
-  * Azure AD Connect
-  * Azure AD Domain Services
-     >[!NOTE]
-     >If you use Azure AD Domain Services, your users must be sourced from Azure Active Directory. Using Azure AD Domain Services with users sourced from Windows Server AD isn't supported at this time.
-* An Azure subscription, containing a virtual network that either contains or is connected to the Windows Server Active Directory
+* A Windows Server Active Directory in sync with Azure Active Directory. You can configure this with one of the following:
+  * Azure AD Connect (for hybrid organizations)
+  * Azure AD Domain Services (for hybrid or cloud organizations)
+* An Azure subscription that contains a virtual network that either contains or is connected to the Windows Server Active Directory
   
 The Azure virtual machines you create for Windows Virtual Desktop must be:
 
@@ -95,7 +93,7 @@ The Azure virtual machines you create for Windows Virtual Desktop must have outb
 >[!NOTE]
 >Opening these URLs is essential for a reliable Windows Virtual Desktop deployment. Blocking access to these URLs is unsupported and will affect service functionality. These URLs only correspond to Windows Virtual Desktop sites and resources, and do not include URLS for other services like Azure AD.
 
-Windows Virtual Desktop comprises the Windows desktops and apps you deliver to users and the management solution, which is hosted as a service on Azure by Microsoft. Desktops and apps can be deployed on virtual machines (VMs) in any Azure region, and the management solution and data for these VMs will reside in the United States (US East 2 region). This may result in data transfer to the United States.
+Windows Virtual Desktop comprises the Windows desktops and apps you deliver to users and the management solution, which is hosted as a service on Azure by Microsoft. Desktops and apps can be deployed on virtual machines (VMs) in any Azure region, and the management solution and data for these VMs will reside in the United States. This may result in data transfer to the United States.
 
 For optimal performance, make sure your network meets the following requirements:
 
@@ -107,19 +105,24 @@ For optimal performance, make sure your network meets the following requirements
 
 The following Remote Desktop clients support Windows Virtual Desktop:
 
-* [Windows](https://docs.microsoft.com/azure/virtual-desktop/connect-windows-7-and-10)
-* [HTML5](https://docs.microsoft.com/azure/virtual-desktop/connect-web)
+* [Windows](connect-windows-7-and-10.md)
+* [Web](connect-web.md)
+* [Mac](connect-macos.md)
+* [iOS](connect-ios.md)
+* [Android (Preview)](connect-android.md)
 
 ## Supported virtual machine OS images
 
-Windows Virtual Desktop supports the following OS images:
+Windows Virtual Desktop supports the following x64 operating system images:
 
-* Windows 10 Enterprise multi-session
-* Windows 10 Enterprise
+* Windows 10 Enterprise multi-session, version 1809 or later
+* Windows 10 Enterprise, version 1809 or later
 * Windows 7 Enterprise
 * Windows Server 2019
 * Windows Server 2016
 * Windows Server 2012 R2
+
+Windows Virtual Desktop does not support x86 (32-bit), Windows 10 Enterprise N, or Windows 10 Enterprise KN operating system images.
 
 Available automation and deployment options depend on which OS and version you choose, as shown in the following table: 
 

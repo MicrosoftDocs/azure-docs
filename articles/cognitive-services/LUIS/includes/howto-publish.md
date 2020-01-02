@@ -9,7 +9,7 @@ ms.service: cognitive-services
 ms.subservice: luis
 ms.topic: include
 ms.custom: include file
-ms.date: 10/23/2019
+ms.date: 11/05/2019
 ms.author: diberry
 ---
 
@@ -23,8 +23,8 @@ In order to receive a LUIS prediction in a chat bot or other client application,
 
     ![LUIS publish to endpoint](../media/howto-publish/publish-app-popup.png)
 
-3. Publishing is complete when you see the green status bar at the top of the website confirming success.
+3. Publishing is complete when you see the status bar at the top of the page confirming success.
 
     ![LUIS publish to endpoint](../media/howto-publish/publish-endpoint-success.png)
 
-4. Select the **endpoints** link in the green status bar to go to the **Keys and endpoints** page. The endpoint URLs are listed at the bottom.
+4. Select the **Access your endpoint URLs** link in the notification to go to the **Azure Resources** page. The endpoint URLs are listed as the **Example Query**.

@@ -13,8 +13,10 @@
     href: search-create-service-portal.md
   - name: Portal
     items:
-    - name: Create a search index
+    - name: Create an index
       href: search-get-started-portal.md
+    - name: Create an app
+      href: search-create-app-portal.md
     - name: Create a cognitive skillset
       href: cognitive-search-quickstart-blob.md
     - name: Create a knowledge store
@@ -119,7 +121,7 @@
       href: search-security-trimming-for-azure-search.md
     - name: Filter on AAD identities
       href: search-security-trimming-for-azure-search-with-aad.md
-    - name: Manage encryption keys (preview)
+    - name: Manage encryption keys
       href: search-security-manage-encryption-keys.md
   - name: Development
     items:
@@ -223,8 +225,6 @@
       href: search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md
     - name: Monitor indexers
       href: search-howto-monitor-indexers.md
-    - name: Troubleshoot common issues
-      href: search-indexer-troubleshooting.md
   - name: Enrich with AI
     items:
     - name: Attach a Cognitive Services resource
@@ -249,20 +249,18 @@
         href: cognitive-search-create-custom-skill-example.md
       - name: Example - Containers
         href: https://go.microsoft.com/fwlink/?linkid=2089500 
-    - name: Troubleshooting tips
+    - name: Design tips
       href: cognitive-search-concept-troubleshooting.md
     - name: Documentation links
       href: cognitive-search-resources-documentation.md
-    - name: Knowledge store (preview)
+    - name: Knowledge store
       items:
       - name: Create using REST and Postman
         href: knowledge-store-create-rest.md
       - name: View with Storage Explorer
         href: knowledge-store-view-storage-explorer.md
       - name: Connect with Power BI
-        href: knowledge-store-connect-power-bi.md
-    - name: Troubleshoot enrichment issues
-      href: cognitive-search-common-errors-warnings.md    
+        href: knowledge-store-connect-power-bi.md    
   - name: Query documents
     items:
     - name: Query types and composition
@@ -277,7 +275,7 @@
       href: query-simple-syntax.md
     - name: Full Lucene query syntax
       href: query-lucene-syntax.md
-    - name: moreLikeThis (preview)
+    - name: moreLikeThis query parameter
       href: search-more-like-this.md
   - name: Apply filters
     items:
@@ -307,6 +305,14 @@
       href: search-manage-powershell.md
     - name: Monitor activity and logging
       href: search-monitor-usage.md
+    - name: Search traffic analytics
+      href: search-traffic-analytics.md
+  - name: Troubleshoot
+    items:
+    - name: Indexer issues
+      href: search-indexer-troubleshooting.md
+    - name: Indexer errors and warnings
+      href: cognitive-search-common-errors-warnings.md
 - name: Reference
   items:
   - name: Azure CLI

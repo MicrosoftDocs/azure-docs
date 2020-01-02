@@ -1,18 +1,22 @@
 ---
-title: 'Create an Azure Active Directory tenant for P2S VPN connections: Azure AD authentication| Microsoft Docs'
+title: 'VPN Gateway: Azure AD tenant for P2S VPN connections: Azure AD authentication'
 description: You can use P2S VPN to connect to your VNet using Azure AD authentication
 services: vpn-gateway
-author: cherylmc
+author: anzaman
 
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 10/08/2019
-ms.author: cherylmc
+ms.date: 11/13/2019
+ms.author: alzam
 
 ---
-# Create an Azure Active Directory tenant for P2S Open VPN connections that use Azure AD authentication
+# Create an Azure Active Directory tenant for P2S OpenVPN protocol connections
 
 When connecting to your VNet, you can use certificate-based authentication or RADIUS authentication. However, when you use the Open VPN protocol, you can also use Azure Active Directory authentication. This article helps you set up an Azure AD tenant for P2S Open VPN authentication.
+
+> [!NOTE]
+> Azure AD authentication is supported only for OpenVPN® protocol connections.
+>
 
 ## <a name="tenant"></a>1. Create the Azure AD tenant
 
@@ -86,13 +90,14 @@ Use the steps in [this article](../active-directory/fundamentals/add-users-azure
 
     ```azurepowershell-interactive
     $gw = Get-AzVirtualNetworkGateway -Name <name of VPN gateway> -ResourceGroupName <Resource group>
-    Set-AzVirtualNetworkGateway -VirtualNetworkGateway $gw -AadTenantUri "https://login.microsoftonline.com/<your Directory ID>" -AadAudienceId "41b23e61-6c1e-4545-b367-cd054e0ed4b4" -AadIssuerUri "https://sts.windows.net/<your Directory ID>/"
+    Set-AzVirtualNetworkGateway -VirtualNetworkGateway $gw -VpnClientRootCertificates @()
+    Set-AzVirtualNetworkGateway -VirtualNetworkGateway $gw -AadTenantUri "https://login.microsoftonline.com/<your Directory ID>" -AadAudienceId "41b23e61-6c1e-4545-b367-cd054e0ed4b4" -AadIssuerUri "https://sts.windows.net/<your Directory ID>/" -VpnClientAddressPool 192.168.0.0/24
     ```
 
-9. Create and download the profile by running the following commands. Change the -ResourcGroupName and -Name values to match your own.
+9. Create and download the profile by running the following commands. Change the -ResourceGroupName and -Name values to match your own.
 
     ```azurepowershell-interactive
-    $profile = New-AzVpnClientConfiguration -ResourceGroupName AADAuth -Name AADauthGW -AuthenticationMethod "EapTls"
+    $profile = New-AzVpnClientConfiguration -Name <name of VPN gateway> -ResourceGroupName <Resource group> -AuthenticationMethod "EapTls"
     $PROFILE.VpnProfileSASUrl
     ```
 

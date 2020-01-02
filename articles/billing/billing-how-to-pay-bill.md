@@ -1,15 +1,11 @@
 ---
 title: Pay your bill for Microsoft Azure | Microsoft Docs
 description: Describes how to pay an invoice in the Azure portal
-keywords: billing, past due, balance, pay now, 
-services: 'billing'
-documentationcenter: ''
+keywords: billing, past due, balance, pay now,
 author: jureid
 manager: jureid
-editor: ''
 tags: billing, past due, pay now, bill, invoice, pay
-
-ms.service: billing
+ms.service: cost-management-billing
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -47,7 +43,7 @@ You must be a billing profile owner, contributor, or invoice manager to pay for 
 1. In the new blade, click **Select a payment method** to choose an existing credit card or add a new one.<!-- screenshot of select payment method link -->
 1. Once the payment method is selected, click **Pay now**.
 
-The status of the invoice will be updated to paid in the invoices blade. 
+The status of the invoice will be updated to paid in the invoices blade.
 
 <!-- pay now from invoice blade -->
 

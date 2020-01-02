@@ -27,10 +27,10 @@ ms.subservice: B2C
 
 ## Add signing and encryption keys
 
-1. Sign in to the [Azure portal](https://portal.azure.com)
-1. Use the **Directory + subscription** filter in the top menu to select the directory that contains your Azure AD B2C tenant.
-1. In the left menu, select **Azure AD B2C**. Or, select **All services** and search for and select **Azure AD B2C**.
-1. On the Overview page, select **Identity Experience Framework**.
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Select the **Directory + Subscription** icon in the portal toolbar, and then select the directory that contains your Azure AD B2C tenant.
+1. In the Azure portal, search for and select **Azure AD B2C**.
+1. On the overview page, under **Policies**, select **Identity Experience Framework**.
 
 ### Create the signing key
 
@@ -69,14 +69,13 @@ You need to register these two applications in your Azure AD B2C tenant only onc
 
 ### Register the IdentityExperienceFramework application
 
-To register an application in your Azure AD B2C tenant, you can use the current **Applications** experience, or our new unified **App registrations (Preview)** experience. [Learn more about the preview experience](https://aka.ms/b2cappregintro).
+To register an application in your Azure AD B2C tenant, you can use the current **Applications** experience, or our new unified **App registrations (Preview)** experience. [Learn more about the new experience](https://aka.ms/b2cappregintro).
 
 #### [Applications](#tab/applications/)
 
-1. Select **All services** in the top-left corner of the Azure portal.
-1. In the search box, enter `Azure Active Directory`.
-1. Select **Azure Active Directory** in the search results.
-1. Under **Manage** in the left-hand menu, select **App registrations (Legacy)**.
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. In the Azure portal, search for and select **Azure Active Directory**.
+1. In the **Azure Active Directory** overview menu, under **Manage**, select **App registrations (Legacy)**.
 1. Select **New application registration**.
 1. For **Name**, enter `IdentityExperienceFramework`.
 1. For **Application type**, choose **Web app/API**.
@@ -147,7 +146,7 @@ Now, grant permissions to the API scope you exposed earlier in the *IdentityExpe
 1. Select **Grant admin consent for (your tenant name)**.
 1. Select your currently signed-in administrator account, or sign in with an account in your Azure AD B2C tenant that's been assigned at least the *Cloud application administrator* role.
 1. Select **Accept**.
-1. Select **Refresh**, and then verify that "Granted for ..." appears under **STATUS** for both scopes. It might take a few minutes for the permissions to propagate.
+1. Select **Refresh**, and then verify that "Granted for ..." appears under **Status** for both scopes. It might take a few minutes for the permissions to propagate.
 
 * * *
 

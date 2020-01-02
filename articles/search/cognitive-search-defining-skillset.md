@@ -1,5 +1,5 @@
 ---
-title: Create a skillset in an enrichment pipeline
+title: Create a skillset
 titleSuffix: Azure Cognitive Search
 description: Define data extraction, natural language processing, or image analysis steps to enrich and extract structured information from your data for use in Azure Cognitive Search.
 

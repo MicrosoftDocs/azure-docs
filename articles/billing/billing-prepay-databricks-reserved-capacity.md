@@ -4,7 +4,7 @@ description: Learn how you can prepay for Azure Databricks charges with reserved
 services: billing
 author: yashesvi
 manager: yashar
-ms.service: billing
+ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 10/01/2019
 ms.author: banders
@@ -36,8 +36,8 @@ Before you buy, calculate the total DBU quantity consumed for different workload
 
 You can buy Databricks plans in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/documentation/filters/%7B%22reservedResourceType%22%3A%22Databricks%22%7D). To buy reserved capacity, you must have the owner role for at least one enterprise subscription.
 
-- Currently, pre-purchase is available only for Enterprise Agreement customers.
-- You must be in an Owner role for at least one Enterprise subscription.
+- You must be in an Owner role for at least one Enterprise Agreement (offer numbers: MS-AZR-0017P or MS-AZR-0148P) or Microsoft Customer Agreement or an individual subscription with pay-as-you-go rates (offer numbers: MS-AZR-0003P or MS-AZR-0023P).
+- For EA subscriptions, the Add Reserved Instances option must be enabled in the EA portal. Or, if that setting is disabled, you must be an EA Admin for the subscription.
 - For Enterprise subscriptions, **Add Reserved Instances** must be enabled in the [EA portal](https://ea.azure.com/). Or, if that setting is disabled, you must be an EA Admin of the subscription.
 
 **To Purchase:**

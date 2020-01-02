@@ -1,22 +1,30 @@
 ---
-title: 'Configure a VPN client for P2S VPN connections: Azure AD authentication| Microsoft Docs'
+title: 'VPN Gateway: VPN client for OpenVPN protocol P2S connections: Azure AD authentication'
 description: You can use P2S VPN to connect to your VNet using Azure AD authentication
 services: vpn-gateway
-author: cherylmc
+author: anzaman
 
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 10/08/2019
-ms.author: cherylmc
+ms.date: 12/18/2019
+ms.author: alzam
 
 ---
-# Configure a VPN client for P2S VPN connections: Azure AD authentication (Preview)
+# Configure a VPN client for P2S OpenVPN protocol connections: Azure AD authentication (Preview)
 
 This article helps you configure a VPN client to connect to a virtual network using Point-to-Site VPN and Azure Active Directory authentication. Before you can connect and authenticate using Azure AD, you must first configure your Azure AD tenant. For more information, see [Configure an Azure AD tenant](openvpn-azure-ad-tenant.md).
 
+> [!NOTE]
+> Azure AD authentication is supported only for OpenVPN® protocol connections.
+>
+
 ## <a name="profile"></a>Working with client profiles
 
-To connect, you need to configure a VPN client profile on every computer that wants to connect to the VNet. You can create a client profile on a computer, export it, and then import it to additional computers.
+To connect, you need to download the Azure VPN Client (Preview) and configure a VPN client profile on every computer that wants to connect to the VNet. You can create a client profile on a computer, export it, and then import it to additional computers.
+
+### To download the Azure VPN client
+
+Use this [link](https://www.microsoft.com/p/azure-vpn-client-preview/9np355qt2sqb?rtc=1&activetab=pivot:overviewtab) to download the Azure VPN Client (Preview).
 
 ### <a name="cert"></a>To create a certificate-based client profile
 
@@ -131,6 +139,26 @@ These steps help you configure your connection to connect automatically with Alw
 4. View the diagnosis results.
 
     ![diagnose](./media/openvpn-azure-ad-client/diagnose/diagnose4.jpg)
+
+## FAQ
+
+### How do I add DNS suffixes to the VPN client?
+
+You can modify the downloaded profile XML file and add the **\<dnssuffixes>\<dnssufix> \</dnssufix>\</dnssuffixes>** tags
+
+```
+<azvpnprofile>
+<clientconfig>
+
+    <dnssuffixes>
+          <dnssuffix>.mycorp.com</dnssuffix>
+          <dnssuffix>.xyz.com</dnssuffix>
+          <dnssuffix>.etc.net</dnssuffix>
+    </dnssuffixes>
+    
+</clientconfig>
+</azvpnprofile>
+```
 
 ## Next steps
 

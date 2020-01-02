@@ -1,11 +1,11 @@
 ---
-title: Azure Migrate support matrix for physical server assessment and migration
-description: Summarizes settings and limitations for physical server assessment and migration using the Azure Migrate service.
+title: Support for physical server assessment/migration with Azure Migrate
+description: Summarizes support for physical server assessment/migration with Azure Migrate.
 author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 10/23/2019
+ms.date: 11/19/2019
 ms.author: raynew
 ---
 
@@ -14,13 +14,14 @@ ms.author: raynew
 You can use the [Azure Migrate service](migrate-overview.md) to assess and migrate machines to the Microsoft Azure cloud. This article summarizes support settings and limitations for assessing and migrating on-premises physical servers.
 
 
+
 ## Physical server scenarios
 
 The table summarizes supported scenarios for physical servers.
 
 **Deployment** | **Details***
 --- | ---
-**Assess on-premises physical servers** | [Set up](tutorial-prepare-physical.md) your first assessment.
+**Assess on-premises physical servers** | [Set up](tutorial-prepare-physical.md) your first assessment.<br/><br/> [Run](tutorial-assess-physical.md) an assessment.
 **Migrate physical servers to Azure** | [Try out](tutorial-migrate-physical-virtual-machines.md) migration to Azure.
 
 
@@ -29,7 +30,7 @@ The table summarizes supported scenarios for physical servers.
 **Support** | **Details**
 --- | ---
 **Azure permissions** | You need Contributor or Owner permissions in the subscription to create an Azure Migrate project.
-**Physical servers** | Assess up to 250 physical servers in a single project. You can have multiple projects in an Azure subscription. A project can include physical servers, VMware VMs and Hyper-V VMs, up to the assessment limits.
+**Physical servers** | Assess up to 35,000 physical servers in a single project. You can have multiple projects in an Azure subscription. A project can include physical servers, VMware VMs and Hyper-V VMs, up to the assessment limits.
 **Geography** | You can create Azure Migrate projects in a number of geographies. Although you can create projects in specific geographies, you can assess or migrate machines for other target locations. The project geography is only used to store the discovered metadata.
 
   **Geography** | **Metadata storage location**
@@ -58,7 +59,7 @@ The table summarizes supported scenarios for physical servers.
 | :-------------------       | :------------------- |
 | **Physical server deployment**       | The physical server can be standalone or deployed in a cluster. |
 | **Permissions**           | **Windows:** Set up a local user account on all the Windows servers that you want to include in the discovery.The user account needs to be added to these groups-Remote Desktop Users, Performance Monitor Users and Performance Log users. <br/> **Linux:** You need a root account on the Linux servers that you want to discover. |
-| **Operating system** | All [Windows](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) and [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) operating systems that are supported by Azure. |
+| **Operating system** | All [Windows](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) and [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) operating systems are supported except the following:<br/> Windows Server 2003 <br/> SUSE Linux|
 
 
 ## Assessment-appliance requirements
@@ -67,9 +68,9 @@ For assessment, Azure Migrate runs a lightweight appliance to discover physical 
 
 | **Support**                | **Details**               
 | :-------------------       | :------------------- |
-| **Appliance deployment**   |  You deploy the appliance either on a physical server or VM.<br/>  The host machine must be running Windows Server 2012 R2 or later.<br/> The host needs sufficient space to allocate 16 GB RAM, 8 vCPUs, around 80 GB of storage space, and an external switch for the appliance VM.<br/> The appliance needs a static or dynamic IP address, and internet access.
+| **Appliance deployment**   |  The appliance installer script can be downloaded from the portal (in a zipped folder). <br/> You can unzip the folder and run the PowerShell script (AzureMigrateInstaller.ps1) either on a dedicated physical server or a virtual machine to set up the appliance.<br/>  The machine chosen to install the appliance must be running Windows Server 2016.<br/> The machine needs sufficient space to allocate 16 GB RAM, 8 vCPUs, around 80 GB of storage space, and an external switch for the appliance VM.<br/> The appliance needs a static or dynamic IP address, and internet access.
 | **Azure Migrate project**  |  An appliance can be associated with a single project.<br/> Any number of appliances can be associated with a single project.<br/> You can assess up to 35,000 machines in a project.
-| **Discovery**              | A single appliance can discover up to 200 servers.
+| **Discovery**              | A single appliance can discover up to 250 servers.
 | **Assessment group**       | You can add up to 35,000 machines in a single group.
 | **Assessment**             | You can assess up to 35,000 machines in a single assessment.
 
@@ -103,7 +104,7 @@ The following table summarizes port requirements for assessment.
 **Device** | **Connection**
 --- | ---
 **Appliance** | Inbound connections on TCP port 3389 to allow remote desktop connections to the appliance.<br/> Inbound connections on port 44368 to remotely access the appliance management app using the URL: ``` https://<appliance-ip-or-name>:44368 ```<br/> Outbound connections on ports 443, 5671 and 5672 to send discovery and performance metadata to Azure Migrate.
-**Physical servers** | **Windows:** Inbound connections on ports 443, 5989 to pull configuration and performance metadata from Windows servers. <br/> **Linux:**  Inbound connections on port 22 (UDP) to pull configuration and performance metadata from Linux servers. |
+**Physical servers** | **Windows:** Inbound connections on port 443, WinRM ports 5985 (HTTP) and 5986 (HTTPS) to pull configuration and performance metadata from Windows servers. <br/> **Linux:**  Inbound connections on port 22 (UDP) to pull configuration and performance metadata from Linux servers. |
 
 
 ## Next steps

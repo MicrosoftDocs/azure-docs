@@ -1,6 +1,6 @@
 ---
-title: Azure CLI Samples - Create a virtual machine scale set | Microsoft Docs
-description: Azure CLI Samples
+title: Azure CLI Samples - Create a virtual machine scale set
+description: This script creates an Azure virtual machine scale set with an Ubuntu operating system and related networking resources including a load balancer.
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: cynthn

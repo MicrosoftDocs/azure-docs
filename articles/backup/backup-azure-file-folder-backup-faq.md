@@ -1,19 +1,14 @@
 ---
-title: Backing up files and folders with Azure Backup - common questions
+title: Backing up files and folders - common questions
 description: Addresses common questions about backing up files and folders with Azure Backup.
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 07/29/2019
-ms.author: dacurwin
+
 ---
 
 # Common questions about backing up files and folders
 
 This article has answers to common questions abound backing up files and folders with the Microsoft Azure Recovery Services (MARS) Agent in the [Azure Backup](backup-overview.md) service.
-
-## General
 
 ## Configure backups
 
@@ -108,11 +103,11 @@ The size of the cache folder determines the amount of data that you are backing 
 
 1. Run this command in an elevated command prompt to stop the Backup engine:
 
-    ```PS C:\> Net stop obengine```
+    ```Net stop obengine```
 
 2. If you have configured System State backup, open Disk Management and unmount the disk(s) with names in the format `"CBSSBVol_<ID>"`.
 3. Don't move the files. Instead, copy the cache space folder to a different drive that has sufficient space.
-4. Update the following registry entries with the path of the new cache folder.<br/>
+4. Update the following registry entries with the path of the new cache folder.
 
     | Registry path | Registry Key | Value |
     | --- | --- | --- |
@@ -121,11 +116,13 @@ The size of the cache folder determines the amount of data that you are backing 
 
 5. Restart the Backup engine at an elevated command prompt:
 
-    ```PS C:\> Net stop obengine```
+  ```command
+  Net stop obengine
 
-    ```PS C:\> Net start obengine```
+  Net start obengine
+  ```
 
-6. Run an ad-hoc backup. After the backup finishes successfully using the new location, you can remove the original cache folder.
+6. Run an on-demand backup. After the backup finishes successfully using the new location, you can remove the original cache folder.
 
 ### Where should the cache folder be located?
 
@@ -151,10 +148,43 @@ The cache folder and the metadata VHD do not have the necessary attributes for t
 Yes, you can use the **Change Properties** option in the MARS agent to adjust the bandwidth and timing. [Learn more](backup-configure-vault.md#enable-network-throttling).
 
 ## Restore
+### Manage
+**Can I recover if I forgot my passphrase?**<br>
+The Azure Backup agent requires a passphrase (that you provided during registration) to decrypt the backed up data during restore. Review the scenarios below to understand your options for handling a lost passphrase:<br>
+
+| Original Machine <br> *(source machine where backups were taken)* | Passphrase | Available Options |
+| --- | --- | --- |
+| Available |Lost |If your original machine (where backups were taken) is available and still registered with the same Recovery Services vault, then you will be able to regenerate the passphrase by following these <steps>  |
+| Lost |Lost |Not possible to recover the data or data is not available |
+
+Consider the following conditions:
+- If you uninstall & re-register the agent on the same original machine with
+ - *Same passphrase*, then you will be able to restore your backed up data.<br>
+ - *Different passphrase*, then you will not be able to restore your backed up data.
+-	If you install the agent on a *different machine* with<br>
+  - the same passphrase (used in the original machine), then you will be able to restore your backed up data.<br>
+  - a different passphrase, you will not be able to restore your backed up data.<br>
+-	Additionally, if your original machine is corrupted (preventing you from regenerating the passphrase through the MARS console); but you are able to restore/access the original scratch folder used by the MARS agent, then you might be able to restore (if you forgot the password). For more assistance, contact Customer Support.
+
+**How do I recover if I lost my original machine (where backups were taken)?**<br>
+
+If you have the same passphrase (that you provided during registration) of the original machine, then you can restore the backed up data to an alternate machine. Review the scenarios below to understand your restore options.
+
+| Original Machine | Passphrase | Available Options |
+| --- | --- | --- |
+| Lost |Available |You can install and register the MARS agent on another machine with the same passphrase that you provided during registration of the original machine. Choose **Recovery Option** > **Another location** to perform your restore. For more information, see
+| Lost |Lost |Not possible to recover the data or data is not available |
+
 
 ### What happens if I cancel an ongoing restore job?
 
 If an ongoing restore job is canceled, the restore process stops. All files restored before the cancellation stay in configured destination (original or alternate location), without any rollbacks.
+
+### Does the MARS agent back up and restore ACLs set on files, Folders and volumes?
+
+* The MARS agent backs up ACLs set on files, folders and volumes
+* For Volume Restore recovery option, the MARS agent provides an option to skip restoring ACL permissions to the file or folder being recovered
+* For the individual file and folders recovery option, the MARS agent will restore with ACL permissions (there is no option to skip ACL restore).
 
 ## Next steps
 

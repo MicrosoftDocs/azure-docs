@@ -1,5 +1,5 @@
 ---
-title: Create an Azure Cognitive Search index in Azure portal
+title: Create a search index in Azure portal
 titleSuffix: Azure Cognitive Search
 description: Learn how to create an index for Azure Cognitive Search using a built-in portal index designer.
 

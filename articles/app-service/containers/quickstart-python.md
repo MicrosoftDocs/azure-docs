@@ -1,19 +1,8 @@
 ---
-title: 'Quickstart: Create Python app on Linux - Azure App Service'
-description: Deploy your first Python hello world app in Azure App Service on Linux in minutes.
-services: app-service\web
-documentationcenter: ''
-author: cephalin
-manager: gwallace
-editor: ''
-
-ms.assetid: 
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
+title: 'Quickstart: Create a Linux Python app'
+description: Get started with Linux apps on Azure App Service by deploying your first Python app to a Linux container in App Service.
 ms.topic: quickstart
 ms.date: 10/22/2019
-ms.author: cephalin
 ms.custom: seo-python-october2019
 
 experimental: false

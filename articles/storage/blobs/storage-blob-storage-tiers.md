@@ -55,7 +55,7 @@ The cool access tier has lower storage costs and higher access costs compared to
 
 ## Archive access tier
 
-The archive access tier has the lowest storage cost. But it has higher data retrieval costs compared to the hot and cool tiers. Data in the archive tier can take several hours to retrieve. Data must in the archive tier for at least 180 days or be subject to an early deletion charge.
+The archive access tier has the lowest storage cost. But it has higher data retrieval costs compared to the hot and cool tiers. Data in the archive tier can take several hours to retrieve. Data must remain in the archive tier for at least 180 days or be subject to an early deletion charge.
 
 While a blob is in archive storage, the blob data is offline and can't be read, copied, overwritten, or modified. You can't take snapshots of a blob in archive storage. However, the blob metadata remains online and available, allowing you to list the blob and its properties. For blobs in archive, the only valid operations are GetBlobProperties, GetBlobMetadata, ListBlobs, SetBlobTier, and DeleteBlob.
 
@@ -136,9 +136,11 @@ In this section, the following scenarios are demonstrated using the Azure portal
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. To navigate to your storage account, select All Resources, then select your storage account.
+1. In the Azure portal, search for and select **All Resources**.
 
-1. In Settings, click **Configuration** to view and change the account configuration.
+1. Select your storage account.
+
+1. In **Settings**, select **Configuration** to view and change the account configuration.
 
 1. Select the right access tier for your needs: Set the **Access tier** to either **Cool** or **Hot**.
 
@@ -148,7 +150,9 @@ In this section, the following scenarios are demonstrated using the Azure portal
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. To navigate to your blob in your storage account, select All Resources, select your storage account, select your container, and then select your blob.
+1. In the Azure portal, search for and select **All Resources**.
+
+1. Select your container and then select your blob.
 
 1. In the **Blob properties**, select **Change tier**.
 

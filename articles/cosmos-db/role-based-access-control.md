@@ -1,5 +1,5 @@
 ---
-title: Role-based access control in Azure Cosmos DB with Azure Active Directory integration
+title: Role-based access control in Azure Cosmos DB 
 description: Learn how Azure Cosmos DB provides database protection with Active directory integration (RBAC).
 author: markjbrown
 ms.service: cosmos-db
@@ -18,7 +18,7 @@ The following are the built-in roles supported by Azure Cosmos DB:
 
 |**Built-in role**  |**Description**  |
 |---------|---------|
-|[DocumentDB Accounts Contributor](../role-based-access-control/built-in-roles.md#documentdb-account-contributor)|Can manage Azure Cosmos DB accounts.|
+|[DocumentDB Account Contributor](../role-based-access-control/built-in-roles.md#documentdb-account-contributor)|Can manage Azure Cosmos DB accounts.|
 |[Cosmos DB Account Reader](../role-based-access-control/built-in-roles.md#cosmos-db-account-reader-role)|Can read Azure Cosmos DB account data.|
 |[Cosmos Backup Operator](../role-based-access-control/built-in-roles.md#cosmosbackupoperator)|Can submit restore request for an Azure Cosmos database or a container.|
 |[Cosmos DB Operator](../role-based-access-control/built-in-roles.md#cosmos-db-operator)|Can provision Azure Cosmos accounts, databases, and containers but cannot access the keys that are required to access the data.|

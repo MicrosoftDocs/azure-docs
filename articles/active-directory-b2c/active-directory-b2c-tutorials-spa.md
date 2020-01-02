@@ -1,6 +1,7 @@
 ---
-title: 'Tutorial: Enable authentication in a single-page application - Azure Active Directory B2C'
-description: Learn how to use Azure Active Directory B2C to provide user login for a single page application (JavaScript).
+title: "Tutorial: Enable authentication in a single-page app"
+titleSuffix: Azure AD B2C
+description: In this tutorial, learn how to use Azure Active Directory B2C to provide user login for a JavaScript-based single-page application (SPA).
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -44,7 +45,7 @@ Additionally, you need the following in your local development environment:
 
 In the second tutorial that you completed as part of the prerequisites, you registered a web application in Azure AD B2C. To enable communication with the sample in the tutorial, you need to add a redirect URI to the application in Azure AD B2C.
 
-You can use the current **Applications** experience or our new unified **App registrations (Preview)** experience to update the application. [Learn more about the preview experience](https://aka.ms/b2cappregintro).
+You can use the current **Applications** experience or our new unified **App registrations (Preview)** experience to update the application. [Learn more about the new experience](https://aka.ms/b2cappregintro).
 
 #### [Applications](#tab/applications/)
 

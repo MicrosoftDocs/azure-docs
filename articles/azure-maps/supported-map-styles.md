@@ -59,6 +59,8 @@ This map style is a hybrid of roads and labels overlaid on top of satellite and 
 ![gray_scale](./media/supported-map-styles/grayscale_dark.png)
 
 **Applicable APIs:**
+* [Map image](https://docs.microsoft.com/rest/api/maps/render/getmapimage)
+* [Map tile](https://docs.microsoft.com/rest/api/maps/render/getmaptile)
 * Web SDK map control 
 * Android map control
 
@@ -98,4 +100,4 @@ This map style is a hybrid of roads and labels overlaid on top of satellite and 
 Learn about how to set a map style in Azure Maps:
 
 > [!div class="nextstepaction"]
-> [Choose a map style](https://docs.microsoft.com/en-us/azure/azure-maps/choose-map-style)
+> [Choose a map style](https://docs.microsoft.com/azure/azure-maps/choose-map-style)

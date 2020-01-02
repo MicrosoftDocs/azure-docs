@@ -1,6 +1,6 @@
 ---
-title: Kickstart your experiments from examples
-titleSuffix: Azure Machine Learning Studio (classic)
+title: Kickstart experiments from examples
+titleSuffix: ML Studio (classic) - Azure
 description: Learn how to use example machine learning experiments to create new experiments with Azure AI Gallery and Azure Machine Learning Studio (classic).
 services: machine-learning
 ms.service: machine-learning
@@ -44,7 +44,7 @@ To browse all experiments:
     ![Example experiment](./media/sample-experiments/example-experiment.png)
 
 ## Create a new experiment using an example as a template
-You also can create a new experiment in  the classic version of Machine Learning Studio using a Gallery example as a template.
+You also can create a new experiment in Machine Learning Studio (classic) using a Gallery example as a template.
 
 1. Sign in with your Microsoft account credentials to the [Studio](https://studio.azureml.net), and then click **New** to create an experiment.
 2. Browse through the example content and click one.
@@ -54,4 +54,4 @@ A new experiment is created in your Machine Learning Studio (classic) workspace 
 ## Next steps
 * [Import data from various sources](import-data.md)
 * [Quickstart tutorial for the R language in Machine Learning](r-quickstart.md)
-* [Deploy a Machine Learning web service](publish-a-machine-learning-web-service.md)
+* [Deploy a Machine Learning web service](deploy-a-machine-learning-web-service.md)

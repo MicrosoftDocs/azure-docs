@@ -1,5 +1,5 @@
 ---
-title: Set RBAC roles for Azure administrative access in the portal
+title: Set RBAC roles for Azure administrative access
 titleSuffix: Azure Cognitive Search
 description: Role-based administrative control (RBAC) in the Azure portal for controlling and delegating administrative tasks for Azure Cognitive Search management.
 

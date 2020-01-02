@@ -1,18 +1,17 @@
 ---
 
-title: PowerShell and Graph examples for licensing groups - Azure Active Directory | Microsoft Docs
+title: PowerShell and Graph examples for group licensing - Azure AD | Microsoft Docs
 description: PowerShell + Graph examples and scenarios for Azure Active Directory group-based licensing
 services: active-directory
 keywords: Azure AD licensing
 documentationcenter: ''
 author: curtand
-manager: mtillman
-
+manager: daveba
 ms.service: active-directory
 ms.subservice: users-groups-roles
 ms.topic: article
 ms.workload: identity
-ms.date: 03/18/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: sumitp
 ms.collection: M365-identity-device-management

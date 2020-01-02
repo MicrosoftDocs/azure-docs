@@ -1,14 +1,15 @@
 ---
-title: "Transparent data encryption for Azure SQL Database and Data Warehouse | Microsoft Docs"
+title: Transparent data encryption
 description: "An overview of transparent data encryption for SQL Database and Data Warehouse. The document covers its benefits and the options for configuration, which includes service-managed transparent data encryption and Bring Your Own Key."
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
-ms.custom: 
+titleSuffix: Azure SQL Database and SQL Data Warehouse
+ms.custom: seo-lt-2019
 ms.devlang: 
 ms.topic: conceptual
-author: aliceku
-ms.author: aliceku
+author: jaszymas
+ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 11/01/2019
 ---
@@ -72,7 +73,7 @@ To configure transparent data encryption through the Azure portal, you must be c
 
 You turn transparent data encryption on and off on the database level. To enable transparent data encryption on a database, go to the [Azure portal](https://portal.azure.com) and sign in with your Azure Administrator or Contributor account. Find the transparent data encryption settings under your user database. By default, service-managed transparent data encryption is used. A transparent data encryption certificate is automatically generated for the server that contains the database. For Azure SQL Managed Instance use T-SQL to turn transparent data encryption on and off on a database.
 
-![Service-managed transparent data encryption](./media/transparent-data-encryption-azure-sql/service-managed-tde.png)  
+![Service-managed transparent data encryption](./media/transparent-data-encryption-azure-sql/service-managed-transparent-data-encryption.png)  
 
 You set the transparent data encryption master key, also known as the transparent data encryption protector, on the server level. To use transparent data encryption with Bring Your Own Key support and protect your databases with a key from Key Vault, open the transparent data encryption settings under your server.
 

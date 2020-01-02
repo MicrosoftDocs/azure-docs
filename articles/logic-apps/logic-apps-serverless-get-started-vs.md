@@ -1,13 +1,9 @@
 ---
-title: Build first serverless app in Visual Studio - Azure Logic Apps
+title: Build first serverless app in Visual Studio
 description: Build, deploy, and manage a serverless app by using Azure Logic Apps and Azure Functions in Visual Studio
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-ms.workload: vs-azure
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 06/20/2019
 ---
@@ -76,7 +72,7 @@ for your serverless app. In Azure, you create resources within a *resource group
 which is a logical collection you use for organizing, managing, and deploying 
 resources for an entire app as a single asset. For a serverless app in Azure, 
 your resource group includes resources for both Azure Logic Apps and Azure Functions. 
-Learn more about [Azure resource groups and resources](../azure-resource-manager/resource-group-overview.md).
+Learn more about [Azure resource groups and resources](../azure-resource-manager/management/overview.md).
 
 1. Start Visual Studio and sign in by using your Azure account.
 

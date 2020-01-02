@@ -1,13 +1,8 @@
 ---
-title: Key Vault references - Azure App Service | Microsoft Docs
-description: Conceptual reference and setup guide for Azure Key Vault references in Azure App Service and Azure Functions
-services: app-service
+title: Use Key Vault references
+description: Learn how to set up Azure App Service and Azure Functions to use Azure Key Vault references. Make Key Vault secrets available to your application code.
 author: mattchenderson
-manager: jeconnoc
-editor: ''
 
-ms.service: app-service
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/09/2019
 ms.author: mahender
@@ -53,12 +48,6 @@ For example, a complete reference with Version would look like the following:
 ```
 @Microsoft.KeyVault(SecretUri=https://myvault.vault.azure.net/secrets/mysecret/ec96f02080254f109c51a1f14cdb1931)
 ```
-A complete reference without Version would look like the following:
-
-```
-@Microsoft.KeyVault(SecretUri=https://<MYKEYVAULT>.vault.azure.net/secrets/eShopStorageAccountCS/)
-```
-
 Alternatively:
 
 ```

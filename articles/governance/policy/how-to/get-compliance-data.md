@@ -1,11 +1,8 @@
 ---
 title: Get policy compliance data
-description: Azure Policy evaluations and effects determine compliance. Learn how to get the compliance details.
-author: DCtheGeek
-ms.author: dacoulte
+description: Azure Policy evaluations and effects determine compliance. Learn how to get the compliance details of your Azure resources.
 ms.date: 02/01/2019
-ms.topic: conceptual
-ms.service: azure-policy
+ms.topic: how-to
 ---
 # Get compliance data of Azure resources
 

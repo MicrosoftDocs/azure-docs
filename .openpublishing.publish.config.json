@@ -194,7 +194,7 @@
     {
       "path_to_root": "samples-cognitive-services-speech-sdk",
       "url": "https://github.com/Azure-Samples/cognitive-services-speech-sdk",
-      "branch": "rhurey/quickstart.refactor"
+      "branch": "release-ignite-cogserv-speech-service"
     },
     {
       "path_to_root": "media-services-v3-dotnet-quickstarts",
@@ -272,6 +272,16 @@
       "branch": "master"
     },
     {
+      "path_to_root": "cognitive-services-node-sdk-samples",
+      "url": "https://github.com/Azure-Samples/cognitive-services-node-sdk-samples",
+      "branch": "master"
+    },
+    {
+      "path_to_root": "cognitive-services-ruby-sdk-samples",
+      "url": "https://github.com/Azure-Samples/cognitive-services-ruby-sdk-samples",
+      "branch": "master"
+    },
+    {
       "path_to_root": "cognitive-services-rest-samples",
       "url": "https://github.com/Azure-Samples/cognitive-services-REST-api-samples",
       "branch": "master"
@@ -289,6 +299,11 @@
     {
       "path_to_root": "cognitive-services-face-android-detect",
       "url": "https://github.com/Azure-Samples/cognitive-services-face-android-detect",
+      "branch": "master"
+    },
+    {
+      "path_to_root": "azure-sdk-for-go-samples",
+      "url": "https://github.com/Azure-Samples/azure-sdk-for-go-samples",
       "branch": "master"
     },
     {

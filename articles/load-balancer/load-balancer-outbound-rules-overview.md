@@ -1,7 +1,6 @@
 ---
-title: Outbound rules in Azure Load Balancer
-titlesuffix: Azure Load Balancer
-description: Use outbound rules to define outbound network address translations
+title: Outbound rules - Azure Load Balancer
+description: With this learning path, get starting using outbound rules to define outbound network address translations.
 services: load-balancer
 documentationcenter: na
 author: asudbring

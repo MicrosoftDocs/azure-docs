@@ -3,12 +3,12 @@ title: Disclosure Design Patterns
 titleSuffix: Azure Cognitive Services
 description: Design patterns and best practices for disclosure.
 services: cognitive-services
-author: angle
+author: sharonlo101
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 10/10/2019
+ms.date: 12/03/2019
 ms.author: angle
 ---
 
@@ -162,7 +162,7 @@ Consistency is the key to achieving disclosure implicitly throughout the user jo
 
 ![Consistency of implicit cues](media/responsible-ai/disclosure-patterns/consistency.png)
 
-### Implicit Cues &amp; Feedback
+### Implicit Cues & Feedback
 
 Anthropomorphism can manifest in different ways, from the actual visual representation of the agent, to the voice, sounds, patterns of light, bouncing shapes, or even the vibration of a device. When defining your persona, leverage implicit cues and feedback patterns rather than aim for a very human-like avatar. This is one way to minimize the need for more explicit disclosure.
 
@@ -242,11 +242,11 @@ Use disclosure as an opportunity to fail gracefully.
 
 ## Reference docs
 
-* [Transparency Note](https://aka.ms/neural-tts-transparency-note)
+* [Disclosure for Voice Talent](https://aka.ms/disclosure-voice-talent)
 * [Guidelines for Responsible Deployment of Synthetic Voice Technology](concepts-guidelines-responsible-deployment-synthetic.md)
 * [Gating Overview](concepts-gating-overview.md)
 * [How to Disclose](concepts-disclosure-guidelines.md)
 
 ## Next steps
 
-* [Transparency Note](https://aka.ms/neural-tts-transparency-note)
+* [Disclosure for Voice Talent](https://aka.ms/disclosure-voice-talent)

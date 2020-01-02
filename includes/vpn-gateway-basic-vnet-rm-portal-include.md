@@ -16,11 +16,13 @@ You can create a VNet with the Resource Manager deployment model and the Azure p
 >
 >
 
-1. Sign in to the [Azure portal](https://portal.azure.com) and select **Create a resource**. The **New** page opens.
+1. Sign in to the [Azure portal](https://portal.azure.com).  On the Azure portal menu or from the **Home** page, and select **Create a resource**. The **New** page opens.
 
-2. In the **Search the marketplace** field, enter *virtual network* and select **Virtual network** from the returned list. The **Virtual network** page opens.
+2. In **Search the marketplace**, enter *virtual network* and select **Virtual Network** from the results.
 
-   ![Locate Virtual Network resource page](./media/vpn-gateway-basic-vnet-rm-portal-include/newvnetportal700.png "Locate virtual network resource page")
+   ![Locate Virtual Network resource page](./media/vpn-gateway-basic-vnet-rm-portal-include/search-marketplace-for-virtual-network.png "Locate virtual network resource page")
+
+   The **Virtual network** page opens.
 
 3. From the **Select a deployment model** list near the bottom of the page, select **Resource Manager**, and then select **Create**. The **Create virtual network** page opens.
 
@@ -34,7 +36,7 @@ You can create a VNet with the Resource Manager deployment model and the Azure p
 
    - **Subscription**: Verify that the subscription listed is the correct one. You can change subscriptions by using the drop-down.
 
-   - **Resource group**: Select an existing resource group, or create a new one by entering a name for your new resource group. If you're creating a new group, name the resource group according to your planned configuration values. For more information about resource groups, see [Azure Resource Manager overview](../articles/azure-resource-manager/resource-group-overview.md#resource-groups).
+   - **Resource group**: Select an existing resource group, or create a new one by entering a name for your new resource group. If you're creating a new group, name the resource group according to your planned configuration values. For more information about resource groups, see [Azure Resource Manager overview](../articles/azure-resource-manager/management/overview.md#resource-groups).
 
    - **Location**: Select the location for your VNet. The location determines where the resources that you deploy to this VNet will live.
 

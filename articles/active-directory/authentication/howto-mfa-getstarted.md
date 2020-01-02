@@ -1,15 +1,15 @@
 ---
-title: Plan and execute an Azure Multi-Factor Authentication deployment - Azure Active Directory
+title: Deploy Azure Multi-Factor Authentication - Azure Active Directory
 description: Microsoft Azure Multi-Factor Authentication deployment planning
 
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 10/15/2019
+ms.date: 11/21/2019
 
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 
@@ -77,7 +77,7 @@ Some of the risk detections detected by Azure Active Directory Identity Protecti
 
 ## Define network locations
 
-We recommended that organizations use Conditional Access to define their network using [named locations](../conditional-access/location-condition.md#named-locations). If your organization is using Identity Protection, consider using risk-based policies instead of named locations.
+We recommend that organizations use Conditional Access to define their network using [named locations](../conditional-access/location-condition.md#named-locations). If your organization is using Identity Protection, consider using risk-based policies instead of named locations.
 
 ### Configuring a named location
 
@@ -205,6 +205,9 @@ function Set-MfaState {
 # Disable MFA for all users
 Get-MsolUser -All | Set-MfaState -State Disabled
 ```
+
+> [!NOTE]
+> We recently changed the behavior and PowerShell script above accordingly. Previously, the script saved off the MFA methods, disabled MFA, and restored the methods. This is no longer necessary now that the default behavior for disable doesn't clear the methods.
 
 ## Plan Conditional Access policies
 

@@ -133,7 +133,7 @@ The following example contains a basic URL Rewrite rule that forces all incoming
   </system.webServer>
 </configuration>
 ```
-This rule works by returning an HTTP status code of 301 (permanent redirect) when the user requests a page using HTTP. The 301 redirects the request to the same URL as the visitor requested, but replaces the HTTP portion of the request with HTTPS. For example, HTTP://contoso.com would be redirected to HTTPS://contoso.com. 
+This rule works by returning an HTTP status code of 301 (permanent redirect) when the user requests a page using HTTP. The 301 redirects the request to the same URL as the visitor requested, but replaces the HTTP portion of the request with HTTPS. For example, `HTTP://contoso.com` would be redirected to `HTTPS://contoso.com`. 
 
 ## <a id="http-hsts"></a>Enable HTTP Strict Transport Security (HSTS)
 

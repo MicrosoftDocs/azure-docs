@@ -1,5 +1,5 @@
 ---
-title: Azure Peering Service (Preview) connection 
+title: Azure Peering Service Preview connection 
 description: Learn about Microsoft Azure Peering Service connection
 services: peering-service
 author: ypitsch
@@ -12,7 +12,7 @@ ms.date: 11/04/2019
 ms.author: v-meravi
 ---
 
-# Peering Service (Preview) connection
+# Peering Service Preview connection
 
 A connection typically refers to a logical information set, identifying a Peering Service. It is defined by specifying the following attributes:
 

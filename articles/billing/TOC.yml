@@ -3,10 +3,14 @@
 - name: Understand Azure billing
   expanded: true
   items:
+  - name: Billing accounts and scopes
+    href: billing-view-all-accounts.md
+  - name: Billing accounts for Microsoft Customer Agreement
+    href: billing-mca-overview.md
+  - name: Billing accounts for Microsoft Partner Agreement
+    href: mpa-overview.md
   - name: Understand your bill
     href: billing-understand-your-bill.md
-  - name: Understand your EA bill
-    href: billing-understand-your-bill-ea.md
   - name: Understand your bill - Microsoft Customer Agreement
     href: billing-mca-understand-your-bill.md
   - name: Understand your bill - Microsoft Partner Agreement
@@ -31,10 +35,6 @@
     href: billing-mpa-invoice-terms-explained.md
   - name: How to pay your bill - Microsoft Customer Agreement
     href: billing-how-to-pay-bill.md
-  - name: Billing accounts for Microsoft Customer Agreement
-    href: billing-mca-overview.md
-  - name: Billing accounts for Microsoft Partner Agreement
-    href: mpa-overview.md
 - name: Manage costs
   items:
   - name: Prevent unexpected costs
@@ -74,7 +74,7 @@
       - name: SQL Database
         href: ../sql-database/sql-database-reserved-capacity.md?toc=/azure/billing/TOC.json
       - name: Azure Data Explorer
-        href: ../data-explorer/pricing-reserved-capacity.md?toc=/azure/billing/TOC.json  
+        href: ../data-explorer/pricing-reserved-capacity.md?toc=/azure/billing/TOC.json
       - name: Azure Databricks
         href: billing-prepay-databricks-reserved-capacity.md
       - name: App Service
@@ -98,15 +98,15 @@
       - name: SQL Data Warehouse
         href: billing-how-reservation-discount-is-applied-to-azure-sql-dw.md
       - name: Azure Data Explorer
-        href: billing-understand-kusto-azuredataexplorer-reservation-charges.md  
+        href: billing-understand-kusto-azuredataexplorer-reservation-charges.md
       - name: Azure Databricks
         href: billing-reservation-discount-databricks.md
       - name: Azure Database for MySQL
-        href: billing-understand-reservation-charges-mysql.md 
+        href: billing-understand-reservation-charges-mysql.md
       - name: Azure Database for PostgreSQL
-        href: billing-understand-reservation-charges-postgresql.md 
+        href: billing-understand-reservation-charges-postgresql.md
       - name: Azure Database for MariaDB
-        href: billing-understand-reservation-charges-mariadb.md  
+        href: billing-understand-reservation-charges-mariadb.md
       - name: App Service
         href: billing-reservation-discount-app-service-isolated-stamp.md
       - name: Azure software plans
@@ -149,8 +149,6 @@
     href: billing-understand-mca-roles.md
   - name: Link partner ID
     href: billing-partner-admin-link-started.md
-  - name: View billing accounts
-    href: billing-view-all-accounts.md
   - name: Organize costs with invoice sections
     href: billing-mca-section-invoice.md
   - name: EA tasks in Microsoft Customer Agreement
@@ -159,6 +157,8 @@
     items:
     - name: Get started in the Azure EA portal
       href: billing-ea-portal-get-started.md
+    - name: Understand your EA bill
+      href: billing-understand-your-bill-ea.md
     - name: EA roles in Azure
       href: billing-understand-ea-roles.md
     - name: Azure EA portal administration

@@ -1,15 +1,15 @@
 ---
-title: Enable passwordless security key sign-in for Azure AD (preview) - Azure Active Directory
+title: Passwordless security key sign-in Windows - Azure Active Directory
 description: Enable passwordless security key sign-in to Azure AD using FIDO2 security keys (preview)
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 08/05/2019
+ms.date: 12/02/2019
 
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: librown, aakapo
 
@@ -42,6 +42,7 @@ This document focuses on enabling FIDO2 security key based passwordless authenti
 - “Run as“ is **not supported** using security key.
 - Log in to a server using security key is **not supported**.
 - If you have not used your security key to sign in to your device while online, you will not be able to use it to sign in or unlock offline.
+- Signing in or unlocking a Windows 10 device with a security key containing multiple Azure AD accounts. This scenario will utilize the last account added to the security key. WebAuthN will allow users to choose the account they wish to use.
 
 ## Prepare devices for preview
 
@@ -52,7 +53,7 @@ Azure AD joined devices that you will be piloting with must be running Windows 1
 Organizations may choose to use one or more of the following methods to enable the use of security keys for Windows sign-in based on their organization's requirements.
 
 - [Enable with Intune](#enable-with-intune)
-   - [Targeted Intune deployment](#targeted-intune-deployment)
+- [Targeted Intune deployment](#targeted-intune-deployment)
 - [Enable with a provisioning package](#enable-with-a-provisioning-package)
 
 ### Enable with Intune
@@ -63,7 +64,7 @@ Organizations may choose to use one or more of the following methods to enable t
 
 Configuration of security keys for sign-in, is not dependent on configuring Windows Hello for Business.
 
-#### Targeted Intune deployment
+### Targeted Intune deployment
 
 To target specific device groups to enable the credential provider, use the following custom settings via Intune.
 
@@ -85,7 +86,7 @@ To target specific device groups to enable the credential provider, use the foll
 
 ### Enable with a provisioning package
 
-For devices not managed by Intune, a provisioning package can be installed to enable the functionality. The Windows Configuration Designer app can be installed from the [Microsoft Store](https://www.microsoft.com/store/apps/9nblggh4tx22).
+For devices not managed by Intune, a provisioning package can be installed to enable the functionality. The Windows Configuration Designer app can be installed from the [Microsoft Store](https://www.microsoft.com/en-us/p/windows-configuration-designer/9nblggh4tx22).
 
 1. Launch the Windows Configuration Designer.
 1. Select **File** > **New project**.

@@ -1,11 +1,8 @@
 ---
 title: Sample - Allow custom VM image from resource group
-description: This sample policy definition requires that custom images come from an approved resource group.
-author: DCtheGeek
-ms.service: azure-policy
-ms.topic: sample
+description: This sample policy definition requires that custom images come from an approved resource group defined in a parameter.
 ms.date: 01/23/2019
-ms.author: dacoulte
+ms.topic: sample
 ---
 # Sample - Allow custom VM image from a resource group
 

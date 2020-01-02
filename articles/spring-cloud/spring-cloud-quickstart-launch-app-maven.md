@@ -1,6 +1,6 @@
 ---
-title: "Quickstart: Launch an application using Maven - Azure Spring Cloud"
-description: Launch a sample application using Maven
+title: "Quickstart - Launch an application using Maven with Azure Spring Cloud"
+description: In this quickstart, launch a sample application using Maven
 author: jpconnock
 ms.service: spring-cloud
 ms.topic: quickstart
@@ -23,7 +23,8 @@ Following this quickstart, you will learn how to:
 > * Assign a public endpoint for your application
 
 >[!Note]
-> > Azure Spring Cloud is currently offered as a public preview. While Azure Spring Cloud is in preview, Microsoft offers limited support without an SLA.  For more information about support during previews, please file a [Support request](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request).
+> Azure Spring Cloud is currently offered as a public preview. Public preview offerings allow customers to experiment with new features prior to their official release.  Public preview features and services are not meant for production use.  For more information about support during previews, please review our [FAQ](https://azure.microsoft.com/support/faq/) or file a [Support request](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) to learn more.
+
 
 >[!TIP]
 > Azure Cloud Shell is a free interactive shell that you can use to run the commands in this article. It has common Azure tools preinstalled, including the latest versions of Git, the Java Development Kit (JDK), Maven, and the Azure CLI. If you're signed in to your Azure subscription, launch [Azure Cloud Shell](https://shell.azure.com). For more information, see [Overview of Azure Cloud Shell](../cloud-shell/overview.md).
@@ -33,24 +34,11 @@ To complete this quickstart:
 1. [Install Git](https://git-scm.com/).
 2. [Install JDK 8](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable).
 3. [Install Maven 3.0 or later](https://maven.apache.org/download.cgi).
-4. [Install the Azure CLI version 2.0.67 or higher](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
-5. [Sign up for a free Azure subscription](https://azure.microsoft.com/free/).
-
-## Install the Azure CLI extension
-
-Install the Azure Spring Cloud extension for the Azure CLI by using the following command:
-
-```Azure CLI
-az extension add --name spring-cloud
-```
+4. [Sign up for a free Azure subscription](https://azure.microsoft.com/free/).
 
 ## Provision a service instance on the Azure portal
 
-1. In a web browser, open [this link to Azure Spring Cloud in the Azure portal](https://ms.portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=AppPlatformExtension#blade/Microsoft_Azure_Marketplace/MarketplaceOffersBlade/selectedMenuItemId/home/searchQuery/Azure%20Spring%20Cloud), and sign in to your account.
-
-    ![Search for and select Azure Spring Cloud](media/spring-cloud-quickstart-launch-app-portal/goto-portal.png)
-
-1. Select **Create** on the **Overview** page to open the creation dialog.
+1. In a web browser, open [this link to Azure Spring Cloud in the Azure portal](https://ms.portal.azure.com/#create/Microsoft.AppPlatform), and sign in to your account.
 
 1. Provide the **Project Details** for the sample application as follows:
 
@@ -86,7 +74,7 @@ It takes about 5 minutes for the service to be deployed. After the service is de
 1. Change directory and build the project by running the following command:
 
     ```azurecli
-    cd PiggyMetrics
+    cd piggymetrics
     mvn clean package -DskipTests
     ```
 
@@ -121,3 +109,5 @@ In this quickstart, you've deployed a Spring Cloud application from a Maven repo
 > [!div class="nextstepaction"]
 > [Prepare your Azure Spring Cloud application for deployment](spring-cloud-tutorial-prepare-app-deployment.md)
 > [Learn more about Maven plug-ins for Azure](https://github.com/microsoft/azure-maven-plugin)
+
+More samples are available on GitHub: [Azure Spring Cloud Samples](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples/tree/master/service-binding-cosmosdb-sql).

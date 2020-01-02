@@ -29,7 +29,10 @@ org.apache.commons.lang3.time.FastDateFormat; local class incompatible: stream c
 
 ## Cause
 
-This error can be caused by adding an additional jar to the `spark.yarn.jars` config, which is a “shaded” jar that includes a different version of `commons-lang3` package and introduces a class mismatch. By default, Spark 2.1/2/3 uses version 3.5 of `commons-lang3`.
+This error can be caused by adding an additional jar to the `spark.yarn.jars` config, specifically a shaded jar that includes a different version of the `commons-lang3` package and introduces a class mismatch. By default, Spark 2.1/2/3 uses version 3.5 of `commons-lang3`.
+
+> [!TIP]
+> To shade a library is to put its contents into your own jar, changing its package. This differs from packaging the library, which is putting the library into your own jar without repackaging.
 
 ## Resolution
 

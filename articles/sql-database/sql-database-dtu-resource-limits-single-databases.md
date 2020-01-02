@@ -1,10 +1,10 @@
 ---
-title: Azure SQL Database DTU resource limits single databases| Microsoft Docs
+title: DTU resource limits single databases
 description: This page describes some common DTU resource limits for single databases in Azure SQL Database.
 services: sql-database
 ms.service: sql-database
 ms.subservice: single-database
-ms.custom: 
+ms.custom: seo-lt-2019
 ms.devlang:
 ms.topic: conceptual
 author: stevestein
@@ -37,6 +37,12 @@ The following tables show the resources available for a single database at each 
 | Max concurrent sessions | 300 |
 |||
 
+> [!IMPORTANT]
+> The Basic service tier provides less than one vCore (CPU).  For CPU-intensive workloads, a service tier of S3 or greater is recommended. 
+>
+>Regarding data storage, the Basic service tier is placed on Standard Page Blobs. Standard Page Blobs use hard disk drive (HDD)-based storage media and are best suited for development, testing, and other infrequently accessed workloads that are less sensitive to performance variability.
+>
+
 ### Standard service tier
 
 | **Compute size** | **S0** | **S1** | **S2** | **S3** |
@@ -48,6 +54,12 @@ The following tables show the resources available for a single database at each 
 | Max concurrent workers (requests)| 60 | 90 | 120 | 200 |
 | Max concurrent sessions |600 | 900 | 1200 | 2400 |
 ||||||
+
+> [!IMPORTANT]
+> The Standard S0, S1 and S2 tiers provide less than one vCore (CPU).  For CPU-intensive workloads, a service tier of S3 or greater is recommended. 
+>
+>Regarding data storage, the Standard S0 and S1 service tiers are placed on Standard Page Blobs. Standard Page Blobs use hard disk drive (HDD)-based storage media and are best suited for development, testing, and other infrequently accessed workloads that are less sensitive to performance variability.
+>
 
 ### Standard service tier (continued)
 

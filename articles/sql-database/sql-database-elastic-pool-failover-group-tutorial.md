@@ -1,10 +1,10 @@
 ---
-title: "Tutorial: Add an Azure SQL Database elastic pool to a failover group | Microsoft Docs"
+title: "Tutorial: Add an elastic pool to a failover group"
 description: Add an Azure SQL Database elastic pool to a failover group using the Azure portal, PowerShell, or Azure CLI.  
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
-ms.custom: 
+ms.custom: seo-lt-2019
 ms.devlang: 
 ms.topic: conceptual
 author: MashaMSFT
@@ -372,7 +372,6 @@ Clean up your resources using PowerShell.
    Remove-AzResourceGroup -ResourceGroupName $resourceGroupName
    Write-host "Resource group removed =" $resourceGroupName
    ```
----
 
 This portion of the tutorial uses the following PowerShell cmdlet:
 
@@ -380,7 +379,10 @@ This portion of the tutorial uses the following PowerShell cmdlet:
 |---|---|
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Removes a resource group | 
 
-This script uses the following commands. Each command in the table links to command specific documentation.
+---
+
+> [!IMPORTANT]
+> If you want to keep the resource group but delete the secondary database, remove it from the failover group before deleting it. Deleting a secondary database before it is removed from the failover group can cause unpredictable behavior. 
 
 ## Full script
 

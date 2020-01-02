@@ -1,5 +1,5 @@
 ---
-title: Azure Security Center and Azure Container Registry | Microsoft Docs
+title: Azure Security Center and Azure Container Registry
 description: "Learn about Azure Security Center's integration with Azure Container Registry"
 services: security-center
 documentationcenter: na
@@ -10,7 +10,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/04/2019
+ms.date: 11/19/2019
 ms.author: memildin
 
 ---
@@ -19,9 +19,14 @@ ms.author: memildin
 
 Azure Container Registry (ACR) is a managed, private Docker registry service that stores and manages your container images for Azure deployments in a central registry. It's based on the open-source Docker Registry 2.0.
 
-When using ACR together with Azure Security Center's standard tier (see [pricing](security-center-pricing.md)), you gain deeper visibility into your registry and images' vulnerabilities.
+For deeper visibility into your registry and images' vulnerabilities, users of Azure Security Center's standard tier can enable the optional Container Registries bundle. The cost for using this feature is charged per image, not per scan. For more information, see [pricing](security-center-pricing.md). With the bundle enabled, Security Center automatically scans images in your registry whenever an image is pushed to the registry.
 
-[![Azure Container Registry (ACR) recommendations inside Azure Security Center](media/azure-container-registry-integration/container-security-acr-page.png)](media/azure-container-registry-integration/container-security-acr-page.png#lightbox)
+> [!NOTE]
+> Security Center's first scan of a registry will only occur after the Container Registries bundle is enabled and an image is pushed to the registry.
+
+When the scan completes (typically after approximately 10 minutes), findings are available in Security Center recommendations like this:
+
+[![Sample Azure Security Center recommendation about vulnerabilities discovered in an Azure Container Registry (ACR) hosted image](media/azure-container-registry-integration/container-security-acr-page.png)](media/azure-container-registry-integration/container-security-acr-page.png#lightbox)
 
 ## Benefits of integration
 

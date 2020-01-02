@@ -1,11 +1,11 @@
 ### YamlMime:Landing
 
 title: Custom Vision documentation # < 60 chars
-summary: Custom Vision is a cognitive service that lets you build, deploy, and improve your own image classifiers. An image classifier is an AI service that applies labels (which represent classes) to images, according to their visual characteristics.  # < 160 chars
+summary: Custom Vision lets you build, deploy, and improve your own image classifiers. An image classifier is an AI service that applies labels (which represent classes) to images, based on their visual characteristics.  # < 160 chars
 
 metadata:
   title: Custom Vision documentation - Quickstarts, Tutorials, API Reference - Azure Cognitive Services | Microsoft Docs # Required; page title displayed in search results. Include the brand. < 60 chars.
-  description: Custom Vision is a cognitive service that lets you build, deploy, and improve your own image classifiers. An image classifier is an AI service that applies labels (which represent classes) to images, according to their visual characteristics.  # Required; article description that is displayed in search results. < 160 chars.
+  description: Custom Vision lets you build, deploy, and improve your own image classifiers. An image classifier is an AI service that applies labels (which represent classes) to images, based on their visual characteristics.  # Required; article description that is displayed in search results. < 160 chars.
   services: cognitive-services
   ms.service: cognitive-services #Required; service per approved list. service slug assigned to your service by ACOM.
   ms.subservice: custom-vision
@@ -84,7 +84,7 @@ landingContent:
             url: test-your-model.md
           - text: Improve your model
             url: getting-started-improving-your-classifier.md
-          - text: Use suggested tags
+          - text: Use Smart Labeler
             url: suggested-tags.md
 
   - title: Export models
@@ -108,8 +108,6 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Move your Limited Trial project to Azure
-            url: move-your-project-to-azure.md
           - text: Update your app to the 3.0 API
             url: update-application-to-3.0-sdk.md
 

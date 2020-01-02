@@ -6,14 +6,14 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 10/31/2019
+ms.date: 11/12/2019
 ms.author: helohr
 ---
 # Connect with the Windows Desktop client
 
-> Applies to: Windows 7 and Windows 10
+> Applies to: Windows 7, Windows 10, and Windows 10 IoT Enterprise
 
-You can access Windows Virtual Desktop resources on devices with Windows 7 or Windows 10 using the Windows Desktop client.
+You can access Windows Virtual Desktop resources on devices with Windows 7, Windows 10, and Windows 10 IoT Enterprise using the Windows Desktop client.
 
 > [!IMPORTANT]
 > Windows Virtual Desktop doesn't support the RemoteApp and Desktop Connections (RADC) client or the Remote Desktop Connection (MSTSC) client.
@@ -23,8 +23,8 @@ You can access Windows Virtual Desktop resources on devices with Windows 7 or Wi
 Choose the client that matches your version of Windows:
 
 - [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2068602)
-- [Windows 32-bit Preview](https://go.microsoft.com/fwlink/?linkid=2098960)
-- [Windows ARM64 Preview](https://go.microsoft.com/fwlink/?linkid=2098961)
+- [Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2098960)
+- [Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2098961)
 
 You can install the client for the current user, which doesn't require admin rights, or your admin can install and configure the client so that all users on the device can access it.
 

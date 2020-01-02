@@ -2,8 +2,6 @@
 title: Durable Functions versions overview - Azure Functions
 description: Learn about Durable Functions versions.
 author: cgillum
-manager: gwallace
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: azfuncdf
@@ -52,7 +50,7 @@ Durable Functions 2.x introduces several breaking changes. Durable Functions 1.x
 Durable Functions 2.x uses a new host.json schema. The main changes from 1.x include:
 
 * `"storageProvider"` (and the `"azureStorage"` subsection) for storage-specific configuration.
-* `"tracking"` for tracking and logging configuration.
+* `"tracing"` for tracing and logging configuration.
 * `"notifications"` (and the `"eventGrid"` subsection) for event grid notification configuration.
 
 See the [Durable Functions host.json reference documentation](durable-functions-bindings.md#durable-functions-2-0-host-json) for details.

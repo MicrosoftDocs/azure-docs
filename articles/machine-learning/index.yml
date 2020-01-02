@@ -4,7 +4,7 @@ title: Azure Machine Learning documentation
 summary: Azure Machine Learning offers web interfaces & SDKs so you can quickly train and deploy your machine learning models and pipelines at scale. Use these capabilities with open-source Python frameworks, such as PyTorch, TensorFlow, and scikit-learn. 
 
 metadata:
-  title: Machine Learning documentation - Azure
+  title: Azure Machine Learning documentation
   description: Azure Machine Learning offers you web interfaces & SDKs to quickly train and deploy your machine learning models and pipelines at scale. Use these capabilities with open-source Python frameworks, such as PyTorch, TensorFlow, and scikit-learn. 
  
   services: machine-learning
@@ -33,7 +33,7 @@ landingContent:
             url: service/tutorial-1st-r-experiment.md
           - text: Experiment using drag & drop designer
             url: service/tutorial-designer-automobile-price-train-score.md
-          - text: Experiment with automated ML 
+          - text: Experiment with automated ML
             url: service/tutorial-first-experiment-automated-ml.md
       - linkListType: overview
         links:
@@ -103,13 +103,17 @@ landingContent:
             url: service/concept-model-management-and-deployment.md
           - text: How & where to deploy
             url: service/how-to-deploy-and-where.md
+          - text: Authentication
+            url: service/how-to-setup-authentication.md
           - text: Realtime prediction
             url: service/how-to-consume-web-service.md
           - text: Batch prediction 
             url: service/how-to-run-batch-predictions.md
+          - text: End-to-end examples (GitHub)
+            url: https://github.com/microsoft/MLOps
 
   # Reference
-  - title: Explore reference docs
+  - title: Go to reference docs
     linkLists:
       - linkListType: reference
         links:
@@ -121,3 +125,7 @@ landingContent:
             url: https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml?view=azure-cli-latest
           - text: Designer algorithms & modules
             url: algorithm-module-reference/module-reference.md
+          - text: REST API
+            url: https://docs.microsoft.com/rest/api/azureml/
+          - text: AI reference architectures (GitHub)
+            url: https://github.com/Microsoft/AI

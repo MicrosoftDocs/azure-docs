@@ -9,6 +9,7 @@ ms.service: virtual-machines-windows
 ms.subservice: disks
 ---
 
+# What disk types are available in Azure?
 [!INCLUDE [virtual-machines-disk-types](../../../includes/virtual-machines-managed-disks-types-overview.md)]
 
 If you would like to start using ultra disks, see our article on the subject: [Using Azure ultra disks](disks-enable-ultra-ssd.md).

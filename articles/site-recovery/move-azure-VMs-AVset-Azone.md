@@ -1,6 +1,5 @@
 ---
-title: Move Azure IaaS VMs to another Azure region as zone-pinned VMs using the Azure Site Recovery service | Microsoft Docs
-description: Use Azure Site Recovery to move Azure IaaS VMs to another Azure region as zone-pinned VMs. 
+title: Move VMs to an Azure region with availability zones using Azure Site Recovery 
 services: site-recovery
 author: rajani-janaki-ram
 ms.service: site-recovery

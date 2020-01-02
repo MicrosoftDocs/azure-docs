@@ -1,5 +1,5 @@
 ---
-title: vCPU quotas for Azure | Microsoft Docs
+title: vCPU quotas for Azure 
 description: Learn about vCPU quotas for Azure.
 keywords: ''
 services: virtual-machines-linux

@@ -1,6 +1,6 @@
 ﻿---
-title: 'How to manage your Azure Time Series Insights environment using Azure Resource Manager templates| Microsoft Docs'
-description: This article describes how to manage your Azure Time Series Insights environment programmatically using Azure Resource Manager.
+title: 'Manage your environment using Azure Resource Manager templates - Azure Time Series Insights | Microsoft Docs'
+description: Learn how to manage your Azure Time Series Insights environment programmatically using Azure Resource Manager.
 ms.service: time-series-insights
 services: time-series-insights
 author: deepakpalled
@@ -9,7 +9,7 @@ manager: cshankar
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 10/10/2019
+ms.date: 12/06/2019
 ms.custom: seodec18
 ---
 
@@ -114,7 +114,7 @@ The following procedure describes how to use PowerShell to deploy an Azure Resou
      }
      ```
   
-    * For more information, see the [Parameters](../azure-resource-manager/resource-group-template-deploy.md#parameter-files) article.
+    * For more information, see the [Parameters](../azure-resource-manager/templates/parameter-files.md) article.
 
 ## Deploy the quickstart template locally using PowerShell
 

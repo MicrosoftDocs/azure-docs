@@ -2,12 +2,10 @@
 title: Create your first PowerShell function in Azure
 description: Learn how to create your first PowerShell function in Azure using Visual Studio Code.
 author: joeyaiello
-manager: gwallace
 ms.author: jaiello
 ms.reviewer: glenga
 ms.date: 04/25/2019
 ms.topic: quickstart
-ms.service: azure-functions
 ---
 
 # Create your first PowerShell function in Azure

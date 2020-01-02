@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/26/2019
+ms.date: 12/02/2019
 ms.author: rkarlin
 
 ---
-# Remove Azure Sentinel from your tenant
+# Remove Azure Sentinel from your workspace
 
-If you no longer want to use the Azure Sentinel, this article explains how to remove it from your tenant.
+If you no longer want to use the Azure Sentinel, this article explains how to remove it from your workspace.
 
 ## How to delete Azure Sentinel
 
@@ -34,7 +34,7 @@ In the background, when you install Azure Sentinel, the **SecurityInsights** sol
 3.  At the top of the page select **Delete**.
 
     > [!IMPORTANT]
-    > If you delete the workspace, the workspace and Azure Sentinel are removed from your tenant in Azure Monitor.
+    > If you remove the workspace, it may affect other solutions and data sources that are using this workspace, including Azure Monitor. To check which solutions are using this workspace, see [List installed monitoring solutions](../azure-monitor/insights/solutions.md#list-installed-monitoring-solutions). To check which solutions' data is being ingested into the workspace, see [Understanding ingested data volume](../azure-monitor/platform/manage-cost-storage.md#understanding-ingested-data-volume).
 
     ![Delete the SecurityInsights solution](media/offboard/delete-solution.png)
 

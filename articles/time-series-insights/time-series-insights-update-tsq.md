@@ -1,6 +1,6 @@
 ﻿---
-title: 'Azure Time Series Insights Preview data querying | Microsoft Docs'
-description: Azure Time Series Insights Preview data querying.
+title: 'Data querying in Preview - Azure Time Series Insights | Microsoft Docs'
+description: Data querying concepts and HTTP REST API overview in Azure Time Series Insights Preview.
 author: deepakpalled
 ms.author: dpalled
 manager: cshankar
@@ -8,11 +8,11 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 10/21/2019
+ms.date: 12/16/2019
 ms.custom: seodec18
 ---
 
-# Data querying
+# Data querying in Azure Time Series Insights Preview
 
 Azure Time Series Insights Preview enables data querying on events and metadata stored in the environment via public surface APIs. These APIs also are used in the [Time Series Insights Preview explorer](./time-series-insights-update-explorer.md).
 
@@ -34,9 +34,9 @@ The following core APIs are supported.
 
 The following Environment APIs are available:
 
-* [Get Environment API](https://docs.microsoft.com/rest/api/time-series-insights/preview-env#get-environments-api): Returns the list of environments that the caller is authorized to access.
-* [Get Environment Availability API](https://docs.microsoft.com/rest/api/time-series-insights/preview-env#get-environment-availability-api): Returns the distribution of event count over the event timestamp `$ts`. This API helps determine if there are any events in the timestamp by returning the count of events, if any exist.
-* [Get Event Schema API](https://docs.microsoft.com/rest/api/time-series-insights/preview-env#get-event-schema-api): Returns the event schema metadata for a given search span. This API helps retrieve all metadata and properties available in the schema for the given search span.
+* [Get Environments API](/rest/api/time-series-insights/management/environments/get): Returns the list of environments that the caller is authorized to access.
+* [Get Environments Availability API](/rest/api/time-series-insights/dataaccess(preview)/query/getavailability): Returns the distribution of event count over the event timestamp `$ts`. This API helps determine if there are any events in the timestamp by returning the count of events, if any exist.
+* [Get Event Schema API](/rest/api/time-series-insights/dataaccess(preview)/query/geteventschema): Returns the event schema metadata for a given search span. This API helps retrieve all metadata and properties available in the schema for the given search span.
 
 ## Time Series Model-Query (TSM-Q) APIs
 
@@ -53,16 +53,16 @@ The following Time Series Model-Query APIs are available. Most of these APIs sup
 
 The following Time Series Query APIs are available. These APIs are available on all supported multilayered storages in Time Series Insights. Query URL parameters are used to specify the [store type](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/query/execute#uri-parameters) the query should execute on:
 
-* [Get Events API](https://docs.microsoft.com/rest/api/time-series-insights/preview-query#get-events-api): Enables query and retrieval of Time Series Insights data from events as they're recorded in Time Series Insights from the source provider. This API allows retrieval of raw events for a given Time Series ID and search span. This API supports pagination to retrieve the complete dataset for the selected input. 
+* [Get Events API](/rest/api/time-series-insights/dataaccess(preview)/query/execute#getevents): Enables query and retrieval of Time Series Insights data from events as they're recorded in Time Series Insights from the source provider. This API allows retrieval of raw events for a given Time Series ID and search span. This API supports pagination to retrieve the complete dataset for the selected input. 
 
-* [Get Series API](https://docs.microsoft.com/rest/api/time-series-insights/preview-query#get-series-api): Enables query and retrieval of Time Series Insights data from captured events by using data recorded on the wire. The values that are returned are based on the variables that were defined in the model or provided inline. This API supports pagination to retrieve the complete dataset for the selected input. This API helps in defining calculated properties or columns.
+* [Get Series API](/rest/api/time-series-insights/dataaccess(preview)/query/execute#getseries): Enables query and retrieval of Time Series Insights data from captured events by using data recorded on the wire. The values that are returned are based on the variables that were defined in the model or provided inline. This API supports pagination to retrieve the complete dataset for the selected input. This API helps in defining calculated properties or columns.
 
     >[!NOTE]
     > The Aggregation clause is ignored even if it's specified in a model or provided inline.
 
   The Get Series API returns a Time Series value for each variable for each interval. A Time Series value is a format that Time Series Insights uses for output JSON from a query. The values that are returned are based on the Time Series ID and the set of variables that were provided.
 
-* [Aggregate Series API](https://docs.microsoft.com/rest/api/time-series-insights/preview-query#aggregate-series-api): Enables query and retrieval of Time Series Insights data from captured events by sampling and aggregating recorded data. This API supports continuable execution by using [continuation tokens](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/query/execute#queryresultpage).
+* [Aggregate Series API](/rest/api/time-series-insights/dataaccess(preview)/query/execute#aggregatevariable): Enables query and retrieval of Time Series Insights data from captured events by sampling and aggregating recorded data. This API supports continuable execution by using [continuation tokens](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/query/execute#queryresultpage).
 
   The Aggregate Series API returns a Time Series value for each variable for each interval. The values are based on the Time Series ID and the set of variables that were provided. The Aggregate Series API achieves reduction by using variables stored in the Time Series Model or provided inline to aggregate or sample data.
 

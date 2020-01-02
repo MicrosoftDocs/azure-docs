@@ -1,19 +1,20 @@
 ﻿---
-title: Copy data from SQL Server to Blob storage by using Azure Data Factory | Microsoft Docs
+title: Copy data from SQL Server to Blob storage using PowerShell
 description: Learn how to copy data from an on-premises data store to the Azure cloud by using a self-hosted integration runtime in Azure Data Factory.
 services: data-factory
-documentationcenter: ''
 author: nabhishek
-manager: craigg
+ms.author: abnarain
+manager: anandsub
 ms.reviewer: douglasl
-
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
+ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/22/2018
-ms.author: abnarain
 ---
+
 # Tutorial: Copy data from an on-premises SQL Server database to Azure Blob storage
+
 In this tutorial, you use Azure PowerShell to create a data-factory pipeline that copies data from an on-premises SQL Server database to Azure Blob storage. You create and use a self-hosted integration runtime, which moves data between on-premises and cloud data stores. 
 
 > [!NOTE]
@@ -129,7 +130,7 @@ Install the latest version of Azure PowerShell if you don't already have it on y
 
 ## Create a data factory
 
-1. Define a variable for the resource group name that you'll use later in PowerShell commands. Copy the following command to PowerShell, specify a name for the [Azure resource group](../azure-resource-manager/resource-group-overview.md) (enclosed in double quotation marks; for example, `"adfrg"`), and then run the command. 
+1. Define a variable for the resource group name that you'll use later in PowerShell commands. Copy the following command to PowerShell, specify a name for the [Azure resource group](../azure-resource-manager/management/overview.md) (enclosed in double quotation marks; for example, `"adfrg"`), and then run the command. 
    
     ```powershell
     $resourceGroupName = "ADFTutorialResourceGroup"

@@ -1,5 +1,5 @@
 ---
-title: Use PHP to connect to Azure Database for PostgreSQL - Single Server
+title: Connect with PHP - Azure Database for PostgreSQL - Single Server
 description: This quickstart provides a PHP code sample you can use to connect and query data from Azure Database for PostgreSQL - Single Server.
 author: rachel-msft
 ms.author: raagyema

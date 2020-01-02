@@ -1,10 +1,10 @@
 ---
-title: Save costs for SQL Data Warehouse charges with Azure reserved capacity
+title: Save on SQL Data Warehouse charges with Azure reserved capacity
 description: Learn how you save costs for SQL Data Warehouse charges with reserved capacity to save money.
 services: billing
 author: yashesvi
 manager: yashar
-ms.service: billing
+ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 08/29/2019
 ms.author: banders
