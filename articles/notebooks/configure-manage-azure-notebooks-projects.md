@@ -5,7 +5,7 @@ ms.topic: how-to
 ms.date: 05/13/2019
 ---
 
-# Manage and configure projects in Azure Notebooks Preview
+# <a id="manage-and-configure-projects" /> Manage and configure projects in Azure Notebooks Preview
 
 A project in Azure Notebooks Preview is essentially a configuration of the underlying Linux virtual machine in which Jupyter notebooks run, along with a file folder and descriptive metadata. 
 
