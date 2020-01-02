@@ -37,7 +37,7 @@ landingContent:
             url: service-bus-queues-topics-subscriptions.md   
       - linkListType: architecture
         links:
-          - text: Reference Architecture for Queues and Events
+          - text: Reference architecture for queues and events
             url: https://docs.microsoft.com/azure/architecture/reference-architectures/enterprise-integration/queues-events
 
   # Card

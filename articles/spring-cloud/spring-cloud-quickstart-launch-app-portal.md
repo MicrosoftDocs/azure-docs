@@ -1,6 +1,6 @@
 ---
-title: "Quickstart: Launch an Azure Spring Cloud application using the Azure portal"
-description: Deploy a sample application to the Azure Spring Cloud using the Azure portal.
+title: "Quickstart - Launch an Azure Spring Cloud application using the Azure portal"
+description: In this quickstart, deploy a sample application to the Azure Spring Cloud using the Azure portal.
 author: jpconnock
 ms.service: spring-cloud
 ms.topic: quickstart
@@ -67,13 +67,17 @@ It takes about 5 minutes for the service to deploy.  Once it is deployed, the **
 
 1. Go to the service **Overview** page and select **Config Server**.
 
-1. In the **Default repository** section, set **URI** to "https\://github.com/Azure-Samples/piggymetrics", set **LABEL** to "config", and select **Apply** to save your changes.
+1. In the **Default repository** section, set **URI** to "https\://github.com/Azure-Samples/piggymetrics".
+
+1. Set **LABEL** to "config".
+
+1. Select **Apply** to save your changes.
 
     ![Screenshot of ASC portal](media/spring-cloud-quickstart-launch-app-portal/portal-config.png)
 
 ## Build and deploy microservice applications
 
-1. Open an [Azure Cloudshell](https://shell.azure.com)  and clone the sample app repository to your local machine.  Here, we first create a temporary directory called `source-code` before cloning the app.
+1. Open an [Azure Cloud Shell](https://shell.azure.com)  and clone the sample app repository to your local machine.  Here, we first create a temporary directory called `source-code` before cloning the app.
 
     ```azurecli
     mkdir source-code
@@ -118,7 +122,7 @@ It takes about 5 minutes for the service to deploy.  Once it is deployed, the **
 
 1. Select the `gateway` application to show the **Overview** page.
 
-1. Select **Assign Domain** to assign a public endpoint to gateway. This can a few minutes.
+1. Select **Assign Domain** to assign a public endpoint to gateway. This can take a few minutes.
 
     ![Screenshot of ASC portal](media/spring-cloud-quickstart-launch-app-portal/portal-endpoint.png)
 
@@ -140,3 +144,5 @@ In this quickstart, you learned how to:
 
 > [!div class="nextstepaction"]
 > [Prepare your Azure Spring Cloud application for deployment](spring-cloud-tutorial-prepare-app-deployment.md)
+
+More samples are available on GitHub: [Azure Spring Cloud Samples](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples/tree/master/service-binding-cosmosdb-sql).

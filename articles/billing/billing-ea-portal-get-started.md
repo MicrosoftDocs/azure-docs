@@ -4,7 +4,7 @@ description: This article explains how Azure EA customers use the Azure EA porta
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 11/07/2019
+ms.date: 12/30/2019
 ms.topic: conceptual
 ms.service: cost-management-billing
 manager: boalcsva
@@ -99,6 +99,8 @@ The service administrator has permissions to manage services in the Azure portal
 ## Activate your enrollment
 
 To activate your service, the initial enterprise administrator opens the Azure EA portal at [https://ea.azure.com](https://ea.azure.com) and signs in using the email address from the invitation email.
+
+If you’ve been set up as the EA administrator, you don’t need to receive the activation email to log on to the Azure EA portal. You can proceed to [https://ea.azure.com](https://ea.azure.com) and log on with your email address (either work, school, or live ID) and password.
 
 If you have more than one enrollment, choose one to activate. By default, only active enrollments are shown. To view enrollment history, clear the **Active** option in the top right of the Azure EA portal.
 

@@ -2,14 +2,10 @@
 title: Manage an Azure virtual machine with inventory collection | Microsoft Docs
 description: Manage a virtual machine with inventory collection
 services: automation
-ms.service: automation
 ms.subservice: change-inventory-management
 keywords: inventory, automation, change, tracking
-author: jennyhunter-msft
-ms.author: jehunte
 ms.date: 02/06/2019
 ms.topic: conceptual
-manager: carmonm
 ---
 # Manage an Azure virtual machine with inventory collection
 

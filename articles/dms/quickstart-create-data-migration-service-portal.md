@@ -1,6 +1,7 @@
 ---
-title: "Quickstart: Create an Azure Database Migration Service instance using the Azure portal | Microsoft Docs"
-description: Use the Azure portal to create an instance of Azure Database Migration Service
+title: "Quickstart: Create an instance using the Azure portal"
+titleSuffix: Azure Database Migration Service
+description: Use the Azure portal to create an instance of Azure Database Migration Service.
 services: database-migration
 author: HJToland3
 ms.author: jtoland
@@ -8,7 +9,7 @@ manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
-ms.custom: mvc
+ms.custom: "seo-lt-2019"
 ms.topic: quickstart
 ms.date: 11/05/2019
 ---
@@ -67,7 +68,7 @@ Register the Microsoft.DataMigration resource provider before you create your fi
 
 ## Clean up resources
 
-You can clean up the resources created in this Quickstart by deleting the [Azure resource group](../azure-resource-manager/resource-group-overview.md). To delete the resource group, navigate to the instance of the Azure Database Migration Service that you created. Select the **Resource group** name, and then select **Delete resource group**. This action deletes all assets in the resource group as well as the group itself.
+You can clean up the resources created in this Quickstart by deleting the [Azure resource group](../azure-resource-manager/management/overview.md). To delete the resource group, navigate to the instance of the Azure Database Migration Service that you created. Select the **Resource group** name, and then select **Delete resource group**. This action deletes all assets in the resource group as well as the group itself.
 
 ## Next steps
 

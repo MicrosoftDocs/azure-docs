@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 11/25/2019
+ms.date: 12/03/2019
 ms.author: helohr
 ---
 # Publish built-in apps in Windows Virtual Desktop
@@ -40,5 +40,8 @@ The process you use to publish Microsoft Edge is a little different from the pub
 New-RdsRemoteApp <tenantname> <hostpoolname> <appgroupname> -Name <remoteappname> -FriendlyName <remoteappname> -FilePath "shell:Appsfolder\Microsoft.MicrosoftEdge_8wekyb3d8bbwe!MicrosoftEdge" 
 ```
 
+## Next steps
 
+- Learn about how to configure feeds to organize how apps are displayed for users at [Customize feed for Windows Virtual Desktop users](customize-feed-for-virtual-desktop-users.md).
+- Learn about the MSIX app attach feature at [Set up MSIX app attach](app-attach.md).
 

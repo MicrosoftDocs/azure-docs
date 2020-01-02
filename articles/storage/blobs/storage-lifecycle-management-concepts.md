@@ -47,10 +47,12 @@ You can add, edit, or remove a policy by using any of the following methods:
 * [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)
 * [REST APIs](https://docs.microsoft.com/rest/api/storagerp/managementpolicies)
 
-This article shows how to manage policy by using the portal and PowerShell methods.  
+A policy can be read or written in full. Partial updates are not supported. 
 
 > [!NOTE]
 > If you enable firewall rules for your storage account, lifecycle management requests may be blocked. You can unblock these requests by providing exceptions for trusted Microsoft services. For more information, see the Exceptions section in [Configure firewalls and virtual networks](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
+
+This article shows how to manage policy by using the portal and PowerShell methods.  
 
 # [Portal](#tab/azure-portal)
 
@@ -63,7 +65,7 @@ There are two ways to add a policy through the Azure portal.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-2. Select **All resources** and then select your storage account.
+2. In the Azure portal, search for and select your storage account. 
 
 3. Under **Blob Service**, select **Lifecycle management** to view or change your rules.
 
@@ -84,7 +86,7 @@ There are two ways to add a policy through the Azure portal.
 #### Azure portal Code view
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-2. Select **All resources** and then select your storage account.
+2. In the Azure portal, search for and select your storage account.
 
 3. Under **Blob Service**, select **Lifecycle management** to view or change your policy.
 

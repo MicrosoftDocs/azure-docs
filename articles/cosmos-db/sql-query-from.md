@@ -1,10 +1,10 @@
 ---
 title: FROM clause in Azure Cosmos DB
-description: Learn about SQL FROM clause for Azure Cosmos DB
+description: Learn about the SQL syntax, and example for FROM clause for Azure Cosmos DB. This article also shows examples to scope results, and get sub items by using the FROM clause.
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 06/10/2019
+ms.date: 12/02/2019
 ms.author: tisande
 
 ---

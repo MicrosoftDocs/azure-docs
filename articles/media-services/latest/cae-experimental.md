@@ -1,7 +1,7 @@
 ---
 # Mandatory fields. See more on aka.ms/skyeye/meta.
 title: An experimental preset for content-aware encoding - Azure | Microsoft Docs
-description: This article discusses content-aware encoding in Azure Media Services
+description: This article discusses content-aware encoding in Microsoft Azure Media Services v3.
 services: media-services
 documentationcenter: ''
 author: Juliako

@@ -1,11 +1,12 @@
 ---
-title: Transform data using a mapping data flow in Azure Data Factory 
+title: Transform data using a mapping data flow
 description:  This tutorial provides step-by-step instructions for using Azure Data Factory to transform data with mapping data flow
 author: djpmsft
 ms.author: daperlov
 ms.reviewer: makromer
 ms.service: data-factory
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 10/07/2019
 ---
 
@@ -51,7 +52,7 @@ In this step, you create a data factory and open the Data Factory UX to create a
 
     b. Select **Create new**, and enter the name of a resource group. 
          
-    To learn about resource groups, see [Use resource groups to manage your Azure resources](../azure-resource-manager/resource-group-overview.md). 
+    To learn about resource groups, see [Use resource groups to manage your Azure resources](../azure-resource-manager/management/overview.md). 
 6. Under **Version**, select **V2**.
 7. Under **Location**, select a location for the data factory. Only locations that are supported are displayed in the drop-down list. Data stores (for example, Azure Storage and SQL Database) and computes (for example, Azure HDInsight) used by the data factory can be in other regions.
 8. Select **Create**. 

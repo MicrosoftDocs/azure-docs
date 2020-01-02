@@ -2,7 +2,7 @@
 title: What is Azure Private Link service?
 description: Learn about Azure Private Link service.
 services: private-link
-author: asudbring
+author: malopMSFT
 ms.service: private-link
 ms.topic: conceptual
 ms.date: 09/16/2019
@@ -96,7 +96,6 @@ The following are the known limitations when using the Private Link service:
 - Supported only on Standard Load Balancer 
 - Supports IPv4 traffic only
 - Supports TCP traffic only
-- Only reachable from private endpoints in the same region
 - Create and Manage experience from Azure portal is not supported
 - Clients connection information using proxy protocol is not available to service provider
 

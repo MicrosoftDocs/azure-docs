@@ -1,16 +1,9 @@
 ---
-title: How to Create an App Service Environment v1 - Azure
-description: Creation flow description for an app service environment v1
-services: app-service
-documentationcenter: ''
+title: Create an ASE v1
+description: Creation flow description for an app service environment v1. This doc is provided only for customers who use the legacy v1 ASE.
 author: ccompy
-manager: stefsch
-editor: ''
 
 ms.assetid: 81bd32cf-7ae5-454b-a0d2-23b57b51af47
-ms.service: app-service
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: ccompy

@@ -212,4 +212,4 @@ At the time of the next scheduled backup, Azure Backup performs incremental back
 ## Next steps
 
 * For any questions on the Azure Import/Export workflow, refer to [Use the Microsoft Azure Import/Export service to transfer data to Blob storage](../storage/common/storage-import-export-service.md).
-* Refer to the offline-backup section of the Azure Backup [FAQ](backup-azure-backup-faq.md) for any questions about the workflow.
+

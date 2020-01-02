@@ -76,7 +76,7 @@ It is best to use self-service maintenance in the following cases:
 
 **A:** Virtual machines deployed in an availability set or virtual machine scale sets have the notion of Update Domains (UD). When performing maintenance, Azure honors the UD constraint and will not reboot virtual machines from different UD (within the same availability set).  Azure also waits for at least 30 minutes before moving to the next group of virtual machines. 
 
-For more information about high availability, see [Availability for virtual machines in Azure](/linux/availability.md).
+For more information about high availability, see [Availability for virtual machines in Azure](./linux/availability.md).
 
 **Q: How do I get notified about planned maintenance?**
 
@@ -88,7 +88,7 @@ For more information about high availability, see [Availability for virtual mach
 
 **Q: Is there a way to know exactly when my virtual machine will be impacted?**
 
-**A:** When setting the schedule, we define a time window of several days. However, the exact sequencing of servers (and VMs) within this window is unknown. Customers who would like to know the exact time for their VMs can use [scheduled events](/linux/scheduled-events.md) and query from within the virtual machine and receive a 15-minute notification before a VM reboot.
+**A:** When setting the schedule, we define a time window of several days. However, the exact sequencing of servers (and VMs) within this window is unknown. Customers who would like to know the exact time for their VMs can use [scheduled events](./linux/scheduled-events.md) and query from within the virtual machine and receive a 15-minute notification before a VM reboot.
 
 **Q: How long will it take you to reboot my virtual machine?**
 
