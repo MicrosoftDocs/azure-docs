@@ -42,7 +42,10 @@ Whereas **Conversation Transcription** works on a single device with a multichan
 
 ### Ad-hoc conversations
 
-Creating and joining a conversation is lightweight: to join a conversation, a user just has to enter a 5-letter code provided by the other user. This is suited for scenarios in which individuals may not necessarily already have each other's contact information, and makes it easy to create quick, ad-hoc conversations.
+Creating and joining a conversation is easy. One user (the 'host') creates a conversation, which generates a random 5-letter conversation code and a QR code. 
+All other users ('participants') join the conversation by typing in the conversation code or scanning the QR code. 
+
+Since users join via the randomly generated code, and not using any personal accounts, multi-device conversations is suited for scenarios in which individuals may not necessarily already have each other's contact information, and makes it easy to create quick, ad-hoc conversations.
 
 ### Inclusive meetings
 
