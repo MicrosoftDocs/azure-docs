@@ -205,16 +205,16 @@ Now, let's assume you created another billing profile and used 50 GB through sub
 
 |  Tier pricing (USD) |Quantity | Amount (USD)|
 |---------|---------|---------|
-|1.84 per GB for the first 50 TB/month    | 50 TB        | 92.0  |
-|1.77 per GB for the next 450 TB/month    |  0 TB         | 0.0  |
+|1.84 per TB for the first 50 TB/month    | 50 TB        | 92.0  |
+|1.77 per TB for the next 450 TB/month    |  0 TB         | 0.0  |
 |Total     |     50 GB  | 92.0 
 
 `Charges for the second billing profile`
 
 |  Tier pricing (USD) |Quantity | Amount (USD)|
 |---------|---------|---------|
-|1.84 per GB for the first 50 TB/month    | 50 TB        | 92.0  |
-|1.77 per GB for the next 450 TB/month    |  0 TB         | 0.0  |
+|1.84 per TB for the first 50 TB/month    | 50 TB        | 92.0  |
+|1.77 per TB for the next 450 TB/month    |  0 TB         | 0.0  |
 |Total     |     50 GB  | 92.0 
 
 The total charges for using 100 TB of data in this scenario is **184.0** (92.0 * 2).
