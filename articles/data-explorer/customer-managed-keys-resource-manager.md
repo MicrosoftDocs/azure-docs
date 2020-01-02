@@ -1,5 +1,5 @@
 ---
-title: Configure customer-managed-keys using C#
+title: Configure customer-managed-keys using Azure Resource Manager template
 description: This article describes how to configure customer-managed keys encryption on your data in Azure Data Explorer.
 author: saguiitay
 ms.author: itsagui
@@ -18,9 +18,9 @@ ms.date: 12/18/2019
 
 Azure Data Explorer encrypts all data in a storage account at rest. By default, data is encrypted with Microsoft-managed keys. For additional control over encryption keys, you can supply customer-managed keys to use for encryption of data.
 
-Customer-managed keys must be stored in an Azure Key Vault. You can either create your own keys and store them in a key vault, or you can use the Azure Key Vault APIs to generate keys. The storage account and the key vault must be in the same region, but they can be in different subscriptions. 
+Customer-managed keys must be stored in an Azure Key Vault. You can either create your own keys and store them in a key vault, or you can use the Azure Key Vault APIs to generate keys. The Azure Data Explorer cluster and the key vault must be in the same region, but they can be in different subscriptions. 
 
-This article shows how to configure an Azure Key Vault with customer-managed keys using Azure Portal and Azure Resource Manager templates. 
+This article shows how to configure an Azure Key Vault with customer-managed keys using Azure Resource Manager templates. 
 
 > [!Important]
 > Using customer-managed keys with Azure Data Explorer requires that two properties be set on the key vault, **Soft Delete** and **Do Not Purge**. These properties are not enabled by default. To enable these properties, use either PowerShell or Azure CLI. Only RSA keys and key size 2048 are supported.
@@ -47,7 +47,7 @@ $keyVault = New-AzKeyVault -Name <key-vault> `
 
 ## Configure the key vault access policy
 
-Next, configure the access policy for the key vault so that the cluster has permissions to access it. In this step, you'll use the managed identity that you previously assigned to the cluster.
+Next, configure the access policy for the key vault so that the cluster has permissions to access it. In this step, you'll use the System Assigned managed identity that you previously assigned to the cluster.
 
 To set the access policy for the key vault, call [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy.md). Remember to replace the placeholder values in brackets with your own values and to use the variables defined in the previous examples.
 
@@ -118,6 +118,21 @@ You can deploy the Azure Resource Manager template by using the Azure Portal or 
 ## Update the key version
 
 When you create a new version of a key, you'll need to update the cluster to use the new version. First, call Get-AzKeyVaultKey to get the latest version of the key. Then update the cluster's key vault properties  to use the new version of the key, as shown in the previous section.
+
+## Common customer-managed keys errors
+
+This section lists the common error messages you may encounter when enabling customer-managed keys:
+
+| Error Code                                       |  Error Message
+|--------------------------------------------------|-----------------
+| InvalidKeyVaultProperties                        | The provided KeyVaultProperties are invalid.
+| CannotProvideKeyVaultPropertiesDuringCreation    | Cannot provide KeyVaultProperties during cluster creation.
+| KeyVaultPropertiesOnlyForSystemAssignedResources | KeyVaultProperties can be provided only for resources with SystemAssigned Identity.
+| KeyVaultNotFound                                 |  KeyVault '_\<KeyVaultUrl\>_' was not found
+| KeyNotFound                                      |  Key '_\<KeyName\>_' was not found in KeyVault '_\<KeyVaultUrl\>_'
+| IdentityDoesNotHaveAccessToKeyVault              |  Cluster identity does not have access to KeyVault '_\<KeyVaultUrl\>_'
+| KeyVaultNotPurgeProtected                        |  KeyVault '_\<KeyVaultUrl\>_' is not Purge Protected
+| KeyVaultNotSoftDeleteEnabled                     |  KeyVault '_\<KeyVaultUrl\>_' is not Soft-Delete enabled
 
 ## Next steps
 

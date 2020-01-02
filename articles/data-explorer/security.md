@@ -64,6 +64,9 @@ Rotating the key does not trigger re-encryption of data in the cluster. There is
 
 To revoke access to customer-managed keys, use PowerShell or Azure CLI. For more information, see [Azure Key Vault PowerShell](/powershell/module/az.keyvault.md) or [Azure Key Vault CLI](/cli/azure/keyvault.md). Revoking access effectively blocks access to all data in the cluster's storage level, as the encryption key is inaccessible by Azure Data Explorer.
 
+> [!Important]
+> When Azure Data Explorer identify that access to a customer-managed key is revoked, it will automatically suspend the cluster, in order to delete any cached data. Once access to the key is returned, the cluster needs to be resumed manually.
+
 ## Role-based access control
 
 Using role-based access control (RBAC), you can segregate duties within your team and grant only the amount of access to users on your cluster that they need to perform their jobs. Instead of giving everybody unrestricted permissions on the cluster, you can allow only certain actions. You can configure access control for the databases in the Azure portal, using the Azure CLI, or Azure PowerShell.
