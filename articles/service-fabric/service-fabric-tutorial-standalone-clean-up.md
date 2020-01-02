@@ -1,5 +1,5 @@
 ---
-title: Tutorial cleanup Service Fabric standalone cluster - Azure Service Fabric 
+title: Cleanup a standalone cluster
 description: In this tutorial you learn how to clean up your standalone cluster
 author: dkkapur
 
