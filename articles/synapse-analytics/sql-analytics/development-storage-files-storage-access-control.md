@@ -1,6 +1,6 @@
 ---
-title: Control storage account access for SQL Analytics on-demand
-description: Describes how SQL Analytics on-demand accesses Azure Storage and how you can control storage access for SQL Analytics on-demand.
+title: Control storage account access for SQL on-demand
+description: Describes how SQL on-demand accesses Azure Storage and how you can control storage access for SQL Analytics on-demand.
 services: synapse-analytics 
 author: filippopovic
 ms.service: synapse-analytics 
@@ -12,15 +12,13 @@ ms.reviewer: jrasnick
 ---
 
 
-# Control storage account access for SQL Analytics on-demand
+# Control storage account access for SQL on-demand
 
-SQL Analytics on-demand query reads files directly from Azure Storage. Since the storage account is an object that is external to SQL Analytics on-demand, appropriate credentials are required. A user needs the appropriate permissions granted to use the requisite credential. This document describes the types of credentials you can use and how credential lookup enacted for SQL and AAD logins.
-
-
+SQL on-demand query reads files directly from Azure Storage. Since the storage account is an object that is external to SQL on-demand, appropriate credentials are required. A user needs the applicable permissions granted to use the requisite credential. This document describes the types of credentials you can use and how credential lookup is enacted for SQL and AAD logins.
 
 ## Supported storage authorization types
 
-A user that has logged into SQL Analytics on-demand must be authorized to access and query the files in Azure Storage. Three authorization types are supported:
+A user that has logged into SQL on-demand must be authorized to access and query the files in Azure Storage. Three authorization types are supported:
 
 - [Shared access signature](#shared-access-signature)
 - [Managed Identity](#managed-identity)
@@ -39,22 +37,20 @@ Depending on the user type, different authorization types are supported (or will
 
 ### Shared access signature
 
-**SAS** provides delegated access to resources in a storage account. With SAS, a customer can grant clients access to resources in a storage account without sharing account keys. SAS gives you granular control
-over the type of access you grant to clients who have a SAS: validity interval, granted permissions, acceptable IP address range, and the acceptable protocol (https/http).
+**Shared access signature** (SAS) provides delegated access to resources in a storage account. With SAS, a customer can grant clients access to resources in a storage account without sharing account keys. SAS gives you granular control
+over the type of access you grant to clients who have an SAS: validity interval, granted permissions, acceptable IP address range, and the acceptable protocol (https/http).
 
-> [!NOTE]
->
-> You can get a SAS token by navigating to Azure Portal -> Storage Account -> Shared access signature -> Configure permissions -> Generate SAS and connection string. 
-**When a SAS token is generated, it includes a question mark ('?') at the beginning of the token. To use the token in SQL Analytics on-demand, you must remove the question mark ('?') when creating a credential.**
+You can get an SAS token by navigating to Azure Portal -> Storage Account -> Shared access signature -> Configure permissions -> Generate SAS and connection string. 
+
+> [!IMPORTANT]
+> When an SAS token is generated, it includes a question mark ('?') at the beginning of the token. To use the token in SQL on-demand, you must remove the question mark ('?') when creating a credential. For example: 
 > 
-> Example: 
-> SAS token: ?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-04-18T20:42:12Z&st=2019-04-18T12:42:12Z&spr=https&sig=lQHczNvrk1KoYLCpFdSsMANd0ef9BrIPBNJ3VYEIq78%3D
->
+>SAS token: ?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-04-18T20:42:12Z&st=2019-04-18T12:42:12Z&spr=https&sig=lQHczNvrk1KoYLCpFdSsMANd0ef9BrIPBNJ3VYEIq78%3D
 
 ### User Identity
 
 **User Identity** (also known as “pass-through”) is an authorization type where the identity of the AAD user that logged into
-SQL Analytics on-demand is used to authorize the access to data. Before accessing the data, the Azure Storage administrator must grant permissions to the AAD user for data access. This authorization type uses the AAD user that logged into SQL Analytics on-demand, therefore it’s not supported for SQL user type.
+SQL on-demand is used to authorize the access to data. Before accessing the data, the Azure Storage administrator must grant permissions to the AAD user for data access. This authorization type uses the AAD user that logged into SQL on-demand. It’s not supported for SQL user type.
 
 > [!NOTE]
 > 
@@ -65,13 +61,16 @@ SQL Analytics on-demand is used to authorize the access to data. Before accessin
 
 ### Managed Identity
 
-**Managed Identity** (also known as MSI) is a feature of Azure Active Directory (Azure AD) that provides Azure services for AQL Analytics on-demand and deploys an automatically managed identity in Azure AD. This identity can be used to authorize the request for data access in Azure Storage. 
+**Managed Identity** is also known as MSI. It's a feature of Azure Active Directory (Azure AD) that provides Azure services for SQL on-demand. Also, it deploys an automatically managed identity in Azure AD. This identity can be used to authorize the request for data access in Azure Storage. 
 
 Before accessing the data, the Azure Storage administrator must grant permissions to Managed Identity for accessing the data. Granting permissions to Managed Identity is done the same way as granting permission to any other AAD user.
 
 ## Creating credentials
 
-To query a file residing in Azure Storage, your SQL Analytics on-demand endpoint needs a server-level CREDENTIAL that contains the authentication information. A credential can be added by running the [CREATE CREDENTIAL](https://docs.microsoft.com/sql/t-sql/statements/create-credential-transact-sql?view=sql-server-2017) statement and providing a CREDENTIAL NAME argument that must match either part of the path or whole path to data in Storage (see below). Please note that the FOR CRYPTOGRAPHIC PROVIDER argument is not supported.
+To query a file located in Azure Storage, your SQL on-demand end point needs a server-level CREDENTIAL that contains the authentication information. A credential is added by running [CREATE CREDENTIAL](https://docs.microsoft.com/sql/t-sql/statements/create-credential-transact-sql?view=sql-server-2017). You'll need to provide a CREDENTIAL NAME argument. It must match either part of the path or the whole path to data in Storage (see below). 
+
+> [!NOTE]
+> The FOR CRYPTOGRAPHIC PROVIDER argument is not supported.
 
 For all supported authorization types, credentials can point to an account, a container, any directory (non-root), or a single file. 
 
@@ -107,7 +106,7 @@ You can use the following combinations of authorization and Azure Storage types:
 ### Examples
 
 
-Depending on the desired [authorization type](#supported-storage-authorization-types), you can create credentials using the syntax below.
+Depending on the [authorization type](#supported-storage-authorization-types), you can create credentials using the syntax below.
 
 T-SQL syntax for **Shared Access Signature and Blob Storage**. Exchange <*mystorageaccountname*> with your actual storage account name, and <*mystorageaccountcontainername*> with the actual container name:
 >
@@ -136,7 +135,7 @@ T-SQL syntax for **User Identity and Azure Data Lake Store Gen2**. Exchange *<*m
 
 ## Force AAD pass-through
 
-Forcing an AAD pass-through is a default behavior. To achieve this, a special CREDENTIAL NAME `UserIdentity` is created automatically during Azure Synapse workspace provisioning. It forces the usage of an AAD pass-through for each query of every AAD login regardless of the existence of other credentials. 
+Forcing an AAD pass-through is a default behavior achieved by a special CREDENTIAL NAME `UserIdentity` that is created automatically during Azure Synapse workspace provisioning. It forces the usage of an AAD pass-through for each query of every AAD login, which will occur despite the existence of other credentials. 
 
 > [!NOTE]
 > AAD pass-through is a default behavior.
@@ -154,7 +153,7 @@ To enable forcing an AAD pass-through for a specific user, you can grant REFEREN
 GRANT REFERENCES ON CREDENTIAL::[UserIdentity] TO USER [user_name]
 ```
 
-For more information on how SQL Analytics on-demand finds credential to use, see [credential lookup](#credential-lookup).
+For more information on how SQL on-demandfinds credential to use, see [credential lookup](#credential-lookup).
 
 ## Disable forcing AAD pass-through
 
@@ -172,7 +171,7 @@ To disable forcing AAD pass-through for a specific user, you can deny a REFERENC
 DENY REFERENCES ON CREDENTIAL::[UserIdentity] TO USER [user_name]
 ```
 
-For more information on how SQL Analytics on-demand finds credentials to use, see [credential lookup](#credential-lookup).
+For more information on how SQL on-demandfinds credentials to use, see [credential lookup](#credential-lookup).
 
 ## Grant permissions to use credential
 
@@ -200,7 +199,7 @@ When authorizing queries, lookup of a credential to be used to access a storage 
 
 ### Lookup credential by path
 
-If forcing AAD pass-through is disabled, the lookup of a credential to be used will be based on the storage path (depth first) and existence of a REFERENCES permission on the particular credential. If there are multiple credentials that can be used to access the same file, SQL Analytics on-demand will use the most specific one.  
+If forcing AAD pass-through is disabled, the lookup of a credential will be based on the storage path (depth first) and existence of a REFERENCES permission on that particular credential. When there are multiple credentials that can be used to access the same file, SQL on-demand will use the most specific one.  
 
 As an example, for a query over the  following file path: 
 > "account.dfs.core.windows.net/filesystem/folder1/.../folderN/fileX.ext" 
@@ -214,15 +213,15 @@ Credential lookup will be completed in this order:
 > 4. "account.dfs.core.windows.net/filesystem"
 > 5. "account.dfs.core.windows.net"
 
-If a user has no REFERENCES permission on credential number 5, SQL Analytics on-demand will check if the user has REFERENCES permission on credential one level higher until it locates the credentials the user has REFERENCES permission on. If no such permission is found, an error message will be returned.
+If a user has no REFERENCES permission on credential number 5, SQL on-demand will check that the user has REFERENCES permission on credential one level higher until it locates the credentials the user has REFERENCES permission on. If no such permission is found, an error message will be returned.
 
 ### Credential and path level
 
-Depending on the desired path shape, in order to be able to run queries, the following requirements are in place: 
+Depending on path shape you want, the following requirements are in place for running queries: 
 
-* If the query is targeting multiple files (folders, with or without wild cards), a user needs to have access to a credential on at least the root directory level (container level). This is needed since listing files are relative from the root directory  (Azure Storage limitations)
+* If the query is targeting multiple files (folders, with or without wild cards), a user needs to have access to a credential on at least the root directory level (container level). This access level is needed since listing files are relative from the root directory  (Azure Storage limitations)
 
-* If the query is targeting a single file, a user needs to have access to a credential on any level as SQL Analytics on-demand access the file directly (i.e., without listing folders)
+* If the query is targeting a single file, a user needs to have access to a credential on any level as SQL on-demand accesses the file directly, that is, without listing folders.
 
 |                  | *Account* | *Root directory* | *Any other directory* | *File*        |
 | ---------------- | --------- | ---------------- | --------------------- | ------------- |
