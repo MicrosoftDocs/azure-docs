@@ -19,6 +19,14 @@
     href: tutorial-custom-providers-function-authoring.md
   - name: Create and utilize custom providers
     href: tutorial-custom-providers-create.md
+  - name: Extend resources
+    href: tutorial-resource-onboarding.md
+- name: Concepts
+  items:
+  - name: Azure policy for associations
+    href: concepts-built-in-policy.md
+  - name: Resource onboarding
+    href: concepts-resource-onboarding.md
 - name: How-to guides
   items:
   - name: Add custom actions to Azure
