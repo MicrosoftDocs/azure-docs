@@ -4,7 +4,7 @@ description: This article explains how Azure EA customers use the Azure EA porta
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 12/30/2019
+ms.date: 01/02/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 manager: boalcsva
