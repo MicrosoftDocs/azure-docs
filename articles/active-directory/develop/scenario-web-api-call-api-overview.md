@@ -1,5 +1,5 @@
 ---
-title: Web API that calls downstream web APIs (overview) - Microsoft identity platform
+title: Build a web API that calls web APIs - Microsoft identity platform | Azure
 description: Learn how to build a web API that calls downstream web APIs (overview).
 services: active-directory
 documentationcenter: dev-center-name

@@ -1,5 +1,5 @@
 ---
-title: Create sections on your invoice to organize your costs - Azure
+title: Create invoice sections to organize costs - Azure
 description: Learn to organize your costs with invoice sections.
 author: amberbhargava
 manager: amberb
@@ -34,7 +34,7 @@ To create an invoice section, you need to be a **billing profile owner** or a **
 
 4. From the top of the page, select **Add**.
 
-5. Enter a name for the invoice section and select a billing profile. You’ll see the section on this billing profile's invoice reflecting the usage of each subscription and purchases you’ve assigned to the section. 
+5. Enter a name for the invoice section and select a billing profile. You’ll see the section on this billing profile's invoice reflecting the usage of each subscription and purchases you’ve assigned to the section.
 
    ![Screenshot that shows invoice section creation page](./media/billing-mca-section-invoice/mca-create-invoice-section.png)
 

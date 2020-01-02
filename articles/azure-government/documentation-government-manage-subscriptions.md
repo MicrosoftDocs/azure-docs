@@ -1,6 +1,6 @@
 ---
 title: Azure Government Subscriptions | Microsoft Docs
-description: Information on managing your subscription in Azure Government
+description: This article provides information on managing your subscription in Azure Government.
 services: azure-government
 cloud: gov
 documentationcenter: ''

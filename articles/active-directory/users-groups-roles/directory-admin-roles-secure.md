@@ -90,7 +90,7 @@ After you have turned on Azure AD Privileged Identity Management:
 
 2. To select the tenant where you want to use Privileged Identity Management, select your user name in the upper right-hand corner of the Azure portal.
 
-3. Select **All services** and filter the list for **Azure AD Privileged Identity Management**.
+3. On the Azure portal menu, select **All services** and filter the list for **Azure AD Privileged Identity Management**.
 
 4. Open Privileged Identity Management from the **All services** list and pin it to your dashboard.
 
@@ -257,7 +257,7 @@ If you’re already using Azure AD Privileged Identity Management, adjust timefr
 
 #### Determine exposure to password-based sign-in protocols (if using Exchange Online)
 
-In the past, protocols assumed that username/password combinations were embedded in devices, email accounts, phones, and so on. But now with the risk for cyber-attacks in the cloud, we recommend you identify every potential user who, if their credentials were compromised, could be catastrophic to the organization, and exclude them from being able to sign in to their email via username/password by implementing strong authentication requirements and Conditional Access. You can block [legacy authentication using Conditional Access](https://docs.microsoft.com/azure/active-directory/conditional-access/block-legacy-authentication). Please check the details on [how to block basic authentication](https://docs.microsoft.com/exchange/clients-and-mobile-in-exchange-online/disable-basic-authentication-in-exchange-online) through Exchnage online. 
+In the past, protocols assumed that username/password combinations were embedded in devices, email accounts, phones, and so on. But now with the risk for cyber-attacks in the cloud, we recommend you identify every potential user who, if their credentials were compromised, could be catastrophic to the organization, and exclude them from being able to sign in to their email via username/password by implementing strong authentication requirements and Conditional Access. You can block [legacy authentication using Conditional Access](https://docs.microsoft.com/azure/active-directory/conditional-access/block-legacy-authentication). Please check the details on [how to block basic authentication](https://docs.microsoft.com/exchange/clients-and-mobile-in-exchange-online/disable-basic-authentication-in-exchange-online) through Exchange online. 
 
 #### Complete a roles review assessment for Office 365 roles (if using Office 365)
 

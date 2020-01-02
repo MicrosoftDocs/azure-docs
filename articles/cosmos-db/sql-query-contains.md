@@ -1,6 +1,6 @@
 ---
 title: CONTAINS in Azure Cosmos DB query language
-description: Learn about SQL system function CONTAINS in Azure Cosmos DB.
+description: Learn about how the CONTAINS SQL system function in Azure Cosmos DB returns a Boolean indicating whether the first string expression contains the second
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual

@@ -1,6 +1,6 @@
 ---
-title: Desktop app that calls web APIs (code configuration) - Microsoft identity platform
-description: Learn how to build a Desktop app that calls web APIs (app's code configuration)
+title: Configure desktop apps that call web APIs - Microsoft identity platform | Azure
+description: Learn how to configure the code of a desktop app that calls web APIs
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -30,8 +30,8 @@ The Microsoft libraries supporting desktop applications are:
   MSAL library | Description
   ------------ | ----------
   ![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/> MSAL.NET  | Supports building a desktop application in multiple platforms- Linux, Windows and MacOS
-  ![Python](media/sample-v2-code/logo_python.png) <br/> MSAL Python | Supports building a desktop application in multiple platforms. Development in progress - in public preview
-  ![Java](media/sample-v2-code/logo_java.png) <br/> MSAL Java | Supports building a desktop application in multiple platforms. Development in progress - in public preview
+  ![Python](media/sample-v2-code/logo_python.png) <br/> MSAL Python | Supports building a desktop application in multiple platforms.
+  ![Java](media/sample-v2-code/logo_java.png) <br/> MSAL Java | Supports building a desktop application in multiple platforms.
   ![MSAL iOS](media/sample-v2-code/logo_iOS.png) <br/> MSAL iOS | Supports desktop applications running on macOS only
 
 ## Public client application
@@ -48,14 +48,14 @@ You'll need to build and manipulate MSAL.NET `IPublicClientApplication`.
 
 The following code instantiates a public client application, signing-in users in the Microsoft Azure public cloud, with a work and school account, or a personal Microsoft account.
 
-```CSharp
+```csharp
 IPublicClientApplication app = PublicClientApplicationBuilder.Create(clientId)
     .Build();
 ```
 
 If you intend to use interactive authentication or Device Code Flow, as seen above, you want to use the `.WithRedirectUri` modifier:
 
-```CSharp
+```csharp
 IPublicClientApplication app;
 app = PublicClientApplicationBuilder.Create(clientId)
         .WithDefaultRedirectUri()
@@ -66,7 +66,7 @@ app = PublicClientApplicationBuilder.Create(clientId)
 
 The following code instantiates a Public client application from a configuration object, which could be filled-in programmatically or read from a configuration file
 
-```CSharp
+```csharp
 PublicClientApplicationOptions options = GetOptions(); // your own method
 IPublicClientApplication app = PublicClientApplicationBuilder.CreateWithApplicationOptions(options)
         .WithDefaultRedirectUri()
@@ -77,7 +77,7 @@ IPublicClientApplication app = PublicClientApplicationBuilder.CreateWithApplicat
 
 You can elaborate the application building by adding a number of modifiers. For instance, if you want your application to be a multi-tenant application in a national cloud (here US Government), you could write:
 
-```CSharp
+```csharp
 IPublicClientApplication app;
 app = PublicClientApplicationBuilder.Create(clientId)
         .WithDefaultRedirectUri()
@@ -88,7 +88,7 @@ app = PublicClientApplicationBuilder.Create(clientId)
 
 MSAL.NET also contains a modifier for ADFS 2019:
 
-```CSharp
+```csharp
 IPublicClientApplication app;
 app = PublicClientApplicationBuilder.Create(clientId)
         .WithAdfsAuthority("https://consoso.com/adfs")
@@ -97,7 +97,7 @@ app = PublicClientApplicationBuilder.Create(clientId)
 
 Finally, if you want to acquire tokens for an Azure AD B2C tenant, can specify your tenant as shown in the following code snippet:
 
-```CSharp
+```csharp
 IPublicClientApplication app;
 app = PublicClientApplicationBuilder.Create(clientId)
         .WithB2CAuthority("https://fabrikamb2c.b2clogin.com/tfp/{tenant}/{PolicySignInSignUp}")
@@ -131,7 +131,7 @@ Imagine a .NET Core console application that has the following `appsettings.json
 
 You have little code to read this file using the .NET provided configuration framework;
 
-```CSharp
+```csharp
 public class SampleConfiguration
 {
  /// <summary>
@@ -174,7 +174,7 @@ public class SampleConfiguration
 
 Now, to create your application, you'll just need to write the following code:
 
-```CSharp
+```csharp
 SampleConfiguration config = SampleConfiguration.ReadFromJsonFile("appsettings.json");
 var app = PublicClientApplicationBuilder.CreateWithApplicationOptions(config.PublicClientApplicationOptions)
            .WithDefaultRedirectUri()

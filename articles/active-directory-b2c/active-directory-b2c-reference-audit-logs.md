@@ -1,6 +1,7 @@
 ---
-title: Audit logs samples and definitions in Azure Active Directory B2C
-description: Guide and samples on accessing the Azure AD B2C audit logs.
+title: Access and review audit logs
+titleSuffix: Azure AD B2C
+description: How to access Azure AD B2C audit logs programmatically and in the Azure portal.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg

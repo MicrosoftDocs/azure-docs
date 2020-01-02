@@ -1,5 +1,5 @@
 ---
-title: Use Java for files & ACLs in Azure Data Lake Storage Gen2 (preview)
+title: Azure Data Lake Storage Gen2 Java SDK for files & ACLs (preview)
 description: Use Azure Storage libraries for Java to manage directories and file and directory access control lists (ACL) in storage accounts that has hierarchical namespace (HNS) enabled.
 author: normesta
 ms.service: storage
@@ -10,7 +10,7 @@ ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
 ---
 
-# Use Java for files & ACLs in Azure Data Lake Storage Gen2 (preview)
+# Use Java to manage directories, files, and ACLs in Azure Data Lake Storage Gen2 (preview)
 
 This article shows you how to use Java to create and manage directories, files, and permissions in storage accounts that has hierarchical namespace (HNS) enabled. 
 
@@ -27,17 +27,9 @@ This article shows you how to use Java to create and manage directories, files, 
 
 ## Set up your project
 
-To get started, open the *pom.xml* file in your text editor. Add the following dependency element to the group of dependencies.
+To get started, open [this page](https://search.maven.org/artifact/com.azure/azure-storage-file-datalake) and find the latest version of the Java library. Then, open the *pom.xml* file in your text editor. Add a dependency element that references that version.
 
-```xml
-<dependency>
-  <groupId>com.azure</groupId>
-  <artifactId>azure-storage-file-datalake</artifactId>
-  <version>12.0.0-preview.6</version>
-</dependency>
-```
-
-Then, add these imports statements to your code file.
+Next, add these imports statements to your code file.
 
 ```java
 import com.azure.storage.common.StorageSharedKeyCredential;

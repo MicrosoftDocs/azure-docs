@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Deploy Azure Machine Learning to a device - Azure IoT Edge'
+title: 'Tutorial - Deploy Azure Machine Learning to a device using Azure IoT Edge'
 description: 'In this tutorial, you create an Azure Machine Learning model, then deploy it as a module to an edge device'
 author: kgremban
 manager: philmea
@@ -160,4 +160,3 @@ In this tutorial, you deployed an IoT Edge module powered by Azure Machine Learn
 
 > [!div class="nextstepaction"]
 > [Classify images with Custom Vision service](tutorial-deploy-custom-vision.md)
-

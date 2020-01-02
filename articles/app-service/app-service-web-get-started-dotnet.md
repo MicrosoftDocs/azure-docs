@@ -1,19 +1,9 @@
 ---
-title: Create C# ASP.NET Core web app - Azure App Service | Microsoft Docs
-description: Learn how to run web apps in Azure App Service by deploying the default C# ASP.NET Core web app.
-services: app-service\web
-documentationcenter: ''
-author: cephalin
-manager: cfowler
-editor: ''
-
+title: 'QuickStart: Create a C# ASP.NET Core app'
+description: Learn how to run web apps in Azure App Service by deploying the default C# ASP.NET Core web app template from Visual Studio.
 ms.assetid: b1e6bd58-48d1-4007-9d6c-53fd6db061e3
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 08/30/2019
-ms.author: cephalin
 ms.custom: mvc, devcenter, vs-azure
 ms.custom: seodec18
 

@@ -1,14 +1,17 @@
 ---
-title: "Quickstart: Recognize speech from an audio file, C# (.NET) - Speech Service"
+title: "Quickstart: Recognize speech from an audio file, C# (.NET) - Speech service"
 titleSuffix: Azure Cognitive Services
-description: TBD
 services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: quickstart
+ms.topic: include
+<<<<<<< HEAD
+ms.date: 12/17/2019
+=======
 ms.date: 10/28/2019
+>>>>>>> 34375507a6a9dabc49d422608c19b7fe54779f45
 ms.author: erhopf
 ---
 
@@ -20,6 +23,8 @@ Before you get started, make sure to:
 > * [Create an Azure Speech Resource](../../../../get-started.md)
 > * [Setup your development environment](../../../../quickstarts/setup-platform.md?tabs=dotnet)
 > * [Create an empty sample project](../../../../quickstarts/create-project.md?tabs=dotnet)
+
+[!INCLUDE [Audio input format](~/articles/cognitive-services/speech-service/includes/audio-input-format-chart.md)]
 
 ## Open your project in Visual Studio
 
@@ -61,6 +66,7 @@ Before you can initialize a `SpeechRecognizer` object, you need to create a conf
 
 > [!NOTE]
 > This sample uses the `FromSubscription()` method to build the `SpeechConfig`. For a full list of available methods, see [SpeechConfig Class](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig?view=azure-dotnet).
+> The Speech SDK will default to recognizing using en-us for the language, see [Specify source language for speech to text](../../../../how-to-specify-source-language.md) for information on choosing the source language.
 
 ````C#
 var config = SpeechConfig.FromSubscription("YourSubscriptionKey", "YourServiceRegion");
