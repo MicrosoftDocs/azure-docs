@@ -58,7 +58,7 @@ Paket.Package
   ]
 ```
 
-Then load the paket generator:
+Then load the Paket generator:
 ```fsharp
 #load "Paket.Generated.Refs.fsx"
 ```
