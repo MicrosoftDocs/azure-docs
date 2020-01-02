@@ -101,7 +101,7 @@ This field indicates whether the device is registered with Azure AD as a persona
 
 #### AzureAdJoined : YES  
 
-This field indicates whether the device is joined with Azure AD. 
+This field indicates whether the device is joined. The value will be **YES** if the device is either an Azure AD Joined Device or a Hybrid Azure AD Joined Device.
 If the value is **NO**, the join to Azure AD has not completed yet. 
 
 Proceed to next steps for further troubleshooting.
