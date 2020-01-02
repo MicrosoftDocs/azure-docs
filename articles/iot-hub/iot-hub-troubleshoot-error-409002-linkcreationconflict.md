@@ -17,14 +17,22 @@ This article describes the causes and solutions for **409002 LinkCreationConflic
 
 ## Symptoms
 
-You see the error `LinkCreationConflict` logged in diagnostic logs along with device disconnection. 
+You see the error **409002 LinkCreationConflict** logged in diagnostic logs along with device disconnection. 
 
-When using AMQP?
+<!-- When using AMQP? -->
 
 ## Cause
 
-A device has more than one connection. When a new connection request comes for a device, IoT Hub closes the previous one with this error.
+Generally, this error happens when IoT Hub detects that a client has more than one connection. That is, when a new connection request comes for a device with an existing connection, IoT Hub closes the previous one with this error.
+
+### Cause 1
+
+In the most common case, a separate issue (such as [404104 DeviceConnectionClosedRemotely](iot-hub-troubleshoot-error-404104-deviceconnectionclosedremotely.md)) causes the device to disconnect. The device tries to reestablish the connection immediately, but IoT Hub still considers the device connected. IoT Hub closes the previous connection and logs this error.
+
+### Cause 2
+
+Faulty device-side logic causes the device to establish the connection when one is already open.
 
 ## Solution
 
-In the most common case, a device detects a disconnect and tries to reestablish the connection, but IoT Hub still considers the device connected. IoT Hub closes the previous connection and logs this error. This error usually appears as a side effect of a different, transient issue, so look for other errors in the logs to troubleshoot further. Otherwise, make sure to issue a new connection request only if the connection drops.
+This error usually appears as a side effect of a different, transient issue, so look for other errors in the logs to troubleshoot further. Otherwise, make sure to issue a new connection request only if the connection drops.
