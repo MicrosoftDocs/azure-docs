@@ -50,10 +50,10 @@ There are few ways to start the authoring experience in SQL script. You can crea
 >> <img src=".\media\authoring-sql-script\NewSQLScript3Actions.PNG" alt="Create SQL Script" width="700"/>
 
 >3. Exploring Data from Storage accounts and Database using "SQL script"
->> 3.1 Explore Parquet file using SQL analytics on-demand: You can explore Parquet files in a Storage Account using SQL script to preview the files content  
+>> 3.1 Parquet file using SQL analytics on-demand: You can explore Parquet files in a Storage Account using SQL script to preview the files content  
 >> <img src=".\media\authoring-sql-script\NewscriptSQLODParquet.PNG" alt="Create SQL Script" width="700"/>
 
->>3.2 Exploring SQL Tables, External tables, Views: Clicking on the "Actions" menu under Data you can perform several actions like: "New SQL script" "Select TOP 1000 rows", "CREATE", "DROP and CREATE". Explore the available gesture by clicking on the right nodes of SQL Pool and SQL analytics on-demand   
+>>3.2 SQL Tables, external tables, views: by clicking on the "Actions" menu under Data you can perform several actions like: "New SQL script" "Select TOP 1000 rows", "CREATE", "DROP and CREATE". Explore the available gesture by clicking on the right nodes of SQL Pool and SQL analytics on-demand   
 >> <img src=".\media\authoring-sql-script\NewscriptDatabase.PNG" alt="Create SQL Script" width="700"/>
 ## Next steps
 For more information about authoring a SQL script, see:
