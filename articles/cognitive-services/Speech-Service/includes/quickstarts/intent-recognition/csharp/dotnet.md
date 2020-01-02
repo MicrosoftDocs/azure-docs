@@ -16,10 +16,8 @@ zone_pivot_groups: programming-languages-set-two
 
 Before you get started:
 
-> [!div class="checklist"]
->
-> * If this is your first C# project, use this guide to [create an empty sample project](../../../../quickstarts/create-project.md?tabs=dotnet)
-> * [Install the Speech SDK for your development environment](../../../../quickstarts/setup-platform.md?tabs=dotnet)
+* If this is your first C# project, use this guide to [create an empty sample project](../../../../quickstarts/create-project.md?tabs=dotnet).
+* [Install the Speech SDK for your development environment](../../../../quickstarts/setup-platform.md?tabs=dotnet).
 
 ## Create a LUIS app for intent recognition
 
@@ -27,7 +25,7 @@ Before you get started:
 
 ## Open your project in Visual Studio
 
-The first step is to make sure that you have your project open in Visual Studio.
+Next, open your project in Visual Studio.
 
 1. Launch Visual Studio 2019.
 2. Load your project and open `Program.cs`.
@@ -39,44 +37,61 @@ Let's add some code that works as a skeleton for our project. Make note that you
 
 ## Create a Speech configuration
 
-Before you can initialize an `IntentRecognizer` object, you need to create a configuration that uses your LUIS Endpoint key and region. Insert this code in the `RecognizeIntentAsync()` method.
+Before you can initialize an `IntentRecognizer` object, you need to create a configuration that uses the key and location/region for your LUIS prediction resource. 
+
+> [!IMPORTANT]
+> Your starter key and authoring keys will not work. You must use your prediction key and location/region that you created earlier. For more information, see [Create a LUIS app for intent recognition](#create-a-luis-app-for-intent-recognition). 
+
+Insert this code in the `RecognizeIntentAsync()` method. Make sure you update these values: 
+
+* Replace `"YourLanguageUnderstandingSubscriptionKey"` with your LUIS prediction key. 
+* Replace `"YourLanguageUnderstandingServiceRegion"` with your LUIS location/region. 
+
+>[!TIP]
+> If you need help find these values, see [Create a LUIS app for intent recognition](#create-a-luis-app-for-intent-recognition).
+
+[!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/intent-recognition/helloworld/Program.cs?range=26)]
 
 This sample uses the `FromSubscription()` method to build the `SpeechConfig`. For a full list of available methods, see [SpeechConfig Class](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig?view=azure-dotnet).
 The Speech SDK will default to recognizing using en-us for the language, see [Specify source language for speech to text](../../../../how-to-specify-source-language.md) for information on choosing the source language.
 
-> [!NOTE]
-> It is important to use the LUIS Endpoint key and not the Starter or Authoring keys as only the Endpoint key is valid for speech to intent recognition. See [Create a LUIS application and get an endpoint key](~/articles/cognitive-services/Speech-Service/quickstarts/create-luis.md) for instructions on how to get the correct key.
-
-[!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/intent-recognition/helloworld/Program.cs?range=26)]
-
 ## Initialize an IntentRecognizer
 
-Now, let's create an `IntentRecognizer`. This object is created inside of a using statement to ensure the proper release of unmanaged resources. Insert this code in the `RecognizeIntentAsync()` method, right below your Speech configuration.
+Now, let's create an `IntentRecognizer`. This object is created inside of a using statement to ensure the proper release of unmanaged  resources. Insert this code in the `RecognizeIntentAsync()` method, right below your Speech configuration.
+
 [!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/intent-recognition/helloworld/Program.cs?range=28-30,76)]
 
 ## Add a LanguageUnderstandingModel and Intents
 
-You now need to associate a `LanguageUnderstandingModel` with the intent recognizer and add the intents you want recognized.
+You now need to associate a `LanguageUnderstandingModel` with the intent recognizer, and add the intents that you want recognized. We're going to use intents from the prebuilt domain for home automation. Insert this code in the using statement from the previous section. Make sure that you replace `"YourLanguageUnderstandingAppId"` with your LUIS app ID. 
+
+>[!TIP]
+> If you need help find this value, see [Create a LUIS app for intent recognition](#create-a-luis-app-for-intent-recognition).
+
 [!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/intent-recognition/helloworld/Program.cs?range=31-35)]
 
 ## Recognize an intent
 
 From the `IntentRecognizer` object, you're going to call the `RecognizeOnceAsync()` method. This method lets the Speech service know that you're sending a single phrase for recognition, and that once the phrase is identified to stop recognizing speech.
 
-Inside the using statement, add this code:
+Inside the using statement, add this code below your model:
 [!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/intent-recognition/helloworld/Program.cs?range=46)]
 
 ## Display the recognition results (or errors)
 
-When the recognition result is returned by the Speech service, you'll want to do something with it. We're going to keep it simple and print the result to console.
+When the recognition result is returned by the Speech service, you'll want to do something with it. We're going to keep it simple and print the results to console.
 
 Inside the using statement, below `RecognizeOnceAsync()`, add this code:
+
 [!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/intent-recognition/helloworld/Program.cs?range=48-75)]
 
 ## Check your code
 
 At this point, your code should look like this:  
-(We've added some comments to this version)
+
+> [!NOTE]
+> We've added some comments to this version.
+
 [!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/intent-recognition/helloworld/Program.cs?range=5-86)]
 
 ## Build and run your app

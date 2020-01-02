@@ -16,10 +16,8 @@ zone_pivot_groups: programming-languages-set-two
 
 Before you get started:
 
-> [!div class="checklist"]
->
-> * If this is your first C++ project, use this guide to [create an empty sample project](../../../../quickstarts/create-project.md?tabs=jre)
-> * [Install the Speech SDK for your development environment](../../../../quickstarts/setup-platform.md?tabs=jre)
+* If this is your first C++ project, use this guide to [create an empty sample project](../../../../quickstarts/create-project.md?tabs=jre)
+* [Install the Speech SDK for your development environment](../../../../quickstarts/setup-platform.md?tabs=jre)
 
 ## Create a LUIS app for intent recognition
 
