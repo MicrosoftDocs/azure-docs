@@ -1,0 +1,164 @@
+{
+    "redirections": [
+        {
+            "source_path": "clusters.md",
+            "redirect_url": "concepts/clusters.md",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "monitoring.md",
+            "redirect_url": "concepts/monitoring.md",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "autoscale.md",
+            "redirect_url": "concepts/scheduling.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "usage.md",
+            "redirect_url": "concepts/usage-tracking.md",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "user-management.md",
+            "redirect_url": "concepts/user-management.md",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "storage-mount-volumes.md",
+            "redirect_url": "how-to/add-disk.md",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "backup-and-restore.md",
+            "redirect_url": "how-to/backup-and-restore.md",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "cluster-templates.md",
+            "redirect_url": "how-to/cluster-templates.md",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "configuration.md",
+            "redirect_url": "how-to/configuration.md",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "connect-to-node.md",
+            "redirect_url": "how-to/connect-to-node.md",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "custom-images.md",
+            "redirect_url": "how-to/create-custom-image.md",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "end-cluster.md",
+            "redirect_url": "how-to/end-cluster.md",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "hb-hc-best-practices.md",
+            "redirect_url": "how-to/hb-hc-best-practices.md",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "healthcheck.md",
+            "redirect_url": "how-to/healthcheck.md",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "install-cyclecloud-cli.md",
+            "redirect_url": "how-to/install-cyclecloud-cli.md",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "install-jetpack.md",
+            "redirect_url": "how-to/install-jetpack.md",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "managed-identities.md",
+            "redirect_url": "how-to/managed-identities.md",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "alerts.md",
+            "redirect_url": "how-to/monitor-clusters.md",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "attach-storage.md",
+            "redirect_url": "how-to/mount-nfs.md",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "network-security.md",
+            "redirect_url": "how-to/network-security.md",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "performance-tuning.md",
+            "redirect_url": "how-to/performance-tuning.md",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "return-proxy.md",
+            "redirect_url": "how-to/return-proxy.md",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "running-behind-proxy.md",
+            "redirect_url": "how-to/running-behind-proxy.md",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "running-in-locked-down-network.md",
+            "redirect_url": "how-to/running-in-locked-down-network.md",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "ssl-configuration.md",
+            "redirect_url": "how-to/ssl-configuration.md",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "start-cluster.md",
+            "redirect_url": "how-to/start-cluster.md",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "tag-nodes.md",
+            "redirect_url": "how-to/tag-nodes.md",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "theming.md",
+            "redirect_url": "how-to/theming.md",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "upgrade-and-migrate.md",
+            "redirect_url": "how-to/upgrade-and-migrate.md",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "user-cluster-access.md",
+            "redirect_url": "how-to/user-access.md",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "user-authentication.md",
+            "redirect_url": "how-to/user-authentication.md",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "storage-nfs-mounts.md",
+            "redirect_url": "how-to/mount-fileserver.md",
+            "redirect_document_id": true
+        }
+    ]
+}
