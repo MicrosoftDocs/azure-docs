@@ -27,7 +27,7 @@ In this quickstart, you use a code sample to learn how a JavaScript single-page 
 
 * Azure subscription - [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 * [Node.js](https://nodejs.org/en/download/).
-* Either [Visual Studio Code](https://code.visualstudio.com/download) (to edit project files), or [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) (ro run the project as a Visual Studio Solution).
+* [Visual Studio Code](https://code.visualstudio.com/download) (to edit project files).
 
 > [!div renderon="docs"]
 > ## Register and download your quickstart application
@@ -69,19 +69,17 @@ In this quickstart, you use a code sample to learn how a JavaScript single-page 
 
 #### Step 2: Download the project
 
-Select the option that's suitable to your development environment:
+> [!div renderon="docs"]
+> To run the project with a web server by using Node.js, [download the core project files](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/quickstart.zip).
 
-* To run the project with a web server by using Node.js, [download the core project files](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/quickstart.zip). To open the files, use an editor such as [Visual Studio Code](https://code.visualstudio.com/).
+> [!div renderon="portal" id="autoupdate" class="nextstepaction"]
+> [Download the code sample]()
 
-* (Optional) To run the project with the IIS server, [download the Visual Studio project](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/vsquickstart.zip). Extract the zip file to a local folder (for example, *C:\Azure-Samples*).
-
+> [!div renderon="docs"]
 #### Step 3: Configure your JavaScript app
 
 > [!div renderon="docs"]
 > In the *JavaScriptSPA* folder, edit *index.html*, and set the `clientID` and `authority` values under `msalConfig`.
-
-> [!div class="sxs-lookup" renderon="portal"]
-> In the *JavaScriptSPA* folder, edit *index.html*, and replace `msalConfig` with the following code:
 
 ```javascript
 var msalConfig = {
@@ -115,9 +113,14 @@ var msalConfig = {
 > > To find the values of **Application (client) ID**, **Directory (tenant) ID**, and **Supported account types**, go to the app's **Overview** page in the Azure portal.
 >
 
-#### Step 4: Run the project
+> [!div class="sxs-lookup" renderon="portal"]
+> #### Step 3: Your app is configured and ready to run
+> We have configured your project with values of your app's properties. 
 
-* If you're using [Node.js](https://nodejs.org/en/download/):
+> [!div renderon="docs"]
+> #### Step 4: Run the project
+
+Run the project with a web server by using [Node.js](https://nodejs.org/en/download/):
 
     1. To start the server, run the following command from the project directory:
 
@@ -128,9 +131,6 @@ var msalConfig = {
 
     1. Open a web browser and go to `http://localhost:30662/`.
     1. Select **Sign In** to start the sign-in, and then call Microsoft Graph API.
-
-
-* If you're using [Visual Studio](https://visualstudio.microsoft.com/downloads/), select the project solution, and then select F5 to run the project.
 
 After the browser loads the application, select **Sign In**. The first time that you sign in, you're prompted to provide your consent to allow the application to access your profile and to sign you in. After you're signed in successfully, your user profile information should be displayed on the page.
 
