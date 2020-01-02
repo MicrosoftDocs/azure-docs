@@ -67,7 +67,7 @@ To get started:
 
    1. If you have not configured your Time Series Insights instance for **Warm Store**, you will receive a warning.
 
-       [![Connect](media/how-to-connect-power-bi/connect-to-power-bi-warning.png)](media/how-to-connect-power-bi/connect-to-power-bi-warning.png#lightbox)
+       [![Warm store warning](media/how-to-connect-power-bi/connect-to-power-bi-warning.png)](media/how-to-connect-power-bi/connect-to-power-bi-warning.png#lightbox)
 
        > [!TIP]
        > You may configure your existing instance for **Warm Store** in the Azure portal.

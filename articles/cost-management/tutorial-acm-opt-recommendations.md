@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Reduce Azure costs with optimization recommendations | Microsoft Docs
+title: Tutorial - Reduce Azure costs with recommendations
 description: This tutorial helps you reduce Azure costs when you act on optimization recommendations.
 services: cost-management
 keywords:
