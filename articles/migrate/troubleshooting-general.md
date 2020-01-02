@@ -17,11 +17,11 @@ ms.author: hamusa
 
 Review the [Azure Migrate project troubleshooting guide](troubleshooting-project.md).
 
-## I can't get the appliance working as expected?
+## I can't get the appliance working
 
 Review [answers to common issues](troubleshooting-appliance-discovery.md) with appliance deployment.
 
-## Machines aren't discovered as expected
+## Machines aren't discovered
 
 Review common discovery issues.
 

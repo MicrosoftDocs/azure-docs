@@ -80,7 +80,7 @@ Azure Migrate Server Assessment might recommend a bigger disk based on the type 
 
 As an example, if you have an on-premises disk with 32 GB of memory, but the aggregated read and write IOPS for the disk is 800 IOPS, Server Assessment recommends a premium disk (because of the higher IOPS requirements), and then recommends a disk SKU that can support the required IOPS and size. The nearest match in this example would be P15 (256 GB, 1100 IOPS). Even though the size required by the on-premises disk was 32 GB, Server Assessment recommends a larger disk because of the high IOPS requirement of the on-premises disk.
 
-## Percentage of utilized core/memory missing
+## Utilized core/memory percentage missing
 
 Server Assessment reports "PercentageOfCoresUtilizedMissing" or "PercentageOfMemoryUtilizedMissing" when the Azure Migrate appliance can't collect performance data for the relevant on-premises VMs.
 
@@ -97,11 +97,11 @@ Azure Migrate Server Assessment currently considers the operating system license
 Server Assessment continuously collects performance data of on-premises machines and uses it to recommend the VM SKU and disk SKU in Azure. [Learn how](concepts-assessment-calculation.md#performance-based-sizing) performance-based data is collected.
 
 
-## I can't find dependency visualization for Azure Government
+## Dependency visualization in Azure Government
 
 Azure Migrate depends on Service Map for the dependency visualization functionality. Because Service Map is currently unavailable in Azure Government, this functionality is not available in Azure Government.
 
-## Dependencies don't show after installing agents
+## Dependencies don't show after agent install
 
 After you've installed the dependency visualization agents on on-premises VMs, Azure Migrate typically takes 15-30 minutes to display the dependencies in the portal. If you've waited for more than 30 minutes, make sure that the Microsoft Monitoring Agent (MMA) can connect to the Log Analytics workspace.
 
@@ -112,12 +112,12 @@ For Windows VMs:
 
 For Linux VMs, make sure that the installation commands for MMA and the dependency agent succeeded.
 
-## Supported operating systems?
+## Supported operating systems
 
 - **MMS agent**: Review the supported [Windows](https://docs.microsoft.com/azure/log-analytics/log-analytics-concept-hybrid#supported-windows-operating-systems), and [Linux](https://docs.microsoft.com/azure/log-analytics/log-analytics-concept-hybrid#supported-linux-operating-systems) operating systems.
 - **Dependency agent**: the supported [Windows and Linux](../azure-monitor/insights/vminsights-enable-overview.md#supported-operating-systems) operating systems.
 
-## Visualize dependencies more than an hour
+## Visualize dependencies for > hour
 
 Although Azure Migrate allows you to go back to a particular date in the last month, the maximum duration for which you can visualize the dependencies is one hour.
 
@@ -125,7 +125,7 @@ For example, you can use the time duration functionality in the dependency map t
 
 However, you can use Azure Monitor logs to [query the dependency data](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies) over a longer duration.
 
-## Visualized dependencies for more than 10
+## Visualized dependencies for > 10 machines
 
 In Azure Migrate Server Assessment, you can [visualize dependencies for groups](https://docs.microsoft.com/azure/migrate/how-to-create-group-dependencies) with up to 10 VMs. For larger groups, we recommend that you split the VMs into smaller groups to visualize dependencies.
 

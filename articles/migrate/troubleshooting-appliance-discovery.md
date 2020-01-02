@@ -19,7 +19,7 @@ This article helps you troubleshoot issues when deploying the [Azure Migrate](mi
 [Review](migrate-appliance.md) the appliance support requirements.
 
 
-## Error "Invalid OVF manifest entry"
+## "Invalid OVF manifest entry"
 
 If you receive the error "The provided manifest file is invalid: Invalid OVF manifest entry", do the following:
 
@@ -45,7 +45,7 @@ This can happen if the appliance machine is behind a proxy.
 
 - If you're using an intercepting proxy to connect to the internet, import the proxy certificate onto the appliance VM using [these steps](https://docs.microsoft.com/azure/migrate/concepts-collector).
 
-## Error: Date/time synchronization
+##  Date/time synchronization error
 
 An error about date and time synchronization (802) indicates that the server clock might be out of synchronization with the current time by more than five minutes. Change the clock time on the collector VM to match the current time:
 
@@ -54,7 +54,7 @@ An error about date and time synchronization (802) indicates that the server clo
 3. To synchronize the time, run **w32tm /resync**.
 
 
-## Error: UnableToConnectToServer
+## "UnableToConnectToServer"
 
 If you get this connection error, you might be unable to connect to vCenter Server *Servername*.com:9443. The error details indicate that there's no endpoint listening at https://*servername*.com:9443/sdk that can accept the message.
 
@@ -67,7 +67,7 @@ If you get this connection error, you might be unable to connect to vCenter Serv
     4. Verify that vCenter Server is up and running.
 
 
-## Error: Appliance might not be registered
+## Error 60052/60039: Appliance might not be registered"
 
 - Error 60052, "The appliance might not be registered successfully to the Azure Migrate project" occurs if the Azure account used to register the appliance has insufficient permissions.
     - Make sure that the Azure user account used to register the appliance has at least Contributor permissions on the subscription.
@@ -76,7 +76,7 @@ If you get this connection error, you might be unable to connect to vCenter Serv
     - In the Azure portal and check whether the project exists in the resource group.
     - If the project doesn't exist, create a new Azure Migrate project in your resource group and register the appliance again. [Learn how to](https://docs.microsoft.com/azure/migrate/how-to-add-tool-first-time#create-a-project-and-add-a-tool) create a new project.
 
-## Error: Key Vault management operation failed
+## Error 60030/60031: Key Vault management operation failed
 
 If you receive the error 60030 or 60031, "An Azure Key Vault management operation failed", do the following:
 - Make sure the Azure user account used to register the appliance has at least Contributor permissions on the subscription.
@@ -84,15 +84,14 @@ If you receive the error 60030 or 60031, "An Azure Key Vault management operatio
 - If the issue persists, contact Microsoft support.
 - [Learn more](https://docs.microsoft.com/azure/migrate/migrate-appliance#appliance-deployment-requirements) about the required Azure roles and permissions.
 
-## Error: Discovery couldn't be initiated
+## Error 60028: Discovery couldn't be initiated
 
 Error 60028: "Discovery couldn't be initiated because of an error. The operation failed for the specified list of hosts or clusters" indicates that discovery couldn't be started on the hosts listed in the error because of a problem in accessing or retrieving VM information. The rest of the hosts were successfully added.
 
 - Add the hosts listed in the error again, using the **Add host** option.
 - If there's a validation error, review the remediation guidance to fix the errors, and then try the **Save and start discovery** option again.
 
-## Error: Azure AD operation failed (60025)
-
+## Error 60025: Azure AD operation failed 
 Error 60025: "An Azure AD operation failed. The error occurred while creating or updating the Azure AD application" occurs when the Azure user account used to initiate the discovery is different from the account used to register the appliance. Do one of the following:
 
 - Ensure that the user account initiating the discovery is same as the one used to register the appliance.
@@ -101,7 +100,7 @@ Error 60025: "An Azure AD operation failed. The error occurred while creating or
 - [Learn more](https://docs.microsoft.com/azure/migrate/migrate-appliance#appliance-deployment-requirements) about Azure Active Directory application permissions.
 
 
-## Error: Can't connect to host or cluster
+## Error 50004: Can't connect to host or cluster
 
 Error 50004: "Can't connect to a host or cluster because the server name can't be resolved. WinRM error code: 0x803381B9" might occur if the Azure DNS service for the appliance can't resolve the cluster or host name you provided.
 

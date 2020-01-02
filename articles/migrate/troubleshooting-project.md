@@ -12,15 +12,15 @@ ms.date: 01/01/2020
 
 This article helps you troubleshoot issues when creating and managing [Azure Migrate](migrate-services-overview.md) projects.
 
-## Add a new project?
+## How to add new project?
 
 You can have multiple Azure Migrate projects in a subscription. [Learn how](how-to-add-tool-first-time.md) to create a project for the first time, or [add additional](create-manage-projects.md#create-additional-projects) projects.
 
-## Azure permissions?
+## What Azure permissions are needed?
 
 You need Contributor or Owner permissions in the subscription to create an Azure Migrate project.
 
-## Can't find project
+## Can't find a project
 
 Finding an existing Azure Migrate project depends upon whether you're using the current or old version of Azure Migrate. [Follow](create-manage-projects.md#find-a-project).
 
@@ -29,15 +29,15 @@ Finding an existing Azure Migrate project depends upon whether you're using the 
 
 You can create an Azure Migrate project in [supported geographies](migrate-support-matrix.md#supported-geographies). Note that the project geography is used to store discovered machine metadata. You can assess or migrate machines in other locations too.
 
-## VM limits?
+## What are VM limits?
 
 You can assess up to 35,000 VMware VMs or up to 35,000 Hyper-V VMs in a single project. A project can include both VMware VMs and Hyper-V VMs, up to the assessment limits.
 
-## Upgrade old project?
+## Can I upgrade old project?
 
 Projects from the previous version of Azure Migrate can't be updated. You need to [create a new project](how-to-add-tool-first-time.md), and add tools to it.
 
-## Creating a project fails
+## Can't create a project
 
 If you try to create a project and encounter a deployment error:
 
@@ -50,7 +50,7 @@ If you try to create a project and encounter a deployment error:
     - If you can't see the email, contact a user with access to the tenant, and ask them to [resend the invitation](https://docs.microsoft.com/azure/active-directory/b2b/add-users-administrator#resend-invitations-to-guest-users) to you.
     - After receiving the invitation email, open it and select the link to accept the invitation. Then, sign out of the Azure portal and sign in again. (refreshing the browser won't work.) You can then start creating the migration project.
 
-## Delete a project
+## How do I delete a project
 
 [Follow these instructions](create-manage-projects.md#delete-a-project) to delete a project. Note that when you delete a project, both the project and the metadata about discovered machines in the project are deleted.
 
