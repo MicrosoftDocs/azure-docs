@@ -15,20 +15,20 @@ For more information about the backup process and limitations, see [About SQL Se
 
 To configure protection for a SQL Server database on a virtual machine, you must install the **AzureBackupWindowsWorkload** extension on that virtual machine. If you get the error **UserErrorSQLNoSysadminMembership**, it means your SQL Server instance doesn't have the required backup permissions. To fix this error, follow the steps in [Set VM permissions](backup-azure-sql-database.md#set-vm-permissions).
 
-## Troubleshooting Discover and Configure issues
+## Troubleshoot discover and configure issues
 After creating and configuring a Recovery Services vault, discovering databases and configuring backup is a two-step process.<br>
 
 ![sql](./media/backup-azure-sql-database/sql.png)
 
 During the backup configuration, if the SQL VM and its instances are not visible in the **Discovery DBs in VMs** and **Configure Backup** (refer to above image) ensure that:
 
-**Step 1: Discovery DBs in VMs**
-<br>
-- If the VM is not listed in the discovered VM list and also not registered for SQL backup in another vault, then follow the [Discovery SQL Server backup](https://docs.microsoft.com/azure/backup/backup-sql-server-database-azure-vms#discover-sql-server-databases) steps.<br>
+### Step 1: Discovery DBs in VMs
 
-**Step 2: Configure Backup**
-<br>
-- If the vault in which the SQL VM is registered in the same vault used to protect the databases, then follow the [Configure Backup](https://docs.microsoft.com/azure/backup/backup-sql-server-database-azure-vms#configure-backup) steps.<br>
+- If the VM is not listed in the discovered VM list and also not registered for SQL backup in another vault, then follow the [Discovery SQL Server backup](https://docs.microsoft.com/azure/backup/backup-sql-server-database-azure-vms#discover-sql-server-databases) steps.
+
+### Step 2: Configure Backup
+
+- If the vault in which the SQL VM is registered in the same vault used to protect the databases, then follow the [Configure Backup](https://docs.microsoft.com/azure/backup/backup-sql-server-database-azure-vms#configure-backup) steps.
 
 If the SQL VM needs to be registered in the new vault, then it must be unregistered from the old vault.  Unregistration of a SQL VM from the vault requires all the protected data sources to be stop protected and then you can delete the backed up data. Deleting backed up data is a destructive operation.  After you have reviewed and taken all the precautions to unregister the SQL VM, then register this same VM with a new vault and retry the backup operation.
 
@@ -153,11 +153,13 @@ Check for one or more of the following symptoms before you trigger the re-regist
 * All operations (such as backup, restore, and configure backup) are failing on the VM with one of the following error codes: **WorkloadExtensionNotReachable**, **UserErrorWorkloadExtensionNotInstalled**, **WorkloadExtensionNotPresent**, **WorkloadExtensionDidntDequeueMsg**.
 * The **Backup Status** area for the backup item is showing **Not reachable**. Rule out all the other causes that might result in the same status:
 
-  * Lack of permission to perform backup-related operations on the VM.<br>
-  * Shutdown of the VM, so backups can’t take place.<br>
-  * Network issues.<br><br>  
+  * Lack of permission to perform backup-related operations on the VM.
+  * Shutdown of the VM, so backups can’t take place.
+  * Network issues.
 
-!["Not reachable" status in re-registering a VM](./media/backup-azure-sql-database/re-register-vm.png)
+   !["Not reachable" status in re-registering a VM](./media/backup-azure-sql-database/re-register-vm.png/)
+
+
 
 * In the case of an Always On availability group, the backups started failing after you changed the backup preference or after a failover.
 
