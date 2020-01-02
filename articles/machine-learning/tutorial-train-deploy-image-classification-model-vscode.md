@@ -8,7 +8,7 @@ ms.subservice: core
 ms.topic: tutorial
 author: luisquintanilla
 ms.author: luquinta
-ms.date: 12/27/2019
+ms.date: 01/03/2019
 #Customer intent: As a professional data scientist, I want to develop, deploy, and managge Azure Machine Learning projects locally in Visual Studio Code
 ---
 
@@ -38,13 +38,17 @@ In this tutorial, you learn the following tasks:
 The first thing you have to do to build an application in Azure Machine Learning is to create a workspace. A workspace is a space that contains the resources to train models as well as the trained models themselves. See the documentation to learn more about [what is a workspace](./concept-workspace.md). 
 
 1. On the Visual Studio Code activity bar, select the **Azure** icon to open the Azure Machine Learning view.
+1. Right-click your Azure subscription and select **Create Workspace**. 
 
-    [![Create a workspace](./media/tutorial-train-deploy-image-classification-model-vscode/create-workspace.gif)](./media/tutorial-train-deploy-image-classification-model-vscode/create-workspace.gif#lightbox)
+    ![Create a workspace](./media/tutorial-train-deploy-image-classification-model-vscode/create-workspace.png)]
 
-1. Right-click your Azure subscription and select **Create Workspace**. By default a name is generated containing the date and time of creation. Change the name to "TeamWorkspace" and press **Enter**.
-1. Create a new resource group. It's recommended to choose a location that is closest to the location you plan to deploy your model. In this case, choose **West US 2** and press **Enter**.
+1. By default a name is generated containing the date and time of creation. In the command palette, change the name to "TeamWorkspace" and press **Enter**.
+1. Select **Create a new resource group** in the command palette. 
+1. Enter "TeamWorkspace-rg" in the command palette text box and press **Enter**. 
+1. In the command palette, choose a location for your workspace. It's recommended to choose a location that is closest to the location you plan to deploy your model. In this case, choose **West US 2**.
+1. Select **Basic** to create a basic workspace. Visit the [Azure Machine Learning overview](./overview-what-is-azure-ml.md#sku) to learn more about the different workspace offerings.
 
-Pressing enter will send a request to Azure to create a new workspace in your account. After a few minutes, if successful, your new workspace will appear in your subscription node. 
+At this point, a request to Azure is made to create a new workspace in your account. After a few minutes, if successful, your new workspace will appear in your subscription node. 
 
 ## Create an experiment
 
