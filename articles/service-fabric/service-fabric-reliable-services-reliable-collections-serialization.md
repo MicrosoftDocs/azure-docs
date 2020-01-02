@@ -1,5 +1,5 @@
 ---
-title: Reliable Collection object serialization in Azure Service Fabric 
+title: Reliable Collection object serialization
 description: Azure Service Fabric Reliable Collections object serialization
 
 ms.topic: conceptual

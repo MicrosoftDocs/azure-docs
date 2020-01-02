@@ -140,7 +140,7 @@ Following are example prompts to define a new storage output binding:
 | **Select binding with direction** | `Azure Queue Storage` | The binding is an Azure Storage queue binding. |
 | **The name used to identify this binding in your code** | `msg` | Name that identifies the binding parameter referenced in your code. |
 | **The queue to which the message will be sent** | `outqueue` | The name of the queue that the binding writes to. When the *queueName* doesn't exist, the binding creates it on first use. |
-| **Select setting from "local.setting.json"** | `MyStorageConnection` | The name of an application setting that contains the connection string for the storage account. The `AzureWebJobsStorage` setting contains the connection string for the storage account you created with the function app. |
+| **Select setting from "local.settings.json"** | `MyStorageConnection` | The name of an application setting that contains the connection string for the storage account. The `AzureWebJobsStorage` setting contains the connection string for the storage account you created with the function app. |
 
 In this example, the following binding is added to the `bindings` array in your function.json file:
 
