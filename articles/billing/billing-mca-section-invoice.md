@@ -94,7 +94,7 @@ To create a billing profile, you need to be a **billing account owner** or a **b
 
 > [!IMPORTANT]
 >
-> Creating additional billing profiles may impact your overall cost. For more information, see [Things to consider when creating new billing profiles](#things-to-consider-when-creating-new-billing-profiles).
+> Creating additional billing profiles may impact your overall cost. For more information, see [Things to consider when adding new billing profiles](#things-to-consider-when-adding-new-billing-profiles).
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
