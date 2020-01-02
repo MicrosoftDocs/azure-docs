@@ -55,6 +55,8 @@ You have two choices for input files that contain the target data for querying. 
 - ‘PARQUET’ - Binary file in Parquet format 
 
 ## Arguments
+'unstructured_data_path'
+
 The unstructured_data_path that establishes
 a path to the data is structured as follows:
  '<prefix>://<storage_account_path>/<storage_path>'. 
