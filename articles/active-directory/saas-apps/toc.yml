@@ -337,6 +337,8 @@
         href: consent2go-tutorial.md
       - name: Contentful
         href: contentful-tutorial.md
+      - name: ContractSafe Saml2 SSO
+        href: contractsafe-saml2-sso-tutorial.md
       - name: ContractWorks
         href: contractworks-tutorial.md
       - name: Control
@@ -381,8 +383,6 @@
         href: digicert-tutorial.md
       - name: Direct
         href: direct-tutorial.md
-      - name: Directions on Microsoft
-        href: directions-microsoft-tutorial.md
       - name: Discovery Benefits SSO
         href: discovery-benefits-sso-tutorial.md
       - name: Displayr
@@ -397,6 +397,8 @@
         href: domo-tutorial.md
       - name: Dossier
         href: dossier-tutorial.md
+      - name: Dotcom-Monitor
+        href: dotcom-monitor-tutorial.md
       - name: Dovetale
         href: dovetale-tutorial.md
       - name: Dow Jones Factiva
@@ -594,6 +596,8 @@
         href: helper-helper-tutorial.md
       - name: Help Scout
         href: helpscout-tutorial.md
+      - name: Helpshift
+        href: helpshift-tutorial.md
       - name: Heroku
         href: heroku-tutorial.md
       - name: HeyBuddy
@@ -840,6 +844,8 @@
         href: manabipocket-tutorial.md
       - name: Marketo
         href: marketo-tutorial.md
+      - name: Maxient Conduct Manager Software
+        href: maxient-conduct-manager-software-tutorial.md
       - name: MaxxPoint
         href: maxxpoint-tutorial.md
       - name: MCM
@@ -1054,6 +1060,8 @@
         href: predictixordering-tutorial.md
       - name: Predictix Price Reporting
         href: predictixpricereporting-tutorial.md
+      - name: PressPage
+        href: presspage-tutorial.md
       - name: Printix
         href: printix-tutorial.md
       - name: Prisma Cloud
@@ -1340,6 +1348,8 @@
         href: talentlms-tutorial.md
       - name: Talent Palette
         href: talent-palette-tutorial.md
+      - name: Talentsoft
+        href: talentsoft-tutorial.md
       - name: Tango Analytics
         href: tangoanalytics-tutorial.md
       - name: Tangoe Command Premium Mobile
@@ -1406,6 +1416,8 @@
         href: ungerboeck-software-tutorial.md
       - name: UNIFI
         href: unifi-tutorial.md
+      - name: Upwork Enterprise
+        href: upwork-enterprise-tutorial.md
       - name: Useall
         href: useall-tutorial.md
       - name: UserEcho
@@ -1506,6 +1518,8 @@
         href: yonyx-tutorial.md
       - name: YouEarnedIt
         href: youearnedit-tutorial.md
+      - name: Yuhu Property Management Platform
+        href: yuhu-property-management-platform-tutorial.md
       - name: Zendesk
         href: zendesk-tutorial.md
       - name: ZenQMS

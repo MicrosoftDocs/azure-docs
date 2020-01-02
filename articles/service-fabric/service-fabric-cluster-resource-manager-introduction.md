@@ -1,21 +1,11 @@
 ---
-title: Introducing the Service Fabric Cluster Resource Manager | Microsoft Docs
-description: An introduction to the Service Fabric Cluster Resource Manager.
-services: service-fabric
-documentationcenter: .net
+title: Introducing the Service Fabric Cluster Resource Manager 
+description: Learn about the Service Fabric Cluster Resource Manager, a way to manage orchestration of your application's services.
 author: masnider
-manager: chackdan
-editor: ''
 
-ms.assetid: cfab735b-923d-4246-a2a8-220d4f4e0c64
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-
 ---
 # Introducing the Service Fabric cluster resource manager
 Traditionally managing IT systems or online services meant dedicating specific physical or virtual machines to those specific services or systems. Services were architected as tiers. There would be a “web” tier and a “data” or “storage” tier. Applications would have a messaging tier where requests flowed in and out, as well as a set of machines dedicated to caching. Each tier or type of workload had specific machines dedicated to it: the database got a couple machines dedicated to it, the web servers a few. If a particular type of workload caused the machines it was on to run too hot, then you added more machines with that same configuration to that tier. However, not all workloads could be scaled out so easily - particularly with the data tier you would typically replace machines with larger machines. Easy. If a machine failed, that part of the overall application ran at lower capacity until the machine could be restored. Still fairly easy (if not necessarily fun).

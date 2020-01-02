@@ -108,8 +108,8 @@ After the disk is restored, use the template that was generated as part of the r
     ![Restore job drill-down](./media/backup-azure-arm-restore-vms/restore-job-drill-down1.png)
 
 3. To customize the VM setting provided in the template, click **Edit template**. If you want to add more customizations, click **Edit parameters**.
-    - [Learn more](../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template) about deploying resources from a custom template.
-    - [Learn more](../azure-resource-manager/resource-group-authoring-templates.md) about authoring templates.
+    - [Learn more](../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template) about deploying resources from a custom template.
+    - [Learn more](../azure-resource-manager/templates/template-syntax.md) about authoring templates.
 
    ![Load template deployment](./media/backup-azure-arm-restore-vms/edit-template1.png)
 

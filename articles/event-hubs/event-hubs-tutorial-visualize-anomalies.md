@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Visualize data anomalies in real-time events - Azure Event Hubs'
+title: Azure Event Hubs - Visualize data anomalies in real-time events
 # event-hubs-tutorial-visualize-anomalies.md
 description: 'Tutorial: Visualize data anomalies in real-time events sent to Microsoft Azure Event Hubs'
 services: event-hubs
@@ -9,7 +9,7 @@ ms.author: shvija
 ms.topic: tutorial
 ms.service: event-hubs
 ms.custom: seodec18
-ms.date: 11/05/2019
+ms.date: 12/20/2019
 #Customer intent: As a developer, I want to learn how to visualize anomalies in my real-time data flowing into an event hub. 
 ---
 
@@ -44,7 +44,7 @@ For this tutorial, you need an Event Hubs namespace and an event hub. You can cr
 
 The following sections describe how to perform these required steps. Follow the CLI *or* the PowerShell instructions to perform the following steps:
 
-1. Create a [resource group](../azure-resource-manager/resource-group-overview.md). 
+1. Create a [resource group](../azure-resource-manager/management/overview.md). 
 
 2. Create an Event Hubs namespace. 
 

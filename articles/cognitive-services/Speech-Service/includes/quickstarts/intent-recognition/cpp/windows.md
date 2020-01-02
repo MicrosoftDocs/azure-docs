@@ -6,8 +6,8 @@ author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: quickstart
 ms.date: 01/02/2020
+ms.topic: include
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-two
 ---
