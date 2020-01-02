@@ -1,5 +1,5 @@
 ---
-title: Guidelines & Recommendations for Reliable Collections in  Azure Service Fabric 
+title: Guidelines for Reliable Collections
 description: Guidelines and Recommendations for using Service Fabric Reliable Collections in an Azure Service Fabric application.
 
 ms.topic: conceptual

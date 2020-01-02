@@ -111,6 +111,31 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/machine-learning/data-science-virtual-machine/dsvm-data-platforms.md",
+      "redirect_url": "/azure/machine-learning/data-science-virtual-machine/dsvm-tools-data-platforms",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/machine-learning/data-science-virtual-machine/dsvm-ml-data-science-tools.md",
+      "redirect_url": "/azure/machine-learning/data-science-virtual-machine/dsvm-tools-data-science",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/machine-learning/data-science-virtual-machine/dsvm-deep-learning-ai-frameworks.md",
+      "redirect_url": "/azure/machine-learning/data-science-virtual-machine/dsvm-tools-deep-learning-frameworks",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/machine-learning/data-science-virtual-machine/dsvm-tools-explore-and-visualize.md",
+      "redirect_url": "/azure/machine-learning/data-science-virtual-machine/dsvm-tools-productivity",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/machine-learning/data-science-virtual-machine/dsvm-languages.md",
+      "redirect_url": "/azure/machine-learning/data-science-virtual-machine/dsvm-tools-languages",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/machine-learning/service/how-to-understand-accuracy-metrics.md",
       "redirect_url": "/azure/machine-learning/service/how-to-understand-automated-ml",
       "redirect_document_id": false
@@ -24186,6 +24211,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/storage/common/storage-auth-aad-script.md",
+      "redirect_url": "/azure/storage/common/authorize-active-directory-powershell",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/storage/storage-cannot-delete-storage-account-container-vhd.md",
       "redirect_url": "/azure/storage/storage-resource-manager-cannot-delete-storage-account-container-vhd",
       "redirect_document_id": false
@@ -27453,6 +27483,16 @@
     {
       "source_path": "articles/security-center/security-center-platform-migration-faq.md",
       "redirect_url": "/azure/security-center/security-center-enable-data-collection",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security-center/recommendations-network.md",
+      "redirect_url": "/azure/security-center/recommendations-reference#recs-network",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security-center/recommendations-compute-and-apps.md",
+      "redirect_url": "/azure/security-center/recommendations-reference#recs-computeapp",
       "redirect_document_id": false
     },
     {

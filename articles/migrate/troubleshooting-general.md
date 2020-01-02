@@ -187,7 +187,7 @@ If you start discovery so that **Server Assessment** and **Server Migration** sh
 
 - After starting discovery from the appliance, it takes around 15 minutes for a VMware VM discovery, and around two minutes for each added host for Hyper-V VM discovery.
 - If you continue to see **Discovery in progress** even after these waiting periods, select **Refresh** on the **Servers** tab. This should show the count of the discovered servers in **Server Assessment** and **Server Migration**.
-- If you are discovering VMware servers, verify that the vCenter account you specified has permissions set correctly and has access granted to at least 1 VM. Please note that while you can set the discovery scope to vCenter Server datacenters, clusters, folder of clusters, hosts, folder of hosts, or individual VMs, Azure Migrate is not able to discover VMs if the vCenter account has access granted at vCenter VM folder level. Learn more about scoping discovery [here](https://docs.microsoft.com/azure/migrate/tutorial-assess-vmware#scoping-discovery).
+- If you are discovering VMware servers, verify that the vCenter account you specified has permissions set correctly and has access granted to at least 1 VM. Please note that while you can set the discovery scope to vCenter Server datacenters, clusters, folder of clusters, hosts, folder of hosts, or individual VMs, Azure Migrate is not able to discover VMs if the vCenter account has access granted at vCenter VM folder level. Learn more about scoping discovery [here](https://docs.microsoft.com/azure/migrate/tutorial-assess-vmware#set-the-scope-of-discovery).
 
 
 ## Deleted VMs in the portal
