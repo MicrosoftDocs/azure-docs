@@ -97,15 +97,15 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	![image](common/edit-attribute.png)
 
-	> [!NOTE]
-	> Please refer to this [link](https://docs.microsoft.com/azure/active-directory/develop/active-directory-enterprise-app-role-management) on how to configure and setup the roles for the application.
-
 1. In addition to above, EZOfficeInventory application expects few more attributes to be passed back in SAML response which are shown below. These attributes are also pre populated but you can review them as per your requirement.
 
 	| Name |  Source Attribute|
 	| -------- | --------- |
 	| Roles  | user.assignedroles |
 	| | |
+	
+	> [!NOTE]
+	> Please refer to this [link](https://docs.microsoft.com/azure/active-directory/develop/active-directory-enterprise-app-role-management) on how to configure and setup the roles for the application.
 
 1. On the **Set up single sign-on with SAML** page, In the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.
 
