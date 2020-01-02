@@ -20,7 +20,7 @@ Azure Cosmos DB Graph engine closely follows [Apache TinkerPop](https://tinkerpo
 
 * ***[Gremlin Bytecode](https://tinkerpop.apache.org/docs/current/tutorials/gremlin-language-variants/)*** is a programming language agnostic specification for graph traversals. Cosmos DB Graph doesn't support it yet. Use ```GremlinClient.SubmitAsync()``` and pass traversal as a text string.
 
-* ***```property(set, 'xyz', 1)```*** set cardinality isn't supported today. Use ```property(list, 'xyz', 1)``` instead. Learn more at [Vertex Properties with Tinkerpop](http://tinkerpop.apache.org/docs/current/reference/#vertex-properties).
+* ***```property(set, 'xyz', 1)```*** set cardinality isn't supported today. Use ```property(list, 'xyz', 1)``` instead. To learn more, see [Vertex properties with Tinkerpop](http://tinkerpop.apache.org/docs/current/reference/#vertex-properties) article.
 
 * ***```match()```*** allows querying graphs using declarative pattern matching. This capability isn't available.
 
