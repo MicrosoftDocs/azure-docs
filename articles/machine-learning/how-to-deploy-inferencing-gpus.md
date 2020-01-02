@@ -23,7 +23,7 @@ Inference, or model scoring, is the phase where the deployed model is used to ma
 > For web service deployments, GPU inference is only supported on Azure Kubernetes Service. For inference using a __machine learning pipeline__, GPUs are only supported on Azure Machine Learning Compute. For more information on using ML pipelines, see [Run batch predictions](how-to-run-batch-predictions.md). 
 
 > [!TIP]
-> Although the code snippets in this article usee a TensorFlow model, you can apply the information to any machine learning framework that supports GPUs.
+> Although the code snippets in this article use a TensorFlow model, you can apply the information to any machine learning framework that supports GPUs.
 
 > [!NOTE]
 > The information in this article builds on the information in the [How to deploy to Azure Kubernetes Service](service/how-to-deploy-azure-kubernetes-service.md) article. Where that article generally covers deployment to AKS, this article covers GPU specific deployment.
