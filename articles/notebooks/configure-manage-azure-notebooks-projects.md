@@ -9,7 +9,7 @@ ms.date: 05/13/2019
 
 A project in Azure Notebooks Preview is essentially a configuration of the underlying Linux virtual machine in which Jupyter notebooks run, along with a file folder and descriptive metadata. 
 
-[!INCLUDE [notebooks-status](..\..\includes\notebooks-status.md)]
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 The project dashboard in Azure Notebooks allows you to manage files and otherwise configure the project's characteristics:
 

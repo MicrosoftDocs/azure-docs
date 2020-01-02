@@ -19,7 +19,7 @@ Your user ID is part of the URLs you use to share projects and notebooks. The fo
 - `https://notebooks.azure.com/<user_id>/projects/<project_id>/clones`: Clones of a specific projects.
 - `https://notebooks.azure.com/<user_id>/projects/<project_id>/html/<notebook>.ipynb`: The HTML preview of a specific notebook or file.
 
-[!INCLUDE [notebooks-status](..\..\includes\notebooks-status.md)]
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 ## Your user ID
 

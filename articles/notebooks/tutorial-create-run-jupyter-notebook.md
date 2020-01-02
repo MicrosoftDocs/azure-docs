@@ -11,7 +11,7 @@ This tutorial walks you through the process of using Azure Notebooks to create a
 
 The completed notebook can be found on [GitHub - Azure Notebooks Samples](https://github.com/Microsoft/AzureNotebooks/tree/master/Samples/Linear%20Regression%20-%20Cricket%20Chirps). This tutorial, however, begins with a new project and an empty notebook so you can experience creating it step by step.
 
-[!INCLUDE [notebooks-status](..\..\includes\notebooks-status.md)]
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 In this tutorial, you learn how to:
 

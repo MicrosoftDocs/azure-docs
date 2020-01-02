@@ -9,7 +9,7 @@ ms.date: 12/04/2018
 
 Azure Notebooks comes pre-configured with the necessary environment to work with [Azure Machine Learning](/azure/machine-learning/service/). You can easily clone a sample project into your Notebooks account to explore a variety of Machine Learning scenarios.
 
-[!INCLUDE [notebooks-status](..\..\includes\notebooks-status.md)]
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 ## Clone the sample into your account
 

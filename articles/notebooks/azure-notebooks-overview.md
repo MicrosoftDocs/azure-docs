@@ -13,7 +13,7 @@ Azure Notebooks is a free hosted service to develop and run Jupyter notebooks in
 
 Because of this powerful combination of code, graphics, and explanatory text, Jupyter has become popular for many uses including data science instruction, data cleaning and transformation, numerical simulation, statistical modeling, and the development of machine learning models.
 
-[!INCLUDE [notebooks-status](..\..\includes\notebooks-status.md)]
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 ## Hassle-free experience
 

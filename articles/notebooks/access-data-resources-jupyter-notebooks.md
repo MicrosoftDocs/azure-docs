@@ -12,7 +12,7 @@ You can certainly [import data files into a project](work-with-project-data-file
 
 This article briefly outlines these different options. Because data access is best seen in action, you can find runnable code in the [Azure Notebooks Samples - Access your data](https://github.com/Microsoft/AzureNotebooks/blob/master/Samples/Access%20your%20data%20in%20Azure%20Notebooks.ipynb).
 
-[!INCLUDE [notebooks-status](..\..\includes\notebooks-status.md)]
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 ## REST APIs
 

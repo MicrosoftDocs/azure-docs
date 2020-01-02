@@ -9,7 +9,7 @@ ms.date: 04/15/2019
 
 Although you can always view Azure Notebooks without signing in, you must sign in to run notebooks, access saved projects and notebooks, and share your notebooks with others.
 
-[!INCLUDE [notebooks-status](..\..\includes\notebooks-status.md)]
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 ## Sign in
 

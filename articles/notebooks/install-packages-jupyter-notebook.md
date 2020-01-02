@@ -11,7 +11,7 @@ Although you can configure the [environment for your notebook on the project lev
 
 Packages installed from the notebook apply only to the current server session. Package installations aren't persisted once the server is shut down.
 
-[!INCLUDE [notebooks-status](..\..\includes\notebooks-status.md)]
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 ## Python
 

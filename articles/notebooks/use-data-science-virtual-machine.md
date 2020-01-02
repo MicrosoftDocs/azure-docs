@@ -15,7 +15,7 @@ By default, projects run on the **Free Compute** tier, which is limited to 4 GB 
 > [!Note]
 > Azure Notebooks is supported only on DSVMs created with the on Linux Ubuntu image. Notebooks are not supported on Windows 2012, Windows 2016, or Linux CentOS images.
 
-[!INCLUDE [notebooks-status](..\..\includes\notebooks-status.md)]
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 ## Create a DSVM instance
 

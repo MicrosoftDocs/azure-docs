@@ -9,7 +9,7 @@ ms.date: 12/04/2018
 
 In this quickstart, you learn how to quickly create and run a Jupyter notebook on Azure Notebooks, then share that notebook with others.
 
-[!INCLUDE [notebooks-status](..\..\includes\notebooks-status.md)]
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 ## Create a new project and notebook
 
