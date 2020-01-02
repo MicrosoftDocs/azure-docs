@@ -9,8 +9,8 @@ ms.author: glenga
 | --- | --- | --- | --- |
 | Scale out | Event driven | Event driven | [Manual/autoscale](../articles/app-service/manage-scale-up.md) | 
 | Max instances | 200 | 100 | 10-20 |
-|Default [time out duration](../articles/azure-functions/functions-scale.md#timeout) (min) |5 | 30 |30<sup>2</sup> |
-|Max [time out duration](../articles/azure-functions/functions-scale.md#timeout) (min) |10 | 60 | unbounded<sup>3</sup> |
+|Default [timeout duration](../articles/azure-functions/functions-scale.md#timeout) (min) |5 | 30 |30<sup>2</sup> |
+|Max [timeout duration](../articles/azure-functions/functions-scale.md#timeout) (min) |10 | 60 | unbounded<sup>3</sup> |
 | Max outbound connections (per instance) | 600 active (1200 total) | unbounded | unbounded |
 | Max request size (MB)<sup>4</sup> | 100 | 100 | 100 |
 | Max query string length<sup>4</sup> | 4096 | 4096 | 4096 |
