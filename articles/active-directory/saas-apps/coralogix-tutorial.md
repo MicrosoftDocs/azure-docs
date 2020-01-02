@@ -46,8 +46,6 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 > [!NOTE]
 > Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
 
-
-
 ## Adding Coralogix from the gallery
 
 To configure the integration of Coralogix into Azure AD, you need to add Coralogix from the gallery to your list of managed SaaS apps.
@@ -58,7 +56,6 @@ To configure the integration of Coralogix into Azure AD, you need to add Coralog
 1. To add new application, select **New application**.
 1. In the **Add from the gallery** section, type **Coralogix** in the search box.
 1. Select **Coralogix** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
-
 
 ## Configure and test Azure AD single sign-on for Coralogix
 
@@ -99,11 +96,11 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	> [!NOTE]
 	> The sign-on URL value isn't real. Update the value with the actual sign-on URL. Contact the [Coralogix Client support team](mailto:info@coralogix.com) to get the value. You can also refer to the patterns in the **Basic SAML Configuration** section in the Azure portal.
 
-    The Coralogix application expects the SAML assertions in a specific format. Configure the following claims for this application. You can manage the values of these attributes from the **User Attributes** section on the application integration page. On the **Set up Single Sign-On with SAML** page, select the **Edit** button to open the **User Attributes** dialog box.
+ 1. The Coralogix application expects the SAML assertions in a specific format. Configure the following claims for this application. You can manage the values of these attributes from the **User Attributes** section on the application integration page. On the **Set up Single Sign-On with SAML** page, select the **Edit** button to open the **User Attributes** dialog box.
 
 	![image](common/edit-attribute.png)
 
-6. In the **User Claims** section in the **User Attributes** dialog box, edit the claims by using the **Edit** icon. You can also add the claims by using **Add new claim** to configure the SAML token attribute as shown in the previous image. Then take the following steps:
+1. In the **User Claims** section in the **User Attributes** dialog box, edit the claims by using the **Edit** icon. You can also add the claims by using **Add new claim** to configure the SAML token attribute as shown in the previous image. Then take the following steps:
     
 	a. Select the **Edit icon** to open the **Manage user claims** dialog box.
 
