@@ -12,9 +12,8 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/24/2019
+ms.date: 01/02/2020
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -41,9 +40,7 @@ To get started, you need the following items:
 
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
-
 * Otsuka Shokai supports **IDP** initiated SSO
-
 
 > [!NOTE]
 > Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
@@ -58,7 +55,6 @@ To configure the integration of Otsuka Shokai into Azure AD, you need to add Ots
 1. To add new application, select **New application**.
 1. In the **Add from the gallery** section, type **Otsuka Shokai** in the search box.
 1. Select **Otsuka Shokai** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
-
 
 ## Configure and test Azure AD single sign-on for Otsuka Shokai
 
