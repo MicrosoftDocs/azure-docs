@@ -8,7 +8,7 @@ ms.subservice: core
 ms.topic: tutorial
 author: luisquintanilla
 ms.author: luquinta
-ms.date: 01/02/2019
+ms.date: 01/03/2019
 #Customer intent: As a professional data scientist, I want to develop, deploy, and managge Azure Machine Learning projects locally in Visual Studio Code
 ---
 
@@ -54,7 +54,7 @@ Now that you have signed into Azure with your account credentials, it's time to 
 1. Select the **Azure** icon in the **Activity Bar**.
 1. Select the **Run Experiment** icon at the top of the Azure Machine Learning View.
 
-    [Run Experiment](./media/tutorial-setup-vscode-extension/run-experiment.PNG)
+    ![Run Experiment](./media/tutorial-setup-vscode-extension/run-experiment.PNG)
 
 1. When the command palette expands, follow the prompts.
 
