@@ -154,13 +154,13 @@ The Azure Backup agent requires a passphrase (that you provided during registrat
 
 | Original Machine <br> *(source machine where backups were taken)* | Passphrase | Available Options |
 | --- | --- | --- |
-| Available |Lost |If your original machine (where backups were taken) is available and still registered with the same Recovery Services vault, then you will be able to regenerate the passphrase by following these <steps>  |
+| Available |Lost |If your original machine (where backups were taken) is available and still registered with the same Recovery Services vault, then you will be able to regenerate the passphrase by following these [steps](https://docs.microsoft.com/azure/backup/backup-azure-manage-mars#re-generate-passphrase).  |
 | Lost |Lost |Not possible to recover the data or data is not available |
 
 Consider the following conditions:
 - If you uninstall & re-register the agent on the same original machine with
- - *Same passphrase*, then you will be able to restore your backed up data.<br>
- - *Different passphrase*, then you will not be able to restore your backed up data.
+  - *Same passphrase*, then you will be able to restore your backed up data.<br>
+  - *Different passphrase*, then you will not be able to restore your backed up data.
 -	If you install the agent on a *different machine* with<br>
   - the same passphrase (used in the original machine), then you will be able to restore your backed up data.<br>
   - a different passphrase, you will not be able to restore your backed up data.<br>
@@ -172,7 +172,7 @@ If you have the same passphrase (that you provided during registration) of the o
 
 | Original Machine | Passphrase | Available Options |
 | --- | --- | --- |
-| Lost |Available |You can install and register the MARS agent on another machine with the same passphrase that you provided during registration of the original machine. Choose **Recovery Option** > **Another location** to perform your restore. For more information, see
+| Lost |Available |You can install and register the MARS agent on another machine with the same passphrase that you provided during registration of the original machine. Choose **Recovery Option** > **Another location** to perform your restore. For more information, refer to this [article](https://docs.microsoft.com/azure/backup/backup-azure-restore-windows-server#use-instant-restore-to-restore-data-to-an-alternate-machine).
 | Lost |Lost |Not possible to recover the data or data is not available |
 
 
