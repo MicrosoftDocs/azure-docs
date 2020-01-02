@@ -26,7 +26,7 @@ Please note Azure free accounts do not support GPU enabled virtual machine SKUs.
 To create a DSVM instance:
 
 1. Go to the [Azure portal](https://portal.azure.com) You might be prompted to sign in to your Azure account if you're not already signed in.
-1. Find the virtual machine listing by typing in "data science virtual machine" and selecting "Data Science Virtual Machine - Windows 2016."
+1. Find the virtual machine listing by typing in "data science virtual machine" and selecting "Data Science Virtual Machine - Win 2019(preview)."
 
     ![Windows VM Listing](./media/provision-vm/search-windows.png)
 
