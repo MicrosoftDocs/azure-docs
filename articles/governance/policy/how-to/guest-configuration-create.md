@@ -78,6 +78,15 @@ Manager status for the Guest Assignment should be Compliant/Not-Compliant. If th
 `$false` for any resource in the configuration, then the provider will run `Get-TargetResource`. If
 the boolean is `$true` then `Get-TargetResource` isn't called.
 
+#### Configuration requirements
+
+The only requirement for Guest Configuration to use a custom configuration is for the name
+of the configuration to be consistent everywhere it is used.  This includes the name of the .zip file
+for the content package, the configuration name in the mof file stored inside the content package,
+and the configuration name used in ARM as the guest assignment name.
+
+#### Get-TargetResource requirements
+
 The function `Get-TargetResource` has special requirements for Guest Configuration that haven't been
 needed for Windows Desired State Configuration.
 
