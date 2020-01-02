@@ -38,7 +38,7 @@ Client application registrations are Azure Active Directory representations of a
 
 Similarly to the [confidential client application](register-confidential-azure-ad-client-app.md), you'll need to select which API permissions this application should be able to request on behalf of users:
 
-1. Open the **API permissions**. If you are using the Azure API for FHIR, you will add a permission to the Azure Healthcare APIs by searching for that under **APIs my organization uses** (image below). If you are referencing a different Resource Application, select your [FHIR API Resource Application Registration](register-resource-azure-ad-client-app.md) that you created previously under **My APIs**:
+1. Open the **API permissions**. If you are using the Azure API for FHIR, you will add a permission to the Azure Healthcare APIs by searching for Azure Healthcare APIs under **APIs my organization uses** (image below). If you are referencing a different Resource Application, select your [FHIR API Resource Application Registration](register-resource-azure-ad-client-app.md) that you created previously under **My APIs**:
 
     ![Azure portal. New public API permissions - Azure API for FHIR Default](media/public-client-app/api-permissions.png)
 
@@ -47,9 +47,9 @@ Similarly to the [confidential client application](register-confidential-azure-a
     ![Azure portal. App permissions](media/public-client-app/app-permissions.png)
 
 ## Validate FHIR server authority
-If the application you just registered and your FHIR server are in the same Azure AD tenant, you are good to proceed to the next steps.
+If the application you registered in this article and your FHIR server are in the same Azure AD tenant, you are good to proceed to the next steps.
 
-If you set your application in a different Azure AD tenant from your FHIR server, you will need to update the **Authority**. In Azure API for FHIR, you do this under Settings --> Authentication. Set your Authority to **https://login.microsoftonline.com/\<TENANT-ID>**.
+If you set your application in a different Azure AD tenant from your FHIR server, you will need to update the **Authority**. In Azure API for FHIR, you do set the Authority under Settings --> Authentication. Set your Authority to **https://login.microsoftonline.com/\<TENANT-ID>**.
 
 ## Next steps
 
