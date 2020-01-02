@@ -40,13 +40,7 @@ A crash might have been caused by malware or contain malware. To avoid being det
 
 However, by using memory analysis, you can detect this kind of attack. By analyzing the memory in the crash dump, Security Center can detect the techniques the attack is using. For example, the attack might be attempting to exploit vulnerabilities in the software, access confidential data, and surreptitiously persist within a compromised machine. Security Center does this work with minimal performance impact to hosts.
 
-> [!div class="mx-tableFixed"]
-
-|Alert|Description|
-|---|---|
-|**Code injection discovered**|Code injection is the insertion of executable modules into running processes or threads. This technique is used by malware to access data, while successfully hiding itself to prevent being found and removed. <br/>This alert indicates that an injected module is present in the crash dump. To differentiate between malicious and non-malicious injected modules, Security Center checks whether the injected module conforms to a profile of suspicious behavior.|
-|**Suspicious code segment discovered**|Indicates that a code segment has been allocated by using non-standard methods, such as reflective injection and process hollowing. The alert provides additional characteristics of the code segment that have been processed to provide context for the capabilities and behaviors of the reported code segment.|
-|**Shellcode discovered**|Shellcode is the payload that is run after malware exploits a software vulnerability.<br/>This alert indicates that crash dump analysis has detected executable code that exhibits behavior commonly performed by malicious payloads. Although non-malicious software can also perform this behavior, it isn't typical of normal software development practices.|
+For a list of the crash dump analysis alerts, see the [Reference table of alerts](alerts-reference.md#alerts-crashdump).
 
 ### Fileless attack detection <a nanme="windows-fileless"></a>
 
