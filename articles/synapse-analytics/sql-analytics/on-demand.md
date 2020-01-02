@@ -17,7 +17,7 @@ SQL on-demand is a service that queries over the data in your data lake. It demo
 - A familiar T-SQL syntax to query data in place without the need to copy or load data into a specialized store. 
 - Integrated connectivity via the T-SQL interface that offers a wide range of business intelligence and ad-hoc querying tools, including the most popular drivers. 
 
-SQL on-demand is a distributed data processing system built for large-scale data and compute functions.  functionality enables you to analyze your Big Data in seconds to minutes, depending on the workload. Thanks to built-in query execution fault-tolerance, the system provides high reliability and success rates even for long-running queries involving massive data sets.
+SQL on-demand is a distributed data processing system built for large-scale data and compute functions. Its high functionality enables you to analyze your Big Data in seconds to minutes, depending on the workload. Thanks to built-in query execution fault-tolerance, the system provides high reliability and success rates even for long-running queries involving massive data sets.
 
 ### Serverless
 SQL on-demand is serverless. You don't have infrastructure to setup or clusters to maintain. A default endpoint is provided within every Azure Synapse workspace. So, you can start querying data as soon as the workspace is created. There's no charge for resources reserved. You're only charged for the data scanned through your queries. As such, SQL on-demand is a true pay-per-use model. 
@@ -28,7 +28,9 @@ If you use Spark for data preparation, cleansing, or enrichment, you can query a
 ### SQL on-demand preview
 SQL on-demand is currently able to query the data in the form of files located in Azure Storage (WASB, ADLS). While in preview, the cost may come at a discount (up to 100%) compared to GA prices. 
 
-Also during preview, there could be limitations in the scale and performance of your queries, whether at individual query or workspace levels. Private Link functionality will become available during the early stages of the preview. The currently supported ad-hoc querying tool is Azure Data Studio. SSMS can be used to connect and query, although some options won't work. It will be fully supported until GA. Makes sure that you're using the latest versions of the  tools mentioned above.
+Also during preview, there could be limitations in the scale and performance of your queries, whether at individual query or workspace levels. Private Link functionality will become available during the early stages of the preview. 
+
+The currently supported ad-hoc querying tool is Azure Data Studio. SSMS can be used to connect and query, although some options won't work. It will be fully supported until GA. Makes sure that you're using the latest versions of the  tools mentioned above.
 
 ## Who is SQL on-demand for?
 
