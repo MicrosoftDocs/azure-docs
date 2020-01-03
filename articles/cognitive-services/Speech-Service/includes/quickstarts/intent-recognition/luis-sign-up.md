@@ -29,8 +29,10 @@ Here's where you can find this information in the [LUIS preview portal](https://
 
 1. From the LUIS preview portal, select **Manage**, then select **Azure Resources**. On this page, you'll find your LUIS key and location (also referred to as _region_).  
 
-   ![](../../../media/luis/luis-key-region.png)
+   > [!div class="mx-imgBorder"]
+   > ![LUIS key and location](../../../media/luis/luis-key-region.png)
 
 2. After you've got your key and location, you'll need the app ID. Select **Application Settings** -- your app ID is available on this page.
 
-   ![](../../../media/luis/luis-app-id.png)
+   > [!div class="mx-imgBorder"]
+   > ![LUIS app ID](../../../media/luis/luis-app-id.png)
