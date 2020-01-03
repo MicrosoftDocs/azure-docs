@@ -42,7 +42,7 @@ Select categories and subcategories that best align with your offer and your int
 - Up to two (2) categories, including a primary and a secondary category (optional).
 - Up to two (2) subcategories for each primary and/or secondary category. If no subcategory is selected, you offer will still be discoverable on the selected category only.
 
-See categories and subcategories applicable to each Storefront are listed [here](gtm-offer-listing-best-practices-categories.md).
+Categories and subcategories applicable to each Storefront are listed [here](gtm-offer-listing-best-practices-categories.md).
 
 ### Industries
 
