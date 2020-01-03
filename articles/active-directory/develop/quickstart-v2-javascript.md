@@ -72,8 +72,11 @@ In this quickstart, you use a code sample to learn how a JavaScript single-page 
 > [!div renderon="docs"]
 > To run the project with a web server by using Node.js, [download the core project files](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/quickstart.zip).
 
-> [!div renderon="portal" id="autoupdate" class="nextstepaction"]
+> [!div renderon="portal"]
 > Run the project with a web server by using Node.js
+
+
+> [!div renderon="portal" id="autoupdate" class="nextstepaction"]
 > [Download the code sample]()
 
 > [!div renderon="docs"]
@@ -93,8 +96,8 @@ In this quickstart, you use a code sample to learn how a JavaScript single-page 
 >         storeAuthStateInCookie: true
 >     }
 > };
+> ```
 
-```
 > [!div renderon="portal"]
 > > [!NOTE]
 > > This quickstart supports Enter_the_Supported_Account_Info_Here.
@@ -121,15 +124,13 @@ In this quickstart, you use a code sample to learn how a JavaScript single-page 
 
 Run the project with a web server by using [Node.js](https://nodejs.org/en/download/):
 
-    1. To start the server, run the following command from the project directory:
-
-        ```batch
-        npm install
-        node server.js
-        ```
-
-    1. Open a web browser and go to `http://localhost:30662/`.
-    1. Select **Sign In** to start the sign-in, and then call Microsoft Graph API.
+1. To start the server, run the following command from the project directory:
+    ```batch
+    npm install
+    node server.js
+    ```
+1. Open a web browser and go to `http://localhost:30662/`.
+1. Select **Sign In** to start the sign-in, and then call Microsoft Graph API.
 
 After the browser loads the application, select **Sign In**. The first time that you sign in, you're prompted to provide your consent to allow the application to access your profile and to sign you in. After you're signed in successfully, your user profile information should be displayed on the page.
 
