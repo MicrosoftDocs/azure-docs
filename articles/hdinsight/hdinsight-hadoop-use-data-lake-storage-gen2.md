@@ -7,7 +7,7 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 01/02/2020
+ms.date: 01/03/2020
 ---
 
 # Use Azure Data Lake Storage Gen2 with Azure HDInsight clusters
@@ -90,6 +90,10 @@ Assign the managed identity to the **Storage Blob Data Owner** role on the stora
 
 > [!Note]
 > To add a secondary Data Lake Storage Gen2 account, at the storage account level, simply assign the managed identity created earlier to the new Data Lake Storage Gen2 storage account that you wish to add.Please be advised that adding a secondary Data Lake Storage Gen2 account via the "Additional storage accounts" blade on HDInsight is not supported.
+
+> [!Note]  
+> You can enable RA-GRS or RA-ZRS on the Azure storage account used by HDInsight. However, creating a cluster against RA-GRS or RA-ZRS secondary endpoint is not supported
+
 
 ## Create a cluster with Data Lake Storage Gen2 through the Azure CLI
 
