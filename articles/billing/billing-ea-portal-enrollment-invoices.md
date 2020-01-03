@@ -500,59 +500,49 @@ Some third-party reseller services available on the Azure Marketplace now consum
 
 ### Partners
 
-\***
+Licensing Solutions Providers (LSPs) can download a marketplace-specific price list by navigating to the price sheet in the Azure Enterprise portal and selecting the **Marketplace Price list** link in the upper right. The marketplace price list shows all available services and their prices.
 
-LSPs can download a marketplace-specific price list by navigating to the price sheet in the Azure Enterprise portal and selecting on the **Marketplace Price list** link in the upper right-hand corner. The marketplace price list will be a reflection of all available services and their prices.
+To download the price list:
 
-**To download the price list, please follow the following steps:**
-
-1. Navigate to Reports > Price Sheet.
-1. In the top-right corner, find the link to the Azure marketplace price list under your username.
+1. Navigate to **Reports** > **Price Sheet**.
+1. In the top-right corner, find the link to the Azure Marketplace price list under your username.
 1. Right-click the link and select **Save Target As**.
 1. On the Save window, change the title of the document to `AzureMarketplacePricelist.zip`, which will change the file from an xlsx to a zip file.
-1. Once the download is complete, you'll have a zip file with country-specific price lists.
-1. LSPs should reference the individual country file for country-specific pricing. LSPs should use the 'Notifications' tab to see SKUs that are net new to the marketplace as well as SKUs that have been removed.
-1. Price changes will be infrequent but when they occur, LSPs will be notified of price increases and FX changes 30 days in advance via email.
-1. LSPs will receive one invoice per enrollment, per ISV, per quarter.
+1. After the download is complete, you'll have a zip file with country-specific price lists.
+1. LSPs should reference the individual country file for country-specific pricing. LSPs should use the "Notifications" tab to see SKUs that are net new to the marketplace as well as SKUs that have been removed.
+1. Price changes occur infrequently. LSPs get email notifications of price increases and foreign exchange (FX) changes 30 days in advance.
+1. LSPs receive one invoice per enrollment, per ISV, per quarter.
 
 ### Enabling marketplace purchases
 
-Enterprise administrators have the ability to 'disable' or 'enable' marketplace purchases for all Azure subscriptions under that enrollment. If the enterprise administrator disables purchases and there are Azure subscriptions that already have marketplace subscriptions, those marketplace subscriptions won't be canceled or impacted.
+Enterprise administrators have the ability to 'disable' or 'enable' marketplace purchases for all Azure subscriptions under that enrollment. If the enterprise administrator disables purchases, and there are Azure subscriptions that already have marketplace subscriptions, those marketplace subscriptions won't be canceled or impacted.
 
-Although customers can convert their direct Azure subscriptions to EA by associating them to their enrollment in the Azure Enterprise portal, this action does not automatically convert the child marketplace subscriptions.
+Although customers can convert their direct Azure subscriptions to Azure EA by associating them to their enrollment in the Azure Enterprise portal, this action does not automatically convert the child marketplace subscriptions.
 
-**To enable marketplace purchases:**
+To enable marketplace purchases:
 
 1. Sign in to the Azure Enterprise portal as an enterprise administrator.
 1. Navigate to **Manage**.
 1. Under **Enrollment Detail**, select the pencil icon next to the **Azure Marketplace** line item.
-1. Toggle **Enabled/Disabled** or Free **BYOL SKU's Only\*** as appropriate.
+1. Toggle **Enabled/Disabled** or Free **BYOL SKU's Only** as appropriate.
 1. Select **Save**.
 
-### Marketplace charges in Azure Enterprise portal reports
+> [!NOTE]
+> BYOL (bring your own license) and the Free Only option limits the purchase and acquisition of Azure Marketplace SKUs to BYOL and Free SKUs only.
 
-Additional information on marketplace charges can be found [here.](https://azure.microsoft.com/marketplace/faq/)
+Get more information about [Marketplace charges in Azure Enterprise portal reports](#marketplace-charges-in-azure-enterprise-portal-reports).
 
-There are two types of marketplace charges:
+### Services billed hourly for Azure EA
 
-- **Usage based:** Products are measured in transactional units.  For example, virtual machines are charged hourly and Bing API searches are charged by the number of searches.
-- **Non-Usage based:** One-time charge or recurring monthly fee that is independent of usage.
+Application Delivery Network and Web Application Firewall are billed hourly for Enterprise Agreement instead of the monthly rate in MOSP.
 
-Both usage-based and non-usage-based charges will be captured in the marketplace charge report.
+### Azure RemoteApp
 
-Please note that Azure marketplace is not available for MPSA enrollments.
+If have an Enterprise Agreement, you pay for Azure RemoteApp based on your Enterprise Agreement price level. There aren't additional charges. The standard price point includes an initial 40 hours. The unlimited price point covers an initial 80 hours. RemoteApp stops emitting usage over 80 hours.
 
-\*BYOL (bring your own license) and the Free Only option would limit the purchase and acquisition of Azure Marketplace SKUs to BYOL and Free SKUs only.
+## Azure Marketplace FAQ
 
-### Services billed hourly for EA
-
-Application Delivery Network and Web Application Firewall are billed hourly for EA vs. the monthly rate in MOSP.
-
-### Remote app
-
-EA customers pay for remote app based on their EA price level and aren't charged additionally. The standard price point includes an initial 40 hours, while the unlimited price point covers an initial 80 hours. Remote App stops emitting usage over 80 hours.
-
-## Azure marketplace FAQ
+\***
 
 This FAQ document reviews updates to Azure monetary commitment's applicability to some third party published services in the Azure marketplace.
 
