@@ -42,7 +42,7 @@ This article also provides detailed information about *advanced security setting
 
 To use an Azure storage account for the workspace in a virtual network, use the following steps:
 
-1. Create a compute resource (for example, a Machine Learning cluster) behind a virtual network, or attach a compute resource to the workspace (for example, an HDInsight cluster, virtual machine, or Azure Kubernetes Service cluster). The compute resource can be for experimentation or model deployment.
+1. Create a compute resource (for example, a Machine Learning compute instance or cluster) behind a virtual network, or attach a compute resource to the workspace (for example, an HDInsight cluster, virtual machine, or Azure Kubernetes Service cluster). The compute resource can be for experimentation or model deployment.
 
    For more information, see the [Use a Machine Learning compute](#amlcompute), [Use a virtual machine or HDInsight cluster](#vmorhdi), and [Use Azure Kubernetes Service](#aksvnet) sections in this article.
 
@@ -59,7 +59,7 @@ To use an Azure storage account for the workspace in a virtual network, use the 
     - Under __Virtual networks__, select the __Add existing virtual network__ link. This action adds the virtual network where your compute  resides (see step 1).
 
         > [!IMPORTANT]
-        > The storage account must be in the same virtual network as the clusters used for training or inference.
+        > The storage account must be in the same virtual network as the compute instances or clusters used for training or inference.
 
     - Select the __Allow trusted Microsoft services to access this storage account__ check box.
 
@@ -86,6 +86,7 @@ The key vault instance that's associated with the workspace is used by Azure Mac
 * Connection strings to data stores
 
 To use Azure Machine Learning experimentation capabilities with Azure Key Vault behind a virtual network, use the following steps:
+
 1. Go to the key vault that's associated with the workspace.
 
    [![The key vault that's associated with the Azure Machine Learning workspace](./media/how-to-enable-virtual-network/workspace-key-vault.png)](./media/how-to-enable-virtual-network/workspace-key-vault.png#lightbox)
@@ -103,18 +104,22 @@ To use Azure Machine Learning experimentation capabilities with Azure Key Vault 
 
 <a id="amlcompute"></a>
 
-## Use a Machine Learning Compute
+## <a name="compute-instance"></a>Use a Machine Learning Compute
 
-To use an Azure Machine Learning compute cluster in a virtual network, the following network requirements must be met:
+> [!NOTE]
+> Compute instances (preview) are currently available only for workspaces with a region of **North Central US** or **UK South**, with support for other regions coming soon.
+> Use one of these regions to create a compute instance that can be added to virtual network.
+
+To use an Azure Machine Learning compute instance or compute cluster in a virtual network, the following network requirements must be met:
 
 > [!div class="checklist"]
 > * The virtual network must be in the same subscription and region as the Azure Machine Learning workspace.
-> * The subnet that's specified for the compute cluster must have enough unassigned IP addresses to accommodate the number of VMs that are targeted. If the subnet doesn't have enough unassigned IP addresses, a compute cluster will be partially allocated.
+> * The subnet that's specified for the compute instance or cluster must have enough unassigned IP addresses to accommodate the number of VMs that are targeted. If the subnet doesn't have enough unassigned IP addresses, a compute cluster will be partially allocated.
 > * Check to see whether your security policies or locks on the virtual network's subscription or resource group restrict permissions to manage the virtual network. If you plan to secure the virtual network by restricting traffic, leave some ports open for the compute service. For more information, see the [Required ports](#mlcports) section.
-> * If you're going to put multiple compute clusters in one virtual network, you might need to request a quota increase for one or more of your resources.
-> * If the Azure Storage Account(s) for the workspace are also secured in a virtual network, they must be in the same virtual network as the Azure Machine Learning compute cluster.
+> * If you're going to put multiple compute instances or clusters in one virtual network, you might need to request a quota increase for one or more of your resources.
+> * If the Azure Storage Account(s) for the workspace are also secured in a virtual network, they must be in the same virtual network as the Azure Machine Learning compute instance or cluster. If you are creating a compute instance in the same virtual network, you would need to detach the storage account(s) from the virtual network, create the compute instance in the virtual network, and then attach the storage account(s) back to the virtual network.
 
-The Machine Learning compute cluster automatically allocates additional networking resources in the resource group that contains the virtual network. For each compute cluster, the service allocates the following resources:
+The Machine Learning compute instance or cluster automatically allocates additional networking resources in the resource group that contains the virtual network. For each compute instance or cluster, the service allocates the following resources:
 
 * One network security group
 * One public IP address
@@ -137,6 +142,8 @@ Machine Learning Compute currently uses the Azure Batch service to provision VMs
 
 - Outbound traffic on any port to the internet.
 
+- For compute instance inbound TCP traffic on port 44224 from a __Service Tag__ of __AzureMachineLearning__.
+
 Exercise caution if you modify or add inbound or outbound rules in Batch-configured NSGs. If an NSG blocks communication to the compute nodes, the compute service sets the state of the compute nodes to unusable.
 
 You don't need to specify NSGs at the subnet level, because the Azure Batch service configures its own NSGs. However, if the specified subnet has associated NSGs or a firewall, configure the inbound and outbound security rules as mentioned earlier.
@@ -149,14 +156,15 @@ The NSG rule configuration in the Azure portal is shown in the following images:
 
 ### <a id="limiting-outbound-from-vnet"></a> Limit outbound connectivity from the virtual network
 
-If you don't want to use the default outbound rules and you do want to limit the outbound access of your virtual network, do the following actions:
+If you don't want to use the default outbound rules and you do want to limit the outbound access of your virtual network, use the following steps:
 
 - Deny outbound internet connection by using the NSG rules.
 
-- Limit outbound traffic to the following resources:
+- Limit outbound traffic to the following items:
    - Azure Storage, by using __Service Tag__ of __Storage.Region_Name__ (for example, Storage.EastUS)
    - Azure Container Registry, by using __Service Tag__ of __AzureContainerRegistry.Region_Name__ (for example, AzureContainerRegistry.EastUS)
    - Azure Machine Learning, by using __Service Tag__ of __AzureMachineLearning__
+   - In case of compute instance, Azure Cloud, by using __Service Tag__ of __AzureCloud.Region_Name__ (for example, AzureCloud.NorthCentralUS)
 
 The NSG rule configuration in the Azure portal is shown in the following image:
 
@@ -164,7 +172,7 @@ The NSG rule configuration in the Azure portal is shown in the following image:
 
 ### User-defined routes for forced tunneling
 
-If you're using forced tunneling with Machine Learning Compute, add [user-defined routes (UDRs)](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview) to the subnet that contains the compute resource.
+If you're using forced tunneling with the Machine Learning Compute, add [user-defined routes (UDRs)](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview) to the subnet that contains the compute resource.
 
 * Establish a UDR for each IP address that's used by the Azure Batch service in the region where your resources exist. These UDRs enable the Batch service to communicate with compute nodes for task scheduling. To get a list of IP addresses of the Batch service, use one of the following methods:
 
@@ -365,7 +373,7 @@ A private IP address is enabled by configuring AKS to use an _internal load bala
 > [!IMPORTANT]
 > You cannot enable private IP when creating the Azure Kubernetes Service cluster. It must be enabled as an update to an existing cluster.
 
-The following code snippet demonstrates how to **create a new AKS cluster**, and then update it to use a private IP/internal load balancer
+The following code snippet demonstrates how to **create a new AKS cluster**, and then update it to use a private IP/internal load balancer:
 
 ```python
 import azureml.core
@@ -399,7 +407,6 @@ except:
     aks_target.update(update_config)
     # Wait for the operation to complete
     aks_target.wait_for_completion(show_output = True)
-    
 ```
 
 __Azure CLI__
@@ -453,4 +460,3 @@ For more information on configuring a network rule, see [Deploy and configure Az
 * [Set up training environments](how-to-set-up-training-targets.md)
 * [Where to deploy models](how-to-deploy-and-where.md)
 * [Securely deploy models with SSL](how-to-secure-web-service.md)
-
