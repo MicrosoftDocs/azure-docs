@@ -113,7 +113,7 @@ In Azure for Student Starter you have access to most of the features of the Azur
     * All input and all output bindings are supported! [See the full list here.](functions-triggers-bindings.md)
 * Languages Supported: 
     * C# (.NET Core 2)
-    * Javascript (Node.js 8 & 10)
+    * JavaScript (Node.js 8 & 10)
     * F# (.NET Core 2)
     * [See languages supported in higher plans here](supported-languages.md)
 * Windows is the only supported operating system.
