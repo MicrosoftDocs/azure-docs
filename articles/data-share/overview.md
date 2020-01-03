@@ -41,7 +41,7 @@ Data providers can offer their data consumers incremental updates to the data sh
 
 When a data consumer accepts a data share, they are able to receive the data in a data store of their choice. For example, if the data provider shares data using Azure Blob Storage, the data consumer can receive this data in Azure Data Lake Store. Similarly, if the data provider shares data from an Azure SQL Data Warehouse, the data consumer can choose whether they want to receive the data into an Azure Data Lake Store, an Azure SQL Database or an Azure SQL Data Warehouse. In the case of sharing from SQL-based sources, the data consumer can also choose whether they receive data in parquet or csv. 
 
-In-place sharing is currently in limited preview for Azure Data Explorer. Data providers are able to share data where it resides, with no data movement via a symbolic link. Sign up for the limited preview of in-place sharing for Azure Data Explorer [here](https://aka.ms/azuredatasharepreviewsignup). 
+In-place sharing is currently in limited preview for Azure Data Explorer. Data providers are able to share data where it resides, with no data movement via a symbolic link. Sign up for the limited preview of Azure Data Explorer in-place sharing [here](https://aka.ms/azuredatasharepreviewsignup). 
 
 ## Key capabilities
 
