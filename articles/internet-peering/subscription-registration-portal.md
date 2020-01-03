@@ -20,9 +20,6 @@ If you prefer, you can complete this guide using the [PowerShell](subscription-r
 ### Sign in to the portal
 [!INCLUDE [Account](./includes/account-portal.md)]
 
-### Register for Peering feature flag and Peering resource provider
-[!INCLUDE [Account](./includes/flag-portal.md)]
-
 ### Create PeerAsn
 You can create a new PeerAsn resource for associating an Autonomous System Number (ASN) with Azure subscription. You can associate multiple ASNs to a subscription by creating a **PeerAsn** for each ASN you need to associate.
 

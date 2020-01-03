@@ -23,67 +23,6 @@ If you prefer, you can complete this guide using the [portal](subscription-regis
 ### Sign in to your Azure account and select your subscription
 [!INCLUDE [Account](./includes/account.md)]
 
-### Register for Peering feature flag
-Register Peering feature flag for your subscription using the command below. This is required because Peering set up using Azure PowerShell is currently under Preview.
-
-* For Direct Peering use below.
-
-```powershell
-Register-AzProviderFeature -FeatureName AllowDirectPeering -ProviderNamespace Microsoft.Peering
-```
-
-* For Exchange Peering use below.
-
-```powershell
-Register-AzProviderFeature -FeatureName AllowExchangePeering -ProviderNamespace Microsoft.Peering
-```
-
-You can check the registration status using the commands below:
-
-* For Direct Peering use below.
-
-```powershell
-Get-AzProviderFeature -FeatureName AllowDirectPeering -ProviderNamespace Microsoft.Peering
-```
-
-Below is an example response:
-```powershell
-FeatureName          ProviderName      RegistrationState
------------          ------------      -----------------
-AllowDirectPeering   Microsoft.Peering Registered
-```
-
-* For Exchange Peering use below.
-
-```powershell
-Get-AzProviderFeature -FeatureName AllowExchangePeering -ProviderNamespace Microsoft.Peering
-```
-
-Below is an example response:
-```powershell
-FeatureName          ProviderName      RegistrationState
------------          ------------      -----------------
-AllowExchangePeering Microsoft.Peering Registered
-```
-
-> [!IMPORTANT]
-> Wait for *RegistrationState* to turn "Registered" before proceeding. It may take 5 to 30 minutes after you execute the command.
-
-### Register for Peering resource provider
-Register Peering resource provider for your subscription using the command below. This is required because Peering set up using Azure PowerShell is currently under preview.
-
-```powershell
-Register-AzResourceProvider -ProviderNamespace Microsoft.Peering
-```
-
-You can check the registration status using the commands below:
-```powershell
-Get-AzResourceProvider -ProviderNamespace Microsoft.Peering
-```
-
-> [!IMPORTANT]
-> Wait for *RegistrationState* to turn "Registered" before proceeding. It may take 5 to 30 minutes after you execute the command.
-
 ### Update the peer information associated with this subscription
 
 ```powershell

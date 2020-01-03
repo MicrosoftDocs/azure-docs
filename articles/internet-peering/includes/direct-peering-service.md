@@ -25,7 +25,7 @@ ms.author: prmitiki
     SessionStateV6              : None
     ConnectionState             : Active
     ```
-1. Select the connection you would like to enable for Peering Service. For this example we will use the only connection available.
+1. Select the connection you would like to enable for Peering Service. For this example, we will use the only connection available.
     ```powershell
     $directPeering.Connections[1] = $directPeering.Connections[1] | Set-AzPeeringDirectConnectionObject -UseForPeeringService $true
 
