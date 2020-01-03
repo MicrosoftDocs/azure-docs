@@ -121,9 +121,26 @@ Here's a basic deployment manifest with one module as an example:
 }
 ```
 
-## Create deployment at Scale
+## Identify devices using tags
 
-You deploy modules to your target devices by creating a deployment that consists of the deployment manifest and by providing inputs for a few parameters.
+Before you can create a deployment, you have to be able to specify which devices you want to affect. Azure IoT Edge identifies devices using **tags** in the device twin. Each device can have multiple tags that you define in any way that makes sense for your solution. For example, if you manage a campus of smart buildings, you might add the following tags to a device:
+
+```json
+"tags":{
+  "location":{
+    "building": "20",
+    "floor": "2"
+  },
+  "roomtype": "conference",
+  "environment": "prod"
+}
+```
+
+For more information about device twins and tags, see [Understand and use device twins in IoT Hub](../iot-hub/iot-hub-devguide-device-twins.md).
+
+## Create deployment at scale
+
+You deploy modules to your target devices by configuring the deployment manifest and answering a few prompts from Visual Studio code that fills in parameter values for you to create the deployment.
 
 1. In the Visual Studio Code explorer view, expand the Azure IoT Hub Devices section.
 
@@ -155,13 +172,11 @@ You deploy modules to your target devices by creating a deployment that consists
    [Edge] Deployment with deployment id [{specified-value}] succeeded.
    ```
 
-## View modules on your device
+## Monitor a deployment
 
-Once you've deployed modules to your device, you can view all of them in the **Azure IoT Hub** section. Select the arrow next to your IoT Edge device to expand it. All the currently running modules are displayed.
+## Modify a deployment
 
-If you recently deployed new modules to a device, hover over the **Azure IoT Hub Devices** section header and select the refresh icon to update the view.
-
-Right-click the name of a module to view and edit the module twin.
+## Delete a deployment
 
 ## Next steps
 
