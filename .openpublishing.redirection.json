@@ -15398,7 +15398,12 @@
     },
     {
       "source_path": "articles/mobile-engagement/mobile-engagement-send-personalized-notifications.md",
-      "redirect_url": "/azure/azure-subscription-service-limits#mobile-engagement-limits",
+      "redirect_url": "/azure/azure-resource-manager/management/azure-subscription-service-limits#mobile-engagement-limits",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-subscription-service-limits.md",
+      "redirect_url": "/azure/azure-resource-manager/management/azure-subscription-service-limits",
       "redirect_document_id": false
     },
     {
