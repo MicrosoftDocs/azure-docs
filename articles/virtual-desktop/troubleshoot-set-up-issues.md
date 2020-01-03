@@ -141,8 +141,8 @@ To fix this, do the following things:
 
 1. Open the Azure Portal and go to the **Virtual networks** blade.
 2. Find your VNET, then select **DNS servers**.
-3. A menu should open on the right side of your screen. Under DNS servers, select **Custom**.
-4. Finally, make sure the values for the DNS match your domain controller or Azure Active Directory Domain Services.
+3. The DNS servers menu should appear on the right side of your screen. On that menu, select **Custom**.
+4. Make sure the DNS servers listed under Custom match your domain controller or Active Directory domain. If you don't see your DNS server, you can add it by entering its value into the **Add DNS server** field.
 
 ### Error: Your deployment failed...\Unauthorized
 
