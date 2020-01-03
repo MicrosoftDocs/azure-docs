@@ -1,5 +1,5 @@
 ---
-title: Azure Service Fabric Event Aggregation with Windows Azure Diagnostics 
+title: Event Aggregation with Windows Azure Diagnostics
 description: Learn about aggregating and collecting events using WAD for monitoring and diagnostics of Azure Service Fabric clusters.
 author: srrengar
 
