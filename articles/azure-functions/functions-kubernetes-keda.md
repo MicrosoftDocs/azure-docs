@@ -43,13 +43,13 @@ func init --docker-only
 To build an image and deploy your functions to Kubernetes, run the following command:
 
 > [!NOTE]
-> The core tools will leverage the docker CLI to build and publish the image. Be sure to have docker installed already and connected to your account with `docker login`.
+> The Core Tools will leverage the docker CLI to build and publish the image. Be sure to have docker installed already and connected to your account with `docker login`.
 
 ```cli
-func kubernetes deploy --name <name-of-function-deployment> --registry <container-registry-username>
+func kubernetes deploy --name <name-of-function-deployment> --registry <container-registry>
 ```
 
-> Replace `<name-of-function-deployment>` with the name of your function app.
+> Replace `<name-of-function-deployment>` with the name of your function.
 
 This creates a Kubernetes `Deployment` resource, a `ScaledObject` resource, and `Secrets`, which includes environment variables imported from your `local.settings.json` file.
 
@@ -69,7 +69,7 @@ kubectl delete secret <name-of-function-deployment>
 
 ## Uninstalling KEDA from Kubernetes
 
-You can run the following core tools command to remove KEDA from a Kubernetes cluster:
+You can run the following Core Tools command to remove KEDA from a Kubernetes cluster:
 
 ```cli
 func kubernetes remove --namespace keda
