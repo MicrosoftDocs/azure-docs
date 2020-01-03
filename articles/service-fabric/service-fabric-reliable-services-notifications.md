@@ -1,6 +1,6 @@
 ---
 title: Reliable Services notifications 
-description: Conceptual documentation for Service Fabric Reliable Services notifications
+description: Conceptual documentation for Service Fabric Reliable Services notifications for Reliable State Manager and Reliable Dictionary
 author: mcoskun
 
 ms.topic: conceptual

@@ -4,7 +4,7 @@ description: This article explains how Azure EA customers use the Azure EA porta
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 01/02/2020
+ms.date: 01/03/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 manager: boalcsva
@@ -95,6 +95,10 @@ Each account requires a unique Work, School, or Microsoft Account. For more info
 ### Service administrator
 
 The service administrator has permissions to manage services in the Azure portal and assign users to the coadministrator role.
+
+### Notification contact
+
+The notifications contact receives usage notifications related to the enrollment.
 
 ## Activate your enrollment
 

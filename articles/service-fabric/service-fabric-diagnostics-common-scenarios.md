@@ -1,6 +1,6 @@
 ---
 title: Azure Service Fabric Diagnose Common Scenarios 
-description: Learn how to troubleshoot common scenarios with Azure Service Fabric
+description: Learn about troubleshooting common monitoring and diagnostic scenarios within Azure Service Fabric applications.
 author: srrengar
 
 ms.topic: article

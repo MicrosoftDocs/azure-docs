@@ -1,6 +1,6 @@
 ---
-title: Azure Service Fabric CLI- sfctl service 
-description: Describes the Service Fabric CLI sfctl service commands.
+title: Azure Service Fabric CLI- sfctl service
+description: Learn about sfctl, the Azure Service Fabric command line interface. Includes a list of commands for managing services, service types, and service packages.
 author: jeffj6123
 
 ms.topic: reference
