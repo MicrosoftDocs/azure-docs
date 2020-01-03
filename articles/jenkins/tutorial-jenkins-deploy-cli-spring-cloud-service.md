@@ -7,7 +7,7 @@ ms.date: 12/06/2019
 
 # Tutorial: Using Jenkins and Azure CLI to deploy applications to Azure Spring Cloud service 
 
-[Azure Spring Cloud](https://docs.microsoft.com/en-us/azure/spring-cloud/spring-cloud-overview) is a fully managed microservice development with built-in service discovery and configuration management. The service makes it easy to deploy Spring Boot-based microservice applications to Azure. This tutorial demonstrates how you can use Azure CLI in Jenkins to automate continuous integration and delivery (CI/CD) for Azure Spring Cloud.
+[Azure Spring Cloud](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-overview) is a fully managed microservice development with built-in service discovery and configuration management. The service makes it easy to deploy Spring Boot-based microservice applications to Azure. This tutorial demonstrates how you can use Azure CLI in Jenkins to automate continuous integration and delivery (CI/CD) for Azure Spring Cloud.
 
 In this tutorial, you'll complete these tasks:
 
@@ -20,7 +20,10 @@ This tutorial assumes intermediate knowledge of core Azure services, Azure Sprin
 
 ## Prerequisites
 
-* An Azure account. If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+>[!Note]
+> Azure Spring Cloud is currently offered as a public preview. Public preview offerings allow customers to experiment with new features prior to their official release.  Public preview features and services are not meant for production use.  For more information about support during previews, please review our [FAQ](https://azure.microsoft.com/support/faq/) or file a [Support request](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) to learn more.
+
+[!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
 
 * A GitHub account. If you don't have a GitHub account, create a [free account](https://github.com/) before you begin.
 
@@ -38,7 +41,7 @@ This tutorial assumes intermediate knowledge of core Azure services, Azure Sprin
  
 ## Provision a service instance and launch a Java Spring application
 
-We use [Piggy Metrics](https://github.com/Azure-Samples/piggymetrics) as the sample Microsoft service application and follow the same steps in [Quickstart: Launch a Java Spring application using the Azure Cli](https://docs.microsoft.com/en-us/azure/spring-cloud/spring-cloud-quickstart-launch-app-cli) to provision the service instance and set up the applications. If you have already gone through the same process, you can skip to the next section. Otherwise, included below are the Azure CLI commands. Refer to the [tutorial](https://docs.microsoft.com/en-us/azure/spring-cloud/spring-cloud-quickstart-launch-app-cli) to get additional background information.
+We use [Piggy Metrics](https://github.com/Azure-Samples/piggymetrics) as the sample Microsoft service application and follow the same steps in [Quickstart: Launch a Java Spring application using the Azure Cli](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-quickstart-launch-app-cli) to provision the service instance and set up the applications. If you have already gone through the same process, you can skip to the next section. Otherwise, included in the following are the Azure CLI commands. Refer to [Quickstart: Launch a Java Spring application using the Azure CLI](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-quickstart-launch-app-cli) to get additional background information.
 
 Your local machine needs to meet the same prerequisite as the Jenkins build server. Make sure the following are installed to build and deploy the microservice applications:
     * [Git](https://git-scm.com/)
@@ -64,7 +67,7 @@ Your local machine needs to meet the same prerequisite as the Jenkins build serv
         az spring-cloud create -n <service name> -g <resource group name>
     ```
 
-4. Fork the [repo](https://github.com/Azure-Samples/piggymetrics) to your own GitHub account. In your local machine, clone your repo in a directory called `source-code`:
+4. Fork the [Piggy Metrics](https://github.com/Azure-Samples/piggymetrics) repo to your own GitHub account. In your local machine, clone your repo in a directory called `source-code`:
 
     ```bash
         mkdir source-code
@@ -172,7 +175,7 @@ The sample pipeline uses Maven to build and Az CLI to deploy to the service inst
         sudo apt-get install maven 
     ```
 
-3. Install the Azure CLI. For more information, see [**Installing the Azure CLI**](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest). Azure CLI is installed by default if you use [Jenkins Master on Azure](https://aka.ms/jenkins-on-azure).
+3. Install the Azure CLI. For more information, see [Installing the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Azure CLI is installed by default if you use [Jenkins Master on Azure](https://aka.ms/jenkins-on-azure).
 
 4. Switch to the `jenkins` user:
 
@@ -263,7 +266,7 @@ After the job is complete, navigate to the public IP of the **gateway** applicat
 
 ## Clean up resources
 
-When you're done using the sample application, clean up Azure resources by deleting the resource group:
+When no longer needed, delete the resources created in this article:
 
 ```bash
 az group delete -y --no-wait -n <resource group name>
@@ -273,10 +276,7 @@ az group delete -y --no-wait -n <resource group name>
 
 In this article, you learned how to use Azure CLI in Jenkins to automate continuous integration and delivery (CI/CD) for Azure Spring Cloud.
 
-The following list of resources provides more information on Azure Spring Cloud, and CI/CD with Jenkins.
+To learn more about Azure Jenkins provider, see the Jenkins on Azure site.
 
-Azure Spring Cloud:
-* [Azure Spring Cloud Documentation](https://docs.microsoft.com/en-us/azure/spring-cloud/)
-
-Jenkins on Azure:
-* [Jenkins on Azure Documentation](https://docs.microsoft.com/en-us/azure/jenkins/)
+> [!div class="nextstepaction"]
+> [Jenkins on Azure](/azure/jenkins/)
