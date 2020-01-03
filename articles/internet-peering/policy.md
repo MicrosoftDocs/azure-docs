@@ -1,7 +1,7 @@
 ---
 
-title: Microsoft Peering policy
-description: Peering policy
+title: Internet Peering policy
+description: Internet Peering policy
 services: internet-peering
 author: prmitiki
 ms.service: internet-peering
@@ -11,7 +11,7 @@ ms.author: prmitiki
 
 ---
 
-# Peering policy
+# Internet Peering policy
 Microsoft's general requirements from your network are explained in the sections below. These are applicable to both Direct Peering and Exchange Peering requests.
 
 ## Technical requirements
