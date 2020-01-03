@@ -287,9 +287,9 @@ You can also specify these options in the command using the following arguments:
 | Argument     | Description                            |
 | ------------------------------------------ | -------------------------------------- |
 | **`--csx`** | (Version 2.x) Generates the same C# script (.csx) templates used in version 1.x and in the portal. |
-| **`--language -l`**| The template programming language, such as C#, F#, or JavaScript. This option is required in version 1.x. In version 2.x, do not use this option or choose a language that matches the worker runtime. |
-| **`--name -n`** | The function name. |
-| **`--template -t`** | Use the `func templates list` command to see the complete list of available templates for each supported language.   |
+| **`--language`**, **`-l`**| The template programming language, such as C#, F#, or JavaScript. This option is required in version 1.x. In version 2.x, do not use this option or choose a language that matches the worker runtime. |
+| **`--name`**, **`-n`** | The function name. |
+| **`--template`**, **`-t`** | Use the `func templates list` command to see the complete list of available templates for each supported language.   |
 
 For example, to create a JavaScript HTTP trigger in a single command, run:
 
@@ -347,12 +347,12 @@ func host start
 | **`--cors-credentials`** | Allow cross-origin authenticated requests (i.e. cookies and the Authentication header) Version 2.x only. |
 | **`--cors`** | A comma-separated list of CORS origins, with no spaces. |
 | **`--language-worker`** | Arguments to configure the language worker. For example, you may enable debugging for language worker by providing [debug port and other required arguments](https://github.com/Azure/azure-functions-core-tools/wiki/Enable-Debugging-for-language-workers). Version 2.x only. |
-| **`--nodeDebugPort -n`** | The port for the node debugger to use. Default: A value from launch.json or 5858. Version 1.x only. |
+| **`--nodeDebugPort`**, **`-n`** | The port for the node debugger to use. Default: A value from launch.json or 5858. Version 1.x only. |
 | **`--password`** | Either the password or a file that contains the password for a .pfx file. Only used with `--cert`. Version 2.x only. |
-| **`--port -p`** | The local port to listen on. Default value: 7071. |
+| **`--port`**, **`-p`** | The local port to listen on. Default value: 7071. |
 | **`--pause-on-error`** | Pause for additional input before exiting the process. Used only when launching Core Tools from an integrated development environment (IDE).|
-| **`--script-root --prefix`** | Used to specify the path to the root of the function app that is to be run or deployed. This is used for compiled projects that generate project files into a subfolder. For example, when you build a C# class library project, the host.json, local.settings.json, and function.json files are generated in a *root* subfolder with a path like `MyProject/bin/Debug/netstandard2.0`. In this case, set the prefix as `--script-root MyProject/bin/Debug/netstandard2.0`. This is the root of the function app when running in Azure. |
-| **`--timeout -t`** | The timeout for the Functions host to start, in seconds. Default: 20 seconds.|
+| **`--script-root`**, **`--prefix`** | Used to specify the path to the root of the function app that is to be run or deployed. This is used for compiled projects that generate project files into a subfolder. For example, when you build a C# class library project, the host.json, local.settings.json, and function.json files are generated in a *root* subfolder with a path like `MyProject/bin/Debug/netstandard2.0`. In this case, set the prefix as `--script-root MyProject/bin/Debug/netstandard2.0`. This is the root of the function app when running in Azure. |
+| **`--timeout`**, **`-t`** | The timeout for the Functions host to start, in seconds. Default: 20 seconds.|
 | **`--useHttps`** | Bind to `https://localhost:{port}` rather than to `http://localhost:{port}`. By default, this option creates a trusted certificate on your computer.|
 
 When the Functions host starts, it outputs the URL of HTTP-triggered functions:
@@ -432,10 +432,10 @@ You can also invoke a function directly by using `func run <FunctionName>` and p
 
 | Option     | Description                            |
 | ------------ | -------------------------------------- |
-| **`--content -c`** | Inline content. |
-| **`--debug -d`** | Attach a debugger to the host process before running the function.|
-| **`--timeout -t`** | Time to wait (in seconds) until the local Functions host is ready.|
-| **`--file -f`** | The file name to use as content.|
+| **`--content`**, **`-c`** | Inline content. |
+| **`--debug`**, **`-d`** | Attach a debugger to the host process before running the function.|
+| **`--timeout`**, **`-t`** | Time to wait (in seconds) until the local Functions host is ready.|
+| **`--file`**, **`-f`** | The file name to use as content.|
 | **`--no-interactive`** | Does not prompt for input. Useful for automation scenarios.|
 
 For example, to call an HTTP-triggered function and pass content body, run the following command:
@@ -475,7 +475,7 @@ The following publish options are only supported in version 2.x:
 
 | Option     | Description                            |
 | ------------ | -------------------------------------- |
-| **`--publish-settings-only -o`** |  Only publish settings and skip the content. Default is prompt. |
+| **`--publish-settings-only`**, **`-o`** |  Only publish settings and skip the content. Default is prompt. |
 |**`--list-ignored-files`** | Displays a list of files that are ignored during publishing, which is based on the .funcignore file. |
 | **`--list-included-files`** | Displays a list of files that are published, which is based on the .funcignore file. |
 | **`--nozip`** | Turns the default `Run-From-Package` mode off. |
