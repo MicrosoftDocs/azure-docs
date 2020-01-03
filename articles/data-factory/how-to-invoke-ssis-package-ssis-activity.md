@@ -125,11 +125,19 @@ In this step, you use the Data Factory UI or app to create a pipeline. You add a
 
    ![Set properties on the Property Overrides tab](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-property-overrides.png)
 
+   To find the correct path for **Property Overrides**, you can create a configuration file from SSDT, then copy the path from it. To create configuration file, we first need to convert project to *Package Deployment Model*, then use *Package Configuration Organizer* to create configuration file for particular properties. 
+
+   ![Convert to package deployment mode](media/how-to-invoke-ssis-package-ssis-activity/convert-to-package-deployment-model.PNG)
+   ![Create configuration file](media/how-to-invoke-ssis-package-ssis-activity/create-configuration-file.PNG)
+   ![Create configuration file 1](media/how-to-invoke-ssis-package-ssis-activity/create-configuration-file-1.PNG)
+   ![Create configuration file 2](media/how-to-invoke-ssis-package-ssis-activity/create-configuration-file-2.PNG)
+   ![Create configuration file 3](media/how-to-invoke-ssis-package-ssis-activity/create-configuration-file-3.PNG)
+
    The values assigned in configuration files and on the **SSIS Parameters** tab can be overridden by using the **Connection Managers** or **Property Overrides** tabs. The values assigned on the **Connection Managers** tab can also be overridden by using the **Property Overrides** tab.
 
-1. To validate the pipeline configuration, select **Validate** on the toolbar. To close the **Pipeline Validation Report**, select **>>**.
+2. To validate the pipeline configuration, select **Validate** on the toolbar. To close the **Pipeline Validation Report**, select **>>**.
 
-1. To publish the pipeline to Data Factory, select **Publish All**. 
+3. To publish the pipeline to Data Factory, select **Publish All**. 
 
 ### Run the pipeline
 In this step, you trigger a pipeline run. 
