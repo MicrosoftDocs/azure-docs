@@ -7,3 +7,5 @@ ms.author: adjohnso
 ---
 
 # Troubleshooting
+
+* Find out [how to report an issue with CycleCloud](report-issues.md).
