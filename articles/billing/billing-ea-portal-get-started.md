@@ -43,12 +43,13 @@ The following diagram illustrates simple Azure EA hierarchies.
 
 ## Enterprise user roles
 
-To administer the Azure services in your enrollment, there are four distinct enterprise administrative user roles:
+To administer the Azure services in your enrollment, there are five distinct enterprise administrative user roles:
 
 - Enterprise administrator
 - Department administrator
 - Account owner
 - Service administrator
+- Notification contact
 
 Roles are used to complete tasks in two different Microsoft Azure portals. The Azure EA portal (https://ea.azure.com) is used to help you to manage billing and costs. The Azure portal (https://portal.azure.com) is used to manage Azure services.
 
@@ -98,7 +99,7 @@ The service administrator has permissions to manage services in the Azure portal
 
 ### Notification contact
 
-The notifications contact receives usage notifications related to the enrollment.
+The notification contact receives usage notifications related to the enrollment.
 
 ## Activate your enrollment
 
