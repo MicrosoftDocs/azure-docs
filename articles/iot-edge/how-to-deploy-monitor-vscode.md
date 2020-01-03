@@ -172,11 +172,9 @@ You deploy modules to your target devices by configuring the deployment manifest
    [Edge] Deployment with deployment id [{specified-value}] succeeded.
    ```
 
-## Monitor a deployment
+## Monitoring and modifying deployments
 
-## Modify a deployment
-
-## Delete a deployment
+Use the [Azure CLI](how-to-deploy-monitor-cli.md#monitor-a-deployment) or the [Azure portal](how-to-deploy-monitor.md#monitor-a-deployment) to monitor, modify, and delete deployments. Both provide metics on your deployments, but the Azure CLI provides additional granularity by allowing you to query values for specific properties.
 
 ## Next steps
 
