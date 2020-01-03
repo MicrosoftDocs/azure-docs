@@ -84,3 +84,41 @@ conceptualContent:
       footerLink:
         url: management/index.yml
         text: See more
+    # Card
+    - title: Managed Applications
+      links:
+        - url: managed-applications/overview.md
+          itemType: overview
+          text: Overview
+        - url: managed-applications/publish-service-catalog-app.md
+          itemType: tutorial
+          text: Publish service catalog app
+        - url: managed-applications/create-uidefinition-overview.md
+          itemType: how-to-guide
+          text: Create UI definition
+        - url: managed-applications/publish-marketplace-app.md
+          itemType: tutorial
+          text: Add to Marketplace
+      # footerLink (optional)
+      footerLink:
+        url: managed-applications/index.yml
+        text: See more
+    # Card
+    - title: Azure Custom Providers
+      links:
+        - url: custom-providers/overview.md
+          itemType: overview
+          text: Overview
+        - url: custom-providers/create-custom-provider.md
+          itemType: quickstart
+          text: Create custom provider
+        - url: custom-providers/tutorial-get-started-with-custom-providers.md
+          itemType: tutorial
+          text: Create custom actions and resources
+        - url: custom-providers/custom-providers-action-endpoint-how-to.md
+          itemType: how-to-guide
+          text: Add custom actions to Azure REST API
+      # footerLink (optional)
+      footerLink:
+        url: custom-providers/index.yml
+        text: See more

@@ -105,7 +105,7 @@ Take the Azure Machine Learning Studio (classic) environment for example:
 
 * For a list of the data formats and types supported by Azure Machine Learning Studio, see
   [Data formats and data types supported](../studio/import-data.md#supported-data-formats-and-data-types) section.
-* For information on the limitations of other Azure services used in the analytics process, see [Azure Subscription and Service Limits, Quotas, and Constraints](../../azure-subscription-service-limits.md).
+* For information on the limitations of other Azure services used in the analytics process, see [Azure Subscription and Service Limits, Quotas, and Constraints](../../azure-resource-manager/management/azure-subscription-service-limits.md).
 
 ## Data quality questions: exploration and pre-processing
 
