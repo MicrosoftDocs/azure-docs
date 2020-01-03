@@ -42,9 +42,10 @@ You create a workspace via the Azure portal, a web-based console for managing yo
 
 This tutorial uses the cloud notebook server in your workspace for an install-free and pre-configured experience. Use [your own environment](how-to-configure-environment.md#local) if you prefer to have control over your environment, packages and dependencies.
 
+Follow along with this video or use the detailed steps below to clone and run the tutorial from your workspace. 
+
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4mTUr]
 
-Follow along with the video or use the steps below to clone and run the tutorial from your workspace. 
 
 
 ### Clone a notebook folder
