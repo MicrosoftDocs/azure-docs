@@ -1,7 +1,7 @@
 ---
-title: Match patterns and special characters
+title: Query syntax for strings containing special characters
 titleSuffix: Azure Cognitive Search
-description: Use wildcard and prefix queries to match on whole or partial terms in an Azure Cognitive Search query request. Hard-to-match patterns that include special characters can be resolved using full query syntax and custom analyzers.
+description: Use regular expressions to match on strings that include special characters.
 
 manager: nitinme
 author: HeidiSteen
@@ -10,9 +10,20 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/02/2020
 ---
-# Match on patterns and special characters using whole or partial terms
+# Match on strings containing special characters 
 
-When search strings include special characters (`-, /, \, &, ?, *, =`), or when a pattern consists of one or more partial strings contained within a larger term, the default analyzer is often insufficient for producing matching tokens in your index. Assuming the following fictitious feature codes, you might want queries like `"SQL*Linux"` to get the first two documents, or `"SQL.2019"` for the last two.
+Addresses, dates, phone numbers, model or account numbers, and URLs or file paths are all common examples of searchable text that includes dashes or other characters that contribute meaning or context to the value itself. However, search strings that include special characters (`-, /, \, &, ?, *, =`) can be problematic in full text search scenarios due to linguistic processing that typically removes special characters during indexing and query parsing. An exact match on a term like "abc-123" requires that the hyphenated term is intact in the index. If tokenization has split them up, the search engine might fail to return results, or rank a particular document lower than expected.
+
+The strategy for matching on strings that include special characters includes the following components:
+
++ Reduce or eliminate tokenization on fields containing special characters
++ Optionally, use regular expressions and escaping to specify a hard-to-match pattern
+
+
+
+you need to circumvent the default text analysis phase the default text analyzer is often insufficient for finding matches in your index because those characters are often stripped out during the analysis phase of 
+
+Assuming the following fictitious feature codes, you might want queries like `"SQL*Linux"` to get the first two documents, or `"SQL.2019"` for the last two.
 
 + `"MSFT/SQL.2017/Linux"`
 + `"MSFT/SQL.2019/Linux&Java-Ext"`

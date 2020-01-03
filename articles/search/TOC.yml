@@ -273,6 +273,8 @@
       href: search-query-lucene-examples.md
     - name: Use Search Explorer (portal)
       href: search-explorer.md
+    - name: Special characters
+      href: search-query-special-characters.md
     - name: Find patterns in whole or partial terms
       href: search-query-partial-matching.md
     - name: Syntax reference
