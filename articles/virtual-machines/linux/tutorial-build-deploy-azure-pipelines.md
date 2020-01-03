@@ -28,7 +28,7 @@ In this tutorial, you will set up a YAML based CI/CD pipeline to deploy your app
 You learn how to:
 
 > [!div class="checklist"]
-> * Get the sample app.
+> * Get a sample app.
 > * Create a YAML based Azure Pipelines CI pipeline for building the sample app.
 > * Create an Azure Pipelines Environment for the Azure virtual machines
 > * Create an Azure Pipelines CD pipeline.
@@ -46,7 +46,7 @@ You learn how to:
 
 *  Open inbound port 80 for your virtual machine. For more information, see [Create network security groups using the Azure portal](https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic).
 
-## Get your sample code
+## Get your sample app code
 
 If you already have an app in GitHub that you want to deploy, you can try creating a pipeline for that code.
 
@@ -93,7 +93,7 @@ If you don't already have a Linux VM with Nginx, create one now in Azure using t
 
 * * * 
 
-## Create an environment with virtual machines as resources
+## Create an Azure Pipelines environment with Azure virtual machines
 
 Virtual machines can be added as resources within [environments](https://docs.microsoft.com/azure/devops/pipelines/process/environments) and can be targeted for multi-machine deployments. 
 Deployment history views within environment provide traceability from VM to the pipeline and then to the commit.
@@ -193,6 +193,8 @@ Select the **starter** template and copy the below YAML snippet that builds a ge
 ```
 For more guidance, follow the steps mentioned in [Build your Node.js app with gulp](https://docs.microsoft.com/azure/devops/pipelines/ecosystems/javascript.md).
 
+- Take a look at the pipeline to see what it does. Make sure that all the default inputs are appropriate for your code.
+
 - Select **Save and run**, then select **Commit directly to the master branch**, and then choose **Save and run** again.
 
 - A new run is started. Wait for the run to finish.
@@ -283,3 +285,7 @@ Deployments view of the environment provides complete traceability of commits an
 ![VMDeployments_view](media/tutorial-deploy-vms-azure-pipelines/vm-deployments.png)
   
 ![VMjobs_view](media/tutorial-deploy-vms-azure-pipelines/vm-jobsview.png)
+
+## Next steps
+- You can proceed to [customize the pipeline](https://docs.microsoft.com/azure/devops/pipelines/customize-pipeline) you just created.
+- To learn what else you can do in YAML pipelines, see [YAML schema reference](https://docs.microsoft.com/azure/devops/pipelines/yaml-schema).
