@@ -13,7 +13,7 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 12/31/2019
+ms.date: 01/03/2020
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -52,7 +52,6 @@ To configure the integration of Spotinst into Azure AD, you need to add Spotinst
 1. To add new application, select **New application**.
 1. In the **Add from the gallery** section, type **Spotinst** in the search box.
 1. Select **Spotinst** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
-
 
 ## Configure and test Azure AD single sign-on for Spotinst
 
@@ -93,11 +92,11 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. Click **Save**.
 
-1. Spotinst application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes. Click **Edit** icon to open User Attributes dialog.
+1. Spotinst application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
 
-	![image](common/edit-attribute.png)
+	![image](common/default-attributes.png)
 
-1. In addition to above, Spotinst application expects few more attributes to be passed back in SAML response. In the User Claims section on the User Attributes dialog, perform the following steps to add SAML token attribute as shown in the below table:
+1. In addition to above, Spotinst application expects few more attributes to be passed back in SAML response which are shown below. These attributes are also pre populated but you can review them as per your requirements.
 
 	| Name | Source Attribute|
 	| -----| --------------- |
