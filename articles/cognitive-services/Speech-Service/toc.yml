@@ -441,7 +441,7 @@
       href: quickstarts/create-project.md
     - name: Setup Speech SDK
       href: quickstarts/setup-platform.md
-      displayName: install the speech sdk, install the speech sdk java, install the speech sdk C#, install the speech sdk python, install the speech sdk C++, setup speech sdk, install
+      displayName: install the speech sdk, install the speech sdk java, install the speech sdk C#, install the speech sdk python, install the speech sdk C++, setup speech sdk, install, install C#, install C++, install Python, install Java, install Javascript
   - name: How-to guides
     items:
     - name: How to enable logging
