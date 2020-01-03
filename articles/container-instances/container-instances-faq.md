@@ -78,7 +78,7 @@ Currently, scaling is not available for containers or container groups. If you n
 
 ### What features are available to instances running in a custom VNet?
 
-You can deploy container groups in an Azure virtual network of your choice, and delegate private IPs to the container groups to route traffic within the VNet across your Azure resources. Deployment of a container group into a virtual network is currently in preview, and some aspects of this feature may change prior to general availability (GA). See [Preview limitations](container-instances-vnet.md#preview-limitations) for updated information.
+You can [deploy container groups in an Azure virtual network](container-instances-vnet.md) of your choice, and delegate private IPs to the container groups to route traffic within the VNet across your Azure resources. Deployment of a container group into a virtual network is is currently available for production workloads in a subset of Azure regions.
 
 ## Pricing
 
