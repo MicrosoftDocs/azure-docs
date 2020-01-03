@@ -133,7 +133,7 @@ Example of raw error:
 
 **Cause 2:** Domain name doesn't resolve.
 
-**Fix 2:** See [Error: Domain name doesn't resolve](troubleshoot-vm-configuration.md#error:-domain-name-doesn't-resolve) in [Session host VM configuration](troubleshoot-vm-configuration.md).
+**Fix 2:** See [Error: Domain name doesn't resolve](troubleshoot-vm-configuration.md#error-domain-name-doesnt-resolve) in [Session host VM configuration](troubleshoot-vm-configuration.md).
 
 **Cause 3:** Your virtual network (VNET) DNS configuration is set to **Default**.
 
