@@ -7,7 +7,7 @@ ms.author: v-chjen
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 11/21/2019
+ms.date: 01/06/2020
 ---
 
 # Create a new SaaS offer
