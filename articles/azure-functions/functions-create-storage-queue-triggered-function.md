@@ -83,7 +83,7 @@ Now that you have a storage queue, you can test the function by adding a message
 
 1. Back in the Azure portal, browse to your function, expand the **Logs** at the bottom of the page, and make sure that log streaming isn't paused.
 
-1. In Storage Explorer, expand your storage account, **Queues**, and **myqueue-items**, then click **Add message**.
+1. In Storage Explorer, expand your storage account, **Queues**, and **myqueue-items**, then click **Add Message**.
 
     ![Add a message to the queue.](./media/functions-create-storage-queue-triggered-function/functions-storage-manager-add-message.png)
 
