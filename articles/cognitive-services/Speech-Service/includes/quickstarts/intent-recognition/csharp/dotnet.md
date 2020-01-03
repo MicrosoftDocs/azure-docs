@@ -48,7 +48,7 @@ Insert this code in the `RecognizeIntentAsync()` method. Make sure you update th
 * Replace `"YourLanguageUnderstandingServiceRegion"` with your LUIS location/region. 
 
 >[!TIP]
-> If you need help find these values, see [Create a LUIS app for intent recognition](#create-a-luis-app-for-intent-recognition).
+> If you need help finding these values, see [Create a LUIS app for intent recognition](#create-a-luis-app-for-intent-recognition).
 
 [!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/intent-recognition/helloworld/Program.cs?range=26)]
 
@@ -66,7 +66,7 @@ Now, let's create an `IntentRecognizer`. This object is created inside of a usin
 You now need to associate a `LanguageUnderstandingModel` with the intent recognizer, and add the intents that you want recognized. We're going to use intents from the prebuilt domain for home automation. Insert this code in the using statement from the previous section. Make sure that you replace `"YourLanguageUnderstandingAppId"` with your LUIS app ID. 
 
 >[!TIP]
-> If you need help find this value, see [Create a LUIS app for intent recognition](#create-a-luis-app-for-intent-recognition).
+> If you need help finding this value, see [Create a LUIS app for intent recognition](#create-a-luis-app-for-intent-recognition).
 
 [!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/intent-recognition/helloworld/Program.cs?range=31-35)]
 
