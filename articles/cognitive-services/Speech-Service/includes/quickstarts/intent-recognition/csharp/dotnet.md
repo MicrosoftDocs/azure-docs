@@ -61,7 +61,7 @@ Now, let's create an `IntentRecognizer`. This object is created inside of a usin
 
 [!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/intent-recognition/helloworld/Program.cs?range=28-30,76)]
 
-## Add a LanguageUnderstandingModel and Intents
+## Add a LanguageUnderstandingModel and intents
 
 You now need to associate a `LanguageUnderstandingModel` with the intent recognizer, and add the intents that you want recognized. We're going to use intents from the prebuilt domain for home automation. Insert this code in the using statement from the previous section. Make sure that you replace `"YourLanguageUnderstandingAppId"` with your LUIS app ID. 
 
