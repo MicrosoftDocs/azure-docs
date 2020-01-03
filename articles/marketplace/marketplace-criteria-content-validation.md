@@ -47,6 +47,7 @@ All offers must meet the [All Listing Requirements](https://docs.microsoft.com/a
 
 SaaS apps can be published to Azure Marketplace and/or AppSource. If you intend to cross-list your offer, the value proposition should address both Storefront [audiences](https://docs.microsoft.com/azure/marketplace/comparing-appsource-azure-marketplace). You can view the offer gallery on [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps) and [AppSource](https://appsource.microsoft.com/en-us/marketplace/apps) to familiarize yourself with available categories and subcategories across each Storefront. The table below summarizes how publishing across each Storefront is determined for SaaS listings:
 
+<!---
 | SaaS Offer    |     |          |           |    |    |     | Applicable Storefront |              |
 |:-------------:|:---:|:--------:|:---------:|:--:|:--:|:---:|:---------------------:|:-------------:|
 | Metered billing | Microsoft 365 add-ins | Contact me | Transact (at least 1 plan) | Private-only plan | Public-only plan | Public & private plans | AppSource | Azure Marketplace |
@@ -57,7 +58,10 @@ SaaS apps can be published to Azure Marketplace and/or AppSource. If you intend 
 |  |  |  | X | X |  |  |  | X |
 |  |  |  | X |  | X |  | X<sup>1</sup> | X<sup>1</sup> |
 |  |  |  | X |  |  | X | X<sup>1</sup> | X<sup>1,2</sup> |
-|  |  | X |  |  |  |  | x<sup>1</sup> | X<sup>1</sup> |
+|  |  | X |  |  |  |  | x<sup>1</sup> | X<sup>1</sup> | 
+--->
+
+![SaaS offer storefronts](./media/marketplace-publishers-guide/saas-storefronts.png)
 
 <sup>1</sup> Depending on category/subcategory and industry selection. <br>
 <sup>2</sup> Offers with private plans will be published to the Azure Portal.

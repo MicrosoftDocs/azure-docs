@@ -167,9 +167,6 @@ Select a minimum of one (1) and a maximum of three (3) categories used for group
 
 You can optionally select up to two industries and two verticals under each industry. These categories are used for displaying your offer, when industry and verticals are used in search filters and applied in the Storefront.  If your offer is targeting a specific industry and/or vertical, make sure to describe how your offer supports the selected industries or verticals in the offer description.  Otherwise, if your offer is not industry-specific, do not make a selection and leave this section blank.
 
->[!NOTE]
->As we work to introduce new industries and verticals to improve the offer discovery experience, some industries or verticals may not yet be visible on the Storefront. Industries and verticals marked with a (*) will be available at a future date. All published offers are discoverable via keyword search.
-
 ### App version
 This is an optional field used in the AppSource marketplace to identify the version number of your offer. 
 
