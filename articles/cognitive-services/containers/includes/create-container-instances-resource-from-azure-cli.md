@@ -42,7 +42,7 @@ properties:
       ports:
         - port: 5000
   osType: Linux
-  volumes: # This is required only for container instances pull their model in at runtime, such as LUIS
+  volumes: # This node, is only required for container instances that pull their model in at runtime, such as LUIS.
   - name: aci-file-share
     azureFile:
       shareName: # < File share name >
