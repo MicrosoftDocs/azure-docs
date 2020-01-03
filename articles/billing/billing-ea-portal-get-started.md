@@ -98,7 +98,7 @@ The service administrator has permissions to manage services in the Azure portal
 
 ### Notification contact
 
-Receive usage notifications related to the enrollment.
+The notifications contact receives usage notifications related to the enrollment.
 
 ## Activate your enrollment
 
