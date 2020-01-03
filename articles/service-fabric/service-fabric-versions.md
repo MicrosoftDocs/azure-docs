@@ -1,6 +1,6 @@
 ---
 title: Supported cluster versions in Azure Service Fabric 
-description: Learn about cluster versions in Azure Service Fabric.
+description: Learn about cluster versions in Azure Service Fabric, including a link to the newest releases from the Service Fabric team blog.
 
 ms.topic: troubleshooting
 ms.date: 11/18/2019
