@@ -27,7 +27,7 @@ If you have a Microsoft Customer Agreement (MCA), you must be a billing profile 
 1. In the left menu, select **Invoices** under **Billing**.
 1. In the invoice grid, find the row of the billing period corresponding to the usage you want to download.
 1. Select the **download icon** or the ellipsis (`...`) on the right.
-1.The Download pane opens on the right. Select **Download** from the **Usage Details** section.
+1. The Download pane opens on the right. Select **Download** from the **Usage Details** section.
 
 ## Download usage for EA customers
 
