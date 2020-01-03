@@ -1,4 +1,4 @@
---
+---
 title: Tutorial - CI/CD to Azure VMs using Azure Pipelines
 description: In this tutorial, you learn how to set up continuous integration (CI) and continuous deployment (CD) of a Node.js app to Azure VMs using YAML based Azure pipeline
 author: ushan
@@ -24,7 +24,7 @@ This document contains the steps associated with setting up a CICD pipeline for 
 
 Azure Pipelines provides a complete, fully featured set of CI/CD automation tools for deployments to Virtual machines, both on-prem or on any cloud.
 
-In this tutorial, you will set up a YAML based CI/CD pipeline of your app to an Azure Pipelines [Environment](https://docs.microsoft.com/azure/devops/pipelines/process/environments?view=azure-devops) with Linux Virtual machines as resources, each of which serve as web servers to run the app.
+In this tutorial, you will set up a YAML based CI/CD pipeline to deploy your app to an Azure Pipelines [Environment](https://docs.microsoft.com/azure/devops/pipelines/process/environments?view=azure-devops) with Linux Virtual machines as resources, each of which serve as web servers to run the app.
 You learn how to:
 
 > [!div class="checklist"]
@@ -48,25 +48,25 @@ You learn how to:
 
 ## Get your sample code
 
-#### [Java](#tab/java)
+If you already have an app in GitHub that you want to deploy, you can try creating a pipeline for that code.
 
-[!INCLUDE [include](_shared/get-code-before-sample-repo-option-to-use-own-code.md)]
+However, if you are a new user, then you might get a better start by using our sample code. In that case, fork this repo in GitHub:
+
+#### [Java](#tab/java)
 
 ```
 https://github.com/spring-projects/spring-petclinic
 ```
 > [!NOTE]
-> Petclinic is a [Spring Boot](https://spring.io/guides/gs/spring-boot) application built using [Maven](https://spring.io/guides/gs/maven/).
+> Petclinic is a [Java Spring Boot](https://spring.io/guides/gs/spring-boot) application built using [Maven](https://spring.io/guides/gs/maven/).
 
 #### [JavaScript](#tab/java-script)
-
-[!INCLUDE [include](_shared/get-code-before-sample-repo-option-to-use-own-code.md)] 
 
 ```
 https://github.com/azure-devops/fabrikam-node
 ```
 > [!NOTE]
-> The app was built through [Yeoman](https://yeoman.io/learning/index.html). It uses Express, bower, and grunt. And it has some npm packages as dependencies.
+> This Node.js app was built through [Yeoman](https://yeoman.io/learning/index.html). It uses Express, bower, and grunt. And it has some npm packages as dependencies.
 > The sample also contains a script that sets up Nginx and deploys the app. It is executed on the virtual machines. Specifically, the script:
 > 1. Installs Node, Nginx, and PM2.
 > 2. Configures Nginx and PM2.
@@ -95,7 +95,7 @@ If you don't already have a Linux VM with Nginx, create one now in Azure using t
 
 ## Create an environment with virtual machines as resources
 
-Virtual machines can be added as resources within [environments](../process/environments.md) and can be targeted for multi-machine deployments. 
+Virtual machines can be added as resources within [environments](https://docs.microsoft.com/azure/devops/pipelines/process/environments) and can be targeted for multi-machine deployments. 
 Deployment history views within environment provide traceability from VM to the pipeline and then to the commit.
 
 You can create an environment in the “**Environments**” hub within the “**Pipelines**” section.
@@ -108,18 +108,18 @@ You can create an environment in the “**Environments**” hub within the “**
     > - Personal Access Token of the logged in user is pre-inserted in the script which expires on the same day making the copied script unusable thereon.
     > - If your VM already has any agent running on it, provide a unique name for “agent” to register with environment.
 6.	Once VM is registered, it will start appearing as an environment resource under “resources” tab of the environment.
-> [!div class="mx-imgBorder"]
-> ![VMcreation](_img/vm-creation.png)
+
+![VMcreation](media/tutorial-deploy-vms-azure-pipelines/vm-creation.png)
 
 7.	For adding more VMs, you can view and copy the script again by clicking on “Add resource” and choosing “Virtual Machines” as resource. This script would remain same for all the VMs to be added to this environment. 
 8.	Each machine interacts with Azure Pipelines to coordinate deployment of your app.
-> [!div class="mx-imgBorder"]
-> ![VMresource_view](_img/vm-resourceview.png)
+
+![VMresource_view](media/tutorial-deploy-vms-azure-pipelines/vm-resourceview.png)
 
 9. You can add tags to the VM as part of the interactive PS registration script (or) you can also add/remove the same from the resource view by clicking on the triple dots at the end of each VM resource in the resources view.
 The tags you assign allow you to limit deployment to specific virtual machines when the environment is used in a Deployment job. Tags are each limited to 256 characters, but there is no limit to the number of tags you can use.
-> [!div class="mx-imgBorder"]
-> ![VMtags](_img/vm-tags.png)
+
+![VMtags](media/tutorial-deploy-vms-azure-pipelines/vm-tags.png)
 
 * * * 
 
@@ -160,7 +160,7 @@ Select the **starter** template and copy the below YAML snippet that builds your
     - upload: $(Build.ArtifactStagingDirectory)
       artifact: drop
 ```
-For more guidance, follow the steps mentioned in [Build your Java app with Maven](java.md) for creating a build.
+For more guidance, follow the steps mentioned in [Build your Java app with Maven](https://docs.microsoft.com/azure/devops/pipelines/ecosystems/java).
 
 #### [JavaScript](#tab/java-script)
 
@@ -191,7 +191,7 @@ Select the **starter** template and copy the below YAML snippet that builds a ge
     - upload: $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip
       artifact: drop
 ```
-For more guidance, follow the steps mentioned in [Build your Node.js app with gulp](javascript.md) for creating a build.
+For more guidance, follow the steps mentioned in [Build your Node.js app with gulp](https://docs.microsoft.com/azure/devops/pipelines/ecosystems/javascript.md).
 
 - Select **Save and run**, then select **Commit directly to the master branch**, and then choose **Save and run** again.
 
@@ -200,7 +200,7 @@ For more guidance, follow the steps mentioned in [Build your Node.js app with gu
 * * * 
 
 ## Define CD steps to deploy to the Linux VM
-1. Edit the above pipeline and include a [deployment job](../process/deployment-jobs.md) by referencing the environment and the VM resources which you have earlier using the YAML syntax below:
+1. Edit the above pipeline and include a [deployment job](https://docs.microsoft.com/azure/devops/pipelines/process/deployment-jobs) by referencing the environment and the VM resources which you have earlier using the YAML syntax below:
 ```YAML
 jobs:  
   - deployment: VMDeploy
@@ -279,8 +279,7 @@ With each run of this job, deployment history is recorded against the `<environm
 
 ## Run your pipeline and get traceability views in environment
 Deployments view of the environment provides complete traceability of commits and work items, and a cross-pipeline deployment history per environment/resource.
-> [!div class="mx-imgBorder"]
-> ![VMDeployments_view](_img/vm-deployments.png)
+
+![VMDeployments_view](media/tutorial-deploy-vms-azure-pipelines/vm-deployments.png)
   
-> [!div class="mx-imgBorder"]
-> ![VMjobs_view](_img/vm-jobsview.png)
+![VMjobs_view](media/tutorial-deploy-vms-azure-pipelines/vm-jobsview.png)
