@@ -7,73 +7,133 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 12/29/2019
+ms.date: 01/03/2019
 ms.author: alkohli
-#Customer intent: As an IT admin, I need to understand how to configure VPN on n my Azure Stack Edge device so that I can have a second layer of encryption for my data-in-flight.
+#Customer intent: As an IT admin, I need to understand how to configure VPN on my Azure Stack Edge device so that I can have a second layer of encryption for my data-in-flight.
 ---
 
 # Configure VPN on your Azure Stack Edge device
 
-Azure Resource Manager provides a management layer that enables you to create, update, and delete resources in your Azure subscription. The Azure Stack Edge device supports the same Azure Resource Manager APIs to create, update, and delete VMs in a local subscription. This support lets you manage the device in a manner consistent with the cloud. 
+The VPN option provides a second layer of encryption for the data-in-motion over https from your Azure Stack Edge device to Azure. 
 
 This article describes the steps required to configure VPN on your Azure Stack Edge device including the configuration in the cloud and the configuration on the device.
 
-## About VPN
+## About VPN setup
 
-The following table summarizes the various endpoints exposed on your device, the supported protocols, and the ports to access those endpoints. Throughout the article, you will find references to these endpoints.
+The VPN setup requires you to:
 
-| # | Endpoint | Supported protocols | Port used | Used for |
-| --- | --- | --- | --- | --- |
-| 1. | Azure Resource Manager | https | 443 | To connect to Azure Resource Manager for automation |
-| 2. | Security token service | https | 443 | To authenticate via access and refresh tokens |
-| 3. | Blob | https | 443 | To connect to Blob storage via REST |
+- Set up necessary resources on Azure.
+    - Create a virtual network in Azure.
+    - Create a virtual network gateway.
+    - Create a local network gateway per node of your Azure Stack Edge device.
+    - Create a VPN connection object.
+    - Create firewall.
+    - Create a routing table and add routes.
+- Set up VPN in the local web UI of the device.
 
-
-## Need for VPN
-
-VPN provides an additional layer of security for data-in-motion.
 
 ## VPN configuration in the cloud  
 
-Take the following steps in the local web UI of your Azure Stack Edge device.
+The configuration in Azure requires the following steps:
+    - Create a virtual network in Azure.
+    - Create a virtual network gateway.
+    - Create a local network gateway per node of your Azure Stack Edge device.
+    - Create a VPN connection object.
+    - Create firewall.
 
-1. Complete the network settings, web proxy settings (optional), and time settings (optional). In this example, **Port 6** network interface settings are configured.
+Each of these steps is described in the following sections.
 
-    ![Azure Stack Edge network settings page](media/azure-stack-edge-r-series-connect-resource-manager/network-settings.png)
+## Create virtual network
 
-    Select the network interface name, in this case **Port 6** to view the network settings for this interface.
+First, create a Virtual Network resource under your Resource Group. When creating a Virtual Network - assign a valid Address space.  Let's say vnet name is shVnet1 with address space 172.22.0.0/16 . 
 
-    ![Azure Stack Edge network settings page](media/azure-stack-edge-r-series-connect-resource-manager/network-settings-port6.png)
 
-    In this example, the network interface is set to **DHCP**.
++ Create a resource
 
-    When defining device name and DNS domain via the local UI, you will select:
+Search Virtual network
 
-    a. The Azure consistent network from the list of available cluster networks.
+Create
 
-    b. The Azure consistent services VIP from the Azure consistent network that you chose.
 
-    - If the interfaces associated with the Azure consistent services network used is set to DHCP, the Azure consistent VIP will be automatically set for you once you set and apply the DNS domain and the Azure consistent services network.
 
-    - If you used a static IP address for the network interface associated with the Azure consistent services network, then you will have an option to choose the Azure consistent services VIP. For reference, see the screenshot below.
 
-    In this following example, the Azure consistent services VIP was automatically populated and is -- 5.5.34.37.
+Create a subnet called “AzureFirewallSubnet” 
 
-    ![Data Box Edge device](media/azure-stack-edge-r-series-connect-resource-manager/device.png)
+For more information, go to [](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal#CreatVNet).
 
-    c. Copy and save the Azure consistent services VIP. You will use this information later.
+## Create virtual network gateway
 
-    > [!IMPORTANT]
-    > The device name, DNS domain will be used to form the endpoints that are exposed.
+Create a new Virtual Network Gateway resource and select the virtual network created previously. Once the  VPN Gateway is created, you need to configure a Site-to-Site connection in it. 
+
+For more information, go to [](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal#VNetGateway).
+
+## Create local network gateway
+
+For more information, go to [](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal#CreatVNet).
+
+## Create a VPN connection object
+
+For more information, go to [](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal#CreatVNet).
+
+## Create firewall
+
+Add Firewall and select the Virtual Network from drop down list. 
+
+For more information, go to [](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal#CreatVNet).
+
+Download the service tags from the azure: 
+https://www.microsoft.com/en-us/download/details.aspx?id=56519 
+ 
+Network rules: 
+Execute the following script to add network rule collection. 
+ 
+Install-Module -Name Az -AllowClobber -Scope CurrentUser 
+Import-Module Az.Accounts 
+Connect-AzAccount 
+Set-AzContext -Subscription "DataBox_Edge_Test" 
+Script can be located at \\hcsfs\scratch\kanagara\tzl\vpnConfigFile\Add-AzFirewallRoutes.ps1 
+.\Add-AzFirewallRoutes.ps1 -ServiceTagAndRegionList AzureCloud.eastus -AzureIPRangesFilePath .\ServiceTags_Public_20191209.json -ResourceGroupName vpndemo1RG -FirewallName vpndemo2firewall -NetworkRuleCollectionName MyNetworkRuleCollection1 -Priority 100 
+Note: Make sure only one region is selected 
+  
+Application rules   
+Following application rules to be added for Https and Http: 
+Protocol should be: http:80, https:443 
+
+## Create a routing table and add routes
+
+Create route table. 
+Associate the subnet with the route table (default and GatewaySubnet) 
+ 
+Create a route table on Azure portal first and then invoke the script to add all our required routes : 
+ 
+Scripts can be located at \\hcsfs\scratch\kanagara\tzl\vpnConfigFile\Add-AseAzRoutes.ps1 
+Install-Module -Name Az -AllowClobber -Scope CurrentUser 
+Import-Module Az.Accounts 
+Connect-AzAccount 
+Set-AzContext -Subscription "DataBox_Edge_Test" 
+    To add routes in Azure Route table: 
+.\ Add-AseAzRoutes.ps1 -ServiceTagAndRegionList azurecloud.centraluseuap,AzureActiveDirectory,AzureActiveDirectoryDomainServices,Dynamics365ForMarketingEmail.WestUS2 -IntendedAction ApplyAzureRoutes -AzureIPRangesFilePath .\ServiceTags_Public_20191209.json -ResourceGroupName vivvpnrg2 -RouteTableName vivvpnroutetable2 -FirewallIPv4 172.26.2.4 -RouteNamePrefix "DemoRoutes_" 
+ 
+ 
+Add the following routes manually in the route table 
+
 
 
 ## VPN configuration on the device
 
-Certificates ensure that your communication is trusted. On your Azure Stack Edge device, self-signed appliance, blob, and Azure Resource Manager certificates are automatically generated. Optionally, you can bring in your own signed blob and Azure Resource Manager certificates as well.
+Along with the below configuration values, upload the vpn route configuration file. 
+ 
+Client specific routes can be added here. You can specify the values as comma separated strings arrays. 
 
-When you bring in a signed certificate of your own, you also need the corresponding signing chain of the certificate. For the signing chain, Azure Resource Manager, and the blob certificates on the device, you will need the corresponding certificates on the client machine also to authenticate and communicate with the device.
+Note: For public azure, make sure the following values are set during vpn confiugration. 
+PFS group: None 
+DH group: Group2 
+IPsec integrity method: SHA256 
+IPsec cipher transform constants: GCMAES256 
+IPsec authentication transform constants: GCMAES256 
+IKE encryption method: AES256 
+ 
 
-To connect to Azure Resource Manager, you will need to create or get signing chain and endpoint certificates, import these certificates on your Windows client, and finally upload these certificates on the device.
 
 
 ## Next steps
