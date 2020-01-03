@@ -13,7 +13,7 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 12/27/2019
+ms.date: 01/03/2020
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -60,13 +60,13 @@ To configure the integration of SSOGEN - Azure AD SSO Gateway for Oracle E-Busin
 
 Configure and test Azure AD SSO with SSOGEN - Azure AD SSO Gateway for Oracle E-Business Suite - EBS, PeopleSoft, and JDE using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in SSOGEN - Azure AD SSO Gateway for Oracle E-Business Suite - EBS, PeopleSoft, and JDE.
 
-To configure and test Azure AD SSO with SSOGEN - Azure AD SSO Gateway for Oracle E-Business Suite - EBS, People Soft, and JDE, complete the following building blocks:
+To configure and test Azure AD SSO with SSOGEN - Azure AD SSO Gateway for Oracle E-Business Suite - EBS, PeopleSoft, and JDE, complete the following building blocks:
 
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
-    * **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
-    * **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
-1. **[Configure SSOGEN Azure AD SSO Gateway for Oracle E Business Suite EBS, PeopleSoft, and JDE SSO](#configure-ssogen-azure-ad-sso-gateway-for-oracle-e-business-suite-ebs-peoplesoft-and-jde-sso)** - to configure the single sign-on settings on application side.
-    * **[Create SSOGEN Azure AD SSO Gateway for Oracle E Business Suite EBS, PeopleSoft, and JDE test user](#create-ssogen-azure-ad-sso-gateway-for-oracle-e-business-suite-ebs-peoplesoft-and-jde-test-user)** - to have a counterpart of B.Simon in SSOGEN - Azure AD SSO Gateway for Oracle E-Business Suite - EBS, PeopleSoft, and JDE that is linked to the Azure AD representation of user.
+    1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
+    1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
+1. **[Configure SSOGEN - Azure AD SSO Gateway for Oracle E-Business Suite - EBS, PeopleSoft, and JDE SSO](#configure-ssogen---azure-ad-sso-gateway-for-oracle-e-business-suite---ebs-peoplesoft-and-jde-sso)** - to configure the single sign-on settings on application side.
+    1. **[Create SSOGEN - Azure AD SSO Gateway for Oracle E-Business Suite - EBS, PeopleSoft, and JDE test user](#create-ssogen---azure-ad-sso-gateway-for-oracle-e-business-suite---ebs,-peoplesoft,-and-jde-test-user)** - to have a counterpart of B.Simon in SSOGEN - Azure AD SSO Gateway for Oracle E-Business Suite - EBS, PeopleSoft, and JDE that is linked to the Azure AD representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
 ## Configure Azure AD SSO
@@ -130,19 +130,20 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 1. If you're expecting any role value in the SAML assertion, in the **Select Role** dialog, select the appropriate role for the user from the list and then click the **Select** button at the bottom of the screen.
 1. In the **Add Assignment** dialog, click the **Assign** button.
 
-## Configure SSOGEN Azure AD SSO Gateway for Oracle E Business Suite EBS, PeopleSoft, and JDE SSO
+## Configure SSOGEN - Azure AD SSO Gateway for Oracle E-Business Suite - EBS, PeopleSoft, and JDE SSO
 
 To configure single sign-on on **SSOGEN - Azure AD SSO Gateway for Oracle E-Business Suite - EBS, PeopleSoft, and JDE** side, Please find application-specific SSO registration documentation below:
 
-* Oracle EBS - Azure AD SSO Integration: https://www.ssogen.com/oracle-ebs-sso-ldap/ 
-* PeopleSoft - Azure AD SSO Integration: https://www.ssogen.com/peoplesoft-sso/ 
-* JD Edwards - Azure AD SSO Integration: https://www.ssogen.com/* oracle-jde-sso/ 
-* Apache - Azure AD SSO Integration: https://www.ssogen.com/apache-sso-authentication/ 
-* Other SSO Integrations: https://www.ssogen.com/azure-ad-sso-authentication/ 
+* Oracle EBS - Azure AD SSO Integration: [https://www.ssogen.com/oracle-ebs-sso-ldap/](https://www.ssogen.com/oracle-ebs-sso-ldap/)
+* PeopleSoft - Azure AD SSO Integration: [https://www.ssogen.com/peoplesoft-sso/](https://www.ssogen.com/peoplesoft-sso/)
+* JD Edwards - Azure AD SSO Integration: [https://www.ssogen.com/oracle-jde-sso/](https://www.ssogen.com/oracle-jde-sso/)
+* Apache - Azure AD SSO Integration: [https://www.ssogen.com/apache-sso-authentication/](https://www.ssogen.com/apache-sso-authentication/)
 
-### Create SSOGEN Azure AD SSO Gateway for Oracle E Business Suite EBS, PeopleSoft, and JDE test user
+### Create SSOGEN - Azure AD SSO Gateway for Oracle E-Business Suite - EBS, PeopleSoft, and JDE test user
 
-In this section, you create a user called Britta Simon in SSOGEN - Azure AD SSO Gateway for Oracle E-Business Suite - EBS, PeopleSoft, and JDE. Work with [SSOGEN - Azure AD SSO Gateway for Oracle E-Business Suite - EBS, PeopleSoft, and JDE support team](mailto:support@ssogen.com) to add the users in the SSOGEN - Azure AD SSO Gateway for Oracle E-Business Suite - EBS, PeopleSoft, and JDE platform. Users must be created and activated before you use single sign-on.
+Azure AD sends Unique User Identifier (Name ID) to the user application, after the authentication is successful.  Please make sure that Unique User Identifier (Name ID) matches user record in your application, FND_USER.USER_NAME in Oracle EBS for example.
+
+Please contact [info@ssogen.com](mailto:info@ssogen.com) and [support@ssogen.com](mailto:support@ssogen.com) for any support.
 
 ## Test SSO
 
