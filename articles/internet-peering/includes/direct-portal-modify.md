@@ -36,4 +36,5 @@ Removing a connection is not currently supported on portal. Contact [Microsoft P
 1. Add **Session IPv4 prefix** or **Session IPv6 prefix** info and click **Save**.
 
 ### Remove IPv4/IPv6 session on Active connections.
-    Removing a **Session IPv4 prefix** or **Session IPv6 prefix** info is not currently supported on portal. Contact [Microsoft Peering](mailto:peeringexperience@microsoft.com).
+    
+Removing a **Session IPv4 prefix** or **Session IPv6 prefix** info is not currently supported on portal. Contact [Microsoft Peering](mailto:peeringexperience@microsoft.com).

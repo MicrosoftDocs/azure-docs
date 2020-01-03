@@ -8,7 +8,7 @@
     href: service-overview.md
 - name: Concepts
   items:
-  - name: Peering policy
+  - name: Internet Peering policy
     href: policy.md
 - name: How-to guides
   items:
