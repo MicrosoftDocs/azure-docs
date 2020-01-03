@@ -7,7 +7,7 @@ ms.reviewer: euang
 ms.service: sql-data-warehouse
 ms.subservice: design
 ms.topic: quickstart
-ms.date: 09/15/2019
+ms.date: 01/02/2020
 
 #Customer intent: As a developer new to Apache Spark on Azure, I need to see how to create a Spark pool and query some data.
 ---
@@ -75,7 +75,7 @@ Once an Apache Spark pool has been created it cannot be edited, it must be delet
 
 A Notebook is an interactive environment that supports various programming languages. The notebook allows you to interact with your data, combine code with markdown text and perform simple visualizations,
 
-1. From the Azure portal view for the Synapse Analytics workspace you want to use, select launch workspace.
+1. From the Azure portal view for the Synapse Analytics workspace you want to use, click Launch Synapse Studio.
 2. Once, Synapse Analytics Studio has launched select **Develop** then hover over the **Notebooks** entry. Select the ellipsis **...**
 3. From there, select **Create Notebook**
 
