@@ -49,7 +49,7 @@ To build an image and deploy your functions to Kubernetes, run the following com
 func kubernetes deploy --name <name-of-function-deployment> --registry <container-registry>
 ```
 
-> Replace `<name-of-function-deployment>` with the name of your function.
+> Replace `<name-of-function-deployment>` with the name of your function app.
 
 This creates a Kubernetes `Deployment` resource, a `ScaledObject` resource, and `Secrets`, which includes environment variables imported from your `local.settings.json` file.
 
