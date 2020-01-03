@@ -1,6 +1,6 @@
 ---
-title: Querying Parquet nested types 
-description: In this section, we will show how to query Parquet files.
+title: Query Parquet nested types 
+description: In this section, you'll learn how to query Parquet nested types.
 services: synapse analytics
 author: azaricstefan 
 ms.service: synapse-analytics
@@ -11,9 +11,9 @@ ms.author: v-stazar
 ms.reviewer: jrasnick
 ---
 
-# Quickstart: Querying Parquet nested types 
+# Quickstart: Query Parquet nested types 
 
-In this article, you will learn how to write a query in SQL Analytics on-demand that will read Parquet nested types.
+In this article, you'll learn how to write a query in SQL on-demand that will read Parquet nested types.
 
 ## Prerequisites
 
@@ -22,9 +22,9 @@ Before reading the rest of this article, review the following articles:
 - [Prerequisites](query-data-storage.md#prerequisites)
 
 
-## Projecting nested and/or repeated data
+## Project nested or repeated data
 
-The following query reads the *justSimpleArray.parquet* file and projects all columns from the Parquet file including nested and/or repeated data.
+The following query reads the *justSimpleArray.parquet* file. It projects all columns from the Parquet file including nested or repeated data.
 
 ```mssql
 SELECT 
@@ -38,7 +38,7 @@ FROM
 
 
 
-## Accessing elements from nested columns
+## Access elements from nested columns
 
 The following query reads the *structExample.parquet* file and shows how to surface elements of a nested column:
 
@@ -67,9 +67,9 @@ FROM
 
 
 
-## Accessing elements from repeated columns
+## Access elements from repeated columns
 
-The following query reads the *justSimpleArray.parquet* file and utilizes [JSON_VALUE](https://docs.microsoft.com/sql/t-sql/functions/json-value-transact-sql?view=sql-server-2017) to retrieve a **scalar** element from within a repeated column (e.g., an Array or Map):
+The following query reads the *justSimpleArray.parquet* file and uses [JSON_VALUE](https://docs.microsoft.com/sql/t-sql/functions/json-value-transact-sql?view=sql-server-2017) to retrieve a **scalar** element from within a repeated column, such as an Array or Map:
 
 ```mssql
 SELECT 
@@ -86,7 +86,7 @@ FROM
 
 
 
-The following query reads the *mapExample.parquet* file and utilizes [JSON_QUERY](https://docs.microsoft.com/sql/t-sql/functions/json-query-transact-sql?view=sql-server-2017) to retrieve a **non-scalar** element from within a repeated column (e.g., an Array or Map):
+The following query reads the *mapExample.parquet* file and uses [JSON_QUERY](https://docs.microsoft.com/sql/t-sql/functions/json-query-transact-sql?view=sql-server-2017) to retrieve a **non-scalar** element from within a repeated column, such as an Array or Map:
 
 ```mssql
 SELECT 
@@ -101,6 +101,4 @@ FROM
 
 ## Next steps
 
-Advance to one of the following articles and learn how to query JSON files.
-> [!div class="nextstepaction"]
-> [Querying JSON files](query-json-files.md)
+The next article will show you how to [Query JSON files](query-json-files.md).
