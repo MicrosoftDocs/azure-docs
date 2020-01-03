@@ -16,8 +16,8 @@ zone_pivot_groups: programming-languages-set-two
 
 Before you get started:
 
-* If this is your first Java (JRE) project, use this guide to <a href="../../../../quickstarts/create-project.md?tabs=jre" target="_blank">create an empty sample project</a>.
-* <a href="../../../../quickstarts/setup-platform.md?tabs=jre" target="_blank">Install the Speech SDK for your development environment</a>.
+* If this is your first Java (JRE) project, use this guide to <a href="../quickstarts/create-project.md?tabs=jre" target="_blank">create an empty sample project</a>.
+* <a href="../quickstarts/setup-platform.md?tabs=jre" target="_blank">Install the Speech SDK for your development environment</a>.
 
 ## Create a LUIS app for intent recognition
 
