@@ -10,7 +10,7 @@ ms.author: prmitiki
 ---
 
 
-From a browser, navigate to the [Azure portal](https://portal.azure.com/) and sign in with your Azure account.
+From a browser, navigate to the [portal](https://portal.azure.com/) and sign in with your Azure account.
 
 If you have multiple subscriptions and need to switch subscriptions:
 
@@ -19,7 +19,7 @@ If you have multiple subscriptions and need to switch subscriptions:
     > [!div class="mx-imgBorder"]
     > ![Select switch directory](../media/choose-subscription-2.png)
 
-1. Choose a subscription you want to use for Peering setup.
+1. Choose a subscription you want to use for Peering set up.
 
     > [!div class="mx-imgBorder"]
     > ![Choose subscription](../media/choose-subscription-3.png)

@@ -13,7 +13,7 @@ ms.author: prmitiki
 
 This article describes how to convert an existing legacy Exchange Peering to Azure resource using PowerShell cmdlets.
 
-If you prefer, you can complete this guide using the [Azure portal](howto-legacyexchange-arm-portal.md).
+If you prefer, you can complete this guide using the [portal](howto-legacy-exchange-portal.md).
 
 ## Before you begin
 * Review [Prerequisites](prerequisites.md) and [Exchange Peering walkthrough](workflows-exchange.md) before you begin configuration.
@@ -63,7 +63,7 @@ $legacyPeering[0] | New-AzPeering `
 
 &nbsp;
 > [!IMPORTANT] 
-> Please Note that when converting legacy peering to azure resource, modifications are not supported 
+> Note that when converting legacy peering to azure resource, modifications are not supported 
 &nbsp;
 
 Below is an example response when the end-to-end provisioning was successfully completed:
@@ -91,10 +91,8 @@ You can get detailed descriptions of all the parameters by running the following
 ```powershell
 Get-Help Get-AzPeering -detailed
 ```
-For more information, please visit [Peering FAQs](faqs.md)
-
-[!INCLUDE [peering-feedback](./includes/feedback.md)]
+For more information, visit [Internet Peering FAQs](faqs.md)
 
 ## Next steps
 
-* [Create or modify an Exchange Peering using PowerShell](howto-exchangepeering-arm.md)
+* [Create or modify an Exchange Peering using PowerShell](howto-exchange-peering.md)

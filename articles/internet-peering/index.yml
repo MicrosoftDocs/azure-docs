@@ -1,11 +1,12 @@
 ### YamlMime:Landing
 
-title: Internet Peering Documentation
+---
+title: Internet Peering documentation
 summary: Learn about Internet Peering with Microsoft.
 
 metadata:
-  title: Peering Documentation
-  description: Learn about Peering with Microsoft.
+  title: Peering documentation
+  description: Learn about peering with Microsoft.
   services: Peering
   ms.service: Peering
   ms.subservice: Peering
@@ -13,14 +14,15 @@ metadata:
   author: prmitiki
   ms.author: prmitiki
   ms.date: 11/27/2019
-  
+---
+
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
 landingContent:
 # Cards and links should be based on top customer tasks or top subjects
 # Start card title with a verb
   # Card
-  - title: About Peering
+  - title: About Internet Peering
     linkLists:
       - linkListType: overview
         links:
@@ -53,9 +55,9 @@ landingContent:
           - text: Exchange Peering walkthrough
             url: workflows-exchange.md
           - text: Create or modify an Exchange Peering using Portal
-            url: howto-exchangepeering-arm-portal.md
+            url: howto-exchange-peering-portal.md
           - text: Convert a legacy Exchange Peering to Azure resource using Portal
-            url: howto-legacyexchange-arm-portal.md
+            url: howto-legacy-exchange-portal.md
 
   # Card
   - title: Direct Peering
@@ -65,9 +67,9 @@ landingContent:
           - text: Direct Peering walkthrough
             url: workflows-direct.md
           - text: Create or modify a Direct Peering using Portal
-            url: howto-directpeering-arm-portal.md
+            url: howto-direct-peering-portal.md
           - text: Convert a legacy Direct Peering to Azure resource using Portal
-            url: howto-legacydirect-arm-portal.md
+            url: howto-legacy-direct-portal.md
         
   # Card
   - title: Peering Service

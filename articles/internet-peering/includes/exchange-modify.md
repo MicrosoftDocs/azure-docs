@@ -95,4 +95,4 @@ $exchangePeering | Update-AzPeering
 
 ### Remove IPv4/IPv6 session on Active connections
 
-Removing an IPv4/IPv6 session from an existing connection is not currently supported on PowerShell. Please contact [Microsoft Peering](mailto:peeringexperience@microsoft.com).
+Removing an IPv4/IPv6 session from an existing connection is not currently supported on PowerShell. Contact [Microsoft Peering](mailto:peeringexperience@microsoft.com).

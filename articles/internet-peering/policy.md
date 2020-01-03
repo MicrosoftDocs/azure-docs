@@ -14,7 +14,7 @@ ms.author: prmitiki
 # Peering policy
 Microsoft's general requirements from your network are explained in the sections below. These are applicable to both Direct Peering and Exchange Peering requests.
 
-## Technical requirements:
+## Technical requirements
 * A fully redundant network with sufficient capacity to exchange traffic without congestion.
 * Microsoft will overwrite received Multi-Exit Discriminators (MEDs) by default.
 * Acceptance of MEDs will be evaluated on a case-by-case basis.
@@ -31,18 +31,18 @@ Microsoft's general requirements from your network are explained in the sections
 * We suggest peers set a max-prefix of 1000 (IPv4) and 100 (IPv6) routes on peering sessions with Microsoft.
 * Microsoft recommends that peers advertise all of their prefixes over all peering sessions, unless other route advertisement policies have been agreed upon. Where possible, Microsoft prefers to carry traffic on its network to interconnection points as close to users as possible.
 
-## Operational requirements:
+## Operational requirements
 * A fully staffed 24x7 Network Operations Center (NOC), capable of assisting in the resolution of:
     * All technical and performance issues.
     * All security violations, denial of service attacks, or any other abuse originating within the peer or their customers.
 * Peers are expected to have a complete and up-to-date profile on [PeeringDB](https://www.peeringdb.com) including a 24x7 NOC email role account and phone number. We use this information in our registration system to validate the peer's details such as NOC information, technical contact information, and their presence at the peering facilities etc.
 
-## Physical connection requirements:
+## Physical connection requirements
 * Interconnection must be over single-mode fiber using the appropriate 10Gbps optics.
 * Peers are expected to upgrade their ports when peak utilization exceeds 50%.
 * The locations where you can connect with Microsoft for Direct Peering or Exchange Peering are listed in [Peeringdb](https://www.peeringdb.com/net/694)
 
-## Traffic requirements:
+## Traffic requirements
 We interconnect in as many diverse locations as possible. Traffic from your network to Microsoft must meet below minimum requirement.
 
 | Geo             | Minimum traffic to Microsoft   |
@@ -57,10 +57,10 @@ We interconnect in as many diverse locations as possible. Traffic from your netw
 
 ## Additional requirements for Direct Peering
 
-### Physical connection requirements:
+### Physical connection requirements
 * Each Direct Peering consists of two connections to two Microsoft edge routers from the Peer's routers located in Peer's edge. Microsoft requires dual BGP sessions across these connections. The peer may choose not to deploy redundant devices at their end.
 
 ## Next steps
 
-* To learn about steps to setup Direct Peering with Microsoft, follow [Direct Peering walkthrough](workflows-direct.md).
-* To learn about steps to setup Exchange Peering with Microsoft, follow [Exchange Peering walkthrough](workflows-exchange.md).
+* To learn about steps to set up Direct Peering with Microsoft, follow [Direct Peering walkthrough](workflows-direct.md).
+* To learn about steps to set up Exchange Peering with Microsoft, follow [Exchange Peering walkthrough](workflows-exchange.md).

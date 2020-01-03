@@ -22,7 +22,7 @@ Direct Peering locations contain the following fields:
 * PeeringDBFacilityLink
 * BandwidthOffers
 
-Please validate that you are present at the desired peering facility by referring to [PeeringDB](https://wwww.peeringdb.com).
+Validate that you are present at the desired peering facility by referring to [PeeringDB](https://wwww.peeringdb.com).
 
 Below is an example that shows how to use Seattle as the peering location to create a Direct Peering:
 

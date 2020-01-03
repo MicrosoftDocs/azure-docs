@@ -10,11 +10,12 @@ ms.author: prmitiki
 ---
 
 This section describes how to perform the following modification operations for Direct Peering:
-1. Add Direct Peering connections
-1. Remove Direct Peering connections
-1. Upgrade or downgrade bandwidth on Active connections.
-1. Add IPv4/IPv6 session on Active connections.
-1. Remove IPv4/IPv6 session on Active connections.
+
+* Add Direct Peering connections
+* Remove Direct Peering connections
+* Upgrade or downgrade bandwidth on Active connections.
+* Add IPv4/IPv6 session on Active connections.
+* Remove IPv4/IPv6 session on Active connections.
 
 ### Add Direct Peering connections
 
@@ -39,7 +40,7 @@ $directPeering | Update-AzPeering
 
 ### Remove Direct Peering connections
 
-Removing a connection is not currently supported on PowerShell. Please contact [Microsoft Peering](mailto:peeringexperience@microsoft.com).
+Removing a connection is not currently supported on PowerShell. Contact [Microsoft Peering](mailto:peeringexperience@microsoft.com).
 
 <!--
 ```powershell
@@ -75,4 +76,4 @@ $directPeering | Update-AzPeering
 
 ### Remove IPv4/IPv6 session on Active connections.
 
-Removing an IPv4/IPv6 session from an existing connection is not currently supported on PowerShell. Please contact [Microsoft Peering](mailto:peeringexperience@microsoft.com).
+Removing an IPv4/IPv6 session from an existing connection is not currently supported on PowerShell. Contact [Microsoft Peering](mailto:peeringexperience@microsoft.com).

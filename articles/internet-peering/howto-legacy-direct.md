@@ -13,7 +13,7 @@ ms.author: prmitiki
 
 This article describes how to convert an existing legacy Direct Peering to Azure resource using PowerShell cmdlets.
 
-If you prefer, you can complete this guide using the [Azure portal](howto-legacydirect-arm-portal.md).
+If you prefer, you can complete this guide using the [portal](howto-legacy-direct-portal.md).
 
 ## Before you begin
 * Review [Prerequisites](prerequisites.md) and [Direct Peering walkthrough](workflows-direct.md) before you begin configuration.
@@ -77,7 +77,7 @@ ProvisioningState          : Succeeded
 
 &nbsp;
 > [!IMPORTANT]
-> Please Note that when converting legacy peering to azure resource, modifications are not supported. 
+> Note that when converting legacy peering to azure resource, modifications are not supported. 
 &nbsp;
 
 Use below command to convert legacy Direct Peering to Azure resource:
@@ -113,10 +113,8 @@ You can get detailed descriptions of all the parameters by running the following
 Get-Help Get-AzPeering -detailed
 ```
 
-For more information, please visit [Peering FAQs](faqs.md)
-
-[!INCLUDE [peering-feedback](./includes/feedback.md)]
+For more information, visit [Internet Peering FAQs](faqs.md)
 
 ## Next steps
 
-* [Create or modify a Direct Peering using PowerShell](howto-directpeering-arm.md).
+* [Create or modify a Direct Peering using PowerShell](howto-direct-peering.md).

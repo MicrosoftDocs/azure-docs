@@ -72,4 +72,4 @@ Below is an example response when the request was processed successfully:
     Tags                 : {}
 
 ```
-Note that in place of {subscriptionId} in the output above, actual subscription Id will be displayed.
+Note that in place of **{subscriptionId}** in the output above, actual subscription Id will be displayed.

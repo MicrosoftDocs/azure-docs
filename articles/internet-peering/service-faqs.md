@@ -52,11 +52,11 @@ A4.
 
 **What is the difference between Peering and Peering Service?**
 
-Peering Service is a service that intends to provide enterprise grade public IP connectivity to Microsoft for its enterprise customers. 
+Peering Service is a service that intends to provide enterprise grade public IP connectivity to Microsoft for its enterprise customers.
 Enterprise grade Internet includes SLA, connectivity through ISPs that have high throughput connectivity to Microsoft and redundancy for a HA connectivity. 
-Additionally, user traffic is optimized for latency to the nearest Microsoft edge. 
-Peering Service builds on peering connectivity with partner carrier. 
-The peering connectivity with partner must be PNI as opposed to public peering. PNI must have local and geo-redundancy. 
+Additionally, user traffic is optimized for latency to the nearest Microsoft edge.
+Peering Service builds on peering connectivity with partner carrier.
+The peering connectivity with partner must be PNI as opposed to public peering. PNI must have local and geo-redundancy.
 
 **Can a carrier using their existing Direct Peering with Microsoft to support Peering Service?**
 
@@ -68,7 +68,7 @@ Yes, that is also possible. Microsoft will work with Carrier to create new PNIs 
 
 **Why is Direct Peering a requirement to support Peering Service?**
 
-One of primary drivers behind Peering Service is to provide connectivity to Microsoft online services through a well-connected SP. PNI are always in gbps range and hence a fundamental building block for high throughput connectivity between carrier and Microsoft.   
+One of primary drivers behind Peering Service is to provide connectivity to Microsoft online services through a well-connected SP. PNI are always in gbps range and hence a fundamental building block for high throughput connectivity between carrier and Microsoft.
 
 **What are the diversity requirements on a Direct Peering to support Peering Service?**
 
@@ -78,10 +78,11 @@ A PNI must support local-redundancy and geo-redundancy. Local-redundancy is defi
 
 Some carriers offer SLA and enterprise grade Internet on their part of the network. In Peering Service, Microsoft will offer SLA offer traffic on Microsoft part of the network. By selecting Peering Service customer will get end-to-end SLA. SLA from their site to Microsoft edge on ISP network can be covered by the ISP. SLA in Microsoft Global Network from Microsoft edge to end users application is now covered by Microsoft.   
 
+<!--
 **What sort of SLA Microsoft is planning to offer?**
 
 Network availability of 99.95%
-<!--�	Packet delivery guarantee � 99.9%-->
+	Packet delivery guarantee 99.9%-->
 
 <!--**How is Peering Service partnership different from peering with Microsoft?**
 Peering Service builds on top of regular peering infrastructure with Microsoft. From Peering Infrastructure perspective, these peering must be PNI, must have local redundancy and geo-redundancy. �Local-redundancy is  at least two diverse set of paths in a particular peering site. Geo-redundancy means there are additional connectivity to a different Microsoft edge site in case the primary site fails. 
@@ -98,8 +99,8 @@ Q7. Can a customer have more than one ISP as part of Peering Service connectivit
 A6. Yes. The customer must buy internet connectivity from these ISPs.
 -->
 
-**If a service provider already peers with Microsoft using PNI then what kind of changes are required to support Peering Service?** 
+**If a service provider already peers with Microsoft using PNI then what kind of changes are required to support Peering Service?**
 
-*	Software changes to identify a Peering Service user and its traffic. May require routing policy changes to exchange a user's traffic at the nearest Microsoft edge through Peering Service connection.
-*	Ensure the connectivity has local-redundancy and geo-redundancy.
+* Software changes to identify a Peering Service user and its traffic. May require routing policy changes to exchange a user's traffic at the nearest Microsoft edge through Peering Service connection.
+* Ensure the connectivity has local-redundancy and geo-redundancy.
 

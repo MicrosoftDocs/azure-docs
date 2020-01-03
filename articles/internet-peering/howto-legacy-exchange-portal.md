@@ -1,6 +1,6 @@
 ﻿---
-title: Convert a legacy Direct Peering to Azure resource using Azure portal
-description: Convert a legacy Direct Peering to Azure resource using Azure portal
+title: Convert a legacy Direct Peering to Azure resource using portal
+description: Convert a legacy Direct Peering to Azure resource using portal
 services: internet-peering
 author: prmitiki
 ms.service: internet-peering
@@ -9,11 +9,11 @@ ms.date: 11/27/2019
 ms.author: prmitiki
 ---
 
-# Convert a legacy Exchange Peering to Azure resource using Azure portal
+# Convert a legacy Exchange Peering to Azure resource using portal
 
-This article describes how to convert an existing legacy Exchange Peering to Azure resource using Azure portal.
+This article describes how to convert an existing legacy Exchange Peering to Azure resource using portal.
 
-If you prefer, you can complete this guide using the [PowerShell](howto-legacyexchange-arm.md).
+If you prefer, you can complete this guide using the [PowerShell](howto-legacy-exchange.md).
 
 ## Before you begin
 * Review [Prerequisites](prerequisites.md) and [Exchange Peering walkthrough](workflows-exchange.md) before you begin configuration.
@@ -21,7 +21,7 @@ If you prefer, you can complete this guide using the [PowerShell](howto-legacyex
 
 ## Convert a legacy Exchange Peering to Azure resource
 
-### Sign in to  Azure portal  and select your subscription
+### Sign in to  portal  and select your subscription
 [!INCLUDE [Account](./includes/account-portal.md)]
 
 ### <a name=create></a>Convert legacy Exchange Peering
@@ -34,10 +34,8 @@ If you prefer, you can complete this guide using the [PowerShell](howto-legacyex
 
 ## Additional resources
 
-For more information, please visit [Peering FAQs](faqs.md)
-
-[!INCLUDE [peering-feedback](./includes/feedback.md)]
+For more information, visit [Internet Peering FAQs](faqs.md)
 
 ## Next steps
 
-* [Create or modify an Exchange Peering using Azure portal](howto-exchangepeering-arm-portal.md)
+* [Create or modify an Exchange Peering using portal](howto-exchange-peering-portal.md)

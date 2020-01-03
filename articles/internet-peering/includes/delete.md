@@ -9,4 +9,4 @@ ms.date: 11/27/2019
 ms.author: prmitiki
 ---
 
-For questions and feedback, please contact [Microsoft Peering](mailto:peering@microsoft.com)
+At this time Deprovision is not supported using portal or PowerShell, contact [Microsoft Peering](mailto:peeringexperience@microsoft.com) to Deprovision.

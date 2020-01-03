@@ -9,9 +9,9 @@ ms.date: 11/27/2019
 ms.author: prmitiki
 ---
 
-Peering setup using  Azure portal  is currently under Preview. Therefore, you need to register Peering feature flag and Peering resource provider for your subscription.
+Peering set up using  portal  is currently under Preview. Therefore, you need to register Peering feature flag and Peering resource provider for your subscription.
 
-1. Click on the icon for *Cloud Shell* on the top right corner of your Azure portal.
+1. Click on the icon for *Cloud Shell* on the top right corner of your portal.
 
     > [!div class="mx-imgBorder"]
     > ![Open Cloud Shell](../media/cloudshell-open.png)
@@ -27,7 +27,7 @@ Peering setup using  Azure portal  is currently under Preview. Therefore, you ne
     > ![Create Storage](../media/cloudshell-createstorage.png)
 
     > [!NOTE]
-    > Please note that this operation creates a storage account. You may delete it after executing the registration. To do so, note the **Resource group** name in the next step since you will need it later.
+    > Note that this operation creates a storage account. You may delete it after executing the registration. To do so, note the **Resource group** name in the next step since you will need it later.
 
 1. Once PowerShell is initialized, it will look like below.
 
@@ -63,7 +63,7 @@ Peering setup using  Azure portal  is currently under Preview. Therefore, you ne
     ```
 
     > [!IMPORTANT]
-    > Please wait for *RegistrationState* to turn "Registered" before proceeding. It may take 5 to 30 minutes after you execute the command.
+    > Wait for *RegistrationState* to turn "Registered" before proceeding. It may take 5 to 30 minutes after you execute the command.
 
 1. Run the following commands to register Peering resource provider.
 
@@ -77,7 +77,7 @@ Peering setup using  Azure portal  is currently under Preview. Therefore, you ne
     ```
 
     > [!IMPORTANT]
-    > Please wait for *RegistrationState* to turn "Registered" before proceeding. It may take 5 to 30 minutes after you execute the command.
+    > Wait for *RegistrationState* to turn "Registered" before proceeding. It may take 5 to 30 minutes after you execute the command.
 
 1. Click **X** once you are done executing the commands above.
 

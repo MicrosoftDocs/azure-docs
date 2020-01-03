@@ -1,6 +1,6 @@
 ---
-title: Associate Peer ASN to Azure Subscription using Azure portal
-description: Associate Peer ASN to Azure Subscription using Azure portal
+title: Associate peer ASN to Azure subscription using portal
+description: Associate peer ASN to Azure subscription using portal
 services: internet-peering
 author: prmitiki
 ms.service: internet-peering
@@ -9,7 +9,7 @@ ms.date: 11/27/2019
 ms.author: prmitiki
 ---
 
-# Associate Peer ASN to Azure Subscription using Azure portal
+# Associate peer ASN to Azure subscription using portal
 
 Before you submit a peering request, you should first associate your ASN with Azure subscription using the steps below.
 
@@ -17,7 +17,7 @@ If you prefer, you can complete this guide using the [PowerShell](subscription-r
 
 ## Create PeerAsn to associate your ASN with Azure Subscription
 
-### Sign in to the Azure portal
+### Sign in to the portal
 [!INCLUDE [Account](./includes/account-portal.md)]
 
 ### Register for Peering feature flag and Peering resource provider
@@ -51,7 +51,7 @@ You can create a new PeerAsn resource for associating an Autonomous System Numbe
     * **Peer name** corresponds to your company's name and needs to be as close as possible to your PeeringDb profile. Note that value supports only characters a-z, A-Z, and space
     * Enter your ASN in the **Peer ASN** field.
     * Click on **Create new** and enter **EMAIL ADDRESS** and **PHONE NUMBER** for your Network Operations Center (NOC)
-    * Then, click on **Review + create** and observe that  Azure portal  runs basic validation of the information you entered. This is displayed in a ribbon on the top, as *Running final validation...*.
+    * Then, click on **Review + create** and observe that  portal  runs basic validation of the information you entered. This is displayed in a ribbon on the top, as *Running final validation...*.
 
         > [!div class="mx-imgBorder"]
         > ![PeerAsn Review Tab](./media/peerasn-review-tab-validation.png)
@@ -61,7 +61,7 @@ You can create a new PeerAsn resource for associating an Autonomous System Numbe
         > [!div class="mx-imgBorder"]
         > ![PeerAsn Review Tab](./media/peerasn-review-tab.png)
 
-    * After you submit the request, wait for it to complete deployment. If deployment fails, please contact [Microsoft Peering](mailto:peering@microsoft.com). A successful deployment will appear as below.
+    * After you submit the request, wait for it to complete deployment. If deployment fails, contact [Microsoft Peering](mailto:peering@microsoft.com). A successful deployment will appear as below.
 
         > [!div class="mx-imgBorder"]
         > ![PeerAsn Success](./media/peerasn-success.png)
@@ -70,23 +70,21 @@ You can create a new PeerAsn resource for associating an Autonomous System Numbe
 Once PeerAsn resource is deployed successfully, you will need to wait for Microsoft to approve the association request. It may take up to 12 hours for approval. Once approved, you will receive a notification to the email address entered in the above section.
 
 > [!IMPORTANT]
-> Please wait for the ValidationState to turn "Approved" before submitting a Peering request. It may take up to 12 hours for this approval.
+> Wait for the ValidationState to turn "Approved" before submitting a Peering request. It may take up to 12 hours for this approval.
 
 ## Modify PeerAsn
-Modifying PeerAsn is not currently supported. If you need to modify, please contact [Microsoft Peering](mailto:peering@microsoft.com).
+Modifying PeerAsn is not currently supported. If you need to modify, contact [Microsoft Peering](mailto:peering@microsoft.com).
 
 ## Delete PeerAsn
-Deleting a PeerAsn is not currently supported. If you need to delete PeerAsn, please contact [Microsoft Peering](mailto:peering@microsoft.com).
+Deleting a PeerAsn is not currently supported. If you need to delete PeerAsn, contact [Microsoft Peering](mailto:peering@microsoft.com).
 
 ## Next steps
 
-* [Create or modify a Direct Peering using Azure portal](howto-directpeering-arm-portal.md)
-* [Convert a legacy Direct Peering to Azure resource using Azure portal](howto-legacydirect-arm-portal.md)
-* [Create or modify Exchange Peering using Azure portal](howto-exchangepeering-arm-portal.md)
-* [Convert a legacy Exchange Peering to Azure resource using Azure portal](howto-legacyexchange-arm-portal.md)
+* [Create or modify a Direct Peering using portal](howto-direct-peering-portal.md)
+* [Convert a legacy Direct Peering to Azure resource using portal](howto-legacy-direct-portal.md)
+* [Create or modify Exchange Peering using portal](howto-exchange-peering-portal.md)
+* [Convert a legacy Exchange Peering to Azure resource using portal](howto-legacy-exchange-portal.md)
 
 ## Additional resources
 
-For more information, please visit [Peering FAQs](faqs.md)
-
-[!INCLUDE [peering-feedback](./includes/feedback.md)]
+For more information, visit [Internet Peering FAQs](faqs.md)

@@ -1,6 +1,6 @@
 ---
-title: Setup Peering with Microsoft
-description: Overview of Peering
+title: Set up peering with Microsoft
+description: Overview of peering
 services: internet-peering
 author: prmitiki
 ms.service: internet-peering
@@ -9,9 +9,9 @@ ms.date: 11/27/2019
 ms.author: prmitiki
 ---
 
-# Internet Peering Overview
+# Internet Peering overview
 
-Peering is the interconnection between Microsoft’s global network (AS8075) and your network for the purpose of exchanging internet traffic from/to Microsoft online services and Microsoft Azure Services. Carriers or Service Providers can request to connect with Microsoft at any of our Edge locations. Each request is reviewed by Microsoft Azure Networking to ensure that it adheres to our Peering policy. You can setup a peering with Microsoft network in two ways:
+Peering is the interconnection between Microsoft’s global network (AS8075) and your network for the purpose of exchanging internet traffic from/to Microsoft online services and Microsoft Azure Services. Carriers or Service Providers can request to connect with Microsoft at any of our Edge locations. Each request is reviewed by Microsoft Azure Networking to ensure that it adheres to our Peering policy. You can set up a peering with Microsoft network in two ways:
 
 * **Direct Peering:**
 
@@ -29,8 +29,8 @@ Peering is the interconnection between Microsoft’s global network (AS8075) and
 
 ## Benefits of using Azure
 
-You may request for Peering with Microsoft using Azure PowerShell or Azure portal. Peering setup in this manner is managed as an Azure resource and provides the following benefits:
-* Simplified and automatable steps to setup and manage peering with Microsoft.
+You may request for Peering with Microsoft using Azure PowerShell or portal. Peering set up in this manner is managed as an Azure resource and provides the following benefits:
+* Simplified and automatable steps to set up and manage peering with Microsoft.
 * Quick and easy way to view and manage all your peerings in one place.
 * Track status and bandwidth data for all your connections.
 * You can use the same subscription to access your Azure Cloud Services.
@@ -45,6 +45,6 @@ For frequently asked questions about Peering, see [Peering - FAQ](faqs.md).
 
 ## Next steps
 
-* To learn about steps to setup Direct Peering with Microsoft, follow [Direct Peering walkthrough](workflows-direct.md)
-* To learn about steps to setup Exchange Peering with Microsoft, follow [Exchange Peering walkthrough](workflows-exchange.md)
+* To learn about steps to set up Direct Peering with Microsoft, follow [Direct Peering walkthrough](workflows-direct.md)
+* To learn about steps to set up Exchange Peering with Microsoft, follow [Exchange Peering walkthrough](workflows-exchange.md)
 * Learn about some of the other Azure key [networking capabilities](https://docs.microsoft.com/azure/networking/networking-overview).

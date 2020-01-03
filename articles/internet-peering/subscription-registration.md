@@ -1,6 +1,6 @@
 ---
-title: Associate Peer ASN to Azure Subscription using PowerShell
-description: Associate Peer ASN to Azure Subscription using PowerShell
+title: Associate peer ASN to Azure subscription using PowerShell
+description: Associate peer ASN to Azure subscription using PowerShell
 services: internet-peering
 author: prmitiki
 ms.service: internet-peering
@@ -9,11 +9,11 @@ ms.date: 11/27/2019
 ms.author: prmitiki
 ---
 
-# Associate Peer ASN to Azure Subscription using PowerShell
+# Associate peer ASN to Azure subscription using PowerShell
 
 Before you submit a peering request, you should first associate your ASN with Azure subscription using the steps below.
 
-If you prefer, you can complete this guide using the [Azure portal](subscription-registration-portal.md).
+If you prefer, you can complete this guide using the [portal](subscription-registration-portal.md).
 
 ### Working with Azure PowerShell
 [!INCLUDE [CloudShell](./includes/cloudshell-powershell-about.md)]
@@ -24,7 +24,7 @@ If you prefer, you can complete this guide using the [Azure portal](subscription
 [!INCLUDE [Account](./includes/account.md)]
 
 ### Register for Peering feature flag
-Register Peering feature flag for your subscription using the command below. This is required because Peering setup using Azure PowerShell is currently under Preview.
+Register Peering feature flag for your subscription using the command below. This is required because Peering set up using Azure PowerShell is currently under Preview.
 
 * For Direct Peering use below.
 
@@ -67,10 +67,10 @@ AllowExchangePeering Microsoft.Peering Registered
 ```
 
 > [!IMPORTANT]
-> Please wait for *RegistrationState* to turn "Registered" before proceeding. It may take 5 to 30 minutes after you execute the command.
+> Wait for *RegistrationState* to turn "Registered" before proceeding. It may take 5 to 30 minutes after you execute the command.
 
 ### Register for Peering resource provider
-Register Peering resource provider for your subscription using the command below. This is required because Peering setup using Azure PowerShell is currently under preview.
+Register Peering resource provider for your subscription using the command below. This is required because Peering set up using Azure PowerShell is currently under preview.
 
 ```powershell
 Register-AzResourceProvider -ProviderNamespace Microsoft.Peering
@@ -82,7 +82,7 @@ Get-AzResourceProvider -ProviderNamespace Microsoft.Peering
 ```
 
 > [!IMPORTANT]
-> Please wait for *RegistrationState* to turn "Registered" before proceeding. It may take 5 to 30 minutes after you execute the command.
+> Wait for *RegistrationState* to turn "Registered" before proceeding. It may take 5 to 30 minutes after you execute the command.
 
 ### Update the peer information associated with this subscription
 
@@ -102,7 +102,7 @@ A subscription can have multiple ASNs. Update the peering information for each A
 
 Peers are expected to have a complete and up-to-date profile on [PeeringDB](https://www.peeringdb.com). We use this information during registration to validate the peer's details such as NOC information, technical contact information, and their presence at the peering facilities etc.
 
-Note that in place of {subscriptionId} in the output above, actual subscription Id will be displayed.
+Note that in place of **{subscriptionId}** in the output above, actual subscription ID will be displayed.
 
 ## View status of a PeerASN
 
@@ -124,7 +124,7 @@ Type            : Microsoft.Peering/peerAsns
 ```
 
 > [!IMPORTANT]
-> Please wait for the ValidationState to turn "Approved" before submitting a Peering request. It may take up to 12 hours for this approval.
+> Wait for the ValidationState to turn "Approved" before submitting a Peering request. It may take up to 12 hours for this approval.
 
 ## Modify PeerAsn
 You may modify NOC contact information anytime.
@@ -136,18 +136,15 @@ Set-PeerAsn -Name Contoso_1234 -Email "newemail@test.com" -Phone "1800-000-0000"
 ```
 
 ## Delete PeerAsn
-Deleting a PeerASN is not currently supported. If you need to delete PeerASN, please contact [Microsoft Peering](mailto:peering@microsoft.com).
+Deleting a PeerASN is not currently supported. If you need to delete PeerASN, contact [Microsoft Peering](mailto:peering@microsoft.com).
 
 ## Next steps
 
-* [Create or modify a Direct Peering](howto-directpeering-arm.md)
-* [Convert a legacy Direct Peering to Azure resource](howto-legacydirect-arm.md)
-* [Create or modify Exchange Peering](howto-exchangepeering-arm.md)
-* [Convert a legacy Exchange Peering to Azure resource](howto-legacyexchange-arm.md)
+* [Create or modify a Direct Peering](howto-direct-peering.md)
+* [Convert a legacy Direct Peering to Azure resource](howto-legacy-direct.md)
+* [Create or modify Exchange Peering](howto-exchange-peering.md)
+* [Convert a legacy Exchange Peering to Azure resource](howto-legacy-exchange.md)
 
 ## Additional resources
 
-For more information, please visit [Peering FAQs](faqs.md)
-
-[!INCLUDE [peering-feedback](./includes/feedback.md)]
-
+For more information, visit [Internet Peering FAQs](faqs.md)
