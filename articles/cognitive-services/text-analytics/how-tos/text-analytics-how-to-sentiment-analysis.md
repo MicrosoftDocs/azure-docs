@@ -51,11 +51,12 @@ The Text Analytics API offers two versions of Sentiment Analysis - v2 and v3. Se
 
 The sentiment analyzer classifies text as predominantly positive or negative. It assigns a score in the range of 0 to 1. Values close to 0.5 are neutral or indeterminate. A score of 0.5 indicates neutrality. When a string can't be analyzed for sentiment or has no sentiment, the score is always 0.5 exactly. For example, if you pass in a Spanish string with an English language code, the score is 0.5.
 
+
 #### [Version 3 (Public preview)](#tab/version-3)
 
 ### Sentiment scoring
 
-The sentiment analyzer classifies text as predominantly positive or negative. It assigns a score in the range of 0 to 1. Values close to 0.5 are neutral or indeterminate. A score of 0.5 indicates neutrality. When a string can't be analyzed for sentiment or has no sentiment, the score is always 0.5 exactly. For example, if you pass in a Spanish string with an English language code, the score is 0.5.
+Sentiment Analysis v3 classifies text with sentiment labels (described below). The returned scores represent the model's confidence that the text is either positive, negative, or neutral. Higher values signify higher confidence. 
 
 ### Sentiment labeling
 

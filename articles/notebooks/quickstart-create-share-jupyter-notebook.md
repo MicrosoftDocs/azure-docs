@@ -1,13 +1,15 @@
 ---
-title: Create and share a Jupyter notebook on Azure
-description: Quickly create and run a Jupyter notebook on Azure Notebooks, then share that notebook with others.
+title: Create and share a Jupyter notebook on Azure Notebooks Preview
+description: Quickly create and run a Jupyter notebook on Azure Notebooks Preview, then share that notebook with others.
 ms.topic: quickstart
 ms.date: 12/04/2018
 ---
 
-# Quickstart: Create and share a notebook
+# Quickstart: Create and share a notebook in Azure Notebooks Preview
 
 In this quickstart, you learn how to quickly create and run a Jupyter notebook on Azure Notebooks, then share that notebook with others.
+
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 ## Create a new project and notebook
 
