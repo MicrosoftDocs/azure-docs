@@ -36,7 +36,7 @@ Let's add some code that works as a skeleton for our project.
 
 ## Create a Speech configuration
 
-Before you can initialize an `IntentRecognizer` you need to create a configuration that uses the key and location for your LUIS prediction resource.  
+Before you can initialize an `IntentRecognizer` object, you need to create a configuration that uses the key and location for your LUIS prediction resource.  
 
 Insert this code in the try / catch block in `main()`. Make sure you update these values:
 
@@ -60,7 +60,7 @@ Now, let's create an `IntentRecognizer`. Insert this code right below your Speec
 
 ## Add a LanguageUnderstandingModel and Intents
 
-You now need to associate a `LanguageUnderstandingModel` with the intent recognizer, and add the intents you want recognized. We're going to use intents from the prebuilt domain for home automation. 
+You need to associate a `LanguageUnderstandingModel` with the intent recognizer, and add the intents you want recognized. We're going to use intents from the prebuilt domain for home automation. 
 
 Insert this code below your `IntentRecognizer`. Make sure that you replace `"YourLanguageUnderstandingAppId"` with your LUIS app ID. 
 
