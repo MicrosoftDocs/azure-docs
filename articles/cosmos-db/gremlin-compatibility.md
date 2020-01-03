@@ -22,7 +22,7 @@ Azure Cosmos DB Graph engine closely follows [Apache TinkerPop](https://tinkerpo
 
 * ***`property(set, 'xyz', 1)`*** set cardinality isn't supported today. Use `property(list, 'xyz', 1)` instead. To learn more, see [Vertex properties with TinkerPop](http://tinkerpop.apache.org/docs/current/reference/#vertex-properties).
 
-* ***`atch()`** allows querying graphs using declarative pattern matching. This capability isn't available.
+* ***`atch()`*** allows querying graphs using declarative pattern matching. This capability isn't available.
 
 * ***Objects as properties*** on vertices or edges aren't supported. Properties can only be primitive types or arrays.
 
