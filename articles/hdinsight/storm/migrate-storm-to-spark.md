@@ -8,14 +8,19 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 12/05/2019
 ---
-
 # Migrate Azure HDInsight 3.6 Apache Storm to HDInsight 4.0 Apache Spark
 
 This document describes how to migrate Apache Storm workloads on HDInsight 3.6 to HDInsight 4.0. HDInsight 4.0 doesn't support the Apache Storm cluster type and you will need to migrate to another streaming data platform. Two suitable options are Apache Spark Streaming and Spark Structured Streaming. This document describes the differences between these platforms and also recommends a workflow for migrating Apache Storm workloads.
 
 ## Storm migration paths in HDInsight
 
-HDInsight 4.0 supports Spark Streaming and Spark Structured Streaming as streaming processing platform. Other options include Azure Stream Analytics and other OSS with user management. This document provides a guide for migrating to Spark Streaming and Spark Structured Streaming.
+If you want to migrate from Apache Storm on HDInsight 3.6 you have multiple options:
+
+* Spark Streaming on HDInsight 4.0
+* Spark Structured Streaming on HDInsight 4.0
+* Azure Stream Analytics
+
+This document provides a guide for migrating from Apache Storm to Spark Streaming and Spark Structured Streaming.
 
 ![HDInsight Storm migration path](./media/migrate-storm-to-spark/storm-migration-path.png)
 
@@ -32,7 +37,7 @@ Apache Storm can provide different levels of guaranteed message processing. For 
 
 ### Spark streaming vs Spark structured streaming
 
-Spark Structured Streaming is replacing Spark Streaming (DStreams). Structured Streaming will continue to receive enhancements and maintenance, while DStreams will be in maintenance mode only. Structured Streaming does not have as many features as DStreams for the sources and sinks that it supports out of the box, so evaluate your requirements to choose the appropriate Spark stream processing option.
+Spark Structured Streaming is replacing Spark Streaming (DStreams). Structured Streaming will continue to receive enhancements and maintenance, while DStreams will be in maintenance mode only. **Note: need links to emphasize this point**. Structured Streaming does not have as many features as DStreams for the sources and sinks that it supports out of the box, so evaluate your requirements to choose the appropriate Spark stream processing option.
 
 ## Streaming (Single event) processing vs Micro-Batch processing
 
@@ -51,7 +56,7 @@ Storm topologies are composed of multiple components that are arranged in a dire
 
 ![interaction of storm components](./media/migrate-storm-to-spark/apache-storm-components.png)
 
-Storm consists of the following three daemons which keep the Storm cluster functioning.
+Storm consists of the following three daemons, which keep the Storm cluster functioning.
 
 |Daemon |Description |
 |---|---|
@@ -71,50 +76,23 @@ Storm consists of the following three daemons which keep the Storm cluster funct
 
 ![spark streaming path to output](./media/migrate-storm-to-spark/spark-streaming-to-output.png)
 
-## Spark Streaming – Dstream
+## Spark Streaming – DStream
 
 As each batch interval elapses, a new RDD is produced that contains all the data from that interval. The continuous sets of RDDs are collected into a DStream. For example, if the batch interval is one second long, your DStream emits a batch every second containing one RDD that contains all the data ingested during that second. When processing the DStream, the temperature event appears in one of these batches. A Spark Streaming application processes the batches that contain the events and ultimately acts on the data stored in each RDD.
 
 ![spark streaming processing batches](./media/migrate-storm-to-spark/spark-streaming-batches.png)
 
-## Data transformations on Spark Streaming
-
-![spark streaming data transformations](./media/migrate-storm-to-spark/spark-streaming-transformations.png)
-
-The following functions are available for processing Dstream. See [Overview of Apache Spark Streaming](../spark/apache-spark-streaming-overview.md) for details.
-
-**Transformations on Dstreams**
-* map(func)
-* flatMap(func)
-* filter(func)
-* repartition(numPartitions)
-* union(otherStream)
-* count()
-* reduce(func)
-* countByValue()
-* reduceByKey(func, [numTasks])
-* join(otherStream, [numTasks])
-* cogroup(otherStream, [numTasks])
-* transform(func)
-* updateStateByKey(func)
-* etc
-
-![transformations on dstreams in HDInsight](./media/migrate-storm-to-spark/transformations-on-dstreams.png)
-
-**Window Functions**
-* window(windowLength, slideInterval)
-* countByWindow(windowLength, slideInterval)
-* reduceByWindow(func, windowLength, slideInterval)
-* reduceByKeyAndWindow(func, windowLength, slideInterval, [numTasks])
-* countByValueAndWindow(windowLength, slideInterval, [numTasks])
-
-If the built-in operations don't meet the data transformation requirements, you can use UDF (User-Defined Functions).
+For details on the different transformations available with Spark Streaming, see [Transformations on DStreams](https://spark.apache.org/docs/latest/streaming-programming-guide.html#transformations-on-dstreams).
 
 ## Spark Structured Streaming
 
-Spark Structured Streaming represents a stream of data as a table that is unbounded in depth, that is, the table continues to grow as new data arrives. This input table is continuously processed by a long-running query, and the results sent to an output table.
+Spark Structured Streaming represents a stream of data as a table that is unbounded in depth. The table continues to grow as new data arrives. This input table is continuously processed by a long-running query, and the results are sent to an output table.
 
-In Structured Streaming, data arrives at the system and is immediately ingested into an input table. You write queries (using the DataFrame and Dataset APIs) that perform operations against this input table. The query output yields another table, the results table. The results table contains the results of your query, from which you draw data for an external datastore, such a relational database. The timing of when data is processed from the input table is controlled by the trigger interval. By default, the trigger interval is zero, so Structured Streaming tries to process the data as soon as it arrives. In practice, this means that as soon as Structured Streaming is done processing the run of the previous query, it starts another processing run against any newly received data. You can configure the trigger to run at an interval, so that the streaming data is processed in time-based batches.
+In Structured Streaming, data arrives at the system and is immediately ingested into an input table. You write queries (using the DataFrame and Dataset APIs) that perform operations against this input table.
+
+The query output yields a *results table*, which contains the results of your query. You can draw data from the results table for an external datastore, such a relational database.
+
+The timing of when data is processed from the input table is controlled by the trigger interval. By default, the trigger interval is zero, so Structured Streaming tries to process the data as soon as it arrives. In practice, this means that as soon as Structured Streaming is done processing the run of the previous query, it starts another processing run against any newly received data. You can configure the trigger to run at an interval, so that the streaming data is processed in time-based batches.
 
 ![processing of data in structured streaming](./media/migrate-storm-to-spark/structured-streaming-data-processing.png)
 
@@ -122,35 +100,29 @@ In Structured Streaming, data arrives at the system and is immediately ingested 
 
 ## General migration flow
 
-Presumed current environment:
+The recommended migration flow from Storm to Spark assumes the following initial architecture:
 
-* Kafka is used as the streaming data source,
-* Kafka and Storm are deployed on the same virtual network,
-* The data processed by Storm is written to data sink, such as Azure storage, ADLS, and so on.
+* Kafka is used as the streaming data source
+* Kafka and Storm are deployed on the same virtual network
+* The data processed by Storm is written to a data sink, such as Azure Storage or Azure Data Lake Storage Gen2.
 
 ![diagram of presumed current environment](./media/migrate-storm-to-spark/presumed-current-environment.png)
 
-1. Deploy new HDInsight 4.0 Spark cluster, deploy code, and test it.
+To migrate your application from Storm to one of the Spark streaming APIs, do the following:
 
-    Deploy a new HDInsight 4.0 Spark cluster in the same VNet and deploy your Spark Streaming or Spark Structured Streaming application on it and test it thoroughly.
+1. **Deploy a new cluster.** Deploy a new HDInsight 4.0 Spark cluster in the same virtual network and deploy your Spark Streaming or Spark Structured Streaming application on it and test it thoroughly.
 
     ![new spark deployment in HDInsight](./media/migrate-storm-to-spark/new-spark-deployment.png)
 
-1. Stop consuming on the current Storm cluster.
-
-    In the existing Storm, stop consuming data from the streaming data source and wait it for the data to finish writing to the target sink.
+1. **Stop consuming on the old Storm cluster.** In the existing Storm, stop consuming data from the streaming data source and wait it for the data to finish writing to the target sink.
 
     ![stop consuming on current cluster](./media/migrate-storm-to-spark/stop-consuming-current-cluster.png)
 
-1. Start consuming on the new Spark cluster.
-
-    Start streaming data from a newly deployed HDInsight 4.0 Spark cluster. At this time, the process is taken over by consuming from the latest Kafka offset.
+1. **Start consuming on the new Spark cluster.** Start streaming data from a newly deployed HDInsight 4.0 Spark cluster. At this time, the process is taken over by consuming from the latest Kafka offset.
 
     ![start consuming on new cluster](./media/migrate-storm-to-spark/start-consuming-new-cluster.png)
 
-1. Remove the old cluster as needed.
-
-    Once the switch is complete and working properly, remove the old HDInsight 3.6 Storm cluster as needed.
+1. **Remove the old cluster as needed.** Once the switch is complete and working properly, remove the old HDInsight 3.6 Storm cluster as needed.
 
     ![remove old HDInsight clusters as needed](./media/migrate-storm-to-spark/remove-old-clusters1.png)
 
