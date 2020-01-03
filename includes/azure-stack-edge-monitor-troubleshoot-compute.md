@@ -29,14 +29,14 @@ Commands:
 [10.100.10.10]: PS>
 ```
 
-<!--The following table has a brief description of the commands available for `iotedge`:
+The following table has a brief description of the commands available for `iotedge`:
 
 |command  |Description |
 |---------|---------|
-|`check`     |        |
-|`list`     | List images         |
-|`logs`     | Fetch the logs for IoT Edge device         |
-|`restart`     | Stop and restart the IoT Edge device         |-->
+|`check`     | Perform automated checks for common configuration and connectivity issues       |
+|`list`     | List modules         |
+|`logs`     | Fetch the logs of a module        |
+|`restart`     | Stop and restart a module         |
 
 
 ### Use `dkrdbe` commands

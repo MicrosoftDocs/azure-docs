@@ -186,6 +186,27 @@ Do the following steps in the Azure portal to refresh a share.
  
 If there is a failure, an alert is raised. The alert details the cause and the recommendation to fix the issue. The alert also links to a file that has the complete summary of the failures including the files that failed to update or delete.
 
+## Automated sync for pinned files 
+ 
+1. In the Azure portal, select an existing Azure storage account. 
+
+2. Go to **Containers** and select **+ Container** to create a container. Name this container as *newcontainer*. Set the Public access level to Container.
+
+3. Select the container name and set the following metadata:  
+
+    - Name = “Pinned” 
+    - Value = “True” 
+ 
+4. Create a new share on your device. Map it to the pinned container by choosing the existing container option. Mark the share as read only. Create a new user and specify the user name and a corresponding password for this share.            
+ 
+5. From the Azure portal, browse to the container which you created. Upload the file which you want to be pinned into the newcontainer which has the metadata set to pinned.                
+ 
+6. Select Refresh in Azure portal for the device to download the pinning policy for that particular Azure Storage container.              
+ 
+7. Access the new share that was created on the device. The file that was uploaded to the storage account is now downloaded to the local share. 
+
+    Anytime the device is disconnected or reconnected, it triggers refresh. Refresh will bring down only those files that have changed. 
+
 
 ## Sync storage keys
 

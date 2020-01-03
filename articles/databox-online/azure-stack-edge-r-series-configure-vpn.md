@@ -45,25 +45,26 @@ Each of these steps is described in the following sections.
 
 ## Create virtual network
 
-First, create a Virtual Network resource under your Resource Group. When creating a Virtual Network - assign a valid Address space.  Let's say vnet name is shVnet1 with address space 172.22.0.0/16 . 
+First, you'll create a virtual network resource under your resource group.
+
+1. Create a virtual network resource. Select **+ Create a resource**, search for virtual network and then select **Create**.
+
+2. In the **Basics** tab, provide the subscription, create new or choose from an existing resource group, enter a name for the virtual network, and select the same region as that associated with your Azure Stack Edge device (when creating the resource).
+
+3. In the **IP addresses** tab, assign a valid address space. Accept the default settings for tabs for **Security** and **Tags**. Finally in **Review + Create** tab, review the settings for your virtual network and select **Create**. 
 
 
-+ Create a resource
+The virtual network is created immediately.
 
-Search Virtual network
+After the virtual network is created, create a subnet.
 
-Create
-
-
-
-
-Create a subnet called “AzureFirewallSubnet” 
+In the virtual network, go to **Settings > Subnets**. Select **+ Subnet** to create a subnet. Provide the address range and accept the default settings for other parameters.
 
 For more information, go to [](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal#CreatVNet).
 
 ## Create virtual network gateway
 
-Create a new Virtual Network Gateway resource and select the virtual network created previously. Once the  VPN Gateway is created, you need to configure a Site-to-Site connection in it. 
+Create a new virtual network gateway resource and select the virtual network created previously. Once the  VPN gateway is created, you need to configure a site-to-site connection in it. 
 
 For more information, go to [](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal#VNetGateway).
 
