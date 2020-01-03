@@ -153,7 +153,7 @@ See [User-defined routes supported in the Application Gateway subnet](https://do
 
 ### What are the limits on Application Gateway? Can I increase these limits?
 
-See [Application Gateway limits](../azure-subscription-service-limits.md#application-gateway-limits).
+See [Application Gateway limits](../azure-resource-manager/management/azure-subscription-service-limits.md#application-gateway-limits).
 
 ### Can I simultaneously use Application Gateway for both external and internal traffic?
 
