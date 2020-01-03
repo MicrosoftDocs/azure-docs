@@ -54,7 +54,7 @@ In this tutorial, you learn how to:
 
 1. select **+ Create a resource**.
 
-    ![Create a new resource](media/tutorial-manual-labeling/create-resource.png)
+    ![Create a new resource](media/tutorial-labeling/create-resource.png)
 
 1. Use the search bar to find **Storage account**.
 
@@ -95,7 +95,7 @@ In this tutorial, you learn how to:
 
 1. In the middle of the page, select **Containers**.
 
-    ![Select containers](media/tutorial-manual-labeling/select-containers.png)
+    ![Select containers](media/tutorial-labeling/select-containers.png)
 
 1. Select **+ Container** to create a new container.
 
@@ -167,11 +167,13 @@ Now that you have your list of labelers and access to the data you want to have 
 
 1. Select **+ Add project**.
 
+    ![Create a project](media/tutorial-labeling/create-project.png)
+
 1. Use the following input for the **Project details** form:
 
     Field|Description 
     ---|---
-    Project name | Give your project a name.  Here we'll use **tutorial-project**.
+    Project name | Give your project a name.  Here we'll use **tutorial-labeling**.
     Labeling task type | Select **Image Classification Multi-class**.
     
     Select **Next** to continue creating the project.
@@ -227,7 +229,7 @@ You have now set up your Azure resources, and configured a data labeling project
 
 1. At the top of the page, select **Details**.  You see a summary of your project.
 
-    ![Project details](media/tutorial-manual-labeling/project-details.png)
+    ![Project details](media/tutorial-labeling/project-details.png)
 
 
 1. Copy the **Labeling portal URL** link to send to your labelers.
