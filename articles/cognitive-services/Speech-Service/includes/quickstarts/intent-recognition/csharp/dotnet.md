@@ -77,7 +77,7 @@ From the `IntentRecognizer` object, you're going to call the `RecognizeOnceAsync
 Inside the using statement, add this code below your model:
 [!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/intent-recognition/helloworld/Program.cs?range=46)]
 
-## Display the recognition results (or errors)
+## Display recognition results (or errors)
 
 When the recognition result is returned by the Speech service, you'll want to do something with it. We're going to keep it simple and print the results to console.
 
