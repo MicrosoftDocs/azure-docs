@@ -20,7 +20,7 @@ ms.author: spelluru
 # Enable user-assigned managed identities on lab virtual machines in Azure DevTest Labs
 As a lab owner, you can enable user-assigned managed identities on your lab virtual machines (VMs) in Azure DevTest Labs.
 
-A managed identity can be used to authenticate to any service that supports Azure Active Directory (AD) authentication, including Key Vault, without passing any credentials in the code. For more information on managed identities, see [What is managed identities for Azure resources?](../../active-directory/managed-identities-azure-resources/overview.md).
+A managed identity can be used to authenticate to any service that supports Azure Active Directory (AD) authentication, including Key Vault, without passing any credentials in the code. For more information on managed identities, see [What is managed identities for Azure resources?](../active-directory/managed-identities-azure-resources/overview.md).
 
 With this feature, lab users can share Azure resources such as Azure SQL Database in the context of the lab. The authentication to the resource is taken care by the identity itself. Once configured, every existing/newly created lab VM will be enabled with this identity. Lab users can access resources once logged in to their machines.
 
@@ -30,7 +30,7 @@ With this feature, lab users can share Azure resources such as Azure SQL Databas
 ## Use Azure portal
 To add a user assigned managed identity for lab VMs, follow these steps:
 
-1. [Create a user-assigned managed identity in your subscription](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md#create-a-user-assigned-managed-identity)
+1. [Create a user-assigned managed identity in your subscription](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md#create-a-user-assigned-managed-identity)
 1. Navigate to the **Configuration and policies** page for your lab.
 2. Select **Identity (Preview)** on the left menu.
 3. Select the **Virtual machine** tab.
@@ -66,7 +66,7 @@ To add a user assigned managed identity for lab VMs, follow these steps:
     ```
 
 ## Next steps
-To learn more about managed identities, see [What is managed identities for Azure resources?](../../active-directory/managed-identities-azure-resources/overview.md).
+To learn more about managed identities, see [What is managed identities for Azure resources?](../active-directory/managed-identities-azure-resources/overview.md).
 
 
 
