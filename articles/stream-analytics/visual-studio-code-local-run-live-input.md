@@ -9,7 +9,7 @@ ms.topic: conceptual
 ---
 # Test Stream Analytics queries locally against live stream input by using Visual Studio Code
 
-You can use Azure Stream Analytics Tools for Visual Studio Code to test your Stream Analytics jobs locally against live stream input. The input can come from a source like an event hub or an IoT hub. The output results are sent as JSON files to a folder in your project called **LocalRunOutputs**.
+You can use Azure Stream Analytics Tools for Visual Studio Code to test your Stream Analytics jobs locally against live stream input. The input can come from a source like Azure Event Hubs or Azure IoT Hub. The output results are sent as JSON files to a folder in your project called **LocalRunOutputs**.
 
 ## Prerequisites
 
