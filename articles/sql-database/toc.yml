@@ -76,6 +76,9 @@
       href: sql-database-security-overview.md
       displayName: compliance, fedramp, soc, fact, fisc, hitrust, pci, iso
 
+    - name: Security best practices
+      href: sql-database-security-best-practice.md
+
     - name: Access management
       items:
       - name: Access control
@@ -310,7 +313,7 @@
         href: sql-database-elastic-scale-introduction.md
       - name: Glossary
         href: sql-database-elastic-scale-glossary.md
-      - name: Elastic client library - consolidate
+      - name: Elastic client library
         href: sql-database-elastic-database-client-library.md
       - name: Shard maps
         href: sql-database-elastic-scale-shard-map-management.md
