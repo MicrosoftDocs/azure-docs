@@ -480,7 +480,7 @@ The following publish options are only supported in version 2.x:
 | **`--list-included-files`** | Displays a list of files that are published, which is based on the .funcignore file. |
 | **`--nozip`** | Turns the default `Run-From-Package` mode off. |
 | **`--build-native-deps`** | Skips generating .wheels folder when publishing python function apps. |
-| **`--build`**<br/>**`-b`** | Performs build action when deploying to a Linux function app. Accepts: `remote` and `local`. |
+| **`--build`**, **`-b`** | Performs build action when deploying to a Linux function app. Accepts: `remote` and `local`. |
 | **`--additional-packages`** | List of packages to install when building native dependencies. For example: `python3-dev libevent-dev`. |
 | **`--force`** | Ignore pre-publishing verification in certain scenarios. |
 | **`--csx`** | Publish a C# script (.csx) project. |
