@@ -65,7 +65,7 @@ Container groups can share an external-facing IP address and a port namespace on
 
 Within a container group, container instances can reach each other via localhost on any port, even if those ports aren't exposed externally on the group's IP address or from the container.
 
-Optionally deploy container groups into an [Azure virtual network][virtual-network] (preview) to allow containers to communicate securely with other resources in the virtual network.
+Optionally deploy container groups into an [Azure virtual network][virtual-network] to allow containers to communicate securely with other resources in the virtual network.
 
 ## Storage
 
