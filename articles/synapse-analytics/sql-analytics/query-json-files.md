@@ -1,5 +1,5 @@
 ---
-title: Querying JSON files
+title: Query JSON files
 description: This section explains how to read JSON files.
 services: synapse analytics
 author: azaricstefan
@@ -11,9 +11,9 @@ ms.author: v-stazar
 ms.reviewer: jrasnick
 ---
 
-# Quickstart: Querying JSON files 
+# Quickstart: Query JSON files 
 
-In this article, you will learn how to write a query in SQL Analytics on-demand that will read JSON files.
+In this article, you'll learn how to write a query in SQL on-demand that will read JSON files.
 
 ## Prerequisites
 
@@ -44,9 +44,9 @@ The section below contains sample scripts to read JSON files. Files are stored i
 
 
 
-## Reading JSON files
+## Read JSON files
 
-To process JSON files using JSON_VALUE and JSON_QUERY](https://docs.microsoft.com/sql/t-sql/functions/json-query-transact-sql?view=sql-server-2017), you need to read the JSON file from storage as a single column. The following script reads the *book1.json* file as a single column:
+To process JSON files using JSON_VALUE and [JSON_QUERY](https://docs.microsoft.com/sql/t-sql/functions/json-query-transact-sql?view=sql-server-2017), you need to read the JSON file from storage as a single column. The following script reads the *book1.json* file as a single column:
 
 ```mssql
 SELECT 
@@ -65,10 +65,10 @@ FROM
 ```
 
 > [!NOTE]
-> Note that you are reading entire JSON file as single row/column so FIELDTERMINATOR, FIELDQUOTE and ROWTERMINATOR are set to 0x0b.
+> You are reading the entire JSON file as single row or column. So, FIELDTERMINATOR, FIELDQUOTE and ROWTERMINATOR are set to 0x0b.
 
 
-## Querying JSON files using JSON_VALUE
+## Query JSON files using JSON_VALUE
 
 The query below shows you how to use [JSON_VALUE](https://docs.microsoft.com/sql/t-sql/functions/json-value-transact-sql?view=sql-server-2017) to retrieve scalar values (title, publisher) from a book entitled *Probabilistic and Statistical Methods in Cryptology, An Introduction by Selected articles*:
 
@@ -93,7 +93,7 @@ WHERE
 ```
 
 
-## Querying JSON files using JSON_QUERY
+## Query JSON files using JSON_QUERY
 
 The following query shows you how to use [JSON_QUERY](https://docs.microsoft.com/sql/t-sql/functions/json-query-transact-sql?view=sql-server-2017) to retrieve objects and arrays (authors) from a book entitled *Probabilistic and Statistical Methods in Cryptology, An Introduction by Selected Topics*:
 
@@ -117,9 +117,9 @@ WHERE
 ```
 
 
-## Querying JSON files using OPENJSON
+## Query JSON files using OPENJSON
 
-The following query shows you how to use [OPENJSON](https://docs.microsoft.com/sql/t-sql/functions/openjson-transact-sql?view=sql-server-2017) to retrieve objects and properties within a book entitled *Probabilistic and Statistical Methods in Cryptology, An Introduction by Selected articles*:
+The following query uses [OPENJSON](https://docs.microsoft.com/sql/t-sql/functions/openjson-transact-sql?view=sql-server-2017). It will retrieve objects and properties within a book entitled *Probabilistic and Statistical Methods in Cryptology, An Introduction by Selected articles*:
 
 ```mssql
 SELECT
@@ -142,6 +142,4 @@ WHERE
 
 ## Next steps
 
-Advance to the next article to learn how create and use views.
-> [!div class="nextstepaction"]
-> [Creating and using views](create-use-views.md)
+The next article in this series will demonstrate how to [Create and use views](create-use-views.md).
