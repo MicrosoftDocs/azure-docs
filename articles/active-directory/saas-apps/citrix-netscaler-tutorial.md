@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Citrix NetScaler (Kerberos-based authentication)'
-description: Learn how to configure single sign-on between Azure Active Directory and Citrix NetScaler.
+title: 'Tutorial: Azure Active Directory single sign-on integration with Citrix NetScaler (Kerberos-based authentication) | Microsoft Docs'
+description: Learn how to configure single sign-on (SSO) between Azure Active Directory and Citrix NetScaler.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -45,7 +45,7 @@ In this tutorial, you configure and test Azure AD SSO in a test environment. The
 
 * **Just in time** user provisioning for Citrix NetScaler
 
-* [Kerberos-based authentication for Citrix NetScaler](#configure-citrix-netscaler-single-sign-on-for-kerberos-based-authentication)
+* [Kerberos-based authentication for Citrix NetScaler](#configure-citrix-netscaler-sso-for-kerberos-based-authentication)
 
 * [Header-based authentication for Citrix NetScaler](header-citrix-netscaler-tutorial.md)
 
@@ -70,7 +70,7 @@ To configure and test Azure AD SSO with Citrix NetScaler, complete the following
     1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD SSO with B.Simon.
     1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD SSO.
 1. **[Configure Citrix NetScaler SSO](#configure-citrix-netscaler-sso)** - to configure the SSO settings on the application side.
-    * **[Create a Citrix NetScaler test user](#create-citrix-netscaler-test-user)** - to have a counterpart of B.Simon in Citrix NetScaler that is linked to the Azure AD representation of the user.
+    * **[Create a Citrix NetScaler test user](#create-a-citrix-netscaler-test-user)** - to have a counterpart of B.Simon in Citrix NetScaler that is linked to the Azure AD representation of the user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
 ## Configure Azure AD SSO
@@ -142,7 +142,7 @@ In this section, you enable the user B.Simon to use Azure SSO by granting the us
 
 Select a link for steps for the kind of authentication you want to configure:
 
-- [Configure Citrix NetScaler SSO for Kerberos-based authentication](#configure-citrix-netscaler-single-sign-on-for-kerberos-based-authentication)
+- [Configure Citrix NetScaler SSO for Kerberos-based authentication](#configure-citrix-netscaler-sso-for-kerberos-based-authentication)
 
 - [Configure Citrix NetScaler SSO for header-based authentication](header-citrix-netscaler-tutorial.md)
 
@@ -154,7 +154,7 @@ To create a virtual server:
     
 1. Select **Add**.
 
-    ![Citrix NetScaler configuration - Services](./media/citrix-netscaler-tutorial/web01.png)
+    ![Citrix NetScaler configuration - Services pane](./media/citrix-netscaler-tutorial/web01.png)
 
 1. Set the following values for the web server that's running the applications:
 
@@ -180,7 +180,7 @@ To configure the load balancer:
 
 1. Select **OK**.
 
-    ![Citrix NetScaler configuration - Basic Settings](./media/citrix-netscaler-tutorial/load01.png)
+    ![Citrix NetScaler configuration - Basic Settings pane](./media/citrix-netscaler-tutorial/load01.png)
 
 ### Bind the virtual server
 
@@ -188,7 +188,7 @@ To bind the load balancer with the virtual server:
 
 1. Under **Services and Service Groups**, select **Load Balancing Virtual Server Service Binding**.
 
-   ![Citrix NetScaler configuration - Load Balancing Virtual Server Service Binding](./media/citrix-netscaler-tutorial/bind01.png)
+   ![Citrix NetScaler configuration - Load Balancing Virtual Server Service Binding pane](./media/citrix-netscaler-tutorial/bind01.png)
 
 1. Verify the settings as shown in the following screenshot, and then select **Close**.
 
@@ -200,7 +200,7 @@ To publish this service as SSL, bind the server certificate, and then test your 
 
 1. Under **Certificate**, select **Server Certificate**.
 
-   ![Citrix NetScaler configuration - Server Certificate](./media/citrix-netscaler-tutorial/bind03.png)
+   ![Citrix NetScaler configuration - Server Certificate pane](./media/citrix-netscaler-tutorial/bind03.png)
 
 1. Verify the settings as shown in the following screenshot, and then select **Close**.
 
@@ -222,7 +222,7 @@ To create an authentication policy:
     * **Action**: Enter **SAML**, and then select **Add**.
     * **Expression**:  Enter **true**.     
     
-    ![Citrix NetScaler configuration - Create Authentication Policy](./media/citrix-netscaler-tutorial/policy01.png)
+    ![Citrix NetScaler configuration - Create Authentication Policy pane](./media/citrix-netscaler-tutorial/policy01.png)
 
 1. Select **Create**
 
@@ -242,7 +242,7 @@ To create an authentication SAML server:
 
 1. Select **Create**.
 
-![Citrix NetScaler configuration - Create Authentication SAML Server](./media/citrix-netscaler-tutorial/server01.png)
+![Citrix NetScaler configuration - Create Authentication SAML Server pane](./media/citrix-netscaler-tutorial/server01.png)
 
 ### Create an authentication virtual server
 
@@ -268,17 +268,17 @@ Modify two sections for the authentication virtual server:
 
 1.	On the **Advanced Authentication Policies** pane, select **Authentication Policy**.
 
-    ![Citrix NetScaler configuration - Advanced Authentication Policies](./media/citrix-netscaler-tutorial/virtual01.png)
+    ![Citrix NetScaler configuration - Advanced Authentication Policies pane](./media/citrix-netscaler-tutorial/virtual01.png)
 
 1. On the **Policy Binding** pane, select the authentication policy.
 
 1. Select **Bind**.
 
-    ![Citrix NetScaler configuration - Policy Binding](./media/citrix-netscaler-tutorial/virtual02.png)
+    ![Citrix NetScaler configuration - Policy Binding pane](./media/citrix-netscaler-tutorial/virtual02.png)
 
 1. On the **Form Based Virtual Servers** pane, select **Load Balancing Virtual Server**.
 
-    ![Citrix NetScaler configuration - Form Based Virtual Servers](./media/citrix-netscaler-tutorial/virtual03.png)
+    ![Citrix NetScaler configuration - Form Based Virtual Servers pane](./media/citrix-netscaler-tutorial/virtual03.png)
 
 1. For **Authentication FQDN**, enter a fully qualified domain name (FQDN) (required).
 
@@ -286,7 +286,7 @@ Modify two sections for the authentication virtual server:
 
 1. Select **Bind**.
 
-    ![Citrix NetScaler configuration - Load Balancing Virtual Server Binding](./media/citrix-netscaler-tutorial/virtual04.png)
+    ![Citrix NetScaler configuration - Load Balancing Virtual Server Binding pane](./media/citrix-netscaler-tutorial/virtual04.png)
 
     > [!NOTE]
     > Be sure to select **Done** on the **Authentication Virtual Server Configuration** pane.
@@ -301,7 +301,7 @@ Modify two sections for the authentication virtual server:
 
 1. Create a user account (in this example, we use _AppDelegation_).
 
-    ![Citrix NetScaler configuration - Properties](./media/citrix-netscaler-tutorial/kerberos01.png)
+    ![Citrix NetScaler configuration - Properties pane](./media/citrix-netscaler-tutorial/kerberos01.png)
 
 1. Set up a HOST SPN for this account. 
 
@@ -315,7 +315,7 @@ Modify two sections for the authentication virtual server:
 
 1. Configure delegation for the web server as shown in the following screenshot:
  
-    ![Citrix NetScaler configuration - Delegation under Properties](./media/citrix-netscaler-tutorial/kerberos02.png)
+    ![Citrix NetScaler configuration - Delegation under Properties pane](./media/citrix-netscaler-tutorial/kerberos02.png)
 
     > [!NOTE]
     > In the screenshot example, the internal web server name running the Windows Integrated Authentication (WIA) site is _CWEB2_.
@@ -343,7 +343,7 @@ To configure the Citrix NetScaler AAA KCD account:
 
 1. Select **OK**.
  
-    ![Citrix NetScaler configuration - Configure KCD Account](./media/citrix-netscaler-tutorial/kerberos03.png)
+    ![Citrix NetScaler configuration - Configure KCD Account pane](./media/citrix-netscaler-tutorial/kerberos03.png)
 
 ### Citrix traffic policy and traffic profile
 
@@ -365,7 +365,7 @@ To configure the Citrix traffic policy and traffic profile:
 
 1. Select **OK**.
 
-    ![Citrix NetScaler configuration - Configure Traffic Profile](./media/citrix-netscaler-tutorial/kerberos04.png)
+    ![Citrix NetScaler configuration - Configure Traffic Profile pane](./media/citrix-netscaler-tutorial/kerberos04.png)
  
 1.	Select **Traffic Policy**.
 
@@ -381,11 +381,11 @@ To configure the Citrix traffic policy and traffic profile:
 
 1. Select **OK**.
 
-    ![Citrix NetScaler configuration - Configure Traffic Policy](./media/citrix-netscaler-tutorial/kerberos05.png)
+    ![Citrix NetScaler configuration - Configure Traffic Policy pane](./media/citrix-netscaler-tutorial/kerberos05.png)
 
-### Citrix: Bind traffic policy to virtual servers
+### Bind the traffic policy to a virtual server in Citrix
 
-To bind a traffic policy to a specific virtual server by using the GUI:
+To bind a traffic policy to a virtual server by using the GUI:
 
 1. Go to **Traffic Management** > **Load Balancing** > **Virtual Servers**.
 
@@ -393,13 +393,13 @@ To bind a traffic policy to a specific virtual server by using the GUI:
 
 1. On the **Load Balancing Virtual Server** pane, under **Advanced Settings**, select **Policies**. All policies that are configured for your NetScaler instance appear in the list.
  
-    ![Citrix NetScaler configuration - Load Balancing Virtual Server](./media/citrix-netscaler-tutorial/kerberos06.png)
+    ![Citrix NetScaler configuration - Load Balancing Virtual Server pane](./media/citrix-netscaler-tutorial/kerberos06.png)
 
     ![Citrix NetScaler configuration - Policies dialog box](./media/citrix-netscaler-tutorial/kerberos07.png)
 
-1.	Select the **check box** next to the name of the policy you want to bind to this virtual server.
+1.	Select the check box next to the name of the policy you want to bind to this virtual server.
  
-    ![Citrix NetScaler configuration - Load Balancing Virtual Server Traffic Policy  Binding](./media/citrix-netscaler-tutorial/kerberos09.png)
+    ![Citrix NetScaler configuration - Load Balancing Virtual Server Traffic Policy Binding pane](./media/citrix-netscaler-tutorial/kerberos09.png)
 
 1. In the **Choose Type** dialog box:
 
@@ -407,11 +407,11 @@ To bind a traffic policy to a specific virtual server by using the GUI:
 
     1. For **Choose Type**, select **Request**.
 
-    ![Citrix NetScaler configuration - Choose Type](./media/citrix-netscaler-tutorial/kerberos08.png)
+    ![Citrix NetScaler configuration - Choose Type pane](./media/citrix-netscaler-tutorial/kerberos08.png)
 
 1. When the policy is bound, select **Done**.
  
-    ![Citrix NetScaler configuration - Policies](./media/citrix-netscaler-tutorial/kerberos10.png)
+    ![Citrix NetScaler configuration - Policies pane](./media/citrix-netscaler-tutorial/kerberos10.png)
 
 1. Test the binding by using the WIA website.
 
