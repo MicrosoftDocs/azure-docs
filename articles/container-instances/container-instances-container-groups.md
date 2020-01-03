@@ -61,7 +61,7 @@ In this scenario, you could set a resource limit of 2 CPUs for the instance. Thi
 
 ## Networking
 
-Container groups can share an external-facing IP address, a port on that IP address, and a DNS label with a fully qualified domain name (FQDN). To enable external clients to reach a container within the group, you must expose the port on the IP address and from the container. Because containers within the group share a port namespace, port mapping isn't supported. A container group's IP address and FQDN will be released when the container group is deleted. 
+Container groups can share an external-facing IP address, one or more ports on that IP address, and a DNS label with a fully qualified domain name (FQDN). To enable external clients to reach a container within the group, you must expose the port on the IP address and from the container. Because containers within the group share a port namespace, port mapping isn't supported. A container group's IP address and FQDN will be released when the container group is deleted. 
 
 Within a container group, containers instances can reach each other via localhost on any port, even if those ports aren't exposed externally on the group's IP address or from the container.
 
