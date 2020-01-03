@@ -13,35 +13,33 @@ ms.reviewer: craigg
 # Troubleshoot Azure Data Factory Connectors
 
 This article explores common troubleshooting methods for connectors in Azure Data Factory.
+  
 
-## Azure Data Lake Storage
+## Azure Blob Storage
 
-### Error message: The remote server returned an error: (403) Forbidden
+### Error code:  AzureBlobOperationFailed
 
-- **Symptoms**: Copy activity fail with the following error: 
+- **Message**: `Blob operation Failed. ContainerName: %containerName;, path: %path;.`
 
-    ```
-    Message: The remote server returned an error: (403) Forbidden.. 
-    Response details: {"RemoteException":{"exception":"AccessControlException""message":"CREATE failed with error 0x83090aa2 (Forbidden. ACL verification failed. Either the resource does not exist or the user is not authorized to perform the requested operation.)....
-    ```
+- **Cause**: Blob storage operation hit problem.
 
-- **Cause**: One possible cause is that the service principal or managed identity you use doesn't have permission to access the certain folder/file.
+- **Recommendation**:  Check the error in details. Refer to blob help document: https://docs.microsoft.com/rest/api/storageservices/blob-service-error-codes. Contact storage team if need help.
 
-- **Resolution**: Grant corresponding permissions on all the folders and subfolders you need to copy. Refer to [this doc](connector-azure-data-lake-store.md#linked-service-properties).
 
-### Error message: Failed to get access token by using service principal. ADAL Error: service_unavailable
+### Error code:  AzureBlobServiceNotReturnExpectedDataLength
 
-- **Symptoms**: Copy activity fail with the following error:
+- **Message**: `Error occurred when trying to fetch the blob '%name;'. This could be a transient issue and you may rerun the job. If it fails again continuously, contact customer support.`
 
-    ```
-    Failed to get access token by using service principal. 
-    ADAL Error: service_unavailable, The remote server returned an error: (503) Server Unavailable.
-    ```
 
-- **Cause**: When the Service Token Server (STS) owned by Azure Active Directory is not unavailable, i.e., too
-busy to handle requests, it returns an HTTP error 503. 
+### Error code:  AzureBlobNotSupportMultipleFilesIntoSingleBlob
 
-- **Resolution**: Rerun the copy activity after several minutes.
+- **Message**: `Transferring multiple files into a single Blob is not supported. Currently only single file source is supported.`
+
+
+### Error code:  AzureStorageOperationFailedConcurrentWrite
+
+- **Message**: `Error occurred when trying to upload a file. It's possible because you have multiple concurrent copy activities runs writing to the same file '%name;'. Check your ADF configuration.`
+
 
 ## Azure Cosmos DB
 
@@ -116,61 +114,97 @@ Cosmos DB calculates RU from [here](../cosmos-db/request-units.md#request-unit-c
 - **Cause**: There are two ways to represent UUID in BSON - UuidStardard and UuidLegacy. By default, UuidLegacy is used to read data. You will hit error if your UUID data in MongoDB is UuidStandard.
 
 - **Resolution**: In MongoDB connection string, add option "**uuidRepresentation=standard**". For more information, see [MongoDB connection string](connector-mongodb.md#linked-service-properties).
+			
 
-## SFTP
+## Azure Data Lake Gen2
 
-### Error message: Invalid SFTP credential provided for 'SshPublicKey' authentication type
+### Error code:  AdlsGen2OperationFailed
 
-- **Symptoms**: You use `SshPublicKey` authentication and hit the following error:
+- **Message**: `ADLS Gen2 operation failed for: %adlsGen2Message;.%exceptionData;.`
+
+<br/>
+
+- **Cause**: ADLS Gen2 throws the error indicating operation failed.
+
+- **Recommendation**:  Check the detailed error message thrown by ADLS Gen2. If it's caused by transient failure, please retry. If you need further help, please contact Azure Storage support and provide the request ID in error message.
+
+<br/>
+
+- **Cause**: When the error message contains 'Forbidden', the service principal or managed identity you use may not have enough permission to access the ADLS Gen2.
+
+- **Recommendation**:  Refer to the help document: https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#service-principal-authentication.
+
+<br/>
+
+- **Cause**: When the error message contains 'InternalServerError', the error is returned by ADLS Gen2.
+
+- **Recommendation**:  It may be caused by transient failure, please retry. If the issue persists, please contact Azure Storage support and provide the request ID in error message.
+
+
+### Error code:  AdlsGen2InvalidUrl
+
+- **Message**: `Invalid url '%url;' provided, expecting http[s]://<accountname>.dfs.core.windows.net.`
+
+
+### Error code:  AdlsGen2InvalidFolderPath
+
+- **Message**: `The folder path is not specified. Cannot locate the file '%name;' under the ADLS Gen2 account directly. Please specify the folder path instead.`
+
+
+### Error code:  AdlsGen2OperationFailedConcurrentWrite
+
+- **Message**: `Error occurred when trying to upload a file. It's possible because you have multiple concurrent copy activities runs writing to the same file '%name;'. Check your ADF configuration.`
+
+
+### Error code:  AdlsGen2TimeoutError
+
+- **Message**: `Request to ADLS Gen2 account '%account;' met timeout error. It is mostly caused by the poor network between the Self-hosted IR machine and the ADLS Gen2 account. Check the network to resolve such error.`
+
+
+## Azure Data Lake Storage
+
+### Error message: The remote server returned an error: (403) Forbidden
+
+- **Symptoms**: Copy activity fail with the following error: 
 
     ```
-    Invalid Sftp credential provided for 'SshPublicKey' authentication type
+    Message: The remote server returned an error: (403) Forbidden.. 
+    Response details: {"RemoteException":{"exception":"AccessControlException""message":"CREATE failed with error 0x83090aa2 (Forbidden. ACL verification failed. Either the resource does not exist or the user is not authorized to perform the requested operation.)....
     ```
 
-- **Cause**: There are three possible causes:
+- **Cause**: One possible cause is that the service principal or managed identity you use doesn't have permission to access the certain folder/file.
 
-    1. If you use ADF authoring UI to author SFTP linked service, this error means the private key you choose to use is of wrong format. You may use a PKCS#8 format of SSH private key, while note that ADF only supports the traditional SSH Key format. More specifically, the difference between PKCS#8 format and traditional Key format is PKCS#8 key content starts with “*-----BEGIN ENCRYPTED PRIVATE KEY-----*” whereas traditional key format starts with “*-----BEGIN RSA PRIVATE KEY-----*”.
-    2. If you use Azure Key Vault to store the private key content or use programmatical way to author the SFTP linked service, this error means the private key content there is incorrect, likely it's not base64 encoded.
-    3. Invalid credential or private key content.
+- **Resolution**: Grant corresponding permissions on all the folders and subfolders you need to copy. Refer to [this doc](connector-azure-data-lake-store.md#linked-service-properties).
 
-- **Resolution**: 
+### Error message: Failed to get access token by using service principal. ADAL Error: service_unavailable
 
-    - For cause #1, run the following commands to convert the key to traditional key format, then use it in ADF authoring UI.
+- **Symptoms**: Copy activity fail with the following error:
 
-        ```
-        # Decrypt the pkcs8 key and convert the format to traditional key format
-        openssl pkcs8 -in pkcs8_format_key_file -out traditional_format_key_file
+    ```
+    Failed to get access token by using service principal. 
+    ADAL Error: service_unavailable, The remote server returned an error: (503) Server Unavailable.
+    ```
 
-        chmod 600 traditional_format_key_file
+- **Cause**: When the Service Token Server (STS) owned by Azure Active Directory is not unavailable, i.e., too
+busy to handle requests, it returns an HTTP error 503. 
 
-        # Re-encrypte the key file using passphrase
-        ssh-keygen -f traditional_format_key_file -p
-        ```
+- **Resolution**: Rerun the copy activity after several minutes.
+			      
 
-    - For cause #2, To generate such string, customer can use below 2 ways:
-    - Using third-party base64 convert tool: paste the whole private key content to tools like [Base64 Encode and Decode](https://www.base64encode.org/), encode it to a base64 format string, then paste this string to key vault or use this value for authoring SFTP linked service programmatically.
-    - Using C# code:
-
-        ```c#
-        byte[] keyContentBytes = File.ReadAllBytes(privateKeyPath);
-        string keyContent = Convert.ToBase64String(keyContentBytes, Base64FormattingOptions.None);
-        ```
-
-    - For cause #3, double check if the key file or password is correct using other tools to validate if you can use it to access the SFTP server properly.
-  
-
-## Azure SQL Data Warehouse \ Azure SQL Database \ SQL Server
+## Azure SQL Data Warehouse/Azure SQL Database/SQL Server
 
 ### Error code:  SqlFailedToConnect
 
 - **Message**: `Cannot connect to SQL Database: '%server;', Database: '%database;', User: '%user;'. Check the linked service configuration is correct, and make sure the SQL Database firewall allows the integration runtime to access.`
 
 <br/>
+
 - **Cause**: If the error message contains "SqlException", SQL Database throws the error indicating some specific operation failed.
 
 - **Recommendation**:  Please search by SQL error code in this reference doc for more details: https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors. If you need further help, contact Azure SQL support.
 
 <br/>
+
 - **Cause**: If the error message contains "Client with IP address '...' is not allowed to access the server", and you are trying to connect to Azure SQL Database, usually it is caused by Azure SQL Database firewall issue.
 
 - **Recommendation**:  In Azure SQL Server firewall configuration, enable "Allow Azure services and resources to access this server" option. Reference doc: https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure.
@@ -181,17 +215,20 @@ Cosmos DB calculates RU from [here](../cosmos-db/request-units.md#request-unit-c
 - **Message**: `A database operation failed. Please search error to get more details.`
 
 <br/>
+
 - **Cause**: If the error message contains "SqlException", SQL Database throws the error indicating some specific operation failed.
 
-- **Recommendation**:  If sql error is not clear, try to alter the database to latest compatibility level '150'. This level can print more information, include the rows\columns. Reference doc:https://techcommunity.microsoft.com/t5/Azure-SQL-Database/General-availability-Database-compatibility-level-150-in-Azure/ba-p/1003458.
-          Please search by SQL error code in this reference doc for more details: https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors. If you need further help, contact Azure SQL support.
+- **Recommendation**:  If SQL error is not clear, please try to alter the database to latest compatibility level '150'. It can throw latest version SQL errors. Please refer the detail doc:  https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-compatibility-level?view=sql-server-ver15#backwardCompat.
+		For troublesthooing SQL issues, please search by SQL error code in this reference doc for more details: https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors. If you need further help, contact Azure SQL support.
 
 <br/>
+
 - **Cause**: If the error message contains "PdwManagedToNativeInteropException", usually it's caused by mismatch between source and sink column sizes.
 
 - **Recommendation**:  Check the size of both source and sink columns. If you need further help, contact Azure SQL support.
 
 <br/>
+
 - **Cause**: If the error message contains "InvalidOperationException", usually it's caused by invalid input data.
 
 - **Recommendation**:  To identify which row encounters the problem, please enable fault tolerance feature on copy activity, which can redirect problematic row(s) to the storage for further investigation. Reference doc: https://docs.microsoft.com/azure/data-factory/copy-activity-fault-tolerance.
@@ -229,11 +266,13 @@ Cosmos DB calculates RU from [here](../cosmos-db/request-units.md#request-unit-c
 - **Message**: `A database operation failed. Check the SQL errors.`
 
 <br/>
+
 - **Cause**: If the issue happens on SQL source and the error is related to SqlDateTime overflow, the data value is over the logic type range (1/1/1753 12:00:00 AM - 12/31/9999 11:59:59 PM).
 
 - **Recommendation**:  Cast the type to string in source SQL query, or in copy activity column mapping change the column type to 'String'.
 
 <br/>
+
 - **Cause**: If the issue happens on SQL sink and the error is related to SqlDateTime overflow, the data value is over the allowed range in sink table.
 
 - **Recommendation**:  Update the corresponding column type to 'datetime2' type in sink table.
@@ -277,7 +316,7 @@ Cosmos DB calculates RU from [here](../cosmos-db/request-units.md#request-unit-c
 
 - **Cause**: Could be SQL Database transient failure.
 
-- **Recommendation**:  If problem repro, contact Azure SQL support.
+- **Recommendation**:  Please retry. If problem repro, contact Azure SQL support.
 
 
 ### Error code:  SqlBatchWriteTransactionFailed
@@ -285,11 +324,13 @@ Cosmos DB calculates RU from [here](../cosmos-db/request-units.md#request-unit-c
 - **Message**: `SQL transaction commits failed`
 
 <br/>
+
 - **Cause**: If exception details constantly tell transaction timeout, the network latency between integration runtime and database is higher than default threshold as 30 seconds.
 
 - **Recommendation**:  Update Sql linked service connection string with 'connection timeout' value equals to 120 or higher and rerun the activity.
 
 <br/>
+
 - **Cause**: If exception details intermittently tell sqlconnection broken, it could just be transient network failure or SQL Database side issue
 
 - **Recommendation**:  Please retry the activity and review SQL Database side metrics.
@@ -311,7 +352,12 @@ Cosmos DB calculates RU from [here](../cosmos-db/request-units.md#request-unit-c
 - **Cause**: SQL connection is closed by SQL Database when high concurrent run and server terminate connection.
 
 - **Recommendation**:  Remote server closed the SQL connection. Please retry. If problem repro, contact Azure SQL support.
-<br/>
+
+
+### Error code:  SqlCreateTableFailedUnsupportedType
+
+- **Message**: `Type '%type;' in source side cannot be mapped to a type that supported by sink side(column name:'%name;') in autocreate table.`
+
 
 ### Error message: Conversion failed when converting from a character string to uniqueidentifier
 
@@ -389,93 +435,8 @@ Cosmos DB calculates RU from [here](../cosmos-db/request-units.md#request-unit-c
 
 - **Resolution**: Run the same query in SSMS and check if you see the same result. If yes, open a support ticket to Azure SQL Data Warehouse and provide your SQL DW server and database name to further troubleshoot.
             
-### Error code:  SqlCreateTableFailedUnsupportedType
 
-- **Message**: `Type '%type;' in source side cannot be mapped to a type that supported by sink side(column name:'%name;') in autocreate table.`
-
-
-
-## Azure Blob Storage
-
-### Error code:  AzureBlobOperationFailed
-
-- **Message**: `Blob operation Failed. ContainerName: %containerName;, path: %path;.`
-
-- **Cause**: Blob storage operation hit problem.
-
-- **Recommendation**:  Check the error in details. Refer to blob help document: https://docs.microsoft.com/rest/api/storageservices/blob-service-error-codes. Contact storage team if need help.
-
-
-### Error code:  AzureBlobServiceNotReturnExpectedDataLength
-
-- **Message**: `Error occurred when trying to fetch the blob '%name;'. This could be a transient issue and you may rerun the job. If it fails again continuously, contact customer support.`
-
-
-### Error code:  AzureBlobInvalidBlockSize
-
-- **Message**: `Block size should between %minSize; MB and 100 MB.`
-
-
-### Error code:  AzureBlobNotSupportMultipleFilesIntoSingleBlob
-
-- **Message**: `Transferring multiple files into a single Blob is not supported. Currently only single file source is supported.`
-
-
-### Error code:  AzureStorageOperationFailedConcurrentWrite
-
-- **Message**: `Error occurred when trying to upload a file. It's possible because you have multiple concurrent copy activities runs writing to the same file '%name;'. Check your ADF configuration.  `
-
-
-
-## Azure Data Lake Gen2
-
-### Error code:  AdlsGen2OperationFailed
-
-- **Message**: `ADLS Gen2 operation failed for: %adlsGen2Message;.%exceptionData;.`
-
-<br/>
-- **Cause**: ADLS Gen2 throws the error indicating operation failed.
-
-- **Recommendation**:  Check the detailed error message thrown by ADLS Gen2. If it's caused by transient failure, please retry. If you need further help, please contact Azure Storage support and provide the request ID in error message.
-
-<br/>
-- **Cause**: When the error message contains 'Forbidden', the service principal or managed identity you use may not have enough permission to access the ADLS Gen2.
-
-- **Recommendation**:  Refer to the help document: https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#service-principal-authentication.
-
-<br/>
-- **Cause**: When the error message contains 'InternalServerError', the error is returned by ADLS Gen2.
-
-- **Recommendation**:  It may be caused by transient failure, please retry. If the issue persists, please contact Azure Storage support and provide the request ID in error message.
-
-
-### Error code:  AdlsGen2InvalidUrl
-
-- **Message**: `Invalid url '%url;' provided, expecting http[s]://<accountname>.dfs.core.windows.net.`
-
-
-### Error code:  AdlsGen2InvalidAccountKey
-
-- **Message**: `The specified account key is invalid. Check your ADF configuration.`
-
-
-### Error code:  AdlsGen2InvalidFolderPath
-
-- **Message**: `The folder path is not specified. Cannot locate the file '%name;' under the ADLS Gen2 account directly. Please specify the folder path instead.`
-
-
-### Error code:  AdlsGen2OperationFailedConcurrentWrite
-
-- **Message**: `Error occurred when trying to upload a file. It's possible because you have multiple concurrent copy activities runs writing to the same file '%name;'. Check your ADF configuration.`
-
-
-### Error code:  AdlsGen2TimeoutError
-
-- **Message**: `Request to ADLS Gen2 account '%account;' met timeout error. It is mostly caused by the poor network between the Self-hosted IR machine and the ADLS Gen2 account. Check the network to resolve such error.`
-
-
-
-## Dynamics
+## Dynamics 365/Common Data Service/Dynamics CRM
 
 ### Error code:  DynamicsCreateServiceClientError
 
@@ -487,6 +448,94 @@ Cosmos DB calculates RU from [here](../cosmos-db/request-units.md#request-unit-c
 
 
 
+## Json Format
+
+### Error code:  JsonInvalidArrayPathDefinition
+
+- **Message**: `Error occurred when deserializing source JSON data. Check whether the JsonPath in JsonNodeReference and JsonPathDefintion is valid.`
+
+
+### Error code:  JsonEmptyJObjectData
+
+- **Message**: `The specified row delimiter %rowDelimiter; is incorrect. Cannot detect a row after parse %size; MB data.`
+
+
+### Error code:  JsonNullValueInPathDefinition
+
+- **Message**: `Null JSONPath detected in JsonPathDefinition.`
+
+
+### Error code:  JsonUnsupportedHierarchicalComplexValue
+
+- **Message**: `The retrieved type of data %data; with value %value; is not supported yet. Please either remove the targeted column '%name;' or enable skip incompatible row to skip the issue rows.`
+
+
+### Error code:  JsonConflictPartitionDiscoverySchema
+
+- **Message**: `Conflicting partition column names detected.'%schema;', '%partitionDiscoverySchema;'`
+
+
+### Error code:  JsonInvalidDataFormat
+
+- **Message**: `Error occurred when deserializing source JSON file '%fileName;'. Check if the data is in valid JSON object format.`
+
+
+### Error code:  JsonInvalidDataMixedArrayAndObject
+
+- **Message**: `Error occurred when deserializing source JSON file '%fileName;'. The JSON format doesn't allow mixed arrays and objects.`
+
+
+
+## Delimited Text Format
+
+### Error code:  DelimitedTextColumnNameNotAllowNull
+
+- **Message**: `The name of column index %index; is empty. Make sure column name is properly specified in the header row.`
+
+- **Cause**: When set 'firstRowAsHeader' in activity, the first row will be used as column name. This error means the first row contains empty value. For example: 'ColumnA,,ColumnB'.
+
+- **Recommendation**:  Check the first row, and fix the value if there is empty value.
+
+
+### Error code:  DelimitedTextMoreColumnsThanDefined
+
+- **Message**: `Error found when processing '%function;' source '%name;' with row number %rowCount;: found more columns than expected column count: %columnCount;.`
+
+<br/>
+
+- **Cause**: The problematic row's column count is large than the first row's column count. It may be caused by data issue or incorrect column delimiter/quote char settings.
+
+- **Recommendation**:  Please get the row count in error message, check the row's column and fix the data.
+
+<br/>
+
+- **Cause**: If the expected column count is "1" in error message, it's possible that you specified wrong compression or format settings, which caused ADF to wrongly parse your file(s).
+
+- **Recommendation**:  Check the format settings to make sure it matches to your source file(s).
+
+<br/>
+
+- **Cause**: If your source is a folder, it's possible that the files under the specified folder have different schema.
+
+- **Recommendation**:  Make sure the files under the given folder have identical schema.
+
+
+### Error code:  DelimitedTextIncorrectRowDelimiter
+
+- **Message**: `The specified row delimiter %rowDelimiter; is incorrect. Cannot detect a row after parse %size; MB data.`
+
+
+### Error code:  DelimitedTextTooLargeColumnCount
+
+- **Message**: `Column count reaches limitation when deserializing csv file. Maximum size is '%size;'. Check the column delimiter and row delimiter provided. (Column delimiter: '%columnDelimiter;', Row delimiter: '%rowDelimiter;')`
+
+
+### Error code:  DelimitedTextInvalidSettings
+
+- **Message**: `%settingIssues;`
+
+
+
 ## Parquet Format
 
 ### Error code:  ParquetJavaInvocationException
@@ -494,16 +543,19 @@ Cosmos DB calculates RU from [here](../cosmos-db/request-units.md#request-unit-c
 - **Message**: `An error occurred when invoking java, message: %javaException;.`
 
 <br/>
+
 - **Cause**: When the error message contains 'java.lang.OutOfMemory', 'Java heap space' and 'doubleCapacity', usually it's a memory management issue in old version of integration runtime.
 
 - **Recommendation**:  If you are using Self-hosted Integration Runtime and the version is earlier than 3.20.7159.1, suggest to upgrade to the latest version.
 
 <br/>
+
 - **Cause**: When the error message contains 'java.lang.OutOfMemory', the integration runtime doesn't have enough resource to process the file(s).
 
 - **Recommendation**:  Limit the concurrent runs on the integration runtime. For Self-hosted Integration Runtime, scale up to a powerful machine with memory equal to or larger than 8 GB.
 
 <br/>
+
 - **Cause**: When error message contains 'NullPointerReference', it possible is a transient error.
 
 - **Recommendation**:  Please retry. If the problem persists, please contact support.
@@ -572,6 +624,15 @@ Cosmos DB calculates RU from [here](../cosmos-db/request-units.md#request-unit-c
 - **Recommendation**:  Double check source column count is same as sink column count in 'mapping'.
 
 
+### Error code:  ParquetDataTypeNotMatchColumnType
+
+- **Message**: The data type %srcType; is not match given column type %dstType; at column '%columnIndex;'.
+
+- **Cause**: Data from source cannot be converted to typed defined in sink
+
+- **Recommendation**:  Please specify a correct type in mapping.sink.
+
+
 ### Error code:  ParquetBridgeInvalidData
 
 - **Message**: `%message;`
@@ -600,91 +661,6 @@ Cosmos DB calculates RU from [here](../cosmos-db/request-units.md#request-unit-c
 
 
 
-## Delimited Text Format
-
-### Error code:  DelimitedTextColumnNameNotAllowNull
-
-- **Message**: `The name of column index %index; is empty. Make sure column name is properly specified in the header row.`
-
-- **Cause**: When set 'firstRowAsHeader' in activity, the first row will be used as column name. This error means the first row contains empty value. For example: 'ColumnA,,ColumnB'.
-
-- **Recommendation**:  Check the first row, and fix the value if there is empty value.
-
-
-### Error code:  DelimitedTextMoreColumnsThanDefined
-
-- **Message**: `Error found when processing '%function;' source '%name;' with row number %rowCount;: found more columns than expected column count: %columnCount;.`
-
-<br/>
-- **Cause**: The problematic row's column count is large than the first row's column count. It may be caused by data issue or incorrect column delimiter/quote char settings.
-
-- **Recommendation**:  Please get the row count in error message, check the row's column and fix the data.
-
-<br/>
-- **Cause**: If the expected column count is "1" in error message, it's possible that you specified wrong compression or format settings, which caused ADF to wrongly parse your file(s).
-
-- **Recommendation**:  Check the format settings to make sure it matches to your source file(s).
-
-<br/>
-- **Cause**: If your source is a folder, it's possible that the files under the specified folder have different schema.
-
-- **Recommendation**:  Make sure the files under the given folder have identical schema.
-
-
-### Error code:  DelimitedTextIncorrectRowDelimiter
-
-- **Message**: `The specified row delimiter %rowDelimiter; is incorrect. Cannot detect a row after parse %size; MB data.`
-
-
-### Error code:  DelimitedTextTooLargeColumnCount
-
-- **Message**: `Column count reaches limitation when deserializing csv file. Maximum size is '%size;'. Check the column delimiter and row delimiter provided. (Column delimiter: '%columnDelimiter;', Row delimiter: '%rowDelimiter;')`
-
-
-### Error code:  DelimitedTextInvalidSettings
-
-- **Message**: `%settingIssues;`
-
-
-
-## Json Format
-
-### Error code:  JsonInvalidArrayPathDefinition
-
-- **Message**: `Error occurred when deserializing source JSON data. Check whether the JsonPath in JsonNodeReference and JsonPathDefintion is valid.`
-
-
-### Error code:  JsonEmptyJObjectData
-
-- **Message**: `The specified row delimiter %rowDelimiter; is incorrect. Cannot detect a row after parse %size; MB data.`
-
-
-### Error code:  JsonNullValueInPathDefinition
-
-- **Message**: `Null JSONPath detected in JsonPathDefinition.`
-
-
-### Error code:  JsonUnsupportedHierarchicalComplexValue
-
-- **Message**: `The retrieved type of data %data; with value %value; is not supported yet. Please either remove the targeted column '%name;' or enable skip incompatible row to skip the issue rows.`
-
-
-### Error code:  JsonConflictPartitionDiscoverySchema
-
-- **Message**: `Conflicting partition column names detected.'%schema;', '%partitionDiscoverySchema;'`
-
-
-### Error code:  JsonInvalidDataFormat
-
-- **Message**: `Error occurred when deserializing source JSON file '%fileName;'. Check if the data is in valid JSON object format.`
-
-
-### Error code:  JsonInvalidDataMixedArrayAndObject
-
-- **Message**: `Error occurred when deserializing source JSON file '%fileName;'. The JSON format doesn't allow mixed arrays and objects.`
-
-
-
 ## General Copy Activity Error
 
 ### Error code:  JreNotFound
@@ -693,7 +669,7 @@ Cosmos DB calculates RU from [here](../cosmos-db/request-units.md#request-unit-c
 
 - **Cause**: The self-hosted integration runtime cannot find Java Runtime. The Java Runtime is required for reading particular source.
 
-- **Recommendation**:  Check your integration runtime environment, the reference doc: https://docs.microsoft.com/en-us/azure/data-factory/format-parquet#using-self-hosted-integration-runtime
+- **Recommendation**:  Check your integration runtime environment, the reference doc: https://docs.microsoft.com/azure/data-factory/format-parquet#using-self-hosted-integration-runtime
 
 
 ### Error code:  WildcardPathSinkNotSupported
