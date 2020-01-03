@@ -20,11 +20,14 @@ Collecting resource log data using Azure Monitor may incur additional costs. See
 
 ## Preview limitations
 
-Logging of repository-level events includes only the following events for images and other artifacts:
+The following repository-level events for images and other artifacts are currently logged:
+
 * **Push events**
 * **Pull events**
 * **Untag events**
 * **Delete events** (including repository delete events)
+
+Repository-level events that aren't currently logged: Purge events.
 
 ## Registry resource logs
 
