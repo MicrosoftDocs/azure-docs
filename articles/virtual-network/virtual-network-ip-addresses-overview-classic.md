@@ -150,7 +150,7 @@ The table below shows the limits imposed on IP addressing in Azure per subscript
 | Public VIP per deployment (cloud service) |5 |contact support |
 | Private VIP (ILB) per deployment (cloud service) |1 |1 |
 
-Make sure you read the full set of [limits for Networking](../azure-subscription-service-limits.md#networking-limits) in Azure.
+Make sure you read the full set of [limits for Networking](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits) in Azure.
 
 ## Pricing
 In most cases, public IP addresses are free. There is a nominal charge to use additional and/or static public IP addresses. Make sure you understand the [pricing structure for public IPs](https://azure.microsoft.com/pricing/details/ip-addresses/).

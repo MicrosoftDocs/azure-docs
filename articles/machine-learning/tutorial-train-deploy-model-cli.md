@@ -50,7 +50,7 @@ git clone https://github.com/microsoft/MLOps.git
 
 ### Training files
 
-The `examples/cli-train-delpoy` directory from the project contains the following files, which are used when training a model:
+The `examples/cli-train-deploy` directory from the project contains the following files, which are used when training a model:
 
 * `.azureml\mnist.runconfig`: A __run configuration__ file. This file defines the runtime environment needed to train the model. In this example, it also mounts the data used to train the model into the training environment.
 * `scripts\train.py`: The training script. This file trains the model.
