@@ -159,8 +159,6 @@ Set up your workspace to include all the people who will label data for any of y
 
 ### Create a labeling project
 
-Let's add a screenshot of project creation page here. https://docs.microsoft.com/en-us/azure/machine-learning/media/how-to-create-labeling-projects/labeling-creation-wizard.png
-
 Now that you have your list of labelers and access to the data you want to have labeled, create your labeling project.
 
 1. At the top of the page, select **Projects**.
