@@ -2,7 +2,7 @@
 title: Collect & analyze resource logs
 description: Record and analyze resource log events for Azure Container Registry such as authentication, image push, and image pull.
 ms.topic: article
-ms.date: 10/30/2019
+ms.date: 01/03/2020
 ---
 # Azure Container Registry logs for diagnostic evaluation and auditing
 
@@ -20,9 +20,11 @@ Collecting resource log data using Azure Monitor may incur additional costs. See
 
 ## Preview limitations
 
-Logging of repository-level events doesn't currently include delete or untag events. Only the following repository events are logged:
-* **Push events** for images and other artifacts
-* **Pull events** for images and other artifacts
+Logging of repository-level events includes only the following events for images and other artifacts:
+* **Push events**
+* **Pull events**
+* **Untag events**
+* **Delete events** (including repository delete events)
 
 ## Registry resource logs
 
