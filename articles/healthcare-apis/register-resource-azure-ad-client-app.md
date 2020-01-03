@@ -42,9 +42,12 @@ A resource application has an identifier URI (Application ID URI), which clients
 
 3. Enter the identifier URI and click **Save**. A good identifier URI would be the URI of your FHIR server.
 
-4. Click **Add a scope** and add any scopes that you would like to define for your API. You are required to add at least one scope in order to grant permissions to your resource application in the future. Azure AD does not currently allow slashes (`/`) in scope names. We recommend using `$` instead. A scope like `patient/*.read` would be `patient$*.read`. If you don't have any specific scopes you need to add, you can add user_impersonation as a scope.
+4. Click **Add a scope** and add any scopes that you would like to define for your API. You are required to add at least one scope in order to grant permissions to your resource application in the future. If you don't have any specific scopes you need to add, you can add user_impersonation as a scope.
 
-    ![Audience and scope](media/how-to-aad/portal-aad-register-new-app-registration-AUD-SCOPE.png)
+> [!NOTE]
+> Azure AD does not currently allow slashes (`/`) in scope names. We recommend using `$` instead. A scope like `patient/*.read` would be `patient$*.read`. 
+
+![Audience and scope](media/how-to-aad/portal-aad-register-new-app-registration-AUD-SCOPE.png)
 
 ## Define application roles
 
