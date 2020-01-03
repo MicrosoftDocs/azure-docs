@@ -186,9 +186,11 @@ Do the following steps in the Azure portal to refresh a share.
  
 If there is a failure, an alert is raised. The alert details the cause and the recommendation to fix the issue. The alert also links to a file that has the complete summary of the failures including the files that failed to update or delete.
 
-## Automated sync for pinned files 
+## Sync pinned files 
+
+To automatically sync up pinned files, do the following steps in the Azure portal:
  
-1. In the Azure portal, select an existing Azure storage account. 
+1. Select an existing Azure storage account. 
 
 2. Go to **Containers** and select **+ Container** to create a container. Name this container as *newcontainer*. Set the Public access level to Container.
 
