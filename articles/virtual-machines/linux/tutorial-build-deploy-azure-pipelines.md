@@ -10,7 +10,7 @@ ms.service: virtual-machines-linux
 ms.topic: tutorial
 ms.tgt_pltfrm: azure-pipelines
 ms.workload: infrastructure
-ms.date: 12/30/2020
+ms.date: 1/3/2020
 ms.author: ushan
 ms.custom: devops
 
