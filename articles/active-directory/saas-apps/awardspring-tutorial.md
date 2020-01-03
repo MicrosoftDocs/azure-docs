@@ -13,7 +13,7 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 12/31/2019
+ms.date: 01/03/2020
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -93,14 +93,14 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL. Contact [AwardSpring Client support team](mailto:support@awardspring.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
-1. AwardSpring application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes. Click **Edit** icon to open User Attributes dialog.
+1. AwardSpring application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
 
-	![image](common/edit-attribute.png)
+	![image](common/default-attributes.png)
 
-1. In addition to above, AwardSpring application expects few more attributes to be passed back in SAML response. In the User Claims section on the User Attributes dialog, perform the following steps to add SAML token attribute as shown in the below table:
+1. In addition to above, AwardSpring application expects few more attributes to be passed back in SAML response which are shown below. These attributes are also pre populated but you can review them as per your requirements.
 
 	|  Name | Source Attribute |
-	| ---------------| --------------- |    
+	| ---------------| --------------- |
 	| First Name | user.givenname |
 	| Last Name | user.surname |
 	| Email | user.mail |
