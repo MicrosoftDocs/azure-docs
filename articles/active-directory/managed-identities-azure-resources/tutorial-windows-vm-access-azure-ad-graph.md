@@ -1,5 +1,5 @@
 ---
-title: Tutorial`:`Use a Windows VM managed identity to access Azure AD Graph 
+title: Tutorial: Use a Windows VM managed identity to access Azure AD Graph 
 description: A tutorial that walks you through the process of using a Windows VM system-assigned managed identity to access Azure AD Graph API.
 services: active-directory
 documentationcenter: ''
@@ -161,10 +161,10 @@ To use the VM's system assigned managed identity for authentication to Azure AD 
    $AccessToken = $content.access_token
    ```
 
-5. Using the Object ID of your VM identity's service principal (you can retrieve this value from the variable declared in previous steps: ``$ManagedIdentitiesServicePrincipal.ObjectId``), you can query the Azure AD Graph API to retrieve its group memberships. Replace `<OBJECT ID>` with the Object ID from the previous step and <`ACCESS-TOKEN>` with the previously obtained access token:
+5. Using the Object ID of your VM identity's service principal (you can retrieve this value from the variable declared in previous steps: `$ManagedIdentitiesServicePrincipal.ObjectId`), you can query the Azure AD Graph API to retrieve its group memberships. Replace `<VM Object ID>` with the Object ID from the previous step and `<AccessToken>` with the previously obtained access token:
 
    ```powershell
-   Invoke-WebRequest 'https://graph.windows.net/<Tenant ID>/servicePrincipals/<VM Object ID>/getMemberGroups?api-version=1.6' -Method POST -Body '{"securityEnabledOnly":"false"}' -Headers @{Authorization="Bearer $AccessToken"} -ContentType "application/json"
+   Invoke-WebRequest 'https://graph.windows.net/<Tenant ID>/servicePrincipals/<VM Object ID>/getMemberGroups?api-version=1.6' -Method POST -Body '{"securityEnabledOnly":"false"}' -Headers @{Authorization="Bearer <AccessToken>"} -ContentType "application/json"
    ```
    
    The response contains the `Object ID` of the group that you added your VM's service principal to in earlier steps.
