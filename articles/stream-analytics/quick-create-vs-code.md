@@ -215,7 +215,7 @@ Script compilation checks syntax and generates the Azure Resource Manager templa
 
 There are two ways to trigger script compilation:
 
-- Select the script from the workspace and then trigger compilation from the command palette.
+- Select the script from the workspace and then compile from the command palette.
 
    ![Use the Visual Studio Code command palette to compile the script](./media/quick-create-vs-code/compile-script1.png)
 
