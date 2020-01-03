@@ -147,6 +147,7 @@
     items:
     - name: Recognize speech, intents, and entities
       href: quickstarts/intent-recognition.md
+      displayName: Recognize intents and entities with LUIS, LUIS, Language Understanding, prebuilt domains
   - name: How-to guides
     items:
     - name: Recognize speech intents with LUIS, C#
