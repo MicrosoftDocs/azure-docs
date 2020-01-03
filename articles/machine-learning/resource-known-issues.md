@@ -224,9 +224,6 @@ az aks get-credentials -g <rg> -n <aks cluster name>
 
 Updates to Azure Machine Learning components installed in an Azure Kubernetes Service cluster must be manually applied. 
 
-> [!WARNING]
-> Before performing the following actions, check the version of your Azure Kubernetes Service cluster. If the cluster version is equal to or greater than 1.14, you will not be able to reattach your cluster to the Azure Machine Learning workspace.
-
 You can apply these updates by detaching the cluster from the Azure Machine Learning workspace, and then reattaching the cluster to the workspace. If SSL is enabled in the cluster, you will need to supply the SSL certificate and private key when reattaching the cluster. 
 
 ```python
