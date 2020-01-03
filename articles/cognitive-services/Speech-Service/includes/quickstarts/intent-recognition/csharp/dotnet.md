@@ -21,7 +21,7 @@ Before you get started:
 
 ## Create a LUIS app for intent recognition
 
-[!INCLUDE [Header](../luis-sign-up.md)]
+[!INCLUDE [Create a LUIS app for intent recognition](../luis-sign-up.md)]
 
 ## Open your project in Visual Studio
 
@@ -37,15 +37,15 @@ Let's add some code that works as a skeleton for our project. Make note that you
 
 ## Create a Speech configuration
 
-Before you can initialize an `IntentRecognizer` object, you need to create a configuration that uses the key and location/region for your LUIS prediction resource. 
+Before you can initialize an `IntentRecognizer` object, you need to create a configuration that uses the key and location for your LUIS prediction resource. 
 
 > [!IMPORTANT]
-> Your starter key and authoring keys will not work. You must use your prediction key and location/region that you created earlier. For more information, see [Create a LUIS app for intent recognition](#create-a-luis-app-for-intent-recognition). 
+> Your starter key and authoring keys will not work. You must use your prediction key and location that you created earlier. For more information, see [Create a LUIS app for intent recognition](#create-a-luis-app-for-intent-recognition). 
 
 Insert this code in the `RecognizeIntentAsync()` method. Make sure you update these values: 
 
 * Replace `"YourLanguageUnderstandingSubscriptionKey"` with your LUIS prediction key. 
-* Replace `"YourLanguageUnderstandingServiceRegion"` with your LUIS location/region. 
+* Replace `"YourLanguageUnderstandingServiceRegion"` with your LUIS location. 
 
 >[!TIP]
 > If you need help finding these values, see [Create a LUIS app for intent recognition](#create-a-luis-app-for-intent-recognition).
@@ -53,6 +53,7 @@ Insert this code in the `RecognizeIntentAsync()` method. Make sure you update th
 [!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/intent-recognition/helloworld/Program.cs?range=26)]
 
 This sample uses the `FromSubscription()` method to build the `SpeechConfig`. For a full list of available methods, see [SpeechConfig Class](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig?view=azure-dotnet).
+
 The Speech SDK will default to recognizing using en-us for the language, see [Specify source language for speech to text](../../../../how-to-specify-source-language.md) for information on choosing the source language.
 
 ## Initialize an IntentRecognizer
@@ -63,7 +64,7 @@ Now, let's create an `IntentRecognizer`. This object is created inside of a usin
 
 ## Add a LanguageUnderstandingModel and intents
 
-You now need to associate a `LanguageUnderstandingModel` with the intent recognizer, and add the intents that you want recognized. We're going to use intents from the prebuilt domain for home automation. Insert this code in the using statement from the previous section. Make sure that you replace `"YourLanguageUnderstandingAppId"` with your LUIS app ID. 
+You need to associate a `LanguageUnderstandingModel` with the intent recognizer, and add the intents that you want recognized. We're going to use intents from the prebuilt domain for home automation. Insert this code in the using statement from the previous section. Make sure that you replace `"YourLanguageUnderstandingAppId"` with your LUIS app ID. 
 
 >[!TIP]
 > If you need help finding this value, see [Create a LUIS app for intent recognition](#create-a-luis-app-for-intent-recognition).

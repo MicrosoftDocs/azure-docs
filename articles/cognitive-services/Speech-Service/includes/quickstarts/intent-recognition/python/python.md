@@ -21,7 +21,7 @@ Before you get started:
 
 ## Create a LUIS app for intent recognition
 
-[!INCLUDE [Header](../luis-sign-up.md)]
+[!INCLUDE [Create a LUIS app for intent recognition](../luis-sign-up.md)]
 
 ## Open your project
 

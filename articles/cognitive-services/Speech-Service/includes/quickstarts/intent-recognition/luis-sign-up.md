@@ -27,7 +27,7 @@ When you're done, you'll need three things:
 
 Here's where you can find this information in the [LUIS preview portal](https://preview.luis.ai/):
 
-1. From the LUIS preview portal, select **Manage**, then select **Azure Resources**. On this page, you'll find your LUIS key and location (also referred to as _region_).  
+1. From the LUIS preview portal, select **Manage**, then select **Azure Resources**. On this page, you'll find your LUIS key and location (sometimes referred to as _region_).  
 
    > [!div class="mx-imgBorder"]
    > ![LUIS key and location](../../../media/luis/luis-key-region.png)
