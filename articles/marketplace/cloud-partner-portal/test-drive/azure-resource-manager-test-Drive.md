@@ -290,7 +290,7 @@ Example:
 
 One more thing you should take into consideration is subscription and service limits. For example, if you want to deploy up to ten 4-core virtual machines, you need to make sure the subscription you use for your Lab allows you to use 40 cores.
 
-You can find more information about Azure subscription and service limits in [this article](https://docs.microsoft.com/azure/azure-subscription-service-limits). As multiple Test Drives can be taken at the same time, verify that your subscription can handle the \# of cores multiplied by the total number of concurrent Test Drives that can be taken.
+You can find more information about Azure subscription and service limits in [this article](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits). As multiple Test Drives can be taken at the same time, verify that your subscription can handle the \# of cores multiplied by the total number of concurrent Test Drives that can be taken.
 
 ### What to upload
 

@@ -4,7 +4,7 @@ description: This article explains how Azure Enterprise Agreement (Azure EA) cus
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 12/30/2019
+ms.date: 01/03/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 manager: boalcsva
@@ -97,6 +97,10 @@ Each account requires a unique work, school, or Microsoft account. For more info
 ### Service administrator
 
 The service administrator role has permissions to manage services in the Azure portal and assign users to the co-administrator role.
+
+### Notification contact
+
+The notifications contact receives usage notifications related to the enrollment.
 
 ## Activate your enrollment
 
