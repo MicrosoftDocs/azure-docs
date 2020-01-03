@@ -1,10 +1,10 @@
 ---
-title: Azure CLI Script Example - Create Batch account - Batch service | Microsoft Docs
-description: Azure CLI Script Example - Create a Batch account in Batch service mode
+title: Azure CLI Script Example - Create Batch account - Batch service
+description: This script creates an Azure Batch account in Batch service mode and shows how to query or update various properties of the account.
 services: batch
 documentationcenter: ''
-author: dlepow
-manager: jeconnoc
+author: laurenhughes
+manager: gwallace
 editor: 
 
 ms.assetid:
@@ -14,7 +14,7 @@ ms.topic: sample
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 01/29/2018
-ms.author: danlep
+ms.author: lahugh
 ---
 
 # CLI example: Create a Batch account in Batch service mode
@@ -25,7 +25,7 @@ authenticated either via shared key credentials or an Azure Active Directory tok
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, this article requires that you are running the Azure CLI version 2.0.20 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli). 
+If you choose to install and use the CLI locally, this article requires that you are running the Azure CLI version 2.0.20 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli). 
 
 ## Example script
 

@@ -1,3 +1,10 @@
+---
+author: cherylmc
+ms.service: vpn-gateway
+ms.topic: include
+ms.date: 11/09/2018	
+ms.author: cherylmc
+---
 The legacy (old) VPN gateway SKUs are:
 
 * Basic

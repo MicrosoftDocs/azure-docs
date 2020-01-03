@@ -2,13 +2,13 @@
 title: Monitor Azure Event Grid message delivery
 description: Describes how to monitor the delivery of Azure Event Grid messages.
 services: event-grid
-author: tfitzmac
+author: spelluru
 manager: timlt
 
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 05/24/2018
-ms.author: tomfitz
+ms.date: 01/22/2019
+ms.author: spelluru
 ---
 
 # Monitor Event Grid message delivery 
@@ -71,6 +71,12 @@ If you've published a custom topic, you can view the metrics for it. Select the 
 View the metrics for the custom event topic.
 
 ![View event metrics](./media/monitor-event-delivery/custom-topic-metrics.png)
+
+## Set alerts
+
+You can set alerts on the topic and domain level metrics for Custom Topics and Event Domains. In the overview blade for, select **Alerts** from the left had resource menu in order to view, manage, and create alert rules. [Learn more about Azure Monitor Alerts](../azure-monitor/platform/alerts-overview.md)
+
+![View event metrics](./media/monitor-event-delivery/select-alerts.png)
 
 ## Next steps
 

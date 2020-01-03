@@ -1,19 +1,12 @@
 ---
-title: NAT requirements for ExpressRoute circuits | Microsoft Docs
+title: 'Azure ExpressRoute: NAT requirements for circuits'
 description: This page provides detailed requirements for configuring and managing NAT for ExpressRoute circuits.
-documentationcenter: na
 services: expressroute
 author: cherylmc
-manager: carmonm
-editor: ''
 
-ms.assetid: 867bf936-c851-485f-84c8-d8d6e33fee9f
 ms.service: expressroute
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 10/12/2017
+ms.topic: conceptual
+ms.date: 09/18/2019
 ms.author: cherylmc
 
 ---
@@ -23,7 +16,7 @@ To connect to Microsoft cloud services using ExpressRoute, you’ll need to set 
 Review the [ExpressRoute circuits and routing domains](expressroute-circuit-peerings.md) page to get an overview of the various routing domains. To meet the public IP address requirements for Azure public and Microsoft peering, we recommend that you set up NAT between your network and Microsoft. This section provides a detailed description of the NAT infrastructure you need to set up.
 
 ## NAT requirements for Microsoft peering
-The Microsoft peering path lets you connect to Microsoft cloud services that are not supported through the Azure public peering path. The list of services includes Office 365 services, such as Exchange Online, SharePoint Online, Skype for Business, and Dynamics 365. Microsoft expects to support bi-directional connectivity on the Microsoft peering. Traffic destined to Microsoft cloud services must be SNATed to valid public IPv4 addresses before they enter the Microsoft network. Traffic destined to your network from Microsoft cloud services must be SNATed at your Internet edge to prevent [asymmetric routing](expressroute-asymmetric-routing.md). The figure below provides a high-level picture of how the NAT should be setup for Microsoft peering.
+The Microsoft peering path lets you connect to Microsoft cloud services that are not supported through the Azure public peering path. The list of services includes Office 365 services, such as Exchange Online, SharePoint Online, and Skype for Business. Microsoft expects to support bi-directional connectivity on the Microsoft peering. Traffic destined to Microsoft cloud services must be SNATed to valid public IPv4 addresses before they enter the Microsoft network. Traffic destined to your network from Microsoft cloud services must be SNATed at your Internet edge to prevent [asymmetric routing](expressroute-asymmetric-routing.md). The figure below provides a high-level picture of how the NAT should be set up for Microsoft peering.
 
 ![](./media/expressroute-nat/expressroute-nat-microsoft.png) 
 
@@ -43,6 +36,11 @@ The Microsoft peering path lets you connect to Microsoft cloud services that are
 ![Asymmetric routing with ExpressRoute](./media/expressroute-asymmetric-routing/AsymmetricRouting2.png)
 
 ## NAT requirements for Azure public peering
+
+> [!NOTE]
+> Azure public peering is not available for new circuits.
+> 
+
 The Azure public peering path enables you to connect to all services hosted in Azure over their public IP addresses. These include services listed in the [ExpessRoute FAQ](expressroute-faqs.md) and any services hosted by ISVs on Microsoft Azure. 
 
 > [!IMPORTANT]

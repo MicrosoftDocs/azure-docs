@@ -1,232 +1,213 @@
 ---
-title: Frequently asked questions for Azure Application Gateway
-description: This page provides answers to frequently asked questions about Azure Application Gateway
+title: Frequently asked questions about Azure Application Gateway
+description: Find answers to frequently asked questions about Azure Application Gateway.
 services: application-gateway
 author: vhorne
-manager: jpconnock
-
 ms.service: application-gateway
 ms.topic: article
-ms.workload: infrastructure-services
-ms.date: 9/6/2018
+ms.date: 08/31/2019
 ms.author: victorh
-
 ---
 
-# Frequently asked questions for Application Gateway
+# Frequently asked questions about Application Gateway
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+The following are common questions asked about Azure Application Gateway.
 
 ## General
 
-**Q. What is Application Gateway?**
+### What is Application Gateway?
 
-Azure Application Gateway is an Application Delivery Controller (ADC) as a service, offering various layer 7 load balancing capabilities for your applications. It offers highly available and scalable service, which is fully managed by Azure.
+Azure Application Gateway provides an application delivery controller (ADC) as a service. It offers various layer 7 load-balancing capabilities for your applications. This service is highly available, scalable, and fully managed by Azure.
 
-**Q. What features does Application Gateway support?**
+### What features does Application Gateway support?
 
-Application Gateway supports SSL offloading and end to end SSL, Web Application Firewall, cookie-based session affinity, url path-based routing, multi site hosting, and others. For a full list of supported features, visit [Introduction to Application Gateway](application-gateway-introduction.md)
+Application Gateway supports autoscaling, SSL offloading, and end-to-end SSL, a web application firewall (WAF), cookie-based session affinity, URL path-based routing, multisite hosting, and other features. For a full list of supported features, see [Introduction to Application Gateway](application-gateway-introduction.md).
 
-**Q. What is the difference between Application Gateway and Azure Load Balancer?**
+### How do Application Gateway and Azure Load Balancer differ?
 
-Application Gateway is a layer 7 load balancer, which means it works with web traffic only (HTTP/HTTPS/WebSocket). It supports capabilities such as SSL termination, cookie-based session affinity, and round robin for load balancing traffic. Load Balancer, load balances traffic at layer 4 (TCP/UDP).
+Application Gateway is a layer 7 load balancer, which means it works only with web traffic (HTTP, HTTPS, WebSocket, and HTTP/2). It supports capabilities such as SSL termination, cookie-based session affinity, and round robin for load-balancing traffic. Load Balancer load-balances traffic at layer 4 (TCP or UDP).
 
-**Q. What protocols does Application Gateway support?**
+### What protocols does Application Gateway support?
 
 Application Gateway supports HTTP, HTTPS, HTTP/2, and WebSocket.
 
-**Q. How does Application Gateway support HTTP/2?**
+### How does Application Gateway support HTTP/2?
 
-HTTP/2 protocol support is available to clients connecting to Application Gateway listeners only. The communication to backend server pools is over HTTP/1.1. 
+See [HTTP/2 support](https://docs.microsoft.com/azure/application-gateway/configuration-overview#http2-support).
 
-By default, HTTP/2 support is disabled. The following Azure PowerShell code snippet example shows how you can enable it:
+### What resources are supported as part of a backend pool?
 
-```
-$gw = Get-AzureRmApplicationGateway -Name test -ResourceGroupName hm
-$gw.EnableHttp2 = $true
-Set-AzureRmApplicationGateway -ApplicationGateway $gw
-```
+See [supported backend resources](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#backend-pools).
 
-**Q. What resources are supported today as part of backend pool?**
+### In what regions is Application Gateway available?
 
-Backend pools can be composed of NICs, virtual machine scale sets, public IPs, internal IPs, fully qualified domain names (FQDN), and multi-tenant back-ends like Azure Web Apps. Application Gateway backend pool members are not tied to an availability set. Members of backend pools can be across clusters, data centers, or outside of Azure as long as they have IP connectivity.
+Application Gateway is available in all regions of global Azure. It's also available in [Azure China 21Vianet](https://www.azure.cn/) and [Azure Government](https://azure.microsoft.com/overview/clouds/government/).
 
-**Q. What regions is the service available in?**
-
-Application Gateway is available in all regions of global Azure. It is also available in [Azure China](https://www.azure.cn/) and [Azure Government](https://azure.microsoft.com/overview/clouds/government/)
-
-**Q. Is this a dedicated deployment for my subscription or is it shared across customers?**
+### Is this deployment dedicated for my subscription, or is it shared across customers?
 
 Application Gateway is a dedicated deployment in your virtual network.
 
-**Q. Is HTTP->HTTPS redirection supported?**
+### Does Application Gateway support HTTP-to-HTTPS redirection?
 
-Redirection is supported. Visit [Application Gateway redirect overview](application-gateway-redirect-overview.md) to learn more.
+Redirection is supported. See [Application Gateway redirect overview](application-gateway-redirect-overview.md).
 
-**Q. In what order are listeners processed?**
+### In what order are listeners processed?
 
-Listeners are processed in the order they are shown. For that reason if a basic listener matches an incoming request it processes it first.  Multi-site listeners should be configured before a basic listener to ensure traffic is routed to the correct back-end.
+See the [order of listener processing](https://docs.microsoft.com/azure/application-gateway/configuration-overview#order-of-processing-listeners).
 
-**Q. Where do I find Application Gateway’s IP and DNS?**
+### Where do I find the Application Gateway IP and DNS?
 
-When using a public IP address as an endpoint, this information can be found on the public IP address resource or on the Overview page for the Application Gateway in the portal. For internal IP addresses, this can be found on the Overview page.
+If you're using a public IP address as an endpoint, you'll find the IP and DNS information on the public IP address resource. Or find it in the portal, on the overview page for the application gateway. If you're using internal IP addresses, find the information on the overview page.
 
-**Q. Does the IP or DNS change over the lifetime of the Application Gateway?**
+### What are the settings for Keep-Alive timeout and TCP idle timeout?
 
-The VIP can change if the gateway is stopped and started by the customer. The DNS associated with Application Gateway does not change over the lifecycle of the gateway. For this reason, it is recommended to use a CNAME alias and point it to the DNS address of the Application Gateway.
+ In the Application Gateway v1 SKU, the Keep-Alive timeout is 120 seconds. The Keep-Alive timeout for the v2 SKU is 75 seconds. The TCP idle timeout is a 4-minute default on the frontend virtual IP (VIP) of Application Gateway.
 
-**Q. Does Application Gateway support static IP?**
+### Does the IP or DNS name change over the lifetime of the application gateway?
 
-No, Application Gateway does not support static public IP addresses, but it does support static internal IPs.
+In Application Gateway V1 SKU, the VIP can change if you stop and start the application gateway. But the DNS name associated with the application gateway doesn't change over the lifetime of the gateway. Because the DNS name doesn't change, you should use a CNAME alias and point it to the DNS address of the application gateway. In Application Gateway V2 SKU, you can set the IP address as static, so IP and DNS name will not change over the lifetime of the application gateway. 
 
-**Q. Does Application Gateway support multiple public IPs on the gateway?**
+### Does Application Gateway support static IP?
 
-Only one public IP address is supported on an Application Gateway.
+Yes, the Application Gateway v2 SKU supports static public IP addresses. The v1 SKU supports static internal IPs.
 
-**Q. How large should I make my subnet for Application Gateway?**
+### Does Application Gateway support multiple public IPs on the gateway?
 
-Application Gateway consumes one private IP address per instance, plus another private IP address if a private frontend IP configuration is configured. Also, Azure reserves the first four and last IP address in each subnet for internal usage.
-For example, if Application Gateway is set to three instances and no private frontend IP, then a /29 subnet size or greater is needed. In this case, Application Gateway uses three IP addresses. If you have three instances and an IP address for the private frontend IP configuration, then a /28 subnet size or greater is needed as four IP addresses are required.
+An application gateway supports only one public IP address.
 
-**Q. Does Application Gateway support x-forwarded-for headers?**
+### How large should I make my subnet for Application Gateway?
 
-Yes, Application Gateway inserts x-forwarded-for, x-forwarded-proto, and x-forwarded-port headers into the request forwarded to the backend. The format for x-forwarded-for header is a comma-separated list of IP:Port. The valid values for x-forwarded-proto are http or https. X-forwarded-port specifies the port at which the request reached at the Application Gateway.
+See [Application Gateway subnet size considerations](https://docs.microsoft.com/azure/application-gateway/configuration-overview#size-of-the-subnet).
 
-Application Gateway also inserts X-Original-Host header that contains the original Host header with which the request arrived. This header is useful in scenarios like Azure Website integration, where the incoming host header is modified before traffic is routed to the backend.
+### Can I deploy more than one Application Gateway resource to a single subnet?
 
-**Q. How long does it take to deploy an Application Gateway? Does my Application Gateway still work when being updated?**
+Yes. In addition to multiple instances of a given Application Gateway deployment, you can provision another unique Application Gateway resource to an existing subnet that contains a different Application Gateway resource.
 
-New Application Gateway deployments can take up to 20 minutes to provision. Changes to instance size/count are not disruptive, and the gateway remains active during this time.
+A single subnet can't support both Standard_v2 and Standard Application Gateway together.
 
-## Configuration
+### Does Application Gateway support x-forwarded-for headers?
 
-**Q. Is Application Gateway always deployed in a virtual network?**
+Yes. See [Modifications to a request](https://docs.microsoft.com/azure/application-gateway/how-application-gateway-works#modifications-to-the-request).
 
-Yes, Application Gateway is always deployed in a virtual network subnet. This subnet can only contain Application Gateways.
+### How long does it take to deploy an application gateway? Will my application gateway work while it's being updated?
 
-**Q. Can Application Gateway talk to instances outside its virtual network?**
+New Application Gateway v1 SKU deployments can take up to 20 minutes to provision. Changes to instance size or count aren't disruptive, and the gateway remains active during this time.
 
-Application Gateway can talk to instances outside of the virtual network that it is in as long as there is IP connectivity. If you plan to use internal IPs as backend pool members, then it requires [VNET Peering](../virtual-network/virtual-network-peering-overview.md) or [VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md).
+Most deployments that use the v2 SKU take around 6 minutes to provision. However it can take longer depending on the type of deployment. For example, deployments across multiple Availability Zones with many instances can take more than 6 minutes. 
 
-**Q. Can I deploy anything else in the Application Gateway subnet?**
+### Can I use Exchange Server as a backend with Application Gateway?
 
-No, but you can deploy other application gateways in the subnet.
-
-**Q. Are Network Security Groups supported on the Application Gateway subnet?**
-
-Network Security Groups are supported on the Application Gateway subnet with the following restrictions:
-
-* Exceptions must be put in for incoming traffic on ports 65503-65534. This port-range is required for Azure infrastructure communication. They are protected (locked down) by Azure certificates. Without proper certificates, external entities, including the customers of those gateways, will not be able to initiate any changes on those endpoints.
-
-* Outbound internet connectivity can't be blocked.
-
-* Traffic from the AzureLoadBalancer tag must be allowed.
-
-**Q. Are user-defined routes supported on the application gateway subnet?**
-
-User-defined routes (UDRs) are supported on the application gateway subnet, as long as they do not alter the end-to-end request/response communication.
-
-For example, you can set up a UDR in the application gateway subnet to point to a firewall appliance for packet inspection, but you must ensure that the packet can reach its intended destination post inspection. Failure to do so might result in incorrect health probe or traffic routing behavior. This includes learned routes or default 0.0.0.0/0 routes propagated by ExpressRoute or VPN Gateways in the virtual network.
-
-**Q. What are the limits on Application Gateway? Can I increase these limits?**
-
-Visit [Application Gateway Limits](../azure-subscription-service-limits.md#application-gateway-limits) to view the limits.
-
-**Q. Can I use Application Gateway for both external and internal traffic simultaneously?**
-
-Yes, Application Gateway supports having one internal IP and one external IP per Application Gateway.
-
-**Q. Is VNet peering supported?**
-
-Yes, VNet peering is supported and is beneficial for load balancing traffic in other virtual networks.
-
-**Q. Can I talk to on-premises servers when they are connected by ExpressRoute or VPN tunnels?**
-
-Yes, as long as traffic is allowed.
-
-**Q. Can I have one backend pool serving many applications on different ports?**
-
-Micro service architecture is supported. You would need multiple http settings configured to probe on different ports.
-
-**Q. Do custom probes support wildcards/regex on response data?**
-
-Custom probes do not support wildcard or regex on response data. 
-
-**Q. How are rules processed?**
-
-Rules are processed in the order they are configured. It is recommended that multi-site rules are configured before basic rules to reduce the chance that traffic is routed to the inappropriate backend as the basic rule would match traffic based on port prior to the multi-site rule being evaluated.
-
-**Q. What does the Host field for custom probes signify?**
-
-Host field specifies the name to send the probe to. Applicable only when multi-site is configured on Application Gateway, otherwise use '127.0.0.1'. This value is different from VM host name and is in format \<protocol\>://\<host\>:\<port\>\<path\>.
-
-**Q. Can I whitelist Application Gateway access to a few source IPs?**
-
-This scenario can be done using NSGs on Application Gateway subnet. The following restrictions should be put on the subnet in the listed order of priority:
-
-* Allow incoming traffic from source IP/IP range.
-
-* Allow incoming requests from all sources to ports 65503-65534 for [backend health communication](application-gateway-diagnostics.md). This port range is required for Azure infrastructure communication. They are protected (locked down) by Azure certificates. Without proper certificates, external entities, including the customers of those gateways, will not be able to initiate any changes on those endpoints.
-
-* Allow incoming Azure Load Balancer probes (AzureLoadBalancer tag) and inbound virtual network traffic (VirtualNetwork tag) on the [NSG](../virtual-network/security-overview.md).
-
-* Block all other incoming traffic with a Deny all rule.
-
-* Allow outbound traffic to the internet for all destinations.
-
-**Q. Can the same port be used for both public and private facing listeners?**
-
-No, this is not supported.
+No. Application Gateway doesn't support email protocols such as SMTP, IMAP, and POP3. 
 
 ## Performance
 
-**Q. How does Application Gateway support high availability and scalability?**
+### How does Application Gateway support high availability and scalability?
 
-Application Gateway supports high availability scenarios when you have two or more instances deployed. Azure distributes these instances across update and fault domains to ensure that all instances do not fail at the same time. Application Gateway supports scalability by adding multiple instances of the same gateway to share the load.
+The Application Gateway v1 SKU supports high-availability scenarios when you've deployed two or more instances. Azure distributes these instances across update and fault domains to ensure that instances don't all fail at the same time. The v1 SKU supports scalability by adding multiple instances of the same gateway to share the load.
 
-**Q. How do I achieve DR scenario across data centers with Application Gateway?**
+The v2 SKU automatically ensures that new instances are spread across fault domains and update domains. If you choose zone redundancy, the newest instances are also spread across availability zones to offer zonal failure resiliency.
 
-Customers can use Traffic Manager to distribute traffic across multiple Application Gateways in different datacenters.
+### How do I achieve a DR scenario across datacenters by using Application Gateway?
 
-**Q. Is auto scaling supported?**
+Use Traffic Manager to distribute traffic across multiple application gateways in different datacenters.
 
-No, but Application Gateway has a throughput metric that can be used to alert you when a threshold is reached. Manually adding instances or changing size does not restart the gateway and does not impact existing traffic.
+### Does Application Gateway support autoscaling?
 
-**Q. Does manual scale up/down cause downtime?**
+Yes, the Application Gateway v2 SKU supports autoscaling. For more information, see [Autoscaling and Zone-redundant Application Gateway](application-gateway-autoscaling-zone-redundant.md).
 
-There is no downtime, instances are distributed across upgrade domains and fault domains.
+### Does manual scale up or scale down cause downtime?
 
-**Q. Does application gateway support connection draining?**
+No. Instances are distributed across upgrade domains and fault domains.
 
-Yes. You can configure connection draining to change members within a backend pool without disruption. This will allow existing connections to continue to be sent to their previous destination until either that connection is closed or a configurable timeout expires. Note that connection draining only waits for current in-flight connections to complete. Application Gateway is not aware of application session state.
+### Does Application Gateway support connection draining?
 
-**Q. What are application gateway sizes?**
+Yes. You can set up connection draining to change members within a backend pool without disruption. For more information, see [connection draining section of Application Gateway](overview.md#connection-draining).
 
-Application Gateway is currently offered in three sizes: **Small**, **Medium**, and **Large**. Small instance sizes are intended for development and testing scenarios.
+### Can I change instance size from medium to large without disruption?
 
-You can create up to 50 application gateways per subscription, and each application gateway can have up to 10 instances each. Each application gateway can consist of 20 http listeners. For a complete list of application gateway limits, see [Application Gateway service limits](../azure-subscription-service-limits.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#application-gateway-limits).
+Yes. Azure distributes instances across update and fault domains to ensure that instances don't fail all at the same time. Application Gateway supports scaling by adding multiple instances of the same gateway to share the load.
 
-The following table shows an average performance throughput for each application gateway instance with SSL offload enabled:
+## Configuration
 
-| Average back-end page response size | Small | Medium | Large |
-| --- | --- | --- | --- |
-| 6 KB |7.5 Mbps |13 Mbps |50 Mbps |
-| 100 KB |35 Mbps |100 Mbps |200 Mbps |
+### Is Application Gateway always deployed in a virtual network?
 
-> [!NOTE]
-> These values are approximate values for an application gateway throughput. The actual throughput depends on various environment details, such as average page size, location of back-end instances, and processing time to serve a page. For exact performance numbers, you should run your own tests. These values are only provided for capacity planning guidance.
+Yes. Application Gateway is always deployed in a virtual network subnet. This subnet can contain only application gateways. For more information, see [virtual network and subnet requirements](https://docs.microsoft.com/azure/application-gateway/configuration-overview#azure-virtual-network-and-dedicated-subnet).
 
-**Q. Can I change instance size from medium to large without disruption?**
+### Can Application Gateway communicate with instances outside of its virtual network or outside of its subscription?
 
-Yes, Azure distributes instances across update and fault domains to ensure that all instances do not fail at the same time. Application Gateway supports scaling by adding multiple instances of the same gateway to share the load.
+As long as you have IP connectivity, Application Gateway can communicate with instances outside of the virtual network that it's in. Application Gateway can also communicate with instances outside of the subscription it's in. If you plan to use internal IPs as backend pool members, use [virtual network peering](../virtual-network/virtual-network-peering-overview.md) or [Azure VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md).
 
-## SSL Configuration
+### Can I deploy anything else in the application gateway subnet?
 
-**Q. What certificates are supported on Application Gateway?**
+No. But you can deploy other application gateways in the subnet.
 
-Self signed certs, CA certs, and wild-card certs are supported. EV certs are not supported.
+### Are network security groups supported on the application gateway subnet?
 
-**Q. What are the current cipher suites supported by Application Gateway?**
+See [Network security groups in the Application Gateway subnet](https://docs.microsoft.com/azure/application-gateway/configuration-overview#network-security-groups-on-the-application-gateway-subnet).
 
-The following are the current cipher suites supported by application gateway. Visit: [Configure SSL policy versions and cipher suites on Application Gateway](application-gateway-configure-ssl-policy-powershell.md) to learn how to customize SSL options.
+### Does the application gateway subnet support user-defined routes?
+
+See [User-defined routes supported in the Application Gateway subnet](https://docs.microsoft.com/azure/application-gateway/configuration-overview#user-defined-routes-supported-on-the-application-gateway-subnet).
+
+### What are the limits on Application Gateway? Can I increase these limits?
+
+See [Application Gateway limits](../azure-subscription-service-limits.md#application-gateway-limits).
+
+### Can I simultaneously use Application Gateway for both external and internal traffic?
+
+Yes. Application Gateway supports one internal IP and one external IP per application gateway.
+
+### Does Application Gateway support virtual network peering?
+
+Yes. Virtual network peering helps load-balance traffic in other virtual networks.
+
+### Can I talk to on-premises servers when they're connected by ExpressRoute or VPN tunnels?
+
+Yes, as long as traffic is allowed.
+
+### Can one backend pool serve many applications on different ports?
+
+Microservice architecture is supported. To probe on different ports, you need to configure multiple HTTP settings.
+
+### Do custom probes support wildcards or regex on response data?
+
+No. 
+
+### How are routing rules processed in Application Gateway?
+
+See [Order of processing rules](https://docs.microsoft.com/azure/application-gateway/configuration-overview#order-of-processing-rules).
+
+### For custom probes, what does the Host field signify?
+
+The Host field specifies the name to send the probe to when you've configured multisite on Application Gateway. Otherwise use '127.0.0.1'. This value is different from the virtual machine host name. Its format is \<protocol\>://\<host\>:\<port\>\<path\>.
+
+### Can I allow Application Gateway access to only a few source IP addresses?
+
+Yes. See [restrict access to specific source IPs](https://docs.microsoft.com/azure/application-gateway/configuration-overview#allow-application-gateway-access-to-a-few-source-ips).
+
+### Can I use the same port for both public-facing and private-facing listeners?
+
+No.
+
+### Is there guidance available to migrate from the v1 SKU to the v2 SKU?
+
+Yes. For details see, [Migrate Azure Application Gateway and Web Application Firewall from v1 to v2](migrate-v1-v2.md).
+
+### Does Application Gateway support IPv6?
+
+Application Gateway v2 does not currently support IPv6. It can operate in a dual stack VNet using only IPv4, but the gateway subnet must be IPv4-only. Application Gateway v1 does not support dual stack VNets. 
+
+## Configuration - SSL
+
+### What certificates does Application Gateway support?
+
+Application Gateway supports self-signed certificates, certificate authority (CA) certificates, Extended Validation (EV) certificates, and wildcard certificates.
+
+### What cipher suites does Application Gateway support?
+
+Application Gateway supports the following cipher suites. 
 
 - TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 - TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
@@ -257,17 +238,19 @@ The following are the current cipher suites supported by application gateway. Vi
 - TLS_RSA_WITH_3DES_EDE_CBC_SHA
 - TLS_DHE_DSS_WITH_3DES_EDE_CBC_SHA
 
-**Q. Does Application Gateway also support re-encryption of traffic to the backend?**
+For information on how to customize SSL options, see [Configure SSL policy versions and cipher suites on Application Gateway](application-gateway-configure-ssl-policy-powershell.md).
 
-Yes, Application Gateway supports SSL offload, and end to end SSL, which re-encrypts the traffic to the backend.
+### Does Application Gateway support reencryption of traffic to the backend?
 
-**Q. Can I configure SSL policy to control SSL Protocol versions?**
+Yes. Application Gateway supports SSL offload and end-to-end SSL, which reencrypt traffic to the backend.
 
-Yes, you can configure Application Gateway to deny TLS1.0, TLS1.1, and TLS1.2. SSL 2.0 and 3.0 are already disabled by default and are not configurable.
+### Can I configure SSL policy to control SSL protocol versions?
 
-**Q. Can I configure cipher suites and policy order?**
+Yes. You can configure Application Gateway to deny TLS1.0, TLS1.1, and TLS1.2. By default, SSL 2.0 and 3.0 are already disabled and aren't configurable.
 
-Yes, [configuration of cipher suites](application-gateway-ssl-policy-overview.md) is supported. When defining a custom policy, at least one of the following cipher suites must be enabled. Application gateway uses SHA256 to for backend management.
+### Can I configure cipher suites and policy order?
+
+Yes. In Application Gateway, you can [configure cipher suites](application-gateway-ssl-policy-overview.md). To define a custom policy, enable at least one of the following cipher suites. 
 
 * TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 
 * TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
@@ -276,92 +259,151 @@ Yes, [configuration of cipher suites](application-gateway-ssl-policy-overview.md
 * TLS_RSA_WITH_AES_256_CBC_SHA256
 * TLS_RSA_WITH_AES_128_CBC_SHA256
 
-**Q. How many SSL certificates are supported?**
+Application Gateway uses SHA256 to for backend management.
 
-Up to 20 SSL certificates are supported.
+### How many SSL certificates does Application Gateway support?
 
-**Q. How many authentication certificates for backend re-encryption are supported?**
+Application Gateway supports up to 100 SSL certificates.
 
-Up to 10 authentication certificates are supported with a default of 5.
+### How many authentication certificates for backend reencryption does Application Gateway support?
 
-**Q. Does Application Gateway integrate with Azure Key Vault natively?**
+Application Gateway supports up to 100 authentication certificates.
 
-No, it is not integrated with Azure Key Vault.
+### Does Application Gateway natively integrate with Azure Key Vault?
 
-## Web Application Firewall (WAF) Configuration
+Yes, the Application Gateway v2 SKU supports Key Vault. For more information, see [SSL termination with Key Vault certificates](key-vault-certs.md).
 
-**Q. Does the WAF SKU offer all the features available with the Standard SKU?**
+### How do I configure HTTPS listeners for .com and .net sites? 
 
-Yes, WAF supports all the features in the Standard SKU.
+For multiple domain-based (host-based) routing, you can create multisite listeners, set up listeners that use HTTPS as the protocol, and associate the listeners with the routing rules. For more information, see [Hosting multiple sites by using Application Gateway](https://docs.microsoft.com/azure/application-gateway/multiple-site-overview).
 
-**Q. What is the CRS version Application Gateway supports?**
+### Can I use special characters in my .pfx file password?
 
-Application Gateway supports CRS [2.2.9](application-gateway-crs-rulegroups-rules.md#owasp229) and CRS [3.0](application-gateway-crs-rulegroups-rules.md#owasp30).
+No, use only alphanumeric characters in your .pfx file password.
 
-**Q. How do I monitor WAF?**
+## Configuration - web application firewall (WAF)
 
-WAF is monitored through diagnostic logging, more information on diagnostic logging can be found at [Diagnostics Logging and Metrics for Application Gateway](application-gateway-diagnostics.md)
+### Does the WAF SKU offer all the features available in the Standard SKU?
 
-**Q. Does detection mode block traffic?**
+Yes. WAF supports all the features in the Standard SKU.
 
-No, detection mode only logs traffic, which triggered a WAF rule.
+### How do I monitor WAF?
 
-**Q. How do I customize WAF rules?**
+Monitor WAF through diagnostic logging. For more information, see [Diagnostic logging and metrics for Application Gateway](application-gateway-diagnostics.md).
 
-Yes, WAF rules are customizable, for more information on how to customize them visit [Customize WAF rule groups and rules](application-gateway-customize-waf-rules-portal.md)
+### Does detection mode block traffic?
 
-**Q. What rules are currently available?**
+No. Detection mode only logs traffic that triggers a WAF rule.
 
-WAF currently supports CRS [2.2.9](application-gateway-crs-rulegroups-rules.md#owasp229) and [3.0](application-gateway-crs-rulegroups-rules.md#owasp30), which provide baseline security against most of the top 10 vulnerabilities identified by the Open Web Application Security Project (OWASP) found here [OWASP top 10 Vulnerabilities](https://www.owasp.org/index.php/Top10#OWASP_Top_10_for_2013)
+### Can I customize WAF rules?
+
+Yes. For more information, see [Customize WAF rule groups and rules](application-gateway-customize-waf-rules-portal.md).
+
+### What rules are currently available for WAF?
+
+WAF currently supports CRS [2.2.9](../web-application-firewall/ag/application-gateway-crs-rulegroups-rules.md#owasp229), [3.0](../web-application-firewall/ag/application-gateway-crs-rulegroups-rules.md#owasp30), and [3.1](../web-application-firewall/ag/application-gateway-crs-rulegroups-rules.md#owasp31). These rules provide baseline security against most of the top-10 vulnerabilities that Open Web Application Security Project (OWASP) identifies: 
 
 * SQL injection protection
-
-* Cross site scripting protection
-
-* Common Web Attacks Protection such as command injection, HTTP request smuggling, HTTP response splitting, and remote file inclusion attack
-
+* Cross-site scripting protection
+* Protection against common web attacks such as command injection, HTTP request smuggling, HTTP response splitting, and remote file inclusion attack
 * Protection against HTTP protocol violations
-
 * Protection against HTTP protocol anomalies such as missing host user-agent and accept headers
-
 * Prevention against bots, crawlers, and scanners
+* Detection of common application misconfigurations (that is, Apache, IIS, and so on)
 
- * Detection of common application misconfigurations (that is, Apache, IIS, etc.)
+For more information, see [OWASP top-10 vulnerabilities](https://www.owasp.org/index.php/Top10#OWASP_Top_10_for_2013).
 
-**Q. Does WAF also support DDoS prevention?**
+### Does WAF support DDoS protection?
 
-Yes. You can enable DDos protection on the VNet where the application gateway is deployed. This ensures that the application gateway VIP is also protected using the Azure DDos Protection service.
+Yes. You can enable DDoS protection on the virtual network where the application gateway is deployed. This setting ensures that the Azure DDoS Protection service also protects the application gateway virtual IP (VIP).
 
-## Diagnostics and Logging
+### Is there guidance available to migrate from the v1 SKU to the v2 SKU?
 
-**Q. What types of logs are available with Application Gateway?**
+Yes. For details see, [Migrate Azure Application Gateway and Web Application Firewall from v1 to v2](migrate-v1-v2.md).
 
-There are three logs available for Application Gateway. For more information on these logs and other diagnostic capabilities, visit [Backend health, diagnostics logs, and metrics for Application Gateway](application-gateway-diagnostics.md).
+## Configuration - ingress controller for AKS
 
-- **ApplicationGatewayAccessLog** - The access log contains each request submitted to the Application Gateway frontend. The data includes the caller's IP, URL requested, response latency, return code, bytes in and out. Access log is collected every 300 seconds. This log contains one record per instance of Application Gateway.
-- **ApplicationGatewayPerformanceLog** - The performance log captures performance information on per instance basis including total request served, throughput in bytes, total requests served, failed request count, healthy and unhealthy back-end instance count.
-- **ApplicationGatewayFirewallLog** - The firewall log contains requests that are logged through either detection or prevention mode of an application gateway that is configured with web application firewall.
+### What is an Ingress Controller?
 
-**Q. How do I know if my backend pool members are healthy?**
+Kubernetes allows creation of `deployment` and `service` resource to expose a group of pods internally in the cluster. To expose the same service externally, an [`Ingress`](https://kubernetes.io/docs/concepts/services-networking/ingress/) resource is defined which provides load balancing, SSL termination and name-based virtual hosting.
+To satisfy this `Ingress` resource, an Ingress Controller is required which listens for any changes to `Ingress` resources and configures the load balancer policies.
 
-You can use the PowerShell cmdlet `Get-AzureRmApplicationGatewayBackendHealth` or verify health through the portal by visiting [Application Gateway Diagnostics](application-gateway-diagnostics.md)
+The Application Gateway Ingress Controller allows [Azure Application Gateway](https://azure.microsoft.com/services/application-gateway/) to be used as the ingress for an [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service/) also known as an AKS cluster.
 
-**Q. What is the retention policy on the diagnostics logs?**
+### Can a single ingress controller instance manage multiple Application Gateways?
 
-Diagnostic logs flow to the customers storage account and customers can set the retention policy based on their preference. Diagnostic logs can also be sent to an Event Hub or Log Analytics. Visit [Application Gateway Diagnostics](application-gateway-diagnostics.md) for more details.
+Currently, one instance of Ingress Controller can only be associated to one Application Gateway.
 
-**Q. How do I get audit logs for Application Gateway?**
+## Diagnostics and logging
 
-Audit logs are available for Application Gateway. In the portal, click **Activity Log** in the menu blade of an Application Gateway to access the audit log. 
+### What types of logs does Application Gateway provide?
 
-**Q. Can I set alerts with Application Gateway?**
+Application Gateway provides three logs: 
 
-Yes, Application Gateway does support alerts, alerts are configured off metrics. Application Gateway currently has a metric of "throughput", which can be configured to alert. To learn more about alerts, visit [Receive alert notifications](../monitoring-and-diagnostics/insights-receive-alert-notifications.md).
+* **ApplicationGatewayAccessLog**: The access log contains each request submitted to the application gateway frontend. The data includes the caller's IP, URL requested, response latency, return code, and bytes in and out. The access log is collected every 300 seconds. It contains one record per application gateway.
+* **ApplicationGatewayPerformanceLog**: The performance log captures performance information for each application gateway. Information includes the throughput in bytes, total requests served, failed request count, and healthy and unhealthy backend instance count.
+* **ApplicationGatewayFirewallLog**: For application gateways that you configure with WAF, the firewall log contains requests that are logged through either detection mode or prevention mode.
 
-**Q. Backend health returns unknown status, what could be causing this status?**
+For more information, see [Backend health, diagnostics logs, and metrics for Application Gateway](application-gateway-diagnostics.md).
 
-The most common reason is access to the backend is being blocked by an NSG or custom DNS. Visit [Backend health, diagnostics logging, and metrics for Application Gateway](application-gateway-diagnostics.md) to learn more.
+### How do I know if my backend pool members are healthy?
 
-## Next Steps
+Verify health by using the PowerShell cmdlet `Get-AzApplicationGatewayBackendHealth` or the portal. For more information, see [Application Gateway diagnostics](application-gateway-diagnostics.md).
 
-To learn more about Application Gateway visit [What is Azure Application Gateway?](overview.md)
+### What's the retention policy for the diagnostic logs?
+
+Diagnostic logs flow to the customer's storage account. Customers can set the retention policy based on their preference. Diagnostic logs can also be sent to an event hub or Azure Monitor logs. For more information, see [Application Gateway diagnostics](application-gateway-diagnostics.md).
+
+### How do I get audit logs for Application Gateway?
+
+In the portal, on the menu blade of an application gateway, select **Activity Log** to access the audit log. 
+
+### Can I set alerts with Application Gateway?
+
+Yes. In Application Gateway, alerts are configured on metrics. For more information, see [Application Gateway metrics](https://docs.microsoft.com/azure/application-gateway/application-gateway-metrics) and [Receive alert notifications](../monitoring-and-diagnostics/insights-receive-alert-notifications.md).
+
+### How do I analyze traffic statistics for Application Gateway?
+
+You can view and analyze access logs in several ways. Use Azure Monitor logs, Excel, Power BI, and so on.
+
+You can also use a Resource Manager template that installs and runs the popular [GoAccess](https://goaccess.io/) log analyzer for Application Gateway access logs. GoAccess provides valuable HTTP traffic statistics such as unique visitors, requested files, hosts, operating systems, browsers, and HTTP status codes. For more information, in GitHub, see the [Readme file in the Resource Manager template folder](https://aka.ms/appgwgoaccessreadme).
+
+### What could cause backend health to return an unknown status?
+
+Usually, you see an unknown status when access to the backend is blocked by a network security group (NSG), custom DNS, or user-defined routing (UDR) on the application gateway subnet. For more information, see [Backend health, diagnostics logging, and metrics for Application Gateway](application-gateway-diagnostics.md).
+
+### Is there any case where NSG flow logs won't show allowed traffic?
+
+Yes. If your configuration matches following scenario, you won't see allowed traffic in your NSG flow logs:
+- You've deployed Application Gateway v2
+- You have an NSG on the application gateway subnet
+- You've enabled NSG flow logs on that NSG
+
+### How do I use Application Gateway V2 with only private frontend IP address?
+
+Application Gateway V2 currently does not support only private IP mode. It supports the following combinations
+* Private IP and Public IP
+* Public IP only
+
+But if you'd like to use Application Gateway V2 with only private IP, you can follow the process below:
+1. Create an Application Gateway with both public and private frontend IP address
+2. Do not create any listeners for the public frontend IP address. Application Gateway will not listen to any traffic on the public IP address if no listeners are created for it.
+3. Create and attach a [Network Security Group](https://docs.microsoft.com/azure/virtual-network/security-overview) for the Application Gateway subnet with the following configuration in the order of priority:
+    
+    a. Allow traffic from Source as **GatewayManager** service tag and Destination as **Any** and Destination port as **65200-65535**. This port range is required for Azure infrastructure communication. These ports are protected (locked down) by certificate authentication. External entities, including the Gateway user administrators, can't initiate changes on those endpoints without appropriate certificates in place
+    
+    b. Allow traffic from Source as **AzureLoadBalancer** service tag and Destination and destination port as **Any**
+    
+    c. Deny all inbound traffic from Source as **Internet** service tag and Destination and destination port as **Any**. Give this rule the *least priority* in the inbound rules
+    
+    d. Keep the default rules like allowing VirtualNetwork inbound so that the access on private IP address is not blocked
+    
+    e. Outbound internet connectivity can't be blocked. Otherwise, you will face issues with logging, metrics, etc.
+
+Sample NSG configuration for private IP only access:
+![Application Gateway V2 NSG Configuration for private IP access only](./media/application-gateway-faq/appgw-privip-nsg.png)
+
+
+## Next steps
+
+To learn more about Application Gateway, see [What is Azure Application Gateway?](overview.md).

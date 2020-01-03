@@ -1,9 +1,9 @@
 ---
-title: Create a snapshot of a VHD in Azure | Microsoft Docs
+title: Create a snapshot of a VHD in Azure 
 description: Learn how to create a copy of a VHD in Azure as a back up or for troubleshooting issues.
 documentationcenter: ''
-author: cynthn
-manager: jeconnoc
+author: roygara
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines-linux
@@ -12,7 +12,8 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
 ms.date: 07/11/2018
-ms.author: cynthn
+ms.author: rogarana
+ms.subservice: disks
 ---
 
 # Create a snapshot 
@@ -21,7 +22,7 @@ Take a snapshot of an OS or data disk for backup or to troubleshoot VM issues. A
 
 ## Use Azure CLI 
 
-The following example requires that you use [Cloud Shell](https://shell.azure.com/bash) or have Azure CLI 2.0 installed. Run **az --version** to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli). 
+The following example requires that you use [Cloud Shell](https://shell.azure.com/bash) or have the Azure CLI installed.
 
 The following steps show how to take a snapshot using the **az snapshot create** command with the **--source-disk** parameter. The following example assumes that there is a VM called *myVM* in the *myResourceGroup* resource group.
 

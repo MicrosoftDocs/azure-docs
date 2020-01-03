@@ -32,9 +32,9 @@
 - name: Resources
   items:
   - name: Regional Availability
-    href: https://azure.microsoft.com/en-us/global-infrastructure/services/
+    href: https://azure.microsoft.com/global-infrastructure/services/
   - name: Pricing (free)
-    href: https://azure.microsoft.com/en-us/pricing/details/cognitive-services/custom-decision-service/
+    href: https://azure.microsoft.com/pricing/details/cognitive-services/custom-decision-service/
   - name: UserVoice
     href: https://cognitive.uservoice.com/forums/598138-custom-decision-service
   - name: Stack Overflow

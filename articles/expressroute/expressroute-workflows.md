@@ -1,19 +1,19 @@
 ---
-title: "Workflows for configuring an Azure ExpressRoute circuit | Microsoft Docs"
-description: This page walks you through the workflows for configuring ExpressRoute circuit and peerings
+title: 'Azure ExpressRoute: Circuit configuration workflows'
+description: This page shows the workflows for configuring ExpressRoute circuit and peerings
 services: expressroute
 author: cherylmc
 
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 08/29/2018
+ms.date: 09/18/2018
 ms.author: cherylmc
 
 ---
 # ExpressRoute workflows for circuit provisioning and circuit states
 This page walks you through the service provisioning and routing configuration workflows at a high level.
 
-![](./media/expressroute-workflows/expressroute-circuit-workflow.png)
+![circuit workflow](./media/expressroute-workflows/expressroute-circuit-workflow.png)
 
 The following figure and corresponding steps show the tasks you must follow in order to have an ExpressRoute circuit provisioned end-to-end. 
 
@@ -24,14 +24,14 @@ The following figure and corresponding steps show the tasks you must follow in o
    
    * Enable Azure private peering - Enable this peering to connect to VMs / cloud services deployed within virtual networks.
 
-   * Enable Microsoft peering - Enable this to access Office 365 and Dynamics 365. Additionally, all Azure PaaS services are accessible through Microsoft peering.
+   * Enable Microsoft peering - Enable this to access Office 365. Additionally, all Azure PaaS services are accessible through Microsoft peering.
      
      > [!IMPORTANT]
      > You must ensure that you use a separate proxy / edge to connect to Microsoft than the one you use for the Internet. Using the same edge for both ExpressRoute and the Internet will cause asymmetric routing and cause connectivity outages for your network.
      > 
      > 
      
-     ![](./media/expressroute-workflows/routing-workflow.png)
+     ![routing workflows](./media/expressroute-workflows/routing-workflow.png)
 5. Linking virtual networks to ExpressRoute circuits - You can link virtual networks to your ExpressRoute circuit. Follow instructions [to link VNets](expressroute-howto-linkvnet-arm.md) to your circuit. These VNets can either be in the same Azure subscription as the ExpressRoute circuit, or can be in a different subscription.
 
 ## ExpressRoute circuit provisioning states

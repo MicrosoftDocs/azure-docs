@@ -1,13 +1,10 @@
 ---
-title: Exception handling & error logging scenario - Azure Logic Apps | Microsoft Docs
-description: Here's a real use case about advanced exception handling and error logging in Azure Logic Apps
+title: Exception handling & error logging scenario
+description: Real use case and scenario for advanced exception handling and error logging in Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
 author: hedidin
-ms.author: b-hoedid
-ms.reviewer: estfan, LADocs
-ms.assetid: 63b0b843-f6b0-4d9a-98d0-17500be17385
+ms.reviewer: klam, estfan, logicappspm
 ms.topic: article
 ms.date: 07/29/2016
 ---
@@ -68,7 +65,7 @@ let's start at the top. We must use a **Request** trigger because the parent log
 
 We are using a **Request** trigger as shown in the following example:
 
-```` json
+``` json
 "triggers": {
         "request": {
           "type": "request",
@@ -101,7 +98,7 @@ We are using a **Request** trigger as shown in the following example:
         }
       },
 
-````
+```
 
 
 ## Steps
@@ -513,4 +510,4 @@ The source code for the Logic Apps exception management API application is avail
 
 * [View more logic app examples and scenarios](../logic-apps/logic-apps-examples-and-scenarios.md)
 * [Learn about monitoring logic apps](../logic-apps/logic-apps-monitor-your-logic-apps.md)
-* [Create automated deployment templates for logic apps](../logic-apps/logic-apps-create-deploy-template.md)
+* [Automate logic app deployment](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)

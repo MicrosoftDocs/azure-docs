@@ -1,10 +1,10 @@
 ---
-title: Azure CLI Script Example - Create Batch account - user subscription | Microsoft Docs
-description: Azure CLI Script Example - Create a Batch account in user subscription mode
+title: Azure CLI Script Example - Create Batch account - user subscription
+description: This script creates an Azure Batch account in user subscription mode. This account allocates compute nodes into your subscription.
 services: batch
 documentationcenter: ''
-author: dlepow
-manager: jeconnoc
+author: laurenhughes
+manager: gwallace
 editor: 
 
 ms.assetid:
@@ -14,7 +14,7 @@ ms.topic: sample
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 01/29/2018
-ms.author: danlep
+ms.author: lahugh
 ---
 
 # CLI example: Create a Batch account in user subscription mode
@@ -23,7 +23,7 @@ This script creates an Azure Batch account in user subscription mode. An account
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, this article requires that you are running the Azure CLI version 2.0.20 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli). 
+If you choose to install and use the CLI locally, this article requires that you are running the Azure CLI version 2.0.20 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli). 
 
 ## Example script
 
@@ -44,7 +44,7 @@ This script uses the following commands. Each command in the table links to comm
 
 | Command | Notes |
 |---|---|
-| [az role assignment create](/cli/azure/role#az-role-assignment-create) | Create a new role assignment for a user, group, or service principal. |
+| [az role assignment create](/cli/azure/role) | Create a new role assignment for a user, group, or service principal. |
 | [az group create](/cli/azure/group#az-group-create) | Creates a resource group in which all resources are stored. |
 | [az keyvault create](https://docs.microsoft.com/cli/azure/keyvault#az-keyvault-create) | Creates a key vault. |
 | [az keyvault set-policy](https://docs.microsoft.com/cli/azure/keyvault#az-keyvault-set-policy) | Update the security policy of the specified key vault. |

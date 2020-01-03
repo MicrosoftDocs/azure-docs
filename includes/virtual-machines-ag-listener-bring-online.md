@@ -1,3 +1,10 @@
+---
+author: cynthn
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: cynthn
+---
 1. In Failover Cluster Manager, expand **Roles**, and then highlight your availability group.  
 
 2. On the **Resources** tab, right-click the listener name, and then click **Properties**.

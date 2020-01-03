@@ -1,28 +1,18 @@
 ---
-title: Microsoft Azure Data Box Disk overview | Microsoft Docs in data 
-description: Describes Azure Data Box Disk, a cloud solution that enables you to transfer large amounts of data into Azure
+title: Microsoft Azure Data Box Disk security features | Microsoft Docs in data 
+description: Describes security features implemented for Azure Data Box Disk, a cloud solution that enables you to transfer large amounts of data into Azure
 services: databox
-documentationcenter: NA
 author: alkohli
-manager: twooley
-editor: ''
 
-ms.assetid: 
 ms.service: databox
-ms.devlang: NA
-ms.topic: overview
-ms.custom: mvc
-ms.tgt_pltfrm: NA
-ms.workload: TBD
-ms.date: 07/10/2018
+ms.subservice: disk
+ms.topic: conceptual
+ms.date: 11/04/2019
 ms.author: alkohli
 ---
-# Azure Data Box Disk security and data protection (Preview)
+# Azure Data Box Disk security and data protection
 
 This article describes the Azure Data Box Disk security features that help protect each of the Data Box solution components and the data stored on them. 
-
-> [!IMPORTANT]
-> Data Box Disk is in preview. Review the [Azure terms of service for preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) before you deploy this solution.
 
 ## Data flow through components
 
@@ -76,17 +66,17 @@ Azure Data Box Disk collects and displays personal information in the following 
 
 - **Order details** – Once the order is created, the shipping address, email, contact information of users is stored in the Azure portal. The information saved includes:
 
-    - Contact name
-    - Phone number
-    - Email
-    - Street address
-    - City
-    - Zip/postal code
-    - State
-    - Country/Province/Region
-    - Drive ID
-    - Carrier account number
-    - Shipping tracking number
+  - Contact name
+  - Phone number
+  - Email
+  - Street address
+  - City
+  - Zip/postal code
+  - State
+  - Country/Province/Region
+  - Drive ID
+  - Carrier account number
+  - Shipping tracking number
 
     The order details are deleted by the Data Box service when the job completes or when you delete the order.
 

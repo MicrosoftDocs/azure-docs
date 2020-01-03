@@ -1,3 +1,10 @@
+---
+author: mgoedtel
+ms.service: log-analytics
+ms.topic: include
+ms.date: 11/09/2018	
+ms.author: magoedte
+---
 ### Troubleshoot Azure Diagnostics
 
 If you receive the following error message, the Microsoft.insights resource provider is not registered:
@@ -19,6 +26,6 @@ Once the *Microsoft.insights* resource provider is registered, retry configuring
 
 In PowerShell, if you receive the following error message, you need to update your version of PowerShell:
 
-`Set-AzureRmDiagnosticSetting : A parameter cannot be found that matches parameter name 'WorkspaceId'.`
+`Set-AzDiagnosticSetting : A parameter cannot be found that matches parameter name 'WorkspaceId'.`
 
-Update your version of PowerShell to the November 2016 (v2.3.0), or later, release using the instructions in the [Get started with Azure PowerShell cmdlets](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/) article.
+Update your version of Azure PowerShell, follow the instructions in the [Install Azure PowerShell](/powershell/azure/install-az-ps) article.

@@ -1,35 +1,27 @@
 ---
-title: Trigger and action types reference - Azure Logic Apps | Microsoft Docs
-description: Learn about trigger and action types in Azure Logic Apps as described by the Workflow Definition Language schema
+title: Schema reference for trigger and action types
+description: Schema reference guide for Workflow Definition Language trigger and action types in Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.topic: reference
-ms.date: 06/22/2018
+ms.reviewer: klam, logicappspm
+ms.topic: conceptual
+ms.date: 06/19/2019
 ---
 
-# Trigger and action types reference for Workflow Definition Language in Azure Logic Apps
+# Schema reference guide for trigger and action types in Azure Logic Apps
 
-In [Azure Logic Apps](../logic-apps/logic-apps-overview.md), 
-all logic app workflows start with triggers followed by actions. 
-This article describes the trigger and action types you can use 
-when creating logic apps for automating tasks, processes, and workflows. 
-You can create logic app workflows with the Logic Apps Designer, 
-either visually or by authoring the underlying workflow definitions with the 
-[Workflow Definition Language](../logic-apps/logic-apps-workflow-definition-language.md). 
-You can create logic apps either in the Azure portal or Visual Studio. 
-The underlying definition for the entire workflow, including the 
-trigger and actions, uses Javascript Object Notation (JSON).
+This reference describes the general types used for identifying triggers and actions 
+in your logic app's underlying workflow definition, which is described and validated by the 
+[Workflow Definition Language](../logic-apps/logic-apps-workflow-definition-language.md).
+To find specific connector triggers and actions that you can use in your logic apps, 
+see the list under the [Connectors overview](https://docs.microsoft.com/connectors/).
 
 <a name="triggers-overview"></a>
 
 ## Triggers overview
 
-All logic apps start with a trigger, which defines the 
-calls that instantiate and start a logic app workflow. 
+Every workflow includes a trigger, which defines the 
+calls that instantiate and start the workflow. 
 Here are the general trigger categories:
 
 * A *polling* trigger, which checks a service's endpoint at regular intervals
@@ -71,7 +63,7 @@ Triggers have these top-level elements, although some are optional:
 
 | Value | Type | Description | 
 |-------|------|-------------| 
-| <*array-with-conditions*> | Array | An array that contains one or more [conditions](#trigger-conditions) that determine whether to run the workflow | 
+| <*array-with-conditions*> | Array | An array that contains one or more [conditions](#trigger-conditions) that determine whether to run the workflow. Available only for triggers. | 
 | <*runtime-config-options*> | JSON Object | You can change trigger runtime behavior by setting `runtimeConfiguration` properties. For more information, see [Runtime configuration settings](#runtime-config-options). | 
 | <*splitOn-expression*> | String | For triggers that return an array, you can specify an expression that [splits or *debatches*](#split-on-debatch) array items into multiple workflow instances for processing. | 
 | <*operation-option*> | String | You can change the default behavior by setting the `operationOptions` property. For more information, see [Operation options](#operation-options). | 
@@ -158,19 +150,19 @@ behavior depends on whether or not sections are included.
 |-------|------|-------------| 
 | <*retry-behavior*> | JSON Object | Customizes the retry behavior for intermittent failures, which have the 408, 429, and 5XX status code, and any connectivity exceptions. For more information, see [Retry policies](../logic-apps/logic-apps-exception-handling.md#retry-policies). | 
 | <*query-parameters*> | JSON Object | Any query parameters to include with the API call. For example, the `"queries": { "api-version": "2018-01-01" }` object adds `?api-version=2018-01-01` to the call. | 
-| <*max-runs*> | Integer | By default, logic app workflow instances run at the same time, or in parallel up to the [default limit](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). To change this limit by setting a new <*count*> value, see [Change trigger concurrency](#change-trigger-concurrency). | 
-| <*max-runs-queue*> | Integer | When your logic app is already running the maximum number of instances, which you can change based on the `runtimeConfiguration.concurrency.runs` property, any new runs are put into this queue up to the [default limit](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). To change the default limit, see [Change waiting runs limit](#change-waiting-runs). | 
+| <*max-runs*> | Integer | By default, workflow instances run at the same time, or in parallel up to the [default limit](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). To change this limit by setting a new <*count*> value, see [Change trigger concurrency](#change-trigger-concurrency). | 
+| <*max-runs-queue*> | Integer | When your workflow is already running the maximum number of instances, which you can change based on the `runtimeConfiguration.concurrency.runs` property, any new runs are put into this queue up to the [default limit](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). To change the default limit, see [Change waiting runs limit](#change-waiting-runs). | 
 | <*splitOn-expression*> | String | For triggers that return arrays, this expression references the array to use so that you can create and run a workflow instance for each array item, rather than use a "for each" loop. <p>For example, this expression represents an item in the array returned within the trigger's body content: `@triggerbody()?['value']` |
-| <*operation-option*> | String | You can change the default behavior by setting the `operationOptions` property. For more information, see [Operation options](#operation-options). | 
+| <*operation-option*> | String | You can change the default behavior by setting the `operationOptions` property. For more information, see [Operation options](#operation-options). |
 ||||
 
 *Outputs*
  
 | Element | Type | Description |
-|---------|------|-------------| 
-| headers | JSON Object | The headers from the response | 
-| body | JSON Object | The body from the response | 
-| status code | Integer | The status code from the response | 
+|---------|------|-------------|
+| headers | JSON Object | The headers from the response |
+| body | JSON Object | The body from the response |
+| status code | Integer | The status code from the response |
 |||| 
 
 *Example*
@@ -185,7 +177,7 @@ inside the inbox for an Office 365 Outlook account:
       "host": {
          "connection": {
             "name": "@parameters('$connections')['office365']['connectionId']"
-         }     
+         }
       },
       "method": "get",
       "path": "/Mail/OnNewEmail",
@@ -253,8 +245,8 @@ and waits for the endpoint to respond. For more information, see
 |-------|------|-------------| 
 | <*retry-behavior*> | JSON Object | Customizes the retry behavior for intermittent failures, which have the 408, 429, and 5XX status code, and any connectivity exceptions. For more information, see [Retry policies](../logic-apps/logic-apps-exception-handling.md#retry-policies). | 
 | <*query-parameters*> | JSON Object | Any query parameters to include with the API call <p>For example, the `"queries": { "api-version": "2018-01-01" }` object adds `?api-version=2018-01-01` to the call. | 
-| <*max-runs*> | Integer | By default, logic app workflow instances run at the same time, or in parallel up to the [default limit](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). To change this limit by setting a new <*count*> value, see [Change trigger concurrency](#change-trigger-concurrency). | 
-| <*max-runs-queue*> | Integer | When your logic app is already running the maximum number of instances, which you can change based on the `runtimeConfiguration.concurrency.runs` property, any new runs are put into this queue up to the [default limit](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). To change the default limit, see [Change waiting runs limit](#change-waiting-runs). | 
+| <*max-runs*> | Integer | By default, workflow instances run at the same time, or in parallel up to the [default limit](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). To change this limit by setting a new <*count*> value, see [Change trigger concurrency](#change-trigger-concurrency). | 
+| <*max-runs-queue*> | Integer | When your workflow is already running the maximum number of instances, which you can change based on the `runtimeConfiguration.concurrency.runs` property, any new runs are put into this queue up to the [default limit](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). To change the default limit, see [Change waiting runs limit](#change-waiting-runs). | 
 | <*splitOn-expression*> | String | For triggers that return arrays, this expression references the array to use so that you can create and run a workflow instance for each array item, rather than use a "for each" loop. <p>For example, this expression represents an item in the array returned within the trigger's body content: `@triggerbody()?['value']` |
 | <*operation-option*> | String | You can change the default behavior by setting the `operationOptions` property. For more information, see [Operation options](#operation-options). | 
 |||| 
@@ -292,21 +284,21 @@ endpoint to respond when a new email arrives.
 
 ### HTTP trigger
 
-This trigger checks or polls the specified endpoint 
-based on the specified recurrence schedule. 
-The endpoint's response determines whether the workflow runs.
+This trigger sends a request to the specified HTTP or HTTPS endpoint based on the specified recurrence schedule. The trigger then checks the response to determine whether the workflow runs.
 
 ```json
 "HTTP": {
    "type": "Http",
    "inputs": {
       "method": "<method-type>",
-      "uri": "<endpoint-URL>",
+      "uri": "<HTTP-or-HTTPS-endpoint-URL>",
       "headers": { "<header-content>" },
+      "queries": "<query-parameters>",
       "body": "<body-content>",
-      "authentication": { "<authentication-method>" },
-      "retryPolicy": { "<retry-behavior>" },
-      "queries": "<query-parameters>"
+      "authentication": { "<authentication-type-and-property-values>" },
+      "retryPolicy": {
+         "type": "<retry-behavior>"
+      }
    },
    "recurrence": {
       "frequency": "<time-unit>",
@@ -324,27 +316,27 @@ The endpoint's response determines whether the workflow runs.
 
 *Required*
 
-| Value | Type | Description | 
-|-------|------|-------------| 
-| <*method-type*> | String | The HTTP method to use for polling the specified endpoint: "GET", "PUT", "POST", "PATCH", "DELETE" | 
-| <*endpoint-URL*> | String | The HTTP or HTTPS URL for the endpoint to poll <p>Maximum string size: 2 KB | 
-| <*time-unit*> | String | The unit of time that describes how often the trigger fires: "Second", "Minute", "Hour", "Day", "Week", "Month" | 
-| <*number-of-time-units*> | Integer | A value that specifies how often the trigger fires based on the frequency, which is the number of time units to wait until the trigger fires again <p>Here are the minimum and maximum intervals: <p>- Month: 1-16 months </br>- Day: 1-500 days </br>- Hour: 1-12,000 hours </br>- Minute: 1-72,000 minutes </br>- Second: 1-9,999,999 seconds<p>For example, if the interval is 6, and the frequency is "Month", the recurrence is every 6 months. | 
-|||| 
+| Property | Value | Type | Description |
+|----------|-------|------|-------------|
+| `method` | <*method-type*> | String | The method to use for sending the outgoing request: "GET", "PUT", "POST", "PATCH", or "DELETE" |
+| `uri` | <*HTTP-or-HTTPS-endpoint-URL*> | String | The HTTP or HTTPS endpoint URL where you want to send the outgoing request. Maximum string size: 2 KB <p>For an Azure service or resource, this URI syntax includes the resource ID and the path to the resource that you want to access. |
+| `frequency` | <*time-unit*> | String | The unit of time that describes how often the trigger fires: "Second", "Minute", "Hour", "Day", "Week", "Month" |
+| `interval` | <*number-of-time-units*> | Integer | A value that specifies how often the trigger fires based on the frequency, which is the number of time units to wait until the trigger fires again <p>Here are the minimum and maximum intervals: <p>- Month: 1-16 months </br>- Day: 1-500 days </br>- Hour: 1-12,000 hours </br>- Minute: 1-72,000 minutes </br>- Second: 1-9,999,999 seconds<p>For example, if the interval is 6, and the frequency is "Month", the recurrence is every 6 months. |
+|||||
 
 *Optional*
 
-| Value | Type | Description | 
-|-------|------|-------------| 
-| <*header-content*> | JSON Object | The headers to send with the request <p>For example, to set the language and type for a request: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` |
-| <*body-content*> | String | The message content to send as payload with the request | 
-| <*authentication-method*> | JSON Object | The method the request uses for authentication. For more information, see [Scheduler Outbound Authentication](../scheduler/scheduler-outbound-authentication.md). Beyond Scheduler, the `authority` property is supported. When not specified, the default value is `https://login.windows.net`, but you can use a different value, such as`https://login.windows\-ppe.net`. |
-| <*retry-behavior*> | JSON Object | Customizes the retry behavior for intermittent failures, which have the 408, 429, and 5XX status code, and any connectivity exceptions. For more information, see [Retry policies](../logic-apps/logic-apps-exception-handling.md#retry-policies). |  
- <*query-parameters*> | JSON Object | Any query parameters to include with the request <p>For example, the `"queries": { "api-version": "2018-01-01" }` object adds `?api-version=2018-01-01` to the request. | 
-| <*max-runs*> | Integer | By default, logic app workflow instances run at the same time, or in parallel up to the [default limit](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). To change this limit by setting a new <*count*> value, see [Change trigger concurrency](#change-trigger-concurrency). | 
-| <*max-runs-queue*> | Integer | When your logic app is already running the maximum number of instances, which you can change based on the `runtimeConfiguration.concurrency.runs` property, any new runs are put into this queue up to the [default limit](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). To change the default limit, see [Change waiting runs limit](#change-waiting-runs). | 
-| <*operation-option*> | String | You can change the default behavior by setting the `operationOptions` property. For more information, see [Operation options](#operation-options). | 
-|||| 
+| Property | Value | Type | Description |
+|----------|-------|------|-------------|
+| `headers` | <*header-content*> | JSON Object | Any headers that you need to include with the request <p>For example, to set the language and type: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` |
+| `queries` | <*query-parameters*> | JSON Object | Any query parameters that you need to use in the request <p>For example, the `"queries": { "api-version": "2018-01-01" }` object adds `?api-version=2018-01-01` to the request. |
+| `body` | <*body-content*> | JSON Object | The message content to send as payload with the request |
+| `authentication` | <*authentication-type-and-property-values*> | JSON Object | The authentication model that the request uses for authenticating outbound requests. For more information, see [Add authentication to outbound calls](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound). Beyond Scheduler, the `authority` property is supported. When not specified, the default value is `https://management.azure.com/`, but you can use a different value. |
+| `retryPolicy` > `type` | <*retry-behavior*> | JSON Object | Customizes the retry behavior for intermittent failures, which have the 408, 429, and 5XX status code, and any connectivity exceptions. For more information, see [Retry policies](../logic-apps/logic-apps-exception-handling.md#retry-policies). |
+| `runs` | <*max-runs*> | Integer | By default, workflow instances run at the same time, or in parallel up to the [default limit](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). To change this limit by setting a new <*count*> value, see [Change trigger concurrency](#change-trigger-concurrency). |
+| `maximumWaitingRuns` | <*max-runs-queue*> | Integer | When your workflow is already running the maximum number of instances, which you can change based on the `runtimeConfiguration.concurrency.runs` property, any new runs are put into this queue up to the [default limit](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). To change the default limit, see [Change waiting runs limit](#change-waiting-runs). |
+| `operationOptions` | <*operation-option*> | String | You can change the default behavior by setting the `operationOptions` property. For more information, see [Operation options](#operation-options). |
+|||||
 
 *Outputs*
 
@@ -364,7 +356,7 @@ and recognize these properties:
 | Response | Required | Description | 
 |----------|----------|-------------| 
 | Status code | Yes | The "200 OK" status code starts a run. Any other status code doesn't start a run. | 
-| Retry-after header | No | The number of seconds until the logic app polls the endpoint again | 
+| Retry-after header | No | The number of seconds until your logic app polls the endpoint again | 
 | Location header | No | The URL to call at the next polling interval. If not specified, the original URL is used. | 
 |||| 
 
@@ -403,7 +395,7 @@ The trigger's behavior depends on the sections that you use or omit.
          "uri": "<endpoint-subscribe-URL>",
          "headers": { "<header-content>" },
          "body": "<body-content>",
-         "authentication": { "<authentication-method>" },
+         "authentication": { "<authentication-type>" },
          "retryPolicy": { "<retry-behavior>" }
          },
       },
@@ -412,7 +404,7 @@ The trigger's behavior depends on the sections that you use or omit.
          "url": "<endpoint-unsubscribe-URL>",
          "headers": { "<header-content>" },
          "body": "<body-content>",
-         "authentication": { "<authentication-method>" }
+         "authentication": { "<authentication-type>" }
       }
    },
    "runTimeConfiguration": {
@@ -443,10 +435,10 @@ both the `"subscribe"` and `"unsubscribe"` objects.
 | <*method-type*> | String | The HTTP method to use for the cancellation request: "GET", "PUT", "POST", "PATCH", or "DELETE" | 
 | <*endpoint-unsubscribe-URL*> | String | The endpoint URL where to send the cancellation request | 
 | <*body-content*> | String | Any message content to send in the subscription or cancellation request | 
-| <*authentication-method*> | JSON Object | The method the request uses for authentication. For more information, see [Scheduler Outbound Authentication](../scheduler/scheduler-outbound-authentication.md). |
+| <*authentication-type*> | JSON Object | The authentication model that the request uses for authenticating outbound requests. For more information, see [Add authentication to outbound calls](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound). |
 | <*retry-behavior*> | JSON Object | Customizes the retry behavior for intermittent failures, which have the 408, 429, and 5XX status code, and any connectivity exceptions. For more information, see [Retry policies](../logic-apps/logic-apps-exception-handling.md#retry-policies). | 
-| <*max-runs*> | Integer | By default, logic app workflow instances run at the same time, or in parallel up to the [default limit](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). To change this limit by setting a new <*count*> value, see [Change trigger concurrency](#change-trigger-concurrency). | 
-| <*max-runs-queue*> | Integer | When your logic app is already running the maximum number of instances, which you can change based on the `runtimeConfiguration.concurrency.runs` property, any new runs are put into this queue up to the [default limit](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). To change the default limit, see [Change waiting runs limit](#change-waiting-runs). | 
+| <*max-runs*> | Integer | By default, workflow instances all run at the same time, or in parallel up to the [default limit](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). To change this limit by setting a new <*count*> value, see [Change trigger concurrency](#change-trigger-concurrency). | 
+| <*max-runs-queue*> | Integer | When your workflow is already running the maximum number of instances, which you can change based on the `runtimeConfiguration.concurrency.runs` property, any new runs are put into this queue up to the [default limit](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). To change the default limit, see [Change waiting runs limit](#change-waiting-runs). | 
 | <*operation-option*> | String | You can change the default behavior by setting the `operationOptions` property. For more information, see [Operation options](#operation-options). | 
 |||| 
 
@@ -537,13 +529,13 @@ and provides an easy way for creating a regularly running workflow.
 
 | Value | Type | Description | 
 |-------|------|-------------| 
-| <*start-date-time-with-format-YYYY-MM-DDThh:mm:ss*> | String | The start date and time in this format: <p>YYYY-MM-DDThh:mm:ss if you specify a time zone <p>-or- <p>YYYY-MM-DDThh:mm:ssZ if you don't specify a time zone <p>So for example, if you want September 18, 2017 at 2:00 PM, then specify "2017-09-18T14:00:00" and specify a time zone such as "Pacific Standard Time", or specify "2017-09-18T14:00:00Z" without a time zone. <p>**Note:** This start time must follow the [ISO 8601 date time specification](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) in [UTC date time format](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), but without a [UTC offset](https://en.wikipedia.org/wiki/UTC_offset). If you don't specify a time zone, you must add the letter "Z" at the end without any spaces. This "Z" refers to the equivalent [nautical time](https://en.wikipedia.org/wiki/Nautical_time). <p>For simple schedules, the start time is the first occurrence, while for complex schedules, the trigger doesn't fire any sooner than the start time. For more information about start dates and times, see [Create and schedule regularly running tasks](../connectors/connectors-native-recurrence.md). | 
+| <*start-date-time-with-format-YYYY-MM-DDThh:mm:ss*> | String | The start date and time in this format: <p>YYYY-MM-DDThh:mm:ss if you specify a time zone <p>-or- <p>YYYY-MM-DDThh:mm:ssZ if you don't specify a time zone <p>So for example, if you want September 18, 2017 at 2:00 PM, then specify "2017-09-18T14:00:00" and specify a time zone such as "Pacific Standard Time", or specify "2017-09-18T14:00:00Z" without a time zone. <p>**Note:** This start time has a maximum of 49 years in the future and must follow the [ISO 8601 date time specification](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) in [UTC date time format](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), but without a [UTC offset](https://en.wikipedia.org/wiki/UTC_offset). If you don't specify a time zone, you must add the letter "Z" at the end without any spaces. This "Z" refers to the equivalent [nautical time](https://en.wikipedia.org/wiki/Nautical_time). <p>For simple schedules, the start time is the first occurrence, while for complex schedules, the trigger doesn't fire any sooner than the start time. For more information about start dates and times, see [Create and schedule regularly running tasks](../connectors/connectors-native-recurrence.md). | 
 | <*time-zone*> | String | Applies only when you specify a start time because this trigger doesn't accept [UTC offset](https://en.wikipedia.org/wiki/UTC_offset). Specify the time zone that you want to apply. | 
 | <*one-or-more-hour-marks*> | Integer or integer array | If you specify "Day" or "Week" for `frequency`, you can specify one or more integers from 0 to 23, separated by commas, as the hours of the day when you want to run the workflow. <p>For example, if you specify "10", "12" and "14", you get 10 AM, 12 PM, and 2 PM as the hour marks. | 
 | <*one-or-more-minute-marks*> | Integer or integer array | If you specify "Day" or "Week" for `frequency`, you can specify one or more integers from 0 to 59, separated by commas, as the minutes of the hour when you want to run the workflow. <p>For example, you can specify "30" as the minute mark and using the previous example for hours of the day, you get 10:30 AM, 12:30 PM, and 2:30 PM. | 
 | weekDays | String or string array | If you specify "Week" for `frequency`, you can specify one or more days, separated by commas, when you want to run the workflow: "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", and "Sunday" | 
-| <*max-runs*> | Integer | By default, logic app workflow instances run at the same time, or in parallel up to the [default limit](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). To change this limit by setting a new <*count*> value, see [Change trigger concurrency](#change-trigger-concurrency). | 
-| <*max-runs-queue*> | Integer | When your logic app is already running the maximum number of instances, which you can change based on the `runtimeConfiguration.concurrency.runs` property, any new runs are put into this queue up to the [default limit](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). To change the default limit, see [Change waiting runs limit](#change-waiting-runs). | 
+| <*max-runs*> | Integer | By default, workflow instances all run at the same time, or in parallel up to the [default limit](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). To change this limit by setting a new <*count*> value, see [Change trigger concurrency](#change-trigger-concurrency). | 
+| <*max-runs-queue*> | Integer | When your workflow is already running the maximum number of instances, which you can change based on the `runtimeConfiguration.concurrency.runs` property, any new runs are put into this queue up to the [default limit](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). To change the default limit, see [Change waiting runs limit](#change-waiting-runs). | 
 | <*operation-option*> | String | You can change the default behavior by setting the `operationOptions` property. For more information, see [Operation options](#operation-options). | 
 |||| 
 
@@ -659,8 +651,8 @@ To learn how to use this trigger as an HTTP endpoint, see
 | <*method-type*> | String | The method that incoming requests must use to call your logic app: "GET", "PUT", "POST", "PATCH", "DELETE" |
 | <*relative-path-for-accepted-parameter*> | String | The relative path for the parameter that your endpoint's URL can accept | 
 | <*required-properties*> | Array | One or more properties that require values | 
-| <*max-runs*> | Integer | By default, logic app workflow instances run at the same time, or in parallel up to the [default limit](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). To change this limit by setting a new <*count*> value, see [Change trigger concurrency](#change-trigger-concurrency). | 
-| <*max-runs-queue*> | Integer | When your logic app is already running the maximum number of instances, which you can change based on the `runtimeConfiguration.concurrency.runs` property, any new runs are put into this queue up to the [default limit](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). To change the default limit, see [Change waiting runs limit](#change-waiting-runs). | 
+| <*max-runs*> | Integer | By default, workflow instances all run at the same time, or in parallel up to the [default limit](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). To change this limit by setting a new <*count*> value, see [Change trigger concurrency](#change-trigger-concurrency). | 
+| <*max-runs-queue*> | Integer | When your workflow is already running the maximum number of instances, which you can change based on the `runtimeConfiguration.concurrency.runs` property, any new runs are put into this queue up to the [default limit](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). To change the default limit, see [Change waiting runs limit](#change-waiting-runs). | 
 | <*operation-option*> | String | You can change the default behavior by setting the `operationOptions` property. For more information, see [Operation options](#operation-options). | 
 |||| 
 
@@ -703,9 +695,9 @@ a schema that validates input from the incoming request:
 
 ## Trigger conditions
 
-For any trigger, you can include an array that contains one or more 
-expressions for conditions that determine whether the workflow should run. 
-To add the `conditions` property to your logic app, 
+For any trigger, and only triggers, you can include an array that contains one 
+or more expressions for conditions that determine whether the workflow should run. 
+To add the `conditions` property to a trigger in your workflow, 
 open your logic app in the code view editor.
 
 For example, you can specify that a trigger fires only when 
@@ -741,7 +733,7 @@ this expression as your condition:
 If your trigger returns an array for your logic app to process, 
 sometimes a "for each" loop might take too long to process each array item. 
 Instead, you can use the **SplitOn** property in your trigger to *debatch* the array. 
-Debatching splits up the array items and starts a new logic app instance 
+Debatching splits up the array items and starts a new workflow instance 
 that runs for each array item. This approach is useful, for example, 
 when you want to poll an endpoint that might return multiple new items between polling intervals.
 For the maximum number of array items that **SplitOn** can process in a single logic app run, 
@@ -751,7 +743,10 @@ see [Limits and configuration](../logic-apps/logic-apps-limits-and-config.md#loo
 > You can't use **SplitOn** with a synchronous response pattern. 
 > Any workflow that uses **SplitOn** and includes a response action 
 > runs asynchronously and immediately sends a `202 ACCEPTED` response.
-
+>
+> When trigger concurrency is enabled, the [SplitOn limit](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) 
+> is significantly reduced. If the number of items exceeds this limit, the SplitOn capability is disabled.
+ 
 If your trigger's Swagger file describes a payload that is an array, 
 the **SplitOn** property is automatically added to your trigger. 
 Otherwise, add this property inside the response payload that has 
@@ -861,7 +856,7 @@ Actions have these high-level elements, though some are optional:
 
 | Value | Type | Description | 
 |-------|------|-------------|
-| <*retry-behavior*> | JSON Object | Customizes the retry behavior for intermittent failures, which have the 408, 429, and 5XX status code, and any connectivity exceptions. For more information, see [Retry policies](#retry-policies). | 
+| <*retry-behavior*> | JSON Object | Customizes the retry behavior for intermittent failures, which have the 408, 429, and 5XX status code, and any connectivity exceptions. For more information, see Retry policies. | 
 | <*runtime-config-options*> | JSON Object | For some actions, you can change the action's behavior at run time by setting `runtimeConfiguration` properties. For more information, see [Runtime configuration settings](#runtime-config-options). | 
 | <*operation-option*> | String | For some actions, you can change the default behavior by setting the `operationOptions` property. For more information, see [Operation options](#operation-options). | 
 |||| 
@@ -875,6 +870,8 @@ Here are some commonly used action types:
   * [**HTTP**](#http-action) for calling endpoints over HTTP or HTTPS
 
   * [**Response**](#response-action) for responding to requests
+
+  * [**Execute JavaScript Code**](#run-javascript-code) for running JavaScript code snippets
 
   * [**Function**](#function-action) for calling Azure Functions
 
@@ -903,6 +900,7 @@ and help you organize workflow execution
 | Action type | Description | 
 |-------------|-------------| 
 | [**Compose**](#compose-action) | Creates a single output from inputs, which can have various types. | 
+| [**Execute JavaScript Code**](#run-javascript-code) | Run JavaScript code snippets that fit within specific criteria. For code requirements and more information, see [Add and run code snippets with inline code](../logic-apps/logic-apps-add-run-inline-code.md). |
 | [**Function**](#function-action) | Calls an Azure Function. | 
 | [**HTTP**](#http-action) | Calls an HTTP endpoint. | 
 | [**Join**](#join-action) | Creates a string from all the items in an array and separates those items with a specified delimiter character. | 
@@ -1042,7 +1040,7 @@ and waits for the endpoint to respond. For more information, see
          "uri": "<api-subscribe-URL>",
          "headers": { "<header-content>" },
          "body": "<body-content>",
-         "authentication": { "<authentication-method>" },
+         "authentication": { "<authentication-type>" },
          "retryPolicy": "<retry-behavior>",
          "queries": { "<query-parameters>" },
          "<other-action-specific-input-properties>"
@@ -1052,7 +1050,7 @@ and waits for the endpoint to respond. For more information, see
          "uri": "<api-unsubscribe-URL>",
          "headers": { "<header-content>" },
          "body": "<body-content>",
-         "authentication": { "<authentication-method>" },
+         "authentication": { "<authentication-type>" },
          "<other-action-specific-properties>"
       },
    },
@@ -1079,7 +1077,7 @@ both the `"subscribe"` and `"unsubscribe"` objects.
 | <*api-unsubscribe-URL*> | String | The URI to use for unsubscribing from the API | 
 | <*header-content*> | JSON Object | Any headers to send in the request <p>For example, to set the language and type on a request: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` |
 | <*body-content*> | JSON Object | Any message content to send in the request | 
-| <*authentication-method*> | JSON Object | The method the request uses for authentication. For more information, see [Scheduler Outbound Authentication](../scheduler/scheduler-outbound-authentication.md). |
+| <*authentication-type*> | JSON Object | The authentication model that the request uses for authenticating outbound requests. For more information, see [Add authentication to outbound calls](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound). |
 | <*retry-behavior*> | JSON Object | Customizes the retry behavior for intermittent failures, which have the 408, 429, and 5XX status code, and any connectivity exceptions. For more information, see [Retry policies](../logic-apps/logic-apps-exception-handling.md#retry-policies). | 
 | <*query-parameters*> | JSON Object | Any query parameters to include with the API call <p>For example, the `"queries": { "api-version": "2018-01-01" }` object adds `?api-version=2018-01-01` to the call. | 
 | <*other-action-specific-input-properties*> | JSON Object | Any other input properties that apply to this specific action | 
@@ -1116,8 +1114,10 @@ You can then use the action's output in other actions.
 
 *Example 1*
 
+<!-- markdownlint-disable MD038 -->
 This action definition merges `abcdefg ` 
 with a trailing space and the value `1234`:
+<!-- markdownlint-enable MD038 -->
 
 ```json
 "Compose": {
@@ -1147,6 +1147,99 @@ This action definition merges a string variable that contains
 Here is the output that this action creates:
 
 `"abcdefg1234"`
+
+<a name="run-javascript-code"></a>
+
+### Execute JavaScript Code action
+
+This action runs a JavaScript code snippet and returns the results 
+through a `Result` token that later actions can reference.
+
+```json
+"Execute_JavaScript_Code": {
+   "type": "JavaScriptCode",
+   "inputs": {
+      "code": "<JavaScript-code-snippet>",
+      "explicitDependencies": {
+         "actions": [ <previous-actions> ],
+         "includeTrigger": true
+      }
+   },
+   "runAfter": {}
+}
+```
+
+*Required*
+
+| Value | Type | Description |
+|-------|------|-------------|
+| <*JavaScript-code-snippet*> | Varies | The JavaScript code that you want to run. For code requirements and more information, see [Add and run code snippets with inline code](../logic-apps/logic-apps-add-run-inline-code.md). <p>In the `code` attribute, your code snippet can use the read-only `workflowContext` object as input. This object has subproperties that give your code access to the results from the trigger and previous actions in your workflow. For more information about the `workflowContext` object, see [Reference trigger and action results in your code](../logic-apps/logic-apps-add-run-inline-code.md#workflowcontext). |
+||||
+
+*Required in some cases*
+
+The `explicitDependencies` attribute specifies that you want to explicitly 
+include results from the trigger, previous actions, or both as dependencies 
+for your code snippet. For more information about adding these dependencies, see 
+[Add parameters for inline code](../logic-apps/logic-apps-add-run-inline-code.md#add-parameters). 
+
+For the `includeTrigger` attribute, you can specify `true` or `false` values.
+
+| Value | Type | Description |
+|-------|------|-------------|
+| <*previous-actions*> | String array | An array with your specified action names. Use the action names that appear in your workflow definition where action names use underscores (_), not spaces (" "). |
+||||
+
+*Example 1*
+
+This action runs code that gets your logic app's name and returns 
+the text "Hello world from \<logic-app-name>" as the result. 
+In this example, the code references the workflow's name by 
+accessing the `workflowContext.workflow.name` property through 
+the read-only `workflowContext` object. For more information about 
+using the `workflowContext` object, see 
+[Reference trigger and action results in your code](../logic-apps/logic-apps-add-run-inline-code.md#workflowcontext).
+
+```json
+"Execute_JavaScript_Code": {
+   "type": "JavaScriptCode",
+   "inputs": {
+      "code": "var text = \"Hello world from \" + workflowContext.workflow.name;\r\n\r\nreturn text;"
+   },
+   "runAfter": {}
+}
+```
+
+*Example 2*
+
+This action runs code in a logic app that triggers when 
+a new email arrives in an Office 365 Outlook account. 
+The logic app also uses a send approval email action that 
+forwards the content from the received email along with a 
+request for approval.
+
+The code extracts the email addresses from the trigger's `Body` 
+property and returns the addresses along with the 
+`SelectedOption` property value from the approval action. 
+The action explicitly includes the send approval email action 
+as a dependency in the `explicitDependencies` > `actions` attribute.
+
+```json
+"Execute_JavaScript_Code": {
+   "type": "JavaScriptCode",
+   "inputs": {
+      "code": "var re = /(([^<>()\\[\\]\\\\.,;:\\s@\"]+(\\.[^<>()\\[\\]\\\\.,;:\\s@\"]+)*)|(\".+\"))@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}])|(([a-zA-Z\\-0-9]+\\.)+[a-zA-Z]{2,}))/g;\r\n\r\nvar email = workflowContext.trigger.outputs.body.Body;\r\n\r\nvar reply = workflowContext.actions.Send_approval_email_.outputs.body.SelectedOption;\r\n\r\nreturn email.match(re) + \" - \" + reply;\r\n;",
+      "explicitDependencies": {
+         "actions": [
+            "Send_approval_email_"
+         ]
+      }
+   },
+   "runAfter": {}
+}
+```
+
+
 
 <a name="function-action"></a>
 
@@ -1235,15 +1328,21 @@ created "GetProductID" function:
 
 ### HTTP action
 
-This action sends a request to the specified endpoint and 
-checks the response to determine whether the workflow should run. 
+This action sends a request to the specified HTTP or HTTPS endpoint and checks the response to determine whether the workflow runs.
 
 ```json
 "HTTP": {
    "type": "Http",
    "inputs": {
       "method": "<method-type>",
-      "uri": "<HTTP-or-HTTPS-endpoint-URL>"
+      "uri": "<HTTP-or-HTTPS-endpoint-URL>",
+      "headers": { "<header-content>" },
+      "queries": { "<query-parameters>" },
+      "body": "<body-content>",
+      "authentication": { "<authentication-type-and-property-values>" },
+      "retryPolicy": {
+         "type": "<retry-behavior>"
+      },
    },
    "runAfter": {}
 }
@@ -1251,28 +1350,28 @@ checks the response to determine whether the workflow should run.
 
 *Required*
 
-| Value | Type | Description | 
-|-------|------|-------------| 
-| <*method-type*> | String | The method to use for sending the request: "GET", "PUT", "POST", "PATCH", or "DELETE" | 
-| <*HTTP-or-HTTPS-endpoint-URL*> | String | The HTTP or HTTPS endpoint to call. Maximum string size: 2 KB | 
-|||| 
+| Property | Value | Type | Description |
+|----------|-------|------|-------------|
+| `method` | <*method-type*> | String | The method to use for sending the outgoing request: "GET", "PUT", "POST", "PATCH", or "DELETE" |
+| `uri` | <*HTTP-or-HTTPS-endpoint-URL*> | String | The HTTP or HTTPS endpoint URL where you want to send the outgoing request. Maximum string size: 2 KB <p>For an Azure service or resource, this URI syntax includes the resource ID and the path to the resource that you want to access. |
+|||||
 
 *Optional*
 
-| Value | Type | Description | 
-|-------|------|-------------| 
-| <*header-content*> | JSON Object | Any headers to send with the request <p>For example, to set the language and type: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` |
-| <*body-content*> | JSON Object | Any message content to send in the request | 
-| <*retry-behavior*> | JSON Object | Customizes the retry behavior for intermittent failures, which have the 408, 429, and 5XX status code, and any connectivity exceptions. For more information, see [Retry policies](../logic-apps/logic-apps-exception-handling.md#retry-policies). | 
-| <*query-parameters*> | JSON Object | Any query parameters to include with the request <p>For example, the `"queries": { "api-version": "2018-01-01" }` object adds `?api-version=2018-01-01` to the call. | 
-| <*other-action-specific-input-properties*> | JSON Object | Any other input properties that apply to this specific action | 
-| <*other-action-specific-properties*> | JSON Object | Any other properties that apply to this specific action | 
-|||| 
+| Property | Value | Type | Description |
+|----------|-------|------|-------------|
+| `headers` | <*header-content*> | JSON Object | Any headers that you need to include with the request <p>For example, to set the language and type: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` |
+| `queries` | <*query-parameters*> | JSON Object | Any query parameters that you need to use in the request <p>For example, the `"queries": { "api-version": "2018-01-01" }` object adds `?api-version=2018-01-01` to the call. |
+| `body` | <*body-content*> | JSON Object | The message content to send as payload with the request |
+| `authentication` | <*authentication-type-and-property-values*> | JSON Object | The authentication model that the request uses for authenticating outbound requests. For more information, see [Add authentication to outbound calls](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound). Beyond Scheduler, the `authority` property is supported. When not specified, the default value is `https://management.azure.com/`, but you can use a different value. |
+| `retryPolicy` > `type` | <*retry-behavior*> | JSON Object | Customizes the retry behavior for intermittent failures, which have the 408, 429, and 5XX status code, and any connectivity exceptions. For more information, see [Retry policies](../logic-apps/logic-apps-exception-handling.md#retry-policies). |
+| <*other-action-specific-input-properties*> | <*input-property*> | JSON Object | Any other input properties that apply to this specific action |
+| <*other-action-specific-properties*> | <*property-value*> | JSON Object | Any other properties that apply to this specific action |
+|||||
 
 *Example*
 
-This action definition gets the latest news 
-by sending a request to the specified endpoint:
+This action definition gets the latest news by sending a request to the specified endpoint:
 
 ```json
 "HTTP": {
@@ -1363,7 +1462,7 @@ easily reference the data in that output.
 
 *Example*
 
-This action definition creates these tokens that you can use in your logic app 
+This action definition creates these tokens that you can use in your 
 workflow but only in actions that run following the **Parse JSON** action: 
 
 `FirstName`, `LastName`, and `Email`
@@ -1463,7 +1562,7 @@ based on a specified condition or filter.
 | Value | Type | Description | 
 |-------|------|-------------| 
 | <*array*> | Array | The array or expression that provides the source items. If you specify an expression, enclose that expression with double quotes. |
-| <*condition-or-filter*> | String | The condition used for filtering items in the source array <p>**Note**: If no values satisfy the condition, the action creates an empty array. |
+| <*condition-or-filter*> | String | The condition used for filtering items in the source array <p>**Note**: If no values satisfy the condition, then the action creates an empty array. |
 |||| 
 
 *Example*
@@ -1719,7 +1818,7 @@ this action can use for the column header names:
 
 | Value | Type | Description | 
 |-------|------|-------------| 
-| <CSV *or* HTML>| String | The format for the table you want to create | 
+| \<CSV *or* HTML>| String | The format for the table you want to create | 
 | <*array*> | Array | The array or expression that provides the source items for the table <p>**Note**: If the source array is empty, the action creates an empty table. | 
 |||| 
 
@@ -1822,7 +1921,7 @@ Here is the HTML table that this action creates:
 
 ### Terminate action
 
-This action stops the run for logic app workflow instance, 
+This action stops the run for a workflow instance, 
 cancels any actions in progress, skips any remaining actions, 
 and returns the specified status. For example, you can use the 
 **Terminate** action when your logic app must exit completely 
@@ -2473,7 +2572,7 @@ the specified URL until one of these conditions is met:
  "Run_until_loop_succeeds_or_expires": {
     "type": "Until",
     "actions": {
-        "Http": {
+        "HTTP": {
             "type": "Http",
             "inputs": {
                 "method": "GET",
@@ -2482,7 +2581,7 @@ the specified URL until one of these conditions is met:
             "runAfter": {}
         }
     },
-    "expression": "@equals(outputs('Http')['statusCode', 200])",
+    "expression": "@equals(outputs('HTTP')['statusCode'], 200)",
     "limit": {
         "count": 60,
         "timeout": "PT1H"
@@ -2548,9 +2647,12 @@ properties in the trigger or action definition.
 
 | Property | Type | Description | Trigger or action | 
 |----------|------|-------------|-------------------| 
-| `runtimeConfiguration.concurrency.runs` | Integer | Change the [*default limit*](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) on the number of logic app instances that can run at the same time, or in parallel. This value can help limit the number of requests that backend systems receive. <p>Setting the `runs` property to `1` works the same way as setting the `operationOptions` property to `SingleInstance`. You can set either property, but not both. <p>To change the default limit, see [Change trigger concurrency](#change-trigger-concurrency) or [Trigger instances sequentially](#sequential-trigger). | All triggers | 
-| `runtimeConfiguration.concurrency.maximumWaitingRuns` | Integer | Change the [*default limit*](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) on the number of logic app instances that can wait to run when your logic app is already running the maximum concurrent instances. You can change the concurrency limit in the `concurrency.runs` property. <p>To change the default limit, see [Change waiting runs limit](#change-waiting-runs). | All triggers | 
+| `runtimeConfiguration.concurrency.runs` | Integer | Change the [*default limit*](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) on the number of workflow instances that can run at the same time, or in parallel. This value can help limit the number of requests that backend systems receive. <p>Setting the `runs` property to `1` works the same way as setting the `operationOptions` property to `SingleInstance`. You can set either property, but not both. <p>To change the default limit, see [Change trigger concurrency](#change-trigger-concurrency) or [Trigger instances sequentially](#sequential-trigger). | All triggers | 
+| `runtimeConfiguration.concurrency.maximumWaitingRuns` | Integer | Change the [*default limit*](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) on the number of workflow instances that can wait to run when your workflow is already running the maximum concurrent instances. You can change the concurrency limit in the `concurrency.runs` property. <p>To change the default limit, see [Change waiting runs limit](#change-waiting-runs). | All triggers | 
 | `runtimeConfiguration.concurrency.repetitions` | Integer | Change the [*default limit*](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) on the number of "for each" loop iterations that can run at the same time, or in parallel. <p>Setting the `repetitions` property to `1` works the same way as setting the `operationOptions` property to `SingleInstance`. You can set either property, but not both. <p>To change the default limit, see [Change "for each" concurrency](#change-for-each-concurrency) or [Run "for each" loops sequentially](#sequential-for-each). | Action: <p>[Foreach](#foreach-action) | 
+| `runtimeConfiguration.paginationPolicy.minimumItemCount` | Integer | For specific actions that support and have pagination turned on, this value specifies the *minimum* number of results to retrieve. <p>To turn on pagination, see [Get bulk data, items, or results by using pagination](../logic-apps/logic-apps-exceed-default-page-size-with-pagination.md) | Action: Varied |
+| `runtimeConfiguration.secureData.properties` | Array | On many triggers and actions, these settings hide inputs, outputs, or both from the logic app's run history. <p>To secure this data, see [Hide inputs and outputs from run history](../logic-apps/logic-apps-securing-a-logic-app.md#secure-data-code-view). | Most triggers and actions |
+| `runtimeConfiguration.staticResult` | JSON Object | For actions that support and have the [static result](../logic-apps/test-logic-apps-mock-data-static-results.md) setting turned on, the `staticResult` object has these attributes: <p>- `name`, which references the current action's static result definition name, which appears inside the `staticResults` attribute in your logic app workflow's `definition` attribute. For more information, see [Static results - Schema reference for Workflow Definition Language](../logic-apps/logic-apps-workflow-definition-language.md#static-results). <p> - `staticResultOptions`, which specifies whether static results are `Enabled` or not for the current action. <p>To turn on static results, see [Test logic apps with mock data by setting up static results](../logic-apps/test-logic-apps-mock-data-static-results.md) | Action: Varied |
 ||||| 
 
 <a name="operation-options"></a>
@@ -2573,23 +2675,40 @@ in trigger or action definition.
 
 ### Change trigger concurrency
 
-By default, logic app instances run at the same time, concurrently, or in parallel up to the 
-[default limit](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). 
-So, each trigger instance fires before the previously active logic app instance finishes running. 
-This limit helps control the number of requests that backend systems receive. 
+By default, logic app instances run at the same time (concurrently or in parallel) up to the [default limit](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). So, each trigger instance fires before the preceding workflow instance finishes running. This limit helps control the number of requests that backend systems receive. 
 
-To change the default limit, you can use either the code view editor or Logic Apps Designer 
-because changing the concurrency setting through the designer adds or updates the 
-`runtimeConfiguration.concurrency.runs` property in the underlying trigger definition 
-and vice versa. This property controls the maximum number of logic app instances that can run in parallel. 
+To change the default limit, you can use either the code view editor or Logic Apps Designer because changing the concurrency setting through the designer adds or updates the `runtimeConfiguration.concurrency.runs` property in the underlying trigger definition and vice versa. This property controls the maximum number of workflow instances that can run in parallel. Here are some considerations for when you want to enable the concurrency control:
 
-> [!NOTE] 
-> If you set the trigger to run sequentially 
-> either by using the designer or the code view editor,
-> don't set the trigger's `operationOptions` property 
-> to `SingleInstance` in the code view editor. 
-> Otherwise, you get a validation error. 
-> For more information, see [Trigger instances sequentially](#sequential-trigger).
+* When concurrency is enabled, the [SplitOn limit](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) is signficantly reduced for [debatching arrays](#split-on-debatch). If the number of items exceeds this limit, the SplitOn capability is disabled.
+
+* While concurrency is enabled, a long-running logic app instance might cause new logic app instances to enter a waiting state. This state prevents Azure Logic Apps from creating new instances and happens even when the number of concurrent runs is less than the specified maximum number of concurrent runs.
+
+  * To interrupt this state, cancel the earliest instances that are *still running*.
+
+    1. On your logic app's menu, select **Overview**.
+
+    1. In the **Runs history** section, select the earliest instance that is still running, for example:
+
+       ![Select earliest running instance](./media/logic-apps-workflow-actions-triggers/waiting-runs.png)
+
+       > [!TIP]
+       > To view only instances that are still running, open the **All** list, and select **Running**.    
+
+    1. Under **Logic app run**, select **Cancel run**.
+
+       ![Find earliest running instance](./media/logic-apps-workflow-actions-triggers/cancel-run.png)
+
+  * To work around this possibility, add a timeout to any action that might hold up these runs. If you're working in the code editor, see [Change asynchronous duration](#asynchronous-limits). Otherwise, if you're using the designer, follow these steps:
+
+    1. In your logic app, on the action where you want to add a timeout, in the upper-right corner, select the ellipses (**...**) button, and then select **Settings**.
+
+       ![Open action settings](./media/logic-apps-workflow-actions-triggers/action-settings.png)
+
+    1. Under **Timeout**, specify the timeout duration in [ISO 8601 format](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations).
+
+       ![Specify timeout duration](./media/logic-apps-workflow-actions-triggers/timeout.png)
+
+* If you want to run your logic app sequentially, you can set the trigger's concurrency to `1` either by using the code view editor or the designer. However, don't also set the trigger's `operationOptions` property to `SingleInstance` in the code view editor. Otherwise, you get a validation error. For more information, see [Trigger instances sequentially](#sequential-trigger).
 
 #### Edit in code view 
 
@@ -2619,9 +2738,10 @@ Here is an example that limits concurrent runs to 10 instances:
 1. In the trigger's upper-right corner, 
 choose the ellipses (...) button, and then choose **Settings**.
 
-2. Under **Concurrency Control**, set **Override Default** to **On**. 
+2. Under **Concurrency Control**, set **Limit** to **On**. 
 
 3. Drag the **Degree of Parallelism** slider to the value you want. 
+To run your logic app sequentially, drag the slider value to **1**.
 
 <a name="change-for-each-concurrency"></a>
 
@@ -2666,22 +2786,23 @@ Here is an example that limits concurrent runs to 10 iterations:
 
 #### Edit in Logic Apps Designer
 
-1. In the **For each** action's upper-right corner, 
+1. In the **For each** action, from the upper-right corner, 
 choose the ellipses (...) button, and then choose **Settings**.
 
-2. Under **Concurrency Control**, set **Override Default** to **On**. 
+2. Under **Concurrency Control**, set **Concurrency Control** to **On**. 
 
 3. Drag the **Degree of Parallelism** slider to the value you want. 
+To run your logic app sequentially, drag the slider value to **1**.
 
 <a name="change-waiting-runs"></a>
 
 ### Change waiting runs limit
 
-By default, logic app instances run at the same time, concurrently, or in parallel 
+By default, logic app workflow instances all run at the same time, concurrently, or in parallel 
 up to the [default limit](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). 
-Each trigger instance fires before the previously active logic app instance finishes running. 
+Each trigger instance fires before the previously active workflow instance finishes running. 
 Although you can [change this default limit](#change-trigger-concurrency), 
-when the number of logic app instances reaches the new concurrency limit, 
+when the number of workflow instances reaches the new concurrency limit, 
 any other new instances must wait to run. 
 
 The number of runs that can wait also has a 
@@ -2691,8 +2812,8 @@ the Logic Apps engine no longer accepts new runs. Request and webhook triggers r
 and recurring triggers start skipping polling attempts.
 
 To change the default limit on waiting runs, in the underlying trigger definition, 
-add and set the `runtimeConfiguration.concurency.maximumWaitingRuns` property 
-to a value between `0` and `100`. 
+add the `runtimeConfiguration.concurency.maximumWaitingRuns` property with 
+a value between `0` and `100`. 
 
 ```json
 "<trigger-name>": {
@@ -2713,7 +2834,7 @@ to a value between `0` and `100`.
 
 ### Trigger instances sequentially
 
-To run each logic app instance only after the previous instance finishes running, 
+To run each logic app workflow instance only after the previous instance finishes running, 
 set the trigger to run sequentially. You can use either the code view editor 
 or Logic Apps Designer because changing the concurrency setting through designer 
 also adds or updates the `runtimeConfiguration.concurrency.runs` 
@@ -2767,7 +2888,7 @@ Set the `operationOptions` property to `SingleInstance`:
 1. In the trigger's upper-right corner, 
 choose the ellipses (...) button, and then choose **Settings**.
 
-2. Under **Concurrency Control**, set **Override Default** to **On**. 
+2. Under **Concurrency Control**, set **Limit** to **On**. 
 
 3. Drag the **Degree of Parallelism** slider to the number `1`. 
 
@@ -2827,7 +2948,7 @@ Set the `operationOptions` property to `Sequential`:
 1. In the **For each** action's upper-right corner, 
 choose the ellipses (...) button, and then choose **Settings**.
 
-2. Under **Concurrency Control**, set **Override Default** to **On**. 
+2. Under **Concurrency Control**, set **Concurrency Control** to **On**. 
 
 3. Drag the **Degree of Parallelism** slider to the number `1`. 
 
@@ -2862,7 +2983,7 @@ the action's inputs.
 
 ### Run in high throughput mode
 
-For a single logic app run, the number of actions that execute every 5 minutes has a 
+For a single logic app definition, the number of actions that execute every 5 minutes has a 
 [default limit](../logic-apps/logic-apps-limits-and-config.md#throughput-limits). 
 To raise this limit to the [maximum](../logic-apps/logic-apps-limits-and-config.md#throughput-limits) 
 possible, set the `operationOptions` property to `OptimizedForHighThroughput`. 
@@ -2882,180 +3003,11 @@ This setting puts your logic app into "high throughput" mode.
 }
 ```
 
-<a name="connector-authentication"></a>
+<a name="authenticate-triggers-actions"></a>
 
-## Authenticate triggers or actions
+## Authenticate triggers and actions
 
-HTTP endpoints support different kinds of authentication. 
-You can set up authentication for these HTTP triggers and actions:
-
-* [HTTP](../connectors/connectors-native-http.md)
-* [HTTP + Swagger](../connectors/connectors-native-http-swagger.md)
-* [HTTP Webhook](../connectors/connectors-native-webhook.md)
-
-Here are the kinds of authentication you can set up:
-
-* [Basic authentication](#basic-authentication)
-* [Client certificate authentication](#client-certificate-authentication)
-* [Azure Active Directory (Azure AD) OAuth authentication](#azure-active-directory-oauth-authentication)
-
-<a name="basic-authentication"></a>
-
-### Basic authentication
-
-For this authentication type, your trigger or action definition can 
-include an `authentication` JSON object that has these properties:
-
-| Property | Required | Value | Description | 
-|----------|----------|-------|-------------| 
-| **type** | Yes | "Basic" | The authentication type to use, which is "Basic" here | 
-| **username** | Yes | "@parameters('userNameParam')" | A parameter that passes the user name to authenticate for accessing the target service endpoint |
-| **password** | Yes | "@parameters('passwordParam')" | A parameter that passes the password to authenticate for accessing the target service endpoint |
-||||| 
-
-For example, here's the format for the `authentication` 
-object in your trigger or action definition. 
-For more information about securing parameters, 
-see [Secure sensitive information](#secure-info). 
-
-```javascript
-"HTTP": {
-   "type": "Http",
-   "inputs": {
-      "method": "GET",
-      "uri": "http://www.microsoft.com",
-      "authentication": {
-         "type": "Basic",
-         "username": "@parameters('userNameParam')",
-         "password": "@parameters('passwordParam')"
-      }
-  },
-  "runAfter": {}
-}
-```
-
-<a name="client-certificate-authentication"></a>
-
-### Client Certificate authentication
-
-For this authentication type, your trigger or action definition can 
-include an `authentication` JSON object that has these properties:
-
-| Property | Required | Value | Description | 
-|----------|----------|-------|-------------| 
-| **type** | Yes | "ClientCertificate" | The authentication type to use for Secure Sockets Layer (SSL) client certificates | 
-| **pfx** | Yes | <*base64-encoded-pfx-file*> | The base64-encoded content from a Personal Information Exchange (PFX) file |
-| **password** | Yes | "@parameters('passwordParam')" | A parameter with the password for accessing the PFX file |
-||||| 
-
-For example, here's the format for the `authentication` 
-object in your trigger or action definition. 
-For more information about securing parameters, 
-see [Secure sensitive information](#secure-info). 
-
-```javascript
-"authentication": {
-   "password": "@parameters('passwordParam')",
-   "pfx": "aGVsbG8g...d29ybGQ=",
-   "type": "ClientCertificate"
-}
-```
-
-<a name="azure-active-directory-oauth-authentication"></a>
-
-### Azure Active Directory (AD) OAuth authentication
-
-For this authentication type, your trigger or action definition can 
-include an `authentication` JSON object that has these properties:
-
-| Property | Required | Value | Description | 
-|----------|----------|-------|-------------| 
-| **type** | Yes | `ActiveDirectoryOAuth` | The authentication type to use, which is "ActiveDirectoryOAuth" for Azure AD OAuth | 
-| **authority** | No | <*URL-for-authority-token-issuer*> | The URL for the authority that provides the authentication token |  
-| **tenant** | Yes | <*tenant-ID*> | The tenant ID for the Azure AD tenant | 
-| **audience** | Yes | <*resource-to-authorize*> | The resource that you want authorization to use, for example, `https://management.core.windows.net/` | 
-| **clientId** | Yes | <*client-ID*> | The client ID for the app requesting authorization | 
-| **credentialType** | Yes | "Secret" or "Certificate" | The credential type the client uses for requesting authorization. This property and value don't appear in your underlying definition, but determines the required parameters for the credential type. | 
-| **password** | Yes, only for "Certificate" credential type | "@parameters('passwordParam')" | A parameter with the password for accessing the PFX file | 
-| **pfx** | Yes, only for "Certificate" credential type | <*base64-encoded-pfx-file*> | The base64-encoded content from a Personal Information Exchange (PFX) file |
-| **secret** | Yes, only for "Secret" credential type | <*secret-for-authentication*> | The base64-encoded secret that the client uses for requesting authorization |
-||||| 
-
-For example, here's the format for the `authentication` object when 
-your trigger or action definition uses the "Secret" credential type:
-For more information about securing parameters, 
-see [Secure sensitive information](#secure-info). 
-
-```javascript
-"authentication": {
-   "audience": "https://management.core.windows.net/",
-   "clientId": "34750e0b-72d1-4e4f-bbbe-664f6d04d411",
-   "secret": "hcqgkYc9ebgNLA5c+GDg7xl9ZJMD88TmTJiJBgZ8dFo="
-   "tenant": "72f988bf-86f1-41af-91ab-2d7cd011db47",
-   "type": "ActiveDirectoryOAuth"
-}
-```
-
-<a name="secure-info"></a>
-
-## Secure sensitive information
-
-To protect sensitive information that you use for authentication, 
-such as usernames and passwords, in your trigger and action definitions, 
-you can use parameters and the `@parameters()` expression so that this 
-information isn't visible after you save your logic app. 
-
-For example, suppose you're using "Basic" authentication 
-in your trigger or action definition. Here is an example 
-`authentication` object that specifies a username and password:
-
-```javascript
-"HTTP": {
-   "type": "Http",
-   "inputs": {
-      "method": "GET",
-      "uri": "http://www.microsoft.com",
-      "authentication": {
-         "type": "Basic",
-         "username": "@parameters('userNameParam')",
-         "password": "@parameters('passwordParam')"
-      }
-  },
-  "runAfter": {}
-}
-```
-
-In the `parameters` section for your logic app definition, 
-define the parameters you used in your trigger or action definition:
-
-```javascript
-"definition": {
-   "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
-   "actions": {
-      "HTTP": {
-      }
-   },
-   "parameters": {
-      "passwordParam": {
-         "type": "securestring"
-      },
-      "userNameParam": {
-         "type": "securestring"
-      }
-   },
-   "triggers": {
-      "HTTP": {
-      }
-   },
-   "contentVersion": "1.0.0.0",
-   "outputs": {}
-},
-```
-
-If you're creating or using an Azure Resource Manager deployment template, 
-you also have to include an outer `parameters` section for your template definition. 
-For more information about securing parameters, see 
-[Secure access to your logic apps](../logic-apps/logic-apps-securing-a-logic-app.md#secure-parameters-and-inputs-within-a-workflow). 
+HTTP and HTTPS endpoints support different kinds of authentication. Based on the trigger or action that you use to make outbound calls or requests to access these endpoints, you can select from different ranges of authentication types. For more information, see [Add authentication to outbound calls](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound).
 
 ## Next steps
 

@@ -1,146 +1,131 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Azure Machine Learning Documentation
+### YamlMime:Landing
+
+title: Azure Machine Learning documentation
+summary: Azure Machine Learning offers web interfaces & SDKs so you can quickly train and deploy your machine learning models and pipelines at scale. Use these capabilities with open-source Python frameworks, such as PyTorch, TensorFlow, and scikit-learn. 
+
 metadata:
-  title: Azure Machine Learning Documentation - Tutorials, API Reference
-  description: Documentation, videos, and example models for Machine Learning, a cloud service for data scientists and developers using predictive analytics in applications.
+  title: Azure Machine Learning documentation
+  description: Azure Machine Learning offers you web interfaces & SDKs to quickly train and deploy your machine learning models and pipelines at scale. Use these capabilities with open-source Python frameworks, such as PyTorch, TensorFlow, and scikit-learn. 
+ 
   services: machine-learning
-  author: garyericson
-  manager: jhubbard
   ms.service: machine-learning
-  ms.tgt_pltfrm: na
-  ms.devlang: na
+  ms.subservice: core
   ms.topic: landing-page
-  ms.date: 02/01/2018
-  ms.author: garye
+  ms.collection: collection
+  author: j-martens
+  ms.author: jmartens
+  ms.date: 10/29/2019
 
-abstract:
-  description: Learn how to use Azure Machine Learning, with its fully managed services for building, deploying, and managing machine learning and AI models in the cloud. Tutorials, quickstarts, references, and examples show you how to build and deploy models for any of your applications.
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
-sections:
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+           
+  # GET STARTED
+  - title: Get started with Azure ML
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Experiment in Python notebooks
+            url: service/tutorial-1st-experiment-sdk-setup.md
+          - text: Experiment in RStudio
+            url: service/tutorial-1st-r-experiment.md
+          - text: Experiment using drag & drop designer
+            url: service/tutorial-designer-automobile-price-train-score.md
+          - text: Experiment with automated ML
+            url: service/tutorial-first-experiment-automated-ml.md
+      - linkListType: overview
+        links:
+          - text: What is Azure ML?
+            url: service/overview-what-is-azure-ml.md
+          - text: Architecture and concepts
+            url: service/concept-azure-machine-learning-architecture.md
+      - linkListType: how-to-guide
+        links:
+          - text: Set up your environment
+            url: service/how-to-configure-environment.md
+          - text: Set up training compute targets
+            url: service/how-to-set-up-training-targets.md    
+            
+  # PYTHON
+  - title: 'Experiment: Python SDK'
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Create your first ML experiment
+            url: service/tutorial-1st-experiment-sdk-setup.md
+          - text: Classify images 
+            url: service/tutorial-train-models-with-aml.md                     
+          - text: Predict taxi fares with automated ML
+            url: service/tutorial-auto-train-models.md 
+      - linkListType: how-to-guide
+        links:
+          - text: Train with Scikit-learn
+            url: service/how-to-train-scikit-learn.md
+          - text: Train with TensorFlow
+            url: service/how-to-train-tensorflow.md
+          - text: Train with PyTorch
+            url: service/how-to-train-pytorch.md
+          - text: Train with Keras
+            url: service/how-to-train-keras.md
 
-- title: 
-  items:
-  - type: list
-    style: cards
-    className: cardsA
-    items:
+  # Pipelines
+  - title: 'Use ML Pipelines'
+    linkLists:
+    - linkListType: overview
+      links:
+      - text: What are ML pipelines?
+        url: service/concept-ml-pipelines.md   
+      - text: The 'drag-n-drop' designer
+        url: service/concept-designer.md   
+    - linkListType: tutorial
+      links:
+      - text: Linear regression to predict prices (designer)
+        url: service/tutorial-designer-automobile-price-train-score.md
+      - text: Create ML pipelines (Python SDK)
+        url: service/tutorial-pipeline-batch-scoring-classification.md     
+    - linkListType: how-to-guide
+      links:
+          - text: Scheduling pipelines (Python SDK)
+            url: service/how-to-schedule-pipelines.md                 
+          - text: Predict delays (designer)
+            url: service/how-to-designer-sample-classification-flight-delay.md
+          - text: Predict churn (designer)
+            url: service/how-to-designer-sample-classification-churn.md     
 
-    - html: <a href="/azure/machine-learning/service/">
-            <img height="48" width="48" src="/azure/machine-learning/media/index/i_machine-learning.svg" alt="Azure Machine Learning services"> (preview)
-            <br><b>Azure Machine Learning services</b></a>
-            <p>Learn how these services empower data scientists to develop AI solutions using Python tools and libraries with a variety of Azure data and compute services.</p>
+  # MLOps
+  - title: Deploy & manage models
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: What is MLOps?
+            url: service/concept-model-management-and-deployment.md
+          - text: How & where to deploy
+            url: service/how-to-deploy-and-where.md
+          - text: Authentication
+            url: service/how-to-setup-authentication.md
+          - text: Realtime prediction
+            url: service/how-to-consume-web-service.md
+          - text: Batch prediction 
+            url: service/how-to-run-batch-predictions.md
+          - text: End-to-end examples (GitHub)
+            url: https://github.com/microsoft/MLOps
 
-    - html: <a href="/azure/machine-learning/studio/">
-            <img height="48" width="48" src="/azure/machine-learning/media/index/machine-learning-studio.svg" alt="Azure Machine Learning Studio">
-            <br><b>Azure Machine Learning Studio</b></a>
-            <p>Learn how to use this collaborative, drag-and-drop tool to build, test, and deploy predictive analytics solutions on your data.</p>
-
-    - html: <a href="/azure/machine-learning/data-science-virtual-machine/index">
-            <img height="48" width="48" src="/azure/machine-learning/media/index/virtualmachine.svg" alt="Data Science Virtual Machine">
-            <br><b>Data Science Virtual Machine</b></a>
-            <p>Learn how to use the Data Science and Deep Learning VMs, customized VM images on Azure, loaded with data science tools used to build intelligent applications for advanced analytics.</p>
-
-- title: 5-Minute Quickstarts
-  items:
-  - type: paragraph
-    text: 'Learn how to quickly set up and use Azure Machine Learning services (preview), Studio, and the Data Science Virtual Machine:'
-  - type: table
-    style: dataMatrix
-    columns:
-      - image:
-          src: media/index/i_machine-learning.svg
-      - image:
-          src: media/index/machine-learning-studio.svg
-      - image:
-          src: media/index/virtualmachine.svg
-    rows:
-      - title: Setup
-        values:
-        - href: /azure/machine-learning/service/quickstart-installation
-        - href: /azure/machine-learning/studio/create-workspace
-        - href: /azure/machine-learning/data-science-virtual-machine/provision-vm
-      - title: Build a model
-        values:
-        - href: /azure/machine-learning/service/quickstart-installation
-        - href: /azure/machine-learning/studio/create-experiment
-        - href: 
-
-- title: Step-by-Step Tutorials
-  items:
-  - type: paragraph
-    text: 'Learn how to build, deploy, and consume models using Azure Machine Learning services (preview) and Studio:'
-  - type: table
-    style: dataMatrix
-    columns:
-      - image:
-          src: media/index/i_machine-learning.svg
-      - image:
-          src: media/index/machine-learning-studio.svg
-    rows:
-      - title: Prepare data
-        values:
-        - href: /azure/machine-learning/desktop-workbench/tutorial-classifying-iris-part-1
-        - href: /azure/machine-learning/studio/walkthrough-2-upload-data
-      - title: Build a model
-        values:
-        - href: /azure/machine-learning/desktop-workbench/tutorial-classifying-iris-part-2
-        - href: /azure/machine-learning/studio/walkthrough-3-create-new-experiment
-      - title: Operationalize a model
-        values:
-        - href: /azure/machine-learning/desktop-workbench/tutorial-classifying-iris-part-3
-        - href: /azure/machine-learning/studio/walkthrough-5-publish-web-service
-      - title: Consume a model
-        values:
-        - href: /azure/machine-learning/desktop-workbench/model-management-consumption
-        - href: /azure/machine-learning/studio/walkthrough-6-access-web-service
-
-- title: More Microsoft Machine Learning Technologies
-  items:
-  - type: list
-    style: cards
-    className: cardsA
-    items:
-
-    - html: <a href="/azure/machine-learning/team-data-science-process">
-            <img src="media/index/tdsp.png" alt="Team Data Science Process"
-            height="32" width="32">
-            <p><b>Team Data Science Process</b></p>
-            </a>
-            A collaborative data science methodology that helps teams deliver predictive analytics solutions and intelligent applications efficiently.
-
-    - html: <a href="/sql/advanced-analytics/r/r-services">
-            <img src="media/index/logo_sql.png" alt="SQL Server Machine Learning Services"
-            height="32" width="32">
-            <p><b>SQL Server Machine Learning Services</b></p>
-            </a>
-            In-database analytics with support for both R and Python.
-
-    - html: <a href="/machine-learning-server/">
-            <img src="media/index/ml-server.png" alt="Microsoft Machine Learning Server"
-            height="32" width="32">
-            <p><b>Microsoft Machine Learning Server</b></p>
-            </a>
-            Flexible enterprise machine learning platform, supporting R and Python deployments on Windows, Linux, and HDInsight Spark and Hadoop clusters.
-
-    - html: <a href="/azure/batch-ai/">
-            <img src="media/index/batch.png" alt="Batch AI Training"
-            height="32" width="32">
-            <p><b>Batch AI Training</b></p>
-            </a>
-            Managed service that helps you experiment in parallel with your AI models using any framework, and then trains them at scale across clustered GPUs.
-
-    - html: <a href="/azure/#pivot=products&panel=cognitive">
-            <img src="media/index/cognitive-services.png" alt="Cognitive Services"
-            height="32" width="32">
-            <p><b>Cognitive Services</b></p>
-            </a>
-            APIs that supply intelligent algorithms for your apps, websites, and bots.
-
-    - html: <a href="/cognitive-toolkit/">
-            <img src="media/index/cntk.png" alt="Microsoft Cognitive Toolkit"
-            height="32" width="32">
-            <p><b>Microsoft Cognitive Toolkit</b></p>
-            </a>
-            A free, open-source toolkit to train deep learning algorithms.
-
+  # Reference
+  - title: Go to reference docs
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: SDK for Python
+            url: https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py
+          - text: SDK for R
+            url: https://azure.github.io/azureml-sdk-for-r/reference/index.html
+          - text: Machine learning CLI
+            url: https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml?view=azure-cli-latest
+          - text: Designer algorithms & modules
+            url: algorithm-module-reference/module-reference.md
+          - text: REST API
+            url: https://docs.microsoft.com/rest/api/azureml/
+          - text: AI reference architectures (GitHub)
+            url: https://github.com/Microsoft/AI

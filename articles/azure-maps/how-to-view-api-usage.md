@@ -1,8 +1,8 @@
 ---
 title: How to view the Azure Maps API usage | Microsoft Docs 
 description: Learn how to view the metrics for your Azure Maps API calls in the portal.
-author: dsk-2015
-ms.author: dkshir
+author: walsehgal
+ms.author: v-musehg
 ms.date: 08/06/2018
 ms.topic: conceptual
 ms.service: azure-maps
@@ -32,10 +32,10 @@ Continue to the next section if you need to customize these graphs for your part
 
 4. On the **Metrics** pane, choose between one of the following:
 
-    1. **Availability** - which shows the *Average* of API availability over a period of time.
-    2. **Usage** - which shows how the usage *Count* for your account.
+   1. **Availability** - which shows the *Average* of API availability over a period of time.
+   2. **Usage** - which shows how the usage *Count* for your account.
 
-    ![Azure Maps Metrics pane](media/how-to-view-api-usage/portal-metrics.png)
+      ![Azure Maps Metrics pane](media/how-to-view-api-usage/portal-metrics.png)
 
 5. Next, you may select the *Time range* by clicking **Last 24 hours (Automatic)**. By default, the time range is set to 24 hours. After clicking, you will see all selectable time ranges. You can select the *Time granularity* and choose to show the time as *local* or *GMT* in the same drop-down. Click **Apply**.
 
@@ -54,6 +54,11 @@ Continue to the next section if you need to customize these graphs for your part
 ## Next steps
 
 Learn more about the Azure Maps APIs you want to track usage for:
+> [!div class="nextstepaction"]	
+> [Azure Maps Web SDK How-To](how-to-use-map-control.md)
+
+> [!div class="nextstepaction"]	
+> [Azure Maps Android SDK How-To](how-to-use-android-map-control-library.md)
 
 > [!div class="nextstepaction"]
 > [Azure Maps REST API documentation](https://docs.microsoft.com/rest/api/maps)

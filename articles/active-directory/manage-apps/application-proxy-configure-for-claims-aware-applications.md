@@ -3,19 +3,20 @@ title: Claims-aware apps - Azure AD App Proxy | Microsoft Docs
 description: How to publish on-premises ASP.NET applications that accept ADFS claims for secure remote access by your users. 
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 
 ms.service: active-directory
-ms.component: app-mgmt
+ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/04/2017
-ms.author: barbkess
-ms.reviewer: harshja
+ms.date: 11/08/2018
+ms.author: mimart
+ms.reviewer: japere
 
+ms.collection: M365-identity-device-management
 ---
 
 # Working with claims-aware apps in Application Proxy
@@ -26,7 +27,7 @@ Make sure that the STS that the claims-aware app redirects to is available outsi
 
 ## Publish your application
 
-1. Publish your application according to the instructions described in [Publish applications with Application Proxy](application-proxy-publish-azure-portal.md).
+1. Publish your application according to the instructions described in [Publish applications with Application Proxy](application-proxy-add-on-premises-application.md).
 2. Navigate to the application page in the portal and select **Single sign-on**.
 3. If you chose **Azure Active Directory** as your **Preauthentication Method**, select **Azure AD single sign-on disabled** as your **Internal Authentication Method**. If you chose **Passthrough** as your **Preauthentication Method**, you don't need to change anything.
 
@@ -51,7 +52,7 @@ If all the internal URLs for your applications are fully qualified domain names 
    ![Add an Endpoint - set Trusted URL value - screenshot](./media/application-proxy-configure-for-claims-aware-applications/appproxyendpointtrustedurl.png)  
 
 ## Next steps
-* [Enable single-sign on](application-proxy-single-sign-on.md) for applications that aren't claims-aware
+* [Enable single-sign on](configure-single-sign-on-non-gallery-applications.md) for applications that aren't claims-aware
 * [Enable native client apps to interact with proxy applications](application-proxy-configure-native-client-application.md)
 
 

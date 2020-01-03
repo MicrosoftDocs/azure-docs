@@ -157,7 +157,7 @@ Perform the following steps to restore the device to a target StorSimple virtual
 
 **Cloud connectivity outage during DR**
 
-If the cloud connectivity is disrupted after DR has started and before the device restore is complete, the DR will fail. You receive a failore notification. The target device for DR is marked as *unusable.* You cannot use the same target device for future DRs.
+If the cloud connectivity is disrupted after DR has started and before the device restore is complete, the DR will fail. You receive a failure notification. The target device for DR is marked as *unusable.* You cannot use the same target device for future DRs.
 
 **No compatible target devices**
 

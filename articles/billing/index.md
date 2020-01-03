@@ -1,26 +1,23 @@
 ---
 layout: LandingPage
 title: Azure billing and cost management documentation | Microsoft Docs
-description: Learn how to understand your Azure billing, manage and monitor usage and costs, and manage your account and subscriptions. 
+description: Learn how to understand your Azure billing, manage and monitor usage and costs, and manage your account and subscriptions.
 services: billing
 author: cwatson-cat
 manager: dougeby
 layout: LandingPage
-ms.assetid:	
-ms.service: billing
+ms.assetid:
+ms.service: cost-management-billing
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
-ms.date: 05/24/2018
-ms.author: cwatson
+ms.date: 02/19/2019
+ms.author: banders
 ---
 
 # Azure billing and cost management documentation
 
 Learn how to understand your Azure billing, monitor usage and costs, and manage your account and subscriptions.
-
-> [!div class="nextstepaction"]
-> [Help improve Azure billing docs](https://go.microsoft.com/fwlink/p/?linkid=2010091)
 
 <ul class="panelContent cardsF">
     <li>
@@ -48,9 +45,10 @@ Learn how to understand your Azure billing, monitor usage and costs, and manage 
                         <h3>Manage costs</h3>
                         <p>
                         <a href="/azure/billing/billing-getting-started">Prevent unexpected costs</a><br/>
-                        <a href="/azure/billing/billing-set-up-alerts">Set up billing alerts</a><br/>
-                        <a href="https://azure.microsoft.com/pricing/calculator/">Calculate pricing</a><br/>
-                        <a href="/azure/azure-resource-manager/resource-group-using-tags?toc=/azure/billing/TOC.json">Use resource tags</a>
+                        <a href="/azure/azure-resource-manager/resource-group-using-tags?toc=/azure/billing/TOC.json">Use resource tags</a><br/>
+                        <a href="/azure/cost-management/quick-acm-cost-analysis?toc=/azure/billing/TOC.json">Start analyzing costs</a><br/>
+                        <a href="/azure/cost-management/tutorial-acm-create-budgets?toc=/azure/billing/TOC.json">Create and manage budgets</a><br/>
+                        <a href="/azure/cost-management/tutorial-acm-opt-recommendations?toc=/azure/billing/TOC.json">Optimize recommendations</a>
                         </p>
                     </div>
                 </div>
@@ -166,7 +164,6 @@ Learn how to understand your Azure billing, monitor usage and costs, and manage 
                 <div class="card">
                     <div class="cardText">
                         <h3>Enterprise subscription: requires EA portal access</h3>
-                        <style>.p-test:after { font-family: docons; content: "\E9D0";}</style>
                         <p>
                         <a class="p-test" href="https://ea.azure.com/helpdocs/createADepartment" data-linktype="external">Manage departments<span class="docon docon-navigate-external"></span></a>
                         <br>
@@ -183,5 +180,5 @@ Learn how to understand your Azure billing, monitor usage and costs, and manage 
             </div>
         </div>
     </li>
-    
+
 </ul>

@@ -1,17 +1,10 @@
 ---
-title: Add messages to an Azure Storage queue using Functions | Microsoft Docs
+title: Add messages to an Azure Storage queue using Functions 
 description: Use Azure Functions to create a serverless function that is invoked by an HTTP request and creates a message in an Azure Storage queue.
-services: azure-functions
-documentationcenter: na
-author: ggailey777
-manager: jeconnoc
 
 ms.assetid: 0b609bc0-c264-4092-8e3e-0784dcc23b5d
-ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: quickstart
 ms.date: 09/19/2017
-ms.author: glenga
 ms.custom: mvc
 ---
 # Add messages to an Azure Storage queue using Functions
@@ -20,13 +13,13 @@ In Azure Functions, input and output bindings provide a declarative way to make 
 
 ![Queue message shown in Storage Explorer](./media/functions-integrate-storage-queue-output-binding/function-queue-storage-output-view-queue.png)
 
-## Prerequisites 
+## Prerequisites
 
 To complete this quickstart:
 
 * Follow the directions in [Create your first function from the Azure portal](functions-create-first-azure-function.md) and don't do the **Clean up resources** step. That quickstart creates the function app and function that you use here.
 
-* Install [Microsoft Azure Storage Explorer](http://storageexplorer.com/). This is a tool you'll use to examine queue messages that your output binding creates.
+* Install [Microsoft Azure Storage Explorer](https://storageexplorer.com/). This is a tool you'll use to examine queue messages that your output binding creates.
 
 ## <a name="add-binding"></a>Add an output binding
 
@@ -34,15 +27,19 @@ In this section, you use the portal UI to add a queue storage output binding to 
 
 1. In the Azure portal, open the function app page for the function app that you created in [Create your first function from the Azure portal](functions-create-first-azure-function.md). To do this, select **All services > Function Apps**, and then select your function app.
 
-2. Select the function that you created in that earlier quickstart.
+1. Select the function that you created in that earlier quickstart.
 
 1. Select **Integrate > New output > Azure Queue storage**.
 
 1. Click **Select**.
-    
+
     ![Add a Queue storage output binding to a function in the Azure portal.](./media/functions-integrate-storage-queue-output-binding/function-add-queue-storage-output-binding.png)
 
-3. Under **Azure Queue Storage output**, use the settings as specified in the table that follows this screenshot: 
+1. If you get an **Extensions not installed** message, choose **Install** to install the Storage bindings extension in the function app. This may take a minute or two.
+
+    ![Install the Storage binding extension](./media/functions-integrate-storage-queue-output-binding/functions-integrate-install-binding-extension.png)
+
+1. Under **Azure Queue Storage output**, use the settings as specified in the table that follows this screenshot: 
 
     ![Add a Queue storage output binding to a function in the Azure portal.](./media/functions-integrate-storage-queue-output-binding/function-add-queue-storage-output-binding-2.png)
 
@@ -52,52 +49,58 @@ In this section, you use the portal UI to add a queue storage output binding to 
     | **Storage account connection** | AzureWebJobsStorage | You can use the storage account connection already being used by your function app, or create a new one.  |
     | **Queue name**   | outqueue    | The name of the queue to connect to in your Storage account. |
 
-4. Click **Save** to add the binding.
- 
+1. Click **Save** to add the binding.
+
 Now that you have an output binding defined, you need to update the code to use the binding to add messages to a queue.  
 
 ## Add code that uses the output binding
 
 In this section, you add code that writes a message to the output queue. The message includes the value that is passed to the HTTP trigger in the query string. For example, if the query string includes `name=Azure`, the queue message will be *Name passed to the function: Azure*.
 
-1. Select your function to display the function code in the editor. 
+1. Select your function to display the function code in the editor.
 
-2. For a C# function, add a method parameter for the binding and write code to use it:
+1. Update the function code depending on your function language:
 
-   Add an **outputQueueItem** parameter to the method signature as shown in the following example. The parameter name is the same as what you entered for **Message parameter name** when you created the binding.
+    # [C\#](#tab/csharp)
 
-   ```cs   
-   public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, 
-       ICollector<string> outputQueueItem, TraceWriter log)
-   {
-       ...
-   }
-   ```
+    Add an **outputQueueItem** parameter to the method signature as shown in the following example.
 
-   In the body of the C# function just before the `return` statement, add code that uses the parameter to create a queue message.
+    ```cs
+    public static async Task<IActionResult> Run(HttpRequest req,
+        ICollector<string> outputQueueItem, ILogger log)
+    {
+        ...
+    }
+    ```
 
-   ```cs
-   outputQueueItem.Add("Name passed to the function: " + name);     
-   ```
+    In the body of the function just before the `return` statement, add code that uses the parameter to create a queue message.
 
-3. For a JavaScript function, add code that uses the output binding on the `context.bindings` object to create a queue message. Add this code before the`context.done` statement.
+    ```cs
+    outputQueueItem.Add("Name passed to the function: " + name);
+    ```
 
-   ```javascript
-   context.bindings.outputQueueItem = "Name passed to the function: " + 
-               (req.query.name || req.body.name);
-   ```
+    # [JavaScript](#tab/nodejs)
 
-4. Select **Save** to save changes.
- 
-## Test the function 
+    Add code that uses the output binding on the `context.bindings` object to create a queue message. Add this code before the`context.done` statement.
+
+    ```javascript
+    context.bindings.outputQueueItem = "Name passed to the function: " + 
+                (req.query.name || req.body.name);
+    ```
+
+    ---
+
+1. Select **Save** to save changes.
+
+## Test the function
 
 1. After the code changes are saved, select **Run**. 
 
     ![Add a Queue storage output binding to a function in the Azure portal.](./media/functions-integrate-storage-queue-output-binding/functions-test-run-function.png)
 
-   Notice that the **Request body** contains the `name` value *Azure*. This value appears in the queue message that is created when the function is invoked.
-
-   As an alternative to selecting **Run** here, you can call the function by entering a URL in a browser and specifying the `name` value in the query string. The browser method is shown in the [previous quickstart](functions-create-first-azure-function.md#test-the-function).
+    Notice that the **Request body** contains the `name` value *Azure*. This value appears in the queue message that is created when the function is invoked.
+    
+    As an alternative to selecting **Run** here, you can call the function by entering a URL in a browser and specifying the `name` value in the query string. The browser method is shown in the [previous quickstart](functions-create-first-azure-function.md#test-the-function).
 
 2. Check the logs to make sure that the function succeeded. 
 
@@ -107,7 +110,7 @@ A new queue named **outqueue** is created in your Storage account by the Functio
 
 Skip this section if you have already installed Storage Explorer and connected it to the storage account that you're using with this quickstart.
 
-2. Run the [Microsoft Azure Storage Explorer](http://storageexplorer.com/) tool, select the connect icon on the left, choose **Use a storage account name and key**, and select **Next**.
+1. Run the [Microsoft Azure Storage Explorer](https://storageexplorer.com/) tool, select the connect icon on the left, choose **Use a storage account name and key**, and select **Next**.
 
     ![Run the Storage Account Explorer tool.](./media/functions-integrate-storage-queue-output-binding/functions-storage-manager-connect-1.png)
 
@@ -125,13 +128,13 @@ Skip this section if you have already installed Storage Explorer and connected i
  
 1. Click the show/hide icon next to **Account Key** to display the value, and then copy the **Account Key** value and paste it in the **Account key** box in Storage Explorer.
   
-3. Select **Next > Connect**.
+1. Select **Next > Connect**.
 
    ![Paste the storage credentials and connect.](./media/functions-integrate-storage-queue-output-binding/functions-storage-manager-connect-2.png)
 
 ### Examine the output queue
 
-4. In Storage Explorer, select the storage account that you're using for this quickstart.
+1. In Storage Explorer, select the storage account that you're using for this quickstart.
 
 1. Expand the **Queues** node, and then select the queue named **outqueue**. 
 
@@ -139,7 +142,7 @@ Skip this section if you have already installed Storage Explorer and connected i
 
     ![Queue message shown in Storage Explorer](./media/functions-integrate-storage-queue-output-binding/function-queue-storage-output-view-queue.png)
 
-2. Run the function again, and you'll see a new message appear in the queue.  
+1. Run the function again, and you'll see a new message appear in the queue.  
 
 ## Clean up resources
 
@@ -147,6 +150,6 @@ Skip this section if you have already installed Storage Explorer and connected i
 
 ## Next steps
 
-In this quickstart, you added an output binding to an existing function. For more information about binding to Queue storage, see [Azure Functions Storage queue bindings](functions-bindings-storage-queue.md). 
+In this quickstart, you added an output binding to an existing function. For more information about binding to Queue storage, see [Azure Functions Storage queue bindings](functions-bindings-storage-queue.md).
 
-[!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
+[!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps-2.md)]

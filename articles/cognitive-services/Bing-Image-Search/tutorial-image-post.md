@@ -1,14 +1,14 @@
 ---
-title: "Tutorial: Extract image details using C# - Bing Image Search API"
+title: "Tutorial: Extract image details with the REST API and C# - Bing Image Search"
 titleSuffix: Azure Cognitive Services
-description: Use this article to create a C# application that extracts image details using the Bing Image Search API.
+description: Use this tutorial to create a C# application that extracts image details using the Bing Image Search API.
 services: cognitive-services
 author: aahill
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
-ms.component: bing-image-search
+ms.subservice: bing-image-search
 ms.topic: tutorial
-ms.date: 9/14/2018
+ms.date: 12/06/2019
 ms.author: aahi
 ---
 
@@ -31,13 +31,13 @@ The source code for this sample is available on [GitHub](https://github.com/Azur
 
 ## Prerequisites
 
-* Any edition of [Visual studio 2017](https://visualstudio.microsoft.com/downloads/).
+* Any edition of [Visual studio 2017 or later](https://visualstudio.microsoft.com/downloads/).
 
 [!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
 ## Construct an image details search request
 
-The following is the `/details` endpoint, which accepts POST requests with image data in the body of the request.
+The following is the `/details` endpoint, which accepts POST requests with image data in the body of the request. You can use the global endpoint below, or the [custom subdomain](../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
 ```
 https://api.cognitive.microsoft.com/bing/v7.0/images/details
 ```

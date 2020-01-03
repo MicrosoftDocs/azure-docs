@@ -1,21 +1,17 @@
 ---
-title: Restore a VM disk with Azure Backup
+title: Tutorial - Restore a VM disk with Azure Backup
 description: Learn how to restore a disk and create a recover a VM in Azure with Backup and Recovery Services.
-services: backup
-author: markgalioto
-manager: carmonm
-tags: azure-resource-manager, virtual-machine-backup
-ms.service: backup
 ms.topic: tutorial
-ms.date: 4/17/2018
-ms.author: markgal
+ms.date: 01/31/2019
 ms.custom: mvc
 ---
 
 # Restore a disk and create a recovered VM in Azure
+
 Azure Backup creates recovery points that are stored in geo-redundant recovery vaults. When you restore from a recovery point, you can restore the whole VM or individual files. This article explains how to restore a complete VM using CLI. In this tutorial you learn how to:
 
 > [!div class="checklist"]
+>
 > * List and select recovery points
 > * Restore a disk from a recovery point
 > * Create a VM from the restored disk
@@ -24,23 +20,23 @@ For information on using PowerShell to restore a disk and create a recovered VM,
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.18 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
-
+If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.18 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install the Azure CLI]( /cli/azure/install-azure-cli).
 
 ## Prerequisites
+
 This tutorial requires a Linux VM that has been protected with Azure Backup. To simulate an accidental VM deletion and recovery process, you create a VM from a disk in a recovery point. If you need a Linux VM that has been protected with Azure Backup, see [Back up a virtual machine in Azure with the CLI](quick-backup-vm-cli.md).
 
-
 ## Backup overview
+
 When Azure initiates a backup, the backup extension on the VM takes a point-in-time snapshot. The backup extension is installed on the VM when the first backup is requested. Azure Backup can also take a snapshot of the underlying storage if the VM is not running when the backup takes place.
 
 By default, Azure Backup takes a file system consistent backup. Once Azure Backup takes the snapshot, the data is transferred to the Recovery Services vault. To maximize efficiency, Azure Backup identifies and transfers only the blocks of data that have changed since the previous backup.
 
 When the data transfer is complete, the snapshot is removed and a recovery point is created.
 
-
 ## List available recovery points
-To restore a disk, you select a recovery point as the source for the recovery data. As the default policy creates a recovery point each day and retains them for 30 days, you can keep a set of recovery points that allows you to select a particular point in time for recovery. 
+
+To restore a disk, you select a recovery point as the source for the recovery data. As the default policy creates a recovery point each day and retains them for 30 days, you can keep a set of recovery points that allows you to select a particular point in time for recovery.
 
 To see a list of available recovery points, use [az backup recoverypoint list](https://docs.microsoft.com/cli/azure/backup/recoverypoint?view=azure-cli-latest#az-backup-recoverypoint-list). The recovery point **name** is used to recover disks. In this tutorial, we want the most recent recovery point available. The `--query [0].name` parameter selects the most recent recovery point name as follows:
 
@@ -54,8 +50,8 @@ az backup recoverypoint list \
     --output tsv
 ```
 
-
 ## Restore a VM disk
+
 To restore your disk from the recovery point, you first create an Azure storage account. This storage account is used to store the restored disk. In additional steps, the restored disk is used to create a VM.
 
 1. To create a storage account, use [az storage account create](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create). The storage account name must be all lowercase, and be globally unique. Replace *mystorageaccount* with your own unique name:
@@ -79,11 +75,11 @@ To restore your disk from the recovery point, you first create an Azure storage 
         --rp-name myRecoveryPointName
     ```
 
-
 ## Monitor the restore job
+
 To monitor the status of restore job, use [az backup job list](https://docs.microsoft.com/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-list):
 
-```azurecli-interactive 
+```azurecli-interactive
 az backup job list \
     --resource-group myResourceGroup \
     --vault-name myRecoveryServicesVault \
@@ -92,7 +88,7 @@ az backup job list \
 
 The output is similar to the following example, which shows the restore job is *InProgress*:
 
-```
+```output
 Name      Operation        Status      Item Name    Start Time UTC       Duration
 --------  ---------------  ----------  -----------  -------------------  --------------
 7f2ad916  Restore          InProgress  myvm         2017-09-19T19:39:52  0:00:34.520850
@@ -102,12 +98,12 @@ fe5d0414  ConfigureBackup  Completed   myvm         2017-09-19T03:03:57  0:00:31
 
 When the *Status* of the restore job reports *Completed*, the disk has been restored to the storage account.
 
-
 ## Convert the restored disk to a Managed Disk
+
 The restore job creates an unmanaged disk. In order to create a VM from the disk, it must first be converted to a managed disk.
 
 1. Obtain the connection information for your storage account with [az storage account show-connection-string](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-show-connection-string). Replace *mystorageaccount* with the name of your storage account as follows:
-    
+
     ```azurecli-interactive
     export AZURE_STORAGE_CONNECTION_STRING=$( az storage account show-connection-string \
         --resource-group myResourceGroup \
@@ -140,8 +136,8 @@ The restore job creates an unmanaged disk. In order to create a VM from the disk
         --name mystorageaccount
     ```
 
-
 ## Create a VM from the restored disk
+
 The final step is to create a VM from the Managed Disk.
 
 1. Create a VM from your Managed Disk with [az vm create](/cli/azure/vm?view=azure-cli-latest#az-vm-create) as follows:
@@ -160,11 +156,12 @@ The final step is to create a VM from the Managed Disk.
     az vm list --resource-group myResourceGroup --output table
     ```
 
-
 ## Next steps
+
 In this tutorial, you restored a disk from a recovery point and then created a VM from the disk. You learned how to:
 
 > [!div class="checklist"]
+>
 > * List and select recovery points
 > * Restore a disk from a recovery point
 > * Create a VM from the restored disk
@@ -173,4 +170,3 @@ Advance to the next tutorial to learn about restoring individual files from a re
 
 > [!div class="nextstepaction"]
 > [Restore files to a virtual machine in Azure](tutorial-restore-files.md)
-

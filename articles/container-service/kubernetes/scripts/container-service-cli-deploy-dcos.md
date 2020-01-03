@@ -3,7 +3,7 @@ title: Azure CLI Script Sample - Create ACS DC/OS Cluster| Microsoft Docs
 description: Azure CLI Script Sample - Create ACS DC/OS Cluster
 services: container-service
 documentationcenter: ''
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 editor: ''
 tags: acs, azure-container-service
@@ -16,10 +16,12 @@ ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/30/2017
-ms.author: nepeters
+ms.author: iainfou
 ---
 
-# Create an Azure Container Service DC/OS Cluster
+# (DEPRECATED) Create an Azure Container Service DC/OS Cluster
+
+[!INCLUDE [ACS deprecation](../../../../includes/container-service-kubernetes-deprecation.md)]
 
 This sample creates an Azure Container Service cluster running DCOS.
 

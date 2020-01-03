@@ -35,7 +35,7 @@ If you don't have an Azure Government subscription, create a [free account](http
 
 ## Install Azure CLI 
 
-Install CLI locally by following instruction described in [install the Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2). 
+Install the Azure CLI locally by following the instructions in [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-az-cli2). 
 
 In Azure Government, there is no equivalent to **Azure Cloud Shell** that you can find in the Azure portal. 
 

@@ -1,16 +1,20 @@
 ---
-title: JavaScript quickstart for Project URL Preview - Microsoft Cognitive Services | Microsoft Docs
-description: Script sample to quickly get started using the Bing URL Preview API in Microsoft Cognitive Services on Azure.
+title: "Quickstart: Project URL Preview, JavaScript"
+titlesuffix: Azure Cognitive Services
+description: Script sample to quickly get started using the Bing URL Preview API with JavaScript.
 services: cognitive-services
 author: mikedodaro
+manager: nitinme
+
 ms.service: cognitive-services
-ms.technology: project-url-preview
-ms.topic: article
+ms.subservice: url-preview
+ms.topic: quickstart
 ms.date: 03/16/2018
-ms.author: rosh, v-gedod
+ms.author: rosh
+ROBOTS: NOINDEX
 ---
 
-# URL Preview in JavaScript 
+# Quickstart: URL Preview in JavaScript 
 
 The following single-page application uses JavaScript to create a URL Preview for the SwiftKey site: https://swiftkey.com/en. 
 
@@ -27,7 +31,7 @@ If the response returns successfully, the handler assigns the JSON text of the r
 
 **Raw JSON response**
 
-````
+```
 {
   "_type": "WebPage",
   "name": "SwiftKey - Smart prediction technology for easier mobile typing",
@@ -39,7 +43,7 @@ If the response returns successfully, the handler assigns the JSON text of the r
   }
 }
 
-````
+```
 
 **The running demo**
 

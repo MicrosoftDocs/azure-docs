@@ -15,8 +15,16 @@
     href: active-directory-groups-view-azure-portal.md
 - name: 'Concepts'
   items:
-  - name: Azure identity management
-    href: identity-fundamentals.md
+  - name: Identity secure score
+    href: identity-secure-score.md 
+  - name: 'Security'
+    items:
+    - name: Enable MFA
+      href: concept-fundamentals-mfa-get-started.md
+    - name: Security defaults
+      href: concept-fundamentals-security-defaults.md
+    - name: Block legacy authentication
+      href: concept-fundamentals-block-legacy-authentication.md
   - name: Groups and access management
     href: active-directory-manage-groups.md
   - name: Group-based licensing
@@ -29,21 +37,37 @@
     href: active-directory-deployment-checklist-p2.md
   - name: Identity data storage for the EU
     href: active-directory-data-storage-eu.md
+  - name: What's new in Microsoft 365 Government
+    href: whats-new-microsoft-365-government.md
+  - name: Azure AD Operations reference
+    items:
+    - name: Introduction
+      href: active-directory-ops-guide-intro.md
+    - name: Identity and access management
+      href: active-directory-ops-guide-iam.md
+    - name: Authentication management
+      href: active-directory-ops-guide-auth.md
+    - name: Identity governance
+      href: active-directory-ops-guide-govern.md
+    - name: Operations
+      href: active-directory-ops-guide-ops.md
 - name: 'How-to guides'
   expanded: true
   items:
   - name: 'Organization'
     items:
-    - name: Sign up for Azure AD Premium
-      href: active-directory-get-started-premium.md    
     - name: Sign up for Azure AD as an organization
       href: sign-up-organization.md
+    - name: Sign up for Azure AD Premium
+      href: active-directory-get-started-premium.md    
     - name: Add a custom domain name
       href: add-custom-domain.md
     - name: Add company branding
       href: customize-branding.md
     - name: Associate an Azure subscription
       href: active-directory-how-subscriptions-associated-directory.md
+    - name: Add your privacy info
+      href: active-directory-properties-area.md
   - name: 'Groups'
     items:
     - name: Create a group and add members
@@ -80,7 +104,5 @@
     href: active-directory-faq.md
   - name: Azure Active Directory deployment plans
     href: active-directory-deployment-plans.md
-  - name: Manage your Azure AD Directory
-    href: active-directory-administer.md
-  - name: Azure identity solutions
-    href: understand-azure-identity-solutions.md    
+  - name: Archive for What's new? in Azure AD
+    href: whats-new-archive.md    

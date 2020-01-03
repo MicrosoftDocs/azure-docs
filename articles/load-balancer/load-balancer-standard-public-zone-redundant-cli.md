@@ -1,13 +1,11 @@
 ---
-title: Load balance zone-redundant VMs using Azure CLI | Microsoft Docs
-description: Learn how to create a public Load Balancer Standard with zone redundant frontend using Azure CLI
+title: Load balance zone-redundant VMs using Azure CLI
+titleSuffix: Azure Load Balancer
+description: Learn how to create a public Standard Load Balancer with zone redundant frontend using Azure CLI
 services: load-balancer
 documentationcenter: na
-author: KumudD
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
-
+author: asudbring
+ms.custom: seodec18
 ms.assetid: 
 ms.service: load-balancer
 ms.devlang: na
@@ -15,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/09/2018
-ms.author: kumud
+ms.author: allensu
 ---
 
 #  Load balance VMs across all availability zones using Azure CLI
 
-This article steps through creating a public [Load Balancer Standard](https://aka.ms/azureloadbalancerstandard) with a zone-redundant frontend to achieve zone-redundancy without dependency on multiple DNS records. A single front-end IP address is automatically zone-redundant.  Using a zone redundant frontend for your load balancer, with a single IP address you can now reach any VM in a virtual network within a region that is across all Availability Zones. Use availability zones to protect your apps and data from an unlikely failure or loss of an entire datacenter.
+This article steps through creating a public [Standard Load Balancer](https://aka.ms/azureloadbalancerstandard) with a zone-redundant frontend to achieve zone-redundancy without dependency on multiple DNS records. A single front-end IP address is automatically zone-redundant.  Using a zone redundant frontend for your load balancer, with a single IP address you can now reach any VM in a virtual network within a region that is across all Availability Zones. Use availability zones to protect your apps and data from an unlikely failure or loss of an entire datacenter.
 
 For more information about using Availability zones with Standard Load Balancer, see [Standard Load Balancer and Availability Zones](load-balancer-standard-availability-zones.md).
 
@@ -28,7 +26,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)] 
 
-If you choose to install and use the CLI locally, this tutorial requires that you are running Azure CLI version 2.0.17 or higher.  To find the version, run `az --version`. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+If you choose to install and use the CLI locally, this tutorial requires that you are running Azure CLI version 2.0.17 or higher.  To find the version, run `az --version`. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli). 
 
 > [!NOTE]
 > Support for Availability Zones is available for select Azure resources and regions, and VM size families. For more information on how to get started, and which Azure resources, regions, and VM size families you can try availability zones with, see [Overview of Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview). For support, you can reach out on [StackOverflow](https://stackoverflow.com/questions/tagged/azure-availability-zones) or [open an Azure support ticket](../azure-supportability/how-to-create-azure-support-request.md?toc=%2fazure%2fvirtual-network%2ftoc.json).  
@@ -46,7 +44,7 @@ az group create \
 ```
 
 ## Create a zone redundant public IP Standard
-To access your app on the Internet, you need a public IP address for the load balancer. A zone-redundant front-end is served by all availability zones in a region simultaneously. Create a zone redundant public IP address with [New-AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress). When you create a Standard Public  IP address, it is zone redundant by default.
+To access your app on the Internet, you need a public IP address for the load balancer. A zone-redundant front-end is served by all availability zones in a region simultaneously. Create a zone redundant public IP address with [az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create). When you create a Standard Public  IP address, it is zone redundant by default.
 
 The following example creates a zone redundant public IP address named *myPublicIP* in the *myResourceGroupLoadBalancer* resource group.
 
@@ -57,7 +55,7 @@ az network public-ip create \
 --sku Standard
 ```
 
-## Create Azure Load Balancer Standard
+## Create Azure Standard Load Balancer
 This section details how you can create and configure the following components of the load balancer:
 - a frontend IP pool that receives the incoming network traffic on the load balancer.
 - a backend IP pool where the frontend pool sends the load balanced network traffic.

@@ -1,17 +1,10 @@
 ---
-title: Create a function in Azure triggered by Blob storage | Microsoft Docs
+title: Create a function in Azure triggered by Blob storage 
 description: Use Azure Functions to create a serverless function that is invoked by items added to Azure Blob storage.
-services: azure-functions
-documentationcenter: na
-author: ggailey777
-manager: jeconnoc
 
 ms.assetid: d6bff41c-a624-40c1-bbc7-80590df29ded
-ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: quickstart
-ms.date: 03/27/2018
-ms.author: glenga
+ms.date: 10/01/2018
 ms.custom: mvc, cc996988-fb4f-47
 ---
 # Create a function triggered by Azure Blob storage
@@ -22,7 +15,7 @@ Learn how to create a function triggered when files are uploaded to or updated i
 
 ## Prerequisites
 
-+ Download and install the [Microsoft Azure Storage Explorer](http://storageexplorer.com/).
++ Download and install the [Microsoft Azure Storage Explorer](https://storageexplorer.com/).
 + An Azure subscription. If you don't have one, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Create an Azure Function app
@@ -37,15 +30,21 @@ Next, you create a function in the new function app.
 
 ## Create a Blob storage triggered function
 
-1. Expand your function app and click the **+** button next to **Functions**. If this is the first function in your function app, select **Custom function**. This displays the complete set of function templates.
+1. Expand your function app and click the **+** button next to **Functions**. If this is the first function in your function app, select **In-portal** then **Continue**. Otherwise, go to step three.
 
-    ![Functions quickstart page in the Azure portal](./media/functions-create-storage-blob-triggered-function/add-first-function.png)
+   ![Functions quickstart page in the Azure portal](./media/functions-create-storage-blob-triggered-function/function-app-quickstart-choose-portal.png)
 
-2. In the search field, type `blob` and then choose your desired language for the Blob storage trigger template.
+1. Choose **More templates** then **Finish and view templates**.
 
-    ![Choose the Blob storage trigger template.](./media/functions-create-storage-blob-triggered-function/functions-create-blob-storage-trigger-portal.png)
- 
-3. Use the settings as specified in the table below the image.
+    ![Functions quickstart choose more templates](./media/functions-create-storage-blob-triggered-function/add-first-function.png)
+
+1. In the search field, type `blob` and then choose the **Blob trigger** template.
+
+1. If prompted, select **Install** to install the Azure Storage extension any dependencies in the function app. After installation succeeds, select **Continue**.
+
+    ![Install binding extensions](./media/functions-create-storage-blob-triggered-function/functions-create-blob-storage-trigger-portal.png)
+
+1. Use the settings as specified in the table below the image.
 
     ![Create the Blob storage triggered function.](./media/functions-create-storage-blob-triggered-function/functions-create-blob-storage-trigger-portal-2.png)
 
@@ -55,7 +54,7 @@ Next, you create a function in the new function app.
     | **Path**   | samples-workitems/{name}    | Location in Blob storage being monitored. The file name of the blob is passed in the binding as the _name_ parameter.  |
     | **Storage account connection** | AzureWebJobsStorage | You can use the storage account connection already being used by your function app, or create a new one.  |
 
-3. Click **Create** to create your function.
+1. Click **Create** to create your function.
 
 Next, you connect to your Azure Storage account and create the **samples-workitems** container.
 
@@ -65,7 +64,7 @@ Next, you connect to your Azure Storage account and create the **samples-workite
 
     ![Get the Storage account connection credentials.](./media/functions-create-storage-blob-triggered-function/functions-storage-account-connection.png)
 
-1. Run the [Microsoft Azure Storage Explorer](http://storageexplorer.com/) tool, click the connect icon on the left, choose **Use a storage account name and key**, and click **Next**.
+1. Run the [Microsoft Azure Storage Explorer](https://storageexplorer.com/) tool, click the connect icon on the left, choose **Use a storage account name and key**, and click **Next**.
 
     ![Run the Storage Account Explorer tool.](./media/functions-create-storage-blob-triggered-function/functions-storage-manager-connect-1.png)
 
@@ -102,8 +101,6 @@ Now that you have a blob container, you can test the function by uploading a fil
 
 ## Next steps
 
-You have created a function that runs when a blob is added to or updated in Blob storage. 
+You have created a function that runs when a blob is added to or updated in Blob storage. For more information about Blob storage triggers, see [Azure Functions Blob storage bindings](functions-bindings-storage-blob.md).
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
-
-For more information about Blob storage triggers, see [Azure Functions Blob storage bindings](functions-bindings-storage-blob.md).

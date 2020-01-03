@@ -1,18 +1,13 @@
 ---
-# required metadata
-title: Error and exception handling - Azure Logic Apps | Microsoft Docs
-description: Learn about patterns for error and exception handling in Azure Logic Apps
+title: Handling errors and exceptions
+description: Learn how to handle errors and exceptions that happen in automated tasks and workflows created by using Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
+ms.suite: integration
 author: dereklee
 ms.author: deli
-manager: jeconnoc
+ms.reviewer: klam, estfan, logicappspm
 ms.date: 01/31/2018
 ms.topic: article
-
-# optional metadata
-ms.reviewer: klam, LADocs
-ms.suite: integration
 ---
 
 # Handle errors and exceptions in Azure Logic Apps
@@ -38,10 +33,10 @@ Here are the retry policy types:
 
 | Type | Description | 
 |------|-------------| 
-| [**Default**](#default-retry) | This policy sends up to four retries at [*exponentially increasing*](#exponential-retry) intervals, which scale by 7.5 seconds but are capped between 5 and 45 seconds. | 
-| [**Exponential interval**](#exponential-retry)  | This policy waits a random interval selected from an exponentially growing range before sending the next request. | 
-| [**Fixed interval**](#fixed-retry)  | This policy waits the specified interval before sending the next request. | 
-| [**None**](#no-retry)  | Don't resend the request. | 
+| **Default** | This policy sends up to four retries at *exponentially increasing* intervals, which scale by 7.5 seconds but are capped between 5 and 45 seconds. | 
+| **Exponential interval**  | This policy waits a random interval selected from an exponentially growing range before sending the next request. | 
+| **Fixed interval**  | This policy waits the specified interval before sending the next request. | 
+| **None**  | Don't resend the request. | 
 ||| 
 
 For information about retry policy limits, 
@@ -84,7 +79,7 @@ specify a retry policy, the action uses the default policy.
 
 | Value | Type | Description |
 |-------|------|-------------|
-| <*retry-policy-type*> | String | The retry policy type you want to use: "default", "none", "fixed", or "exponential" | 
+| <*retry-policy-type*> | String | The retry policy type you want to use: `default`, `none`, `fixed`, or `exponential` | 
 | <*retry-interval*> | String | The retry interval where the value must use [ISO 8601 format](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). The default minimum interval is `PT5S` and the maximum interval is `PT1D`. When you use the exponential interval policy, you can specify different minimum and maximum values. | 
 | <*retry-attempts*> | Integer | The number of retry attempts, which must be between 1 and 90 | 
 ||||
@@ -272,29 +267,17 @@ you can create a single action to catch failures.
 
 For limits on scopes, see [Limits and config](../logic-apps/logic-apps-limits-and-config.md).
 
+<a name="get-results-from-failures"></a>
+
 ### Get context and results for failures
 
-Although catching failures from a scope is useful, 
-you might also want context to help you understand 
-exactly which actions failed plus any errors or status codes that were returned. 
-The "@result()" expression provides context about the result of all actions in a scope.
+Although catching failures from a scope is useful, you might also want context to help you understand exactly which actions failed plus any errors or status codes that were returned.
 
-The "@result()" expression accepts a single parameter (the scope's name) 
-and returns an array of all the action results from within that scope. 
-These action objects include the same attributes as the **@actions()** object, 
-such as the action's start time, end time, status, inputs, correlation IDs, and outputs. 
-To send context for any actions that failed within a scope, 
-you can easily pair an **@result()** function with a **runAfter** property.
+The [`result()`](../logic-apps/workflow-definition-language-functions-reference.md#result) function provides context about the results from all the actions in a scope. The `result()` function accepts a single parameter, which is the scope's name, and returns an array that contains all the action results from within that scope. These action objects include the same attributes as the `@actions()` object, such as the action's start time, end time, status, inputs, correlation IDs, and outputs. To send context for any actions that failed within a scope, you can easily pair a `@result()` expression with the `runAfter` property.
 
-To run an action for each action in a scope that has a **Failed** result, 
-and to filter the array of results down to the failed actions, 
-you can pair **@result()** with a **[Filter Array](../connectors/connectors-native-query.md)** action 
-and a [**For each**](../logic-apps/logic-apps-control-flow-loops.md) loop. 
-You can take the filtered result array and perform an action for each failure using the **For each** loop. 
+To run an action for each action in a scope that has a **Failed** result, and to filter the array of results down to the failed actions, you can pair a `@result()` expression with a [**Filter Array**](../connectors/connectors-native-query.md) action and a [**For each**](../logic-apps/logic-apps-control-flow-loops.md) loop. You can take the filtered result array and perform an action for each failure using the **For each** loop.
 
-Here's an example, followed by a detailed explanation, 
-that sends an HTTP POST request with the response body 
-for any actions that failed within the scope "My_Scope":
+Here's an example, followed by a detailed explanation, that sends an HTTP POST request with the response body for any actions that failed within the scope "My_Scope":
 
 ```json
 "Filter_array": {
@@ -338,9 +321,9 @@ for any actions that failed within the scope "My_Scope":
 Here's a detailed walkthrough that describes what happens in this example:
 
 1. To get the result from all actions inside "My_Scope", 
-the **Filter Array** action uses this filter expression: "@result('My_Scope')"
+the **Filter Array** action uses this filter expression: `@result('My_Scope')`
 
-2. The condition for **Filter Array** is any "@result()" 
+2. The condition for **Filter Array** is any `@result()` 
 item that has a status equal to **Failed**. 
 This condition filters the array that has all the action 
 results from "My_Scope" down to an array with only the failed action results.
@@ -354,18 +337,18 @@ action result that was previously filtered.
    Multiple failed actions cause one action per failure.
 
 4. Send an HTTP POST on the **For each** item response body, 
-which is the "@item()['outputs']['body']" expression. 
+which is the `@item()['outputs']['body']` expression. 
 
-   The "@result()" item shape is the same as the 
-   "@actions()" shape and can be parsed the same way.
+   The `@result()` item shape is the same as the 
+   `@actions()` shape and can be parsed the same way.
 
-5. Include two custom headers with the failed action name ("@item()['name']") 
-and the failed run client tracking ID ("@item()['clientTrackingId']").
+5. Include two custom headers with the failed action name (`@item()['name']`) 
+and the failed run client tracking ID (`@item()['clientTrackingId']`).
 
-For reference, here's an example of a single "@result()" item, 
+For reference, here's an example of a single `@result()` item, 
 showing the **name**, **body**, and **clientTrackingId** 
 properties that are parsed in the previous example. 
-Outside a **For each** action, "@result()" returns an array of these objects.
+Outside a **For each** action, `@result()` returns an array of these objects.
 
 ```json
 {
@@ -401,7 +384,7 @@ To perform different exception handling patterns,
 you can use the expressions previously described in this article. 
 You might choose to execute a single exception handling action outside the scope 
 that accepts the entire filtered array of failures, and remove the **For each** action. 
-You can also include other useful properties from the **@result()** response as previously described.
+You can also include other useful properties from the **\@result()** response as previously described.
 
 ## Azure Diagnostics and metrics
 

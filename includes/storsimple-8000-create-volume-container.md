@@ -1,4 +1,10 @@
-<!--author=alkohli last changed: 06/22/17-->
+---
+author: alkohli
+ms.service: storsimple
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: alkohli
+---
 
 #### To create a volume container
 1. Go to your StorSimple Device Manager service and click **Devices**. From the tabular listing of the devices, select and click a device. 

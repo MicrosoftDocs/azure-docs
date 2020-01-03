@@ -1,24 +1,15 @@
 ---
-title: Azure Service Fabric Standalone Package for Windows Server | Microsoft Docs
+title: Azure Service Fabric Standalone Package for Windows Server 
 description: Description and contents of the Azure Service Fabric Standalone package for Windows Server.
-services: service-fabric
-documentationcenter: .net
 author: maburlik
-manager: timlt
-editor: ''
 
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 8/10/2017
 ms.author: maburlik
-
 ---
 
 # Contents of Service Fabric Standalone package for Windows Server
-In the [downloaded](http://go.microsoft.com/fwlink/?LinkId=730690) Service Fabric Standalone package, you will find the following files:
+In the [downloaded](https://go.microsoft.com/fwlink/?LinkId=730690) Service Fabric Standalone package, you will find the following files:
 
 | **File name** | **Short description** |
 | --- | --- |
@@ -30,13 +21,14 @@ In the [downloaded](http://go.microsoft.com/fwlink/?LinkId=730690) Service Fabri
 | TestConfiguration.ps1 |A PowerShell script for analyzing the infrastructure as specified in the Cluster.json. |
 | DownloadServiceFabricRuntimePackage.ps1 |A PowerShell script used for downloading the latest runtime package out of band, for scenarios where the deploying machine is not connected to the internet. |
 | DeploymentComponentsAutoextractor.exe |Self-extracting archive containing Deployment Components used by the Standalone package scripts. |
-| EULA_ENU.txt |The license terms for the use of Microsoft Azure Service Fabric standalone Windows Server package. You can [download a copy of the EULA](http://go.microsoft.com/fwlink/?LinkID=733084) now. |
+| EULA_ENU.txt |The license terms for the use of Microsoft Azure Service Fabric standalone Windows Server package. You can [download a copy of the EULA](https://go.microsoft.com/fwlink/?LinkID=733084) now. |
 | Readme.txt |A link to the release notes and basic installation instructions. It is a subset of the instructions in this document. |
 | ThirdPartyNotice.rtf |Notice of third-party software that is in the package. |
 | Tools\Microsoft.Azure.ServiceFabric.WindowsServer.SupportPackage.zip |StandaloneLogCollector.exe which is run on demand to collect and upload trace logs to Microsoft for support purpose. |
 | Tools\ServiceFabricUpdateService.zip |A tool used to enable auto code upgrade for clusters which don't have internet access. More details can be found [here](service-fabric-cluster-upgrade-windows-server.md)|
 
 **Templates** 
+
 | **File name** | **Short description** |
 | --- | --- |
 | ClusterConfig.Unsecure.DevCluster.json |A cluster configuration sample file that contains the settings for an unsecured, three-node, single-machine (or virtual machine) development cluster, including the information for each node in the cluster. |

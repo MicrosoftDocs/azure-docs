@@ -1,13 +1,9 @@
 ---
-title: Deploy to Azure Kubernetes Service (AKS) by using Jenkins and the blue/green deployment pattern
+title: Deploy to Azure Kubernetes Service using Jenkins and the blue/green deployment pattern
 description: Learn how to deploy to Azure Kubernetes Service (AKS) by using Jenkins and the blue/green deployment pattern.
-ms.service: jenkins
 keywords: jenkins, azure, devops, kubernetes, k8s, aks, blue green deployment, continuous delivery, cd
-author: tomarcher
-manager: jeconnoc
-ms.author: tarcher
 ms.topic: tutorial
-ms.date: 07/23/2018
+ms.date: 10/23/2019
 ---
 
 # Deploy to Azure Kubernetes Service (AKS) by using Jenkins and the blue/green deployment pattern
@@ -27,7 +23,7 @@ In this tutorial, you learn how to perform the following tasks:
 
 ## Prerequisites
 - [GitHub account](https://github.com) : You need a GitHub account to clone the sample repo.
-- [Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest) : You use the Azure CLI 2.0 to create the Kubernetes cluster.
+- [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) : You use the Azure CLI 2.0 to create the Kubernetes cluster.
 - [Chocolatey](https://chocolatey.org): A package manager you use to install kubectl.
 - [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/): A command-line interface you use for running commands against Kubernetes clusters.
 - [jq](https://stedolan.github.io/jq/download/): A lightweight, command-line JSON processor.
@@ -78,9 +74,6 @@ In this section, you perform the following steps:
 - Learn how to set up a cluster, either by using the setup script or manually.
 - Create an instance of the Azure Container Registry service.
 
-> [!NOTE]	
-> AKS is currently in preview. For information on enabling the preview for your Azure subscription, see [Quickstart: Deploy an Azure Kubernetes Service (AKS) cluster](/azure/aks/kubernetes-walkthrough#enabling-aks-preview-for-your-azure-subscription).
-
 ### Use the Azure CLI 2.0 to create a managed Kubernetes cluster
 In order to create a managed Kubernetes cluster with the [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest), ensure that you are using the Azure CLI version 2.0.25 or later.
 
@@ -115,12 +108,12 @@ You can set up a blue/green deployment in AKS manually, or with a setup script p
 #### Set up the Kubernetes cluster via the sample setup script
 1. Edit the **deploy/aks/setup/setup.sh** file, replacing the following placeholders with the appropriate values for your environment: 
 
-    - **&lt;your-resource-group-name>**
-    - **&lt;your-kubernetes-cluster-name>**
-    - **&lt;your-location>**
-    - **&lt;your-dns-name-suffix>**
+   - **&lt;your-resource-group-name>**
+   - **&lt;your-kubernetes-cluster-name>**
+   - **&lt;your-location>**
+   - **&lt;your-dns-name-suffix>**
 
-    ![Screenshot setup.sh script in bash, with several placeholders highlighted](./media/jenkins-aks-blue-green-deployment/edit-setup-script.png)
+     ![Screenshot setup.sh script in bash, with several placeholders highlighted](./media/jenkins-aks-blue-green-deployment/edit-setup-script.png)
 
 1. Run the setup script.
 
@@ -216,7 +209,7 @@ In this section, you see how to prepare the Jenkins server to run a build, which
     1. Select **Manage Jenkins > Manage Plugins > Available**.
     1. Search for and install the Azure Container Service plug-in.
 
-1. Add credentials to manage resources in Azure. If you don’t already have the plug-in, install the **Azure Credential** plugin.
+1. Add credentials to manage resources in Azure. If you don’t already have the plug-in, install the **Azure Credential** plug-in.
 
 1. Add your Azure Service Principal credential as the type **Microsoft Azure Service Principal**.
 

@@ -27,7 +27,7 @@ For more information about these options, see [Compute hosting options provided 
 
 ## Download the Azure SDK for PHP
 
-The [Azure SDK for PHP](php-download-sdk.md) consists of several components. This article will use two of them: Azure PowerShell and the Azure emulators. These two components can be installed via the Microsoft Web Platform Installer. For more information, see [How to install and configure Azure PowerShell](/powershell/azure/overview).
+The [Azure SDK for PHP](https://github.com/Azure/azure-sdk-for-php) consists of several components. This article will use two of them: Azure PowerShell and the Azure emulators. These two components can be installed via the Microsoft Web Platform Installer. For more information, see [How to install and configure Azure PowerShell](/powershell/azure/overview).
 
 ## Create a Cloud Services project
 
@@ -212,10 +212,10 @@ To publish your application, you need to first import your publish settings by u
 
 For more information, see the [PHP Developer Center](https://azure.microsoft.com/develop/php/).
 
-[install ps and emulators]: http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409
-[service definition (.csdef)]: http://msdn.microsoft.com/library/windowsazure/ee758711.aspx
-[service configuration (.cscfg)]: http://msdn.microsoft.com/library/windowsazure/ee758710.aspx
-[iis.net]: http://www.iis.net/
+[install ps and emulators]: https://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409
+[service definition (.csdef)]: https://msdn.microsoft.com/library/windowsazure/ee758711.aspx
+[service configuration (.cscfg)]: https://msdn.microsoft.com/library/windowsazure/ee758710.aspx
+[iis.net]: https://www.iis.net/
 [sql native client]: https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation
-[sqlsrv drivers]: http://php.net/sqlsrv
-[sqlncli.msi x64 installer]: http://go.microsoft.com/fwlink/?LinkID=239648
+[sqlsrv drivers]: https://php.net/sqlsrv
+[sqlncli.msi x64 installer]: https://go.microsoft.com/fwlink/?LinkID=239648

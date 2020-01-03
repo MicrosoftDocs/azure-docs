@@ -1,24 +1,25 @@
 ---
-title: Azure Quickstart - Create a blob in object storage using JavaScript and HTML in the browser
-description: Learn to use an instance of BlobService to upload, list, and delete blobs using JavaScript in an HTML page.
-services: storage
+title: "Quickstart: Azure Blob storage for JavaScript v2 in the browser"
+description: Learn to use an instance of BlobService to upload, list, and delete blobs using JavaScript v2 SDK in an HTML page.
 keywords: storage, javascript, html
-author: craigshoemaker
+author: mhopkins-msft
 
-
-ms.custom: mvc
+ms.author: mhopkins
+ms.date: 08/29/2019
 ms.service: storage
-ms.author: cshoe
-ms.date: 04/06/2018
+ms.subservice: blobs
 ms.topic: quickstart
 ---
 
 <!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
 
 # Quickstart: Upload, list, and delete blobs using JavaScript/HTML in the Browser
+
 This quickstart demonstrates how to manage blobs from code running entirely in the browser. The approach used here shows how to use required security measures to ensure protected access to your blob storage account. To complete this quickstart, you need an [Azure subscription](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-[!INCLUDE [storage-quickstart-tutorial-create-account-portal](../../../includes/storage-quickstart-tutorial-create-account-portal.md)]
+## Prerequisites
+
+[!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
 ## Setting up storage account CORS rules 
 Before your web application can access a blob storage from the client, the account must be configured to enable [cross-origin resource sharing](https://docs.microsoft.com/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services), or CORS. 
@@ -45,7 +46,7 @@ Next, you use the Azure cloud shell to create a security token.
 [!INCLUDE [Open the Azure cloud shell](../../../includes/cloud-shell-try-it.md)]
 
 ## Create a Shared Access Signature
-The shared access signature (SAS) is used by the code running in the browser to authorize requests to Blob storage. By using the SAS, the client can authorize access to storage resources without the account access key or connection string. For more information on SAS, see [Using shared access signatures (SAS)](../common/storage-dotnet-shared-access-signature-part-1.md).
+The shared access signature (SAS) is used by the code running in the browser to authorize requests to Blob storage. By using the SAS, the client can authorize access to storage resources without the account access key or connection string. For more information on SAS, see [Using shared access signatures (SAS)](../common/storage-sas-overview.md).
 
 You can create a SAS using the Azure CLI through the Azure cloud shell or with the Azure Storage Explorer. The following table describes the parameters you need to provide values for in order to generate a SAS with the CLI.
 
@@ -132,7 +133,7 @@ Create an HTML page at the root of the *azure-blobs-javascript* folder and name 
         
         <button id="delete-button">Delete</button>
     </body>
-    <script src="scripts/azure-storage.blob.min.js"></script>
+    <script src="scripts/azure-storage.blob.min.js" charset="utf-8"></script>
     <script>
         // Blob-related code goes here
     </script>

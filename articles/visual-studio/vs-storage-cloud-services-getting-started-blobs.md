@@ -1,9 +1,9 @@
 ---
-title: Get started with blob storage and Visual Studio connected services (cloud services) | Microsoft Docs
+title: Get started with blob storage using Visual Studio (cloud services) 
 description: How to get started using Azure Blob storage in a cloud service project in Visual Studio after connecting to a storage account using Visual Studio connected services
 services: storage
 author: ghogen
-manager: douge
+manager: jillfra
 ms.assetid: 1144a958-f75a-4466-bb21-320b7ae8f304
 ms.prod: visual-studio-dev15
 ms.technology: vs-azure
@@ -12,6 +12,7 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 12/02/2016
 ms.author: ghogen
+ROBOTS: NOINDEX,NOFOLLOW
 ---
 # Get started with Azure Blob Storage and Visual Studio connected services (cloud services projects)
 [!INCLUDE [storage-try-azure-tools-blobs](../../includes/storage-try-azure-tools-blobs.md)]
@@ -26,7 +27,7 @@ Just as files live in folders, storage blobs live in containers. After you have 
 * For more information on programmatically manipulating blobs, see [Get started with Azure Blob storage using .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md).
 * For general information about Azure Storage, see [Storage documentation](https://azure.microsoft.com/documentation/services/storage/).
 * For general information about Azure Cloud Services, see [Cloud Services documentation](https://azure.microsoft.com/documentation/services/cloud-services/).
-* For more information about programming ASP.NET applications, see [ASP.NET](http://www.asp.net).
+* For more information about programming ASP.NET applications, see [ASP.NET](https://www.asp.net).
 
 ## Access blob containers in code
 To programmatically access blobs in cloud service projects, you need to add the following items, if they're not already present.
@@ -58,7 +59,7 @@ To programmatically access blobs in cloud service projects, you need to add the 
 
 ## Create a container in code
 > [!NOTE]
-> Some APIs that perform calls out to Azure Storage in ASP.NET are asynchronous. See [Asynchronous programming with Async and Await](http://msdn.microsoft.com/library/hh191443.aspx) for more information. The code in the following example assumes that you are using async programming methods.
+> Some APIs that perform calls out to Azure Storage in ASP.NET are asynchronous. See [Asynchronous programming with Async and Await](https://msdn.microsoft.com/library/hh191443.aspx) for more information. The code in the following example assumes that you are using async programming methods.
 > 
 > 
 

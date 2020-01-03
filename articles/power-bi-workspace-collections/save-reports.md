@@ -1,16 +1,15 @@
 ---
 title: Save reports in Power BI Workspace Collections | Microsoft Docs
 description: Learn how to save reports within Power BI Workspace Collections. This requires proper permissions in order to work successfully.
-services: power-bi-embedded
-author: markingmyname
-ROBOTS: NOINDEX
-ms.assetid: 
+services: power-bi-workspace-collections
 ms.service: power-bi-embedded
+author: rkarlin
+ms.author: rkarlin
 ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
-ms.author: maghan
 ---
+
 # Save reports in Power BI Workspace Collections
 
 Learn how to save reports within Power BI Workspace Collections. Saving reports requires proper permissions in order to work successfully.
@@ -41,9 +40,10 @@ Let's say you want to Embed a report in edit mode inside your app, to do so just
 
 For example, in JavaScript:
 
-```
+```html
    <div id="reportContainer"></div>
 
+    <script>
     // Get models. Models, it contains enums that can be used.
     var models = window['powerbi-client'].models;
 
@@ -69,6 +69,7 @@ For example, in JavaScript:
 
     // Embed the report and display it within the div container.
     var report = powerbi.embed(reportContainer, config);
+    </script>
 ```
 
 Now a report is embedded in your app in edit mode.
@@ -77,7 +78,7 @@ Now a report is embedded in your app in edit mode.
 
 After Embedding the report in edit mode with the right token and permissions, you can save the report from the file menu or from javascript:
 
-```
+```javascript
  // Get a reference to the embedded report.
     report = powerbi.get(reportContainer);
 
@@ -87,7 +88,7 @@ After Embedding the report in edit mode with the right token and permissions, yo
 
 ## Save as
 
-```
+```javascript
 // Get a reference to the embedded report.
     report = powerbi.get(reportContainer);
     
@@ -104,9 +105,9 @@ After Embedding the report in edit mode with the right token and permissions, yo
 
 You will then need to load the new report after a *save as*. Loading the new report is similar to embedding any report.
 
-```
+```html
 <div id="reportContainer"></div>
-  
+<script>
 var embedConfiguration = {
         accessToken: 'eyJ0eXAiO...Qron7qYpY9MJ',
         embedUrl: 'https://embedded.powerbi.com/appTokenReportEmbed',
@@ -118,6 +119,7 @@ var embedConfiguration = {
 
     // Embed report
     var report = powerbi.embed(reportContainer, embedConfiguration);
+</script>
 ```
 
 ## See also
@@ -129,5 +131,5 @@ var embedConfiguration = {
 [Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)  
 [JavaScript Embed Sample](https://microsoft.github.io/PowerBI-JavaScript/demo/)  
 
-More questions? [Try the Power BI Community](http://community.powerbi.com/)
+More questions? [Try the Power BI Community](https://community.powerbi.com/)
 

@@ -1,16 +1,12 @@
 ---
-title: Connect to Outlook.com - Azure Logic Apps | Microsoft Docs
+title: Connect to Outlook.com
 description: Manage email, calendars, and contacts with Outlook.com REST APIs and Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
-author: ecfan
-ms.author: estfan
-manager: jeconnoc
-ms.assetid: 87113c85-d158-4dd5-9ed5-5748130003d6
+ms.suite: integration
+ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 08/18/2016
-ms.reviewer: klam, LADocs
-ms.suite: integration
+tags: connectors
 ---
 
 # Manage email, calendars, and contacts in Outlook.com with Azure Logic Apps
@@ -32,7 +28,7 @@ If you're new to logic apps, review
 * An [Outlook.com account](https://outlook.live.com/owa/)
 
 * An Azure subscription. If you don't have an Azure subscription, 
-<a href="https://azure.microsoft.com/free/" target="_blank">sign up for a free Azure account</a>. 
+[sign up for a free Azure account](https://azure.microsoft.com/free/). 
 
 * The logic app where you want to access your Outlook.com account. 
 To start your logic app with an Outlook trigger, you need a 
@@ -56,7 +52,7 @@ see the [connector's reference page](/connectors/outlook/).
 ## Get support
 
 * For questions, visit the [Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-* To submit or vote on feature ideas, visit the [Logic Apps user feedback site](http://aka.ms/logicapps-wish).
+* To submit or vote on feature ideas, visit the [Logic Apps user feedback site](https://aka.ms/logicapps-wish).
 
 ## Next steps
 

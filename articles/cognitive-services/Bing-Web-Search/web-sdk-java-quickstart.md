@@ -3,13 +3,13 @@ title: "Quickstart: Use the Bing Web Search SDK for Java"
 titleSuffix: Azure Cognitive Services
 description: The Bing Web Search SDK makes it easy to integrate Bing Web Search into your Java application. In this quickstart, you'll learn how to send a request, receive a JSON response, and filter and parse the results.
 services: cognitive-services
-author: erhopf
-manager: cgronlun
+author: aahill
+manager: nitinme
 ms.service: cognitive-services
-ms.component: bing-web-search
+ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 08/22/2018
-ms.author: erhopf
+ms.date: 12/09/2019
+ms.author: aahi
 ---
 
 # Quickstart: Use the Bing Web Search SDK for Java
@@ -18,19 +18,19 @@ The Bing Web Search SDK makes it easy to integrate Bing Web Search into your Jav
 
 Want to see the code right now? The [Bing Web Search SDK for Java samples](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/) are available on GitHub.
 
-[!INCLUDE [bing-web-search-quickstart-signup](../../../includes/bing-web-search-quickstart-signup.md)]
-
 ## Prerequisites
 
 Here are a few things that you'll need before running this quickstart:
 
-* [JDK 7 or 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
+* [JDK 7 or 8](https://aka.ms/azure-jdks)
 * [Apache Maven](https://maven.apache.org/download.cgi) or your favorite build automation tool
 * A subscription key
 
-## Create a project and configure your POM file
+[!INCLUDE [bing-web-search-quickstart-signup](../../../includes/bing-web-search-quickstart-signup.md)]
 
-Create a new Java project using Maven or your favorite build automation tool. Assuming that you're using Maven, add the following lines to your POM file. Replace all instances of `mainClass` with your application.
+## Create a project and set up your POM file
+
+Create a new Java project using Maven or your favorite build automation tool. Assuming that you're using Maven, add the following lines to your [Project Object Model (POM)](https://maven.apache.org/guides/introduction/introduction-to-the-pom.html) file. Replace all instances of `mainClass` with your application.
 
 ```xml
 <build>
@@ -174,7 +174,7 @@ Next, let's add some code to parse the response and print the results. The `name
 ```java
 /*
 * WebPages
-* If the search response contains web pages, the first result's name
+* If the search response has web pages, the first result's name
 * and url are printed.
 */
 if (webData != null && webData.webPages() != null && webData.webPages().value() != null &&
@@ -194,7 +194,7 @@ if (webData != null && webData.webPages() != null && webData.webPages().value() 
 }
 /*
  * Images
- * If the search response contains images, the first result's name
+ * If the search response has images, the first result's name
  * and url are printed.
  */
 if (webData != null && webData.images() != null && webData.images().value() != null &&
@@ -214,7 +214,7 @@ if (webData != null && webData.images() != null && webData.images().value() != n
 }
 /*
  * News
- * If the search response contains news articles, the first result's name
+ * If the search response has news articles, the first result's name
  * and url are printed.
  */
 if (webData != null && webData.news() != null && webData.news().value() != null &&
@@ -234,7 +234,7 @@ if (webData != null && webData.news() != null && webData.news().value() != null 
 
 /*
  * Videos
- * If the search response contains videos, the first result's name
+ * If the search response has videos, the first result's name
  * and url are printed.
  */
 if (webData != null && webData.videos() != null && webData.videos().value() != null &&
@@ -293,4 +293,4 @@ When you're done with this project, make sure to remove your subscription key fr
 
 ## See also
 
-* [Azure Java SDK reference](https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/websearch)
+* [Azure Java SDK reference](https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/bingwebsearchapi?view=azure-java-stable)

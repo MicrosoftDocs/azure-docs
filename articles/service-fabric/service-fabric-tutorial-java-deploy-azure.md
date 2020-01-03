@@ -1,22 +1,12 @@
 ---
-title: Deploy a Java app to a Service Fabric cluster in Azure | Microsoft Docs
+title: Deploy a Java app to a Service Fabric cluster in Azure 
 description: In this tutorial, learn how to deploy a Java Service Fabric application to an Azure Service Fabric cluster.
-services: service-fabric
-documentationcenter: java
 author: suhuruli
-manager: msfussell
-editor: ''
 
-ms.assetid: 
-ms.service: service-fabric
-ms.devlang: java
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 02/26/2018
 ms.author: suhuruli
 ms.custom: mvc
-
 ---
 # Tutorial: Deploy a Java application to a Service Fabric cluster in Azure
 
@@ -42,7 +32,7 @@ In this tutorial series you learn how to:
 Before you begin this tutorial:
 
 * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-* [Install Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
+* [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
 * Install the Service Fabric SDK for [Mac](service-fabric-get-started-mac.md) or [Linux](service-fabric-get-started-linux.md)
 * [Install Python 3](https://wiki.python.org/moin/BeginnersGuide/Download)
 
@@ -56,7 +46,7 @@ The following steps create the necessary resources required to deploy your appli
     git clone https://github.com/Azure-Samples/service-fabric-java-quickstart.git
     ```
 
-2. Log in to your Azure account
+2. Sign in to your Azure account
 
     ```bash
     az login
@@ -167,8 +157,8 @@ The following steps create the necessary resources required to deploy your appli
     https%3A%2F%testeventhub.servicebus.windows.net%testeventhub&sig=7AlFYnbvEm%2Bat8ALi54JqHU4i6imoFxkjKHS0zI8z8I%3D&se=1517354876&skn=sender
     ```
 
-    Your SAS URL for the EventHubs follows the structure: https://<namespacename>.servicebus.windows.net/<eventhubsname>?sr=<sastoken>. For example,
-    https://testeventhubnamespace.servicebus.windows.net/testeventhub?sr=https%3A%2F%testeventhub.servicebus.windows.net%testeventhub&sig=7AlFYnbvEm%2Bat8ALi54JqHU4i6imoFxkjKHS0zI8z8I%3D&se=1517354876&skn=sender
+    Your SAS URL for the EventHubs follows the structure: `https://<namespacename>.servicebus.windows.net/<eventhubsname>?sr=<sastoken>`. For example,
+    `https://testeventhubnamespace.servicebus.windows.net/testeventhub?sr=https%3A%2F%testeventhub.servicebus.windows.net%testeventhub&sig=7AlFYnbvEm%2Bat8ALi54JqHU4i6imoFxkjKHS0zI8z8I%3D&se=1517354876&skn=sender`
 
 12. Open the *sfdeploy.parameters.json* file and replace the following contents from the preceding steps. [SAS-URL-STORAGE-ACCOUNT] was noted in step 8. [SAS-URL-EVENT-HUBS] was noted in step 11.
 
@@ -244,7 +234,6 @@ In this tutorial, you learned how to:
 > [!div class="checklist"]
 > * Create a secure Linux cluster in Azure
 > * Create resources necessary for monitoring with ELK
-> * Optional: How to use party clusters to try out Service Fabric
 
 Advance to the next tutorial:
 > [!div class="nextstepaction"]

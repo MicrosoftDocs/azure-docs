@@ -1,22 +1,21 @@
 ---
-title: How-to configure password writeback for Azure AD SSPR
+title: Configure password writeback for SSPR - Azure Active Directory
 description: Use Azure AD and Azure AD Connect to writeback passwords to an on-premises directory
 
 services: active-directory
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 11/21/2019
 
-ms.author: joflore
-author: MicrosoftGuyJFlo
-manager: mtillman
+ms.author: iainfou
+author: iainfoulds
+manager: daveba
 ms.reviewer: sahenry
 
+ms.collection: M365-identity-device-management
 ---
 # How-to: Configure password writeback
-
-We recommend that you use the auto-update feature of [Azure AD Connect](../hybrid/how-to-connect-install-express.md) when using password writeback.
 
 The following steps assume you have already configured Azure AD Connect in your environment by using the [Express](../hybrid/how-to-connect-install-express.md) or [Custom](../hybrid/how-to-connect-install-custom.md) settings.
 
@@ -32,7 +31,32 @@ The following steps assume you have already configured Azure AD Connect in your 
 
 For common troubleshooting tasks related to password writeback, see the section [Troubleshoot password writeback](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) in our troubleshooting article.
 
-## Active Directory permissions
+> [!WARNING]
+> Password writeback will stop working for customers who are using Azure AD Connect versions 1.0.8641.0 and older when the [Azure Access Control service (ACS) is retired on November 7th, 2018](../develop/active-directory-acs-migration.md). Azure AD Connect versions 1.0.8641.0 and older will no longer allow password writeback at that time because they depend on ACS for that functionality.
+>
+> To avoid a disruption in service, upgrade from a previous version of Azure AD Connect to a newer version, see the article [Azure AD Connect: Upgrade from a previous version to the latest](../hybrid/how-to-upgrade-previous-version.md)
+>
+
+## Licensing requirements for password writeback
+
+**Self-Service Password Reset/Change/Unlock with on-premises writeback is a premium feature of Azure AD**. For more information about licensing, see the [Azure Active Directory pricing site](https://azure.microsoft.com/pricing/details/active-directory/).
+
+To use password writeback, you must have one of the following licenses assigned on your tenant:
+
+* Azure AD Premium P1
+* Azure AD Premium P2
+* Enterprise Mobility + Security E3 or A3
+* Enterprise Mobility + Security E5 or A5
+* Microsoft 365 E3 or A3
+* Microsoft 365 E5 or A5
+* Microsoft 365 F1
+* Microsoft 365 Business
+
+> [!WARNING]
+> Standalone Office 365 licensing plans *don't support "Self-Service Password Reset/Change/Unlock with on-premises writeback"* and require that you have one of the preceding plans for this functionality to work.
+>
+
+## Active Directory permissions and on-premises password complexity policies 
 
 The account specified in the Azure AD Connect utility must have the following items set if you want to be in scope for SSPR:
 
@@ -63,13 +87,16 @@ To set up the appropriate permissions for password writeback to occur, complete 
 3. In the left panel, right-click the object that represents the root of the domain and select **Properties** > **Security** > **Advanced**.
 4. From the **Permissions** tab, select **Add**.
 5. Pick the account that permissions are being applied to (from the Azure AD Connect setup).
-6. In the **Applies to** drop-down list, select **Descendent user** objects.
-7. Under **Permissions**, select the boxes for the following:
-    * **Reset password**
+6. In the **Applies to** drop-down list, select **Descendant User objects**.
+7. Under **Permissions**, select the boxes for the following options:
     * **Change password**
+    * **Reset password**
+8. Under **Properties**, select the boxes for the following options:
     * **Write lockoutTime**
     * **Write pwdLastSet**
-8. Select **Apply/OK** to apply the changes and exit any open dialog boxes.
+9. Select **Apply/OK** to apply the changes and exit any open dialog boxes.
+
+Since the source of authority is on premises, the password complexity policies apply from the same connected data source. Make sure you've changed the existing group policies for "Minimum password age". The group policy shouldn't be set to 1, which means password should be at least a day old before it can be updated. You need make sure it's set to 0. These settings can be found in `gpmc.msc` under **Computer Configuration > Policies > Windows Settings > Security Settings > Account Policies**. Run `gpupdate /force` to ensure that the change takes effect. 
 
 ## Next steps
 

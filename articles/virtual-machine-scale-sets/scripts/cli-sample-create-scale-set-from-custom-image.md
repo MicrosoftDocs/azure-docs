@@ -1,6 +1,6 @@
 ---
-title: Azure CLI 2.0 Samples - Use a custom VM image | Microsoft Docs
-description: Azure CLI 2.0 Samples
+title: Azure CLI Samples - Use a custom VM image
+description: This script creates a virtual machine scale set that uses a custom VM image as the source for the VM instances.
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: cynthn
@@ -20,7 +20,7 @@ ms.custom: mvc
 
 ---
 
-# Create a virtual machine scale set from a custom VM image with the Azure CLI 2.0
+# Create a virtual machine scale set from a custom VM image with the Azure CLI
 This script creates a virtual machine scale set that uses a custom VM image as the source for the VM instances.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
@@ -42,11 +42,11 @@ This script uses the following commands to create a resource group, virtual mach
 
 | Command | Notes |
 |---|---|
-| [az group create](/cli/azure/ad/group#az_ad_group_create) | Creates a resource group in which all resources are stored. |
-| [az vmss create](/cli/azure/vmss#az_vmss_create) | Creates the virtual machine scale set and connects it to the virtual network, subnet, and network security group. A load balancer is also created to distribute traffic to multiple VM instances. This command also specifies the VM image to be used and administrative credentials.  |
-| [az group delete](/cli/azure/ad/group#delete) | Deletes a resource group including all nested resources. |
+| [az group create](/cli/azure/ad/group) | Creates a resource group in which all resources are stored. |
+| [az vmss create](/cli/azure/vmss) | Creates the virtual machine scale set and connects it to the virtual network, subnet, and network security group. A load balancer is also created to distribute traffic to multiple VM instances. This command also specifies the VM image to be used and administrative credentials.  |
+| [az group delete](/cli/azure/ad/group) | Deletes a resource group including all nested resources. |
 
 ## Next steps
-For more information on the Azure CLI 2.0, see [Azure CLI 2.0 documentation](https://docs.microsoft.com/cli/azure/overview).
+For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure/overview).
 
-Additional virtual machine scale set Azure CLI 2.0 script samples can be found in the [Azure virtual machine scale set documentation](../cli-samples.md).
+Additional virtual machine scale set Azure CLI script samples can be found in the [Azure virtual machine scale set documentation](../cli-samples.md).

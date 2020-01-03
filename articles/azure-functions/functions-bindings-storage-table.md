@@ -1,17 +1,11 @@
 ---
 title: Azure Table storage bindings for Azure Functions
 description: Understand how to use Azure Table storage bindings in Azure Functions.
-services: functions
-documentationcenter: na
-author: ggailey777
-manager: jeconnoc
-keywords: azure functions, functions, event processing, dynamic compute, serverless architecture
+author: craigshoemaker
 
-ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: reference
 ms.date: 09/03/2018
-ms.author: glenga
+ms.author: cshoe
 ---
 # Azure Table storage bindings for Azure Functions
 
@@ -21,13 +15,13 @@ This article explains how to work with Azure Table storage bindings in Azure Fun
 
 ## Packages - Functions 1.x
 
-The Table storage bindings are provided in the [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs) NuGet package, version 2.x. Source code for the package is in the [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/tree/v2.x/src/Microsoft.Azure.WebJobs.Storage/Table) GitHub repository.
+The Table storage bindings are provided in the [Microsoft.Azure.WebJobs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs) NuGet package, version 2.x. Source code for the package is in the [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/tree/v2.x/src/Microsoft.Azure.WebJobs.Storage/Table) GitHub repository.
 
 [!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
 [!INCLUDE [functions-storage-sdk-version](../../includes/functions-storage-sdk-version.md)]
 
-## Packages - Functions 2.x
+## Packages - Functions 2.x and higher
 
 The Table storage bindings are provided in the [Microsoft.Azure.WebJobs.Extensions.Storage](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage) NuGet package, version 3.x. Source code for the package is in the [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/tree/dev/src/Microsoft.Azure.WebJobs.Extensions.Storage/Tables) GitHub repository.
 
@@ -71,9 +65,9 @@ public class TableStorage
     public static void TableInput(
         [QueueTrigger("table-items")] string input, 
         [Table("MyTable", "MyPartition", "{queueTrigger}")] MyPoco poco, 
-        TraceWriter log)
+        ILogger log)
     {
-        log.Info($"PK={poco.PartitionKey}, RK={poco.RowKey}, Text={poco.Text}");
+        log.LogInformation($"PK={poco.PartitionKey}, RK={poco.RowKey}, Text={poco.Text}");
     }
 }
 ```
@@ -94,11 +88,11 @@ public class TableStorage
     public static void TableInput(
         [QueueTrigger("table-items")] string input, 
         [Table("MyTable", "MyPartition")] IQueryable<MyPoco> pocos, 
-        TraceWriter log)
+        ILogger log)
     {
         foreach (MyPoco poco in pocos)
         {
-            log.Info($"PK={poco.PartitionKey}, RK={poco.RowKey}, Text={poco.Text}");
+            log.LogInformation($"PK={poco.PartitionKey}, RK={poco.RowKey}, Text={poco.Text}");
         }
     }
 }
@@ -106,11 +100,12 @@ public class TableStorage
 
 ### Input - C# example - CloudTable
 
-`IQueryable` isn't supported in the [Functions v2 runtime](functions-versions.md). An alternative is to use a `CloudTable` method parameter to read the table by using the Azure Storage SDK. Here's an example of a 2.x function that queries an Azure Functions log table:
+`IQueryable` isn't supported in the [Functions v2 runtime](functions-versions.md). An alternative is to use a `CloudTable` method parameter to read the table by using the Azure Storage SDK. Here's an example of a function that queries an Azure Functions log table:
 
 ```csharp
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Host;
+using Microsoft.Extensions.Logging;
 using Microsoft.WindowsAzure.Storage.Table;
 using System;
 using System.Threading.Tasks;
@@ -127,9 +122,9 @@ namespace FunctionAppCloudTable2
         public static async Task Run(
             [TimerTrigger("0 */1 * * * *")] TimerInfo myTimer, 
             [Table("AzureWebJobsHostLogscommon")] CloudTable cloudTable,
-            TraceWriter log)
+            ILogger log)
         {
-            log.Info($"C# Timer trigger function executed at: {DateTime.Now}");
+            log.LogInformation($"C# Timer trigger function executed at: {DateTime.Now}");
 
             TableQuery<LogEntity> rangeQuery = new TableQuery<LogEntity>().Where(
                 TableQuery.CombineFilters(
@@ -143,7 +138,7 @@ namespace FunctionAppCloudTable2
             foreach (LogEntity entity in 
                 await cloudTable.ExecuteQuerySegmentedAsync(rangeQuery, null))
             {
-                log.Info(
+                log.LogInformation(
                     $"{entity.PartitionKey}\t{entity.RowKey}\t{entity.Timestamp}\t{entity.OriginalName}");
             }
         }
@@ -190,10 +185,10 @@ The [configuration](#input---configuration) section explains these properties.
 Here's the C# script code:
 
 ```csharp
-public static void Run(string myQueueItem, Person personEntity, TraceWriter log)
+public static void Run(string myQueueItem, Person personEntity, ILogger log)
 {
-    log.Info($"C# Queue trigger function processed: {myQueueItem}");
-    log.Info($"Name in Person entity: {personEntity.Name}");
+    log.LogInformation($"C# Queue trigger function processed: {myQueueItem}");
+    log.LogInformation($"Name in Person entity: {personEntity.Name}");
 }
 
 public class Person
@@ -239,13 +234,14 @@ The C# script code adds a reference to the Azure Storage SDK so that the entity 
 ```csharp
 #r "Microsoft.WindowsAzure.Storage"
 using Microsoft.WindowsAzure.Storage.Table;
+using Microsoft.Extensions.Logging;
 
-public static void Run(string myQueueItem, IQueryable<Person> tableBinding, TraceWriter log)
+public static void Run(string myQueueItem, IQueryable<Person> tableBinding, ILogger log)
 {
-    log.Info($"C# Queue trigger function processed: {myQueueItem}");
+    log.LogInformation($"C# Queue trigger function processed: {myQueueItem}");
     foreach (Person person in tableBinding.Where(p => p.PartitionKey == myQueueItem).ToList())
     {
-        log.Info($"Name: {person.Name}");
+        log.LogInformation($"Name: {person.Name}");
     }
 }
 
@@ -257,7 +253,7 @@ public class Person : TableEntity
 
 ### Input - C# script example - CloudTable
 
-`IQueryable` isn't supported in the [Functions v2 runtime](functions-versions.md). An alternative is to use a `CloudTable` method parameter to read the table by using the Azure Storage SDK. Here's an example of a 2.x function that queries an Azure Functions log table:
+`IQueryable` isn't supported in the Functions runtime for [versions 2.x and higher)](functions-versions.md). An alternative is to use a `CloudTable` method parameter to read the table by using the Azure Storage SDK. Here's an example of a function that queries an Azure Functions log table:
 
 ```json
 {
@@ -285,10 +281,11 @@ public class Person : TableEntity
 using Microsoft.WindowsAzure.Storage.Table;
 using System;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Logging;
 
-public static async Task Run(TimerInfo myTimer, CloudTable cloudTable, TraceWriter log)
+public static async Task Run(TimerInfo myTimer, CloudTable cloudTable, ILogger log)
 {
-    log.Info($"C# Timer trigger function executed at: {DateTime.Now}");
+    log.LogInformation($"C# Timer trigger function executed at: {DateTime.Now}");
 
     TableQuery<LogEntity> rangeQuery = new TableQuery<LogEntity>().Where(
     TableQuery.CombineFilters(
@@ -302,7 +299,7 @@ public static async Task Run(TimerInfo myTimer, CloudTable cloudTable, TraceWrit
     foreach (LogEntity entity in 
     await cloudTable.ExecuteQuerySegmentedAsync(rangeQuery, null))
     {
-        log.Info(
+        log.LogInformation(
             $"{entity.PartitionKey}\t{entity.RowKey}\t{entity.Timestamp}\t{entity.OriginalName}");
     }
 }
@@ -360,8 +357,8 @@ type Person = {
 }
 
 let Run(myQueueItem: string, personEntity: Person) =
-    log.Info(sprintf "F# Queue trigger function processed: %s" myQueueItem)
-    log.Info(sprintf "Name in Person entity: %s" personEntity.Name)
+    log.LogInformation(sprintf "F# Queue trigger function processed: %s" myQueueItem)
+    log.LogInformation(sprintf "Name in Person entity: %s" personEntity.Name)
 ```
 
 ### Input - JavaScript example
@@ -414,7 +411,7 @@ The following example shows an HTTP triggered function which returns the total c
 @FunctionName("getallcount")
 public int run(
    @HttpTrigger(name = "req",
-                 methods = {"get"},
+                 methods = {HttpMethod.GET},
                  authLevel = AuthorizationLevel.ANONYMOUS) Object dummyShouldNotBeUsed,
    @TableInput(name = "items",
                 tableName = "mytablename",  partitionKey = "myparkey",
@@ -429,7 +426,7 @@ public int run(
  
 In [C# class libraries](functions-dotnet-class-library.md), use the following attributes to configure a table input binding:
 
-* [TableAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/TableAttribute.cs)
+* [TableAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Extensions.Storage/Tables/TableAttribute.cs)
 
   The attribute's constructor takes the table name, partition key, and row key. It can be used on an out parameter or on the return value of the function, as shown in the following example:
 
@@ -438,7 +435,7 @@ In [C# class libraries](functions-dotnet-class-library.md), use the following at
   public static void Run(
       [QueueTrigger("table-items")] string input, 
       [Table("MyTable", "Http", "{queueTrigger}")] MyPoco poco, 
-      TraceWriter log)
+      ILogger log)
   {
       ...
   }
@@ -451,13 +448,13 @@ In [C# class libraries](functions-dotnet-class-library.md), use the following at
   public static void Run(
       [QueueTrigger("table-items")] string input, 
       [Table("MyTable", "Http", "{queueTrigger}", Connection = "StorageConnectionAppSetting")] MyPoco poco, 
-      TraceWriter log)
+      ILogger log)
   {
       ...
   }
   ```
 
-  For a complete example, see [Input - C# example](#input---c-example).
+  For a complete example, see Input - C# example.
 
 * [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs)
 
@@ -485,7 +482,7 @@ The storage account to use is determined in the following order:
 
 ## Input - Java annotations
 
-In the [Java functions runtime library](/java/api/overview/azure/functions/runtime), use the `@TableInput` annotation on parameters whose value would come from Table storage.  This annotation can be used with native Java types, POJOs, or nullable values using Optional<T>. 
+In the [Java functions runtime library](/java/api/overview/azure/functions/runtime), use the `@TableInput` annotation on parameters whose value would come from Table storage.  This annotation can be used with native Java types, POJOs, or nullable values using Optional\<T>. 
 
 ## Input - configuration
 
@@ -522,14 +519,14 @@ The Table storage input binding supports the following scenarios:
 
 * **Read one or more rows in JavaScript**
 
-  Set the `filter` and `take` properties. Don't set `partitionKey` or `rowKey`. Access the input table entity (or entities) using `context.bindings.<name>`. The deserialized objects have `RowKey` and `PartitionKey` properties.
+  Set the `filter` and `take` properties. Don't set `partitionKey` or `rowKey`. Access the input table entity (or entities) using `context.bindings.<BINDING_NAME>`. The deserialized objects have `RowKey` and `PartitionKey` properties.
 
 ## Output
 
 Use an Azure Table storage output binding to write entities to a table in an Azure Storage account.
 
 > [!NOTE]
-> This output binding does not support updating existing entities. Use the `TableOperation.Replace` operation [from the Azure Storage SDK](https://docs.microsoft.com/azure/cosmos-db/table-storage-how-to-use-dotnet#replace-an-entity) to update an existing entity.   
+> This output binding does not support updating existing entities. Use the appropriate [`TableOperation`](/dotnet/api/microsoft.azure.cosmos.table.tableoperation?view=azure-dotnet) from the [Azure Storage SDK](/azure/cosmos-db/tutorial-develop-table-dotnet#insert-or-merge-an-entity) to update an existing entity as required.   
 
 ## Output - example
 
@@ -556,9 +553,9 @@ public class TableStorage
 
     [FunctionName("TableOutput")]
     [return: Table("MyTable")]
-    public static MyPoco TableOutput([HttpTrigger] dynamic input, TraceWriter log)
+    public static MyPoco TableOutput([HttpTrigger] dynamic input, ILogger log)
     {
-        log.Info($"C# http trigger function processed: {input.Text}");
+        log.LogInformation($"C# http trigger function processed: {input.Text}");
         return new MyPoco { PartitionKey = "Http", RowKey = Guid.NewGuid().ToString(), Text = input.Text };
     }
 }
@@ -595,11 +592,11 @@ The [configuration](#output---configuration) section explains these properties.
 Here's the C# script code:
 
 ```csharp
-public static void Run(string input, ICollector<Person> tableBinding, TraceWriter log)
+public static void Run(string input, ICollector<Person> tableBinding, ILogger log)
 {
     for (int i = 1; i < 10; i++)
         {
-            log.Info($"Adding Person entity {i}");
+            log.LogInformation($"Adding Person entity {i}");
             tableBinding.Add(
                 new Person() { 
                     PartitionKey = "Test", 
@@ -657,9 +654,9 @@ type Person = {
   Name: string
 }
 
-let Run(input: string, tableBinding: ICollector<Person>, log: TraceWriter) =
+let Run(input: string, tableBinding: ICollector<Person>, log: ILogger) =
     for i = 1 to 10 do
-        log.Info(sprintf "Adding Person entity %d" i)
+        log.LogInformation(sprintf "Adding Person entity %d" i)
         tableBinding.Add(
             { PartitionKey = "Test"
               RowKey = i.ToString()
@@ -715,7 +712,7 @@ module.exports = function (context) {
 
 ## Output - attributes
 
-In [C# class libraries](functions-dotnet-class-library.md), use the [TableAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/TableAttribute.cs).
+In [C# class libraries](functions-dotnet-class-library.md), use the [TableAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Extensions.Storage/Tables/TableAttribute.cs).
 
 The attribute's constructor takes the table name. It can be used on an `out` parameter or on the return value of the function, as shown in the following example:
 
@@ -724,7 +721,7 @@ The attribute's constructor takes the table name. It can be used on an `out` par
 [return: Table("MyTable")]
 public static MyPoco TableOutput(
     [HttpTrigger] dynamic input, 
-    TraceWriter log)
+    ILogger log)
 {
     ...
 }
@@ -737,7 +734,7 @@ You can set the `Connection` property to specify the storage account to use, as 
 [return: Table("MyTable", Connection = "StorageConnectionAppSetting")]
 public static MyPoco TableOutput(
     [HttpTrigger] dynamic input, 
-    TraceWriter log)
+    ILogger log)
 {
     ...
 }
@@ -771,7 +768,7 @@ The Table storage output binding supports the following scenarios:
 
   In C# and C# script, access the output table entity by using a method parameter such as `out T paramName` or the function return value. In C# script, `paramName` is the value specified in the `name` property of *function.json*. `T` can be any serializable type if the partition key and row key are provided by the *function.json* file or the `Table` attribute. Otherwise, `T` must be a type that includes `PartitionKey` and `RowKey` properties. In this scenario, `T` typically implements `ITableEntity` or derives from `TableEntity`, but it doesn't have to.
 
-* **Write one or more rows in C# or C#**
+* **Write one or more rows in C# or C# script**
 
   In C# and C# script, access the output table entity by using a method parameter `ICollector<T> paramName` or `IAsyncCollector<T> paramName`. In C# script, `paramName` is the value specified in the `name` property of *function.json*. `T` specifies the schema of the entities you want to add. Typically, `T` derives from `TableEntity` or implements `ITableEntity`, but it doesn't have to. The partition key and row key values in *function.json* or the `Table` attribute constructor are not used in this scenario.
 
@@ -779,7 +776,7 @@ The Table storage output binding supports the following scenarios:
 
 * **Write one or more rows in JavaScript**
 
-  In JavaScript functions, access the table output using `context.bindings.<name>`.
+  In JavaScript functions, access the table output using `context.bindings.<BINDING_NAME>`.
 
 ## Exceptions and return codes
 

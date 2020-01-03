@@ -51,7 +51,7 @@ Below are the common aliases that have been removed as well as their equivalent 
 ## Persisting $HOME
 
 Earlier users could only persist scripts and other files in their Cloud Drive.
-Now, the user's $HOME directory is also now persisted across sessions.
+Now, the user's $HOME directory is also persisted across sessions.
 
 ## PowerShell profile
 

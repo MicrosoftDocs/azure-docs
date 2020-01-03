@@ -1,3 +1,10 @@
+---
+author: alkohli
+ms.service: storsimple
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: alkohli
+---
 ### Install maintenance mode updates via Windows PowerShell for StorSimple
 
 When you apply maintenance mode updates to StorSimple device, all I/O requests are paused. Services such as non-volatile random access memory (NVRAM) or the clustering service are stopped. Both controllers reboot when you enter or exit this mode. When you exit this mode, all the services resume and are healthy. (This may take a few minutes.)

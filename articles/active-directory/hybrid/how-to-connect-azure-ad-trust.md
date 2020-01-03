@@ -5,18 +5,19 @@ keywords: AD FS, ADFS, AD FS management, AAD Connect, Connect, Azure AD, trust, 
 services: active-directory
 documentationcenter: ''
 ms.reviewer: anandyadavmsft
-manager: mtillman
-ms.component: hybrid
+manager: daveba
+ms.subservice: hybrid
 ms.assetid: 2593b6c6-dc3f-46ef-8e02-a8e2dc4e9fb9
 ms.service: active-directory    
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/28/2018
 ms.author: billmath
 author: billmath
 ms.custom: 
+ms.collection: M365-identity-device-management
 ---
 # Manage AD FS trust with Azure AD using Azure AD Connect
 
@@ -35,7 +36,7 @@ Azure AD Connect manages **only** settings related to Azure AD trust. Azure AD C
 | Setting | Description |
 | :--- | :--- |
 | Token signing certificate | Azure AD Connect can be used to reset and recreate the trust with Azure AD. Azure AD Connect does a one-time immediate rollover of token signing certificates for AD FS and updates the Azure AD domain federation settings.|
-| Token signing algorithm | Microsoft recommends using SHA-256 as the token signing algorithm. Azure AD Connect can detect if the token signing algorithm is set to a value less secure than SHA-256. It will update the setting to SHA-256 in the next possible configuration operation. |
+| Token signing algorithm | Microsoft recommends using SHA-256 as the token signing algorithm. Azure AD Connect can detect if the token signing algorithm is set to a value less secure than SHA-256. It will update the setting to SHA-256 in the next possible configuration operation. Other relying party trust must be updated to use the new token signing certificate. |
 | Azure AD trust identifier | Azure AD Connect sets the correct identifier value for the Azure AD trust. AD FS uniquely identifies the Azure AD trust using the identifier value. |
 | Azure AD endpoints | Azure AD Connect makes sure that the endpoints configured for the Azure AD trust are always as per the latest recommended values for resiliency and performance. |
 | Issuance transform rules | There are numbers of claim rules which are needed for optimal performance of features of Azure AD in a federated setting. Azure AD Connect makes sure that the Azure AD trust is always configured with the right set of recommended claim rules. |
@@ -98,7 +99,7 @@ Azure AD Connect makes sure that the Azure AD trust is always configured with th
 
 Azure AD Connect version 1.1.873.0 or later makes a backup of the Azure AD trust settings whenever an update is made to the Azure AD trust settings. The Azure AD trust settings are backed up at **%ProgramData%\AADConnect\ADFS**. The file name is in the following format AadTrust-&lt;date&gt;-&lt;time&gt;.txt, for example - AadTrust-20180710-150216.txt
 
-![A sanpshot of example back up of Azure AD trust](./media/how-to-connect-azure-ad-trust/backup.png)
+![A screenshot of example back up of Azure AD trust](./media/how-to-connect-azure-ad-trust/backup.png)
 
 You can restore the issuance transform rules using the suggested steps below
 

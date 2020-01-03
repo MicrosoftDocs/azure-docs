@@ -1,23 +1,18 @@
 ---
-title: Invoke Spark programs from Azure Data Factory | Microsoft Docs
+title: Invoke Spark programs from Azure Data Factory 
 description: Learn how to invoke Spark programs from an Azure data factory by using the MapReduce activity.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: 
-editor: 
-
-ms.assetid: fd98931c-cab5-4d66-97cb-4c947861255c
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.author: shlo
-
-robots: noindex
 ---
+
 # Invoke Spark programs from Azure Data Factory pipelines
 
 > [!div class="op_single_selector" title1="Transformation Activities"]
@@ -105,7 +100,7 @@ In this step, you link your storage account to your data factory. A dataset you 
 
    ![AzureStorageLinkedService](./media/data-factory-build-your-first-pipeline-using-editor/azure-storage-linked-service.png)
 
-1. Replace **account name** and **account key** with the name and access key of your storage account. To learn how to get your storage access key, see how to view, copy, and regenerate storage access keys in [Manage your storage account](../../storage/common/storage-account-manage.md#access-keys).
+1. Replace **account name** and **account key** with the name and access key of your storage account. To learn how to get your storage access key, see [Manage storage account access keys](../../storage/common/storage-account-keys-manage.md).
 
 1. To deploy the linked service, select **Deploy** on the command bar. After the linked service is deployed successfully, the Draft-1 window disappears. You see **AzureStorageLinkedService** in the tree view on the left.
 
@@ -300,10 +295,10 @@ Here is the sample JSON definition of a pipeline with a Spark activity:
                 "typeProperties": {
                     "rootPath": "adfspark\\pyFiles",
                     "entryFilePath": "test.py",
-					"arguments": [ "arg1", "arg2" ],
-					"sparkConfig": {
-						"spark.python.worker.memory": "512m"
-					}
+                    "arguments": [ "arg1", "arg2" ],
+                    "sparkConfig": {
+                        "spark.python.worker.memory": "512m"
+                    },
                     "getDebugInfo": "Always"
                 },
                 "outputs": [

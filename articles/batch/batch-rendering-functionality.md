@@ -1,7 +1,8 @@
 ---
-title: Batch rendering capabilities
-description: Specific rendering capabilities in Azure Batch
+title: Rendering capabilities - Azure Batch
+description: Standard Azure Batch capabilities are used to run rendering workloads and apps. Batch includes specific features to support rendering workloads.
 services: batch
+ms.service: batch
 author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
@@ -31,8 +32,8 @@ For an example pool configuration, see the [Azure CLI rendering tutorial](https:
 
 Other options are available if additional applications are required on the pool VMs:
 
-* A custom image based on a standard Marketplace image:
-  * Using this option, you can configure your VM with the exact applications and specific versions that you require. For more information, see [Use a custom image to create a pool of virtual machines](https://docs.microsoft.com/azure/batch/batch-custom-images). Autodesk and Chaos Group have modified Arnold and V-Ray, respectively, to validate against an Azure Batch licensing service. Make sure you have the versions of these applications with this support, otherwise the pay-per-use licensing won't work. Current versions of Maya or 3ds Max don't require a license server when running headless (in batch/command-line mode). Contact Azure support if you're not sure how to proceed with this option.
+* A custom image from the Shared Image Gallery:
+  * Using this option, you can configure your VM with the exact applications and specific versions that you require. For more information, see [Create a pool with the Shared Image Gallery](batch-sig-images.md). Autodesk and Chaos Group have modified Arnold and V-Ray, respectively, to validate against an Azure Batch licensing service. Make sure you have the versions of these applications with this support, otherwise the pay-per-use licensing won't work. Current versions of Maya or 3ds Max don't require a license server when running headless (in batch/command-line mode). Contact Azure support if you're not sure how to proceed with this option.
 * [Application packages](https://docs.microsoft.com/azure/batch/batch-application-packages):
   * Package the application files using one or more ZIP files, upload via the Azure portal, and specify the package in pool configuration. When pool VMs are created, the ZIP files are downloaded and the files extracted.
 * Resource files:
@@ -45,9 +46,12 @@ The applications that will be used and have a licensing fee need to be specified
 * Specify the `applicationLicenses` property when [creating a pool](https://docs.microsoft.com/rest/api/batchservice/pool/add#request-body).  The following values can be specified in the array of strings - "vray", "arnold", "3dsmax", "maya".
 * When you specify one or more applications, then the cost of those applications is added to the cost of the VMs.  Application prices are listed on the [Azure Batch pricing page](https://azure.microsoft.com/pricing/details/batch/#graphic-rendering).
 
+> [!NOTE]
+> If instead you connect to a license server to use the rendering applications, do not specify the `applicationLicenses` property.
+
 You can use the Azure portal or Batch Explorer to select applications and show the application prices.
 
-If an attempt is made to use an application, but the application hasn’t been specified in the `applicationLicenses` property of the pool configuration, then the application execution fails with a licensing error and non-zero exit code.
+If an attempt is made to use an application, but the application hasn’t been specified in the `applicationLicenses` property of the pool configuration or does not reach a license server, then the application execution fails with a licensing error and non-zero exit code.
 
 ### Environment variables for pre-installed applications
 

@@ -1,14 +1,14 @@
 ---
 title: Azure Event Grid Container Registry event schema
-description: Describes the properties that are provided for Container Reigstry events with Azure Event Grid
+description: Describes the properties that are provided for Container Registry events with Azure Event Grid
 services: event-grid
-author: tfitzmac
+author: spelluru
 manager: timlt
 
 ms.service: event-grid
 ms.topic: reference
-ms.date: 08/13/2018
-ms.author: tomfitz
+ms.date: 03/12/2019
+ms.author: spelluru
 ---
 
 # Azure Event Grid event schema for Container Registry
@@ -17,12 +17,14 @@ This article provides the properties and schema for Container Registry events. 
 
 ## Available event types
 
-Blob storage emits the following event types:
+Azure Container Registry emits the following event types:
 
 | Event type | Description |
 | ---------- | ----------- |
 | Microsoft.ContainerRegistry.ImagePushed | Raised when an image is pushed. |
 | Microsoft.ContainerRegistry.ImageDeleted | Raised when an image is deleted. |
+| Microsoft.ContainerRegistry.ChartPushed | Raised when a Helm chart is pushed. |
+| Microsoft.ContainerRegistry.ChartDeleted | Raised when a Helm chart is deleted. |
 
 ## Example event
 
@@ -89,6 +91,62 @@ The schema for an image deleted event is similar:
 }]
 ```
 
+The schema for a chart pushed event is similar to the schema for an imaged pushed event, but it doesn't include a request object:
+
+```json
+[{
+  "id": "ea3a9c28-5b17-40f6-a500-3f02b6829277",
+  "topic": "/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.ContainerRegistry/registries/<name>",
+  "subject": "mychart:1.0.0",
+  "eventType": "Microsoft.ContainerRegistry.ChartPushed",
+  "eventTime": "2019-03-12T22:16:31.5164086Z",
+  "data": {
+    "id":"ea3a9c28-5b17-40f6-a500-3f02b682927",
+    "timestamp":"2019-03-12T22:16:31.0087496+00:00",
+    "action":"chart_push",
+    "target":{
+      "mediaType":"application/vnd.acr.helm.chart",
+      "size":25265,
+      "digest":"sha256:7f060075264b5ba7c14c23672698152ae6a3ebac1c47916e4efe19cd624d5fab",
+      "repository":"repo",
+      "tag":"mychart-1.0.0.tgz",
+      "name":"mychart",
+      "version":"1.0.0"
+    }
+  },
+  "dataVersion": "1.0",
+  "metadataVersion": "1"
+}]
+```
+
+The schema for a chart deleted event is similar to the schema for an imaged deleted event, but it doesn't include a request object:
+
+```json
+[{
+  "id": "39136b3a-1a7e-416f-a09e-5c85d5402fca",
+  "topic": "/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.ContainerRegistry/registries/<name>",
+  "subject": "mychart:1.0.0",
+  "eventType": "Microsoft.ContainerRegistry.ChartDeleted",
+  "eventTime": "019-03-12T22:42:08.7034064Z",
+  "data": {
+    "id":"ea3a9c28-5b17-40f6-a500-3f02b682927",
+    "timestamp":"2019-03-12T22:42:08.3783775+00:00",
+    "action":"chart_delete",
+    "target":{
+      "mediaType":"application/vnd.acr.helm.chart",
+      "size":25265,
+      "digest":"sha256:7f060075264b5ba7c14c23672698152ae6a3ebac1c47916e4efe19cd624d5fab",
+      "repository":"repo",
+      "tag":"mychart-1.0.0.tgz",
+      "name":"mychart",
+      "version":"1.0.0"
+    }
+  },
+  "dataVersion": "1.0",
+  "metadataVersion": "1"
+}]
+```
+
 ## Event properties
 
 An event has the following top-level data:
@@ -124,6 +182,8 @@ The target object has the following properties:
 | length | integer | The number of bytes of the content. Same as Size field. |
 | repository | string | The repository name. |
 | tag | string | The tag name. |
+| name | string | The chart name. |
+| version | string | The chart version. |
 
 The request object has the following properties:
 

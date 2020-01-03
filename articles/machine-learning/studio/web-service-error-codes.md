@@ -1,28 +1,23 @@
 ---
-title: Azure Machine Learning REST API error codes | Microsoft Docs
+title: REST API error codes - Azure Machine Learning Studio (classic) | Microsoft Docs
 description: These error codes could be returned by an operation on an Azure Machine Learning web service.
 keywords: 
 services: machine-learning
-documentationcenter: ''
-author: heatherbshapiro
-ms.author: hshapiro
-manager: hjerez
-editor: cgronlun
+author: xiaoharper
+ms.custom: seodec18
+ms.author: amlstudiodocs
 
+editor: cgronlun
 ms.assetid: 0923074b-3728-439d-a1b8-8a7245e39be4
 ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.subservice: studio
 ms.topic: reference
 ms.date: 11/16/2016
-
 ---
  
-# Machine Learning REST API Error Codes
+# Azure Machine Learning Studio (classic) REST API Error Codes
  
-The following error codes could be returned by an operation on an Azure Machine Learning web service.
+The following error codes could be returned by an operation on an Azure Machine Learning Studio (classic) web service.
  
 ## BadArgument (HTTP status code 400)
  

@@ -1,10 +1,10 @@
 ---
-title: Azure CLI Script Example - Windows Pool in Batch | Microsoft Docs
-description: Azure CLI Script Example - Create and manage a Windows pool in Batch
+title: Azure CLI Script Example - Windows Pool in Batch
+description: This script demonstrates some of the commands available in the Azure CLI to create and manage a pool of Windows compute nodes in Azure Batch.
 services: batch
 documentationcenter: ''
-author: dlepow
-manager: jeconnoc
+author: laurenhughes
+manager: gwallace
 editor: 
 
 ms.assetid:
@@ -13,8 +13,8 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 01/29/2018
-ms.author: danlep
+ms.date: 12/12/2019
+ms.author: lahugh
 ---
 
 # CLI example: Create and manage a Windows pool in Azure Batch
@@ -25,7 +25,7 @@ or a Virtual Machine configuration. This example shows how to create a Windows p
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, this article requires that you are running the Azure CLI version 2.0.20 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli). 
+If you choose to install and use the CLI locally, this article requires that you are running the Azure CLI version 2.0.20 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli). 
 
 ## Example script
 

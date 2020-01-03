@@ -1,13 +1,12 @@
 ---
-title: Run a DR drill of Hyper-V VMs to a secondary site using Azure Site Recovery | Microsoft Docs
-description: Learn how to run a DR drill for Hyper-V VMs in VMM clouds to a secondary datacenter using Azure Site Recovery.
-services: site-recovery
-author: ponatara
-manager: abhemraj
+title: Run a NHyper-V disaster recovery drill to a secondary site with Azure Site Recovery 
+description: Learn how to run a DR drill for Hyper-V VMs in VMM clouds to a secondary on-premises datacenter using Azure Site Recovery.
+author: rajani-janaki-ram
+manager: rochakm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 07/06/2018
-ms.author: ponatara
+ms.topic: conceptual
+ms.date: 11/27/2018
+ms.author: rajanaki
 
 ---
 # Run a DR drill for Hyper-V VMs to a secondary site
@@ -39,11 +38,11 @@ You run a test failover from the primary to the secondary site. If you simply wa
 
 When you run a test failover, you're asked to select network settings for test replica machines, as summarized in the table.
 
-**Option** | **Details** 
---- | --- 
-**None** | The test VM is created on the host on which the replica VM is located. It isn’t added to the cloud, and isn't connected to any network.<br/><br/> You can connect the machine to a VM network after it has been created.
-**Use existing** | The test VM is created on the host on which the replica VM is located. It isn’t added to the cloud.<br/><br/>Create a VM network that's isolated from your production network.<br/><br/>If you're using a VLAN-based network, we recommend that you create a separate logical network (not used in production) in VMM for this purpose. This logical network is used to create VM networks for test failovers.<br/><br/>The logical network should be associated with at least one of the network adapters of all the Hyper-V servers that are hosting virtual machines.<br/><br/>For VLAN logical networks, the network sites that you add to the logical network should be isolated.<br/><br/>If you’re using a Windows Network Virtualization–based logical network, Azure Site Recovery automatically creates isolated VM networks. 
-**Create a network** | A temporary test network is created automatically based on the setting that you specify in **Logical Network** and its related network sites.<br/><br/> Failover checks that VMs are created. |You should use this option if a recovery plan uses more than one VM network.<br/><br/> If you're using Windows Network Virtualization networks, this option can automatically create VM networks with the same settings (subnets and IP address pools) in the network of the replica virtual machine. These VM networks are cleaned up automatically after the test failover is complete.<br/><br/> The test VM is created on the host on which the replica virtual machine exists. It isn’t added to the cloud.
+| **Option** | **Details** | |
+| --- | --- | --- |
+| **None** | The test VM is created on the host on which the replica VM is located. It isn’t added to the cloud, and isn't connected to any network.<br/><br/> You can connect the machine to a VM network after it has been created.| |
+| **Use existing** | The test VM is created on the host on which the replica VM is located. It isn’t added to the cloud.<br/><br/>Create a VM network that's isolated from your production network.<br/><br/>If you're using a VLAN-based network, we recommend that you create a separate logical network (not used in production) in VMM for this purpose. This logical network is used to create VM networks for test failovers.<br/><br/>The logical network should be associated with at least one of the network adapters of all the Hyper-V servers that are hosting virtual machines.<br/><br/>For VLAN logical networks, the network sites that you add to the logical network should be isolated.<br/><br/>If you’re using a Windows Network Virtualization–based logical network, Azure Site Recovery automatically creates isolated VM networks. | |
+| **Create a network** | A temporary test network is created automatically based on the setting that you specify in **Logical Network** and its related network sites.<br/><br/> Failover checks that VMs are created.<br/><br/> You should use this option if a recovery plan uses more than one VM network.<br/><br/> If you're using Windows Network Virtualization networks, this option can automatically create VM networks with the same settings (subnets and IP address pools) in the network of the replica virtual machine. These VM networks are cleaned up automatically after the test failover is complete.<br/><br/> The test VM is created on the host on which the replica virtual machine exists. It isn’t added to the cloud.|
 
 ### Best practices
 

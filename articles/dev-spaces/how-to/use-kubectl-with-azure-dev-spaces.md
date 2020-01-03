@@ -1,16 +1,10 @@
 ---
-title: "How to use kubectl with Azure Dev Spaces | Microsoft Docs"
-titleSuffix: Azure Dev Spaces
+title: "How to use kubectl with Azure Dev Spaces"
 services: azure-dev-spaces
-ms.service: azure-dev-spaces
-ms.component: azds-kubernetes
-author: ghogen
-ms.author: ghogen
 ms.date: "05/11/2018"
-ms.topic: "article"
-description: "Rapid Kubernetes development with containers and microservices on Azure"
-keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers"
-manager: douge
+ms.topic: "conceptual"
+description: "Learn how to use kubectl commands within a dev space on an Azure Kubernetes Service cluster with Azure Dev Spaces enabled"
+keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, service mesh, service mesh routing, kubectl, k8s "
 ---
 # Use kubectl with an Azure Dev Space
 
