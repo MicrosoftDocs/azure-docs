@@ -33,11 +33,12 @@ Next, open your project in Visual Studio.
 ## Start with some boilerplate code
 
 Let's add some code that works as a skeleton for our project. Make note that you've created an async method called `recognizeIntent()`.
+
 [!code-cpp[](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/intent-recognition/helloworld/helloworld.cpp?range=6-16,73-81)]
 
 ## Create a Speech configuration
 
-Before you can initialize an `IntentRecognizer` object, you need to create a configuration that uses your LUIS Endpoint key and region. 
+Before you can initialize an `IntentRecognizer` object, you need to create a configuration that uses the key and location for your LUIS prediction resource. 
 
 > [!IMPORTANT]
 > Your starter key and authoring keys will not work. You must use your prediction key and location that you created earlier. For more information, see [Create a LUIS app for intent recognition](#create-a-luis-app-for-intent-recognition). 
