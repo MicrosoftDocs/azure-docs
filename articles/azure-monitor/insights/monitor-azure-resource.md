@@ -123,7 +123,7 @@ Azure Monitor Logs consolidates logs and metrics from multiple services and othe
 
 - See [Get started with log queries in Azure Monitor](../log-query/get-started-queries.md) for a tutorial on using the query language used to write log queries.
 - See [Collect Azure resource logs in Log Analytics workspace in Azure Monitor](../platform/resource-logs-collect-workspace.md) for information on how resource logs are collected in Azure Monitor Logs and details for how to access them in a query.
-- See [Collection mode](../platform/resource-logs-collect-workspace.md#collection-mode) for an explanation of how resource log data is structured in Azure Monitor Logs.
+- See [Collection mode](../platform/resource-logs-collect-workspace.md#resource-log-collection-mode) for an explanation of how resource log data is structured in Azure Monitor Logs.
 - See the documentation for each Azure service for details on its table in Azure Monitor Logs.
 
 ![Logs](media/monitor-azure-resource/logs.png)
