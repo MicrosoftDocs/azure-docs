@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/18/2019
+ms.date: 01/03/2020
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -96,7 +96,7 @@ To get started, you need the following items:
 
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
-- Slack supports IDP initiated SSO
+- Akamai supports IDP initiated SSO
 
 #### Important
 
