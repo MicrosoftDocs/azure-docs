@@ -124,7 +124,7 @@ The Machine Learning compute instance or cluster automatically allocates additio
 * One public IP address
 * One load balancer
 
-These resources are limited by the subscription's [resource quotas](https://docs.microsoft.com/azure/azure-subscription-service-limits).
+These resources are limited by the subscription's [resource quotas](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits).
 
 
 ### <a id="mlcports"></a> Required ports
