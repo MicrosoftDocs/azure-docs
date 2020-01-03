@@ -22,7 +22,7 @@ As a lab owner, you can enable user-assigned managed identities on your lab virt
 
 A managed identity can be used to authenticate to any service that supports Azure Active Directory (AD) authentication, including Key Vault, without passing any credentials in the code. For more information on managed identities, see [What is managed identities for Azure resources?](../../active-directory/managed-identities-azure-resources/overview.md).
 
-With this feature, lab users can share Azure resources such as Azure SQL Database in the context of the lab where authentication to the resource is taken care by the identity itself. Once configured, every existing/newly created lab VM will be enabled with this identity and the lab user can access resources once logged in to their machine.
+With this feature, lab users can share Azure resources such as Azure SQL Database in the context of the lab. The authentication to the resource is taken care by the identity itself. Once configured, every existing/newly created lab VM will be enabled with this identity. Lab users can access resources once logged in to their machines.
 
 > [!NOTE]
 > You can add multiple user assigned managed identities to be enabled on your lab VMs.
@@ -48,7 +48,7 @@ To add a user assigned managed identity for lab VMs, follow these steps:
     `/subscriptions/0000000000-0000-0000-0000-00000000000000/resourceGroups/<RESOURCE GROUP NAME> /providers/Microsoft.ManagedIdentity/userAssignedIdentities/<NAME of USER IDENTITY>`.
 2. Run a PUT HTTPS method to add a new **ServiceRunner** resource to the lab as shown in the following example. 
 
-    Service runner resource is a proxy resource to manage and control managed identities in DevTest Labs. The service runner name can be any valid name but we recommend that you use the name of the managed identity resource.
+    Service runner resource is a proxy resource to manage and control managed identities in DevTest Labs. The service runner name can be any valid name, but we recommend you use the name of the managed identity resource.
 
     ```json
     {
