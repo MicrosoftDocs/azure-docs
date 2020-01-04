@@ -35,7 +35,7 @@ As you design and scale your Azure Machine Learning resources for production wor
 Here is a breakdown of the quota limits by various resource types within your Azure subscription.
 
 > [!Important]
-> Limits are subject to change. The latest can always be found at the service-level quota [document](https://docs.microsoft.com/azure/azure-subscription-service-limits/) for all of Azure.
+> Limits are subject to change. The latest can always be found at the service-level quota [document](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits/) for all of Azure.
 
 ### Virtual machines
 For each Azure subscription, there is a limit on the number of virtual machines you can have across your services or standalone. This limit is at the region level both on the total cores and also on a per family basis.
@@ -44,7 +44,7 @@ Virtual machine cores have a regional total limit and a regional per size series
 
 [!INCLUDE [azure-subscription-limits-azure-resource-manager](../../includes/azure-subscription-limits-azure-resource-manager.md)]
 
-For a more detailed and up-to-date list of quota limits, check the Azure-wide quota article [here](https://docs.microsoft.com/azure/azure-subscription-service-limits).
+For a more detailed and up-to-date list of quota limits, check the Azure-wide quota article [here](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits).
 
 ### Azure Machine Learning Compute
 For Azure Machine Learning Compute, there is a default quota limit on both the number of cores and number of unique compute resources allowed per region in a subscription. This quota is separate from the VM core quota above and the core limits are not shared between the two resource types since AmlCompute is a managed service that deploys resources in a hosted-on-behalf-of model.
@@ -85,7 +85,7 @@ There is also a limit on the number of container instances that you can spin up 
 
 [!INCLUDE [container-instances-limits](../../includes/container-instances-limits.md)]
 
-For a more detailed and up-to-date list of quota limits, check the Azure-wide quota article [here](https://docs.microsoft.com/azure/azure-subscription-service-limits#container-instances-limits).
+For a more detailed and up-to-date list of quota limits, check the Azure-wide quota article [here](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#container-instances-limits).
 
 ### Storage
 There is a limit on the number of storage accounts per region as well in a given subscription. The default limit is 250 and includes both Standard and Premium Storage accounts. If you require more than 250 storage accounts in a given region, make a request through [Azure Support](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest/). The Azure Storage team will review your business case and may approve up to 250 storage accounts for a given region.
