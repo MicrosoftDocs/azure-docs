@@ -62,8 +62,8 @@ Open the *.csproj* file. Add a `UserSecretsId` element as shown here. You can us
 
 #### [.NET Core 2.x](#tab/core2x)
 
-    ```xml
-    <Project Sdk="Microsoft.NET.Sdk.Web">
+```xml
+<Project Sdk="Microsoft.NET.Sdk.Web">
 
     <PropertyGroup>
         <TargetFramework>netcoreapp2.1</TargetFramework>
@@ -75,8 +75,9 @@ Open the *.csproj* file. Add a `UserSecretsId` element as shown here. You can us
         <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
     </ItemGroup>
 
-    </Project>
-    ```
+</Project>
+```
+
 #### [.NET Core 3.x](#tab/core3x)
 
 ```xml
