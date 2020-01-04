@@ -47,4 +47,4 @@ We welcome your detailed feedback and active participation in the Azure Security
 
 ## Next Steps
 
-Read the [Azure Security Benchmark Overview](overview.md)
+Read the [Azure Security Benchmark Introduction](introduction.md)
