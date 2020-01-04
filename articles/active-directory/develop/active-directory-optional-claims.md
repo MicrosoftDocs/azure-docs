@@ -123,9 +123,7 @@ This OptionalClaims object causes the ID token returned to the client to include
 
 You can configure optional claims for your application through the UI or application manifest.
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-1. After you've authenticated, choose your Azure AD tenant by selecting it from the top-right corner of the page.
-1. Select **Azure Active Directory** from the left-hand menu.
+1. Go to the [Azure portal](https://portal.azure.com). Search for and select **Azure Active Directory**.
 1. From the **Manage** section, select **App registrations**.
 1. Select the application you want to configure optional claims for in the list.
 

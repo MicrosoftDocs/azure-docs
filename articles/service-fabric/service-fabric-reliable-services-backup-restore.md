@@ -1,6 +1,6 @@
 ---
 title: Service Fabric Backup and Restore 
-description: Conceptual documentation for Service Fabric Backup and Restore
+description: Conceptual documentation for Service Fabric Backup and Restore, a service for configuring backup of Reliable Stateful services and Reliable Actors.
 author: mcoskun
 
 ms.topic: conceptual
