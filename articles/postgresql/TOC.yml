@@ -253,6 +253,12 @@
         href: howto-manage-vnet-using-portal.md
       - name: Azure CLI
         href: howto-manage-vnet-using-cli.md
+    - name: Private Link
+      items:
+      - name: Azure portal
+        href: howto-configure-privatelink-portal.md
+      - name: Azure CLI
+        href: howto-configure-privatelink-cli.md
     - name: Restart server
       items:
       - name: Azure portal
