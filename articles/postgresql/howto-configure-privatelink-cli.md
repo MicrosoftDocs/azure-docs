@@ -7,6 +7,8 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/04/2020
 ---
+# Create and manager Private Link for Azure Database for PostgreSQL - Single server (Preview) using CLI
+
 A Private Endpoint is the fundamental building block for private link in Azure. It enables Azure resources, like Virtual Machines (VMs), to communicate privately with private link resources. In this article, you will learn how to create a VM on an Azure Virtual Network, an Azure Database for PostgreSQL - Single server with an Azure private endpoint using the Azure CLI. Then, you can securely access the PostgreSQL Server from the VM.
 
 ## Prerequisites
@@ -179,4 +181,4 @@ az group delete --name myResourceGroup --yes
 ```
 
 ## Next steps
-- Learn more about [Azure Private Link](private-link-overview.md)
+- Learn more about [Azure Private Link](../../private-link/private-link-overview.md)
