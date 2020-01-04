@@ -80,7 +80,7 @@
     href: https://azure.microsoft.com/blog/topics/networking
   - name: Networking feedback
     href: https://feedback.azure.com/forums/217313-networking?category_id=77469
-  - name: Peering FAQs
+  - name: Internet Peering FAQs
     href: faqs.md
   - name: Peering Service FAQs
     href: service-faqs.md

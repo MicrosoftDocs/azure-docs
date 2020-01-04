@@ -17,15 +17,15 @@ Microsoft's general requirements from your network are explained in the sections
 ## Technical requirements
 
 * A fully redundant network with sufficient capacity to exchange traffic without congestion.
+* Peer will have a publicly routable Autonomous System Number (ASN).
 * Both IPv4 and IPv6 are supported and Microsoft expects to establish sessions of both types in each peering location.
 * MD5 is not supported.
-* **ASN:**
-    * Peer will have a publicly routable ASN.
+* **ASN details:**
     * Microsoft manages AS8075 along with the following ASNs: AS8068, AS8069, AS12076. For a complete list of ASNs with AS8075 peering, reference AS-SET MICROSOFT.
     * All parties peering with Microsoft agree not to accept routes from AS12076 (Express Route) under any circumstances, and should filter out AS12076 on all peers.
 * **Routing policy:**
     * Peer will have at least one publicly routable /24.
-    * Microsoft will overwrite received Multi-Exit Discriminators (MEDs).
+    * Microsoft will overwrite received Multi-Exit Discriminators (MED).
     * Microsoft prefers to receive BGP community-tags from peers to indicate route origination.
     * Peer are expected to register their routes in a public Internet Routing Registry (IRR) database, for the purpose of filtering, and will make good faith efforts to keep this information up to date.
     * We suggest peers set a max-prefix of 1000 (IPv4) and 100 (IPv6) routes on peering sessions with Microsoft.
@@ -35,9 +35,7 @@ Microsoft's general requirements from your network are explained in the sections
     * Peers are expected to adhere to https://www.manrs.org/ industry standards for route security.
 
 ## Operational requirements
-* A fully staffed 24x7 Network Operations Center (NOC), capable of assisting in the resolution of:
-    * All technical and performance issues.
-    * All security violations, denial of service attacks, or any other abuse originating within the peer or their customers.
+* A fully staffed 24x7 Network Operations Center (NOC), capable of assisting in the resolution of all technical and performance issues, security violations, denial of service attacks, or any other abuse originating within the peer or their customers.
 * Peers are expected to have a complete and up-to-date profile on [PeeringDB](https://www.peeringdb.com) including a 24x7 NOC email from corporate domain and phone number. We use this information to validate the peer's details such as NOC information, technical contact information, and their presence at the peering facilities etc. Personal Yahoo, Gmail and hotmail accounts are not accepted. 
 
 ## Physical connection requirements

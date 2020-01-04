@@ -25,7 +25,6 @@ If you prefer, you can complete this guide using the [PowerShell](howto-direct-p
 [!INCLUDE [Account](./includes/account-portal.md)]
 
 ### <a name=create></a>Create a Direct Peering
-[!INCLUDE [direct-peering-basic](./includes/direct-portal-basic.md)]
 [!INCLUDE [direct-peering-configuration](./includes/direct-portal-configuration.md)]
 
 ### <a name=get></a>Verify Direct Peering

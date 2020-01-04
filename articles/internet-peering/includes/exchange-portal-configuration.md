@@ -9,6 +9,7 @@ ms.date: 11/27/2019
 ms.author: prmitiki
 ---
 
+[!INCLUDE [direct-peering-basic](./includes/direct-portal-basic.md)]
 1. On the **Create a Peering** page, under **Configuration** tab, fill out the fields as shown below.
 
     > [!div class="mx-imgBorder"]
@@ -22,15 +23,17 @@ ms.author: prmitiki
         > If you already have peering connections with Microsoft in the selected **Metro** location, and you are using  portal  for the first time to set up peering in that location, then your existing peering connections will be listed in the **Peering connections** section as shown below. Microsoft will automatically convert these peering connections to Azure resource so that you can manage them all along with the new connections, in one place.See [Convert a legacy Exchange Peering to Azure resource using the portal](../howto-legacy-exchange-portal.md) for more info.
         >
 
-1. Under **Peering connections**, click **Create new** to add a line for each new connection you want to set up. Then, click the edit button for a line, highlighted below, to configure/modify connection settings.
+1. Under **Peering connections**, click **Create new** to add a line for each new connection you want to set up.
 
-    > [!div class="mx-imgBorder"]
-    > ![Peering Configuration - Direct Edit](../media/setup-exchange-conf-tab-edit.png)
+    * To configure/modify connection settings click the edit button for a line.
+
+        > [!div class="mx-imgBorder"]
+        > ![Peering Configuration - Exchange Edit](../media/setup-exchange-conf-tab-edit.png)
 
     * To delete a line, click on **...** button > **Delete**.
 
         > [!div class="mx-imgBorder"]
-        > ![Peering Configuration - Direct Edit](../media/setup-exchange-conf-tab-delete.png)
+        > ![Peering Configuration - Exchange Edit](../media/setup-exchange-conf-tab-delete.png)
 
     * You are required to provide all the settings for a connection as shown below.
 

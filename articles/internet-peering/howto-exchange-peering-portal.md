@@ -25,7 +25,6 @@ If you prefer, you can complete this guide using the [PowerShell](howto-exchange
 [!INCLUDE [Account](./includes/account-portal.md)]
 
 ### <a name=create></a>Create an Exchange Peering
-[!INCLUDE [exchange-peering-basic](./includes/direct-portal-basic.md)]
 [!INCLUDE [exchange-peering-configuration](./includes/exchange-portal-configuration.md)]
 
 ### <a name=get></a>Verify an Exchange Peering

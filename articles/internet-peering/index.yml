@@ -26,11 +26,11 @@ landingContent:
         links:
           - text: About Internet Peering
             url: overview.md
-          - text: Internet Peering vs.. Peering Service
+          - text: Internet Peering vs. Peering Service
             url: service-overview.md
       - linkListType: concept
         links:
-          - text: Internet Peering policy
+          - text: Peering policy
             url: policy.md
           - text: Prerequisites to setup peering with Microsoft
             url: prerequisites.md

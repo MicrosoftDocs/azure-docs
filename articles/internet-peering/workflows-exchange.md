@@ -1,6 +1,6 @@
 ---
-title: Exchange Peering workflow or walkthrough
-description: Exchange Peering workflow or walkthrough
+title: Exchange Peering walkthrough
+description: Exchange Peering walkthrough
 services: internet-peering
 author: prmitiki
 ms.service: internet-peering

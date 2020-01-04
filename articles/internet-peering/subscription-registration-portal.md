@@ -48,20 +48,20 @@ You can create a new PeerAsn resource for associating an Autonomous System Numbe
     * **Peer name** corresponds to your company's name and needs to be as close as possible to your PeeringDb profile. Note that value supports only characters a-z, A-Z, and space
     * Enter your ASN in the **Peer ASN** field.
     * Click on **Create new** and enter **EMAIL ADDRESS** and **PHONE NUMBER** for your Network Operations Center (NOC)
-    * Then, click on **Review + create** and observe that  portal  runs basic validation of the information you entered. This is displayed in a ribbon on the top, as *Running final validation...*.
+1. Then, click on **Review + create** and observe that  portal  runs basic validation of the information you entered. This is displayed in a ribbon on the top, as *Running final validation...*.
 
-        > [!div class="mx-imgBorder"]
-        > ![PeerAsn Review Tab](./media/peerasn-review-tab-validation.png)
+    > [!div class="mx-imgBorder"]
+    > ![PeerAsn Review Tab](./media/peerasn-review-tab-validation.png)
 
-    * Once the message in the ribbon turns to *Validation Passed*, verify your information and submit the request by clicking **Create**. If the validation doesn't pass, then click on **Previous** and repeat the steps above to modify your request and ensure the values you enter have no errors.
+1. Once the message in the ribbon turns to *Validation Passed*, verify your information and submit the request by clicking **Create**. If the validation doesn't pass, then click on **Previous** and repeat the steps above to modify your request and ensure the values you enter have no errors.
 
-        > [!div class="mx-imgBorder"]
-        > ![PeerAsn Review Tab](./media/peerasn-review-tab.png)
+    > [!div class="mx-imgBorder"]
+    > ![PeerAsn Review Tab](./media/peerasn-review-tab.png)
 
-    * After you submit the request, wait for it to complete deployment. If deployment fails, contact [Microsoft Peering](mailto:peering@microsoft.com). A successful deployment will appear as below.
+1. After you submit the request, wait for it to complete deployment. If deployment fails, contact [Microsoft Peering](mailto:peering@microsoft.com). A successful deployment will appear as below.
 
-        > [!div class="mx-imgBorder"]
-        > ![PeerAsn Success](./media/peerasn-success.png)
+    > [!div class="mx-imgBorder"]
+    > ![PeerAsn Success](./media/peerasn-success.png)
 
 ### View status of a PeerAsn
 Once PeerAsn resource is deployed successfully, you will need to wait for Microsoft to approve the association request. It may take up to 12 hours for approval. Once approved, you will receive a notification to the email address entered in the above section.

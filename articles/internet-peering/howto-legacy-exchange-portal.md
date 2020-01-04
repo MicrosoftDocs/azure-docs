@@ -24,7 +24,6 @@ If you prefer, you can complete this guide using the [PowerShell](howto-legacy-e
 [!INCLUDE [Account](./includes/account-portal.md)]
 
 ### <a name=create></a>Convert legacy Exchange Peering
-[!INCLUDE [exchange-peering-basic](./includes/direct-portal-basic.md)]
 [!INCLUDE [exchange-peering-configuration](./includes/exchange-portal-configuration-legacy.md)]
 
 ### <a name=get></a>Verify Exchange Peering

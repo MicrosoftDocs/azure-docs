@@ -1,6 +1,6 @@
 ---
-title: Direct Peering workflow or walkthrough
-description: Direct Peering workflow or walkthrough
+title: Direct Peering walkthrough
+description: Direct Peering walkthrough
 services: internet-peering
 author: prmitiki
 ms.service: internet-peering

@@ -25,7 +25,6 @@ If you prefer, you can complete this guide using the [PowerShell](howto-legacy-d
 [!INCLUDE [Account](./includes/account-portal.md)]
 
 ### <a name=create></a>Convert legacy Direct Peering
-[!INCLUDE [direct-peering-basic](./includes/direct-portal-basic.md)]
 [!INCLUDE [direct-peering-configuration](./includes/direct-portal-configuration-legacy.md)]
 
 ### <a name=get></a>Verify Direct Peering
