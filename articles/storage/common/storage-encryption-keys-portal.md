@@ -19,13 +19,11 @@ ms.subservice: common
 
 This article shows how to configure an Azure Key Vault with customer-managed keys using the [Azure portal](https://portal.azure.com/). To learn how to create a key vault using the Azure portal, see [Quickstart: Set and retrieve a secret from Azure Key Vault using the Azure portal](../../key-vault/quick-create-portal.md).
 
-## Configure your Azure Key Vault
-
-You must use Azure Key Vault to store your customer-managed keys. You can either create your own keys and store them in a key vault, or you can use the Azure Key Vault APIs to generate keys. The storage account and the key vault must be in the same region, but they can be in different subscriptions. For more information about Azure Key Vault, see [What is Azure Key Vault?](../../key-vault/key-vault-overview.md).
+## Configure Azure Key Vault
 
 Using customer-managed keys with Azure Storage encryption requires that two properties be set on the key vault, **Soft Delete** and **Do Not Purge**. These properties are not enabled by default, but can be enabled using either PowerShell or Azure CLI on a new or existing key vault.
 
-To learn how to enable these properties on an existing key vault with PowerShell, see the sections titled **Enabling soft-delete** and **Enabling Purge Protection** in one of the following articles:
+To learn how to enable these properties on an existing key vault, see the sections titled **Enabling soft-delete** and **Enabling Purge Protection** in one of the following articles:
 
 - [How to use soft-delete with PowerShell](../../key-vault/key-vault-soft-delete-powershell.md).
 - [How to use soft-delete with CLI](../../key-vault/key-vault-soft-delete-cli.md).
@@ -92,7 +90,7 @@ To change the key used for Azure Storage encryption, follow these steps:
 
 ## Disable customer-managed keys
 
-When you disable customer-managed keys, your account is encrypted with Microsoft-managed keys. To disable customer-managed keys, follow these steps:
+When you disable customer-managed keys, your storage account is then encrypted with Microsoft-managed keys. To disable customer-managed keys, follow these steps:
 
 1. Navigate to your storage account and display the **Encryption** settings.
 1. Deselect the checkbox next to the **Use your own key** setting.
