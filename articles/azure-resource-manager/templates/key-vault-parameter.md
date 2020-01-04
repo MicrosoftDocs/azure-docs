@@ -107,7 +107,7 @@ The following procedure shows how to create a role with the minimum permission, 
 
     The samples assign the custom role to the user on the resource group level.  
 
-When using a Key Vault with the template for a [Managed Application](../../managed-applications/overview.md), you must grant access to the **Appliance Resource Provider** service principal. For more information, see [Access Key Vault secret when deploying Azure Managed Applications](../../managed-applications/key-vault-access.md).
+When using a Key Vault with the template for a [Managed Application](../managed-applications/overview.md), you must grant access to the **Appliance Resource Provider** service principal. For more information, see [Access Key Vault secret when deploying Azure Managed Applications](../managed-applications/key-vault-access.md).
 
 ## Reference secrets with static ID
 

@@ -6,10 +6,10 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-author: xiaoharper
-ms.author: zhanxia
+author: likebupt
+ms.author: keli19
 ms.reviewer: peterlu
-ms.date: 11/04/2019
+ms.date: 12/25/2019
 ---
 # Build a classifier & use R to predict flight delays with Azure Machine Learning designer
 
@@ -109,7 +109,7 @@ Finally, to test the quality of the results, add the **Evaluate Model** module t
 ## Evaluate
 The logistic regression model has AUC of 0.631 on the test set.
 
- ![evaluate](./media/how-to-designer-sample-classification-flight-delay/evaluate.png)
+ ![evaluate](media/how-to-designer-sample-classification-flight-delay/sample6-evaluate-1225.png)
 
 ## Next steps
 
