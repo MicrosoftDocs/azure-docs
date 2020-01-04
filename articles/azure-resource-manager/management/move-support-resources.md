@@ -720,7 +720,7 @@ Jump to a resource provider namespace:
 > | workbooks | Yes | Yes |
 
 > [!IMPORTANT]
-> Make sure moving to new subscription doesn't exceed [subscription quotas](../../azure-subscription-service-limits.md#azure-monitor-limits).
+> Make sure moving to new subscription doesn't exceed [subscription quotas](../../azure-resource-manager/management/azure-subscription-service-limits.md#azure-monitor-limits).
 
 ## Microsoft.IoTCentral
 
@@ -964,7 +964,7 @@ Jump to a resource provider namespace:
 > | workspaces | Yes | Yes |
 
 > [!IMPORTANT]
-> Make sure moving to new subscription doesn't exceed [subscription quotas](../../azure-subscription-service-limits.md#azure-monitor-limits).
+> Make sure moving to new subscription doesn't exceed [subscription quotas](../../azure-resource-manager/management/azure-subscription-service-limits.md#azure-monitor-limits).
 
 ## Microsoft.OperationsManagement
 
