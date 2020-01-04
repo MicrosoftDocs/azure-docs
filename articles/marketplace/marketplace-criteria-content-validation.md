@@ -43,9 +43,11 @@ All offers must meet the [All Listing Requirements](https://docs.microsoft.com/a
 |  | List Status | Link must lead to customer-led trial experience | Other CTAs (e.g. buy now) also available | 
 
 ---
-## SaaS apps requirements
+## SaaS app requirements
 
 SaaS apps can be published to Azure Marketplace and/or AppSource. If you intend to cross-list your offer, the value proposition should address both Storefront [audiences](https://docs.microsoft.com/azure/marketplace/comparing-appsource-azure-marketplace). You can view the offer gallery on [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps) and [AppSource](https://appsource.microsoft.com/en-us/marketplace/apps) to familiarize yourself with available categories and subcategories across each Storefront. The table below summarizes how publishing across each Storefront is determined for SaaS listings:
+
+Your offer’s transaction capabilities and the category/subcategory selection will determine the storefront where your offer will be published. Depending on your category selection, offers targeted to a technical (IT/Dev) audience will be published to [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps), and offers intended for a business audience will be published to [Microsoft AppSource](https://appsource.microsoft.com/en-us/marketplace/apps). View [categories](gtm-offer-listing-best-practices-categories.md) applicable to each Storefront to determine your offer placement. If you intend to cross-list your offer, the value proposition should address both Storefront [audiences](https://docs.microsoft.com/azure/marketplace/comparing-appsource-azure-marketplace). The table below summarizes how publishing across each Storefront is determined for SaaS listings:
 
 <!---
 | SaaS Offer    |     |          |           |    |    |     | Applicable Storefront |              |
