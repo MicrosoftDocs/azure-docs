@@ -143,7 +143,7 @@ To set up a managed identity in the portal, you first create an application and 
                     AzureServiceTokenProvider azureServiceTokenProvider = new AzureServiceTokenProvider();
                     KeyVaultClient kvClient = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(azureServiceTokenProvider.KeyVaultTokenCallback));
                     
-                    config.AddAzureAppConfiguration(options => options.Connect(new Uri(settings["AppConfig:Endpoint"]), new DefaultAzureCredential()).UseAzureKeyVault(kvClient));
+                    config.AddAzureAppConfiguration(options => options.Connect(new Uri(settings["AppConfig:Endpoint"]), new ManagedIdentityCredential()).UseAzureKeyVault(kvClient));
                 })
                 .UseStartup<Startup>();
 ```
@@ -160,7 +160,7 @@ To set up a managed identity in the portal, you first create an application and 
                     AzureServiceTokenProvider azureServiceTokenProvider = new AzureServiceTokenProvider();
                     KeyVaultClient kvClient = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(azureServiceTokenProvider.KeyVaultTokenCallback));
                     
-                    config.AddAzureAppConfiguration(options => options.Connect(new Uri(settings["AppConfig:Endpoint"]), new DefaultAzureCredential()).UseAzureKeyVault(kvClient));
+                    config.AddAzureAppConfiguration(options => options.Connect(new Uri(settings["AppConfig:Endpoint"]), new ManagedIdentityCredential()).UseAzureKeyVault(kvClient));
                 })
                 .UseStartup<Startup>());
 ```
