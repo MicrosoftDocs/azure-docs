@@ -1,6 +1,6 @@
 ---
-title: Associate peer ASN to Azure subscription using portal
-description: Associate peer ASN to Azure subscription using portal
+title: Associate peer ASN to Azure subscription using the portal
+description: Associate peer ASN to Azure subscription using the portal
 services: internet-peering
 author: prmitiki
 ms.service: internet-peering
@@ -9,7 +9,7 @@ ms.date: 11/27/2019
 ms.author: prmitiki
 ---
 
-# Associate peer ASN to Azure subscription using portal
+# Associate peer ASN to Azure subscription using the portal
 
 Before you submit a peering request, you should first associate your ASN with Azure subscription using the steps below.
 
@@ -77,10 +77,10 @@ Deleting a PeerAsn is not currently supported. If you need to delete PeerAsn, co
 
 ## Next steps
 
-* [Create or modify a Direct Peering using portal](howto-direct-peering-portal.md)
-* [Convert a legacy Direct Peering to Azure resource using portal](howto-legacy-direct-portal.md)
-* [Create or modify Exchange Peering using portal](howto-exchange-peering-portal.md)
-* [Convert a legacy Exchange Peering to Azure resource using portal](howto-legacy-exchange-portal.md)
+* [Create or modify a Direct Peering using the portal](howto-direct-peering-portal.md)
+* [Convert a legacy Direct Peering to Azure resource using the portal](howto-legacy-direct-portal.md)
+* [Create or modify Exchange Peering using the portal](howto-exchange-peering-portal.md)
+* [Convert a legacy Exchange Peering to Azure resource using the portal](howto-legacy-exchange-portal.md)
 
 ## Additional resources
 

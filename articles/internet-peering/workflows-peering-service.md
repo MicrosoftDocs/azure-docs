@@ -16,14 +16,14 @@ This section explains the steps a provider needs to follow to enable a Direct Pe
 ## Create Direct Peering connection for Peering Service
 Service Providers can expand their geographical reach by creating new Direct Peering that support Peering Service. To accomplish this,
 1. Become a Peering Service partner if not already
-1. Follow the instructions to [Create or modify a Direct Peering using portal](howto-direct-peering-portal.md). Ensure it meets high-availability requirement.
-1. Then, follow steps to [Enable Peering Service on a Direct Peering using portal](howto-peering-service-portal.md).
+1. Follow the instructions to [Create or modify a Direct Peering using the portal](howto-direct-peering-portal.md). Ensure it meets high-availability requirement.
+1. Then, follow steps to [Enable Peering Service on a Direct Peering using the portal](howto-peering-service-portal.md).
 
 ## Use legacy Direct Peering conection for Peering Service
 If you have legacy Direct Peering that you want to use to support Peering Service,
 1. Become a Peering Service partner if not already.
-1. Follow the instructions to [Convert a legacy Direct Peering to Azure resource using portal](howto-legacy-direct-portal.md). If required, order additional circuits to meet high-availability requirement.
-1. Then, follow steps to [Enable Peering Service on a Direct Peering using portal](howto-peering-service-portal.md).
+1. Follow the instructions to [Convert a legacy Direct Peering to Azure resource using the portal](howto-legacy-direct-portal.md). If required, order additional circuits to meet high-availability requirement.
+1. Then, follow steps to [Enable Peering Service on a Direct Peering using the portal](howto-peering-service-portal.md).
 
 ## Next steps
 

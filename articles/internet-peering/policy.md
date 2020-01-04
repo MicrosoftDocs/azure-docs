@@ -1,7 +1,7 @@
 ---
 
-title: Internet Peering policy
-description: Internet Peering policy
+title: Microsoft Peering policy
+description: Peering policy
 services: internet-peering
 author: prmitiki
 ms.service: internet-peering
@@ -11,54 +11,63 @@ ms.author: prmitiki
 
 ---
 
-# Internet Peering policy
+# Peering policy
 Microsoft's general requirements from your network are explained in the sections below. These are applicable to both Direct Peering and Exchange Peering requests.
 
 ## Technical requirements
+
 * A fully redundant network with sufficient capacity to exchange traffic without congestion.
-* Microsoft will overwrite received Multi-Exit Discriminators (MEDs) by default.
-* Acceptance of MEDs will be evaluated on a case-by-case basis.
-* A publicly routable ASN.
-* At least one publicly routable /24.
-* Neither party shall establish a static route, a route of last resort, or otherwise send traffic to the other party for a route not announced via BGP.
-* Both IPv4 and IPv6 are supported (and expected).
-* Unless specifically agreed upon beforehand, peers are expected to announce consistent routes in all locations where they peer with Microsoft.
-* Both parties are expected to register their routes in a public Internet Routing Registry (IRR) database, for the purpose of filtering.
-* Both parties shall make good faith efforts to keep this information up to date.
-* MD5 is not required, nor recommended.
-* In general, peering sessions with AS8075 will advertise all AS-MICROSOFT routes.
-* AS8075 interconnects in Africa and Asia may be limited to routes relevant to the respective region.
-* We suggest peers set a max-prefix of 1000 (IPv4) and 100 (IPv6) routes on peering sessions with Microsoft.
-* Microsoft recommends that peers advertise all of their prefixes over all peering sessions, unless other route advertisement policies have been agreed upon. Where possible, Microsoft prefers to carry traffic on its network to interconnection points as close to users as possible.
+* Both IPv4 and IPv6 are supported and Microsoft expects to establish sessions of both types in each peering location.
+* MD5 is not supported.
+* **ASN:**
+    * Peer will have a publicly routable ASN.
+    * Microsoft manages AS8075 along with the following ASNs: AS8068, AS8069, AS12076. For a complete list of ASNs with AS8075 peering, reference AS-SET MICROSOFT.
+    * All parties peering with Microsoft agree not to accept routes from AS12076 (Express Route) under any circumstances, and should filter out AS12076 on all peers.
+* **Routing policy:**
+    * Peer will have at least one publicly routable /24.
+    * Microsoft will overwrite received Multi-Exit Discriminators (MEDs).
+    * Microsoft prefers to receive BGP community-tags from peers to indicate route origination.
+    * Peer are expected to register their routes in a public Internet Routing Registry (IRR) database, for the purpose of filtering, and will make good faith efforts to keep this information up to date.
+    * We suggest peers set a max-prefix of 1000 (IPv4) and 100 (IPv6) routes on peering sessions with Microsoft.
+    * Unless specifically agreed upon beforehand, peers are expected to announce consistent routes in all locations where they peer with Microsoft.
+    * In general, peering sessions with AS8075 will advertise all AS-MICROSOFT routes. AS8075 interconnects in Africa and Asia may be limited to routes relevant to the respective region.
+    * Neither party will establish a static route, a route of last resort, or otherwise send traffic to the other party for a route not announced via BGP.
+    * Peers are expected to adhere to https://www.manrs.org/ industry standards for route security.
 
 ## Operational requirements
 * A fully staffed 24x7 Network Operations Center (NOC), capable of assisting in the resolution of:
     * All technical and performance issues.
     * All security violations, denial of service attacks, or any other abuse originating within the peer or their customers.
-* Peers are expected to have a complete and up-to-date profile on [PeeringDB](https://www.peeringdb.com) including a 24x7 NOC email role account and phone number. We use this information in our registration system to validate the peer's details such as NOC information, technical contact information, and their presence at the peering facilities etc.
+* Peers are expected to have a complete and up-to-date profile on [PeeringDB](https://www.peeringdb.com) including a 24x7 NOC email from corporate domain and phone number. We use this information to validate the peer's details such as NOC information, technical contact information, and their presence at the peering facilities etc. Personal Yahoo, Gmail and hotmail accounts are not accepted. 
 
 ## Physical connection requirements
-* Interconnection must be over single-mode fiber using the appropriate 10Gbps optics.
-* Peers are expected to upgrade their ports when peak utilization exceeds 50%.
 * The locations where you can connect with Microsoft for Direct Peering or Exchange Peering are listed in [Peeringdb](https://www.peeringdb.com/net/694)
+* **Exchange Peering:**
+    * Interconnection must be over single-mode fiber using the appropriate 10Gbps optics.
+    * Peers are expected to upgrade their ports when peak utilization exceeds 50%.
+* **Direct Peering:**
+    * Interconnection must be over single-mode fiber using the appropriate 10Gbps or 100Gbps optics.
+    * Microsoft will only establish Direct Peering with ISP or Network Service providers.
+    * Peers are expected to upgrade their ports when peak utilization exceeds 50% and maintain diverse capacity in each metro, either within a single location or across several locations in a metro.
+    * Each Direct Peering consists of two connections to two Microsoft edge routers from the Peer's routers located in Peer's edge. Microsoft requires dual BGP sessions across these connections. The peer may choose not to deploy redundant devices at their end.
 
 ## Traffic requirements
-We interconnect in as many diverse locations as possible. Traffic from your network to Microsoft must meet below minimum requirement.
+* Peers over Exchange Peering must have at minimum 200Mb of traffic and less than 2Gb.  For traffic exceeding 2Gb Direct Peering should be reviewed.
+* For Direct Peering, traffic from your network to Microsoft must meet below minimum requirement.
 
-| Geo             | Minimum traffic to Microsoft   |
-| :-------------- |:-------------------------------|
-| NA              | 2 Gbps                         |
-| Europe          | 500 Mbps                       |
-| Africa          | N/A                            |
-| Middle East     | N/A                            |
-| APAC            | 500 Mbps                       |
-| LATAM           | N/A                            |
+    | Geo                      | Minimum traffic to Microsoft   |
+    | :----------------------- |:-------------------------------|
+    | Africa                   | 500 Mbps                       |
+    | APAC (except India)      |   2 Gbps                       |
+    | APAC (India only)        | 500 Mbps                       |
+    | Europe                   |   2 Gbps                       |
+    | LATAM                    |   2 Gbps                       |
+    | Middle East              | 500 Mbps                       |
+    | NA                       |   2 Gbps                       |
 
-
-## Additional requirements for Direct Peering
-
-### Physical connection requirements
-* Each Direct Peering consists of two connections to two Microsoft edge routers from the Peer's routers located in Peer's edge. Microsoft requires dual BGP sessions across these connections. The peer may choose not to deploy redundant devices at their end.
+* **Diversity:**
+    * In NA, Europe, APAC and LATAM, interconnect in at least three geographically diverse locations if feasible and maintain diverse capacity to allow traffic to failover within each metro.
+    * In Africa, Middle East and India, interconnect in as many diverse locations as possible. Must maintain sufficient diverse capacity to ensure traffic remains in region.
 
 ## Next steps
 

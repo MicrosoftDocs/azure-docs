@@ -9,7 +9,7 @@ ms.date: 11/27/2019
 ms.author: prmitiki
 ---
 
-The PowerShell cmdlet **Get-AzPeeringLocation** returns a list of peering locations with the mandatory parameter `Kind`, which you'll use in later steps:
+PowerShell cmdlet **Get-AzPeeringLocation** returns a list of peering locations with the mandatory parameter `Kind`, which you'll use in later steps:
 
 ```powershell
 Get-AzPeeringLocation -Kind Direct

@@ -40,7 +40,7 @@ $connection2 = New-AzPeeringDirectConnectionObject `
     -BandwidthInMbps 10000
 ```
 
-Use PowerShell cmdlet **New-AzPeering** to create a new Direct Peering. This command requires ASN resource ID, which can be retrieved as shown below.
+Use PowerShell cmdlet **New-AzPeering** to create a new Direct Peering. This command requires ASN resource Id which can be retrieved as shown below.
 
 
 ```powershell
@@ -72,4 +72,4 @@ Below is an example response when the request was processed successfully:
     Tags                 : {}
 
 ```
-In place of **{subscriptionId}** in the output above, actual subscription ID will be displayed.
+Note that in place of **{subscriptionId}** in the output above, actual subscription Id will be displayed.

@@ -43,7 +43,7 @@ Contact [Microsoft Peering](mailto:peering@microsoft.com) to deprovision Exchang
 When an Exchange Peering is set for deprovision, you will see the connection state as **PendingRemove**
 
 > [!NOTE]
-> If you run the PowerShell cmdlet to delete the Exchange Peering when the connection state is ProvisioningStarted or ProvisioningCompleted the operation will fail.
+> If you run PowerShell cmdlet to delete the Exchange Peering when the connection state is ProvisioningStarted or ProvisioningCompleted the operation will fail.
 
 ## Next steps
 

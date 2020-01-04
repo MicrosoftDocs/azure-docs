@@ -11,7 +11,7 @@ ms.author: prmitiki
 
 The following example shows how to create an Exchange connection at Equinix Internet Exchange in Seattle . If you're using a different provider and different settings, substitute that information when you make your request.
 
-Use the PowerShell cmdlet **New-AzPeeringExchangeConnectionObject** to create PowerShell Connection Objects which will be used to generate the new Peering service request:
+Use PowerShell cmdlet **New-AzPeeringExchangeConnectionObject** to create PowerShell Connection Objects which will be used to generate the new Peering service request:
 
 Below is an example to create a Exchange Connection:
 
@@ -35,7 +35,7 @@ $connection2 = New-AzPeeringExchangeConnectionObject `
     -MaxPrefixesAdvertisedIPv6 2000 `
 ```
 
-The PowerShell cmdlet **New-AzPeering** can be used to create a new Exchange Peering:
+PowerShell cmdlet **New-AzPeering** can be used to create a new Exchange Peering:
 
 ```powershell
 $asn = Get-AzPeerAsn

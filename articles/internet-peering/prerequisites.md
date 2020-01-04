@@ -29,7 +29,7 @@ Peers are expected to have a complete and up-to-date profile on [PeeringDB](http
 
 ## Next steps
 
-* [Create or modify a Direct Peering using portal](howto-direct-peering-portal.md).
-* [Convert a legacy Direct Peering to Azure resource using portal](howto-legacy-direct-portal.md)
-* [Create or modify Exchange Peering using portal](howto-exchange-peering-portal.md)
-* [Convert a legacy Exchange Peering to Azure resource using portal](howto-legacy-exchange-portal.md)
+* [Create or modify a Direct Peering using the portal](howto-direct-peering-portal.md).
+* [Convert a legacy Direct Peering to Azure resource using the portal](howto-legacy-direct-portal.md)
+* [Create or modify Exchange Peering using the portal](howto-exchange-peering-portal.md)
+* [Convert a legacy Exchange Peering to Azure resource using the portal](howto-legacy-exchange-portal.md)

@@ -1,4 +1,4 @@
----
+    ---
 title: include file
 description: include file
 services: internet-peering
@@ -9,7 +9,7 @@ ms.date: 11/27/2019
 ms.author: prmitiki
 ---
 
-* Before beginning configuration, install and import the required modules. You will need Administrator privileges to install modules in PowerShell.
+Before beginning configuration, install and import the required modules. You will need Administrator privileges to install modules in PowerShell.
 
 1. Install and import Az module
     ```powershell

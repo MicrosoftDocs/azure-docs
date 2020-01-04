@@ -45,8 +45,7 @@ You can create a new Peering request by using Peering resource.
         > * You can only choose an ASN with ValidationState as "Approved" before submitting a peering request. If you just submitted your PeerAsn request, wait for 12 hours or so for ASN association to be "Approved". If the ASN you select is pending validation you will see an error message. 
         > * If you do not see the ASN you need to choose, then check if you have selected the correct subscription. If so, check if you have already created PeerAsn using [Associate Peer ASN to Azure Subscription](../subscription-registration-portal.md).
 
-
-    > [!div class="mx-imgBorder"]
-    > ![Peering Basics filled](../media/setup-direct-basics-filled-tab.png)
+        > [!div class="mx-imgBorder"]
+        > ![Peering Basics filled](../media/setup-direct-basics-filled-tab.png)
 
     * Click on **Next : Configuration >** to continue.

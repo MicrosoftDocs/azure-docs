@@ -44,7 +44,7 @@ Contact [Microsoft Peering](mailto:peering@microsoft.com) team to deprovision Di
 When a Direct Peering is set for deprovision, you will see the connection state as **PendingRemove**
 
 > [!NOTE]
-> If you run the PowerShell cmdlet to delete the Direct Peering when the ConnectionState is ProvisioningStarted or ProvisioningCompleted the operation will fail.
+> If you run PowerShell cmdlet to delete the Direct Peering when the ConnectionState is ProvisioningStarted or ProvisioningCompleted the operation will fail.
 
 ## Next steps
 
