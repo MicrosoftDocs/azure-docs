@@ -174,8 +174,8 @@ Core solutions are available in all Azure regions and are supported as part of A
 | [Activity log analytics](activity-log-view.md#activity-logs-analytics-monitoring-solution) | Analyze Activity log entries using predefined log queries and views. |
 | [Agent health](../insights/solution-agenthealth.md) | Analyze the health and configuration of Log Analytics agents. |
 | [Alert management](alert-management-solution.md) | Analyze alerts collected from System Center Operations Manager, Nagios, or Zabbix. |
-| [ITSM](platform/itsmc-overview.md) | Connect your ITSM product/service and Azure Monitor to centrally manage your work items. |
-| [Network Performance Monitor](insights/network-performance-monitor.md) |  Monitor network performance between various points in your network infrastructure, network connectivity to service and application endpoints, and the performance of Azure ExpressRoute. |
+| [ITSM](itsmc-overview.md) | Connect your ITSM product/service and Azure Monitor to centrally manage your work items. |
+| [Network Performance Monitor](../insights/network-performance-monitor.md) |  Monitor network performance between various points in your network infrastructure, network connectivity to service and application endpoints, and the performance of Azure ExpressRoute. |
 | [SQL assessment](../insights/sql-assessment.md) | Assess the risk and health of your SQL Server environments.  |
 | [Wire Data](../insights/wire-data.md) | Consolidated network and performance data collected from Windows-connected and Linux-connected computers with the Log Analytics agent. |
 
