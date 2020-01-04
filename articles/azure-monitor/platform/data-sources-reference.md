@@ -20,16 +20,17 @@ All data collected by Azure Monitor will fit into one of the patterns described 
 | Pattern | Description |
 |:---|:---|
 | Platform metrics | Platform metrics are automatically collected for Azure services that support them. |
-| Diagnostic settings | Diagnostic settings collect platform logs and metrics to Azure Monitor Logs and to send to destinations outside of Azure Monitor. |
+| Logs | Diagnostic settings collect platform logs and metrics to Azure Monitor Logs. |
 | Insights | Insights provide a customized monitoring experience for particular applications and services. They collect and analyze both logs and metrics. |
 | Solutions | Solutions are based on log queries and views customized for a particular application or service. They collect and analyze logs only and are being deprecated over time in favor of insights. |
 | Agents | Compute resources such as virtual machines require an agent to collect logs and metrics from their guest operating system. |
 | API | Separate APIs are available to write data to Azure Monitor Logs and Metrics from any REST API client. |
 
+
 ## Azure services
 The following table lists Azure services and the monitoring patterns they support.
 
-| Service | Platform<br>Metrics | Diagnostic<br>Settings | Insight | Solution | Notes |
+| Service | Platform<br>Metrics | Logs | Insight | Solution | Notes |
 |:---|:---|:---|:---|:---|:---|
 |Active Directory | No | Yes | No | [Yes](../insights/ad-assessment.md)<br>[Yes](../insights/ad-replication-status.md) |
 |Active Directory B2C | No | No | No | No |
@@ -42,7 +43,7 @@ The following table lists Azure services and the monitoring patterns they suppor
 |API Management | Yes | Yes | No | No |
 |App Service | Yes | Yes | No | No |
 |AppConfig | No | No | No | No |
-|Application Gateway | Yes | Yes | No | No |
+|Application Gateway | Yes | Yes | [Yes](../insights/azure-networking-analytics.md) | No |
 |Attestation Service | No | No | No | No |
 |Automation | Yes | Yes | No | No |
 |Azure Service Manager (RDFE) | No | No | No | No |
@@ -154,7 +155,6 @@ The following table lists Azure services and the monitoring patterns they suppor
 |Windows Virtual Desktop | No | No | No | No |
 
 
-
 ## Compute resources
 
 | Resource | Host<br>Logs | Host<br>Metrics | Guest<br>Logs | Guest<br>Metrics | Insights | Solutions | Other |
@@ -165,25 +165,43 @@ The following table lists Azure services and the monitoring patterns they suppor
 | Service fabric (Azure) | | | | | | | |
 | Cloud services (Azure) | | | | | | | |
 
+## Core solutions
+Core solutions are available in all Azure regions and are supported as part of Azure Monitor.
+
+| Solution | Description |
+|:---|:---|
+| [Active Directory assessment](../insights/ad-assessment.md) | Assess the risk and health of your Active Directory environments. |
+| [Activity log analytics](activity-log-view.md#activity-logs-analytics-monitoring-solution) | Analyze Activity log entries using predefined log queries and views. |
+| [Agent health](../insights/solution-agenthealth.md) | Analyze the health and configuration of Log Analytics agents. |
+| [Alert management](alert-management-solution.md) | Analyze alerts collected from System Center Operations Manager, Nagios, or Zabbix. |
+| [ITSM](platform/itsmc-overview.md) | Connect your ITSM product/service and Azure Monitor to centrally manage your work items. |
+| [Network Performance Monitor](insights/network-performance-monitor.md) |  Monitor network performance between various points in your network infrastructure, network connectivity to service and application endpoints, and the performance of Azure ExpressRoute. |
+| [SQL assessment](../insights/sql-assessment.md) | Assess the risk and health of your SQL Server environments.  |
+| [Wire Data](../insights/wire-data.md) | Consolidated network and performance data collected from Windows-connected and Linux-connected computers with the Log Analytics agent. |
+
+
+## Other services
+The services in the table below store their data in a Log Analytics workspace so that it can be analyzed with other log data collected by Azure Monitor.
+
+| Service | Description |
+|:---|:---|
+| Azure Automation | Manage operating system updates and track changes on Windows and Linux computers.<br>See [Change Tracking](../../automation/change-tracking.md) and [Update Management](../../automation/automation-update-management.md). |
+| [Azure Security Center](/azure/security-center/) | Collect and analyze security events and perform threat analysis.<br> See [Data collection in Azure Security Center](../../security-center/security-center-enable-data-collection.md) |
+| [Azure Sentinel](/azure/sentinel/) | Connects to different sources including Office 365 and Amazon Web Services Cloud Trail.<br> See [Connect data sources](/azure/sentinel/connect-data-sources). |
+| System Center Operations Manager | Collect data from Operations Manager agents by connecting their management group to Azure Monitor.<br> See [Connect Operations Manager to Azure Monitor](om-agents.md) |
+| Windows Update Compliance | Assess your Windows desktop upgrades.<br>See [Get started with Update Compliance](https://docs.microsoft.com/windows/deployment/update/update-compliance-get-started)
+| On-Demand Assessments | Assess and optimize the availability, security, and performance of your on-premises, hybrid, and cloud Microsoft technology environments.<br>See [Getting Started with On-Demand Assessments](https://docs.microsoft.com/services-hub/health/getting_started_with_on_demand_assessments). |
+
+
 ## Other solutions
 
-
-- [Activity log analytics](activity-log-collect.md)
-- [Agent health](../insights/solution-agenthealth.md)
-- [Alert management](alert-management-solution.md)
-- [Application Gateway Analytics](../insights/azure-networking-analytics.md)
-- [Network Security Group analytics](../insights/azure-networking-analytics.md)
-- [Change Tracking](../../automation/change-tracking.md)
-- [Containers](../insights/containers.md)
-- [SCOM Asessment](../insights/scom-assessment.md)
-- [Office 365](../insights/solution-office-365.md)
-- [Surface Hub](../insights/surface-hubs.md)
-- [Update Management](../../automation/automation-update-management.md)
-- [Upgrade readiness](https://docs.microsoft.com/windows/deployment/upgrade/upgrade-readiness-get-started)
-- [Wire Data](../insights/wire-data.md)
-- [Network performance monitor](../insights/azure-networking-analytics.md)
-
-
+| Solution | Description |
+|:---|:---|
+| [Network Security Group analytics](../insights/azure-networking-analytics.md) | |
+| [Containers](../insights/containers.md) | View and manage Docker and Windows container hosts. |
+| [Office 365](../insights/solution-office-365.md) | Updated version with improved onboarding available through Azure Sentinel. |
+| [SCOM Asessment](../insights/scom-assessment.md) | Assess the risk and health of your System Center Operations Manager management group. |
+| [Surface Hub](../insights/surface-hubs.md) | Track the health and usage of Surface Hub devices. |
 
 
 
