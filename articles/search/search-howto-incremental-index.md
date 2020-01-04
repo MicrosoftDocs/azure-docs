@@ -8,7 +8,7 @@ ms.author: vikurpad
 ms.service: cognitive-search
 ms.devlang: rest-api
 ms.topic: conceptual
-ms.date: 12/31/2019
+ms.date: 01/06/2020
 ---
 
 # How to set up incremental enrichment in Azure Cognitive Search

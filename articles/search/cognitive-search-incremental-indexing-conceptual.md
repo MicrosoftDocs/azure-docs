@@ -17,19 +17,19 @@ ms.date: 12/31/2019
 > Incremental enrichment is currently in public preview. This preview version is provided without a service level agreement, and it's not recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
 > The [REST API version 2019-05-06-Preview](search-api-preview.md) provides this feature. There is no portal or .NET SDK support at this time.
 
-Incremental enrichment is a new feature of Azure Cognitive Search that adds caching and state to enriched content in a cognitive skillset, giving you control over processing and re-processing of individual steps in an enrichment pipeline. Not only does this preserve your monetary investment in processing, but it also makes for a more efficient system. When structures and content are cached, an indexer can determine which skills have changed and run only those that have been modified, as well as any downstream dependent skills. 
+Incremental enrichment adds caching and statefulness to an enrichment pipeline, preserving your investment in existing output, while changing only those documents impacted by particular modification. Not only does this preserve your monetary investment in processing, but it also makes for a more efficient system. When structures and content are cached, an indexer can determine which skills have changed and run only those that have been modified, as well as any downstream dependent skills. 
 
 With incremental enrichment, the current version of the enrichment pipeline does the least amount of work to guarantee consistency for all documents in your index. For scenarios where you want full control, you can use fine-grained controls to override the expected behaviors. For more information about configuration, see [Set up incremental enrichment](search-howto-incremental-index.md).
 
 ## Indexer cache
 
-Incremental enrichment adds a cache to the enrichment pipeline. The indexer caches the results from document cracking and the outputs of each skill for every document. When a skillset is updated, only the changed, or downstream, skills are rerun. The updated results are written to the cache and the document is updated in the index and the knowledge store.
+Incremental enrichment adds a cache to the enrichment pipeline. The indexer caches the results from document cracking plus the outputs of each skill for every document. When a skillset is updated, only the changed, or downstream, skills are rerun. The updated results are written to the cache and the document is updated in the search index or the knowledge store.
 
 Physically, the cache is a blob container in your Azure Storage account. All indexes within a search service may share the same storage account for the indexer cache. Each indexer is assigned a unique and immutable cache identifier to the container it is using.
 
 ### Cache configuration
 
-You'll need to set the `cache` property on the indexer to start benefitting from incremental enrichment. The following example illustrates an indexer with caching enabled. Specific parts of this configuration are described in following sections. For instructions, see [How to set up incremental enrichment](search-howto-incremental-index.md).
+You'll need to set the `cache` property on the indexer to start benefitting from incremental enrichment. The following example illustrates an indexer with caching enabled. Specific parts of this configuration are described in following sections. For more guidance, see [How to set up incremental enrichment](search-howto-incremental-index.md).
 
 ```json
 {
@@ -47,7 +47,7 @@ You'll need to set the `cache` property on the indexer to start benefitting from
 }
 ```
 
-Setting this property for the first time on an existing indexer will require you to also reset it, which will result in all documents in your data source being processed again. The goal of incremental enrichment is to make the documents in your index consistent with your data source and the current version of your skillset. Resetting the index is the first step toward this consistency as it eliminates any documents enriched by previous versions of the skillset. The indexer needs to be reset to start with a consistent baseline.
+Setting this property for the first time on an existing indexer will require you to reset the indexer, which will result in all documents in your data source being processed again. A requirement of incremental enrichment is to make the documents in your index consistent with your data source and the current version of your skillset. Resetting the index is the first step toward this consistency as it eliminates any documents enriched by previous versions of the skillset. 
 
 ### Cache lifecycle
 

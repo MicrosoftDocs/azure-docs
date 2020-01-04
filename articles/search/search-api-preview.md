@@ -8,7 +8,7 @@ author: brjohnstmsft
 ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 01/04/2020
 ---
 # Azure Cognitive Search service REST api-version 2019-05-06-Preview
 
@@ -20,11 +20,11 @@ This article describes the `api-version=2019-05-06-Preview` version of Search se
 
 ## New in 2019-05-06-Preview
 
-+ [Incremental enrichment](cognitive-search-incremental-indexing-conceptual.md) is a new mode for indexing that adds state and caching to a skillset, allowing you to reuse existing output when source data, indexer, and skillset definitions are unchanged. This feature applies only to enrichments defined a cognitive skillset.
++ [Incremental enrichment(preview)](cognitive-search-incremental-indexing-conceptual.md) adds caching to an enrichment pipeline, allowing you to reuse existing output if a targeted modification, such as an update to a skillset or another object, does not change the content. Caching applies only to enriched documents produced by a skillset.
 
-+ [Cosmos DB indexer](search-howto-index-cosmosdb.md) supports MongoDB API, Gremlin API, and Cassandra API.
++ [Cosmos DB indexer](search-howto-index-cosmosdb.md) supports MongoDB API (preview), Gremlin API (preview), and Cassandra API (preview).
 
-+ [Azure Data Lake Storage Gen2 indexer](search-howto-index-azure-data-lake-storage.md) can index content and metadata from Data Lake Storage Gen2.
++ [Azure Data Lake Storage Gen2 indexer (preview)](search-howto-index-azure-data-lake-storage.md) can index content and metadata from Data Lake Storage Gen2.
 
 + [Document Extraction (preview)](cognitive-search-skill-document-extraction.md) is a cognitive skill used during indexing that allows you to extract the contents of a file from within a skillset. Previously, document cracking only occurred prior to skillset execution. With the addition of this skill, you can also perform this operation within skillset execution.
 
