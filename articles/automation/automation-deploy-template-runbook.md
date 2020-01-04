@@ -249,7 +249,7 @@ and Resource Manager templates to deploy all your Azure resources.
 
 ## Next steps
 
-* To learn more about Resource Manager templates, see [Azure Resource Manager overview](../azure-resource-manager/resource-group-overview.md)
+* To learn more about Resource Manager templates, see [Azure Resource Manager overview](../azure-resource-manager/management/overview.md)
 * To get started with Azure Storage, see [Introduction to Azure Storage](../storage/common/storage-introduction.md).
 * To find other useful Azure Automation runbooks, see
 [Runbook and module galleries for Azure Automation](automation-runbook-gallery.md).

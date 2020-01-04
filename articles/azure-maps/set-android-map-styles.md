@@ -1,6 +1,12 @@
 ---
+<<<<<<< HEAD
 title: Map style functionalities in Azure Maps| Microsoft Docs
 description: In this article, you will learn about Azure Maps style related functionalities for the Android SDK.
+=======
+title: Set a map style in Azure Maps using Android SDK
+titleSuffix: Azure Maps
+description: Learn about Azure Maps style related functionalities for Android SDK.
+>>>>>>> 8ed4a8c48a813278b4ddc5c7908aa59a837ff1b1
 author: walsehgal
 ms.author: v-musehg
 ms.date: 04/26/2019

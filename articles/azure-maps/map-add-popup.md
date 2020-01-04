@@ -1,6 +1,6 @@
 ---
-title: Add a popup with Azure Maps | Microsoft Docs
-description: In this guide, you will learn how to add a popup to a point using the Azure Maps Web SDK.
+title: Add a popup with Microsoft Azure Maps | Microsoft Docs
+description: In this article, you will learn how to add a popup to a point using the Microsoft Azure Maps Web SDK.
 author: jingjing-z
 ms.author: jinzh
 ms.date: 07/29/2019

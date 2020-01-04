@@ -1,6 +1,12 @@
 ---
+<<<<<<< HEAD
 title: Map style functionalities in Azure Maps| Microsoft Docs
 description: In this article, you will learn about style related functionalities available in Azure Maps web SDK.
+=======
+title: Choose a map style in Azure Maps
+titleSuffix: Azure Maps
+description: Learn about Azure Maps style related functionalities.
+>>>>>>> 8ed4a8c48a813278b4ddc5c7908aa59a837ff1b1
 author: walsehgal
 ms.author: v-musehg
 ms.date: 07/29/2019

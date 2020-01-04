@@ -19,7 +19,7 @@ Deploying your application to a non-production slot has the following benefits:
 * Deploying an app to a slot first and swapping it into production makes sure that all instances of the slot are warmed up before being swapped into production. This eliminates downtime when you deploy your app. The traffic redirection is seamless, and no requests are dropped because of swap operations. You can automate this entire workflow by configuring [auto swap](#Auto-Swap) when pre-swap validation isn't needed.
 * After a swap, the slot with previously staged app now has the previous production app. If the changes swapped into the production slot aren't as you expect, you can perform the same swap immediately to get your "last known good site" back.
 
-Each App Service plan tier supports a different number of deployment slots. There's no additional charge for using deployment slots. To find out the number of slots your app's tier supports, see [App Service limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#app-service-limits). 
+Each App Service plan tier supports a different number of deployment slots. There's no additional charge for using deployment slots. To find out the number of slots your app's tier supports, see [App Service limits](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#app-service-limits). 
 
 To scale your app to a different tier, make sure that the target tier supports the number of slots your app already uses. For example, if your app has more than five slots, you can't scale it down to the **Standard** tier, because the **Standard** tier supports only five deployment slots. 
 
@@ -28,7 +28,7 @@ To scale your app to a different tier, make sure that the target tier supports t
 ## Add a slot
 The app must be running in the **Standard**, **Premium**, or **Isolated** tier in order for you to enable multiple deployment slots.
 
-1. In the [Azure portal](https://portal.azure.com/), open your app's [resource page](../azure-resource-manager/manage-resources-portal.md#manage-resources).
+1. In the [Azure portal](https://portal.azure.com/), open your app's [resource page](../azure-resource-manager/management/manage-resources-portal.md#manage-resources).
 
 2. In the left pane, select **Deployment slots** > **Add Slot**.
    

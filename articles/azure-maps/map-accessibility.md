@@ -142,7 +142,7 @@ Take a look at these useful accessibility tools:
 > [WAI-ARIA Overview](https://www.w3.org/WAI/standards-guidelines/aria/)
 
 > [!div class="nextstepaction"]
-> [Web Accessibility Evaluation Tool (WAVE)](http://wave.webaim.org/)
+> [Web Accessibility Evaluation Tool (WAVE)](https://wave.webaim.org/)
 
 > [!div class="nextstepaction"]
 > [WebAim color contrast checker](https://webaim.org/resources/contrastchecker/)

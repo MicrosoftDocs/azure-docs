@@ -3,7 +3,7 @@ title: Interact with an IoT Plug and Play Preview device connected to your Azure
 description: Use Java to connect to and interact with an IoT Plug and Play Preview device that's connected to your Azure IoT solution.
 author: baanders
 ms.author: baanders
-ms.date: 11/14/2019
+ms.date: 12/27/2019
 ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
@@ -70,7 +70,7 @@ In this quickstart, you use a sample IoT solution in Java to interact with the s
 
 1. Open another terminal window (this will be your _service_ terminal). Go to the folder of your cloned repository, and navigate to the **/azure-iot-samples-java\digital-twin\Samples\service\JdkSample** folder.
 
-1. Install the required libraries and build the simulated device application by running the following command:
+1. Install the required libraries and build the service sample by running the following command:
 
     ```cmd/sh
     mvn clean install -DskipTests

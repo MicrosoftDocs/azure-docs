@@ -1,6 +1,6 @@
 ---
-title: Zoom levels and tile grid in Azure Maps | Microsoft Docs
-description: Learn about zoom levels and tile grid in Azure Maps
+title: Zoom levels and tile grid in Microsoft Azure Maps | Microsoft Docs
+description: In this article, you will learn about zoom levels and tile grid in Microsoft Azure Maps
 author: jingjing-z
 ms.author: jinzh
 ms.date: 05/07/2018
@@ -21,7 +21,7 @@ To optimize the performance of map retrieval and display, the map is divided int
 
 <center>
 
-![World tile](./media/zoom-levels-and-tile-grid/world0.png)</center>
+![World map tile](./media/zoom-levels-and-tile-grid/world0.png)</center>
 
 Zoom level 1 uses four tiles to render the world: a 2 x 2 square
 

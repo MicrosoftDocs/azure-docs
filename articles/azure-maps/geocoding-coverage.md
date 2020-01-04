@@ -1,6 +1,6 @@
 ---
-title: Geocoding coverage in Azure Maps | Microsoft Docs
-description: Learn about Geocoding Coverage in Azure Maps
+title: Geocoding coverage in Microsoft Azure Maps | Microsoft Docs
+description: The process of converting location address to latitude and longitude coordinates is known as geocoding. In this article, you will learn about Geocoding Coverage in Microsoft Azure Maps.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 03/22/2019
