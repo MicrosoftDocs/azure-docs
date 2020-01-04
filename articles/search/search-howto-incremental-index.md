@@ -17,19 +17,19 @@ ms.date: 01/06/2020
 > Incremental enrichment is currently in public preview. This preview version is provided without a service level agreement, and it's not recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
 > The [REST API version 2019-05-06-Preview](search-api-preview.md) provides this feature. There is no portal or .NET SDK support at this time.
 
-This article shows you how to add statefulness and caching to enriched documents moving through an Azure Cognitive Search enrichment pipeline so that you can incrementally enrich documents from any of the supported data sources. By default, a skillset is stateless, and changing any part of its composition requires a full rerun of the indexer. With incremental enrichment, the indexer can determine which parts of the pipeline have changed, reusing existing enrichments for unchanged parts, and revising enrichments for the steps that do change. 
+This article shows you how to add caching to an enrichment pipeline so that you can incrementally modify steps without having to rebuild every time. By default, a skillset is stateless, and changing any part of its composition requires a full rerun of the indexer. With incremental enrichment, the indexer can determine which parts of the documents need to be refreshed, preserving any existing output that is otherwise unaffected. 
 
-Cached content is placed in Azure Storage using account information that you provide. The container is named `ms-az-search-indexercache-<alpha-numerc-string>`. It should be considered as an internal component and must not be modified.
+Cached content is placed in Azure Storage using account information that you provide. The container, named `ms-az-search-indexercache-<alpha-numerc-string>`, is created when you run the indexer. It should be considered an internal component and must not be modified.
 
 If you're not familiar with setting up indexers, start with [indexer overview](search-indexer-overview.md) and then continue on to [skillsets](cognitive-search-working-with-skillsets.md) to learn about enrichment pipelines. For more background on key concepts, see [incremental enrichment](cognitive-search-incremental-indexing-conceptual.md).
 
 ## Add to an existing indexer
 
-If you have an existing indexer that has a skillset, follow these steps to enable incremental enrichment. As a one-time operation, you will have to reset (rerun) the indexer in full before incremental processing is allowed.
+If you have an existing indexer that has a skillset, follow the steps in this section to add caching. As a one-time operation, you will have to reset and rerun the indexer before incremental processing can take effect.
 
 ### Step 1: Get the indexer definition
 
-Start with a valid, existing indexer that has these components: data source, skillset, index. Your indexer should be runnable. Using an API client, construct a [GET Indexer request](https://docs.microsoft.com/rest/api/searchservice/get-indexer) to get the current configuration of the indexer, to which you want to add incremental enrichment.
+Start with a valid, existing indexer that has these components: data source, skillset, index. Your indexer should be runnable. Using an API client, construct a [GET Indexer request](https://docs.microsoft.com/rest/api/searchservice/get-indexer) to get the current configuration of the indexer.
 
 ```http
 GET https://[YOUR-SEARCH-SERVICE].search.windows.net/indexers/[YOUR-INDEXER-NAME]?api-version=2019-05-06-Preview
@@ -45,7 +45,7 @@ By default the `cache` property is null. Modify the cache object to include requ
 
 The `storageConnectionString` is required, and it must be set to an Azure storage connection string. 
 
-The `enableReprocessing` boolean property is optional (`true` by default), and it indicates that incremental enrichment is enabled. You can set it to `false` to suspend incremental processing while other resource-intensive operations, such as indexing new documents, are underway.  
+The `enableReprocessing` boolean property is optional (`true` by default), and it indicates that incremental enrichment is enabled. You can set it to `false` to suspend incremental processing while other resource-intensive operations, such as indexing new documents, are underway and then flip it back to `true` later.
 
 ```json
 {
@@ -119,7 +119,7 @@ After the indexer runs, you can find the cache in Azure blob storage. The contai
 
 ## Enable incremental enrichment on new indexers
 
-To set up incremental enrichment for a new indexer, all you have to do is include the `cache` property in the indexer definition payload when creating the indexer. Remember to use the `2019-05-06-Preview` version of the API. 
+To set up incremental enrichment for a new indexer, all you have to do is include the `cache` property in the indexer definition payload when calling [Create Indexer](https://docs.microsoft.com/rest/api/searchservice/create-indexer). Remember to use the `2019-05-06-Preview` version of the API when creating the indexer. 
 
 
 ```json
@@ -144,11 +144,11 @@ To set up incremental enrichment for a new indexer, all you have to do is includ
 
 ## Overriding incremental enrichment
 
-When configured, incremental enrichment tracks changes across your indexing pipeline and drives documents to eventual consistency across your index and projections. In some cases, you'll need to override this behavior to ensure the indexer doesn't do additional work as a result of an update to the indexing pipeline. For example, updating the datasource connection string will require an indexer reset and reindexing of all documents as the datasource has changed. But if you were only updating the connection string with a new key, you wouldn't want the change to result in any updates to existing documents. Conversely, you may want the indexer to invalidate the cache and enrich documents even if no changes to the indexing pipeline are made. For instance, you might want to invalidate the indexer if you were to redeploy a custom skill with a new model and wanted the skill rerun on all your documents.
+When configured, incremental enrichment tracks changes across your indexing pipeline and drives documents to eventual consistency across your index and projections. In some cases, you'll need to override this behavior to ensure the indexer doesn't do additional work as a result of an update to the indexing pipeline. For example, updating the data source connection string will require an indexer reset and reindexing of all documents as the data source has changed. But if you were only updating the connection string with a new key, you wouldn't want the change to result in any updates to existing documents. Conversely, you may want the indexer to invalidate the cache and enrich documents even if no changes to the indexing pipeline are made. For instance, you might want to invalidate the indexer if you were to redeploy a custom skill with a new model and wanted the skill rerun on all your documents.
 
 ### How to override reset requirement
 
-When making changes to the indexing pipeline, any changes resulting in an invalidation of the cache requires an indexer reset. If you're making a change to the indexer pipeline and don't want the change tracking to invalidate the cache, you'll need to set the `ignoreResetRequirement` querystring parameter to `true` for operations on the indexer or datasource.
+When making changes to the indexing pipeline, any changes resulting in an invalidation of the cache requires an indexer reset. If you're making a change to the indexer pipeline and don't want the change tracking to invalidate the cache, you'll need to set the `ignoreResetRequirement` querystring parameter to `true` for operations on the indexer or data source.
 
 ### How to override change detection
 
@@ -160,7 +160,7 @@ Instanced when you want the indexing pipeline to recognize a change to an extern
 
 ## Next steps
 
-This article covers incremental enrichment for indexers that include skillsets. To further round out your knowledge, review articles about re-indexing in general, applicable to all indexing scenarios in Azure Cognitive Search.
+This article covers incremental enrichment for indexers that include skillsets. For more information about modifying skillsets, see the following links.
 
-+ [How to rebuild an Azure Cognitive Search index](search-howto-reindex.md). 
-+ [How to index large data sets in Azure Cognitive Search](search-howto-large-index.md). 
++ [How to create a skillset](cognitive-search-defining-skillset.md). 
++ [Skillset concepts and composition](cognitive-search-working-with-skillsets.md). 

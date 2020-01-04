@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.date: 12/31/2019
 ---
 
-# What is incremental enrichment in Azure Cognitive Search?
+# Introduction to incremental enrichment in Azure Cognitive Search
 
 > [!IMPORTANT] 
 > Incremental enrichment is currently in public preview. This preview version is provided without a service level agreement, and it's not recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
@@ -29,7 +29,7 @@ Physically, the cache is a blob container in your Azure Storage account. All ind
 
 ### Cache configuration
 
-You'll need to set the `cache` property on the indexer to start benefitting from incremental enrichment. The following example illustrates an indexer with caching enabled. Specific parts of this configuration are described in following sections. For more guidance, see [How to set up incremental enrichment](search-howto-incremental-index.md).
+You'll need to set the `cache` property on the indexer to start benefitting from incremental enrichment. The following example illustrates an indexer with caching enabled. Specific parts of this configuration are described in following sections. For more information, see [How to set up incremental enrichment](search-howto-incremental-index.md).
 
 ```json
 {
@@ -47,7 +47,7 @@ You'll need to set the `cache` property on the indexer to start benefitting from
 }
 ```
 
-Setting this property for the first time on an existing indexer will require you to reset the indexer, which will result in all documents in your data source being processed again. A requirement of incremental enrichment is to make the documents in your index consistent with your data source and the current version of your skillset. Resetting the index is the first step toward this consistency as it eliminates any documents enriched by previous versions of the skillset. 
+Setting this property for the first time on an existing indexer will require you to reset and rerun the indexer, which will result in all documents in your data source being processed again. Consistency of output relative to the state of the skillset is a goal of incremental enrichment. Resetting the index is the first step toward this consistency as it eliminates any documents enriched by previous versions of the skillset. 
 
 ### Cache lifecycle
 
@@ -59,11 +59,11 @@ The indexer cache can operate in modes where data is only written to the cache o
 
 ## Change-detection override
 
-Incremental enrichment gives you granular control over all aspects of the enrichment pipeline. This control allows you to deal with situations where a change might have unintended consequences. For example, editing a skillset and updating the URL for a custom skill will result in the indexer invalidating the cached results for that skill. If you're only moving the endpoint to a different VM or redeploying your skill with a new access key, you really don’t want any existing documents reprocessed.
+Incremental indexing gives you granular control over all aspects of the enrichment pipeline. This control allows you to deal with situations where a change might have unintended consequences. For example, editing a skillset or updating the URL for a custom skill will result in the indexer invalidating the cached results for that skill. If you're only moving the endpoint to a different VM or redeploying your skill with a new access key, you really don’t want any existing documents reprocessed.
 
-To ensure that the indexer only does enrichments you explicitly require, updates to the skillset can optionally set the `disableCacheReprocessingChangeDetection` querystring parameter to `true`. When set, this parameter will ensure that only updates to the skillset are committed and the change isn't evaluated for effects on the existing corpus.
+To ensure that the indexer only does enrichments you explicitly require, updates to the skillset can optionally set the `disableCacheReprocessingChangeDetection` parameter. When set to `true`, this parameter will ensure that only updates to the skillset definition are committed and the change isn't evaluated for effects on the existing corpus.
 
-The following example illustrates querystring usage. It's part of the request, with &-separated key value pairs. 
+The following example shows an update request with the parameter. 
 
 ```http
 PUT https://customerdemos.search.windows.net/skillsets/callcenter-text-skillset?api-version=2019-05-06-Preview&disableCacheReprocessingChangeDetection=true
@@ -71,7 +71,7 @@ PUT https://customerdemos.search.windows.net/skillsets/callcenter-text-skillset?
 
 ## Cache invalidation
 
-The converse of that scenario is one where you may deploy a new version of a custom skill; nothing within the enrichment pipeline changes, but you need a specific skill invalidated and all affected documents reprocessed to reflect the benefits of an updated model. In such instances, you can call the invalidate skills operation on the skillset. The reset skills API accepts a POST request with the list of skill outputs in the cache that should be invalidated. For more information on the reset skills API, see [Update Skillset](https://docs.microsoft.com/rest/api/searchservice/update-skillset).
+The converse of that scenario is one where you may deploy a new version of a custom skill; nothing within the enrichment pipeline changes, but you need a specific skill invalidated and all affected documents reprocessed to reflect the benefits of an updated model. In such instances, you can call the invalidate skills operation on the skillset. The Update Skillset API accepts a POST request with the list of skill outputs in the cache that should be invalidated. For more information, see [Update Skillset](https://docs.microsoft.com/rest/api/searchservice/update-skillset).
 
 ## Bi-directional change detection
 
@@ -79,7 +79,7 @@ Indexers not only move forward and process new documents, but are now able to mo
 
 ### Invalidating changes
 
-Invalidating changes are rare but have a significant effect on the state of your enrichment pipeline. An invalidating change is one where the entire cache is no longer valid. An example of an invalidating change is one where your data source is updated. For scenarios when you know that the change should not invalidate the cache, like rotating the key on the storage account, the `ignoreResetRequirement` querystring parameter should be set to `true` on the update operation of the specific resource to ensure that the operation is not rejected.
+Invalidating changes are rare but have a significant effect on the state of your enrichment pipeline. An invalidating change is one where the entire cache is no longer valid. An example of an invalidating change is one where your data source is updated. For scenarios when you know that the change should not invalidate the cache, like rotating the key on the storage account, the `ignoreResetRequirement` parameter should be set to `true` on the update operation of the specific resource to ensure that the operation is not rejected.
 
 Here is the complete list of changes that would invalidate your cache:
 
