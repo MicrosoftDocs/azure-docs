@@ -23,7 +23,6 @@ The following controls are used in the Azure Security Benchmark:
 - Network security 
 - Logging & Monitoring 
 - Identity and Access Control 
-- Data protection 
 - Identity & Access Management 
 - Data Protection 
 - Vulnerability Management 
