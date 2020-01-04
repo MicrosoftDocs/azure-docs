@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Azure Active Directory single sign-on integration with Citrix NetScaler (Kerberos-based authentication) | Microsoft Docs'
-description: Learn how to configure single sign-on (SSO) between Azure Active Directory and Citrix NetScaler.
+description: Learn how to configure single sign-on (SSO) between Azure Active Directory and Citrix NetScaler by using Kerberos-based authentication.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -45,19 +45,24 @@ In this tutorial, you configure and test Azure AD SSO in a test environment. The
 
 * **Just in time** user provisioning for Citrix NetScaler
 
-* [Kerberos-based authentication for Citrix NetScaler](#configure-citrix-netscaler-sso-for-kerberos-based-authentication)
+* [Kerberos-based authentication for Citrix NetScaler](#publish-the-web-server)
 
-* [Header-based authentication for Citrix NetScaler](header-citrix-netscaler-tutorial.md)
+* [Header-based authentication for Citrix NetScaler](header-citrix-netscaler-tutorial.md#publish-the-web-server)
 
 ## Add Citrix NetScaler from the gallery
 
 To integrate Citrix NetScaler with Azure AD, first add Citrix NetScaler to your list of managed SaaS apps from the gallery:
 
 1. Sign in to the [Azure portal](https://portal.azure.com) using either a work or school account, or a personal Microsoft account.
+
 1. In the left menu, select **Azure Active Directory**.
+
 1. Go to **Enterprise Applications**, and then select **All Applications**.
+
 1. To add a new application, select **New application**.
+
 1. In the **Add from the gallery** section, enter **Citrix NetScaler** in the search box.
+
 1. In the results, select **Citrix NetScaler**, and then add the app. Wait a few seconds while the app is added to your tenant.
 
 ## Configure and test Azure AD single sign-on for Citrix NetScaler
@@ -67,10 +72,15 @@ Configure and test Azure AD SSO with Citrix NetScaler by using a test user calle
 To configure and test Azure AD SSO with Citrix NetScaler, complete the following building blocks:
 
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
+
     1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD SSO with B.Simon.
+
     1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD SSO.
+
 1. **[Configure Citrix NetScaler SSO](#configure-citrix-netscaler-sso)** - to configure the SSO settings on the application side.
-    1. **[Create a Citrix NetScaler test user](#create-a-citrix-netscaler-test-user)** - to have a counterpart of B.Simon in Citrix NetScaler that is linked to the Azure AD representation of the user.
+
+    * **[Create a Citrix NetScaler test user](#create-a-citrix-netscaler-test-user)** - to have a counterpart of B.Simon in Citrix NetScaler that is linked to the Azure AD representation of the user.
+
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
 ## Configure Azure AD SSO
@@ -115,11 +125,17 @@ To enable Azure AD SSO by using the Azure portal, complete these steps:
 In this section, you create a test user in the Azure portal called B.Simon.
 
 1. On the left menu in the Azure portal, select **Azure Active Directory**, select **Users**, and then select **All users**.
+
 1. Select **New user** at the top of the pane.
+
 1. In **User** properties, complete these steps:
+
    1. For **Name**, enter `B.Simon`.  
+
    1. For **User name**, enter _username@companydomain.extension_. For example, `B.Simon@contoso.com`.
+
    1. Select the **Show password** check box, and then write down or copy the value that's displayed in **Password**.
+
    1. Select **Create**.
 
 ### Assign the Azure AD test user
@@ -127,7 +143,9 @@ In this section, you create a test user in the Azure portal called B.Simon.
 In this section, you enable the user B.Simon to use Azure SSO by granting the user access to Citrix NetScaler.
 
 1. In the Azure portal, select **Enterprise Applications**, and then select **All applications**.
+
 1. In the applications list, select **Citrix NetScaler**.
+
 1. On the app overview, under **Manage**, select **Users and groups**.
 
    ![The "Users and groups" link](common/users-groups-blade.png)
@@ -137,7 +155,9 @@ In this section, you enable the user B.Simon to use Azure SSO by granting the us
 	![The Add user link](common/add-assign-user.png)
 
 1. In the **Users and groups** dialog box, select **B.Simon** from the **Users** list. Choose **Select**.
+
 1. If you're expecting any role value in the SAML assertion, in the **Select Role** dialog box, select the relevant role for the user from the list, and then choose **Select**.
+
 1. In the **Add Assignment** dialog box, select **Assign**.
 
 ## Configure Citrix NetScaler SSO
@@ -146,7 +166,7 @@ Select a link for steps for the kind of authentication you want to configure:
 
 - [Configure Citrix NetScaler SSO for Kerberos-based authentication](#publish-the-web-server)
 
-- [Configure Citrix NetScaler SSO for header-based authentication](header-citrix-netscaler-tutorial.md)
+- [Configure Citrix NetScaler SSO for header-based authentication](header-citrix-netscaler-tutorial.md#publish-the-web-server)
 
 ### Publish the web server 
 
@@ -210,7 +230,7 @@ To publish this service as SSL, bind the server certificate, and then test your 
 
 ## Citrix ADC SAML profile
 
-To configure the Citrix ADC SAML profile, complete the following sections:
+To configure the Citrix ADC SAML profile, complete the following sections.
 
 ### Create an authentication policy
 
@@ -239,7 +259,9 @@ To create an authentication SAML server:
    1. For **Name**, enter a name for the authentication SAML server.
 
    1. Under **Export SAML Metadata**:
+
       1. Select the **Import Metadata** check box.
+
       1. Enter the federation metadata URL from the Azure SAML UI that you copied earlier.
     
    1. For **Issuer Name**, enter the relevant URL.
