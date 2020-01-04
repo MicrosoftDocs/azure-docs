@@ -12,6 +12,9 @@ ms.date: 12/23/2019
 
 Private Link allows you to connect to various PaaS services in Azure via a private endpoint. For a list to PaaS services that support Private Link functionality, go to the [Private Link Documentation page](https://docs.microsoft.com/azure/private-link/index). A private endpoint is a private IP address within a specific [VNet](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) and Subnet.
 
+> [!NOTE]
+> This feature is available in all regions of Azure public cloud where Azure Database for PostgreSQL is deployed for General Purpose and Memory Optimized servers.
+
 ## Data exfiltration prevention
 
 Data ex-filtration in Azure Database for PostgreSQL Single server is when an authorized user, such as a database admin is able extract data from one system and move it another location or system outside the organization. For example, the user moves the data to a storage account owned by a third party.
