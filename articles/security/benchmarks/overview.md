@@ -22,9 +22,7 @@ The following controls are used in the Azure Security Benchmark:
 
 - Network security 
 - Logging & Monitoring 
-- Identity and Access Control 
-- Data protection 
-- Identity & Access Management 
+- Identity and Access Control   
 - Data Protection 
 - Vulnerability Management 
 - Inventory & Asset Management 
@@ -44,7 +42,3 @@ Each recommendation includes the following information:
 - **Details**: The rationale for the recommendation and links to guidance on how to implement the recommendation. If the recommendation is supported by Azure Security Center, that information will be listed here.  
 
 We welcome your detailed feedback and active participation in the Azure Security Benchmark effort. If you would like to provide the Benchmark team direct input, please fill out the form at [https://aka.ms/AzSecBenchmark](https://aka.ms/AzSecBenchmark).
-
-## Next Steps
-
-Read the [Azure Security Benchmark Overview](overview.md)
