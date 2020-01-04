@@ -45,4 +45,4 @@ We welcome your detailed feedback and active participation in the Azure Security
 
 ## Next Steps
 
-Read the [Azure Security Benchmark Overview](overview.md)
+See the first security control: [Network Security](security-control-network-security.md)
