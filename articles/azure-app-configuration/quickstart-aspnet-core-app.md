@@ -79,8 +79,16 @@ Open the *.csproj* file. Add a `UserSecretsId` element as shown here. You can us
     ```
 #### [.NET Core 3.x](#tab/core3x)
 
-This includes a bunch of neat stuff for 3x
+```xml
+<Project Sdk="Microsoft.NET.Sdk.Web">
+    
+    <PropertyGroup>
+        <TargetFramework>netcoreapp3.1</TargetFramework>
+        <UserSecretsId>79a3edd0-2092-40a2-a04d-dcb46d5ca9ed</UserSecretsId>
+    </PropertyGroup>
 
+</Project>
+```
 ---
 
 The Secret Manager tool stores sensitive data for development work outside of your project tree. This approach helps prevent the accidental sharing of app secrets within source code. For more information on Secret Manager, please see [Safe storage of app secrets in development in ASP.NET Core](https://docs.microsoft.com/aspnet/core/security/app-secrets)
@@ -89,13 +97,13 @@ The Secret Manager tool stores sensitive data for development work outside of yo
 
 9. Add a reference to the `Microsoft.Azure.AppConfiguration.AspNetCore` NuGet package by running the following command:
 
-    ```CLI
-        dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore --version 2.0.0-preview-010060003-1250
+    ```dotnetcli
+    dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore --version 3.0.0-preview-010560002-1165
     ```
 10. Run the following command to restore packages for your project:
 
-    ```CLI
-        dotnet restore
+    ```dotnetcli
+    dotnet restore
     ```
 11. Add a secret named *ConnectionStrings:AppConfig* to Secret Manager.
 
@@ -103,8 +111,8 @@ The Secret Manager tool stores sensitive data for development work outside of yo
 
     This command must be executed in the same directory as the *.csproj* file.
 
-    ```CLI
-        dotnet user-secrets set ConnectionStrings:AppConfig <your_connection_string>
+    ```dotnetcli
+    dotnet user-secrets set ConnectionStrings:AppConfig <your_connection_string>
     ```
 
     > [!IMPORTANT]
@@ -125,7 +133,7 @@ The Secret Manager tool stores sensitive data for development work outside of yo
     > [!IMPORTANT]
     > `CreateHostBuilder` replaces `CreateWebHostBuilder` in .NET Core 3.0.  Select the correct syntax based on your environment.
 
-    ### Update `CreateWebHostBuilder` for .NET Core 2.x
+    #### [.NET Core 2.x](#tab/core2x)
 
     ```csharp
     public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
@@ -138,8 +146,8 @@ The Secret Manager tool stores sensitive data for development work outside of yo
             .UseStartup<Startup>();
     ```
 
-    ### Update `CreateHostBuilder` for .NET Core 3.x
-
+    #### [.NET Core 3.x](#tab/core3x)
+    
     ```csharp
     public static IHostBuilder CreateHostBuilder(string[] args) =>
         Host.CreateDefaultBuilder(args)
@@ -151,8 +159,9 @@ The Secret Manager tool stores sensitive data for development work outside of yo
         })
         .UseStartup<Startup>());
     ```
+    ---
 
-1. Navigate to *<app root>/Views/Home* and open *Index.cshtml*. Replace its content with the following code:
+14. Navigate to *<app root>/Views/Home* and open *Index.cshtml*. Replace its content with the following code:
 
     ```HTML
     @using Microsoft.Extensions.Configuration
@@ -171,7 +180,7 @@ The Secret Manager tool stores sensitive data for development work outside of yo
     <h1>@Configuration["TestApp:Settings:Message"]</h1>
     ```
 
-14. Navigate to *<app root>/Views/Shared* and open *_Layout.cshtml*. Replace its content with the following code:
+15. Navigate to *<app root>/Views/Shared* and open *_Layout.cshtml*. Replace its content with the following code:
 
     ```HTML
     <!DOCTYPE html>
@@ -200,19 +209,19 @@ The Secret Manager tool stores sensitive data for development work outside of yo
 
 ## Build and run the app locally
 
-15. To build the app using the .NET Core CLI, navigate to the root directory of your application and run the following command in the command shell:
+16. To build the app using the .NET Core CLI, navigate to the root directory of your application and run the following command in the command shell:
 
-    ```CLI
-       dotnet build
+    ```dotnetcli
+    dotnet build
     ```
 
-16. After the build successfully completes, run the following command to run the web app locally:
+17. After the build successfully completes, run the following command to run the web app locally:
 
-    ```CLI
-        dotnet run
+    ```dotnetcli
+    dotnet run
     ```
 
-17. If you're working on your local machine, use a browser to navigate to `http://localhost:5000`. This is the default URL for the web app hosted locally.  
+18. If you're working on your local machine, use a browser to navigate to `http://localhost:5000`. This is the default URL for the web app hosted locally.  
 
 If you're working in the Azure Cloud Shell, select the *Web Preview* button followed by *Configure*.  
 
