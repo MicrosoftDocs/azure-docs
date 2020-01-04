@@ -35,7 +35,7 @@ Categories and subcategories applicable to each Storefront are listed below:
 | &nbsp;&nbsp;ML Service | X | |
 | &nbsp;&nbsp;Automated ML | X | |
 | &nbsp;&nbsp;Business/Robotic Process Automation | X | |
-| &nbsp;&nbsp;Data Labelling | X | |
+| &nbsp;&nbsp;Data Labeling | X | |
 | &nbsp;&nbsp;Data Preparation | X | |
 | &nbsp;&nbsp;Knowledge Mining | X | |
 | &nbsp;&nbsp;ML Operations | X | |
