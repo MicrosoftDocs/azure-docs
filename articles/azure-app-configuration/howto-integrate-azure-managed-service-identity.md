@@ -91,10 +91,11 @@ To set up a managed identity in the portal, you first create an application and 
     }
     ```
 
-1. Open *Program.cs*, and add a reference to the `Azure.Identity` namespace:
+1. Open *Program.cs*, and add a reference to the `Azure.Identity` and `Microsoft.Azure.Services.AppAuthentication` namespaces:
 
     ```csharp-interactive
     using Azure.Identity;
+    using Microsoft.Azure.Services.AppAuthentication;
     ```
 
 1. If you wish to access only values stored directly in App Configuration, update the `CreateWebHostBuilder` method by replacing the `config.AddAzureAppConfiguration()` method.
@@ -142,7 +143,7 @@ To set up a managed identity in the portal, you first create an application and 
                     AzureServiceTokenProvider azureServiceTokenProvider = new AzureServiceTokenProvider();
                     KeyVaultClient kvClient = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(azureServiceTokenProvider.KeyVaultTokenCallback));
                     
-                    config.AddAzureAppConfiguration(options => options.ConnectWithManagedIdentity(settings["AppConfig:Endpoint"])).UseAzureKeyVault(kvClient));
+                    config.AddAzureAppConfiguration(options => options.Connect(new Uri(settings["AppConfig:Endpoint"]), new DefaultAzureCredential()).UseAzureKeyVault(kvClient));
                 })
                 .UseStartup<Startup>();
 ```
@@ -159,7 +160,7 @@ To set up a managed identity in the portal, you first create an application and 
                     AzureServiceTokenProvider azureServiceTokenProvider = new AzureServiceTokenProvider();
                     KeyVaultClient kvClient = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(azureServiceTokenProvider.KeyVaultTokenCallback));
                     
-                    config.AddAzureAppConfiguration(options => options.ConnectWithManagedIdentity(settings["AppConfig:Endpoint"])).UseAzureKeyVault(kvClient));
+                    config.AddAzureAppConfiguration(options => options.Connect(new Uri(settings["AppConfig:Endpoint"]), new DefaultAzureCredential()).UseAzureKeyVault(kvClient));
                 })
                 .UseStartup<Startup>());
 ```
