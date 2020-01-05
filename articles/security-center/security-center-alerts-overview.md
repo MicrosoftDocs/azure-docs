@@ -111,7 +111,7 @@ Using incidents, Security Center provides you with a single view of an attack ca
 
 ## Security alerts in Azure Activity Log
 
-In addition to being available in the Azure Portal or programmatically, Security alerts and incidents are audited as events in [Azure Activity Log](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view). For more information on the event schema, see [Security Alerts in Azure Activity log](https://go.microsoft.com/fwlink/?linkid=2114113).
+In addition to being available in the Azure portal or programmatically, Security alerts and incidents are audited as events in [Azure Activity Log](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view). For more information on the event schema, see [Security Alerts in Azure Activity log](https://go.microsoft.com/fwlink/?linkid=2114113).
 
 ## Next steps
 
