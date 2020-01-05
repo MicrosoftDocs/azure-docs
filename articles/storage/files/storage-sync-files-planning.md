@@ -136,6 +136,7 @@ To display the results in CSV:
 
 | File/folder | Note |
 |-|-|
+| pagefile.sys | File specific to system |
 | Desktop.ini | File specific to system |
 | thumbs.db | Temporary file for thumbnails |
 | ehthumbs.db | Temporary file for media thumbnails |
