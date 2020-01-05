@@ -11,18 +11,31 @@ ms.date: 12/10/2019
 
 # Payout reporting
 
-The **Payout summary** shows you details about the money you’ve earned with Microsoft. It also lets you know when you’ll receive payments and how much you'll be paid.
+The [**Payout summary**](https://docs.microsoft.com/windows/uwp/publish/payout-summary) shows you details about the money you’ve earned with Microsoft. It also lets you know when you’ll receive payments and how much you'll be paid.
 
 If you sell offerings in the Azure Marketplace, you’ll also see info on successful payouts in the **Payout summary**. For more information regarding Azure Marketplace payment, see the [Microsoft Azure Marketplace Participation Policies](https://go.microsoft.com/fwlink/p/?LinkId=722436) and the [Microsoft Azure Marketplace Publisher Agreement](https://go.microsoft.com/fwlink/p/?LinkID=699560).
 
 > [!NOTE]
 > To be eligible for payout, your proceeds must reach the [payment threshold](payment-thresholds-methods-timeframes.md) of $50. For details about the payment threshold see this page and review the [Microsoft Azure Marketplace Publisher Agreement](https://go.microsoft.com/fwlink/p/?LinkID=699560).
 
+- [Roles and permission to access the payout report](#roles-and-permission-to-access-the-payout-report)
 - [Payout report: difference between Cloud Partner Portal and Partner Center](#payout-report-difference-between-cloud-partner-portal-and-partner-center)
 - [Customer types](#customer-types)
 - [Corelation between payout and usage](#corelation-between-payout-and-usage)
 - [Transaction history download](#transaction-history-download-export)
 - [Billing questions and support](#billing-questions-and-support)
+
+## Roles and permission to access the payout report
+
+| Reports/Pages    | Account owner    | Manager  | Developer | Business contributor |  Finance contributor | Marketer |
+|------------------|------------------|----------|-----------|----|----|-----|
+| Acquisition report (including Near Real Time data) | Can view | Can view | No access | No access | Can view | No access |
+| Feedback report/responses | Can view and send feedback | Can view and send feedback | Can view and send feedback | No access | No access | Can view and send feedback |
+| Health report (including near real time data) | Can view | Can view | Can view | Can view | No access | No access |
+| Usage report | Can view | Can view | Can view | Can view | No access | No access |
+| Payout account | Can update | No access | No access | No access | Can update | No access |
+| Tax profile | Can update | No access | No access | No access | Can update | No access |
+| Payout summary | Can view | No access | No access | No access | Can view | No access |
 
 ## Payout report: difference between Cloud Partner Portal and Partner Center
 
@@ -76,100 +89,6 @@ For example, if the customer purchases using a credit card.
 |Customer Payment Date | Dec 30, 2019 | | |
 |Payout Calculation | Jan 15, 2020 | | |
 |Payout Date | Feb 15, 2020 | | **For quarterly based customers** <br> <br> **Orders report** <br> <ul><li>AssetId</li> <li>Customer ID</li> <li> Customer Name</li> </ul> <br> **Usage** <br> <ul> <li>AssetId</li> <li>CustomerId</li> <li>Customer Name</li> <li>OrderId</li> <li>LineItemId</li> <li>transactionAmount</li> <li>EarningAmountInLastPaymentCurrency</li> </ul> <br> **Payout Status:** sent |
-
-<!---
-## Billing
-
-Depending on the transaction option used, the publisher’s software license fees can be presented as follows:
-
-* Free: No charge for software licenses.
-* **Bring the own license (BYOL)**: Any applicable charges for software licenses are managed directly between the publisher and customer. Microsoft only passes through Azure infrastructure usage fees. (Virtual Machines and Azure Applications only).
-* **Pay-as-you-go**: Software license fees are presented as a per-hour, per-core (VCPU) pricing rate based on the Azure infrastructure used. This only applies to Virtual Machines and Azure Applications. 
-* **Subscription pricing**: Software license fees are presented as a monthly or annual recurring fee billed as a flat rate or per-seat. This only applies to SaaS Apps and Azure Applications - Managed Apps.
-
-### Pay as you go
-
-If you enable the Pay-As-You-Go option, then you have the following cost structure. 
-
-* If you enable the Pay-As-You-Go option, then you have the following cost structure.
-
-|Your license cost  | $1.00 per hour  |
-|---------|---------|
-|Azure usage cost (D1/1-Core)    |   $0.14 per hour     |
-|*Customer is billed by Microsoft*    |  *$1.14 per hour*       |
-
-* In this scenario, Microsoft bills $1.14 per hour for use of your published VM image.
-
-|Microsoft bills  | $1.14 per hour  |
-|---------|---------|
-|Microsoft pays you 80% of your license cost|   $0.80 per hour     |
-|Microsoft keeps 20% of your license cost  |  $0.20 per hour       |
-|Microsoft keeps 100% of the Azure usage cost | $0.14 per hour |
-
-### Bring Your Own License (BYOL)
-
-* If you enable the BYOL option, then you have the following cost structure.
-
-|Your license cost  | License fee negotiated and billed by you  |
-|---------|---------|
-|Azure usage cost (D1/1-Core)    |   $0.14 per hour     |
-|*Customer is billed by Microsoft*    |  *$0.14 per hour*       |
-
-* In this scenario, Microsoft bills $0.14 per hour for use of your published VM image.
-
-|Microsoft bills  | $0.14 per hour  |
-|---------|---------|
-|Microsoft keeps the Azure usage cost    |   $0.14 per hour     |
-|Microsoft keeps 0% of your license cost   |  $0.00 per hour       |
-
-### SaaS App subscription
-
-This option must be configured to sell through Microsoft and can be priced at a flat rate or per user on a monthly or annual basis.
-•	If you enable the Sell through Microsoft option for a SaaS offer, then you have the following cost structure.
-
-|Your license cost       | $100.00 per month  |
-|--------------|---------|
-|Azure usage cost (D1/1-Core)    | Billed directly to the publisher, not the customer |
-|*Customer is billed by Microsoft*    |  *$100.00 per month (note: publisher must account for any incurred or pass-through infrastructure costs in the license fee)*  |
-
-* In this scenario, Microsoft bills $100.00 for your software license and pays out $80.00 to the publisher.
-* Partners who have qualified for the Reduced Marketplace Service Fee will see a reduced transaction fee on the SaaS offers from May 2019 until June 2020. In this scenario, Microsoft bills $100.00 for your software license and pays out $90.00 to the publisher.
-
-|Microsoft bills  | $100.00 per month  |
-|---------|---------|
-|Microsoft pays you 80% of your license cost <br> \* Microsoft pays you 90% of your license cost for any qualified SaaS apps   |   $80.00 per month <br> \* $90.00 per month    |
-|Microsoft keeps 20% of your license cost <br> \* Microsoft keeps 10% of your license cost for any qualified SaaS apps.  |  $20.00 per month <br> \* $10.00     |
-
-**Reduced Marketplace Service Fee:** For certain SaaS Products that you publish on our Commercial Marketplace, Microsoft will reduce its Marketplace Service Fee from 20% (as described in the Microsoft Publisher Agreement) to 10%.  In order for your Product to qualify, at least one of your products must be designated by Microsoft as either IP co-sell ready or IP co-sell prioritized. To receive this reduced Marketplace Service Fee for the month, eligibility must be met at least five (5) business days before the end of the previous calendar month. Reduced Marketplace Service fee will not apply to VMs, Managed Apps or any other products made available through our Commercial Marketplace.  This Reduced Marketplace Service Fee will be available to qualified offers, with license charges collected by Microsoft between May 1, 2019 and June 30, 2020.  After that time, the Marketplace Service Fee will return to its normal amount.
-
-### Customer invoicing, payment, billing, and collections
-
-**Invoicing and payment**
-
-Publisher can use the customer's preferred invoicing method to deliver subscription or PAYGO software license fees.
-
-**Enterprise agreement** 
-
-If the customer's preferred invoicing method is the Microsoft Enterprise Agreement, your software license fees will be billed using this invoicing method as an itemized cost, separate from any Azure-specific usage costs.
-
-**Credit cards and monthly invoice** 
-
-Customers can also pay using a credit card and a monthly invoice. In this case, your software license fees will be billed just like the Enterprise Agreement scenario, as an itemized cost, separate from any Azure-specific usage costs.
-
-
-
-**Billing and collections** 
-
-Publisher software license billing is presented using the customer selected method of invoicing and follows the invoicing timeline. Customers without an Enterprise Agreement in place are billed monthly for marketplace software licenses. Customers with an Enterprise Agreement are billed monthly via an invoice that is presented quarterly.
-
-When subscription or Pay-as-You-Go pricing models are selected, Microsoft acts as the agent of the publisher and is responsible for all aspects of billing, payment, and collection.
-
-### Publisher payout and reporting
-
-* Any software licensing fees collected by Microsoft as an agent are subject to a 20% transaction fee unless otherwise specified and are deducted at the time of publisher payout.
-
-* Customers typically purchase using the Enterprise Agreement or a credit-card enabled pay-as-you-go agreement. The agreement type determines billing, invoicing, collection, and payout timing.
---->
 
 ## Transaction history download export
 

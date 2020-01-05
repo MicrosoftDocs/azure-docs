@@ -26,23 +26,23 @@ The following sections describe each of the options for key management in greate
 
 ## Platform-managed keys
 
-By default, managed disks use platform-managed encryption keys. As of June 10th, 2017, all new managed disks, snapshots, images, and new data written to existing managed disks are automatically encrypted-at-rest with platform-managed keys. 
+By default, managed disks use platform-managed encryption keys. As of June 10, 2017, all new managed disks, snapshots, images, and new data written to existing managed disks are automatically encrypted-at-rest with platform-managed keys. 
 
 ## Customer-managed keys (public preview)
 
 You can choose to manage encryption at the level of each managed disk, with your own keys. Server-side encryption for managed disks with customer-managed keys offers an integrated experience with Azure Key Vault. You can either import [your RSA keys](../../key-vault/key-vault-hsm-protected-keys.md) to your Key Vault or generate new RSA keys in Azure Key Vault. Azure managed disks handles the encryption and decryption in a fully transparent fashion using [envelope encryption](../../storage/common/storage-client-side-encryption.md#encryption-and-decryption-via-the-envelope-technique). It encrypts data using an [AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) 256 based data encryption key (DEK), which is, in turn, protected using your keys. You have to grant access to managed disks in your Key Vault to use your keys for encrypting and decrypting the DEK. This allows you full control of your data and keys. You can disable your keys or revoke access to managed disks at any time. You can also audit the encryption key usage with Azure Key Vault monitoring to ensure that only managed disks or other trusted Azure services are accessing your keys.
 
-The following diagram shows how managed disks uses Azure Active Directory and Azure Key Vault to make requests using the customer-managed key:
+The following diagram shows how managed disks use Azure Active Directory and Azure Key Vault to make requests using the customer-managed key:
 
 ![Managed disks customer-managed keys workflow](media/disk-storage-encryption/customer-managed-keys-sse-managed-disks-workflow.png)
 
 
-The following list explains the numbered steps in the diagram:
+The following list explains the diagram in even more detail:
 
 1. An Azure Key Vault administrator creates key vault resources.
 1. The key vault admin either imports their RSA keys to Key Vault or generate new RSA keys in Key Vault.
 1. That administrator creates an instance of Disk Encryption Set resource, specifying an Azure Key Vault ID and a key URL. Disk Encryption Set is a new resource introduced for simplifying the key management for managed disks. 
-1. When a disk encryption set is created, a [system-assigned managed identity](../../active-directory/managed-identities-azure-resources/overview.md) is created in Azure active directory (AD) and associated with the disk encryption set. 
+1. When a disk encryption set is created, a [system-assigned managed identity](../../active-directory/managed-identities-azure-resources/overview.md) is created in Azure Active Directory (AD) and associated with the disk encryption set. 
 1. The Azure key vault administrator then grants the managed identity permission to perform operations in the key vault.
 1. A VM user creates disks by associating them with the disk encryption set. The VM user can also enable server-side encryption with customer-managed keys for existing resources by associating them with the disk encryption set. 
 1. Managed disks use the managed identity to send requests to the Azure Key Vault.
@@ -112,7 +112,7 @@ The preview also has the following restrictions:
     az role assignment create --assignee $desIdentity --role Reader --scope $keyVaultId
     ```
 
-### Create a VM using a marketplace image, encrypting the OS and data disks with customer-managed keys
+### Create a VM using a Marketplace image, encrypting the OS and data disks with customer-managed keys
 
 ```azurecli
 rgName="<yourResourceGroupName>"
