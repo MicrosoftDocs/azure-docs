@@ -1,6 +1,6 @@
 ---
-title: Querying single CSV file
-description: CSV files may have different formats. In this section, we will show how to query single CSV file with different file formats using SQL on-demand.
+title: Query single CSV files
+description: CSV files may have different formats. In this section, you'll learn how to query single CSV files with different file formats using SQL on-demand.
 services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -11,9 +11,9 @@ ms.author: v-stazar
 ms.reviewer: jrasnick
 ---
 
-# Quickstart: Querying single CSV file
+# Quickstart: Query single CSV files
 
-In this article, you will learn how to query a single CSV file with SQL On-demand. 
+In this article, you'll learn how to query a single CSV file with SQL On-demand. 
 CSV files may have different formats: 
 
 - With and without a header row
@@ -218,7 +218,7 @@ WHERE
 
 ## Read CSV file - without specifying all columns
 
-So far, you've specified the CSV file schema using WITH and listing all columns. You can only specify columns you actually need in your query by using an ordinal number for each column you are interested in while omitting columns of no interest.
+So far, you've specified the CSV file schema using WITH and listing all columns. You can only specify columns you actually need in your query by using an ordinal number for each column needed. You'll also omit columns of no interest.
 
 The following query returns the number of distinct country names in a file, specifying only the columns that are needed:
 
@@ -246,6 +246,4 @@ WITH (
 
 ## Next steps
 
-Advance to the next article to learn how query folders and multiple CSV files.
-> [!div class="nextstepaction"]
-> [Querying folders and multiple CSV files](query-folders-multiple-csv-files.md)
+The next article will who you how to [Query folders and multiple CSV files](query-folders-multiple-csv-files.md).

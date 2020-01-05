@@ -1,6 +1,6 @@
 ---
-title: Querying folders and multiple csv files
-description: Reading multiple files/folders is supported through usage of wildcards, similar to wildcard used in Windows OS but with greater flexibility since multiple wildcards are allowed.
+title: Query folders and multiple CSV files  
+description: SQL on-demand supports reading multiple files/folders by using wildcards, which are similar to the wildcards used in Windows OS.
 services: synapse analytics 
 author: azaricstefan 
 ms.service: synapse-analytics 
@@ -11,22 +11,22 @@ ms.author: v-stazar
 ms.reviewer: jrasnick
 ---
 
-# Quickstart: Querying folders and multiple files
+# Quickstart: Query folders and multiple CSV files  
 
-In this article, you will learn how to write a query in SQL Analytics on-demand that will read from multiple CSV files.
+In this article, you'll learn how to write a query in SQL on-demand that will read from multiple CSV files.
 
-Reading multiple files/folders is supported by using wildcards that are similar to wildcards used in Windows OS. However, greater flexibility is present since multiple wildcards are allowed. 
+SQL on-demand supports reading multiple files/folders by using wildcards, which are similar to the wildcards used in Windows OS. However, greater flexibility is present since multiple wildcards are allowed. 
 
 ## Prerequisites
 
-Before reading the rest of this article, make sure to review following articles:
+Before reading the rest of this article, make sure to review the articles listed below:
 - [First-time setup](query-data-storage.md#first-time-setup)
 - [Prerequisites](query-data-storage.md#prerequisites)
 
 
 ## Read multiple files in folder
 
-You will use the folder *csv/taxi* to follow the sample queries. It contains NYC Taxi - Yellow Taxi Trip Records data from July 2016. to June 2018.
+You'll use the folder *csv/taxi* to follow the sample queries. It contains NYC Taxi - Yellow Taxi Trip Records data from July 2016  to June 2018.
 
 Files in *csv/taxi* are named after year and month:
 
@@ -138,7 +138,7 @@ The path that you provide to OPENROWSET can also be a path to a folder. The foll
 
 ### Read all files from specific folder
 
-You can read all files in a folder using the file level wildcard as shown in [Read all files in folder](#read-all-files-in-folder). But, there is a way to query to a folder and consume all files from that particular folder. 
+You can read all the files in a folder using the file level wildcard as shown in [Read all files in folder](#read-all-files-in-folder). But, there is a way to query a folder and consume all files within that folder. 
 
 If the path provided in OPENROWSET points to a folder, all files in that folder will be used as a source for your query.  The following query will read all files in the *csv/taxi* folder.
 
@@ -185,7 +185,7 @@ ORDER BY
 
 ### Read all files from multiple folders
 
-It is possible to read files from multiple folders by using a wildcard. The following query will read all files from all folders located in the *csv* folder that have names starting with *t* and ending with *i*.
+It's possible to read files from multiple folders by using a wildcard. The following query will read all files from all folders located in the *csv* folder that have names starting with *t* and ending with *i*.
 
 > [!NOTE]
 > Note the existence of the / at the end of the path in the query below. It denotes a folder. If the / is omitted, the query will target files named *t&ast;i* instead.
@@ -277,14 +277,12 @@ ORDER BY
 > [!NOTE]
 > All files accessed with the single OPENROWSET must have the same structure (i.e., number of columns and their data types).
 
-Since you have only one folder that matches the criteria, the query result is the same as [Read subset of files in folder](#read-subset-of-files-in-folder) and [Read all files from specific folder](#read-all-files-from-specific-folder). More complex wildcard usage scenarios are covered in [Querying Parquet files](query-parquet-files.md).
+Since you have only one folder that matches the criteria, the query result is the same as [Read subset of files in folder](#read-subset-of-files-in-folder) and [Read all files from specific folder](#read-all-files-from-specific-folder). More complex wildcard usage scenarios are covered in [Query Parquet files](query-parquet-files.md).
 
 
 
 ## Next steps
 
-You can see more in [Querying specific files](query-specific-files.md).
+More information can be found in the in [Query specific files](query-specific-files.md) article.
 
-Advance to the next article to learn how to query specific files.
-> [!div class="nextstepaction"]
-> [Querying specific files](query-specific-files.md)
+ 
