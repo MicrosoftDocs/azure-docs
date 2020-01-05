@@ -1,6 +1,6 @@
 ---
-title: Temporary tables
-description: Essential guidance for using temporary tables in Azure Synapse SQL Analytics, highlighting the principles of session level temporary tables. 
+title: Temporary tables in SQL Analytics
+description: Essential guidance for using temporary tables in SQL Analytics, highlighting the principles of session level temporary tables. 
 services: synapse analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -13,15 +13,17 @@ ms.reviewer: igorstan
 ---
 
 # Temporary tables in SQL Analytics
-This article contains essential guidance for using temporary tables and highlights the principles of session level temporary tables. Using the information in this article can help you modularize your code, improving both reusability and ease of maintenance.
+This article contains essential guidance for using temporary tables and highlights the principles of session level temporary tables within SQL Analytics. 
+
+Both the SQL pools and SQL on-demand resources can utilize temporary tables. But, SQL on-demand has limitations that are discussed at the end of this article. 
 
 ## What are temporary tables?
 
-Temporary tables are useful when processing data, especially during transformation where the intermediate results are transient. In SQL Analytics, temporary tables exist at the session level.  They are only visible to the session in which they were created and are automatically dropped when that session logs off. 
+Temporary tables are useful when processing data, especially during transformation where the intermediate results are transient. In SQL Analytics, temporary tables exist at the session level.  They're only visible to the session in which they were created. As such, they're automatically dropped when that session logs off. 
 
-## Temporary tables in SQL Analytics
+## Temporary tables in SQL pools
 
-In SQL Analytics pool, temporary tables offer a performance benefit because their results are written to local rather than remote storage.
+In the SQL pools resource, temporary tables offer a performance benefit because their results are written to local rather than remote storage.
 
 ### Create a temporary table
 
@@ -91,7 +93,7 @@ GROUP BY
 > 
 
 ### Dropping temporary tables
-When a new session is created, no temporary tables should exist.  However, if you are calling the same stored procedure which creates a temporary with the same name, to ensure that your `CREATE TABLE` statements are successful, a simple pre-existence check with  `DROP` can be used: 
+When a new session is created, no temporary tables should exist.  However, if you're calling the same stored procedure that creates a temporary with the same name, to ensure that your `CREATE TABLE` statements are successful, a simple pre-existence check with  `DROP` can be used: 
 
 ```sql
 IF OBJECT_ID('tempdb..#stats_ddl') IS NOT NULL
@@ -100,14 +102,16 @@ BEGIN
 END
 ```
 
-For coding consistency, it is a good practice to use this pattern for both tables and temporary tables.  It is also a good idea to use `DROP TABLE` to remove temporary tables when you have finished with them.  In stored procedure development, it is common to see the drop commands bundled together at the end of a procedure to ensure these objects are cleaned up.
+For coding consistency, it's a good practice to use this pattern for both tables and temporary tables.  It's also a good idea to use `DROP TABLE` to remove temporary tables when you're finished with them.  
+
+In stored procedure development, it's common to see the drop commands bundled together at the end of a procedure to ensure these objects are cleaned up.
 
 ```sql
 DROP TABLE #stats_ddl
 ```
 
 ### Modularizing code
-Since temporary tables can be seen anywhere in a user session, this can be exploited to help you modularize your application code.  For example, the following stored procedure generates DDL to update all statistics in the database by statistic name:
+Temporary tables can be seen anywhere in a user session. This capability can then be exploited to help you modularize your application code.  To demonstrate, the following stored procedure generates DDL to update all statistics in the database by statistic name:
 
 ```sql
 CREATE PROCEDURE    [dbo].[prc_sqldw_update_stats]
@@ -181,11 +185,11 @@ FROM    t1
 GO
 ```
 
-At this stage, the only action that has occurred is the creation of a stored procedure that generates a temporary table, #stats_ddl, with DDL statements.  This stored procedure drops #stats_ddl if it already exists to ensure it does not fail if run more than once within a session.  
+At this stage, the only action that has occurred is the creation of a stored procedure, which generates a temporary table, #stats_ddl, with DDL statements.  The stored procedure drops #stats_ddl if it already exists. This drop ensures it doesn't fail if run more than once within a session.  
 
-However, since there is no `DROP TABLE` at the end of the stored procedure, when the stored procedure completes, it leaves the created table so that it can be read outside of the stored procedure.  
+However, since there isn't a `DROP TABLE` at the end of the stored procedure, when the stored procedure completes, it leaves the created table so that it can be read outside of the stored procedure.  
 
-In SQL Analytics pool, unlike other SQL Server databases, it is possible to use the temporary table outside of the procedure that created it.  SQL Analytics pool temporary tables can be used **anywhere** inside the session. This can lead to more modular and manageable code as in the following example:
+In SQL Analytics, unlike other SQL Server databases, it is possible to use the temporary table outside of the procedure that created it.  The temporary tables created vis SQL pools can be used **anywhere** inside the session. This capability can lead to more modular and manageable code as in the following example:
 
 ```sql
 EXEC [dbo].[prc_sqldw_update_stats] @update_type = 1, @sample_pct = NULL;
@@ -207,13 +211,17 @@ DROP TABLE #stats_ddl;
 ```
 
 ### Temporary table limitations
-SQL Analytics pool does impose a couple of limitations when implementing temporary tables.  Currently, only session scoped temporary tables are supported.  Global Temporary Tables are not supported.  In addition, views cannot be created on temporary tables.  Temporary tables can only be created with hash or round robin distribution.  Replicated temporary table distribution is not supported. 
+SQL pools do impose a couple of limitations when implementing temporary tables.  Currently, only session scoped temporary tables are supported.  Global Temporary Tables aren't supported.  In addition, views can't be created on temporary tables.  
 
-## Temporary tables in SQL Analytics on-demand
+Temporary tables can only be created with hash or round robin distribution.  Replicated temporary table distribution is not supported. 
 
-Temporary tables in SQL Analytics on-demand are supported but their usage is limited as they cannot be used in queries which target files. For example, you cannot join a temporary table with data from files in storage. The number of temporary tables is limited to 100, and their total size is limited to 100MB.
+## Temporary tables in SQL on-demand
+
+Temporary tables in SQL on-demand are supported but their usage is limited. They can't be used in queries which target files. 
+
+For example, you cannot join a temporary table with data from files in storage. The number of temporary tables is limited to 100, and their total size is limited to 100MB.
 
 ## Next steps
 
-To learn more about developing tables, see the [Table Overview](development-tables-overview.md).
+To learn more about developing tables, see the [Designing tables using the SQL Analytics resources](development-tables-overview.md) article.
 
