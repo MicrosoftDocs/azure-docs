@@ -1,6 +1,6 @@
 ---
 title: Overview - Query data in storage
-description: This section contains sample queries you can use to try out SQL on-demand service.
+description: This section contains sample queries you can use to try out the SQL on-demand resource within Azure Synapse Analytics.
 services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics 
@@ -13,8 +13,7 @@ ms.reviewer: jrasnick
 
 # Overview: Query data in storage
 
-This section contains sample queries you can use to try out SQL on-demand service.
-
+This section contains sample queries you can use to try out the SQL on-demand resource within Azure Synapse Analytics.
 Currently supported files are: 
 - CSV
 - Parquet
@@ -23,32 +22,32 @@ Currently supported files are:
 
 ## Prerequisites
 
-Tools needed to issue queries:
+The tools you need to issue queries:
 
 - SQL client of your choice:
     - Synapse Studio
     - Azure Data Studio
     - SQL Server Management Studio
 
-Parameters:
+Additionally, the parameters are as follows:
 
 | Parameter                                 | Description                                                   |
 | ----------------------------------------- | ------------------------------------------------------------- |
 | SQL on-demand service endpoint address    | Will be used as the server name.                                   |
 | SQL on-demand service endpoint region     | Will be used to determine the storage used in the samples. |
 | Username and password for endpoint access | Will be used to access the endpoint.                               |
-| The database you will use to create views     | This database will be used as a starting point for the samples.       |
+| The database you'll use to create views     | This database will be used as a starting point for the samples.       |
 
 ## First-time setup
 
-You have two steps before using the samples:
+You have two steps before using the samples included below:
 
 - Create a database for your views (in case you want to use views)
 - Create credentials to be used by SQL on-demand to access the files in storage
 
 ### Create database
 
-You need a database to create views. You will use this database for some of the sample queries in this documentation. 
+You need a database to create views. You'll use this database for some of the sample queries in this documentation. 
 
 > [!NOTE]
 > Databases are only used for viewing metadata, not for actual data.  Write down the database name that you use, you will need it later on.
@@ -64,13 +63,12 @@ CREATE DATABASE mydbname
 ### Create credentials
 
 You must credentials before you can run queries. This credential will be used by SQL on-demand service to access the files in storage.
-
-For more information on how to manage storage access control, check this [link](development-storage-files-storage-access-control.md).
+For more information on how to manage storage access control, review the [Storage access control](development-storage-files-storage-access-control.md) article.
 
 > [!NOTE]
-> You need to create credentials for a storage account that is located in your endpoint region. Although SQL on-demand can access storages from different regions, having storage and endpoint in the same region will provide a better performance experience.
+> You need to create credentials for a storage account located in your endpoint region. Although SQL on-demand can access storages from different regions, having the storage and endpoint in the same region will provide a better performance experience.
 
-**Code snippet on how to create credentials for CSV, JSON and Parquet containers**, run:
+To create credentials for CSV, JSON, and Parquet containers, run the code below:
 
 ```mssql
 -- create credentials for CSV container in our demo storage account
@@ -136,7 +134,7 @@ Demo data contains the following data sets:
 Execute the following three queries and check if the credentials are created correctly.
 
 > [!NOTE]
-> All URIs in the sample queries are use a storage account located in the North Europe Azure region. Make sure that you created appropriate credential. Run the query below and make sure the storage account is listed.
+> All URIs in the sample queries use a storage account located in the North Europe Azure region. Make sure that you created the appropriate credential. Run the query below and make sure the storage account is listed.
 
 ```sql
 -- QUERY 1 - Validate CSV credential
@@ -158,7 +156,7 @@ WHERE
 	name = 'https://sqlondemandstorage.blob.core.windows.net/json'
 ```
 
-If you can't find the appropriate credential, check [First-time setup](#first-time-setup).
+If you can't find the appropriate credential, review [First-time setup](#first-time-setup).
 
 ### Sample query
 
@@ -192,9 +190,5 @@ You're now ready to continue on with the following quickstart articles:
 
 - [Query JSON files](query-json-files.md)
 
-- [Creating and using views](create-use-views.md)
+- [Create and using views](create-use-views.md)
 
-
-Advance to the next article to learn how to query a single CSV file.
-> [!div class="nextstepaction"]
-> [Query single CSV file](query-single-csv-file.md)
