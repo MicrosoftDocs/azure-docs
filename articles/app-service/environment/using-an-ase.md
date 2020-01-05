@@ -205,6 +205,9 @@ To delete an ASE:
 [1]: ./media/using_an_app_service_environment/usingase-appcreate.png
 [2]: ./media/using_an_app_service_environment/usingase-pricingtiers.png
 [3]: ./media/using_an_app_service_environment/usingase-delete.png
+[4]: ./media/using_an_app_service_environment/usingase-logsetup.png
+[4]: ./media/using_an_app_service_environment/usingase-logs.png
+[5]: ./media/using_an_app_service_environment/usingase-upgradepref.png
 
 
 <!--Links-->
