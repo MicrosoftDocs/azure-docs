@@ -232,7 +232,6 @@ In this article, you use an Azure Resource Manager template to create a resource
             "type": "Microsoft.Kusto/Clusters/Databases/principalAssignments",
             "apiVersion": "2019-11-09",
             "name": "[concat(parameters('kustoClusterName'), '/', parameters('kustoDatabaseName'), '/', parameters('databasePrincipalAssignmentName'))]",
-            "location": "[parameters('location')]",
             "dependsOn": ["[resourceId('Microsoft.Kusto/clusters/databases', parameters('kustoClusterName'), parameters('kustoDatabaseName'))]"],
             "properties": {
                 "principalId": "[parameters('principalIdForDatabase')]",
