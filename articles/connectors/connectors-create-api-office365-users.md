@@ -30,7 +30,7 @@ After you create the connection, you enter the Office 365 Users properties, like
 
 ## Connector-specific details
 
-For technical details about triggers, actions, and limits, which are described by the connector's Swagger description, review the [connector's reference page](connectors/officeusers/).
+For technical details about triggers, actions, and limits, which are described by the connector's Swagger description, review the [connector's reference page](/connectors/officeusers/).
 
 ## Next steps
 
