@@ -1,25 +1,25 @@
 ---
-title: Private Link for Azure Database for MySQL (Preview) cli setup method
-description: Learn how to configure private link for Azure Database for MySQL from Azure cli
+title: Private Link for Azure Database for MariaDB (Preview) cli setup method
+description: Learn how to configure private link for Azure Database for MariaDB from Azure cli
 author: kummanish
 ms.author: manishku
-ms.service: mysql
+ms.service: mariadb
 ms.topic: conceptual
 ms.date: 01/05/2020
 ---
 
-# Create and manage Private Link for Azure Database for MySQL (Preview) using CLI
+# Create and manage Private Link for Azure Database for MariaDB (Preview) using CLI
 
-A Private Endpoint is the fundamental building block for private link in Azure. It enables Azure resources, like Virtual Machines (VMs), to communicate privately with private link resources. In this article, you will learn how to create a VM on an Azure Virtual Network, an Azure Database for MySQL server with an Azure private endpoint using the Azure CLI. Then, you can securely access the MySQL Server from the VM.
+A Private Endpoint is the fundamental building block for private link in Azure. It enables Azure resources, like Virtual Machines (VMs), to communicate privately with private link resources. In this article, you will learn how to create a VM on an Azure Virtual Network, an Azure Database for MariaDB server with an Azure private endpoint using the Azure CLI. Then, you can securely access the MariaDB Server from the VM.
 
 > [!NOTE]
-> This feature is available in all regions of Azure public cloud where Azure Database for MySQL is deployed for General Purpose and Memory Optimized servers.
+> This feature is available in all regions of Azure public cloud where Azure Database for MariaDB is deployed for General Purpose and Memory Optimized servers.
 
 ## Prerequisites
 
 To step through this how-to guide, you need:
 
-- An [Azure Database for MySQL server](quickstart-create-mysql-server-database-using-azure-cli.md).
+- An [Azure Database for MariaDB server](quickstart-create-mariadb-server-database-using-azure-cli.md).
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -63,12 +63,12 @@ az vm create \
 ```
  Note the public IP address of the VM. You will use this address to connect to the VM from the internet in the next step.
 
-## Create an Azure Database for MySQL server 
-Create a Azure Database for MySQL with the az sql server create command. Remember that the name of your SQL Server must be unique across Azure, so replace the placeholder value in brackets with your own unique value: 
+## Create an Azure Database for MariaDB server 
+Create a Azure Database for MariaDB with the az sql server create command. Remember that the name of your SQL Server must be unique across Azure, so replace the placeholder value in brackets with your own unique value: 
 
 ```azurecli-interactive
 # Create a logical server in the resource group 
-az mysql server create \
+az MariaDB server create \
 --name mydemoserver \
 --resource-group myresourcegroup \
 --location westeurope \
@@ -77,8 +77,8 @@ az mysql server create \
 --sku-name GP_Gen5_2
 ```
 
-Note the MySQL Server ID is similar to ```/subscriptions/subscriptionId/resourceGroups/myResourceGroup/providers/Microsoft.DBforMySQL/servers/servername.``` 
-You will use the MySQL Server ID in the next step. 
+Note the MariaDB Server ID is similar to ```/subscriptions/subscriptionId/resourceGroups/myResourceGroup/providers/Microsoft.DBforMariaDB/servers/servername.``` 
+You will use the MariaDB Server ID in the next step. 
 
 ## Create the Private Endpoint 
 Create a private endpoint for the SQL Database server in your Virtual Network: 
@@ -88,8 +88,8 @@ az network private-endpoint create \
     --resource-group myResourceGroup \  
     --vnet-name myVirtualNetwork  \  
     --subnet mySubnet \  
-    --private-connection-resource-id "<MySQL Server ID>" \  
-    --group-ids MySQLServer \  
+    --private-connection-resource-id "<MariaDB Server ID>" \  
+    --group-ids MariaDBServer \  
     --connection-name myConnection  
  ```
 
@@ -109,7 +109,7 @@ networkInterfaceId=$(az network private-endpoint show --name myPrivateEndpoint -
  
  
 az resource show --ids $networkInterfaceId --api-version 2019-04-01 -o json 
-# Copy the content for privateIPAddress and FQDN matching the Azure database for MySQL name 
+# Copy the content for privateIPAddress and FQDN matching the Azure database for MariaDB name 
  
  
 #Create DNS records 
@@ -146,14 +146,14 @@ Connect to the VM *myVm* from the internet as follows:
 
 1. In the Remote Desktop of *myVM*, open PowerShell.
 
-2. Enter  `nslookup mydemomysqlsserver.mysql.privatelink.database.azure.com`. 
+2. Enter  `nslookup mydemoMariaDBsserver.MariaDB.privatelink.database.azure.com`. 
 
     You'll receive a message similar to this:
     ```azurepowershell
     Server:  UnKnown
     Address:  168.63.129.16
     Non-authoritative answer:
-    Name:    mydemomysqlserver.mysql.privatelink.database.azure.com
+    Name:    mydemoMariaDBserver.MariaDB.privatelink.database.azure.com
     Address:  10.1.3.4
 
 3. Install [Azure Data studio](https://docs.microsoft.com/sql/azure-data-studio/download?view=sql-server-ver15).
@@ -162,10 +162,10 @@ Connect to the VM *myVm* from the internet as follows:
 
     | Setting | Value |
     | ------- | ----- |
-    | Server type| Select **MySQL**.|
-    | Server name| Select *mydemomysqlserver.mysql.privatelink.database.azure.com* |
-    | User name | Enter username as username@servername which is provided during the MySQL server creation. |
-    |Password |Enter a password provided during the MySQL server creation. |
+    | Server type| Select **MariaDB**.|
+    | Server name| Select *mydemoMariaDBserver.MariaDB.privatelink.database.azure.com* |
+    | User name | Enter username as username@servername which is provided during the MariaDB server creation. |
+    |Password |Enter a password provided during the MariaDB server creation. |
     |SSL|Select **Required**.|
     ||
 
@@ -173,7 +173,7 @@ Connect to the VM *myVm* from the internet as follows:
 
 6. Browse databases from left menu.
 
-7. (Optionally) Create or query information from the MySQL database.
+7. (Optionally) Create or query information from the MariaDB database.
 
 8. Close the remote desktop connection to myVm.
 
