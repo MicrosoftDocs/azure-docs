@@ -56,6 +56,7 @@ The following table provides a comparison between Azure AD Connect and Azure AD 
 | Allow advanced customization for attribute flows |● | |
 | Support for writeback (passwords, devices, groups) |● | |
 | Azure AD Domain Services support|● | |
+| Exchange hybrid configuration |● | |
 
 ## Next steps 
 

@@ -123,6 +123,10 @@ In the samples, PlayReady protection works for both DASH and smooth streaming. T
 * Source URL: https://willzhanmswest.streaming.mediaservices.windows.net/7c085a59-ae9a-411e-842c-ef10f96c3f89/20150807-bridges-2500.ism/manifest 
 * PlayReady LA_URL (DASH & smooth): https://willzhan12.cloudapp.net/playready/rightsmanager.asmx 
 
+## Additional notes
+
+* Widevine is a service provided by Google Inc. and subject to the terms of service and Privacy Policy of Google, Inc.
+
 ## Summary
 
 In summary, Azure Media Services DRM components are flexible, you can use them in a hybrid scenario by properly configuring content key and asset delivery policy, as described in this topic.

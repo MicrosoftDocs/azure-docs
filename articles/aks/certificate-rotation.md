@@ -18,20 +18,7 @@ This article shows you how to rotate the certificates in your AKS cluster.
 
 ## Before you begin
 
-This article requires that you are running the Azure CLI version 2.0.76 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
-
-
-### Install aks-preview CLI extension
-
-To use this feature, you need the *aks-preview* CLI extension version 0.4.21 or higher. Install the *aks-preview* Azure CLI extension using the [az extension add][az-extension-add] command, then check for any available updates using the [az extension update][az-extension-update] command:
-
-```azurecli-interactive
-# Install the aks-preview extension
-az extension add --name aks-preview
-
-# Update the extension to make sure you have the latest version installed
-az extension update --name aks-preview
-```
+This article requires that you are running the Azure CLI version 2.0.77 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
 
 ## AKS certificates, Certificate Authorities, and Service Accounts
 
@@ -47,7 +34,13 @@ AKS generates and uses the following certificates, Certificate Authorities, and 
 * The `kubectl` client has a certificate for communicating with the AKS cluster.
 
 > [!NOTE]
-> AKS clusters created prior to March 2019 have certificates that expire after two years. Any cluster created after March 2019 or any cluster that has its certificates rotated have certificates that expire after 30 years.
+> AKS clusters created prior to March 2019 have certificates that expire after two years. Any cluster created after March 2019 or any cluster that has its certificates rotated have certificates that expire after 30 years. To verify when your cluster was created, use `kubectl get nodes` to see the *Age* of your node pools.
+> 
+> Additionally, you can check the expiration date of your cluster's certificate. For example, the following command displays the certificate details for the *myAKSCluster* cluster.
+> ```console
+> kubectl config view --raw -o jsonpath='{.clusters[?(@.name == "myAKSCluster")].cluster.certificate-authority-data}' | base64 -d > my-cert.crt
+> openssl x509 -in my-cert.crt -text
+> ```
 
 ## Rotate your cluster certificates
 

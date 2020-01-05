@@ -141,7 +141,7 @@
 - name: Concepts
   items:
   - name: Azure Resource Manager
-    href: ../../azure-resource-manager/resource-group-overview.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+    href: ../../azure-resource-manager/management/overview.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
   - name: Regions
     href: regions.md
   - name: Availability and performance
@@ -185,7 +185,9 @@
       - name: GPU optimized
         href: sizes-gpu.md
       - name: Setup GPU drivers
-        href: n-series-driver-setup.md      
+        href: n-series-driver-setup.md
+      - name: Setup AMD GPU drivers
+        href: n-series-amd-driver-setup.md      
     - name: High performance compute
       displayName: H-series
       href: sizes-hpc.md   
@@ -409,7 +411,7 @@
     - name: Maintenance notifications
       items:
       - name: Overview
-        href: maintenance-notifications.md
+        href: ../maintenance-notifications.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
       - name: CLI
         href: ../maintenance-notifications-cli.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
       - name: Portal
@@ -672,7 +674,7 @@
 - name: Resources
   items:
   - name: Author templates
-    href: ../../azure-resource-manager/resource-group-authoring-templates.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+    href: ../../azure-resource-manager/templates/template-syntax.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
   - name: Build your skills with Microsoft Learn
     href: /learn/browse/?products=azure-virtual-machines
   - name: Azure Roadmap

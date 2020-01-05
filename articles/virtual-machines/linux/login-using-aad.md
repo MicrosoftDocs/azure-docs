@@ -204,6 +204,10 @@ If you successfully complete the authentication step in a web browser, you may b
 - If you have multiple user accounts, make sure you don't provide a different user account in the browser window when signing in to Azure AD.
 - Linux is a case-sensitive operating system. There is a difference between 'Azureuser@contoso.onmicrosoft.com' and 'azureuser@contoso.onmicrosoft.com', which can cause a mismatch. Make sure that you specify the UPN with the correct case-sensitivity at the SSH prompt.
 
+### Other limitations
+
+Users that inherit access rights through nested groups or role assignments aren't currently supported. The user or group must be directly assigned the [required role assignments](#configure-role-assignments-for-the-vm). For example, the use of management groups or nested group role assignments won't grant the correct permissions to allow the user to sign in.
+
 ## Preview feedback
 
 Share your feedback about this preview feature or report issues using it on the [Azure AD feedback forum](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032)

@@ -135,7 +135,7 @@ The SCIM RFC defines a core user and group schema, while also allowing for exten
    1. Sign in to the [Azure Active Directory portal](https://aad.portal.azure.com), select **Enterprise Applications**, select your application, and then select **Provisioning**.
    2. Under **Mappings**, select the object (user or group) for which you'd like to add a custom attribute.
    3. At the bottom of the page, select **Show advanced options**.
-   4. Select **Edit attribute list for AppName*.
+   4. Select **Edit attribute list for AppName**.
    5. At the bottom of the attribute list, enter information about the custom attribute in the fields provided. Then select **Add Attribute**.
 
 For SCIM applications, the attribute name must follow the pattern shown in the example below. The "CustomExtensionName" and "CustomAttribute" can be customized per your application's requirements, for example:  urn:ietf:params:scim:schemas:extension:2.0:CustomExtensionName:CustomAttribute

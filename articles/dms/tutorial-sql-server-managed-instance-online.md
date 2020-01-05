@@ -1,5 +1,6 @@
 ---
-title: "Tutorial: Use Azure Database Migration Service to perform an online migration of SQL Server to an Azure SQL Database managed instance | Microsoft Docs"
+title: "Tutorial: Migrate SQL Server online to a SQL managed instance"
+titleSuffix: Azure Database Migration Service
 description: Learn to perform an online migration from SQL Server on-premises to an Azure SQL Database managed instance by using Azure Database Migration Service.
 services: dms
 author: HJToland3
@@ -8,9 +9,9 @@ manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
-ms.custom: mvc, tutorial
+ms.custom: "seo-lt-2019"
 ms.topic: article
-ms.date: 12/04/2019
+ms.date: 12/27/2019
 ---
 
 # Tutorial: Migrate SQL Server to an Azure SQL Database managed instance online using DMS
@@ -36,6 +37,9 @@ In this tutorial, you learn how to:
 
 > [!IMPORTANT]
 > For an optimal migration experience, Microsoft recommends creating an instance of  Azure Database Migration Service in the same Azure region as the target database. Moving data across regions or geographies can slow down the migration process and introduce errors.
+
+> [!IMPORTANT]
+> It's important to reduce the duration of the online migration process as much as possible, to minimize the risk of interruption caused by instance reconfiguration or planned maintenance. In case of such an event, migration process will start from the beginning. In case of planned maintenance, there is a grace period of 36 hours before migration process is restarted.
 
 [!INCLUDE [online-offline](../../includes/database-migration-service-offline-online.md)]
 
@@ -209,7 +213,7 @@ After an instance of the service is created, locate it within the Azure portal, 
 
 
 > [!NOTE]
-  > If Azure Database Migration Service shows error ‘System Error 53’ or ‘System Error 57’, the cause might result frm an inability of Azure Database Migration Service to access Azure file share. If you encounter one of these errors, please grant access to storage the account from the virtual network using the instructions [here](https://docs.microsoft.com/azure/storage/common/storage-network-security?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access-from-a-virtual-network).
+  > If Azure Database Migration Service shows error ‘System Error 53’ or ‘System Error 57’, the cause might result frm an inability of Azure Database Migration Service to access Azure file share. If you encounter one of these errors, please grant access to the storage account from the virtual network using the instructions [here](https://docs.microsoft.com/azure/storage/common/storage-network-security?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access-from-a-virtual-network).
 
 
 2. Select **Save**.

@@ -43,8 +43,10 @@
     href: tutorial-azure-security.md
   - name: 14 - Deploy Jenkins
     href: tutorial-jenkins-github-docker-cicd.md
-  - name: 15 - CI/CD with Azure Pipelines
+  - name: 15a - Deploy with Azure Pipelines
     href: tutorial-build-deploy-jenkins.md
+  - name: 15b - CI/CD with Azure Pipelines
+    href: tutorial-build-deploy-azure-pipelines.md
   - name: 16a - Create LAMP stack
     href: tutorial-lamp-stack.md
   - name: 16b - Create LEMP stack
@@ -62,7 +64,7 @@
 - name: Concepts
   items:
   - name: Azure Resource Manager
-    href: ../../azure-resource-manager/resource-group-overview.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+    href: ../../azure-resource-manager/management/overview.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
   - name: Regions
     href: regions.md
   - name: Availability and performance
@@ -330,7 +332,7 @@
     - name: Maintenance notifications
       items:
       - name: Overview
-        href: maintenance-notifications.md
+        href: ../maintenance-notifications.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
       - name: CLI
         href: ../maintenance-notifications-cli.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
       - name: Portal

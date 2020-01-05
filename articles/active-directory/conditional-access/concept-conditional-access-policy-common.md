@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 12/03/2019
+ms.date: 12/10/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 ---
 # Common Conditional Access policies
 
-Baseline protection policies are great but many organizations need more flexibility than they offer. For example, many organizations need the ability to exclude specific accounts like their emergency access or break-glass administration accounts from Conditional Access policies requiring multi-factor authentication. For those organizations, the common policies referenced in this article can be of use.
+[Security defaults](../fundamentals/concept-fundamentals-security-defaults.md) are great for some but many organizations need more flexibility than they offer. For example, many need the ability to exclude specific accounts like their emergency access or break-glass administration accounts from Conditional Access policies requiring multi-factor authentication. For those organizations, the common policies referenced in this article can be of use.
 
 ![Conditional Access policies in the Azure portal](./media/concept-conditional-access-policy-common/conditional-access-policies-azure-ad-listing.png)
 

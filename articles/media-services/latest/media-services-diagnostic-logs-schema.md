@@ -105,6 +105,10 @@ Properties of the key delivery requests schema.
 } 
 ```
 
+## Additional notes
+
+* Widevine is a service provided by Google Inc. and subject to the terms of service and Privacy Policy of Google, Inc.
+
 ## Next steps
 
 [Monitor Media Services metrics and diagnostic logs](media-services-metrics-diagnostic-logs.md)

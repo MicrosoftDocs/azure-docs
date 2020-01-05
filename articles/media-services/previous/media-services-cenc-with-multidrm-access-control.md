@@ -459,11 +459,16 @@ The following screenshot shows a scenario that uses an asymmetric key via an X50
 In both of the previous cases, user authentication stays the same. It takes place through Azure AD. The only difference is that JWTs are issued by the custom STS instead of Azure AD. When you configure dynamic CENC protection, the license delivery service restriction specifies the type of JWT, either a symmetric or an asymmetric key.
 
 ## Summary
+
 This document discussed CENC with multi-native DRM and access control via token authentication, its design, and its implementation by using Azure, Media Services, and Media Player.
 
 * A reference design was presented that contains all the necessary components in a DRM/CENC subsystem.
 * A reference implementation was presented on Azure, Media Services, and Media Player.
 * Some topics directly involved in the design and implementation were also discussed.
+
+## Additional notes
+
+* Widevine is a service provided by Google Inc. and subject to the terms of service and Privacy Policy of Google, Inc.
 
 ## Media Services learning paths
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
