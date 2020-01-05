@@ -2,7 +2,7 @@
 title: Troubleshoot System State Backup
 description: In this article, learn how to troubleshoot issues in System State Backup for on-premises Windows servers.
 ms.reviewer: srinathv
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 07/22/2019
 ---
 
