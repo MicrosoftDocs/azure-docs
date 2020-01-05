@@ -8,7 +8,7 @@ manager: rkarlin
 ms.assetid: ad4b0373-08ee-46ca-a573-638ed93a647c
 ms.service: security-center
 ms.topic: conceptual
-ms.date: 07/02/2019
+ms.date: 01/05/2020
 ms.author: memildin
 ---
 # Integration of Azure security products in Azure Security Center

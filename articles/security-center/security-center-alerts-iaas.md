@@ -8,7 +8,7 @@ manager: rkarlin
 ms.assetid: dd2eb069-4c76-4154-96bb-6e6ae553ef46
 ms.service: security-center
 ms.topic: conceptual
-ms.date: 07/02/2019
+ms.date: 01/05/2020
 ms.author: memildin
 ---
 # Threat detection for VMs and servers in Azure Security Center

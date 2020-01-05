@@ -9,7 +9,7 @@ manager: rkarlin
 ms.assetid: da960861-0b6c-4d80-932d-898cdebb4f83
 ms.service: security-center
 ms.topic: conceptual
-ms.date: 07/24/2019
+ms.date: 01/05/2020
 ms.author: memildin
 ---
 # Threat detection for data services in Azure Security Center

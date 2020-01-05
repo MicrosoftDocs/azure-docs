@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/05/2019
+ms.date: 01/05/2020
 ms.author: memildin
 ---
 # Threat detection for cloud native computing in Azure Security Center
