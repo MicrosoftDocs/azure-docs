@@ -49,9 +49,9 @@ This topic shows you how to use the connector in a logic app to process database
    * Edit a row by using an `UPDATE` statement
    * Delete a row by using a `DELETE` statement
 
-1. If you're prompted to provide connection details for your Informix database, follow the steps to create connections for [cloud databases](#cloud-connection) or [on-premises databases](#on-premises-connection).
+1. If you're prompted to provide connection details for your Informix database, follow the [steps to create the connection](#create-connection), and then continue with the next step.
 
-1. After you create your connection, provide the information for your selected action:
+1. Provide the information for your selected action:
 
    | Action | Description | Properties and descriptions |
    |--------|-------------|-----------------------------|
@@ -63,7 +63,9 @@ This topic shows you how to use the connector in a logic app to process database
    | **Delete row** | Remove a row from the specified Informix table by running an Informix `DELETE` statement. | - **Table name**: The name for the Informix table that you want <br>- **Row ID**: The unique ID for the row to delete, for example, `9999` |
    ||||
 
-<a name="cloud-connection"></a>
+1. Save your logic app. Now, either [test your logic app](#test-logic-app) or continue building your logic app.
+
+<a name="create-connection"></a>
 
 ## Connect to Informix
 
@@ -94,9 +96,11 @@ This topic shows you how to use the connector in a logic app to process database
 
 1. Save your logic app.
 
-## View outputs
+<a name="test-logic-app"></a>
 
-After your logic app runs, you can view the outputs from that run.
+## Test your logic app
+
+1. On the Logic App Designer toolbar, select **Run**. After your logic app runs, you can view the outputs from that run.
 
 1. From your logic app's menu, select **Overview**. On the overview pane, under **Summary** > **Runs history**, select the most recent run.
 
