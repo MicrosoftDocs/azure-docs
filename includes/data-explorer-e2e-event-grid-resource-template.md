@@ -84,20 +84,20 @@ In this article, you use an Azure Resource Manager template to create a resource
                 "description": "Specifies the principal id. It can be user email, application (client) ID, security group name"
             }
         },
-		"roleForClusterPrincipal": {
+        "roleForClusterPrincipal": {
             "type": "string",
 			"defaultValue": "AllDatabasesViewer",
             "metadata": {
                 "description": "Specifies the cluster principal role. It can be 'AllDatabasesAdmin', 'AllDatabasesViewer'"
             }
         },
-		"tenantIdForClusterPrincipal": {
+        "tenantIdForClusterPrincipal": {
             "type": "string",
             "metadata": {
                 "description": "Specifies the tenantId of the cluster principal"
             }
         },
-		"principalTypeForCluster": {
+        "principalTypeForCluster": {
             "type": "string",
 			"defaultValue": "App",
             "metadata": {
@@ -117,20 +117,20 @@ In this article, you use an Azure Resource Manager template to create a resource
                 "description": "Specifies the principal id. It can be user email, application (client) ID, security group name"
             }
         },
-		"roleForDatabasePrincipal": {
+        "roleForDatabasePrincipal": {
             "type": "string",
 			"defaultValue": "Admin",
             "metadata": {
                 "description": "Specifies the database principal role. It can be 'Admin', 'Ingestor', 'Monitor', 'User', 'UnrestrictedViewers', 'Viewer'"
             }
         },
-		"tenantIdForDatabasePrincipal": {
+        "tenantIdForDatabasePrincipal": {
             "type": "string",
             "metadata": {
                 "description": "Specifies the tenantId of the database principal"
             }
         },
-		"principalTypeForDatabase": {
+        "principalTypeForDatabase": {
             "type": "string",
 			"defaultValue": "App",
             "metadata": {
