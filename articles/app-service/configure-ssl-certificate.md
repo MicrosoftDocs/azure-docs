@@ -10,7 +10,7 @@ ms.custom: seodec18
 ---
 # Add an SSL certificate in Azure App Service
 
-[Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service. This article shows you how create, upload, or import a private certificate or a public certificate into App Service. 
+[Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service. This article shows you how tocreate, upload, or import a private certificate or a public certificate into App Service. 
 
 Once the certificate is added to your App Service app or [function app](https://docs.microsoft.com/azure/azure-functions/), you can [secure a custom DNS name with it](configure-ssl-bindings.md) or [use it in your application code](configure-ssl-certificate-in-code.md).
 
@@ -123,7 +123,7 @@ Select the certificate in the [App Service Certificates](https://portal.azure.co
 
 [Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview) is an Azure service that helps safeguard cryptographic keys and secrets used by cloud applications and services. It's the storage of choice for App Service certificates.
 
-In the **Key Vault Status** page, click **Key Vault Repository** to create a new vault or choose an existing vault. If you choose to create a new vault, use the following table to help you configure the vault and click Create. see to create new Key Vault inside same subscription and resource group.
+In the **Key Vault Status** page, click **Key Vault Repository** to create a new vault or choose an existing vault. If you choose to create a new vault, use the following table to help you configure the vault and click Create. Create the new Key Vault inside the same subscription and resource group as your App Service app.
 
 | Setting | Description |
 |-|-|
@@ -134,7 +134,7 @@ In the **Key Vault Status** page, click **Key Vault Repository** to create a new
 | Access policies| Defines the applications and the allowed access to the vault resources. You can configure it later, following the steps at [Grant several applications access to a key vault](../key-vault/key-vault-group-permissions-for-apps.md). |
 | Virtual Network Access | Restrict vault access to certain Azure virtual networks. You can configure it later, following the steps at [Configure Azure Key Vault Firewalls and Virtual Networks](../key-vault/key-vault-network-security.md) |
 
-Once you've selected the vault, close the **Key Vault Repository** page. The **Store** option should show a green check mark for success. Keep the page open for the next step.
+Once you've selected the vault, close the **Key Vault Repository** page. The **Step 1: Store** option should show a green check mark for success. Keep the page open for the next step.
 
 ### Verify domain ownership
 
@@ -178,7 +178,7 @@ In the <a href="https://portal.azure.com" target="_blank">Azure portal</a>, from
 
 From the left navigation of your app, select **TLS/SSL settings** > **Private Key Certificates (.pfx)** > **Import Key Vault Certificate**.
 
-![Import Key Vault certificate in App Service](./media/configure-ssl-certificate/import-key-vault-cert.png))
+![Import Key Vault certificate in App Service](./media/configure-ssl-certificate/import-key-vault-cert.png)
 
 Use the following table to help you select the certificate.
 
