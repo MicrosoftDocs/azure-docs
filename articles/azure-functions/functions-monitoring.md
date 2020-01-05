@@ -70,7 +70,7 @@ You can see that both pages have a **Run in Application Insights** link to the A
 
 ![Run in Application Insights](media/functions-monitoring/run-in-ai.png)
 
-The following query is displayed. You can see that the query results are limited to the last 30 days (`where timestamp > ago(30d`). In addition, the results show no more than 20 rows (`take 20`). In contrast, the invocation details list for your function is for the last 30 days with no limit.
+The following query is displayed. You can see that the query results are limited to the last 30 days (`where timestamp > ago(30d)`). In addition, the results show no more than 20 rows (`take 20`). In contrast, the invocation details list for your function is for the last 30 days with no limit.
 
 ![Application Insights Analytics invocation list](media/functions-monitoring/ai-analytics-invocation-list.png)
 
