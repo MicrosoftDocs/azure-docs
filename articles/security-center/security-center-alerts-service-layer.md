@@ -53,7 +53,7 @@ For a list of the Azure Resource Manager (Preview) alerts, see the [Reference ta
 >[!NOTE]
 >Security Center stores security-related customer data in the same geo as its resource. If Microsoft hasn't yet deployed Security Center in the resource's geo, then it stores the data in the United States. When Cloud App Security is enabled, this information is stored in accordance with the geo location rules of Cloud App Security. For more information, see [Data storage for non-regional services](https://azuredatacentermap.azurewebsites.net/).
 
-## Azure Key Vault <a name="azure-keyvault"></a>
+## Azure Key Vault (Preview)<a name="azure-keyvault"></a>
 
 Azure Key Vault is a cloud service that safeguards encryption keys and secrets like certificates, connection strings, and passwords. 
 

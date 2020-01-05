@@ -38,7 +38,7 @@ Azure Security Center integrates with Azure services to monitor and protect your
 
     For a list of the crash dump analysis alerts, see the [Reference table of alerts](alerts-reference.md#alerts-crashdump).
 
-* **Fileless attack detection **<a name="windows-fileless"></a> - Fileless attacks targeting your endpoints are common. To avoid detection, fileless attacks inject malicious payloads into memory. Attacker payloads persist within the memory of compromised processes, and perform a wide range of malicious activities.
+* **Fileless attack detection** <a name="windows-fileless"></a> - Fileless attacks targeting your endpoints are common. To avoid detection, fileless attacks inject malicious payloads into memory. Attacker payloads persist within the memory of compromised processes, and perform a wide range of malicious activities.
 
     With fileless attack detection, automated memory forensic techniques identify fileless attack toolkits, techniques, and behaviors. This solution periodically scans your machine at runtime, and extracts insights directly from the memory of security-critical processes.
 
