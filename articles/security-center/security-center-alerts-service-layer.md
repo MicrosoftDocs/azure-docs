@@ -22,16 +22,20 @@ This topic presents the Azure Security Center alerts available when monitoring t
 
 ## Azure network layer<a name="network-layer"></a>
 
-Security Center network-layer analytics are based on sample [IPFIX data](https://en.wikipedia.org/wiki/IP_Flow_Information_Export), which are packet headers collected by Azure core routers. Based on this data feed, Security Center machine learning models identify and flag malicious traffic activities. To enrich IP addresses, Security Center makes use of the Microsoft Threat Intelligence database.
+Security Center network-layer analytics are based on sample [IPFIX data](https://en.wikipedia.org/wiki/IP_Flow_Information_Export), which are packet headers collected by Azure core routers. Based on this data feed, Security Center uses machine learning models to identify and flag malicious traffic activities. Security Center also uses the Microsoft Threat Intelligence database to enrich IP addresses.
 
-You'll get alerts for suspicious network activity if your virtual machine has a public IP address, or is on a load balancer with a public IP address. If your VM or load balancer don't have a public IP address, Security Center will not generate network security alerts. Network layer threat detection alerts will be generated when an external IDS solutions are not blocking VMs network egress traffic.
+Some network configurations may restrict Security Center from generating alerts on suspicious network activity. For Security Center to generate network alerts, ensure that:
+
+✔ Your virtual machine has a public IP address (or is on a load balancer with a public IP address).
+
+✔ Your virtual machine's network egress traffic isn't blocked by an external IDS solution.
+
+✔ Your virtual machine has been assigned the same IP address for the entire hour during which the suspicious communication occurred. This also applies to VMs created as part of a managed service (e.g. AKS, Databricks).
 
 For a list of the Azure network layer alerts, see the [Reference table of alerts](alerts-reference.md#alerts-azurenetlayer).
 
-To understand how Security Center can use network-related signals to apply threat protection, see [Heuristic DNS detections in Azure Security Center](https://azure.microsoft.com/blog/heuristic-dns-detections-in-azure-security-center/).
+For details of how Security Center can use network-related signals to apply threat protection, see [Heuristic DNS detections in  Security Center](https://azure.microsoft.com/blog/heuristic-dns-detections-in-azure-security-center/).
 
->[!NOTE]
->Azure network layer threat detection alerts, in Azure Security Center, are only generated on virtual machines which have been assigned the same IP address for the entire hour during which a suspicious communication has taken place. This applies to virtual machines, as well as virtual machines that are created in the customer’s subscription as part of a managed service (e.g. AKS, Databricks).
 
 ## Azure management layer (Azure Resource Manager) (Preview)<a name ="management-layer"></a>
 
