@@ -21,14 +21,6 @@ To transfer data to Azure, you need to create shares on your Azure Stack Edge. T
  - **Local shares**: Use these shares when you want the data to be processed locally on the device.
  - **Shares**: Use these shares when you want the device data to be automatically pushed to your storage account in the cloud. All the cloud functions such as **Refresh** and **Sync storage keys** apply to the shares.
 
-In this article, you learn how to:
-
-> [!div class="checklist"]
-> * Add a share
-> * Delete a share
-> * Refresh shares
-> * Sync storage key
-
 
 ## Add a share
 
