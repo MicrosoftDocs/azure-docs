@@ -26,11 +26,11 @@ Security Center network-layer analytics are based on sample [IPFIX data](https:/
 
 Some network configurations may restrict Security Center from generating alerts on suspicious network activity. For Security Center to generate network alerts, ensure that:
 
-✔ Your virtual machine has a public IP address (or is on a load balancer with a public IP address).
+- Your virtual machine has a public IP address (or is on a load balancer with a public IP address).
 
-✔ Your virtual machine's network egress traffic isn't blocked by an external IDS solution.
+- Your virtual machine's network egress traffic isn't blocked by an external IDS solution.
 
-✔ Your virtual machine has been assigned the same IP address for the entire hour during which the suspicious communication occurred. This also applies to VMs created as part of a managed service (e.g. AKS, Databricks).
+- Your virtual machine has been assigned the same IP address for the entire hour during which the suspicious communication occurred. This also applies to VMs created as part of a managed service (e.g. AKS, Databricks).
 
 For a list of the Azure network layer alerts, see the [Reference table of alerts](alerts-reference.md#alerts-azurenetlayer).
 
