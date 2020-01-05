@@ -21,13 +21,11 @@ This Benchmark focuses on cloud-centric control areas. These controls are consis
 The following controls are used in the Azure Security Benchmark: 
 
 - Network security 
-- Logging & Monitoring 
+- Logging and Monitoring 
 - Identity and Access Control 
-- Data protection 
-- Identity & Access Management 
 - Data Protection 
 - Vulnerability Management 
-- Inventory & Asset Management 
+- Inventory and Asset Management 
 - Secure Configuration 
 - Malware Defense 
 - Data Recovery 
@@ -47,4 +45,4 @@ We welcome your detailed feedback and active participation in the Azure Security
 
 ## Next Steps
 
-Read the [Azure Security Benchmark Overview](overview.md)
+See the first security control: [Network Security](security-control-network-security.md)

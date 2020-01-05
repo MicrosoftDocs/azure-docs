@@ -116,7 +116,7 @@ The Language Understanding (LUIS) prediction runtime client is a [LUISRuntimeCli
 
 Once the client is created, use this client to access functionality including:
 
-* Prediction by [staging or product slot]((https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.runtime.predictionoperationsextensions.getslotpredictionasync?view=azure-dotnet))
+* Prediction by [staging or product slot](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.runtime.predictionoperationsextensions.getslotpredictionasync?view=azure-dotnet)
 * Prediction by [version](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.runtime.predictionoperationsextensions.getversionpredictionasync?view=azure-dotnet)
 
 

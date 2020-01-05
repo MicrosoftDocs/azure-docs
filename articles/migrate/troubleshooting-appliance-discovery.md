@@ -112,6 +112,32 @@ Error 50004: "Can't connect to a host or cluster because the server name can't b
     4. Save and close the hosts file.
     5. Check whether the appliance can connect to the hosts, using the appliance management app. After 30 minutes, you should see the latest information for these hosts in the Azure portal.
 
+## Discovered VMs not in portal
+
+If discovery state is "Discovery in progress", but don't yet see the VMs in the portal, wait a few minutes:
+- It takes around 15 minutes for a VMware VM .
+- It takes around two minutes for each added host for Hyper-V VM discovery.
+
+If you wait and the state doesn't change, select **Refresh** on the **Servers** tab. This should show the count of the discovered servers in Azure Migrate: Server Assessment and Azure Migrate: Server Migration.
+
+If this doesn't work and you're discovering VMware servers:
+
+- Verify that the vCenter account you specified has permissions set correctly, with access to at least one VM.
+- Azure Migrate can't discovered VMware VMs if the vCenter account has access granted at vCenter VM folder level. [Learn more](tutorial-assess-vmware.md#set-the-scope-of-discovery) about scoping discovery.
+
+## VM data not in portal
+
+If discovered VMs don't appear in the portal, wait a few minutes. It takes up to 30 minustes for discovered data to appear in the portal. If there's no data after 30 mins, try refreshing, as follows
+
+1. In **Servers** > **Azure Migrate Server Assessment**, select **Overview**.
+2. Under **Manage**, select **Agent Health**.
+3. Select **Refresh agent**.
+4. Wait for the refresh operation to complete. You should now see up-to-date information.
+
+## Deleted VMs appear in portal
+
+If you delete VMs and they still appear in the portal, wait 30 minutes. If they still appear, refresh as described above.
+
 ## Common app discovery errors
 
 Azure Migrate supports discovery of applications, roles, and features, using Azure Migrate: Server Assessment. App discovery is currently supported for VMware only. [Learn more](how-to-discover-applications.md) about the requirements and steps for setting up app discovery.
