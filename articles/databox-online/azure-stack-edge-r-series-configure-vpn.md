@@ -37,7 +37,7 @@ The detailed steps are provided in the following sections.
 
 2. Your VPN device should have a static Public IP address (external). This address shouldn't be NAT.
 
-3. You should have access to a valid Azure Subscription that is enabled for Azure Stack Edge / Data Box Gateway service in Azure. Use this subscription to create a corresponding resource in Azure to manage your Azure Stack Edge device. Use the instructions in 
+3. You should have access to a valid Azure Subscription that is enabled for Azure Stack Edge / Data Box Gateway service in Azure. Use this subscription to create a corresponding resource in Azure to manage your Azure Stack Edge device.  
 
 4. You have access to a Windows client that you'll use to access your Azure Stack Edge device. You'll need to configure this client to add networks rules and application rules to the firewall, and add routes to the routing table.
 
@@ -55,7 +55,7 @@ The detailed steps are provided in the following sections.
         ```
         Provide the Azure subscription name you are using with your Azure Stack Edge device to configure VPN.
 
-    3. Download the scripts required to create network and application rules and routes from http://aka.ms/ase-vpn-scripts.
+    3. Download the scripts required to create network and application rules and routes from https://aka.ms/ase-vpn-scripts.
 
     4. Download the service tags from the Azure to your local client and save as a *json* file in the same folder that contains the scripts: https://www.microsoft.com/en-us/download/details.aspx?id=56519 
 
