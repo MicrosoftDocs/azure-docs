@@ -6,10 +6,10 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-author: xiaoharper
-ms.author: zhanxia
+author: likebupt
+ms.author: keli19
 ms.reviewer: peterlu
-ms.date: 11/04/2019
+ms.date: 12/25/2019
 ---
 # Build a classifier & use Python scripts to predict credit risk using Azure Machine Learning designer
 
@@ -138,7 +138,7 @@ def azureml_main(dataframe1 = None, dataframe2 = None):
 
 To view the results of the pipeline, you can right-click the Visualize output of the last **Select Columns in Dataset** module.
 
-![Visualize output](./media/how-to-designer-sample-classification-credit-risk-cost-sensitive/result.png)
+![Visualize output](media/how-to-designer-sample-classification-credit-risk-cost-sensitive/sample4-lastselect-1225.png)
 
 The first column lists the machine learning algorithm used to generate the model.
 

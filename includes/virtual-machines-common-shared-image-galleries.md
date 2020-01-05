@@ -236,9 +236,9 @@ To list all the Shared Image Gallery resources across subscriptions that you hav
  
 Yes. There are 3 scenarios based on the types of images you may have.
 
- Scenario 1: If you have a managed image, then you can create an image definition and image version from it.
+ Scenario 1: If you have a managed image in the same subscription as your SIG, then you can create an image definition and image version from it.
 
- Scenario 2: If you have an unmanaged image, you can create a managed image from it, and then create an image definition and image version from it. 
+ Scenario 2: If you have an unmanaged image in the same subscription as your SIG, you can create a managed image from it, and then create an image definition and image version from it. 
 
  Scenario 3: If you have a VHD in your local file system, then you need to upload the VHD to a managed image, then you can create an image definition and image version from it.
 

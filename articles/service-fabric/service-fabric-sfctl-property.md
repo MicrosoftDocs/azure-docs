@@ -1,6 +1,6 @@
 ---
 title: Azure Service Fabric CLI- sfctl property 
-description: Describes the Service Fabric CLI sfctl property commands.
+description: Learn about sfctl, the Azure Service Fabric command line interface. Includes a list of commands for storying and querying properties.
 author: jeffj6123
 
 ms.topic: reference
