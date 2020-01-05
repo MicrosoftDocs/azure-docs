@@ -10,7 +10,7 @@ ms.custom: seodec18
 ---
 # Add an SSL certificate in Azure App Service
 
-[Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service. This article shows you how tocreate, upload, or import a private certificate or a public certificate into App Service. 
+[Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service. This article shows you how to create, upload, or import a private certificate or a public certificate into App Service. 
 
 Once the certificate is added to your App Service app or [function app](https://docs.microsoft.com/azure/azure-functions/), you can [secure a custom DNS name with it](configure-ssl-bindings.md) or [use it in your application code](configure-ssl-certificate-in-code.md).
 
