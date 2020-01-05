@@ -6,40 +6,41 @@ ms.author: orspodek
 ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 10/22/2019
+ms.date: 12/09/2019
 ---
 
 # Provision an Azure Active Directory application
 
-Azure Active Directory (Azure AD) application authentication requires creating and registering the application with Azure AD. AAD application authentication is useful for applications that need to access Azure Data Explorer without a user being
-logged-on or present (e.g., an unattended service or a scheduled flow).
-
-Client applications and middle-tier applications that have an interactive user context should avoid this model, as authorization is performed based on the AAD
-application identity instead of user identity, so the calling application will need to implement its own authorization logic to prevent misuse.
-
-## Application Authentication use cases
-
-We can distinguish two main scenarios that make use of application authentication:
-* Applications that are intended to contact the Kusto service directly and on their own behalf
-* Applications that will authenticate their users to Kusto (delegated authenticaion)
+Azure Active Directory (Azure AD) application authentication is used for applications, such as an unattended service or a scheduled flow, that need to access Azure Data Explorer without a user present. If you're connecting to an Azure Data Explorer database using an application, such as a web app, you should authenticate using service principal authentication. This article details how to create and register an Azure AD service principal and then authorize it to access an Azure Data Explorer database.
 
 ## Register the new application
 
-* Log in to [Azure portal](https://portal.azure.com) and open the `Azure Active Directory` blade
+Azure AD application authentication requires creating and registering an application with Azure AD. 
 
-    ![alt text](./images/Aad-create-app-step-0.png "Aad-create-app-step-0")
+1. Log in to [Azure portal](https://portal.azure.com) and open the `Azure Active Directory` blade
 
-* From there, choose `App registrations` and when the blade loads, click on `New application registration`
+![Select Azure Active Directory in the portal](media/provision-aad-app/1.png)
+
+1. Select the **App registrations** blade and select **New registration**
 
     ![alt text](./images/Aad-create-app-step-1.png "Aad-create-app-step-1")
 
-* Fill in the application details:
-    * Name
-    * Type should be set to `Web app/API`
-    * Sign-on URL - this is the URL used by users to access the application. AAD does not validate the URL,<br>
-        but mandates that you provide some value, so if the application does not have any URL accessible by users,<br>
-        you should just put some URL that belongs to the application (such as https://<APP-CNAME> or https://<CLOUD-SERVICE-NAME>.cloudapp.net).<br>
-        You can even provide a value and continue if the application hasn't been written yet.
+1. Fill in the following: 
+    * **Name** 
+    * **Supported account types**
+    * **Redirect URI** > **Web**
+        > [!IMPORTANT] 
+	    > The application type should be **Web**. The URI is optional and is left blank in this case.
+    * Select **Register**
+
+	 
+
+
+
+
+
+
+
 
     ![alt text](./images/Aad-create-app-step-2.png "Aad-create-app-step-2")
 
