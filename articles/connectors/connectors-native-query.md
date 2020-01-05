@@ -1,6 +1,6 @@
 ---
-title: Add the query action in logic apps
-description: Overview of the query action for performing actions like filter array
+title: Query arrays and return filtered results
+description: Learn how to query an array and return filtered results from your workflow by using the Query action in Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
@@ -9,7 +9,7 @@ ms.date: 07/20/2016
 tags: connectors
 ---
 
-# Get started with the query action
+# Query arrays and return filtered results in Azure Logic Apps
 
 By using the query action, you can work with batches and arrays to accomplish workflows to:
 
@@ -28,21 +28,27 @@ The query action currently has one operation, called the filter array, that is e
 Here's how you can add it in a logic app:
 
 1. Select the **New Step** button.
-2. Choose **Add an action**.
-3. In the action search box, type **filter** to list the **Filter array** action.
-   
-    ![Select the query action](./media/connectors-native-query/using-action-1.png)
-4. Select an array to filter. (The following screenshot shows the array of results from a Twitter search.)
-5. Create a condition to evaluate on each item. (The following screenshot filters tweets from users who have more than 100 followers.)
+
+1. Choose **Add an action**.
+
+1. In the action search box, type **filter** to list the **Filter array** action.
+
+   ![Select the query action](./media/connectors-native-query/using-action-1.png)
+
+1. Select an array to filter. (The following screenshot shows the array of results from a Twitter search.)
+
+1. Create a condition to evaluate on each item. (The following screenshot filters tweets from users who have more than 100 followers.)
    
     ![Complete the query action](./media/connectors-native-query/using-action-2.png)
    
     The action will output a new array that contains only results that met the filter requirements.
-6. Click the upper-left corner of the toolbar to save, and your logic app will both save and publish (activate).
+
+1. Click the upper-left corner of the toolbar to save, and your logic app will both save and publish (activate).
 
 \* If you're calling an HTTP endpoint, and receiving a JSON response, use the _Parse JSON_ action to parse the JSON response. Without taking this step, _Filter Array_ will see only Body and not understand the structure of the JSON payload.
 
 ## Query action
+
 Here are the details for the action that this connector supports. The connector has one possible action.
 
 | Action | Description |
@@ -50,9 +56,11 @@ Here are the details for the action that this connector supports. The connector 
 | Filter array |Evaluates a condition for each item in an array and returns the results |
 
 ## Action details
+
 The query action comes with one possible action. The following tables describe the required and optional input fields for the action and the corresponding output details that are associated with using the action.
 
 ### Filter array
+
 The following are input fields for the action, which makes an HTTP outbound request.
 A * means that it is a required field.
 
@@ -61,9 +69,8 @@ A * means that it is a required field.
 | From* |from |The array to filter |
 | Condition* |where |The condition to evaluate for each item |
 
-<br>
-
 ### Output details
+
 The following are output details for the HTTP response.
 
 | Property name | Data type | Description |
@@ -71,5 +78,6 @@ The following are output details for the HTTP response.
 | Filtered array |array |An array that contains an object for each filtered result |
 
 ## Next steps
+
 Now, try out the platform and [create a logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md). You can explore the other available connectors in logic apps by looking at our [APIs list](apis-list.md).
 
