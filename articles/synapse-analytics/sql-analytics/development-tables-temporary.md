@@ -189,7 +189,7 @@ At this stage, the only action that has occurred is the creation of a stored pro
 
 However, since there isn't a `DROP TABLE` at the end of the stored procedure, when the stored procedure completes, it leaves the created table so that it can be read outside of the stored procedure.  
 
-In SQL Analytics, unlike other SQL Server databases, it is possible to use the temporary table outside of the procedure that created it.  The temporary tables created vis SQL pools can be used **anywhere** inside the session. This capability can lead to more modular and manageable code as in the following example:
+In contrast to other SQL Server databases, SQL Analytics allows you to use the temporary table outside of the procedure that created it.  The temporary tables created via SQL pools can be used **anywhere** inside the session. As a result, you'll have more modular and manageable code, as demonstrated in the sample below:
 
 ```sql
 EXEC [dbo].[prc_sqldw_update_stats] @update_type = 1, @sample_pct = NULL;
@@ -211,15 +211,15 @@ DROP TABLE #stats_ddl;
 ```
 
 ### Temporary table limitations
-SQL pools do impose a couple of limitations when implementing temporary tables.  Currently, only session scoped temporary tables are supported.  Global Temporary Tables aren't supported.  In addition, views can't be created on temporary tables.  
+SQL pools do have a couple of implementation limitations for temporary tables.  Currently, only session scoped temporary tables are supported.  Global Temporary Tables aren't supported and views can't be created on temporary tables.  
 
-Temporary tables can only be created with hash or round robin distribution.  Replicated temporary table distribution is not supported. 
+Temporary tables can only be created with hash or round robin distribution.  Replicated temporary table distribution isn't supported. 
 
 ## Temporary tables in SQL on-demand
 
 Temporary tables in SQL on-demand are supported but their usage is limited. They can't be used in queries which target files. 
 
-For example, you cannot join a temporary table with data from files in storage. The number of temporary tables is limited to 100, and their total size is limited to 100MB.
+For example, you can't join a temporary table with data from files in storage. The number of temporary tables is limited to 100, and their total size is limited to 100MB.
 
 ## Next steps
 
