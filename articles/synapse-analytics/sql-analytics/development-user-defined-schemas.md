@@ -1,6 +1,6 @@
 ---
-title: Using user-defined schemas
-description: Tips for using T-SQL user-defined schemas in SQL Analytics for developing solutions.
+title: User-defined schemas in SQL Analytics
+description: In the sections below, you'll find various tips for using T-SQL user-defined schemas to develop solutions in the SQL Analytics capability of Azure Synapse Analytics.
 services: synapse-analytics 
 author: azaricstefan 
 ms.service: synapse-analytics
@@ -12,14 +12,14 @@ ms.reviewer: jrasnick
 ---
 
 
-# Using user-defined schemas in SQL Analytics
-Tips for using T-SQL user-defined schemas in Azure SQL Analytics for developing solutions.
+# User-defined schemas in SQL Analytics
+In the sections below, you'll find various tips for using T-SQL user-defined schemas to develop solutions in the SQL Analytics capability of Azure Synapse Analytics.
 
-## Schemas for application boundaries in SQL Analytics pool
+## Schemas for application boundaries
 
-Traditional analytics often use separate databases to create application boundaries based on either workload, domain or security. For example, a traditional SQL Server Analytics might include a staging database, an analytics database, and some data mart databases. In this topology, each database operates as a workload and security boundary in the architecture.
+Traditional analytics architecture often uses separate databases to create application boundaries based on workload, domain, or security. For example, a traditional SQL Server analytics infrastructure might include a staging database, an analytics database, and data mart databases. In this topology, each database operates as a workload and security boundary in the architecture.
 
-By contrast, SQL Analytics runs the entire analytics workload within one database. Cross database joins are not permitted. Therefore SQL Analytics expects all tables used by the warehouse to be stored within the one database.
+Instead, SQL Analytics runs the entire analytics workload within one database. Cross database joins aren't permitted. SQL Analytics expects all tables used by the warehouse to be stored within the one database.
 
 > [!NOTE]
 > SQL Analytics does not support cross database queries of any kind. Consequently, analytics implementations that leverage this pattern will need to be revised.
@@ -27,22 +27,22 @@ By contrast, SQL Analytics runs the entire analytics workload within one databas
 > 
 
 ## Recommendations
-These are recommendations for consolidating workloads, security, domain, and functional boundaries by using user-defined schemas:
+Included are recommendations for consolidating workloads, security, domain, and functional boundaries by using user-defined schemas:
 
 - Use one SQL Analytics database to run your entire analytics workload.
 - Consolidate your existing analytics environment to use one SQL Analytics database.
 - Leverage **user-defined schemas** to provide the boundary previously implemented using databases.
 
-If user-defined schemas have not been used previously, then you have a clean slate. Use the old database name as the basis for your user-defined schemas in the SQL analytics database.
+If user-defined schemas haven't been used previously, then you have a clean slate. Use the old database name as the basis for your user-defined schemas in the SQL Analytics database.
 
 If schemas have already been used, then you have a few options:
 
 - Remove the legacy schema names and start fresh
-- Retain the legacy schema names by pre-pending the legacy schema name to the table name
-- Retain the legacy schema names by implementing views over the table in an extra schema to re-create the old schema structure.
+- Keep the legacy schema names by pre-pending the legacy schema name to the table name
+- Retain the legacy schema names by implementing views over the table in an extra schema, which will re-create the old schema structure.
 
 > [!NOTE]
-> On first inspection, option 3 may seem like the most appealing choice. Views are read only in SQL analytics. Any data or table modification would need to be performed against the base table. Option 3 also introduces a layer of views into your system. You might want to give this some additional thought if you are already using views in your architecture.
+> On first inspection, option 3 may seem like the most appealing choice. Views are read only in SQL Analytics. Any data or table modification would need to be performed against the base table. Option 3 also introduces a layer of views into your system. You might want to give this some additional thought if you are already using views in your architecture.
 > 
 > 
 
@@ -65,7 +65,7 @@ CREATE TABLE [edw].[customer] -- create analytics tables in the edw schema
 );
 ```
 
-Retain legacy schema names by pre-pending them to the table name. Use schemas for the workload boundary.
+Keep the legacy schema names by pre-pending them to the table name. Use schemas for the workload boundary.
 
 ```sql
 CREATE SCHEMA [stg]; -- stg defines the staging boundary
@@ -117,4 +117,4 @@ FROM    [edw].customer
 
 ## Next steps
 
-For more development tips, see [SQL analytics development overview](development-overview.md).
+For more development tips, see [SQL Analytics development overview](development-overview.md).
