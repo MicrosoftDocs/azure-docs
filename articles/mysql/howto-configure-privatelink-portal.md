@@ -1,28 +1,28 @@
 ---
-title: Private Link for Azure Database for PostgreSQL - Single server (Preview) portal setup method
-description: Learn how to configure private link for Azure Database for PostgreSQL- Single server from Azure portal
+title: Private Link for Azure Database for MySQL (Preview) portal setup method
+description: Learn how to configure private link for Azure Database for MySQL- Single server from Azure portal
 author: kummanish
 ms.author: manishku
-ms.service: postgresql
+ms.service: MySQL
 ms.topic: conceptual
-ms.date: 01/04/2020
+ms.date: 01/05/2020
 ---
 
-# Create and manage Private Link for Azure Database for PostgreSQL - Single server (Preview) using Portal
+# Create and manage Private Link for Azure Database for MySQL (Preview) using Portal
 
-A Private Endpoint is the fundamental building block for private link in Azure. It enables Azure resources, like Virtual Machines (VMs), to communicate privately with private link resources. In this article, you will learn how to create a VM on an Azure Virtual Network, an Azure Database for PostgreSQL - Single server with an Azure private endpoint using the Azure Portal. Then, you can securely access the PostgreSQL Server from the VM.
+A Private Endpoint is the fundamental building block for private link in Azure. It enables Azure resources, like Virtual Machines (VMs), to communicate privately with private link resources. In this article, you will learn how to create a VM on an Azure Virtual Network, an Azure Database for MySQL with an Azure private endpoint using the Azure Portal. Then, you can securely access the MySQL Server from the VM.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 > [!NOTE]
-> This feature is available in all regions of Azure public cloud where Azure Database for PostgreSQL is deployed for General Purpose and Memory Optimized servers.
+> This feature is available in all regions of Azure public cloud where Azure Database for MySQL is deployed for General Purpose and Memory Optimized servers.
 
 ## Sign in to Azure
 Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Create an Azure VM
 
-In this section, you will create virtual network and the subnet to host the VM that is used to access your Private Link resource (a PostgreSQL server in Azure).
+In this section, you will create virtual network and the subnet to host the VM that is used to access your Private Link resource (a MySQL server in Azure).
 
 ### Create the virtual network
 In this section, you will create a Virtual Network and the subnet to host the VM that is used to access your Private Link resource.
@@ -90,13 +90,13 @@ In this section, you will create a Virtual Network and the subnet to host the VM
 
 1. When you see the **Validation passed** message, select **Create**.
 
-## Create an Azure Database for PostgreSQL Single server
+## Create an Azure Database for MySQL Single server
 
-In this section, you will create an Azure Database for PostgreSQL server in Azure. 
+In this section, you will create an Azure Database for MySQL server in Azure. 
 
-1. On the upper-left side of the screen in the Azure portal, select **Create a resource** > **Databases** > **Azure Database for PostgreSQL**.
+1. On the upper-left side of the screen in the Azure portal, select **Create a resource** > **Databases** > **Azure Database for MySQL**.
 
-1. In **Azure Database for PostgreSQL deployment option**, select **Single server** and provide these information:
+1. In **Azure Database for MySQL deployment option**, select **Single server** and provide these information:
 
     | Setting | Value |
     | ------- | ----- |
@@ -107,8 +107,8 @@ In this section, you will create an Azure Database for PostgreSQL server in Azur
     |Server name  | Enter *myserver*. If this name is taken, create a unique name.|
     | Admin username| Enter an administrator name of your choosing. |
     | Password | Enter a password of your choosing. The password must be at least 8 characters long and meet the defined requirements. |
-    | Location | Select an Azure region where you want to want your PostgreSQL Server to reside. |
-    |Version  | Select the database version of the PostgreSQL server that is required.|
+    | Location | Select an Azure region where you want to want your MySQL Server to reside. |
+    |Version  | Select the database version of the MySQL server that is required.|
     | Compute + Storage| Select the pricing tier that is needed for the server based on teh workload. |
     |||
  
@@ -141,9 +141,9 @@ In this section, you will create a SQL server and add a private endpoint to it.
     | ------- | ----- |
     |Connection method  | Select connect to an Azure resource in my directory.|
     | Subscription| Select your subscription. |
-    | Resource type | Select **Microsoft.DBforPostgreSQL/servers**. |
+    | Resource type | Select **Microsoft.DBforMySQL/servers**. |
     | Resource |Select *myServer*|
-    |Target sub-resource |Select *postgresqlServer*|
+    |Target sub-resource |Select *MySQLServer*|
     |||
 7. Select **Next: Configuration**.
 8. In **Create a private endpoint (Preview) - Configuration**, enter or select this information:
@@ -191,14 +191,14 @@ After you've created **myVm**, connect to it from the internet as follows:
 
 1. In the Remote Desktop of *myVM*, open PowerShell.
 
-2. Enter `nslookup mydemopostgresserver.database.azure.com`. 
+2. Enter `nslookup mydemomysqlserver.database.azure.com`. 
 
     You'll receive a message similar to this:
     ```azurepowershell
     Server:  UnKnown
     Address:  168.63.129.16
     Non-authoritative answer:
-    Name:    mydemopostgresserver.postgres.privatelink.database.azure.com
+    Name:    mydemomysqlserver.mysql.privatelink.database.azure.com
     Address:  10.1.3.4
 
 3. Install [Azure Data studio](https://docs.microsoft.com/sql/azure-data-studio/download?view=sql-server-ver15).
@@ -207,10 +207,10 @@ After you've created **myVm**, connect to it from the internet as follows:
 
     | Setting | Value |
     | ------- | ----- |
-    | Server type| Select **PostgreSQL**.|
-    | Server name| Select *mydemopostgresserver.postgres.privatelink.database.azure.com* |
-    | User name | Enter username as username@servername which is provided during the PostgreSQL server creation. |
-    |Password |Enter a password provided during the PostgreSQL server creation. |
+    | Server type| Select **MySQL**.|
+    | Server name| Select *mydemomysqlserver.mysql.privatelink.database.azure.com* |
+    | User name | Enter username as username@servername which is provided during the MySQL server creation. |
+    |Password |Enter a password provided during the MySQL server creation. |
     |SSL|Select **Required**.|
     ||
 
@@ -218,12 +218,12 @@ After you've created **myVm**, connect to it from the internet as follows:
 
 6. Browse databases from left menu.
 
-7. (Optionally) Create or query information from the postgreSQL database.
+7. (Optionally) Create or query information from the MySQL database.
 
 8. Close the remote desktop connection to myVm.
 
 ## Clean up resources
-When you're done using the private endpoint, PostgreSQL server, and the VM, delete the resource group and all of the resources it contains:
+When you're done using the private endpoint, MySQL server, and the VM, delete the resource group and all of the resources it contains:
 
 1. Enter *myResourceGroup* in the **Search** box at the top of the portal and select *myResourceGroup* from the search results.
 2. Select **Delete resource group**.
@@ -231,4 +231,4 @@ When you're done using the private endpoint, PostgreSQL server, and the VM, dele
 
 ## Next steps
 
-In this how-to, you created a VM on a virtual network, an Azure Database for PostgreSQL - Single server, and a private endpoint for private access. You connected to one VM from the internet and securely communicated to the PostgreSQL server using Private Link. To learn more about private endpoints, see [What is Azure private endpoint](https://docs.microsoft.com/azure/private-link/private-endpoint-overview).
+In this how-to, you created a VM on a virtual network, an Azure Database for MySQL, and a private endpoint for private access. You connected to one VM from the internet and securely communicated to the MySQL server using Private Link. To learn more about private endpoints, see [What is Azure private endpoint](https://docs.microsoft.com/azure/private-link/private-endpoint-overview).

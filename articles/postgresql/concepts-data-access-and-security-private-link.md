@@ -10,7 +10,9 @@ ms.date: 12/23/2019
 
 # Private Link for Azure Database for PostgreSQL-Single server (Preview)
 
-Private Link allows you to connect to various PaaS services in Azure via a private endpoint. For a list to PaaS services that support Private Link functionality, go to the [Private Link Documentation page](https://docs.microsoft.com/azure/private-link/index). A private endpoint is a private IP address within a specific [VNet](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) and Subnet.
+Private Link allows you to connect to various PaaS services in Azure via a private endpoint. Azure Private Link essentially brings Azure services inside the customer’s private VNet. The PaaS resources can be accessed using the private IP address just like any other resource in the VNet. This significantly simplifies the network configuration by keeping access rules private.
+
+For a list to PaaS services that support Private Link functionality, go to the [Private Link Documentation page](https://docs.microsoft.com/azure/private-link/index). A private endpoint is a private IP address within a specific [VNet](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) and Subnet.
 
 > [!NOTE]
 > This feature is available in all regions of Azure public cloud where Azure Database for PostgreSQL is deployed for General Purpose and Memory Optimized servers.
