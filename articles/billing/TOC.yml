@@ -216,7 +216,7 @@
   - name: Link Azure AD tenant
     href: ../active-directory/active-directory-how-subscriptions-associated-directory.md?toc=/azure/billing/TOC.json
   - name: Limits and quotas
-    href: ../azure-subscription-service-limits.md?toc=/azure/billing/TOC.json
+    href: ../azure-resource-manager/management/azure-subscription-service-limits.md?toc=/azure/billing/TOC.json
 - name: Troubleshoot
   items:
   - name: No subscriptions found

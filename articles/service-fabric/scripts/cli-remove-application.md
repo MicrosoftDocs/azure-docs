@@ -17,7 +17,7 @@ ms.author: atsenthi
 ms.custom: mvc
 ---
 
-# Remove an application from a Service Fabric cluster
+# Remove an application from a Service Fabric cluster using the Service Fabric CLI
 
 This sample script deletes a running Service Fabric application instance, then unregisters an application type and version from the cluster.  Deleting the application instance also deletes all the running service instances associated with that application. Next, the application files are deleted from the image store. 
 
