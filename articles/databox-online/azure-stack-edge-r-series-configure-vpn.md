@@ -92,11 +92,11 @@ First, you'll create a virtual network resource under your resource group.
 
     ![Create virtual network resource 4](media/azure-stack-edge-r-series-configure-vpn/create-vnet-4.png)
 
-The virtual network is created immediately.
+    The virtual network is created immediately.
 
-![Create virtual network resource 5](media/azure-stack-edge-r-series-configure-vpn/create-vnet-5.png)
+    ![Create virtual network resource 5](media/azure-stack-edge-r-series-configure-vpn/create-vnet-5.png)
 
-After the virtual network is created, create a subnet.
+After the virtual network is created, create a subnet. Do the following steps.
 
 1. In the virtual network, go to **Settings > Subnets**. Select **+ Subnet** to create a subnet. 
 
@@ -112,9 +112,9 @@ After the virtual network is created, create a subnet.
 
     ![Create subnet 2](media/azure-stack-edge-r-series-configure-vpn/create-subnet-2.png)
 
-*AzureFirewallSubnet* is created and the list of subnets updates to reflect the newly added subnet.
+    *AzureFirewallSubnet* is created and the list of subnets updates to reflect the newly added subnet.
 
-![Create subnet 3](media/azure-stack-edge-r-series-configure-vpn/create-subnet-3.png)
+    ![Create subnet 3](media/azure-stack-edge-r-series-configure-vpn/create-subnet-3.png)
 
 For more information, go to [Create a virtual network](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal#CreatVNet).
 
@@ -134,7 +134,7 @@ Do the following steps:
     - Create a new public IP address and assign it a name.
     - Accept other default settings.
 
-    ![Create vnet gateway 2](media/azure-stack-edge-r-series-configure-vpn/create-vnet-gateway-2.png)
+        ![Create vnet gateway 2](media/azure-stack-edge-r-series-configure-vpn/create-vnet-gateway-2.png)
 
 3. In the **Tags** tab, accept all the default settings.
 
@@ -168,11 +168,11 @@ Do the following steps:
     - Accept the other default settings.
     - Select **Create**.
 
-    ![Create lnet gateway 2](media/azure-stack-edge-r-series-configure-vpn/create-lnet-gateway-2.png)
+        ![Create lnet gateway 2](media/azure-stack-edge-r-series-configure-vpn/create-lnet-gateway-2.png)
 
-The local network gateway creation takes up to 40 minutes.
+    The local network gateway creation takes up to 40 minutes.
 
-![Create vnet gateway 3](media/azure-stack-edge-r-series-configure-vpn/create-vnet-gateway-3.png)
+    ![Create vnet gateway 3](media/azure-stack-edge-r-series-configure-vpn/create-vnet-gateway-3.png)
 
 For more information, go to [Create local network gateway](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal#LocalNetworkGateway).
 
@@ -209,9 +209,9 @@ Do the following steps:
 
     ![Create vpn connection 4](media/azure-stack-edge-r-series-configure-vpn/create-vpn-connection-4.png)
 
-The VPN connection creation takes several minutes.
+    The VPN connection creation takes several minutes.
 
-![Create vpn connection 5](media/azure-stack-edge-r-series-configure-vpn/create-vpn-connection-5.png)
+    ![Create vpn connection 5](media/azure-stack-edge-r-series-configure-vpn/create-vpn-connection-5.png)
 
 For more information, go to [Create VPN connection object](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal#CreateConnection).
 
@@ -240,7 +240,7 @@ First, you will create an Azure Firewall. Do the following steps:
     - Provide a name for the public IP address.
     - Accept other default settings.
 
-    ![Create firewall 2](media/azure-stack-edge-r-series-configure-vpn/create-firewall-2.png)
+        ![Create firewall 2](media/azure-stack-edge-r-series-configure-vpn/create-firewall-2.png)
 
 3. In the **Tags** tab, accept all the default settings.
 
@@ -250,9 +250,9 @@ First, you will create an Azure Firewall. Do the following steps:
 
     ![Create firewall 4](media/azure-stack-edge-r-series-configure-vpn/create-firewall-4.png)
 
-The firewall creation may take several minutes to complete.
+    The firewall creation may take several minutes to complete.
 
-![Create firewall 5](media/azure-stack-edge-r-series-configure-vpn/create-firewall-5.png)
+    ![Create firewall 5](media/azure-stack-edge-r-series-configure-vpn/create-firewall-5.png)
 
 For more information, go to [Create Azure Firewall](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal#CreatVNet).
 
@@ -319,9 +319,9 @@ Create a route table. Do the following steps:
 
     ![Associate subnet 3](media/azure-stack-edge-r-series-configure-vpn/associate-subnet-3.png)
     
-**Default** and **GatewaySubnet** are now associated with your route table.
+    **Default** and **GatewaySubnet** are now associated with your route table.
 
-![Associate subnet 4](media/azure-stack-edge-r-series-configure-vpn/associate-subnet-4.png)
+    ![Associate subnet 4](media/azure-stack-edge-r-series-configure-vpn/associate-subnet-4.png)
  
 ### Add routes
 
@@ -378,7 +378,7 @@ Do the following steps in the local web UI of your device.
     - For **IKE encryption method**, select **AES256**.
     - Select **Apply**.
 
-    ![Configure local UI 2](media/azure-stack-edge-r-series-configure-vpn/configure-vpn-local-ui-2.png)
+        ![Configure local UI 2](media/azure-stack-edge-r-series-configure-vpn/configure-vpn-local-ui-2.png)
 
 3. To upload the VPN route configuration file, select **Upload**. 
 
@@ -388,7 +388,7 @@ Do the following steps in the local web UI of your device.
     - Select the region as the Azure region associated with the device, vnet, and gateways.
     - Select **Apply**.
 
-    ![Configure local UI 4](media/azure-stack-edge-r-series-configure-vpn/configure-vpn-local-ui-4.png)
+        ![Configure local UI 4](media/azure-stack-edge-r-series-configure-vpn/configure-vpn-local-ui-4.png)
 
 4. To add client-specific routes, configure IP address ranges to be accessed using VPN only. 
 
@@ -396,7 +396,7 @@ Do the following steps in the local web UI of your device.
     - Provide a valid IPv4 range and select **Add**. Repeat the steps to add other ranges.
     - Select **Apply**.
 
-    ![Configure local UI 5](media/azure-stack-edge-r-series-configure-vpn/configure-vpn-local-ui-5.png)
+        ![Configure local UI 5](media/azure-stack-edge-r-series-configure-vpn/configure-vpn-local-ui-5.png)
 
 ## Next steps
 
