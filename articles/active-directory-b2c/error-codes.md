@@ -124,7 +124,7 @@ ___
 | `AADB2C90288` | UserJourney with id '{0}' referenced in TechnicalProfile '{1}' for refresh token redemption for tenant '{2}' does not exist in policy '{3}' or any of its base policies. |
 | `AADB2C90289` | We encountered an error connecting to the identity provider. Please try again later. |
 | `AADB2C99005` | The request contains an invalid scope parameter which includes an illegal character '{0}'. |
-| `AADB2C99006` | Azure AD B2C cannot find the extensions app with app id '{0}'. Please visit http://go.microsoft.com/fwlink/?linkid=851224 for more information. |
+| `AADB2C99006` | Azure AD B2C cannot find the extensions app with app id '{0}'. Please visit https://go.microsoft.com/fwlink/?linkid=851224 for more information. |
 | `AADB2C99011` | The metadata value '{0}' has not been specified in TechnicalProfile '{1}' in policy '{2}'. |
 | `AADB2C99013` | The supplied grant_type [{0}] and token_type [{1}] combination is not supported. |
 | `AADB2C99015` | Profile '{0}' in policy '{1}' in tenant '{2}' is missing all InputClaims required for resource owner password credential flow. |
