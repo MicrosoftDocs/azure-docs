@@ -236,7 +236,7 @@ az group deployment create \
   --name exampledeployment \
   --resource-group examplegroup \
   --template-file azuredeploy.json \
-  --parameters workspaceName=exampleworkspace location=eastus
+  --parameters workspaceName=exampleworkspace location=eastus sku=basic
 ```
 
 For more information, see [Deploy resources with Resource Manager templates and Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md) and [Deploy private Resource Manager template with SAS token and Azure CLI](../azure-resource-manager/secure-template-with-sas-token.md).
@@ -251,8 +251,90 @@ To avoid this problem, we recommend one of the following approaches:
 
 * Do not deploy the template more than once for the same parameters. Or delete the existing resources before using the template to recreate them.
   
-* Examine the Key Vault access policies and then use these policies to set the accessPolicies property of the template.
-* Check if the Key Vault resource already exists. If it does, do not recreate it through the template. For example, add a parameter that allows you to disable the creation of the Key Vault resource if it already exists.
+* Examine the Key Vault access policies and then use these policies to set the `accessPolicies` property of the template. To view the access policies, use the following Azure CLI command:
+
+    ```azurecli-interactive
+    az keyvault show --name mykeyvault --resource-group myresourcegroup --query properties.accessPolicies
+    ```
+
+    For more information on using the `accessPolicies` section of the template, see the [AccessPolicyEntry object reference](https://docs.microsoft.com/azure/templates/Microsoft.KeyVault/2018-02-14/vaults#AccessPolicyEntry).
+
+* Check if the Key Vault resource already exists. If it does, do not recreate it through the template. For example, to use the existing Key Vault instead of creating a new one, make the following changes to the template:
+
+    * **Add** a parameter that accepts the ID of an existing Key Vault resource:
+
+        ```json
+        "keyVaultId":{
+          "type": "string",
+          "metadata": {
+            "description": "Specify the existing Key Vault ID."
+          }
+        }
+      ```
+
+    * **Remove** the section that creates a Key Vault resource:
+
+        ```json
+        {
+          "type": "Microsoft.KeyVault/vaults",
+          "apiVersion": "2018-02-14",
+          "name": "[variables('keyVaultName')]",
+          "location": "[parameters('location')]",
+          "properties": {
+            "tenantId": "[variables('tenantId')]",
+            "sku": {
+              "name": "standard",
+              "family": "A"
+            },
+            "accessPolicies": [
+            ]
+          }
+        },
+        ```
+    
+    * **Remove** the `"[resourceId('Microsoft.KeyVault/vaults', variables('keyVaultName'))]",` line from the `dependsOn` section of the workspace. Also **Change** the `keyVault` entry in the `properties` section of the workspace to reference the `keyVaultId` parameter:
+
+        ```json
+        {
+          "type": "Microsoft.MachineLearningServices/workspaces",
+          "apiVersion": "2019-11-01",
+          "name": "[parameters('workspaceName')]",
+          "location": "[parameters('location')]",
+          "dependsOn": [
+            "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]",
+            "[resourceId('Microsoft.Insights/components', variables('applicationInsightsName'))]"
+          ],
+          "identity": {
+            "type": "systemAssigned"
+          },
+          "sku": {
+            "tier": "[parameters('sku')]",
+            "name": "[parameters('sku')]"
+          },
+          "properties": {
+            "friendlyName": "[parameters('workspaceName')]",
+            "keyVault": "[parameters('keyVaultId')]",
+            "applicationInsights": "[resourceId('Microsoft.Insights/components',variables('applicationInsightsName'))]",
+            "storageAccount": "[resourceId('Microsoft.Storage/storageAccounts/',variables('storageAccountName'))]"
+          }
+        }
+        ```
+      
+    After these changes, you can specify the ID of the existing Key Vault resource when running the template. The template will then re-use the Key Vault by setting the `keyVault` property of the workspace to its ID.
+
+    To get the ID of the Key Vault, you can reference the output of the original template run or use the Azure CLI. The following command is an example of using the Azure CLI to get the Key Vault resource ID:
+
+    ```azurecli-interactive
+    az keyvault show --name mykeyvault --resource-group myresourcegroup --query id
+    ```
+
+    This command returns a value similar to the following text:
+
+    ```text
+    /subscriptions/{subscription-guid}/resourceGroups/myresourcegroup/providers/Microsoft.KeyVault/vaults/mykeyvault
+    ```
+
+
 
 ## Next steps
 
