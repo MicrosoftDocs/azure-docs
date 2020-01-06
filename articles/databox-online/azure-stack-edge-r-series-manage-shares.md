@@ -21,14 +21,6 @@ To transfer data to Azure, you need to create shares on your Azure Stack Edge. T
  - **Local shares**: Use these shares when you want the data to be processed locally on the device.
  - **Shares**: Use these shares when you want the device data to be automatically pushed to your storage account in the cloud. All the cloud functions such as **Refresh** and **Sync storage keys** apply to the shares.
 
-In this article, you learn how to:
-
-> [!div class="checklist"]
-> * Add a share
-> * Delete a share
-> * Refresh shares
-> * Sync storage key
-
 
 ## Add a share
 
@@ -185,6 +177,37 @@ Do the following steps in the Azure portal to refresh a share.
     ![Updated timestamp](media/azure-stack-edge-r-series-manage-shares/refresh-share-4.png)
  
 If there is a failure, an alert is raised. The alert details the cause and the recommendation to fix the issue. The alert also links to a file that has the complete summary of the failures including the files that failed to update or delete.
+
+## Sync pinned files 
+
+To automatically sync up pinned files, do the following steps in the Azure portal:
+ 
+1. Select an existing Azure storage account. 
+
+2. Go to **Containers** and select **+ Container** to create a container. Name this container as *newcontainer*. Set the **Public access level** to Container.
+
+    ![Automated sync for pinned files 1](media/azure-stack-edge-r-series-manage-shares/image-1.png)
+
+3. Select the container name and set the following metadata:  
+
+    - Name = “Pinned” 
+    - Value = “True” 
+
+    ![Automated sync for pinned files 2](media/azure-stack-edge-r-series-manage-shares/image-2.png)
+ 
+4. Create a new share on your device. Map it to the pinned container by choosing the existing container option. Mark the share as read only. Create a new user and specify the user name and a corresponding password for this share.  
+
+    ![Automated sync for pinned files 3](media/azure-stack-edge-r-series-manage-shares/image-3.png)
+ 
+5. From the Azure portal, browse to the container which you created. Upload the file which you want to be pinned into the newcontainer which has the metadata set to pinned. 
+
+6. Select **Refresh data** in Azure portal for the device to download the pinning policy for that particular Azure Storage container.  
+
+    ![Automated sync for pinned files 4](media/azure-stack-edge-r-series-manage-shares/image-4.png)
+ 
+7. Access the new share that was created on the device. The file that was uploaded to the storage account is now downloaded to the local share. 
+
+    Anytime the device is disconnected or reconnected, it triggers refresh. Refresh will bring down only those files that have changed. 
 
 
 ## Sync storage keys

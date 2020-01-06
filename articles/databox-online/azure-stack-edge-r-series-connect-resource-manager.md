@@ -45,6 +45,10 @@ The process of connecting to local APIs of the device using Azure Resource Manag
 
 The following sections detail each of the above steps in connecting to Azure Resource Manager.
 
+## Prerequisites
+
+Before you begin, make sure that the client used for connecting to device via Azure Resource Manager is using TLS 1.2 or later.
+
 ## Step 1: Configure Azure Stack Edge device 
 
 Take the following steps in the local web UI of your Azure Stack Edge device.
