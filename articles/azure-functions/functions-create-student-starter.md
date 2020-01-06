@@ -1,5 +1,5 @@
 ---
-title: Create a Function using Azure for Students Starter 
+title: Create a function using Azure for Students Starter 
 description: Learn how to create an Azure Function from within an Azure for Student Starter subscription
 Customer intent: As a student, I want to be able to create a HTTP triggered Function App within the Student Starter plan so that I can easily add APIs to any project.
 author: alexkarcher-msft
@@ -10,7 +10,7 @@ ms.author: alkarche
 
 
 ---
-# Create a Function using Azure for Students Starter
+# Create a function using Azure for Students Starter
 
 In this tutorial, we will create a "hello world" HTTP function in an Azure for Students Starter subscription. We'll also walk through what's available in Azure Functions in this subscription type.
 
@@ -18,7 +18,7 @@ Microsoft *Azure for Students Starter* gets you started with the Azure products 
 
 Azure Functions lets you execute your code in a [serverless](https://azure.microsoft.com/solutions/serverless/) environment without having to first create a VM or publish a web application. [Learn more about Functions here.](./functions-overview.md)
 
-## Create a Function
+## Create a function
 
  In this topic, learn how to use Functions to create an HTTP triggered "hello world" function in the Azure portal.
 
@@ -32,7 +32,7 @@ Sign in to the Azure portal at <https://portal.azure.com> with your Azure accoun
 
 You must have a function app to host the execution of your functions. A function app lets you group functions as a logic unit for easier management, deployment, and sharing of resources. 
 
-1. Select the **Create a resource** button found on the upper left-hand corner of the Azure portal, then select **Compute** > **Function App**.
+1. Select the **Create a resource** button found on the upper-left corner of the Azure portal, then select **Compute** > **Function App**.
 
     ![Create a function app in the Azure portal](./media/functions-create-student-starter/function-app-create-flow.png)
 
@@ -105,7 +105,7 @@ Now, you can run the new function by sending an HTTP request.
 
 [!INCLUDE [Clean-up resources](../../includes/functions-quickstart-cleanup.md)]
 
-## Supported Features in Azure for Students Starter
+## Supported features in Azure for Students Starter
 
 In Azure for Students Starter you have access to most of the features of the Azure Functions runtime, with several key limitations listed below:
 
