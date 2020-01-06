@@ -109,6 +109,12 @@ You can rerun activities inside a pipeline. Select **View activity runs**, and t
 
 ![Select an activity run](media/monitor-visually/rerun-activities-image2.png)
 
+### Rerun from failed activity
+
+If an activity fails, times out or is cancelled, you can rerun the pipeline from that failed activity by selecting **Rerun from failed activity**.
+
+![Rerun failed activity](media/monitor-visually/rerun-failed-activity.png)
+
 ### View rerun history
 
 You can view the rerun history for all the pipeline runs in the list view.
