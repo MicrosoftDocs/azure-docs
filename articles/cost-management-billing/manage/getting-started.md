@@ -111,7 +111,7 @@ Review the [Optimize costs from recommendations](../costs/tutorial-acm-opt-recom
 
 At the end of the billing cycle, your invoice is available. You can [download invoices and detailed usage files](download-azure-invoice-daily-usage-date.md) and compare them to make sure you were charged correctly. For more information about comparing your daily usage with your invoice, see [Understand your bill for Microsoft Azure](../understand/review-individual-bill.md).
 
-If you are using Azure through a Microsoft Customer Agreement (MCA), you can also [compare your invoice with the transactions](../understand/review-customer-agreement-bill.md#view-transactions-for-an-invoice-in-the-azure-portal) to understand the charges on your invoice.
+If you are using Azure through a Microsoft Customer Agreement (MCA), you can also [compare your invoice with the transactions](../understand/review-customer-agreement-bill.md#review-invoiced-transactions-in-the-azure-portal) to understand the charges on your invoice.
 
 ## Integrate with billing and consumption APIs
 

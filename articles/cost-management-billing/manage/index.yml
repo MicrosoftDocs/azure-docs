@@ -1,0 +1,98 @@
+### YamlMime:Landing
+
+title: Manage accounts and subscriptions with Azure Billing
+summary: Learn how to understand your Azure billing and manage your account and subscriptions.
+metadata:
+  title: Manage accounts and subscriptions with Azure Billing
+  description: Learn how to understand your Azure billing and manage your account and subscriptions.
+  ms.service: cost-management-billing
+  ms.topic: landing-page
+  ms.collection: collection
+  author: bandersmsft
+  ms.author: banders
+  ms.manager: dougeby
+  ms.date: 12/18/2019
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card (optional)
+  - title: Manage accounts
+    linkLists:
+    - linkListType: overview
+      links:
+      - text: Microsoft Customer Agreement roles in Azure
+        url: understand-mca-roles.md
+    - linkListType: how-to-guide
+      links:
+      - text: Edit profile
+        url: change-azure-account-profile.md
+      - text: Resolve past due balance
+        url: resolve-past-due-balance.md
+      - text: Grant access to billing
+        url: manage-billing-access.md
+      - text: View billing accounts
+        url: view-all-accounts.md
+      - text: Organize costs with invoice sections
+        url: mca-section-invoice.md
+
+  # Card (optional)
+  - title: Manage subscriptions
+    linkLists:
+    - linkListType: how-to-guide
+      links:
+      - text: Reactivate subscription
+        url: subscription-disabled.md
+      - text: Transfer ownership of an individual subscription
+        url: billing-subscription-transfer.md
+      - text: Transfer ownership for a Microsoft Customer Agreement
+        url: mca-request-billing-ownership.md
+      - text: Transfer ownership for a Microsoft Partner Agreement
+        url: mpa-request-ownership.md
+      - text: Cancel subscription
+        url: cancel-azure-subscription.md
+      - text: Change credit card
+        url: change-credit-card.md
+      - text: Change administrator
+        url: add-change-subscription-administrator.md
+      - text: Pay by invoice
+        url: pay-by-invoice.md
+      - text: Create an additional subscription
+        url: create-subscription.md
+
+
+  # Card (optional)
+  - title: Manage free account
+    linkLists:
+    - linkListType: how-to-guide
+      links:
+      - text: Create free services
+        url: create-free-services.md
+      - text: Avoid charges
+        url: avoid-charges-free-account.md
+      - text: Check usage
+        url: check-free-service-usage.md
+      - text: Upgrade account
+        url: upgrade-azure-subscription.md
+
+  # Card (optional)
+  - title: Enterprise Agreement management
+    linkLists:
+    - linkListType: concept
+      links:
+      - text: EA roles in Azure
+        url: understand-ea-roles.md
+    - linkListType: how-to-guide
+      links:
+      - text: Get started in the Azure EA portal
+        url: ea-portal-get-started.md
+      - text: Azure EA portal adminisration
+        url: ea-portal-administration.md
+      - text: Troubleshoot Azure EA portal access
+        url: ea-portal-troubleshoot.md
+    - linkListType: reference
+      links:
+      - text: Azure Enterprise REST APIs
+        url: ea-portal-rest-apis.md
