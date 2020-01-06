@@ -54,7 +54,7 @@ Create variables for your resource's Azure endpoint and subscription key.
 <!-- Use the below example variable names and example strings, for consistency with the other quickstart variables -->
 
 ```python
-subscription_key = "<paste-your-text-analytics-key-here>"
+credential = "<paste-your-text-analytics-key-here>"
 endpoint = "<paste-your-text-analytics-endpoint-here>"
 ```
 
@@ -83,48 +83,36 @@ These code snippets show you how to do the following with the Text Analytics cli
 * [Entity linking](#entity-linking)
 * [PII Entity recognition](#Personal-identifiable-information-(PII)-entity-recognition)
 
-## Authenticate the client
-
-Create a new [TextAnalyticsClient]() with your endpoint and your subscription key.
-
-```python
-from azure.ai.textanalytics import TextAnalyticsClient
-
-def authenticateClient():
-    text_analytics_client = TextAnalyticsClient(
-        endpoint=endpoint, credential=subscription_key)
-    return text_analytics_client
-```
-
 ## Sentiment analysis
 
 Create a new function called `sentiment_analysis_example()` that takes the client created earlier, then calls the [analyze_sentiment()]() function. The returned response object will contain the sentiment label and score of the entire input document, as well as a sentiment analysis for each sentence.
 
 
 ```python
-def sentiment_analysis_example(client):
+from azure.ai.textanalytics import single_analyze_sentiment
 
-    documents = ["I had the best day of my life. I wish you were there with me."]
+def sentiment_analysis_example(endpoint, credential):
 
-    response = client.analyze_sentiment(documents)
-    for doc in response:
-        print("Document Sentiment: {}".format(doc.sentiment))
-        print("Overall scores: positive={0:.3f}; neutral={1:.3f}; negative={2:.3f} \n".format(
-            doc.document_scores.positive,
-            doc.document_scores.neutral,
-            doc.document_scores.negative,
+    document = "I had the best day of my life. I wish you were there with me."
+
+    response = single_analyze_sentiment(endpoint=endpoint, credential=credential, input_text=document)
+    print("Document Sentiment: {}".format(response.sentiment))
+    print("Overall scores: positive={0:.3f}; neutral={1:.3f}; negative={2:.3f} \n".format(
+        response.document_scores.positive,
+        response.document_scores.neutral,
+        response.document_scores.negative,
+    ))
+    for idx, sentence in enumerate(response.sentences):
+        print("[Offset: {}, Length: {}]".format(sentence.offset, sentence.length))
+        print("Sentence {} sentiment: {}".format(idx+1, sentence.sentiment))
+        print("Sentence score:\nPositive={0:.3f}\nNeutral={1:.3f}\nNegative={2:.3f}\n".format(
+            sentence.sentence_scores.positive,
+            sentence.sentence_scores.neutral,
+            sentence.sentence_scores.negative,
         ))
-        for idx, sentence in enumerate(doc.sentences):
-            print("[Offset: {}, Length: {}]".format(sentence.offset, sentence.length))
-            print("Sentence {} sentiment: {}".format(idx+1, sentence.sentiment))
-            print("Sentence score:\nPositive={0:.3f}\nNeutral={1:.3f}\nNegative={2:.3f}\n".format(
-                sentence.sentence_scores.positive,
-                sentence.sentence_scores.neutral,
-                sentence.sentence_scores.negative,
-            ))
 
             
-sentiment_analysis_example(client)
+sentiment_analysis_example(endpoint, credential)
 ```
 
 ### Output
@@ -156,15 +144,17 @@ Create a new function called `language_detection_example()` that takes the clien
 > In some cases it may be hard to disambiguate languages based on the input. You can use the `country_hint` parameter to specify a 2-letter country code. By default the API is using the "US" as the default countryHint, to remove this behavior you can reset this parameter by setting this value to empty string `country_hint : ""`. 
 
 ```python
-def language_detection_example(client):
+from azure.ai.textanalytics import single_detect_language
+
+def language_detection_example(endpoint, credential):
     try:
-        documents = ["Ce document est rédigé en Français."]
-        response = client.detect_languages(documents)
-        print("Language: ", response[0].detected_languages[0].name)
+        document = "Ce document est rédigé en Français."
+        response = single_detect_language(endpoint=endpoint, credential=credential, input_text= document)
+        print("Language: ", response.primary_language.name)
 
     except Exception as err:
         print("Encountered exception. {}".format(err))
-language_detection_example(client)
+language_detection_example(endpoint, credential)
 ```
 
 
@@ -178,24 +168,26 @@ Language:  French
 Create a new function called `key_phrase_extraction_example()` that takes the client created earlier, then calls the [extract_key_phrases()]() function. The result will contain the list of detected key phrases in `key_phrases` if successful, and an `error` if not. Print any detected key phrases.
 
 ```python
-def key_phrase_extraction_example(client):
+from azure.ai.textanalytics import single_extract_key_phrases
+
+def key_phrase_extraction_example(endpoint, credential):
 
     try:
-        documents = ["My cat might need to see a veterinarian."]
+        document = "My cat might need to see a veterinarian."
 
-        response = client.extract_key_phrases(documents)
-        for document in response:
-            if not document.is_error:
-                print("\tKey Phrases:")
-                for phrase in document.key_phrases:
-                    print("\t\t", phrase)
-            else:
-                print(document.id, document.error)
+        response = single_extract_key_phrases(endpoint=endpoint, credential=credential, input_text= document)
+
+        if not response.is_error:
+            print("\tKey Phrases:")
+            for phrase in response.key_phrases:
+                print("\t\t", phrase)
+        else:
+            print(response.id, response.error)
 
     except Exception as err:
         print("Encountered exception. {}".format(err))
         
-key_phrase_extraction_example(client)
+key_phrase_extraction_example(endpoint, credential)
 ```
 
 
@@ -212,21 +204,23 @@ key_phrase_extraction_example(client)
 Create a new function called `entity_recognition_example` that takes the client created earlier, then calls the [recognize_entities()]() function and iterates through the results. The returned response object will contain the list of detected entities in `entity` if successful, and an `error` if not. For each detected entity, print its Type and Sub-Type if exists.
 
 ```python
-def entity_recognition_example(client):
+from azure.ai.textanalytics import single_recognize_entities
+
+def entity_recognition_example(endpoint, credential):
 
     try:
-        documents = ["I had a wonderful trip to Seattle last week."]
-        result = client.recognize_entities(documents)
+        document = "I had a wonderful trip to Seattle last week."
+        result = single_recognize_entities(endpoint=endpoint, credential=credential, input_text= document)
         
         print("Named Entities:\n")
-        for entity in result[0].entities:
+        for entity in result.entities:
                 print("\tText: \t", entity.text, "\tType: \t", entity.type, "\tSubType: \t", entity.subtype,
                       "\n\tOffset: \t", entity.offset, "\tLength: \t", entity.offset, 
                       "\tConfidence Score: \t", round(entity.score, 3), "\n")
 
     except Exception as err:
         print("Encountered exception. {}".format(err))
-entity_recognition_example(client)
+entity_recognition_example(endpoint, credential)
 ```
 
 ### Output
@@ -246,31 +240,31 @@ Named Entities:
 Create a new function called `entity_linking_example()` that takes the client created earlier, then calls the [recognize_linked_entities()]() function and iterates through the results. The returned response object will contain the list of detected entities in `entities` if successful, and an `error` if not. Since linked entities are uniquely identified, occurrences of the same entity are grouped under a `entity` object as a list of `match` objects.
 
 ```python
-def entity_linking_example(client):
+from azure.ai.textanalytics import single_recognize_linked_entities
+
+def entity_linking_example(endpoint, credential):
 
     try:
-        documents = ["Microsoft was founded by Bill Gates and Paul Allen on April 4, 1975, " +
-        "to develop and sell BASIC interpreters for the Altair 8800. " +
-        "During his career at Microsoft, Gates held the positions of chairman, " +
-        "chief executive officer, president and chief software architect, " +
-        "while also being the largest individual shareholder until May 2014."]
-        result = client.recognize_linked_entities(documents)
-        docs = [doc for doc in result if not doc.is_error]
+        document = """Microsoft was founded by Bill Gates and Paul Allen on April 4, 1975, 
+        to develop and sell BASIC interpreters for the Altair 8800. 
+        During his career at Microsoft, Gates held the positions of chairman,
+        chief executive officer, president and chief software architect, 
+        while also being the largest individual shareholder until May 2014."""
+        result = single_recognize_linked_entities(endpoint=endpoint, credential=credential, input_text= document)
 
         print("Linked Entities:\n")
-        for idx, doc in enumerate(docs):
-            for entity in doc.entities:
-                print("\tName: ", entity.name, "\tId: ", entity.id, "\tUrl: ", entity.url,
-                "\n\tData Source: ", entity.data_source)
-                print("\tMatches:")
-                for match in entity.matches:
-                    print("\t\tText:", match.text)
-                    print("\t\tScore: {0:.3f}".format(match.score), "\tOffset: ", match.offset, 
-                          "\tLength: {}\n".format(match.length))
+        for entity in result.entities:
+            print("\tName: ", entity.name, "\tId: ", entity.id, "\tUrl: ", entity.url,
+            "\n\tData Source: ", entity.data_source)
+            print("\tMatches:")
+            for match in entity.matches:
+                print("\t\tText:", match.text)
+                print("\t\tScore: {0:.3f}".format(match.score), "\tOffset: ", match.offset, 
+                      "\tLength: {}\n".format(match.length))
             
     except Exception as err:
         print("Encountered exception. {}".format(err))
-entity_linking_example(client)
+entity_linking_example(endpoint, credential)
 ```
 
 ### Output
@@ -326,21 +320,21 @@ Linked Entities:
 Create a new functions called `entity_pii_example()` that takes the client created earlier, then calls the [recognize_pii_entities()] function and gets the result. Then iterate through the results and print the PII entities.
 
 ```python
-def entity_pii_example(client):
+from azure.ai.textanalytics import single_recognize_pii_entities
 
-        documents = ["Insurance policy for SSN on file 123-12-1234 is here by approved."]
+def entity_pii_example(endpoint, credential):
+
+        document = "Insurance policy for SSN on file 123-12-1234 is here by approved."
 
 
-        result = client.recognize_pii_entities(documents)
-        docs = [doc for doc in result if not doc.is_error]
-
-        print("Personally Identifiable Information Entities: ")
-        for idx, doc in enumerate(docs):
-            for entity in doc.entities:
-                print("\tText: ",entity.text,"\tType: ", entity.type,"\tSub-Type: ", entity.subtype)
-                print("\t\tOffset: ", entity.offset, "\tLength: ", entity.length, "\tScore: {0:.3f}".format(entity.score), "\n")
+        result = single_recognize_pii_entities(endpoint=endpoint, credential=credential, input_text= document)
         
-entity_pii_example(client)
+        print("Personally Identifiable Information Entities: ")
+        for entity in result.entities:
+            print("\tText: ",entity.text,"\tType: ", entity.type,"\tSub-Type: ", entity.subtype)
+            print("\t\tOffset: ", entity.offset, "\tLength: ", entity.length, "\tScore: {0:.3f}".format(entity.score), "\n")
+        
+entity_pii_example(endpoint, credential)
 ```
 
 ### Output
