@@ -1,14 +1,10 @@
 ---
 title: Overview of Azure Resource Graph
-description: Understand how the Azure Resource Graph service enables complex querying of resources at scale.
-author: DCtheGeek
-ms.author: dacoulte
-ms.date: 05/06/2019
+description: Understand how the Azure Resource Graph service enables complex querying of resources at scale across subscriptions and tenants.
+ms.date: 10/21/2019
 ms.topic: overview
-ms.service: resource-graph
-manager: carmonm
 ---
-# Overview of the Azure Resource Graph service
+# What is Azure Resource Graph?
 
 Azure Resource Graph is a service in Azure that is designed to extend Azure Resource Management by
 providing efficient and performant resource exploration with the ability to query at scale across a
@@ -27,6 +23,8 @@ In this documentation, you'll go over each feature in detail.
 > and Azure Policy's [Change history](../policy/how-to/determine-non-compliance.md#change-history-preview)
 > _visual diff_. It's designed to help customers manage large-scale environments.
 
+[!INCLUDE [service-provider-management-toolkit](../../../includes/azure-lighthouse-supported-service.md)]
+
 ## How does Resource Graph complement Azure Resource Manager
 
 Azure Resource Manager currently supports queries over basic resource fields, specifically -
@@ -35,8 +33,12 @@ facilities for calling individual resource providers for detailed properties one
 
 With Azure Resource Graph, you can access these properties the resource providers return without
 needing to make individual calls to each resource provider. For a list of supported resource types,
-look for a **Yes** in the [Resources for complete mode deployments](../../azure-resource-manager/complete-mode-deletion.md)
-table.
+look for a **Yes** in the
+[Resources for complete mode deployments](../../azure-resource-manager/complete-mode-deletion.md)
+table. Additional resource types are found in the related
+[Resource Graph tables](./concepts/query-language.md#resource-graph-tables). An alternative way to
+see supported resource types is through the
+[Azure Resource Graph Explorer Schema browser](./first-query-portal.md#schema-browser).
 
 With Azure Resource Graph, you can:
 
@@ -52,9 +54,16 @@ Resource Graph then updates its database. Resource Graph also does a regular _fu
 ensures that Resource Graph data is current if there are missed notifications or when a resource is
 updated outside of Resource Manager.
 
+> [!NOTE]
+> Resource Graph uses a `GET` to the latest non-preview API of each resource provider to gather
+> properties and values. As a result, the property expected may not be available. In some cases, the
+> API version used has been overridden to provide more current or widely used properties in the
+> results. See the [Show API version for each resource type](./samples/advanced.md#apiversion)
+> sample for a complete list in your environment.
+
 ## The query language
 
-Now that you have a better understanding of what Azure Resource Graph is, let’s dive into how to
+Now that you have a better understanding of what Azure Resource Graph is, let's dive into how to
 construct queries.
 
 It's important to understand that Azure Resource Graph's query language is based on the [Kusto query language](../../data-explorer/data-explorer-overview.md)
@@ -75,6 +84,14 @@ group, results won't be returned.
 > new subscription added during an active session, the principal must refresh the context. This
 > action happens automatically when logging out and back in.
 
+Azure CLI and Azure PowerShell use subscriptions that the user has access to. When using REST API
+directly, the subscription list is provided by the user. If the user has access to any of the
+subscriptions in the list, the query results are returned for the subscriptions the user has access
+to. This behavior is the same as when calling [Resource Groups - List](/rest/api/resources/resourcegroups/list)
+\- you get resource groups you've access to without any indication that the result may be partial.
+If there are no subscriptions in the subscription list that the user has appropriate rights to, the
+response is a _403_ (Forbidden).
+
 ## Throttling
 
 As a free service, queries to Resource Graph are throttled to provide the best experience and
@@ -92,18 +109,23 @@ headers:
 - `x-ms-user-quota-resets-after` (hh:mm:ss): The time duration until a user's quota consumption is reset
 
 For more information, see
-[Throttling Resource Manager requests](../../azure-resource-manager/resource-manager-request-limits.md).
+[Guidance for throttled requests](./concepts/guidance-for-throttled-requests.md).
 
 ## Running your first query
 
-Resource Graph supports Azure CLI, Azure PowerShell, and Azure SDK for .NET. The query is structured
-the same for each language. Learn how to enable Resource Graph in [Azure
-CLI](first-query-azurecli.md#add-the-resource-graph-extension) and [Azure
-PowerShell](first-query-powershell.md#add-the-resource-graph-module).
+Azure Resource Graph Explorer, part of Azure portal, enables running Resource Graph queries directly
+in Azure portal. Pin the results as dynamic charts to provide real-time dynamic information to your
+portal workflow. For more information, see [First query with Azure Resource Graph Explorer](first-query-portal.md).
+
+Resource Graph supports Azure CLI, Azure PowerShell, Azure SDK for .NET, and more. The query is
+structured the same for each language. Learn how to enable Resource Graph with:
+
+- [Azure portal and Resource Graph Explorer](first-query-portal.md) 
+- [Azure CLI](first-query-azurecli.md#add-the-resource-graph-extension)
+- [Azure PowerShell](first-query-powershell.md#add-the-resource-graph-module)
 
 ## Next steps
 
+- Run your first query by using the [Azure portal](first-query-portal.md).
 - Run your first query with [Azure CLI](first-query-azurecli.md).
 - Run your first query with [Azure PowerShell](first-query-powershell.md).
-- Start with [Starter Queries](./samples/starter.md).
-- Enhance your understanding with [Advanced Queries](./samples/advanced.md).

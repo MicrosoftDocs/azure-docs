@@ -19,6 +19,8 @@
         href: service-bus-quickstart-powershell.md
       - name: Azure CLI
         href: service-bus-quickstart-cli.md
+      - name: Azure Resource Manager template
+        href: service-bus-resource-manager-namespace-queue.md
     - name: Send and receive messages
       items:      
       - name: .NET
@@ -40,7 +42,11 @@
   - name: Services Bus topics and subscriptions
     items:
     - name: Create topics and subscriptions 
-      href: service-bus-quickstart-topics-subscriptions-portal.md
+      items:
+      - name: Azure portal
+        href: service-bus-quickstart-topics-subscriptions-portal.md
+      - name: Azure Resource Manager template
+        href: service-bus-resource-manager-namespace-topic.md
     - name: Publish and subscribe for messages
       items: 
       - name: .NET
@@ -73,10 +79,6 @@
     href: service-bus-samples.md
 - name: Concepts
   items:
-  - name: Managed identities for Azure resources
-    href: service-bus-managed-service-identity.md
-  - name: Role-Based Access Control (preview)
-    href: service-bus-role-based-access-control.md
   - name: Premium messaging
     href: service-bus-premium-messaging.md
   - name: Compare Azure Queues and Service Bus queues
@@ -89,8 +91,27 @@
     href: service-bus-async-messaging.md
   - name: Handling outages and disasters
     href: service-bus-outages-disasters.md
-  - name: Azure common security attributes
-    href: service-bus-messaging-security-attributes.md
+  - name: Throttling
+    href: service-bus-throttling.md
+  - name: Security  
+    items:
+    - name: Authentication and authorization
+      href: service-bus-authentication-and-authorization.md
+      items:
+      - name: Use Shared Access Signatures
+        items:
+        - name: Migrate from ACS to SAS
+          href: service-bus-migrate-acs-sas.md
+        - name: Authentication with Shared Access Signatures
+          href: service-bus-sas.md
+      - name: Use Azure Active Directory
+        items: 
+        - name: Authenticate with managed identities for Azure resources 
+          href: service-bus-managed-service-identity.md
+        - name: Authenticate from an application 
+          href: authenticate-application.md
+    - name: Built-in security controls
+      href: service-bus-messaging-security-controls.md
 - name: How-to guides
   items:
   - name: Create a namespace
@@ -113,13 +134,6 @@
         href: service-bus-to-event-grid-integration-concept.md
       - name: Azure Event Grid examples
         href: service-bus-to-event-grid-integration-example.md
-    - name: Authentication and authorization
-      href: service-bus-authentication-and-authorization.md
-      items:
-      - name: Migrate from ACS to SAS
-        href: service-bus-migrate-acs-sas.md
-      - name: Authentication with Shared Access Signatures
-        href: service-bus-sas.md
     - name: Topic filters and actions
       href: topic-filters.md
     - name: Migrate from Standard to Premium namespaces
@@ -134,7 +148,7 @@
         href: service-bus-amqp-overview.md
       - name: .NET
         href: service-bus-amqp-dotnet.md
-      - name: Java Message Service and AMQP
+      - name: Java Message Service (JMS) and AMQP
         href: service-bus-java-how-to-use-jms-api-amqp.md
       - name: AMQP protocol guide
         href: service-bus-amqp-protocol-guide.md
@@ -168,8 +182,6 @@
       href: service-bus-end-to-end-tracing.md
     - name: Build a multi-tier Service Bus application
       href: service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
-    - name: Migrate Java Enterprise Edition application to Azure
-      href: migrate-java-apps-wild-fly.md
   - name: Manage
     items:
     - name: Use Azure PowerShell to provision entities
@@ -187,18 +199,20 @@
       items:
       - name: Create a namespace
         href: service-bus-resource-manager-namespace.md
-      - name: Create a namespace and a queue
-        href: service-bus-resource-manager-namespace-queue.md
-      - name: Create a namespace with topic and subscription
-        href: service-bus-resource-manager-namespace-topic.md
       - name: Create an authorization rule for namespace and queue
         href: service-bus-resource-manager-namespace-auth-rule.md
       - name: Create a namespace with topic, subscription, and rule
         href: service-bus-resource-manager-namespace-topic-with-rule.md
+  - name: Secure
+    items:
+    - name: Configure customer-managed keys for encryption at rest (Preview)
+      href: configure-customer-managed-key.md
   - name: Troubleshoot
     items:
-    - name: Exceptions
+    - name: Troubleshooting guide
       href: service-bus-messaging-exceptions.md
+    - name: Resource Manager exceptions
+      href: service-bus-resource-manager-exceptions.md
 - name: Reference
   items:
   - name: .NET

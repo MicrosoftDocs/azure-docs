@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 02/15/2018
+ms.date: 08/13/2019
 ms.author: alkohli
 
 ---
@@ -78,7 +78,7 @@ To expedite hardware warranty claims, replacement parts are shipped to the custo
 If your support contract has expired, be aware, depending on how long the support contract has been expired, it may take up to three weeks after the renewal processing has completed before a part is delivered as the local stocking location for your contract will not be stocked with replacement parts for your device until after your contract is processed.
 
 ## Local language support
-In addition to English, local language support is provided in the following languages during business hours: Japanese, Korean, Taiwanese, and Traditional Chinese.
+In addition to English, local language support is provided in the following languages during business hours: Spanish, Portuguese, Japanese, Korean, Taiwanese, and Traditional Chinese.
 
 ## Support scope 
 Support for billing and subscription management-related issues is available at all support levels. In order to receive StorSimple support, customer must be actively enrolled for either StorSimple Standard or Premium support plans. StorSimple support team will be responsible for resolving all issues that impact the StorSimple solution. In order to receive support for Azure-related issues that are not directly related to StorSimple, customer needs to be enrolled in an appropriate Azure support plan. Refer [here](https://azure.microsoft.com/support/plans/) for details. The support team refers non-StorSimple support cases to the Azure team for followup based on customer entitlements for Azure support. 

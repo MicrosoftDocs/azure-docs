@@ -1,16 +1,15 @@
 ---
-title: 'Manage reference data in Azure Time Series Insights environment using C# | Microsoft Docs'
-description: This article describes how to manage reference data for an Azure Time Series Insights environment by creating a custom application written in the C# (c-sharp) .NET language.
+title: 'Manage reference data in GA environments using C# - Azure Time Series Insights | Microsoft Docs'
+description: Learn how to manage reference data for your GA environment by creating a custom application written in C#.
 ms.service: time-series-insights
 services: time-series-insights
-author: ashannon7
+author: deepakpalled
 ms.author: dpalled
 manager: cshankar
-ms.reviewer: jasonh, kfile
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 06/05/2019
+ms.date: 10/03/2019
 ms.custom: seodec18
 ---
 
@@ -242,4 +241,4 @@ namespace TimeSeriesInsightsReferenceDataSampleApp
 
 ## Next steps
 
-- Read the [reference data API](/rest/api/time-series-insights/ga-reference-data-api).
+- Read the [reference data API](https://docs.microsoft.com/rest/api/time-series-insights/ga-reference-data-api).

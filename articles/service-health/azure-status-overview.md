@@ -1,17 +1,13 @@
 ---
 title: Azure status overview | Microsoft Docs
 description: A global view into the health of Azure services
-services: Azure status
 ms.topic: article
-author: stephbaron
-ms.author: stbaron
-ms.service: service-health
 ms.date: 06/11/2019
 
 ---
 # Azure status overview
 
-[Azure status](https://status.azure.com/status/) provides you with a global view of the health of Azure services and regions. With Azure status, you can get up-to-the-minute information on service availability. Azure status is available to everyone to view all services that report their service health, as well as incidents with wide-ranging impact. If you're a current Azure user, however, we strongly encourage you to use the personalized experience in [Azure Service Health](https://aka.ms/azureservicehealth). Azure Service Health includes all outages, upcoming planned maintenance activities, and service advisories.
+[Azure status](https://status.azure.com/status/) provides you with a global view of the health of Azure services and regions. With Azure status, you can get information on service availability. Azure status is available to everyone to view all services that report their service health, as well as incidents with wide-ranging impact. If you're a current Azure user, however, we strongly encourage you to use the personalized experience in [Azure Service Health](https://aka.ms/azureservicehealth). Azure Service Health includes all outages, upcoming planned maintenance activities, and service advisories.
 
 ![Azure status page](./media/azure-status-overview/azure-status.PNG)
 

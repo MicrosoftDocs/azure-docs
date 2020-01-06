@@ -1,5 +1,5 @@
 ---
-title: 'QoS requirements - ExpressRoute: Azure | Microsoft Docs'
+title: 'Azure ExpressRoute: QoS requirements'
 description: This page provides detailed requirements for configuring and managing QoS. Skype for Business/voice services are discussed.
 services: expressroute
 author: cherylmc
@@ -8,7 +8,6 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: cherylmc
-ms.custom: seodec18
 
 ---
 # ExpressRoute QoS requirements
@@ -25,7 +24,7 @@ The following table provides a list of DSCP markings used by Microsoft Teams and
 
 | **Traffic Class** | **Treatment (DSCP Marking)** | **Microsoft Teams and Skype for Business Workloads** |
 | --- | --- | --- |
-| **Voice** |EF (46) |Skype / Lync voice |
+| **Voice** |EF (46) |Skype / Microsoft Teams / Lync voice |
 | **Interactive** |AF41 (34) |Video, VBSS |
 | |AF21 (18) |App sharing | 
 | **Default** |AF11 (10) |File transfer |

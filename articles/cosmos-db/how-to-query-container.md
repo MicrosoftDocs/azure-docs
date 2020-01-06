@@ -1,10 +1,10 @@
 ---
 title: Query containers in Azure Cosmos DB
-description: Learn how to query containers in Azure Cosmos DB
+description: Learn how to query containers in Azure Cosmos DB using in-partition, cross-partition, and partial corss partition queries
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: sample
-ms.date: 05/23/2019
+ms.topic: conceptual
+ms.date: 12/02/2019
 ms.author: mjbrown
 ---
 

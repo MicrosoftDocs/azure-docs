@@ -8,8 +8,8 @@ ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 07/30/2018
 
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 
@@ -21,16 +21,16 @@ Azure Multi-Factor Authentication provides several reports that can be used by y
 
 | Report | Location | Description |
 |:--- |:--- |:--- |
-| Blocked User History | Azure AD > MFA Server > Block/unblock users | Shows the history of requests to block or unblock users. |
+| Blocked User History | Azure AD > Security > MFA > Block/unblock users | Shows the history of requests to block or unblock users. |
 | Usage and fraud alerts | Azure AD > Sign-ins | Provides information on overall usage, user summary, and user details; as well as a history of fraud alerts submitted during the date range specified. |
-| Usage for on-premises components | Azure AD > MFA Server > Activity Report | Provides information on overall usage for MFA through the NPS extension, ADFS, and MFA server. |
-| Bypassed User History | Azure AD > MFA Server > One-time bypass | Provides a history of requests to bypass Multi-Factor Authentication for a user. |
-| Server status | Azure AD > MFA Server > Server status | Displays the status of Multi-Factor Authentication Servers associated with your account. |
+| Usage for on-premises components | Azure AD > Security > MFA > Activity Report | Provides information on overall usage for MFA through the NPS extension, ADFS, and MFA server. |
+| Bypassed User History | Azure AD > Security > MFA > One-time bypass | Provides a history of requests to bypass Multi-Factor Authentication for a user. |
+| Server status | Azure AD > Security > MFA > Server status | Displays the status of Multi-Factor Authentication Servers associated with your account. |
 
 ## View MFA reports
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. On the left, select **Azure Active Directory** > **MFA Server**.
+2. On the left, select **Azure Active Directory** > **Security** > **MFA**.
 3. Select the report that you wish to view.
 
    ![MFA Server server status report in the Azure portal](./media/howto-mfa-reporting/report.png)
@@ -125,11 +125,21 @@ First, ensure that you have the [MSOnline V1 PowerShell module](https://docs.mic
 
 Identify users who have registered for MFA using the PowerShell that follows.
 
-```Get-MsolUser -All | where {$_.StrongAuthenticationMethods -ne $null} | Select-Object -Property UserPrincipalName```
+```Get-MsolUser -All | Where-Object {$_.StrongAuthenticationMethods -ne $null} | Select-Object -Property UserPrincipalName```
 
 Identify users who have not registered for MFA using the PowerShell that follows.
 
-```Get-MsolUser -All | where {$_.StrongAuthenticationMethods.Count -eq 0} | Select-Object -Property UserPrincipalName```
+```Get-MsolUser -All | Where-Object {$_.StrongAuthenticationMethods.Count -eq 0} | Select-Object -Property UserPrincipalName```
+
+Identify users and output methods registered. 
+
+```PowerShell
+Get-MsolUser -All | Select-Object @{N='UserPrincipalName';E={$_.UserPrincipalName}},
+
+@{N='MFA Status';E={if ($_.StrongAuthenticationRequirements.State){$_.StrongAuthenticationRequirements.State} else {"Disabled"}}},
+
+@{N='MFA Methods';E={$_.StrongAuthenticationMethods.methodtype}} | Export-Csv -Path c:\MFA_Report.csv -NoTypeInformation
+```
 
 ## Possible results in activity reports
 
@@ -185,5 +195,6 @@ The following table may be used to troubleshoot multi-factor authentication usin
 
 ## Next steps
 
+* [SSPR and MFA usage and insights reporting](howto-authentication-methods-usage-insights.md)
 * [For Users](../user-help/multi-factor-authentication-end-user.md)
 * [Where to deploy](concept-mfa-whichversion.md)

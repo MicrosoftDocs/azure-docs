@@ -1,12 +1,10 @@
 ---
 title: Gain tenant-wide visibility for Azure Security Center | Microsoft Docs
-description: Learn about gaining tenant-wide visibility in Azure Security Center.
+description: This article explains how to manage your security posture at scale by applying policies to all subscriptions linked to your Azure Active Directory tenant.
 services: security-center
 documentationcenter: na
-author: rkarlin
-manager: barbkess
-editor: ''
-
+author: memildin
+manager: rkarlin
 ms.assetid: b85c0e93-9982-48ad-b23f-53b367f22b10
 ms.service: security-center
 ms.devlang: na
@@ -14,13 +12,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/19/2018
-ms.author: rkarlin
+ms.author: memildin
 
 ---
 
 # Gain tenant-wide visibility for Azure Security Center
-This article helps you get started by doing several actions that maximize the benefits Azure Security Center provides. Performing these actions enables you to gain visibility on all the Azure subscriptions that are linked to your Azure Active Directory tenant and effectively manage your organization’s security posture at scale by applying security policies across multiple subscriptions in an aggregative manner.
-
+This article explains how to manage your organization’s security posture at scale by applying security policies to all Azure subscriptions linked to your Azure Active Directory tenant.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -51,7 +48,7 @@ You can organize subscriptions into management groups and apply your governance 
 5.  Select **Save**
 
 ### View management groups in the Azure portal
-1. SIgn in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 2. To view management groups, select **All services** under the Azure main menu.
 3. Under **General**, select **Management Groups**.
 
@@ -166,7 +163,7 @@ Once the RBAC roles have been assigned to the users, the tenant administrator sh
 
 
 
-## Adding subscriptions to a management groups
+## Adding subscriptions to a management group
 You can add subscriptions to the management group that you created. These steps aren't mandatory for gaining tenant-wide visibility and global policy and access management.
 
 1. Under **Management Groups**, select a management group to add your subscription to.

@@ -7,6 +7,7 @@ ms.author: terrylan
 ms.date: 06/11/2019
 ms.topic: article
 ms.service: security
+ms.subservice: security-develop
 services: azure
 
 ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
@@ -106,7 +107,7 @@ Boss](https://code.likeagirl.io/pushing-left-like-a-boss-part-1-80f1f007da95?WT.
 different types of application security activities that developers should complete to create more secure code.
 
 [Microsoft identity
-platform](https://docs.microsoft.com/azure/active-directory/develop/) –
+platform](../../active-directory/develop/index.yml) –
 The Microsoft identity platform is an evolution of the Azure AD identity
 service and developer platform. It’s a full-featured platform that
 consists of an authentication service, open-source libraries,

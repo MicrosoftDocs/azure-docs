@@ -1,5 +1,5 @@
 ---
-title: Conditional Access - Azure SQL Database and Data Warehouse | Microsoft Doc
+title: Conditional Access
 description: Learn how to configure Conditional Access for Azure SQL Database and Data Warehouse.
 services: sql-database
 ms.service: sql-database
@@ -10,7 +10,6 @@ ms.topic: conceptual
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
-manager: craigg
 ms.custom: sql-data-warehouse
 ms.date: 03/29/2019
 ---

@@ -4,11 +4,11 @@ description: Learn how to troubleshoot RDP internal errors in Microsoft Azure.| 
 services: virtual-machines-windows
 documentationCenter: ''
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 
 ms.service: virtual-machines-windows
-ms.devlang: na
+
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
@@ -133,7 +133,7 @@ Connect to [Serial Console and open PowerShell instance](./serial-console-window
 
 4. Restart the VM, and then try Start a Remote Desktop connection to the VM. If the error still occurs, go to the next step.
 
-Step 3: Enable all supported TLS versions
+#### Step 3: Enable all supported TLS versions
 
 The RDP client uses TLS 1.0 as the default protocol. However, this can be changed to TLS 1.1, which has become the new standard. If TLS 1.1 is disabled on the VM, the connection will fail.
 1.  In a CMD instance, enable the TLS protocol:

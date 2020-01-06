@@ -1,17 +1,9 @@
 ---
-title: "Networking deployment features - Azure App Service | Microsoft Docs" 
-description: "How to use the various App Service networking features" 
+title: Networking features
+description: Learn about the network features in Azure App Service, and which features you need for your network needs for security or functionality.
 author: ccompy
-manager: stefsch
-editor: ''
-services: app-service\web
-documentationcenter: ''
 
 ms.assetid: 5c61eed1-1ad1-4191-9f71-906d610ee5b7
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
-ms.devlang: multiple
 ms.topic: article
 ms.date: 05/28/2019
 ms.author: ccompy
@@ -50,7 +42,7 @@ For any given use case, there can be a few ways to solve the problem.  The right
 | Expose my app on a private IP in my VNet | ILB ASE </br> private IP for inbound on an Application Gateway with service endpoints |
 | Protect my app with a WAF | Application Gateway + ILB ASE </br> Application Gateway with service endpoints </br> Azure Front Door with Access Restrictions |
 | Load balance traffic to my apps in different regions | Azure Front Door with Access Restrictions | 
-| Load balance traffic in the same region | Application Gateway with service endpoints | 
+| Load balance traffic in the same region | [Application Gateway with service endpoints][appgwserviceendpoints] | 
 
 The following outbound use cases suggest how to use App Service networking features to solve outbound access needs for your app. 
 
@@ -88,7 +80,7 @@ You can learn how to set an address on your app with the tutorial on [Configurin
 
 ### Access Restrictions 
 
-The Access Restrictions capability lets you filter **inbound** requests based on the origination IP address. The filtering action takes place on the front-end roles that are upstream from the worker rolls where your apps are running. Since the front-end roles are upstream from the workers, the Access Restrictions capability can be regarded as network level protection for your apps. The feature allows you to build a list of allow and deny address blocks that are evaluated in priority order. It is similar to the Network Security Group (NSG) feature that exists in Azure Networking.  You can use this feature in an ASE or in the multi-tenant service. When used with an ILB ASE, you can restrict access from private address blocks.
+The Access Restrictions capability lets you filter **inbound** requests based on the origination IP address. The filtering action takes place on the front-end roles that are upstream from the worker roles where your apps are running. Since the front-end roles are upstream from the workers, the Access Restrictions capability can be regarded as network level protection for your apps. The feature allows you to build a list of allow and deny address blocks that are evaluated in priority order. It is similar to the Network Security Group (NSG) feature that exists in Azure Networking.  You can use this feature in an ASE or in the multi-tenant service. When used with an ILB ASE, you can restrict access from private address blocks.
 
 ![Access Restrictions](media/networking-features/access-restrictions.png)
 
@@ -108,7 +100,7 @@ Service endpoints allows you to lock down **inbound** access to your app such th
 ![service endpoints](media/networking-features/service-endpoints.png)
 
 * Setting up an Application Gateway with your app to lock down inbound traffic to your app
-* Testricting access to your app to resources in your VNet. This can include VMs, ASEs, or even other apps that use VNet Integration 
+* Restricting access to your app to resources in your VNet. This can include VMs, ASEs, or even other apps that use VNet Integration 
 
 ![service endpoints with application gateway](media/networking-features/service-endpoints-appgw.png)
 
@@ -132,7 +124,7 @@ This feature is commonly used to:
 
 Because the feature enables access to on-premises resources without an inbound firewall hole, it is popular with developers. The other outbound App Service networking features are very Azure Virtual Networking related. Hybrid Connections does not have a dependency on going through a VNet and can be used for a wider variety of networking needs. It is important to note that the App Service Hybrid Connections feature does not care or know what you are doing on top of it. That is to say that you can use it to access a database, a web service or an arbitrary TCP socket on a mainframe. The feature essentially tunnels TCP packets. 
 
-While Hybrid Connections is popular for development, it is also used in numerous production applications as well. It is great for accessing a web service or database, but is not appropriate for situations involving a great many connections being created. 
+While Hybrid Connections is popular for development, it is also used in numerous production applications as well. It is great for accessing a web service or database, but is not appropriate for situations involving creating many connections. 
 
 ### Gateway required VNet Integration 
 
@@ -219,10 +211,11 @@ A multi-tier application is an application where the API backend apps can only b
 You can have multiple front-end apps use the same API app by using VNet Integration from the other front-end apps and service endpoints from the API app with their subnets.  
 
 <!--Links-->
-[appassignedaddress]: https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-ssl#bind-your-ssl-certificate
+[appassignedaddress]: https://docs.microsoft.com/azure/app-service/configure-ssl-certificate
 [iprestrictions]: https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions
 [serviceendpoints]: https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions
 [hybridconn]: https://docs.microsoft.com/azure/app-service/app-service-hybrid-connections
 [vnetintegrationp2s]: https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet
 [vnetintegration]: https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet
 [networkinfo]: https://docs.microsoft.com/azure/app-service/environment/network-info
+[appgwserviceendpoints]: https://docs.microsoft.com/azure/app-service/networking/app-gateway-with-service-endpoints

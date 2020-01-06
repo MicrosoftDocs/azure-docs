@@ -1,17 +1,18 @@
 ---
 title: Troubleshoot Azure Stream Analytics using diagnostics logs
 description: This article describes how to analyze diagnostics logs in Azure Stream Analytics.
-services: stream-analytics
 author: jseb225
 ms.author: jeanb
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 05/15/2019
+ms.date: 12/19/2019
 ---
 # Troubleshoot Azure Stream Analytics by using diagnostics logs
 
 Occasionally, an Azure Stream Analytics job unexpectedly stops processing. It's important to be able to troubleshoot this kind of event. Failures can be caused by an unexpected query result, by connectivity to devices, or by an unexpected service outage. The diagnostics logs in Stream Analytics can help you identify the cause of issues when they occur and reduce recovery time.
+
+It is highly recommended to enable diagnostic logs for all jobs as this will greatly help with debugging and monitoring.
 
 ## Log types
 
@@ -56,23 +57,19 @@ Turning on diagnostic logs and sending them to Azure Monitor logs is highly reco
 
     ![Blade navigation to diagnostics logs](./media/stream-analytics-job-diagnostic-logs/diagnostic-logs-monitoring.png)  
 
-2.  Create a **Name** in **Diagnostic settings** and check the box next to **Send to Log Analytics**. Then add an existing or create a new **Log analytics workspace**. Check the boxes for **Execution** and **Authoring** under **LOG**, and **AllMetrics** under **METRIC**. Click **Save**.
+2.  Create a **Name** in **Diagnostic settings** and check the box next to **Send to Log Analytics**. Then add an existing or create a new **Log analytics workspace**. Check the boxes for **Execution** and **Authoring** under **LOG**, and **AllMetrics** under **METRIC**. Click **Save**. It is recommended to use a Log Analytics workspace in the same Azure region as your Stream Analytics job to prevent additional costs.
 
     ![Settings for diagnostics logs](./media/stream-analytics-job-diagnostic-logs/diagnostic-settings.png)
 
-3. When your Stream Analytics job starts, diagnostic logs are routed to your Log Analytics workspace. Navigate to the Log Analytics workspace and choose **Logs** under the **General** section.
+3. When your Stream Analytics job starts, diagnostic logs are routed to your Log Analytics workspace. To view diagnostic logs for your job, select **Logs** under the **Monitoring** section.
 
-   ![Azure Monitor logs under general section](./media/stream-analytics-job-diagnostic-logs/log-analytics-logs.png)
+   ![Diagnostic Logs under Monitoring](./media/stream-analytics-job-diagnostic-logs/diagnostic-logs.png)
 
-4. You can [write your own query](../azure-monitor/log-query/get-started-portal.md) to search for terms, identify trends, analyze patterns, and provide insights based on your data. For example, you can write a query to filter only diagnostic logs that have the message “The streaming job failed.” Diagnostic logs from Azure Stream Analytics are stored in the **AzureDiagnostics** table.
+4. Stream Analytics provides pre-defined queries that allows you to easily search for the logs that you are interested in. The 3 categories are **General**, **Input data errors** and **Output data errors**. For example, to see a summary of all the errors of your job in the last 7 days, you can select **Run** of the appropriate pre-defined query. 
 
-   ![Diagnostics query and results](./media/stream-analytics-job-diagnostic-logs/diagnostic-logs-query.png)
+   ![Diagnostic Logs under Monitoring](./media/stream-analytics-job-diagnostic-logs/logs-categories.png)
 
-5. When you have a query that is searching for the right logs, save it by selecting **Save** and provide a Name and Category. You can then create an alert by selecting **New alert rule**. Next, specify the alert condition. Select **Condition** and enter the threshold value and the frequency at which this custom log search is evaluated.  
-
-   ![Diagnostic log search query](./media/stream-analytics-job-diagnostic-logs/search-query.png)
-
-6. Choose the action group and specify alert details, like name and description, before you can create the alert rule. You can route the diagnostic logs of various jobs to the same Log Analytics workspace. This allows you to set up alerts once that work across all jobs.  
+   ![Results of logs](./media/stream-analytics-job-diagnostic-logs/logs-result.png)
 
 ## Diagnostics log categories
 
@@ -107,7 +104,7 @@ Execution logs have information about events that happened during Stream Analyti
 
 ### Data errors
 
-Any error that occurs while the job is processing data is in this category of logs. These logs most often are created during data read, serialization, and write operations. These logs do not include connectivity errors. Connectivity errors are treated as generic events.
+Any error that occurs while the job is processing data is in this category of logs. These logs most often are created during data read, serialization, and write operations. These logs do not include connectivity errors. Connectivity errors are treated as generic events. You can learn more about the cause of various different [input and output data errors](https://docs.microsoft.com/azure/stream-analytics/data-errors).
 
 Name | Description
 ------- | -------
@@ -142,5 +139,5 @@ Correlation ID | [GUID](https://en.wikipedia.org/wiki/Universally_unique_identif
 * [Introduction to Stream Analytics](stream-analytics-introduction.md)
 * [Get started with Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Scale Stream Analytics jobs](stream-analytics-scale-jobs.md)
-* [Stream Analytics query language reference](https://msdn.microsoft.com/library/azure/dn834998.aspx)
-* [Stream Analytics management REST API reference](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Stream Analytics query language reference](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
+* [Stream Analytics data errors](https://docs.microsoft.com/azure/stream-analytics/data-errors)

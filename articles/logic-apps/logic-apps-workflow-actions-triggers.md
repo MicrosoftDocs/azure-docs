@@ -1,17 +1,14 @@
 ---
-title: Reference for trigger and action types in Workflow Definition Language - Azure Logic Apps
-description: Reference guide for trigger and action types in Workflow Definition Language for Azure Logic Apps
+title: Schema reference for trigger and action types
+description: Schema reference guide for Workflow Definition Language trigger and action types in Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.topic: reference
-ms.date: 05/13/2019
+ms.reviewer: klam, logicappspm
+ms.topic: conceptual
+ms.date: 06/19/2019
 ---
 
-# Reference for trigger and action types in Workflow Definition Language for Azure Logic Apps
+# Schema reference guide for trigger and action types in Azure Logic Apps
 
 This reference describes the general types used for identifying triggers and actions 
 in your logic app's underlying workflow definition, which is described and validated by the 
@@ -287,21 +284,21 @@ endpoint to respond when a new email arrives.
 
 ### HTTP trigger
 
-This trigger checks or polls the specified endpoint 
-based on the specified recurrence schedule. 
-The endpoint's response determines whether the workflow runs.
+This trigger sends a request to the specified HTTP or HTTPS endpoint based on the specified recurrence schedule. The trigger then checks the response to determine whether the workflow runs.
 
 ```json
 "HTTP": {
    "type": "Http",
    "inputs": {
       "method": "<method-type>",
-      "uri": "<endpoint-URL>",
+      "uri": "<HTTP-or-HTTPS-endpoint-URL>",
       "headers": { "<header-content>" },
+      "queries": "<query-parameters>",
       "body": "<body-content>",
-      "authentication": { "<authentication-method>" },
-      "retryPolicy": { "<retry-behavior>" },
-      "queries": "<query-parameters>"
+      "authentication": { "<authentication-type-and-property-values>" },
+      "retryPolicy": {
+         "type": "<retry-behavior>"
+      }
    },
    "recurrence": {
       "frequency": "<time-unit>",
@@ -319,27 +316,27 @@ The endpoint's response determines whether the workflow runs.
 
 *Required*
 
-| Value | Type | Description | 
-|-------|------|-------------| 
-| <*method-type*> | String | The HTTP method to use for polling the specified endpoint: "GET", "PUT", "POST", "PATCH", "DELETE" | 
-| <*endpoint-URL*> | String | The HTTP or HTTPS URL for the endpoint to poll <p>Maximum string size: 2 KB | 
-| <*time-unit*> | String | The unit of time that describes how often the trigger fires: "Second", "Minute", "Hour", "Day", "Week", "Month" | 
-| <*number-of-time-units*> | Integer | A value that specifies how often the trigger fires based on the frequency, which is the number of time units to wait until the trigger fires again <p>Here are the minimum and maximum intervals: <p>- Month: 1-16 months </br>- Day: 1-500 days </br>- Hour: 1-12,000 hours </br>- Minute: 1-72,000 minutes </br>- Second: 1-9,999,999 seconds<p>For example, if the interval is 6, and the frequency is "Month", the recurrence is every 6 months. | 
-|||| 
+| Property | Value | Type | Description |
+|----------|-------|------|-------------|
+| `method` | <*method-type*> | String | The method to use for sending the outgoing request: "GET", "PUT", "POST", "PATCH", or "DELETE" |
+| `uri` | <*HTTP-or-HTTPS-endpoint-URL*> | String | The HTTP or HTTPS endpoint URL where you want to send the outgoing request. Maximum string size: 2 KB <p>For an Azure service or resource, this URI syntax includes the resource ID and the path to the resource that you want to access. |
+| `frequency` | <*time-unit*> | String | The unit of time that describes how often the trigger fires: "Second", "Minute", "Hour", "Day", "Week", "Month" |
+| `interval` | <*number-of-time-units*> | Integer | A value that specifies how often the trigger fires based on the frequency, which is the number of time units to wait until the trigger fires again <p>Here are the minimum and maximum intervals: <p>- Month: 1-16 months </br>- Day: 1-500 days </br>- Hour: 1-12,000 hours </br>- Minute: 1-72,000 minutes </br>- Second: 1-9,999,999 seconds<p>For example, if the interval is 6, and the frequency is "Month", the recurrence is every 6 months. |
+|||||
 
 *Optional*
 
-| Value | Type | Description | 
-|-------|------|-------------| 
-| <*header-content*> | JSON Object | The headers to send with the request <p>For example, to set the language and type for a request: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` |
-| <*body-content*> | String | The message content to send as payload with the request | 
-| <*authentication-method*> | JSON Object | The method the request uses for authentication. For more information, see [Scheduler Outbound Authentication](../scheduler/scheduler-outbound-authentication.md). Beyond Scheduler, the `authority` property is supported. When not specified, the default value is `https://login.windows.net`, but you can use a different value, such as`https://login.windows\-ppe.net`. |
-| <*retry-behavior*> | JSON Object | Customizes the retry behavior for intermittent failures, which have the 408, 429, and 5XX status code, and any connectivity exceptions. For more information, see [Retry policies](../logic-apps/logic-apps-exception-handling.md#retry-policies). |  
- <*query-parameters*> | JSON Object | Any query parameters to include with the request <p>For example, the `"queries": { "api-version": "2018-01-01" }` object adds `?api-version=2018-01-01` to the request. | 
-| <*max-runs*> | Integer | By default, workflow instances run at the same time, or in parallel up to the [default limit](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). To change this limit by setting a new <*count*> value, see [Change trigger concurrency](#change-trigger-concurrency). | 
-| <*max-runs-queue*> | Integer | When your workflow is already running the maximum number of instances, which you can change based on the `runtimeConfiguration.concurrency.runs` property, any new runs are put into this queue up to the [default limit](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). To change the default limit, see [Change waiting runs limit](#change-waiting-runs). | 
-| <*operation-option*> | String | You can change the default behavior by setting the `operationOptions` property. For more information, see [Operation options](#operation-options). | 
-|||| 
+| Property | Value | Type | Description |
+|----------|-------|------|-------------|
+| `headers` | <*header-content*> | JSON Object | Any headers that you need to include with the request <p>For example, to set the language and type: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` |
+| `queries` | <*query-parameters*> | JSON Object | Any query parameters that you need to use in the request <p>For example, the `"queries": { "api-version": "2018-01-01" }` object adds `?api-version=2018-01-01` to the request. |
+| `body` | <*body-content*> | JSON Object | The message content to send as payload with the request |
+| `authentication` | <*authentication-type-and-property-values*> | JSON Object | The authentication model that the request uses for authenticating outbound requests. For more information, see [Add authentication to outbound calls](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound). Beyond Scheduler, the `authority` property is supported. When not specified, the default value is `https://management.azure.com/`, but you can use a different value. |
+| `retryPolicy` > `type` | <*retry-behavior*> | JSON Object | Customizes the retry behavior for intermittent failures, which have the 408, 429, and 5XX status code, and any connectivity exceptions. For more information, see [Retry policies](../logic-apps/logic-apps-exception-handling.md#retry-policies). |
+| `runs` | <*max-runs*> | Integer | By default, workflow instances run at the same time, or in parallel up to the [default limit](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). To change this limit by setting a new <*count*> value, see [Change trigger concurrency](#change-trigger-concurrency). |
+| `maximumWaitingRuns` | <*max-runs-queue*> | Integer | When your workflow is already running the maximum number of instances, which you can change based on the `runtimeConfiguration.concurrency.runs` property, any new runs are put into this queue up to the [default limit](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). To change the default limit, see [Change waiting runs limit](#change-waiting-runs). |
+| `operationOptions` | <*operation-option*> | String | You can change the default behavior by setting the `operationOptions` property. For more information, see [Operation options](#operation-options). |
+|||||
 
 *Outputs*
 
@@ -398,7 +395,7 @@ The trigger's behavior depends on the sections that you use or omit.
          "uri": "<endpoint-subscribe-URL>",
          "headers": { "<header-content>" },
          "body": "<body-content>",
-         "authentication": { "<authentication-method>" },
+         "authentication": { "<authentication-type>" },
          "retryPolicy": { "<retry-behavior>" }
          },
       },
@@ -407,7 +404,7 @@ The trigger's behavior depends on the sections that you use or omit.
          "url": "<endpoint-unsubscribe-URL>",
          "headers": { "<header-content>" },
          "body": "<body-content>",
-         "authentication": { "<authentication-method>" }
+         "authentication": { "<authentication-type>" }
       }
    },
    "runTimeConfiguration": {
@@ -438,7 +435,7 @@ both the `"subscribe"` and `"unsubscribe"` objects.
 | <*method-type*> | String | The HTTP method to use for the cancellation request: "GET", "PUT", "POST", "PATCH", or "DELETE" | 
 | <*endpoint-unsubscribe-URL*> | String | The endpoint URL where to send the cancellation request | 
 | <*body-content*> | String | Any message content to send in the subscription or cancellation request | 
-| <*authentication-method*> | JSON Object | The method the request uses for authentication. For more information, see [Scheduler Outbound Authentication](../scheduler/scheduler-outbound-authentication.md). |
+| <*authentication-type*> | JSON Object | The authentication model that the request uses for authenticating outbound requests. For more information, see [Add authentication to outbound calls](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound). |
 | <*retry-behavior*> | JSON Object | Customizes the retry behavior for intermittent failures, which have the 408, 429, and 5XX status code, and any connectivity exceptions. For more information, see [Retry policies](../logic-apps/logic-apps-exception-handling.md#retry-policies). | 
 | <*max-runs*> | Integer | By default, workflow instances all run at the same time, or in parallel up to the [default limit](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). To change this limit by setting a new <*count*> value, see [Change trigger concurrency](#change-trigger-concurrency). | 
 | <*max-runs-queue*> | Integer | When your workflow is already running the maximum number of instances, which you can change based on the `runtimeConfiguration.concurrency.runs` property, any new runs are put into this queue up to the [default limit](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). To change the default limit, see [Change waiting runs limit](#change-waiting-runs). | 
@@ -532,7 +529,7 @@ and provides an easy way for creating a regularly running workflow.
 
 | Value | Type | Description | 
 |-------|------|-------------| 
-| <*start-date-time-with-format-YYYY-MM-DDThh:mm:ss*> | String | The start date and time in this format: <p>YYYY-MM-DDThh:mm:ss if you specify a time zone <p>-or- <p>YYYY-MM-DDThh:mm:ssZ if you don't specify a time zone <p>So for example, if you want September 18, 2017 at 2:00 PM, then specify "2017-09-18T14:00:00" and specify a time zone such as "Pacific Standard Time", or specify "2017-09-18T14:00:00Z" without a time zone. <p>**Note:** This start time must follow the [ISO 8601 date time specification](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) in [UTC date time format](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), but without a [UTC offset](https://en.wikipedia.org/wiki/UTC_offset). If you don't specify a time zone, you must add the letter "Z" at the end without any spaces. This "Z" refers to the equivalent [nautical time](https://en.wikipedia.org/wiki/Nautical_time). <p>For simple schedules, the start time is the first occurrence, while for complex schedules, the trigger doesn't fire any sooner than the start time. For more information about start dates and times, see [Create and schedule regularly running tasks](../connectors/connectors-native-recurrence.md). | 
+| <*start-date-time-with-format-YYYY-MM-DDThh:mm:ss*> | String | The start date and time in this format: <p>YYYY-MM-DDThh:mm:ss if you specify a time zone <p>-or- <p>YYYY-MM-DDThh:mm:ssZ if you don't specify a time zone <p>So for example, if you want September 18, 2017 at 2:00 PM, then specify "2017-09-18T14:00:00" and specify a time zone such as "Pacific Standard Time", or specify "2017-09-18T14:00:00Z" without a time zone. <p>**Note:** This start time has a maximum of 49 years in the future and must follow the [ISO 8601 date time specification](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) in [UTC date time format](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), but without a [UTC offset](https://en.wikipedia.org/wiki/UTC_offset). If you don't specify a time zone, you must add the letter "Z" at the end without any spaces. This "Z" refers to the equivalent [nautical time](https://en.wikipedia.org/wiki/Nautical_time). <p>For simple schedules, the start time is the first occurrence, while for complex schedules, the trigger doesn't fire any sooner than the start time. For more information about start dates and times, see [Create and schedule regularly running tasks](../connectors/connectors-native-recurrence.md). | 
 | <*time-zone*> | String | Applies only when you specify a start time because this trigger doesn't accept [UTC offset](https://en.wikipedia.org/wiki/UTC_offset). Specify the time zone that you want to apply. | 
 | <*one-or-more-hour-marks*> | Integer or integer array | If you specify "Day" or "Week" for `frequency`, you can specify one or more integers from 0 to 23, separated by commas, as the hours of the day when you want to run the workflow. <p>For example, if you specify "10", "12" and "14", you get 10 AM, 12 PM, and 2 PM as the hour marks. | 
 | <*one-or-more-minute-marks*> | Integer or integer array | If you specify "Day" or "Week" for `frequency`, you can specify one or more integers from 0 to 59, separated by commas, as the minutes of the hour when you want to run the workflow. <p>For example, you can specify "30" as the minute mark and using the previous example for hours of the day, you get 10:30 AM, 12:30 PM, and 2:30 PM. | 
@@ -746,7 +743,10 @@ see [Limits and configuration](../logic-apps/logic-apps-limits-and-config.md#loo
 > You can't use **SplitOn** with a synchronous response pattern. 
 > Any workflow that uses **SplitOn** and includes a response action 
 > runs asynchronously and immediately sends a `202 ACCEPTED` response.
-
+>
+> When trigger concurrency is enabled, the [SplitOn limit](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) 
+> is significantly reduced. If the number of items exceeds this limit, the SplitOn capability is disabled.
+ 
 If your trigger's Swagger file describes a payload that is an array, 
 the **SplitOn** property is automatically added to your trigger. 
 Otherwise, add this property inside the response payload that has 
@@ -1040,7 +1040,7 @@ and waits for the endpoint to respond. For more information, see
          "uri": "<api-subscribe-URL>",
          "headers": { "<header-content>" },
          "body": "<body-content>",
-         "authentication": { "<authentication-method>" },
+         "authentication": { "<authentication-type>" },
          "retryPolicy": "<retry-behavior>",
          "queries": { "<query-parameters>" },
          "<other-action-specific-input-properties>"
@@ -1050,7 +1050,7 @@ and waits for the endpoint to respond. For more information, see
          "uri": "<api-unsubscribe-URL>",
          "headers": { "<header-content>" },
          "body": "<body-content>",
-         "authentication": { "<authentication-method>" },
+         "authentication": { "<authentication-type>" },
          "<other-action-specific-properties>"
       },
    },
@@ -1077,7 +1077,7 @@ both the `"subscribe"` and `"unsubscribe"` objects.
 | <*api-unsubscribe-URL*> | String | The URI to use for unsubscribing from the API | 
 | <*header-content*> | JSON Object | Any headers to send in the request <p>For example, to set the language and type on a request: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` |
 | <*body-content*> | JSON Object | Any message content to send in the request | 
-| <*authentication-method*> | JSON Object | The method the request uses for authentication. For more information, see [Scheduler Outbound Authentication](../scheduler/scheduler-outbound-authentication.md). |
+| <*authentication-type*> | JSON Object | The authentication model that the request uses for authenticating outbound requests. For more information, see [Add authentication to outbound calls](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound). |
 | <*retry-behavior*> | JSON Object | Customizes the retry behavior for intermittent failures, which have the 408, 429, and 5XX status code, and any connectivity exceptions. For more information, see [Retry policies](../logic-apps/logic-apps-exception-handling.md#retry-policies). | 
 | <*query-parameters*> | JSON Object | Any query parameters to include with the API call <p>For example, the `"queries": { "api-version": "2018-01-01" }` object adds `?api-version=2018-01-01` to the call. | 
 | <*other-action-specific-input-properties*> | JSON Object | Any other input properties that apply to this specific action | 
@@ -1193,7 +1193,7 @@ For the `includeTrigger` attribute, you can specify `true` or `false` values.
 *Example 1*
 
 This action runs code that gets your logic app's name and returns 
-the text "Hello world from <logic-app-name>" as the result. 
+the text "Hello world from \<logic-app-name>" as the result. 
 In this example, the code references the workflow's name by 
 accessing the `workflowContext.workflow.name` property through 
 the read-only `workflowContext` object. For more information about 
@@ -1216,10 +1216,10 @@ This action runs code in a logic app that triggers when
 a new email arrives in an Office 365 Outlook account. 
 The logic app also uses a send approval email action that 
 forwards the content from the received email along with a 
-request for approval. 
+request for approval.
 
-The code extracts email addresses from the trigger's `Body` 
-property and returns those email addresses along with the 
+The code extracts the email addresses from the trigger's `Body` 
+property and returns the addresses along with the 
 `SelectedOption` property value from the approval action. 
 The action explicitly includes the send approval email action 
 as a dependency in the `explicitDependencies` > `actions` attribute.
@@ -1328,15 +1328,21 @@ created "GetProductID" function:
 
 ### HTTP action
 
-This action sends a request to the specified endpoint and 
-checks the response to determine whether the workflow should run. 
+This action sends a request to the specified HTTP or HTTPS endpoint and checks the response to determine whether the workflow runs.
 
 ```json
 "HTTP": {
    "type": "Http",
    "inputs": {
       "method": "<method-type>",
-      "uri": "<HTTP-or-HTTPS-endpoint-URL>"
+      "uri": "<HTTP-or-HTTPS-endpoint-URL>",
+      "headers": { "<header-content>" },
+      "queries": { "<query-parameters>" },
+      "body": "<body-content>",
+      "authentication": { "<authentication-type-and-property-values>" },
+      "retryPolicy": {
+         "type": "<retry-behavior>"
+      },
    },
    "runAfter": {}
 }
@@ -1344,28 +1350,28 @@ checks the response to determine whether the workflow should run.
 
 *Required*
 
-| Value | Type | Description | 
-|-------|------|-------------| 
-| <*method-type*> | String | The method to use for sending the request: "GET", "PUT", "POST", "PATCH", or "DELETE" | 
-| <*HTTP-or-HTTPS-endpoint-URL*> | String | The HTTP or HTTPS endpoint to call. Maximum string size: 2 KB | 
-|||| 
+| Property | Value | Type | Description |
+|----------|-------|------|-------------|
+| `method` | <*method-type*> | String | The method to use for sending the outgoing request: "GET", "PUT", "POST", "PATCH", or "DELETE" |
+| `uri` | <*HTTP-or-HTTPS-endpoint-URL*> | String | The HTTP or HTTPS endpoint URL where you want to send the outgoing request. Maximum string size: 2 KB <p>For an Azure service or resource, this URI syntax includes the resource ID and the path to the resource that you want to access. |
+|||||
 
 *Optional*
 
-| Value | Type | Description | 
-|-------|------|-------------| 
-| <*header-content*> | JSON Object | Any headers to send with the request <p>For example, to set the language and type: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` |
-| <*body-content*> | JSON Object | Any message content to send in the request | 
-| <*retry-behavior*> | JSON Object | Customizes the retry behavior for intermittent failures, which have the 408, 429, and 5XX status code, and any connectivity exceptions. For more information, see [Retry policies](../logic-apps/logic-apps-exception-handling.md#retry-policies). | 
-| <*query-parameters*> | JSON Object | Any query parameters to include with the request <p>For example, the `"queries": { "api-version": "2018-01-01" }` object adds `?api-version=2018-01-01` to the call. | 
-| <*other-action-specific-input-properties*> | JSON Object | Any other input properties that apply to this specific action | 
-| <*other-action-specific-properties*> | JSON Object | Any other properties that apply to this specific action | 
-|||| 
+| Property | Value | Type | Description |
+|----------|-------|------|-------------|
+| `headers` | <*header-content*> | JSON Object | Any headers that you need to include with the request <p>For example, to set the language and type: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` |
+| `queries` | <*query-parameters*> | JSON Object | Any query parameters that you need to use in the request <p>For example, the `"queries": { "api-version": "2018-01-01" }` object adds `?api-version=2018-01-01` to the call. |
+| `body` | <*body-content*> | JSON Object | The message content to send as payload with the request |
+| `authentication` | <*authentication-type-and-property-values*> | JSON Object | The authentication model that the request uses for authenticating outbound requests. For more information, see [Add authentication to outbound calls](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound). Beyond Scheduler, the `authority` property is supported. When not specified, the default value is `https://management.azure.com/`, but you can use a different value. |
+| `retryPolicy` > `type` | <*retry-behavior*> | JSON Object | Customizes the retry behavior for intermittent failures, which have the 408, 429, and 5XX status code, and any connectivity exceptions. For more information, see [Retry policies](../logic-apps/logic-apps-exception-handling.md#retry-policies). |
+| <*other-action-specific-input-properties*> | <*input-property*> | JSON Object | Any other input properties that apply to this specific action |
+| <*other-action-specific-properties*> | <*property-value*> | JSON Object | Any other properties that apply to this specific action |
+|||||
 
 *Example*
 
-This action definition gets the latest news 
-by sending a request to the specified endpoint:
+This action definition gets the latest news by sending a request to the specified endpoint:
 
 ```json
 "HTTP": {
@@ -1812,7 +1818,7 @@ this action can use for the column header names:
 
 | Value | Type | Description | 
 |-------|------|-------------| 
-| <CSV *or* HTML>| String | The format for the table you want to create | 
+| \<CSV *or* HTML>| String | The format for the table you want to create | 
 | <*array*> | Array | The array or expression that provides the source items for the table <p>**Note**: If the source array is empty, the action creates an empty table. | 
 |||| 
 
@@ -2566,7 +2572,7 @@ the specified URL until one of these conditions is met:
  "Run_until_loop_succeeds_or_expires": {
     "type": "Until",
     "actions": {
-        "Http": {
+        "HTTP": {
             "type": "Http",
             "inputs": {
                 "method": "GET",
@@ -2575,7 +2581,7 @@ the specified URL until one of these conditions is met:
             "runAfter": {}
         }
     },
-    "expression": "@equals(outputs('Http')['statusCode', 200])",
+    "expression": "@equals(outputs('HTTP')['statusCode'], 200)",
     "limit": {
         "count": 60,
         "timeout": "PT1H"
@@ -2645,6 +2651,7 @@ properties in the trigger or action definition.
 | `runtimeConfiguration.concurrency.maximumWaitingRuns` | Integer | Change the [*default limit*](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) on the number of workflow instances that can wait to run when your workflow is already running the maximum concurrent instances. You can change the concurrency limit in the `concurrency.runs` property. <p>To change the default limit, see [Change waiting runs limit](#change-waiting-runs). | All triggers | 
 | `runtimeConfiguration.concurrency.repetitions` | Integer | Change the [*default limit*](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) on the number of "for each" loop iterations that can run at the same time, or in parallel. <p>Setting the `repetitions` property to `1` works the same way as setting the `operationOptions` property to `SingleInstance`. You can set either property, but not both. <p>To change the default limit, see [Change "for each" concurrency](#change-for-each-concurrency) or [Run "for each" loops sequentially](#sequential-for-each). | Action: <p>[Foreach](#foreach-action) | 
 | `runtimeConfiguration.paginationPolicy.minimumItemCount` | Integer | For specific actions that support and have pagination turned on, this value specifies the *minimum* number of results to retrieve. <p>To turn on pagination, see [Get bulk data, items, or results by using pagination](../logic-apps/logic-apps-exceed-default-page-size-with-pagination.md) | Action: Varied |
+| `runtimeConfiguration.secureData.properties` | Array | On many triggers and actions, these settings hide inputs, outputs, or both from the logic app's run history. <p>To secure this data, see [Hide inputs and outputs from run history](../logic-apps/logic-apps-securing-a-logic-app.md#secure-data-code-view). | Most triggers and actions |
 | `runtimeConfiguration.staticResult` | JSON Object | For actions that support and have the [static result](../logic-apps/test-logic-apps-mock-data-static-results.md) setting turned on, the `staticResult` object has these attributes: <p>- `name`, which references the current action's static result definition name, which appears inside the `staticResults` attribute in your logic app workflow's `definition` attribute. For more information, see [Static results - Schema reference for Workflow Definition Language](../logic-apps/logic-apps-workflow-definition-language.md#static-results). <p> - `staticResultOptions`, which specifies whether static results are `Enabled` or not for the current action. <p>To turn on static results, see [Test logic apps with mock data by setting up static results](../logic-apps/test-logic-apps-mock-data-static-results.md) | Action: Varied |
 ||||| 
 
@@ -2668,23 +2675,40 @@ in trigger or action definition.
 
 ### Change trigger concurrency
 
-By default, logic app instances run at the same time, concurrently, or in parallel up to the 
-[default limit](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). 
-So, each trigger instance fires before the preceding workflow instance finishes running. 
-This limit helps control the number of requests that backend systems receive. 
+By default, logic app instances run at the same time (concurrently or in parallel) up to the [default limit](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). So, each trigger instance fires before the preceding workflow instance finishes running. This limit helps control the number of requests that backend systems receive. 
 
-To change the default limit, you can use either the code view editor or Logic Apps Designer 
-because changing the concurrency setting through the designer adds or updates the 
-`runtimeConfiguration.concurrency.runs` property in the underlying trigger definition 
-and vice versa. This property controls the maximum number of workflow instances that can run in parallel. 
+To change the default limit, you can use either the code view editor or Logic Apps Designer because changing the concurrency setting through the designer adds or updates the `runtimeConfiguration.concurrency.runs` property in the underlying trigger definition and vice versa. This property controls the maximum number of workflow instances that can run in parallel. Here are some considerations for when you want to enable the concurrency control:
 
-> [!NOTE] 
-> If you set the trigger to run sequentially 
-> either by using the designer or the code view editor,
-> don't set the trigger's `operationOptions` property 
-> to `SingleInstance` in the code view editor. 
-> Otherwise, you get a validation error. 
-> For more information, see [Trigger instances sequentially](#sequential-trigger).
+* When concurrency is enabled, the [SplitOn limit](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) is signficantly reduced for [debatching arrays](#split-on-debatch). If the number of items exceeds this limit, the SplitOn capability is disabled.
+
+* While concurrency is enabled, a long-running logic app instance might cause new logic app instances to enter a waiting state. This state prevents Azure Logic Apps from creating new instances and happens even when the number of concurrent runs is less than the specified maximum number of concurrent runs.
+
+  * To interrupt this state, cancel the earliest instances that are *still running*.
+
+    1. On your logic app's menu, select **Overview**.
+
+    1. In the **Runs history** section, select the earliest instance that is still running, for example:
+
+       ![Select earliest running instance](./media/logic-apps-workflow-actions-triggers/waiting-runs.png)
+
+       > [!TIP]
+       > To view only instances that are still running, open the **All** list, and select **Running**.    
+
+    1. Under **Logic app run**, select **Cancel run**.
+
+       ![Find earliest running instance](./media/logic-apps-workflow-actions-triggers/cancel-run.png)
+
+  * To work around this possibility, add a timeout to any action that might hold up these runs. If you're working in the code editor, see [Change asynchronous duration](#asynchronous-limits). Otherwise, if you're using the designer, follow these steps:
+
+    1. In your logic app, on the action where you want to add a timeout, in the upper-right corner, select the ellipses (**...**) button, and then select **Settings**.
+
+       ![Open action settings](./media/logic-apps-workflow-actions-triggers/action-settings.png)
+
+    1. Under **Timeout**, specify the timeout duration in [ISO 8601 format](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations).
+
+       ![Specify timeout duration](./media/logic-apps-workflow-actions-triggers/timeout.png)
+
+* If you want to run your logic app sequentially, you can set the trigger's concurrency to `1` either by using the code view editor or the designer. However, don't also set the trigger's `operationOptions` property to `SingleInstance` in the code view editor. Otherwise, you get a validation error. For more information, see [Trigger instances sequentially](#sequential-trigger).
 
 #### Edit in code view 
 
@@ -2959,7 +2983,7 @@ the action's inputs.
 
 ### Run in high throughput mode
 
-For a single logic app run, the number of actions that execute every 5 minutes has a 
+For a single logic app definition, the number of actions that execute every 5 minutes has a 
 [default limit](../logic-apps/logic-apps-limits-and-config.md#throughput-limits). 
 To raise this limit to the [maximum](../logic-apps/logic-apps-limits-and-config.md#throughput-limits) 
 possible, set the `operationOptions` property to `OptimizedForHighThroughput`. 
@@ -2979,177 +3003,11 @@ This setting puts your logic app into "high throughput" mode.
 }
 ```
 
-<a name="connector-authentication"></a>
+<a name="authenticate-triggers-actions"></a>
 
-## Authenticate HTTP triggers and actions
+## Authenticate triggers and actions
 
-HTTP endpoints support different kinds of authentication. 
-You can set up authentication for these HTTP triggers and actions:
-
-* [HTTP](../connectors/connectors-native-http.md)
-* [HTTP + Swagger](../connectors/connectors-native-http-swagger.md)
-* [HTTP Webhook](../connectors/connectors-native-webhook.md)
-
-Here are the kinds of authentication you can set up:
-
-* [Basic authentication](#basic-authentication)
-* [Client certificate authentication](#client-certificate-authentication)
-* [Azure Active Directory (Azure AD) OAuth authentication](#azure-active-directory-oauth-authentication)
-
-> [!IMPORTANT]
-> Make sure you protect any sensitive information 
-> that your logic app workflow definition handles. 
-> Use secured parameters and encode data as necessary. 
-> For more information about using and securing parameters, 
-> see [Secure your logic app](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters).
-
-<a name="basic-authentication"></a>
-
-### Basic authentication
-
-For [basic authentication](../active-directory-b2c/active-directory-b2c-custom-rest-api-netfw-secure-basic.md) 
-by using Azure Active Directory, your trigger or action definition can 
-include an `authentication` JSON object, which has the properties 
-specified by the following table. To access parameter values at runtime, 
-you can use the `@parameters('parameterName')` expression, which is 
-provided by the [Workflow Definition Language](https://aka.ms/logicappsdocs). 
-
-| Property | Required | Value | Description | 
-|----------|----------|-------|-------------| 
-| **type** | Yes | "Basic" | The authentication type to use, which is "Basic" here | 
-| **username** | Yes | "@parameters('userNameParam')" | The user name for authenticating access to the target service endpoint |
-| **password** | Yes | "@parameters('passwordParam')" | The password for authenticating access to the target service endpoint |
-||||| 
-
-In this example HTTP action definition, the `authentication` 
-section specifies `Basic` authentication. For more 
-information about using and securing parameters, see 
-[Secure your logic app](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters).
-
-```json
-"HTTP": {
-   "type": "Http",
-   "inputs": {
-      "method": "GET",
-      "uri": "https://www.microsoft.com",
-      "authentication": {
-         "type": "Basic",
-         "username": "@parameters('userNameParam')",
-         "password": "@parameters('passwordParam')"
-      }
-  },
-  "runAfter": {}
-}
-```
-
-> [!IMPORTANT]
-> Make sure you protect any sensitive information 
-> that your logic app workflow definition handles. 
-> Use secured parameters and encode data as necessary. 
-> For more information about securing parameters, 
-> see [Secure your logic app](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters).
-
-<a name="client-certificate-authentication"></a>
-
-### Client Certificate authentication
-
-For [certificate-based authentication](../active-directory/authentication/active-directory-certificate-based-authentication-get-started.md) 
-using Azure Active Directory, your trigger or action 
-definition can include an `authentication` JSON object, 
-which has the properties specified by the following table. 
-To access parameter values at runtime, you can use the 
-`@parameters('parameterName')` expression, which is provided 
-by the [Workflow Definition Language](https://aka.ms/logicappsdocs). 
-For limits on the number of client certificates you can use, see 
-[Limits and configuration for Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md).
-
-| Property | Required | Value | Description |
-|----------|----------|-------|-------------|
-| **type** | Yes | "ClientCertificate" | The authentication type to use for Secure Sockets Layer (SSL) client certificates. While self-signed certificates are supported, self-signed certificates for SSL aren't supported. |
-| **pfx** | Yes | "@parameters('pfxParam') | The base64-encoded content from a Personal Information Exchange (PFX) file |
-| **password** | Yes | "@parameters('passwordParam')" | The password for accessing the PFX file |
-||||| 
-
-In this example HTTP action definition, the `authentication` 
-section specifies `ClientCertificate` authentication. 
-For more information about using and securing parameters, see 
-[Secure your logic app](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters).
-
-```json
-"HTTP": {
-   "type": "Http",
-   "inputs": {
-      "method": "GET",
-      "uri": "https://www.microsoft.com",
-      "authentication": {
-         "type": "ClientCertificate",
-         "pfx": "@parameters('pfxParam')",
-         "password": "@parameters('passwordParam')"
-      }
-   },
-   "runAfter": {}
-}
-```
-
-> [!IMPORTANT]
-> Make sure you protect any sensitive information 
-> that your logic app workflow definition handles. 
-> Use secured parameters and encode data as necessary. 
-> For more information about securing parameters, 
-> see [Secure your logic app](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters).
-
-<a name="azure-active-directory-oauth-authentication"></a>
-
-### Azure Active Directory (AD) OAuth authentication
-
-For [Azure AD OAuth authentication](../active-directory/develop/authentication-scenarios.md), 
-your trigger or action definition can include an `authentication` JSON object, 
-which has the properties specified by the following table. To access parameter values at runtime, 
-you can use the `@parameters('parameterName')` expression, which is 
-provided by the [Workflow Definition Language](https://aka.ms/logicappsdocs).
-
-| Property | Required | Value | Description |
-|----------|----------|-------|-------------|
-| **type** | Yes | `ActiveDirectoryOAuth` | The authentication type to use, which is "ActiveDirectoryOAuth" for Azure AD OAuth |
-| **authority** | No | <*URL-for-authority-token-issuer*> | The URL for the authority that provides the authentication token |
-| **tenant** | Yes | <*tenant-ID*> | The tenant ID for the Azure AD tenant |
-| **audience** | Yes | <*resource-to-authorize*> | The resource that you want to use for authorization, for example, `https://management.core.windows.net/` |
-| **clientId** | Yes | <*client-ID*> | The client ID for the app requesting authorization |
-| **credentialType** | Yes | "Certificate" or "Secret" | The credential type the client uses for requesting authorization. This property and value don't appear in your underlying definition, but determines the required parameters for the credential type. |
-| **pfx** | Yes, only for "Certificate" credential type | "@parameters('pfxParam') | The base64-encoded content from a Personal Information Exchange (PFX) file |
-| **password** | Yes, only for "Certificate" credential type | "@parameters('passwordParam')" | The password for accessing the PFX file |
-| **secret** | Yes, only for "Secret" credential type | "@parameters('secretParam')" | The client secret for requesting authorization |
-|||||
-
-In this example HTTP action definition, the `authentication` section specifies 
-`ActiveDirectoryOAuth` authentication and the "Secret" credential type. 
-For more information about using and securing parameters, see 
-[Secure your logic app](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters).
-
-```json
-"HTTP": {
-   "type": "Http",
-   "inputs": {
-      "method": "GET",
-      "uri": "https://www.microsoft.com",
-      "authentication": {
-         "type": "ActiveDirectoryOAuth",
-         "tenant": "72f988bf-86f1-41af-91ab-2d7cd011db47",
-         "audience": "https://management.core.windows.net/",
-         "clientId": "34750e0b-72d1-4e4f-bbbe-664f6d04d411",
-         "secret": "@parameters('secretParam')"
-     }
-   },
-   "runAfter": {}
-}
-```
-
-> [!IMPORTANT]
-> Make sure you protect any sensitive information 
-> that your logic app workflow definition handles. 
-> Use secured parameters and encode data as necessary. 
-> For more information about securing parameters, 
-> see [Secure your logic app](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters).
+HTTP and HTTPS endpoints support different kinds of authentication. Based on the trigger or action that you use to make outbound calls or requests to access these endpoints, you can select from different ranges of authentication types. For more information, see [Add authentication to outbound calls](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound).
 
 ## Next steps
 

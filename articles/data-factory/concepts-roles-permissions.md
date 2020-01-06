@@ -1,5 +1,5 @@
 ---
-title: Roles and permissions for Azure Data Factory | Microsoft Docs
+title: Roles and permissions for Azure Data Factory 
 description: Describes the roles and permissions required to create Data Factories and to work with child resources.
 ms.date: 11/5/2018
 ms.topic: conceptual
@@ -7,10 +7,10 @@ ms.service: data-factory
 services: data-factory
 documentationcenter: ''
 ms.workload: data-services
-ms.tgt_pltfrm: na
-author: gauravmalhot
-ms.author: gamal
-manager: craigg
+
+author: djpmsft
+ms.author: daperlov
+manager: anandsub
 ---
 
 # Roles and permissions for Azure Data Factory
@@ -74,6 +74,10 @@ Here are a few examples that demonstrate what you can achieve with custom roles:
 
   1. Assign the built-in **contributor** role at the data factory level.
   2. Create a custom role with the permission  **Microsoft.Resources/deployments/**. Assign this custom role to the user at resource group level.
+
+- Let a user only be able to test connection in a linked service
+
+    Create a custom role role with permissions for the following actions: **Microsoft.DataFactory/factories/getFeatureValue/read** and **Microsoft.DataFactory/factories/getDataPlaneAccess/read**. Assign this custom role on the data factory resource for the user.
 
 - Let a user update a data factory from PowerShell or the SDK, but not in the Azure portal.
 

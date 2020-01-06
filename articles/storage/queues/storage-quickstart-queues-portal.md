@@ -1,14 +1,13 @@
 ---
-title: Azure Quickstart - Create a queue in Azure Storage using the Azure portal | Microsoft Docs
-description: In this quickstart, you use the Azure portal to create a queue. Then you use the Azure portal to add a message, view the message's properties, and dequeue the message.
-services: storage
+title: "Quickstart: Create Azure Storage queues in the portal"
+description: Use the Azure portal to create a queue. Then, use the Azure portal to add a message, view the message properties, and dequeue the message.
 author: mhopkins-msft
 
-ms.custom: mvc
-ms.service: storage
-ms.topic: quickstart
-ms.date: 03/06/2019
 ms.author: mhopkins
+ms.date: 03/06/2019
+ms.service: storage
+ms.subservice: queues
+ms.topic: quickstart
 ms.reviewer: cbrooks
 ---
 

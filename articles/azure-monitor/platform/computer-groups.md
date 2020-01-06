@@ -1,18 +1,13 @@
 ---
 title: Computer groups in Azure Monitor log queries | Microsoft Docs
 description: Computer groups in Azure Monitor allow you to scope log queries to a particular set of computers.  This article describes the different methods you can use to create computer groups and how to use them in a log query.
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: ''
-ms.assetid: a28b9e8a-6761-4ead-aa61-c8451ca90125
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service:  azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 02/05/2019
+author: bwren
 ms.author: bwren
+ms.date: 02/05/2019
+
 ---
 
 # Computer groups in Azure Monitor log queries
@@ -79,7 +74,7 @@ When groups have been imported, the menu lists the number of computers with grou
 ### System Center Configuration Manager
 When you configure Azure Monitor to import Configuration Manager collection memberships, it creates a computer group for each collection.  The collection membership information is retrieved every 3 hours to keep the  computer groups current. 
 
-Before you can import Configuration Manager collections, you must [connect Configuration Manager to Azure Monitor](collect-sccm.md).  You can then configure the import from **Advanced settings** in your Log Analytics workspace in the Azure portal.  Select **Computer Groups**, **SCCM**, and then **Import Configuration Manager collection memberships**.  There is no further configuration required.
+Before you can import Configuration Manager collections, you must [connect Configuration Manager to Azure Monitor](collect-sccm.md).  
 
 ![Computer groups from SCCM](media/computer-groups/configure-sccm.png)
 

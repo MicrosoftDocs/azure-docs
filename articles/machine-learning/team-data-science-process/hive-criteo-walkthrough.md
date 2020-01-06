@@ -59,7 +59,7 @@ Set up your Azure Data Science environment for building predictive analytics sol
 
    * You must link the storage account created in step 1 with your HDInsight cluster when it is created. This storage account is used for accessing data that can be processed within the cluster.
    * You must enable Remote Access to the head node of the cluster after it is created. Remember the remote access credentials you specify here (different from those specified for the cluster at its creation): you need them to complete the following procedures.
-3. [Create an Azure Machine Learning studio workspace](../studio/create-workspace.md): This Azure Machine Learning workspace is used for building machine learning models after an initial data exploration and down sampling on the HDInsight cluster.
+3. [Create an Azure Machine Learning Studio (classic) workspace](../studio/create-workspace.md): This Azure Machine Learning workspace is used for building machine learning models after an initial data exploration and down sampling on the HDInsight cluster.
 
 ## <a name="getdata"></a>Get and consume data from a public source
 The [Criteo](https://labs.criteo.com/downloads/download-terabyte-click-logs/) dataset can be accessed by clicking on the link, accepting the terms of use, and providing a name. A snapshot of what this looks like is shown here:
@@ -453,7 +453,7 @@ To select the saved dataset for use in a machine learning experiment, locate the
 >
 
 ### <a name="step2"></a> Step 2: Create a simple experiment in Azure Machine Learning to predict clicks / no clicks
-Our Azure Machine Learning studio experiment looks like this:
+Our Azure Machine Learning Studio (classic) experiment looks like this:
 
 ![Machine Learning experiment](./media/hive-criteo-walkthrough/xRpVfrY.png)
 

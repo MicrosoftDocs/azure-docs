@@ -1,10 +1,10 @@
 ---
-title: Azure CLI sample - Create an Azure VM running Azure Monitor | Microsoft Docs
+title: Azure CLI sample - Create an Azure VM running Azure Monitor 
 description: Azure CLI sample - Create an Azure VM running Windows Server 2016 VM and Azure Monitor.
 services: virtual-machines-Windows
 documentationcenter: virtual-machines
 author: rickstercdn
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: 
 

@@ -1,11 +1,12 @@
 ---
-title: Overview of multi-tenant back ends, such as Azure App service, with Azure Application Gateway
+title: Multi-tenant back ends
+titleSuffix: Azure Application Gateway
 description: This page provides an overview of the Application Gateway support for multi-tenant back ends.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 03/18/2019
+ms.date: 11/14/2019
 ms.author: victorh
 
 ---
@@ -58,4 +59,4 @@ To resolve such cases, see [Troubleshoot redirection to App service’s URL issu
 
 ## Next steps
 
-Learn how to set up an application gateway with a multi-tenant app such as Azure App service web app as a back-end pool member by visiting [Configure App Service web apps with Application Gateway](https://docs.microsoft.com/azure/application-gateway/create-web-app)
+Learn how to set up an application gateway with a multi-tenant app such as Azure App service web app as a back-end pool member by visiting [Configure App Service web apps with Application Gateway](https://docs.microsoft.com/azure/application-gateway/configure-web-app-portal)

@@ -1,18 +1,16 @@
 ---
-title: Troubleshoot problems with Azure Application Insights Profiler | Microsoft Docs
+title: Troubleshoot problems with Azure Application Insights Profiler
 description: This article presents troubleshooting steps and information to help developers who are having trouble enabling or using Application Insights Profiler.
-services: application-insights
-documentationcenter: ''
-author: cweining
-manager: carmonm
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service:  azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.reviewer: mbullwin
-ms.date: 08/06/2018
+author: cweining
 ms.author: cweining
+ms.date: 08/06/2018
+
+ms.reviewer: mbullwin
 ---
+
 # Troubleshoot problems enabling or viewing Application Insights Profiler
 
 ## <a id="troubleshooting"></a>General troubleshooting
@@ -82,7 +80,7 @@ For Profiler to work properly:
 
       ![profiler-webjob-log]
 
-If you can't figure out why Profiler isn't working for you, you can download the log and send it to our team for assistance. 
+If you can't figure out why Profiler isn't working for you, you can download the log and send it to our team for assistance, serviceprofilerhelp@microsoft.com. 
     
 ### Manual installation
 
@@ -161,6 +159,11 @@ To check the settings that were used to configure Azure Diagnostics:
     If Profiler is running while your application is receiving requests, the following message is displayed: *Activity detected from iKey*. 
 
     When the trace is being uploaded, the following message is displayed: *Start to upload trace*. 
+
+
+## Edit network proxy or firewall rules
+
+If your application connects to the Internet via a proxy or a firewall, you may need to edit the rules to allow your application to communicate with the Application Insights Profiler service. The IPs used by Application Insights Profiler are included in the Azure Monitor service tag.
 
 
 [profiler-search-telemetry]:./media/profiler-troubleshooting/Profiler-Search-Telemetry.png

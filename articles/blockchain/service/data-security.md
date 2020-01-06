@@ -1,15 +1,9 @@
 ---
 title: Azure Blockchain Service security
 description: Azure Blockchain Service data access and security concepts
-services: azure-blockchain
-keywords: 
-author: PatAltimore
-ms.author: patricka
-ms.date: 05/02/2019
-ms.topic: article
-ms.service: azure-blockchain
-ms.reviewer: seal
-manager: femila
+ms.date: 11/22/2019
+ms.topic: conceptual
+ms.reviewer: janders
 #Customer intent: As a network operator, I want to understand how Azure Blockchain Service implements data access and security
 ---
 
@@ -19,7 +13,7 @@ Azure Blockchain Service uses several Azure capabilities to keep your data secur
 
 ## Isolation
 
-Azure Blockchain Service resources are isolated in a private virtual network. Each transaction and validation node is a virtual machine (VM). VMs in one virtual network cannot communicate directly to VMs in a different virtual network. Isolation ensures communication remains private within the virtual network. For more information on Azure virtual network isolation, see [isolation in the Azure Public Cloud](../../security/azure-isolation.md#networking-isolation).
+Azure Blockchain Service resources are isolated in a private virtual network. Each transaction and validation node is a virtual machine (VM). VMs in one virtual network cannot communicate directly to VMs in a different virtual network. Isolation ensures communication remains private within the virtual network. For more information on Azure virtual network isolation, see [isolation in the Azure Public Cloud](../../security/fundamentals/isolation-choices.md#networking-isolation).
 
 ![VNET diagram](./media/data-security/vnet.png)
 
@@ -63,4 +57,4 @@ Constellation keys are used to uniquely identify a Quorum node. Constellation ke
 
 ## Next steps
 
-[Configure Azure Blockchain Service transaction nodes](configure-transaction-nodes.md)
+See [How to configure Azure Active Directory access for Azure Blockchain Service](configure-aad.md).

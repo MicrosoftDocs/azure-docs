@@ -1,16 +1,16 @@
 ---
-title: Basic Azure classic CLI Commands for Linux and Mac | Microsoft Docs
+title: Basic Azure classic CLI Commands for Linux and Mac 
 description: Basic Azure classic CLI commands to get you started managing your VMs in Azure Resource Manager mode on Linux and Mac
 services: virtual-machines-linux
 documentationcenter: ''
 author: RicksterCDN
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-resource-manager
 
 ms.assetid: 
 ms.service: virtual-machines-linux
-ms.devlang: na
+
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services

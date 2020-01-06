@@ -1,5 +1,5 @@
 ---
-title: Understand the OpenID Connect authentication code flow in Azure AD | Microsoft Docs
+title: Authorize web app access with OpenID Connect & Azure AD | Microsoft Docs
 description: This article describes how to use HTTP messages to authorize access to web applications and web APIs in your tenant using Azure Active Directory and OpenID Connect.
 services: active-directory
 documentationcenter: .net
@@ -13,8 +13,8 @@ ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 05/22/2019
+ms.topic: conceptual
+ms.date: 09/05/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
@@ -26,7 +26,6 @@ ms.collection: M365-identity-device-management
 [OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html) is a simple identity layer built on top of the OAuth 2.0 protocol. OAuth 2.0 defines mechanisms to obtain and use [**access tokens**](access-tokens.md) to access protected resources, but they do not define standard methods to provide identity information. OpenID Connect implements authentication as an extension to the OAuth 2.0 authorization process. It provides information about the end user in the form of an [`id_token`](id-tokens.md) that verifies the identity of the user and provides basic profile information about the user.
 
 OpenID Connect is our recommendation if you are building a web application that is hosted on a server and accessed via a browser.
-
 
 [!INCLUDE [active-directory-protocols-getting-started](../../../includes/active-directory-protocols-getting-started.md)] 
 
@@ -177,7 +176,7 @@ post_logout_redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 
 | Parameter |  | Description |
 | --- | --- | --- |
-| post_logout_redirect_uri |recommended |The URL that the user should be redirected to after successful sign out. If not included, the user is shown a generic message. |
+| post_logout_redirect_uri |recommended |The URL that the user should be redirected to after successful sign out.  This URL must match one of the redirect URIs registered for your application in the app registration portal.  If *post_logout_redirect_uri* is not included, the user is shown a generic message. |
 
 ## Single sign-out
 

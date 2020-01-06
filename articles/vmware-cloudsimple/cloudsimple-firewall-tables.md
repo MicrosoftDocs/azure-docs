@@ -1,17 +1,17 @@
 ---
-title: Firewall tables - VMware Solution by CloudSimple - Azure 
+title: Azure VMware Solution by CloudSimple - Firewall tables 
 description: Learn about CloudSimple private cloud firewall tables and firewall rules. 
 author: sharaths-cs 
 ms.author: dikamath 
-ms.date: 04/10/2019
+ms.date: 08/20/2019
 ms.topic: article 
-ms.service: vmware 
+ms.service: azure-vmware-cloudsimple 
 ms.reviewer: cynthn 
 manager: dikamath 
 ---
 # Firewall tables overview
 
-A firewall table lists rules to filter network traffic to and from private cloud resources. You can apply them to a VLAN or subnet. The rules then control network traffic between a source network or IP address, and a destination network or IP address.
+A firewall table lists rules to filter network traffic to and from Private Cloud resources. You can apply firewall tables to a VLAN/subnet. The rules control network traffic between a source network or IP address and a destination network or IP address.
 
 ## Firewall rules
 
@@ -20,7 +20,7 @@ The following table describes the parameters in a firewall rule.
 | Property | Details |
 | ---------| --------|
 | **Name** | A name that uniquely identifies the firewall rule and its purpose. |
-| **Priority** | A number between 100 and 4096, with 100 being the highest priority. Rules are processed in priority order. When traffic comes across a rule match, rule processing stops. As a result, any rules that exist with lower priorities that have the same attributes as rules with higher priorities aren't processed.  Take care to avoid conflicting rules. |
+| **Priority** | A number between 100 and 4096, with 100 being the highest priority. Rules are processed in priority order. When traffic encounters a rule match, rule processing stops. As a result, rules with lower priorities that have the same attributes as rules with higher priorities aren't processed.  Take care to avoid conflicting rules. |
 | **State Tracking** | Tracking can be stateless (Private Cloud, Internet, or VPN) or stateful (Public IP).  |
 | **Protocol** | Options include Any, TCP, or UDP. If you require ICMP, use Any. |
 | **Direction** | Whether the rule applies to inbound, or outbound traffic. |
@@ -45,7 +45,7 @@ Additional rules may be required for traffic flow in the reverse direction.  Use
 
 ### Default rules
 
-Following default rules are created on every firewall table.
+The following default rules are created on every firewall table.
 
 |Priority|Name|State Tracking|Direction|Traffic Type|Protocol|Source|Source Port|Destination|Destination Port|Action|
 |--------|----|--------------|---------|------------|--------|------|-----------|-----------|----------------|------|
@@ -56,4 +56,4 @@ Following default rules are created on every firewall table.
 
 ## Next steps
 
-* [Set up firewall tables and rules](https://docs.azure.cloudsimple.com/firewall/)
+* [Set up firewall tables and rules](firewall.md)

@@ -1,11 +1,12 @@
 ---
-title: Configure Azure Application Gateway with a private frontend IP address
+title: Configure an internal load balancer (ILB) endpoint
+titleSuffix: Azure Application Gateway
 description: This article provides information on how to configure Application Gateway with a private frontend IP address
 services: application-gateway
 author: abshamsft
 ms.service: application-gateway
 ms.topic: article
-ms.date: 02/26/2019
+ms.date: 11/14/2019
 ms.author: absha
 ---
 

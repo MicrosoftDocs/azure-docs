@@ -1,22 +1,17 @@
 ---
-title: 'Azure Site Recovery: Frequently asked questions | Microsoft Docs'
-description: This article discusses popular questions about Azure Site Recovery.
-services: site-recovery
-author: rayne-wiselman
-manager: carmonm
-ms.service: site-recovery
+title: General questions about the Azure Site Recovery service
+description: This article discusses popular general questions about Azure Site Recovery.
 ms.topic: conceptual
-ms.date: 05/30/2019
-ms.author: raynew
+ms.date: 11/14/2019
 
 ---
-# Azure Site Recovery: frequently asked questions (FAQ)
-This article summarizes frequently asked questions about Azure Site Recovery.</br>
-For specific queries on different ASR scenarios please refer scenario specific FAQs.<br>
+# General questions about Azure Site Recovery
 
-- [Azure VM Disaster Recovery to Azure](azure-to-azure-common-questions.md)
-- [VMware VM Disaster Recovery to Azure](vmware-azure-common-questions.md)
-- [Hyper-V VM Disaster Recovery to Azure](hyper-v-azure-common-questions.md)
+This article summarizes frequently asked questions about Azure Site Recovery. For specific scenarios review these articles
+
+- [Questions about Azure VM disaster recovery to Azure](azure-to-azure-common-questions.md)
+- [Questions about VMware VM disaster recovery to Azure](vmware-azure-common-questions.md)
+- [Questions about Hyper-V VM disaster recovery to Azure](hyper-v-azure-common-questions.md)
  
 ## General
 
@@ -145,7 +140,7 @@ Azure Site Recovery replicates data to an Azure storage account or managed disks
 
 ### Why can't I replicate over VPN?
 
-When you replicate to Azure, replication traffic reaches the public endpoints of an Azure Storage. Thus you can only replicate over the public internet with ExpressRoute (public peering), and VPN doesn't work.
+When you replicate to Azure, replication traffic reaches the public endpoints of an Azure Storage. Thus you can only replicate over the public internet with ExpressRoute (Microsoft peering or an existing public peering), and VPN doesn't work.
 
 ### Can I use Riverbed SteelHeads for replication?
 
@@ -154,12 +149,11 @@ Our partner, Riverbed, provides detailed guidance on working with Azure Site Rec
 ### Can I use ExpressRoute to replicate virtual machines to Azure?
 Yes, [ExpressRoute can be used](concepts-expressroute-with-site-recovery.md) to replicate on-premises virtual machines to Azure.
 
-- Azure Site Recovery replicates data to an Azure Storage over a public endpoint. You need to set up [public peering](../expressroute/expressroute-circuit-peerings.md#publicpeering) or [Microsoft peering](../expressroute/expressroute-circuit-peerings.md#microsoftpeering) to use ExpressRoute for Site Recovery replication.
+- Azure Site Recovery replicates data to an Azure Storage over a public endpoint. You need to set up [Microsoft peering](../expressroute/expressroute-circuit-peerings.md#microsoftpeering) or use an existing [public peering](../expressroute/about-public-peering.md) (deprecated for new circuits)  to use ExpressRoute for Site Recovery replication.
 - Microsoft peering is the recommended routing domain for replication.
-- After the virtual machines have been failed over to an Azure virtual network you can access them using the [private peering](../expressroute/expressroute-circuit-peerings.md#privatepeering) setup with the Azure virtual network.
 - Replication is not supported over private peering.
-- If you're protecting VMware machines or physical machines, make sure that the configuration server complies with [networking requirements](vmware-azure-configuration-server-requirements.md#network-requirements) for replication. 
-
+- If you're protecting VMware machines or physical machines, ensure that the [Networking Requirements](vmware-azure-configuration-server-requirements.md#network-requirements) for Configuration Server are also met. Connectivity to specific URLs is required by Configuration Server for orchestration of Site Recovery replication. ExpressRoute cannot be used for this connectivity.
+- After the virtual machines have been failed over to an Azure virtual network you can access them using the [private peering](../expressroute/expressroute-circuit-peerings.md#privatepeering) setup with the Azure virtual network.
 
 
 ### If I replicate to Azure, what kind of storage account or managed disk do I need?
@@ -167,7 +161,7 @@ Yes, [ExpressRoute can be used](concepts-expressroute-with-site-recovery.md) to 
 You need an LRS or GRS storage. We recommend GRS so that data is resilient if a regional outage occurs, or if the primary region can't be recovered. The account must be in the same region as the Recovery Services vault. Premium storage is supported for VMware VM, Hyper-V VM, and physical server replication, when you deploy Site Recovery in the Azure portal. Managed disks only support LRS.
 
 ### How often can I replicate data?
-* **Hyper-V:** Hyper-V VMs can be replicated every five minutes, o 30 seconds (except for premium storage)
+* **Hyper-V:** Hyper-V VMs can be replicated every 30 seconds (except for premium storage), five minutes or 15 minutes.
 * **Azure VMs, VMware VMs, physical servers:** A replication frequency isn't relevant here. Replication is continuous.
 
 ### Can I extend replication from existing recovery site to another tertiary site?
@@ -216,7 +210,7 @@ To automate you could use on-premises Orchestrator or Operations Manager to dete
 Yes, you can use the alternate location recovery to failback to a different host from Azure.
 
 * [For VMware virtual machines](concepts-types-of-failback.md#alternate-location-recovery-alr)
-* [For Hyper-V virtual machines](hyper-v-azure-failback.md#perform-failback)
+* [For Hyper-V virtual machines](hyper-v-azure-failback.md#fail-back-to-an-alternate-location)
 
 ## Automation
 

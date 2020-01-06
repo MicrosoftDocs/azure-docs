@@ -18,10 +18,9 @@ ms.author: juliako
 
 ---
 # Analyze your media using the Azure portal 
-> [!NOTE]
-> To complete this tutorial, you need an Azure account. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/). 
-> 
-> 
+
+> [!IMPORTANT]
+> Review the [retirement plans](media-services-analytics-overview.md#retirement-plans) of some media processors.
 
 ## Overview
 Azure Media Services Analytics is a collection of speech and vision components (at enterprise scale, compliance, security and global reach) that make it easier for organizations and enterprises to derive actionable insights from their video files. For more detailed overview of Azure Media Services Analytics see [this](media-services-analytics-overview.md) topic. 
@@ -51,15 +50,11 @@ The natural language to be recognized in the multimedia file. For example, Engli
 
 ### Captions
 You can choose a caption format that will be generated from your content. An indexing job can generate closed caption files in the following formats:  
-
-* **SAMI**
+ 
 * **TTML**
 * **WebVTT**
 
 Closed Caption (CC) files in these formats can be used to make audio and video files accessible to people with hearing disability.
-
-### AIB file
-Select this option if you would like to generate the Audio Index Blob file for use with the custom SQL Server IFilter. For more information, see [this](https://azure.microsoft.com/blog/using-aib-files-with-azure-media-indexer-and-sql-server/) blog.
 
 ### Keywords
 Select this option if you would like to generate a keywords XML file. This file contains keywords extracted from the speech content, with frequency and offset information.

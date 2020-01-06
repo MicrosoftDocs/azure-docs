@@ -239,4 +239,4 @@ To learn more about tuning query performance, see the [Tune Query Performance](h
 
 - [Tune query performance](sql-api-query-metrics.md)
 - [Indexing overview](index-overview.md)
-- [Azure Cosmos DB .NET samples](https://github.com/Azure/azure-cosmosdb-dotnet)
+- [Azure Cosmos DB .NET samples](https://github.com/Azure/azure-cosmos-dotnet-v3)

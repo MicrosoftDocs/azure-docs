@@ -4,8 +4,8 @@ description: This article provides information on troubleshooting Starting and S
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: georgewallace
-ms.author: gwallace
+author: mgoedtel
+ms.author: magoedte
 ms.date: 04/04/2019
 ms.topic: conceptual
 manager: carmonm
@@ -23,7 +23,7 @@ Account already exists in another resourcegroup in a subscription. ResourceGroup
 ```
 
 ```error
-Resource 'StartStop_VM_Notification' was disallowed by policy. Policy identifiers: '[{\\\"policyAssignment\\\":{\\\"name\\\":\\\"[MyPolicyName]”.
+Resource 'StartStop_VM_Notification' was disallowed by policy. Policy identifiers: '[{\\\"policyAssignment\\\":{\\\"name\\\":\\\"[MyPolicyName]".
 ```
 
 ```error
@@ -38,6 +38,14 @@ The subscription is not registered to use namespace 'Microsoft.Insights'.
 The scope '/subscriptions/000000000000-0000-0000-0000-00000000/resourcegroups/<ResourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<WorkspaceName>/views/StartStopVMView' cannot perform write operation because following scope(s) are locked: '/subscriptions/000000000000-0000-0000-0000-00000000/resourceGroups/<ResourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<WorkspaceName>/views/StartStopVMView'. Please remove the lock and try again
 ```
 
+```error
+A parameter cannot be found that matches parameter name 'TagName'
+```
+
+```error
+Start-AzureRmVm : Run Login-AzureRmAccount to login
+```
+
 ### Cause
 
 Deployments may fail because of one of the following reasons:
@@ -46,6 +54,7 @@ Deployments may fail because of one of the following reasons:
 2. A policy is in place that disallows the deployment of the Start/Stop VMs solution.
 3. The `Microsoft.OperationsManagement`, `Microsoft.Insights`, or `Microsoft.Automation` resource types are not registered.
 4. Your Log Analytics workspace has a lock on it.
+5. You have an outdated version of AzureRM modules or the Start/Stop solution.
 
 ### Resolution
 
@@ -60,6 +69,7 @@ Review the following list for potential solutions to your problem or places to l
 
    See, [Resolve errors for resource provider registration](../../azure-resource-manager/resource-manager-register-provider-errors.md) to learn more about errors when registering providers.
 4. If you have a lock on your Log Analytics workspace, go to your workspace in the Azure portal and remove any locks on the resource.
+5. If the resolutions above do not solve your issue, follow the instructions under [Update the Solution](../automation-solution-vm-management.md#update-the-solution) to re-deploy the Start/Stop solution.
 
 ## <a name="all-vms-fail-to-startstop"></a>Scenario: All VMs fail to start/stop
 
@@ -173,7 +183,7 @@ Take the following steps to ensure that the solution is configured correctly.
 
 For more detailed and additional instructions on how to use the solution to start and stop VMs in sequence, see [Start/Stop VMs in sequence](../automation-solution-vm-management.md#scenario-2-startstop-vms-in-sequence-by-using-tags).
 
-## <a name="403"></a>Scenario: Start/Stop VM job fails with 403 forbidden status 
+## <a name="403"></a>Scenario: Start/Stop VM job fails with 403 forbidden status
 
 ### Issue
 
@@ -202,6 +212,9 @@ You experience an issue or unexpected result when using the Start/Stop VMs durin
 ### Cause
 
 Many times errors can be caused by using an old and outdated version of the solution.
+
+> [!NOTE]
+> The Start/Stop VMs during off-hours solution has been tested with the Azure modules that are imported into your Automation Account when you deploy the solution. The solution does currently not work with newer versions of the Azure module. This only affects the Automation Account that you use to run the Start/Stop VMs during off-hours solution. You can still use newer versions of the Azure module in your other Automation Accounts, as described in [How to update Azure PowerShell modules in Azure Automation](../automation-update-azure-modules.md)
 
 ### Resolution
 

@@ -9,6 +9,7 @@ ms.reviewer: celested
 
 ms.assetid: 9263c241-85a4-4724-afac-0351d6275958
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na

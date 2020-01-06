@@ -1,15 +1,11 @@
 ---
 title: Debug PowerShell Azure Functions locally
 description: Understand how to develop functions by using PowerShell.
-services: functions
-documentationcenter: na
 author: tylerleonhardt
-manager: jeconnoc
-ms.service: azure-functions
-ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 04/22/2019
-ms.author: tyleonha, glenga
+ms.author: tyleonha
+ms.reviewer: glenga
 # Customer intent: As a PowerShell developer, I want to learn how to debug my functions on my local computer so that I can publish higher quality code to Azure.
 ---
 
@@ -129,6 +125,9 @@ The start debugging operation does the following tasks:
 * Runs `func extensions install` in the terminal to install any Azure Functions extensions required by your function app.
 * Runs `func host start` in the terminal to start the function app in the Functions host.
 * Attach the PowerShell debugger to the PowerShell runspace within the Functions runtime.
+
+>[!NOTE]
+> You need to ensure PSWorkerInProcConcurrencyUpperBound is set to 1 to ensure correct debugging experience in Visual Studio Code. This is the default.
 
 With your function app running, you need a separate PowerShell console to call the HTTP triggered function.
 

@@ -1,11 +1,10 @@
 ---
 title: Refresh with Logic Apps for Azure Analysis Services models | Microsoft Docs
-description: Learn how to code asynchronous refresh by using Azure Logic Apps.
+description: This article describes how to code asynchronous refresh for Azure Analysis Services by using Azure Logic Apps.
 author: chrislound
-manager: kfile
 ms.service: analysis-services
 ms.topic: conceptual
-ms.date: 04/26/2019
+ms.date: 10/30/2019
 ms.author: chlound
 
 ---
@@ -61,7 +60,7 @@ Configure the HTTP activity as follows:
 |Property  |Value  |
 |---------|---------|
 |**Method**     |POST         |
-|**URI**     | https://*your server region*/servers/*aas server name*/models/*your database name*/ <br /> <br /> For example:  https:\//westus.asazure.windows.net/servers/myserver/models/AdventureWorks/|
+|**URI**     | https://*your server region*/servers/*aas server name*/models/*your database name*/refreshes <br /> <br /> For example:  https:\//westus.asazure.windows.net/servers/myserver/models/AdventureWorks/refreshes|
 |**Headers**     |   Content-Type, application/json <br /> <br />  ![Headers](./media/analysis-services-async-refresh-logic-app/6.png)    |
 |**Body**     |   To learn more about forming the request body, see [Asynchronous refresh with the REST API - POST /refreshes](analysis-services-async-refresh.md#post-refreshes). |
 |**Authentication**     |Active Directory OAuth         |

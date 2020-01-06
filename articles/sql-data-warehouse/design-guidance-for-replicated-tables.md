@@ -1,8 +1,8 @@
 ---
-title: Design guidance for replicated tables - Azure SQL Data Warehouse | Microsoft Docs
+title: Design guidance for replicated tables
 description: Recommendations for designing replicated tables in your Azure SQL Data Warehouse schema. 
 services: sql-data-warehouse
-author: XiaoyuL-Preview
+author: XiaoyuMSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
@@ -10,6 +10,7 @@ ms.subservice: development
 ms.date: 03/19/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
+ms.custom: seo-lt-2019
 ---
 
 # Design guidance for using replicated tables in Azure SQL Data Warehouse

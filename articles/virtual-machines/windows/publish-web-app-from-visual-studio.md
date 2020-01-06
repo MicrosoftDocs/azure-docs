@@ -3,7 +3,7 @@ title: Publish a Web App to an Azure VM from Visual Studio
 description: Publish an ASP.NET Web Application to an Azure Virtual Machine from Visual Studio
 services: virtual-machines-windows
 author: ghogen
-manager: douge
+manager: jillfra
 tags: azure-service-management
 ms.assetid: 70267837-3629-41e0-bb58-2167ac4932b3
 ms.prod: visual-studio-dev15

@@ -1,22 +1,13 @@
 ---
-title: SSL policy overview for Azure Application Gateway | Microsoft Docs
-description: Learn about how Azure Application Gateway allows you to configure SSL policy
+title: SSL policy overview for Azure Application Gateway
+description: Learn how to configure SSL policy for Azure Application Gateway and reduce encryption and decryption overhead from a back-end server farm.
 services: application gateway
-documentationcenter: na
 author: amsriva
-manager: 
-editor: ''
-tags: azure resource manager
-
 ms.service: application-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure services
-ms.date: 08/03/2017
+ms.date: 11/16/2019
 ms.author: amsriva
 ---
-   
 
 # Application Gateway SSL policy overview
 
@@ -98,6 +89,9 @@ Application Gateway supports the following cipher suites from which you can choo
 - TLS_DHE_DSS_WITH_AES_128_CBC_SHA
 - TLS_RSA_WITH_3DES_EDE_CBC_SHA
 - TLS_DHE_DSS_WITH_3DES_EDE_CBC_SHA
+
+> [!NOTE]
+> SSL cipher suites used for the connection are also based on the type of the certificate being used. In client to application gateway connections, the cipher suites used are based on the type of server certificates on the application gateway listener. In application gateway to backend pool connections, the cipher suites used are based on the type of server certificates on the backend pool servers.
 
 ## Next steps
 

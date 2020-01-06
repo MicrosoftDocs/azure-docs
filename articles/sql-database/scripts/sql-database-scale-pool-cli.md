@@ -1,5 +1,5 @@
 ---
-title: CLI example scales a SQL elastic pool-Azure SQL Database | Microsoft Docs
+title: CLI example scales a SQL elastic pool-Azure SQL Database 
 description: Azure CLI example script to scale an elastic pool in Azure SQL Database
 services: sql-database
 ms.service: sql-database
@@ -10,8 +10,7 @@ ms.topic: sample
 author: stevestein
 ms.author: sstein
 ms.reviewer:
-manager: craigg
-ms.date: 02/08/2019
+ms.date: 06/25/2019
 ---
 # Use CLI to scale an elastic pool in Azure SQL Database
 
@@ -32,7 +31,7 @@ If you choose to install and use the CLI locally, this topic requires that you a
 Use the following command to remove  the resource group and all resources associated with it.
 
 ```azurecli-interactive
-az group delete --name myResourceGroup
+az group delete --name $resourceGroupName
 ```
 
 ## Script explanation

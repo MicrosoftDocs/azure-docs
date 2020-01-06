@@ -1,7 +1,7 @@
 ---
 title:  "Decision Forest Regression: Module Reference"
-titleSuffix: Azure Machine Learning service
-description: Learn how to use the Two-Class Averaged Perceptron module in Azure Machine Learning service to create a machine learning model based on the averaged perceptron algorithm.  
+titleSuffix: Azure Machine Learning
+description: Learn how to use the Two-Class Averaged Perceptron module in Azure Machine Learning to create a machine learning model based on the averaged perceptron algorithm.  
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,11 @@ ms.topic: reference
 
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/02/2019
-ROBOTS: NOINDEX
+ms.date: 10/22/2019
 ---
 # Two-Class Averaged Perceptron module
 
-This article describes a module of the visual interface (preview) for Azure Machine Learning service.
+This article describes a module in Azure Machine Learning designer (preview).
 
 Use this module to create a machine learning model based on the averaged perceptron algorithm.  
   
@@ -28,7 +27,7 @@ The simpler perceptron models are suited to learning linearly separable patterns
 
 ## How to configure Two-Class Averaged Perceptron
 
-1.  Add the **Two-Class Averaged Perceptron** module to your experiment.  
+1.  Add the **Two-Class Averaged Perceptron** module to your pipeline.  
 
 2.  Specify how you want the model to be trained, by setting the **Create trainer mode** option.  
   
@@ -42,7 +41,7 @@ The simpler perceptron models are suited to learning linearly separable patterns
   
      Stopping early often provides better generalization. Increasing the number of iterations improves fitting, at the risk of overfitting.
   
-5.  For **Random number seed**, optionally type an integer value to use as the seed. Using a seed is recommended if you want to ensure reproducibility of the experiment across runs.  
+5.  For **Random number seed**, optionally type an integer value to use as the seed. Using a seed is recommended if you want to ensure reproducibility of the pipeline across runs.  
   
 1.  Connect a training dataset, and one of the training modules:
   
@@ -57,4 +56,4 @@ After training is complete:
 
 ## Next steps
 
-See the [set of modules available](module-reference.md) to Azure Machine Learning service. 
+See the [set of modules available](module-reference.md) to Azure Machine Learning. 

@@ -1,10 +1,10 @@
 ---
 title: What is Azure Standard Load Balancer?
-titlesuffix: Azure Load Balancer
-description: Overview of Azure Standard Load Balancer features
+titleSuffix: Azure Load Balancer
+description: With this learning path, get started with an overview of Azure Standard Load Balancer features.
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 manager: twooley
 ms.custom: seodec18
 ms.service: load-balancer
@@ -12,8 +12,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/28/2019
-ms.author: kumud
+ms.date: 11/21/2019
+ms.author: allensu
 ---
 
 # Azure Standard Load Balancer overview
@@ -33,9 +33,6 @@ The Load Balancer resource's functions are always expressed as a frontend, a rul
 One key aspect is the scope of the virtual network for the resource.  While Basic Load Balancer exists within the scope of an availability set, a Standard Load Balancer is fully integrated with the scope of a virtual network and all virtual network concepts apply.
 
 Load Balancer resources are objects within which you can express how Azure should program its multi-tenant infrastructure to achieve the scenario you wish to create.  There is no direct relationship between Load Balancer resources and actual infrastructure; creating a Load Balancer doesn't create an instance, capacity is always available, and there are no start-up or scaling delays to consider. 
-
->[!NOTE]
-> Azure provides a suite of fully managed load balancing solutions for your scenarios.  If you are looking for TLS termination ("SSL offload") or per HTTP/HTTPS request application layer processing, review [Application Gateway](../application-gateway/application-gateway-introduction.md).  If you are looking for global DNS load balancing, review [Traffic Manager](../traffic-manager/traffic-manager-overview.md).  Your end-to-end scenarios may benefit from combining these solutions as needed.
 
 ## Why use Standard Load Balancer?
 
@@ -180,14 +177,6 @@ SKUs are not mutable. Follow the steps in this section to move from one resource
 3. Remove the Basic SKU resources (Load Balancer and Public IPs, as applicable) from all VM instances. Be sure to also remove all VM instances of an availability set.
 
 4. Attach all VM instances to the new Standard SKU resources.
-
-### Migrate from Standard to Basic SKU
-
-1. Create a new Basic resource (Load Balancer and Public IPs, as needed). Recreate your rules and probe definitions.  Change an HTTPS probe to a TCP probe to 443/tcp. 
-
-2. Remove the Standard SKU resources (Load Balancer and Public IPs, as applicable) from all VM instances. Be sure to also remove all VM instances of an availability set.
-
-3. Attach all VM instances to the new Basic SKU resources.
 
 >[!IMPORTANT]
 >

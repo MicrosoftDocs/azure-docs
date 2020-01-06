@@ -1,18 +1,13 @@
 ---
-title: How to view app dependencies with Azure Monitor for VMs (preview) | Microsoft Docs
+title: View app dependencies with Azure Monitor for VMs (preview)
 description: Map is a feature of Azure Monitor for VMs. It automatically discovers application components on Windows and Linux systems and maps the communication between services. This article provides details on how to use the Map feature in various scenarios.
-services: azure-monitor
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: tysonn
-ms.assetid: 
-ms.service: azure-monitor
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 05/09/2019
-ms.author: magoedte
+ms.service:  azure-monitor
+ms.subservice: 
+ms.topic: conceptual
+author: bwren
+ms.author: bwren
+ms.date: 10/15/2019
+
 ---
 
 # Use the Map feature of Azure Monitor for VMs (preview) to understand application components
@@ -119,6 +114,7 @@ By default, the map shows the last 30 minutes. If you want to see how dependenci
 >You can also access a map for a specific instance from the **Instances** view for your virtual machine scale set. In the **Settings** section, go to **Instances** > **Insights (preview)**.
 
 ## View a map from Azure Monitor
+
 In Azure Monitor, the Map feature provides a global view of your VMs and their dependencies. To access the Map feature in Azure Monitor:
 
 1. In the Azure portal, select **Monitor**. 
@@ -134,5 +130,5 @@ The **Group** selector returns subscriptions, resource groups, [computer groups]
 By default, the map shows the last 30 minutes. If you want to see how dependencies looked in the past, you can query for historical time ranges of up to one hour. To run the query, use the **TimeRange** selector. You might run a query, for example, during an incident or to see the status before a change.  
 
 ## Next steps
-- To learn how to use the Health feature, see [View Azure VM health](vminsights-health.md). 
-- To identify bottlenecks, check performance, and understand overall utilization of your VMs, see [View performance status for Azure Monitor for VMs](vminsights-performance.md). 
+
+To identify bottlenecks, check performance, and understand overall utilization of your VMs, see [View performance status for Azure Monitor for VMs](vminsights-performance.md). 

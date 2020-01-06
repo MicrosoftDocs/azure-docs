@@ -1,12 +1,12 @@
 ---
-title: Quickstart - Create an Azure Database for PostgreSQL - Single Server using the Azure CLI
-description: Quickstart guide to create and manage Azure Database for PostgreSQL - Single Server using Azure CLI (command line interface).
+title: 'Quickstart: Create server - Azure CLI - Azure Database for PostgreSQL - Single Server'
+description: Quickstart guide to create an Azure Database for PostgreSQL - Single Server using Azure CLI (command line interface).
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: quickstart
-ms.date: 05/06/2019
+ms.date: 06/25/2019
 ms.custom: mvc
 ---
 # Quickstart: Create an Azure Database for PostgreSQL - Single Server using the Azure CLI
@@ -34,7 +34,7 @@ az account set --subscription <subscription id>
 
 ## Create a resource group
 
-Create an [Azure resource group](../azure-resource-manager/resource-group-overview.md) using the [az group create](/cli/azure/group) command. A resource group is a logical container into which Azure resources are deployed and managed as a group. You should provide a unique name. The following example creates a resource group named `myresourcegroup` in the `westus` location.
+Create an [Azure resource group](../azure-resource-manager/management/overview.md) using the [az group create](/cli/azure/group) command. A resource group is a logical container into which Azure resources are deployed and managed as a group. You should provide a unique name. The following example creates a resource group named `myresourcegroup` in the `westus` location.
 ```azurecli-interactive
 az group create --name myresourcegroup --location westus
 ```
@@ -139,6 +139,13 @@ If your client computer has PostgreSQL installed, you can use a local instance o
    psql --host=mydemoserver.postgres.database.azure.com --port=5432 --username=myadmin@mydemoserver --dbname=postgres
    ```
 
+   > [!TIP]
+   > If you prefer to use a URL path to connect to Postgres, URL encode the @ sign in the username with `%40`. For example the connection string for psql would be,
+   > ```
+   > psql postgresql://myadmin%40mydemoserver@mydemoserver.postgres.database.azure.com:5432/postgres
+   > ```
+
+
 2. Once you are connected to the server, create a blank database at the prompt.
    ```sql
    CREATE DATABASE mypgsqldb;
@@ -198,7 +205,7 @@ pgAdmin is an open-source tool used with PostgreSQL. You can install pgAdmin fro
 
 ## Clean up resources
 
-Clean up all resources you created in the quickstart by deleting the [Azure resource group](../azure-resource-manager/resource-group-overview.md).
+Clean up all resources you created in the quickstart by deleting the [Azure resource group](../azure-resource-manager/management/overview.md).
 
 > [!TIP]
 > Other quickstarts in this collection build upon this quickstart. If you plan to continue to work with subsequent quickstarts, do not clean up the resources created in this quickstart. If you do not plan to continue, use the following steps to delete all resources created by this quickstart in the Azure CLI.

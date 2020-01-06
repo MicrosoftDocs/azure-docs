@@ -64,7 +64,7 @@ This video shows how to create an Azure Cosmos DB account in the Azure portal, i
 
 ## Read and create heroes in the app
 
-This video shows how to read heroes and create heroes in the Cosmos DB database, as well as how to test those methods using Postman and the React UI. 
+This video shows how to read heroes and create heroes in the Cosmos database, as well as how to test those methods using Postman and the React UI. 
 
 > [!VIDEO https://www.youtube.com/embed/AQK9n_8fsQI] 
 

@@ -1,16 +1,16 @@
 ---
-title: Azure N-series GPU driver setup for Linux | Microsoft Docs
+title: Azure N-series GPU driver setup for Linux 
 description: How to set up NVIDIA GPU drivers for N-series VMs running Linux in Azure
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 
 ms.assetid: d91695d0-64b9-4e6b-84bd-18401eaecdde
 ms.service: virtual-machines-linux
-ms.devlang: na
+
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
@@ -167,9 +167,9 @@ Deploy RDMA-capable N-series VMs from one of the images in the Azure Marketplace
 
 * **CentOS-based 7.4 HPC** - RDMA drivers and Intel MPI 5.1 are installed on the VM.
 
-## Install GRID drivers on NV or NVv2-series VMs
+## Install GRID drivers on NV or NVv3-series VMs
 
-To install NVIDIA GRID drivers on NV or NVv2-series VMs, make an SSH connection to each VM and follow the steps for your Linux distribution. 
+To install NVIDIA GRID drivers on NV or NVv3-series VMs, make an SSH connection to each VM and follow the steps for your Linux distribution. 
 
 ### Ubuntu 
 
@@ -185,6 +185,8 @@ To install NVIDIA GRID drivers on NV or NVv2-series VMs, make an SSH connection 
    sudo apt-get dist-upgrade -y
 
    sudo apt-get install build-essential ubuntu-desktop -y
+   
+   sudo apt-get install linux-azure -y
    ```
 3. Disable the Nouveau kernel driver, which is incompatible with the NVIDIA driver. (Only use the NVIDIA driver on NV or NVv2 VMs.) To do this, create a file in `/etc/modprobe.d` named `nouveau.conf` with the following contents:
 
@@ -223,8 +225,15 @@ To install NVIDIA GRID drivers on NV or NVv2-series VMs, make an SSH connection 
  
    ```
    IgnoreSP=FALSE
+   EnableUI=FALSE
    ```
-9. Reboot the VM and proceed to verify the installation.
+   
+9. Remove the following from `/etc/nvidia/gridd.conf` if it is present:
+ 
+   ```
+   FeatureType=0
+   ```
+10. Reboot the VM and proceed to verify the installation.
 
 
 ### CentOS or Red Hat Enterprise Linux 
@@ -239,6 +248,8 @@ To install NVIDIA GRID drivers on NV or NVv2-series VMs, make an SSH connection 
    sudo rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
  
    sudo yum install dkms
+   
+   sudo yum install hyperv-daemons
    ```
 
 2. Disable the Nouveau kernel driver, which is incompatible with the NVIDIA driver. (Only use the NVIDIA driver on NV or NV2 VMs.) To do this, create a file in `/etc/modprobe.d` named `nouveau.conf` with the following contents:
@@ -287,8 +298,15 @@ To install NVIDIA GRID drivers on NV or NVv2-series VMs, make an SSH connection 
  
    ```
    IgnoreSP=FALSE
+   EnableUI=FALSE 
    ```
-9. Reboot the VM and proceed to verify the installation.
+9. Remove the following from `/etc/nvidia/gridd.conf` if it is present:
+ 
+   ```
+   FeatureType=0
+   ```
+10. Reboot the VM and proceed to verify the installation.
+
 
 ### Verify driver installation
 
@@ -342,6 +360,7 @@ Then, create an entry for your update script in `/etc/rc.d/rc3.d` so the script 
 ## Troubleshooting
 
 * You can set persistence mode using `nvidia-smi` so the output of the command is faster when you need to query cards. To set persistence mode, execute `nvidia-smi -pm 1`. Note that if the VM is restarted, the mode setting goes away. You can always script the mode setting to execute upon startup.
+* If you updated the NVIDIA CUDA drivers to the latest version and find RDMA connectivcity is no longer working, [reinstall the RDMA drivers](https://docs.microsoft.com/azure/virtual-machines/linux/n-series-driver-setup#rdma-network-connectivity) to reistablish that connectivity. 
 
 ## Next steps
 

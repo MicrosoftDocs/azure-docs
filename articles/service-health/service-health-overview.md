@@ -1,10 +1,6 @@
 ---
 title: Service Health overview | Microsoft Docs
 description: Personalized information about how your Azure apps are affected by current and future Azure service problems and maintenance. 
-author: stephbaron
-ms.author: stbaron
-services: service-health
-ms.service: service-health
 ms.topic: article
 ms.date: 05/10/2019
 
@@ -23,7 +19,7 @@ Service Health tracks three types of health events that may impact your resource
 3. **Health advisories** - Changes in Azure services that require your attention. Examples include when Azure features are deprecated or if you exceed a usage quota.
 
 > [!NOTE]
-> To view Service Health events, users must have the Reader role on a subscription.
+> To view Service Health events, users must be [granted the Reader role](../role-based-access-control/role-assignments-portal.md) on a subscription.
 
 ## Get started with Service Health
 

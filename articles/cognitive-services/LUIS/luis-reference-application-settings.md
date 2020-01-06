@@ -1,15 +1,15 @@
 ---
-title: Application settings
+title: Application settings - LUIS
 titleSuffix: Azure Cognitive Services
-description: Understand applications settings for Language understanding apps.
+description: Applications settings for Azure Cognitive Services language understanding apps are stored in the app and portal. 
 services: cognitive-services
 author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
-ms.date: 05/29/2019
+ms.topic: conceptual
+ms.date: 11/12/2019
 ms.author: diberry
 ---
 
@@ -43,7 +43,7 @@ The following utterances show how diacritics normalization impacts utterances:
 
 #### Brazilian portuguese `pt-br` diacritics
 
-|Diacritics set to false|Diacritics set to false|
+|Diacritics set to false|Diacritics set to true|
 |-|-|
 |`á`|`a`|
 |`â`|`a`|
@@ -61,7 +61,7 @@ The following utterances show how diacritics normalization impacts utterances:
 
 #### Dutch `nl-nl` diacritics
 
-|Diacritics set to false|Diacritics set to false|
+|Diacritics set to false|Diacritics set to true|
 |-|-|
 |`á`|`a`|
 |`à`|`a`|
@@ -80,7 +80,7 @@ The following utterances show how diacritics normalization impacts utterances:
 
 This includes both french and canadian subcultures.
 
-|Diacritics set to false|Diacritics set to false|
+|Diacritics set to false|Diacritics set to true|
 |--|--|
 |`é`|`e`|
 |`à`|`a`|
@@ -99,7 +99,7 @@ This includes both french and canadian subcultures.
 
 #### German `de-de` diacritics
 
-|Diacritics set to false|Diacritics set to false|
+|Diacritics set to false|Diacritics set to true|
 |--|--|
 |`ä`|`a`|
 |`ö`|`o`| 
@@ -107,7 +107,7 @@ This includes both french and canadian subcultures.
 
 #### Italian `it-it` diacritics
 
-|Diacritics set to false|Diacritics set to false|
+|Diacritics set to false|Diacritics set to true|
 |--|--|
 |`à`|`a`|
 |`è`|`e`|
@@ -124,7 +124,7 @@ This includes both french and canadian subcultures.
 
 This includes both spanish and canadian mexican.
 
-|Diacritics set to false|Diacritics set to false|
+|Diacritics set to false|Diacritics set to true|
 |-|-|
 |`á`|`a`|
 |`é`|`e`|
@@ -145,9 +145,9 @@ Turn on utterance normalization for punctuation to your LUIS JSON app file in th
 ] 
 ```
 
-The following utterances show how diacritics impacts utterances:
+The following utterances show how punctuation impacts utterances:
 
-|With diacritics set to False|With diacritics set to True|
+|With punctuation set to False|With punctuation set to True|
 |--|--|
 |`Hmm..... I will take the cappuccino`|`Hmm I will take the cappuccino`|
 |||

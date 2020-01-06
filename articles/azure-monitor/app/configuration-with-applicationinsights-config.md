@@ -1,21 +1,16 @@
 ---
 title: ApplicationInsights.config reference - Azure | Microsoft Docs
 description: Enable or disable data collection modules, and add performance counters and other parameters.
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-
-ms.assetid: 6e397752-c086-46e9-8648-a1196e8078c2
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service:  azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 05/22/2019
-ms.reviewer: olegan
+author: mrbullwinkle
 ms.author: mbullwin
+ms.date: 05/22/2019
 
+ms.reviewer: olegan
 ---
+
 # Configuring the Application Insights SDK with ApplicationInsights.config or .xml
 The Application Insights .NET SDK consists of a number of NuGet packages. The
 [core package](https://www.nuget.org/packages/Microsoft.ApplicationInsights) provides the API for sending telemetry to
@@ -24,10 +19,7 @@ telemetry *modules* and *initializers* for automatically tracking telemetry from
 adjusting the configuration file, you can enable or disable Telemetry Modules and initializers, and set parameters for
 some of them.
 
-The configuration file is named `ApplicationInsights.config` or `ApplicationInsights.xml`, depending on the type of your
-application. It is automatically added to your project when you [install most versions of the SDK][start]. It is also added to a web app
-by [Status Monitor on an IIS server][redfield], or when you select the Application Insights
-[extension for an Azure website or VM](azure-web-apps.md).
+The configuration file is named `ApplicationInsights.config` or `ApplicationInsights.xml`, depending on the type of your application. It is automatically added to your project when you [install most versions of the SDK][start]. By default, when using the automated experience from the Visual Studio template projects that support **Add > Application Insights Telemetry**, the ApplicationInsights.config file is created in the project root folder and when complied is copied to the bin folder. It is also added to a web app by [Status Monitor on an IIS server][redfield]. The configuration file is ignored if [extension for Azure website](azure-web-apps.md) or [extension for Azure VM and virtual machine scale set](azure-vm-vmss-apps.md) is used.
 
 There isn't an equivalent file to control the [SDK in a web page][client].
 
@@ -42,12 +34,14 @@ Each Telemetry Module collects a specific type of data and uses the core API to 
 There's a node in the configuration file for each module. To disable a module, delete the node or comment it out.
 
 ### Dependency Tracking
-[Dependency tracking](../../azure-monitor/app/asp-net-dependencies.md) collects telemetry about calls your app makes to databases and external services and databases. To allow this module to work in an IIS server, you need to [install Status Monitor][redfield]. To use it in Azure web apps or VMs, [select the Application Insights extension](azure-web-apps.md).
+[Dependency tracking](../../azure-monitor/app/asp-net-dependencies.md) collects telemetry about calls your app makes to databases and external services and databases. To allow this module to work in an IIS server, you need to [install Status Monitor][redfield].
 
 You can also write your own dependency tracking code using the [TrackDependency API](../../azure-monitor/app/api-custom-events-metrics.md#trackdependency).
 
 * `Microsoft.ApplicationInsights.DependencyCollector.DependencyTrackingTelemetryModule`
 * [Microsoft.ApplicationInsights.DependencyCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector) NuGet package.
+
+Dependencies can be auto-collected without modifying your code by using agent-based (codeless) attach. To use it in Azure web apps, enable the [Application Insights extension](azure-web-apps.md). To use it in Azure VM or Azure virtual machine scale set enable the [Application Monitoring extension for VM and virtual machine scale set](azure-vm-vmss-apps.md).
 
 ### Performance collector
 [Collects system performance counters](../../azure-monitor/app/performance-counters.md) such as CPU, memory, and network load from IIS installations. You can specify which counters to collect, including performance counters you have set up yourself.
@@ -240,47 +234,23 @@ Determines the maximum size in MB that is allotted to the persistent storage on 
    </ApplicationInsights>
 ```
 
-#### Local forwarder
-
-[Local forwarder](opencensus-local-forwarder.md) is an agent that collects Application Insights or [OpenCensus](https://opencensus.io/) telemetry from a variety of SDKs and frameworks and routes it to Application Insights. It's capable of running under Windows and Linux. When coupled with the Application Insights Java SDK the local forwarder provides full support for [Live Metrics](../../azure-monitor/app/live-stream.md) and adaptive sampling.
-
-```xml
-<Channel type="com.microsoft.applicationinsights.channel.concrete.localforwarder.LocalForwarderTelemetryChannel">
-<EndpointAddress><!-- put the hostname:port of your LocalForwarder instance here --></EndpointAddress>
-
-<!-- The properties below are optional. The values shown are the defaults for each property -->
-
-<FlushIntervalInSeconds>5</FlushIntervalInSeconds><!-- must be between [1, 500]. values outside the bound will be rounded to nearest bound -->
-<MaxTelemetryBufferCapacity>500</MaxTelemetryBufferCapacity><!-- units=number of telemetry items; must be between [1, 1000] -->
-</Channel>
-```
-
-If you are using SpringBoot starter, add the following to your configuration file (application.properties):
-
-```yml
-azure.application-insights.channel.local-forwarder.endpoint-address=<!--put the hostname:port of your LocalForwarder instance here-->
-azure.application-insights.channel.local-forwarder.flush-interval-in-seconds=<!--optional-->
-azure.application-insights.channel.local-forwarder.max-telemetry-buffer-capacity=<!--optional-->
-```
-
-Default values are the same for SpringBoot application.properties and applicationinsights.xml configuration.
-
 ## InstrumentationKey
 This determines the Application Insights resource in which your data appears. Typically you create a separate resource, with a separate key, for each of your applications.
 
 If you want to set the key dynamically - for example if you want to send results from your application to different resources - you can omit the key from the configuration file, and set it in code instead.
 
-To set the key for all instances of TelemetryClient, including standard Telemetry Modules, set the key in TelemetryConfiguration.Active. Do this in an initialization method, such as global.aspx.cs in an ASP.NET service:
+To set the key for all instances of TelemetryClient, including standard Telemetry Modules. Do this in an initialization method, such as global.aspx.cs in an ASP.NET service:
 
 ```csharp
+using Microsoft.ApplicationInsights.Extensibility;
+using Microsoft.ApplicationInsights;
 
     protected void Application_Start()
     {
-      Microsoft.ApplicationInsights.Extensibility.
-        TelemetryConfiguration.Active.InstrumentationKey =
-          // - for example -
-          WebConfigurationManager.AppSettings["ikey"];
-      //...
+        TelemetryConfiguration configuration = TelemetryConfiguration.CreateDefault();
+        configuration.InstrumentationKey = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx";
+        var telemetryClient = new TelemetryClient(configuration);
+   
 ```
 
 If you just want to send a specific set of events to a different resource, you can set the key for a specific TelemetryClient:

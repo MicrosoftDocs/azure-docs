@@ -139,7 +139,7 @@ string testToken = TokenRestrictionTemplateSerializer.GenerateTestToken(tokenTem
 Console.WriteLine("The authorization token is:\nBearer {0}", testToken);
 ```
 
-You can use the [Azure Media Services Player](https://amsplayer.azurewebsites.net/azuremediaplayer.html) to test your stream.
+You can use the [Azure Media Services Player](https://aka.ms/azuremediaplayer) to test your stream.
 
 ## Create and configure a Visual Studio project
 
@@ -600,6 +600,10 @@ namespace DynamicEncryptionWithDRM
     }
 }
 ```
+
+## Additional notes
+
+* Widevine is a service provided by Google Inc. and subject to the terms of service and Privacy Policy of Google, Inc.
 
 ## Next steps
 

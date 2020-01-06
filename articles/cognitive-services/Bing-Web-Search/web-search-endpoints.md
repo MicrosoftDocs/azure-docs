@@ -1,13 +1,13 @@
 ---
 title: Web search endpoint
 titleSuffix: Azure Cognitive Services
-description: Summary of the Web search API endpoint.
+description: To get web search results, send a `GET` request to the following endpoint. The headers and URL parameters define further specifications.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: aahi
 ---

@@ -1,15 +1,9 @@
 ---
-title: Hyperledger Fabric Consortium Network on Azure
-description: Solution template to deploy and configure a Hyperledger Fabric consortium network
-services: azure-blockchain
-keywords:
-author: PatAltimore
-ms.author: patricka
+title: Deploy Hyperledger Fabric Consortium solution template on Azure
+description: How to deploy and configure the Hyperledger Fabric consortium network solution template on Azure 
 ms.date: 05/09/2019
 ms.topic: article
-ms.service: azure-blockchain
 ms.reviewer: caleteet
-manager: femila
 ---
 # Hyperledger Fabric consortium network
 

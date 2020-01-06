@@ -1,6 +1,7 @@
 ---
-title: "Tutorial: Use Azure Database Migration Service to migrate MongoDB to Azure Cosmos DB's API for MongoDB online | Microsoft Docs"
-description: Learn to migrate from MongoDB on-premises to Azure Cosmos DB's API for MongoDB online by using Azure Database Migration Service.
+title: "Tutorial: Migrate MongoDB online to Azure Cosmos DB API for MongoDB"
+titleSuffix: Azure Database Migration Service
+description: Learn to migrate from MongoDB on-premises to Azure Cosmos DB API for MongoDB online by using Azure Database Migration Service.
 services: dms
 author: HJToland3
 ms.author: jtoland
@@ -8,9 +9,9 @@ manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
-ms.custom: mvc, tutorial
+ms.custom: "seo-lt-2019"
 ms.topic: article
-ms.date: 05/29/2019
+ms.date: 09/25/2019
 ---
 
 # Tutorial: Migrate MongoDB to Azure Cosmos DB's API for MongoDB online using DMS
@@ -128,6 +129,9 @@ After the service is created, locate it within the Azure portal, open it, and th
 
 1. On the **Source details** screen, specify the connection details for the source MongoDB server.
 
+   > [!IMPORTANT]
+   > Azure Database Migration Service does not support Azure Cosmos DB as a source.
+
     There are three modes to connect to a source:
    * **Standard mode**, which accepts a fully qualified domain name or an IP address, Port number, and connection credentials.
    * **Connection string mode**, which accepts a MongoDB Connection string as described in the article [Connection String URI Format](https://docs.mongodb.com/manual/reference/connection-string/).
@@ -145,7 +149,14 @@ After the service is created, locate it within the Azure portal, open it, and th
 
      * For JSON dumps, the files in the blob container must be placed into folders named after the containing databases. Within each database folder, data files must be placed in a subfolder called "data" and named using the format *collection*.json. Metadata files (if any) must be placed in a subfolder called "metadata" and named using the same format, *collection*.json. The metadata files must be in the same format as produced by the MongoDB bsondump tool.
 
-   You can use the IP Address for situations in which DNS name resolution isn't possible.
+    > [!IMPORTANT]
+    > It is discouraged to use a self-signed certificate on the mongo server. However, if one is used, please connect to the server using **connection string mode** and ensure that your connection string has “”
+    >
+    >```
+    >&sslVerifyCertificate=false
+    >```
+
+    You can use the IP Address for situations in which DNS name resolution isn't possible.
 
    ![Specify source details](media/tutorial-mongodb-to-cosmosdb-online/dms-specify-source1.png)
 

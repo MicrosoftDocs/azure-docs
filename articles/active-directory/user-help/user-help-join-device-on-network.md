@@ -1,5 +1,5 @@
 ---
-title: Join your work device to your organization's network - Azure Active Directory | Microsoft Docs
+title: Join your work device to your organization's network - AD
 description: Learn how to join your work device to your organization's network.
 services: active-directory
 author: eross-msft

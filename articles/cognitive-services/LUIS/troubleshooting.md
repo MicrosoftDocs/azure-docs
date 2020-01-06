@@ -1,5 +1,5 @@
 ---
-title: Frequently asked questions (FAQ)
+title: Frequently asked questions (FAQ) - LUIS
 titleSuffix: Azure Cognitive Services
 description: This article contains answers to frequently asked questions about Language Understanding (LUIS).
 author: diberry
@@ -8,8 +8,8 @@ ms.custom: seodec18
 services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
-ms.date: 06/18/2019
+ms.topic: conceptual
+ms.date: 11/08/2019
 ms.author: diberry
 ---
 # Language Understanding Frequently Asked Questions (FAQ)
@@ -18,7 +18,7 @@ This article contains answers to frequently asked questions about Language Under
 
 ## What's new
 
-[Learn more](whats-new.md) about what's new in Language Understanding.
+[Learn more](whats-new.md) about what's new in Language Understanding (LUIS).
 
 <a name="luis-authoring"></a>
 
@@ -44,7 +44,7 @@ Yes, it is good to train your **None** intent with more utterances as you add mo
 See the [Bing Spell Check API V7](luis-tutorial-bing-spellcheck.md) tutorial. LUIS enforces limits imposed by Bing Spell Check API V7.
 
 ### How do I edit my LUIS app programmatically?
-To edit your LUIS app programmatically, use the [Authoring API](https://go.microsoft.com/fwlink/?linkid=2092087). See [Call LUIS authoring API](./luis-quickstart-node-add-utterance.md) and [Build a LUIS app programmatically using Node.js](./luis-tutorial-node-import-utterances-csv.md) for examples of how to call the Authoring API. The Authoring API requires that you use an [authoring key](luis-concept-keys.md#authoring-key) rather than an endpoint key. Programmatic authoring allows up to 1,000,000 calls per month and five transactions per second. For more info on the keys you use with LUIS, see [Manage keys](./luis-concept-keys.md).
+To edit your LUIS app programmatically, use the [Authoring API](https://go.microsoft.com/fwlink/?linkid=2092087). See [Call LUIS authoring API](./get-started-get-model-rest-apis.md) and [Build a LUIS app programmatically using Node.js](./luis-tutorial-node-import-utterances-csv.md) for examples of how to call the Authoring API. The Authoring API requires that you use an [authoring key](luis-concept-keys.md#azure-resources-for-luis) rather than an endpoint key. Programmatic authoring allows up to 1,000,000 calls per month and five transactions per second. For more info on the keys you use with LUIS, see [Manage keys](./luis-concept-keys.md).
 
 ### Where is the Pattern feature that provided regular expression matching?
 The previous **Pattern feature** is currently deprecated, replaced by **[Patterns](luis-concept-patterns.md)**.
@@ -64,15 +64,15 @@ To transfer a LUIS app to a different Azure subscription, export the LUIS app an
 
 ### A prebuilt entity is tagged in an example utterance instead of my custom entity. How do I fix this? 
 
-See [Troubleshooting prebuilt entities](luis-concept-entity-types.md#troubleshooting-prebuilt-entities).
+In the LUIS portal, you can label text for the exact entity you are interested in extracting. If the LUIS portal is not showing the correct entity prediction, you may need to add more utterances and label the entity within the text or add a descriptor (such as a feature). 
 
 ### I tried to import an app or version file but I got an error, what happened? 
 
-Read more about [version import errors](luis-how-to-manage-versions.md#import-errors) and [app import errors](luis-how-to-start-new-app.md#import-errors).
+Read more about [version import errors](luis-how-to-manage-versions.md#import-errors).
 
 <a name="luis-collaborating"></a>
 
-## Collaborating
+## Collaborating and contributing
 
 ### How do I give collaborators access to LUIS with Azure Active Directory (Azure AD) or Role-based access control (RBAC)?
 
@@ -81,6 +81,31 @@ See [Azure Active Directory resources](luis-how-to-collaborate.md#azure-active-d
 <a name="luis-endpoint"></a>
 
 ## Endpoint
+
+### I received an HTTP 403 error status code. How do I fix it?
+
+You get 403 and 429 error status codes when you exceed the transactions per second or transactions per month for your pricing tier. Increase your pricing tier, or use Language Understanding [containers](luis-container-howto.md).
+
+When you use all those free 1000 endpoint queries or you exceed your pricing tier's monthly transactions quota, you receive an HTTP 403 error status code. 
+
+To fix this error, you need to either [change your pricing tier](luis-how-to-azure-subscription.md#change-pricing-tier) to a higher tier or [create a new resource](get-started-portal-deploy-app.md#create-the-endpoint-resource) and [assign it to your app](get-started-portal-deploy-app.md#assign-the-resource-key-to-the-luis-app-in-the-luis-portal).
+
+Solutions for this error include:
+
+* In the [Azure portal](https://portal.azure.com), on your Language Understanding resource, on the **Resource Management -> Pricing tier**, change your pricing tier to a higher TPS tier. You don't need to do anything in the Language Understanding portal if your resource is already assigned to your Language Understanding app.
+*  If your usage exceeds the highest pricing tier, add more Language Understanding resources with a load balancer in front of them. The [Language Understanding container](luis-container-howto.md) with Kubernetes or Docker Compose can help with this.
+
+### I received an HTTP 429 error status code. How do I fix it?
+
+You get 403 and 429 error status codes when you exceed the transactions per second or transactions per month for your pricing tier. Increase your pricing tier, or use Language Understanding [containers](luis-container-howto.md).
+
+This status code is returned when your transactions per second exceeds your pricing tier.  
+
+Solutions include:
+
+* You can [increase your pricing tier](luis-how-to-azure-subscription.md#change-pricing-tier), if you are not at the highest tier.
+* If your usage exceeds the highest pricing tier, add more Language Understanding resources with a load balancer in front of them. The [Language Understanding container](luis-container-howto.md) with Kubernetes or Docker Compose can help with this.
+* You can gate your client application requests with a [retry policy](https://docs.microsoft.com/azure/architecture/best-practices/transient-faults#general-guidelines) you implement yourself when you get this status code. 
 
 ### My endpoint query returned unexpected results. What should I do?
 
@@ -96,7 +121,7 @@ Review the [best practices](luis-concept-best-practices.md) for other tips.
 LUIS [tokenizes](luis-glossary.md#token) the utterance based on the [culture](luis-language-support.md#tokenization). Both the original value and the tokenized value are available for [data extraction](luis-concept-data-extraction.md#tokenized-entity-returned).
 
 ### How do I create and assign a LUIS endpoint key?
-[Create the endpoint key](luis-how-to-azure-subscription.md) in Azure for your [service](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/) level. [Assign the key](luis-how-to-azure-subscription.md) on the **[Keys and endpoints](luis-how-to-azure-subscription.md)** page. There is no corresponding API for this action. Then you must change the HTTP request to the endpoint to [use the new endpoint key](luis-concept-keys.md#use-endpoint-key-in-query).
+[Create the endpoint key](luis-how-to-azure-subscription.md) in Azure for your [service](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/) level. [Assign the key](luis-how-to-azure-subscription.md) on the **[Azure Resources](luis-how-to-azure-subscription.md)** page. There is no corresponding API for this action. Then you must change the HTTP request to the endpoint to [use the new endpoint key](luis-concept-keys.md).
 
 ### How do I interpret LUIS scores?
 Your system should use the highest scoring intent regardless of its value. For example, a score below 0.5 (less than 50%) does not necessarily mean that LUIS has low confidence. Providing more training data can help increase the [score](luis-concept-prediction-score.md) of the most-likely intent.
@@ -117,10 +142,10 @@ Get-AzCognitiveServicesAccountUsage -ResourceGroupName <your-resource-group> -Na
 ``` 
 
 ### My LUIS app was working yesterday but today I'm getting 403 errors. I didn't change the app. How do I fix it?
-Following the [instructions](#how-do-i-create-and-assign-a-luis-endpoint-key) in the next FAQ to create a LUIS endpoint key and assign it to the app. Then you must change the HTTP request to the endpoint to [use the new endpoint key](luis-concept-keys.md#use-endpoint-key-in-query).
+Follow these [instructions](#how-do-i-create-and-assign-a-luis-endpoint-key) to create a LUIS endpoint key and assign it to the app. Then you must change the client application's HTTP request to the endpoint to [use the new endpoint key](luis-concept-keys.md). If you created a new resource in a different region, change the HTTP client request's region too.
 
 ### How do I secure my LUIS endpoint?
-See [Securing the endpoint](luis-concept-security.md#securing-the-endpoint).
+See [Securing the endpoint](luis-concept-keys.md#securing-the-endpoint).
 
 ## Working within LUIS limits
 
@@ -179,17 +204,19 @@ If your app existed before LUIS was generally available (GA), LUIS endpoint keys
 
 ### How do I know what key I need, where I get it, and what I do with it? 
 
-See [Authoring and query prediction endpoint keys in LUIS](luis-concept-keys.md) to learn about the differences between the [authoring key](luis-how-to-account-settings.md) and the [endpoint prediction key](luis-how-to-azure-subscription.md). 
+See [Authoring and query prediction endpoint keys in LUIS](luis-concept-keys.md) to learn about the differences between the authoring key and the prediction runtime key. 
 
 ### I got an error about being out of quota. How do I fix it? 
 
-See, [Fix HTTP status code 403 and 429](luis-how-to-azure-subscription.md#fix-http-status-code-403-and-429) to learn more.
+See, Fix HTTP status code [403](#i-received-an-http-403-error-status-code-how-do-i-fix-it) and [429](#i-received-an-http-429-error-status-code-how-do-i-fix-it) to learn more.
 
 ### I need to handle more endpoint queries. How do I do that? 
 
-See, [Fix HTTP status code 403 and 429](luis-how-to-azure-subscription.md#fix-http-status-code-403-and-429) to learn more.
+See, Fix HTTP status code [403](#i-received-an-http-403-error-status-code-how-do-i-fix-it) and [429](#i-received-an-http-429-error-status-code-how-do-i-fix-it) to learn more.
 
+### I created an authoring key but it isn't showing in the LUIS portal. What happened?
 
+Authoring keys are available in the LUIS portal after [migrating to the authoring key experience](luis-migration-authoring.md).  
 
 ## App management
 
@@ -236,7 +263,7 @@ Your authoring/starter key is only allowed 1000 endpoint queries a month. Create
 The first issue is to isolate if the issue is related to LUIS or happens outside the LUIS middleware. 
 
 #### Resolve issue in LUIS
-Pass the same utterance to LUIS from the [LUIS endpoint](luis-get-started-create-app.md#query-the-endpoint-with-a-different-utterance). If you receive an error, resolve the issue in LUIS until the error is no longer returned. Common errors include:
+Pass the same utterance to LUIS from the [LUIS endpoint](luis-get-started-create-app.md#query-the-v2-api-prediction-endpoint). If you receive an error, resolve the issue in LUIS until the error is no longer returned. Common errors include:
 
 * `Out of call volume quota. Quota will be replenished in <time>.` - This issue indicates you either need to change from an authoring key to an [endpoint key](luis-how-to-azure-subscription.md) or you need to change [service tiers](luis-how-to-azure-subscription.md#change-pricing-tier). 
 

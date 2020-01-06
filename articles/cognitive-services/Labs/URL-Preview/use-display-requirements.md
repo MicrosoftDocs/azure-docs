@@ -11,6 +11,7 @@ ms.subservice: url-preview
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: rosh
+ROBOTS: NOINDEX
 ---
 
 # Project URL Preview use and display requirements

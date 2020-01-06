@@ -1,8 +1,8 @@
 ---
-title: Add or update a user's profile information - Azure Active Directory | Microsoft Docs
+title: Add or update user profile information - Azure AD
 description: Instructions about how to add information to a user's profile in Azure Active Directory, including a picture and job details.
 services: active-directory
-author: eross-msft
+author: msaburnley
 manager: daveba
 
 ms.service: active-directory
@@ -10,7 +10,7 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
 ms.date: 04/11/2019
-ms.author: lizross
+ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
 ---
@@ -42,7 +42,7 @@ As you'll see, there's more information available in a user's profile than what 
 
     - **Settings.** Decide whether the user can sign in to Azure Active Directory tenant. You can also specify the user's global location.
 
-    - **Contact info.** Add any relevant contact information for the user. For example, a street address or a mobile phone number.
+    - **Contact info.** Add any relevant contact information for the user, except for some user's phone or mobile contact info (only a global administrator can update for users in administrator roles).
 
     - **Authentication contact info.** Verify this information to make sure there's an active phone number and email address for the user. This information is used by Azure Active Directory to make sure the user is really the user during sign-in. Authentication contact info can be updated only by a global administrator.
 

@@ -3,7 +3,7 @@ title: Authentication with Azure Maps | Microsoft Docs
 description: Authentication for using Azure Maps services.
 author: walsehgal
 ms.author: v-musehg
-ms.date: 02/12/2019
+ms.date: 10/24/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
@@ -26,7 +26,7 @@ For information about viewing your keys, see [View authentication details](https
 
 ## Authentication with Azure Active Directory (Preview)
 
-Azure Maps now offers [Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) integration for the authentication of requests for Azure Maps services. Azure AD provides identity-based authentication, including [role-based access control (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview), to grant user-level or application-level access to Azure Maps resources. The sections that follow can help you understand the concepts and components of Azure Maps integration with Azure AD.
+Azure Maps now offers [Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) integration for the authentication of requests for Azure Maps services. Azure AD provides identity-based authentication, including [role-based access control (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview), to grant user-level, group-level and application-level access to Azure Maps resources. The sections that follow can help you understand the concepts and components of Azure Maps integration with Azure AD.
 
 ## Authentication with OAuth access tokens
 
@@ -36,12 +36,15 @@ Azure Maps accepts **OAuth 2.0** access tokens for Azure AD tenants associated w
 * Partner applications that use permissions delegated by users.
 * Managed identities for Azure resources.
 
-Azure Maps generates a *unique identifier (client ID)* for each Azure Maps account. When you combine this client ID with additional parameters, you can request tokens from Azure AD by specifying the following value:
+Azure Maps generates a *unique identifier (client ID)* for each Azure Maps account. When you combine this client ID with additional parameters, you can request tokens from Azure AD by specifying the values in the following table depending upon your Azure Environment.
 
-```
-https://login.microsoftonline.com
-```
-For more information about how to configure Azure AD and request tokens for Azure Maps, see [Manage authentication in Azure Maps](https://review.docs.microsoft.com/azure/azure-maps/how-to-manage-authentication).
+| Azure Environment   | Azure AD token endpoint |
+| --------------------|-------------------------|
+| Azure Public        | https://login.microsoftonline.com |
+| Azure Government    | https://login.microsoftonline.us |
+
+
+For more information about how to configure Azure AD and request tokens for Azure Maps, see [Manage authentication in Azure Maps](https://docs.microsoft.com/azure/azure-maps/how-to-manage-authentication).
 
 For general information about requesting tokens from Azure AD, see [What is authentication?](https://docs.microsoft.com/azure/active-directory/develop/authentication-scenarios).
 
@@ -70,9 +73,9 @@ For information about viewing your client ID, see [View authentication details](
 
 ## Control access with RBAC
 
-Azure AD lets you control access to secured resources by using RBAC. After you create your Azure Maps account and register your Azure Maps Azure AD application within your Azure AD tenant, you can set up RBAC for a user, application, or Azure resource on the Azure Maps account portal page.
+Azure AD lets you control access to secured resources by using RBAC. After you create your Azure Maps account and register your Azure Maps Azure AD application within your Azure AD tenant, you can set up RBAC for a user, group, application, or Azure resource on the Azure Maps account portal page.
 
-Azure Maps supports read access control for individual Azure AD users, applications, and Azure services via managed identities for Azure resources.
+Azure Maps supports read access control for individual Azure AD users, groups, applications, and Azure services via managed identities for Azure resources.
 
 ![Azure Maps Data Reader (Preview)](./media/azure-maps-authentication/concept.png)
 
@@ -84,6 +87,6 @@ For information about viewing your RBAC settings, see [How to configure RBAC for
 
 ## Next steps
 
-* To learn more about authenticating an application with Azure AD and Azure Maps, see [Manage authentication in Azure Maps](https://review.docs.microsoft.com/azure/azure-maps/how-to-manage-authentication).
+* To learn more about authenticating an application with Azure AD and Azure Maps, see [Manage authentication in Azure Maps](https://docs.microsoft.com/azure/azure-maps/how-to-manage-authentication).
 
 * To learn more about authenticating the Azure Maps Map Control and Azure AD, see [Use the Azure Maps Map Control](https://aka.ms/amaadmc).

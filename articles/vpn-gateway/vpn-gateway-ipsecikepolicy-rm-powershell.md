@@ -1,5 +1,6 @@
 ﻿---
-title: 'Configure IPsec/IKE policy for S2S VPN or VNet-to-VNet connections: Azure Resource Manager: PowerShell | Microsoft Docs'
+title: 'IPsec/IKE policy for S2S VPN & VNet-to-VNet connections'
+titleSuffix: Azure VPN Gateway
 description: Configure IPsec/IKE policy for S2S or VNet-to-VNet connections with Azure VPN Gateways using Azure Resource Manager and PowerShell.
 services: vpn-gateway
 documentationcenter: na
@@ -105,7 +106,7 @@ The following table lists the corresponding Diffie-Hellman Groups supported by t
 | 2                         | DHGroup2                 | PFS2         | 1024-bit MODP  |
 | 14                        | DHGroup14<br>DHGroup2048 | PFS2048      | 2048-bit MODP  |
 | 19                        | ECP256                   | ECP256       | 256-bit ECP    |
-| 20                        | ECP384                   | ECP284       | 384-bit ECP    |
+| 20                        | ECP384                   | ECP384       | 384-bit ECP    |
 | 24                        | DHGroup24                | PFS24        | 2048-bit MODP  |
 
 Refer to [RFC3526](https://tools.ietf.org/html/rfc3526) and [RFC5114](https://tools.ietf.org/html/rfc5114) for more details.

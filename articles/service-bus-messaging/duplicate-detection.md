@@ -34,7 +34,7 @@ For a business process in which multiple messages are sent in the course of hand
 The *MessageId* can always be some GUID, but anchoring the identifier to the business process yields predictable repeatability, which is desired for leveraging the duplicate detection feature effectively.
 
 > [!NOTE]
-> If the duplicate detection is enabled and sesion ID or partition key are not set, the message ID is used as the partition key. If the message ID is also not set, .NET and AMQP libraries automatically generate a message ID for the message. For more information, see [Use of parition keys](service-bus-partitioning.md#use-of-partition-keys).
+> If the duplicate detection is enabled and session ID or partition key are not set, the message ID is used as the partition key. If the message ID is also not set, .NET and AMQP libraries automatically generate a message ID for the message. For more information, see [Use of partition keys](service-bus-partitioning.md#use-of-partition-keys).
 
 ## Enable duplicate detection
 
@@ -64,6 +64,8 @@ To learn more about Service Bus messaging, see the following topics:
 * [Service Bus queues, topics, and subscriptions](service-bus-queues-topics-subscriptions.md)
 * [Get started with Service Bus queues](service-bus-dotnet-get-started-with-queues.md)
 * [How to use Service Bus topics and subscriptions](service-bus-dotnet-how-to-use-topics-subscriptions.md)
+
+In scenarios where client code is unable to resubmit a message with the same *MessageId* as before, it is important to design messages which can be safely re-processed. This [blog post about idempotence](https://particular.net/blog/what-does-idempotent-mean) describes various techniques for how to do that.
 
 [1]: ./media/duplicate-detection/create-queue.png
 [2]: ./media/duplicate-detection/queue-prop.png

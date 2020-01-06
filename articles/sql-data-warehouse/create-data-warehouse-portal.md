@@ -1,8 +1,8 @@
 ---
-title: "Quickstart: Create and query Azure SQL Data Warehouse - Azure portal | Microsoft Docs"
+title: 'Quickstart: Create and query a data warehouse- Azure portal'
 description: Create and query a data warehouse with Azure SQL Data Warehouse in the Azure portal.
 services: sql-data-warehouse
-author: XiaoyuL-Preview
+author: XiaoyuMSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: quickstart
@@ -10,11 +10,11 @@ ms.subservice: development
 ms.date: 05/28/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.custom: sqlfreshmay19 
+ms.custom: seo-lt-2019
 ---
-# Quickstart: Create and query an Azure SQL data warehouse in the Azure portal
+# Quickstart: Create and query an Azure SQL Data Warehouse in the Azure portal
 
-Quickly create and query an Azure SQL data warehouse by using the Azure portal.
+Quickly create and query an Azure SQL Data Warehouse by using the Azure portal.
 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
@@ -31,9 +31,9 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
 ## Create a data warehouse
 
-An Azure SQL data warehouse is created with a defined set of [compute resources](memory-and-concurrency-limits.md). The database is created within an [Azure resource group](../azure-resource-manager/resource-group-overview.md) and in an [Azure SQL logical server](../sql-database/sql-database-logical-servers.md). 
+An Azure SQL Data Warehouse is created with a defined set of [compute resources](memory-concurrency-limits.md). The database is created within an [Azure resource group](../azure-resource-manager/management/overview.md) and in an [Azure SQL logical server](../sql-database/sql-database-logical-servers.md). 
 
-Follow these steps to create a SQL data warehouse that contains the AdventureWorksDW sample data. 
+Follow these steps to create a SQL Data Warehouse that contains the AdventureWorksDW sample data. 
 
 1. Click **Create a resource** in the upper left-hand corner of the Azure portal.
 
@@ -45,20 +45,18 @@ Follow these steps to create a SQL data warehouse that contains the AdventureWor
 
     | Setting | Suggested value | Description |
     | :------ | :-------------- | :---------- |
-    | **Database name** | mySampleDataWarehouse | For valid database names, see [Database Identifiers](/sql/relational-databases/databases/database-identifiers). Note, a data warehouse is a type of database.|
     | **Subscription** | Your subscription | For details about your subscriptions, see [Subscriptions](https://account.windowsazure.com/Subscriptions). |
-    | **Resource group** | myResourceGroup | For valid resource group names, see [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). |
-    | **Select source** | Sample | Specifies to load a sample database. Note, a data warehouse is one type of database. |
-    | **Select sample** | AdventureWorksDW | Specifies to load the AdventureWorksDW sample database. |
+    | **Resource group** | myResourceGroup | For valid resource group names, see [Naming rules and restrictions](/azure/architecture/best-practices/resource-naming). |
+    | **Data warehouse name** | mySampleDataWarehouse | For valid database names, see [Database Identifiers](/sql/relational-databases/databases/database-identifiers). Note, a data warehouse is one type of database.|
     ||||
 
     ![create data warehouse](media/create-data-warehouse-portal/select-sample.png)
 
-4. Click **Server** to create and configure a new server for your new database. Fill out the **New server form** with the following information: 
+4. Select an existing **Server** or click **Create new** to create and configure a new server for your new database. Fill out the **New server form** with the following information: 
 
     | Setting | Suggested value | Description |
     | :------ | :-------------- | :---------- |
-    | **Server name** | Any globally unique name | For valid server names, see [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). |
+    | **Server name** | Any globally unique name | For valid server names, see [Naming rules and restrictions](/azure/architecture/best-practices/resource-naming). |
     | **Server admin login** | Any valid name | For valid login names, see [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers).|
     | **Password** | Any valid password | Your password must have at least eight characters and must contain characters from three of the following categories: upper case characters, lower case characters, numbers, and non-alphanumeric characters. |
     | **Location** | Any valid location | For information about regions, see [Azure Regions](https://azure.microsoft.com/regions/). |
@@ -76,7 +74,7 @@ Follow these steps to create a SQL data warehouse that contains the AdventureWor
 
 8. Click **Apply**.
 
-9. Now that you've completed the SQL Data Warehouse form, click **Create** to provision the database. Provisioning takes a few minutes.
+9. Now that you've completed the Basics tab of the SQL Data Warehouse form, click **Review + Create** to provision the database. Provisioning takes a few minutes.
 
     ![click create](media/load-data-from-azure-blob-storage-using-polybase/click-create.png)
 
@@ -92,7 +90,7 @@ The SQL Data Warehouse service creates a firewall at the server-level. This fire
 > SQL Data Warehouse communicates over port 1433. If you are trying to connect from within a corporate network, outbound traffic over port 1433 might not be allowed by your network's firewall. If so, you cannot connect to your Azure SQL Database server unless your IT department opens port 1433.
 
 1. After the deployment completes, select **All services** from the left-hand menu. Select **Databases**, select the star next to **SQL data warehouses** to add SQL data warehouses to your favorites.
-1. Select **SQL data warehouses** from the left-hand menu and then click **mySampleDatabase** on the **SQL data warehouses** page. The overview page for your database opens, showing you the fully qualified server name (such as **mynewserver-20180430.database.windows.net**) and provides options for further configuration.
+1. Select **SQL data warehouses** from the left-hand menu and then click **mySampleDataWarehouse** on the **SQL data warehouses** page. The overview page for your database opens, showing you the fully qualified server name (such as **mynewserver-20180430.database.windows.net**) and provides options for further configuration.
 1. Copy this fully qualified server name for use to connect to your server and its databases in this and other quick starts. To open server settings, click the server name.
 
    ![find server name](media/load-data-from-azure-blob-storage-using-polybase/find-server-name.png)
@@ -201,4 +199,4 @@ Follow these steps to clean up resources you no longer need.
 You've now created a data warehouse, created a firewall rule, connected to your data warehouse, and run a few queries. To learn more about Azure SQL Data Warehouse, continue to the tutorial for loading data.
 
 > [!div class="nextstepaction"]
-> [Load data into a SQL data warehouse](load-data-from-azure-blob-storage-using-polybase.md)
+> [Load data into a SQL Data Warehouse](load-data-from-azure-blob-storage-using-polybase.md)

@@ -79,6 +79,18 @@ Subscribe to IoT Hub events to respond to device created, deleted, connected, di
 | [Event schema](event-schema-iot-hub.md) | Shows fields in IoT Hub events. |
 | [Order device connected and device disconnected events](../iot-hub/iot-hub-how-to-order-connection-state-events.md) | Shows how to order device connection state events. |
 
+## Key Vault (preview)
+
+Key Vault integration with Event Grid is currently in preview. 
+
+Subscribe to Key Vault events to be notified when a secret is about to expire, a secret expires, or a secret has a new version available. 
+
+|Title  |Description  |
+|---------|---------|
+| [Monitoring Key Vault events with Azure Event Grid](../key-vault/event-grid-overview.md) | Overview of integrating Key Vault with Event Grid. |
+| [Tutorial: Create and monitor Key Vault events with Event Grid](../key-vault/event-grid-tutorial.md) | Learn how to set up Event Grid notifications for Key Vault. |
+| [Event schema](event-schema-key-vault.md) | Shows fields in Key Vault events. |
+
 ## Media Services
 
 Subscribe to Media Services events to respond to job state events.
@@ -143,9 +155,26 @@ Subscribe to Azure App Configuration events to respond to key-value modification
 |Title | Description |
 |---------|---------|
 | [React to Azure App Configuration events by using Event Grid](../azure-app-configuration/concept-app-configuration-event.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Overview of integrating Azure App Configuration with Event Grid. |
-| [QuickStart: route Azure App Configuration events to a custom web endpoint with Azure CLI](../azure-app-configuration/howto-app-configuration-event.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Shows how to use Azure CLI to send Azure App Configuration events to a WebHook. |
+| [Quickstart: route Azure App Configuration events to a custom web endpoint with Azure CLI](../azure-app-configuration/howto-app-configuration-event.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Shows how to use Azure CLI to send Azure App Configuration events to a WebHook. |
 | [Event schema](event-schema-app-configuration.md) | Shows fields in Azure App Configuration events. |
 
+## Azure SignalR
+Subscribe to Azure SignalR Service events to respond to client connection events.
+
+|Title | Description |
+|---------|---------|
+| [React to Azure SignalR Service events by using Event Grid](../azure-signalr/signalr-concept-event-grid-integration.md) | Overview of integrating Azure SignalR Service with Event Grid. |
+| [How to send Azure SignalR Service events to Event Grid](../azure-signalr/signalr-howto-event-grid-integration.md) | Shows how to send  Azure SignalR Service events to an application through Event Grid. |
+| [Event schema](event-schema-azure-signalr.md) | Shows fields in Azure SignalR Service events. |
+
+## Azure Machine Learning
+
+Subscribe to Azure Machine Learning workspace events to respond to model registration.
+
+| Title | Description |
+| ----- | ----- |
+| [Consume Azure Machine Learning events](../machine-learning/concept-event-grid-integration.md) | Overview of integrating Azure Machine Learning with Event Grid. |
+| [Azure Event Grid event schema for Azure Machine Learning](event-schema-machine-learning.md) | Shows fields in the Azure Machine Learning events. |
 
 ## Next steps
 

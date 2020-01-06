@@ -1,15 +1,14 @@
 ---
 title: 'Tutorial: Connect to the Text Analytics service with Connected Services in Visual Studio'
 titleSuffix: Azure Cognitive Services
-description: Learn how to connect to Text Analytics from an ASP.NET Core web application.
+description: Learn how to use the Visual Studio Connected Service feature for the Text Analytics Service.
 services: cognitive-services
 author: aahill
 manager: nitinme
-
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: tutorial
-ms.date: 02/13/2019
+ms.date: 12/19/2019
 ms.author: aahi
 ---
 # Tutorial: Connect to the Text Analytics service with Connected Services in Visual Studio
@@ -27,7 +26,7 @@ This article and its companion articles provide details for using the Visual Stu
 
 ## Add support to your project for the Text Analytics Service
 
-1. Create a new ASP.NET Core web project called TextAnalyticsDemo. Use the Web Application (Model-View-Controller) project template with all the default settings. It’s important to name the project MyWebApplication, so the namespace matches when you copy code into the project.  The example in this articles uses MVC, but you can use the Text Analytics Connected Service with any ASP.NET project type.
+1. Create a new ASP.NET Core web project called TextAnalyticsDemo. Use the Web Application (Model-View-Controller) project template with all the default settings. It’s important to name the project MyWebApplication, so the namespace matches when you copy code into the project.  The example in this article uses MVC, but you can use the Text Analytics Connected Service with any ASP.NET project type.
 
 1. In **Solution Explorer**, double-click on the **Connected Service** item.
    The Connected Service page appears, with services you can add to your project.
@@ -49,7 +48,7 @@ This article and its companion articles provide details for using the Visual Stu
    Follow the link for details on the pricing tiers.
 
 1. Choose **Add** to add support for the Connected Service.
-   Visual Studio modifies your project to add the NuGet packages, configuration file entries, and other changes to support a connection to the Text Analytics Service. The **Output Window** shows the log of what is happening to your project. You should see something like the following:
+   Visual Studio modifies your project to add the NuGet packages, configuration file entries, and other changes to support a connection to the Text Analytics Service. The **Output Window** shows the log of what is happening to your project. Your output should look like the below:
 
    ```output
     [6/1/2018 3:04:02.347 PM] Adding Text Analytics to the project.
@@ -85,7 +84,7 @@ This article and its companion articles provide details for using the Visual Stu
       }
    ```
 
-1. Add a class file in the Controllers folder called DemoTextAnalyzeController and replace its contents with the following code:
+1. Add a class file in the *Controllers* folder called `DemoTextAnalyzeController` and replace its contents with the following code:
 
     ```csharp
     using System;
@@ -148,7 +147,7 @@ This article and its companion articles provide details for using the Visual Stu
     }
     ```
     
-    The code includes GetTextAnalyzeClient to get the client object which you can use to call the Text Analytics API, and a request handler that calls DetectLanguage on a given text.
+    The code includes `GetTextAnalyzeClient` to get the client object for making calls to the Text Analytics API, and a request handler that calls DetectLanguage on a given text.
 
 1. Add the MyHandler helper class which is used by the preceding code.
 
@@ -166,7 +165,7 @@ This article and its companion articles provide details for using the Visual Stu
         }
     ```
 
-1. In the Models folder, add a class for the model.
+1. In the *Models* folder, add a class for the model.
 
     ```csharp
     using System;

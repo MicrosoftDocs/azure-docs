@@ -1,20 +1,19 @@
 ---
-title: Incrementally copy new and changed files based on LastModifiedDate by using the Copy Data tool | Microsoft Docs
+title: Data tool to copy new and updated files incrementally
 description: Create an Azure data factory and then use the Copy Data tool to incrementally load new files based on LastModifiedDate.
 services: data-factory
-documentationcenter: ''
 author: dearandyxu
 ms.author: yexu
 ms.reviewer: 
 manager: 
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 1/24/2019
-
 ---
+
 # Incrementally copy new and changed files based on LastModifiedDate by using the Copy Data tool
 
 In this tutorial, you'll use the Azure portal to create a data factory. Then, you'll use the Copy Data tool to create a pipeline that incrementally copies new and changed files only, based on their **LastModifiedDate** from Azure Blob storage to Azure Blob storage.
@@ -48,15 +47,13 @@ Prepare your Blob storage for the tutorial by performing these steps.
 
 1. On the left menu, select **Create a resource** > **Data + Analytics** > **Data Factory**: 
    
-   ![Data Factory selection in the "New" pane](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
+   ![Data Factory selection in the "New" pane](./media/doc-common-process/new-azure-data-factory-menu.png)
 
 2. On the **New data factory** page, under **Name**, enter **ADFTutorialDataFactory**. 
-      
-     ![New data factory](./media/tutorial-copy-data-tool/new-azure-data-factory.png)
  
    The name for your data factory must be _globally unique_. You might receive the following error message:
    
-   ![New data factory error message](./media/tutorial-copy-data-tool/name-not-available-error.png)
+   ![New data factory error message](./media/doc-common-process/name-not-available-error.png)
 
    If you receive an error message about the name value, enter a different name for the data factory. For example, use the name _**yourname**_**ADFTutorialDataFactory**. For the naming rules for Data Factory artifacts, see [Data Factory naming rules](naming-rules.md).
 3. Select the Azure **subscription** in which you'll create the new data factory. 
@@ -66,7 +63,7 @@ Prepare your Blob storage for the tutorial by performing these steps.
 
     * Select **Create new** and enter the name of a resource group. 
          
-    To learn about resource groups, see [Use resource groups to manage your Azure resources](../azure-resource-manager/resource-group-overview.md).
+    To learn about resource groups, see [Use resource groups to manage your Azure resources](../azure-resource-manager/management/overview.md).
 
 5. Under **version**, select **V2**.
 6. Under **location**, select the location for the data factory. Only supported locations are displayed in the drop-down list. The data stores (for example, Azure Storage and SQL Database) and computes (for example, Azure HDInsight) that your data factory uses can be in other locations and regions.
@@ -77,14 +74,14 @@ Prepare your Blob storage for the tutorial by performing these steps.
 	![Deploying Data Factory Tile](media/tutorial-copy-data-tool/deploying-data-factory.png)
 10. After creation is finished, the **Data Factory** home page is displayed.
    
-    ![Data factory home page](./media/tutorial-copy-data-tool/data-factory-home-page.png)
+    ![Data factory home page](./media/doc-common-process/data-factory-home-page.png)
 11. To open the Azure Data Factory user interface (UI) on a separate tab, select the **Author & Monitor** tile. 
 
 ## Use the Copy Data tool to create a pipeline
 
 1. On the **Let's get started** page, select the **Copy Data** title to open the Copy Data tool. 
 
-   ![Copy Data tool tile](./media/tutorial-copy-data-tool/copy-data-tool-tile.png)
+   ![Copy Data tool tile](./media/doc-common-process/get-started-page.png)
    
 2. On the **Properties** page, take the following steps:
 
