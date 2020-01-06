@@ -46,8 +46,10 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Authenticate with Azure Active Directory
-            url: azure-active-directory-authentication.md
+          - text: How to authenticate with Azure Active Directory
+            url: how-to/azure-active-directory-authentication.md
+          - text: How to set the cookie policy
+            url: how-to/set-cookie-policy.md
       - linkListType: reference
         links:
           - text: JavaScript SDK
