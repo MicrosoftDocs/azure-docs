@@ -61,7 +61,7 @@ In this scenario, you could set a resource limit of 2 CPUs for the instance. Thi
 
 ## Networking
 
-Container groups can share an external-facing IP address and a port namespace on that IP address. To enable external clients to reach a container within the group, you must expose the port on the IP address and from the container. Because containers within the group share a port namespace, port mapping isn't supported. 
+Container groups can share an external-facing IP address, one or more ports on that IP address, and a DNS label with a fully qualified domain name (FQDN). To enable external clients to reach a container within the group, you must expose the port on the IP address and from the container. Because containers within the group share a port namespace, port mapping isn't supported. A container group's IP address and FQDN will be released when the container group is deleted. 
 
 Within a container group, containers instances can reach each other via localhost on any port, even if those ports aren't exposed externally on the group's IP address or from the container.
 
@@ -69,7 +69,13 @@ Optionally deploy container groups into an [Azure virtual network][virtual-netwo
 
 ## Storage
 
-You can specify external volumes to mount within a container group. You can map those volumes into specific paths within the individual containers in a group.
+You can specify external volumes to mount within a container group. Supported volumes include:
+* [Azure file share][azure-files]
+* [Secret][secret]
+* [Empty directory][empty-directory]
+* [Cloned git repo][volume-gitrepo]
+
+You can map those volumes into specific paths within the individual containers in a group. 
 
 ## Common scenarios
 
@@ -105,5 +111,8 @@ Learn how to deploy a multi-container container group with an Azure Resource Man
 [resource-requirements]: /rest/api/container-instances/containergroups/createorupdate#resourcerequirements
 [azure-files]: container-instances-volume-azure-files.md
 [virtual-network]: container-instances-vnet.md
+[secret]: container-instances-volume-secret.md
+[volume-gitrepo]: container-instances-volume-gitrepo.md
 [gpus]: container-instances-gpu.md
+[empty-directory]: container-instances-volume-emptydir.md
 [az-container-export]: /cli/azure/container#az-container-export
