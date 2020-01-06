@@ -1,65 +1,57 @@
 ---
-title: Serve content from Azure Storage on Linux - App Service
-description: How to configure and serve content from Azure Storage in Azure App Service on Linux.
-author: msangapu
-manager: jeconnoc
+title: Bring your own storage account with App Service
+description: Learn how to attach custom network share to your App Service app. Share files between apps, manage static content remotely and access locally, etc.
+author: msangapu-msft
 
-ms.service: app-service
-ms.workload: web
 ms.topic: article
-ms.date: 2/04/2019
+ms.date: 01/02/2020
 ms.author: msangapu
 ---
-# Serve content from Azure Storage in App Service on Linux
 
-This guide shows how to serve static content in App Service on Linux by using [Azure Storage](/azure/storage/common/storage-introduction). Benefits include secured content, content portability, persistent storage, access to multiple apps, and multiple transferring methods.
+# Bring your own storage (BYOS) for App Service
+
+> [!IMPORTANT]
+> Bring your own storage (BYOS) functionality is a **preview** feature. This feature is **not supported for production scenarios**.
+>
+
+This guide shows you how to mount [Azure Storage](/azure/storage/common/storage-introduction) containers for use with your App Service apps. Benefits include secured content, content portability, persistent storage, access to multiple apps, and multiple transferring methods.
+
 
 ## Prerequisites
 
-- An existing web app (App Service on Linux or Web App for Containers).
+To use the *Bring your own storage (BYOS)* feature, you'll need an existing web app and an Azure Storage account. 
+
+- [App Service Quickstart](https://docs.microsoft.com/azure/app-service/).
+- [Storage Quickstart](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-cli)
 - [Azure CLI](/cli/azure/install-azure-cli) (2.0.46 or later).
 
-## Create Azure Storage
+## Known issues and limitations
 
-> [!NOTE]
-> Azure Storage is non-default storage and billed separately, not included with the web app.
->
-> Bring your own storage does not support using the Storage Firewall configuration due to infrastructure limitations.
->
+- BYOS is **in preview** and **not supported** for **production scenarios**.
+- BYOS is **in preview** for bring your own code, and bring your own container scenarios on Linux App Service plans.
+   - BYOS on Linux App Service plans supports mounting **Azure Files containers** (Read / Write) and **Azure Blob containers** (Read Only)
+- BYOS **doesn't support** using the **Storage Firewall** configuration because of infrastructure limitations.
+- BYOS lets you specify **up to five** mount points per app.
+- Azure Storage is billed independently and **not included** with your web app. Learn more about [Azure Storage pricing](https://azure.microsoft.com/pricing/details/storage).
 
-Create an Azure [Azure storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-cli).
-
-```azurecli
-#Create Storage Account
-az storage account create --name <storage_account_name> --resource-group myResourceGroup
-
-#Create Storage Container
-az storage container create --name <storage_container_name> --account-name <storage_account_name>
-```
-
-## Upload files to Azure Storage
-
-To upload a local directory to the storage account, you use the [`az storage blob upload-batch`](https://docs.microsoft.com/cli/azure/storage/blob?view=azure-cli-latest#az-storage-blob-upload-batch) command like the following example:
-
-```azurecli
-az storage blob upload-batch -d <full_path_to_local_directory> --account-name <storage_account_name> --account-key "<access_key>" -s <source_location_name>
-```
-
-## Link storage to your web app (preview)
+## Configure your app to use BYOS with Azure CLI
 
 > [!CAUTION]
-> Linking an existing directory in a web app to a storage account will delete the directory contents. If you are migrating files for an existing app, make a backup of your app and its content before you begin.
+> The directory specified as the mount path in your web app should be empty. Any content stored in this directory will be deleted when an external mount is added. If you are migrating files for an existing app, make a backup of your app and its content before you begin.
 >
 
 To mount a storage account to a directory in your App Service app, you use the [`az webapp config storage-account add`](https://docs.microsoft.com/cli/azure/webapp/config/storage-account?view=azure-cli-latest#az-webapp-config-storage-account-add) command. Storage Type can be AzureBlob or AzureFiles. You use AzureBlob for this container.
 
 ```azurecli
-az webapp config storage-account add --resource-group <group_name> --name <app_name> --custom-id <custom_id> --storage-type AzureBlob --share-name <share_name> --account-name <storage_account_name> --access-key "<access_key>" --mount-path <mount_path_directory>
+az webapp config storage-account add --resource-group <group_name> --name <app_name> --custom-id <custom_id> --storage-type AzureFiles --share-name <share_name> --account-name <storage_account_name> --access-key "<access_key>" --mount-path <mount_path_directory>
 ```
 
 You should do this for any other directories you want to be linked to a storage account.
 
-## Verify
+Learn more about [`az webapp config storage-account`](https://docs.microsoft.com/cli/azure/webapp/config/storage-account?view=azure-cli-latest)
+
+
+### Verify BYOS link
 
 Once a storage container is linked to a web app, you can verify this by running the following command:
 
@@ -67,7 +59,7 @@ Once a storage container is linked to a web app, you can verify this by running 
 az webapp config storage-account list --resource-group <resource_group> --name <app_name>
 ```
 
-## Use custom storage in Docker Compose
+## Use BYOS in Docker Compose
 
 Azure Storage can be mounted with multi-container apps using the custom-id. To view the custom-id name, run [`az webapp config storage-account list --name <app_name> --resource-group <resource_group>`](/cli/azure/webapp/config/storage-account?view=azure-cli-latest#az-webapp-config-storage-account-list).
 
@@ -83,3 +75,4 @@ wordpress:
 ## Next steps
 
 - [Configure web apps in Azure App Service](../configure-common.md).
+
