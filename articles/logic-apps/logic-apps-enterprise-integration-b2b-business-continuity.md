@@ -1,6 +1,6 @@
 ---
 title: Disaster recovery for integration accounts
-description: Set up cross-region disaster recovery for integration accounts in Azure Logic Apps
+description: Set up your integration accounts and B2B artifacts with cross-region disaster recovery in Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar

@@ -2,22 +2,21 @@
 title: Enable heap dumps for Apache Hadoop services on HDInsight - Azure
 description: Enable heap dumps for Apache Hadoop services from Linux-based HDInsight clusters for debugging and analysis.
 author: hrasheed-msft
-ms.reviewer: jasonh
-
-ms.service: hdinsight
-ms.custom: hdinsightactive
-ms.topic: conceptual
-ms.date: 02/27/2018
 ms.author: hrasheed
-
+ms.reviewer: jasonh
+ms.service: hdinsight
+ms.topic: conceptual
+ms.custom: hdinsightactive
+ms.date: 01/02/2020
 ---
+
 # Enable heap dumps for Apache Hadoop services on Linux-based HDInsight
 
 [!INCLUDE [heapdump-selector](../../includes/hdinsight-selector-heap-dump.md)]
 
-Heap dumps contain a snapshot of the application's memory, including the values of variables at the time the dump was created. So they are useful for diagnosing problems that occur at run-time.
+Heap dumps contain a snapshot of the application's memory, including the values of variables at the time the dump was created. So they're useful for diagnosing problems that occur at run-time.
 
-## <a name="whichServices"></a>Services
+## Services
 
 You can enable heap dumps for the following services:
 
@@ -29,11 +28,11 @@ You can enable heap dumps for the following services:
 
 You can also enable heap dumps for the map and reduce processes ran by HDInsight.
 
-## <a name="configuration"></a>Understanding heap dump configuration
+## Understanding heap dump configuration
 
 Heap dumps are enabled by passing options (sometimes known as opts, or parameters) to the JVM when a service is started. For most [Apache Hadoop](https://hadoop.apache.org/) services, you can modify the shell script used to start the service to pass these options.
 
-In each script, there is an export for **\*\_OPTS**, which contains the options passed to the JVM. For example, in the **hadoop-env.sh** script, the line that begins with `export HADOOP_NAMENODE_OPTS=` contains the options for the NameNode service.
+In each script, there's an export for **\*\_OPTS**, which contains the options passed to the JVM. For example, in the **hadoop-env.sh** script, the line that begins with `export HADOOP_NAMENODE_OPTS=` contains the options for the NameNode service.
 
 Map and reduce processes are slightly different, as these operations are a child process of the MapReduce service. Each map or reduce process runs in a child container, and there are two entries that contain the JVM options. Both contained in **mapred-site.xml**:
 
@@ -77,12 +76,7 @@ You can also trigger a script when an **OutOfMemoryError** occurs. For example, 
 
 To modify the configuration for a service, use the following steps:
 
-1. Open the Ambari web UI for your cluster. The URL is https://YOURCLUSTERNAME.azurehdinsight.net.
-
-    When prompted, authenticate to the site using the HTTP account name (default: admin) and password for your cluster.
-
-   > [!NOTE]  
-   > You may be prompted a second time by Ambari for the user name and password. If so, enter the same account name and password.
+1. From a web browser, navigate to `https://CLUSTERNAME.azurehdinsight.net`, where `CLUSTERNAME` is the name of your cluster.
 
 2. Using the list of on the left, select the service area you want to modify. For example, **HDFS**. In the center area, select the **Configs** tab.
 
@@ -117,4 +111,3 @@ To modify the configuration for a service, use the following steps:
    > The entries for the **Restart** button may be different for other services.
 
 8. Once the services have been restarted, use the **Service Actions** button to **Turn Off Maintenance Mode**. This Ambari to resume monitoring for alerts for the service.
-
