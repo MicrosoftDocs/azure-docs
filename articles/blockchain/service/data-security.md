@@ -1,15 +1,9 @@
 ---
 title: Azure Blockchain Service security
 description: Azure Blockchain Service data access and security concepts
-services: azure-blockchain
-keywords: 
-author: PatAltimore
-ms.author: patricka
-ms.date: 05/02/2019
+ms.date: 11/22/2019
 ms.topic: conceptual
-ms.service: azure-blockchain
-ms.reviewer: seal
-manager: femila
+ms.reviewer: janders
 #Customer intent: As a network operator, I want to understand how Azure Blockchain Service implements data access and security
 ---
 
@@ -63,4 +57,4 @@ Constellation keys are used to uniquely identify a Quorum node. Constellation ke
 
 ## Next steps
 
-[Configure Azure Blockchain Service transaction nodes](configure-transaction-nodes.md)
+See [How to configure Azure Active Directory access for Azure Blockchain Service](configure-aad.md).

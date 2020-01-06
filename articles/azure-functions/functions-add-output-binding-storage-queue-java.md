@@ -113,7 +113,7 @@ mvn azure-functions:run
 ```
 
 > [!NOTE]  
-> Because you enabled extension bundles in the host.json, the [Storage binding extension](functions-bindings-storage-blob.md#packages---functions-2x) was downloaded and installed for you during startup, along with the other Microsoft binding extensions.
+> Because you enabled extension bundles in the host.json, the [Storage binding extension](functions-bindings-storage-blob.md#packages---functions-2x-and-higher) was downloaded and installed for you during startup, along with the other Microsoft binding extensions.
 
 As before, trigger the function from the command line using cURL in a new terminal window:
 

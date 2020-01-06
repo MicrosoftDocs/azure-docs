@@ -1,14 +1,13 @@
 ---
-title: "Deploy an application on Kubernetes using Azure Dev Spaces"
-titleSuffix: Azure Dev Spaces
+title: "Develop an application on Kubernetes"
 services: azure-dev-spaces
 ms.date: 07/08/2019
 ms.topic: quickstart
-description: "Deploy a microservice on AKS with Azure Dev Spaces"
+description: "This quickstart shows you how to use Azure Dev Spaces and the command line to develop an application on Azure Kubernetes Service"
 keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, service mesh, service mesh routing, kubectl, k8s"
 manager: gwallace
 ---
-# Quickstart: Develop an application on Kubernetes using Azure Dev Spaces
+# Quickstart: Develop an application on Kubernetes - Azure Dev Spaces
 In this guide, you will learn how to:
 
 - Set up Azure Dev Spaces with a managed Kubernetes cluster in Azure.

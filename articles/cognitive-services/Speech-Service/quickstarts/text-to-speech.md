@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Synthesize speech to a speaker - Speech Service'
+title: 'Quickstart: Synthesize speech to a speaker - Speech service'
 titleSuffix: Azure Cognitive Services
 description: In this quickstart, you will use the Speech SDK to convert text to synthesized speech and play the output on a speaker.
 services: cognitive-services

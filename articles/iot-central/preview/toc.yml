@@ -4,8 +4,6 @@
   items:
     - name: What is Azure IoT Central
       href: overview-iot-central.md
-    - name: IoT Solution options
-      href: ../core/overview-iot-options.md?toc=/azure/iot-central/preview/toc.json&bc=/azure/iot-central/preview/breadcrumb/toc.json
     - name: Tour of the UI
       href: overview-iot-central-tour.md
     - name: Get connected
@@ -71,6 +69,8 @@
           href: howto-version-device-template.md
         - name: Manage your devices
           href: howto-manage-devices.md
+        - name: Configure rules
+          href: howto-configure-rules.md
         - name: Analyze your device data
           href: howto-create-analytics.md
         - name: Add tiles to your dashboard

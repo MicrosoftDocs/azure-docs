@@ -15,12 +15,14 @@
     href: quick-create-portal.md
   - name: Python
     href: quick-create-python.md
+  - name: Java
+    href: quick-create-java.md
+  - name: Node.js
+    href: quick-create-node.md
   - name: .NET (SDK v4)
     href: quick-create-net.md
   - name: .NET (SDK v3)
     href: quick-create-net-v3.md
-  - name: Node.js
-    href: quick-create-node.md
   - name: Azure Resource Manager template
     displayName: resource manager, resource manager template, arm
     href: quick-create-template.md
@@ -104,7 +106,7 @@
     items:
     - name: Recommendations
       href: security-recommendations.md
-  - name: Authentication
+  - name: Authenticate
     items:
     - name: Use an App Service managed identity
       href: managed-identity.md
@@ -138,6 +140,8 @@
       href: /java/azure/spring-framework/configure-spring-boot-starter-java-app-with-azure-key-vault
 - name: Reference
   items:
+  - name: Key Vault REST error codes
+    href: rest-error-codes.md
   - name: Azure PowerShell
     href: /powershell/module/az.keyvault/?view=azps-1.2.0#key_vault
   - name: Azure CLI

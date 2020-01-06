@@ -1,17 +1,17 @@
 ---
-title: 'ExpressRoute: Create and modify a circuit: Azure portal'
-description: Create, provision, verify, update, delete, and deprovision an ExpressRoute circuit.
+title: 'Tutorial - Create and modify a circuit with ExpressRoute'
+description: In this tutorial, learn how to create, provision, verify, update, delete, and deprovision an ExpressRoute circuit.
 services: expressroute
 author: cherylmc
 
 ms.service: expressroute
-ms.topic: article
+ms.topic: tutorial
 ms.date: 10/20/2018
 ms.author: cherylmc
 
 ---
 
-# Create and modify an ExpressRoute circuit
+# Tutorial: Create and modify an ExpressRoute circuit
 
 > [!div class="op_single_selector"]
 > * [Azure portal](expressroute-howto-circuit-portal-resource-manager.md)
@@ -42,9 +42,12 @@ From a browser, navigate to the [Azure portal](https://portal.azure.com) and sig
 > [!IMPORTANT]
 > Your ExpressRoute circuit is billed from the moment a service key is issued. Ensure that you perform this operation when the connectivity provider is ready to provision the circuit.
 
-1. You can create an ExpressRoute circuit by selecting the option to create a new resource. Click **Create a resource** > **Networking** > **ExpressRoute**, as shown in the following image:
+You can create an ExpressRoute circuit by selecting the option to create a new resource. 
 
-   ![Create an ExpressRoute circuit](./media/expressroute-howto-circuit-portal-resource-manager/createcircuit1.png)
+1. On the Azure portal menu or from the **Home** page, select **Create a resource**. Select **Networking** > **ExpressRoute**, as shown in the following image:
+
+   ![Create an ExpressRoute circuit](./media/expressroute-howto-circuit-portal-resource-manager/create-an-expressroute-circuit.png)
+
 2. After you click **ExpressRoute**, you'll see the **Create ExpressRoute circuit** page. When you're filling in the values on this page, make sure that you specify the correct SKU tier (Standard, or Premium) and data metering billing model (Unlimited or Metered).
 
    ![Configure the SKU tier and data metering](./media/expressroute-howto-circuit-portal-resource-manager/createcircuit.png)
@@ -143,7 +146,7 @@ You can perform the following tasks with no downtime:
 
 To modify an ExpressRoute circuit, click **Configuration**.
 
-![Modify circuit](./media/expressroute-howto-circuit-portal-resource-manager/modifycircuit.png)
+![Modify circuit](./media/expressroute-howto-circuit-portal-resource-manager/modify-circuit-configuration.png)
 
 ## <a name="delete"></a>Deprovisioning and deleting an ExpressRoute circuit
 

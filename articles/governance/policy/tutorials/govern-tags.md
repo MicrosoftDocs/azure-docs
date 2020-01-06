@@ -1,7 +1,7 @@
 ---
 title: "Tutorial: Manage tag governance"
 description: In this tutorial, you use the Modify effect of Azure Policy to create and enforce a tag governance model on new and existing resources.
-ms.date: 11/04/2019
+ms.date: 11/25/2019
 ms.topic: tutorial
 ---
 # Tutorial: Manage tag governance with Azure Policy
@@ -21,8 +21,17 @@ of tags no matter what stage of resource governance you are in. **Modify** helps
 - Already have thousands of resources with no tag governance
 - Already have an existing taxonomy that you need changed
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/)
-before you begin.
+In this tutorial, you'll complete the following tasks:
+
+> [!div class="checklist"]
+> - Identify your business requirements
+> - Map each requirement to a policy definition
+> - Group the tag policies into an initiative
+
+## Prerequisites
+
+To complete this tutorial, you need an Azure subscription. If you don't have one, create a
+[free account](https://azure.microsoft.com/free/) before you begin.
 
 ## Identify requirements
 
@@ -215,8 +224,22 @@ match the **if** property in the policy rule. However, the policy doesn't automa
 existing non-compliant resources with the defined tag changes.
 
 Like [deployIfNotExists](../concepts/effects.md#deployifnotexists) policies, the **Modify** policy
-uses remediation tasks to alter existing non-compliant resources. Follow the directions on [How-to remediate resources](../how-to/remediate-resources.md)
-to identify your non-compliant **Modify** resources and correct the tags to your defined taxonomy.
+uses remediation tasks to alter existing non-compliant resources. Follow the directions on
+[How-to remediate resources](../how-to/remediate-resources.md) to identify your non-compliant
+**Modify** resources and correct the tags to your defined taxonomy.
+
+## Clean up resources
+
+If you're done working with resources from this tutorial, use the following steps to delete any of
+the assignments or definitions created above:
+
+1. Select **Definitions** (or **Assignments** if you're trying to delete an assignment) under
+   **Authoring** in the left side of the Azure Policy page.
+
+1. Search for the new initiative or policy definition (or assignment) you want to remove.
+
+1. Right-click the row or select the ellipses at the end of the definition (or assignment), and
+   select **Delete definition** (or **Delete assignment**).
 
 ## Review
 

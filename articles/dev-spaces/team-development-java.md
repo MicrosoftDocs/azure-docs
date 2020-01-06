@@ -1,18 +1,16 @@
 ---
-title: "Team development with Azure Dev Spaces using Java and VS Code"
-titleSuffix: Azure Dev Spaces
+title: "Team development using Java and Visual Studio Code"
 services: azure-dev-spaces
-
 author: stepro
 ms.author: stephpr
 ms.date: 08/01/2018
 ms.topic: tutorial
-description: "Rapid Kubernetes development with containers and microservices on Azure"
+description: "This tutorial shows you how to use Azure Dev Spaces and Visual Studio Code to do team development on a Java application in Azure Kubernetes Service"
 keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, service mesh, service mesh routing, kubectl, k8s "
 manager: gwallace
 ---
 
-# Team development with Azure Dev Spaces using Java and VS Code
+# Team development using Java and Visual Studio Code with Azure Dev Spaces
 
 In this tutorial, you'll learn how a team of developers can simultaneously collaborate in the same Kubernetes cluster using Dev Spaces.
 

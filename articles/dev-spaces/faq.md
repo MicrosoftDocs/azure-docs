@@ -1,6 +1,5 @@
 ---
 title: "Frequently asked questions about Azure Dev Spaces"
-titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.date: 09/25/2019
 ms.topic: "conceptual"
@@ -47,8 +46,9 @@ Yes, you can use Azure Dev Spaces on AKS clusters with [Restricted egress traffi
 | FQDN                                    | Port      | Use      |
 |-----------------------------------------|-----------|----------|
 | cloudflare.docker.com | HTTPS:443 | To pull linux alpine and other Azure Dev Spaces images |
-| gcr.io | HTTP:443 | To pull helm/tiller images|
-| storage.googleapis.com | HTTP:443 | To pull helm/tiller images|
+| gcr.io | HTTP:443 | To pull helm/tiller images |
+| storage.googleapis.com | HTTP:443 | To pull helm/tiller images |
+| azds-<guid>.<location>.azds.io | HTTPS:443 | To communicate with Azure Dev Spaces backend services for your controller. The exact FQDN can be found in the "dataplaneFqdn" in %USERPROFILE%\.azds\settings.json |
 
 
 [aks-auth-range]: ../aks/api-server-authorized-ip-ranges.md

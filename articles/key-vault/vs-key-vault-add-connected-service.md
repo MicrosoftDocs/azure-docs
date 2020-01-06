@@ -19,15 +19,15 @@ For details on the changes that Connected Services makes in your project to enab
 ## Prerequisites
 
 - **An Azure subscription**. If you don't have a subscription, sign up for a [free account](https://azure.microsoft.com/pricing/free-trial/).
-- **Visual Studio 2019 version 16.3 Preview 1** or later, or **Visual Studio 2017 version 15.7** with the **Web Development** workload installed. [Download it now](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
+- **Visual Studio 2019 version 16.3** or later, or **Visual Studio 2017 version 15.7** with the **Web Development** workload installed. [Download it now](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
 - For ASP.NET (not Core) with Visual Studio 2017, you need the .NET Framework 4.7.1 or later Development Tools, which are not installed by default. To install them, launch the Visual Studio Installer, choose **Modify**, and then choose **Individual Components**, then on the right-hand side, expand **ASP.NET and web development**, and choose **.NET Framework 4.7.1 Development Tools**.
-- An ASP.NET 4.7.1 or later, or ASP.NET Core 2.0 web project open.
+- An ASP.NET 4.7.1 or later, or ASP.NET Core 2.0 or later web project open.
 
 ## Add Key Vault support to your project
 
 Before you begin, make sure that you're signed into Visual Studio. Sign in with the same account that you use for your Azure subscription. Then open an ASP.NET 4.7.1 or later, or ASP.NET Core 2.0 web project, and do the follow steps:
 
-1. In **Solution Explorer**, right-click the project that you want to add the key vault support to, and choose **Add** > **Connected Service**.
+1. In **Solution Explorer**, right-click the project that you want to add the Key Vault support to, and choose **Add** > **Connected Service**.
    The Connected Service page appears with services you can add to your project.
 1. In the menu of available services, choose **Secure Secrets With Azure Key Vault**.
 
@@ -45,7 +45,7 @@ Before you begin, make sure that you're signed into Visual Studio. Sign in with 
 1. Choose **OK** to accept the configuration choices.
 1. After you select an existing Key Vault or have configured a new Key Vault, in the **Azure Key Vault** tab of Visual Studio, select **Add** to add the Connected Service.
 1. Select the **Manage secrets stored in this Key Vault** link to open the **Secrets** page for your Key Vault. If you closed the page or the project, you can navigate to it in the [Azure portal](https://portal.azure.com) by choosing **All Services** and, under **Security**, choosing **Key Vault**, then choose your Key Vault.
-1. In the Key Vault section for the key vault you created, choose **Secrets**, then **Generate/Import**.
+1. In the Key Vault section for the Key Vault you created, choose **Secrets**, then **Generate/Import**.
 
    ![Generate/Import a secret](media/vs-key-vault-add-connected-service/azure-generate-secrets.png)
 
@@ -57,22 +57,15 @@ Before you begin, make sure that you're signed into Visual Studio. Sign in with 
 
 Now, you can access your secrets in code. The next steps are different depending on whether you are using ASP.NET 4.7.1 or ASP.NET Core.
 
-## Access your secrets in code
+## Access your secrets in code (ASP.NET Core)
 
 1. In Solution Explorer, right-click on your project, and select **Manage NuGet Packages**. In the **Browse** tab, locate and install these two NuGet packages:
-   [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) and [Microsoft.Azure.KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault).
+   [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) and for .NET Core 2, add [Microsoft.Azure.KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault) or for .NET Core 3, add[Microsoft.Azure.KeyVault.Core](https://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core).
 
-1. Select the `Program.cs` tab and replace the Program class with the following code:
+1. For .NET Core 2, select the `Program.cs` tab and change the `BuildWebHost` definition in the Program class to the following:
 
    ```csharp
-    public class Program
-    {
-        public static void Main(string[] args)
-        {
-            BuildWebHost(args).Run();
-        }
-
-        public static IWebHost BuildWebHost(string[] args) =>
+        public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
            WebHost.CreateDefaultBuilder(args)
                .ConfigureAppConfiguration((ctx, builder) =>
                {
@@ -87,24 +80,53 @@ Now, you can access your secrets in code. The next steps are different depending
                            keyVaultEndpoint, keyVaultClient, new DefaultKeyVaultSecretManager());
                    }
                }
-            ).UseStartup<Startup>()
-             .Build();
+            ).UseStartup<Startup>();
 
         private static string GetKeyVaultEndpoint() => "https://<YourKeyVaultName>.vault.azure.net";
     }
    ```
 
-1. Next open `About.cshtml.cs` file and write the following code:
-   1. Include a reference to `Microsoft.Extensions.Configuration` by this using statement:
+   For .NET Core 3, use the following code.
+
+   ```csharp
+        public static IHostBuilder CreateHostBuilder(string[] args) =>
+            Host.CreateDefaultBuilder(args)
+                .ConfigureAppConfiguration((context, config) =>
+                {
+                    var keyVaultEndpoint = GetKeyVaultEndpoint();
+                    if (!string.IsNullOrEmpty(keyVaultEndpoint))
+                    {
+                        var azureServiceTokenProvider = new AzureServiceTokenProvider();
+                        var keyVaultClient = new KeyVaultClient(
+                            new KeyVaultClient.AuthenticationCallback(
+                                azureServiceTokenProvider.KeyVaultTokenCallback));
+                        config.AddAzureKeyVault(keyVaultEndpoint, keyVaultClient, new DefaultKeyVaultSecretManager());
+                    }
+                })
+                .ConfigureWebHostDefaults(webBuilder =>
+                {
+                    webBuilder.UseStartup<Startup>();
+                });
+        private static string GetKeyVaultEndpoint() => "https://<YourKeyVaultName>.vault.azure.net";
+    ```
+
+1. Next open one of the page files, such as *Index.cshtml.cs* and write the following code:
+   1. Include a reference to `Microsoft.Extensions.Configuration` by this using directive:
 
        ```csharp
-       using Microsoft.Extensions.Configuration
+       using Microsoft.Extensions.Configuration;
        ```
 
-   1. Add this constructor:
+   1. Add the configuration variable.
+
+      ```csharp
+      private static readonly IConfiguration _configuration;
+      ```
+
+   1. Add this constructor or replace the existing constructor with this:
 
        ```csharp
-       public AboutModel(IConfiguration configuration)
+       public IndexModel(IConfiguration configuration)
        {
            _configuration = configuration;
        }
@@ -115,12 +137,37 @@ Now, you can access your secrets in code. The next steps are different depending
        ```csharp
        public void OnGet()
        {
-           //Message = "Your application description page.";
-           Message = "My key val = " + _configuration["<YourSecretNameThatWasCreatedAbove>"];
+           ViewData["Message"] = "My key val = " + _configuration["<YourSecretNameThatWasCreatedAbove>"];
        }
        ```
 
-Run the app locally by browsing to the About page. You should see your secret value retrieved.
+   1. To confirm the value at runtime, add code to display `ViewData["Message"]` to the *.cshtml* file to display the secret in a message.
+
+      ```cshtml
+          <p>@ViewData["Message"]</p>
+      ```
+
+You can run the app locally to verify that the secret is obtained successfully from the Key Vault.
+
+## Access your secrets (ASP.NET)
+
+You can set up the configuration so that the web.config file has a dummy value in the `appSettings` element that is replaced by the true value at runtime. You can then access this via the `ConfigurationManager.AppSettings` data structure.
+
+1. Edit your web.config file.  Find the appSettings tag, add an attribute `configBuilders="AzureKeyVault"`, and add a line:
+
+   ```xml
+      <add key="mysecret" value="dummy"/>
+   ```
+
+1. Edit the `About` method in *HomeController.cs*, to display the value for confirmation.
+
+   ```csharp
+   public ActionResult About()
+   {
+       ViewBag.Message = "Key vault value = " + ConfigurationManager.AppSettings["mysecret"];
+   }
+   ```
+1. Run the app locally under the debugger, switch to the **About** tab, and verify that the value from the Key Vault is displayed.
 
 ## Clean up resources
 
@@ -132,7 +179,7 @@ When no longer needed, delete the resource group. This deletes the Key Vault and
 
 ## Troubleshooting
 
-If your key vault is running on an different Microsoft account than the one you're logged in to Visual Studio (for example, the key vault is running on your work account, but Visual Studio is using your private account) you get an error in your Program.cs file, that Visual Studio can't get access to the key vault. To fix this issue:
+If your Key Vault is running on an different Microsoft account than the one you're logged in to Visual Studio (for example, the Key Vault is running on your work account, but Visual Studio is using your private account) you get an error in your Program.cs file, that Visual Studio can't get access to the Key Vault. To fix this issue:
 
 1. Go to the [Azure portal](https://portal.azure.com) and open your Key Vault.
 
@@ -143,7 +190,7 @@ Select **Add an account** from the **All account** section. Sign in with the acc
 
 1. Choose **Tools** > **Options**, and look for **Azure Service Authentication**. Then select the account you just added to Visual Studio.
 
-Now, when you debug your application, Visual Studio connects to the account your key vault is located on.
+Now, when you debug your application, Visual Studio connects to the account your Key Vault is located on.
 
 ## How your ASP.NET Core project is modified
 
@@ -234,5 +281,7 @@ Affects the project file .NET references and `packages.config` (NuGet references
 - Created a Key Vault in the specified resource group.
 
 ## Next steps
+
+If you followed this tutorial, your Key Vault permissions are set up to run with your own Azure subscription, but that might not be desirable for a production scenario. You can create a managed identity to manage Key Vault access for your app. See [Provide Key Vault authentication with a managed identity](/azure/key-vault/managed-identity).
 
 Learn more about Key Vault development by reading the [Key Vault Developer's Guide](key-vault-developers-guide.md).

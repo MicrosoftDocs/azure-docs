@@ -25,11 +25,10 @@ Application templates consist of:
 
 Your choice of application template determines whether your application uses IoT Central preview features such as Plug and Play for devices.
 
-Currently, the application templates that use _generally available_ features are:
+Currently, the application template that use _generally available_ features is:
 
-- Custom app > Custom application
-- Custom app > Sample Contoso
-- Custom app > Sample Devkits
+- Custom app > Legacy application
+
 
 Currently, the application templates that use _public preview_ features are:
 
@@ -45,6 +44,9 @@ Currently, the application templates that use _public preview_ features are:
 - Government > Water consumption monitoring
 - Government > Water quality monitoring
 - Healthcare > Continuous patient monitoring
+
+> [!NOTE]
+> The **legacy application** templates are currently  available in the **United States**, **Australia**, **Asia Pacific**, or in the **Europe** locations, while other templates are currently available only in **Europe** and **US** locations.
 
 ## Industry focused templates
 

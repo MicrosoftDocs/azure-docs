@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Recognize speech stored in blob storage, C# - Speech Service"
+title: "Quickstart: Recognize speech stored in blob storage, C# - Speech service"
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services
@@ -7,7 +7,7 @@ author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: quickstart
+ms.topic: include
 ms.date: 10/28/2019
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-two
@@ -31,7 +31,7 @@ Follow these steps for the installation:
 
 1. Go to https://editor.swagger.io.
 1. Click **File**, then click **Import URL**.
-1. Enter the Swagger URL including the region for your Speech Services subscription: `https://<your-region>.cris.ai/docs/v2.0/swagger`.
+1. Enter the Swagger URL including the region for your Speech service subscription: `https://<your-region>.cris.ai/docs/v2.0/swagger`.
 1. Click **Generate Client** and select **Python**.
 1. Save the client library.
 1. Extract the downloaded python-client-generated.zip somewhere in your file system.
@@ -75,13 +75,13 @@ Next, we'll generate the transcription request. Add this code to `transcribe`
 [!code-python[](~/samples-cognitive-services-speech-sdk/quickstart/python/from-blob/python-client/main.py?range=52-54)]
 
 ## Send the request and check its status
-Now we post the request to the Speech Service and check the initial response code. This response code will simply indicate if the service has received the request. The service will return a Url in the response headers that's the location where it will store the transcription status.
+Now we post the request to the Speech service and check the initial response code. This response code will simply indicate if the service has received the request. The service will return a Url in the response headers that's the location where it will store the transcription status.
 [!code-python[](~/samples-cognitive-services-speech-sdk/quickstart/python/from-blob/python-client/main.py?range=65-73)]
 
 ## Wait for the transcription to complete
 Since the service processes the transcription asynchronously, we need to poll for its status every so often. We'll check every 5 seconds.
 
-We'll enumerate all the transcriptions that this Speech Service resource is processing and look for the one we created.
+We'll enumerate all the transcriptions that this Speech service resource is processing and look for the one we created.
 
 Here's the polling code with status display for everything except a successful completion, we'll do that next.
 [!code-python[](~/samples-cognitive-services-speech-sdk/quickstart/python/from-blob/python-client/main.py?range=75-94,99-112)]

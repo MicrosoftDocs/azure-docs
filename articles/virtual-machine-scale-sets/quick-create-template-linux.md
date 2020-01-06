@@ -1,5 +1,5 @@
 ---
-title: Quickstart - Create a Linux virtual machine scale set with an Azure template | Microsoft Docs
+title: Quickstart - Create a Linux virtual machine scale set with an Azure template
 description: Learn how to quickly create a Linux virtual machine scale with an Azure Resource Manager template that deploys a sample app and configures autoscale rules
 services: virtual-machine-scale-sets
 documentationcenter: ''

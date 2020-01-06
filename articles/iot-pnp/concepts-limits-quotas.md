@@ -3,7 +3,7 @@ title: Limits and quotas IoT Plug and Play Preview | Microsoft Docs
 description: Understand the limits, quotas, and throttling that apply when you use IoT Plug and Play Preview.
 author: miagdp
 ms.author: miag
-ms.date: 08/01/2019
+ms.date: 12/26/2019
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp

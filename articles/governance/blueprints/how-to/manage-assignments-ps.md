@@ -2,7 +2,7 @@
 title: How to manage assignments with PowerShell
 description: Learn how to manage blueprint assignments with the official Azure Blueprints PowerShell module, Az.Blueprint.
 ms.date: 09/30/2019
-ms.topic: conceptual
+ms.topic: how-to
 ---
 # How to manage assignments with PowerShell
 
@@ -272,6 +272,11 @@ the property can only be configured by setting it through the JSON assignment de
 $bpAssignment = New-AzBlueprintAssignment -Name 'my-blueprint-assignment' -SubscriptionId '{subId}' `
     -AssignmentFile '.\assignment.json'
 ```
+
+For an example of the JSON assignment definition file for a user-assigned managed identity, see the
+request body in
+[Example: Assignment with user-assigned managed identity](/rest/api/blueprints/assignments/createorupdate#assignment-with-user-assigned-managed-identity)
+for REST API.
 
 ## Update blueprint assignments
 

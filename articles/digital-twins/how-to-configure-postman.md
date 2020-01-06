@@ -1,6 +1,6 @@
 ---
 title: How to configure Postman - Azure Digital Twins | Microsoft Docs
-description: Learn how to configure and use Postman to test Azure Digital Twins APIs.
+description: Learn how to configure and use Postman to test the Azure Digital Twins APIs.
 ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof
@@ -47,15 +47,15 @@ Configure your Azure Active Directory app to use the OAuth 2.0 implicit grant fl
 
 1. The selected API shows up as **Azure Digital Twins** in the same **Request API permissions** pane. Select the **Read (1)** drop down, and then select **Read.Write** checkbox. Select the **Add permissions** button.
 
-    [![Add API permissions](../../includes/media/digital-twins-permissions/aad-app-req-permissions.png)](../../includes/media/digital-twins-permissions/aad-app-req-permissions.png#lightbox)
+    [![Add API permissions for Azure Digital Twins](../../includes/media/digital-twins-permissions/aad-app-req-permissions.png)](../../includes/media/digital-twins-permissions/aad-app-req-permissions.png#lightbox)
 
 1. Depending on your organization's settings, you might need to take additional steps to grant admin access to this API. Contact your administrator for more information. Once the admin access is approved, the **ADMIN CONSENT REQUIRED** column in the **API permissions** pane will show similar to the following for your APIs:
 
-    [![Admin consent approval](../../includes/media/digital-twins-permissions/aad-app-admin-consent.png)](../../includes/media/digital-twins-permissions/aad-app-admin-consent.png#lightbox)
+    [![Configure admin consent approval](../../includes/media/digital-twins-permissions/aad-app-admin-consent.png)](../../includes/media/digital-twins-permissions/aad-app-admin-consent.png#lightbox)
 
 1. Configure a second **Redirect URI** to `https://www.getpostman.com/oauth2/callback`.
 
-    [![Add a Postman Redirect URI](media/how-to-configure-postman/authentication-redirect-uri.png)](media/how-to-configure-postman/authentication-redirect-uri.png#lightbox)
+    [![Configure a new Postman Redirect URI](media/how-to-configure-postman/authentication-redirect-uri.png)](media/how-to-configure-postman/authentication-redirect-uri.png#lightbox)
 
 1. To make sure that [the app is registered as a **public client**](https://docs.microsoft.com/azure/active-directory/develop/scenario-desktop-app-registration), open the **Authentication** pane for your app registration, and scroll down in that pane. In the **Default client type** section, choose **Yes** for **Treat application as a public client**, and hit **Save**.
 
@@ -99,7 +99,7 @@ Set up and configure Postman to obtain an Azure Active Directory token. Afterwar
 
 1. The client should now appear as:
 
-    [![Postman client example](media/how-to-configure-postman/postman-oauth-token.png)](media/how-to-configure-postman/postman-oauth-token.png#lightbox)
+    [![Postman client token example](media/how-to-configure-postman/configure-postman-oauth-token.png)](media/how-to-configure-postman/configure-postman-oauth-token.png#lightbox)
 
 1. Select **Request Token**.
   
@@ -111,14 +111,14 @@ After completing the previous steps, configure Postman to make an authenticated 
 
 1. Under the **Headers** tab, add an HTTP request header key **Content-Type** with value `multipart/mixed`.
 
-   [![Content type multipart/mixed](media/how-to-configure-postman/content-type.png)](media/how-to-configure-postman/content-type.png#lightbox)
+   [![Specify content type multipart/mixed](media/how-to-configure-postman/configure-postman-content-type.png)](media/how-to-configure-postman/configure-postman-content-type.png#lightbox)
 
 1. Serialize non-text data into files. JSON data would be saved as a JSON file.
 1. Under the **Body** tab, select `form-data`. 
 1. Add each file by assigning a **key** name, selecting `File`.
 1. Then, select each file through the **Choose File** button.
 
-   [![Postman client example](media/how-to-configure-postman/form-body.png)](media/how-to-configure-postman/form-body.png#lightbox)
+   [![Postman client form body example](media/how-to-configure-postman/configure-postman-form-body.png)](media/how-to-configure-postman/configure-postman-form-body.png#lightbox)
 
    >[!NOTE]
    > * The Postman client does not require that multipart chunks have a manually assigned **Content-Type** or **Content-Disposition**.

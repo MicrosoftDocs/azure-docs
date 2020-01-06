@@ -43,8 +43,10 @@
     href: tutorial-azure-security.md
   - name: 14 - Deploy Jenkins
     href: tutorial-jenkins-github-docker-cicd.md
-  - name: 15 - CI/CD with Azure Pipelines
+  - name: 15a - Deploy with Azure Pipelines
     href: tutorial-build-deploy-jenkins.md
+  - name: 15b - CI/CD with Azure Pipelines
+    href: tutorial-build-deploy-azure-pipelines.md
   - name: 16a - Create LAMP stack
     href: tutorial-lamp-stack.md
   - name: 16b - Create LEMP stack
@@ -62,7 +64,7 @@
 - name: Concepts
   items:
   - name: Azure Resource Manager
-    href: ../../azure-resource-manager/resource-group-overview.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+    href: ../../azure-resource-manager/management/overview.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
   - name: Regions
     href: regions.md
   - name: Availability and performance
@@ -74,8 +76,9 @@
     - name: Network performance
       href: ../..//virtual-network/virtual-network-optimize-network-bandwidth.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
   - name: VM types and sizes
-    href: sizes.md
     items:
+    - name: Size families
+      href: sizes.md
     - name: Generation 2 VMs
       href: generation-2.md
     - name: General purpose
@@ -103,6 +106,16 @@
         href: n-series-driver-setup.md
     - name: High performance compute
       href: sizes-hpc.md
+    - name: Reserved instances
+      items:
+      - name: Prepay for VMs
+        href: prepay-reserved-vm-instances.md
+      - name: What are Azure reservations?
+        href: ../../billing/billing-save-compute-costs-reservations.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+      - name: VM instance size flexibility
+        href: reserved-vm-instance-size-flexibility.md
+    - name: Spot VMs
+      href: spot-vms.md
     - name: Previous generations
       href: sizes-previous-gen.md
     - name: Isolated sizes
@@ -126,7 +139,7 @@
   - name: Dedicated hosts
     href: dedicated-hosts.md
   - name: Maintenance and updates
-    href: maintenance-and-updates.md
+    href: ../maintenance-and-updates.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
   - name: Disk storage
     items:
     - name: Introduction to managed disks
@@ -186,6 +199,16 @@
         href: dedicated-hosts-cli.md
       - name: Portal
         href: dedicated-hosts-portal.md
+    - name: Deploy spot VMs
+      items:
+      - name: CLI
+        href: spot-cli.md
+      - name: Portal
+        href: ../windows/spot-portal.md?toc=/azure/virtual-machines/linux/toc.json
+      - name: Template
+        href: spot-template.md
+      - name: Error codes
+        href: ../error-codes-spot.md?toc=/azure/virtual-machines/linux/toc.json
   - name: Secure VMs
     items:
     - name: Recommendations
@@ -298,16 +321,32 @@
         href: ../extensions/agent-linux.md
       - name: Agent update
         href: update-agent.md
-    - name: Planned maintenance
-      href: maintenance-notifications.md
     - name: Mitigating speculative execution
       href: mitigate-se.md
-    - name: Scheduled events
-      href: scheduled-events.md
     - name: Monitor metadata
       href: instance-metadata-service.md
     - name: Get usage metrics with REST
       href: metrics-vm-usage-rest.md
+  - name: Platform maintenance
+    items: 
+    - name: Maintenance notifications
+      items:
+      - name: Overview
+        href: ../maintenance-notifications.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+      - name: CLI
+        href: ../maintenance-notifications-cli.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+      - name: Portal
+        href: ../maintenance-notifications-portal.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+      - name: PowerShell
+        href: ../maintenance-notifications-powershell.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+    - name: Maintenance control
+      items:
+      - name: CLI
+        href: ../maintenance-control-cli.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+      - name: PowerShell
+        href: ../maintenance-control-powershell.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+    - name: Scheduled events
+      href: scheduled-events.md
   - name: Monitor VMs
     items:
     - name: Azure Monitor for VMs

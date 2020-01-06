@@ -4,7 +4,7 @@ description: This article describes several common query patterns and designs th
 services: stream-analytics
 author: rodrigoaatmicrosoft
 ms.author: rodrigoa
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/18/2019

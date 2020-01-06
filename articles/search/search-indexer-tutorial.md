@@ -1,7 +1,7 @@
 ---
-title: 'C# Tutorial: Index data from Azure SQL databases'
+title: 'Tutorial: Index data in C# from Azure SQL databases'
 titleSuffix: Azure Cognitive Search
-description: C# code example showing how to connect to Azure SQL database, extract searchable data, and load it into an Azure Cognitive Search index.
+description: In this C# tutorial, connect to Azure SQL database, extract searchable data, and load it into an Azure Cognitive Search index.
 
 manager: nitinme
 author: HeidiSteen
@@ -12,7 +12,7 @@ ms.date: 11/04/2019
 #Customer intent: As a developer, I want an introduction the indexing Azure SQL data for Azure Cognitive Search.
 ---
 
-# C# Tutorial: Import Azure SQL database using Azure Cognitive Search indexers
+# Tutorial: Import Azure SQL database in C# using Azure Cognitive Search indexers
 
 Learn how to configure an indexer for extracting searchable data from a sample Azure SQL database. [Indexers](search-indexer-overview.md) are a component of Azure Cognitive Search that crawl external data sources, populating a [search index](search-what-is-an-index.md) with content. Of all indexers, the indexer for Azure SQL Database is the most widely used. 
 

@@ -88,11 +88,10 @@ If the connection was successful, you should see the following output:
 ### Solution for cause 1
 
 #### Solution 1 - Use Azure File Sync
-Azure File Sync can transforms your on-premises Windows Server into a quick cache of your Azure file share. You can use any protocol that's available on Windows Server to access your data locally, including SMB, NFS, and FTPS. Azure File Sync works over port 443 and can thus be used as a workaround to access Azure Files from clients that have port 445 blocked. [Learn how to setup Azure File Sync](https://docs.microsoft.com/azure/storage/files/storage-sync-files-extend-servers).
+Azure File Sync can transform your on-premises Windows Server into a quick cache of your Azure file share. You can use any protocol that's available on Windows Server to access your data locally, including SMB, NFS, and FTPS. Azure File Sync works over port 443 and can thus be used as a workaround to access Azure Files from clients that have port 445 blocked. [Learn how to setup Azure File Sync](https://docs.microsoft.com/azure/storage/files/storage-sync-files-extend-servers).
 
 #### Solution 2 - Use VPN
-By Setting up a VPN to your specific Storage Account, the traffic will go through a secure tunnel as opposed to over the internet. Follow the [instructions to setup VPN](https://github.com/Azure-Samples/azure-files-samples/tree/master/point-to-site-vpn-azure-files
-) to access Azure Files from Windows.
+By Setting up a VPN to your specific Storage Account, the traffic will go through a secure tunnel as opposed to over the internet. Follow the [instructions to setup VPN](storage-files-configure-p2s-vpn-windows.md) to access Azure Files from Windows.
 
 #### Solution 3 - Unblock port 445 with help of your ISP/IT Admin
 Work with your IT department or ISP to open port 445 outbound to [Azure IP ranges](https://www.microsoft.com/download/details.aspx?id=41653).
@@ -146,7 +145,7 @@ You do not have access
 
 ### Solution for cause 1
 
-Browse to the storage account where the Azure file share is located, click **Access control (IAM)** and verify your user account has access to the storage account. To learn more, see [How to secure your storage account with Role-Based Access Control (RBAC)](https://docs.microsoft.com/azure/storage/common/storage-security-guide#how-to-secure-your-storage-account-with-role-based-access-control-rbac).
+Browse to the storage account where the Azure file share is located, click **Access control (IAM)** and verify your user account has access to the storage account. To learn more, see [How to secure your storage account with Role-Based Access Control (RBAC)](https://docs.microsoft.com/azure/storage/blobs/security-recommendations#data-protection).
 
 ### Cause 2: Virtual network or firewall rules are enabled on the storage account
 
@@ -289,17 +288,29 @@ To resolve this problem,  adjusting the **DirectoryCacheEntrySizeMax** registry 
  
 For example, you can set it to 0x100000 and see if the performance become better.
 
-## Error AadDsTenantNotFound in enabling Azure Active Directory authentication for Azure Files "Unable to locate active tenants with tenant Id aad-tenant-id"
+## Error AadDsTenantNotFound in enabling Azure Active Directory Domain Service (AAD DS) authentication for Azure Files "Unable to locate active tenants with tenant Id aad-tenant-id"
 
 ### Cause
 
-Error AadDsTenantNotFound happens when you try to [enable Azure Active Directory (AAD) authentication for Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-active-directory-enable) on a storage account where [AAD Domain Service(AAD DS)](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-overview) is not created on the AAD tenant of the associated subscription.  
+Error AadDsTenantNotFound happens when you try to [enable Azure Active Directory Domain Service (AAD DS) authentication for Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-active-directory-enable) on a storage account where [AAD Domain Service(AAD DS)](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-overview) is not created on the AAD tenant of the associated subscription.  
 
 ### Solution
 
 Enable AAD DS on the AAD tenant of the subscription that your storage account is deployed to. You need administrator privileges of the AAD tenant to create a managed domain. If you aren't the administrator of the Azure AD tenant, contact the administrator and follow the step-by-step guidance to [Enable Azure Active Directory Domain Services using the Azure portal](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started).
 
 [!INCLUDE [storage-files-condition-headers](../../../includes/storage-files-condition-headers.md)]
+
+## Error 'System error 1359 has occurred. An internal error' received over SMB access to file shares with Azure Active Directory Domain Service (AAD DS) authentication enabled
+
+### Cause
+
+Error 'System error 1359 has occurred. An internal error' happens when you try to connect to your file share with AAD DS authentication enabled against an AAD DS with domain DNS name starting with a numeric character. For example, if your AAD DS Domain DNS name is "1domain", you will get this error when attempting to mount the file share using AAD credentials. 
+
+### Solution
+
+Currently, you can consider redeploying your AAD DS using a new domain DNS name that applies with the rules below:
+- Names cannot begin with a numeric character.
+- Names must be from 3 to 63 characters long.
 
 ## Need help? Contact support.
 If you still need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your problem resolved quickly.

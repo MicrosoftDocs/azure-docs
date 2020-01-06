@@ -1,6 +1,6 @@
 ---
 title: Azure Security Center frequently asked questions (FAQ) | Microsoft Docs
-description: This FAQ answers questions about Azure Security Center.
+description: This FAQ answers questions about Azure Security Center, a product that helps you prevent, detect, and respond to threats.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -52,7 +52,7 @@ See [Permissions in Azure Security Center](security-center-permissions.md) to le
 Security Center collects data from your Azure virtual machines (VMs), Virtual machine scale sets, IaaS containers, and non-Azure computers (including on-premises) to monitor for security vulnerabilities and threats. Data is collected using the Microsoft Monitoring Agent, which reads various security-related configurations and event logs from the machine and copies the data to your workspace for analysis.
 
 ### Am I billed for Azure Monitor logs on the workspaces created by Security Center?
-No. Workspaces created by Security Center, while configured for Azure Monitor logs per node billing, do not incur Azure Monitor logs charges. Security Center billing is always based on your Security Center security policy and the solutions installed on a workspace:
+No. Workspaces created by Security Center, while configured for Azure Monitor logs per node billing, don't incur Azure Monitor logs charges. Security Center billing is always based on your Security Center security policy and the solutions installed on a workspace:
 
 - **Free tier** – Security Center enables the 'SecurityCenterFree' solution on the default workspace. You won't be billed for the Free tier.
 - **Standard tier** – Security Center enables the 'Security' solution on the default workspace.

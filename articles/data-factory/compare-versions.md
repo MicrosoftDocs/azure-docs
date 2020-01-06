@@ -4,11 +4,11 @@ description: This article compares Azure Data Factory with Azure Data Factory ve
 services: data-factory
 documentationcenter: ''
 author: kromerm
-manager: craigg
+manager: anandsub
 
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
+
 
 ms.topic: overview
 ms.date: 04/09/2018
