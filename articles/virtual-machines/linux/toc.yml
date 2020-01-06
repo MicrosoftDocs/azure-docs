@@ -43,8 +43,10 @@
     href: tutorial-azure-security.md
   - name: 14 - Deploy Jenkins
     href: tutorial-jenkins-github-docker-cicd.md
-  - name: 15 - CI/CD with Azure Pipelines
+  - name: 15a - Deploy with Azure Pipelines
     href: tutorial-build-deploy-jenkins.md
+  - name: 15b - CI/CD with Azure Pipelines
+    href: tutorial-build-deploy-azure-pipelines.md
   - name: 16a - Create LAMP stack
     href: tutorial-lamp-stack.md
   - name: 16b - Create LEMP stack

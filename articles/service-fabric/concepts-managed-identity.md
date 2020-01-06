@@ -1,6 +1,6 @@
 ---
 title: Service Fabric Managed Identity overview
-description: This article is an overview of Managed Identity.
+description: This article is an overview of Managed Identity and its applications to Azure Service Fabric.
 
 ms.topic: conceptual 
 ms.date: 12/09/2019

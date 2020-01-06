@@ -1,5 +1,5 @@
 ---
-title: Start and stop cluster nodes to test Azure Service Fabric apps 
+title: Start and stop cluster nodes
 description: Learn how to use fault injection to test a Service Fabric application by starting and stopping cluster nodes.
 author: LMWF
 

@@ -65,6 +65,8 @@ $certificate = Add-AzKeyVaultCertificate -VaultName $kv -Name "cert1" -Certifica
 $certificate = Get-AzKeyVaultCertificate -VaultName $kv -Name "cert1"
 $secretId = $certificate.SecretId.Replace($certificate.Version, "")
 ```
+> [!NOTE]
+> The -EnableSoftDelete flag must be used for SSL termination to function properly.
 
 ### Create a virtual network
 
