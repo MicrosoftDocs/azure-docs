@@ -1,11 +1,11 @@
 ---
 title: "Understand how the voluntary migration tool works for Azure Monitor alerts"
 description: Understand how the alerts migration tool works and troubleshoot problems.
-author: snehithm
+author: yalavi
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.author: snmuvva
+ms.author: yalavi
 ms.subservice: alerts
 ---
 # Understand how the migration tool works
