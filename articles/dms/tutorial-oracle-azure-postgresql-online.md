@@ -168,7 +168,7 @@ We recommend using ora2pg to assess the effort required to migrate from Oracle t
 
 Most customers will spend a considerable amount time reviewing the assessment report and considering the automatic and manual conversion effort.
 
-To configure and run ora2pg to create an assessment report, see the **Premigration: Assessment** section of the [Oracle to Azure Database for PostgreSQL Cookbook](https://github.com/Microsoft/DataMigrationTeam/blob/master/Whitepapers/Oracle%20to%20Azure%20PostgreSQL%20Migration%20Cookbook.pdf). A sample ora2pg assessment report is available for reference [here](http://ora2pg.darold.net/report.html).
+To configure and run ora2pg to create an assessment report, see the **Premigration: Assessment** section of the [Oracle to Azure Database for PostgreSQL Cookbook](https://github.com/Microsoft/DataMigrationTeam/blob/master/Whitepapers/Oracle%20to%20Azure%20PostgreSQL%20Migration%20Cookbook.pdf). A sample ora2pg assessment report is available for reference [here](https://ora2pg.darold.net/report.html).
 
 ## Export the Oracle schema
 
