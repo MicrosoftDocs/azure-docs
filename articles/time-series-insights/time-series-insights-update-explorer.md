@@ -117,7 +117,7 @@ The chart enables you to display time series instances as lines. You can collaps
 
 1. **Marker element**: The currently selected data element and its associated details.
 
-You can further drill into a specific data slice by **left-clicking** a data point on the current graph while holding down the mouse and then dragging the selected area to the endpoint of your choice. **Right-click** the greyed, selected area and click **Zoom** as shown below. You can also view and download the telemetry events in the selected timespan.
+You can further drill into a specific data slice by **left-clicking** a data point on the current graph while holding down the mouse and then dragging the selected area to the endpoint of your choice. **Right-click** the blue, selected area and click **Zoom** as shown below. You can also view and download the telemetry events in the selected timespan.
 
   [![Preview chart zoom](media/v2-update-explorer/preview-chart-zoom.png)](media/v2-update-explorer/preview-chart-zoom.png#lightbox)
 
