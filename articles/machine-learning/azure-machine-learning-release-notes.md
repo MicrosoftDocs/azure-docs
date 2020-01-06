@@ -33,7 +33,7 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
     + Added deprecation messages for all Image class codepaths
     + Fixed Model Management URL construction for Mooncake region.
     + Fixed issue where models using source_dir couldn't be packaged for Azure Functions.    
-    + Added an option to [Environment.build_local()](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.environment%28class%29?view=azure-ml-py) to push an image into AzureML workspace container registry
+    + Added an option to [Environment.build_local()](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py) to push an image into AzureML workspace container registry
     + Updated the SDK to use new token library on azure synapse in a back compatible manner.
   + **azureml-interpret**
     + Fixed bug where None was returned when no explanations were available for download. Now raises an exception, matching behavior elsewhere.
