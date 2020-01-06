@@ -51,7 +51,7 @@ Assessments you create with Azure Migrate Server Assessment are a point-in-time 
 
 Performance data is collected as follows:
 
-1. The [Azure Migrate appliance](migraCote-appliance.md) collects a real-time sample point:
+1. The [Azure Migrate appliance](migrate-appliance.md) collects a real-time sample point:
 
     - **VMware VMs*: For VMware VMs, the Azure Migrate appliance collects a real-time sample point at every 20-second interval.
     - **Hyper-V VMs**: For Hyper-V VMs, the real-time sample point is collected at every 30-second interval.
