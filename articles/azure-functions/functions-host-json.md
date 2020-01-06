@@ -187,7 +187,7 @@ Controls options for Application Insights, including [sampling options](./functi
 
 ### applicationInsights.snapshotConfiguration
 
-For more information on snapshots, see [Debug snapsnots on exceptions in .NET apps](https://docs.microsoft.com/en-us/azure/azure-monitor/app/snapshot-debugger) and [Troubleshoot problems enabling Application Insights Snapshot Debugger or viewing snapshots](https://docs.microsoft.com/azure/azure-monitor/app/snapshot-debugger-troubleshoot).
+For more information on snapshots, see [Debug snapsnots on exceptions in .NET apps](https://docs.microsoft.com/azure/azure-monitor/app/snapshot-debugger) and [Troubleshoot problems enabling Application Insights Snapshot Debugger or viewing snapshots](https://docs.microsoft.com/azure/azure-monitor/app/snapshot-debugger-troubleshoot).
 
 |Property | Default | Description |
 | --------- | --------- | --------- | 
