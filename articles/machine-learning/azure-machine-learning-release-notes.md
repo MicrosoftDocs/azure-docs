@@ -20,16 +20,10 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
 
 ## 2020-01-06
 
-### Azure Machine Learning SDK for Python v1.0.82
+### Azure Machine Learning SDK for Python v1.0.83
 
 + **New features**
   + Dataset: Add two options `on_error` and `out_of_range_datetime` for `to_pandas_dataframe` to fail when data has error values instead of filling them with `None`.
-
-  + **Preview features**
-    + [Contrib features below]
-
-+ **Breaking changes**
-  + [Reference upcoming breaking changes and old API support drop date]
 
 + **Bug fixes and improvements**
   + **azureml-automl-runtime**
@@ -50,7 +44,6 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
   + **azureml-train-automl-client**
     + Corrected alignment on console output for automl runs
     + Fixed a bug where incorrect version of pandas may be installed on remote amlcompute.
-
 
 
 ## 2019-12-23
