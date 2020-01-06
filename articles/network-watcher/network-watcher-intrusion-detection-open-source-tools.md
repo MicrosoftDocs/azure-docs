@@ -1,5 +1,6 @@
 ---
-title: Perform network intrusion detection with Azure Network Watcher and open source tools | Microsoft Docs
+title: Perform network intrusion detection with open source tools
+titleSuffix: Azure Network Watcher
 description: This article describes how to use Azure Network Watcher and open source tools to perform network intrusion detection
 services: network-watcher
 documentationcenter: na

@@ -1,6 +1,6 @@
 ---
-title: Bring your own storage account with App Service
-description: Learn how to attach custom network share to your App Service app. Share files between apps, manage static content remotely and access locally, etc.
+title: Attach custom Storage container on Linux
+description: Learn how to attach custom network share to your Linux container in Azure App Service. Share files between apps, manage static content remotely and access locally, etc.
 author: msangapu-msft
 
 ms.topic: article
@@ -8,14 +8,14 @@ ms.date: 01/02/2020
 ms.author: msangapu
 ---
 
-# Bring your own storage (BYOS) for App Service
+# Attach Azure Storage containers to Linux containers
+
+This guide shows how to attach network shares to App Service on Linux from using [Azure Storage](/azure/storage/common/storage-introduction). Benefits include secured content, content portability, persistent storage, access to multiple apps, and multiple transferring methods.
+
 
 > [!IMPORTANT]
 > Bring your own storage (BYOS) functionality is a **preview** feature. This feature is **not supported for production scenarios**.
 >
-
-This guide shows you how to mount [Azure Storage](/azure/storage/common/storage-introduction) containers for use with your App Service apps. Benefits include secured content, content portability, persistent storage, access to multiple apps, and multiple transferring methods.
-
 
 ## Prerequisites
 

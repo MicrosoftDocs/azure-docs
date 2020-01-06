@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: article
 ms.workload: identity
-ms.date: 06/18/2019
+ms.date: 10/24/2019
 ms.author: mimart
 ms.reviewer: arvinh,luleon
 ms.collection: M365-identity-device-management
@@ -28,21 +28,36 @@ This article describes how to add a non-gallery application to **Enterprise Appl
 ## Add a non-gallery application
 
 1. Sign in to the [Azure Active Directory portal](https://aad.portal.azure.com/) using your Microsoft identity platform administrator account.
-1. Select **Enterprise Applications** > **New application**.
-2. (Optional but recommended) In the **Add from the gallery** search box, enter the display name of the application. If the application appears in the search results, select it and skip the rest of this procedure.
-3. Select **Non-gallery application**. The **Add your own application** page appears.
 
-   ![Add application](./media/configure-single-sign-on-non-gallery-applications/add-your-own-application.png)
-5. Enter the display name for your new application.
-6. Select **Add**. The application **Overview** page opens.
+2. Select **Enterprise Applications** > **New application**.
+
+3. (Optional but recommended) In the **Browse Azure AD Gallery** search box, enter the display name of the application. 
+
+4. Select **Create your own application**. The **Create your own application** page appears.
+
+   ![Add application](media/add-non-gallery-app/create-your-own-application.png)
+
+5. Start typing the display name for your new application. If there are any gallery applications with similar names, they'll appear in a search results list.
+
+   > [!NOTE]
+   > We recommend using the gallery version of your application whenever possible. If the application you want to add appears in the search results, select the application and skip the rest of this procedure.
+
+6. Under **What are you looking to do with your application?** choose **Integrate any other application you don't find in the gallery**. This option is typically used for SAML and WS-Fed applications.
+
+   > [!NOTE]
+   > The other two options are used in the following scenarios:
+   >* **Configure Application Proxy for secure remote access to an on-premises application** opens the configuration page for Azure AD Application Proxy and connectors.
+   >* **Register an application you're working on to integrate with Azure AD** opens the **App registrations** page. This option is typically used for OpenID Connect applications.
+
+7. Select **Create**. The application **Overview** page opens.
 
 ## Configure user sign-in properties
 
 1. Select **Properties** to open the properties pane for editing.
 
-    ![Edit properties pane](media/add-application-portal/edit-properties.png)
+    ![Edit properties pane](media/add-non-gallery-app/edit-properties.png)
 
-1. Set the following options to determine how users who are assigned or unassigned to the application can sign into the application and if a user can see the application in the access panel.
+2. Set the following options to determine how users who are assigned or unassigned to the application can sign into the application and if a user can see the application in the access panel.
 
     - **Enabled for users to sign-in** determines whether users assigned to the application can sign in.
     - **User assignment required** determines whether users who aren't assigned to the application can sign in.
@@ -78,11 +93,11 @@ This article describes how to add a non-gallery application to **Enterprise Appl
 
      *Can the user see the application in the access panel and the Office 365 app launcher?
 
-1. To use a custom logo, create a logo that is 215 by 215 pixels, and save it in PNG format. Then browse to your logo and upload it.
+3. To use a custom logo, create a logo that is 215 by 215 pixels, and save it in PNG format. Then browse to your logo and upload it.
 
-    ![Change the logo](media/add-application-portal/change-logo.png)
+    ![Change the logo](media/add-non-gallery-app/change-logo.png)
 
-1. When you're finished, select **Save**.
+4. When you're finished, select **Save**.
 
 ## Next steps
 

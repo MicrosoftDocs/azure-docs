@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Load balance Linux virtual machines in Azure | Microsoft Docs
+title: Tutorial - Load balance Linux virtual machines in Azure 
 description: In this tutorial, you learn how to use the Azure CLI to create a load balancer for a highly available and secure application across three Linux virtual machines
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -34,7 +34,7 @@ Load balancing provides a higher level of availability by spreading incoming req
 > * View a load balancer in action
 > * Add and remove VMs from a load balancer
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+This tutorial uses the CLI within the [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview), which is constantly updated to the latest version. To open the Cloud Shell, select **Try it** from the top of any code block.
 
 If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.30 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli).
 

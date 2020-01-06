@@ -1,18 +1,15 @@
 ---
 title: Office 365 management solution in Azure | Microsoft Docs
 description: This article provides details on configuration and use of the Office 365 solution in Azure.  It includes detailed description of the Office 365 records created in Azure Monitor.
-services: operations-management-suite
-documentationcenter: ''
+ms.service:  azure-monitor
+ms.subservice: 
+ms.topic: conceptual
 author: bwren
-manager: carmonm
-editor: ''
-ms.service: azure-monitor
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.topic: article
-ms.date: 08/13/2019
 ms.author: bwren
+ms.date: 12/27/2019
+
 ---
+
 # Office 365 management solution in Azure (Preview)
 
 ![Office 365 logo](media/solution-office-365/icon.png)
@@ -68,7 +65,10 @@ From your Office 365 subscription:
 
 - Username: Email address of an administrative account.
 - Tenant ID: Unique ID for Office 365 subscription.
-- Client ID: 16-character string that represents Office 365 client.
+
+The following information should be gathered during the creation and configuration of Office 365 application in Azure Active Directory:
+
+- Application (Client) ID: 16-character string that represents Office 365 client.
 - Client Secret: Encrypted string necessary for authentication.
 
 ### Create an Office 365 application in Azure Active Directory
@@ -86,6 +86,9 @@ The first step is to create an application in Azure Active Directory that the ma
 1. Click **Register** and validate the application information.
 
     ![Registered app](media/solution-office-365/registered-app.png)
+
+1. Save the application (client) ID along with the rest of the information that was gathered before.
+
 
 ### Configure application for Office 365
 
@@ -116,7 +119,7 @@ The first step is to create an application in Azure Active Directory that the ma
     ![Keys](media/solution-office-365/secret.png)
  
 1. Type in a **Description** and **Duration** for the new key.
-1. Click **Add** and then copy the **Value** that's generated.
+1. Click **Add** and then save the **Value** that was generated as the client secret along with the rest of the information that was gathered before.
 
     ![Keys](media/solution-office-365/keys.png)
 
@@ -187,6 +190,9 @@ To enable the administrative account for the first time, you must provide admini
     
     ![Admin consent](media/solution-office-365/admin-consent.png)
 
+> [!NOTE]
+> You might be redirected to a page that doesn't exist. Consider it as a success.
+
 ### Subscribe to Log Analytics workspace
 
 The last step is to subscribe the application to your Log Analytics workspace. You also do this with a PowerShell script.
@@ -235,18 +241,20 @@ The last step is to subscribe the application to your Log Analytics workspace. Y
                     $authority = "https://login.windows.net/$adTenant";
                     $ARMResource ="https://management.azure.com/";break} 
                     }
-    
+
     Function RESTAPI-Auth { 
-    
-    $global:SubscriptionID = $Subscription.SubscriptionId
+    $global:SubscriptionID = $Subscription.Subscription.Id
     # Set Resource URI to Azure Service Management API
-    $resourceAppIdURIARM=$ARMResource;
+    $resourceAppIdURIARM=$ARMResource
     # Authenticate and Acquire Token 
     # Create Authentication Context tied to Azure AD Tenant
     $authContext = New-Object "Microsoft.IdentityModel.Clients.ActiveDirectory.AuthenticationContext" -ArgumentList $authority
     # Acquire token
-    $global:authResultARM = $authContext.AcquireToken($resourceAppIdURIARM, $clientId, $redirectUri, "Auto")
-    $authHeader = $global:authResultARM.CreateAuthorizationHeader()
+    $platformParameters = New-Object "Microsoft.IdentityModel.Clients.ActiveDirectory.PlatformParameters" -ArgumentList "Auto"
+    $global:authResultARM = $authContext.AcquireTokenAsync($resourceAppIdURIARM, $clientId, $redirectUri, $platformParameters)
+    $global:authResultARM.Wait()
+    $authHeader = $global:authResultARM.Result.CreateAuthorizationHeader()
+
     $authHeader
     }
     
@@ -270,7 +278,7 @@ The last step is to subscribe the application to your Log Analytics workspace. Y
     
     Function Connection-API
     {
-    $authHeader = $global:authResultARM.CreateAuthorizationHeader()
+    $authHeader = $global:authResultARM.Result.CreateAuthorizationHeader()
     $ResourceName = "https://manage.office.com"
     $SubscriptionId   =  $Subscription[0].Subscription.Id
     
@@ -314,7 +322,7 @@ The last step is to subscribe the application to your Log Analytics workspace. Y
     Function Office-Subscribe-Call{
     try{
     #----------------------------------------------------------------------------------------------------------------------------------------------
-    $authHeader = $global:authResultARM.CreateAuthorizationHeader()
+    $authHeader = $global:authResultARM.Result.CreateAuthorizationHeader()
     $SubscriptionId   =  $Subscription[0].Subscription.Id
     $OfficeAPIUrl = $ARMResource + 'subscriptions/' + $SubscriptionId + '/resourceGroups/' + $ResourceGroupName + '/providers/Microsoft.OperationalInsights/workspaces/' + $WorkspaceName + '/datasources/office365datasources_' + $SubscriptionId + $OfficeTennantId + '?api-version=2015-11-01-preview'
     
@@ -447,15 +455,17 @@ You can remove the Office 365 management solution using the process in [Remove a
     # Create Authentication Context tied to Azure AD Tenant
     $authContext = New-Object "Microsoft.IdentityModel.Clients.ActiveDirectory.AuthenticationContext" -ArgumentList $authority
     # Acquire token
-    $global:authResultARM = $authContext.AcquireToken($resourceAppIdURIARM, $clientId, $redirectUri, "Auto")
-    $authHeader = $global:authResultARM.CreateAuthorizationHeader()
+    $platformParameters = New-Object "Microsoft.IdentityModel.Clients.ActiveDirectory.PlatformParameters" -ArgumentList "Auto"
+    $global:authResultARM = $authContext.AcquireTokenAsync($resourceAppIdURIARM, $clientId, $redirectUri, $platformParameters)
+    $global:authResultARM.Wait()
+    $authHeader = $global:authResultARM.Result.CreateAuthorizationHeader()
     $authHeader
     }
     
     Function Office-UnSubscribe-Call{
     
     #----------------------------------------------------------------------------------------------------------------------------------------------
-    $authHeader = $global:authResultARM.CreateAuthorizationHeader()
+    $authHeader = $global:authResultARM.Result.CreateAuthorizationHeader()
     $ResourceName = "https://manage.office.com"
     $SubscriptionId   = $Subscription[0].Subscription.Id
     $OfficeAPIUrl = $ARMResource + 'subscriptions/' + $SubscriptionId + '/resourceGroups/' + $ResourceGroupName + '/providers/Microsoft.OperationalInsights/workspaces/' + $WorkspaceName + '/datasources/office365datasources_'  + $SubscriptionId + $OfficeTennantId + '?api-version=2015-11-01-preview'
@@ -492,6 +502,8 @@ You can remove the Office 365 management solution using the process in [Remove a
     ```powershell
     .\office365_unsubscribe.ps1 -WorkspaceName MyWorkspace -ResourceGroupName MyResourceGroup -SubscriptionId '60b79d74-f4e4-4867-b631-yyyyyyyyyyyy' -OfficeTennantID 'ce4464f8-a172-4dcf-b675-xxxxxxxxxxxx'
     ```
+
+You will be prompted for credentials. Provide the credentials for your Log Analytics workspace.
 
 ## Data collection
 

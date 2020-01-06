@@ -1,17 +1,17 @@
 ---
-title: 'Tutorial: Access Azure Data Lake Storage Gen2 data with Azure Databricks using Spark | Microsoft Docs'
+title: 'Tutorial: Azure Data Lake Storage Gen2, Azure Databricks & Spark | Microsoft Docs'
 description: This tutorial shows how to run Spark queries on an Azure Databricks cluster to access data in an Azure Data Lake Storage Gen2 storage account.
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: tutorial
-ms.date: 03/11/2019
+ms.date: 11/19/2019
 ms.author: normesta
 ms.reviewer: dineshm
 #Customer intent: As an data scientist, I want to connect my data in Azure Storage so that I can easily run analytics on it.
 ---
 
-# Tutorial: Access Data Lake Storage Gen2 data with Azure Databricks using Spark
+# Tutorial: Azure Data Lake Storage Gen2, Azure Databricks & Spark
 
 This tutorial shows you how to connect your Azure Databricks cluster to data stored in an Azure storage account that has Azure Data Lake Storage Gen2 enabled. This connection enables you to natively run queries and analytics from your cluster on your data.
 
@@ -71,7 +71,7 @@ In this section, you create an Azure Databricks service by using the Azure porta
     |---------|---------|
     |**Workspace name**     | Provide a name for your Databricks workspace.  |
     |**Subscription**     | From the drop-down, select your Azure subscription.        |
-    |**Resource group**     | Specify whether you want to create a new resource group or use an existing one. A resource group is a container that holds related resources for an Azure solution. For more information, see [Azure Resource Group overview](../../azure-resource-manager/resource-group-overview.md). |
+    |**Resource group**     | Specify whether you want to create a new resource group or use an existing one. A resource group is a container that holds related resources for an Azure solution. For more information, see [Azure Resource Group overview](../../azure-resource-manager/management/overview.md). |
     |**Location**     | Select **West US 2**. For other available regions, see [Azure services available by region](https://azure.microsoft.com/regions/services/).       |
     |**Pricing Tier**     |  Select **Standard**.     |
 
@@ -93,15 +93,13 @@ In this section, you create an Azure Databricks service by using the Azure porta
 
     ![Create Databricks Spark cluster on Azure](./media/data-lake-storage-use-databricks-spark/create-databricks-spark-cluster.png "Create Databricks Spark cluster on Azure")
 
-4. Fill in values for the following fields, and accept the default values for the other fields:
+    Fill in values for the following fields, and accept the default values for the other fields:
 
-    * Enter a name for the cluster.
+    - Enter a name for the cluster.
+     
+    - Make sure you select the **Terminate after 120 minutes of inactivity** checkbox. Provide a duration (in minutes) to terminate the cluster, if the cluster is not being used.
 
-    * For this article, create a cluster with the **5.1** runtime.
-
-    * Make sure you select the **Terminate after \_\_ minutes of inactivity** check box. If the cluster isn't being used, provide a duration (in minutes) to terminate the cluster.
-
-    * Select **Create cluster**. After the cluster is running, you can attach notebooks to the cluster and run Spark jobs.
+4. Select **Create cluster**. After the cluster is running, you can attach notebooks to the cluster and run Spark jobs.
 
 ## Ingest data
 

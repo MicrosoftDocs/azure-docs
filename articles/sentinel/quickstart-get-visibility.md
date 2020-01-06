@@ -1,23 +1,16 @@
----
-title: Azure Sentinel Quickstart - Get started with Azure Sentinel| Microsoft Docs
+﻿---
+title: 'Quickstart: Get started with Azure Sentinel'
 description: Azure Sentinel Quickstart - Get started with Azure Sentinel
 services: sentinel
-documentationcenter: na
 author: rkarlin
 manager: rkarlin
-editor: ''
-
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
-ms.devlang: na
 ms.topic: quickstart
 ms.custom: mvc
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 09/23/2019
 ms.author: rkarlin
 #As a security operator, I want to see all my logs and alerts in one place so I can monitor and protect my environment.
-
 ---
 
 # Quickstart: Get started with Azure Sentinel
@@ -120,7 +113,7 @@ Generate detections on the [data sources that you connected to Azure Sentinel](c
 
 When you create a new detection, leverage the built-in detections crafted by Microsoft security researchers that are tailored to the data sources you connected.
 
-To view all the out-of-the-box detections, go to **Analytics** and then **Rule templates**. This tab contains all the Azure Sentinel built-in rules.
+To view all the out-of-the-box detections, go to **Analytics** and then **Rule templates**. This tab contains all the Azure Sentinel built-in rules.
 
    ![Use built-in detections to find threats with Azure Sentinel](media/tutorial-detect-built-in/view-oob-detections.png)
 

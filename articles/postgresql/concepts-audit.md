@@ -1,11 +1,11 @@
 ---
-title: Audit logging using pgAudit in Azure Database for PostgreSQL - Single Server
+title: Audit logging - Azure Database for PostgreSQL - Single Server
 description: Concepts for pgAudit audit logging in Azure Database for PostgreSQL - Single Server.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/18/2019
+ms.date: 10/14/2019
 ---
 
 # Audit logging in Azure Database for PostgreSQL - Single Server
@@ -15,6 +15,8 @@ Audit logging of database activities in Azure Database for PostgreSQL - Single S
 > [!NOTE]
 > pgAudit is in preview on Azure Database for PostgreSQL.
 > The extension can be enabled on General Purpose and Memory Optimized servers only.
+
+If you want Azure resource-level logs for operations like compute and storage scaling, see the [Azure Activity Log](../azure-monitor/platform/activity-logs-overview.md).
 
 ## Usage considerations
 By default, pgAudit log statements are emitted along with your regular log statements by using Postgres's standard logging facility. In Azure Database for PostgreSQL, these .log files can be downloaded through the Azure portal or the CLI. The maximum storage for the collection of files is 1 GB, and each file is available for a maximum of seven days (the default is three days). This service is a short-term storage option.

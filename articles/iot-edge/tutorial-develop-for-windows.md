@@ -1,10 +1,10 @@
 ---
-title: Develop module for Windows devices - Azure IoT Edge | Microsoft Docs
+title: 'Tutorial - Develop module for Windows devices using Azure IoT Edge'
 description: This tutorial walks through setting up your development machine and cloud resources to develop IoT Edge modules using Windows containers for Windows devices
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 08/15/2019
+ms.date: 11/11/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
@@ -153,7 +153,7 @@ The IoT Edge runtime needs your registry credentials to pull your container imag
 
 1. Open the **deployment.template.json** file in your module solution.
 
-1. Find the **registryCredentials** property in the $edgeAgent desired properties and ensure it contains the correct information.
+1. Find the **registryCredentials** property in the $edgeAgent desired properties. It should have your registry address autofilled from the information you provided when creating the project, and then username and password fields should contain variable names. For example: 
 
    ```json
    "registryCredentials": {
@@ -201,7 +201,7 @@ The sample C# code that comes with the project template uses the [ModuleClient C
 
 7. Find the **routes** property of the $edgeHub desired properties. 
 
-   One of the functions if the IoT Edge hub module is to route messages between all the modules in a deployment. Review the values in the routes property. The first route, **IotEdgeModule1ToIoTHub**, uses a wildcard character (**\***) to include any message coming from any output queue in the IotEdgeModule1 module. These messages go into *$upstream*, which is a reserved name that indicates IoT Hub. The second route, **sensorToIotEdgeModule1**, takes messages coming from the SimulatedTemperatureSensor module and routes them to the *input1* input queue of the IotEdgeModule1 module. 
+   One of the functions of the IoT Edge hub module is to route messages between all the modules in a deployment. Review the values in the routes property. The first route, **IotEdgeModule1ToIoTHub**, uses a wildcard character (**\***) to include any message coming from any output queue in the IotEdgeModule1 module. These messages go into *$upstream*, which is a reserved name that indicates IoT Hub. The second route, **sensorToIotEdgeModule1**, takes messages coming from the SimulatedTemperatureSensor module and routes them to the *input1* input queue of the IotEdgeModule1 module. 
 
    ![Review routes in deployment.template.json](./media/tutorial-develop-for-windows/deployment-routes.png)
 

@@ -1,13 +1,9 @@
 ---
-title: Azure Service Fabric application resource model  | Microsoft Docs
+title: Azure Service Fabric application resource model  
 description: This article provides an overview of managing an Azure Service Fabric application with Azure Resource Manager
-services: service-fabric
-author: athinanthny 
 
-ms.service: service-fabric
 ms.topic: conceptual 
-ms.date: 08/07/2019
-ms.author: atsenthi 
+ms.date: 10/21/2019
 ---
 
 # What is the Service Fabric application resource model?
@@ -37,8 +33,14 @@ Deploying an application from a Resource Manager template requires a storage acc
 ![Create a storage account][CreateStorageAccount]
 
 ### Configure Storage account 
-Once the storage account has been created, you need to create a blob container where the applications can be staged. In the Azure portal, navigate to the storage account that you would like to store your applications. Select the **Blobs** blade, and click the **Add Container** button. Add a new container with Blob Public access level.
-   
+Once the storage account has been created, you need to create a blob container where the applications can be staged. In the Azure portal, navigate to the storage account that you would like to store your applications. Select the **Blobs** blade, and click the **Add Container** button. Resources in your cluster can be secured by setting the public access level to private. Access can be granted in a number of ways:
+* [Authorize access to blobs and queues with Azure Active Directory](../storage/common/storage-auth-aad-app.md)
+* [Grant access to Azure blob and queue data with RBAC in the Azure portal](../storage/common/storage-auth-aad-rbac-portal.md)
+* [Delegate access with a shared access signature (SAS)](https://docs.microsoft.com/rest/api/storageservices/delegate-access-with-shared-access-signature
+)
+
+ For this example we will proceed using anonymous read access for blobs.
+
 ![Create blob][CreateBlob]
 
 ### Stage application in a Storage account
@@ -152,8 +154,8 @@ Get information about the application resource model:
 * [Service Fabric application and service manifests](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-and-service-manifests)
 
 ## See Also
-* [Best practices](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-best-practices-infrastructure-as-code)
-* [Manage applications and services as Azure Resources](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-best-practices-infrastructure-as-code)
+* [Best practices](https://docs.microsoft.com/azure/service-fabric/service-fabric-best-practices-infrastructure-as-code)
+* [Manage applications and services as Azure Resources](https://docs.microsoft.com/azure/service-fabric/service-fabric-best-practices-infrastructure-as-code)
 
 <!--Image references-->
 [CreateStorageAccount]: ./media/service-fabric-application-model/create-storage-account.png

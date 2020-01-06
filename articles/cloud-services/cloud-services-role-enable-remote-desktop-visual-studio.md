@@ -1,5 +1,5 @@
 ---
-title: Enable Remote Desktop Connection for a Role in Azure Cloud Services
+title: Using Visual Studio, enable Remote Desktop for a Role (Azure Cloud Services)
 description: How to configure your Azure cloud service application to allow remote desktop connections
 services: cloud-services
 author: ghogen

@@ -5,7 +5,7 @@ author: anavinahar
 ms.author: anavin
 ms.date: 06/19/2019
 ms.topic: article
-ms.service: azure
+ms.service: azure-supportability
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
 
 ---
@@ -15,6 +15,9 @@ ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
 To view your current Networking usage and quota, you can visit the **Usages + Quota** blade in the Azure portal. You can also use usage [CLI](https://docs.microsoft.com//cli/azure/network?view=azure-cli-latest#az-network-list-usages), [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermnetworkusage?view=azurermps-6.13.0) or the [network usage API](https://docs.microsoft.com/rest/api/virtualnetwork/virtualnetworks/listusage) to view your network usage and limits.
 
 You can request an increase via **Help + Support** blade or the **Usages + Quota** blade in the portal.
+
+> [!Note]
+> To change the default size of for Public IP Prefix, select "Min Public IP InterNetwork Prefix Length" from the dropdown list.
 
 ## Request Networking quota increase at subscription level using the **Help + Support** blade
 
@@ -77,4 +80,4 @@ Follow the instructions below using to create a support request via Azure's 'Usa
 
 ## About Networking limits
 
-To learn more about Networking limits, see the [Networking section](../azure-subscription-service-limits.md#networking-limits) of the limits page or our Network Limits FAQ
+To learn more about Networking limits, see the [Networking section](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits) of the limits page or our Network Limits FAQ

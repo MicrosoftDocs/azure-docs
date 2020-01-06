@@ -1,11 +1,11 @@
 ---
-title: Use Azure Load Balancer health probes to scale and provide high availability for your service
-titlesuffix: Azure Load Balancer
-description: Learn how to use health probes to monitor instances behind Load Balancer
+title: Health probes to scale and provide HA for your service
+titleSuffix: Azure Load Balancer
+description: In this article, learn how to use health probes to monitor instances behind Azure Load Balancer
 services: load-balancer
 documentationcenter: na
 author: asudbring
-manager: twooley
+manager: kumudD
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -43,6 +43,9 @@ Health probe configuration consists out of the following elements:
 - Protocol of the probe
 - Port of the probe
 - HTTP path to use for HTTP GET when using HTTP(S) probes
+
+> [!NOTE]
+> A probe definition is not mandatory or checked for when using Azure PowerShell, Azure CLI, Templates or API. Probe validation tests are only done when using the Azure Portal.
 
 ## Understanding application signal, detection of the signal, and reaction of the platform
 
@@ -111,7 +114,7 @@ The following illustrates how you could express this kind of probe configuration
 
 HTTP and HTTPS probes build on the TCP probe and issue an HTTP GET with the specified path. Both of these probes support relative paths for the HTTP GET. HTTPS probes are the same as HTTP probes with the addition of a Transport Layer Security (TLS, formerly known as SSL) wrapper. The health probe is marked up when the instance responds with an HTTP status 200 within the timeout period.  The health probe attempts to check the configured health probe port every 15 seconds by default. The minimum probe interval is 5 seconds. The total duration of all intervals cannot exceed 120 seconds.
 
-HTTP / HTTPS probes can also be useful if you want to express health probe.  implement your own logic to remove instances from load balancer rotation if the probe port is also the listener for the service itself. For example, you might decide to remove an instance if it's above 90% CPU and return a non-200 HTTP status. 
+HTTP / HTTPS probes can also be useful to implement your own logic to remove instances from load balancer rotation if the probe port is also the listener for the service itself. For example, you might decide to remove an instance if it's above 90% CPU and return a non-200 HTTP status. 
 
 If you use Cloud Services and have web roles that use w3wp.exe, you also achieve automatic monitoring of your website. Failures in your website code return a non-200 status to the load balancer probe.
 
@@ -152,7 +155,7 @@ Cloud service roles (worker roles and web roles) use a guest agent for probe mon
 
 A guest agent probe is a check of the guest agent inside the VM. It then listens and responds with an HTTP 200 OK response only when the instance is in the Ready state. (Other states are Busy, Recycling, or Stopping.)
 
-For more information, see [Configure the service definition file (csdef) for health probes](https://msdn.microsoft.com/library/azure/ee758710.aspx) or [Get started by creating a public load balancer for cloud services](load-balancer-get-started-internet-classic-cloud.md#check-load-balancer-health-status-for-cloud-services).
+For more information, see [Configure the service definition file (csdef) for health probes](https://msdn.microsoft.com/library/azure/ee758710.aspx) or [Get started by creating a public load balancer for cloud services](https://docs.microsoft.com/azure/load-balancer/load-balancer-get-started-internet-classic-cloud#check-load-balancer-health-status-for-cloud-services).
 
 If the guest agent fails to respond with HTTP 200 OK, the load balancer marks the instance as unresponsive. It then stops sending flows to that instance. The load balancer continues to check the instance. 
 

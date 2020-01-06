@@ -1,5 +1,5 @@
 ---
-title: Create tumbling window triggers in Azure Data Factory | Microsoft Docs
+title: Create tumbling window triggers in Azure Data Factory 
 description: Learn how to create a trigger in Azure Data Factory that runs a pipeline on a tumbling window.
 services: data-factory
 documentationcenter: ''
@@ -42,10 +42,10 @@ A tumbling window has the following trigger type properties:
             "startTime": "<<datetime>>",
             "endTime: <<datetime – optional>>,
             "delay": <<timespan – optional>>,
-            “maxConcurrency”: <<int>> (required, max allowed: 50),
+            "maxConcurrency": <<int>> (required, max allowed: 50),
             "retryPolicy": {
                 "count": <<int - optional, default: 0>>,
-                “intervalInSeconds”: <<int>>,
+                "intervalInSeconds": <<int>>,
             },
 			"dependsOn": [
 				{

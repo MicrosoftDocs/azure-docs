@@ -1,13 +1,13 @@
 ---
-title: Tutorial - Create and manage exported data from Azure Cost Management | Microsoft Docs
+title: Tutorial - Export data from Azure Cost Management
 description: This article shows you how you can create and manage exported Azure Cost Management data so that you can use it in external systems.
 services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 05/14/2019
+ms.date: 10/12/2019
 ms.topic: tutorial
-ms.service: cost-management
+ms.service: cost-management-billing
 manager: dougeby
 ms.custom: seodec18
 ---
@@ -45,8 +45,8 @@ Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.c
 To create or view a data export or to schedule an export, open the desired scope in the Azure portal and select **Cost analysis** in the menu. For example, navigate to **Subscriptions**, select a subscription from the list, and then select **Cost analysis** in the menu. At the top of the Cost analysis page, click **Export** and then choose an export option. For example, click **Schedule export**.  
 
 > [!NOTE]
-> Besides subscriptions, you can create exports on resource groups, accounts, departments, and enrollments. For more information about scopes, see [Understand and work with scopes](understand-work-scopes.md).
->
+> - Besides subscriptions, you can create exports on resource groups, accounts, departments, and enrollments. For more information about scopes, see [Understand and work with scopes](understand-work-scopes.md).
+>- When you’re signed in as a partner at the billing account scope or on a customer’s tenant, you can export data to an Azure Storage account that’s linked to your partner storage account. However, you must have an active subscription in your CSP tenant.
 >
 
 

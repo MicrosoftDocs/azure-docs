@@ -1,6 +1,6 @@
 ---
-title: Azure Quickstart - Run Batch job - Python
-description: Quickly run a Batch job and tasks using the Batch Python client library.
+title: 'Quickstart: Run an Azure Batch job - Python API'
+description: Quickly run an Azure Batch sample job and tasks using the Batch Python client library. Learn the key concepts of the Batch service.
 services: batch
 author: laurenhughes
 manager: gwallace 
@@ -10,14 +10,16 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 11/27/2018
 ms.author: lahugh
-ms.custom: mvc
+ms.custom: [seo-python-october2019, mvc]
 ---
 
 # Quickstart: Run your first Batch job with the Python API
 
-This quickstart runs an Azure Batch job from an application built on the Azure Batch Python API. The app uploads several input data files to Azure storage and then creates a *pool* of Batch compute nodes (virtual machines). Then, it creates a sample *job* that runs *tasks* to process each input file on the pool using a basic command. After completing this quickstart, you will understand the key concepts of the Batch service and be ready to try Batch with more realistic workloads at larger scale.
+This quickstart runs an Azure Batch job from an application built on the Azure Batch Python API.  After completing this quickstart, you will understand the key concepts of the Batch service and be ready to try Batch with more realistic workloads at larger scale.
+
+The app uploads several input data files to Azure storage and then creates a *pool* of Batch compute nodes (virtual machines). Then, it creates a sample *job* that runs *tasks* to process each input file on the pool using a basic command.
  
-![Quickstart app workflow](./media/quick-run-python/sampleapp.png)
+![Overview of the Azure Batch workflow](./media/quick-run-python/overview-of-the-azure-batch-workflow.png)
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 

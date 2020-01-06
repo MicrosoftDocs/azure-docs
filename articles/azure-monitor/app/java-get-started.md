@@ -1,18 +1,15 @@
 ---
-title: Java web app analytics with Azure Application Insights | Microsoft Docs
+title: Java web app analytics with Azure Application Insights
 description: 'Application Performance Monitoring for Java web apps with Application Insights. '
-services: application-insights
-documentationcenter: java
-author: lgayhardt
-manager: carmonm
-ms.assetid: 051d4285-f38a-45d8-ad8a-45c3be828d91
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service:  azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 05/24/2019
+author: lgayhardt
 ms.author: lagayhar
+ms.date: 05/24/2019
+
 ---
+
 # Get started with Application Insights in a Java web project
 
 [Application Insights](https://azure.microsoft.com/services/application-insights/) is an extensible analytics service for web developers that helps you understand the performance and usage of your live application. Use it to [automatically instrument request, track dependencies, and collect performance counters](auto-collect-dependencies.md#java), diagnose performance issues and exceptions, and [write code][api] to track what users do with your app. 

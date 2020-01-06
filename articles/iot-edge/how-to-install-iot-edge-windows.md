@@ -10,7 +10,6 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 10/04/2019
 ms.author: kgremban
-ms.custom: seodec18
 ---
 # Install the Azure IoT Edge runtime on Windows
 
@@ -71,9 +70,9 @@ This example demonstrates a manual installation with Windows containers:
 
 1. If you haven't already, register a new IoT Edge device and retrieve the **device connection string**. Copy the connection string to use later in this section. You can complete this step using the following tools:
 
-   * [Azure portal](how-to-register-device-portal.md)
-   * [Azure CLI](how-to-register-device-cli.md)
-   * [Visual Studio Code](how-to-register-device-vscode.md)
+   * [Azure portal](how-to-register-device.md#register-in-the-azure-portal)
+   * [Azure CLI](how-to-register-device.md#register-with-the-azure-cli)
+   * [Visual Studio Code](how-to-register-device.md#register-with-visual-studio-code)
 
 2. Run PowerShell as an administrator.
 
@@ -118,7 +117,7 @@ For more information about these installation options, skip ahead to learn about
 
 In this second option, you provision the device using the IoT Hub Device Provisioning Service. Provide the **Scope ID** from a Device Provisioning Service instance along with any other information specific to your preferred [attestation mechanism](../iot-dps/concepts-security.md#attestation-mechanism):
 
-* [Create and provision a simulated TPM Edge device on Windows](how-to-auto-provision-simulated-device-windows.md)
+* [Create and provision a simulated IoT Edge device with a virtual TPM on Windows](how-to-auto-provision-simulated-device-windows.md)
 * [Create and provision an IoT Edge device using symmetric key attestation](how-to-auto-provision-symmetric-keys.md)
 
 When you install and provision a device automatically, you can use additional parameters to modify the installation including:
@@ -161,6 +160,12 @@ Examine service logs from the last 5 minutes. If you just finished installing th
 
 ```powershell
 . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; Get-IoTEdgeLog
+```
+
+Run an automated check for the most common configuration and networking errors.
+
+```powershell
+iotedge check
 ```
 
 List running modules. After a new installation, the only module you should see running is **edgeAgent**. After you [deploy IoT Edge modules](how-to-deploy-modules-portal.md) for the first time, the other system module, **edgeHub**, will start on the device too. 

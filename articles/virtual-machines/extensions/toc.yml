@@ -28,6 +28,12 @@
       href: azure-disk-enc-linux.md
     - name: Windows
       href: azure-disk-enc-windows.md
+  - name: Azure Key Vault
+    items:
+    - name: Linux
+      href: key-vault-linux.md
+    - name: Windows
+      href: key-vault-windows.md
   - name: Azure Backup for SQL Server
     items:
     - name: Azure Backup for SQL Server

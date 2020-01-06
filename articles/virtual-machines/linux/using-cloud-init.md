@@ -1,6 +1,6 @@
 ---
-title: Overview of cloud-init support for Linux virtual machines in Azure | Microsoft Docs
-description: Overview of cloud-init capabilities in Microsoft Azure
+title: Overview of cloud-init support for Linux VMs in Azure 
+description: Overview of cloud-init capabilities to configure a VM at provisioning time in Azure.
 services: virtual-machines-linux
 documentationcenter: ''
 author: danielsollondon
@@ -14,7 +14,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
-ms.date: 08/20/2019
+ms.date: 10/11/2019
 ms.author: danis
 
 ---
@@ -34,14 +34,17 @@ We are actively working with our endorsed Linux distro partners in order to have
 |Canonical |UbuntuServer |16.04-LTS |latest |yes | 
 |Canonical |UbuntuServer |14.04.5-LTS |latest |yes |
 |CoreOS |CoreOS |Stable |latest |yes |
-|OpenLogic 7.6 |CentOS |7-CI |latest |preview |
+|OpenLogic 7.7 |CentOS |7-CI |7.7.20190920 |preview |
+|Oracle 7.7 |Oracle-Linux |77-ci |7.7.01|preview |
 |RedHat 7.6 |RHEL |7-RAW-CI |7.6.2019072418 |yes |
 |RedHat 7.7 |RHEL |7-RAW-CI |7.7.2019081601 |preview |
 	
 Currently Azure Stack does not support the provisioning of RHEL 7.x and CentOS 7.x using cloud-init.
 
 * For RHEL 7.6, cloud-init package, the supported package is: *18.2-1.el7_6.2* 
-* For RHEL 7.7 (preview), cloud-init package, the supported package is: *18.5-3.el7*
+* For RHEL 7.7 (preview), cloud-init package, the preview package is: *18.5-3.el7*
+* For CentOS 7.7 (preview), cloud-init package, the preview package is: *18.5-3.el7.centos*
+* For Oracle 7.7 (preview), cloud-init package, the preview package is: *18.5-3.0.1.el7*
 
 ## What is the difference between cloud-init and the Linux Agent (WALA)?
 WALA is an Azure platform-specific agent used to provision and configure VMs, and handle Azure extensions. We are enhancing the task of configuring VMs to use cloud-init instead of the Linux Agent in order to allow existing cloud-init customers to use their current cloud-init scripts.  If you have existing investments in cloud-init scripts for configuring Linux systems, there are **no additional settings required** to enable them. 

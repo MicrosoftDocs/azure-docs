@@ -1,21 +1,21 @@
 ﻿---
-title: 'How to manage your Azure Time Series Insights environment using Azure Resource Manager templates| Microsoft Docs'
-description: This article describes how to manage your Azure Time Series Insights environment programmatically using Azure Resource Manager.
+title: 'Manage your environment using Azure Resource Manager templates - Azure Time Series Insights | Microsoft Docs'
+description: Learn how to manage your Azure Time Series Insights environment programmatically using Azure Resource Manager.
 ms.service: time-series-insights
 services: time-series-insights
-author: ashannon7
+author: deepakpalled
 ms.author: dpalled
 manager: cshankar
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 08/06/2019
+ms.date: 12/06/2019
 ms.custom: seodec18
 ---
 
 # Create Time Series Insights resources using Azure Resource Manager templates
 
-This article describes how to create and deploy Time Series Insights resources using Azure Resource Manager templates, PowerShell, and the Time Series Insights resource provider.
+This article describes how to create and deploy Time Series Insights resources using [Azure Resource Manager templates](https://docs.microsoft.com/azure/azure-resource-manager/), PowerShell, and the Time Series Insights resource provider.
 
 Time Series Insights supports the following resources:
 
@@ -42,7 +42,7 @@ The following procedure describes how to use PowerShell to deploy an Azure Resou
 
 1. Install Azure PowerShell by following the instructions in [Getting started with Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
 
-1. Clone or copy the [201-timeseriesinsights-environment-with-eventhub](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-timeseriesinsights-environment-with-eventhub/azuredeploy.json) template from GitHub.
+1. Clone or copy the [201-timeseriesinsights-environment-with-eventhub](https://github.com/Azure/azure-quickstart-templates/blob/master/201-timeseriesinsights-environment-with-eventhub/azuredeploy.json) template from GitHub.
 
    * Create a parameters file
 
@@ -114,7 +114,7 @@ The following procedure describes how to use PowerShell to deploy an Azure Resou
      }
      ```
   
-    * For more information, see the [Parameters](../azure-resource-manager/resource-group-template-deploy.md#parameter-files) article.
+    * For more information, see the [Parameters](../azure-resource-manager/templates/parameter-files.md) article.
 
 ## Deploy the quickstart template locally using PowerShell
 
@@ -203,7 +203,7 @@ The following procedure describes how to use PowerShell to deploy an Azure Resou
        DeploymentName          : MyDemoDeployment
        ResourceGroupName       : MyDemoRG
        ProvisioningState       : Succeeded
-       Timestamp               : 5/8/2019 10:28:34 PM
+       Timestamp               : 10/11/2019 3:20:37 AM
        Mode                    : Incremental
        TemplateLink            :
        Parameters              :

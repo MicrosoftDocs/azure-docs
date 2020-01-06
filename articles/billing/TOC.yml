@@ -3,32 +3,38 @@
 - name: Understand Azure billing
   expanded: true
   items:
+  - name: Billing accounts and scopes
+    href: billing-view-all-accounts.md
+  - name: Billing accounts for Microsoft Customer Agreement
+    href: billing-mca-overview.md
+  - name: Billing accounts for Microsoft Partner Agreement
+    href: mpa-overview.md
   - name: Understand your bill
     href: billing-understand-your-bill.md
-  - name: Understand your EA bill
-    href: billing-understand-your-bill-ea.md
-  - name: Understand your bill - Microsoft Customer Agreement only
+  - name: Understand your bill - Microsoft Customer Agreement
     href: billing-mca-understand-your-bill.md
+  - name: Understand your bill - Microsoft Partner Agreement
+    href: billing-mpa-understand-your-bill.md
   - name: View and download your Microsoft Azure invoice
     href: billing-download-azure-invoice.md
   - name: View and download your Microsoft Azure usage and charges
     href: billing-download-azure-daily-usage.md
-  - name: View and download tax documents for your Microsoft Customer Agreement
+  - name: View and download tax documents
     href: billing-mca-download-tax-document.md
   - name: Third-party service charges
     href: billing-understand-your-azure-marketplace-charges.md
   - name: Usage terms explained
     href: billing-understand-your-usage.md
-  - name: Usage terms explained - Microsoft Customer Agreement only
+  - name: Usage terms explained - Microsoft Customer Agreement
     href: billing-mca-understand-your-usage.md
   - name: Invoice terms explained
     href: billing-understand-your-invoice.md
-  - name: Invoice terms explained - Microsoft Customer Agreement only
+  - name: Invoice terms explained - Microsoft Customer Agreement
     href: billing-mca-understand-your-invoice.md
-  - name: How to pay your bill - Microsoft Customer Agreement only
+  - name: Invoice terms explained - Microsoft Partner Agreement
+    href: billing-mpa-invoice-terms-explained.md
+  - name: How to pay your bill - Microsoft Customer Agreement
     href: billing-how-to-pay-bill.md
-  - name: Billing accounts for Microsoft Customer Agreement
-    href: billing-mca-overview.md
 - name: Manage costs
   items:
   - name: Prevent unexpected costs
@@ -61,10 +67,14 @@
         href: billing-prepay-sql-data-warehouse-charges-with-reserved-capacity.md
       - name: Virtual machine
         href: ../virtual-machines/windows/prepay-reserved-vm-instances.md?toc=/azure/billing/TOC.json
+      - name: Azure Storage
+        href: ../storage/blobs/storage-blob-reserved-capacity.md?toc=/azure/billing/TOC.json
       - name: Cosmos DB
         href: ../cosmos-db/cosmos-db-reserved-capacity.md?toc=/azure/billing/TOC.json
       - name: SQL Database
         href: ../sql-database/sql-database-reserved-capacity.md?toc=/azure/billing/TOC.json
+      - name: Azure Data Explorer
+        href: ../data-explorer/pricing-reserved-capacity.md?toc=/azure/billing/TOC.json
       - name: Azure Databricks
         href: billing-prepay-databricks-reserved-capacity.md
       - name: App Service
@@ -79,14 +89,24 @@
       items:
       - name: Reserved VM Instances
         href: billing-understand-vm-reservation-charges.md
+      - name: Azure Storage reserved capacity
+        href: billing-understand-storage-charges.md
       - name: Cosmos DB reserved capacity
         href: billing-understand-cosmosdb-reservation-charges.md
       - name: SQL Database reserved capacity
         href: billing-understand-reservation-charges.md
       - name: SQL Data Warehouse
         href: billing-how-reservation-discount-is-applied-to-azure-sql-dw.md
+      - name: Azure Data Explorer
+        href: billing-understand-kusto-azuredataexplorer-reservation-charges.md
       - name: Azure Databricks
         href: billing-reservation-discount-databricks.md
+      - name: Azure Database for MySQL
+        href: billing-understand-reservation-charges-mysql.md
+      - name: Azure Database for PostgreSQL
+        href: billing-understand-reservation-charges-postgresql.md
+      - name: Azure Database for MariaDB
+        href: billing-understand-reservation-charges-mariadb.md
       - name: App Service
         href: billing-reservation-discount-app-service-isolated-stamp.md
       - name: Azure software plans
@@ -115,14 +135,12 @@
       href: billing-avoid-charges-free-account.md
     - name: Check usage
       href: billing-check-free-service-usage.md
-    - name: Upgrade subscription
+    - name: Upgrade account
       href: billing-upgrade-azure-subscription.md
-    - name: Understand meter mapping
-      href: billing-understand-free-service-meter-mapping.md
   - name: Edit profile
     href: billing-how-to-change-azure-account-profile.md
   - name: Open banking and strong customer authentication
-    href: billing-open-banking-strong-customer-authentication.md 
+    href: billing-open-banking-strong-customer-authentication.md
   - name: Resolve past due balance
     href: billing-azure-subscription-past-due-balance.md
   - name: Grant access to billing
@@ -131,8 +149,6 @@
     href: billing-understand-mca-roles.md
   - name: Link partner ID
     href: billing-partner-admin-link-started.md
-  - name: View billing accounts
-    href: billing-view-all-accounts.md
   - name: Organize costs with invoice sections
     href: billing-mca-section-invoice.md
   - name: EA tasks in Microsoft Customer Agreement
@@ -141,6 +157,8 @@
     items:
     - name: Get started in the Azure EA portal
       href: billing-ea-portal-get-started.md
+    - name: Understand your EA bill
+      href: billing-understand-your-bill-ea.md
     - name: EA roles in Azure
       href: billing-understand-ea-roles.md
     - name: Azure EA portal administration
@@ -158,7 +176,7 @@
     - name: EA tasks in Microsoft Customer Agreement
       href: billing-mca-enterprise-operations.md
   - name: Set up billing account for Microsoft Customer Agreement
-    href: billing-mca-setup-account.md
+    href: mca-setup-account.md
   - name: Sign up with Office 365 account
     href: billing-use-existing-office-365-account-azure-subscription.md
   - name: Sign up for Office 365 with Azure account
@@ -173,6 +191,8 @@
     href: billing-subscription-transfer.md
   - name: Request ownership - Microsoft Customer Agreement
     href: billing-mca-request-billing-ownership.md
+  - name: Request ownership - Microsoft Partner Agreement
+    href: mpa-request-ownership.md
   - name: Cancel subscription
     href: billing-how-to-cancel-azure-subscription.md
   - name: Change credit card
@@ -189,8 +209,6 @@
     href: ../azure-resource-manager/resource-group-move-resources.md?toc=/azure/billing/TOC.json
   - name: Create additional subscription
     href: billing-create-subscription.md
-  - name: Create additional subscription - Microsoft Customer Agreement
-    href: billing-mca-create-subscription.md
   - name: Programmatically create Enterprise subscriptions
     href: ../azure-resource-manager/programmatically-create-subscription.md?toc=/azure/billing/TOC.json
   - name: Export subscription information
@@ -198,7 +216,7 @@
   - name: Link Azure AD tenant
     href: ../active-directory/active-directory-how-subscriptions-associated-directory.md?toc=/azure/billing/TOC.json
   - name: Limits and quotas
-    href: ../azure-subscription-service-limits.md?toc=/azure/billing/TOC.json
+    href: ../azure-resource-manager/management/azure-subscription-service-limits.md?toc=/azure/billing/TOC.json
 - name: Troubleshoot
   items:
   - name: No subscriptions found

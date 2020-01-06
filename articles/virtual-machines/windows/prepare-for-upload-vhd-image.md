@@ -1,5 +1,5 @@
 ---
-title: Prepare a Windows VHD to upload to Azure | Microsoft Docs
+title: Prepare a Windows VHD to upload to Azure 
 description: Learn how to prepare a Windows VHD or VHDX to upload it to Azure
 services: virtual-machines-windows
 documentationcenter: ''
@@ -76,6 +76,10 @@ If you have a Windows VM image in the [VMDK file format](https://en.wikipedia.or
 
 ## Set Windows configurations for Azure
 
+> [!NOTE]
+> Azure platform mounts an ISO file to the DVD-ROM when a Windows VM is created from a generalized image.
+> For this reason, the DVD-ROM must be enabled in the OS in the generalized image. If it is disabled, the Windows VM will be stuck at OOBE.
+
 On the VM that you plan to upload to Azure, run the following commands from an [elevated command prompt window](https://technet.microsoft.com/library/cc947813.aspx):
 
 1. Remove any static persistent route on the routing table:
@@ -133,19 +137,18 @@ On the VM that you plan to upload to Azure, run the following commands from an [
 Make sure that each of the following Windows services is set to the Windows default values. These services are the minimum that must be set up to ensure VM connectivity. To reset the startup settings, run the following commands:
    
 ```PowerShell
-Set-Service -Name bfe -StartupType Automatic
-Set-Service -Name dhcp -StartupType Automatic
-Set-Service -Name dnscache -StartupType Automatic
-Set-Service -Name IKEEXT -StartupType Automatic
-Set-Service -Name iphlpsvc -StartupType Automatic
-Set-Service -Name netlogon -StartupType Manual
-Set-Service -Name netman -StartupType Manual
-Set-Service -Name nsi -StartupType Automatic
-Set-Service -Name termService -StartupType Manual
-Set-Service -Name MpsSvc -StartupType Automatic
-Set-Service -Name RemoteRegistry -StartupType Automatic
+Get-Service -Name bfe | Where-Object { $_.StartType -ne 'Automatic' } | Set-Service -StartupType 'Automatic'
+Get-Service -Name dhcp | Where-Object { $_.StartType -ne 'Automatic' } | Set-Service -StartupType 'Automatic'
+Get-Service -Name dnscache | Where-Object { $_.StartType -ne 'Automatic' } | Set-Service -StartupType 'Automatic'
+Get-Service -Name IKEEXT | Where-Object { $_.StartType -ne 'Automatic' } | Set-Service -StartupType 'Automatic'
+Get-Service -Name iphlpsvc | Where-Object { $_.StartType -ne 'Automatic' } | Set-Service -StartupType 'Automatic'
+Get-Service -Name netlogon | Where-Object { $_.StartType -ne 'Manual' } | Set-Service -StartupType 'Manual'
+Get-Service -Name netman | Where-Object { $_.StartType -ne 'Manual' } | Set-Service -StartupType 'Manual'
+Get-Service -Name nsi | Where-Object { $_.StartType -ne 'Automatic' } | Set-Service -StartupType 'Automatic'
+Get-Service -Name TermService | Where-Object { $_.StartType -ne 'Manual' } | Set-Service -StartupType 'Manual'
+Get-Service -Name MpsSvc | Where-Object { $_.StartType -ne 'Automatic' } | Set-Service -StartupType 'Automatic'
+Get-Service -Name RemoteRegistry | Where-Object { $_.StartType -ne 'Automatic' } | Set-Service -StartupType 'Automatic'
 ```
-
 ## Update remote-desktop registry settings
 Make sure the following settings are configured correctly for remote access:
 
@@ -353,7 +356,7 @@ Make sure the VM is healthy, secure, and RDP accessible:
 12. Uninstall any other third-party software or driver that's related to physical components or any other virtualization technology.
 
 ### Install Windows updates
-Ideally, you should keep the machine updated at the *patch level*. If this isn't possible, make sure the following updates are installed:
+Ideally, you should keep the machine updated at the *patch level*. If this isn't possible, make sure the following updates are installed. To get the latest updates, see the Windows update history pages: [Windows 10 and Windows Server 2019](https://support.microsoft.com/help/4000825), [Windows 8.1 and Windows Server 2012 R2](https://support.microsoft.com/help/4009470) and [Windows 7 SP1 and Windows Server 2008 R2 SP1](https://support.microsoft.com/help/4009469).
 
 | Component               | Binary         | Windows 7 SP1, Windows Server 2008 R2 SP1 | Windows 8, Windows Server 2012               | Windows 8.1, Windows Server 2012 R2 | Windows 10 v1607, Windows Server 2016 v1607 | Windows 10 v1703    | Windows 10 v1709, Windows Server 2016 v1709 | Windows 10 v1803, Windows Server 2016 v1803 |
 |-------------------------|----------------|-------------------------------------------|---------------------------------------------|------------------------------------|---------------------------------------------------------|----------------------------|-------------------------------------------------|-------------------------------------------------|
@@ -393,6 +396,9 @@ Ideally, you should keep the machine updated at the *patch level*. If this isn't
 |                         | CVE-2018-0886  | KB4103718               | KB4103730                | KB4103725       | KB4103723                                               | KB4103731                  | KB4103727                                       | KB4103721                                       |
 |                         |                | KB4103712          | KB4103726          | KB4103715|                                                         |                            |                                                 |                                                 |
        
+> [!NOTE]
+> To avoid an accidental reboot during VM provisioning, we recommend ensuring that all Windows Update installations are finished and that no updates are pending. One way to do this is to install all possible Windows updates and reboot once before you run the Sysprep command.
+
 ### Determine when to use Sysprep <a id="step23"></a>    
 
 System Preparation Tool (Sysprep) is a process you can run to reset a Windows installation. Sysprep provides an "out of the box" experience by removing all personal data and resetting several components. 
@@ -440,7 +446,7 @@ The following settings don't affect VHD uploading. However, we strongly recommen
    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management' -Name "PagingFiles" -Value "D:\pagefile.sys" -Type MultiString -Force
    ```
   If a data disk is attached to the VM, the temporal drive volume's letter is typically *D*. This designation could be different, depending on your settings and the number of available drives.
-  * We recommend disabling script blockers that might be provided by anti-virus software. They might interfer and block the Windows Provisioning Agent scripts executed when you deploy a new VM from your image.
+  * We recommend disabling script blockers that might be provided by anti-virus software. They might interfere and block the Windows Provisioning Agent scripts executed when you deploy a new VM from your image.
   
 ## Next steps
 * [Upload a Windows VM image to Azure for Resource Manager deployments](upload-generalized-managed.md)

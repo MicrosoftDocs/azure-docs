@@ -19,11 +19,21 @@ ms.date: 08/01/2019
 Azure allows you to deploy a virtual machine (VM) with an image of SQL Server built in. This article summarizes the documentation changes associated with new features and improvements in the recent releases of [SQL Server on Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/sql-server/). 
 
 
+## December 2019
+
+| Changes | Details |
+| --- | --- |
+| **Free DR replica in Azure** | You can host a [free passive instance](virtual-machines-windows-sql-high-availability-dr.md#free-dr-replica-in-azure) for disaster recovery in Azure for your on-premises SQL Server instance if you have [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default?rtc=1&activetab=software-assurance-default-pivot:primaryr3). | 
+| &nbsp; | &nbsp; |
+
+
 ## October 2019
 
 | Changes | Details |
 | --- | --- |
+| **Bulk resource provider registration** | You can now [bulk register](virtual-machines-windows-sql-bulk-register-with-resource-provider.md) SQL virtual machines with the resource provider. | 
 | **Performance Optimized Storage Configuration** | You can now [fully customize your storage configuration](virtual-machines-windows-sql-server-storage-configuration.md#new-vms) when creating a new SQL Server VM. |
+| **Premium file share for FCI** | You can now create a failover cluster instance using a [Premium File Share](virtual-machines-windows-portal-sql-create-failover-cluster-premium-file-share.md) instead of the original method of [Storage Spaces Direct](virtual-machines-windows-portal-sql-create-failover-cluster.md). 
 | &nbsp; | &nbsp; |
 
 ## August 2019
@@ -49,7 +59,7 @@ Azure allows you to deploy a virtual machine (VM) with an image of SQL Server bu
 | --- | --- |
 | **New SQL IaaS installation modes** | It's now possible to install the SQL Server IaaS extension in [lightweight mode](virtual-machines-windows-sql-server-agent-extension.md) to avoid restarting the SQL Server service.  |
 | **SQL Server edition modification** | You can now change the [edition property](virtual-machines-windows-sql-change-edition.md) for your SQL Server VM. |
-| **Changes to SQL VM resource provider** | You can [register your SQL Server VM with the SQL VM resource provider](virtual-machines-windows-sql-register-with-resource-provider.md) by using the new SQL IaaS modes. This capability includes [Windows 2008 images](virtual-machines-windows-sql-register-with-resource-provider.md#register-sql-server-2008-or-2008-r2-on-windows-server-2008-vms).|
+| **Changes to SQL VM resource provider** | You can [register your SQL Server VM with the SQL VM resource provider](virtual-machines-windows-sql-register-with-resource-provider.md) by using the new SQL IaaS modes. This capability includes [Windows Server 2008](virtual-machines-windows-sql-register-with-resource-provider.md#management-modes) images.|
 | **Bring-your-own-license images using Azure Hybrid Benefit** | Bring-your-own-license images deployed from Azure Marketplace can now switch their [license type to pay-as-you-go](virtual-machines-windows-sql-ahb.md#remarks).| 
 | &nbsp; | &nbsp; |
 

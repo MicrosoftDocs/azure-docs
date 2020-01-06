@@ -1,14 +1,8 @@
 ---
-title: Automate image build, test, and patch with Azure Container Registry multi-step tasks
-description: An introduction to multi-step tasks, a feature of ACR Tasks in Azure Container Registry that provides task-based workflows for building, testing, and patching container images in the cloud.
-services: container-registry
-author: dlepow
-manager: gwallace
-
-ms.service: container-registry
+title: Multi-step task to build, test & patch image
+description: Introduction to multi-step tasks, a feature of ACR Tasks in Azure Container Registry that provides task-based workflows for building, testing, and patching container images in the cloud.
 ms.topic: article
 ms.date: 03/28/2019
-ms.author: danlep
 ---
 
 # Run multi-step build, test, and patch tasks in ACR Tasks
@@ -80,7 +74,7 @@ steps:
   - cmd: {{.Run.Registry}}/functions/helm upgrade helloworld ./helm/helloworld/ --reuse-values --set helloworld.image={{.Run.Registry}}/helloworld:{{.Run.ID}}
 ```
 
-See [task examples][task-examples] for complete multi-step task YAML files and Dockerfiles for several scenarios.
+See [task examples](container-registry-tasks-samples.md) for multi-step task YAML files and Dockerfiles for several scenarios.
 
 ## Run a sample task
 
@@ -151,7 +145,7 @@ For more information about automated builds on Git commit or base image update, 
 You can find multi-step task reference and examples here:
 
 * [Task reference](container-registry-tasks-reference-yaml.md) - Task step types, their properties, and usage.
-* [Task examples][task-examples] - Example `task.yaml` files for several scenarios, simple to complex.
+* [Task examples](container-registry-tasks-samples.md) - Example `task.yaml` and Docker files for several scenarios, simple to complex.
 * [Cmd repo](https://github.com/AzureCR/cmd) - A collection of containers as commands for ACR tasks.
 
 <!-- IMAGES -->

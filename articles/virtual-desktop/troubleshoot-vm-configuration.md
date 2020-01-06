@@ -1,12 +1,12 @@
 ---
-title: Session host virtual machine configuration - Azure
+title: Troubleshoot Windows Virtual Desktop session host - Azure
 description: How to resolve issues when you're configuring Windows Virtual Desktop session host virtual machines.
 services: virtual-desktop
 author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: troubleshooting
-ms.date: 10/02/2019
+ms.date: 12/03/2019
 ms.author: helohr
 ---
 # Session host virtual machine configuration
@@ -76,10 +76,10 @@ The recommended way to provision VMs is using the Azure Resource Manager **Creat
 Follow these instructions to confirm the components are installed and to check for error messages.
 
 1. Confirm that the two components are installed by checking in **Control Panel** > **Programs** > **Programs and Features**. If **Windows Virtual Desktop Agent** and **Windows Virtual Desktop Agent Boot Loader** are not visible, they aren't installed on the VM.
-2. Open **File Explorer** and navigate to **C:\Windows\Temp\scriptlogs.log**. If the file is missing, it indicates that the PowerShell DSC that installed the two components was not able to run in the security context provided.
-3. If the file **C:\Windows\Temp\scriptlogs.log** is present, open it and check for error messages.
+2. Open **File Explorer** and navigate to **C:\Windows\Temp\ScriptLog.log**. If the file is missing, it indicates that the PowerShell DSC that installed the two components was not able to run in the security context provided.
+3. If the file **C:\Windows\Temp\ScriptLog.log** is present, open it and check for error messages.
 
-### Error: Windows Virtual Desktop Agent and Windows Virtual Desktop Agent Boot Loader are missing. C:\Windows\Temp\scriptlogs.log is also missing
+### Error: Windows Virtual Desktop Agent and Windows Virtual Desktop Agent Boot Loader are missing. C:\Windows\Temp\ScriptLog.log is also missing
 
 **Cause 1:** Credentials provided during input for the Azure Resource Manager template were incorrect or permissions were insufficient.
 
@@ -93,7 +93,7 @@ Follow these instructions to confirm the components are installed and to check f
 - Confirm that the tenant name is accurate and the tenant exists in Windows Virtual Desktop.
 - Confirm the account has at least RDS Contributor permissions.
 
-### Error: Authentication failed, error in C:\Windows\Temp\scriptlogs.log
+### Error: Authentication failed, error in C:\Windows\Temp\ScriptLog.log
 
 **Cause:** PowerShell DSC was able to execute but couldn't connect to Windows Virtual Desktop.
 
@@ -291,16 +291,23 @@ If your operating system is Microsoft Windows 10, continue with the instructions
 
 16. When the cmdlets are done running, restart the VM with the malfunctioning side-by-side stack.
 
-## Remote Licensing model isn't configured
+## Remote Desktop licensing mode isn't configured
 
 If you sign in to Windows 10 Enterprise multi-session using an administrative account, you might receive a notification that says, “Remote Desktop licensing mode is not configured, Remote Desktop Services will stop working in X days. On the Connection Broker server, use Server Manager to specify the Remote Desktop licensing mode."
 
 If the time limit expires, an error message will appear that says, "The remote session was disconnected because there are no Remote Desktop client access licenses available for this computer."
 
-If you see either of these messages, this means you need to open the Group Policy editor and manually configure the licensing mode to **Per user**. The manual configuration process is different depending on which version of Windows 10 Enterprise multi-session you're using. The following sections explain how to check your version number and what to do for each.
+If you see either of these messages, this means the image doesn't have the latest Windows updates installed or that you are setting the Remote Desktop licensing mode through group policy. Follow the steps in the next sections to check the group policy setting, identify the version of Windows 10 Enterprise multi-session, and install the corresponding update.  
 
 >[!NOTE]
 >Windows Virtual Desktop only requires an RDS client access license (CAL) when your host pool contains Windows Server session hosts. To learn how to configure an RDS CAL, see [License your RDS deployment with client access licenses](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-client-access-license).
+
+### Disable the Remote Desktop licensing mode group policy setting
+
+Check the group policy setting by opening the Group Policy Editor in the VM and navigating to **Administrative Templates** > **Windows Components** > **Remote Desktop Services** > **Remote Desktop Session Host** > **Licensing** > **Set the Remote Desktop licensing mode**. If the group policy setting is **Enabled**, change it to **Disabled**. If it's already disabled, then leave it as-is.
+
+>[!NOTE]
+>If you set group policy through your domain, disable this setting on policies that target these Windows 10 Enterprise multi-session VMs.
 
 ### Identify which version of Windows 10 Enterprise multi-session you're using
 
@@ -317,59 +324,21 @@ Now that you know your version number, skip ahead to the relevant section.
 
 ### Version 1809
 
-If your version number says "1809," you can either upgrade to Windows 10 Enterprise multi-session, version 1903 or redeploy the host pool with the latest image.
-
-To upgrade to Windows 10, version 1903:
-
-1. If you haven't already, download and install the [Windows 10 May 2019 Update](https://support.microsoft.com/help/4028685/windows-10-get-the-update).
-2. Sign in to your computer with your admin account.
-3. Run **gpedit.msc** to open the Group Policy editor.
-4. Under Computer Configuration, go to **Administrative Templates** > **Windows Components** > **Remote Desktop Services** > **Remote Desktop Session Host** > **Licensing**.
-5. Select **Set the Remote Desktop licensing mode**.
-6. In the window that opens, first select **Enabled**, then under Options specify the licensing mode for the RD Session Host server as **Per User**, as shown in the following image.
-    
-    ![A screenshot of the "Set the Remote Desktop licensing mode" window configured as per the instructions in step 6.](media/group-policy-editor-per-user.png)
-
-7. Select **Apply**.
-8. Select **OK**.
-9.  Restart your computer.
-
-To redeploy the host pool with the latest image:
-
-1. Follow the instructions in [Create a host pool by using the Azure Marketplace](create-host-pools-azure-marketplace.md) until you're prompted to choose an Image OS version. You can choose either Windows 10 Enterprise multi-session with or without Office365 ProPlus.
-2. Sign in to your computer with your admin account.
-3. Run **gpedit.msc** to open the Group Policy editor.
-4. Under Computer Configuration, go to **Administrative Templates** > **Windows Components** > **Remote Desktop Services** > **Remote Desktop Session Host** > **Licensing**.
-5. Select **Set the Remote Desktop licensing mode**.
-6. In the window that opens, first select **Enabled**, then under Options specify the licensing mode for the RD Session Host server as **Per User**.
-7. Select **Apply**.
-8. Select **OK**.
-9.  Restart your computer.
+If your version number says "1809," install [the KB4516077 update](https://support.microsoft.com/help/4516077).
 
 ### Version 1903
 
-If your version number says "1903," follow these instructions:
-
-1. Sign in to your computer with your admin account.
-2. Run **gpedit.msc** to open the Group Policy editor.
-3. Under Computer Configuration, go to **Administrative Templates** > **Windows Components** > **Remote Desktop Services** > **Remote Desktop Session Host** > **Licensing**.
-4. Select **Set the Remote Desktop licensing mode**.
-6. In the window that opens, first select **Enabled**, then under Options specify the licensing mode for the RD Session Host server as **Per User**, as shown in the following image.
-    
-    ![A screenshot of the "Set the Remote Desktop licensing mode" window configured as per the instructions in step 6.](media/group-policy-editor-per-user.png)
-
-7. Select **Apply**.
-8. Select **OK**.
-9.  Restart your computer.
+Redeploy the host operating system with the latest version of the Windows 10, version 1903 image from the Azure Gallery.
 
 ## Next steps
 
 - For an overview on troubleshooting Windows Virtual Desktop and the escalation tracks, see [Troubleshooting overview, feedback, and support](troubleshoot-set-up-overview.md).
 - To troubleshoot issues while creating a tenant and host pool in a Windows Virtual Desktop environment, see [Tenant and host pool creation](troubleshoot-set-up-issues.md).
 - To troubleshoot issues while configuring a virtual machine (VM) in Windows Virtual Desktop, see [Session host virtual machine configuration](troubleshoot-vm-configuration.md).
-- To troubleshoot issues with Windows Virtual Desktop client connections, see [Remote Desktop client connections](troubleshoot-client-connection.md).
+- To troubleshoot issues with Windows Virtual Desktop client connections, see [Windows Virtual Desktop service connections](troubleshoot-service-connection.md).
+- To troubleshoot issues with Remote Desktop clients, see [Troubleshoot the Remote Desktop client](troubleshoot-client.md)
 - To troubleshoot issues when using PowerShell with Windows Virtual Desktop, see [Windows Virtual Desktop PowerShell](troubleshoot-powershell.md).
-- To learn more about the service, see [Windows Virtual Desktop environment](https://docs.microsoft.com/azure/virtual-desktop/environment-setup).
-- To go through a troubleshoot tutorial, see [Tutorial: Troubleshoot Resource Manager template deployments](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-troubleshoot).
-- To learn about auditing actions, see [Audit operations with Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit).
-- To learn about actions to determine the errors during deployment, see [View deployment operations](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-operations).
+- To learn more about the service, see [Windows Virtual Desktop environment](environment-setup.md).
+- To go through a troubleshoot tutorial, see [Tutorial: Troubleshoot Resource Manager template deployments](../azure-resource-manager/resource-manager-tutorial-troubleshoot.md).
+- To learn about auditing actions, see [Audit operations with Resource Manager](../azure-resource-manager/resource-group-audit.md).
+- To learn about actions to determine the errors during deployment, see [View deployment operations](../azure-resource-manager/resource-manager-deployment-operations.md).

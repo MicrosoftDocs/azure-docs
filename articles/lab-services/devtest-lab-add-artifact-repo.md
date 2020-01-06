@@ -61,7 +61,7 @@ To add a repository to your lab, first, get key information from your repository
    1. Enter a **Description** for the token.
    2. In the **Expires In** list, select **180 days**.
    3. In the **Accounts** list, select **All accessible accounts**.
-   4. Select the **All scopes** option.
+   4. Select the **Read Only** option.
    5. Select **Create Token**.
 9. The new token appears in the **Personal Access Tokens** list. Select **Copy Token**, and then save the token value for later use.
 10. Continue to the [Connect your lab to the repository](#connect-your-lab-to-the-repository) section.

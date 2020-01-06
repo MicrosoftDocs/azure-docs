@@ -1,15 +1,15 @@
 ---
-title: Customizing Azure AD self-service password reset - Azure Active Directory
+title: Customize self-service password reset - Azure Active Directory
 description: Customization options for Azure AD self-service password reset
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/30/2019
+ms.date: 11/21/2019
 
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 

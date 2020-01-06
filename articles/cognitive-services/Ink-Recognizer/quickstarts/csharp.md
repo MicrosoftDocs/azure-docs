@@ -1,14 +1,14 @@
 ---
 title: "Quickstart: Recognize digital ink with the Ink Recognizer REST API and C#"
 titleSuffix: Azure Cognitive Services
-description: Use the Ink Recognizer API to start recognizing digital ink strokes.
+description: This quickstart shows how to use the Ink Recognizer API to start recognizing digital ink strokes.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: ink-recognizer
 ms.topic: quickstart
-ms.date: 09/23/2019
+ms.date: 12/17/2019
 ms.author: aahi
 ---
 
@@ -44,11 +44,11 @@ The source code for this quickstart can be found on [GitHub](https://go.microsof
 
 1. In Visual Studio, create a new console solution and add the following packages. 
     
-    [!code-csharp[imports](~/cognitive-services-rest-samples/dotnet/InkRecognition/quickstart/recognizeInk.cs?name=imports)]
+    [!code-csharp[import statements](~/cognitive-services-rest-samples/dotnet/InkRecognition/quickstart/recognizeInk.cs?name=imports)]
 
 2. Create variables for your subscription key and endpoint, and the example JSON file. The endpoint will later be combined with `inkRecognitionUrl` to access the API. 
 
-    [!code-csharp[endpoint file path and key variables](~/cognitive-services-rest-samples/dotnet/InkRecognition/quickstart/recognizeInk.cs?name=vars)]
+    [!code-csharp[endpoint file and key variables](~/cognitive-services-rest-samples/dotnet/InkRecognition/quickstart/recognizeInk.cs?name=vars)]
 
 ## Create a function to send requests
 

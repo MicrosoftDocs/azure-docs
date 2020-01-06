@@ -3,14 +3,14 @@ title: Use content reviews through the Review tool - Content Moderator
 titleSuffix: Azure Cognitive Services
 description: Learn how the Review tool allows human moderators to review images in a web portal.
 services: cognitive-services
-author: sanjeev3
+author: PatrickFarley
 manager: mikemcca
 
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 03/15/2019
-ms.author: sajagtap
+ms.author: pafarley
 # Customer intent: use reviews with the Review tool.
 ---
 
@@ -53,4 +53,4 @@ Text reviews function similarly to image reviews. Instead of uploading content, 
 
 ## Next steps
 
-In this guide, you learned how to set up and use reviews from the Content Moderator [Review tool](https://contentmoderator.cognitive.microsoft.com). Next, see the [REST API guide](../try-review-api-review.md) or the [.NET SDK guide](../moderation-reviews-quickstart-dotnet.md) to learn how to create reviews programmatically.
+In this guide, you learned how to set up and use reviews from the Content Moderator [Review tool](https://contentmoderator.cognitive.microsoft.com). Next, see the [REST API guide](../try-review-api-review.md) or the [.NET SDK quickstart](../dotnet-sdk-quickstart.md) to learn how to create reviews programmatically.

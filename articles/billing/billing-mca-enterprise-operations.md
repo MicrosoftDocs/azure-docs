@@ -1,16 +1,16 @@
 ---
-title: Complete Enterprise Agreement tasks in Microsoft Customer Agreement - Azure
+title: EA tasks in a Microsoft Customer Agreement - Azure
 description: Learn how to complete Enterprise Agreement tasks in your new billing account.
 author: amberbhargava
 manager: amberb
 editor: banders
 tags: billing
-ms.service: billing
+ms.service: cost-management-billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/01/2019
+ms.date: 01/02/2020
 ms.author: banders
 
 ---
@@ -22,7 +22,7 @@ If your organization has signed a Microsoft Customer Agreement to renew your Ent
 
 The following diagram describes how billing is organized in your new billing account.
 
-![Image of ea-mca-post-transition-hierarchy](./media/billing-mca-setup-account/mca-post-transition-hierarchy.png)
+![Image of ea-mca-post-transition-hierarchy](./media/mca-setup-account/mca-post-transition-hierarchy.png)
 
 | Enterprise Agreement   | Microsoft Customer Agreement    |
 |------------------------|--------------------------------------------------------|
@@ -67,9 +67,9 @@ To view aggregate cost for subscriptions that belonged to an account, you must s
 
 A monthly invoice is generated for each billing profile in your billing account. For each invoice, you can download Azure usage and charges csv file, price sheet, and tax document (if applicable). You can also download Azure usage and charges csv file for the current month's charges.
 
-To learn how to download Azure usage and charges csv file, see [download usage for your Microsoft Customer Agreement](billing-download-azure-daily-usage.md#download-usage-for-your-microsoft-customer-agreement).
+To learn how to download Azure usage and charges csv file, see [download usage for your Microsoft Customer Agreement](billing-download-azure-daily-usage.md).
 
-To learn how to download price sheet, see [download pricing for your Microsoft Customer Agreement](billing-ea-pricing.md#microsoft-customer-agreement-pricing).
+To learn how to download price sheet, see [download pricing for your Microsoft Customer Agreement](billing-ea-pricing.md).
 
 To learn how to download tax documents, see [view the tax documents for your Microsoft Customer Agreement](billing-mca-download-tax-document.md#view-and-download-tax-documents).
 
@@ -85,7 +85,7 @@ Create an invoice section to organize your costs based on your needs, like depar
 
 ### Create a new account
 
-Assign users the Azure subscription creator role on invoice sections to give them permission to create Azure subscription, like the accounts that are created in Enterprise Agreement enrollment. For more information, see [give others permission to create Azure subscriptions](billing-mca-create-subscription.md#give-others-permission).
+Assign users the Azure subscription creator role on invoice sections to give them permission to create Azure subscription, like the accounts that are created in Enterprise Agreement enrollment. For more information on assigning roles, see [Manage billing roles in the Azure portal](billing-understand-mca-roles.md#manage-billing-roles-in-the-azure-portal)
 
 ## Changes for department administrators
 
@@ -111,7 +111,7 @@ To learn how to provide, access to your invoice section, see [manage billing rol
 
 ### Create a new account in your department
 
-Assign users the Azure subscription creator role on invoice section that’s created for your department. For more information, see [give others permission to create Azure subscriptions](billing-mca-create-subscription.md#give-others-permission).
+Assign users the Azure subscription creator role on invoice section that’s created for your department. For more information on assigning roles, see [Manage billing roles in the Azure portal](billing-understand-mca-roles.md#manage-billing-roles-in-the-azure-portal)
 
 ### View charges for accounts in your departments
 

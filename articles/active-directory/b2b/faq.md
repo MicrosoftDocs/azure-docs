@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: reference
-ms.date: 04/10/2019
+ms.date: 11/07/2019
 
 ms.author: mimart
 author: msmimart
@@ -45,7 +45,7 @@ This feature is currently not supported. If access to your organization's resour
 An organization might want to add B2B collaboration users, provision them to applications as needed, and then send invitations. You can use the B2B collaboration invitation API to customize the onboarding workflow.
 
 ### Can I make guest users visible in the Exchange Global Address List?
-Yes. Guest objects aren't visible in your organization's global address list (GAL) by default, but you can use Azure Active Directory PowerShell to make them visible. See [Can I make guest objects visible in the global address list?](https://docs.microsoft.com/office365/admin/create-groups/manage-guest-access-in-groups#can-i-make-guest-objects-visible-in-the-global-address-list)
+Yes. Guest objects aren't visible in your organization's global address list (GAL) by default, but you can use Azure Active Directory PowerShell to make them visible. See [Can I make guest objects visible in the global address list?](https://docs.microsoft.com/office365/admin/create-groups/manage-guest-access-in-groups#add-guests-to-the-global-address-list)
 
 ### Can I make a guest user a limited administrator?
 Absolutely. For more information, see [Adding guest users to a role](add-guest-to-role.md).
@@ -54,15 +54,21 @@ Absolutely. For more information, see [Adding guest users to a role](add-guest-t
 Unless a user is assigned the role of limited administrator, B2B collaboration users won't require access to the Azure portal. However, B2B collaboration users who are assigned the role of limited administrator can access the portal. Also, if a guest user who isn't assigned one of these admin roles accesses the portal, the user might be able to access certain parts of the experience. The guest user role has some permissions in the directory.
 
 ### Can I block access to the Azure portal for guest users?
-Yes! When you configure this policy, be careful to avoid accidentally blocking access to members and admins.
-To block a guest user's access to the [Azure portal](https://portal.azure.com), use a Conditional Access policy in the Windows Azure classic deployment model API:
-1. Modify the **All Users** group so that it contains only members.
-   ![Screenshot showing All Users group where UserType is not equal Guest](media/faq/modify-all-users-group.png)
-2. Create a dynamic group that contains guest users.
-   ![Screenshot showing a new All Guest Users group](media/faq/group-with-guest-users.png)
-3. Set up a Conditional Access policy to block guest users from accessing the portal, as shown in the following video:
-  
-   > [!VIDEO https://channel9.msdn.com/Blogs/Azure/b2b-block-guest-user/Player] 
+
+Yes! You can create a Conditional Access policy that blocks all guest and external users from accessing the Azure portal. When you configure this policy, be careful to avoid accidentally blocking access to members and admins.
+
+1. Sign in to your [Azure portal](https://portal.azure.com/) as a security administrator or a Conditional Access administrator.
+2. In the Azure portal, select **Azure Active Directory**. 
+3. Under **Manage**, select **Security**.
+4. Under **Protect**, select **Conditional Access**. Select **New policy**.
+5. On the **New** page, in the **Name** textbox, enter a name for the policy (for example "Block guests from accessing the portal").
+6. Under **Assignments**, select **Users and groups**.
+7. On the **Include** tab, choose **Select users and groups**, and then select **All guest and external users (Preview)**.
+9. Select **Done**.
+10. On the **New** page, in the **Assignments** section, select **Cloud apps or actions**.
+11. On the **Cloud apps or actions** page, choose **Select apps**, and then choose **Select**.
+12. On the **Select** page, choose **Microsoft Azure Management**, and then choose **Select**.
+13. On the **Cloud apps or actions** page, select **Done**.
 
 ### Does Azure AD B2B collaboration support multi-factor authentication and consumer email accounts?
 Yes. Multi-factor authentication and consumer email accounts are both supported for Azure AD B2B collaboration.

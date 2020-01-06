@@ -1,18 +1,13 @@
 ---
 title: Azure Monitor HTTP Data Collector API | Microsoft Docs
 description: You can use the Azure Monitor HTTP Data Collector API to add POST JSON data to a Log Analytics workspace from any client that can call the REST API. This article describes how to use the API, and has examples of how to publish data by using different programming languages.
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: jwhit
-editor: ''
-ms.assetid: a831fd90-3f55-423b-8b20-ccbaaac2ca75
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service:  azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 10/01/2019
+author: bwren
 ms.author: bwren
+ms.date: 10/01/2019
+
 ---
 
 # Send log data to Azure Monitor with the HTTP Data Collector API (public preview)

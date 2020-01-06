@@ -1,5 +1,5 @@
----
-title: Continuous integration and delivery in Azure Data Factory | Microsoft Docs
+﻿---
+title: Continuous integration and delivery in Azure Data Factory 
 description: Learn how to use continuous integration and delivery to move Data Factory pipelines from one environment (development, test, production) to another.
 services: data-factory
 documentationcenter: ''
@@ -51,11 +51,11 @@ From the **ARM template** dropdown, select **Export ARM template** to export the
 
 In your test and production data factories, select **Import ARM template**. This action takes you to the Azure portal, where you can import the exported template. Select **Build your own template in the editor** to open the Resource Manager template editor.
 
-![](media/continuous-integration-deployment/continuous-integration-image3.png) 
+![Custom Deployment Build your own template](media/continuous-integration-deployment/custom-deployment-build-your-own-template.png) 
 
 Click **Load file** and select the generated Resource Manager template.
 
-![](media/continuous-integration-deployment/continuous-integration-image4.png)
+![Custom Deployment Edit template](media/continuous-integration-deployment/custom-deployment-edit-template.png)
 
 In the settings pane, enter the configuration values such as linked service credentials. Once you're done, click **Purchase** to deploy the Resource Manager template.
 
@@ -323,7 +323,7 @@ If you're in GIT mode, you can override the default properties in your Resource 
 * You use automated CI/CD and you want to change some properties during Resource Manager deployment, but the properties aren't parameterized by default.
 * Your factory is so large that the default Resource Manager template is invalid because it has more than the maximum allowed parameters (256).
 
-Under these conditions, to override the default parameterization template, create a file named *arm-template-parameters-definition.json* in the root folder of the repository. The file name must exactly match. Data Factory tries to read this file from whichever branch you're currently on in the Azure Data Factory portal, not just from the collaboration branch. You can create or edit the file from a private branch, where you can test your changes by using the **Export ARM template** in the UI. Then, you can merge the file into the collaboration branch. If no file is found, the default template is used.
+Under these conditions, to override the default parameterization template, create a file named *arm-template-parameters-definition.json* in the root folder of the repository. The file name must exactly match. Data Factory tries to read this file from whichever branch you're currently on in the Azure Data Factory portal, not just from the collaboration branch. You can create or edit the file from a private branch, where you can test your changes by using the **Export ARM template** in the UI. Then, you can merge the file into the collaboration branch. If no file is found, the default template is used.
 
 
 ### Syntax of a custom parameters file

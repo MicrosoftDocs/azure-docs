@@ -5,7 +5,7 @@ author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 10/31/2018
-ms.author: v-erkell
+ms.author: rohogue
 ---
 
 # Get help with your system
@@ -14,13 +14,13 @@ If you need help with your Avere vFXT for Azure, here are the various ways to ge
 
 * **Avere vFXT issue** - Use the Azure portal to open a support ticket for your Avere vFXT as described [below](#open-a-support-ticket-for-your-avere-vfxt).
 * **Quota** - If you have a quota-related issue, [request a quota increase](#request-a-quota-increase)
-* **Documentation and examples** - If you find problems with this documentation or examples, scroll to the bottom of the page with the problem and use the **Feedback** section to search for existing issues and file a new one if needed.  
+* **Documentation and examples** - If you find problems with this documentation or examples, scroll to the bottom of the page with the problem and use the **Feedback** section to search for existing issues and file a new one if needed.
 
 ## Open a support ticket for your Avere vFXT
 
-If you encounter issues while deploying or using Avere vFXT, request help through the Azure portal.  
+If you encounter issues while deploying or using Avere vFXT, request help through the Azure portal.
 
-Follow these steps to make sure that your support ticket is tagged with a resource from your cluster. Tagging the ticket helps us route it to the correct support resource. 
+Follow these steps to make sure that your support ticket is tagged with a resource from your cluster. Tagging the ticket helps us route it to the correct support resource.
 
 1. From [https://portal.azure.com](https://portal.azure.com), select **Resource Groups**.
 
@@ -38,7 +38,7 @@ Follow these steps to make sure that your support ticket is tagged with a resour
 
     ![screenshot of the new support request screen in the Azure portal with the header "Basics" and a circle around the "Service" item. The button "All services" is selected and the drop-down menu field has the value "Avere vFXT"](media/avere-vfxt-ticket-service.png)
 
-1. On page two, choose the problem type and category that most closely match your issue. Add a short title and description that includes the time the issue occurred. 
+1. On page two, choose the problem type and category that most closely match your issue. Add a short title and description that includes the time the issue occurred.
 
    ![screenshot of the new support request screen with the header "Problem", which contains many fields that need to be completed](media/avere-vfxt-ticket-problem.png)
 

@@ -65,7 +65,11 @@ To see network policies in action, let's create and then expand on a policy that
 * Allow traffic based on pod labels.
 * Allow traffic based on namespace.
 
-First, let's create an AKS cluster that supports network policy. The network policy feature can only be enabled when the cluster is created. You can't enable network policy on an existing AKS cluster.
+First, let's create an AKS cluster that supports network policy. 
+
+> [!IMPORTANT]
+>
+> The network policy feature can only be enabled when the cluster is created. You can't enable network policy on an existing AKS cluster.
 
 To use Azure Network Policy, you must use the [Azure CNI plug-in][azure-cni] and define your own virtual network and subnets. For more detailed information on how to plan out the required subnet ranges, see [configure advanced networking][use-advanced-networking]. Calico Network Policy could be used with either this same Azure CNI plug-in or with the Kubenet CNI plug-in.
 
@@ -460,7 +464,7 @@ To learn more about policies, see [Kubernetes network policies][kubernetes-netwo
 [aks-github]: https://github.com/azure/aks/issues
 [tigera]: https://www.tigera.io/
 [calicoctl]: https://docs.projectcalico.org/v3.9/reference/calicoctl/
-[calico-support]: https://www.projectcalico.org/support
+[calico-support]: https://www.tigera.io/tigera-products/calico/
 [calico-logs]: https://docs.projectcalico.org/v3.9/maintenance/component-logs
 [calico-aks-cleanup]: https://github.com/Azure/aks-engine/blob/master/docs/topics/calico-3.3.1-cleanup-after-upgrade.yaml
 

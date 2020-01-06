@@ -6,7 +6,7 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 04/02/2019
+ms.date: 10/03/2019
 ---
 
 # Customize Azure HDInsight clusters by using script actions
@@ -153,13 +153,9 @@ This section explains the different ways you can use script actions when you cre
 
 ### Use a script action during cluster creation from the Azure portal
 
-1. Start to create a cluster as described in [Set up clusters in HDInsight with Apache Hadoop, Apache Spark, Apache Kafka, and more](hdinsight-hadoop-provision-linux-clusters.md). During cluster creation, you arrive at a __Cluster summary__ page. From the __Cluster summary__ page, select the __edit__ link for __Advanced settings__.
+1. Start to create a cluster as described in [Create Linux-based clusters in HDInsight by using the Azure portal](hdinsight-hadoop-create-linux-clusters-portal.md). During cluster creation, you arrive at step 6, **Script actions**. Navigate to **Optional** > **+ Submit new**.
 
-    ![Azure portal cluster advanced settings](./media/hdinsight-hadoop-customize-cluster-linux/advanced-settings-link.png)
-
-1. From the __Advanced settings__ section, select __Script actions__. From the __Script actions__ section, select __+ Submit new__.
-
-    ![Portal script actions submit new](./media/hdinsight-hadoop-customize-cluster-linux/add-new-script-action.png)
+    ![Azure portal cluster script action](./media/hdinsight-hadoop-customize-cluster-linux/azure-portal-cluster-classic-script-action.png)
 
 1. Use the __Select a script__ entry to select a premade script. To use a custom script, select __Custom__. Then provide the __Name__ and __Bash script URI__ for your script.
 
@@ -181,7 +177,7 @@ This section explains the different ways you can use script actions when you cre
 
     ![HDInsight multiple script actions](./media/hdinsight-hadoop-customize-cluster-linux/multiple-scripts-actions.png)
 
-    When you're done adding scripts, select the __Select__ button and then the __Next__ button to return to the __Cluster summary__ section.
+    When you're done adding scripts, select the __Select__ button and then the __Next__ button to continue to the __Cluster summary__ section.
 
 1. To create the cluster, select __Create__ from the __Cluster summary__ selection.
 
@@ -231,9 +227,7 @@ This section explains how to apply script actions to a running cluster.
 
 Go to the [Azure portal](https://portal.azure.com):
 
-1. From the left menu, select **All services**.
-
-1. Under **ANALYTICS**, select **HDInsight clusters**.
+1. From the left menu, navigate to **All services** >  **Analytics** > **HDInsight clusters**.
 
 1. Select your cluster from the list, which opens the default view.
 
@@ -332,9 +326,7 @@ For an example of using the .NET SDK to apply scripts to a cluster, see [Apply a
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. From the left menu, select **All services**.
-
-1. Under **ANALYTICS**, select **HDInsight clusters**.
+1. From the left menu, navigate to  **All services** > **Analytics** > **HDInsight clusters**.
 
 1. Select your cluster from the list, which opens the default view.
 
@@ -400,8 +392,8 @@ Two types of open-source components are available in the HDInsight service:
 
   * [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html) ResourceManager.
   * The Hive query language [HiveQL](https://cwiki.apache.org/confluence/display/Hive/LanguageManual).
-  * [Apache Mahout](https://mahout.apache.org/). 
-    
+  * [Apache Mahout](https://mahout.apache.org/).
+
     A full list of cluster components is available in [What are the Apache Hadoop components and versions available with HDInsight?](hdinsight-component-versioning.md)
 
 * **Custom components**. As a user of the cluster, you can install or use in your workload any component available in the community or created by you.
@@ -427,7 +419,7 @@ You can use the Ambari web UI to view information logged by script actions. If t
 
 ### The Apache Ambari web UI
 
-1. In your browser, go to https://CLUSTERNAME.azurehdinsight.net. Replace **CLUSTERNAME** with the name of your HDInsight cluster.
+1. In your browser, go to `https://CLUSTERNAME.azurehdinsight.net`. Replace **CLUSTERNAME** with the name of your HDInsight cluster.
 
     When prompted, enter the admin account name, **admin**, and password for the cluster. You might have to reenter the admin credentials in a web form.
 

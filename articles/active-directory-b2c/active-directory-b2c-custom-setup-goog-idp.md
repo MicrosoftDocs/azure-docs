@@ -1,5 +1,6 @@
 ---
-title:  Set up sign-in with a Google account in Azure Active Directory B2C using custom policies | Microsoft Docs
+title:  Set up sign-in with a Google account using custom policies
+titleSuffix: Azure AD B2C
 description: Set up sign-in with a Google account in Azure Active Directory B2C using custom policies.
 services: active-directory-b2c
 author: mmacy
@@ -17,7 +18,7 @@ ms.subservice: B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-This article shows you how to enable sign-in for users from a Google account by using [custom policies](active-directory-b2c-overview-custom.md) in Azure Active Directory B2C (Azure AD B2C).
+This article shows you how to enable sign-in for users with a Google account by using [custom policies](active-directory-b2c-overview-custom.md) in Azure Active Directory B2C (Azure AD B2C).
 
 ## Prerequisites
 

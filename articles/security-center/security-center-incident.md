@@ -50,7 +50,7 @@ The following topics guide you through the different alerts, according to resour
 The following topics explain how Security Center uses the different telemetry that it collects from integrating with the Azure infrastructure, in order to apply additional protection layers for resources deployed on Azure:
 
 * [Service layer alerts](security-center-alerts-service-layer.md)
-* [Integration with Azure security products](security-center-alerts-integration.md)
+* [Threat detection for Azure WAF and Azure DDoS Protection](security-center-alerts-integration.md)
 
 ## See also
 In this document, you learned how to use the security incident capability in Security Center. To learn more about Security Center, see the following:

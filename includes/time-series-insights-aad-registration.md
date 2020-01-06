@@ -1,26 +1,19 @@
 ---
- title: include file
- description: include file
- ms.topic: include
- ms.custom: include file
- services: time-series-insights
- ms.service: time-series-insights
- author: kingdomofends
- ms.author: adgera
- ms.date: 09/24/2019
+title: include file
+description: include file
+ms.topic: include
+ms.custom: include file
+services: time-series-insights
+ms.service: time-series-insights
+author: deepakpalled
+ms.author: dpalled
+manager: cshankar
+ms.date: 12/06/2019
 ---
-
-> [!IMPORTANT]
-> * The new **Azure Active Directory** > **App registrations** blade replaces the legacy **Azure Active Directory** > **App registrations (Legacy)** blade May 2019.
-> * App registrations created or displayed in the legacy blade will automatically appear in the new blade.
-> * For comprehensive information about migrating to the new Azure App registration experience, read the [Azure App registrations training guide](https://docs.microsoft.com/azure/active-directory/develop/app-registrations-training-guide) and [Azure Active Directory Quickstart](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app).
 
 1. In the [Azure portal](https://ms.portal.azure.com/), select **Azure Active Directory** > **App registrations** > **New registration**.
 
    [![New application registration in Azure Active Directory](media/time-series-insights-aad-registration/active-directory-new-application-registration.png)](media/time-series-insights-aad-registration/active-directory-new-application-registration.png#lightbox)
-
-   > [!TIP]
-   > The new Azure Active Directory App registration panel allows you to filter the displayed apps by selecting **Owned applications**.
 
     Your app will be listed here after you register it.
 
@@ -41,9 +34,9 @@
         * For apps hosted in a local development environment, select **Public client (mobile & desktop)**. Make sure to set the **Default client type** to yes.
         * For Single-Page apps hosted on Azure App Service, select **Web**.
 
-    1. Enable the implicit grant flow by checking **ID tokens**.
+    1. Enable the implicit grant flow by checking **Access tokens** or **ID tokens**.
 
-   [![Create a new client secret](media/time-series-insights-aad-registration/active-directory-auth-blade.png)](media/time-series-insights-aad-registration/active-directory-auth-blade.png#lightbox)
+   [![Create Redirect URIs and configure Implicit grant](media/time-series-insights-aad-registration/active-directory-auth-blade.png)](media/time-series-insights-aad-registration/active-directory-auth-blade.png#lightbox)
 
    Click **Save**.
 

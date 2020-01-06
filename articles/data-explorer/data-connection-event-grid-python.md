@@ -15,19 +15,16 @@ ms.date: 10/07/2019
 > * [Portal](ingest-data-event-grid.md)
 > * [C#](data-connection-event-grid-csharp.md)
 > * [Python](data-connection-event-grid-python.md)
+> * [Azure Resource Manager template](data-connection-event-grid-resource-manager.md)
 
 Azure Data Explorer is a fast and highly scalable data exploration service for log and telemetry data. Azure Data Explorer offers ingestion (data loading) from Event Hubs, IoT Hubs, and blobs written to blob containers. In this article, you create an Event Grid data connection for Azure Data Explorer by using Python.
 
 ## Prerequisites
 
 * If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
-
 * Create [a cluster and database](create-cluster-database-csharp.md)
-
 * Create [table and column mapping](net-standard-ingest-data.md#create-a-table-on-your-test-cluster)
-
 * Set [database and table policies](database-table-policies-csharp.md) (optional)
-
 * Create a [storage account with an Event Grid subscription](ingest-data-event-grid.md#create-an-event-grid-subscription-in-your-storage-account).
 
 [!INCLUDE [data-explorer-data-connection-install-package-python](../../includes/data-explorer-data-connection-install-package-python.md)]
@@ -81,7 +78,7 @@ poller = kusto_management_client.data_connections.create_or_update(resource_grou
 |**Setting** | **Suggested value** | **Field description**|
 |---|---|---|
 | tenant_id | *xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx* | Your tenant ID. Also known as directory ID.|
-| subscriptionId | *xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx* | The subscription ID that you use for resource creation.|
+| subscription_id | *xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx* | The subscription ID that you use for resource creation.|
 | client_id | *xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx* | The client ID of the application that can access resources in your tenant.|
 | client_secret | *xxxxxxxxxxxxxx* | The client secret of the application that can access resources in your tenant. |
 | resource_group_name | *testrg* | The name of the resource group containing your cluster.|

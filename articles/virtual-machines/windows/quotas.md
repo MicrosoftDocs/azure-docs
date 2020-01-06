@@ -1,5 +1,5 @@
 ---
-title: vCPU quotas for Azure | Microsoft Docs
+title: vCPU quotas for Azure 
 description: Learn about vCPU quotas for Azure.
 keywords: ''
 services: virtual-machines-windows
@@ -24,7 +24,7 @@ ms.author: cynthn
 
 The vCPU quotas for virtual machines and virtual machine scale sets are arranged in two tiers for each subscription, in each region. The first tier is the Total Regional vCPUs, and the second tier is the various VM size family cores such as the D-series vCPUs. Any time a new VM is deployed the vCPUs for the VM must not exceed the vCPU quota for the VM size family or the total regional vCPU quota. If either of those quotas are exceeded, the VM deployment will not be allowed. There is also a quota for the overall number of virtual machines in the region. The details on each of these quotas can be seen in the **Usage + quotas** section of the **Subscription** page in the [Azure portal](https://portal.azure.com), or you can query for the values using PowerShell.
 
- [!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)] 
+   
  
 ## Check usage
 
@@ -84,4 +84,4 @@ If a quota increase is required to purchase a Single Subscription RI, you can [r
 
 ## Next steps
 
-For more information about billing and quotas, see [Azure subscription and service limits, quotas, and constraints](https://docs.microsoft.com/azure/azure-subscription-service-limits?toc=/azure/billing/TOC.json).
+For more information about billing and quotas, see [Azure subscription and service limits, quotas, and constraints](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits?toc=/azure/billing/TOC.json).

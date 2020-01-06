@@ -1,5 +1,5 @@
 ---
-title: Cluster setup for Apache Hadoop, Spark, Kafka, HBase, or R Server - Azure
+title: Cluster setup for Apache and R Server in Azure HDInsight
 description: Set up Hadoop, Kafka, Spark, HBase, R Server, or Storm clusters for HDInsight from a browser, the Azure classic CLI, Azure PowerShell, REST, or SDK.
 keywords: hadoop cluster setup, kafka cluster setup, spark cluster setup, what is cluster in hadoop
 author: hrasheed-msft
@@ -52,7 +52,7 @@ Follow instructions on the screen. Details are provided below for:
 
 ## Resource group name
 
-[Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) helps you work with the resources in your application as a group, referred to as an Azure resource group. You can deploy, update, monitor, or delete all the resources for your application in a single coordinated operation.
+[Azure Resource Manager](../azure-resource-manager/management/overview.md) helps you work with the resources in your application as a group, referred to as an Azure resource group. You can deploy, update, monitor, or delete all the resources for your application in a single coordinated operation.
 
 ## <a name="cluster-types"></a> Cluster types and configuration
 

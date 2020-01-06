@@ -306,7 +306,7 @@ Azure also provides several easy-to-use features to help secure both inbound and
 
 - [Setup Azure Active Directory authentication for your app](https://azure.microsoft.com/blog/azure-websites-authentication-authorization/)
 
-- [Secure traffic to your app by enabling Transport Layer Security (TLS/SSL) - HTTPS](../../app-service/app-service-web-tutorial-custom-ssl.md)
+- [Secure traffic to your app by enabling Transport Layer Security (TLS/SSL) - HTTPS](../../app-service/configure-ssl-bindings.md)
 
   - [Force all incoming traffic over HTTPS connection](http://microsoftazurewebsitescheatsheet.info/)
 
@@ -474,7 +474,7 @@ It monitors:
 
 - **Custom events and metrics** that you write yourself in the client or server code, to track business events such as items sold, or games won.
 
-The infrastructure for your application is typically made up of many components – maybe a virtual machine, storage account, and virtual network, or a web app, database, database server, and 3rd party services. You do not see these components as separate entities, instead you see them as related and interdependent parts of a single entity. You want to deploy, manage, and monitor them as a group. [Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md) enables you to work with the resources in your solution as a group.
+The infrastructure for your application is typically made up of many components – maybe a virtual machine, storage account, and virtual network, or a web app, database, database server, and 3rd party services. You do not see these components as separate entities, instead you see them as related and interdependent parts of a single entity. You want to deploy, manage, and monitor them as a group. [Azure Resource Manager](../../azure-resource-manager/management/overview.md) enables you to work with the resources in your solution as a group.
 
 You can deploy, update, or delete all the resources for your solution in a single, coordinated operation. You use a template for deployment and that template can work for different environments such as testing, staging, and production. Resource Manager provides security, auditing, and tagging features to help you manage your resources after deployment.
 

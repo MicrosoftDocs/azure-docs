@@ -1,23 +1,19 @@
 ---
-title: Configure Azure Application Insights smart detection rule settings with Azure Resource Manager templates | Microsoft Docs
+title: Smart detection rule settings - Azure Application Insights
 description: Automate management and configuration of Azure Application Insights smart detection rules with Azure Resource Manager Templates
-services: application-insights
-documentationcenter: ''
-author: harelbr
-manager: carmonm
-ms.assetid: ea2a28ed-4cd9-4006-bd5a-d4c76f4ec20b
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service:  azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 06/26/2019
-ms.reviewer: mbullwin
+author: harelbr
 ms.author: harelbr
+ms.date: 06/26/2019
+
+ms.reviewer: mbullwin
 ---
 
 # Manage Application Insights smart detection rules using Azure Resource Manager templates
 
-Smart detection rules in Application Insights can be managed and configured using [Azure Resource Manager templates](../../azure-resource-manager/resource-group-authoring-templates.md).
+Smart detection rules in Application Insights can be managed and configured using [Azure Resource Manager templates](../../azure-resource-manager/templates/template-syntax.md).
 This method can be used when deploying new Application Insights resources with Azure Resource Manager automation, or for modifying the settings of existing resources.
 
 ## Smart detection rule configuration
@@ -148,7 +144,7 @@ This Azure Resource Manager template demonstrates configuring a Failure Anomalie
             "name": "Failure Anomalies - my-app",
             "location": "global", 
             "properties": {
-                  "description": "Detects a spike in the failure rate of requests or dependencies",
+                  "description": "Failure Anomalies notifies you of an unusual rise in the rate of failed HTTP requests or dependency calls.",
                   "state": "Enabled",
                   "severity": "2",
                   "frequency": "PT1M",

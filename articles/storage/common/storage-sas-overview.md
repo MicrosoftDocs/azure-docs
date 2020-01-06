@@ -1,12 +1,13 @@
 ---
-title: Grant limited access to Azure Storage resources using shared access signatures (SAS)
+title: Grant limited access to data with shared access signatures (SAS)
+titleSuffix: Azure Storage
 description: Learn about using shared access signatures (SAS) to delegate access to Azure Storage resources, including blobs, queues, tables, and files.
 services: storage
 author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 08/12/2019
+ms.date: 12/18/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
@@ -20,9 +21,17 @@ A shared access signature (SAS) provides secure delegated access to resources in
 
 Azure Storage supports three types of shared access signatures:
 
-- **User delegation SAS (preview).** A user delegation SAS is secured with Azure Active Directory (Azure AD) credentials and also by the permissions specified for the SAS. A user delegation SAS applies to Blob storage only. To create a user delegation SAS, you must first request a user delegation key, which is used to sign the SAS. For more information about the user delegation SAS, see [Create a user delegation SAS (REST API)](/rest/api/storageservices/create-user-delegation-sas).
-- **Service SAS.** A service SAS is secured with the storage account key. A service SAS delegates access to a resource in only one of the Azure Storage services: Blob storage, Queue storage, Table storage, or Azure Files. For more information about the service SAS, see [Create a service SAS (REST API)](/rest/api/storageservices/create-service-sas).
-- **Account SAS.** An account SAS is secured with the storage account key. An account SAS delegates access to resources in one or more of the storage services. All of the operations available via a service or user delegation SAS are also available via an account SAS. Additionally, with the account SAS, you can delegate access to operations that apply at the level of the service, such as **Get/Set Service Properties** and **Get Service Stats** operations. You can also delegate access to read, write, and delete operations on blob containers, tables, queues, and file shares that are not permitted with a service SAS. For more information about the account SAS, [Create an account SAS (REST API)](/rest/api/storageservices/create-account-sas).
+- **User delegation SAS.** A user delegation SAS is secured with Azure Active Directory (Azure AD) credentials and also by the permissions specified for the SAS. A user delegation SAS applies to Blob storage only.
+
+    For more information about the user delegation SAS, see [Create a user delegation SAS (REST API)](/rest/api/storageservices/create-user-delegation-sas).
+
+- **Service SAS.** A service SAS is secured with the storage account key. A service SAS delegates access to a resource in only one of the Azure Storage services: Blob storage, Queue storage, Table storage, or Azure Files. 
+
+    For more information about the service SAS, see [Create a service SAS (REST API)](/rest/api/storageservices/create-service-sas).
+
+- **Account SAS.** An account SAS is secured with the storage account key. An account SAS delegates access to resources in one or more of the storage services. All of the operations available via a service or user delegation SAS are also available via an account SAS. Additionally, with the account SAS, you can delegate access to operations that apply at the level of the service, such as **Get/Set Service Properties** and **Get Service Stats** operations. You can also delegate access to read, write, and delete operations on blob containers, tables, queues, and file shares that are not permitted with a service SAS. 
+
+    For more information about the account SAS, [Create an account SAS (REST API)](/rest/api/storageservices/create-account-sas).
 
 > [!NOTE]
 > Microsoft recommends that you use Azure AD credentials when possible as a security best practice, rather than using the account key, which can be more easily compromised. When your application design requires shared access signatures for access to Blob storage, use Azure AD credentials to create a user delegation SAS when possible for superior security.
@@ -43,7 +52,7 @@ A shared access signature is a signed URI that points to one or more storage res
 
 You can sign a SAS in one of two ways:
 
-- With a user delegation key that was created using Azure Active Directory (Azure AD) credentials. A user delegation SAS is signed with the user delegation key.
+- With a *user delegation key* that was created using Azure Active Directory (Azure AD) credentials. A user delegation SAS is signed with the user delegation key.
 
     To get the user delegation key and create the SAS, an Azure AD security principal must be assigned a role-based access control (RBAC) role that includes the **Microsoft.Storage/storageAccounts/blobServices/generateUserDelegationKey** action. For detailed information about RBAC roles with permissions to get the user delegation key, see [Create a user delegation SAS (REST API)](/rest/api/storageservices/create-user-delegation-sas).
 
@@ -109,9 +118,9 @@ To get started with shared access signatures, see the following articles for eac
 
 ### User delegation SAS
 
-- [Create a user delegation SAS for a container or blob with PowerShell (preview)](../blobs/storage-blob-user-delegation-sas-create-powershell.md)
-- [Create a user delegation SAS for a container or blob with the Azure CLI (preview)](../blobs/storage-blob-user-delegation-sas-create-cli.md)
-- [Create a user delegation SAS for a container or blob with .NET (preview)](../blobs/storage-blob-user-delegation-sas-create-dotnet.md)
+- [Create a user delegation SAS for a container or blob with PowerShell](../blobs/storage-blob-user-delegation-sas-create-powershell.md)
+- [Create a user delegation SAS for a container or blob with the Azure CLI](../blobs/storage-blob-user-delegation-sas-create-cli.md)
+- [Create a user delegation SAS for a container or blob with .NET](../blobs/storage-blob-user-delegation-sas-create-dotnet.md)
 
 ### Service SAS
 

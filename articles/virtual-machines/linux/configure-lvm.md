@@ -1,5 +1,5 @@
 ---
-title: Configure LVM on a virtual machine running Linux | Microsoft Docs
+title: Configure LVM on a virtual machine running Linux 
 description: Learn how to configure LVM on Linux in Azure.
 services: virtual-machines-linux
 documentationcenter: na

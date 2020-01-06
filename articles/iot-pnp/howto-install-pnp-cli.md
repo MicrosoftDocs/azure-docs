@@ -3,7 +3,7 @@ title: Use the Azure IoT extension for Azure CLI to interact with IoT Plug and P
 description: Install the Azure IoT extension for Azure CLI and use it to interact with the IoT Plug and Play devices connected to my IoT hub.
 author: ChrisGMsft
 ms.author: chrisgre
-ms.date: 09/08/2019
+ms.date: 12/26/2019
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
@@ -128,21 +128,21 @@ Without the `--repo-login` parameter, this command uses the public model reposit
 Invoke a command:
 
 ```cmd/sh
-az iot dt invoke-command --hub-name {YourIoTHubName} --device-id {YourDeviceID} --interface {YourInterfaceID} --command-name {CommandName} --command-payload {CommandPayload or FilePath}
+az iot dt invoke-command --hub-name {YourIoTHubName} --device-id {YourDeviceID} --interface {YourInterfaceID} --cn {CommandName} --command-payload {CommandPayload or FilePath}
 ```
 
-#### Telemetry
+#### Digital twin events
 
-Monitor all IoT Plug and Play telemetry from a specific device and interface going to the **$Default** event hub endpoint:
+Monitor all IoT Plug and Play digital twin events from a specific device and interface going to the **$Default** event hub consumer group:
 
 ```cmd/sh
-az iot dt monitor-events --hub-name {YourIoTHubName} --device-id {YourDeviceID} --interface {YourInterfaceID} --source private --repo-login {YourCompanyModelRepoConnectionString}
+az iot dt monitor-events --hub-name {YourIoTHubName} --device-id {YourDeviceID} --interface {YourInterfaceID}
 ```
 
-Monitor all IoT Plug and Play telemetry from a specific device and interface going a specific consumer group:
+Monitor all IoT Plug and Play digital twin events from a specific device and interface going a specific consumer group:
 
 ```cmd/sh
-az iot dt monitor-events --hub-name {YourIoTHubName} --device-id {YourDeviceID} --interface {YourInterfaceID} --source private --repo-login {YourCompanyModelRepoConnectionString} --consumer-group {YourConsumerGroup}
+az iot dt monitor-events --hub-name {YourIoTHubName} --device-id {YourDeviceID} --interface {YourInterfaceID} --consumer-group {YourConsumerGroup}
 ```
 
 ### Manage interfaces in a model repository

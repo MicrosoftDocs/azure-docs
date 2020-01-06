@@ -1,5 +1,4 @@
-# YamlMime:ZonePivotGroups
-# GitHub repository = 'MicrosoftDocs/azure-docs-pr'
+### YamlMime:ZonePivotGroups
 groups:
 - id: programming-languages-set-one
   title: Programming languages
@@ -15,3 +14,83 @@ groups:
     title: Node.js
   - id: programming-language-go
     title: Go
+- id: cogsvcs-text-analytics-features
+  title: Text Analytics features
+  prompt: Choose a Text Analytics feature offering
+  pivots:
+  - id: text-analytics-key-phrase-extraction
+    title: Key Phrase Extraction
+  - id: text-analytics-language-detection
+    title: Language Detection
+  - id: text-analytics-sentiment-analysis
+    title: Sentiment Analysis
+- id: client-operating-system
+  title: Programming languages
+  prompt: Choose a client operating system
+  pivots:
+  - id: client-operating-system-linux
+    title: Linux
+  - id: client-operating-system-macos
+    title: MacOS
+  - id: client-operating-system-windows
+    title: Windows
+- id: programming-languages-set-two
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-cpp
+    title: C++
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-more
+    title: More languages...
+- id: programming-languages-set-three
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-cpp
+    title: C++
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-python
+    title: Python
+- id: programming-languages-set-four
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-more
+    title: More languages...
+- id: programming-languages-set-five
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-nodejs
+    title: Node.js
+  - id: programming-language-go
+    title: Go
+  - id: programming-language-ruby
+    title: Ruby
+- id: URL-test-interface
+  title: URL Test tool
+  prompt: Choose one of the following
+  pivots:
+  - id: url-test-tool-curl
+    title: cURL
+  - id: url-test-tool-postman
+    title: Postman

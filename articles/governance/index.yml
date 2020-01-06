@@ -112,7 +112,7 @@ additionalContent:
             - text: Azure SDK for .NET
               url: /dotnet/api/overview/azure/managementgroups
             - text: Azure SDK for Node
-              url: /javascript/api/azure-arm-resource/managementgroups
+              url: /javascript/api/@azure/arm-managementgroups/managementgroups
         - title: Azure Policy
           links:
             - text: Azure CLI
@@ -191,7 +191,7 @@ additionalContent:
               url: https://rubygems.org/gems/azure_mgmt_resourcegraph
               note: (Gem)
             - text: REST
-              url: /rest/api/azureresourcegraph/resources/resources
+              url: /rest/api/azure-resourcegraph/
         - title: Cost Management
           links:
             - text: REST

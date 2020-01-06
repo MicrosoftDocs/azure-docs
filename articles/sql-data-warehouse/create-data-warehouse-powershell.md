@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Create an Azure SQL Data Warehouse - Azure Powershell | Microsoft Docs'
+title: "Quickstart: Create a warehouse - Azure Powershell"
 description: Quickly create a SQL Database logical server, server-level firewall rule, and data warehouse with Azure PowerShell.
 services: sql-data-warehouse
 author: XiaoyuMSFT
@@ -10,6 +10,7 @@ ms.subservice: development
 ms.date: 4/11/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
+ms.custom: seo-lt-2019
 ---
 # Quickstart: Create and query an Azure SQL Data Warehouse with Azure PowerShell
 
@@ -66,7 +67,7 @@ $databasename = "mySampleDataWarehosue"
 
 ## Create a resource group
 
-Create an [Azure resource group](../azure-resource-manager/resource-group-overview.md) using the [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) command. A resource group is a logical container into which Azure resources are deployed and managed as a group. The following example creates a resource group named `myResourceGroup` in the `westeurope` location.
+Create an [Azure resource group](../azure-resource-manager/management/overview.md) using the [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) command. A resource group is a logical container into which Azure resources are deployed and managed as a group. The following example creates a resource group named `myResourceGroup` in the `westeurope` location.
 
 ```powershell
 New-AzResourceGroup -Name $resourcegroupname -Location $location
@@ -113,7 +114,7 @@ New-AzSqlDatabase `
 
 Required Parameters are:
 
-* **RequestedServiceObjectiveName**: The amount of [data warehouse units](what-is-a-data-warehouse-unit-dwu-cdwu.md) you're requesting. Increasing this amount increases compute cost. For a list of supported values, see [memory and concurrency limits](memory-and-concurrency-limits.md).
+* **RequestedServiceObjectiveName**: The amount of [data warehouse units](what-is-a-data-warehouse-unit-dwu-cdwu.md) you're requesting. Increasing this amount increases compute cost. For a list of supported values, see [memory and concurrency limits](memory-concurrency-limits.md).
 * **DatabaseName**: The name of the SQL Data Warehouse that you're creating.
 * **ServerName**: The name of the server that you're using for creation.
 * **ResourceGroupName**: Resource group you're using. To find available resource groups in your subscription use Get-AzureResource.

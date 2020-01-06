@@ -1,5 +1,5 @@
 ---
-title: Manage Azure SQL Database schema in a multi-tenant app | Microsoft Docs
+title: Manage schema in a multi-tenant app
 description: "Manage Schema for multiple tenants in a multi-tenant application that uses Azure SQL Database"
 services: sql-database
 ms.service: sql-database

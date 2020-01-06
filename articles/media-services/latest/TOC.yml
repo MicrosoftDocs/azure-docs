@@ -4,6 +4,9 @@
   items:
   - name: About Media Services
     href: media-services-overview.md
+  - name: What's new in Media Services
+    displayName: release notes
+    href: release-notes.md    
 - name: Tutorials
   expanded: true
   items:
@@ -37,6 +40,8 @@
   - name: Media Services samples
     displayName: .NET, Java
     href: https://docs.microsoft.com/samples/browse/?products=azure-media-services
+  - name: Media Services v3 REST samples
+    href: https://github.com/Azure-Samples/media-services-v3-rest-postman
 - name: Concepts
   items:
   - name: Overview
@@ -54,14 +59,18 @@
     - name: Assets
       href: assets-concept.md    
       displayName: name, naming, file name
-  - name: Encoding
+  - name: Processing files
+    items:
+    - name: Transforms and Jobs
+      href: transforms-jobs-concept.md 
+      displayName: preset, schema 
+    - name: Error codes
+      href: job-error-codes.md         
+  - name: Encoding content
     items:
     - name: Overview
       href: encoding-concept.md   
       displayName: encoding, presets, jobs, adaptive, bitrate
-    - name: Transforms and Jobs
-      href: transforms-jobs-concept.md 
-      displayName: preset, schema 
     - name: Standard Encoder formats
       displayName: containers, codecs    
       href: media-encoder-standard-formats.md
@@ -69,9 +78,7 @@
       href: autogen-bitrate-ladder.md       
     - name: Content-aware encoding
       href: cae-experimental.md          
-    - name: Job error codes
-      href: job-error-codes.md     
-  - name: Media analytics 
+  - name: Analyzing content (Video Indexer)
     items:
     - name: Overview
       href: analyzing-video-audio-files-concept.md
@@ -102,7 +109,7 @@
   - name: Content protection
     items:
     - name: Dynamic encryption and key delivery
-      displayName: content protection, streaming protocols, encryption types, content protection, PlayReady, Widevine, FairPlay     
+      displayName: content protection, streaming protocols, encryption types, PlayReady, Widevine, FairPlay, custom  
       href: content-protection-overview.md  
     - name: Design of multi-DRM system 
       displayName: drm, access control
@@ -131,6 +138,8 @@
     - name: Time-shifting and live-to-VOD
       displayName: archive, dvr
       href: live-event-cloud-dvr.md
+    - name: Live transcription
+      href: live-transcription.md
     - name: Feature comparison
       href: live-event-types-comparison.md
     - name: States and billing
@@ -155,7 +164,7 @@
     items:
     - name: Overview
       href: media-services-apis-overview.md
-      displayName: accessing, long-running, invalid character, name, naming, file name
+      displayName: accessing, long-running, sdk, invalid character, name, naming, file name
     - name: Page, filter, order entities
       href: entities-overview.md 
     - name: RBAC
@@ -283,6 +292,8 @@
     items:
     - name: Publish an asset - CLI
       href: cli-publish-asset.md
+    - name: Signal descriptive audio
+      href: signal-descriptive-audio-howto.md
 - name: Reference
   items:
   - name: OpenAPI Specification (Swagger)
@@ -343,8 +354,6 @@
       href: https://aka.ms/ams-v3-ruby-sdk
   - name: Azure Media Services Explorer
     href: https://github.com/Azure/Azure-Media-Services-Explorer
-  - name: Release notes
-    href: release-notes.md
   - name: Quotas and limitations
     href: limits-quotas-constraints.md       
   - name: FAQ

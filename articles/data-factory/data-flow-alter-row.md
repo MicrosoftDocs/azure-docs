@@ -1,10 +1,11 @@
 ---
-title: Azure Data Factory Mapping Data Flow Alter Row Transformation
-description: How to update database target using Azure Data Factory Mapping Data Flow Alter Row Transformation
+title: Mapping data flow Alter Row Transformation
+description: How to update database target using Azure Data Factory mapping data flow Alter Row Transformation
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 03/12/2019
 ---
 
@@ -12,12 +13,12 @@ ms.date: 03/12/2019
 
 Use the Alter Row transformation to set insert, delete, update, and upsert policies on rows. You can add one-to-many conditions as expressions. These conditions should be specified in order of priority, as each row will be marked with the policy corresponding to the first-matching expression. Each of those conditions can result in a row (or rows) being inserted, updated, deleted, or upserted. Alter Row can produce both DDL & DML actions against your database.
 
-[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
+
 
 ![Alter row settings](media/data-flow/alter-row1.png "Alter Row Settings")
 
 > [!NOTE]
-> Alter Row transformations will only operate on database sinks in your data flow. The actions that you assign to rows (insert, update, delete, upsert) will not occur during debug sessions. You must add an Execute Data Flow task to a pipeline and use pipeline debug or triggers to enact the alter row policies on your database tables.
+> Alter Row transformations will only operate on database or CosmosDB sinks in your data flow. The actions that you assign to rows (insert, update, delete, upsert) will not occur during debug sessions. You must add an Execute Data Flow task to a pipeline and use pipeline debug or triggers to enact the alter row policies on your database tables.
 
 ## Indicate a default row policy
 

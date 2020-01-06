@@ -1,5 +1,6 @@
 ---
-title: Manage SSO and token customization using custom policies in Azure Active Directory B2C | Microsoft Docs
+title: Manage SSO and token customization using custom policies
+titleSuffix: Azure AD B2C
 description: Learn about managing SSO and token customization using custom policies in Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
@@ -98,5 +99,5 @@ To change your session behavior and SSO configurations, you add a **UserJourneyB
 The following values are configured in the previous example:
 
 - **Single sign on (SSO)** - Single sign-on is configured with the **SingleSignOn**. The applicable values are `Tenant`, `Application`, `Policy`, and `Suppressed`.
-- **Web app session lifetime (minutes)** - The web app session lifetime is set with the **SessionExpiryInSeconds** element. The default value is 86400 seconds (1440 minutes).
 - **Web app session time-out** - The web app session timeout is set with the **SessionExpiryType** element. The applicable values are `Absolute` and `Rolling`.
+- **Web app session lifetime** - The web app session lifetime is set with the **SessionExpiryInSeconds** element. The default value is 86400 seconds (1440 minutes).

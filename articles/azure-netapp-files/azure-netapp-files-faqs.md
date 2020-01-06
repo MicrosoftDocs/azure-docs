@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/25/2019
+ms.date: 01/03/2020
 ms.author: b-juche
 ---
 # FAQs About Azure NetApp Files
@@ -45,7 +45,7 @@ Yes, you can, if you create the required DNS entries. Azure NetApp Files supplie
 
 ### Can the network traffic between the Azure VM and the storage be encrypted?
 
-Data traffic (traffic from the NFSv3 or SMBv3 client to Azure NetApp Files volumes) is not encrypted. However, the traffic from an Azure VM (running an NFS or SMB client) to Azure NetApp Files is as secure as any other Azure-VM-to-VM traffic. This traffic is local to the Azure data-center network. 
+Data traffic (traffic from the NFSv3, NFSv4.1, or SMBv3 client to Azure NetApp Files volumes) is not encrypted. However, the traffic from an Azure VM (running an NFS or SMB client) to Azure NetApp Files is as secure as any other Azure-VM-to-VM traffic. This traffic is local to the Azure data-center network. 
 
 ### Can the storage be encrypted at rest?
 
@@ -100,15 +100,7 @@ Azure NetApp Files provides volume performance metrics. You can also use Azure M
 
 For an NFS volume to automatically mount at VM start or reboot, add an entry to the `/etc/fstab` file on the host. 
 
-For example: 
-`$ANFIP:/$FILEPATH		/$MOUNTPOINT	nfs bg,rw,hard,noatime,nolock,rsize=65536,wsize=65536,vers=3,tcp,_netdev 0 0`
-
-- $ANFIP  
-    The IP address of the Azure NetApp Files volume found in the volume properties blade
-- $FILEPATH  
-    The export path of the Azure NetApp Files volume
-- $MOUNTPOINT  
-    The directory created on the Linux host used to mount the NFS export
+See [Mount or unmount a volume for Windows or Linux virtual machines](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md) for details.  
 
 ### Why does the DF command on NFS client not show the provisioned volume size?
 
@@ -116,7 +108,11 @@ The volume size reported in DF is the maximum size the Azure NetApp Files volume
 
 ### What NFS version does Azure NetApp Files support?
 
-Azure NetApp Files currently supports NFSv3.
+Azure NetApp Files supports NFSv3 and NFSv4.1. You can create a volume using either NFS version. 
+
+> [!IMPORTANT] 
+> Access to the NFSv4.1 feature requires whitelisting.  To request whitelisting, submit a request to <anffeedback@microsoft.com>. 
+
 
 ### How do I enable root squashing?
 
@@ -130,7 +126,7 @@ Yes, you must create an Active Directory connection before deploying an SMB volu
 
 ### How many Active Directory connections are supported?
 
-Azure NetApp Files currently supports one Active Directory connection per subscription. Also, the Active Directory connection is specific to a single NetApp account; it is not shared across accounts. 
+Azure NetApp Files currently supports only one Active Directory connection per NetApp account, per subscription, and in each region; the connection is not shared across NetApp accounts.
 
 ### Does Azure NetApp Files support Azure Active Directory? 
 
@@ -141,6 +137,10 @@ If you are using Azure NetApp Files with Azure Active Directory Domain Services,
 ### What versions of Windows Server Active Directory are supported?
 
 Azure NetApp Files supports Windows Server 2008r2SP1-2019 versions of Active Directory Domain Services.
+
+### Why does the available space on my SMB client not show the provisioned size?
+
+The volume size reported by the SMB client is the maximum size the Azure NetApp Files volume can grow to. The size of the Azure NetApp Files volume as shown on the SMB client is not reflective of the quota or size of the volume. You can get the Azure NetApp Files volume size or quota through the Azure portal or the API.
 
 ## Capacity management FAQs
 

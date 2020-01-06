@@ -1,13 +1,15 @@
 ---
 title: Overview of the Azure Diagnostics extension
 description: Use Azure diagnostics for debugging, measuring performance, monitoring, traffic analysis in cloud services, virtual machines and service fabric
-author: rboucher
-ms.service: azure-monitor
-ms.topic: conceptual
-ms.date: 02/13/2019
-ms.author: robb
+ms.service:  azure-monitor
 ms.subservice: diagnostic-extension
+ms.topic: conceptual
+author: bwren
+ms.author: bwren
+ms.date: 02/13/2019
+
 ---
+
 # What is Azure Diagnostics extension
 The Azure Diagnostics extension is an agent within Azure that enables the collection of diagnostic data on a deployed application. You can use the diagnostics extension from a number of different sources. Currently supported are Azure Cloud Service (classic) Web and Worker Roles, Virtual Machines, Virtual Machine scale sets, and Service Fabric. Other Azure services have different diagnostics methods. See [Overview of monitoring in Azure](../../azure-monitor/overview.md).
 

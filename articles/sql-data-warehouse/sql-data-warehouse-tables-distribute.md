@@ -1,5 +1,5 @@
 ---
-title: Distributed tables design guidance - Azure SQL Data Warehouse | Microsoft Docs
+title: Distributed tables design guidance
 description: Recommendations for designing hash-distributed and round-robin distributed tables in Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: XiaoyuMSFT
@@ -10,6 +10,7 @@ ms.subservice: development
 ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
+ms.custom: seo-lt-2019
 ---
 
 # Guidance for designing distributed tables in Azure SQL Data Warehouse
@@ -54,7 +55,7 @@ Consider using the round-robin distribution for your table in the following scen
 
 - When getting started as a simple starting point since it is the default
 - If there is no obvious joining key
-- If there is not good candidate column for hash distributing the table
+- If there is no good candidate column for hash distributing the table
 - If the table does not share a common join key with other tables
 - If the join is less significant than other joins in the query
 - When the table is a temporary staging table

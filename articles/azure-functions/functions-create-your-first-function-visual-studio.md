@@ -1,19 +1,10 @@
 ---
 title: Create your first function in Azure using Visual Studio
 description: Create and publish an HTTP triggered Azure Function using Visual Studio.
-services: functions
-documentationcenter: na
-author: ggailey777
-manager: gwallace
-keywords: azure functions, functions, event processing, compute, serverless architecture
-
 ms.assetid: 82db1177-2295-4e39-bd42-763f6082e796
-ms.service: azure-functions
 ms.topic: quickstart
 ms.date: 07/19/2019
-ms.author: glenga
 ms.custom: mvc, devcenter, vs-azure, 23113853-34f2-4f
-
 ---
 # Create your first function using Visual Studio
 

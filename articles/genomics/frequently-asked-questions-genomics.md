@@ -1,13 +1,13 @@
 ---
-title: 'Microsoft Genomics: Common questions - FAQ | Microsoft Docs'
-titleSuffix: Azure
-description: Answers to common questions customers ask about Microsoft Genomics. 
+title: Common questions - FAQ
+titleSuffix: Microsoft Genomics
+description: Get answers to common questions related to using the Microsoft Genomics service, including technical information, SLA, and billing. 
 services: genomics
 author: grhuynh
 manager: cgronlun
 ms.author: grhuynh
 ms.service: genomics
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 12/07/2017
 
 ---

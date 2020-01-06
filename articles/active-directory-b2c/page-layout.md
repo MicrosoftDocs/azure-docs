@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/04/2019
+ms.date: 12/18/2019
 ms.author: marsma
 ms.subservice: B2C
 ---
@@ -42,9 +42,9 @@ In your custom policies, you may have [ContentDefinitions](contentdefinitions.md
 </ContentDefinition>
 ```
 
-To select a page layout, you change the **DataUri** values in your [ContentDefinitions](contentdefinitions.md) in your policies. By switching from the old **DataUri** values to the new values, you're selecting an immutable package. The benefit of using this package is that you’ll know it won't change and cause unexpected behavior on your page.
+To select a page layout, you change the **DataUri** values in your [ContentDefinitions](contentdefinitions.md) in your policies. By switching from the old **DataUri** values to the new values, you're selecting an immutable package. The benefit of using this package is that you know it won't change and cause unexpected behavior on your page.
 
-To set up a page layout, use the following table to find **DataUri** values.
+To specify a page layout in your custom policies that use an old **DataUri** value, insert `contract` between `elements` and the page type (for example, `selfasserted`), and specify the version number. For example:
 
 | Old DataUri value | New DataUri value |
 | ----------------- | ----------------- |
@@ -63,6 +63,23 @@ To set up a page layout, use the following table to find **DataUri** values.
 ## Version change log
 
 Page layout packages are periodically updated to include fixes and improvements in their page elements. The following change log specifies the changes introduced in each version.
+
+### 2.0.0
+
+- Self-asserted page (`selfasserted`)
+  - Added support for [display controls](display-controls.md) in custom policies.
+
+### 1.2.0
+
+- All pages
+  - Accessibility fixes
+  - You can now add the `data-preload="true"` attribute in your HTML tags to control the load order for CSS and JavaScript. Scenarios include:
+    - Use this on your CSS link to load the CSS at the same time as your HTML so that it doesn't 'flicker' between loading the files
+    - This attribute allows you to control the order in which your Script tags are fetched and executed before the page load
+  - Email field is now `type=email` and mobile keyboards will provide the correct suggestions
+  - Support for Chrome translate
+- Unified and self-asserted page
+  - The username/email and password fields now use the form HTML element.  This will now allow Edge and IE to properly save this information
 
 ### 1.1.0
 

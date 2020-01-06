@@ -4,7 +4,7 @@ description: Learn about the Azure APIs that you can use to programmatically get
 author: yashesvi
 manager: yashesvi
 tags: billing
-ms.service: billing
+ms.service: cost-management-billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
@@ -21,7 +21,7 @@ Use Azure APIs to programmatically get information for your organization about A
 
 Use the Reservation recommendation API to get recommendations on which reservations plan to buy based on your organization's usage. For more information, see [Get reservation recommendations](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation).
 
-You can also analyze your resource usage by using the Consumption API Usage Detail. For more information, see [Usage Details - List For Billing Period By Billing Account](/rest/api/consumption/usagedetails/list#billingaccountusagedetailslistforbillingperiod). The Azure resources that you use consistently are usually the best candidate for a reservation.
+You can also analyze your resource usage by using the Consumption API Usage Detail. For more information, see [Usage Details - List For Billing Period By Billing Account](/rest/api/consumption/usagedetails/list#billingaccountusagedetailslistforbillingperiod-legacy). The Azure resources that you use consistently are usually the best candidate for a reservation.
 
 ## Buy a reservation
 

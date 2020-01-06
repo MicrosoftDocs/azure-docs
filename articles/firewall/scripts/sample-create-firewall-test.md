@@ -1,12 +1,12 @@
 ---
-title: Azure PowerShell script sample - Create Azure Firewall test environment
-description: Azure PowerShell script sample - Create Azure Firewall test environment.
+title: Create an Azure Firewall test environment
+description: This script sample creates a firewall and a test network environment. The network has one VNet, with three subnets.
 services: virtual-network
 author: vhorne
 ms.service: firewall
 ms.devlang: powershell
 ms.topic: sample
-ms.date: 8/13/2018
+ms.date: 11/19/2019
 ms.author: victorh
 ---
 
@@ -16,7 +16,7 @@ This script sample creates a firewall and a test network environment. The networ
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-The firewall is in the AzureFirewallSubnet and is configured with an Application Rule Collection with a single rule that allows access to www.microsoft.com.
+The firewall is in the AzureFirewallSubnet and is configured with an Application Rule Collection with a single rule that allows access to `www.microsoft.com`.
 
 A user defined route is created that points the network traffic from the ServersSubnet through the firewall, where the firewall rules are applied.
 

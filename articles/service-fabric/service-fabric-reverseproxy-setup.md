@@ -1,20 +1,10 @@
 ---
-title: Azure Service Fabric set up reverse proxy | Microsoft Docs
-description: Understand how to set up and configure Service Fabric's reverse proxy.
-services: service-fabric
-documentationcenter: na
-author: jimacoMS2
-manager: chackdan
-editor: 
+title: Azure Service Fabric set up reverse proxy 
+description: Understand how to set up and configure the reverse proxy service for an Azure Service Fabric application.
 
-ms.assetid: 
-ms.service: service-fabric
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: required
 ms.date: 11/13/2018
-ms.author: chackdan
-
+ms.author: pepogors
 ---
 # Set up and configure reverse proxy in Azure Service Fabric
 Reverse proxy is an optional Azure Service Fabric service that helps microservices running in a Service Fabric cluster discover and communicate with other services that have http endpoints. To learn more, see [Reverse proxy in Azure Service Fabric](service-fabric-reverseproxy.md). This article shows you how to set up and configure reverse proxy in your cluster. 
@@ -40,13 +30,13 @@ For clusters on Azure, you can use the Azure Resource Manager template to enable
 
 For a new cluster, you can [create a custom Resource Manager template](service-fabric-cluster-creation-via-arm.md) or you can use a sample template. 
 
-You can find sample Resource Manager templates that can help you configure secure reverse proxy for an Azure cluster in the [Secure Reverse Proxy Sample Templates](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/ReverseProxySecureSample) on GitHub. Refer to [Configure HTTPS Reverse Proxy in a secure cluster](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/ReverseProxySecureSample/README.md#configure-https-reverse-proxy-in-a-secure-cluster) in the README file for instructions and the templates to use to configure secure reverse proxy with a certificate and to handle certificate rollover.
+You can find sample Resource Manager templates that can help you configure secure reverse proxy for an Azure cluster in the [Secure Reverse Proxy Sample Templates](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/Reverse-Proxy-Sample) on GitHub. Refer to [Configure HTTPS Reverse Proxy in a secure cluster](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/Reverse-Proxy-Sample/README.md#configure-https-reverse-proxy-in-a-secure-cluster) in the README file for instructions and the templates to use to configure secure reverse proxy with a certificate and to handle certificate rollover.
 
 For an existing cluster, you can export the Resource Manager template for the cluster's resource group using the [Azure portal](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template), [PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template-powershell), or the [Azure CLI](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template-cli).
 
 After you have a Resource Manager template, you can enable the reverse proxy with the following steps:
 
-1. Define a port for the reverse proxy in the [Parameters section](../azure-resource-manager/resource-group-authoring-templates.md) of the template.
+1. Define a port for the reverse proxy in the [Parameters section](../azure-resource-manager/templates/template-syntax.md) of the template.
 
     ```json
     "SFReverseProxyPort": {
@@ -57,7 +47,7 @@ After you have a Resource Manager template, you can enable the reverse proxy wit
         }
     },
     ```
-2. Specify the port for each of the nodetype objects in the [**Microsoft.ServiceFabric/clusters**](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/clusters) [Resource type section](../azure-resource-manager/resource-group-authoring-templates.md).
+2. Specify the port for each of the nodetype objects in the [**Microsoft.ServiceFabric/clusters**](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/clusters) [Resource type section](../azure-resource-manager/templates/template-syntax.md).
 
     The port is identified by the parameter name, reverseProxyEndpointPort.
 

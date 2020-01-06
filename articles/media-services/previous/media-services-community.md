@@ -51,9 +51,9 @@ The team also monitors questions tagged on Stack Overflow with 'azure-media-serv
 
 [![StackOverflow](./media/media-services-community/stack-overflow.png)](https://stackoverflow.com/questions/tagged/azure-media-services) 
 
-## Contact the team
+## Need help?
 
-Azure Media Services primary support email is: **amshelp@microsoft.com**.
+You can open a support ticket by navigating to [New support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)
 
 ## Next steps
 

@@ -1,7 +1,7 @@
 ---
 title:  "Add Columns: Module Reference"
-titleSuffix: Azure Machine Learning service
-description: Learn how to use the Add Columns module in Azure Machine Learning service to concatenate two datasets.
+titleSuffix: Azure Machine Learning
+description: Learn how to use the Add Columns module in Azure Machine Learning to concatenate two datasets.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,19 +9,19 @@ ms.topic: reference
 
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/02/2019
+ms.date: 10/22/2019
 ---
 
 # Add Columns module
 
-This article describes a module of the visual interface (preview) for Azure Machine Learning service.
+This article describes a module in Azure Machine Learning designer (preview).
 
 Use this module to concatenate two datasets. You combine all columns from the two datasets that you specify as inputs to create a single dataset. If you need to concatenate more than two datasets, use several instances of **Add Columns**.
 
 
 
 ## How to configure Add Columns
-1. Add the **Add Columns** module to your experiment.
+1. Add the **Add Columns** module to your pipeline.
 
 2. Connect the two datasets that you want to concatenate. If you want to combine more than two datasets, you can chain together several combinations of **Add Columns**.
 
@@ -29,10 +29,10 @@ Use this module to concatenate two datasets. You combine all columns from the tw
 
     - You cannot choose individual columns to add. All the columns from each dataset are concatenated when you use **Add Columns**. Therefore, if you want to add only a subset of the columns, use Select Columns in Dataset to create a dataset with the columns you want.
 
-3. Run the experiment.
+3. Run the pipeline.
 
 ### Results
-After the experiment has run:
+After the pipeline has run:
 
 - To see the first rows of the new dataset, right-click the output of **Add Columns** and select Visualize.
 
@@ -42,4 +42,4 @@ If there are two columns with the same name in the input datasets, a numeric suf
 
 ## Next steps
 
-See the [set of modules available](module-reference.md) to Azure Machine Learning service. 
+See the [set of modules available](module-reference.md) to Azure Machine Learning. 

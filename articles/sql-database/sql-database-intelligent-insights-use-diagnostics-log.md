@@ -1,5 +1,5 @@
 ---
-title: Intelligent Insights performance diagnostics log - Azure SQL Database | Microsoft Docs
+title: Intelligent Insights performance diagnostics log
 description: Intelligent Insights provides a diagnostics log of Azure SQL Database performance issues
 services: sql-database
 ms.service: sql-database

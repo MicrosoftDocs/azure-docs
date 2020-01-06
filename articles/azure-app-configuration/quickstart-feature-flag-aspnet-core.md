@@ -49,7 +49,7 @@ You use the [.NET Core command-line interface (CLI)](https://docs.microsoft.com/
 1. In the new folder, run the following command to create a new ASP.NET Core MVC web app project:
 
    ```    
-   dotnet new mvc
+   dotnet new mvc --no-https
    ```
 
 ## Add Secret Manager
@@ -113,6 +113,11 @@ Add the [Secret Manager tool](https://docs.microsoft.com/aspnet/core/security/ap
     ```
 
 1. Update the `CreateWebHostBuilder` method to use App Configuration by calling the `config.AddAzureAppConfiguration()` method.
+    
+    > [!IMPORTANT]
+    > `CreateHostBuilder` replaces `CreateWebHostBuilder` in .NET Core 3.0.  Select the correct syntax based on your environment.
+
+    ### Update `CreateWebHostBuilder` for .NET Core 2.x
 
     ```csharp
     public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
@@ -122,11 +127,29 @@ Add the [Secret Manager tool](https://docs.microsoft.com/aspnet/core/security/ap
                 var settings = config.Build();
                 config.AddAzureAppConfiguration(options => {
                     options.Connect(settings["ConnectionStrings:AppConfig"])
-                           .UseFeatureFlags();
+                        .UseFeatureFlags();
                 });
             })
             .UseStartup<Startup>();
     ```
+
+    ### Update `CreateHostBuilder` for .NET Core 3.x
+
+    ```csharp
+    public static IHostBuilder CreateHostBuilder(string[] args) =>
+        Host.CreateDefaultBuilder(args)
+        .ConfigureWebHostDefaults(webBuilder =>
+        webBuilder.ConfigureAppConfiguration((hostingContext, config) =>
+        {
+            var settings = config.Build();
+            config.AddAzureAppConfiguration(options => {
+                options.Connect(settings["ConnectionStrings:AppConfig"])
+                    .UseFeatureFlags();
+            });
+        })
+        .UseStartup<Startup>());
+    ```
+
 
 1. Open *Startup.cs*, and add references to the .NET Core feature manager:
 
@@ -265,7 +288,7 @@ Add the [Secret Manager tool](https://docs.microsoft.com/aspnet/core/security/ap
     |---|---|
     | Beta | On |
 
-1. Restart your application by switching back to your command prompt and pressing `Ctrl-C` to cancel the running `dotnet` process, then re-running `dotnet run`.
+1. Restart your application by switching back to your command prompt and pressing `Ctrl-C` to cancel the running `dotnet` process, then rerunning `dotnet run`.
 
 1. Refresh the browser page to see the new configuration settings.
 

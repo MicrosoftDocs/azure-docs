@@ -5,7 +5,7 @@ author: ekpgh
 ms.service: fxt-edge-filer
 ms.topic: overview
 ms.date: 06/20/2019
-ms.author: v-erkell
+ms.author: rohogue
 ---
 
 # Azure FXT Edge Filer specifications

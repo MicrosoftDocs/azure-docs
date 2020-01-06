@@ -8,7 +8,7 @@ ms.service: container-service
 ms.topic: quickstart
 ms.date: 5/31/2019
 ms.author: mlearned
-ms.custom: mvc
+ms.custom: mvc, seo-javascript-october2019
 
 #Customer intent: As a developer or cluster operator, I want to quickly create an AKS cluster and deploy an application so that I can see how to run and monitor applications using the managed Kubernetes service in Azure.
 ---
@@ -17,7 +17,7 @@ ms.custom: mvc
 
 Azure Kubernetes Service (AKS) is a managed Kubernetes service that lets you quickly deploy and manage clusters. In this quickstart, you deploy an AKS cluster using the Azure portal. A multi-container application that includes a web front end and a Redis instance is run in the cluster. You then see how to monitor the health of the cluster and pods that run your application.
 
-![Image of browsing to Azure Vote sample application](media/container-service-kubernetes-walkthrough/azure-vote.png)
+![Image of browsing to Azure Vote sample application](media/container-service-kubernetes-walkthrough/azure-voting-application.png)
 
 This quickstart assumes a basic understanding of Kubernetes concepts. For more information, see [Kubernetes core concepts for Azure Kubernetes Service (AKS)][kubernetes-concepts].
 
@@ -29,26 +29,29 @@ Sign in to the Azure portal at https://portal.azure.com.
 
 ## Create an AKS cluster
 
-In the top left-hand corner of the Azure portal, select **+ Create a resource** > **Containers** >  **Kubernetes Service**.
-
 To create an AKS cluster, complete the following steps:
 
-1. On the **Basics** page, configure the following options:
-   - *PROJECT DETAILS*: Select an Azure subscription, then select or create an Azure resource group, such as *myResourceGroup*. Enter a **Kubernetes cluster name**, such as *myAKSCluster*.
-   - *CLUSTER DETAILS*: Select a region, Kubernetes version, and DNS name prefix for the AKS cluster.
-   - **PRIMARY NODE POOL**: select a VM size for the AKS nodes. The VM size **cannot** be changed once an AKS cluster has been deployed. 
-       - Select the number of nodes to deploy into the cluster. For this quickstart, set **Node count** to *1*. Node count **can** be adjusted after the cluster has been deployed.
+1. On the Azure portal menu or from the **Home** page, select **Create a resource**.
+
+2. Select **Containers** >  **Kubernetes Service**.
+
+3. On the **Basics** page, configure the following options:
+    - **Project details**: Select an Azure **Subscription**, then select or create an Azure **Resource group**, such as *myResourceGroup*.
+    - **Cluster details**: Enter a **Kubernetes cluster name**, such as *myAKSCluster*. Select a **Region**, **Kubernetes version**, and **DNS name prefix** for the AKS cluster.
+    - **Primary node pool**: Select a VM **Node size** for the AKS nodes. The VM size *can't* be changed once an AKS cluster has been deployed. 
+            - Select the number of nodes to deploy into the cluster. For this quickstart, set **Node count** to *1*. Node count *can* be adjusted after the cluster has been deployed.
     
-     ![Create AKS cluster - provide basic information](media/kubernetes-walkthrough-portal/create-cluster-basics.png)
+    ![Create AKS cluster - provide basic information](media/kubernetes-walkthrough-portal/create-cluster-basics.png)
 
-     Select **Next: Scale** when complete.
+    Select **Next: Scale** when complete.
 
-2. On the **Scale** page, keep the default options. At the bottom of the screen, click **Next:Authentication**.
-> [!CAUTION]
-> Creating new AAD Service Principals may take multiple minutes to propagate and become available causing Service Principal not found errors and validation failures in Azure portal. If you hit this please visit [here](troubleshooting.md#im-receiving-errors-that-my-service-principal-was-not-found-when-i-try-to-create-a-new-cluster-without-passing-in-an-existing-one) for mitigations.
-3. On the **Authentication** page, configure the following options:
-   - Create a new service principal by leaving the **Service Principal** field with **(new) default service principal**. Or you can choose *Configure service principal* to use an existing one. If you use an existing one, you will need to provide the SPN client ID and secret.
-   - Enable the option for Kubernetes role-based access controls (RBAC). This will provide more fine-grained control over access to the Kubernetes resources deployed in your AKS cluster.
+4. On the **Scale** page, keep the default options. At the bottom of the screen, click **Next: Authentication**.
+    > [!CAUTION]
+    > Creating new AAD Service Principals may take multiple minutes to propagate and become available causing Service Principal not found errors and validation failures in Azure portal. If you hit this please visit [here](troubleshooting.md#im-receiving-errors-that-my-service-principal-was-not-found-when-i-try-to-create-a-new-cluster-without-passing-in-an-existing-one) for mitigations.
+
+5. On the **Authentication** page, configure the following options:
+    - Create a new service principal by leaving the **Service Principal** field with **(new) default service principal**. Or you can choose *Configure service principal* to use an existing one. If you use an existing one, you will need to provide the SPN client ID and secret.
+    - Enable the option for Kubernetes role-based access controls (RBAC). This will provide more fine-grained control over access to the Kubernetes resources deployed in your AKS cluster.
 
 By default, *Basic* networking is used, and Azure Monitor for containers is enabled. Click **Review + create** and then **Create** when validation completes.
 
@@ -217,7 +220,7 @@ azure-vote-front   LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
 
 To see the Azure Vote app in action, open a web browser to the external IP address of your service.
 
-![Image of browsing to Azure Vote sample application](media/container-service-kubernetes-walkthrough/azure-vote.png)
+![Image of browsing to Azure Vote sample application](media/container-service-kubernetes-walkthrough/azure-voting-application.png)
 
 ## Monitor health and logs
 

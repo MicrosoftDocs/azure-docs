@@ -1,5 +1,5 @@
 ---
-title: Web app that calls web APIs (acquire a token for the app) - Microsoft identity platform
+title: Get a token in Web apps that call web APIs - Microsoft identity platform | Azure
 description: Learn how to build a Web app that calls web APIs (acquiring a token for the app)
 services: active-directory
 documentationcenter: dev-center-name
@@ -12,9 +12,9 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/30/2019
+ms.date: 10/30/2019
 ms.author: jmprieur
-ms.custom: aaddev 
+ms.custom: aaddev
 #Customer intent: As an application developer, I want to know how to write a Web app that calls web APIs using the Microsoft identity platform for developers.
 ms.collection: M365-identity-device-management
 ---
@@ -30,7 +30,7 @@ Now that you have built you client application object, you'll use it to acquire 
 
 The controller methods are protected by an `[Authorize]` attribute that forces users being authenticated to use the Web App. Here is the code that calls Microsoft Graph.
 
-```CSharp
+```csharp
 [Authorize]
 public class HomeController : Controller
 {
@@ -51,17 +51,17 @@ The `ITokenAcquisition` service is injected by ASP.NET through dependency inject
 
 Here is a simplified code of the action of the HomeController, which gets a token to call the Microsoft Graph.
 
-```CSharp
+```csharp
 public async Task<IActionResult> Profile()
 {
  // Acquire the access token
  string[] scopes = new string[]{"user.read"};
  string accessToken = await tokenAcquisition.GetAccessTokenOnBehalfOfUserAsync(scopes);
 
-// use the access token to call a protected web API
-HttpClient client = new HttpClient();
-client.DefaultRequestHeaders.Add("Authorization", result.CreateAuthorizationHeader());
-string json = await client.GetStringAsync(url);
+ // use the access token to call a protected web API
+ HttpClient client = new HttpClient();
+ client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
+ string json = await client.GetStringAsync(url);
 }
 ```
 
@@ -70,7 +70,7 @@ To understand more thoroughly the code required for this scenario, see the phase
 There are many additional complexities, such as:
 
 - Calling several APIs,
-- processing  incremental consent and conditional access.
+- processing  incremental consent and Conditional Access.
 
 These advanced steps are processed in chapter 3 of the tutorial [3-WebApp-multi-APIs](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/3-WebApp-multi-APIs)
 
@@ -91,47 +91,66 @@ In the Java sample, the code that calls an API is in the getUsersFromGraph metho
 It attempts to call `getAuthResultBySilentFlow`. If the user needs to consent to more scopes, the code processes the `MsalInteractionRequiredException` to challenge the user.
 
 ```java
-@RequestMapping("/msal4jsample/graph/users")
-    public ModelAndView getUsersFromGraph(HttpServletRequest httpRequest, HttpServletResponse response)
-            throws Throwable {
+@RequestMapping("/msal4jsample/graph/me")
+public ModelAndView getUserFromGraph(HttpServletRequest httpRequest, HttpServletResponse response)
+        throws Throwable {
 
-        IAuthenticationResult result;
-        ModelAndView mav;
-        try {
-            result = authHelper.getAuthResultBySilentFlow(httpRequest, response);
-        } catch (ExecutionException e) {
-            if (e.getCause() instanceof MsalInteractionRequiredException) {
+    IAuthenticationResult result;
+    ModelAndView mav;
+    try {
+        result = authHelper.getAuthResultBySilentFlow(httpRequest, response);
+    } catch (ExecutionException e) {
+        if (e.getCause() instanceof MsalInteractionRequiredException) {
 
-                // If silent call returns MsalInteractionRequired, then redirect to Authorization endpoint
-                // so user can consent to new scopes
-                String state = UUID.randomUUID().toString();
-                String nonce = UUID.randomUUID().toString();
+            // If silent call returns MsalInteractionRequired, then redirect to Authorization endpoint
+            // so user can consent to new scopes
+            String state = UUID.randomUUID().toString();
+            String nonce = UUID.randomUUID().toString();
 
-                SessionManagementHelper.storeStateAndNonceInSession(httpRequest.getSession(), state, nonce);
+            SessionManagementHelper.storeStateAndNonceInSession(httpRequest.getSession(), state, nonce);
 
-                String authorizationCodeUrl = authHelper.getAuthorizationCodeUrl(
-                        httpRequest.getParameter("claims"),
-                        "User.ReadBasic.all",
-                        authHelper.getRedirectUriGraphUsers(),
-                        state,
-                        nonce);
+            String authorizationCodeUrl = authHelper.getAuthorizationCodeUrl(
+                    httpRequest.getParameter("claims"),
+                    "User.Read",
+                    authHelper.getRedirectUriGraph(),
+                    state,
+                    nonce);
 
-                return new ModelAndView("redirect:" + authorizationCodeUrl);
-            } else {
+            return new ModelAndView("redirect:" + authorizationCodeUrl);
+        } else {
 
-                mav = new ModelAndView("error");
-                mav.addObject("error", e);
-                return mav;
-            }
+            mav = new ModelAndView("error");
+            mav.addObject("error", e);
+            return mav;
         }
-    // Code omitted here.
+    }
+
+    if (result == null) {
+        mav = new ModelAndView("error");
+        mav.addObject("error", new Exception("AuthenticationResult not found in session."));
+    } else {
+        mav = new ModelAndView("auth_page");
+        setAccountInfo(mav, httpRequest);
+
+        try {
+            mav.addObject("userInfo", getUserInfoFromGraph(result.accessToken()));
+
+            return mav;
+        } catch (Exception e) {
+            mav = new ModelAndView("error");
+            mav.addObject("error", e);
+        }
+    }
+    return mav;
+}
+// Code omitted here.
 ```
 
 # [Python](#tab/python)
 
 In the python sample, the code calling Microsoft graph is in [app.py#L53-L62](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/48637475ed7d7733795ebeac55c5d58663714c60/app.py#L53-L62).
 
-It attempts to get a token from the token cache, and then calls the eb API after setting the authorization header. If it can't, it re-signs in the user.
+It attempts to get a token from the token cache, and then calls the web API after setting the authorization header. If it can't, it re-signs in the user.
 
 ```python
 @app.route("/graphcall")

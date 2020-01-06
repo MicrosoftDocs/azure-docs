@@ -80,7 +80,13 @@
       items:
       - name: Copy Data tool
         href: tutorial-incremental-copy-partitioned-file-name-copy-data-tool.md
-  - name: Transform data in cloud
+  - name: Transform and prepare data with data flows
+    items:
+    - name: Transform data with a mapping data flow
+      href: tutorial-data-flow.md
+    - name: Prepare data with a wrangling data flow
+      href: wrangling-data-flow-tutorial.md
+  - name: External transformations
     items:
     - name: HDInsight Spark
       items:
@@ -92,7 +98,7 @@
       items:
       - name: User interface (UI)
         href: transform-data-using-databricks-notebook.md
-  - name: Transform data in virtual network
+  - name: Hive transformation in virtual network
     items:
     - name: User interface (UI)
       href: tutorial-transform-data-hive-virtual-network-portal.md
@@ -115,7 +121,7 @@
     items:
     - name: Copy from Data Lake Storage Gen1
       href: load-azure-data-lake-storage-gen2-from-gen1.md
-  - name: Load SQL Data Warehouse
+  - name: Load Synapse Analytics (formerly SQL Data Warehouse)
     href: load-azure-sql-data-warehouse.md
   - name: Load Data Lake Storage Gen1
     href: load-azure-data-lake-store.md
@@ -141,34 +147,36 @@
     href: concepts-pipeline-execution-triggers.md
   - name: Integration runtime
     href: concepts-integration-runtime.md
-  - name: Mapping Data Flows
+  - name: Data flows
     items:
-    - name: Mapping data flow concepts
-      href: concepts-data-flow-overview.md
-    - name: Debug mode
-      href: concepts-data-flow-debug-mode.md
-    - name: JSON handling
-      href: concepts-data-flow-json.md
-    - name: Schema drift
-      href: concepts-data-flow-schema-drift.md
-    - name: Inspect pane
-      href: concepts-data-flow-inspect-pane.md
-    - name: Column patterns
-      href: concepts-data-flow-column-pattern.md
-    - name: Data flow monitoring
-      href: concepts-data-flow-monitoring.md
-    - name: Data flow performance
-      href: concepts-data-flow-performance.md
-    - name: Move nodes
-      href: concepts-data-flow-move-nodes.md
-    - name: Optimize tab
-      href: concepts-data-flow-optimize-tab.md
-    - name: Expression builder
-      href: concepts-data-flow-expression-builder.md
-    - name: Reference nodes
-      href: concepts-data-flow-reference-node.md
-    - name: Expression language
-      href: data-flow-expression-functions.md
+    - name: Transform data with mapping data flows
+      items:
+      - name: Mapping data flow overview
+        href: concepts-data-flow-overview.md
+      - name: Debug mode
+        href: concepts-data-flow-debug-mode.md
+      - name: JSON handling
+        href: concepts-data-flow-json.md
+      - name: Schema drift
+        href: concepts-data-flow-schema-drift.md
+      - name: Column patterns
+        href: concepts-data-flow-column-pattern.md
+      - name: Data flow monitoring
+        href: concepts-data-flow-monitoring.md
+      - name: Data flow performance
+        href: concepts-data-flow-performance.md
+      - name: Manage graph
+        href: concepts-data-flow-manage-graph.md
+      - name: Expression builder
+        href: concepts-data-flow-expression-builder.md
+      - name: Expression language
+        href: data-flow-expression-functions.md
+    - name: Prepare data with Wrangling data flows
+      items:
+      - name: Wrangling data flow overview
+        href: wrangling-data-flow-overview.md
+      - name: Supported functions
+        href: wrangling-data-flow-functions.md
   - name: Roles and permissions
     href: concepts-roles-permissions.md
   - name: Understanding pricing
@@ -201,6 +209,8 @@
       href: format-avro.md
     - name: Azure Blob Storage
       href: connector-azure-blob-storage.md
+    - name: Azure Cognitive Search
+      href: connector-azure-search.md
     - name: Azure Cosmos DB SQL API
       href: connector-azure-cosmos-db.md
     - name: Azure Cosmos DB's API for MongoDB
@@ -219,13 +229,11 @@
       href: connector-azure-database-for-postgresql.md
     - name: Azure File Storage
       href: connector-azure-file-storage.md
-    - name: Azure Search
-      href: connector-azure-search.md
     - name: Azure SQL Database
       href: connector-azure-sql-database.md
     - name: Azure SQL Database Managed Instance
       href: connector-azure-sql-database-managed-instance.md
-    - name: Azure SQL Data Warehouse
+    - name: Azure Synapse Analytics (formerly SQL Data Warehouse)
       href: connector-azure-sql-data-warehouse.md
     - name: Azure Table Storage
       href: connector-azure-table-storage.md
@@ -312,6 +320,8 @@
       href: connector-oracle-responsys.md
     - name: Oracle Service Cloud
       href: connector-oracle-service-cloud.md
+    - name: ORC format
+      href: format-orc.md
     - name: Parquet format
       href: format-parquet.md
     - name: PayPal
@@ -379,17 +389,23 @@
       href: delete-activity.md
     - name: Copy Data tool
       href: copy-data-tool.md
-    - name: Performance and tuning
-      href: copy-activity-performance.md
     - name: Format and compression support
       href: supported-file-formats-and-compression-codecs.md
+    - name: Performance and tuning
+      href: copy-activity-performance.md
+    - name: Preserve metadata and ACLs
+      href: copy-activity-preserve-metadata.md
     - name: Schema and type mapping
       href: copy-activity-schema-and-type-mapping.md
     - name: Fault tolerance
       href: copy-activity-fault-tolerance.md
+    - name: Format and compression support (legacy)
+      href: supported-file-formats-and-compression-codecs-legacy.md
   - name: Transform data
     href: transform-data.md
     items:
+    - name: Execute Data Flow Activity
+      href: control-flow-execute-data-flow-activity.md
     - name: Azure Function Activity
       href: control-flow-azure-function-activity.md
     - name: Custom Activity
@@ -400,6 +416,8 @@
       href: transform-data-databricks-notebook.md
     - name: Databricks Python Activity
       href: transform-data-databricks-python.md
+    - name: Data Explorer Command Activity
+      href: /azure/data-explorer/data-factory-command-activity?toc=/azure/data-factory/toc.json
     - name: Data Lake U-SQL Activity
       href: transform-data-using-data-lake-analytics.md
     - name: HDInsight Hive Activity
@@ -412,10 +430,12 @@
       href: transform-data-using-spark.md
     - name: HDInsight Streaming Activity
       href: transform-data-using-hadoop-streaming.md
-    - name: ML Batch Execution Activity
+    - name: Machine Learning Batch Execution Activity
       href: transform-data-using-machine-learning.md
-    - name: ML Update Resource Activity
+    - name: Machine Learning Update Resource Activity
       href: update-machine-learning-models.md
+    - name: Machine Learning Execute Pipeline Activity
+      href: transform-data-machine-learning-service.md
     - name: Stored Procedure Activity
       href: transform-data-using-stored-procedure.md
     - name: Compute linked services
@@ -424,8 +444,6 @@
     items:
     - name: Append Variable Activity
       href: control-flow-append-variable-activity.md
-    - name: Execute Data Flow Activity
-      href: control-flow-execute-data-flow-activity.md
     - name: Execute Pipeline Activity
       href: control-flow-execute-pipeline-activity.md
     - name: Filter Activity
@@ -440,6 +458,8 @@
       href: control-flow-lookup-activity.md
     - name: Set Variable Activity
       href: control-flow-set-variable-activity.md
+    - name: Switch Activity
+      href: control-flow-switch-activity.md
     - name: Until Activity
       href: control-flow-until-activity.md
     - name: Validation Activity
@@ -504,6 +524,8 @@
       href: data-movement-security-considerations.md
     - name: Store credentials in Azure Key Vault
       href: store-credentials-in-key-vault.md
+    - name: Use Azure Key Vault secrets in pipeline activities
+      href: how-to-use-azure-key-vault-secrets-pipeline-activities.md
     - name: Encrypt credentials for self-hosted integration runtime
       href: encrypt-credentials-self-hosted-integration-runtime.md
     - name: Managed identity for Data Factory
@@ -600,8 +622,12 @@
       href: connector-troubleshoot-guide.md
     - name: Troubleshooting Azure-SSIS IR Management
       href: ssis-integration-runtime-management-troubleshoot.md
+    - name: Troubleshooting Self-hosted IR
+      href: self-hosted-integration-runtime-troubleshoot-guide.md
     - name: Troubleshooting Package Execution in Azure-SSIS IR
       href: ssis-integration-runtime-ssis-activity-faq.md
+    - name: Troubleshooting Data Flows
+      href: data-flow-troubleshoot-guide.md
 - name: Scenarios
   items:
   - name: Data migration for data lake & EDW
@@ -614,10 +640,12 @@
       href: data-migration-guidance-hdfs-azure-storage.md
     - name: Migrate data from on-premises Netezza server to Azure
       href: data-migration-guidance-netezza-azure-sqldw.md
-  - name: Transformation using Mapping Data Flow
+  - name: Transformation using mapping data flow
     items:
     - name: Process fixed-width text files
       href: how-to-fixed-width.md
+    - name: Error row handling
+      href: how-to-data-flow-error-rows.md
   - name: SSIS migration from on-premises
     items:
     - name: SSIS migration overview
@@ -626,6 +654,8 @@
       href: scenario-ssis-migration-ssisdb-mi.md
 - name: Reference
   items:
+  - name: Data flow script
+    href: data-flow-script.md
   - name: .NET
     href: /dotnet/api/microsoft.azure.management.datafactory
   - name: PowerShell

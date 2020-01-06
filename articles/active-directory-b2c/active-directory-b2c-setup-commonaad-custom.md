@@ -1,6 +1,7 @@
 ---
-title: Set up sign-in for a multi-tenant Azure AD identity provider using custom policies in Azure Active Directory B2C
-description: Add a multi-tenant Azure AD identity provider using custom policies - Azure Active Directory B2C.
+title: Set up sign-in for multi-tenant Azure AD by custom policies
+titleSuffix: Azure AD B2C
+description: Add a multi-tenant Azure AD identity provider using custom policies in Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -43,7 +44,7 @@ To enable sign-in for users from a specific Azure AD organization, you need to r
 
 1. Select **Register**. Record the **Application (client) ID** for use in a later step.
 1. Select **Certificates & secrets**, and then select **New client secret**.
-1. Enter a **Description** for the secret, select an expiration, and then select **Add**. Record the **VALUE** of the secret for use in a later step.
+1. Enter a **Description** for the secret, select an expiration, and then select **Add**. Record the **Value** of the secret for use in a later step.
 
 ## Create a policy key
 
@@ -79,19 +80,19 @@ You can define Azure AD as a claims provider by adding Azure AD to the **ClaimsP
           <Description>Login with your Contoso account</Description>
           <Protocol Name="OpenIdConnect"/>
           <Metadata>
-            <Item Key="METADATA">https://login.windows.net/common/.well-known/openid-configuration</Item>
+            <Item Key="METADATA">https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration</Item>
             <!-- Update the Client ID below to the Application ID -->
             <Item Key="client_id">00000000-0000-0000-0000-000000000000</Item>
             <Item Key="response_types">code</Item>
-            <Item Key="scope">openid</Item>
+            <Item Key="scope">openid profile</Item>
             <Item Key="response_mode">form_post</Item>
             <Item Key="HttpBinding">POST</Item>
             <Item Key="UsePolicyInRedirectUri">false</Item>
             <Item Key="DiscoverMetadataByTokenIssuer">true</Item>
             <!-- The key below allows you to specify each of the Azure AD tenants that can be used to sign in. Update the GUIDs below for each tenant. -->
-            <Item Key="ValidTokenIssuerPrefixes">https://sts.windows.net/00000000-0000-0000-0000-000000000000,https://sts.windows.net/11111111-1111-1111-1111-111111111111</Item>
+            <Item Key="ValidTokenIssuerPrefixes">https://login.microsoftonline.com/00000000-0000-0000-0000-000000000000,https://login.microsoftonline.com/11111111-1111-1111-1111-111111111111</Item>
             <!-- The commented key below specifies that users from any tenant can sign-in. Uncomment if you would like anyone with an Azure AD account to be able to sign in. -->
-            <!-- <Item Key="ValidTokenIssuerPrefixes">https://sts.windows.net/</Item> -->
+            <!-- <Item Key="ValidTokenIssuerPrefixes">https://login.microsoftonline.com/</Item> -->
           </Metadata>
           <CryptographicKeys>
             <Key Id="client_secret" StorageReferenceId="B2C_1A_AADAppSecret"/>
@@ -125,17 +126,17 @@ You can define Azure AD as a claims provider by adding Azure AD to the **ClaimsP
 ### Restrict access
 
 > [!NOTE]
-> Using `https://sts.windows.net` as the value for **ValidTokenIssuerPrefixes** allows all Azure AD users to sign in to your application.
+> Using `https://login.microsoftonline.com/` as the value for **ValidTokenIssuerPrefixes** allows all Azure AD users to sign in to your application.
 
 You need to update the list of valid token issuers and restrict access to a specific list of Azure AD tenant users who can sign in.
 
-To obtain the values, look at the OpenID Connect discovery metadata for each of the Azure AD tenants that you would like to have users sign in from. The format of the metadata URL is similar to `https://login.windows.net/your-tenant/.well-known/openid-configuration`, where `your-tenant` is your Azure AD tenant name. For example:
+To obtain the values, look at the OpenID Connect discovery metadata for each of the Azure AD tenants that you would like to have users sign in from. The format of the metadata URL is similar to `https://login.microsoftonline.com/your-tenant/v2.0/.well-known/openid-configuration`, where `your-tenant` is your Azure AD tenant name. For example:
 
-`https://login.windows.net/fabrikam.onmicrosoft.com/.well-known/openid-configuration`
+`https://login.microsoftonline.com/fabrikam.onmicrosoft.com/v2.0/.well-known/openid-configuration`
 
 Perform these steps for each Azure AD tenant that should be used to sign in:
 
-1. Open your browser and go to the OpenID Connect metadata URL for the tenant. Find the **issuer** object and record its value. It should look similar to `https://sts.windows.net/00000000-0000-0000-0000-000000000000/`.
+1. Open your browser and go to the OpenID Connect metadata URL for the tenant. Find the **issuer** object and record its value. It should look similar to `https://login.microsoftonline.com/00000000-0000-0000-0000-000000000000/`.
 1. Copy and paste the value into the **ValidTokenIssuerPrefixes** key. Separate multiple issuers with a comma. An example with two issuers appears in the previous `ClaimsProvider` XML sample.
 
 ### Upload the extension file for verification

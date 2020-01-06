@@ -1,18 +1,17 @@
 ---
-title: Enroll TPM device to Azure Device Provisioning Service using Java | Microsoft Docs
-description: Azure Quickstart - Enroll TPM device to Azure IoT Hub Device Provisioning Service using Java service SDK. This quickstart uses individual enrollments.
+title: Enroll TPM device to Azure Device Provisioning Service using Java
+description: Quickstart - Enroll TPM device to Azure IoT Hub Device Provisioning Service (DPS) using Java service SDK. This quickstart uses individual enrollments.
 author: wesmc7777
 ms.author: wesmc
-ms.date: 12/20/2017
+ms.date: 11/08/2019
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps 
-manager: timlt
 ms.devlang: java
 ms.custom: mvc
 ---
 
-# Enroll TPM device to IoT Hub Device Provisioning Service using Java service SDK
+# Quickstart: Enroll TPM device to IoT Hub Device Provisioning Service using Java service SDK
 
 [!INCLUDE [iot-dps-selector-quick-enroll-device-tpm](../../includes/iot-dps-selector-quick-enroll-device-tpm.md)]
 
@@ -131,19 +130,19 @@ This section shows how to add the provisioning details of your TPM device to the
 
 4. Observe the output window for successful enrollment. 
 
-5. Navigate to your provisioning service in the Azure portal. Click **Manage enrollments**, and select the **Individual Enrollments** tab. Notice that the *Registration ID* of your simulated TPM device is now listed. 
+5. Navigate to your provisioning service in the Azure portal. Select **Manage enrollments**, and select the **Individual Enrollments** tab. Notice that the *Registration ID* of your simulated TPM device is now listed. 
 
     ![Verify successful TPM enrollment in portal](./media/quick-enroll-device-tpm-java/verify-tpm-enrollment.png)  
 
 ## Clean up resources
-If you plan to explore the Java service sample, do not clean up the resources created in this Quickstart. If you do not plan to continue, use the following steps to delete all resources created by this Quickstart.
+If you plan to explore the Java service sample, do not clean up the resources created in this quickstart. If you do not plan to continue, use the following steps to delete all resources created by this quickstart.
 
 1. Close the Java sample output window on your machine.
 1. Close the TPM simulator window that you may have created to simulate your TPM device.
-1. Navigate to your Device Provisioning service in the Azure portal, click **Manage enrollments**, and then select the **Individual Enrollments** tab. Select the *Registration ID* of the device you enrolled using this Quickstart, and click the **Delete** button at the top of the blade. 
+1. Navigate to your Device Provisioning service in the Azure portal, select **Manage enrollments**, and then select the **Individual Enrollments** tab. Select the check box next to the *Registration ID* for the enrollment entry you created using this quickstart, and press the **Delete** button at the top of the pane.
 
 ## Next steps
-In this Quickstart, you enrolled a simulated TPM device to your Device Provisioning service. To learn about device provisioning in depth, continue to the tutorial for the Device Provisioning Service setup in the Azure portal. 
+In this quickstart, you enrolled a simulated TPM device to your Device Provisioning service. To learn about device provisioning in depth, continue to the tutorial for the Device Provisioning Service setup in the Azure portal. 
 
 > [!div class="nextstepaction"]
 > [Azure IoT Hub Device Provisioning Service tutorials](./tutorial-set-up-cloud.md)

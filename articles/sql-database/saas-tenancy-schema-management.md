@@ -1,5 +1,5 @@
----
-title: Manage Azure SQL Database schema in a single-tenant app | Microsoft Docs
+﻿---
+title: Manage schema in a single-tenant app
 description: "Manage Schema for multiple tenants in a single-tenant app that uses Azure SQL Database"
 services: sql-database
 ms.service: sql-database
@@ -80,7 +80,7 @@ To create a new job, you use a set of jobs system stored procedures created in t
 1. In SSMS, connect to the catalog server: *catalog-dpt-&lt;user&gt;.database.windows.net* server 
 1. In SSMS, open the file …\\Learning Modules\\Schema Management\\DeployReferenceData.sql
 1. Modify the statement: SET @wtpUser = &lt;user&gt; and substitute the User value used when you deployed the Wingtip Tickets SaaS Database Per Tenant app
-1. Ensure you are connected to the _jobagent_ database and press **F5** to run the script
+1. Ensure you are connected to the _jobagent_ database and press **F5** to run the script
 
 Observe the following elements in the *DeployReferenceData.sql* script:
 * **sp\_add\_target\_group** creates the target group name DemoServerGroup.

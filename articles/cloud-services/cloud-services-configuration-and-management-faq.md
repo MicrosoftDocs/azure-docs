@@ -1,5 +1,6 @@
 ---
-title: Configuration and management issues for Microsoft Azure Cloud Services FAQ| Microsoft Docs
+title: Configuration and management issues FAQ
+titleSuffix: Azure Cloud Services
 description: This article lists the frequently asked questions about configuration and management for Microsoft Azure Cloud Services.
 services: cloud-services
 documentationcenter: ''
@@ -270,7 +271,7 @@ You can also add this as a setting in IIS. Use the following command with the [c
 Use the IIS startup script from the [common startup tasks](cloud-services-startup-tasks-common.md#configure-iis-startup-with-appcmdexe) article.
 
 ### What is the quota limit for my Cloud Service?
-See [Service-specific limits](../azure-subscription-service-limits.md#subscription-limits).
+See [Service-specific limits](../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits).
 
 ### Why does the drive on my Cloud Service VM show very little free disk space?
 This is expected behavior, and it shouldn't cause any issue to your application. Journaling is turned on for the %approot% drive in Azure PaaS VMs, which essentially consumes double the amount of space that files normally take up. However there are several things to be aware of that essentially turn this into a non-issue.
@@ -307,9 +308,9 @@ As described [here](https://technet.microsoft.com/library/ee790567.aspx), the $s
 |Value|Meaning|
 ------|------
 |0|No SNI|
-|1|SNI Enabled |
-|2 |Non SNI binding which uses Central Certificate Store|
-|3|SNI binding which uses Central Certificate store |
+|1|SNI Enabled|
+|2|Non SNI binding which uses Central Certificate Store|
+|3|SNI binding which uses Central Certificate store|
  
 **Method 2: Use code**
 
@@ -319,8 +320,8 @@ The SNI binding could also be configured via code in the role startup as describ
     //<code snip> 
                     var serverManager = new ServerManager(); 
                     var site = serverManager.Sites[0]; 
-                    var binding = site.Bindings.Add(“:443:www.test1.com”, newCert.GetCertHash(), “My”); 
-                    binding.SetAttributeValue(“sslFlags”, 1); //enables the SNI 
+                    var binding = site.Bindings.Add(":443:www.test1.com", newCert.GetCertHash(), "My"); 
+                    binding.SetAttributeValue("sslFlags", 1); //enables the SNI 
                     serverManager.CommitChanges(); 
     //</code snip> 
     

@@ -1,14 +1,14 @@
 ---
-title: Add typeahead queries to an index - Azure Search
-description: Enable type-ahead query actions in Azure Search by creating suggesters and formulating requests that invoke autocomplete or autosuggested query terms.
-ms.date: 09/30/2019
-services: search
-ms.service: search
-ms.topic: conceptual
+title: Add typeahead queries to an index
+titleSuffix: Azure Cognitive Search
+description: Enable type-ahead query actions in Azure Cognitive Search by creating suggesters and formulating requests that invoke autocomplete or autosuggested query terms.
 
-author: "Brjohnstmsft"
-ms.author: "brjohnst"
 manager: nitinme
+author: Brjohnstmsft
+ms.author: brjohnst
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
 translation.priority.mt:
   - "de-de"
   - "es-es"
@@ -21,9 +21,9 @@ translation.priority.mt:
   - "zh-cn"
   - "zh-tw"
 ---
-# Add suggesters to an index for typeahead in Azure Search
+# Add suggesters to an index for typeahead in Azure Cognitive Search
 
-In Azure Search, "search-as-you-type" or typeahead functionality is based on a **suggester** construct that you add to a [search index](search-what-is-an-index.md). It's a list of one or more fields for which you want typeahead enabled.
+In Azure Cognitive Search, "search-as-you-type" or typeahead functionality is based on a **suggester** construct that you add to a [search index](search-what-is-an-index.md). It's a list of one or more fields for which you want typeahead enabled.
 
 A suggester supports two typeahead variants: *autocomplete*, which completes the term or phrase you are typing, and *suggestions* that return a short list of matching documents.  
 
@@ -31,7 +31,7 @@ The following screenshot, from the [Create your first app in C#](tutorial-csharp
 
 ![Visual comparison of autocomplete and suggested queries](./media/index-add-suggesters/hotel-app-suggestions-autocomplete.png "Visual comparison of autocomplete and suggested queries")
 
-To implement these behaviors in Azure Search, there is an index and query component. 
+To implement these behaviors in Azure Cognitive Search, there is an index and query component. 
 
 + In the index, add a suggester to an index. You can use the portal, [REST API](https://docs.microsoft.com/rest/api/searchservice/create-index), or [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.suggester?view=azure-dotnet). The remainder of this article is focused on creating a suggester. 
 
@@ -49,7 +49,7 @@ To create a suggester, add one to an index schema. You can have one suggester in
 
 The best time to create a suggester is when you are also creating the field definition itself.
 
-If you try to create a suggester using pre-existing fields, the API will disallow it. Typeahead text is created during indexing, when partial terms in two or more character combinations are tokenized alongside whole terms. Given that existing fields are already tokenized, you will have to rebuild the index if you want to add them to a suggester. For more information about reindexing, see [How to rebuild an Azure Search index](search-howto-reindex.md).
+If you try to create a suggester using pre-existing fields, the API will disallow it. Typeahead text is created during indexing, when partial terms in two or more character combinations are tokenized alongside whole terms. Given that existing fields are already tokenized, you will have to rebuild the index if you want to add them to a suggester. For more information about reindexing, see [How to rebuild an Azure Cognitive Search index](search-howto-reindex.md).
 
 ### Create using the REST API
 
@@ -109,7 +109,7 @@ private static void CreateHotelsIndex(SearchServiceClient serviceClient)
 
 ### Analyzer restrictions for sourceFields in a suggester
 
-Azure Search analyzes the field content to enable querying on individual terms. Suggesters require prefixes to be indexed in addition to complete terms, which requires additional analysis over the source fields. Custom analyzer configurations can combine any of the various tokenizers and filters, often in ways that would make producing the prefixes required for suggestions impossible. For this reason, Azure Search prevents fields with custom analyzers from being included in a suggester.
+Azure Cognitive Search analyzes the field content to enable querying on individual terms. Suggesters require prefixes to be indexed in addition to complete terms, which requires additional analysis over the source fields. Custom analyzer configurations can combine any of the various tokenizers and filters, often in ways that would make producing the prefixes required for suggestions impossible. For this reason, Azure Cognitive Search prevents fields with custom analyzers from being included in a suggester.
 
 > [!NOTE] 
 >  If you need to work around the above limitation, use two separate fields for the same content. This will allow one of the fields to have a suggester, while the other can be set up with a custom analyzer configuration.
@@ -136,7 +136,7 @@ If a suggester is not defined in the index, a call to autocomplete or suggestion
 
 ## Sample code
 
-+ [Create your first app in C#](tutorial-csharp-type-ahead-and-suggestions.md) sample demonstrates a suggester construction, suggested queries, autocomplete, and faceted navigation. This code sample runs on a sandbox Azure Search service and uses a pre-loaded Hotels index so all you have to do is press F5 to run the application. No subscription or sign-in is necessary.
++ [Create your first app in C#](tutorial-csharp-type-ahead-and-suggestions.md) sample demonstrates a suggester construction, suggested queries, autocomplete, and faceted navigation. This code sample runs on a sandbox Azure Cognitive Search service and uses a pre-loaded Hotels index so all you have to do is press F5 to run the application. No subscription or sign-in is necessary.
 
 + [DotNetHowToAutocomplete](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToAutocomplete) is an older sample containing both C# and Java code. It also demonstrates a suggester construction, suggested queries, autocomplete, and faceted navigation. This code sample uses the hosted [NYCJobs](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs) sample data. 
 

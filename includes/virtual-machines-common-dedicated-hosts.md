@@ -80,6 +80,8 @@ There is a default quota limit of 3000 vCPUs for dedicated hosts, per region. Bu
 
 For more information, see [Virtual machine vCPU quotas](/azure/virtual-machines/windows/quotas).
 
+Free trial and MSDN subscriptions do not have quota for Azure Dedicated Hosts.
+
 ## Pricing
 
 Users are charged per dedicated host, regardless how many VMs are deployed. In your monthly statement you will see a new billable resource type of hosts. The VMs on a dedicated host will still be shown in your statement, but will carry a price of 0.

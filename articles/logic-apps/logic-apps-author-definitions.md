@@ -1,18 +1,14 @@
 ---
-title: Create, edit, or extend JSON for logic app definitions - Azure Logic Apps | Microsoft Docs
-description: Author and extend JSON for logic app definitions in Azure Logic Apps
+title: Create, edit, or extend logic app JSON workflow definitions
+description: How to write, edit, and extend your logic app's JSON workflow definitions in Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, jehollan, LADocs
-ms.assetid: d565873c-6b1b-4057-9250-cf81a96180ae
+ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 01/01/2018
 ---
 
-# Create, edit, or extend JSON for logic app definitions in Azure Logic Apps
+# Create, edit, or extend JSON for logic app workflow definitions in Azure Logic Apps
 
 When you create enterprise integration 
 solutions with automated workflows in 
@@ -25,7 +21,7 @@ make logic app definitions easier to read and
 understand without knowing much about code. 
 When you want to automate creating and deploying logic apps, 
 you can include logic app definitions as 
-[Azure resources](../azure-resource-manager/resource-group-overview.md) 
+[Azure resources](../azure-resource-manager/management/overview.md) 
 inside [Azure Resource Manager templates](../azure-resource-manager/template-deployment-overview.md). 
 To create, manage, and deploy logic apps, you can then use 
 [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.logicapp), 
@@ -73,7 +69,7 @@ created and deployed either directly from the Azure portal
 or as Azure Resource Manager projects from Visual Studio.
 
 1. Open the Visual Studio solution, 
-or [Azure Resource Group](../azure-resource-manager/resource-group-overview.md) 
+or [Azure Resource Group](../azure-resource-manager/management/overview.md) 
 project, that contains your logic app.
 
 2. Find and open your logic app's definition, 
@@ -103,7 +99,7 @@ choose **Design**.
 
 ## Parameters
 
-The deployment lifecycle usually has different environments for development, test, staging, and production. When you have values that you want to reuse throughout your logic app without hardcoding or that vary based on your deployment needs, you can create an [Azure Resource Manager template](../azure-resource-manager/resource-group-overview.md) for your workflow definition so that you can also automate logic app deployment. 
+The deployment lifecycle usually has different environments for development, test, staging, and production. When you have values that you want to reuse throughout your logic app without hardcoding or that vary based on your deployment needs, you can create an [Azure Resource Manager template](../azure-resource-manager/management/overview.md) for your workflow definition so that you can also automate logic app deployment. 
 
 Follow these general steps to *parameterize*, or define and use parameters for, those values instead. You can then provide the values in a separate parameter file that passes those values to your template. That way, you can change those values more easily without having to update and redeploy your logic app. For full details, see [Overview: Automate deployment for logic apps with Azure Resource Manager templates](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md).
 
@@ -117,7 +113,7 @@ Follow these general steps to *parameterize*, or define and use parameters for, 
 
    When you specify the values for your workflow definition parameters, you can reference template parameters by using the parameters section that's outside your workflow definition but still inside the resource definition for your logic app. That way, you can pass template parameter values into your workflow definition parameters.
 
-1. Store the values for your parameters in a separate [parameter file](../azure-resource-manager/resource-group-template-deploy.md#parameter-files) and include that file with your deployment.
+1. Store the values for your parameters in a separate [parameter file](../azure-resource-manager/templates/parameter-files.md) and include that file with your deployment.
 
 ## Process strings with functions
 

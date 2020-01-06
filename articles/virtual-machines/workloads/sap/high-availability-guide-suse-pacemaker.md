@@ -25,8 +25,8 @@ ms.author: sedusch
 [deployment-guide]:deployment-guide.md
 [dbms-guide]:dbms-guide.md
 [sap-hana-ha]:sap-hana-high-availability.md
-[virtual-machines-linux-maintenance]:../../linux/maintenance-and-updates.md#maintenance-that-doesnt-require-a-reboot
-[virtual-machines-windows-maintenance]:../../windows/maintenance-and-updates.md#maintenance-that-doesnt-require-a-reboot
+[virtual-machines-linux-maintenance]:../../maintenance-and-updates.md#maintenance-that-doesnt-require-a-reboot
+[virtual-machines-windows-maintenance]:../../maintenance-and-updates.md#maintenance-that-doesnt-require-a-reboot
 [sles-nfs-guide]:high-availability-guide-suse-nfs.md
 [sles-guide]:high-availability-guide-suse.md
 
@@ -318,6 +318,11 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    <pre><code>sudo zypper update
    </code></pre>
 
+1. **[A]** Install component, needed for cluster resources
+
+   <pre><code>sudo zypper in socat
+   </code></pre>
+
 1. **[A]** Configure the operating system
 
    In some cases, Pacemaker creates many processes and thereby exhausts the allowed number  of processes. In such a case, a heartbeat between the cluster nodes might fail and lead to failover of your resources. We recommend increasing the maximum allowed processes by setting the following parameter.
@@ -371,14 +376,15 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
 1. **[2]** Enable ssh access
 
-   <pre><code># insert the public key you copied in the last step into the authorized keys file on the second server
-   sudo vi /root/.ssh/authorized_keys
-   
+   <pre><code>
    sudo ssh-keygen
-
+   
    # Enter file in which to save the key (/root/.ssh/id_rsa): -> Press ENTER
    # Enter passphrase (empty for no passphrase): -> Press ENTER
    # Enter same passphrase again: -> Press ENTER
+   
+   # insert the public key you copied in the last step into the authorized keys file on the second server
+   sudo vi /root/.ssh/authorized_keys   
    
    # copy the public key
    sudo cat /root/.ssh/id_rsa.pub
@@ -435,14 +441,13 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
 1. **[1]** Install Cluster
 
-   <pre><code>sudo ha-cluster-init
+   <pre><code>sudo ha-cluster-init -u
    
    # ! NTP is not configured to start at system boot.
    # Do you want to continue anyway (y/n)? <b>y</b>
    # /root/.ssh/id_rsa already exists - overwrite (y/n)? <b>n</b>
-   # Network address to bind to (e.g.: 192.168.1.0) [10.0.0.0] <b>Press ENTER</b>
-   # Multicast address (e.g.: 239.x.x.x) [239.232.97.43] <b>Press ENTER</b>
-   # Multicast port [5405] <b>Press ENTER</b>
+   # Address for ring0 [10.0.0.6] <b>Press ENTER</b>
+   # Port for ring0 [5405] <b>Press ENTER</b>
    # SBD is already configured to use /dev/disk/by-id/scsi-36001405639245768818458b930abdf69;/dev/disk/by-id/scsi-36001405afb0ba8d3a3c413b8cc2cca03;/dev/disk/by-id/scsi-36001405f88f30e7c9684678bc87fe7bf - overwrite (y/n)? <b>n</b>
    # Do you wish to configure an administration IP (y/n)? <b>n</b>
    </code></pre>
@@ -462,12 +467,12 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    <pre><code>sudo passwd hacluster
    </code></pre>
 
-1. **[A]** Configure corosync to use other transport and add nodelist. Cluster doesn't work otherwise.
+1. **[A]** Adjust corosync settings.  
 
    <pre><code>sudo vi /etc/corosync/corosync.conf
    </code></pre>
 
-   Add the following bold content to the file if the values are not there or different. Make sure to change the token to 30000 to allow Memory preserving maintenance. For more information, see [this article for Linux][virtual-machines-linux-maintenance] or [Windows][virtual-machines-windows-maintenance]. Also, make sure to remove the parameter mcastaddr.
+   Add the following bold content to the file if the values are not there or different. Make sure to change the token to 30000 to allow Memory preserving maintenance. For more information, see [this article for Linux][virtual-machines-linux-maintenance] or [Windows][virtual-machines-windows-maintenance].
 
    <pre><code>[...]
      <b>token:          30000
@@ -479,20 +484,16 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
      interface { 
         [...] 
      }
-     <b>transport:      udpu</b>
-     # remove parameter mcastaddr
-     <b># mcastaddr: IP</b>
+     transport:      udpu
    } 
-   <b>nodelist {
+   nodelist {
      node {
-      # IP address of <b>prod-cl1-0</b>
       ring0_addr:10.0.0.6
      }
      node {
-      # IP address of <b>prod-cl1-1</b>
       ring0_addr:10.0.0.7
      } 
-   }</b>
+   }
    logging {
      [...]
    }
@@ -542,7 +543,8 @@ Use the following content for the input file. You need to adapt the content to y
   "Actions": [
     "Microsoft.Compute/*/read",
     "Microsoft.Compute/virtualMachines/deallocate/action",
-    "Microsoft.Compute/virtualMachines/start/action"
+    "Microsoft.Compute/virtualMachines/start/action", 
+    "Microsoft.Compute/virtualMachines/powerOff/action" 
   ],
   "NotActions": [
   ],

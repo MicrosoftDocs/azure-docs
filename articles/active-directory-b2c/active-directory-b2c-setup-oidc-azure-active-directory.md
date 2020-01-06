@@ -1,5 +1,6 @@
 ---
-title: Set up sign-in for an Azure Active Directory organization - Azure Active Directory B2C
+title: Set up sign-in for an Azure AD organization
+titleSuffix: Azure AD B2C
 description: Set up sign-in for a specific Azure Active Directory organization in Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
@@ -11,6 +12,7 @@ ms.topic: conceptual
 ms.date: 08/08/2019
 ms.author: marsma
 ms.subservice: B2C
+ms.custom: fasttrack-edit
 ---
 
 # Set up sign-in for a specific Azure Active Directory organization in Azure Active Directory B2C
@@ -54,6 +56,8 @@ To enable sign-in for users from a specific Azure AD organization, you need to r
     ```
 
     For example, `https://login.microsoftonline.com/contoso.onmicrosoft.com/.well-known/openid-configuration`.
+
+    **Do not** use the Azure AD v2.0 metadata endpoint, for example `https://login.microsoftonline.com/contoso.onmicrosoft.com/v2.0/.well-known/openid-configuration`. Doing so results in an error similar to `AADB2C: A claim with id 'UserId' was not found, which is required by ClaimsTransformation 'CreateAlternativeSecurityId' with id 'CreateAlternativeSecurityId' in policy 'B2C_1_SignUpOrIn' of tenant 'contoso.onmicrosoft.com'` when attempting to sign in.
 
 1. For **Client ID**, enter the application ID that you previously recorded.
 1. For **Client secret**, enter the client secret that you previously recorded.

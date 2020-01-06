@@ -4,9 +4,9 @@ description: This article describes the REST APIs for use with your Azure enterp
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 09/18/2019
+ms.date: 01/02/2020
 ms.topic: conceptual
-ms.service: billing
+ms.service: cost-management-billing
 manager: boalcsva
 ---
 
@@ -71,7 +71,7 @@ Example: bearer \&lt;APIKey\&gt; |
 
 ### Swagger
 
-A Swagger endpoint is available at [Enterprise Reporting v3 APIs](https://consumption.azure.com/swagger/ui/index)for the following APIs. Swagger helps inspect the API. Use Swagger to generate client SDKs using [AutoRest](https://github.com/Azure/AutoRest) or [Swagger CodeGen](http://swagger.io/swagger-codegen/). Data available after May 1, 2014 is available through the API.
+A Swagger endpoint is available at [Enterprise Reporting v3 APIs](https://consumption.azure.com/swagger/ui/index)for the following APIs. Swagger helps inspect the API. Use Swagger to generate client SDKs using [AutoRest](https://github.com/Azure/AutoRest) or [Swagger CodeGen](https://swagger.io/swagger-codegen/). Data available after May 1, 2014 is available through the API.
 
 ### API response codes
 
@@ -91,7 +91,11 @@ Usage and billing data files are updated every 24 hours for the current billing 
 
 ### Test enrollment for development
 
-If you're a partner or a developer without an Azure enterprise enrollment and you want to access the API, you can use the test enrollment. The enrollment name is _EnrollmentNumber 100_. Then you can [test with the enrollment access key](https://automaticbillingspec.blob.core.windows.net/spec/TestEnrollmentUsageApiKey.txt) to call the API and see sample data.
+If you're a partner or a developer without an Azure enterprise enrollment and you want to access the API, you can use the test enrollment. The enrollment name is _EnrollmentNumber 100_, you can find and test usage information up to June 2018. Then you can use the following key to call the API and see sample data.
+
+```
+eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6ImpoeXA2UU9DWlZmY1pmdmhDVGR1OFdxeTJ5byJ9.eyJFbnJvbGxtZW50TnVtYmVyIjoiMTAwIiwiSWQiOiI1ZTc2ZmNiMy0xN2I4LTQ5ZDItYjdkOC0zMDU0YjUwOWY0MWYiLCJSZXBvcnRWaWV3IjoiU3lzdGVtIiwiUGFydG5lcklkIjoiIiwiRGVwYXJ0bWVudElkIjoiIiwiQWNjb3VudElkIjoiIiwiaXNzIjoiZWEubWljcm9zb2Z0YXp1cmUuY29tIiwiYXVkIjoiY2xpZW50LmVhLm1pY3Jvc29mdGF6dXJlLmNvbSIsImV4cCI6MTU4NjM5MDA2OSwibmJmIjoxNTcwNTc4ODY5fQ.lENR5pCBph6iZCVexUlN1b-j7StaILCyBewVHoILD-_fn8S2o2bHY1qUseGOkBwNlaFQfk2OZIo-jQYvnf3eP3UNrNVTCINT0APbc1RqgwSjZSxugVVHH9jnSzEjONkJaSKmi4tlidk6zkF1-uY-TPJkKxYN_9ar7BgLshF9JGXk7t8OZhxSCxDZc-smntu6ORFDl4gRZZVBKXhqOGjOAdYX5tPiGDF2Bxb68RSzh9Xyr5PXxKLx5yivZzUdo0-GFHo13V9w6a5VQM4R1w4_ro8jF8WAo3mpGZ_ovx_U5IY6zMNmi_AoA1mUyvTGotgcu94RragutoJRxAGHbNJZ0Q
+```
 
 ### Azure service catalog
 

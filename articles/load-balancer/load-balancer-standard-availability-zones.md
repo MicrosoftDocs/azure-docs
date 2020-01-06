@@ -1,7 +1,7 @@
 ---
 title: Azure Standard Load Balancer and Availability Zones
-titlesuffix: Azure Load Balancer
-description: Standard Load Balancer and Availability Zones
+titleSuffix: Azure Load Balancer
+description: With this learning path, get started with Azure Standard Load Balancer and Availability Zones.
 services: load-balancer
 documentationcenter: na
 author: asudbring
@@ -83,7 +83,7 @@ The following excerpt is an illustration for how to define a zone-redundant fron
                 ],
 ```
 
-The preceeding excerpts are not complete templates but intended to show how to express availability zones properties.  You need to incorporate these statements into your templates.
+The preceding excerpts are not complete templates but intended to show how to express availability zones properties.  You need to incorporate these statements into your templates.
 
 #### Optional zone isolation
 

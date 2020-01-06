@@ -32,6 +32,8 @@ ms.date: 09/15/2019
 
 ## Create a Lookup activity
 
+A [lookup activity](/azure/data-factory/control-flow-lookup-activity) can retrieve a dataset from any Azure Data Factory-supported data sources. The output from Lookup activity can be used in a ForEach or other activity.
+
 1. In the **Activities** pane, under **General**, select the **Lookup** activity. Drag and drop it into the main canvas on the right.
  
     ![select lookup activity](media/data-factory-command-activity/select-activity.png)
@@ -100,7 +102,9 @@ ms.date: 09/15/2019
 
 ## Create a For-Each activity 
 
-1. Next, you add a For-Each activity to the pipeline. This activity will process the data returned from the Lookup activity. 
+The [For-Each](/azure/data-factory/control-flow-for-each-activity) activity is used to iterate over a collection and execute specified activities in a loop. 
+
+1. Now you add a For-Each activity to the pipeline. This activity will process the data returned from the Lookup activity. 
     * In the **Activities** pane, under **Iteration & Conditionals**, select the **ForEach** activity and drag and drop it into the canvas.
     * Draw a line between the output of the Lookup activity and the input of the ForEach activity in the canvas to connect them.
 

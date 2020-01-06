@@ -1,11 +1,11 @@
 ---
-title: Move data to an Azure HPC Cache (Preview) cloud container 
+title: Move data to an Azure HPC Cache cloud container 
 description: How to populate Azure Blob storage for use with Azure HPC Cache
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 09/24/2019
-ms.author: v-erkell
+ms.date: 10/30/2019
+ms.author: rohogue
 ---
 
 # Move data to Azure Blob storage
@@ -16,13 +16,13 @@ This article explains the best ways to move data to Blob storage for use with Az
 
 Keep these facts in mind:
 
-* Azure HPC Cache uses a specialized storage format to organize data in Blob storage. This is why a Blob storage target must either be a new, empty container, or a Blob container that was previously used for Azure HPC Cache data. ([Avere vFXT for Azure](https://azure.microsoft.com/services/storage/avere-vfxt/) also uses this cloud file system.)
+* Azure HPC Cache uses a specialized storage format to organize data in Blob storage. This is why a Blob storage target must either be a new, empty container, or a Blob container that was previously used for Azure HPC Cache data. <!--([Avere vFXT for Azure](https://azure.microsoft.com/services/storage/avere-vfxt/) also uses this cloud file system.)-->
 
 * Copying data through the Azure HPC Cache to a back-end storage target is more efficient when you use multiple clients and parallel operations. A simple copy command from one client will move data slowly.
 
 A Python-based utility is available to load content into a Blob storage container. Read [Pre-load data in Blob storage](#pre-load-data-in-blob-storage-with-clfsload) to learn more.
 
-If you don't want to use the loading utility, or if you want to add content to an existing storage target, follow the parallel data ingest tips in [Copy data through the Azure HPC Cache](#copy-data-through-the-azure-hpc-cache). 
+If you don't want to use the loading utility, or if you want to add content to an existing storage target, follow the parallel data ingest tips in [Copy data through the Azure HPC Cache](#copy-data-through-the-azure-hpc-cache).
 
 ## Pre-load data in Blob storage with CLFSLoad
 
@@ -53,7 +53,7 @@ The Avere CLFSLoad utility needs the following information:
 
 If you don't want to use the Avere CLFSLoad utility, or if you want to add a large amount of data to an existing Blob storage target, you can copy it through the cache. Azure HPC Cache is designed to serve multiple clients simultaneously, so to copy data through the cache, you should use parallel writes from multiple clients.
 
-![Diagram showing multi-client, multi-threaded data movement: At the top left, an icon for on-premises hardware storage has multiple arrows coming from it. The arrows point to four client machines. From each client machine three arrows point toward the Azure HPC Cache. From the Azure HPC Cache, multiple arrows point to Blob storage.](media/hpc-cache-parallel-ingest.png) 
+![Diagram showing multi-client, multi-threaded data movement: At the top left, an icon for on-premises hardware storage has multiple arrows coming from it. The arrows point to four client machines. From each client machine three arrows point toward the Azure HPC Cache. From the Azure HPC Cache, multiple arrows point to Blob storage.](media/hpc-cache-parallel-ingest.png)
 
 The ``cp`` or ``copy`` commands that you typically use to transfer data from one storage system to another are single-threaded processes that copy only one file at a time. This means that the file server is ingesting only one file at a time - which is a waste of the cache's resources.
 
@@ -72,7 +72,7 @@ Each copy process has a throughput rate and a files-transferred rate, which can 
 
 Strategies for parallel data ingest with Azure HPC Cache include:
 
-* Manual copying - You can manually create a multi-threaded copy on a client by running more than one copy command at once in the background against predefined sets of files or paths. Read [Azure HPC Cloud data ingest - manual copy method](hpc-cache-ingest-manual.md) for details.
+* Manual copying - You can manually create a multi-threaded copy on a client by running more than one copy command at once in the background against predefined sets of files or paths. Read [Azure HPC Cache data ingest - manual copy method](hpc-cache-ingest-manual.md) for details.
 
 * Partially automated copying with ``msrsync`` - ``msrsync`` is a wrapper utility that runs multiple parallel ``rsync`` processes. For details, read [Azure HPC Cache data ingest - msrsync method](hpc-cache-ingest-msrsync.md).
 

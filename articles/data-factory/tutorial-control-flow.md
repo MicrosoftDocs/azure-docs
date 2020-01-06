@@ -1,15 +1,15 @@
 ---
-title: 'Branching in Azure Data Factory pipeline | Microsoft Docs'
-description: 'Learn how to control flow of data in Azure Data Factory by branching and chaining activities.'
+title: Branching in Azure Data Factory pipeline
+description: Learn how to control flow of data in Azure Data Factory by branching and chaining activities.
 services: data-factory
-documentationcenter: ''
 author: djpmsft
 ms.author: daperlov
-manager: jroth
+manager: anandsub
 ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
+ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 9/27/2019
 ---
 
@@ -33,7 +33,7 @@ This tutorial shows you how to do the following tasks:
 > * Start a pipeline run
 > * Monitor the pipeline and activity runs
 
-This tutorial uses .NET SDK. You can use other mechanisms to interact with Azure Data Factory. For Data Factory quickstarts, see [5-Minute Quickstarts](https://docs.microsoft.com/azure/data-factory/#5-minute-quickstarts).
+This tutorial uses .NET SDK. You can use other mechanisms to interact with Azure Data Factory. For Data Factory quickstarts, see [5-Minute Quickstarts](/azure/data-factory/quickstart-create-data-factory-portal).
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 
@@ -603,10 +603,7 @@ Creating linked service AzureStorageLinkedService...
 {
   "type": "AzureStorage",
   "typeProperties": {
-    "connectionString": {
-      "type": "SecureString",
-      "value": "DefaultEndpointsProtocol=https;AccountName=***;AccountKey=***"
-    }
+    "connectionString": "DefaultEndpointsProtocol=https;AccountName=***;AccountKey=***"
   }
 }
 Creating dataset SourceStorageDataset...

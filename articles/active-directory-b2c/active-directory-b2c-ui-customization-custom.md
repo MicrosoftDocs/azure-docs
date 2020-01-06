@@ -1,5 +1,6 @@
 ---
-title: Customize the user interface of your application using a custom policy in Azure Active Directory B2C | Microsoft Docs
+title: Customize the user interface of your app with a custom policy
+titleSuffix: Azure AD B2C
 description: Learn about customizing a user interface using a custom policy in Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
@@ -114,7 +115,7 @@ Validate that you're ready by performing the following steps:
 
 To configure UI customization, you copy the **ContentDefinition** and its child elements from the base file to the extensions file.
 
-1. Open the base file of your policy. For example, *`SocialAndLocalAccounts/`**`TrustFrameworkBase.xml`***. This is one of the policy files included in the custom policy starter pack, which you should have obtained in the prerequisite, [Get started with custom policies](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-get-started-custom).
+1. Open the base file of your policy. For example, <em>`SocialAndLocalAccounts/`**`TrustFrameworkBase.xml`**</em>. This is one of the policy files included in the custom policy starter pack, which you should have obtained in the prerequisite, [Get started with custom policies](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-get-started-custom).
 1. Search for and copy the entire contents of the **ContentDefinitions** element.
 1. Open the extension file. For example, *TrustFrameworkExtensions.xml*. Search for the **BuildingBlocks** element. If the element doesn't exist, add it.
 1. Paste the entire contents of the **ContentDefinitions** element that you copied as a child of the **BuildingBlocks** element.
@@ -202,4 +203,4 @@ In the Modify your sign-up or sign-in custom policy section, you configured the 
 
 ## Next steps
 
-For more information about UI elements that can be customized, see [reference guide for UI customization for built-in policies](active-directory-b2c-reference-ui-customization.md).
+For more information about UI elements that can be customized, see [reference guide for UI customization for user flows](active-directory-b2c-reference-ui-customization.md).

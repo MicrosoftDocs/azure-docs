@@ -4,7 +4,7 @@ description: Learn about billing of external services, formerly known as Marketp
 author: jureid
 manager: jureid
 tags: billing
-ms.service: billing
+ms.service: cost-management-billing
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -14,12 +14,12 @@ ms.author: banders
 ms.custom: H1Hack27Feb2017
 ---
 # Understand your Azure external services charges
-External services are published by third-party software vendors in the Azure marketplace. For example, SendGrid is an external service that you can purchase in Azure, but is not published by Microsoft. Some Microsoft products are sold through Azure marketplace, too.
+External services are published by third-party software vendors in the Azure Marketplace. For example, SendGrid is an external service that you can purchase in Azure, but is not published by Microsoft. Some Microsoft products are sold through Azure marketplace, too.
 
 ## How external services are billed
 
-- If you have a [Microsoft Customer Agreement](#check-access), your third-party services are billed with the rest of your Azure services.
-- If you don't have a Microsoft Customer Agreement, your external services are billed separately from your Azure services.
+- If you have a Microsoft Customer Agreement (MCA) or Microsoft Partner Agreement (MPA), your third-party services are billed with the rest of your Azure services. [Check your billing account type](#check-billing-account-type) to see if you have access to an MCA or MPA.
+- If you don't have an MCA or MPA, your external services are billed separately from your Azure services.
 - Each external service has a different billing model. Some services are billed in a pay-as-you-go fashion while others have fixed monthly charges.
 - You can't use monthly free credits for external services. If you're using an Azure subscription that includes [free credits](https://azure.microsoft.com/pricing/spending-limits/), they can't be applied to charges from external services. When you provision a new external service or resource, a warning is shown:
 
@@ -42,11 +42,11 @@ You can view a list of the external services that are on each subscription withi
 
     ![View external services billing history](./media/billing-understand-your-azure-marketplace-charges/billing-overview-blade.png) -->
 
-## View and download invoices
+## View and download invoices for external services
 
-If you have a [Microsoft Customer Agreement](#check-access), your third-party charges are on the same invoice as your Azure charges. Learn how to [view and download your Azure invoice](billing-download-azure-invoice.md) from the Azure portal to see your third-party charges.
+If you have a Microsoft Customer Agreement (MCA) or Microsoft Partner Agreement (MPA), your third-party services are billed with the rest of your Azure services. [Check your billing account type](#check-billing-account-type) to see if you have access to an MCA or MPA. If you do, see [View and download invoices in the Azure portal](billing-download-azure-invoice.md) to see your third-party charges.
 
-If you don't have a Microsoft Customer Agreement, you have separate invoices for third-party charges. You can view and download your Azure Marketplace invoices from the Azure portal by following these steps:
+If you don't have an MCA or MPA, you have separate invoices for third-party charges. You can view and download your Azure Marketplace invoices from the Azure portal by following these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Search for **Cost Management + Billing**.
@@ -103,8 +103,8 @@ If you want to cancel your external service order, delete the resource in the [A
     ![Delete Resource](./media/billing-understand-your-azure-marketplace-charges/delete-resource.PNG)
 1. Click **Delete**.
 
-## Check access
-[!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]
+## Check billing account type
+[!INCLUDE [billing-check-account-type](../../includes/billing-check-mca.md)]
 
 ## Need help? Contact us.
 

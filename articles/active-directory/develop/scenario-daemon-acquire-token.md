@@ -1,5 +1,5 @@
 ---
-title: Daemon app calling web APIs (acquiring tokens for the app) - Microsoft identity platform
+title: Acquire tokens to call a web API (daemon app) - Microsoft identity platform | Azure
 description: Learn how to build a daemon app that calls web APIs (acquiring tokens)
 services: active-directory
 documentationcenter: dev-center-name
@@ -13,9 +13,9 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/15/2019
+ms.date: 10/30/2019
 ms.author: jmprieur
-ms.custom: aaddev 
+ms.custom: aaddev
 #Customer intent: As an application developer, I want to know how to write a daemon app that can call web APIs using the Microsoft identity platform for developers.
 ms.collection: M365-identity-device-management
 ---
@@ -30,14 +30,14 @@ The scope to request for a client credential flow is the name of the resource fo
 
 # [.NET](#tab/dotnet)
 
-```CSharp
+```csharp
 ResourceId = "someAppIDURI";
 var scopes = new [] {  ResourceId+"/.default"};
 ```
 
 # [Python](#tab/python)
 
-In MSAL.Python, the configuration file would look like the following code snippet:
+In MSAL Python, the configuration file would look like the following code snippet:
 
 ```Json
 {
@@ -67,7 +67,7 @@ To acquire a token for the app, you'll use `AcquireTokenForClient` or the equiva
 
 # [.NET](#tab/dotnet)
 
-```CSharp
+```csharp
 using Microsoft.Identity.Client;
 
 // With client credentials flows the scopes is ALWAYS of the shape "resource/.default", as the
@@ -112,8 +112,6 @@ if not result:
 if "access_token" in result:
     # Call a protected API with the access token
     print(result["token_type"])
-    print(result["expires_in"])  # You don't normally need to care about this.
-                                 # It will be good for at least 5 minutes.
 else:
     print(result.get("error"))
     print(result.get("error_description"))
@@ -121,6 +119,8 @@ else:
 ```
 
 # [Java](#tab/java)
+
+This is an extract from the [MSAL Java dev samples](https://github.com/AzureAD/microsoft-authentication-library-for-java/blob/dev/src/samples/confidential-client/).
 
 ```Java
 ClientCredentialParameters clientCredentialParam = ClientCredentialParameters.builder(
@@ -210,5 +210,19 @@ Content: {
 
 ## Next steps
 
+# [.NET](#tab/dotnet)
+
 > [!div class="nextstepaction"]
-> [Daemon app - calling a web API](scenario-daemon-call-api.md)
+> [Daemon app - calling a web API](https://docs.microsoft.com/azure/active-directory/develop/scenario-daemon-call-api?tabs=dotnet)
+
+# [Python](#tab/python)
+
+> [!div class="nextstepaction"]
+> [Daemon app - calling a web API](https://docs.microsoft.com/azure/active-directory/develop/scenario-daemon-call-api?tabs=python)
+
+# [Java](#tab/java)
+
+> [!div class="nextstepaction"]
+> [Daemon app - calling a web API](https://docs.microsoft.com/azure/active-directory/develop/scenario-daemon-call-api?tabs=java)
+
+---

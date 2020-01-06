@@ -1,6 +1,6 @@
 ---
 # required metadata
-title: Redirect URI/reply URL restrictions and limitations - Microsoft identity platform
+title: Redirect URI & reply URL restrictions - Microsoft identity platform | Azure
 description: Reply URLs/redirect URls restrictions & limitations
 author: SureshJa
 ms.author: sureshja
@@ -19,7 +19,7 @@ A redirect URI, or reply URL, is the location that the authorization server will
 
 ## Maximum number of redirect URIs
 
-The following table shows the maximum number of redirect URIs that you can add when you register your app. 
+The following table shows the maximum number of redirect URIs that you can add when you register your app.
 
 | Accounts being signed in | Maximum number of redirect URIs | Description |
 |--------------------------|---------------------------------|-------------|
@@ -29,6 +29,12 @@ The following table shows the maximum number of redirect URIs that you can add w
 ## Maximum URI length
 
 You can use a maximum of 256 characters for each redirect URI that you add to an app registration.
+
+## Supported schemes
+The Azure AD application model today supports both HTTP and HTTPS schemes for apps that sign in Microsoft work or school accounts in any organization's Azure Active Directory (Azure AD) tenant. That is `signInAudience` field in the application manifest is set to either *AzureADMyOrg* or *AzureADMultipleOrgs*. For the apps that sign in Personal Microsoft accounts and work and school accounts (that is `signInAudience` set to *AzureADandPersonalMicrosoftAccount*) only HTTPS scheme is allowed.
+
+> [!NOTE]
+> The new [App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) experience doesn't allow developers to add URIs with HTTP scheme on the UI. Adding HTTP URIs for apps that sign in work or school accounts is supported only through the app manifest editor. Going forward, new apps won't be able to use HTTP schemes in the redirect URI. However, older apps that contain HTTP schemes in redirect URIs will continue to work. Developers must use HTTPS schemes in the redirect URIs.
 
 ## Restrictions using a wildcard in URIs
 

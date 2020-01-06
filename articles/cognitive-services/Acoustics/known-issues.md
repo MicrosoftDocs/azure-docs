@@ -1,7 +1,7 @@
 ---
-title: Known issues with Project Acoustics plugin
+title: Project Acoustics plug-in known issues
 titlesuffix: Azure Cognitive Services
-description: You might encounter the following known issues when using the Designer Preview for Project Acoustics.
+description: You might experience the following known issues in Project Acoustics.
 services: cognitive-services
 author: NoelCross
 manager: nitinme
@@ -13,28 +13,30 @@ ms.date: 03/20/2019
 ms.author: noelc
 ROBOTS: NOINDEX
 ---
-# Project Acoustics Known Issues
-You might encounter the following known issues when using the Designer Preview for Project Acoustics.
+# Project Acoustics known issues
+This article describes issues that you might experience when you use Project Acoustics.
 
 ## Acoustic parameters are lost when you rename a scene
 
-If you rename a scene, all the acoustic parameters that belong to that scene won't automatically transfer to the new scene. They'll still exist in the old asset file however. Look for the **SceneName_AcousticParameters.asset** file inside the **Editor** directory next to your scene file. Rename your file to reflect the new scene name.
+If you rename a scene, all the acoustic parameters that belong to that scene don't automatically transfer to the new scene. But they do still exist in the old asset file. Look for the *[SceneName]_AcousticParameters.asset* file in the *Editor* directory next to your scene file. Rename the file to reflect the new scene name.
 
-## Deploying to Android from some Unity versions
+## Deploy-to-Android bug from some Unity versions
 
-Some versions of Unity have a bug with deploying audio plugins to Android. Make sure you aren't using a version affected by [this bug](https://issuetracker.unity3d.com/issues/android-ios-audiosource-playing-through-google-resonance-audio-sdk-with-spatializer-enabled-does-not-play-on-built-player).
+Some versions of Unity have a [bug](https://issuetracker.unity3d.com/issues/android-ios-audiosource-playing-through-google-resonance-audio-sdk-with-spatializer-enabled-does-not-play-on-built-player) in how they deploy audio plug-ins to Android. Make sure that you aren't using a version that's affected by this bug.
 
-## I get an error that 'could not find metadata file System.Security.dll'
+## "Could not find metadata file System.Security.dll" error
 
-Ensure the Scripting Runtime Version in Player settings is set to **.NET 4.x Equivalent**, and restart Unity.
+Make sure that the **Scripting Runtime Version** in the **Player** settings is *.NET 4.x Equivalent*, and restart Unity.
 
-## I'm having authentication problems when connecting to Azure
+## Authentication problems when connecting to Azure
 
-Double-check you've used the correct credentials for your Azure account, that your account supports the type of node requested in the bake, and that your system clock is accurate.
+Check that:
+- You used the correct credentials for your Azure account.
+- Your account supports the type of node that you requested in the bake.
+- Your system clock is set correctly.
 
-## Canceling a bake leaves the Bake tab in "deleting" state
-Project Acoustics will clean up all Azure resources for a job on successful completion or cancellation. This can take up to 5 minutes.
+## The Bake tab still shows "deleting" after you cancel
+Project Acoustics cleans up all Azure resources for a job after successful completion or cancellation. This process can take up to 5 minutes.
 
 ## Next steps
-* Try the [Unity](unity-quickstart.md) or [Unreal](unreal-quickstart.md) sample content
-
+* Try the [Unity](unity-quickstart.md) or [Unreal](unreal-quickstart.md) sample content.

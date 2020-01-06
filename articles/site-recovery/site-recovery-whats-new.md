@@ -1,11 +1,11 @@
 ---
 title: What's new in Azure Site Recovery
-description: Provides a summary of new features introduced in Azure Site Recovery
+description: Provides a summary of new features and the latest updates in the Azure Site Recovery service.
 services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 09/18/2019
+ms.date: 11/14/2019
 ms.author: raynew
 ---
 # What's new in Site Recovery
@@ -14,27 +14,107 @@ The [Azure Site Recovery](site-recovery-overview.md) service is updated and impr
 
 You can follow and subscribe to Site Recovery update notifications in the [Azure updates](https://azure.microsoft.com/updates/?product=site-recovery) channel.
 
+
+
 ## Supported updates
 
 For Site Recovery components, we support N-4 versions, where N is the latest released version. These are summarized in the following table.
 
 **Update** |  **Unified Setup** | **Configuration server ova** | **Mobility service agent** | **Site Recovery Provider** | **Recovery Services agent**
 --- | --- | --- | --- | --- | ---
-[Rollup 40](https://support.microsoft.com/help/4517283/) | 9.28.5345.1 | 5.1.4800.0 | 9.28.5345.1 | 5.1.4800.0 | 2.0.9165.0
+[Rollup 42](https://support.microsoft.com/help/4531426/) | 9.30.5407.1 | 5.1.5200.0 | 9.30.5407.1 | 5.1.5200.0 | 2.0.9165.0
+[Rollup 41](https://support.microsoft.com/help/4528026/) | 9.29.5367.1 | 5.1.5000.0 | 9.29.5367.1 | 5.1.5000.0 | 2.0.9165.0
+[Rollup 40](https://support.microsoft.com/help/4521530/) | 9.28.5345.1 | 5.1.4800.0 | 9.28.5345.1 | 5.1.4800.0 | 2.0.9165.0
 [Rollup 39](https://support.microsoft.com/help/4517283/) | 9.27.5308.1 | 5.1.4600.0 | 9.27.5308.1 | 5.1.4600.0 | 2.0.9165.0
 [Rollup 38](https://support.microsoft.com/help/4513507/) | 9.26.5269.1 | 5.1.4500.0 | 9.26.5269.1 | 5.1.4500.0 | 2.0.9165.0
-[Rollup 37](https://support.microsoft.com/help/4508614/) | 9.25.5241.1 | 5.1.4300.0 | 9.25.5241.1 | 5.1.4300.0 | 2.0.9163.0
-[Rollup 36](https://support.microsoft.com/help/4503156/) | 9.24.5211.1 | 5.1.4150.0 | 9.24.5211.1 | 5.1.4150.0 | 2.0.9160.0 
 		
 
 [Learn more](service-updates-how-to.md) about update installation and support.
+
+
+## Updates (November 2019)
+
+### Update rollup 42
+
+[Update rollup 42](https://support.microsoft.com/help/4531426/update-rollup-42-for-azure-site-recovery) provides the following updates.
+
+**Update** | **Details**
+--- | ---
+**Providers and agents** | Updates to Site Recovery agents and providers (as detailed in the rollup)
+**Issue fixes/improvements** | A number of fixes and improvements (as detailed in the rollup)
+
+
+## Azure VM disaster recovery
+
+New features for Azure VM disaster recovery are summarized in the table.
+
+**Feature** | **Details**
+--- | ---
+**UEFI** | Site Recovery now supports disaster recovery for Azure VMs with UEFI-based boot architecture.
+**Linux** | Site Recovery now supports Azure VMs running Linux with Azure Disk Encryption (ADE).
+**Generation 2** | All generation 2 Azure VMs are now supported for disaster recovery.
+**Regions** | You can now enable disaster recovery for Azure VMs in the Norway geo.
+
+### VMware to Azure disaster recovery
+
+New features for VMware to Azure disaster recovery are summarized in the table.
+
+**Feature** | **Details**
+--- | ---
+**UEFI** | Site Recovery now supports disaster recovery for VMware VMs with UEFI-based boot architecture.<br/><br/> Supported operating systems include Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, SLES 12 SP4, RHEL 8.
+
+## Update to servicing stack update/SHA-2
+
+For disaster recovery of Azure VMs to a secondary region, or on-premises VMware VMs or physical servers to Azure, note the following:
+
+- From version 9.30.5407.1 of the Mobility service extension (for Azure VMs), and Mobility service agent (for VMware/physical machines), some machine operating systems must be running the servicing stack update and SHA-2. Details are shown in the table below.
+- Install the update and SHA-2 in accordance with the linked KB. SHA-1 isn't supported from September 2019, and if SHA-2 code signing isn't enabled the agent extension won't install/upgrade as expected.
+- Learn more about [SHA-2 upgrade and requirements](https://aka.ms/SHA-2KB).
+
+**Operating system** | **Azure VM** | **VMware VM/physical machine**
+--- | --- | ---
+**Windows 2008 R2 SP1** | [Servicing stack update](https://support.microsoft.com/help/4490628)<br/> [SHA-2](https://support.microsoft.com/help/4474419)| [Servicing stack update](https://support.microsoft.com/help/4490628)<br/> [SHA-2](https://support.microsoft.com/help/4474419)
+**Windows 2008 SP2** | [Servicing stack update](https://support.microsoft.com/help/4493730)<br/> [SHA-2](https://support.microsoft.com/help/4474419)| [Servicing stack update](https://support.microsoft.com/help/4493730)<br/> [SHA-2](https://support.microsoft.com/help/4474419)
+**Windows 7 SP1** | [Servicing stack update](https://support.microsoft.com/help/4490628)<br/> [SHA-2](https://support.microsoft.com/help/4474419)| [Servicing stack update](https://support.microsoft.com/help/4490628)<br/> [SHA-2](https://support.microsoft.com/help/4474419).
+
+
+
+## Updates (October 2019)
+
+### Update rollup 41
+
+[Update rollup 41](https://support.microsoft.com/help/4528026/update-rollup-41-for-azure-site-recovery) provides the following updates.
+
+**Update** | **Details**
+--- | ---
+**Providers and agents** | Updates to Site Recovery agents and providers (as detailed in the rollup)
+**Issue fixes/improvements** | A number of fixes and improvements (as detailed in the rollup)
+
+
+
+### Azure VM disaster recovery
+
+New features for Azure VM disaster recovery are summarized in the table.
+
+**Feature** | **Details**
+--- | ---
+**Test failover settings** | When setting up a test failover, you can now configure settings for the test failover VM and network, including IP address, NSG, internal load balance, and the public IP address for each machine NIC. These settings are optional and don't change current behavior. If you don't configure these settings, you can choose an Azure VNet at the time of test failover. [Learn more](https://azure.microsoft.com/blog/customize-networking-for-dr-drills-azure-site-recovery/).
+**Recovery plans** | Recovery plans are now limited to 100 VMs, to ensure failover reliability.
+
+### VMware to Azure disaster recovery
+
+New features for VMware to Azure disaster recovery are summarized in the table.
+
+**Feature** | **Details**
+--- | ---
+**Recovery plans** | Recovery plans are now limited to 100 VMs, to ensure failover reliability.
 
 
 ## Updates (September 2019)
 
 ### Update rollup 40
 
-[Update rollup 40](hhttps://support.microsoft.com/help/4521530/update-rollup-40-for-azure-site-recovery) provides the following updates.
+[Update rollup 40](https://support.microsoft.com/help/4521530/update-rollup-40-for-azure-site-recovery) provides the following updates.
 
 **Update** | **Details**
 --- | ---
@@ -50,7 +130,7 @@ New features for Azure VM disaster recovery are summarized in the table.
 
 **Feature** | **Details**
 --- | ---
-**Cleanup after failback** | After failing over to the secondary Azure, and then failing back to the primary region, Site Recovery automatically cleans up machines in the secondary region. There's no need to manually delete VMS and NICs.
+**Cleanup after failback** | After failing over to the secondary Azure, and then failing back to the primary region, Site Recovery automatically cleans up machines in the secondary region. There's no need to manually delete VMs and NICs.
 **Test failover retains IP address** | You can now retain the IP address of the source VM during a disaster recovery drill, and pick a static IP address for a test failover.
 
 ### VMware/physical server disaster recovery
@@ -262,7 +342,7 @@ Features added this month are summarized in the table.
  
 **Feature** | **Details**
 --- | ---
-**Linux support** | Support was added for Redhat Enterprise Linux 7.6, RedHat Workstation 6/7, Oracle Linux 6.10/7.6, and new kernel versions for Ubuntu, Debian, and SUSE.
+**Linux support** | Support was added for Redhat Enterprise Linux 7.6, RedHat Workstation 6/7, Oracle Linux 6.10 and Oracle Linux 7.6, and new kernel versions for Ubuntu, Debian, and SUSE.
 
 
 ### Update rollup 31 
@@ -278,7 +358,7 @@ Features added this month are summarized in the table.
 Features added this month are summarized in the table.
 **Feature** | **Details**
 --- | ---
-**Linux support** | Support was added for Oracle Linux 6.8 and 6.9/7.0, and for the UEK5 kernel.
+**Linux support** |  Support was added for Oracle Linux 6.8, Oracle Linux 6.9 and Oracle Linux 7.0 with the Red Hat Compatible Kernel, and for the Unbreakable Enterprise Kernel (UEK) Release 5.
 **LVM** | Support added for LVM and LVM2 volumes.<br/><br/> The /boot directory on a disk partition and on LVM volumes is now supported.
 **Directories** | Support was added for these directories set up as separate partitions, or file systems that aren't on the same system disk:<br/><br/> /(root), /boot, /usr, /usr/local, /var, /etc.
 **Windows Server 2008** | Support added for dynamic disks.
@@ -290,7 +370,7 @@ Features added this month are summarized in the table.
 
 **Feature** | **Details**
 --- | ---
-**Linux support** | Supported was added for Oracle Linux 6.8 and 6.9/7.0; and for the UEK5 kernel.
+**Linux support** | Support was added for Oracle Linux 6.8, Oracle Linux 6.9 and Oracle Linux 7.0 with the Red Hat Compatible Kernel, and for the Unbreakable Enterprise Kernel (UEK) Release 5.
 **Linux BRTFS file system** | Supported for Azure VMs.
 **Azure VMs in availability zones** | You can enable replication to another region for Azure VMs deployed in availability zones. You can now enable replication for an Azure VM, and set the target for failover to a single VM instance, a VM in an availability set, or a VM in an availability zone. The setting doesn't impact replication. [Read](https://azure.microsoft.com/blog/disaster-recovery-of-zone-pinned-azure-virtual-machines-to-another-region/) the announcement.
 **Firewall-enabled storage (portal/PowerShell)** | Support added for [firewall-enabled storage accounts](https://docs.microsoft.com/azure/storage/common/storage-network-security).<br/><br/> You can replicate Azure VMs with unmanaged disks on firewall-enabled storage accounts to another Azure region for disaster recovery.<br/><br/> You can use firewall-enabled storage accounts as target storage accounts for unmanaged disks.<br/><br/> Supported in portal and using PowerShell.

@@ -1,15 +1,9 @@
 ---
-title: Certificates and the App Service Environment - Azure
-description: Explain numerous topics related to certificates on an ASE
-services: app-service
-documentationcenter: na
+title: Certificates bindings
+description: Explain numerous topics related to certificates on an App Service Environment. Learn how certificate bindings work on the single-tenanted apps in an ASE.
 author: ccompy
-manager: stefsch
 
 ms.assetid: 9e21a7e4-2436-4e81-bb05-4a6ba70eeaf7
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/29/2018
 ms.author: ccompy
@@ -60,7 +54,7 @@ Apps that are hosted in an ASE can use the app-centric certificate features that
 - IP-based SSL, which is only supported with an External ASE.  An ILB ASE does not support IP-based SSL.
 - KeyVault hosted certificates 
 
-The instructions for uploading and managing those certificates are available in the App Service SSL tutorial https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-ssl.  If you are simply configuring certificates to match a custom domain name that you have assigned to your web app, then those instructions will suffice. If you are uploading the certificate for an ILB ASE web app with the default domain name, then specify the scm site in the SAN of the certificate as noted earlier. 
+The instructions for uploading and managing those certificates are available in [Add an SSL certificate in Azure App Service](../configure-ssl-certificate.md).  If you are simply configuring certificates to match a custom domain name that you have assigned to your web app, then those instructions will suffice. If you are uploading the certificate for an ILB ASE web app with the default domain name, then specify the scm site in the SAN of the certificate as noted earlier. 
 
 ## TLS settings 
 

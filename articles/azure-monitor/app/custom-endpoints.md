@@ -1,19 +1,16 @@
 ---
-title: Azure Monitor - Azure Application Insights override default SDK endpoints | Microsoft Docs
-description: Modify default Azure Application Insights SDK endpoints for regions like Azure Government.
-services: application-insights
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 3b722e47-38bd-4667-9ba4-65b7006c074c
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+title: Azure Application Insights override default SDK endpoints
+description: Modify default Azure Monitor Application Insights SDK endpoints for regions like Azure Government.
+ms.service:  azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 07/26/2019
+author: mrbullwinkle
 ms.author: mbullwin
+ms.date: 07/26/2019
+
 ---
 
- # Application Insights overriding default endpoints
+# Application Insights overriding default endpoints
 
 To send data from Application Insights to certain regions, you'll need to override the default endpoint addresses. Each SDK requires slightly different modifications, all of which are described in this article. These changes require adjusting the sample code and replacing the placeholder values for `QuickPulse_Endpoint_Address`, `TelemetryChannel_Endpoint_Address`, and `Profile_Query_Endpoint_address` with the actual endpoint addresses for your specific region. The end of this article contains links to the endpoint addresses for regions where this configuration is required.
 

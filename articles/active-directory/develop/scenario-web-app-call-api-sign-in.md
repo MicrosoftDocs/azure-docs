@@ -1,6 +1,6 @@
 ---
-title: Web app that calls web APIs (sign in) - Microsoft identity platform
-description: Learn how to build a Web app that calls web APIs (sign in)
+title: Remove accounts from token cache on sign-out - Microsoft identity platform | Azure
+description: Learn how to remove an account from the token cache on sign-out
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -19,7 +19,7 @@ ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ---
 
-# Web app that calls web APIs - sign in
+# Remove accounts from the cache on global sign-out
 
 You already know how to add sign-in to your web app. You learn that in [Web app that signs-in users - add sign-in](scenario-web-app-sign-user-sign-in.md).
 
@@ -35,7 +35,7 @@ This mechanism is illustrated in the `AddMsal()` method of [WebAppServiceCollect
 
 The **Logout Url** that you've registered for your application enables you to implement single sign-out. The Microsoft identity platform `logout` endpoint will call the **Logout URL** registered with your application. This call happens if the sign-out was initiated from your web app, or from another web app or the browser. For more information, see [Single sign-out](v2-protocols-oidc.md#single-sign-out).
 
-```CSharp
+```csharp
 public static class WebAppServiceCollectionExtensions
 {
  public static IServiceCollection AddMsal(this IServiceCollection services, IConfiguration configuration, IEnumerable<string> initialScopes, string configSectionName = "AzureAd")
@@ -77,5 +77,24 @@ The Python sample doesn't remove accounts from the cache on global sign-out
 
 ## Next steps
 
+# [ASP.NET Core](#tab/aspnetcore)
+
 > [!div class="nextstepaction"]
-> [Acquiring a token for the web app](scenario-web-app-call-api-acquire-token.md)
+> [Acquiring a token for the web app](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-app-call-api-acquire-token?tabs=aspnetcore)
+
+# [ASP.NET](#tab/aspnet)
+
+> [!div class="nextstepaction"]
+> [Acquiring a token for the web app](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-app-call-api-acquire-token?tabs=aspnet)
+
+# [Java](#tab/java)
+
+> [!div class="nextstepaction"]
+> [Acquiring a token for the web app](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-app-call-api-acquire-token?tabs=java)
+
+# [Python](#tab/python)
+
+> [!div class="nextstepaction"]
+> [Acquiring a token for the web app](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-app-call-api-acquire-token?tabs=python)
+
+---

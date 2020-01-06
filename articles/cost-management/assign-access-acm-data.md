@@ -1,13 +1,13 @@
 ---
-title: Assign access to Azure Cost Management data | Microsoft Docs
+title: Assign access to Azure Cost Management data
 description: This article walks you though assigning permission to Azure Cost Management data for various access scopes.
 services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 09/30/2019
+ms.date: 10/14/2019
 ms.topic: conceptual
-ms.service: cost-management
+ms.service: cost-management-billing
 manager: vitavor
 ms.custom: secdec18
 ---
@@ -58,6 +58,8 @@ To view cost data for other Azure subscriptions, a user must have at least read 
 - Azure account
 - Management group
 - Resource group
+
+Various scopes are available after partners onboard customers to a Microsoft Customer Agreement. CSP customers can then use Cost Management features when enabled by their CSP partner. For more information, see [Get started with Azure Cost Management for partners](get-started-partners.md).
 
 ## Enable access to costs in the EA portal
 

@@ -5,7 +5,7 @@ author: musa-57
 ms.manager: abhemraj
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 09/17/2019
+ms.date: 11/21/2019
 ms.author: hamusa
 ---
 
@@ -187,6 +187,7 @@ If you start discovery so that **Server Assessment** and **Server Migration** sh
 
 - After starting discovery from the appliance, it takes around 15 minutes for a VMware VM discovery, and around two minutes for each added host for Hyper-V VM discovery.
 - If you continue to see **Discovery in progress** even after these waiting periods, select **Refresh** on the **Servers** tab. This should show the count of the discovered servers in **Server Assessment** and **Server Migration**.
+- If you are discovering VMware servers, verify that the vCenter account you specified has permissions set correctly and has access granted to at least 1 VM. Please note that while you can set the discovery scope to vCenter Server datacenters, clusters, folder of clusters, hosts, folder of hosts, or individual VMs, Azure Migrate is not able to discover VMs if the vCenter account has access granted at vCenter VM folder level. Learn more about scoping discovery [here](https://docs.microsoft.com/azure/migrate/tutorial-assess-vmware#set-the-scope-of-discovery).
 
 
 ## Deleted VMs in the portal
@@ -224,6 +225,33 @@ Error 50004: "Can't connect to a host or cluster because the server name can't b
     4. Save and close the hosts file.
     5. Check whether the appliance can connect to the hosts, using the appliance management app. After 30 minutes, you should see the latest information for these hosts in the Azure portal.
 
+## Application discovery issues
+
+Discovery of applications is currently only supported for VMware VMs. Support for Hyper-V VMs and physical servers will be enabled in future.
+
+The discovery of applications requires you to provide VM credentials in the appliance, if you have not provided VM credentials in the appliance, application discovery will not work. [Learn more](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#assessment-vcenter-server-permissions) about the access privileges needed for vCenter Server and for VMware VMs. If you have provided VM credentials in the appliance and the application discovery is failing, review the following table to identify the cause for the failure and remediation action:
+
+**Error code** | **Message** | **Possible cause** | **Recommended action**
+--- | --- | --- | ---
+10000 | Unable to discover the applications installed on the server. | This could happen if the operating system running on the server is neither Windows nor Linux. | Discovery of installed applications is only supported for Windows and Linux servers.
+10001 | Unable to retrieve the applications installed the server. | This is due to an internal error as there are some missing files in appliance. | Please contact Microsoft Support.
+10002 | Unable to retrieve the applications installed the server. | This could happen if the discovery agent in the Azure Migrate appliance is not working properly. | The issue should automatically get resolved in 24 hours. If the issue still persists, please contact Microsoft Support.
+10003 | Unable to retrieve the applications installed the server. | This could happen if the discovery agent is not working properly. | The issue should automatically get resolved in 24 hours. If the issue still persists, please contact Microsoft Support.
+10004 | Unable to discover installed applications for <Windows/Linux> machines. |  Credentials to access <Windows/Linux> machines were not provided in the Azure Migrate appliance | Please add a credential in the Azure Migrate appliance that has  access to the <Windows/Linux> machines.
+10005 | Unable to access the on-premises server. | This could happen if the credentials provided for machine to access the server is incorrect. | Please update the credentials provided in the appliance and ensure that the server is accessible using the credential.
+10006 | Unable to access the on-premises server. | This could happen if the operating system running on the server is neither Windows nor Linux. | Discovery of installed applications is only supported for Windows and Linux servers.
+9000 | Unable to discover the applications installed on the VM. | VMware tools might not be installed or is corrupted. | Install/Reinstall VMware tools in the VM and check if it is running.
+9001 | Unable to discover the applications installed on the VM. | VMware tools might not be installed or is corrupted. | Install/Reinstall VMware tools in the VM and check if it is running.
+9002 | Unable to discover the applications installed on the VM. | VMware tools might not be running. | Install/Reinstall VMware tools in the VM and check if it is running.
+9003 | Unable to discover the applications installed on the server. | This could happen if the operating system running on the server is neither Windows nor Linux. | Discovery of installed applications is only supported for Windows and Linux servers.
+9004 | Unable to discover the applications installed on the server. | This could happen if the VM is powered off. | To discover installed applications on the server, ensure that the VM is powered on.
+9005 | Unable to discover the applications installed on the VM. | This could happen if the operating system running on the VM is neither Windows nor Linux. | Discovery of installed applications is only supported for Windows and Linux servers.
+9006 | Unable to retrieve the applications installed the server. | This could happen if the discovery agent is not working properly. | The issue should automatically get resolved in 24 hours. If the issue still persists, please contact Microsoft Support.
+9007 | Unable to retrieve the applications installed the server. | This could happen if the discovery agent is not working properly. | The issue should automatically get resolved in 24 hours. If the issue still persists, please contact Microsoft Support.
+9008 | Unable to retrieve the applications installed the server. | The issue can occur due to an internal error.  | The issue should automatically get resolved in 24 hours. If the issue still persists, please contact Microsoft Support.
+9009 | Unable to retrieve the applications installed the server. | The issue can occur if the Windows User Account Control (UAC) settings on the server are restrictive and prevent discovery of installed applications. | Search for 'User Account Control' settings on the server and configure the UAC setting on the server to be at one of the lower two levels.
+9010 | Unable to retrieve the applications installed the server. | The issue can occur due to an internal error.  | The issue should automatically get resolved in 24 hours. If the issue still persists, please contact Microsoft Support.
+8084 | Unable to discover applications due to VMware error: <Exception from VMware> | The Azure Migrate appliance uses VMware APIs to discover applications. This issue can happen due to an exception thrown by vCenter Server while trying to discover applications. The fault message from VMware is displayed in the error message shown in portal. | Review the [VMware documentation](https://pubs.vmware.com/vsphere-51/topic/com.vmware.wssdk.apiref.doc/index-faults.html), search for the fault message and follow the troubleshooting steps in the VMware article to fix the issue. If you are still unable to fix the issue, reach out to Microsoft Support.
 
 
 ## Fix assessment readiness
@@ -243,7 +271,7 @@ Requires a Microsoft Visual Studio subscription | The machine is running a Windo
 VM not found for the required storage performance | The storage performance (input/output operations per second [IOPS] and throughput) required for the machine exceeds Azure VM support. Reduce storage requirements for the machine before migration.
 VM not found for the required network performance | The network performance (in/out) required for the machine exceeds Azure VM support. Reduce the networking requirements for the machine.
 VM not found in the specified location | Use a different target location before migration.
-One or more unsuitable disks | One or more disks attached to the VM don't meet Azure requirements.A<br/><br/> Azure Migrate: Server Assessment currently doesn't support Ultra SSD disks, and assesses the disks based on the disk limits for premium managed disks (32 TB).<br/><br/> For each disk attached to the VM, make sure that the size of the disk is < 64 TB (supported by Ultra SSD disks).<br/><br/> If it isn't, reduce the disk size before you migrate to Azure, or use multiple disks in Azure and [stripe them together](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#disk-striping) to get higher storage limits. Make sure that the performance (IOPS and throughput) needed by each disk is supported by Azure [managed virtual machine disks](https://docs.microsoft.com/azure/azure-subscription-service-limits#storage-limits).
+One or more unsuitable disks | One or more disks attached to the VM don't meet Azure requirements.A<br/><br/> Azure Migrate: Server Assessment currently doesn't support Ultra SSD disks, and assesses the disks based on the disk limits for premium managed disks (32 TB).<br/><br/> For each disk attached to the VM, make sure that the size of the disk is < 64 TB (supported by Ultra SSD disks).<br/><br/> If it isn't, reduce the disk size before you migrate to Azure, or use multiple disks in Azure and [stripe them together](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#disk-striping) to get higher storage limits. Make sure that the performance (IOPS and throughput) needed by each disk is supported by Azure [managed virtual machine disks](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#storage-limits).
 One or more unsuitable network adapters. | Remove unused network adapters from the machine before migration.
 Disk count exceeds limit | Remove unused disks from the machine before migration.
 Disk size exceeds limit | Azure Migrate: Server Assessment currently doesn't support Ultra SSD disks, and assesses the disks based on premium disk limits (32 TB).<br/><br/> However, Azure supports disks with up to 64 TB size (supported by Ultra SSD disks). Shrink disks to less than 64 TB before migration, or use multiple disks in Azure and [stripe them together](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#disk-striping) to get higher storage limits.
@@ -316,13 +344,11 @@ Server Assessment continuously collects performance data of on-premises machines
 - If you want to pick the peak usage for the period and don't want to miss any outliers, you should select the 99th percentile for percentile utilization.
 
 
-
 ## I can't find dependency visualization for Azure Government
 
 Azure Migrate depends on Service Map for the dependency visualization functionality. Because Service Map is currently unavailable in Azure Government, this functionality is not available in Azure Government.
 
 ## Dependencies don't show after installing agents
-
 
 After you've installed the dependency visualization agents on on-premises VMs, Azure Migrate typically takes 15-30 minutes to display the dependencies in the portal. If you've waited for more than 30 minutes, make sure that the Microsoft Monitoring Agent (MMA) can connect to the Log Analytics workspace.
 

@@ -45,7 +45,7 @@
       href: tutorial-deploy-function.md
     - name: Find averages with Azure Stream Analytics
       href: tutorial-deploy-stream-analytics.md
-    - name: Score data with Azure Machine Learning service
+    - name: Score data with Azure Machine Learning
       href: tutorial-deploy-machine-learning.md
     - name: Classify images with Custom Vision
       href: tutorial-deploy-custom-vision.md
@@ -110,13 +110,7 @@
 - name: How-to guides
   items:
   - name: Register an IoT Edge device
-    items:
-    - name: Azure portal
-      href: how-to-register-device-portal.md
-    - name: Azure CLI
-      href: how-to-register-device-cli.md
-    - name: Visual Studio Code
-      href: how-to-register-device-vscode.md
+    href: how-to-register-device.md
   - name: Install and manage IoT Edge
     items:
     - name: Linux
@@ -131,6 +125,10 @@
       href: how-to-install-iot-edge-ubuntuvm.md
     - name: Kubernetes
       href: how-to-install-iot-edge-kubernetes.md
+    - name: Install production certificates
+      href: how-to-install-production-certificates.md
+    - name: Create test certificates
+      href: how-to-create-test-certificates.md
     - name: Update the runtime version
       href: how-to-update-iot-edge.md
   - name: Auto-provision with DPS
@@ -177,6 +175,8 @@
     href: how-to-configure-proxy-support.md
   - name: Store data at the edge
     items:
+    - name: Give modules access to a device's local storage
+      href: how-to-access-host-storage-from-module.md
     - name: Azure Blob Storage on IoT Edge
       href: how-to-store-data-blob.md
     - name: Deploy blob storage modules
@@ -248,14 +248,14 @@
   - name: MSDN forum
     href: https://social.msdn.microsoft.com/Forums/azure/home?forum=iotedge
   - name: Pricing
-    href: https://azure.microsoft.com/pricing/details/iot-hub/
+    href: https://azure.microsoft.com/pricing/details/iot-edge/
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Service updates
-    href: https://azure.microsoft.com/updates/?product=iot-hub
+    href: https://azure.microsoft.com/updates/?product=iot-edge
   - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/azure-iot-hub
+    href: https://stackoverflow.com/questions/tagged/azure-iot-edge
   - name: Technical case studies
     href: https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured
   - name: Videos
-    href: https://azure.microsoft.com/documentation/videos/index/?services=iot-hub
+    href: https://azure.microsoft.com/documentation/videos/index/?services=iot-edge

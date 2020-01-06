@@ -3,14 +3,14 @@ title: Image Moderation - Content Moderator
 titleSuffix: Azure Cognitive Services
 description: Use Content Moderator’s machine-assisted image moderation and human-in-the-loop Review tool to moderate images for adult and racy content.
 services: cognitive-services
-author: sanjeev3
+author: PatrickFarley
 manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
-ms.author: sajagtap
+ms.author: pafarley
 
 ---
 
@@ -144,4 +144,4 @@ For more nuanced cases, use the Content Moderator [review tool](Review-Tool-User
 
 ## Next steps
 
-Test drive the [Image Moderation API console](try-image-api.md) and use the REST API code samples. Also check out the [Image moderation .NET quickstart](image-moderation-quickstart-dotnet.md) if you are familiar with Visual Studio and C#.
+Test drive the [Image Moderation API console](try-image-api.md) and use the REST API code samples. Also check out the Image moderation section of the [.NET SDK quickstart](dotnet-sdk-quickstart.md) if you are familiar with Visual Studio and C#.
