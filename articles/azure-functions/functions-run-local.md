@@ -510,7 +510,7 @@ The following custom container deployment options are available:
 
 The recommended way to monitor the execution of your functions is by integrating with Azure Application Insights. You can also stream execution logs to your local computer. To learn more, see [Monitor Azure Functions](functions-monitoring.md).
 
-### Enable Application Insights integration
+### Application Insights integration
 
 Application Insights integration should be enabled when you create your function app in Azure. If for some reason your function app isn't connected to an Application Insights instance, it's easy to do this integration in the Azure portal. 
 
