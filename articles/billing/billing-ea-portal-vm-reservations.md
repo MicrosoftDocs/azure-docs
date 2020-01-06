@@ -4,7 +4,7 @@ description: This article summaries how Azure reservations for VM reserved insta
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 12/04/2019
+ms.date: 01/02/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 manager: boalcsva

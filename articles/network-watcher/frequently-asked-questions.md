@@ -48,14 +48,20 @@ For more detailed information, see the [Network Watcher overview page](https://d
 ### How does Network Watcher pricing work?
 Visit the [Pricing page](https://azure.microsoft.com/pricing/details/network-watcher/) for Network Watcher components and their pricing.
 
-### Which regions is Network Watcher available in?
+### Which regions is Network Watcher supported/available in?
 You can view the latest regional availability on the [Azure Service availability page](https://azure.microsoft.com/global-infrastructure/services/?products=network-watcher)
 
 ### What are resource limits on Network Watcher?
-See the [Service limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#network-watcher-limits) page for all limits.  
+See the [Service limits](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#network-watcher-limits) page for all limits.  
 
 ### Why is only one instance of Network Watcher allowed per region?
 Network Watcher just needs to be enabled once for a subscription for it's features to work, this is a not a service limit.
+
+### Why do I need to install the Network Watcher extension? 
+The Network Watcher extension is required for any feature that needs to generate or intercept traffic from a VM. 
+
+### Which features require the Network Watcher extension?
+Only Packet Capture, Connection Troubleshoot and Connection Monitor need the Network Watcher extension to be present.
 
 ## NSG Flow Logs
 
