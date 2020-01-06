@@ -102,7 +102,7 @@ To set up a managed identity in the portal, you first create an application and 
 
 ### [.NET Core 2.x](#tab/core2x)
 
- ```csharp-interactive
+ ```csharp
     public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
         WebHost.CreateDefaultBuilder(args)
             .ConfigureAppConfiguration((hostingContext, config) =>
@@ -116,7 +116,7 @@ To set up a managed identity in the portal, you first create an application and 
 
 ### [.NET Core 3.x](#tab/core3x)
 
-```csharp-interactive
+```csharp
     public static IHostBuilder CreateHostBuilder(string[] args) =>
         Host.CreateDefaultBuilder(args)
         .ConfigureWebHostDefaults(webBuilder =>
@@ -134,7 +134,7 @@ To set up a managed identity in the portal, you first create an application and 
 
 ### [.NET Core 2.x](#tab/core2x)
 
-```csharp-interactive
+```csharp
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
                 .ConfigureAppConfiguration((hostingContext, config) =>
@@ -150,7 +150,7 @@ To set up a managed identity in the portal, you first create an application and 
 
 ### [.NET Core 3.x](#tab/core3x)
 
-```csharp-interactive
+```csharp
     public static IHostBuilder CreateHostBuilder(string[] args) =>
         Host.CreateDefaultBuilder(args)
         .ConfigureWebHostDefaults(webBuilder =>
