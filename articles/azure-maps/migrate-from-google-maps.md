@@ -17,7 +17,7 @@ This tutorial provides insights on how to migrate web, mobile and server-based a
 
 ## Azure Maps platform overview
 
-Azure Maps provides developers from all industries powerful geospatial capabilities, packed with the regularly updated map data to provide geographic context for web and mobile applications. Azure Maps has an Azure One API compliant set of REST APIs for Maps, Search, Routing, Traffic, Time Zones, Geolocation, Geofencing, Map Data, Weather, Mobility and Spatial Operations accompanied by both Web and Android SDKs to make development easy, flexible, and portable across multiple platforms.
+Azure Maps provides developers from all industries powerful geospatial capabilities, packed with the regularly updated map data to provide geographic context for web and mobile applications. Azure Maps has an Azure One API compliant set of REST APIs for Maps, Search, Routing, Traffic, Time Zones, Geolocation, Geofencing, Map Data, Weather, Mobility, and Spatial Operations accompanied by both Web and Android SDKs to make development easy, flexible, and portable across multiple platforms.
 
 ## High-level platform comparison
 
