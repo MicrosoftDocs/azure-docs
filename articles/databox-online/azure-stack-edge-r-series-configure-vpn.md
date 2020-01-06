@@ -78,17 +78,43 @@ First, you'll create a virtual network resource under your resource group.
 
 1. Create a virtual network resource. In the Azure portal, select **+ Create a resource**, search for *virtual network* and then select **Create**.
 
+    ![Create virtual network resource 1](media/azure-stack-edge-r-series-configure-vpn/create-vnet-1.png)
+
 2. In the **Basics** tab, provide the subscription, create new or choose from an existing resource group, enter a name for the virtual network, and select the same region as that associated with your Azure Stack Edge device (when creating the resource).
 
-3. In the **IP addresses** tab, assign a valid address space. Accept the default settings for tabs for **Security** and **Tags**. Finally in **Review + Create** tab, review the settings for your virtual network and select **Create**. 
+    ![Create virtual network resource 2](media/azure-stack-edge-r-series-configure-vpn/create-vnet-2.png)
+
+3. In the **IP addresses** tab, assign a valid address space. 
+
+    ![Create virtual network resource 3](media/azure-stack-edge-r-series-configure-vpn/create-vnet-3.png)
+
+4. Accept the default settings for tabs for **Security** and **Tags**. Finally in **Review + Create** tab, review the settings for your virtual network and select **Create**. 
+
+    ![Create virtual network resource 4](media/azure-stack-edge-r-series-configure-vpn/create-vnet-4.png)
 
 The virtual network is created immediately.
+
+![Create virtual network resource 5](media/azure-stack-edge-r-series-configure-vpn/create-vnet-5.png)
 
 After the virtual network is created, create a subnet.
 
 1. In the virtual network, go to **Settings > Subnets**. Select **+ Subnet** to create a subnet. 
 
-2. Provide the address range and accept the default settings for other parameters.
+    ![Create subnet 1](media/azure-stack-edge-r-series-configure-vpn/create-subnet-1.png)
+
+2. In the **Add subnet** blade:
+
+    - Name this subnet *AzureFirewall* subnet. 
+    - Provide a valid address range.
+    - Select **All** services.
+    - Accept the default settings for other parameters.
+    - Select **OK**.
+
+    ![Create subnet 2](media/azure-stack-edge-r-series-configure-vpn/create-subnet-2.png)
+
+*AzureFirewallSubnet* is created and the list of subnets updates to reflect the newly added subnet.
+
+![Create subnet 3](media/azure-stack-edge-r-series-configure-vpn/create-subnet-3.png)
 
 For more information, go to [Create a virtual network](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal#CreatVNet).
 
@@ -98,6 +124,8 @@ Do the following steps:
 
 1. Create a virtual network gateway. In the Azure portal, select **+ Create a resource**, search for *virtual network gateway* and then select **Create**.
 
+    ![Create vnet gateway 1](media/azure-stack-edge-r-series-configure-vpn/create-vnet-gateway-1.png)
+
 2. In the **Basics** tab:
 
     - Enter the name for your virtual network gateway.
@@ -106,19 +134,29 @@ Do the following steps:
     - Create a new public IP address and assign it a name.
     - Accept other default settings.
 
+    ![Create vnet gateway 2](media/azure-stack-edge-r-series-configure-vpn/create-vnet-gateway-2.png)
+
 3. In the **Tags** tab, accept all the default settings.
+
+    ![Create vnet gateway 3](media/azure-stack-edge-r-series-configure-vpn/create-vnet-gateway-3.png)
 
 4. In the **Review + create** tab, review the settings associated with your virtual network gateway. Select **Create**.
 
-This operation may take from 20 - 40 minutes. After the  VPN gateway is created, you need to configure a site-to-site connection in it. 
+    ![Create vnet gateway 4](media/azure-stack-edge-r-series-configure-vpn/create-vnet-gateway-4.png)
 
-For more information, go to [Configure site-to-site connection on your virutal network gateway](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal#VNetGateway).
+This operation may take from 20 - 40 minutes. After the  VPN gateway is created, you need to create a local network gateway that represents the VPN device. 
+
+![Create vnet gateway 5](media/azure-stack-edge-r-series-configure-vpn/create-vnet-gateway-5.png)
+
+For more information, go to [Configure site-to-site connection on your virtual network gateway](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal#VNetGateway).
 
 ## Create local network gateway
 
 Do the following steps:
 
 1. Create a local network gateway. In the Azure portal, select **+ Create a resource**, search for *local network gateway* and then select **Create**.
+
+    ![Create lnet gateway 1](media/azure-stack-edge-r-series-configure-vpn/create-lnet-gateway-1.png)
 
 2. In the **Create local network gateway** blade:
 
@@ -130,6 +168,12 @@ Do the following steps:
     - Accept the other default settings.
     - Select **Create**.
 
+    ![Create lnet gateway 2](media/azure-stack-edge-r-series-configure-vpn/create-lnet-gateway-2.png)
+
+The local network gateway creation takes up to 40 minutes.
+
+![Create vnet gateway 3](media/azure-stack-edge-r-series-configure-vpn/create-vnet-gateway-3.png)
+
 For more information, go to [Create local network gateway](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal#LocalNetworkGateway).
 
 ## Create VPN connection
@@ -138,6 +182,8 @@ Do the following steps:
 
 1. Create a VPN connection object. In the Azure portal, select **+ Create a resource**, search for *connection* and then select **Create**.
 
+    ![Create vpn connection 1](media/azure-stack-edge-r-series-configure-vpn/create-vpn-connection-1.png)
+
 2. In **Step 1: Basics**, configure the basic settings. 
 
     - Select Connection type as Site-to-site (IPsec).
@@ -145,6 +191,8 @@ Do the following steps:
     - Select the same location as that associated with the device, virtual network, virtual network gateway, and the local network gateway.
     - Accept other default settings.
     - Select **OK**.
+
+    ![Create vpn connection 2](media/azure-stack-edge-r-series-configure-vpn/create-vpn-connection-2.png)
 
 3. In **Step 2: Settings**, configure connection settings. 
 
@@ -155,7 +203,15 @@ Do the following steps:
     - Accept other default settings.
     - Select **OK**.
 
+    ![Create vpn connection 3](media/azure-stack-edge-r-series-configure-vpn/create-vpn-connection-3.png)
+
 4. In **Step 3: Summary**, review your connection settings and create the connection.
+
+    ![Create vpn connection 4](media/azure-stack-edge-r-series-configure-vpn/create-vpn-connection-4.png)
+
+The VPN connection creation takes several minutes.
+
+![Create vpn connection 5](media/azure-stack-edge-r-series-configure-vpn/create-vpn-connection-5.png)
 
 For more information, go to [Create VPN connection object](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal#CreateConnection).
 
@@ -173,6 +229,8 @@ First, you will create an Azure Firewall. Do the following steps:
 
 1. Create an Azure Firewall. In the Azure portal, select **+ Create a resource**, search for *firewall* and then select **Create**.
 
+    ![Create firewall 1](media/azure-stack-edge-r-series-configure-vpn/create-firewall-1.png)
+
 2. In the **Basics** tab:
 
     - Select the resource group you have used in the previous steps.
@@ -182,11 +240,19 @@ First, you will create an Azure Firewall. Do the following steps:
     - Provide a name for the public IP address.
     - Accept other default settings.
 
+    ![Create firewall 2](media/azure-stack-edge-r-series-configure-vpn/create-firewall-2.png)
+
 3. In the **Tags** tab, accept all the default settings.
+
+    ![Create firewall 3](media/azure-stack-edge-r-series-configure-vpn/create-firewall-3.png)
 
 4. In the **Review + create** tab, review the settings for your firewall and select **Create**.
 
-The firewall may take several minutes to complete.
+    ![Create firewall 4](media/azure-stack-edge-r-series-configure-vpn/create-firewall-4.png)
+
+The firewall creation may take several minutes to complete.
+
+![Create firewall 5](media/azure-stack-edge-r-series-configure-vpn/create-firewall-5.png)
 
 For more information, go to [Create Azure Firewall](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal#CreatVNet).
 
@@ -208,6 +274,8 @@ First add network rules and then add application rules.
     > Make sure that only one region is selected.
 
 2. Verify in Azure portal that the network rules are added.
+
+    ![Add network rules 1](media/azure-stack-edge-r-series-configure-vpn/add-network-rules-1.png)
   
 3. Add application rules. To add application rules, run the following script: 
 
@@ -217,16 +285,17 @@ First add network rules and then add application rules.
 
     `.\Add-AzFirewallAppRule.ps1 -AzureAppRuleFilePath .\appRule.json -ResourceGroupName myasevpnrg -FirewallName myasefirewall1 -AppRuleCollectionName MyAppRuleCollection1 -Priority 100` 
 
-    Following application rules to be added for https and http. 
-    Protocol should be: http:80, https:443 
+4. Verify in Azure portal that the application rules are added.
 
-    [Insert the table of URL patterns for firewall rules]
+    ![Add application rules 1](media/azure-stack-edge-r-series-configure-vpn/add-application-rules-1.png)
 
-### Create a routing table
+### Create a route table
 
 Create a route table. Do the following steps:
 
 1. Create a routing table. In the Azure portal, select **+ Create a resource**, search for *route table* and then select **Create**.
+
+    ![Create route table 1](media/azure-stack-edge-r-series-configure-vpn/create-route-table-1.png)
 
 2. In the **Create route table** blade:
 
@@ -236,13 +305,23 @@ Create a route table. Do the following steps:
     - Accept the other default settings.
     - Select **Create**.
 
+    ![Create route table 2](media/azure-stack-edge-r-series-configure-vpn/create-route-table-2.png)
+
 3. Associate the subnet with the route table. In your route table, go to **Settings > Subnets**. 
+
+    ![Associate subnet 1](media/azure-stack-edge-r-series-configure-vpn/associate-subnet-1.png)
 
 4. In the right pane, from the top command bar, select **+ Associate**. In the **Associate subnet** blade, select the virtual network you created in the previous step. Select **default** subnet and then select **OK**.
 
+    ![Associate subnet 2](media/azure-stack-edge-r-series-configure-vpn/associate-subnet-2.png)
+
     This associates the default subnet with the routing table. Repeat the steps to add the **GatewaySubnet**. 
+
+    ![Associate subnet 3](media/azure-stack-edge-r-series-configure-vpn/associate-subnet-3.png)
     
-    **Default** and **GatewaySubnet** are now associated with your route table.
+**Default** and **GatewaySubnet** are now associated with your route table.
+
+![Associate subnet 4](media/azure-stack-edge-r-series-configure-vpn/associate-subnet-4.png)
  
 ### Add routes
 
@@ -257,6 +336,8 @@ Add the routes to the routing table that you created in the previous step. Do th
     `.\ Add-AseAzRoutes.ps1 -ServiceTagAndRegionList azurecloud.centraluseuap,AzureActiveDirectory,AzureActiveDirectoryDomainServices -IntendedAction ApplyAzureRoutes -AzureIPRangesFilePath .\ServiceTags_Public_20191209.json -ResourceGroupName myasevpnrg -RouteTableName myaseroutetable1 -FirewallIPv4 10.3.1.4 -RouteNamePrefix "myase1routes_"`
  
 2. Verify that the routes are added to the route table.
+
+    ![Add routes 1](media/azure-stack-edge-r-series-configure-vpn/add-routes-1.png)
 
 3. Add the following routes manually in the route table. Are these routes now included in the script?
 
@@ -280,11 +361,11 @@ For more information, go to [Download configuration for your VPN device](https:/
 
 Do the following steps in the local web UI of your device.
 
-1. Go to **Settings > VPN**.
+1. Go to **Configuration > VPN**. Select **Configure**.
 
-2. Select **Configure**.
+    ![Configure local UI 1](media/azure-stack-edge-r-series-configure-vpn/configure-vpn-local-ui-1.png)
 
-3. In the **Configure VPN** blade:
+2. In the **Configure VPN** blade:
 
     - Enable **VPN settings**.
     - Provide the **VPN shared secret**. This is the shared key you provided while creating the Azure VPN connection object.
@@ -297,17 +378,25 @@ Do the following steps in the local web UI of your device.
     - For **IKE encryption method**, select **AES256**.
     - Select **Apply**.
 
-4. To upload the VPN route configuration file, select **Upload**. 
+    ![Configure local UI 2](media/azure-stack-edge-r-series-configure-vpn/configure-vpn-local-ui-2.png)
+
+3. To upload the VPN route configuration file, select **Upload**. 
+
+    ![Configure local UI 3](media/azure-stack-edge-r-series-configure-vpn/configure-vpn-local-ui-3.png)
 
     - Browse to the VPN configuration *json* file that you downloaded on your local system in the previous step.
     - Select the region as the Azure region associated with the device, vnet, and gateways.
     - Select **Apply**.
- 
-5. To add client-specific routes, configure IP address ranges to be accessed using VPN only. 
+
+    ![Configure local UI 4](media/azure-stack-edge-r-series-configure-vpn/configure-vpn-local-ui-4.png)
+
+4. To add client-specific routes, configure IP address ranges to be accessed using VPN only. 
 
     - Under **IP address ranges to be accessed using VPN only**, select **Configure**.
     - Provide a valid IPv4 range and select **Add**. Repeat the steps to add other ranges.
     - Select **Apply**.
+
+    ![Configure local UI 5](media/azure-stack-edge-r-series-configure-vpn/configure-vpn-local-ui-5.png)
 
 ## Next steps
 
