@@ -49,20 +49,17 @@
       displayName: n-depth, constraint, descriptor, phrase list, entity
     - name: 3. Get sentiment from user utterances
       href: tutorial-publish-settings.md
-  - name: Build app
+  - name: Create and use entities
     items:
-    - name: Get well-formatted data with regular expressions
-      href: luis-quickstart-intents-regex-entity.md
-    - name: Get exact text matches with lists
-      href: luis-quickstart-intent-and-list-entity.md
-    - name: Get related data with entity roles
+    - name: Regular expression entities
+      href: tutorial-regex-entity.md
+    - name: List entities
+      href: tutorial-list-entity.md
+    - name: Entity roles
       href: tutorial-entity-roles.md
       displayName: roles, geographyV2, context
     - name: Group and extract related data with composite entities
       href: luis-tutorial-composite-entity.md
-      displayName: roles
-    - name: Get names with simple entities
-      href: luis-quickstart-primary-and-secondary-data.md
       displayName: roles
   - name: Improve app
     items:
@@ -70,13 +67,8 @@
       href: luis-tutorial-review-endpoint-utterances.md
     - name: Batch test datasets
       href: luis-tutorial-batch-testing.md
-    - name: Add common utterance formats
+    - name: Add patterns to improve predictions
       href: luis-tutorial-pattern.md
-    - name: Extract contextually-related patterns
-      href: luis-tutorial-pattern-roles.md
-      displayName: roles
-    - name: Extract free-form data
-      href: luis-tutorial-pattern-any.md
   - name: Use with bot
     items:
     - name: With C#
@@ -177,6 +169,8 @@
     - name: Add Descriptor
       displayName: synonym, interchange, phrase list, descriptor
       href: luis-how-to-add-features.md
+    - name: Migrate to V3 Authoring
+      href: luis-migration-authoring-entities.md
     - name: With REST APIs
       items:
       - name: Build app programmatically using Node.js

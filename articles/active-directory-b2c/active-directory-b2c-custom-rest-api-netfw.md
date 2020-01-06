@@ -1,5 +1,6 @@
 ---
-title: Integrate REST API claims exchanges in your Azure Active Directory B2C user journey
+title: Integrate REST API claims exchanges in a user journey
+titleSuffix: Azure AD B2C
 description: Integrate REST API claims exchanges in your Azure AD B2C user journey as validation of user input.
 services: active-directory-b2c
 author: mmacy

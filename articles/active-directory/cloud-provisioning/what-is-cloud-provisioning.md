@@ -7,7 +7,7 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
-ms.date: 12/02/2019
+ms.date: 12/05/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.topic: conceptual
@@ -29,7 +29,7 @@ With Azure AD Connect cloud provisioning, provisioning from AD to Azure AD is or
 
 The following table provides a comparison between Azure AD Connect and Azure AD Connect cloud provisioning:
 
-| Feature | Azure Active Directory Connect synch| Azure Active Directory Connect cloud provisioning |
+| Feature | Azure Active Directory Connect sync| Azure Active Directory Connect cloud provisioning |
 |:--- |:---:|:---:|
 |Connect to single on-premises AD forest|● |● |
 | Connect to multiple on-premises AD forests |● |● |
@@ -55,8 +55,10 @@ The following table provides a comparison between Azure AD Connect and Azure AD 
 | Allow removing attributes from flowing from AD to Azure AD |● |● |
 | Allow advanced customization for attribute flows |● | |
 | Support for writeback (passwords, devices, groups) |● | |
+| Azure AD Domain Services support|● | |
+| Exchange hybrid configuration |● | |
 
 ## Next steps 
 
 - [What is provisioning?](what-is-provisioning.md)
-- [What is Azure AD Connect cloud provisioning?](what-is-cloud-provisioning.md)
+- [Install cloud provisioning](how-to-install.md)

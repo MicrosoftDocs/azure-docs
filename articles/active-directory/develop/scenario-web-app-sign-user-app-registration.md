@@ -1,6 +1,6 @@
 ---
-title: Web app that signs in users (app registration) - Microsoft identity platform
-description: Learn how to build a web app that signs in users (app registration)
+title: Register a web app that signs in users - Microsoft identity platform | Azure
+description: Learn how to register a web app that signs in users
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur

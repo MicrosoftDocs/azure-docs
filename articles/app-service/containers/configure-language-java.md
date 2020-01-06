@@ -244,8 +244,7 @@ Additional configuration may be necessary for encrypting your JDBC connection. P
 - [SQL Server](https://docs.microsoft.com/sql/connect/jdbc/connecting-with-ssl-encryption?view=sql-server-ver15)
 - [MySQL](https://dev.mysql.com/doc/connector-j/5.1/en/connector-j-reference-using-ssl.html)
 - [MongoDB](https://mongodb.github.io/mongo-java-driver/3.4/driver/tutorials/ssl/)
-- [Cassandra](https://docs.datastax.com/developer/java-driver/4.3/)
-
+- [Cassandra](https://docs.datastax.com/en/developer/java-driver/4.3/)
 
 #### Manually initialize and load the key store
 
