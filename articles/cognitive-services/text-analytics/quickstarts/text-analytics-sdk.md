@@ -38,19 +38,13 @@ Use the Text Analytics client library v3 to perform:
 
 ::: zone pivot="programming-language-nodejs"
 
+[!INCLUDE [Java quickstart](../includes/quickstarts/v3/java-sdk.md)]
+
+::: zone-end
+
+::: zone pivot="programming-language-nodejs"
+
 [!INCLUDE [NodeJS quickstart](../includes/quickstarts/v3/nodejs-sdk.md)]
-
-::: zone-end
-
-::: zone pivot="programming-language-go"
-
-[!INCLUDE [Go quickstart](../includes/quickstarts/v3/go-sdk.md)]
-
-::: zone-end
-
-::: zone pivot="programming-language-ruby"
-
-[!INCLUDE [Ruby quickstart](../includes/quickstarts/v3/ruby-sdk.md)]
 
 ::: zone-end
 
@@ -65,7 +59,6 @@ If you want to clean up and remove a Cognitive Services subscription, you can de
 
 > [!div class="nextstepaction"]
 > [Text Analytics With Power BI](../tutorials/tutorial-power-bi-key-phrases.md)
-
 
 * [Text Analytics overview](../overview.md)
 * [Sentiment analysis](../how-tos/text-analytics-how-to-sentiment-analysis.md)
