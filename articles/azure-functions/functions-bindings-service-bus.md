@@ -292,7 +292,11 @@ Attributes are not supported by Python.
 
 # [Java](#tab/java)
 
-**TODO**
+The `ServiceBusQueueTrigger` annotation allows you to create a function that runs when a Service Bus queue message is created. Configuration options available include queue name and connection string name.
+
+The `ServiceBusTopicTrigger` annotation allows you to designate a topic and subscription to target what data triggers the function.
+
+See the trigger [example](#example) for more detail.
 
 ---
 
@@ -327,15 +331,21 @@ In C# and C# script, you can use the following parameter types for the queue or 
 
 These parameters are for Azure Functions version 1.x; for 2.x and higher, use [`Message`](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.message) instead of `BrokeredMessage`.
 
-In JavaScript, access the queue or topic message by using `context.bindings.<name from function.json>`. The Service Bus message is passed into the function as either a string or JSON object.
-
 # [C# Script](#tab/csharp-script)
 
-**TODO**
+In C# and C# script, you can use the following parameter types for the queue or topic message:
+
+* `string` - If the message is text.
+* `byte[]` - Useful for binary data.
+* A custom type - If the message contains JSON, Azure Functions tries to deserialize the JSON data.
+* `BrokeredMessage` - Gives you the deserialized message with the [BrokeredMessage.GetBody\<T>()](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.getbody?view=azure-dotnet#Microsoft_ServiceBus_Messaging_BrokeredMessage_GetBody__1)
+  method.
+
+These parameters are for Azure Functions version 1.x; for 2.x and higher, use [`Message`](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.message) instead of `BrokeredMessage`.
 
 # [JavaScript](#tab/javascript)
 
-**TODO**
+In JavaScript, access the queue or topic message by using `context.bindings.<name from function.json>`. The Service Bus message is passed into the function as either a string or JSON object.
 
 # [Python](#tab/python)
 
