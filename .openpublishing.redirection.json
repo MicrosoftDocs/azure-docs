@@ -45,6 +45,10 @@
       "redirect_url": "/azure//virtual-machines/windows/sql/virtual-machines-windows-portal-sql-create-failover-cluster-premium-file-share",
       "redirect_document_id": false
     },
+      "source_path": "articles/virtual-machines/linux/cli-manage-nodejs.md",
+      "redirect_url": "articles/virtual-machines/linux/create-cli-complete",
+      "redirect_document_id": false
+    },
     {
       "source_path": "articles/virtual-machines/windows/maintenance-and-updates.md",
       "redirect_url": "/azure/virtual-machines/maintenance-and-updates?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json",
