@@ -114,7 +114,7 @@ If you do not already have an Android application, follow these steps to set up 
         }
       ]
     }
-```
+   ```
     
    >[!NOTE]
    >This tutorial only demonstrates how to configure an app in Single Account mode. View the documentation for more information on [single vs. multiple account mode](https://docs.microsoft.com/azure/active-directory/develop/single-multi-account) and [configuring your app](https://docs.microsoft.com/azure/active-directory/develop/msal-configuration)
