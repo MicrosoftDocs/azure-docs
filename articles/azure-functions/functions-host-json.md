@@ -153,15 +153,15 @@ Controls options for Application Insights, including [sampling options](./functi
 
 | Property | Default | Description |
 | --------- | --------- | --------- | 
-| samplingSettings | n/a | See [applicationInsights.samplingSettings](#applicationinsights-samplingsettings). |
+| samplingSettings | n/a | See [applicationInsights.samplingSettings](#applicationinsightssamplingsettings). |
 | samplingExcludedTypes | `Dependency;Event` | A semi-colon delimited list of types that you don't want to be sampled. Recognized types are: Dependency, Event, Exception, PageView, Request, Trace. All instances of the specified types are transmitted; the types that are not specified are sampled. |
 | samplingIncludedTypes | `PageView;Trace` | A semi-colon delimited list of types that you want to be sampled; an empty list implies all types. Type listed in `samplingExcludedTypes` override types listed here. Recognized types are: Dependency, Event, Exception, PageView, Request, Trace. All instances of the specified types are transmitted; the types that are not specified are sampled. |
 | enableLiveMetrics | true | Enables live metrics collection. |
 | enableDependencyTracking | true | Enables dependency tracking. |
 | enablePerformanceCountersCollection | true | Enables Kudu performance counters collection. |
 | liveMetricsInitializationDelay | 00:00:15 | For internal use only. |
-| httpAutoCollectionOptions | n/a | See [applicationInsights.httpAutoCollectionOptions](#applicationinsights-httpautocollectionoptions). |
-| snapshotConfiguration | n/a | See [applicationInsights.snapshotConfiguration](#applicationinsights-snapshotconfiguration). |
+| httpAutoCollectionOptions | n/a | See [applicationInsights.httpAutoCollectionOptions](#applicationinsightshttpautocollectionoptions). |
+| snapshotConfiguration | n/a | See [applicationInsights.snapshotConfiguration](#applicationinsightssnapshotconfiguration). |
 
 ### applicationInsights.samplingSettings
 
@@ -187,7 +187,7 @@ Controls options for Application Insights, including [sampling options](./functi
 
 ### applicationInsights.snapshotConfiguration
 
-For more information on snapshots, see [Debug snapsnots on exceptions in .NET apps](https://docs.microsoft.com/en-us/azure/azure-monitor/app/snapshot-debugger) and [Troubleshoot problems enabling Application Insights Snapshot Debugger or viewing snapshots](https://docs.microsoft.com/en-us/azure/azure-monitor/app/snapshot-debugger-troubleshoot).
+For more information on snapshots, see [Debug snapsnots on exceptions in .NET apps](https://docs.microsoft.com/en-us/azure/azure-monitor/app/snapshot-debugger) and [Troubleshoot problems enabling Application Insights Snapshot Debugger or viewing snapshots](https://docs.microsoft.com/azure/azure-monitor/app/snapshot-debugger-troubleshoot).
 
 |Property | Default | Description |
 | --------- | --------- | --------- | 
