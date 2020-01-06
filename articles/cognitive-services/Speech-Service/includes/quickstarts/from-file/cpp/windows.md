@@ -28,7 +28,7 @@ Before you get started, make sure to:
 
 1. Replace all the code with the following snippet:
    
-   [!code-cpp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/from-file/helloworld/helloworld.cpp)]
+   [!code-cpp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/from-file/helloworld/helloworld.cpp#code)]
 
 1. In the same file, replace the string `YourSubscriptionKey` with your subscription key.
 
