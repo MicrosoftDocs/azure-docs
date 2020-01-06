@@ -1,5 +1,5 @@
 ---
-title: Attach custom Storage container on Linux
+title: Serve content from Azure Storage to App Service on Linux
 description: Learn how to attach custom network share to your Linux container in Azure App Service. Share files between apps, manage static content remotely and access locally, etc.
 author: msangapu-msft
 
@@ -8,33 +8,44 @@ ms.date: 01/02/2020
 ms.author: msangapu
 ---
 
-# Attach Azure Storage containers to Linux containers
+# Serve content from Azure Storage in App Service on Linux
 
 This guide shows how to attach network shares to App Service on Linux from using [Azure Storage](/azure/storage/common/storage-introduction). Benefits include secured content, content portability, persistent storage, access to multiple apps, and multiple transferring methods.
 
 
 > [!IMPORTANT]
-> Bring your own storage (BYOS) functionality is a **preview** feature. This feature is **not supported for production scenarios**.
+> Azure Storage in App Service on Linux is a **preview** feature. This feature is **not supported for production scenarios**.
 >
 
 ## Prerequisites
 
 To use the *Bring your own storage (BYOS)* feature, you'll need an existing web app and an Azure Storage account. 
 
-- [App Service Quickstart](https://docs.microsoft.com/azure/app-service/).
+- [An existing App Service on Linux app](https://docs.microsoft.com/azure/app-service/containers/).
 - [Storage Quickstart](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-cli)
 - [Azure CLI](/cli/azure/install-azure-cli) (2.0.46 or later).
 
-## Known issues and limitations
+## Limitations of Azure Storage with App Service
 
-- BYOS is **in preview** and **not supported** for **production scenarios**.
-- BYOS is **in preview** for bring your own code, and bring your own container scenarios on Linux App Service plans.
-   - BYOS on Linux App Service plans supports mounting **Azure Files containers** (Read / Write) and **Azure Blob containers** (Read Only)
-- BYOS **doesn't support** using the **Storage Firewall** configuration because of infrastructure limitations.
-- BYOS lets you specify **up to five** mount points per app.
-- Azure Storage is billed independently and **not included** with your web app. Learn more about [Azure Storage pricing](https://azure.microsoft.com/pricing/details/storage).
+- Azure Storage with App Service is **in preview** for App Service on Linux and Web App for Containers. It's **not supported** for **production scenarios**.
+- Azure Storage with App Service supports mounting **Azure Files containers** (Read / Write) and **Azure Blob containers** (Read Only)
+- Azure Storage with App Service **doesn't support** using the **Storage Firewall** configuration because of infrastructure limitations.
+- Azure Storage with App Service lets you specify **up to five** mount points per app.
+- Azure Storage is **not included** with your web app and billed separately. Learn more about [Azure Storage pricing](https://azure.microsoft.com/pricing/details/storage).
 
-## Configure your app to use BYOS with Azure CLI
+## Create Azure Storage
+
+Create an [Azure storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-cli).
+
+```azurecli
+#Create Storage Account
+az storage account create --name <storage_account_name> --resource-group myResourceGroup
+
+#Create Storage Container
+az storage container create --name <storage_container_name> --account-name <storage_account_name>
+```
+
+## Configure your app with Azure Storage
 
 > [!CAUTION]
 > The directory specified as the mount path in your web app should be empty. Any content stored in this directory will be deleted when an external mount is added. If you are migrating files for an existing app, make a backup of your app and its content before you begin.
@@ -51,7 +62,7 @@ You should do this for any other directories you want to be linked to a storage 
 Learn more about [`az webapp config storage-account`](https://docs.microsoft.com/cli/azure/webapp/config/storage-account?view=azure-cli-latest)
 
 
-### Verify BYOS link
+### Verify Azure Storage link to the web app
 
 Once a storage container is linked to a web app, you can verify this by running the following command:
 
@@ -59,7 +70,7 @@ Once a storage container is linked to a web app, you can verify this by running 
 az webapp config storage-account list --resource-group <resource_group> --name <app_name>
 ```
 
-## Use BYOS in Docker Compose
+## Use Azure Storage in Docker Compose
 
 Azure Storage can be mounted with multi-container apps using the custom-id. To view the custom-id name, run [`az webapp config storage-account list --name <app_name> --resource-group <resource_group>`](/cli/azure/webapp/config/storage-account?view=azure-cli-latest#az-webapp-config-storage-account-list).
 
