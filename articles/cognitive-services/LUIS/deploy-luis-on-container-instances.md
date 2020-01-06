@@ -22,7 +22,16 @@ Learn how to deploy the Cognitive Services [LUIS](luis-container-howto.md) conta
 
 ## Create an Azure file share
 
-The LUIS container requires a `.gz` model file that is pulled in at runtime. The container must be able to access this model file via a volume mount from the Container instance. For information on creating an Azure file share, see [create a file share](../../storage/files/storage-how-to-create-file-share.md). Take note of the Azure Storage account name, key, and file share name as you'll need them in the next step.
+The LUIS container requires a `.gz` model file that is pulled in at runtime. The container must be able to access this model file via a volume mount from the Container instance. For information on creating an Azure file share, see [create a file share](../../storage/files/storage-how-to-create-file-share.md). Take note of the Azure Storage account name, key, and file share name as you'll need them later.
+
+### Export and Upload packaged LUIS app
+
+In order to upload the LUIS model (packaged app) to the Azure file share, you'll need to <a href="luis-container-howto.md#export-packaged-app-from-luis" target="_blank" rel="noopener">export it from the LUIS portal first <span class="docon docon-navigate-external x-hidden-focus"></span></a>. From the Azure portal, navigate to the **Overview** page of the storage account resource and select **File shares**. Select the file share name that you recently created, then select the **Upload** button.
+
+> [!div class="mx-imgBorder"]
+> ![Upload to file share](media/luis-how-to-deploy-to-aci/upload-file-share.png)
+
+Upload the LUIS model file.
 
 [!INCLUDE [Create LUIS Container instance resource](../containers/includes/create-container-instances-resource-from-azure-cli.md)]
 
