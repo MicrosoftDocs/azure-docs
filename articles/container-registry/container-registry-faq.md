@@ -179,7 +179,7 @@ az acr login -n MyRegistry
 
 ### How to enable TLS 1.2?
 
-Enable TLS by using any recent docker client (version 18.03.0 and above). 
+Enable TLS 1.2 by using any recent docker client (version 18.03.0 and above). 
 
 > [!IMPORTANT]
 > Starting January 13, 2020, Azure Container Registry will require all secure connections from servers and applications to use TLS 1.2. Support for TLS 1.0 and 1.1 will be retired.
