@@ -8,19 +8,17 @@ manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 01/10/2020
 ms.author: marsma
 ms.subservice: B2C
 ---
 
-# Azure Active Directory B2C error codes
+# Error codes: Azure Active Directory B2C
 
 The following errors can be returned by the Azure Active Directory B2C service.
 
-___
-
-| Code | Message |
+| Error code | Message |
 | ---- | ------- |
 | `AADB2C90002` | The CORS resource '{0}' returned a 404 not found. |
 | `AADB2C90006` | The redirect URI '{0}' provided in the request is not registered for the client id '{1}'. |
