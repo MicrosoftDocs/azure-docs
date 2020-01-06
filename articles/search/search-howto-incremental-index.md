@@ -44,11 +44,12 @@ Copy the indexer definition from the response.
 
 ### Step 2: Modify the cache property in the indexer definition
 
-By default the `cache` property is null. Modify the cache object to include required and optional properties. 
+By default the `cache` property is null. Use an API client to add cache configuration (the portal does not support this particulate update). 
 
-The `storageConnectionString` is required, and it must be set to an Azure storage connection string. 
+Modify the cache object to include the following required and optional properties: 
 
-The `enableReprocessing` boolean property is optional (`true` by default), and it indicates that incremental enrichment is enabled. You can set it to `false` to suspend incremental processing while other resource-intensive operations, such as indexing new documents, are underway and then flip it back to `true` later.
++ The `storageConnectionString` is required, and it must be set to an Azure storage connection string. 
++ The `enableReprocessing` boolean property is optional (`true` by default), and it indicates that incremental enrichment is enabled. You can set it to `false` to suspend incremental processing while other resource-intensive operations, such as indexing new documents, are underway and then flip it back to `true` later.
 
 ```json
 {
@@ -72,7 +73,7 @@ The `enableReprocessing` boolean property is optional (`true` by default), and i
 > Resetting the indexer will result in all documents in your data source being processed again so that content can be cached. All cognitive enrichments will be re-run on all documents.
 >
 
-A reset of the indexer is required when setting up incremental enrichment for existing indexers to ensure all documents are in a consistent state. Use the [Reset Indexer REST API](https://docs.microsoft.com/rest/api/searchservice/reset-indexer) for this task.
+A reset of the indexer is required when setting up incremental enrichment for existing indexers to ensure all documents are in a consistent state. You can use the portal or an API client and the [Reset Indexer REST API](https://docs.microsoft.com/rest/api/searchservice/reset-indexer) for this task.
 
 ```http
 POST https://[YOUR-SEARCH-SERVICE].search.windows.net/indexers/[YOUR-INDEXER-NAME]/reset?api-version=2019-05-06-Preview
@@ -148,7 +149,7 @@ To set up incremental enrichment for a new indexer, all you have to do is includ
 }
 ```
 
-## Overriding incremental enrichment
+## Override incremental enrichment
 
 When configured, incremental enrichment tracks changes across your indexing pipeline and drives documents to eventual consistency across your index and projections. In some cases, you'll need to override this behavior to ensure the indexer doesn't do additional work as a result of an update to the indexing pipeline. For example, updating the data source connection string will require an indexer reset and reindexing of all documents as the data source has changed. But if you were only updating the connection string with a new key, you wouldn't want the change to result in any updates to existing documents. Conversely, you may want the indexer to invalidate the cache and enrich documents even if no changes to the indexing pipeline are made. For instance, you might want to invalidate the indexer if you were to redeploy a custom skill with a new model and wanted the skill rerun on all your documents.
 

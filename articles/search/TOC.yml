@@ -239,7 +239,7 @@
         href: cognitive-search-output-field-mapping.md
       - name: Process and extract information from images
         href: cognitive-search-concept-image-scenarios.md
-      - name: Set up incremental enrichment
+      - name: Cache enrichment (incremental processing)
         href: search-howto-incremental-index.md
     - name: Custom skills
       items:
