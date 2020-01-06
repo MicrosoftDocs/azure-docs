@@ -49,9 +49,8 @@ With Private Link, customers can enable cross-premises access to the private end
 
 Private Endpoints can be created using:
 
-* [Portal](https://docs.microsoft.com/azure/private-link/create-private-endpoint-portal)
-* [PowerShell](https://docs.microsoft.com/azure/private-link/create-private-endpoint-powershell)
-* [CLI](https://docs.microsoft.com/azure/private-link/create-private-endpoint-cli)
+* [Portal](https://review.docs.microsoft.com/azure/mysql/howto-configure-privatelink-portal)
+* [CLI](https://review.docs.microsoft.com/azure/mysql/howto-configure-privatelink-cli)
 
 ### Approval Process
 Once the network admin creates the Private Endpoint (PE), the MySQL admin can manage the Private Endpoint Connection (PEC) to Azure Database for MySQL.
