@@ -24,7 +24,7 @@ Azure allows you to deploy a virtual machine (VM) with an image of SQL Server bu
 | Changes | Details |
 | --- | --- |
 | **Free DR replica in Azure** | You can host a [free passive instance](virtual-machines-windows-sql-high-availability-dr.md#free-dr-replica-in-azure) for disaster recovery in Azure for your on-premises SQL Server instance if you have [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default?rtc=1&activetab=software-assurance-default-pivot:primaryr3). | 
-| **Fairfaix regions (National cloud)** | It is now possible to create SQL Server virtual machines and register them with the SQL VM resource provider in the Fairfax (National Cloud) region. | 
+| **Azure Government support** | It is now possible to register SQL Server virtual machines with the SQL VM resource provider for virtual machines hosted in the [Azure Government](https://azure.microsoft.com/global-infrastructure/government/) cloud. | 
 | &nbsp; | &nbsp; |
 
 
