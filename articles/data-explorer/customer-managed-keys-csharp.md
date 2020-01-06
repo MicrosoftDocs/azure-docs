@@ -15,13 +15,9 @@ ms.date: 01/06/2020
 > * [C#](create-cluster-database-csharp.md)
 > * [ARM template](create-cluster-database-resource-manager.md)
 
-Azure Data Explorer encrypts all data in a storage account at rest. By default, data is encrypted with Microsoft-managed keys. For additional control over encryption keys, you can supply customer-managed keys to use for encryption of data.
+Azure Data Explorer encrypts all data in a storage account at rest. By default, data is encrypted with Microsoft-managed keys. For additional control over encryption keys, you can supply customer-managed keys to use for data encryption. Customer-managed keys must be stored in an Azure Key Vault. You can either create your own keys and store them in a key vault, or you can use the Azure Key Vault APIs to generate keys. The Azure Data Explorer cluster and the key vault must be in the same region, but they can be in different subscriptions. This article shows you how to configure an Azure Key Vault with customer-managed keys using Azure Data Explorer C# client.
 
-Customer-managed keys must be stored in an Azure Key Vault. You can either create your own keys and store them in a key vault, or you can use the Azure Key Vault APIs to generate keys. The Azure Data Explorer cluster and the key vault must be in the same region, but they can be in different subscriptions. 
-
-This article shows how to configure an Azure Key Vault with customer-managed keys using Azure Data Explorer C# client.
-
-> [!Important]
+> [!Note]
 > Using customer-managed keys with Azure Data Explorer requires that two properties be set on the key vault, **Soft Delete** and **Do Not Purge**. These properties are not enabled by default. To enable these properties, use either PowerShell or Azure CLI. Only RSA keys and key size 2048 are supported.
 
 ## Assign an identity to the cluster
