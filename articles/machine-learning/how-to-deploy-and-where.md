@@ -579,7 +579,7 @@ For more information on how to secure a web service deployment, see [Use SSL to 
 To deploy a model locally, you need to have Docker installed on your local machine.
 
 #### Using the SDK
-zzs
+
 ```python
 from azureml.core.webservice import LocalWebservice, Webservice
 
