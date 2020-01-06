@@ -13,7 +13,6 @@ ms.date: 01/05/2019
 
 > [!div class="op_single_selector"]
 > * [C#](cluster-principal-csharp.md)
-> * [Python](cluster-principal-python.md)
 > * [Azure Resource Manager template](cluster-principal-resource-manager.md)
 
 Azure Data Explorer is a fast and highly scalable data exploration service for log and telemetry data. In this article, you add cluster principals for Azure Data Explorer by using C#.

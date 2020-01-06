@@ -23,7 +23,7 @@ Azure Data Explorer is a fast and highly scalable data exploration service for l
 
 * If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
 * Create [a cluster and database](create-cluster-database-python.md)
-* Create [table and column mapping](python-ingest-data#create-a-table-on-your-cluster)
+* Create [table and column mapping](python-ingest-data.md#create-a-table-on-your-cluster)
 * Set [database and table policies](database-table-policies-python.md) (optional)
 * Create an [Event Hub with data for ingestion](ingest-data-event-hub.md#create-an-event-hub). 
 
