@@ -149,7 +149,7 @@ Other operating systems<br/><br/> For example,  Oracle Solaris, Apple Mac OS etc
 OS specified as **Other** in vCenter Server | Azure Migrate cannot identify the OS in this case. | Unknown readiness. Ensure that the OS running inside the VM is supported in Azure.
 32-bit operating systems | The machine might start in Azure, but Azure might not provide full support. | Conditionally ready for Azure. Consider upgrading the OS of the machine from 32-bit OS to 64-bit OS before migrating to Azure.
 
-## Calculate sizing (as-is)
+## Calculate sizing (as-is on-premises)
 
 After the machine is marked as ready for Azure, Server Assessment makes sizing recommendations to identify the Azure VM and disk SKU. If you use as-is on-premises sizing, Server Assessment doesn't consider the performance history of the VMs and disks.
 
