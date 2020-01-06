@@ -1,7 +1,7 @@
 ---
 title: Add incremental enrichment (preview) 
 titleSuffix: Azure Cognitive Search
-description: Enable change tracking and preserve state of enriched content for controlled processing in a cognitive skillset. This feature is currently in public preview.
+description: Enable caching and preserve state of enriched content for controlled processing in a cognitive skillset. This feature is currently in public preview.
 author: vkurpad 
 manager: eladz
 ms.author: vikurpad
@@ -11,21 +11,24 @@ ms.topic: conceptual
 ms.date: 01/06/2020
 ---
 
-# How to set up incremental enrichment in Azure Cognitive Search
+# How to cache output and perform incremental enrichment in Azure Cognitive Search
 
 > [!IMPORTANT] 
 > Incremental enrichment is currently in public preview. This preview version is provided without a service level agreement, and it's not recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
 > The [REST API version 2019-05-06-Preview](search-api-preview.md) provides this feature. There is no portal or .NET SDK support at this time.
 
-This article shows you how to add caching to an enrichment pipeline so that you can incrementally modify steps without having to rebuild every time. By default, a skillset is stateless, and changing any part of its composition requires a full rerun of the indexer. With incremental enrichment, the indexer can determine which parts of the document tree need to be refreshed, preserving any existing output that is otherwise unaffected your edit. 
+This article shows you how to add caching to an enrichment pipeline so that you can incrementally modify steps without having to rebuild every time. By default, a skillset is stateless, and changing any part of its composition requires a full rerun of the indexer. With incremental enrichment, the indexer can determine which parts of the document tree need to be refreshed based on changes detected in the skillset or indexer definitions. Existing processed output is preserved and reused wherever possible. 
 
 Cached content is placed in Azure Storage using account information that you provide. The container, named `ms-az-search-indexercache-<alpha-numerc-string>`, is created when you run the indexer. It should be considered an internal component managed by your search service and must not be modified.
 
 If you're not familiar with setting up indexers, start with [indexer overview](search-indexer-overview.md) and then continue on to [skillsets](cognitive-search-working-with-skillsets.md) to learn about enrichment pipelines. For more background on key concepts, see [incremental enrichment](cognitive-search-incremental-indexing-conceptual.md).
 
-## Add to an existing indexer
+## Enable caching on an existing indexer
 
-If you have an existing indexer that already has a skillset, follow the steps in this section to add caching. As a one-time operation, you will have to reset and rerun the indexer before incremental processing can take effect.
+If you have an existing indexer that already has a skillset, follow the steps in this section to add caching. As a one-time operation, you will have to reset and rerun the indexer in full before incremental processing can take effect.
+
+> [!TIP]
+> As proof-of-concept, you can run through this [portal quickstart](cognitive-search-quickstart-blob.md) to create necessary objects, and then use Postman or the portal to make your updates. You might want to attach a billable Cognitive Services resource. Running the indexer multiple times will exhaust the free daily allocation before you can complete all of the steps.
 
 ### Step 1: Get the indexer definition
 
@@ -59,11 +62,7 @@ The `enableReprocessing` boolean property is optional (`true` by default), and i
     },
     "fieldMappings" : [],
     "outputFieldMappings": [],
-    "parameters": {
-        "configuration": {
-            "enableAnnotationCache": true
-        }
-    }
+    "parameters": []
 }
 ```
 
@@ -83,7 +82,7 @@ api-key: [YOUR-ADMIN-KEY]
 
 ### Step 4: Save the updated definition
 
-Update the indexer definition with a PUT request, the body of the request should contain the updated indexer definition. If you get a 400, check the indexer definition to ensure it meets requirements (data source, skillset, index).
+Update the indexer definition with a PUT request, the body of the request should contain the updated indexer definition that has the cache property. If you get a 400, check the indexer definition to make sure all requirements are met (data source, skillset, index).
 
 ```http
 PUT https://[YOUR-SEARCH-SERVICE].search.windows.net/indexers/[YOUR-INDEXER-NAME]?api-version=2019-05-06-Preview
@@ -99,9 +98,7 @@ api-key: [YOUR-ADMIN-KEY]
 }
 ```
 
-### Step 5: Verify the update
-
-If you now issue another GET request on the indexer, the response from the service will include an `ID` property in the cache object. The alphanumeric string is appended to the name of the container containing all the cached results and intermediate state of each document processed by this indexer.
+If you now issue another GET request on the indexer, the response from the service will include an `ID` property in the cache object. The alphanumeric string is appended to the name of the container containing all the cached results and intermediate state of each document processed by this indexer. The ID will be used to uniquely name the cache in Blob storage.
 
     "cache": {
         "ID": "<ALPHA-NUMERIC STRING>",
@@ -109,15 +106,25 @@ If you now issue another GET request on the indexer, the response from the servi
         "storageConnectionString": "DefaultEndpointsProtocol=https;AccountName=<YOUR-STORAGE-ACCOUNT>;AccountKey=<YOUR-STORAGE-KEY>;EndpointSuffix=core.windows.net"
     }
 
-In the Azure portal, verify that incremental enrichment is working and that you have a new container in Azure Blob storage to store the cache. The container is created after you modify a skillset and rerun the indexer. 
+### Step 5: Run the indexer
 
-To modify a skillset, you can use the portal to edit the JSON definition. For example, if you are using language detection, a simple inline change from `en` to `es` or another language is sufficient for proof-of-concept testing of incremental enrichment.
+To run indexer, you can also use the portal. From the indexers list, select the indexer and click **Run**. One advantage to using the portal is that you can monitor indexer status, note the duration of the job, and how many documents are processed. Portal pages are refreshed every few minutes.
 
-### Step 6: Run the indexer
+Alternatively, you can use REST to run the indexer:
 
-To run indexer, you can also use the portal. From the indexers list, select the indexer and click **Run**.
+```http
+POST https://[YOUR-SEARCH-SERVICE].search.windows.net/indexers/[YOUR-INDEXER-NAME]/run?api-version=2019-05-06-Preview
+Content-Type: application/json
+api-key: [YOUR-ADMIN-KEY]
+```
 
 After the indexer runs, you can find the cache in Azure blob storage. The container name is in the following format: `ms-az-search-indexercache-<YOUR-CACHE-ID>`
+
+### Step 6: Modify a skillset and confirm incremental enrichment
+
+To modify a skillset, you can use the portal to edit the JSON definition. For example, if you are using text translation, a simple inline change from `en` to `es` or another language is sufficient for proof-of-concept testing of incremental enrichment.
+
+Run the indexer. Only those parts of an enriched document tree are updated. If you used the [portal quickstart](cognitive-search-quickstart-blob.md) as proof-of-concept, modifying the text translation skill to 'es', you'll notice that only 8 documents are updated instead of the original 14. Image files unaffected by the translation process are reused from cache.
 
 ## Enable incremental enrichment on new indexers
 
@@ -136,10 +143,7 @@ To set up incremental enrichment for a new indexer, all you have to do is includ
     },
     "fieldMappings" : [],
     "outputFieldMappings": [],
-    "parameters": {
-        "configuration": {
-            "enableAnnotationCache": true
-        }
+    "parameters": []
     }
 }
 ```
