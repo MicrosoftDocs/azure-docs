@@ -1,5 +1,5 @@
 ---
-title: Develop a secure an Azure AD Web application | Microsoft Docs
+title: Develop a secure Azure AD Web application | Microsoft Docs
 description: This simple sample app implements security best practices that improve your application and your organization's security posture when you develop on Azure.
 keywords: na
 services: security
