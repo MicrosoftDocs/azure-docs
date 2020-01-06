@@ -184,18 +184,26 @@ To automatically sync up pinned files, do the following steps in the Azure porta
  
 1. Select an existing Azure storage account. 
 
-2. Go to **Containers** and select **+ Container** to create a container. Name this container as *newcontainer*. Set the Public access level to Container.
+2. Go to **Containers** and select **+ Container** to create a container. Name this container as *newcontainer*. Set the **Public access level** to Container.
+
+    ![Automated sync for pinned files 1](media/azure-stack-edge-r-series-manage-shares/image-1.png)
 
 3. Select the container name and set the following metadata:  
 
     - Name = “Pinned” 
     - Value = “True” 
+
+    ![Automated sync for pinned files 2](media/azure-stack-edge-r-series-manage-shares/image-2.png)
  
-4. Create a new share on your device. Map it to the pinned container by choosing the existing container option. Mark the share as read only. Create a new user and specify the user name and a corresponding password for this share.            
+4. Create a new share on your device. Map it to the pinned container by choosing the existing container option. Mark the share as read only. Create a new user and specify the user name and a corresponding password for this share.  
+
+    ![Automated sync for pinned files 3](media/azure-stack-edge-r-series-manage-shares/image-3.png)
  
-5. From the Azure portal, browse to the container which you created. Upload the file which you want to be pinned into the newcontainer which has the metadata set to pinned.                
- 
-6. Select Refresh in Azure portal for the device to download the pinning policy for that particular Azure Storage container.              
+5. From the Azure portal, browse to the container which you created. Upload the file which you want to be pinned into the newcontainer which has the metadata set to pinned. 
+
+6. Select **Refresh data** in Azure portal for the device to download the pinning policy for that particular Azure Storage container.  
+
+    ![Automated sync for pinned files 4](media/azure-stack-edge-r-series-manage-shares/image-4.png)
  
 7. Access the new share that was created on the device. The file that was uploaded to the storage account is now downloaded to the local share. 
 
