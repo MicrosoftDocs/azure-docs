@@ -53,14 +53,10 @@ Copy the content of the file.
 
    ![Add Secret](media/functions-how-to-github-actions/add-secret.png)
 
-1. Add a new secret
+1. Add a new secret.
 
-- If you are using the service principal that you created using the Azure CLI:
-
-    - Use `AZURE_CREDENTIALS` for the **Name** and paste the copied JSON object output for **Value**, and select **Add secret**.
-
--  If you are using publishing profile:
-    - Use `SCM_CREDENTIALS` for the **Name** and the publishing profile's file content for **Value**, and select **Add secret**.
+   * If you're using the service principal that you created by using the Azure CLI, use `AZURE_CREDENTIALS` for the **Name**. Then paste the copied JSON object output for **Value**, and select **Add secret**.
+   * If you're using a publishing profile, use `SCM_CREDENTIALS` for the **Name**. Then use the publishing profile's file content for **Value**, and select **Add secret**.
 
 GitHub can now authenticate to your function app in Azure.
 
