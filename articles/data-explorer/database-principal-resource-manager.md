@@ -97,4 +97,4 @@ The following example shows an Azure Resource Manager template for adding a data
 
 ## Next steps
 
-* [Add database principals](ingest-data-event-hub.md)
+* [Ingest data from Event Hub into Azure Data Explorer](ingest-data-event-hub.md)
