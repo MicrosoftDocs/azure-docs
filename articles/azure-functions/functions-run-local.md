@@ -458,11 +458,7 @@ To publish your local code to a function app in Azure, use the `publish` command
 func azure functionapp publish <FunctionAppName>
 ```
 
-<<<<<<< HEAD
 This command publishes to an existing function app in Azure. You'll get an error if you try to publish to a `<FunctionAppName>` that doesn't exist in your subscription. To learn how to create a function app from the command prompt or terminal window using the Azure CLI, see [Create a Function App for serverless execution](./scripts/functions-cli-create-serverless.md). By default, this command uses [remote build](functions-deployment-technologies.md#remote-build) and deploys your app to [run from the deployment package](run-functions-from-deployment-package.md). To disable this recommended deployment mode, use the `--nozip` option.
-=======
-This command publishes to an existing function app in Azure. You'll get an error if you try to publish to a `<FunctionAppName>` that doesn't exist in your subscription. To learn how to create a function app from the command prompt or terminal window using the Azure CLI, see [Create a Function App for serverless execution](./scripts/functions-cli-create-serverless.md). By default, this command deploys your app to [run from the deployment package](run-functions-from-deployment-package.md). To disable this recommended deployment mode, use the `--nozip` option.
->>>>>>> 7723f787cb54a8495b12bab3556d68cc174d7a28
 
 >[!IMPORTANT]
 > When you create a function app in the Azure portal, it uses version 2.x of the Function runtime by default. To make the function app use version 1.x of the runtime, follow the instructions in [Run on version 1.x](functions-versions.md#creating-1x-apps).
@@ -516,11 +512,8 @@ The recommended way to monitor the execution of your functions is by integrating
 
 ### Enable Application Insights integration
 
-<<<<<<< HEAD
-When you create a function app in the Azure portal, the Application Insights integration is done for you by default. However, when you create your function app by using the Azure CLI, the integration in your function app in Azure isn't done.
+Application Insights integration should be enabled when you create your function app in Azure. If for some reason your function app isn't connected to an Application Insights instance, it's easy to do this integration in the Azure portal. 
 
-=======
->>>>>>> 7723f787cb54a8495b12bab3556d68cc174d7a28
 [!INCLUDE [functions-connect-new-app-insights.md](../../includes/functions-connect-new-app-insights.md)]
 
 ### Enable streaming logs
