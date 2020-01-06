@@ -6,10 +6,10 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-author: xiaoharper
-ms.author: zhanxia
+author: likebupt
+ms.author: keli19
 ms.reviewer: peterlu
-ms.date: 11/04/2019
+ms.date: 12/25/2019
 ---
 # Build a classifier & use feature selection to predict income with Azure Machine Learning designer
 
@@ -19,7 +19,7 @@ ms.date: 11/04/2019
 
 Learn how to build a machine learning classifier without writing a single line of code using the designer (preview). This sample trains a **two-class boosted decision tree** to predict adult census income (>=50K or <=50K).
 
-Because the question is answering "Which one?" this is called a classification problem. However, you can apply the same fundamental process to tackle any type of machine learning problem whether it be regression, classification, clustering, and so on.
+Because the question is answering "Which one?" this is called a classification problem. However, you can apply the same fundamental process to tackle any type of machine learning problem - regression, classification, clustering, and so on.
 
 Here's the final pipeline graph for this sample:
 
@@ -36,7 +36,7 @@ Here's the final pipeline graph for this sample:
 ## Data
 
 The dataset contains 14 features and one label column. There are multiple types of features, including numerical and categorical. The following diagram shows an excerpt from the dataset:
-![data](./media/how-to-designer-sample-classification-predict-income/data.png)
+![data](media/how-to-designer-sample-classification-predict-income/sample3-dataset-1225.png)
 
 
 
@@ -60,7 +60,7 @@ Follow these steps to create the pipeline:
 
 ## Results
 
-![Evaluate the results](./media/how-to-designer-sample-classification-predict-income/evaluate-result.png)
+![Evaluate the results](media/how-to-designer-sample-classification-predict-income/sample3-evaluate-1225.png)
 
 In the evaluation results, you can see that the curves like ROC, Precision-recall and confusion metrics. 
 

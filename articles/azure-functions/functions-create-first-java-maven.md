@@ -79,6 +79,9 @@ Maven creates the project files in a new folder with a name of _artifactId_, whi
 
 Open the new Function.java file from the *src/main/java* path in a text editor and review the generated code. This code is an [HTTP triggered](functions-bindings-http-webhook.md) function that echoes the body of the request. 
 
+> [!div class="nextstepaction"]
+> [I ran into an issue](https://www.research.net/r/javae2e?tutorial=functions-maven-quickstart&step=generate-project)
+
 ## Run the function locally
 
 Run the following command, which changes the directory to the newly created project folder, then builds and runs the function project:
@@ -114,6 +117,9 @@ Hello AzureFunctions!
 ```
 The [function key](functions-bindings-http-webhook.md#authorization-keys) isn't required when running locally. Use `Ctrl+C` in the terminal to stop the function code.
 
+> [!div class="nextstepaction"]
+> [I ran into an issue](https://www.research.net/r/javae2e?tutorial=functions-maven-quickstart&step=local-run)
+
 ## Deploy the function to Azure
 
 A function app and related resources are created in Azure when you first deploy your function app. Before you can deploy, use the [az login](/cli/azure/authenticate-azure-cli) Azure CLI command to sign in to your Azure subscription. 
@@ -142,11 +148,14 @@ The deployment also packages the project files and deploys them to the new funct
 
 After the deployment completes, you see the URL you can use to access your function app endpoints. Because the HTTP trigger we published uses `authLevel = AuthorizationLevel.FUNCTION`, you need to get the function key to call the function endpoint over HTTP. The easiest way to get the function key is from the [Azure portal].
 
+> [!div class="nextstepaction"]
+> [I ran into an issue](https://www.research.net/r/javae2e?tutorial=functions-maven-quickstart&step=deploy)
+
 ## Get the HTTP trigger URL
 
 <!--- We can updates this to remove portal dependency after the Maven archetype returns the full URLs with keys on publish (https://github.com/microsoft/azure-maven-plugins/issues/571). -->
 
-You can get the URL required to the trigger your function, with the function key, from the Azure portal. 
+You can get the URL required to trigger your function, with the function key, from the Azure portal. 
 
 1. Browse to the [Azure portal], sign in, type the _appName_ of your function app into **Search** at the top of the page, and press enter.
  
@@ -171,6 +180,9 @@ This sends a POST request to the function endpoint with `AzureFunctions` in the 
 ```Output
 Hello AzureFunctions!
 ```
+
+> [!div class="nextstepaction"]
+> [I ran into an issue](https://www.research.net/r/javae2e?tutorial=functions-maven-quickstart&step=verify-deployment)
 
 ## Next steps
 
