@@ -19,7 +19,7 @@ Automatic language detection is used to determine the most likely match for audi
 In this article, you'll learn how to use `AutoDetectSourceLanguageConfig` to construct a `SpeechRecognizer` object and retrieve the detected language.
 
 > [!IMPORTANT]
-> This feature is only available for the Speech SDK for C++ and the Speech SDK for Java.
+> This feature is only available for the Speech SDK for C#, C++ and Java.
 
 ## Automatic language detection with the Speech SDK
 
@@ -29,6 +29,17 @@ Automatic language detection currently has a services-side limit of two language
 > You can also specify a custom model to use when performing speech to text. For more information, see [Use a custom model for automatic language detection](#use-a-custom-model-for-automatic-language-detection).
 
 The following snippets illustrate how to use automatic language detection in your apps:
+
+```csharp
+var autoDetectSourceLanguageConfig = AutoDetectSourceLanguageConfig.FromLanguages(new string[] { "en-US", "de-DE" });
+using (var recognizer = new SpeechRecognizer(speechConfig, autoDetectSourceLanguageConfig, audioConfig))
+{
+    var speechRecognitionResult = await recognizer.RecognizeOnceAsync();
+    var autoDetectSourceLanguageResult = AutoDetectSourceLanguageResult.FromResult(speechRecognitionResult);
+    var detectedLanguage = autoDetectSourceLanguageResult.Language;
+    Assert.AreEqual(Language.DE_DE, detectedLanguage);
+}
+```
 
 ```C++
 auto autoDetectSourceLanguageConfig = AutoDetectSourceLanguageConfig::FromLanguages({ "en-US", "de-DE" });
@@ -58,6 +69,15 @@ result.close();
 In addition to language detection using Speech service models, you can specify a custom model for enhanced recognition. If a custom model isn't provided, the service will use the default language model.
 
 The snippets below illustrate how to specify a custom model in your call to the Speech service. If the detected language is `en-US`, then the default model is used. If the detected language is `fr-FR`, then the endpoint for the custom model is used:
+
+```csharp
+var sourceLanguageConfigs = new SourceLanguageConfig[]
+{
+    SourceLanguageConfig.FromLanguage("en-US"),
+    SourceLanguageConfig.FromLanguage("fr-FR", "The Endpoint Id for custom model of fr-FR")
+};
+var autoDetectSourceLanguageConfig = AutoDetectSourceLanguageConfig.FromSourceLanguageConfigs(sourceLanguageConfigs);
+```
 
 ```C++
 std::vector<std::shared_ptr<SourceLanguageConfig>> sourceLanguageConfigs;
