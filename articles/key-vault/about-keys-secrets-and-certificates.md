@@ -373,7 +373,7 @@ The following table represents the mapping of x509 key usage policy to effective
 
 A Key Vault certificate object holds a configuration used to communicate with a selected certificate issuer provider to order x509 certificates.  
 
--   Key Vault partners with following certificate issuer providers for SSL certificates
+-   Key Vault partners with following certificate issuer providers for TLS/SSL certificates
 
 |**Provider Name**|**Locations**|
 |----------|--------|
@@ -386,7 +386,7 @@ Before a certificate issuer can be created in a Key Vault, following prerequisit
 
     -   An organization administrator must on-board their company (ex. Contoso) with at least one CA provider.  
 
-2. Admin creates requester credentials for Key Vault to enroll (and renew) SSL certificates  
+2. Admin creates requester credentials for Key Vault to enroll (and renew) TLS/SSL certificates  
 
     -   Provides the configuration to be used to create an issuer object of the provider in the key vault  
 
