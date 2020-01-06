@@ -21,7 +21,7 @@ ms.author: spelluru
 
 This article describes how to create and deploy Service Bus resources using Azure Resource Manager templates, PowerShell, and the Service Bus resource provider.
 
-Azure Resource Manager templates help you define the resources to deploy for a solution, and to specify parameters and variables that enable you to input values for different environments. The template is written in JSON and consists of expressions that you can use to construct values for your deployment. For detailed information about writing Azure Resource Manager templates, and a discussion of the template format, see [structure and syntax of Azure Resource Manager templates](../azure-resource-manager/resource-group-authoring-templates.md).
+Azure Resource Manager templates help you define the resources to deploy for a solution, and to specify parameters and variables that enable you to input values for different environments. The template is written in JSON and consists of expressions that you can use to construct values for your deployment. For detailed information about writing Azure Resource Manager templates, and a discussion of the template format, see [structure and syntax of Azure Resource Manager templates](../azure-resource-manager/templates/template-syntax.md).
 
 > [!NOTE]
 > The examples in this article show how to use Azure Resource Manager to create a Service Bus namespace and messaging entity (queue). For other template examples, visit the [Azure Quickstart Templates gallery][Azure Quickstart Templates gallery] and search for **Service Bus**.
@@ -153,7 +153,7 @@ To use an optional parameters file, copy the [201-servicebus-create-queue](https
 }
 ```
 
-For more information, see the [Parameters](../azure-resource-manager/resource-group-template-deploy.md#parameter-files) article.
+For more information, see the [Parameters](../azure-resource-manager/templates/parameter-files.md) article.
 
 ### Log in to Azure and set the Azure subscription
 
@@ -253,9 +253,9 @@ You've now seen the basic workflow and commands for deploying an Azure Resource 
 
 * [Azure Resource Manager overview][Azure Resource Manager overview]
 * [Deploy resources with Resource Manager templates and Azure PowerShell][Deploy resources with Azure Resource Manager templates]
-* [Authoring Azure Resource Manager templates](../azure-resource-manager/resource-group-authoring-templates.md)
+* [Authoring Azure Resource Manager templates](../azure-resource-manager/templates/template-syntax.md)
 * [Microsoft.ServiceBus resource types](/azure/templates/microsoft.servicebus/allversions)
 
-[Azure Resource Manager overview]: ../azure-resource-manager/resource-group-overview.md
+[Azure Resource Manager overview]: ../azure-resource-manager/management/overview.md
 [Deploy resources with Azure Resource Manager templates]: ../azure-resource-manager/resource-group-template-deploy.md
 [Azure Quickstart Templates gallery]: https://azure.microsoft.com/documentation/templates/?term=service+bus

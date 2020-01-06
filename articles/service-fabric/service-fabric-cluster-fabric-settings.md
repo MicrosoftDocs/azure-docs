@@ -1,21 +1,9 @@
 ---
-title: Change Azure Service Fabric cluster settings | Microsoft Docs
+title: Change Azure Service Fabric cluster settings 
 description: This article describes the fabric settings and the fabric upgrade policies that you can customize.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
 
-ms.assetid: 7ced36bf-bd3f-474f-a03a-6ebdbc9677e2
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: reference
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 08/30/2019
-ms.author: atsenthi
-
 ---
 # Customize Service Fabric cluster settings
 This article describes the various fabric settings for your Service Fabric cluster that you can customize. For clusters hosted in Azure, you can customize settings through the [Azure portal](https://portal.azure.com) or by using an Azure Resource Manager template. For more information, see [Upgrade the configuration of an Azure cluster](service-fabric-cluster-config-upgrade-azure.md). For standalone clusters, you customize settings by updating the *ClusterConfig.json* file and performing a configuration upgrade on your cluster. For more information, see [Upgrade the configuration of a standalone cluster](service-fabric-cluster-config-upgrade-windows-server.md).

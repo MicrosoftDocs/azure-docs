@@ -1,5 +1,5 @@
 ---
-title: Get started with Azure Cosmos DB Table API using .NET Standard SDK
+title: Azure Cosmos DB Table API using .NET Standard SDK
 description: Learn how to store and query the structured data in Azure Cosmos DB Table API account
 author: wmengmsft
 ms.author: wmeng
