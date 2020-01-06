@@ -54,11 +54,11 @@ See [geocoding coverage](https://docs.microsoft.com/azure/azure-maps/geocoding-c
 
    **Fuzzy search parameters**
    
-   Azure Maps [Fuzzy Search API](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy) is recommended service to use when you do not know what your user inputs are for a search query. The API combines Point of Interest (POI) search and geocoding into a canonical 'single-line search'. 
+   Azure Maps [Fuzzy Search API](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy) is the recommended service to use when you don't know what your user inputs are for a search query. The API combines Point of Interest (POI) search and geocoding into a canonical *single-line search*. 
 
    1. The `minFuzzyLevel` and `maxFuzzyLevel`, help return relevant matches even when query parameters do not exactly correspond to the desired information. Most search queries default to `minFuzzyLevel=1` and `maxFuzzyLevel=2` to gain performance and reduce unusual results. Take an example of a search term "restrant", it is matched to "restaurant" when the `maxFuzzyLevel` is set to be 2. The default fuzzy levels can be overridden as per request needs. 
 
-   2. You can also priortize exact set of result types to be returned by using the `idxSet` parameter. For this purpose you can submit comma-separated list of indexes, the item order does not matter. The following are the supported indexes:
+   2. You can also prioritize the exact set of result types to be returned by using the `idxSet` parameter. For this purpose, you can submit a comma-separated list of indexes; the item order does not matter. The following indexes are supported:
 
        * `Addr` - **Address Ranges**: For some streets, there are address points that are interpolated from the beginning and end of the street; those points are represented as address ranges.
        * `Geo` - **Geographies**: Areas on a map that represent administrative division of a land, that is, country, state, city.
@@ -314,7 +314,7 @@ Points of Interest (POI) Search allows you to request POI results by name, for e
 
 To improve the relevance of the results and the information in the response, Point of Interest (POI) search response includes the brand information that can be used further to parse the response.
 
-Also, You can submit in the request a comma-separated list of brand names which could be used to restrict the result to specific brands by using `brandSet` parameter. Item order does not matter. When multiple brands are provided, only results that belong to (at least) one of the provided list will be returned.
+You also can submit a comma-separated list of brand names in the request. You can use the list to restrict the results to specific brands by using the `brandSet` parameter. Item order does not matter. When multiple brands are provided, only results that belong to (at least) one of the provided lists are returned.
 
 Let's make a [POI Category Search](https://docs.microsoft.com/rest/api/maps/search/getsearchpoicategory) request for gas stations near Microsoft campus (Redmond, WA). If you observe the response, you can see brand information for each POI returned.
 
