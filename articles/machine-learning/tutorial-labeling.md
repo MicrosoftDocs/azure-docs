@@ -17,9 +17,9 @@ ms.date: 01/15/2020
 # Tutorial: Create your first image classification labeling project
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-If you want to train a machine learning model to classify images, you need hundreds or even thousands of images that are correctly labeled. Azure Machine Learning helps you run data labeling projects using your private teams of domain experts to label your images.  
+If you want to train a machine learning model to classify images, you need hundreds or even thousands of images that are correctly labeled.  Azure Machine Learning helps you manage the progress of your private team of domain experts as they label your data. 
 
-This tutorial shows you how to set up and manage a project as  the *project manager*.  To complete the tutorial, you will also play the role of a *labeler* to perform image labeling.  
+This tutorial shows you how to set up and manage a project as  the *project manager*.  To complete the tutorial, you will also play the role of a *labeler* to tag images.  
 
 In this tutorial, you learn how to:
 
@@ -54,7 +54,7 @@ You create a workspace via the Azure portal, a web-based console for managing yo
 
 ## Create a storage account
 
-You store your image files in a container in a storage account.  Your already have a storage account included in your workspace, but here you'll create a new one to use just for your data.  
+You store your image files in a container in a storage account.  You already have a storage account included in your workspace, but here you'll create a new one to use just for your data.  
 
 1. In the upper-left corner of Azure portal, select the menu icon.
 
@@ -126,7 +126,7 @@ Now add your data files to the storage account.
 
 You now have an Azure Machine Learning workspace, and images stored in an Azure Storage container.
 
-You complete the project steps in Azure Machine Learning studio, a consolidated interface that includes machine learning tools to perform data science scenarios for data science practitioners of all skill levels. The studio is not supported on Internet Explorer browsers.
+You manage data labeling projects in Azure Machine Learning studio, a consolidated interface that includes machine learning tools to perform data science scenarios for data science practitioners of all skill levels. The studio is not supported on Internet Explorer browsers.
 
 1. Sign in to [Azure Machine Learning studio](https://ml.azure.com).
 
@@ -196,9 +196,9 @@ Now that you have your list of labelers and access to the data you want to have 
     Dataset type | Select **File** as the type, since each of your images is a file.
     Datastore | Select the datastore from the list, for example **tutorial_images (Azure Blob Storage)
     Path | Select **Browse** and verify that your images appear.  Select **Save** to use **/** as the path.
-    Description | Add a description here, for example, **Image files for the tutorial.**.
+    Description | Add a description here, for example, **Image files for the tutorial.**
 
-    Select **Next** to confirm details and then **Create** to finish creating the dataset.
+    Select **Next** to confirm details and then **Create** to create the dataset.
 
 
 1. Select **Next** to continue creating the project.
@@ -259,9 +259,9 @@ In this part of the tutorial, you'll switch roles from the *project administrato
 
 1. At the top of the page, select **Tasks** to start labeling.
 
-1. Select a thumbnail image on the right to display the number of images you wish to label in one go. You need to label all these images before you can move on. Only switch layouts when you have a fresh page of unlabeled data. Switching layouts clears the page's in-progress tagging work.
+1. Select a thumbnail image on the right to display the number of images you wish to label in one go. You must label all these images before you can move on. Only switch layouts when you have a fresh page of unlabeled data. Switching layouts clears the page's in-progress tagging work.
 
-1. Select one or more images, then select a tag to apply to the selection. The tag appears below the image.  Continue to select and tag all images on the page.  To select all the displayed images simultaneously, select **Select all**. You must select at least one image to apply a tag.
+1. Select one or more images, then select a tag to apply to the selection. The tag appears below the image.  Continue to select and tag all images on the page.  To select all the displayed images simultaneously, select **Select all**. Select at least one image to apply a tag.
 
     > [!TIP]
     > You can select the first nine tags by using the number keys on your keyboard.
