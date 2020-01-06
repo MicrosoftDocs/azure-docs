@@ -100,7 +100,10 @@ To set up a managed identity in the portal, you first create an application and 
 
 1. If you wish to access only values stored directly in App Configuration, update the `CreateWebHostBuilder` method by replacing the `config.AddAzureAppConfiguration()` method.
 
-### Update CreateWebHostBuilder for .NET Core 2.x
+> [!IMPORTANT]
+> `CreateHostBuilder` replaces `CreateWebHostBuilder` in .NET Core 3.0.  Select the correct syntax based on your environment.
+
+### [.NET Core 2.x](#tab/core2x)
 
  ```csharp-interactive
     public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
@@ -114,7 +117,7 @@ To set up a managed identity in the portal, you first create an application and 
             .UseStartup<Startup>();
  ```
 
-### Update CreateHostBuilder for .NET Core 3.x
+### [.NET Core 3.x](#tab/core3x)
 
 ```csharp-interactive
     public static IHostBuilder CreateHostBuilder(string[] args) =>
@@ -132,7 +135,7 @@ To set up a managed identity in the portal, you first create an application and 
 
 4. If you wish to use App Configuration values as well as Key Vault references, open *Program.cs*, and update the `CreateWebHostBuilder` method as shown below. This creates a new `KeyVaultClient` using an `AzureServiceTokenProvider` and passes this reference to a call to the `UseAzureKeyVault` method.
 
-### Update CreateWebHostBuilder with Azure Key Vault for .NET Core 2.x
+### [.NET Core 2.x](#tab/core2x)
 
 ```csharp-interactive
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
@@ -148,7 +151,7 @@ To set up a managed identity in the portal, you first create an application and 
                 .UseStartup<Startup>();
 ```
 
-### Update CreateHostBuilder with Azure Key Vault for .NET Core 3.x
+### [.NET Core 3.x](#tab/core3x)
 
 ```csharp-interactive
     public static IHostBuilder CreateHostBuilder(string[] args) =>
