@@ -222,10 +222,21 @@ async function DownloadFile(fileSystemClient) {
 
 ## List directory contents
 
-This example, prints the names of each file that is located in a directory named `my-directory`.
+This example, prints the names of each directory and file that is located in a directory named `my-directory`.
 
 ```javascript
-need code example.
+async function ListFilesInDirectory(fileSystemClient) {
+  
+  let i = 1;
+
+  let iter = await fileSystemClient.listPaths({path: "my-directory", recursive: true});
+
+  for await (const path of iter) {
+    
+    console.log(`Path ${i++}: ${path.name}, is directory: ${path.isDirectory}`);
+  }
+
+}
 ```
 
 ## See also
