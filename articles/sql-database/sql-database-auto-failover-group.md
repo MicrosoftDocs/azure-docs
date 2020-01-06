@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
-ms.date: 12/23/2019
+ms.date: 1/05/2020
 ---
 
 # Use auto-failover groups to enable transparent and coordinated failover of multiple databases
@@ -272,7 +272,7 @@ Let's assume that instance A is the primary instance, instance B is the existing
 4.	Delete instance B if not needed to avoid unnecessary charges.
 
 > [!NOTE]
-> After step 6 and until step 3 is completed the databases in instance A will remain unprotected from a catastrophic failure of instance A.
+> After step 2 and until step 3 is completed the databases in instance A will remain unprotected from a catastrophic failure of instance A.
 
 ### Changing primary region of the failover group
 
