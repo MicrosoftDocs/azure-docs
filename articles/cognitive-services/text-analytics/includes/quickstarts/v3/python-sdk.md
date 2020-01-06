@@ -12,7 +12,7 @@ ms.author: aahi
 [Reference documentation]() | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics) | [Package (PiPy)]() | [Samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics/azure-ai-textanalytics/samples)
 
 > [!NOTE]
-> The code in this article uses the synchronous methods of the Text Analytics Python SDK as well as un-secured credentials use for simplicity reasons. For production scenarios, we recommend using the batched asynchronous methods for performance and scalability. For example, calling [analyze_sentiment_async]() instead of [analyze_sentiment()](). For secured use of credentials we recommend using [Azure Key Vault](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-overview) to store all access keys and the use of [AAD authentication](https://docs.microsoft.com/en-us/azure/cognitive-services/authentication#authenticate-with-azure-active-directory) for all role based access controls. **Remember to never store access keys in code.**
+> The code in this article uses the synchronous methods of the Text Analytics Python SDK as well as un-secured credentials use for simplicity reasons. For production scenarios, we recommend using the batched asynchronous methods for performance and scalability. For example, importing the client from the [azure.ai.textanalytics.aio]() namespace and calling [analyze_sentiment]() instead of [analyze_sentiment()]() from the [azure.ai.textanalytics]() namespace. For secured use of credentials we recommend using [Azure Key Vault](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-overview) to store all access keys and the use of [AAD authentication](https://docs.microsoft.com/en-us/azure/cognitive-services/authentication#authenticate-with-azure-active-directory) for all role based access controls. **Remember to never store access keys in code.**
 
 ## Prerequisites
 
@@ -77,10 +77,10 @@ These code snippets show you how to do the following with the Text Analytics cli
 <!-- If you add more code examples, add a link to them here-->
 * [Sentiment Analysis](#sentiment-analysis)
 * [Language detection](#language-detection)
-* [Key phrase extraction](#key-phrase-extraction)
 * [Entity recognition](#entity-recognition)
-* [Entity linking](#entity-linking)
 * [PII Entity recognition](#Personal-identifiable-information-(PII)-entity-recognition)
+* [Entity linking](#entity-linking)
+* [Key phrase extraction](#key-phrase-extraction)
 
 ## Sentiment analysis
 
@@ -162,41 +162,6 @@ language_detection_example(endpoint, credential)
 ```console
 Language:  French
 ```
-## Key phrase extraction
-
-Create a new function called `key_phrase_extraction_example()` that takes takes the endpoint and credential as arguments, then calls the [single_extract_key_phrases()]() function. The result will contain the list of detected key phrases in `key_phrases` if successful, and an `error` if not. Print any detected key phrases.
-
-```python
-from azure.ai.textanalytics import single_extract_key_phrases
-
-def key_phrase_extraction_example(endpoint, credential):
-
-    try:
-        document = "My cat might need to see a veterinarian."
-
-        response = single_extract_key_phrases(endpoint=endpoint, credential=credential, input_text= document)
-
-        if not response.is_error:
-            print("\tKey Phrases:")
-            for phrase in response.key_phrases:
-                print("\t\t", phrase)
-        else:
-            print(response.id, response.error)
-
-    except Exception as err:
-        print("Encountered exception. {}".format(err))
-        
-key_phrase_extraction_example(endpoint, credential)
-```
-
-
-### Output
-
-```console
-	Key Phrases:
-		 cat
-		 veterinarian
-```
 
 ## Entity recognition
 
@@ -232,6 +197,36 @@ Named Entities:
 
 	Text: 	 last week 	Type: 	 DateTime 	SubType: 	 DateRange 
 	Offset: 	 34 	Length: 	 34 	Confidence Score: 	 0.8 
+```
+
+## Personal Identifiable Information (PII) Entity recognition
+
+Create a new functions called `entity_pii_example()` that takes takes the endpoint and credential as arguments, then calls the [single_recognize_pii_entities()] function and gets the result. Then iterate through the results and print the PII entities.
+
+```python
+from azure.ai.textanalytics import single_recognize_pii_entities
+
+def entity_pii_example(endpoint, credential):
+
+        document = "Insurance policy for SSN on file 123-12-1234 is here by approved."
+
+
+        result = single_recognize_pii_entities(endpoint=endpoint, credential=credential, input_text= document)
+        
+        print("Personally Identifiable Information Entities: ")
+        for entity in result.entities:
+            print("\tText: ",entity.text,"\tType: ", entity.type,"\tSub-Type: ", entity.subtype)
+            print("\t\tOffset: ", entity.offset, "\tLength: ", entity.length, "\tScore: {0:.3f}".format(entity.score), "\n")
+        
+entity_pii_example(endpoint, credential)
+```
+
+### Output
+
+```console
+Personally Identifiable Information Entities: 
+	Text:  123-12-1234 	Type:  U.S. Social Security Number (SSN) 	Sub-Type:  
+		Offset:  33 	Length:  11 	Score: 0.850 
 ```
 
 ## Entity Linking
@@ -314,32 +309,38 @@ Linked Entities:
 		Score: 0.281 	Offset:  89 	Length: 5
 ```
 
-## Personal Identifiable Information (PII) Entity recognition
+## Key phrase extraction
 
-Create a new functions called `entity_pii_example()` that takes takes the endpoint and credential as arguments, then calls the [single_recognize_pii_entities()] function and gets the result. Then iterate through the results and print the PII entities.
+Create a new function called `key_phrase_extraction_example()` that takes takes the endpoint and credential as arguments, then calls the [single_extract_key_phrases()]() function. The result will contain the list of detected key phrases in `key_phrases` if successful, and an `error` if not. Print any detected key phrases.
 
 ```python
-from azure.ai.textanalytics import single_recognize_pii_entities
+from azure.ai.textanalytics import single_extract_key_phrases
 
-def entity_pii_example(endpoint, credential):
+def key_phrase_extraction_example(endpoint, credential):
 
-        document = "Insurance policy for SSN on file 123-12-1234 is here by approved."
+    try:
+        document = "My cat might need to see a veterinarian."
 
+        response = single_extract_key_phrases(endpoint=endpoint, credential=credential, input_text= document)
 
-        result = single_recognize_pii_entities(endpoint=endpoint, credential=credential, input_text= document)
+        if not response.is_error:
+            print("\tKey Phrases:")
+            for phrase in response.key_phrases:
+                print("\t\t", phrase)
+        else:
+            print(response.id, response.error)
+
+    except Exception as err:
+        print("Encountered exception. {}".format(err))
         
-        print("Personally Identifiable Information Entities: ")
-        for entity in result.entities:
-            print("\tText: ",entity.text,"\tType: ", entity.type,"\tSub-Type: ", entity.subtype)
-            print("\t\tOffset: ", entity.offset, "\tLength: ", entity.length, "\tScore: {0:.3f}".format(entity.score), "\n")
-        
-entity_pii_example(endpoint, credential)
+key_phrase_extraction_example(endpoint, credential)
 ```
+
 
 ### Output
 
 ```console
-Personally Identifiable Information Entities: 
-	Text:  123-12-1234 	Type:  U.S. Social Security Number (SSN) 	Sub-Type:  
-		Offset:  33 	Length:  11 	Score: 0.850 
+	Key Phrases:
+		 cat
+		 veterinarian
 ```
