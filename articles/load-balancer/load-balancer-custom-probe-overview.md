@@ -116,6 +116,9 @@ HTTP and HTTPS probes build on the TCP probe and issue an HTTP GET with the spec
 
 HTTP / HTTPS probes can also be useful to implement your own logic to remove instances from load balancer rotation if the probe port is also the listener for the service itself. For example, you might decide to remove an instance if it's above 90% CPU and return a non-200 HTTP status. 
 
+> [!NOTE] 
+> The HTTPS Probe requires the use of certificates based that have a minimum signature hash of SHA256 in the entire chain.
+
 If you use Cloud Services and have web roles that use w3wp.exe, you also achieve automatic monitoring of your website. Failures in your website code return a non-200 status to the load balancer probe.
 
 An HTTP / HTTPS probe fails when:
