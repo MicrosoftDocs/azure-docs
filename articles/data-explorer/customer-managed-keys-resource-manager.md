@@ -6,10 +6,10 @@ ms.author: itsagui
 ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 12/18/2019
+ms.date: 01/06/2020
 ---
 
-# Configure customer-managed-keys using C#
+# Configure customer-managed-keys using Azure Resource Manager template
 
 > [!div class="op_single_selector"]
 > * [C#](create-cluster-database-csharp.md)
@@ -71,6 +71,7 @@ $key = Add-AzKeyVaultKey -VaultName $keyVault.VaultName -Name <key> -Destination
 By default, Azure Data Explorer encryption uses Microsoft-managed keys. In this step, configure your Azure Data Explorer cluster to use customer-managed keys and specify the key to associate with the cluster.
 
 You can deploy the Azure Resource Manager template by using the Azure Portal or using PowerShell.
+
 ```json
 {
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",

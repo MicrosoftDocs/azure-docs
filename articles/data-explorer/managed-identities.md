@@ -6,19 +6,19 @@ ms.author: itsagui
 ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 11/27/2019
+ms.date: 01/06/2020
 ---
 
-# How to configure managed identities for Azure Data Explorer cluster
+# Configure managed identities for your Azure Data Explorer cluster
 
-> [!Important]
+> [!Note]
 > Managed identities for Azure Data Explorer will not behave as expected if your app is migrated across subscriptions/tenants. The app will need to obtain a new identity, which can > be done by disabling and re-enabling the feature. See Removing an identity below. Downstream resources will also need to have access policies updated to use the new identity.
 
 This topic shows you how to create a managed identity for Azure Data Explorer clusters. A managed identity from Azure Active Directory allows your cluster to easily access other AAD-protected resources such as Azure Key Vault. The identity is managed by the Azure platform and does not require you to provision or rotate any secrets. For more about managed identities in AAD, see [Managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md).
 
 Your cluster can be assigned a **system-assigned identity** that is tied to your cluster, and is deleted if your cluster is deleted. A cluster can only have one system-assigned identity.
 
-## Adding a system-assigned identity
+## Add a system-assigned identity
 
 Creating a cluster  with a system-assigned identity requires an additional property to be set on the cluster.
 
@@ -38,7 +38,7 @@ To set up a managed identity in the portal, you will first create an application
     ![Managed identity in App Service](media/app-service-managed-service-identity/msi-blade-system.png)
 -->
 
-### Using C#
+### Add a system-assigned identity using C#
 
 To set up a managed identity using the Azure Data Explorer C# client, you will need to use the Azure Data Explorer NuGet package:
 
@@ -152,11 +152,12 @@ The following steps will walk you through creating a web app and assigning it an
     ```
 -->
 
-### Using an Azure Resource Manager template
+### Add a system-assigned identity using an Azure Resource Manager template
 
 An Azure Resource Manager template can be used to automate deployment of your Azure resources. To learn more about deploying to Azure Data Explorer, see [Create an Azure Data Explorer cluster and database by using an Azure Resource Manager template](create-cluster-database-resource-manager.md).
 
 Any resource of type `Microsoft.Kusto/clusters` can be created with an identity by including the following property in the resource definition:
+
 ```json
 "identity": {
     "type": "SystemAssigned"
@@ -187,6 +188,7 @@ For example, a cluster might look like the following json:
 ```
 
 When the cluster is created, it has the following additional properties:
+
 ```json
 "identity": {
     "type": "SystemAssigned",
@@ -198,7 +200,7 @@ When the cluster is created, it has the following additional properties:
 Where `<TENANTID>` and `<PRINCIPALID>` are replaced with GUIDs. The tenantId property identifies what AAD tenant the identity belongs to. The principalId is a unique identifier for the cluster's new identity. Within AAD, the service principal has the same name that you gave to your App Service or Azure Functions instance.
 
 
-## Removing an identity
+## Remove an identity
 
 A system-assigned identity can be removed by disabling the feature in the same way that it was created:
 
@@ -209,3 +211,8 @@ A system-assigned identity can be removed by disabling the feature in the same w
 ```
 
 Removing a system-assigned identity in this way will also delete it from AAD. System-assigned identities are also automatically removed from AAD when the cluster resource is deleted.
+
+## Next steps
+
+ * [Configure customer-managed-keys using C#](customer-managed-keys-csharp.md)
+ * [Configure customer-managed-keys using Azure Resource Manager](customer-managed-keys-resource-manager.md)

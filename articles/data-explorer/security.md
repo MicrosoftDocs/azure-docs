@@ -6,7 +6,7 @@ ms.author: itsagui
 ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 11/27/2019
+ms.date: 01/06/2020
 ---
 
 # Secure Azure Data Explorer clusters in Azure
@@ -29,23 +29,9 @@ The managed identities for Azure resources feature in Azure Active Directory (Az
 
 You can manage encryption of your data at the storage level with your own keys. When you specify a customer-managed key, that key is used to protect and control access the root encryption key which in turn is used to encrypt and decrypt all data. Customer-managed keys offer greater flexibility to create, rotate, disable, and revoke access controls. You can also audit the encryption keys used to protect your data.
 
-You must use Azure Key Vault to store your customer-managed keys. You can either create your own keys and store them in a key vault, or you can use the Azure Key Vault APIs to generate keys. The Azure Data Explorer cluster and the key vault must be in the same region, but they can be in different subscriptions. For more information about Azure Key Vault, see [What is Azure Key Vault?](../key-vault/key-vault-overview.md).
+You must use Azure Key Vault to store your customer-managed keys. You can either create your own keys and store them in a key vault, or you can use the Azure Key Vault APIs to generate keys. The Azure Data Explorer cluster and the key vault must be in the same region, but they can be in different subscriptions. For more information about Azure Key Vault, see [What is Azure Key Vault?](../key-vault/key-vault-overview.md). For detailed explanation on how customer-managed keys work, see [Customer-managed keys with Azure Key Vault](../storage/common/storage-service-encryption.md)
 
-This diagram shows how Azure Storage uses Azure Active Directory and Azure Key Vault to make requests using the customer-managed key:
-
-Diagram showing how customer-managed keys work in Azure Storage
-
-The following list explains the numbered steps in the diagram:
-
- 1. An Azure Key Vault admin grants permissions to encryption keys to the managed identity that's associated with the cluster.
- 2. An Azure Data Explorer admin configures encryption with a customer-managed key for the cluster.
- 3. Azure Data Explorer uses the managed identity that's associated with the cluster to authenticate access to Azure Key Vault via Azure Active Directory.
- 4. Azure Data Explorer provides the customer key in Azure Key Vault to the storage level, which uses it to wrap the encryption key.
- 5. For read/write operations, storage layer sends requests to Azure Key Vault to wrap and unwrap the encryption key to perform encryption and decryption operations.
-
-For detailed explanation on how customer-managed keys work, see [Customer-managed keys with Azure Key Vault](../storage/common/storage-service-encryption.md)
-
-> [!Important]
+> [!Note]
 > Customer-managed keys rely on managed identities for Azure resources, a feature of Azure Active Directory (Azure AD). In order to configure customer-managed keys in the Azure portal, you need to configure a SystemAssigned managed identity to your cluster.
 
 #### Store customer-managed keys in Azure Key Vault
@@ -64,7 +50,7 @@ Rotating the key does not trigger re-encryption of data in the cluster. There is
 
 To revoke access to customer-managed keys, use PowerShell or Azure CLI. For more information, see [Azure Key Vault PowerShell](/powershell/module/az.keyvault.md) or [Azure Key Vault CLI](/cli/azure/keyvault.md). Revoking access effectively blocks access to all data in the cluster's storage level, as the encryption key is inaccessible by Azure Data Explorer.
 
-> [!Important]
+> [!Note]
 > When Azure Data Explorer identify that access to a customer-managed key is revoked, it will automatically suspend the cluster, in order to delete any cached data. Once access to the key is returned, the cluster needs to be resumed manually.
 
 ## Role-based access control

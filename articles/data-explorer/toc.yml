@@ -32,7 +32,7 @@
     href: ingest-data-overview.md
   - name: Data visualization overview
     href: viz-overview.md
-  - name: Security
+  - name: Security overview
     href: security.md
 - name: How-to guides
   items:
@@ -148,7 +148,7 @@
       href: redash.md
   - name: Secure
     items:
-    - name: Managed Identities
+    - name: Managed identities
       href: managed-identities.md
     - name: Manage cluster security
       href: manage-cluster-security.md

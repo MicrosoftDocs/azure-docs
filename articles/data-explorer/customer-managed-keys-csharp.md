@@ -6,7 +6,7 @@ ms.author: itsagui
 ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 12/18/2019
+ms.date: 01/06/2020
 ---
 
 # Configure customer-managed-keys using C#
