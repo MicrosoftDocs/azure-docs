@@ -6,10 +6,10 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-author: xiaoharper
-ms.author: zhanxia
+author: likebupt
+ms.author: keli19
 ms.reviewer: peterlu
-ms.date: 11/04/2019
+ms.date: 12/25/2019
 ---
 # Train & compare multiple regression models to predict car prices with Azure Machine Learning designer
 
@@ -76,7 +76,7 @@ Here are the results:
 
 These results show that the model built with **Boosted Decision Tree Regression** has a lower root mean squared error than the model built on **Decision Forest Regression**.
 
-Both algorithms have a lower error on the training dataset than on the unseen testing dataset.
+
 
 ## Clean up resources
 
