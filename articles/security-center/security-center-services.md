@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/24/2019
+ms.date: 01/05/2020
 ms.author: memildin
 ---
 # Supported features available in Azure Security Center
@@ -34,7 +34,7 @@ The following sections show Security Center features that are available for thei
 ||**Azure Virtual Machines**|**Azure Virtual Machine Scale Sets**|**Non-Azure Machines**|**Pricing**
 |[Microsoft Defender ATP integration](security-center-wdatp.md)|✔ (on supported versions)|✔ (on supported versions)|✔|Standard|
 |[Virtual Machine Behavioral Analytics threat detection alerts](security-center-alerts-iaas.md)|✔|✔|✔|Recommendations (Free) Threat Detection (Standard)|
-|[Fileless threat detection alerts](security-center-alerts-iaas.md#fileless-attack-detection-)|✔|✔|✔|Standard|
+|[Fileless threat detection alerts](alerts-reference.md#alerts-filelessattackdetect)|✔|✔|✔|Standard|
 |[Network-based threat detection alerts](security-center-alerts-service-layer.md#azure-network-layer)|✔|✔|-|Standard|
 |[Just-In-Time VM access](security-center-just-in-time.md)|✔|-|-|Standard|
 |[Native vulnerability assessment](built-in-vulnerability-assessment.md)|✔|-|-|Standard|
@@ -60,7 +60,7 @@ The following sections show Security Center features that are available for thei
 ||**Azure Virtual Machines**|**Azure Virtual Machine Scale Sets**|**Non-Azure Machines**|**Pricing**
 |[Microsoft Defender ATP integration](security-center-wdatp.md)|-|-|-|Standard|
 |[Virtual Machine Behavioral Analytics threat detection alerts](security-center-alerts-iaas.md)|✔ (on supported versions)|✔ (on supported versions)|✔|Recommendations (Free) Threat Detection (Standard)|
-|[Fileless threat detection alerts](security-center-alerts-iaas.md#fileless-attack-detection-)|-|-|-|Standard|
+|[Fileless threat detection alerts](alerts-reference.md#alerts-filelessattackdetect)|-|-|-|Standard|
 |[Network-based threat detection alerts](security-center-alerts-service-layer.md#azure-network-layer)|✔|✔|-|Standard|
 |[Just-In-Time VM access](security-center-just-in-time.md)|✔|-|-|Standard|
 |[Native vulnerability assessment](built-in-vulnerability-assessment.md)|✔|-|-|Standard|
@@ -102,7 +102,6 @@ For information about when recommendations are generated for each of these prote
  **\*** The coverage state and supporting data is currently only available in the Log Analytics workspace associated to your protected subscriptions. It isn't reflected in the Azure Security Center portal.
 
 > [!NOTE]
->
 > - Detection of System Center Endpoint Protection (SCEP) on a Windows Server 2008 R2 virtual machine requires SCEP to be installed after PowerShell 3.0 (or an upper version).
 > - Detection of Trend Micro protection is supported for Deep Security agents.  OfficeScan agents are not supported.
 
@@ -118,30 +117,30 @@ The following PaaS resources are supported by Azure Security Center:
 |Azure Kubernetes Service|✔|✔|-|
 |PostGreSQL*|✔|✔|-|
 |MySQL*|✔|✔|-|
-|CosmosDB*|-|✔|-|
-|Storage account|✔|-|-|
-|Blob storage|✔|✔|-|
-|App service|✔|✔|-|
+|Azure CosmosDB*|-|✔|-|
+|Storage Accounts|✔|-|-|
+|Blob Storage|✔|✔|-|
+|App Service|✔|✔|-|
 |Function app|✔|-|-|
-|Cloud Service|✔|-|-|
-|VNet|✔|-|-|
+|Cloud Services|✔|-|-|
+|Virtual Network|✔|-|-|
 |Subnet|✔|-|-|
 |NIC|✔|-|-|
-|NSG|✔|-|-|
+|Network Security Groups|✔|-|-|
 |Subscription|✔ **|✔|-|
 |Batch account|✔|-|-|
-|Service fabric account|✔|-|-|
+|Service Fabric account|✔|-|-|
 |Automation account|✔|-|-|
-|Load balancer|✔|-|-|
-|Search|✔|-|-|
-|Service bus namespace|✔|-|-|
+|Load Balancer|✔|-|-|
+|Cognitive Search|✔|-|-|
+|Service Bus namespace|✔|-|-|
 |Stream analytics|✔|-|-|
 |Event hub namespace|✔|-|-|
 |Logic apps|✔|-|-|
-|Redis|✔|-|-|
+|Cache for Redis|✔|-|-|
 |Data Lake Analytics|✔|-|-|
-|Data Lake Store|✔|-|-|
-|Key vault|✔|✔ *|-|
+|Azure Data Lake Storage|✔|-|-|
+|Key Vault|✔|✔ *|-|
 
 \* These features are currently supported in preview.
 
