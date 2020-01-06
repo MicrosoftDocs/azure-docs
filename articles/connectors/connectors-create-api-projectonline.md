@@ -1,16 +1,12 @@
 ---
-title: Connect to Project Online from Azure Logic Apps | Microsoft Docs
+title: Connect to Project Online from Azure Logic Apps
 description: Automate workflows that monitor, create, and manage Project Online projects, tasks, and resources by using Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
 ms.suite: integration
+ms.reviewer: klam, logicappspm
 ms.topic: article
-ms.assetid: 40ce621e-4925-4653-93bb-71ab9abcbdf1
-tags: connectors
 ms.date: 08/24/2018
+tags: connectors
 ---
 
 # Manage Project Online projects, tasks, and resources by using Azure Logic Apps

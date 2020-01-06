@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 07/22/2019
+ms.date: 12/09/2019
 ms.author: aahi
 ms.custom: seodec2018, seo-java-july2019, seo-java-august2019, seo-java-september2019
 #Customer intent: As a new developer, I want to make my first call to the Bing Web Search API and receive a response using Java.
@@ -69,7 +69,7 @@ public class BingWebSearch {
 
 ## Define variables
 
-This code sets the `subscriptionKey`, `host`, `path`, and `searchTerm`. Confirm that the endpoint is correct and replace the `subscriptionKey` value with a valid subscription key from your Azure account. Feel free to customize the search query by replacing the value for `searchTerm`. Remember to add this code to the `BingWebSearch` class as noted above.
+This code sets the `subscriptionKey`, `host`, `path`, and `searchTerm`. `host` can be the global endpoint below, or the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource. Replace the `subscriptionKey` value with a valid subscription key from your Azure account. Feel free to customize the search query by replacing the value for `searchTerm`. Remember to add this code to the `BingWebSearch` class as noted above.
 
 ```java
 // Enter a valid subscription key.

@@ -1,6 +1,6 @@
 ---
-title: Azure CLI Samples - Install apps | Microsoft Docs
-description: Azure CLI Samples
+title: Azure CLI Samples - Install apps
+description: This script creates a virtual machine scale set running Ubuntu and uses the Custom Script Extension to install a basic web application.
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: cynthn

@@ -1,19 +1,9 @@
 ---
-title: Authentication and authorization in Azure App Service for mobile apps | Microsoft Docs
-description: Conceptual reference and overview of the Authentication / Authorization feature for Azure App Service, specifically for mobile apps
-services: app-service
-documentationcenter: ''
-author: mattchenderson
-manager: erikre
-editor: ''
+title: Authentication and authorization
+description: Conceptual reference and overview of the Authentication / Authorization feature for Azure App Service, specifically for mobile apps.
 
-ms.service: app-service
-ms.workload: mobile
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/01/2016
-ms.author: mahender
-
 ---
 # Authentication and authorization in Azure App Service for mobile apps
 

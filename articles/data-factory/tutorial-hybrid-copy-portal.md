@@ -1,18 +1,16 @@
 ---
-title: Copy data from SQL Server to Blob storage by using Azure Data Factory 
+title: Copy data from SQL Server to Blob storage using Azure portal
 description: Learn how to copy data from an on-premises data store to the cloud by using a self-hosted integration runtime in Azure Data Factory.
 services: data-factory
-documentationcenter: ''
+ms.author: abnarain
 author: nabhishek
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
-
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
+ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/11/2018
-ms.author: abnarain
-
 ---
 
 # Copy data from an on-premises SQL Server database to Azure Blob storage
@@ -121,7 +119,7 @@ In this step, you create a data factory and start the Data Factory UI to create 
 
    - Select **Create new**, and enter the name of a resource group.
         
-     To learn about resource groups, see [Use resource groups to manage your Azure resources](../azure-resource-manager/resource-group-overview.md).
+     To learn about resource groups, see [Use resource groups to manage your Azure resources](../azure-resource-manager/management/overview.md).
 1. Under **Version**, select **V2**.
 1. Under **Location**, select the location for the data factory. Only locations that are supported are displayed in the drop-down list. The data stores (for example, Storage and SQL Database) and computes (for example, Azure HDInsight) used by Data Factory can be in other regions.
 1. Select **Create**.

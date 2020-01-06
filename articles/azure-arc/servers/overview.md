@@ -37,7 +37,7 @@ The Public Preview release is designed for evaluation purposes and should not be
 
 ## Azure Subscription and Service Limits
 
-Please make sure you read the Azure Resource Manager limits, and plan for the number of the machines to be connected according to the guideline listed for the [subscription](../../azure-subscription-service-limits.md#subscription-limits---azure-resource-manager), and for the [resource groups](../../azure-subscription-service-limits.md#resource-group-limits). In particular, by default there is a limit of 800 servers per resource group.
+Please make sure you read the Azure Resource Manager limits, and plan for the number of the machines to be connected according to the guideline listed for the [subscription](../../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits---azure-resource-manager), and for the [resource groups](../../azure-resource-manager/management/azure-subscription-service-limits.md#resource-group-limits). In particular, by default there is a limit of 800 servers per resource group.
 
 ## Networking Configuration
 
@@ -103,7 +103,41 @@ az provider register --namespace 'Microsoft.HybridCompute'
 az provider register --namespace 'Microsoft.GuestConfiguration'
 ```
 
-You can also register the Resource Providers using the portal by following the steps under [Azure portal](../../azure-resource-manager/resource-manager-supported-services.md#azure-portal).
+You can also register the Resource Providers using the portal by following the steps under [Azure portal](../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal).
+
+## Machine changes after installing the agent
+
+If you have a change tracking solution deployed in your environment, you can use the list below to track, identify, and allow the changes made by the **Azure Connected Machine Agent (AzCMAgent)** installation package.
+
+After you install the agent you see the following changes made to your servers.
+
+### Windows
+
+Services installed:
+
+* `Himds` - The **Azure Connected Machine Agent** service.
+* `Dscservice` or `gcd` - The **Guest Configuration** service.
+
+Files added to the server:
+
+* `%ProgramFiles%\AzureConnectedMachineAgent\*.*` - Location of **Azure Connected Machine Agent** files.
+* `%ProgramData%\GuestConfig\*.*` - **Guest Configuration** logs.
+
+Registry key locations:
+
+* `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure Connected Machine Agent` - Registry keys for **Azure Connected Machine Agent**.
+
+### Linux
+
+Services installed:
+
+* `Himdsd` - The **Azure Connected Machine Agent** service.
+* `dscd` or `gcd` - The **Guest Configuration** service.
+
+Files added to the server:
+
+* `/var/opt/azcmagent/**` - Location of **Azure Connected Machine Agent** files.
+* `/var/lib/GuestConfig/**` - **Guest Configuration** logs.
 
 ## Supported Scenarios
 

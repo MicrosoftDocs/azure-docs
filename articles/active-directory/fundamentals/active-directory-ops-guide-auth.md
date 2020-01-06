@@ -287,16 +287,16 @@ If legacy authentication is widely used in your environment, you should plan to 
 
 ### Consent grants
 
-In an illicit consent grant attack, the attacker creates an Azure AD-registered application that requests access to data such as contact information, email, or documents. Users might be granting consent to malicious applications via phishing attacks, or indirectly by not being careful when landing on malicious websites.
+In an illicit consent grant attack, the attacker creates an Azure AD-registered application that requests access to data such as contact information, email, or documents. Users might be granting consent to malicious applications via phishing attacks when landing on malicious websites.
 
-Below are the permissions you might want to scrutinize for Microsoft cloud services:
+Below are a list of apps with permissions you might want to scrutinize for Microsoft cloud services:
 
-- Applications with app or delegated \*.ReadWrite Permissions
-- Applications with delegated permissions can read, send, or manage email on behalf of the user
-- Applications that are granted the using the following permissions:
+- Apps with app or delegated \*.ReadWrite Permissions
+- Apps with delegated permissions can read, send, or manage email on behalf of the user
+- Apps that are granted the using the following permissions:
 
 | Resource | Permission |
-| -------------------------- | -------------------- |
+| :- | :- |
 | Office 365 Exchange Online | EAS.AccessAsUser.All |
 | | EWS.AccessAsUser.All |
 | | Mail.Read |
@@ -304,11 +304,19 @@ Below are the permissions you might want to scrutinize for Microsoft cloud servi
 | | Mail.Read.Shared |
 | | Mail.ReadWrite |
 
-To avoid this scenario, you should refer to [Detect and Remediate Illicit Consent Grants in Office 365](https://docs.microsoft.com/office365/securitycompliance/detect-and-remediate-illicit-consent-grants) to identify and fix any applications with illicit grants or applications that have more grants than are necessary. Schedule regular reviews of app permissions and remove them when not needed; or remove self-service altogether and establish governance procedures.
+- Apps granted full user impersonation of the signed-in user. For example:
+
+|Resource | Permission |
+| :- | :- |
+| Azure AD Graph | Directory.AccessAsUser.All |
+| Microsoft Graph | Directory.AccessAsUser.All |
+| Azure REST API | user_impersonation |
+
+To avoid this scenario, you should refer to [detect and remediate illicit consent grants in Office 365](https://docs.microsoft.com/office365/securitycompliance/detect-and-remediate-illicit-consent-grants) to identify and fix any applications with illicit grants or applications that have more grants than are necessary. Next, [remove self-service altogether](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-user-consent) and [establish governance procedures](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-admin-consent-workflow). Finally, schedule regular reviews of app permissions and remove them when they are not needed.
 
 #### Consent grants recommended reading
 
-- [Azure Active Directory (AD) Graph API Permission Scopes](https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes)
+- [Microsoft Graph permissions](https://docs.microsoft.com/graph/permissions-reference)
 
 ### User and group settings
 
@@ -358,7 +366,7 @@ Having access to sign-in activity, audits and risk events for Azure AD is crucia
 - [Get data using the Azure AD Reporting API with certificates](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-api-with-certificates)
 - [Microsoft Graph for Azure Active Directory Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection-graph-getting-started)
 - [Office 365 Management Activity API reference](https://msdn.microsoft.com/office-365/office-365-management-activity-api-reference)
-- [How to use the Azure Active Directory Power BI Content Pack](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-power-bi-content-pack-how-to)
+- [How to use the Azure Active Directory Power BI Content Pack](../reports-monitoring/howto-use-azure-monitor-workbooks.md)
 
 ## Summary
 

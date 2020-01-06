@@ -1,5 +1,5 @@
 ---
-title: 'Azure Cosmos DB tutorial: Create, query, and traverse in Apache TinkerPops Gremlin Console'
+title: 'Query with Azure Cosmos DB Gremlin API using TinkerPop Gremlin Console: Tutorial'
 description: An Azure Cosmos DB quickstart to creates vertices, edges, and queries using the Azure Cosmos DB Gremlin API.
 author: luisbosquez
 ms.service: cosmos-db
@@ -33,7 +33,7 @@ You need to have an Azure subscription to create an Azure Cosmos DB account for 
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-You also need to install the [Gremlin Console](https://tinkerpop.apache.org/). Use version 3.2.5 or above. (To use Gremlin Console on Windows, you need to install [Java Runtime](https://www.oracle.com/technetwork/java/javase/overview/index.html).)
+You also need to install the [Gremlin Console](https://tinkerpop.apache.org/downloads.html). The **recommended version is v3.4.3** or earlier. (To use Gremlin Console on Windows, you need to install [Java Runtime](https://www.oracle.com/technetwork/java/javase/overview/index.html)).
 
 ## Create a database account
 

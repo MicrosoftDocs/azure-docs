@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-local-business
 ms.topic: quickstart
-ms.date: 09/13/2019
+ms.date: 11/29/2019
 ms.author: aahi
 ---
 
@@ -30,7 +30,7 @@ This example application gets local response data from the query for a *hotel in
 
 The following code creates a `WebRequest`, sets the access key header, and adds a query string for "hotel in Bellevue".  It then sends the request and assigns the response to a string to contain the JSON text.
 
-```
+```java
     // construct URL of search request (endpoint + query string)
 	 URL url = new URL(host + path + "?q=" +  URLEncoder.encode(searchQuery, "UTF-8") + &mkt=en-us");
 	HttpsURLConnection connection = (HttpsURLConnection)url.openConnection();
@@ -53,7 +53,7 @@ The Bing Local Business Search API returns results from the Bing search engine.
 4. Replace the subscriptionKey value with an access key valid for your subscription.
 5. Run the program.
 
-```
+```java
 package localSearch;
 import java.net.*;
 import java.util.*;

@@ -1,6 +1,6 @@
 ---
-title: Web API that calls web APIs (call APIs) - Microsoft identity platform
-description: Learn how to build a web API that calls downstream web APIs (calling a web API).
+title: Web API that calls web APIs - Microsoft identity platform | Azure
+description: Learn how to build a web API that calls web APIs.
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -29,7 +29,7 @@ Here's the continuation of the example code shown in [Protected web API calls we
 
 Once you acquired the token, use it as a bearer token to call the downstream API.
 
-```CSharp
+```csharp
 private async Task GetTodoList(bool isAppStarting)
 {
  ...

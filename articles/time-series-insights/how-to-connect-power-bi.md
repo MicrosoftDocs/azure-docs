@@ -29,7 +29,10 @@ Make sure to sign up for a [free Azure subscription](https://azure.microsoft.com
 ## Prerequisites
 
 * Download and install the latest version of [Power BI Desktop](https://powerbi.microsoft.com/downloads/)
-* Have or create an [Azure Time Series Insights GA instance](time-series-insights-get-started.md) or [Azure Time Series Insights Preview instance](time-series-insights-update-how-to-manage.md)
+* Have or create an [Azure Time Series Insights Preview instance](time-series-insights-update-how-to-manage.md)
+
+> [!IMPORTANT]
+> The Power BI connector is presently supported in Time Series Insights Preview *pay-as-you-go* environments configured for **Warm Store**.
 
 ## Connect data from Time Series Insights to Power BI
 
@@ -62,12 +65,12 @@ To get started:
 
        [![Connect](media/how-to-connect-power-bi/connect-to-power-bi.png)](media/how-to-connect-power-bi/connect-to-power-bi.png#lightbox)
 
-   1. If you have not configured your Time Series Insights instance for warm store, you will receive a warning.
+   1. If you have not configured your Time Series Insights instance for **Warm Store**, you will receive a warning.
 
-       [![Connect](media/how-to-connect-power-bi/connect-to-power-bi-warning.png)](media/how-to-connect-power-bi/connect-to-power-bi-warning.png#lightbox)
+       [![Warm store warning](media/how-to-connect-power-bi/connect-to-power-bi-warning.png)](media/how-to-connect-power-bi/connect-to-power-bi-warning.png#lightbox)
 
        > [!TIP]
-       > You may configure your existing instance for warm store in the Azure portal.
+       > You may configure your existing instance for **Warm Store** in the Azure portal.
 
 1. Select **Copy query to clipboard**.
 1. Now, launch Power BI Desktop.
