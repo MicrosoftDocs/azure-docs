@@ -189,7 +189,7 @@ import com.microsoft.identity.client.exception.*;
 ## Instantiate PublicClientApplication
 #### Initialize Variables 
 ```java
-private final static String[] SCOPES = {"U ser.Read"};
+private final static String[] SCOPES = {"User.Read"};
 /* Azure AD v2 Configs */
 final static String AUTHORITY = "https://login.microsoftonline.com/common";
 private ISingleAccountPublicClientApplication mSingleAccountApp;
@@ -217,7 +217,7 @@ protected void onCreate(Bundle savedInstanceState) {
     initializeUI();
 
     PublicClientApplication.createSingleAccountPublicClientApplication(getApplicationContext(),
-            R.raw.auth_config_single_account,            new IPublicClientApplication.ISingleAccountApplicationCreatedListener() {
+            R.raw.auth_config_single_account, new IPublicClientApplication.ISingleAccountApplicationCreatedListener() {
                 @Override
                 public void onCreated(ISingleAccountPublicClientApplication application) {
                     mSingleAccountApp = application;
@@ -225,7 +225,7 @@ protected void onCreate(Bundle savedInstanceState) {
                 }
                 @Override
                 public void onError(MsalException exception) {
-                    displayError( exception);
+                    displayError(exception);
                 }
             });
 }
