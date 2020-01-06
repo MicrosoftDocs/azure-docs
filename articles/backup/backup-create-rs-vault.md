@@ -82,6 +82,7 @@ For this process, there are pricing implications as it is at the storage level.
 >[!NOTE]
 >Before you begin:
 >
+>- Review the [support matrix](backup-support-matrix.md#cross-region-restore) for a list of supported managed types and regions.
 >- The Cross Region Restore (CRR) feature is currently only available in the WCUS region.
 >- CRR is a vault level opt-in feature for any GRS vault (turned off by default).
 >- Please use *"featureName": "CrossRegionRestore"* to onboard your subscription to this feature.
