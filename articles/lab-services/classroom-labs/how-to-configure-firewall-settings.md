@@ -1,6 +1,6 @@
 ---
 title: Firewall settings for Azure Lab Services
-description: Learn how to determine the public IP address and port number range of virtual machines in a lab so information maybe added to firewall rules.
+description: Learn how to determine the public IP address and port number range of virtual machines in a lab so information can be added to firewall rules.
 author: emaher
 
 ms.author: enewman
