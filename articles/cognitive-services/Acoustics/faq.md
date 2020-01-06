@@ -67,9 +67,13 @@ Probes are a sampling of possible player locations. Each probe represents a sepa
 
 Project Acoustics provides accurate and reliable acoustic parameters even for ultra-complex virtual environments, taking every architectural aspect into account. It provides smooth occlusion and obstruction and dynamic reverb variation without the manual work of drawing volumes. All while remaining light on CPU during runtime.
 
-## What exactly happens during "baking"? Is my source content secure?
+## What exactly happens during "baking"?
 
-A bake consists of acoustic wave simulations of cuboid simulation regions centered at each listener probe. Project Acoustics _never_ uploads the actual source content to the cloud. A preprocessing step on your local machine generates a voxelized view of the scene that is much coarser and compressed along with some configuration information that determines where acoustics simulation probes are placed. This voxelization data format is not publicly available and not easily accessible outside of Project Acoustics.     
+A bake consists of acoustic wave simulations of cuboid simulation regions centered at each listener probe.
+
+## Is my source content secure?
+
+Project Acoustics does not upload the source scene geomety to the cloud. Instead, simulation operates on a voxelization of your scene, which is combined with probe location data and stored in a proprietary format.     
 
 ## Next steps
 * Try the [Project Acoustics Unity sample content](unity-quickstart.md) or [Unreal sample content](unreal-quickstart.md)
