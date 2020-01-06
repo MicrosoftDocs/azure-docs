@@ -262,4 +262,4 @@ The deployment will take some time to complete.  Once the deployment is complete
 In this quickstart, you created a new App Configuration store and used it to deploy a virtual machine.  To learn how to use Azure App Configuration to deploy and configure an ASP.NET Core application, continue to the next quickstart.
 
 > [!div class="nextstepaction"]
-> [Create an ASP.NET Core application with Azure App Configuration](./quickstart-aspnet-core.md)
+> [Create an ASP.NET Core application with Azure App Configuration](./quickstart-aspnet-core-app.md)
