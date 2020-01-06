@@ -426,6 +426,9 @@ Azure Data Factory version 2 emits the following metrics.
 
 To access the metrics, complete the instructions in [Azure Monitor data platform](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics).
 
+> [!NOTE]
+> Only completed, triggered activity and pipeline runs events are emitted. In progress and sandbox/debug runs are **not** emitted. 
+
 ## Monitor Data Factory metrics with Azure Monitor
 
 You can use Data Factory integration with Monitor to route data to Monitor. This integration is useful in the following scenarios:

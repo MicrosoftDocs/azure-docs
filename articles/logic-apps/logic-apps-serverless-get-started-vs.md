@@ -72,7 +72,7 @@ for your serverless app. In Azure, you create resources within a *resource group
 which is a logical collection you use for organizing, managing, and deploying 
 resources for an entire app as a single asset. For a serverless app in Azure, 
 your resource group includes resources for both Azure Logic Apps and Azure Functions. 
-Learn more about [Azure resource groups and resources](../azure-resource-manager/resource-group-overview.md).
+Learn more about [Azure resource groups and resources](../azure-resource-manager/management/overview.md).
 
 1. Start Visual Studio and sign in by using your Azure account.
 

@@ -49,7 +49,7 @@
       href: stream-analytics-define-inputs.md
     - name: Reference data inputs
       href: stream-analytics-use-reference-data.md
-    - name: Write .NET custom deserializers
+    - name: Read inputs in any format using custom deserializers
       href: custom-deserializer-examples.md
   - name: Output types for a job
     items:
