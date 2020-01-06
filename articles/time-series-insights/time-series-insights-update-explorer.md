@@ -8,7 +8,7 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 11/13/2019
+ms.date: 01/06/2020
 ms.custom: seodec18
 ---
 
@@ -129,7 +129,7 @@ Here, you can see an example of an **overlapping chart**:
 
   [![Overlapping chart option](media/v2-update-explorer/overlapping-chart.png)](media/v2-update-explorer/overlapping-chart.png#lightbox)
 
-The **More Actions** button expands to display the **Download as CSV** and **Export to Power BI** options.
+The **More Actions** button expands to display the **Download as CSV**, **Connect to Power BI**, **Show chart data as a table**, and **Explore raw events** options.
 
   [![More Actions option](media/v2-update-explorer/more-actions-icon.png)](media/v2-update-explorer/more-actions-icon.png#lightbox)
 
