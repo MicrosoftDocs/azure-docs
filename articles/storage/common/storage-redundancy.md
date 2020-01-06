@@ -1,12 +1,13 @@
 ---
-title: Data redundancy in Azure Storage | Microsoft Docs
-description: Data in your Microsoft Azure Storage account is replicated for durability and high availability. Redundancy options include locally redundant storage (LRS), zone-redundant storage (ZRS), geo-redundant storage (GRS), read-access geo-redundant storage (RA-GRS), geo-zone-redundant storage (GZRS) (preview), and read-access geo-zone-redundant storage (RA-GZRS) (preview).
+title: Data redundancy 
+titleSuffix: Azure Storage
+description: Data in your Microsoft Azure Storage account is replicated for durability and high availability. Redundancy configurations include locally redundant storage (LRS), zone-redundant storage (ZRS), geo-redundant storage (GRS), read-access geo-redundant storage (RA-GRS), geo-zone-redundant storage (GZRS) (preview), and read-access geo-zone-redundant storage (RA-GZRS) (preview).
 services: storage
 author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 09/17/2019
+ms.date: 01/06/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
@@ -14,19 +15,19 @@ ms.subservice: common
 
 # Azure Storage redundancy
 
-The data in your Microsoft Azure storage account is always replicated to ensure durability and high availability. Azure Storage copies your data so that it is protected from planned and unplanned events, including transient hardware failures, network or power outages, and massive natural disasters. You can choose to replicate your data within the same data center, across zonal data centers within the same region, or across geographically separated regions.
+The data in your Microsoft Azure storage account is always stored redundantly to ensure durability and high availability. Azure Storage copies your data so that it is protected from planned and unplanned events, including transient hardware failures, network or power outages, and massive natural disasters. You can choose to replicate your data within the same data center, across zonal data centers within the same region, or across geographically separated regions.
 
-Replication ensures that your storage account meets the [Service-Level Agreement (SLA) for Storage](https://azure.microsoft.com/support/legal/sla/storage/) even in the face of failures. See the SLA for information about Azure Storage guarantees for durability and availability.
+Redundancy ensures that your storage account meets the [Service-Level Agreement (SLA) for Storage](https://azure.microsoft.com/support/legal/sla/storage/) even in the face of failures. See the SLA for information about Azure Storage guarantees for durability and availability.
 
 Azure Storage regularly verifies the integrity of data stored using cyclic redundancy checks (CRCs). If data corruption is detected, it is repaired using redundant data. Azure Storage also calculates checksums on all network traffic to detect corruption of data packets when storing or retrieving data.
 
-## Choosing a redundancy option
+## Choosing a redundancy configuration
 
-When you create a storage account, you can select one of the following redundancy options:
+When you create a storage account, you can select one of the following redundancy configurations:
 
 [!INCLUDE [azure-storage-redundancy](../../../includes/azure-storage-redundancy.md)]
 
-The following table provides a quick overview of the scope of durability and availability that each replication strategy will provide you for a given type of event (or event of similar impact).
+The following table provides a quick overview of the scope of durability and availability that each redundancy configuration will provide you for a given type of event (or event of similar impact).
 
 | Scenario                                                                                                 | LRS                             | ZRS                              | GRS/RA-GRS                                  | GZRS/RA-GZRS (preview)                              |
 | :------------------------------------------------------------------------------------------------------- | :------------------------------ | :------------------------------- | :----------------------------------- | :----------------------------------- |
@@ -39,27 +40,25 @@ The following table provides a quick overview of the scope of durability and ava
 | Availability SLA for read requests<sup>1</sup>  | At least 99.9% (99% for cool access tier) | At least 99.9% (99% for cool access tier) | At least 99.9% (99% for cool access tier) for GRS<br /><br />At least 99.99% (99.9% for cool access tier) for RA-GRS | At least 99.9% (99% for cool access tier) for GZRS<br /><br />At least 99.99% (99.9% for cool access tier) for RA-GZRS |
 | Availability SLA for write requests<sup>1</sup>  | At least 99.9% (99% for cool access tier) | At least 99.9% (99% for cool access tier) | At least 99.9% (99% for cool access tier) | At least 99.9% (99% for cool access tier) |
 
-<sup>1</sup> For information about Azure Storage guarantees for durability and availability, see the [Azure Storage SLA](https://azure.microsoft.com/support/legal/sla/storage/).   
+<sup>1</sup> For information about Azure Storage guarantees for durability and availability, see the [Azure Storage SLA](https://azure.microsoft.com/support/legal/sla/storage/).
 
 <sup>2</sup> For information for storage account types, see [Storage account overview](storage-account-overview.md).
 
-All data for all types of storage accounts are replicated, including block blobs, append blobs, page blobs, queues, tables, and files.
+All data for all types of storage accounts are replicated. Objects including block blobs, append blobs, page blobs, queues, tables, and files are replicated.
 
-For pricing information for each redundancy option, see [Azure Storage Pricing](https://azure.microsoft.com/pricing/details/storage/).
+For pricing information for each redundancy configuration, see [Azure Storage Pricing](https://azure.microsoft.com/pricing/details/storage/).
 
 > [!NOTE]
-> Azure Premium Disk Storage currently supports only locally redundant storage (LRS). Azure Premium Block Blob Storage supports locally redudant storage (LRS) and zone redudant storage (ZRS) in certain regions.
+> Azure Premium Disk Storage currently supports only locally redundant storage (LRS). Azure Premium Block Blob Storage supports locally redundant storage (LRS) and zone redundant storage (ZRS) in certain regions.
 
-## Changing replication strategy
+## Changing redundancy configuration
 
-You can change your storage account's replication strategy by using the [Azure portal](https://portal.azure.com/), [Azure Powershell](storage-powershell-guide-full.md), [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest), or one of the [Azure Storage client libraries](https://docs.microsoft.com/azure/index#pivot=sdkstools). Changing the replication type of your storage account does not result in down time.
+You can change your storage account's redundancy configuration by using the [Azure portal](https://portal.azure.com/), [Azure Powershell](storage-powershell-guide-full.md), [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest), or one of the [Azure Storage client libraries](https://docs.microsoft.com/azure/index#pivot=sdkstools). Changing the replication type of your storage account does not result in down time.
 
 > [!NOTE]
 > Currently, you cannot use the Azure portal or the Azure Storage client libraries to convert your account to ZRS, GZRS, or RA-GZRS. To migrate your account to ZRS, see [Zone-redundant storage (ZRS) for building highly available Azure Storage applications](storage-redundancy-zrs.md) for details. To migrate GZRS or RA-GZRS, see [Geo-zone-redundant storage for highly availability and maximum durability (preview)](storage-redundancy-zrs.md) for details.
 
-### Are there any costs to changing my account's replication strategy?
-
-It depends on your conversion path. Ordering from least to the most expensive, Azure Storage redundancy offerings LRS, ZRS, GRS, RA-GRS, GZRS, and RA-GZRS. For example, going *from* LRS to any other type of replication will incur additional charges because you are moving to a more sophisticated redundancy level. Migrating *to* GRS or RA-GRS will incur an egress bandwidth charge because your data (in your primary region) is being replicated to your remote secondary region. This charge is a one-time cost at initial setup. After the data is copied, there are no further migration charges. You are only charged for replicating any new or updates to existing data. For details on bandwidth charges, see [Azure Storage Pricing page](https://azure.microsoft.com/pricing/details/storage/blobs/).
+Costs associated with changing your storage account's redundancy configuration depend on your conversion path. Ordering from least to the most expensive, Azure Storage redundancy offerings include LRS, ZRS, GRS, RA-GRS, GZRS, and RA-GZRS. For example, going *from* LRS to any other type of replication will incur additional charges because you are moving to a more sophisticated redundancy level. Migrating *to* GRS or RA-GRS will incur an egress bandwidth charge because your data (in your primary region) is being replicated to your remote secondary region. This charge is a one-time cost at initial setup. After the data is copied, there are no further migration charges. You are only charged for replicating any new or updates to existing data. For details on bandwidth charges, see [Azure Storage Pricing page](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
 If you migrate your storage account from GRS to LRS, there is no additional cost, but your replicated data is deleted from the secondary location.
 
@@ -67,12 +66,10 @@ If you migrate your storage account from RA-GRS to GRS or LRS, that account is b
 
 ## See also
 
-- [Storage account overview](storage-account-overview.md)
 - [Locally redundant storage (LRS): Low-cost data redundancy for Azure Storage](storage-redundancy-lrs.md)
 - [Zone-redundant storage (ZRS): Highly available Azure Storage applications](storage-redundancy-zrs.md)
 - [Geo-redundant storage (GRS): Cross-regional replication for Azure Storage](storage-redundancy-grs.md)
 - [Geo-zone-redundant storage (GZRS) for highly availability and maximum durability (preview)](storage-redundancy-gzrs.md)
-- [Azure Storage scalability and performance targets](storage-scalability-targets.md)
 - [Designing highly available applications using RA-GRS Storage](../storage-designing-ha-apps-with-ragrs.md)
 - [Microsoft Azure Storage redundancy options and read access geo redundant storage](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx)
 - [SOSP Paper - Azure Storage: A highly available cloud storage service with strong consistency](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
