@@ -1,7 +1,7 @@
 ---
 # Mandatory fields. See more on aka.ms/skyeye/meta.
-title: Find an address using the Azure Maps Search service  | Microsoft Docs 
-description: In this article, you will learn how to search for an address using the Azure Maps Search service
+title: Search locations using the Microsoft Azure Maps Search service | Microsoft Docs 
+description: In this article, you will learn how to search for a location using the Microsoft Azure Maps Search service.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 04/05/2019
