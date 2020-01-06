@@ -214,8 +214,8 @@ export class AuthorizationHandler {
 
 The following Java class encodes the certificate from `X-ARR-ClientCert` to an `X509Certificate` instance. `certificateIsValid()` validates that the certificate's thumbprint matches the one given in the constructor and that certificate has not expired.
 
-java
-```
+
+```java
 import java.io.ByteArrayInputStream;
 import java.security.NoSuchAlgorithmException;
 import java.security.cert.*;
