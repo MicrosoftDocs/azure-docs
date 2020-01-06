@@ -47,10 +47,12 @@ You can add, edit, or remove a policy by using any of the following methods:
 * [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)
 * [REST APIs](https://docs.microsoft.com/rest/api/storagerp/managementpolicies)
 
-This article shows how to manage policy by using the portal and PowerShell methods.  
+A policy can be read or written in full. Partial updates are not supported. 
 
 > [!NOTE]
 > If you enable firewall rules for your storage account, lifecycle management requests may be blocked. You can unblock these requests by providing exceptions for trusted Microsoft services. For more information, see the Exceptions section in [Configure firewalls and virtual networks](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
+
+This article shows how to manage policy by using the portal and PowerShell methods.  
 
 # [Portal](#tab/azure-portal)
 
@@ -63,7 +65,7 @@ There are two ways to add a policy through the Azure portal.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-2. Select **All resources** and then select your storage account.
+2. In the Azure portal, search for and select your storage account. 
 
 3. Under **Blob Service**, select **Lifecycle management** to view or change your rules.
 
@@ -84,7 +86,7 @@ There are two ways to add a policy through the Azure portal.
 #### Azure portal Code view
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-2. Select **All resources** and then select your storage account.
+2. In the Azure portal, search for and select your storage account.
 
 3. Under **Blob Service**, select **Lifecycle management** to view or change your policy.
 
@@ -427,6 +429,9 @@ For data that is modified and accessed regularly throughout its lifetime, snapsh
 
 **I created a new policy, why do the actions not run immediately?**  
 The platform runs the lifecycle policy once a day. Once you configure a policy, it can take up to 24 hours for some actions to run for the first time.  
+
+**If I update an existing policy, how long does it take for the actions to run?**  
+The updated policy takes up to 24 hours to go into effect. Once the policy is in effect, it could take up to 24 hours for the actions to run. Therefore, the policy may take up to 48 hours to execute.   
 
 **I manually rehydrated an archived blob, how do I prevent it from being moved back to the Archive tier temporarily?**  
 When a blob is moved from one access tier to another, its last modification time doesn't change. If you manually rehydrate an archived blob to hot tier, it would be moved back to archive tier by the lifecycle management engine. Disable the rule that affects this blob temporarily to prevent it from being archived again. Re-enable the rule when the blob can be safely moved back to archive tier. You may also copy the blob to another location if it needs to stay in hot or cool tier permanently.

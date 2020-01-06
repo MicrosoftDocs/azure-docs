@@ -1,5 +1,5 @@
 ---
-title: Azure Front Door Service - Frequently Asked Questions for Front Door | Microsoft Docs
+title: Azure Front Door Service - Frequently Asked Questions
 description: This page provides answers to frequently asked questions about Azure Front Door Service
 services: frontdoor
 documentationcenter: ''
@@ -127,7 +127,7 @@ Azure Front Door (AFD) requires a public IP or publicly resolvable DNS name to r
 
 ### What are the various timeouts and limits for Azure Front Door Service?
 
-Learn about all the documented [timeouts and limits for Azure Front Door Service](https://docs.microsoft.com/azure/azure-subscription-service-limits#azure-front-door-service-limits).
+Learn about all the documented [timeouts and limits for Azure Front Door Service](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-front-door-service-limits).
 
 ## Performance
 
@@ -175,6 +175,8 @@ The following are the current cipher suites supported by Azure Front Door Servic
 - TLS_RSA_WITH_AES_128_CBC_SHA256
 - TLS_RSA_WITH_AES_256_CBC_SHA
 - TLS_RSA_WITH_AES_128_CBC_SHA
+- TLS_DHE_RSA_WITH_AES_128_GCM_SHA256
+- TLS_DHE_RSA_WITH_AES_256_GCM_SHA384
 
 ### Does Azure Front Door Service also support re-encryption of traffic to the backend?
 

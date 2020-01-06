@@ -8,7 +8,7 @@ ms.author: lugoldbe
 
 ## Azure Resource Manager template
 
-In this article, an Azure Resource Manager template is used to create a resource group, a storage account and container, an Event Hub, and an Azure Data Explorer cluster and database. Save the following content into a file with name `template.json`, which will be used to run the code example.
+In this article, you use an Azure Resource Manager template to create a resource group, a storage account and container, an event hub, and an Azure Data Explorer cluster and database. Save the following content in a file with the name `template.json`. You'll use this file to run the code example.
 
 ```json
 {
@@ -47,13 +47,6 @@ In this article, an Azure Resource Manager template is used to create a resource
             "defaultValue": "[concat('storagecontainer', uniqueString(resourceGroup().id))]",
             "metadata": {
                 "description": "Name of the container in storage account to create"
-            }
-        },
-        "location": {
-            "type": "string",
-            "defaultValue": "[resourceGroup().location]",
-            "metadata": {
-                "description": "Specifies the Azure location for all resources."
             }
         },
         "eventHubSku": {
@@ -143,7 +136,7 @@ In this article, an Azure Resource Manager template is used to create a resource
                 "tier": "Standard",
                 "capacity": 2
             },
-            "apiVersion": "2019-05-15",
+            "apiVersion": "2019-09-07",
             "location": "[parameters('location')]",
             "tags": {
                 "Created By": "GitHub quickstart template"
@@ -151,7 +144,7 @@ In this article, an Azure Resource Manager template is used to create a resource
         }, {
             "name": "[concat(parameters('kustoClusterName'), '/', parameters('kustoDatabaseName'))]",
             "type": "Microsoft.Kusto/clusters/databases",
-            "apiVersion": "2019-05-15",
+            "apiVersion": "2019-09-07",
             "location": "[parameters('location')]",
             "dependsOn": ["[resourceId('Microsoft.Kusto/clusters', parameters('kustoClusterName'))]"],
             "properties": {

@@ -1,6 +1,7 @@
 ---
-title: Migrate SQL Server to Azure SQL Database Managed Instance with Database Migration Service and PowerShell | Microsoft Docs
-description: Learn to migrate from on-premises SQL Server to Azure SQL DB Managed Instance by using Azure PowerShell.
+title: "PowerShell: Migrate SQL Server to SQL managed instance"
+titleSuffix: Azure Database Migration Service
+description: Learn to migrate from on-premises SQL Server to Azure SQL Database managed instance by using Azure PowerShell and the Azure Database Migration Service.
 services: database-migration
 author: HJToland3
 ms.author: jtoland
@@ -8,12 +9,12 @@ manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
-ms.custom: mvc
+ms.custom: "seo-lt-2019"
 ms.topic: article
 ms.date: 04/29/2019
 ---
 
-# Migrate SQL Server on-premises to an Azure SQL Database managed instance using Azure PowerShell
+# Migrate SQL Server to SQL Database managed instance with PowerShell & Azure Database Migration Service
 In this article, you migrate the **Adventureworks2016** database restored to an on-premises instance of SQL Server 2005 or above to an Azure SQL Database managed instance by using Microsoft Azure PowerShell. You can migrate databases from an on-premises SQL Server instance to an Azure SQL Database managed instance by using the `Az.DataMigration` module in Microsoft Azure PowerShell.
 
 In this article, you learn how to:
@@ -231,7 +232,7 @@ For offline migrations only, perform the following additional configuration task
 * **Select logins**. Create a list of logins to be migrated as shown in the following example:
 
     ```powershell
-    $selectedLogins = @(“user1”, “user2”)
+    $selectedLogins = @("user1", "user2")
     ```
 
     > [!IMPORTANT]
@@ -371,15 +372,15 @@ To monitor the migration, perform the following tasks.
     ```powershell
     if (($CheckTask.ProjectTask.Properties.State -eq "Running") -or ($CheckTask.ProjectTask.Properties.State -eq "Queued"))
     {
-      write-host "migration task running"
+      Write-Host "migration task running"
     }
-    Else if($CheckTask.ProjectTask.Properties.State -eq "Succeeded")
+    else if($CheckTask.ProjectTask.Properties.State -eq "Succeeded")
     { 
-      write-host "Migration task is completed Successfully"
+      Write-Host "Migration task is completed Successfully"
     }
-    Else if($CheckTask.ProjectTask.Properties.State -eq "Failed" -or $CheckTask.ProjectTask.Properties.State -eq "FailedInputValidation"  -or $CheckTask.ProjectTask.Properties.State -eq "Faulted")
+    else if($CheckTask.ProjectTask.Properties.State -eq "Failed" -or $CheckTask.ProjectTask.Properties.State -eq "FailedInputValidation" -or $CheckTask.ProjectTask.Properties.State -eq "Faulted")
     { 
-      write-host “Migration Task Failed”
+      Write-Host "Migration Task Failed"
     }
     ```
 

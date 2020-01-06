@@ -1,5 +1,5 @@
 ---
-title: Data loading best practices - Azure SQL Data Warehouse | Microsoft Docs
+title: Data loading best practices
 description: Recommendations and performance optimizations for loading data into Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: kevinvngo 
@@ -10,7 +10,7 @@ ms.subservice: load-data
 ms.date: 08/08/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.custom: seoapril2019
+ms.custom: seo-lt-2019
 ---
 
 # Best practices for loading data into Azure SQL Data Warehouse

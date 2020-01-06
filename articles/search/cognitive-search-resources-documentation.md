@@ -1,39 +1,39 @@
 ---
-title: Cognitive search documentation resources - Azure Search
-description: An annotated list of articles, tutorials, samples, and blog posts related to cognitive search workloads in Azure Search.
-services: search
+title: Documentation links for AI enrichment
+titleSuffix: Azure Cognitive Search
+description: An annotated list of articles, tutorials, samples, and blog posts related to AI enrichment workloads in Azure Cognitive Search.
+
 manager: nitinme
 author: HeidiSteen
-
-ms.service: search
-ms.topic: conceptual
-ms.date: 05/02/2019
 ms.author: heidist
+ms.service: cognitive-search
+ms.topic: quickstart
+ms.date: 11/04/2019
 ---
-# Documentation resources for cognitive search workloads
+# Documentation resources for AI enrichment in Azure Cognitive Search
 
-Cognitive search, now generally available, is a new enrichment layer in Azure Search indexing that finds latent information in non-text sources and undifferentiated text, transforming it into full text searchable content in Azure Search.
+AI enrichment is a capability of Azure Cognitive Search indexing that finds latent information in non-text sources and undifferentiated text, transforming it into full text searchable content in Azure Cognitive Search.
 
-The following articles are the complete documentation for cognitive search.
+The following articles are the complete documentation for AI enrichment.
 
 ## Getting started
-+ [What is cognitive search?](cognitive-search-concept-intro.md)
-+ [Quickstart: Try cognitive search in the portal](cognitive-search-quickstart-blob.md)
-+ [Tutorial: Learn the cognitive search APIs](cognitive-search-tutorial-blob.md)
-+ [Example: Creating a custom skill for cognitive search](cognitive-search-create-custom-skill-example.md)
++ [Introduction to AI in Azure Cognitive Search](cognitive-search-concept-intro.md)
++ [Quickstart: Create a cognitive skillset in the Azure portal](cognitive-search-quickstart-blob.md)
++ [Tutorial: Enriched indexing with AI](cognitive-search-tutorial-blob.md)
++ [Example: Creating a custom skill for AI enrichment](cognitive-search-create-custom-skill-example.md)
 
 ## How-to guidance
 + [How to define a skillset](cognitive-search-defining-skillset.md)
 + [How to reference annotations in a skillset](cognitive-search-concept-annotations-syntax.md)
 + [How to map fields to an index](cognitive-search-output-field-mapping.md)
 + [How to process and extract information from images](cognitive-search-concept-image-scenarios.md)
-+ [How to rebuild an Azure Search index](search-howto-reindex.md)
++ [How to rebuild an Azure Cognitive Search index](search-howto-reindex.md)
 + [How to define a custom skills interface](cognitive-search-custom-skill-interface.md)
 + [Troubleshooting tips](cognitive-search-concept-troubleshooting.md)
 
 ## Reference
 
-+ [Predefined skills](cognitive-search-predefined-skills.md)
++ [Built-in skills](cognitive-search-predefined-skills.md)
   + [Microsoft.Skills.Text.KeyPhraseExtractionSkill](cognitive-search-skill-keyphrases.md)
   + [Microsoft.Skills.Text.LanguageDetectionSkill](cognitive-search-skill-language-detection.md)
   + [Microsoft.Skills.Text.EntityRecognitionSkill](cognitive-search-skill-entity-recognition.md)
@@ -44,6 +44,7 @@ The following articles are the complete documentation for cognitive search.
   + [Microsoft.Skills.Vision.ImageAnalysisSkill](cognitive-search-skill-image-analysis.md)
   + [Microsoft.Skills.Vision.OcrSkill](cognitive-search-skill-ocr.md)
   + [Microsoft.Skills.Util.ConditionalSkill](cognitive-search-skill-conditional.md)
+  + [Microsoft.Skills.Util.DocumentExtractionSkill](cognitive-search-skill-document-extraction.md)
   + [Microsoft.Skills.Util.ShaperSkill](cognitive-search-skill-shaper.md)
 
 + Custom skills
@@ -58,6 +59,6 @@ The following articles are the complete documentation for cognitive search.
 
 ## See also
 
-+ [Azure Search REST API](https://docs.microsoft.com/rest/api/searchservice/)
-+ [Indexers in Azure Search](search-indexer-overview.md)
-+ [What is Azure Search?](search-what-is-azure-search.md)
++ [Azure Cognitive Search REST API](https://docs.microsoft.com/rest/api/searchservice/)
++ [Indexers in Azure Cognitive Search](search-indexer-overview.md)
++ [What is Azure Cognitive Search?](search-what-is-azure-search.md)

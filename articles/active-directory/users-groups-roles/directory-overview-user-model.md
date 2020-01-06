@@ -1,13 +1,12 @@
 ---
-title: Users, groups, licensing, and roles overview - Azure Active Directory | Microsoft Docs
+title: Users, groups, licensing, and roles overview - Azure AD | Microsoft Docs
 description: The relationship between users and licenses assigned, administrator roles, group membership in Azure Active Directory
 keywords:
 author: curtand
-manager: mtillman
-
+manager: daveba
 ms.author: curtand
 ms.reviewer: vincesm
-ms.date: 01/28/2019
+ms.date: 11/08/2019
 ms.topic: overview
 ms.service: active-directory
 ms.subservice: users-groups-roles

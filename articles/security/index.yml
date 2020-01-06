@@ -44,7 +44,7 @@ conceptualContent:
           itemType: concept
           text: Security controls for Azure services
       footerLink: 
-        url: ./fundamentals/index.md
+        url: ./fundamentals/index.yml
         text: See more
 
     - title: Developers
@@ -64,12 +64,15 @@ conceptualContent:
 
     - title: Benchmarks and recommendations
       links: 
-        - url: https://azure.microsoft.com/resources/azure-cloud-security-benchmark-draft/
+        - url: ./benchmarks/introduction.md
           itemType: download
           text: Azure cloud security benchmark
         - url: ../security-center/security-center-using-recommendations.md
           itemType: overview
           text: Azure Security Center recommendations
+      footerLink: 
+        url: ./benchmarks/index.yml
+        text: See more
 
     - title: Secrets and keys
       links: 
@@ -184,9 +187,6 @@ conceptualContent:
         - url: ./fundamentals/management-monitoring-overview.md
           itemType: overview
           text:  Management and monitoring overivew
-        - url: ./fundamentals/azure-log-integration-overview.md
-          itemType: overview
-          text:  Introduction to Azure Log Integration
       footerLink: 
         url: https://docs.microsoft.com/search/?search=security+audit+log&scope=azure&category=Documentation
         text: Search for more 
@@ -244,9 +244,6 @@ conceptualContent:
 
     - title: Governance and compliance
       links: 
-        - url: ./blueprints/au-protected-iaaswa-overview.md
-          itemType: tutorial
-          text:  Compliance solutions
         - url: ../governance/policy/overview.md
           itemType: overview
           text:  Azure Policy service

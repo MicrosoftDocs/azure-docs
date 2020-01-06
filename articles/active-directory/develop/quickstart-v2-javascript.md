@@ -1,28 +1,25 @@
 ---
-title: Microsoft identity platform JavaScript quickstart - Azure
-description: Learn how JavaScript applications can call an API that requires access tokens by using Microsoft identity platform.
+title: Sign in users in JavaScript single-page apps | Azure
+titleSuffix: Microsoft identity platform 
+description: Learn how  a Javascript app can an API that requires access tokens using the Microsoft identity platform.
 services: active-directory
-documentationcenter: dev-center-name
 author: navyasric
 manager: CelesteDG
-editor: ''
 
 ms.service: active-directory
 ms.subservice: develop
 ms.custom: aaddev 
-ms.devlang: na
 ms.topic: quickstart
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/11/2019
 ms.author: nacanuma
-ms.custom: aaddev, identityplatformtop40
+ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:JavaScript
 
 #Customer intent: As an app developer, I want to learn how to get access tokens by using the Microsoft identity platform endpoint so that my JavaScript app can sign in users of personal accounts, work accounts, and school accounts.
 ms.collection: M365-identity-device-management
 ---
 
-# Quickstart: Sign in users and acquire an access token from a JavaScript single-page application
+# Quickstart: Sign in users and get an access token in a JavaScript SPA
 
 In this quickstart, you use a code sample to learn how a JavaScript single-page application (SPA) can sign in users of personal accounts, work accounts, and school accounts. A JavaScript SPA can also get an access token to call the Microsoft Graph API or any web API. (See [How the sample works](#how-the-sample-works) for an illustration.)
 

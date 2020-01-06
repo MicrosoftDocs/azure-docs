@@ -1,6 +1,6 @@
 ---
-title: Tutorial - Connect to Azure API for FHIR endpoint with application
-description: This tutorial shows how to write application that connects to Azure API for FHIR endpoint using Azure AD OAuth2 token.
+title: Write an app to connect to an Azure API for FHIR endpoint
+description: This tutorial shows how to write an application that connects to an Azure API for FHIR endpoint by using an Azure AD OAuth2 token.
 services: healthcare-apis
 ms.service: healthcare-apis
 ms.subservice: fhir
@@ -11,26 +11,24 @@ author: matjazl
 ms.date: 10/13/2019
 ---
 
-# Tutorial: Write a sample application that uses Azure AD OAuth2 token to access Azure API for FHIR endpoint
+# Write an application to connect to an Azure API for FHIR endpoint
 
-After we have setup the environment, created a service endpoint and Azure AD application registration, we are ready to write our first sample application.
+In previous tutorials, you have set up your environment, created a service endpoint, and created an Azure Active Directory (Azure AD) application registration. In this tutorial, you will write your first sample application.
 
 Select the option that's suitable to your development environment:
-* To run the project with a web server by using Node.js. To open the files, use an editor such as Visual Studio Code.
-* (Optional) To run the project with the IIS server just use index.html.
+* You want to run the project with a web server by using Node.js. To open the files, use an editor such as Visual Studio Code.
+* (Optional) You want to run the project with an IIS server. For this, you just use index.html.
 
 
-Sample application has two parts: 
-* Obtaining access token for the service from Azure AD, 
-* Using the token to call Azure API for FHIR and obtaining the list of patients.
+The sample application has two parts: 
+* Obtaining the access token for the service from Azure AD. 
+* Using the token to call the Azure API for Fast Healthcare Interoperability Resources (FHIR), and obtaining the list of patients.
 
+## Create a skeleton of your web app
 
+We will use a Node.js express app to serve an index.html page that contains JS code. The app authenticates to Azure AD, and obtains the token for the Azure API for FHIR endpoint. Then it lists the patients in a table format.
 
-## Create a skeleton of our web app
-
-We will use a Node.js express app to serve a index.html page that contains JS code that authenticates to Azure AD and obtains the token for the Azure API for FHIR endpoint and then list the patients in a nice table format.
-
-Index.js should look something like this
+Index.js should look something like this:
 
 ``` javascript
 var express = require('express');
@@ -46,7 +44,7 @@ app.listen(port);
 console.log('Listening on port ' + port + '...');
 ```
 
-and corresponding package.json
+The corresponding package.json should look like this:
 
 ``` json
 {
@@ -66,7 +64,7 @@ and corresponding package.json
 
 ```
 
-Skeleton of index.html should look like this
+The skeleton of index.html should look like this:
 
 ``` javascript
 <!DOCTYPE html>
@@ -91,15 +89,14 @@ Skeleton of index.html should look like this
 </html>
 ```
 
-## Obtain access token for the service
+## Obtain an access token for the service
 
-This step of the process is part of normal Azure AD authentication flow. There are many samples in Azure AD documentation library. 
-Here we will use a sample JS code to authenticate to Azure AD and obtain the token for our App.
+This step of the process is part of the normal Azure AD authentication flow. There are many samples in Azure AD documentation library. Here, we will use a sample JS code to authenticate to Azure AD and obtain the token for our application.
 
-first we configure MSAL library and Azure AD configuration. 
+First, configure the MSAL library and Azure AD configuration. 
 
-> [!NOTE]
-> In a real world scenario, store the initialization information in a separate file. Don't hard-code the information.
+> [!IMPORTANT]
+> In a real scenario, store the initialization information in a separate file. Don't hard-code the information.
 
 ```javascript
         var msalConfig = {
@@ -135,7 +132,7 @@ first we configure MSAL library and Azure AD configuration.
     }
 ```
 
-Now we add a method that we will call when the user clicks the sign-in button. We will call the MSAL library to obtain the token for our APP and later pass it to the FHIR server calling API to list all the patients.
+Now, add a method that you'll call when the user selects the sign-in button. We'll call the MSAL library to obtain the token for our application, and later pass it to the FHIR server calling API to list all the patients.
 
 ``` javascript
     function signIn() {
@@ -175,7 +172,7 @@ Now we add a method that we will call when the user clicks the sign-in button. W
     }
 ```
 
-The last step is to call the FHIR server and pass the token in the Authorization header 
+The last step is to call the FHIR server, and pass the token in the authorization header: 
 
 ``` javascript
 
@@ -198,7 +195,7 @@ The last step is to call the FHIR server and pass the token in the Authorization
 
 ## Start the project
 
-If you are using Node.js:
+If you're using Node.js:
 
 1. To start the server, run the following command from the project directory:
 
@@ -208,6 +205,13 @@ If you are using Node.js:
     ```
 
 2. Open a web browser and go to http://localhost:30662/.
-3. Select Sign In to start the sign-in, and then call Azure API for FHIR.
+3. Select **Sign In** to start the sign-in, and then call the Azure API for FHIR.
 
 After you sign in, you should see all the patient resources listed.
+
+## Next steps
+
+In this tutorial, you've connected to an endpoint. As a next step, you may want to interact directly with the FHIR server as you continue to build out this application. You can learn more details about this in the Access Azure API for FHIR with Postman tutorial
+ 
+>[!div class="nextstepaction"]
+>[Access Azure API for FHIR with Postman](access-fhir-postman-tutorial.md)

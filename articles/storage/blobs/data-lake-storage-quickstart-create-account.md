@@ -73,7 +73,7 @@ To create a general-purpose v2 storage account in the Azure portal, follow these
 4. Next, enter a name for your storage account. The name you choose must be unique across Azure. The name also must be between 3 and 24 characters in length, and can include numbers and lowercase letters only.
 5. Choose a location.
 6. Make sure that **StorageV2 (general purpose v2)** appears as selected in the **Account kind** drop-down list.
-7. Optionally change the values in each of these fields: **Performance**, **Replication**, **Access tier**. To learn more about these options, see [Introduction to Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-introduction#introducing-the-azure-storage-services).
+7. Optionally change the values in each of these fields: **Performance**, **Replication**, **Access tier**. To learn more about these options, see [Introduction to Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-introduction#azure-storage-services).
 8. Choose the **Advanced** tab.
 10. In the **Data Lake Storage Gen2** section set **Hierarchical namespace** to **Enabled**.
 11. Click **Review + Create** to create the storage account.
@@ -90,7 +90,7 @@ To remove a resource group using the Azure portal:
 
 ## Create an account using PowerShell
 
-First, install the latest version of the [PowerShellGet](https://docs.microsoft.com/powershell/gallery/installing-psget) module.
+First, install the latest version of the [PowerShellGet](/powershell/scripting/gallery/installing-psget) module.
 
 Then, upgrade your powershell module, sign in to your Azure subscription, create a resource group, and then create a storage account.
 
@@ -194,7 +194,7 @@ az storage account create `
     --location westus2 `
     --sku Standard_LRS `
     --kind StorageV2 `
-    --hierarchical-namespace true
+    --enable-hierarchical-namespace true
 ```
 
 ### Clean up resources

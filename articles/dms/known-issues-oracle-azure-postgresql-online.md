@@ -1,6 +1,7 @@
 ---
-title: Article about known issues/migration limitations with online migrations from Oracle to Azure Database for PostgreSQL-Single server | Microsoft Docs
-description: Learn about known issues/migration limitations with online migrations from Oracle to Azure Database for PostgreSQL.
+title: "Known issues: Migrate from Oracle to Azure Database for PostgreSQL"
+titleSuffix: Azure Database Migration Service
+description: Learn about known issues and migration limitations with online migrations from Oracle to Azure Database for PostgreSQL-Single server using the Azure Database Migration Service.
 services: database-migration
 author: HJToland3
 ms.author: jtoland
@@ -8,9 +9,9 @@ manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
-ms.custom: mvc
+ms.custom: "seo-lt-2019"
 ms.topic: article
-ms.date: 10/03/2019
+ms.date: 11/05/2019
 ---
 
 # Known issues/migration limitations with online migrations from Oracle to Azure DB for PostgreSQL-Single server
@@ -21,7 +22,7 @@ Known issues and limitations associated with online migrations from Oracle to Az
 
 Azure Database Migration Service supports connecting to:
 
-- Oracle version 10g, 11c, and 12c.
+- Oracle version 10g, 11g, and 12c.
 - Oracle Enterprise, Standard, Express, and Personal Edition.
 
 Azure Database Migration Service doesn't support connecting to multi-tenant container databases (CDBs).
@@ -58,7 +59,7 @@ Also, empty BLOB/CLOB columns are mapped to NULL on the target.
 
 ## Known issues and limitations
 
-- Customers must use SYSDB to connect to Oracle.
+- Customers must use SYSDBA to connect to Oracle.
 - Data changes resulting from partition/sub-partition operations (ADD, DROP, EXCHANGE, and TRUNCATE) won't be migrated and may cause the following errors:
   - For ADD operations, updates and deletes on the added data may return a "0 rows affected" warning.
   - For DROP and TRUNCATE operations, new inserts may result in "duplicates" errors.

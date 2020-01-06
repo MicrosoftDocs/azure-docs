@@ -1,182 +1,186 @@
 ---
 title: "Quickstart: C# SDK query prediction endpoint - LUIS"
-titleSuffix: Azure Cognitive Services 
-description: Use the C# SDK to send a user utterance to LUIS and receive a prediction. 
+titleSuffix: Azure Cognitive Services
+description: This quickstart will show you how to use the C# SDK to send a user utterance to the Azure Cognitive Services LUIS application and receive a prediction.
 author: diberry
 manager: nitinme
 ms.service: cognitive-services
 services: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 09/27/2019
+ms.date: 12/09/2019
 ms.author: diberry
 ---
 
-# Quickstart: Query V2 prediction endpoint with C# .NET SDK
+# Quickstart: Query V3 prediction endpoint with C# .NET SDK
 
-Use the .NET SDK, found on [NuGet](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Runtime/), to send a user utterance to Language Understanding (LUIS) and receive a prediction of the user's intention. 
+Use the .NET SDK, found on [NuGet](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Runtime/), to send a user utterance to Language Understanding (LUIS) and receive a prediction of the user's intention.
 
-This quickstart sends a user utterance, such as `turn on the bedroom light`, to a public Language Understanding application, then receives the prediction and displays the top-scoring intent `HomeAutomation.TurnOn` and the entity `HomeAutomation.Room` found within the utterance. 
+Use the Language Understanding (LUIS) prediction client library for .NET to:
+
+* Get prediction by slot
+
+[Reference documentation](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/languageunderstanding?view=azure-dotnet) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Language.LUIS.Runtime) | [Prediction runtime Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Runtime/) | [C# Samples](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/dotnet/LanguageUnderstanding/predict-with-sdk-3x)
 
 ## Prerequisites
 
-* [Visual Studio Community 2017 edition](https://visualstudio.microsoft.com/vs/community/)
-* C# programming language (included with VS Community 2017)
-* Public app ID: df67dcdb-c37d-46af-88e1-8b97951ca1c2
-
-> [!Note]
-> The complete solution is available from the [cognitive-services-language-understanding](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/sdk-quickstarts/c%23/UsePredictionRuntime) GitHub repository.
+* Language Understanding (LUIS) portal account - [Create one for free](https://www.luis.ai)
+* The current version of [.NET Core](https://dotnet.microsoft.com/download/dotnet-core).
 
 Looking for more documentation?
 
  * [SDK reference documentation](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/languageunderstanding?view=azure-dotnet)
 
+## Setting up
 
-## Get Cognitive Services or Language Understanding key
+### Create an environment variable
 
-In order to use the public app for home automation, you need a valid key for endpoint predictions. You can use either a Cognitive Services key (created below with the Azure CLI), which is valid for many cognitive services, or a `Language Understanding` key. 
+Using your key, and the name of your resource, create two environment variables for authentication:
 
-Use the following [Azure CLI command to create a Cognitive Service key](https://docs.microsoft.com/cli/azure/cognitiveservices/account?view=azure-cli-latest#az-cognitiveservices-account-create):
+* `LUIS_PREDICTION_KEY` - The resource key for authenticating your requests.
+* `LUIS_ENDPOINT_NAME` - The resource name associated with your key.
 
-```azurecli-interactive
-az cognitiveservices account create \
-    -n my-cog-serv-resource \
-    -g my-cog-serv-resource-group \
-    --kind CognitiveServices \
-    --sku S0 \
-    -l WestEurope \ 
-    --yes
-```
+Use the instructions for your operating system.
 
-## Create .NET Core project
-
-Create a .NET Core console project in Visual Studio Community 2017.
-
-1. Open Visual Studio Community 2017.
-1. Create a new project, from the **Visual C#** section, choose **Console App (.NET Core)**.
-1. Enter the project name `QueryPrediction`, leave the remaining default values, and select **OK**.
-    This creates a simple project with the primary code file named **Program.cs**.
-
-## Add SDK with NuGet
-
-1. In the **Solution Explorer**, select the Project in the tree view named **QueryPrediction**, then right-click. From the menu, select **Manage NuGet Packages...**.
-1. Select **Browse** then enter `Microsoft.Azure.CognitiveServices.Language.LUIS.Runtime`. When the package information displays, select **Install** to install the package into the project. 
-1. Add the following _using_ statements to the top of **Program.cs**. Do not remove the existing _using_ statement for `System`. 
-
-```csharp
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.Azure.CognitiveServices.Language.LUIS.Runtime;
-using Microsoft.Azure.CognitiveServices.Language.LUIS.Runtime.Models;
-```
-
-## Create a new method for the prediction
-
-Create a new method, `GetPrediction` to send the query to the query prediction endpoint. The method will create and configure all necessary objects then return a `Task` with the [`LuisResult`](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.runtime.models.luisresult?view=azure-dotnet) prediction results. 
-
-```csharp
-static async  Task<LuisResult> GetPrediction() {
-}
-```
-
-## Create credentials object
-
-Add the following code to the `GetPrediction` method to create the client credentials with your Cognitive Service key.
-
-Replace `<REPLACE-WITH-YOUR-KEY>` with your Cognitive Service key's region. The key is in the [Azure portal](https://portal.azure.com) on the Keys page for that resource.
-
-```csharp
-// Use Language Understanding or Cognitive Services key
-// to create authentication credentials
-var endpointPredictionkey = "<REPLACE-WITH-YOUR-KEY>";
-var credentials = new ApiKeyServiceClientCredentials(endpointPredictionkey);
-```
-
-## Create Language Understanding client
-
-In the `GetPrediction` method, after the preceding code, add the following code to use the new credentials, creating a [`LUISRuntimeClient`](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.runtime.luisruntimeclient.-ctor?view=azure-dotnet#Microsoft_Azure_CognitiveServices_Language_LUIS_Runtime_LUISRuntimeClient__ctor_Microsoft_Rest_ServiceClientCredentials_System_Net_Http_DelegatingHandler___) client object. 
-
-Replace `<REPLACE-WITH-YOUR-KEY-REGION>` with your key's region, such as `westus`. The key region is in the [Azure portal](https://portal.azure.com) on the Overview page for that resource.
-
-```csharp
-// Create Luis client and set endpoint
-// region of endpoint must match key's region, for example `westus`
-var luisClient = new LUISRuntimeClient(credentials, new System.Net.Http.DelegatingHandler[] { });
-luisClient.Endpoint = "https://<REPLACE-WITH-YOUR-KEY-REGION>.api.cognitive.microsoft.com";
-```
-
-## Set query parameters
-
-In the `GetPrediction` method, after the preceding code, add the following code to set the query parameters.
-
-```csharp
-// public Language Understanding Home Automation app
-var appId = "df67dcdb-c37d-46af-88e1-8b97951ca1c2";
-
-// query specific to home automation app
-var query = "turn on the bedroom light";
-
-// common settings for remaining parameters
-Double? timezoneOffset = null;
-var verbose = true;
-var staging = false;
-var spellCheck = false;
-String bingSpellCheckKey = null;
-var log = false;
-```
-
-## Query prediction endpoint
-
-In the `GetPrediction` method, after the preceding code, add the following code to set the query parameters:
-
-```csharp
-// Create prediction client
-var prediction = new Prediction(luisClient);
-
-// get prediction
-return await prediction.ResolveAsync(appId, query, timezoneOffset, verbose, staging, spellCheck, bingSpellCheckKey, log, CancellationToken.None);
-```
-
-## Display prediction results
-
-Change the **Main** method to call the new `GetPrediction` method and return the prediction results:
-
-```csharp
-static void Main(string[] args)
-{
-
-    var luisResult = GetPrediction().Result;
-
-    // Display query
-    Console.WriteLine("Query:'{0}'", luisResult.Query);
-
-    // Display most common properties of query result
-    Console.WriteLine("Top intent is '{0}' with score {1}", luisResult.TopScoringIntent.Intent,luisResult.TopScoringIntent.Score);
-
-    // Display all entities detected in query utterance
-    foreach (var entity in luisResult.Entities)
-    {
-        Console.WriteLine("{0}:'{1}' begins at position {2} and ends at position {3}", entity.Type, entity.Entity, entity.StartIndex, entity.EndIndex);
-    }
-
-    Console.Write("done");
-
-}
-```
-
-## Run the project
-
-Build the project in Studio and run the project to the see the output of the query:
+#### [Windows](#tab/windows)
 
 ```console
-Query:'turn on the bedroom light'
-Top intent is 'HomeAutomation.TurnOn' with score 0.809439957
-HomeAutomation.Room:'bedroom' begins at position 12 and ends at position 18
+setx LUIS_PREDICTION_KEY <replace-with-your-resource-key>
+setx LUIS_ENDPOINT_NAME <replace-with-your-resource-name>
 ```
+
+After you add the environment variable, restart the console window.
+
+#### [Linux](#tab/linux)
+
+```bash
+export LUIS_PREDICTION_KEY=<replace-with-your-resource-key>
+export LUIS_ENDPOINT_NAME=<replace-with-your-resource-name>
+```
+
+After you add the environment variable, run `source ~/.bashrc` from your console window to make the changes effective.
+
+#### [macOS](#tab/unix)
+
+Edit your `.bash_profile`, and add the environment variable:
+
+```bash
+export LUIS_PREDICTION_KEY=<replace-with-your-resource-key>
+export LUIS_ENDPOINT_NAME=<replace-with-your-resource-name>
+```
+
+After you add the environment variable, run `source .bash_profile` from your console window to make the changes effective.
+***
+
+### Create a new C# application
+
+Create a new .NET Core application in your preferred editor or IDE.
+
+1. In a console window (such as cmd, PowerShell, or Bash), use the dotnet `new` command to create a new console app with the name `language-understanding-quickstart`. This command creates a simple "Hello World" C# project with a single source file: `Program.cs`.
+
+    ```dotnetcli
+    dotnet new console -n language-understanding-quickstart
+    ```
+
+1. Change your directory to the newly created app folder.
+
+1. You can build the application with:
+
+    ```dotnetcli
+    dotnet build
+    ```
+
+    The build output should contain no warnings or errors.
+
+    ```console
+    ...
+    Build succeeded.
+     0 Warning(s)
+     0 Error(s)
+    ...
+    ```
+
+### Install the SDK
+
+Within the application directory, install the Language Understanding (LUIS) prediction runtime client library for .NET with the following command:
+
+```dotnetcli
+dotnet add package Microsoft.Azure.CognitiveServices.Language.LUIS.Runtime --version 3.0.0
+```
+
+If you're using the Visual Studio IDE, the client library is available as a downloadable NuGet package.
+
+## Object model
+
+The Language Understanding (LUIS) prediction runtime client is a [LUISRuntimeClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.runtime.luisruntimeclient?view=azure-dotnet) object that authenticates to Azure, which contains your resource key.
+
+Once the client is created, use this client to access functionality including:
+
+* Prediction by [staging or product slot](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.runtime.predictionoperationsextensions.getslotpredictionasync?view=azure-dotnet)
+* Prediction by [version](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.runtime.predictionoperationsextensions.getversionpredictionasync?view=azure-dotnet)
+
+
+## Code examples
+
+These code snippets show you how to do the following with the Language Understanding (LUIS) prediction runtime client library for .NET:
+
+* [Prediction by slot](#get-prediction-from-runtime)
+
+## Add the dependencies
+
+From the project directory, open the *Program.cs* file in your preferred editor or IDE. Replace the existing `using` code with the following `using` directives:
+
+[!code-csharp[Using statements](~/cognitive-services-quickstart-code/dotnet/LanguageUnderstanding/predict-with-sdk-3x/Program.cs?name=snippet_using)]
+
+## Authenticate the client
+
+1. Create variables for the key, name and app ID:
+
+    A variables to manage your prediction key pulled from an environment variable named `LUIS_PREDICTION_KEY`. If you created the environment variable after the application is launched, the editor, IDE, or shell running it will need to be closed and reloaded to access the variable. The methods will be created later.
+
+    Create a variable to hold your resource name `LUIS_ENDPOINT_NAME`.
+
+    Create a variable for the app ID as an environment variable named `LUIS_APP_ID`. Set the environment variable to the public IoT app:
+
+    **`df67dcdb-c37d-46af-88e1-8b97951ca1c2`**
+
+    [!code-csharp[Create variables](~/cognitive-services-quickstart-code/dotnet/LanguageUnderstanding/predict-with-sdk-3x/Program.cs?name=snippet_variables)]
+
+1. Create an [ApiKeyServiceClientCredentials](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.runtime.apikeyserviceclientcredentials?view=azure-dotnet) object with your key, and use it with your endpoint to create an [LUISRuntimeClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.runtime.luisruntimeclient?view=azure-dotnet) object.
+
+    [!code-csharp[Create LUIS client object](~/cognitive-services-quickstart-code/dotnet/LanguageUnderstanding/predict-with-sdk-3x/Program.cs?name=snippet_create_client)]
+
+## Get prediction from runtime
+
+Add the following method to create the request to the prediction runtime.
+
+The user utterance is part of the [PredictionRequest](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.runtime.models.predictionrequest?view=azure-dotnet) object.
+
+The **GetSlotPredictionAsync** method needs several parameters such as the app ID, the slot name, the prediction request object to fulfill the request. The other options such as verbose, show all intents, and log are optional.
+
+[!code-csharp[Create method to get prediction runtime](~/cognitive-services-quickstart-code/dotnet/LanguageUnderstanding/predict-with-sdk-3x/Program.cs?name=snippet_maintask)]
+
+## Main code for the prediction
+
+Use the following main method to tie the variables and methods together to get the prediction.
+
+[!code-csharp[Create method to get prediction runtime](~/cognitive-services-quickstart-code/dotnet/LanguageUnderstanding/predict-with-sdk-3x/Program.cs?name=snippet_main)]
+
+## Run the application
+
+Run the application with the `dotnet run` command from your application directory.
+
+```dotnetcli
+dotnet run
+```
+
+## Clean up resources
+
+When you are done with your predictions, clean up the work from this quickstart by deleting the program.cs file and its subdirectories.
 
 ## Next steps
 
-Learn more about the [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Runtime/) and the [.NET reference documentation](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/languageunderstanding?view=azure-dotnet). 
+Learn more about the [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Runtime/) and the [.NET reference documentation](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/languageunderstanding?view=azure-dotnet).
 
-> [!div class="nextstepaction"] 
-> [Tutorial: Build LUIS app to determine user intentions](luis-quickstart-intents-only.md) 
+> [!div class="nextstepaction"]
+> [Tutorial: Build LUIS app to determine user intentions](luis-quickstart-intents-only.md)

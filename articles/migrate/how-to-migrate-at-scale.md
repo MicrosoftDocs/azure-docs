@@ -1,6 +1,6 @@
 ---
-title: Automate migration of large number of VMs to Azure | Microsoft Docs
-description: Describes how to use scripts to migrate a large number of VMs using Azure Site Recovery
+title: Automate migration machine migration in Azure Migrate
+description: Describes how to use scripts to migrate a large number of machines in Azure Migrate
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: article
@@ -9,11 +9,13 @@ ms.author: snehaa
 ---
 
 
-# Scale migration of VMs using Azure Site Recovery
+# Scale migration of VMs 
 
-This article helps you understand how to use scripts to migrate large number of VMs using Azure Site Recovery. These scripts are available for your download at [Azure PowerShell Samples](https://github.com/Azure/azure-docs-powershell-samples/tree/master/azure-migrate/migrate-at-scale-with-site-recovery) repo on GitHub. The scripts can be used to migrate VMware, AWS, GCP VMs, and physical servers to managed disks in Azure. You can also use these scripts to migrate Hyper-V VMs if you migrate the VMs as physical servers. The scripts that leverage Azure Site Recovery PowerShell are documented [here](https://docs.microsoft.com/azure/site-recovery/vmware-azure-disaster-recovery-powershell).
+This article helps you understand how to use scripts to migrate large number of virtual machines (VMs). To scale migration, you use [Azure Site Recovery](../site-recovery/site-recovery-overview.md). 
 
-## Current Limitations:
+Site Recovery scripts are available for your download at [Azure PowerShell Samples](https://github.com/Azure/azure-docs-powershell-samples/tree/master/azure-migrate/migrate-at-scale-with-site-recovery) repo on GitHub. The scripts can be used to migrate VMware, AWS, GCP VMs, and physical servers to managed disks in Azure. You can also use these scripts to migrate Hyper-V VMs if you migrate the VMs as physical servers. The scripts that leverage Azure Site Recovery PowerShell are documented [here](https://docs.microsoft.com/azure/site-recovery/vmware-azure-disaster-recovery-powershell).
+
+## Current limitations
 - Support specifying the static IP address only for the primary NIC of the target VM
 - The scripts do not take Azure Hybrid Benefit related inputs, you need to manually update the properties of the replicated VM in the portal
 

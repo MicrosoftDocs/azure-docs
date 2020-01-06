@@ -1,5 +1,5 @@
 ---
-title: Run reporting queries across multiple Azure SQL databases | Microsoft Docs
+title: Reporting queries across multiple databases
 description: "Cross-tenant reporting using distributed queries."
 services: sql-database
 ms.service: sql-database

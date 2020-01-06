@@ -1,6 +1,6 @@
 ---
-title: Governance of Azure DevTest Labs infrastructure
-description: This article provides guidance for governance of Azure DevTest Labs infrastructure. 
+title: Governance of Azure DevTest Labs infrastructure - Resource
+description: This article addresses the alignment and management of resources for Azure DevTest Labs within your organization. 
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -11,7 +11,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/11/2019
+ms.date: 11/26/2019
 ms.author: spelluru
 ms.reviewer: christianreddington,anthdela,juselph
 
@@ -41,7 +41,7 @@ The **second recommended practice** is to enable the DevTest subscription within
 
 This model provides an organization the flexibility to deploy Azure DevTest Labs at scale. An organization can support hundreds of labs for various business units with 100 to 1000 virtual machines running in parallel. It promotes the notion of a centralized enterprise lab solution that can share the same principles of configuration management and security controls.
 
-This model also ensures that the organization does not exhaust their resource limits associated with their Azure subscription. For details about subscription and service limits, see [Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md). The DevTest Labs provisioning process can consume large number of resource groups. You can request for limits to be increased through a support request in the Azure DevTest subscription. The resources within the production subscription are not affected as the development subscription grows in use. For more information on scaling DevTest Labs, see [Scale quotas and limits in DevTest Labs](devtest-lab-scale-lab.md).
+This model also ensures that the organization does not exhaust their resource limits associated with their Azure subscription. For details about subscription and service limits, see [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md). The DevTest Labs provisioning process can consume large number of resource groups. You can request for limits to be increased through a support request in the Azure DevTest subscription. The resources within the production subscription are not affected as the development subscription grows in use. For more information on scaling DevTest Labs, see [Scale quotas and limits in DevTest Labs](devtest-lab-scale-lab.md).
 
 A common subscription level limit that needs to be accounted for is how the network IP range assignments are allocated to support both production and development subscriptions. These assignments should account for growth over time (assuming on-premises connectivity or another networking topology that requires the enterprise to manage their networking stack instead of defaulting to Azure’s implementation). The recommended practice is to have a few virtual networks that have a large IP address prefix assigned and divided with many large subnets rather than to have multiple virtual networks with small subnets. For example, with 10 subscriptions, you can define 10 virtual networks (one for each subscription). All labs that don’t require isolation can share the same subnet on the subscription’s vnet.
 

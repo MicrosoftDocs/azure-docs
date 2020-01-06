@@ -4,12 +4,12 @@ description: Learn how to view and download pricing or estimate costs with your 
 author: bandersmsft
 manager: jureid
 tags: billing
-ms.service: billing
+ms.service: cost-management-billing
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/01/2019
+ms.date: 09/30/2019
 ms.author: banders
 ms.custom: seodec18
 ---

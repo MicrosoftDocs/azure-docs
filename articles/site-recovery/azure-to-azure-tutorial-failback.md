@@ -1,11 +1,11 @@
 ---
-title: Fail back Azure VMs replicated to a secondary Azure region for disaster recovery with the Azure Site Recovery service.
-description: Learn how to fail back Azure VMs with the Azure Site Recovery service.
+title: Fail back Azure VMs to a primary region with the Azure Site Recovery service.
+description: Describes how to fail back Azure VMs to the primary region with Azure Site Recovery service.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 09/09/2019
+ms.date: 11/14/2019
 ms.author: raynew
 ms.custom: mvc
 ---
@@ -51,6 +51,9 @@ After VMs are reprotected, you can fail back to the primary region as needed.
 8. The VM should show as failed over and failed back.
 
     ![VM at primary and secondary regions](./media/site-recovery-azure-to-azure-failback/azure-to-azure-failback-vm-view.png)
+
+> [!NOTE]
+> For machines running the Site Recovery extension version 9.28.x.x onwards [Update rollup 40](https://support.microsoft.com/help/4521530/update-rollup-40-for-azure-site-recovery) Site Recovery cleans up machines in the secondary disaster recovery region, after failback is complete and VMs are re-protected. There is no need to manually delete VMs and NICs in the secondary region. If you completely disable replication after failing back, Site Recovery cleans up the disks in the disaster recovery region, in addition to the VMs and NICs.
 
 ## Next steps
 

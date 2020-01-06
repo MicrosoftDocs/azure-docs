@@ -1,7 +1,7 @@
 ---
 title: "Example: Identify faces in images - Face API"
 titleSuffix: Azure Cognitive Services
-description: Use the Face API to identify faces in images.
+description: This guide demonstrates how to identify unknown faces by using PersonGroup objects, which are created from known people in advance.
 services: cognitive-services
 author: SteveMSFT
 manager: nitinme
@@ -139,7 +139,7 @@ string testImageFile = @"D:\Pictures\test_img1.jpg";
 using (Stream s = File.OpenRead(testImageFile))
 {
     var faces = await faceClient.Face.DetectWithStreamAsync(s);
-    var faceIds = faces.Select(face => face.FaceId).ToArray();
+    var faceIds = faces.Select(face => face.FaceId.Value).ToArray();
  
     var results = await faceClient.Face.IdentifyAsync(faceIds, personGroupId);
     foreach (var identifyResult in results)

@@ -1,5 +1,5 @@
 ---
-title: Deploy and configure Azure Firewall in a hybrid network using Azure PowerShell
+title: Deploy & configure Azure Firewall in hybrid network using PowerShell
 description: In this article, you learn how to deploy and configure Azure Firewall using Azure PowerShell. 
 services: firewall
 author: vhorne
@@ -429,7 +429,7 @@ Set-AzVMExtension `
     -Publisher Microsoft.Compute `
     -ExtensionType CustomScriptExtension `
     -TypeHandlerVersion 1.4 `
-    -SettingString '{"commandToExecute":"powershell New-NetFirewallRule –DisplayName “Allow ICMPv4-In” –Protocol ICMPv4"}' `
+    -SettingString '{"commandToExecute":"powershell New-NetFirewallRule –DisplayName "Allow ICMPv4-In" –Protocol ICMPv4"}' `
     -Location $Location1--->
 
 ### Create the on-premises virtual machine

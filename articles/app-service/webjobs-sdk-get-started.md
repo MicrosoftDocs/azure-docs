@@ -1,15 +1,8 @@
 ---
-title: Get started with the WebJobs SDK - Azure
+title: Get started with the WebJobs SDK
 description: Introduction to the WebJobs SDK for event-driven background processing. Learn how to access data in Azure services and third-party services.
-services: app-service\web, storage
-documentationcenter: .net
 author: ggailey777
-manager: jeconnoc
-editor: 
 
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/18/2019
@@ -403,21 +396,23 @@ To take advantage of [Application Insights](../azure-monitor/app/app-insights-ov
 
 In this section, you run locally again to verify that logging data is now going to Application Insights as well as to the console.
 
-1. Use **Server Explorer** in Visual Studio to create a queue message, the same way you did [earlier](#trigger-the-function-in-azure), except enter *Hello App Insights!* as the message text.
+1. Use **Server Explorer** in Visual Studio to create a queue message like you did [earlier](#test-locally), except enter *Hello App Insights!* as the message text.
 
 1. Run the project.
 
-   The WebJobs SDK processes the queue message and you see the logs in the console window.
+   The WebJobs SDK processes the queue message, and you see the logs in the console window.
 
 1. Close the console window.
 
-1. Open the [Azure portal](https://portal.azure.com/), and go to your Application Insights resource.
+1. Go to the [Azure portal](https://portal.azure.com/) to view your Application Insights resource. Search for and select **Application Insights**.
+
+1. Choose your Application Insights instance.
 
 1. Select **Search**.
 
    ![Select Search](./media/webjobs-sdk-get-started/select-search.png)
 
-1. If you don't see the *Hello App Insights!* message, select **Refresh** periodically for several minutes. (Logs don't appear immediately because it takes a while for the Application Insights client to flush the logs it processes.)
+1. If you don't see the *Hello App Insights!* message, select **Refresh** periodically for several minutes. (Logs don't appear immediately, because it takes a while for the Application Insights client to flush the logs it processes.)
 
    ![Logs in Application Insights](./media/webjobs-sdk-get-started/logs-in-ai.png)
 

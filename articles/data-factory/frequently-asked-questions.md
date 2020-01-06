@@ -1,5 +1,5 @@
 ---
-title: 'Azure Data Factory: Frequently asked questions | Microsoft Docs'
+title: 'Azure Data Factory: Frequently asked questions '
 description: Get answers to frequently asked questions about Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -15,9 +15,9 @@ ms.date: 06/27/2018
 This article provides answers to frequently asked questions about Azure Data Factory.  
 
 ## What is Azure Data Factory? 
-Data Factory is a fully managed, cloud-based, data-integration service that automates the movement and transformation of data. Like a factory that runs equipment to transform raw materials into finished goods, Azure Data Factory orchestrates existing services that collect raw data and transform it into ready-to-use information. 
+Data Factory is a fully managed, cloud-based, data-integration ETL service that automates the movement and transformation of data. Like a factory that runs equipment to transform raw materials into finished goods, Azure Data Factory orchestrates existing services that collect raw data and transform it into ready-to-use information. 
 
-By using Azure Data Factory, you can create data-driven workflows to move data between on-premises and cloud data stores. And you can process and transform data by using compute services such as Azure HDInsight, Azure Data Lake Analytics, and the SQL Server Integration Services (SSIS) integration runtime. 
+By using Azure Data Factory, you can create data-driven workflows to move data between on-premises and cloud data stores. And you can process and transform data with Data Flows. ADF also supports external compute engines for hand-coded transformations by using compute services such as Azure HDInsight, Azure Databricks, and the SQL Server Integration Services (SSIS) integration runtime. 
 
 With Data Factory, you can execute your data processing either on an Azure-based cloud service or in your own self-hosted compute environment, such as SSIS, SQL Server, or Oracle. After you create a pipeline that performs the action you need, you can schedule it to run periodically (hourly, daily, or weekly, for example), time window scheduling, or trigger the pipeline from an event occurrence. For more information, see [Introduction to Azure Data Factory](introduction.md).
 
@@ -96,13 +96,16 @@ You can deploy one or many instances of the integration runtime as required to m
 For more information, see [Integration runtime in Azure Data Factory](concepts-integration-runtime.md).
 
 ## What is the limit on the number of integration runtimes?
-There is no hard limit on the number of integration runtime instances you can have in a data factory. There is, however, a limit on the number of VM cores that the integration runtime can use per subscription for SSIS package execution. For more information, see [Data Factory limits](../azure-subscription-service-limits.md#data-factory-limits).
+There is no hard limit on the number of integration runtime instances you can have in a data factory. There is, however, a limit on the number of VM cores that the integration runtime can use per subscription for SSIS package execution. For more information, see [Data Factory limits](../azure-resource-manager/management/azure-subscription-service-limits.md#data-factory-limits).
 
 ## What are the top-level concepts of Azure Data Factory?
 An Azure subscription can have one or more Azure Data Factory instances (or data factories). Azure Data Factory contains four key components that work together as a platform on which you can compose data-driven workflows with steps to move and transform data.
 
 ### Pipelines
 A data factory can have one or more pipelines. A pipeline is a logical grouping of activities to perform a unit of work. Together, the activities in a pipeline perform a task. For example, a pipeline can contain a group of activities that ingest data from an Azure blob and then run a Hive query on an HDInsight cluster to partition the data. The benefit is that you can use a pipeline to manage the activities as a set instead of having to manage each activity individually. You can chain together the activities in a pipeline to operate them sequentially, or you can operate them independently, in parallel.
+
+### Data flows
+Data flows are objects that you build visually in Data Factory which transform data at scale on backend Spark services. You do not need to understand programming or Spark internals. Just design your data transformation intent using graphs (Mapping) or spreadsheets (Wrangling).
 
 ### Activities
 Activities represent a processing step in a pipeline. For example, you can use a Copy activity to copy data from one data store to another data store. Similarly, you can use a Hive activity, which runs a Hive query on an Azure HDInsight cluster to transform or analyze your data. Data Factory supports three types of activities: data movement activities, data transformation activities, and control activities.
@@ -186,6 +189,82 @@ Use the Copy activity to stage data from any of the other connectors, and then e
 ### Is the self-hosted integration runtime available for data flows?
 
 Self-hosted IR is an ADF pipeline construct that you can use with the Copy Activity to acquire or move data to and from on-prem or VM-based data sources and sinks. Stage the data first with a Copy, then Data Flow for transformation, and then a subsequent copy if you need to move that transformed data back to the on-prem store.
+
+## Wrangling data flows
+
+### What are the supported regions for wrangling data flow?
+
+Wrangling data flow is currently supported in data factories created in following regions:
+
+* Australia East
+* Canada Central
+* Central India
+* Central US
+* East US
+* East US 2
+* Japan East
+* North Europe
+* Southeast Asia
+* South Central US
+* UK South
+* West Central US
+* West Europe
+* West US
+* West US 2
+
+### What are the limitations and constraints with wrangling data flow?
+
+Dataset names can only contain alpha-numeric characters. The following data stores are supported:
+
+* DelimitedText dataset in Azure Blob Storage using account key authentication
+* DelimitedText dataset in Azure Data Lake Storage gen2 using account key or service principal authentication
+* DelimitedText dataset in Azure Data Lake Storage gen1 using service principal authentication
+* Azure SQL Database and Data Warehouse using sql authentication. See supported SQL types below. There is no PolyBase or staging support for data warehouse.
+
+At this time, linked service Key Vault integration is not supported in wrangling data flows.
+
+### What is the difference between mapping and wrangling data flows?
+
+Mapping data flows provide a way to transform data at scale without any coding required. You can design a data transformation job in the data flow canvas by constructing a series of transformations. Start with any number of source transformations followed by data transformation steps. Complete your data flow with a sink to land your results in a destination. Mapping data flow is great at mapping and transforming data with both known and unknown schemas in the sinks and sources.
+
+Wrangling data flows allow you to do agile data preparation and exploration using the Power Query Online mashup editor at scale via spark execution. With the rise of data lakes sometimes you just need to explore a data set or create a dataset in the lake. You aren't mapping to a known target. Wrangling data flows are used for less formal and model-based analytics scenarios.
+
+### What is the difference between Power Platform Dataflows and wrangling data flows?
+
+Power Platform Dataflows allow users to import and transform data from a wide range of data sources into the Common Data Service and Azure Data Lake to build PowerApps applications, Power BI reports or Flow automations. Power Platform Dataflows use the established Power Query data preparation experiences, similar to Power BI and Excel. Power Platform Dataflows also enable easy reuse within an organization and automatically handle orchestration (e.g. automatically refreshing dataflows that depend on another dataflow when the former one is refreshed).
+
+Azure Data Factory (ADF) is a managed data integration service that allows data engineers and citizen data integrator to create complex hybrid extract-transform-load (ETL) and extract-load-transform (ELT) workflows. Wrangling data flow in ADF empowers users with a code-free, serverless environment that simplifies data preparation in the cloud and scales to any data size with no infrastructure management required. It uses the Power Query data preparation technology (also used in Power Platform dataflows, Excel, Power BI) to prepare and shape the data. Built to handle all the complexities and scale challenges of big data integration, wrangling data flows allow users to quickly prepare data at scale via spark execution. Users can build resilient data pipelines in an accessible visual environment with our browser-based interface and let ADF handle the complexities of Spark execution. Build schedules for your pipelines and monitor your data flow executions from the ADF monitoring portal. Easily manage data availability SLAs with ADF’s rich availability monitoring and alerts and leverage built-in continuous integration and deployment capabilities to save and manage your flows in a managed environment. Establish alerts and view execution plans to validate that your logic is performing as planned as you tune your data flows.
+
+### Supported SQL Types
+
+Wrangling data flow supports the following data types in SQL. You will get a validation error for using a data type that isn't supported.
+
+* short
+* double
+* real
+* float
+* char
+* nchar
+* varchar
+* nvarchar
+* integer
+* int
+* bit
+* boolean
+* smallint
+* tinyint
+* bigint
+* long
+* text
+* date
+* datetime
+* datetime2
+* smalldatetime
+* timestamp
+* uniqueidentifier
+* xml
+
+Other data types will be supported in the future.
 
 ## Next steps
 For step-by-step instructions to create a data factory, see the following tutorials:

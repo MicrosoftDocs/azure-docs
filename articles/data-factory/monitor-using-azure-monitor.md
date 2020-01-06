@@ -1,5 +1,5 @@
 ---
-title: Monitor data factories using Azure Monitor | Microsoft Docs
+title: Monitor data factories using Azure Monitor 
 description: Learn how to use Azure Monitor to monitor /Azure Data Factory pipelines by enabling diagnostic logs with information from Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -425,6 +425,9 @@ Azure Data Factory version 2 emits the following metrics.
 | TriggerFailedRuns    | Failed trigger runs metrics     | Count    | Total                | The total number of trigger runs that failed within a minute window.      |
 
 To access the metrics, complete the instructions in [Azure Monitor data platform](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics).
+
+> [!NOTE]
+> Only completed, triggered activity and pipeline runs events are emitted. In progress and sandbox/debug runs are **not** emitted. 
 
 ## Monitor Data Factory metrics with Azure Monitor
 

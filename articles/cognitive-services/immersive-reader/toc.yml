@@ -32,8 +32,8 @@
 - name: Resources
   items:
   - name: Azure roadmap
-    href: https://azure.microsoft.com/en-us/updates/?product=cognitive-services
+    href: https://azure.microsoft.com/updates/?product=cognitive-services
   - name: Language support
     href: https://aka.ms/ltlangsupport
   - name: Regional availability
-    href: https://azure.microsoft.com/en-us/global-infrastructure/services/?products=cognitive-services
+    href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services

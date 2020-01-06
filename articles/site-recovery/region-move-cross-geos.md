@@ -1,7 +1,6 @@
 ---
-title: Move Azure IaaS VMs between Azure Government and Public regions with the Azure Site Recovery service | Microsoft Docs
-description: Use Azure Site Recovery to move Azure IaaS VMs between Azure Government & Public regions.
-services: site-recovery
+title: Move Azure VMs between government and public regions with Azure Site Recovery 
+description: Use Azure Site Recovery to move Azure VMs between Azure government and public regions.
 author: rajani-janaki-ram
 ms.service: site-recovery
 ms.topic: tutorial

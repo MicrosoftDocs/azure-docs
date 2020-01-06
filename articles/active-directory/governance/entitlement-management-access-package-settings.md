@@ -1,6 +1,6 @@
 ---
-title: Share link to request an access package in Azure AD entitlement management (Preview) - Azure Active Directory
-description: Learn how to share link to request an access package in Azure Active Directory entitlement management (Preview).
+title: Share link to request an access package in Azure AD entitlement management - Azure Active Directory
+description: Learn how to share link to request an access package in Azure Active Directory entitlement management.
 services: active-directory
 documentationCenter: ''
 author: msaburnley
@@ -21,12 +21,7 @@ ms.collection: M365-identity-device-management
 #Customer intent: As an administrator, I want detailed information about how I can edit an access package so that requestors have the resources they need to perform their job.
 
 ---
-# Share link to request an access package in Azure AD entitlement management (Preview)
-
-> [!IMPORTANT]
-> Azure Active Directory (Azure AD) entitlement management is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# Share link to request an access package in Azure AD entitlement management
 
 Most users in your directory can sign in to the My Access portal and automatically see a list of access packages they can request. However, for external business partner users that are not yet in your directory, you will need to send them a link that they can use to request an access package. 
 

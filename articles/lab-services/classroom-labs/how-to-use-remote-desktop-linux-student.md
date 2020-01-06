@@ -29,7 +29,7 @@ An instructor needs to enable the remote desktop connection feature before stude
 Students can RDP in to their Linux VMs after the lab owner (teacher/professor) **publishes** the template VM with RDP and GUI packages installed on the machine. Here are the steps: 
 
 1. When a student signs in to the Labs portal directly (`https://labs.azure.com`) or by using a registration link (`https://labs.azure.com/register/<registrationCode>`), a tile for each lab the student has access to is displayed. 
-2. On the tile, select **Start** if the VM is stopped. 
+2. On the tile, toggle the button to start the VM if it's in stopped state. 
 3. Select **Connect**. You see two options to connect to the VM: **SSH** and **Remote Desktop**.
 
     ![Student VM - connection options](../media/how-to-enable-remote-desktop-linux/student-vm-connect-options.png)

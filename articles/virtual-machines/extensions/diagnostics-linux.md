@@ -1,5 +1,5 @@
 ---
-title: Azure Compute - Linux Diagnostic Extension | Microsoft Docs
+title: Azure Compute - Linux Diagnostic Extension 
 description: How to configure the Azure Linux Diagnostic Extension (LAD) to collect metrics and log events from Linux VMs running in Azure.
 services: virtual-machines-linux
 author: abhijeetgaiha
@@ -130,7 +130,7 @@ storageAccountSasToken | An [Account SAS token](https://azure.microsoft.com/blog
 mdsdHttpProxy | (optional) HTTP proxy information needed to enable the extension to connect to the specified storage account and endpoint.
 sinksConfig | (optional) Details of alternative destinations to which metrics and events can be delivered. The specific details of each data sink supported by the extension are covered in the sections that follow.
 
-To get a SAS token within a Resource Manager template, use the **listAccountSas** function. For an example template, see [List function example](../../azure-resource-manager/resource-group-template-functions-resource.md#list-example).
+To get a SAS token within a Resource Manager template, use the **listAccountSas** function. For an example template, see [List function example](../../azure-resource-manager/templates/template-functions-resource.md#list-example).
 
 You can easily construct the required SAS token through the Azure portal.
 

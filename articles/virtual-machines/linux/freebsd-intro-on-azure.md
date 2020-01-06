@@ -1,5 +1,5 @@
 ---
-title: Introduction to FreeBSD on Azure | Microsoft Docs
+title: Introduction to FreeBSD on Azure 
 description: Learn about using FreeBSD virtual machines on Azure
 services: virtual-machines-linux
 documentationcenter: ''

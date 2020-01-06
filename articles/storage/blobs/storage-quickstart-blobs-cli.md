@@ -1,18 +1,18 @@
 ---
-title: Azure Quickstart - Create a blob in object storage using Azure CLI | Microsoft Docs
-description: In this quickstart, you use the Azure CLI  in object (Blob) storage. Then you use the CLI to upload a blob to Azure Storage, download a blob, and list the blobs in a container.
+title: Quickstart - Create a blob with Azure CLI
+titleSuffix: Azure Storage
+description: In this quickstart, you learn how to use the Azure CLI upload a blob to Azure Storage, download a blob, and list the blobs in a container.
 services: storage
 author: tamram
 
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 11/14/2018
+ms.date: 12/04/2019
 ms.author: tamram
-ms.reviewer: seguler
 ---
 
-# Quickstart: Upload, download, and list blobs using the Azure CLI
+# Quickstart: Create, download, and list blobs with Azure CLI
 
 The Azure CLI is Azure's command-line experience for managing Azure resources. You can use it in your browser with Azure Cloud Shell. You can also install it on macOS, Linux, or Windows and run it from the command line. In this quickstart, you learn to use the Azure CLI to upload and download data to and from Azure Blob storage.
 
@@ -35,31 +35,26 @@ Blobs are always uploaded into a container. You can organize groups of blobs sim
 Create a container for storing blobs with the [az storage container create](/cli/azure/storage/container) command.
 
 ```azurecli-interactive
-az storage container create --name mystoragecontainer
+az storage container create --name sample-container
 ```
 
 ## Upload a blob
 
-Blob storage supports block blobs, append blobs, and page blobs. Most files stored in Blob storage are stored as block blobs. Append blobs are used when data must be added to an existing blob without modifying its existing contents, such as for logging. Page blobs back the VHD files of IaaS virtual machines.
+Blob storage supports block blobs, append blobs, and page blobs. The examples in this quickstart show how to work with block blobs.
 
-First, create a file to upload to a blob.
-If you're using the Azure cloud shell, use the following in order to create a file:
-`vi helloworld` when the file opens, press **insert**, type "Hello world" and then press **Esc** and enter `:x` and press **Enter**.
+First, create a file to upload to a block blob. If you're using Azure Cloud Shell, use the following command to create a file:
 
-In this example, you upload a blob to the container you created in the last step using the [az storage blob upload](/cli/azure/storage/blob) command.
-
-```azurecli-interactive
-az storage blob upload \
-    --container-name mystoragecontainer \
-    --name blobName \
-    --file ~/path/to/local/file
+```bash
+vi helloworld
 ```
 
-If you used the previously described method to create a file in your Azure Cloud Shell, you can use this CLI command instead (note that you didn't need to specify a path since the file was created at the base directory, normally you'd need to specify a path):
+When the file opens, press **insert**. Type *Hello world*, then press **Esc**. Next, type *:x*, then press **Enter**.
+
+In this example, you upload a blob to the container you created in the last step using the [az storage blob upload](/cli/azure/storage/blob) command. It's not necessary to specify a file path since the file was created at the root directory:
 
 ```azurecli-interactive
 az storage blob upload \
-    --container-name mystoragecontainer \
+    --container-name sample-container \
     --name helloworld \
     --file helloworld
 ```
@@ -74,7 +69,7 @@ List the blobs in the container with the [az storage blob list](/cli/azure/stora
 
 ```azurecli-interactive
 az storage blob list \
-    --container-name mystoragecontainer \
+    --container-name sample-container \
     --output table
 ```
 
@@ -84,8 +79,8 @@ Use the [az storage blob download](/cli/azure/storage/blob) command to download 
 
 ```azurecli-interactive
 az storage blob download \
-    --container-name mystoragecontainer \
-    --name blobName \
+    --container-name sample-container \
+    --name helloworld \
     --file ~/destination/path/for/file
 ```
 
@@ -93,27 +88,27 @@ az storage blob download \
 
 The [AzCopy](../common/storage-use-azcopy-linux.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) utility is another option for high-performance scriptable data transfer for Azure Storage. You can use AzCopy to transfer data to and from Blob, File, and Table storage.
 
-As a quick example, here is the AzCopy command for uploading a file called *myfile.txt* to the *mystoragecontainer* container.
+The following example uses AzCopy to upload a file called *myfile.txt* to the *sample-container* container. Remember to replace placeholder values in angle brackets with your own values:
 
 ```bash
 azcopy \
     --source /mnt/myfiles \
-    --destination https://mystorageaccount.blob.core.windows.net/mystoragecontainer \
-    --dest-key <storage-account-access-key> \
+    --destination https://<account-name>.blob.core.windows.net/sample-container \
+    --dest-key <account-key> \
     --include "myfile.txt"
 ```
 
 ## Clean up resources
 
-If you no longer need any of the resources in your resource group, including the storage account you created in this Quickstart, delete the resource group with the [az group delete](/cli/azure/group) command.
+If you no longer need any of the resources in your resource group, including the storage account you created in this quickstart, delete the resource group with the [az group delete](/cli/azure/group) command. Remember to replace placeholder values in angle brackets with your own values:
 
 ```azurecli-interactive
-az group delete --name myResourceGroup
+az group delete --name <resource-group-name>
 ```
 
 ## Next steps
 
-In this Quickstart, you learned how to transfer files between local disk and a container in Azure Blob storage. To learn more about working with blobs in Azure Storage, continue to the tutorial for working with Azure Blob storage.
+In this quickstart, you learned how to transfer files between a local file system and a container in Azure Blob storage. To learn more about working with blobs in Azure Storage, continue to the tutorial for working with Azure Blob storage.
 
 > [!div class="nextstepaction"]
 > [How to: Blob storage operations with the Azure CLI](storage-how-to-use-blobs-cli.md)

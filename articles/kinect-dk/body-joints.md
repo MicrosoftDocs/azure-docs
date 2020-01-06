@@ -1,6 +1,6 @@
 ---
 title:  Azure Kinect body tracking joints
-description: Using body frame and joints
+description: Understand the body frame, joints, joint coordinates, and joint hierarchy in the Azure Kinect DK.
 author: qm13
 ms.author: quentinm
 ms.reviewer: cedmonds, abalan
@@ -21,6 +21,9 @@ Joint position and orientation are estimates relative to the global depth sensor
 ## Joint coordinates
 
 The position and orientation of each joint form its own joint coordinate system. All joint coordinate systems are absolute coordinate systems relative to the depth camera 3D coordinate system.
+
+> [!NOTE]
+> Joint coordinates are in axis orientation. Axis orientation is widely used with commercial avatars, game engines, and rendering software. Using axis orientation simplifies mirrored movements e.g. raise both arms by 20 degrees.
 
 ![Joint coordinates](./media/concepts/joint-coordinates.png)
 
