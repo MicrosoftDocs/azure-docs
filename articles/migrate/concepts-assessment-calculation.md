@@ -10,11 +10,31 @@ ms.date: 01/06/2020
 This article describes how assessments are calculated in [Azure Migrate: Server Assessment](migrate-services-overview.md#azure-migrate-server-assessment-tool). You run assessments on groups of on-premises machines, to figure out whether they're ready for migration to Azure Migrate.
 
 ## How do I run an assessment?
-You can run an assessment using Azure Migrate: Server Assessment, or another Azure or third-party tool. After creating an Azure Migrate project, you add the tool you need. [Learn more](how-to-add-tool-first-time.md).
+You can run an assessment using Azure Migrate: Server Assessment, or another Azure or third-party tool. After creating an Azure Migrate project, you add the tool you need. [Learn more](how-to-add-tool-first-time.md
+
+### Collect compute data
+
+Performance data for compute settings is collected as follows:
+
+1. The [Azure Migrate appliance](migrate-appliance.md) collects a real-time sample point:
+
+    - **VMware VMs*: For VMware VMs, the Azure Migrate appliance collects a real-time sample point at every 20-second interval.
+    - **Hyper-V VMs**: For Hyper-V VMs, the real-time sample point is collected at every 30-second interval.
+    - **Physical servers**: For physical servers, the real-time sample point is collected at every five-minute interval. 
+    
+2. The appliance rolls up the sample points (20 seconds, 30 seconds, five minutes) to create a single data point every 10 minutes. To create the single data point, the appliance selects the peak value from all the samples, and then sends it to Azure.
+3. Server Assessment stores all the 10-minute sample points for the last month.
+4. When you create an assessment, Server Assessment identifies the appropriate data point to use for right-sizing, based on the percentile values for *Performance history* and *Percentile utilization*.
+
+    - For example, if the performance history is set to one week, and the percentile utilization is the 95th percentile, Server Assessment sorts the 10-minute sample points for the last week in ascending order, and picks the 95th percentile value for right-sizing. 
+    - The 95th percentile value makes sure that you ignore any outliers, which might be included if you pick the 99th percentile.
+    - If you want to pick the peak usage for the period and don't want to miss any outliers, you should select the 99th percentile for percentile utilization.
+
+5. This value is multiplied by the comfort factor to get the effective performance utilization data for each metric (CPU utilization, memory utilization, disk IOPS (read and write), disk throughput (read and write), and network throughput (in and out) that the appliance collects.
 
 To run assessments in Server Assessment, you prepare for assessment on-premises and in Azure, and set up the Azure Migrate appliance to continuously discover on-premises machines. After machines are discovered, you gather them into groups to assess them. For more detailed and high-confidence assessments, you can visualize and map dependencies between machines, to figure out how to migrate them.
 
-- Learn about running assessments for [VMware VMs](tutorial-prepare-vmware.md), [Hyper-V VMs](tutorial-prepare-hyper-v.md), and [physical servers](tutorial-assess-physical.md).
+- Learn about running assessments for [VMware VMs](tutorial-prepare-vmware.md), [Hyper-V VMs](tutorial-prepare-hyper-v.md), and [physical servers](tutorial-prepare-physical.md).
 - Learn about assessing servers [imported with a CSV file](tutorial-assess-import.md).
 - Learn about setting up [dependency visualization](concepts-dependency-visualization.md).
 
@@ -58,7 +78,7 @@ Here's what included in an assessment in Azure Migrate: Server Assessment
 **Reserved Instances (RIs)** | Specify [Reserved Instances](https://azure.microsoft.com/pricing/reserved-vm-instances/) in Azure, so that cost estimations in the assessment take RI discounts into account.<br/><br/> RIs are currently supported only for Pay-As-You-Go offers in Azure Migrate.
 **Sizing criteria** | Used to right-size the VM in Azure.<br/><br/> Use as-is sizing, or performance-based sizing.
 **Performance history** | Used with performance-based sizing. Specify the duration used when evaluating performance data.
-**Percentile utilization** | Used  with performance-based sizing.Specifies the percentile value of the performance sample to be used for right-sizing. 
+**Percentile utilization** | Used  with performance-based sizing. Specifies the percentile value of the performance sample to be used for right-sizing. 
 **VM series** | Specify the Azure VM series that you want to consider for right-sizing. For example, if you don't have a production environment that needs A-series VMs in Azure, you can exclude A-series from the list or series.
 **Comfort factor** | Buffer used during assessment. Applied on top of machine utilization data for VMs (CPU, memory, disk, and network). 
 It accounts for issues such as seasonal usage, short performance history, and likely increases in future usage.<br/><br/> For example, a 10-core VM with 20% utilization normally results in a two-core VM. With a comfort factor of 2.0x, the result is a four-core VM instead.
@@ -68,7 +88,7 @@ It accounts for issues such as seasonal usage, short performance history, and li
 **VM uptime** | If Azure VMs won't run 24 hours a day, 7 days a week, you can specify the duration (days per month and hours per day)  they will run. Cost estimates are handled accordingly.<br/><br/> The default value is 31 days per month and 24 hours per day.
 **Azure Hybrid Benefit** | Specifies whether you have software assurance and are eligible for [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-use-benefit/). If set to Yes (the default setting), non-Windows Azure prices are considered for Windows VMs.
 
-[Review the best practices](best-practices-assessments.md) for creating assessment with Server Assessment.
+[Review the best practices](best-practices-assessment.md) for creating assessment with Server Assessment.
 
 ## How are assessments calculated? 
 
