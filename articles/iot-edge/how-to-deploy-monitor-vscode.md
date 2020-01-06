@@ -1,23 +1,23 @@
 ---
 title: Deploy modules at scale using Visual Studio Code - Azure IoT Edge
-description: Use the IoT extension for Visual Studio Code to create automatic deployments for groups of IoT Edge devices
+description: Use the IoT extension for Visual Studio Code to create automatic deployments for groups of IoT Edge devices.
 keywords: 
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 1/3/2020
+ms.date: 1/6/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ---
 
-# Deploy and monitor IoT Edge modules at scale using Visual Studio Code
+# Deploy IoT Edge modules at scale using Visual Studio Code
 
-Create an **IoT Edge automatic deployment** using Visual Studio Code to manage ongoing deployments for many devices at once. Automatic deployments for IoT Edge are part of the [automatic device management](/azure/iot-hub/iot-hub-automatic-device-management) feature of IoT Hub. Deployments are dynamic processes that enable you to deploy multiple modules to multiple devices, track the status and health of the modules, and make changes when necessary.
+You can create an **IoT Edge automatic deployment** using Visual Studio Code to manage ongoing deployments for many devices at once. Automatic deployments for IoT Edge are part of the [automatic device management](/azure/iot-hub/iot-hub-automatic-device-management) feature of IoT Hub. Deployments are dynamic processes that enable you to deploy multiple modules to multiple devices, track the status and health of the modules, and make changes when necessary.
 
 For more information, see [Understand IoT Edge automatic deployments for single devices or at scale](module-deployment-monitoring.md).
 
-In this article, you set up Visual Studio Code and the IoT extension. You then learn how to deploy modules to a set of IoT Edge devices and monitor the progress using Visual Studio Code.
+In this article, you set up Visual Studio Code and the IoT extension. You then learn how to deploy modules to a set of IoT Edge devices.
 
 ## Prerequisites
 
@@ -28,7 +28,7 @@ In this article, you set up Visual Studio Code and the IoT extension. You then l
 
 ## Sign in to access your IoT hub
 
-You can use the Azure IoT extensions for Visual Studio Code to perform operations with your IoT hub. For these operations to work, you need to sign in to your Azure account and select the IoT hub that you are working on.
+You can use the Azure IoT extensions for Visual Studio Code to perform operations with your IoT hub. For these operations to work, you need to sign into your Azure account and select the IoT hub that you are working on.
 
 1. In Visual Studio Code, open the **Explorer** view.
 
@@ -121,9 +121,11 @@ Here's a basic deployment manifest with one module as an example:
 }
 ```
 
-## Identify devices using tags
+## Identify devices with target conditions
 
-Before you can create a deployment, you have to be able to specify which devices you want to affect. Azure IoT Edge identifies devices using **tags** in the device twin. Each device can have multiple tags that you define in any way that makes sense for your solution. For example, if you manage a campus of smart buildings, you might add the following tags to a device:
+To identify the IoT Edge devices that are to receive the deployment, you must specify a target condition. To target a specific device, specify its `deviceId`. You can also target one or or more devices by providing an expression using tags. Those IoT Edge devices whose device twin contains values that match the target expression will receive the deployment.
+
+Here is an example for of a device twin that has tags:
 
 ```json
 "tags":{
@@ -136,11 +138,67 @@ Before you can create a deployment, you have to be able to specify which devices
 }
 ```
 
-For more information about device twins and tags, see [Understand and use device twins in IoT Hub](../iot-hub/iot-hub-devguide-device-twins.md).
+This device will receive a deployment if the target condition for the deployment contains an expression that matches one of tag's values, such as `tag.location.building = '20'`. If you want to target a specific device regardless of its tags or other settings, just specify the `deviceId` for the target condition.
+
+Here are some more examples:
+
+* deviceId ='linuxprod1'
+* tags.environment ='prod'
+* tags.environment = 'prod' AND tags.location = 'westus'
+* tags.environment = 'prod' OR tags.location = 'westus'
+* tags.operator = 'John' AND tags.environment = 'prod' NOT deviceId = 'linuxprod1'
+
+See [target condition](module-deployment-monitoring.md#target-condition) for details. For more information about device twins and tags, see [Understand and use device twins in IoT Hub](../iot-hub/iot-hub-devguide-device-twins.md).
+
+### Edit the device twin
+
+You can edit the device twin in Visual Studio Code to configure tags or the deviceId. From the **View** menu, select **Command Palette** and run the **IoT Edge: Edit Device Twin** command. Select your IoT Edge device and the device twin appears.
+
+In this example, no tags have been define. Replace the placeholder section `"tags": {}` with your own tags definition.
+
+```json
+{
+    "deviceId": "myEdgeDevice",
+    "etag": "AAAAAAAAAAE=",
+    "deviceEtag": "NTgwMDg5MDAz",
+    "status": "enabled",
+    "statusUpdateTime": "0001-01-01T00:00:00Z",
+    "connectionState": "Disconnected",
+    "lastActivityTime": "0001-01-01T00:00:00Z",
+    "cloudToDeviceMessageCount": 0,
+    "authenticationType": "sas",
+    "x509Thumbprint": {
+        "primaryThumbprint": null,
+        "secondaryThumbprint": null
+    },
+    "version": 2,
+    "properties": {
+        "desired": {
+            "$metadata": {
+                "$lastUpdated": "2019-12-29T00:58:49.9315265Z"
+            },
+            "$version": 1
+        },
+        "reported": {
+            "$metadata": {
+                "$lastUpdated": "2019-12-29T00:58:49.9315265Z"
+            },
+            "$version": 1
+        }
+    },
+    "capabilities": {
+        "iotEdge": true
+    },
+    "deviceScope": "ms-azure-iot-edge://myEdgeDevice-637131779299315265",
+    "tags": {}
+}
+```
+
+If you need to determine which IoT Edge devices you can currently configure, run the **IoT Edge: Get Device Info** command.
 
 ## Create deployment at scale
 
-You deploy modules to your target devices by configuring the deployment manifest and answering a few prompts from Visual Studio code that fills in parameter values for you to create the deployment.
+After you have configured the deployment manifest and specified your target devices with tags, all you need to do is few prompts from Visual Studio code that fills in parameter values for you to create the deployment.
 
 1. In the Visual Studio Code explorer view, expand the Azure IoT Hub Devices section.
 
