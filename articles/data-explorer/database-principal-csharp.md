@@ -74,4 +74,4 @@ await kustoManagementClient.DatabasePrincipalAssignments.CreateOrUpdateAsync(res
 
 ## Next steps
 
-* [Ingest data using the Azure Data Explorer Node library](node-ingest-data)
+* [Ingest data using the Azure Data Explorer Node library](node-ingest-data.md)
