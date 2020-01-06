@@ -111,9 +111,11 @@ FROM    [edw].customer
 ```
 
 > [!NOTE]
-> Any change in schema strategy needs a review of the security model for the database. In many cases, you might be able to simplify the security model by assigning permissions at the schema level. If more granular permissions are required, then you can use database roles.
+> Any change in schema strategy requires a review of the security model for the database. In many cases, you might be able to simplify the security model by assigning permissions at the schema level. 
 > 
 > 
+If more granular permissions are required, you can use database roles. For more information on database roles, refer to the [Manage database roles and users](https://docs.microsoft.com/azure/analysis-services/analysis-services-database-users/
+) article. 
 
 ## Next steps
 
