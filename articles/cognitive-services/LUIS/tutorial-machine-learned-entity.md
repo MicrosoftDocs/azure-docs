@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/13/2019
+ms.date: 12/17/2019
 ms.author: diberry
 #Customer intent: As a new user, I want to understand how to extract complex data contained in a user utterance.
 ---
@@ -19,8 +19,6 @@ ms.author: diberry
 In this tutorial, extract structured data from an utterance using the machine-learned entity.
 
 The machine-learned entity supports the [model decomposition concept](luis-concept-model.md#v3-authoring-model-decomposition) by providing subcomponent entities with their descriptors and constraints.
-
-[!INCLUDE [Uses preview portal](includes/uses-portal-preview.md)]
 
 **In this tutorial, you learn how to:**
 
