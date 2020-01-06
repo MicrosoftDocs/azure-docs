@@ -63,7 +63,7 @@ If you are creating JavaScript Durable Functions, you will need to install the [
 
 1. In the search field, type `durable` and then choose the  **Durable Functions HTTP starter** template.
 
-1. When prompted, select **Install** to install the Azure DurableTask extension any dependencies in the function app. You only need to install the extension once for a give function app. After installation succeeds, select **Continue**.
+1. When prompted, select **Install** to install the Azure DurableTask extension and any dependencies in the function app. You only need to install the extension once for a give function app. After installation succeeds, select **Continue**.
 
     ![Install binding extensions](./media/durable-functions-create-portal/install-durabletask-extension.png)
 
