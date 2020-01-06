@@ -184,9 +184,9 @@ From the computer in **Control Panel**, find the item **Microsoft Monitoring Age
 
 You can also perform a simple log query in the Azure portal.  
 
-1. In the Azure portal, click **All services**. In the list of resources, type **Azure Monitor**. As you begin typing, the list filters based on your input. Select **Azure Monitor**.  
-2. Select **Logs** in the menu. 
-2. On the Logs pane, in the query field type:  
+1. In the Azure portal, search for and select **Monitor**.
+1. Select **Logs** in the menu.
+1. On the **Logs** pane, in the query field type:  
 
     ```
     Heartbeat 
