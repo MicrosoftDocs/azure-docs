@@ -74,4 +74,4 @@ await kustoManagementClient.DatabasePrincipalAssignments.CreateOrUpdateAsync(res
 
 ## Next steps
 
-* [Ingest data from Event Hub into Azure Data Explorer](net-standard-ingest-data.md)
+* [Ingest data using the Azure Data Explorer Node library](node-ingest-data)
