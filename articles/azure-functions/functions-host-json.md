@@ -2,7 +2,7 @@
 title: host.json reference for Azure Functions 2.x
 description: Reference documentation for the Azure Functions host.json file with the v2 runtime.
 ms.topic: conceptual
-ms.date: 09/08/2018
+ms.date: 01/06/2020
 ---
 
 # host.json reference for Azure Functions 2.x and later 
@@ -22,7 +22,7 @@ Some host.json settings are only used when running locally in the [local.setting
 
 ## Sample host.json file
 
-The following sample *host.json* files have all possible options specified.
+The following sample *host.json* file has all possible options specified (excluding any that are for internal use only).
 
 ```json
 {
@@ -62,7 +62,48 @@ The following sample *host.json* files have all possible options specified.
         "applicationInsights": {
             "samplingSettings": {
               "isEnabled": true,
-              "maxTelemetryItemsPerSecond" : 20
+              "maxTelemetryItemsPerSecond" : 20,
+              "evaluationInterval": "01:00:00",
+              "initialSamplingPercentage": 1.0, 
+              "samplingPercentageIncreaseTimeout" : "00:00:01",
+              "samplingPercentageDecreaseTimeout" : "00:00:01",
+              "minSamplingPercentage": 0.1,
+              "maxSamplingPercentage": 0.1,
+              "movingAverageRatio": 1.0
+            },
+            "samplingExcludedTypes" : "Dependency;Event",
+            "samplingIncludedTypes" : "PageView;Trace",
+            "enableLiveMetrics": true,
+            "enableDependencyTracking": true,
+            "enablePerformanceCountersCollection": true,            
+            "httpAutoCollectionOptions" {
+                "enableHttpTriggerExtendedInfoCollection": true,
+                "enableW3CDistributedTracing": true,
+                "enableResponseHeaderInjection": true
+            },
+            "snapshotConfiguration": {
+                "agentEndpoint": null,
+                "captureSnapshotMemoryWeight": 0.5,
+                "failedRequestLimit": 3,
+                "handleUntrackedExceptions": true,
+                "isEnabled": true,
+                "isEnabledInDeveloperMode": false,
+                "isEnabledWhenProfiling": true,
+                "isExceptionSnappointsEnabled": false,
+                "isLowPrioritySnapshotUploader": true,
+                "maximumCollectionPlanSize": 50,
+                "maximumSnapshotsRequired": 3,
+                "problemCounterResetInterval": 24:00:00,
+                "provideAnonymousTelemetry": true,
+                "reconnectInterval": 00:15:00,
+                "shadowCopyFolder": null,
+                "shareUploaderProcess": true,
+                "snapshotInLowPriorityThread": true,
+                "snapshotsPerDayLimit": 30,
+                "snapshotsPerTenMinutesLimit": 1,
+                "tempFolder": null,
+                "thresholdForSnapshotting": 1,
+                "uploaderProxy": null
             }
         }
     },
@@ -104,15 +145,72 @@ Controls the [sampling feature in Application Insights](./functions-monitoring.m
 ```
 
 > [!NOTE]
-> Log sampling may cause some executions to not show up in the Application Insights monitor blade.
+> Log sampling may cause some executions to not show up in the Application Insights monitor blade. To avoid log sampling, add `samplingExcludedTypes: "Request"` to the `applicationInsights` value.
 
-|Property  |Default | Description |
-|---------|---------|---------| 
-|isEnabled|true|Enables or disables sampling.| 
-|maxTelemetryItemsPerSecond|20|The threshold at which sampling begins.| 
-|EnableLiveMetrics |true|Enables live metrics collection.|
-|EnableDependencyTracking|true|Enables dependency tracking.|
-|EnablePerformanceCountersCollection|true|Enables Kudu performance counters collection.|
+| Property | Default | Description |
+| --------- | --------- | --------- | 
+| samplingSettings | n/a | See [applicationInsights.samplingSettings](#applicationinsights-samplingsettings). |
+| samplingExcludedTypes | `Dependency;Event` | A semi-colon delimited list of types that you don't want to be sampled. Recognized types are: Dependency, Event, Exception, PageView, Request, Trace. All instances of the specified types are transmitted; the types that are not specified are sampled. |
+| samplingIncludedTypes | `PageView;Trace` | A semi-colon delimited list of types that you want to be sampled; an empty list implies all types. Type listed in `samplingExcludedTypes` override types listed here. Recognized types are: Dependency, Event, Exception, PageView, Request, Trace. All instances of the specified types are transmitted; the types that are not specified are sampled. |
+| enableLiveMetrics | true | Enables live metrics collection. |
+| enableDependencyTracking | true | Enables dependency tracking. |
+| enablePerformanceCountersCollection | true | Enables Kudu performance counters collection. |
+| liveMetricsInitializationDelay | 00:00:15 | For internal use only. |
+| httpAutoCollectionOptions | n/a | See [applicationInsights.httpAutoCollectionOptions](#applicationinsights-httpautocollectionoptions). |
+| snapshotConfiguration | n/a | See [applicationInsights.snapshotConfiguration](#applicationinsights-snapshotconfiguration). |
+
+### applicationInsights.samplingSettings
+
+|Property | Default | Description |
+| --------- | --------- | --------- | 
+| isEnabled | true | Enables or disables sampling. | 
+| maxTelemetryItemsPerSecond | 20 | The target number of telemetry items logged per second on each server host. If your app runs on many hosts, reduce this value to remain within your overall target rate of traffic. | 
+| evaluationInterval | 01:00:00 | The interval at which the current rate of telemetry is reevaluated. Evaluation is performed as a moving average. You might want to shorten this interval if your telemetry is liable to sudden bursts. |
+| initialSamplingPercentage| 1.0 | The initial sampling percentage applied at the start of the sampling process to dynamically vary the percentage. Don't reduce value while you're debugging. |
+| samplingPercentageIncreaseTimeout | 00:00:01 | When the sampling percentage value changes, this property determines how soon afterwards Application Insights is allowed to raise sampling percentage again to capture more data. |
+| samplingPercentageDecreaseTimeout | 00:00:01 | When the sampling percentage value changes, this property determines how soon afterwards Application Insights is allowed to lower sampling percentage again to capture less data. |
+| minSamplingPercentage | 0.1 | As sampling percentage varies, this property determines the minimum allowed sampling percentage. |
+| maxSamplingPercentage | 0.1 | As sampling percentage varies, this property determines the maximum allowed sampling percentage. |
+| movingAverageRatio | 1.0 | In the calculation of the moving average, the weight assigned to the most recent value. Use a value equal to or less than 1. Smaller values make the algorithm less reactive to sudden changes. |
+
+### applicationInsights.httpAutoCollectionOptions
+
+|Property | Default | Description |
+| --------- | --------- | --------- | 
+| enableHttpTriggerExtendedInfoCollection | true | Enables or disables extended HTTP request information for HTTP triggers: incoming request correlation headers, multi instrumentation keys support, HTTP method, path, and response. |
+| enableW3CDistributedTracing | true | Enables or disables support of W3C distributed tracing protocol (and turns on legacy correlation schema). Enabled by default if `enableHttpTriggerExtendedInfoCollection` is true. If `enableHttpTriggerExtendedInfoCollection` is false, this flag applies to outgoing requests only, not incoming requests. |
+| enableResponseHeaderInjection | true | Enables or disables injection of multi-component correlation headers into responses. Enabling injection allows Application Insights to construct an Application Map to  when several instrumentation keys are used. Enabled by default if `enableHttpTriggerExtendedInfoCollection` is true. Does not apply if `enableHttpTriggerExtendedInfoCollection` is false. |
+
+### applicationInsights.snapshotConfiguration
+
+For more information on snapshots, see [Debug snapsnots on exceptions in .NET apps](https://docs.microsoft.com/en-us/azure/azure-monitor/app/snapshot-debugger) and [Troubleshoot problems enabling Application Insights Snapshot Debugger or viewing snapshots](https://docs.microsoft.com/en-us/azure/azure-monitor/app/snapshot-debugger-troubleshoot).
+
+|Property | Default | Description |
+| --------- | --------- | --------- | 
+| agentEndpoint | null | The endpoint used to connect to the Application Insights Snapshot Debugger service. If null, a default endpoint is used. |
+| captureSnapshotMemoryWeight | 0.5 | The weight given to the current process memory size when checking if there's enough memory to take a snapshot. The expected value is a greater than 0 proper fraction (0 < CaptureSnapshotMemoryWeight < 1). |
+| failedRequestLimit | 3 | The limit on the number of failed requests to request snapshots before the telemetry processor is disabled.|
+| handleUntrackedExceptions | true | Enables or disables tracking of exceptions that aren't tracked by Application Insights telemetry. |
+| isEnabled | true | Enables or disables snapshot collection | 
+| isEnabledInDeveloperMode | false | Enables or disables snapshot collection is enabled in developer mode. |
+| isEnabledWhenProfiling | true | Enables or disables snapshot creation even if the Application Insights Profiler is collecting a detailed profiling session. |
+| isExceptionSnappointsEnabled | false | Enables or disables filtering of exceptions. |
+| isLowPrioritySnapshotUploader | true | Determines whether to run the SnapshotUploader process at below normal priority. |
+| maximumCollectionPlanSize | 50 | The maximum number of problems that we can track at any time in a range from one to 9999. |
+| maximumSnapshotsRequired | 3 | The maximum number of snapshots collected for a single problem, in a range from one to 999. A problem may be thought of as an individual throw statement in your application. Once the number of snapshots collected for a problem reaches this value, no more snapshots will be collected for that problem until problem counters are reset (see `problemCounterResetInterval`) and the `thresholdForSnapshotting` limit is reached again. |
+| problemCounterResetInterval | 24:00:00 | How often to reset the problem counters in a range from one minute to seven days. When this interval is reached, all problem counts are reset to zero. Existing problems that have
+already reached the threshold for snapshotting but haven't yet generated the number of snapshots in `maximumSnapshotsRequired` remain active. |
+| provideAnonymousTelemetry | true | Determines whether to send anonymous usage and error telemetry to Microsoft. This telemetry may be used if you contact Microsoft to help troubleshoot problems with the Snapshot Debugger. It is also used to monitor usage patterns. |
+| reconnectInterval | 00:15:00 | How often we reconnect to the Snapshot Debugger endpoint. Allowable range is one minute to one day. |
+| shadowCopyFolder | null | Specifies the folder to use for shadow copying binaries. If not set, the folders specified by the following environment variables are tried in order: Fabric_Folder_App_Temp, LOCALAPPDATA, APPDATA, TEMP. |
+| shareUploaderProcess | true | If true, only one instance of SnapshotUploader will collect and upload snapshots for multiple apps that share the InstrumentationKey. If set to false, the SnapshotUploader will be unique for each (ProcessName, InstrumentationKey) tuple. |
+| snapshotInLowPriorityThread | true | Determines whether or not to process snapshots in a low IO priority thread. Creating a snapshot is a very fast operation but, in order to upload a snapshot to the Snapshot Debugger service, it must first be written to disk as a minidump. That happens in the SnapshotUploader process. Setting this value to true uses low prioirty IO to write the minidump which will not compete with your application for resources. Setting this value to false speeds up minidump creation at the expense of slowing down your application. |
+| snapshotsPerDayLimit | 30 | The maximum number of snapshots allowed in one day (24 hours). Note that this limit is also enforced on the Application Insights service side. Uploads are rate limited to 50 per day per application (that is, per instrumentation key). This value helps prevent creating additional snapshots that will eventually be rejected during upload. A value of zero removes the limit entirely, which is not recommended. |
+| snapshotsPerTenMinutesLimit | 1 | The maximum number of snapshots allowed in ten minutes. Although there is no upper bound on this value, exercise caution increasing it on production workloads because it could impact the performance of your application. Creating a snapshot is very fast, but creating a minidump of the snapshot and uploading it to the Snapshot Debugger service is a much slower operation that will compete with your application for resources (both CPU and I/O). |
+| tempFolder | null | Specifies the folder to write minidumps and uploader log files. If not set, then *%TEMP%\Dumps* is used. |
+| thresholdForSnapshotting | 1 | How many times Application Insights needs to see an exception before it asks for snapshots. |
+| uploaderProxy | null | Overrides the proxy server used in the Snapshot Uploader process. You may need to use this if your application connects to the internet via a proxy server. The Snapshot Collector runs within your application's process and will use the same proxy settings. However, the Snapshot Uploader runs as a separate process and you may need to configure the proxy server manually. If this value is null, then Snapshot Collector will attempt to auto-detect the proxy's address by examining System.Net.WebRequest.DefaultWebProxy and passing on the value to the Snapshot Uploader. If this value is not null, then auto-detection is not used and the
+proxy server specified here will be used in the Snapshot Uploader. |
 
 ## cosmosDb
 
