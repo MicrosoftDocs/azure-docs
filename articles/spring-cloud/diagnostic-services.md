@@ -16,15 +16,15 @@ By using the diagnostics functionality of Azure Spring Cloud, you can analyze lo
 * Save them to a storage account  for auditing or manual inspection. You can specify the retention time (in days).
 * Stream them to your event hub for ingestion by a third-party service or custom analytics solution.
 * Choose which log category and metric category you want to monitor.
-Log 
+
+## Logs
+
+|Log | Description |
 | **ApplicationConsole** | Console log of all customer applications. | 
 | **SystemLogs** | Currently, only **ConfigServerLog** in this category. |
 
-Metric
-| **Performance** |
-| **Request** |
-| **Error** |
-| **Session** |  |
+## Metrics
+
 For a complete list of metrics, see [Spring Cloud Metrics](https://docs.microsoft.com/en-us/azure/spring-cloud/spring-cloud-concept-metrics#user-portal-metrics-options)
 
 To get started, enable one of these services to receive the data. To learn about configuring Log Analytics, review [Get started with Log Analytics in Azure Monitor](../azure-monitor/log-query/get-started-portal.md). 
