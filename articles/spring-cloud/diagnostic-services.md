@@ -20,12 +20,13 @@ By using the diagnostics functionality of Azure Spring Cloud, you can analyze lo
 ## Logs
 
 |Log | Description |
+|----|----|
 | **ApplicationConsole** | Console log of all customer applications. | 
 | **SystemLogs** | Currently, only **ConfigServerLog** in this category. |
 
 ## Metrics
 
-For a complete list of metrics, see [Spring Cloud Metrics](https://docs.microsoft.com/en-us/azure/spring-cloud/spring-cloud-concept-metrics#user-portal-metrics-options)
+For a complete list of metrics, see [Spring Cloud Metrics](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-concept-metrics#user-portal-metrics-options)
 
 To get started, enable one of these services to receive the data. To learn about configuring Log Analytics, review [Get started with Log Analytics in Azure Monitor](../azure-monitor/log-query/get-started-portal.md). 
 
