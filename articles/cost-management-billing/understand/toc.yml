@@ -1,8 +1,9 @@
 - name: Get started wtih Azure billing documentation
   href: index.yml
+  items:
   - name: Tutorials
-    expanded: true
     items:
+    expanded: true
     - name: Review your individual account bill
       href: review-individual-bill.md
     - name: Review your Microsoft Customer Agreement bill
