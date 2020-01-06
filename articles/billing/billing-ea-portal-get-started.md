@@ -4,7 +4,7 @@ description: This article explains how Azure EA customers use the Azure EA porta
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 01/02/2020
+ms.date: 01/03/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 manager: boalcsva
@@ -43,12 +43,13 @@ The following diagram illustrates simple Azure EA hierarchies.
 
 ## Enterprise user roles
 
-To administer the Azure services in your enrollment, there are four distinct enterprise administrative user roles:
+To administer the Azure services in your enrollment, there are five distinct enterprise administrative user roles:
 
 - Enterprise administrator
 - Department administrator
 - Account owner
 - Service administrator
+- Notification contact
 
 Roles are used to complete tasks in two different Microsoft Azure portals. The Azure EA portal (https://ea.azure.com) is used to help you to manage billing and costs. The Azure portal (https://portal.azure.com) is used to manage Azure services.
 
@@ -95,6 +96,10 @@ Each account requires a unique Work, School, or Microsoft Account. For more info
 ### Service administrator
 
 The service administrator has permissions to manage services in the Azure portal and assign users to the coadministrator role.
+
+### Notification contact
+
+The notification contact receives usage notifications related to the enrollment.
 
 ## Activate your enrollment
 

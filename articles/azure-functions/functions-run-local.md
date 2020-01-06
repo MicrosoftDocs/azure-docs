@@ -21,8 +21,8 @@ Developing functions on your local computer and publishing them to Azure using C
 > * [Register trigger and binding extensions.](#register-extensions)
 > * [Define Storage and other connections.](#local-settings-file)
 > * [Create a function from a trigger and language-specific template.](#create-func)
-> * [Run the function locally](#start)
-> * [Publish the project to Azure](#publish)
+> * [Run the function locally.](#start)
+> * [Publish the project to Azure.](#publish)
 
 ## Core Tools versions
 
@@ -51,7 +51,7 @@ The following steps use npm to install Core Tools on Windows. You can also use [
 
 1. Install [Node.js], which includes npm.
     - For version 2.x of the tools, only Node.js 8.5 and later versions are supported.
-    - For version 3.x of the tools, only Node 10 and later versions are supported.
+    - For version 3.x of the tools, only Node.js 10 and later versions are supported.
 
 1. Install the Core Tools package:
 
@@ -229,7 +229,7 @@ Even when using the storage emulator for development, you may want to test with 
   Select your storage account, select **Access keys** in **Settings**, then copy one of the **Connection string** values.
   ![Copy connection string from Azure portal](./media/functions-run-local/copy-storage-connection-portal.png)
 
-- Use [Azure Storage Explorer](https://storageexplorer.com/) to connect to your Azure account. In the **Explorer**, expand your subscription, select your storage account, and copy the primary or secondary connection string.
+- Use [Azure Storage Explorer](https://storageexplorer.com/) to connect to your Azure account. In the **Explorer**, expand your subscription, expand **Storage Accounts**, select your storage account, and copy the primary or secondary connection string.
 
   ![Copy connection string from Storage Explorer](./media/functions-run-local/storage-explorer.png)
 
@@ -346,8 +346,8 @@ func host start
 | **`--cert`** | The path to a .pfx file that contains a private key. Only used with `--useHttps`. Version 2.x only. |
 | **`--cors-credentials`** | Allow cross-origin authenticated requests (i.e. cookies and the Authentication header) Version 2.x only. |
 | **`--cors`** | A comma-separated list of CORS origins, with no spaces. |
-| **`--language-worker`** | Arguments to configure the language worker. For example, you may enable debugging for language worker by providing [debug port and other required arguments](https://github.com/Azure/azure-functions-core-tools/wiki/Enable-Debugging-for-language-workers). Version 2.x only. |
-| **`--nodeDebugPort -n`** | The port for the node debugger to use. Default: A value from launch.json or 5858. Version 1.x only. |
+| **`--language-worker`** | Argument to configure the language worker. For example, you may enable debugging for language worker by providing [debug port and other required arguments](https://github.com/Azure/azure-functions-core-tools/wiki/Enable-Debugging-for-language-workers). Version 2.x only. |
+| **`--nodeDebugPort -n`** | The port for the Node.js debugger to use. Default: A value from launch.json or 5858. Version 1.x only. |
 | **`--password`** | Either the password or a file that contains the password for a .pfx file. Only used with `--cert`. Version 2.x only. |
 | **`--port -p`** | The local port to listen on. Default value: 7071. |
 | **`--pause-on-error`** | Pause for additional input before exiting the process. Used only when launching Core Tools from an integrated development environment (IDE).|
@@ -366,7 +366,7 @@ Http Function MyHttpTrigger: http://localhost:7071/api/MyHttpTrigger
 ```
 
 >[!IMPORTANT]
->When running locally, authentication isn't enforced for HTTP endpoints. This means that all local HTTP requests are handled as `authLevel = "anonymous"`. For more information, see the [HTTP binding article](functions-bindings-http-webhook.md#authorization-keys).
+>When running locally, authorization isn't enforced for HTTP endpoints. This means that all local HTTP requests are handled as `authLevel = "anonymous"`. For more information, see the [HTTP binding article](functions-bindings-http-webhook.md#authorization-keys).
 
 ### Passing test data to a function
 
@@ -479,7 +479,7 @@ The following publish options are only supported in version 2.x:
 |**`--list-ignored-files`** | Displays a list of files that are ignored during publishing, which is based on the .funcignore file. |
 | **`--list-included-files`** | Displays a list of files that are published, which is based on the .funcignore file. |
 | **`--nozip`** | Turns the default `Run-From-Package` mode off. |
-| **`--build-native-deps`** | Skips generating .wheels folder when publishing python function apps. |
+| **`--build-native-deps`** | Skips generating .wheels folder when publishing Python function apps. |
 | **`--build`**<br/>**`-b`** | Performs build action when deploying to a Linux function app. Accepts: `remote` and `local`. |
 | **`--additional-packages`** | List of packages to install when building native dependencies. For example: `python3-dev libevent-dev`. |
 | **`--force`** | Ignore pre-publishing verification in certain scenarios. |

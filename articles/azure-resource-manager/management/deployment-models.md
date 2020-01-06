@@ -129,7 +129,7 @@ This configuration is not supported. However, you can copy the VHD files from a 
 
 **What is the impact on the quota for my subscription?**
 
-The quotas for the virtual machines, virtual networks, and storage accounts created through the Azure Resource Manager are separate from other quotas. Each subscription gets quotas to create the resources using the new APIs. You can read more about the additional quotas [here](../../azure-subscription-service-limits.md).
+The quotas for the virtual machines, virtual networks, and storage accounts created through the Azure Resource Manager are separate from other quotas. Each subscription gets quotas to create the resources using the new APIs. You can read more about the additional quotas [here](../../azure-resource-manager/management/azure-subscription-service-limits.md).
 
 **Can I continue to use my automated scripts for provisioning virtual machines, virtual networks, and storage accounts through the Resource Manager APIs?**
 
