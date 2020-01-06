@@ -4,7 +4,7 @@
  services: iot-hub
  author: rezasherafat
  ms.service: iot-fundamentals
- ms.topic: Azure IoT Hub TLS
+ ms.topic: conceptual
  ms.date: 01/10/2020
  ms.author: rezas
  ms.custom: Azure IoT Hub TLS
