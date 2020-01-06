@@ -32,7 +32,7 @@ Microsoft's general requirements from your network are explained in the sections
     * Unless specifically agreed upon beforehand, peers are expected to announce consistent routes in all locations where they peer with Microsoft.
     * In general, peering sessions with AS8075 will advertise all AS-MICROSOFT routes. AS8075 interconnects in Africa and Asia may be limited to routes relevant to the respective region.
     * Neither party will establish a static route, a route of last resort, or otherwise send traffic to the other party for a route not announced via BGP.
-    * Peers are expected to adhere to https://www.manrs.org/ industry standards for route security.
+    * Peers are expected to adhere to [MANRS](https://www.manrs.org/) industry standards for route security.
 
 ## Operational requirements
 * A fully staffed 24x7 Network Operations Center (NOC), capable of assisting in the resolution of all technical and performance issues, security violations, denial of service attacks, or any other abuse originating within the peer or their customers.

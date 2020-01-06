@@ -32,7 +32,7 @@ landingContent:
         links:
           - text: Peering policy
             url: policy.md
-          - text: Prerequisites to setup peering with Microsoft
+          - text: Prerequisites to set up peering with Microsoft
             url: prerequisites.md
           - text: Internet Peering FAQs
             url: faqs.md
