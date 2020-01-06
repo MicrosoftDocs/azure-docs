@@ -20,24 +20,24 @@ Insights provide a customized monitoring experience for particular applications 
 
 | Insight | Description |
 |:---|:---|
-| [Application Insights](../app/app-insights-overview.md) | Extensible Application Performance Management (APM) service to monitor your live web application on any platform. |
-| [Azure Monitor for Containers](../insights/container-insights-overview.md) | Monitors the performance of container workloads deployed to either Azure Container Instances or managed Kubernetes clusters hosted on Azure Kubernetes Service (AKS). |
-| [Azure Monitor for Cosmos DB](../insights/cosmosdb-insights-overview.md) | Provides a view of the overall performance, failures, capacity, and operational health of all your Azure Cosmos DB resources in a unified interactive experience. |
-| [Azure Monitor for Networks (preview)](../insights/network-insights-overview.md) | Provides a comprehensive view of health and metrics for all your network resource. The advanced search capability helps you identify resource dependencies, enabling scenarios like identifying resource that are hosting your website, by simply searching for your website name. |
-[Azure Monitor for Resource Groups (preview)](../insights/resource-group-insights.md) |  Triage and diagnose any problems your individual resources encounter, while offering context as to the health and performance of the resource group as a whole. |
-| [Azure Monitor for Storage](../insights/storage-insights-overview.md) | Provides comprehensive monitoring of your Azure Storage accounts by delivering a unified view of your Azure Storage services performance, capacity, and availability. |
-| [Azure Monitor for VMs (preview)](../insights/container-insights-overview.md) | Monitors your Azure virtual machines (VM) and virtual machine scale sets at scale. It analyzes the performance and health of your Windows and Linux VMs, and monitors their processes and dependencies on other resources and external processes. |
+| [Application Insights](app/app-insights-overview.md) | Extensible Application Performance Management (APM) service to monitor your live web application on any platform. |
+| [Azure Monitor for Containers](insights/container-insights-overview.md) | Monitors the performance of container workloads deployed to either Azure Container Instances or managed Kubernetes clusters hosted on Azure Kubernetes Service (AKS). |
+| [Azure Monitor for Cosmos DB](insights/cosmosdb-insights-overview.md) | Provides a view of the overall performance, failures, capacity, and operational health of all your Azure Cosmos DB resources in a unified interactive experience. |
+| [Azure Monitor for Networks (preview)](insights/network-insights-overview.md) | Provides a comprehensive view of health and metrics for all your network resource. The advanced search capability helps you identify resource dependencies, enabling scenarios like identifying resource that are hosting your website, by simply searching for your website name. |
+[Azure Monitor for Resource Groups (preview)](insights/resource-group-insights.md) |  Triage and diagnose any problems your individual resources encounter, while offering context as to the health and performance of the resource group as a whole. |
+| [Azure Monitor for Storage](insights/storage-insights-overview.md) | Provides comprehensive monitoring of your Azure Storage accounts by delivering a unified view of your Azure Storage services performance, capacity, and availability. |
+| [Azure Monitor for VMs (preview)](insights/container-insights-overview.md) | Monitors your Azure virtual machines (VM) and virtual machine scale sets at scale. It analyzes the performance and health of your Windows and Linux VMs, and monitors their processes and dependencies on other resources and external processes. |
 
 Solutions are based on log queries and views customized for a particular application or service. They collect and analyze logs only and are being deprecated over time in favor of insights.
 
 | Solution | Description |
 |:---|:---|
 | [Activity log analytics](activity-log-view.md#activity-logs-analytics-monitoring-solution) | Analyze Activity log entries using predefined log queries and views. |
-| [Agent health](../insights/solution-agenthealth.md) | Analyze the health and configuration of Log Analytics agents. |
+| [Agent health](insights/solution-agenthealth.md) | Analyze the health and configuration of Log Analytics agents. |
 | [Alert management](alert-management-solution.md) | Analyze alerts collected from System Center Operations Manager, Nagios, or Zabbix. |
-| [Network Performance Monitor](../insights/network-performance-monitor.md) |  Monitor network performance between various points in your network infrastructure, network connectivity to service and application endpoints, and the performance of Azure ExpressRoute. |
-| [Service Map](../insights/service-map.md) | Automatically discovers application components on Windows and Linux systems and maps the communication between services. The same functionality is provided in   |
-| [Wire Data](../insights/wire-data.md) | Consolidated network and performance data collected from Windows-connected and Linux-connected computers with the Log Analytics agent. |
+| [Network Performance Monitor](insights/network-performance-monitor.md) |  Monitor network performance between various points in your network infrastructure, network connectivity to service and application endpoints, and the performance of Azure ExpressRoute. |
+| [Service Map](insights/service-map.md) | Automatically discovers application components on Windows and Linux systems and maps the communication between services. The same functionality is provided in   |
+| [Wire Data](insights/wire-data.md) | Consolidated network and performance data collected from Windows-connected and Linux-connected computers with the Log Analytics agent. |
 
 
 
@@ -46,19 +46,19 @@ Other solutions are available for monitoring different applications and services
 
 | Solution | Description |
 |:---|:---|
-| [Azure Application Gateway](../insights/azure-networking-analytics.md#azure-application-gateway-analytics-solution-in-azure-monitor) | Analyze logs and metrics from Azure Application Gateway. |
-| [Active Directory replication status](../insights/ad-replication-status.md) | Regularly monitors your Active Directory environment for any replication failures. |
-| [Active Directory assessment](../insights/ad-assessment.md) | Assess the risk and health of your Active Directory environments. |
-| [Containers](../insights/containers.md) | View and manage Docker and Windows container hosts. |
-| [DNS Analytics](../insights/dns-analytics.md) | Collects, analyzes, and correlates Windows DNS analytic and audit logs and other related data from your DNS servers. |
-| [Key Vault Analytics](../insights/azure-key-vault.md) | Analyze Azure Key Vault AuditEvent logs. |
+| [Azure Application Gateway](insights/azure-networking-analytics.md#azure-application-gateway-analytics-solution-in-azure-monitor) | Analyze logs and metrics from Azure Application Gateway. |
+| [Active Directory replication status](insights/ad-replication-status.md) | Regularly monitors your Active Directory environment for any replication failures. |
+| [Active Directory assessment](insights/ad-assessment.md) | Assess the risk and health of your Active Directory environments. |
+| [Containers](insights/containers.md) | View and manage Docker and Windows container hosts. |
+| [DNS Analytics](insights/dns-analytics.md) | Collects, analyzes, and correlates Windows DNS analytic and audit logs and other related data from your DNS servers. |
+| [Key Vault Analytics](insights/azure-key-vault.md) | Analyze Azure Key Vault AuditEvent logs. |
 | [ITSM](itsmc-overview.md) | Connect your ITSM product/service and Azure Monitor to centrally manage your work items. |
-| [Network Performance Monitor](../insights/network-performance-monitor.md) | Monitor network connectivity and performance to service and application endpoints. |
-| [Network Security Group analytics](../insights/azure-networking-analytics.md#azure-application-gateway-analytics-solution-in-azure-monitor) | Analyze logs and metrics from Azure Network Security Groups. |
-| [Office 365](../insights/solution-office-365.md) | Monitor your Office 365 environment. Updated version with improved onboarding available through Azure Sentinel. 
-| [SCOM Asessment](../insights/scom-assessment.md) | Assess the risk and health of your System Center Operations Manager management group. |
-| [SQL assessment](../insights/sql-assessment.md) | Assess the risk and health of your SQL Server environments.  |
-| [Surface Hub](../insights/surface-hubs.md) | Track the health and usage of Surface Hub devices. |
+| [Network Performance Monitor](insights/network-performance-monitor.md) | Monitor network connectivity and performance to service and application endpoints. |
+| [Network Security Group analytics](insights/azure-networking-analytics.md#azure-application-gateway-analytics-solution-in-azure-monitor) | Analyze logs and metrics from Azure Network Security Groups. |
+| [Office 365](insights/solution-office-365.md) | Monitor your Office 365 environment. Updated version with improved onboarding available through Azure Sentinel. 
+| [SCOM Asessment](insights/scom-assessment.md) | Assess the risk and health of your System Center Operations Manager management group. |
+| [SQL assessment](insights/sql-assessment.md) | Assess the risk and health of your SQL Server environments.  |
+| [Surface Hub](insights/surface-hubs.md) | Track the health and usage of Surface Hub devices. |
 
 
 
@@ -97,10 +97,10 @@ The following table lists Azure services and the data they collect into Azure Mo
 |Cloud Services | Yes | Yes | No |  |
 |Cloud Shell | No | No | No |  |
 |Cognitive Services | Yes | Yes | No |  |
-|Container Instances | Yes | No | [Yes](../insights/container-insights-overview.md) |  |
+|Container Instances | Yes | No | [Yes](insights/container-insights-overview.md) |  |
 |Container Registry | Yes | Yes | No |  |
 |Content Delivery Network (CDN) | No | Yes | No |  |
-|Cosmos DB | Yes | Yes | [Yes](../insights/cosmosdb-insights-overview.md) |  |
+|Cosmos DB | Yes | Yes | [Yes](insights/cosmosdb-insights-overview.md) |  |
 |Cost Management | No | No | No |  |
 |Data Box | No | No | No |  |
 |Data Catalog Gen2 | No | No | No |  |
@@ -174,7 +174,7 @@ The following table lists Azure services and the data they collect into Azure Mo
 |SQL Database | Yes | Yes | No |  |
 |SQL Server Stretch Database | Yes | Yes | No |  |
 |Stack | No | No | No |  |
-|Storage | Yes | No | [Yes](../insights/storage-insights-overview.md) |  |
+|Storage | Yes | No | [Yes](insights/storage-insights-overview.md) |  |
 |Storage Cache | No | No | No |  |
 |Storage Sync Services - Rob added | No | No | No |  |
 |Stream Analytics | Yes | Yes | No |  |
@@ -183,8 +183,8 @@ The following table lists Azure services and the data they collect into Azure Mo
 |Traffic Manager | Yes | Yes | No |  |
 |Universal Print | No | No | No |  |
 |Virtual Machine Scale Sets | No | Yes | No |  |
-|Virtual Machines | Yes | Yes | [Yes](../insights/vminsights-overview.md) | Agent required to monitor guest operating system and workflows. |
-|Virtual Network | Yes | Yes | [Yes](../insights/network-insights-overview.md) |  |
+|Virtual Machines | Yes | Yes | [Yes](insights/vminsights-overview.md) | Agent required to monitor guest operating system and workflows. |
+|Virtual Network | Yes | Yes | [Yes](insights/network-insights-overview.md) |  |
 |Virtual Network - NSG Flow Logs | No | Yes | No |  |
 |VPN Gateway | Yes | Yes | No |  |
 |Windows Virtual Desktop | No | No | No |  |
@@ -195,8 +195,8 @@ The services in the following table store their data in a Log Analytics workspac
 
 | Service | Description |
 |:---|:---|
-| [Azure Automation](/azure/automation/) | Manage operating system updates and track changes on Windows and Linux computers. See [Change Tracking](../../automation/change-tracking.md) and [Update Management](../../automation/automation-update-management.md). |
-| [Azure Security Center](/azure/security-center/) | Collect and analyze security events and perform threat analysis. See [Data collection in Azure Security Center](../../security-center/security-center-enable-data-collection.md) |
+| [Azure Automation](/azure/automation/) | Manage operating system updates and track changes on Windows and Linux computers. See [Change Tracking](automation/change-tracking.md) and [Update Management](automation/automation-update-management.md). |
+| [Azure Security Center](/azure/security-center/) | Collect and analyze security events and perform threat analysis. See [Data collection in Azure Security Center](security-center/security-center-enable-data-collection.md) |
 | [Azure Sentinel](/azure/sentinel/) | Connects to different sources including Office 365 and Amazon Web Services Cloud Trail. See [Connect data sources](/azure/sentinel/connect-data-sources). |
 | [Traffic Analytics](/azure/network-watcher/traffic-analytics) | Analyzes Network Watcher network security group (NSG) flow logs to provide insights into traffic flow in your Azure cloud.  |
 | [Windows Update Compliance](https://docs.microsoft.com/windows/deployment/update/update-compliance-get-started) | Assess your Windows desktop upgrades.
@@ -208,16 +208,16 @@ Azure Monitor can collect data from resources outside of Azure using the methods
 
 | Resource | Method |
 |:---|:---|
-| Virtual machines | Use the Log Analytics agent to collect data from the guest operating system of virtual machines in other cloud environments or on-premises. See [Collect log data with the Log Analytics agent](../platform/log-analytics-agent.md). |
-| System Center Operations Manager | Collect data from Operations Manager agents by connecting their management group to Azure Monitor. See [Connect Operations Manager to Azure Monitor](../platform.om-agents.md) |
-| REST API Client | Separate APIs are available to write data to Azure Monitor Logs and Metrics from any REST API client. See [Send log data to Azure Monitor with the HTTP Data Collector API](../platform/data-collector-api.md) for Logs and [Send custom metrics for an Azure resource to the Azure Monitor metric store by using a REST API](../platform/metrics-store-custom-rest-api) for Metrics. |
+| Virtual machines | Use the Log Analytics agent to collect data from the guest operating system of virtual machines in other cloud environments or on-premises. See [Collect log data with the Log Analytics agent](platform/log-analytics-agent.md). |
+| System Center Operations Manager | Collect data from Operations Manager agents by connecting their management group to Azure Monitor. See [Connect Operations Manager to Azure Monitor](platform.om-agents.md) |
+| REST API Client | Separate APIs are available to write data to Azure Monitor Logs and Metrics from any REST API client. See [Send log data to Azure Monitor with the HTTP Data Collector API](platform/data-collector-api.md) for Logs and [Send custom metrics for an Azure resource to the Azure Monitor metric store by using a REST API](platform/metrics-store-custom-rest-api) for Metrics. |
 
 
 
 ## Next steps
 
-- [Read more about the Azure Monitor data platform which stores the logs and metrics collected by insights and solutions.](../platform/data-platform.md) 
-- [Complete a tutorial on monitoring an Azure resource.](../learn/tutorial-resource-logs.md)
-- [Complete a tutorial on writing a log query to analyze data in Azure Monitor Logs.](../learn/tutorial-resource-logs.md).
-- [Complete a tutorial on creating a metrics chart to analyze data in Azure Monitor Metrics](../learn/tutorial-metrics-explorer.md)
+- [Read more about the Azure Monitor data platform which stores the logs and metrics collected by insights and solutions.](platform/data-platform.md) 
+- [Complete a tutorial on monitoring an Azure resource.](learn/tutorial-resource-logs.md)
+- [Complete a tutorial on writing a log query to analyze data in Azure Monitor Logs.](learn/tutorial-resource-logs.md).
+- [Complete a tutorial on creating a metrics chart to analyze data in Azure Monitor Metrics](learn/tutorial-metrics-explorer.md)
  
