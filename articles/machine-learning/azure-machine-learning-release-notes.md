@@ -23,10 +23,10 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
 ### Azure Machine Learning SDK for Python v1.0.82
 
 + **New features**
-  + Azure Blob and Data Lake datastore can now be registered without credential. Dataset created from credential-less datastore will use managed identity from compute resource or user identity from browser interactive login to authenticate the data access. Please refer to these articles for permission configuration for identity based data access: [Storage Blob](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-datalake), [Data Lake](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/tutorial-vm-windows-access-storage).
-  
+  + Dataset: Add two options `on_error` and `out_of_range_datetime` for `to_pandas_dataframe` to fail when data has error values instead of filling them with `None`.
+
   + **Preview features**
-    + [Contrib features below] 
+    + [Contrib features below]
 
 + **Breaking changes**
   + [Reference upcoming breaking changes and old API support drop date]
@@ -38,9 +38,7 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
     + Fixed bug in `datastore.upload_files` where relative path that didn't start with `./` was not able to be used.
     + Added deprecation messages for all Image class codepaths
     + Fixed Model Management URL construction for Mooncake region.
-    + Fixed issue where models using source_dir couldn't be packaged for Azure Functions.
-    + Dataset: Fixed the issue that `to_pandas_dataframe` silently fill nulls for error values in data. The default behavior now raise failure for data error. Two new arguments `on_error` and `out_of_range_datetime` are introduced to specify how to handle error values.
-    
+    + Fixed issue where models using source_dir couldn't be packaged for Azure Functions.    
     + Added an option to [Environment.build_local()](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.environment%28class%29?view=azure-ml-py) to push an image into AzureML workspace container registry
     + Updated the SDK to use new token library on azure synapse in a back compatible manner.
   + **azureml-interpret**
