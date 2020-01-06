@@ -105,6 +105,14 @@ A single chunk of data, which will be passed into the Content of the Immersive R
 }
 ```
 
+### CookiePolicy enum
+
+An enum used to set the policy for the Immersive Reader's cookie usage. See [options](#options).
+
+```typescript
+enum CookiePolicy { Disable, Enable }
+```
+
 #### Supported MIME types
 
 | MIME Type | Description |
@@ -138,6 +146,7 @@ Contains properties that configure certain behaviors of the Immersive Reader.
     customDomain?: string;     // Reserved for internal use. Custom domain where the Immersive Reader webapp is hosted (default is null).
     allowFullscreen?: boolean; // The ability to toggle fullscreen (default is true).
     hideExitButton?: boolean;  // Whether or not to hide the Immersive Reader's exit button arrow (default is false). This should only be true if there is an alternative mechanism provided to exit the Immersive Reader (e.g a mobile toolbar's back arrow).
+    cookiePolicy?: [CookiePolicy](#cookiepolicy-enum); // Setting for the Immersive Reader's cookie usage (default is CookiePolicy.Disable). It's the responsibility of the host application to obtain any necessary user consent in accordance with EU Cookie Compliance Policy.
 }
 ```
 
