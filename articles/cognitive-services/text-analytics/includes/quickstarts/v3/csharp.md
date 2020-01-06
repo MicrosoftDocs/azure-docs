@@ -21,15 +21,7 @@ ms.author: assafi
 
 ## Setting up
 
-<!--
-Add any extra steps preparing an environment for working with the client library. 
--->
-
 ### Create a Text Analytics Azure resource
-<!-- NOTE
-The below is an "include" file, which is a text file that will be referenced, and rendered on the docs site.
-These files are used to display text across multiple articles at once. Consider keeping them in-place for consistency with other articles.
- -->
 
 [!INCLUDE [text-analytics-resource-creation](resource-creation.md)]
 
@@ -50,7 +42,6 @@ In the application's `Program` class, create variables for your resource's key a
 
 [!INCLUDE [text-analytics-find-resource-information](../find-azure-resource-info.md)]
 
-<!-- Use the below example variable names and example strings, for consistency with the other quickstart variables -->
 ```csharp
 private static readonly string key = "<replace-with-your-text-analytics-key-here>";
 private static readonly Uri endpoint = new Uri("<replace-with-your-text-analytics-endpoint-here>");
@@ -77,10 +68,6 @@ static void Main(string[] args)
 
 ## Object model
 
-<!-- 
-    Briefly introduce and describe the functionality of the library's main classes. Include links to their reference pages. If needed, briefly explain the object hierarchy and how the classes work together to manipulate resources in the service.
--->
-
 <!-- TODO: Update client docs link -->
 The Text Analytics client is a [TextAnalyticsClient]() object that authenticates to Azure using your key, and provides functions to accept text as single strings or as a batch. You can send text to the API synchronously, or asynchronously. The response object will contain the analysis information for each document you send. An optional, `TextAnalyticsClientOptions` instance can be used to initialize the client with various default settings (e.g. default language or country hint).
 
@@ -88,8 +75,8 @@ The Text Analytics client is a [TextAnalyticsClient]() object that authenticates
 Additional examples, including AAD authentication and the use of client default settings can be found [here](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples).
 
 ## Code examples
-<!-- If you add more code examples, add a link to them here-->
-* [Sentiment Analysis](#sentiment-analysis)
+
+* [Sentiment analysis](#sentiment-analysis)
 * [Language detection](#language-detection)
 * [Entity recognition](#entity-recognition)
 * [Entity recognition - PII](#entity-pii)
