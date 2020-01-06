@@ -1,7 +1,7 @@
 ---
 title: Secure web services using SSL
 titleSuffix: Azure Machine Learning
-description: Learn how to enable HTTPS in order too secure a web service that's deployed through Azure Machine Learning. 
+description: Learn how to enable HTTPS in order to secure a web service that's deployed through Azure Machine Learning. 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
