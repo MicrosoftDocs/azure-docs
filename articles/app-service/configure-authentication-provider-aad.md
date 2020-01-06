@@ -26,9 +26,9 @@ Follow these best practices when setting up your app and authentication:
 
 ## <a name="express"> </a>Configure with express settings
 
-1. In the [Azure portal], go to your App Service app.
-1. Select **Settings** > **Authentication / Authorization** in the left pane, and make sure that **App Service Authentication** is **On**.
-1. Select **Azure Active Directory**, and then select **Express** under **Management Mode**.
+1. In the [Azure portal], search for and select **App Services**, and then select your app.
+1. In the left pane, under **Settings** select **Authentication / Authorization** and make sure that **App Service Authentication** is **On**.
+1. Select **Azure Active Directory**, and then under **Management Mode** select **Express**.
 1. Select **OK** to register the App Service app in Azure Active Directory. A new app registration is created.
 
    If you want to choose an existing app registration instead:
@@ -62,7 +62,7 @@ You'll need the following information when you configure your App Service app:
 
 Perform the following steps:
 
-1. Sign in to the [Azure portal] and go to your App Service app. Note your app's **URL**. You'll use it to configure your Azure Active Directory app registration.
+1. Sign in to the [Azure portal], search for and select **App Services**, and then select your app. Note your app's **URL**. You'll use it to configure your Azure Active Directory app registration.
 1. Select **Azure Active Directory** > **App registrations** > **New registration**.
 1. In the **Register an application** page, enter a **Name** for your app registration.
 1. In **Redirect URI**, select **Web** and enter the URL of your App Service app and append the path `/.auth/login/aad/callback`. For example, `https://contoso.azurewebsites.net/.auth/login/aad/callback`. 
@@ -83,8 +83,8 @@ Perform the following steps:
 
 ### <a name="secrets"> </a>Add Azure Active Directory information to your App Service app
 
-1. In the [Azure portal], go to your App Service app. 
-1. Select **Settings > Authentication / Authorization** in the left pane, and make sure that **App Service Authentication** is **On**.
+1. In the [Azure portal], search for and select **App Services**, and then select your app. 
+1. In the left pane, under **Settings**, select **Authentication / Authorization** and make sure that **App Service Authentication** is **On**.
 1. (Optional) By default, App Service authentication allows unauthenticated access to your app. To enforce user authentication, set **Action to take when request is not authenticated** to **Log in with Azure Active Directory**.
 1. Under Authentication Providers, select **Azure Active Directory**.
 1. In **Management mode**, select **Advanced** and configure App Service authentication according to the following table:

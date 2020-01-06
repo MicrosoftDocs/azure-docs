@@ -1,6 +1,6 @@
 ---
 title: Use Azure Data Science Virtual Machines
-description: Learn how to connect to an Azure Data Science Virtual Machine (DSVM) to extend the compute power available to Azure Notebooks.
+description: Learn how to connect to an Azure Data Science Virtual Machine (DSVM) to extend the compute power available to Azure Notebooks Preview.
 author: getroyer
 manager: andneil
 ms.author: getroyer
@@ -14,6 +14,8 @@ By default, projects run on the **Free Compute** tier, which is limited to 4 GB 
 
 > [!Note]
 > Azure Notebooks is supported only on DSVMs created with the on Linux Ubuntu image. Notebooks are not supported on Windows 2012, Windows 2016, or Linux CentOS images.
+
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 ## Create a DSVM instance
 
