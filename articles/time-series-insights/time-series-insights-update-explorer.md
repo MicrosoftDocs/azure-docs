@@ -133,7 +133,7 @@ The **More Actions** button expands to display the **Download as CSV**, **Connec
 
   [![More Actions option](media/v2-update-explorer/more-actions-icon.png)](media/v2-update-explorer/more-actions-icon.png#lightbox)
 
-Read about the [Time Series Insights native Power BI connector](concepts-power-bi.md).
+Learn more about the **Connect to Power BI** option in [Time Series Insights native Power BI connector](concepts-power-bi.md).
 
 ## 6. Time editor panel
 
