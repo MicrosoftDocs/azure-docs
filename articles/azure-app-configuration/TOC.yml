@@ -11,6 +11,8 @@
   items:
     - name: Configuration
       items:
+        - name: ARM Template
+          href: quickstart-deploy-template.md
         - name: ASP.NET Core
           href: quickstart-aspnet-core-app.md
         - name: .NET Core
