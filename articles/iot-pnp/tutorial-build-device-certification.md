@@ -3,7 +3,7 @@ title: Build an IoT Plug and Play Preview device that's ready for certification 
 description: As a device developer, learn about how you can build an IoT Plug and Play Preview device that's ready for certification.
 author: tbhagwat3
 ms.author: tanmayb
-ms.date: 06/28/2019
+ms.date: 12/28/2019
 ms.topic: tutorial
 ms.custom: mvc
 ms.service: iot-pnp
