@@ -7,7 +7,7 @@ manager: cshankar
 services: time-series-insights
 ms.service: time-series-insights
 ms.topic: conceptual
-ms.date: 11/12/2019
+ms.date: 01/06/2020
 
 # Customer intent: As a data analyst or developer, I want to learn how to connect Azure Time Series Insights to Power BI to share and display data.
 ---
