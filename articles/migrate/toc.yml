@@ -125,13 +125,13 @@
 - name: Troubleshoot
   items:
   - name: Troubleshoot Azure Migrate
-    href: troubleshooting-general.md
+    href: troubleshoot-general.md
   - name: Troubleshoot Azure Migrate projects
-    href: troubleshooting-project.md
+    href: troubleshoot-project.md
   - name: Troubleshoot Azure Migrate appliance/discovery
-    href: troubleshooting-appliance-discovery.md
-  - name: Troubleshooting assessment/dependency visualization
-    href: troubleshooting-assessment.md
+    href: troubleshoot-appliance-discovery.md
+  - name: Troubleshoot assessment/dependency visualization
+    href: troubleshoot-assessment.md
 - name: Resources
   items:
   - name: Migration in the Cloud Adoption Framework

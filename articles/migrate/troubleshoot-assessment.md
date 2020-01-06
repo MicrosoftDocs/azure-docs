@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot assessment/dependency visualization in Azure Migrate
+title: Troubleshoot assessment and dependency visualization in Azure Migrate
 description: Get help with troubleshooting assessment and dependency visualization in Azure Migrate.
 ms.service: azure-migrate
 ms.topic: troubleshooting
@@ -109,6 +109,8 @@ For Windows VMs:
 1. In the Control Panel, start MMA.
 2. In the **Microsoft Monitoring Agent properties** > **Azure Log Analytics (OMS)**, make sure that the **Status** for the workspace is green.
 3. If the status isn't green, try removing the workspace and adding it again to MMA.
+
+    ![MMA status](./media/troubleshoot-assessment/mma-properties.png)
 
 For Linux VMs, make sure that the installation commands for MMA and the dependency agent succeeded.
 
