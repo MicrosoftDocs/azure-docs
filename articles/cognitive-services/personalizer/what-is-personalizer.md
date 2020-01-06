@@ -33,18 +33,22 @@ Personalizer is not a service:
 
 ## How does Personalizer rank your content?
 
-Personalizer uses reinforcement learning to rank information about your content:
+Personalizer uses reinforcement learning to rank information about your content (_actions_). Actions are the content items, such as news articles, specific movies, or products to choose from.
+
+The rank call takes the action item, along with the following features to select the top action item:
 
 * **Action features** - features of your content
 * **Context features** - features of the context
 
-You need to determine the information groups for action features and context features based on your scenario. Several example scenarios are:
+You need to choose the details for action features and context features based on your scenario. Several example scenarios are:
 
-|Content|**Action features**|**Context features**|
+|Content <br>_action items_|**Action features**<br>per action item|**Context features**|
 |--|--|--|
 |News list|News type<br>Subject<br>Content type (text, image, video)|Device news is read from<br>Month, or season<br>|
 |Movies list|Movie genre<br>Main actors<br>Directory<br>Film rating<br>length|Device movie is watched from<br>screen size<br>Month, or season<br>|
 |Products list|Price<br>Size<br>Availability<br>Time to package<br>Time to ship<br>On Sale|Device shopping  is read from<br>Spending tier of user<br>Month, or season|
+
+
 
 ## Personalizer can rank content from a recommendation engine
 
