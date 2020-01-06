@@ -22,12 +22,17 @@ ___
 
 | Code | Message |
 | ---- | ------- |
+| `AADB2C90002` | The CORS resource '{0}' returned a 404 not found. |
+| `AADB2C90006` | The redirect URI '{0}' provided in the request is not registered for the client id '{1}'. |
 | `AADB2C90007` | The application associated with client id '{0}' has no registered redirect URIs. |
+| `AADB2C90008` | The request does not contain a client id parameter. |
 | `AADB2C90010` | The request does not contain a scope parameter. |
 | `AADB2C90012` | The scope '{0}' provided in request is not supported. |
+| `AADB2C90013` | The requested response type '{0}' provided in the request is not supported. |
 | `AADB2C90014` | The requested response mode '{0}' provided in the request is not supported. |
 | `AADB2C90016` | The requested client assertion type '{0}' does not match the expected type '{1}'. |
 | `AADB2C90017` | The client assertion provided in the request is invalid: {0} |
+| `AADB2C90018` | The client id '{0}' specified in the request is not registered in tenant '{1}'. |
 | `AADB2C90019` | The key container with id '{0}' in tenant '{1}' does not has a valid key. Reason: {2}. |
 | `AADB2C90021` | The technical profile '{0}' does not exist in the policy '{1}' of tenant '{2}'. |
 | `AADB2C90022` | Unable to return metadata for the policy '{0}' in tenant '{1}'. |
@@ -42,31 +47,41 @@ ___
 | `AADB2C90039` | The request contains a client assertion, but the provided policy '{0}' in tenant '{1}' is missing a client_secret in RelyingPartyPolicy. |
 | `AADB2C90043` | The prompt included in the request contains invalid values. Expected 'none', 'login', 'consent' or 'select_account'. |
 | `AADB2C90044` | The claim '{0}' is not supported by the claim resolver '{1}'. |
+| `AADB2C90046` | We are having trouble loading your current state. You might want to try starting your session over from the beginning. |
+| `AADB2C90047` | The resource '{0}' contains script errors preventing it from being loaded. |
 | `AADB2C90051` | No suitable claims providers were found. |
 | `AADB2C90052` | Invalid username or password. |
+| `AADB2C90053` | A user with the specified credential could not be found. |
+| `AADB2C90054` | Invalid username or password. |
 | `AADB2C90055` | The scope '{0}' provided in request must specify a resource, such as 'https://example.com/calendar.read'. |
 | `AADB2C90057` | The provided application is not configured to allow the OAuth Implicit flow. |
 | `AADB2C90058` | The provided application is not configured to allow public clients. |
 | `AADB2C90067` | The post logout redirect URI '{0}' has an invalid format. Specify an https based URL such as 'https://example.com/return' or for native clients use the IETF native client URI 'urn:ietf:wg:oauth:2.0:oob'. |
 | `AADB2C90068` | The provided application with ID '{0}' is not valid against this service. Please use an application created via the B2C portal and try again. |
 | `AADB2C90075` | The claims exchange '{0}' specified in step '{1}' returned HTTP error response with Code '{2}' and Reason '{3}'. |
+| `AADB2C90077` | User does not have an existing session and request prompt parameter has a value of '{0}'. |
 | `AADB2C90079` | Clients must send a client_secret when redeeming a confidential grant. |
+| `AADB2C90080` | The provided grant has expired. Please re-authenticate and try again. Current time: {0}, Grant issued time: {1}, Grant sliding window expiration time: {2}. |
 | `AADB2C90081` | The specified client_secret does not match the expected value for this client. Please correct the client_secret and try again. |
 | `AADB2C90083` | The request is missing required parameter: {0}. |
 | `AADB2C90084` | Public clients should not send a client_secret when redeeming a publicly acquired grant. |
 | `AADB2C90085` | The service has encountered an internal error. Please reauthenticate and try again. |
 | `AADB2C90086` | The supplied grant_type [{0}] is not supported. |
 | `AADB2C90087` | The provided grant has not been issued for this version of the protocol endpoint. |
+| `AADB2C90088` | The provided grant has not been issued for this endpoint. Actual Value : {0} and Expected Value : {1} |
 | `AADB2C90107` | The application with ID '{0}' cannot get an ID token either because the openid scope was not provided in the request or the application is not authorized for it. |
 | `AADB2C90108` | The orchestration step '{0}' does not specify a CpimIssuerTechnicalProfileReferenceId when one was expected. |
 | `AADB2C90110` | The scope parameter must include 'openid' when requesting a response_type that includes 'id_token'. |
 | `AADB2C90111` | Your account has been locked. Contact your support person to unlock it, then try again. |
 | `AADB2C90114` | Your account is temporarily locked to prevent unauthorized use. Try again later. |
 | `AADB2C90115` | When requesting the 'code' response_type, the scope parameter must include a resource or client ID for access tokens, and 'openid' for ID tokens. Additionally include 'offline_access' for refresh tokens. |
+| `AADB2C90117` | The scope '{0}' provided in the request is not supported. |
 | `AADB2C90118` | The user has forgotten their password. |
 | `AADB2C90120` | The max age parameter '{0}' specified in the request is invalid. Max age must be an integer between '{1}' and '{2}' inclusive. |
 | `AADB2C90122` | Input for '{0}' received in the request has failed HTTP request validation. Ensure that the input does not contain characters such as < or &. |
 | `AADB2C90126` | The application insights profile '{0}' does not specify an input claim with a partner claim type of 'eventName'. |
+| `AADB2C90128` | The account associated with this grant no longer exists. Please reauthenticate and try again. |
+| `AADB2C90129` | The provided grant has been revoked. Please reauthenticate and try again. |
 | `AADB2C90145` | No unverified phone numbers have been found and policy does not allow a user entered number. |
 | `AADB2C90146` | The scope '{0}' provided in request specifies more than one resource for an access token, which is not supported. |
 | `AADB2C90149` | Script '{0}' failed to load. |
@@ -99,6 +114,7 @@ ___
 | `AADB2C90220` | The key container in tenant '{0}' with storage identifier '{1}' exists but does not contain a valid certificate. The certificate might be expired or your certificate might become active in the future (nbf). |
 | `AADB2C90223` | An error has occurred sanitizing the CORS resource. |
 | `AADB2C90224` | Resource owner flow has not been enabled for the application. |
+| `AADB2C90225` | The username or password provided in the request are invalid. |
 | `AADB2C90226` | The specified token exchange is only supported over HTTP POST. |
 | `AADB2C90232` | The provided id_token_hint parameter does not contain an accepted issuer. Valid issuers: '{0}'. Please provide another token and try again. |
 | `AADB2C90233` | The provided id_token_hint parameter failed signature validation. Please provide another token and try again. |
