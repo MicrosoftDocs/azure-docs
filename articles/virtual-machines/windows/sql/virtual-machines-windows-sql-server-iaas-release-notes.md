@@ -19,16 +19,27 @@ ms.date: 08/01/2019
 Azure allows you to deploy a virtual machine (VM) with an image of SQL Server built in. This article summarizes the documentation changes associated with new features and improvements in the recent releases of [SQL Server on Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/sql-server/). 
 
 
+## January 2019
+
 ## December 2019
 
 | Changes | Details |
 | --- | --- |
-| **Free DR replica in Azure** | You can host a [free passive instance](virtual-machines-windows-sql-high-availability-dr.md#free-dr-replica-in-azure) for disaster recovery in Azure for your on-premises SQL Server instance if you have [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default?rtc=1&activetab=software-assurance-default-pivot:primaryr3). | 
 | **Azure Government support** | It is now possible to register SQL Server virtual machines with the SQL VM resource provider for virtual machines hosted in the [Azure Government](https://azure.microsoft.com/global-infrastructure/government/) cloud. | 
 | &nbsp; | &nbsp; |
 
 
-## October 2019
+## 2019
+
+###  December 2019
+
+| Changes | Details |
+| --- | --- |
+| **Free DR replica in Azure** | You can host a [free passive instance](virtual-machines-windows-sql-high-availability-dr.md#free-dr-replica-in-azure) for disaster recovery in Azure for your on-premises SQL Server instance if you have [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default?rtc=1&activetab=software-assurance-default-pivot:primaryr3). | 
+| &nbsp; | &nbsp; |
+
+
+###  October 2019
 
 | Changes | Details |
 | --- | --- |
@@ -37,7 +48,7 @@ Azure allows you to deploy a virtual machine (VM) with an image of SQL Server bu
 | **Premium file share for FCI** | You can now create a failover cluster instance using a [Premium File Share](virtual-machines-windows-portal-sql-create-failover-cluster-premium-file-share.md) instead of the original method of [Storage Spaces Direct](virtual-machines-windows-portal-sql-create-failover-cluster.md). 
 | &nbsp; | &nbsp; |
 
-## August 2019
+### August 2019
 
 | Changes | Details |
 | --- | --- |
@@ -45,7 +56,7 @@ Azure allows you to deploy a virtual machine (VM) with an image of SQL Server bu
 | &nbsp; | &nbsp; |
 
 
-## July 2019
+### July 2019
 
 
 | Changes | Details |
@@ -53,7 +64,7 @@ Azure allows you to deploy a virtual machine (VM) with an image of SQL Server bu
 | **Move SQL VM to different region** | Use Azure Site Recovery to [migrate your SQL Server VM from one region to another](virtual-machines-windows-sql-move-different-region.md). |
 | &nbsp; | &nbsp; |
 
-## June 2019
+### June 2019
 
 
 | Changes | Details |
@@ -65,7 +76,7 @@ Azure allows you to deploy a virtual machine (VM) with an image of SQL Server bu
 | &nbsp; | &nbsp; |
 
 
-## May 2019
+### May 2019
 
 | Changes | Details |
 | --- | --- |
@@ -74,7 +85,7 @@ Azure allows you to deploy a virtual machine (VM) with an image of SQL Server bu
 
 
 
-## April 2019
+### April 2019
 
 | Changes | Details |
 | --- | --- |
@@ -82,7 +93,7 @@ Azure allows you to deploy a virtual machine (VM) with an image of SQL Server bu
 | &nbsp; | &nbsp; |
 
 
-## March 2019
+### March 2019
 
 | Changes | Details |
 | --- | --- |
@@ -92,7 +103,7 @@ Azure allows you to deploy a virtual machine (VM) with an image of SQL Server bu
 | &nbsp; | &nbsp; |
 
 
-## February 2019
+### February 2019
 
 | Changes | Details |
 | --- | --- |
