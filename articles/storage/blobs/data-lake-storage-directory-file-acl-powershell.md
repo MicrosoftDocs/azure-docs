@@ -341,10 +341,10 @@ $Id = "xxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 # Get the directory ACL
 $acl = (Get-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $dirname).ACL
 
-# Create the new ACL object that will be update to server 
+# Create the new ACL object.
 [Collections.Generic.List[System.Object]]$aclnew =$acl
 
-# Remove the ACL entries that will be added later to avoid duplicate
+# To avoid duplicate ACL, remove the ACL entries that will be added later.
 foreach ($a in $aclnew)
 {
     if ($a.AccessControlType -eq "group" -and $a.DefaultScope -eq $true-and $a.EntityId -eq $id)
@@ -354,10 +354,10 @@ foreach ($a in $aclnew)
     }
 }
 
-# Add Acl Entries
+# Add ACL Entries
 $aclnew = New-AzDataLakeGen2ItemAclObject -AccessControlType group -EntityId $id -Permission "-wx" -DefaultScope -InputObject $aclnew
 
-# Update to Server
+# Update ACL on server
 Update-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $dirname -Acl $aclnew  
 
 ```
@@ -372,10 +372,10 @@ $Id = "xxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 # Get the file ACL
 $acl = (Get-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $fileName).ACL
 
-# Create the new ACL object that will be update to server 
+# Create the new ACL object.
 [Collections.Generic.List[System.Object]]$aclnew =$acl
 
-# Remove the ACL entries that will be added later to avoid duplicate
+# To avoid duplicate ACL, remove the ACL entries that will be added later.
 foreach ($a in $aclnew)
 {
     if ($a.AccessControlType -eq "group" -and $a.DefaultScope -eq $true-and $a.EntityId -eq $id)
@@ -385,10 +385,10 @@ foreach ($a in $aclnew)
     }
 }
 
-# Add Acl Entries
+# Add ACL Entries
 $aclnew = New-AzDataLakeGen2ItemAclObject -AccessControlType group -EntityId $id -Permission "-wx" -DefaultScope -InputObject $aclnew
 
-# Update to Server
+# Update ACL on server
 Update-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $fileName -Acl $aclnew 
 
 ```
