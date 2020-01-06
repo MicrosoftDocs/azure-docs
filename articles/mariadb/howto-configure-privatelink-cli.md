@@ -70,7 +70,7 @@ Create a Azure Database for MariaDB with the az sql server create command. R
 # Create a logical server in the resource group 
 az MariaDB server create \
 --name mydemoserver \
---resource-group myresourcegroup \
+--resource-group myResourcegroup \
 --location westeurope \
 --admin-user mylogin \
 --admin-password <server_admin_password> \
@@ -89,7 +89,7 @@ az network private-endpoint create \
     --vnet-name myVirtualNetwork  \  
     --subnet mySubnet \  
     --private-connection-resource-id "<MariaDB Server ID>" \  
-    --group-ids MariaDBServer \  
+    --group-ids mariadbServer \  
     --connection-name myConnection  
  ```
 
@@ -113,8 +113,8 @@ az resource show --ids $networkInterfaceId --api-version 2019-04-01 -o json
  
  
 #Create DNS records 
-az network private-dns record-set a create --name myserver --zone-name privatelink.database.azure.com --resource-group myResourceGroup  
-az network private-dns record-set a add-record --record-set-name myserver --zone-name privatelink.database.windows.net --resource-group myResourceGroup -a <Private IP Address>
+az network private-dns record-set a create --name mydemoserver --zone-name privatelink.database.azure.com --resource-group myResourceGroup  
+az network private-dns record-set a add-record --record-set-name mydemoserver --zone-name privatelink.database.windows.net --resource-group myResourceGroup -a <Private IP Address>
 ```
 
 ## Connect to a VM from the internet
@@ -146,34 +146,31 @@ Connect to the VM *myVm* from the internet as follows:
 
 1. In the Remote Desktop of *myVM*, open PowerShell.
 
-2. Enter  `nslookup mydemoMariaDBsserver.MariaDB.privatelink.database.azure.com`. 
+2. Enter  `nslookup mydemoserver.mariadb.privatelink.database.azure.com`. 
 
     You'll receive a message similar to this:
     ```azurepowershell
     Server:  UnKnown
     Address:  168.63.129.16
     Non-authoritative answer:
-    Name:    mydemoMariaDBserver.MariaDB.privatelink.database.azure.com
+    Name:    mydemoserver.mariadb.privatelink.database.azure.com
     Address:  10.1.3.4
 
-3. Install [Azure Data studio](https://docs.microsoft.com/sql/azure-data-studio/download?view=sql-server-ver15).
+3. Install [MySQL Workbench](https://dev.mysql.com/doc/workbench/wb-installing-windows.html).
 
 4. In **New connection**, enter or select this information:
 
     | Setting | Value |
     | ------- | ----- |
-    | Server type| Select **MariaDB**.|
-    | Server name| Select *mydemoMariaDBserver.MariaDB.privatelink.database.azure.com* |
-    | User name | Enter username as username@servername which is provided during the MariaDB server creation. |
-    |Password |Enter a password provided during the MariaDB server creation. |
-    |SSL|Select **Required**.|
+    | Connection Name| Select the connection name of your choice.|
+    | Hostname | Select *mydemoserver.mariadb.privatelink.database.azure.com* |
+    | Username | Enter username as *username@servername* which is provided during the MariaDB server creation. |
+    | Password | Enter a password provided during the MariaDB server creation. |
     ||
 
-5. Select Connect.
+5. Select **Test Connection** or **OK**.
 
-6. Browse databases from left menu.
-
-7. (Optionally) Create or query information from the MariaDB database.
+6. (Optionally) Browse databases from left menu and Create or query information from the MariaDB database
 
 8. Close the remote desktop connection to myVm.
 
@@ -185,4 +182,4 @@ az group delete --name myResourceGroup --yes
 ```
 
 ## Next steps
-- Learn more about [What is Azure private endpoint](https://docs.microsoft.com/azure/private-link/private-endpoint-overview)
+Learn more about [What is Azure private endpoint](https://docs.microsoft.com/azure/private-link/private-endpoint-overview)

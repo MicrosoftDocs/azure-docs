@@ -21,7 +21,7 @@ For a list to PaaS services that support Private Link functionality, go to the [
 
 Data ex-filtration in Azure Database for MySQL is when an authorized user, such as a database admin is able extract data from one system and move it another location or system outside the organization. For example, the user moves the data to a storage account owned by a third party.
 
-Consider a scenario with a user running MySQL workbench inside an Azure VM connecting to an Azure Database for MySQL instance. This MySQL instance is in the West US data center. The example below shows how to limit access with public endpoints on Azure Database for MySQL using network access controls.
+Consider a scenario with a user running MySQL workbench inside an Azure VM connecting to an Azure Database for MySQL. This MySQL instance is in the West US data center. The example below shows how to limit access with public endpoints on Azure Database for MySQL using network access controls.
 
 * Disable all Azure service traffic to Azure Database for MySQL via the public endpoint by setting Allow Azure Services to OFF. Ensure no IP addresses are allowed in the server either via [firewall rules](https://docs.microsoft.com/azure/mysql/concepts-firewall-rules) or [virtual network service endpoints](https://docs.microsoft.com/azure/mysql/concepts-data-access-and-security-vnet).
 
@@ -95,4 +95,4 @@ To establish connectivity from an on-premises environment to the Azure Database 
 * [ExpressRoute circuit](https://docs.microsoft.com/azure/expressroute/expressroute-howto-linkvnet-portal-resource-manager)
 
 ## Next steps
-* For an overview of Azure Database for MySQL connectivity, see [Azure Database for MySQL Connectivity Architecture](https://docs.microsoft.com/azure/MySQL/concepts-connectivity-architecture)
+For an overview of Azure Database for MySQL connectivity, see [Azure Database for MySQL Connectivity Architecture](https://docs.microsoft.com/azure/MySQL/concepts-connectivity-architecture)

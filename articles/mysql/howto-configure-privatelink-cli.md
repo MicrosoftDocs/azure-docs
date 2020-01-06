@@ -61,7 +61,7 @@ az vm create \
   --name myVm \
   --image Win2019Datacenter
 ```
- Note the public IP address of the VM. You will use this address to connect to the VM from the internet in the next step.
+Note the public IP address of the VM. You will use this address to connect to the VM from the internet in the next step.
 
 ## Create an Azure Database for MySQL server 
 Create a Azure Database for MySQL with the az sql server create command. Remember that the name of your SQL Server must be unique across Azure, so replace the placeholder value in brackets with your own unique value: 
@@ -70,7 +70,7 @@ Create a Azure Database for MySQL with the az sql server create command. Rem
 # Create a logical server in the resource group 
 az mysql server create \
 --name mydemoserver \
---resource-group myresourcegroup \
+--resource-group myResourcegroup \
 --location westeurope \
 --admin-user mylogin \
 --admin-password <server_admin_password> \
@@ -89,7 +89,7 @@ az network private-endpoint create \
     --vnet-name myVirtualNetwork  \  
     --subnet mySubnet \  
     --private-connection-resource-id "<MySQL Server ID>" \  
-    --group-ids MySQLServer \  
+    --group-ids mysqlServer \  
     --connection-name myConnection  
  ```
 
@@ -146,7 +146,7 @@ Connect to the VM *myVm* from the internet as follows:
 
 1. In the Remote Desktop of *myVM*, open PowerShell.
 
-2. Enter  `nslookup mydemomysqlsserver.mysql.privatelink.database.azure.com`. 
+2. Enter  `nslookup mydemomysqlserver.mysql.privatelink.database.azure.com`. 
 
     You'll receive a message similar to this:
     ```azurepowershell
@@ -156,17 +156,16 @@ Connect to the VM *myVm* from the internet as follows:
     Name:    mydemomysqlserver.mysql.privatelink.database.azure.com
     Address:  10.1.3.4
 
-3. Install [Azure Data studio](https://docs.microsoft.com/sql/azure-data-studio/download?view=sql-server-ver15).
+3. Install [MySQL Workbench](https://dev.mysql.com/doc/workbench/wb-installing-windows.html).
 
 4. In **New connection**, enter or select this information:
 
     | Setting | Value |
     | ------- | ----- |
-    | Server type| Select **MySQL**.|
-    | Server name| Select *mydemomysqlserver.mysql.privatelink.database.azure.com* |
-    | User name | Enter username as username@servername which is provided during the MySQL server creation. |
-    |Password |Enter a password provided during the MySQL server creation. |
-    |SSL|Select **Required**.|
+    | Connection Name| Select the connection name of your choice.|
+    | Hostname | Select *mydemoserver.mariadb.privatelink.database.azure.com* |
+    | Username | Enter username as *username@servername* which is provided during the MariaDB server creation. |
+    | Password | Enter a password provided during the MariaDB server creation. |
     ||
 
 5. Select Connect.

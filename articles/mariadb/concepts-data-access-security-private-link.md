@@ -31,13 +31,13 @@ Consider a scenario with a user running MariaDB workbench inside an Azure VM con
     * Specify an NSG rule to allow traffic for Service Tag = SQL.WestUs - only allowing connection to Azure Database for MariaDB in West US
     * Specify an NSG rule (with a higher priority) to deny traffic for Service Tag = SQL - denying connections to MariaDB Database in all regions</br></br>
 
-At the end of this setup, the Azure VM can connect only to Azure Database for MariaDB in the West US region. However, the connectivity isn't restricted to a single Azure Database for MariaDB Single server. The VM can still connect to any Azure Database for MariaDB in the West US region, including the databases that aren't part of the subscription. While we've reduced the scope of data exfiltration in the above scenario to a specific region, we haven't eliminated it altogether.</br>
+At the end of this setup, the Azure VM can connect only to Azure Database for MariaDB in the West US region. However, the connectivity isn't restricted to a single Azure Database for MariaDB. The VM can still connect to any Azure Database for MariaDB in the West US region, including the databases that aren't part of the subscription. While we've reduced the scope of data exfiltration in the above scenario to a specific region, we haven't eliminated it altogether.</br>
 
-With Private Link, customers can now set up network access controls like NSGs to restrict access to the private endpoint. Individual Azure PaaS resources are then mapped to specific private endpoints. A malicious insider can only access the mapped PaaS resource (for example an Azure Database for MariaDB Single server) and no other resource.
+With Private Link, customers can now set up network access controls like NSGs to restrict access to the private endpoint. Individual Azure PaaS resources are then mapped to specific private endpoints. A malicious insider can only access the mapped PaaS resource (i.e. an Azure Database for MariaDB) and no other resource.
 
 ## On-premises connectivity over private peering
 
-When customers connect to the public endpoint from on-premises machines, their IP address needs to be added to the IP-based firewall using a Server-level firewall rule. While this model works well for allowing access to individual machines for dev or test workloads, it's difficult to manage in a production environment.
+When customers connect to the public endpoint from on-premises machines, their IP address needs to be added to the IP-based firewall using a server-level firewall rule. While this model works well for allowing access to individual machines for dev or test workloads, it's difficult to manage in a production environment.
 
 With Private Link, customers can enable cross-premises access to the private endpoint using ExpressRoute, private peering, or VPN tunneling. Customers can then disable all access via the public endpoint and not use the IP-based firewall to allow any IP addresses.
 
@@ -54,7 +54,7 @@ Private Endpoints can be created using:
 * [CLI](https://docs.microsoft.com/azure/private-link/create-private-endpoint-cli)
 
 ### Approval Process
-Once the network admin creates the Private Endpoint (PE), the MariaDB admin can manage the Private Endpoint Connection (PEC) to Azure Database for MariaDB.
+Once the network admin creates the Private Endpoint (PE), the admin can manage the Private Endpoint Connection (PEC) to Azure Database for MariaDB.
 
 * Navigate to the Azure Database for MariaDB server resource in the Azure portal. 
     * Select the Private endpoint connections in the left pane
@@ -95,4 +95,4 @@ To establish connectivity from an on-premises environment to the Azure Database 
 * [ExpressRoute circuit](https://docs.microsoft.com/azure/expressroute/expressroute-howto-linkvnet-portal-resource-manager)
 
 ## Next steps
-* For an overview of Azure Database for MariaDB connectivity, see [Azure Database for MariaDB Connectivity Architecture](https://docs.microsoft.com/azure/MariaDB/concepts-connectivity-architecture)
+For an overview of Azure Database for MariaDB connectivity, see [Azure Database for MariaDB Connectivity Architecture](https://docs.microsoft.com/azure/MariaDB/concepts-connectivity-architecture)

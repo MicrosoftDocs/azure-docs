@@ -96,7 +96,7 @@ In this section, you will create an Azure Database for MySQL server in Azure.
 
 1. On the upper-left side of the screen in the Azure portal, select **Create a resource** > **Databases** > **Azure Database for MySQL**.
 
-1. In **Azure Database for MySQL deployment option**, select **Single server** and provide these information:
+1. In **Azure Database for MySQL** provide these information:
 
     | Setting | Value |
     | ------- | ----- |
@@ -104,7 +104,7 @@ In this section, you will create an Azure Database for MySQL server in Azure.
     | Subscription | Select your subscription. |
     | Resource group | Select **myResourceGroup**. You created this in the previous section.|
     | **Server details** |  |
-    |Server name  | Enter *myserver*. If this name is taken, create a unique name.|
+    |Server name  | Enter *myServer*. If this name is taken, create a unique name.|
     | Admin username| Enter an administrator name of your choosing. |
     | Password | Enter a password of your choosing. The password must be at least 8 characters long and meet the defined requirements. |
     | Location | Select an Azure region where you want to want your MySQL Server to reside. |
@@ -143,7 +143,7 @@ In this section, you will create a SQL server and add a private endpoint to it.
     | Subscription| Select your subscription. |
     | Resource type | Select **Microsoft.DBforMySQL/servers**. |
     | Resource |Select *myServer*|
-    |Target sub-resource |Select *MySQLServer*|
+    |Target sub-resource |Select *mysqlServer*|
     |||
 7. Select **Next: Configuration**.
 8. In **Create a private endpoint (Preview) - Configuration**, enter or select this information:
@@ -191,14 +191,14 @@ After you've created **myVm**, connect to it from the internet as follows:
 
 1. In the Remote Desktop of *myVM*, open PowerShell.
 
-2. Enter `nslookup mydemomysqlserver.database.azure.com`. 
+2. Enter `nslookup  myServer.mysql.privatelink.database.azure.com`. 
 
     You'll receive a message similar to this:
     ```azurepowershell
     Server:  UnKnown
     Address:  168.63.129.16
     Non-authoritative answer:
-    Name:    mydemomysqlserver.mysql.privatelink.database.azure.com
+    Name:    myServer.mysql.privatelink.database.azure.com
     Address:  10.1.3.4
 
 3. Install [Azure Data studio](https://docs.microsoft.com/sql/azure-data-studio/download?view=sql-server-ver15).
@@ -208,7 +208,7 @@ After you've created **myVm**, connect to it from the internet as follows:
     | Setting | Value |
     | ------- | ----- |
     | Server type| Select **MySQL**.|
-    | Server name| Select *mydemomysqlserver.mysql.privatelink.database.azure.com* |
+    | Server name| Select *myServer.mysql.privatelink.database.azure.com* |
     | User name | Enter username as username@servername which is provided during the MySQL server creation. |
     |Password |Enter a password provided during the MySQL server creation. |
     |SSL|Select **Required**.|

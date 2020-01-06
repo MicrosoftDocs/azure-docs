@@ -96,7 +96,7 @@ In this section, you will create an Azure Database for MariaDB server in Azure.
 
 1. On the upper-left side of the screen in the Azure portal, select **Create a resource** > **Databases** > **Azure Database for MariaDB**.
 
-1. In **Azure Database for MariaDB deployment option**, select **Single server** and provide these information:
+1. In **Azure Database for MariaDB** provide these information:
 
     | Setting | Value |
     | ------- | ----- |
@@ -119,7 +119,7 @@ In this section, you will create an Azure Database for MariaDB server in Azure.
 
 ## Create a private endpoint
 
-In this section, you will create a SQL server and add a private endpoint to it. 
+In this section, you will create a private endpoint to the MariaDB server to it. 
 
 1. On the upper-left side of the screen in the Azure portal, select **Create a resource** > **Networking** > **Private Link Center (Preview)**.
 2. In **Private Link Center - Overview**, on the option to **Build a private connection to a service**, select **Start**.
@@ -143,7 +143,7 @@ In this section, you will create a SQL server and add a private endpoint to it.
     | Subscription| Select your subscription. |
     | Resource type | Select **Microsoft.DBforMariaDB/servers**. |
     | Resource |Select *myServer*|
-    |Target sub-resource |Select *MariaDBServer*|
+    |Target sub-resource |Select *mariadbServer*|
     |||
 7. Select **Next: Configuration**.
 8. In **Create a private endpoint (Preview) - Configuration**, enter or select this information:
@@ -191,7 +191,7 @@ After you've created **myVm**, connect to it from the internet as follows:
 
 1. In the Remote Desktop of *myVM*, open PowerShell.
 
-2. Enter `nslookup mydemoMariaDBserver.database.azure.com`. 
+2. Enter `nslookup mydemomserver.MariaDB.privatelink.database.azure.com`. 
 
     You'll receive a message similar to this:
     ```azurepowershell
@@ -208,19 +208,17 @@ After you've created **myVm**, connect to it from the internet as follows:
     | Setting | Value |
     | ------- | ----- |
     | Server type| Select **MariaDB**.|
-    | Server name| Select *mydemoMariaDBserver.MariaDB.privatelink.database.azure.com* |
+    | Server name| Select *mydemoserver.MariaDB.privatelink.database.azure.com* |
     | User name | Enter username as username@servername which is provided during the MariaDB server creation. |
     |Password |Enter a password provided during the MariaDB server creation. |
     |SSL|Select **Required**.|
     ||
 
-5. Select Connect.
+5. Select **Test Connection** or **OK**.
 
-6. Browse databases from left menu.
+6. (Optionally) Browse databases from left menu and Create or query information from the MariaDB database
 
-7. (Optionally) Create or query information from the MariaDB database.
-
-8. Close the remote desktop connection to myVm.
+7. Close the remote desktop connection to myVm.
 
 ## Clean up resources
 When you're done using the private endpoint, MariaDB server, and the VM, delete the resource group and all of the resources it contains:
