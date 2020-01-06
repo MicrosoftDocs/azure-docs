@@ -44,8 +44,8 @@ Health probe configuration consists out of the following elements:
 - Port of the probe
 - HTTP path to use for HTTP GET when using HTTP(S) probes
 
-> [!NOTE]
-> A probe definition is not mandatory or checked for when using Azure PowerShell, Azure CLI, Templates or API. Probe validation tests are only done when using the Azure Portal.
+>[!NOTE]
+>A probe definition is not mandatory or checked for when using Azure PowerShell, Azure CLI, Templates or API. Probe validation tests are only done when using the Azure Portal.
 
 ## Understanding application signal, detection of the signal, and reaction of the platform
 
