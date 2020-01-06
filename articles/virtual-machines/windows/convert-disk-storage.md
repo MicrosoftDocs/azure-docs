@@ -117,7 +117,7 @@ Follow these steps:
 6. Change the **Account type** from **Standard HDD** to **Premium SSD**.
 7. Click **Save**, and close the disk pane.
 
-The disk type conversion is instantaneous. You can restart your VM after the conversion.
+The disk type conversion is instantaneous. You can start your VM after the conversion.
 
 ## Switch managed disks between Standard HDD and Standard SSD 
 
