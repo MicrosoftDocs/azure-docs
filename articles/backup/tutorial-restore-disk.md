@@ -213,7 +213,7 @@ Now get the SAS token for this container and template as detailed [here](https:/
 expiretime=$(date -u -d '30 minutes' +%Y-%m-%dT%H:%MZ)
 connection=$(az storage account show-connection-string \
     --resource-group mystorageaccountRG \
-    --name {your-unique-name} \
+    --name mystorageaccount \
     --query connectionString)
 token=$(az storage blob generate-sas \
     --container-name myVM-daa1931199fd4a22ae601f46d8812276 \
