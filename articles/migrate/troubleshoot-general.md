@@ -15,11 +15,11 @@ ms.author: hamusa
 
 ## How do I create or find a project?
 
-Review the [Azure Migrate project troubleshooting guide](troubleshooting-project.md).
+Review the [Azure Migrate project troubleshooting guide](troubleshoot-project.md).
 
 ## I can't get the appliance working
 
-Review [answers to common issues](troubleshooting-appliance-discovery.md) with appliance deployment.
+Review [answers to common issues](troubleshoot-appliance-discovery.md) with appliance deployment.
 
 ## Machines aren't discovered
 
@@ -27,8 +27,8 @@ Review common discovery issues.
 
 ## App-discovery isn't working
 
-Discovery of apps, roles, and features running on on-premises machines is currently only supported for VMware VMs. [Review common errors](troubleshooting-appliance-discovery.md#common-app-discovery-errors) for app-discovery.
+Discovery of apps, roles, and features running on on-premises machines is currently only supported for VMware VMs. [Review common errors](troubleshoot-appliance-discovery.md#common-app-discovery-errors) for app-discovery.
 
 ## Assessment isn't working
 
-[Review](troubleshooting-assessment.md) common assessment issues and errors.
+[Review](troubleshoot-assessment.md) common assessment issues and errors.
