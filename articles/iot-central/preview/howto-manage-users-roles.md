@@ -209,6 +209,9 @@ When you define a custom role, you choose the set of permissions that a user is 
 | Delete | View   |
 | Full Control | View, Update, Create, Delete |
 
+> [!NOTE]
+> If your dasbhoards include device telemetry tiles, you must also grant users **Device Instance : Read (or higher)** permission in order to view the corresponding device telemetry in the tiles.
+
 **Personal dashboards permissions**
 
 | Name | Dependencies |
@@ -218,6 +221,9 @@ When you define a custom role, you choose the set of permissions that a user is 
 | Create | View, Update   |
 | Delete | View   |
 | Full Control | View, Update, Create, Delete |
+
+> [!NOTE]
+> If your dasbhoards include device telemetry tiles, you must also grant users **Device Instance : Read Read (or higher)** permission in order to view the corresponding device telemetry in the tiles.
 
 **Branding, favicon, and colors permissions**
 
