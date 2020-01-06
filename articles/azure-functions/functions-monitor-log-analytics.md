@@ -21,7 +21,7 @@ Azure Monitor uses a version of the [Kusto query language](/azure/kusto/query/) 
 
 ## Setting up
 
-From the **Monitoring** section of your function's App Service, select **Diagnostic settings** and then click **Add diagnostic setting**.
+From the **Monitoring** section, select **Diagnostic settings** and then click **Add diagnostic setting**.
 
 ![Add a diagnostic setting](media/functions-monitor-log-analytics/diagnostic-settings-add.png)
 
