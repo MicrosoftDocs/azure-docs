@@ -76,7 +76,7 @@ The following sample *host.json* file has all possible options specified (exclud
             "enableLiveMetrics": true,
             "enableDependencyTracking": true,
             "enablePerformanceCountersCollection": true,            
-            "httpAutoCollectionOptions" {
+            "httpAutoCollectionOptions": {
                 "enableHttpTriggerExtendedInfoCollection": true,
                 "enableW3CDistributedTracing": true,
                 "enableResponseHeaderInjection": true
