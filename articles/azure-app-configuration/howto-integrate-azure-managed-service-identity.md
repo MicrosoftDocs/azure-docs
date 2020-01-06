@@ -72,9 +72,6 @@ To set up a managed identity in the portal, you first create an application and 
 
 ## Use a managed identity
 
- > [!IMPORTANT]
- > `CreateHostBuilder` replaces `CreateWebHostBuilder` in .NET Core 3.0.  Select the correct syntax based on your environment.
-
 1. Add a reference to the *Azure.Identity* package:
 
     ```cli
@@ -131,7 +128,7 @@ To set up a managed identity in the portal, you first create an application and 
             })
             .UseStartup<Startup>());
 ```
-
+---
 
 4. To use both App Configuration values and Key Vault references, update *Program.cs* as shown below. This code creates a new `KeyVaultClient` using an `AzureServiceTokenProvider` and passes this reference to a call to the `UseAzureKeyVault` method.
 
@@ -167,6 +164,7 @@ To set up a managed identity in the portal, you first create an application and 
                 })
                 .UseStartup<Startup>());
 ```
+---
 
 You can now access Key Vault references just like any other App Configuration key. The config provider will use the `KeyVaultClient` that you configured to authenticate to Key Vault and retrieve the value.
 
