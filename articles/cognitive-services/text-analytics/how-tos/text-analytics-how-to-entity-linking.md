@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 12/31/2019
+ms.date: 01/06/2019
 ms.author: aahi
 ---
 
@@ -38,7 +38,7 @@ The Text Analytics API offers two versions of Named Entity Recognition - v2 and 
 | Separate endpoints for sending entity linking and NER requests. |        | X      |
 | Model versioning                                                |        | X      |
 
-See [language support](../language-support.md#sentiment-analysis-key-phrase-extraction-and-named-entity-recognition)for information.
+See [language support](../language-support.md#sentiment-analysis-key-phrase-extraction-and-named-entity-recognition) for information.
 
 #### [Version 2](#tab/version-2)
 
@@ -122,17 +122,17 @@ Create a POST request. You can [use Postman](text-analytics-how-to-call-api.md) 
 
 #### [Version 2](#tab/version-2)
 
-[Named Entity Linking v2 reference](https://eastus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634)
+[Named Entity Recognition v2 reference](https://eastus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634)
 
 #### [Version 3](#tab/version-3)
 
-[Named Entity Linking v3 reference](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-Preview-1/operations/EntitiesRecognitionGeneral)
+[Named Entity Recognition v3 reference](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-Preview-1/operations/EntitiesRecognitionGeneral)
 
 ---
 
-Set the endpoint by using either a Text Analytics resource on Azure or an instantiated [Text Analytics container](text-analytics-how-to-install-containers.md). You must include the correct URL for the version you want to use.
-
 [!INCLUDE [text-analytics-find-resource-information](../includes/find-azure-resource-info.md)]
+
+### Endpoints
 
 #### [Version 2](#tab/version-2)
 
