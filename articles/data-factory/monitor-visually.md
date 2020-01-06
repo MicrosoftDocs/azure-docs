@@ -1,4 +1,4 @@
-﻿---
+---
 title: Visually monitor Azure Data Factory 
 description: Learn how to visually monitor Azure data factories
 services: data-factory
@@ -111,7 +111,7 @@ You can rerun activities inside a pipeline. Select **View activity runs**, and t
 
 ### Rerun from failed activity
 
-If an activity fails, times out, or is cancelled, you can rerun the pipeline from that failed activity by selecting **Rerun from failed activity**.
+If an activity fails, times out, or is canceled, you can rerun the pipeline from that failed activity by selecting **Rerun from failed activity**.
 
 ![Rerun failed activity](media/monitor-visually/rerun-failed-activity.png)
 
