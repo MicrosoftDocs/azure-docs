@@ -1,6 +1,6 @@
 ---
 title: Resource Manager Architecture 
-description: An architectural overview of Service Fabric Cluster Resource Manager.
+description: An overview of and architectural information about the Azure Service Fabric Cluster Resource Manager service.
 author: masnider
 
 ms.topic: conceptual

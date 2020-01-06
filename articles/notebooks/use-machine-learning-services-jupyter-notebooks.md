@@ -1,7 +1,7 @@
 ---
 title: Use Azure Machine Learning in Azure Notebooks
 description: An overview of the sample notebooks for Azure Machine Learning that you can use with Azure Notebooks.
-ms.topic: article
+ms.topic: how-to
 ms.date: 12/04/2018
 ---
 
