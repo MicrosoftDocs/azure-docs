@@ -30,7 +30,7 @@ The following controls are used in the Azure Security Benchmark:
 - Malware Defense 
 - Data Recovery 
 - Incident Response 
-- Penetration Tests and Red Teaming 
+- Penetration Tests and Red Team Exercises
 
 ## Azure Security Benchmark Recommendations 
 
