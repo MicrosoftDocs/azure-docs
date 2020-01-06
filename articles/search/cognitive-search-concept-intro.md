@@ -112,7 +112,7 @@ Indexes are generated from an index schema that defines the fields, attributes, 
 | Data Source  | An object used by an indexer to connect to an external data source of supported types on Azure. | See [Indexers overview](search-indexer-overview.md) |
 | Index | A persisted search index in Azure Cognitive Search, built from an index schema that defines field structure and usage. | See [Create a basic index](search-what-is-an-index.md) | 
 | Knowledge store | A storage account where the enriched documents can be shaped and projected in addition to the search index | See [Introduction to knowledge store](knowledge-store-concept-intro.md) | 
-| Indexer cache | A storage account that stores enrichment output created by an indexer. The cache enables the indexer to minimize the cost of reprocessing a large number of enriched documents when a skillset is edited. | See [Incremental enrichment](cognitive-search-incremental-indexing-conceptual.md) | 
+| Cache | A storage account that contains cached output created by an enrichment pipeline. Enabling the cache preserves existing output that is unaffected by changes to a skillset or other components of the enrichment pipeline. | See [Incremental enrichment](cognitive-search-incremental-indexing-conceptual.md) | 
 
 <a name="where-do-i-start"></a>
 

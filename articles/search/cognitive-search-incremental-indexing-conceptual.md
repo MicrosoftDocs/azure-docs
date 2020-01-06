@@ -8,7 +8,7 @@ author: Vkurpad
 ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 12/31/2019
+ms.date: 01/06/2020
 ---
 
 # Introduction to incremental enrichment in Azure Cognitive Search
@@ -47,11 +47,11 @@ You'll need to set the `cache` property on the indexer to start benefitting from
 }
 ```
 
-Setting this property for the first time on an existing indexer will require you to reset and rerun the indexer, which will result in all documents in your data source being processed again. Consistency of output relative to the state of the skillset is a goal of incremental enrichment. Resetting the index is the first step toward this consistency as it eliminates any documents enriched by previous versions of the skillset. 
+Setting this property for the first time on an existing indexer will require you to reset and rerun the indexer, which will result in all documents in your data source being processed again. Resetting the indexer eliminates any documents enriched by previous versions of the skillset. 
 
 ### Cache lifecycle
 
-The lifecycle of the cache is managed by the indexer. If the `cache` property on the indexer is set to null or the connection string changed, the existing cache is deleted. The cache lifecycle is also tied to the indexer lifecycle. If an indexer is deleted, the associated cache is also deleted.
+The lifecycle of the cache is managed by the indexer. If the `cache` property on the indexer is set to null or the connection string is changed, the existing cache is deleted. The cache lifecycle is also tied to the indexer lifecycle. If an indexer is deleted, the associated cache is also deleted.
 
 ### Indexer cache mode
 
@@ -73,7 +73,7 @@ PUT https://customerdemos.search.windows.net/skillsets/callcenter-text-skillset?
 
 The converse of that scenario is one where you may deploy a new version of a custom skill; nothing within the enrichment pipeline changes, but you need a specific skill invalidated and all affected documents reprocessed to reflect the benefits of an updated model. In such instances, you can call the invalidate skills operation on the skillset. The Update Skillset API accepts a POST request with the list of skill outputs in the cache that should be invalidated. For more information, see [Update Skillset](https://docs.microsoft.com/rest/api/searchservice/update-skillset).
 
-## Bi-directional change detection
+## Change detection
 
 Indexers not only move forward and process new documents, but are now able to move backwards and drive previously processed documents to consistency. With this new capability, it's important to understand how changes to your enrichment pipeline impact indexer workflows. The indexer will queue work to be done when it identifies a change that is either invalidating or inconsistent relative to the cached content.
 

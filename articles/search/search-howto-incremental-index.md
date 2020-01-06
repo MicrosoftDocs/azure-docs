@@ -17,15 +17,15 @@ ms.date: 01/06/2020
 > Incremental enrichment is currently in public preview. This preview version is provided without a service level agreement, and it's not recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
 > The [REST API version 2019-05-06-Preview](search-api-preview.md) provides this feature. There is no portal or .NET SDK support at this time.
 
-This article shows you how to add caching to an enrichment pipeline so that you can incrementally modify steps without having to rebuild every time. By default, a skillset is stateless, and changing any part of its composition requires a full rerun of the indexer. With incremental enrichment, the indexer can determine which parts of the documents need to be refreshed, preserving any existing output that is otherwise unaffected. 
+This article shows you how to add caching to an enrichment pipeline so that you can incrementally modify steps without having to rebuild every time. By default, a skillset is stateless, and changing any part of its composition requires a full rerun of the indexer. With incremental enrichment, the indexer can determine which parts of the document tree need to be refreshed, preserving any existing output that is otherwise unaffected your edit. 
 
-Cached content is placed in Azure Storage using account information that you provide. The container, named `ms-az-search-indexercache-<alpha-numerc-string>`, is created when you run the indexer. It should be considered an internal component and must not be modified.
+Cached content is placed in Azure Storage using account information that you provide. The container, named `ms-az-search-indexercache-<alpha-numerc-string>`, is created when you run the indexer. It should be considered an internal component managed by your search service and must not be modified.
 
 If you're not familiar with setting up indexers, start with [indexer overview](search-indexer-overview.md) and then continue on to [skillsets](cognitive-search-working-with-skillsets.md) to learn about enrichment pipelines. For more background on key concepts, see [incremental enrichment](cognitive-search-incremental-indexing-conceptual.md).
 
 ## Add to an existing indexer
 
-If you have an existing indexer that has a skillset, follow the steps in this section to add caching. As a one-time operation, you will have to reset and rerun the indexer before incremental processing can take effect.
+If you have an existing indexer that already has a skillset, follow the steps in this section to add caching. As a one-time operation, you will have to reset and rerun the indexer before incremental processing can take effect.
 
 ### Step 1: Get the indexer definition
 
@@ -39,7 +39,7 @@ api-key: [YOUR-ADMIN-KEY]
 
 Copy the indexer definition from the response.
 
-### Step 2: Modify the cache property
+### Step 2: Modify the cache property in the indexer definition
 
 By default the `cache` property is null. Modify the cache object to include required and optional properties. 
 
@@ -112,6 +112,8 @@ If you now issue another GET request on the indexer, the response from the servi
 In the Azure portal, verify that incremental enrichment is working and that you have a new container in Azure Blob storage to store the cache. The container is created after you modify a skillset and rerun the indexer. 
 
 To modify a skillset, you can use the portal to edit the JSON definition. For example, if you are using language detection, a simple inline change from `en` to `es` or another language is sufficient for proof-of-concept testing of incremental enrichment.
+
+### Step 6: Run the indexer
 
 To run indexer, you can also use the portal. From the indexers list, select the indexer and click **Run**.
 
