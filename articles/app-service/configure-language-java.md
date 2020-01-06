@@ -311,7 +311,7 @@ Product support for the [Azure-supported Azul Zulu JDK](https://www.azul.com/dow
 
 ### Runtime support
 
-Developers can [open an issue](/azure/azure-supportability/how-to-create-azure-support-request) with the Azul Zulu JDKs through Azure Support if they have a [qualified support plan](https://azure.microsoft.com/support/plans/).
+Developers can [open an issue](/azure/azure-portal/supportability/how-to-create-azure-support-request) with the Azul Zulu JDKs through Azure Support if they have a [qualified support plan](https://azure.microsoft.com/support/plans/).
 
 ## Next steps
 

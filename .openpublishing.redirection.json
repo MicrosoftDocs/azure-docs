@@ -3921,6 +3921,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/azure-supportability/index.yml",
+      "redirect_url": "/azure/azure-portal/supportability/how-to-create-azure-support-request",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/azure-toolkit-for-eclipse-debugging-azure-applications.md",
       "redirect_url": "/java/azure/eclipse/azure-toolkit-for-eclipse",
       "redirect_document_id": false

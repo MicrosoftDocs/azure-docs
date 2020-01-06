@@ -19,7 +19,7 @@ For **Spot quota** type, Resource Manager vCPU quotas are enforced across all av
 
 Anytime a new Spot VM is to be deployed, the sum of new and existing vCPUs usage for all Spot VM instances must not exceed the approved Spot vCPU quota limit. If the Spot quota is exceeded, the Spot VM deployment will not be allowed. You can request an increase of the Spot vCPUs quota limit from Azure portal. 
 
-Learn more about standard vCPU quotas on the Virtual machine vCPU quotas page and Azure subscription and service limits page. Learn more about increasing the regional vCPU limit for standard quota on this [page](https://docs.microsoft.com/azure/azure-supportability/regional-quota-requests).
+Learn more about standard vCPU quotas on the Virtual machine vCPU quotas page and Azure subscription and service limits page. Learn more about increasing the regional vCPU limit for standard quota on this [page](https://docs.microsoft.com/azure/azure-portal/supportability/regional-quota-requests).
 
 You can now request an increase in **Spot quota limits for all VM Series** via **Help + Support** blade or the **Usages + Quota** blade in the portal.
 
@@ -58,7 +58,7 @@ You can also **request Quota for multiple regions** through a single support cas
 
 ![Provide details](./media/resource-manager-core-quotas-request/3-7.png)
 
-8. For the selected location, select **Type** value as **‘Spot’**. You can request both Standard and Spot quota types from a single support case through multi-selection support on the **Type** field. Learn more about **increasing Standard quota per VM Series** on this [page](https://docs.microsoft.com/azure/azure-supportability/per-vm-quota-requests).
+8. For the selected location, select **Type** value as **‘Spot’**. You can request both Standard and Spot quota types from a single support case through multi-selection support on the **Type** field. Learn more about **increasing Standard quota per VM Series** on this [page](https://docs.microsoft.com/azure/azure-portal/supportability/per-vm-quota-requests).
 
 ![Provide details](./media/resource-manager-core-quotas-request/3-8.png)
 
@@ -102,7 +102,7 @@ You can also **request Quota for multiple regions** through a single support cas
 
   ![Fill in form](./media/resource-manager-core-quotas-request/3-2-6.png)
  
-7.	For the selected location, select **Type** value as **‘Spot’.** You can request both Standard and Spot quota types from a single support case through multi-selection support on the **Type** field. Learn more about **increasing standard quota per VM Series** on this [page](https://docs.microsoft.com/azure/azure-supportability/per-vm-quota-requests).
+7.	For the selected location, select **Type** value as **‘Spot’.** You can request both Standard and Spot quota types from a single support case through multi-selection support on the **Type** field. Learn more about **increasing standard quota per VM Series** on this [page](https://docs.microsoft.com/azure/azure-portal/supportability/per-vm-quota-requests).
 
   ![Fill in form](./media/resource-manager-core-quotas-request/3-2-7.png)
  
