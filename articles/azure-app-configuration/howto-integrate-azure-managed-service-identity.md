@@ -12,13 +12,13 @@ ms.author: lcozzens
 ---
 # Integrate with Azure Managed Identities
 
-Azure Active Directory [managed identities](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) help simplify secrets management for your cloud application. With a managed identity, you can set up your code to use the service principal that was created for the Azure service it runs on. You use a managed identity instead of a separate credential stored in Azure Key Vault or a local connection string. 
+Azure Active Directory [managed identities](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) help simplify secrets management for your cloud application. With a managed identity, your code can use the service principal that was created for the Azure service it runs on. You use a managed identity instead of a separate credential stored in Azure Key Vault or a local connection string. 
 
 Azure App Configuration and its .NET Core, .NET Framework, and Java Spring client libraries have managed identity support built into them. Although you aren't required to use it, the managed identity eliminates the need for an access token that contains secrets. Your code can access the App Configuration store using only the service endpoint. You can embed this URL in your code directly without the concern of exposing any secret.
 
 This tutorial shows how you can take advantage of the managed identity to access App Configuration. It builds on the web app introduced in the quickstarts. Before you continue, finish [Create an ASP.NET Core app with App Configuration](./quickstart-aspnet-core-app.md) first.
 
-In addition, this tutorial optionally shows how you can use the managed identity in conjunction with App Configuration's Key Vault references. This allows you to seamlessly access secrets stored in Key Vault as well as configuration values in App Configuration. If you wish to explore this capability, finish [Use Key Vault References with ASP.NET Core](./use-key-vault-references-dotnet-core.md) first.
+This tutorial also shows how you can use the managed identity in conjunction with App Configuration's Key Vault references. With a single managed identity, you can seamlessly access both secrets from Key Vault and configuration values from App Configuration. If you wish to explore this capability, finish [Use Key Vault References with ASP.NET Core](./use-key-vault-references-dotnet-core.md) first.
 
 You can use any code editor to do the steps in this tutorial. [Visual Studio Code](https://code.visualstudio.com/) is an excellent option available on the Windows, macOS, and Linux platforms.
 
@@ -81,7 +81,7 @@ To set up a managed identity in the portal, you first create an application and 
     dotnet add package Azure.Identity --version 1.1.0
     ```
 
-1. Find the URL to your App Configuration store by going into its configuration screen in the Azure portal, then clicking on the **Access Keys** tab.
+1. Find the endpoint to your App Configuration store. This URL is listed on the **Access keys** tab for the store in the Azure portal.
 
 1. Open *appsettings.json*, and add the following script. Replace *\<service_endpoint>*, including the brackets, with the URL to your App Configuration store. 
 
@@ -133,7 +133,7 @@ To set up a managed identity in the portal, you first create an application and 
 ```
 
 
-4. If you wish to use App Configuration values as well as Key Vault references, open *Program.cs*, and update the `CreateWebHostBuilder` method as shown below. This creates a new `KeyVaultClient` using an `AzureServiceTokenProvider` and passes this reference to a call to the `UseAzureKeyVault` method.
+4. To use both App Configuration values and Key Vault references, update *Program.cs* as shown below. This code creates a new `KeyVaultClient` using an `AzureServiceTokenProvider` and passes this reference to a call to the `UseAzureKeyVault` method.
 
 ### [.NET Core 2.x](#tab/core2x)
 
@@ -181,7 +181,7 @@ The easiest way to enable local Git deployment for your app with the Kudu build 
 [!INCLUDE [Configure a deployment user](../../includes/configure-deployment-user-no-h.md)]
 
 ### Enable local Git with Kudu
-If you don't have a local git repository for your app, you'll need to initialize one. To do this, run the following commands from your app's project directory:
+If you don't have a local git repository for your app, you'll need to initialize one. To initialize a local git repository, run the following commands from your app's project directory:
 
 ```cmd
 git init
@@ -205,7 +205,7 @@ This command gives you something similar to the following output:
 
 ### Deploy your project
 
-Back in the _local terminal window_, add an Azure remote to your local Git repository. Replace _\<url>_ with the URL of the Git remote that you got from [Enable local Git with Kudu](#enable-local-git-with-kudu).
+In the _local terminal window_, add an Azure remote to your local Git repository. Replace _\<url>_ with the URL of the Git remote that you got from [Enable local Git with Kudu](#enable-local-git-with-kudu).
 
 ```bash
 git remote add azure <url>
@@ -231,7 +231,9 @@ http://<app_name>.azurewebsites.net
 
 ## Use managed identity in other languages
 
-App Configuration providers for .NET Framework and Java Spring also have built-in support for managed identity. In these cases, use your App Configuration store's URL endpoint instead of its full connection string when you configure a provider. For example, for the .NET Framework console app created in the quickstart, specify the following settings in the *App.config* file:
+App Configuration providers for .NET Framework and Java Spring also have built-in support for managed identity. You can use your store's URL endpoint instead of its full connection string when you configure one of these providers. 
+
+For example, you can update the .NET Framework console app created in the quickstart to specify the following settings in the *App.config* file:
 
 ```xml
     <configSections>
