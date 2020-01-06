@@ -165,7 +165,7 @@ To set up a user-assigned managed identity for your logic app, you must first cr
    Now you can add the user-assigned identity to your logic app.
 
    > [!NOTE]
-   > You can add only one user-assigned identity to your logic app.
+   > You can add *only a single* user-assigned identity to your logic app.
 
 1. In the Azure portal, find and open your logic app in Logic App Designer.
 
@@ -416,7 +416,7 @@ These steps show how to use the managed identity with a trigger or action throug
 
    ![Add an HTTP action to access an Azure resource](./media/create-managed-service-identity/http-action-example.png)
 
-1. From the **Authentication** list, select **Managed Identity**.
+1. From the **Authentication** list, select **Managed Identity**, which shows the **Managed Identity** list.
 
    ![In "Authentication" property, select "Managed Identity"](./media/create-managed-service-identity/select-managed-identity.png)
 
@@ -425,11 +425,17 @@ These steps show how to use the managed identity with a trigger or action throug
    > but appears hidden, open the **Add new parameter** list, and select **Authentication**. 
    > Not all triggers and actions let you select an authentication type. For more information, see [Add authentication to outbound calls](logic-apps-securing-a-logic-app.md#add-authentication-outbound).
 
-   After you select **Managed Identity**, the **Managed Identity** list appears.
+1. From the managed identity list, select from the available options based on your scenario.
 
-1. From the managed identity list, select either **System Assigned Managed Identity** or your user-assigned identity, based on your specific scenario. This example uses the system-assigned identity.
+   * If you set up the system-assigned identity, select **System Assigned Managed Identity** if not already selected.
 
-   ![Select either "System Assigned Managed Identity" or the user-assigned identity](./media/create-managed-service-identity/select-either-system-or-user-assigned.png)
+     ![Select "System Assigned Managed Identity"](./media/create-managed-service-identity/select-system-assigned-identity-for-action.png)
+
+   * If you set up a user-assigned identity, select that identity if not already selected.
+
+     ![Select the user-assigned identity](./media/create-managed-service-identity/select-user-assigned-identity-for-action.png)
+
+   This example continues with the **System Assigned Managed Identity**.
 
 1. On some triggers and actions, the **Audience** property also appears for you to set the target resource ID. If the **Audience** property is supported but appears hidden, open the **Add new parameter** list, and select **Audience**.
 
