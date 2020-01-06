@@ -221,7 +221,7 @@ This example assumes that you have saved the template to a file named `azuredepl
 New-AzResourceGroup -Name examplegroup -Location "East US"
 new-azresourcegroupdeployment -name exampledeployment `
   -resourcegroupname examplegroup -location "East US" `
-  -templatefile .\azuredeploy.json -workspaceName "exampleworkspace"
+  -templatefile .\azuredeploy.json -workspaceName "exampleworkspace" -sku "basic"
 ```
 
 For more information, see [Deploy resources with Resource Manager templates and Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md) and [Deploy private Resource Manager template with SAS token and Azure PowerShell](../azure-resource-manager/secure-template-with-sas-token.md).
