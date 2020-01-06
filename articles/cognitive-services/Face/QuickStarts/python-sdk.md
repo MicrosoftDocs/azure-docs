@@ -1,6 +1,6 @@
 ---
-title: "Quickstart: Face client library for Python | Microsoft Docs"
-description: This article will help you get started with the Face client library for Python to detect, find similar, identify, verify and more.
+title: "Quickstart: Face client library for Python"
+description: This quickstart will help you get started with the Face client library for Python to detect, find similar, identify, verify and more.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme

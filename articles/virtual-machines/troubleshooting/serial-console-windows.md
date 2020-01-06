@@ -26,7 +26,7 @@ Serial Console works in the same manner for VMs and virtual machine scale set in
 For serial console documentation for Linux, see [Azure Serial Console for Linux](serial-console-linux.md).
 
 > [!NOTE]
-> The Serial Console is generally available in global Azure regions. It is not yet available in Azure government or Azure China clouds.
+> The Serial Console is generally available in global Azure regions and in public preview in Azure Government. It is not yet available in the Azure China cloud.
 
 
 ## Prerequisites

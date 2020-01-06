@@ -134,7 +134,7 @@ Below is an example of a `PoolResizeCompleteEvent` entry in a `PT1H.json` log fi
 { "Tenant": "65298bc2729a4c93b11c00ad7e660501", "time": "2019-08-22T20:59:13.5698778Z", "resourceId": "/SUBSCRIPTIONS/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.BATCH/BATCHACCOUNTS/MYBATCHACCOUNT/", "category": "ServiceLog", "operationName": "PoolResizeCompleteEvent", "operationVersion": "2017-06-01", "properties": {"id":"MYPOOLID","nodeDeallocationOption":"Requeue","currentDedicatedNodes":10,"targetDedicatedNodes":100,"currentLowPriorityNodes":0,"targetLowPriorityNodes":0,"enableAutoScale":false,"isAutoPool":false,"startTime":"2019-08-22 20:50:59.522","endTime":"2019-08-22 20:59:12.489","resultCode":"Success","resultMessage":"The operation succeeded"}}
 ```
 
-For more information about the schema of diagnostic logs in the storage account, see [Archive Azure Diagnostic Logs](../azure-monitor/platform/resource-logs-collect-storage.md#schema-of-resource-logs-in-storage-account). To access the logs in your storage account programmatically, use the Storage APIs. 
+For more information about the schema of diagnostic logs in the storage account, see [Archive Azure Diagnostic Logs](../azure-monitor/platform/resource-logs-collect-storage.md#schema-of-platform-logs-in-storage-account). To access the logs in your storage account programmatically, use the Storage APIs. 
 
 ### Service Log events
 Azure Batch Service Logs, if collected, contain events emitted by the Azure Batch service during the lifetime of an individual Batch resource like a pool or task. Each event emitted by Batch is logged in JSON format. For example, this is the body of a sample **pool create event**:

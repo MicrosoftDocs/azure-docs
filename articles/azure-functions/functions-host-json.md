@@ -93,9 +93,9 @@ The following sample *host.json* file has all possible options specified (exclud
                 "isLowPrioritySnapshotUploader": true,
                 "maximumCollectionPlanSize": 50,
                 "maximumSnapshotsRequired": 3,
-                "problemCounterResetInterval": 24:00:00,
+                "problemCounterResetInterval": "24:00:00",
                 "provideAnonymousTelemetry": true,
-                "reconnectInterval": 00:15:00,
+                "reconnectInterval": "00:15:00",
                 "shadowCopyFolder": null,
                 "shareUploaderProcess": true,
                 "snapshotInLowPriorityThread": true,
@@ -131,11 +131,15 @@ The following sections of this article explain each top-level property. All are 
 
 This setting is a child of [logging](#logging).
 
-Controls the [sampling feature in Application Insights](./functions-monitoring.md#configure-sampling).
+Controls options for Application Insights, including [sampling options](./functions-monitoring.md#configure-sampling).
 
 ```json
 {
-    "applicationInsights": {
+    "applicationInsights": {        
+        "enableDependencyTracking": true,
+        "enablePerformanceCountersCollection": true,
+        "samplingExcludedTypes": "Trace;Exception",
+        "samplingIncludedTypes": "Request;Dependency",
         "samplingSettings": {
           "isEnabled": true,
           "maxTelemetryItemsPerSecond" : 20
