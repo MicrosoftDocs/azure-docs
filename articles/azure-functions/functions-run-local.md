@@ -69,7 +69,7 @@ The following steps use npm to install Core Tools on Windows. You can also use [
 
    It may take a few minutes for npm to download and install the Core Tools package.
 
-1. If you do not plan to use [extension bundles], install the [.NET Core 2.x SDK for Windows](https://www.microsoft.com/net/download/windows).
+1. If you don't plan to use [extension bundles], install the [.NET Core 2.x SDK for Windows](https://www.microsoft.com/net/download/windows).
 
 #### <a name="brew"></a>MacOS with Homebrew
 
@@ -143,13 +143,13 @@ The following steps use [APT](https://wiki.debian.org/Apt) to install Core Tools
     sudo apt-get install azure-functions-core-tools
     ```
 
-1. If you do not plan to use [extension bundles], install [.NET Core 2.x SDK for Linux](https://www.microsoft.com/net/download/linux).
+1. If you don't plan to use [extension bundles], install [.NET Core 2.x SDK for Linux](https://www.microsoft.com/net/download/linux).
 
 ## Create a local Functions project
 
 A functions project directory contains the files [host.json](functions-host-json.md) and [local.settings.json](#local-settings-file), along with subfolders that contain the code for individual functions. This directory is the equivalent of a function app in Azure. To learn more about the Functions folder structure, see the [Azure Functions developers guide](functions-reference.md#folder-structure).
 
-Version 2.x requires you to select a default language for your project when it is initialized, and all functions added use default language templates. In version 1.x, you specify the language each time you create a function.
+Version 2.x requires you to select a default language for your project when it is initialized. In version 2.x, all functions added use default language templates. In version 1.x, you specify the language each time you create a function.
 
 In the terminal window or from a command prompt, run the following command to create the project and local Git repository:
 
@@ -197,7 +197,7 @@ Initialized empty Git repository in C:/myfunctions/myMyFunctionProj/.git/
 | **`--python`**  | Initializes a [Python project](functions-reference-python.md). |
 | **`--source-control`** | Controls whether a git repository is created. By default, a repository isn't created. When `true`, a repository is created. |
 | **`--typescript`**  | Initializes a [TypeScript project](functions-reference-node.md#typescript). |
-| **`--worker-runtime`** | Sets the language runtime for the project. Supported values are: `csharp`, `dotnet`, `java`, `javascript`,`node` (JavaScript), `powershell`, `python`, and `typescript`. When not set, you are prompted to choose your runtime during initialization. |
+| **`--worker-runtime`** | Sets the language runtime for the project. Supported values are: `csharp`, `dotnet`, `java`, `javascript`,`node` (JavaScript), `powershell`, `python`, and `typescript`. When not set, you're prompted to choose your runtime during initialization. |
 
 > [!IMPORTANT]
 > By default, version 2.x of the Core Tools creates function app projects for the .NET runtime as [C# class projects](functions-dotnet-class-library.md) (.csproj). These C# projects, which can be used with Visual Studio or Visual Studio Code, are compiled during testing and when publishing to Azure. If you instead want to create and work with the same C# script (.csx) files created in version 1.x and in the portal, you must include the `--csx` parameter when you create and deploy functions.
@@ -221,7 +221,7 @@ When no valid storage connection string is set for [`AzureWebJobsStorage`] and t
 
 ### Get your storage connection strings
 
-Even when using the storage emulator for development, you may want to test with an actual storage connection. Assuming you have already [created a storage account](../storage/common/storage-create-storage-account.md), you can get a valid storage connection string in one of the following ways:
+Even when using the Microsoft Azure Storage Emulator for development, you may want to test with an actual storage connection. Assuming you have already [created a storage account](../storage/common/storage-create-storage-account.md), you can get a valid storage connection string in one of the following ways:
 
 - From the [Azure portal], search for and select **Storage accounts**. 
   ![Select Storage accounts from Azure portal](./media/functions-run-local/select-storage-accounts.png)
@@ -246,7 +246,7 @@ Even when using the storage emulator for development, you may want to test with 
     func azure storage fetch-connection-string <StorageAccountName>
     ```
 
-    When you are not already signed in to Azure, you are prompted to do so.
+    When you aren't already signed in to Azure, you're prompted to do so.
 
 ## <a name="create-func"></a>Create a function
 
@@ -468,7 +468,7 @@ The following publish options apply for both versions, 1.x and 2.x:
 
 | Option     | Description                            |
 | ------------ | -------------------------------------- |
-| **`--publish-local-settings -i`** |  Publish settings in local.settings.json to Azure, prompting to overwrite if the setting already exists. If you are using the storage emulator, first change the app setting to an [actual storage connection](#get-your-storage-connection-strings). |
+| **`--publish-local-settings -i`** |  Publish settings in local.settings.json to Azure, prompting to overwrite if the setting already exists. If you are using the Microsoft Azure Storage Emulator, first change the app setting to an [actual storage connection](#get-your-storage-connection-strings). |
 | **`--overwrite-settings -y`** | Suppress the prompt to overwrite app settings when `--publish-local-settings -i` is used.|
 
 The following publish options are only supported in version 2.x:
@@ -524,7 +524,7 @@ You can view a stream of log files being generated by your functions in a comman
 
 [!INCLUDE [functions-streaming-logs-core-tools](../../includes/functions-streaming-logs-core-tools.md)]
 
-This type of streaming logs requires that you [enable Application Insights integration](#enable-application-insights-integration) for your function app.   
+This type of streaming logs requires that Application Insights integration be enabled for your function app.   
 
 
 ## Next steps
