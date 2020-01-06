@@ -268,7 +268,7 @@ Let's assume that instance A is the primary instance, instance B is the existing
 
 1.	Create instance C with same size as A and in the same DNS zone. 
 2.	Delete the failover group between instances A and B. At this point the logins will be failing because the SQL aliases for the failover group listeners have been deleted and the gateway will not recognize the failover group name. The secondary databases will be disconnected from the primaries and will become read-write databases. 
-3.	Create a failover group with the same name between instance A and C. Follow the instructions in this tutorial <link>. This is a size-of-data operation and will complete when all databases from instance A are seeded and synchronized.
+3.	Create a failover group with the same name between instance A and C. Follow the instructions in [failover group with managed instance tutorial](sql-database-managed-instance-failover-group-tutorial.md). This is a size-of-data operation and will complete when all databases from instance A are seeded and synchronized.
 4.	Delete instance B if not needed to avoid unnecessary charges.
 
 > [!NOTE]
