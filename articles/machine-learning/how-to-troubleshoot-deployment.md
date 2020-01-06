@@ -97,11 +97,12 @@ If you are using the new/recommended deployment method via [Model.deploy()](http
 
     # deploy the model
     aci_config = AciWebservice.deploy_configuration(cpu_cores=1, memory_gb=1)
-    service = Model.deploy(workspace=ws,
+    aci_service = Model.deploy(workspace=ws,
                            name='my-service',
                            models=[model],
                            inference_config=inference_config,
-                           deployment_config=aciconfig)
+                           deployment_config=aci_config)
+    aci_service.wait_for_deployment(show_output=True)
     ```
 
 If you are using the [Webservice.deploy()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py#deploy-workspace--name--model-paths--image-config--deployment-config-none--deployment-target-none--overwrite-false-) API, or [Webservice.deploy_from_model()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py#deploy-from-model-workspace--name--models--image-config--deployment-config-none--deployment-target-none--overwrite-false-) API, both of these functions can be replaced with the below API calls for the purpose of troubleshooting:
@@ -141,7 +142,7 @@ If you are using the [Webservice.deploy()](https://docs.microsoft.com/python/api
                                                image=image, 
                                                name='mysvc', 
                                                workspace=ws)
-    aci_service.wait_for_deployment(show_output=True)    
+    aci_service.wait_for_deployment(show_output=True)
     ```
 
 Once you have broken down the deployment process into individual tasks, we can look at some of the most common errors.
@@ -479,7 +480,7 @@ Local web service deployments require a working Docker installation on your loca
     print("Debugger attached...")
     ```
 
-1. Create an image based on the environment definition and pull the image to the local registry. During debugging, you may want to make changes to the files in the image without having to recreate it. To install a text editor (vim) in the Docker image, use the `InferenceConfig.extra_docker_file_steps` property:
+1. Create an image based on the environment definition and pull the image to the local registry. During debugging, you may want to make changes to the files in the image without having to recreate it. To install a text editor (vim) in the Docker image, use the `Environment.docker.base_image` and `Environment.docker.base_dockerfile` properties:
 
     > [!NOTE]
     > This example assumes that `ws` points to your Azure Machine Learning workspace, and that `model` is the model being deployed. The `myenv.yml` file contains the conda dependencies created in step 1.
@@ -491,8 +492,9 @@ Local web service deployments require a working Docker installation on your loca
 
 
     myenv = Environment.from_conda_specification(name="env", file_path="myenv.yml")
+    myenv.docker.base_image = NONE
+    myenv.docker.base_dockerfile = "FROM mcr.microsoft.com/azureml/base:intelmpi2018.3-ubuntu16.04\nRUN apt-get update && apt-get install vim -y"
     inference_config = InferenceConfig(entry_script="score.py", environment=myenv)
-    inference_config.extra_docker_file_steps = "RUN apt-get update && apt-get -y install vim"
     package = Model.package(ws, [model], inference_config)
     package.wait_for_creation(show_output=True)  # Or show_output=False to hide the Docker build logs.
     package.pull()

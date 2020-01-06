@@ -273,7 +273,7 @@ from azureml.core.model import Model, InferenceConfig
 
 inference_config = InferenceConfig(entry_script="score.py",
                                    environment=myenv)
-service = Model.deploy(workspace=ws,
+aci_service = Model.deploy(workspace=ws,
                        name="aci_service_sample",
                        models=[model],
                        inference_config=inference_config,
