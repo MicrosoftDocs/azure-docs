@@ -5,7 +5,7 @@
   - name: About Internet Peering
     href: overview.md
   - name: Internet Peering vs. Peering Service
-    href: service-overview.md
+    href: overview-peering-service.md
 - name: Concepts
   items:
   - name: Peering policy
@@ -15,47 +15,47 @@
   - name: Prerequisites to setup peering with Microsoft
     href: prerequisites.md
   - name: Direct Peering walkthrough
-    href: workflows-direct.md
+    href: walkthrough-direct-all.md
   - name: Exchange Peering walkthrough
-    href: workflows-exchange.md
+    href: walkthrough-exchange-all.md
   - name: Peering Service partner walkthrough
-    href: workflows-peering-service.md
+    href: walkthrough-peering-service-all.md
   - name: Associate peer ASN to Azure subscription
     items:
     - name: Portal
-      href: subscription-registration-portal.md
+      href: howto-subscription-association-portal.md
     - name: Azure PowerShell
-      href: subscription-registration.md
+      href: howto-subscription-association-powershell.md
   - name: Enable Peering Service on a Direct Peering
     items:
     - name: Portal
       href: howto-peering-service-portal.md
     - name: Azure PowerShell
-      href: howto-peering-service.md
+      href: howto-peering-service-powershell.md
   - name: Create or modify a Direct Peering
     items:
     - name: Portal
-      href: howto-direct-peering-portal.md
+      href: howto-direct-portal.md
     - name: Azure PowerShell
-      href: howto-direct-peering.md
+      href: howto-direct-powershell.md
   - name: Convert a legacy Direct Peering to Azure resource
     items:
     - name: Portal
       href: howto-legacy-direct-portal.md
     - name: Azure PowerShell
-      href: howto-legacy-direct.md
+      href: howto-legacy-direct-powershell.md
   - name: Create or modify an Exchange Peering
     items:
     - name: Portal
-      href: howto-exchange-peering-portal.md
+      href: howto-exchange-portal.md
     - name: Azure PowerShell
-      href: howto-exchange-peering.md
+      href: howto-exchange-powershell.md
   - name: Convert a legacy Exchange Peering to Azure resource
     items:
     - name: Portal
       href: howto-legacy-exchange-portal.md
     - name: Azure PowerShell
-      href: howto-legacy-exchange.md
+      href: howto-legacy-exchange-powershell.md
 - name: Reference
   items:
   - name: Azure CLI

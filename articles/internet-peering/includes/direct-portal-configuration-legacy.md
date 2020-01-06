@@ -9,7 +9,6 @@ ms.date: 11/27/2019
 ms.author: prmitiki
 ---
 
-[!INCLUDE [direct-peering-basic](./direct-portal-basic.md)]
 1. On the **Create a Peering** page, under **Configuration** tab, fill out the fields as shown below.
 
     > [!div class="mx-imgBorder"]
@@ -29,7 +28,7 @@ ms.author: prmitiki
     > ![Peering Configuration - Direct Edit](../media/setup-directlegacy-conf-tab-edit.png)
 
     > [!NOTE]
-    > If you want to add additional peering connections with Microsoft in the selected **Metro** location you may do so by clicking **Create new** button. See [Create or modify a Direct Peering using the portal](../howto-direct-peering-portal.md) for more info.
+    > If you want to add additional peering connections with Microsoft in the selected **Metro** location you may do so by clicking **Create new** button. See [Create or modify a Direct Peering using the portal](../howto-direct-portal.md) for more info.
     >
 
 1. Click on **Review + create**. Observe that  portal  runs basic validation of the information you entered. This is displayed in a ribbon on the top, as *Running final validation...*.

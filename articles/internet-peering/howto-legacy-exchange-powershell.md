@@ -16,7 +16,7 @@ This article describes how to convert an existing legacy Exchange Peering to Azu
 If you prefer, you can complete this guide using the [portal](howto-legacy-exchange-portal.md).
 
 ## Before you begin
-* Review [Prerequisites](prerequisites.md) and [Exchange Peering walkthrough](workflows-exchange.md) before you begin configuration.
+* Review [Prerequisites](prerequisites.md) and [Exchange Peering walkthrough](walkthrough-exchange-all.md) before you begin configuration.
 
 ### Working with Azure PowerShell
 [!INCLUDE [CloudShell](./includes/cloudshell-powershell-about.md)]
@@ -24,7 +24,7 @@ If you prefer, you can complete this guide using the [portal](howto-legacy-excha
 ## Convert a legacy Exchange Peering to Azure resource
 
 ### Sign in to your Azure account and select your subscription
-[!INCLUDE [Account](./includes/account.md)]
+[!INCLUDE [Account](./includes/account-powershell.md)]
 
 ### <a name= get></a>Get legacy Exchange Peering for Conversion
 Below is the example to get legacy Exchange Peering at Seattle peering location:
@@ -95,4 +95,4 @@ For more information, visit [Internet Peering FAQs](faqs.md)
 
 ## Next steps
 
-* [Create or modify an Exchange Peering using PowerShell](howto-exchange-peering.md)
+* [Create or modify an Exchange Peering using PowerShell](howto-exchange-powershell.md)

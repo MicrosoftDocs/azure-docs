@@ -9,7 +9,6 @@ ms.date: 11/27/2019
 ms.author: prmitiki
 ---
 
-[!INCLUDE [direct-peering-basic](./direct-portal-basic.md)]
 1. On the **Create a Peering** page, under **Configuration** tab, fill out the fields as shown below.
 
     * For **Peering type**, select *Direct*.

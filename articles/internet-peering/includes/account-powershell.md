@@ -40,7 +40,7 @@ Before beginning configuration, install and import the required modules. You wil
     New-AzResourceGroup -Name "PeeringResourceGroup" -Location "Central US"
     ```
 > [!IMPORTANT]
-> If you haven't already associated your ASN and subscription, then follow steps for [Associate Peer ASN](../subscription-registration.md). This is required to request a Peering.
+> If you haven't already associated your ASN and subscription, then follow steps for [Associate Peer ASN](../howto-subscription-association-powershell.md). This is required to request a Peering.
 
 > [!NOTE]
 > The location of resource group is independent of the location where you choose to set up a peering.

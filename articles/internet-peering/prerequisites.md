@@ -21,7 +21,7 @@ If you don't have a Microsoft Azure account, create a [Microsoft Azure account](
     * If you are creating a new Azure account and/or subscription, you may be eligible for free Azure credit during a trial period which you may utilize to try Azure Cloud services. If interested, visit [Microsoft Azure account](https://azure.microsoft.com/free) for more info.
 
 * **Associate Peer ASN:**
-Before requesting for Peering, first associate your ASN and contact info to your subscription. Follow the instructions in [Associate Peer ASN to Azure Subscription](subscription-registration.md).
+Before requesting for Peering, first associate your ASN and contact info to your subscription. Follow the instructions in [Associate Peer ASN to Azure Subscription](howto-subscription-association-powershell.md).
 
 ## Other prerequisites
 * **PeeringDB profile:**
@@ -29,7 +29,7 @@ Peers are expected to have a complete and up-to-date profile on [PeeringDB](http
 
 ## Next steps
 
-* [Create or modify a Direct Peering using the portal](howto-direct-peering-portal.md).
+* [Create or modify a Direct Peering using the portal](howto-direct-portal.md).
 * [Convert a legacy Direct Peering to Azure resource using the portal](howto-legacy-direct-portal.md)
-* [Create or modify Exchange Peering using the portal](howto-exchange-peering-portal.md)
+* [Create or modify Exchange Peering using the portal](howto-exchange-portal.md)
 * [Convert a legacy Exchange Peering to Azure resource using the portal](howto-legacy-exchange-portal.md)

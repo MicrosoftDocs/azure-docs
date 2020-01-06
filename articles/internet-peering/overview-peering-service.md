@@ -48,4 +48,4 @@ For frequently asked questions, see [Peering Service - FAQ](service-faqs.md).
 ## Next steps
 
 * Learn more about customer benefits with [Peering Service](https://docs.microsoft.com/azure/peering-service/).
-* Learn about steps to enable a Direct Peering for Peering Service in [Peering Service partner walkthrough](workflows-peering-service.md).
+* Learn about steps to enable a Direct Peering for Peering Service in [Peering Service partner walkthrough](walkthrough-peering-service-all.md).

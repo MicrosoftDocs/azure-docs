@@ -13,7 +13,7 @@ ms.author: prmitiki
 
 Before you submit a peering request, you should first associate your ASN with Azure subscription using the steps below.
 
-If you prefer, you can complete this guide using the [portal](subscription-registration-portal.md).
+If you prefer, you can complete this guide using the [portal](howto-subscription-association-portal.md).
 
 ### Working with Azure PowerShell
 [!INCLUDE [CloudShell](./includes/cloudshell-powershell-about.md)]
@@ -21,7 +21,7 @@ If you prefer, you can complete this guide using the [portal](subscription-regis
 ## Create PeerASN to associate your ASN with Azure Subscription
 
 ### Sign in to your Azure account and select your subscription
-[!INCLUDE [Account](./includes/account.md)]
+[!INCLUDE [Account](./includes/account-powershell.md)]
 
 ### Update the peer information associated with this subscription
 
@@ -79,10 +79,10 @@ Deleting a PeerASN is not currently supported. If you need to delete PeerASN, co
 
 ## Next steps
 
-* [Create or modify a Direct Peering](howto-direct-peering.md)
-* [Convert a legacy Direct Peering to Azure resource](howto-legacy-direct.md)
-* [Create or modify Exchange Peering](howto-exchange-peering.md)
-* [Convert a legacy Exchange Peering to Azure resource](howto-legacy-exchange.md)
+* [Create or modify a Direct Peering](howto-direct-powershell.md)
+* [Convert a legacy Direct Peering to Azure resource](howto-legacy-direct-powershell.md)
+* [Create or modify Exchange Peering](howto-exchange-powershell.md)
+* [Convert a legacy Exchange Peering to Azure resource](howto-legacy-exchange-powershell.md)
 
 ## Additional resources
 

@@ -38,13 +38,13 @@ You may request for Peering with Microsoft using Azure PowerShell or portal. Pee
 If you already have established peerings with Microsoft, they are referred to as **legacy peerings**. You may choose to manage such peerings as Azure resource to take advantage of the above benefits. To submit a new peering request, or convert legacy peering to Azure resource, follow the links in the **Next steps** section below.
 
 ## Peering policy
-Microsoft has a selective, but generally open peering policy. Peers are selected based upon performance, capability, and where there is mutual benefit, and are subject to certain technical, commercial and legal requirements. For details, see [Peering policy](https://peering.azurewebsites.net/peering).
+Microsoft has a selective, but generally open peering policy. Peers are selected based upon performance, capability, and where there is mutual benefit, and are subject to certain technical, commercial and legal requirements. For details, see [Peering policy](policy.md).
 
 ## FAQ
-For frequently asked questions about Peering, see [Peering - FAQ](faqs.md).
+For frequently asked questions about Peering, see [Internet Peering - FAQs](faqs.md).
 
 ## Next steps
 
-* To learn about steps to set up Direct Peering with Microsoft, follow [Direct Peering walkthrough](workflows-direct.md)
-* To learn about steps to set up Exchange Peering with Microsoft, follow [Exchange Peering walkthrough](workflows-exchange.md)
+* To learn about steps to set up Direct Peering with Microsoft, follow [Direct Peering walkthrough](walkthrough-direct-all.md)
+* To learn about steps to set up Exchange Peering with Microsoft, follow [Exchange Peering walkthrough](walkthrough-exchange-all.md)
 * Learn about some of the other Azure key [networking capabilities](https://docs.microsoft.com/azure/networking/networking-overview).

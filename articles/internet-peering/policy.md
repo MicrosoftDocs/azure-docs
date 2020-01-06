@@ -36,7 +36,7 @@ Microsoft's general requirements from your network are explained in the sections
 
 ## Operational requirements
 * A fully staffed 24x7 Network Operations Center (NOC), capable of assisting in the resolution of all technical and performance issues, security violations, denial of service attacks, or any other abuse originating within the peer or their customers.
-* Peers are expected to have a complete and up-to-date profile on [PeeringDB](https://www.peeringdb.com) including a 24x7 NOC email from corporate domain and phone number. We use this information to validate the peer's details such as NOC information, technical contact information, and their presence at the peering facilities etc. Personal Yahoo, Gmail and hotmail accounts are not accepted. 
+* Peers are expected to have a complete and up-to-date profile on [PeeringDB](https://www.peeringdb.com) including a 24x7 NOC email from corporate domain and phone number. We use this information to validate the peer's details such as NOC information, technical contact information, and their presence at the peering facilities etc. Personal Yahoo, Gmail and hotmail accounts are not accepted.
 
 ## Physical connection requirements
 * The locations where you can connect with Microsoft for Direct Peering or Exchange Peering are listed in [Peeringdb](https://www.peeringdb.com/net/694)
@@ -69,5 +69,5 @@ Microsoft's general requirements from your network are explained in the sections
 
 ## Next steps
 
-* To learn about steps to set up Direct Peering with Microsoft, follow [Direct Peering walkthrough](workflows-direct.md).
-* To learn about steps to set up Exchange Peering with Microsoft, follow [Exchange Peering walkthrough](workflows-exchange.md).
+* To learn about steps to set up Direct Peering with Microsoft, follow [Direct Peering walkthrough](walkthrough-direct-all.md).
+* To learn about steps to set up Exchange Peering with Microsoft, follow [Exchange Peering walkthrough](walkthrough-exchange-all.md).
