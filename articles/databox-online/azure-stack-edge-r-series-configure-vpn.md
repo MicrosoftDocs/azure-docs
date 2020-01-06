@@ -57,7 +57,7 @@ The detailed steps are provided in the following sections.
 
     3. Download the scripts required to create network and application rules and routes from https://aka.ms/ase-vpn-scripts.
 
-    4. Download the service tags from the Azure to your local client and save as a *json* file in the same folder that contains the scripts: https://www.microsoft.com/en-us/download/details.aspx?id=56519 
+    4. Download the service tags from the Azure to your local client and save as a *json* file in the same folder that contains the scripts: https://www.microsoft.com/download/details.aspx?id=56519 
 
 
 ## VPN configuration in the cloud  
@@ -124,7 +124,7 @@ Do the following steps:
 
 1. Create a virtual network gateway. In the Azure portal, select **+ Create a resource**, search for *virtual network gateway* and then select **Create**.
 
-    ![Create vnet gateway 1](media/azure-stack-edge-r-series-configure-vpn/create-vnet-gateway-1.png)
+    ![Create virtual network gateway 1](media/azure-stack-edge-r-series-configure-vpn/create-vnet-gateway-1.png)
 
 2. In the **Basics** tab:
 
@@ -134,19 +134,19 @@ Do the following steps:
     - Create a new public IP address and assign it a name.
     - Accept other default settings.
 
-        ![Create vnet gateway 2](media/azure-stack-edge-r-series-configure-vpn/create-vnet-gateway-2.png)
+        ![Create virtual network gateway 2](media/azure-stack-edge-r-series-configure-vpn/create-vnet-gateway-2.png)
 
 3. In the **Tags** tab, accept all the default settings.
 
-    ![Create vnet gateway 3](media/azure-stack-edge-r-series-configure-vpn/create-vnet-gateway-3.png)
+    ![Create virtual network gateway 3](media/azure-stack-edge-r-series-configure-vpn/create-vnet-gateway-3.png)
 
 4. In the **Review + create** tab, review the settings associated with your virtual network gateway. Select **Create**.
 
-    ![Create vnet gateway 4](media/azure-stack-edge-r-series-configure-vpn/create-vnet-gateway-4.png)
+    ![Create virtual network gateway 4](media/azure-stack-edge-r-series-configure-vpn/create-vnet-gateway-4.png)
 
 This operation may take from 20 - 40 minutes. After the  VPN gateway is created, you need to create a local network gateway that represents the VPN device. 
 
-![Create vnet gateway 5](media/azure-stack-edge-r-series-configure-vpn/create-vnet-gateway-5.png)
+![Create virtual network gateway 5](media/azure-stack-edge-r-series-configure-vpn/create-vnet-gateway-5.png)
 
 For more information, go to [Configure site-to-site connection on your virtual network gateway](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal#VNetGateway).
 
@@ -156,7 +156,7 @@ Do the following steps:
 
 1. Create a local network gateway. In the Azure portal, select **+ Create a resource**, search for *local network gateway* and then select **Create**.
 
-    ![Create lnet gateway 1](media/azure-stack-edge-r-series-configure-vpn/create-lnet-gateway-1.png)
+    ![Create local network gateway 1](media/azure-stack-edge-r-series-configure-vpn/create-lnet-gateway-1.png)
 
 2. In the **Create local network gateway** blade:
 
@@ -168,11 +168,11 @@ Do the following steps:
     - Accept the other default settings.
     - Select **Create**.
 
-        ![Create lnet gateway 2](media/azure-stack-edge-r-series-configure-vpn/create-lnet-gateway-2.png)
+        ![Create local network gateway 2](media/azure-stack-edge-r-series-configure-vpn/create-lnet-gateway-2.png)
 
     The local network gateway creation takes up to 40 minutes.
 
-    ![Create vnet gateway 3](media/azure-stack-edge-r-series-configure-vpn/create-vnet-gateway-3.png)
+    ![Create local network gateway 3](media/azure-stack-edge-r-series-configure-vpn/create-vnet-gateway-3.png)
 
 For more information, go to [Create local network gateway](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal#LocalNetworkGateway).
 
@@ -385,7 +385,7 @@ Do the following steps in the local web UI of your device.
     ![Configure local UI 3](media/azure-stack-edge-r-series-configure-vpn/configure-vpn-local-ui-3.png)
 
     - Browse to the VPN configuration *json* file that you downloaded on your local system in the previous step.
-    - Select the region as the Azure region associated with the device, vnet, and gateways.
+    - Select the region as the Azure region associated with the device, virtual network, and gateways.
     - Select **Apply**.
 
         ![Configure local UI 4](media/azure-stack-edge-r-series-configure-vpn/configure-vpn-local-ui-4.png)
