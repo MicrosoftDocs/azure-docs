@@ -3824,7 +3824,7 @@
       "source_path": "articles/azure-resource-manager/vs-resource-groups-project-devops-pipelines.md",
       "redirect_url": "/azure/azure-resource-manager/templates/add-template-to-azure-pipelines",
       "redirect_document_id": false
-    },    
+    },
     {
       "source_path": "articles/azure-resource-manager/how-to-create-template.md",
       "redirect_url": "/azure/azure-resource-manager/templates/template-syntax",
@@ -4864,7 +4864,7 @@
       "source_path": "articles/managed-applications/tutorial-custom-providers-resource-onboarding.md",
       "redirect_url": "/azure/azure-resource-manager/custom-providers/tutorial-resource-onboarding",
       "redirect_document_id": false
-    },    
+    },
     {
       "source_path": "articles/solution-dev-test-environments.md",
       "redirect_url": "/azure/lab-services/devtest-lab-overview",
@@ -5228,6 +5228,31 @@
     {
       "source_path": "articles/active-directory-b2c/active-directory-b2c-limitations.md",
       "redirect_url": "/azure/active-directory-b2c/active-directory-b2c-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory-b2c/active-directory-b2c-landing-custom.md",
+      "redirect_url": "/azure/active-directory-b2c",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory-b2c/active-directory-b2c-navigate-to-b2c-context.md",
+      "redirect_url": "/azure/active-directory-b2c/tutorial-create-tenant",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory-b2c/active-directory-b2c-reference-customize-ui-custom.md",
+      "redirect_url": "/azure/active-directory-b2c/active-directory-b2c-ui-customization-custom",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory-b2c/active-directory-b2c-reference-custom-policies-understanding-contents.md",
+      "redirect_url": "/azure/active-directory-b2c/trustframeworkpolicy",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory-b2c/active-directory-b2c-token-session-sso.md",
+      "redirect_url": "/azure/active-directory-b2c/session-behavior",
       "redirect_document_id": false
     },
     {
@@ -5678,6 +5703,11 @@
     {
       "source_path": "articles/connectors/connectors-create-api-sharepointonline.md",
       "redirect_url": "/azure/connectors/connectors-create-api-sharepoint",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/connectors/connectors-native-query.md",
+      "redirect_url": "/azure/logic-apps/logic-apps-perform-data-operations#filter-array-action",
       "redirect_document_id": false
     },
     {
@@ -13955,7 +13985,7 @@
         "source_path": "articles/machine-learning/service/how-to-track-experiments.md",
         "redirect_url": "/azure/machine-learning/how-to-track-experiments",
         "redirect_document_id": true
-    },    
+    },
     {
         "source_path": "articles/machine-learning/service/how-to-train-chainer.md",
         "redirect_url": "/azure/machine-learning/how-to-train-chainer",
@@ -43211,7 +43241,7 @@
     },
     {
       "source_path": "articles/iot-central/howto-connect-devkit.md",
-      "redirect_url": "/azure/iot-central/core/howto-connect-devki/t",
+      "redirect_url": "/azure/iot-central/core/howto-connect-devkit/",
       "redirect_document_id": true
     },
     {

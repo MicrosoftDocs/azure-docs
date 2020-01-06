@@ -52,6 +52,8 @@
     items:
     - name: Security alerts overview
       href: security-center-alerts-overview.md      
+    - name: Reference list of alerts
+      href: alerts-reference.md
     - name: Manage security alerts
       href: security-center-managing-and-responding-alerts.md
     - name: Manage security incidents
@@ -64,7 +66,7 @@
       href: security-center-alerts-data-services.md
     - name: Threat detection for Azure service layers
       href: security-center-alerts-service-layer.md   
-    - name: Integration with Azure Security Products
+    - name: Threat detection for Azure WAF and Azure DDoS Protection
       href: security-center-alerts-integration.md
     - name: Cloud Smart Alert correlation (incidents)
       href: security-center-alerts-cloud-smart.md
