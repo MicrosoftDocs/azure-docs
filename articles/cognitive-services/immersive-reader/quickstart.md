@@ -53,7 +53,7 @@ Subdomain    => Immersive Reader resource subdomain (resource 'Name' if the reso
 
 ### Store the Azure AD values in a secret file
 
-Right-click on the project in the _Solution Explorer_ and choose **Manage User Secrets**. This will open a file called _secrets.json_. This file isn't checked into source control. Learn more [here](https://docs.microsoft.com/en-us/aspnet/core/security/app-secrets?view=aspnetcore-3.1&tabs=windows). Replace the contents of _secrets.json_ with the following, supplying your custom property values from above. 
+Right-click on the project in the _Solution Explorer_ and choose **Manage User Secrets**. This will open a file called _secrets.json_. This file isn't checked into source control. Learn more [here](https://docs.microsoft.com/aspnet/core/security/app-secrets?view=aspnetcore-3.1&tabs=windows). Replace the contents of _secrets.json_ with the following, supplying your custom property values from above. 
 
 ```json
 {
@@ -229,7 +229,7 @@ Notice that all of the text has a **lang** attribute, which describes the langua
 
 ## Add Javascript to handle launching the Immersive Reader
 
-The Immersive Reader library provides functionality such as launching the Immersive Reader, and rendering Immersive Reader buttons. Learn more [here](https://docs.microsoft.com/en-us/azure/cognitive-services/immersive-reader/reference).
+The Immersive Reader library provides functionality such as launching the Immersive Reader, and rendering Immersive Reader buttons. Learn more [here](https://docs.microsoft.com/azure/cognitive-services/immersive-reader/reference).
 
 At the bottom of _Views\Home\Index.cshtml_, add the following code:
 
