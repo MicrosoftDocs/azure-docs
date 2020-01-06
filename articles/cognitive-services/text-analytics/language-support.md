@@ -25,7 +25,7 @@ If you have content expressed in a less frequently used language, you can try La
 
 ## Sentiment Analysis, Key Phrase Extraction, and Named Entity Recognition
 
-For sentiment analysis, key phrase extraction, and entity recognition, the list of supported languages is more selective as the analyzers are refined to accommodate the linguistic rules of additional languages. In Named Entity Recognition v2, support for the full set of [entity types](how-tos/text-analytics-how-to-entity-linking.md#language-support) is currently limited to the following languages: 
+For sentiment analysis, key phrase extraction, and entity recognition, the list of supported languages is more selective as the analyzers are refined to accommodate the linguistic rules of additional languages. In Named Entity Recognition v2, support for the full set of [entity types](how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features) is currently limited to the following languages: 
 * English
 * Chinese-Simplified
 * French
@@ -69,7 +69,7 @@ Language support is initially rolled out in preview, graduating to generally ava
 
 \* Language support is in preview
 
-\** Also available in the [Sentiment Analysis v3](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-sentiment-analysis#sentiment-analysis-versions-and-features) and/or [Named Entity Recognition v3](how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-v3-public-preview) public previews.
+\** Also available in the [Sentiment Analysis v3](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-sentiment-analysis#sentiment-analysis-versions-and-features) and/or [Named Entity Recognition v3](how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features) public previews.
 
 ## See also
 
