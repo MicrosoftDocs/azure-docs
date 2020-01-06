@@ -1,5 +1,5 @@
 ---
-title: Integrate with Azure managed identities | Microsoft Docs
+title: Integrate with Azure managed identities 
 description: Learn how to use Azure managed identities to authenticate with and gain access to Azure App Configuration
 ms.service: azure-app-configuration
 author: lisaguthrie

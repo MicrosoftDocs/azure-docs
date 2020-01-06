@@ -3,7 +3,7 @@ title: Create an IoT Plug and Play Preview device (Windows) | Microsoft Docs
 description: Use a device capability model to generate device code. Then run the device code and see the device connect to your IoT Hub.
 author: miagdp
 ms.author: miag
-ms.date: 08/02/2019
+ms.date: 12/30/2019
 ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
