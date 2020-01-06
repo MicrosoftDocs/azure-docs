@@ -41,14 +41,20 @@ In this tutorial, you learn how to:
 
 * An Azure subscription. If you don’t have an Azure subscription, create a [free account](https://aka.ms/AMLFree).
 
-* Images to label.  Download the [images used for this tutorial]().  
+* Images to label.  Use your own images or download these [images used for this tutorial]().  
 
 
 ## Create a workspace
 
+An Azure Machine Learning workspace is a foundational resource in the cloud that you use to experiment, train, and deploy machine learning models. It ties your Azure subscription and resource group to an easily consumed object in the service.
+
+You create a workspace via the Azure portal, a web-based console for managing your Azure resources.
+
 [!INCLUDE [aml-create-portal](../../includes/aml-create-in-portal.md)]
 
 ## Create a storage account
+
+You store your image files in a container in a storage account.  Your already have a storage account included in your workspace, but here you'll create a new one to use just for your data.  
 
 1. In the upper-left corner of Azure portal, select the menu icon.
 
@@ -83,13 +89,17 @@ In this tutorial, you learn how to:
  
  1. Select **Go to resource**.
 
-### Copy account key
+### Copy access key
+
+The access key for this storage account is used to associate the account with your workspace.  Copy a key now. You'll use it to create a datastore within your workspace in a few moments.
 
 1. Select **Access keys** on the left of your storage account page in Azure portal.
 
-1. Copy one of the keys.  You'll use this key to create a datastore within your workspace in a few moments.
+1. Copy one of the keys.  
 
 ### Upload images
+
+Now add your data files to the storage account.  
 
 1. On the left, select **Overview** to go back to the storage account overview.
 
@@ -141,7 +151,7 @@ You use a datastore to access the images from your storage account.
     Storage account | Select the storage account created above, for example, **tutorialstorage (docs-ws)**.
     Blob container |  Select the blob container name created above, for example, **tutorial-images**
     Authentication type | Select **Account key**.
-    Account key | Paste the key you copied above after you created the storage account.
+    Account key | Paste the key you copied above when you created the storage account.
 
 1. Select **Create** to create the datastore.
 
@@ -205,6 +215,8 @@ This page doesn't automatically refresh. After a pause, manually refresh the pag
 
 ### Add labelers to your project
 
+Add some or all of your labelers to this project.
+
 1. Select the project name to open the project.  
 
 1. At the top of the page, select **Teams**.
@@ -215,11 +227,13 @@ This page doesn't automatically refresh. After a pause, manually refresh the pag
 
 1. Select from the list of labelers you created earlier.  Once you've selected all the labelers you wish to use, select **Assign labelers** to add them to your default project team.
 
-## Label your data 
+## Ready to label 
 
-You have now set up your Azure resources, and configured a data labeling project. It's time to add labels to your data.  If you have lots of images to label, hopefully you also have lots of labelers to complete the task.  You'll now want to send them instructions so they can access the data and start labeling.
+You have now set up your Azure resources, and configured a data labeling project. It's time to add labels to your data. 
 
 ### Notify labelers
+
+If you have lots of images to label, hopefully you also have lots of labelers to complete the task.  You'll now want to send them instructions so they can access the data and start labeling.
 
 1. In [Machine Learning studio](https://ml.azure.com), select **Data labeling** on the left-hand side to find your project.  
 
@@ -228,7 +242,6 @@ You have now set up your Azure resources, and configured a data labeling project
 1. At the top of the page, select **Details**.  You see a summary of your project.
 
     ![Project details](media/tutorial-labeling/project-details.png)
-
 
 1. Copy the **Labeling portal URL** link to send to your labelers.
 
@@ -261,7 +274,7 @@ In this part of the tutorial, you'll switch roles from the *project administrato
 
 Now you'll switch roles back to the *project administrator* for the labeling project.
 
-As a manager, you may want to review the work of your labeler.  At any point in time during the execution of the project, you can export your labels to use for machine learning training.
+As a manager, you may want to review the work of your labeler.  
 
 ### Review labeled data
 
@@ -279,15 +292,15 @@ As a manager, you may want to review the work of your labeler.  At any point in 
 
 ### Export labeled data
 
-You can export the label data for Machine Learning experimentation at any time. If you plan to use this data for modeling, export the labeled data once all images have been tagged (A user often exports multiple times and train different models. User do not wait for all the images to be labeled.). 
+You can export the label data for Machine Learning experimentation at any time. Users often export multiple times and train different models, rather than wait for all the images to be labeled.
 
-Image labels can be exported in [COCO format](http://cocodataset.org/#format-data) or as an Azure Machine Learning dataset.  
+Image labels can be exported in [COCO format](http://cocodataset.org/#format-data) or as an Azure Machine Learning dataset. The dataset format makes it easy to use for training in Azure Machine Learning.  
 
 1. In [Machine Learning studio](https://ml.azure.com), select **Data labeling** on the left-hand side to find your project.  
 
 1. Select the project name link.
 
-1. Select **Export** and choose **Export as Azure ML Dataset**. This format makes it easy to use for training in Azure Machine Learning.
+1. Select **Export** and choose **Export as Azure ML Dataset**. 
 
     The status of the export appears just below the **Export** button. 
 
