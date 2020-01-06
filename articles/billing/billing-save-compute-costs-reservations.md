@@ -31,11 +31,19 @@ Service plans:
 - **SQL Database reserved vCore** - Only the compute costs are included with a reservation. The license is billed separately.
 - **SQL Data Warehouse** - A reservation covers cDWU usage. It doesn't cover storage or networking charges associated with the SQL Data Warehouse usage.
 - **App Service stamp fee** - A reservation covers stamp usage. It doesn't apply to workers, so any other resources associated with the stamp are charged separately.
-- Azure Database for MySQL
-- Azure Database for PostgreSQL
-- Azure Database for MariaDB
-- Azure Data Explorer
-- Premium SSD Managed Disks
+- **Azure Databricks** - A reservation covers only the DBU usage. Other charges such as compute, storage, and networking are charged separately.
+- **Azure Database for MySQL** - Only the compute costs are included with a reservation. A reservation does not cover software, networking, or storage charges associated with the MySQL Database server.
+- **Azure Database for PostgreSQL** - Only the compute costs are included with a reservation. A reservation does not cover software, networking, or storage charges associated with the PostgreSQL Database servers.
+- **Azure Database for MariaDB** - Only the compute costs are included with a reservation. A reservation does not cover software, networking, or storage charges associated with the MariaDB Database server.
+- **Azure Data Explorer** - A reservation covers the markup charges. A reservation doesn't cover compute, networking, or storage charges associated with the clusters
+- **Premium SSD Managed Disks** - A reservation is made for a specified disk SKU. 
+
+Software Plans:
+
+- **SUSE Linux** - A reservation covers the software plan costs. The discounts only apply to SUSE meters and not on the virtual machine usage.
+- **Red Hat Plans** - A reservation covers the software plan costs. The discounts only apply to RedHat meters and not on the virtual machine usage.
+- **Azure VMware Solution by CloudSimple** - A reservation covers the VMWare CloudSimple Nodes. Additional software costs will still apply.
+- **Azure Red Hat OpenShift** - A reservation applies to the OpenShift costs, not to Azure infrastructure costs
 
 
 For Windows virtual machines and SQL Database, you can cover the licensing costs with [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/).
