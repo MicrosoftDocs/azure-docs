@@ -1,4 +1,4 @@
-- name: Get started wtih Azure billing documentation
+- name: Get started with Azure billing documentation
   href: index.yml
   items:
   - name: Tutorials
@@ -39,7 +39,7 @@
       href: ./manage/download-azure-invoice-daily-usage-date.md
     - name: View and download tax documents
       href: mca-download-tax-document.md
-    - name: View external Azrue service charges
+    - name: View external Azure service charges
       href: understand-azure-marketplace-charges.md
     - name: Pay your bill
       href: pay-bill.md
