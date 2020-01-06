@@ -138,7 +138,7 @@ The series of steps that describe the progression of a cyberattack from reconnai
 
 Security Center's supported kill chain intents are:
 
-|Intent|Meaning|
+|Intent|Description|
 |------|-------|
 |**Probing**|Probing could be either an attempt to access a certain resource regardless of a malicious intent, or a failed attempt to gain access to a target system to gather information prior to exploitation. This step is usually detected as an attempt, originating from outside the network, to scan the target system and identify an entry point.|
 |**Exploitation**|Exploitation is the stage where an attacker manages to get a foothold on the attacked resource. This stage is relevant for compute hosts and resources such as user accounts, certificates etc. Threat actors will often be able to control the resource after this stage.|
@@ -157,8 +157,8 @@ Security Center's supported kill chain intents are:
 
 
 ## Next steps
-To learn more about recommendations, see the following:
+To learn more about alerts, see the following:
 
-* [Security recommendations in Azure Security Center](security-center-recommendations.md)
-* [Protecting your machines and applications](security-center-virtual-machine-protection.md)
-* [Protecting your network in Azure Security Center](security-center-network-recommendations.md)
+* [Security alerts in Azure Security Center](security-center-alerts-overview.md)
+* [Manage and respond to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md)
+* [Export security alerts and recommendations (Preview)](continuous-export.md)
