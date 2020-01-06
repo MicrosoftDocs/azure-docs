@@ -1,6 +1,6 @@
 ---
-title: How to use Service Bus queues with PHP | Microsoft Docs
-description: Learn how to use Service Bus queues in Azure. Code samples written in PHP.
+title: 'Quickstart: How to use Service Bus queues with PHP'
+description: 'Quickstart: Learn how to use Service Bus queues in Azure. Code samples written in PHP.'
 services: service-bus-messaging
 documentationcenter: php
 author: axisc
@@ -12,12 +12,12 @@ ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PHP
-ms.topic: article
-ms.date: 04/10/2019
+ms.topic: quickstart
+ms.date: 11/05/2019
 ms.author: aschhab
 
 ---
-# How to use Service Bus queues with PHP
+# Quickstart: How to use Service Bus queues with PHP
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
 In this tutorial, you learn how to create PHP applications to send messages to and receive messages from a Service Bus queue. 
@@ -31,10 +31,10 @@ In this tutorial, you learn how to create PHP applications to send messages to a
 
         > [!NOTE]
         > You will create a **queue** in the Service Bus namespace by using PHP in this tutorial. 
-3. [Azure SDK for PHP](../php-download-sdk.md)
+3. [Azure SDK for PHP](https://github.com/Azure/azure-sdk-for-php)
 
 ## Create a PHP application
-The only requirement for creating a PHP application that accesses the Azure Blob service is the referencing of classes in the [Azure SDK for PHP](../php-download-sdk.md) from within your code. You can use any development tools to create your application, or Notepad.
+The only requirement for creating a PHP application that accesses the Azure Blob service is the referencing of classes in the [Azure SDK for PHP](https://github.com/Azure/azure-sdk-for-php) from within your code. You can use any development tools to create your application, or Notepad.
 
 > [!NOTE]
 > Your PHP installation must also have the [OpenSSL extension](https://php.net/openssl) installed and enabled.
@@ -220,6 +220,9 @@ Service Bus provides functionality to help you gracefully recover from errors in
 There is also a timeout associated with a message locked within the queue, and if the application fails to process the message before the lock timeout expires (for example, if the application crashes), then Service Bus will unlock the message automatically and make it available to be received again.
 
 In the event that the application crashes after processing the message but before the `deleteMessage` request is issued, then the message will be redelivered to the application when it restarts. This is often called *At Least Once* processing; that is, each message is processed at least once but in certain situations the same message may be redelivered. If the scenario cannot tolerate duplicate processing, then adding additional logic to applications to handle duplicate message delivery is recommended. This is often achieved using the `getMessageId` method of the message, which remains constant across delivery attempts.
+
+> [!NOTE]
+> You can manage Service Bus resources with [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). The Service Bus Explorer allows users to connect to a Service Bus namespace and administer messaging entities in an easy manner. The tool provides advanced features like import/export functionality or the ability to test topic, queues, subscriptions, relay services, notification hubs and events hubs. 
 
 ## Next steps
 Now that you've learned the basics of Service Bus queues, see [Queues, topics, and subscriptions][Queues, topics, and subscriptions] for more information.

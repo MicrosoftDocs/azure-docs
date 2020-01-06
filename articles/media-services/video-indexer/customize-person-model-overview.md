@@ -1,15 +1,15 @@
 ---
 title: Customize a Person model in Video Indexer - Azure  
-titlesuffix: Azure Media Services
+titleSuffix: Azure Media Services
 description: This article gives an overview of what is a Person model in Video Indexer and how to customize it. 
 services: media-services
 author: anikaz
 manager: johndeu
-
+ 
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 03/19/2019
+ms.date: 05/15/2019
 ms.author: anzaman
 ---
 

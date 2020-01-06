@@ -5,19 +5,389 @@ services: cloud-services
 documentationcenter: na
 author: raiye
 editor: ''
-
 ms.assetid: d0a272a9-ed01-4f4c-a0b3-bd5e841bdd77
 ms.service: cloud-services
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 5/8/2019
+ms.date: 12/13/2019
 ms.author: raiye
-
 ---
 # Azure Guest OS
 The following tables show the Microsoft Security Response Center (MSRC) updates applied to the Azure Guest OS. Search this article to determine if a particular update applies to the Guest OS you are using. Updates always carry forward for the particular [family][family-explain] they were introduced in.
+
+## December 2019 Guest OS
+
+>[!NOTE]
+>The December Guest OS is currently being rolled out to Cloud Service VMs that are configured for automatic updates. When the rollout is complete, this version will be made available for manual updates through the Azure portal and configuration files. The following patches are included in the December Guest OS. This list is subject to change.
+
+| Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
+| --- | --- | --- | --- | --- |
+|  Rel 19-12  |  [4530692]  |  Windows Security  | 2.93 | Dec 10, 2019 |
+|  Rel 19-12  |  [4530677]  |  Internet Explorer  | 2.93 | Dec 10, 2019 |
+|  Rel 19-12  |  [4530677]  |  Internet Explorer  | 3.80 | Dec 10, 2019 |
+|  Rel 19-12  |  [4530698]  |  Windows Security  | 3.80 | Dec 10, 2019 |
+|  Rel 19-12  |  [4530730]  |  Windows Security  | 4.73 | Dec 10, 2019 |
+|  Rel 19-12  |  [4530677]  |  Internet Explorer  | 4.73 | Dec 10, 2019 |
+|  Rel 19-12  |  [4530689]  |  Latest Cumulative update  | 5.38 | Dec 10, 2019 |
+|  Rel 19-12  |  [4530715]  |  Latest Cumulative update  | 6.14 | Dec 10, 2019 |
+|  Rel 19-12  |  [4525235]  |  Non-Security  | 2.93 | Nov 12, 2019 |
+|  Rel 19-12  |  [4531786]  |  Servicing Stack Update  | 2.93 | Dec 10, 2019 |
+|  Rel 19-12  |  [4525246]  |  Non-Security  | 3.80 | Nov 12, 2019 |
+|  Rel 19-12  |  [4523208]  |  Servicing Stack Update  | 3.8 | Nov 12, 2019 |
+|  Rel 19-12  |  [4525243]  |  Non-Security  | 4.73 | Nov 12, 2019 |
+|  Rel 19-12  |  [4524445]  |  Servicing Stack Update  | 4.73 | Nov 12, 2019 |
+|  Rel 19-12  |  [4520724]  |  Servicing Stack Update  | 5.38 | Nov 12, 2019 |
+|  Rel 19-12  |  [4523204]  |  ServicingStackUpdate  | 6.14 | Nov 12, 2019 |
+
+[4530692]: https://support.microsoft.com/kb/4530692
+[4530677]: https://support.microsoft.com/kb/4530677
+[4530677]: https://support.microsoft.com/kb/4530677
+[4530698]: https://support.microsoft.com/kb/4530698
+[4530730]: https://support.microsoft.com/kb/4530730
+[4530677]: https://support.microsoft.com/kb/4530677
+[4530689]: https://support.microsoft.com/kb/4530689
+[4530715]: https://support.microsoft.com/kb/4530715
+[4525235]: https://support.microsoft.com/kb/4525235
+[4531786]: https://support.microsoft.com/kb/4531786
+[4525246]: https://support.microsoft.com/kb/4525246
+[4523208]: https://support.microsoft.com/kb/4523208
+[4525243]: https://support.microsoft.com/kb/4525243
+[4524445]: https://support.microsoft.com/kb/4524445
+[4520724]: https://support.microsoft.com/kb/4520724
+[4523204]: https://support.microsoft.com/kb/4523204
+
+
+## November 2019 Guest OS
+
+| Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
+| --- | --- | --- | --- | --- |
+|  Rel 19-11   |  [4525106]  |  Internet Explorer   |  [2.92]  |  Nov 12, 2019  |
+|  Rel 19-11   |  [4525233]  |  Windows Security   |  [2.92]  |  Nov 12, 2019  |
+|  Rel 19-11   |  [4525106]  |  Internet Explorer   |  [3.79]  |  Nov 12, 2019  |
+|  Rel 19-11   |  [4525253]  |  Windows Security   |  [3.79]  |  Nov 12, 2019  |
+|  Rel 19-11   |  [4525106]  |  Internet Explorer   |  [4.72]  |  Nov 12, 2019  |
+|  Rel 19-11   |  [4525250]  |  Windows Security   |  [4.72]  |  Nov 12, 2019  |
+|  Rel 19-11   |  [4525236]  |  Latest Cumulative update   |  [5.37]  |  Nov 12, 2019  |
+|  Rel 19-11   |  [4523205]  |  Latest Cumulative update   |  [6.13]  |  Nov 12, 2019  |
+|  Rel 19-11   |  [4519976]  |  Non-Security   |  [2.92]  |  Oct 8, 2019  |
+|  Rel 19-11   |  [4520007]  |  Non-Security   |  [3.79]  |  Oct 8, 2019  |
+|  Rel 19-11   |  [4521857]  |  ServicingStackUpdate   |  [3.79]  |  Oct 8, 2019  |
+|  Rel 19-11   |  [4520005]  |  Non-Security   |  [4.72]  |  Oct 8, 2019  |
+|  Rel 19-11   |  [4521864]  |  ServicingStackUpdate   |  [4.72]  |  Oct 8, 2019  |
+|  Rel 19-11   |  [4521858]  |  ServicingStackUpdate   |  [5.37]  |  Oct 8, 2019  |
+|  Rel 19-11   |  [4521862]  |  ServicingStackUpdate   |  [6.13]  |  Oct 8, 2019  |
+
+[4525106]: https://support.microsoft.com/kb/4525106
+[4525233]: https://support.microsoft.com/kb/4525233
+[4525106]: https://support.microsoft.com/kb/4525106
+[4525253]: https://support.microsoft.com/kb/4525253
+[4525106]: https://support.microsoft.com/kb/4525106
+[4525250]: https://support.microsoft.com/kb/4525250
+[4525236]: https://support.microsoft.com/kb/4525236
+[4523205]: https://support.microsoft.com/kb/4523205
+[4519976]: https://support.microsoft.com/kb/4519976
+[4520007]: https://support.microsoft.com/kb/4520007
+[4521857]: https://support.microsoft.com/kb/4521857
+[4520005]: https://support.microsoft.com/kb/4520005
+[4521864]: https://support.microsoft.com/kb/4521864
+[4521858]: https://support.microsoft.com/kb/4521858
+[4521862]: https://support.microsoft.com/kb/4521862
+[6.13]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-6-releases
+[5.37]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-5-releases
+[4.72]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-4-releases
+[3.79]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-3-releases
+[2.92]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-2-releases
+
+
+## October 2019 Guest OS
+
+| Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
+| --- | --- | --- | --- | --- |
+|  Rel 19-10   |  [4520003]  |  Windows Security   |  [2.91]  |  Oct 8, 2019  |
+|  Rel 19-10   |  [4519985]  |  Windows Security   |  [3.78]  |  Oct 8, 2019  |
+|  Rel 19-10   |  [4519990]  |  Windows Security   |  [4.71]  |  Oct 8, 2019  |
+|  Rel 19-10   |  [4519998]  |  Latest Cumulative update   |  [5.36]  |  Oct 8, 2019  |
+|  Rel 19-10   |  [4519338]  |  Latest Cumulative update   |  [6.12]  |  Oct 8, 2019  |
+|  Rel 19-10   |  [4519974]  |  Internet Explorer   |  [2.91], [3.78], [4.71]  |  Oct 8, 2019  |
+|  Rel 19-10   |  [4516065]  |  Non-Security   |  [2.91]  |  Sept 10, 2019  |
+|  Rel 19-10   |  [4516655]  |  SSU   |  [2.91]  |  Sept 10, 2019  |
+|  Rel 19-10   |  [4516055]  |  Non-Security   |  [3.78]  |  Sept 10, 2019  |
+|  Rel 19-10   |  [4512939]  |  SSU   |  [3.78]  |  Sept 10, 2019  |
+|  Rel 19-10   |  [4514370]  |  .Net Framework 3.5   |  [3.78]  |  Sept 10, 2019  |
+|  Rel 19-10   |  [4514368]  |  .Net Framework 4.5.2   |  [3.78]  |  Sept 10, 2019  |
+|  Rel 19-10   |  [4516067]  |  Non Security   |  [4.71]  |  Sept 10, 2019  |
+|  Rel 19-10   |  [4512938]  |  SSU   |  [4.71]  |  Sept 10, 2019  |
+|  Rel 19-10   |  [4514371]  |  .Net Framework 3.5   |  [4.71]  |  Sept 10, 2019  |
+|  Rel 19-10   |  [4514367]  |  .Net Framework 4.5.2   |  [4.71]  |  Sept 10, 2019  |
+|  Rel 19-10   |  [4512574]  |  SSU   |  [5.36]  |  Sept 10, 2019  |
+|  Rel 19-10   |  [4512577]  |  SSU   |  [6.12]  |  Sept 10, 2019  |
+
+[4520003]: https://support.microsoft.com/kb/4520003
+[4519985]: https://support.microsoft.com/kb/4519985
+[4519990]: https://support.microsoft.com/kb/4519990
+[4519998]: https://support.microsoft.com/kb/4519998
+[4519338]: https://support.microsoft.com/kb/4519338
+[4519974]: https://support.microsoft.com/kb/4519974
+[4516065]: https://support.microsoft.com/kb/4516065
+[4516655]: https://support.microsoft.com/kb/4516655
+[4516055]: https://support.microsoft.com/kb/4516055
+[4512939]: https://support.microsoft.com/kb/4512939
+[4514370]: https://support.microsoft.com/kb/4514370
+[4514368]: https://support.microsoft.com/kb/4514368
+[4516067]: https://support.microsoft.com/kb/4516067
+[4512938]: https://support.microsoft.com/kb/4512938
+[4514371]: https://support.microsoft.com/kb/4514371
+[4514367]: https://support.microsoft.com/kb/4514367
+[4512574]: https://support.microsoft.com/kb/4512574
+[4512577]: https://support.microsoft.com/kb/4512577
+
+[6.12]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-6-releases
+[5.36]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-5-releases
+[4.71]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-4-releases
+[3.78]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-3-releases
+[2.91]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-2-releases
+
+
+## September 2019 Guest OS
+
+| Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
+| --- | --- | --- | --- | --- |
+|  Rel 19-09   |  [4516046]  |  Internet Explorer   |  [2.90], [3.77], [4.70]  |  Sept 10, 2019  |
+|  Rel 19-09   |  [4516115]  |  Flash   |  [2.90], [3.77], [4.70], [5.35], [6.11]  |  Sept 10, 2019  |
+|  Rel 19-09   |  [4512578]  |  Latest Cumulative update   |  [6.11]  |  Sept 10, 2019  |
+|  Rel 19-09   |  [4514366]  |  .NET Framework 3.5 and 4.7.2   |  [6.11]  |  Sept 10, 2019  |
+|  Rel 19-09   |  [4516044]  |  Latest Cumulative update   |  [5.35]  |  Sept 10, 2019  |
+|  Rel 19-09   |  [4516064]  |  Windows Security   |  [4.70]  |  Sept 10, 2019  |
+|  Rel 19-09   |  [4514350]  |  .NET Framework 3.5   |  [4.70]  |  Sept 10, 2019  |
+|  Rel 19-09   |  [4514341]  |  .NET Framework 4.5.2   |  [4.70]  |  Sept 10, 2019  |
+|  Rel 19-09   |  [4516062]  |  Windows Security   |  [3.77]  |  Sept 10, 2019  |
+|  Rel 19-09   |  [4514349]  |  .NET Framework 3.5   |  [3.77]  |  Sept 10, 2019  |
+|  Rel 19-09   |  [4514342]  |  .NET Framework 4.5.2   |  [3.77]  |  Sept 10, 2019  |
+|  Rel 19-09   |  [4516033]  |  Windows Security   |  [2.90]  |  Sept 12, 2019  |
+|  Rel 19-09   |  [4512488]  |  Non-Security   |  [4.70]  |  Aug 13, 2019  |
+|  Rel 19-09   |  [4512518]  |  Non-Security   |  [3.77]  |  Aug 13, 2019  |
+|  Rel 19-09   |  [4512506]  |  Non-Security   |  [2.90]  |  Aug 13, 2019  |
+
+[4516046]: https://support.microsoft.com/kb/4516046
+[4516115]: https://support.microsoft.com/kb/4516115
+[4512578]: https://support.microsoft.com/kb/4512578
+[4514366]: https://support.microsoft.com/kb/4514366
+[4516044]: https://support.microsoft.com/kb/4516044
+[4516064]: https://support.microsoft.com/kb/4516064
+[4514350]: https://support.microsoft.com/kb/4514350
+[4514341]: https://support.microsoft.com/kb/4514341
+[4516062]: https://support.microsoft.com/kb/4516062
+[4514349]: https://support.microsoft.com/kb/4514349
+[4514342]: https://support.microsoft.com/kb/4514342
+[4516033]: https://support.microsoft.com/kb/4516033
+[4512488]: https://support.microsoft.com/kb/4512488
+[4512518]: https://support.microsoft.com/kb/4512518
+[4512506]: https://support.microsoft.com/kb/4512506
+[6.11]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-6-releases
+[5.35]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-5-releases
+[4.70]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-4-releases
+[3.77]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-3-releases
+[2.90]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-2-releases
+
+
+## August 2019 Guest OS
+
+| Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
+| --- | --- | --- | --- | --- |
+|  Rel 19-08   |  [4512482]  |  Windows Security   |  [3.76]  |  Aug 13, 2019  |
+|  Rel 19-08   |  [4494175]  |  Microcode Update   |  [5.34]  |  Jun 18, 2019  |
+|  Rel 19-08   |  [4512517]  |  Latest Cumulative update   |  [5.34]  |  Aug 13, 2019  |
+|  Rel 19-08   |  [4494174]  |  Microcode Update   |  [6.1]  |  Jun 18, 2019  |
+|  Rel 19-08   |  [4511553]  |  Latest Cumulative update   |  [6.1]  |  Aug 13, 2019  |
+|  Rel 19-08   |  [4512486]  |  Windows Security   |  [2.89]  |  Aug 13, 2019  |
+|  Rel 19-08   |  [4512489]  |  Windows Security   |  [4.69]  |  Aug 13, 2019  |
+|  Rel 19-08   |  [4511872]  |  Internet Explorer    |  [2.89], [3.76], [4.69]  |  Aug 15, 2019  |
+|  Rel 19-08   |  [4507449]  |  Non-Security   |  [2.89]  |  July 9, 2019  |
+|  Rel 19-08   |  [4507000]  |  .NET 4.5.2 Non-Security   |  [3.76]  |  Aug 12, 2019  |
+|  Rel 19-08   |  [4507002]  |  .NET 3.5 Non-Security   |  [3.76]  |  Aug 12, 2019  |
+|  Rel 19-08   |  [4507462]  |  Non-Security   |  [3.76]  |  July 9, 2019  |
+|  Rel 19-08   |  [4506999]  |  .NET 4.5.2 Non-Security    |  [4.69]  |  Aug 12, 2019  |
+|  Rel 19-08   |  [4507005]  |  .NET 3.5 Non-Security    |  [4.69]  |  Aug 12, 2019  |
+|  Rel 19-08   |  [4507448]  |  Non-Security   |  [4.69]  |  July 9, 2019  |
+|  Rel 19-08   |  [4509091]  |  Servicing Stack Update   |  [5.34]  |  July 9, 2019  |
+|  Rel 19-08   |  [4509095]  |  Servicing Stack Update   |  [6.1]  |  July 9, 2019  |
+|  Rel 19-08   |  [4512937]  |  Servicing Stack Update   |  [6.1]  |  July 29, 2019  |
+|  Rel 19-08   |  [4507004]  |  .NET 3.5.1 Non-Security    |  [2.89]  |  Aug 12, 2019  |
+|  Rel 19-08   |  [4504418]  |  Servicing Stack Update   |  [3.76], [4.69]  |  July 11, 2019  |
+|  Rel 19-08   |  [4507001]  |  .NET 4.5.2 Non-Security   |  [2.89]  |  Aug 12, 2019  |
+|  Rel 19-08   |  [4507704]  |  DST Setting in Windows for Brazil and Morocco   |  [2.89], [3.76], [4.69], [5.34]  |  Aug 13, 2019  |
+
+[4512482]: https://support.microsoft.com/kb/4512482
+[4494175]: https://support.microsoft.com/kb/4494175
+[4512517]: https://support.microsoft.com/kb/4512517
+[4494174]: https://support.microsoft.com/kb/4494174
+[4511553]: https://support.microsoft.com/kb/4511553
+[4512486]: https://support.microsoft.com/kb/4512486
+[4512489]: https://support.microsoft.com/kb/4512489
+[4511872]: https://support.microsoft.com/kb/4511872
+[4507449]: https://support.microsoft.com/kb/4507449
+[4507000]: https://support.microsoft.com/kb/4507000
+[4507002]: https://support.microsoft.com/kb/4507002
+[4507462]: https://support.microsoft.com/kb/4507462
+[4506999]: https://support.microsoft.com/kb/4506999
+[4507005]: https://support.microsoft.com/kb/4507005
+[4507448]: https://support.microsoft.com/kb/4507448
+[4509091]: https://support.microsoft.com/kb/4509091
+[4509095]: https://support.microsoft.com/kb/4509095
+[4512937]: https://support.microsoft.com/kb/4512937
+[4507004]: https://support.microsoft.com/kb/4507004
+[4504418]: https://support.microsoft.com/kb/4504418
+[4507001]: https://support.microsoft.com/kb/4507001
+[4507704]: https://support.microsoft.com/kb/4507704
+
+[6.1]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-6-releases
+[5.34]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-5-releases
+[4.69]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-4-releases
+[3.76]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-3-releases
+[2.89]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-2-releases
+
+
+## July 2019 Guest OS
+
+| Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
+| --- | --- | --- | --- | --- |
+|  Rel 19-07   |  [4507434]  |  Internet Explorer   |  2.88, 3.75, 4.68  |  July 9, 2019  |
+|  Rel 19-07   |  [4506966]  |  .NET 4.5.2 Security   |  2.88  |  July 9, 2019  |
+|  Rel 19-07   |  [4506976]  |  .NET 3.5.1 Security   |  2.88  |  July 9, 2019  |
+|  Rel 19-07   |  [4507456]  |  Windows Security   |  2.88  |  July 9, 2019  |
+|  Rel 19-07   |  [4506965]  |  .NET 4.5.2 Security   |  3.75  |  July 9, 2019  |
+|  Rel 19-07   |  [4506974]  |  .NET 3.5 Security   |  3.75  |  July 9, 2019  |
+|  Rel 19-07   |  [4507464]  |  Windows Security   |  3.75  |  July 9, 2019  |
+|  Rel 19-07   |  [4506964]  |  .NET 4.5.2 Security   |  4.68  |  July 9, 2019  |
+|  Rel 19-07   |  [4506977]  |  .NET 3.5 Security   |  4.68  |  July 9, 2019  |
+|  Rel 19-07   |  [4507457]  |  Windows Security   |  4.68  |  July 9, 2019  |
+|  Rel 19-07   |  [4507460]  |  Windows Security   |  5.33  |  July 9, 2019  |
+|  Rel 19-07   |  [4506998]  |  .NET 3.5 & 4.7.2 Security   |  6.9  |  July 9, 2019  |
+|  Rel 19-07   |  [4507469]  |  Windows Security   |  6.9  |  July 9, 2019  |
+|  N/A  |  [4503537]  |  June '19 Servicing Stack Update for (Server 2016)   |  5.33  |  May 14, 2019  |
+|  N/A  |  [4504369]  |  June '19 Servicing Stack Update for (Server 2019)   |  6.9  |  May 14, 2019  |
+|  N/A  |  [4503292]  |  June '19 Non-Security (Server 2008 R2)   |  2.88  |  May 20, 2019  |
+|  N/A  |  [4503285]  |  June '19 Non-Security (Server 2012)   |  3.75  |  May 14, 2019  |
+|  N/A  |  [4503276]  |  June '19 Non-Security (Server 2012 R2)   |  4.68  |  May 14, 2019  |
+
+[4507434]: https://support.microsoft.com/kb/4507434
+[4506621]: https://support.microsoft.com/kb/4506621
+[4506966]: https://support.microsoft.com/kb/4506966
+[4506976]: https://support.microsoft.com/kb/4506976
+[4507456]: https://support.microsoft.com/kb/4507456
+[4506965]: https://support.microsoft.com/kb/4506965
+[4506974]: https://support.microsoft.com/kb/4506974
+[4507464]: https://support.microsoft.com/kb/4507464
+[4506964]: https://support.microsoft.com/kb/4506964
+[4506977]: https://support.microsoft.com/kb/4506977
+[4507457]: https://support.microsoft.com/kb/4507457
+[4507460]: https://support.microsoft.com/kb/4507460
+[4506998]: https://support.microsoft.com/kb/4506998
+[4507469]: https://support.microsoft.com/kb/4507469
+[4503537]: https://support.microsoft.com/kb/4503537
+[4504369]: https://support.microsoft.com/kb/4504369
+[4503292]: https://support.microsoft.com/kb/4503292
+[4503285]: https://support.microsoft.com/kb/4503285
+[4503276]: https://support.microsoft.com/kb/4503276
+
+
+## June 2019 Guest OS
+
+| Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
+| --- | --- | --- | --- | --- |
+|  Rel 19-06   |  [4503327]  |  Windows 10 Security   |  6.8  |  June 11, 2019  |
+|  Rel 19-06   |  [4503267]  |  Windows 10 Security   |  5.32  |  June 11, 2019  |
+|  Rel 19-06   |  [4503290]  |  Windows Security   |  4.67  |  June 11, 2019  |
+|  Rel 19-06   |  [4503263]  |  Windows Security   |  3.74  |  June 11, 2019  |
+|  Rel 19-06   |  [4503269]  |  Windows Security   |  2.87  |  June 11, 2019  |
+|  Rel 19-06   |  [4494174]  |  Microcode Update   |  6.8  |  June 11, 2019  |
+|  Rel 19-06   |  [4494175]  |  Microcode Update   |  5.32  |  June 3, 2019  |
+|  Rel 19-06   |  [4503308]  |  Flash   |  3.74, 4.67, 5.32, 6.8  |  June 11, 2019  |
+|  Rel 19-06   |  [4503259]  |  Internet Explorer   |  2.87, 3.74, 4.67  |  June 13, 2019  |
+|  N/A  |  [4499164]  |  May ’19 Non-Security  |  2.87  |  May 14, 2019  |
+|  N/A  |  [4495606]  |  May ’19 .NET 3.5 Non-Security  |  2.87  |  May 14, 2019  |
+|  N/A  |  [4495596]  |  May ’19 .NET 4.5 Non-Security  |  2.87  |  May 20, 2019  |
+|  N/A  |  [4499171]  |  May ’19 Non-Security  |  3.74  |  May 14, 2019  |
+|  N/A  |  [4495602]  |  May ’19 .NET 3.5 Non-Security  |  3.74  |  May 14, 2019  |
+|  N/A  |  [4495594]  |  May ’19 .NET 4.x Non-Security  |  4.67  |  May 14, 2019  |
+|  N/A  |  [4499151]  |  May ’19 Non-Security  |  4.67  |  May 14, 2019  |
+|  N/A  |  [4495608]  |  May ’19 .NET 3.5 Non-Security  |  4.67  |  May 14, 2019  |
+|  N/A  |  [4495592]  |  May ’19 .NET 4.5.2 Non-Security  |  4.67  |  May 14, 2019  |
+|  N/A  |  [4495610]  |  May ’19 .NET 4.8 Cumulative  |  6.8  |  May 14, 2019  |
+|  N/A  |  [4495618]  |  May’19 .NET 4.8 Cumulative  |  6.8  |  May 14, 2019  |
+|  N/A  |  [4501226]  |  DST Timezone updates for Morocco and the Palestinian Authority  |  2.87, 3.74, 4.67  |  May 23, 2019  |
+|  N/A  |  [4490128]  |  DST Timezone updates for São Tomé and Príncipe and Qyzylorda  |  2.87, 3.74, 4.67  |  April 17, 2019  |
+
+[4503327]: https://support.microsoft.com/kb/4503327
+[4503267]: https://support.microsoft.com/kb/4503267
+[4503290]: https://support.microsoft.com/kb/4503290
+[4503263]: https://support.microsoft.com/kb/4503263
+[4503269]: https://support.microsoft.com/kb/4503269
+[4494174]: https://support.microsoft.com/kb/4494174
+[4494175]: https://support.microsoft.com/kb/4494175
+[4503308]: https://support.microsoft.com/kb/4503308
+[4503259]: https://support.microsoft.com/kb/4503259
+[4499164]: https://support.microsoft.com/kb/KB4499164
+[4495606]: https://support.microsoft.com/kb/KB4495606
+[4495596]: https://support.microsoft.com/kb/KB4495596
+[4499171]: https://support.microsoft.com/kb/KB4499171
+[4495602]: https://support.microsoft.com/kb/KB4495602
+[4495594]: https://support.microsoft.com/kb/KB4495594
+[4499151]: https://support.microsoft.com/kb/KB4499151
+[4495608]: https://support.microsoft.com/kb/KB4495608
+[4495592]: https://support.microsoft.com/kb/KB4495592
+[4495610]: https://support.microsoft.com/kb/KB4495610
+[4495618]: https://support.microsoft.com/kb/KB4495618
+[4501226]: https://support.microsoft.com/kb/KB4501226
+[4490128]: https://support.microsoft.com/kb/KB4490128
+
+## May 2019 Guest OS
+
+| Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
+| --- | --- | --- | --- | --- |
+|  Rel 19-05   |  [4498206]  |  May IE Rollup   |  2.86, 3.73, 4.66  |  May 14, 2019  |
+|  Rel 19-05   |  [4505050]  |  May IE Rollup   |  2.86, 3.73, 4.66  |  May 18, 2019  |
+|  Rel 19-05   |  [4497932]  |  May Flash Update   |  3.73, 4.66, 5.31  |  May 14, 2019  |
+|  Rel 19-05   |  [4499175]  |  May Security Rollup   |  2.86  |  May 14, 2019  |
+|  Rel 19-05   |  [4495612]  |  May Security Rollup .NET 3.5   |  2.86  |  May 14, 2019  |
+|  Rel 19-05   |  [4495593]  |  May Security Rollup .NET 4.5.2   |  2.86  |  May 14, 2019  |
+|  Rel 19-05   |  [4499158]  |  May Security Rollup   |  3.73  |  May 14, 2019  |
+|  Rel 19-05   |  [4495607]  |  May Security Rollup .NET 3.5   |  3.73  |  May 14, 2019  |
+|  Rel 19-05   |  [4495591]  |  May Security Rollup .NET 4.5.2   |  3.73  |  May 14, 2019  |
+|  Rel 19-05   |  [4492872]  |  IE Rollup   |  3.73  |  April 16, 2019  |
+|  Rel 19-05   |  [4499165]  |  March Security Rollup   |  4.66  |  May 14, 2019  |
+|  Rel 19-05   |  [4495615]  |  May Security Rollup .NET 3.5   |  4.66  |  May 14, 2019  |
+|  Rel 19-05   |  [4495589]  |  May Security Rollup .NET 4.5.2   |  4.66  |  May 14, 2019  |
+|  Rel 19-05   |  [4498947]  |  May SSU   |  5.31  |  May 14, 2019  |
+|  Rel 19-05   |  [4494175]  |  May Microcode Update   |  5.31  |  May 14, 2019  |
+|  Rel 19-05   |  [4505052]  |  May Security Rollup   |  5.31  |  May 19, 2019  |
+|  Rel 19-05   |  [4499728]  |  May SSU   |  6.7  |  May 19, 2019  |
+|  Rel 19-05   |  [4505056]  |  May Security Rollup   |  6.7  |  May 19, 2019  |
+|  Rel 19-05   |  [4494174]  |  May Microcode Update   |  6.7  |  May 14, 2019  |
+|  Rel 19-05   |  [4495590]  |  May Security Rollup .NET   |  6.7  |  May 14, 2019  |
+
+[4498206]: https://support.microsoft.com/kb/4498206
+[4505050]: https://support.microsoft.com/kb/4505050
+[4497932]: https://support.microsoft.com/kb/4497932
+[4499175]: https://support.microsoft.com/kb/4499175
+[4495612]: https://support.microsoft.com/kb/4495612
+[4495593]: https://support.microsoft.com/kb/4495593
+[4499158]: https://support.microsoft.com/kb/4499158
+[4495607]: https://support.microsoft.com/kb/4495607
+[4495591]: https://support.microsoft.com/kb/4495591
+[4492872]: https://support.microsoft.com/kb/4492872
+[4499165]: https://support.microsoft.com/kb/4499165
+[4495615]: https://support.microsoft.com/kb/4495615
+[4495589]: https://support.microsoft.com/kb/4495589
+[4498947]: https://support.microsoft.com/kb/4498947
+[4494175]: https://support.microsoft.com/kb/4494175
+[4505052]: https://support.microsoft.com/kb/4505052
+[4499728]: https://support.microsoft.com/kb/4499728
+[4505056]: https://support.microsoft.com/kb/4505056
+[4494174]: https://support.microsoft.com/kb/4494174
+[4495590]: https://support.microsoft.com/kb/4495590
+
 
 ## April 2019 Guest OS
 
@@ -30,11 +400,11 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | Rel 19-04 | [4493448] | Windows Security | 2.85 | April 9, 2019 |
 | Rel 19-04 | [4493478] | Flash | 3.72, 4.65, 5.30, 6.6 | April 9, 2019 |
 | Rel 19-04 | [4493435] | Internet Explorer | 2.85, 3.72, 4.65 | April 9, 2019 |
-| Rel 19-04 | [KB4490628] | Servicing Stack Update | 2.85 | March 12, 2019 |
-| Rel 19-04 | [KB4474419] | SHA2 Support | 2.85 | March 12, 2019 |
-| Rel 19-04 | [KB4489878] | March Non-Security Rollup | 2.85 | March 12, 2019 |
-| Rel 19-04 | [KB4489891] | March Non-Security Rollup | 3.72 | March 12, 2019 |
-| Rel 19-04 | [KB4489881] | March Non-Security Rollup | 4.65 | March 12, 2019 |
+| Rel 19-04 | [4490628] | Servicing Stack Update | 2.85 | March 12, 2019 |
+| Rel 19-04 | [4474419] | SHA2 Support | 2.85 | March 12, 2019 |
+| Rel 19-04 | [4489878] | March Non-Security Rollup | 2.85 | March 12, 2019 |
+| Rel 19-04 | [4489891] | March Non-Security Rollup | 3.72 | March 12, 2019 |
+| Rel 19-04 | [4489881] | March Non-Security Rollup | 4.65 | March 12, 2019 |
 
 [4493509]: https://support.microsoft.com/kb/4493509
 [4493470]: https://support.microsoft.com/kb/4493470
@@ -43,11 +413,11 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 [4493448]: https://support.microsoft.com/kb/4493448
 [4493478]: https://support.microsoft.com/kb/4493478
 [4493435]: https://support.microsoft.com/kb/4493435
-[KB4490628]: https://support.microsoft.com/kb/KB4490628
-[KB4474419]: https://support.microsoft.com/kb/KB4474419
-[KB4489878]: https://support.microsoft.com/kb/KB4489878
-[KB4489891]: https://support.microsoft.com/kb/KB4489891
-[KB4489881]: https://support.microsoft.com/kb/KB4489881
+[4490628]: https://support.microsoft.com/kb/KB4490628
+[4474419]: https://support.microsoft.com/kb/KB4474419
+[4489878]: https://support.microsoft.com/kb/KB4489878
+[4489891]: https://support.microsoft.com/kb/KB4489891
+[4489881]: https://support.microsoft.com/kb/KB4489881
 
 ## March 2019 Guest OS
 

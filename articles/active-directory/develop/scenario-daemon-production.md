@@ -1,6 +1,6 @@
 ---
-title: Daemon app calling web APIs (move to production) - Microsoft identity platform
-description: Learn how to build a daemon app that calls web APIs (move to production)
+title: Move daemon app calling web APIs to production - Microsoft identity platform | Azure
+description: Learn how to move a daemon app that calls web APIs to production
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -13,9 +13,9 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/07/2019
+ms.date: 10/30/2019
 ms.author: jmprieur
-ms.custom: aaddev 
+ms.custom: aaddev
 #Customer intent: As an application developer, I want to know how to write a daemon app that can call web APIs using the Microsoft identity platform for developers.
 ms.collection: M365-identity-device-management
 ---
@@ -39,7 +39,7 @@ You'll need to explain to your customers how to perform these operations. For mo
 
 Here are a few links to learn more:
 
-### .NET
+# [.NET](#tab/dotnet)
 
 - If you have not already, try the quickstart [Acquire a token and call Microsoft Graph API from a console app using app's identity](./quickstart-v2-netcore-daemon.md).
 - Reference documentation for:
@@ -58,10 +58,12 @@ Here are a few links to learn more:
 
     ![topology](media/scenario-daemon-app/damon-app-sample-web.svg)
 
-### Python
+# [Python](#tab/python)
 
-MSAL Python is currently in public preview. For more info, see [MSAL Python client credentials in-repository sample](https://github.com/AzureAD/azure-activedirectory-library-for-python/blob/dev/sample/client_credentials_sample.py).
+Try the quickstart [Acquire a token and call Microsoft Graph API from a Python console app using app's identity](./quickstart-v2-python-daemon.md).
 
-### Java
+# [Java](#tab/java)
 
-MSAL Python is currently in public preview. For more info, see [MSAL Java in-repository samples](https://github.com/AzureAD/azure-activedirectory-library-for-java/tree/dev/src/samples).
+MSAL Java is currently in public preview. For more info, see [MSAL Java dev samples](https://github.com/AzureAD/microsoft-authentication-library-for-java/tree/dev/src/samples).
+
+---

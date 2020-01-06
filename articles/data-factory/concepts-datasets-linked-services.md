@@ -1,20 +1,17 @@
 ---
-title: Datasets in Azure Data Factory | Microsoft Docs
+title: Datasets
 description: 'Learn about datasets in Data Factory. Datasets represent input/output data.'
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-ms.reviewer: craigg
-
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
-
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 04/25/2019
-ms.author: shlo
-
 ---
 
 # Datasets in Azure Data Factory
@@ -74,7 +71,7 @@ typeProperties | The type properties are different for each type (for example: A
 
 ### Data flow compatible dataset
 
-[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
+
 
 See [supported dataset types](#dataset-type) for a list of dataset types that are [Data Flow](concepts-data-flow-overview.md) compatible. Datasets that are compatible for Data Flow require fine-grained dataset definitions for transformations. Thus, the JSON definition is slightly different. Instead of a _structure_ property, datasets that are Data Flow compatible have a _schema_ property.
 
@@ -145,9 +142,7 @@ Note the following points:
 - linkedServiceName refers to a linked service of type AzureSqlDatabase, which is defined in the next JSON snippet.
 
 ## Dataset type
-There are many different types of datasets, depending on the data store you use. See the following table for a list of data stores supported by Data Factory. Click a data store to learn how to create a linked service and a dataset for that data store.
-
-[!INCLUDE [data-factory-v2-supported-data-stores](../../includes/data-factory-v2-supported-data-stores-dataflow.md)]
+There are many different types of datasets, depending on the data store you use. You can find the list of data stored supported by Data Factory from [Connector overview](connector-overview.md) article. Click a data store to learn how to create a linked service and a dataset for that data store.
 
 In the example in the previous section, the type of the dataset is set to **AzureSqlTable**. Similarly, for an Azure Blob dataset, the type of the dataset is set to **AzureBlob**, as shown in the following JSON:
 

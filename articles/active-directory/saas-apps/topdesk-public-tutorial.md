@@ -117,8 +117,11 @@ To configure Azure AD single sign-on with TOPdesk - Public, perform the followin
     d. In the **Sign-on URL** text box, type a URL using the following pattern:
     `https://<companyname>.topdesk.net`
 
-	e. In the **Identifier** textbox, type a URL using the following pattern: `https://<companyname>.topdesk.net/tas/public/login/verify`
-
+	e. In the **Identifier URL** textbox, fill in the TOPdesk metadata URL that you can retrieve from the TOPdesk configuration. It should use the following pattern: `https://<companyname>.topdesk.net/saml-metadata/<identifier>`
+	
+	f. In the **Reply URL** textbox, type a URL using the following pattern:
+    `https://<companyname>.topdesk.net/tas/public/login/verify`
+	
 	> [!NOTE] 
 	> If the **Identifier** and **Reply URL** values do not get auto populated, you need to enter them manually. For Identifier, follow the pattern as mentioned above and you get Reply URL value from the **Configure TOPdesk - Public Single Sign-On** section which is explained later in the tutorial. The **Sign-on URL** value is not real, so you need to update the value with the actual Sign-On URL. Contact [TOPdesk - Public Client support team](https://help.topdesk.com/saas/enterprise/user/) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
@@ -190,7 +193,7 @@ To configure Azure AD single sign-on with TOPdesk - Public, perform the followin
 
     c. To upload the logo file you got from the TOPdesk support team, under **Logo icon**, click **Browse**.
 
-    d. In the **User name attribute** textbox, type `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
+    d. In the **User name attribute** textbox, type `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
 
     e. In the **Display name** textbox, type a name for your configuration.
 
@@ -285,4 +288,4 @@ When you click the TOPdesk - Public tile in the Access Panel, you should be auto
 
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

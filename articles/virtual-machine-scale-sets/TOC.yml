@@ -64,12 +64,19 @@
 - name: Concepts
   items:
   - name: Azure Resource Manager
-    href: ../azure-resource-manager/resource-group-overview.md
+    href: ../azure-resource-manager/management/overview.md
     maintainContext: true
-  - name: Regions and availability
-    href: ../virtual-machines/windows/regions-and-availability.md
+  - name: Regions
+    href: ../virtual-machines/windows/regions.md
+  - name: Availability and performance
     maintainContext: true
     items:
+    - name: Availability
+      href: availability.md
+    - name: Co-location
+      href: co-location.md
+    - name: Network performance
+      href: ../virtual-network/virtual-network-optimize-network-bandwidth.md?toc=%2fazure%2fvirtual-machine-scale-sets%2fwindows%2ftoc.json
     - name: Manage fault domains in scale sets
       href: virtual-machine-scale-sets-manage-fault-domains.md
   - name: VM types and sizes
@@ -118,6 +125,8 @@
   - name: Maintenance and updates
     href: ../virtual-machines/windows/maintenance-and-updates.md
     maintainContext: true
+  - name: Orchestration modes
+    href: orchestration-modes.md
   - name: Disk storage
     items:
     - name: Managed Disks
@@ -130,7 +139,7 @@
       href: ../virtual-machines/windows/premium-storage-performance.md
       maintainContext: true
     - name: Ephemeral OS disks
-      href: ephemeral-os-disks.md      
+      href: ephemeral-os-disks.md
     - name: Scalability targets for disks
       href: ../virtual-machines/windows/disk-scalability-targets.md
       maintainContext: true
@@ -143,8 +152,14 @@
   - name: Infrastructure automation
     href: ../virtual-machines/windows/infrastructure-automation.md
     maintainContext: true
-  - name: Security and policy
-    href: ../virtual-machines/windows/security-policy.md
+  - name: Security
+    items:
+    - name: Security and policy
+      href: ../virtual-machines/windows/security-policy.md
+    - name: Azure Disk Encryption
+      href: disk-encryption-overview.md
+    - name: Built-in security controls
+      href: virtual-machine-scale-sets-security-controls.md
     maintainContext: true
   - name: Monitoring
     href: ../virtual-machines/windows/monitor.md
@@ -203,18 +218,21 @@
     - name: Encrypt disks in scale sets
       items:
       - name: Use PowerShell
-        href: virtual-machine-scale-sets-encrypt-disks-ps.md
+        href: disk-encryption-powershell.md
       - name: Use the Azure CLI
-        href: virtual-machine-scale-sets-encrypt-disks-cli.md
+        href: disk-encryption-cli.md
+      - name: Use Azure Resource Manager templates
+        href: disk-encryption-azure-resource-manager.md
       - name: Extension sequencing
-        href: ../security/azure-security-disk-encryption-extension-sequencing.md
-        maintainContext: true
+        href: disk-encryption-extension-sequencing.md
+      - name: Key vault for Azure Disk Encryption
+        href: disk-encryption-key-vault.md      
     - name: Work with large scale sets
       href: virtual-machine-scale-sets-placement-groups.md
     - name: Convert a scale set template to use managed disk
       href: virtual-machine-scale-sets-convert-template-to-md.md
-    - name: Use low-priority
-      href: virtual-machine-scale-sets-use-low-priority.md
+    - name: Use spot instance
+      href: use-spot.md
   - name: Manage
     items:
     - name: Common management tasks
@@ -223,7 +241,19 @@
         href: virtual-machine-scale-sets-manage-cli.md
       - name: Use Azure PowerShell
         href: virtual-machine-scale-sets-manage-powershell.md
-    - name: Shared image galleries 
+    - name: Modify a scale set
+      href: virtual-machine-scale-sets-upgrade-scale-set.md
+    - name: Networking for scale sets
+      href: virtual-machine-scale-sets-networking.md
+    - name: Automatic OS upgrades
+      href: virtual-machine-scale-sets-automatic-upgrade.md
+    - name: Instance protection (Preview)
+      href: virtual-machine-scale-sets-instance-protection.md
+    - name: Scale-In Policy (Preview)
+      href: virtual-machine-scale-sets-scale-in-policy.md
+    - name: Terminate notification on delete (Preview)
+      href: virtual-machine-scale-sets-terminate-notification.md
+    - name: Shared image galleries
       items:
       - name: Overview
         href: shared-image-galleries.md
@@ -235,16 +265,12 @@
         href: share-images-across-tenants.md
       - name: Troubleshoot shared images
         href: troubleshooting-shared-images.md
+    - name: Create a proximity placement group
+      href: proximity-placement-groups.md
     - name: Vertical scaling in a scale set
       href: virtual-machine-scale-sets-vertical-scale-reprovision.md
-    - name: Automatic OS upgrades
-      href: virtual-machine-scale-sets-automatic-upgrade.md
-    - name: Modify a scale set
-      href: virtual-machine-scale-sets-upgrade-scale-set.md
     - name: Using DSC and scale sets
       href: virtual-machine-scale-sets-dsc.md
-    - name: Networking for scale sets
-      href: virtual-machine-scale-sets-networking.md
     - name: Convert a template to managed disks
       href: virtual-machine-scale-sets-convert-template-to-md.md
     - name: Planned maintenance

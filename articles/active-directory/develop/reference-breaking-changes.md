@@ -13,8 +13,8 @@ ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 10/02/2018
+ms.topic: conceptual
+ms.date: 08/28/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
@@ -37,7 +37,64 @@ The authentication system alters and adds features on an ongoing basis to improv
 
 ## Upcoming changes
 
-None scheduled at this time. 
+September 2019: Additional enforcement of POST semantics according to URL parsing rules - duplicate parameters will trigger an error and [BOM](https://www.w3.org/International/questions/qa-byte-order-mark) ignored.
+
+## August 2019
+
+### POST form semantics will be enforced more strictly - spaces and quotes will be ignored
+
+**Effective date**: September 2, 2019
+
+**Endpoints impacted**: Both v1.0 and v2.0
+
+**Protocol impacted**: Anywhere POST is used ([client credentials](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow), [authorization code redemption](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-auth-code-flow), [ROPC](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth-ropc), [OBO](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow), and [refresh token redemption](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-auth-code-flow#refresh-the-access-token))
+
+Starting the week of 9/2, authentication requests that use the POST method will be validated using stricter HTTP standards.  Specifically, spaces and double-quotes (“) will no longer be removed from request form values. These changes are not expected to break any existing clients, and will ensure that requests sent to Azure AD are reliably handled every time. In the future (see above) we plan to additionally reject duplicate parameters and ignore the BOM within requests. 
+
+Example:
+
+Today, `?e=    "f"&g=h` is parsed identically as `?e=f&g=h` - so `e` == `f`.  With this change, it would now be parsed so that `e` == `    "f"` - this is unlikely to be a valid argument, and the request would now fail. 
+
+
+## July 2019
+
+### App-only tokens for single-tenant applications are only issued if the client app exists in the resource tenant
+
+**Effective date**: July 26, 2019
+
+**Endpoints impacted**: Both [v1.0](https://docs.microsoft.com/azure/active-directory/develop/v1-oauth2-client-creds-grant-flow) and [v2.0](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow)
+
+**Protocol impacted**: [Client Credentials (app-only tokens)](https://docs.microsoft.com/azure/active-directory/develop/v1-oauth2-client-creds-grant-flow)
+
+A security change went live July 26th that changes the way app-only tokens (via the client credentials grant) are issued. Previously, applications were allowed to get tokens to call any other app, regardless of presence in the tenant or roles consented to for that application.  This behavior has been updated so that for resources (sometimes called Web APIs) set to be single-tenant (the default), the client application must exist within the resource tenant.  Note that existing consent between the client and the API is still not required, and apps should still be doing their own authorization checks to ensure that a `roles` claim is present and contains the expected value for the API.
+
+The error message for this scenario currently states: 
+
+`The service principal named <appName> was not found in the tenant named <tenant_name>. This can happen if the application has not been installed by the administrator of the tenant.`
+
+To remedy this issue, use the Admin Consent experience to create the client application service principal in your tenant, or create it manually.  This requirement ensures that the tenant has given the application permission to operate within the tenant.  
+
+#### Example request
+
+`https://login.microsoftonline.com/contoso.com/oauth2/authorize?resource=https://gateway.contoso.com/api&response_type=token&client_id=14c88eee-b3e2-4bb0-9233-f5e3053b3a28&...`
+In this example, the resource tenant (authority) is contoso.com, the resource app is a single-tenant app called `gateway.contoso.com/api` for the Contoso tenant, and the client app is `14c88eee-b3e2-4bb0-9233-f5e3053b3a28`.  If the client app has a service principal within Contoso.com, this request can continue.  If it doesn't, however, then the request will fail with the error above.  
+
+If the Contoso gateway app were a multi-tenant application, however, then the request would continue regardless of the client app having a service principal within Contoso.com.  
+
+### Redirect URIs can now contain query string parameters
+
+**Effective date**: July 22, 2019
+
+**Endpoints impacted**: Both v1.0 and v2.0
+
+**Protocol impacted**: All flows
+
+Per [RFC 6749](https://tools.ietf.org/html/rfc6749#section-3.1.2), Azure AD applications can now register and use redirect (reply) URIs with static query parameters (such as https://contoso.com/oauth2?idp=microsoft) for OAuth 2.0 requests.  Dynamic redirect URIs are still forbidden as they represent a security risk, and this cannot be used to retain state information across an authentication request - for that, use the `state` parameter.
+
+The static query parameter is subject to string matching for redirect URIs like any other part of the redirect URI - if no string is registered that matches the URI-decoded redirect_uri, then the request will be rejected.  If the URI is found in the app registration, then the entire string will be used to redirect the user, including the static query parameter. 
+
+Note that at this time (End of July 2019), the app registration UX in Azure portal still block query parameters.  However, you can edit the application manifest manually to add query parameters and test this in your app.  
+
 
 ## March 2019
 

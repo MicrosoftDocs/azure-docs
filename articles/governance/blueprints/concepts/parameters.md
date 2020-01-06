@@ -1,13 +1,8 @@
 ---
 title: Use parameters to creating dynamic blueprints
-description: Learn about static and dynamic parameters and how using them creates dynamic blueprints.
-author: DCtheGeek
-ms.author: dacoulte
+description: Learn about static and dynamic parameters and how to use them to create secure and dynamic blueprints.
 ms.date: 03/12/2019
 ms.topic: conceptual
-ms.service: blueprints
-manager: carmonm
-ms.custom: seodec18
 ---
 # Creating dynamic blueprints through parameters
 
@@ -19,7 +14,7 @@ assignment, to change properties on the artifacts deployed by the blueprint.
 
 A simple example is the resource group artifact. When a resource group is created, it has two
 required values that must be provided: name and location. When adding a resource group to your
-blueprint, if parameters didn’t exist, you would define that name and location for every use of the
+blueprint, if parameters didn't exist, you would define that name and location for every use of the
 blueprint. This repetition would cause every use of the blueprint to create artifacts in the same
 resource group. Resources inside that resource group would become duplicated and cause a conflict.
 
@@ -65,10 +60,11 @@ If the blueprint assignment uses a **user-assigned managed identity**, the refer
 _may_ exist in a centralized subscription. The managed identity must be granted appropriate rights
 on the Key Vault prior to blueprint assignment.
 
-In both cases, the Key Vault must have **Enable access to Azure Resource Manager for template
-deployment** configured on the **Access policies** page. For directions on how to enable this
-feature, see [Key Vault - Enable template
-deployment](../../../managed-applications/key-vault-access.md#enable-template-deployment).
+> [!IMPORTANT]
+> In both cases, the Key Vault must have **Enable access to Azure Resource Manager for template
+> deployment** configured on the **Access policies** page. For directions on how to enable this
+> feature, see [Key Vault - Enable template
+> deployment](../../../azure-resource-manager/managed-applications/key-vault-access.md#enable-template-deployment).
 
 For more information about Azure Key Vault, see [Key Vault
 Overview](../../../key-vault/key-vault-overview.md).
@@ -285,7 +281,7 @@ a dynamic parameter that isn't provided during assignment, the assignment will f
 ## Next steps
 
 - See the list of [blueprint functions](../reference/blueprint-functions.md).
-- Learn about the [blueprint life-cycle](lifecycle.md).
+- Learn about the [blueprint lifecycle](lifecycle.md).
 - Learn to customize the [blueprint sequencing order](sequencing-order.md).
 - Find out how to make use of [blueprint resource locking](resource-locking.md).
 - Learn how to [update existing assignments](../how-to/update-existing-assignments.md).

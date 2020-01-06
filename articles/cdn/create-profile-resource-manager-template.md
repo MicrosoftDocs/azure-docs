@@ -1,5 +1,6 @@
 ---
-title: Quickstart - Create an Azure Content Delivery Network profile and endpoint using Resource Manager templates | Microsoft Docs
+title: Quickstart - Create a profile and endpoint using Resource Manager templates
+titleSuffix: Azure Content Delivery Network
 description: Learn how to create an Azure Content Deliver Network profile and endpoint using Resource Manager templates
 services: cdn
 documentationcenter: ''
@@ -8,7 +9,7 @@ manager: danielgi
 editor: ''
 
 ms.assetid: cbc2ff98-916d-4339-8959-622823c5b772
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: na

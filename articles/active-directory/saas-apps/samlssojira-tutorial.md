@@ -9,6 +9,7 @@ ms.reviewer: barbkess
 
 ms.assetid: 20e18819-e330-4e40-bd8d-2ff3b98e035f
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -167,7 +168,7 @@ To configure the single sign-on with SAML SSO for Jira by resolution GmbH, perfo
 	
 	d. Click **Next**.
 	
-11. On the the **Identity provider configuration** page, click **Next**.
+11. On the **Identity provider configuration** page, click **Next**.
  
 	![Configure Single Sign-On](./media/samlssojira-tutorial/addon5b.png)
 
@@ -318,5 +319,5 @@ After activating the option, you can still reach the username/password prompt if
 
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

@@ -1,17 +1,9 @@
 ---
-title: Create an ASP.NET web app with Azure Cache for Redis | Microsoft Docs
+title: Create an ASP.NET web app with Azure Cache for Redis
 description: In this quickstart, you learn how to create an ASP.NET web app with Azure Cache for Redis
-services: cache
-documentationcenter: ''
 author: yegu-ms
-manager: jhubbard
-editor: ''
 
-ms.assetid: 454e23d7-a99b-4e6e-8dd7-156451d2da7c
 ms.service: cache
-ms.workload: tbd
-ms.tgt_pltfrm: cache
-ms.devlang: na
 ms.topic: quickstart
 ms.date: 03/26/2018
 ms.author: yegu
@@ -20,21 +12,14 @@ ms.custom: mvc
 #Customer intent: As an ASP.NET developer, new to Azure Cache for Redis, I want to create a new ASP.NET web app that uses Azure Cache for Redis.
 
 ---
-# Quickstart: Create an ASP.NET web app 
+# Quickstart: Use Azure Cache for Redis with an ASP.NET web app 
 
-## Introduction
-
-This quickstart shows how to create and deploy an ASP.NET web application to Azure App Service by using Visual Studio 2017. The sample application connects to Azure Cache for Redis to store and retrieve data from the cache. After you finish the quickstart, you'll have a running web app, hosted in Azure, that reads and writes to Azure Cache for Redis.
-
-![Simple test completed Azure](./media/cache-web-app-howto/cache-simple-test-complete-azure.png)
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+In this quickstart, you use Visual Studio 2019 to create an ASP.NET web application that connects to Azure Cache for Redis to store and retrieve data from the cache. You then deploy the app to Azure App Service.
 
 ## Prerequisites
 
-To complete the quickstart, you need to install [Visual Studio 2017](https://www.visualstudio.com/downloads/) with the following environments:
-* ASP.NET and web development
-* Azure development
+- Azure subscription - [create one for free](https://azure.microsoft.com/free/)
+- [Visual Studio 2019](https://www.visualstudio.com/downloads/) with the **ASP.NET and web development** and **Azure development** workloads.
 
 ## Create the Visual Studio project
 
@@ -156,7 +141,7 @@ The ASP.NET runtime merges the contents of the external file with the markup in 
 
             // Connection refers to a property that returns a ConnectionMultiplexer
             // as shown in the previous example.
-            IDatabase cache = lazyConnection.Value.GetDatabase();
+            IDatabase cache = lazyConnection.GetDatabase();
 
             // Perform cache operations using the cache object...
 
@@ -179,7 +164,7 @@ The ASP.NET runtime merges the contents of the external file with the markup in 
             ViewBag.command5 = "CLIENT LIST";
             ViewBag.command5Result = cache.Execute("CLIENT", "LIST").ToString().Replace(" id=", "\rid=");
 
-            lazyConnection.Value.Dispose();
+            lazyConnection.Dispose();
 
             return View();
         }

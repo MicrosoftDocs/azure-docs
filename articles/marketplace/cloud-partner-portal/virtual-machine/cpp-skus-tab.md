@@ -4,6 +4,7 @@ description: Describes the SKUs tab used in creating a virtual machine offer in 
 services: Azure, Marketplace, Cloud Partner Portal, virtual machine
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 04/25/2019
 ms.author: pabutler
@@ -50,7 +51,7 @@ The following table describes the purpose, contents, and formatting of these fie
 | **Operating System Family\*** | Indicates whether the solution VM is Windows- or Linux-based. |
 | **Select Operating System Type** | Specific vendor or release of the specified OS. |
 | **OS Friendly Name\*** | Operating system name to be displayed to customers.  |
-| **Recommended VM Sizes\*** | Enables selection of up to six recommended VM sizes from a standardized list.  Although these recommendations are prominently displayed to potential customers, they are able to specify any VM size that is compatible with the solution image. | 
+| **Recommended VM Sizes\*** | Enables selection of up to six recommended VM sizes from a standardized list.  This list is passed along to the Azure portal and Microsoft marketplaces.  The first VM size in this list that is valid (for that customer subscription, region, zone, etc.) is set as the default for that potential customer.  The user can change this size to any compatible with the solution image. | 
 | **Open Ports**| Ports to open and protocol to support for the SKU.  These configurations must match the virtual network you've configured for the network of the solution VM. These settings go into effect during VM deployment. However, Port settings can be modified after you publish an SKU. For more information, see [How to open ports to a virtual machine with the Azure portal](https://docs.microsoft.com/azure/virtual-machines/windows/nsg-quickstart-portal). <br/>The following default network mappings are added to all VMs. &emsp; Windows: 3389 -> 3389 TCP, 5986 -> 5986 TCP; &emsp; Linux: 22 -> 22, TCP (SSH). |
 | **Disk Version**  | Associated solution VM, specified by disk version number and disk URL. The disk version must be in [semantic version](https://semver.org/) format: `<major>.<minor>.<patch>`.  The URL is the shared access signature URI created for the operating system VHD.  Although, you can add up to eight disk versions per SKU, only the highest disk version number for an SKU will show up in Azure Marketplace. The other versions will only be visible via APIs.  <!--TD: Add more specific link to API --> <br/> The **New data disk** accordion section enables you to attach up to 15 data disks to your VM.  Once you publish a SKU with a given VM version and associated data disks, this configuration cannot be modified.  If additional VM versions get added to the SKU, they must also support the same number of data disks. <br/> If you have not created your Azure-based VM image(s), you can add update this field later.  For information about creating the associated VM resource, see the section [Create VM technical assets](./cpp-create-technical-assets.md).  
 |  |  |
@@ -64,6 +65,11 @@ The following table describes the purpose, contents, and formatting of these fie
 
 The pricing model described above is a basic description.  It is undergoing changes and may be affected by local or regional tax regulations and Microsoft pricing policies. 
 
+### New core sizes added on 7/2/2019
+
+VM publishers were notified on July 2, 2019 of the addition of new prices for new Azure virtual machine sizes (based on the number of cores).  The new prices are for the core sizes 10, 44, 48, 60, 120, 208, and 416.  For existing VM offers new prices for these cores sizes were automatically calculated based on current prices.  Publishers have until August 1, 2019 to review the additional prices and make any desired changes.  After this date, if not already re-published by the publisher, the automatically calculated prices for these new core sizes will take effect.
+
+
 ### Simplified Currency Pricing
 
 Starting September 1 2018, a new section called **Simplified Currency Pricing** will be added to the portal. Microsoft is streamlining the Azure Marketplace business by enabling more predictable pricing and collections from your customers across the world. This streamlining will include reducing the number of currencies in which we invoice your customers.  For more information, see [Update an existing VM offer on Azure Marketplace](./cpp-update-existing-offer.md).
@@ -75,7 +81,7 @@ Starting September 1 2018, a new section called **Simplified Currency Pricing** 
 * Prices are not changeable once an offer goes live. However, you may still add or remove supported regions. 
 * Microsoft charges the customer standard Azure VM usage fees in addition to your scheduled SKU fees.
 * Prices are set for all regions in local currency on available currency rates at the time of setting prices.  <!-- TD: Meaning? - Offer created, published, other? -->
-* To set each region’s price individually, please export the pricing spreadsheet, apply custom pricing, then import. 
+* To set each region's price individually, please export the pricing spreadsheet, apply custom pricing, then import. 
 
 
 ## Next steps

@@ -1,6 +1,5 @@
 ---
-# Mandatory fields. See more on aka.ms/skyeye/meta.
-title: Tutorial develop C# module for Windows - Azure IoT Edge | Microsoft Docs 
+title: Tutorial - Develop C# module for Windows using Azure IoT Edge
 description: This tutorial shows you how to create an IoT Edge module with C# code and deploy it to a Windows IoT Edge device.
 services: iot-edge
 author: kgremban
@@ -32,11 +31,11 @@ The IoT Edge module that you create in this tutorial filters the temperature dat
 
 ## Solution scope
 
-This tutorial demonstrates how to develop a module in **C#** using **Visual Studio 2017**, and how to deploy it to a **Windows device**. If you're developing modules for Linux devices, go to [Develop a C# IoT Edge module for Linux devices](tutorial-csharp-module.md) instead. 
+This tutorial demonstrates how to develop a module in **C#** using **Visual Studio 2019**, and how to deploy it to a **Windows device**. If you're developing modules for Linux devices, go to [Develop a C# IoT Edge module for Linux devices](tutorial-csharp-module.md) instead. 
 
-Use the following table to understand your options for developing and deploying C modules to Windows devices: 
+Use the following table to understand your options for developing and deploying C# modules to Windows devices: 
 
-| C# | Visual Studio Code | Visual Studio 2017 | 
+| C# | Visual Studio Code | Visual Studio 2017/2019 | 
 | -- | ------------------ | ------------------ |
 | **Windows AMD64 develop** | ![Develop C# modules for WinAMD64 in VS Code](./media/tutorial-c-module/green-check.png) | ![Develop C# modules for WinAMD64 in Visual Studio](./media/tutorial-c-module/green-check.png) |
 | **Windows AMD64 debug** |   | ![Debug C# modules for WinAMD64 in Visual Studio](./media/tutorial-c-module/green-check.png) |
@@ -48,8 +47,11 @@ Before beginning this tutorial, you should have gone through the previous tutori
 * A free or standard-tier [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) in Azure.
 * A [Windows device running Azure IoT Edge](quickstart.md).
 * A container registry, like [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/).
-* [Visual Studio 2017](https://docs.microsoft.com/visualstudio/install/install-visual-studio?view=vs-2017), version 15.7 or higher, configured with the [Azure IoT Edge Tools](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools) extension.
-* [Docker CE](https://docs.docker.com/install/) configured to run Windows containers.
+* [Visual Studio 2019](https://docs.microsoft.com/visualstudio/install/install-visual-studio) configured with the [Azure IoT Edge Tools](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools) extension.
+* [Docker Desktop](https://docs.docker.com/docker-for-windows/install/) configured to run Windows containers.
+
+> [!TIP]
+> If you are using Visual Studio 2017 (version 15.7 or higher), plrease download and install [Azure IoT Edge Tools](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools) for VS 2017 from the Visual Studio marketplace
 
 ## Create a module project
 
@@ -57,28 +59,29 @@ The following steps create an IoT Edge module project  by using Visual Studio an
 
 ### Create a new project
 
-The Azure IoT Tools extension provides project templates for all supported IoT Edge module languages in Visual Studio 2017. These templates have all the files and code that you need to deploy a working module to test IoT Edge, or give you a starting point to customize the template with your own business logic. 
+The Azure IoT Edge Tools provides project templates for all supported IoT Edge module languages in Visual Studio. These templates have all the files and code that you need to deploy a working module to test IoT Edge, or give you a starting point to customize the template with your own business logic. 
 
-1. Run Visual Studio as an administrator.
+1. Launch Visual Studio 2019 and select **Create New Project**.
 
-2. Select **File** > **New** > **Project**. 
-
-3. In the new project window, select the **Azure IoT** project type and choose the **Azure IoT Edge** project. Rename the project and solution to something descriptive like **CSharpTutorialApp**. Select **OK** to create the project. 
+2. In the new project window, search **IoT Edge** project and choose the **Azure IoT Edge (Windows amd64)** project. Click **Next**. 
 
    ![Create a new Azure IoT Edge project](./media/tutorial-csharp-module-windows/new-project.png)
+
+3. In the configure your new project window, rename the project and solution to something descriptive like **CSharpTutorialApp**. Click **Create** to create the project. 
+
+   ![Configure a new Azure IoT Edge project](./media/tutorial-csharp-module-windows/configure-project.png)
 
 4. In the IoT Edge application and module window, configure your project with the following values: 
 
    | Field | Value |
    | ----- | ----- |
-   | Application platform | Uncheck **Linux Amd64**, and check **WindowsAmd64**. |
    | Select a template | Select **C# Module**. | 
    | Module project name | Name your module **CSharpModule**. | 
    | Docker image repository | An image repository includes the name of your container registry and the name of your container image. Your container image is prepopulated from the module project name value. Replace **localhost:5000** with the login server value from your Azure container registry. You can retrieve the login server from the Overview page of your container registry in the Azure portal. <br><br> The final image repository looks like \<registry name\>.azurecr.io/csharpmodule. |
 
    ![Configure your project for target device, module type, and container registry](./media/tutorial-csharp-module-windows/add-application-and-module.png)
 
-5. Select **OK** to apply your changes. 
+5. Select **Add** to create the project. 
 
 ### Add your registry credentials
 
@@ -86,20 +89,22 @@ The deployment manifest shares the credentials for your container registry with 
 
 1. In the Visual Studio solution explorer, open the **deployment.template.json** file. 
 
-2. Find the **registryCredentials** property in the $edgeAgent desired properties. 
-
-3. Update the property with your credentials, following this format: 
+2. Find the **registryCredentials** property in the $edgeAgent desired properties. It should have your registry address autofilled from the information you provided when creating the project, and then username and password fields should contain variable names. For example: 
 
    ```json
    "registryCredentials": {
      "<registry name>": {
-       "username": "<username>",
-       "password": "<password>",
+       "username": "$CONTAINER_REGISTRY_USERNAME_<registry name>",
+       "password": "$CONTAINER_REGISTRY_PASSWORD_<registry name>",
        "address": "<registry name>.azurecr.io"
      }
    }
 
-4. Save the deployment.template.json file. 
+3. Open the **.env** file in your module solution. (It's hidden by default in the Solution Explorer, so you might need to select the **Show All Files** button to display it.) The .env file should contain the same username and password variables that you saw in the deployment.template.json file. 
+
+4. Add the **Username** and **Password** values from your Azure container registry. 
+
+5. Save your changes to the .env file.
 
 ### Update the module with custom code
 
@@ -224,14 +229,16 @@ The default module code receives messages on an input queue and passes them alon
             {
                 Console.WriteLine($"Machine temperature {messageBody.machine.temperature} " +
                     $"exceeds threshold {temperatureThreshold}");
-                var filteredMessage = new Message(messageBytes);
-                foreach (KeyValuePair<string, string> prop in message.Properties)
+                using(var filteredMessage = new Message(messageBytes))
                 {
-                    filteredMessage.Properties.Add(prop.Key, prop.Value);
-                }
+                    foreach (KeyValuePair<string, string> prop in message.Properties)
+                    {
+                        filteredMessage.Properties.Add(prop.Key, prop.Value);
+                    }
 
-                filteredMessage.Properties.Add("MessageType", "Alert");
-                await moduleClient.SendEventAsync("output1", filteredMessage);
+                    filteredMessage.Properties.Add("MessageType", "Alert");
+                    await moduleClient.SendEventAsync("output1", filteredMessage);
+                }
             }
 
             // Indicate that the message treatment is completed.
@@ -261,7 +268,7 @@ The default module code receives messages on an input queue and passes them alon
 
 8. Save the Program.cs file.
 
-9. Open the **deployment.template.json** file in your IoT Edge solution. This file tells the IoT Edge agent which modules to deploy, in this case **tempSensor** and **CSharpModule**, and tells the IoT Edge hub how to route messages between them.
+9. Open the **deployment.template.json** file in your IoT Edge solution. This file tells the IoT Edge agent which modules to deploy, in this case **SimulatedTemperatureSensor** and **CSharpModule**, and tells the IoT Edge hub how to route messages between them.
 
 10. Add the **CSharpModule** module twin to the deployment manifest. Insert the following JSON content at the bottom of the **modulesContent** section, after the **$edgeHub** module twin: 
 
@@ -320,7 +327,7 @@ You can use the IoT Edge Tools extension to view messages as they arrive at your
 
 1. In the Visual Studio cloud explorer, select the name of your IoT Edge device. 
 
-2. In the **Actions** list, select **Start Monitoring D2C Message**. 
+2. In the **Actions** list, select **Start Monitoring Built-in Event Endpoint**. 
 
 3. View the messages arriving at your IoT Hub. It may take a while for the messages to arrive, because the changes we made to the CSharpModule code wait until the machine temperature reaches 25 degrees before sending messages. It also adds the message type **Alert** to any messages that reach that temperature threshold. 
 
@@ -350,7 +357,10 @@ Otherwise, you can delete the local configurations and the Azure resources that 
 
 ## Next steps
 
-In this tutorial, you created an IoT Edge module with code to filter raw data that's generated by your IoT Edge device. When you're ready to build your own modules, you can learn more about [developing your own IoT Edge modules](module-development.md) or how to [develop modules with Visual Studio](how-to-visual-studio-develop-module.md). You can continue on to the next tutorials to learn how Azure IoT Edge can help you deploy Azure cloud services to process and analyze data at the edge.
+In this tutorial, you created an IoT Edge module with code to filter raw data that's generated by your IoT Edge device. When you're ready to build your own modules, you can learn more about [developing your own IoT Edge modules](module-development.md) or how to [develop modules with Visual Studio](how-to-visual-studio-develop-module.md). For examples of IoT Edge modules, including the simulated temperature module, see [IoT Edge module samples](https://github.com/Azure/iotedge/tree/master/edge-modules). 
+
+
+You can continue on to the next tutorials to learn how Azure IoT Edge can help you deploy Azure cloud services to process and analyze data at the edge.
 
 > [!div class="nextstepaction"]
 > [Functions](tutorial-deploy-function.md)

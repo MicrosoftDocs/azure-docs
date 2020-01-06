@@ -1,19 +1,16 @@
 ---
 title: Telemetry sampling in Azure Application Insights | Microsoft Docs
 description: How to keep the volume of telemetry under control.
-services: application-insights
-documentationcenter: windows
-author: cijothomas
-manager: carmonm
-ms.assetid: 015ab744-d514-42c0-8553-8410eef00368
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service:  azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
+author: mrbullwinkle
+ms.author: mbullwin
 ms.date: 03/14/2019
+
 ms.reviewer: vitalyg
-ms.author: cithomas
 ---
+
 # Sampling in Application Insights
 
 Sampling is a feature in [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md). It is the recommended way to reduce telemetry traffic and storage, while preserving  a statistically correct analysis of application data. The filter selects items that are related, so that you can navigate between items when you are doing diagnostic investigations.
@@ -48,7 +45,7 @@ If Adaptive or Fixed rate sampling are in operation, Ingestion sampling is disab
 
 Adaptive sampling is available for the Application Insights SDK for ASP.NET v 2.0.0-beta3 and later, Microsoft.ApplicationInsights.AspNetCore SDK v 2.2.0-beta1 and later, and is enabled by default.
 
-Adaptive sampling affects the volume of telemetry sent from your web server app to the Application Insights service endpoint. The volume is adjusted automatically to keep within a specified maximum rate of traffic, and is controlled via the setting `MaxTelemetryItemsPerSecond`. If the application produces a low amount of telemetry, such as when debugging or due to low usage, items won't get sampled as long as volume is below `MaxTelemetryItemsPerSecond`. As the volume of telemetry increases, sampling rate is adjusted so as to achieve the target volume.
+Adaptive sampling affects the volume of telemetry sent from your web server app to the Application Insights service endpoint. The volume is adjusted automatically to keep within a specified maximum rate of traffic, and is controlled via the setting `MaxTelemetryItemsPerSecond`. If the application produces a low amount of telemetry, such as when debugging or due to low usage, items won't be dropped by the sampling processor as long as volume is below `MaxTelemetryItemsPerSecond`. As the volume of telemetry increases, sampling rate is adjusted so as to achieve the target volume.
 
 To achieve the target volume, some of the generated telemetry is discarded. But like other types of sampling, the algorithm retains related telemetry items. For example, when you're inspecting the telemetry in Search, you'll be able to find the request related to a particular exception.
 
@@ -169,11 +166,9 @@ Use extension methods of ```TelemetryProcessorChainBuilder``` as shown below to 
 > If you use this method to configure sampling, please make sure to use aiOptions.EnableAdaptiveSampling = false; settings with AddApplicationInsightsTelemetry().
 
 ```csharp
-public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+public void Configure(IApplicationBuilder app, IHostingEnvironment env, TelemetryConfiguration configuration)
 {
-    var configuration = app.ApplicationServices.GetService<TelemetryConfiguration>();
-
-    var builder = configuration .TelemetryProcessorChainBuilder;
+    var builder = configuration.TelemetryProcessorChainBuilder;
     // version 2.5.0-beta2 and above should use the following line instead of above. (https://github.com/Microsoft/ApplicationInsights-aspnetcore/blob/develop/CHANGELOG.md#version-250-beta2)
     // var builder = configuration.DefaultTelemetrySink.TelemetryProcessorChainBuilder;
 
@@ -194,7 +189,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 
 **If using the above method to configure sampling, make sure to use ```aiOptions.EnableAdaptiveSampling = false;``` settings with AddApplicationInsightsTelemetry().**
 
-## Fixed-rate sampling for ASP.NET, ASP.NET Core, and Java websites
+## Fixed-rate sampling for ASP.NET, ASP.NET Core, Java websites and Python applications
 
 Fixed rate sampling reduces the traffic sent from your web server and web browsers. Unlike adaptive sampling, it reduces telemetry at a fixed rate decided by you. It also synchronizes the client and server sampling so that related items are retained - for example, when  you look at a page view in Search, you can find its related request.
 
@@ -310,7 +305,7 @@ In Metrics Explorer, rates such as request and exception counts are multiplied b
                     <Add name = "SamplingPercentage" value = "50" />
                 </Processor>
             </BuiltInProcessors>
-        <TelemetryProcessors/>
+        </TelemetryProcessors>
     ```
 
 3. You can Include or Exclude specific types of telemetry from Sampling using the following tags inside the Processor tag "FixedRateSamplingTelemetryProcessor"
@@ -333,7 +328,27 @@ The telemetry types that can be included or excluded from sampling are: Dependen
 
 <a name="other-web-pages"></a>
 
+### Configuring fixed-rate sampling in OpenCensus Python ###
 
+1. Instrument your application with the latest [OpenCensus Azure Monitor exporters](../../azure-monitor/app/opencensus-python.md).
+
+> [!NOTE]
+> Fixed-rate sampling is only available using the trace exporter. This means incoming and outgoing requests are the only types of telemetry where sampling can be configured.
+> 
+> 
+
+2. You may specify a `sampler` as part of your `Tracer` configuration. If no explicit sampler is provided, the ProbabilitySampler will be used by default. The ProbabilitySampler would use a rate of 1/10000 by default, meaning one out of every 10000 requests will be sent to Application Insights. If you want to specify a sampling rate, see below.
+
+3. When specifying a sampler, make sure your `Tracer` specifies a sampler with a sampling rate between 0.0 and 1.0 inclusive. A sampling rate of 1.0 represents 100%, meaning all of your requests will be sent as telemetry to Application Insights.
+
+    ```python
+    tracer = Tracer(
+        exporter=AzureExporter(
+            instrumentation_key='00000000-0000-0000-0000-000000000000',
+        ),
+        sampler=ProbabilitySampler(1.0),
+    )
+    ```
 
 ## Ingestion sampling
 
@@ -343,7 +358,7 @@ Use this type of sampling if your app often goes over its monthly quota and you 
 
 Set the sampling rate in the Usage and estimated costs page:
 
-![From the application Overview blade, click Settings, Quota, Samples, then select a sampling rate, and click Update.](./media/sampling/04.png)
+![From the application Overview blade, click Settings, Quota, Samples, then select a sampling rate, and click Update.](./media/sampling/data-sampling.png)
 
 Like other types of sampling, the algorithm retains related telemetry items. For example, when you're inspecting the telemetry in Search, you'll be able to find the request related to a particular exception. Metric counts such as request rate and exception rate are correctly retained.
 
@@ -457,6 +472,10 @@ The client-side (JavaScript) SDK participates in fixed-rate sampling in conjunct
 * Make sure that the SDK version is 2.0 or above.
 * Check that you set the same sampling percentage in both the client and server.
 
+### Sampling in Azure Functions
+
+Follow instructions from [this](https://docs.microsoft.com/azure/azure-functions/functions-monitoring#configure-sampling) to configure sampling for apps running in Azure Functions.
+
 ## Frequently Asked Questions
 
 *What is the default sampling behavior in ASP.NET and ASP.NET Core SDK?*
@@ -516,15 +535,22 @@ apply sampling to those items already sampled in the SDK itself.'
 
 *There are certain rare events I always want to see. How can I get them past the sampling module?*
 
-* The best way to achieve this is to write a custom [TelemetryProcessor](../../azure-monitor/app/api-filtering-sampling.md#filtering), which sets the `SamplingPercentage` to 100 on the telemetry item you want retained, as shown below. This ensures that all sampling techniques will ignore this item from any sampling considerations.
+* The best way to achieve this is to write a custom [TelemetryInitializer](../../azure-monitor/app/api-filtering-sampling.md#addmodify-properties-itelemetryinitializer), which sets the `SamplingPercentage` to 100 on the telemetry item you want retained, as shown below. As initializers are guaranteed to be run before telemetry processors (including sampling), this ensures that all sampling techniques will ignore this item from any sampling considerations.
 
 ```csharp
-    if(somecondition)
-    {
-        ((ISupportSampling)item).SamplingPercentage = 100;
-    }
+     public class MyTelemetryInitializer : ITelemetryInitializer
+      {
+         public void Initialize(ITelemetry telemetry)
+        {
+            if(somecondition)
+            {
+                ((ISupportSampling)telemetry).SamplingPercentage = 100;
+            }
+        }
+      }
 ```
 
 ## Next steps
 
 * [Filtering](../../azure-monitor/app/api-filtering-sampling.md) can provide more strict control of what your SDK sends.
+* Read the Developer Network article [Optimize Telemetry with Application Insights](https://msdn.microsoft.com/magazine/mt808502.aspx).

@@ -221,7 +221,7 @@ In order to enable Azure AD users to sign in to Kudos, they must be provisioned 
     b. Click **Create User**.
 
 > [!NOTE]
-> You can use any other Kudos user account creation tools or APIs provided by Kudos to provision AAD user accounts.
+> You can use any other Kudos user account creation tools or APIs provided by Kudos to provision Azure AD user accounts.
 
 ### Test single sign-on
 
@@ -235,4 +235,4 @@ When you click the Kudos tile in the Access Panel, you should be automatically s
 
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

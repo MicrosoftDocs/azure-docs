@@ -1,5 +1,5 @@
 ﻿---
-title: PowerShell example-create a single database in Azure SQL Database | Microsoft Docs
+title: PowerShell example-create a single database in Azure SQL Database 
 description: Azure PowerShell example script to create a single database in Azure SQL Database
 services: sql-database
 ms.service: sql-database
@@ -7,10 +7,9 @@ ms.subservice: single-database
 ms.custom: 
 ms.devlang: PowerShell
 ms.topic: sample
-author: CarlRabeler
-ms.author: carlrab
+author: stevestein
+ms.author: sstein
 ms.reviewer:
-manager: craigg
 ms.date: 03/12/2019
 ---
 # Use PowerShell to create a single Azure SQL database and configure a SQL Database server firewall rule
@@ -19,7 +18,7 @@ This PowerShell script example creates an Azure SQL database and configures a se
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
-[!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 If you choose to install and use the PowerShell locally, this tutorial requires AZ PowerShell 1.4.0 or later. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-az-ps). If you are running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
 

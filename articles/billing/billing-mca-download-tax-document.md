@@ -1,45 +1,37 @@
 ---
-title: View tax documents for your Microsoft Customer Agreement- Azure | Microsoft Docs
-description: Learn how to view and download tax receipts for your Microsoft Customer Agreement billing profile.
-services: ''
-documentationcenter: ''
-author: jureid
+title: View tax documents for your Azure invoice
+description: Learn how to view and download tax receipts for your billing profile.
+author: bandersmsft
 manager: jureid
-editor: ''
 tags: billing
-
-ms.service: billing
+ms.service: cost-management-billing
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/21/2019
+ms.date: 10/01/2019
 ms.author: banders
 ms.custom: seodec18
-
 ---
-# View the tax documents for your Microsoft Customer Agreement
 
-This article applies to a billing account for a Microsoft Customer Agreement. [Check if you have access to a Microsoft Customer Agreement](#check-access-to-a-microsoft-customer-agreement).
+# View and download tax documents for your Azure invoice
+
+You can download tax documents for your Azure invoice if you have access to invoices in the Azure portal. Only certain roles have access to invoices, such as the Account Administrator. If you have a Microsoft Customer Agreement, you must be a Billing profile Owner, Contributor, Reader, or Invoice manager to download invoices and tax documents. If you have Microsoft Partner Agreement, you must have the Global Admin or Admin Agent role in the partner organization. [Check your billing account type](#check-billing-account-type) to see what permissions you need to download tax documents.
 
 ## View and download tax documents
 
-You must be the Owner, Contributor, Reader, or Invoice Manager of the billing profile to view and download tax documents. To learn more about billing roles for Microsoft Customer Agreements, see [Billing profile roles and tasks](billing-understand-mca-roles.md#billing-profile-roles-and-tasks).
-<!-- TO DO: add link to manage access doc for MCA -->
+1. Sign-in to the [Azure portal](https://portal.azure.com).
+1. Search for *Cost Management + Billing*.
+1. Depending on your access, you might need to select a Billing account or Billing profile.
+1. In the left menu, select **Invoices** under **Billing**.
+1. In the invoice grid, find the row of the invoice corresponding to the tax document you want to download.
+1. Click the download icon or the ellipsis (`...`) at the end of the row.
+7. Select **Tax document** in the download menu. Depending on the country/region of your billing profile, you might see more than one tax document per invoice.
 
-1. Search on **Cost Management + Billing**.
-2. Select a billing profile.
-3. Select **Invoices**.
-4. In the invoice grid, find the row of the invoice corresponding to the tax document you want to download.
-5. Click on the ellipsis (`...`) at the end of the row.
-6. Select **Tax document**. Depending on the country of your billing profile, you might see more than one tax document per invoice.
-
-## Check access to a Microsoft Customer Agreement
-[!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]
+## Check billing account type
+[!INCLUDE [billing-check-account-type](../../includes/billing-check-account-type.md)]
 
 ## Next steps
 
-- [View your organization's Azure pricing](billing-ea-pricing.md)
 - [View and download your Microsoft Azure invoice](billing-download-azure-invoice.md)
 - [View and download your Microsoft Azure usage and charges](billing-download-azure-daily-usage.md)
-- [Understand the charges on your billing profile's invoice](billing-mca-understand-your-bill.md).

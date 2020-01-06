@@ -1,6 +1,6 @@
 ---
-title: How to use Azure Service Bus queues with Ruby | Microsoft Docs
-description: Learn how to use Service Bus queues in Azure. Code samples written in Ruby.
+title: 'Quickstart: How to use Azure Service Bus queues with Ruby'
+description: 'Quickstart: Learn how to use Service Bus queues in Azure. Code samples written in Ruby.'
 services: service-bus-messaging
 documentationcenter: ruby
 author: axisc
@@ -12,12 +12,12 @@ ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: ruby
-ms.topic: article
-ms.date: 04/10/2019
+ms.topic: quickstart
+ms.date: 11/05/2019
 ms.author: aschhab
 
 ---
-# How to use Service Bus queues with Ruby
+# Quickstart: How to use Service Bus queues with Ruby
 
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
@@ -93,6 +93,9 @@ Service Bus provides functionality to help you gracefully recover from errors in
 There is also a timeout associated with a message locked within the queue, and if the application fails to process the message before the lock timeout expires (for example, if the application crashes), then Service Bus unlocks the message automatically and makes it available to be received again.
 
 In the event that the application crashes after processing the message but before the `delete_queue_message()` method is called, then the message is redelivered to the application when it restarts. This process is often called *At Least Once Processing*; that is, each message is processed at least once but in certain situations the same message may be redelivered. If the scenario cannot tolerate duplicate processing, then application developers should add additional logic to their application to handle duplicate message delivery. This is often achieved using the `message_id` property of the message, which remains constant across delivery attempts.
+
+> [!NOTE]
+> You can manage Service Bus resources with [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). The Service Bus Explorer allows users to connect to a Service Bus namespace and administer messaging entities in an easy manner. The tool provides advanced features like import/export functionality or the ability to test topic, queues, subscriptions, relay services, notification hubs and events hubs. 
 
 ## Next steps
 Now that you've learned the basics of Service Bus queues, follow these links to learn more.

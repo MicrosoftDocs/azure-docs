@@ -1,14 +1,8 @@
 ---
-title: Use a managed identity with Azure Container Instances
-description: Learn how to use a managed identity to authenticate with other Azure services from Azure Container Instances.
-services: container-instances
-author: dlepow
-
-ms.service: container-instances
+title: Enable managed identity in container group
+description: Learn how to enable a managed identity in Azure Container Instances that can authenticate with other Azure services
 ms.topic: article
 ms.date: 10/22/2018
-ms.author: danlep
-ms.custom: 
 ---
 
 # How to use managed identities with Azure Container Instances
@@ -32,7 +26,7 @@ Adapt the examples to enable and use identities in Azure Container Instances to 
 Use a managed identity in a running container to authenticate to any [service that supports Azure AD authentication](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication) without managing credentials in your container code. For services that don't support AD authentication, you can store secrets in Azure Key Vault and use the managed identity to access Key Vault to retrieve credentials. For more information about using a managed identity, see [What is managed identities for Azure resources?](../active-directory/managed-identities-azure-resources/overview.md)
 
 > [!IMPORTANT]
-> This feature is currently in preview. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of this feature may change prior to general availability (GA). Currently, managed identities are only supported on Linux container instances.
+> This feature is currently in preview. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of this feature may change prior to general availability (GA). Currently, managed identities on Azure Container Instances, are only supported with Linux containers and not yet with Windows containers.
 >  
 
 ### Enable a managed identity
@@ -150,7 +144,7 @@ az container exec --resource-group myResourceGroup --name mycontainer --exec-com
 Run the following commands in the bash shell in the container. To get an access token to use Azure Active Directory to authenticate to Key Vault, run the following command:
 
 ```bash
-curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fvault.azure.net%2F' -H Metadata:true -s
+curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fvault.azure.net' -H Metadata:true -s
 ```
 
 Output:

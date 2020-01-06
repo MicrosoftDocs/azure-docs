@@ -1,18 +1,17 @@
 ---
-title: Understanding Azure AD application consent experiences | Microsoft Docs
+title: Azure AD app consent experiences
+titleSuffix: Microsoft identity platform
 description: Learn more about the Azure AD consent experiences to see how you can use it when managing and developing applications on Azure AD
 services: active-directory
-documentationcenter: ''
 author: rwike77
 manager: CelesteDG
 
 ms.assetid: 
 ms.service: active-directory
-ms.subservice: app-mgmt
+ms.subservice: develop
+ms.custom: aaddev 
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: ryanwi
 ms.reviewer: zachowd

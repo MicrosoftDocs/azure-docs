@@ -1,18 +1,14 @@
 ﻿---
-title: "Running multiple dependent services using .NET Core and Visual Studio"
-titleSuffix: Azure Dev Spaces
+title: "Running multiple dependent services: .NET Core & Visual Studio"
 services: azure-dev-spaces
-ms.service: azure-dev-spaces
 ms.custom: vs-azure
 ms.workload: azure-vs
-author: zr-msft
-ms.author: zarhoads
 ms.date: 07/09/2018
-ms.topic: "tutorial"
-description: "Rapid Kubernetes development with containers and microservices on Azure"
-keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, service mesh, service mesh routing, kubectl, k8s "
+ms.topic: tutorial
+description: "This tutorial shows you how to use Azure Dev Spaces and Visual Studio to debug a multi-service .NET Core application on Azure Kubernetes Service"
+keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, service mesh, service mesh routing, kubectl, k8s"
 ---
-# Multi-service development with Azure Dev Spaces
+# Running multiple dependent services: .NET Core and Visual Studio with Azure Dev Spaces
 
 In this tutorial, you'll learn how to develop multi-service applications using Azure Dev Spaces, along with some of the added benefits that Dev Spaces provides.
 
@@ -71,35 +67,6 @@ The preceding code example forwards the `azds-route-as` header from the incoming
 1. Hit F10 to proceed. The breakpoint in the `mywebapi` project will now be triggered.
 1. Hit F5 to proceed and you will be back in the code in the `webfrontend` project.
 1. Hitting F5 one more time will complete the request and return a page in the browser. In the web app, the About page will display a message concatenated by the two services: "Hello from webfrontend and Hello from mywebapi."
-
-Well done! You now have a multi-container application where each container can be developed and deployed separately.
-
-### Automatic tracing for HTTP messages
-You may have noticed that, although *webfrontend* does not contain any special code to print out the HTTP call it makes to *mywebapi*, you can see HTTP traces messages in the output window:
-```
-// The request from your browser
-default.webfrontend.856bb3af715744c6810b.eus.azds.io --gyk-> webfrontend:
-   GET /Home/About HTTP/1.1
-
-// *webfrontend* reaching out to *mywebapi*
-webfrontend-668b7ddb9f-n5rhj --pu5-> mywebapi:
-   GET /api/values/1 HTTP/1.1
-
-// Response from *mywebapi*
-webfrontend-668b7ddb9f-n5rhj <-pu5-- mywebapi:
-   HTTP/1.1 200 OK
-   Hello from mywebapi
-
-// Response from *webfrontend* to your browser
-default.webfrontend.856bb3af715744c6810b.eus.azds.io <-gyk-- webfrontend:
-   HTTP/1.1 200 OK
-   <!DOCTYPE html>
-   <html>
-   <head>
-       <meta charset="utf-8" />
-       <meta name="viewport" content="width=device-width, initial-sc...<[TRUNCATED]>
-```
-This is one of the "free" benefits you get from Dev Spaces instrumentation. We insert components that track HTTP requests as they go through the system to make it easier for you to track complex multi-service calls during development.
 
 ### Well done!
 You now have a multi-container application where each container can be developed and deployed separately.

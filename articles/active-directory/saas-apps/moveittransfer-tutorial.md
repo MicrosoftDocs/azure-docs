@@ -9,6 +9,7 @@ ms.reviewer: barbkess
 
 ms.assetid: 8ff7102d-be73-4888-ae81-d8e3d01dd534
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -171,7 +172,7 @@ To configure Azure AD single sign-on with MOVEit Transfer - Azure AD integration
 	
 	b. Select **Other** as **Full name** and in the **Attribute name** textbox put the value: `http://schemas.microsoft.com/identity/claims/displayname`.
 	
-	c. Select **Other** as **Email** and in the **Attribute name** textbox put the value: `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
+	c. Select **Other** as **Email** and in the **Attribute name** textbox put the value: `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
 	
 	d. Select **Yes** as **Auto-create account on signon**.
 	
@@ -247,5 +248,5 @@ When you click the MOVEit Transfer - Azure AD integration tile in the Access Pan
 
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

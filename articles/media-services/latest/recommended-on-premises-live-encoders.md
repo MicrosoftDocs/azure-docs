@@ -7,7 +7,7 @@ keywords: encoding;encoders;media
 author: johndeu
 manager: johndeu
 ms.author: johndeu
-ms.date: 01/17/2019
+ms.date: 11/18/2019
 ms.topic: article
 # Use only one of the following. Use ms.service for services, ms.prod for on premises. Remove the # before the relevant field.
 ms.service: media-services
@@ -30,7 +30,7 @@ In Azure Media Services, a [Live Event](https://docs.microsoft.com/rest/api/medi
 
   > [!NOTE]
   > Using a pass-through method is the most economical way to do live streaming.
-
+ 
 * An on-premises live encoder sends a single-bitrate stream to the Live Event that is enabled to perform live encoding with Media Services in one of the following formats: RTMP or Smooth Streaming (fragmented MP4). The Live Event then performs live encoding of the incoming single-bitrate stream to a multi-bitrate (adaptive) video stream.
 
 For detailed information about live encoding with Media Services, see [Live streaming with Media Services v3](live-streaming-overview.md).
@@ -43,6 +43,7 @@ Media Services recommends using one of following live encoders that have RTMP as
 > When streaming via RTMP, check firewall and/or proxy settings to confirm that outbound TCP ports 1935 and 1936 are open.
 
 - Adobe Flash Media Live Encoder 3.2
+- [Cambria Live 4.3](https://www.capellasystems.net/products/cambria-live/)
 - Haivision KB
 - Haivision Makito X HEVC
 - OBS Studio
@@ -54,6 +55,9 @@ Media Services recommends using one of following live encoders that have RTMP as
 - Tricaster Mini HD-4
 - VMIX
 - xStream
+- [Ffmpeg](https://www.ffmpeg.org)
+- [GoPro](https://gopro.com/help/articles/block/getting-started-with-live-streaming) Hero 7 and Hero 8
+- [Restream.io](https://restream.io/)
 
 ## Live encoders that output fragmented MP4
 
@@ -65,9 +69,11 @@ Media Services recommends using one of the following live encoders that have mul
 - Envivio 4Caster C4 Gen III
 - Imagine Communications Selenio MCP3
 - Media Excel Hero Live and Hero 4K (UHD/HEVC)
+- [Ffmpeg](https://www.ffmpeg.org)
 
 > [!TIP]
 >  If you are streaming live events in multiple languages (for example, one English audio track and one Spanish audio track), you can accomplish this with the Media Excel live encoder configured to send the live feed to a pass-through Live Event.
+
 
 ## Configuring on-premises live encoder settings
 
@@ -103,7 +109,7 @@ As an Azure Media Services on-premises encoder partner, Media Services promotes 
 10. Combine the URL from step 8 with the host name in step 9 to get the full URL.
 11. Run your live encoder for approximately 10 minutes.
 12. Stop the Live Event. 
-13. Use a player such as [Azure Media Player](https://ampdemo.azureedge.net/azuremediaplayer.html) to watch the archived asset to ensure that playback has no visible glitches at all quality levels. Or, watch and validate via the preview URL during the live session.
+13. Use a player such as [Azure Media Player](https://aka.ms/azuremediaplayer) to watch the archived asset to ensure that playback has no visible glitches at all quality levels. Or, watch and validate via the preview URL during the live session.
 14. Record the asset ID, the published streaming URL for the live archive, and the settings and version used from your live encoder.
 15. Reset the Live Event state after creating each sample.
 16. Repeat steps 5 through 15 for all configurations supported by your encoder (with and without ad signaling, captions, or different encoding speeds).
@@ -122,18 +128,18 @@ As an Azure Media Services on-premises encoder partner, Media Services promotes 
 10. Combine the URL from step 8 with the host name in step 9 to get the full URL.
 11. Run your live encoder for approximately 10 minutes.
 12. Stop the Live Event.
-13. Use a player such as [Azure Media Player](https://ampdemo.azureedge.net/azuremediaplayer.html) to watch the archived asset to ensure that playback has no visible glitches for all quality levels. Or, watch and validate via the preview URL during the live session.
+13. Use a player such as [Azure Media Player](https://aka.ms/azuremediaplayer) to watch the archived asset to ensure that playback has no visible glitches for all quality levels. Or, watch and validate via the preview URL during the live session.
 14. Record the asset ID, the published streaming URL for the live archive, and the settings and version used from your live encoder.
 15. Reset the Live Event state after creating each sample.
 16. Repeat steps 5 through 15 for all configurations supported by your encoder (with and without ad signaling, captions, or different encoding speeds).
 
 ### Longevity verification
 
-Follow the same steps as in [Pass-through Live Event verification](#pass-through-live-event-verification) except for step 11. <br/>Instead of 10 minutes, run your live encoder for one week or longer. Use a player such as [Azure Media Player](https://ampdemo.azureedge.net/azuremediaplayer.html) to watch the live streaming from time to time (or an archived asset) to ensure that playback has no visible glitches.
+Follow the same steps as in [Pass-through Live Event verification](#pass-through-live-event-verification) except for step 11. <br/>Instead of 10 minutes, run your live encoder for one week or longer. Use a player such as [Azure Media Player](https://aka.ms/azuremediaplayer) to watch the live streaming from time to time (or an archived asset) to ensure that playback has no visible glitches.
 
 ### Email your recorded settings
 
-Finally, email your recorded settings and live archive parameters to Azure Media Services at amsstreaming@microsoft.com as a notification that all self-verification checks have passed. Also, include your contact information for any follow-ups. You can contact the Azure Media Services team with any questions about this process.
+Finally, email your recorded settings and live archive parameters to Azure Media Services at amshelp@microsoft.com as a notification that all self-verification checks have passed. Also, include your contact information for any follow-ups. You can contact the Azure Media Services team with any questions about this process.
 
 ## Next steps
 

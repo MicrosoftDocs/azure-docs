@@ -5,14 +5,24 @@ services: vpn-gateway
 author: anzaman
 
 ms.service: vpn-gateway
-ms.topic: conceptional
-ms.date: 04/22/2019
+ms.topic: conceptual
+ms.date: 06/12/2019
 ms.author: alzam
 
 ---
 # Set up alerts on diagnostic log events from VPN Gateway
 
-This article helps you set up alerts based on diagnostic log events from Azure VPN Gateway.
+This article helps you set up alerts based on diagnostic log events from Azure VPN Gateway using Azure Log Analytics. 
+
+The following logs are available in Azure:
+
+|***Name*** | ***Description*** |
+|---		| ---				|
+|GatewayDiagnosticLog | Contains diagnostic logs for gateway configuration events, primary changes and maintenance events |
+|TunnelDiagnosticLog | Contains tunnel state change events. Tunnel connect/disconnect events have a summarized reason for the state change if applicable |
+|RouteDiagnosticLog | Logs changes to static routes and BGP events that occur on the gateway |
+|IKEDiagnosticLog | Logs IKE control messages and events on the gateway |
+|P2SDiagnosticLog | Logs point-to-site control messages and events on the gateway |
 
 ## <a name="setup"></a>Set up alerts
 
@@ -56,11 +66,18 @@ The following example steps will create an alert for a disconnection event that 
 
    ![Selections for a custom log search](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert8.png  "Select")
 
-10. Enter the following query in the **Search query** text box. Replace the values in <> as appropriate.
+10. Enter the following query in the **Search query** text box. Replace the values in <> and TimeGenerated as appropriate.
 
-	 `AzureDiagnostics |
-	 where Category  == "TunnelDiagnosticLog" and ResourceId == toupper("<RESOURCEID OF GATEWAY>") and TimeGenerated > ago(5m) and
-     remoteIP_s == "<REMOTE IP OF TUNNEL>" and status_s == "Disconnected"`
+    ```
+    AzureDiagnostics
+    | where Category == "TunnelDiagnosticLog"
+    | where _ResourceId == tolower("<RESOURCEID OF GATEWAY>")
+    | where TimeGenerated > ago(5m) 
+    | where remoteIP_s == "<REMOTE IP OF TUNNEL>"
+    | where status_s == "Disconnected"
+    | project TimeGenerated, OperationName, instance_s, Resource, ResourceGroup, _ResourceId 
+    | sort by TimeGenerated asc
+    ```
 
     Set the threshold value to 0 and select **Done**.
 

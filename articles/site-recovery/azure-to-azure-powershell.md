@@ -1,5 +1,5 @@
 ---
-title: Azure Site Recovery - Setup and test disaster recovery for Azure virtual machines using Azure PowerShell  | Microsoft Docs
+title: Disaster recovery for Azure VMs using Azure PowerShell and Azure Site Recovery 
 description: Learn how to set up disaster recovery for Azure virtual machines with Azure Site Recovery using Azure PowerShell.
 services: site-recovery
 author: sujayt
@@ -129,19 +129,12 @@ Properties        : Microsoft.Azure.Commands.RecoveryServices.ARSVaultProperties
 ```
 ## Set the vault context
 
-> [!TIP]
-> The Azure Site Recovery PowerShell module (Az.RecoveryServices module) comes with easy to use aliases for most cmdlets. The cmdlets in the module take the form *\<Operation>-**AzRecoveryServicesAsr**\<Object>* and have equivalent aliases that take the form *\<Operation>-**ASR**\<Object>*. This article uses the cmdlet aliases for ease of reading.
 
-Set the vault context for use in the PowerShell session. To do this, download the vault settings file to, and import the downloaded file in the PowerShell session to set the vault context.
-
-Once set, subsequent Azure Site Recovery operations in the PowerShell session are performed in the context of the selected vault.
+Set the vault context for use in the PowerShell session. Once set, subsequent Azure Site Recovery operations in the PowerShell session are performed in the context of the selected vault.
 
  ```azurepowershell
-#Download the vault settings file for the vault.
-$Vaultsettingsfile = Get-AzRecoveryServicesVaultSettingsFile -Vault $vault -SiteRecovery -Path C:\users\user\Documents\
-
-#Import the downloaded vault settings file to set the vault context for the PowerShell session.
-Import-AzRecoveryServicesAsrVaultSettingsFile -Path $Vaultsettingsfile.FilePath
+#Setting the vault context.
+Set-AsrVaultSettings -Vault $vault
 
 ```
 ```
@@ -154,6 +147,16 @@ a2aDemoRecoveryVault a2ademorecoveryrg Microsoft.RecoveryServices Vaults
 #Delete the downloaded vault settings file
 Remove-Item -Path $Vaultsettingsfile.FilePath
 ```
+
+For an Azure-to-Azure migration, you can set the vault context to the newly created vault: 
+
+```azurepowershell
+
+#Set the vault context for the PowerShell session.
+Set-AzRecoveryServicesAsrVaultContext -Vault $vault
+
+```
+
 ## Prepare the vault to start replicating Azure virtual machines
 
 ### Create a Site Recovery fabric object to represent the primary (source) region
@@ -406,7 +409,7 @@ $RecoveryReplicaDiskAccountType =  $vm.StorageProfile.DataDisks[0].StorageAccoun
 $RecoveryTargetDiskAccountType = $vm.StorageProfile.DataDisks[0].StorageAccountType
 
 $DataDisk1ReplicationConfig  = New-AzRecoveryServicesAsrAzureToAzureDiskReplicationConfig -ManagedDisk -LogStorageAccountId $CacheStorageAccount.Id `
-         -DiskId $datadiskId1 -RecoveryResourceGroupId  $RecoveryRG.ResourceId -RecoveryReplicaDiskAccountType  $RecoveryReplicaDiskAccountType `
+         -DiskId $datadiskId1 -RecoveryResourceGroupId $RecoveryRG.ResourceId -RecoveryReplicaDiskAccountType $RecoveryReplicaDiskAccountType `
          -RecoveryTargetDiskAccountType $RecoveryTargetDiskAccountType
 
 #Create a list of disk replication configuration objects for the disks of the virtual machine that are to be replicated.
@@ -601,6 +604,14 @@ Update-AzRecoveryServicesAsrProtectionDirection -ReplicationProtectedItem $Repli
 ```
 
 Once reprotection is complete, you can initiate failover in reverse direction (West US to East US) and failback to source region.
+
+## Disable replication
+
+You can disable replication by using Remove-ASRReplicationProtectedItem cmdlet.
+
+```azurepowershell
+Remove-ASRReplicationProtectedItem -ReplicationProtectedItem $ReplicatedItem
+```
 
 ## Next steps
 View the [Azure Site Recovery PowerShell reference](https://docs.microsoft.com/powershell/module/az.RecoveryServices) to learn how you can perform other tasks such as creating Recovery Plans and testing failover of Recovery plans through PowerShell.

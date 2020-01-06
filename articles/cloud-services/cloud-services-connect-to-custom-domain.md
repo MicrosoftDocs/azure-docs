@@ -2,19 +2,11 @@
 title: Connect a Cloud Service to a custom Domain Controller | Microsoft Docs
 description: Learn how to connect your web/worker roles to a custom AD Domain using PowerShell and AD Domain Extension
 services: cloud-services
-documentationcenter: ''
-author: jpconnock
-manager: timlt
-editor: ''
-
-ms.assetid: 1e2d7c87-d254-4e7a-a832-67f84411ec95
+author: tgore03
 ms.service: cloud-services
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
-ms.author: jeconnoc
+ms.author: tagore
 
 ---
 # Connecting Azure Cloud Services Roles to a custom AD Domain Controller hosted in Azure
@@ -152,3 +144,6 @@ Your cloud services should be joined to your custom domain controller. If you wo
 help Set-AzureServiceADDomainExtension
 help New-AzureServiceADDomainExtensionConfig
 ```
+
+
+

@@ -1,24 +1,13 @@
 ---
-
-title: Periodic backup and restore in Azure Service Fabric  | Microsoft Docs
+title: Periodic backup and restore in Azure Service Fabric
 description: Use Service Fabric's periodic backup and restore feature for enabling periodic data backup of your application data.
-services: service-fabric
-documentationcenter: .net
 author: hrushib
-manager: chackdan
-editor: hrushib
 
-ms.assetid: FAA58600-897E-4CEE-9D1C-93FACF98AD1C
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 10/29/2018
+ms.date: 5/24/2019
 ms.author: hrushib
-
 ---
-# Periodic backup and restore in Azure Service Fabric 
+# Periodic backup and restore in an Azure Service Fabric cluster
 > [!div class="op_single_selector"]
 > * [Clusters on Azure](service-fabric-backuprestoreservice-quickstart-azurecluster.md) 
 > * [Standalone Clusters](service-fabric-backuprestoreservice-quickstart-standalonecluster.md)
@@ -52,7 +41,7 @@ Service Fabric provides a set of APIs to achieve the following functionality rel
 - Retention management of backups (upcoming)
 
 ## Prerequisites
-* Service Fabric cluster with Fabric version 6.2 and above. The cluster should be set up on Windows Server. Refer to this [article](service-fabric-cluster-creation-via-arm.md) for steps to create Service Fabric cluster using Azure resource template.
+* Service Fabric cluster with Fabric version 6.4 or above. Refer to this [article](service-fabric-cluster-creation-via-arm.md) for steps to create Service Fabric cluster using Azure resource template.
 * X.509 Certificate for encryption of secrets needed to connect to storage to store backups. Refer [article](service-fabric-cluster-creation-via-arm.md) to know how to get or create an X.509 certificate.
 * Service Fabric Reliable Stateful application built using Service Fabric SDK version 3.0 or above. For applications targeting .NET Core 2.0, application should be built using Service Fabric SDK version 3.1 or above.
 * Create Azure Storage account for storing application backups.
@@ -182,8 +171,15 @@ Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/j
 
 ```
 
-> [!IMPORTANT]
-> Due to an issue in the runtime, ensure that the retention duration in the retention policy is configured to be less than 24 days or else it would result in Backup Restore service to go into quorum loss post replica failover.
+#### Using Service Fabric Explorer
+
+1. In Service Fabric Explorer, navigate to the Backups tab and select Actions > Create Backup Policy.
+
+    ![Create Backup Policy][6]
+
+2. Fill out the information. For Azure clusters, AzureBlobStore should be selected.
+
+    ![Create Backup Policy Azure Blob Storage][7]
 
 ### Enable periodic backup
 After defining backup policy to fulfill data protection requirements of the application, the backup policy should be associated with the application. Depending on requirement, the backup policy can be associated with an application, service, or a partition.
@@ -209,6 +205,17 @@ $url = "https://mysfcluster.southcentralus.cloudapp.azure.com:19080/Applications
 
 Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/json' -CertificateThumbprint '1b7ebe2174649c45474a4819dafae956712c31d3'
 ``` 
+
+#### Using Service Fabric Explorer
+
+1. Select an application and go to action. Click Enable/Update Application Backup.
+
+    ![Enable Application Backup][3]
+
+2. Finally, select the desired policy and click Enable Backup.
+
+    ![Select Policy][4]
+
 
 ### Verify that periodic backups are working
 
@@ -280,18 +287,24 @@ CreationTimeUtc         : 2018-04-06T21:25:36Z
 FailureError            : 
 ```
 
+#### Using Service Fabric Explorer
+
+To view backups in Service Fabric Explorer, navigate to a partition and select the Backups tab.
+
+![Enumerate Backups][5]
+
 ## Limitation/ caveats
 - Service Fabric PowerShell cmdlets are in preview mode.
 - No support for Service Fabric clusters on Linux.
-
-## Known Issues
-- Ensure that the retention duration is configured to be less than 24 days. 
-
 
 ## Next steps
 - [Understanding periodic backup configuration](./service-fabric-backuprestoreservice-configure-periodic-backup.md)
 - [Backup restore REST API reference](https://docs.microsoft.com/rest/api/servicefabric/sfclient-index-backuprestore)
 
-[0]: ./media/service-fabric-backuprestoreservice/PartitionBackedUpHealthEvent_Azure.png
+[0]: ./media/service-fabric-backuprestoreservice/partition-backedup-health-event-azure.png
 [1]: ./media/service-fabric-backuprestoreservice/enable-backup-restore-service-with-portal.png
-
+[3]: ./media/service-fabric-backuprestoreservice/enable-app-backup.png
+[4]: ./media/service-fabric-backuprestoreservice/enable-application-backup.png
+[5]: ./media/service-fabric-backuprestoreservice/backup-enumeration.png
+[6]: ./media/service-fabric-backuprestoreservice/create-bp.png
+[7]: ./media/service-fabric-backuprestoreservice/creation-bp.png

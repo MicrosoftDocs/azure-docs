@@ -9,6 +9,7 @@ ms.reviewer: barbkess
 
 ms.assetid: 9541d5c4-4c82-4b5b-b01a-6a3f75a2b7a1
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -244,5 +245,5 @@ When you click the Namely tile in the Access Panel, you should be automatically 
 
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

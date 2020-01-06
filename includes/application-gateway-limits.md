@@ -2,7 +2,7 @@
 author: vhorne
 ms.service: application-gateway
 ms.topic: include
-ms.date: 3/26/2019
+ms.date: 6/5/2019
 ms.author: victorh
 ---
 | Resource | Default/maximum limit | Note |
@@ -17,6 +17,7 @@ ms.author: victorh
 | Back-end HTTP settings |100<sup>1</sup> | |
 | Instances per gateway |32 | |
 | SSL certificates |100<sup>1</sup> |1 per HTTP listeners |
+| Maximum SSL certificate size |V1 SKU - 10 KB<br>V2 SKU - 16 KB| |
 | Authentication certificates |100 | |
 | Trusted root certificates |100 | |
 | Request timeout minimum |1 second | |
@@ -26,9 +27,12 @@ ms.author: victorh
 | Maximum path-based rules per URL map|100||
 | Redirect configurations |100<sup>1</sup>| |
 | Concurrent WebSocket connections |Medium gateways 20k<br> Large gateways 50k| |
-| Maximum URL length|8,000||
+| Maximum URL length|32KB| |
+| Maximum header size for HTTP/2 |4KB| |
 | Maximum file upload size, Standard |2 GB | |
-| Maximum file upload size WAF |Medium WAF gateways, 100 MB<br>Large WAF gateways, 500 MB| |
+| Maximum file upload size WAF |v1 Medium WAF gateways, 100 MB<br>v1 Large WAF gateways, 500 MB<br>v2 WAF, 750 MB| |
 | WAF body size limit, without files|128 KB||
+| Maximum WAF custom rules|100||
+| Maximum WAF exclusions|100||
 
 <sup>1</sup> In case of WAF-enabled SKUs, we recommend that you limit the number of resources to 40 for optimal performance.

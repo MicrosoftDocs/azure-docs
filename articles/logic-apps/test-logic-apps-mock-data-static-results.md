@@ -1,14 +1,13 @@
 ---
-title: Test logic apps with mock data - Azure Logic Apps
+title: Test logic apps with mock data
 description: Set up static results for testing logic apps with mock data without affecting production environments
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
 author: kevinlam1
 ms.author: klam
-ms.reviewer: estfan, LADocs
+ms.reviewer: estfan, logicappspm
 ms.topic: article
-ms.date: 03/18/2019
+ms.date: 05/13/2019
 ---
 
 # Test logic apps with mock data by setting up static results
@@ -178,12 +177,9 @@ In the action's upper-right corner, choose the test beaker icon (![Icon for stat
 
    ![Disable static results](./media/test-logic-apps-mock-data-static-results/disable-static-results-button.png)
 
-## Get support
+## Reference
 
-* For questions, visit the 
-[Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-
-* To submit or vote on feature ideas, visit the [Logic Apps user feedback site](https://aka.ms/logicapps-wish).
+For more information about this setting in your underlying workflow definitions, see [Static results - Schema reference for Workflow Definition Language](../logic-apps/logic-apps-workflow-definition-language.md#static-results) and [runtimeConfiguration.staticResult - Runtime configuration settings](../logic-apps/logic-apps-workflow-actions-triggers.md#runtime-configuration-settings)
 
 ## Next steps
 

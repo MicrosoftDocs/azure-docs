@@ -5,14 +5,14 @@ author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 10/31/2018
-ms.author: v-erkell
+ms.author: rohogue
 ---
 
-# Mount the Avere vFXT cluster  
+# Mount the Avere vFXT cluster
 
 Follow these steps to connect client machines to your vFXT cluster.
 
-1. Decide how to load-balance client traffic among your cluster nodes. Read [Balance client load](#balance-client-load), below, for details. 
+1. Decide how to load-balance client traffic among your cluster nodes. Read [Balance client load](#balance-client-load), below, for details.
 1. Identify the IP address and junction path to mount.
 1. Issue the [mount command](#mount-command-arguments), with appropriate arguments.
 
@@ -20,9 +20,9 @@ Follow these steps to connect client machines to your vFXT cluster.
 
 To help balance client requests among all the nodes in the cluster, you should mount clients to the full range of client-facing IP addresses. There are several simple ways to automate this task.
 
-> [!TIP] 
+> [!TIP]
 > Other load balancing methods might be appropriate for large or complicated systems; [open a support ticket](avere-vfxt-open-ticket.md#open-a-support-ticket-for-your-avere-vfxt) for help.)
-> 
+>
 > If you prefer to use a DNS server for automatic server-side load balancing, you must set up and manage your own DNS server within Azure. In that case, you can configure round-robin DNS for the vFXT cluster according to this document: [Avere cluster DNS configuration](avere-vfxt-configure-dns.md).
 
 ### Sample balanced client mounting script
@@ -31,7 +31,7 @@ This code example uses client IP addresses as a randomizing element to distribut
 
 ```bash
 function mount_round_robin() {
-    # to ensure the nodes are spread out somewhat evenly the default 
+    # to ensure the nodes are spread out somewhat evenly the default
     # mount point is based on this node's IP octet4 % vFXT node count.
     declare -a AVEREVFXT_NODES="($(echo ${NFS_IP_CSV} | sed "s/,/ /g"))"
     OCTET4=$((`hostname -i | sed -e 's/^.*\.\([0-9]*\)/\1/'`))
@@ -48,23 +48,23 @@ function mount_round_robin() {
     fi
     if ! grep -qs "${DEFAULT_MOUNT_POINT} " /proc/mounts; then
         retrycmd_if_failure 12 20 mount "${DEFAULT_MOUNT_POINT}" || exit 1
-    fi   
-} 
+    fi
+}
 ```
 
 The function above is part of the Batch example available in the [Avere vFXT examples](https://github.com/Azure/Avere#tutorials) site.
 
-## Create the mount command 
+## Create the mount command
 
 > [!NOTE]
 > If you did not create a new Blob container when creating your Avere vFXT cluster, follow the steps in [Configure storage](avere-vfxt-add-storage.md) before attempting to mount clients.
 
 From your client, the ``mount`` command maps the virtual server (vserver) on the vFXT cluster to a path on the local filesystem. The format is ``mount <vFXT path> <local path> {options}``
 
-There are three elements to the mount command: 
+There are three elements to the mount command:
 
 * vFXT path - (a combination of IP address and namespace junction path described below)
-* local path - the path on the client 
+* local path - the path on the client
 * mount command options - (listed in [Mount command arguments](#mount-command-arguments))
 
 ### Junction and IP
@@ -79,14 +79,13 @@ If you added storage after creating the cluster, the namespace junction path cor
 
 !["Add new junction" dialog with /avere/files in the namespace path field](media/avere-vfxt-create-junction-example.png)
 
-
 The IP address is one of the client-facing IP addresses defined for the vserver. You can find the range of client-facing IPs in two places in the Avere Control Panel:
 
-* **VServers** table (Dashboard tab) - 
+* **VServers** table (Dashboard tab) -
 
   ![Dashboard tab of the Avere Control Panel with the VServer tab selected in the data table below the graph, and the IP address section circled](media/avere-vfxt-ip-addresses-dashboard.png)
 
-* **Client Facing Network** settings page - 
+* **Client Facing Network** settings page -
 
   ![Settings > VServer > Client Facing Network configuration page with a circle around the Address Range section of the table for a particular vserver](media/avere-vfxt-ip-addresses-settings.png)
 
@@ -94,22 +93,20 @@ In addition to the paths, include the [Mount command arguments](#mount-command-a
 
 ### Mount command arguments
 
-To ensure a seamless client mount, pass these settings and arguments in your mount command: 
+To ensure a seamless client mount, pass these settings and arguments in your mount command:
 
 ``mount -o hard,nointr,proto=tcp,mountproto=tcp,retry=30 ${VSERVER_IP_ADDRESS}:/${NAMESPACE_PATH} ${LOCAL_FILESYSTEM_MOUNT_POINT}``
 
-
 | Required settings | |
---- | --- 
-``hard`` | Soft mounts to the vFXT cluster are associated with application failures and possible data loss. 
+--- | ---
+``hard`` | Soft mounts to the vFXT cluster are associated with application failures and possible data loss.
 ``proto=netid`` | This option supports appropriate handling of NFS network errors.
 ``mountproto=netid`` | This option supports appropriate handling of network errors for mount operations.
 ``retry=n`` | Set ``retry=30`` to avoid transient mount failures. (A different value is recommended in foreground mounts.)
 
 | Preferred settings  | |
---- | --- 
+--- | ---
 ``nointr``            | The option "nointr" is preferred for clients with legacy kernels (prior to April 2008) that support this option. Note that the option "intr" is the default.
-
 
 ## Next steps
 

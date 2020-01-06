@@ -218,7 +218,7 @@ To enable Azure AD users to sign in to SmarterU, they must be provisioned into S
 	d. Click **Save**.
 
 > [!NOTE]
-> You can use any other SmarterU user account creation tools or APIs provided by SmarterU to provision AAD user accounts.
+> You can use any other SmarterU user account creation tools or APIs provided by SmarterU to provision Azure AD user accounts.
 
 ### Test single sign-on
 
@@ -232,4 +232,4 @@ When you click the SmarterU tile in the Access Panel, you should be automaticall
 
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

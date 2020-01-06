@@ -1,11 +1,10 @@
 ---
 title: Refresh Azure Analysis Services models with Azure Automation | Microsoft Docs
-description: Learn how to code model refreshes by using Azure Automation.
+description: This article describes how to code model refreshes for Azure Analysis Services by using Azure Automation.
 author: chrislound
-manager: kfile
 ms.service: analysis-services
 ms.topic: conceptual
-ms.date: 04/26/2019
+ms.date: 10/30/2019
 ms.author: chlound
 
 ---
@@ -21,7 +20,7 @@ A sample PowerShell Runbook, which demonstrates refreshing a model is provided l
 
 All calls must be authenticated with a valid Azure Active Directory (OAuth 2) token.  The example in this article will use a Service Principal (SPN) to authenticate to Azure Analysis Services.
 
-To learn more about creating a Service Principal, see []
+To learn more about creating a Service Principal, see [Create a service principal by using Azure portal](../active-directory/develop/howto-create-service-principal-portal.md).
 
 ## Prerequisites
 
@@ -143,7 +142,7 @@ The **body** is a JSON document which should contain the following properties:
 |Property  |Value  |
 |---------|---------|
 |**AnalysisServicesDatabase**     |The name of the Azure Analysis Services database <br/> Example: AdventureWorksDB         |
-|**AnalysisServicesServer**     |The Azure Analysis Services server name. <br/> Example: https://westus.asazure.windows.net/servers/myserver/models/AdventureWorks/         |
+|**AnalysisServicesServer**     |The Azure Analysis Services server name. <br/> Example: https:\//westus.asazure.windows.net/servers/myserver/models/AdventureWorks/         |
 |**DatabaseRefreshType**     |The type of refresh to perform. <br/> Example: Full         |
 
 Example JSON body:

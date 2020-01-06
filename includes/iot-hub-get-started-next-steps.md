@@ -20,7 +20,7 @@ To continue to get started with Azure IoT Hub and to explore all extended IoT sc
 
 - [Use Power BI to visualize real-time sensor data from your IoT hub](../articles/iot-hub/iot-hub-live-data-visualization-in-power-bi.md)
 
-- [Use the Web Apps feature of Azure App Service to visualize real-time sensor data from your IoT hub](../articles/iot-hub/iot-hub-live-data-visualization-in-web-apps.md)
+- [Use a web app to visualize real-time sensor data from your IoT hub](../articles/iot-hub/iot-hub-live-data-visualization-in-web-apps.md)
 
 - [Forecast weather by using the sensor data from your IoT hub in Azure Machine Learning](../articles/iot-hub/iot-hub-weather-forecast-machine-learning.md)
 

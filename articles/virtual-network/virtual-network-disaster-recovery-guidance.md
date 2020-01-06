@@ -14,7 +14,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2016
-ms.author: narayan;aglick
+ms.author: narayan
+ms.reviewer: aglick
 
 ---
 # Virtual Network – Business Continuity

@@ -1,5 +1,5 @@
 ---
-title: How to configure Azure SQL Database - single | Microsoft Docs
+title: How to configure a single database
 description: Learn how to configure and manage Azure SQL Database - single database
 services: sql-database
 ms.service: sql-database
@@ -10,7 +10,6 @@ ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlr
-manager: craigg
 ms.date: 02/08/2019
 ---
 # How to use a single database in Azure SQL Database

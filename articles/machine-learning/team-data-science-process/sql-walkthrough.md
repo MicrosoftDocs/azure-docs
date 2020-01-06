@@ -512,7 +512,7 @@ This example transforms a continuous numeric field into preset category ranges, 
     cursor.commit()
 
 #### Feature Engineering: Extract Location Features from Decimal Latitude/Longitude
-This example breaks down the decimal representation of a latitude and/or longitude field into multiple region fields of different granularity, such as, country, city, town, block, etc. Note that the new geo-fields are not mapped to actual locations. For information on mapping geocode locations, see [Bing Maps REST Services](https://msdn.microsoft.com/library/ff701710.aspx).
+This example breaks down the decimal representation of a latitude and/or longitude field into multiple region fields of different granularity, such as, country/region, city, town, block, etc. Note that the new geo-fields are not mapped to actual locations. For information on mapping geocode locations, see [Bing Maps REST Services](https://msdn.microsoft.com/library/ff701710.aspx).
 
     nyctaxi_one_percent_insert_col = '''
         ALTER TABLE nyctaxi_one_percent
@@ -590,7 +590,7 @@ An example of a binary classification experiment reading data directly from the 
 > 
 
 ## <a name="mldeploy"></a>Deploying Models in Azure Machine Learning
-When your model is ready, you can easily deploy it as a web service directly from the experiment. For more information about deploying Azure Machine Learning web services, see [Deploy an Azure Machine Learning web service](../studio/publish-a-machine-learning-web-service.md).
+When your model is ready, you can easily deploy it as a web service directly from the experiment. For more information about deploying Azure Machine Learning web services, see [Deploy an Azure Machine Learning web service](../studio/deploy-a-machine-learning-web-service.md).
 
 To deploy a new web service, you need to:
 

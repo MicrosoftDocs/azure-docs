@@ -203,12 +203,10 @@ Media Analytics is a collection of speech and vision components that makes it ea
 |Media processor name|Status|Datacenters
 |---|---|---|
 |Azure Media Face Detector|Preview|All|
-|Azure Media Hyperlapse|Preview|All|
 |Azure Media Indexer|GA|All|
 |Azure Media Motion Detector|Preview|All|
 |Azure Media OCR|Preview|All|
 |Azure Media Redactor|Preview|All|
-|Azure Media Stabilizer|Preview|All|
 |Azure Media Video Thumbnails|Preview|All|
 |Azure Media Indexer 2|Preview|All except China and Federal Government region|
 
@@ -249,6 +247,10 @@ For more information, see the [scaling](#scaling) section.
 |S1|GA|All|
 |S2|GA|All except Brazil South, and India West|
 |S3|GA|All except India West|
+
+## Additional notes
+
+* Widevine is a service provided by Google Inc. and subject to the terms of service and Privacy Policy of Google, Inc.
 
 ## Next steps
 

@@ -1,5 +1,5 @@
 ---
-title: Send Guest OS metrics to the Azure Monitor metric store using a Resource Manager template for a Windows virtual machine
+title: Collect Windows VM metrics in Azure Monitor with template
 description: Send guest OS metrics to the Azure Monitor metric store using a Resource Manager template for a Windows virtual machine
 author: anirudhcavale
 services: azure-monitor
@@ -19,13 +19,15 @@ This article describes the process for sending Guest OS performance metrics for 
 
 Storing them in this location allows you to access the same actions for platform metrics. Actions include near-real time alerting, charting, routing, and access from a REST API and more. In the past, the Diagnostics extension wrote to Azure Storage, but not to the Azure Monitor data store.
 
-If you're new to Resource Manager templates, learn about [template deployments](../../azure-resource-manager/resource-group-overview.md) and their structure and syntax.
+If you're new to Resource Manager templates, learn about [template deployments](../../azure-resource-manager/management/overview.md) and their structure and syntax.
 
 ## Prerequisites
 
 - Your subscription must be registered with [Microsoft.Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services).
 
 - You need to have either [Azure PowerShell](/powershell/azure) or [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) installed.
+
+- Your VM resource must be in a [region that supports custom metrics](metrics-custom-overview.md#supported-regions). 
 
 
 ## Set up Azure Monitor as a data sink
@@ -71,8 +73,8 @@ Add this Managed Service Identity (MSI) extension to the template at the top of 
 // Add this code directly below.
     {
         "type": "Microsoft.Compute/virtualMachines/extensions",
-        "name": "WADExtensionSetup",
-        "apiVersion": "2015-05-01-preview",
+        "name": "[concat(variables('vmName'), '/', 'WADExtensionSetup')]",
+        "apiVersion": "2017-12-01",
         "location": "[resourceGroup().location]",
         "dependsOn": [
             "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]" ],
@@ -140,9 +142,9 @@ Add the following configuration to enable the Diagnostics extension on a Windows
 //Start of section to add
 "resources": [
 {
-            "type": "extensions",
-            "name": "Microsoft.Insights.VMDiagnosticsSettings",
-            "apiVersion": "2015-05-01-preview",
+            "type": "Microsoft.Compute/virtualMachines/extensions",
+            "name": "[concat(variables('vmName'), '/', 'Microsoft.Insights.VMDiagnosticsSettings')]",
+            "apiVersion": "2017-12-01",
             "location": "[resourceGroup().location]",
             "dependsOn": [
             "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]"

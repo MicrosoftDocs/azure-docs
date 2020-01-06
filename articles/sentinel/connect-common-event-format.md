@@ -7,120 +7,77 @@ author: rkarlin
 manager: rkarlin
 editor: ''
 
-ms.assetid: cbf5003b-76cf-446f-adb6-6d816beca70f
-ms.service: sentinel
+ms.service: azure-sentinel
+ms.subservice: azure-sentinel
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/02/2019
+ms.date: 11/26/2019
 ms.author: rkarlin
 
 ---
 # Connect your external solution using Common Event Format
 
-> [!IMPORTANT]
-> Azure Sentinel is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-You can connect Azure Sentinel with an external solution that enables you to save log files in Syslog. If your appliance enables you to save logs as Syslog Common Event Format (CEF), the integration with Azure Sentinel enables you to easily run analytics and queries across the data.
+When you connect an external solution that sends CEF messages, there are three steps to connecting with Azure Sentinel:
+
+STEP 1: [Connect CEF by deploying the agent](connect-cef-agent.md)
+STEP 2: [Perform solution-specific steps](connect-cef-solution-config.md)
+STEP 3: [Verify connectivity](connect-cef-verify.md)
+
+This article describes how the connection works, provides prerequisites and gives you the steps for deploying the agent on security solutions that send Common Event Format (CEF) messages on top of Syslog. 
 
 > [!NOTE] 
 > Data is stored in the geographic location of the workspace on which you are running Azure Sentinel.
 
-## How it works
-
-The connection between Azure Sentinel and your CEF appliance takes place in three steps:
-
-1. On the appliance you need to set these values so that the appliance sends the necessary logs in the necessary format to the Azure Sentinel Syslog agent. You can modify these parameters in your appliance, as long as you also modify them in the Syslog daemon on the Azure Sentinel agent.
-    - Protocol = UDP
-    - Port = 514
-    - Facility = Local-4
-    - Format = CEF
-2. The Syslog agent collects the data and sends it securely to Log Analytics, where it is parsed and enriched.
-3. The agent stores the data in a Log Analytics workspace so it can be queried as needed, using analytics, correlation rules, and dashboards.
-
-
-## Step 1: Connect to your CEF appliance via dedicated Azure VM
-
-You need to deploy an agent on a dedicated Linux machine (VM or on premises) to support the communication between the appliance and Azure Sentinel. You can deploy the agent automatically or manually. Automatic deployment is based on Resource Manager templates and can be used only if your dedicated Linux machine is a new VM you are creating in Azure.
+In order to make this connection, you need to deploy an agent on a dedicated Linux machine (VM or on premises) to support the communication between the appliance and Azure Sentinel. The following diagram describes the setup in the event of a Linux VM in Azure.
 
  ![CEF in Azure](./media/connect-cef/cef-syslog-azure.png)
 
-Alternatively, you can deploy the agent manually on an existing Azure VM, on a VM in another cloud, or on an on-premises machine. 
+Alternatively, this setup will exist if you use a VM in another cloud, or an on-premises machine. 
 
  ![CEF on premises](./media/connect-cef/cef-syslog-onprem.png)
 
-### Deploy the agent in Azure
 
+## Security considerations
 
-1. In the Azure Sentinel portal, click **Data connectors** and select your appliance type. 
+Make sure to configure the machine's security according to your organization's security policy. For example, you can configure your network to align with your corporate network security policy and change the ports and protocols in the daemon to align with your requirements. You can use the following instructions to improve your machine security configuration:  [Secure VM in Azure](../virtual-machines/linux/security-policy.md), [Best practices for Network security](../security/fundamentals/network-best-practices.md).
 
-1. Under **Linux Syslog agent configuration**:
-   - Choose **Automatic deployment** if you want to create a new machine that is pre-installed with the Azure Sentinel agent, and includes all the configuration necessary, as described above. Select **Automatic deployment** and click **Automatic agent deployment**. This takes you to the purchase page for a dedicated Linux VM that is automatically connected to your workspace, is . The VM is a **standard D2s v3 (2 vcpus, 8 GB memory)** and has a public IP address.
-      1. In the **Custom deployment** page, provide your details and choose a username and a password and if you agree to the terms and conditions, purchase the VM.
-      1. Configure your appliance to send logs using the settings listed in the connection page. For the Generic Common Event Format connector, use these settings:
-         - Protocol = UDP
-         - Port = 514
-         - Facility = Local-4
-         - Format = CEF
-   - Choose **Manual deployment** if you want to use an existing VM as the dedicated Linux machine onto which the Azure Sentinel agent should be installed. 
-      1. Under **Download and install the Syslog agent**, select **Azure Linux virtual machine**. 
-      1. In the **Virtual machines** screen that opens, select the machine you want to use and click **Connect**.
-      1. In the connector screen, under **Configure and forward Syslog**, set whether your Syslog daemon is **rsyslog.d** or **syslog-ng**. 
-      1. Copy these commands and run them on your appliance:
-          - If you selected rsyslog.d:
-              
-            1. Tell the Syslog daemon to listen on facility local_4 and to send the Syslog messages to the Azure Sentinel agent using port 25226. `sudo bash -c "printf 'local4.debug  @127.0.0.1:25226' > /etc/rsyslog.d/security-config-omsagent.conf"`
-            
-            2. Download and install the [security_events config file](https://aka.ms/asi-syslog-config-file-linux) that configures the Syslog agent to listen on port 25226. `sudo wget -O /etc/opt/microsoft/omsagent/{0}/conf/omsagent.d/security_events.conf "https://aka.ms/syslog-config-file-linux"` Where {0} should be replaced with your workspace GUID.
-            
-            1. Restart the syslog daemon `sudo service rsyslog restart`<br> For more information see the [rsyslog documentation](https://www.rsyslog.com/doc/v8-stable/tutorials/tls_cert_summary.html)
-           
-          - If you selected syslog-ng:
+To use TLS communication between the security solution and the Syslog machine, you will need to configure the Syslog daemon (rsyslog or syslog-ng) to communicate in TLS: [Encrypting Syslog Traffic with TLS -rsyslog](https://www.rsyslog.com/doc/v8-stable/tutorials/tls_cert_summary.html), [Encrypting log messages with TLS –syslog-ng](https://support.oneidentity.com/technical-documents/syslog-ng-open-source-edition/3.22/administration-guide/60#TOPIC-1209298).
 
-              1. Tell the Syslog daemon to listen on facility local_4 and to send the Syslog messages to the Azure Sentinel agent using port 25226. `sudo bash -c "printf 'filter f_local4_oms { facility(local4); };\n  destination security_oms { tcp(\"127.0.0.1\" port(25226)); };\n  log { source(src); filter(f_local4_oms); destination(security_oms); };' > /etc/syslog-ng/security-config-omsagent.conf"`
-              2. Download and install the [security_events config file](https://aka.ms/asi-syslog-config-file-linux) that configures the Syslog agent to listen on port 25226. `sudo wget -O /etc/opt/microsoft/omsagent/{0}/conf/omsagent.d/security_events.conf "https://aka.ms/syslog-config-file-linux"` Where {0} should be replaced with your workspace GUID.
+ 
+## Prerequisites
+Make sure the Linux machine you use as a proxy is running one of the following operating systems:
 
-              3. Restart the syslog daemon `sudo service syslog-ng restart` <br>For more information, see the [syslog-ng documentation](https://www.syslog-ng.com/technical-documents/doc/syslog-ng-open-source-edition/3.16/mutual-authentication-using-tls/2)
-      2. Restart the Syslog agent using this command: `sudo /opt/microsoft/omsagent/bin/service_control restart [{workspace GUID}]`
-      1. Confirm that there are no errors in the agent log by running this command: `tail /var/opt/microsoft/omsagent/log/omsagent.log`
-
-### Deploy the agent on an on premises Linux server
-
-If you aren't using Azure, manually deploy the Azure Sentinel agent to run on a dedicated Linux server.
-
-
-1. In the Azure Sentinel portal, click **Data connectors** and select your appliance type.
-1. To create a dedicated Linux VM, under **Linux Syslog agent configuration** choose **Manual deployment**.
-   1. Under **Download and install the Syslog agent**, select **Non-Azure Linux machine**. 
-   1. In the **Direct agent** screen that opens, select **Agent for Linux** to download the agent or run this command to download it on your Linux machine:
-        `wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w {workspace GUID} -s gehIk/GvZHJmqlgewMsIcth8H6VqXLM9YXEpu0BymnZEJb6mEjZzCHhZgCx5jrMB1pVjRCMhn+XTQgDTU3DVtQ== -d opinsights.azure.com`
-      1. In the connector screen, under **Configure and forward Syslog**, set whether your Syslog daemon is **rsyslog.d** or **syslog-ng**. 
-      1. Copy these commands and run them on your appliance:
-         - If you selected rsyslog:
-           1. Tell the Syslog daemon to listen on facility local_4 and to send the Syslog messages to the Azure Sentinel agent using port 25226. `sudo bash -c "printf 'local4.debug  @127.0.0.1:25226' > /etc/rsyslog.d/security-config-omsagent.conf"`
-            
-           2. Download and install the [security_events config file](https://aka.ms/asi-syslog-config-file-linux) that configures the Syslog agent to listen on port 25226. `sudo wget -O /etc/opt/microsoft/omsagent/{0}/conf/omsagent.d/security_events.conf "https://aka.ms/syslog-config-file-linux"` Where {0} should be replaced with your workspace GUID.
-           3. Restart the syslog daemon `sudo service rsyslog restart`
-         - If you selected syslog-ng:
-            1. Tell the Syslog daemon to listen on facility local_4 and to send the Syslog messages to the Azure Sentinel agent using port 25226. `sudo bash -c "printf 'filter f_local4_oms { facility(local4); };\n  destination security_oms { tcp(\"127.0.0.1\" port(25226)); };\n  log { source(src); filter(f_local4_oms); destination(security_oms); };' > /etc/syslog-ng/security-config-omsagent.conf"`
-            2. Download and install the [security_events config file](https://aka.ms/asi-syslog-config-file-linux) that configures the Syslog agent to listen on port 25226. `sudo wget -O /etc/opt/microsoft/omsagent/{0}/conf/omsagent.d/security_events.conf "https://aka.ms/syslog-config-file-linux"` Where {0} should be replaced with your workspace GUID.
-            3. Restart the syslog daemon `sudo service syslog-ng restart`
-      1. Restart the Syslog agent using this command: `sudo /opt/microsoft/omsagent/bin/service_control restart [{workspace GUID}]`
-      1. Confirm that there are no errors in the agent log by running this command: `tail /var/opt/microsoft/omsagent/log/omsagent.log`
+- 64-bit
+  - CentOS 6 and 7
+  - Amazon Linux 2017.09
+  - Oracle Linux 6 and 7
+  - Red Hat Enterprise Linux Server 6 and 7
+  - Debian GNU/Linux 8 and 9
+  - Ubuntu Linux 14.04 LTS, 16.04 LTS and 18.04 LTS
+  - SUSE Linux Enterprise Server 12
+- 32-bit
+   - CentOS 6
+   - Oracle Linux 6
+   - Red Hat Enterprise Linux Server 6
+   - Debian GNU/Linux 8 and 9
+   - Ubuntu Linux 14.04 LTS and 16.04 LTS
+ 
+ - Daemon versions
+   - Syslog-ng: 2.1 - 3.22.1
+   - Rsyslog: v8
   
-## Step 2: Validate connectivity
-
-It may take upwards of 20 minutes until your logs start to appear in Log Analytics. 
-
-1. Make sure that your logs are getting to the right port in the Syslog agent. Run this command the Syslog agent machine: `tcpdump -A -ni any  port 514 -vv` This command shows you the logs that streams from the device to the Syslog machine.Make sure that logs are being received from the source appliance on the right port and right facility.
-2. Check that there is communication between the Syslog daemon and the agent. Run this command the Syslog agent machine: `tcpdump -A -ni any  port 25226 -vv` This command shows you the logs that streams from the device to the Syslog machine.Make sure that the logs are also being received on the agent.
-3. If both of those commands provided successful results, check Log Analytics to see if your logs are arriving. All events streamed from these appliances appear in raw form in Log Analytics under `CommonSecurityLog` type.
-1. To check if there are errors or if the logs aren't arriving, look in `tail /var/opt/microsoft/omsagent/<workspace id>/log/omsagent.log`
-4. Make sure that your Syslog message default size is limited to 2048 bytes (2KB). If logs are too long, update the security_events.conf using this command: `message_length_limit 4096`
-6. To use the relevant schema in Log Analytics for the CEF events, search for **CommonSecurityLog**.
+ - Syslog RFCs supported
+   - Syslog RFC 3164
+   - Syslog RFC 5424
+ 
+Make sure your machine also meets the following requirements: 
+- Permissions
+    - You must have elevated permissions (sudo) on your machine. 
+- Software requirements
+    - Make sure you have Python running on your machine
 
 
 

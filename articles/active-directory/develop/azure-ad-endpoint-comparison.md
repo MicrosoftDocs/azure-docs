@@ -2,20 +2,16 @@
 title: Why update to Microsoft identity platform (v2.0) | Azure
 description: Know the differences between the Microsoft identity platform (v2.0) endpoint and the Azure Active Directory (Azure AD) v1.0 endpoint, and learn the benefits of updating to v2.0.
 services: active-directory
-documentationcenter: ''
 author: rwike77
 manager: CelesteDG
-editor: ''
 
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/07/2019
+ms.date: 11/26/2019
 ms.author: ryanwi
-ms.reviewer: saeeda, hirsin, jmprieur, sureshja, jesakowi, lenalepa, kkrishna, dadobali, negoe
+ms.reviewer: saeeda, hirsin, jmprieur, sureshja, jesakowi, lenalepa, kkrishna, negoe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ---
@@ -43,7 +39,7 @@ For Microsoft identity platform endpoint, you can use the Microsoft Authenticati
 
 Apps using the Azure AD v1.0 endpoint are required to specify their required OAuth 2.0 permissions in advance, for example:
 
-![Permissions Registration UI](./media/azure-ad-endpoint-comparison/app_reg_permissions.png)
+![Example showing the Permissions Registration UI](./media/azure-ad-endpoint-comparison/app_reg_permissions.png)
 
 The permissions set directly on the application registration are **static**. While static permissions of the app defined in the Azure portal keep the code nice and simple, it presents some possible issues for developers:
 
@@ -59,9 +55,9 @@ Admin consent done on behalf of an organization still requires the static permis
 
 ## Scopes, not resources
 
-For apps using the v1.0 endpoint, an app can behave as a **resource**, or a recipient of tokens. A resource can define a number of **scopes** or **oAuth2Permissions** that it understands, allowing client apps to request tokens from that resource for a certain set of scopes. Consider the Azure AD Graph API as an example of a resource:
+For apps using the v1.0 endpoint, an app can behave as a **resource**, or a recipient of tokens. A resource can define a number of **scopes** or **oAuth2Permissions** that it understands, allowing client apps to request tokens from that resource for a certain set of scopes. Consider the Microsoft Graph API as an example of a resource:
 
-* Resource identifier, or `AppID URI`: `https://graph.windows.net/`
+* Resource identifier, or `AppID URI`: `https://graph.microsoft.com/`
 * Scopes, or `oAuth2Permissions`: `Directory.Read`, `Directory.Write`, and so on.
 
 This holds true for the Microsoft identity platform endpoint. An app can still behave as a resource, define scopes, and be identified by a URI. Client apps can still request access to those scopes. However, the way that a client requests those permissions have changed.
@@ -112,6 +108,9 @@ These scopes allow you to code your app in a minimal-disclosure fashion so you c
 ## Token claims
 
 The Microsoft identity platform endpoint issues a smaller set of claims in its tokens by default to keep payloads small. If you have apps and services that have a dependency on a particular claim in a v1.0 token that is no longer provided by default in a Microsoft identity platform token, consider using the [optional claims](active-directory-optional-claims.md) feature to include that claim.
+
+> [!IMPORTANT]
+> v1.0 and v2.0 tokens can be issued by both the v1.0 and v2.0 endpoints! id_tokens *always* match the endpoint they're requested from, and access tokens *always* match the format expected by the Web API your client will call using that token.  So if your app uses the v2.0 endpoint to get a token to call Microsoft Graph, which expects v1.0 format access tokens, your app will recieve a token in the v1.0 format.  
 
 ## Limitations
 

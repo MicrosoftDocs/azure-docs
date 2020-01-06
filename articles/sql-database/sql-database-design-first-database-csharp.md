@@ -1,15 +1,15 @@
 ---
-title: Design your first relational database - C# - Azure SQL Database| Microsoft Docs
+title: Design your first relational database C#
 description: Learn to design your first relational database in a single database in Azure SQL Database with C# using ADO.NET.
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
+ms.custom: seo-lt-2019
 ms.topic: tutorial
 author: MightyPen
 ms.author: genemi
 ms.reviewer: carlrab
-manager: craigg-msft
-ms.date: 02/08/2019
+ms.date: 07/29/2019
 ---
 # Tutorial: Design a relational database in a single database within Azure SQL Database C&#x23; and ADO.NET
 
@@ -25,13 +25,16 @@ Azure SQL Database is a relational database-as-a-service (DBaaS) in the Microsof
 
 *If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
+> [!TIP]
+> The following Microsoft Learn module helps you learn for free how to [Develop and configure an ASP.NET application that queries an Azure SQL Database](https://docs.microsoft.com/learn/modules/develop-app-that-queries-azure-sql/), including the creation of a simple database.
+
 ## Prerequisites
 
-An installation of [Visual Studio 2017](https://www.visualstudio.com/downloads/)
+An installation of [Visual Studio 2019](https://www.visualstudio.com/downloads/) or later.
 
 ## Create a blank single database
 
-A single database in Azure SQL Database is created with a defined set of compute and storage resources. The database is created within an [Azure resource group](../azure-resource-manager/resource-group-overview.md) and is managed using an [database server](sql-database-servers.md).
+A single database in Azure SQL Database is created with a defined set of compute and storage resources. The database is created within an [Azure resource group](../azure-resource-manager/management/overview.md) and is managed using an [database server](sql-database-servers.md).
 
 Follow these steps to create a blank single database.
 
@@ -46,14 +49,14 @@ Follow these steps to create a blank single database.
     | ------------ | ------------------ | ------------------------------------------------- |
     | **Database name** | *yourDatabase* | For valid database names, see [Database identifiers](/sql/relational-databases/databases/database-identifiers). |
     | **Subscription** | *yourSubscription*  | For details about your subscriptions, see [Subscriptions](https://account.windowsazure.com/Subscriptions). |
-    | **Resource group** | *yourResourceGroup* | For valid resource group names, see [Naming rules and restrictions](/azure/architecture/best-practices/naming-conventions). |
+    | **Resource group** | *yourResourceGroup* | For valid resource group names, see [Naming rules and restrictions](/azure/architecture/best-practices/resource-naming). |
     | **Select source** | Blank database | Specifies that a blank database should be created. |
 
 4. Click **Server** to use an existing database server or create and configure a new database server. Either select an existing server or click **Create a new server** and fill out the **New server** form with the following information:
 
     | Setting       | Suggested value | Description |
     | ------------ | ------------------ | ------------------------------------------------- |
-    | **Server name** | Any globally unique name | For valid server names, see [Naming rules and restrictions](/azure/architecture/best-practices/naming-conventions). |
+    | **Server name** | Any globally unique name | For valid server names, see [Naming rules and restrictions](/azure/architecture/best-practices/resource-naming). |
     | **Server admin login** | Any valid name | For valid login names, see [Database identifiers](/sql/relational-databases/databases/database-identifiers). |
     | **Password** | Any valid password | Your password must have at least eight characters and must use characters from three of the following categories: upper case characters, lower case characters, numbers, and non-alphanumeric characters. |
     | **Location** | Any valid location | For information about regions, see [Azure Regions](https://azure.microsoft.com/regions/). |

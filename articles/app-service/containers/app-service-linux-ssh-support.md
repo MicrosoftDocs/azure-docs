@@ -1,18 +1,10 @@
 ---
-title: SSH support for App Service on Linux - Azure | Microsoft Docs
-description: Learn about using SSH with Azure App Service on Linux.
+title: SSH access for Linux containers
+description: You can open an SSH session to a Linux container in Azure App Service. Custom Linux containers are supported with some modifications to your custom image.
 keywords: azure app service, web app, linux, oss
-services: app-service
-documentationcenter: ''
-author: msangapu
-manager: jeconnoc
-editor: ''
+author: msangapu-msft
 
 ms.assetid: 66f9988f-8ffa-414a-9137-3a9b15a5573c
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 02/25/2019
 ms.author: msangapu
@@ -47,10 +39,10 @@ Using TCP tunneling you can create a network connection between your development
 
 To get started, you need to install [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest). To see how it works without installing Azure CLI, open [Azure Cloud Shell](../../cloud-shell/overview.md). 
 
-Open a remote connection to your app using the [az webapp remote-connection create](/cli/azure/ext/webapp/webapp/remote-connection?view=azure-cli-latest#ext-webapp-az-webapp-remote-connection-create) command. Specify _\<subscription-id>_, _\<group-name>_ and \_<app-name>_ for your app.
+Open a remote connection to your app using the [az webapp remote-connection create](/cli/azure/ext/webapp/webapp/remote-connection?view=azure-cli-latest#ext-webapp-az-webapp-remote-connection-create) command. Specify _\<subscription-id>_, _\<group-name>_ and \_\<app-name>_ for your app.
 
 ```azurecli-interactive
-az webapp remote-connection create --subscription <subscription-id> --resource-group <resource-group-name> -n <app-name> &
+az webapp create-remote-connection --subscription <subscription-id> --resource-group <resource-group-name> -n <app-name> &
 ```
 
 > [!TIP]

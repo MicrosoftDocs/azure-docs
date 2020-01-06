@@ -1,45 +1,39 @@
 ---
-title: Connect using Truffle
+title: Use Truffle to connect to Azure Blockchain Service
 description: Connect to an Azure Blockchain Service network using Truffle
-services: azure-blockchain
-keywords: 
-author: PatAltimore
-ms.author: patricka
-ms.date: 05/02/2019
+ms.date: 11/20/2019
 ms.topic: quickstart
-ms.service: azure-blockchain
-ms.reviewer: jackyhsu
-manager: femila
+ms.reviewer: janders
 #Customer intent: As a developer, I want to connect to my blockchain member node so that I can perform actions on a blockchain.
 ---
 
-# Quickstart: Use Truffle to connect to a an Azure Blockchain Service network
+# Quickstart: Use Truffle to connect to Azure Blockchain Service
 
-Truffle is a blockchain development environment you can use to connect to an Azure Blockchain Service node.
+In this quickstart, you use Truffle connect to an Azure Blockchain Service transaction node. You then use the Truffle interactive console to call **web3** methods to interact with your blockchain network.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisites
 
-* [Create an Azure Blockchain member](create-member.md)
-* Truffle requires several tools to be installed including [Node.js](https://nodejs.org), [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git), and [Truffle](https://github.com/trufflesuite/truffle).
-
-    To set up quickly on Windows 10, install [Ubuntu on Windows](https://www.microsoft.com/p/ubuntu/9nblggh4msv6) for a Unix Bash shell terminal then install [Truffle](https://github.com/trufflesuite/truffle). The Ubuntu on Windows distribution includes Node.js and Git.
+* Complete [Quickstart: Create a blockchain member using the Azure portal](create-member.md) or [Quickstart: Create an Azure Blockchain Service blockchain member using Azure CLI](create-member-cli.md)
+* Install [Truffle](https://github.com/trufflesuite/truffle). Truffle requires several tools to be installed including [Node.js](https://nodejs.org), [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
+* Install [Python 2.7.15](https://www.python.org/downloads/release/python-2715/). Python is needed for Web3.
 
 ## Create Truffle project
 
-1. Open a Bash shell terminal.
-1. Change directory to where you want to create the Truffle project directory. For example,
-
-    ``` bash
-    cd /mnt/c
-    ```
-
+1. Open a Node.js command prompt or shell.
+1. Change directory to where you want to create the Truffle project directory.
 1. Create a directory for the project and change your path to the new directory. For example,
 
     ``` bash
     mkdir truffledemo
     cd truffledemo
+    ```
+
+1. Initialize the Truffle project.
+
+    ``` bash
+    truffle init
     ```
 
 1. Install Ethereum JavaScript API web3 in the project folder. Currently, version web3 version 1.0.0-beta.37 is required.
@@ -49,47 +43,57 @@ Truffle is a blockchain development environment you can use to connect to an Azu
     ```
 
     You may receive npm warnings during installation.
+    
+## Configure Truffle project
 
-1. Initialize the Truffle project.
-
-    ``` bash
-    truffle init
-    ```
-
-1. Launch Truffle's interactive development console.
-
-    ``` bash
-    truffle develop
-    ```
-
-    Truffle creates a local development blockchain and provides an interactive console.
-
-## Connect to transaction node
-
-We'll use Web3 to connect to the transaction node. You can get the Web3 connection string from the Azure portal.
+To configure the Truffle project, you need some transaction node information from the Azure portal.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Navigate to your Azure Blockchain Service member. Select **Transaction nodes** and the default transaction node link.
+1. Go to your Azure Blockchain Service member. Select **Transaction nodes** and the default transaction node link.
 
     ![Select default transaction node](./media/connect-truffle/transaction-nodes.png)
 
-1. Select **Sample Code > Web3**.
-1. Copy the JavaScript from **HTTPS (Access key 1)**. You need the code for Truffle's interactive development console.
+1. Select **Connection strings**.
+1. Copy the connection string from **HTTPS (Access key 1)**. You need the string for the next section.
 
-    ![Web3 code](./media/connect-truffle/web3-code.png)
+    ![Connection string](./media/connect-truffle/connection-string.png)
 
-1. Paste the JavaScript code from the previous step into the Truffle interactive development console. The code creates a web3 object that is connected to your Azure Blockchain Service transaction node.
+### Edit configuration file
 
-    Example output:
+Next, you need to update the Truffle configuration file with the transaction node endpoint.
 
-    ```bash
-    truffle(develop)> var Web3 = require("Web3");
-    truffle(develop)> var provider = new Web3.providers.HttpProvider("https://myblockchainmember.blockchain.azure.com:3200/hy5FMu5TaPR0Zg8GxiPwned");
-    truffle(develop)> var web3 = new Web3(provider);
-    truffle(develop)>
-     ```
+1. In the **truffledemo** project folder, open the Truffle configuration file `truffle-config.js` in an editor.
+1. Replace the contents of the file with the following configuration information. Add a variable containing the endpoint address. Replace the angle bracket with values you collected from the previous section.
 
-    You can call methods on the **web3** object to interact with your transaction node.
+    ``` javascript
+    var defaultnode = "<default transaction node connection string>";   
+    var Web3 = require("web3");
+    
+    module.exports = {
+      networks: {
+        defaultnode: {
+          provider: new Web3.providers.HttpProvider(defaultnode),
+          network_id: "*"
+        }
+      }
+    }
+    ```
+
+1. Save the changes to `truffle-config.js`.
+
+## Connect to transaction node
+
+Use *Web3* to connect to the transaction node.
+
+1. Use the Truffle console to connect to the default transaction node. At a command prompt or shell, run the following command:
+
+    ``` bash
+    truffle console --network defaultnode
+    ```
+
+    Truffle connects to the default transaction node and provides an interactive console.
+
+    You can call methods on the **web3** object to interact with your blockchain network.
 
 1. Call the **getBlockNumber** method to return the current block number.
 
@@ -100,10 +104,10 @@ We'll use Web3 to connect to the transaction node. You can get the Web3 connecti
     Example output:
 
     ```bash
-    truffle(develop)> web3.eth.getBlockNumber();
+    truffle(defaultnode)> web3.eth.getBlockNumber();
     18567
     ```
-1. Exit the Truffle development console.
+1. Exit the Truffle console.
 
     ```bash
     .exit
@@ -111,9 +115,9 @@ We'll use Web3 to connect to the transaction node. You can get the Web3 connecti
 
 ## Next steps
 
-In this quickstart, you created a Truffle project to connect to your Azure Blockchain Service default transaction node.
+In this quickstart, you used Truffle connect to an Azure Blockchain Service default transaction node and used the interactive console to return the current blockchain block number.
 
-Try the next tutorial to use Truffle to send a transaction to your consortium blockchain network.
+Try the next tutorial to use Azure Blockchain Development Kit for Ethereum to create, build, deploy, and execute a smart contract function via a transaction.
 
 > [!div class="nextstepaction"]
-> [Send a transaction](send-transaction.md)
+> [Create, build, and deploy smart contracts on Azure Blockchain Service](send-transaction.md)

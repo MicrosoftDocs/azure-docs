@@ -5,6 +5,7 @@ services: Azure, Marketplace, Cloud Partner Portal,
 author: pbutlerm
 manager: Patrick .Butler  
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
@@ -208,7 +209,7 @@ Make sure you concatenate your parameter/variable strings (\'contosovm\') with a
 For example, most resource names cannot start with a digit, but unique string function can return a string, which starts with a digit. So, if you use raw unique string output, your deployments will fail. 
 
 You can find additional information about resource naming rules and
-restrictions in [this article](https://docs.microsoft.com/azure/guidance/guidance-naming-conventions).
+restrictions in [this article](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging).
 
 ### Deployment Location
 
@@ -289,7 +290,7 @@ Example:
 
 One more thing you should take into consideration is subscription and service limits. For example, if you want to deploy up to ten 4-core virtual machines, you need to make sure the subscription you use for your Lab allows you to use 40 cores.
 
-You can find more information about Azure subscription and service limits in [this article](https://docs.microsoft.com/azure/azure-subscription-service-limits). As multiple Test Drives can be taken at the same time, verify that your subscription can handle the \# of cores multiplied by the total number of concurrent Test Drives that can be taken.
+You can find more information about Azure subscription and service limits in [this article](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits). As multiple Test Drives can be taken at the same time, verify that your subscription can handle the \# of cores multiplied by the total number of concurrent Test Drives that can be taken.
 
 ### What to upload
 
@@ -389,7 +390,7 @@ Otherwise, create a new Tenant in Azure Active Directory.
 
 ![List of Azure Active Directory tenants](./media/azure-resource-manager-test-drive/subdetails4.png)
 
-![Define the organization, domain and Country for the Azure AD tenant](./media/azure-resource-manager-test-drive/subdetails5.png)
+![Define the organization, domain and country/region for the Azure AD tenant](./media/azure-resource-manager-test-drive/subdetails5.png)
 
 ![Confirm the selection](./media/azure-resource-manager-test-drive/subdetails6.png)
 

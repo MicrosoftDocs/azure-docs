@@ -1,5 +1,5 @@
 ---
-title: "Run analytics queries against Azure SQL databases | Microsoft Docs"
+title: Run analytics queries
 description: "Cross-tenant analytics queries using data extracted from multiple Azure SQL Database databases in a multi-tenant app."
 services: sql-database
 ms.service: sql-database
@@ -10,7 +10,6 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: anjangsh,billgib,genemi
-manager: craigg
 ms.date: 09/19/2018
 ---
 # Cross-tenant analytics using extracted data - multi-tenant app
@@ -236,5 +235,5 @@ Congratulations!
 ## Additional resources
 
 Additional [tutorials that build upon the Wingtip SaaS application](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials). 
-- [Elastic Jobs](sql-database-elastic-jobs-overview.md).
+- [Elastic Jobs](elastic-jobs-overview.md).
 - [Cross-tenant analytics using extracted data - single-tenant app](saas-tenancy-tenant-analytics.md) 

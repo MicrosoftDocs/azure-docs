@@ -1,10 +1,10 @@
 ---
-title: Create a network security group (classic) using the Azure classic CLI | Microsoft Docs
+title: Create network security group (classic) using the Azure classic CLI 
 description: Learn how to create and deploy a network security group (classic) using the Azure classic CLI.
 services: virtual-network
 documentationcenter: na
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 tags: azure-service-management
 

@@ -1,15 +1,14 @@
 ---
 title: Manage alert and smart group states
 description: Managing the states of the alert and smart group instances
-author: anantr
-services: monitoring
-ms.service: azure-monitor
-ms.topic: conceptual
-ms.date: 09/24/2018
-ms.author: anantr
+ms.service:  azure-monitor
 ms.subservice: alerts
----
+ms.topic: conceptual
+author: anantr
+ms.author: robb
+ms.date: 09/24/2018
 
+---
 
 # Manage alert and smart group states
 Alerts in Azure Monitor now have an [alert state and a monitor condition](https://aka.ms/azure-alerts-overview) and, similarly, Smart Groups have a [smart group state](https://aka.ms/smart-groups). Changes to the state are now captured in history associated with the respective alert or smart group. This article walks you through the process of changing the state, for both an alert and a smart group.

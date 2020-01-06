@@ -1,5 +1,5 @@
 ---
-title: Quickstart - Integrate an Azure storage account with Azure CDN | Microsoft Docs
+title: Quickstart - Integrate an Azure storage account with Azure CDN
 description: Learn how to use the Azure Content Delivery Network (CDN) to deliver high-bandwidth content by caching blobs from Azure Storage.
 services: cdn
 documentationcenter: ''
@@ -8,7 +8,7 @@ manager: danielgi
 editor: ''
 
 ms.assetid: cbc2ff98-916d-4339-8959-622823c5b772
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -72,7 +72,7 @@ You can use several methods to create a storage account, including the Azure por
     | **Performance** | Use the default value. |
     | **Secure transfer required** | Use the default value. |
     | **Subscription** | Select an Azure subscription from the drop-down list. |
-    | **Resource group** | Select **Create new** and enter *my-resource-group-123* for your resource group name. This name must be globally unique. If it is already in use, you may enter a different name or you can select **Use existing** and select **my-resource-group-123** from the drop-down list. <br />For information about resource groups, see [Azure Resource Manager overview](../azure-resource-manager/resource-group-overview.md#resource-groups).| 
+    | **Resource group** | Select **Create new** and enter *my-resource-group-123* for your resource group name. This name must be globally unique. If it is already in use, you may enter a different name or you can select **Use existing** and select **my-resource-group-123** from the drop-down list. <br />For information about resource groups, see [Azure Resource Manager overview](../azure-resource-manager/management/overview.md#resource-groups).| 
     | **Configure virtual networks** | Use the default value. |  
     
 5. Select **Pin to dashboard** to save the storage account to your dashboard after it is created.

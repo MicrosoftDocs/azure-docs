@@ -1,21 +1,16 @@
 ---
 title: Application Map in Azure Application Insights | Microsoft Docs
 description: Monitor complex application topologies with the application map
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-
-ms.assetid: 3bf37fe9-70d7-4229-98d6-4f624d256c36
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service:  azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 03/15/2019
-ms.reviewer: sdash
+author: mrbullwinkle
 ms.author: mbullwin
+ms.date: 03/15/2019
 
+ms.reviewer: sdash
 ---
+
 # Application Map: Triage Distributed Applications
 
 Application Map helps you spot performance bottlenecks or failure hotspots across all components of your distributed application. Each node on the map represents an application component or its dependencies; and has health KPI and alerts status. You can click through from any component to more detailed diagnostics, such as Application Insights events. If your app uses Azure services, you can also click through to Azure diagnostics, such as SQL Database Advisor recommendations.
@@ -70,13 +65,13 @@ Select **go to details** to explore the end-to-end transaction experience, which
 
 ![Screenshot of end-to-end transaction details](media/app-map/end-to-end-transaction.png)
 
-### View in Analytics
+### View Logs (Analytics)
 
-To query and investigate your applications data further, click **view in analytics**.
+To query and investigate your applications data further, click **view in Logs (Analytics)**.
 
-![Screenshot of view in analytics button](media/app-map/view-in-analytics.png)
+![Screenshot of view in analytics button](media/app-map/view-logs.png)
 
-![Screenshot of analytics experience](media/app-map/analytics.png)
+![Screenshot of analytics experience. Line graph summarizing the average response duration of a request over the past 12 hours.](media/app-map/log-analytics.png)
 
 ### Alerts
 
@@ -90,7 +85,9 @@ To view active alerts and the underlying rules that cause the alerts to be trigg
 
 Application Map uses the **cloud role name** property to identify the components on the map. The Application Insights SDK automatically adds the cloud role name property to the telemetry emitted by components. For example, the SDK will add a web site name or service role name to the cloud role name property. However, there are cases where you may want to override the default value. To override cloud role name and change what gets displayed on the Application Map:
 
-### .NET
+### .NET/.NET Core
+
+**Write custom TelemetryInitializer as below.**
 
 ```csharp
 using Microsoft.ApplicationInsights.Channel;
@@ -106,16 +103,16 @@ namespace CustomInitializer.Telemetry
             {
                 //set custom role name here
                 telemetry.Context.Cloud.RoleName = "Custom RoleName";
-                telemetry.Context.Cloud.RoleInstance = "Custom RoleInstance"
+                telemetry.Context.Cloud.RoleInstance = "Custom RoleInstance";
             }
         }
     }
 }
 ```
 
-**Load your initializer**
+**ASP.NET apps: Load initializer to the active TelemetryConfiguration**
 
-In ApplicationInsights.config:
+In ApplicationInsights.config :
 
 ```xml
     <ApplicationInsights>
@@ -127,7 +124,7 @@ In ApplicationInsights.config:
     </ApplicationInsights>
 ```
 
-An alternate method is to instantiate the initializer in code, for example in Global.aspx.cs:
+An alternate method for ASP.NET Web apps is to instantiate the initializer in code, for example in Global.aspx.cs:
 
 ```csharp
  using Microsoft.ApplicationInsights.Extensibility;
@@ -138,6 +135,22 @@ An alternate method is to instantiate the initializer in code, for example in Gl
         // ...
         TelemetryConfiguration.Active.TelemetryInitializers.Add(new MyTelemetryInitializer());
     }
+```
+
+> [!NOTE]
+> Adding initializer using `ApplicationInsights.config` or using `TelemetryConfiguration.Active` is not valid for ASP.NET Core applications. 
+
+**ASP.NET Core apps: Load initializer to the TelemetryConfiguration**
+
+For [ASP.NET Core](asp-net-core.md#adding-telemetryinitializers) applications, adding a new `TelemetryInitializer` is done by adding it to the Dependency Injection container, as shown below. This is done in `ConfigureServices` method of your `Startup.cs` class.
+
+```csharp
+ using Microsoft.ApplicationInsights.Extensibility;
+ using CustomInitializer.Telemetry;
+ public void ConfigureServices(IServiceCollection services)
+{
+    services.AddSingleton<ITelemetryInitializer, MyTelemetryInitializer>();
+}
 ```
 
 ### Node.js
@@ -163,19 +176,29 @@ appInsights.defaultClient.addTelemetryProcessor(envelope => {
 
 ### Java
 
+Starting with Application Insights Java SDK 2.5.0, you can specify the cloud role name
+by adding `<RoleName>` to your `ApplicationInsights.xml` file, e.g.
+
+```XML
+<?xml version="1.0" encoding="utf-8"?>
+<ApplicationInsights xmlns="http://schemas.microsoft.com/ApplicationInsights/2013/Settings" schemaVersion="2014-05-30">
+   <InstrumentationKey>** Your instrumentation key **</InstrumentationKey>
+   <RoleName>** Your role name **</RoleName>
+   ...
+</ApplicationInsights>
+```
+
 If you use Spring Boot with the Application Insights Spring Boot starter, the only required change is to set your custom name for the application in the application.properties file.
 
 `spring.application.name=<name-of-app>`
 
 The Spring Boot starter will automatically assign cloud role name to the value you enter for the spring.application.name property.
 
-For further information on Java correlation and how to configure cloud role name for non-SpringBoot applications checkout this [section](https://docs.microsoft.com/azure/application-insights/application-insights-correlation#role-name) on correlation.
-
 ### Client/browser-side JavaScript
 
 ```javascript
 appInsights.queue.push(() => {
-appInsights.context.addTelemetryInitializer((envelope) => {
+appInsights.addTelemetryInitializer((envelope) => {
   envelope.tags["ai.cloud.role"] = "your role name";
   envelope.tags["ai.cloud.roleInstance"] = "your role instance";
 });
@@ -208,7 +231,7 @@ Alternatively, **cloud role instance** can be helpful for scenarios where **clou
 
 A scenario where you might want to override the value for cloud role instance could be if your app is running in a containerized environment where just knowing the individual server might not be enough information to locate a given issue.
 
-For more information about how to override the cloud role name property with telemetry initializers, see [Add properties: ITelemetryInitializer](api-filtering-sampling.md#add-properties-itelemetryinitializer).
+For more information about how to override the cloud role name property with telemetry initializers, see [Add properties: ITelemetryInitializer](api-filtering-sampling.md#addmodify-properties-itelemetryinitializer).
 
 ## Troubleshooting
 
@@ -250,4 +273,6 @@ To provide feedback, use the feedback option.
 
 ## Next steps
 
-* [Understanding correlation](https://docs.microsoft.com/azure/application-insights/application-insights-correlation)
+* To learn more about how correlation works in Application Insights consult the [telemetry correlation article](https://docs.microsoft.com/azure/application-insights/application-insights-correlation).
+* The [end-to-end transaction diagnostic experience](transaction-diagnostics.md) correlates server-side telemetry from across all your Application Insights monitored components into a single view.
+* For advanced correlation scenarios in ASP.NET Core and ASP.NET consult the [track custom operations](custom-operations-tracking.md) article.

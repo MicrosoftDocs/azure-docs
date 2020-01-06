@@ -1,17 +1,17 @@
 ---
-title: What is Windows Virtual Desktop Preview?  - Azure
-description: An overview of Windows Virtual Desktop Preview.
+title: What is Windows Virtual Desktop? - Azure
+description: An overview of Windows Virtual Desktop.
 services: virtual-desktop
 author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: overview
-ms.date: 03/21/2019
+ms.date: 12/17/2019
 ms.author: helohr
 ---
-# What is Windows Virtual Desktop Preview? 
+# What is Windows Virtual Desktop? 
 
-Now available in public preview, Windows Virtual Desktop Preview is a desktop and app virtualization service that runs on the cloud.
+Windows Virtual Desktop is a desktop and app virtualization service that runs on the cloud.
 
 Here’s what you can do when you run Windows Virtual Desktop on Azure:
 
@@ -21,6 +21,14 @@ Here’s what you can do when you run Windows Virtual Desktop on Azure:
 * Bring your existing Remote Desktop Services (RDS) and Windows Server desktops and apps to any computer
 * Virtualize both desktops and apps
 * Manage Windows 10, Windows Server, and Windows 7 desktops and apps with a unified management experience
+
+## Introductory video
+
+Learn about Windows Virtual Desktop, why it’s unique, and what’s new in this video:
+
+<br></br><iframe src="https://www.youtube.com/embed/NQFtI3JLtaU" width="640" height="320" allowFullScreen="true" frameBorder="0"></iframe>
+
+For more videos about Windows Virtual Desktop, see [our playlist](https://www.youtube.com/watch?v=NQFtI3JLtaU&list=PLXtHYVsvn_b8KAKw44YUpghpD6lg-EHev).
 
 ## Key capabilities
 
@@ -49,11 +57,6 @@ You can also assign and connect users to your virtual desktops:
 
 There are a few things you need to set up Windows Virtual Desktop and successfully connect your users to their Windows desktops and applications.
 
-Windows Virtual Desktop currently only supports the following two OSes:
-
-* Windows 10 Enterprise multi-session
-* Windows Server 2016
-
 We plan to add support for the following OSes, so make sure you have the [appropriate licenses](https://azure.microsoft.com/pricing/details/virtual-desktop/) for your users based on the desktop and apps you plan to deploy:
 
 |OS|Required license|
@@ -65,36 +68,78 @@ We plan to add support for the following OSes, so make sure you have the [approp
 Your infrastructure needs the following things to support Windows Virtual Desktop:
 
 * An [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/)
-* A Windows Server Active Directory in sync with Azure Active Directory. This can be enabled through:
-  * Azure AD Connect
-  * Azure AD Domain Services
-* An Azure subscription, containing a virtual network that either contains or is connected to the Windows Server Active Directory
+* A Windows Server Active Directory in sync with Azure Active Directory. You can configure this with one of the following:
+  * Azure AD Connect (for hybrid organizations)
+  * Azure AD Domain Services (for hybrid or cloud organizations)
+* An Azure subscription that contains a virtual network that either contains or is connected to the Windows Server Active Directory
   
 The Azure virtual machines you create for Windows Virtual Desktop must be:
 
 * [Standard domain-joined](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-comparison) or [Hybrid AD-joined](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan). Virtual machines can't be Azure AD-joined.
-* Running one of the following supported OS images:
-  * Windows 10 Enterprise multi-session
-  * Windows Server 2016
+* Running one of the following [supported OS images](#supported-virtual-machine-os-images).
 
 >[!NOTE]
 >If you need an Azure subscription, you can [sign up for a one-month free trial](https://azure.microsoft.com/free/). If you're using the free trial version of Azure, you should use Azure AD Domain Services to keep your Windows Server Active Directory in sync with Azure Active Directory.
 
-Windows Virtual Desktop comprises the Windows desktops and apps you deliver to users and the management solution, which is hosted as a service on Azure by Microsoft. During public preview, desktops and apps can be deployed on virtual machines (VMs) in any Azure region, and the management solution and data for these VMs will reside in the United States (US East 2 region). This may result in data transfer to the United States while you test the service during public preview. We'll start to scale out the management solution and data localization to all Azure regions starting at general availability.
+The Azure virtual machines you create for Windows Virtual Desktop must have outbound TCP 443 access to the following URLs:
+
+* *.wvd.microsoft.com
+* *.blob.core.windows.net
+* *.core.windows.net
+* *.servicebus.windows.net
+* prod.warmpath.msftcloudes.com
+* catalogartifact.azureedge.net
+
+>[!NOTE]
+>Opening these URLs is essential for a reliable Windows Virtual Desktop deployment. Blocking access to these URLs is unsupported and will affect service functionality. These URLs only correspond to Windows Virtual Desktop sites and resources, and do not include URLS for other services like Azure AD.
+
+Windows Virtual Desktop comprises the Windows desktops and apps you deliver to users and the management solution, which is hosted as a service on Azure by Microsoft. Desktops and apps can be deployed on virtual machines (VMs) in any Azure region, and the management solution and data for these VMs will reside in the United States. This may result in data transfer to the United States.
 
 For optimal performance, make sure your network meets the following requirements:
 
 * Round-trip (RTT) latency from the client's network to the Azure region where host pools have been deployed should be less than 150 ms.
-* Network traffic may flow outside country borders when VMs that host desktops and apps connect to the management service.
+* Network traffic may flow outside country/region borders when VMs that host desktops and apps connect to the management service.
 * To optimize for network performance, we recommend that the session host's VMs are collocated in the same Azure region as the management service.
 
-## Provide feedback
+## Supported Remote Desktop clients
 
-Visit the [Windows Virtual Desktop Tech Community](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop) to discuss the Windows Virtual Desktop service with the product team and active community members. We currently aren't taking support cases while Windows Virtual Desktop is in preview.
+The following Remote Desktop clients support Windows Virtual Desktop:
+
+* [Windows](connect-windows-7-and-10.md)
+* [Web](connect-web.md)
+* [Mac](connect-macos.md)
+* [iOS](connect-ios.md)
+* [Android (Preview)](connect-android.md)
+
+## Supported virtual machine OS images
+
+Windows Virtual Desktop supports the following x64 operating system images:
+
+* Windows 10 Enterprise multi-session, version 1809 or later
+* Windows 10 Enterprise, version 1809 or later
+* Windows 7 Enterprise
+* Windows Server 2019
+* Windows Server 2016
+* Windows Server 2012 R2
+
+Windows Virtual Desktop does not support x86 (32-bit), Windows 10 Enterprise N, or Windows 10 Enterprise KN operating system images.
+
+Available automation and deployment options depend on which OS and version you choose, as shown in the following table: 
+
+|Operating system|Azure Image Gallery|Manual VM deployment|Azure Resource Manager template integration|Provision host pools on Azure Marketplace|Windows Virtual Desktop Agent updates|
+|--------------------------------------|:------:|:------:|:------:|:------:|:------:|
+|Windows 10 multi-session, version 1903|Yes|Yes|Yes|Yes|Automatic|
+|Windows 10 multi-session, version 1809|Yes|Yes|No|No|Automatic|
+|Windows 10 Enterprise, version 1903|Yes|Yes|Yes|Yes|Automatic|
+|Windows 10 Enterprise, version 1809|Yes|Yes|No|No|Automatic|
+|Windows 7 Enterprise|Yes|Yes|No|No|Manual|
+|Windows Server 2019|Yes|Yes|No|No|Automatic|
+|Windows Server 2016|Yes|Yes|Yes|Yes|Automatic|
+|Windows Server 2012 R2|Yes|Yes|No|No|Automatic|
 
 ## Next steps
 
 To get started, you'll need to create a tenant. To learn more about how to create a tenant, continue to the tenant creation tutorial.
 
 > [!div class="nextstepaction"]
-> [Create a tenant in Windows Virtual Desktop Preview](tenant-setup-azure-active-directory.md)
+> [Create a tenant in Windows Virtual Desktop](tenant-setup-azure-active-directory.md)

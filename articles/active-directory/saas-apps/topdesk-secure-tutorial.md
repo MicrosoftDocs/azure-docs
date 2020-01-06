@@ -9,6 +9,7 @@ ms.reviewer: barbkess
 
 ms.assetid: 8e06ee33-18f9-4c05-9168-e6b162079d88
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -104,11 +105,11 @@ To configure Azure AD single sign-on with TOPdesk - Secure, perform the followin
     a. In the **Sign-on URL** text box, type a URL using the following pattern:
     `https://<companyname>.topdesk.net`
 
-    b. In the **Identifier** box, type a URL using the following pattern:
-    `https://<companyname>.topdesk.net/tas/secure/login/verify`
+    b. In the **Identifier URL** box, fill in the TOPdesk metadata URL that you can retrieve from the TOPdesk configuration. It should use the following pattern:
+    `https://<companyname>.topdesk.net/saml-metadata/<identifier>`
 
     c. In the **Reply URL** text box, type a URL using the following pattern:
-    `https://<companyname>.topdesk.net/tas/public/login/saml`
+    `https://<companyname>.topdesk.net/tas/secure/login/verify`
 
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Sign-On URL, Identifier and Reply URL. Contact [TOPdesk - Secure Client support team](https://www.topdesk.com/us/support/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
@@ -183,7 +184,7 @@ To configure Azure AD single sign-on with TOPdesk - Secure, perform the followin
 
     d. To upload the logo file you got from the TOPdesk support team, under **Logo icon**, click **Browse**.
 
-    e. In the **User name attribute** textbox, type `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
+    e. In the **User name attribute** textbox, type `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
 
     f. In the **Display name** textbox, type a name for your configuration.
 
@@ -268,7 +269,7 @@ In the case of TOPdesk - Secure, provisioning is a manual task.
     e. Click **Save**.
 
 > [!NOTE]
-> You can use any other TOPdesk - Secure user account creation tools or APIs provided by TOPdesk - Secure to provision AAD user accounts.
+> You can use any other TOPdesk - Secure user account creation tools or APIs provided by TOPdesk - Secure to provision Azure AD user accounts.
 
 ### Test single sign-on 
 
@@ -282,5 +283,5 @@ When you click the TOPdesk - Secure tile in the Access Panel, you should be auto
 
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

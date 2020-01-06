@@ -1,13 +1,8 @@
 ﻿---
-title: Improve performance of Azure applications with Azure Advisor | Microsoft Docs
+title: Improve performance of Azure applications with Azure Advisor
 description: Use Advisor to optimize the performance of your Azure deployments.
-services: advisor
-documentationcenter: NA
-author: kasparks
-ms.service: advisor
 ms.topic: article
 ms.date: 01/29/2019
-ms.author: kasparks
 ---
 
 # Improve performance of Azure applications with Azure Advisor
@@ -68,7 +63,7 @@ Advisor identifies tables that are not replicated tables but would benefit from 
 Migrate your Storage Account deployment model to Azure Resource Manager (Resource Manager) to take advantage of template deployments, additional security options, and the ability to upgrade to a GPv2 account for utilization of Azure Storage's latest features. Advisor will identify any stand-alone storage accounts that are using the Classic deployment model and recommends migrating to the Resource Manager deployment model.
 
 > [!NOTE]
-> Classic alerts in Azure Monitor are scheduled to retire in June 2019. We recommended that you upgrade your classic storage account to use Resource Manager to retain alerting functionality with the new platform. For more information, see [Classic Alerts Retirement](https://azure.microsoft.com/updates/classic-alerting-monitoring-retirement/).
+> Classic alerts in Azure Monitor have been retired in August 2019. We recommended that you upgrade your classic storage account to use Resource Manager to retain alerting functionality with the new platform. For more information, see [Classic Alerts Retirement](https://docs.microsoft.com/azure/azure-monitor/platform/monitoring-classic-retirement#retirement-of-classic-monitoring-and-alerting-platform).
 
 ## Design your storage accounts to prevent hitting the maximum subscription limit
 
@@ -89,6 +84,22 @@ Azure Advisor leverages workload-based heuristics such as the ratio of reads to 
 ### Scale your Azure MySQL, Azure PostgreSQL, or Azure MariaDB server to a higher SKU to prevent connection constraints
 Each new connection to your database server occupies some memory. The database server's performance degrades if connections to your server are failing because of an [upper limit](https://docs.microsoft.com/azure/postgresql/concepts-limits) in memory. Azure Advisor will identify servers running with many connection failures and recommend upgrading your server's connections limits to provide more memory to your server by scaling up compute or using Memory Optimized SKUs, which have more compute per core.
 
+## Scale your Cache to a different size or SKU to improve Cache and application performance
+
+Cache instances perform best when not running under high memory pressure, high server load, or high network bandwidth which may cause them to become unresponsive, experience data loss, or become unavailable. Advisor will identify Cache instances in these conditions and recommend either applying best practices to reduce the memory pressure, server load, or network bandwidth or scaling to a different size or SKU with more capacity.
+
+## Add regions with traffic to your Azure Cosmos DB account
+
+Advisor will detect Azure Cosmos DB accounts that have traffic from a region that is not currently configured and recommend adding that region. This will improve latency for requests coming from that region and will ensure availability in case of region outages. [Learn more about global data distribution with Azure Cosmos DB](https://aka.ms/cosmos/globaldistribution)
+
+## Configure your Azure Cosmos DB indexing policy with customer included or excluded paths
+
+Azure Advisor will identify Cosmos DB containers that are using the default indexing policy but could benefit from a custom indexing policy based on the workload pattern. The default indexing policy indexes all properties, but using a custom indexing policy with explicit included or excluded paths used in query filters can reduce the RUs and storage consumed for indexing. [Learn more about modifying index policies](https://aka.ms/cosmosdb/modify-index-policy)
+
+## Configure your Azure Cosmos DB query page size (MaxItemCount) to -1 
+
+Azure Advisor will identify Azure Cosmos DB containers that are using the query page size of 100 and recommend using  a page size of -1 for faster scans. [Learn more about Max Item Count](https://aka.ms/cosmosdb/sql-api-query-metrics-max-item-count)
+
 ## How to access Performance recommendations in Advisor
 
 1. Sign in to the [Azure portal](https://portal.azure.com), and then open [Advisor](https://aka.ms/azureadvisordashboard).
@@ -101,6 +112,7 @@ To learn more about Advisor recommendations, see:
 
 * [Introduction to Advisor](advisor-overview.md)
 * [Get started with Advisor](advisor-get-started.md)
-* [Advisor Cost recommendations](advisor-performance-recommendations.md)
+* [Advisor Cost recommendations](advisor-cost-recommendations.md)
 * [Advisor High Availability recommendations](advisor-high-availability-recommendations.md)
 * [Advisor Security recommendations](advisor-security-recommendations.md)
+* [Advisor Operational Excellence recommendations](advisor-operational-excellence-recommendations.md)

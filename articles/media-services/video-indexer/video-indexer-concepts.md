@@ -1,7 +1,7 @@
 ---
 title: Video Indexer concepts
-titlesuffix: Azure Media Services
-description: This topic describes some concepts of the Video Indexer service.
+titleSuffix: Azure Media Services
+description: This article describes some concepts of the Azure Media Services Video Indexer service.
 services: media-services
 author: Juliako
 manager: femila
@@ -9,7 +9,7 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 05/15/2019
 ms.author: juliako
 ---
 

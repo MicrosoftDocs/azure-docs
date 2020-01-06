@@ -1,14 +1,15 @@
 ---
-title: Bing Local Business Search API v7 Reference | Microsoft Docs
-description: Describes the programming elements of the Bing Local Business Search API.
+title: Bing Local Business Search API v7 Reference
 titleSuffix: Azure Cognitive Services
+description: This article provides technical details about the response objects, and the query parameters and headers that affect the search results.
 services: cognitive-services
-author: mikedodaro
-manager: rosh
+author: aahill
+manager: nitinme
 ms.service: cognitive-services
-ms.topic: article
+ms.subservice: bing-local-business
+ms.topic: conceptual
 ms.date: 11/01/2018
-ms.author: rosh, v-gedod
+ms.author: rosh
 ---
 
 # Bing Local Business Search API v7 reference

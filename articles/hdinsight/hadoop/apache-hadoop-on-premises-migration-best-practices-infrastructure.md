@@ -1,13 +1,13 @@
 ---
-title: Migrate on-premises Apache Hadoop clusters to Azure HDInsight - infrastructure best practices
+title: 'Infrastructure: On-premises Apache Hadoop to Azure HDInsight'
 description: Learn infrastructure best practices for migrating on-premises Hadoop clusters to Azure HDInsight.
 author: hrasheed-msft
-ms.reviewer: jasonwhowell 
-ms.service: hdinsight
-ms.custom: hdinsightactive
-ms.topic: conceptual
-ms.date: 04/05/2019
 ms.author: hrasheed
+ms.reviewer: jasonh
+ms.service: hdinsight
+ms.topic: conceptual
+ms.custom: hdinsightactive
+ms.date: 12/06/2019
 ---
 
 # Migrate on-premises Apache Hadoop clusters to Azure HDInsight - infrastructure best practices
@@ -18,10 +18,17 @@ This article gives recommendations for managing the infrastructure of Azure HDIn
 
 The key choices to make for HDInsight cluster capacity planning are the following:
 
-- **Choose the region** - The Azure region determines where the cluster is physically provisioned. To minimize the latency of reads and writes, the cluster should be in the same Region as the data.
-- **Choose storage location and size** - The default storage must be in the same Region as the cluster. For a 48-node cluster, it is recommended to have 4 to 8 storage accounts. Although there may already be sufficient total storage, each storage account provides additional networking bandwidth for the compute nodes. When there are multiple storage accounts, use a random name for each storage account, without a prefix. The purpose of random naming is reducing the chance of storage bottlenecks (throttling) or common-mode failures across all accounts. For better performance, use only one container per storage account.
-- **Choose the VM size and type (now supports the G-series)** - Each cluster type has a set of node types, and each node type has specific options for their VM size and type. The VM size and type is determined by CPU processing power, RAM size, and network latency. A simulated workload can be used to determine the optimal VM size and type for each node types.
-- **Choose the number of worker nodes** - The initial number of worker nodes can be determined using the simulated workloads. The cluster can be scaled later by adding more worker nodes to meet peak load demands. The cluster can later be scaled back when the additional worker nodes are not required.
+**Region**  
+The Azure region determines where the cluster is physically provisioned. To minimize the latency of reads and writes, the cluster should be in the same Region as the data.
+
+**Storage location and size**  
+The default storage must be in the same Region as the cluster. For a 48-node cluster, it's recommended to have 4 to 8 storage accounts. Although there may already be sufficient total storage, each storage account provides additional networking bandwidth for the compute nodes. When there are multiple storage accounts, use a random name for each storage account, without a prefix. The purpose of random naming is reducing the chance of storage bottlenecks (throttling) or common-mode failures across all accounts. For better performance, use only one container per storage account.
+
+**VM size and type (now supports the G-series)**  
+Each cluster type has a set of node types, and each node type has specific options for their VM size and type. The VM size and type is determined by CPU processing power, RAM size, and network latency. A simulated workload can be used to determine the optimal VM size and type for each node types.
+
+**Number of worker nodes**  
+The initial number of worker nodes can be determined using the simulated workloads. The cluster can be scaled later by adding more worker nodes to meet peak load demands. The cluster can later be scaled back when the additional worker nodes aren't required.
 
 For more information, see the article [Capacity planning for HDInsight clusters](../hdinsight-capacity-planning.md).
 
@@ -31,7 +38,7 @@ See [Default node configuration and virtual machine sizes for clusters](../hdins
 
 ## Check Hadoop components availability in HDInsight
 
-Each HDInsight version is a cloud distribution of a version of Hortonworks Data Platform (HDP) and consists of a set of Hadoop eco-system components. See [HDInsight Component Versioning](../hdinsight-component-versioning.md) for details on all HDInsight components and their current versions.
+Each HDInsight version is a cloud distribution of a set of Hadoop eco-system components. See [HDInsight Component Versioning](../hdinsight-component-versioning.md) for details on all HDInsight components and their current versions.
 
 You can also use Apache Ambari UI or Ambari REST API to check the Hadoop components and versions in HDInsight.
 
@@ -155,8 +162,8 @@ Using Azure Virtual Network with HDInsight enables the following scenarios:
 - Connecting HDInsight to data stores in an Azure Virtual network.
 - Directly accessing Hadoop services that aren't available publicly over the internet. For example, Kafka APIs or the HBase Java API.
 
-HDInsight can either be added to a new or existing Azure Virtual Network. If HDInsight is being added to an existing Virtual Network, the existing network security groups and user-defined routes need to be updated to allow unrestricted access to [several IP addresses](../hdinsight-extend-hadoop-virtual-network.md#hdinsight-ip)
-in the Azure data center. Also, make sure not to block traffic to the [ports](../hdinsight-extend-hadoop-virtual-network.md#hdinsight-ports), which are being used by HDInsight services.
+HDInsight can either be added to a new or existing Azure Virtual Network. If HDInsight is being added to an existing Virtual Network, the existing network security groups and user-defined routes need to be updated to allow unrestricted access to [several IP addresses](../hdinsight-management-ip-addresses.md)
+in the Azure data center. Also, make sure not to block traffic to the [ports](../hdinsight-plan-virtual-network-deployment.md#hdinsight-ports), which are being used by HDInsight services.
 
 > [!Note]  
 > HDInsight does not currently support forced tunneling. Forced tunneling is a subnet setting that forces outbound Internet traffic to a device for inspection and logging. Either remove forced tunneling before installing HDInsight into a subnet or create a new subnet for HDInsight. HDInsight also does not support restricting outbound network connectivity.
@@ -164,7 +171,7 @@ in the Azure data center. Also, make sure not to block traffic to the [ports](..
 For more information, see the following articles:
 
 - [Azure virtual-networks-overview](../../virtual-network/virtual-networks-overview.md)
-- [Extend Azure HDInsight using an Azure Virtual Network](../hdinsight-extend-hadoop-virtual-network.md)
+- [Extend Azure HDInsight using an Azure Virtual Network](../hdinsight-plan-virtual-network-deployment.md)
 
 ## Securely connect to Azure services with Azure Virtual Network service endpoints
 
@@ -187,6 +194,4 @@ For more information, see the article [Connect HDInsight to your on-premises net
 
 ## Next steps
 
-Read the next article in this series:
-
-- [Storage best practices for on-premises to Azure HDInsight Hadoop migration](apache-hadoop-on-premises-migration-best-practices-storage.md)
+Read the next article in this series: [Storage best practices for on-premises to Azure HDInsight Hadoop migration](apache-hadoop-on-premises-migration-best-practices-storage.md).

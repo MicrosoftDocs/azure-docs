@@ -4,12 +4,12 @@ description: Learn how to read your usage to understand how the Azure reservatio
 author: bandersmsft
 manager: yashar
 tags: billing
-ms.service: billing
+ms.service: cost-management-billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/07/2019
+ms.date: 06/30/2019
 ms.author: banders
 
 ---
@@ -18,10 +18,11 @@ ms.author: banders
 Reservation costs and usage data are available for Enterprise Agreement customers in the Azure portal and REST APIs. This article helps you:
 
 - Get reservation purchase data
-- Get reservation under-utilization data
-- Amortize reservation costs
+- Know which subscription, resource group or resource used the reservation
 - Chargeback for reservation utilization
 - Calculate reservation savings
+- Get reservation under-utilization data
+- Amortize reservation costs
 
 Marketplace charges are consolidated in usage data. You view charges for first party usage, marketplace usage, and purchases from a single data source.
 
@@ -29,17 +30,17 @@ Marketplace charges are consolidated in usage data. You view charges for first p
 
 Data is divided into two separate data sets: _Actual Cost_ and _Amortized Cost_. How these two datasets differ:
 
-**Actual Cost** - Provides data to reconcile with your monthly bill. This data has reservation purchase costs. It has zero EffectivePrice for the usage that received the reservation discount.
+**Actual Cost** - Provides data to reconcile with your monthly bill. This data has reservation purchase costs and reservation application details. With this data, you can know which subscription or resource group or resource received the reservation discount in a particular day. The EffectivePrice for the usage that receives the reservation discount is zero.
 
-**Amortized Cost** - The resource EffectiveCost that gets the reservation discount is the prorated cost of the reserved instance. The dataset also has unused reservation costs. The sum of the reservation cost and unused reservation provides the daily amortized cost of the reservation.
+**Amortized Cost** - This dataset is similar to the Actual Cost dataset except that - the EffectivePrice for the usage that gets reservation discount is the prorated cost of the reservation (instead of being zero). This helps you know the monetary value of reservation consumption by a subscription, resource group or a resource, and can help you charge back for the reservation utilization internally. The dataset also has unused reservation hours. The dataset does not have reservation purchase records. 
 
 Comparison of two data sets:
 
 | Data | Actual Cost data set | Amortized Cost data set |
 | --- | --- | --- |
-| Reservation purchases | Available in this view.<br>  To get this data filter on ChargeType = &quot;Purchase&quot;. <br> Refer to ReservationID or ReservationName to know which reservation the charge is for.  | Not applicable to this view. <br> Purchase costs aren't provided in amortized data. |
+| Reservation purchases | Available in this view.<br><br>  To get this data filter on ChargeType = &quot;Purchase&quot;. <br><br> Refer to ReservationID or ReservationName to know which reservation the charge is for.  | Not applicable to this view. <br><br> Purchase costs aren't provided in amortized data. |
 | EffectivePrice | The value is zero for usage that gets reservation discount. | The value is per-hour prorated cost of the reservation for usage that has the reservation discount. |
-| Unused reservation (Provides the number of hours the reservation wasn't used in a day and the monetary value of the waste) | Not applicable in this view. | Available in this view.<br> To get this data, filter on ChargeType = &quot;UnusedReservation&quot;.<br>  Refer to ReservationID or ReservationName to know which reservation was underutilized. This is how much of the reservation was wasted in for the day.  |
+| Unused reservation (Provides the number of hours the reservation wasn't used in a day and the monetary value of the waste) | Not applicable in this view. | Available in this view.<br><br> To get this data, filter on ChargeType = &quot;UnusedReservation&quot;.<br><br>  Refer to ReservationID or ReservationName to know which reservation was underutilized. This is how much of the reservation was wasted in for the day.  |
 | UnitPrice(Price of the resource from your price sheet) | Available | Available |
 
 Other information available in Azure usage data has changed:
@@ -51,18 +52,20 @@ Other information available in Azure usage data has changed:
 - Term - 12 months or 36 months.
 - RINormalizationRatio - Available under AdditionalInfo. This is the ratio where the reservation is applied to the usage record. If instance size flexibility is enabled on for your reservation, then it can apply to other sizes. The value shows the ratio that the reservation was applied to for the usage record.
 
+[See field definition](https://docs.microsoft.com/rest/api/consumption/usagedetails/list#definitions)
+
 ## Get Azure consumption and reservation usage data using API
 
 You can get the data using the API or download it from Azure portal.
 
-You call the [Usage Details API](/rest/api/consumption/usagedetails/list) with API version &quot;2019-04-01-preview&quot; to get the new data. For details about terminology, see [usage terms](billing-understand-your-usage.md). The caller should be an Enterprise Administrator for the enterprise agreement using the [EA portal](https://ea.azure.com). Read-only Enterprise Administrators can also get the data.
+You call the [Usage Details API](/rest/api/consumption/usagedetails/list) to get the new data. For details about terminology, see [usage terms](billing-understand-your-usage.md). The caller should be an Enterprise Administrator for the enterprise agreement using the [EA portal](https://ea.azure.com). Read-only Enterprise Administrators can also get the data.
 
-The data is not available in [Reporting APIs for Enterprise customers - Usage Details](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail).
+Please note that this data is not available in [Reporting APIs for Enterprise customers - Usage Details](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail).
 
-Here's an example call to the API:
+Here's an example call to the Usage Details API:
 
 ```
-https://consumption.azure.com/providers/Microsoft.Billing/billingAccounts/{enrollmentId}/providers/Microsoft.Billing/billingPeriods/{billingPeriodId}/providers/Microsoft.Consumption/usagedetails?metric={metric}&amp;api-version=2019-04-01-preview&amp;$filter={filter}
+https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{enrollmentId}/providers/Microsoft.Billing/billingPeriods/{billingPeriodId}/providers/Microsoft.Consumption/usagedetails?metric={metric}&amp;api-version=2019-05-01&amp;$filter={filter}
 ```
 
 For more information about {enrollmentId} and {billingPeriodId}, see the [Usage Details – List](https://docs.microsoft.com/rest/api/consumption/usagedetails/list) API article.
@@ -72,16 +75,16 @@ Information in the following table about metric and filter can help solve for co
 | **Type of API data** | API call action |
 | --- | --- |
 | **All Charges (usage and purchases)** | Replace {metric} with ActualCost |
-| **Usage that got reservation discount** | Replace {metric} with ActualCost<br>Replace {filter} with: properties/reservationId%20ne%20 |
-| **Usage that did not get reservation discount** | Replace {metric} with ActualCost<br>Replace {filter} with: properties/reservationId%20eq%20 |
+| **Usage that got reservation discount** | Replace {metric} with ActualCost<br><br>Replace {filter} with: properties/reservationId%20ne%20 |
+| **Usage that didn't get reservation discount** | Replace {metric} with ActualCost<br><br>Replace {filter} with: properties/reservationId%20eq%20 |
 | **Amortized charges (usage and purchases)** | Replace {metric} with AmortizedCost |
-| **Unused reservation report** | Replace {metric} with AmortizedCost<br>Replace {filter} with: properties/ChargeType%20eq%20'UnusedReservation' |
-| **Reservation purchases** | Replace {metric} with ActualCostReplace {filter} with: properties/ChargeType%20eq%20'Purchase'  |
-| **Refunds** | Replace {metric} with ActualCost<br>Replace {filter} with: properties/ChargeType%20eq%20'Refund' |
+| **Unused reservation report** | Replace {metric} with AmortizedCost<br><br>Replace {filter} with: properties/ChargeType%20eq%20'UnusedReservation' |
+| **Reservation purchases** | Replace {metric} with ActualCost<br><br>Replace {filter} with: properties/ChargeType%20eq%20'Purchase'  |
+| **Refunds** | Replace {metric} with ActualCost<br><br>Replace {filter} with: properties/ChargeType%20eq%20'Refund' |
 
 ## Download the usage CSV file with new data
 
-If you are an EA admin, you can download the CSV file that contains new usage data from Azure portal. This data isn't available from the [EA portal](https://ea.azure.com).
+If you are an EA admin, you can download the CSV file that contains new usage data from Azure portal. This data isn't available from the EA portal (ea.azure.com), you must download the usage file from Azure portal (portal.azure.com) to see the new data.
 
 In the Azure portal, navigate to [Cost management + billing](https://portal.azure.com/#blade/Microsoft_Azure_Billing/ModernBillingMenuBlade/BillingAccounts).
 
@@ -134,17 +137,17 @@ Get the Amortized costs data and filter the data for a reserved instance. Then:
 2. Get the reservation costs. Sum the _Cost_ values to get the monetary value of what you paid for the reserved instance. It includes the used and unused costs of the reservation.
 3. Subtract reservation costs from estimated pay-as-you-go costs to get the estimated savings.
 
-## Reservation purchases and amortization in Azure cost analysis
+## Reservation purchases and amortization in cost analysis
 
-Reserved instance cost is available in [Azure cost analysis preview mode](https://preview.portal.azure.com/?feature.canmodifystamps=true&amp;microsoft_azure_costmanagement=stage2&amp;Microsoft_Azure_CostManagement_arm_canary=true&amp;Microsoft_Azure_CostManagement_apiversion=2019-04-01-preview&amp;Microsoft_Azure_CostManagement_amortizedCost=true#blade/Microsoft_Azure_CostManagement/Menu/costanalysis). By default, the cost data view is for Actual cost. You can switch to amortized cost. Here's an example.
+Reservation costs are available in [cost analysis](https://aka.ms/costanalysis). By default, cost analysis shows **Actual cost**, which is how costs will be shown on your bill. To view reservation purchases broken down and associated with the resources which used the benefit, switch to **Amortized cost**:
 
 ![Example showing where to select amortized cost in cost analysis](./media/billing-understand-reserved-instance-usage-ea/portal-cost-analysis-amortized-view.png)
 
-Apply filters to see your charges by a reservation or charge type. Group on reservation name to see the costs broken down by reservations.
+Group by charge type to see a break down of usage, purchases, and refunds; or by reservation for a breakdown of reservation and on-demand costs. Remember the only reservation costs you will see when looking at actual cost are purchases, but costs will be allocated to the individual resources which used the benefit when looking at amortized cost. You will also see a new **UnusedReservation** charge type when looking at amortized cost.
 
 ## Need help? Contact us.
 
-If you have questions or need help,  [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).
+If you have questions or need help, [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 ## Next steps
 

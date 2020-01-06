@@ -1,5 +1,5 @@
 ---
-title: Add an R package to Azure SQL Database Machine Learning Services (preview)
+title: Add an R package to Machine Learning Services (preview)
 titleSuffix: Azure SQL Database Machine Learning Services (preview)
 description: This article explains how to install an R package that isn't already installed in Azure SQL Database Machine Learning Services (preview).
 services: sql-database
@@ -159,7 +159,7 @@ sql_remove.packages(connectionString = connection, pkgs = "glue", scope = "PUBLI
 ```
 
 > [!TIP]
-> Another way to install an R package to your Azure SQL database is to upload the R package from a byte stream using the **CREATE EXTERNAL LIBRARY** T-SQL statement. See [Create a library from a byte stream](/sql/t-sql/statements/create-external-library-transact-sql#c-create-a-library-from-a-byte-stream) in the [CREATE EXTERNAL LIBRARY](https://docs.microsoft.com/sql/t-sql/statements/create-external-library-transact-sql) reference documentation.
+> Another way to install an R package to your Azure SQL database is to upload the R package from a byte stream using the **CREATE EXTERNAL LIBRARY** T-SQL statement. See [Create a library from a byte stream](/sql/t-sql/statements/create-external-library-transact-sql#create-a-library-from-a-byte-stream) in the [CREATE EXTERNAL LIBRARY](https://docs.microsoft.com/sql/t-sql/statements/create-external-library-transact-sql) reference documentation.
 
 ## Next steps
 

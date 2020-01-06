@@ -53,6 +53,9 @@ To configure the integration of SharePoint on-premises into Azure AD, you need t
 
 	![The Azure Active Directory button](common/select-azuread.png)
 
+	> [!NOTE]	
+	> If the element should not be available, it can also be opened through the fixed **All services** link at the top of the left navigation panel. In the following overview, the **Azure Active Directory** link is located in the **Identity** section or it can be searched for by using the filter text box.
+
 2. Navigate to **Enterprise Applications** and then select the **All Applications** option.
 
 	![The Enterprise applications blade](common/enterprise-applications.png)
@@ -219,7 +222,7 @@ The objective of this section is to create a test user in the Azure portal calle
 	![Create an Azure AD Security Group](./media/sharepoint-on-premises-tutorial/addingmembers.png)
 
 	> [!NOTE]
-	> In order to assign Azure Active Directory Security Groups to SharePoint on-premise, it will be necessary to install and configure [AzureCP](https://yvand.github.io/AzureCP/) in the on-premises SharePoint farm OR develop and configure an alternative custom claims provider for SharePoint.  See the more information section at the end of the document for creating your own custom claims provider, if you don’t use AzureCP.
+	> In order to assign Azure Active Directory Security Groups to SharePoint on-premises, it will be necessary to install and configure [AzureCP](https://yvand.github.io/AzureCP/) in the on-premises SharePoint farm OR develop and configure an alternative custom claims provider for SharePoint.  See the more information section at the end of the document for creating your own custom claims provider, if you don’t use AzureCP.
 
 ### Grant access to SharePoint on-premises Security Group
 
@@ -269,7 +272,7 @@ The objective of this section is to create a test user in the Azure portal calle
 	> [!NOTE]
 	> Please note that AzureCP is not a Microsoft product or supported by Microsoft Technical Support. Download, install and configure AzureCP on the on-premises SharePoint farm per https://yvand.github.io/AzureCP/ 
 
-11. **Grant access to the Azure Active Directory Security Group in the on-premise SharePoint** :- The groups must be granted access to the application in SharePoint on-premises.  Use the following steps to set the permissions to access the web application.
+11. **Grant access to the Azure Active Directory Security Group in the on-premises SharePoint** :- The groups must be granted access to the application in SharePoint on-premises.  Use the following steps to set the permissions to access the web application.
 
 12. In Central Administration, click on Application Management, Manage web applications, then select the web application to activate the ribbon and click on User Policy.
 
@@ -369,4 +372,4 @@ When you click the SharePoint on-premises tile in the Access Panel, you should b
 
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

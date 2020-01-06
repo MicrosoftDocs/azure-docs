@@ -26,9 +26,7 @@ Use this section to review whether your Windows device can support IoT Edge, and
 
 ### Supported Windows versions
 
-Azure IoT Edge with Linux containers can run on the following versions of Windows: 
-* Windows 10 Anniversary update (build 14393) or newer
-* Windows Server 2016 or newer
+Azure IoT Edge with Linux containers can run on any version of Windows that meets the [requirements for Docker Desktop](https://docs.docker.com/docker-for-windows/install/#what-to-know-before-you-install)
 
 For more information about what's included in the latest version of IoT Edge, see [Azure IoT Edge releases](https://github.com/Azure/azure-iotedge/releases).
 
@@ -55,11 +53,18 @@ You can read more about the different installation options and parameters in the
 
 1. If you haven't already, register a new IoT Edge device and retrieve the device connection string. Copy the connection string to use later in this section. You can complete this step using the following tools:
 
-   * [Azure portal](how-to-register-device-portal.md)
-   * [Azure CLI](how-to-register-device-cli.md)
-   * [Visual Studio Code](how-to-register-device-vscode.md)
+   * [Azure portal](how-to-register-device.md#register-in-the-azure-portal)
+   * [Azure CLI](how-to-register-device.md#register-with-the-azure-cli)
+   * [Visual Studio Code](how-to-register-device.md#register-with-visual-studio-code)
 
 2. Run PowerShell as an administrator.
+
+   >[!NOTE]
+   >Use an AMD64 session of PowerShell to install IoT Edge, not PowerShell (x86). If you're not sure which session type you're using, run the following command:
+   >
+   >```powershell
+   >(Get-Process -Id $PID).StartInfo.EnvironmentVariables["PROCESSOR_ARCHITECTURE"]
+   >```
 
 3. The **Deploy-IoTEdge** command checks that your Windows machine is on a supported version, turns on the containers feature, and then downloads the moby runtime (which is not used for Linux containers) and the IoT Edge runtime. The command defaults to Windows containers, so declare Linux as the desired container operating system. 
 
@@ -83,19 +88,25 @@ You can read more about the different installation options and parameters in the
 
 ## Verify successful installation
 
-Check the status of the IoT Edge service. It should be listed as running.  
+Check the status of the IoT Edge service: 
 
 ```powershell
 Get-Service iotedge
 ```
 
-Examine service logs from the last 5 minutes. 
+Examine service logs from the last 5 minutes: 
 
 ```powershell
 . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; Get-IoTEdgeLog
 ```
 
-List running modules. After a new installation, the only module you should see running is **edgeAgent**. After you [deploy IoT Edge modules](how-to-deploy-modules-portal.md), you will see others. 
+Run an automated check for the most common configuration and networking errors: 
+
+```powershell
+iotedge check
+```
+
+List running modules. After a new installation, the only module you should see running is **edgeAgent**. After you [deploy IoT Edge modules](how-to-deploy-modules-portal.md) for the first time, the other system module, **edgeHub**, will start on the device too. 
 
 ```powershell
 iotedge list

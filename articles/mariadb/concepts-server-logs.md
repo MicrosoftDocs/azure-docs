@@ -1,30 +1,32 @@
 ---
-title: Server logs for Azure Database for MariaDB
+title: Slow query logs - Azure Database for MariaDB
 description: Describes the logs available in Azure Database for MariaDB, and the available parameters for enabling different logging levels.
-author: rachel-msft
-ms.author: raagyema
+author: ajlam
+ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 04/29/2019
+ms.date: 12/17/2019
 ---
-# Server Logs in Azure Database for MariaDB
+# Slow query logs in Azure Database for MariaDB
 In Azure Database for MariaDB, the slow query log is available to users. Access to the transaction log is not supported. The slow query log can be used to identify performance bottlenecks for troubleshooting.
 
 For more information about the slow query log, see the MariaDB documentation for [slow query log](https://mariadb.com/kb/en/library/slow-query-log-overview/).
 
-## Access server logs
-You can list and download Azure Database for MariaDB server logs using the Azure portal, and the Azure CLI.
+## Access slow query logs
+You can list and download Azure Database for MariaDB slow query logs using the Azure portal, and the Azure CLI.
 
 In the Azure portal, select your Azure Database for MariaDB server. Under the **Monitoring** heading, select the **Server Logs** page.
 
 For more information on Azure CLI, see [Configure and access server logs using Azure CLI](howto-configure-server-logs-cli.md).
+
+Similarly, you can pipe the logs to Azure Monitor using Diagnostic Logs. See [below](concepts-server-logs.md#diagnostic-logs) for more information.
 
 ## Log retention
 Logs are available for up to seven days from their creation. If the total size of the available logs exceeds 7 GB, then the oldest files are deleted until space is available.
 
 Logs are rotated every 24 hours or 7 GB, whichever comes first.
 
-## Configure logging
+## Configure slow query logging
 By default the slow query log is disabled. To enable it, set slow_query_log to ON.
 
 Other parameters you can adjust include:
@@ -33,11 +35,12 @@ Other parameters you can adjust include:
 - **log_slow_admin_statements**: if ON includes administrative statements like ALTER_TABLE and ANALYZE_TABLE in the statements written to the slow_query_log.
 - **log_queries_not_using_indexes**: determines whether queries that do not use indexes are logged to the slow_query_log
 - **log_throttle_queries_not_using_indexes**: This parameter limits the number of non-index queries that can be written to the slow query log. This parameter takes effect when log_queries_not_using_indexes is set to ON.
+- **log_output**: if "File", allows the slow query log to be written to both the local server storage and to Azure Monitor Diagnostic Logs. If "None", the slow query log will only be written to Azure Monitor Diagnostics Logs. 
 
 See the MariaDB [slow query log documentation](https://mariadb.com/kb/en/library/slow-query-log-overview/) for full descriptions of the slow query log parameters.
 
 ## Diagnostic logs
-Azure Database for MariaDB is integrated with Azure Monitor Diagnostic Logs. Once you have enabled slow query logs on your MariaDB server, you can choose to have them emitted to Azure Monitor logs, Event Hubs, or Azure Storage. To learn more about how to enable diagnostic logs, see the how to section of the [diagnostic logs documentation](../azure-monitor/platform/diagnostic-logs-overview.md).
+Azure Database for MariaDB is integrated with Azure Monitor Diagnostic Logs. Once you have enabled slow query logs on your MariaDB server, you can choose to have them emitted to Azure Monitor logs, Event Hubs, or Azure Storage. To learn more about how to enable diagnostic logs, see the how to section of the [diagnostic logs documentation](../azure-monitor/platform/resource-logs-overview.md).
 
 > [!IMPORTANT]
 > This diagnostic feature for server logs is only available in the General Purpose and Memory Optimized [pricing tiers](concepts-pricing-tiers.md).

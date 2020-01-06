@@ -1,18 +1,18 @@
 ---
 title: Create Apache Hadoop clusters using .NET - Azure HDInsight 
 description: Learn how to create Apache Hadoop, Apache HBase, Apache Storm, or Apache Spark clusters on Linux for HDInsight using the HDInsight .NET SDK.
-author: mamccrea
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 08/16/2018
-ms.author: mamccrea
+ms.custom: hdinsightactive
+ms.date: 01/01/2020
 ---
+
 # Create Linux-based clusters in HDInsight using the .NET SDK
 
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
-
 
 Learn how to create an [Apache Hadoop](https://hadoop.apache.org/) cluster in Azure HDInsight cluster using the .NET SDK.
 
@@ -21,20 +21,22 @@ Learn how to create an [Apache Hadoop](https://hadoop.apache.org/) cluster in Az
 >
 > For more information on node sizes and associated costs, see [HDInsight pricing](https://azure.microsoft.com/pricing/details/hdinsight/).
 
-## Prerequisites
-
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-* **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* **An Azure storage account**. See [Create a storage account](../storage/common/storage-quickstart-create-account.md).
-* **Visual Studio 2013, Visual Studio 2015 or Visual Studio 2017**.
+If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
+## Prerequisites
+
+* An Azure storage account. See [Create a storage account](../storage/common/storage-quickstart-create-account.md).
+
+* [Visual Studio](https://visualstudio.microsoft.com/vs/community/).
 
 ## Create clusters
 
-1. Open Visual Studio 2017.
-2. Create a new Visual C# console application.
-3. From the **Tools** menu, click **NuGet Package Manager**, and then click **Package Manager Console**.
-4. Run the following command in the console to install the packages:
+1. Open Visual Studio.
+1. Create a new C# console application.
+1. Select **Tools** > **NuGet Package Manager** > **Package Manager Console**.
+1. Run the following command in the console to install the packages:
 
     ```powershell
     Install-Package Microsoft.Rest.ClientRuntime.Azure.Authentication -Pre
@@ -43,7 +45,7 @@ Learn how to create an [Apache Hadoop](https://hadoop.apache.org/) cluster in Az
     ```
 
     These commands add .NET libraries and references to them to the current Visual Studio project.
-5. From Solution Explorer, double-click **Program.cs** to open it, paste the following code, and provide values for the variables:
+1. From Solution Explorer, double-click **Program.cs** to open it, paste the following code, and provide values for the variables:
 
     ```csharp
     using System;
@@ -178,8 +180,9 @@ Learn how to create an [Apache Hadoop](https://hadoop.apache.org/) cluster in Az
     }
     ```
 
-6. Replace the class member values.
-7. Press **F5** to run the application. A console window should open and display the status of the application. You are prompted to enter your Azure account credentials. It can take several minutes to create an HDInsight cluster, normally around 15.
+1. Replace the class member values.
+
+1. Press **F5** to run the application. A console window should open and display the status of the application. You are prompted to enter your Azure account credentials. It can take several minutes to create an HDInsight cluster, normally around 15.
 
 ## Use bootstrap
 
@@ -360,14 +363,13 @@ static void Main(string[] args)
 
 ## Troubleshoot
 
-If you run into issues with creating HDInsight clusters, see [access control requirements](hdinsight-hadoop-create-linux-clusters-portal.md).
+If you run into issues with creating HDInsight clusters, see [access control requirements](./hdinsight-hadoop-customize-cluster-linux.md#access-control).
 
 ## Next steps
-Now that you have successfully created an HDInsight cluster, use the following to learn how to work with your cluster. 
+Now that you have successfully created an HDInsight cluster, use the following to learn how to work with your cluster.
 
 ### Apache Hadoop clusters
 * [Use Apache Hive with HDInsight](hadoop/hdinsight-use-hive.md)
-* [Use Apache Pig with HDInsight](hadoop/hdinsight-use-pig.md)
 * [Use MapReduce with HDInsight](hadoop/hdinsight-use-mapreduce.md)
 
 ### Apache HBase clusters
@@ -387,7 +389,5 @@ Now that you have successfully created an HDInsight cluster, use the following t
 
 ### Run jobs
 * [Run Apache Hive jobs in HDInsight using .NET SDK](hadoop/apache-hadoop-use-hive-dotnet-sdk.md)
-* [Run Apache Pig jobs in HDInsight using .NET SDK](hadoop/apache-hadoop-use-pig-dotnet-sdk.md)
 * [Run Apache Sqoop jobs in HDInsight using .NET SDK](hadoop/apache-hadoop-use-sqoop-dotnet-sdk.md)
 * [Run Apache Oozie jobs in HDInsight](hdinsight-use-oozie-linux-mac.md)
-

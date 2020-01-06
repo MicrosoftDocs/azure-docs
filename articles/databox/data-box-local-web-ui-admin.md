@@ -1,20 +1,20 @@
 ---
-title: Microsoft Azure Data Box local web UI administration | Microsoft Docs in data 
-description: Describes how to use the local web UI to administer your Data Box device
+title: Local web UI administration for Azure Data Box, Azure Data Box Heavy| Microsoft Docs
+description: Describes how to use the local web UI to administer your Data Box and Data Box Heavy devices
 services: databox
 author: alkohli
 
 ms.service: databox
 ms.subservice: pod
-ms.topic: overview
-ms.date: 02/01/2019
+ms.topic: article
+ms.date: 06/03/2019
 ms.author: alkohli
 ---
-# Use the local web UI to administer your Data Box
+# Use the local web UI to administer your Data Box and Data Box Heavy
 
-This article describes some of the configuration and management tasks that can be performed on the Data Box. You can manage the Data Box via the Azure portal UI and the local web UI for the device. This article focuses on the tasks that you can perform using the local web UI.
+This article describes some of the configuration and management tasks that can be performed on the Data Box and Data Box Heavy devices. You can manage the Data Box and Data Box Heavy devices via the Azure portal UI and the local web UI for the device. This article focuses on the tasks that you can perform using the local web UI.
 
-Local web UI for the Data Box is used for the initial configuration of the device. You can also use the local web UI to shut down or restart the Data Box, run diagnostic tests, update software, view copy logs, and generate a log package for Microsoft Support.
+Local web UI for the Data Box and Data Box Heavy is used for the initial configuration of the device. You can also use the local web UI to shut down or restart the device, run diagnostic tests, update software, view copy logs, and generate a log package for Microsoft Support. On a Data Box Heavy device with two independent nodes, you can access two separate local web UIs corresponding to each node of the device.
 
 This article includes the following tutorials:
 
@@ -22,11 +22,11 @@ This article includes the following tutorials:
 - Shut down or restart your device
 - Download BOM or manifest files
 - View available capacity of the device
-- Skip checksum validation 
+- Skip checksum validation
 
 ## Generate Support package
 
-If you experience any device issues, you can create a Support package from the system logs. Microsoft Support uses this package to troubleshoot the issue. To generate a Support package, perform the following steps:
+If you experience any device issues, you can create a Support package from the system logs. Microsoft Support uses this package to troubleshoot the issue. To generate a Support package, take the following steps:
 
 1. In the local web UI, go to **Contact Support** and click **Create Support package**.
 
@@ -47,9 +47,9 @@ If you experience any device issues, you can create a Support package from the s
 
 ## Shut down or restart your device
 
-You can shut down or restart your Data Box using the local web UI. We recommend that before you restart, take the shares offline on the host and then the device. This minimizes any possibility of data corruption. Ensure that data copy is not in progress when you shut down the device.
+You can shut down or restart your device using the local web UI. We recommend that before you restart, take the shares offline on the host and then the device. This minimizes any possibility of data corruption. Ensure that data copy is not in progress when you shut down the device.
 
-To shut down your Data Box, perform the following steps.
+To shut down your device, take the following steps.
 
 1. In the local web UI, go to **Shut down or restart**.
 2. Click **Shut down**.
@@ -75,11 +75,11 @@ To restart your Data Box, perform the following steps.
 
 ## Download BOM or manifest files
 
-The Bill of Material (BOM) or the manifest files contain the list of the files that are copied to the Data Box. These files are generated when you prepare the Data Box to ship.
+The Bill of Material (BOM) or the manifest files contain the list of the files that are copied to the Data Box or Data Box Heavy. These files are generated when you prepare the device to ship.
 
-Before you begin, make sure that your Data Box has completed **Prepare to ship** step. Follow these steps to download BOM or manifest files:
+Before you begin, make sure that your device has completed **Prepare to ship** step. Follow these steps to download BOM or manifest files:
 
-1. Go to the local web UI for your Data Box. You will see that the Data Box has completed the prepare to ship. When the device preparation is complete, your device status is displayed as **Ready to ship**.
+1. Go to the local web UI for your device. You will see that the device has completed the prepare to ship. When the device preparation is complete, your device status is displayed as **Ready to ship**.
 
     ![Device ready to ship](media/data-box-portal-admin/ready-to-ship.png)
 
@@ -104,6 +104,9 @@ Before you begin, make sure that your Data Box has completed **Prepare to ship**
     |mydbmdrg2_MDisk-BOM.txt     |Managed Disk         |SMB/NFS         |
 
 You use this list to verify the files uploaded into the Azure Storage account after the Data Box returns to the Azure datacenter. A sample manifest file is shown below.
+
+> [!NOTE]
+> On a Data Box Heavy, two sets of list of files (BOM files) are present corresponding to the two nodes on the device.
 
 ```xml
 <file size="52689" crc64="0x95a62e3f2095181e">\databox\media\data-box-deploy-copy-data\prepare-to-ship2.png</file>
@@ -145,25 +148,24 @@ You use this list to verify the files uploaded into the Azure Storage account af
 <file size="3603" crc64="0x7e34c25d5606693f">\databox\TOC.yml</file>
 ```
 
-This file contains the list of all the files that were copied on the Data Box. In this file, *crc64* value relates to the checksum generated for the corresponding file.
+This file contains the list of all the files that were copied on the Data Box or Data Box Heavy. In this file, *crc64* value relates to the checksum generated for the corresponding file.
 
 ## View available capacity of the device
 
-You can use the device dashboard to view the available and used capacity of the device. 
+You can use the device dashboard to view the available and used capacity of the device.
 
 1. In the local web UI, go to **View dashboard**.
 2. Under the **Connect and copy**, the free and used space on the device is shown.
 
     ![View available capacity](media/data-box-local-web-ui-admin/verify-used-space-dashboard.png)
 
-
 ## Skip checksum validation
 
-Checksums are generated for your data by default when you prepare to ship. In certain rare cases, depending on the data type (small file sizes), the performance may be slow. In such instances, you can skip checksum. 
+Checksums are generated for your data by default when you prepare to ship. In certain rare cases, depending on the data type (small file sizes), the performance may be slow. In such instances, you can skip checksum.
 
 We strongly recommend that you do not disable checksum unless the performance is severely impacted.
 
-1. In the top-right corner of the local web UI of your device, go to Settings.
+1. In the top-right corner of the local web UI of your device, go to **Settings**.
 
     ![Disable checksum](media/data-box-local-web-ui-admin/disable-checksum.png)
 
@@ -172,5 +174,5 @@ We strongly recommend that you do not disable checksum unless the performance is
 
 ## Next steps
 
-- Learn how to [Manage the Data Box via the Azure portal](data-box-portal-admin.md).
+- Learn how to [Manage the Data Box and Data Box Heavy via the Azure portal](data-box-portal-admin.md).
 

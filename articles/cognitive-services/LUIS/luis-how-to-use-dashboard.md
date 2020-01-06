@@ -1,23 +1,23 @@
 ---
-title: Dashboard - Language Understanding
+title: Dashboard - Language Understanding - LUIS
 titleSuffix: Azure Cognitive Services
-description: Fix intents with the analytics summary dashboard, a visualized reporting tool.
+description: Fix intents and entities with your trained app's dashboard. The dashboard displays overall app information, with highlights of intents that should be fixed. 
 services: cognitive-services
 author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
-ms.date: 05/07/2019
+ms.topic: conceptual
+ms.date: 11/08/2019
 ms.author: diberry
 ---
 
 # How to use the Dashboard to improve your app
 
-Find and fix problems with your trained app's intents when you are using example utterances. The summary dashboard displays overall app information, with highlights of intents that should be fixed. 
+Find and fix problems with your trained app's intents when you are using example utterances. The dashboard displays overall app information, with highlights of intents that should be fixed. 
 
-Review Dashboard analysis is an iterative process, repeated as you change and improve your model.
+Review Dashboard analysis is an iterative process, repeat as you change and improve your model.
 
 This page will not have relevant analysis for apps that do not have any example utterances in the intents, known as _pattern-only_ apps. 
 
@@ -33,11 +33,11 @@ The three problems addressed in the dashboard are:
 
 Correct predictions are represented with the color blue.
 
-The summary dashboard shows these issues and tells you which intents are affected and suggests what you should do to improve the app. 
+The dashboard shows these issues and tells you which intents are affected and suggests what you should do to improve the app. 
 
 ## Before app is trained 
 
-Before you train the app, the summary dashboard does not contain any suggestions for fixes. Train your app to see these suggestions.  
+Before you train the app, the dashboard does not contain any suggestions for fixes. Train your app to see these suggestions.  
 
 ## Check your publishing status
 
@@ -45,7 +45,7 @@ The **Publishing status** card contains information about the active version's l
 
 Check that the active version is the version you want to fix. 
 
-![Summary dashboard shows app's external services, published regions, and aggregated endpoint hits.](./media/luis-how-to-use-dashboard/analytics-card-1-shows-app-summary-and-endpoint-hits.png)
+![Dashboard shows app's external services, published regions, and aggregated endpoint hits.](./media/luis-how-to-use-dashboard/analytics-card-1-shows-app-summary-and-endpoint-hits.png)
 
 This also shows any external services, published regions, and aggregated endpoint hits. 
 
@@ -73,9 +73,9 @@ The primary method of fixing your app will be to add or edit example utterances 
 
 Adding example utterances should be done by someone who:
 
-* has a high degree of understanding of what utterances are in the different intents
-* knows how utterances in one intent may be confused with another intent
-* is able to decide if two intents, which are frequently confused with each other, should be collapsed into a single intent, and the different data pulled out with entities
+* has a high degree of understanding of what utterances are in the different intents.
+* knows how utterances in one intent may be confused with another intent.
+* is able to decide if two intents, which are frequently confused with each other, should be collapsed into a single intent. If this is the case, the different data must be pulled out with entities.
 
 ### Patterns and phrase lists
 
@@ -91,7 +91,7 @@ The **data imbalance** intent list shows intents that need more utterances in or
 
 * Add more utterances to the intent then train again. 
 
-Do not add utterances to the None intent unless that is suggested on the summary dashboard.
+Do not add utterances to the None intent unless that is suggested on the dashboard.
 
 > [!Tip]
 > Use the third section on the page, **Utterances per intent** with the **Utterances (number)** setting, as a quick visual guide of which intents need more utterances.  

@@ -5,8 +5,8 @@ author: rajani-janaki-ram
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
-ms.author: rajani-janaki-ram
+ms.date: 06/18/2019
+ms.author: rajanaki
 
 ---
 
@@ -147,6 +147,8 @@ Hyper-V hosts that aren't managed by VMM are gathered into a Hyper-V site. Remov
 > [!NOTE]
 > In both the options mobility service will not be uninstalled from the protected servers, you need to uninstall it manually. If you plan to protect the server again using the same Configuration server, you can skip uninstalling the mobility service.
 
+> [!NOTE]
+> If you have already failed over a VM and it is running in Azure, note that disable protection doesn't remove / affect the failed over VM.
 ## Disable protection for a Azure VM (Azure to Azure)
 
 -  In **Protected Items** > **Replicated Items**, right-click the machine > **Disable replication**.
@@ -163,8 +165,12 @@ Hyper-V hosts that aren't managed by VMM are gathered into a Hyper-V site. Remov
    - **Disable replication and remove (recommended)** -  This option remove the replicated item from Azure Site Recovery and the replication for the machine is stopped. Replication configuration on the on-premises virtual machine will be cleaned up and Site Recovery billing for this protected server is stopped.
    - **Remove** - This option is  supposed to be used only if the source environment is deleted or not accessible (not connected). This removes the replicated item from Azure Site Recovery (billing is stopped). Replication configuration on the on-premises virtual machine **will not** be cleaned up. 
 
-     > [!NOTE]
+ > [!NOTE]
      > If you chose the **Remove** option then run the following set of scripts to clean up the replication settings on-premises Hyper-V Server.
+
+> [!NOTE]
+> If you have already failed over a VM and it is running in Azure, note that disable protection doesn't remove / affect the failed over VM.
+
 1. On the source Hyper-V host server, to remove replication for the virtual machine. Replace SQLVM1 with the name of your virtual machine and run the script from an administrative PowerShell
 
 ```powershell

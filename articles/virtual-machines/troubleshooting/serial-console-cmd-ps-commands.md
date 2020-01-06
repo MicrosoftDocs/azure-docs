@@ -4,12 +4,12 @@ description: How to use CMD and PowerShell commands within SAC in Azure Windows 
 services: virtual-machines-windows
 documentationcenter: ''
 author: alsin
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 
 ms.service: virtual-machines-windows
-ms.devlang: na
+
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
@@ -237,7 +237,7 @@ Adding `/f` will force running applications to close without warning users.
 ### Detect Safe Mode boot
 `bcdedit /enum | find /i "safeboot"` 
 
-# Windows Commands - PowerShell
+## Windows Commands - PowerShell
 
 To run PowerShell in SAC, after you reach a CMD prompt, type:
 

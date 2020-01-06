@@ -1,16 +1,14 @@
 ---
-title: Prepay for software plans - Azure Reservations | Microsoft Docs
+title: Prepay for software plans - Azure Reservations
 description: Learn how you can prepay for software plans to save money over your pay-as-you-go costs.
-documentationcenter: ''
-author: yashesvi
+author: bandersmsft
 manager: yashesvi
-editor: ''
 ms.service: virtual-machines-linux
-ms.devlang: na
+
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/12/2019
+ms.date: 07/01/2019
 ms.author: banders
 ---
 # Prepay for Azure software plans
@@ -19,22 +17,22 @@ When you prepay for your SUSE and RedHat software usage in Azure, you can save m
 
 You can buy SUSE and RedHat software plans in the Azure portal. To buy a plan:
 
-- You must have the owner role for at least one Enterprise or Pay-As-You-Go subscription.
+- You must have the owner role for at least one Enterprise or individual subscription with pay-as-you-go pricing.
 - For Enterprise subscriptions, the **Add Reserved Instances** option must be enabled in the [EA portal](https://ea.azure.com/). If the setting is disabled, you must be an EA Admin for the subscription.
 - For the Cloud Solution Provider (CSP) program, the admin agents or sales agents can buy the software plans.
 
 ## Buy a software plan
 
-1. Sign-in to the Azure portal and go to [Reservations](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade).
+1. Sign in to the Azure portal and go to [Reservations](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade).
 2. Click **Add** and then select the software plan that you want to buy.
 Fill in the required fields. Any SUSE Linux VM or RedHat VM that matches the attributes of what you buy gets the discount. The actual number of deployments that get the discount depend on the scope and quantity selected.
 3. Select a subscription. It's used to pay for the plan.
-The subscription payment method is charged the upfront costs for the reservation. The subscription type must be an Enterprise Agreement (offer numbers: MS-AZR-0017P or MS-AZR-0148P) or Pay-As-You-Go (offer numbers: MS-AZR-0003P or MS-AZR-0023P).
+The subscription payment method is charged the upfront costs for the reservation. The subscription type must be an Enterprise Agreement (offer numbers: MS-AZR-0017P or MS-AZR-0148P) or individual agreement with pay-as-you-go pricing (offer numbers: MS-AZR-0003P or MS-AZR-0023P).
     - For an enterprise subscription, the charges are deducted from the enrollment's monetary commitment balance or charged as overage.
-    - For a Pay-As-You-Go subscription, the charges are billed to the subscription's credit card or invoice payment method.
+    - For an individual subscription with pay-as-you-go pricing, the charges are billed to the subscription's credit card or invoice payment method.
 4. Select a scope. The scope can cover one subscription or multiple subscriptions (shared scope).
     - Single subscription - The plan discount is applied to matching usage in the subscription.
-    - Shared - The plan discount is applied to matching instances in any subscription in your billing context. For enterprise customers, the billing context is the enrollment and includes all subscriptions in the enrollment. For Pay-As-You-Go customers, the billing context is all Pay-As-You-Go subscriptions created by the account administrator.
+    - Shared - The plan discount is applied to matching instances in any subscription in your billing context. For enterprise customers, the billing context is the enrollment and includes all subscriptions in the enrollment. For individual plan with pay-as-you-go pricing customers, the billing context is all individual plans with pay-as-you-go pricing subscriptions created by the account administrator.
 5. Select a product to choose the VM size and the image type. The discount applies to the selected VM size only.
 6. Select a one-year or three-year term.
 7. Choose a quantity, which is the number of prepaid VM instances that can get the billing discount.

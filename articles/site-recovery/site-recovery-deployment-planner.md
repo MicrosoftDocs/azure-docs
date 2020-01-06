@@ -1,11 +1,11 @@
 ---
-title: About the Azure Site Recovery Deployment Planner for disaster recovery of VMware VMs to Azure| Microsoft Docs
+title: Azure Site Recovery Deployment Planner for VMware disaster recovery 
 description: Learn about the Azure Site Recovery Deployment Planner for disaster recovery of VMware VMs to Azure.
 author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 04/18/2019
+ms.date: 07/29/2019
 ms.author: mayg
 ---
 
@@ -37,10 +37,9 @@ The tool provides the following details:
 
 **Azure infrastructure requirements**
 
-* Storage type (standard or premium storage account) requirement for each VM
-* Total number of standard and premium storage accounts to be set up for replication
+* Storage type (standard or premium storage) requirement for each VM
+* Total number of standard and premium storage accounts to be set up for replication (Includes cache storage accounts)
 * Storage-account naming suggestions, based on Storage guidance
-* Storage account placement for all VMs
 * Number of Azure cores to be set up before test failover or failover on the subscription
 * Azure VM-recommended size for each on-premises VM
 
@@ -117,8 +116,8 @@ If you have a previous version of Deployment Planner, do either of the following
 
 
 ## Version history
-The latest Site Recovery Deployment Planner tool version is 2.4.
-See the [Site Recovery Deployment Planner version history](https://social.technet.microsoft.com/wiki/contents/articles/51049.asr-deployment-planner-version-history.aspx) page for the fixes that are added in each update.
+The latest Site Recovery Deployment Planner tool version is 2.5.
+See the [Site Recovery Deployment Planner version history](https://docs.microsoft.com/azure/site-recovery/site-recovery-deployment-planner-history) page for the fixes that are added in each update.
 
 ## Next steps
 [Run Site Recovery Deployment Planner](site-recovery-vmware-deployment-planner-run.md)

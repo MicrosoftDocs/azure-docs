@@ -73,7 +73,6 @@ The following table provides coverage information for Azure Maps routing.
 | Togo                           |        ✓       |                       |             |
 | Tunisia                        |        ✓       |                       |             |
 | Uganda                         |        ✓       |                       |             |
-| Western Sahara                 |        ✓       |                       |             |
 | Zambia                         |        ✓       |                       |             |
 | Zimbabwe                       |        ✓       |                       |             |
 
@@ -136,6 +135,7 @@ The following table provides coverage information for Azure Maps routing.
 | Hong Kong SAR                  |        ✓       |         ✓            |             |
 | India                          |        ✓       |         ✓            |             |
 | Indonesia                      |        ✓       |         ✓            |             |
+| Kazakhstan                |        ✓       |                     |             |
 | Korea                          |        Ø       |                      |             |
 | Laos                           |        ✓       |                      |             |
 | Macao SAR                      |        ✓       |         ✓            |             |

@@ -1,10 +1,10 @@
 ---
-title: Create and manage a catalog in Azure AD entitlement management (Preview) - Azure Active Directory
-description: Learn how to create a new container of resources and access packages in Azure Active Directory entitlement management (Preview).
+title: Create & manage resources in entitlement management - Azure AD
+description: Learn how to create a new container of resources and access packages in Azure Active Directory entitlement management.
 services: active-directory
 documentationCenter: ''
-author: rolyon
-manager: mtillman
+author: msaburnley
+manager: daveba
 editor: HANKI
 ms.service: active-directory
 ms.workload: identity
@@ -12,8 +12,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 04/19/2019
-ms.author: rolyon
+ms.date: 10/07/2019
+ms.author: ajburnle
 ms.reviewer: hanki
 ms.collection: M365-identity-device-management
 
@@ -21,22 +21,15 @@ ms.collection: M365-identity-device-management
 #Customer intent: As an administrator, I want detailed information about the options available when creating and manage catalog so that I most effectively use catalogs in my organization.
 
 ---
-# Create and manage a catalog in Azure AD entitlement management (Preview)
-
-> [!IMPORTANT]
-> Azure Active Directory (Azure AD) entitlement management is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# Create and manage a catalog of resources in Azure AD entitlement management
 
 ## Create a catalog
 
 A catalog is a container of resources and access packages. You create a catalog when you want to group related resources and access packages. Whoever creates the catalog becomes the first catalog owner. A catalog owner can add additional catalog owners.
 
-**Prerequisite role:** User administrator or Catalog creator
+**Prerequisite role:** Global administrator, User administrator, or Catalog creator
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-
-1. Click **Azure Active Directory** and then click **Identity Governance**.
+1. In the Azure portal, click **Azure Active Directory** and then click **Identity Governance**.
 
 1. In the left menu, click **Catalogs**.
 
@@ -52,15 +45,15 @@ A catalog is a container of resources and access packages. You create a catalog 
 
 1. If you want to allow users in selected external directories to be able to request access packages in this catalog, set **Enabled for external users** to **Yes**.
 
-    ![New catalog pane](./media/entitlement-management-catalog-create/new-catalog.png)
+    ![New catalog pane](./media/entitlement-management-shared/new-catalog.png)
 
 1. Click **Create** to create the catalog.
 
 ## Add resources to a catalog
 
-To include resources in an access package, the resources must exist in a catalog. The types of resources you can add are groups, applications, and SharePoint Online sites.
+To include resources in an access package, the resources must exist in a catalog. The types of resources you can add are groups, applications, and SharePoint Online sites. The groups can be cloud-created Office 365 Groups or cloud-created Azure AD security groups. The applications can be Azure AD enterprise applications, including both SaaS applications and your own applications federated to Azure AD. The sites can be SharePoint Online sites or SharePoint Online site collections.
 
-**Prerequisite role:** User administrator or Catalog owner
+**Prerequisite role:** See [Required roles to add resources to a catalog](entitlement-management-delegate.md#required-roles-to-add-resources-to-a-catalog)
 
 1. In the Azure portal, click **Azure Active Directory** and then click **Identity Governance**.
 
@@ -70,13 +63,13 @@ To include resources in an access package, the resources must exist in a catalog
 
 1. Click **Add resources**.
 
-1. Click a resource type: **Groups**, **Applications**, or **SharePoint sites**.
+1. Click a resource type: **Groups and Teams**, **Applications**, or **SharePoint sites**.
 
-    If you are a catalog creator, you can add any Office 365 group or Azure AD security group you own to your catalog. If there is a group that you want to assign to users, but you do not own the group, you will need to have a User administrator add that group to your catalog.
-
-    If you are a catalog creator, you can add any Azure AD enterprise application you own, including both SaaS applications and your own applications federated to Azure AD, to your catalog. If there is an application that you want to assign users to but do not own, you will need to have a User administrator add that application to your catalog. Once the application is part of the catalog, you can select any of the application's roles in an access package.
+    If you don't see a resource that you want to add or you are unable to add a resource, make sure you have the required Azure AD directory role and entitlement management role. You might need to have someone with the required roles add the resource to your catalog. For more information, see [Required roles to add resources to a catalog](entitlement-management-delegate.md#required-roles-to-add-resources-to-a-catalog).
 
 1. Select one or more resources of the type that you would like to add to the catalog.
+
+    ![Add resources to a catalog](./media/entitlement-management-catalog-create/catalog-add-resources.png)
 
 1. When finished, click **Add**.
 
@@ -86,7 +79,7 @@ To include resources in an access package, the resources must exist in a catalog
 
 You can remove resources from a catalog. A resource can only be removed from a catalog if it is not being used in any of the catalog's access packages.
 
-**Prerequisite role:** User administrator or Catalog owner
+**Prerequisite role:** See [Required roles to add resources to a catalog](entitlement-management-delegate.md#required-roles-to-add-resources-to-a-catalog)
 
 1. In the Azure portal, click **Azure Active Directory** and then click **Identity Governance**.
 
@@ -98,11 +91,13 @@ You can remove resources from a catalog. A resource can only be removed from a c
 
 1. Click **Remove** (or click the ellipsis (**...**) and then click **Remove resource**).
 
-## Add catalog owners or access package managers
+## Add additional catalog owners
 
-If you want to delegate management of the catalog or the access packages in the catalog, you add catalog owners or access package managers. Whoever creates a catalog becomes the first catalog owner.
+The user that created a catalog becomes the first catalog owner. To delegate management of a catalog, you add users to the catalog owner role. This helps share the catalog management responsibilities. 
 
-**Prerequisite role:** User administrator or Catalog owner
+Follow these steps to assign a user to the catalog owner role:
+
+**Prerequisite role:** Global administrator, User administrator, or Catalog owner
 
 1. In the Azure portal, click **Azure Active Directory** and then click **Identity Governance**.
 
@@ -110,7 +105,9 @@ If you want to delegate management of the catalog or the access packages in the 
 
 1. In the left menu, click **Roles and administrators**.
 
-1. Click **Add owners** or **Add access package managers** to select the members for these roles.
+    ![Catalogs roles and administrators](./media/entitlement-management-shared/catalog-roles-administrators.png)
+
+1. Click **Add owners** to select the members for these roles.
 
 1. Click **Select** to add these members.
 
@@ -118,7 +115,7 @@ If you want to delegate management of the catalog or the access packages in the 
 
 You can edit the name and description for a catalog. Users see this information in an access package's details.
 
-**Prerequisite role:** User administrator or Catalog owner
+**Prerequisite role:** Global administrator, User administrator, or Catalog owner
 
 1. In the Azure portal, click **Azure Active Directory** and then click **Identity Governance**.
 
@@ -126,7 +123,9 @@ You can edit the name and description for a catalog. Users see this information 
 
 1. On the catalog's **Overview** page, click **Edit**.
 
-1. Edit the catalog's name or description.
+1. Edit the catalog's name, description, or enabled settings.
+
+    ![Edit catalog settings](./media/entitlement-management-shared/catalog-edit.png)
 
 1. Click **Save**.
 
@@ -134,7 +133,7 @@ You can edit the name and description for a catalog. Users see this information 
 
 You can delete a catalog, but only if it does not have any access packages.
 
-**Prerequisite role:** User administrator or Catalog owner
+**Prerequisite role:** Global administrator, User administrator, or Catalog owner
 
 1. In the Azure portal, click **Azure Active Directory** and then click **Identity Governance**.
 
@@ -146,4 +145,4 @@ You can delete a catalog, but only if it does not have any access packages.
 
 ## Next steps
 
-- [Create and manage an access package](entitlement-management-access-package-create.md)
+- [Delegate access governance to access package managers](entitlement-management-delegate-managers.md)

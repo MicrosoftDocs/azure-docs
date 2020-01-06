@@ -3,8 +3,8 @@ title: Problems signing in to an application from the access panel | Microsoft D
 description: How to troubleshoot issues accessing an application from the Microsoft Azure AD Access Panel at myapps.microsoft.com
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 
 ms.assetid: 
 ms.service: active-directory
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/11/2017
-ms.author: celested
+ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
 ---
@@ -93,7 +93,7 @@ You may also download the extension for Chrome and Microsoft Edge from the direc
 
 -   [Chrome Access Panel Extension](https://chrome.google.com/webstore/detail/access-panel-extension/ggjhpefgjjfobnfoldnjipclpcfbgbhl)
 
--   [Microsoft Edge Access Panel Extension](https://www.microsoft.com/store/apps/9pc9sckkzk84)
+-   [Microsoft Edge Access Panel Extension](https://www.microsoft.com/p/my-apps-secure-sign-in-extension/9pc9sckkzk84)
 
 ## How to configure federated single sign-on for an Azure AD gallery application
 

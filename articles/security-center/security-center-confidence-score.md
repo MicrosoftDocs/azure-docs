@@ -1,12 +1,10 @@
 ---
 title: Confidence score in Azure Security Center | Microsoft Docs
-description: " Learn how to work with the Azure Security Center confidence score. "
+description: Security Center generates confidence scores to help your team determine whether a threat is legitimate and how to triage and prioritize alerts.
 services: security-center
 documentationcenter: na
-author: rkarlin
-manager: barbkess
-editor: ''
-
+author: memildin
+manager: rkarlin
 ms.assetid: e88198f8-2e16-409d-a0b0-a62e68c2f999
 ms.service: security-center
 ms.devlang: na
@@ -14,14 +12,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/23/2018
-ms.author: rkarlin
+ms.author: memildin
 
 ---
-# Alert confidence score 
+# Alert confidence score (Preview)
 
 Azure Security Center provides you with visibility across the resources you run in Azure, and alerts you when it detects potential issues. The volume of alerts can be challenging for a security operations team to individually address, and it becomes necessary to prioritize which alerts to investigate. Investigating alerts can be complex and time consuming, and as a result, some alerts are ignored.
 
-The confidence score in Security Center can help your team triage and prioritize alerts. Security Center automatically applies industry best practices, intelligent algorithms, and processes used by analysts to determine whether a threat is legitimate and provides you with meaningful insights in the form of a confidence score.
+The confidence score (currently in preview) in Security Center can help your team triage and prioritize alerts. Security Center automatically applies industry best practices, intelligent algorithms, and processes used by analysts to determine whether a threat is legitimate and provides you with meaningful insights in the form of a confidence score.
 
 ## How the confidence score is triggered
 

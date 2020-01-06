@@ -4,7 +4,7 @@ description: Learn about IP address 168.63.129.16 and how it works with your res
 services: virtual-network
 documentationcenter: na
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: v-jesits
 tags: azure-resource-manager
 
@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/07/2019
+ms.date: 05/15/2019
 ms.author: genli
 
 ---
@@ -31,11 +31,12 @@ IP address 168.63.129.16 is a virtual public IP address that is used to facilita
 
 ## Scope of IP address 168.63.129.16
 
-The public IP address 168.63.129.16 is used in all regions and all national clouds. This special public IP address is owned by Microsoft and will not change. It is allowed by the default network security group rule. We recommend that you allow this IP address in any local firewall policies. The communication between this special IP address and the resources is safe because only the internal Azure platform can source a message from this IP address. If this address is blocked, unexpected behavior can occur in a variety of scenarios.
+The public IP address 168.63.129.16 is used in all regions and all national clouds. This special public IP address is owned by Microsoft and will not change. It is allowed by the default network security group rule. We recommend that you allow this IP address in any local firewall policies in both inbound and outbound directions. The communication between this special IP address and the resources is safe because only the internal Azure platform can source a message from this IP address. If this address is blocked, unexpected behavior can occur in a variety of scenarios.
+The following ports at least must be opened to allow communication with WireServer: 80, 443 and 32526.
 
 [Azure Load Balancer health probes](../load-balancer/load-balancer-custom-probe-overview.md) originates from this IP address. If you block this IP address, your probes will fail.
 
-In a non-virtual network scenario, the health probe is sourced from a private IP and 168.63.129.16 is not used.
+In a non-virtual network scenario (Classic), the health probe is sourced from a private IP and 168.63.129.16 is not used.
 
 ## Next steps
 

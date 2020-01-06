@@ -68,9 +68,9 @@ At a high level, an import job involves the following steps:
 8. The drives are shipped using your carrier account to the return address provided in the import job.
 
 > [!NOTE]
-> For local (within data center country) shipments, please share a domestic carrier account 
+> For local (within data center country/region) shipments, please share a domestic carrier account 
 >
-> For abroad (outside data center country) shipments, please share an international carrier account
+> For abroad (outside data center country/region) shipments, please share an international carrier account
 
  ![Figure 1:Import job flow](./media/storage-import-export-service/importjob.png)
 
@@ -98,9 +98,9 @@ At a high level, an export job involves the following steps:
 10. The drives are shipped using your carrier account to the return address provided in the import job.
 
 > [!NOTE]
-> For local (within data center country) shipments, please share a domestic carrier account 
+> For local (within data center country/region) shipments, please share a domestic carrier account 
 >
-> For abroad (outside data center country) shipments, please share an international carrier account
+> For abroad (outside data center country/region) shipments, please share an international carrier account
   
  ![Figure 2:Export job flow](./media/storage-import-export-service/exportjob.png)
 
@@ -113,7 +113,7 @@ The Azure Import/Export service supports copying data to and from all Azure stor
 ### Supported shipping locations
 
 
-|Country  |Country  |Country  |Country  |
+|Country/Region  |Country/Region  |Country/Region  |Country/Region  |
 |---------|---------|---------|---------|
 |East US    | North Europe        | Central India        |US Gov Iowa         |
 |West US     |West Europe         | South India        | US DoD East        |

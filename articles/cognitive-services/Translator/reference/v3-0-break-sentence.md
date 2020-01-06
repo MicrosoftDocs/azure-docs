@@ -1,16 +1,16 @@
 ---
 title: Translator Text API BreakSentence Method
-titlesuffix: Azure Cognitive Services
-description: Use the Translator Text API BreakSentence method.
+titleSuffix: Azure Cognitive Services
+description: The Translator Text API BreakSentence method identifies the positioning of sentence boundaries in a piece of text.
 services: cognitive-services
-author: v-pawal
+author: swmachan
 manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
-ms.author: v-jansko
+ms.author: swmachan
 ---
 
 # Translator Text API 3.0: BreakSentence
@@ -105,7 +105,7 @@ An example JSON response is:
 ```json
 [
   {
-    "sentenceLengths": [ 13, 11, 22 ]
+    "sentLen": [ 13, 11, 22 ]
     "detectedLanguage": {
       "language": "en",
       "score": 401
@@ -150,7 +150,7 @@ The following are the possible HTTP status codes that a request returns.
   </tr>
   <tr>
     <td>429</td>
-    <td>The caller is sending too many requests.</td>
+    <td>The server rejected the request because the client has exceeded request limits.</td>
   </tr>
   <tr>
     <td>500</td>
@@ -168,11 +168,7 @@ If an error occurs, the request will also return a JSON error response. The erro
 
 The following example shows how to obtain sentence boundaries for a single sentence. The language of the sentence is automatically detected by the service.
 
-# [curl](#tab/curl)
-
-```
+```curl
 curl -X POST "https://api.cognitive.microsofttranslator.com/breaksentence?api-version=3.0" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'How are you? I am fine. What did you do today?'}]"
 ```
-
----
 

@@ -1,20 +1,17 @@
 ---
-title: Get consent for several resources (Microsoft Authentication Library for .NET) | Azure
+title: Get consent for several resources (MSAL.NET) | Azure
+titleSuffix: Microsoft identity platform
 description: Learn how a user can get pre-consent for several resources using the Microsoft Authentication Library for .NET (MSAL.NET).
 services: active-directory
-documentationcenter: dev-center-name
-author: rwike77
+author: TylerMSFT
 manager: CelesteDG
-editor: ''
 
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/30/2019
-ms.author: ryanwi
+ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 #Customer intent: As an application developer, I want to learn how to specify additional scopes so I can get pre-consent for several resources.
@@ -29,8 +26,8 @@ The Microsoft identity platform endpoint does not allow you to get a token for s
 
 For example, if you have two resources that have 2 scopes each:
 
-- https://mytenant.onmicrosoft.com/customerapi (with 2 scopes `customer.read` and `customer.write`)
-- https://mytenant.onmicrosoft.com/vendorapi (with 2 scopes `vendor.read` and `vendor.write`)
+- https:\//mytenant.onmicrosoft.com/customerapi (with 2 scopes `customer.read` and `customer.write`)
+- https:\//mytenant.onmicrosoft.com/vendorapi (with 2 scopes `vendor.read` and `vendor.write`)
 
 You should use the `.WithExtraScopeToConsent` modifier which has the *extraScopesToConsent* parameter as shown in the following example:
 

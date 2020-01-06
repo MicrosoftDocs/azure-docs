@@ -1,19 +1,17 @@
 ---
-title: Username lookup during sign-in authentication - Azure Active Directory | Microsoft Docs
-description: How on-screen messaging reflects username lookup during sign-in 
+title: Username lookup during sign-in - Azure Active Directory | Microsoft Docs
+description: How on-screen messaging reflects username lookup during sign-in in Azure Active Directory
 services: active-directory
 author: curtand
-manager: mtillman
-
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 04/15/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: kexia
 ms.custom: it-pro
-
 ms.collection: M365-identity-device-management
 ---
 
@@ -29,24 +27,24 @@ To support a wider range of credentials and increase usability, Azure Active Dir
 
 An additional benefit of this work is improved error messaging. Here are some examples of the improved error messaging when signing in to an application that supports Azure Active Directory users only.
 
-1. The username is mistyped or the username has not yet been synced to Azure AD:
+- The username is mistyped or the username has not yet been synced to Azure AD:
   
     ![the username is mistyped or not found](./media/signin-realm-discovery/typo-username.png)
   
-2. The domain name is mistyped:
+- The domain name is mistyped:
   
     ![the domain name is mistyped or not found](./media/signin-realm-discovery/typo-domain.png)
   
-3. User tries to sign in with a known consumer domain:
+- User tries to sign in with a known consumer domain:
   
     ![sign-in with a known consumer domain](./media/signin-realm-discovery/consumer-domain.png)
   
-4. The password is mistyped but the username is accurate:  
+- The password is mistyped but the username is accurate:  
   
     ![password is mistyped with good username](./media/signin-realm-discovery/incorrect-password.png)
   
 > [!IMPORTANT]
-> This feature might have an impact on federated domains relying on the old domain level Home Realm Discovery to force federation. For updates on when federated domain support will be added, see [Home realm discovery during sign-in for Microsoft 365 services](https://azure.microsoft.com/updates/signin-hrd/). In the meantime, some organizations have trained their employees to sign in with a username that doesn’t exist in Azure Active Directory but contains the proper domain name, because the domain names routes users currently to their organization's domain endpoint. The new sign-in behavior doesn't allow this. The user is notified to correct the user name, and they aren't allowed to sign in with a username that does not exist in Azure Active Directory.
+> This feature might have an impact on federated domains relying on the old domain-level Home Realm Discovery to force federation. For updates on when federated domain support will be added, see [Home realm discovery during sign-in for Microsoft 365 services](https://azure.microsoft.com/updates/signin-hrd/). In the meantime, some organizations have trained their employees to sign in with a username that doesn’t exist in Azure Active Directory but contains the proper domain name, because the domain names routes users currently to their organization's domain endpoint. The new sign-in behavior doesn't allow this. The user is notified to correct the user name, and they aren't allowed to sign in with a username that does not exist in Azure Active Directory.
 >
 > If you or your organization have practices that depend on the old behavior, it is important for organization administrators to update employee sign-in and authentication documentation and to train employees to use their Azure Active Directory username to sign in.
   

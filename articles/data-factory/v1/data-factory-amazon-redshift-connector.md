@@ -1,16 +1,16 @@
 ---
-title: Move data from Amazon Redshift by using Azure Data Factory | Microsoft Docs
+title: Move data from Amazon Redshift by using Azure Data Factory 
 description: Learn how to move data from Amazon Redshift by using Azure Data Factory Copy Activity.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 
 
 ms.assetid: 01d15078-58dc-455c-9d9d-98fbdf4ea51e
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
+
 
 ms.topic: conceptual
 ms.date: 01/22/2018
@@ -42,7 +42,7 @@ You can create a pipeline with a copy activity to move data from an Amazon Redsh
 
 The easiest way to create a pipeline is to use the Azure Data Factory Copy Wizard. For a quick walkthrough on creating a pipeline by using the Copy Wizard, see the [Tutorial: Create a pipeline by using the Copy Wizard](data-factory-copy-data-wizard-tutorial.md).
 
-You can also create a pipeline by using the Azure portal, Visual Studio, Azure PowerShell, or other tools. Azure Resource Manager templates, the .NET API, or the REST API can also be used to create the pipeline. For step-by-step instructions to create a pipeline with a copy activity, see the [Copy Activity tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+You can also create a pipeline by using Visual Studio, Azure PowerShell, or other tools. Azure Resource Manager templates, the .NET API, or the REST API can also be used to create the pipeline. For step-by-step instructions to create a pipeline with a copy activity, see the [Copy Activity tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 Whether you use the tools or APIs, you perform the following steps to create a pipeline that moves data from a source data store to a sink data store:
 

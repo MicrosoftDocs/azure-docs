@@ -4,7 +4,7 @@ description: specifying custom DNS settings using service configuration file for
 services: virtual-network
 documentationcenter: na
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: tysonn
 
 ms.assetid: 467a4b99-8691-40b3-b640-e25e49675c71

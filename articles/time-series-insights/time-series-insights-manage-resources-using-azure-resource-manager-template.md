@@ -1,21 +1,21 @@
 ﻿---
-title: 'How to manage your Azure Time Series Insights environment using Azure Resource Manager templates| Microsoft Docs'
-description: This article describes how to manage your Azure Time Series Insights environment programmatically using Azure Resource Manager.
+title: 'Manage your environment using Azure Resource Manager templates - Azure Time Series Insights | Microsoft Docs'
+description: Learn how to manage your Azure Time Series Insights environment programmatically using Azure Resource Manager.
 ms.service: time-series-insights
 services: time-series-insights
-author: ashannon7
-ms.author: anshan
+author: deepakpalled
+ms.author: dpalled
 manager: cshankar
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 05/08/2019
+ms.date: 12/06/2019
 ms.custom: seodec18
 ---
 
 # Create Time Series Insights resources using Azure Resource Manager templates
 
-This article describes how to create and deploy Time Series Insights resources using Azure Resource Manager templates, PowerShell, and the Time Series Insights resource provider.
+This article describes how to create and deploy Time Series Insights resources using [Azure Resource Manager templates](https://docs.microsoft.com/azure/azure-resource-manager/), PowerShell, and the Time Series Insights resource provider.
 
 Time Series Insights supports the following resources:
 
@@ -28,7 +28,7 @@ Time Series Insights supports the following resources:
 
 A Resource Manager template is a JSON file that defines the infrastructure and configuration of resources in a resource group. The following documents describe template files in greater detail:
 
-- [Azure Resource Manager overview - Template deployment](../azure-resource-manager/resource-group-overview.md#template-deployment)
+- [Azure Resource Manager template deployment](../azure-resource-manager/template-deployment-overview.md)
 - [Deploy resources with Resource Manager templates and Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md)
 - [Microsoft.TimeSeriesInsights resource types](/azure/templates/microsoft.timeseriesinsights/allversions)
 
@@ -40,9 +40,9 @@ The [201-timeseriesinsights-environment-with-eventhub](https://github.com/Azure/
 
 The following procedure describes how to use PowerShell to deploy an Azure Resource Manager template that creates a Time Series Insights environment, a child event source configured to consume events from an Event Hub, and access policies that grant access to the environment's data. If an existing Event Hub isn't specified, one will be created with the deployment.
 
-1. Install Azure PowerShell by following the instructions in [Getting started with Azure PowerShell](/powershell/azure/get-started-azureps).
+1. Install Azure PowerShell by following the instructions in [Getting started with Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
 
-1. Clone or copy the [201-timeseriesinsights-environment-with-eventhub](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-timeseriesinsights-environment-with-eventhub/azuredeploy.json) template from GitHub.
+1. Clone or copy the [201-timeseriesinsights-environment-with-eventhub](https://github.com/Azure/azure-quickstart-templates/blob/master/201-timeseriesinsights-environment-with-eventhub/azuredeploy.json) template from GitHub.
 
    * Create a parameters file
 
@@ -114,7 +114,7 @@ The following procedure describes how to use PowerShell to deploy an Azure Resou
      }
      ```
   
-    * For more information, see the [Parameters](../azure-resource-manager/resource-group-template-deploy.md#parameter-files) article.
+    * For more information, see the [Parameters](../azure-resource-manager/templates/parameter-files.md) article.
 
 ## Deploy the quickstart template locally using PowerShell
 
@@ -203,7 +203,7 @@ The following procedure describes how to use PowerShell to deploy an Azure Resou
        DeploymentName          : MyDemoDeployment
        ResourceGroupName       : MyDemoRG
        ProvisioningState       : Succeeded
-       Timestamp               : 5/8/2019 10:28:34 PM
+       Timestamp               : 10/11/2019 3:20:37 AM
        Mode                    : Incremental
        TemplateLink            :
        Parameters              :

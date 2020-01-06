@@ -1,5 +1,6 @@
 ---
-title: Authorize developer accounts by using Azure Active Directory - Azure API Management | Microsoft Docs
+title: Authorize developer accounts by using Azure Active Directory
+titleSuffix: Azure API Management
 description: Learn how to authorize users by using Azure Active Directory in API Management.
 services: api-management
 documentationcenter: API Management
@@ -10,9 +11,8 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2018
+ms.date: 11/04/2019
 ms.author: apimpm
 ---
 
@@ -57,14 +57,15 @@ This article shows you how to enable access to the developer portal for users fr
 14.  After the application is registered, copy the **Application (client) ID** from the **Overview** page. 
 15. Go back to your API Management instance. In the **Add identity provider** window, paste the **Application (client) ID** value into the **Client ID** box.
 16. Switch back to the Azure AD configuration, Select **Certificates & secrets** under **Manage**. Select the **New client secret** button. Enter a value in **Description**, select any option for **Expires** and choose **Add**. Copy the client secret value before leaving the page. You will need it in the next step. 
-17. Go back to your API Management instance, paste the secret into the **Client secret** box.
+17. Under **Manage**, select **Authentication** and then select **ID tokens** under **Implicit Grant**
+18. Go back to your API Management instance, paste the secret into the **Client secret** box.
 
     > [!IMPORTANT]
     > Please make sure to update the **Client secret** before the key expires. 
     >  
     >
 
-18. The **Add identity provider** window also contains the **Allowed Tenants** text box. There, specify the domains of the Azure AD instances to which you want to grant access to the APIs of the API Management service instance. You can separate multiple domains with newlines, spaces, or commas.
+19. The **Add identity provider** window also contains the **Allowed Tenants** text box. There, specify the domains of the Azure AD instances to which you want to grant access to the APIs of the API Management service instance. You can separate multiple domains with newlines, spaces, or commas.
 
 > [!NOTE]
 > You can specify multiple domains in the **Allowed Tenants** section. Before any user can sign in from a different domain than the original domain where the application was registered, a global administrator of the different domain must grant permission for the application to access directory data. To grant permission, the global administrator should:
@@ -72,18 +73,22 @@ This article shows you how to enable access to the developer portal for users fr
 > b. Type in the domain name of the Azure AD tenant that they want to give access to.
 > c. Select **Submit**. 
 
-19.  After you specify the desired configuration, select **Add**.
+20.  After you specify the desired configuration, select **Add**.
 
 After the changes are saved, users in the specified Azure AD instance can sign in to the developer portal by following the steps in [Sign in to the developer portal by using an Azure AD account](#log_in_to_dev_portal).
 
 ## Add an external Azure AD group
 
-After you enable access for users in an Azure AD instance, you can add Azure AD groups in API Management. Then, you can more easily manage the association of the developers in the group with the desired products.
+After you enable access for users in an Azure AD tenant, you can add Azure AD groups into API Management. As a result, you can control product visibility using Azure AD groups.
 
- > [!IMPORTANT]
- > To add an external Azure AD group, you must first configure the Azure AD instance on the **Identities** tab by following the procedure in the previous section. Additionally, the application must be granted access to Azure AD Graph API with `Directory.Read.All` permission. 
+To add an external Azure AD group into APIM, you must first complete the previous section. Additionally, the application you registered must be granted access to the Azure Active Directory Graph API with `Directory.ReadAll` permission by following below steps: 
 
-You add external Azure AD groups from the **Groups** tab of your API Management instance.
+1. Go back to your App Registration that was created in the previous section
+2. Click on the **API Permissions** tab, then click **+Add a permission** button 
+3. In the **Request API Permissions** pane, select the **Microsoft APIs** tab, and scroll to the bottom to find the **Azure Active Directory Graph** tile under the Supported Legacy APIs section and click it. Then click **APPLICATION Permissions** button, and select **Directory.ReadAll** permission and then add that permission using button at the bottom. 
+4. Click the **Grant admin consent for {tenantname}** button so that you grant access for all users in this directory. 
+
+Now you can add external Azure AD groups from the **Groups** tab of your API Management instance.
 
 1. Select the **Groups** tab.
 2. Select the **Add AAD group** button.
@@ -95,7 +100,20 @@ After you add an external Azure AD group, you can review and configure its prope
  
 Users from the configured Azure AD instance can now sign in to the developer portal. They can view and subscribe to any groups for which they have visibility.
 
-## <a id="log_in_to_dev_portal"/>Sign in to the developer portal by using an Azure AD account
+## <a id="log_in_to_dev_portal"/> Developer portal - add Azure AD account authentication
+
+In the developer portal, sign-in with AAD is possible with the **OAuth buttons** widget. The widget is already included on the sign-in page of the default developer portal content.
+
+![AAD buttons widget](./media/api-management-howto-aad/portal-oauth-widget.png)
+
+Although a new account will be automatically created whenever a new user signs in with AAD, you may consider adding the same widget to the sign-up page.
+
+> [!IMPORTANT]
+> You need to [republish the portal](api-management-howto-developer-portal-customize.md#publish) for the AAD changes to take effect.
+
+## Legacy developer portal - how to sign in with Azure AD
+
+[!INCLUDE [api-management-portal-legacy.md](../../includes/api-management-portal-legacy.md)]
 
 To sign in to the developer portal by using an Azure AD account that you configured in the previous sections:
 

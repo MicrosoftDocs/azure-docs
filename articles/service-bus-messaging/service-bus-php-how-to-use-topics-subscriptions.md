@@ -1,6 +1,6 @@
 ---
-title: How to use Service Bus topics with PHP | Microsoft Docs
-description: Learn how to use Service Bus topics with PHP in Azure.
+title: 'Quickstart: How to use Service Bus topics with PHP'
+description: 'Quickstart: Learn how to use Service Bus topics with PHP in Azure.'
 services: service-bus-messaging
 documentationcenter: php
 author: axisc
@@ -12,16 +12,16 @@ ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PHP
-ms.topic: article
-ms.date: 04/15/2019
+ms.topic: quickstart
+ms.date: 11/05/2019
 ms.author: aschhab
 
 ---
-# How to use Service Bus topics and subscriptions with PHP
+# Quickstart: How to use Service Bus topics and subscriptions with PHP
 
 [!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
 
-This article shows you how to use Service Bus topics and subscriptions. The samples are written in PHP and use the [Azure SDK for PHP](../php-download-sdk.md). The scenarios covered include:
+This article shows you how to use Service Bus topics and subscriptions. The samples are written in PHP and use the [Azure SDK for PHP](https://github.com/Azure/azure-sdk-for-php). The scenarios covered include:
 
 - Creating topics and subscriptions 
 - Creating subscription filters 
@@ -37,7 +37,7 @@ This article shows you how to use Service Bus topics and subscriptions. The samp
     > You will create a **topic** and a **subscription** to the topic by using **PHP** in this quickstart. 
 
 ## Create a PHP application
-The only requirement for creating a PHP application that accesses the Azure Blob service is to reference classes in the [Azure SDK for PHP](../php-download-sdk.md) from within your code. You can use any development tools to create your application, or Notepad.
+The only requirement for creating a PHP application that accesses the Azure Blob service is to reference classes in the [Azure SDK for PHP](https://github.com/Azure/azure-sdk-for-php) from within your code. You can use any development tools to create your application, or Notepad.
 
 > [!NOTE]
 > Your PHP installation must also have the [OpenSSL extension](https://php.net/openssl) installed and enabled.
@@ -47,7 +47,23 @@ The only requirement for creating a PHP application that accesses the Azure Blob
 This article describes how to use service features that can be called within a PHP application locally, or in code running within an Azure web role, worker role, or website.
 
 ## Get the Azure client libraries
-[!INCLUDE [get-client-libraries](../../includes/get-client-libraries.md)]
+
+### Install via Composer
+1. Create a file named **composer.json** in the root of your project and add the following code to it:
+   
+    ```json
+    {
+      "require": {
+        "microsoft/windowsazure": "*"
+      }
+    }
+    ```
+2. Download **[composer.phar][composer-phar]** in your project root.
+3. Open a command prompt and execute the following command in your project root
+   
+    ```
+    php composer.phar install
+    ```
 
 ## Configure your application to use Service Bus
 To use the Service Bus APIs:
@@ -63,7 +79,7 @@ The following example shows how to include the autoloader file and reference the
 > 
 
 ```php
-require_once 'vendor\autoload.php';
+require_once 'vendor/autoload.php';
 use WindowsAzure\Common\ServicesBuilder;
 ```
 
@@ -341,6 +357,9 @@ By using the `deleteSubscription` method, you can delete a subscription independ
 ```php
 $serviceBusRestProxy->deleteSubscription("mytopic", "mysubscription");
 ```
+
+> [!NOTE]
+> You can manage Service Bus resources with [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). The Service Bus Explorer allows users to connect to a Service Bus namespace and administer messaging entities in an easy manner. The tool provides advanced features like import/export functionality or the ability to test topic, queues, subscriptions, relay services, notification hubs and events hubs. 
 
 ## Next steps
 For more information, see [Queues, topics, and subscriptions][Queues, topics, and subscriptions].

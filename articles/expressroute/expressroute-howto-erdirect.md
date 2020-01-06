@@ -1,14 +1,13 @@
 ---
-title: Configure ExpressRoute Direct - Azure | Microsoft Docs
+title: 'Azure ExpressRoute: Configure ExpressRoute Direct'
 description: This page helps you configure ExpressRoute Direct.
 services: expressroute
 author: jaredr80
 
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 02/25/2019
+ms.date: 05/20/2019
 ms.author: jaredro
-ms.custom: seodec18
 
 ---
 
@@ -23,7 +22,7 @@ ExpressRoute Direct gives you the ability to connect directly into Microsoft’s
    ```powershell
    Connect-AzAccount 
 
-   Select-AzSubscription -Subscription “<SubscriptionID or SubscriptionName>”
+   Select-AzSubscription -Subscription "<SubscriptionID or SubscriptionName>"
    ```
 2. List all locations where ExpressRoute Direct is supported.
   
@@ -160,10 +159,10 @@ ExpressRoute Direct gives you the ability to connect directly into Microsoft’s
    Links[0] is the primary port and Links[1] is the secondary port.
 
    ```powershell
-   $ERDirect.Links[0].AdminState = “Enabled”
+   $ERDirect.Links[0].AdminState = "Enabled"
    Set-AzExpressRoutePort -ExpressRoutePort $ERDirect
    $ERDirect = Get-AzExpressRoutePort -Name $Name -ResourceGroupName $ResourceGroupName
-   $ERDirect.Links[1].AdminState = “Enabled”
+   $ERDirect.Links[1].AdminState = "Enabled"
    Set-AzExpressRoutePort -ExpressRoutePort $ERDirect
    ```
    **Example output:**
@@ -215,7 +214,7 @@ ExpressRoute Direct gives you the ability to connect directly into Microsoft’s
    Circuits                   : []
    ```
 
-   Use the same procedure with `AdminState = “Disabled”` to turn down the ports.
+   Use the same procedure with `AdminState = "Disabled"` to turn down the ports.
 
 ## <a name="circuit"></a>Create a circuit
 
@@ -223,7 +222,9 @@ By default, you can create 10 circuits in the subscription where the ExpressRout
 
 There are additional circuit bandwidths that can be utilized on ExpressRoute Direct only to support the scenarios outlined above. These are: 40Gbps and 100Gbps.
 
-Standard or premium circuits can be created. Standard circuits are included in the cost, while premium circuits have a cost based on the bandwidth selected. Circuits can only be created as metered, as unlimited is not supported on ExpressRoute Direct.
+**SkuTier** can be Local, Standard or Premium.
+
+**SkuFamily** must be MeteredData only as unlimited is not supported on ExpressRoute Direct.
 
 Create a circuit on the ExpressRoute Direct resource.
 

@@ -24,6 +24,8 @@ ms.author: willzhan
 
 - Microsoft PlayReady
 - Google Widevine
+    
+    Widevine is a service provided by Google Inc. and subject to the terms of service and Privacy Policy of Google, Inc.
 - Apple FairPlay
 - AES-128 encryption
 
@@ -36,6 +38,9 @@ Besides protecting content for online streaming over various streaming protocols
 * In some countries/regions, internet availability and/or bandwidth is still limited. Users might choose to download first to be able to watch content in a resolution that is high enough for a satisfactory viewing experience. In this case, the issue typically isn't network availability but limited network bandwidth. Over-the-top (OTT)/online video platform (OVP) providers request offline-mode support.
 
 This article covers FairPlay Streaming (FPS) offline-mode support that targets devices running iOS 10 or later. This feature isn't supported for other Apple platforms, such as watchOS, tvOS, or Safari on macOS.
+
+> [!NOTE]
+> Offline DRM is only billed for making a single request for a license when you download the content. Any errors are not billed.
 
 ## Prerequisites
 

@@ -1,19 +1,18 @@
 ---
-title: Migrate event data to SQL Data Warehouse - Azure Event Hubs | Microsoft Docs
+title: 'Tutorial: Migrate event data to SQL Data Warehouse - Azure Event Hubs'
 # event-hubs-tutorial-visualize-anomalies.md
-description: This tutorial shows you how to capture data from your event hub into a SQL data warehouse by using an Azure function triggered by an event grid. 
+description: 'Tutorial: This tutorial shows you how to capture data from your event hub into a SQL data warehouse by using an Azure function triggered by an event grid.' 
 services: event-hubs
 author: ShubhaVijayasarathy
 manager: 
 ms.author: shvija
 ms.custom: seodec18
-ms.date: 12/06/2018
+ms.date: 11/05/2019
 ms.topic: tutorial
 ms.service: event-hubs
 ---
 
-
-# Migrate captured Event Hubs data to a SQL Data Warehouse using Event Grid and Azure Functions
+# Tutorial: Migrate captured Event Hubs data to a SQL Data Warehouse using Event Grid and Azure Functions
 
 Event Hubs [Capture](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview) is the easiest way to automatically deliver streamed data in Event Hubs to an Azure Blob storage or Azure Data Lake store. You can subsequently process and deliver the data to any other storage destinations of your choice, such as SQL Data Warehouse or Cosmos DB. In this tutorial, you learn how you to capture data from your event hub into a SQL data warehouse by using an Azure function triggered by an [event grid](https://docs.microsoft.com/azure/event-grid/overview).
 
@@ -36,7 +35,7 @@ In this tutorial, you do the following actions:
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-- [Visual studio 2017 Version 15.3.2 or greater](https://www.visualstudio.com/vs/). While installing, ensure that you install the following workloads: .NET desktop development, Azure development, ASP.NET and web development, Node.js development, Python development
+- [Visual studio 2019](https://www.visualstudio.com/vs/). While installing, ensure that you install the following workloads: .NET desktop development, Azure development, ASP.NET and web development, Node.js development, Python development
 - Download the [Git sample](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo). The sample solution contains the following components:
     - *WindTurbineDataGenerator* – A simple publisher that sends sample wind turbine data to a Capture-enabled event hub
     - *FunctionDWDumper* – An Azure Function that receives an Event Grid notification when an Avro file is captured to the Azure Storage blob. It receives the blob’s URI path, reads its contents, and pushes this data to a SQL Data Warehouse.
@@ -103,7 +102,7 @@ WITH (CLUSTERED COLUMNSTORE INDEX, DISTRIBUTION = ROUND_ROBIN);
 
 ## Publish code to the Functions App
 
-1. Open the solution *EventHubsCaptureEventGridDemo.sln* in Visual Studio 2017 (15.3.2 or greater). 
+1. Open the solution *EventHubsCaptureEventGridDemo.sln* in Visual Studio 2019.
 
 1. In Solution Explorer, right-click *FunctionEGDWDumper*, and select **Publish**.
 

@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 03/04/2019
+ms.date: 11/11/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect find a Virtual WAN partner
 ---
@@ -34,6 +34,8 @@ Some connectivity partners may extend the automation to include creating the Azu
 ## <a name="partners"></a>Connectivity through partners
 
 [!INCLUDE [partners](../../includes/virtual-wan-partners-include.md)]
+
+The following partners are slated on our roadmap for the near future: Arista, Aruba HPE, Cisco Systems, F5 Networks, Open Systems, and VMWare Velocloud.
 
 ## <a name="locations"></a>Locations
 

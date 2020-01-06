@@ -1,20 +1,17 @@
 ---
-title: Build an AngularJS single-page app for sign-in and sign out with Azure Active Directory | Microsoft Docs
-description: Learn how to build an AngularJS single-page application that integrates with Azure AD for sign-in and calls Azure AD-protected APIs by using OAuth.
+title: Build an Azure AD AngularJS single-page app for sign in/sign out | Microsoft Docs
+description: Learn how to build an AngularJS single-page app that integrates Azure AD for sign-in & sign-out & calls Azure AD-protected APIs using OAuth.
 services: active-directory
-documentationcenter: ''
 author: rwike77
 manager: CelesteDG
-editor: ''
 
 ms.assetid: f2991054-8146-4718-a5f7-59b892230ad7
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: quickstart
-ms.date: 09/24/2018
+ms.date: 10/25/2019
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
@@ -25,6 +22,11 @@ ms.collection: M365-identity-device-management
 # Quickstart: Build an AngularJS single-page app for sign-in and sign out with Azure Active Directory
 
 [!INCLUDE [active-directory-develop-applies-v1-adal](../../../includes/active-directory-develop-applies-v1-adal.md)]
+
+> [!IMPORTANT]
+> [Microsoft identity platform](v2-overview.md) is an evolution of the Azure Active Directory (Azure AD) developer platform. It allows developers to build applications that sign in all Microsoft identities and get tokens to call Microsoft APIs such as Microsoft Graph or APIs that developers have built.
+> If you need to enable sign-in for personal accounts in addition to work and school accounts, you can use the *[Microsoft identity platform endpoint](azure-ad-endpoint-comparison.md)*.
+> This quickstart is for the older, Azure AD v1.0 endpoint. We recommend that you use the v2.0 endpoint for new projects. For more info, see [this JavaScript SPA tutorial](tutorial-v2-javascript-spa.md) as well as [this article](active-directory-v2-limitations.md) explaining the *Microsoft identity platform endpoint*.
 
 Azure Active Directory (Azure AD) makes it simple and straightforward for you to add sign-in, sign-out, and secure OAuth API calls to your single-page apps. It enables your apps to authenticate users with their Windows Server Active Directory accounts and consume any web API that Azure AD helps protect, such as the Office 365 APIs or the Azure API.
 
@@ -43,9 +45,6 @@ To build the complete, working application, you'll need to:
 2. Install ADAL and configure the single-page app.
 3. Use ADAL to help secure pages in the single-page app.
 
-> [!NOTE]
-> If you need to enable sign-ins for personal accounts in addition to work and school accounts, you can use the *[Microsoft identity platform endpoint](azure-ad-endpoint-comparison.md)*. For more info, see [this JavaScript SPA tutorial](tutorial-v2-javascript-spa.md) as well as [this article](active-directory-v2-limitations.md) explaining the *Microsoft identity platform endpoint*. 
-
 ## Prerequisites
 
 To get started, complete these prerequisites:
@@ -60,20 +59,15 @@ To enable your app to authenticate users and get tokens, you first need to regis
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. If you are signed in to multiple directories, you may need to ensure you are viewing the correct directory. To do so, on the top bar, click your account. Under the **Directory** list, choose the Azure AD tenant where you want to register your application.
 1. Click **All services** in the left pane, and then select **Azure Active Directory**.
-1. Click **App registrations**, and then select **Add**.
-1. Follow the prompts and create a new web application and/or web API:
-
-    * **Name** describes your application to users.
-    * **Sign-on URL** is the location to which Azure AD will return tokens. The default location for this sample is `https://localhost:44326/`.
-
-1. After you finish registration, Azure AD assigns a unique application ID to your app. You'll need this value in the next sections, so copy it from the application tab.
-1. Adal.js uses the OAuth implicit flow to communicate with Azure AD. You must enable the implicit flow for your application:
-
-    1. Click the application and select **Manifest** to open the inline manifest editor.
-    1. Locate the `oauth2AllowImplicitFlow` property. Set its value to `true`.
-    1. Click **Save** to save the manifest.
-
-1. Grant permissions across your tenant for your application. Go to **Settings > Required permissions**, and select the **Grant permissions** button on the top bar.
+1. Click **App registrations**, and then select **New registration**.
+1. When the **Register an application** page appears, enter a name for your application.
+1. Under **Supported account types**, select **Accounts in any organizational directory and personal Microsoft accounts**.
+1. Select the **Web** platform under the **Redirect URI** section and set the value to `https://localhost:44326/` (the location to which Azure AD will return tokens).
+1. When finished, select **Register**. On the app **Overview** page, note down the **Application (client) ID** value.
+1. Adal.js uses the OAuth implicit flow to communicate with Azure AD. You must enable the implicit flow for your application. In the left-hand navigation pane of the registered application, select **Authentication**.
+1. In **Advanced settings**, under **Implicit grant**, enable both **ID tokens** and **Access tokens** checkboxes. ID tokens and access tokens are required since this app needs to sign in users and call an API.
+1. Select **Save**.
+1. Grant permissions across your tenant for your application. Go to **API permissions**, and select the **Grant admin consent** button under **Grant consent**.
 1. Select **Yes** to confirm.
 
 ## Step 2: Install ADAL and configure the single-page app

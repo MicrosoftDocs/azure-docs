@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: conceptual
-ms.date: 4/05/2019
+ms.date: 4/26/2019
 ms.author: scottwhi
 ---
 
@@ -60,7 +60,7 @@ For examples that use the insights token, see [C#](#use-with-c) | [Java](#use-wi
 
 ### C# prerequisites
 
-- Any version of [Visual Studio 2017](https://www.visualstudio.com/downloads/) to get this code running on Windows.
+- Any version of [Visual Studio 2019](https://www.visualstudio.com/downloads/) to get this code running on Windows.
 - An Azure subscription. For this quickstart, you can use a [free trial](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) subscription key or a paid subscription key.
 
 ## Run the application
@@ -430,7 +430,8 @@ To run this application, follow these steps:
 # Run the following in a command console window
 # pip3 install requests
 
-import requests, json
+import requests
+import json
 
 BASE_URI = 'https://api.cognitive.microsoft.com/bing/v7.0/images/visualsearch'
 
@@ -445,10 +446,11 @@ insightsToken = 'ccid_tmaGQ2eU*mid_D12339146CFEDF3D409CC7A66D2C98D0D71904D4*simi
 formData = '{"imageInfo":{"imageInsightsToken":"' + insightsToken + '"}}'
 
 
-file = {'knowledgeRequest' : (None, formData)}
+file = {'knowledgeRequest': (None, formData)}
+
 
 def main():
-    
+
     try:
         response = requests.post(BASE_URI, headers=HEADERS, files=file)
         response.raise_for_status()
@@ -461,7 +463,6 @@ def main():
 def print_json(obj):
     """Print the object as json"""
     print(json.dumps(obj, sort_keys=True, indent=2, separators=(',', ': ')))
-
 
 
 # Main execution

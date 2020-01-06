@@ -1,6 +1,6 @@
 ---
 title: Use the Video Indexer API to customize a Person model - Azure  
-titlesuffix: Azure Media Services
+titleSuffix: Azure Media Services
 description: This article shows how to customize a Person model with the Video Indexer API.
 services: media-services
 author: anikaz
@@ -9,7 +9,7 @@ manager: johndeu
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 05/15/2019
 ms.author: anzaman
 ---
 

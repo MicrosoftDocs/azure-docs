@@ -1,18 +1,13 @@
 ---
 title: Managing the Azure Log Analytics Agent | Microsoft Docs
 description: This article describes the different management tasks that you will typically perform during the lifecycle of the Log Analytics Windows or Linux agent deployed on a machine.
-services: log-analytics
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: 
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service:  azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 04/23/2019
-ms.author: magoedte
+author: bwren
+ms.author: bwren
+ms.date: 06/14/2019
+
 ---
 
 # Managing and maintaining the Log Analytics agent for Windows and Linux
@@ -295,4 +290,6 @@ Perform the following steps to configure the Log Analytics agent for Linux to re
 
 ## Next steps
 
-Review [Troubleshooting the Linux agent](agent-linux-troubleshoot.md) if you encounter issues while installing or managing the agent.
+- Review [Troubleshooting the Linux agent](agent-linux-troubleshoot.md) if you encounter issues while installing or managing the Linux agent.
+
+- Review [Troubleshooting the Windows agent](agent-windows-troubleshoot.md) if you encounter issues while installing or managing the Windows agent.

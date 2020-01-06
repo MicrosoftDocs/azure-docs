@@ -1,6 +1,6 @@
 ---
-title: Create, publish, answer 
-titleSuffix: QnA Maker - Azure Cognitive Services 
+title: "Tutorial: Create, publish, answer - QnA Maker"
+titleSuffix: Azure Cognitive Services 
 description: This REST-based tutorial walks you through programmatically creating and publishing a knowledge base, then answering a question from the knowledge base.
 services: cognitive-services
 author: diberry
@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: tutorial
-ms.date: 01/24/2019
+ms.date: 10/12/2019
 ms.author: diberry
 #Customer intent: As an API or REST developer new to the QnA Maker service, I want to understand all the programming requirements to create a knowledge base and generate an answer from that knowledge base. 
 ---
@@ -26,18 +26,18 @@ This tutorial walks you through programmatically creating and publishing a knowl
 > * Use Curl to query the knowledge base
 
 
-This quickstart calls QnA Maker APIs:
+This quickstart calls QnA Maker REST APIs:
 
-* [Create Knowledge base (kb)](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff)
-* [Get Operation Details](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/operations_getoperationdetails)
-* [Get Knowledge base details](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_getknowledgebasedetails) 
-* [Get Knowledge base endpoints](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/endpointkeys_getendpointkeys)
-* [Publish](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fe) 
+* [Create Knowledge base (kb)](https://go.microsoft.com/fwlink/?linkid=2092179)
+* [Get Operation Details](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/operations/getdetails)
+* [Get Knowledge base details](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/getdetails) 
+* [Get Knowledge base endpoints](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/endpointkeys/getkeys)
+* [Publish](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/publish) 
 
 ## Prerequisites
 
 * Latest [**Visual Studio Community edition**](https://www.visualstudio.com/downloads/).
-* You must have a [QnA Maker service](../How-To/set-up-qnamaker-service-azure.md). To retrieve your key, select **Keys** under **Resource Management** in your dashboard. 
+* You must have a [QnA Maker service](../How-To/set-up-qnamaker-service-azure.md). To retrieve your key and resource name, select **Quickstart** in the Azure portal for your QnA Maker resource. 
 
 > [!NOTE] 
 > The complete solution file(s) are available from the [**Azure-Samples/cognitive-services-qnamaker-csharp** GitHub repository](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp/tree/master/documentation-samples/tutorials/create-publish-answer-knowledge-base).
@@ -142,13 +142,13 @@ The API call returns a 204 status for a successful publish without any content i
 For any other response, that response is returned unaltered.
 
 ## Generating an answer
-In order to access the KB to send a question and receive the best answer, the program needs the _endpoint host_ from the KB details API and the _primary endpoint key_ from the Endpoints API. Those methods are in the following sections along with the method to generate an answer. 
+In order to access the KB to send a question and receive the best answer, the program needs the _resource name_ from the KB details API and the _primary endpoint key_ from the Endpoints API. Those methods are in the following sections along with the method to generate an answer. 
 
 The following table illustrates how the data is used to construct the URI:
 
 |Generate answer URI template|
 |--|
-|https://**HOSTNAME**.azurewebsites.net/qnamaker/knowledgebases/**KBID**/generateAnswer|
+|https://**your-resource-name**.azurewebsites.net/qnamaker/knowledgebases/**KBID**/generateAnswer|
 
 The _primary endpoint_ is passed as a header to authenticate the request to generate an answer:
 
@@ -165,7 +165,7 @@ The body of the request needs to pass the proper JSON:
 ```
 
 ## Get KB details
-Add the following method to get the KB details. These details contain the host name of the KB. The host name is the name of the QnA Maker azure web service you entered when creating the QnA Maker resource. 
+Add the following method to get the KB details. These details contain the resource name of the KB, known as `hostName` in the following JSON. The resource name is the name of the QnA Maker resource you entered when creating the QnA Maker resource. 
 
 [!code-csharp[Get KB Details](~/samples-qnamaker-csharp/documentation-samples/tutorials/create-publish-answer-knowledge-base/QnaMakerQuickstart/Program.cs?range=260-273 "Add publish method")]
 
@@ -211,6 +211,13 @@ Add the following method to get an answer to the user's question.
 
 [!code-csharp[Get Answer](~/samples-qnamaker-csharp/documentation-samples/tutorials/create-publish-answer-knowledge-base/QnaMakerQuickstart/Program.cs?range=290-315 "Get Answer")]
 
+If you want to limit the response to just questions, add the `[rankerType](Learn more about [rankerType](../concepts/best-practices.md#choosing-ranker-type).
+)` property to the body, for example: 
+
+```csharp
+request.Content = new StringContent("{question:'" + question + "', rankerType:'QuestionOnly'}", Encoding.UTF8, "application/json"); 
+```
+
 This API call returns a JSON response: 
 
 ```JSON
@@ -244,4 +251,4 @@ Once your knowledge base is created, you can view it in your QnA Maker Portal, [
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [QnA Maker (V4) REST API Reference](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff)
+> [QnA Maker (V4) REST API Reference](https://go.microsoft.com/fwlink/?linkid=2092179)

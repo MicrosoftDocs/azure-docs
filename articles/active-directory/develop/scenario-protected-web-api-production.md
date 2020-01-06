@@ -1,5 +1,6 @@
 ---
-title: Protected Web API - move to production | Azure
+title: Move a protected Web API to production | Azure
+titleSuffix: Microsoft identity platform
 description: Learn how to build a protected Web API (move to production).
 services: active-directory
 documentationcenter: dev-center-name
@@ -32,10 +33,15 @@ Learn how to call downstream APIs:
 > [!div class="nextstepaction"]
 > [Scenario - Web API calls downstream APIS](scenario-web-api-call-api-overview.md)
 
+
 Learn more with tutorials and samples:
 
-> [!div class="nextstepaction"]
-> [ASP.NET Core Web API Tutorial](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2)
 
 > [!div class="nextstepaction"]
-> [ASP.NET Web API sample](https://github.com/azureadquickstarts/appmodelv2-nativeclient-dotnet)
+> [Calling a protected API using Daemon](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/tree/master/2-Call-OwnApi)
+
+> [!div class="nextstepaction"]
+> [ASP.NET Core web API Tutorial](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2)
+
+> [!div class="nextstepaction"]
+> [ASP.NET web API sample](https://github.com/azureadquickstarts/appmodelv2-nativeclient-dotnet)

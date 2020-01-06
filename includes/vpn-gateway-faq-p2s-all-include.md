@@ -5,7 +5,7 @@
  author: cherylmc
  ms.service: vpn-gateway
  ms.topic: include
- ms.date: 01/18/2019
+ ms.date: 12/17/2019
  ms.author: cherylmc
  ms.custom: include file
 ---
@@ -30,13 +30,21 @@ The following client operating systems are supported:
 
 [!INCLUDE [TLS](vpn-gateway-tls-updates.md)]
 
+### What should I do if I am getting a certificate mismatch when connecting?
+
+Un-check **"Verify the server's identity by validating the certificate"** or **add the server FQDN along with the certificate** when creating a profile manually. You can do this by running **rasphone** from a command prompt and picking the profile from the drop down list.
+
+![point-to-site](./media/vpn-gateway-faq-p2s-all-include/servercert.png "Server Certificate")
+
 ### Can I traverse proxies and firewalls using Point-to-Site capability?
 
-Azure supports two types of Point-to-site VPN options:
+Azure supports three types of Point-to-site VPN options:
 
-* Secure Socket Tunneling Protocol (SSTP). SSTP is a Microsoft proprietary SSL-based solution that can penetrate firewalls since most firewalls open the TCP port that 443 SSL uses.
+* Secure Socket Tunneling Protocol (SSTP). SSTP is a Microsoft proprietary SSL-based solution that can penetrate firewalls since most firewalls open the outbound TCP port that 443 SSL uses.
 
-* IKEv2 VPN. IKEv2 VPN is a standards-based IPsec VPN solution that uses UDP port 500 and 4500 and IP protocol no. 50. Firewalls do not always open these ports, so there is a possibility of IKEv2 VPN not being able to traverse proxies and firewalls.
+* OpenVPN. OpenVPN is a SSL-based solution that can penetrate firewalls since most firewalls open the outbound TCP port that 443 SSL uses.
+
+* IKEv2 VPN. IKEv2 VPN is a standards-based IPsec VPN solution that uses outbound UDP ports 500 and 4500 and IP protocol no. 50. Firewalls do not always open these ports, so there is a possibility of IKEv2 VPN not being able to traverse proxies and firewalls.
 
 ### If I restart a client computer configured for Point-to-Site, will the VPN automatically reconnect?
 
@@ -60,7 +68,7 @@ It's difficult to maintain the exact throughput of the VPN tunnels. IPsec and SS
 
 ### Can I use any software VPN client for Point-to-Site that supports SSTP and/or IKEv2?
 
-No. You can only use the native VPN client on Windows for SSTP, and the native VPN client on Mac for IKEv2. Refer to the list of supported client operating systems.
+No. You can only use the native VPN client on Windows for SSTP, and the native VPN client on Mac for IKEv2. However, you can use the OpenVPN client on all platforms to connect over OpenVPN protocol. Refer to the list of supported client operating systems.
 
 ### Does Azure support IKEv2 VPN with Windows?
 

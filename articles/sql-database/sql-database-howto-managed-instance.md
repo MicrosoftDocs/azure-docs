@@ -1,5 +1,5 @@
 ---
-title: How to configure an Azure SQL Database managed instance | Microsoft Docs
+title: How to configure a managed instance
 description: Learn how to configure and manage Azure SQL Database managed instance.
 services: sql-database
 ms.service: sql-database
@@ -10,7 +10,6 @@ ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlr
-manager: craigg
 ms.date: 04/16/2019
 ---
 # How to use a managed instance in Azure SQL Database

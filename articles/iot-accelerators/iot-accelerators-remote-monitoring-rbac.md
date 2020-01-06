@@ -88,11 +88,11 @@ The following steps describe how to add a role to an application in Azure Active
 
 1. Find the **App registration** for your solution in the Azure portal. The application name is the name of your Remote Monitoring solution. In the following screenshot, the solution and application display names are **contoso-rm4**.
 
-    ![App registration](media/iot-accelerators-remote-monitoring-rbac/appregistration2.png)
+    ![App registration](media/iot-accelerators-remote-monitoring-rbac/app-registration-2.png)
 
 1. Select your application and then click **Manifest**. You can see the two existing [app roles](https://docs.microsoft.com/azure/architecture/multitenant-identity/app-roles) defined for the application:
 
-    ![View manifest](media/iot-accelerators-remote-monitoring-rbac/viewmanifest.png)
+    ![View manifest](media/iot-accelerators-remote-monitoring-rbac/view-manifest.png)
 
 1. Edit the manifest to add a role called **ManageDevices** as shown in the following snippet. You need a unique string such as a GUID for the new role ID. You can generate a new GUID using a service such as the [Online GUID Generator](https://www.guidgenerator.com/):
 

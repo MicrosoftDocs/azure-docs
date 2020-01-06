@@ -244,7 +244,7 @@ To enable Azure AD users to sign in to Kintone, they must be provisioned into Ki
     b. Click **Save**.
 
 > [!NOTE]
-> You can use any other Kintone user account creation tools or APIs provided by Kintone to provision AAD user accounts.
+> You can use any other Kintone user account creation tools or APIs provided by Kintone to provision Azure AD user accounts.
 
 ### Test single sign-on
 
@@ -258,4 +258,4 @@ When you click the Kintone tile in the Access Panel, you should be automatically
 
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

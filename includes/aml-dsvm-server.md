@@ -11,11 +11,11 @@ ms.topic: "include"
 ms.date: 01/25/2019
 ---
 
-1. [Create an Azure Machine Learning service workspace](../articles/machine-learning/service/setup-create-workspace.md).
+1. [Create an Azure Machine Learning workspace](../articles/machine-learning/how-to-manage-workspace.md).
 
 1. Clone [the GitHub repository](https://aka.ms/aml-notebooks).
 
-    ```
+    ```CLI
     git clone https://github.com/Azure/MachineLearningNotebooks.git
     ```
 
@@ -27,9 +27,8 @@ ms.date: 01/25/2019
 
     * Create a new workspace using code in the [configuration.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/configuration.ipynb) notebook in your cloned directory.
 
-
 1. Start the notebook server from your cloned directory.
-    
+
     ```shell
     jupyter notebook
     ```

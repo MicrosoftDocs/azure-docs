@@ -1,18 +1,13 @@
 ---
-title: Network Performance Monitor solution in Azure Log Analytics | Microsoft Docs
+title: Network Performance Monitor solution Service Connectivity - Azure Log Analytics
 description: Use the Service Connectivity Monitor capability in Network Performance Monitor to monitor network connectivity to any endpoint that has an open TCP port.
-services: log-analytics
-documentationcenter: ''
-author: abshamsft
-manager: carmonm
-editor: ''
-ms.assetid: 5b9c9c83-3435-488c-b4f6-7653003ae18a
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service:  azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
+author: abshamsft
+ms.author: absha
 ms.date: 02/20/2018
-ms.author: abshamsft
+
 ---
 
 # Service Connectivity Monitor
@@ -124,7 +119,7 @@ If you observe an abnormality, follow these steps:
 * If the application is running slow, determine whether poor application performance is because of the network or an issue on the application provider's end.
 
 ## GCC Office URLs for US Government customers
-For US Government Virginia region, only DOD URLs are built-in NPM. Customers using GCC URLs need to create custom tests and add each URL inidividually.
+For US Government Virginia region, only DOD URLs are built-in NPM. Customers using GCC URLs need to create custom tests and add each URL individually.
 
 | Field | GCC |
 |:---   |:--- |

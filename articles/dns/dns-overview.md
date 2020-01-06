@@ -1,12 +1,12 @@
 ---
 title: What is Azure DNS?
 description: Overview of DNS hosting service on Microsoft Azure. Host your domain on Microsoft Azure.
-author: vhorne
+author: asudbring
 ms.service: dns
 ms.topic: overview
 ms.date: 3/21/2019
-ms.author: victorh
-#As an administrator, I want to evaluate Azure DNS so I can determine if I want to use it instead of my current DNS service.
+ms.author: allensu
+#Customer intent: As an administrator, I want to evaluate Azure DNS so I can determine if I want to use it instead of my current DNS service.
 ---
 
 # What is Azure DNS?
@@ -35,7 +35,7 @@ For more information, see [How to protect DNS zones and records](dns-protect-zon
 
 ## DNSSEC
 
-Azure DNS does not currently support DNSSEC. In most cases, you can reduce the need for DNSSEC by consistently using HTTPS/TLS in you applications. If DNSSEC is a critical requirement for your DNS zones, you can host these zones with third party DNS hosting providers.
+Azure DNS does not currently support DNSSEC. In most cases, you can reduce the need for DNSSEC by consistently using HTTPS/TLS in your applications. If DNSSEC is a critical requirement for your DNS zones, you can host these zones with third party DNS hosting providers.
 
 ## Ease of use
 
@@ -47,7 +47,7 @@ Your domains and records can be managed by using the Azure portal, Azure PowerSh
 
 ## Customizable virtual networks with private domains
 
-Azure DNS also supports private DNS domains with a feature that's now in public preview. This feature allows you to use your own custom domain names in your private virtual networks rather than the Azure-provided names available today.
+Azure DNS also supports private DNS domains. This feature allows you to use your own custom domain names in your private virtual networks rather than the Azure-provided names available today.
 
 For more information, see [Use Azure DNS for private domains](private-dns-overview.md).
 

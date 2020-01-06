@@ -1,20 +1,20 @@
 ---
-title: Migrate from Enterprise Agreement to Microsoft Customer Agreement APIs - Azure | Microsoft Docs
+title: Migrate EA to Microsoft Customer Agreement APIs - Azure
 description: This article helps you understand the consequences of migrating a Microsoft Enterprise Agreement (EA) to a Microsoft Customer Agreement.
 services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 03/20/2019
+ms.date: 11/25/2019
 ms.topic: conceptual
-ms.service: cost-management
+ms.service: cost-management-billing
 manager: micflan
 ms.custom:
 ---
 
 # Migrate from Enterprise Agreement to Microsoft Customer Agreement APIs
 
-This article helps you understand the data structure, API, and other system integration differences between Enterprise Agreement (EA) and Microsoft Customer Agreement (MCA) accounts. Azure Cost Management supports APIs for both account types. Review the [Setup billing account for](../billing/billing-mca-setup-account.md) Microsoft Customer Agreement article before continuing.
+This article helps you understand the data structure, API, and other system integration differences between Enterprise Agreement (EA) and Microsoft Customer Agreement (MCA) accounts. Azure Cost Management supports APIs for both account types. Review the [Setup billing account for](../billing/mca-setup-account.md) Microsoft Customer Agreement article before continuing.
 
 Organizations with an existing EA account should review this article in conjunction with setting up an MCA account. Previously, renewing an EA account required some minimal work to move from an old enrollment to a new one. However, migrating to an MCA account requires additional effort. Additional effort is because of changes in the underlying billing subsystem, which affect all cost-related APIs and service offerings.
 
@@ -55,7 +55,7 @@ EA APIs use an API key for authentication and authorization. MCA APIs use Azure 
 | Price sheet | [/pricesheet](/rest/api/billing/enterprise/billing-enterprise-api-pricesheet) | Microsoft.Billing/billingAccounts/billingProfiles/pricesheet/default/download format=json|csv Microsoft.Billing/billingAccounts/…/billingProfiles/…/invoices/… /pricesheet/default/download format=json|csv Microsoft.Billing/billingAccounts/../billingProfiles/../providers/Microsoft.Consumption/pricesheets/download  |
 | Reservation purchases | [/reservationcharges](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-charges) | Microsoft.Billing/billingAccounts/billingProfiles/transactions |
 | Reservation recommendations | [/SharedReservationRecommendations](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation#request-for-shared-reserved-instance-recommendations)[/](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation#request-for-single-reserved-instance-recommendations)[SingleReservationRecommendations](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation#request-for-single-reserved-instance-recommendations) | [Microsoft.Consumption/reservationRecommendations](/rest/api/consumption/reservationrecommendations/list) |
-| Reservation usage | [/reservationdetails](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage#request-for--reserved-instance-usage-details)[/reservationsummaries](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage) | [Microsoft.Consumption/reservationDetails](/rest/api/consumption/reservationsdetails)[Microsoft.Consumption/reservationSummaries](/rest/api/consumption/reservationssummaries) |
+| Reservation usage | [/reservationdetails](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage#request-for-reserved-instance-usage-details)[/reservationsummaries](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage) | [Microsoft.Consumption/reservationDetails](/rest/api/consumption/reservationsdetails)[Microsoft.Consumption/reservationSummaries](/rest/api/consumption/reservationssummaries) |
 
 <sup>1</sup> Azure service and third-party Marketplace usage are available with the [Usage Details API](/rest/api/consumption/usagedetails).
 
@@ -190,7 +190,7 @@ The property name containing the array of usage records changed from data to _va
 | MeterSubCategory | meterSubCategory | Exact string values might differ. |
 | Month | None | Parses month from date. |
 | Offer Name | None | Use publisherName and productOrderName. |
-| OfferId | None | &nbsp;  |
+| OfferID | None | &nbsp;  |
 | Order Number | None | &nbsp;  |
 | PartNumber | None | Use meterId and productOrderName to uniquely identify prices. |
 | Plan Name | productOrderName | &nbsp;  |
@@ -347,15 +347,15 @@ Make another GET call to the location. The response to the GET call is the same 
 ```
 HTTP Status 200
 
-                                    {
-                            “id”: “providers/Microsoft.Consumption/operationresults/{operationId}”,
-                            “name”: {operationId},
-                           “type”: “Microsoft.Consumption/operationResults”,
-                           “properties” : {
-                                  “downloadUrl”: {urltoblob},
-                                  “vaildTill”: “Date”
+{
+  "id": "providers/Microsoft.Consumption/operationresults/{operationId}",
+  "name": {operationId},
+  "type": “Microsoft.Consumption/operationResults",
+  "properties" : {
+    "downloadUrl": {urltoblob},
+    "validTill": "Date"
+  }
 }
-                     }
 ```
 
 The client can also make a GET call for the `Azure-AsyncOperation`. The endpoint returns the status for the operation.
@@ -368,10 +368,10 @@ The following table shows fields in the older Enterprise Get price sheet API. It
 | meterId  | meterId | &nbsp;  |
 | unitOfMeasure  | unitOfMeasure | Exact string values might differ. |
 | includedQuantity  | includedQuantity | Not applicable for services in Microsoft Customer Agreements. |
-| partNumber  | _Not applicable_ | Instead, use a combination of productOrderName (same as offerId) and meterid. |
+| partNumber  | _Not applicable_ | Instead, use a combination of productOrderName (same as offerID) and meterID. |
 | unitPrice  | unitPrice | Unit price is applicable for services consumed in Microsoft Customer Agreements. |
 | currencyCode  | pricingCurrency | Microsoft Customer Agreements have price representations in pricing currency and billing currency. The currencyCode corresponds to the pricingCurrency in Microsoft Customer Agreements. |
-| offerId | productOrderName | Instead of OfferId, you can use productOrderName but isn't the same as OfferId. However, productOrderName and meter determine pricing in Microsoft Customer Agreements related to meterId and Offerid in legacy enrollments. |
+| offerID | productOrderName | Instead of OfferID, you can use productOrderName but isn't the same as OfferID. However, productOrderName and meter determine pricing in Microsoft Customer Agreements related to meterId and OfferID in legacy enrollments. |
 
 ## Consumption Price Sheet API operations
 
@@ -425,24 +425,24 @@ The older properties for [Azure Resource Manager Price Sheet APIs](/rest/api/con
 
 | Old Azure Resource Manager Price Sheet API Property  | New Microsoft Customer Agreement Price Sheet API property   | Description |
 | --- | --- | --- |
-| Meter ID | _meterId_ | Unique identifier for the meter. Same as meterId. |
+| Meter ID | _meterId_ | Unique identifier for the meter. Same as meterID. |
 | Meter name | meterName | Name of the meter. Meter represents the Azure service deployable resource. |
 | Meter category  | service | Name of the classification category for the meter. Same as the service in the Microsoft Customer Agreement Price Sheet. Exact string values differ. |
 | Meter subcategory | meterSubCategory | Name of the meter subclassification category. Based on the classification of high-level feature set differentiation in the service. For example, Basic SQL DB vs Standard SQL DB. |
 | Meter region | meterRegion | &nbsp;  |
 | Unit | _Not applicable_ | Can be parsed from unitOfMeasure. |
 | Unit of measure | unitOfMeasure | &nbsp;  |
-| Part number | _Not applicable_ | Instead of partNumber, use productOrderName and MeterId to uniquely identify the price for a billing profile. Fields are listed on the MCA invoice instead of the partNumber in MCA invoices. |
+| Part number | _Not applicable_ | Instead of part number, use productOrderName and MeterID to uniquely identify the price for a billing profile. Fields are listed on the MCA invoice instead of the part number in MCA invoices. |
 | Unit price | unitPrice | Microsoft Customer Agreement unit price. |
 | Currency code | pricingCurrency | Microsoft Customer Agreements represent prices in pricing currency and billing currency. Currency code is the same as the pricingCurrency in Microsoft Customer Agreements. |
 | Included quantity | includedQuantity | Not applicable to services in Microsoft Customer Agreements. Show with values of zero. |
-|  Offer Id  | productOrderName | Instead of OfferId, use productOrderName. Not the same as OfferId, however the productOrderName and meter determine pricing in Microsoft Customer Agreements. Related to meterId and Offerid in legacy enrollments. |
+|  Offer ID  | productOrderName | Instead of OfferID, use productOrderName. Not the same as OfferID, however the productOrderName and meter determine pricing in Microsoft Customer Agreements. Related to meterId and OfferID in legacy enrollments. |
 
-The price for Microsoft Customer Agreements is defined differently than Enterprise agreements. The price for services in the Enterprise enrollment is unique for product, PartNumber, meter, and offer. The PartNumber isn't used in Microsoft Customer Agreements.
+The price for Microsoft Customer Agreements is defined differently than Enterprise agreements. The price for services in the Enterprise enrollment is unique for product, part number, meter, and offer. The part number isn't used in Microsoft Customer Agreements.
 
-The Azure Consumption service price that's part of a Microsoft Customer Agreement is unique for productOrderName and meterId. They represent the service meter and the product plan.
+The Azure Consumption service price that's part of a Microsoft Customer Agreement is unique for productOrderName and meterID. They represent the service meter and the product plan.
 
-To reconcile between the price sheet and the usage in the Usage Details API, you can use the productOrderName and meterId.
+To reconcile between the price sheet and the usage in the Usage Details API, you can use the productOrderName and meterID.
 
 Users that have billing profile owner, contributor, reader, and invoice manager rights can download the price sheet.
 
@@ -455,12 +455,12 @@ The following fields are either not available in Microsoft Customer Agreement Pr
 |Retired field| Description|
 |---|---|
 | billingPeriodId | No applicable. Corresponds to InvoiceId for MCA. |
-| offerId | Not applicable. Corresponds to productOrderName in MCA. |
+| offerID | Not applicable. Corresponds to productOrderName in MCA. |
 | meterCategory  | Not applicable. Corresponds to Service in MCA. |
 | unit | Not applicable. Can be parsed from unitOfMeasure. |
 | currencyCode | Same as the pricingCurrency in MCA. |
 | meterLocation | Same as the meterRegion in MCA. |
-| partNumber partnumber | Not applicable because part number isn't listed in MCA invoices. Instead of partnumber, use the meterId and productOrderName combination to uniquely identify prices. |
+| partNumber partnumber | Not applicable because part number isn't listed in MCA invoices. Instead of part number, use the meterId and productOrderName combination to uniquely identify prices. |
 | totalIncludedQuantity | Not applicable. |
 | pretaxStandardRate  | Not applicable. |
 
@@ -495,7 +495,7 @@ You can get reservation usage in an enrollment with the Reserved Instance Usage 
 
 They include:
 
-- [Reserved Instance Usage Details](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage#request-for--reserved-instance-usage-details)
+- [Reserved Instance Usage Details](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage#request-for-reserved-instance-usage-details)
 - [Reserved Instance Usage Summary](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage)
 
 All Consumption APIs are replaced by native Azure APIs that use Azure AD for authentication and authorization. For more information about calling Azure REST APIs, see [Getting started with REST](/rest/api/azure/#create-the-request). The reservation recommendations APIs listed previously are replaced by the [Microsoft.Consumption/reservationDetails](/rest/api/consumption/reservationsdetails) and [Microsoft.Consumption/reservationSummaries](/rest/api/consumption/reservationssummaries) APIs.
@@ -527,18 +527,7 @@ With Azure Cost Management, you can:
 
 ## Power BI integration
 
-If you use Power BI for cost reporting, you need to transition to the following:
-
-- Microsoft Azure Consumption Insights Power BI app
-- Azure Consumption Insights desktop connector
-
-
-The connector is recommended for organizations wanting the most flexibility. However, the Power BI app is also available for quick set-up.
-
-- Install the [Microsoft Azure Consumption Insights Power BI app](https://appsource.microsoft.com/product/power-bi/pbi_azureconsumptioninsights.pbi-azure-consumptioninsights?tab=overview)
-- [Connect with the Azure Consumption Insights connector](/power-bi/desktop-connect-azure-consumption-insights)
-
-The older Consumption Insights content pack and connector worked at an enrollment level. It required at least read access. The new Consumption Insights Power BI app and the new Azure Consumption Insights connector are available for billing profile users. Teams that need additional options for reviewing costs or to view costs across billing profiles should use in [Cost analysis](https://ms.portal.azure.com/#blade/Microsoft_Azure_CostManagement/Menu/costanalysis) the Azure portal.
+You can also use Power BI for cost reporting. The [Azure Cost Management connector](/power-bi/desktop-connect-azure-cost-management) for Power BI Desktop can be used to create powerful, customized reports that help you better understand your Azure spend. The Azure Cost Management connector currently supports customers with either a Microsoft Customer Agreement or an Enterprise Agreement (EA).
 
 ## Next steps
 

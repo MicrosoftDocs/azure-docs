@@ -1,5 +1,5 @@
 ---
-title: Using the Azure CLI with Azure Storage | Microsoft Docs
+title: Using the Azure CLI with Azure Storage
 description: Learn how to use the Azure Command-Line Interface (Azure CLI) with Azure Storage to create and manage storage accounts and work with Azure blobs and files.
 services: storage
 author: tamram
@@ -20,6 +20,8 @@ The open-source, cross-platform Azure CLI provides a set of commands for working
 In this guide, we show you how to use the [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2) to perform several tasks working with resources in your Azure Storage account. We recommend that you download and install or upgrade to the latest version of the CLI before using this guide.
 
 The examples in the guide assume the use of the Bash shell on Ubuntu, but other platforms should perform similarly. 
+
+[!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
 [!INCLUDE [storage-cli-versions](../../../includes/storage-cli-versions.md)]
 
@@ -189,6 +191,8 @@ az storage account create \
   * `Standard_LRS`
   * `Standard_RAGRS`
   * `Standard_ZRS`
+  * `Standard_GZRS` (preview)
+  * `Standard_RAGZRS` (preview)
 
 ### Set default Azure storage account environment variables
 
@@ -319,6 +323,17 @@ To delete a blob, use the `blob delete` command:
 
 ```azurecli
 az storage blob delete --container-name <container_name> --name <blob_name>
+```
+
+### Set the content type
+
+The content type, also known as the MIME type, identifies the format of the data in the blob. Browsers and other software use the content type to determine how to process the data. For example, the content type for PNG images is `image/png`. To set the content type, use the `blob update` command:
+
+```azurecli
+az storage blob update
+    --container-name <container_name> 
+    --name <blob_name>
+    --content-type <content_type>
 ```
 
 ## Create and manage file shares

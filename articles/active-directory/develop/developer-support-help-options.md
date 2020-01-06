@@ -2,21 +2,17 @@
 title: Support and help options for Azure AD app developers | Microsoft Docs
 description: Know how to obtain help and support for development-related questions and problems when creating application that integrate with Microsoft identities (Azure Active Directory and Microsoft account)
 services: active-directory
-documentationcenter: dev-center-name
 author: rwike77
 manager: CelesteDG
-editor: ''
 
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.workload: identity
-ms.date: 02/14/2019
+ms.date: 05/23/2019
 ms.author: ryanwi
-ms.reviewer: jmprieur, dadobali
+ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ---
@@ -78,10 +74,10 @@ The following posts from Stack Overflow contain tips on how to ask questions and
 
 If you find a bug or problem related to our libraries, raise an issue in our GitHub repositories. Because our libraries are open source, you can also submit a pull request.
 
-To see a list of libraries and their GitHub repositories, see the following articles:
+For a list of libraries and their GitHub repositories, see the following:
 
 * [ADAL](active-directory-authentication-libraries.md) libraries and GitHub repositories
-* [MSAL](reference-v2-libraries.md) libraries and GitHub repositories
+* [MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) [MSAL.js](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angularjs/README.md), [MSAL.Android](https://github.com/AzureAD/microsoft-authentication-library-for-android), and [MSAL.obj_c](https://github.com/AzureAD/microsoft-authentication-library-for-objc) libraries and GitHub repositories
 
 ## Open a support request
 
@@ -92,9 +88,3 @@ If you need to talk to someone, you can open a support request. If you are an Az
 * If you are not an Azure customer, you can also open a support request with Microsoft via [our commercial support](https://support.microsoft.com/en-us/gp/contactus81?Audience=Commercial).
 
 You can also try a [virtual agent](https://support.microsoft.com/contactus/?ws=support) to obtain support or ask questions.
-
-### Free chat support for a limited time
-
-You can also use our chat support, which is free for Microsoft Partners for a limited time. If your company is not a Microsoft Partner, you can enroll it for free and obtain other benefits by going [here](https://partners.microsoft.com/PartnerProgram/simplifiedenrollment.aspx).
-
-After enrolling your company, you can start the chat request [here](https://aka.ms/devchat).

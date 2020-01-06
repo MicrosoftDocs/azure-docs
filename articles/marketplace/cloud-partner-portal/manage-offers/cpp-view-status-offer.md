@@ -4,6 +4,7 @@ description: View the status of offers on the Azure and AppSource Marketplaces u
 services: Azure, AppSource, Marketplace, Cloud Partner Portal, 
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 01/11/2019
 ms.author: pabutler
@@ -34,7 +35,7 @@ The next example **Status** tab for a consulting service, showing a reported err
 
 ![Status tab for consulting service showing error](./media/consulting-service-error.png)
 
-The final example status of an Azure application shows a critical Microsoft review issue.  It contains a hot link to the VSTS item that contains detailed information about this review issue.  For more information, see [Publish Azure application offer](cpp-publish-offer.md).
+The final example status of an Azure application shows a critical Microsoft review issue.  It contains a hot link to the Azure DevOps item that contains detailed information about this review issue.  For more information, see [Publish Azure application offer](cpp-publish-offer.md).
 
 ![Status tab for Azure app showing review issue](../azure-applications/media/status-tab-ms-review.png)
 

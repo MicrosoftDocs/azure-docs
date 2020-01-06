@@ -1,16 +1,11 @@
 ---
 title: Azure Backup support matrix
 description: Provides a summary of support settings and limitations for the Azure Backup service.
-services: backup
-author: rayne-wiselman
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 02/17/2019
-ms.author: raynew
 ---
 
-# Azure Backup support matrix
+# Support matrix for Azure Backup
 
 You can use [Azure Backup](backup-overview.md) to back up data to the Microsoft Azure cloud platform. This article summarizes the general support settings and limitations for Azure Backup scenarios and deployments.
 
@@ -22,7 +17,7 @@ Other support matrices are available:
 
 ## Vault support
 
-Azure Backup uses Recovery Services vaults to orchestrate and manage backups. It also uses vaults to store backed-up data. 
+Azure Backup uses Recovery Services vaults to orchestrate and manage backups. It also uses vaults to store backed-up data.
 
 The following table describes the features of Recovery Services vaults:
 
@@ -31,8 +26,8 @@ The following table describes the features of Recovery Services vaults:
 **Vaults in subscription** | Up to 500 Recovery Services vaults in a single subscription.
 **Machines in a vault** | Up to 1,000 Azure VMs in a single vault.<br/><br/> Up to 50 MABS servers can be registered in a single vault.
 **Data sources in vault storage** | Maximum 54,400 GB. There's no limit for Azure VM backups.
-**Backups to vault** | **Azure VMs:** Once a day.<br/><br/>**Machines protected by DPM/MABS:** Twice a day.<br/><br/> **Machines backed up directly by using the MARS agent:** Three times a day. 
-**Backups between vaults** | Backup is within a region.<br/><br/> You need a vault in every Azure region that contains VMs you want to back up. You can't back up to a different region. 
+**Backups to vault** | **Azure VMs:** Once a day.<br/><br/>**Machines protected by DPM/MABS:** Twice a day.<br/><br/> **Machines backed up directly by using the MARS agent:** Three times a day.
+**Backups between vaults** | Backup is within a region.<br/><br/> You need a vault in every Azure region that contains VMs you want to back up. You can't back up to a different region.
 **Move vaults** | You can [move vaults](https://review.docs.microsoft.com/azure/backup/backup-azure-move-recovery-services-vault) across subscriptions or between resource groups in the same subscription.
 **Move data between vaults** | Moving backed-up data between vaults isn't supported.
 **Modify vault storage type** | You can modify the storage replication type (either geo-redundant storage or locally redundant storage) for a vault before backups are stored. After backups begin in the vault, the replication type can't be modified.
@@ -54,8 +49,8 @@ Here's what's supported if you want to back up on-premises machines:
 
 **Limit** | **Details**
 --- | ---
-**Azure VM data disks** | Limit of 16
-**Azure VM data disk size** | Individual disks can be up to 4,095 GB
+**Azure VM data disks** | Limit of 16 <br> To sign up for the private preview of VMs with 16+ disks (up to 32 disks), write to us at AskAzureBackupTeam@microsoft.com
+**Azure VM data disk size** | Individual disk size can be up to 32 TB and a maximum of 256 TB combined for all disks in a VM.
 
 ### Azure VM backup options
 
@@ -64,7 +59,7 @@ Here's what's supported if you want to back up Azure VMs:
 **Machine** | **What's backed up** | **Location** | **Features**
 --- | --- | --- | ---
 **Azure VM backup by using VM extension** | Entire VM | Back up to vault. | Extension installed when you enable backup for a VM.<br/><br/> Back up once a day.<br/><br/> App-aware backup for Windows VMs; file-consistent backup for Linux VMs. You can configure app-consistency for Linux machines by using custom scripts.<br/><br/> Restore VM or disk.<br/><br/> Can't back up an Azure VM to an on-premises location.
-**Azure VM backup by using MARS agent** | Files, folders | Back up to vault. | Back up three times a day.<br/><br/> If you want to back up specific files or folders rather than the entire VM, the MARS agent can run alongside the VM extension.
+**Azure VM backup by using MARS agent** | Files, folders, system state | Back up to vault. | Back up three times a day.<br/><br/> If you want to back up specific files or folders rather than the entire VM, the MARS agent can run alongside the VM extension.
 **Azure VM with DPM** | Files, folders, volumes, system state, app data | Back up to local storage of Azure VM that's running DPM. DPM then backs up to vault. | App-aware snapshots.<br/><br/> Full granularity for backup and recovery.<br/><br/> Linux supported for VMs (Hyper-V/VMware).<br/><br/> Oracle not supported.
 **Azure VM with MABS** | Files, folders, volumes, system state, app data | Back up to local storage of Azure VM that's running MABS. MABS then backs up to the vault. | App-aware snapshots.<br/><br/> Full granularity for backup and recovery.<br/><br/> Linux supported for VMs (Hyper-V/VMware).<br/><br/> Oracle not supported.
 

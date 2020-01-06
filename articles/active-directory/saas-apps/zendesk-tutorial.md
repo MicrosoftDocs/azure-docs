@@ -9,6 +9,7 @@ ms.reviewer: barbkess
 
 ms.assetid: 9d7c91e5-78f5-4016-862f-0f3242b00680
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -261,7 +262,7 @@ The objective of this section is to create a user called Britta Simon in Zendesk
     ![New user](././media/zendesk-tutorial/ic773633.png "New user")
 
 > [!NOTE]
-> You can use any other Zendesk user account creation tools or APIs provided by Zendesk to provision AAD user accounts.
+> You can use any other Zendesk user account creation tools or APIs provided by Zendesk to provision Azure AD user accounts.
 
 ### Test single sign-on 
 
@@ -275,6 +276,6 @@ When you click the Zendesk tile in the Access Panel, you should be automatically
 
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Configure User Provisioning](zendesk-provisioning-tutorial.md)

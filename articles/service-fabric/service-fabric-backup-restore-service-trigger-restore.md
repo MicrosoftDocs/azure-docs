@@ -1,21 +1,11 @@
 ---
-title: Restoring backup in Azure Service Fabric | Microsoft Docs
+title: Restoring backup in Azure Service Fabric 
 description: Use the periodic backup and restore feature in Service Fabric for restoring data from a backup of your application data.
-services: service-fabric
-documentationcenter: .net
 author: aagup
-manager: chackdan
-editor: aagup
 
-ms.assetid: 802F55B6-6575-4AE1-8A8E-C9B03512FF88
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 10/30/2018
 ms.author: aagup
-
 ---
 
 # Restoring backup in Azure Service Fabric
@@ -196,6 +186,17 @@ Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/j
 
 You can track the progress of a restore with TrackRestoreProgress.
 
+### Using Service Fabric Explorer
+You can trigger a restore from Service Fabric Explorer. Make sure Advanced Mode has been enabled in Service Fabric Explorer settings.
+1. Select the desired partitions and click on Actions. 
+2. Select Trigger Partition Restore and fill in information for Azure:
+
+    ![Trigger Partition Restore][2]
+
+    or FileShare:
+
+    ![Trigger Partition Restore Fileshare][3]
+
 ### Data restore for _data corruption_/_data loss_
 
 For _data loss_ or _data corruption_, backed-up partitions for Reliable Stateful service and Reliable Actors partitions can be restored to any of the chosen backups.
@@ -321,3 +322,6 @@ You can configure Reliable Stateful service and Reliable Actors partitions in th
 ## Next steps
 - [Understanding periodic backup configuration](./service-fabric-backuprestoreservice-configure-periodic-backup.md)
 - [Backup restore REST API reference](https://docs.microsoft.com/rest/api/servicefabric/sfclient-index-backuprestore)
+
+[2]: ./media/service-fabric-backuprestoreservice/restore-partition-backup.png
+[3]: ./media/service-fabric-backuprestoreservice/restore-partition-fileshare.png

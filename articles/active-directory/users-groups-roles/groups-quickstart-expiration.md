@@ -1,16 +1,15 @@
 ---
-title: Expiration policy quickstart for Office 365 groups - Azure Active Directory | Microsoft Docs
+title: Group expiration policy quickstart  - Azure AD | Microsoft Docs
 description: Expiration for Office 365 groups - Azure Active Directory
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
-
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: quickstart
-ms.date: 03/18/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
@@ -23,19 +22,23 @@ In this quickstart, you set the expiration policy for your Office 365 groups. Wh
 
 Expiration policy is simple:
 
-* Group owners are notified to renew an expiring group
-* A group that is not renewed is deleted
-* A deleted Office 365 group can be restored within 30 days by a group owner or by an Azure AD administrator
+- Groups with user activities are automatically renewed as the expiration nears
+- Group owners are notified to renew an expiring group
+- A group that is not renewed is deleted
+- A deleted Office 365 group can be restored within 30 days by a group owner or by an Azure AD administrator
+
+> [!NOTE]
+> Groups now use Azure AD intelligence to automatically renewed based on whether they have been in recent use. This renewal decision is based on user activity in groups across Office 365 services like Outlook, SharePoint, Teams, Yammer, and others.
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
 ## Prerequisite
 
-You must be a Global administrator or User administrator in the organization to set up group expiration.
+ The least-privileged role required to set up group expiration is User administrator in the organization.
 
 ## Turn on user creation for groups
 
-1. Sign in to the [Azure portal](https://portal.azure.com) with an account that's a Global administrator or User administrator for the organization.
+1. Sign in to the [Azure portal](https://portal.azure.com) with a User administrator account.
 
 2. Select **Groups**, and then select **General**.
   
@@ -76,7 +79,7 @@ That's it! In this quickstart, you successfully set the expiration policy for th
 
 ## Next steps
 
-For more information about expiration including technical constraints, adding a list of custom blocked words, and end user experiences across Office 365 apps, see the following article containing those expiration policy details:
+For more information about expiration including PowerShell instructions and technical constraints, see the following article:
 
 > [!div class="nextstepaction"]
-> [Expiration policy all details](groups-lifecycle.md)
+> [Expiration policy PowerShell](groups-lifecycle.md)

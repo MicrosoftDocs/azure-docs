@@ -1,6 +1,5 @@
 ---
-title: Configure message routing for Azure IoT Hub using
- an Azure Resource Manager template| Microsoft Docs
+title: Configure message routing for Azure IoT Hub using an Azure Resource Manager template
 description: Configure message routing for Azure IoT Hub using an Azure Resource Manager template
 author: robinsh
 manager: philmeagit st
@@ -367,7 +366,7 @@ The files are uploaded to the share used by your Cloud Shell instance.
 
 Run the script to perform the deployment. The last line of this script retrieves the variable that was set up to be returned -- the Service Bus queue connection string.
 
-These variables are set in this script.
+The script sets and uses these variables:
 
 **$RGName** is the resource group name to which to deploy the template. This field is created before deploying the template.
 

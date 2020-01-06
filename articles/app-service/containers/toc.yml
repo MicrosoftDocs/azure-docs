@@ -24,7 +24,7 @@
   - name: Create Ruby app
     href: quickstart-ruby.md
   - name: Run custom container
-    href: quickstart-docker-go.md
+    href: quickstart-docker.md
   - name: Create multi-container app
     href: quickstart-multi-container.md
 - name: Tutorials
@@ -49,10 +49,10 @@
     href: tutorial-multi-container-app.md
   - name: Run container from ACR
     href: tutorial-custom-docker-image.md
-  - name: Map Custom Domain
+  - name: Map custom domain
     href: ../app-service-web-tutorial-custom-domain.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
-  - name: Bind SSL Certificate
-    href: ../app-service-web-tutorial-custom-ssl.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+  - name: Create SSL binding for domain
+    href: ../configure-ssl-bindings.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
   - name: Add CDN
     href: ../../cdn/cdn-add-to-web-app.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
   - name: Authenticate users
@@ -65,8 +65,6 @@
     href: ../samples-powershell.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
 - name: Concepts
   items:
-  - name: How App Service works
-    href: ../app-service-how-works-readme.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
   - name: App Service plans
     href: ../overview-hosting-plans.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
   - name: App Service Environment
@@ -83,8 +81,8 @@
   items:
   - name: Configure app
     items:
-    - name: Use app settings
-      href: ../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+    - name: Configure common settings
+      href: ../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
     - name: Configure ASP.NET Core
       href: configure-language-dotnetcore.md
     - name: Configure Node.js
@@ -113,6 +111,8 @@
         href: ../containers/app-service-linux-ci-cd.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
       - name: Deploy from local Git
         href: ../deploy-local-git.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+      - name: Deploy with GitHub Actions
+        href: deploy-container-github-action.md
       - name: Deploy with template
         href: ../deploy-complex-application-predictably.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
       - name: Java SE with Maven
@@ -131,8 +131,8 @@
       href: ../manage-custom-dns-migrate-domain.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
   - name: Secure app
     items:
-    - name: Buy SSL cert
-      href: ../web-sites-purchase-ssl-web-site.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+    - name: Add SSL cert
+      href: ../configure-ssl-certificate.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
     - name: Authenticate users
       items:
       - name: Authenticate with Azure AD
@@ -152,7 +152,7 @@
   - name: Scale app
     items:
     - name: Scale up server capacity
-      href: ../web-sites-scale.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+      href: ../manage-scale-up.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
     - name: Scale out to multiple instances
       href: ../../monitoring-and-diagnostics/insights-how-to-scale.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
     - name: High density hosting
@@ -192,9 +192,11 @@
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/app-service/
   - name: Quota Information
-    href: ../../azure-subscription-service-limits.md#app-service-limits
+    href: ../../azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits
   - name: Service Updates
     href: https://azure.microsoft.com/updates/?product=app-service
+  - name: Migration Assistant guides
+    href: https://github.com/Azure/App-Service-Migration-Assistant/tree/master/MigrationDocs
   - name: Best practices
     href: ../app-service-best-practices.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
   - name: Samples
@@ -204,7 +206,7 @@
   - name: Cookbooks
     items:
     - name: Reference Architectures
-      href: /azure/architecture/reference-architectures/app-service-web-app/
+      href: /azure/architecture/reference-architectures/app-service-web-app/basic-web-app
     - name: Deployment Scripts
       href: https://azure.microsoft.com/documentation/scripts/
   - name: Troubleshooting

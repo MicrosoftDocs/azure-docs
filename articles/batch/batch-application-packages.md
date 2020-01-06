@@ -4,16 +4,15 @@ description: Use the application packages feature of Azure Batch to easily manag
 services: batch
 documentationcenter: .net
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 editor: ''
 
 ms.assetid: 3b6044b7-5f65-4a27-9d43-71e1863d16cf
 ms.service: batch
-ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: big-compute
-ms.date: 04/05/2019
+ms.date: 04/26/2019
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
 
@@ -91,7 +90,7 @@ We recommend that you create a Storage account *specifically* for use with your 
 > Currently you can't use application packages with an Azure Storage account that is configured with [firewall rules](../storage/common/storage-network-security.md).
 > 
 
-The Batch service uses Azure Storage to store your application packages as block blobs. You are [charged as normal][storage_pricing] for the block blob data, and the size of each package can't exceed the [maximum block blob size](../storage/common/storage-scalability-targets.md#azure-blob-storage-scale-targets). Be sure to consider the size and number of your application packages, and periodically remove deprecated packages to minimize costs.
+The Batch service uses Azure Storage to store your application packages as block blobs. You are [charged as normal][storage_pricing] for the block blob data, and the size of each package can't exceed the maximum block blob size. For more information, see [Azure Storage scalability and performance targets for storage accounts](../storage/blobs/scalability-targets.md). Be sure to consider the size and number of your application packages, and periodically remove deprecated packages to minimize costs.
 > 
 > 
 
@@ -138,7 +137,7 @@ Click **Applications** > **Add**.
 
 The **New application** window provides the following fields to specify the settings of your new application and application package.
 
-**Application id**
+**Application ID**
 
 This field specifies the ID of your new application, which is subject to the standard Azure Batch ID validation rules. The rules for providing an application ID are as follows:
 
@@ -172,7 +171,7 @@ To add an application package version for an existing application, select an app
 
 ![Add application package blade in Azure portal][8]
 
-As you can see, the fields match those of the **New application** window, but the **Application id** box is disabled. As you did for the new application, specify the **Version** for your new package, browse to your **Application package** .zip file, then click **OK** to upload the package.
+As you can see, the fields match those of the **New application** window, but the **Application ID** box is disabled. As you did for the new application, specify the **Version** for your new package, browse to your **Application package** .zip file, then click **OK** to upload the package.
 
 ### Update or delete an application package
 To update or delete an existing application package, open the details for the application, click **Packages**, click the **ellipsis** in the row of the application package that you want to modify, and select the action that you want to perform.

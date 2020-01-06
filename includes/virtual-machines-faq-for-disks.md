@@ -5,12 +5,12 @@
  author: roygara
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 03/28/2018
+ ms.date: 05/13/2019
  ms.author: rogarana
  ms.custom: include file
 ---
 
-# Frequently asked questions about Azure IaaS VM disks and managed and unmanaged premium disks
+
 
 This article answers some frequently asked questions about Azure Managed Disks and Azure Premium SSD disks.
 
@@ -134,13 +134,79 @@ For managed disks you cannot rename them. However, you may rename an unmanaged d
 
 **Can I use GPT partitioning on an Azure Disk?**
 
-GPT partitioning can be used only on data disks, not OS disks. OS disks must use the MBR partition style.
+Generation 1 images can only use GPT partitioning on data disks, not OS disks. OS disks must use the MBR partition style.
+
+[Generation 2 images](https://docs.microsoft.com/azure/virtual-machines/linux/generation-2) can use GPT partitioning on the OS disk as well as the data disks.
+
+**What disk types support snapshots?**
+
+Premium SSD, standard SSD, and standard HDD support snapshots. For these three disk types, snapshots are supported for all disk sizes (including disks up to 32 TiB in size). Ultra disks do not support snapshots.
+
+### Disk reservation
+
+**What is Azure disk reservation?**
+Disk reservation is the option to purchase one year of disk storage in advance, reducing your total cost.
+
+**What options does Azure disk reservation offer?**
+Azure disk reservation provides the option to purchase Premium SSDs in the specified SKUs from P30 (1 TiB) up to P80 (32 TiB) for a one-year term. There is no limitation on the minimum amount of disks necessary to purchase a disk reservation. Additionally, you can choose to pay with a single, upfront payment or monthly payments. There is no additional transactional cost applied for Premium SSD Managed Disks.
+
+Reservations are made in the form of disks, not capacity. In other words, when you reserve a P80 (32 TiB) disk, you get a single P80 disk, you cannot then divvy that specific reservation up into two smaller P70 (16 TiB) disks. You can, of course, reserve as many or as few disks as you like, including two separate P70 (16 TiB) disks.
+
+**How will I be billed for Azure disk reservation?**
+- For Enterprise Agreement (EA) customers, the Azure monetary commitment will first be used to purchase Azure disks reservations. In scenarios where EA customers have used all their monetary commitment, disk reservations may still be purchased, and those purchases will be invoiced for the single, upfront payment on their next overage bill.
+
+- For customers purchasing via Azure.com, at the time of purchase, the credit card on file will be charged for the full upfront payment (or monthly fixed payments) of Azure Disks Reservation.
+
+**How is Azure disk reservation applied?**
+Disks reservation follows a model similar to reserved virtual machine (VM) instances. The difference being that a disk reservation cannot be applied to different SKUs, while a VM instance can. See [Save costs with Azure Reserved VM Instances](../articles/virtual-machines/linux/prepay-reserved-vm-instances.md) for more information on VM instances. 
+
+**Can I use my data storage purchased through Azure disks reservation across multiple regions?**
+Azure disks reservation are purchased for a specific region and SKU (like P30 in East US 2), and therefore cannot be used outside these constructs. You can always purchase an additional Azure Disks Reservation for your disk storage needs in other regions or SKUs.
+
+**What happens when my Azure disks reservation expires?**
+You will receive email notifications 30 days prior to expiration and again on the expiration date. Once the reservation expires, deployed disks will continue to run and will be billed with the latest [pay-as-you-go rates](https://azure.microsoft.com/pricing/details/managed-disks/).
+
+## Ultra disks
+
+**What should I set my ultra disk throughput to?**
+If you are unsure what to set your disk throughput to, we recommend you start by assuming an IO size of 16 KiB and adjust the performance from there as you monitor your application. The formula is: Throughput in MBps = # of IOPS * 16 / 1000.
+
+**I configured my disk to 40000 IOPS but I'm only seeing 12800 IOPS, why am I not seeing the performance of the disk?**
+In addition to the disk throttle, there is an IO throttle that gets imposed at the VM level. Please ensure that the VM size you are using can support the levels that are configured on your disks. For details regarding IO limits imposed by your VM, see [Sizes for Windows virtual machines in Azure](../articles/virtual-machines/windows/sizes.md).
+
+**Can I use caching levels with an ultra disk?**
+No, ultra disks do not support the different caching methods that are supported on other disk types. Set the disk caching to None.
+
+**Can I attach an ultra disk to my existing VM?**
+Maybe, your VM has to be in a region and availability zone pair that supports Ultra disks. See [getting started with ultra disks](../articles/virtual-machines/windows/disks-enable-ultra-ssd.md) for details.
+
+**Can I use an ultra disk as the OS disk for my VM?**
+No, ultra Disks are only supported as data disks and are only supported as 4K native disks.
+
+**Can I convert an existing disk to an ultra disk?**
+No, but you can migrate the data from an existing disk to an ultra disk. To migrate an existing disk to an ultra Disk, attach both disks to the same VM, and copy the disk's data from one disk to the other or leverage a 3rd party solution for data migration.
+
+**Can I create snapshots for ultra disks?**
+No, snapshots are not yet available.
+
+**Is Azure Backup available for ultra disks?**
+No, Azure Backup support is not yet available.
+
+**Can I attach an ultra disk to a VM running in an availability set?**
+No, this is not yet supported.
+
+**Can I enable Azure Site Recovery for VMs using ultra disks?**
+No, Azure Site Recovery is not yet supported for ultra disks.
 
 ## Uploading to a managed disk
 
 **Can I upload data to an existing managed disk?**
 
 No, upload can only be used during the creation of a new empty disk with the **ReadyToUpload** state.
+
+**How do I upload to a managed disk?**
+
+Create a managed disk with the [createOption](https://docs.microsoft.com/rest/api/compute/disks/createorupdate#diskcreateoption) property of [creationData](https://docs.microsoft.com/rest/api/compute/disks/createorupdate#creationdata) set to "Upload", then you can upload data to it.
 
 **Can I attach a disk to a VM while it is in an upload state?**
 
@@ -228,7 +294,7 @@ Yes, you can choose to failover to a VM with Managed Disks.
 
 **Is there any impact of migration on Azure VMs protected by Azure Site Recovery via Azure to Azure replication?**
 
-Yes. Currently, Azure Site Recovery Azure to Azure protection for VMs with Managed Disks is available as a GA service.
+No. Azure Site Recovery Azure to Azure protection for VMs with Managed Disks is available.
 
 **Can I migrate VMs with unmanaged disks that are located on storage accounts that are or were previously encrypted to managed disks?**
 
@@ -239,6 +305,10 @@ Yes
 **Is Azure Storage Service Encryption enabled by default when I create a managed disk?**
 
 Yes.
+
+**Is the boot volume encrypted by default on a managed disk?**
+
+Yes. By default, all managed disks are encrypted, including the OS disk.
 
 **Who manages the encryption keys?**
 
@@ -307,9 +377,25 @@ There is no downside to the use of TRIM on Azure disks on either premium or stan
 
 ## New disk sizes: Managed and unmanaged
 
+**What regions support bursting capability for applicable premium SSD disk size?**
+
+The bursting capability is currently supported in Azure West Central US.
+
+**What regions are 4/8/16 GiB Managed Disk sizes (P1/P2/P3, E1/E2/E3) supported in?**
+
+These new disk sizes are currently supported in Azure West Central US.
+
+**Are P1/P2/P3 disk sizes supported for unmanaged disks or page blobs?**
+
+No, it is only supported on premium SSD managed disks. 
+
+**Are E1/E2/E3 disk sizes supported for unmanaged disks or page blobs?**
+
+No, standard SSD managed disks of any size cannot be used with unmanaged disks or page blobs.
+
 **What is the largest Managed disk size supported for operating system and data disks?**
 
-The partition type that Azure supports for an operating system disk is the master boot record (MBR). The MBR format supports a disk size up to 2 TiB. The largest size that Azure supports for an operating system disk is 2 TiB. Azure supports up to 32 TiB for managed data disks in global Azure, 4 TiB in Azure sovereign clouds.
+The partition type that Azure supports for an operating system disk is the master boot record (MBR). The MBR format supports a disk size up to 2 TiB. The largest size that Azure supports for an operating system disk is 2 TiB. Azure supports up to 32 TiB for managed data disks.
 
 **What is the largest Unmanaged Disk size supported for operating system and data disks?**
 
@@ -348,7 +434,7 @@ Yes.
 
 **What are the largest disk sizes supported by Azure Backup and Azure Site Recovery service?**
 
-The largest disk size supported by Azure Backup and Azure Site Recovery service is 4 TiB. Support for the larger disks up to 32 TiB will be added soon.
+The largest disk size supported by Azure Backup and Azure Site Recovery service is 4 TiB. Support for the larger disks up to 32 TiB is not yet available.
 
 **What are the recommended VM sizes for larger disk sizes (>4 TiB) for Standard SSD and Standard HDD disks to achieve optimized disk IOPS and Bandwidth?**
 
@@ -360,7 +446,7 @@ You can either stop and start the VM that the disk is attached to or, detach and
 
 **What regions are the managed disk sizes of 8 TiB, 16 TiB, and 32 TiB supported in?**
 
-The 8 TiB, 16 TiB, and 32 TiB disk SKUs are supported in all regions under global Azure. Support for Microsoft Azure Government and Azure China 21Vianet is not yet available.
+The 8 TiB, 16 TiB, and 32 TiB disk SKUs are supported in all regions under global Azure, Microsoft Azure Government, and Azure China 21Vianet.
 
 **Do we support enabling Host Caching on all disk sizes?**
 

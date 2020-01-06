@@ -1,5 +1,5 @@
 ---
-title: Enable B2B external collaboration settings - Azure Active Directory | Microsoft Docs
+title: Enable B2B external collaboration settings - Azure AD
 description: Learn how to enable Active Directory B2B external collaboration and manage who can invite guest users. Use the Guest Inviter role to delegate invitations.
 
 services: active-directory
@@ -10,7 +10,7 @@ ms.date: 04/11/2019
 
 ms.author: mimart
 author: msmimart
-manager: celested
+manager: celestedg
 ms.reviewer: mal
 
 ms.collection: M365-identity-device-management

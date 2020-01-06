@@ -4,7 +4,7 @@ description: include file
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 06/12/2018
+ms.date: 05/31/2019
 ms.topic: include
 ms.custom: include file
 ---
@@ -14,7 +14,7 @@ ms.custom: include file
 > so the classic CLI is required. 
 > 
 > The classic CLI can be installed side by side with the modern Azure CLI,
-> but we recommend the Azure CLI for all new scripts and deployments where feature support
-> is available. To install the classic CLI, see [Install the Azure classic CLI](https://docs.microsoft.com/cli/azure/install-classic-cli?view=azure-cli-latest). 
-> To install the current CLI, see [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+> but we recommend the Azure CLI for all new scripts and deployments.
+> To install the classic CLI, see [Install the Azure classic CLI](/cli/azure/install-classic-cli). 
+> To install the latest version of the CLI, see [Install the Azure CLI](/cli/azure/install-azure-cli).
 

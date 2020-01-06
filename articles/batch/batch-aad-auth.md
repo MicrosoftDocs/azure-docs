@@ -4,17 +4,16 @@ description: Batch supports Azure AD for authentication from the Batch service.
 services: batch
 documentationcenter: .net
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: 
 
 ms.assetid: 
 ms.service: batch
-ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: big-compute
-ms.date: 04/18/2018
+ms.date: 08/15/2019
 ms.author: lahugh
 ---
 
@@ -77,11 +76,10 @@ For more information about registering an application with Azure AD, see [Authen
 The tenant ID identifies the Azure AD tenant that provides authentication services to your application. To get the tenant ID, follow these steps:
 
 1. In the Azure portal, select your Active Directory.
-2. Click **Properties**.
-3. Copy the GUID value provided for the **Directory ID**. This value is also called the tenant ID.
+1. Select **Properties**.
+1. Copy the GUID value provided for the **Directory ID**. This value is also called the tenant ID.
 
 ![Copy the directory ID](./media/batch-aad-auth/aad-directory-id.png)
-
 
 ## Use integrated authentication
 
@@ -89,58 +87,56 @@ To authenticate with integrated authentication, you need to grant your applicati
 
 Once you've registered your application, follow these steps in the Azure portal to grant it access to the Batch service:
 
-1. In the left-hand navigation pane of the Azure portal, choose **All services**. Click **App Registrations**.
-2. Search for the name of your application in the list of app registrations:
+1. In the left-hand navigation pane of the Azure portal, choose **All services**. Select **App Registrations**.
+1. Search for the name of your application in the list of app registrations:
 
     ![Search for your application name](./media/batch-aad-auth/search-app-registration.png)
 
-3. Click the application and click **Settings**. In the **API Access** section, select **Required permissions**.
-4. In the **Required permissions** blade, click the **Add** button.
-5. In **Select an API**, search for the Batch API. Search for each of these strings until you find the API:
-    1. **MicrosoftAzureBatch**.
-    2. **Microsoft Azure Batch**. Newer Azure AD tenants may use this name.
-    3. **ddbf3205-c6bd-46ae-8127-60eb93363864** is the ID for the Batch API. 
-6. Once you find the Batch API, select it and click **Select**.
-7. In **Select permissions**, select the check box next to **Access Azure Batch Service** and click **Select**.
-8. Click **Done**.
+1. Select the application and select **API permissions**.
+1. In the **API permissions** section, select **Add a permission**.
+1. In **Select an API**, search for the Batch API. Search for each of these strings until you find the API:
+    1. **Microsoft Azure Batch**
+    1. **ddbf3205-c6bd-46ae-8127-60eb93363864** is the ID for the Batch API.
+1. Once you find the Batch API, select it and select **Select**.
+1. In **Select permissions**, select the check box next to **Access Azure Batch Service** and then select **Add permissions**.
 
-The **Required Permissions** windows now shows that your Azure AD application has access to both ADAL and the Batch service API. Permissions are granted to ADAL automatically when you first register your app with Azure AD.
+The **API permissions** section now shows that your Azure AD application has access to both Microsoft Graph and the Batch service API. Permissions are granted to Microsoft Graph automatically when you first register your app with Azure AD.
 
 ![Grant API permissions](./media/batch-aad-auth/required-permissions-data-plane.png)
 
-## Use a service principal 
+## Use a service principal
 
 To authenticate an application that runs unattended, you use a service principal. After you've registered your application, follow these steps in the Azure portal to configure a service principal:
 
-1. Request a secret key for your application.
-2. Assign an RBAC role to your application.
+1. Request a secret for your application.
+1. Assign role-based access control (RBAC) to your application.
 
-### Request a secret key for your application
+### Request a secret for your application
 
-When your application authenticates with a service principal, it sends both the application ID and a secret key to Azure AD. You'll need to create and copy the secret key to use from your code.
+When your application authenticates with a service principal, it sends both the application ID and a secret to Azure AD. You'll need to create and copy the secret key to use from your code.
 
 Follow these steps in the Azure portal:
 
-1. In the left-hand navigation pane of the Azure portal, choose **All services**. Click **App Registrations**.
-2. Search for the name of your application in the list of app registrations.
-3. Click the application and click **Settings**. In the **API Access** section, select **Keys**.
-4. To create a key, enter a description for the key. Then select a duration for the key of either one or two years. 
-5. Click the **Save** button to create and display the key. Copy the key value to a safe place, as you won't be able to access it again after you leave the blade. 
+1. In the left-hand navigation pane of the Azure portal, choose **All services**. Select **App Registrations**.
+1. Select your application from the list of app registrations.
+1. Select the application and then select **Certificates & secrets**. In the **Client secrets** section, select **New client secret**.
+1. To create a secret, enter a description for the secret. Then select an expirations for the secret of either one year, two years, or no expiration..
+1. Select **Add** to create and display the secret. Copy the secret value to a safe place, as you won't be able to access it again after you leave the page.
 
     ![Create a secret key](./media/batch-aad-auth/secret-key.png)
 
-### Assign an RBAC role to your application
+### Assign RBAC to your application
 
-To authenticate with a service principal, you need to assign an RBAC role to your application. Follow these steps:
+To authenticate with a service principal, you need to assign RBAC to your application. Follow these steps:
 
 1. In the Azure portal, navigate to the Batch account used by your application.
-2. In the **Settings** blade for the Batch account, select **Access Control (IAM)**.
-3. Click the **Roles assignments** tab.
-4. Click the **Add role assignment** button. 
-5. From the **Role** drop-down, choose either the _Contributor_ or _Reader_ role for your application. For more information on these roles, see [Get started with Role-Based Access Control in the Azure portal](../role-based-access-control/overview.md).  
-6. In the **Select** field, enter the name of your application. Select your application from the list, and click **Save**.
+1. In the **Settings** section of the Batch account, select **Access Control (IAM)**.
+1. Select the **Role assignments** tab.
+1. Select **Add role assignment**.
+1. From the **Role** drop-down, choose either the *Contributor* or *Reader* role for your application. For more information on these roles, see [Get started with Role-Based Access Control in the Azure portal](../role-based-access-control/overview.md).  
+1. In the **Select** field, enter the name of your application. Select your application from the list, and then select **Save**.
 
-Your application should now appear in your access control settings with an RBAC role assigned. 
+Your application should now appear in your access control settings with an RBAC role assigned.
 
 ![Assign an RBAC role to your application](./media/batch-aad-auth/app-rbac-role.png)
 
@@ -149,11 +145,10 @@ Your application should now appear in your access control settings with an RBAC 
 The tenant ID identifies the Azure AD tenant that provides authentication services to your application. To get the tenant ID, follow these steps:
 
 1. In the Azure portal, select your Active Directory.
-2. Click **Properties**.
-3. Copy the GUID value provided for the **Directory ID**. This value is also called the tenant ID.
+1. Select **Properties**.
+1. Copy the GUID value provided for the **Directory ID**. This value is also called the tenant ID.
 
 ![Copy the directory ID](./media/batch-aad-auth/aad-directory-id.png)
-
 
 ## Code examples
 
@@ -307,10 +302,10 @@ public static async Task PerformBatchOperations()
     }
 }
 ```
+
 ### Code example: Using an Azure AD service principal with Batch Python
 
 To authenticate with a service principal from Batch Python, install and reference the [azure-batch](https://pypi.org/project/azure-batch/) and [azure-common](https://pypi.org/project/azure-common/) modules.
-
 
 ```python
 from azure.batch import BatchServiceClient
@@ -320,31 +315,31 @@ from azure.common.credentials import ServicePrincipalCredentials
 When using a service principal, you must provide the tenant ID. To retrieve the tenant ID, follow the steps outlined in [Get the tenant ID for your Azure Active Directory](#get-the-tenant-id-for-your-active-directory):
 
 ```python
-TENANT_ID = "<tenant-id>";
+TENANT_ID = "<tenant-id>"
 ```
 
 Reference the Batch service resource endpoint:  
 
 ```python
-RESOURCE = "https://batch.core.windows.net/";
+RESOURCE = "https://batch.core.windows.net/"
 ```
 
 Reference your Batch account:
 
 ```python
-BATCH_ACCOUNT_URL = "https://myaccount.mylocation.batch.azure.com";
+BATCH_ACCOUNT_URL = "https://myaccount.mylocation.batch.azure.com"
 ```
 
 Specify the application ID (client ID) for your application. The application ID is available from your app registration in the Azure portal:
 
 ```python
-CLIENT_ID = "<application-id>";
+CLIENT_ID = "<application-id>"
 ```
 
 Specify the secret key that you copied from the Azure portal:
 
 ```python
-SECRET = "<secret-key>";
+SECRET = "<secret-key>"
 ```
 
 Create a **ServicePrincipalCredentials** object:
@@ -369,13 +364,13 @@ Use the service principal credentials to open a **BatchServiceClient** object. T
 
 ## Next steps
 
-* To learn more about Azure AD, see the [Azure Active Directory Documentation](https://docs.microsoft.com/azure/active-directory/). In-depth examples showing how to use ADAL are available in the [Azure Code Samples](https://azure.microsoft.com/resources/samples/?service=active-directory) library.
+- To learn more about Azure AD, see the [Azure Active Directory Documentation](https://docs.microsoft.com/azure/active-directory/). In-depth examples showing how to use ADAL are available in the [Azure Code Samples](https://azure.microsoft.com/resources/samples/?service=active-directory) library.
 
-* To learn more about service principals, see [Application and service principal objects in Azure Active Directory](../active-directory/develop/app-objects-and-service-principals.md). To create a service principal using the Azure portal, see [Use portal to create Active Directory application and service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md). You can also create a service principal with PowerShell or Azure CLI.
+- To learn more about service principals, see [Application and service principal objects in Azure Active Directory](../active-directory/develop/app-objects-and-service-principals.md). To create a service principal using the Azure portal, see [Use portal to create Active Directory application and service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md). You can also create a service principal with PowerShell or Azure CLI.
 
-* To authenticate Batch Management applications using Azure AD, see [Authenticate Batch Management solutions with Active Directory](batch-aad-auth-management.md).
+- To authenticate Batch Management applications using Azure AD, see [Authenticate Batch Management solutions with Active Directory](batch-aad-auth-management.md).
 
-* For a Python example of how to create a Batch client authenticated using an Azure AD token, see the [Deploying Azure Batch Custom Image with a Python Script](https://github.com/azurebigcompute/recipes/blob/master/Azure%20Batch/CustomImages/CustomImagePython.md) sample.
+- For a Python example of how to create a Batch client authenticated using an Azure AD token, see the [Deploying Azure Batch Custom Image with a Python Script](https://github.com/azurebigcompute/recipes/blob/master/Azure%20Batch/CustomImages/CustomImagePython.md) sample.
 
 [aad_about]:../active-directory/fundamentals/active-directory-whatis.md "What is Azure Active Directory?"
 [aad_adal]: ../active-directory/active-directory-authentication-libraries.md

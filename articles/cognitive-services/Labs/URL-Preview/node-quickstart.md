@@ -11,6 +11,7 @@ ms.subservice: url-preview
 ms.topic: quickstart
 ms.date: 03/16/2018
 ms.author: rosh
+ROBOTS: NOINDEX
 ---
 # Quickstart: URL Preview with Node.js 
 
@@ -18,7 +19,7 @@ The following Node example creates a Url Preview for the SwiftKey Web site: http
 
 ## Prerequisites
 
-Get an access key for the free trial [Cognitive Services Labs](https://aka.ms/answersearchsubscription)
+Get an access key for the free trial [Cognitive Services Labs](https://labs.cognitive.microsoft.com/en-us/project-answer-search)
 
 ## Code scenario 
 

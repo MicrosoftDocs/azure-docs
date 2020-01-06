@@ -1,5 +1,5 @@
 ---
-title: MapReduce and SSH connection with Apache Hadoop in HDInsight - Azure 
+title: MapReduce and SSH connection with Apache Hadoop - Azure HDInsight
 description: Learn how to use SSH to run MapReduce jobs using Apache Hadoop on HDInsight.
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -23,9 +23,6 @@ Learn how to submit MapReduce jobs from a Secure Shell (SSH) connection to HDIns
 ## <a id="prereq"></a>Prerequisites
 
 * A Linux-based HDInsight (Hadoop on HDInsight) cluster
-
-  > [!IMPORTANT]
-  > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 * An SSH client. For more information, see [Use SSH with HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md)
 

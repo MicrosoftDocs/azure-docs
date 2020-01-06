@@ -2,9 +2,9 @@
 title: Send notifications to specific users using Azure Notification Hubs | Microsoft Docs
 description: Learn how to send notifications to specific users using Universal Windows Platform (UWP) applications. 
 documentationcenter: windows
-author: jwargo
-manager: patniko
-editor: spelluru
+author: sethmanheim
+manager: femila
+editor: jwargo
 services: notification-hubs
 
 ms.assetid: 012529f2-fdbc-43c4-8634-2698164b5880
@@ -15,7 +15,9 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 03/22/2019
-ms.author: jowargo
+ms.author: sethm
+ms.reviewer: jowargo
+ms.lastreviewed: 03/22/2019
 ---
 
 # Tutorial: Send notifications to specific users by using Azure Notification Hubs
@@ -27,7 +29,7 @@ ms.author: jowargo
 This tutorial shows you how to use Azure Notification Hubs to send push notifications to a specific app user on a specific device. An ASP.NET WebAPI backend is used to authenticate clients. When the backend authenticates a client application user, it automatically adds a tag to the notification registration. The backend uses this tag to send notifications to the specific user.
 
 > [!NOTE]
-> The completed code for this tutorial can be found on [GitHub](https://github.com/Azure/azure-notificationhubs-samples/tree/master/dotnet/NotifyUsers).
+> The completed code for this tutorial can be found on [GitHub](https://github.com/Azure/azure-notificationhubs-dotnet/tree/master/Samples/NotifyUsers).
 
 In this tutorial, you take the following steps:
 

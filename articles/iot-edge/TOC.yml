@@ -43,15 +43,30 @@
     items: 
     - name: Filter data with Azure Functions
       href: tutorial-deploy-function.md
-    - name: Find averages with ASA
+    - name: Find averages with Azure Stream Analytics
       href: tutorial-deploy-stream-analytics.md
-    - name: Score data with Azure Machine Learning service
+    - name: Score data with Azure Machine Learning
       href: tutorial-deploy-machine-learning.md
     - name: Classify images with Custom Vision
       href: tutorial-deploy-custom-vision.md
     - name: Store data locally with SQL
       href: tutorial-store-data-sql-server.md
-
+  - name: 4. End-to-end example of machine learning at the edge
+    items:
+    - name: Introduction
+      href: tutorial-machine-learning-edge-01-intro.md
+    - name: Set up development machine and Azure services
+      href: tutorial-machine-learning-edge-02-prepare-environment.md
+    - name: Generate simulated device data
+      href: tutorial-machine-learning-edge-03-generate-data.md
+    - name: Train and deploy an Azure Machine Learning model
+      href: tutorial-machine-learning-edge-04-train-model.md
+    - name: Configure a transparent gateway
+      href: tutorial-machine-learning-edge-05-configure-edge-device.md
+    - name: Create and deploy IoT Edge modules
+      href: tutorial-machine-learning-edge-06-custom-modules.md
+    - name: Send data to IoT Hub via transparent gateway
+      href: tutorial-machine-learning-edge-07-send-data-to-hub.md
 - name: Concepts
   items:
   - name: IoT Edge runtime
@@ -60,7 +75,7 @@
     items:
     - name: Understand Azure IoT Edge modules
       href: iot-edge-modules.md
-    - name: Edge agent and hub properties
+    - name: IoT Edge agent and hub properties
       href: module-edgeagent-edgehub.md
   - name: Development
     items:
@@ -94,23 +109,15 @@
     href: iot-edge-glossary.md
 - name: How-to guides
   items:
-  - name: Register an Edge device
-    items:
-    - name: Azure portal
-      href: how-to-register-device-portal.md
-    - name: Azure CLI
-      href: how-to-register-device-cli.md
-    - name: Visual Studio Code
-      href: how-to-register-device-vscode.md
+  - name: Register an IoT Edge device
+    href: how-to-register-device.md
   - name: Install and manage IoT Edge
     items:
-    - name: Linux X64
+    - name: Linux
       href: how-to-install-iot-edge-linux.md
-    - name: Linux ARM32
-      href: how-to-install-iot-edge-linux-arm.md
-    - name: Windows X64
+    - name: Windows
       href: how-to-install-iot-edge-windows.md
-    - name: Linux containers on Windows X64
+    - name: Linux containers on Windows
       href: how-to-install-iot-edge-windows-with-linux.md
     - name: Windows Server VM
       href: how-to-install-iot-edge-windows-server-vm.md
@@ -118,17 +125,25 @@
       href: how-to-install-iot-edge-ubuntuvm.md
     - name: Kubernetes
       href: how-to-install-iot-edge-kubernetes.md
+    - name: Install production certificates
+      href: how-to-install-production-certificates.md
+    - name: Create test certificates
+      href: how-to-create-test-certificates.md
     - name: Update the runtime version
       href: how-to-update-iot-edge.md
   - name: Auto-provision with DPS
     items:
-    - name: Linux
-      href: how-to-auto-provision-simulated-device-linux.md
-    - name: Windows
-      href: how-to-auto-provision-simulated-device-windows.md
+    - name: TPM attestation
+      items:
+      - name: Linux
+        href: how-to-auto-provision-simulated-device-linux.md
+      - name: Windows
+        href: how-to-auto-provision-simulated-device-windows.md
+    - name: Symmetric key attestation
+      href: how-to-auto-provision-symmetric-keys.md
   - name: Develop and debug custom modules
     items:
-    - name: Visual Studio 2017
+    - name: Visual Studio 2019
       href: how-to-visual-studio-develop-module.md
     - name: Visual Studio Code
       href: how-to-vs-code-develop-module.md
@@ -146,10 +161,12 @@
       href: how-to-deploy-monitor.md
     - name: Azure CLI
       href: how-to-deploy-monitor-cli.md
-  - name: Use Edge devices as gateways
+  - name: Use IoT Edge devices as gateways
     items:
     - name: Configure a transparent gateway
       href: how-to-create-transparent-gateway.md
+    - name: Authenticate a downstream device
+      href: how-to-authenticate-downstream-device.md
     - name: Connect a downstream device
       href: how-to-connect-downstream-device.md
     - name: Modbus protocol gateway
@@ -158,8 +175,12 @@
     href: how-to-configure-proxy-support.md
   - name: Store data at the edge
     items:
+    - name: Give modules access to a device's local storage
+      href: how-to-access-host-storage-from-module.md
     - name: Azure Blob Storage on IoT Edge
       href: how-to-store-data-blob.md
+    - name: Deploy blob storage modules
+      href: how-to-deploy-blob.md
   - name: Manage with DevOps tools
     items:
     - name: Azure DevOps Projects
@@ -174,25 +195,27 @@
   items:
   - name: Solutions
     items:
-    - name: IoT solution accelerators
-      href: /azure/iot-suite
     - name: IoT Central
       href: https://docs.microsoft.com/microsoft-iot-central/
-  - name: Platform services
+    - name: IoT solution accelerators
+      href: /azure/iot-accelerators
+  - name: Platform Services
     items:
     - name: IoT Hub
       href: /azure/iot-hub
+    - name: IoT Plug and Play
+      href: /azure/iot-pnp
     - name: IoT Hub Device Provisioning Service
       href: /azure/iot-dps
+    - name: IoT Service SDKs
+      href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks
     - name: Maps
       href: /azure/azure-maps
-    - name: Service SDKs
-      href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks
     - name: Time Series Insights
       href: /azure/time-series-insights
-  - name: Edge
+  - name: IoT Edge
     items:
-    - name: IoT Edge
+    - name: Azure IoT Edge
       href: /azure/iot-edge
     - name: IoT Device SDKs
       href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks
@@ -225,14 +248,14 @@
   - name: MSDN forum
     href: https://social.msdn.microsoft.com/Forums/azure/home?forum=iotedge
   - name: Pricing
-    href: https://azure.microsoft.com/pricing/details/iot-hub/
+    href: https://azure.microsoft.com/pricing/details/iot-edge/
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Service updates
-    href: https://azure.microsoft.com/updates/?product=iot-hub
+    href: https://azure.microsoft.com/updates/?product=iot-edge
   - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/azure-iot-hub
+    href: https://stackoverflow.com/questions/tagged/azure-iot-edge
   - name: Technical case studies
     href: https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured
   - name: Videos
-    href: https://azure.microsoft.com/documentation/videos/index/?services=iot-hub
+    href: https://azure.microsoft.com/documentation/videos/index/?services=iot-edge

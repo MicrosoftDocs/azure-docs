@@ -8,7 +8,7 @@ manager: rajvijan
 ms.service: key-vault
 ms.topic: tutorial
 ms.date: 12/21/2018
-ms.author: pryerram
+ms.author: mbaldwin
 ms.custom: mvc
 #Customer intent: As a developer I want to use Azure Key Vault to store secrets for my app, so that they are kept secure.
 ---
@@ -29,7 +29,7 @@ The tutorial shows you how to:
 > * Assign permission for the web app.
 > * Run the web app on Azure.
 
-Before you begin, read [Key Vault basic concepts](key-vault-whatis.md#basic-concepts). 
+Before you begin, read [Key Vault basic concepts](basic-concepts.md). 
 
 If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -39,14 +39,14 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 * For Mac: [Visual Studio for Mac](https://visualstudio.microsoft.com/vs/mac/)
 * For Windows, Mac, and Linux:
   * [Git](https://git-scm.com/downloads)
-  * This tutorial requires that you run the Azure CLI locally. You must have the Azure CLI version 2.0.4 or later installed. Run `az --version` to find the version. If you need to install or upgrade the CLI, see [Install Azure CLI 2.0](https://review.docs.microsoft.com/cli/azure/install-azure-cli).
+  * This tutorial requires that you run the Azure CLI locally. You must have the Azure CLI version 2.0.4 or later installed. Run `az --version` to find the version. If you need to install or upgrade the CLI, see [Install Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli).
   * [.NET Core](https://www.microsoft.com/net/download/dotnet-core/2.1)
 
 ## About Managed Service Identity
 
 Azure Key Vault stores credentials securely, so they're not displayed in your code. However, you need to authenticate to Azure Key Vault to retrieve your keys. To authenticate to Key Vault, you need a credential. It's a classic bootstrap dilemma. Managed Service Identity (MSI) solves this issue by providing a _bootstrap identity_ that simplifies the process.
 
-When you enable MSI for an Azure service, such as Azure Virtual Machines, Azure App Service, or Azure Functions, Azure creates a [service principal](key-vault-whatis.md#basic-concepts). MSI does this for the instance of the service in Azure Active Directory (Azure AD) and injects the service principal credentials into that instance.
+When you enable MSI for an Azure service, such as Azure Virtual Machines, Azure App Service, or Azure Functions, Azure creates a [service principal](basic-concepts.md). MSI does this for the instance of the service in Azure Active Directory (Azure AD) and injects the service principal credentials into that instance.
 
 ![MSI diagram](media/MSI.png)
 
@@ -187,7 +187,7 @@ You can also watch this video:
 
 ## Run the web app
 
-1. On the main menu of Visual Studio 2017, select **Debug** > **Start**, with or without debugging. 
+1. On the main menu of Visual Studio 2019, select **Debug** > **Start**, with or without debugging. 
 1. In the browser, go to the **About** page.  
     The value for **AppSecret** is displayed.
 
@@ -245,4 +245,4 @@ When they are no longer needed, you can delete the virtual machine and your key 
 ## Next steps
 
 >[!div class="nextstepaction"]
->[Azure Key Vault Developer's Guide](https://docs.microsoft.com/azure/key-vault/key-vault-developers-guide)
+>[Azure Key Vault Developer's Guide](key-vault-developers-guide.md)

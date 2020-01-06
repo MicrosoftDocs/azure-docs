@@ -1,5 +1,6 @@
 ---
-title: "Tutorial: Use Azure Database Migration Service to migrate online from SQL Server to single/pooled database in Azure SQL Database | Microsoft Docs"
+title: "Tutorial: Migrate SQL Server online to SQL single database"
+titleSuffix: Azure Database Migration Service
 description: Learn to perform an online migration from SQL Server on-premises to a single database or pooled database in Azure SQL Database by using the Azure Database Migration Service.
 services: dms
 author: HJToland3
@@ -8,9 +9,9 @@ manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
-ms.custom: mvc, tutorial
+ms.custom: "seo-lt-2019"
 ms.topic: article
-ms.date: 05/08/2019
+ms.date: 09/22/2019
 ---
 
 # Tutorial: Migrate SQL Server to a single database or pooled database in Azure SQL Database online using DMS
@@ -41,7 +42,7 @@ This article describes an online migration from SQL Server to a single database 
 
 To complete this tutorial, you need to:
 
-- Download and install [SQL Server 2012 or later](https://www.microsoft.com/sql-server/sql-server-downloads) (any edition).
+- Download and install [SQL Server 2012 or later](https://www.microsoft.com/sql-server/sql-server-downloads).
 - Enable the TCP/IP protocol, which is disabled by default during SQL Server Express installation, by following the instructions in the article [Enable or Disable a Server Network Protocol](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-or-disable-a-server-network-protocol#SSMSProcedure).
 - Create a single (or pooled) database in Azure SQL Database, which you do by following the detail in the article [Create a single database in Azure SQL Database using the Azure portal](https://docs.microsoft.com/azure/sql-database/sql-database-single-database-get-started).
 
@@ -73,16 +74,16 @@ To complete this tutorial, you need to:
 - If any of the tables don't have a primary key, enable Change Data Capture (CDC) on the database and specific table(s).
     > [!NOTE]
     > You can use the script below to find any tables that do not have primary keys.
-
+    
     ```sql
     USE <DBName>;
     go
     SELECT is_tracked_by_cdc, name AS TableName
     FROM sys.tables WHERE type = 'U' and is_ms_shipped = 0 AND
     OBJECTPROPERTY(OBJECT_ID, 'TableHasPrimaryKey') = 0;
-     ```
+    ```
 
-    >If the results show one or more tables with 'is_tracked_by_cdc' as '0', enable change capture for the database and for the specific tables by using the process described in the article [Enable and Disable Change Data Capture (SQL Server)](https://docs.microsoft.com/sql/relational-databases/track-changes/enable-and-disable-change-data-capture-sql-server?view=sql-server-2017).
+    If the results show one or more tables with 'is_tracked_by_cdc' as '0', enable change capture for the database and for the specific tables by using the process described in the article [Enable and Disable Change Data Capture (SQL Server)](https://docs.microsoft.com/sql/relational-databases/track-changes/enable-and-disable-change-data-capture-sql-server?view=sql-server-2017).
 
 - Configure the distributor role for source SQL Server.
 
@@ -122,17 +123,17 @@ To complete this tutorial, you need to:
 
 Before you can migrate data from an on-premises SQL Server instance to a single database or pooled database in Azure SQL Database, you need to assess the SQL Server database for any blocking issues that might prevent migration. Using the Data Migration Assistant v3.3 or later, follow the steps described in the article [Performing a SQL Server migration assessment](https://docs.microsoft.com/sql/dma/dma-assesssqlonprem) to complete the on-premises database assessment.
 
-To assess am on-premises database, perform the following steps:
+To assess an on-premises database, perform the following steps:
 
 1. In DMA, select the New (+) icon, and then select the **Assessment**  project type.
 2. Specify a project name, in the **Source server type** text box, select **SQL Server**, in the **Target server type** text box, select **Azure SQL Database**, and then select **Create** to create the project.
 
-    When you're assessing the source SQL Server database migrating to a single database or pooled database in Azure SQL Database, you can choose one or both of the following assessment report types:
+   When you're assessing the source SQL Server database migrating to a single database or pooled database in Azure SQL Database, you can choose one or both of the following assessment report types:
 
    - Check database compatibility
    - Check feature parity
 
-     Both report types are selected by default.
+   Both report types are selected by default.
 
 3. In DMA, on the **Options** screen, select **Next**.
 4. On the **Select sources** screen, in the **Connect to a server** dialog box, provide the connection details to your SQL Server, and then select **Connect**.

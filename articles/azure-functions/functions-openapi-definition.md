@@ -1,19 +1,13 @@
 ---
-title: Create an OpenAPI definition for a function with Azure API Management
+title: Expose your functions with OpenAPI using Azure API Management
 description: Create an OpenAPI definition that enables other apps and services to call your function in Azure.
-services: functions
-keywords: OpenAPI, Swagger, cloud apps, cloud services,
-author: ggailey777
-manager: jeconnoc
-ms.service: azure-functions
 ms.topic: tutorial
 ms.date: 05/08/2019
-ms.author: glenga
 ms.reviewer: sunayv
 ms.custom: mvc, cc996988-fb4f-47
 ---
 
-# Create an OpenAPI definition for a function with Azure API Management
+# Create an OpenAPI definition for a serverless API using Azure API Management
 
 REST APIs are often described using an OpenAPI definition. This definition contains information about what operations are available in an API and how the request and response data for the API should be structured.
 
@@ -40,7 +34,7 @@ This tutorial uses an HTTP triggered function that takes two parameters:
 * The estimated time to make a turbine repair, in hours.
 * The capacity of the turbine, in kilowatts. 
 
-The function then calculates how much a repair will cost, and how much revenue the turbine could make in a 24 hour period. TO create the HTTP triggered function in the [Azure portal](https://portal.azure.com).
+The function then calculates how much a repair will cost, and how much revenue the turbine could make in a 24 hour period. To create the HTTP triggered function in the [Azure portal](https://portal.azure.com):
 
 1. Expand your function app and select the **+** button next to **Functions**. Select **In-portal** > **Continue**.
 
@@ -140,7 +134,7 @@ Now you're ready to generate the OpenAPI definition.
     | ------------ |  ------- | -------------------------------------------------- |
     | **Name** | Globally unique name | A name is generated based on the name of your function app. |
     | **Subscription** | Your subscription | The subscription under which this new resource is created. |  
-    | **[Resource Group](../azure-resource-manager/resource-group-overview.md)** |  myResourceGroup | The same resource as your function app, which should get set for you. |
+    | **[Resource Group](../azure-resource-manager/management/overview.md)** |  myResourceGroup | The same resource as your function app, which should get set for you. |
     | **Location** | West US | Choose the West US location. |
     | **Organization name** | Contoso | The name of the organization used in the developer portal and for email notifications. |
     | **Administrator email** | your email | Email that received system notifications from API Management. |

@@ -6,17 +6,13 @@ author: cherylmc
 
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 1/15/2019
+ms.date: 12/12/2019
 ms.author: cherylmc
 
 ---
-# Configure OpenVPN clients for Azure VPN Gateway (Preview)
+# Configure OpenVPN clients for Azure VPN Gateway
 
 This article helps you configure **OpenVPN ® Protocol** clients.
-
-> [!IMPORTANT]
-> This Public Preview is provided without a service level agreement and should not be used for production workloads. Certain features may not be supported, may have constrained capabilities, or may not be available in all Azure locations. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for details.
->
 
 ## Before you begin
 
@@ -26,7 +22,7 @@ Verify that you have completed the steps to configure OpenVPN for your VPN gatew
 
 ## <a name="windows"></a>Windows clients
 
-1. Download and install the OpenVPN client from the official [OpenVPN website](https://openvpn.net/index.php/open-source/downloads.html).
+1. Download and install the OpenVPN client (version 2.4 or higher) from the official [OpenVPN website](https://openvpn.net/index.php/open-source/downloads.html).
 2. Download the VPN profile for the gateway. This can be done from the Point-to-site configuration tab in the Azure portal, or 'New-AzVpnClientConfiguration' in PowerShell.
 3. Unzip the profile. Next, open the *vpnconfig.ovpn* configuration file from the OpenVPN folder using Notepad.
 4. [Export](vpn-gateway-certificates-point-to-site.md#clientexport) the P2S client certificate you created and uploaded to your P2S configuration on the gateway.
@@ -61,19 +57,52 @@ Verify that you have completed the steps to configure OpenVPN for your VPN gatew
 
 ## <a name="mac"></a>Mac clients
 
-1. Download and install an OpenVPN client, such as [TunnelBlik](https://tunnelblick.net/downloads.html). 
+1. Download and install an OpenVPN client, such as [TunnelBlick](https://tunnelblick.net/downloads.html). 
 2. Download the VPN profile for the gateway. This can be done from the point-to-site configuration tab in the Azure portal, or by using 'New-AzVpnClientConfiguration' in PowerShell.
-3. Unzip the profile. Open the vpnconfig.ovpn configuration file from the OpenVPN folder in Notepad.
+3. Unzip the profile. Open the vpnconfig.ovpn configuration file from the OpenVPN folder in a text editor.
 4. Fill in the P2S client certificate section with the P2S client certificate public key in base64. In a PEM formatted certificate, you can simply open the .cer file and copy over the base64 key between the certificate headers. See [Export the public key](vpn-gateway-certificates-point-to-site.md#cer) for information about how to export a certificate to get the encoded public key.
 5. Fill in the private key section with the P2S client certificate private key in base64. See [Export your private key](https://openvpn.net/community-resources/how-to/#pki) for information about how to extract a private key.
 6. Do not change any other fields. Use the filled in configuration in client input to connect to the VPN.
-7. Double-click the profile file to create the profile in tunnelblik.
-8. Launch Tunnelblik from the applications folder.
-9. Click on the Tunnelblik icon in the system tray and pick connect.
+7. Double-click the profile file to create the profile in Tunnelblick.
+8. Launch Tunnelblick from the applications folder.
+9. Click on the Tunnelblick icon in the system tray and pick connect.
 
 > [!IMPORTANT]
 >Only iOS 11.0 and above and MacOS 10.13 and above are supported with OpenVPN protocol.
 >
+## <a name="iOS"></a>iOS clients
+
+1. Install the OpenVPN client (version 2.4 or higher) from the App store.
+2. Download the VPN profile for the gateway. This can be done from the point-to-site configuration tab in the Azure portal, or by using 'New-AzVpnClientConfiguration' in PowerShell.
+3. Unzip the profile. Open the vpnconfig.ovpn configuration file from the OpenVPN folder in a text editor.
+4. Fill in the P2S client certificate section with the P2S client certificate public key in base64. In a PEM formatted certificate, you can simply open the .cer file and copy over the base64 key between the certificate headers. See [Export the public key](vpn-gateway-certificates-point-to-site.md#cer) for information about how to export a certificate to get the encoded public key.
+5. Fill in the private key section with the P2S client certificate private key in base64. See [Export your private key](https://openvpn.net/community-resources/how-to/#pki) for information about how to extract a private key.
+6. Do not change any other fields.
+7. E-mail the profile file (.ovpn) to your email account that is configured in the mail app on your iPhone. 
+8. Open the e-mail in the mail app on the iPhone, and tap the attached file
+
+    ![Open email](./media/vpn-gateway-howto-openvpn-clients/ios2.png)
+
+9. Tap on **More** if you do not see **Copy to OpenVPN** option
+
+    ![Copy to OpenVPN](./media/vpn-gateway-howto-openvpn-clients/ios3.png)
+
+10. Tap on **Copy to OpenVPN** 
+
+    ![Copy to OpenVPN](./media/vpn-gateway-howto-openvpn-clients/ios4.png)
+
+11. Tap on **ADD** in the **Import Profile** page
+
+    ![Copy to OpenVPN](./media/vpn-gateway-howto-openvpn-clients/ios5.png)
+
+12. Tap on **ADD** in the **Imported Profile** page
+
+    ![Copy to OpenVPN](./media/vpn-gateway-howto-openvpn-clients/ios6.png)
+
+13. Launch the OpenVPN app and slide the switch in the **Profile** page right to connect
+
+    ![Connect](./media/vpn-gateway-howto-openvpn-clients/ios8.png)
+
 
 ## <a name="linux"></a>Linux clients
 
@@ -121,7 +150,7 @@ Verify that you have completed the steps to configure OpenVPN for your VPN gatew
 11. To connect using the command line, type the following command:
   
     ```
-    sudo openvpn –-config <name and path of your VPN profile file>
+    sudo openvpn –-config <name and path of your VPN profile file>&
     ```
 12. To connect using the GUI, go to system settings.
 13. Click **+** to add a new VPN connection.
@@ -134,6 +163,6 @@ Verify that you have completed the steps to configure OpenVPN for your VPN gatew
 
 ## Next steps
 
-If you want the VPN clients to be able to access resources in another VNet (production), then follow the instructions on the [VNet-to-VNet](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) article to set up a vnet-to-vnet connection. Be sure to enable BGP on the gateways and the connections, otherwise traffic will not flow.
+If you want the VPN clients to be able to access resources in another VNet, then follow the instructions on the [VNet-to-VNet](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) article to set up a vnet-to-vnet connection. Be sure to enable BGP on the gateways and the connections, otherwise traffic will not flow.
 
 **"OpenVPN" is a trademark of OpenVPN Inc.**

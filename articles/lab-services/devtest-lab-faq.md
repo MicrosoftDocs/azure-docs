@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/19/2019
+ms.date: 07/18/2019
 ms.author: spelluru
 
 ---
@@ -43,7 +43,7 @@ Our Twitter handle: [@azlabservices](https://twitter.com/azlabservices)
 ### What if my question isn't answered here?
 If your question isn't listed here, let us know, so we can help you find an answer.
 
-- Post a question at the end of this FAQ. Engage with the Azure Cache team and other community members about this article.
+- Post a question at the end of this FAQ. 
 - To reach a wider audience, post a question on the [Azure DevTest Labs MSDN forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureDevTestLabs). Engage with the Azure DevTest Labs team and other members of the community.
 - For feature requests, submit your requests and ideas to [Azure DevTest Labs User Voice](https://feedback.azure.com/forums/320373-azure-devtest-labs).
 
@@ -159,11 +159,11 @@ Common resource group scenario:
 You may want to extend current enterprise naming conventions to Azure operations and make them consistent across the DevTest Labs environment. When deploying DevTest Labs, we recommend that you have specific starting policies. You deploy these policies by a central script and JSON templates to enforce consistency. Naming policies can be implemented through Azure policies applied at the subscription level. For JSON samples for Azure Policy, see [Azure Policy samples](../governance/policy/samples/index.md).
 
 ### How many labs can I create under the same subscription?
-There isn't a specific limit on the number of labs that can be created per subscription. However, the amount of resources used per subscription is limited. You can read about the [limits and quotas for Azure subscriptions](../azure-subscription-service-limits.md) and [how to increase these limits](https://azure.microsoft.com/blog/azure-limits-quotas-increase-requests).
+There isn't a specific limit on the number of labs that can be created per subscription. However, the amount of resources used per subscription is limited. You can read about the [limits and quotas for Azure subscriptions](../azure-resource-manager/management/azure-subscription-service-limits.md) and [how to increase these limits](https://azure.microsoft.com/blog/azure-limits-quotas-increase-requests).
 
 
 ### How many VMs can I create per lab?
-There is no specific limit on the number of VMs that can be created per lab. However, the resources (VM cores, public IP addresses, and so on) that are used are limited per subscription. You can read about the [limits and quotas for Azure subscriptions](../azure-subscription-service-limits.md) and [how to increase these limits](https://azure.microsoft.com/blog/azure-limits-quotas-increase-requests).
+There is no specific limit on the number of VMs that can be created per lab. However, the resources (VM cores, public IP addresses, and so on) that are used are limited per subscription. You can read about the [limits and quotas for Azure subscriptions](../azure-resource-manager/management/azure-subscription-service-limits.md) and [how to increase these limits](https://azure.microsoft.com/blog/azure-limits-quotas-increase-requests).
 
 ### How do I determine the ratio of users per lab and the overall number of labs that are needed across an organization?
 We recommend that business units and development groups that are associated with the same development project are associated with the same lab. It allows for same types of policies, images, and shutdown policies to be applied to both groups.
@@ -277,7 +277,7 @@ For a more in-depth explanation, see [Comparing custom images and formulas](devt
 
 To automate uploading VHD files to create custom images, you have two options:
 
-- Use [AzCopy](../storage/common/storage-use-azcopy.md#upload-blobs-to-blob-storage) to copy or upload VHD files to the storage account that's associated with the lab.
+- Use [AzCopy](../storage/common/storage-use-azcopy-v10.md) to copy or upload VHD files to the storage account that's associated with the lab.
 - Use [Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md). Storage Explorer is a standalone app that runs on Windows, OS X, and Linux.
 
 To find the destination storage account that's associated with your lab:
@@ -349,7 +349,7 @@ If your VMs need to interact with existing infrastructure, then consider using a
 
 Consider using the VNet peering pattern here ([Hub-Spoke model](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)) too. This approach enables vnet/subnet communication across subscriptions. Otherwise, each DevTest Labs environment could have its own virtual network. 
 
-There are [limits](../azure-subscription-service-limits.md) on the number of virtual networks per subscription. The default amount is 50, though this limit can be raised to 100.
+There are [limits](../azure-resource-manager/management/azure-subscription-service-limits.md) on the number of virtual networks per subscription. The default amount is 50, though this limit can be raised to 100.
 
 ### When should I use a shared IP vs. public IP vs. private IP?
  
@@ -387,6 +387,19 @@ VM deployment errors are captured in activity logs. You can find lab VM activity
 
 Sometimes, the deployment error occurs before VM deployment begins. An example is when the subscription limit for a resource that was created with the VM is exceeded. In this case, the error details are captured in the lab-level activity logs. Activity logs are located at the bottom of the **Configuration and policies** settings. For more information about using activity logs in Azure, see [View activity logs to audit actions on resources](../azure-resource-manager/resource-group-audit.md).
 
+### Why do I get "location is not available for resource type" error when trying to create a lab?
+You may see an error message similar to the following one when you try to create a lab: 
 
+```
+The provided location 'australiacentral' is not available for resource type 'Microsoft.KeyVault/vaults'. List of available regions for the resource type is 'northcentralus,eastus,northeurope,westeurope,eastasia,southeastasia,eastus2,centralus,southcentralus,westus,japaneast,japanwest,australiaeast,australiasoutheast,brazilsouth,centralindia,southindia,westindia,canadacentral,canadaeast,uksouth,ukwest,westcentralus,westus2,koreacentral,koreasouth,francecentral,southafricanorth
+```
+
+You can resolve this error by taking one of the following steps:
+
+#### Option 1
+Check availability of the resource type in Azure regions on the [Products available by region](https://azure.microsoft.com/global-infrastructure/services/) page. If the resource type isn't available in a certain region, DevTest Labs doesn't support creation of a lab in that region. Select another region when creating your lab. 
+
+#### Option 2
+If the resource type is available in your region, check if it's registered with your subscription. It can be done at the subscription owner level as shown in [this article](../azure-resource-manager/resource-manager-supported-services.md). 
 
 

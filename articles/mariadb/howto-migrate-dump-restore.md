@@ -1,11 +1,11 @@
 ---
-title: Migrate your MariaDB database using dump and restore in Azure Database for MariaDB
+title: Migrate with dump and restore - Azure Database for MariaDB
 description: This article explains two common ways to back up and restore databases in your Azure Database for MariaDB, using tools such as mysqldump, MySQL Workbench, and PHPMyAdmin.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 09/24/2018
+ms.date: 12/02/2019
 ---
 
 # Migrate your MariaDB database to Azure Database for MariaDB using dump and restore
@@ -73,10 +73,6 @@ $ mysqldump -u root -p testdb table1 table2 > testdb_tables_backup.sql
 To back up more than one database at once, use the --database switch and list the database names separated by spaces. 
 ```bash
 $ mysqldump -u root -p --databases testdb1 testdb3 testdb5 > testdb135_backup.sql 
-```
-To back up all the databases in the server at one time, you should use the --all-databases option.
-```bash
-$ mysqldump -u root -p --all-databases > alldb_backup.sql 
 ```
 
 ## Create a database on the target server
