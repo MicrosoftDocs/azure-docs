@@ -12,7 +12,7 @@ ms.author: mihansen
 
 # What is Azure API for FHIR&reg;?
 
-Azure API for FHIR enables rapid exchange of data through FHIR APIs, backed by a managed Platform-as-a Service (PaaS) offering in the cloud. It makes it easier for anyone working with health data to ingest, manage, and persist Protected Health Information [PHI](https://www.hhs.gov/answers/hipaa/what-is-phi/index.html) in the cloud: 
+Azure API for FHIR enables rapid exchange of data through Fast Healthcare Interoperability Resources (FHIR®) APIs, backed by a managed Platform-as-a Service (PaaS) offering in the cloud. It makes it easier for anyone working with health data to ingest, manage, and persist Protected Health Information [PHI](https://www.hhs.gov/answers/hipaa/what-is-phi/index.html) in the cloud: 
 
 - Managed FHIR service, provisioned in the cloud in minutes 
 - Enterprise-grade, FHIR®-based endpoint in Azure for data access, and storage in FHIR® format
@@ -24,7 +24,7 @@ Azure API for FHIR enables rapid exchange of data through FHIR APIs, backed by a
 
 Azure API for FHIR allows you to create and deploy a FHIR service in just minutes to leverage the elastic scale of the cloud.  You pay only for the throughput and storage you need. The Azure services that power Azure API for FHIR are designed for rapid performance no matter what size datasets you’re managing.  The data persistence layer in the Azure API for FHIR leverages Azure Cosmos DB, which guarantees latencies at the 99th percentile and guarantees high availability with multi-homing capabilities. 
 
-The FHIR API and compliant data store enable you to securely connect and interact with any system that utilizes FHIR APIs.  Microsoft takes on the operations, maintenance, updates and compliance requirements in the PaaS offering, so you can free up your own operational and development resources. 
+The FHIR API and compliant data store enable you to securely connect and interact with any system that utilizes FHIR APIs.  Microsoft takes on the operations, maintenance, updates, and compliance requirements in the PaaS offering, so you can free up your own operational and development resources. 
 
 The following video presents an overview of Azure API for FHIR:
 
@@ -77,16 +77,11 @@ FHIR capabilities from Microsoft are available in two configurations:
 
 For use cases that requires extending or customizing the FHIR server or require access the underlying services—such as the database—without going through the FHIR APIs, developers should choose the open-source FHIR Server for Azure.   For implementation of a turn-key, production-ready FHIR API and backend service where persisted data should only be accessed through the FHIR API, developers should choose the Azure API for FHIR
 
-## Get started
+## Next Steps
 
-To start working with the FHIR Service, follow the 5-minute quickstart:
+To start working with the Azure API for FHIR, follow the 5-minute quickstart to deploy the Azure API for FHIR.
 
-* Deploy Open Source FHIR Server using [PowerShell](fhir-oss-powershell-quickstart.md)
-
-## Next steps
-
-After setting up the FHIR service, take important steps to configure and test the service:
-
-* [Access FHIR Service using Postman](access-fhir-postman-tutorial.md)
+>[!div class="nextstepaction"]
+>[Deploy Azure API for FHIR](fhir-paas-portal-quickstart.md)
 
 FHIR is the registered trademark of HL7 and is used with the permission of HL7.
