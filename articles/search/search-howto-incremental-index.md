@@ -69,10 +69,6 @@ Modify the cache object to include the following required and optional propertie
 
 ### Step 3: Reset the indexer
 
-> [!NOTE]
-> Resetting the indexer will result in all documents in your data source being processed again so that content can be cached. All cognitive enrichments will be re-run on all documents.
->
-
 A reset of the indexer is required when setting up incremental enrichment for existing indexers to ensure all documents are in a consistent state. You can use the portal or an API client and the [Reset Indexer REST API](https://docs.microsoft.com/rest/api/searchservice/reset-indexer) for this task.
 
 ```http
@@ -120,6 +116,10 @@ api-key: [YOUR-ADMIN-KEY]
 ```
 
 After the indexer runs, you can find the cache in Azure blob storage. The container name is in the following format: `ms-az-search-indexercache-<YOUR-CACHE-ID>`
+
+> [!NOTE]
+> A reset and re-run of the indexer results in a full rebuild so that content can be cached. All cognitive enrichments will be re-run on all documents.
+>
 
 ### Step 6: Modify a skillset and confirm incremental enrichment
 
