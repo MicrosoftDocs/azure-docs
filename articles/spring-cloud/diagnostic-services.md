@@ -4,7 +4,7 @@ description: Learn how to analyze diagnostics data in Azure Spring Cloud
 author: jpconnock
 ms.service: spring-cloud
 ms.topic: conceptual
-ms.date: 10/06/2019
+ms.date: 01/06/2020
 ms.author: jeconnoc
 
 ---
@@ -12,9 +12,20 @@ ms.author: jeconnoc
 
 By using the diagnostics functionality of Azure Spring Cloud, you can analyze logs and metrics with any of the following services:
 
-* Use Azure Log Analytics, where the data is written immediately without having to be written to storage first.
+* Use Azure Log Analytics, where the data is written to Azure Storage. There is a delay when exporting logs to Log Analytics.
 * Save them to a storage account  for auditing or manual inspection. You can specify the retention time (in days).
 * Stream them to your event hub for ingestion by a third-party service or custom analytics solution.
+* Choose which log category and metric category you want to monitor.
+Log 
+| **ApplicationConsole** | Console log of all customer applications. | 
+| **SystemLogs** | Currently, only **ConfigServerLog** in this category. |
+
+Metric
+| **Performance** |
+| **Request** |
+| **Error** |
+| **Session** |  |
+For a complete list of metrics, see [Spring Cloud Metrics](https://docs.microsoft.com/en-us/azure/spring-cloud/spring-cloud-concept-metrics#user-portal-metrics-options)
 
 To get started, enable one of these services to receive the data. To learn about configuring Log Analytics, review [Get started with Log Analytics in Azure Monitor](../azure-monitor/log-query/get-started-portal.md). 
 
@@ -109,9 +120,9 @@ To learn more about sending diagnostics information to an event hub, see [Stream
 
 ## Analyze the logs
 
-Azure Log Analytics provides Kusto so that you can query your logs for analysis. For a quick introduction to querying logs by using Kusto, review the [Log Analytics tutorial](../azure-monitor/log-query/get-started-portal.md).
+Azure Log Analytics is running with a Kusto engine so you can query your logs for analysis. For a quick introduction to querying logs by using Kusto, review the [Log Analytics tutorial](../azure-monitor/log-query/get-started-portal.md).
 
-Application logs provide critical information about your application's health, performance, and more. In the next sections are some simple queries to help you understand your application's current and past states.
+Application logs provide critical information and verbose logs about your application's health, performance, and more. In the next sections are some simple queries to help you understand your application's current and past states.
 
 ### Show application logs from Azure Spring Cloud
 
@@ -122,6 +133,8 @@ AppPlatformLogsforSpring
 | project TimeGenerated , ServiceName , AppName , InstanceName , Log
 | sort by TimeGenerated desc
 ```
+> [!NOTE]  
+> `==` is case sensitive, but `=~` is not.
 
 ### Show logs entries containing errors or exceptions
 
