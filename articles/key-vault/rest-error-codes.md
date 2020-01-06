@@ -149,7 +149,7 @@ In addition, most access policies do not require the use of the "Authorized appl
 ## HTTP 429: Too Many Requests
 
 Throttling occurs when the number of requests exceeds the stated maximum for the timeframe. If throttling occurs, the Key Vault's response will be HTTP 429. There are stated maximums for types of requests made. For instance: the creation of an HSM 2048-bit key is 5 requests per 10 seconds, but all other HSM transactions have a 1000 request/10 seconds limit. Therefore it is important to understand which types of calls are being made when determining the cause of throttling.
-In general, requests to the Key Vault are limited to 2000 requests/10 seconds. Exceptions are Key Operations, as documented in [Key Vault service limits](key-vault-service-limits)
+In general, requests to the Key Vault are limited to 2000 requests/10 seconds. Exceptions are Key Operations, as documented in [Key Vault service limits](key-vault-service-limits.md)
 
 ### Troubleshooting 429
 Throttling is worked around using these techniques:
