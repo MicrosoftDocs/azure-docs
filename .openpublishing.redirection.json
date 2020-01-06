@@ -3923,7 +3923,7 @@
     {
       "source_path": "articles/azure-supportability/index.yml",
       "redirect_url": "/azure/azure-portal/supportability/how-to-create-azure-support-request",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
 	    {
       "source_path": "articles/azure-supportability/classic-deployment-model-quota-increase-requests.md",
