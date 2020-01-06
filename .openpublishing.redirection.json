@@ -5706,6 +5706,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/connectors/connectors-native-query.md",
+      "redirect_url": "/azure/logic-apps/logic-apps-perform-data-operations#filter-array-action",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/logic-apps/logic-apps-enterprise-integration-as2-encode.md",
       "redirect_url": "/azure/logic-apps/logic-apps-enterprise-integration-as2",
       "redirect_document_id": true
@@ -43236,7 +43241,7 @@
     },
     {
       "source_path": "articles/iot-central/howto-connect-devkit.md",
-      "redirect_url": "/azure/iot-central/core/howto-connect-devki/t",
+      "redirect_url": "/azure/iot-central/core/howto-connect-devkit/",
       "redirect_document_id": true
     },
     {
