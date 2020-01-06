@@ -109,7 +109,7 @@ In this section, you will create an Azure Database for PostgreSQL server in Azur
     | Password | Enter a password of your choosing. The password must be at least 8 characters long and meet the defined requirements. |
     | Location | Select an Azure region where you want to want your PostgreSQL Server to reside. |
     |Version  | Select the database version of the PostgreSQL server that is required.|
-    | Compute + Storage| Select the pricing tier that is needed for the server based on teh workload. |
+    | Compute + Storage| Select the pricing tier that is needed for the server based on the workload. |
     |||
  
 7. Select **OK**. 
