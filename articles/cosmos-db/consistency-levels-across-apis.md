@@ -1,6 +1,6 @@
 ---
 title: Consistency levels and Azure Cosmos DB APIs
-description: Understanding the consistency levels across APIs in Azure Cosmos DB.
+description: Understanding the consistency level mapping between different APIs in Azure Cosmos DB and Apache Cassandra, MongoDB
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
@@ -16,7 +16,6 @@ Azure Cosmos DB provides native support for wire protocol-compatible APIs for po
 When using SQL API, Gremlin API, and Table API, the default consistency level configured on the Azure Cosmos account is used. 
 
 When using Cassandra API or Azure Cosmos DB’s API for MongoDB, applications get a full set of consistency levels offered by Apache Cassandra and MongoDB, respectively, with even stronger consistency and durability guarantees. This document shows the corresponding Azure Cosmos DB consistency levels for Apache Cassandra and MongoDB consistency levels.
-
 
 ## <a id="cassandra-mapping"></a>Mapping between Apache Cassandra and Azure Cosmos DB consistency levels
 

@@ -174,7 +174,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![G Suite Group Mappings](media/google-apps-provisioning-tutorial/groupmappings.png)
 
-12. Review the group attributes that are synchronized from Azure AD to G Suite in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the groups in G Suite for update operations. Select the **Save** button to commit any changes.
+12. Review the group attributes that are synchronized from Azure AD to G Suite in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the groups in G Suite for update operations. Select the **Save** button to commit any changes. The UI displays the default set of attribute mappings between Azure AD and G Suite. You can choose to add additional attributes such as Org Unit by clicking add new mapping. 
 
     ![G Suite Group Attributes](media/google-apps-provisioning-tutorial/groupattributes.png)
 
@@ -200,6 +200,9 @@ For more information on how to read the Azure AD provisioning logs, see [Reporti
 
 * [Managing user account provisioning for Enterprise Apps](../manage-apps/configure-automatic-user-provisioning-portal.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+
+## Common issues
+* Authorization failures can occur when the account used to establish a connection is not for an administrator in GSuite. Ensure that the account used to authorize access has admin permissions over **all domains** that users need to be provisioned with. 
 
 ## Next steps
 

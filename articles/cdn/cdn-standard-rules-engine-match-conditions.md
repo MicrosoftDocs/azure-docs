@@ -59,7 +59,7 @@ String | [Standard operator list](#standard-operator-list) | String, Int | No tr
 
 #### Key information
 
-- You can't use wildcard values (including asterisks (\*)) when you specify a cookie name; you muse use an exact cookie name.
+- You can't use wildcard values (including asterisks (\*)) when you specify a cookie name; you must use an exact cookie name.
 - You can specify only a single cookie name per instance of this match condition.
 - Cookie name comparisons are case-insensitive.
 - To specify multiple cookie values, use a single space between each cookie value. 
@@ -106,7 +106,7 @@ Not IP Match | IP address (space-separated)
 - Use CIDR notation.
 - To specify multiple IP addresses and IP address blocks, use a single space between the values:
   - **IPv4 example**: *1.2.3.4 10.20.30.40* matches any requests that arrive from either address 1.2.3.4 or 10.20.30.40.
-  - **IPv6 example**: *1:2:3:4:5:6:7:8 10:20:30:40:50:60:70:8*0 matches any requests that arrive from either address 1:2:3:4:5:6:7:8 or 10:20:30:40:50:60:70:80.
+  - **IPv6 example**: *1:2:3:4:5:6:7:8 10:20:30:40:50:60:70:80* matches any requests that arrive from either address 1:2:3:4:5:6:7:8 or 10:20:30:40:50:60:70:80.
 - The syntax for an IP address block is the base IP address followed by a forward slash and the prefix size. For example:
   - **IPv4 example**: *5.5.5.64/26* matches any requests that arrive from addresses 5.5.5.64 through 5.5.5.127.
   - **IPv6 example**: *1:2:3:/48* matches any requests that arrive from addresses 1:2:3:0:0:0:0:0 through 1:2:3:ffff:ffff:ffff:ffff:ffff.

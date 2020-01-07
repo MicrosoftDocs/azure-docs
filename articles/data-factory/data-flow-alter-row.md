@@ -1,10 +1,11 @@
 ---
-title: Azure Data Factory mapping data flow Alter Row Transformation
+title: Mapping data flow Alter Row Transformation
 description: How to update database target using Azure Data Factory mapping data flow Alter Row Transformation
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 03/12/2019
 ---
 

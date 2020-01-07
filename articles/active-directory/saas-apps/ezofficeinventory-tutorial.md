@@ -92,7 +92,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. EZOfficeInventory application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
 
-	![image](common/edit-attribute.png)
+	![image](common/default-attributes.png)
 
 1. In addition to above, EZOfficeInventory application expects few more attributes to be passed back in SAML response which are shown below. These attributes are also pre populated but you can review them as per your requirement.
 
@@ -142,13 +142,21 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure EZOfficeInventory SSO
 
-1. Open a new web browser window and sign into your EZOfficeInventory company site as an administrator.
+1. To automate the configuration within EZOfficeInventory, you need to install **My Apps Secure Sign-in browser extension** by clicking **Install the extension**.
 
-2. On the top-right corner of the page, click on **Profile** and then navigate to **Settings** > **Add Ons**.
+	![My apps extension](common/install-myappssecure-extension.png)
+
+1. After adding extension to the browser, click on **Set up EZOfficeInventory** will direct you to the EZOfficeInventory application. From there, provide the admin credentials to sign into EZOfficeInventory. The browser extension will automatically configure the application for you and automate steps 3-5.
+
+	![Setup configuration](common/setup-sso.png)
+
+1. If you want to setup EZOfficeInventory manually, open a new web browser window and sign into your EZOfficeInventory company site as an administrator and perform the following steps:
+
+1. On the top-right corner of the page, click on **Profile** and then navigate to **Settings** > **Add Ons**.
 
     ![EZOfficeInventory configuration](./media/ezofficeinventory-tutorial/configure01.png)
 
-3. Scroll down up to the **SAML Integration** section, perform the following steps:
+1. Scroll down up to the **SAML Integration** section, perform the following steps:
 
 	![EZOfficeInventory configuration](./media/ezofficeinventory-tutorial/configure02.png)
 
@@ -174,7 +182,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 In this section, a user called Britta Simon is created in EZOfficeInventory. EZOfficeInventory supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in EZOfficeInventory, a new one is created after authentication.
 
-## Test SSO 
+## Test SSO
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
@@ -189,4 +197,3 @@ When you click the EZOfficeInventory tile in the Access Panel, you should be aut
 - [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Try EZOfficeInventory with Azure AD](https://aad.portal.azure.com/)
-

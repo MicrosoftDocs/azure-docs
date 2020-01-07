@@ -26,8 +26,7 @@ Before creating a new VM, you'll need to [create a managed VM image](capture-ima
 
 ## Use the portal
 
-1. Open the [Azure portal](https://portal.azure.com).
-2. On the left menu, select **All resources**. You can sort the resources by **Type** to easily find your images.
+1. Go to the [Azure portal](https://portal.azure.com) to find a managed image. Search for and select **Images**.
 3. Select the image you want to use from the list. The image **Overview** page opens.
 4. Select **Create VM** from the menu.
 5. Enter the virtual machine information. The user name and password entered here will be used to log in to the virtual machine. When complete, select **OK**. You can create the new VM in an existing resource group, or choose **Create new** to create a new resource group to store the VM.

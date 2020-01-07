@@ -9,7 +9,7 @@ ms.workload: data-services
 author: swinarko
 ms.author: sawinark
 ms.reviewer: 
-manager: craigg
+manager: anandsub
 ---
 # Configure the Azure-SSIS Integration Runtime for high performance
 

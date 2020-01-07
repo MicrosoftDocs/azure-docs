@@ -4,8 +4,8 @@ description: Configuring Azure Diagnostics with Event Hubs end to end, including
 ms.service:  azure-monitor
 ms.subservice: diagnostic-extension
 ms.topic: conceptual
-author: rboucher
-ms.author: robb
+author: bwren
+ms.author: bwren
 ms.date: 07/13/2017
 
 ---

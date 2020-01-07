@@ -1,6 +1,6 @@
 ---
-title: Web API that calls web APIs (move to production) - Microsoft identity platform
-description: Learn how to build a web API that calls downstream web APIs (move to production).
+title: Move web API calling web APIs to production - Microsoft identity platform | Azure
+description: Learn how to move a web API that calls web APIs to production.
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur

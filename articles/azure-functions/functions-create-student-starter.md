@@ -44,7 +44,7 @@ You must have a function app to host the execution of your functions. A function
     | ------------ |  ------- | -------------------------------------------------- |
     | **App name** | Globally unique name | Name that identifies your new function app. Valid characters are `a-z`, `0-9`, and `-`.  | 
     | **Subscription** | Your subscription | The subscription under which this new function app is created. | 
-    | **[Resource Group](../azure-resource-manager/resource-group-overview.md)** |  myResourceGroup | Name for the new resource group in which to create your function app. |
+    | **[Resource Group](../azure-resource-manager/management/overview.md)** |  myResourceGroup | Name for the new resource group in which to create your function app. |
    | **[App Service Plan/Location](./functions-scale.md)** | New | The hosting plan that controls what region your function app is deployed to and the density of your resources. Multiple Function Apps deployed to the same plan will all share the same single free instance. This is a restriction of the Student Starter plan. The full hosting options are [explained here.](./functions-scale.md)|
     | **Runtime stack** | Preferred language | Choose a runtime that supports your favorite function programming language. Choose **.NET** for C# and F# functions. |
     |**[Application Insights](./functions-monitoring.md)**| Enabled | Application Insights is used to store and analyze your function app's logs. It is enabled by default if you choose a location that supports Application Insights. Application Insights can be enabled for any function by manually choosing a nearby region to deploy Application Insights. Without Application Insights, you will only be able to view live streaming logs.
@@ -118,7 +118,7 @@ In Azure for Student Starter you have access to most of the features of the Azur
     * [See languages supported in higher plans here](supported-languages.md)
 * Windows is the only supported operating system.
 * Scale is restricted to [one free tier instance](https://azure.microsoft.com/pricing/details/app-service/windows/) running for up to 60 minutes each day. You will serverlessly scale from 0 to 1 instance automatically as HTTP traffic is received, but no further.
-* Only [the 2.x runtime](functions-versions.md) is supported.
+* Only [version 2.x and later](functions-versions.md) of the Functions runtime is supported.
 * All developer tooling is supported for editing and publishing functions. This includes VS Code, Visual Studio, the Azure CLI, and the Azure portal. If you'd like to use anything other than the portal, you will need to first create an app in the portal, and then choose that app as a deployment target in your preferred tool.
 
 ## Next steps

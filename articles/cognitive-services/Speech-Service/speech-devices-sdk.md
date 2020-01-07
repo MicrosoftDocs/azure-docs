@@ -1,7 +1,7 @@
 ---
-title: About the Speech Devices SDK - Speech Service
+title: About the Speech Devices SDK - Speech service
 titleSuffix: Azure Cognitive Services
-description: Get started with the Speech Devices SDK. The Speech Service works with a wide variety of devices and audio sources. The Speech Devices SDK is a pre-tuned library that's paired with purpose-built, microphone array development kits.
+description: Get started with the Speech Devices SDK. The Speech service works with a wide variety of devices and audio sources. The Speech Devices SDK is a pre-tuned library that's paired with purpose-built, microphone array development kits.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -15,15 +15,15 @@ ms.author: erhopf
 
 # About the Speech Devices SDK
 
-The [Speech Services](overview.md) work with a wide variety of devices and audio sources. Now, you can take your speech applications to the next level with matched hardware and software. The Speech Devices SDK is a pretuned library that's paired with purpose-built, microphone array development kits.
+The [Speech service](overview.md) works with a wide variety of devices and audio sources. Now, you can take your speech applications to the next level with matched hardware and software. The Speech Devices SDK is a pretuned library that's paired with purpose-built, microphone array development kits.
 
 The Speech Devices SDK can help you:
 
 - Rapidly test new voice scenarios.
-- More easily integrate the cloud-based Speech Services into your device.
+- More easily integrate the cloud-based Speech service into your device.
 - Create an exceptional user experience for your customers.
 
-The Speech Devices SDK consumes the [Speech SDK](speech-sdk.md). It uses the Speech SDK to send the audio that's processed by our advanced audio processing algorithm from the device's microphone array to the [Speech Services](overview.md). It uses multichannel audio to provide more accurate far-field [speech recognition](speech-to-text.md) via noise suppression, echo cancellation, beamforming, and dereverberation.
+The Speech Devices SDK consumes the [Speech SDK](speech-sdk.md). It uses the Speech SDK to send the audio that's processed by our advanced audio processing algorithm from the device's microphone array to the [Speech service](overview.md). It uses multichannel audio to provide more accurate far-field [speech recognition](speech-to-text.md) via noise suppression, echo cancellation, beamforming, and dereverberation.
 
 You can also use the Speech Devices SDK to build ambient devices that have your own [customized keyword](speech-devices-sdk-create-kws.md) so the cue that initiates a user interaction is unique to your brand.
 
@@ -50,4 +50,4 @@ The application is built with the Speech SDK package, and the Eclipse Java IDE (
 > [!div class="nextstepaction"]
 > [Choose your speech device](get-speech-devices-sdk.md)
 > [!div class="nextstepaction"]
-> [Get a Speech Service subscription key for free](get-started.md)
+> [Get a Speech service subscription key for free](get-started.md)

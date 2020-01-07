@@ -139,10 +139,10 @@ You're now ready to publish your local functions project to the function app in 
 After you create the function app in Azure, you can use the [func azure functionapp publish](functions-run-local.md#project-file-deployment) Core Tools command to deploy your project code to Azure. In this example, replace `<APP_NAME>` with the name of your app.
 
 ```console
-func azure functionapp publish <APP_NAME> --build remote
+func azure functionapp publish <APP_NAME>
 ```
 
-The `--build remote` option builds your Python project remotely in Azure from the files in the deployment package, which is recommended. 
+Your Python project is built remotely in Azure from the files in the deployment package. 
 
 You'll see output similar to the following message. It's truncated here so you can read it better:
 

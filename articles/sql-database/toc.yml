@@ -76,6 +76,9 @@
       href: sql-database-security-overview.md
       displayName: compliance, fedramp, soc, fact, fisc, hitrust, pci, iso
 
+    - name: Security best practices
+      href: sql-database-security-best-practice.md
+
     - name: Access management
       items:
       - name: Access control
@@ -310,7 +313,7 @@
         href: sql-database-elastic-scale-introduction.md
       - name: Glossary
         href: sql-database-elastic-scale-glossary.md
-      - name: Elastic client library - consolidate
+      - name: Elastic client library
         href: sql-database-elastic-database-client-library.md
       - name: Shard maps
         href: sql-database-elastic-scale-shard-map-management.md
@@ -721,15 +724,16 @@
       href: https://azure.microsoft.com/resources/samples/?service=sql-database
 
 - name: SQL managed instance
+  href:  sql-database-managed-instance-index.yml
   items:
-  - name: Managed instance documentation
-    href: sql-database-managed-instance-index.yml
   - name: Overview
-    href: sql-database-managed-instance.md
-  - name: Instance pools
-    href: sql-database-instance-pools.md
-  - name: FAQ
-    href: sql-database-managed-instance-faq.md
+    items: 
+    - name: Managed instance
+      href: sql-database-managed-instance.md
+    - name: Instance pools
+      href: sql-database-instance-pools.md
+    - name: FAQ
+      href: sql-database-managed-instance-faq.md
   - name: Quickstarts
     items:
     - name: Create
@@ -757,14 +761,18 @@
     items:
       - name: Migrate using DMS
         href: ../dms/tutorial-sql-server-to-managed-instance.md?toc=/azure/sql-database/toc.json
-      - name: Configure transactional replication
-        href: replication-with-sql-database-managed-instance.md
       - name: Configure security
         href: sql-database-managed-instance-aad-security-tutorial.md
       - name: Add managed instance to a failover group
         href: sql-database-managed-instance-failover-group-tutorial.md
       - name: Migrate on-premises users and groups
         href: tutorial-managed-instance-azure-active-directory-migration.md
+      - name: Transactional replication
+        items:
+        - name: MI pub to MI sub
+          href: replication-with-sql-database-managed-instance.md
+        - name: MI pub, MI dist, SQL Sub
+          href: sql-database-managed-instance-configure-replication-tutorial.md 
 
   - name: Concepts
     items:

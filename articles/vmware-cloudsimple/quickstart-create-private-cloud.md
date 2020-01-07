@@ -1,5 +1,6 @@
 ---
-title: Azure VMware Solution by CloudSimple Quickstart - Create a Private Cloud 
+title: "Quickstart: Create a Private Cloud"
+titleSuffix: Azure VMware Solution by CloudSimple 
 description: Learn how to create and configure a Private Cloud with Azure VMware Solution by CloudSimple 
 author: sharaths-cs 
 ms.author: dikamath 

@@ -141,7 +141,7 @@
 - name: Concepts
   items:
   - name: Azure Resource Manager
-    href: ../../azure-resource-manager/resource-group-overview.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+    href: ../../azure-resource-manager/management/overview.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
   - name: Regions
     href: regions.md
   - name: Availability and performance
@@ -185,7 +185,9 @@
       - name: GPU optimized
         href: sizes-gpu.md
       - name: Setup GPU drivers
-        href: n-series-driver-setup.md      
+        href: n-series-driver-setup.md
+      - name: Setup AMD GPU drivers
+        href: n-series-amd-driver-setup.md      
     - name: High performance compute
       displayName: H-series
       href: sizes-hpc.md   
@@ -272,16 +274,16 @@
         href: dedicated-hosts-powershell.md
       - name: Portal
         href: dedicated-hosts-portal.md
-      - name: Deploy spot VMs
-        items:
-        - name: Portal
-          href: spot-portal.md
-        - name: PowerShell
-          href: spot-powershell.md
-        - name: Template
-          href: ../linux/spot-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-        - name: Error codes
-          href: ../error-codes-spot.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+    - name: Deploy spot VMs
+      items:
+      - name: Portal
+        href: spot-portal.md
+      - name: PowerShell
+        href: spot-powershell.md
+      - name: Template
+        href: ../linux/spot-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+      - name: Error codes
+        href: ../error-codes-spot.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
     - name: Use C#
       href: csharp.md
     - name: Use specialized disk
@@ -409,7 +411,7 @@
     - name: Maintenance notifications
       items:
       - name: Overview
-        href: maintenance-notifications.md
+        href: ../maintenance-notifications.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
       - name: CLI
         href: ../maintenance-notifications-cli.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
       - name: Portal
@@ -418,6 +420,8 @@
         href: ../maintenance-notifications-powershell.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Maintenance control
       items:
+      - name: PowerShell
+        href: ../maintenance-control-powershell.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
       - name: CLI
         href: ../maintenance-control-cli.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Scheduled events
@@ -670,7 +674,7 @@
 - name: Resources
   items:
   - name: Author templates
-    href: ../../azure-resource-manager/resource-group-authoring-templates.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+    href: ../../azure-resource-manager/templates/template-syntax.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
   - name: Build your skills with Microsoft Learn
     href: /learn/browse/?products=azure-virtual-machines
   - name: Azure Roadmap
