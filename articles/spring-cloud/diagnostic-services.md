@@ -15,7 +15,8 @@ By using the diagnostics functionality of Azure Spring Cloud, you can analyze lo
 * Use Azure Log Analytics, where the data is written to Azure Storage. There is a delay when exporting logs to Log Analytics.
 * Save logs to a storage account  for auditing or manual inspection. You can specify the retention time (in days).
 * Stream logs to your event hub for ingestion by a third-party service or custom analytics solution.
-* Choose which log category and metric category you want to monitor.
+
+Choose which log category and metric category you want to monitor.
 
 ## Logs
 
