@@ -382,28 +382,48 @@ The template defines two parameters:
 
 ### How to use this solution template
 
-1. Go to the **Copy from REST or HTTP using OAuth** template. Create New connections for both the Source Connection and the Destination Connection. 
-    ![Create new connections](media/solution-template-copy-from-rest-or-http-using-oauth/connections-for-datasets.png)
+1. Go to the **Copy from REST or HTTP using OAuth** template. Create a new connection for Source Connection. 
+    ![Create new connections](media/solution-template-copy-from-rest-or-http-using-oauth/source-connection.png)
 
-2. Select **Use this template**.
+    Below are key steps for new linked service (REST) settings:
+    
+     1. Under **Base URL**, specify the url parameter for your own source REST service. 
+     2. For **Authentication type**, choose *Anonymous*.
+        ![New REST connection](media/solution-template-copy-from-rest-or-http-using-oauth/new-rest-connection.png)
+     3. Test connection and then select **Create**.
+
+2. Create a new connection for Destination Connection.  
+    ![New Gen2 connection](media/solution-template-copy-from-rest-or-http-using-oauth/destination-connection.png)
+
+3. Select **Use this template**.
     ![Use this template](media/solution-template-copy-from-rest-or-http-using-oauth/use-this-template.png)
 
-3. You will see the pipeline as shown in the following example:
+4. You will see the pipeline created as shown in the following example:
     ![Pipeline](media/solution-template-copy-from-rest-or-http-using-oauth/pipeline.png)
 
-4. Select **Web** activity. In **Settings**->**Body**, specify parameters for **< service principal ID >**, **< your resource >**, and **< service principal key >** according to your own data: 
-    ![Pipeline](media/solution-template-copy-from-rest-or-http-using-oauth/web-settings.png)
+5. Select **Web** activity. In **Settings**, specify the corresponding **URL**, **Method**, **Headers**, and **Body** to retrieve OAuth bearer token from the login API of the service that you want to copy data from. The placeholder in the template showcases a sample of Azure Active Directory (AAD) OAuth. Note AAD authentication is natively supported by REST connector, here is just an example for OAuth flow. 
 
-   Below is an example:
-    
-    ```
-        grant_type=client_credentials&client_id=******&resource=https://management.core.windows.net/&client_secret=******
-    ```
-5. Select **Debug**, enter the **Parameters**, and then select **Finish**.
+    | Property | Description |
+    |:--- |:--- |:--- |
+    | URL |Specify the url to retrieve OAuth bearer token from. e.g. in the sample here it's https://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/token |. 
+    | Method | The HTTP method. Allowed values are **Post** and **Get**. | 
+    | Headers | Header is user-defined, which references one header name in the HTTP request. | 
+    | Body | The body for the HTTP request. | 
+
+    ![Pipeline](media/solution-template-copy-from-rest-or-http-using-oauth/web-settings.png)
+      
+6. Select **Debug**, enter the **Parameters**, and then select **Finish**.
    ![Pipeline run](media/solution-template-copy-from-rest-or-http-using-oauth/pipeline-run.png) 
 
-6. When the pipeline run completes successfully, you will see the result similar to the following example:
+7. When the pipeline run completes successfully, you will see the result similar to the following example:
    ![Pipeline run result](media/solution-template-copy-from-rest-or-http-using-oauth/run-result.png) 
+
+8. Click the "Output" icon of **GetBearerToken** activity in **Actions** column, you would see the bearer token returned by the service, which is then passed to subsequent copy activity for authentication.
+
+   ![Token output](media/solution-template-copy-from-rest-or-http-using-oauth/token-output.png) 
+
+    >[!CAUTION] 
+    >To avoid token being logged in plain text, enable "Secure output" in GetBearerToken activity and "Secure input" in Copy activity.
 
 ## Export JSON response as-is
 
