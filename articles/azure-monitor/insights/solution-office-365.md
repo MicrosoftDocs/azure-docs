@@ -17,7 +17,7 @@ ms.date: 01/07/2019
 
 
 > [!IMPORTANT]
-> This solution has been replaced by the [Office 365](../../sentinel/connect-office-365.md) General Availability solution in [Azure Sentinel](../../sentinel/overview.md) and the [Azure AD reporting and monitoring solution](../../active-directory/reports-monitoring/plan-monitoring-and-reporting.md). This is an updated version of the solution with an improved configuration experience. Enabling the solution in Azure Sentinel makes it available in Azure Monitor just like any other solution. Together these solutions provide an updated version of the previous Azure Monitor Office 365 solution with an improved configuration experience. You can continue to use the existing solution until March 30, 2020.
+> This solution has been replaced by the [Office 365](../../sentinel/connect-office-365.md) General Availability solution in [Azure Sentinel](../../sentinel/overview.md) and the [Azure AD reporting and monitoring solution](../../active-directory/reports-monitoring/plan-monitoring-and-reporting.md). This is an updated version of the solution with an improved configuration experience. Together these solutions provide an updated version of the previous Azure Monitor Office 365 solution with an improved configuration experience. You can continue to use the existing solution until March 30, 2020.
 > 
 > Azure Sentinel is a cloud native Security Information and Event Management solution that ingests logs and provides additional SIEM functionality including detections, investigations, hunting and machine learning driven insights. Using Azure Sentinel will now provide you with ingestion of Office 365 SharePoint activity and Exchange management logs.
 > 
