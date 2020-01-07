@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 01/02/2020
+ms.date: 01/07/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
@@ -15,7 +15,7 @@ ms.subservice: common
 
 # Geo-redundant storage (GRS): Cross-regional replication for Azure Storage
 
-[!INCLUDE [storage-common-redundancy-GRS](../../../includes/storage-common-redundancy-grs.md)]
+[!INCLUDE [storage-common-redundancy-grs](../../../includes/storage-common-redundancy-grs.md)]
 
 ## Read-access geo-redundant storage
 

@@ -15,11 +15,46 @@ ms.subservice: common
 
 # Azure Storage redundancy
 
-The data in your Microsoft Azure storage account is always stored redundantly to ensure durability and high availability. Azure Storage copies your data so that it is protected from planned and unplanned events, including transient hardware failures, network or power outages, and massive natural disasters. You can choose to replicate your data within the same data center, across zonal data centers within the same region, or across geographically separated regions.
-
-Redundancy ensures that your storage account meets the [Service-Level Agreement (SLA) for Storage](https://azure.microsoft.com/support/legal/sla/storage/) even in the face of failures. See the SLA for information about Azure Storage guarantees for durability and availability.
+Azure Storage always stores multiple copies of your data to ensure durability and high availability. Azure Storage copies your data so that it is protected from planned and unplanned events, including transient hardware failures, network or power outages, and massive natural disasters. Redundancy ensures that your storage account meets the [Service-Level Agreement (SLA) for Storage](https://azure.microsoft.com/support/legal/sla/storage/) even in the face of failures.
 
 Azure Storage regularly verifies the integrity of data stored using cyclic redundancy checks (CRCs). If data corruption is detected, it is repaired using redundant data. Azure Storage also calculates checksums on all network traffic to detect corruption of data packets when storing or retrieving data.
+
+## Redundancy in the primary region
+
+Data in an Azure Storage account is always replicated three times in the primary region. Azure Storage offers two options for how your data is replicated in the primary region:
+
+- **Locally redundant storage (LRS)** copies your data synchronously three times within a single physical location in the primary region. LRS is the least expensive replication option, but is not recommended for applications requiring high availability.
+- **Zone-redundant storage (ZRS)** copies your data synchronously across three Azure availability zones in the primary region. For applications requiring high availability, Microsoft recommends using ZRS in the primary region, and also replicating to a secondary region.
+
+### Locally-redundant storage
+
+[!INCLUDE [storage-common-redundancy-LRS](../../../includes/storage-common-redundancy-lrs.md)]
+
+### Zone-redundant storage
+
+[!INCLUDE [storage-common-redundancy-ZRS](../../../includes/storage-common-redundancy-zrs.md)]
+
+## Redundancy in a secondary region
+
+For applications requiring high availability, you can choose to additionally replicate the data in your storage account to a secondary region that is hundreds of miles away from the primary region. If your storage account is replicated to a secondary region, then your data is durable even in the case of a complete regional outage or a disaster in which the primary region isn't recoverable.
+
+When you create a storage account, you select the primary region for the account. The paired secondary region is determined based on the primary region, and can't be changed. For up-to-date information about regions supported by Azure, see [Business continuity and disaster recovery (BCDR): Azure paired regions](../../best-practices-availability-paired-regions.md).
+
+Azure Storage offers two options for replicating your data to a secondary region:
+
+- **Geo-redundant storage (GRS)** copies your data synchronously three times within a single physical location in the primary region using LRS. It then copies your data asynchronously to a single physical location in the secondary region. Within the secondary location, data is replicated synchronously three times using LRS.
+- **Geo-zone-redundant storage (GZRS)** (preview) copies your data synchronously across three Azure availability zones in the primary region using ZRS. It then copies your data asynchronously to a single physical location in the secondary region. Within the secondary location, data is replicated synchronously three times using LRS.
+
+### Geo-redundant storage
+
+[!INCLUDE [storage-common-redundancy-grs](../../../includes/storage-common-redundancy-grs.md)]
+
+### Geo-zone-redundant storage (preview)
+
+
+
+## Read access to data in the secondary region
+
 
 ## Choosing a redundancy configuration
 

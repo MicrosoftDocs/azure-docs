@@ -5,7 +5,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 08/13/2019
+ms.date: 01/07/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common

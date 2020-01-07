@@ -5,17 +5,17 @@
  author: tamram
  ms.service: storage
  ms.topic: include
- ms.date: 06/28/2019
+ ms.date: 01/07/2020
  ms.author: tamram
  ms.custom: include file
 ---
 
-Zone-redundant storage (ZRS) replicates your data synchronously across three storage clusters in a single region. Each storage cluster is physically separated from the others and is located in its own availability zone (AZ). Each availability zone&mdash;and the ZRS cluster within it&mdash;is autonomous and includes separate utilities and networking features. A write request to a ZRS storage account returns successfully only after the data is written to all replicas across the three clusters.
+Zone-redundant storage (ZRS) replicates your Azure Storage data synchronously across three Azure availability zones in the primary region. Each availability zone is a separate physical location that is with independent power, cooling, and networking. For more information on Azure availability zones, see [What are Azure Availability Zones?](../articles/availability-zones/az-overview.md).
 
-When you store your data in a storage account using ZRS replication, you can continue to access and manage your data if an availability zone becomes unavailable. ZRS provides excellent performance and low latency. ZRS offers the same scalability targets as [locally redundant storage (LRS)](../articles/storage/common/storage-redundancy-lrs.md). For more information on scalability targets for standard storage accounts, see [Scalability targets for standard storage accounts](../articles/storage/common/scalability-targets-standard-account.md).
+When you store your data in a storage account using ZRS replication, you can continue to access and manage your data if an availability zone becomes unavailable. ZRS offers durability for Azure Storage data objects of at least 99.9999999999% (12 9's) over a given year.
 
-Consider ZRS for scenarios that require consistency, durability, and high availability. Even if an outage or natural disaster renders an availability zone unavailable, ZRS offers durability for storage objects of at least 99.9999999999% (12 9's) over a given year.
+A write request to a storage account that is using ZRS happens synchronously. The write operation returns successfully only after the data is written to all replicas across the three availability zones.
 
-Geo-zone-redundant storage (GZRS) (preview) replicates your data synchronously across three Azure availability zones in the primary region, then replicates the data asynchronously to the secondary region. GZRS provides high availability together with maximum durability. GZRS is designed to provide at least 99.99999999999999% (16 9's) durability of objects over a given year. For read access to data in the secondary region, enable read-access geo-zone-redundant storage (RA-GZRS). For more information about GZRS, see [Geo-zone-redundant storage for highly availability and maximum durability (preview)](../articles/storage/common/storage-redundancy-gzrs.md).
+Microsoft recommends using ZRS in the primary region for scenarios that require consistency, durability, and high availability. ZRS provides excellent performance and low latency.
 
-For more information about availability zones, see [Availability Zones overview](https://docs.microsoft.com/azure/availability-zones/az-overview).
+For information about which regions support ZRS, see **Services support by region**  in [What are Azure Availability Zones?](../articles/availability-zones/az-overview.md).
