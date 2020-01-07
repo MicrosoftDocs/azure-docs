@@ -1,6 +1,6 @@
 ---
-title: Azure Service Fabric CLI- sfctl store 
-description: Describes the Service Fabric CLI sfctl store commands.
+title: Azure Service Fabric CLI- sfctl store
+description: Learn about sfctl, the Azure Service Fabric command line interface. Includes a list of commands for performing file level operations on the cluter image store.
 author: jeffj6123
 
 ms.topic: reference

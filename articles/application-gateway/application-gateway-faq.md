@@ -153,7 +153,7 @@ See [User-defined routes supported in the Application Gateway subnet](https://do
 
 ### What are the limits on Application Gateway? Can I increase these limits?
 
-See [Application Gateway limits](../azure-subscription-service-limits.md#application-gateway-limits).
+See [Application Gateway limits](../azure-resource-manager/management/azure-subscription-service-limits.md#application-gateway-limits).
 
 ### Can I simultaneously use Application Gateway for both external and internal traffic?
 
@@ -195,6 +195,9 @@ No.
 
 Yes. For details see, [Migrate Azure Application Gateway and Web Application Firewall from v1 to v2](migrate-v1-v2.md).
 
+### Does Application Gateway support IPv6?
+
+Application Gateway v2 does not currently support IPv6. It can operate in a dual stack VNet using only IPv4, but the gateway subnet must be IPv4-only. Application Gateway v1 does not support dual stack VNets. 
 
 ## Configuration - SSL
 
