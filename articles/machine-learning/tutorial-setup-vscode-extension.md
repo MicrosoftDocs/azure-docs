@@ -51,7 +51,7 @@ Now that you have signed into Azure with your account credentials, it's time to 
 
 1. Download and unzip the [VS Code Tools for AI repository](https://github.com/microsoft/vscode-tools-for-ai/archive/master.zip) anywhere on your computer.
 1. Open the *mnist-vscode-docs-sample* directory in Visual Studio Code.
-1. Select the **Azure** icon in the **Activity Bar**.
+1. Select the **Azure** icon in the Activity Bar.
 1. Select the **Run Experiment** icon at the top of the Azure Machine Learning View.
 
     ![Run Experiment](./media/tutorial-setup-vscode-extension/run-experiment.PNG)

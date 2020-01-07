@@ -65,7 +65,7 @@ One or more experiments can be created in your workspace to track and analyze in
 
 1. On the Visual Studio Code activity bar, select the **Azure** icon. The Azure Machine Learning view appears.
 1. Expand your subscription node.
-1. Expand the **TeamWorkspace** workspace node. 
+1. Expand the **TeamWorkspace** node. 
 1. Right-click the **Experiments** node.
 1. Select **Create Experiment** from the context menu.
 
@@ -83,7 +83,7 @@ To create a compute target:
 
 1. On the Visual Studio Code activity bar, select the **Azure** icon. The Azure Machine Learning view appears. 
 1. Expand your subscription node. 
-1. Expand the **TeamWorkspace** workspace node. 
+1. Expand the **TeamWorkspace** node. 
 1. Under the workspace node, right-click the **Compute** node and choose **Create Compute**. 
 
     ![Create a compute target](./media/tutorial-train-deploy-image-classification-model-vscode/create-compute.png)
@@ -102,7 +102,7 @@ To create a run configuration:
 
 1. On the Visual Studio Code activity bar, select the **Azure** icon. The Azure Machine Learning view appears. 
 1. Expand your subscription node. 
-1. Expand the **TeamWorkspace** workspace node. 
+1. Expand the **TeamWorkspace** node. 
 1. Under the workspace node, right-click the **TeamWkspc-com** compute node and choose **Create Run Configuration**.
 
     ![Create a run configuration](./media/tutorial-train-deploy-image-classification-model-vscode/create-run-configuration.png)
