@@ -126,7 +126,11 @@ public static async Task Run([OrchestrationTrigger] IDurableOrchestrationContext
 const df = require("durable-functions");
 
 module.exports = df.orchestrator(function*(context) {
-    const retryOptions = new df.RetryOptions(5000, 3);
+    const firstRetryIntervalInMilliseconds = 5000;
+    const maxNumberOfAttempts = 3;
+
+    const retryOptions = 
+        new df.RetryOptions(firstRetryIntervalInMilliseconds, maxNumberOfAttempts);
 
     yield context.df.callActivityWithRetry("FlakyFunction", retryOptions);
 
@@ -136,9 +140,7 @@ module.exports = df.orchestrator(function*(context) {
 
 ---
 
-The `CallActivityWithRetryAsync` (.NET) or `callActivityWithRetry` (JavaScript) API takes a `RetryOptions` parameter. Sub-orchestration calls using the `CallSubOrchestratorWithRetryAsync` (.NET) or `callSubOrchestratorWithRetry` (JavaScript) API can use these same retry policies.
-
-There are several options for customizing the automatic retry policy:
+The activity function call in the previous example takes a parameter for configuring an automatic retry policy. There are several options for customizing the automatic retry policy:
 
 * **Max number of attempts**: The maximum number of retry attempts.
 * **First retry interval**: The amount of time to wait before the first retry attempt.

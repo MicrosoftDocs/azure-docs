@@ -8,7 +8,7 @@ ms.author: azfuncdf
 
 # Custom orchestration status in Durable Functions (Azure Functions)
 
-Custom orchestration status lets you set a custom status value for your orchestrator function. This status is provided via the HTTP GetStatus API or the `DurableOrchestrationClient.GetStatusAsync` API.
+Custom orchestration status lets you set a custom status value for your orchestrator function. This status is provided via the [HTTP GetStatus API](durable-functions-http-api.md#get-instance-status) or the [`GetStatusAsync` API](durable-functions-instance-management.md#query-instances) on the orchestration client.
 
 ## Sample use cases
 
@@ -48,6 +48,8 @@ public static string SayHello([ActivityTrigger] string name)
 
 # [JavaScript](#tab/javascript)
 
+`E1_HelloSequence` orchestrator function:
+
 ```javascript
 const df = require("durable-functions");
 
@@ -65,6 +67,8 @@ module.exports = df.orchestrator(function*(context){
     return outputs;
 });
 ```
+
+`E1_SayHello` activity function:
 
 ```javascript
 module.exports = async function(context, name) {

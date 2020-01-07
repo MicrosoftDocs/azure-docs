@@ -111,7 +111,7 @@ For more information on the class-based syntax and how to use it, see [Defining 
 
 Durable entities are available in JavaScript starting with version **1.3.0** of the `durable-functions` npm package. The following code is the `Counter` entity implemented as a durable function written in JavaScript.
 
-**function.json**
+**Counter/function.json**
 ```json
 {
   "bindings": [
@@ -125,7 +125,7 @@ Durable entities are available in JavaScript starting with version **1.3.0** of 
 }
 ```
 
-**index.js**
+**Counter/index.js**
 ```javascript
 const df = require("durable-functions");
 
@@ -317,7 +317,7 @@ For example, we can modify the previous `Counter` entity example so that it send
 
 ---
 
-## <a name="entity-coordination"></a>Entity coordination (.NET only)
+## <a name="entity-coordination"></a>Entity coordination (currently .NET only)
 
 There might be times when you need to coordinate operations across multiple entities. For example, in a banking application, you might have entities that represent individual bank accounts. When you transfer funds from one account to another, you must ensure that the source account has sufficient funds. You also must ensure that updates to both the source and destination accounts are done in a transactionally consistent way.
 

@@ -42,9 +42,13 @@ The [orchestration client binding](durable-functions-bindings.md#orchestration-c
 
 # [JavaScript](#tab/javascript)
 
+**index.js**
+
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/HttpStart/index.js)]
 
-[!code-javascript[Main](~/samples-durable-functions/samples/javascript/HttpStart/function.json)]
+**function.json**
+
+[!code-json[Main](~/samples-durable-functions/samples/javascript/HttpStart/function.json)]
 
 ---
 
@@ -171,6 +175,7 @@ public static async Task RunOrchestrator(
     string subscriptionId = "mySubId";
     string resourceGroup = "myRG";
     string vmName = "myVM";
+    string apiVersion = "2019-03-01";
     
     // Automatically fetches an Azure AD token for resource = https://management.core.windows.net
     // and attaches it to the outgoing Azure Resource Manager API call.
@@ -184,6 +189,27 @@ public static async Task RunOrchestrator(
         throw new ArgumentException($"Failed to restart VM: {restartResponse.StatusCode}: {restartResponse.Content}");
     }
 }
+```
+
+```javascript
+const df = require("durable-functions");
+
+module.exports = df.orchestrator(function*(context) {
+    const subscriptionId = "mySubId";
+    const resourceGroup = "myRG";
+    const vmName = "myVM";
+    const apiVersion = "2019-03-01";
+
+    // get a list of the Azure subscriptions that I have access to
+    const restartResponse = yield context.df.callHttp(
+        "POST",
+        `https://management.azure.com/subscriptions/${subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Compute/virtualMachines/${vmName}/restart?api-version=${apiVersion}`,
+        undefined, // no request content
+        undefined, // no request headers (besides auth which is handled by the token source)
+        df.ManagedIdentityTokenSource("https://management.core.windows.net"));
+
+    return restartResponse;
+});
 ```
 
 In the previous example, the `tokenSource` parameter is configured to acquire Azure AD tokens for [Azure Resource Manager](../../azure-resource-manager/management/overview.md). The tokens are identified by the resource URI `https://management.core.windows.net`. The example assumes that the current function app either is running locally or was deployed as a function app with a managed identity. The local identity or the managed identity is assumed to have permission to manage VMs in the specified resource group `myRG`.

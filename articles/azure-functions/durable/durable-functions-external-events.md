@@ -138,6 +138,8 @@ public static async Task Run(
 > [!NOTE]
 > The previous code is for Durable Functions 2.x. For Durable Functions 1.x, you must use `DurableOrchestrationContext` instead of `IDurableOrchestrationContext`. For more information about the differences between versions, see the [Durable Functions versions](durable-functions-versions.md) article.
 
+In .NET, if the event payload cannot be converted into the expected type `T`, an exception is thrown.
+
 # [JavaScript](#tab/javascript)
 
 ```javascript
@@ -163,8 +165,6 @@ module.exports = df.orchestrator(function*(context) {
 
 > [!NOTE]
 > If your function app uses the Consumption Plan, no billing charges are incurred while an orchestrator function is awaiting a task from `WaitForExternalEvent` (.NET) or `waitForExternalEvent` (JavaScript), no matter how long it waits.
-
-In .NET, if the event payload cannot be converted into the expected type `T`, an exception is thrown.
 
 ## Send events
 
