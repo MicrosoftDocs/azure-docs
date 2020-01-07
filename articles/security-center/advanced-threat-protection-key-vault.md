@@ -12,7 +12,7 @@ ms.author: memildin
 ---
 # Set up advanced threat protection for Azure Key Vault (preview)
 
-Advanced threat protection for Azure Key Vault provides an additional layer of security intelligence. This tool detects potentially harmful attempts to access or exploit Key Vault accounts. Using Azure Security Center's native advanced threat protection, you can address threats without being a security expert, and without learning additional security monitoring systems.
+Advanced threat protection for Azure Key Vault provides an additional layer of security intelligence. This tool detects potentially harmful attempts to access or exploit Key Vault accounts. Using the native advanced threat protection in Azure Security Center, you can address threats without being a security expert, and without learning additional security monitoring systems.
 
 When Security Center detects anomalous activity, it displays alerts. It also emails the subscription administrator with details of the suspicious activity and recommendations for how to investigate and remediate the identified threats.
 
@@ -21,14 +21,14 @@ When Security Center detects anomalous activity, it displays alerts. It also ema
 
 ## Set up advanced threat protection from Azure Security Center
 
-By default, advanced threat protection is enabled for all of your Key Vault accounts when you subscribe to Security Center's Standard tier. For more information, see [Pricing](security-center-pricing.md).
+By default, advanced threat protection is enabled for all of your Key Vault accounts when you subscribe to the Security Center Standard tier. For more information, see [Pricing](security-center-pricing.md).
 
 To enable or disable the protection for a specific subscription, follow these steps.
 
-1. From Security Center's left pane, select **Pricing & settings**.
+1. From the left pane in Security Center, select **Pricing & settings**.
 1. Select the subscription with the storage accounts for which you want to enable or disable threat protection.
 1. Select **Pricing tier**.
-1. From the **Select pricing tier by resource type** group, find the Key Vaults row and select **Enabled** or **Disabled**.
+1. From the **Select pricing tier by resource type** group, find the **Key Vaults** row and select **Enabled** or **Disabled**.
 
     [![Enabling or disabling advanced threat protection for Key Vault in Azure Security Center](media/advanced-threat-protection-key-vault/atp-for-akv-enable-atp-for-akv.png)](media/advanced-threat-protection-key-vault/atp-for-akv-enable-atp-for-akv.png#lightbox)
 1. Select **Save**.
