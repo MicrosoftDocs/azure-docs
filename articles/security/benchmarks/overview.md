@@ -12,7 +12,7 @@ ms.custom: security-baselines
 
 ---
 
-# Overview
+# Overview of Azure Security Controls
 
 The Azure Security Benchmark contains recommendations that help you improve the security of your applications and data on Azure.   
 
@@ -20,7 +20,7 @@ This Benchmark focuses on cloud-centric control areas. These controls are consis
 
 The following controls are used in the Azure Security Benchmark: 
 
-- Network security 
+- Network Security 
 - Logging and Monitoring 
 - Identity and Access Control 
 - Data Protection 
