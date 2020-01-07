@@ -6,7 +6,7 @@ ms.subservice:
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 12/29/2019
+ms.date: 01/07/2019
 
 ---
 
@@ -17,13 +17,19 @@ ms.date: 12/29/2019
 
 
 > [!IMPORTANT]
-> This solution has been replaced by the [Office 365](../../sentinel/connect-office-365.md) and [Azure AD](../../sentinel/connect-azure-active-directory.md) connectors in [Azure Sentinel](../../sentinel/overview.md). This is an updated version of the solution with an improved configuration experience. The operation of the solution hasn't changed, so you can use this article for those details. You can continue to use the existing solution until March 15, 2020.
+> This solution has been replaced by the [Office 365](../../sentinel/connect-office-365.md) General Availability solution in [Azure Sentinel](../../sentinel/overview.md) and the [Azure AD reporting and monitoring solution](../../active-directory/reports-monitoring/plan-monitoring-and-reporting.md). This is an updated version of the solution with an improved configuration experience. Enabling the solution in Azure Sentinel makes it available in Azure Monitor just like any other solution. Together these solutions provide an updated version of the previous Azure Monitor Office 365 solution with an improved configuration experience. You can continue to use the existing solution until March 30, 2020.
 > 
-> The Azure Sentinel solution currently provides the SharePoint activity and Exchange management logs, and will provide more activity records in the future. To connect Azure AD logs, you can use either the Azure Sentinel Azure AD connector or configure Azure AD diagnostic settings, which provides richer log data than the Office 365 management logs with lower latency.
+> Azure Sentinel is a cloud native Security Information and Event Management solution that ingests logs and provides additional SIEM functionality including detections, investigations, hunting and machine learning driven insights. Using Azure Sentinel will now provide you with ingestion of Office 365 SharePoint activity and Exchange management logs.
+> 
+> Azure AD reporting provides a more comprehensive view of logs from Azure AD activity in your environment, including sign in events, audit events, and changes to your directory. To connect Azure AD logs, you can use either the [Azure Sentinel Azure AD connector](../../sentinel/connect-azure-active-directory.md) or configure [Azure AD logs integration with Azure Monitor](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md). 
 >
-> Using Azure Sentinel Office 365 solution requires you to [enable the Azure Sentinel solution](../../sentinel/quickstart-onboard.md) on your relevant workspace. If you are using the existing solution, you must first uninstall it using the script in the [Uninstall](#uninstall) section below and then enable the updated solution using the [Azure Sentinel Office 365 instructions](../../sentinel/connect-office-365.md).
+> The collection of Azure AD log is subjected to Azure Monitor pricing.  See [Azure Sentinel pricing](https://azure.microsoft.com/pricing/details/azure-sentinel/) for more information.
 >
-> This update changes the way you are charged.  See [Azure Sentinel pricing](https://azure.microsoft.com/pricing/details/azure-sentinel/) for more information.
+> To use the Azure Sentinel Office 365 solution:
+> 1.	If you are already using the Azure Monitor Office 365 solution, you must first uninstall it using the script in the [Uninstall section below](#uninstall).
+> 2.	[Enable the Azure Sentinel solution](../../sentinel/quickstart-onboard.md) on your workspace.
+> 3.	Go to the **Data connectors** page in Azure Sentinel and enable the **Office 365** connector.
+
 
 The Office 365 management solution allows you to monitor your Office 365 environment in Azure Monitor.
 
