@@ -1,12 +1,8 @@
 ---
 title: Troubleshooting Azure autoscale
 description: Tracking down problems with Azure autoscaling used in Service Fabric, Virtual Machines, Web Apps, and cloud services.
-author: rboucher
-services: azure-monitor
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 11/4/2019
-ms.author: robb
 ms.subservice: autoscale
 ---
 

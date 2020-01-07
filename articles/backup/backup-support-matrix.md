@@ -49,7 +49,7 @@ Here's what's supported if you want to back up on-premises machines:
 
 **Limit** | **Details**
 --- | ---
-**Azure VM data disks** | Limit of 16
+**Azure VM data disks** | Limit of 16 <br> To sign up for the private preview of VMs with 16+ disks (up to 32 disks), write to us at AskAzureBackupTeam@microsoft.com
 **Azure VM data disk size** | Individual disk size can be up to 32 TB and a maximum of 256 TB combined for all disks in a VM.
 
 ### Azure VM backup options
@@ -136,6 +136,19 @@ Backup supports the compression of backup traffic, as summarized in the followin
 **Recovery point retention** | Daily, weekly, monthly, yearly
 **Maximum retention period** | Depends on backup frequency
 **Recovery points on DPM/MABS disk** | 64 for file servers; 448 for app servers <br/><br/>Unlimited tape recovery points for on-premises DPM
+
+## Cross Region Restore
+
+Azure Backup has added the Cross Region Restore feature to strengthen data availability and resiliency capability, giving customers full control to restore data to a secondary region. To configure this feature, visit [the Set Cross Region Restore article.](backup-create-rs-vault.md#set-cross-region-restore). This feature is supported for the following management types:
+
+| Backup Management type | Supported                                                    | Supported Regions |
+| ---------------------- | ------------------------------------------------------------ | ----------------- |
+| Azure VM               | Yes. Public limited Preview  Supported for encrypted VMs and VMs with lesser than 4-TB  disks | West Central US   |
+| MARS Agent/On premises | No                                                           | N/A               |
+| SQL /SAP HANA          | No                                                           | N/A               |
+| AFS                    | No                                                           | N/A               |
+
+
 
 ## Next steps
 

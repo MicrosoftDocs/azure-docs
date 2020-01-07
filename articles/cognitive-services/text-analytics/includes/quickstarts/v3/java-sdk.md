@@ -27,7 +27,7 @@ Source code
 
 ### Create a Text Analytics Azure resource
 
-[!INCLUDE [text-analytics-resource-creation](resource-creation.md)]
+[!INCLUDE [text-analytics-resource-creation](../resource-creation.md)]
 
 Create a new Maven project
 
@@ -91,6 +91,8 @@ public static void main(String[] args) {
 ## Object model
 
 The Text Analytics client is a [TextAnalyticsClient]() object that authenticates to Azure using your key, and provides functions to accept text as single strings or as a batch. You can send text to the API synchronously, or asynchronously. The response object will contain the analysis information for each document you send. 
+
+[!INCLUDE [text-analytics-find-resource-information](../../find-azure-resource-info.md)]
 
 ## Code examples
 

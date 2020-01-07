@@ -4,8 +4,8 @@ description: Relevant to collecting perf counters in Azure Virtual Machines, VM 
 ms.service:  azure-monitor
 ms.subservice: diagnostic-extension
 ms.topic: reference
-author: rboucher
-ms.author: robb
+author: bwren
+ms.author: bwren
 ms.date: 09/04/2019
 
 ---
