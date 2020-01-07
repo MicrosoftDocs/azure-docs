@@ -44,11 +44,11 @@ To set up a managed identity in the portal, you first create an application and 
 
 1. Create an App Services instance in the [Azure portal](https://portal.azure.com) as you normally do. Go to it in the portal.
 
-2. Scroll down to the **Settings** group in the left pane, and select **Identity**.
+1. Scroll down to the **Settings** group in the left pane, and select **Identity**.
 
-3. On the **System assigned** tab, switch **Status** to **On** and select **Save**.
+1. On the **System assigned** tab, switch **Status** to **On** and select **Save**.
 
-4. Answer **Yes** when prompted to enable system assigned managed identity.
+1. Answer **Yes** when prompted to enable system assigned managed identity.
 
     ![Set managed identity in App Service](./media/set-managed-identity-app-service.png)
 
@@ -130,7 +130,7 @@ To set up a managed identity in the portal, you first create an application and 
 ```
 ---
 
-4. To use both App Configuration values and Key Vault references, update *Program.cs* as shown below. This code creates a new `KeyVaultClient` using an `AzureServiceTokenProvider` and passes this reference to a call to the `UseAzureKeyVault` method.
+1. To use both App Configuration values and Key Vault references, update *Program.cs* as shown below. This code creates a new `KeyVaultClient` using an `AzureServiceTokenProvider` and passes this reference to a call to the `UseAzureKeyVault` method.
 
 ### [.NET Core 2.x](#tab/core2x)
 
