@@ -29,24 +29,13 @@ You can use any trigger to start your workflow, for example, when a new email ar
 
 * An Azure subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/). 
 
-* The logic app where you want to access your Office 365 Outlook account. To start your logic app with a trigger, you need a 
-[blank logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
-
-<a name="create-connection"></a>
-
-## Connect to Office 365
-
-Before your logic app can access any service, you first create a *connection* to the service. A connection provides connectivity between a logic app and another service. For example, to connect to Office 365 Outlook, you first need an Office 365 *connection*. To create a connection, enter the credentials you normally use to access the service you wish to connect to. So with Office 365 Outlook, enter the credentials to your Office 365 account to create the connection.
-
-> [!INCLUDE [Steps to create a connection to Office 365](../../includes/connectors-create-api-office365-outlook.md)]
+* The logic app where you want to access your Office 365 Outlook account. To start your workflow with an Office 365 Outlook trigger, you need to have a [blank logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md). To add an Office 365 Outlook action to your workflow, your logic app needs to already have a trigger.
 
 ## Add a trigger
 
-A trigger is an event that can be used to start the workflow defined in a logic app. Triggers "poll" the service at an interval and frequency that you want. [Learn more about triggers](../logic-apps/logic-apps-overview.md#logic-app-concepts).
+A [trigger](../logic-apps/logic-apps-overview.md#logic-app-concepts) is an event that starts the workflow in your logic app. This example logic app uses a "polling" trigger that checks for any updated calendar event in your email account, based on the specified interval and frequency.
 
-This example logic app uses a trigger that fires when a calendar event is updated.
-
-1. In the [Azure portal](https://portal.azure.com0, open your blank logic app in the Logic App Designer.
+1. In the [Azure portal](https://portal.azure.com), open your blank logic app in the Logic App Designer.
 
 1. In the search box, enter "office 365" as your filter. For this example, select **When an upcoming event is starting soon**.
    
@@ -68,11 +57,11 @@ To respond to the trigger, add another action. For example, you can add the Twil
 
 ## Add an action
 
-An action is an operation carried out by the workflow defined in a logic app. [Learn more about actions](../logic-apps/logic-apps-overview.md#logic-app-concepts).
+An [action](../logic-apps/logic-apps-overview.md#logic-app-concepts) is an operation that's run by the workflow in your logic app. This example logic app creates a new contact in Office 365 Outlook. You can use the output from another trigger to create the contact. For example, suppose your logic app uses the SalesForce **When an object is created** trigger. You can add the Office 365 Outlook **Create contact** action and use the outputs from the SalesForce trigger to create the new contact.
 
-This example logic app creates a new contact in Office 365 Outlook. You can use the output from another trigger to create the contact. For example, suppose your logic app uses the SalesForce **When an object is created** trigger. You can add the Office 365 Outlook **Create contact** action with the SalesForce trigger outputs to create the new contact.
+1. In the [Azure portal](https://portal.azure.com), open your logic app in the Logic App Designer.
 
-1. To add an action as the latest step in your workflow, select **New step**. 
+1. To add an action as the last step in your workflow, select **New step**. 
 
    To add an action between steps, move your pointer over the arrow between those steps. Select the plus sign (**+**) that appears, and then select **Add an action**.
 
@@ -80,8 +69,8 @@ This example logic app creates a new contact in Office 365 Outlook. You can use 
 
    ![Add the "Create contact" action to your logic app](./media/connectors-create-api-office365-outlook/office365-actions.png) 
 
-1. If you're prompted to sign in, follow these steps to [create the connection](#create-connection). Otherwise, if a connection already exists, provide information for the **Folder ID**, **Given Name**, and other properties:  
-   
+1. If you're prompted to sign in, provide your Office 365 credentials so that your logic app can connect to your account. Otherwise, if your connection already exists, provide the information for the action properties:
+
    ![Enter information for the action](./media/connectors-create-api-office365-outlook/office365-sampleaction.png)
 
 1. On the designer toolbar, select **Save**, which saves your logic app.
