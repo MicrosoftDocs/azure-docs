@@ -21,8 +21,8 @@
     href: tutorial-ios-picture-immersive-reader.md
 - name: How-To
   items:
-  - name: How to authenticate with Azure Active Directory
-    href: how-to/azure-active-directory-authentication.md
+  - name: Create Immersive Reader resource
+    href: how-to-create-immersive-reader.md
   - name: How to set the cookie policy
     href: how-to/set-cookie-policy.md
 - name: Reference

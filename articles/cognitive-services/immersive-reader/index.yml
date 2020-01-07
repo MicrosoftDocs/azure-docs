@@ -46,8 +46,8 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: How to authenticate with Azure Active Directory
-            url: how-to/azure-active-directory-authentication.md
+          - text: Create an Immersive Reader Resource
+            url: how-to-create-immersive-reader.md
           - text: How to set the cookie policy
             url: how-to/set-cookie-policy.md
       - linkListType: reference

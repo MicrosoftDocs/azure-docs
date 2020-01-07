@@ -39,8 +39,8 @@ launchAsync(token: string, subdomain: string, content: Content, options?: Option
 
 | Name | Type | Description |
 | ---- | ---- |------------ |
-| `token` | string | The Azure AD authentication token. See the [Azure AD authentication how-to](./how-to/azure-active-directory-authentication.md). |
-| `subdomain` | string | The custom subdomain of your Immersive Reader resource in Azure. See the [Azure AD authentication how-to](./how-to/azure-active-directory-authentication.md). |
+| `token` | string | The Azure AD authentication token. |
+| `subdomain` | string | The custom subdomain of your Immersive Reader resource in Azure. |
 | `content` | [Content](#content) | An object containing the content to be shown in the Immersive Reader. |
 | `options` | [Options](#options) | Options for configuring certain behaviors of the Immersive Reader. Optional. |
 
