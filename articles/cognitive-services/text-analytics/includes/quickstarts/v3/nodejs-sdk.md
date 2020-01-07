@@ -153,7 +153,7 @@ async function languageDetection(client) {
     result.forEach(document => {
         console.log(`ID: ${document.id}`);
         document.detectedLanguages.forEach(language =>
-        console.log(`\tDetected Language ${language.name}`) // Q: Do we need to show both of the languages ? (Detected vs Primary)
+        console.log(`\tDetected Language ${language.name}`)
         );
         console.log(`\tPrimary Language ${document.primaryLanguage.name}`)
     });
