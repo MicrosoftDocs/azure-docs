@@ -28,11 +28,11 @@ This guide shows how to access Azure Storage in Windows Containers. Only [Azure 
 
 ## Limitations
 
-- BYOS is **in preview** and **not supported** for **production scenarios**.
-- BYOS on Windows App Service plans supports mounting **Azure Files containers** (Read / Write) only.
-- BYOS is currently **not supported** for bring your own code scenarios on Windows App Service plans.
-- BYOS **doesn't support** using the **Storage Firewall** configuration because of infrastructure limitations.
-- BYOS lets you specify **up to five** mount points per app.
+- Azure Storage in Windows containers is **in preview** and **not supported** for **production scenarios**.
+- Azure Storage in Windows containers supports mounting **Azure Files containers** (Read / Write) only.
+- Azure Storage in Windows containers is currently **not supported** for bring your own code scenarios on Windows App Service plans.
+- Azure Storage in Windows containers **doesn't support** using the **Storage Firewall** configuration because of infrastructure limitations.
+- Azure Storage in Windows containers lets you specify **up to five** mount points per app.
 - Azure Storage is billed independently and **not included** with your web app. Learn more about [Azure Storage pricing](https://azure.microsoft.com/pricing/details/storage).
 
 ## Link storage to your web app (preview)
