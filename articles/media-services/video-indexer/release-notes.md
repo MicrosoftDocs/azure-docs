@@ -28,7 +28,7 @@ To stay up-to-date with the most recent developments, this article provides you 
 
 ## December 2019
 
-### New update index API
+### Update transcript with the new API
 
 Update a specific section in the transcript using the [Update-Video-Index](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Update-Video-Index?&pattern=update) API.
 
