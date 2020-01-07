@@ -32,7 +32,7 @@ OFFSET <offset_amount> LIMIT <limit_amount>
 
 ## Remarks
   
-  Both the OFFSET count and the LIMIT count are required in the OFFSET LIMIT clause. If an optional `ORDER BY` clause is used, the result set is produced by doing the skip over the ordered values. Otherwise, the query will return a fixed order of values. Currently this clause is supported for queries within a single partition only, cross-partition queries don't yet support it.
+  Both the OFFSET count and the LIMIT count are required in the OFFSET LIMIT clause. If an optional `ORDER BY` clause is used, the result set is produced by doing the skip over the ordered values. Otherwise, the query will return a fixed order of values. This clause is now supported for queries within a single partition as well as cross-partition queries.
 
 ## Examples
 
