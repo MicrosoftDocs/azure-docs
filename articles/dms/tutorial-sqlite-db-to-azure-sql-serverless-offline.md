@@ -21,18 +21,18 @@ Once you have followed the below steps, your database will be migrated into Azur
 
 3. Create a System DSN for the database. Ensure you use the Data Source Administrator application that matches your system architecture (32-bit vs 64-bit). You can find which version you are running in your system settings.
 
-  - Open ODBC Data Source Administrator in your environment.
-  - Click the system DSN tab and click "Add"
-  - Select the SQLite ODBC connector you installed and give the connection a meaningful name e.g. sqlitemigrationsource
-  - Set the database name to the .db file
-  - Save and exit
+    - Open ODBC Data Source Administrator in your environment.
+    - Click the system DSN tab and click "Add"
+    - Select the SQLite ODBC connector you installed and give the connection a meaningful name e.g. sqlitemigrationsource
+    - Set the database name to the .db file
+    - Save and exit
 
 4. Download and install the self-hosted integration runtime. The easiest way to do this is the Express install option, as detailed in the documentation. If you opt for a manual install, you will need to provide the application with an authentication key, which can be located in your Data Factory instance by:
 
-  - Starting up ADF (Author and Monitor from the service in the Azure Portal)
-  - Click the "Author" tab (Blue pencil) on the left
-  - Click Connections (bottom left), then Integration runtimes
-  - Add new Self Hosted Integration Runtime, give it a name, select *Option 2*.
+    - Starting up ADF (Author and Monitor from the service in the Azure Portal)
+    - Click the "Author" tab (Blue pencil) on the left
+    - Click Connections (bottom left), then Integration runtimes
+    - Add new Self Hosted Integration Runtime, give it a name, select *Option 2*.
 
 5. Create a new linked service for the source SQLite database in your Data Factory.
 
