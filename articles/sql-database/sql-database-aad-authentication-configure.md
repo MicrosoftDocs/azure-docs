@@ -514,7 +514,7 @@ The following statements, connect using version 13.1 of sqlcmd, which is availab
 > `sqlcmd` with the `-G` command does not work with system identities, and requires a user principal login.
 
 ```cmd
-sqlcmd -S Target_DB_or_DW.testsrv.database.windows.net  -G  
+sqlcmd -S Target_DB_or_DW.testsrv.database.windows.net -G  
 sqlcmd -S Target_DB_or_DW.testsrv.database.windows.net -U bob@contoso.com -P MyAADPassword -G -l 30
 ```
 
