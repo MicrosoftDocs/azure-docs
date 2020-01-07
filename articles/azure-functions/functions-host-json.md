@@ -104,7 +104,7 @@ The following sample *host.json* file has all possible options specified (exclud
                 "tempFolder": null,
                 "thresholdForSnapshotting": 1,
                 "uploaderProxy": null
-            }
+            },
             "SamplingExcludedTypes": "",
             "SamplingIncludedTypes": "Dependency, Event, Exception, PageView, Request, Trace"
         }
