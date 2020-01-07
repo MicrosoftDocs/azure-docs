@@ -151,7 +151,8 @@ This section assumes that you have already obtained an ISO file from the Red Hat
         USERCTL=no
         PEERDNS=yes
         IPV6INIT=no
-		NM_CONTROLLED=no
+	PERSISTENT_DHCLIENT=yes
+	NM_CONTROLLED=yes
 
 1. Ensure that the network service will start at boot time by running the following command:
 
@@ -405,7 +406,8 @@ This section assumes that you have already obtained an ISO file from the Red Hat
         USERCTL=no
         PEERDNS=yes
         IPV6INIT=no
-        NM_CONTROLLED=no
+	PERSISTENT_DHCLIENT=yes
+	NM_CONTROLLED=yes
 
 1. Ensure that the network service will start at boot time by running the following command:
 
@@ -663,7 +665,8 @@ This section assumes that you have already installed a RHEL virtual machine in V
         USERCTL=no
         PEERDNS=yes
         IPV6INIT=no
-        NM_CONTROLLED=no
+	PERSISTENT_DHCLIENT=yes
+	NM_CONTROLLED=yes
 
 1. Ensure that the network service will start at boot time by running the following command:
 
@@ -880,7 +883,8 @@ This section assumes that you have already installed a RHEL virtual machine in V
         USERCTL=no
         PEERDNS=yes
         IPV6INIT=no
-        NM_CONTROLLED=no
+	PERSISTENT_DHCLIENT=yes
+	NM_CONTROLLED=yes
         EOF
 
         # Deprovision and prepare for Azure if you are creating a generalized image
