@@ -94,6 +94,8 @@ A marker or symbol is often used to represent a location on the map. Additional 
 
 The following example loads points of interests on the map using a symbol layer and adds a popup to the map for each point of interest. A reference to each popup is stored in the properties of each data point so that it can also be retrieved for a marker, such as when a marker is clicked. When focused on the map, pressing the tab key will allow the user to step through each popup on the map.
 
+<br/>
+
 <iframe height='500' scrolling='no' title='Make an accessible application' src='//codepen.io/azuremaps/embed/ZoVyZQ/?height=504&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/azuremaps/pen/ZoVyZQ/'>Make an accessible application</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>. </iframe>
 
 <br/>
@@ -140,7 +142,7 @@ Take a look at these useful accessibility tools:
 > [WAI-ARIA Overview](https://www.w3.org/WAI/standards-guidelines/aria/)
 
 > [!div class="nextstepaction"]
-> [Web Accessibility Evaluation Tool (WAVE)](http://wave.webaim.org/)
+> [Web Accessibility Evaluation Tool (WAVE)](https://wave.webaim.org/)
 
 > [!div class="nextstepaction"]
 > [WebAim color contrast checker](https://webaim.org/resources/contrastchecker/)

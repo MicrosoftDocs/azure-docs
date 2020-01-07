@@ -1,7 +1,7 @@
 ---
-title: "Quickstart: Personalizer client library for .NET | Microsoft Docs"
+title: "Quickstart: Personalizer client library for .NET"
 titleSuffix: Azure Cognitive Services
-description:  Get started with the Personalizer client library for .NET using a learning loop. 
+description:  This quickstart shows how to get started with the Personalizer client library for .NET using a learning loop. 
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -210,4 +210,3 @@ If you want to clean up and remove a Cognitive Services subscription, you can de
 * [What is Personalizer?](what-is-personalizer.md)
 * [Where can you use Personalizer?](where-can-you-use-personalizer.md)
 * [Troubleshooting](troubleshooting.md)
-

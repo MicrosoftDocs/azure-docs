@@ -1032,7 +1032,7 @@ featureFlags:
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/application-insights/">
+                                            <a href="/azure/azure-monitor/azure-monitor-app-hub/">
                                                 <img src="media/index/ApplicationInsights.svg" alt="" />
                                                 <p>Application Insights</p>
                                             </a>
@@ -1137,7 +1137,7 @@ featureFlags:
                                     <h3>Industry</h3>
                                     <ul>
                                         <li>
-                                            <a href="/azure/industry/agriculture/overview">
+                                            <a href="/azure/industry/agriculture/overview-azure-farmbeats">
                                                 <img src="media/index/industry-agriculture-farmbeats.svg" alt="" />
                                                 <p>Azure FarmBeats</p>
                                             </a>
@@ -1291,7 +1291,7 @@ featureFlags:
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/application-insights/">
+                                            <a href="/azure/azure-monitor/azure-monitor-app-hub/">
                                                 <img src="media/index/ApplicationInsights.svg" alt="" />
                                                 <p>Application Insights</p>
                                             </a>
@@ -3683,7 +3683,7 @@ featureFlags:
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/application-insights/">
+                                <a href="/azure/azure-monitor/azure-monitor-app-hub/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -4005,7 +4005,7 @@ featureFlags:
                                 <h2>Industry</h2>
                             </li>
                             <li>
-                                <a href="/azure/industry/agriculture/overview">
+                                <a href="/azure/industry/agriculture/overview-azure-farmbeats">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -4547,7 +4547,7 @@ featureFlags:
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/application-insights/">
+                                <a href="/azure/azure-monitor/azure-monitor-app-hub/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">

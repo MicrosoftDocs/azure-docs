@@ -1,19 +1,19 @@
 ---
-title: Use .NET deserializers for Azure Stream Analytics jobs
+title: Read input in any format using .NET custom deserializers in Azure Stream Analytics
 description: This article explains the serialization format and the interfaces that define custom .NET deserializers for Azure Stream Analytics cloud and edge jobs.
 author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 05/06/2019
+ms.date: 12/30/2019
 ---
 
-# Use .NET deserializers for Azure Stream Analytics jobs
+# Read input in any format using .NET custom deserializers
 
-Custom .NET deserializers allow your Azure Stream Analytics job to read data from formats outside of the three [built-in data formats](stream-analytics-parsing-json.md). This article explains the serialization format and the interfaces that define custom .NET deserializers for Azure Stream Analytics cloud and edge jobs. There are also example deserializers for Protocol Buffer and CSV format.
+.NET custom deserializers allow your Azure Stream Analytics job to read data from formats outside of the three [built-in data formats](stream-analytics-parsing-json.md). This article explains the serialization format and the interfaces that define .NET custom deserializers for Azure Stream Analytics cloud and edge jobs. There are also example deserializers for Protocol Buffer and CSV format.
 
-## Custom .NET deserializer
+## .NET custom deserializer
 
 Following code samples are the interfaces that define the custom deserializer and implement `StreamDeserializer<T>`.
 
@@ -220,12 +220,12 @@ The following Javascript code is an example of the .NET deserializer serializati
 
 This feature is available in the following regions:
 
-* West Central US (available)
-* North Europe (available)
-* East US (available)
-* West US (rolling out soon)
-* East US 2 (rolling out soon)
-* West Europe (rolling out soon)
+* West Central US
+* North Europe
+* East US
+* West US
+* East US 2
+* West Europe
 
 You can [request support](https://aka.ms/ccodereqregion) for additional regions.
 
@@ -233,7 +233,7 @@ You can [request support](https://aka.ms/ccodereqregion) for additional regions.
 
 ### When will this feature be available in all Azure regions?
 
-This feature is available in 6 regions (#region-support). If you are interested in using this functionality in another region, you can [submit a request](https://aka.ms/ccodereqregion). Support for all Azure regions is on the roadmap.
+This feature is available in [6 regions](https://docs.microsoft.com/azure/stream-analytics/custom-deserializer-examples#region-support). If you are interested in using this functionality in another region, you can [submit a request](https://aka.ms/ccodereqregion). Support for all Azure regions is on the roadmap.
 
 ### Can I access MetadataPropertyValue from my inputs similar to GetMetadataPropertyValue function?
 
@@ -245,4 +245,4 @@ Once you have implemented your deserializer, you can help others by sharing it w
 
 ## Next Steps
 
-* [Custom .NET deserializers for Azure Stream Analytics cloud jobs](custom-deserializer.md)
+* [.NET custom deserializers for Azure Stream Analytics cloud jobs](custom-deserializer.md)

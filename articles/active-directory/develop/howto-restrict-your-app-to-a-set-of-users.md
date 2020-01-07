@@ -42,7 +42,7 @@ The option to restrict an app to a specific set of users or security groups in a
 
 There are two ways to create an application with enabled user assignment. One requires the **Global Administrator** role, the second does not.
 
-### Enterprise applications (requires the Global Adminstrator role)
+### Enterprise applications (requires the Global Administrator role)
 
 1. Go to the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator**.
 1. On the top bar, select the signed-in account. 
