@@ -228,17 +228,17 @@ Individual events or their data payloads are NOT output directly in the HLS, DAS
 - If the timescale is not set in the EventStream element, the RTMP 1 kHz timescale is used by default
 - Delivery of an onUserDataEvent message is limited to once every 500ms max. If you send events more frequently, it can impact the bandwidth and the stability of the live feed
 
-## 2.1.2 RTMP ad cue signaling with "onCuePoint"
+## 2.1.2 RTMP ad cue signaling with "onAdCue"
 
 Azure Media Services can listen and respond to several [AMF0] message types which can be used to signal various real time synchronized metadata in the live stream.  The [Adobe-Primetime] specification defines two cue types called "simple" and "SCTE-35" mode. For "simple" mode, Media Services supports a single AMF cue message called "onAdCue" using a payload that matches the table below defined for the  "Simple Mode" signal.  
 
 The following section shows RTMP "simple" mode" payload, which can be used to signal a basic "spliceOut" ad signal that will be carried through to the client manifest for HLS, DASH, and Microsoft Smooth Streaming. This is very useful for scenarios where the customer does not have a complex SCTE-35 based ad signaling deployment or insertion system, and is using a basic on-premises encoder to send in the cue message via an API. Typically the on-premises encoder will support a REST based API to trigger this signal, which will also "splice-condition" the video stream by inserting an IDR frame into the video, and starting a new GOP.
 
-## 2.1.3  RTMP ad cue signaling with "onCuePoint" - Simple Mode
+## 2.1.3  RTMP ad cue signaling with "onAdCue" - Simple Mode
 
 | Field Name | Field Type | Required? | Descriptions                                                                                                             |
 |------------|------------|----------|--------------------------------------------------------------------------------------------------------------------------|
-| cue        | String     | Required | The event message.  Shall be "SpliceOut" to designate a simple mode splice.                                              |
+| type        | String     | Required | The event message.  Shall be "SpliceOut" to designate a simple mode splice.                                              |
 | id         | String     | Required | A unique identifier describing the splice or segment. Identifies this instance of the message                            |
 | duration   | Number     | Required | The duration of the splice. Units are fractional seconds.                                                                |
 | elapsed    | Number     | Optional | When the signal is being repeated in order to support tune in, this field shall be the amount of presentation time that has elapsed since the splice began. Units are fractional seconds. When using simple mode, this value should not exceed the original duration of the splice.                                                  |
@@ -246,7 +246,7 @@ The following section shows RTMP "simple" mode" payload, which can be used to si
 
 ---
  
-## 2.1.4 RTMP ad cue signaling with "onCuePoint" - SCTE-35 Mode
+## 2.1.4 RTMP ad cue signaling with "onAdCue" - SCTE-35 Mode
 
 When you are working with a more advanced broadcast production workflow that requires the full SCTE-35 payload message to be carried through to the HLS or DASH manifest, it is best to use the "SCTE-35 Mode" of the [Adobe-Primetime] specification.  This mode supports in-band SCTE-35 signals being sent directly into an on-premises live encoder, which then encodes the signals out into the RTMP stream using the "SCTE-35 Mode" specified in the [Adobe-Primetime] specification. 
 
@@ -637,6 +637,7 @@ When testing your implementation with the Azure Media Services platform, please 
 |----------|------------------------------------------------------------------------------------|
 | 07/2/19  | Revised RTMP ingest for SCTE35 support, added RTMP "onCuePoint" for Elemental Live | 
 | 08/22/19 | Updated to add OnUserDataEvent to RTMP for custom metadata                         |
+| 1/08/20 | Fixed error on RTMP Simple and RTMP SCTE35 mode. Changed from "onCuePoint" to "onAdCue". Updated Simple mode table.|
 
 ## Next steps
 View Media Services learning paths.
