@@ -143,7 +143,7 @@ If CRR is enabled, you can view the backup items in the secondary region.
 
 ![Virtual machines in secondary region](./media/backup-azure-arm-restore-vms/secbackedupitem.png)
 
-![Select Secondary Region](./media/backup-azure-arm-restore-vms/backupitems_sec.png)
+![Select Secondary Region](./media/backup-azure-arm-restore-vms/backupitems-sec.png)
 
 ### Restore in secondary region
 
@@ -153,7 +153,7 @@ The secondary region restore user experience will be similar to the primary regi
 
 ![Select restore point](./media/backup-azure-arm-restore-vms/sec-rp.png)
 
-![Restore configuration](./media/backup-azure-arm-restore-vms/rest_config.png)
+![Restore configuration](./media/backup-azure-arm-restore-vms/rest-config.png)
 
 ![Trigger restore in progress notification](./media/backup-azure-arm-restore-vms/restorenotifications.png)
 
