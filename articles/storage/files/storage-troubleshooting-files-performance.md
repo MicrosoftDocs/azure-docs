@@ -39,7 +39,7 @@ To confirm if your share is being throttled, you can leverage Azure Metrics in t
 ![Metrics options for premium fileshares](media/storage-troubleshooting-premium-fileshares/metrics.png)
 
 > [!NOTE]
-> If you want to receive an alert if a file share is throttled, see [How to generate an alert if a file share is throttled](#how-to-generate-an-alert-if-a-file-share-is-throttled).
+> To receive an alert if a file share is throttled, see [How to generate an alert if a file share is throttled](#how-to-generate-an-alert-if-a-file-share-is-throttled).
 
 ### Solution
 
@@ -190,16 +190,17 @@ Higher than expected latency accessing Azure Files for IO intensive workloads.
   > [!NOTE]
   > If the file share is a standard file share, the dimension values drop-down will be blank because per-share metrics are not available for standard file shares. Throttling alerts for standard file shares will be triggered if any file share within the storage account is throttled and the alert will not identify which file share was throttled. Since per-share metrics are not available for standard file shares, the recommendation is to have one file share per storage account. 
 
-8. Define the alert parameters (threshold, operator, aggregration granularity and frequency) which are used to evaluate the metric alert rule.
+8. Define the **alert parameters** (threshold, operator, aggregration granularity and frequency) which are used to evaluate the metric alert rule.
 
   > [!TIP]
   > If you are using a static threshold, the metric chart can help determine what might be a reasonable threshold if the file share is currently being throttled. If you are using a dynamic threshold, the metric chart will display the calculated thresholds based on recent data.
 
 9. Click **Done**.
 
-10. Add an action group (email, SMS, etc.) to the alert either by selecting an existing action group or creating a new action group.
+10. Add an **action group** (email, SMS, etc.) to the alert either by selecting an existing action group or creating a new action group.
 
 11. Fill in the **Alert details** like **Alert rule name**, **Description** and **Severity**
 
 12. Click **Create alert rule** to create the alert.
 
+To learn more about configuring alerts in Azure Monitor, see [Overview of alerts in Microsoft Azure]( https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview).
