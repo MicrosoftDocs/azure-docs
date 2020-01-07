@@ -90,8 +90,11 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
     `https://www.facebook.com/company/<instanceID>`
 
+	c. In the **Reply URL** text box, type a URL using the following pattern:
+    `https://www.facebook.com/company/<instanceID>`
+
 	> [!NOTE] 
-	> These values are not the real. Update these values with the actual Sign-On URL and Identifier. See the Authentication page of the Workplace Company Dashboard for the correct values for your Workplace community.
+	> These values are not the real. Update these values with the actual Sign-On URL, Identifier and Reply URL. See the Authentication page of the Workplace Company Dashboard for the correct values for your Workplace community.
 
 1. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
