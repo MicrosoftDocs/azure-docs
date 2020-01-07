@@ -1,5 +1,6 @@
 ---
 title: Peering Service - FAQ
+titleSuffix: Azure
 description: Peering Service - FAQ
 services: internet-peering
 author: prmitiki

@@ -1,5 +1,6 @@
 ---
 title: Create or modify an Exchange peering using the portal
+titleSuffix: Azure
 description: Create or modify an Exchange peering using the portal
 services: internet-peering
 author: prmitiki

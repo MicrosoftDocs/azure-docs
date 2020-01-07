@@ -1,5 +1,6 @@
 ---
 title: Create or modify a Direct peering using PowerShell
+titleSuffix: Azure
 description: Create or modify a Direct peering using PowerShell
 services: internet-peering
 author: prmitiki

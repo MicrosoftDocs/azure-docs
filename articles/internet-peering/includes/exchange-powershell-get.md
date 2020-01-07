@@ -1,5 +1,6 @@
 ---
 title: include file
+titleSuffix: Azure
 description: include file
 services: internet-peering
 author: prmitiki

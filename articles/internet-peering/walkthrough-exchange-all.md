@@ -1,5 +1,6 @@
 ---
 title: Exchange peering walkthrough
+titleSuffix: Azure
 description: Exchange peering walkthrough
 services: internet-peering
 author: prmitiki

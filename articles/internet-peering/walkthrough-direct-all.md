@@ -1,5 +1,6 @@
 ---
 title: Direct peering walkthrough
+titleSuffix: Azure
 description: Direct peering walkthrough
 services: internet-peering
 author: prmitiki

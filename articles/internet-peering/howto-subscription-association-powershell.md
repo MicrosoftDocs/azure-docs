@@ -1,5 +1,6 @@
 ---
 title: Associate peer ASN to Azure subscription using PowerShell
+titleSuffix: Azure
 description: Associate peer ASN to Azure subscription using PowerShell
 services: internet-peering
 author: prmitiki

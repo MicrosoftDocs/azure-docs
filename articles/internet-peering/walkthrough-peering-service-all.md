@@ -1,5 +1,6 @@
 ---
 title: Peering Service partner walkthrough
+titleSuffix: Azure
 description: Peering Service partner walkthrough
 services: internet-peering
 author: prmitiki

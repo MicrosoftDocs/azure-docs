@@ -1,5 +1,6 @@
 ---
 title: Associate peer ASN to Azure subscription using the portal
+titleSuffix: Azure
 description: Associate peer ASN to Azure subscription using the portal
 services: internet-peering
 author: prmitiki

@@ -1,6 +1,7 @@
 ---
 
 title: Microsoft peering policy
+titleSuffix: Azure
 description: Microsoft peering policy
 services: internet-peering
 author: prmitiki

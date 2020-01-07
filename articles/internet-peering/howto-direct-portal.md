@@ -1,5 +1,6 @@
 ---
 title: Create or modify a Direct peering using the portal
+titleSuffix: Azure
 description: Create or modify a Direct peering using the portal
 services: internet-peering
 author: prmitiki

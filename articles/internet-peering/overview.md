@@ -1,5 +1,6 @@
 ---
 title: Set up peering with Microsoft
+titleSuffix: Azure
 description: Overview of peering
 services: internet-peering
 author: prmitiki
