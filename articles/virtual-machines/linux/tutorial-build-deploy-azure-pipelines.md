@@ -300,3 +300,7 @@ Deployments view of the environment provides complete traceability of commits an
 ## Next steps
 - You can proceed to [customize the pipeline](https://docs.microsoft.com/azure/devops/pipelines/customize-pipeline) you just created.
 - To learn what else you can do in YAML pipelines, see [YAML schema reference](https://docs.microsoft.com/azure/devops/pipelines/yaml-schema).
+- To learn about how to deploy a LAMP (Linux, Apache, MySQL, and PHP) stack, advance to the next tutorial.
+
+> [!div class="nextstepaction"]
+> [Deploy LAMP stack](tutorial-lamp-stack.md)
