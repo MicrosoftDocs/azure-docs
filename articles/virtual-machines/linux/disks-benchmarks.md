@@ -20,7 +20,4 @@ To follow the examples below, create a Standard DS14 VM and attach 11 Premium St
 
 ## Next steps
 
-Proceed through our design for high performance article. In it, you create a checklist similar to your existing application for the prototype. Using Benchmarking tools you can simulate the workloads and measure performance on the prototype application. By doing so, you can determine which disk offering can match or surpass your application performance requirements. Then you can implement the same guidelines for your production application.
-
-> [!div class="nextstepaction"]
-> See the article on [designing for high performance](premium-storage-performance.md) begin.
+See the article on [designing for high performance](premium-storage-performance.md). In it, you create a checklist similar to your existing application for the prototype. Using Benchmarking tools you can simulate the workloads and measure performance on the prototype application. By doing so, you can determine which disk offering can match or surpass your application performance requirements. Then you can implement the same guidelines for your production application.
