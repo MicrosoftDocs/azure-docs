@@ -1,5 +1,5 @@
 ---
-title: Overview of Microsoft Azure Maps | Microsoft Docs
+title: Overview of Azure Maps | Microsoft Azure Maps
 description: In this article, you will learn about services and capabilities in Microsoft Azure Maps and how to utilize them in your applications.
 author: walsehgal
 ms.author: v-musehg

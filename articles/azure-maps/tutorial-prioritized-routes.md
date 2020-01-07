@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Find multiple routes by mode of travel with Azure Maps | Microsoft Docs'
-description: 'Tutorial: In this tutorial, you will learn how to find routes for different modes of travel using Azure Maps'
+title: 'Tutorial: Find multiple routes by mode of travel with Azure Maps | Microsoft Azure Maps'
+description: 'Tutorial: In this tutorial, you will learn how to find routes for different modes of travel using Microsoft Azure Maps'
 author: walsehgal
 ms.author: v-musehg
 ms.date: 11/12/2019

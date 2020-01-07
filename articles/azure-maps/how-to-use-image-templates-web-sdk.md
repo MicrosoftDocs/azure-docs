@@ -1,6 +1,6 @@
 ---
-title: Image templates in the Azure Maps Web SDK | Microsoft Docs
-description: In this article, you will learn how to use image templates with HTML markers and various layers in the Azure Maps Web SDK.
+title: Image templates in the Azure Maps Web SDK | Microsoft Azure Maps
+description: In this article, you will learn how to use image templates with HTML markers and various layers in the Microsoft Azure Maps Web SDK.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 8/6/2019

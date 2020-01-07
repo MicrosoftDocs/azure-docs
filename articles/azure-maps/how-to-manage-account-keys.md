@@ -1,6 +1,6 @@
 ---
-title: Manage your Azure Maps account in the Azure Portal | Microsoft Docs 
-description: In this article, you will learn how to use the Azure portal to manage your Azure Maps account.
+title: Manage your Azure Maps account in the Azure Portal | Microsoft Azure Maps 
+description: In this article, you will learn how to use the Azure portal to manage your Microsoft Azure Maps account.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 02/14/2019

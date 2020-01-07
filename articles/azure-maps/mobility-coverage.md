@@ -1,5 +1,5 @@
 ---
-title: Mobility coverage in Microsoft Azure Maps | Microsoft Docs
+title: Mobility coverage in Azure Maps | Microsoft Azure Maps
 description: In this article, you will learn about Mobility coverage in Microsoft Azure Maps
 author: walsehgal
 ms.author: v-musehg

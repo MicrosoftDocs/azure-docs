@@ -1,5 +1,5 @@
 ---
-title: Add a tile layer to Microsoft Azure Maps | Microsoft Docs
+title: Add a tile layer to a map | Microsoft Azure Maps
 description: In this article, you will learn how to overlay a tile Layer on a map by using the Microsoft Azure Maps Web SDK. Tile layers allow you to render images on a map.
 author: rbrundritt
 ms.author: richbrun

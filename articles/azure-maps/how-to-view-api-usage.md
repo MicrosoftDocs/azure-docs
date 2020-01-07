@@ -1,6 +1,6 @@
 ---
-title: How to view the Azure Maps API usage metrics | Microsoft Docs 
-description: In this article, you will learn how to view the metrics for your Azure Maps API calls in the Azure portal.
+title: How to view the Azure Maps API usage metrics | Microsoft Azure Maps
+description: In this article, you will learn how to view the metrics for your Microsoft Azure Maps API calls in the Azure portal.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 08/06/2018

@@ -1,5 +1,5 @@
 ---
-title: Add a Symbol layer to Microsoft Azure Maps | Microsoft Docs
+title: Add a Symbol layer to a map | Microsoft Azure Maps
 description: In this article, you will learn about how to use the Symbol layer to customize and add symbols on a map using the Microsoft Azure Maps Web SDK.
 author: rbrundritt
 ms.author: richbrun

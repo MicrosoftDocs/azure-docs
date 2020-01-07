@@ -1,5 +1,5 @@
 ---
-title: Create a data source in Microsoft Azure Maps | Microsoft Docs
+title: Create a data source in Azure Maps | Microsoft Azure Maps
 description: In this article, you will learn how to create a data source and add it to a map using the Microsoft Azure Maps Web SDK.
 author: rbrundritt
 ms.author: richbrun

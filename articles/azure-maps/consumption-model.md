@@ -1,6 +1,6 @@
 ---
-title: Vehicle consumption models in Microsoft Azure Maps | Microsoft Docs
-description: In this article, you will learn about vehicle consumption models in Microsoft Azure Maps. 
+title: Vehicle consumption models in Azure Maps | Microsoft Azure Maps
+description: In this article, you will learn about vehicle consumption models for routing in Microsoft Azure Maps. 
 author: subbarayudukamma
 ms.author: skamma
 ms.date: 05/08/2018
