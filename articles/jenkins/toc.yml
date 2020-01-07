@@ -27,7 +27,7 @@
     - name: Azure Spring Cloud
       items:
       - name: Deploy to Azure Spring Cloud using the Azure CLI
-        href: /tutorial-jenkins-deploy-cli-spring-cloud-service.md
+        href: tutorial-jenkins-deploy-cli-spring-cloud-service.md
     - name: AKS
       items:
       - name: CI/CD to Kubernetes
