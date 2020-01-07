@@ -83,6 +83,8 @@
       href: tutorial-connectivity.md
 - name: Concepts
   items:
+    - name: TLS 1.2 enforcement
+      href: tls-1.2-everywhere.md
     - name: Message enrichments overview
       href: iot-hub-message-enrichments-overview.md
     - name: Overview of device management

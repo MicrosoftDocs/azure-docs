@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/13/2019
+ms.date: 12/17/2019
 ms.author: diberry
 #Customer intent: As a new user, I want to understand why and when to review endpoint utterances.
 
@@ -25,8 +25,6 @@ This review process allows LUIS to learn your app domain. LUIS selects the utter
 * Should be reviewed on a periodic basis.
 
 By reviewing the endpoint utterances, you verify or correct the utterance's predicted intent.
-
-[!INCLUDE [Uses preview portal](includes/uses-portal-preview.md)]
 
 **In this tutorial, you learn how to:**
 

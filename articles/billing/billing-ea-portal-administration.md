@@ -4,7 +4,7 @@ description: This article explains the common tasks that an administrator accomp
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 12/13/2019
+ms.date: 01/02/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 manager: boalcsva
@@ -121,16 +121,15 @@ Keep the following points in mind when you transfer an enterprise account to a n
 
 ### Effective transfer date
 
-You can backdate an account transfer as far back as the start date of the target enrollment, or the account start date, whichever has a later start date. After the account transfer, all usage information in the account before the effective transfer date stays in the enrollment you're transferring from. 
+You can backdate an account transfer as far back as the start date of the target enrollment, or the account start date, whichever has a later start date. After the account transfer, all usage information in the account before the effective transfer date stays in the enrollment you're transferring from. The usage information after the transfer date will be moved to the target enrollment.
 
 ### Prerequisites
 
 When you request an account transfer, provide the following information:
 
-- Account name and account owner email of account to transfer
+- The number of the target enrollment, account name, and account owner email of account to transfer
 - For the source enrollment, the enrollment number and account to transfer
-- For the target enrollment, the enrollment number to transfer to
-- For the account transfer effective date, it can be a date on or after the start date of the target enrollment
+- For the account transfer effective date, it can be backdated as far back as the start date of the target enrollment, or the account start date, whichever has a later start date
 
 Other points to keep in mind before an account transfer:
 
@@ -162,19 +161,11 @@ When you request to transfer an entire enterprise enrollment to an enrollment, t
 
 ### Effective transfer date
 
-The effective transfer day can be on or after the start date of the enrollment that you want transferred.
+The effective transfer day can be on or after the start date of the target enrollment.
 
 The source enrollment usage is charged against monetary commitment or as overage. Usage that occurs after the effective transfer date is transferred to the new enrollment and charged accordingly.
 
 A backdated transfer is supported as far back as the start date of the target enrollment. Providing the chosen transfer date does not affect the usage for an overage invoice that has already been issued.
-
-### Monetary commitment
-
-Monetary commitment isn't transferrable between enrollments. Monetary commitment balances are tied contractually to the enrollment where it was ordered. Monetary commitment isn't transferred as part of the account or enrollment transfer process.
-
-### No services affected for account and enrollment transfers
-
-There's no downtime during an account or enrollment transfer. It can be completed on the same day of your request if all requisite information is provided.
 
 ### Prerequisites
 
@@ -189,6 +180,14 @@ Other points to keep in mind before an enrollment transfer:
 - Approval from both target and source enrollment EA Administrators is required.
 - If an enrollment transfer doesn't meet your requirements, consider an account transfer.
 - The source enrollment status will be updated to transferred and will only be available for historic usage reporting purposes.
+
+### Monetary commitment
+
+Monetary commitment isn't transferrable between enrollments. Monetary commitment balances are tied contractually to the enrollment where it was ordered. Monetary commitment isn't transferred as part of the account or enrollment transfer process.
+
+### No services affected for account and enrollment transfers
+
+There's no downtime during an account or enrollment transfer. It can be completed on the same day of your request if all requisite information is provided.
 
 ## Change account owner
 
