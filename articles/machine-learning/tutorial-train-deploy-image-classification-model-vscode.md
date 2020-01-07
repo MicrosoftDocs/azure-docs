@@ -9,7 +9,7 @@ ms.topic: tutorial
 author: luisquintanilla
 ms.author: luquinta
 ms.date: 01/08/2019
-#Customer intent: As a professional data scientist, I want to develop, deploy, and managge Azure Machine Learning projects locally in Visual Studio Code
+#Customer intent: As a professional data scientist, I want to develop, deploy, and manage Azure Machine Learning projects locally in Visual Studio Code.
 ---
 
 # Train and deploy an image classification TensorFlow model using the Azure Machine Learning Visual Studio Code Extension
