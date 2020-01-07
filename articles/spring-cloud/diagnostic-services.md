@@ -10,13 +10,13 @@ ms.author: jeconnoc
 ---
 # Analyze logs and metrics with diagnostics settings
 
-By using the diagnostics functionality of Azure Spring Cloud, you can analyze logs and metrics with any of the following services:
+Using the diagnostics functionality of Azure Spring Cloud, you can analyze logs and metrics with any of the following services:
 
 * Use Azure Log Analytics, where the data is written to Azure Storage. There is a delay when exporting logs to Log Analytics.
 * Save logs to a storage account  for auditing or manual inspection. You can specify the retention time (in days).
 * Stream logs to your event hub for ingestion by a third-party service or custom analytics solution.
 
-Choose which log category and metric category you want to monitor.
+Choose the log category and metric category you want to monitor.
 
 ## Logs
 
@@ -29,7 +29,7 @@ Choose which log category and metric category you want to monitor.
 
 For a complete list of metrics, see [Spring Cloud Metrics](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-concept-metrics#user-portal-metrics-options)
 
-To get started, enable one of these services to receive the data. To learn about configuring Log Analytics, review [Get started with Log Analytics in Azure Monitor](../azure-monitor/log-query/get-started-portal.md). 
+To get started, enable one of these services to receive the data. To learn about configuring Log Analytics, see [Get started with Log Analytics in Azure Monitor](../azure-monitor/log-query/get-started-portal.md). 
 
 ## Configure diagnostics settings
 
@@ -95,6 +95,8 @@ There are various methods to view logs and metrics as described under the follow
     | where ServiceName == "YourServiceName" and AppName == "YourAppName" and InstanceName == "YourInstanceName"
     | limit 50
     ```
+> [!NOTE]  
+> `==` is case sensitive, but `=~` is not.
 
 To learn more about the query language that's used in Log Analytics, see [Azure Monitor log queries](../azure-monitor/log-query/query-language.md).
 
@@ -135,8 +137,6 @@ AppPlatformLogsforSpring
 | project TimeGenerated , ServiceName , AppName , InstanceName , Log
 | sort by TimeGenerated desc
 ```
-> [!NOTE]  
-> `==` is case sensitive, but `=~` is not.
 
 ### Show logs entries containing errors or exceptions
 
