@@ -541,7 +541,7 @@ Following is the current default parameterization template. If you need to add o
 }
 ```
 
-The following example shows how to add a single value to the default parameterization template. We only want to add an existing Azure Databricks interactive cluster ID for a Databricks linked service to the parameters file. Note the below file is the same as the above file except for `existingClusterId` included under the properties field of `Microsoft.DataFactory/factories/linkedServices`.
+The following example shows how to add a single value to the default parameterization template. We only want to add an existing Azure Databricks interactive cluster ID for a Databricks linked service to the parameters file. Note that this file is the same as the previous file except for the addition of `existingClusterId` under the properties field of `Microsoft.DataFactory/factories/linkedServices`.
 
 ```json
 {
@@ -651,51 +651,53 @@ The following example shows how to add a single value to the default parameteriz
 
 ## Linked Resource Manager templates
 
-If you've set up continuous integration and deployment (CI/CD) for your Data Factories, you may run into the Azure Resource Manager template limits as your factory grows bigger. An Example of a limit is the maximum number of resources in a Resource Manager template. To accommodate large factories, along with generating the full Resource Manager template for a factory, Data Factory now generates Linked Resource Manager templates. With this feature, the entire factory payload is broken down into several files so you don’t run into the limits.
+If you've set up continuous integration and deployment (CI/CD) for your data factories, you might exceed the Azure Resource Manager template limits as your factory grows bigger. For example, one limit is the maximum number of resources in a Resource Manager template. To accommodate large factories while generating the full Resource Manager template for a factory, Data Factory now generates linked Resource Manager templates. With this feature, the entire factory payload is broken down into several files so that you aren't constrained by the limits.
 
-If you've configured Git, the linked templates are generated and saved alongside the full Resource Manager templates in the `adf_publish` branch under a new folder called `linkedTemplates`.
+If you've configured Git, the linked templates are generated and saved alongside the full Resource Manager templates in the adf_publish branch in a new folder called linkedTemplates:
 
 ![Linked Resource Manager templates folder](media/continuous-integration-deployment/linked-resource-manager-templates.png)
 
-The Linked Resource Manager templates usually have a master template and a set of child templates linked to the master. The parent template is called `ArmTemplate_master.json`, and child templates are named with the pattern `ArmTemplate_0.json`, `ArmTemplate_1.json`, and so on. To use linked templates instead of the full Resource Manager template, update your CI/CD task to point to `ArmTemplate_master.json` instead of `ArmTemplateForFactory.json` (the full Resource Manager template). Resource Manager also requires you to upload the linked templates into a storage account so that they can be accessed by Azure during deployment. For more info, see [Deploying Linked ARM Templates with VSTS](https://blogs.msdn.microsoft.com/najib/2018/04/22/deploying-linked-arm-templates-with-vsts/).
+The linked Resource Manager templates usually consist of a master template and a set of child templates that are linked to the master. The parent template is called ArmTemplate_master.json, and child templates are named with the pattern ArmTemplate_0.json, ArmTemplate_1.json, and so on. 
+
+To use linked templates instead of the full Resource Manager template, update your CI/CD task to point to ArmTemplate_master.json instead of ArmTemplateForFactory.json (the full Resource Manager template). Resource Manager also requires that you upload the linked templates into a storage account so they can be accessed by Azure during deployment. For more info, see [Deploying linked Resource Manager Templates with VSTS](https://blogs.msdn.microsoft.com/najib/2018/04/22/deploying-linked-arm-templates-with-vsts/).
 
 Remember to add the Data Factory scripts in your CI/CD pipeline before and after the deployment task.
 
-If you don’t have Git configured, the linked templates are accessible via the **Export ARM template** gesture.
+If you don’t have Git configured, you can access the linked templates via **Export ARM Template** in the **ARM Template** list.
 
-## Hot-fix production branch
+## Hotfix production branch
 
-If you deploy a factory to production and realize there's a bug that needs to be fixed right away, but you can't deploy the current collaboration branch, you may need to deploy a hot-fix. This approach is as known as quick-fix engineering or QFE. 
+If you deploy a factory to production and realize there's a bug that needs to be fixed right away, but you can't deploy the current collaboration branch, you might need to deploy a hotfix. This approach is as known as quick-fix engineering or QFE.
 
 1.	In Azure DevOps, go to the release that was deployed to production and find the last commit that was deployed.
 
-2.	From the commit message, get the commit ID of collaboration branch.
+2.	From the commit message, get the commit ID of the collaboration branch.
 
-3.	Create a new hot-fix branch from that commit.
+3.	Create a new hotfix branch from that commit.
 
-4.	Go to the Azure Data Factory UX and switch to this branch.
+4.	Go to the Azure Data Factory UX and switch to the hotfix branch.
 
-5.	Using the Azure Data Factory UX, fix the bug. Test your changes.
+5.	By using the Azure Data Factory UX, fix the bug. Test your changes.
 
-6.	Once the fix has been verified, click on **Export ARM template** to get the hot-fix Resource Manager template.
+6.	After the fix is verified, select **Export ARM Template** to get the hotfix Resource Manager template.
 
-7.	Manually check in this build to the adf_publish branch.
+7.	Manually check this build in to the adf_publish branch.
 
-8.	If you've configured your release pipeline to automatically trigger based on adf_publish check-ins, a new release will automatically start. Otherwise, manually queue a release.
+8.	If you've configured your release pipeline to automatically trigger based on adf_publish check-ins, a new release will start automatically. Otherwise, manually queue a release.
 
-9.	Deploy the hot-fix release to the test and production factories. This release contains the previous production payload plus the fix made in step 5.
+9.	Deploy the hotfix release to the test and production factories. This release contains the previous production payload plus the fix that you made in step 5.
 
-10.	Add the changes from the hot-fix to development branch so that later releases will not run into the same bug.
+10.	Add the changes from the hotfix to the development branch so that later releases won't include the same bug.
 
 ## Best practices for CI/CD
 
-If you're using Git integration with your data factory, and you have a CI/CD pipeline that moves your changes from Development into Test and then to Production, we recommend the following best practices:
+If you're using Git integration with your data factory and have a CI/CD pipeline that moves your changes from development into test and then to production, we recommend these best practices:
 
--   **Git Integration**. You're only required to configure your Development data factory with Git integration. Changes to Test and Production are deployed via CI/CD, and don't need Git integration.
+-   **Git integration**. You need to configure only your development data factory with Git integration. Changes to test and production are deployed via CI/CD and don't need Git integration.
 
--   **Data Factory CI/CD script**. Before the Resource Manager deployment step in CI/CD, certain tasks are required such as stopping/starting of triggers and cleanup. We recommend using powershell scripts before and after deployment. For more information, see [Update active triggers](#update-active-triggers). 
+-   **Data Factory CI/CD script**. Before the Resource Manager deployment step in CI/CD, you need to complete certain tasks, like stopping and restarting triggers and performing cleanup. We recommend that you use PowerShell scripts before and after deployment. For more information, see [Update active triggers](#update-active-triggers).
 
--   **Integration Runtimes and sharing**. Integration Runtimes don't change often and are similar across all stages in your CI/CD. As a result, Data Factory expects you to have the same name and same type of Integration Runtimes across all stages of CI/CD. If you're looking to share Integration Runtimes across all stages, consider using a ternary factory just for containing the shared Integration Runtimes. You can use this shared factory in all of your environments as a linked integration runtime type.
+-   **Integration runtimes and sharing**. Integration runtimes don't change often and are similar across all stages in your CI/CD. As a result, Data Factory expects you to have the same name and same type of Integration Runtimes across all stages of CI/CD. If you're looking to share Integration Runtimes across all stages, consider using a ternary factory just for containing the shared Integration Runtimes. You can use this shared factory in all of your environments as a linked integration runtime type.
 
 -   **Key Vault**. When you use Azure Key Vault based linked services, you can take advantages of it further by keeping separate key vaults for different environments. You can also configure separate permission levels for each of them. For example, you may not want your team members to have permissions to production secrets. If you follow this approach, it's recommended you to keep the same secret names across all stages. If you keep the same names, you don't have to change your Resource Manager templates across CI/CD environments since the only thing that changes is the key vault name, which is one of the Resource Manager template parameters.
 
