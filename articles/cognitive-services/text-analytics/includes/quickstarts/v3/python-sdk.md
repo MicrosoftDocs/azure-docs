@@ -12,13 +12,9 @@ ms.author: aahi
 [Reference documentation]() | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics) | [Package (PiPy)]() | [Samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics/azure-ai-textanalytics/samples)
 
 > [!NOTE]
-> The code in this article uses the synchronous methods of the Text Analytics Python SDK as well as un-secured credentials use for simplicity reasons. For production scenarios, we recommend using the batched asynchronous methods for performance and scalability. For example, importing the client from the [azure.ai.textanalytics.aio]() namespace and calling [analyze_sentiment]() instead of [analyze_sentiment()]() from the [azure.ai.textanalytics]() namespace. For secured use of credentials we recommend using [Azure Key Vault](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-overview) to store all access keys and the use of [AAD authentication](https://docs.microsoft.com/en-us/azure/cognitive-services/authentication#authenticate-with-azure-active-directory) for all role based access controls. **Remember to never store access keys in code.**
+> The code in this article uses the synchronous methods of the Text Analytics Python SDK as well as un-secured credentials use for simplicity reasons. For production scenarios, we recommend using the batched asynchronous methods for performance and scalability. For example, importing the client from the [azure.ai.textanalytics.aio]() namespace and calling [analyze_sentiment]() instead of [analyze_sentiment()]() from the [azure.ai.textanalytics]() namespace. For secured use of credentials we recommend using [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview) to store all access keys and the use of [AAD authentication](https://docs.microsoft.com/azure/cognitive-services/authentication#authenticate-with-azure-active-directory) for all role based access controls. **Remember to never store access keys in code.**
 
 ## Prerequisites
-
-<!--
-Add any extra steps preparing an environment for working with the client library. 
--->
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/)
 * [Python 3.x](https://www.python.org/)
@@ -26,10 +22,6 @@ Add any extra steps preparing an environment for working with the client library
 ## Setting up
 
 ### Create a Text Analytics Azure resource
-<!-- NOTE
-The below is an "include" file, which is a text file that will be referenced, and rendered on the docs site.
-These files are used to display text across multiple articles at once. Consider keeping them in-place for consistency with other articles.
- -->
 
 [!INCLUDE [text-analytics-resource-creation](../resource-creation.md)]
 
@@ -51,8 +43,6 @@ Create variables for your resource's Azure endpoint and subscription key.
 
 [!INCLUDE [text-analytics-find-resource-information](../../find-azure-resource-info.md)]
 
-<!-- Use the below example variable names and example strings, for consistency with the other quickstart variables -->
-
 ```python
 credential = "<paste-your-text-analytics-key-here>"
 endpoint = "<paste-your-text-analytics-endpoint-here>"
@@ -60,10 +50,6 @@ endpoint = "<paste-your-text-analytics-endpoint-here>"
 
 
 ## Object model
-
-<!-- 
-    Briefly introduce and describe the functionality of the library's main classes. Include links to their reference pages. If needed, briefly explain the object hierarchy and how the classes work together to manipulate resources in the service.
--->
 
 The Text Analytics client is a [TextAnalyticsClient](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-textanalytics/azure.cognitiveservices.language.textanalytics.textanalyticsclient?view=azure-python) object that authenticates to Azure using your key. The client provides several methods for analyzing text as a batch.  To analyze a single doc there are a collection of functions in the sdk separate from the Text Analytics client which we will be using in the examples below.   
 
@@ -74,11 +60,11 @@ The response object is a list containing the analysis information for each docum
 ## Code examples
 
 These code snippets show you how to do the following with the Text Analytics client library for Python:
-<!-- If you add more code examples, add a link to them here-->
+
 * [Sentiment Analysis](#sentiment-analysis)
 * [Language detection](#language-detection)
 * [Entity recognition](#entity-recognition)
-* [PII Entity recognition](#Personal-identifiable-information-(PII)-entity-recognition)
+* [Entity recognition - Personal information](#personal-information-entity-recognition)
 * [Entity linking](#entity-linking)
 * [Key phrase extraction](#key-phrase-extraction)
 
