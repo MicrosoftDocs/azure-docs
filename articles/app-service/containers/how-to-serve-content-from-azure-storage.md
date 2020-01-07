@@ -10,7 +10,7 @@ ms.author: msangapu
 
 # Serve content from Azure Storage in App Service on Linux
 
-This guide shows how to attach network shares to App Service on Linux from using [Azure Storage](/azure/storage/common/storage-introduction). Benefits include secured content, content portability, persistent storage, access to multiple apps, and multiple transferring methods.
+This guide shows how to attach Azure Storage to App Service on Linux. Benefits include secured content, content portability, persistent storage, access to multiple apps, and multiple transferring methods.
 
 
 > [!IMPORTANT]
@@ -19,11 +19,13 @@ This guide shows how to attach network shares to App Service on Linux from using
 
 ## Prerequisites
 
-To use the *Bring your own storage (BYOS)* feature, you'll need an existing web app and an Azure Storage account. 
+You'll need the following components to complete this how-to:
 
-- [An existing App Service on Linux app](https://docs.microsoft.com/azure/app-service/containers/).
-- [Storage Quickstart](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-cli)
 - [Azure CLI](/cli/azure/install-azure-cli) (2.0.46 or later).
+- An existing [App Service on Linux app](https://docs.microsoft.com/azure/app-service/containers/).
+- An [Azure Storage Account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-cli)
+- An [Azure file share and directory](https://docs.microsoft.com/azure/storage/common/storage-azure-cli#create-and-manage-file-shares).
+
 
 ## Limitations of Azure Storage with App Service
 
@@ -33,25 +35,16 @@ To use the *Bring your own storage (BYOS)* feature, you'll need an existing web 
 - Azure Storage with App Service lets you specify **up to five** mount points per app.
 - Azure Storage is **not included** with your web app and billed separately. Learn more about [Azure Storage pricing](https://azure.microsoft.com/pricing/details/storage).
 
-## Create Azure Storage
-
-Create an [Azure storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-cli).
-
-```azurecli
-#Create Storage Account
-az storage account create --name <storage_account_name> --resource-group myResourceGroup
-
-#Create Storage Container
-az storage container create --name <storage_container_name> --account-name <storage_account_name>
-```
-
 ## Configure your app with Azure Storage
+
+Once you've created your [Azure Storage account, file share and directory](#prerequisites), you can now configure your app with Azure Storage.
+
+To mount a storage account to a directory in your App Service app, you use the [`az webapp config storage-account add`](https://docs.microsoft.com/cli/azure/webapp/config/storage-account?view=azure-cli-latest#az-webapp-config-storage-account-add) command. Storage Type can be AzureBlob or AzureFiles. AzureFiles is used in this example.
+
 
 > [!CAUTION]
 > The directory specified as the mount path in your web app should be empty. Any content stored in this directory will be deleted when an external mount is added. If you are migrating files for an existing app, make a backup of your app and its content before you begin.
 >
-
-To mount a storage account to a directory in your App Service app, you use the [`az webapp config storage-account add`](https://docs.microsoft.com/cli/azure/webapp/config/storage-account?view=azure-cli-latest#az-webapp-config-storage-account-add) command. Storage Type can be AzureBlob or AzureFiles. You use AzureBlob for this container.
 
 ```azurecli
 az webapp config storage-account add --resource-group <group_name> --name <app_name> --custom-id <custom_id> --storage-type AzureFiles --share-name <share_name> --account-name <storage_account_name> --access-key "<access_key>" --mount-path <mount_path_directory>
