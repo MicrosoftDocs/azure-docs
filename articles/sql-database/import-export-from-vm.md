@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: 
-ms.date: 01/03/2020
+ms.date: 01/07/2020
 ---
 # Import or export an Azure SQL database without allowing Azure services to access the server
 
@@ -61,9 +61,19 @@ The following steps show you how to connect to your virtual machine using a remo
 
 8. You might receive a certificate warning during the sign-in process. Choose **Yes** or **Continue** to proceed with the connection.
 
+## Store the imported or exported .BACPAC
+
+Because SqlPackage operates with the filesystem, you can use the storage feature that best suits your needs for both performance (the speed of import or export operations), and cost. Importing and exporting databases uses [.BACPAC files](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/data-tier-applications#bacpac) stored in Azure Storage. The .BACPAC file can be stored in [Azure Blobs](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview), or [Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction). Whether to use Azure Blobs or Azure Files depends on your specific business requirements. Azure Blobs will cost less than a premium Azure file share, but will take a longer time for the import or export operation to complete.
+
+Depending on your environment, you also need to [Configure Azure Storage firewalls and virtual networks](../storage/common/storage-network-security.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
+
+
 ## Install SqlPackage
 
 [Download and install the latest version of SqlPackage](https://docs.microsoft.com/sql/tools/sqlpackage-download).
+
+
+
 
 For additional information, see [SqlPackage.exe](https://docs.microsoft.com/sql/tools/sqlpackage).
 
@@ -93,14 +103,14 @@ The following steps create a server-level IP firewall rule for your virtual mach
 
 ## Export a database using SqlPackage
 
-To export a SQL database using the [SqlPackage](https://docs.microsoft.com/sql/tools/sqlpackage) command-line utility, see [Export parameters and properties](https://docs.microsoft.com/sql/tools/sqlpackage#export-parameters-and-properties). The SqlPackage utility ships with the latest versions of [SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) and [SQL Server Data Tools for Visual Studio](https://msdn.microsoft.com/library/mt204009.aspx), or you can download the latest version of [SqlPackage](https://www.microsoft.com/download/details.aspx?id=53876) directly from the Microsoft download center.
+To export a SQL database using the [SqlPackage](https://docs.microsoft.com/sql/tools/sqlpackage) command-line utility, see [Export parameters and properties](https://docs.microsoft.com/sql/tools/sqlpackage#export-parameters-and-properties). The SqlPackage utility ships with the latest versions of [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) and [SQL Server Data Tools](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt), or you can download the latest version of [SqlPackage](https://docs.microsoft.com/sql/tools/sqlpackage-download).
 
 We recommend the use of the SqlPackage utility for scale and performance in most production environments. For a SQL Server Customer Advisory Team blog about migrating using BACPAC files, see [Migrating from SQL Server to Azure SQL Database using BACPAC Files](https://blogs.msdn.microsoft.com/sqlcat/20../../migrating-from-sql-server-to-azure-sql-database-using-bacpac-files/).
 
-This example shows how to export a database using SqlPackage.exe with Active Directory Universal Authentication:
+This example shows how to export a database using SqlPackage.exe with Active Directory Universal Authentication. Replace with values that are specific to your environment.
 
 ```cmd
-SqlPackage.exe /a:Export /tf:testExport.bacpac /scs:"Data Source=apptestserver.database.windows.net;Initial Catalog=MyDB;" /ua:True /tid:"apptest.onmicrosoft.com"
+SqlPackage.exe /a:Export /tf:testExport.bacpac /scs:"Data Source=<servername>.database.windows.net;Initial Catalog=MyDB;" /ua:True /tid:"apptest.onmicrosoft.com"
 ```
 
 
@@ -108,14 +118,14 @@ SqlPackage.exe /a:Export /tf:testExport.bacpac /scs:"Data Source=apptestserver.d
 
 ## Import a database using SqlPackage
 
-To import a SQL Server database using the [SqlPackage](https://docs.microsoft.com/sql/tools/sqlpackage) command-line utility, see [import parameters and properties](https://docs.microsoft.com/sql/tools/sqlpackage#import-parameters-and-properties). SqlPackage has the latest [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) and [SQL Server Data Tools for Visual Studio](https://msdn.microsoft.com/library/mt204009.aspx). You can also download the latest [SqlPackage](https://www.microsoft.com/download/details.aspx?id=53876) from the Microsoft download center.
+To import a SQL Server database using the [SqlPackage](https://docs.microsoft.com/sql/tools/sqlpackage) command-line utility, see [import parameters and properties](https://docs.microsoft.com/sql/tools/sqlpackage#import-parameters-and-properties). SqlPackage has the latest [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) and [SQL Server Data Tools](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt). You can also download the latest version of [SqlPackage](https://docs.microsoft.com/sql/tools/sqlpackage-download).
 
 For scale and performance, we recommend using SqlPackage in most production environments rather than using the Azure portal. For a SQL Server Customer Advisory Team blog about migrating using `BACPAC` files, see [migrating from SQL Server to Azure SQL Database using BACPAC Files](https://blogs.msdn.microsoft.com/sqlcat/2016/10/20/migrating-from-sql-server-to-azure-sql-database-using-bacpac-files/).
 
-The following SqlPackage command imports the **AdventureWorks2008R2** database from local storage to an Azure SQL Database server called **mynewserver20170403**. It creates a new database called **myMigratedDatabase** with a **Premium** service tier and a **P6** Service Objective. Change these values as appropriate for your environment.
+The following SqlPackage command imports the **AdventureWorks2017** database from local storage to an Azure SQL Database server. It creates a new database called **myMigratedDatabase** with a **Premium** service tier and a **P6** Service Objective. Change these values as appropriate for your environment.
 
 ```cmd
-sqlpackage.exe /a:import /tcs:"Data Source=<serverName>.database.windows.net;Initial Catalog=<migratedDatabase>;User Id=<userId>;Password=<password>" /sf:AdventureWorks2008R2.bacpac /p:DatabaseEdition=Premium /p:DatabaseServiceObjective=P6
+sqlpackage.exe /a:import /tcs:"Data Source=<serverName>.database.windows.net;Initial Catalog=myMigratedDatabase>;User Id=<userId>;Password=<password>" /sf:AdventureWorks2017.bacpac /p:DatabaseEdition=Premium /p:DatabaseServiceObjective=P6
 ```
 
 > [!IMPORTANT]
@@ -134,8 +144,8 @@ Export speeds vary due to many factors (for example, data shape) so it's impossi
 To get the best performance using the import export service you can try the following strategies:
 
 1. Make sure no other workload is running on the database. Create a copy before export may be the best solution to ensure no other workloads are running.
-2. Increase database service level objective (SLO) to better handle the export workload (primarily read I/O). If the database is currently SQLDB_GP_Gen4_4, perhaps a Business Critical tier would help with read workload.
-3. Make sure there are clustered indexes particularly for large tables (most of the work seemed to be one large table in this case). 
+2. Increase database service level objective (SLO) to better handle the export workload (primarily read I/O). If the database is currently GP_Gen5_4, perhaps a Business Critical tier would help with read workload.
+3. Make sure there are clustered indexes particularly for large tables. 
 
 
 Even with all of the above conditions, the import export service may not meet the performance targets of the customer. For comparison the customer can try to run SqlPackage on their own in an Azure VM, with the following strategies:
