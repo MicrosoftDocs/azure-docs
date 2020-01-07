@@ -111,6 +111,8 @@ This setting enables your function app to run in a version 2.x compatible mode o
 >[!IMPORTANT]
 > This setting is intended only as a short-term workaround while you update your app to run correctly on version 3.x. This setting is supported as long as the [2.x runtime is supported](functions-versions.md). If you encounter issues that prevent your app from running on version 3.x without using this setting, please [report your issue](https://github.com/Azure/azure-functions-host/issues/new?template=Bug_report.md).
 
+Requires that [FUNCTIONS\_EXTENSION\_VERSION](functions-app-settings.md#functions_extension_version) be set to `~3`.
+
 |Key|Sample value|
 |---|------------|
 |FUNCTIONS\_V2\_COMPATIBILITY\_MODE|true|
