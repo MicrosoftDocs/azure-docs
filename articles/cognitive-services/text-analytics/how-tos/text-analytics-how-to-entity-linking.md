@@ -120,25 +120,19 @@ Each document must must be under 5,120 characters, and you can have up to 1,000 
 
 Create a POST request. You can [use Postman](text-analytics-how-to-call-api.md) or the **API testing console** in the following links to quickly structure and send one. 
 
+[!INCLUDE [text-analytics-find-resource-information](../includes/find-azure-resource-info.md)]
+
 #### [Version 2](#tab/version-2)
 
 [Named Entity Recognition v2 reference](https://eastus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634)
 
-#### [Version 3](#tab/version-3)
-
-[Named Entity Recognition v3 reference](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-Preview-1/operations/EntitiesRecognitionGeneral)
-
----
-
-[!INCLUDE [text-analytics-find-resource-information](../includes/find-azure-resource-info.md)]
-
-### Endpoints
-
-#### [Version 2](#tab/version-2)
+Use the following endpoint: 
 
 `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v2.1/entities`
 
-#### [Version 3 (Public preview)](#tab/version-3)
+#### [Version 3](#tab/version-3)
+
+[Named Entity Recognition v3 reference](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-Preview-1/operations/EntitiesRecognitionGeneral)
 
 Named Entity Recognition v3 uses separate endpoints for NER and entity linking requests. Use a URL format below based on your request:
 
