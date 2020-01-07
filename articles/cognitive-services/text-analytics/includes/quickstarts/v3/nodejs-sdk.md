@@ -1,9 +1,14 @@
 ---
+title: "Quickstart: Text Analytics v3 client library for Node.js | Microsoft Docs"
+description: Get started with the v3 Text Analytics client library for Node.js.
 author: aahill
+manager: nitinme
 ms.service: cognitive-services
+ms.subservice: text-analytics
 ms.topic: include
-ms.date: 12/31/2019
-ms.author: sumeh
+ms.date: 01/07/2019
+ms.author: aahi
+ms.reviewer: sumeh, assafi
 ---
 
 <a name="HOLTop"></a>

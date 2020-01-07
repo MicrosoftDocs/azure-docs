@@ -1,19 +1,20 @@
 ---
-title: "Quickstart: Text Analytics client library for Java | Microsoft Docs"
-description: Get started with the Text Analytics client library for Java...
-services: cognitive-services
-author: tasharm
-manager: assafi
+title: "Quickstart: Text Analytics v3 client library for Java | Microsoft Docs"
+description: Get started with the v3 Text Analytics client library for Java.
+author: aahill
+manager: nitinme
 ms.service: cognitive-services
-ms.subservice: 
-ms.topic: quickstart
-ms.date: 12/27/2019
-ms.author: tasharm
+ms.subservice: text-analytics
+ms.topic: include
+ms.date: 01/07/2019
+ms.author: aahi
+ms.reviewer: tasharm, assafi
 ---
 
 <a name="HOLTop"></a>
 
-Source code
+[Reference documentation]() | [Library source code]() | [Package (NuGet)]() | [Samples]()
+
 
 > [!NOTE]
 > The code in this article uses the synchronous methods of the Text Analytics java SDK for simplicity. For production scenarios, we recommend using the batched asynchronous methods for performance and scalability. For example, calling [SentimentBatchAsync()](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/textanalytics/azure-ai-textanalytics/src/samples/java/com/azure/ai/textanalytics/batch/AnalyzeSentimentBatchDocuments.java) instead of [Sentiment()](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/textanalytics/azure-ai-textanalytics/src/samples/java/com/azure/ai/textanalytics/AnalyzeSentiment.java). For secured use of credentials we recommend using [Azure Key Vault](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-overview) to store all access keys and the use of [AAD authentication](https://docs.microsoft.com/en-us/azure/cognitive-services/authentication#authenticate-with-azure-active-directory) for all role based access controls. **Remember to never store access keys in code.**
@@ -42,7 +43,8 @@ Add the following text analytics dependency to your project
     </dependency>
 </dependencies>
 ```
-Create a new java file with under `\src\main\java`.
+
+Create a new java file in the following directory: `\src\main\java`.
 
 Open the java file and add the following `import` statements:
 
@@ -64,6 +66,8 @@ import java.util.List;
 ```
 
 In the java file, add a new class and add your azure resource's key and endpoint as shown below.
+
+[!INCLUDE [text-analytics-find-resource-information](../../find-azure-resource-info.md)]
 
 ```java
 public class TextAnalyticsSample {
@@ -100,7 +104,7 @@ The Text Analytics client is a [TextAnalyticsClient]() object that authenticates
 * [Sentiment Analysis](#sentiment-analysis)
 * [Language detection](#language-detection)
 * [Entity recognition](#entity-recognition)
-* [Entity recognition - PII](#entity-pii)
+* [Entity recognition - Personal information](#personal-information-entity-recognition)
 * [Entity linking](#entity-linking)
 * [Key phrase extraction](#key-phrase-extraction)
 
@@ -216,7 +220,7 @@ Recognized NamedEntity Text: Seattle, Type: Location, Subtype: N/A, Offset: 26, 
 Recognized NamedEntity Text: last week, Type: DateTime, Subtype: DateRange, Offset: 34, Length: 9, Score: 0.800.
 ```
 
-## Entity recognition - PII
+## Personal information entity recognition
 
 Create a new function called `recognizePIIEntitiesExample()` that takes the client that you created earlier, and call its [recognizePiiEntities()]() function. The returned [RecognizePiiEntitiesResult]() object will contains a list of [NamedEntity](), and an `errorMessage` if not. 
 
@@ -246,6 +250,7 @@ static void recognizePIIEntitiesExample(TextAnalyticsClient client)
 ```console
 Personally Identifiable Information Entities Text: 123-12-1234, Type: U.S. Social Security Number (SSN), Subtype: N/A, Offset: 33, Length: 11, Score: 0.85.
 ```
+
 ## Entity linking
 
 Create a new function called `recognizeLinkedEntitiesExample()` that takes the client that you created earlier, and call its [recognizeLinkedEntities()]() function. The returned [RecognizeLinkedEntitiesResult]() object will contains a list of [LinkedEntity](), and an `errorMessage` if not. Since linked entities are uniquely identified, occurrences of the same entity are grouped under a `LinkedEntity` object as a list of `LinkedEntityMatch` objects.
