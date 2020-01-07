@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 08/20/2019
 ---
 
-# Secure your cluster in Azure Data Explorer
+# Secure your cluster in Azure Data Explorer - Azure portal
 
 [Azure Disk Encryption](/azure/security/azure-security-disk-encryption-overview) helps protect and safeguard your data to meet your organizational security and compliance commitments. It provides volume encryption for the OS and data disks of your cluster virtual machines. It also integrates with [Azure Key Vault](/azure/key-vault/) which allows us to control and manage the disk encryption keys and secrets, and ensure all data on the VM disks is encrypted. 
   

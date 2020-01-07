@@ -1,6 +1,6 @@
 ---
-title: Configure customer-managed-keys using Azure Resource Manager template
-description: This article describes how to configure customer-managed keys encryption on your data in Azure Data Explorer.
+title: Configure customer-managed-keys in Azure Data Explorer using the Azure Resource Manager template
+description: This article describes how to configure customer-managed keys encryption on your data in Azure Data Explorer using the Azure Resource Manager template.
 author: saguiitay
 ms.author: itsagui
 ms.reviewer: orspodek
@@ -9,33 +9,26 @@ ms.topic: conceptual
 ms.date: 01/06/2020
 ---
 
-# Configure customer-managed-keys using Azure Resource Manager template
+# Configure customer-managed-keys using the Azure Resource Manager template
 
 > [!div class="op_single_selector"]
 > * [C#](create-cluster-database-csharp.md)
 > * [ARM template](create-cluster-database-resource-manager.md)
 
+Azure Data Explorer encrypts all data in a storage account at rest. By default, data is encrypted with Microsoft-managed keys. For additional control over encryption keys, you can supply customer-managed keys to use for data encryption. Customer-managed keys must be stored in an [Azure Key Vault](/azure/key-vault/key-vault-overview). You can create your own keys and store them in a key vault, or you can use an Azure Key Vault API to generate keys. The Azure Data Explorer cluster and the key vault must be in the same region, but they can be in different subscriptions. For a detailed explanation on customer-managed keys, see [customer-managed keys with Azure Key Vault](/azure/storage/common/storage-service-encryption). This article shows you how to configure customer-managed keys using Azure Resource Manager templates.
 
-Azure Data Explorer encrypts all data in a storage account at rest. By default, data is encrypted with Microsoft-managed keys. For additional control over encryption keys, you can supply customer-managed keys to use for encryption of data.
-
-Customer-managed keys must be stored in an Azure Key Vault. You can either create your own keys and store them in a key vault, or you can use the Azure Key Vault APIs to generate keys. The Azure Data Explorer cluster and the key vault must be in the same region, but they can be in different subscriptions. 
-
-This article shows how to configure an Azure Key Vault with customer-managed keys using Azure Resource Manager templates. 
-
-> [!Important]
-> Using customer-managed keys with Azure Data Explorer requires that two properties be set on the key vault, **Soft Delete** and **Do Not Purge**. These properties are not enabled by default. To enable these properties, use either PowerShell or Azure CLI. Only RSA keys and key size 2048 are supported.
+> [!Note]
+> To configure customer-managed keys with Azure Data Explorer, you must set two properties on the key vault: **Soft Delete** and **Do Not Purge**. These properties aren't enabled by default. To enable these properties, use PowerShell or Azure CLI. Only RSA keys and key size 2048 are supported.
 
 ## Assign an identity to the cluster
 
-To enable customer-managed keys for your cluster, first assign a system-assigned managed identity to the cluster. You'll use this managed identity to grant the cluster permissions to access the key vault.
-
-For information about configuring system-assigned managed identities see [Managed Identities](managed-identities.md).
+To enable customer-managed keys for your cluster, first assign a system-assigned managed identity to the cluster. You'll use this managed identity to grant the cluster permissions to access the key vault. To configure system-assigned managed identities, see [managed identities](managed-identities.md).
 
 ## Create a new key vault
 
-To create a new key vault using PowerShell, call [New-AzKeyVault](/powershell/module/az.keyvault/new-azkeyvault.md). The key vault that you use to store customer-managed keys for Azure Data Explorer encryption must have two key protection settings enabled, **Soft Delete** and **Do Not Purge**.
+To create a new key vault using PowerShell, call [New-AzKeyVault](/powershell/module/az.keyvault/new-azkeyvault.md). The key vault that you use to store customer-managed keys for Azure Data Explorer encryption must have two key protection settings enabled, **Soft Delete** and **Do Not Purge**. Replace the placeholder values in brackets with your own values in example below.
 
-Remember to replace the placeholder values in brackets with your own values.
+-> https://docs.microsoft.com/en-us/azure/key-vault/key-vault-ovw-soft-delete
 
 ```azurepowershell-interactive
 $keyVault = New-AzKeyVault -Name <key-vault> `
@@ -47,9 +40,7 @@ $keyVault = New-AzKeyVault -Name <key-vault> `
 
 ## Configure the key vault access policy
 
-Next, configure the access policy for the key vault so that the cluster has permissions to access it. In this step, you'll use the System Assigned managed identity that you previously assigned to the cluster.
-
-To set the access policy for the key vault, call [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy.md). Remember to replace the placeholder values in brackets with your own values and to use the variables defined in the previous examples.
+Next, configure the access policy for the key vault so that the cluster has permissions to access it. In this step, you'll use the system-assigned managed identity that you previously assigned to the cluster. To set the access policy for the key vault, call [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy.md). Replace the placeholder values in brackets with your own values and use the variables defined in the previous examples.
 
 ```azurepowershell-interactive
 Set-AzKeyVaultAccessPolicy `
@@ -60,7 +51,7 @@ Set-AzKeyVaultAccessPolicy `
 
 ## Create a new key
 
-Next, create a new key in the key vault. To create a new key, call [Add-AzKeyVaultKey](/powershell/module/az.keyvault/add-azkeyvaultkey.md). Remember to replace the placeholder values in brackets with your own values and to use the variables defined in the previous examples.
+Next, create a new key in the key vault. To create a new key, call [Add-AzKeyVaultKey](/powershell/module/az.keyvault/add-azkeyvaultkey.md). Replace the placeholder values in brackets with your own values and use the variables defined in the previous examples.
 
 ```azurepowershell-interactive
 $key = Add-AzKeyVaultKey -VaultName $keyVault.VaultName -Name <key> -Destination 'Software'
@@ -68,7 +59,7 @@ $key = Add-AzKeyVaultKey -VaultName $keyVault.VaultName -Name <key> -Destination
 
 ## Configure encryption with customer-managed keys
 
-By default, Azure Data Explorer encryption uses Microsoft-managed keys. In this step, configure your Azure Data Explorer cluster to use customer-managed keys and specify the key to associate with the cluster.
+In this section you configure customer-managed keys using Azure Resource Manager templates. By default, Azure Data Explorer encryption uses Microsoft-managed keys. In this step, configure your Azure Data Explorer cluster to use customer-managed keys and specify the key to associate with the cluster.
 
 You can deploy the Azure Resource Manager template by using the Azure Portal or using PowerShell.
 
@@ -137,6 +128,8 @@ This section lists the common error messages you may encounter when enabling cus
 
 ## Next steps
 
- * [What is Azure Key Vault?](../key-vault/key-vault-overview.md)
- * [Manage cluster security](manage-cluster-security.md)
+* [Secure Azure Data Explorer clusters in Azure](security.md)
+* [Configure managed identities for your Azure Data Explorer cluster](managed-identities.md)
+* [Secure your cluster in Azure Data Explorer - Portal](manage-cluster-security.md) by enabling encryption at rest.
+* [Configure customer-managed-keys using C#](customer-managed-keys-csharp.md)
 
