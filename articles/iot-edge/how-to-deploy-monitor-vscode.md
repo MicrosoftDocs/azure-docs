@@ -125,7 +125,7 @@ If you need to determine which IoT Edge devices you can currently configure, run
 
 ## Identify devices with target conditions
 
-To identify the IoT Edge devices that are to receive the deployment, you must specify a target condition. A target condition is met when the condition is met by matching a specified deviceId, tag value, or a reported property value.
+To identify the IoT Edge devices that are to receive the deployment, you must specify a target condition. A target condition is met when specified criteria is matched by a deviceId, tag value, or a reported property value.
 
 You configure tags in the device twin. Here is an example of a device twin that has tags:
 
@@ -149,9 +149,9 @@ Here are some more examples:
 * deviceId ='linuxprod1'
 * deviceId = 'linuxprod1' OR deviceId = 'linuxprod2' OR deviceId = 'linuxprod3'
 * tags.environment ='prod'
-* tags.environment = 'prod' AND tags.location = 'westus'
-* tags.environment = 'prod' OR tags.location = 'westus'
-* tags.operator = 'John' AND tags.environment = 'prod' NOT deviceId = 'linuxprod1'
+* tags.environment = 'prod' AND tags.location = 'westus2'
+* tags.environment = 'prod' OR tags.location = 'westus2'
+* tags.operator = 'John' AND tags.environment = 'prod' AND NOT deviceId = 'linuxprod1'
 
 See [target condition](module-deployment-monitoring.md#target-condition) for details. For more information about device twins and tags, see [Understand and use device twins in IoT Hub](../iot-hub/iot-hub-devguide-device-twins.md).
 
@@ -205,7 +205,11 @@ After you save the local file, run the **IoT Edge: Update Device Twin** command.
 
 After you have configured the deployment manifest and configured tags in the device twin, you're ready to deploy.
 
-1. From the **View** menu, select **Command Palette** and select the **Azure IoT Edge: Create Deployment at Scale** command. You will be asked for a few parameter values, starting with the **deployment id**.
+1. From the **View** menu, select **Command Palette** and select the **Azure IoT Edge: Create Deployment at Scale** command.
+
+1. Navigate to the deployment manifest JSON file that you want to use, and click **Select Edge Deployment Manifest**.
+
+1. Provide values as prompted, starting with the **deployment id**.
 
    ![Specify a deployment id](./media/how-to-deploy-monitor-vscode/create-deployment-at-scale.png)
 
@@ -226,7 +230,7 @@ After you have configured the deployment manifest and configured tags in the dev
 
 ## Monitoring and modifying deployments
 
-Use the [Azure CLI](how-to-deploy-monitor-cli.md#monitor-a-deployment) or the [Azure portal](how-to-deploy-monitor.md#monitor-a-deployment) to monitor, modify, and delete deployments. Both provide metrics on your deployments, but the Azure CLI provides additional granularity by allowing you to query values for specific properties.
+Use the [Azure CLI](how-to-deploy-monitor-cli.md#monitor-a-deployment) or the [Azure portal](how-to-deploy-monitor.md#monitor-a-deployment) to monitor, modify, and delete deployments. Both provide metrics on your deployments.
 
 ## Next steps
 
