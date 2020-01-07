@@ -8,7 +8,7 @@ ms.author: adjohnso
 
 # Data Usage Policy
 
-The Azure CycleCloud tool collects anonymized usage data by default and sends this telemetry data to Microsoft. Microsoft may use this data to understand how users interact with CycleCloud to support and improve the CycleCloud product. The data is anonymized and does not include any personally or organizationally identifying data. The collected data is governed by the [Microsoft Privacy Policy](http://aka.ms/privacy). You may opt out of sending the usage data to Microsoft by following the instructions below.
+The Azure CycleCloud tool collects anonymized usage data by default and sends this telemetry data to Microsoft. Microsoft may use this data to understand how users interact with CycleCloud to support and improve the CycleCloud product. The data is anonymized and does not include any personally or organizationally identifying data. The collected data is governed by the [Microsoft Privacy Policy](https://aka.ms/privacy). You may opt out of sending the usage data to Microsoft by following the instructions below.
 
 ## Data Collected
 
