@@ -11,30 +11,15 @@ ms.subservice: disks
 
 # Reduce costs with Azure Disks Reservation
 
-Save on your premium solid state drive (SSD) usage with reserved capacity, combined with Reserved Virtual Machine Instances you can decrease your total VM costs. The reservation discount is applied automatically to the matching disks in the selected reservation scope, you don't need to assign a reservation to a Managed disk to get the discounts. Discounts are applied hourly on the disk usage and any unused reserved capacity does not carry over. Managed disk reservation discount does not apply to premium SSD unmanaged disks, ultra disks, or page blob consumption.
+Save on your premium solid state drive (SSD) usage with reserved capacity, combined with Reserved Virtual Machine Instances you can decrease your total VM costs. The reservation discount is applied automatically to the matching disks in the selected reservation scope, you don't need to assign a reservation to a Managed disk to get the discounts. Discounts are applied hourly on the disk usage and any unused reserved capacity does not carry over. Managed disk reservation discount does not apply to unmanaged disks, ultra disks, or page blob consumption.
 
 ## Determine your storage needs
 
-Before you purchase a reservation, you should determine what your storage needs are. Currently, we offer disk reservation on selected Disk SKUs on Premium SSD Managed Disks. The Disk SKU of Premium SSD Managed Disks is determines the disk size, as shown in the following. If you need to create a 1 TiB disk, it maps to P30 disk SKU. If you need a 250 GiB disk, it is rounded up to lowest Disk SKU that can provide the necessary capacity. Disk reservation is made per Disk SKU, hence the reservation consumption is based on the unit of the Disk SKUs instead of the provided size. For example, if you have reserved 1 P40 of 2 TiB provisioned capacity but consumed 2 P30 each of 1 TiB, the two P30 consumption will not be accounted for P40 reservation. 
+Before you purchase a reservation, you should determine what your storage needs are. Currently, we offer disk reservation on select Disk SKUs for premium SSDs. The SKU of a premium SSD determines the disk's size and performance. When determining your storage needs, we do not recommend thinking of disks just as a total capacity, you cannot use a reservation for a larger disk (like a P40) and use that to pay for two smaller disks (P30). You are only making a reservation for the total number of the SKUs that you select.
 
+If you need to create a 1 TiB disk, it maps to P30 disk SKU. If you need a 250 GiB disk, it is rounded up to lowest Disk SKU that can provide the necessary capacity. Disk reservation is made per Disk SKU, hence the reservation consumption is based on the unit of the Disk SKUs instead of the provided size. For example, if you have reserved 1 P40 of 2 TiB provisioned capacity but consumed 2 P30 each of 1 TiB, the two P30 consumption will not be accounted for P40 reservation. 
 
-|Premium SSD SKU  |Offered for reservation  |Disk capacity (GiB) |
-|---------|---------|---------|
-|P1     |No         |4         |
-|P2     |No         |8         |
-|P3     |No         |16         |
-|P4     |No         |32         |
-|P6     |No         |64         |
-|P10     |No         |128         |
-|P15     |No         |256         |
-|P20     |No         |512         |
-|P30     |Yes, up to 1 year         |1,024         |
-|P40     |Yes, up to 1 year         |2,048         |
-|P50     |Yes, up to 1 year         |4,096         |
-|P60     |Yes, up to 1 year         |8,192         |
-|P70     |Yes, up to 1 year         |16,384         |
-|P80     |Yes, up to 1 year         |32,767         |
-
+[!INCLUDE [disk-storage-premium-ssd-sizes](disk-storage-premium-ssd-sizes.md)]
 
 ## Purchase considerations
 
