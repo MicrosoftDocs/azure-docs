@@ -125,7 +125,7 @@ After the indexer runs, you can find the cache in Azure blob storage. The contai
 
 To modify a skillset, you can use the portal to edit the JSON definition. For example, if you are using text translation, a simple inline change from `en` to `es` or another language is sufficient for proof-of-concept testing of incremental enrichment.
 
-Run the indexer. Only those parts of an enriched document tree are updated. If you used the [portal quickstart](cognitive-search-quickstart-blob.md) as proof-of-concept, modifying the text translation skill to 'es', you'll notice that only 8 documents are updated instead of the original 14. Image files unaffected by the translation process are reused from cache.
+Run the indexer again. Only those parts of an enriched document tree are updated. If you used the [portal quickstart](cognitive-search-quickstart-blob.md) as proof-of-concept, modifying the text translation skill to 'es', you'll notice that only 8 documents are updated instead of the original 14. Image files unaffected by the translation process are reused from cache.
 
 ## Enable incremental enrichment on new indexers
 
@@ -149,25 +149,22 @@ To set up incremental enrichment for a new indexer, all you have to do is includ
 }
 ```
 
-## Override incremental enrichment
+## How to manage the cache
 
-When configured, incremental enrichment tracks changes across your indexing pipeline and drives documents to eventual consistency across your index and projections. In some cases, you'll need to override this behavior to ensure the indexer doesn't do additional work as a result of an update to the indexing pipeline. For example, updating the data source connection string will require an indexer reset and reindexing of all documents as the data source has changed. But if you were only updating the connection string with a new key, you wouldn't want the change to result in any updates to existing documents. Conversely, you may want the indexer to invalidate the cache and enrich documents even if no changes to the indexing pipeline are made. For instance, you might want to invalidate the indexer if you were to redeploy a custom skill with a new model and wanted the skill rerun on all your documents.
+When configured, incremental enrichment tracks changes across your indexing pipeline and drives documents to eventual consistency across your index and projections. 
 
-### How to override reset requirement
+While incremental enrichment comes with its own change detection logic for knowing when and what to reprocess, there are situations where you will want to override default behaviors:
 
-When making changes to the indexing pipeline, any changes resulting in an invalidation of the cache requires an indexer reset. If you're making a change to the indexer pipeline and don't want the change tracking to invalidate the cache, you'll need to set the `ignoreResetRequirement` querystring parameter to `true` for operations on the indexer or data source.
++ Force a re-evaluation of skillset. You might make internal changes to a custom skillset that the indexer cannot detect. In this case, you can use the [Reset Skillset](https://docs.microsoft.com/rest/api/searchservice/reset-skillset) API to force reprocessing of a particular skill, including any downstream skills that have a dependency on that skill's output.
 
-### How to override change detection
-
-When making updates to the skillset that would result in documents being flagged as inconsistent, for example updating a custom skill URL when the skill is redeployed, set the `disableCacheReprocessingChangeDetection` query string parameter to `true` on skillset updates.
-
-### How to force change detection
-
-Instanced when you want the indexing pipeline to recognize a change to an external entity, like deploying a new version of a custom skill, you'll need to update the skillset and "touch" the specific skill by editing the skill definition, specifically the URL to force change detection and invalidate the cache for that skill.
++ Bypass re-evaluation when making peripheral changes. In some cases, the change detection logic picks up on changes that shouldn't result in reprocessing. For example, changing the endpoint of a custom skill is an update to the `uri` property in a skillset definition, but it shouldn't result in reprocessing of content if the skill itself didn't change. Similarly, updates to a data source connection string, or changing a key, are inline edits that change a data source definition, but shouldn't invalidate the cache. You can set parameters on a request to suppress the change detection logic, while allowing a commit on a definition to go through. For more information about these scenarios, see [Cache management](cognitive-search-incremental-indexing-conceptual.md#cache-management).
 
 ## Next steps
 
-This article covers incremental enrichment for indexers that include skillsets. For more information about modifying skillsets, see the following links.
+Incremental enrichment is applicable on indexers that contain skillsets. As a next step, visit the skillset documentation to understand concepts and composition. 
 
-+ [How to create a skillset](cognitive-search-defining-skillset.md). 
-+ [Skillset concepts and composition](cognitive-search-working-with-skillsets.md). 
+Additionally, once you enable the cache, you will want to know about the parameters and APIs that factor into caching, including how to override or force particular behaviors. For more information, see the following links.
+
++ [Skillset concepts and composition](cognitive-search-working-with-skillsets.md)
++ [How to create a skillset](cognitive-search-defining-skillset.md)
++ [Introduction to incremental enrichment and caching](cognitive-search-incremental-indexing-conceptual.md)

@@ -237,9 +237,9 @@
         href: cognitive-search-concept-annotations-syntax.md
       - name: Map to index fields
         href: cognitive-search-output-field-mapping.md
-      - name: Process and extract information from images
+      - name: Extract information from images
         href: cognitive-search-concept-image-scenarios.md
-      - name: Cache enrichment (incremental processing)
+      - name: Cache (incremental) enrichment
         href: search-howto-incremental-index.md
     - name: Custom skills
       items:
