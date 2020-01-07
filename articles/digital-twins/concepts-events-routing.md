@@ -7,12 +7,12 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 11/07/2019
+ms.date: 01/03/2020
 ---
 
-# Routing events and messages
+# Routing IoT events and messages
 
-IoT solutions often unite several powerful services that include storage, analytics, and more. This article describes how to connect Azure Digital Twins apps to Azure analytics, AI, and storage services to give them deeper insights and functionalities.
+Internet of Things solutions often unite several powerful services that include storage, analytics, and more. This article describes how to connect Azure Digital Twins apps to Azure analytics, AI, and storage services to give them deeper insights and functionalities.
 
 ## Route types  
 

@@ -17,7 +17,7 @@ ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019
 
 > [!NOTE]
 >
-> The same thing can also be done using popular IDEs like IntelliJ and Eclipse. Check out our similar documents at [Azure Toolkit for IntelliJ Quickstart](/java/azure/intellij/azure-toolkit-for-intellij-create-hello-world-web-app) or [Azure Toolkit for Eclipse Quickstart](/java/azure/eclipse/azure-toolkit-for-eclipse-create-hello-world-web-app).
+> The same thing can also be done using popular IDEs like IntelliJ, Eclipse and VS Code. Check out our similar documents at [Azure Toolkit for IntelliJ Quickstart](/java/azure/intellij/azure-toolkit-for-intellij-create-hello-world-web-app), [Azure Toolkit for Eclipse Quickstart](/java/azure/eclipse/azure-toolkit-for-eclipse-create-hello-world-web-app) or [VS Code Quickstart](https://code.visualstudio.com/docs/java/java-webapp).
 >
 ![Sample app running in Azure App Service](media/quickstart-java/java-hello-world-in-browser-azure-app-service.png)
 
@@ -31,6 +31,11 @@ Execute the following Maven command in the Cloud Shell prompt to create a new ap
 
 ```bash
 mvn archetype:generate "-DgroupId=example.demo" "-DartifactId=helloworld" "-DarchetypeArtifactId=maven-archetype-webapp"
+```
+Then change your working directory to the project folder:
+
+```bash
+cd helloworld
 ```
 
 ## Configure the Maven plugin

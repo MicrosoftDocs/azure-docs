@@ -84,6 +84,8 @@
     items:
     - name: Transform data with a mapping data flow
       href: tutorial-data-flow.md
+    - name: Mapping data flow video tutorials
+      href: data-flow-tutorials.md
     - name: Prepare data with a wrangling data flow
       href: wrangling-data-flow-tutorial.md
   - name: External transformations
@@ -121,7 +123,7 @@
     items:
     - name: Copy from Data Lake Storage Gen1
       href: load-azure-data-lake-storage-gen2-from-gen1.md
-  - name: Load SQL Data Warehouse
+  - name: Load Synapse Analytics (formerly SQL Data Warehouse)
     href: load-azure-sql-data-warehouse.md
   - name: Load Data Lake Storage Gen1
     href: load-azure-data-lake-store.md
@@ -233,7 +235,7 @@
       href: connector-azure-sql-database.md
     - name: Azure SQL Database Managed Instance
       href: connector-azure-sql-database-managed-instance.md
-    - name: Azure SQL Data Warehouse
+    - name: Azure Synapse Analytics (formerly SQL Data Warehouse)
       href: connector-azure-sql-data-warehouse.md
     - name: Azure Table Storage
       href: connector-azure-table-storage.md

@@ -5,7 +5,7 @@ author: MikeDodaro
 ms.author: barbkess
 ms.service: spring-cloud
 ms.topic: tutorial
-ms.date: 11/18/2019
+ms.date: 12/29/2019
 
 ---
 # Tutorial: Monitor Spring Cloud resources using alerts and action groups
@@ -21,7 +21,7 @@ In addition to the Azure Spring requirements, this tutorial depends on the follo
 
 * A deployed Azure Spring Cloud instance.  Follow our [quickstart](spring-cloud-quickstart-launch-app-cli.md) to get started.
 
-* An Azure resource to monitor, for example the database implemented in this article: [How to use Spring Data Apache Cassandra API with Azure Cosmos DB](https://docs.microsoft.com/azure/java/spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db)
+* An Azure resource to monitor. This example monitors a Spring Cloud instance.
  
 The following procedures initialize both **Action Group** and **Alert** starting from the **Alerts** option in the left navigation pane of a Spring Cloud instance. (The procedure can also start from the **Monitor Overview** page of the Azure portal.) 
 
@@ -65,21 +65,46 @@ To configure an **Alert**, navigate back to the **Alerts** page, and click **Man
 
 1. Click **+ New alert rule**.
 
-  ![Screenshot Portal new alert rule](media/alerts-action-groups/alerts-3.png)
+   ![Screenshot Portal new alert rule](media/alerts-action-groups/alerts-3.png)
 
-1. On the **Create rule** page, specify the **RESOURCE**, **CONDITION**, and **ACTIONS**.  From **ACTIONS** pane select the previously defined **Action Group**.
+1. On the **Create rule** page, specify the **RESOURCE**.
 
-1. Under **ALERT DETAILS**, Name the alert rule.
+1. The **CONDITION** setting provides many options for monitoring your **Spring Cloud** resources.  Click **Add** to open the **Configure signal logic** pane.
+
+1. Select a condition. This example uses **System CPU Usage Percentage**.
+
+   ![Screenshot Portal new alert rule](media/alerts-action-groups/alerts-3-1.png)
+
+1. Scroll down the **Configure signal logic** pane to set the **Threshold value** to monitor.
+
+   ![Screenshot Portal new alert rule](media/alerts-action-groups/alerts-3-2.png)
+
+1. Click **Done**.
+
+For details of the conditions available to monitor, see [User portal metrics options](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-concept-metrics#user-portal-metrics-options).
+
+ Under **ACTIONS**, click **Select action group**. From **ACTIONS** pane select the previously defined **Action Group**.
+
+   ![Screenshot Portal new alert rule](media/alerts-action-groups/alerts-3-3.png) 
+
+1. Scroll down, and under **ALERT DETAILS**, name the alert rule.
+
+1. Set the **Severity**.
 
 1. Click **Create alert rule**.
 
-  ![Screenshot Portal new alert rule](media/alerts-action-groups/alerts-4.png)
+   ![Screenshot Portal new alert rule](media/alerts-action-groups/alerts-3-4.png)
 
 Verify that the new alert rule is enabled.
 
-  ![Screenshot Portal new alert rule](media/alerts-action-groups/alerts-5.png)
+   ![Screenshot Portal new alert rule](media/alerts-action-groups/alerts-4.png)
+
+A rule can also be created using the **Metrics** page:
+
+   ![Screenshot Portal new alert rule](media/alerts-action-groups/alerts-5.png)
 
 ## Next steps
+* [User portal metrics options](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-concept-metrics#user-portal-metrics-options)
 * [Create and manage action groups in the Azure portal](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups)
 * [SMS Alert Behavior in Action Groups](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-sms-behavior)
 * [Tutorial: Using Distributed Tracing with Azure Spring Cloud](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-tutorial-distributed-tracing)

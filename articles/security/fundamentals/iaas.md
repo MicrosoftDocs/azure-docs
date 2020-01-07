@@ -95,7 +95,7 @@ If you use Windows Update, leave the automatic Windows Update setting enabled.
 **Detail**: Check for and install all Windows updates as a first step of every deployment. This measure is especially important to apply when you deploy images that come from either you or your own library. Although images from the Azure Marketplace are updated automatically by default, there can be a lag time (up to a few weeks) after a public release.
 
 **Best practice**: Periodically redeploy your VMs to force a fresh version of the OS.   
-**Detail**: Define your VM with an [Azure Resource Manager template](../../azure-resource-manager/resource-group-authoring-templates.md) so you can easily redeploy it. Using a template gives you a patched and secure VM when you need it.
+**Detail**: Define your VM with an [Azure Resource Manager template](../../azure-resource-manager/templates/template-syntax.md) so you can easily redeploy it. Using a template gives you a patched and secure VM when you need it.
 
 **Best practice**: Rapidly apply security updates to VMs.   
 **Detail**: Enable Azure Security Center (Free tier or Standard tier) to [identify missing security updates and apply them](../../security-center/security-center-apply-system-updates.md).
