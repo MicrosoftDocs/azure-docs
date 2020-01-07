@@ -106,7 +106,7 @@ _<sup>**8**</sup> Resource tags are applied as usage is emitted from each servic
 
 ## Rated usage data refresh schedule
 
-Cost and usage data is available in Cost Management + Billing in the Azure portal and [supporting APIs](../../cost-management/index.yml). Keep the following points in mind as you review costs:
+Cost and usage data is available in Cost Management + Billing in the Azure portal and [supporting APIs](../cost-management-billing/index.yml). Keep the following points in mind as you review costs:
 
 - Estimated charges for the current billing period are updated six times per day.
 - Estimated charges for the current billing period can change as you incur more usage.
@@ -121,7 +121,7 @@ Pay-as-you-go subscriptions – If the billing month ends on May 15, then the es
 
 ### Rerated data
 
-Whether you use the [Cost Management APIs](../../cost-management/index.yml), Power BI, or the Azure portal to retrieve data, expect the current billing period's charges to get rerated, and consequently change, until the invoice is closed.
+Whether you use the [Cost Management APIs](../cost-management-billing/index.yml), Power BI, or the Azure portal to retrieve data, expect the current billing period's charges to get rerated, and consequently change, until the invoice is closed.
 
 ## Usage data update frequency varies
 

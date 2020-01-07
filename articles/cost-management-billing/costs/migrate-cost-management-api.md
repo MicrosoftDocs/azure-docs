@@ -516,7 +516,7 @@ To get reservation summaries with the Reservation Summaries API:
 
 ## Move from Cloudyn to Cost Management
 
-Organizations using [Cloudyn](https://cloudyn.com) should start using [Azure Cost Management](https://azure.microsoft.com/services/cost-management/) for any cost management needs. Cost Management is available in the Azure portal with no onboarding and an eight-hour latency. For more information, see the [Cost Management documentation](../../cost-management/index.yml).
+Organizations using [Cloudyn](https://cloudyn.com) should start using [Azure Cost Management](https://azure.microsoft.com/services/cost-management/) for any cost management needs. Cost Management is available in the Azure portal with no onboarding and an eight-hour latency. For more information, see the [Cost Management documentation](../cost-management-billing/index.yml).
 
 With Azure Cost Management, you can:
 
@@ -531,4 +531,4 @@ You can also use Power BI for cost reporting. The [Azure Cost Management connect
 
 ## Next steps
 
-- Read the [Cost Management documentation](../../cost-management/index.yml) to learn how to monitor and control Azure spending. Or, if you want to optimize resource use with Cost Management.
+- Read the [Cost Management documentation](../cost-management-billing/index.yml) to learn how to monitor and control Azure spending. Or, if you want to optimize resource use with Cost Management.
