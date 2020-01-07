@@ -31,24 +31,11 @@ For this purpose, provision a new IoT Hub in any of the [supported regions](#sup
     "resources": [
         {
             "type": "Microsoft.Devices/IotHubs",
-            "apiVersion": "2019-11-04",
-            "name": "",
-            "location": "northeurope",
+            "apiVersion": "2020-01-01",
+            "name": "<provide-a-valid-resource-name>",
+            "location": "<any-of-supported-regions-below>",
             "properties": {
                 "minTlsVersion": "1.2",
-                "ipFilterRules": [],
-                "eventHubEndpoints": {
-                    "events": {
-                        "retentionTimeInDays": 1,
-                        "partitionCount": 4
-                    }
-                },
-                "routing": { },
-                "storageEndpoints": { },
-                "messagingEndpoints": { },
-                "enableFileUploadNotifications": false,
-                "cloudToDevice": { },
-                "features": "None",
                 "sku": {
                     "name": "S1",
                     "tier": "Standard",
