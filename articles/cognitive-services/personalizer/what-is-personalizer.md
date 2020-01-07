@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: overview
-ms.date: 12/30/2019
+ms.date: 01/09/2020
 ms.author: diberry
 #Customer intent:
 ---
@@ -27,7 +27,7 @@ Personalizer is not a service:
 
 ## Personalizer content requirements
 
-* You have content you want presented in a ranked order.
+* You have a limited set of content (30 to 50 items) you want presented in a ranked order. If you have a larger list, use a recommendation engine to reduce the list down to 30 to 50 items.
 * You have information describing the content you want ranked: _actions_ and _context_ - explained below.
 * You have enough real-time traffic (~4K transactions/day) to give to Personalizer to rank the content.
 
@@ -35,18 +35,18 @@ Personalizer is not a service:
 
 Personalizer uses reinforcement learning to rank information about your content (_actions_). Actions are the content items, such as news articles, specific movies, or products to choose from.
 
-The rank call takes the action item, along with the following features to select the top action item:
+The rank call takes the action item, along with the its action features and context features to select the top action item:
 
-* **Action features** - features of your content
+* **Actions with features** - content items with features specific to each item
 * **Context features** - features of the context
 
-You need to choose the details for action features and context features based on your scenario. Several example scenarios are:
+Several example scenarios are:
 
-|Content <br>_action items_|**Action features**<br>per action item|**Context features**|
+|Content type|**Actions (with features)**|**Context features**|
 |--|--|--|
-|News list|News type<br>Subject<br>Content type (text, image, video)|Device news is read from<br>Month, or season<br>|
-|Movies list|Movie genre<br>Main actors<br>Directory<br>Film rating<br>length|Device movie is watched from<br>screen size<br>Month, or season<br>|
-|Products list|Price<br>Size<br>Availability<br>Time to package<br>Time to ship<br>On Sale|Device shopping  is read from<br>Spending tier of user<br>Month, or season|
+|News list|`The president...` (national, politics, [text])<br>`Premier football league ...` (global, sports, [text, image, video])<br> `Hurricane in the ...` (regional, weather, [text,image]|Device news is read from<br>Month, or season<br>|
+|Movies list|`Star wars` (1977, [action, adventure, fantasy], George Lucas)<br>`Hoop dreams` (1994, [documentary, sports], Steve James<br>`Casa blanca` (1942, [romance, drama, war], Michael Curtiz)|Device movie is watched from<br>screen size<br>Month, or season<br>|
+|Products list|`Product A` ($$$$, deliver in 24 hours, 3 kg)<br>`Product b` ($$, 2 week shipping with customs, 20 kb)<br>`Product C` ($$$, delivery in 48 hours, 3 kg)|Device shopping  is read from<br>Spending tier of user<br>Month, or season|
 
 
 
