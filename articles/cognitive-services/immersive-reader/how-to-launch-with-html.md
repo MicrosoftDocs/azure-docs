@@ -55,7 +55,7 @@ const data = {
     }]
 };
 
-ImmersiveReader.launchAsync(YOUR_TOKEN, YOUR_SUBDOMAIN, data);
+ImmersiveReader.launchAsync(YOUR_TOKEN, YOUR_SUBDOMAIN, data, YOUR_OPTIONS);
 ```
 
 ## Next steps
