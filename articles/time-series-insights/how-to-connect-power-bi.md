@@ -48,7 +48,7 @@ To connect your Time Series Insights environment to Power BI, follow these steps
 To get started:
 
 1. Open the Time Series Insights Preview Explorer and curate your data.
-1. Once you have created a view you are satisfied with, navigate to the **More Actions** dropdown menu and click on **Connect to Power BI**. 
+1. Once you have created a view you are satisfied with, navigate to the **More actions** dropdown menu and click on **Connect to Power BI**.
 
     [![Time Series Insights Preview Explorer export](media/how-to-connect-power-bi/time-series-insights-export-option.png)](media/how-to-connect-power-bi/time-series-insights-export-option.png#lightbox)
 

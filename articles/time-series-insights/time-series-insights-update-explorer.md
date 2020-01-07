@@ -129,9 +129,9 @@ Here, you can see an example of an **overlapping chart**:
 
   [![Overlapping chart option](media/v2-update-explorer/overlapping-chart.png)](media/v2-update-explorer/overlapping-chart.png#lightbox)
 
-The **More Actions** button expands to display the **Download as CSV**, **Connect to Power BI**, **Show chart data as a table**, and **Explore raw events** options.
+The **More actions** button expands to display the **Download as CSV**, **Connect to Power BI**, **Show chart data as a table**, and **Explore raw events** options.
 
-  [![More Actions option](media/v2-update-explorer/more-actions-icon.png)](media/v2-update-explorer/more-actions-icon.png#lightbox)
+  [![More actions option](media/v2-update-explorer/more-actions-icon.png)](media/v2-update-explorer/more-actions-icon.png#lightbox)
 
 Learn more about the **Connect to Power BI** option in [Time Series Insights native Power BI connector](concepts-power-bi.md).
 
