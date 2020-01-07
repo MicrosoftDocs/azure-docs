@@ -132,41 +132,41 @@ To set up a managed identity in the portal, you first create an application and 
 
 1. To use both App Configuration values and Key Vault references, update *Program.cs* as shown below. This code creates a new `KeyVaultClient` using an `AzureServiceTokenProvider` and passes this reference to a call to the `UseAzureKeyVault` method.
 
-### [.NET Core 2.x](#tab/core2x)
+    ### [.NET Core 2.x](#tab/core2x)
 
-```csharp
-        public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
-            WebHost.CreateDefaultBuilder(args)
-                .ConfigureAppConfiguration((hostingContext, config) =>
-                {
-                    var settings = config.Build();
-                    AzureServiceTokenProvider azureServiceTokenProvider = new AzureServiceTokenProvider();
-                    KeyVaultClient kvClient = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(azureServiceTokenProvider.KeyVaultTokenCallback));
-                    
-                    config.AddAzureAppConfiguration(options => options.Connect(new Uri(settings["AppConfig:Endpoint"]), new ManagedIdentityCredential()).UseAzureKeyVault(kvClient));
-                })
-                .UseStartup<Startup>();
-```
+    ```csharp
+            public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+                WebHost.CreateDefaultBuilder(args)
+                    .ConfigureAppConfiguration((hostingContext, config) =>
+                    {
+                        var settings = config.Build();
+                        AzureServiceTokenProvider azureServiceTokenProvider = new AzureServiceTokenProvider();
+                        KeyVaultClient kvClient = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(azureServiceTokenProvider.KeyVaultTokenCallback));
+                        
+                        config.AddAzureAppConfiguration(options => options.Connect(new Uri(settings["AppConfig:Endpoint"]), new ManagedIdentityCredential()).UseAzureKeyVault(kvClient));
+                    })
+                    .UseStartup<Startup>();
+    ```
 
-### [.NET Core 3.x](#tab/core3x)
+    ### [.NET Core 3.x](#tab/core3x)
 
-```csharp
-    public static IHostBuilder CreateHostBuilder(string[] args) =>
-        Host.CreateDefaultBuilder(args)
-        .ConfigureWebHostDefaults(webBuilder =>
-        webBuilder.ConfigureAppConfiguration((hostingContext, config) =>
-        {
-            var settings = config.Build();
-                    AzureServiceTokenProvider azureServiceTokenProvider = new AzureServiceTokenProvider();
-                    KeyVaultClient kvClient = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(azureServiceTokenProvider.KeyVaultTokenCallback));
-                    
-                    config.AddAzureAppConfiguration(options => options.Connect(new Uri(settings["AppConfig:Endpoint"]), new ManagedIdentityCredential()).UseAzureKeyVault(kvClient));
-                })
-                .UseStartup<Startup>());
-```
----
+    ```csharp
+        public static IHostBuilder CreateHostBuilder(string[] args) =>
+            Host.CreateDefaultBuilder(args)
+            .ConfigureWebHostDefaults(webBuilder =>
+            webBuilder.ConfigureAppConfiguration((hostingContext, config) =>
+            {
+                var settings = config.Build();
+                        AzureServiceTokenProvider azureServiceTokenProvider = new AzureServiceTokenProvider();
+                        KeyVaultClient kvClient = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(azureServiceTokenProvider.KeyVaultTokenCallback));
+                        
+                        config.AddAzureAppConfiguration(options => options.Connect(new Uri(settings["AppConfig:Endpoint"]), new ManagedIdentityCredential()).UseAzureKeyVault(kvClient));
+                    })
+                    .UseStartup<Startup>());
+    ```
+    ---
 
-You can now access Key Vault references just like any other App Configuration key. The config provider will use the `KeyVaultClient` that you configured to authenticate to Key Vault and retrieve the value.
+    You can now access Key Vault references just like any other App Configuration key. The config provider will use the `KeyVaultClient` that you configured to authenticate to Key Vault and retrieve the value.
 
 [!INCLUDE [Prepare repository](../../includes/app-service-deploy-prepare-repo.md)]
 
