@@ -330,7 +330,11 @@
   - name: REST (Management)
     href: /rest/api/searchmanagement
   - name: REST (Preview)
-    href: search-api-preview.md
+    items:
+    - name: API version 2019-05-06-Preview
+      href: search-api-preview.md
+    - name: ResetSkills API
+      href: preview-api-resetskills.md
   - name: Resource Manager template
     href: /azure/templates/microsoft.search/searchservices
   - name: OData language reference
