@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 11/06/2019
+ms.date: 01/07/2020
 ms.custom: seodec18
 
 
@@ -70,6 +70,15 @@ There are a three ways to retrieve this information for deployed web services:
     print(service.scoring_uri)
     print(service.swagger_uri)
     ```
+
+### Secured web service
+
+If you secured the deployed web service using an SSL certificate, you can use [HTTPS](https://en.wikipedia.org/wiki/HTTPS) to connect to the service using the scoring or swagger URI. HTTPS helps secure communications between a client and a web service by encrypting communications between the two. Encryption uses [Transport Layer Security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security). TLS is sometimes still referred to as *Secure Sockets Layer* (SSL), which was the predecessor of TLS.
+
+> [!IMPORTANT]
+> Web services deployed by Azure Machine Learning only support TLS version 1.2. When creating a client application, make sure that it supports this version.
+
+For more information, see [Use SSL to secure a web service through Azure Machine Learning](how-to-secure-web-service.md).
 
 ### Authentication for services
 
