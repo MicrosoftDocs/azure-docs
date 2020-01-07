@@ -37,7 +37,6 @@ using (var recognizer = new SpeechRecognizer(speechConfig, autoDetectSourceLangu
     var speechRecognitionResult = await recognizer.RecognizeOnceAsync();
     var autoDetectSourceLanguageResult = AutoDetectSourceLanguageResult.FromResult(speechRecognitionResult);
     var detectedLanguage = autoDetectSourceLanguageResult.Language;
-    Assert.AreEqual(Language.DE_DE, detectedLanguage);
 }
 ```
 
