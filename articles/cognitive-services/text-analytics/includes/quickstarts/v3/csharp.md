@@ -79,7 +79,7 @@ Additional examples, including AAD authentication and the use of client default 
 * [Sentiment analysis](#sentiment-analysis)
 * [Language detection](#language-detection)
 * [Entity recognition](#entity-recognition)
-* [Entity recognition - PII](#entity-pii)
+* [Entity recognition - Personal information](#personal-information-entity-recognition)
 * [Entity linking](#entity-linking)
 * [Key phrase extraction](#key-phrase-extraction)
 
@@ -178,7 +178,7 @@ Named Entities:
                 Offset: 34,     Length: 9,      Score: 0.800
 ```
 
-## Personal Identifiable Information (PII) Entity recognition
+## Personal information entity recognition
 
 <!-- TODO: Update client docs link -->
 Create a new function called `EntityPIIExample()` that takes the client that you created earlier, call its [RecognizePiiEntities()]() function and iterate through the results. Similar to the previous function the returned [Response\<RecognizeEntitiesResult\>]() object will contain the list of detected entities in `Value.NamedEntities` if successful, and a `Value.ErrorMessage` if not.

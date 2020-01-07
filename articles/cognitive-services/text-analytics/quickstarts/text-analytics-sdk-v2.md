@@ -26,7 +26,7 @@ Use the Text Analytics client library v2 to perform:
 
 ::: zone pivot="programming-language-csharp"
 
-[!INCLUDE [C# quickstart](../includes/quickstarts/v2/csharp-sdk.md)]
+[!INCLUDE [C# quickstart](../includes/quickstarts/v2/csharp.md)]
 
 ::: zone-end
 
