@@ -84,6 +84,8 @@
     items:
     - name: Transform data with a mapping data flow
       href: tutorial-data-flow.md
+    - name: Mapping data flow video tutorials
+      href: data-flow-tutorials.md
     - name: Prepare data with a wrangling data flow
       href: wrangling-data-flow-tutorial.md
   - name: External transformations
