@@ -61,10 +61,10 @@ The following limits apply only for networking resources managed through Azure R
 | Load balancers                          | 1,000                         |
 | Rules per resource                      | 1,500                         |
 | Rules per NIC (across all IPs on a NIC) | 300                           |
-| Front-end IP configurations             | 600                           |
-| Back-end pool                           | 1,000, single virtual network |
-| Back-end resources per load balancer<sup>1<sup>   | 150                 |
-| High-availability ports                 | 1 per internal front-end      |
+| Frontend IP configurations             | 600                           |
+| Backend pool                           | 1,000, single virtual network |
+| Backend resources per load balancer<sup>1<sup>   | 150                 |
+| High-availability ports                 | 1 per internal frontend      |
 
 <sup>1</sup>The limit is up to 150 resources, in any combination of standalone virtual machine resources, availability set resources, and virtual machine scale-set resources.
 
@@ -75,8 +75,8 @@ The following limits apply only for networking resources managed through Azure R
 | Load balancers                          | 1,000                        |
 | Rules per resource                      | 250                          |
 | Rules per NIC (across all IPs on a NIC) | 300                          |
-| Front-end IP configurations             | 200                          |
-| Back-end pool                           | 100, single availability set |
+| Frontend IP configurations             | 200                          |
+| Backend pool                           | 100, single availability set |
 
 #### <a name="virtual-networking-limits-classic"></a>The following limits apply only for networking resources managed through the **classic** deployment model per subscription. Learn how to [view your current resource usage against your subscription limits](../articles/networking/check-usage-against-limits.md).
 
