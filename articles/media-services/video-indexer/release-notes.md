@@ -42,7 +42,7 @@ Configure the custom vision account on paid accounts using the Video Indexer por
 
 ### Scenes, shots and keyframes – now in one insight pane
 
-Scenes, shots, and keyframes are now merged into one insights for easier consumption and navigation. When you select the desired scene you can see what shots and keyframes it consists of. 
+Scenes, shots, and keyframes are now merged into one insight for easier consumption and navigation. When you select the desired scene you can see what shots and keyframes it consists of. 
 
 ### Video name too long notification
 
