@@ -47,7 +47,7 @@
     },
     {
       "source_path": "articles/virtual-machines/linux/cli-manage-nodejs.md",
-      "redirect_url": "azure/virtual-machines/linux/create-cli-complete",
+      "redirect_url": "/azure/virtual-machines/linux/create-cli-complete",
       "redirect_document_id": false
     },
     {
