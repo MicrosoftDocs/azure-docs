@@ -8,7 +8,7 @@ ms.subservice: core
 ms.topic: tutorial
 author: luisquintanilla
 ms.author: luquinta
-ms.date: 01/03/2019
+ms.date: 01/08/2019
 #Customer intent: As a professional data scientist, I want to learn how to get started with the Azure Machine Learning Visual Studio Code Extension.
 ---
 
