@@ -38,7 +38,7 @@ In this tutorial, you learn the following tasks:
 
 The code for this tutorial uses TensorFlow to train an image classification machine learning model that categorizes handwritten digits from 0-9. It does so by creating a neural network that takes the pixel values of 28 px x 28 px image as input and outputs a list of 10 probabilities, one for each of the digits being classified. Below is a sample of what the input data looks like.  
 
-    ![MNIST Digits](./media/tutorial-train-deploy-image-classification-model-vscode/digits.png)
+![MNIST Digits](./media/tutorial-train-deploy-image-classification-model-vscode/digits.png)
 
 Get the code for this tutorial by downloading and unzipping the [VS Code Tools for AI repository](https://github.com/microsoft/vscode-tools-for-ai/archive/master.zip) anywhere on your computer.
 
