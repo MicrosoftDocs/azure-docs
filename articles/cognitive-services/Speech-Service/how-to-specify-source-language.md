@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 10/26/2019
+ms.date: 01/07/2020
 ms.author: qiohu
 zone_pivot_groups: programming-languages-set-two
 ---
