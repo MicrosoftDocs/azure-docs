@@ -32,12 +32,9 @@ Solutions are based on log queries and views customized for a particular applica
 
 | Solution | Description |
 |:---|:---|
-| [Activity log analytics](platform/activity-log-view.md#activity-logs-analytics-monitoring-solution) | Analyze Activity log entries using predefined log queries and views. |
 | [Agent health](insights/solution-agenthealth.md) | Analyze the health and configuration of Log Analytics agents. |
 | [Alert management](platform/alert-management-solution.md) | Analyze alerts collected from System Center Operations Manager, Nagios, or Zabbix. |
-| [Network Performance Monitor](insights/network-performance-monitor.md) |  Monitor network performance between various points in your network infrastructure, network connectivity to service and application endpoints, and the performance of Azure ExpressRoute. |
 | [Service Map](insights/service-map.md) | Automatically discovers application components on Windows and Linux systems and maps the communication between services. The same functionality is provided in   |
-| [Wire Data](insights/wire-data.md) | Consolidated network and performance data collected from Windows-connected and Linux-connected computers with the Log Analytics agent. |
 
 
 
@@ -49,6 +46,7 @@ Other solutions are available for monitoring different applications and services
 | [Azure Application Gateway](insights/azure-networking-analytics.md#azure-application-gateway-analytics-solution-in-azure-monitor) | Analyze logs and metrics from Azure Application Gateway. |
 | [Active Directory replication status](insights/ad-replication-status.md) | Regularly monitors your Active Directory environment for any replication failures. |
 | [Active Directory assessment](insights/ad-assessment.md) | Assess the risk and health of your Active Directory environments. |
+| [Activity log analytics](platform/activity-log-view.md#activity-logs-analytics-monitoring-solution) | Analyze Activity log entries using predefined log queries and views. |
 | [Containers](insights/containers.md) | View and manage Docker and Windows container hosts. |
 | [DNS Analytics](insights/dns-analytics.md) | Collects, analyzes, and correlates Windows DNS analytic and audit logs and other related data from your DNS servers. |
 | [Key Vault Analytics](insights/azure-key-vault.md) | Analyze Azure Key Vault AuditEvent logs. |
@@ -59,7 +57,7 @@ Other solutions are available for monitoring different applications and services
 | [SCOM Asessment](insights/scom-assessment.md) | Assess the risk and health of your System Center Operations Manager management group. |
 | [SQL assessment](insights/sql-assessment.md) | Assess the risk and health of your SQL Server environments.  |
 | [Surface Hub](insights/surface-hubs.md) | Track the health and usage of Surface Hub devices. |
-
+| [Wire Data](insights/wire-data.md) | Consolidated network and performance data collected from Windows-connected and Linux-connected computers with the Log Analytics agent. |
 
 
 
@@ -210,7 +208,7 @@ Azure Monitor can collect data from resources outside of Azure using the methods
 |:---|:---|
 | Virtual machines | Use the Log Analytics agent to collect data from the guest operating system of virtual machines in other cloud environments or on-premises. See [Collect log data with the Log Analytics agent](platform/log-analytics-agent.md). |
 | System Center Operations Manager | Collect data from Operations Manager agents by connecting their management group to Azure Monitor. See [Connect Operations Manager to Azure Monitor](platform/om-agents.md) |
-| REST API Client | Separate APIs are available to write data to Azure Monitor Logs and Metrics from any REST API client. See [Send log data to Azure Monitor with the HTTP Data Collector API](platform/data-collector-api.md) for Logs and [Send custom metrics for an Azure resource to the Azure Monitor metric store by using a REST API](platform/metrics-store-custom-rest-api) for Metrics. |
+| REST API Client | Separate APIs are available to write data to Azure Monitor Logs and Metrics from any REST API client. See [Send log data to Azure Monitor with the HTTP Data Collector API](platform/data-collector-api.md) for Logs and [Send custom metrics for an Azure resource to the Azure Monitor metric store by using a REST API](platform/metrics-store-custom-rest-api.md) for Metrics. |
 
 
 
