@@ -96,7 +96,7 @@ It takes some time to propagate firewall rule changes. After you change firewall
 - [Why does the registry quota usage not reduce after deleting images?](#why-does-the-registry-quota-usage-not-reduce-after-deleting-images)
 - [How do I validate storage quota changes?](#how-do-i-validate-storage-quota-changes)
 - [How do I authenticate with my registry when running the CLI in a container?](#how-do-i-authenticate-with-my-registry-when-running-the-cli-in-a-container)
-- [Does Azure Container Registry offer TLS v1.2 only configuration and how to enable TLS v1.2?](#does-azure-container-registry-offer-tls-v12-only-configuration-and-how-to-enable-tls-v12)
+- [How to enable TLS 1.2?](#how-to-enable-tls-12)
 - [Does Azure Container Registry support Content Trust?](#does-azure-container-registry-support-content-trust)
 - [How do I grant access to pull or push images without permission to manage the registry resource?](#how-do-i-grant-access-to-pull-or-push-images-without-permission-to-manage-the-registry-resource)
 - [How do I enable automatic image quarantine for a registry](#how-do-i-enable-automatic-image-quarantine-for-a-registry)
@@ -177,9 +177,9 @@ Then authenticate with your registry:
 az acr login -n MyRegistry
 ```
 
-### Does Azure Container Registry offer TLS v1.2 only configuration and how to enable TLS v1.2?
+### How to enable TLS 1.2?
 
-Yes. Enable TLS by using any recent docker client (version 18.03.0 and above). 
+Enable TLS 1.2 by using any recent docker client (version 18.03.0 and above). 
 
 > [!IMPORTANT]
 > Starting January 13, 2020, Azure Container Registry will require all secure connections from servers and applications to use TLS 1.2. Support for TLS 1.0 and 1.1 will be retired.
