@@ -1,6 +1,7 @@
 ---
 title: Firewall access rules
-description: Configure rules to access an Azure container registry from behind a firewall, by allowing access to ("whitelisting") REST API and storage endpoint URLs or service-specific IP address ranges.
+description: Configure rules to access an Azure container registry from behind a firewall, by allowing access to ("whitelisting") REST API and storage endpoint domain names or service-specific IP address ranges.
+ms.topic: articles
 ms.date: 07/17/2019
 ---
 
@@ -14,15 +15,15 @@ If instead you want to configure inbound network access rules on a container reg
 
 To pull or push images or other artifacts to an Azure container registry, a client such as a Docker daemon needs to interact over HTTPS with two distinct endpoints.
 
-* **Registry REST API endpoint** - Authentication and registry management operations are handled through the registry's public REST API endpoint. This endpoint is the login server URL of the registry, or an associated IP address range. 
+* **Registry REST API endpoint** - Authentication and registry management operations are handled through the registry's public REST API endpoint. This endpoint is the login server name of the registry, or an associated IP address range. 
 
 * **Storage endpoint** - Azure [allocates blob storage](container-registry-storage.md) in Azure Storage accounts on behalf of each registry to manage the data for container images and other artifacts. When a client accesses image layers in an Azure container registry, it makes requests using a storage account endpoint provided by the registry.
 
 If your registry is [geo-replicated](container-registry-geo-replication.md), a client might need to interact with REST and storage endpoints in a specific region or in multiple replicated regions.
 
-## Allow access to REST and storage URLs
+## Allow access to REST and storage domain names
 
-* **REST endpoint** - Allow access to the registry server URL, such as  `myregistry.azurecr.io`
+* **REST endpoint** - Allow access to the fully qualified registry login server name, such as  `myregistry.azurecr.io`
 * **Storage (data) endpoint** - Allow access to all Azure blob storage accounts using the wildcard `*.blob.core.windows.net`
 
 
