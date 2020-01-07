@@ -89,21 +89,22 @@ The deployment manifest shares the credentials for your container registry with 
 
 1. In the Visual Studio solution explorer, open the **deployment.template.json** file. 
 
-2. Find the **registryCredentials** property in the $edgeAgent desired properties. 
-
-3. Update the property with your credentials, following this format: 
+2. Find the **registryCredentials** property in the $edgeAgent desired properties. It should have your registry address autofilled from the information you provided when creating the project, and then username and password fields should contain variable names. For example: 
 
    ```json
    "registryCredentials": {
      "<registry name>": {
-       "username": "<username>",
-       "password": "<password>",
+       "username": "$CONTAINER_REGISTRY_USERNAME_<registry name>",
+       "password": "$CONTAINER_REGISTRY_PASSWORD_<registry name>",
        "address": "<registry name>.azurecr.io"
      }
    }
-   ```
 
-4. Save the deployment.template.json file. 
+3. Open the **.env** file in your module solution. (It's hidden by default in the Solution Explorer, so you might need to select the **Show All Files** button to display it.) The .env file should contain the same username and password variables that you saw in the deployment.template.json file. 
+
+4. Add the **Username** and **Password** values from your Azure container registry. 
+
+5. Save your changes to the .env file.
 
 ### Update the module with custom code
 
