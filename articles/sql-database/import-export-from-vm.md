@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: 
-ms.date: 12/18/2019
+ms.date: 01/03/2020
 ---
 # Import or export an Azure SQL database without allowing Azure services to access the server
 
@@ -32,7 +32,6 @@ This template allows you to deploy a simple Windows virtual machine using a few 
 </a>
 
 For more information, see [Very simple deployment of a Windows VM](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows).
-
 
 
 ## Connect to the virtual machine
@@ -128,6 +127,23 @@ This example shows how to import a database using SqlPackage with Active Directo
 sqlpackage.exe /a:Import /sf:testExport.bacpac /tdn:NewDacFX /tsn:apptestserver.database.windows.net /ua:True /tid:"apptest.onmicrosoft.com"
 ```
 
+## Import Export Service performance
+
+Export speeds vary due to many factors (for example, data shape) so it's impossible to predict what speed should be expected. The import export service uses the same technology as SqlPackage and may take considerable time, particularly for large databases.
+
+To get the best performance using the import export service you can try the following strategies:
+
+1. Make sure no other workload is running on the database. Create a copy before export may be the best solution to ensure no other workloads are running.
+2. Increase database service level objective (SLO) to better handle the export workload (primarily read I/O). If the database is currently SQLDB_GP_Gen4_4, perhaps a Business Critical tier would help with read workload.
+3. Make sure there are clustered indexes particularly for large tables (most of the work seemed to be one large table in this case). 
+
+
+Even with all of the above conditions, the import export service may not meet the performance targets of the customer. For comparison the customer can try to run SqlPackage on their own in an Azure VM, with the following strategies:
+
+1. Same concerns over database workload and SLO as previously mentioned.
+2. VM should be in the same region as the database to help avoid network constraints.
+3. VM should have SSD with adequate size for generating temp artifacts before uploading to blob storage.
+4. VM should have adequate core and memory configuration for the specific database.
 
 
 
