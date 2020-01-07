@@ -26,7 +26,7 @@ API versions, Nuget packages, namespaces, and endpoints are unchanged. Your exis
 
 ### January 2020
 
-+ **Restricted IP access and private endpoint (preview)** on a search service endpoint is now available in **api-version=2019-10-01-Preview**. You can set up a secure endpoint using new properties in the [Create or Update](https://docs.microsoft.com/en-us/rest/api/searchmanagement/services/createorupdate) Management REST API. For more information about calling preview APIs, see [How to use the Management REST API](https://docs.microsoft.com/rest/api/searchmanagement/search-howto-management-rest-api).
++ **Restricted IP access and private endpoint (preview)** on a search service endpoint is now available in **api-version=2019-10-01-Preview**. You can set up a secure endpoint using the new **ipRules** property collection in the [Create or Update](https://docs.microsoft.com/rest/api/searchmanagement/services/createorupdate) Management REST API. For more information about API versions, see [How to use the Management REST API](https://docs.microsoft.com/rest/api/searchmanagement/search-howto-management-rest-api).
 
 ### December 2019
 
