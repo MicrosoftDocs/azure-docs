@@ -22,7 +22,7 @@ To view examples of an automated machine learning experiments, see [Tutorial: Tr
 
 Configuration options available in automated machine learning:
 
-* Select your experiment type: Classification, Regression or Time Series Forecasting
+* Select your experiment type: Classification, Regression, or Time Series Forecasting
 * Data source, formats, and fetch data
 * Choose your compute target: local or remote
 * Automated machine learning experiment settings
@@ -34,7 +34,7 @@ If you prefer a no code experience, you can also [Create your automated machine 
 
 ## Select your experiment type
 
-Before you begin your experiment, you should determine the kind of machine learning problem you are solving. Automated machine learning supports task types of classification, regression and forecasting. Learn more about [task types](how-to-define-task-type.md).
+Before you begin your experiment, you should determine the kind of machine learning problem you are solving. Automated machine learning supports task types of classification, regression, and forecasting. Learn more about [task types](how-to-define-task-type.md).
 
 Automated machine learning supports the following algorithms during the automation and tuning process. As a user, there is no need for you to specify the algorithm.
 
@@ -127,11 +127,11 @@ Next determine where the model will be trained. An automated machine learning tr
 *	Your local machine such as a local desktop or laptop – Generally when you have small dataset and you are still in the exploration stage.
 *	A remote machine in the cloud – [Azure Machine Learning Managed Compute](concept-compute-target.md#amlcompute) is a managed service that enables the ability to train machine learning models on clusters of Azure virtual machines.
 
-See the [GitHub site](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning) for example notebooks with local and remote compute targets.
+    See this [GitHub site](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning) for examples of notebooks with local and remote compute targets.
 
 *   An Azure Databricks cluster in your Azure subscription. You can find more details here - [Setup Azure Databricks cluster for Automated ML](how-to-configure-environment.md#azure-databricks)
 
-See the [GitHub site](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/azure-databricks/automl) for example notebooks with Azure Databricks.
+    See this [GitHub site](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/azure-databricks/automl) for examples of notebooks with Azure Databricks.
 
 <a name='configure-experiment'></a>
 
@@ -153,7 +153,7 @@ Some examples include:
         label_column_name=label,
         n_cross_validations=2)
     ```
-2.	Below is an example of a regression experiment set to end after 60 minutes with 5 validation cross folds.
+2.	Below is an example of a regression experiment set to end after 60 minutes with five validation cross folds.
 
     ```python
     automl_regressor = AutoMLConfig(
@@ -179,7 +179,7 @@ The primary metric determines the metric to be used during model training for op
 |norm_macro_recall | normalized_mean_absolute_error | normalized_mean_absolute_error
 |precision_score_weighted |
 
-Learn about the specific definitions of these in [Understand automated machine learning results](how-to-understand-automated-ml.md).
+Learn about the specific definitions of these metrics in [Understand automated machine learning results](how-to-understand-automated-ml.md).
 
 ### Data preprocessing & featurization
 
@@ -198,7 +198,7 @@ The time series `forecasting` task requires additional parameters in the configu
 
 1. `time_column_name`: Required parameter that defines the name of the column in your training data containing a valid time-series.
 1. `max_horizon`: Defines the length of time you want to predict out based on the periodicity of the training data. For example if you have training data with daily time grains, you define how far out in days you want the model to train for.
-1. `grain_column_names`: Defines the name of columns which contain individual time series data in your training data. For example, if you are forecasting sales of a particular brand by store, you would define store and brand columns as your grain columns. Separate time-series and forecasts will be created for each grain/grouping. 
+1. `grain_column_names`: Defines the name of columns that contain individual time series data in your training data. For example, if you are forecasting sales of a particular brand by store, you would define store and brand columns as your grain columns. Separate time-series and forecasts will be created for each grain/grouping. 
 
 For examples of the settings used below, see the [sample notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-orange-juice-sales/auto-ml-forecasting-orange-juice-sales.ipynb).
 
@@ -233,13 +233,13 @@ automl_config = AutoMLConfig(task = 'forecasting',
 
 ### <a name="ensemble"></a> Ensemble configuration
 
-Ensemble models are enabled by default, and appear as the final run iterations in an automated machine learning run. Currently supported ensemble methods are voting and stacking. Voting is implemented as soft-voting using weighted averages, and the stacking implementation is using a 2 layer implementation, where the first layer has the same models as the voting ensemble, and the second layer model is used to find the optimal combination of the models from the first layer. If you are using ONNX models, **or** have model-explainability enabled, stacking will be disabled and only voting will be utilized.
+Ensemble models are enabled by default, and appear as the final run iterations in an automated machine learning run. Currently supported ensemble methods are voting and stacking. Voting is implemented as soft-voting using weighted averages, and the stacking implementation is using a two layer implementation, where the first layer has the same models as the voting ensemble, and the second layer model is used to find the optimal combination of the models from the first layer. If you are using ONNX models, **or** have model-explainability enabled, stacking will be disabled and only voting will be utilized.
 
 There are multiple default arguments that can be provided as `kwargs` in an `AutoMLConfig` object to alter the default stack ensemble behavior.
 
 * `stack_meta_learner_type`: the meta-learner is a model trained on the output of the individual heterogenous models. Default meta-learners are `LogisticRegression` for classification tasks (or `LogisticRegressionCV` if cross-validation is enabled) and `ElasticNet` for regression/forecasting tasks (or `ElasticNetCV` if cross-validation is enabled). This parameter can be one of the following strings: `LogisticRegression`, `LogisticRegressionCV`, `LightGBMClassifier`, `ElasticNet`, `ElasticNetCV`, `LightGBMRegressor`, or `LinearRegression`.
 * `stack_meta_learner_train_percentage`: specifies the proportion of the training set (when choosing train and validation type of training) to be reserved for training the meta-learner. Default value is `0.2`.
-* `stack_meta_learner_kwargs`: optional parameters to pass to the initializer of the meta-learner. These parameters and parameter types mirror those from the corresponding model constructor, and are forwarded to the model constructor.
+* `stack_meta_learner_kwargs`: optional parameters to pass to the initializer of the meta-learner. These parameters and parameter types mirror the parameters and parameter types from the corresponding model constructor, and are forwarded to the model constructor.
 
 The following code shows an example of specifying custom ensemble behavior in an `AutoMLConfig` object.
 
@@ -284,7 +284,7 @@ automl_classifier = AutoMLConfig(
 
 ## Run experiment
 
-For automated ML you create an `Experiment` object, which is a named object in a `Workspace` used to run experiments.
+For automated ML, you create an `Experiment` object, which is a named object in a `Workspace` used to run experiments.
 
 ```python
 from azureml.core.experiment import Experiment
@@ -337,7 +337,7 @@ best_run, fitted_model = automl_run.get_output()
 See the list of preprocessing and [automated feature engineering](concept-automated-ml.md#preprocess) that happens when feauturization =auto.
 
 Consider this example:
-+ There are 4 input features: A (Numeric), B (Numeric), C (Numeric), D (DateTime)
++ There are four input features: A (Numeric), B (Numeric), C (Numeric), D (DateTime)
 + Numeric feature C is dropped because it is an ID column with all unique values
 + Numeric features A and B have missing values and hence are imputed by the mean
 + DateTime feature D is featurized into 11 different engineered features
@@ -461,7 +461,7 @@ def print_model(model, prefix=""):
 print_model(fitted_model)
 ```
 
-The following is sample output for a pipeline using a specific algorithm (LogisticRegression with RobustScalar, in this case).
+The following sample output is for a pipeline using a specific algorithm (LogisticRegression with RobustScalar, in this case).
 
 ```
 RobustScaler
@@ -489,7 +489,7 @@ LogisticRegression
 
 ### Predict class probability
 
-Models produced using automated ML all have wrapper objects that mirror functionality from their open-source origin class. Most classification model wrapper objects returned by automated ML implement the `predict_proba()` function, which accepts an array-like or sparse matrix data sample of your features (X values), and returns an n-dimensional array of each sample and it's respective class probability.
+Models produced using automated ML all have wrapper objects that mirror functionality from their open-source origin class. Most classification model wrapper objects returned by automated ML implement the `predict_proba()` function, which accepts an array-like or sparse matrix data sample of your features (X values), and returns an n-dimensional array of each sample and its respective class probability.
 
 Assuming you have retrieved the best run and fitted model using the same calls from above, you can call `predict_proba()` directly from the fitted model, supplying an `X_test` sample in the appropriate format depending on the model type.
 
