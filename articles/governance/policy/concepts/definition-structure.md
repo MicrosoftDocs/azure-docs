@@ -440,12 +440,12 @@ of a _template function_ is an error, policy evaluation fails. A failed evaluati
 }
 ```
 
-The example policy rule above uses [substring()](../../../azure-resource-manager/resource-group-template-functions-string.md#substring)
+The example policy rule above uses [substring()](../../../azure-resource-manager/templates/template-functions-string.md#substring)
 to compare the first three characters of **name** to **abc**. If **name** is shorter than three
 characters, the `substring()` function results in an error. This error causes the policy to become a
 **deny** effect.
 
-Instead, use the [if()](../../../azure-resource-manager/resource-group-template-functions-logical.md#if)
+Instead, use the [if()](../../../azure-resource-manager/templates/template-functions-logical.md#if)
 function to check if the first three characters of **name** equal **abc** without allowing a
 **name** shorter than three characters to cause an error:
 

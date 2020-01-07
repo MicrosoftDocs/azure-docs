@@ -116,4 +116,4 @@ In this tutorial, you learned how to:
 Advance to the next tutorial to optimize and improve efficiency by identifying idle and underutilized resources.
 
 > [!div class="nextstepaction"]
-> [Review and act on optimization recommendations](../../cost-management/tutorial-acm-opt-recommendations.md)
+> [Review and act on optimization recommendations](tutorial-acm-opt-recommendations.md)

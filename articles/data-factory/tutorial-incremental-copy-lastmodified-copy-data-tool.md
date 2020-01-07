@@ -61,9 +61,9 @@ Prepare your Blob storage for the tutorial by performing these steps.
 
     * Select **Use existing** and select an existing resource group from the drop-down list.
 
-    * Select **Create new** and enter the name of a resource group.
-
-    To learn about resource groups, see [Use resource groups to manage your Azure resources](../azure-resource-manager/resource-group-overview.md).
+    * Select **Create new** and enter the name of a resource group. 
+         
+    To learn about resource groups, see [Use resource groups to manage your Azure resources](../azure-resource-manager/management/overview.md).
 
 5. Under **version**, select **V2**.
 6. Under **location**, select the location for the data factory. Only supported locations are displayed in the drop-down list. The data stores (for example, Azure Storage and SQL Database) and computes (for example, Azure HDInsight) that your data factory uses can be in other locations and regions.

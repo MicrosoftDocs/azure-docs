@@ -1,5 +1,5 @@
 ---
-title: Transfer billing ownership of Azure subscription to another account | Microsoft Docs
+title: Transfer billing ownership of an Azure subscription
 description: Describes how to transfer billing ownership of an Azure subscription to another account, and some frequently asked questions (FAQ) about the process
 keywords: transfer azure subscription, azure transfer subscription, move azure subscription to another account,azure change subscription owner, transfer azure subscription to another account, azure transfer billing
 author: bandersmsft

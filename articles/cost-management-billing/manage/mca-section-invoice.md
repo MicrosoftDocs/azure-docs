@@ -1,5 +1,5 @@
 ---
-title: Create sections on your invoice to organize your costs - Azure
+title: Create invoice sections to organize costs - Azure
 description: Learn to organize your costs with invoice sections.
 author: amberbhargava
 manager: amberb

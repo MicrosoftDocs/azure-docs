@@ -1,5 +1,5 @@
 ---
-title: Migrate from Enterprise Agreement to Microsoft Customer Agreement APIs - Azure | Microsoft Docs
+title: Migrate EA to Microsoft Customer Agreement APIs - Azure
 description: This article helps you understand the consequences of migrating a Microsoft Enterprise Agreement (EA) to a Microsoft Customer Agreement.
 services: cost-management
 keywords:
@@ -190,7 +190,7 @@ The property name containing the array of usage records changed from data to _va
 | MeterSubCategory | meterSubCategory | Exact string values might differ. |
 | Month | None | Parses month from date. |
 | Offer Name | None | Use publisherName and productOrderName. |
-| OfferId | None | &nbsp;  |
+| OfferID | None | &nbsp;  |
 | Order Number | None | &nbsp;  |
 | PartNumber | None | Use meterId and productOrderName to uniquely identify prices. |
 | Plan Name | productOrderName | &nbsp;  |
@@ -368,10 +368,10 @@ The following table shows fields in the older Enterprise Get price sheet API. It
 | meterId  | meterId | &nbsp;  |
 | unitOfMeasure  | unitOfMeasure | Exact string values might differ. |
 | includedQuantity  | includedQuantity | Not applicable for services in Microsoft Customer Agreements. |
-| partNumber  | _Not applicable_ | Instead, use a combination of productOrderName (same as offerId) and meterid. |
+| partNumber  | _Not applicable_ | Instead, use a combination of productOrderName (same as offerID) and meterID. |
 | unitPrice  | unitPrice | Unit price is applicable for services consumed in Microsoft Customer Agreements. |
 | currencyCode  | pricingCurrency | Microsoft Customer Agreements have price representations in pricing currency and billing currency. The currencyCode corresponds to the pricingCurrency in Microsoft Customer Agreements. |
-| offerId | productOrderName | Instead of OfferId, you can use productOrderName but isn't the same as OfferId. However, productOrderName and meter determine pricing in Microsoft Customer Agreements related to meterId and Offerid in legacy enrollments. |
+| offerID | productOrderName | Instead of OfferID, you can use productOrderName but isn't the same as OfferID. However, productOrderName and meter determine pricing in Microsoft Customer Agreements related to meterId and OfferID in legacy enrollments. |
 
 ## Consumption Price Sheet API operations
 
@@ -425,24 +425,24 @@ The older properties for [Azure Resource Manager Price Sheet APIs](/rest/api/con
 
 | Old Azure Resource Manager Price Sheet API Property  | New Microsoft Customer Agreement Price Sheet API property   | Description |
 | --- | --- | --- |
-| Meter ID | _meterId_ | Unique identifier for the meter. Same as meterId. |
+| Meter ID | _meterId_ | Unique identifier for the meter. Same as meterID. |
 | Meter name | meterName | Name of the meter. Meter represents the Azure service deployable resource. |
 | Meter category  | service | Name of the classification category for the meter. Same as the service in the Microsoft Customer Agreement Price Sheet. Exact string values differ. |
 | Meter subcategory | meterSubCategory | Name of the meter subclassification category. Based on the classification of high-level feature set differentiation in the service. For example, Basic SQL DB vs Standard SQL DB. |
 | Meter region | meterRegion | &nbsp;  |
 | Unit | _Not applicable_ | Can be parsed from unitOfMeasure. |
 | Unit of measure | unitOfMeasure | &nbsp;  |
-| Part number | _Not applicable_ | Instead of partNumber, use productOrderName and MeterId to uniquely identify the price for a billing profile. Fields are listed on the MCA invoice instead of the partNumber in MCA invoices. |
+| Part number | _Not applicable_ | Instead of part number, use productOrderName and MeterID to uniquely identify the price for a billing profile. Fields are listed on the MCA invoice instead of the part number in MCA invoices. |
 | Unit price | unitPrice | Microsoft Customer Agreement unit price. |
 | Currency code | pricingCurrency | Microsoft Customer Agreements represent prices in pricing currency and billing currency. Currency code is the same as the pricingCurrency in Microsoft Customer Agreements. |
 | Included quantity | includedQuantity | Not applicable to services in Microsoft Customer Agreements. Show with values of zero. |
-|  Offer Id  | productOrderName | Instead of OfferId, use productOrderName. Not the same as OfferId, however the productOrderName and meter determine pricing in Microsoft Customer Agreements. Related to meterId and Offerid in legacy enrollments. |
+|  Offer ID  | productOrderName | Instead of OfferID, use productOrderName. Not the same as OfferID, however the productOrderName and meter determine pricing in Microsoft Customer Agreements. Related to meterId and OfferID in legacy enrollments. |
 
-The price for Microsoft Customer Agreements is defined differently than Enterprise agreements. The price for services in the Enterprise enrollment is unique for product, PartNumber, meter, and offer. The PartNumber isn't used in Microsoft Customer Agreements.
+The price for Microsoft Customer Agreements is defined differently than Enterprise agreements. The price for services in the Enterprise enrollment is unique for product, part number, meter, and offer. The part number isn't used in Microsoft Customer Agreements.
 
-The Azure Consumption service price that's part of a Microsoft Customer Agreement is unique for productOrderName and meterId. They represent the service meter and the product plan.
+The Azure Consumption service price that's part of a Microsoft Customer Agreement is unique for productOrderName and meterID. They represent the service meter and the product plan.
 
-To reconcile between the price sheet and the usage in the Usage Details API, you can use the productOrderName and meterId.
+To reconcile between the price sheet and the usage in the Usage Details API, you can use the productOrderName and meterID.
 
 Users that have billing profile owner, contributor, reader, and invoice manager rights can download the price sheet.
 
@@ -455,12 +455,12 @@ The following fields are either not available in Microsoft Customer Agreement Pr
 |Retired field| Description|
 |---|---|
 | billingPeriodId | No applicable. Corresponds to InvoiceId for MCA. |
-| offerId | Not applicable. Corresponds to productOrderName in MCA. |
+| offerID | Not applicable. Corresponds to productOrderName in MCA. |
 | meterCategory  | Not applicable. Corresponds to Service in MCA. |
 | unit | Not applicable. Can be parsed from unitOfMeasure. |
 | currencyCode | Same as the pricingCurrency in MCA. |
 | meterLocation | Same as the meterRegion in MCA. |
-| partNumber partnumber | Not applicable because part number isn't listed in MCA invoices. Instead of partnumber, use the meterId and productOrderName combination to uniquely identify prices. |
+| partNumber partnumber | Not applicable because part number isn't listed in MCA invoices. Instead of part number, use the meterId and productOrderName combination to uniquely identify prices. |
 | totalIncludedQuantity | Not applicable. |
 | pretaxStandardRate  | Not applicable. |
 
