@@ -30,7 +30,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Prerequisites
 
-* An Immersive Reader resource configured for Azure Active Directory (Azure AD) authentication. Follow [these instructions](./azure-active-directory-authentication.md) to get set up. You will need some of the values created here when configuring the environment properties. Save the output of your session into a text file for future reference.
+* An Immersive Reader resource configured for Azure Active Directory (Azure AD) authentication. Follow [these instructions](./how-to/azure-active-directory-authentication.md) to get set up. You will need some of the values created here when configuring the environment properties. Save the output of your session into a text file for future reference.
 * [Node.js](https://nodejs.org/) and [Yarn](https://yarnpkg.com)
 * An IDE such as [Visual Studio Code](https://code.visualstudio.com/)
 

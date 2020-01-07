@@ -22,7 +22,7 @@
 - name: How-To
   items:
   - name: Azure Active Directory authentication
-    href: azure-active-directory-authentication.md
+    href: how-to/azure-active-directory-authentication.md
 - name: Reference
   items:
   - name: SDK Reference
