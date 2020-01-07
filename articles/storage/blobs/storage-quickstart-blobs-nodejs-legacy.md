@@ -103,11 +103,11 @@ Next, the **blobService** variable is initialized as a new instance of the Azure
 const blobService = storage.createBlobService();
 ```
 
-In the following implementation, each of the *blobService* functions is wrapped in a *Promise*, which allows access to JavaScript's *async* function and *await* operator to streamline the callback nature of the [Azure Storage API](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest). When a successful response returns for each function, the promise resolves with relevant data along with a message specific to the action.
+In the following implementation, each of the *blobService* functions is wrapped in a *Promise*, which allows access to JavaScript's *async* function and *await* operator to streamline the callback nature of the [Azure Storage API](/javascript/api/%40azure/storage-blob/?view=azure-node-legacy). When a successful response returns for each function, the promise resolves with relevant data along with a message specific to the action.
 
 ### List containers
 
-The *listContainers* function calls [listContainersSegmented](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest) which returns collections of containers in groups.
+The *listContainers* function calls [listContainersSegmented](/javascript/api/%40azure/storage-blob/?view=azure-node-legacy) which returns collections of containers in groups.
 
 ```javascript
 const listContainers = async () => {
@@ -127,7 +127,7 @@ The size of the groups is configurable via [ListContainersOptions](/javascript/a
 
 ### Create a container
 
-The *createContainer* function calls [createContainerIfNotExists](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest) and sets the appropriate access level for the blob.
+The *createContainer* function calls [createContainerIfNotExists](/javascript/api/%40azure/storage-blob/?view=azure-node-legacy) and sets the appropriate access level for the blob.
 
 ```javascript
 const createContainer = async (containerName) => {
@@ -143,13 +143,13 @@ const createContainer = async (containerName) => {
 };
 ```
 
-The second parameter (*options*) for **createContainerIfNotExists** accepts a value for [publicAccessLevel](https://docs.microsoft.com/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest). The value *blob* for *publicAccessLevel* specifies that specific blob data is exposed to the public. This setting is in contrast to *container* level access, which grants the ability to list the contents of the container.
+The second parameter (*options*) for **createContainerIfNotExists** accepts a value for [publicAccessLevel](https://docs.microsoft.com/javascript/api/%40azure/storage-blob/?view=azure-node-legacy). The value *blob* for *publicAccessLevel* specifies that specific blob data is exposed to the public. This setting is in contrast to *container* level access, which grants the ability to list the contents of the container.
 
 The use of **createContainerIfNotExists** allows the application to run the *createContainer* command multiple times without returning errors when the container already exists. In a production environment, you often only call **createContainerIfNotExists** once as the same container is used throughout the application. In these cases, you can create the container ahead of time through the portal or via the Azure CLI.
 
 ### Upload text
 
-The *uploadString* function calls [createBlockBlobFromText](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest) to write (or overwrite) an arbitrary string to the blob container.
+The *uploadString* function calls [createBlockBlobFromText](/javascript/api/%40azure/storage-blob/?view=azure-node-legacy) to write (or overwrite) an arbitrary string to the blob container.
 
 ```javascript
 const uploadString = async (containerName, blobName, text) => {
@@ -166,7 +166,7 @@ const uploadString = async (containerName, blobName, text) => {
 ```
 ### Upload a local file
 
-The *uploadLocalFile* function uses [createBlockBlobFromLocalFile](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#createblockblobfromlocalfile-string--string--string--errororresult-blobresult--) to upload and write (or overwrite) a file from the file system into blob storage. 
+The *uploadLocalFile* function uses [createBlockBlobFromLocalFile](/javascript/api/%40azure/storage-blob/?view=azure-node-legacy#createblockblobfromlocalfile-string--string--string--errororresult-blobresult--) to upload and write (or overwrite) a file from the file system into blob storage. 
 
 ```javascript
 const uploadLocalFile = async (containerName, filePath) => {
@@ -183,11 +183,11 @@ const uploadLocalFile = async (containerName, filePath) => {
     });
 };
 ```
-Other approaches available to upload content into blobs include working with [text](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest-string--string--string---buffer--errororresult-blobresult--) and [streams](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#createblockblobfromstream-string--string--stream-readable--number--errororresult-blobresult--). To verify the file is uploaded to your blob storage, you can use the [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) to view the data in your account.
+Other approaches available to upload content into blobs include working with [text](/javascript/api/%40azure/storage-blob/?view=azure-node-legacy-string--string--string---buffer--errororresult-blobresult--) and [streams](/javascript/api/%40azure/storage-blob/?view=azure-node-legacy#createblockblobfromstream-string--string--stream-readable--number--errororresult-blobresult--). To verify the file is uploaded to your blob storage, you can use the [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) to view the data in your account.
 
 ### List the blobs
 
-The *listBlobs* function calls the [listBlobsSegmented](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#listblobssegmented-string--continuationtoken--errororresult-listblobsresult--) method to return a list of blob metadata in a container. 
+The *listBlobs* function calls the [listBlobsSegmented](/javascript/api/%40azure/storage-blob/?view=azure-node-legacy#listblobssegmented-string--continuationtoken--errororresult-listblobsresult--) method to return a list of blob metadata in a container. 
 
 ```javascript
 const listBlobs = async (containerName) => {
@@ -207,7 +207,7 @@ Calling *listBlobsSegmented* returns blob metadata as an array of [BlobResult](h
 
 ### Download a blob
 
-The *downloadBlob* function uses [getBlobToText](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest) to download the contents of the blob to the given absolute file path.
+The *downloadBlob* function uses [getBlobToText](/javascript/api/%40azure/storage-blob/?view=azure-node-legacy) to download the contents of the blob to the given absolute file path.
 
 ```javascript
 const downloadBlob = async (containerName, blobName) => {
@@ -223,11 +223,11 @@ const downloadBlob = async (containerName, blobName) => {
     });
 };
 ```
-The implementation shown here changes the source returns the contents of the blob as a string. You can also download the blob as a [stream](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest) as well as directly to a [local file](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest).
+The implementation shown here changes the source returns the contents of the blob as a string. You can also download the blob as a [stream](/javascript/api/%40azure/storage-blob/?view=azure-node-legacy) as well as directly to a [local file](/javascript/api/%40azure/storage-blob/?view=azure-node-legacy).
 
 ### Delete a blob
 
-The *deleteBlob* function calls the [deleteBlobIfExists](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#deleteblobifexists-string--string--errororresult-boolean--) function. As the name implies, this function does not return an error if the blob is already deleted.
+The *deleteBlob* function calls the [deleteBlobIfExists](/javascript/api/%40azure/storage-blob/?view=azure-node-legacy#deleteblobifexists-string--string--errororresult-boolean--) function. As the name implies, this function does not return an error if the blob is already deleted.
 
 ```javascript
 const deleteBlob = async (containerName, blobName) => {
