@@ -83,7 +83,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
    - Select **Use existing**, and select an existing resource group from the drop-down list. 
    - Select **Create new**, and enter the name of a resource group.   
          
-     To learn about resource groups, see [Using resource groups to manage your Azure resources](../azure-resource-manager/resource-group-overview.md).  
+     To learn about resource groups, see [Using resource groups to manage your Azure resources](../azure-resource-manager/management/overview.md).  
 4. Select **V2** for the **version**.
 5. Select the **location** for the data factory. Only locations that are supported for creation of data factories are shown in the list.
 6. Select **Pin to dashboard**.     

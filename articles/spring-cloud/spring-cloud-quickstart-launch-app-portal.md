@@ -63,6 +63,10 @@ az extension add --name spring-cloud
 
 It takes about 5 minutes for the service to deploy.  Once it is deployed, the **Overview** page for the service instance will appear.
 
+> [!div class="nextstepaction"]
+> [I ran into an issue](https://www.research.net/r/javae2e?tutorial=asc-portal-quickstart&step=provision)
+
+
 ## Set up your configuration server
 
 1. Go to the service **Overview** page and select **Config Server**.
@@ -74,6 +78,9 @@ It takes about 5 minutes for the service to deploy.  Once it is deployed, the **
 1. Select **Apply** to save your changes.
 
     ![Screenshot of ASC portal](media/spring-cloud-quickstart-launch-app-portal/portal-config.png)
+
+> [!div class="nextstepaction"]
+> [I ran into an issue](https://www.research.net/r/javae2e?tutorial=asc-portal-quickstart&step=config-server)
 
 ## Build and deploy microservice applications
 
@@ -116,6 +123,9 @@ It takes about 5 minutes for the service to deploy.  Once it is deployed, the **
 
 1. It takes a few minutes to finish deploying the applications. To confirm that they have deployed, go to the **Apps** blade in the Azure portal. You should see a line each of the three applications.
 
+> [!div class="nextstepaction"]
+> [I ran into an issue](https://www.research.net/r/javae2e?tutorial=asc-portal-quickstart&step=deploy)
+
 ## Assign a public endpoint to gateway
 
 1. Open the **Apps** tab in the menu on the left.
@@ -130,6 +140,8 @@ It takes about 5 minutes for the service to deploy.  Once it is deployed, the **
 
     ![Screenshot of ASC portal](media/spring-cloud-quickstart-launch-app-portal/sample-app.png)
 
+> [!div class="nextstepaction"]
+> [I ran into an issue](https://www.research.net/r/javae2e?tutorial=asc-portal-quickstart&step=public-endpoint)
 
 ## Next steps
 

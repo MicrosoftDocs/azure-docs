@@ -86,7 +86,7 @@ For more details, refer to [the REST API documentation](https://docs.microsoft.c
 
 #### Example request body
 
-The following example is used to update the soft-delete sate to 'disabled'.
+The following example is used to update the soft-delete state to 'disabled'.
 
 ```json
 {

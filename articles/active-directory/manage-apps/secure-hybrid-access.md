@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: overview
 ms.workload: identity
-ms.date: 10/29/2019
+ms.date: 12/18/2019
 ms.author: mimart
 
 ms.collection: M365-identity-device-management
@@ -24,5 +24,7 @@ Using your existing networking and delivery controller, you can easily protect l
 
 The following vendors offer pre-built solutions and detailed guidance for integrating with Azure AD.
 
+* [Akamai Enterprise Application Access (EAA)](../saas-apps/akamai-tutorial.md)
+* [Citrix Application Delivery Controller (ADC)](../saas-apps/citrix-netscaler-tutorial.md)
 * [F5 Big-IP APM](https://aka.ms/f5-hybridaccessguide)
 * [Zscaler Private Access (ZPA)](https://aka.ms/zscaler-hybridaccessguide)

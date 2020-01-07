@@ -27,7 +27,7 @@ A simple analogy for understanding conditions on which alert rules can be create
 
 In either case, an activity log alert monitors only for events in the subscription in which the alert is created.
 
-You can configure an activity log alert based on any top-level property in the JSON object for an activity log event. For more information, see [Overview of the Azure activity log](./activity-logs-overview.md#categories-in-the-activity-log). To learn more about service health events, see [Receive activity log alerts on service notifications](./alerts-activity-log-service-notifications.md). 
+You can configure an activity log alert based on any top-level property in the JSON object for an activity log event. For more information, see [Categories in the Activity Log](activity-log-view.md#categories-in-the-activity-log). To learn more about service health events, see [Receive activity log alerts on service notifications](alerts-activity-log-service-notifications.md). 
 
 Activity log alerts have a few common options:
 

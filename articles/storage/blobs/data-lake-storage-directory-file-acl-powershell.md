@@ -1,5 +1,5 @@
 ---
-title: Use PowerShell for files & ACLs in Azure Data Lake Storage Gen2 (preview)
+title: Azure Data Lake Storage Gen2 PowerShell for files & ACLs (preview)
 description: Use PowerShell cmdlets to manage directories and file and directory access control lists (ACL) in storage accounts that has hierarchical namespace (HNS) enabled.
 services: storage
 author: normesta
@@ -337,19 +337,60 @@ This example gives a user write and execute permission on a directory.
 $filesystemName = "my-file-system"
 $dirname = "my-directory/"
 $Id = "xxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+
+# Get the directory ACL
 $acl = (Get-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $dirname).ACL
-$acl = New-AzDataLakeGen2ItemAclObject -AccessControlType user -EntityId $id -Permission "-wx" -InputObject $acl
-Update-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $dirname -Acl $acl
+
+# Create the new ACL object.
+[Collections.Generic.List[System.Object]]$aclnew =$acl
+
+# To avoid duplicate ACL, remove the ACL entries that will be added later.
+foreach ($a in $aclnew)
+{
+    if ($a.AccessControlType -eq "group" -and $a.DefaultScope -eq $true-and $a.EntityId -eq $id)
+    {
+        $aclnew.Remove($a);
+        break;
+    }
+}
+
+# Add ACL Entries
+$aclnew = New-AzDataLakeGen2ItemAclObject -AccessControlType group -EntityId $id -Permission "-wx" -DefaultScope -InputObject $aclnew
+
+# Update ACL on server
+Update-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $dirname -Acl $aclnew  
+
 ```
+
 This example gives a user write and execute permission on a file.
 
 ```powershell
 $filesystemName = "my-file-system"
 $fileName = "my-directory/upload.txt"
 $Id = "xxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+
+# Get the file ACL
 $acl = (Get-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $fileName).ACL
-$acl = New-AzDataLakeGen2ItemAclObject -AccessControlType user -EntityId $id -Permission "-wx" -InputObject $acl
-Update-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $fileName -Acl $acl
+
+# Create the new ACL object.
+[Collections.Generic.List[System.Object]]$aclnew =$acl
+
+# To avoid duplicate ACL, remove the ACL entries that will be added later.
+foreach ($a in $aclnew)
+{
+    if ($a.AccessControlType -eq "group" -and $a.DefaultScope -eq $true-and $a.EntityId -eq $id)
+    {
+        $aclnew.Remove($a);
+        break;
+    }
+}
+
+# Add ACL Entries
+$aclnew = New-AzDataLakeGen2ItemAclObject -AccessControlType group -EntityId $id -Permission "-wx" -DefaultScope -InputObject $aclnew
+
+# Update ACL on server
+Update-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $fileName -Acl $aclnew 
+
 ```
 
 ### Set permissions on all items in a file system
