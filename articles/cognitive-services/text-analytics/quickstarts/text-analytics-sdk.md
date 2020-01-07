@@ -36,7 +36,7 @@ Use the Text Analytics client library v3 to perform:
 
 ::: zone-end
 
-::: zone pivot="programming-language-nodejs"
+::: zone pivot="programming-language-java"
 
 [!INCLUDE [Java quickstart](../includes/quickstarts/v3/java-sdk.md)]
 
