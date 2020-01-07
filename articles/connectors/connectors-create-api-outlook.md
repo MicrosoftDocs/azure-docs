@@ -1,6 +1,6 @@
 ---
 title: Connect to Outlook.com
-description: Manage email, calendars, and contacts with Outlook.com REST APIs and Azure Logic Apps
+description: Automate tasks and workflows that manage email, calendars, and contacts in Outlook.com by using Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
@@ -9,19 +9,17 @@ ms.date: 08/18/2016
 tags: connectors
 ---
 
-# Manage email, calendars, and contacts in Outlook.com with Azure Logic Apps
+# Manage email, calendars, and contacts in Outlook.com by using Azure Logic Apps
 
-This article shows how you can create and manage your 
-Outlook.com account inside a logic app with the Box connector. 
-That way, you can create logic apps that automate tasks 
-and workflows for your Outlook.com account, for example:
+With [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and the [Outlook.com connector](/connectors/outlook/), you can create automated tasks and workflows that manage your @outlook.com or @hotmail.com account by building logic apps. For example, you automate these tasks:
 
 * Send email. 
 * Schedule meetings.
 * Add contacts. 
 
-If you're new to logic apps, review 
-[What is Azure Logic Apps](../logic-apps/logic-apps-overview.md).
+> [!NOTE]
+> To automate tasks for a Microsoft work account such as @fabrikam.onmicrosoft.com, use the 
+> [Office 365 Outlook connector](../connectors/connectors-create-api-office365-outlook.md).
 
 ## Prerequisites
 
