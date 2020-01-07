@@ -1,5 +1,5 @@
 ---
-title: Add incremental enrichment (preview) 
+title: Configure cache and incremental enrichment (preview) 
 titleSuffix: Azure Cognitive Search
 description: Enable caching and preserve state of enriched content for controlled processing in a cognitive skillset. This feature is currently in public preview.
 author: vkurpad 
@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.date: 01/06/2020
 ---
 
-# How to cache output and perform incremental enrichment in Azure Cognitive Search
+# How to configure caching for incremental enrichment in Azure Cognitive Search
 
 > [!IMPORTANT] 
 > Incremental enrichment is currently in public preview. This preview version is provided without a service level agreement, and it's not recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
@@ -127,9 +127,9 @@ To modify a skillset, you can use the portal to edit the JSON definition. For ex
 
 Run the indexer again. Only those parts of an enriched document tree are updated. If you used the [portal quickstart](cognitive-search-quickstart-blob.md) as proof-of-concept, modifying the text translation skill to 'es', you'll notice that only 8 documents are updated instead of the original 14. Image files unaffected by the translation process are reused from cache.
 
-## Enable incremental enrichment on new indexers
+## Enable caching on new indexers
 
-To set up incremental enrichment for a new indexer, all you have to do is include the `cache` property in the indexer definition payload when calling [Create Indexer](https://docs.microsoft.com/rest/api/searchservice/create-indexer). Remember to use the `2019-05-06-Preview` version of the API when creating the indexer. 
+To set up incremental enrichment for a new indexer, all you have to do is include the `cache` property in the indexer definition payload when calling [Create Indexer](https://docs.microsoft.com/rest/api/searchservice/create-indexer). Remember to specify the `2019-05-06-Preview` version of the API when creating an indexer with this property. 
 
 
 ```json
@@ -149,7 +149,7 @@ To set up incremental enrichment for a new indexer, all you have to do is includ
 }
 ```
 
-## How to manage the cache
+## Cache management
 
 When configured, incremental enrichment tracks changes across your indexing pipeline and drives documents to eventual consistency across your index and projections. 
 
