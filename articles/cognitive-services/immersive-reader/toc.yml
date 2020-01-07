@@ -23,6 +23,8 @@
   items:
   - name: Create Immersive Reader resource
     href: how-to-create-immersive-reader.md
+  - name: Launch the Immersive Reader with HTML Content
+    href: how-to-launch-with-html.md
 - name: Reference
   items:
   - name: SDK Reference

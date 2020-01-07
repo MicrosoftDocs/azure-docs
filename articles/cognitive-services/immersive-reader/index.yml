@@ -48,6 +48,8 @@ landingContent:
         links:
           - text: Create an Immersive Reader Resource
             url: how-to-create-immersive-reader.md
+          - text: Launch the Immersive Reader with HTML Content
+            url: how-to-launch-with-html.md
       - linkListType: reference
         links:
           - text: JavaScript SDK
