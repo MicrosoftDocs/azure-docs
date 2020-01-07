@@ -100,7 +100,7 @@ Protected data in Azure Backup is stored in a backup vault located in a particul
 [Azure Monitor](../../security-center/security-center-intro.md) is Microsoft's cloud-based IT management solution that helps you manage and protect your on-premises and cloud infrastructure.
 
 
-[Management Solutions](../../monitoring/monitoring-solutions.md) are prepackaged sets of logics that implement a particular management scenario using one or more Azure Monitor services. Different solutions are available from Microsoft and from partners that you can easily add to your Azure subscription to increase the value of your investment in Azure Monitor. As a partner, you can create your own solutions to support your applications and services and provide them to users through the Azure Marketplace or Quick Start Templates.
+[Management Solutions](../../monitoring/monitoring-solutions.md) are prepackaged sets of logics that implement a particular management scenario using one or more Azure Monitor services. Different solutions are available from Microsoft and from partners that you can easily add to your Azure subscription to increase the value of your investment in Azure Monitor. As a partner, you can create your own solutions to support your applications and services and provide them to users through the Azure Marketplace or quickstart templates.
 
 
 ![Management Solutions](./media/operational-security/azure-operational-security-fig4.png)
@@ -111,7 +111,7 @@ When you create a deployment, runbooks in [Azure Automation](../../automation/au
 
 ## Azure Security Center
 
-Azure Security Center helps protect your Azure resources. It provides integrated security monitoring and policy management across your Azure subscriptions. Within the service,you are able to define polices not only against your Azure subscriptions, but also against [Resource Groups](../../azure-resource-manager/resource-group-overview.md#resource-groups), so you can be more granular.
+Azure Security Center helps protect your Azure resources. It provides integrated security monitoring and policy management across your Azure subscriptions. Within the service,you are able to define polices not only against your Azure subscriptions, but also against [Resource Groups](../../azure-resource-manager/management/overview.md#resource-groups), so you can be more granular.
 
 ### Security policies and recommendations
 
@@ -257,7 +257,7 @@ The following actions performed by Storage Analytics are billable:
 > For optimal performance, you want to limit the number of highly utilized disks attached to the virtual machine to avoid possible throttling. If all disks are not being highly utilized at the same time, the storage account can support a larger number disk.
 
 > [!Note]
-> For more information on storage account limits, see [Azure Storage Scalability and Performance Targets](../../storage/common/storage-scalability-targets.md).
+> For more information on storage account limits, see [Scalability targets for standard storage accounts](../../storage/common/scalability-targets-standard-account.md).
 
 
 The following types of authenticated and anonymous requests are logged.

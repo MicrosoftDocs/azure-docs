@@ -1,5 +1,5 @@
 ---
-title: Optimize Visual Studio performance for Azure Service Fabric Mesh projects 
+title: Optimize Visual Studio for Azure Service Fabric Mesh 
 description: This article shows you how to optimize Visual Studio performance for Service Fabric Mesh projects so that your first debugging run (F5) is much faster.
 author: dkkapur
 ms.author: dekapur

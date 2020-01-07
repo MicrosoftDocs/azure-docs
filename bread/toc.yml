@@ -233,6 +233,19 @@
   - name: Resource Manager
     tocHref: /azure/azure-resource-manager/
     topicHref: /azure/azure-resource-manager/
+    items:
+      - name: Templates
+        tocHref: /azure/azure-resource-manager/templates/
+        topicHref: /azure/azure-resource-manager/templates/
+      - name: Management
+        tocHref: /azure/azure-resource-manager/management/
+        topicHref: /azure/azure-resource-manager/management/
+      - name: Managed Applications
+        tocHref: /azure/azure-resource-manager/managed-applications/
+        topicHref: /azure/azure-resource-manager/managed-applications/
+      - name: Azure Custom Providers
+        tocHref: /azure/azure-resource-manager/custom-providers/
+        topicHref: /azure/azure-resource-manager/custom-providers/
   - name: SignalR Service
     tocHref: /azure/azure-signalr/
     topicHref: /azure/azure-signalr/
@@ -697,6 +710,9 @@
       - name: Develop
         tocHref: /azure/security/develop/
         topicHref: /azure/security/develop/
+      - name: Benchmarks
+        tocHref: /azure/security/benchmarks/
+        topicHref: /azure/security/benchmarks/
   - name: Security Center
     tocHref: /azure/security-center/
     topicHref: /azure/security-center/
