@@ -65,7 +65,7 @@ You use the [Spring Initializr](https://start.spring.io/) to create a new Spring
     <dependency>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>spring-cloud-starter-azure-appconfiguration-config</artifactId>
-        <version>1.1.0.M6</version>
+        <version>1.1.0</version>
     </dependency>
     ```
 
@@ -141,11 +141,13 @@ You use the [Spring Initializr](https://start.spring.io/) to create a new Spring
     mvn clean package
     mvn spring-boot:run
     ```
+
 2. After your application is running, use *curl* to test your application, for example:
 
       ```shell
       curl -X GET http://localhost:8080/
       ```
+
     You see the message that you entered in the App Configuration store.
 
 ## Clean up resources
