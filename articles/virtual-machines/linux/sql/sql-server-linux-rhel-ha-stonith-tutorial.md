@@ -7,7 +7,7 @@ ms.topic: tutorial
 author: VanMSFT
 ms.author: vanto
 ms.reviewer: jroth
-ms.date: 12/12/2019
+ms.date: 01/07/2020
 ---
 # Tutorial: Create RHEL Virtual machines in Azure and set up High Availability with STONITH
 
@@ -19,7 +19,7 @@ In this tutorial, you learn how to:
 > [!div class="checklist"]
 > - Create a new resource group, Availability Set, and Azure Linux Virtual Machines (VM)
 > - Register a RHEL subscription and enable High Availability (HA)
-> - Install SQL Server, mssql-tools, and SQL HA agents on RHEL
+> - Install SQL Server and mssql-tools on RHEL
 > - Configure SQL Server Always On Availability Group
 > - Create a Pacemaker cluster and configure availability group (AG) resources
 > - Configure a fencing agent by creating a STONITH device
@@ -235,7 +235,7 @@ Connect to each VM node and follow the guide to [enable the high availability su
 
     To exit the **vi** editor, first hit the **Esc** key, and then enter the command `:wq` to write the file and quit.
 
-## Install SQL Server, mssql-tools, and SQL HA agents
+## Install SQL Server and mssql-tools
  
 Follow the guide to [install SQL Server on the Red Hat VM](/sql/linux/quickstart-install-connect-red-hat). Perform each of these actions on all nodes.
 
@@ -258,6 +258,9 @@ You'll need to open port 1433 on the VM in order to connect remotely. Use the fo
 sudo firewall-cmd --zone=public --add-port=1433/tcp --permanent
 sudo firewall-cmd --reload
 ```
+
+> [!TIP]
+> You can optionally add all ports in this tutorial at once to save some time. The ports that need to be opened are explained in their relative sections below. If you would like to add all ports now, add the following ports in addition to 1433: 5022, 2224, 3121, 21064, 5405.
 
 ### Installing SQL Server command-line tools
 
@@ -912,5 +915,7 @@ For more information on testing a fence device, see the following [Red Hat](http
 
 ## Next steps
 
+In order to utilize an Availability Group Listener for your SQL Servers that you created in Azure, you will first need to create and configure a load balancer.
+
 > [!div class="nextstepaction"]
-> [Configure an availability group listener for your environment](/sql/linux/sql-server-linux-create-availability-group#create-the-availability-group)
+> [Create and configure the load balancer in the Azure portal](../../../virtual-machines/windows/sql/virtual-machines-windows-portal-sql-alwayson-int-listener.md#create-and-configure-the-load-balancer-in-the-azure-portal)
