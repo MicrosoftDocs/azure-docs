@@ -11,7 +11,7 @@
 ---
 [!INCLUDE [P2S FAQ All](vpn-gateway-faq-p2s-all-include.md)]
 
-### What should I do if I'm getting a certificate mismatch when connecting?
+### What should I do if I'm getting a certificate mismatch when connecting using certificate authentication?
 
 Uncheck **"Verify the server's identity by validating the certificate"** or **add the server FQDN along with the certificate** when creating a profile manually. You can do this by running **rasphone** from a command prompt and picking the profile from the drop-down list.
 
