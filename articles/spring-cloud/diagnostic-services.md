@@ -22,7 +22,7 @@ By using the diagnostics functionality of Azure Spring Cloud, you can analyze lo
 |Log | Description |
 |----|----|
 | **ApplicationConsole** | Console log of all customer applications. | 
-| **SystemLogs** | Currently, only **ConfigServerLog** in this category. |
+| **SystemLogs** | Currently, only [Spring Cloud Config Server](https://cloud.spring.io/spring-cloud-config/reference/html/#_spring_cloud_config_server) logs in this category. |
 
 ## Metrics
 
