@@ -8,9 +8,9 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 12/19/2019
+ms.date: 01/07/2019
 ms.author: aahi
-zone_pivot_groups: programming-languages-set-five
+zone_pivot_groups: programming-languages-set-six
 ---
 
 # Quickstart: Use the Text Analytics client library v3
