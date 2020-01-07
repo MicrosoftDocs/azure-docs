@@ -19,7 +19,7 @@ Before you purchase a reservation, you should determine what your storage needs 
 
 If you need to create a 1 TiB disk, it maps to P30 disk SKU. If you need a 250 GiB disk, it is rounded up to lowest Disk SKU that can provide the necessary capacity. Disk reservation is made per Disk SKU, hence the reservation consumption is based on the unit of the Disk SKUs instead of the provided size. For example, if you have reserved 1 P40 of 2 TiB provisioned capacity but consumed 2 P30 each of 1 TiB, the two P30 consumption will not be accounted for P40 reservation. 
 
-[!INCLUDE [disk-storage-premium-ssd-sizes](disk-storage-premium-ssd-sizes.md)]
+[!INCLUDE [disk-storage-premium-ssd-sizes](../../../includes/disk-storage-premium-ssd-sizes.md)]
 
 ## Purchase considerations
 
