@@ -18,11 +18,11 @@ Standard vCPU quota for pay-as-you-go and Reserved VM Instances is enforced at t
 The first tier is the **Total Regional vCPUs limit** (across all VM Series), and the second tier is the **per VM Series vCPUs limit** (such as the Dv3-series vCPUs). Anytime a new VM is to be deployed, the sum of new and existing vCPUs usage for that VM Series must not exceed the vCPU quota approved for that particular VM Series. Further, the total new and existing vCPU count deployed across all VM Series should not exceed the Total Regional vCPUs quota approved for the subscription. If either of those quotas are exceeded, the VM deployment will not be allowed.
 You can request an increase of the vCPUs quota limit for the VM series from Azure portal. An increase in the VM Series quota automatically increases the Total Regional vCPUs limit by the same amount. 
 
-Learn more about standard vCPU quotas on the [Virtual machine vCPU quotas page](https://docs.microsoft.com/azure/virtual-machines/windows/quotas) and [Azure subscription and service limits page](https://docs.microsoft.com/azure/azure-supportability/classic-deployment-model-quota-increase-requests). 
+Learn more about standard vCPU quotas on the [Virtual machine vCPU quotas page](https://docs.microsoft.com/azure/virtual-machines/windows/quotas) and [Azure subscription and service limits page](https://docs.microsoft.com/azure/azure-portal/supportability/classic-deployment-model-quota-increase-requests). 
 
-Learn more about increasing the regional vCPU limit for standard quota [here](https://docs.microsoft.com/azure/azure-supportability/regional-quota-requests). 
+Learn more about increasing the regional vCPU limit for standard quota [here](https://docs.microsoft.com/azure/azure-portal/supportability/regional-quota-requests). 
 
-Learn more about **increasing Spot VM vCPU limits** [here](https://docs.microsoft.com/azure/azure-supportability/low-priority-quota).
+Learn more about **increasing Spot VM vCPU limits** [here](https://docs.microsoft.com/azure/azure-portal/supportability/low-priority-quota).
 
 You can request an increase in **standard vCPU quota limits per VM Series** via **Help + Support** blade or the **Usages + Quota** blade in the portal.
 

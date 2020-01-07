@@ -14,7 +14,7 @@ ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
 
 The Classic deployment model is the older generation Azure deployment model. It enforces a global vCPU quota limit for virtual machines and virtual machine scale sets. The Classic deployment model is no longer recommended, and is now superseded by the Resource Manager model. 
 
-To learn more about these two deployment models and the advantages of using Resource Manager, refer to the [Resource Manager and classic deployment](../azure-resource-manager/resource-manager-deployment-model.md) page.
+To learn more about these two deployment models and the advantages of using Resource Manager, refer to the [Resource Manager and classic deployment](../../azure-resource-manager/management/deployment-models.md) page.
  
 When a new subscription is created, a default quota of vCPUs is assigned to it. Anytime a new VM is to be deployed using the Classic deployment model, the sum of new and existing vCPU usage across all regions must not exceed the vCPU quota approved for the Classic deployment model.
  

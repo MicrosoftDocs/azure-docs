@@ -21,7 +21,7 @@ When a new subscription is created, the default Total Regional vCPUs may not be 
 
 Learn more about standard vCPU quotas on the [Virtual machine vCPU quotas page](https://docs.microsoft.com/azure/virtual-machines/windows/quotas) and [Azure subscription and service limits](https://aka.ms/quotalimits) page.
 
-Learn more about **increasing Spot VM vCPU limits** [here](https://docs.microsoft.com/azure/azure-supportability/low-priority-quota).
+Learn more about **increasing Spot VM vCPU limits** [here](https://docs.microsoft.com/azure/azure-portal/supportability/low-priority-quota).
 
 You can request an increase in **Standard VM Total Regional vCPU Limit** via **Help + Support** blade or the **Usages + Quota** blade in the portal.
 
