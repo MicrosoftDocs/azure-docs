@@ -19,48 +19,50 @@ This article shows how to create an Immersive Reader resource and configure it w
 
 ## Set up Powershell environment
 
-1. Start by opening the [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview). Ensure that the cloud shell is set to PowerShell.
+1. Start by opening the [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview). Ensure that the cloud shell is set to PowerShell in the upper-left hand dropdown or by typing `pwsh`.
 
 1. Copy and paste the following code snippet into the shell.
 
     ```azurepowershell-interactive
     function Create-ImmersiveReaderResource(
-        [Parameter(Mandatory=$true)] [String] $subscriptionName,
-        [Parameter(Mandatory=$true)] [String] $resourceGroupName,
-        [Parameter(Mandatory=$false)] [String] $resourceGroupLocation,
-        [Parameter(Mandatory=$true)] [String] $resourceName,
-        [Parameter(Mandatory=$true)] [String] $resourceLocation,
-        [Parameter(Mandatory=$true)] [String] $resourceSku,
-        [Parameter(Mandatory=$true)] [String] $subdomain,
-        [Parameter(Mandatory=$true)] [String] $clientSecret
+        [Parameter(Mandatory=$true, Position=0)] [String] $SubscriptionName,
+        [Parameter(Mandatory=$true)] [String] $ResourceGroupName,
+        [Parameter(Mandatory=$false)] [String] $ResourceGroupLocation,
+        [Parameter(Mandatory=$true)] [String] $ResourceName,
+        [Parameter(Mandatory=$true)] [String] $ResourceLocation,
+        [Parameter(Mandatory=$true)] [String] $ResourceSku,
+        [Parameter(Mandatory=$true)] [String] $Subdomain,
+        [Parameter(Mandatory=$true)] [String] $ClientSecret,
+        [Parameter(Mandatory=$false)] [String] $ApplicationDisplayName="ImmersiveReaderAAD",
+        [Parameter(Mandatory=$false)] [String] $IdentifierUri="http://ImmersiveReaderAAD"
     )
     {
-        Write-Host "Setting the active subscription to '$subscriptionName'"
-        az account set --subscription $subscriptionName
+        Write-Host "Setting the active subscription to '$SubscriptionName'"
+        az account set --subscription $SubscriptionName
 
-        Write-Host "Checking if a resource with the name '$resourceName' already exists"
-        $resourceId = az cognitiveservices account show --name $resourceName --resource-group $resourceGroupName --query "id" -o tsv
+        Write-Host "Checking if a resource with the name '$ResourceName' already exists"
+        $resourceId = az cognitiveservices account show --name $ResourceName --resource-group $ResourceGroupName --query "id" -o tsv | Out-Null
         if ($resourceId) {
-            throw "Error: Resource with the name '$resourceName' already exists"
+            throw "Error: Resource with the name '$ResourceName' already exists"
         }
 
-        Write-Host "Checking if the resource group '$resourceGroupName' already exists"
-        $resourceGroupExists = az group exists --name $resourceGroupName
+        Write-Host "Checking if the resource group '$ResourceGroupName' already exists"
+        $resourceGroupExists = az group exists --name $ResourceGroupName
         if ($resourceGroupExists -eq "true") {
             Write-Host "Resource group exists"
         } else {
             Write-Host "Resource group does not exist. Creating resource group"
-            az group create --name $resourceGroupName --location $resourceGroupLocation | Out-Null
+            az group create --name $ResourceGroupName --location $ResourceGroupLocation | Out-Null
         }
 
-        Write-Host "Creating the new Immersive Reader resource '$resourceName' (SKU '$resourceSku') in '$resourceLocation' with subdomain '$subdomain'"
+        Write-Host "Creating the new Immersive Reader resource '$ResourceName' (SKU '$ResourceSku') in '$ResourceLocation' with subdomain '$Subdomain'"
         $resourceId = az cognitiveservices account create `
-                        --name $resourceName `
-                        --resource-group $resourceGroupName `
+                        --name $ResourceName `
+                        --resource-group $ResourceGroupName `
                         --kind ImmersiveReader `
-                        --sku $resourceSku `
-                        --location $resourceLocation `
-                        --custom-domain $subdomain `
+                        --sku $ResourceSku `
+                        --location $ResourceLocation `
+                        --custom-domain $Subdomain `
                         --query "id" `
                         -o tsv
 
@@ -70,20 +72,18 @@ This article shows how to create an Immersive Reader resource and configure it w
         Write-Host "Immersive Reader resource created successfully"
 
         # Create an Azure Active Directory app if it doesn't already exist
-        $clientId = az ad app show --id "http://ImmersiveReaderAAD" --query "appId" -o tsv
+        $clientId = az ad app show --id $IdentifierUri --query "appId" -o tsv
         if (-not $clientId) {
             Write-Host "Creating new Azure Active Directory app"
-            $secureClientSecret = ConvertTo-SecureString -String $clientSecret -AsPlainText -Force
-            $adApp = az ad app create --password $secureClientSecret --display-name "ImmersiveReaderAAD" --identifier-uris "http://ImmersiveReaderAAD"
-            $clientId = $adApp.ApplicationId
+            $clientId = az ad app create --password $ClientSecret --display-name $ApplicationDisplayName --identifier-uris $IdentifierUri --query "appId" -o tsv
         }
 
         # Create a service principal if it doesn't already exist
-        $principalId = az ad sp show --id "http://ImmersiveReaderAAD" --query "objectId" -o tsv
+        $principalId = az ad sp show --id $IdentifierUri --query "objectId" -o tsv
         if (-not $principalId) {
             Write-Host "Creating new service principal"
-            $principal = az ad sp create --id $clientId
-            $principalId = $principal.Id
+            az ad sp create --id $clientId | Out-Null
+            $principalId = az ad sp show --id $IdentifierUri --query "objectId" -o tsv
         }
 
         Write-Host "Granting service principal access to the newly created Immersive Reader resource"
@@ -96,8 +96,8 @@ This article shows how to create an Immersive Reader resource and configure it w
         $result = @{}
         $result.TenantId = $tenantId
         $result.ClientId = $clientId
-        $result.ClientSecret = $clientSecret
-        $result.Subdomain = $subdomain
+        $result.ClientSecret = $ClientSecret
+        $result.Subdomain = $Subdomain
 
         Write-Host "Success! " -ForegroundColor Green -NoNewline
         Write-Host "Save the following JSON object to a text file for future reference:"
@@ -108,7 +108,17 @@ This article shows how to create an Immersive Reader resource and configure it w
 1. Run the function `Create-ImmersiveReaderResource`, supplying the parameters as appropriate.
 
     ```azurepowershell-interactive
-    Create-ImmersiveReaderResource <SUBSCRIPTION_NAME> <RESOURCE_GROUP_NAME> <RESOURCE_GROUP_LOCATION> <RESOURCE_NAME> <RESOURCE_LOCATION> <RESOURCE_SKU> <CUSTOM_SUBDOMAIN> <CLIENT_SECRET>
+    Create-ImmersiveReaderResource
+      -SubscriptionName <SUBSCRIPTION_NAME> `
+      -ResourceGroupName <RESOURCE_GROUP_NAME> `
+      -ResourceGroupLocation <RESOURCE_GROUP_LOCATION> `
+      -ResourceName <RESOURCE_NAME> `
+      -ResourceLocation <RESOURCE_LOCATION> `
+      -ResourceSku <RESOURCE_SKU> `
+      -Subdomain <SUBDOMAIN> `
+      -ClientSecret <CLIENT_SECRET> `
+      -ApplicationDisplayName <APP_DISPLAY_NAME> `
+      -IdentifierUri <IDENTIFIER_URI>
     ```
 
     >[!NOTE]
@@ -118,9 +128,11 @@ This article shows how to create an Immersive Reader resource and configure it w
     >
     > The resource location can be any of the following: `eastus`, `eastus2`, `southcentralus`, `westus`, `westus2`, `australiaeast`, `southeastasia`, `centralindia`, `japaneast`, `northeurope`, `uksouth`, `westeurope`.
     >
-    > The resource SKU can be `S0` or `S1`.
+    > The resource SKU can be `S0`, `S1`, or `F0`.
     >
     > The custom subdomain needs to be globally unique and cannot include special characters, such as: `.`, `!`, `,`.
+    >
+    > The `ApplicationDisplayName` and `IdentifierUri` parameters are optional.
 
 1. Copy the JSON output into a text file for later use. The output should look like the following.
 
