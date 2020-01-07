@@ -95,7 +95,7 @@ The purpose of the modules is as follows:
 
 file named *.env* into the current execution context
 - *path* is required in order to determine the absolute file path of the file to upload to blob storage
-- *azure-storage* is the [Azure Storage client library](https://docs.microsoft.com/javascript/api/azure-storage) module for Node.js
+- *azure-storage* is the [Azure Storage client library](/javascript/api/overview/azure/storage?view=azure-node-legacy) module for Node.js
 
 Next, the **blobService** variable is initialized as a new instance of the Azure Blob service.
 
@@ -103,7 +103,7 @@ Next, the **blobService** variable is initialized as a new instance of the Azure
 const blobService = storage.createBlobService();
 ```
 
-In the following implementation, each of the *blobService* functions is wrapped in a *Promise*, which allows access to JavaScript's *async* function and *await* operator to streamline the callback nature of the [Azure Storage API](/javascript/api/%40azure/storage-blob/?view=azure-node-legacy). When a successful response returns for each function, the promise resolves with relevant data along with a message specific to the action.
+In the following implementation, each of the *blobService* functions is wrapped in a *Promise*, which allows access to JavaScript's *async* function and *await* operator to streamline the callback nature of the [Azure Storage API](/javascript/api/overview/azure/storage?view=azure-node-legacy). When a successful response returns for each function, the promise resolves with relevant data along with a message specific to the action.
 
 ### List containers
 

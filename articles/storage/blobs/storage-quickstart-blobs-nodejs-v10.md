@@ -403,4 +403,4 @@ This quickstart demonstrates how to manage blobs and containers in Azure Blob st
 
 > [!div class="nextstepaction"]
 > [Azure Storage v10 SDK for JavaScript repository](https://github.com/Azure/azure-storage-js)
-> [JavaScript API Reference](https://docs.microsoft.com/javascript/api/overview/azure/storage/client)
+> [Azure Storage JavaScript API Reference](/javascript/api/overview/azure/storage?view=azure-node-legacy)
