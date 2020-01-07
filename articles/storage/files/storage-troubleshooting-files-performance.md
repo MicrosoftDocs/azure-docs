@@ -38,6 +38,9 @@ To confirm if your share is being throttled, you can leverage Azure Metrics in t
 
 ![Metrics options for premium fileshares](media/storage-troubleshooting-premium-fileshares/metrics.png)
 
+> [!NOTE]
+> If you want to receive an alert if a file share is throttled, see [How to generate an alert if a file share is throttled](#how-to-generate-an-alert-if-a-file-share-is-throttled).
+
 ### Solution
 
 - Increase share provisioned capacity by specifying a higher quota on your share.
@@ -171,9 +174,9 @@ Higher than expected latency accessing Azure Files for IO intensive workloads.
 
 2. Click **Alerts** and then click **+ New alert rule**.
 
-3. Click **Select** to select the storage account/file resource that contains the file share that you want to alert on and then click **Done**. For example, if the storage account name is contoso, select the contoso/file resource.
+3. Click **Select** to select the **storage account/file** resource that contains the file share that you want to alert on and then click **Done**. For example, if the storage account name is contoso, select the contoso/file resource.
 
-4. Once you have selected the storage account/file resource, click **Add** to add a condition.
+4. Click **Add** to add a condition.
 
 5. You will see a list of signals supported for the storage account, select the **Transactions** metric.
 
@@ -187,7 +190,7 @@ Higher than expected latency accessing Azure Files for IO intensive workloads.
   > [!NOTE]
   > If the file share is a standard file share, the dimension values drop-down will be blank because per-share metrics are not available for standard file shares. Throttling alerts for standard file shares will be triggered if any file share within the storage account is throttled and the alert will not identify which file share was throttled. Since per-share metrics are not available for standard file shares, the recommendation is to have one file share per storage account. 
 
-8. Define the alert parameters (threshold, operator and frequency) which are used to evaluate the metric alert rule.
+8. Define the alert parameters (threshold, operator, aggregration granularity and frequency) which are used to evaluate the metric alert rule.
 
   > [!TIP]
   > If you are using a static threshold, the metric chart can help determine what might be a reasonable threshold if the file share is currently being throttled. If you are using a dynamic threshold, the metric chart will display the calculated thresholds based on recent data.
