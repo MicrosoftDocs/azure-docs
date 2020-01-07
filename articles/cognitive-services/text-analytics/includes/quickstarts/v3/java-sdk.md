@@ -242,7 +242,8 @@ static void recognizePIIEntitiesExample(TextAnalyticsClient client)
 ### Output
 
 ```console
-Personally Identifiable Information Entities Text: 123-12-1234, Type: U.S. Social Security Number (SSN), Subtype: N/A, Offset: 33, Length: 11, Score: 0.85.
+Personally Identifiable Information Entities
+Text: 123-12-1234, Type: U.S. Social Security Number (SSN), Subtype: N/A, Offset: 33, Length: 11, Score: 0.85.
 ```
 ## Entity linking
 
