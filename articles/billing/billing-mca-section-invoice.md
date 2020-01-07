@@ -38,7 +38,7 @@ A billing profile is automatically created along with your billing account when 
 
 An invoice section represents a grouping of costs in your invoice. An invoice section is automatically created for each billing profile in your account. You may create additional sections to organize your costs based on your needs. Each invoice section is displayed on the invoice with the charges incurred that month. 
 
-The image below shows an invoice with two invoice sections - Engineering and Marketing. The summary and detail charges for each section is displayed in the invoice. The prices shown in the image are for example purposes only and don't represent the actual price for Azure services. 
+The image below shows an invoice with two invoice sections - Engineering and Marketing. The summary and detail charges for each section is displayed in the invoice. The prices shown in the image are for example purposes only and don't represent the actual prices of Azure services. 
 
 ![Image showing an invoice with sections](./media/billing-mca-section-invoice/mca-invoice-with-sections.png)
 
@@ -47,7 +47,7 @@ The image below shows an invoice with two invoice sections - Engineering and Mar
 This section describes common scenarios for organizing costs and corresponding billing account structures:
 
 |Scenario  |Structure  |
-|---------|---------|
+|---------|---------|git s
 |Jack signs-up for Azure and needs a single monthly invoice. | A billing profile and an invoice section. This structure is automatically set up for Jack when he signs up for Azure and doesn't require any additional steps. |
 
 ![Info graphic for a simple billing scenario](./media/billing-mca-section-invoice/organize-billing-scenario1.png)
@@ -183,7 +183,7 @@ If you have existing Azure subscriptions or other products such as Azure Marketp
 
 In your billing account for a Microsoft Customer Agreement, Azure usage is aggregated monthly for each billing profile. The prices for Azure resources with tiered pricing are determined based on the usage for each billing profile separately. The usage is not aggregated across billing profiles when calculating the price. This may impact overall cost of Azure usage for accounts with multiple billing profiles.
 
-Let's look at an example of how costs vary for two scenarios. The prices used in the scenarios are for example purposes only and don't represent the actual price for Azure services.
+Let's look at an example of how costs vary for two scenarios. The prices used in the scenarios are for example purposes only and don't represent the actual prices of Azure services.
 
 #### You only have one billing profile.
 
