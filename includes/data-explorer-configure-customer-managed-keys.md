@@ -13,7 +13,7 @@ Azure Data Explorer encrypts all data in a storage account at rest. By default, 
 
 ## Assign an identity to the cluster
 
-To enable customer-managed keys for your cluster, first assign a system-assigned managed identity to the cluster. You'll use this managed identity to grant the cluster permissions to access the key vault. To configure system-assigned managed identities, see [managed identities](azure/data-explorer/managed-identities).
+To enable customer-managed keys for your cluster, first assign a system-assigned managed identity to the cluster. You'll use this managed identity to grant the cluster permissions to access the key vault. To configure system-assigned managed identities, see [managed identities](/azure/data-explorer/managed-identities).
 
 ## Create a new key vault
 

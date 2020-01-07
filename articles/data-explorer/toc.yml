@@ -148,10 +148,10 @@
       href: redash.md
   - name: Secure
     items:
-    - name: Managed identities
-      href: managed-identities.md
     - name: Manage cluster security
       href: manage-cluster-security.md
+    - name: Configure managed identities
+      href: managed-identities.md
     - name: Configure customer-managed-keys
       items:
         - name: C#
