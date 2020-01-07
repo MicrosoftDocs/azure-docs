@@ -19,7 +19,7 @@ ms.author: prmitiki
     * Choose the **Metro** location for where you want to set up peering.
 
         > [!NOTE]
-        > If you already have peering connections with Microsoft in the selected **Metro** location, and you are using  portal  for the first time to set up peering in that location, then your existing peering connections will be listed in the **Peering connections** section as shown below. Microsoft will automatically convert these peering connections to Azure resource so that you can manage them all along with the new connections, in one place.See [Convert a legacy Exchange Peering to Azure resource using the portal](../howto-legacy-exchange-portal.md) for more info.
+        > If you already have peering connections with Microsoft in the selected **Metro** location, and you are using portal for the first time to set up peering in that location, then your existing peering connections will be listed in the **Peering connections** section as shown below. Microsoft will automatically convert these peering connections to Azure resource so that you can manage them all along with the new connections, in one place.See [Convert a legacy Exchange peering to Azure resource using the portal](../howto-legacy-exchange-portal.md) for more info.
         >
 
 1. Under **Peering connections**, click **Create new** to add a line for each new connection you want to set up.
@@ -51,7 +51,7 @@ ms.author: prmitiki
     > [!div class="mx-imgBorder"]
     > ![Peering Configuration Tab Final](../media/setup-exchange-conf-tab-final.png)
 
-1. Observe that  portal  runs basic validation of the information you entered. This is displayed in a ribbon on the top, as *Running final validation...*.
+1. Observe that portal runs basic validation of the information you entered. This is displayed in a ribbon on the top, as *Running final validation...*.
 
     > [!div class="mx-imgBorder"]
     > ![Peering Validation Tab](../media/setup-direct-review-tab-validation.png)
@@ -61,7 +61,7 @@ ms.author: prmitiki
     > [!div class="mx-imgBorder"]
     > ![Peering Submit](../media/setup-exchange-review-tab-submit.png)
 
-1. Once you submit the request, wait for it to complete deployment. If deployment fails, contact [Microsoft Peering](mailto:peering@microsoft.com). A successful deployment will appear as below.
+1. Once you submit the request, wait for it to complete deployment. If deployment fails, contact [Microsoft peering](mailto:peering@microsoft.com). A successful deployment will appear as below.
 
     > [!div class="mx-imgBorder"]
     > ![Peering Success](../media/setup-direct-success.png)

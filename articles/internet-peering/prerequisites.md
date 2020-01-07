@@ -16,12 +16,12 @@ Ensure the prerequisites below are met before you request for a new peering or c
 ## Azure related prerequisites
 * **Microsoft Azure account:**
 If you don't have a Microsoft Azure account, create a [Microsoft Azure account](https://azure.microsoft.com/free). A valid and active Microsoft Azure subscription is required to set up peering, as the peerings are modeled as resources within Azure subscriptions. It is important to note that:
-    * The Azure resource types used to set up Peering are always-free Azure products, i.e., you are not charged for creating an Azure account or creating a subscription or accessing the Azure resources **PeerAsn** and **Peering** to set up Peering. This is not to be confused with Peering agreement for Direct Peering between you and Microsoft, the terms for which are explicitly discussed with our Peering team. Contact [Microsoft Peering](mailto:peering@microsoft.com) if any questions in this regard.
+    * The Azure resource types used to set up peering are always-free Azure products, i.e., you are not charged for creating an Azure account or creating a subscription or accessing the Azure resources **PeerAsn** and **Peering** to set up peering. This is not to be confused with peering agreement for Direct peering between you and Microsoft, the terms for which are explicitly discussed with our peering team. Contact [Microsoft peering](mailto:peering@microsoft.com) if any questions in this regard.
     * You can use the same Azure subscription to access other Azure products or cloud services which may be free or paid. When you access a paid product you will incur charges.
     * If you are creating a new Azure account and/or subscription, you may be eligible for free Azure credit during a trial period which you may utilize to try Azure Cloud services. If interested, visit [Microsoft Azure account](https://azure.microsoft.com/free) for more info.
 
 * **Associate Peer ASN:**
-Before requesting for Peering, first associate your ASN and contact info to your subscription. Follow the instructions in [Associate Peer ASN to Azure Subscription](howto-subscription-association-powershell.md).
+Before requesting for peering, first associate your ASN and contact info to your subscription. Follow the instructions in [Associate Peer ASN to Azure Subscription](howto-subscription-association-powershell.md).
 
 ## Other prerequisites
 * **PeeringDB profile:**
@@ -29,7 +29,7 @@ Peers are expected to have a complete and up-to-date profile on [PeeringDB](http
 
 ## Next steps
 
-* [Create or modify a Direct Peering using the portal](howto-direct-portal.md).
-* [Convert a legacy Direct Peering to Azure resource using the portal](howto-legacy-direct-portal.md)
-* [Create or modify Exchange Peering using the portal](howto-exchange-portal.md)
-* [Convert a legacy Exchange Peering to Azure resource using the portal](howto-legacy-exchange-portal.md)
+* [Create or modify a Direct peering using the portal](howto-direct-portal.md).
+* [Convert a legacy Direct peering to Azure resource using the portal](howto-legacy-direct-portal.md)
+* [Create or modify Exchange peering using the portal](howto-exchange-portal.md)
+* [Convert a legacy Exchange peering to Azure resource using the portal](howto-legacy-exchange-portal.md)

@@ -13,19 +13,19 @@ ms.author: prmitiki
 
 You may review information below for general questions.
 
-**Can a carrier using their existing Direct Peering with Microsoft to support Peering Service?**
+**Can a carrier using their existing Direct peering with Microsoft to support Peering Service?**
 
 Yes, a carrier can leverage its existing PNI to support Peering Service. A Peering Service PNI requires diversity to support HA. If existing PNI already has diversity, then no new infrastructure is required. If existing PNI needs diversity, then it can be augmented.
 
-**Can a carrier use new Direct Peering with Microsoft to support Peering Service?**
+**Can a carrier use new Direct peering with Microsoft to support Peering Service?**
 
-Yes, that is also possible. Microsoft will work with Carrier to create new Direct Peering to support Peering Service.  
+Yes, that is also possible. Microsoft will work with Carrier to create new Direct peering to support Peering Service.  
 
-**Why is Direct Peering a requirement to support Peering Service?**
+**Why is Direct peering a requirement to support Peering Service?**
 
 One of primary drivers behind Peering Service is to provide connectivity to Microsoft online services through a well-connected SP. PNI are always in Gbps range and hence a fundamental building block for high throughput connectivity between carrier and Microsoft.
 
-**What are the diversity requirements on a Direct Peering to support Peering Service?**
+**What are the diversity requirements on a Direct peering to support Peering Service?**
 
 A PNI must support local-redundancy and geo-redundancy. Local-redundancy is defined as two diverse set of paths in a particular peering site. Geo-redundancy requires that Carrier has additional connectivity at a different Microsoft edge site in case the primary site fails. For the short failure duration carrier can route traffic through the backup site.
 

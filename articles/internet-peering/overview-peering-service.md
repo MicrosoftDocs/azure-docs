@@ -1,6 +1,6 @@
 ---
-title: Internet Peering vs. Peering Service
-description: Internet Peering vs. Peering Service
+title: Internet peering vs. Peering Service
+description: Internet peering vs. Peering Service
 services: internet-peering
 author: prmitiki
 ms.service: internet-peering
@@ -9,9 +9,9 @@ ms.date: 11/27/2019
 ms.author: prmitiki
 ---
 
-# Internet Peering vs. Peering Service
+# Internet peering vs. Peering Service
 
-Internet Peering refers to any interconnection between Microsoft’s global network (AS8075) and Carriers or Service Providers network. A Service Provider can become a Peering Service partner by implementing the Peering Service partnership requirements explained below to provide reliable and high-performing public connectivity with optimal routing from the customer to the Microsoft network.
+Internet peering refers to any interconnection between Microsoft’s global network (AS8075) and Carriers or Service Providers network. A Service Provider can become a Peering Service partner by implementing the Peering Service partnership requirements explained below to provide reliable and high-performing public connectivity with optimal routing from the customer to the Microsoft network.
 
 ## About Peering Service
 Peering Service is a partnership program with key service providers to provide best-in-class public Internet connectivity to their enterprise users. Partners who are part of the program will have direct, highly available, geo-redundant connections and optimized routing to Microsoft. Peering Service is an addition to the Microsoft connectivity portfolio:
@@ -48,4 +48,4 @@ For frequently asked questions, see [Peering Service - FAQ](service-faqs.md).
 ## Next steps
 
 * Learn more about customer benefits with [Peering Service](https://docs.microsoft.com/azure/peering-service/).
-* Learn about steps to enable a Direct Peering for Peering Service in [Peering Service partner walkthrough](walkthrough-peering-service-all.md).
+* Learn about steps to enable a Direct peering for Peering Service in [Peering Service partner walkthrough](walkthrough-peering-service-all.md).

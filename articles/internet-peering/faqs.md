@@ -1,6 +1,6 @@
 ---
-title: Internet Peering - FAQs
-description: Internet Peering - FAQs
+title: Internet peering - FAQs
+description: Internet peering - FAQs
 services: internet-peering
 author: prmitiki
 ms.service: internet-peering
@@ -9,13 +9,13 @@ ms.date: 11/27/2019
 ms.author: prmitiki
 ---
 
-# Internet Peering - FAQs
+# Internet peering - FAQs
 
 You may review information below for general questions.
 
-**What is the difference between Internet Peering and Peering Service?**
+**What is the difference between Internet peering and Peering Service?**
 
-Peering Service is a service that intends to provide enterprise grade public IP connectivity to Microsoft for its enterprise customers. Enterprise grade Internet includes connectivity through ISPs that have high throughput connectivity to Microsoft and redundancy for a HA connectivity. Additionally, user traffic is optimized for latency to the nearest Microsoft Edge. Peering Service builds on peering connectivity with partner carrier. The peering connectivity with partner must be Direct Peering as opposed to Exchange Peering. Direct Peering  must have local and geo-redundancy.
+Peering Service is a service that intends to provide enterprise grade public IP connectivity to Microsoft for its enterprise customers. Enterprise grade Internet includes connectivity through ISPs that have high throughput connectivity to Microsoft and redundancy for a HA connectivity. Additionally, user traffic is optimized for latency to the nearest Microsoft Edge. Peering Service builds on peering connectivity with partner carrier. The peering connectivity with partner must be Direct peering as opposed to Exchange peering. Direct peering  must have local and geo-redundancy.
 
 **What is legacy peering?**
 

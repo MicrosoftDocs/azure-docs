@@ -9,19 +9,19 @@ ms.date: 11/27/2019
 ms.author: prmitiki
 ---
 
-This section describes how to perform the following modification operations for Direct Peering:
+This section describes how to perform the following modification operations for Direct peering:
 
-### Add Direct Peering connections
+### Add Direct peering connections
 1. Click on the **+ Add connections** button on the top and configure a new peering connection.
     > [!div class="mx-imgBorder"]
     > ![Peering resource view](../media/setup-direct-modify-addconnection.png)
-1. Fill-out the **Direct Peering Connection** form and click **Save**. For help with configuring a peering connection review the steps under "Create and provision a Direct Peering" section above.
+1. Fill-out the **Direct peering Connection** form and click **Save**. For help with configuring a peering connection review the steps under "Create and provision a Direct peering" section above.
     > [!div class="mx-imgBorder"]
     > ![Peering resource view](../media/setup-direct-modify-savenewconnection.png)
 
-### Remove Direct Peering connections
+### Remove Direct peering connections
 
-Removing a connection is not currently supported on portal. Contact [Microsoft Peering](mailto:peeringexperience@microsoft.com).
+Removing a connection is not currently supported on portal. Contact [Microsoft peering](mailto:peeringexperience@microsoft.com).
 
 ### Upgrade or downgrade bandwidth on Active connections
 1. Click on a peering connection you want to modify and then, click on the **...** > **Edit connection** button.
@@ -36,4 +36,4 @@ Removing a connection is not currently supported on portal. Contact [Microsoft P
 1. Add **Session IPv4 prefix** or **Session IPv6 prefix** info and click **Save**.
 
 ### Remove IPv4/IPv6 session on Active connections.
-    Removing a **Session IPv4 prefix** or **Session IPv6 prefix** info is not currently supported on portal. Contact [Microsoft Peering](mailto:peeringexperience@microsoft.com).
+    Removing a **Session IPv4 prefix** or **Session IPv6 prefix** info is not currently supported on portal. Contact [Microsoft peering](mailto:peeringexperience@microsoft.com).

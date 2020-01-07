@@ -9,7 +9,7 @@ ms.date: 11/27/2019
 ms.author: prmitiki
 ---
 
-1. View connections on the selected Direct Peering.
+1. View connections on the selected Direct peering.
     ```powershell
     $directPeering.Connections
 
@@ -41,7 +41,7 @@ ms.author: prmitiki
     SessionStateV6              : None
     ConnectionState             : Active
     ```
-1. Now save the changes made to the Direct Peering using command below.
+1. Now save the changes made to the Direct peering using command below.
     ```powershell
     $directPeering | Update-AzPeering
     ```

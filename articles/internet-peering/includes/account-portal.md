@@ -19,7 +19,7 @@ If you have multiple subscriptions and need to switch subscriptions:
     > [!div class="mx-imgBorder"]
     > ![Select switch directory](../media/choose-subscription-2.png)
 
-1. Choose a subscription you want to use for Peering set up.
+1. Choose a subscription you want to use for peering set up.
 
     > [!div class="mx-imgBorder"]
     > ![Choose subscription](../media/choose-subscription-3.png)

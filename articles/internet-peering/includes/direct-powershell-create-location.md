@@ -15,7 +15,7 @@ PowerShell cmdlet **Get-AzPeeringLocation** returns a list of peering locations 
 Get-AzPeeringLocation -Kind Direct
 ```
 
-Direct Peering locations contain the following fields:
+Direct peering locations contain the following fields:
 * PeeringLocation 
 * Country
 * PeeringDBFacilityId
@@ -24,7 +24,7 @@ Direct Peering locations contain the following fields:
 
 Validate that you are present at the desired peering facility by referring to [PeeringDB](https://wwww.peeringdb.com).
 
-Below is an example that shows how to use Seattle as the peering location to create a Direct Peering:
+Below is an example that shows how to use Seattle as the peering location to create a Direct peering:
 
 ```powershell
 $peeringLocations = Get-AzPeeringLocation -Kind Direct

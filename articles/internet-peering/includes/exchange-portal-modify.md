@@ -9,14 +9,14 @@ ms.date: 11/27/2019
 ms.author: prmitiki
 ---
 
-This section describes how to perform the following modification operations for Direct Peering:
+This section describes how to perform the following modification operations for Direct peering:
 
 ### Add Exchange peering connections
 
 1. Click on the **+ Add connections** button on the top and configure a new peering connection.
     > [!div class="mx-imgBorder"]
     > ![Peering resource view](../media/setup-exchange-modify-addconnection.png)
-1. Fill out the **Exchange Peering Connection** form and click **Save**. For help with configuring a peering connection review the steps under "Create and provision a Direct Peering" section above.
+1. Fill out the **Exchange peering Connection** form and click **Save**. For help with configuring a peering connection review the steps under "Create and provision a Direct peering" section above.
     > [!div class="mx-imgBorder"]
     > ![Peering resource view](../media/setup-exchange-modify-savenewconnection.png)
 
@@ -40,4 +40,4 @@ This section describes how to perform the following modification operations for 
 
 ### Remove IPv4/IPv6 session on Active connections
 
-Removing an IPv4/IPv6 session from an existing connection is not currently supported on portal. Contact [Microsoft Peering](mailto:peeringexperience@microsoft.com).
+Removing an IPv4/IPv6 session from an existing connection is not currently supported on portal. Contact [Microsoft peering](mailto:peeringexperience@microsoft.com).

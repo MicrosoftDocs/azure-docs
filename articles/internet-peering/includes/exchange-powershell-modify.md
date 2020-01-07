@@ -9,16 +9,16 @@ ms.date: 11/27/2019
 ms.author: prmitiki
 ---
 
-Following modification operation are supported for Exchange Peering
-1. Add Exchange Peering connections
-1. Remove Exchange Peering connections
+Following modification operation are supported for Exchange peering
+1. Add Exchange peering connections
+1. Remove Exchange peering connections
 1. Add IPv4/IPv6 session on Active connections.
 1. Remove IPv4/IPv6 session on Active connections.
 
 
-### Add Exchange Peering connections
+### Add Exchange peering connections
 
-Below example describes how to add connections to existing Exchange Peering
+Below example describes how to add connections to existing Exchange peering
 
 ```powershell
 
@@ -37,9 +37,9 @@ $exchangePeering | Update-AzPeering
 
 ```
 
-### Remove Exchange Peering connections
+### Remove Exchange peering connections
 
-Below example describes how to remove connections to existing Exchange Peering
+Below example describes how to remove connections to existing Exchange peering
 
 ```powershell
 
@@ -95,4 +95,4 @@ $exchangePeering | Update-AzPeering
 
 ### Remove IPv4/IPv6 session on Active connections
 
-Removing an IPv4/IPv6 session from an existing connection is not currently supported on PowerShell. Contact [Microsoft Peering](mailto:peeringexperience@microsoft.com).
+Removing an IPv4/IPv6 session from an existing connection is not currently supported on PowerShell. Contact [Microsoft peering](mailto:peeringexperience@microsoft.com).

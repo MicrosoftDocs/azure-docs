@@ -15,7 +15,7 @@ PowerShell cmdlet **Get-AzPeeringLocation** returns a list of peering locations 
 Get-AzPeeringLocation -Kind "Exchange"
 ```
 
-Exchange Peering Locations contain the following fields:
+Exchange peering Locations contain the following fields:
 * ExchangeName
 * PeeringLocation
 * Country

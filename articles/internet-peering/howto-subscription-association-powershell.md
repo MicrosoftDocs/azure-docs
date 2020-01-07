@@ -35,7 +35,7 @@ New-AzPeerAsn `
 ```
 
 > [!NOTE]
-> -Name corresponds to resource name and can be anything you choose. However, -peerName corresponds to your company's name and needs to be as close as possible to your PeeringDb profile. Note that value for -peerName supports only characters a-z, A-Z, and space.
+> -Name corresponds to resource name and can be anything you choose. However, -peerName corresponds to your company's name and needs to be as close as possible to your PeeringDB profile. Note that value for -peerName supports only characters a-z, A-Z, and space.
 
 A subscription can have multiple ASNs. Update the peering information for each ASN. Ensure that "name" is unique for each ASN.
 
@@ -63,7 +63,7 @@ Type            : Microsoft.Peering/peerAsns
 ```
 
 > [!IMPORTANT]
-> Wait for the ValidationState to turn "Approved" before submitting a Peering request. It may take up to 12 hours for this approval.
+> Wait for the ValidationState to turn "Approved" before submitting a peering request. It may take up to 12 hours for this approval.
 
 ## Modify PeerAsn
 You may modify NOC contact information anytime.
@@ -75,15 +75,15 @@ Set-PeerAsn -Name Contoso_1234 -Email "newemail@test.com" -Phone "1800-000-0000"
 ```
 
 ## Delete PeerAsn
-Deleting a PeerASN is not currently supported. If you need to delete PeerASN, contact [Microsoft Peering](mailto:peering@microsoft.com).
+Deleting a PeerASN is not currently supported. If you need to delete PeerASN, contact [Microsoft peering](mailto:peering@microsoft.com).
 
 ## Next steps
 
-* [Create or modify a Direct Peering](howto-direct-powershell.md)
-* [Convert a legacy Direct Peering to Azure resource](howto-legacy-direct-powershell.md)
-* [Create or modify Exchange Peering](howto-exchange-powershell.md)
-* [Convert a legacy Exchange Peering to Azure resource](howto-legacy-exchange-powershell.md)
+* [Create or modify a Direct peering](howto-direct-powershell.md)
+* [Convert a legacy Direct peering to Azure resource](howto-legacy-direct-powershell.md)
+* [Create or modify Exchange peering](howto-exchange-powershell.md)
+* [Convert a legacy Exchange peering to Azure resource](howto-legacy-exchange-powershell.md)
 
 ## Additional resources
 
-For more information, visit [Internet Peering FAQs](faqs.md)
+For more information, visit [Internet peering FAQs](faqs.md)

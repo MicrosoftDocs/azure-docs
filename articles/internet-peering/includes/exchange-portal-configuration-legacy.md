@@ -22,10 +22,10 @@ ms.author: prmitiki
         > ![Peering Configuration - Exchange - Legacy Connections](../media/setup-exchange-legacy-conf-tab.png)
 
         > [!NOTE]
-        > You cannot modify settings for legacy peering connections. If you want to add additional peering connections with Microsoft in the selected **Metro** location you may do so by clicking **Create new** button. See [Create or modify an Exchange Peering using the portal](../howto-exchange-portal.md) for more info.
+        > You cannot modify settings for legacy peering connections. If you want to add additional peering connections with Microsoft in the selected **Metro** location you may do so by clicking **Create new** button. See [Create or modify an Exchange peering using the portal](../howto-exchange-portal.md) for more info.
         >
 
-1. Click on **Review + create**. Observe that  portal  runs basic validation of the information you entered. This is displayed in a ribbon on the top, as *Running final validation...*.
+1. Click on **Review + create**. Observe that portal runs basic validation of the information you entered. This is displayed in a ribbon on the top, as *Running final validation...*.
 
     > [!div class="mx-imgBorder"]
     > ![Peering Validation Tab](../media/setup-direct-review-tab-validation.png)
@@ -35,7 +35,7 @@ ms.author: prmitiki
     > [!div class="mx-imgBorder"]
     > ![Peering Submit](../media/setup-exchange-review-tab-submit.png)
 
-1. Once you submit the request, wait for it to complete deployment. If deployment fails, contact [Microsoft Peering](mailto:peering@microsoft.com). A successful deployment will appear as below.
+1. Once you submit the request, wait for it to complete deployment. If deployment fails, contact [Microsoft peering](mailto:peering@microsoft.com). A successful deployment will appear as below.
 
     > [!div class="mx-imgBorder"]
     > ![Peering Success](../media/setup-direct-success.png)

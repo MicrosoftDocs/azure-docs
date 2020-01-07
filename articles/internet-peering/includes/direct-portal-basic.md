@@ -35,7 +35,7 @@ ms.author: prmitiki
     * **Region** is auto-selected if you chose an existing resource group in the step above. If you chose to create a new resource group, then you need to also choose the Azure region where you want the resource to reside. East US
 
         > [!NOTE]
-        > Region where resource group resides is independent of the location where you want to create peering with Microsoft. But it is best practice to organize your Peering resources within resource groups that reside in the closest Azure regions. Eg: for peerings in Ashburn, you can create a resource group in *East US* or *East US2*
+        > Region where resource group resides is independent of the location where you want to create peering with Microsoft. But it is best practice to organize your peering resources within resource groups that reside in the closest Azure regions. Eg: for peerings in Ashburn, you can create a resource group in *East US* or *East US2*
 
     * Choose your ASN in the **Peer ASN** field.
 

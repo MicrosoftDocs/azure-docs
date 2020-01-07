@@ -1,7 +1,7 @@
 ---
 
-title: Microsoft Peering policy
-description: Peering policy
+title: Microsoft peering policy
+description: Microsoft peering policy
 services: internet-peering
 author: prmitiki
 ms.service: internet-peering
@@ -12,7 +12,7 @@ ms.author: prmitiki
 ---
 
 # Peering policy
-Microsoft's general requirements from your network are explained in the sections below. These are applicable to both Direct Peering and Exchange Peering requests.
+Microsoft's general requirements from your network are explained in the sections below. These are applicable to both Direct peering and Exchange peering requests.
 
 ## Technical requirements
 
@@ -39,19 +39,19 @@ Microsoft's general requirements from your network are explained in the sections
 * Peers are expected to have a complete and up-to-date profile on [PeeringDB](https://www.peeringdb.com) including a 24x7 NOC email from corporate domain and phone number. We use this information to validate the peer's details such as NOC information, technical contact information, and their presence at the peering facilities etc. Personal Yahoo, Gmail and hotmail accounts are not accepted.
 
 ## Physical connection requirements
-* The locations where you can connect with Microsoft for Direct Peering or Exchange Peering are listed in [Peeringdb](https://www.peeringdb.com/net/694)
-* **Exchange Peering:**
+* The locations where you can connect with Microsoft for Direct peering or Exchange peering are listed in [PeeringDB](https://www.peeringdb.com/net/694)
+* **Exchange peering:**
     * Interconnection must be over single-mode fiber using the appropriate 10Gbps optics.
     * Peers are expected to upgrade their ports when peak utilization exceeds 50%.
-* **Direct Peering:**
+* **Direct peering:**
     * Interconnection must be over single-mode fiber using the appropriate 10Gbps or 100Gbps optics.
-    * Microsoft will only establish Direct Peering with ISP or Network Service providers.
+    * Microsoft will only establish Direct peering with ISP or Network Service providers.
     * Peers are expected to upgrade their ports when peak utilization exceeds 50% and maintain diverse capacity in each metro, either within a single location or across several locations in a metro.
-    * Each Direct Peering consists of two connections to two Microsoft edge routers from the Peer's routers located in Peer's edge. Microsoft requires dual BGP sessions across these connections. The peer may choose not to deploy redundant devices at their end.
+    * Each Direct peering consists of two connections to two Microsoft edge routers from the Peer's routers located in Peer's edge. Microsoft requires dual BGP sessions across these connections. The peer may choose not to deploy redundant devices at their end.
 
 ## Traffic requirements
-* Peers over Exchange Peering must have at minimum 200Mb of traffic and less than 2Gb.  For traffic exceeding 2Gb Direct Peering should be reviewed.
-* For Direct Peering, traffic from your network to Microsoft must meet below minimum requirement.
+* Peers over Exchange peering must have at minimum 200Mb of traffic and less than 2Gb.  For traffic exceeding 2Gb Direct peering should be reviewed.
+* For Direct peering, traffic from your network to Microsoft must meet below minimum requirement.
 
     | Geo                      | Minimum traffic to Microsoft   |
     | :----------------------- |:-------------------------------|
@@ -69,5 +69,5 @@ Microsoft's general requirements from your network are explained in the sections
 
 ## Next steps
 
-* To learn about steps to set up Direct Peering with Microsoft, follow [Direct Peering walkthrough](walkthrough-direct-all.md).
-* To learn about steps to set up Exchange Peering with Microsoft, follow [Exchange Peering walkthrough](walkthrough-exchange-all.md).
+* To learn about steps to set up Direct peering with Microsoft, follow [Direct peering walkthrough](walkthrough-direct-all.md).
+* To learn about steps to set up Exchange peering with Microsoft, follow [Exchange peering walkthrough](walkthrough-exchange-all.md).

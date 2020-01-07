@@ -45,10 +45,10 @@ You can create a new PeerAsn resource for associating an Autonomous System Numbe
 
     * **Name** corresponds to resource name and can be anything you choose.  
     * Choose the **Subscription** that you need to associate the ASN with.
-    * **Peer name** corresponds to your company's name and needs to be as close as possible to your PeeringDb profile. Note that value supports only characters a-z, A-Z, and space
+    * **Peer name** corresponds to your company's name and needs to be as close as possible to your PeeringDB profile. Note that value supports only characters a-z, A-Z, and space
     * Enter your ASN in the **Peer ASN** field.
     * Click on **Create new** and enter **EMAIL ADDRESS** and **PHONE NUMBER** for your Network Operations Center (NOC)
-1. Then, click on **Review + create** and observe that  portal  runs basic validation of the information you entered. This is displayed in a ribbon on the top, as *Running final validation...*.
+1. Then, click on **Review + create** and observe that portal runs basic validation of the information you entered. This is displayed in a ribbon on the top, as *Running final validation...*.
 
     > [!div class="mx-imgBorder"]
     > ![PeerAsn Review Tab](./media/peerasn-review-tab-validation.png)
@@ -58,7 +58,7 @@ You can create a new PeerAsn resource for associating an Autonomous System Numbe
     > [!div class="mx-imgBorder"]
     > ![PeerAsn Review Tab](./media/peerasn-review-tab.png)
 
-1. After you submit the request, wait for it to complete deployment. If deployment fails, contact [Microsoft Peering](mailto:peering@microsoft.com). A successful deployment will appear as below.
+1. After you submit the request, wait for it to complete deployment. If deployment fails, contact [Microsoft peering](mailto:peering@microsoft.com). A successful deployment will appear as below.
 
     > [!div class="mx-imgBorder"]
     > ![PeerAsn Success](./media/peerasn-success.png)
@@ -67,21 +67,21 @@ You can create a new PeerAsn resource for associating an Autonomous System Numbe
 Once PeerAsn resource is deployed successfully, you will need to wait for Microsoft to approve the association request. It may take up to 12 hours for approval. Once approved, you will receive a notification to the email address entered in the above section.
 
 > [!IMPORTANT]
-> Wait for the ValidationState to turn "Approved" before submitting a Peering request. It may take up to 12 hours for this approval.
+> Wait for the ValidationState to turn "Approved" before submitting a peering request. It may take up to 12 hours for this approval.
 
 ## Modify PeerAsn
-Modifying PeerAsn is not currently supported. If you need to modify, contact [Microsoft Peering](mailto:peering@microsoft.com).
+Modifying PeerAsn is not currently supported. If you need to modify, contact [Microsoft peering](mailto:peering@microsoft.com).
 
 ## Delete PeerAsn
-Deleting a PeerAsn is not currently supported. If you need to delete PeerAsn, contact [Microsoft Peering](mailto:peering@microsoft.com).
+Deleting a PeerAsn is not currently supported. If you need to delete PeerAsn, contact [Microsoft peering](mailto:peering@microsoft.com).
 
 ## Next steps
 
-* [Create or modify a Direct Peering using the portal](howto-direct-portal.md)
-* [Convert a legacy Direct Peering to Azure resource using the portal](howto-legacy-direct-portal.md)
-* [Create or modify Exchange Peering using the portal](howto-exchange-portal.md)
-* [Convert a legacy Exchange Peering to Azure resource using the portal](howto-legacy-exchange-portal.md)
+* [Create or modify a Direct peering using the portal](howto-direct-portal.md)
+* [Convert a legacy Direct peering to Azure resource using the portal](howto-legacy-direct-portal.md)
+* [Create or modify Exchange peering using the portal](howto-exchange-portal.md)
+* [Convert a legacy Exchange peering to Azure resource using the portal](howto-legacy-exchange-portal.md)
 
 ## Additional resources
 
-For more information, visit [Internet Peering FAQs](faqs.md)
+For more information, visit [Internet peering FAQs](faqs.md)
