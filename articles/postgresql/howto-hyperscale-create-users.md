@@ -5,7 +5,7 @@ author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 1/8/2019
 ---
 
 # Create users in Azure Database for PostgreSQL - Hyperscale (Citus)
@@ -18,27 +18,40 @@ customize roles](../role-based-access-control/custom-roles.md).
 
 ## The server admin account
 
-The PostgreSQL engine uses privileges to control access to database objects, as
-discussed in the [PostgreSQL product
-documentation](https://www.postgresql.org/docs/current/static/sql-createrole.html).
-A newly created Hyperscale (Citus) server group comes with several roles
-pre-defined:
+The PostgreSQL engine uses
+[roles](https://www.postgresql.org/docs/current/sql-createrole.html) to control
+access to database objects, and a newly created Hyperscale (Citus) server group
+comes with several roles pre-defined:
 
 * The [default PostgreSQL roles](https://www.postgresql.org/docs/current/default-roles.html)
 * *azure_pg_admin*
 * *postgres*
 * *citus*
 
-Since Hyperscale is a managed PaaS service, only Microsoft is part of the
-*postgres* super user role. Hyperscale provides a *citus* role with more
-limited administrative access. For instance, the role cannot create new
-databases, but it can [create PostgreSQL
-extensions](concepts-hyperscale-extensions.md).
+Since Hyperscale is a managed PaaS service, only Microsoft can sign in with the
+*postgres* super user role. For limited administrative access, Hyperscale
+provides the *citus* role.
+
+Permissions for the citus role:
+
+* Read all configuration variables, even those normally visible only to
+  superusers.
+* Read all pg\_stat\_\* views and use various statistics related extensions,
+  even those normally visible only to superusers.
+* Execute monitoring functions that may take ACCESS SHARE locks on tables,
+  potentially for a long time.
+* (member of azure\_pg\_admin)
+* Can [create PostgreSQL extensions](concepts-hyperscale-extensions.md)
+
+Noteably, the citus role has some restrictions:
+
+* Cannot create roles
+* Cannot create databases
 
 ## How to create additional users
 
-The *citus* admin account lacks permission to create additional users. To
-add a user, use the Azure portal interface.
+As mentioned, the *citus* admin account lacks permission to create additional
+users. To add a user, use the Azure portal interface.
 
 1. Go to the **Roles** page for your Hyperscale server group, and click **+ Add**:
 
@@ -51,19 +64,9 @@ add a user, use the Azure portal interface.
 The user will be created on the coordinator node of the server group,
 and propagated to all the worker nodes.
 
-## How to delete a user or change their password
-
-Go to the **Roles** page for your Hyperscale server group, and click the
-ellipses **...** next to a user. The ellipses will open a menu to delete
-the user or reset their password.
-
-   ![Edit a role](media/howto-hyperscale-create-users/edit-role.png)
-
-The *citus* role is privileged and can't be deleted.
-
 ## How to modify privileges for role
 
-New roles are commonly used to provide database access with restricted
+New user roles are commonly used to provide database access with restricted
 privileges. To modify user privileges, use standard PostgreSQL commands, using
 a tool such as PgAdmin or psql. (See [connecting with
 psql](quickstart-create-hyperscale-portal.md#connect-to-the-database-using-psql)
@@ -89,6 +92,16 @@ SELECT run_command_on_workers(
   'GRANT SELECT ON ALL TABLES IN SCHEMA public TO db_user;'
 );
 ```
+
+## How to delete a user or change their password
+
+Go to the **Roles** page for your Hyperscale server group, and click the
+ellipses **...** next to a user. The ellipses will open a menu to delete
+the user or reset their password.
+
+   ![Edit a role](media/howto-hyperscale-create-users/edit-role.png)
+
+The *citus* role is privileged and can't be deleted.
 
 ## Next steps
 
