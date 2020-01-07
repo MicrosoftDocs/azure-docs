@@ -10,7 +10,7 @@ ms.author: cshoe
 
 # Event Grid trigger for Azure Functions
 
-This article explains how to handle [Event Grid](../event-grid/overview.md) events in Azure Functions.
+This article explains how to handle [Event Grid](../event-grid/overview.md) events in Azure Functions. For details on how to handle Event Grid messages in an HTTP end point, read [Receive events to an HTTP endpoint](../event-grid/receive-events.md).
 
 Event Grid is an Azure service that sends HTTP requests to notify you about events that happen in *publishers*. A publisher is the service or resource that originates the event. For example, an Azure blob storage account is a publisher, and [a blob upload or deletion is an event](../storage/blobs/storage-blob-event-overview.md). Some [Azure services have built-in support for publishing events to Event Grid](../event-grid/overview.md#event-sources).
 
