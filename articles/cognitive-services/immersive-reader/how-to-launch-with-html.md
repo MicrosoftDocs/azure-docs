@@ -17,16 +17,39 @@ ms.author: metan
 
 This article demonstrates how to launch the Immersive Reader with HTML content.
 
-## Prerequisites
+## Prepare the HTML content
 
-* An Immersive Reader resource configured for Azure Active Directory (Azure AD) authentication. Follow [these instructions](./azure-active-directory-authentication.md) to get set up. You will need some of the values created here when configuring the environment properties. Save the output of your session into a text file for future reference.
-* [Node.js](https://nodejs.org/) and [Yarn](https://yarnpkg.com)
-* An IDE such as [Visual Studio Code](https://code.visualstudio.com/)
+Place the content that you wish to show in the Immersive Reader inside a container element. Be sure to give the container element an `id`. The Immersive Reader provides support for basic HTML elements, see the [reference](./reference.md#html-support) for more information.
 
+```html
+<div id='immersive-reader-content'>
+    ...
+</div>
+```
+
+## Get the HTML content in JavaScript
+
+Use the `id` of the container element to get the HTML content in your JavaScript code.
+
+```typescript
+const htmlContent = document.getElementById('immersive-reader-content').innerHTML;
+```
+
+## Launch the Immersive Reader with your HTML content
+
+When calling `ImmersiveReader.launchAsync`, set the chunk's `mimeType` property to `text/html` to enable rendering HTML.
+
+```typescript
+const data = {
+    chunks: [{
+        content: htmlContent,
+        mimeType: 'text/html'
+    }]
+};
+
+ImmersiveReader.launchAsync(YOUR_TOKEN, YOUR_SUBDOMAIN, data);
+```
 
 ## Next steps
 
-* View the [Node.js tutorial](./tutorial-nodejs.md) to see what else you can do with the Immersive Reader SDK using Node.js
-* View the [Python tutorial](./tutorial-python.md) to see what else you can do with the Immersive Reader SDK using Python
-* View the [Swift tutorial](./tutorial-ios-picture-immersive-reader.md) to see what else you can do with the Immersive Reader SDK using Swift
-* Explore the [Immersive Reader SDK](https://github.com/microsoft/immersive-reader-sdk) and the [Immersive Reader SDK Reference](./reference.md)
+* Explore the [Immersive Reader SDK Reference](./reference.md)
