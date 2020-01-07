@@ -244,7 +244,7 @@ if args.delete:
 
 ### Test your code
 
-Let's check your submitted requests before. You'll need to update a few things in the request below:
+Now, let's check to see what requests you've previously submitted. Before you continue, you'll need to update a few things in this request:
 
 * Replace `<your_key>` with your Speech service subscription key. This information is available in the **Overview** tab for your resource in the [Azure portal](https://aka.ms/azureportal).
 * Replace `<region>` with the region where your Speech resource was created (for example: `eastus` or `westus`). This information is available in the **Overview** tab for your resource in the [Azure portal](https://aka.ms/azureportal).
