@@ -50,7 +50,7 @@ This article assumes that you have already installed an Ubuntu Linux operating s
 
 2. Click **Connect** to open the window for the virtual machine.
 
-3. Replace the current repositories in the image to use Ubuntu's Azure repos. The steps vary slightly depending on the Ubuntu version.
+3. Replace the current repositories in the image to use Ubuntu's Azure repository. The steps vary slightly depending on the Ubuntu version.
    
 	Before editing `/etc/apt/sources.list`, it is recommended to make a backup:
    
