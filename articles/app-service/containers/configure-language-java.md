@@ -368,7 +368,7 @@ Your startup script will make an [xsl transform](https://www.w3schools.com/xml/x
 apk add --update libxslt
 
 # Usage: xsltproc --output output.xml style.xsl input.xml
-xsltproc --output /usr/local/tomcat/conf/server.xml /home/tomcat/conf/transform.xsl /home/tomcat/conf/server.xml
+xsltproc --output /home/tomcat/conf/server.xml /home/tomcat/conf/transform.xsl /usr/local/tomcat/conf/server.xml
 ```
 
 An example xsl file is provided below. The example xsl file adds a new connector node to the Tomcat server.xml.
