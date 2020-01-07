@@ -1,6 +1,6 @@
 ---
-title: Create a dynamic group and check status - Azure AD | Microsoft Docs
-description: How to create a group membership rule in the Azure portal, and check its processing status.
+title: Create or edit a dynamic group and get status - Azure AD | Microsoft Docs
+description: How to create or update a group membership rule in the Azure portal, and check its processing status.
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -17,7 +17,7 @@ ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ---
 
-# Create a dynamic group and check status
+# Create or update a dynamic group in Azure Active Directory
 
 In Azure Active Directory (Azure AD), you can use rules to determine group membership based on user or device properties. This article tells how to set up a rule for a dynamic group in the Azure portal.
 Dynamic membership is supported for security groups or Office 365 groups. When a group membership rule is applied, user and device attributes are evaluated for matches with the membership rule. When an attribute changes for a user or device, all dynamic group rules in the organization are processed for membership changes. Users and devices are added or removed if they meet the conditions for a group. Security groups can be used for either devices or users, but Office 365 groups can be only user groups.
