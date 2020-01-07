@@ -98,7 +98,7 @@
         href: concepts-data-access-and-security-threat-protection.md
       - name: Azure AD authentication
         href: concepts-aad-authentication.md
-      - name: Private link
+      - name: Private Link
         href: concepts-data-access-and-security-private-link.md
     - name: Business continuity
       items:
