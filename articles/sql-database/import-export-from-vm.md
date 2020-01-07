@@ -127,7 +127,7 @@ This example shows how to import a database using SqlPackage with Active Directo
 sqlpackage.exe /a:Import /sf:testExport.bacpac /tdn:NewDacFX /tsn:apptestserver.database.windows.net /ua:True /tid:"apptest.onmicrosoft.com"
 ```
 
-## Import Export Service performance
+## Performance considerations
 
 Export speeds vary due to many factors (for example, data shape) so it's impossible to predict what speed should be expected. The import export service uses the same technology as SqlPackage and may take considerable time, particularly for large databases.
 
