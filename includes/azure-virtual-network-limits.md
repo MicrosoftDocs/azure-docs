@@ -55,28 +55,26 @@ The following limits apply only for networking resources managed through **Azure
 The following limits apply only for networking resources managed through Azure Resource Manager per region per subscription. Learn how to [view your current resource usage against your subscription limits](../articles/networking/check-usage-against-limits.md).
 
 **Standard Load Balancer**
-| Resource | Default/maximum limit |
-| --- | --- |
-| Load balancers | 1,000 | 
-| Rules per resource | 1,500 | 
-| Rules per NIC (across all IPs on a NIC) | 300 |
-| Front-end IP configurations | 600 |
-| Back-end pool | 1,000, single virtual network |
-| Back-end resources per load balancer<sup>1</sup> | 150 |
-| High-availability ports | 1 per internal front-end |
-
-**Basic Load Balancer**
-| Resource | Default/maximum limit |
-| --- | --- |
-| Load balancers | 1,000 | 
-| Rules per resource | 250 |
-| Rules per NIC (across all IPs on a NIC) | 300 |
-| Front-end IP configurations | 200 |
-| Back-end pool | 100, single availability set |
-
-
+| Resource                                | Default/maximum limit         |
+|-----------------------------------------|-------------------------------|
+| Load balancers                          | 1,000                         |
+| Rules per resource                      | 1,500                         |
+| Rules per NIC (across all IPs on a NIC) | 300                           |
+| Front-end IP configurations             | 600                           |
+| Back-end pool                           | 1,000, single virtual network |
+| Back-end resources per load balancer<sup>1<sup>   | 150                 |
+| High-availability ports                 | 1 per internal front-end      |
 
 <sup>1</sup>The limit is up to 150 resources, in any combination of standalone virtual machine resources, availability set resources, and virtual machine scale-set resources.
+
+**Basic Load Balancer**
+| Resource                                | Default/maximum limit        |
+|-----------------------------------------|------------------------------|
+| Load balancers                          | 1,000                        |
+| Rules per resource                      | 250                          |
+| Rules per NIC (across all IPs on a NIC) | 300                          |
+| Front-end IP configurations             | 200                          |
+| Back-end pool                           | 100, single availability set |
 
 #### <a name="virtual-networking-limits-classic"></a>The following limits apply only for networking resources managed through the **classic** deployment model per subscription. Learn how to [view your current resource usage against your subscription limits](../articles/networking/check-usage-against-limits.md).
 
