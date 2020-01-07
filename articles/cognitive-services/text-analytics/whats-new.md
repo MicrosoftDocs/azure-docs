@@ -44,7 +44,7 @@ It supports English (`en`), Japanese (`ja`), Chinese Simplified (`zh-Hans`),  Ch
 > [!div class="nextstepaction"]
 > [Learn more about Sentiment Analysis v3](how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-versions-and-features)
 
-## Next Steps
+## Next steps
 
 * [What is the Text Analytics API?](overview.md)  
 * [Example user scenarios](text-analytics-user-scenarios.md)
