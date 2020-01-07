@@ -63,7 +63,7 @@ During the preview, only the following scenarios are supported:
 
 The preview also has the following restrictions:
 
-- Only available in West Central US.
+- **Only available in West Central US, Canada Central, North Europe**.
 - Disks created from custom images that are encrypted using server-side encryption and customer-managed keys must be encrypted using the same customer-managed keys and must be in the same subscription.
 - Snapshots created from disks that are encrypted with server-side encryption and customer-managed keys must be encrypted with the same customer-managed keys.
 - Custom images encrypted using server-side encryption and customer-managed keys cannot be used in the shared image gallery.
