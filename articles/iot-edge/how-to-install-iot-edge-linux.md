@@ -260,7 +260,7 @@ Run an automated check for the most common configuration and networking errors:
 sudo iotedge check
 ```
 
-Until you deploy your first module to IoT Edge on your device, the **$edgeHub** system module will not be deployed to the device. As a result, the automated check will return an error for the `Edge Hub can bind to ports on host` connectivty check. This error can be ingored unless it occurs after deploying a module to the device.
+Until you deploy your first module to IoT Edge on your device, the **$edgeHub** system module will not be deployed to the device. As a result, the automated check will return an error for the `Edge Hub can bind to ports on host` connectivity check. This error can be ingored unless it occurs after deploying a module to the device.
 
 Finally, list running modules:
 
