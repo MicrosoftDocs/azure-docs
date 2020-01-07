@@ -16,6 +16,8 @@ This article describes the different applications and services that are monitore
 ## Core insights and solutions
 Core insights and solutions are considered part of Azure Monitor and follow the same support and service level agreement. They are supported in all Azure regions where Azure Monitor is available.
 
+### Core insights
+
 Insights provide a customized monitoring experience for particular applications and services. They collect and analyze both logs and metrics.
 
 | Insight | Description |
@@ -27,6 +29,8 @@ Insights provide a customized monitoring experience for particular applications 
 [Azure Monitor for Resource Groups (preview)](insights/resource-group-insights.md) |  Triage and diagnose any problems your individual resources encounter, while offering context as to the health and performance of the resource group as a whole. |
 | [Azure Monitor for Storage](insights/storage-insights-overview.md) | Provides comprehensive monitoring of your Azure Storage accounts by delivering a unified view of your Azure Storage services performance, capacity, and availability. |
 | [Azure Monitor for VMs (preview)](insights/container-insights-overview.md) | Monitors your Azure virtual machines (VM) and virtual machine scale sets at scale. It analyzes the performance and health of your Windows and Linux VMs, and monitors their processes and dependencies on other resources and external processes. |
+
+### Core solutions
 
 Solutions are based on log queries and views customized for a particular application or service. They collect and analyze logs only and are being deprecated over time in favor of insights.
 
@@ -92,7 +96,7 @@ The following table lists Azure services and the data they collect into Azure Mo
 |Blockchain Service | No | No | No |  |
 |Blueprints | No | No | No |  |
 |Bot Service | No | No | No |  |
-|Cloud Services | Yes | Yes | No |  |
+|Cloud Services | Yes | Yes | No | Agent required to monitor guest operating system and workflows.  |
 |Cloud Shell | No | No | No |  |
 |Cognitive Services | Yes | Yes | No |  |
 |Container Instances | Yes | No | [Yes](insights/container-insights-overview.md) |  |
@@ -164,7 +168,7 @@ The following table lists Azure services and the data they collect into Azure Mo
 |Security Center | No | No | No |  |
 |Sentinel | No | No | No |  |
 |Service Bus | Yes | Yes | No |  |
-|Service Fabric | No | No | No |  |
+|Service Fabric | No | No | No | Agent required to monitor guest operating system and workflows.  |
 |Signup Portal | No | No | No |  |
 |Site Recovery | No | No | No |  |
 |Spring Cloud Service | No | No | No |  |
@@ -180,7 +184,7 @@ The following table lists Azure services and the data they collect into Azure Mo
 |TINA | No | No | No |  |
 |Traffic Manager | Yes | Yes | No |  |
 |Universal Print | No | No | No |  |
-|Virtual Machine Scale Sets | No | Yes | No |  |
+|Virtual Machine Scale Sets | No | Yes | No | Agent required to monitor guest operating system and workflows. |
 |Virtual Machines | Yes | Yes | [Yes](insights/vminsights-overview.md) | Agent required to monitor guest operating system and workflows. |
 |Virtual Network | Yes | Yes | [Yes](insights/network-insights-overview.md) |  |
 |Virtual Network - NSG Flow Logs | No | Yes | No |  |
