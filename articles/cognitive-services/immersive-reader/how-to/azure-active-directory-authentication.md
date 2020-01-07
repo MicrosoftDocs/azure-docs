@@ -124,13 +124,13 @@ In this example, your password is used to authenticate the service principal to 
    ```
 
    >[!NOTE]
-   > The Immersive Reader SDK uses the AccessToken property of the token, e.g. $token.AccessToken. See the SDK [reference](reference.md) and code [samples](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples) for details.
+   > The Immersive Reader SDK uses the AccessToken property of the token, e.g. $token.AccessToken. See the SDK [reference](../reference.md) and code [samples](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples) for details.
 
 Alternatively, the service principal can be authenticated with a certificate. In addition to a service principal, user principals are also supported by having permissions delegated through another Azure AD application. In this case, instead of passwords or certificates, users would be prompted for two-factor authentication when acquiring tokens.
 
 ## Next steps
 
-* View the [Node.js tutorial](./tutorial-nodejs.md) to see what else you can do with the Immersive Reader SDK using Node.js
-* View the [Python tutorial](./tutorial-python.md) to see what else you can do with the Immersive Reader SDK using Python
-* View the [Swift tutorial](./tutorial-ios-picture-immersive-reader.md) to see what else you can do with the Immersive Reader SDK using Swift
-* Explore the [Immersive Reader SDK](https://github.com/microsoft/immersive-reader-sdk) and the [Immersive Reader SDK Reference](./reference.md)
+* View the [Node.js tutorial](../tutorial-nodejs.md) to see what else you can do with the Immersive Reader SDK using Node.js
+* View the [Python tutorial](../tutorial-python.md) to see what else you can do with the Immersive Reader SDK using Python
+* View the [Swift tutorial](../tutorial-ios-picture-immersive-reader.md) to see what else you can do with the Immersive Reader SDK using Swift
+* Explore the [Immersive Reader SDK](https://github.com/microsoft/immersive-reader-sdk) and the [Immersive Reader SDK Reference](../reference.md)
