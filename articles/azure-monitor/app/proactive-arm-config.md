@@ -133,6 +133,9 @@ Make sure to replace the Application Insights resource name, and to specify the 
 
 This Azure Resource Manager template demonstrates configuring a Failure Anomalies alert rule with a severity of 2. This new version of the Failure Anomalies alert rule is part of the new Azure alerting platform, and replaces the classic version that is being retired as part of the [classic alerts retirement process](https://azure.microsoft.com/updates/classic-alerting-monitoring-retirement/).
 
+> [!NOTE]
+> Failure Anomalies is a global service therefore rule location is create on the global location.
+
 ```json
 {
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
