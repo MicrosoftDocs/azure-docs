@@ -14498,7 +14498,7 @@
     },
     {
       "source_path": "articles/machine-learning/machine-learning-algorithm-cheat-sheet.md",
-      "redirect_url": "/azure/machine-learning/studio/algorithm-cheat-sheet",
+      "redirect_url": "/azure/machine-learning/algorithm-cheat-sheet",
       "redirect_document_id": false
     },
     {
