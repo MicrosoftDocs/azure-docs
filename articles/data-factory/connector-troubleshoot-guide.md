@@ -116,7 +116,7 @@ Cosmos DB calculates RU from [here](../cosmos-db/request-units.md#request-unit-c
 - **Resolution**: In MongoDB connection string, add option "**uuidRepresentation=standard**". For more information, see [MongoDB connection string](connector-mongodb.md#linked-service-properties).
 			
 
-## Azure Data Lake Gen2
+## Azure Data Lake Storage Gen2
 
 ### Error code:  AdlsGen2OperationFailed
 
@@ -161,7 +161,7 @@ Cosmos DB calculates RU from [here](../cosmos-db/request-units.md#request-unit-c
 - **Message**: `Request to ADLS Gen2 account '%account;' met timeout error. It is mostly caused by the poor network between the Self-hosted IR machine and the ADLS Gen2 account. Check the network to resolve such error.`
 
 
-## Azure Data Lake Storage
+## Azure Data Lake Storage Gen1
 
 ### Error message: The remote server returned an error: (403) Forbidden
 
@@ -448,7 +448,7 @@ busy to handle requests, it returns an HTTP error 503.
 
 
 
-## Json Format
+## JSON Format
 
 ### Error code:  JsonInvalidArrayPathDefinition
 
