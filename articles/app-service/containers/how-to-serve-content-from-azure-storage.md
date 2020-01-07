@@ -52,9 +52,6 @@ az webapp config storage-account add --resource-group <group_name> --name <app_n
 
 You should do this for any other directories you want to be linked to a storage account.
 
-Learn more about [`az webapp config storage-account`](https://docs.microsoft.com/cli/azure/webapp/config/storage-account?view=azure-cli-latest)
-
-
 ### Verify Azure Storage link to the web app
 
 Once a storage container is linked to a web app, you can verify this by running the following command:
