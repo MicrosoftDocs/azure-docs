@@ -183,6 +183,7 @@ To illustrate the change sequence, we will assume that server A is the primary s
 4.	Add all primary databases on server A to the new failover group.
 5.	Drop server B. All databases on B will be deleted automatically. 
 
+
 ### Changing primary region of the failover group
 
 To illustrate the change sequence, we will assume server A is the primary server, server B is the existing secondary server, and server C is the new primary in the third region.  To make the transition, follow these steps:
@@ -195,6 +196,8 @@ To illustrate the change sequence, we will assume server A is the primary server
 6.	Perform a planned failover of the failover group to switch B and C. Now server C will become the primary and B - the secondary. All secondary databases on server A will be automatically linked to the primaries on C. As in step 1, the failover may result in several minutes of downtime.
 6.	Drop the server A. All databases on A will be deleted automatically.
 
+> [!IMPORTANT]
+> When the failover group is deleted, the DNS records for the listener endpoints are also deleted. At that point, there is a non-zero probability of somebody else creating a failover group or server alias with the same name, which will prevent you from using it again. To minimize the risk, don't use generic failover group names.
 
 ## Best practices of using failover groups with managed instances
 
@@ -286,6 +289,9 @@ Let's assume instance A is the primary instance, instance B is the existing seco
 
 > [!NOTE] 
 > After step 3 and until step 4 is completed the databases in instance A will remain unprotected from a catastrophic failure of instance A.
+
+> [!IMPORTANT]
+> When the failover group is deleted, the DNS records for the listener endpoints are also deleted. At that point, there is a non-zero probability of somebody else creating a failover group or server alias with the same name, which will prevent you from using it again. To minimize the risk, don't use generic failover group names.
 
 ## Failover groups and network security
 
