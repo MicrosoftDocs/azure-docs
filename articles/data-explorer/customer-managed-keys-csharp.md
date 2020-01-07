@@ -13,7 +13,7 @@ ms.date: 01/06/2020
 
 > [!div class="op_single_selector"]
 > * [C#](create-cluster-database-csharp.md)
-> * [ARM template](create-cluster-database-resource-manager.md)
+> * [Azure Resource Manager template](create-cluster-database-resource-manager.md)
 
 [!INCLUDE [data-explorer-configure-customer-managed-keys](../../includes/data-explorer-configure-customer-managed-keys.md)]
 
