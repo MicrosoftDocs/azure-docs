@@ -33,8 +33,8 @@ public func launchImmersiveReader(navController: UINavigationController, token: 
 | Name | Type | Description |
 | ---- | ---- |------------ |
 | `navController` | UINavigationController | The Navigation Controller for the iOS application the function is being called from. |
-| `token` | String | The Azure AD authentication token. See the [Azure AD authentication how-to](./azure-active-directory-authentication.md). |
-| `subdomain` | String | The custom subdomain of your Immersive Reader resource in Azure. See the [Azure AD authentication how-to](./azure-active-directory-authentication.md). |
+| `token` | String | The Azure AD authentication token. |
+| `subdomain` | String | The custom subdomain of your Immersive Reader resource in Azure. |
 | `content` | [Content](#content) | An object containing the content to be shown in the Immersive Reader. |
 | `options` | [Options](#options) | Options for configuring certain behaviors of the Immersive Reader. Optional. |
 | `onSuccess` | () -> Void | A closure that is invoked when the Immersive Reader successfully launches. |

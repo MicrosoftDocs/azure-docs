@@ -21,8 +21,8 @@
     href: tutorial-ios-picture-immersive-reader.md
 - name: How-To
   items:
-  - name: Azure Active Directory authentication
-    href: azure-active-directory-authentication.md
+  - name: Create Immersive Reader resource
+    href: how-to-create-immersive-reader.md
 - name: Reference
   items:
   - name: SDK Reference
