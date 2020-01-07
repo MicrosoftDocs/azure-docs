@@ -58,6 +58,11 @@ An example notebook that demonstrates local deployments is included on your comp
 
 To submit sample data to the running service, use the following code. Replace the value of `service_url` with the URL of from the previous step:
 
+> [!NOTE]
+> When authenticating to a deployment on the compute instance, the authentication is made using Azure Active Directory. The call to `interactive_auth.get_authentication_header()` in the example code authenticates you suing AAD, and returns a header that can then be used to authenticate to the service on the compute instance.
+>
+> When authenticating to a deployment on Azure Kubernetes Service or Azure Container Instances, a different authentication method is used. For more information on authenticating to models deployed to those services, see [Consume an Azure Machine Learning model deployed as a web service](how-to-consume-web-service.md).
+
 ```python
 import requests
 import json
@@ -85,11 +90,6 @@ service_url = "https://vm-name-6789.northcentralus.notebooks.azureml.net/score"
 resp = requests.post(service_url, test_sample, headers=headers)
 print("prediction:", resp.text)
 ```
-
-> [!NOTE]
-> When authenticating to a deployment on the compute instance, the authentication is made using Azure Active Directory. The call to `interactive_auth.get_authentication_header()` in the example code authenticates you suing AAD, and returns a header that can then be used to authenticate to the service on the compute instance.
->
-> When authenticating to a deployment on Azure Kubernetes Service or Azure Container Instances, a different authentication method is used. For more information on authenticating to models deployed to those services, see [Consume an Azure Machine Learning model deployed as a web service](how-to-consume-web-service.md).
 
 ## Next steps
 
