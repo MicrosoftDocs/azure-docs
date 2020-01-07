@@ -31,7 +31,7 @@ Source code
 
 Create a new Maven project
 
-Add the following dependencies to your pom file.
+Add the following text analytics dependency to your project
 
 ```xml
 <dependencies>
