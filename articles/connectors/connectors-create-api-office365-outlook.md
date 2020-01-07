@@ -41,8 +41,8 @@ A [trigger](../logic-apps/logic-apps-overview.md#logic-app-concepts) is an event
    
    ![Select trigger to start your logic app](./media/connectors-create-api-office365-outlook/office365-trigger.png)
 
-1. If you're prompted to sign in, follow these steps to [create the connection](#create-connection). Otherwise, if the connection already exists, select a calendar from the list.
-   
+1. If you're prompted to sign in, provide your Office 365 credentials so that your logic app can connect to your account. Otherwise, if your connection already exists, select the calendar that you want to use in your workflow:
+  
    ![Select calendar to use in your workflow](./media/connectors-create-api-office365-outlook/sample-calendar.png)
 
 1. In the trigger, set the **Frequency** and **Interval** values.
