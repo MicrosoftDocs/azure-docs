@@ -180,7 +180,7 @@ model = run.register_model(model_name='keras-mlp-mnist',
                            datasets =[('training data',train_dataset)])
 ```
 
-After registration, you can see the list of models registered with the dataset by using Python or [Azure Machine Learning studio)](https://ml.azure.com/). The following view is from the **Datasets** pane under **Assets**. Select the dataset and then select the **Models** tab for a list of the models that are registered with the dataset. 
+After registration, you can see the list of models registered with the dataset by using Python or [Azure Machine Learning studio](https://ml.azure.com/). The following view is from the **Datasets** pane under **Assets**. Select the dataset and then select the **Models** tab for a list of the models that are registered with the dataset. 
 
 ![Input datasets models](./media/how-to-version-track-datasets/dataset-models.png)
 
