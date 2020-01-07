@@ -19,7 +19,7 @@ ms.author: aahi
 
 ### Create a Text Analytics Azure resource 
 
-[!INCLUDE [text-analytics-resource-creation](resource-creation.md)]
+[!INCLUDE [text-analytics-resource-creation](../resource-creation.md)]
 
 ### Create a new Ruby application
 

@@ -27,7 +27,7 @@ Add any extra steps preparing an environment for working with the client library
 The below is an "include" file, which is a text file that will be referenced, and rendered on the docs site.
 These files are used to display text across multiple articles at once. Consider keeping them in-place for consistency with other articles.
  -->
-[!INCLUDE [text-analytics-resource-creation](resource-creation.md)]
+[!INCLUDE [text-analytics-resource-creation](../resource-creation.md)]
 
 ### Create a new Node.js application
 
