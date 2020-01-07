@@ -104,6 +104,17 @@ The version of the Functions runtime to use in this function app. A tilde with m
 |---|------------|
 |FUNCTIONS\_EXTENSION\_VERSION|~2|
 
+## FUNCTIONS\_V2\_COMPATIBILITY\_MODE
+
+This setting enables your function app to run in a version 2.x compatible mode on the version 3.x runtime. Use this setting only if encountering issues when [upgrading your function app from version 2.x to 3.x of the runtime](functions-versions.md#migrating-from-2x-to-3x). 
+
+>[!IMPORTANT]
+> This setting is intended only as a short-term workaround while you update your app to run correctly on version 3.x. This setting is supported as long as the [2.x runtime is supported](functions-versions.md). If you encounter issues that prevent your app from running on version 3.x without using this setting, please [report your issue](https://github.com/Azure/azure-functions-host/issues/new?template=Bug_report.md).
+
+|Key|Sample value|
+|---|------------|
+|FUNCTIONS\_V2\_COMPATIBILITY\_MODE|true|
+
 ## FUNCTIONS\_WORKER\_PROCESS\_COUNT
 
 Specifies the maximum number of language worker processes, with a default value of `1`. The maximum value allowed is `10`. Function invocations are evenly distributed among language worker processes. Language worker processes are spawned every 10 seconds until the count set by FUNCTIONS\_WORKER\_PROCESS\_COUNT is reached. Using multiple language worker processes is not the same as [scaling](functions-scale.md). Consider using this setting when your workload has a mix of CPU-bound and I/O-bound invocations. This setting applies to all non-.NET languages.
