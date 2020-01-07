@@ -440,12 +440,12 @@ of a _template function_ is an error, policy evaluation fails. A failed evaluati
 }
 ```
 
-The example policy rule above uses [substring()](../../../azure-resource-manager/resource-group-template-functions-string.md#substring)
+The example policy rule above uses [substring()](../../../azure-resource-manager/templates/template-functions-string.md#substring)
 to compare the first three characters of **name** to **abc**. If **name** is shorter than three
 characters, the `substring()` function results in an error. This error causes the policy to become a
 **deny** effect.
 
-Instead, use the [if()](../../../azure-resource-manager/resource-group-template-functions-logical.md#if)
+Instead, use the [if()](../../../azure-resource-manager/templates/template-functions-logical.md#if)
 function to check if the first three characters of **name** equal **abc** without allowing a
 **name** shorter than three characters to cause an error:
 
@@ -704,6 +704,32 @@ engine gets the property path for that API version.
 
 The list of aliases is always growing. To find what aliases are currently supported by Azure
 Policy, use one of the following methods:
+
+- Azure Policy extension for Visual Studio Code (recommended)
+
+  Use the [Azure Policy extension for Visual Studio Code](../how-to/extension-for-vscode.md) to view
+  and discover aliases for resource properties.
+
+  ![Azure Policy extension for Visual Studio Code](../media/extension-for-vscode/extension-hover-shows-property-alias.png)
+
+- Azure Resource Graph
+
+  Use the `project` operator to display the **alias** of a resource.
+
+  ```kusto
+  Resources
+  | where type=~'microsoft.storage/storageaccounts'
+  | limit 1
+  | project aliases
+  ```
+  
+  ```azurecli-interactive
+  az graph query -q "Resources | where type=~'microsoft.storage/storageaccounts' | limit 1 | project aliases"
+  ```
+  
+  ```azurepowershell-interactive
+  Search-AzGraph -Query "Resources | where type=~'microsoft.storage/storageaccounts' | limit 1 | project aliases"
+  ```
 
 - Azure PowerShell
 

@@ -1,6 +1,6 @@
 ---
 title: Access the Azure Media Services API - Azure CLI | Microsoft Docs
-description: Follow the steps of this how-to to access the Azure Media Services API.
+description: Follow the steps of this how-to article to access the Azure Media Services API.
 services: media-services
 documentationcenter: ''
 author: Juliako

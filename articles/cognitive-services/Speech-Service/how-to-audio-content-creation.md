@@ -1,5 +1,5 @@
 ---
-title: Audio Content Creation - Speech Service
+title: Audio Content Creation - Speech service
 titleSuffix: Azure Cognitive Services
 description: Audio Content Creation is an online tool that allows you to customize and fine-tune Microsoft's text-to-speech output for your apps and products.
 services: cognitive-services

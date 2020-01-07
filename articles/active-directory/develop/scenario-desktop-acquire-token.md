@@ -1,5 +1,6 @@
 ---
-title: Desktop app that calls web APIs (acquiring a token for the app) - Microsoft identity platform
+title: Acquire token to call web API (desktop app) | Azure
+titleSuffix: Microsoft identity platform
 description: Learn how to build a Desktop app that calls web APIs (acquiring a token for the app |)
 services: active-directory
 documentationcenter: dev-center-name
@@ -34,7 +35,7 @@ The web API is defined by its `scopes`. Whatever the experience you provide in y
 
 ### In MSAL.NET
 
-```CSharp
+```csharp
 AuthenticationResult result;
 var accounts = await app.GetAccountsAsync();
 IAccount account = ChooseAccount(accounts); // for instance accounts.FirstOrDefault
@@ -151,7 +152,7 @@ The following example shows minimal code to get a token interactively for readin
 # [.NET](#tab/dotnet)
 ### In MSAL.NET
 
-```CSharp
+```csharp
 string[] scopes = new string[] {"user.read"};
 var app = PublicClientApplicationBuilder.Create(clientId).Build();
 var accounts = await app.GetAccountsAsync();
@@ -180,7 +181,7 @@ On Android, you need to also specify the parent activity (using `.WithParentActi
 
 Being interactive, UI is important. `AcquireTokenInteractive` has one specific optional parameter enabling to specify, for platforms supporting it, the parent UI. When used in a desktop application, `.WithParentActivityOrWindow` has a different type depending on the platform:
 
-```CSharp
+```csharp
 // net45
 WithParentActivityOrWindow(IntPtr windowPtr)
 WithParentActivityOrWindow(IWin32Window window)
@@ -198,7 +199,7 @@ Remarks:
 - On Windows, you must call `AcquireTokenInteractive` from the UI thread so that the embedded browser gets the appropriate UI synchronization context.  Not calling from the UI thread may cause messages to not pump properly and/or deadlock scenarios with the UI. One way of calling MSAL from the UI thread if you aren't on the UI thread already is to use the `Dispatcher` on WPF.
 - If you're using WPF, to get a window from a WPF control, you can use  `WindowInteropHelper.Handle` class. The call is then, from a WPF control (`this`):
 
-  ```CSharp
+  ```csharp
   result = await app.AcquireTokenInteractive(scopes)
                     .WithParentActivityOrWindow(new WindowInteropHelper(this).Handle)
                     .ExecuteAsync();
@@ -222,7 +223,7 @@ The class defines the following constants:
 
 This modifier is used in an advanced scenario where you want the user to pre-consent to several resources upfront (and don't want to use the incremental consent, which is normally used with MSAL.NET / the Microsoft identity platform). For details see [How-to : have the user consent upfront for several resources](scenario-desktop-production.md#how-to-have--the-user-consent-upfront-for-several-resources).
 
-```CSharp
+```csharp
 var result = await app.AcquireTokenInteractive(scopesForCustomerApi)
                      .WithExtraScopeToConsent(scopesForVendorApi)
                      .ExecuteAsync();
@@ -250,7 +251,7 @@ The host of the `end Url` is always the `redirectUri`. To intercept the `end Url
 
 `WithCustomWebUi` is an extensibility point that allows you provide your own UI in public client applications, and to let the user go through the /Authorize endpoint of the identity provider and let them sign in and consent. MSAL.NET can, then, redeem the authentication code and get a token. It's for instance used in Visual Studio to have electrons applications (for instance VS Feedback) provide the web interaction, but leave it to MSAL.NET to do most of the work. You can also use it if you want to provide UI automation. In public client applications, MSAL.NET uses the PKCE standard ([RFC 7636 - Proof Key for Code Exchange by OAuth Public Clients](https://tools.ietf.org/html/rfc7636)) to ensure that security is respected: Only MSAL.NET can redeem the code.
 
-  ```CSharp
+  ```csharp
   using Microsoft.Identity.Client.Extensions;
   ```
 
@@ -261,7 +262,7 @@ In order to use `.WithCustomWebUI`, you need to:
   1. Implement the `ICustomWebUi`  interface (See [here](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/blob/053a98d16596be7e9ca1ab916924e5736e341fe8/src/Microsoft.Identity.Client/Extensibility/ICustomWebUI.cs#L32-L70). You'll basically need to implement one method `AcquireAuthorizationCodeAsync` accepting the authorization code URL (computed by MSAL.NET), letting the user go through the interaction with the identity provider, and then returning back the URL by which the identity provider would have called your implementation back (including the authorization code). If you have issues, your implementation should throw a `MsalExtensionException` exception to nicely cooperate with MSAL.
   2. In your `AcquireTokenInteractive` call, you can use `.WithCustomUI()` modifier passing the instance of your custom web UI
 
-     ```CSharp
+     ```csharp
      result = await app.AcquireTokenInteractive(scopes)
                        .WithCustomWebUi(yourCustomWebUI)
                        .ExecuteAsync();
@@ -281,7 +282,7 @@ From MSAL.NET 4.1 [`SystemWebViewOptions`](https://docs.microsoft.com/dotnet/api
 
 To use this structure, you can write something like the following:
 
-```CSharp
+```csharp
 IPublicClientApplication app;
 ...
 
@@ -440,7 +441,7 @@ You normally need only one parameter (`scopes`). However depending on the way yo
 
 The following sample presents the most current case, with explanations of the kind of exceptions you can get, and their mitigations
 
-```CSharp
+```csharp
 static async Task GetATokenForGraph()
 {
  string authority = "https://login.microsoftonline.com/contoso.com";
@@ -587,7 +588,7 @@ The following constraints also apply:
 
 The following sample presents a simplified case
 
-```CSharp
+```csharp
 static async Task GetATokenForGraph()
 {
  string authority = "https://login.microsoftonline.com/contoso.com";
@@ -628,7 +629,7 @@ static async Task GetATokenForGraph()
 
 The following sample presents the most current case, with explanations of the kind of exceptions you can get, and their mitigations
 
-```CSharp
+```csharp
 static async Task GetATokenForGraph()
 {
  string authority = "https://login.microsoftonline.com/contoso.com";
@@ -891,7 +892,7 @@ Interactive authentication with Azure AD requires a web browser (for details see
 
 `IPublicClientApplication`contains a method named `AcquireTokenWithDeviceCode`
 
-```CSharp
+```csharp
  AcquireTokenWithDeviceCode(IEnumerable<string> scopes,
                             Func<DeviceCodeResult, Task> deviceCodeResultCallback)
 ```
@@ -905,7 +906,7 @@ This method takes as parameters:
 
 The following sample code presents the most current case, with explanations of the kind of exceptions you can get, and their mitigation.
 
-```CSharp
+```csharp
 private const string ClientId = "<client_guid>";
 private const string Authority = "https://login.microsoftonline.com/contoso.com";
 private readonly string[] Scopes = new string[] { "user.read" };
@@ -1116,7 +1117,7 @@ Below is an example of a naive implementation of custom serialization of a token
 
 After you build the application, you enable the serialization by calling ``TokenCacheHelper.EnableSerialization()`` passing the application `UserTokenCache`
 
-```CSharp
+```csharp
 app = PublicClientApplicationBuilder.Create(ClientId)
     .Build();
 TokenCacheHelper.EnableSerialization(app.UserTokenCache);
@@ -1124,7 +1125,7 @@ TokenCacheHelper.EnableSerialization(app.UserTokenCache);
 
 This helper class looks like the following code snippet:
 
-```CSharp
+```csharp
 static class TokenCacheHelper
  {
   public static void EnableSerialization(ITokenCache tokenCache)
@@ -1181,7 +1182,7 @@ A preview of a product quality token cache file-based serializer for public clie
 
 If you want to implement token cache serialization both with the Unified cache format (common to ADAL.NET 4.x and MSAL.NET 2.x, and with other MSALs of the same generation or older, on the same platform), you can get inspired by the following code:
 
-```CSharp
+```csharp
 string appLocation = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location;
 string cacheFolder = Path.GetFullPath(appLocation) + @"..\..\..\..");
 string adalV3cacheFileName = Path.Combine(cacheFolder, "cacheAdalV3.bin");
@@ -1198,7 +1199,7 @@ FilesBasedTokenCacheHelper.EnableSerialization(app.UserTokenCache,
 
 This time the helper class looks like the following code:
 
-```CSharp
+```csharp
 using System;
 using System.IO;
 using System.Security.Cryptography;

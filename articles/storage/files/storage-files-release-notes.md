@@ -5,7 +5,7 @@ services: storage
 author: wmgries
 ms.service: storage
 ms.topic: conceptual
-ms.date: 10/8/2019
+ms.date: 12/13/2019
 ms.author: wgries
 ms.subservice: files
 ---
@@ -20,7 +20,8 @@ The following versions are supported for the Azure File Sync agent:
 
 | Milestone | Agent version number | Release date | Status |
 |----|----------------------|--------------|------------------|
-| V9 Release - [KB4522359](https://support.microsoft.com/help/4522359)| 9.0.0.0 | December 2, 2019 | Supported - Flighting |
+| December 2019 update rollup - [KB4522360](https://support.microsoft.com/help/4522360)| 9.1.0.0 | December 12, 2019 | Supported |
+| V9 Release - [KB4522359](https://support.microsoft.com/help/4522359)| 9.0.0.0 | December 2, 2019 | Supported |
 | V8 Release - [KB4511224](https://support.microsoft.com/help/4511224)| 8.0.0.0 | October 8, 2019 | Supported |
 | July 2019 update rollup - [KB4490497](https://support.microsoft.com/help/4490497)| 7.2.0.0 | July 24, 2019 | Supported |
 | July 2019 update rollup - [KB4490496](https://support.microsoft.com/help/4490496)| 7.1.0.0 | July 12, 2019 | Supported |
@@ -38,6 +39,15 @@ The following versions are supported for the Azure File Sync agent:
 
 ### Azure File Sync agent update policy
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
+
+## Agent version 9.1.0.0
+The following release notes are for version 9.1.0.0 of the Azure File Sync agent released December 12, 2019. These notes are in addition to the release notes listed for version 9.0.0.0.
+
+Issue fixed in this release:  
+- Sync fails with one of the following errors after upgrading to Azure File Sync agent version 9.0:
+	- 0x8e5e044e (JET_errWriteConflict)
+	- 0x8e5e0450 (JET_errInvalidSesid)
+	- 0x8e5e0442 (JET_errInstanceUnavailable)
 
 ## Agent version 9.0.0.0
 The following release notes are for version 9.0.0.0 of the Azure File Sync agent (released December 2, 2019).
@@ -72,7 +82,8 @@ The following release notes are for version 9.0.0.0 of the Azure File Sync agent
 	- Reduced recall failures. Recall size is now automatically adjusted based on network bandwidth. 
 	- Improved download performance when adding a new server to a sync group. 
 	- Reduced files not syncing due to constraint conflicts. 
-
+	- Files fail to tier or are unexpectedly recalled in certain scenarios if the server endpoint path is a volume mount point.
+	
 ### Evaluation Tool
 Before deploying Azure File Sync, you should evaluate whether it is compatible with your system using the Azure File Sync evaluation tool. This tool is an Azure PowerShell cmdlet that checks for potential issues with your file system and dataset, such as unsupported characters or an unsupported OS version. For installation and usage instructions, see [Evaluation Tool](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#evaluation-cmdlet) section in the planning guide. 
 

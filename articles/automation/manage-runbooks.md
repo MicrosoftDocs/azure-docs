@@ -2,13 +2,9 @@
 title: Manage runbooks in Azure Automation
 description: This article describes how to manage runbooks in Azure Automation.
 services: automation
-ms.service: automation
 ms.subservice: process-automation
-author: bobbytreed
-ms.author: robreed
 ms.date: 02/14/2019
 ms.topic: conceptual
-manager: carmonm
 ---
 # Manage runbooks in Azure Automation
 

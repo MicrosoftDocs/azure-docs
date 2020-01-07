@@ -16,6 +16,9 @@ ms.author: dapine
 
 Learn how to deploy the Cognitive Services [Form Recognizer](form-recognizer-container-howto.md) container to Azure [Container Instances](https://docs.microsoft.com/azure/container-instances/). This procedure demonstrates the creation of an Azure Form Recognizer resource. Then we discuss pulling the associated container image. Finally, we highlight the ability to exercise the orchestration of the two from a browser. Using containers can shift the developers' attention away from managing infrastructure to instead focusing on application development.
 
+> [!IMPORTANT]
+> The Form Recognizer containers currently use version 1.0 of the Form Recognizer API. You can access the latest version of the API by using the managed service instead.
+
 [!INCLUDE [Prerequisites](../containers/includes/container-preview-prerequisites.md)]
 
 ## Request access to the container registry

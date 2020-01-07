@@ -101,9 +101,13 @@
     - name: Query data in Azure Data Lake
       href: data-lake-query-data.md  
     - name: Query data in Azure Monitor
-      href: query-monitor-data.md  
-    - name: Python
-      href: python-query-data.md
+      href: query-monitor-data.md
+    - name: Debug KQL inline Python
+      href: debug-inline-python.md
+    - name: using SDKs
+      items:  
+      - name: Python
+        href: python-query-data.md
     - name: Time Series Analysis and Machine Learning
       items:
       - name: Time series analysis
@@ -174,7 +178,7 @@
         href: dealing-with-duplicates.md
   - name: Deploy
     items:
-    - name: Deploy your cluster into your VNet
+    - name: Deploy your cluster to your virtual network
       href: vnet-deployment.md  
   - name: Monitor
     items:

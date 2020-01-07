@@ -4,18 +4,16 @@ description: Learn how to copy data from QuickBooks Online to supported sink dat
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+ms.author: jingwang
+manager: shwang
 ms.reviewer: douglasl
-
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
-
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 08/01/2019
-ms.author: jingwang
-
 ---
+
 # Copy data from QuickBooks Online using Azure Data Factory (Preview)
 
 This article outlines how to use the Copy Activity in Azure Data Factory to copy data from QuickBooks Online. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.

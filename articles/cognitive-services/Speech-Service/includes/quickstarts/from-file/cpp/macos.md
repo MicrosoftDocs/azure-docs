@@ -1,14 +1,17 @@
 ---
-title: 'Quickstart: Recognize speech from an audio file, C++ (macOS) - Speech Service'
+title: 'Quickstart: Recognize speech from an audio file, C++ (macOS) - Speech service'
 titleSuffix: Azure Cognitive Services
-description: Learn how to recognize speech in C++ on macOS by using the Speech SDK
 services: cognitive-services
 author: wolfma61
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: quickstart
+ms.topic: include
+<<<<<<< HEAD
+ms.date: 12/17/2019
+=======
 ms.date: 07/05/2019
+>>>>>>> 34375507a6a9dabc49d422608c19b7fe54779f45
 ms.author: wolfma
 ---
 
@@ -71,7 +74,7 @@ Before you get started, make sure to:
 
    ````
 
-1. In this new file, replace the string `YourSubscriptionKey` with your Speech Services subscription key.
+1. In this new file, replace the string `YourSubscriptionKey` with your Speech service subscription key.
 
 1. Replace the string `YourServiceRegion` with the [region](~/articles/cognitive-services/Speech-Service/regions.md) associated with your subscription (for example, `westus` for the free trial subscription).
 
@@ -105,7 +108,7 @@ Before you get started, make sure to:
    ./helloworld
    ```
 
-1. Your audio file is transmitted to the Speech Services and the first utterance in the file is transcribed to text, which appears in the same window.
+1. Your audio file is transmitted to the Speech service and the first utterance in the file is transcribed to text, which appears in the same window.
 
    ```text
    Recognizing first result...

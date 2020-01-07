@@ -1,6 +1,6 @@
 ---
-title: Azure PowerShell Samples - Create a basic virtual machine scale set | Microsoft Docs
-description: Azure PowerShell Samples
+title: Azure PowerShell Samples - Create a basic virtual machine scale set
+description: This script creates an Azure virtual machine scale set running Windows Server 2016, which you can access through RDP. 
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: cynthn

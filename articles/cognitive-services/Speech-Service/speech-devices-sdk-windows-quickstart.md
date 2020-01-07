@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Run the Speech Devices SDK on Windows'
+title: 'Quickstart: Run the Speech Devices SDK on Windows - Speech service'
 titleSuffix: Azure Cognitive Services
 description: Prerequisites and instructions for getting started with a Windows Speech Devices SDK.
 services: cognitive-services
@@ -19,7 +19,7 @@ In this quickstart, you'll learn how to use the Speech Devices SDK for Windows t
 
 The application is built with the Speech SDK package, and the Eclipse Java IDE (v4) on 64-bit Windows. It runs on a 64-bit Java 8 runtime environment (JRE).
 
-This guide requires an [Azure Cognitive Services](get-started.md) account with a Speech Services resource. If you don't have an account, you can use the [free trial](https://azure.microsoft.com/try/cognitive-services/) to get a subscription key.
+This guide requires an [Azure Cognitive Services](get-started.md) account with a Speech service resource. If you don't have an account, you can use the [free trial](https://azure.microsoft.com/try/cognitive-services/) to get a subscription key.
 
 The source code for the [sample application](https://aka.ms/sdsdk-download-JRE) is included with the Speech Devices SDK. It's also [available on GitHub](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK).
 
@@ -32,7 +32,7 @@ This quickstart requires:
 * [Eclipse Java IDE](https://www.eclipse.org/downloads/)
 * [Java 8](https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) or [JDK 8](https://www.oracle.com/technetwork/java/javase/downloads/index.html) only.
 * [Microsoft Visual C++ Redistributable](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads)
-* An Azure subscription key for the Speech Service. [Get one for free](get-started.md).
+* An Azure subscription key for the Speech service. [Get one for free](get-started.md).
 * Download the latest version of the [Speech Devices SDK](https://aka.ms/sdsdk-download-JRE) for Java, and extract the .zip to your working directory.
    > [!NOTE]
    > The JRE-Sample-Release.zip file includes the JRE sample app and this quickstart assumes that the app is extracted to C:\SDSDK\JRE-Sample-Release

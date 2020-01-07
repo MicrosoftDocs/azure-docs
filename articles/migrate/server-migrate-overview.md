@@ -41,6 +41,7 @@ After reviewing the limitations, understanding the steps involved in deploying e
 
 **Task** | **Details** |**Agentless** | **Agent-based**
 --- | --- | --- | ---
+**Assessment** | Assess servers before migration.  Assessment is optional. We suggest that you assess machines before you migrate them, but you don't have to. <br/><br/> For assessment, Azure Migrate sets up a lightweight appliance to discover and assess VMs. | If you run an agentless migration after assessment, the same Azure Migrate appliance set up for assessment is used for agentless migration.  |  If you run an agent-based migration after assessment, the appliance set up for assessment isn't used during agentless migration. You can leave the appliance in place, or remove it if you don't want to do further discovery and assessment.
 **Prepare VMware servers and VMs for migration** | Configure a number of settings on VMware servers and VMs. | Required | Required
 **Add the Server Migration tool** | Add the Azure Migrate Server Migration tool in the Azure Migrate project. | Required | Required
 **Deploy the Azure Migrate appliance** | Set up a lightweight appliance on a VMware VM for VM discovery and assessment. | Required | Not required.
