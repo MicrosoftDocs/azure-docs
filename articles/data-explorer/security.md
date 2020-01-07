@@ -51,7 +51,7 @@ To revoke access to customer-managed keys, use PowerShell or Azure CLI. For more
 
 ## Role-based access control
 
-Using [role-based access control (RBAC)](/azure/role-based-access-control/overview), you can segregate duties within your team and grant only the required access to cluster users. Instead of giving everybody unrestricted permissions on the cluster, you can allow only certain actions. You can configure access control for the databases in the Azure portal, using the Azure CLI, or Azure PowerShell.
+Using [role-based access control (RBAC)](/azure/role-based-access-control/overview), you can segregate duties within your team and grant only the required access to cluster users. Instead of giving everybody unrestricted permissions on the cluster, you can allow only certain actions. You can configure [access control for the databases](/azure/data-explorer/manage-database-permissions) in the [Azure portal](/azure/role-based-access-control/role-assignments-portal), using the [Azure CLI](/azure/role-based-access-control/role-assignments-cli), or [Azure PowerShell](/azure/role-based-access-control/role-assignments-powershell).
 
 ## Next steps
 
