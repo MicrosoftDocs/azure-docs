@@ -72,6 +72,8 @@
   items:
   - name: Workspace
     href: concept-workspace.md
+  - name: Environments
+    href: concept-environments.md
   - name: Data
     href: concept-data.md    
   - name: Model training
