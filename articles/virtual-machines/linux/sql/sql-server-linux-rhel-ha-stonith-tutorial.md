@@ -81,7 +81,7 @@ You should get the following results once the command completes:
 ## Create RHEL VMs inside the Availability Set
 
 > [!WARNING]
-> If you choose a Pay-As-You-Go (PAYG) RHEL image, and configure High Availability (HA), you may be required to register your subscription. This can cause you to pay twice for the subscription, as you will be charged for the Microsoft Azure RHEL subscription for the VM, and a subscription to Red Hat. For more information, see https://access.redhat.com/solutions/2458541. </br></br>To avoid being "double billed", use a RHEL HA image when creating the Azure VM.
+> If you choose a Pay-As-You-Go (PAYG) RHEL image, and configure High Availability (HA), you may be required to register your subscription. This can cause you to pay twice for the subscription, as you will be charged for the Microsoft Azure RHEL subscription for the VM, and a subscription to Red Hat. For more information, see https://access.redhat.com/solutions/2458541. </br></br>To avoid being "double billed", use a RHEL HA image when creating the Azure VM. Images offered as RHEL-HA images are also PAYG images with HA repo pre-enabled.
 
 1. Get a list of Virtual Machine (VM) images that offer RHEL with HA:
 
