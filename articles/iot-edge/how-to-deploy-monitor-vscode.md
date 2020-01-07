@@ -5,7 +5,7 @@ keywords:
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 1/6/2020
+ms.date: 1/7/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -121,9 +121,11 @@ Here's a basic deployment manifest with one module as an example:
 }
 ```
 
+If you need to determine which IoT Edge devices you can currently configure, run the **IoT Edge: Get Device Info** command.
+
 ## Identify devices with target conditions
 
-To identify the IoT Edge devices that are to receive the deployment, you must specify a target condition. To target a specific device, specify its `deviceId`. You can also target one or or more devices by providing an expression using tags. Those IoT Edge devices whose device twin contains values that match the target expression will receive the deployment.
+To identify the IoT Edge devices that are to receive the deployment, you must specify a target condition. A target condition is met when a device is matched with a specified deviceId, tag value, desired property value, or a reported property value.
 
 Here is an example for of a device twin that has tags:
 
@@ -138,11 +140,14 @@ Here is an example for of a device twin that has tags:
 }
 ```
 
-This device will receive a deployment if the target condition for the deployment contains an expression that matches one of tag's values, such as `tag.location.building = '20'`. If you want to target a specific device regardless of its tags or other settings, just specify the `deviceId` for the target condition.
+This device will receive a deployment if the target condition for the deployment contains an expression that matches one of tag's values, such as `tag.location.building = '20'`.
+
+If you want to target a specific device regardless of its tags or other settings, just specify the `deviceId` for the target condition.
 
 Here are some more examples:
 
 * deviceId ='linuxprod1'
+* deviceId = 'linuxprod1' OR deviceId = 'linuxprod2' OR deviceId = 'linuxprod3'
 * tags.environment ='prod'
 * tags.environment = 'prod' AND tags.location = 'westus'
 * tags.environment = 'prod' OR tags.location = 'westus'
@@ -152,7 +157,7 @@ See [target condition](module-deployment-monitoring.md#target-condition) for det
 
 ### Edit the device twin
 
-You can edit the device twin in Visual Studio Code to configure tags or the deviceId. From the **View** menu, select **Command Palette** and run the **IoT Edge: Edit Device Twin** command. Select your IoT Edge device and the device twin appears.
+To configure tags, you can edit the device twin in Visual Studio Code. From the **View** menu, select **Command Palette** and run the **IoT Edge: Edit Device Twin** command. Select your IoT Edge device and the device twin appears.
 
 In this example, no tags have been define. Replace the placeholder section `"tags": {}` with your own tags definition.
 
@@ -194,7 +199,7 @@ In this example, no tags have been define. Replace the placeholder section `"tag
 }
 ```
 
-If you need to determine which IoT Edge devices you can currently configure, run the **IoT Edge: Get Device Info** command.
+After you save the local file, run the **IoT Edge: Update Device Twin** command.
 
 ## Create deployment at scale
 
