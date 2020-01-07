@@ -97,38 +97,38 @@ To set up a managed identity in the portal, you first create an application and 
 
 1. If you wish to access only values stored directly in App Configuration, update the `CreateWebHostBuilder` method by replacing the `config.AddAzureAppConfiguration()` method.
 
-> [!IMPORTANT]
-> `CreateHostBuilder` replaces `CreateWebHostBuilder` in .NET Core 3.0.  Select the correct syntax based on your environment.
+    > [!IMPORTANT]
+    > `CreateHostBuilder` replaces `CreateWebHostBuilder` in .NET Core 3.0.  Select the correct syntax based on your environment.
 
-### [.NET Core 2.x](#tab/core2x)
+    ### [.NET Core 2.x](#tab/core2x)
 
- ```csharp
-    public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
-        WebHost.CreateDefaultBuilder(args)
-            .ConfigureAppConfiguration((hostingContext, config) =>
+    ```csharp
+        public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+            WebHost.CreateDefaultBuilder(args)
+                .ConfigureAppConfiguration((hostingContext, config) =>
+                {
+                    var settings = config.Build();
+                    config.AddAzureAppConfiguration(options =>
+                        options.Connect(new Uri(settings["AppConfig:Endpoint"]), new ManagedIdentityCredential()));
+                })
+                .UseStartup<Startup>();
+    ```
+
+    ### [.NET Core 3.x](#tab/core3x)
+
+    ```csharp
+        public static IHostBuilder CreateHostBuilder(string[] args) =>
+            Host.CreateDefaultBuilder(args)
+            .ConfigureWebHostDefaults(webBuilder =>
+            webBuilder.ConfigureAppConfiguration((hostingContext, config) =>
             {
                 var settings = config.Build();
-                config.AddAzureAppConfiguration(options =>
-                    options.Connect(new Uri(settings["AppConfig:Endpoint"]), new ManagedIdentityCredential()));
-            })
-            .UseStartup<Startup>();
- ```
-
-### [.NET Core 3.x](#tab/core3x)
-
-```csharp
-    public static IHostBuilder CreateHostBuilder(string[] args) =>
-        Host.CreateDefaultBuilder(args)
-        .ConfigureWebHostDefaults(webBuilder =>
-        webBuilder.ConfigureAppConfiguration((hostingContext, config) =>
-        {
-            var settings = config.Build();
-                config.AddAzureAppConfiguration(options =>
-                    options.Connect(new Uri(settings["AppConfig:Endpoint"]), new ManagedIdentityCredential()));
-            })
-            .UseStartup<Startup>());
-```
----
+                    config.AddAzureAppConfiguration(options =>
+                        options.Connect(new Uri(settings["AppConfig:Endpoint"]), new ManagedIdentityCredential()));
+                })
+                .UseStartup<Startup>());
+    ```
+    ---
 
 1. To use both App Configuration values and Key Vault references, update *Program.cs* as shown below. This code creates a new `KeyVaultClient` using an `AzureServiceTokenProvider` and passes this reference to a call to the `UseAzureKeyVault` method.
 
