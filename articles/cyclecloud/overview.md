@@ -32,14 +32,17 @@ CycleCloud integrates with Azure services such as [Azure Monitor](https://docs.m
 
 [//]: # (might want to convert this to a table with mini screenshots similar to App Insights overview)
 
-* **Scheduler agnostic**: use standard HPC schedulers such as Slurm, PBS Pro, LSF, Grid Engine, and HTCondor, or extend CycleCloud autoscaling plugins to work with your own scheduler
-* **Manage compute resources**: manage virtual machines and scale sets to provide a flexible set of compute resources that can meet your dynamic workload requirements
-* **Orchestrate compute workloads**: monitor job load, manage job submissions and job requirements.
-* **Auto scale resources**: automatically adjust cluster size and components based upon job load, availability, and time requirements
-* **Monitor and analyze**: collect and analyze performance data using visualization tools
-* **Template clusters**: use CycleCloud templates to share parameterized clusters with the community
-* **Customize and extend functionality**: use the comprehensive RESTful API to customize and extend functionality, deploy your own scheduler, and support into existing workload managers
-* **Integrate into existing workflows**: integrate into existing workflows and tools using the built-in CLI
+|  |  |
+| --- | --- |
+| **Scheduler agnostic**: use standard HPC schedulers such as Slurm, PBS Pro, LSF, Grid Engine, and HTCondor, or extend CycleCloud autoscaling plugins to work with your own scheduler  | ![Schedulers sample](./images/overview-schedulers-tn.png)  |
+| **Manage compute resources**: manage virtual machines and scale sets to provide a flexible set of compute resources that can meet your dynamic workload requirements | ![Compute resources sample](./images/overview-nodes-tn.png) |
+| **Orchestrate compute workloads**: monitor job load, manage job submissions and job requirements. | ![Workflow sample](./images/overview-workflow-tn.png) |
+| **Auto scale resources**: automatically adjust cluster size and components based upon job load, availability, and time requirements | ![Autoscale sample](./images/overview-scaling-tn.png) |
+| **Monitor and analyze**: collect and analyze performance data using visualization tools | ![Monitor sample](./images/overview-monitor-tn.png) |
+| **Template clusters**: use CycleCloud templates to share parameterized clusters with the community | ![Template sample](./images/overview-github-tn.png) |
+| **Customize and extend functionality**: use the comprehensive RESTful API to customize and extend functionality, deploy your own scheduler, and support into existing workload managers | ![REST sample](./images/overview-rest-tn.png) |
+| **Integrate into existing workflows**: integrate into existing workflows and tools using the built-in CLI | ![CLI sample](./images/overview-cli-tn.png) |
+
 ## How Do I Use Azure CycleCloud?
 
 Azure CycleCloud is an installable web application that you can run on premise or in an Azure VM. Once installed, CycleCloud can be configured to use compute and data resources in your prepared Azure subscription. CycleCloud provides a number of official cluster templates for schedulers (PBSPro, LSF, Grid Engine, Slurm, HTCondor), and filesystems (NFS, BeeGFS). Cluster templates provided by the CycleCloud community are also available. You can use these cluster templates unmodified or you can customize them for your specific needs.
