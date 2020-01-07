@@ -8,7 +8,6 @@ ms.author: sumeh
 
 <a name="HOLTop"></a>
 
-<!-- these links are for v2. Make sure to update them to the correct v3 content -->
 [Reference documentation](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-textanalytics) | [Library source code](https://github.com/Azure/azure-sdk-for-node/tree/master/lib/services/cognitiveServicesTextAnalytics) | [Package (NPM)](https://www.npmjs.com/package/azure-cognitiveservices-textanalytics) | [Samples](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/)
 
 ## Prerequisites
@@ -18,15 +17,8 @@ ms.author: sumeh
 
 ## Setting up
 
-<!--
-Add any extra steps preparing an environment for working with the client library. 
--->
-
 ### Create a Text Analytics Azure resource
-<!-- NOTE
-The below is an "include" file, which is a text file that will be referenced, and rendered on the docs site.
-These files are used to display text across multiple articles at once. Consider keeping them in-place for consistency with other articles.
- -->
+
 [!INCLUDE [text-analytics-resource-creation](../resource-creation.md)]
 
 ### Create a new Node.js application
@@ -64,19 +56,12 @@ Create variables for your resource's Azure endpoint and subscription key.
 
 [!INCLUDE [text-analytics-find-resource-information](../../find-azure-resource-info.md)]
 
-<!-- Use the below example variable names and example strings, for consistency with the other quickstart variables -->
 ```javascript
 const subscription_key = '<paste-your-text-analytics-key-here>';
 const endpoint = `<paste-your-text-analytics-endpoint-here>`;
 ```
 
-The `subscription_key` and `endpoint` variables are generated when the text analytics resource is created and can be found in **Quick Start** section of the resource.
-
 ## Object model
-
-<!-- 
-    Briefly introduce and describe the functionality of the library's main classes. Include links to their reference pages. If needed, briefly explain the object hierarchy and how the classes work together to manipulate resources in the service.
--->
 
 The Text Analytics client is a [TextAnalyticsClient](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-textanalytics/textanalyticsclient) object that authenticates to Azure using your key. The client provides several methods for analyzing text, as a single string, or a batch.
 
@@ -85,12 +70,12 @@ Text is sent to the API as a list of `documents`, which are `dictionary` objects
 The response object is a list containing the analysis information for each document. 
 
 ## Code examples
-<!-- If you add more code examples, add a link to them here-->
+
 * [Client Authentication](#client-authentication)
 * [Sentiment Analysis](#sentiment-analysis)
 * [Language detection](#language-detection)
 * [Entity recognition](#entity-recognition)
-* [Entity recognition - PII](#entity-pii)
+* [Entity recognition - Personal information](#personal-information-entity-recognition)
 * [Entity linking](#entity-linking)
 * [Key phrase extraction](#key-phrase-extraction)
 
@@ -104,7 +89,7 @@ const client = new TextAnalyticsClient(endpoint,  new CognitiveServicesCredentia
 
 ## Sentiment analysis
 
-<!-- TODO: Change description pointing to the latest methods and classes -->
+Create a string containing the document you want to analyze. Call the client's [analyzeSentiment()](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-textanalytics/textanalyticsclient#sentiment-models-textanalyticsclientsentimentoptionalparams-) method and get the returned [SentimentBatchResult](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-textanalytics/sentimentbatchresult) object. Iterate through the list of results, and print each document's ID and confidence scores.
 
 ```javascript
 async function sentimentAnalysis(client){
@@ -113,7 +98,7 @@ async function sentimentAnalysis(client){
         "I had the best day of my life. I wish you were there with me."
     ]
 
-    const sentimentResult = await client.analyseSentiment(sentimentInput);
+    const sentimentResult = await client.analyzeSentiment(sentimentInput);
     result.forEach(document => {
         console.log(`ID: ${document.id}`);
         console.log(`\tDocument Sentiment: ${document.sentiment}`);
@@ -153,7 +138,8 @@ ID: 0
 ```
 
 ## Language detection
-<!-- TODO: Change description pointing to the latest methods and classes -->
+
+Create a dictionary object to contain your document. Call the client's [detectLanguages()]() method and get the returned [LanguageBatchResult](). Then iterate through the results, and print each document's ID, and language.
 
 ```javascript
 async function languageDetection(client) {
@@ -187,7 +173,7 @@ ID: 0
 
 ## Entity Recognition
 
-<!-- TODO: Change description pointing to the latest methods and classes -->
+Create a dictionary object containing your document. Call the client's [recognizeEntities()]() method and get the [recognizeEntities]() object. Iterate through the list of results, and print the entity names, types, and scores.
 
 ```javascript
 async function entityRecognition(client){
@@ -235,16 +221,16 @@ Document ID: 1
         Offset: 71, Length: 2   Score: 0.8
 ```
 
-## Entity recognition - PII
-<!-- TODO: Add description for PII and updated links-->
+## Personal information entity recognition
+
+Create a dictionary object containing your document. Call the client's [recognizePiiEntities()]() method and get the [EntitiesBatchResult]() object. Iterate through the list of results, and print the entity names, types, and scores.
+
 
 ```javascript
 async function entityPiiRecognition(client){
 
     const entityPiiInput = [
-        "Insurance policy for SSN on file 123-12-1234 is here by approved.",
-        "Your ABA number - 111000025 - is the first 9 digits in the lower left hand corner of your personal check.",
-        "Is 998.214.865-68 your Brazilian CPF number?"
+        "Insurance policy for SSN on file 123-12-1234 is here by approved."
     ]
     const entityResults = await client.recognizePiiEntities(entityPiiInput);
 
@@ -270,7 +256,8 @@ Document ID: 0
 ```
 
 ## Entity Linking
-<!-- TODO: Add description for Linked Entity Recognition and updated links-->
+
+Create a dictionary object containing your document. Call the client's [recognizeLinkedEntities()]() method and get the [EntitiesBatchResult]() object. Iterate through the list of results, and print the entity names, IDs, and scores.
 
 ```javascript
 async function linkedEntityRecognition(client){
@@ -332,7 +319,8 @@ Document ID: 0
 ```
 
 ## Key phrase extraction
-<!-- TODO: Change description pointing to the latest methods and classes -->
+
+Create a list of objects, containing your documents. Call the client's [extractKeyPhrases()]() method and get the returned     [KeyPhraseBatchResult]() object. Iterate through the results and print each document's ID, and any detected key phrases.
 
 ```javascript
 async function keyPhraseExtraction(client){
