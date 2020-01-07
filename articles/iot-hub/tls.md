@@ -17,7 +17,7 @@ IoT Hub uses Transport Layer Security (TLS) to secure connections from IoT devic
 TLS 1.0 and 1.1 are considered legacy and are [planned for deprecation](./tls-1.2-everywhere.md). It is therefore strongly recommended to use TLS 1.2 as the preferred TLS version when connecting to IoT Hub.
 
 
-## Restrict client connections to TLS 1.2
+## Restrict connections to TLS 1.2 in your IoT Hub resource
 
 For added security, it is advised to configure your IoT Hubs to _only_ allow client connections that use TLS version 1.2 and to enforce the use of [recommended ciphers](#recommended-ciphers).
 
@@ -72,3 +72,19 @@ IoT Hubs that are configured to accept only TLS 1.2 will also enforce the use of
 * `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256`
 * `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384`
 
+
+### Use TLS 1.2 in your IoT Hub SDK's
+
+The following IoT Hub SDK languages versions are compatible with TLS 1.2.
+
+| Language | TLS 1.2 supported | Documentation |
+|----------|-------------------|---------------|
+| C#       | Yes               | Link          |
+| C        | Yes               | Link          |
+| Java     | Yes               | Link          |
+| Python   | Yes               | Link          |
+| NodeJS   | Yes               | Link          |
+
+### Use TLS 1.2 in your IoT Edge setup
+
+IoT Edge device can be configured to use TLS 1.2 when communicating with IoT Hub. For this purpose, use the [IoT Edge documentation page](https://github.com/Azure/iotedge/blob/master/edge-modules/edgehub-proxy/README.md).
