@@ -55,7 +55,7 @@ const TextAnalyticsAPIClient = require("@azure/cognitiveservices-textanalytics")
 
 Create variables for your resource's Azure endpoint and subscription key.
 
-[!INCLUDE [text-analytics-find-resource-information](../find-azure-resource-info.md)]
+[!INCLUDE [text-analytics-find-resource-information](../../find-azure-resource-info.md)]
 
 <!-- Use the below example variable names and example strings, for consistency with the other quickstart variables -->
 ```javascript

@@ -78,7 +78,7 @@ Navigate to the new folder and create a file called *<classname>.java*. Open it 
 
 In the application's class, create variables for your resource's key and endpoint. 
 
-[!INCLUDE [text-analytics-find-resource-information](../find-azure-resource-info.md)]
+[!INCLUDE [text-analytics-find-resource-information](../../find-azure-resource-info.md)]
 
 <!-- Use the below example variable names and example strings, for consistency with the other quickstart variables -->
 ```csharp
