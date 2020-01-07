@@ -18,7 +18,7 @@ Incremental snapshots also offer a differential capability, which is uniquely av
 
 ## Restrictions
 
-- Incremental snapshots are currently only available in East US, Central US, Canada Central, West Central US and North Europe.
+- Incremental snapshots are currently only available in East US, East US 2, Central US, West Central US, Canada East, Canada Central, and North Europe.
 - Incremental snapshots currently cannot be created after you've changed the size of a disk.
 - Incremental snapshots currently cannot be moved between subscriptions.
 - You can currently only generate SAS URIs of up to five snapshots of a particular snapshot family at any given time.
