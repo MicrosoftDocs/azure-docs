@@ -42,6 +42,8 @@ As updates are constantly made to the product, some features have added or diffe
 
 [Pivot transformation](https://www.youtube.com/watch?v=Tua14ZQA3F8&t=34s)
 
+[Pivot transformation: mapping drifted columns](https://youtu.be/5MygzCX0wnM)
+
 [Select transformation](http://youtu.be/F9VjQ_YyRyU?hd=1)
 
 [Select transformation: Rule-based mapping](https://youtu.be/5lf1lh1qMwU)
@@ -71,12 +73,6 @@ As updates are constantly made to the product, some features have added or diffe
 [Partition your files in the data lake](https://youtu.be/VNWv-MvLQ_0)
 
 [Data warehouse loading pattern](https://www.youtube.com/watch?v=7mLqwtmeQFg)
-
-## Schema drift
-
-For more information, see [Schema drift in mapping data flow](concepts-data-flow-schema-drift.md).
-
-[Drifted Columns using Pivot](https://youtu.be/5MygzCX0wnM)
 
 ## Optimizing mapping data flows
 
