@@ -23,7 +23,15 @@ Place the content that you wish to show in the Immersive Reader inside a contain
 
 ```html
 <div id='immersive-reader-content'>
-    ...
+    <b>Bold</b>
+    <i>Italic</i>
+    <u>Underline</u>
+    <strike>Strikethrough</strike>
+    <code>Code</code>
+    <sup>Superscript</sup>
+    <sub>Subscript</sub>
+    <ul><li>Unordered lists</li></ul>
+    <ol><li>Ordered lists</li></ol>
 </div>
 ```
 
