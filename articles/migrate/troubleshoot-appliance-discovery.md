@@ -67,7 +67,7 @@ If you get this connection error, you might be unable to connect to vCenter Serv
     4. Verify that vCenter Server is up and running.
 
 
-## Error 60052/60039: Appliance might not be registered"
+## Error 60052/60039: Appliance might not be registered
 
 - Error 60052, "The appliance might not be registered successfully to the Azure Migrate project" occurs if the Azure account used to register the appliance has insufficient permissions.
     - Make sure that the Azure user account used to register the appliance has at least Contributor permissions on the subscription.
@@ -127,7 +127,7 @@ If this doesn't work and you're discovering VMware servers:
 
 ## VM data not in portal
 
-If discovered VMs don't appear in the portal, wait a few minutes. It takes up to 30 minustes for discovered data to appear in the portal. If there's no data after 30 mins, try refreshing, as follows
+If discovered VMs don't appear in the portal, wait a few minutes. It takes up to 30 minutes for discovered data to appear in the portal. If there's no data after 30 mins, try refreshing, as follows
 
 1. In **Servers** > **Azure Migrate Server Assessment**, select **Overview**.
 2. Under **Manage**, select **Agent Health**.
