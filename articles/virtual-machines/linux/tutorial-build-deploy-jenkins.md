@@ -181,7 +181,7 @@ In this tutorial, you automated the deployment of an app to Azure by using Jenki
 > * Build your app in Jenkins.
 > * Configure Jenkins for Azure DevOps Services integration.
 > * Create a deployment group for the Azure virtual machines.
-> * Create a Azure pipeline that configures the VMs and deploys the app.
+> * Create an Azure pipeline that configures the VMs and deploys the app.
 
 To learn about how to use Azure pipelines for both Build and Release steps, refer to [this](https://docs.microsoft.com/azure/devops/pipelines/apps/cd/deploy-linuxvm-deploygroups).
 
