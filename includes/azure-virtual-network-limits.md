@@ -55,6 +55,7 @@ The following limits apply only for networking resources managed through **Azure
 The following limits apply only for networking resources managed through Azure Resource Manager per region per subscription. Learn how to [view your current resource usage against your subscription limits](../articles/networking/check-usage-against-limits.md).
 
 **Standard Load Balancer**
+
 | Resource                                | Default/maximum limit         |
 |-----------------------------------------|-------------------------------|
 | Load balancers                          | 1,000                         |
@@ -68,6 +69,7 @@ The following limits apply only for networking resources managed through Azure R
 <sup>1</sup>The limit is up to 150 resources, in any combination of standalone virtual machine resources, availability set resources, and virtual machine scale-set resources.
 
 **Basic Load Balancer**
+
 | Resource                                | Default/maximum limit        |
 |-----------------------------------------|------------------------------|
 | Load balancers                          | 1,000                        |
