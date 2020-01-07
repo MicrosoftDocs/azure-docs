@@ -100,7 +100,7 @@ For more information, see [Schema drift in mapping data flow](concepts-data-flow
 
 [Deduplication](https://www.youtube.com/watch?v=OLenvYwg__I)
 
-[Merge F\files](http://youtu.be/WbDTBAyYte8)
+[Merge files](http://youtu.be/WbDTBAyYte8)
 
 [Slowly changing dimensions type 1: overwrite](http://youtu.be/Rz2zx5GRbrA)
 
