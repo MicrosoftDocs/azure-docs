@@ -3,7 +3,7 @@ title: Create and upload an Ubuntu Linux VHD in Azure
 description: Learn to create and upload an Azure virtual hard disk (VHD) that contains an Ubuntu Linux operating system.
 services: virtual-machines-linux
 documentationcenter: ''
-author: szarkos
+author: MicahMcKittrick-MSFT
 manager: gwallace
 editor: tysonn
 tags: azure-resource-manager,azure-service-management
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-linux
 
 ms.topic: article
 ms.date: 06/24/2019
-ms.author: szark
+ms.author: mimckitt
 
 ---
 # Prepare an Ubuntu virtual machine for Azure
