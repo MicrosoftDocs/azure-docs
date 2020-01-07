@@ -5,7 +5,7 @@ services: storage
 author: tamram
 
 ms.service: storage
-ms.date: 12/05/2019
+ms.date: 01/03/2020
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: cbrooks
@@ -76,9 +76,11 @@ The following list explains the numbered steps in the diagram:
 
 ### Enable customer-managed keys for a storage account
 
-When you enable encryption with customer-managed keys for a storage account, Azure Storage wraps the account encryption key with the customer key in the associated key vault. Enabling customer-managed keys does not impact performance, and the account is encrypted with the new key immediately, without any time delay.
+When you enable encryption with customer-managed keys for a storage account, Azure Storage wraps the account encryption key with the customer-managed key in the associated key vault. Enabling customer-managed keys does not impact performance, and the account is encrypted with the new key immediately, without any time delay.
 
 A new storage account is always encrypted using Microsoft-managed keys. It's not possible to enable customer-managed keys at the time that the account is created. Customer-managed keys are stored in Azure Key Vault, and the key vault must be provisioned with access policies that grant key permissions to the managed identity that is associated with the storage account. The managed identity is available only after the storage account is created.
+
+When you modify the key being used for Azure Storage encryption by enabling or disabling customer-managed keys, updating the key version, or specifying a different key, then the encryption of the root key changes, but the data in your Azure Storage account does not need to be re-encrypted.
 
 To learn how to use customer-managed keys with Azure Key Vault for Azure Storage encryption, see one of these articles:
 
@@ -92,6 +94,8 @@ To learn how to use customer-managed keys with Azure Key Vault for Azure Storage
 ### Store customer-managed keys in Azure Key Vault
 
 To enable customer-managed keys on a storage account, you must use an Azure Key Vault to store your keys. You must enable both the **Soft Delete** and **Do Not Purge** properties on the key vault.
+
+Only RSA keys of size 2048 are supported with Azure Storage encryption. For more information about keys, see **Key Vault keys** in [About Azure Key Vault keys, secrets and certificates](../../key-vault/about-keys-secrets-and-certificates.md#key-vault-keys).
 
 The key vault must be located in the same subscription as the storage account. Azure Storage uses managed identities for Azure resources to authenticate to the key vault for encryption and decryption operations. Managed identities do not currently support cross-directory scenarios.
 
