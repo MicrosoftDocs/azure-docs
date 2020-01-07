@@ -27,7 +27,6 @@ For this purpose, provision a new IoT Hub in any of the [supported regions](#sup
 {
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
-    "variables": {},
     "resources": [
         {
             "type": "Microsoft.Devices/IotHubs",
@@ -35,12 +34,12 @@ For this purpose, provision a new IoT Hub in any of the [supported regions](#sup
             "name": "<provide-a-valid-resource-name>",
             "location": "<any-of-supported-regions-below>",
             "properties": {
-                "minTlsVersion": "1.2",
-                "sku": {
-                    "name": "S1",
-                    "tier": "Standard",
-                    "capacity": 1
-                }
+                "minTlsVersion": "1.2"
+            },
+            "sku": {
+                "name": "B1",
+                "tier": "Basic",
+                "capacity": 1
             }
         }
     ]
@@ -49,7 +48,7 @@ For this purpose, provision a new IoT Hub in any of the [supported regions](#sup
 
 The created IoT Hub resource using this configuration will refuse device and service clients who attempt to connect using TLS versions 1.0 and 1.1. Similarly, the TLS handshake will be refused if the client HELLO packet does not list any of the [recommended ciphers](#recommended-ciphers).
 
-Note that the `minTlsVersion` property is read-only and cannot be changed  once your IoT Hub resource is created. It is therefore essential that you properly test and validate that _all_ your IoT devices and services are compatible with TLS 1.2 and the [recommended ciphers](#recommended-ciphers) in advance.
+Note that the `minTlsVersion` property is read-only and cannot be changed once your IoT Hub resource is created. It is therefore essential that you properly test and validate that _all_ your IoT devices and services are compatible with TLS 1.2 and the [recommended ciphers](#recommended-ciphers) in advance.
 
 
 ### Supported regions
@@ -72,8 +71,4 @@ IoT Hubs that are configured to accept only TLS 1.2 will also enforce the use of
 * `TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384`
 * `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256`
 * `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384`
-* `TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256`
-* `TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384`
-* `TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256`
-* `TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384`
 
