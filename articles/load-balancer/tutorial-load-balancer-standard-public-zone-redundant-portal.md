@@ -194,7 +194,6 @@ To allow the load balancer to monitor the status of your app, you use a health p
     - *2* - for number of **Unhealthy threshold** or consecutive probe failures that must occur before a VM is considered unhealthy.
 4. Click **OK**.
 
-   [!div class="mx-imgBorder"]
    ![Adding a probe](./media/load-balancer-standard-public-availability-zones-portal/4-load-balancer-probes.png)
 
 ### Create a load balancer rule
