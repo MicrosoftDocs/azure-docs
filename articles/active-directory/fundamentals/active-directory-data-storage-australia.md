@@ -23,7 +23,7 @@ Identity data is stored by Azure AD in a geographical location based on the addr
 > Services and applications that integrate with Azure AD have access to Identity Customer Data. Evaluate each service and application you use to determine how Identity Customer Data is processed by that specific service and application, and whether they meet your company's data storage requirements. For more information about Microsoft services' data residency, see the Where is your data located? section of the Microsoft Trust Center.
 
 For customers who provided an address in Australia, Azure AD keeps identity data for these services within Australian datacenters: 
-- AAD Directory Management 
+- Azure AD Directory Management 
 - Authentication
 
 All other Azure AD services store customer data in global datacenters. To locate the datacenter for a service, see [Azure Active Directory – Where is your data located?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located)
