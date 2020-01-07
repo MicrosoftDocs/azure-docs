@@ -7,37 +7,31 @@ ms.subservice: data-science-vm
 author: gvashishtha
 ms.author: gopalv
 ms.topic: quickstart
-ms.date: 09/10/2019
+ms.date: 12/31/2019
 
 # Customer intent: As a data scientist, I want to learn how to provision the Linux DSVM so that I can move my existing workflow to the cloud.
 ---
 
 # Quickstart: Set up the Data Science Virtual Machine for Linux (Ubuntu)
 
-Get up and running with the Ubuntu Data Science Virtual Machine.
+Get up and running with the Ubuntu 18.04 Data Science Virtual Machine.
 
 ## Prerequisites
 
-To create a Windows Data Science Virtual Machine, you must have an Azure subscription. [Try Azure for free](https://azure.com/free).
+To create an Ubuntu 18.04 Data Science Virtual Machine, you must have an Azure subscription. [Try Azure for free](https://azure.com/free).
 Please note Azure free accounts do not support GPU enabled virtual machine SKUs.
 
 ## Create your Data Science Virtual Machine for Linux
 
-Here are the steps to create an instance of the Data Science Virtual Machine for Linux:
+Here are the steps to create an instance of the Data Science Virtual Machine Ubuntu 18.04:
 
 1. Go to the [Azure portal](https://portal.azure.com) You might be prompted to sign in to your Azure account if you're not already signed in.
-1. Find the virtual machine listing by typing in "data science virtual machine" and selecting "Data Science Virtual Machine for Linux (Ubuntu)."
-    
-    ![Ubuntu VM Listing](./media/dsvm-ubuntu-intro/search-ubuntu.png)
+1. Find the virtual machine listing by typing in "data science virtual machine" and selecting "Data Science Virtual Machine- Ubuntu 18.04 Preview."
 
 1. On the subsequent window, select **Create**.
 
-   [![](media/dsvm-ubuntu-intro/create-linux.png "Button to create an Ubuntu machine")](media/dsvm-ubuntu-intro/create-linux-expanded.png#lightbox)
-
 1. You should be redirected to the "Create a virtual machine" blade.
    
-   ![Basics tab corresponding to Ubuntu Virtual Machine](./media/dsvm-ubuntu-intro/review-create-ubuntu.png)
-
 1. Enter the following information to configure each step of the wizard:
 
     1. **Basics**:

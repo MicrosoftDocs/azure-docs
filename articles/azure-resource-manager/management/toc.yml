@@ -6,6 +6,8 @@
     href: overview.md
 - name: Concepts
   items:
+  - name: Subscription and service limits
+    href: azure-subscription-service-limits.md
   - name: Resource Manager and classic deployment
     href: deployment-models.md
   - name: Azure common security attributes

@@ -29,7 +29,7 @@ Complete [part one of the tutorial](tutorial-designer-automobile-price-train-sco
 
 ## Create a real-time inference pipeline
 
-To deploy your pipeline, you must first convert the training pipeline into a real-time inference pipeline. This process removes training modules and adds inputs and outputs for inferencing requests.
+To deploy your pipeline, you must first convert the training pipeline into a real-time inference pipeline. This process removes training modules and adds web service inputs and outputs to handle requests.
 
 ### Create a real-time inference pipeline
 
@@ -44,10 +44,10 @@ To deploy your pipeline, you must first convert the training pipeline into a rea
     * The trained model is stored as a **Dataset** module in the module palette. You can find it under **My Datasets**.
     * Training modules like **Train Model** and **Split Data** are removed.
     * The saved trained model is added back into the pipeline.
-    * **Web Service Input** and **Web Service Output** modules are added. These modules show where user data enters the model and where data is returned.
+    * **Web Service Input** and **Web Service Output** modules are added. These modules show where user data enters the pipeline and where data is returned.
 
     > [!NOTE]
-    > The *training pipeline* is saved under the new tab at the top of the pipeline canvas. It can also be found as a published pipeline in the designer.
+    > By default, the **Web Service Input** will expect the same data schema as the training data used to create the predictive pipeline. In this scenario, price is included in the schema. However, price isn't used as a factor during prediction.
     >
 
 1. Select **Run**, and use the same compute target and experiment that you used in part one.

@@ -1,63 +1,79 @@
 ---
 title: "Quickstart: Recognize speech, intents, and entities, Java - Speech service"
 titleSuffix: Azure Cognitive Services
-description: TBD
 services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
+ms.date: 01/02/2020
 ms.topic: include
-ms.date: 10/28/2019
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-two
 ---
 
 ## Prerequisites
 
-Before you get started, make sure to:
+Before you get started:
 
-> [!div class="checklist"]
->
-> * [Create an Azure Speech Resource](../../../../get-started.md)
-> * [Create a Language Understanding (LUIS) application and get an endpoint key](../../../../quickstarts/create-luis.md)
-> * [Setup your development environment](../../../../quickstarts/setup-platform.md?tabs=jre)
-> * [Create an empty sample project](../../../../quickstarts/create-project.md?tabs=jre)
+* If this is your first Java (JRE) project, use this guide to <a href="../quickstarts/create-project.md?tabs=jre" target="_blank">create an empty sample project</a>.
+* <a href="../quickstarts/setup-platform.md?tabs=jre" target="_blank">Install the Speech SDK for your development environment</a>.
+
+## Create a LUIS app for intent recognition
+
+[!INCLUDE [Create a LUIS app for intent recognition](../luis-sign-up.md)]
 
 ## Open your project
 
-Load your project and open `Main.java`.
+1. Open your preferred IDE.
+2. Load your project and open `Main.java`.
 
 ## Start with some boilerplate code
 
 Let's add some code that works as a skeleton for our project.
+
 [!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/intent-recognition/src/speechsdk/quickstart/Main.java?range=6-20,69-76)]
 
 ## Create a Speech configuration
 
-Before you can initialize an `IntentRecognizer` object, you need to create a configuration that uses your LUIS Endpoint key and region. Insert this code in the try / catch block in main
+Before you can initialize an `IntentRecognizer` object, you need to create a configuration that uses the key and location for your LUIS prediction resource.  
 
-This sample uses the `FromSubscription()` method to build the `SpeechConfig`. For a full list of available methods, see [SpeechConfig Class](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig?view=azure-dotnet).
-The Speech SDK will default to recognizing using en-us for the language, see [Specify source language for speech to text](../../../../how-to-specify-source-language.md) for information on choosing the source language.
+Insert this code in the try / catch block in `main()`. Make sure you update these values:
 
-> [!NOTE]
-> It is important to use the LUIS Endpoint key and not the Starter or Authoring keys as only the Endpoint key is valid for speech to intent recognition. See [Create a LUIS application and get an endpoint key](~/articles/cognitive-services/Speech-Service/quickstarts/create-luis.md) for instructions on how to get the correct key.
+* Replace `"YourLanguageUnderstandingSubscriptionKey"` with your LUIS prediction key. 
+* Replace `"YourLanguageUnderstandingServiceRegion"` with your LUIS location. 
+
+>[!TIP]
+> If you need help finding these values, see [Create a LUIS app for intent recognition](#create-a-luis-app-for-intent-recognition).
 
 [!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/intent-recognition/src/speechsdk/quickstart/Main.java?range=27)]
+
+This sample uses the `FromSubscription()` method to build the `SpeechConfig`. For a full list of available methods, see [SpeechConfig Class](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig?view=azure-dotnet).
+
+The Speech SDK will default to recognizing using en-us for the language, see [Specify source language for speech to text](../../../../how-to-specify-source-language.md) for information on choosing the source language.
 
 ## Initialize an IntentRecognizer
 
 Now, let's create an `IntentRecognizer`. Insert this code right below your Speech configuration.
+
 [!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/intent-recognition/src/speechsdk/quickstart/Main.java?range=30)]
 
 ## Add a LanguageUnderstandingModel and Intents
 
-You now need to associate a `LanguageUnderstandingModel` with the intent recognizer and add the intents you want recognized.
+You need to associate a `LanguageUnderstandingModel` with the intent recognizer, and add the intents you want recognized. We're going to use intents from the prebuilt domain for home automation. 
+
+Insert this code below your `IntentRecognizer`. Make sure that you replace `"YourLanguageUnderstandingAppId"` with your LUIS app ID. 
+
+>[!TIP]
+> If you need help finding this value, see [Create a LUIS app for intent recognition](#create-a-luis-app-for-intent-recognition).
+
 [!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/intent-recognition/src/speechsdk/quickstart/Main.java?range=33-36)]
 
 ## Recognize an intent
 
 From the `IntentRecognizer` object, you're going to call the `recognizeOnceAsync()` method. This method lets the Speech service know that you're sending a single phrase for recognition, and that once the phrase is identified to stop recognizing speech.
+
+Insert this code below your model:
 
 [!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/intent-recognition/src/speechsdk/quickstart/Main.java?range=41)]
 
@@ -65,18 +81,22 @@ From the `IntentRecognizer` object, you're going to call the `recognizeOnceAsync
 
 When the recognition result is returned by the Speech service, you'll want to do something with it. We're going to keep it simple and print the result to console.
 
-Below your call to `recognizeOnceAsync()`, add this code:
+Insert this code below your call to `recognizeOnceAsync()`:
 [!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/intent-recognition/src/speechsdk/quickstart/Main.java?range=44-65)]
 
 ## Release Resources
 
 It's important to release the speech resources when you're done using them. Insert this code at the end of the try / catch block:
+
 [!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/intent-recognition/src/speechsdk/quickstart/Main.java?range=67-68)]
 
 ## Check your code
 
 At this point, your code should look like this:  
-(We've added some comments to this version)
+
+> [!NOTE]
+> We've added some comments to this version.
+
 [!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/intent-recognition/src/speechsdk/quickstart/Main.java?range=6-76)]
 
 ## Build and run your app

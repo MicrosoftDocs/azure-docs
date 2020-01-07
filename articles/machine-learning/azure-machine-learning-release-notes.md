@@ -18,6 +18,34 @@ In this article, learn about Azure Machine Learning releases.  For the full SDK 
 
 See [the list of known issues](resource-known-issues.md) to learn about known bugs and workarounds.
 
+## 2020-01-06
+
+### Azure Machine Learning SDK for Python v1.0.83
+
++ **New features**
+  + Dataset: Add two options `on_error` and `out_of_range_datetime` for `to_pandas_dataframe` to fail when data has error values instead of filling them with `None`.
+
++ **Bug fixes and improvements**
+  + **azureml-automl-runtime**
+    + Fixed a regression that caused a TypeError to be raised when running AutoML on Python versions below 3.5.4.
+  + **azureml-core**
+    + Fixed bug in `datastore.upload_files` where relative path that didn't start with `./` was not able to be used.
+    + Added deprecation messages for all Image class codepaths
+    + Fixed Model Management URL construction for Mooncake region.
+    + Fixed issue where models using source_dir couldn't be packaged for Azure Functions.    
+    + Added an option to [Environment.build_local()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py) to push an image into AzureML workspace container registry
+    + Updated the SDK to use new token library on azure synapse in a back compatible manner.
+  + **azureml-interpret**
+    + Fixed bug where None was returned when no explanations were available for download. Now raises an exception, matching behavior elsewhere.
+  + **azureml-pipeline-steps**
+    + Disallowed passing `DatasetConsumptionConfig`s to `Estimator`'s `inputs` parameter when the `Estimator` will be used in an `EstimatorStep`.
+  + **azureml-sdk**
+    + Added AutoML client to azureml-sdk package, enabling remote AutoML runs to be submitted without installing the full AutoML package.
+  + **azureml-train-automl-client**
+    + Corrected alignment on console output for automl runs
+    + Fixed a bug where incorrect version of pandas may be installed on remote amlcompute.
+
+
 ## 2019-12-23
 
 ### Azure Machine Learning SDK for Python v1.0.81
