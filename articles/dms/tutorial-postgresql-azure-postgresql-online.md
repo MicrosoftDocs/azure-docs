@@ -470,7 +470,7 @@ To ensure all data is caught up, validate row counts between the source and targ
     For example:
 
     ```
-    az dms project task cutover --service-name PostgresCLI --project-name PGMigration --resource-group PostgresDemo --name Runnowtask  --database-name Inventory
+    az dms project task cutover --service-name PostgresCLI --project-name PGMigration --resource-group PostgresDemo --name Runnowtask  --object-name Inventory
     ```
 
 2. To monitor the cutover progress, run the following command:
