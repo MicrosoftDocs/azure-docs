@@ -94,7 +94,7 @@ For this scenario, every VM in the backend pool has three network interfaces:
 * Frontend 1: a loopback interface within guest OS that is configured with IP address of Frontend 1
 * Frontend 2: a loopback interface within guest OS that is configured with IP address of Frontend 2
 
-For each VM in the Backend Pool run the following commands from a Windows Command Prompt:
+For each VM in the backend pool, run the following commands at a Windows Command Prompt.
 
 To get the list of interface names you have on your VM, type this command:
 
