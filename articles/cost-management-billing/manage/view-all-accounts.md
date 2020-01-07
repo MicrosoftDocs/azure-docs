@@ -34,7 +34,7 @@ Azure portal supports the following type of billing accounts:
 To determine the type of your billing account, see [Check the type of your billing account](#check-the-type-of-your-account).
 
 ## Scopes for billing accounts
-A scope is a node within a billing account that you use to view and manage billing. It is where you manage billing data, payments, invoices, and conduct general account management. 
+A scope is a node within a billing account that you use to view and manage billing. It is where you manage billing data, payments, invoices, and conduct general account management.
 
 ### Microsoft Online Services Program
 
@@ -97,7 +97,7 @@ A scope is a node within a billing account that you use to view and manage billi
    ![Screenshot that shows billing scopes](./media/view-all-accounts/list-of-scopes.png)
 
 ## Check the type of your account
-[!INCLUDE [billing-check-mca](../../includes/billing-check-account-type.md)]
+[!INCLUDE [billing-check-mca](../../../includes/billing-check-account-type.md)]
 
 ## Need help? Contact us.
 

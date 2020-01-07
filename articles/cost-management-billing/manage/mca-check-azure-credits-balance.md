@@ -17,7 +17,7 @@ ms.author: banders
 
 You can check the Azure credit balance for your billing account for a Microsoft Customer Agreement in the Azure portal or through REST APIs.
 
-In the billing account for a Microsoft Customer Agreement, credits are assigned to a billing profile. Each billing profile has its own credits that are automatically applied to the charges on its invoice. You must have an owner, contributor, reader, or invoice manager role on the billing profile or owner, contributor, or reader role on the billing account to view Azure credit balance for a billing profile. To learn more about the roles, see [Understand Microsoft Customer Agreement administrative roles in Azure](../understand/understand-mca-roles.md).
+In the billing account for a Microsoft Customer Agreement, credits are assigned to a billing profile. Each billing profile has its own credits that are automatically applied to the charges on its invoice. You must have an owner, contributor, reader, or invoice manager role on the billing profile or owner, contributor, or reader role on the billing account to view Azure credit balance for a billing profile. To learn more about the roles, see [Understand Microsoft Customer Agreement administrative roles in Azure](understand-mca-roles.md).
 
 This article applies to a billing account for a Microsoft Customer Agreement. [Check if you have access to a Microsoft Customer Agreement](#check-access-to-a-microsoft-customer-agreement).
 
@@ -44,9 +44,9 @@ This article applies to a billing account for a Microsoft Customer Agreement. [C
    ![Screenshot of credit balance for a billing profile](./media/mca-check-azure-credits-balance/mca-payment-methods.png)
 
 4. The Azure credits page has the following sections:
-    
+
    #### Balance
-   
+
    The balance section displays the summary of your Azure credit balance.
 
    ![Screenshot of credit balance for a billing profile](./media/mca-check-azure-credits-balance/mca-credit-balance.png)
@@ -59,7 +59,7 @@ This article applies to a billing account for a Microsoft Customer Agreement. [C
    When your estimated balance drops to 0, you are charged for all your usage, including for products that are eligible for credits.
 
    #### Credits list
-   
+
    The credits list section displays the list of Azure credits.
 
    ![Screenshot of credits lists for a Billing profile](./media/mca-check-azure-credits-balance/mca-credits-list.png)
@@ -78,7 +78,7 @@ This article applies to a billing account for a Microsoft Customer Agreement. [C
    The transactions section displays all transactions that affected your credits balance.
 
    ![Screenshot of credit transactions for a billing profile](./media/mca-check-azure-credits-balance/mca-credits-transactions.png)
-    
+
    | Term | Definition |
    |---|---|
    | Transaction date | The date when the transaction happened |
@@ -151,9 +151,9 @@ The API response returns a list of billing accounts and their billing profiles.
 
 Use the `displayName` property of the billing profile to identify the billing profile for which you want to check the credit balance. Copy the `id` of the billing profile. For example, if you want to check credit balance for **Development** billing profile, you'd copy ```/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx_xxxx-xx-xx/billingProfiles/PBFV-xxxx-xxx-xxx```. Paste this value somewhere so that you can use it in the next step.
 
-### Get Azure credit balance 
+### Get Azure credit balance
 
-Make the following request, replacing `<billingProfileId>` with the `id` copied in the first step (```/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx_xxxx-xx-xx/billingProfiles/PBFV-xxxx-xxx-xxx```). 
+Make the following request, replacing `<billingProfileId>` with the `id` copied in the first step (```/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx_xxxx-xx-xx/billingProfiles/PBFV-xxxx-xxx-xxx```).
 
 ```json
 GET https://management.azure.com<billingProfileId>/providers/Microsoft.Consumption/credits/balanceSummary?api-version=2019-10-01
@@ -204,7 +204,7 @@ The API response returns estimated and current balance for the billing profile.
 
 ### Get list of credits
 
-Make the following request, replacing `<billingProfileId>` with the `id` copied in the first step (```/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx_xxxx-xx-xx/billingProfiles/PBFV-xxxx-xxx-xxx```). 
+Make the following request, replacing `<billingProfileId>` with the `id` copied in the first step (```/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx_xxxx-xx-xx/billingProfiles/PBFV-xxxx-xxx-xxx```).
 
 ```json
 GET https://management.azure.com<billingProfileId>/providers/Microsoft.Consumption/lots?api-version=2019-10-01

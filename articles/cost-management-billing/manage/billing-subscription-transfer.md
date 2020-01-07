@@ -97,7 +97,7 @@ If you have accepted the billing ownership of an Azure subscription, we recommen
 
 ## Supported subscription types
 
-Subscription transfer in the Azure portal is available for the subscription types listed below. Currently transfer is not supported for [Free Trial](https://azure.microsoft.com/offers/ms-azr-0044p/) or [Azure in Open (AIO)](https://azure.microsoft.com/offers/ms-azr-0111p/) subscriptions. For a workaround, see [Move resources to new resource group or subscription](../../azure-resource-manager/resource-group-move-resources.md). To transfer other subscriptions, like [Sponsorship](https://azure.microsoft.com/offers/ms-azr-0036p/) or support plans, [contact Azure Support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+Subscription transfer in the Azure portal is available for the subscription types listed below. Currently transfer is not supported for [Free Trial](https://azure.microsoft.com/offers/ms-azr-0044p/) or [Azure in Open (AIO)](https://azure.microsoft.com/offers/ms-azr-0111p/) subscriptions. For a workaround, see [Move resources to new resource group or subscription](../../azure-resource-manager/management/move-resource-group-and-subscription.md). To transfer other subscriptions, like [Sponsorship](https://azure.microsoft.com/offers/ms-azr-0036p/) or support plans, [contact Azure Support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 - [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/)\*
 - [Microsoft Partner Network](https://azure.microsoft.com/offers/ms-azr-0025p/)  
@@ -157,7 +157,7 @@ The only information available to the users in new account is the last month's c
 
 ### How do I migrate data and services for my Azure subscription to new subscription?
 
-If you can't transfer subscription ownership, you can manually migrate your resources. See [Move resources to new resource group or subscription](../../azure-resource-manager/resource-group-move-resources.md).
+If you can't transfer subscription ownership, you can manually migrate your resources. See [Move resources to new resource group or subscription](../../azure-resource-manager/management/move-resource-group-and-subscription.md).
 
 ### If I transfer a Visual Studio or Microsoft Partner Network subscription, does my credit carry forward with the subscription in the new account?
 

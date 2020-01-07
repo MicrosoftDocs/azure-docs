@@ -74,13 +74,13 @@ You need the following permissions to create subscriptions:
 
 ## Create an additional Azure subscription programmatically
 
-You can also create additional subscriptions programmatically. For more information, see [Programmatically create Azure subscriptions](../../azure-resource-manager/programmatically-create-subscription.md).
+You can also create additional subscriptions programmatically. For more information, see [Programmatically create Azure subscriptions](../../azure-resource-manager/management/programmatically-create-subscription.md).
 
 ## Next steps
 
 - [Add or change Azure subscription administrators](add-change-subscription-administrator.md)
-- [Move resources to new resource group or subscription](../../azure-resource-manager/resource-group-move-resources.md?toc=/azure/billing/TOC.json)
-- [Create management groups for resource organization and management](../../governance/management-groups/create.md?toc=/azure/billing/TOC.json)
+- [Move resources to new resource group or subscription](../../azure-resource-manager/management/move-resource-group-and-subscription.md)
+- [Create management groups for resource organization and management](../../governance/management-groups/create.md)
 - [Cancel your subscription for Azure](cancel-azure-subscription.md)
 
 ## Need help? Contact us.

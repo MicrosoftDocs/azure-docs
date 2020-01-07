@@ -40,7 +40,7 @@ Azure supports three scopes for resource management. Each scope supports managin
 
     Resource type: [Microsoft.Resources/subscriptions](/rest/api/resources/subscriptions)
 
-- [**Resource groups**](../azure-resource-manager/management/overview.md#resource-groups) - Logical groupings of related resources for an Azure solution that share the same lifecycle. For example resources that are deployed and deleted together.
+- [**Resource groups**](../../azure-resource-manager/management/overview.md#resource-groups) - Logical groupings of related resources for an Azure solution that share the same lifecycle. For example resources that are deployed and deleted together.
 
     Resource type: [Microsoft.Resources/subscriptions/resourceGroups](/rest/api/resources/resourcegroups)
 
@@ -144,7 +144,7 @@ Billing users don't have access to management groups because they don't explicit
 
 ## AWS scopes
 
-After AWS integration is complete, see [setup and configure AWS integration](../../cost-management/aws-integration-set-up-configure.md). The following scopes are available:
+After AWS integration is complete, see [setup and configure AWS integration](aws-integration-set-up-configure.md). The following scopes are available:
 
 - **External Billing account** - Represents a customer agreement with a third-party vendor. This is similar to the EA billing account.
 

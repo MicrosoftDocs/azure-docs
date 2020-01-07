@@ -103,7 +103,7 @@ On the day you switch, an invoice is generated for all outstanding charges. Then
 
 ### Can I migrate data and services to a new subscription?
 
-* You can migrate the resources directly to the new subscription, see [Move resources to new resource group or subscription](../../azure-resource-manager/resource-group-move-resources.md).
+* You can migrate the resources directly to the new subscription, see [Move resources to new resource group or subscription](../../azure-resource-manager/management/move-resource-group-and-subscription.md).
 * To transfer ownership of an Azure subscription and everything in it to someone else, see [Transferring ownership of an Azure subscription](billing-subscription-transfer.md)
 
 ## Need help? Contact us.

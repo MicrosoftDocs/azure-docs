@@ -25,7 +25,7 @@ Microsoft recommends that you manage access to resources using RBAC. However, if
 > [!TIP]
 > If you only use the Azure portal to manage the classic resources, you don't need to use the classic administrator.
 
-For more information, see [Azure Resource Manager vs. classic deployment](../../azure-resource-manager/resource-manager-deployment-model.md) and [Azure classic subscription administrators](../../role-based-access-control/classic-administrators.md).
+For more information, see [Azure Resource Manager vs. classic deployment](../../azure-resource-manager/management/deployment-models.md) and [Azure classic subscription administrators](../../role-based-access-control/classic-administrators.md).
 
 <a name="add-an-admin-for-a-subscription"></a>
 

@@ -71,18 +71,12 @@
         href: switch-azure-offer.md
       - name: Pay by invoice
         href: pay-by-invoice.md
-      - name: Create management groups
-        href: ../../azure-resource-manager/management-groups-create.md?toc=/azure/cost-management-billing/toc.json
-      - name: Move Azure resources
-        href: ../../azure-resource-manager/resource-group-move-resources.md?toc=/azure/cost-management-billing/toc.json
       - name: Create additional subscriptions
         href: create-subscription.md
       - name: Export subscription information
         href: export-subscriptions.md
       - name: Link Azure AD tenant
         href: ../../active-directory/active-directory-how-subscriptions-associated-directory.md?toc=/azure/cost-management-billing/toc.json
-      - name: Limits and quotas
-        href: ../../azure-subscription-service-limits.md?toc=/azure/cost-management-billing/toc.json
     items:
     - name: Manage Enterprise Agreement subscriptions
       items:
