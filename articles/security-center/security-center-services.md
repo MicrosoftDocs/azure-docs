@@ -112,11 +112,11 @@ The following PaaS resources are supported by Azure Security Center:
 
 |Service|Recommendations (Free)|Threat detection alerts (Standard)|Vulnerability assessment (Standard)|
 |----|:----:|:----:|:----:|
-|SQL|✔|✔|✔|
+|SQL Databases|✔|✔|✔|
 |Azure Container Registry|-|-|✔|
 |Azure Kubernetes Service|✔|✔|-|
-|PostGreSQL*|✔|✔|-|
-|MySQL*|✔|✔|-|
+|Azure Database for PostgreSQL*|✔|✔|-|
+|Azure Database for MySQL*|✔|✔|-|
 |Azure CosmosDB*|-|✔|-|
 |Storage Accounts|✔|-|-|
 |Blob Storage|✔|✔|-|
