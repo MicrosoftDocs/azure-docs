@@ -10,7 +10,7 @@ ms.devlang: csharp
 ms.topic: quickstart
 ms.custom: mvc seodec18
 ms.date: 11/12/2019
-# As a developer new to Azure Digital Twins, I need to see how to send motion and carbon dioxide telemetry to a space in Azure Digital Twins and how to find available rooms with fresh air by using a back-end application. 
+# As a developer new to Azure Digital Twins, I need to understand how to send motion and carbon dioxide telemetry to a space in Azure Digital Twins and how to find available rooms with fresh air by using a back-end application. 
 ---
 
 # Quickstart: Find available rooms by using Azure Digital Twins
@@ -99,7 +99,7 @@ Build and run the sensor simulator device application by following these steps.
 1. Run `cd device-connectivity`.
 1. Run `dotnet restore`.
 1. Edit [appsettings.json](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/device-connectivity/appsettings.json) to update **DeviceConnectionString** with the previous `ConnectionString`. Save the updated file.
-1. Run `dotnet run` to start sending sensor data. You see it sent to Digital Twins as shown in the following image.
+1. Run `dotnet run` to start sending sensor data. You read it sent to Digital Twins as shown in the following image.
 
      [![Device Connectivity](media/quickstart-view-occupancy-dotnet/digital-twins-device-connectivity.png)](media/quickstart-view-occupancy-dotnet/digital-twins-device-connectivity.png#lightbox)
 
@@ -159,7 +159,7 @@ To continue to the tutorials, don't clean up the resources created in this quick
 
 ## Next steps
 
-This quickstart used a simple scenario and sample applications to show how Digital Twins can be used to find rooms with good working conditions. For in-depth analysis of this scenario, see this tutorial:
+This quickstart used a simple scenario and sample applications to show how Digital Twins can be used to find rooms with good working conditions. For in-depth analysis of this scenario, read this tutorial:
 
 >[!div class="nextstepaction"]
 >[Tutorial: Deploy Azure Digital Twins and configure a spatial graph](tutorial-facilities-setup.md)

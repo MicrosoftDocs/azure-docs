@@ -153,7 +153,7 @@ You can use the [Event Hubs](../event-hubs/event-hubs-about.md) service to creat
 
 1. The **Go to Environment** button opens the [Time Series Insights explorer](../time-series-insights/time-series-insights-explorer.md). If it doesn't show any events, simulate device events by browsing to the **device-connectivity** project of your Digital Twins sample, and running `dotnet run`.
 
-1. After a few simulated events are generated, go back to the Time Series Insights explorer, and select the refresh button at the top. You should see analytical charts being created for your simulated sensor data. 
+1. After a few simulated events are generated, go back to the Time Series Insights explorer, and select the refresh button at the top. You should read analytical charts being created for your simulated sensor data. 
 
     [![Chart in the Time Series Insights explorer](./media/tutorial-facilities-analyze/tsi-explorer.png)](./media/tutorial-facilities-analyze/tsi-explorer.png#lightbox)
 

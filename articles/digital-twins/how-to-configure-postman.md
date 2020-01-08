@@ -125,7 +125,7 @@ After completing the previous steps, configure Postman to make an authenticated 
    > * You do not need to specify those headers for each part.
    > * You must select `multipart/mixed` or another appropriate  **Content-Type** for the entire request.
 
-1. Lastly, select **Send** to submit your multipart HTTP POST request. A status code of `200` or `201` indicates a successful request. You will also see the appropriate response message.
+1. Lastly, select **Send** to submit your multipart HTTP POST request. A status code of `200` or `201` indicates a successful request. You will also read the appropriate response message.
 
 ## Next steps
 

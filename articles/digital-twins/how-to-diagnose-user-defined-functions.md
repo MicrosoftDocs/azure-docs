@@ -51,7 +51,7 @@ AzureDiagnostics
 | --- | --- |
 | YOUR_CORRELATION_IDENTIFIER | The Correlation ID that was specified on the event data |
 
-To see all recent telemetry logs query:
+To read all recent telemetry logs query:
 
 ```Kusto
 AzureDiagnostics

@@ -230,7 +230,7 @@ In this section, you'll use the project named *device-connectivity* in the sampl
 
 ## Get results of the user-defined function
 
-The user-defined function runs every time your instance receives device and sensor data. This section queries your Azure Digital Twins instance to get the results of the user-defined function. You'll see in near real time, when a room is available, that the air is fresh and temperature is right. 
+The user-defined function runs every time your instance receives device and sensor data. This section queries your Azure Digital Twins instance to get the results of the user-defined function. You'll read in near real time, when a room is available, that the air is fresh and temperature is right. 
 
 1. Open the command window that you used to provision the sample, or a new command window, and go to the **occupancy-quickstart\src** folder of the sample again.
 
