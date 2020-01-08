@@ -134,21 +134,16 @@ sqlpackage.exe /a:Import /sf:testExport.bacpac /tdn:NewDacFX /tsn:apptestserver.
 
 ## Performance considerations
 
-Export speeds vary due to many factors (for example, data shape) so it's impossible to predict what speed should be expected. The import export service uses the same technology as SqlPackage and may take considerable time, particularly for large databases.
+Export speeds vary due to many factors (for example, data shape) so it's impossible to predict what speed should be expected. SqlPackage may take considerable time, particularly for large databases.
 
-To get the best performance using the import export service you can try the following strategies:
+To get the best performance you can try the following strategies:
 
 1. Make sure no other workload is running on the database. Create a copy before export may be the best solution to ensure no other workloads are running.
 2. Increase database service level objective (SLO) to better handle the export workload (primarily read I/O). If the database is currently GP_Gen5_4, perhaps a Business Critical tier would help with read workload.
 3. Make sure there are clustered indexes particularly for large tables. 
-
-
-Even with all of the above conditions, the import export service may not meet the performance targets of the customer. For comparison the customer can try to run SqlPackage on their own in an Azure VM, with the following strategies:
-
-1. Same concerns over database workload and SLO as previously mentioned.
-2. VM should be in the same region as the database to help avoid network constraints.
-3. VM should have SSD with adequate size for generating temp artifacts before uploading to blob storage.
-4. VM should have adequate core and memory configuration for the specific database.
+4. Virtual machines (VMs) should be in the same region as the database to help avoid network constraints.
+5. VMs should have SSD with adequate size for generating temp artifacts before uploading to blob storage.
+6. VMs should have adequate core and memory configuration for the specific database.
 
 ## Store the imported or exported .BACPAC file
 
