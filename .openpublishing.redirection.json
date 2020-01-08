@@ -39870,12 +39870,12 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/azure-monitor/platform/activity-logs-overview.md",
+      "source_path": "articles/azure-monitor/platform/platform-logs-overview.md",
       "redirect_url": "/azure/azure-monitor/platform/platform-logs-overview",
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/azure-monitor/platform/resource-logs-overview.md",
+      "source_path": "articles/azure-monitor/platform/platform-logs-overview.md",
       "redirect_url": "/azure/azure-monitor/platform/platform-logs-overview",
       "redirect_document_id": false
     },
