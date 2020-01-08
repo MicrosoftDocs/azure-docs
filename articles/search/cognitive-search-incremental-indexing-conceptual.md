@@ -85,7 +85,7 @@ PUT https://customerdemos.search.windows.net/datasources/callcenter-ds?api-versi
 
 An opposite scenario is one where you want to deploy a new version of a custom skill; nothing within the enrichment pipeline changes, but you need a specific skill invalidated and all affected documents reprocessed to reflect the benefits of an updated model. 
 
-In such instances, call the invalidate skills operation on the skillset. The [Reset Skillset](https://docs.microsoft.com/rest/api/searchservice/reset-skillset) accepts a POST request with a list of skill outputs in the cache that should be invalidated.
+In such instances, call the invalidate skills operation on the skillset. The [Reset Skills](preview-api-resetskills.md) accepts a POST request with a list of skill outputs in the cache that should be invalidated.
 
 ## Change detection
 
@@ -144,7 +144,7 @@ Usage information and examples can be found in [Configure caching for incrementa
 
 + [Update Skillset](https://docs.microsoft.com/rest/api/searchservice/update-skillset) supports a new parameter on the request: `disableCacheReprocessingChangeDetection`, which should be set to `true` when you want no updates to existing documents based on the current action.
 
-+ [Reset Skillset](https://docs.microsoft.com/rest/api/searchservice/reset-skillset) is a new operation used to invalidate all or part of the skillset.
++ [Reset Skills](preview-api-resetskills.md) is a new operation used to invalidate a skillset.
 
 ### Datasources
 
