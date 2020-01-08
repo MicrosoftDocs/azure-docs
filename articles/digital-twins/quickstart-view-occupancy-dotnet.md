@@ -99,7 +99,7 @@ Build and run the sensor simulator device application by following these steps.
 1. Run `cd device-connectivity`.
 1. Run `dotnet restore`.
 1. Edit [appsettings.json](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/device-connectivity/appsettings.json) to update **DeviceConnectionString** with the previous `ConnectionString`. Save the updated file.
-1. Run `dotnet run` to start sending sensor data. You read it sent to Digital Twins as shown in the following image.
+1. Run `dotnet run` to start sending sensor data. It will be sent to Azure Digital Twins as shown in the following image.
 
      [![Device Connectivity](media/quickstart-view-occupancy-dotnet/digital-twins-device-connectivity.png)](media/quickstart-view-occupancy-dotnet/digital-twins-device-connectivity.png#lightbox)
 

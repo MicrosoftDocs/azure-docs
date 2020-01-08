@@ -71,7 +71,7 @@ In the extracted sample folder, open the file **digital-twins-samples-csharp\dig
 
 * You can use the provisioning sample **occupancy-quickstart** to configure and provision a [spatial intelligence graph](concepts-objectmodel-spatialgraph.md#digital-twins-object-models). This graph is the digitized image of your physical spaces and the resources in them. It uses an [object model](concepts-objectmodel-spatialgraph.md#digital-twins-object-models), which defines objects for a smart building. For a complete list of Digital Twins objects and REST APIs, visit [this REST API documentation](https://docs.westcentralus.azuresmartspaces.net/management/swagger) or the Management API URL that was created for [your instance](#deploy-digital-twins).
 
-   To explore the sample to read how it communicates with your Digital Twins instance, you can start with the **src\actions** folder. The files in this folder implement the commands that you'll use in these tutorials:
+   To explore the sample to understand how it communicates with your Digital Twins instance, you can start with the **src\actions** folder. The files in this folder implement the commands that you'll use in these tutorials:
     - The **provisionSample.cs** file shows how to provision your spatial graph.
     - The **getSpaces.cs** file gets information about the provisioned spaces.
     - The **getAvailableAndFreshSpaces.cs** file gets the results of a custom function called a user-defined function.
@@ -98,7 +98,7 @@ In the extracted sample folder, open the file **digital-twins-samples-csharp\dig
    * **Tenant**: Enter the directory ID of your [Azure AD tenant](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant). You also noted this ID in the section where you [set app permissions](#grant-permissions-to-your-app).
    * **BaseUrl**: Enter the URL of your Digital Twins instance. To get this URL, replace the placeholders in this URL with values for your instance: `https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/api/v1.0/`. You can also get this URL by modifying the Management API URL from [the deployment section](#deploy-digital-twins). Replace **swagger/** with **api/v1.0/**.
 
-1. Read a list of Digital Twins features that you can explore by using the sample. Run the following command:
+1. Review a list of Digital Twins features that you can explore by using the sample. Run the following command:
 
     ```cmd/sh
     dotnet run

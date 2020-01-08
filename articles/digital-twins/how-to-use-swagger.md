@@ -45,7 +45,7 @@ Management API object models are also listed.
 
 You can select each listed object model for a more detailed summary of key attributes.
 
-[![Swagger models expanded to read contents of models](media/how-to-use-swagger/swagger-management-model-img.png)](media/how-to-use-swagger/swagger-management-model-img.png#lightbox)
+[![Swagger models expanded to read the contents of models](media/how-to-use-swagger/swagger-management-model-img.png)](media/how-to-use-swagger/swagger-management-model-img.png#lightbox)
 
 The generated Swagger object models are convenient to read all available Azure Digital Twins [objects and APIs](./concepts-objectmodel-spatialgraph.md). Developers can use this resource when they build solutions on Azure Digital Twins.
 
@@ -61,13 +61,13 @@ Each listed endpoint also includes the required request information, such as the
 
 [![Swagger endpoints displayed in Swagger UI](media/how-to-use-swagger/swagger-management-endpoints-img.png)](media/how-to-use-swagger/swagger-management-endpoints-img.png#lightbox)
 
-To read a more detailed overview, select each resource.
+Select each resource to display their additional contents to get a more detailed overview.
 
 ## Use Swagger to test endpoints
 
 One of the powerful functionalities Swagger provides is the ability to test an API endpoint directly through the documentation UI.
 
-After you select a specific endpoint, you read **Try it out**.
+After you select a specific endpoint, the **Try it out** button will be displayed.
 
 [![Swagger Try it out button](media/how-to-use-swagger/swagger-management-try-img.png)](media/how-to-use-swagger/swagger-management-try-img.png#lightbox)
 
@@ -79,7 +79,7 @@ After you execute the test, you can validate the response data.
 
 ## Swagger response data
 
-Each listed endpoint also includes response body data to validate your development and tests. These examples include the status codes and JSON you want to read for successful HTTP requests.
+Each listed endpoint also includes response body data to validate your development and tests. These examples include the status codes and JSON for successful HTTP requests.
 
 [![Swagger JSON response example](media/how-to-use-swagger/swagger-management-response-img.png)](media/how-to-use-swagger/swagger-management-response-img.png#lightbox)
 

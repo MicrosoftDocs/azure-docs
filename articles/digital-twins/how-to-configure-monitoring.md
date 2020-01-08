@@ -92,7 +92,7 @@ Examples of use include:
 Full log querying is provided through [Azure Monitor logs](../azure-monitor/log-query/log-query-overview.md). To set up these powerful features:
 
 1. Search for **Log Analytics** in the Azure portal.
-1. You will read your available **Log Analytics workspace** instances. Choose one and select **Logs** to query:
+1. Your available **Log Analytics workspace** instances will be displayed. Choose one and select **Logs** to query:
 
     [![Log analytics](media/how-to-configure-monitoring/log-analytics.png)](media/how-to-configure-monitoring/log-analytics.png#lightbox)
 

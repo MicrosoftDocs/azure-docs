@@ -48,7 +48,7 @@ Azure Digital Twins currently supports the following **EventTypes** that will be
 
 > [!IMPORTANT]  
 > Not all **EndpointTypes** support all **EventTypes**.
-> Read the following table for the **EventTypes** that are allowed for each **EndpointType**.
+> Review the following table for the **EventTypes** that are allowed for each **EndpointType**.
 
 |             | DeviceMessages | TopologyOperation | SpaceChange | SensorChange | UdfCustom |
 | ----------- | -------------- | ----------------- | ----------- | ------------ | --------- |
