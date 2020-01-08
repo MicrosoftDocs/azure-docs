@@ -25,7 +25,7 @@ ms.service: azure-remote-rendering
 
 ## Supported runtime devices
 
-Azure Remote Rendering currently only supports HoloLens 2 as a target device for the runtime. Other targets are planned for the future but are currently not available.
+Azure Remote Rendering currently only supports HoloLens 2 as a target device for the runtime.
 
 When using HoloLens 2, we recommend checking that your device has the newest HEVC codec installed as proper codec improves remote rendering latency significantly. To check the version of your installed HEVC codec you can follow these steps:
 
