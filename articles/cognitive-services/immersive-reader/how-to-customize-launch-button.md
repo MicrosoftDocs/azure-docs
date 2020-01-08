@@ -61,7 +61,7 @@ This renders the following:
 
 ## Customize the language of the button
 
-If you use the `text` or `iconAndText` style, you can configure the language of the button using the `data-locale` attribute. The default language is English.
+Configure the language of the button and the button's alt text using the `data-locale` attribute. The default language is English.
 
 ```html
 <div class='immersive-reader-button' data-locale='fr-FR'></div>

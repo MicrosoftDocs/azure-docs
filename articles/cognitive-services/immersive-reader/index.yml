@@ -48,7 +48,7 @@ landingContent:
         links:
           - text: Create an Immersive Reader Resource
             url: how-to-create-immersive-reader.md
-          - text: How to set the cookie policy
+          - text: Set the cookie policy
             url: how-to/set-cookie-policy.md
           - text: Customize Immersive Reader button
             url: how-to-customize-launch-button.md

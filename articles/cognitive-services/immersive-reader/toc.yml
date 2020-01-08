@@ -23,7 +23,7 @@
   items:
   - name: Create Immersive Reader resource
     href: how-to-create-immersive-reader.md
-  - name: How to set the cookie policy
+  - name: Set the cookie policy
     href: how-to/set-cookie-policy.md
   - name: Customize Immersive Reader button
     href: how-to-customize-launch-button.md
