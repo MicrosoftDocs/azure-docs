@@ -134,7 +134,7 @@ Communication is critical to the success of any new service. Proactively communi
 
 ### Plan a pilot
 
-We recommend that the initial configuration of automatic user provisioning be in a test environment with a small subset of users before scaling it to all users in production.
+We recommend that the initial configuration of automatic user provisioning be in a test environment with a small subset of users before scaling it to all users in production. See [best practices](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-deployment-plans#best-practices-for-a-pilot) for running a pilot.
 
 #### Best practices for a pilot  
 
