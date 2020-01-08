@@ -50,6 +50,7 @@
 - name: How To
   items:
   - name: Legacy components
+    displayName: deprecated, deprecation, retired, retirement, legacy
     href: legacy-components.md
     items:
      - name: Migrate from Azure Media Encoder
