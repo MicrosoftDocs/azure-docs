@@ -1,6 +1,6 @@
 ---
-title: Azure per VM vCPU quota increase requests | Microsoft Docs
-description: per VM vCPU quota increase requests
+title: Request an increase in vCPU quota limits per Azure VM series | Microsoft Docs
+description: This article discusses how to request quota limit increases per VM vCPU.
 author: sowmyavenkat86
 ms.author: svenkat
 ms.date: 06/07/2019
@@ -10,119 +10,142 @@ ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
 
 ---
 
-# Standard quota: per VM Series vCPU limit increase
+# Standard quota: Increase limits by VM series
 
-Resource Manager supports two types of vCPU quotas for virtual machines. **Pay-as-you-go VMs and Reserved VM Instances** use standard quota. **Spot VMs** use Spot quota. 
-Standard vCPU quota for pay-as-you-go and Reserved VM Instances is enforced at two tiers for each subscription in each region
+Azure Resource Manager supports two types of vCPU quotas for virtual machines:
+* *Pay-as-you-go VMs* and *reserved VM instances* are subject to a *standard vCPU quota*.
+* *Spot VMs* are subject to a *spot vCPU quota*. 
 
-The first tier is the **Total Regional vCPUs limit** (across all VM Series), and the second tier is the **per VM Series vCPUs limit** (such as the Dv3-series vCPUs). Anytime a new VM is to be deployed, the sum of new and existing vCPUs usage for that VM Series must not exceed the vCPU quota approved for that particular VM Series. Further, the total new and existing vCPU count deployed across all VM Series should not exceed the Total Regional vCPUs quota approved for the subscription. If either of those quotas are exceeded, the VM deployment will not be allowed.
-You can request an increase of the vCPUs quota limit for the VM series from Azure portal. An increase in the VM Series quota automatically increases the Total Regional vCPUs limit by the same amount. 
+The standard vCPU quota for pay-as-you-go and reserved VM instances is enforced at two tiers for each subscription in each region:
+* The first tier is the *total regional vCPUs limit* (across all VM series).
+* The second tier is the *per-VM series vCPUs limit* (such as the Dv3-series vCPUs). 
 
-Learn more about standard vCPU quotas on the [Virtual machine vCPU quotas page](https://docs.microsoft.com/azure/virtual-machines/windows/quotas) and [Azure subscription and service limits page](https://docs.microsoft.com/azure/azure-supportability/classic-deployment-model-quota-increase-requests). 
+Whenever you deploy a new spot VM, the total new and existing vCPU usage for that VM series must not exceed the approved vCPU quota for that particular VM series. Additionally, the total number of new and existing vCPUs that are deployed across all VM series should not exceed the total approved regional vCPU quota for the subscription. If either of these quotas is exceeded, the VM deployment isn't allowed.
 
-Learn more about increasing the regional vCPU limit for standard quota [here](https://docs.microsoft.com/azure/azure-supportability/regional-quota-requests). 
+You can request an increase in the vCPU quota limit for the VM series by using the Azure portal. An increase in the VM series quota automatically increases the total regional vCPU limit by the same amount. 
 
-Learn more about **increasing Spot VM vCPU limits** [here](https://docs.microsoft.com/azure/azure-supportability/low-priority-quota).
+To learn more about standard vCPU quotas, see [Virtual machine vCPU quotas](https://docs.microsoft.com/azure/virtual-machines/windows/quotas) and [Azure subscription and service limits](https://docs.microsoft.com/azure/azure-supportability/classic-deployment-model-quota-increase-requests). 
 
-You can request an increase in **standard vCPU quota limits per VM Series** via **Help + Support** blade or the **Usages + Quota** blade in the portal.
+To learn about increasing the vCPU limit by region for standard quota, see [Standard quota: Increase limits by region](https://docs.microsoft.com/azure/azure-supportability/regional-quota-requests). 
 
-## Request standard vCPU quota increase per VM Series at subscription level using the Help + Support blade
+To learn more about increasing spot VM vCPU limits, see [Spot quota: Increase limits for all VM series](https://docs.microsoft.com/azure/azure-supportability/low-priority-quota).
 
-Follow the instructions below to create a support request via Azure's 'Help + Support' blade available in the Azure portal. 
+You can request an increase in standard vCPU quota limits per VM series in either of two ways, as described in the next sections.
 
-You can also request Quota for multiple regions through a single support case. Refer to Step 11 below for details.
+## Request a standard quota increase from the "Help + support" pane
 
-1. From https://portal.azure.com, select **Help + Support**.
+To request a standard vCPU quota increase per VM series from the **Help + support** pane, do the following: 
 
-   ![Help + Support](./media/resource-manager-core-quotas-request/helpsupport.png)
+> [!NOTE]
+> You can also request a quota limit increase for multiple regions through a single support case. For details, see step 8.
+
+1. In the left pane of the [Azure portal](https://portal.azure.com), select **Help + support**.
+
+   ![The "Help + support" link](./media/resource-manager-core-quotas-request/helpsupport.png)
  
-2.  Select **New support request**. 
+1. In the **Help + support** pane, select **New support request**. 
 
-     ![New support request](./media/resource-manager-core-quotas-request/newsupportrequest.png)
+    ![New support request](./media/resource-manager-core-quotas-request/newsupportrequest.png)
 
-3. In the Issue type drop-down, choose **Service and subscription limits (quotas)**.
+1. In the **Issue type** drop-down list, select **Service and subscription limits (quotas)**.
 
-   ![Issue type drop-down](./media/resource-manager-core-quotas-request/issuetypedropdown.png)
+   ![The "Issue type" drop-down list](./media/resource-manager-core-quotas-request/issuetypedropdown.png)
 
-4. Select the subscription that needs an increased quota.
+1. In the **Subscription** drop-down list, select the subscription whose quota you want to increase.
 
-   ![Select subscription newSR](./media/resource-manager-core-quotas-request/select-subscription-sr.png)
+   ![The "Subscription" drop-down list](./media/resource-manager-core-quotas-request/select-subscription-sr.png)
    
-5. Select **Compute -VM (cores-vCPUs) subscription  limit increases** in **quota type** drop-down. 
+1. In the **Quota type** drop-down list, select **Compute-VM (cores-vCPUs) subscription limit increases**. 
 
-   ![Select quota type](./media/resource-manager-core-quotas-request/select-quota-type.png)
+   ![The "Quota type" drop-down list](./media/resource-manager-core-quotas-request/select-quota-type.png)
 
-6. In **Problem Details**, provide additional information to help process your request by clicking **Provide details**.
+1. On the **Details** tab, under **Problem Details**, select **Provide details**, and then enter additional information to help process your request.
 
-   ![Provide details](./media/resource-manager-core-quotas-request/provide-details.png)
+   ![The "Provide details" link](./media/resource-manager-core-quotas-request/provide-details.png)
 
-7. In the **Quota details** panel, select **Deployment model** and select a **location.**
+1. In the **Quota details** pane at the top right, do the following:
 
-   ![Quota Details DM](./media/resource-manager-core-quotas-request/1-7.png)
+   ![The "Quota details" pane](./media/resource-manager-core-quotas-request/1-7.png)
 
-8. For the selected location, select **Type** value as **‘Standard’**. You can request both Standard and Spot quota types from a single support case through multi-selection support on the **Type** field. Learn more about **increasing Spot quota limits** on the this [page](https://docs.microsoft.com/azure/virtual-machine-scale-sets/use-spot)
+   a. In the **Deployment model** drop-down list, select the appropriate model.
 
-   ![SKU Family](./media/resource-manager-core-quotas-request/1-8.png)
+   b. In the **Locations** drop-down list, select a location. For the selected location, under **Types**, in the **Select a type** box, enter **Standard**.
 
-9. Select the **SKU families** that require an increase
+   ![The "Quota details" pane - quota types](./media/resource-manager-core-quotas-request/1-8.png)
 
-   ![SKU Family](./media/resource-manager-core-quotas-request/1-9.png)
-
-10. Enter the new limits you would like on the subscription. To remove a line, uncheck the SKU from the SKU family drop-down or click the discard "x" icon. 
-
-   ![New Limits](./media/resource-manager-core-quotas-request/1-10.png)
-
-11. To request Quota for more than one location you can check on another **location** from the drop-down and select appropriate VM Type. This step preloads SKU families selected for earlier **location** against the new location and you can simply enter the new limits you would like.
-
-   ![Multiple locations](./media/resource-manager-core-quotas-request/1-11.png)
+   Under **Types**, you can request both standard and spot quota types from a single support case through multi-selection support.
    
-12. After entering the desired quota for each SKU family, click **Save and Continue** on the Quota details panel to continue with the support request creation.
+   For more information about increasing spot quota limits, see [Azure spot VMs for virtual machine scale sets](https://docs.microsoft.com/azure/virtual-machine-scale-sets/use-spot).
 
-## Request standard vCPU quota increase per VM Series at subscription level using Usages + Quota blade
+   c. Below the **Standard** drop-down list, select the SKU series whose quotas you want to increase.
 
-Follow the instructions below using to create a support request via Azure's 'Usage + quota' blade available in the Azure portal.
+   ![The "Quota details" pane - SKU series](./media/resource-manager-core-quotas-request/1-9.png)
 
-You can also **request Quota for multiple regions** through a single support case. Refer to Step 10 below for details
+   d. Enter the new quota limits that you want for this subscription. To remove a SKU from your list, clear the check box next to the SKU or select the **Delete** (X) icon. 
 
-1. From https://portal.azure.com, select **Subscriptions**.
+   ![The "New vCPU Limit" text box](./media/resource-manager-core-quotas-request/1-10.png)
 
-   ![Subscriptions](./media/resource-manager-core-quotas-request/subscriptions.png)
+1. To request a quota increase for more than one location, select an additional location in the drop-down list, and then select an appropriate VM type. You can then enter a limit that applies to the additional location.
 
-2. Select the subscription that needs an increased quota.
+   ![Additional locations in the "Quota details" pane](./media/resource-manager-core-quotas-request/1-11.png)
+   
+1. Select **Save and continue** to continue creating the support request.
 
-   ![Select subscription](./media/resource-manager-core-quotas-request/select-subscription.png)
+## Request a standard quota increase from the "Subscriptions" pane
 
-3. Select **Usage + quotas**
+To request a standard vCPU quota increase per VM series from the **Subscriptions** pane, do the following:
 
-   ![Select usage and quotas](./media/resource-manager-core-quotas-request/select-usage-quotas.png)
+> [!NOTE]
+> You can also request a quota limit increase for multiple regions through a single support case. For details, see step 7.
 
-4. In the upper right corner, select **Request increase**.
+1. In the left pane of the [Azure portal](https://portal.azure.com), select **Subscriptions**.
+
+   ![The "Subscriptions" link](./media/resource-manager-core-quotas-request/subscriptions.png)
+
+1. Select the subscription whose quota you want to increase.
+
+   ![The "Subscriptions" pane](./media/resource-manager-core-quotas-request/select-subscription.png)
+
+1. In the left pane of your **\<Subscription name>** page, select **Usage + quotas**.
+
+   ![The "Usage + quotas" link](./media/resource-manager-core-quotas-request/select-usage-quotas.png)
+
+1. At the top right, select **Request increase**.
 
    ![Request increase](./media/resource-manager-core-quotas-request/request-increase.png)
 
-5. Select **Compute-VM (cores-vCPUs) subscription limit increases** as the quote type. 
+1. In the **Quota type** drop-down list, select **Compute-VM (cores-vCPUs) subscription limit increases**.
 
-   ![Fill in form](./media/resource-manager-core-quotas-request/select-quota-type.png)
+   ![The "Quota type" drop-down list](./media/resource-manager-core-quotas-request/select-quota-type.png)
    
-6. In the **Quota details** panel, select Deployment model and select a location.
+1. In the **Quota details** pane at the top right, do the following:
 
-   ![Quota Problem blade](./media/resource-manager-core-quotas-request/1-1-6.png)
+   ![The "Quota details" pane](./media/resource-manager-core-quotas-request/1-1-6.png)
 
-7. For the selected location, select **Type** value as **‘Standard’**. You can request both Standard and Low Priority quota types from a single support case through multi-selection support on the **Type** field. Learn more about **increasing Spot vCPUs limits** on this [page](https://docs.microsoft.com/azure/virtual-machine-scale-sets/use-spot).
+   a. In the **Deployment model** drop-down list, select the appropriate model.
 
-   ![SKU series selected](./media/resource-manager-core-quotas-request/1-1-7.png)
+   b. In the **Locations** drop-down list, select a location. 
    
+   c. For the selected location, under **Types**, select **Select a type**, and then select the **Standard** check box.
+
+   ![The "Standard" check box](./media/resource-manager-core-quotas-request/1-1-7.png)
    
-8. Select the **SKU Families** that require an increase
-
-   ![SKU series selected](./media/resource-manager-core-quotas-request/1-1-8.png)
-
-9. Enter the new limits you would like on the subscription. To remove a line, uncheck the SKU from the SKU family drop-down or click the discard "x" icon. 
-
-   ![SKU new quota request](./media/resource-manager-core-quotas-request/1-1-9.png)
+   Under **Types**, you can request both standard and low priority quota types from a single support case through multi-selection support.
    
+   For more information about increasing spot quota limits, see [Azure spot VMs for virtual machine scale sets](https://docs.microsoft.com/azure/virtual-machine-scale-sets/use-spot).
 
-10. To request Quota for more than one location you can check on another **location** from the drop-down and select appropriate VM Type. This step preloads SKU families selected for earlier **location** against the new location and you can simply enter the new limits you would like.
+   d. Below the **Standard** drop-down list, select the SKU series whose quotas you want to increase.
+
+   ![The "Quota details" pane - SKU series](./media/resource-manager-core-quotas-request/1-1-8.png)
+
+   e. Enter the new quota limits that you want for this subscription. To remove a SKU from your list, clear the check box next to the SKU or select **Delete** (X). 
+
+   ![The "New vCPU Limit" text box](./media/resource-manager-core-quotas-request/1-1-9.png)
    
-    ![SKU new quota request](./media/resource-manager-core-quotas-request/1-1-10.png)
+1. To request a quota increase for more than one location, select an additional location in the drop-down list, and then select an appropriate VM type. 
+
+   This step preloads the SKU series that you selected for earlier locations. Enter the quota limits that you want to apply to the additional series.
+   
+   ![Additional locations in the "Quota details" pane](./media/resource-manager-core-quotas-request/1-1-10.png)
  
+1. Select **Save and continue** to continue creating the support request.

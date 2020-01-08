@@ -175,4 +175,4 @@ For some resource types, you need to contact support to have the 800 instance li
 
 ## Next steps
 
-For a complete list of quotas and limits, see [Azure subscription and service limits, quotas, and constraints](../../azure-subscription-service-limits.md).
+For a complete list of quotas and limits, see [Azure subscription and service limits, quotas, and constraints](../../azure-resource-manager/management/azure-subscription-service-limits.md).

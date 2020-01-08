@@ -7,11 +7,11 @@ ms.topic: conceptual
 
 # View service provider activity
 
-Customers who have delegated subscriptions for Azure delegated resource management can [view Azure Activity log](../../azure-monitor/platform/activity-logs-overview.md) data to see all actions taken. This gives customers full visibility into operations that service providers are performing through Azure delegated resource management, along with those done by users within the customer's own Azure Active Directory (Azure AD) tenant.
+Customers who have delegated subscriptions for Azure delegated resource management can [view Azure Activity log](../../azure-monitor/platform/platform-logs-overview.md) data to see all actions taken. This gives customers full visibility into operations that service providers are performing through Azure delegated resource management, along with those done by users within the customer's own Azure Active Directory (Azure AD) tenant.
 
 ## View activity log data
 
-You can [view the activity log](../../azure-monitor/platform/activity-logs-overview.md#view-the-activity-log) from the **Monitor** menu in the Azure portal. To limit results to a specific subscription, you can use the filters to select a specific subscription. You can also [view and retrieve activity log events](../../azure-monitor/platform/activity-log-view.md) programmatically.
+You can [view the activity log](../../azure-monitor/platform/activity-log-view.md) from the **Monitor** menu in the Azure portal. To limit results to a specific subscription, you can use the filters to select a specific subscription. You can also [view and retrieve activity log events](../../azure-monitor/platform/activity-log-view.md) programmatically.
 
 > [!NOTE]
 > Users in a service provider's tenant can view activity log results for a delegated subscription in a customer tenant if they were granted the [Reader](../../role-based-access-control/built-in-roles.md#reader) role (or another built-in role which includes Reader access) when that subscription was onboarded for Azure delegated resource management.

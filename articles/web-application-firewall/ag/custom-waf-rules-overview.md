@@ -24,7 +24,7 @@ Different matching conditions within the same rule are always compounded using *
 If you want to **or** two different conditions, the two conditions must be in different rules. For example, block traffic from a specific IP address or block traffic if they’re using a specific browser.
 
 > [!NOTE]
-> The maximum number of WAF custom rules is 100. For more information about Application Gateway limits, see [Azure subscription and service limits, quotas, and constraints](../../azure-subscription-service-limits.md#application-gateway-limits).
+> The maximum number of WAF custom rules is 100. For more information about Application Gateway limits, see [Azure subscription and service limits, quotas, and constraints](../../azure-resource-manager/management/azure-subscription-service-limits.md#application-gateway-limits).
 
 Regular expressions are also supported in custom rules, just like in the CRS rulesets. For examples of these, see Examples 3 and 5 in [Create and use custom web application firewall rules](create-custom-waf-rules.md).
 

@@ -2,56 +2,86 @@
 title: Key Vault secret with template
 description: Shows how to pass a secret from a key vault as a parameter during deployment.
 ms.topic: conceptual
-ms.date: 12/10/2019
+ms.date: 01/06/2020
 ---
 # Use Azure Key Vault to pass secure parameter value during deployment
 
 Instead of putting a secure value (like a password) directly in your template or parameter file, you can retrieve the value from an [Azure Key Vault](../../key-vault/key-vault-overview.md) during a deployment. You retrieve the value by referencing the key vault and secret in your parameter file. The value is never exposed because you only reference its key vault ID. The key vault can exist in a different subscription than the resource group you're deploying to.
 
+This article focuses on the scenario of passing a sensitive value in as a template parameter. It doesn't cover the scenario of setting a virtual machine property to the URL of a certificate in a Key Vault. For a quickstart template of that scenario, see [Install a certificate from Azure Key Vault on a Virtual Machine](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-winrm-keyvault-windows).
+
 ## Deploy key vaults and secrets
 
 To access a key vault during template deployment, set `enabledForTemplateDeployment` on the key vault to `true`.
 
-The following Azure CLI and Azure PowerShell samples show how to create the key vault, and add a secret.
+If you already have a Key Vault, make sure it allows template deployments.
 
-```azurecli
-az group create --name $resourceGroupName --location $location
-az keyvault create \
-  --name $keyVaultName \
-  --resource-group $resourceGroupName \
-  --location $location \
-  --enabled-for-template-deployment true
-az keyvault secret set --vault-name $keyVaultName --name "ExamplePassword" --value "hVFkk965BuUv"
+# [Azure CLI](#tab/azure-cli)
+
+```azurecli-interactive
+az keyvault update  --name ExampleVault --enabled-for-template-deployment true
 ```
 
-```azurepowershell
-New-AzResourceGroup -Name $resourceGroupName -Location $location
+# [PowerShell](#tab/azure-powershell)
+
+```azurepowershell-interactive
+Set-AzKeyVaultAccessPolicy -VaultName ExampleVault -EnabledForTemplateDeployment
+```
+
+---
+
+To create a new Key Vault and add a secret, use:
+
+# [Azure CLI](#tab/azure-cli)
+
+```azurecli-interactive
+az group create --name ExampleGroup --location centralus
+az keyvault create \
+  --name ExampleVault \
+  --resource-group ExampleGroup \
+  --location centralus \
+  --enabled-for-template-deployment true
+az keyvault secret set --vault-name ExampleVault --name "ExamplePassword" --value "hVFkk965BuUv"
+```
+
+# [PowerShell](#tab/azure-powershell)
+
+```azurepowershell-interactive
+New-AzResourceGroup -Name ExampleGroup -Location centralus
 New-AzKeyVault `
-  -VaultName $keyVaultName `
-  -resourceGroupName $resourceGroupName `
-  -Location $location `
+  -VaultName ExampleVault `
+  -resourceGroupName ExampleGroup `
+  -Location centralus `
   -EnabledForTemplateDeployment
 $secretvalue = ConvertTo-SecureString 'hVFkk965BuUv' -AsPlainText -Force
-$secret = Set-AzKeyVaultSecret -VaultName $keyVaultName -Name 'ExamplePassword' -SecretValue $secretvalue
+$secret = Set-AzKeyVaultSecret -VaultName ExampleVault -Name 'ExamplePassword' -SecretValue $secretvalue
 ```
+
+---
 
 As the owner of the key vault, you automatically have access to creating secrets. If the user working with secrets isn't the owner of the key vault, grant access with:
 
-```azurecli
+# [Azure CLI](#tab/azure-cli)
+
+```azurecli-interactive
 az keyvault set-policy \
-  --upn $userPrincipalName \
-  --name $keyVaultName \
+  --upn <user-principal-name> \
+  --name ExampleVault \
   --secret-permissions set delete get list
 ```
 
-```azurepowershell
+# [PowerShell](#tab/azure-powershell)
+
+```azurepowershell-interactive
 $userPrincipalName = "<Email Address of the deployment operator>"
 
 Set-AzKeyVaultAccessPolicy `
-  -VaultName $keyVaultName `
-  -UserPrincipalName $userPrincipalName `
+  -VaultName ExampleVault `
+  -UserPrincipalName <user-principal-name> `
   -PermissionsToSecrets set,delete,get,list
 ```
+
+---
 
 For more information about creating key vaults and adding secrets, see:
 
@@ -89,25 +119,31 @@ The following procedure shows how to create a role with the minimum permission, 
 
 2. Create the new role using the JSON file:
 
-    ```azurecli
-    az role definition create --role-definition "<PathToRoleFile>"
+    # [Azure CLI](#tab/azure-cli)
+
+    ```azurecli-interactive
+    az role definition create --role-definition "<path-to-role-file>"
     az role assignment create \
       --role "Key Vault resource manager template deployment operator" \
-      --assignee $userPrincipalName \
-      --resource-group $resourceGroupName
+      --assignee <user-principal-name> \
+      --resource-group ExampleGroup
     ```
 
-    ```azurepowershell
-    New-AzRoleDefinition -InputFile "<PathToRoleFile>" 
+    # [PowerShell](#tab/azure-powershell)
+
+    ```azurepowershell-interactive
+    New-AzRoleDefinition -InputFile "<path-to-role-file>"
     New-AzRoleAssignment `
-      -ResourceGroupName $resourceGroupName `
+      -ResourceGroupName ExampleGroup `
       -RoleDefinitionName "Key Vault resource manager template deployment operator" `
-      -SignInName $userPrincipalName
+      -SignInName <user-principal-name>
     ```
+
+    ---
 
     The samples assign the custom role to the user on the resource group level.  
 
-When using a Key Vault with the template for a [Managed Application](../../managed-applications/overview.md), you must grant access to the **Appliance Resource Provider** service principal. For more information, see [Access Key Vault secret when deploying Azure Managed Applications](../../managed-applications/key-vault-access.md).
+When using a Key Vault with the template for a [Managed Application](../managed-applications/overview.md), you must grant access to the **Appliance Resource Provider** service principal. For more information, see [Access Key Vault secret when deploying Azure Managed Applications](../managed-applications/key-vault-access.md).
 
 ## Reference secrets with static ID
 
@@ -189,25 +225,27 @@ If you need to use a version of the secret other than the current version, use t
 
 Deploy the template and pass in the parameter file:
 
-For Azure CLI, use:
+# [Azure CLI](#tab/azure-cli)
 
-```azurecli
-az group create --name $resourceGroupName --location $location
+```azurecli-interactive
+az group create --name SqlGroup --location westus2
 az group deployment create \
-    --resource-group $resourceGroupName \
-    --template-uri <The Template File URI> \
-    --parameters <The Parameter File>
+    --resource-group SqlGroup \
+    --template-uri <template-file-URI> \
+    --parameters <parameter-file>
 ```
 
-For PowerShell, use:
+# [PowerShell](#tab/azure-powershell)
 
-```powershell
+```azurepowershell-interactive
 New-AzResourceGroup -Name $resourceGroupName -Location $location
 New-AzResourceGroupDeployment `
   -ResourceGroupName $resourceGroupName `
-  -TemplateUri <The Template File URI> `
-  -TemplateParameterFile <The Parameter File>
+  -TemplateUri <template-file-URI> `
+  -TemplateParameterFile <parameter-file>
 ```
+
+---
 
 ## Reference secrets with dynamic ID
 

@@ -419,7 +419,7 @@ You can use the Ambari web UI to view information logged by script actions. If t
 
 ### The Apache Ambari web UI
 
-1. In your browser, go to https://CLUSTERNAME.azurehdinsight.net. Replace **CLUSTERNAME** with the name of your HDInsight cluster.
+1. In your browser, go to `https://CLUSTERNAME.azurehdinsight.net`. Replace **CLUSTERNAME** with the name of your HDInsight cluster.
 
     When prompted, enter the admin account name, **admin**, and password for the cluster. You might have to reenter the admin credentials in a web form.
 
@@ -443,11 +443,11 @@ If cluster creation fails because of a script error, the logs are kept in the cl
 
     Under this directory, the logs are organized separately for **headnode**, **worker node**, and **zookeeper node**. See the following examples:
 
-    * **Headnode**: `<uniqueidentifier>AmbariDb-hn0-<generated_value>.cloudapp.net`
+    * **Headnode**: `<ACTIVE-HEADNODE-NAME>.cloudapp.net`
 
-    * **Worker node**: `<uniqueidentifier>AmbariDb-wn0-<generated_value>.cloudapp.net`
+    * **Worker node**: `<ACTIVE-WORKERNODE-NAME>.cloudapp.net`
 
-    * **Zookeeper node**: `<uniqueidentifier>AmbariDb-zk0-<generated_value>.cloudapp.net`
+    * **Zookeeper node**: `<ACTIVE-ZOOKEEPERNODE-NAME>.cloudapp.net`
 
 * All **stdout** and **stderr** of the corresponding host is uploaded to the storage account. There's one **output-\*.txt** and **errors-\*.txt** for each script action. The **output-*.txt** file contains information about the URI of the script that was run on the host. The following text is an example of this information:
 
