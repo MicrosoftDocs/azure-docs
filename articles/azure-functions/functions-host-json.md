@@ -141,8 +141,8 @@ For the complete JSON structure, see the earlier [example host.json file](#sampl
 | Property | Default | Description |
 | --------- | --------- | --------- | 
 | samplingSettings | n/a | See [applicationInsights.samplingSettings](#applicationinsightssamplingsettings). |
-| samplingExcludedTypes | null | A semi-colon delimited list of types that you don't want to be sampled. Recognized types are: Dependency, Event, Exception, PageView, Request, Trace. All instances of the specified types are transmitted; the types that are not specified are sampled. |
-| samplingIncludedTypes | null | A semi-colon delimited list of types that you want to be sampled; an empty list implies all types. Type listed in `samplingExcludedTypes` override types listed here. Recognized types are: Dependency, Event, Exception, PageView, Request, Trace. All instances of the specified types are transmitted; the types that are not specified are sampled. |
+| samplingExcludedTypes | null | A semi-colon delimited list of types that you don't want to be sampled. Recognized types are: Dependency, Event, Exception, PageView, Request, Trace. All instances of the specified types are transmitted; the types that aren't specified are sampled. |
+| samplingIncludedTypes | null | A semi-colon delimited list of types that you want to be sampled; an empty list implies all types. Type listed in `samplingExcludedTypes` override types listed here. Recognized types are: Dependency, Event, Exception, PageView, Request, Trace. All instances of the specified types are transmitted; the types that aren't specified are sampled. |
 | enableLiveMetrics | true | Enables live metrics collection. |
 | enableDependencyTracking | true | Enables dependency tracking. |
 | enablePerformanceCountersCollection | true | Enables Kudu performance counters collection. |
@@ -168,9 +168,9 @@ For the complete JSON structure, see the earlier [example host.json file](#sampl
 
 |Property | Default | Description |
 | --------- | --------- | --------- | 
-| enableHttpTriggerExtendedInfoCollection | true | Enables or disables extended HTTP request information for HTTP triggers: incoming request correlation headers, multi instrumentation keys support, HTTP method, path, and response. |
+| enableHttpTriggerExtendedInfoCollection | true | Enables or disables extended HTTP request information for HTTP triggers: incoming request correlation headers, multi-instrumentation keys support, HTTP method, path, and response. |
 | enableW3CDistributedTracing | true | Enables or disables support of W3C distributed tracing protocol (and turns on legacy correlation schema). Enabled by default if `enableHttpTriggerExtendedInfoCollection` is true. If `enableHttpTriggerExtendedInfoCollection` is false, this flag applies to outgoing requests only, not incoming requests. |
-| enableResponseHeaderInjection | true | Enables or disables injection of multi-component correlation headers into responses. Enabling injection allows Application Insights to construct an Application Map to  when several instrumentation keys are used. Enabled by default if `enableHttpTriggerExtendedInfoCollection` is true. Does not apply if `enableHttpTriggerExtendedInfoCollection` is false. |
+| enableResponseHeaderInjection | true | Enables or disables injection of multi-component correlation headers into responses. Enabling injection allows Application Insights to construct an Application Map to  when several instrumentation keys are used. Enabled by default if `enableHttpTriggerExtendedInfoCollection` is true. This setting doesn't apply if `enableHttpTriggerExtendedInfoCollection` is false. |
 
 ### applicationInsights.snapshotConfiguration
 
@@ -189,17 +189,17 @@ For more information on snapshots, see [Debug snapshots on exceptions in .NET ap
 | isLowPrioritySnapshotUploader | true | Determines whether to run the SnapshotUploader process at below normal priority. |
 | maximumCollectionPlanSize | 50 | The maximum number of problems that we can track at any time in a range from one to 9999. |
 | maximumSnapshotsRequired | 3 | The maximum number of snapshots collected for a single problem, in a range from one to 999. A problem may be thought of as an individual throw statement in your application. Once the number of snapshots collected for a problem reaches this value, no more snapshots will be collected for that problem until problem counters are reset (see `problemCounterResetInterval`) and the `thresholdForSnapshotting` limit is reached again. |
-| problemCounterResetInterval | 24:00:00 | How often to reset the problem counters in a range from one minute to seven days. When this interval is reached, all problem counts are reset to zero. Existing problems that have already reached the threshold for snapshotting but haven't yet generated the number of snapshots in `maximumSnapshotsRequired` remain active. |
+| problemCounterResetInterval | 24:00:00 | How often to reset the problem counters in a range from one minute to seven days. When this interval is reached, all problem counts are reset to zero. Existing problems that have already reached the threshold for doing snapshots, but haven't yet generated the number of snapshots in `maximumSnapshotsRequired`, remain active. |
 | provideAnonymousTelemetry | true | Determines whether to send anonymous usage and error telemetry to Microsoft. This telemetry may be used if you contact Microsoft to help troubleshoot problems with the Snapshot Debugger. It is also used to monitor usage patterns. |
 | reconnectInterval | 00:15:00 | How often we reconnect to the Snapshot Debugger endpoint. Allowable range is one minute to one day. |
 | shadowCopyFolder | null | Specifies the folder to use for shadow copying binaries. If not set, the folders specified by the following environment variables are tried in order: Fabric_Folder_App_Temp, LOCALAPPDATA, APPDATA, TEMP. |
 | shareUploaderProcess | true | If true, only one instance of SnapshotUploader will collect and upload snapshots for multiple apps that share the InstrumentationKey. If set to false, the SnapshotUploader will be unique for each (ProcessName, InstrumentationKey) tuple. |
-| snapshotInLowPriorityThread | true | Determines whether or not to process snapshots in a low IO priority thread. Creating a snapshot is a very fast operation but, in order to upload a snapshot to the Snapshot Debugger service, it must first be written to disk as a minidump. That happens in the SnapshotUploader process. Setting this value to true uses low prioirty IO to write the minidump which will not compete with your application for resources. Setting this value to false speeds up minidump creation at the expense of slowing down your application. |
-| snapshotsPerDayLimit | 30 | The maximum number of snapshots allowed in one day (24 hours). Note that this limit is also enforced on the Application Insights service side. Uploads are rate limited to 50 per day per application (that is, per instrumentation key). This value helps prevent creating additional snapshots that will eventually be rejected during upload. A value of zero removes the limit entirely, which is not recommended. |
-| snapshotsPerTenMinutesLimit | 1 | The maximum number of snapshots allowed in ten minutes. Although there is no upper bound on this value, exercise caution increasing it on production workloads because it could impact the performance of your application. Creating a snapshot is very fast, but creating a minidump of the snapshot and uploading it to the Snapshot Debugger service is a much slower operation that will compete with your application for resources (both CPU and I/O). |
+| snapshotInLowPriorityThread | true | Determines whether or not to process snapshots in a low IO priority thread. Creating a snapshot is a fast operation but, in order to upload a snapshot to the Snapshot Debugger service, it must first be written to disk as a minidump. That happens in the SnapshotUploader process. Setting this value to true uses low-priority IO to write the minidump, which won't compete with your application for resources. Setting this value to false speeds up minidump creation at the expense of slowing down your application. |
+| snapshotsPerDayLimit | 30 | The maximum number of snapshots allowed in one day (24 hours). This limit is also enforced on the Application Insights service side. Uploads are rate limited to 50 per day per application (that is, per instrumentation key). This value helps prevent creating additional snapshots that will eventually be rejected during upload. A value of zero removes the limit entirely, which isn't recommended. |
+| snapshotsPerTenMinutesLimit | 1 | The maximum number of snapshots allowed in 10 minutes. Although there is no upper bound on this value, exercise caution increasing it on production workloads because it could impact the performance of your application. Creating a snapshot is fast, but creating a minidump of the snapshot and uploading it to the Snapshot Debugger service is a much slower operation that will compete with your application for resources (both CPU and I/O). |
 | tempFolder | null | Specifies the folder to write minidumps and uploader log files. If not set, then *%TEMP%\Dumps* is used. |
 | thresholdForSnapshotting | 1 | How many times Application Insights needs to see an exception before it asks for snapshots. |
-| uploaderProxy | null | Overrides the proxy server used in the Snapshot Uploader process. You may need to use this if your application connects to the internet via a proxy server. The Snapshot Collector runs within your application's process and will use the same proxy settings. However, the Snapshot Uploader runs as a separate process and you may need to configure the proxy server manually. If this value is null, then Snapshot Collector will attempt to auto-detect the proxy's address by examining System.Net.WebRequest.DefaultWebProxy and passing on the value to the Snapshot Uploader. If this value is not null, then auto-detection is not used and the proxy server specified here will be used in the Snapshot Uploader. |
+| uploaderProxy | null | Overrides the proxy server used in the Snapshot Uploader process. You may need to use this setting if your application connects to the internet via a proxy server. The Snapshot Collector runs within your application's process and will use the same proxy settings. However, the Snapshot Uploader runs as a separate process and you may need to configure the proxy server manually. If this value is null, then Snapshot Collector will attempt to autodetect the proxy's address by examining System.Net.WebRequest.DefaultWebProxy and passing on the value to the Snapshot Uploader. If this value isn't null, then autodetection isn't used and the proxy server specified here will be used in the Snapshot Uploader. |
 
 ## cosmosDb
 
@@ -219,7 +219,7 @@ Property that returns an object that contains all of the binding-specific settin
 
 ## extensionBundle 
 
-Extension bundles lets you add a compatible set of Functions binding extensions to your function app. To learn more, see [Extension bundles for local development](functions-bindings-register.md#extension-bundles).
+Extension bundles let you add a compatible set of Functions binding extensions to your function app. To learn more, see [Extension bundles for local development](functions-bindings-register.md#extension-bundles).
 
 [!INCLUDE [functions-extension-bundles-json](../../includes/functions-extension-bundles-json.md)]
 
@@ -237,7 +237,7 @@ A list of functions that the job host runs. An empty array means run all functio
 
 Indicates the timeout duration for all functions. It follows the timespan string format. In a serverless Consumption plan, the valid range is from 1 second to 10 minutes, and the default value is 5 minutes.  
 
-In the Premium plan the valid range is from 1 second to 60 minutes, and the default value is 30 minutes.
+In the Premium plan, the valid range is from 1 second to 60 minutes, and the default value is 30 minutes.
 
 In a Dedicated (App Service) plan, there is no overall limit, and the default value is 30 minutes. A value of `-1` indicates unbounded execution, but keeping a fixed upper bound is recommended.
 
@@ -298,7 +298,7 @@ Controls the logging behaviors of the function app, including Application Insigh
 |Property  |Default | Description |
 |---------|---------|---------|
 |fileLoggingMode|debugOnly|Defines what level of file logging is enabled.  Options are `never`, `always`, `debugOnly`. |
-|logLevel|n/a|Object that defines the log category filtering for functions in the app. Versions 2.x and later follow the ASP.NET Core layout for log category filtering. This lets you filter logging for specific functions. For more information, see [Log filtering](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering) in the ASP.NET Core documentation. |
+|logLevel|n/a|Object that defines the log category filtering for functions in the app. Versions 2.x and later follow the ASP.NET Core layout for log category filtering. This setting lets you filter logging for specific functions. For more information, see [Log filtering](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering) in the ASP.NET Core documentation. |
 |console|n/a| The [console](#console) logging setting. |
 |applicationInsights|n/a| The [applicationInsights](#applicationinsights) setting. |
 
