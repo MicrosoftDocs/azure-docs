@@ -1,6 +1,6 @@
 ---
- title: Azure IoT Hub TLS
- description: Azure IoT Hub TLS
+ title: Azure IoT Hub TLS support
+ description: Best practices in using secure TLS connections for devices and services communicating with IoT Hub
  services: iot-hub
  author: rezasherafat
  ms.service: iot-fundamentals
@@ -37,8 +37,8 @@ For this purpose, provision a new IoT Hub in any of the [supported regions](#sup
                 "minTlsVersion": "1.2"
             },
             "sku": {
-                "name": "B1",
-                "tier": "Basic",
+                "name": "<your-hubs-SKU-name>",
+                "tier": "<your-hubs-SKU-tier>",
                 "capacity": 1
             }
         }
@@ -55,12 +55,13 @@ Note that the `minTlsVersion` property is read-only and cannot be changed once y
 
 IoT Hubs to accept only TLS 1.2 can be created in the following regions.
 
-* West US 2
-* West Central US
-* West US
 * East US
-* South central US
-* North central US
+* South Central US
+* West US 2
+
+> [!NOTE]
+> Upon failover to another region, the `minTlsVersion` property of your IoT Hub will remain effective in the  geo-paired region post-failover.
+
 
 
 ### Recommended ciphers
