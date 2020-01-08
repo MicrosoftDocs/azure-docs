@@ -100,12 +100,7 @@ az aks create -n clusterName -g resourceGroupName --node-osdisk-diskencryptionse
 
 ## Next steps
 
-For associated best practices, see [Best practices for storage and backups in AKS][operator-best-practices-storage].
-
-Learn more about Kubernetes persistent volumes using Azure disks.
-
-> [!div class="nextstepaction"]
-> [Kubernetes plugin for Azure disks][azure-disk-volume]
+TODO
 
 <!-- LINKS - external -->
 [access-modes]: https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes
