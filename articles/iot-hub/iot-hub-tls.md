@@ -76,12 +76,12 @@ IoT Hubs that are configured to accept only TLS 1.2 will also enforce the use of
 
 ### Use TLS 1.2 in your IoT Hub SDK's
 
-IoT Hub SDK languages are compatible with TLS 1.2. Use the links below to learn more.
+Use the links below to configure TLS 1.2 and allowed ciphers in IoT Hub client SDK's.
 
 | Language | TLS 1.2 supported | Documentation |
 |----------|-------------------|---------------|
 | C#       | Yes               | Link          |
-| C        | Yes               | Link          |
+| C        | Yes               | [Link](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/configure_tls_protocol_version_and_ciphers.md)          |
 | Java     | Yes               | Link          |
 | Python   | Yes               | Link          |
 | NodeJS   | Yes               | Link          |
