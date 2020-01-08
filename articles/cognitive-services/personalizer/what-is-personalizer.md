@@ -35,10 +35,10 @@ Personalizer is not a service:
 
 Personalizer uses reinforcement learning to rank information about your content (_actions_). Actions are the content items, such as news articles, specific movies, or products to choose from.
 
-The rank call takes the action item, along with the its action features and context features to select the top action item:
+The rank call takes the action item, along with features of the action, and context features to select the top action item:
 
 * **Actions with features** - content items with features specific to each item
-* **Context features** - features of the context
+* **Context features** - features of your users, their context or their environment when using your app
 
 Several example scenarios are:
 
@@ -46,7 +46,7 @@ Several example scenarios are:
 |--|--|--|
 |News list|`The president...` (national, politics, [text])<br>`Premier football league ...` (global, sports, [text, image, video])<br> `Hurricane in the ...` (regional, weather, [text,image]|Device news is read from<br>Month, or season<br>|
 |Movies list|`Star wars` (1977, [action, adventure, fantasy], George Lucas)<br>`Hoop dreams` (1994, [documentary, sports], Steve James<br>`Casa blanca` (1942, [romance, drama, war], Michael Curtiz)|Device movie is watched from<br>screen size<br>Month, or season<br>|
-|Products list|`Product A` ($$$$, deliver in 24 hours, 3 kg)<br>`Product b` ($$, 2 week shipping with customs, 20 kb)<br>`Product C` ($$$, delivery in 48 hours, 3 kg)|Device shopping  is read from<br>Spending tier of user<br>Month, or season|
+|Products list|`Product A` (3 kg, $$$$, deliver in 24 hours)<br>`Product B` (20 kg, $$, 2 week shipping with customs)<br>`Product C` (3 kg, $$$, delivery in 48 hours)|Device shopping  is read from<br>Spending tier of user<br>Month, or season|
 
 
 
