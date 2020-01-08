@@ -214,7 +214,7 @@ If you attempt to remove a database and then edit a sync group without first dep
 
 ### Avoid schema refresh timeout
 
-If you have a complex schema to sync, you may encounter an "operation timeout" during a schema refresh you may encounter an "operation timeout" if the sync metadata database has a lower SKU (example: basic). 
+If you have a complex schema to sync, you may encounter an "operation timeout" during a schema refresh if the sync metadata database has a lower SKU (example: basic). 
 
 #### Solution
 
