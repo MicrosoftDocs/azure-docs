@@ -60,7 +60,7 @@ IoT Hubs to accept only TLS 1.2 can be created in the following regions.
 * West US 2
 
 > [!NOTE]
-> Upon failover to another region, the `minTlsVersion` property of your IoT Hub will remain effective in the  geo-paired region post-failover.
+> Upon failovers, the `minTlsVersion` property of your IoT Hub will remain effective in the geo-paired region post-failover.
 
 
 
