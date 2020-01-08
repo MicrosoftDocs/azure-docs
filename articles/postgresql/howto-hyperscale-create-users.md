@@ -49,7 +49,7 @@ Notably, the `citus` role has some restrictions:
 * Can't create roles
 * Can't create databases
 
-## How to create additional users
+## How to create additional user roles
 
 As mentioned, the `citus` admin account lacks permission to create additional
 users. To add a user, use the Azure portal interface.
@@ -65,7 +65,7 @@ users. To add a user, use the Azure portal interface.
 The user will be created on the coordinator node of the server group,
 and propagated to all the worker nodes.
 
-## How to modify privileges for role
+## How to modify privileges for user role
 
 New user roles are commonly used to provide database access with restricted
 privileges. To modify user privileges, use standard PostgreSQL commands, using
@@ -94,7 +94,7 @@ SELECT run_command_on_workers(
 );
 ```
 
-## How to delete a user or change their password
+## How to delete a user role or change their password
 
 To update a user, visit the **Roles** page for your Hyperscale server group,
 and click the ellipses **...** next to the user. The ellipses will open a menu
