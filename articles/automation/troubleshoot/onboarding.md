@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot errors onboarding Update Management, Change Tracking, and Inventory
+title: Troubleshoot onboarding Azure Automation management solutions
 description: Learn how to troubleshoot onboarding errors with the Update Management, Change Tracking, and Inventory solutions
 services: automation
 author: mgoedtel
@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.service: automation
 manager: carmonm
 ---
-# Troubleshoot errors when onboarding solutions
+# Troubleshoot errors when onboarding Update Management, Change Tracking, and Inventory
 
 You may encounter errors when onboarding solutions like Update Management or Change Tracking and Inventory. This article describes the various errors that may occur and how to resolve them.
 
@@ -137,7 +137,7 @@ The link cannot be updated or deleted because it is linked to Update Management 
 
 #### Cause
 
-This error occurs when you still have solutions active in your Log Analytics workspace that depend on your Automation Account and Log Analtyics workspace being linked.
+This error occurs when you still have solutions active in your Log Analytics workspace that depend on your Automation Account and Log Analytics workspace being linked.
 
 ### Resolution
 
