@@ -28,7 +28,7 @@ Once you have followed the below steps, your database will be migrated into Azur
 
 1. Provision a new Azure SQL Database in the Serverless compute tier.
 
-    ![screenshot of Azure Portal showing provisioning example for azure sql database serverless](./media/tutorial-sqlite-db-to-azure-sql-serverless-offline/1-provision-serverless.png)
+    ![screenshot of Azure Portal showing provisioning example for azure sql database serverless](./media/tutorial-sqlite-db-to-azure-sql-serverless-offline/provision-serverless.png)
 
 2. Ensure you have your SQLite database file available in your Windows environment. Install a SQLite ODBC Driver if you do not already have one (there are many available in Open Source, for example, http://www.ch-werner.de/sqliteodbc/).
 
@@ -59,9 +59,11 @@ Once you have followed the below steps, your database will be migrated into Azur
     ![screenshot showing ODBC connector logo in the linked services blade in Azure Data Factory](./media/tutorial-sqlite-db-to-azure-sql-serverless-offline/linked-services-odbc.png)
 
 8. Give the linked service a meaningful name, for example, "sqlite_odbc". Select your integration runtime from the "Connect via integration runtime" dropdown. Enter the below into the connection string, replacing the Initial Catalog variable with the filepath for the .db file, and the DSN with the name of the system DSN connection: 
+
 ```
 Connection string: Provider=MSDASQL.1;Persist Security Info=False;Mode=ReadWrite;Initial Catalog=C:\sqlitemigrationsource.db;DSN=sqlitemigrationsource
 ```
+
 9. Set the authentication type to Anonymous
 
 10. Test the connection
@@ -73,6 +75,7 @@ Connection string: Provider=MSDASQL.1;Persist Security Info=False;Mode=ReadWrite
     ![screenshot showing Azure SQL Database selected in Azure Data Factory](./media/tutorial-sqlite-db-to-azure-sql-serverless-offline/linked-services-create-target.png)
 
 12. Extract the CREATE TABLE statements from your SQLite database. You can do this by executing the below Python script on your database file.
+
 ```
 #!/usr/bin/python
 import sqlite3
@@ -87,6 +90,7 @@ with open('CreateTables.sql', 'w') as f:
         f.write(str(tabledetails[4].replace('\n','') + ';\n'))
 c.close()
 ```
+
 13. Create the landing tables in your Serverless SQL target environment by copying the CREATE table statements from the CreateTables.sql file and running the SQL statements in the Query Editor in the Azure Portal.
 
 14. Return to the home screen of your Data Factory and click "Copy Data" to run through the job creation wizard.
