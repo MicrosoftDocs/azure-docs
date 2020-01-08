@@ -46,7 +46,7 @@ In the following example, replace <app_name> with a unique app name.
 ```bash
 cd html-docs-hello-world
 
-az webapp up --location westeurope --name <app_name>
+az webapp up --location westeurope --name <app_name> --html
 ```
 
 The `az webapp up` command does the following actions:
@@ -98,7 +98,7 @@ Save your changes and exit nano. Use the command `^O` to save and `^X` to exit.
 You'll now redeploy the app with the same `az webapp up` command.
 
 ```bash
-az webapp up --location westeurope --name <app_name>
+az webapp up --location westeurope --name <app_name> --html
 ```
 
 Once deployment has completed, switch back to the browser window that opened in the **Browse to the app** step, and refresh the page.
