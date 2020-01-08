@@ -72,7 +72,7 @@ To create an invoice section, you need to be a **billing profile owner** or a **
 
 2. Search for **Cost Management + Billing**.
 
-   ![Screenshot that shows Azure portal search](./media/billing-mca-section-invoice/search-cmb.png)
+   ![Screenshot that shows search in portal for cost management + billing](./media/billing-mca-section-invoice/search-cmb.png)
 
 3. Select **Billing profiles** from the left-hand pane. From the list, select a billing profile. The new section will be displayed on the selected billing profile's invoice. 
 
@@ -100,7 +100,7 @@ To create a billing profile, you need to be a **billing account owner** or a **b
 
 2. Search for **Cost Management + Billing**.
 
-   ![Screenshot that shows Azure portal search](./media/billing-mca-section-invoice/search-cmb.png)
+   ![Screenshot that shows search in portal for cost management + billing](./media/billing-mca-section-invoice/search-cmb.png)
 
 3. Select **Billing profiles** from the left-hand pane and then select **Add** from the top of the page.
 
@@ -112,7 +112,7 @@ To create a billing profile, you need to be a **billing account owner** or a **b
 
 4. Fill the form and click **Create**.
 
-   [![Screenshot that shows invoice section creation page](./media/billing-mca-section-invoice/mca-add-profile.png)](./media/billing-mca-section-invoice/mca-add-profile.png#lightbox)
+   [![Screenshot that shows billing profile creation page](./media/billing-mca-section-invoice/mca-add-profile.png)](./media/billing-mca-section-invoice/mca-add-profile-zoomed-in.png#lightbox)
 
     |Field  |Definition  |
     |---------|---------|
