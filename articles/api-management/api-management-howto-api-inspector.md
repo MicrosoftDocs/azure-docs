@@ -44,14 +44,12 @@ In this tutorial, you learn how to:
 4. Select **GetSpeakers** operation.
 5. Make sure to include an HTTP header named **Ocp-Apim-Trace** with the value set to **true**.
 
-    > [!NOTE]
-    > If Ocp-Apim-Subscription-Key is not automatically populated, you can retrieve it by going to the Developer Portal and exposing the keys on the profile page.
-    
-    > [!NOTE]
-    > Not all subscription keys can trace when Ocp-Apim-Trace is set to true. Only the subscription keys whose **Allow tracing** setting is set to yes, can get a trace when the Ocp-Apim-Trace HTTP header is used. The **Allow tracing** setting is found by navigating to your APIM instance's Subscriptions blade on the left side.
-    > ![Allow Tracing](media/api-management-howto-api-inspector/allowtracing.png)
+   > [!NOTE]
+   > * If Ocp-Apim-Subscription-Key is not automatically populated, you can retrieve it by going to the Developer Portal and exposing the keys on the profile page.
+   > * To get a trace when the Ocp-Apim-Trace HTTP header is used, the **Allow tracing** setting for the subscription key must be enabled. To configure the **Allow tracing** setting, under **API Management** in the left menu, select **Subscriptions**.
+   >   ![Allow tracing on the API Management Subscriptions pane](media/api-management-howto-api-inspector/allowtracing.png)
 
-6. Click **"Send"** to make an API call. 
+6. Click **Send** to make an API call. 
 7. Wait for the call to complete. 
 8. Go to the **Trace** tab in the **API console**. You can click any of the following links to jump to detailed trace info: **inbound**, **backend**, **outbound**.
 
