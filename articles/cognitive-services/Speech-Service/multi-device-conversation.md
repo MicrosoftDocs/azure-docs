@@ -60,7 +60,7 @@ All clients will use the Speech SDK to create or join a conversation. The Speech
 
 Each client can send audio or instant messages. The service will transcribe audio into text, and instant messages will be sent as-is. If clients have chosen different languages, then the service will translate all messages into the specified language(s) of each client.
 
-![Conversation Translation Overview Diagram](images/conversation-translation-service.png)
+![Multi-device Conversation Overview Diagram](media/scenarios/multi-device-conversation.png)
 
 ## Overview of Conversation, Host, and Participant
 
@@ -84,7 +84,7 @@ The **host** is the user who starts a conversation, and who acts as the administ
 
 A **participant** is a user who joins a conversation.
 - Participants can leave and rejoin the same conversation at any time, without ending the conversation for other participants.
-- Participants cannot lock the conversation or mute/unmute other participants
+- Participants cannot lock the conversation or mute/unmute other participants.
 
 > [!NOTE]
 > Each conversation can have up to 100 participants, of which 10 can be speaking at any given time.
