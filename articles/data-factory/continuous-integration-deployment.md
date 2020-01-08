@@ -115,7 +115,7 @@ Following is a guide for setting up an Azure Pipelines release, which automates 
 
     d.  In the **Action** list, select **Create or update resource group**.
 
-    e.  Select the ellipsis button (**…**) next to the **Template** box. Browse for the Azure Resource Manager template that you created by using **Import ARM Template** in the [Create a resource manager template for each environment](continuous-integration-deployment.md#create-a-resource-manager-template-for-each-environment) section of this article. Look for this file in the <FactoryName> folder of the adf_publish branch.
+    e.  Select the ellipsis button (**…**) next to the **Template** box. Browse for the Azure Resource Manager template that you created by using **Import ARM Template** in the [Create a Resource Manager template for each environment](continuous-integration-deployment.md#create-a-resource-manager-template-for-each-environment) section of this article. Look for this file in the <FactoryName> folder of the adf_publish branch.
 
     f.  Select **…** next to the **Template parameters** box to choose the parameters file. The file you choose will depend on whether you created a copy or are using the default file, ARMTemplateParametersForFactory.json.
 
@@ -167,13 +167,13 @@ There are two ways to handle secrets:
 
     1.  On the **Tasks** tab, create a new task. Search for **Azure Key Vault** and add it.
 
-    1.  In the Key Vault task, select the subscription in which you created the key vault, provide credentials if necessary, and then select the key vault.
+    1.  In the Key Vault task, select the subscription in which you created the key vault. Provide credentials if necessary, and then select the key vault.
 
     ![Add a Key Vault task](media/continuous-integration-deployment/continuous-integration-image8.png)
 
    #### Grant permissions to the Azure Pipelines agent
 
-   The Azure Key Vault task might fail with an Access Denied error if the correct permissions aren't set. Download the logs for the release, and locate the .ps1 file that contains the command to give permissions to the Azure Pipelines agent. You can run the command directly, or you can copy the principal ID from the file and add the access policy manually in the Azure portal. `Get` and `List` are the minimum permissions required.
+   The Azure Key Vault task might fail with an Access Denied error if the correct permissions aren't set. Download the logs for the release, and locate the .ps1 file that contains the command to give permissions to the Azure Pipelines agent. You can run the command directly. Or you can copy the principal ID from the file and add the access policy manually in the Azure portal. `Get` and `List` are the minimum permissions required.
 
 ### Update active triggers
 
@@ -424,7 +424,7 @@ Here's an explanation of how the preceding template is constructed, broken down 
 
 #### LinkedServices
 
-* Linked services are unique. Because linked services and datasets have a wide range of types, you can provide type-specific customization. In this example, for all linked services of type `AzureDataLakeStore`, a specific template will be applied. For all others (via `*`) a different template will be applied.
+* Linked services are unique. Because linked services and datasets have a wide range of types, you can provide type-specific customization. In this example, for all linked services of type `AzureDataLakeStore`, a specific template will be applied. For all others (via `*`), a different template will be applied.
 * The `connectionString` property will be parameterized as a `securestring` value. It won't have a default value. It will have a shortened parameter name that's suffixed with `connectionString`.
 * The property `secretAccessKey` happens to be an `AzureKeyVaultSecret` (for example, in an Amazon S3 linked service). It's automatically parameterized as an Azure Key Vault secret and fetched from the configured key vault. You can also parameterize the key vault itself.
 
@@ -659,7 +659,7 @@ If you've configured Git, the linked templates are generated and saved alongside
 
 The linked Resource Manager templates usually consist of a master template and a set of child templates that are linked to the master. The parent template is called ArmTemplate_master.json, and child templates are named with the pattern ArmTemplate_0.json, ArmTemplate_1.json, and so on. 
 
-To use linked templates instead of the full Resource Manager template, update your CI/CD task to point to ArmTemplate_master.json instead of ArmTemplateForFactory.json (the full Resource Manager template). Resource Manager also requires that you upload the linked templates into a storage account so they can be accessed by Azure during deployment. For more info, see [Deploying linked Resource Manager Templates with VSTS](https://blogs.msdn.microsoft.com/najib/2018/04/22/deploying-linked-arm-templates-with-vsts/).
+To use linked templates instead of the full Resource Manager template, update your CI/CD task to point to ArmTemplate_master.json instead of ArmTemplateForFactory.json (the full Resource Manager template). Resource Manager also requires that you upload the linked templates into a storage account so Azure can access them during deployment. For more info, see [Deploying linked Resource Manager Templates with VSTS](https://blogs.msdn.microsoft.com/najib/2018/04/22/deploying-linked-arm-templates-with-vsts/).
 
 Remember to add the Data Factory scripts in your CI/CD pipeline before and after the deployment task.
 
@@ -669,7 +669,7 @@ If you don’t have Git configured, you can access the linked templates via **Ex
 
 If you deploy a factory to production and realize there's a bug that needs to be fixed right away, but you can't deploy the current collaboration branch, you might need to deploy a hotfix. This approach is as known as quick-fix engineering or QFE.
 
-1.	In Azure DevOps, go to the release that was deployed to production and find the last commit that was deployed.
+1.	In Azure DevOps, go to the release that was deployed to production. Find the last commit that was deployed.
 
 2.	From the commit message, get the commit ID of the collaboration branch.
 
@@ -681,7 +681,7 @@ If you deploy a factory to production and realize there's a bug that needs to be
 
 6.	After the fix is verified, select **Export ARM Template** to get the hotfix Resource Manager template.
 
-7.	Manually check this build in to the adf_publish branch.
+7.	Manually check this build into the adf_publish branch.
 
 8.	If you've configured your release pipeline to automatically trigger based on adf_publish check-ins, a new release will start automatically. Otherwise, manually queue a release.
 
@@ -710,4 +710,4 @@ If you're using Git integration with your data factory and have a CI/CD pipeline
 
 -   You can't publish from private branches.
 
--   As of now, you can't host projects on Bitbucket.
+-   You can't currently host projects on Bitbucket.
