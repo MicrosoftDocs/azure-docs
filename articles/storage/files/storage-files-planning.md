@@ -226,7 +226,7 @@ Standard file shares are available in all regions up to 5 TiB. In certain region
 |Switzerland North    |LRS     |
 |Switzerland West    |LRS     |
 |UAE Central    |LRS     |
-|UAE North     LRS     |
+|UAE North    |LRS     |
 |UK North   |LRS, ZRS    |
 |UK South    |LRS     |
 |UK West    |LRS     |
