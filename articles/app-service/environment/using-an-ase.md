@@ -48,7 +48,7 @@ To create an app in an ASE:
 	a. From the Azure portal left side menu select **Create a resource > Web App**.
 
 	b. Select the subscription.
-	
+	,
 	c. Select or create the resource group.
 	
 	d. Provide the name of your web app.
@@ -77,21 +77,21 @@ Every App Service app runs in an App Service plan. App Service Environments hold
 
 When you scale an App Service plan, the needed infrastructure is automatically added. There is a time delay to scale operations while the infrastructure is added. In ASEv1, the needed infrastructure must be added before you can create or scale out your App Service plan. 
 
-In the multitenant App Service, scaling is usually immediate because a pool of resources is readily available to support it. In an ASE, there is no such buffer, and resources are allocated upon need.
+In the multitenant App Service, scaling is immediate because a pool of resources is readily available to support it. In an ASE, there is no such buffer, and resources are allocated upon need.
 
-In an ASE, you can scale up to 100 instances. Those 100 instances can be all in one single App Service plan or distributed across multiple App Service plans.
+In an ASE, you can scale an App Service plan up to 100 instances. An ASE can have up to 250 total instances across all of the ASPs that are in the ASE. 
 
 ## IP addresses ##
 
-App Service has the ability to allocate a dedicated IP address to an app. This capability is available after you configure an IP-based SSL, as described in [Bind an existing custom SSL certificate to Azure App Service][ConfigureSSL]. In an ILB ASE, you can't add additional IP addresses to be used for an IP-based SSL.
+App Service has the ability to allocate a dedicated IP address to an app. The capability to allocate a dedicated IP to an app is available after you configure an IP-based SSL, as described in [Bind an existing custom SSL certificate to Azure App Service][ConfigureSSL]. In an ILB ASE, you can't add additional IP addresses to be used for an IP-based SSL.
 
 With an external ASE, you can configure IP-based SSL for your app in the same manner that you do in the multitenant App Service. There is always one spare address in the ASE up to 30 IP addresses. Each time you use one, another is added so that an address is always readily available for use. A time delay is required to allocate another IP address, which prevents adding IP addresses in quick succession.
 
 ## Front-end scaling ##
 
-When you scale out your App Service plans, workers are automatically added to support them. Every ASE is created with two front ends. The front ends automatically scale out at a rate of one front end for every total 15 instances in your App Service plans. For example, if you have three App Service plans of 5 instances each, you would have a total of 15 instances and three front ends. If you scale to a total of 30 instances, then you have four front ends, and so on. 
+When you scale out your App Service plans, workers are automatically added to support them. Every ASE is created with two front ends. The front ends automatically scale out at a rate of one front end for every total 15 instances in your App Service plans. For example, if you have three App Service plans of five instances each, you would have a total of 15 instances and three front ends. If you scale to a total of 30 instances, then you have four front ends, and so on. 
 
-This number of front ends should be more than enough for most scenarios. However, you can scale out at a faster rate. You can change the ratio to as low as one front end for every five instances. You can also change the size of the front ends. By default they are single core. You can change that in the portal to two or four core instead. There is a charge for changing the ratio or the front end sizes. For more information, see [Azure App Service pricing][Pricing].
+The number of front ends that are allocated by default should be enough for most scenarios. However, you can scale out at a faster rate. You can change the ratio to as low as one front end for every five instances. You can also change the size of the front ends. By default they are single core. You can change that in the portal to two or four core instead. There is a charge for changing the ratio or the front end sizes. For more information, see [Azure App Service pricing][Pricing].
 
 Front-end resources are the HTTP/HTTPS endpoint for the ASE. With the default front-end configuration, memory usage per front end is consistently around 60 percent. Customer workloads don't run on a front end. The key factor for a front end with respect to scale is the CPU, which is driven primarily by HTTPS traffic.
 
@@ -123,21 +123,21 @@ With an External ASE, these publishing options all behave the same. For more inf
 
 The major difference with publishing is with respect to an ILB ASE. With an ILB ASE, the publishing endpoints are all available only through the ILB. The ILB is on a private IP in the ASE subnet in the virtual network. If you don’t have network access to the ILB, you can't publish any apps on that ASE. As noted in [Create and use an ILB ASE][MakeILBASE], you need to configure DNS for the apps in the system. That includes the SCM endpoint. If they're not defined properly, you can't publish. Your IDEs also need to have network access to the ILB in order to publish directly to it.
 
-Out of the box, Internet-based CI systems, such as GitHub and Azure DevOps, don't work with an ILB ASE because the publishing endpoint is not Internet accessible. For Azure DevOps, you can work around this by installing a self-hosted release agent in your internal network where it can reach the ILB. Alternatively, you can also use a CI system that uses a pull model, such as Dropbox.
+Out of the box, Internet-based CI systems, such as GitHub and Azure DevOps, don't work with an ILB ASE because the publishing endpoint is not Internet accessible. For Azure DevOps, you can work around the problem by installing a self-hosted release agent in your internal network where it can reach the ILB. Alternatively, you can also use a CI system that uses a pull model, such as Dropbox.
 
 The publishing endpoints for apps in an ILB ASE use the domain that the ILB ASE was created with. You can see it in the app's publishing profile and in the app's portal blade (in **Overview** > **Essentials** and also in **Properties**). 
 
 ## Logging ##
 
-You can integrate your ASE with Azure Monitor to send logs about the ASE to Storage, Event Hub or Log Analytics. If you send your logs to Log Analytics, you can then set alerts for events that you are interested in. The items that are logged today are:
+You can integrate your ASE with Azure Monitor to send logs about the ASE to Storage, Event Hub, or Log Analytics. If you send your logs to Log Analytics, you can then set alerts for events that you are interested in. The items that are logged today are:
 
 | Situation | Message |
 |---------|----------|
-| ASE is unhealthy | The specified ASE is unhealthy, this may be due to an invalid virtual network configuration. The ASE will be suspended if this state continues. Please ensure the guidelines defined here are followed: https://docs.microsoft.com/azure/app-service/environment/network-info |
+| ASE is unhealthy | The specified ASE is unhealthy due to an invalid virtual network configuration. The ASE will be suspended if the unhealthy state continues. Ensure the guidelines defined here are followed: https://docs.microsoft.com/azure/app-service/environment/network-info |
 | ASE subnet is almost out of space | The specified ASE is in a subnet that is almost out of space. There are {0} remaining addresses. Once these addresses are exhausted, the ASE will not be able to scale  |
-| ASE is approaching total instance limit | The specified ASE is approaching the total instance limit of the ASE. It currently contains {0} App Service Plan instances of a maximum 100 instances. Please contact support if more instances are needed |
-| ASE is unable to reach a dependency | The specified ASE is not able to reach {0}.  Please ensure the guidelines defined here are followed: https://docs.microsoft.com/azure/app-service/environment/network-info |
-| ASE is suspended | The specified ASE is suspended, this may be due to an account shortfall or an invalid virtual network configuration. Please resolve the root cause and resume it to continue serving traffic |
+| ASE is approaching total instance limit | The specified ASE is approaching the total instance limit of the ASE. It currently contains {0} App Service Plan instances of a maximum 100 instances. Contact support if more instances are needed |
+| ASE is unable to reach a dependency | The specified ASE is not able to reach {0}.  Ensure the guidelines defined here are followed: https://docs.microsoft.com/azure/app-service/environment/network-info |
+| ASE is suspended | The specified ASE is suspended. The ASE suspension may be due to an account shortfall or an invalid virtual network configuration. Resolve the root cause and resume the ASE to continue serving traffic |
 | ASE upgrade has started | A platform upgrade to the specified ASE has begun. Expect delays in scaling operations |
 | ASE upgrade has completed | A platform upgrade to the specified ASE has finished |
 | Scale operations have started | An App Service plan ({0}) has begun scaling. Desired state: {1} I{2} workers 
@@ -158,13 +158,13 @@ If you integrate with Log Analytics, you can see the logs by selecting Logs from
 
 ## Upgrade preference ##
 
-If you have multiple ASEs, you may want to have some ASEs get upgraded before others. Within the ASE HostingEnvironment Resource Manager object, you can set the UpgradePreferences object. This can be set through template, ARMClient, or https://resources.azure.com.  The three value choices are:
+If you have multiple ASEs, you may want to have some ASEs get upgraded before others. Within the ASE HostingEnvironment Resource Manager object, you can set a value for UpgradePreferences. The upgradePreferences setting can be configured through template, ARMClient, or https://resources.azure.com.  The three value choices are:
 
-* None - this is the default and means that Azure will upgrade your ASE in no particular batch
-* Early - this means that your ASE will be upgraded in the first half of the App Service upgrades
-* Late - this means that your ASE will be upgraded in the second half of the App Service upgrades
+* None - None is the default and means that Azure will upgrade your ASE in no particular batch
+* Early - Early means that your ASE will be upgraded in the first half of the App Service upgrades
+* Late - Late means that your ASE will be upgraded in the second half of the App Service upgrades
 
-If you are using https://resources.azure.com, you can set this value by:
+If you are using https://resources.azure.com, you can set the upgradePreferences value by:
 
 1. Going to resources.azure.com and signing in with your Azure account
 1. Navigate through subscriptions\/\[subscription name\]\/resourceGroups\/\[resource group name\]\/providers\/Microsoft.Web\/hostingEnvironments\/\[ASE name\]
@@ -175,7 +175,7 @@ If you are using https://resources.azure.com, you can set this value by:
 
 ![resources azure com display][5]
 
-This feature really makes the most sense when you have multiple ASEs as your "Early" upgraded ASEs will be upgraded before your "Late" ASEs. In this situation, you should have your dev/test ASEs set to be "Early" and your production ASEs to be set as "Late".
+The upgradePreferences feature really makes the most sense when you have multiple ASEs as your "Early" upgraded ASEs will be upgraded before your "Late" ASEs. When you have multiple ASEs, you should have your dev/test ASEs set to be "Early" and your production ASEs to be set as "Late".
 
 ## Pricing ##
 
@@ -183,11 +183,11 @@ The pricing SKU called **Isolated** is only for use with ASE. All App Service pl
 
 In addition to the price for your App Service plans, there is a flat rate for ASE itself. The flat rate doesn't change with the size of your ASE and pays for the ASE infrastructure at a default scaling rate of 1 additional front-end for every 15 App Service plan instances.  
 
-If the default scale rate of 1 front end for every 15 App Service plan instances is not fast enough, you can adjust the ratio at which front-ends are added or the size of the front-ends.  When you adjust the ratio or size, you pay for the front-end cores that would not be added by default.  
+If the default scale rate of one front end for every 15 App Service plan instances is not fast enough, you can adjust the ratio at which front-ends are added or the size of the front-ends.  When you adjust the ratio or size, you pay for the front-end cores that would not be added by default.  
 
 For example, if you adjust the scale ratio to 10, a front end is added for every 10 instances in your App Service plans. The flat fee covers a scale rate of one front end for every 15 instances. With a scale ratio of 10, you pay a fee for the third front end that's added for the 10 App Service plan instances. You don't need to pay for it when you reach 15 instances because it was added automatically.
 
-If you adjusted the size of the front-ends to 2 cores but do not adjust the ratio then you pay for the extra cores.  An ASE is created with 2 front-ends, so even below the automatic scaling threshold you would pay for 2 extra cores if you increased the size to 2 core front-ends.
+If you adjusted the size of the front-ends to 2 cores but do not adjust the ratio, then you pay for the extra cores.  An ASE is created with two front-ends, so even below the automatic scaling threshold you would pay for two extra cores if you increased the size to two core front-ends.
 
 For more information, see [Azure App Service pricing][Pricing].
 
