@@ -59,9 +59,9 @@ az extension update --name aks-preview
 > [!CAUTION]
 > When you register a feature on a subscription, you can't currently un-register that feature. After you enable some preview features, defaults may be used for all AKS clusters then created in the subscription. Don't enable preview features on production subscriptions. Use a separate subscription to test preview features and gather feedback.
 
-## Create Azure Key Valt instance to store your keys
+## Create Azure Key Vault instance to store your keys
 
-Create a new Key Valut instance and enable soft delete and purge protection.
+Create a new Key Vault instance and enable soft delete and purge protection.
 
 ```azurecli-interactive
 az keyvault create -n $keyVaultName -g $rgName -l $location --enable-purge-protection true --enable-soft-delete true
