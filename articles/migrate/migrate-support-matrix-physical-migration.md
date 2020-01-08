@@ -10,7 +10,7 @@ ms.date: 01/07/2020
 This article summarizes support settings and limitations for migrating physical servers with [Azure Migrate: Server Migration](migrate-services-overview.md#azure-migrate-server-migration-tool) . If you're looking for information about assessing physical servers for migration to Azure, review the [assessment support matrix](migrate-support-matrix-vmwarephysical.md).
 
 
-## Overivew
+## Overview
 
 You can migrate on-premises machines as physical servers, using agent-based replication. Using this tool, you can migrate a wide range of machines to Azure:
 
@@ -36,7 +36,7 @@ The table summarizes support for physical servers you want to migrate using agen
 **Operating systems** | For the latest information, review the [operating system support](../site-recovery/vmware-physical-azure-support-matrix.md#replicated-machines) for Site Recovery. Azure Migrate provides identical operating system support.
 **Linux file system/guest storage** | For the latest information, review the [Linux file system support](../site-recovery/vmware-physical-azure-support-matrix.md#linux-file-systemsguest-storage) for Site Recovery. Azure Migrate provides identical Linux file system support.
 **Network/Storage** | For the latest information, review the [network](../site-recovery/vmware-physical-azure-support-matrix.md#network) and [storage](../site-recovery/vmware-physical-azure-support-matrix.md#storage) prerequisites for Site Recovery. Azure Migrate provides identical network/storage requirements.
-**Azure requirements** | For the latest information, review the [Azure network](../site-recovery/vmware-physical-azure-support-matrix.md#azure-vm-network-after-failover), [storage](../site-recovery/vmware-physical-azure-support-matrix.md#azure-storage), and [compute](../site-recovery/vmware-physical-azure-support-matrix.md#azure-compute) requirements for Site Recovery. Azure Migrate has dentical requirements for for physical server migration.
+**Azure requirements** | For the latest information, review the [Azure network](../site-recovery/vmware-physical-azure-support-matrix.md#azure-vm-network-after-failover), [storage](../site-recovery/vmware-physical-azure-support-matrix.md#azure-storage), and [compute](../site-recovery/vmware-physical-azure-support-matrix.md#azure-compute) requirements for Site Recovery. Azure Migrate has identical requirements for physical server migration.
 **Mobility service** | The Mobility service agent must be installed on each machine you want to migrate.
 **UEFI boot** | The migrated machine in Azure will be automatically converted to a BIOS boot Azure VM.<br/><br/> The OS disk should have up to four partitions, and volumes should be formatted with NTFS.
 **Target disk** | Machines can only be migrated to managed disks (standard HDD, premium SSD) in Azure.
