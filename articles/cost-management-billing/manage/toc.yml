@@ -103,7 +103,7 @@
       - name: EA tasks in Microsoft Customer Agreement
         href: mca-enterprise-operations.md
       - name: Programmatically create Enterprise subscriptions
-        href: ../../azure-resource-manager/programmatically-create-subscription.md?toc=/azure/cost-management-billing/toc.json
+        href: ../../azure-resource-manager/management/programmatically-create-subscription.md
   - name: Troubleshoot
     items:
     - name: No subscriptions found

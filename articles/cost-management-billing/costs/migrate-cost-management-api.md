@@ -321,7 +321,7 @@ Here's an example of the synchronous REST API response:
 
 #### New response body
 
-The APIs support the [Azure REST asynchronous](../../azure-resource-manager/resource-manager-async-operations.md) format. Call the API using GET and you receive the following response:
+The APIs support the [Azure REST asynchronous](../../azure-resource-manager/management/async-operations.md) format. Call the API using GET and you receive the following response:
 
 ```
 No Response Body
