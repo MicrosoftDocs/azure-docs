@@ -246,6 +246,8 @@ The following section shows RTMP "simple" mode" payload, which can be used to si
 
 ---
  
+
+
 ## 2.1.4 RTMP ad cue signaling with "onAdCue" - SCTE-35 Mode
 
 When you are working with a more advanced broadcast production workflow that requires the full SCTE-35 payload message to be carried through to the HLS or DASH manifest, it is best to use the "SCTE-35 Mode" of the [Adobe-Primetime] specification.  This mode supports in-band SCTE-35 signals being sent directly into an on-premises live encoder, which then encodes the signals out into the RTMP stream using the "SCTE-35 Mode" specified in the [Adobe-Primetime] specification. 
@@ -264,6 +266,55 @@ In this scenario, the following payload MUST be sent from the on-premises encode
 | time       | Number     | Required | The presentation time of the event or ad splice.  The presentation time and duration **SHOULD** align with Stream Access Points (SAP) of type 1 or 2, as defined in [ISO-14496-12] Annex I. For HLS egress, time and duration **SHOULD** align with segment boundaries. The presentation time and duration of different event messages within the same event stream MUST not overlap. Units are fractional seconds.
 
 ---
+
+#### Example HLS playlist using SCTE-35 Mode (truncated "..." for brevity)
+
+~~~ 
+#EXTM3U
+#EXT-X-VERSION:8
+#EXT-X-MEDIA-SEQUENCE:0
+#EXT-X-TARGETDURATION:2
+#EXT-X-INDEPENDENT-SEGMENTS
+#EXT-X-PROGRAM-DATE-TIME:2020-01-07T19:40:50Z
+...
+#EXTINF:1.234567,no-desc
+Fragments(video=23243220,format=m3u8-aapl-v8)
+#EXTINF:0.016689,no-desc
+Fragments(video=23354331,format=m3u8-aapl-v8)
+#EXT-X-DATERANGE:ID="1002",START-DATE="2020-01-07T19:45:09.509Z",SCTE35-OUT=0xFC30250000000005DD00FFF01405000003EA7FEFFE016461B8FE00526363000101010000F20D5E37
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=0.000022
+#EXTINF:0.250244,no-desc
+Fragments(video=23355833,format=m3u8-aapl-v8)
+#EXT-X-DATERANGE:ID="1002",START-DATE="2020-01-07T19:45:09.509Z",SCTE35-OUT=0xFC30250000000005DD00FFF01405000003EA7FEFFE016461B8FE00526363000101010000F20D5E37
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=0.250267
+#EXTINF:0.850856,no-desc
+Fragments(video=23378355,format=m3u8-aapl-v8)
+#EXT-X-DATERANGE:ID="1002",START-DATE="2020-01-07T19:45:09.509Z",SCTE35-OUT=0xFC30250000000005DD00FFF01405000003EA7FEFFE016461B8FE00526363000101010000F20D5E37
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=1.101122
+#EXT-X-DATERANGE:ID="1002",START-DATE="2020-01-07T19:45:10.610Z",SCTE35-IN=0xFC30200000000005DD00FFF00F05000003EA7F4FFE0165E4D3000101010000607CE85A
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=0.000000,TIME=260.610344,CUE="/DAgAAAAAAXdAP/wDwUAAAPqf0/+AWXk0wABAQEAAGB86Fo="
+#EXTINF:0.650644,no-desc
+Fragments(video=23454932,format=m3u8-aapl-v8)
+...
+#EXT-X-DATERANGE:ID="1002",START-DATE="2020-01-07T19:45:09.509Z",SCTE35-OUT=0xFC30250000000005DD00FFF01405000003EA7FEFFE016461B8FE00526363000101010000F20D5E37
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=55.805767
+#EXTINF:1.501500,no-desc
+Fragments(video=28378350,format=m3u8-aapl-v8)
+#EXT-X-DATERANGE:ID="1002",START-DATE="2020-01-07T19:45:09.509Z",SCTE35-OUT=0xFC30250000000005DD00FFF01405000003EA7FEFFE016461B8FE00526363000101010000F20D5E37
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=57.307267
+#EXTINF:1.501500,no-desc
+Fragments(video=28513485,format=m3u8-aapl-v8)
+#EXT-X-DATERANGE:ID="1002",START-DATE="2020-01-07T19:45:09.509Z",SCTE35-OUT=0xFC30250000000005DD00FFF01405000003EA7FEFFE016461B8FE00526363000101010000F20D5E37
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=58.808767
+#EXTINF:1.501500,no-desc
+Fragments(video=28648620,format=m3u8-aapl-v8)
+...
+
+~~~
+
+#### Example MPEG DASH manifest with SCTE-35 mode signals
+See [Section 3.3.3.2](#3332-example-mpeg-dash-manifest-mpd-with-multi-period-eventstream-using-adobe-scte35-mode-signaling)
+
 ## 2.1.5 RTMP Ad signaling with "onCuePoint" for Elemental Live
 
 The Elemental Live on-premises encoder supports ad markers in the RTMP signal. Azure Media Services currently only supports the "onCuePoint" Ad Marker type for RTMP.  This can be enabled in the Adobe RTMP Group Settings in the Elemental Media Live encoder settings or API by setting the "**ad_markers**" to "onCuePoint".  Please refer to the Elemental Live documentation for details. 
@@ -280,7 +331,105 @@ The "onCuePoint" message type is defined in [Adobe-Flash-AS] and has the followi
 | parameters | A associative array of name/value pair strings containing the information from the SCTE-35 message, including Id and duration. These values are parsed out by Azure Media Services and included in the manifest decoration tag.  |
 
 
-When this mode of ad marker is used, the HLS manifest output is similar to Adobe "Simple" mode. 
+When this mode of ad marker is used, the HLS manifest output is similar to Adobe "Simple" mode.
+
+
+#### Example MPEG DASH MPD, single period, Adobe Simple mode signals
+
+~~~ xml
+<?xml version="1.0" encoding="utf-8"?>
+<MPD xmlns="urn:mpeg:dash:schema:mpd:2011" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" profiles="urn:mpeg:dash:profile:isoff-live:2011" type="dynamic" publishTime="2020-01-07T18:58:03Z" minimumUpdatePeriod="PT0S" timeShiftBufferDepth="PT58M56S" availabilityStartTime="2020-01-07T17:44:47Z" minBufferTime="PT7S">
+    <Period start="PT0S">
+        <EventStream schemeIdUri="urn:com:adobe:dpi:simple:2015" value="scte35" timescale="10000000">
+            <Event presentationTime="1583497601000000" duration="300000000" id="1085900"/>
+            <Event presentationTime="1583500901666666" duration="300000000" id="1415966"/>
+            <Event presentationTime="1583504202333333" duration="300000000" id="1746033"/>
+            <Event presentationTime="1583507502666666" duration="300000000" id="2076066"/>
+            <Event presentationTime="1583510803333333" duration="300000000" id="2406133"/>
+            <Event presentationTime="1583514104000000" duration="300000000" id="2736200"/>
+            <Event presentationTime="1583517404666666" duration="300000000" id="3066266"/>
+            <Event presentationTime="1583520705333333" duration="300000000" id="3396333"/>
+            <Event presentationTime="1583524006000000" duration="300000000" id="3726400"/>
+            <Event presentationTime="1583527306666666" duration="300000000" id="4056466"/>
+            <Event presentationTime="1583530607333333" duration="300000000" id="4386533"/>
+        </EventStream>
+        <AdaptationSet id="1" group="1" profiles="ccff" bitstreamSwitching="false" segmentAlignment="true" contentType="video" mimeType="video/mp4" codecs="avc1.4D400C" maxWidth="256" maxHeight="144" startWithSAP="1">
+            <InbandEventStream schemeIdUri="urn:mpeg:dash:event:2012" value="1"/>
+            <InbandEventStream schemeIdUri="urn:com:adobe:dpi:simple:2015" value="scte35"/>
+            <SegmentTemplate timescale="10000000" presentationTimeOffset="1583486678426666" media="QualityLevels($Bandwidth$)/Fragments(video=$Time$,format=mpd-time-csf)" initialization="QualityLevels($Bandwidth$)/Fragments(video=i,format=mpd-time-csf)">
+                <SegmentTimeline>
+                    <S t="1583495318000000" d="64000000" r="34"/>
+                    <S d="43000000"/>
+                    <S d="21000000"/>
+                    <!-- ... Truncated for brevity of sample-->
+
+                </SegmentTimeline>
+            </SegmentTemplate>
+            <ProducerReferenceTime id="1583495318000000" type="0" wallClockTime="2020-01-07T17:59:10.957Z" presentationTime="1583495318000000"/>
+            <Representation id="1_V_video_3750956353252827751" bandwidth="149952" width="256" height="144"/>
+        </AdaptationSet>
+        <AdaptationSet id="2" group="5" profiles="ccff" bitstreamSwitching="false" segmentAlignment="true" contentType="audio" mimeType="audio/mp4" codecs="mp4a.40.2" lang="en">
+            <InbandEventStream schemeIdUri="urn:mpeg:dash:event:2012" value="1"/>
+            <InbandEventStream schemeIdUri="urn:com:adobe:dpi:simple:2015" value="scte35"/>
+            <Label>ambient</Label>
+            <SegmentTemplate timescale="10000000" presentationTimeOffset="1583486678426666" media="QualityLevels($Bandwidth$)/Fragments(ambient=$Time$,format=mpd-time-csf)" initialization="QualityLevels($Bandwidth$)/Fragments(ambient=i,format=mpd-time-csf)">
+                <SegmentTimeline>
+                    <S t="1583495254426666" d="64000000" r="35"/>
+                    <S d="43093334"/>
+                    <S d="20906666"/>
+                    <!-- ... Truncated for brevity of sample-->
+
+                </SegmentTimeline>
+            </SegmentTemplate>
+            <ProducerReferenceTime id="1583495254426666" type="0" wallClockTime="2020-01-07T17:59:04.600Z" presentationTime="1583495254426666"/>
+            <Representation id="5_A_ambient_9125670592623055209" bandwidth="96000" audioSamplingRate="48000"/>
+        </AdaptationSet>
+    </Period>
+</MPD>
+~~~
+
+#### Example HLS playlist, Adobe Simple mode signals using EXT-X-CUE tag (truncated "..." for brevity)
+
+~~~
+#EXTM3U
+#EXT-X-VERSION:8
+#EXT-X-MEDIA-SEQUENCE:0
+#EXT-X-TARGETDURATION:7
+#EXT-X-INDEPENDENT-SEGMENTS
+#EXT-X-PROGRAM-DATE-TIME:2020-01-07T17:44:47Z
+#EXTINF:6.400000,no-desc
+Fragments(video=1583486742000000,format=m3u8-aapl-v8)
+#EXTINF:6.400000,no-desc
+Fragments(video=1583486806000000,format=m3u8-aapl-v8)
+...
+#EXTINF:6.166667,no-desc
+Fragments(video=1583487638000000,format=m3u8-aapl-v8)
+#EXT-X-CUE:ID=95766,TYPE="SpliceOut",DURATION=30.000000,TIME=158348769.966667
+#EXTINF:0.233333,no-desc
+Fragments(video=1583487699666666,format=m3u8-aapl-v8)
+#EXT-X-CUE:ID=95766,TYPE="SpliceOut",DURATION=30.000000,TIME=158348769.966667,ELAPSED=0.233333
+#EXTINF:6.400000,no-desc
+Fragments(video=1583487702000000,format=m3u8-aapl-v8)
+#EXT-X-CUE:ID=95766,TYPE="SpliceOut",DURATION=30.000000,TIME=158348769.966667,ELAPSED=6.633333
+#EXTINF:6.400000,no-desc
+Fragments(video=1583487766000000,format=m3u8-aapl-v8)
+#EXT-X-CUE:ID=95766,TYPE="SpliceOut",DURATION=30.000000,TIME=158348769.966667,ELAPSED=13.033333
+#EXTINF:6.400000,no-desc
+Fragments(video=1583487830000000,format=m3u8-aapl-v8)
+#EXT-X-CUE:ID=95766,TYPE="SpliceOut",DURATION=30.000000,TIME=158348769.966667,ELAPSED=19.433333
+#EXTINF:6.400000,no-desc
+Fragments(video=1583487894000000,format=m3u8-aapl-v8)
+#EXT-X-CUE:ID=95766,TYPE="SpliceOut",DURATION=30.000000,TIME=158348769.966667,ELAPSED=25.833333
+#EXTINF:4.166667,no-desc
+Fragments(video=1583487958000000,format=m3u8-aapl-v8)
+#EXTINF:2.233333,no-desc
+Fragments(video=1583487999666666,format=m3u8-aapl-v8)
+#EXTINF:6.400000,no-desc
+Fragments(video=1583488022000000,format=m3u8-aapl-v8)
+...
+
+~~~
 
 ### 2.1.6 Cancellation and Updates
 
@@ -554,26 +703,42 @@ The EventStream element has the following attributes:
 | Timescale          | 32-bit unsigned integer | Required      | The timescale, in ticks per second.                                                                                                                                                                                                       |
 
 
-### 3.3.2 Example MPEG DASH manifest (MPD) signaling of SCTE-35 using EventStream
+### 3.3.2 Example Event Streams for MPEG DASH
+
+#### 3.3.2.1 Example MPEG DASH manifest (MPD) signaling of Adobe simple mode using EventStream
+~~~ xml
+<!-- Example EventStream element using "urn:com:adobe:dpi:simple:2015" Adobe simple signaling per [Adobe-Primetime] -->
+    <EventStream schemeIdUri="urn:com:adobe:dpi:simple:2015" value="c35x" timescale="10000000">
+        <Event presentationTime="1583497601000000" duration="300000000" id="1085900"/>
+        <Event presentationTime="1583500901666666" duration="300000000" id="1415966"/>
+        <Event presentationTime="1583504202333333" duration="300000000" id="1746033"/>
+        <Event presentationTime="1583507502666666" duration="300000000" id="2076066"/>
+        <Event presentationTime="1583510803333333" duration="300000000" id="2406133"/>
+        <Event presentationTime="1583514104000000" duration="300000000" id="2736200"/>
+        <Event presentationTime="1583517404666666" duration="300000000" id="3066266"/>
+        <Event presentationTime="1583520705333333" duration="300000000" id="3396333"/>
+        <Event presentationTime="1583524006000000" duration="300000000" id="3726400"/>
+        <Event presentationTime="1583527306666666" duration="300000000" id="4056466"/>
+        <Event presentationTime="1583530607333333" duration="300000000" id="4386533"/>
+    </EventStream>
+~~~
+
+#### 3.3.2.2 Example MPEG DASH manifest (MPD) signaling of SCTE-35 using EventStream
 
 ~~~ xml
-<!-- Example MPD using xml+bin style signaling per [SCTE-214-1] -->
-  <EventStream schemeIdUri="urn:scte:scte35:2014:xml+bin" value="scte35_track_001_000" timescale="10000000">
-        <Event presentationTime="15447165200227600" duration="300000000" id="1026">
-            <scte35:Signal>
-                <scte35:Binary>
-                    /DAlAAAAAAAAAP/wFAUAAAQDf+//KaeGwP4AKTLgAAAAAAAAn75a3g==
-                </scte35:Binary>
-            </scte35:Signal>
-        </Event>
-        <Event presentationTime="15447166250227600" duration="300000000" id="1027">
-           <scte35:Signal>
-                <scte35:Binary>
-                    /DAlAAAAAAAAAP/wFAUAAAQDf+//KaeGwP4AKTLgAAAAAAAAn75a3g==
-                </scte35:Binary>
-            </scte35:Signal>
-        </Event>
-    </EventStream>
+<!-- Example EventStream element using xml+bin style signaling per [SCTE-214-1] -->
+      <EventStream schemeIdUri="urn:scte:scte35:2014:xml+bin" value="scte35" timescale="10000000">
+          <Event presentationTime="2595092444" duration="11011000" id="1002">
+              <Signal xmlns="http://www.scte.org/schemas/35/2016">
+                  <Binary>/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==</Binary>
+              </Signal>
+          </Event>
+          <Event presentationTime="2606103444" id="1002">
+              <Signal xmlns="http://www.scte.org/schemas/35/2016">
+                  <Binary>/DAgAAAAAAXdAP/wDwUAAAPqf0/+AWXk0wABAQEAAGB86Fo=</Binary>
+              </Signal>
+          </Event>
+      </EventStream>
 ~~~
 
 > [!IMPORTANT]
@@ -582,8 +747,323 @@ The EventStream element has the following attributes:
 > The value of the presentation time in seconds is the division of the value of this attribute and the value of the EventStream@timescale attribute.
 > If not present, the value of the presentation time is 0.
 
+#### 3.3.3.1 Example MPEG DASH manifest (MPD) with single-period, EventStream, using Adobe simple mode signals
 
-### 3.3.3 MPEG DASH In-band Event Message Box Signaling
+~~~ xml
+<?xml version="1.0" encoding="utf-8"?>
+<MPD xmlns="urn:mpeg:dash:schema:mpd:2011" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" profiles="urn:mpeg:dash:profile:isoff-live:2011" type="dynamic" publishTime="2020-01-07T18:58:03Z" minimumUpdatePeriod="PT0S" timeShiftBufferDepth="PT58M56S" availabilityStartTime="2020-01-07T17:44:47Z" minBufferTime="PT7S">
+    <Period start="PT0S">
+        <EventStream schemeIdUri="urn:com:adobe:dpi:simple:2015" value="c35x" timescale="10000000">
+            <Event presentationTime="1583497601000000" duration="300000000" id="1085900"/>
+            <Event presentationTime="1583500901666666" duration="300000000" id="1415966"/>
+            <Event presentationTime="1583504202333333" duration="300000000" id="1746033"/>
+            <Event presentationTime="1583507502666666" duration="300000000" id="2076066"/>
+            <Event presentationTime="1583510803333333" duration="300000000" id="2406133"/>
+            <Event presentationTime="1583514104000000" duration="300000000" id="2736200"/>
+            <Event presentationTime="1583517404666666" duration="300000000" id="3066266"/>
+            <Event presentationTime="1583520705333333" duration="300000000" id="3396333"/>
+            <Event presentationTime="1583524006000000" duration="300000000" id="3726400"/>
+            <Event presentationTime="1583527306666666" duration="300000000" id="4056466"/>
+            <Event presentationTime="1583530607333333" duration="300000000" id="4386533"/>
+        </EventStream>
+        <AdaptationSet id="1" group="1" profiles="ccff" bitstreamSwitching="false" segmentAlignment="true" contentType="video" mimeType="video/mp4" codecs="avc1.4D400C" maxWidth="256" maxHeight="144" startWithSAP="1">
+            <InbandEventStream schemeIdUri="urn:mpeg:dash:event:2012" value="1"/>
+            <InbandEventStream schemeIdUri="urn:com:adobe:dpi:simple:2015" value="c35x"/>
+            <SegmentTemplate timescale="10000000" presentationTimeOffset="1583486678426666" media="QualityLevels($Bandwidth$)/Fragments(video=$Time$,format=mpd-time-csf)" initialization="QualityLevels($Bandwidth$)/Fragments(video=i,format=mpd-time-csf)">
+                <SegmentTimeline>
+                    <S t="1583495318000000" d="64000000" r="34"/>
+                    <S d="43000000"/>
+                    <S d="21000000"/>
+                    <S d="64000000" r="3"/>
+                    <S d="23000000"/>
+                    <S d="41000000"/>
+                    <S d="64000000" r="45"/>
+                    <S d="15666666"/>
+                    <S d="48333334"/>
+                    <S d="64000000" r="2"/>
+                    <S d="59666666"/>
+                    <S d="4333334"/>
+                    <S d="64000000" r="45"/>
+                    <S d="52333333"/>
+                    <S d="11666667"/>
+                    <S d="64000000" r="3"/>
+                    <S d="32333333"/>
+                    <S d="31666667"/>
+                    <S d="64000000" r="45"/>
+                    <S d="24666666"/>
+                    <S d="39333334"/>
+                    <S d="64000000" r="3"/>
+                    <S d="4666666"/>
+                    <S d="59333334"/>
+                    <S d="64000000" r="44"/>
+                    <S d="61333333"/>
+                    <S d="2666667"/>
+                    <S d="64000000" r="3"/>
+                    <S d="41333333"/>
+                    <S d="22666667"/>
+                    <S d="64000000" r="45"/>
+                    <S d="34000000"/>
+                    <S d="30000000"/>
+                    <S d="64000000" r="3"/>
+                    <S d="14000000"/>
+                    <S d="50000000"/>
+                    <S d="64000000" r="45"/>
+                    <S d="6666666"/>
+                    <S d="57333334"/>
+                    <S d="64000000" r="2"/>
+                    <S d="50666666"/>
+                    <S d="13333334"/>
+                    <S d="64000000" r="45"/>
+                    <S d="43333333"/>
+                    <S d="20666667"/>
+                    <S d="64000000" r="3"/>
+                    <S d="23333333"/>
+                    <S d="40666667"/>
+                    <S d="64000000" r="45"/>
+                    <S d="16000000"/>
+                    <S d="48000000"/>
+                    <S d="64000000" r="2"/>
+                    <S d="60000000"/>
+                    <S d="4000000"/>
+                    <S d="64000000" r="45"/>
+                    <S d="52666666"/>
+                    <S d="11333334"/>
+                    <S d="64000000" r="3"/>
+                    <S d="32666666"/>
+                    <S d="31333334"/>
+                    <S d="64000000" r="45"/>
+                    <S d="25333333"/>
+                    <S d="38666667"/>
+                    <S d="64000000"/>
+                </SegmentTimeline>
+            </SegmentTemplate>
+            <ProducerReferenceTime id="1583495318000000" type="0" wallClockTime="2020-01-07T17:59:10.957Z" presentationTime="1583495318000000"/>
+            <Representation id="1_V_video_3750956353252827751" bandwidth="149952" width="256" height="144"/>
+        </AdaptationSet>
+        <AdaptationSet id="2" group="5" profiles="ccff" bitstreamSwitching="false" segmentAlignment="true" contentType="audio" mimeType="audio/mp4" codecs="mp4a.40.2" lang="en">
+            <InbandEventStream schemeIdUri="urn:mpeg:dash:event:2012" value="1"/>
+            <InbandEventStream schemeIdUri="urn:com:adobe:dpi:simple:2015" value="c35x"/>
+            <Label>ambient</Label>
+            <SegmentTemplate timescale="10000000" presentationTimeOffset="1583486678426666" media="QualityLevels($Bandwidth$)/Fragments(ambient=$Time$,format=mpd-time-csf)" initialization="QualityLevels($Bandwidth$)/Fragments(ambient=i,format=mpd-time-csf)">
+                <SegmentTimeline>
+                    <S t="1583495254426666" d="64000000" r="35"/>
+                    <S d="43093334"/>
+                    <S d="20906666"/>
+                    <S d="64000000" r="3"/>
+                    <S d="23040000"/>
+                    <S d="40960000"/>
+                    <S d="64000000" r="45"/>
+                    <S d="15573334"/>
+                    <S d="48426666"/>
+                    <S d="64000000" r="2"/>
+                    <S d="59733334"/>
+                    <S d="4266666"/>
+                    <S d="64000000" r="45"/>
+                    <S d="52266667"/>
+                    <S d="11733333"/>
+                    <S d="64000000" r="3"/>
+                    <S d="32426667"/>
+                    <S d="31573333"/>
+                    <S d="64000000" r="45"/>
+                    <S d="24746667"/>
+                    <S d="39253333"/>
+                    <S d="64000000" r="3"/>
+                    <S d="4693334"/>
+                    <S d="59306666"/>
+                    <S d="64000000" r="44"/>
+                    <S d="61440000"/>
+                    <S d="2560000"/>
+                    <S d="64000000" r="3"/>
+                    <S d="41386667"/>
+                    <S d="22613333"/>
+                    <S d="64000000" r="45"/>
+                    <S d="33920000"/>
+                    <S d="30080000"/>
+                    <S d="64000000" r="3"/>
+                    <S d="14080000"/>
+                    <S d="49920000"/>
+                    <S d="64000000" r="45"/>
+                    <S d="6613334"/>
+                    <S d="57386666"/>
+                    <S d="64000000" r="2"/>
+                    <S d="50773334"/>
+                    <S d="13226666"/>
+                    <S d="64000000" r="45"/>
+                    <S d="43306667"/>
+                    <S d="20693333"/>
+                    <S d="64000000" r="3"/>
+                    <S d="23253334"/>
+                    <S d="40746666"/>
+                    <S d="64000000" r="45"/>
+                    <S d="16000000"/>
+                    <S d="48000000"/>
+                    <S d="64000000" r="2"/>
+                    <S d="59946667"/>
+                    <S d="4053333"/>
+                    <S d="64000000" r="45"/>
+                    <S d="52693334"/>
+                    <S d="11306666"/>
+                    <S d="64000000" r="3"/>
+                    <S d="32640000"/>
+                    <S d="31360000"/>
+                    <S d="64000000" r="45"/>
+                    <S d="25386667"/>
+                    <S d="38613333"/>
+                </SegmentTimeline>
+            </SegmentTemplate>
+            <ProducerReferenceTime id="1583495254426666" type="0" wallClockTime="2020-01-07T17:59:04.600Z" presentationTime="1583495254426666"/>
+            <Representation id="5_A_ambient_9125670592623055209" bandwidth="96000" audioSamplingRate="48000"/>
+        </AdaptationSet>
+    </Period>
+</MPD>
+~~~
+
+#### 3.3.3.2 Example MPEG DASH manifest (MPD) with multi-period, EventStream, using Adobe SCTE35 mode signaling
+
+~~~ xml
+<?xml version="1.0" encoding="utf-8"?>
+<MPD xmlns="urn:mpeg:dash:schema:mpd:2011" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" profiles="urn:mpeg:dash:profile:isoff-live:2011" type="dynamic" publishTime="2020-01-07T19:42:44Z" minimumUpdatePeriod="PT0S" timeShiftBufferDepth="PT58M56S" availabilityStartTime="2020-01-07T19:40:50Z" minBufferTime="PT4S">
+    <Period start="PT2M48.168S" id="main-content_0">
+        <AdaptationSet id="1" group="1" profiles="ccff" bitstreamSwitching="false" segmentAlignment="true" contentType="video" mimeType="video/mp4" codecs="avc1.640020" maxWidth="1280" maxHeight="720" startWithSAP="1">
+            <InbandEventStream schemeIdUri="urn:mpeg:dash:event:2012" value="1"/>
+            <InbandEventStream schemeIdUri="urn:com:adobe:dpi:simple:2015" value="amssignal"/>
+            <SegmentTemplate timescale="90000" presentationTimeOffset="15135120" media="QualityLevels($Bandwidth$)/Fragments(video=$Time$,format=mpd-time-csf)" initialization="QualityLevels($Bandwidth$)/Fragments(video=i,format=mpd-time-csf)">
+                <SegmentTimeline>
+                    <S t="15135120" d="135135" r="59"/>
+                    <S d="111111"/>
+                    <S d="1502"/>
+                </SegmentTimeline>
+            </SegmentTemplate>
+            <ProducerReferenceTime id="15135120" type="0" wallClockTime="2020-01-07T19:40:50Z" presentationTime="15135120"/>
+            <Representation id="1_V_video_5322324134428436312" bandwidth="3500000" width="1280" height="720"/>
+            <Representation id="1_V_video_16981495139092747609" bandwidth="2200000" width="960" height="540"/>
+            <Representation id="1_V_video_1384718563016940751" bandwidth="1350000" codecs="avc1.64001F" width="704" height="396"/>
+            <Representation id="1_V_video_4425970933904124207" bandwidth="850000" codecs="avc1.64001E" width="512" height="288"/>
+            <Representation id="1_V_video_11952982975776937431" bandwidth="550000" codecs="avc1.640016" width="384" height="216"/>
+            <Representation id="1_V_video_10673801877453424365" bandwidth="200000" codecs="avc1.640015" width="340" height="192"/>
+        </AdaptationSet>
+        <AdaptationSet id="2" group="5" profiles="ccff" bitstreamSwitching="false" segmentAlignment="true" contentType="audio" mimeType="audio/mp4" codecs="mp4a.40.5" lang="en">
+            <InbandEventStream schemeIdUri="urn:mpeg:dash:event:2012" value="1"/>
+            <InbandEventStream schemeIdUri="urn:com:adobe:dpi:simple:2015" value="amssignal"/>
+            <Label>audio</Label>
+            <SegmentTemplate timescale="44100" presentationTimeOffset="7416208" media="QualityLevels($Bandwidth$)/Fragments(audio=$Time$,format=mpd-time-csf)" initialization="QualityLevels($Bandwidth$)/Fragments(audio=i,format=mpd-time-csf)">
+                <SegmentTimeline>
+                    <S t="7417856" d="133120"/>
+                    <S d="132096" r="1"/>
+                    <S d="133120"/>
+                    <S d="132096" r="1"/>
+                    <S d="133120"/>
+                    <S d="132096" r="1"/>
+                    <S d="133120"/>
+                    <S d="132096" r="1"/>
+                    <S d="133120"/>
+                    <S d="132096" r="1"/>
+                    <S d="133120"/>
+                    <S d="132096" r="1"/>
+                    <S d="133120"/>
+                    <S d="132096" r="1"/>
+                    <S d="133120"/>
+                    <S d="132096" r="1"/>
+                    <S d="133120"/>
+                    <S d="132096" r="1"/>
+                    <S d="133120"/>
+                    <S d="132096" r="1"/>
+                    <S d="53248"/>
+                    <S d="2048"/>
+                </SegmentTimeline>
+            </SegmentTemplate>
+            <ProducerReferenceTime id="7417856" type="0" wallClockTime="2020-01-07T19:40:50.037Z" presentationTime="7417856"/>
+            <Representation id="5_A_audio_17504386117102112482" bandwidth="128000" audioSamplingRate="44100"/>
+        </AdaptationSet>
+    </Period>
+    <Period start="PT4M19.509S" id="scte-35_0">
+        <EventStream schemeIdUri="urn:scte:scte35:2014:xml+bin" value="scte35" timescale="10000000">
+            <Event presentationTime="2595092444" duration="11011000" id="1002">
+                <Signal xmlns="http://www.scte.org/schemas/35/2016">
+                    <Binary>/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==</Binary>
+                </Signal>
+            </Event>
+            <Event presentationTime="2606103444" id="1002">
+                <Signal xmlns="http://www.scte.org/schemas/35/2016">
+                    <Binary>/DAgAAAAAAXdAP/wDwUAAAPqf0/+AWXk0wABAQEAAGB86Fo=</Binary>
+                </Signal>
+            </Event>
+        </EventStream>
+        <AdaptationSet id="1" group="1" profiles="ccff" bitstreamSwitching="false" segmentAlignment="true" contentType="video" mimeType="video/mp4" codecs="avc1.640020" maxWidth="1280" maxHeight="720" startWithSAP="1">
+            <InbandEventStream schemeIdUri="urn:mpeg:dash:event:2012" value="1"/>
+            <InbandEventStream schemeIdUri="urn:com:adobe:dpi:simple:2015" value="amssignal"/>
+            <SegmentTemplate timescale="90000" presentationTimeOffset="23355832" media="QualityLevels($Bandwidth$)/Fragments(video=$Time$,format=mpd-time-csf)" initialization="QualityLevels($Bandwidth$)/Fragments(video=i,format=mpd-time-csf)">
+                <SegmentTimeline>
+                    <S t="23355833" d="22522"/>
+                    <S d="76577"/>
+                </SegmentTimeline>
+            </SegmentTemplate>
+            <ProducerReferenceTime id="23355833" type="0" wallClockTime="2020-01-07T19:42:21.341Z" presentationTime="23355833"/>
+            <Representation id="1_V_video_5322324134428436312" bandwidth="3500000" width="1280" height="720"/>
+            <Representation id="1_V_video_16981495139092747609" bandwidth="2200000" width="960" height="540"/>
+            <Representation id="1_V_video_1384718563016940751" bandwidth="1350000" codecs="avc1.64001F" width="704" height="396"/>
+            <Representation id="1_V_video_4425970933904124207" bandwidth="850000" codecs="avc1.64001E" width="512" height="288"/>
+            <Representation id="1_V_video_11952982975776937431" bandwidth="550000" codecs="avc1.640016" width="384" height="216"/>
+            <Representation id="1_V_video_10673801877453424365" bandwidth="200000" codecs="avc1.640015" width="340" height="192"/>
+        </AdaptationSet>
+        <AdaptationSet id="2" group="5" profiles="ccff" bitstreamSwitching="false" segmentAlignment="true" contentType="audio" mimeType="audio/mp4" codecs="mp4a.40.5" lang="en">
+            <InbandEventStream schemeIdUri="urn:mpeg:dash:event:2012" value="1"/>
+            <InbandEventStream schemeIdUri="urn:com:adobe:dpi:simple:2015" value="amssignal"/>
+            <Label>audio</Label>
+            <SegmentTemplate timescale="44100" presentationTimeOffset="11444358" media="QualityLevels($Bandwidth$)/Fragments(audio=$Time$,format=mpd-time-csf)" initialization="QualityLevels($Bandwidth$)/Fragments(audio=i,format=mpd-time-csf)">
+                <SegmentTimeline>
+                    <S t="11446272" d="49152"/>
+                </SegmentTimeline>
+            </SegmentTemplate>
+            <ProducerReferenceTime id="11446272" type="0" wallClockTime="2020-01-07T19:42:21.384Z" presentationTime="11446272"/>
+            <Representation id="5_A_audio_17504386117102112482" bandwidth="128000" audioSamplingRate="44100"/>
+        </AdaptationSet>
+    </Period>
+    <Period start="PT4M20.610S" id="main-content_1">
+        <AdaptationSet id="1" group="1" profiles="ccff" bitstreamSwitching="false" segmentAlignment="true" contentType="video" mimeType="video/mp4" codecs="avc1.640020" maxWidth="1280" maxHeight="720" startWithSAP="1">
+            <InbandEventStream schemeIdUri="urn:mpeg:dash:event:2012" value="1"/>
+            <InbandEventStream schemeIdUri="urn:com:adobe:dpi:simple:2015" value="amssignal"/>
+            <SegmentTemplate timescale="90000" presentationTimeOffset="23454931" media="QualityLevels($Bandwidth$)/Fragments(video=$Time$,format=mpd-time-csf)" initialization="QualityLevels($Bandwidth$)/Fragments(video=i,format=mpd-time-csf)">
+                <SegmentTimeline>
+                    <S t="23454932" d="58558"/>
+                    <S d="4504"/>
+                    <S d="130631"/>
+                    <S d="135135" r="12"/>
+                </SegmentTimeline>
+            </SegmentTemplate>
+            <ProducerReferenceTime id="23454932" type="0" wallClockTime="2020-01-07T19:42:22.442Z" presentationTime="23454932"/>
+            <Representation id="1_V_video_5322324134428436312" bandwidth="3500000" width="1280" height="720"/>
+            <Representation id="1_V_video_16981495139092747609" bandwidth="2200000" width="960" height="540"/>
+            <Representation id="1_V_video_1384718563016940751" bandwidth="1350000" codecs="avc1.64001F" width="704" height="396"/>
+            <Representation id="1_V_video_4425970933904124207" bandwidth="850000" codecs="avc1.64001E" width="512" height="288"/>
+            <Representation id="1_V_video_11952982975776937431" bandwidth="550000" codecs="avc1.640016" width="384" height="216"/>
+            <Representation id="1_V_video_10673801877453424365" bandwidth="200000" codecs="avc1.640015" width="340" height="192"/>
+        </AdaptationSet>
+        <AdaptationSet id="2" group="5" profiles="ccff" bitstreamSwitching="false" segmentAlignment="true" contentType="audio" mimeType="audio/mp4" codecs="mp4a.40.5" lang="en">
+            <InbandEventStream schemeIdUri="urn:mpeg:dash:event:2012" value="1"/>
+            <InbandEventStream schemeIdUri="urn:com:adobe:dpi:simple:2015" value="amssignal"/>
+            <Label>audio</Label>
+            <SegmentTemplate timescale="44100" presentationTimeOffset="11492916" media="QualityLevels($Bandwidth$)/Fragments(audio=$Time$,format=mpd-time-csf)" initialization="QualityLevels($Bandwidth$)/Fragments(audio=i,format=mpd-time-csf)">
+                <SegmentTimeline>
+                    <S t="11495424" d="28672"/>
+                    <S d="1024"/>
+                    <S d="131072"/>
+                    <S d="132096"/>
+                    <S d="133120"/>
+                    <S d="132096" r="1"/>
+                    <S d="133120"/>
+                </SegmentTimeline>
+            </SegmentTemplate>
+            <ProducerReferenceTime id="11495424" type="0" wallClockTime="2020-01-07T19:42:22.499Z" presentationTime="11495424"/>
+            <Representation id="5_A_audio_17504386117102112482" bandwidth="128000" audioSamplingRate="44100"/>
+        </AdaptationSet>
+    </Period>
+</MPD>
+
+~~~
+### 3.3.4 MPEG DASH In-band Event Message Box Signaling
 
 An in-band event stream requires the MPD to have an InbandEventStream element at the Adaptation Set level.  This element has a mandatory schemeIdUri attribute and optional timescale attribute, which also appear in the Event Message Box (‘emsg’).  Event message boxes with scheme identifiers that are not defined in the MPD **SHOULD** not be present.
 
@@ -602,7 +1082,14 @@ The following details outline the specific values the client should expect in th
 | Id                      | 32-bit unsigned integer | Required      | Identifies this instance of the message. Messages with equivalent semantics shall have the same value. If the ID is not specified when the message is ingested, Azure Media Services will generate a unique id.                                                                                                                                                    |
 | Message_data            | byte array              | Required      | The event message. For [SCTE-35] messages, the message data is the binary splice_info_section() in compliance with [SCTE-214-3] |
 
-### 3.3.4 DASH Message Handling
+
+#### Example InBandEvenStream entity for Adobe Simple mode
+~~~ xml
+
+      <InbandEventStream schemeIdUri="urn:com:adobe:dpi:simple:2015" value="amssignal"/>
+~~~
+
+### 3.3.5 DASH Message Handling
 
 Events are signaled in-band, within the ‘emsg’ box, for both video and audio tracks.  The signaling occurs for all segment requests for which the presentation_time_delta is 15 seconds or less. 
 
