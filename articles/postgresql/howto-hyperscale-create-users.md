@@ -10,11 +10,12 @@ ms.date: 1/8/2019
 
 # Create users in Azure Database for PostgreSQL - Hyperscale (Citus)
 
-This article describes how you can create users within a Hyperscale (Citus)
-server group. To learn instead about Azure subscription users and their
-privileges, visit the [Azure role based access control (RBAC)
-article](../role-based-access-control/built-in-roles.md) or review [how to
-customize roles](../role-based-access-control/custom-roles.md).
+> [!NOTE]
+> The term "users" refers to users within a Hyperscale (Citus)
+> server group. To learn instead about Azure subscription users and their
+> privileges, visit the [Azure role based access control (RBAC)
+> article](../role-based-access-control/built-in-roles.md) or review [how to
+> customize roles](../role-based-access-control/custom-roles.md).
 
 ## The server admin account
 
@@ -34,19 +35,19 @@ provides the *citus* role.
 
 Permissions for the citus role:
 
-* Read all configuration variables, even those normally visible only to
+* Read all configuration variables, even variables normally visible only to
   superusers.
-* Read all pg\_stat\_\* views and use various statistics related extensions,
-  even those normally visible only to superusers.
+* Read all pg\_stat\_\* views and use various statistics-related extensions --
+  even views or extensions normally visible only to superusers.
 * Execute monitoring functions that may take ACCESS SHARE locks on tables,
   potentially for a long time.
-* (member of azure\_pg\_admin)
-* Can [create PostgreSQL extensions](concepts-hyperscale-extensions.md)
+* [Create PostgreSQL extensions](concepts-hyperscale-extensions.md) (because
+  the role is a member of azure\_pg\_admin).
 
-Noteably, the citus role has some restrictions:
+Notably, the citus role has some restrictions:
 
-* Cannot create roles
-* Cannot create databases
+* Can't create roles
+* Can't create databases
 
 ## How to create additional users
 
@@ -80,7 +81,7 @@ GRANT SELECT ON mytable TO db_user;
 
 Hyperscale (Citus) propagates single-table GRANT statements through the entire
 cluster, applying them on all worker nodes. However GRANTs that are system-wide
-(e.g. for all tables in a schema) need to be run on every date node.  Use the
+(for example, for all tables in a schema) need to be run on every date node.  Use the
 *run_command_on_workers()* helper function:
 
 ```sql
@@ -95,9 +96,9 @@ SELECT run_command_on_workers(
 
 ## How to delete a user or change their password
 
-Go to the **Roles** page for your Hyperscale server group, and click the
-ellipses **...** next to a user. The ellipses will open a menu to delete
-the user or reset their password.
+To update a user, visit the **Roles** page for your Hyperscale server group,
+and click the ellipses **...** next to the user. The ellipses will open a menu
+to delete the user or reset their password.
 
    ![Edit a role](media/howto-hyperscale-create-users/edit-role.png)
 
