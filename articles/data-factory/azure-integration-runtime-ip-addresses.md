@@ -13,16 +13,16 @@ ms.custom: seo-lt-2019
 ms.date: 01/06/2020
 ---
 
-# Azure Integration runtime IP addresses
+# Azure Integration Runtime IP addresses
 
-The IP addresses that Azure Integration runtime uses depends on the region where your azure integration runtime is located. *All* Azure integration runtimes that are in the same region use the same IP address ranges.
+The IP addresses that Azure Integration Runtime uses depends on the region where your Azure integration runtime is located. *All* Azure integration runtimes that are in the same region use the same IP address ranges.
 
 > [!IMPORTANT]  
 > Data flows does not use these IPs currently. 
 >
 > You can use these IP ranges for Data Movement, Pipeline and External activities executions. These IP ranges can be used for whitelisting in data stores/ Network Security Group (NSG)/ Firewalls for inbound access from Azure Integration runtime. 
 
-## Azure Integration runtime IP addresses: Specific regions
+## Azure Integration Runtime IP addresses: Specific regions
 
 Allow traffic from the IP addresses listed for the Azure Integration runtime in the specific Azure region where your resources are located:
 
