@@ -93,5 +93,24 @@ To establish connectivity from an on-premises environment to the Azure Database 
 * [Site-to-Site VPN connection](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell)
 * [ExpressRoute circuit](https://docs.microsoft.com/azure/expressroute/expressroute-howto-linkvnet-portal-resource-manager)
 
+## Private Link combined with firewall rules
+
+The following situations and outcomes are possible when you use Private Link in combination with firewall rules:
+
+* If you don't configure any firewall rules, then by default, no traffic will be able to access the Azure Database for PostgreSQL Single server.
+
+* If you configure public traffic or a service endpoint and you create private endpoints, then different types of incoming traffic are authorized by the corresponding type of firewall rule.
+
+* If you don't configure any public traffic or service endpoint and you create private endpoints, then the Azure Database for PostgreSQL Single server is accessible only through the private endpoints. If you don't configure public traffic or a service endpoint, after all approved private endpoints are rejected or deleted, no traffic will be able to access the Azure Database for PostgreSQL Single server.
+
 ## Next steps
-* For an overview of Azure Database for PostgreSQL connectivity, see [Azure Database for PostgreSQL Single server Connectivity Architecture](https://docs.microsoft.com/azure/postgresql/concepts-connectivity-architecture)
+
+To learn more about Azure Database for PostgreSQL Single server security features, see the following articles:
+
+* To configure a firewall for Azure Database for PostgreSQL Single server, see [Firewall support](https://docs.microsoft.com/azure/postgresql/concepts-firewall-rules).
+
+* To learn how to configure a virtual network service endpoint for your Azure Database for PostgreSQL Single server, see [Configure access from virtual networks](https://docs.microsoft.com/azure/postgresql/concepts-data-access-and-security-vnet).
+
+* To learn more about Private Link, see the Azure Private Link [documentation](https://docs.microsoft.com/azure/postgresql/concepts-data-access-and-security-private-link).
+
+* For an overview of Azure Database for PostgreSQL Single server connectivity, see [Azure Database for MySQL Connectivity Architecture](https://docs.microsoft.com/azure/postgresql/concepts-connectivity-architecture)
