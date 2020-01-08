@@ -1,67 +1,54 @@
 ---
-title: Add features in LUIS applications | Microsoft Docs
+title: Descriptors - LUIS
+titleSuffix: Azure Cognitive Services
 description: Use Language Understanding (LUIS) to add app features that can improve the detection or prediction of intents and entities that categories and patterns
 services: cognitive-services
-author: v-geberr
-manager: Kaiqb
+author: diberry
+manager: nitinme
+ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: language-understanding
-ms.topic: article
-ms.date: 03/30/2018
-ms.author: v-geberr
+ms.subservice: language-understanding
+ms.topic: conceptual
+ms.date: 11/14/2019
+ms.author: diberry
 ---
 
-# Use features to improve your LUIS app's performance  
+# Use descriptors to boost signal of word list
 
-You can add features to your LUIS app to improve its accuracy. Features help LUIS by providing hints that certain words and phrases are part of a category. If LUIS learns how to recognize one member of the category, it can treat the others similarly.
+You can add features to your LUIS app to improve its accuracy. Features help LUIS by providing hints that certain words and phrases are part of an app domain vocabulary. 
 
-## Add phrase list
+A [descriptor](luis-concept-feature.md) (phrase list) includes a group of values (words or phrases) that belong to the same class and must be treated similarly (for example, names of cities or products). What LUIS learns about one of them is automatically applied to the others as well. This list is not the same thing as a [list entity](reference-entity-list.md) (exact text matches) of matched words.
 
-1. Open your app by clicking its name on **My Apps** page, and then click **Build**, then click **Phrase lists** in your app's left panel. 
+A descriptor adds to the vocabulary of the app domain as a second signal to LUIS about those words.
 
-    ![Phrase list navigation](./media/luis-add-features/phrase-list-nav.png)
+Review [feature concepts](luis-concept-feature.md) to understand when and why to use a descriptor. 
 
-2. On the **Phrase lists** page, click **Create new phrase list**. 
+[!INCLUDE [Uses preview portal](includes/uses-portal-preview.md)]
+
+## Add descriptor
+
+1. Open your app by clicking its name on **My Apps** page, and then click **Build**, then click **Descriptors** in your app's left panel. 
+
+1. On the **Descriptors** page, click **+ Add Descriptor**. 
  
-    ![Create new phrase list](./media/luis-add-features/create-new-phrase-list.png)
-    
-3. In the **Add Phrase List** dialog box, type "Cities" as the name of the phrase list. In the **Value** box, type the values of the phrase list. You can type one value at a time, or a set of values separated by commas, and then press **Enter**.
+1. In the **Create new phrase list descriptor** dialog box, enter a name such as `Cities` for the descriptor. In the **Value** box, type the values of the descriptors, such as `Seattle`. You can type one value at a time, or a set of values separated by commas, and then press **Enter**.
 
-    ![Add phrase list Cities](./media/luis-add-features/add-phrase-list-cities.png)
+    > [!div class="mx-imgBorder"]
+    > ![Add descriptor Cities](./media/luis-add-features/add-phrase-list-cities.png)
 
-4. LUIS can propose related values to add to your phrase list. Click **Recommend** to get a group of proposed values that are semantically related to the added value(s). You can click any of the proposed values, or click **Add All** to add them all.
+    Once you have entered enough values for LUIS, suggestions appear. You can **+ Add all** of the proposed values, or select individual terms.
 
-    ![Phrase List Proposed Values](./media/luis-add-features/related-values.png)
+1. Keep **These values are interchangeable** checked if the added descriptor values are alternatives that can be used interchangeably.
 
-5. Click **These values are interchangeable** if the added phrase list values are alternatives that can be used interchangeably.
+1. Select **Done**. The new descriptor is added to the **Descriptors** page.
 
-    ![Phrase List Proposed Values](./media/luis-add-features/interchangeable.png)
+<a name="edit-phrase-list"></a>
+<a name="delete-phrase-list"></a>
+<a name="deactivate-phrase-list"></a>
 
-6. Click **Save**. The "Cities" phrase list is added to the **Phrase lists** page.
-
-    ![Phrase list added](./media/luis-add-features/phrase-list-cities.png)
-
-## Edit phrase list
-
-Click the name of the phrase list on the **Phrase lists** page. In the **Edit Phrase List** dialog box that opens, make any required editing changes and then click **Save**.
-
- ![Phrase list added](./media/luis-add-features/edit-phrase-list.png)
-
-## Delete phrase list 
-
-Click the three dots (...) button at the end of the row, and select **Delete**.
-
- ![Delete list added](./media/luis-add-features/delete-phrase-list.png)
-
-## Deactivate phrase list 
-
-Click the three dots (...) button at the end of the row, and select **Deactivate**.
-
- ![Deactivate list added](./media/luis-add-features/deactivate-phrase-list.png)
-
-## Pattern (regular expression) feature 
-**This feature is deprecated**. New pattern features cannot be added to LUIS. Any existing pattern features are supported until May 2018. Contribute to standard LUIS regular expression matching with a PR to the [Recognizers-Text Github repository](https://github.com/Microsoft/Recognizers-Text). 
+> [!Note]
+> You can delete, or deactivate a descriptor from the contextual toolbar on the **Descriptors** page.
 
 ## Next steps
 
-After adding, editing, deleting, or deactivating a phrase list, [train and test the app](interactive-test.md) again to see if performance improves.
+After adding, editing, deleting, or deactivating a descriptor, [train and test the app](luis-interactive-test.md) again to see if performance improves.

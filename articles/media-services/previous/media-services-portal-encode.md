@@ -4,7 +4,7 @@ description: This tutorial walks you through the steps of encoding an asset by u
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 
 ms.assetid: 107d9e9a-71e9-43e5-b17c-6e00983aceab
@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/07/2017
+ms.date: 03/19/2019
 ms.author: juliako
 
 ---
@@ -24,7 +24,7 @@ ms.author: juliako
 > 
 > 
 
-One of the most common scenarios in working with Azure Media Services is delivering adaptive bitrate streaming to your clients. Media Services supports the following adaptive bitrate streaming technologies: Apple HTTP Live Streaming (HLS), Microsoft Smooth Streaming, and Dynamic Adaptive Streaming over HTTP (DASH, also called MPEG-DASH). To prepare your videos for adaptive bitrate streaming, first encode your source video as multi-bitrate files. You can use Azure Media Encoder Standard to encode your videos.  
+One of the most common scenarios in working with Azure Media Services is delivering adaptive bitrate streaming to your clients. Media Services supports the following adaptive bitrate streaming technologies: Apple HTTP Live Streaming (HLS), Microsoft Smooth Streaming, and Dynamic Adaptive Streaming over HTTP (DASH, also called MPEG-DASH). To prepare your videos for adaptive bitrate streaming, first encode your source video as multi-bitrate files. You can use Media Encoder Standard to encode your videos.  
 
 Media Services gives you dynamic packaging. With dynamic packaging, you can deliver your multi-bitrate MP4s in HLS, Smooth Streaming, and MPEG-DASH, without repackaging in these streaming formats. When you use dynamic packaging, you can store and pay for the files in single-storage format. Media Services builds and serves the appropriate response based on a client's request.
 

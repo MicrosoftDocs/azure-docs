@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 05/17/2018
+ms.date: 10/31/2019
 ms.author: spelluru
 
 ---
@@ -24,93 +24,135 @@ In this tutorial, you do the following actions:
 
 > [!div class="checklist"]
 > * Create a classroom lab
-> * Configure the classroom lab
-> * Send registration link to students
+> * Add users to the lab
+> * Set schedule for the lab
+> * Send invitation email to students
 
 ## Prerequisites
-To set up a classroom lab in a lab account, you must be a member of the **Lab Creator** role in the lab account. A lab owner can add a user to the Lab Creator role by using steps in the following article: [Add a user to the Lab Creator role](tutorial-setup-lab-account.md#add-a-user-to-the-lab-creator-role).
+To set up a classroom lab in a lab account, you must be a member of one of these roles in the lab account: Owner, Lab Creator, or Contributor. The account you used to create a lab account is automatically added to the owner role.
+
+A lab owner can add other users to the **Lab Creator** role. For example, a lab owner adds professors to the Lab Creator role. Then, the professors create labs with VMs for their classes. Students use the registration link that they receive from professors to register to the lab. Once they are registered, they can use VMs in the labs to do the class work and home work. For detailed steps for adding users to the Lab Creator role, see [Add a user to the Lab Creator role](tutorial-setup-lab-account.md#add-a-user-to-the-lab-creator-role).
 
 
 ## Create a classroom lab
 
-1. Navigate to [Azure Lab Services website](https://labs.azure.com).
-2. Select **Sign in** and enter your credentials. 
-3. In the **New Lab** window, do the following actions: 
-    1. Specify a **name** for the classroom lab. 
-    2. Select the **size** of the virtual machine that you plan to use in the classroom.
-    3. Select the **image** to use to create the virtual machine.
-    4. Specify **default credentials** for logging into virtual machines in the lab. 
-    7. Select **Save**.
+1. Navigate to [Azure Lab Services website](https://labs.azure.com). Note that Internet Explorer 11 is not supported yet. 
+2. Select **Sign in** and enter your credentials. Azure Lab Services supports organizational accounts and Microsoft accounts. 
+3. Select **New lab**. 
+    
+    ![Create a classroom lab](../media/tutorial-setup-classroom-lab/new-lab-button.png)
+4. In the **New Lab** window, do the following actions: 
+    1. Specify a **name** for your lab, and select **Next**.  
 
         ![Create a classroom lab](../media/tutorial-setup-classroom-lab/new-lab-window.png)
-1. You see the **dashboard** for the lab. 
-    
-    ![Classroom lab dashboard](../media/tutorial-setup-classroom-lab/classroom-lab-home-page.png)
 
-## Configure usage policy
+        If you select a Linux image, you see an option to enable remote desktop connection for it. For details, see [Enable remote desktop connection for Linux](how-to-enable-remote-desktop-linux.md).
+    2. On the **Virtual machine credentials** page, specify default credentials for all VMs in the lab. Specify the **name** and the **password** for the user, and then select **Next**.  
 
-1. Select **Usage policy**. 
-2. In the **Usage policy**, settings, enter the **number of users** allowed to use the lab.
-3. Select **Save**. 
+        ![New lab window](../media/tutorial-setup-classroom-lab/virtual-machine-credentials.png)
 
-    ![Usage policy](../media/tutorial-setup-classroom-lab/usage-policy-settings.png)
+        > [!IMPORTANT]
+        > Make a note of user name and password. They won't be shown again.
+    3. On the **Lab policies** page, enter the number of hours allotted for each user (**quota for each user**) outside the scheduled time for the lab, and then select **Finish**. 
 
+        ![Quota for each user](../media/tutorial-setup-classroom-lab/quota-for-each-user.png)
+5. You should see the following screen that shows the status of the template VM creation. The creation of the template in the lab takes up to 20 minutes. 
 
-## Set up the template 
-A template in a lab is a base virtual machine image from which all users’ virtual machines are created. Set up the template virtual machine so that it is configured with exactly what you want to provide to the lab users. You can provide a name and description of the template that the lab users see. Publish the template to public to make instances of the template VM available to your lab users. 
+    ![Status of the template VM creation](../media/tutorial-setup-classroom-lab/create-template-vm-progress.png)
+8. On the **Template** page, do the following steps: These steps are **optional** for the tutorial.
 
-### Set title and description
-1. In the **Template** section, select **Edit** (pencil icon) for the template. 
-2. In the **User view** window, Enter a **title** for the template.
-3. Enter **description** for the template.
-4. Select **Save**.
+    2. Connect to the template VM by selecting **Connect**. If it's a Linux template VM, you choose whether you want to connect using SSH or RDP (if RDP is enabled).
+    1. Select **Reset password** to reset the password for the VM. 
+    1. Install and configure software on your template VM. 
+    1. **Stop** the VM.  
+    1. Enter a **description** for the template
+10. On **Template** page, select **Publish** on the toolbar. 
 
-    ![Classroom lab description](../media/tutorial-setup-classroom-lab/lab-description.png)
+    ![Publish template button](../media/tutorial-setup-classroom-lab/template-page-publish-button.png)
 
-### Set up the template VM
- You connect to the template VM and install any required software on it before making it available to your students. 
+    > [!WARNING]
+    > Once you publish, you can't unpublish. 
+8. On the **Publish template** page, enter the number of virtual machines you want to create in the lab, and then select **Publish**. 
 
-1. Wait until the template virtual machine is ready. Once it is ready, the **Start** button should be enabled. To start the VM, select **Start**.
+    ![Publish template - number of VMs](../media/tutorial-setup-classroom-lab/publish-template-number-vms.png)
+11. You see the **status of publishing** the template on page. This process can take up to an hour. 
 
-    ![Start the template VM](../media/tutorial-setup-classroom-lab/start-template-vm.png)
-1. To connect to the VM, select **Connect**, and follow instructions. 
-
-    ![Connect to the template VM](../media/tutorial-setup-classroom-lab/connect-template-vm.png)
-1. Install any software that's required for students to do the lab (for example, Visual Studio, Azure Storage Explorer, etc.). 
-2. Disconnect (close your remote desktop session) from the template VM. 
-3. **Stop** the template VM by selecting **Stop**. 
-
-    ![Stop the template VM](../media/tutorial-setup-classroom-lab/stop-template-vm.png)
-
-### Publish the template 
-When you publish a template, Azure Lab Services creates VMs in the lab by using the template. The number of VMs created in this process is same as the maximum number of users allowed into the lab, which you can set in the usage policy of the lab. All virtual machines have the same configuration as the template. 
-
-1. Select **Publish** in the **Template** section. 
-
-    ![Publish the template VM](../media/tutorial-setup-classroom-lab/public-access.png)
-1. In the **Publish** window, select the **Published** option. 
-2. Now, select the **Publish** button. This process may take some time depending on how many VMs are being created, which is same as the number of users allowed into the lab.
-    
-    > [!IMPORTANT]
-    > Once a template is publicly available, its access can't be changed to private. 
-4. Switch to the **Virtual machines** page, and confirm that you see five virtual machines that are in **Unassigned** state. These VMs are not assigned to students yet. 
-
-    ![Virtual machines](../media/tutorial-setup-classroom-lab/virtual-machines.png)
-5. Wait until the VMs are created. They should be in **Stopped** state. You can start a student VM, connect to the VM, stop the VM, and delete the VM on this page. You can start them in this page or let your students start the VMs. 
+    ![Publish template - progress](../media/tutorial-setup-classroom-lab/publish-template-progress.png)
+4. Switch to the **Virtual machines pool** page by selecting Virtual machines on the left menu or by selecting Virtual machines tile. Confirm that you see virtual machines that are in **Unassigned** state. These VMs are not assigned to students yet. They should be in **Stopped** state. You can start a student VM, connect to the VM, stop the VM, and delete the VM on this page. You can start them in this page or let your students start the VMs. 
 
     ![Virtual machines in stopped state](../media/tutorial-setup-classroom-lab/virtual-machines-stopped.png)
 
-## Send registration link to students
+    You do the following tasks on this page (don't do these steps for the tutorial. These steps are for your information only.): 
+    
+    1. To change the lab capacity (number of VMs in the lab), select **Lab capacity** on the toolbar.
+    2. To start all the VMs at once, select **Start all** on the toolbar. 
+    3. To start a specific VM, select the down arrow in the **Status**, and then select **Start**. You can also start a VM by selecting a VM in the first column, and then by selecting **Start** on the toolbar.
 
-1. Switch to the **Dashboard** view. 
-2. Select **User registration** tile.
+    For more information about creating and managing templates, and setting up and managing student virtual machines, see the following articles: 
+    
+    - [Create and manage classroom lab templates](how-to-create-manage-template.md)
+    - [Set up and manage virtual machine pool](how-to-set-virtual-machine-passwords.md)
 
-    ![Student registration link](../media/tutorial-setup-classroom-lab/dashboard-user-registration-link.png)
-1. In the **User registration** dialog box, select the **Copy** button. The link is copied to the clipboard. Paste it in an email editor, and send an email to the student. 
+## Add users to the lab
 
-    ![Student registration link](../media/tutorial-setup-classroom-lab/registration-link.png)
-2. On the **User registration** dialog box, select **Close**. 
+1. Select **Users** on the left menu. By default, the **Restrict access** option is enabled. When this setting is on, a user can't register with the lab even if the user has the registration link unless the user is in the list of users. Only users in the list can register with the lab by using the registration link you send. In this procedure, you add users to the list. Alternatively, you can turn off **Restrict access**, which allows users to register with the lab as long as they have the registration link. 
+2. Select **Add users** on the toolbar, and then select **Add by email addresses**. 
 
+    ![Add users button](../media/how-to-configure-student-usage/add-users-button.png)
+1. On the **Add users** page, enter email addresses of users in separate lines or in a single line separated by semicolons. 
+
+    ![Add user email addresses](../media/how-to-configure-student-usage/add-users-email-addresses.png)
+4. Select **Save**. You see the email addresses of users and their statuses (registered or not) in the list. 
+
+    ![Users list](../media/how-to-configure-student-usage/users-list-new.png)
+
+    You will see names of users in the list after they are registered to the lab. 
+    
+## Set a schedule for the lab
+Create a scheduled event for the lab so that VMs in the lab are automatically started/stopped at specific times. The user quota you specified earlier is the additional time assigned to each user outside this scheduled time. 
+
+1. Switch to the **Schedules** page, and select **Add scheduled event** on the toolbar. 
+
+    ![Add schedule button on the Schedules page](../media/how-to-create-schedules/add-schedule-button.png)
+2. On the **Add scheduled event** page, do the following steps:
+    1. Confirm that **Standard** is selected the **Event type**.  
+    2. Specify the **start date** for the class. 
+    4. Specify the **start time** at which you want the VMs to be started.
+    5. Specify the **stop time** on which the VMs are to be shut down. 
+    6. Specify the **time zone** for the start and stop times you specified. 
+3. On the same **Add scheduled event** page, select the current schedule in the **Repeat** section.  
+
+    ![Add schedule button on the Schedules page](../media/how-to-create-schedules/select-current-schedule.png)
+5. On the **Repeat** dialog box, do the following steps:
+    1. Confirm that **every week** is set for the **Repeat** field. 
+    2. Select the days on which you want the schedule to take effect. In the following example, Monday-Friday is selected. 
+    3. Select an **end date** for the schedule.
+    8. Select **Save**. 
+
+        ![Set repeat schedule](../media/how-to-create-schedules/set-repeat-schedule.png)
+
+3. Now, on the **Add scheduled event** page, for **Notes (optional)**, enter any description or notes for the schedule. 
+4. On the **Add scheduled event** page, select **Save**. 
+
+    ![Weekly schedule](../media/how-to-create-schedules/add-schedule-page-weekly.png)
+5. Navigate to the start date in the calendar to verify that the schedule is set.
+    
+    ![Schedule in the calendar](../media/how-to-create-schedules/schedule-calendar.png)
+
+    For more information about creating and managing schedules for a class, see [Create and manage schedule for classroom labs](how-to-create-schedules.md).
+
+## Send invitation emails to students
+
+1. Switch to the **Users** view if you are not on the page already, and select **Invite all** on the toolbar. 
+
+    ![Select students](../media/tutorial-setup-classroom-lab/invite-all-button.png)
+
+1. On the **Send invitation by email** page, enter an optional message, and then select **Send**. The email automatically includes the registration link. You can get this registration link by selecting **... (ellipsis)** on the toolbar, and **Registration link**. 
+
+    ![Send registration link by email](../media/tutorial-setup-classroom-lab/send-email.png)
+4. You see the status of **invitation** in the **Users** list. The status should change to **Sending** and then to **Sent on &lt;date&gt;**. 
+
+    For more information about adding students to a class and managing their usage of the lab, see [How to configure student usage](how-to-configure-student-usage.md).
 
 ## Next steps
 In this tutorial, you created a classroom lab, and configured the lab. To learn how a student can access a VM in the lab using the registration link, advance to the next tutorial:

@@ -1,38 +1,28 @@
 ---
-title: Deploy and call web APIs & REST APIs from Azure Logic Apps | Microsoft Docs
-description: Deploy and call your web APIs & REST APIs for system integration workflows in  Azure Logic Apps
-keywords: web APIs, REST APIs, connectors, workflows, system integrations, authenticate
+title: Deploy and call web APIs & REST APIs from Azure Logic Apps
+description: Deploy and call web APIs & REST APIs for system integration workflows in Azure Logic Apps
 services: logic-apps
-author: stepsic-microsoft-com
-manager: jeconnoc
-editor: ''
-documentationcenter: ''
-
-ms.assetid: f113005d-0ba6-496b-8230-c1eadbd6dbb9
-ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 05/26/2017
-ms.author: LADocs; stepsic
 ---
 
-# Deploy and call custom APIs from logic app workflows
+# Deploy and call custom APIs from workflows in Azure Logic Apps
 
 After you [create custom APIs](./logic-apps-create-api-app.md) 
 for use in logic app workflows, you must deploy your APIs before you can call them. 
-You can deploy your APIs as [web apps](../app-service/app-service-web-overview.md), 
+You can deploy your APIs as [web apps](../app-service/overview.md), 
 but consider deploying your APIs as [API apps](../app-service/app-service-web-tutorial-rest-api.md), 
 which make your job easier when you build, host, and consume APIs 
 in the cloud and on premises. You don't have to change any code in your 
 APIs - just deploy your code to an API app. You can host your APIs on 
-[Azure App Service](../app-service/app-service-web-overview.md), 
+[Azure App Service](../app-service/overview.md), 
 a platform-as-a-service (PaaS) offering that provides highly scalable, 
 easy API hosting.
 
 Although you can call any API from a logic app, 
-for the best experience, add [OpenAPI (previously Swagger) metadata](http://swagger.io/specification/) 
+for the best experience, add [OpenAPI (previously Swagger) metadata](https://swagger.io/specification/) 
 that describes your API's operations and parameters. 
 This OpenAPI file helps your API integrate more easily 
 and work better with logic apps.
@@ -43,7 +33,7 @@ Before you can call your custom API from a logic app,
 deploy your API as a web app or API app to Azure App Service. 
 Also, to make your OpenAPI file readable by the Logic Apps Designer, 
 set the API definition properties and turn on 
-[cross-origin resource sharing (CORS)](../app-service/app-service-web-overview.md) 
+[cross-origin resource sharing (CORS)](../app-service/overview.md) 
 for your web app or API app.
 
 1. In the [Azure portal](https://portal.azure.com), 

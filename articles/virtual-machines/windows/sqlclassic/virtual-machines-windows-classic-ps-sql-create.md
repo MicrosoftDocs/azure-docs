@@ -1,19 +1,21 @@
 ---
-title: Create a SQL Server Virtual Machine in Azure PowerShell (Classic) | Microsoft Docs
+title: Create a classic SQL Server VM (PowerShell)
 description: Provides steps and PowerShell scripts for creating an Azure VM with SQL Server virtual machine gallery images. This topic uses the classic deployment mode.
 services: virtual-machines-windows
 documentationcenter: na
-author: rothja
+author: MashaMSFT
 manager: craigg
 tags: azure-service-management
 ms.assetid: b73be387-9323-4e08-be53-6e5928e3786e
 ms.service: virtual-machines-sql
-ms.devlang: na
+
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/07/2017
-ms.author: jroth
+ms.author: mathoma
+ms.reviewer: jroth
+ms.custom: "seo-lt-2019"
 ---
 # Provision a SQL Server virtual machine using Azure PowerShell (Classic)
 

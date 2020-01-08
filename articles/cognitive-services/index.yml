@@ -1,161 +1,195 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Cognitive Services Documentation
+### YamlMime:Hub
+
+title: Azure Cognitive Services documentation
+summary: Learn how to build intelligent and supported algorithms into apps, websites, and bots to see, hear, speak, understand, and interpret your user needs.
 metadata:
-  title: Cognitive Services Documentation - Tutorials, API Reference
-  description: Learn how to build intelligent algorithms into apps, websites, and bots so they see, hear, speak, understand and interpret your user needs through natural methods of communication. Tutorials, quickstarts, API references, and examples show you how to use the APIs.
-  services: cognitive-services
-  author: cjgronlund
-  manager: cgronlun
+  title: Azure Cognitive Services documentation
+  description: Learn how to build intelligent and supported algorithms into apps, websites, and bots to see, hear, speak, understand, and interpret your user needs.
   ms.service: cognitive-services
-  ms.tgt_pltfrm: na
-  ms.devlang: na
-  ms.topic: landing-page
-  ms.date: 05/29/2018
-  ms.author: cgronlun
+  ms.topic: hub-page
+  brand: azure
+  author: nitinme
+  ms.author: nitinme
+  manager: nitinme
+  ms.date: 11/04/2019
 
-abstract:
-  description: Learn how to build intelligent algorithms into apps, websites, and bots so that they see, hear, speak, and understand your user needs through natural methods of communication. Tutorials, quickstarts, API references, and examples show you how.
-
-sections:
-- title: 5-Minute Quickstarts
+highlightedContent:
+# itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
   items:
-  - type: paragraph
-    text: 'Learn how to add cognitive intelligence to your first app:'
-  - type: table
-    style: dataMatrix
-    columns: 
-    - image: 
-        src: media/index/logo_Csharp.svg
-      title: C#
-    - image: 
-        src: media/index/logo_java.svg
-      title: Java
-    - image: 
-        src: media/index/logo_nodejs.svg
-      title: Node.js
-    - image: 
-        src: media/index/logo_python.svg
-      title: Python
-    - image:
-        src: media/index/blue_globe_icon.png
-      title: Web
-    rows:
-    - title: Computer Vision - Analyze an image
-      values:
-      - href: /azure/cognitive-services/Computer-vision/Quickstarts/CSharp-analyze
-      - href: /azure/cognitive-services/Computer-vision/Quickstarts/java-analyze
-      - href: /azure/cognitive-services/Computer-vision/Quickstarts/node-analyze
-      - href: /azure/cognitive-services/Computer-vision/Quickstarts/python-analyze
-      - href:
-    - title: Custom Vision - Build an image classifier
-      values:
-      - href:
-      - href:
-      - href:
-      - href:
-      - href: /azure/cognitive-services/Custom-Vision-Service/getting-started-build-a-classifier
-    - title: Speech Service - Recognize speech
-      values: 
-      - href: /azure/cognitive-services/speech-service/quickstart-csharp-windows
-      - href: 
-      - href: 
-      - href:
-      - href: /azure/cognitive-services/speech-service/get-started 
-    - title: Translator Speech - Translate spoken words
-      values: 
-      - href: /azure/cognitive-services/translator-speech/quickstarts/csharp
-      - href: /azure/cognitive-services/translator-speech/quickstarts/java
-      - href: /azure/cognitive-services/translator-speech/quickstarts/nodejs
-      - href: /azure/cognitive-services/translator-speech/quickstarts/python
-      - href:
-    - title: LUIS - Use prebuilt home automation 
-      values:
-      - href: 
-      - href: 
-      - href: 
-      - href:
-      - href: /azure/cognitive-services/luis/luis-get-started-create-app
-    - title: Translator Text - API sign up
-      values:
-      - href: 
-      - href: 
-      - href: 
-      - href:
-      - href: /azure/cognitive-services/translator/translator-text-how-to-signup
-    - title: Bing Web Search - Get relevant web queries
-      values: 
-      - href: /azure/cognitive-services/bing-web-search/quickstarts/csharp
-      - href: /azure/cognitive-services/bing-web-search/quickstarts/java
-      - href: /azure/cognitive-services/bing-web-search/quickstarts/nodejs
-      - href: /azure/cognitive-services/bing-web-search/quickstarts/python
-      - href:
-    - title: Bing Image Search - Get relevant image queries
-      values:
-      - href: /azure/cognitive-services/bing-image-search/quickstarts/csharp
-      - href: /azure/cognitive-services/bing-image-search/quickstarts/java
-      - href: /azure/cognitive-services/bing-image-search/quickstarts/nodejs
-      - href: /azure/cognitive-services/bing-image-search/quickstarts/python
-      - href:
+    - title: What are Cognitive Services?
+      itemType: overview # controls the icon image and super-title text
+      url: ./welcome.md
+    - title: Cognitive Services and machine learning
+      itemType: concept
+      url: ./cognitive-services-and-machine-learning.md
+    - title: Language support in Cognitive Services
+      itemType: reference
+      url: ./language-support.md
+    - title: Create a Cognitive Services resource
+      itemType: how-to-guide
+      url: ./cognitive-services-apis-create-account.md
+    - title: Use Cognitive Services in Containers
+      itemType: concept
+      url: ./cognitive-services-container-support.md
+    - title: Virtual networks for Cognitive Services
+      itemType: architecture
+      url: cognitive-services-virtual-networks.md
+    - title: Custom subdomains for Cognitive Services
+      itemType: how-to-guide
+      url: cognitive-services-custom-subdomains.md
+    - title: Authenticate a request
+      itemType: how-to-guide
+      url: ./authentication.md
 
-- title: Step-by-Step Tutorials
+conceptualContent:
+# itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
   items:
-  - type: paragraph
-    text: 'Learn how to build intelligent apps or bots:'
-  - type: list
-    style: unordered
-    items:
-    - html: <a href="/azure/cognitive-services/bing-custom-search/tutorials/custom-search-web-page">Build a Custom Search webpage </a>
-    - html: <a href="/azure/cognitive-services/luis/luis-nodejs-tutorial-build-bot-framework-sample">Use Language Understanding (LUIS) in a bot </a> 
-    - html: <a href="/azure/cognitive-services/luis/luis-tutorial-batch-testing">Improve intent accuracy for home automation commands </a>
-- title: Cognitive Services APIs
-  items: 
-  - type: list
-    style: cards
-    className: cardsD
-    items:
     - title: Vision
-      html: <p><a class="barLink" href="/azure/cognitive-services/computer-vision/"><img src="../media/index/API_Computer_Vision.svg" alt="" />Computer Vision</a></p>
-            <p><a class="barLink" href="/azure/cognitive-services/content-moderator/overview"><img src="../media/index/API_Content_Moderator.svg" alt="" />Content Moderator</a></p>
-            <p><a class="barLink" href="/azure/cognitive-services/Custom-Vision-Service/home"><img src="../media/index/API_Custom_Vision.svg" alt="" /><span>Custom Vision Service&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a></p>
-            <p><a class="barLink" href="/azure/cognitive-services/emotion/home"><img src="../media/index/API_Emotion.svg" alt="" /><span>Emotion API&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a></p>
-            <p><a class="barLink" href="/azure/cognitive-services/face/"><img src="../media/index/API_Face.svg" alt="" />Face API</a></p>
-            <p><a class="barLink" href="/azure/cognitive-services/video-indexer/video-indexer-overview"><img src="../media/index/API_VideoIndexer.svg" alt="" /><span>Video Indexer&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a></p>      
-    - title: Speech
-      html: <p><a class="barLink" href="/azure/cognitive-services/speech-service"><img src="../media/index/API_Speech_Service.svg" alt="" />Speech Service&nbsp;<sup style="font-size:70%">PREVIEW</sup></a></p>
-            <p><a class="barLink" href="/azure/cognitive-services/speech/home"><img src="../media/index/API_Bing_Speech.svg" alt="" />Speech API</a></p>
-            <p><a class="barLink" href="/azure/cognitive-services/custom-speech-service/cognitive-services-custom-speech-home"><img src="../media/index/API_Custom_Speech.svg" alt="" /><span>Custom Speech Service&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a></p>
-            <p><a class="barLink" href="/azure/cognitive-services/speaker-recognition/home"><img src="../media/index/API_Speaker_Recognition.svg" alt="" /><span>Speaker Recognition&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a></p>
-            <p><a class="barLink" href="/azure/cognitive-services/translator-speech/"><img src="../media/index/API_TranslatorSpeech.svg" alt="" />Translator Speech</a></p>  
+      summary: Recognize, identify, caption, index, and moderate your pictures, videos, and digital ink content.
+      links:
+        - url: ./computer-vision/index.yml
+          itemType: overview
+          text: Computer Vision
+        - url: ./Custom-Vision-Service/index.yml
+          itemType: overview
+          text: Custom Vision
+        - url: ./face/index.yml
+          itemType: overview
+          text: Face
+        - url: ./form-recognizer/index.yml
+          itemType: overview
+          text: Form Recognizer (Preview)
+        - url: ./ink-recognizer/index.yml
+          itemType: overview
+          text: Ink Recognizer (Preview)
+        - url: ../media-services/video-indexer/index.yml
+          itemType: overview
+          text: Video Indexer
     - title: Language
-      html: <p><a class="barLink" href="/azure/cognitive-services/bing-spell-check/"><img src="../media/index/API_Bing_Spell_Check.svg" alt="" />Bing Spell Check</a></p>
-            <p><a class="barLink" href="/azure/cognitive-services/luis/"><img src="../media/index/API_Luis.svg" alt="" /><span>Language Understanding (LUIS)</span></a></p>
-            <p><a class="barLink" href="/azure/cognitive-services/linguisticanalysisapi/home"><img src="../media/index/API_LinguisticAnalysis.svg" alt="" /><span>Linguistic Analysis&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a></p>
-            <p><a class="barLink" href="/azure/cognitive-services/text-analytics/"><img src="../media/index/API_TextAnalytics.svg" alt="" />Text Analytics</a></p>
-            <p><a class="barLink" href="/azure/cognitive-services/translator/"><img src="../media/index/API_TranslatorText.svg" alt="" />Translator Text</a></p>
-            <p><a class="barLink" href="/azure/cognitive-services/web-language-model/home"><img src="../media/index/API_WebLanguageModel.svg" alt="" /><span>Web Language Model&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a></p>
-    - title: Knowledge
-      html: <p><a class="barLink" href="/azure/cognitive-services/custom-decision-service/"><img src="../media/index/API_Custom_Decision_Service.svg" alt="" /><span>Custom Decision Service&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a></p>
-            <p><a class="barLink" href="/azure/cognitive-services/qnamaker/home"><img src="../media/index/API_QnAMaker.svg" alt="" /><span>QnA Maker</span></a></p>
-            <p><a class="barLink" href="/azure/cognitive-services/recommendations/overview"><img src="../media/index/API_Recommendations.svg" alt="" /><span>Recommendations&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a></p>
+      summary: Allow your apps to process natural language with pre-built scripts, evaluate sentiment and learn how to recognize what users want.
+      links:
+        - url: ./immersive-reader/index.yml
+          itemType: overview
+          text: Immersive Reader (Preview)
+        - url: ./luis/index.yml
+          itemType: overview
+          text: Language Understanding (LUIS)
+        - url: ./qnamaker/index.yml
+          itemType: overview
+          text: QnA Maker
+        - url: ./text-analytics/index.yml
+          itemType: overview
+          text: Text Analytics
+        - url: ./translator/index.yml
+          itemType: overview
+          text: Translator Text
+    - title: Speech
+      summary: Convert speech into text and text into natural-sounding speech. Translate from one language to another and enable speaker verification and recognition.
+      links:
+        - url: ./speech-service/index.md
+          itemType: overview
+          text: Speech service
+        - url: ./speaker-recognition/home.md
+          itemType: overview
+          text: Speaker Recognition (Preview)
+        - url: ./speech/home.md
+          itemType: overview
+          text: Bing Speech (Retiring)
+#        - url: ./translator-speech/overview.md
+#          itemType: overview
+#          text: Translator Speech (Retiring)
+    - title: Decision
+      summary: Build apps that surface recommendations for informed and efficient decision-making.
+      links:
+        - url: ./anomaly-detector/index.yml
+          itemType: overview
+          text: Anomaly Detector (Preview)
+        - url: ./content-moderator/index.yml
+          itemType: overview
+          text: Content Moderator
+        - url: ./personalizer/index.yml
+          itemType: overview
+          text: Personalizer
     - title: Search
-      html: <p><a class="barLink" href="/azure/cognitive-services/bing-news-search/"><img src="../media/index/API_Bing_News_Search.svg" alt="" />Bing News Search</a></p>
-            <p><a class="barLink" href="/azure/cognitive-services/Bing-Video-Search/"><img src="../media/index/API_Bing_Video_Search.svg" alt="" />Bing Video Search</a></p>
-            <p><a class="barLink" href="/azure/cognitive-services/bing-web-search/"><img src="../media/index/API_Bing_Web_Search.svg" alt="" />Bing Web Search</a></p>
-            <p><a class="barLink" href="/azure/cognitive-services/Bing-Autosuggest"><img src="../media/index/API_Bing_AutoSuggest.svg" alt="" />Bing Autosuggest</a></p>
-            <p><a class="barLink" href="/azure/cognitive-services/bing-custom-search"><img src="../media/index/API_Bing_Custom_Search.svg" alt="" />Bing Custom Search</a></p>
-            <p><a class="barLink" href="/azure/cognitive-services/bing-entities-search/"><img src="../media/index/API_Bing_Entity_Search.svg" alt="" />Bing Entity Search</a></p>
-            <p><a class="barLink" href="/azure/cognitive-services/bing-image-search"><img src="../media/index/API_Bing_Image_Search.svg" alt="" />Bing Image Search</a></p>
-            <p><a class="barLink" href="/azure/cognitive-services/bing-visual-search"><img src="../media/index/API_Bing_Visual_Search.svg" alt="" />Bing Visual Search</a></p>
-    - title: Labs
-      html: <p><a class="barLink" href="https://docs.microsoft.com/gestures/"><img src="../media/index/labs-hand-gesture.svg" alt="" />Project Gesture</a></p>
-            <p><a class="barLink" href="/azure/cognitive-services/project-personality-chat/overview"><img src="media/index/project-personality-chat-icon.svg" alt="" />Project Personality Chat</a></p>
-            <p><a class="barLink" href="https://labs.cognitive.microsoft.com/en-us/Project-Cuzco/documentation/overview"><img src="../media/index/labs-event-tracker.svg" alt="" />Project Event Tracking</a></p>
-            <p><a class="barLink" href="/azure/cognitive-services/academic-knowledge/home"><img src="../media/index/API_Know_Academic.svg" alt="" />Project Academic Knowledge</a></p>
-            <p><a class="barLink" href="https://labs.cognitive.microsoft.com/en-us/Project-Wollongong/documentation"><img src="../media/index/labs-local-insight.svg" alt="" />Project Local Insights</a></p>
-            <p><a class="barLink" href="/azure/cognitive-services/kes/overview"><img src="../media/index/API_KnowledgeExploration.svg" alt="" /><span>Project Knowledge Exploration Service</a></p>
-            <p><a class="barLink" href="/azure/cognitive-services/entitylinking/home"><img src="../media/index/API_Entity_LinkingIntelligence.svg" alt="" /><span>Project Entity Linking</a></p>
-            <p><a class="barLink" href="/azure/cognitive-services/labs/url-preview/overview"><img src="../media/index/API_URL_Preview.svg" alt="" /><span>Project URL Preview</a></p>
-            <p><a class="barLink" href="/azure/cognitive-services/labs/answer-search/overview"><img src="../media/index/API_Answer_Search.svg" alt="" /><span>Project Answer Search</a></p>
-            <p><a class="barLink" href="/azure/cognitive-services/labs/anomaly-finder/overview"><img src="../media/index/API_Anomaly_Finder.svg" alt="" /><span>Project Anomaly Finder</a></p>
-            <p><a class="barLink" href="/azure/cognitive-services/labs/conversation-learner/overview"><img src="../media/index/API_Conversation_Learner.svg" alt="" /><span>Project Conversation Learner</a></p>
+      summary: Add Bing Search APIs to your apps and harness the ability to comb billions of webpages, images, videos, and news with a single API call.
+      links:
+        - url: ./Bing-web-search/index.yml
+          itemType: overview
+          text: Bing Search APIs hub page
+        - url: ./Bing-Autosuggest/get-suggested-search-terms.md
+          itemType: overview
+          text: Autosuggest Search
+        - url: ./bing-custom-search/overview.md
+          itemType: overview
+          text: Custom Search
+        - url: ./bing-entities-search/overview.md
+          itemType: overview
+          text: Entity Search
+        - url: ./bing-image-search/overview.md
+          itemType: overview
+          text: Image Search
+        - url: ./bing-local-business-search/overview.md
+          itemType: overview
+          text: Local Business Search (Preview)
+        - url: ./bing-news-search/search-the-web.md
+          itemType: overview
+          text: News Search
+        - url: ./bing-spell-check/overview.md
+          itemType: overview
+          text: Spell Check
+        - url: ./Bing-Video-Search/overview.md
+          itemType: overview
+          text: Video Search
+        - url: ./bing-visual-search/overview.md
+          itemType: overview
+          text: Visual Search
+        - url: ./bing-web-search/overview.md
+          itemType: overview
+          text: Web Search
+    - title: Cognitive Service Containers
+      summary: Container support in Azure Cognitive Services allows developers to use the same rich APIs that are available in Azure, and enables flexibility in where to deploy and host the services that come with Docker containers.
+      links:
+        - url: ./cognitive-services-container-support.md
+          itemType: overview
+          text: Cognitive Service Containers
+        - url: ./containers/container-reuse-recipe.md
+          itemType: learn
+          text: Create containers for reuse
+        - url: ./containers/azure-container-instance-recipe.md
+          itemType: how-to-guide
+          text: Deploy and run container on Azure Container Instance
+        - url: ./containers/azure-kubernetes-recipe.md
+          itemType: deploy
+          text: Deploy to Azure Kubernetes Service
+        - url: ./containers/docker-compose-recipe.md
+          itemType: get-started
+          text: Use Docker Compose to deploy multiple containers
+        - url: ./containers/container-faq.md
+          itemType: reference
+          text: Cognitive Services containers FAQ
+
+additionalContent:
+  sections:
+    - items:
+      - title: Additional resources
+        links:
+          - text: Azure CLI
+            url: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest
+          - text: PowerShell
+            url: https://docs.microsoft.com/powershell/module/az.cognitiveservices/?view=azps-2.5.0#cognitive_services
+      - title: REST APIs
+        links:
+          - text: Cognitive Services Management
+            url: https://docs.microsoft.com/rest/api/cognitiveservices/
+      - title: SDKs
+        links:
+          - text: .NET
+            url: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client?view=azure-dotnet
+          - text: Go
+            url: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices
+          - text: Java
+            url: https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client?view=azure-java-stable
+          - text: Node.js
+            url: https://docs.microsoft.com/javascript/api/overview/azure/cognitive-services?view=azure-node-latest
+          - text: Python
+            url: https://docs.microsoft.com/python/api/overview/azure/cognitive-services?view=azure-python

@@ -1,16 +1,16 @@
 ---
-title: Add fault tolerance in Azure Data Factory Copy Activity by skipping incompatible rows | Microsoft Docs
+title: Add fault tolerance in Azure Data Factory Copy Activity by skipping incompatible rows 
 description: Learn how to add fault tolerance in Azure Data Factory Copy Activity by skipping incompatible rows during copy
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 
 
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
+
+
 ms.topic: conceptual
 ms.date: 03/27/2018
 ms.author: jingwang
@@ -20,11 +20,11 @@ robots: noindex
 # Add fault tolerance in Copy Activity by skipping incompatible rows
 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 - GA](data-factory-copy-activity-fault-tolerance.md)
-> * [Version 2 - Preview](../copy-activity-fault-tolerance.md)
+> * [Version 1](data-factory-copy-activity-fault-tolerance.md)
+> * [Version 2 (current version)](../copy-activity-fault-tolerance.md)
 
 > [!NOTE]
-> This article applies to version 1 of Data Factory, which is generally available (GA). If you are using version 2 of the Data Factory service, which is in preview, see [fault tolerance in copy activity of Data Factory version 2](../copy-activity-fault-tolerance.md).
+> This article applies to version 1 of Data Factory. If you are using the current version of the Data Factory service, see [fault tolerance in copy activity of Data Factory](../copy-activity-fault-tolerance.md).
 
 Azure Data Factory [Copy Activity](data-factory-data-movement-activities.md) offers you two ways to handle incompatible rows when copying data between source and sink data stores:
 
@@ -59,8 +59,8 @@ The following example provides a JSON definition to configure skipping the incom
     },
     "sink": {
         "type": "SqlSink",
-    },         
-    "enableSkipIncompatibleRow": true,           
+    },
+    "enableSkipIncompatibleRow": true,
     "redirectIncompatibleRowSettings": {
         "linkedServiceName": "BlobStorage",
         "path": "redirectcontainer/erroroutput"

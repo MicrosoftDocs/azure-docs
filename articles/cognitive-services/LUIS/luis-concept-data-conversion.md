@@ -1,40 +1,41 @@
 ---
-title: Understand data conversion concepts in LUIS - Azure | Microsoft Docs
+title: Data conversion - LUIS
+titleSuffix: Azure Cognitive Services
 description: Learn how utterances can be changed before predictions in Language Understanding (LUIS)
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
-
+author: diberry
+manager: nitinme
+ms.custom: seodec18
 ms.service: cognitive-services
-ms.technology: luis
-ms.topic: article
-ms.date: 05/07/2018
-ms.author: v-geberr;
+ms.subservice: language-understanding
+ms.topic: conceptual
+ms.date: 07/29/2019
+ms.author: diberry
 ---
 
-# Data conversion concepts in LUIS
-LUIS provides a way to convert utterances from spoken utterances to text utterances before prediction. 
+# Convert data format of utterances
+LUIS provides the following conversions of a user utterance before prediction"
 
-## Speech to intent conversion concepts
-Conversion of speech to text in LUIS allows you to send spoken utterances to an endpoint and receive a LUIS prediction response. The process is an integration of the [Speech](https://docs.microsoft.com/azure/cognitive-services/Speech) service with LUIS. 
+* Speech to text using [Cognitive Services Speech](../Speech-Service/overview.md) service. 
+
+## Speech to text
+
+Speech to text is provided as an integration with LUIS. 
+
+### Intent conversion concepts
+Conversion of speech to text in LUIS allows you to send spoken utterances to an endpoint and receive a LUIS prediction response. The process is an integration of the [Speech](https://docs.microsoft.com/azure/cognitive-services/Speech) service with LUIS. Learn more about Speech to Intent with a [tutorial](../speech-service/how-to-recognize-intents-from-speech-csharp.md).
 
 ### Key requirements
-You do not need to create a **Bing Speech API** key for this integration. The LUIS key works for this integration.
+You do not need to create a **Bing Speech API** key for this integration. A **Language Understanding** key created in the Azure portal works for this integration. Do not use the LUIS starter key.
 
-### New endpoint 
-This integration creates a new endpoint and [pricing](luis-boundaries.md#key-limits) model. The endpoint is able to receive both spoken and text utterances allowing you to use it as a single endpoint. 
+### Pricing Tier
+This integration uses a different [pricing](luis-boundaries.md#key-limits) model than the usual Language Understanding pricing tiers. 
 
 ### Quota usage
 See [Key limits](luis-boundaries.md#key-limits) for information. 
 
-### Data retention
-The data sent to the endpoint, regardless if it is speech or text, is only used to enhance your speech model. It is not used beyond your model to enhance either Speech or LUIS in a general capacity. When the LUIS app is deleted, the retained data is also deleted.
-
-<!-- TBD: Machine translation conversion concepts -->
-
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Correct spelling mistakes with this tutorial](luis-tutorial-bing-spellcheck.md)
+> [Extracting data](luis-concept-data-extraction.md)
 
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions

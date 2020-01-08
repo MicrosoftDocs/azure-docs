@@ -1,21 +1,11 @@
 ---
-title: Set up your development environment on Mac OS X to work with Azure Service Fabric| Microsoft Docs
-description: Install the runtime, SDK, and tools and create a local development cluster. After completing this setup, you'll be ready to build applications on Mac OS X.
-services: service-fabric
-documentationcenter: java
-author: sayantancs
-manager: timlt
-editor: ''
+title: Set up your dev environment on macOS
+description: Install the runtime, SDK, and tools and create a local development cluster. After completing this setup, you'll be ready to build applications on macOS.
+author: suhuruli
 
-ms.assetid: bf84458f-4b87-4de1-9844-19909e368deb
-ms.service: service-fabric
-ms.devlang: java
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 11/17/2017
-ms.author: saysa
-
+ms.author: suhuruli
 ---
 # Set up your development environment on Mac OS X
 > [!div class="op_single_selector"]
@@ -49,19 +39,20 @@ To set up a local Docker container and have a Service Fabric cluster running on 
         "fixed-cidr-v6": "fd00::/64"
     }
     ```
-    You can update these settings directly in the daemon.json file in your Docker installation path.
+    You can update these settings directly in the daemon.json file in your Docker installation path. You can directly modify the daemon configuration settings in Docker. Select the **Docker icon**, and then select **Preferences** > **Daemon** > **Advanced**.
     
     >[!NOTE]
     >
-    >The location of the daemon.json file can vary from machine to machine. For example, ~/Library/Containers/com.docker.docker/Data/database/com.docker.driver.amd64-linux/etc/docker/daemon.json.
+    >Modifying the daemon directly in Docker is reccommended because the location of the daemon.json file can vary from machine to machine. For example,
+    > ~/Library/Containers/com.docker.docker/Data/database/com.docker.driver.amd64-linux/etc/docker/daemon.json.
     >
-    >The recommended approach is to directly modify the daemon configuration settings in Docker. Select the **Docker icon**, and then select **Preferences** > **Daemon** > **Advanced**.
-    >
+
+    >[!TIP]
     >We recommend increasing the resources allocated to Docker when testing large applications. This can be done by selecting the **Docker Icon**, then selecting **Advanced** to adjust the number of cores and memory.
 
 2. In a new directory create a file called `Dockerfile` to build your Service Fabric Image:
 
-    ```dockerfile
+    ```Dockerfile
     FROM microsoft/service-fabric-onebox
     WORKDIR /home/ClusterDeployer
     RUN ./setup.sh
@@ -95,7 +86,7 @@ To set up a local Docker container and have a Service Fabric cluster running on 
 4. Now you can quickly start a local copy of Service Fabric, whenever you need it, by running:
 
     ```bash 
-    docker run --name sftestcluster -d -p 19080:19080 -p 19000:19000 -p 25100-25200:25100-25200 mysfcluster
+    docker run --name sftestcluster -d -v /var/run/docker.sock:/var/run/docker.sock -p 19080:19080 -p 19000:19000 -p 25100-25200:25100-25200 mysfcluster
     ```
 
     >[!TIP]
@@ -106,7 +97,7 @@ To set up a local Docker container and have a Service Fabric cluster running on 
     >`docker run -itd -p 19080:19080 -p 8080:8080 --name sfonebox microsoft/service-fabric-onebox`
     >
 
-5. The cluster will take a short amount of time to start, you can view logs using the following command or jump to the dashboard to view the clusters health [http://localhost:19080](http://localhost:19080):
+5. The cluster will take a moment to start. When it is running, you can view logs using the following command or jump to the dashboard to view the clusters health [http://localhost:19080](http://localhost:19080):
 
     ```bash 
     docker logs sftestcluster
@@ -114,7 +105,7 @@ To set up a local Docker container and have a Service Fabric cluster running on 
 
 
 
-6. When your done you can stop and cleanup the container with this command:
+6. To stop and cleanup the container, use the following command. However, we will be using this container in the next step.
 
     ```bash 
     docker rm -f sftestcluster
@@ -148,25 +139,31 @@ Service Fabric provides scaffolding tools that help you to create a Service Fabr
     node -v
     npm -v
     ```
-2. Install the [Yeoman](http://yeoman.io/) template generator on your machine from NPM:
+2. Install the [Yeoman](https://yeoman.io/) template generator on your machine from NPM:
 
     ```bash
     npm install -g yo
     ```
-3. Install the Yeoman generator that you prefer by following the steps in the getting started [documentation](service-fabric-get-started-linux.md). To create Service Fabric applications by using Yeoman, follow these steps:
+3. Install the Yeoman generator that you prefer by following the steps in the getting started [documentation](service-fabric-get-started-linux.md#set-up-yeoman-generators-for-containers-and-guest-executables). To create Service Fabric applications by using Yeoman, follow these steps:
 
     ```bash
     npm install -g generator-azuresfjava       # for Service Fabric Java Applications
     npm install -g generator-azuresfguest      # for Service Fabric Guest executables
     npm install -g generator-azuresfcontainer  # for Service Fabric Container Applications
     ```
-4. To build a Service Fabric Java application on your Mac, JDK version 1.8 and Gradle must be installed on the host machine. The software can be installed by using [HomeBrew](https://brew.sh/), as follows: 
+4. After you install the generators, create guest executable or container services by running `yo azuresfguest` or `yo azuresfcontainer`, respectively.
+
+5. To build a Service Fabric Java application on your Mac, JDK version 1.8 and Gradle must be installed on the host machine. The software can be installed by using [HomeBrew](https://brew.sh/), as follows: 
 
     ```bash
     brew update
     brew cask install java
     brew install gradle
     ```
+
+    > [!IMPORTANT]
+    > Current versions of `brew cask install java` may install a more recent version of the JDK.
+    > Be sure to install JDK 8.
 
 ## Deploy your application on your Mac from the terminal
 

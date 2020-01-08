@@ -1,15 +1,9 @@
 ---
 title: Create a Jenkins server on Azure
 description: Install Jenkins on an Azure Linux virtual machine from the Jenkins solution template and build a sample Java application.
-author: tomarcher
-manager: rloutlaw
-ms.service: multiple
-ms.workload: web
-ms.devlang: na
-ms.topic: article
-ms.date: 03/12/2018
-ms.author: tarcher
-ms.custom: Jenkins
+keywords: jenkins, azure, devops, portal, virtual machine, solution template
+ms.topic: quickstart
+ms.date: 6/7/2017
 ---
 
 # Create a Jenkins server on an Azure Linux VM from the Azure portal
@@ -19,7 +13,7 @@ This quickstart shows how to install [Jenkins](https://jenkins.io) on an Ubuntu 
 ## Prerequisites
 
 * An Azure subscription
-* Access to SSH on your computer's command line (such as the Bash shell or [PuTTY](http://www.putty.org/))
+* Access to SSH on your computer's command line (such as the Bash shell or [PuTTY](https://www.putty.org/))
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -30,7 +24,7 @@ Jenkins supports a model where the Jenkins server delegates work to one or more 
 
 ## Connect to Jenkins
 
-Navigate to your virtual machine (for example, http://jenkins2517454.eastus.cloudapp.azure.com/) in  your web browser. The Jenkins console is inaccessible through unsecured HTTP so instructions are provided on the page to access the Jenkins console securely from your computer using an SSH tunnel.
+Navigate to your virtual machine (for example, `http://jenkins2517454.eastus.cloudapp.azure.com/`) in  your web browser. The Jenkins console is inaccessible through unsecured HTTP so instructions are provided on the page to access the Jenkins console securely from your computer using an SSH tunnel.
 
 ![Unlock jenkins](./media/install-jenkins-solution-template/jenkins-ssh-instructions.png)
 
@@ -40,7 +34,7 @@ Set up the tunnel using the `ssh` command on the page from the command line, rep
 ssh -L 127.0.0.1:8080:localhost:8080 jenkinsadmin@jenkins2517454.eastus.cloudapp.azure.com
 ```
 
-After you have started the tunnel, navigate to http://localhost:8080/ on your local machine. 
+After you have started the tunnel, navigate to `http://localhost:8080/` on your local machine. 
 
 Get the initial password by running the following command in the command line while connected through SSH to the Jenkins VM.
 
@@ -72,7 +66,7 @@ Select the **Build** tab, then select **Add build step**, **Invoke Gradle script
 
 ![Use the Gradle wrapper to build](./media/install-jenkins-solution-template/jenkins-job-gradle-config.png) 
 
-Select **Advanced..** and then enter `complete` in the **Root Build script** field. Select **Save**.
+Select **Advanced** and then enter `complete` in the **Root Build script** field. Select **Save**.
 
 ![Set advanced settings in the Gradle wrapper build step](./media/install-jenkins-solution-template/jenkins-job-gradle-advances.png) 
 
@@ -83,6 +77,10 @@ Select **Build Now** to compile the code and package the sample app. When your b
 ![Browse to the workspace to get the JAR file from the build](./media/install-jenkins-solution-template/jenkins-access-workspace.png) 
 
 Navigate to `complete/build/libs` and ensure the `gs-spring-boot-0.1.0.jar` is there to verify that your build was successful. Your Jenkins server is now ready to build your own projects in Azure.
+
+## Troubleshooting the Jenkins solution template
+
+If you encounter any bugs with the Jenkins solution template, file an issue in the [Jenkins GitHub repo](https://github.com/azure/jenkins/issues).
 
 ## Next Steps
 

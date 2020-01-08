@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/05/2018
+ms.date: 09/05/2019
 ms.author: spelluru
 ---
 # Configure a virtual network in Azure DevTest Labs
@@ -22,10 +22,13 @@ For example, you might need to access your corpnet resources from your VMs using
 
 This article explains how to add your existing virtual network into a lab's Virtual Network settings so that it is available to choose when creating VMs.
 
+> [!NOTE]
+> To learn about costs associated with the Azure Virtual Network service, see [Pricing for Azure Virtual Network](../virtual-network/virtual-networks-overview.md#pricing).
+
 ## Configure a virtual network for a lab using the Azure portal
 The following steps walk you through adding an existing virtual network (and subnet) to a lab so that it can be used when creating a VM in the same lab. 
 
-1. Sign in to the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Sign in to the [Azure portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 1. Select **All Services**, and then select **DevTest Labs** from the list.
 1. From the list of labs, select the desired lab. 
 1. On the lab's main pane, select **Configuration and policies**.

@@ -1,21 +1,13 @@
 ---
-title: 'Modify an ExpressRoute circuit: PowerShell: Azure classic| Microsoft Docs'
+title: 'Azure ExpressRoute: Modify a circuit: PowerShell:classic'
 description: This article walks you through the steps to check the status, update, or delete and deprovision your ExpressRoute classic deployment model circuit.
-documentationcenter: na
 services: expressroute
-author: ganesr
-manager: timlt
-editor: ''
-tags: azure-service-management
+author: cherylmc
 
-ms.assetid: 0134d242-6459-4dec-a2f1-4657c3bc8b23
 ms.service: expressroute
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 11/08/2017
-ms.author: ganesr;cherylmc
+ms.topic: conceptual
+ms.date: 11/05/2019
+ms.author: cherylmc
 
 ---
 # Modify an ExpressRoute circuit using PowerShell (classic)
@@ -24,22 +16,22 @@ ms.author: ganesr;cherylmc
 > * [Azure portal](expressroute-howto-circuit-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-circuit-arm.md)
 > * [Azure CLI](howto-circuit-cli.md)
-> * [Video - Azure portal](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit)
+> * [Azure Resource Manager template](expressroute-howto-circuit-resource-manager-template.md)
+> * [Video - Azure portal](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit)
 > * [PowerShell (classic)](expressroute-howto-circuit-classic.md)
 >
 
-This article also shows you how to check the status, update, or delete and deprovision an ExpressRoute circuit.
+This article walks you through the steps to check the status, update, or delete and deprovision your ExpressRoute classic deployment model circuit. This article applies to the classic deployment model.
 
 [!INCLUDE [expressroute-classic-end-include](../../includes/expressroute-classic-end-include.md)]
 
 **About Azure deployment models**
 
-[!INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
+[!INCLUDE [vpn-gateway-classic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
 ## Before you begin
 
-Install the latest versions of the Azure Service Management (SM) PowerShell modules
-Follow the instructions in [Getting started with Azure PowerShell cmdlets](/powershell/azure/overview) for step-by-step guidance on how to configure your computer to use the Azure PowerShell modules.
+[!INCLUDE [classic powershell install instructions](../../includes/expressroute-poweshell-classic-install-include.md)]
 
 ## Get the status of a circuit
 
@@ -95,7 +87,7 @@ You can modify certain properties of an ExpressRoute circuit without impacting c
 You can do the following tasks with no downtime:
 
 * Enable or disable an ExpressRoute premium add-on for your ExpressRoute circuit.
-* Increase the bandwidth of your ExpressRoute circuit provided there is capacity available on the port. Downgrading the bandwidth of a circuit is not supported. 
+* Increase the bandwidth of your ExpressRoute circuit provided there is capacity available on the port. Downgrading the bandwidth of a circuit is not supported.
 * Change the metering plan from Metered Data to Unlimited Data. Changing the metering plan from Unlimited Data to Metered Data is not supported.
 * You can enable and disable *Allow Classic Operations*.
 
@@ -124,8 +116,8 @@ Your circuit will now have the ExpressRoute premium add-on features enabled. As 
 
 > [!IMPORTANT]
 > This operation can fail if you're using resources that are greater than what is permitted for the standard circuit.
-> 
-> 
+>
+>
 
 #### Considerations
 
@@ -159,8 +151,8 @@ Check the [ExpressRoute FAQ](expressroute-faqs.md) for supported bandwidth optio
 > You may have to recreate the ExpressRoute circuit if there is inadequate capacity on the existing port. You cannot upgrade the circuit if there is no additional capacity available at that location.
 >
 > You cannot reduce the bandwidth of an ExpressRoute circuit without disruption. Downgrading bandwidth requires you to deprovision the ExpressRoute circuit and then reprovision a new ExpressRoute circuit.
-> 
-> 
+>
+>
 
 #### Resize a circuit
 

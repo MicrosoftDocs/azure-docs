@@ -1,87 +1,53 @@
 ---
-title: Continuous deployment from a Docker container registry with Web App for Containers - Azure | Microsoft Docs
-description: How to set up continuous deployment from a Docker container registry in Web App for Containers.
+title: CI/CD to custom Linux containers
+description: Learn how to set up continuous deployment to a custom Linux container in Azure App Service. Continuous deployment is supported for Docker Hub and ACR.
 keywords: azure app service, linux, docker, acr,oss
-services: app-service
-documentationcenter: ''
-author: ahmedelnably
-manager: cfowler
-editor: ''
+author: msangapu-msft
 
 ms.assetid: a47fb43a-bbbd-4751-bdc1-cd382eae49f8
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2017
-ms.author: aelnably;msangapu
+ms.date: 11/08/2018
+ms.author: msangapu
+ms.custom: seodec18
 
 ---
 # Continuous deployment with Web App for Containers
 
 In this tutorial, you configure continuous deployment for a custom container image from managed [Azure Container Registry](https://azure.microsoft.com/services/container-registry/) repositories or [Docker Hub](https://hub.docker.com).
 
-## Sign in to Azure
+## Enable continuous deployment with ACR
 
-Sign in to the [Azure portal](https://portal.azure.com).
+![Screenshot of ACR webhook](./media/app-service-webapp-service-linux-ci-cd/ci-cd-acr-02.png)
 
-## Enable the continuous deployment feature
+1. Sign in to the [Azure portal](https://portal.azure.com).
+2. Select the **App Service** option on the left side of the page.
+3. Select the name of the app for which you want to configure continuous deployment.
+4. On the **Container Settings** page, select **Single Container**
+5. Select **Azure Container Registry**
+6. Select **Continuous Deployment > On**
+7. Select **Save** to enable continuous deployment.
 
-Enable the continuous deployment feature by using [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) and executing the following command:
+## Use the ACR webhook
 
-```azurecli-interactive
-az webapp deployment container config --name name --resource-group myResourceGroup --enable-cd true
-```
+Once Continuous Deployment has been enabled, you can view the newly created webhook on your Azure Container Registry webhooks page.
 
-In the [Azure portal](https://portal.azure.com/), select the **App Service** option on the left side of the page.
+![Screenshot of ACR webhook](./media/app-service-webapp-service-linux-ci-cd/ci-cd-acr-03.png)
 
-Select the name of the app for which you want to configure Docker Hub continuous deployment.
+In your Container Registry, click on Webhooks to view the current webhooks.
 
-On the **Docker Container** page, select **On**, and then select **Save** to enable continuous deployment.
+## Enable continuous deployment with Docker Hub (optional)
 
-![Screenshot of app setting](./media/app-service-webapp-service-linux-ci-cd/step2.png)
+1. Sign in to the [Azure portal](https://portal.azure.com).
+2. Select the **App Service** option on the left side of the page.
+3. Select the name of the app for which you want to configure continuous deployment.
+4. On the **Container Settings** page, select **Single Container**
+5. Select **Docker Hub**
+6. Select **Continuous Deployment > On**
+7. Select **Save** to enable continuous deployment.
 
-## Prepare the webhook URL
+![Screenshot of app setting](./media/app-service-webapp-service-linux-ci-cd/ci-cd-docker-02.png)
 
-Obtain the webhook URL by using [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) and executing the following command:
-
-```azurecli-interactive
-az webapp deployment container show-cd-url --name sname1 --resource-group rgname
-```
-
-For the webhook URL, you need the following endpoint: 
-`https://<publishingusername>:<publishingpwd>@<sitename>.scm.azurewebsites.net/docker/hook`.
-
-You can obtain your `publishingusername` and `publishingpwd` by downloading the web app publish profile using the Azure portal.
-
-![Screenshot of adding webhook 2](./media/app-service-webapp-service-linux-ci-cd/step3-3.png)
-
-## Add a webhook
-
-### Azure Container Registry
-
-1. On your registry portal page, select **Webhooks**.
-2. To create a new webhook, select **Add**. 
-3. In the **Create webhook** pane, give your webhook a name. For the webhook URI, provide the URL obtained in the preceding section.
-
-Make sure you define the scope as the repo that contains your container image.
-
-![Screenshot of webhook](./media/app-service-webapp-service-linux-ci-cd/step3ACRWebhook-1.png)
-
-When you update the image, the web app is updated automatically with the new image.
-
-### Docker Hub
-
-On your Docker Hub page, select **Webhooks**, and then **CREATE A WEBHOOK**.
-
-![Screenshot of adding webhook 1](./media/app-service-webapp-service-linux-ci-cd/step3-1.png)
-
-For the webhook URL, provide the URL that you obtained earlier.
-
-![Screenshot of adding webhook 2](./media/app-service-webapp-service-linux-ci-cd/step3-2.png)
-
-When you update the image, the web app is updated automatically with the new image.
+Copy the Webhook URL. To add a webhook for Docker Hub, follow <a href="https://docs.docker.com/docker-hub/webhooks/" target="_blank">webhooks for Docker Hub</a>.
 
 ## Next steps
 

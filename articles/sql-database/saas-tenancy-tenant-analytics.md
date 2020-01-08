@@ -1,20 +1,20 @@
 ---
-title: "Run cross-tenant analytics using extracted data| Microsoft Docs"
-description: "Cross-tenant analytics queries using data extracted from multiple Azure SQL Database databases."
-keywords: "sql database tutorial"
-services: "sql-database"
-author: "stevestein"
-manager: "craigg"
-ms.service: "sql-database"
-ms.custom: "scale out apps"
+title: Cross-tenant analytics using extracted data
+description: "Cross-tenant analytics queries using data extracted from multiple Azure SQL Database databases in a single tenant app."
+services: sql-database
+ms.service: sql-database
+ms.subservice: scenario
+ms.custom: 
+ms.devlang: 
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: stevestein
 ms.author: sstein
-ms.reviewer: "anjangsh; billgib; genemi"
+ms.reviewer: anjangsh,billgib,genemi
+ms.date: 12/18/2018
 ---
-# Cross-tenant analytics using extracted data
-
-In this tutorial, you walk through a complete analytics scenario. The scenario demonstrates how analytics can enable businesses to make smart decisions. Using data extracted from each tenant database, you use analytics to gain insights into tenant behavior and application usage. This scenario involves three steps: 
+# Cross-tenant analytics using extracted data - single-tenant app
+ 
+In this tutorial, you walk through a complete analytics scenario for a single tenant implementation. The scenario demonstrates how analytics can enable businesses to make smart decisions. Using data extracted from each tenant database, you use analytics to gain insights into tenant behavior, including their use of the sample Wingtip Tickets SaaS application. This scenario involves three steps: 
 
 1.	**Extract** data from each tenant database and **Load** into an analytics store.
 2.	**Transform the extracted data** for analytics processing.
@@ -84,9 +84,9 @@ In the following steps, you deploy the analytics store, which is called **tenant
 2. Set the $DemoScenario variable in the script to match your choice of analytics store:
     - To use SQL database without column store, set **$DemoScenario** = **2**
     - To use SQL database with column store, set **$DemoScenario** = **3**  
-3. Press **F5** to run the demo script (that calls the *Deploy-TenantAnalytics<XX>.ps1* script) which creates the tenant analytics store. 
+3. Press **F5** to run the demo script (that calls the *Deploy-TenantAnalytics\<XX>.ps1* script) which creates the tenant analytics store. 
 
-Now that you have deployed the application and filled it with interesting tenant data, use [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) to connect **tenants1-dpt-&lt;User&gt;** and **catalog-dpt-&lt;User&gt;** servers using Login = *developer*, Password = *P@ssword1*. See the [introductory tutorial](saas-dbpertenant-wingtip-app-overview.md) for more guidance.
+Now that you have deployed the application and filled it with interesting tenant data, use [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) to connect **tenants1-dpt-&lt;User&gt;** and **catalog-dpt-&lt;User&gt;** servers using Login = *developer*, Password = *P\@ssword1*. See the [introductory tutorial](saas-dbpertenant-wingtip-app-overview.md) for more guidance.
 
 ![architectureOverView](media/saas-tenancy-tenant-analytics/ssmsSignIn.png)
 
@@ -113,7 +113,7 @@ Before proceeding, ensure you have deployed the job account and jobaccount datab
 
 1. In SSMS, connect to the **jobaccount** database in catalog-dpt-&lt;User&gt;.
 2. In SSMS, open *…\Learning Modules\Operational Analytics\Tenant Analytics\ TargetGroups.sql* 
-3. Modify the @User variable at the top of the script, replacing <User> with the user value used when you deployed the Wingtip SaaS app.
+3. Modify the @User variable at the top of the script, replacing `<User>` with the user value used when you deployed the Wingtip SaaS app.
 4. Press **F5** to run the script that creates the two target groups.
 
 ### Extract raw data from all tenants
@@ -127,7 +127,7 @@ Each job extracts its data, and posts it into the analytics store. There a separ
 
 1. In SSMS, connect to the **jobaccount** database in catalog-dpt-&lt;User&gt; server.
 2. In SSMS, open *...\Learning Modules\Operational Analytics\Tenant Analytics\ExtractTickets.sql*.
-3. Modify @User at the top of the script, and replace <User> with the user name used when you deployed the Wingtip SaaS app 
+3. Modify @User at the top of the script, and replace `<User>` with the user name used when you deployed the Wingtip SaaS app 
 4. Press F5 to run the script that creates and runs the job that extracts tickets and customers data from each tenant database. The job saves the data into the analytics store.
 5. Query the TicketsRawData table in the tenantanalytics database, to ensure that the table is populated with tickets information from all tenants.
 
@@ -168,7 +168,7 @@ Use the following steps to connect to Power BI, and to import the views you crea
 
     ![signinpowerbi](./media/saas-tenancy-tenant-analytics/powerBISignIn.PNG)
 
-5. Select **Database** in the left pane, then enter user name = *developer*, and enter password = *P@ssword1*. Click **Connect**.  
+5. Select **Database** in the left pane, then enter user name = *developer*, and enter password = *P\@ssword1*. Click **Connect**.  
 
     ![databasesignin](./media/saas-tenancy-tenant-analytics/databaseSignIn.PNG)
 
@@ -200,12 +200,12 @@ You can drill into the data again to see if this mad rush is true for all events
 
 The preceding plot for Contoso Concert Hall shows that the mad rush does not happen for all events. Play around with the filter options to see sale trends for other venues.
 
-The insights into ticket selling patterns might lead Wingtip Tickets to optimize their business model. Instead of charging all tenants equally, perhaps Wingtip should introduce service tiers with different performance levels. Larger venues that need to sell more tickets per day could be offered a higher tier with a higher service level agreement (SLA). Those venues could have their databases placed in pool with higher per-database resource limits. Each service tier could have an hourly sales allocation, with additional fees charged for exceeding the allocation. Larger venues that have periodic bursts of sales would benefit from the higher tiers, and Wingtip Tickets can monetize their service more efficiently.
+The insights into ticket selling patterns might lead Wingtip Tickets to optimize their business model. Instead of charging all tenants equally, perhaps Wingtip should introduce service tiers with different compute sizes. Larger venues that need to sell more tickets per day could be offered a higher tier with a higher service level agreement (SLA). Those venues could have their databases placed in pool with higher per-database resource limits. Each service tier could have an hourly sales allocation, with additional fees charged for exceeding the allocation. Larger venues that have periodic bursts of sales would benefit from the higher tiers, and Wingtip Tickets can monetize their service more efficiently.
 
 Meanwhile, some Wingtip Tickets customers complain that they struggle to sell enough tickets to justify the service cost. Perhaps in these insights there is an opportunity to boost ticket sales for underperforming venues. Higher sales would increase the perceived value of the service. Right click fact_Tickets and select **New measure**. Enter the following expression for the new measure called **AverageTicketsSold**:
 
 ```
-AverageTicketsSold = DIVIDE(DIVIDE(COUNTROWS(fact_Tickets),DISTINCT(dim_Venues[VenueCapacity]))*100, COUNTROWS(dim_Events))
+AverageTicketsSold = AVERAGEX( SUMMARIZE( TableName, TableName[Venue Name] ), CALCULATE( SUM(TableName[Tickets Sold] ) ) )
 ```
 
 Select the following visualization options to plot the percentage tickets sold by each venue to determine their relative success.
@@ -234,4 +234,5 @@ Congratulations!
 ## Additional resources
 
 - Additional [tutorials that build upon the Wingtip SaaS application](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials).
-- [Elastic Jobs](sql-database-elastic-jobs-overview.md).
+- [Elastic Jobs](elastic-jobs-overview.md).
+- [Cross-tenant analytics using extracted data - multi-tenant app](saas-multitenantdb-tenant-analytics.md)

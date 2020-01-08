@@ -1,10 +1,10 @@
 ---
-title: Create a VM (Classic) with multiple NICs - Azure CLI 1.0 | Microsoft Docs
-description: Learn how to create a VM (Classic) with multiple NICs using the Azure command-line interface (CLI) 1.0.
+title: Create a VM (Classic) with multiple NICs - Azure classic CLI | Microsoft Docs
+description: Learn how to create a VM (Classic) with multiple NICs using the Azure classic command-line interface (CLI).
 services: virtual-network
 documentationcenter: na
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 tags: azure-service-management
 
@@ -19,7 +19,7 @@ ms.author: genli
 ms.custom: H1Hack27Feb2017
 
 ---
-# Create a VM (Classic) with multiple NICs using the Azure CLI 1.0
+# Create a VM (Classic) with multiple NICs using the Azure classic CLI
 
 [!INCLUDE [virtual-network-deploy-multinic-classic-selectors-include.md](../../includes/virtual-network-deploy-multinic-classic-selectors-include.md)]
 
@@ -47,7 +47,7 @@ The back-end VMs depend on the creation of the following resources:
 ### Step 1 - Start your script
 You can download the full bash script used [here](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/classic/virtual-network-deploy-multinic-classic-cli.sh). Complete the following steps to change the script to work in your environment:
 
-1. Change the values of the variables below based on your existing resource group deployed above in [Prerequisites](#Prerequisites).
+1. Change the values of the variables below based on your existing resource group deployed above in [Prerequisites](#prerequisites).
 
 	```azurecli
 	location="useast2"

@@ -1,24 +1,16 @@
 ---
-title: EDIFACT messages for B2B enterprise integration - Azure Logic Apps | Microsoft Docs
-description: Exchange EDIFACT messages in EDI format for B2B enterprise integration with Azure Logic Apps
+title: EDIFACT messages for B2B integration
+description: Exchange EDIFACT messages in EDI format for B2B enterprise integration in Azure Logic Apps with Enterprise Integration Pack
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: jeffhollan
-manager: jeconnoc
-editor: ''
-
-ms.assetid: 2257d2c8-1929-4390-b22c-f96ca8b291bc
-ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
-ms.custom: H1Hack27Feb2017
 ms.date: 07/26/2016
-ms.author: LADocs; jonfan
-
 ---
-# Exchange EDIFACT messages for enterprise integration with logic apps
+
+# Exchange EDIFACT messages for B2B enterprise integration in Azure Logic Apps with Enterprise Integration Pack
 
 Before you can exchange EDIFACT messages for Azure Logic Apps, 
 you must create an EDIFACT agreement and 
@@ -48,7 +40,7 @@ you can create an EDIFACT agreement by following these steps.
 
 ## Create an EDIFACT agreement 
 
-1. Sign in to the [Azure portal](http://portal.azure.com "Azure portal"). 
+1. Sign in to the [Azure portal](https://portal.azure.com "Azure portal"). 
 
 2. On the main Azure menu, select **All services**. 
 In the search box, enter "integration", 

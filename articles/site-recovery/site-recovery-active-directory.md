@@ -1,21 +1,19 @@
 ---
-title: Protect Active Directory and DNS with Azure Site Recovery | Microsoft Docs
-description: This article describes how to implement a disaster recovery solution for Active Directory by using Azure Site Recovery.
-services: site-recovery
-documentationcenter: ''
-author: mayanknayar
+title: Set up Active Directory/DNS disaster recovery with Azure Site Recovery 
+description: This article describes how to implement a disaster recovery solution for Active Directory and DNS with Azure Site Recovery.
+author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 05/11/2018
-ms.author: manayar
+ms.topic: conceptual
+ms.date: 4/9/2019
+ms.author: mayg
 
 ---
-# Use Azure Site Recovery to protect Active Directory and DNS
+# Set up disaster recovery for Active Directory and DNS
 
 Enterprise applications such as SharePoint, Dynamics AX, and SAP depend on Active Directory and a DNS infrastructure to function correctly. When you set up disaster recovery for applications,  you often need to recover Active Directory and DNS before you recover other application components, to ensure correct application functionality.
 
-You can use [Site Recovery](site-recovery-overview.md) to create a disaster recovery plan for Active Directory. When a disruption occurs, you can initiate a failover. You can have Active Directory up and running in a few minutes. If you have deployed Active Directory for multiple applications in your primary site, for example, for SharePoint and SAP, you might want to fail over the complete site. You can first fail over Active Directory using ite Recovery. Then, fail over the other applications, using application-specific recovery plans.
+You can use [Site Recovery](site-recovery-overview.md) to create a disaster recovery plan for Active Directory. When a disruption occurs, you can initiate a failover. You can have Active Directory up and running in a few minutes. If you have deployed Active Directory for multiple applications in your primary site, for example, for SharePoint and SAP, you might want to fail over the complete site. You can first fail over Active Directory using Site Recovery. Then, fail over the other applications, using application-specific recovery plans.
 
 This article explains how to create a disaster recovery solution for Active Directory. It includes prerequisites, and failover instructions. You should be familiar with Active Directory and Site Recovery before you begin.
 
@@ -26,13 +24,10 @@ This article explains how to create a disaster recovery solution for Active Dire
 
 ## Replicate the domain controller
 
-You must set up [Site Recovery replication](#enable-protection-using-site-recovery), on at least one VM that hosts a domain controller or DNS. If you have [multiple domain controllers](#environment-with-multiple-domain-controllers) in your environment, you also must set up an [additional domain controller](#protect-active-directory-with-active-directory-replication) on the target site. The additional domain controller can be in Azure, or in a secondary on-premises datacenter.
-
-### Single-domain controller
-If you have only a few applications and one domain controller, you might want to fail over the entire site together. In this case, we recommend using Site Recovery to replicate the domain controller to the target site (either in Azure or in a secondary on-premises datacenter). You can use the same replicated domain controller or DNS virtual machine for [test failover](#test-failover-considerations).
-
-### Multiple domain controllers
-If you have many applications and more than one domain controller in your environment, or if you plan to fail over a few applications at a time, in addition to replicating the domain controller virtual machine with Site Recovery, we recommend that you set up an [additional domain controller](#protect-active-directory-with-active-directory-replication) on the target site (either in Azure or in a secondary on-premises datacenter). For [test failover](#test-failover-considerations), you can use domain controller that's replicated by Site Recovery. For failover, you can use the additional domain controller on the target site.
+- You must set up Site Recovery replication, on at least one VM that hosts a domain controller or DNS.
+- If you have multiple domain controllers in your environment, you also must set up an additional domain controller on the target site. The additional domain controller can be in Azure, or in a secondary on-premises datacenter.
+- If you have only a few applications and one domain controller, you might want to fail over the entire site together. In this case, we recommend using Site Recovery to replicate the domain controller to the target site (either in Azure or in a secondary on-premises datacenter). You can use the same replicated domain controller or DNS virtual machine for [test failover](#test-failover-considerations).
+- - If you have many applications and more than one domain controller in your environment, or if you plan to fail over a few applications at a time, in addition to replicating the domain controller virtual machine with Site Recovery, we recommend that you set up an additional domain controller on the target site (either in Azure or in a secondary on-premises datacenter). For [test failover](#test-failover-considerations), you can use domain controller that's replicated by Site Recovery. For failover, you can use the additional domain controller on the target site.
 
 ## Enable protection with Site Recovery
 
@@ -42,7 +37,7 @@ You can use Site Recovery to protect the virtual machine that hosts the domain c
 The domain controller that is replicated by using Site Recovery is used for [test failover](#test-failover-considerations). Ensure that it meets the following requirements:
 
 1. The domain controller is a global catalog server.
-2. The domain controller should be the FSMO role owner for roles that are needed during a test failover. Otherwise, these roles will need to be [seized](http://aka.ms/ad_seize_fsmo) after the failover.
+2. The domain controller should be the FSMO role owner for roles that are needed during a test failover. Otherwise, these roles will need to be [seized](https://aka.ms/ad_seize_fsmo) after the failover.
 
 ### Configure VM network settings
 For the virtual machine that hosts the domain controller or DNS, in Site Recovery, configure network settings under the **Compute and Network** settings of the replicated virtual machine. This ensures that the virtual machine is attached to the correct network after failover.
@@ -91,7 +86,7 @@ Most applications require the presence of a domain controller or a DNS server. T
 
 
 ### Remove references to other domain controllers
-When you initiate a test failover, don't include all the domain controllers in the test network. To remove references to other domain controllers that exist in your production environment, you might need to [seize FSMO Active Directory roles](http://aka.ms/ad_seize_fsmo) and do [metadata cleanup](https://technet.microsoft.com/library/cc816907.aspx) for missing domain controllers.
+When you initiate a test failover, don't include all the domain controllers in the test network. To remove references to other domain controllers that exist in your production environment, you might need to [seize FSMO Active Directory roles](https://aka.ms/ad_seize_fsmo) and do [metadata cleanup](https://technet.microsoft.com/library/cc816907.aspx) for missing domain controllers.
 
 
 ### Issues caused by virtualization safeguards
@@ -104,9 +99,9 @@ When you initiate a test failover, don't include all the domain controllers in t
 Beginning with Windows Server 2012, [additional safeguards are built into Active Directory Domain Services (AD DS)](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/introduction-to-active-directory-domain-services-ad-ds-virtualization-level-100). These safeguards help protect virtualized domain controllers against USN rollbacks if the underlying hypervisor platform supports **VM-GenerationID**. Azure supports **VM-GenerationID**. Because of this, domain controllers that run Windows Server 2012 or later on Azure virtual machines have these additional safeguards.
 
 
-When **VM-GenerationID** is reset, the **InvocationID** value of the AD DS database is also reset. In addition, the RID pool is discarded, and SYSVOL is marked as non-authoritative. For more information, see [Introduction to Active Directory Domain Services virtualization](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/introduction-to-active-directory-domain-services-ad-ds-virtualization-level-100) and [Safely virtualizing DFSR](https://blogs.technet.microsoft.com/filecab/2013/04/05/safely-virtualizing-dfsr/).
+When **VM-GenerationID** is reset, the **InvocationID** value of the AD DS database is also reset. In addition, the RID pool is discarded, and sysvol folder is marked as non-authoritative. For more information, see [Introduction to Active Directory Domain Services virtualization](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/introduction-to-active-directory-domain-services-ad-ds-virtualization-level-100) and [Safely virtualizing DFSR](https://blogs.technet.microsoft.com/filecab/2013/04/05/safely-virtualizing-dfsr/).
 
-Failing over to Azure might cause **VM-GenerationID** to reset. Resetting **VM-GenerationID** triggers additional safeguards when the domain controller virtual machine starts in Azure. This might result in a *significant delay* in being able to log in to the domain controller virtual machine.
+Failing over to Azure might cause **VM-GenerationID** to reset. Resetting **VM-GenerationID** triggers additional safeguards when the domain controller virtual machine starts in Azure. This might result in a *significant delay* in being able to sign in to the domain controller virtual machine.
 
 Because this domain controller is used only in a test failover, virtualization safeguards aren't necessary. To ensure that the **VM-GenerationID** value for the domain controller virtual machine doesn't change, you can change the value of following DWORD to **4** in the on-premises domain controller:
 
@@ -126,11 +121,11 @@ If virtualization safeguards are triggered after a test failover, you might see 
 
     ![Invocation ID Change](./media/site-recovery-active-directory/Event1109.png)
 
-* SYSVOL and NETLOGON shares aren't available.
+* Sysvol folder and NETLOGON shares aren't available.
 
-    ![SYSVOL share](./media/site-recovery-active-directory/sysvolshare.png)
+    ![Sysvol folder share](./media/site-recovery-active-directory/sysvolshare.png)
 
-    ![NtFrs SYSVOL](./media/site-recovery-active-directory/Event13565.png)
+    ![NtFrs sysvol folder](./media/site-recovery-active-directory/Event13565.png)
 
 * DFSR databases are deleted.
 
@@ -144,7 +139,7 @@ If virtualization safeguards are triggered after a test failover, you might see 
 >
 >
 
-1. At the command prompt, run the following command to check whether SYSVOL and NETLOGON folders are shared:
+1. At the command prompt, run the following command to check whether sysvol folder and NETLOGON folder are shared:
 
 	`NET SHARE`
 
@@ -164,7 +159,7 @@ If the preceding conditions are satisfied, it's likely that the domain controlle
 	* Although we don't recommend [FRS replication](https://blogs.technet.microsoft.com/filecab/2014/06/25/the-end-is-nigh-for-frs/), if you use FRS replication, follow the steps for an authoritative restore. The process is described in [Using the BurFlags registry key to reinitialize File Replication Service](https://support.microsoft.com/kb/290762).
 
         For more information about BurFlags, see the blog post [D2 and D4: What is it for?](https://blogs.technet.microsoft.com/janelewis/2006/09/18/d2-and-d4-what-is-it-for/).
-	* If you use DFSR replication, complete the steps for an authoritative restore. The process is described in [Force an authoritative and non-authoritative sync for DFSR-replicated SYSVOL (like "D4/D2" for FRS)](https://support.microsoft.com/kb/2218556).
+	* If you use DFSR replication, complete the steps for an authoritative restore. The process is described in [Force an authoritative and non-authoritative sync for DFSR-replicated sysvol folder (like "D4/D2" for FRS)](https://support.microsoft.com/kb/2218556).
 
         You can also use the PowerShell functions. For more information, see [DFSR-SYSVOL authoritative/non-authoritative restore PowerShell functions](https://blogs.technet.microsoft.com/thbouche/2013/08/28/dfsr-sysvol-authoritative-non-authoritative-restore-powershell-functions/).
 
@@ -178,12 +173,14 @@ If the preceding conditions are satisfied, it's likely that the domain controlle
 
     `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Lsa\IgnoreGCFailures`
 
-    For more information, see [Disable the requirement that a global catalog server be available to validate user logons](http://support.microsoft.com/kb/241789).
+    For more information, see [Disable the requirement that a global catalog server be available to validate user logons](https://support.microsoft.com/kb/241789).
 
 ### DNS and domain controller on different machines
-If DNS isn't on the same virtual machine as the domain controller, you must create a DNS virtual machine for the test failover. If DNS and the domain controller aren't on the same virtual machine, you can skip this section.
 
-You can use a fresh DNS server, and create all the required zones. For example, if your Active Directory domain is contoso.com, you can create a DNS zone with the name contoso.com. The entries that correspond to Active Directory must be updated in DNS as follows:
+If you're running the domain controller and DNs on the same VM, you can skip this procedure.
+
+
+If DNS isn't on the same VM as the domain controller, you need to create a DNS VM for the test failover. You can use a fresh DNS server, and create all the required zones. For example, if your Active Directory domain is contoso.com, you can create a DNS zone with the name contoso.com. The entries that correspond to Active Directory must be updated in DNS as follows:
 
 1. Ensure that these settings are in place before any other virtual machine in the recovery plan starts:
    * The zone must be named after the forest root name.

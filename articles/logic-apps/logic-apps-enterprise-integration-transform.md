@@ -1,24 +1,17 @@
 ---
-title: Convert XML data with transforms - Azure Logic Apps | Microsoft Docs
-description: Create transforms or mapps to convert XML data between formats in logic apps by using the Enterprise Integration SDK
+title: Transform XML between formats
+description: Create transforms or maps that convert XML between formats in Azure Logic Apps with Enterprise Integration Pack
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: msftman
-manager: jeconnoc
-editor: cgronlun
-
-ms.assetid: add01429-21bc-4bab-8b23-bc76ba7d0bde
-ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 07/08/2016
-ms.author: LADocs; padmavc
-
 ---
-# Enterprise integration with XML transforms
-## Overview
+
+# Create maps that transform XML between formats in Azure Logic Apps with Enterprise Integration Pack
+
 The Enterprise integration Transform connector converts data from one format to another format. For example, you may have an incoming message that contains the current date in the YearMonthDay format. You can use a transform to reformat the date to be in the MonthDayYear format.
 
 ## What does a transform do?
@@ -92,7 +85,7 @@ The transform action also supports maps or transforms with reference to external
 
   This example shows a map that references an assembly named "XslUtilitiesLib" and calls the `circumreference` method from the assembly.
 
-  ````xml
+  ```xml
   <?xml version="1.0" encoding="UTF-8"?>
   <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:user="urn:my-scripts">
   <msxsl:script language="C#" implements-prefix="user">
@@ -113,13 +106,13 @@ The transform action also supports maps or transforms with reference to external
 	 </circles>
 	</xsl:template>
     </xsl:stylesheet>
-  ````
+  ```
 
 
 ### Byte Order Mark
 By default, the response from the transformation starts with the Byte Order Mark (BOM). You can access this functionality only while working in the Code View editor. To disable this functionality, specify `disableByteOrderMark` for the `transformOptions` property:
 
-````json
+```json
 "Transform_XML": {
     "inputs": {
         "content": "@{triggerBody()}",
@@ -133,7 +126,7 @@ By default, the response from the transformation starts with the Byte Order Mark
     "runAfter": {},
     "type": "Xslt"
 }
-````
+```
 
 
 

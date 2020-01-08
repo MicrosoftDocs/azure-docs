@@ -1,10 +1,10 @@
 ---
-title: Manage Azure Data Lake Analytics using Azure Command-line Interface
+title: Manage Azure Data Lake Analytics using Azure CLI
 description: This article describes how to use the Azure CLI to manage Data Lake Analytics jobs, data sources, & users.
 services: data-lake-analytics
 author: jasonwhowell
 ms.author: jasonh
-manager: kfile
+
 ms.assetid: 4e5a3a0a-6d7f-43ed-aeb5-c3b3979a1e0a
 ms.service: data-lake-analytics
 ms.topic: conceptual
@@ -178,9 +178,9 @@ You must have a Data Lake Analytics account before you can create a job.  For mo
 > [!NOTE]
 > The default priority of a job is 1000, and the default degree of parallelism for a job is 1.
 > 
-   ```azurecli
-   az dla job submit --account "<Data Lake Analytics account name>" --job-name "<Name of your job>" --script "<Script to submit>"
-   ```
+>    ```azurecli
+>    az dla job submit --account "<Data Lake Analytics account name>" --job-name "<Name of your job>" --script "<Script to submit>"
+>    ```
 
 ### Cancel jobs
 Use the list command to find the job id, and then use cancel to cancel the job.

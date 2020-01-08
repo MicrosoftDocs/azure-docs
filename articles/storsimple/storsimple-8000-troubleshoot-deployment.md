@@ -78,7 +78,7 @@ The following tables list the common errors that you might encounter when you:
 ## Errors during the optional web proxy settings
 | No. | Error message | Possible causes | Recommended action |
 | --- | --- | --- | --- |
-| 1 |Invoke-HcsSetupWizard: Invalid parameter (Exception from HRESULT: 0x80070057) |One of the parameters provided for the proxy settings is not valid. |The URI is not provided in the correct format. Use the following format: http://*<IP address or FQDN of the web proxy server>*:*<TCP port number>* |
+| 1 |Invoke-HcsSetupWizard: Invalid parameter (Exception from HRESULT: 0x80070057) |One of the parameters provided for the proxy settings is not valid. |The URI is not provided in the correct format. Use the following format: http://*\<IP address or FQDN of the web proxy server>*:*\<TCP port number>* |
 | 2 |Invoke-HcsSetupWizard: RPC server not available (Exception from HRESULT: 0x800706ba) |The root cause is one of the following:<ol><li>The cluster is not up.</li><li>The passive controller cannot communicate with the active controller, and the command is run from passive controller.</li></ol> |Depending on the root cause:<ol><li>[Contact Microsoft Support](storsimple-8000-contact-microsoft-support.md) to make sure that the cluster is up.</li><li>Run the command from the active controller. If you want to run the command from the passive controller, you will need to ensure that the passive controller can communicate with the active controller. You will need to [contact Microsoft Support](storsimple-8000-contact-microsoft-support.md) if this connectivity is broken.</li></ol> |
 | 3 |Invoke-HcsSetupWizard: RPC call failed (Exception from HRESULT: 0x800706be) |Cluster is down. |[Contact Microsoft Support](storsimple-8000-contact-microsoft-support.md) to make sure that the cluster is up. |
 | 4 |Invoke-HcsSetupWizard: Cluster resource not found (Exception from HRESULT: 0x8007138f) |The cluster resource is not found. This can happen when the installation was not correct. |You may need to reset the device to the factory default settings. [Contact Microsoft Support](storsimple-8000-contact-microsoft-support.md) to create a cluster resource. |
@@ -185,7 +185,7 @@ When you configure network interfaces for a first-time device deployment, the ha
    * If the interface is healthy but not enabled, the **ifIndex** status is shown as **NotPresent**.
    * If the interface does not exist, it does not appear in this list. The StorSimple Device Manager service UI will still show this interface in a failed state.
 
-For more information on how to use this cmdlet, go to [GetNetAdapter](https://technet.microsoft.com/library/jj130867.aspx) in the Windows PowerShell cmdlet reference.
+For more information on how to use this cmdlet, go to [Get-NetAdapter](https://docs.microsoft.com/powershell/module/netadapter/get-netadapter?view=win10-ps) in the Windows PowerShell cmdlet reference.
 
 The following sections show samples of output from the `Get-NetAdapter` cmdlet.
 

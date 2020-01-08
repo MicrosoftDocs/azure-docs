@@ -1,14 +1,17 @@
 ---
-title: Query expression syntax in the Academic Knowledge API | Microsoft Docs
-description: Learn how to use query expression syntax in the Academic Knowledge API for Microsoft Cognitive Services.
+title: Query expression syntax - Academic Knowledge API
+titlesuffix: Azure Cognitive Services
+description: Learn how to use query expression syntax in the Academic Knowledge API.
 services: cognitive-services
 author: alch-msft
-manager: kuansanw
+manager: nitinme
+
 ms.service: cognitive-services
-ms.component: academic-knowledge
-ms.topic: article
+ms.subservice: academic-knowledge
+ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: alch
+ROBOTS: NOINDEX
 ---
 
 # Query Expression Syntax
@@ -21,6 +24,7 @@ Each entity attribute that can be included in a query expression has a specific 
 
 Some of the entity data are stored as composite attributes, as indicated by a dot '.' in the attribute name. For example, Author/Affiliation information is represented as a composite attribute. It contains 4 components: AuN, AuId, AfN, AfId. These components are separate pieces of data that form a single entity attribute value.
 
+Note: All query expressions must be in lowercase and without special characters.
 
 **String Attribute: Single value** (includes matches against synonyms)  
 Ti='indexing by latent semantic analysis'  

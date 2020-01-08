@@ -3,9 +3,8 @@ title: Debug recurring jobs in Azure Data Lake Analytics
 description: Learn how to use Azure Data Lake Tools for Visual Studio to debug an abnormal recurring job.
 services: data-lake-analytics
 author: yanancai 
-manager: kfile
-editor: jasonwhowell
 ms.author: yanacai
+ms.reviewer: jasonwhowell
 ms.assetid: dc9b21d8-c5f4-4f77-bcbc-eff458f48de2
 ms.service: data-lake-analytics
 ms.topic: conceptual
@@ -14,7 +13,7 @@ ms.date: 05/20/2018
 
 # Troubleshoot an abnormal recurring job
 
-This article shows how to use [Azure Data Lake Tools for Visual Studio](http://aka.ms/adltoolsvs) to troubleshoot problems with recurring jobs. Learn more about pipeline and recurring jobs from the [Azure Data Lake and Azure HDInsight blog](https://blogs.msdn.microsoft.com/azuredatalake/2017/09/19/managing-pipeline-recurring-jobs-in-azure-data-lake-analytics-made-easy/).
+This article shows how to use [Azure Data Lake Tools for Visual Studio](https://aka.ms/adltoolsvs) to troubleshoot problems with recurring jobs. Learn more about pipeline and recurring jobs from the [Azure Data Lake and Azure HDInsight blog](https://blogs.msdn.microsoft.com/azuredatalake/2017/09/19/managing-pipeline-recurring-jobs-in-azure-data-lake-analytics-made-easy/).
 
 Recurring jobs usually share the same query logic and similar input data. For example, imagine that you have a recurring job running every Monday morning at 8 A.M. to count last week’s weekly active user. The scripts for these jobs share one script template that contains the query logic. The inputs for these jobs are the usage data for last week. Sharing the same query logic and similar input usually means that performance of these jobs is similar and stable. If one of your recurring jobs suddenly performs abnormally, fails, or slows down a lot, you might want to:
 
@@ -35,7 +34,7 @@ Through **Tools** > **Data Lake** > **Job View**, you can paste the job URL to o
  
 ### Case 2: You have the pipeline for the recurring job, but not the URL
 
-In Visual Studio, you can open Pipeline Browser through Server Explorer > your Azure Data Lake Analytics account > **Pipelines**. (If you can't find this node in Server Explorer, [download the latest plug-in](http://aka.ms/adltoolsvs).) 
+In Visual Studio, you can open Pipeline Browser through Server Explorer > your Azure Data Lake Analytics account > **Pipelines**. (If you can't find this node in Server Explorer, [download the latest plug-in](https://aka.ms/adltoolsvs).) 
 
 ![Selecting the Pipelines node](./media/data-lake-analytics-data-lake-tools-debug-recurring-job/pipeline-browser.png)
 

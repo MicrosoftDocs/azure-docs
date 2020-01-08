@@ -1,21 +1,8 @@
 ---
-
-title: Install Azure Backup Server on Azure Stack | Microsoft Docs
-description: Use Azure Backup Server to protect or back up workloads in Azure Stack.
-services: backup
-documentationcenter: ''
-author: markgalioto
-manager: carmonm
-editor: ''
-keywords: azure backup server; protect workloads; back up workloads
-ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 6/5/2018
-ms.author: markgal
-
+title: Install Azure Backup Server on Azure Stack
+description: In this article, learn how to use Azure Backup Server to protect or back up workloads in Azure Stack.
+ms.topic: conceptual
+ms.date: 01/31/2019
 ---
 # Install Azure Backup Server on Azure Stack
 
@@ -26,6 +13,7 @@ This article explains how to install Azure Backup Server on Azure Stack. With Az
 >
 
 ## Azure Backup Server protection matrix
+
 Azure Backup Server protects the following Azure Stack virtual machine workloads.
 
 | Protected data source | Protection and recovery |
@@ -33,44 +21,41 @@ Azure Backup Server protects the following Azure Stack virtual machine workloads
 | Windows Server Semi Annual Channel - Datacenter/Enterprise/Standard | Volumes, files, folders |
 | Windows Server 2016 - Datacenter/Enterprise/Standard | Volumes, files, folders |
 | Windows Server 2012 R2 - Datacenter/Enterprise/Standard | Volumes, files, folders |
-| Windows Server 2012 - Datacenter/Entprise/Standard | Volumes, files, folders |
+| Windows Server 2012 - Datacenter/Enterprise/Standard | Volumes, files, folders |
 | Windows Server 2008 R2 - Datacenter/Enterprise/Standard | Volumes, files, folders |
 | SQL Server 2016 | Database |
 | SQL Server 2014 | Database |
 | SQL Server 2012 SP1 | Database |
+| SharePoint 2016 | Farm, database, frontend, web server |
 | SharePoint 2013 | Farm, database, frontend, web server |
 | SharePoint 2010 | Farm, database, frontend, web server |
-
-
-### Host vs Guest Backup
-
-Azure Backup Server performs host or guest-level backups of virtual machines. At the host level, Azure Backup agent is installed on the virtual machine or cluster, and protects the entire virtual machine and data files running on the host. At the guest level, Azure Backup agent is installed on each virtual machine and protects the workload present on that machine.
-
-Both methods have their pros and cons:
-
-   * Host-level backups work, regardless of the OS running on the guest machines, and don't require the Azure Backup agent to be installed on each VM. If you deploy host-level backups you recover an entire virtual machine, or files and folders (item-level recovery).
-   * Guest-level backup is beneficial for protecting specific workloads running on a virtual machine. At host-level, you can recover an entire VM or specific files, but it doesn't recover data in the context of a specific application. For example, to recover specific SharePoint files from a protected virtual machine, you must protect the VM at guest-level. If you want to protect data stored on passthrough disks, you must use guest-level backup. Passthrough allows the virtual machine to directly access the storage device, and doesn't store virtual volume data in a VHD file.
 
 ## Prerequisites for the Azure Backup Server environment
 
 Consider the recommendations in this section when installing Azure Backup Server in your Azure Stack environment. The Azure Backup Server installer checks that your environment has the necessary prerequisites, but you'll save time by preparing before you install.
 
 ### Determining size of virtual machine
+
 To run Azure Backup Server on an Azure Stack virtual machine, use size A2 or larger. For assistance in choosing a virtual machine size, download the [Azure Stack VM size calculator](https://www.microsoft.com/download/details.aspx?id=56832).
 
 ### Virtual Networks on Azure Stack virtual machines
+
 All virtual machines used in an Azure Stack workload must belong to the same Azure virtual network and Azure Subscription.
 
 ### Azure Backup Server VM performance
+
 If shared with other virtual machines, the storage account size and IOPS limits impact Azure Backup Server VM performance. For this reason, you should use a separate storage account for the Azure Backup Server virtual machine. The Azure Backup agent running on the Azure Backup Server needs temporary storage for:
+
 - its own use (a cache location),
 - data restored from the cloud (local staging area)
 
 ### Configuring Azure Backup temporary disk storage
+
 Each Azure Stack virtual machine comes with temporary disk storage, which is available to the user as volume `D:\`. The local staging area needed by Azure Backup can be configured to reside in `D:\`, and the cache location can be placed on `C:\`. In this way, no storage needs to be carved away from the data disks attached to the Azure Backup Server virtual machine.
 
 ### Storing backup data on local disk and in Azure
-Azure Backup Server stores backup data on Azure disks attached to the virtual machine, for operational recovery. Once the disks and storage space are attached to the virtual machine, Azure Backup Server manages storage for you. The amount of backup data storage depends on the number and size of disks attached to each [Azure Stack virtual machine](../azure-stack/user/azure-stack-storage-overview.md). Each size of Azure Stack VM has a maximum number of disks that can be attached to the virtual machine. For example, A2 is four disks. A3 is eight disks. A4 is 16 disks. Again, the size and number of disks determines the total backup storage pool.
+
+Azure Backup Server stores backup data on Azure disks attached to the virtual machine, for operational recovery. Once the disks and storage space are attached to the virtual machine, Azure Backup Server manages storage for you. The amount of backup data storage depends on the number and size of disks attached to each [Azure Stack virtual machine](/azure-stack/user/azure-stack-storage-overview). Each size of Azure Stack VM has a maximum number of disks that can be attached to the virtual machine. For example, A2 is four disks. A3 is eight disks. A4 is 16 disks. Again, the size and number of disks determines the total backup storage pool.
 
 > [!IMPORTANT]
 > You should **not** retain operational recovery (backup) data on Azure Backup Server-attached disks for more than five days.
@@ -79,15 +64,14 @@ Azure Backup Server stores backup data on Azure disks attached to the virtual ma
 Storing backup data in Azure reduces backup infrastructure on Azure Stack. If data is more than five days old, it should be stored in Azure.
 
 To store backup data in Azure, create or use a Recovery Services vault. When preparing to back up the Azure Backup Server workload, you [configure the Recovery Services vault](backup-azure-microsoft-azure-backup.md#create-a-recovery-services-vault). Once configured, each time a backup job runs, a recovery point is created in the vault. Each Recovery Services vault holds up to 9999 recovery points. Depending on the number of recovery points created, and how long they are retained, you can retain backup data for many years. For example, you could create monthly recovery points, and retain them for five years.
- 
-### Using SQL Server
-If you want to use a remote SQL Server for the Azure Backup Server database, select only an Azure Stack VM running SQL Server.
 
 ### Scaling deployment
+
 If you want to scale your deployment, you have the following options:
-  - Scale up - Increase the size of the Azure Backup Server virtual machine from A series to D series, and increase the local storage [per the Azure Stack virtual machine instructions](../azure-stack/user/azure-stack-manage-vm-disks.md).
-  - Offload data - send older data to Azure Backup Server and retain only the newest data on the storage attached to the Azure Backup Server.
-  - Scale out - Add more Azure Backup Servers to protect the workloads.
+
+- Scale up - Increase the size of the Azure Backup Server virtual machine from A series to D series, and increase the local storage [per the Azure Stack virtual machine instructions](/azure-stack/user/azure-stack-manage-vm-disks).
+- Offload data - send older data to Azure and retain only the newest data on the storage attached to the Azure Backup Server.
+- Scale out - Add more Azure Backup Servers to protect the workloads.
 
 ### .NET Framework
 
@@ -105,6 +89,7 @@ Protecting workloads with Azure Backup Server has many nuances. The article, [In
 
 > [!NOTE]
 > Azure Backup Server is designed to run on a dedicated, single-purpose virtual machine. You cannot install Azure Backup Server on:
+>
 > - A computer running as a domain controller
 > - A computer on which the Application Server role is installed
 > - A computer on which Exchange Server is running
@@ -127,7 +112,7 @@ To edit the storage replication setting:
 
 ## Download Azure Backup Server installer
 
-There are two ways to download the Azure Backup Server installer. You can download the Azure Backup Server installer from the [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=55269). You can also download Azure Backup Server installer as you are configuring a Recovery Services vault. The following steps walk you through downloading the installer from the Azure portal while configuring a Recovery Services vault.
+There are two ways to download the Azure Backup Server installer. You can download the Azure Backup Server installer from the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=55269). You can also download Azure Backup Server installer as you are configuring a Recovery Services vault. The following steps walk you through downloading the installer from the Azure portal while configuring a Recovery Services vault.
 
 1. From your Azure Stack virtual machine, [sign in to your Azure subscription in the Azure portal](https://portal.azure.com/).
 2. In the left-hand menu, select **All Services**.
@@ -172,7 +157,7 @@ There are two ways to download the Azure Backup Server installer. You can downlo
 
     ![Download center 1](./media/backup-mabs-install-azure-stack/download-center-selected-files.png)
 
-    The download size of all installation files is larger than 3-GB. On a 10-Mbps download link, downloading all installation files may take up to 60 minutes. The files download to your specified download location.
+    The download size of all installation files is larger than 3 GB. On a 10-Mbps download link, downloading all installation files may take up to 60 minutes. The files download to your specified download location.
 
 ## Extract Azure Backup Server install files
 
@@ -212,7 +197,7 @@ In the previous step, you clicked **Finish** to exit the extraction phase, and s
 
 ![Microsoft Azure Backup Setup Wizard](./media/backup-mabs-install-azure-stack/mabs-install-wizard-local-5.png)
 
-Azure Backup Server shares code with Data Protection Manager. You will see references to Data Protection Manager and DPM in the Azure Backup Server installer. Though Azure Backup Server and Data Protection Manager are separate products, these products are closely related. In the Azure Backup Server documentation, all references to Data Protection Manager and DPM apply to Azure Backup Server.
+Azure Backup Server shares code with Data Protection Manager. You will see references to Data Protection Manager and DPM in the Azure Backup Server installer. Though Azure Backup Server and Data Protection Manager are separate products, these products are closely related.
 
 1. To launch the setup wizard, click **Microsoft Azure Backup Server**.
 
@@ -318,7 +303,7 @@ Azure Backup Server shares code with Data Protection Manager. You will see refer
 
 ## Add backup storage
 
-The first backup copy is kept on storage attached to the Azure Backup Server machine. For more information about adding disks, see [Configure storage pools and disk storage](https://technet.microsoft.com/library/hh758075.aspx).
+The first backup copy is kept on storage attached to the Azure Backup Server machine. For more information about adding disks, see [Add Modern Backup storage](https://docs.microsoft.com/system-center/dpm/add-storage?view=sc-dpm-1801).
 
 > [!NOTE]
 > You need to add backup storage even if you plan to send data to Azure. In the Azure Backup Server architecture, the Recovery Services vault holds the *second* copy of the data while the local storage holds the first (and mandatory) backup copy.
@@ -329,7 +314,7 @@ The first backup copy is kept on storage attached to the Azure Backup Server mac
 
 Azure Backup Server requires connectivity to the Azure Backup service for the product to work successfully. To validate whether the machine has the connectivity to Azure, use the ```Get-DPMCloudConnection``` cmdlet in the Azure Backup Server PowerShell console. If the output of the cmdlet is TRUE, then connectivity exists, else there is no connectivity.
 
-At the same time, the Azure subscription needs to be in a healthy state. To find out the state of your subscription and to manage it, log in to the [subscription portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
+At the same time, the Azure subscription needs to be in a healthy state. To find out the state of your subscription and to manage it, sign in to the [subscription portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
 
 Once you know the state of the Azure connectivity and of the Azure subscription, you can use the table below to find out the impact on the backup/restore functionality offered.
 
@@ -344,9 +329,9 @@ Once you know the state of the Azure connectivity and of the Azure subscription,
 
 ### Recovering from loss of connectivity
 
-If a firewall or a proxy is preventing access to Azure, whitelist the following domain addresses in the firewall/proxy profile:
+If a firewall or a proxy is preventing access to Azure, add the following domain addresses in the firewall/proxy profile allow list:
 
-- www.msftncsi.com
+- `http://www.msftncsi.com/ncsi.txt`
 - \*.Microsoft.com
 - \*.WindowsAzure.com
 - \*.microsoftonline.com
@@ -368,10 +353,10 @@ You can also refer to [Azure Backup related FAQs](backup-azure-backup-faq.md)
 
 ## Next steps
 
-The article, [Preparing your environment for DPM](https://technet.microsoft.com/library/hh758176.aspx), contains information about supported  Azure Backup Server configurations.
+The article, [Preparing your environment for DPM](https://docs.microsoft.com/system-center/dpm/prepare-environment-for-dpm?view=sc-dpm-1801), contains information about supported  Azure Backup Server configurations.
 
 You can use the following articles to gain a deeper understanding of workload protection using Microsoft Azure Backup Server.
 
-- [SQL Server backup](backup-azure-backup-sql.md)
-- [SharePoint server backup](backup-azure-backup-sharepoint.md)
+- [SQL Server backup](https://docs.microsoft.com/azure/backup/backup-mabs-sql-azure-stack)
+- [SharePoint server backup](https://docs.microsoft.com/azure/backup/backup-mabs-sharepoint-azure-stack)
 - [Alternate server backup](backup-azure-alternate-dpm-server.md)

@@ -1,30 +1,26 @@
 ---
-title: Introduction to Data Factory, a data integration service | Microsoft Docs
+title: Introduction to Data Factory, a data integration service 
 description: 'Learn what Azure Data Factory is: A cloud data integration service that orchestrates and automates movement and transformation of data.'
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-
-
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.assetid: cec68cb5-ca0d-473b-8ae8-35de949a009e
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: get-started-article
+ms.topic: overview
 ms.date: 01/22/2018
-ms.author: shlo
-
-robots: noindex
 ---
+
 # Introduction to Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 - GA](data-factory-introduction.md)
-> * [Version 2 - Preview](../introduction.md)
+> * [Version 1](data-factory-introduction.md)
+> * [Version 2 (current version)](../introduction.md)
 
 > [!NOTE]
-> This article applies to version 1 of Azure Data Factory, which is generally available (GA). If you are using version 2 of the Data Factory service, which is in preview, see [Introduction to Data Factory V2](../introduction.md).
+> This article applies to version 1 of Azure Data Factory. If you are using the current version of the Data Factory service, see [Introduction to Data Factory V2](../introduction.md).
 
 
 ## What is Azure Data Factory?
@@ -131,7 +127,6 @@ For an example, let's assume that your compute environments such as Azure HDInsi
 ## Get started with creating a pipeline
 You can use one of these tools or APIs to create data pipelines in Azure Data Factory: 
 
-- Azure portal
 - Visual Studio
 - PowerShell
 - .NET API

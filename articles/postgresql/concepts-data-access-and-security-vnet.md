@@ -1,16 +1,13 @@
 ---
-title: 'Azure Database for PostgreSQL Server vnet services endpoint overview | Microsoft Docs'
-description: 'Describes how vnet service endpoints work for your Azure Database for PostgreSQL server.'
-services: postgresql
-author: mbolz
-ms.author: mbolz
-manager: jhubbard
-editor: jasonwhowell
+title: Virtual network rules - Azure Database for PostgreSQL - Single Server
+description: Learn how to use virtual network (vnet) service endpoints to connect to Azure Database for PostgreSQL - Single Server.
+author: rachel-msft
+ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 5/29/2018
+ms.date: 5/6/2019
 ---
-# Use Virtual Network service endpoints and rules for Azure Database for PostgreSQL
+# Use Virtual Network service endpoints and rules for Azure Database for PostgreSQL - Single Server
 
 *Virtual network rules* are one firewall security feature that controls whether your Azure Database for PostgreSQL server accepts communications that are sent from particular subnets in virtual networks. This article explains why the virtual network rule feature is sometimes your best option for securely allowing communication to your Azure Database for PostgreSQL server.
 
@@ -19,7 +16,8 @@ To create a virtual network rule, there must first be a [virtual network][vm-vir
 ![Example of how a VNet Service Endpoint works](media/concepts-data-access-and-security-vnet/vnet-concept.png)
 
 > [!NOTE]
-> For Azure Database for PostgreSQL, this feature is available in public preview in all regions of Azure public cloud where Azure Database for PostgreSQL is deployed.
+> This feature is available in all regions of Azure public cloud where Azure Database for PostgreSQL is deployed for General Purpose and Memory Optimized servers.
+> In case of VNet peering, if traffic is flowing through a common VNet Gateway with service endpoints and is supposed to flow to the peer, please create an ACL/VNet rule to allow Azure Virtual Machines in the Gateway VNet to access the Azure Database for PostgreSQL server.
 
 <a name="anch-terminology-and-description-82f" />
 
@@ -63,7 +61,7 @@ However, the static IP approach can become difficult to manage, and it is costly
 
 If your **Microsoft.Sql** server was a node on a subnet in your virtual network, all nodes within the virtual network could communicate with your Azure Database for PostgreSQL server. In this case, your VMs could communicate with Azure Database for PostgreSQL without needing any virtual network rules or IP rules.
 
-However as of May 2018, the Azure Database for PostgreSQL service is not yet among the services that can be assigned directly to a subnet.
+However as of August 2018, the Azure Database for PostgreSQL service is not yet among the services that can be assigned directly to a subnet.
 
 <a name="anch-details-about-vnet-rules-38q" />
 
@@ -98,10 +96,13 @@ You have the option of using [role-based access control (RBAC)][rbac-what-is-813
 > In some cases the Azure Database for PostgreSQL and the VNet-subnet are in different subscriptions. In these cases you must ensure the following configurations:
 > - Both subscriptions must be in the same Azure Active Directory tenant.
 > - The user has the required permissions to initiate operations, such as enabling service endpoints and adding a VNet-subnet to the given Server.
+> - Make sure that both the subscription has the **Microsoft.Sql** resource provider registered. For more information refer [resource-manager-registration][resource-manager-portal]
 
 ## Limitations
 
 For Azure Database for PostgreSQL, the virtual network rules feature has the following limitations:
+
+- A Web App can be mapped to a private IP in a VNet/subnet. Even if service endpoints are turned ON from the given VNet/subnet, connections from the Web App to the server will have an Azure public IP source, not a VNet/subnet source. To enable connectivity from a Web App to a server that has VNet firewall rules, you must Allow Azure services to access server on the server.
 
 - In the firewall for your Azure Database for PostgreSQL, each virtual network rule references a subnet. All these referenced subnets must be hosted in the same geographic region that hosts the Azure Database for PostgreSQL.
 
@@ -110,8 +111,6 @@ For Azure Database for PostgreSQL, the virtual network rules feature has the fol
 - Virtual network rules apply only to Azure Resource Manager virtual networks; and not to [classic deployment model][arm-deployment-model-568f] networks.
 
 - Turning ON virtual network service endpoints to Azure Database for PostgreSQL using the **Microsoft.Sql** service tag also enables the endpoints for all Azure Database services: Azure Database for MySQL, Azure Database for PostgreSQL, Azure SQL Database and Azure SQL Data Warehouse.
-
-- At the time of public preview, there is no support for VNet move operations. To move a virtual network rule, drop and recreate it.
 
 - Support for VNet service endpoints is only for General Purpose and Memory Optimized servers.
 
@@ -125,6 +124,12 @@ If your network is connected to the Azure network through use of [ExpressRoute][
 
 To allow communication from your circuit to Azure Database for PostgreSQL, you must create IP network rules for the public IP addresses of your circuits. In order to find the public IP addresses of your ExpressRoute circuit, open a support ticket with ExpressRoute by using the Azure portal.
 
+## Adding a VNET Firewall rule to your server without turning On VNET Service Endpoints
+
+Merely setting a Firewall rule does not help secure the server to the VNet. You must also turn VNet service endpoints **On** for the security to take effect. When you turn service endpoints **On**, your VNet-subnet experiences downtime until it completes the transition from **Off** to **On**. This is especially true in the context of large VNets. You can use the **IgnoreMissingServiceEndpoint** flag to reduce or eliminate the downtime during transition.
+
+You can set the **IgnoreMissingServiceEndpoint** flag by using the Azure CLI or portal.
+
 ## Related articles
 - [Azure virtual networks][vm-virtual-network-overview]
 - [Azure virtual network service endpoints][vm-virtual-network-service-endpoints-overview-649d]
@@ -135,7 +140,7 @@ For articles on creating VNet rules, see:
 - [Create and manage Azure Database for PostgreSQL VNet rules using Azure CLI](howto-manage-vnet-using-cli.md)
 
 
-<!-- Link references, to text, Within this same Github repo. -->
+<!-- Link references, to text, Within this same GitHub repo. -->
 [arm-deployment-model-568f]: ../azure-resource-manager/resource-manager-deployment-model.md
 
 [vm-virtual-network-overview]: ../virtual-network/virtual-networks-overview.md
@@ -149,3 +154,5 @@ For articles on creating VNet rules, see:
 [vpn-gateway-indexmd-608y]: ../vpn-gateway/index.yml
 
 [expressroute-indexmd-744v]: ../expressroute/index.yml
+
+[resource-manager-portal]: ../azure-resource-manager/resource-manager-supported-services.md

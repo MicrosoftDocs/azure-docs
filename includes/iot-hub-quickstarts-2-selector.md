@@ -15,3 +15,4 @@
 > * [Java](../articles/iot-hub/quickstart-control-device-java.md)
 > * [Node.js](../articles/iot-hub/quickstart-control-device-node.md)
 > * [Python](../articles/iot-hub/quickstart-control-device-python.md)
+> * [Android](../articles/iot-hub/quickstart-control-device-android.md)

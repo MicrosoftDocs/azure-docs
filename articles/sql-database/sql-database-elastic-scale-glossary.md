@@ -1,18 +1,19 @@
 ---
-title: Elastic Database tools glossary | Microsoft Docs
+title: Elastic Database tools glossary
 description: Explanation of terms used for elastic database tools
 services: sql-database
-documentationcenter: ''
-manager: craigg
-author: stevestein
 ms.service: sql-database
-ms.custom: scale out apps
+ms.subservice: scale-out
+ms.custom: 
+ms.devlang: 
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: stevestein
 ms.author: sstein
-
+ms.reviewer:
+ms.date: 12/04/2018
 ---
 # Elastic Database tools glossary
+
 The following terms are defined for the [Elastic Database tools](sql-database-elastic-scale-introduction.md), a feature of Azure SQL Database. The tools are used to manage [shard maps](sql-database-elastic-scale-shard-map-management.md), and include the [client library](sql-database-elastic-database-client-library.md), the [split-merge tool](sql-database-elastic-scale-overview-split-and-merge.md), [elastic pools](sql-database-elastic-pool.md), and [queries](sql-database-elastic-query-overview.md). 
 
 These terms are used in [Adding a shard using Elastic Database tools](sql-database-elastic-scale-add-a-shard.md) and [Using the RecoveryManager class to fix shard map problems](sql-database-elastic-database-recovery-manager.md).
@@ -74,7 +75,7 @@ Here is a representation of **sharded** single and multi-tenant databases.
 
 **Split**: The act of moving several shardlets from one shard to another (typically new) shard. A sharding key is provided by the user as the split point.
 
-**Vertical Scaling**: The act of scaling up (or down) the performance level of an individual shard. For example, changing a shard from Standard to Premium (which results in more computing resources). 
+**Vertical Scaling**: The act of scaling up (or down) the compute size of an individual shard. For example, changing a shard from Standard to Premium (which results in more computing resources). 
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 

@@ -1,10 +1,10 @@
 ﻿---
-title: Monitor your Linux VMs in Azure | Microsoft Docs
+title: Monitor your Linux VMs in Azure 
 description: Learn about monitoring options for Linux virtual machines in Azure.
 services: virtual-machines-linux
 documentationcenter: ''
-author: iainfoulds
-manager: jeconnoc
+author: cynthn
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 
@@ -13,7 +13,8 @@ ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.date: 08/14/2017
-ms.author: iainfou
+ms.author: cynthn
+ms.topic: conceptual
 ---
 
 # How to monitor virtual machines in Azure

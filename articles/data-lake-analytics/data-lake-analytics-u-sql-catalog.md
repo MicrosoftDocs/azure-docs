@@ -1,12 +1,11 @@
 ---
-title: Get started with the U-SQL catalog in Azure Data Lake Analytics
-description: Learn how to use the U-SQL catalog to share code and data.
+title: Use the U-SQL catalog in Azure Data Lake Analytics
+description: Learn how to use the U-SQL catalog to share code and data. Create table-valued functions, create views, create tables, and query them.
 services: data-lake-analytics
 ms.service: data-lake-analytics
 author: saveenr
 ms.author: saveenr
-manager: saveenr
-editor: jasonwhowell
+ms.reviewer: jasonwhowell
 ms.assetid: 57143396-ab86-47dd-b6f8-613ba28c28d2
 ms.topic: conceptual
 ms.date: 05/09/2017
@@ -60,7 +59,7 @@ GROUP BY Region
 HAVING SUM(Duration) > 200;
 
 OUTPUT @res
-    TO "/output/SerachLog-use-tvf.csv"
+    TO "/output/SearchLog-use-tvf.csv"
     ORDER BY TotalDuration DESC
     USING Outputters.Csv();
 ```

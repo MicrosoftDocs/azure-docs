@@ -3,18 +3,18 @@ title: Manage expiration of web content in Azure CDN | Microsoft Docs
 description: Learn how to manage expiration of Azure Web Apps/Cloud Services, ASP.NET, or IIS content in Azure CDN.
 services: cdn
 documentationcenter: .NET
-author: dksimpson
-manager: akucer
+author: mdgattuso
+manager: danielgi
 editor: ''
 
 ms.assetid: bef53fcc-bb13-4002-9324-9edee9da8288
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/15/2018
-ms.author: mazha
+ms.author: magattus
 
 ---
 # Manage expiration of web content in Azure CDN
@@ -43,7 +43,7 @@ The preferred method for setting a web server's `Cache-Control` header is to use
 
 1. In the Azure portal, select a CDN profile, then select the endpoint for the web server.
 
-2. In the left pane under Settings, select **Caching rules**.
+1. In the left pane under Settings, select **Caching rules**.
 
    ![CDN caching rules button](./media/cdn-manage-expiration-of-cloud-service-content/cdn-caching-rules-btn.png)
 
@@ -56,13 +56,13 @@ The preferred method for setting a web server's `Cache-Control` header is to use
 
 1. Under **Global caching rules**, set **Query string caching behavior** to **Ignore query strings** and set **Caching behavior** to **Override**.
       
-2. For **Cache expiration duration**, enter 3600 in the **Seconds** box or 1 in the **Hours** box. 
+1. For **Cache expiration duration**, enter 3600 in the **Seconds** box or 1 in the **Hours** box. 
 
    ![CDN global caching rules example](./media/cdn-manage-expiration-of-cloud-service-content/cdn-global-caching-rules-example.png)
 
    This global caching rule sets a cache duration of one hour and affects all requests to the endpoint. It overrides any `Cache-Control` or `Expires` HTTP headers that are sent by the origin server specified by the endpoint.   
 
-3. Select **Save**.
+1. Select **Save**.
 
 **To set a web server file's Cache-Control headers by using custom caching rules:**
 
@@ -76,7 +76,7 @@ The preferred method for setting a web server's `Cache-Control` header is to use
 
     The first custom caching rule sets a cache duration of four hours for any files in the `/webfolder1` folder on the origin server specified by your endpoint. The second rule overrides the first rule for the `file1.txt` file only and sets a cache duration of two hours for it.
 
-2. Select **Save**.
+1. Select **Save**.
 
 
 ## Setting Cache-Control headers by using configuration files
@@ -102,17 +102,17 @@ The following XML configuration file example shows how to set the `<clientCache>
 </configuration>
 ```
 
-To use the **cacheControlMaxAge** attribute, you must set the value of the **cacheControlMode** attribute to `UseMaxAge`. This setting caused the HTTP header and directive, `Cache-Control: max-age=<nnn>`, to be added to the response. The format of the timespan value for the **cacheControlMaxAge** attribute is `<days>.<hours>:<min>:<sec>`. Its value is converted to seconds and is used as the value of the `Cache-Control` `max-age` directive. For more information about the `<clientCache>` element, see [Client Cache <clientCache>](http://www.iis.net/ConfigReference/system.webServer/staticContent/clientCache).  
+To use the **cacheControlMaxAge** attribute, you must set the value of the **cacheControlMode** attribute to `UseMaxAge`. This setting caused the HTTP header and directive, `Cache-Control: max-age=<nnn>`, to be added to the response. The format of the timespan value for the **cacheControlMaxAge** attribute is `<days>.<hours>:<min>:<sec>`. Its value is converted to seconds and is used as the value of the `Cache-Control` `max-age` directive. For more information about the `<clientCache>` element, see [Client Cache \<clientCache>](https://www.iis.net/ConfigReference/system.webServer/staticContent/clientCache).  
 
 ## Setting Cache-Control headers programmatically
-For ASP.NET applications, you control the CDN caching behavior programmatically by setting the **HttpResponse.Cache** property of the .NET API. For information about the **HttpResponse.Cache** property, see [HttpResponse.Cache Property](http://msdn.microsoft.com/library/system.web.httpresponse.cache.aspx) and [HttpCachePolicy Class](http://msdn.microsoft.com/library/system.web.httpcachepolicy.aspx).  
+For ASP.NET applications, you control the CDN caching behavior programmatically by setting the **HttpResponse.Cache** property of the .NET API. For information about the **HttpResponse.Cache** property, see [HttpResponse.Cache Property](/dotnet/api/system.web.httpresponse.cache#System_Web_HttpResponse_Cache) and [HttpCachePolicy Class](/dotnet/api/system.web.httpcachepolicy).  
 
 To programmatically cache application content in ASP.NET, follow these steps:
    1. Verify that the content is marked as cacheable by setting `HttpCacheability` to `Public`. 
-   2. Set a cache validator by calling one of the following `HttpCachePolicy` methods:
+   1. Set a cache validator by calling one of the following `HttpCachePolicy` methods:
       - Call `SetLastModified` to set a timestamp value for the `Last-Modified` header.
       - Call `SetETag` to set a value for the `ETag` header.
-   3. Optionally, specify a cache expiration time by calling `SetExpires` to set a value for the `Expires` header. Otherwise, the default cache heuristics described previously in this document apply.
+   1. Optionally, specify a cache expiration time by calling `SetExpires` to set a value for the `Expires` header. Otherwise, the default cache heuristics described previously in this document apply.
 
 For example, to cache content for one hour, add the following C# code:  
 
@@ -124,10 +124,10 @@ Response.Cache.SetLastModified(DateTime.Now);
 ```
 
 ## Testing the Cache-Control header
-You can easily verify the TTL settings of your web content. With your browser's [developer tools](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/), test that your web content includes the `Cache-Control` response header. You can also use a tool such as **wget**, [Postman](https://www.getpostman.com/), or [Fiddler](http://www.telerik.com/fiddler) to examine the response headers.
+You can easily verify the TTL settings of your web content. With your browser's [developer tools](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/), test that your web content includes the `Cache-Control` response header. You can also use a tool such as **wget**, [Postman](https://www.getpostman.com/), or [Fiddler](https://www.telerik.com/fiddler) to examine the response headers.
 
 ## Next Steps
-* [Read details about the **clientCache** element](http://www.iis.net/ConfigReference/system.webServer/staticContent/clientCache)
-* [Read the documentation for the **HttpResponse.Cache** Property](http://msdn.microsoft.com/library/system.web.httpresponse.cache.aspx) 
-* [Read the documentation for the **HttpCachePolicy Class**](http://msdn.microsoft.com/library/system.web.httpcachepolicy.aspx)  
+* [Read details about the **clientCache** element](https://www.iis.net/ConfigReference/system.webServer/staticContent/clientCache)
+* [Read the documentation for the **HttpResponse.Cache** Property](/dotnet/api/system.web.httpresponse.cache#System_Web_HttpResponse_Cache) 
+* [Read the documentation for the **HttpCachePolicy Class**](/dotnet/api/system.web.httpcachepolicy)  
 * [Learn about caching concepts](cdn-how-caching-works.md)

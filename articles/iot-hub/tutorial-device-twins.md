@@ -1,20 +1,13 @@
 ---
 title: Synchronize device state from Azure IoT Hub | Microsoft Docs
-description: Use device twins to synchronize state between your devices and your IoT hub
+description: Learn how to use device twins to configure your devices from the cloud, and receive status and compliance data from your devices.
 services: iot-hub
-documentationcenter: 
-author: dominicbetts
-manager: timlt
-
-
-ms.assetid: 
+author: wesmc7777
+ms.author: wesmc
 ms.service: iot-hub
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 05/14/2018
-ms.author: dobett
+ms.date: 06/21/2019
 ms.custom: mvc
 #Customer intent: As a developer, I want to be able to configure my devices from the cloud and receive status and compliance data from my devices.
 ---
@@ -42,7 +35,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 ## Prerequisites
 
-The two sample applications you run in this quickstart are written using Node.js. You need Node.js v4.x.x or later on your development machine.
+The two sample applications you run in this quickstart are written using Node.js. You need Node.js v10.x.x or later on your development machine.
 
 You can download Node.js for multiple platforms from [nodejs.org](https://nodejs.org).
 
@@ -58,7 +51,7 @@ Download the sample Node.js project from https://github.com/Azure-Samples/azure-
 
 To complete this tutorial, your Azure subscription must contain an IoT hub with a device added to the device identity registry. The entry in the device identity registry enables the simulated device you run in this tutorial to connect to your hub.
 
-If you don't already have an IoT hub set up in your subscription, you can set one up with following CLI script. This script uses the name **tutorial-iot-hub** for the IoT hub, you should replace this name with your own unique name when you run it. The script creates the resource group and hub in the **Central US** region, which you can change to a region closer to you. The script retrieves your IoT hub service connection string, which you use in the back-end sample to connect to your IoT hub:
+If you don't already have an IoT hub set up in your subscription, you can set one up with the following CLI script. This script uses the name **tutorial-iot-hub** for the IoT hub, you should replace this name with your own unique name when you run it. The script creates the resource group and hub in the **Central US** region, which you can change to a region closer to you. The script retrieves your IoT hub service connection string, which you use in the back-end sample to connect to your IoT hub:
 
 ```azurecli-interactive
 hubname=tutorial-iot-hub
@@ -71,10 +64,10 @@ az extension add --name azure-cli-iot-ext
 az group create --name tutorial-iot-hub-rg --location $location
 
 # Create your free-tier IoT Hub. You can only have one free IoT Hub per subscription:
-az iot hub create --name $hubname --location $location --resource-group tutorial-iot-hub-rg --sku S1
+az iot hub create --name $hubname --location $location --resource-group tutorial-iot-hub-rg --sku F1
 
 # Make a note of the service connection string, you need it later:
-az iot hub show-connection-string --hub-name $hubname -o table
+az iot hub show-connection-string --name $hubname --policy-name service -o table
 
 ```
 
@@ -101,7 +94,7 @@ You use desired properties to send state information from a back-end application
 
 To view the simulated device sample code that receives desired properties, navigate to the **iot-hub/Tutorials/DeviceTwins** folder in the sample Node.js project you downloaded. Then open the SimulatedDevice.js file in a text editor.
 
-The following sections describe the the code that runs on the simulated device that responds to desired property changes sent from the back end application:
+The following sections describe the code that runs on the simulated device that responds to desired property changes sent from the back end application:
 
 ### Retrieve the device twin object
 
@@ -239,7 +232,7 @@ The following screenshot shows the output from the simulated device application 
 
 ![Simulated device](./media/tutorial-device-twins/SimulatedDevice2.png)
 
-The following screenshot shows the output from the back-end application and highlights how it receieves and processes a reported property update from a device:
+The following screenshot shows the output from the back-end application and highlights how it receives and processes a reported property update from a device:
 
 ![Back-end application](./media/tutorial-device-twins/BackEnd2.png)
 
@@ -258,14 +251,7 @@ az group delete --name tutorial-iot-hub-rg
 
 ## Next steps
 
-In this tutorial, you learned how to synchronize state information between your devices and your IoT hub by performing the following tasks:
-
-> [!div class="checklist"]
-> * Create an IoT hub and add a test device to the identity registry.
-> * Use desired properties to send state information to your simulated device.
-> * Use reported properties to receive state information from your simulated device.
-
-Advance to the next tutorial to learn how to use device twins to implement a firmware update process.
+In this tutorial, you learned how to synchronize state information between your devices and your IoT hub. Advance to the next tutorial to learn how to use device twins to implement a firmware update process.
 
 > [!div class="nextstepaction"]
-[Use a simulated device to test connectivity with your IoT hub](tutorial-connectivity.md)
+> [Implement a device firmware update process](tutorial-firmware-update.md)

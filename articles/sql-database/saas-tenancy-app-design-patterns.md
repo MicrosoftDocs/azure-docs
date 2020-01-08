@@ -1,22 +1,23 @@
 ---
-title: "Multi-tenant SaaS patterns - Azure SQL Database | Microsoft Docs"
+title: Multi-tenant SaaS patterns
 description: "Learn about the requirements and common data architecture patterns of multi-tenant software as a service (SaaS) database applications that run in the Azure cloud environment."
-keywords: "sql database tutorial"
-services: "sql-database"
-author: "billgib"
-manager: "craigg"
-ms.service: "sql-database"
-ms.custom: "scale out apps"
+services: sql-database
+ms.service: sql-database
+ms.subservice: scenario
+ms.custom: 
+ms.devlang: 
 ms.topic: conceptual
-ms.date: 04/01/2018
-ms.reviewer: genemi
-ms.author: "billgib"
+author: MightyPen
+ms.author: genemi
+ms.reviewer: billgib, sstein
+ms.date: 01/25/2019
+ms.custom: seoapril2019
 ---
 # Multi-tenant SaaS database tenancy patterns
 
-When designing a multi-tenant SaaS application, you must carefully choose the tenancy model that best fits the needs of your application.  A tenancy model determines how each tenant’s data is mapped to storage.  Your choice of tenancy model impacts application design and management.  Switching to a different model later is sometimes costly.
+This article describes the various tenancy models available for a multi-tenant SaaS application.
 
-This article describes alternative tenancy models.
+When designing a multi-tenant SaaS application, you must carefully choose the tenancy model that best fits the needs of your application.  A tenancy model determines how each tenant’s data is mapped to storage.  Your choice of tenancy model impacts application design and management.  Switching to a different model later is sometimes costly.
 
 ## A. SaaS concepts and terminology
 
@@ -68,7 +69,7 @@ In this model, the whole application is installed repeatedly, once for each tena
 
 Each app instance is installed in a separate Azure resource group.  The resource group can belong to a subscription that is owned by either the software vendor or the tenant.  In either case, the vendor can manage the software for the tenant.  Each application instance is configured to connect to its corresponding database.
 
-Each tenant database is deployed as a standalone database.  This model provides the greatest database isolation.  But the isolation requires that sufficient resources be allocated to each database to handle its peak loads.  Here it matters that elastic pools cannot be used for databases deployed in different resource groups or to different subscriptions.  This limitation makes this standalone single-tenant app model the most expensive solution from an overall database cost perspective.
+Each tenant database is deployed as a single database.  This model provides the greatest database isolation.  But the isolation requires that sufficient resources be allocated to each database to handle its peak loads.  Here it matters that elastic pools cannot be used for databases deployed in different resource groups or to different subscriptions.  This limitation makes this standalone single-tenant app model the most expensive solution from an overall database cost perspective.
 
 #### Vendor management
 
@@ -88,11 +89,11 @@ With database-per-tenant, customizing the schema for one or more individual tena
 
 #### Elastic pools
 
-When databases are deployed in the same resource group, they can be grouped into elastic database pools.  The pools provide a cost-effective way of sharing resources across many databases.  This pool option is cheaper than requiring each database to be large enough to accommodate the usage peaks that it experiences.  Even though pooled databases share access to resources they can still achieve a high degree of performance isolation.
+When databases are deployed in the same resource group, they can be grouped into elastic pools.  The pools provide a cost-effective way of sharing resources across many databases.  This pool option is cheaper than requiring each database to be large enough to accommodate the usage peaks that it experiences.  Even though pooled databases share access to resources they can still achieve a high degree of performance isolation.
 
 ![Design of multi-tenant app with database-per-tenant, using elastic pool.][image-mt-app-db-per-tenant-pool-153p]
 
-Azure SQL Database provides the tools necessary to configure, monitor, and manage the sharing.  Both pool-level and database-level performance metrics are available in the Azure portal, and through Log Analytics.  The metrics can give great insights into both aggregate and tenant-specific performance.  Individual databases can be moved between pools to provide reserved resources to a specific tenant.  These tools enable you to ensure good performance in a cost effective manner.
+Azure SQL Database provides the tools necessary to configure, monitor, and manage the sharing.  Both pool-level and database-level performance metrics are available in the Azure portal, and through Azure Monitor logs.  The metrics can give great insights into both aggregate and tenant-specific performance.  Individual databases can be moved between pools to provide reserved resources to a specific tenant.  These tools enable you to ensure good performance in a cost effective manner.
 
 #### Operations scale for database-per-tenant
 
@@ -125,13 +126,13 @@ Another available pattern is to store many tenants in a multi-tenant database.  
 
 #### Lower cost
 
-In general, multi-tenant databases have the lowest per-tenant cost.  Resource costs for a standalone database are lower than for an equivalently sized elastic pool.  In addition, for scenarios where tenants need only limited storage, potentially millions of tenants could be stored in a single database.  No elastic pool can contain millions of databases.  However, a solution containing 1000 databases per pool, with 1000 pools, could reach the scale of millions at the risk of becoming unwieldy to manage.
+In general, multi-tenant databases have the lowest per-tenant cost.  Resource costs for a single database are lower than for an equivalently sized elastic pool.  In addition, for scenarios where tenants need only limited storage, potentially millions of tenants could be stored in a single database.  No elastic pool can contain millions of databases.  However, a solution containing 1000 databases per pool, with 1000 pools, could reach the scale of millions at the risk of becoming unwieldy to manage.
 
 Two variations of a multi-tenant database model are discussed in what follows, with the sharded multi-tenant model being the most flexible and scalable.
 
 ## F. Multi-tenant app with a single multi-tenant database
 
-The simplest multi-tenant database pattern uses a single standalone database to host data for all tenants.  As more tenants are added, the database is scaled up with more storage and compute resources.  This scale up might be all that is needed, although there is always an ultimate scale limit.  However, long before that limit is reached the database becomes unwieldy to manage.
+The simplest multi-tenant database pattern uses a single database to host data for all tenants.  As more tenants are added, the database is scaled up with more storage and compute resources.  This scale up might be all that is needed, although there is always an ultimate scale limit.  However, long before that limit is reached the database becomes unwieldy to manage.
 
 Management operations that are focused on individual tenants are more complex to implement in a multi-tenant database.  And at scale these operations might become unacceptably slow.  One example is a point-in-time restore of the data for just one tenant.
 
@@ -167,7 +168,7 @@ In the hybrid model, all databases have the tenant identifier in their schema.  
 
 At any time, you can move a particular tenant to its own multi-tenant database.  And at any time, you can change your mind and move the tenant back to a database that contains multiple tenants.  You can also assign a tenant to new single-tenant database when you provision the new database.
 
-The hybrid model shines when there are large differences between the resource needs of identifiable groups of tenants.  For example, suppose that tenants participating in a free trial are not guaranteed the same high level of performance that subscribing tenants are.  The policy might be for tenants in the free trial phase to be stored in a multi-tenant database that is shared among all the free trial tenants.  When a free trial tenant subscribes to the basic service level, the tenant can be moved to another multi-tenant database that might have fewer tenants.  A subscriber that pays for the premium service level could be moved to its own new single-tenant database.
+The hybrid model shines when there are large differences between the resource needs of identifiable groups of tenants.  For example, suppose that tenants participating in a free trial are not guaranteed the same high level of performance that subscribing tenants are.  The policy might be for tenants in the free trial phase to be stored in a multi-tenant database that is shared among all the free trial tenants.  When a free trial tenant subscribes to the basic service tier, the tenant can be moved to another multi-tenant database that might have fewer tenants.  A subscriber that pays for the premium service tier could be moved to its own new single-tenant database.
 
 #### Pools
 
@@ -180,9 +181,9 @@ The following table summarizes the differences between the main tenancy models.
 | Measurement | Standalone app | Database-per-tenant | Sharded multi-tenant |
 | :---------- | :------------- | :------------------ | :------------------- |
 | Scale | Medium<br />1-100s | Very high<br />1-100,000s | Unlimited<br />1-1,000,000s |
-| Tenant isolation | Very high | High | Low; except for any singleton tenant (that is alone in an MT db). |
+| Tenant isolation | Very high | High | Low; except for any single tenant (that is alone in an MT db). |
 | Database cost per tenant | High; is sized for peaks. | Low; pools used. | Lowest, for small tenants in MT DBs. |
-| Performance monitoring and management | Per-tenant only | Aggregate + per-tenant | Aggregate; although is per-tenant only for singletons. |
+| Performance monitoring and management | Per-tenant only | Aggregate + per-tenant | Aggregate; although is per-tenant only for singles. |
 | Development complexity | Low | Low | Medium; due to sharding. |
 | Operational complexity | Low-High. Individually simple, complex at scale. | Low-Medium. Patterns address complexity at scale. | Low-High. Individual tenant management is complex. |
 | &nbsp; ||||

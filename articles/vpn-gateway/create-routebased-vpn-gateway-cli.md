@@ -2,19 +2,11 @@
 title: 'Create a route-based Azure VPN gateway: CLI | Microsoft Docs'
 description: Quickly learn how to create a VPN Gateway using CLI
 services: vpn-gateway
-documentationcenter: na
 author: cherylmc
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
 
-ms.assetid: 
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 04/04/2018
+ms.date: 10/04/2018
 ms.author: cherylmc
 ---
 
@@ -26,11 +18,11 @@ The steps in this article will create a VNet, a subnet, a gateway subnet, and a 
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, this article requires that you are running the Azure CLI version 2.0.4 or later. To find the installed version, run `az --version`. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli).
+If you choose to install and use the CLI locally, this article requires that you are running the Azure CLI version 2.0.4 or later. To find the installed version, run `az --version`. If you need to install or upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli).
 
 ## Create a resource group
 
-Create a resource group using the [az group create](/cli/azure/group#az_group_create) command. A resource group is a logical container into which Azure resources are deployed and managed. 
+Create a resource group using the [az group create](/cli/azure/group) command. A resource group is a logical container into which Azure resources are deployed and managed. 
 
 
 ```azurecli-interactive 
@@ -39,7 +31,7 @@ az group create --name TestRG1 --location eastus
 
 ## <a name="vnet"></a>Create a virtual network
 
-Create a virtual network using the [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create) command. The following example creates a virtual network named **VNet1** in the **EastUS** location:
+Create a virtual network using the [az network vnet create](/cli/azure/network/vnet) command. The following example creates a virtual network named **VNet1** in the **EastUS** location:
 
 ```azurecli-interactive 
 az network vnet create \
@@ -76,7 +68,7 @@ az network public-ip create \
 
 ## <a name="CreateGateway"></a>Create the VPN gateway
 
-Create the VPN gateway using the [az network vnet-gateway create](/cli/azure/group#az_network_vnet_gateway_create) command.
+Create the VPN gateway using the [az network vnet-gateway create](/cli/azure/group) command.
 
 If you run this command by using the `--no-wait` parameter, you don't see any feedback or output. The `--no-wait` parameter allows the gateway to be created in the background. It does not mean that the VPN gateway is created immediately.
 
@@ -176,7 +168,7 @@ Example response:
 ```
 ## Clean up resources
 
-When you no longer need the resources you created, use [az group delete](/cli/azure/group#az_group_delete) to delete the resource group. This will delete the resource group and all of the resources it contains.
+When you no longer need the resources you created, use [az group delete](/cli/azure/group) to delete the resource group. This will delete the resource group and all of the resources it contains.
 
 ```azurecli-interactive 
 az group delete --name TestRG1 --yes

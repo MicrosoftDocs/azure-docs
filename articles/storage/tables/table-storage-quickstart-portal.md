@@ -1,19 +1,13 @@
 ---
-title: Overview of Azure Table storage | Microsoft Docs
-description: Create an Azure storage Table service table in the Azure portal.
+title: Quickstart - Create an Azure Storage table in the Azure portal 
+description: In this quickstart, create an Azure storage Table service table in the Azure portal.
 services: storage
-documentationcenter: ''
 author: MarkMcGeeAtAquent
-manager: kfile
-
-ms.assetid: 
 ms.service: storage
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: ''
 ms.topic: quickstart
-ms.date: 04/23/2018
+ms.date: 12/02/2019
 ms.author: sngun
+ms.subservice: tables
 ---
 # Quickstart: Create an Azure Storage table in the Azure portal 
 

@@ -1,28 +1,19 @@
 ---
-title: Custom connector topic links - Azure Logic Apps | Microsoft Docs
+title: Custom connector topic links
 description: Links to topics about how to create, use, share, and certify custom connectors
-author: ecfan
-manager: jeconnoc
-editor: 
 services: logic-apps
-documentationcenter: 
-
-ms.assetid: 
-ms.service: logic-apps
-ms.workload: logic-apps
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+ms.reviewer: divswa, logicappspm
 ms.topic: article
 ms.date: 1/30/2018
-ms.author: LADocs; estfan
 ---
 
 # Custom connectors in Logic Apps
 
 Without writing any code, you can build workflows and apps with 
 [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps), 
-[Microsoft Flow](https://flow.microsoft.com), 
-and [PowerApps](https://powerapps.microsoft.com). 
+[Power Automate](https://flow.microsoft.com), 
+and [Power Apps](https://powerapps.microsoft.com). 
 To help you integrate apps, data, and business processes, 
 these services offer [~200 connectors](https://docs.microsoft.com/connectors/) - 
 for Microsoft services and products, as well as other services, 

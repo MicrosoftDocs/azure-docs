@@ -1,57 +1,104 @@
 ---
-title: Add or delete users in Azure Active Directory | Microsoft Docs
-description: Explains how to add new users or delete existing users in Azure Active Directory
+title: Add or delete users - Azure Active Directory | Microsoft Docs
+description: Instructions about how to add new users or delete existing users using Azure Active Directory.
 services: active-directory
-documentationcenter: ''
-author: eross-msft
-manager: mtillman
+author: msaburnley
+manager: daveba
+
 ms.service: active-directory
 ms.workload: identity
-ms.component: fundamentals
-ms.topic: quickstart
-ms.date: 01/08/2018
-ms.author: lizross
+ms.subservice: fundamentals
+ms.topic: conceptual
+ms.date: 11/12/2019
+ms.author: ajburnle
 ms.reviewer: jeffsta
-ms.custom: it-pro
+ms.custom: "it-pro, seodec18"
+ms.collection: M365-identity-device-management
 ---
 
-# Quickstart: Add new users to Azure Active Directory
-This article explains how to delete or add users in your organization into your orgnization's Azure Active Directory (Azure AD) tenant using the Azure portal or by synchronizing your on-premises Windows Server AD user account data. 
+# Add or delete users using Azure Active Directory
 
-## Add cloud-based users
-1. Sign in to the [Azure Active Directory admin center](https://aad.portal.azure.com) with an account that's a global admin for the directory.
-2. Select **Azure Active Directory** and then **Users and groups**.
-3. On **Users and groups**, select **All users**, and then select **New user**.
-   ![Selecting the Add command](./media/add-users-azure-active-directory/add-user.png)
-4. Enter details for the user, such as **Name** and **User name**. The domain name portion of the user name must either be the initial default domain name "[domain name].onmicrosoft.com" or a verified, non-federated [custom domain name](add-custom-domain.md) such as "contoso.com."
-5. Copy or otherwise note the generated user password so that you can provide it to the user after this process is complete.
-6. Optionally, you can open and fill out the information in **Profile**, **Groups**, or **Directory role** for the user. For more information about user and administrator roles, see [Assigning administrator roles in Azure AD](../active-directory-assign-admin-roles-azure-portal.md).
-7. On **User**, select **Create**.
-8. Securely distribute the generated password to the new user so that the user can sign in.
+Add new users or delete existing users from your Azure Active Directory (Azure AD) organization. To add or delete users you must be a User administrator or Global administrator.
 
-> [!TIP]
-> You can also synchronize user account data from on-premises Windows Server AD. Microsoft’s identity solutions span on-premises and cloud-based capabilities, creating a single user identity for authentication and authorization to all resources, regardless of location. We call this Hybrid Identity. [Azure AD Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect) can be used to integrate your on-premises directories with Azure Active Directory for hybrid identity scenarios. This allows you to provide a common identity for your users for Office 365, Azure, and SaaS applications integrated with Azure AD. 
+## Add a new user
 
-## Delete users from Azure AD
-1. Sign in to the [Azure Active Directory admin center](https://aad.portal.azure.com) with an account that's a global admin for the directory.
-2. Select **Users and groups**.
-3. On the **Users and groups** blade, select the user to delete from the list. 
-4. On the blade for the selected user, select **Overview**, and then in the command bar, select **Delete**.
-   ![Selecting the Add command](./media/add-users-azure-active-directory/delete-user.png)
+You can create a new user using the Azure Active Directory portal.
 
+To add a new user, follow these steps:
 
-### Learn more 
-* [Add guest users from another directory](../b2b/what-is-b2b.md) 
-* [Assign a user to a role in your Azure AD](active-directory-users-assign-role-azure-portal.md)
-* [Manage user profiles](active-directory-users-profile-azure-portal.md)
-* [Restore a deleted user](active-directory-users-restore.md)
+1. Sign in to the [Azure portal](https://portal.azure.com/) as a User administrator for the organization.
 
+1. Search for and select *Azure Active Directory* from any page.
 
+1. Select **Users**, and then select **New user**.
+
+    ![Add a user through Users - All users in Azure AD](media/add-users-azure-active-directory/add-user-in-users-all-users.png)
+
+1. On the **User** page, enter information for this user:
+
+   - **Name**. Required. The first and last name of the new user. For example, *Mary Parker*.
+
+   - **User name**. Required. The user name of the new user. For example, `mary@contoso.com`.
+
+     The domain part of the user name must use either the initial default domain name, *\<yourdomainname>.onmicrosoft.com*, or a custom domain name, such as *contoso.com*. For more information about how to create a custom domain name, see [Add your custom domain name using the Azure Active Directory portal](add-custom-domain.md).
+
+   - **Groups**. Optionally, you can add the user to one or more existing groups. You can also add the user to groups at a later time. For more information about adding users to groups, see [Create a basic group and add members using Azure Active Directory](active-directory-groups-create-azure-portal.md).
+
+   - **Directory role**: If you require Azure AD administrative permissions for the user, you can add them to an Azure AD role. You can assign the user to be a Global administrator or one or more of the limited administrator roles in Azure AD. For more information about assigning roles, see [How to assign roles to users](active-directory-users-assign-role-azure-portal.md).
+
+   - **Job info**: You can add more information about the user here, or do it later. For more information about adding user info, see [How to add or change user profile information](active-directory-users-profile-azure-portal.md).
+
+1. Copy the autogenerated password provided in the **Password** box. You'll need to give this password to the user to sign in for the first time.
+
+1. Select **Create**.
+
+The user is created and added to your Azure AD organization.
+
+## Add a new guest user
+
+You can also invite new guest user to collaborate with your organization by selecting **Invite user** from the **New user** page. If your organization's external collaboration settings are configured such that you're allowed to invite guests, the user will be emailed an invitation they must accept in order to begin collaborating. For more information about inviting B2B collaboration users, see [Invite B2B users to Azure Active Directory](../b2b/add-users-administrator.md)
+
+## Add a consumer user
+
+There might be scenarios in which you want to manually create consumer accounts in your Azure Active Directory B2C (Azure AD B2C) directory. For more information about creating consumer accounts, see [Create and delete consumer users in Azure AD B2C](../../active-directory-b2c/manage-users-portal.md).
+
+## Add a new user within a hybrid environment
+
+If you have an environment with both Azure Active Directory (cloud) and Windows Server Active Directory (on-premises), you can add new users by syncing the existing user account data. For more information about hybrid environments and users, see [Integrate your on-premises directories with Azure Active Directory](../hybrid/whatis-hybrid-identity.md).
+
+## Delete a user
+
+You can delete an existing user using Azure Active Directory portal.
+
+To delete a user, follow these steps:
+
+1. Sign in to the [Azure portal](https://portal.azure.com/) using a User administrator account for the organization.
+
+1. Search for and select *Azure Active Directory* from any page.
+
+1. Search for and select the user you want to delete from your Azure AD tenant. For example, _Mary Parker_.
+
+1. Select **Delete user**.
+
+    ![Users - All users page with Delete user highlighted](media/add-users-azure-active-directory/delete-user-all-users-blade.png)
+
+The user is deleted and no longer appears on the **Users - All users** page. The user can be seen on the **Deleted users** page for the next 30 days and can be restored during that time. For more information about restoring a user, see [Restore or remove a recently deleted user using Azure Active Directory](active-directory-users-restore.md).
+
+When a user is deleted, any licenses consumed by the user are made available for other users.
+
+>[!Note]
+>You must use Windows Server Active Directory to update the identity, contact information, or job information for users whose source of authority is Windows Server Active Directory. After you complete your update, you must wait for the next synchronization cycle to complete before you'll see the changes.
 
 ## Next steps
-In this quickstart, you’ve learned how to add new users to Azure AD Premium. 
 
-You can use the following link to create a new user in Azure AD from the Azure portal.
+After you've added your users, you can do the following basic processes:
 
->[!div class="nextstepaction"]
->[Add users to Azure AD](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/UserManagementMenuBlade/)
+- [Add or change profile information](active-directory-users-profile-azure-portal.md)
+
+- [Assign roles to users](active-directory-users-assign-role-azure-portal.md)
+
+- [Create a basic group and add members](active-directory-groups-create-azure-portal.md)
+
+- [Work with dynamic groups and users](../users-groups-roles/groups-create-rule.md)
+
+Or you can do other user management tasks, such as [adding guest users from another directory](../b2b/what-is-b2b.md) or [restoring a deleted user](active-directory-users-restore.md). For more information about other available actions, see [Azure Active Directory user management documentation](../users-groups-roles/index.yml).

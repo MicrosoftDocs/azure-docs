@@ -1,29 +1,52 @@
 ---
-title: Understand data storage in LUIS - Azure | Microsoft Docs
-description: Learn how data is stored in Language Understanding (LUIS)
+title: Data storage - LUIS
+titleSuffix: Azure Cognitive Services
+description: LUIS stores data encrypted in an Azure data store corresponding to the region specified by the key. 
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: nitinme
+ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: language-understanding
-ms.topic: article
-ms.date: 05/08/2018
-ms.author: v-geberr
+ms.subservice: language-understanding
+ms.topic: conceptual
+ms.date: 07/29/2019
+ms.author: diberry
 ---
 
-# Data storage and removal
+# Data storage and removal in Language Understanding (LUIS) Cognitive Services
 LUIS stores data encrypted in an Azure data store corresponding to the region specified by the key. This data is stored for 30 days. 
 
 ## Export and delete app
-Users have full control over [exporting](create-new-app.md#export-app) and [deleting](create-new-app.md#delete-app) the app. 
+Users have full control over [exporting](luis-how-to-start-new-app.md#export-app) and [deleting](luis-how-to-start-new-app.md#delete-app) the app. 
 
-## Utterances in an intent
-Delete example utterances used for training [LUIS][LUIS]. If you delete an example utterance from your LUIS app, it is removed from the LUIS web service and is unavailable for export.
+## Utterances
 
-## Utterances in review
-You can delete utterances from the list of user utterances that LUIS suggests in the **[Review endpoint utterances page](label-suggested-utterances.md)**. Deleting utterances from this list prevents them from being suggested, but doesn't delete them from logs.
+Utterances can be stored in two different places. 
 
-## Accounts
+* During **the authoring process**, utterances are created and stored in the Intent. Utterances in intents are required for a successful LUIS app. Once the app is published and receives queries at the endpoint, the endpoint request's querystring, `log=false`, determines if the endpoint utterance is stored. If the endpoint is stored, it becomes part of the active learning utterances found in the **Build** section of the portal, in the **Review endpoint utterances** section. 
+* When you **review endpoint utterances**, and add an utterance to an intent, the utterance is no longer stored as part of the endpoint utterances to be reviewed. It is added to the app's intents. 
+
+<a name="utterances-in-an-intent"></a>
+
+### Delete example utterances from an intent
+
+Delete example utterances used for training [LUIS](luis-reference-regions.md). If you delete an example utterance from your LUIS app, it is removed from the LUIS web service and is unavailable for export.
+
+<a name="utterances-in-review"></a>
+
+### Delete utterances in review from active learning
+
+You can delete utterances from the list of user utterances that LUIS suggests in the **[Review endpoint utterances page](luis-how-to-review-endpoint-utterances.md)**. Deleting utterances from this list prevents them from being suggested, but doesn't delete them from logs.
+
+If you don't want active learning utterances, you can [disable active learning](luis-how-to-review-endpoint-utterances.md#disable-active-learning). Disabling active learning also disables logging.
+
+### Disable logging utterances
+[Disabling active learning](luis-how-to-review-endpoint-utterances.md#disable-active-learning) is disables logging.
+
+
+<a name="accounts"></a>
+
+## Delete an account
 If you delete an account, all apps are deleted, along with their example utterances and logs. The data is retained for 60 days before the account and data are deleted permanently.
 
 Deleting account is available from the **Settings** page. Select your account name in the top right navigation bar to get to the **Settings** page.
@@ -39,6 +62,4 @@ For the purposes of data retention and deletion, an inactive LUIS app may at _Mi
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn about exporting and deleting an app](create-new-app.md)
-
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions
+> [Learn about exporting and deleting an app](luis-how-to-start-new-app.md)

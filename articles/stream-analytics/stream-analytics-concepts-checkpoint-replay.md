@@ -1,14 +1,13 @@
 ---
-title: Checkpoint and replay job recovery concepts in Azure Stream Analytics
+title: Checkpoint and replay recovery concepts in Azure Stream Analytics
 description: This article describes checkpoint and replay job recovery concepts in Azure Stream Analytics.
-services: stream-analytics
-author: zhongc
-ms.author: zhongc
-manager: kfile
-ms.reviewer: jasonh
+author: mamccrea
+ms.author: mamccrea
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 04/12/2018
+ms.date: 12/06/2018
+ms.custom: seodec18
 ---
 # Checkpoint and replay concepts in Azure Stream Analytics jobs
 This article describes the internal checkpoint and replay concepts in Azure Stream Analytics, and the impact those have on job recovery. Each time a Stream Analytics job runs, state information is maintained internally. That state information is saved in a checkpoint periodically. In some scenarios, the checkpoint information is used for job recovery if a job failure or upgrade occurs. In other circumstances, the checkpoint cannot be used for recovery, and a replay is necessary.
@@ -42,7 +41,7 @@ Microsoft occasionally upgrades the binaries that run the Stream Analytics jobs 
 
 Currently, the recovery checkpoint format is not preserved between upgrades. As a result, the state of the streaming query must be restored entirely using replay technique. In order to allow Stream Analytics jobs to replay the exact same input from before, it’s important to set the retention policy for the source data to at least the window sizes in your query. Failing to do so may result in incorrect or partial results during service upgrade, since the source data may not be retained far enough back to include the full window size.
 
-In general, the amount of replay needed is proportional to the size of the window multiplied by the average event rate. As an example, for a job with an input rate of 1000 events per second, a window size greater than one hour is considered to have a large replay size. For queries with large replay size, you may observe delayed output (no output) for some extended period. 
+In general, the amount of replay needed is proportional to the size of the window multiplied by the average event rate. As an example, for a job with an input rate of 1000 events per second, a window size greater than one hour is considered to have a large replay size. Up to one hour of data may need to be re-processed to initialize the state so it can produce full and correct results, which may cause delayed output (no output) for some extended period. Queries with no windows or other temporal operators, like `JOIN` or `LAG`, would have zero replay.
 
 ## Estimate replay catch-up time
 To estimate the length of the delay due to a service upgrade, you can follow this technique:

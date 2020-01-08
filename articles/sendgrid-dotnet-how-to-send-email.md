@@ -1,10 +1,10 @@
 ---
 title: How to use the SendGrid email service (.NET) | Microsoft Docs
-description: Learn how send email with the SendGrid email service on Azure. Code samples written in C# and use the .NET API.
+description: Learn how to send email with the SendGrid email service on Azure. Code samples written in C# and use the .NET API.
 services: ''
 documentationcenter: .net
-author: thinkingserious
-manager: erikre
+author: georgewallace
+ms.author: gwallace
 editor: ''
 
 ms.assetid: 21bf4028-9046-476b-9799-3d3082a0f84c
@@ -14,7 +14,8 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/15/2017
-ms.author: dx@sendgrid.com
+ms.author: erikre
+ms.reviewer: dx@sendgrid.com
 
 ---
 # How to Send Email Using SendGrid with Azure
@@ -47,7 +48,7 @@ SendGrid's [C# library][sendgrid-csharp] GitHub repo.
 The [SendGrid NuGet package](https://www.nuget.org/packages/Sendgrid) is the easiest way to get the SendGrid API and to configure your application with all dependencies. NuGet is a Visual Studio extension included with Microsoft Visual Studio 2015 and above that makes it easy to install and update libraries and tools.
 
 > [!NOTE]
-> To install NuGet if you are running a version of Visual Studio earlier than Visual Studio 2015, visit [http://www.nuget.org](http://www.nuget.org), and click the **Install NuGet** button.
+> To install NuGet if you are running a version of Visual Studio earlier than Visual Studio 2015, visit [https://www.nuget.org](https://www.nuget.org), and click the **Install NuGet** button.
 >
 >
 
@@ -108,7 +109,7 @@ After creating an email message, you can send it using SendGrid's API. Alternati
 
 Sending email requires that you supply your SendGrid API Key. If you need details about how to configure API Keys, please visit SendGrid's API Keys [documentation][documentation].
 
-You may store these credentials via your Azure Portal by clicking Application settings and adding the key/value pairs under App settings.
+You may store these credentials via your Azure portal by clicking Application settings and adding the key/value pairs under App settings.
 
  ![Azure app settings][azure_app_settings]
 

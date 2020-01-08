@@ -1,22 +1,20 @@
 ---
-title: 'Quickstart: Submit a workflow using a BAM file input | Microsoft Docs'
-titleSuffix: Azure
-description: The quickstart assumes you have the msgen client installed and have successfully run the sample data through the service.  
-services: microsoft-genomics
+title: Submit a workflow using BAM file input
+titleSuffix: Microsoft Genomics
+description: This article demonstrates how to submit a workflow to the Microsoft Genomics service if your input file is  a single BAM file.  
+services: genomics
 author: grhuynh
-manager: jhubbard
-editor: jasonwhowell
+manager: cgronlun
 ms.author: grhuynh
-ms.service: microsoft-genomics
-ms.workload: genomics
-ms.topic: quickstart
+ms.service: genomics
+ms.topic: conceptual
 ms.date: 12/07/2017
 
 ---
 
 # Submit a workflow using a BAM file input
 
-This quickstart demonstrates how to submit a workflow to the Microsoft Genomics service if your input file is  a single BAM file. This topic assumes you have already installed and run the `msgen` client, and are familiar with how to use Azure Storage. If you have successfully submitted a workflow using the provided sample data, you are ready to proceed with this quickstart. 
+This article demonstrates how to submit a workflow to the Microsoft Genomics service if your input file is  a single BAM file. This topic assumes you have already installed and run the `msgen` client, and are familiar with how to use Azure Storage. If you have successfully submitted a workflow using the provided sample data, you are ready to proceed with this article. 
 
 ## Set up: Upload your BAM file to Azure storage
 Let’s assume you have a single BAM file, *reads.bam*, and you have uploaded it to your storage account *myaccount* in Azure as **https://<span></span>myaccount.blob.core<span></span>.windows<span></span>.net<span></span>/inputs/reads<span></span>.bam<span></span>**. You have the API URL and your access key. You want to have outputs in **https://<span></span>myaccount.blob.core<span></span>.windows<span></span>.net<span></span>/outputs<span></span>**.

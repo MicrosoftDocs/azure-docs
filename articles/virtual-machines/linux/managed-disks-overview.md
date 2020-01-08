@@ -1,20 +1,20 @@
 ---
-title: Azure Premium and Standard Managed Disks Overview for Linux VMs| Microsoft Docs
-description: Overview of Azure Managed Disks, which handles the storage accounts for you when using Azure Linux VMs
-services: virtual-machines-linux
-documentationcenter: na
+title: Azure Disk Storage overview for Linux VMs
+description: Overview of Azure managed disks, which handle the storage accounts for you when using Linux VMs
 author: roygara
-manager: jeconnoc
-editor: tysonn
-
-ms.assetid: 272250b3-fd4e-41d2-8e34-fd8cc341ec87
 ms.service: virtual-machines-linux
-ms.workload: storage
-ms.tgt_pltfrm: vm-linux
-ms.devlang: na
-ms.topic: article
-ms.date: 06/15/2017
+ms.topic: overview
+ms.date: 12/02/2019
 ms.author: rogarana
-
+ms.subservice: disks
 ---
+# Introduction to Azure managed disks
+
+Azure managed disks are block-level storage volumes that are managed by Azure and used with Azure Virtual Machines. Managed disks are like a physical disk in an on-premises server but, virtualized. With managed disks, all you have to do is specify the disk size, the disk type, and provision the disk. Once you provision the disk, Azure handles the rest.
+
+The available types of disks are ultra disks, premium solid-state drives (SSD), standard SSDs, and standard hard disk drives (HDD). For information about each individual disk type, see [Select a disk type for IaaS VMs](disks-types.md).
+
 [!INCLUDE [virtual-machines-managed-disks-overview.md](../../../includes/virtual-machines-managed-disks-overview.md)]
+
+> [!div class="nextstepaction"]
+> [Select a disk type for IaaS VMs](disks-types.md)

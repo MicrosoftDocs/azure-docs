@@ -1,12 +1,12 @@
 ---
-title: Develop U-SQL user-defined operators (UDOs) in Azure Data Lake Analytics
+title: Develop U-SQL user-defined operators - Azure Data Lake Analytics
 description: Learn how to develop user-defined operators to be used and reused in Azure Data Lake Analytics jobs.
 services: data-lake-analytics
 ms.service: data-lake-analytics
 author: saveenr
 ms.author: saveenr
-manager: kfile
-editor: jasonwhowell
+
+ms.reviewer: jasonwhowell
 ms.assetid: e5189e4e-9438-46d1-8686-ed4836bf3356
 ms.topic: conceptual
 ms.date: 12/05/2016
@@ -119,5 +119,5 @@ This article describes how to develop user-defined operators to process data in 
 2. Expand Samples, expand Outputs, and then double-click **Drivers.csv**.
 
 ## See also
-* [Extending U-SQL Expressions with User-Code](https://msdn.microsoft.com/library/azure/mt621316.aspx)
+* [Extending U-SQL Expressions with User-Code](/u-sql/concepts/extending-u-sql-expressions-with-user-code)
 * [Use Data Lake Tools for Visual Studio for developing U-SQL applications](data-lake-analytics-data-lake-tools-get-started.md)

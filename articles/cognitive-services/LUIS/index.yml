@@ -1,63 +1,153 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Language Understanding (LUIS) Documentation
+### YamlMime:Landing
+
+title: Language Understanding (LUIS) documentation
+summary: Learn how Language Understanding enables your applications to understand what a person wants in their own words.
+
 metadata:
-  document_id: 
-  title: Language Understanding (LUIS) - Tutorials, Quickstarts, API Reference
-  description: Learn how to use Language Understanding service to allow your application to understand what a person wants in their own words. 
-  author: Kaiqb
-  manager: carolz
-  ms.service: cognitive-services
-  ms.tgt_pltfrm: na
-  ms.devlang: na
   ms.topic: landing-page
-  ms.date: 05/25/2018
-  ms.author: kamrani
-abstract:
-  description: Language Understanding service (LUIS) allows your application to understand what a person wants in their own words. LUIS uses machine learning to allow developers to build applications that can receive user input in natural language and extract meaning from it.
+  ms.date: 11/22/2019
+  ms.author: nitinme
+  author: nitinme
+  ms.service: cognitive-services
+  ms.subservice: language-understanding
+  services: cognitive-services
+  ms.topic: landing-page
+  title: Language Understanding (LUIS) Documentation
+  titleSuffix: Azure Cognitive Services
+  description: The Language Understanding (LUIS) service allows your application to understand what a person wants in their own words. LUIS uses machine learning to allow developers to build applications that can receive user input in natural language and extract meaning from it.
 
-sections:
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+landingContent:
+  - title: About Language Understanding (LUIS)
+    linkLists:
 
-- title: 5-Minute Quickstarts
-  items:
-  - type: list
-    style: unordered
-    items:
-    - html: <a href="luis-get-started-create-app.md">Create app for a prebuilt domain</a>
-    - html: <a href="luis-quickstart-intents-only.md">Create app for a custom domain</a>
+      - linkListType: overview
+        links:
+          - text: What is language understanding?
+            url: what-is-luis.md
+          - text: LUIS portal
+            url: https://www.luis.ai
+      - linkListType: concept
+        links:
+          - text: Plan your app
+            url: luis-how-plan-your-app.md
+          - text: Iterative app design
+            url: luis-concept-app-iteration.md
+      - linkListType: whats-new
+        links:
+          - text: What's new?
+            url: whats-new.md
+      - linkListType: video
+        links:
+          - text: "AI Roadshow: LUIS"
+            url: https://azure.microsoft.com/resources/videos/whats-new-with-language-understanding-service-luis
 
-- title: Step-by-step tutorials
-  items:
-  - type: list
-    style: ordered
-    items:
-    - html: <a href="luis-quickstart-primary-and-secondary-data">Extract message data from an utterance using the simple entity</a>
-    - html: <a href="luis-quickstart-intents-regex-entity">Extract KB article numbers from an utterance using the regular expression entity</a>
-    - html: <a href="luis-quickstart-intent-and-list-entity">Extract drink order information from an utterance using the list entity</a>
-    - html: <a href="luis-tutorial-pattern">Improve intent and entity prediction accuracy with patterns</a>
-    - html: <a href="luis-tutorial-interchangeable-phrase-list">Improve word significance with a phrase list</a>
-    - html: <a href="luis-get-started-cs-get-intent">Send an utterance to LUIS and recieve the endpoint prediction response - C#</a>
-    - html: <a href="luis-get-started-cs-add-utterance">Add an example utterance to an intent and train the LUIS app - C#</a>
+  - title: Create intents, entities, and features
+    linkLists: 
+      - linkListType: concept
+        links:
+          - text: Intents
+            url: luis-concept-intent.md
+          - text: Entities
+            url: luis-concept-entity-types.md
+          - text: Utterances
+            url: luis-concept-utterance.md
+          - text: Phrase list features
+            url: luis-concept-feature.md
+      - linkListType: quickstart
+        links: 
+          - text: "Portal: Create a new LUIS app"
+            url: get-started-portal-build-app.md
+          - text: Using C# SDK
+            url: sdk-csharp-quickstart-authoring-app.md
+          - text: Using Python SDK
+            url: sdk-python-quickstart-authoring-app.md
 
-- title: Videos
-  items:
-  - type: list
-    style: unordered
-    items: 
-    - html: <a href="https://channel9.msdn.com/Shows/Azure-Friday/At-Build-2018-Cognitive-Services-Language-LUIS/player" > Azure Friday At Build 2018 - Cognitive Services - Language (LUIS)</a>
-    - html: <a href="https://channel9.msdn.com/Shows/AI-Show/Whats-New-with-Language-Understanding-Service-LUIS/player" > Build 2018 AI Show - What’s New with Language Understanding Service (LUIS)</a>
-    - html: <a href="https://channel9.msdn.com/events/Build/2018/BRK3208" >Build 2018 Session - Bot intelligence, Speech Capabilities, and NLU best practices</a>
+      - linkListType: how-to-guide
+        links: 
+          - text: Create a new LUIS app
+            url: luis-how-to-start-new-app.md
+          - text: Add intent with example utterances
+            url: luis-how-to-add-intents.md
+          - text: Add entities
+            url: luis-how-to-add-example-utterances.md
+          - text: Add phrase list feature
+            url: luis-how-to-add-features.md
 
-- title: Reference
-  items:
-  - type: list
-    style: cards
-    className: cardsD
-    items:
-    - title: REST APIs v2
-      html: <p><a href="https://aka.ms/luis-endpoint-apis"> Endpoint API</a></p><p><a href="https://aka.ms/luis-authoring-apis"> Authoring API</a></p>
-    - title: SDKs
-      html: <p><a href="https://aka.ms/luis-endpoint-sdk"> .NET Endpoint SDK</a></p><p><a href="https://aka.ms/luis-authoring-sdk"> .NET Authoring SDK</a></p>
-    - title: Code samples
-      html: <p><a href="https://aka.ms/luis-code-samples"> Code Samples</a></p>
-      
+  - title: Version, train, test, and publish
+    linkLists: 
+      - linkListType: concept
+        links:
+          - text: Versioning
+            url: luis-concept-version.md
+          - text: Interactive testing
+            url: luis-concept-test.md
+          - text: Batch testing
+            url: luis-concept-batch-test.md
+
+      - linkListType: quickstart
+        links: 
+          - text: "Portal: Deploy app to prediction endpoint"
+            url: get-started-portal-deploy-app.md
+          - text: Using C# SDK
+            url: sdk-csharp-quickstart-authoring-app.md#train-the-app
+          - text: Using Python SDK
+            url: sdk-python-quickstart-authoring-app.md#train-the-app
+
+
+      - linkListType: how-to-guide
+        links: 
+          - text: Version your app
+            url: luis-how-to-manage-versions.md
+          - text: Perform interactive testing
+            url: luis-interactive-test.md
+          - text: Perform batch testing
+            url: luis-how-to-batch-test.md
+          - text: Train your app
+            url: luis-how-to-train.md
+          - text: Publish prediction endpoint
+            url: luis-how-to-publish-app.md
+            
+  - title: Get prediction from endpoint
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: With C# .NET SDK
+            url: sdk-csharp-quickstart-query-prediction-endpoint.md
+      - linkListType: quickstart
+        links:
+          - text: With C# using REST
+            url: luis-get-started-cs-get-intent.md
+          - text: With Go using REST
+            url: luis-get-started-go-get-intent.md
+          - text: With Java using REST
+            url: luis-get-started-java-get-intent.md
+          - text: With Node.js using REST
+            url: luis-get-started-node-get-intent.md
+          - text: With Python using REST
+            url: luis-get-started-python-get-intent.md
+  - title: Reference
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: Developer resources
+            url: developer-reference-resource.md
+          - text: App limitations
+            url: luis-boundaries.md
+          - text: Prebuilt entities
+            url: luis-reference-prebuilt-entities.md
+          - text: Custom Entities
+            url: luis-concept-entity-types.md#types-of-entities
+          - text: Prebuilt domains
+            url: luis-reference-prebuilt-domains.md
+
+  - title: Help and feedback
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: Troubleshooting
+            url: troubleshooting.md
+          - text: Ask questions on Stack Overflow
+            url: https://stackoverflow.com/questions/tagged/LUIS
+          - text: Influence service with UserVoice
+            url: https://cognitive.uservoice.com/forums/551524-luis

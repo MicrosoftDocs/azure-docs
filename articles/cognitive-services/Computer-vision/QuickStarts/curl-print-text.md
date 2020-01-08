@@ -1,47 +1,50 @@
 ---
-title: Computer Vision API cURL quickstart OCR | Microsoft Docs
-titleSuffix: "Microsoft Cognitive Services"
-description: In this quickstart, you extract printed text from an image using Computer Vision with cURL in Cognitive Services.
+title: "Quickstart: Extract printed text - REST, cURL"
+titleSuffix: "Azure Cognitive Services"
+description: In this quickstart, you extract printed text from an image using the Computer Vision API with cURL.
 services: cognitive-services
-author: noellelacharite
-manager: nolachar
-ms.service: cognitive-services
-ms.component: computer-vision
-ms.topic: quickstart
-ms.date: 05/24/2018
-ms.author: nolachar
----
-# Quickstart: Extract printed text (OCR) with cURL
+author: PatrickFarley
+manager: nitinme
 
-In this quickstart, you extract printed text, also known as optical character recognition (OCR), from an image using Computer Vision.
+ms.service: cognitive-services
+ms.subservice: computer-vision
+ms.topic: quickstart
+ms.date: 12/05/2019
+ms.author: pafarley
+ms.custom: seodec18
+---
+
+# Quickstart: Extract printed text (OCR) using the Computer Vision REST API and cURL
+
+In this quickstart, you will extract printed text with optical character recognition (OCR) from an image using the Computer Vision REST API. With the [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) method, you can detect printed text in an image and extract recognized characters into a machine-usable character stream.
+
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) before you begin.
 
 ## Prerequisites
 
-To use Computer Vision, you need a subscription key; see [Obtaining Subscription Keys](../Vision-API-How-to-Topics/HowToSubscribe.md).
+- You must have [cURL](https://curl.haxx.se/windows).
+- You must have a subscription key for Computer Vision. You can get a free trial key from [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Or, follow the instructions in [Create a Cognitive Services account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) to subscribe to Computer Vision and get your key.
 
-## OCR request
+## Create and run the sample command
 
-With the [OCR method](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc), you can detect printed text in an image and extract recognized characters into a machine-usable character stream.
+To create and run the sample, do the following steps:
 
-To run the sample, do the following steps:
+1. Copy the following command into a text editor.
+1. Make the following changes in the command where needed:
+    1. Replace the value of `<subscriptionKey>` with your subscription key.
+    1. Replace the first part of the request URL (`westcentralus`) with the text in your own endpoint URL.
+        [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
+    1. Optionally, change the image URL in the request body (`https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Atomist_quote_from_Democritus.png/338px-Atomist_quote_from_Democritus.png\`) to the URL of a different image to be analyzed.
+1. Open a command prompt window.
+1. Paste the command from the text editor into the command prompt window, and then run the command.
 
-1. Copy the following code into an editor.
-1. Replace `<Subscription Key>` with your valid subscription key.
-1. Change the Request URL (`https://westcentralus.api.cognitive.microsoft.com/vision/v2.0`) to use the location where you obtained your subscription keys, if necessary.
-1. Optionally, change the image (`{\"url\":\"...`) to analyze.
-1. Open a command window on a computer with cURL installed.
-1. Paste the code in the window and run the command.
-
->[!NOTE]
->You must use the same location in your REST call as you used to obtain your subscription keys. For example, if you obtained your subscription keys from westus, replace "westcentralus" in the URL below with "westus".
-
-```json
-curl -H "Ocp-Apim-Subscription-Key: <Subscription Key>" -H "Content-Type: application/json" "https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/ocr?language=unk&detectOrientation=true" -d "{\"url\":\"https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Atomist_quote_from_Democritus.png/338px-Atomist_quote_from_Democritus.png\"}"
+```bash
+curl -H "Ocp-Apim-Subscription-Key: <subscriptionKey>" -H "Content-Type: application/json" "https://westcentralus.api.cognitive.microsoft.com/vision/v2.1/ocr?language=unk&detectOrientation=true" -d "{\"url\":\"https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Atomist_quote_from_Democritus.png/338px-Atomist_quote_from_Democritus.png\"}"
 ```
 
-## OCR response
+## Examine the response
 
-Upon success, the OCR results returned include text, bounding box for regions, lines, and words, for example:
+A successful response is returned in JSON. The sample application parses and displays a successful response in the command prompt window, similar to the following example:
 
 ```json
 {
@@ -144,7 +147,7 @@ Upon success, the OCR results returned include text, bounding box for regions, l
 
 ## Next steps
 
-Explore the Computer Vision APIs used to analyze an image, detect celebrities and landmarks, create a thumbnail, and extract printed and handwritten text.
+Explore the Computer Vision API used to analyze an image, detect celebrities and landmarks, create a thumbnail, and extract printed and handwritten text. To rapidly experiment with the Computer Vision API, try the [Open API testing console](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
 
 > [!div class="nextstepaction"]
-> [Explore Computer Vision APIs](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44)
+> [Explore the Computer Vision API](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44)

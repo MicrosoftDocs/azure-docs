@@ -1,73 +1,125 @@
 ---
-title:  Assign roles for Azure resources by using Privileged Identity Management | Microsoft Docs
-description: Describes how to assign roles in PIM.
+title: Assign Azure resource roles in Privileged Identity Management - Azure Active Directory | Microsoft Docs
+description: Learn how to assign Azure resource roles in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
-author: rolyon
+author: curtand
 manager: mtillman
 ms.service: active-directory
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.component: protection
-ms.date: 04/02/2018
-ms.author: rolyon
+ms.subservice: pim
+ms.date: 10/23/2019
+ms.author: curtand
 ms.custom: pim
+ms.collection: M365-identity-device-management
 ---
 
-# Assign roles for Azure resources by using Privileged Identity Management
+# Assign Azure resource roles in Privileged Identity Management
 
-## Assign roles
+Azure Active Directory (Azure AD) Privileged Identity Management (PIM) can manage the built-in Azure resource roles, as well as custom roles, including (but not limited to):
 
-To assign a user or group to a role when you're viewing the **Roles** pane, select the role, and then select **Add user**. 
+- Owner
+- User Access Administrator
+- Contributor
+- Security Admin
+- Security Manager
 
-!["Roles" pane with the "Add user" button](media/azure-pim-resource-rbac/rbac-assign-roles-1.png)
+> [!NOTE]
+> Users or members of a group assigned to the Owner or User Access Administrator subscription roles, and Azure AD Global administrators that enable subscription management in Azure AD have Resource administrator permissions by default. These administrators can assign roles, configure role settings, and review access using Privileged Identity Management for Azure resources. A user can't manage Privileged Identity Management for Resources without Resource administrator permissions. View the list of [built-in roles for Azure resources](../../role-based-access-control/built-in-roles.md).
 
-You can also select **Add user** from the **Members** pane.
+## Assign a role
 
-!["Members" pane with the "Add user" button](media/azure-pim-resource-rbac/rbac-assign-roles-2.png)
+Follow these steps to make a user eligible for an Azure resource role.
 
+1. Sign in to [Azure portal](https://portal.azure.com/) with a user that is a member of the [Privileged role administrator](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) role.
 
-If you're adding a user or group from the **Members** pane, you need to: 
+    For information about how to grant another administrator access to manage Privileged Identity Management, see [Grant access to other administrators to manage Privileged Identity Management](pim-how-to-give-access-to-pim.md).
 
-1. Choose a role from the **Select a role** pane before you can select a user or group.
+1. Open **Azure AD Privileged Identity Management**.
 
-   !["Select a role" pane](media/azure-pim-resource-rbac/rbac-assign-roles-select-role.png)
+1. Select **Azure resources**.
 
-2. Choose a user or group from the directory.
+1. Use the **Resource filter** to filter the list of managed resources.
 
-3. Choose the appropriate assignment type from the drop-down menu: 
+    ![List of Azure resources to manage](./media/pim-resource-roles-assign-roles/resources-list.png)
 
-   - **Just in time**: Provides the user or group members with eligible but not persistent access to the role for a specified period or indefinitely (if configured in role settings). 
-   - **Direct**: Does not require the user or group members to activate the role assignment (known as persistent access). We recommend using direct assignment for short-term use, where access won’t be required when the task is complete. Examples are on-call shifts and time-sensitive activities.
+1. Select the resource you want to manage, such as a subscription or management group.
 
-4. If the assignment should be permanent (permanently eligible for a just-in-time assignment, or permanently active for a direct assignment), select the check box below the **Assignment type** box.
+1. Under Manage, select **Roles** to see the list of roles for Azure resources.
 
-   !["Membership settings" pane with the "Assignment type" box and the related check box](media/azure-pim-resource-rbac/rbac-assign-roles-settings.png)
+    ![Azure resources roles](./media/pim-resource-roles-assign-roles/resources-roles.png)
 
-   >[!NOTE]
-   >The check box might be unmodifiable if another administrator has specified the maximum assignment duration for each assignment type in the role settings.
+1. Select **Add member** to open the New assignment pane.
 
-   To specify a specific assignment duration, clear the check box and modify the start and/or end date and time boxes.
+1. Select **Select a role** to open the Select a role pane.
 
-   !["Membership settings" pane with boxes for start date, start time, end date, and end time](media/azure-pim-resource-rbac/rbac-assign-roles-duration.png)
+    ![New assignment pane](./media/pim-resource-roles-assign-roles/resources-select-role.png)
 
+1. Select a role you want to assign and then click **Select**.
 
-## Manage role assignments
+    The Select a member or group pane opens.
 
-Administrators can manage role assignments by selecting either **Roles** or **Members** from the left pane. Selecting **Roles** enables admins to scope their management tasks to a specific role. Selecting **Members** displays all user and group role assignments for the resource.
+1. Select a member or group you want to assign to the role and then click **Select**.
 
-!["Roles" pane](media/azure-pim-resource-rbac/rbac-assign-roles-roles.png)
+    ![Select a member or group pane](./media/pim-resource-roles-assign-roles/resources-select-member-or-group.png)
 
-!["Members" pane](media/azure-pim-resource-rbac/rbac-assign-roles-members.png)
+    The Membership settings pane opens.
 
->[!NOTE]
-If you have a role pending activation, a notification banner is displayed at the top of the pane when you're viewing membership.
+1. In the **Assignment type** list, select **Eligible** or **Active**.
 
+    ![Memberships settings pane](./media/pim-resource-roles-assign-roles/resources-membership-settings-type.png)
 
-## Modify existing assignments
+    Privileged Identity Management for Azure resources provides two distinct assignment types:
 
-To modify existing assignments from the user/group detail view, select **Change settings** from the action bar. Change the assignment type to **Just in time** or **Direct**.
+    - **Eligible** assignments require the member of the role to perform an action to use the role. Actions might include performing a multi-factor authentication (MFA) check, providing a business justification, or requesting approval from designated approvers.
 
-!["User details" pane with the "Change settings" button](media/azure-pim-resource-rbac/rbac-assign-role-manage.png)
+    - **Active** assignments don't require the member to perform any action to use the role. Members assigned as active have the privileges assigned to the role at all times.
+
+1. If the assignment should be permanent (permanently eligible or permanently assigned), select the **Permanently** checkbox.
+
+    Depending on the role settings, the check box might not appear or might be unmodifiable.
+
+1. To specify a specific assignment duration, clear the check box and modify the start and/or end date and time boxes.
+
+    ![Memberships settings - date and time](./media/pim-resource-roles-assign-roles/resources-membership-settings-date.png)
+
+1. When finished, select **Done**.
+
+    ![New assignment - Add](./media/pim-resource-roles-assign-roles/resources-new-assignment-add.png)
+
+1. To create the new role assignment, select **Add**. A notification of the status is displayed.
+
+    ![New assignment - Notification](./media/pim-resource-roles-assign-roles/resources-new-assignment-notification.png)
+
+## Update or remove an existing role assignment
+
+Follow these steps to update or remove an existing role assignment.
+
+1. Open **Azure AD Privileged Identity Management**.
+
+1. Select **Azure resources**.
+
+1. Select the resource you want to manage, such as a subscription or management group.
+
+1. Under Manage, select **Roles** to see the list of roles for Azure resources.
+
+    ![Azure resource roles - Select role](./media/pim-resource-roles-assign-roles/resources-update-select-role.png)
+
+1. Select the role that you want to update or remove.
+
+1. Find the role assignment on the **Eligible roles** or **Active roles** tabs.
+
+    ![Update or remove role assignment](./media/pim-resource-roles-assign-roles/resources-update-remove.png)
+
+1. Select **Update** or **Remove** to update or remove the role assignment.
+
+    For information about extending a role assignment, see [Extend or renew Azure resource roles in Privileged Identity Management](pim-resource-roles-renew-extend.md).
+
+## Next steps
+
+- [Extend or renew Azure resource roles in Privileged Identity Management](pim-resource-roles-renew-extend.md)
+- [Configure Azure resource role settings in Privileged Identity Management](pim-resource-roles-configure-role-settings.md)
+- [Assign Azure AD roles in Privileged Identity Management](pim-how-to-add-role-to-user.md)

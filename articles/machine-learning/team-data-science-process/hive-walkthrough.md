@@ -1,37 +1,28 @@
 ---
-
-
-
-title: Explore data in a Hadoop cluster and create models in Azure Machine Learning | Microsoft Docs
+title: Explore data in a Hadoop cluster - Team Data Science Process
 description: Using the Team Data Science Process for an end-to-end scenario, employing an HDInsight Hadoop cluster to build and deploy a model.
-services: machine-learning,hdinsight
-documentationcenter: ''
-author: deguhath
+services: machine-learning
+author: marktab
 manager: cgronlun
 editor: cgronlun
-
-ms.assetid: e9e76c91-d0f6-483d-bae7-2d3157b86aa0
 ms.service: machine-learning
-ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 11/29/2017
-ms.author: deguhath
-
+ms.author: tdsp
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ---
 # The Team Data Science Process in action: Use Azure HDInsight Hadoop clusters
-In this walkthrough, we use the [Team Data Science Process (TDSP)](overview.md) in an end-to-end scenario. We use an [Azure HDInsight Hadoop cluster](https://azure.microsoft.com/services/hdinsight/) to store, explore, and feature-engineer data from the publicly available [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) dataset, and to down-sample the data. To handle binary and multiclass classification and regression predictive tasks, we build models of the data with Azure Machine Learning. 
+In this walkthrough, we use the [Team Data Science Process (TDSP)](overview.md) in an end-to-end scenario. We use an [Azure HDInsight Hadoop cluster](https://azure.microsoft.com/services/hdinsight/) to store, explore, and feature-engineer data from the publicly available [NYC Taxi Trips](https://www.andresmh.com/nyctaxitrips/) dataset, and to down-sample the data. To handle binary and multiclass classification and regression predictive tasks, we build models of the data with Azure Machine Learning. 
 
 For a walkthrough that shows how to handle a larger dataset, see [Team Data Science Process - Using Azure HDInsight Hadoop Clusters on a 1 TB dataset](hive-criteo-walkthrough.md).
 
 You can also use an IPython notebook to accomplish the tasks presented in the walkthrough that uses the 1 TB dataset. For more information, see [Criteo walkthrough using a Hive ODBC connection](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-hive-walkthrough-criteo.ipynb).
 
 ## <a name="dataset"></a>NYC Taxi Trips dataset description
-The NYC Taxi Trip data is about 20 GB of compressed comma-separated values (CSV) files (~48 GB uncompressed). It has more than 173 million individual trips, and includes the fares paid for each trip. Each trip record includes the pick-up and drop-off location and time, anonymized hack (driver's) license number, and medallion number (the taxi’s unique ID). The data covers all trips in the year 2013, and is provided in the following two datasets for each month:
+The NYC Taxi Trip data is about 20 GB of compressed comma-separated values (CSV) files (~48 GB uncompressed). It has more than 173 million individual trips, and includes the fares paid for each trip. Each trip record includes the pick-up and dropoff location and time, anonymized hack (driver's) license number, and medallion number (the taxi’s unique ID). The data covers all trips in the year 2013, and is provided in the following two datasets for each month:
 
-- The trip_data CSV files contain trip details. This includes the number of passengers, pick-up and drop-off points, trip duration, and trip length. Here are a few sample records:
+- The trip_data CSV files contain trip details. This includes the number of passengers, pick-up and dropoff points, trip duration, and trip length. Here are a few sample records:
    
         medallion,hack_license,vendor_id,rate_code,store_and_fwd_flag,pickup_datetime,dropoff_datetime,passenger_count,trip_time_in_secs,trip_distance,pickup_longitude,pickup_latitude,dropoff_longitude,dropoff_latitude
         89D227B655E5C82AECF13C3F540D4CF4,BA96DE419E711691B9445D6A6307C170,CMT,1,N,2013-01-01 15:11:48,2013-01-01 15:18:10,4,382,1.00,-73.978165,40.757977,-73.989838,40.751171
@@ -74,7 +65,7 @@ Determine the kind of predictions you want to make based on data analysis. This 
 
 You can set up an Azure environment for advanced analytics that employs an HDInsight cluster in three steps:
 
-1. [Create a storage account](../../storage/common/storage-create-storage-account.md): This storage account is used for storing data in Azure Blob storage. The data used in HDInsight clusters also resides here.
+1. [Create a storage account](../../storage/common/storage-quickstart-create-account.md): This storage account is used for storing data in Azure Blob storage. The data used in HDInsight clusters also resides here.
 2. [Customize Azure HDInsight Hadoop clusters for the Advanced Analytics Process and Technology](customize-hadoop-cluster.md). This step creates an HDInsight Hadoop cluster with 64-bit Anaconda Python 2.7 installed on all nodes. There are two important steps to remember while customizing your HDInsight cluster.
    
    * Remember to link the storage account created in step 1 with your HDInsight cluster when you are creating it. This storage account accesses data that is processed within the cluster.
@@ -87,15 +78,15 @@ You can set up an Azure environment for advanced analytics that employs an HDIns
 > 
 > 
 
-To copy the [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) dataset to your machine from its public location, use any of the methods described in [Move data to and from Azure Blob storage](move-azure-blob.md).
+To copy the [NYC Taxi Trips](https://www.andresmh.com/nyctaxitrips/) dataset to your machine from its public location, use any of the methods described in [Move data to and from Azure Blob storage](move-azure-blob.md).
 
 Here, we describe how to use AzCopy to transfer the files containing data. To download and install AzCopy, follow the instructions at [Getting started with the AzCopy command-line utility](../../storage/common/storage-use-azcopy.md).
 
-1. From a command prompt window, run the following AzCopy commands, replacing *<path_to_data_folder>* with the desired destination:
+1. From a command prompt window, run the following AzCopy commands, replacing *\<path_to_data_folder>* with the desired destination:
 
         "C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy" /Source:https://nyctaxitrips.blob.core.windows.net/data /Dest:<path_to_data_folder> /S
 
-1. When the copy completes, you will see a total of 24 zipped files in the data folder chosen. Unzip the downloaded files to the same directory on your local machine. Make a note of the folder where the uncompressed files reside. This folder is referred to as the *<path\_to\_unzipped_data\_files\>* in what follows.
+1. When the copy completes, you will see a total of 24 zipped files in the data folder chosen. Unzip the downloaded files to the same directory on your local machine. Make a note of the folder where the uncompressed files reside. This folder is referred to as the *\<path\_to\_unzipped_data\_files\>* in what follows.
 
 ## <a name="upload"></a>Upload the data to the default container of the HDInsight Hadoop cluster
 > [!NOTE]
@@ -105,10 +96,10 @@ Here, we describe how to use AzCopy to transfer the files containing data. To do
 
 In the following AzCopy commands, replace the following parameters with the actual values that you specified when creating the Hadoop cluster and unzipping the data files.
 
-* ***<path_to_data_folder>*** The directory (along with the path) on your machine that contains the unzipped data files.  
-* ***<storage account name of Hadoop cluster>*** The storage account associated with your HDInsight cluster.
-* ***<default container of Hadoop cluster>*** The default container used by your cluster. Note that the name of the default container is usually the same name as the cluster itself. For example, if the cluster is called "abc123.azurehdinsight.net", the default container is abc123.
-* ***<storage account key>*** The key for the storage account used by your cluster.
+* ***\<path_to_data_folder>*** The directory (along with the path) on your machine that contains the unzipped data files.  
+* ***\<storage account name of Hadoop cluster>*** The storage account associated with your HDInsight cluster.
+* ***\<default container of Hadoop cluster>*** The default container used by your cluster. Note that the name of the default container is usually the same name as the cluster itself. For example, if the cluster is called "abc123.azurehdinsight.net", the default container is abc123.
+* ***\<storage account key>*** The key for the storage account used by your cluster.
 
 From a command prompt or a Windows PowerShell window, run the following two AzCopy commands.
 
@@ -419,7 +410,7 @@ From the Hive directory prompt, run the following command:
 > 
 > 
 
-When exploring a dataset, we frequently want to examine the number of co-occurences of groups of values. This section provides an example of how to do this for cabs and drivers.
+When exploring a dataset, we frequently want to examine the number of co-occurrences of groups of values. This section provides an example of how to do this for cabs and drivers.
 
 The **sample\_hive\_trip\_count\_by\_medallion\_license.hql** file groups the fare dataset on **medallion** and **hack_license**, and returns counts of each combination. Here are its contents:
 
@@ -519,7 +510,7 @@ Run the following command from the Hadoop command-line console:
 
 You might want to know if there is a difference between the direct distance between two locations, and the actual trip distance of the taxi. A passenger might be less likely to tip if they figure out that the driver has intentionally taken them by a longer route.
 
-To see the comparison between actual trip distance and the [Haversine distance](http://en.wikipedia.org/wiki/Haversine_formula) between two longitude-latitude points (the "great circle" distance), you can use the trigonometric functions available within Hive:
+To see the comparison between actual trip distance and the [Haversine distance](https://en.wikipedia.org/wiki/Haversine_formula) between two longitude-latitude points (the "great circle" distance), you can use the trigonometric functions available within Hive:
 
     set R=3959;
     set pi=radians(180);
@@ -586,7 +577,7 @@ The query applies standard Hive functions directly to generate the following fro
 - week of year
 - weekday (1 stands for Monday, and 7 stands for Sunday)
 
-The query also generates the direct distance between the pick-up and drop-off locations. For a complete list of such functions, see [LanguageManual UDF](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF).
+The query also generates the direct distance between the pick-up and dropoff locations. For a complete list of such functions, see [LanguageManual UDF](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF).
 
 The query then down-samples the data so that the query results can fit into Azure Machine Learning Studio. Only about 1 percent of the original dataset is imported into the studio.
 
@@ -768,7 +759,7 @@ You can now proceed to model building and model deployment in [Machine Learning]
 
   The following diagram shows our experiment to predict whether or not a tip was paid for a given trip:
 
-  ![Diagram of experiment](./media/hive-walkthrough/QGxRz5A.png)
+  ![Diagram of experiment to predict if tip was paid](./media/hive-walkthrough/QGxRz5A.png)
 
   b. For this experiment, our target label distributions were roughly 1:1.
 
@@ -788,7 +779,7 @@ You can now proceed to model building and model deployment in [Machine Learning]
 
   The following diagram shows the experiment to predict in which bin a tip is likely to fall. The bins are: Class 0: tip = $0, Class 1: tip > $0 and tip <= $5, Class 2: tip > $5 and tip <= $10, Class 3: tip > $10 and tip <= $20, and Class 4: tip > $20.
 
-  ![Diagram of experiment](./media/hive-walkthrough/5ztv0n0.png)
+  ![Diagram of experiment to predict bin for tip](./media/hive-walkthrough/5ztv0n0.png)
 
   We now show what the actual test class distribution looks like. Class 0 and Class 1 are prevalent, and the other classes are rare.
 
@@ -808,7 +799,7 @@ You can now proceed to model building and model deployment in [Machine Learning]
 
   The following diagram shows the experiment to predict the amount of the given tip:
 
-  ![Diagram of experiment](./media/hive-walkthrough/11TZWgV.png)
+  ![Diagram of experiment to predict amount of tip](./media/hive-walkthrough/11TZWgV.png)
 
   b. For regression problems, we measure the accuracies of the prediction by looking at the squared error in the predictions, and the coefficient of determination:
 
@@ -825,9 +816,9 @@ You can now proceed to model building and model deployment in [Machine Learning]
 This sample walkthrough and its accompanying scripts are shared by Microsoft under the MIT license. For more details, see the **LICENSE.txt** file in the directory of the sample code on GitHub.
 
 ## References
-•    [Andrés Monroy NYC Taxi Trips Download Page](http://www.andresmh.com/nyctaxitrips/)  
-•    [FOILing NYC’s Taxi Trip Data by Chris Whong](http://chriswhong.com/open-data/foil_nyc_taxi/)   
-•    [NYC Taxi and Limousine Commission Research and Statistics](https://www1.nyc.gov/html/tlc/html/about/statistics.shtml)
+•    [Andrés Monroy NYC Taxi Trips Download Page](https://www.andresmh.com/nyctaxitrips/)  
+•    [FOILing NYC’s Taxi Trip Data by Chris Whong](https://chriswhong.com/open-data/foil_nyc_taxi/)   
+•    [NYC Taxi and Limousine Commission Research and Statistics](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page)
 
 [2]: ./media/hive-walkthrough/output-hive-results-3.png
 [11]: ./media/hive-walkthrough/hive-reader-properties.png

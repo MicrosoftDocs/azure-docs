@@ -1,15 +1,16 @@
 ---
-title: Distributed tables design guidance - Azure SQL Data Warehouse | Microsoft Docs
+title: Distributed tables design guidance
 description: Recommendations for designing hash-distributed and round-robin distributed tables in Azure SQL Data Warehouse.
 services: sql-data-warehouse
-author: ronortloff
-manager: craigg-msft
+author: XiaoyuMSFT
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: implement
+ms.subservice: development
 ms.date: 04/17/2018
-ms.author: rortloff
+ms.author: xiaoyul
 ms.reviewer: igorstan
+ms.custom: seo-lt-2019
 ---
 
 # Guidance for designing distributed tables in Azure SQL Data Warehouse
@@ -54,7 +55,7 @@ Consider using the round-robin distribution for your table in the following scen
 
 - When getting started as a simple starting point since it is the default
 - If there is no obvious joining key
-- If there is not good candidate column for hash distributing the table
+- If there is no good candidate column for hash distributing the table
 - If the table does not share a common join key with other tables
 - If the join is less significant than other joins in the query
 - When the table is a temporary staging table
@@ -142,7 +143,7 @@ where two_part_name in
     from dbo.vTableSizes
     where row_count > 0
     group by two_part_name
-    having min(row_count * 1.000)/max(row_count * 1.000) > .10
+    having (max(row_count * 1.000) - min(row_count * 1.000))/max(row_count * 1.000) >= .10
     )
 order by two_part_name, row_count
 ;
@@ -169,7 +170,7 @@ To decide if you should resolve data skew in a table, you should understand as m
 Since you cannot change the distribution column on an existing table, the typical way to resolve data skew is to re-create the table with a different distribution column.  
 
 ### Re-create the table with a new distribution column
-This example uses [CREATE TABLE AS SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse.md) to re-create a table with a different hash distribution column.
+This example uses [CREATE TABLE AS SELECT](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?view=aps-pdw-2016-au7) to re-create a table with a different hash distribution column.
 
 ```sql
 CREATE TABLE [dbo].[FactInternetSales_CustomerKey]

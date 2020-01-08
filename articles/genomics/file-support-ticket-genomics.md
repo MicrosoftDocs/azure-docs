@@ -1,16 +1,14 @@
 ---
-title: 'Microsoft Genomics:How to file a support request | Microsoft Docs'
-titleSuffix: Azure
-description: Learn more about how to file a support ticket
+title: How to file a support request
+titleSuffix: Microsoft Genomics
+description: This article describes how to file a support request to contact Microsoft Genomics if you're not able to resolve your issue with the troubleshooting guide or FAQ. 
 keywords: troubleshooting, error, debugging, support
-services: microsoft-genomics
+services: genomics
 author: grhuynh
-manager: jhubbard
-editor: jasonwhowell
+manager: cgronlun
 ms.author: grhuynh
-ms.service: microsoft-genomics
-ms.workload: genomics
-ms.topic: article
+ms.service: genomics
+ms.topic: conceptual
 ms.date: 05/23/2018
 
 ---

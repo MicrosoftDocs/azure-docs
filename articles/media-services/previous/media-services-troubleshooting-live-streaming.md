@@ -1,23 +1,23 @@
 ---
 title: Troubleshooting guide for live streaming | Microsoft Docs
-description: This topic gives suggestions on how to troubleshoot live streaming problems.
+description: This article gives suggestions on how to troubleshoot Azure Media Services live streaming problems.
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 
-ms.assetid: 3a7f6c1d-ce57-4fa4-a7a6-edb526b3ffbf
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/20/2017
+ms.date: 03/20/2019
 ms.author: juliako
 
 ---
-# Troubleshooting guide for live streaming
+# Troubleshooting guide for live streaming  
+
 This article gives suggestions on how to troubleshoot some live streaming problems.
 
 ## Issues related to on-premises encoders
@@ -50,9 +50,6 @@ This section gives suggestions on how to troubleshoot problems related to on-pre
 > If after following the troubleshooting steps you still cannot successfully stream, submit a support ticket using the Azure portal.
 > 
 > 
-
-## Media Services learning paths
-[!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
 ## Provide feedback
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]

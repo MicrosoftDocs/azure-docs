@@ -1,93 +1,79 @@
 ---
-title: Quickstart - Set up sign-in for a single-page app using Azure Active Directory B2C | Microsoft Docs
-description: Run a sample single-page application that uses Azure Active Directory B2C to provide account sign-in.
+title: "Quickstart: Set up sign-in for a single-page app (SPA)"
+titleSuffix: Azure AD B2C
+description: In this Quickstart, run a sample single-page application that uses Azure Active Directory B2C to provide account sign-in.
 services: active-directory-b2c
-author: davidmu1
-manager: mtillman
+author: mmacy
+manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
-ms.date: 2/13/2018
-ms.author: davidmu
-ms.component: B2C
+ms.topic: quickstart
+ms.date: 09/12/2019
+ms.author: marsma
+ms.subservice: B2C
 ---
 
 # Quickstart: Set up sign-in for a single-page app using Azure Active Directory B2C
 
-Azure Active Directory (Azure AD) B2C provides cloud identity management to keep your application, business, and customers protected. Azure AD B2C enables your apps to authenticate to social accounts, and enterprise accounts using open standard protocols.
-
-In this quickstart, you use an Azure AD B2C enabled sample single-page app to sign in using a social identity provider and call an Azure AD B2C protected web API.
+Azure Active Directory B2C (Azure AD B2C) provides cloud identity management to keep your application, business, and customers protected. Azure AD B2C enables your applications to authenticate to social accounts, and enterprise accounts using open standard protocols. In this quickstart, you use a single-page application to sign in using a social identity provider and call an Azure AD B2C protected web API.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisites
 
-* [Visual Studio 2017](https://www.visualstudio.com/downloads/) with the **ASP.NET and web development** workload.
-* Install [Node.js](https://nodejs.org/en/download/)
-* A social account from either Facebook, Google, Microsoft, or Twitter.
+- [Visual Studio 2019](https://www.visualstudio.com/downloads/) with the **ASP.NET and web development** workload
+- [Node.js](https://nodejs.org/en/download/)
+- Social account from Facebook, Google, or Microsoft
+- Code sample from GitHub: [active-directory-b2c-javascript-msal-singlepageapp](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp)
 
-## Download the sample
+    You can [download the zip archive](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp/archive/master.zip) or clone the repository:
 
-[Download a zip file](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp/archive/master.zip) or clone the sample web app from GitHub.
+    ```
+    git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp.git
+    ```
 
-```
-git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp.git
-```
+## Run the application
 
-## Run the sample application
+1. Start the server by running the following commands from the Node.js command prompt:
 
-To run this sample from the Node.js command prompt: 
+    ```
+    cd active-directory-b2c-javascript-msal-singlepageapp
+    npm install && npm update
+    node server.js
+    ```
 
-```
-cd active-directory-b2c-javascript-msal-singlepageapp
-npm install && npm update
-node server.js
-```
+    Server.js outputs the port number it's listening on at localhost.
 
-The Node.js app outputs the port number it's listening on at localhost.
+    ```
+    Listening on port 6420...
+    ```
 
-```
-Listening on port 6420...
-```
+2. Browse to the URL of the application. For example, `http://localhost:6420`.
 
-Browse to the app's URL `http://localhost:6420` in a web browser.
+## Sign in using your account
 
-![Sample app in browser](media/active-directory-b2c-quickstarts-spa/sample-app-spa.png)
+1. Click **Login** to start the workflow.
 
-## Create an account
+    ![Single-page application sample app shown in browser](media/active-directory-b2c-quickstarts-spa/sample-app-spa.png)
 
-Click the **Login** button to start the Azure AD B2C **Sign Up or Sign In** workflow based on an Azure AD B2C policy. 
+    The sample supports several sign-up options including using a social identity provider or creating a local account using an email address. For this quickstart, use a social identity provider account from either Facebook, Google, or Microsoft.
 
-The sample supports several sign-up options including using a social identity provider or creating a local account using an email address. For this quickstart, use a social identity provider account from either Facebook, Google, Microsoft, or Twitter. 
+2. Azure AD B2C presents a sign-in page for a fictitious company called Fabrikam for the sample web application. To sign up using a social identity provider, click the button of the identity provider you want to use.
 
-### Sign up using a social identity provider
+    ![Sign In or Sign Up page showing identity provider buttons](media/active-directory-b2c-quickstarts-spa/sign-in-or-sign-up-spa.png)
 
-Azure AD B2C presents a custom login page for a fictitious brand called Wingtip Toys for the sample web app. 
+    You authenticate (sign in) using your social account credentials and authorize the application to read information from your social account. By granting access, the application can retrieve profile information from the social account such as your name and city.
 
-1. To sign up using a social identity provider, click the button of the identity provider you want to use.
+3. Finish the sign-in process for the identity provider.
 
-    ![Sign In or Sign Up provider](media/active-directory-b2c-quickstarts-spa/sign-in-or-sign-up-spa.png)
+## Access a protected API resource
 
-    You authenticate (sign-in) using your social account credentials and authorize the application to read information from your social account. By granting access, the application can retrieve profile information from the social account such as your name and city. 
+Click **Call Web API** to have your display name returned from the Web API call as a JSON object.
 
-2. Finish the sign-in process for the identity provider. For example, if you chose Twitter, enter your Twitter credentials and click **Sign in**.
+![Sample application in browser showing the web API response](media/active-directory-b2c-quickstarts-spa/call-api-spa.png)
 
-    ![Authenticate and authorize using a social account](media/active-directory-b2c-quickstarts-spa/twitter-authenticate-authorize-spa.png)
-
-    Your new account profile details are pre-populated with information from your social account. 
-
-3. Update the Display Name, Job Title, and City fields and click **Continue**.  The values you enter are used for your Azure AD B2C user account profile.
-
-    You have successfully created a new Azure AD B2C user account that uses an identity provider. 
-
-## Access a protected web API resource
-
-Click the **Call Web API** button to have your display name returned from the Web API call as a JSON object. 
-
-![Web API response](media/active-directory-b2c-quickstarts-spa/call-api-spa.png)
-
-The sample single-page app includes an Azure AD access token in the request to the protected web API resource to perform the operation to return the JSON object.
+The sample single-page application includes an access token in the request to the protected web API resource.
 
 ## Clean up resources
 
@@ -95,9 +81,14 @@ You can use your Azure AD B2C tenant if you plan to try other Azure AD B2C quick
 
 ## Next steps
 
-In this quickstart, you used an Azure AD B2C enabled sample ASP.NET app to sign in with a custom login page, sign in with a social identity provider, create an Azure AD B2C account, and call a web API protected by Azure AD B2C. 
+In this quickstart, you used a sample single-page application to:
 
-The next step is to create your own Azure AD B2C tenant and configure the sample to run using your tenant. 
+* Sign in with a custom login page
+* Sign in with a social identity provider
+* Create an Azure AD B2C account
+* Call a web API protected by Azure AD B2C
+
+Get started creating your own Azure AD B2C tenant.
 
 > [!div class="nextstepaction"]
 > [Create an Azure Active Directory B2C tenant in the Azure portal](tutorial-create-tenant.md)

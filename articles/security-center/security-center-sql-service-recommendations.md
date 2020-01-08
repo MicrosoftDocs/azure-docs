@@ -1,43 +1,68 @@
 ---
-title: Protecting Azure SQL service and data in Azure Security Center  | Microsoft Docs
+title: Data & storage recommendations - Azure Security Center
 description: This document addresses recommendations in Azure Security Center that help you protect your data and Azure SQL service and stay in compliance with security policies.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
-manager: MBaldwin
-editor: ''
-
+author: memildin
+manager: rkarlin
 ms.assetid: bcae6987-05d0-4208-bca8-6a6ce7c9a1e3
 ms.service: security-center
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/03/2017
-ms.author: terrylan
-
+ms.date: 12/19/2019
+ms.author: memildin
 ---
-# Protecting Azure SQL service and data in Azure Security Center
-Azure Security Center analyzes the security state of your Azure resources. When Security Center identifies potential security vulnerabilities, it creates recommendations that guide you through the process of configuring the needed controls.  Recommendations apply to Azure resource types: virtual machines (VMs), networking, SQL and data, and applications.
 
-This article addresses recommendations that apply to Azure SQL service and data. Recommendations center around enabling auditing for Azure SQL servers and databases, enabling encryption for SQL databases, and enabling encryption of your Azure storage account.  Use the table below as a reference to help you understand the available SQL service and data recommendations and what each one does if you apply it.
+# Protect Azure data and storage services
+When Azure Security Center identifies potential security vulnerabilities, it creates recommendations that guide you through the process of configuring the needed controls to harden and protect your resources.
 
-## Available SQL service and data recommendations
-| Recommendation | Description |
-| --- | --- |
-| [Enable auditing and threat detection on SQL servers](security-center-enable-auditing-on-sql-servers.md) |Recommends that you turn on auditing and threat detection for Azure SQL servers (Azure SQL service only; doesn't include SQL running on your virtual machines). |
-| [Enable auditing and threat detection on SQL databases](security-center-enable-auditing-on-sql-databases.md) |Recommends that you turn on auditing and threat detection for Azure SQL databases (Azure SQL service only; doesn't include SQL running on your virtual machines). |
-| [Enable Transparent Data Encryption on SQL databases](security-center-enable-transparent-data-encryption.md) |Recommends that you enable encryption for SQL databases (Azure SQL service only). |
+This article explains the **Data Security page** of the resource security section of Security Center.
 
-## See also
-To learn more about recommendations that apply to other Azure resource types, see the following:
+For a full list of the recommendations you might see on this page, see [Data and Storage recommendations](recommendations-reference.md#recs-datastorage).
 
-* [Protecting your virtual machines in Azure Security Center](security-center-virtual-machine-recommendations.md)
-* [Protecting your applications in Azure Security Center](security-center-application-recommendations.md)
+
+## View your data security information
+
+1. In the **Resource security hygiene** section, click **Data and storage resources**.
+
+    ![Data & storage resources](./media/security-center-monitoring/click-data.png)
+
+    The **Data security** page opens with recommendations for data resources.
+
+    [![Data Resources](./media/security-center-monitoring/sql-overview.png)](./media/security-center-monitoring/sql-overview.png#lightbox)
+
+    From this page, you can:
+
+    * Click the **Overview** tab lists all the data resources recommendations to be remediated. 
+    * Click each tab, and view the recommendations by resource type.
+
+    > [!NOTE]
+    > For more information about storage encryption, see [Azure Storage encryption for data at rest](../storage/common/storage-service-encryption.md).
+
+
+## Remediate a recommendation on a data resource
+
+1. From any of the resource tabs, click a resource. The information page opens listing the recommendations to be remediated.
+
+    ![Resource information](./media/security-center-monitoring/sql-recommendations.png)
+
+2. Click a recommendation. The Recommendation page opens and displays the **Remediation steps** to implement the recommendation.
+
+   ![Remediation steps](./media/security-center-monitoring/remediate1.png)
+
+3. Click **Take action**. The resource settings page appears.
+
+    ![Enable recommendation](./media/security-center-monitoring/remediate2.png)
+
+4. Follow the **Remediation steps** and click **Save**.
+
+
+## Next steps
+
+To learn more about recommendations that apply to other Azure resource types, see the following topics:
+
+* [Full reference list of Azure Security Center's security recommendations](recommendations-reference.md)
+* [Protecting your machines and applications in Azure Security Center](security-center-virtual-machine-protection.md)
 * [Protecting your network in Azure Security Center](security-center-network-recommendations.md)
-
-To learn more about Security Center, see the following:
-
-* [Setting security policies in Azure Security Center](security-center-policies.md) -- Learn how to configure security policies for your Azure subscriptions and resource groups.
-* [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md) -- Learn how to manage and respond to security alerts.
-* [Azure Security Center FAQ](security-center-faq.md) -- Find frequently asked questions about using the service.

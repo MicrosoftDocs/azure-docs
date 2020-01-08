@@ -1,10 +1,10 @@
 ---
-title: Tutorial - Configure Azure Analysis Services server administrator and user roles tutorial lesson | Microsoft Docs
+title: Tutorial - Configure Azure Analysis Services roles | Microsoft Docs
+description: Learn how to configure Azure Analysis Services administrator and user roles by using the Azure portal or SQL Server Management Studio.
 author: minewiskan
-manager: kfile
 ms.service: azure-analysis-services
 ms.topic: tutorial
-ms.date: 05/10/2018
+ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: owend
 #Customer intent: As a BI developer, I want to connect to my server by using SQL Server Management Studio to configure server administrator and model database user roles.
@@ -12,7 +12,7 @@ ms.reviewer: owend
 
 # Tutorial: Configure server administrator and user roles
 
- In this tutorial, you use SQL Server Management Studio (SSMS) to connect to your server in Azure to configure server administrator and model database roles. You're also introduced  to [Tabular Model Scripting Language (TMSL)](https://docs.microsoft.com/sql/analysis-services/tabular-model-programming-compatibility-level-1200/tabular-model-programming-for-compatibility-level-1200). TMSL is a JSON-based scripting language for tabular models at the 1200 and higher compatibility levels. It can be used to automate many tabular modeling tasks. TMSL is often used with PowerShell, but in this tutorial, you use the XMLA query editor in SSMS. With this tutorial, you complete these tasks: 
+ In this tutorial, you use SQL Server Management Studio (SSMS) to connect to your server in Azure to configure server administrator and model database roles. You're also introduced  to [Tabular Model Scripting Language (TMSL)](https://docs.microsoft.com/analysis-services/tabular-model-programming-compatibility-level-1200/tabular-model-programming-for-compatibility-level-1200). TMSL is a JSON-based scripting language for tabular models at the 1200 and higher compatibility levels. It can be used to automate many tabular modeling tasks. TMSL is often used with PowerShell, but in this tutorial, you use the XMLA query editor in SSMS. With this tutorial, you complete these tasks: 
   
 > [!div class="checklist"]
 > * Get your server name from the portal
@@ -31,9 +31,9 @@ To learn more about user security in Azure Analysis Services, see [Authenticatio
 - [Add the adventureworks sample model](../analysis-services-create-sample-model.md) to your server.
 - [Install the latest version of SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) (SSMS).
 
-## Log in to the Azure portal
+## Sign in to the Azure portal
 
-Log in to the [portal](https://portal.azure.com/).
+Sign in to the [portal](https://portal.azure.com/).
 
 ## Get server name
 In order to connect to your server from SSMS, you first need the server name. You can get the server name from the portal.
@@ -78,7 +78,7 @@ In this task, you add a user or group account from your Azure AD to the server a
 
 ## Add a user to the model database administrator role
 
-In this task, you add a user or group account to the Internet Sales Administrator role that already exists in the model. This role has Full control (Administrator) permissions for the adventureworks sample model database. This task uses the [CreateOrReplace](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/createorreplace-command-tmsl) TMSL command in a script created for you.
+In this task, you add a user or group account to the Internet Sales Administrator role that already exists in the model. This role has Full control (Administrator) permissions for the adventureworks sample model database. This task uses the [CreateOrReplace](https://docs.microsoft.com/bi-reference/tmsl/createorreplace-command-tmsl) TMSL command in a script created for you.
 
 1. In **Object Explorer**, expand **Databases** > **adventureworks** > **Roles**. 
 2. Right-click **Internet Sales Administrator**, then click **Script Role as** > **CREATE OR REPLACE To** > **New Query Editor Window**.
@@ -94,7 +94,7 @@ In this task, you add a user or group account to the Internet Sales Administrato
 
 ## Add a new model database role and add a user or group
 
-In this task, you use the [Create](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/create-command-tmsl?view=sql-analysis-services-2017) command in a TMSL script to create a new Internet Sales Global role, specify *read* permissions for the role, and add a user or group account from your Azure AD.
+In this task, you use the [Create](https://docs.microsoft.com/bi-reference/tmsl/create-command-tmsl) command in a TMSL script to create a new Internet Sales Global role, specify *read* permissions for the role, and add a user or group account from your Azure AD.
 
 1. In **Object Explorer**, right-click **adventureworks**, and then click **New Query** > **XMLA**. 
 2. Copy and paste the following TMSL script into the query editor:
@@ -120,7 +120,7 @@ In this task, you use the [Create](https://docs.microsoft.com/sql/analysis-servi
     }
     ```
 
-3. Change **"memberName": \"globalsales@adventureworks.com\"** object value to a user or group account in your Azure AD.
+3. Change `"memberName": "globalsales@adventureworks.com"` object value to a user or group account in your Azure AD.
 4. Press **F5**, to execute the script.
 
 ## Verify your changes

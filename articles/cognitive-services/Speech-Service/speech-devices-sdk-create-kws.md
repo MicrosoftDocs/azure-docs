@@ -1,78 +1,55 @@
 ---
-title: Creating a custom wake word | Microsoft Docs
-description: Creating a custom wake word for the Speech Devices SDK.
-titleSuffix: "Microsoft Cognitive Services"
+title: Create custom keywords - Speech service
+titleSuffix: Azure Cognitive Services
+description: Your device is always listening for a keyword (or phrase). When the user says the keyword, the device sends all subsequent audio to the cloud, until the user stops speaking. Customizing your keyword is an effective way to differentiate your device and strengthen your branding.
 services: cognitive-services
-author: v-jerkin
-manager: noellelacharite
-
+author: IEvangelist
+manager: nitinme
 ms.service: cognitive-services
-ms.technology: speech
-ms.topic: article
-ms.date: 04/28/2018
-ms.author: v-jerkin
+ms.subservice: speech-service
+ms.topic: conceptual
+ms.date: 12/11/2019
+ms.author: dapine
 ---
-# Create a custom wake word using Speech service
 
-Your device is always listening for a wake word (or phrase). For example, "Hey Cortana" is a wake word for the Cortana assistant. When the user says the wake word, the device starts sending all subsequent audio to the cloud until the user stops speaking. Customizing your wake word is an effective way to differentiate your device and strengthen your branding.
+# Create a custom keyword using Speech Studio
 
-In this article, you learn how to create a custom wake word for your device.
+Your device is always listening for a keyword (or phrase). For example, "Hey Cortana" is a keyword for the Cortana assistant. When the user says the keyword, the device sends all subsequent audio to the cloud, until the user stops speaking. Customizing your keyword is an effective way to differentiate your device and strengthen your branding.
 
-## Choosing an effective wake word
+In this article, you learn how to create a custom keyword for your device.
 
-Consider the following guidelines when choosing a wake word.
+## Create your keyword
 
-* Your wake word should be an English word or a phrase. It should take no longer than two seconds to say.
+Before you can use a custom keyword, you'll need to create a keyword using the [Custom Keyword](https://aka.ms/sdsdk-wakewordportal) page on [Speech Studio](https://aka.ms/sdsdk-speechportal). After you provide a keyword, it produces a file that you deploy to your device.
 
-* Words of 4–7 syllables work best. For example, "Hey, Computer" is a good wake word, while just "Hey" is a poor one.
+1. Go to the [Speech Studio](https://aka.ms/sdsdk-speechportal) and **Sign in** or, if you do not yet have a speech subscription, choose [**Create a subscription**](https://go.microsoft.com/fwlink/?linkid=2086754).
 
-* Wake words should follow common English pronunciation rules.
+1. At the [Custom Keyword](https://aka.ms/sdsdk-wakewordportal) page, create a **New project**. 
 
-* A unique or even made-up word that follows common English pronunciation rules could reduce false positives. For example, "computerama" could be a good wake word.
+1. Enter a **Name**, an optional **Description**, and select the language. You will need one project per language and support is currently limited to the en-US language.
 
-* Do not choose a common word. For example, "eat" and "go" are words that people say frequently in ordinary conversation. They could be false triggers for your device.
+    ![Describe your keyword project](media/custom-keyword/custom-kws-portal-new-project.png)
 
-* Avoid using a wake word that could have alternative pronunciations. Users would have to know the "right" pronunciation to get their device to respond. For example, "509" could be pronounced as "five zero nine", "five oh nine", or "five hundred and nine." "R.E.I." could be pronounced as "R E I" or "Ray." "Live" could be pronounced as [līv] or [liv].
+1. Select your project from the list. 
 
-* Do not use special characters, symbols, or digits. For example, "Go#" and "20 + cats" would not be good wake words. However, "go sharp" or "twenty plus cats" could work. You can still use the symbols in your branding, and use marketing and documentation to reinforce the proper pronunciation.
+    ![Select your keyword project](media/custom-keyword/custom-kws-portal-project-list.png)
 
-> [!NOTE]
-> If you choose a trademarked word as your wake word, be sure that you own that trademark, or else have permission from the trademark owner to use it. Microsoft is not liable for any legal issues that may arise from your choice of wake word.
+1. To start a new keyword model click **Train model**.
 
-## Creating your wake word
+1. Enter a **Name** for the keyword model, and optional **Description** and type in the **Keyword** of your choice, and click **Next**. We have some [guidelines](speech-devices-sdk-kws-guidelines.md#choose-an-effective-keyword) to help choose an effective keyword.
 
-Before you can use a custom wake word with your device, you must create it using the Microsoft Custom Wake Word Generation service. After you provide a wake word, the service produces a file that you then deploy onto your dev kit to enable your wake word on your device.
+    ![Enter your keyword](media/custom-keyword/custom-kws-portal-new-model.png)
 
-1. Go to the [Custom Speech Service portal](https://cris.ai/).
+1. The portal will now create candidate pronunciations for your keyword. Listen to each candidate by clicking the play buttons and remove the checks next to any pronunciations that are incorrect. Once only good pronunciations are checked, click **Train** to begin generating the keyword. 
 
-2. Create a new account with the email address on which you received the invitation for Azure Active Directory. 
+    ![Review your keyword](media/custom-keyword/custom-kws-portal-choose-prons.png)
 
-    ![create new account](media/speech-devices-sdk/wake-word-1.png)
- 
-3.	Once logged in, fill out the form, then click **Start the journey.**
+1. It may take up to ten minutes for the model to be generated. The keyword list will change from **Processing** to **Succeeded** when the model is complete. You can then download the file.
 
-    ![successfully logged in](media/speech-devices-sdk/wake-word-3.png)
- 
-4. The **Custom Wake Word** page is not available to the public, so there is no link that takes you there. Click or paste in this link instead: https://cris.ai/customkws.
+    ![Review your keyword](media/custom-keyword/custom-kws-portal-download-model.png)
 
-    ![hidden page](media/speech-devices-sdk/wake-word-4.png)
- 
-6. Type in the wake word of your choice, then **Submit** it.
-
-    ![enter your wake word](media/speech-devices-sdk/wake-word-5.png)
- 
-7. It may take a few minutes for the files to be generated. You should see a spinning circle on your browser's tab. After a moment, an information bar appears asking you to download a `.zip` file.
-
-    ![receiving .zip file](media/speech-devices-sdk/wake-word-6.png)
-
-8. Save the `.zip` file to your computer. You need this file to deploy the custom wake word to the development kit, following the instructions in [Get started with the Speech Devices SDK](speech-devices-sdk-qsg.md).
-
-9. You may now **Sign out.**
+1. Save the .zip file to your computer. You will need this file to deploy your custom keyword to your device.
 
 ## Next steps
 
-To get started, get a [free Azure account](https://azure.microsoft.com/free/) and sign up for the Speech Devices SDK.
-
-> [!div class="nextstepaction"]
-> [Sign up for the Speech Devices SDK](get-speech-devices-sdk.md)
-
+Test your custom keyword with [Speech Devices SDK Quickstart](https://aka.ms/sdsdk-quickstart).

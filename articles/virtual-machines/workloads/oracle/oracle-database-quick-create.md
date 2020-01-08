@@ -3,19 +3,19 @@ title: Create an Oracle database in an Azure VM | Microsoft Docs
 description: Quickly get an Oracle Database 12c database up and running in your Azure environment.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: rickstercdn
-manager: jeconnoc
+author: romitgirdhar
+manager: gwallace
 editor: 
 tags: azure-resource-manager
 
 ms.assetid: 
 ms.service: virtual-machines-linux
-ms.devlang: na
+
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 07/17/2017
-ms.author: rclaus
+ms.date: 08/02/2018
+ms.author: rogirdh
 ---
 
 # Create an Oracle Database in an Azure VM
@@ -24,13 +24,11 @@ This guide details using the Azure CLI to deploy an Azure virtual machine from t
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-[!INCLUDE [cloud-shell-try-it.md](../../../../includes/cloud-shell-try-it.md)]
-
-If you choose to install and use the CLI locally, this quickstart requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
+If you choose to install and use the CLI locally, this quickstart requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli).
 
 ## Create a resource group
 
-Create a resource group with the [az group create](/cli/azure/group#az_group_create) command. An Azure resource group is a logical container into which Azure resources are deployed and managed. 
+Create a resource group with the [az group create](/cli/azure/group) command. An Azure resource group is a logical container into which Azure resources are deployed and managed. 
 
 The following example creates a resource group named *myResourceGroup* in the *eastus* location.
 
@@ -39,7 +37,7 @@ az group create --name myResourceGroup --location eastus
 ```
 ## Create virtual machine
 
-To create a virtual machine (VM), use the [az vm create](/cli/azure/vm#az_vm_create) command. 
+To create a virtual machine (VM), use the [az vm create](/cli/azure/vm) command. 
 
 The following example creates a VM named `myVM`. It also creates SSH keys, if they do not already exist in a default key location. To use a specific set of keys, use the `--ssh-key-value` option.  
 
@@ -73,7 +71,7 @@ After you create the VM, Azure CLI displays information similar to the following
 To create an SSH session with the VM, use the following command. Replace the IP address with the `publicIpAddress` value for your VM.
 
 ```bash 
-ssh <publicIpAddress>
+ssh azureuser@<publicIpAddress>
 ```
 
 ## Create the database
@@ -267,7 +265,7 @@ The Oracle database by default doesn't automatically start when you restart the 
 
 The final task is to configure some external endpoints. To set up the Azure Network Security Group that protects the VM, first exit your SSH session in the VM (should have been kicked out of SSH when rebooting in previous step). 
 
-1.  To open the endpoint that you use to access the Oracle database remotely, create a Network Security Group rule with [az network nsg rule create](/cli/azure/network/nsg/rule#az_network_nsg_rule_create) as follows: 
+1.  To open the endpoint that you use to access the Oracle database remotely, create a Network Security Group rule with [az network nsg rule create](/cli/azure/network/nsg/rule) as follows: 
 
     ```azurecli-interactive
     az network nsg rule create \
@@ -279,7 +277,7 @@ The final task is to configure some external endpoints. To set up the Azure Netw
         --destination-port-range 1521
     ```
 
-2.  To open the endpoint that you use to access Oracle EM Express remotely, create a Network Security Group rule with [az network nsg rule create](/cli/azure/network/nsg/rule#az_network_nsg_rule_create) as follows:
+2.  To open the endpoint that you use to access Oracle EM Express remotely, create a Network Security Group rule with [az network nsg rule create](/cli/azure/network/nsg/rule) as follows:
 
     ```azurecli-interactive
     az network nsg rule create \
@@ -291,7 +289,7 @@ The final task is to configure some external endpoints. To set up the Azure Netw
         --destination-port-range 5502
     ```
 
-3. If needed, obtain the public IP address of your VM again with [az network public-ip show](/cli/azure/network/public-ip#az_network_public_ip_show) as follows:
+3. If needed, obtain the public IP address of your VM again with [az network public-ip show](/cli/azure/network/public-ip) as follows:
 
     ```azurecli-interactive
     az network public-ip show \
@@ -313,7 +311,7 @@ You can log in by using the **SYS** account, and check the **as sysdba** checkbo
 
 ## Clean up resources
 
-Once you have finished exploring your first Oracle database on Azure and the VM is no longer needed, you can use the [az group delete](/cli/azure/group#az_group_delete) command to remove the resource group, VM, and all related resources.
+Once you have finished exploring your first Oracle database on Azure and the VM is no longer needed, you can use the [az group delete](/cli/azure/group) command to remove the resource group, VM, and all related resources.
 
 ```azurecli-interactive 
 az group delete --name myResourceGroup

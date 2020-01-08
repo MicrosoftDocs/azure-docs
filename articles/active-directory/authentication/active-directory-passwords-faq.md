@@ -4,15 +4,16 @@ description: Frequently asked questions about Azure AD self-service password res
 
 services: active-directory
 ms.service: active-directory
-ms.component: authentication
-ms.topic: article
-ms.date: 01/11/2018
+ms.subservice: authentication
+ms.topic: conceptual
+ms.date: 07/11/2018
 
-ms.author: joflore
-author: MicrosoftGuyJFlo
-manager: mtillman
+ms.author: iainfou
+author: iainfoulds
+manager: daveba
 ms.reviewer: sahenry
 
+ms.collection: M365-identity-device-management
 ---
 # Password management frequently asked questions
 
@@ -32,7 +33,7 @@ This FAQ is split into the following sections:
 
 * **Q:  Can my users register their own password reset data?**
 
-  > **A:** Yes. As long as password reset is enabled and they are licensed, users can go to the password reset registration portal (https://aka.ms/ssprsetup) to register their authentication information. Users can also register through the Access Panel (http://myapps.microsoft.com). To register through the Access Panel, they need to select their profile picture, select **Profile**, and then select the **Register for password reset** option.
+  > **A:** Yes. As long as password reset is enabled and they are licensed, users can go to the password reset registration portal (https://aka.ms/ssprsetup) to register their authentication information. Users can also register through the Access Panel (https://myapps.microsoft.com). To register through the Access Panel, they need to select their profile picture, select **Profile**, and then select the **Register for password reset** option.
   >
   >
 * **Q:  If I enable password reset for a group and then decide to enable it for everyone are my users required re-register?**
@@ -42,7 +43,7 @@ This FAQ is split into the following sections:
   >
 * **Q:  Can I define password reset data on behalf of my users?**
 
-  > **A:** Yes, you can do so with Azure AD Connect, PowerShell, the [Azure portal](https://portal.azure.com), or the Office 365 Admin center. For more information, see [Data used by Azure AD self-service password reset](howto-sspr-authenticationdata.md).
+  > **A:** Yes, you can do so with Azure AD Connect, PowerShell, the [Azure portal](https://portal.azure.com), or the [Microsoft 365 admin center](https://admin.microsoft.com). For more information, see [Data used by Azure AD self-service password reset](howto-sspr-authenticationdata.md).
   >
   >
 * **Q:  Can I synchronize data for security questions from on-premises?**
@@ -94,12 +95,10 @@ This FAQ is split into the following sections:
 * **Q:  How long should I wait to receive an email, SMS, or phone call from password reset?**
 
   > **A:** Emails, SMS messages, and phone calls should arrive in under a minute. The normal case is 5 to 20 seconds.
-    >If you don't receive the notification in this time frame:
-        > * Check your junk folder.
-        > * Check that the number or email being contacted is the one you expect.
-        > * Check that the authentication data in the directory is correctly formatted, for example, +1 4255551234 or *user@contoso.com*. 
-  >
-  >
+  > If you don't receive the notification in this time frame:
+  > * Check your junk folder.
+  > * Check that the number or email being contacted is the one you expect.
+  > * Check that the authentication data in the directory is correctly formatted, for example, +1 4255551234 or *user\@contoso.com*. 
 * **Q:  What languages are supported by password reset?**
 
   > **A:** The password reset UI, SMS messages, and voice calls are localized in the same languages that are supported in Office 365.
@@ -112,7 +111,7 @@ This FAQ is split into the following sections:
   >
 * **Q:  How can I educate my users about where to go to reset their passwords?**
 
-  > **A:** Try some of the suggestions in our [SSPR deployment](howto-sspr-deployment.md#email-based-rollout) article.
+  > **A:** Try some of the suggestions in our [SSPR deployment](howto-sspr-deployment.md#communications-plan) article.
   >
   >
 * **Q:  Can I use this page from a mobile device?**
@@ -167,7 +166,7 @@ This FAQ is split into the following sections:
   >
 * **Q:  I configured my policy to require users to use security questions for reset, but the Azure administrators seem to be configured differently.**
 
-  > **A:** This is the expected behavior. Microsoft enforces a strong default two-gate password reset policy for any Azure administrator role. This prevents administrators from using security questions. You can find more information about this policy in the [Password policies and restrictions in Azure Active Directory](concept-sspr-policy.md#administrator-password-policy-differences) article.
+  > **A:** This is the expected behavior. Microsoft enforces a strong default two-gate password reset policy for any Azure administrator role. This prevents administrators from using security questions. You can find more information about this policy in the [Password policies and restrictions in Azure Active Directory](concept-sspr-policy.md) article.
   >
   >
 * **Q:  If a user has registered more than the maximum number of questions required to reset, how are the security questions selected during reset?**
@@ -177,7 +176,7 @@ This FAQ is split into the following sections:
   >
 * **Q:  How long are the email and SMS one-time passcodes valid?**
 
-  > **A:** The session lifetime for password reset is 15 minutes. From the start of the password reset operation, the user has 15 minutes to reset their password. The email and SMS one-time passcode are invalid after this time period expires.
+  > **A:** The session lifetime for password reset is 15 minutes. From the start of the password reset operation, the user has 15 minutes to reset their password. The email and SMS one-time passcode are valid for 5 minutes during the password reset session.
   >
   >
 * **Q:  Can I block users from resetting their password?**
@@ -271,15 +270,15 @@ This FAQ is split into the following sections:
   >
 * **Q:  Is password writeback secure?  How can I be sure I won’t get hacked?**
 
-  > **A:** Yes, password writeback is secure. To read more about the four layers of security implemented by the password writeback service, check out the [Password writeback security model](howto-sspr-writeback.md#password-writeback-security-model) section in the [Password writeback overview](howto-sspr-writeback.md) article.
+  > **A:** Yes, password writeback is secure. To read more about the multiple layers of security implemented by the password writeback service, check out the [Password writeback security](concept-sspr-writeback.md#password-writeback-security) section in the [Password writeback overview](howto-sspr-writeback.md) article.
   >
   >
 
 ## Next steps
 
 * [How do I complete a successful rollout of SSPR?](howto-sspr-deployment.md)
-* [Reset or change your password](../active-directory-passwords-update-your-own-password.md)
-* [Register for self-service password reset](../active-directory-passwords-reset-register.md)
+* [Reset or change your password](../user-help/active-directory-passwords-update-your-own-password.md)
+* [Register for self-service password reset](../user-help/active-directory-passwords-reset-register.md)
 * [Do you have a licensing question?](concept-sspr-licensing.md)
 * [What data is used by SSPR and what data should you populate for your users?](howto-sspr-authenticationdata.md)
 * [What authentication methods are available to users?](concept-sspr-howitworks.md#authentication-methods)

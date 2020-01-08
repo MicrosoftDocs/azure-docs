@@ -1,45 +1,49 @@
 ---
-title: Computer Vision API JavaScript quickstart | Microsoft Docs
-titleSuffix: "Microsoft Cognitive Services"
-description: In this quickstart, you extract printed text from an image using Computer Vision with JavaScript in Cognitive Services.
+title: "Quickstart: Extract printed text- REST, JavaScript"
+titleSuffix: "Azure Cognitive Services"
+description: In this quickstart, you extract printed text from an image using the Computer Vision API with JavaScript.
 services: cognitive-services
-author: noellelacharite
-manager: nolachar
+author: PatrickFarley
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: computer-vision
+ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 05/16/2018
-ms.author: nolachar
+ms.date: 12/05/2019
+ms.author: pafarley
+ms.custom: seodec18
 ---
-# Quickstart: Extract printed text (OCR) with JavaScript
 
-In this quickstart, you extract printed text, also known as optical character recognition (OCR), from an image using Computer Vision.
+# Quickstart: Extract printed text (OCR) using the Computer Vision REST API and JavaScript
+
+> [!NOTE]
+> If you are extracting English language text, consider using the new [Read operation](https://docs.microsoft.com/azure/cognitive-services/computer-vision/concept-recognizing-text). A [JavaScript quickstart](https://docs.microsoft.com/azure/cognitive-services/computer-vision/quickstarts/javascript-hand-text) is available.
+
+In this quickstart, you will extract printed text with optical character recognition (OCR) from an image using the Computer Vision REST API. With the [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) method, you can detect printed text in an image and extract recognized characters into a machine-usable character stream.
+
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) before you begin.
 
 ## Prerequisites
 
-To use Computer Vision, you need a subscription key; see [Obtaining Subscription Keys](../Vision-API-How-to-Topics/HowToSubscribe.md).
+You must have a subscription key for Computer Vision. You can get a free trial key from [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Or, follow the instructions in [Create a Cognitive Services account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) to subscribe to Computer Vision and get your key. Then, [create environment variables](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) for the key and service endpoint string, named `COMPUTER_VISION_SUBSCRIPTION_KEY` and `COMPUTER_VISION_ENDPOINT`, respectively.
 
-## OCR request
+## Create and run the sample
 
-With the [OCR method](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc), you can detect printed text in an image and extract recognized characters into a machine-usable character stream.
+To create and run the sample, do the following steps:
 
-To run the sample, do the following steps:
-
-1. Copy the following and save it to a file such as `ocr.html`.
-1. Replace `<Subscription Key>` with your valid subscription key.
-1. Change the `uriBase` value to the location where you obtained your subscription keys, if necessary.
-1. Drag-and-drop the file into your browser.
-1. Click the `Read image` button.
-
-This sample uses jQuery 1.9.0. For a sample that uses JavaScript without jQuery, see [Intelligently generate a thumbnail](javascript-thumb.md).
+1. Copy the following code into a text editor.
+1. Optionally, replace the value of the `value` attribute for the `inputImage` control with the URL of a different image that you want to analyze.
+1. Save the code as a file with an `.html` extension. For example, `get-printed-text.html`.
+1. Open a browser window.
+1. In the browser, drag and drop the file into the browser window.
+1. When the webpage is displayed in the browser, choose the **Read image** button.
 
 ```html
 <!DOCTYPE html>
 <html>
 <head>
     <title>OCR Sample</title>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
 </head>
 <body>
 
@@ -49,18 +53,11 @@ This sample uses jQuery 1.9.0. For a sample that uses JavaScript without jQuery,
         // *** Update or verify the following values. ***
         // **********************************************
 
-        // Replace <Subscription Key> with your valid subscription key.
-        var subscriptionKey = "<Subscription Key>";
-
-        // You must use the same region in your REST call as you used to get your
-        // subscription keys. For example, if you got your subscription keys from
-        // westus, replace "westcentralus" in the URI below with "westus".
-        //
-        // Free trial subscription keys are generated in the westcentralus region.
-        // If you use a free trial subscription key, you shouldn't need to change
-        // this region.
-        var uriBase =
-            "https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/ocr";
+        let subscriptionKey = process.env['COMPUTER_VISION_SUBSCRIPTION_KEY'];
+        let endpoint = process.env['COMPUTER_VISION_ENDPOINT']
+        if (!subscriptionKey) { throw new Error('Set your environment variables for your subscription key and endpoint.'); }
+        
+        var uriBase = endpoint + "vision/v2.1/ocr";
 
         // Request parameters.
         var params = {
@@ -132,11 +129,9 @@ Image to read:
 </html>
 ```
 
-## OCR response
+## Examine the response
 
-A successful response is returned in JSON. The OCR results returned include text, bounding box for regions, lines, and words.
-
-The program produces output similar to the following JSON:
+A successful response is returned in JSON. The sample webpage parses and displays a successful response in the browser window, similar to the following example:
 
 ```json
 {
@@ -239,7 +234,7 @@ The program produces output similar to the following JSON:
 
 ## Next steps
 
-Explore a JavaScript application that uses Computer Vision to perform optical character recognition (OCR); create smart-cropped thumbnails; plus detect, categorize, tag, and describe visual features, including faces, in an image.
+Explore a JavaScript application that uses Computer Vision to perform optical character recognition (OCR); create smart-cropped thumbnails; plus detect, categorize, tag, and describe visual features, including faces, in an image. To rapidly experiment with the Computer Vision API, try the [Open API testing console](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
 
 > [!div class="nextstepaction"]
 > [Computer Vision API JavaScript Tutorial](../Tutorials/javascript-tutorial.md)

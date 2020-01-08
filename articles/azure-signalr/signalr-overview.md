@@ -1,66 +1,72 @@
 ---
-title: What is Azure SignalR | Microsoft Docs
-description: An overview of the Azure SignalR service.
-services: signalr
-documentationcenter: ''
-author: wesmc7777
-manager: cfowler
-editor: 
-
+title: What is Azure SignalR Service?
+description: Better understand what typical use case scenarios to use Azure SignalR, and learn the key benefits of Azure SignalR.
+author: sffamily
 ms.service: signalr
-ms.devlang: na
 ms.topic: overview
-ms.workload: tbd
-ms.date: 04/17/2018
-ms.author: wesmc
-#Customer intent: As a developer, I want to push real-time data in my ASP.NET apps. So that my clients are updated without the need to poll, or request updates.
+ms.date: 11/13/2019
+ms.author: zhshang
 ---
 
-# What is Azure SignalR Service
+# What is Azure SignalR Service?
 
-Microsoft Azure SignalR Service is currently in [Public Preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-The Azure SignalR Service is an Azure service based on [ASP.NET Core SignalR](https://docs.microsoft.com/aspnet/core/signalr/introduction). ASP.NET Core SignalR is an [open source library](https://github.com/aspnet/signalr) that simplifies the process of adding real-time web functionality to applications over HTTP. This real-time functionality allows the web server to push content updates to connected clients. As a result, clients are updated without the need to poll the server, or submit new HTTP requests for updates.
-
-This article provides an overview of the Azure SignalR Service. If you want to get started, start with the [ASP.NET Core quickstart](signalr-quickstart-dotnet-core.md).
-
-## What is SignalR Service used for? 
-
-There are many application types that require real-time content updates. The following example application types are good candidates for using the Azure SignalR Service:
-
-* Apps that require high frequency updates from the server. Examples are gaming, social networks, voting, auction, maps, and GPS apps.
-* Dashboards and monitoring apps. Examples include company dashboards, instant sales updates, or travel alerts.
-* Collaborative apps. Whiteboard apps and team meeting software are examples of collaborative apps.
-* Apps that require notifications. Social networks, email, chat, games, travel alerts, and many other apps use notifications.
-
-Internally, SignalR is an abstraction over a number of techniques used for building real-time web applications. [WebSockets](https://wikipedia.org/wiki/WebSocket) is the optimal transport, but other techniques like [Server-Sent Events (SSE)](https://wikipedia.org/wiki/Server-sent_events) and Long Polling are used when other options aren't available. SignalR automatically detects and initializes the appropriate transport based on the features supported on the server and client.
-
-## Developing SignalR apps
-
-Currently, there are two versions of SignalR you can use with your web applications: SignalR for ASP.NET, and ASP.NET Core SignalR, which is the newest version. The Azure SignalR Service is an Azure-managed service built on ASP.NET Core SignalR. 
-
-ASP.NET Core SignalR is a rewrite of the previous version. As a result, ASP.NET Core SignalR is not backward compatible with the earlier SignalR version. The APIs and behaviors are different. The ASP.NET Core SignalR SDK is .NET Standard so you can still use it with the .NET Framework. However, you must use the new APIs instead of old ones. If you're using SignalR and want to move to ASP.NET Core SignalR, or Azure SignalR Service, you'll need to change your code to handle differences in the APIs.
-
-With Azure SignalR Service, the server-side component of ASP.NET Core SignalR is hosted in Azure. However, since the technology is built on top of ASP.NET Core, you have the ability to run your actual web application on multiple platforms (Windows, Linux, and MacOS) while hosting with [Azure App Service](../app-service/app-service-web-overview.md), [IIS](https://docs.microsoft.com/aspnet/core/host-and-deploy/iis/index), [Nginx](https://docs.microsoft.com/aspnet/core/host-and-deploy/linux-nginx), [Apache](https://docs.microsoft.com/aspnet/core/host-and-deploy/linux-apache), [Docker](https://docs.microsoft.com/aspnet/core/host-and-deploy/docker/index). You can also use self-hosting in your own process.
-
-If the goals for your application include: supporting the latest functionality for updating web clients with real-time content updates, running across multiple platforms (Azure, Windows, Linux, and MacOS), and hosting in different environments, then the best choice could be leveraging the Azure SignalR Service.
+Azure SignalR Service simplifies the process of adding real-time web functionality to applications over HTTP. This real-time functionality allows the service to push content updates to connected clients, such as a single page web or mobile application. As a result, clients are updated without the need to poll the server, or submit new HTTP requests for updates.
 
 
-## Why not deploy SignalR myself?
+This article provides an overview of Azure SignalR Service.
 
-It is still a valid approach to deploy your own Azure web app supporting ASP.NET Core SignalR as a backend component to your overall web application.
+## What is Azure SignalR Service used for?
 
-One of the key reasons to use the Azure SignalR Service is simplicity. With Azure SignalR Service, you don't need to handle problems like performance, scalability, availability. These issues are handled for you with a 99.9% service-level agreement.
+Any scenario that requires pushing data from server to client in real time, can use Azure SignalR Service.
 
-Also, WebSockets are typically the perferred technique to support real-time content updates. However, load balancing a large number of persistent WebSocket connections becomes a complicated problem to solve as you scale. Common solutions leverage: DNS load balancing, hardware load balancers, and software load balancing. Azure SignalR Service handles this problem for you.
+Traditional real-time features that often require polling from server, can also use Azure SignalR Service.
 
-Another reason may be you have no requirements to actually host a web application at all. The logic of your web application may leverage [Serverless computing](https://azure.microsoft.com/overview/serverless-computing/). For example, maybe your code is only hosted and executed on demand with [Azure Functions](https://docs.microsoft.com/azure/azure-functions/) triggers. This scenario can be tricky because your code only runs on-demand and doesn't maintain long connections with clients. Azure SignalR Service can handle this situation since the service already manages connections for you.
+Azure SignalR Service has been used in a wide variety of industries, for any application type that requires real-time content updates. We list some examples that are good to use Azure SignalR Service:
 
-## How does it scale?
+* **High frequency data updates:** gaming, voting, polling, auction.
+* **Dashboards and monitoring:** company dashboard, financial market data, instant sales update, multi-player game leader board, and IoT monitoring.
+* **Chat:** live chat room, chat bot, on-line customer support, real-time shopping assistant, messenger, in-game chat, and so on.
+* **Real-time location on map:** logistic tracking, delivery status tracking, transportation status updates, GPS apps.
+* **Real time targeted ads:** personalized real time push ads and offers, interactive ads.
+* **Collaborative apps:** coauthoring, whiteboard apps and team meeting software.
+* **Push notifications:** social network, email, game, travel alert.
+* **Real-time broadcasting:** live audio/video broadcasting, live captioning, translating, events/news broadcasting.
+* **IoT and connected devices:** real-time IoT metrics, remote control, real-time status, and location tracking.
+* **Automation:** real-time trigger from upstream events.
 
-It is common to scale SignalR with SQL Server, Azure Service Bus, or Redis Cache. Azure SignalR Service handles the scaling approach for you. The performance and cost is comparable to these approaches without the complexity of dealing with these other services. All you have to do is update the unit count for your service. Each service unit supports up to 1000 client connections.
+## What are the benefits using Azure SignalR Service?
 
-## Next steps
-* [Quickstart: Create a chat room with Azure SignalR](signalr-quickstart-dotnet-core.md)  
-  
+**Standard based:**
 
+SignalR provides an abstraction over a number of techniques used for building real-time web applications. [WebSockets](https://wikipedia.org/wiki/WebSocket) is the optimal transport, but other techniques like [Server-Sent Events (SSE)](https://wikipedia.org/wiki/Server-sent_events) and Long Polling are used when other options aren't available. SignalR automatically detects and initializes the appropriate transport based on the features supported on the server and client.
+
+**Native ASP.NET Core support:**
+
+SignalR Service provides native programming experience with ASP.NET Core and ASP.NET. Developing new SignalR application with SignalR Service, or migrating from existing SignalR based application to SignalR Service requires minimal efforts.
+SignalR Service also supports ASP.NET Core's new feature, Server-side Blazor.
+
+**Broad client support:**
+
+SignalR Service works with a broad range of clients, such as web and mobile browsers, desktop apps, mobile apps, server process, IoT devices, and game consoles. SignalR Service offers SDKs in different languages. In addition to native ASP.NET Core or ASP.NET C# SDKs, SignalR Service also provides JavaScript client SDK, to enable web clients, and many JavaScript frameworks. Java client SDK is also supported for Java applications, including Android native apps. SignalR Service supports REST API, and serverless through integrations with Azure Functions and Event Grid.
+
+**Handle large-scale client connections:**
+
+SignalR Service is designed for large-scale real-time applications. SignalR Service allows multiple instances to work together to scale to millions of client connections. The service also supports multiple global regions for sharding, high availability, or disaster recovery purposes.
+
+**Remove the burden to self-host SignalR:**
+
+Compared to self-hosted SignalR applications, switching to SignalR Service will remove the need to manage back planes that handle the scales and client connections. The fully managed service also simplifies web applications and saves hosting cost. SignalR Service offers global reach and world-class data center and network, scales to millions of connections, guarantees SLA, while providing all the compliance and security at Azure standard.
+
+![Managed SignalR Service](./media/signalr-overview/managed-signalr-service.png)
+
+**Offer rich APIs for different messaging patterns:**
+
+SignalR Service allows the server to send messages to a particular connection, all connections, or a subset of connections that belong to a specific user, or have been placed in an arbitrary group.
+
+## How to use Azure SignalR Service
+
+There are many different ways to program with Azure SignalR Service, as some of the samples listed here:
+
+- **[Scale an ASP.NET Core SignalR App](signalr-concept-scale-aspnet-core.md)** - Integrate Azure SignalR Service with an ASP.NET Core SignalR application to scale out to hundreds of thousands of connections.
+- **[Build serverless real-time apps](signalr-concept-azure-functions.md)** - Use Azure Functions' integration with Azure SignalR Service to build serverless real-time applications in languages such as JavaScript, C#, and Java.
+- **[Send messages from server to clients via REST API](https://github.com/Azure/azure-signalr/blob/dev/docs/rest-api.md)** - Azure SignalR Service provides REST API to enable applications to post messages to clients connected with SignalR Service, in any REST capable programming languages.

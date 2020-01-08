@@ -3,13 +3,14 @@ title: How to teach with Conversation Learner - Microsoft Cognitive Services | M
 titleSuffix: Azure
 description: Learn how to teach with Conversation Learner.
 services: cognitive-services
-author: v-jaswel
+author: nitinme
 manager: nolachar
 ms.service: cognitive-services
-ms.component: conversation-learner
+ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
-ms.author: v-jaswel
+ms.author: nitinme
+ROBOTS: NOINDEX
 ---
 
 # How to teach with Conversation Learner 
@@ -51,9 +52,10 @@ System actions prior to previous turn | 4 |
 Entities present in turns prior to current turn | 4 | 
 User utterances prior to current turn | 5 | 
 
-Note that action selection does take the content of system actions -- the text, card content, or API name or behavior -- only the identity of the system action.  As a result, changing the content of an action will not alter the behavior of the action selection model.
-
-Further, note that the contents/values of entities are not used -- only their presence/absence.
+> [!NOTE]
+> Action selection does not take the content of system actions -- the text, card content, or API name or behavior -- only the identity of the system action.  As a result, changing the content of an action will not alter the behavior of the action selection model.
+>
+> Further, that the contents/values of entities are not used -- only their presence/absence.
 
 If action selection is not behaving as expected, here are possible remedies:
 

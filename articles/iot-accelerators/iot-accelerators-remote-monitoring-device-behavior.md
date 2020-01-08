@@ -1,5 +1,5 @@
 ---
-title: Simulated device behavior in remote monitoring solution - Azure | Microsoft Docs
+title: Simulated device in Remote Monitoring solution - Azure | Microsoft Docs
 description: This article describes how to use JavaScript to define the behavior of a simulated device in the remote monitoring solution.
 author: dominicbetts
 manager: timlt
@@ -17,16 +17,19 @@ The article [Understand the device model schema](iot-accelerators-remote-monitor
 - **State** JavaScript files that run at fixed intervals to update the internal state of the device.
 - **Method** JavaScript files that run when the solution invokes a method on the device.
 
+> [!NOTE]
+> Device model behaviors are only for simulated devices hosted in the device simulation service. If you want to create a real device, see [Connect your device to the Remote Monitoring solution accelerator](iot-accelerators-connecting-devices.md).
+
 In this article, you learn how to:
 
 >[!div class="checklist"]
 > * Control the state of a simulated device
-> * Define how a simulated device reponds to a method call from the Remote Monitoring solution
+> * Define how a simulated device responds to a method call from the Remote Monitoring solution
 > * Debug your scripts
 
 ## State behavior
 
-The [Simulation](iot-accelerators-remote-monitoring-device-schema.md#simulation) section of the device model schema defines the internal state of a simulated device:
+The [Simulation](../../articles/iot-accelerators/iot-accelerators-remote-monitoring-device-schema.md#simulation) section of the device model schema defines the internal state of a simulated device:
 
 - `InitialState` defines initial values for all the properties of the device state object.
 - `Script` identifies a JavaScript file that runs on a schedule to update the device state.
@@ -148,11 +151,11 @@ function main(context, previousState, previousProperties) {
 }
 ```
 
-You can view the complete [chiller-01-state.js](https://github.com/Azure/device-simulation-dotnet/blob/master/Services/data/devicemodels/scripts/chiller-01-state.js) on Github.
+You can view the complete [chiller-01-state.js](https://github.com/Azure/device-simulation-dotnet/blob/master/Services/data/devicemodels/scripts/chiller-01-state.js) on GitHub.
 
 ## Method behavior
 
-The [CloudToDeviceMethods](iot-accelerators-remote-monitoring-device-schema.md#cloudtodevicemethods) section of the device model schema defines the methods a simulated device responds to.
+The [CloudToDeviceMethods](../../articles/iot-accelerators/iot-accelerators-remote-monitoring-device-schema.md#cloudtodevicemethods) section of the device model schema defines the methods a simulated device responds to.
 
 The following example shows the list of methods supported by a simulated chiller device:
 
@@ -197,7 +200,7 @@ The `context` parameter has the following properties:
 
 The `state` parameter contains the state of the device as maintained by the device simulation service.
 
-The `properties` parameter contains the properties of the device that are writtem as reported properties to the IoT Hub device twin.
+The `properties` parameter contains the properties of the device that are written as reported properties to the IoT Hub device twin.
 
 There are three global functions you can use to help implement the behavior of the method:
 
@@ -246,7 +249,7 @@ It's not possible to attach a debugger to the Javascript interpreter used by the
 
 If there is a syntax error the interpreter fails, and writes a `Jint.Runtime.JavaScriptException` entry to the service log.
 
-The [Create a simulated device](iot-accelerators-remote-monitoring-test.md) article shows you how to run the device simulation service locally. Running the service locally makes it easier to debug your simulated devices before you deploy them to the cloud.
+The [Running the service locally](https://github.com/Azure/device-simulation-dotnet#running-the-service-locally-eg-for-development-tasks) article on GitHub shows you how to run the device simulation service locally. Running the service locally makes it easier to debug your simulated devices before you deploy them to the cloud.
 
 ## Next steps
 
@@ -255,10 +258,10 @@ This article described how to define the behavior of your own custom simulated d
 <!-- Repeat task list from intro -->
 >[!div class="checklist"]
 > * Control the state of a simulated device
-> * Define how a simulated device reponds to a method call from the Remote Monitoring solution
+> * Define how a simulated device responds to a method call from the Remote Monitoring solution
 > * Debug your scripts
 
-Now you have learned how to specify the behavior of a simulated device, the suggested next step is to learn how to [Create a simulated device](iot-accelerators-remote-monitoring-test.md).
+Now that you've learned how to specify the behavior of a simulated device, the suggested next step is to learn how to [Create a simulated device](iot-accelerators-remote-monitoring-create-simulated-device.md).
 
 For more developer information about the Remote Monitoring solution, see:
 

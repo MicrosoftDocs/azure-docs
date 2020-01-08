@@ -1,0 +1,11 @@
+- name: Azure
+  tocHref: /azure/
+  topicHref: /azure/index
+  items:
+  - name: Virtual Machines
+    tocHref: /azure/active-directory/managed-identities-azure-resources/
+    topicHref: /azure/virtual-machines/index
+    items:
+    - name: Linux
+      tocHref: /azure/active-directory/managed-identities-azure-resources/
+      topicHref: /azure/virtual-machines/linux/index

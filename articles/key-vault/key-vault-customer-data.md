@@ -1,19 +1,15 @@
 ---
-title: Azure Key Vault customer data features | Microsoft Docs
+title: Azure Key Vault customer data features - Azure Key Vault | Microsoft Docs
 description: Learn about customer data in Key Vault
 services: key-vault
-documentationcenter: ''
-author: barclayn
-manager: mbaldwin
+author: msmbaldwin
+manager: rkarlin
 tags: azure-resource-manager
 
 ms.service: key-vault
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: reference
-ms.date: 05/22/2018
-ms.author: barclayn
+ms.date: 01/07/2019
+ms.author: mbaldwin
 
 ---
 # Azure Key Vault customer data features​
@@ -33,7 +29,7 @@ The following information identifies customer data within Azure Key Vault:
 - Certificate contacts may contain user email addresses, names, or phone numbers
 - Certificate issuers may contain email addresses, names, phone numbers, account credentials, and organizational details
 - Arbitrary tags can be applied to Objects in Azure Key Vault. These objects include vaults, keys, secrets, certificates, and storage accounts. The tags used may contain personal data
-- Azure Key Vault access logs contain object-IDs, [UPNs](../active-directory/connect/active-directory-aadconnect-userprincipalname.md), and IP addresses for each REST API call
+- Azure Key Vault access logs contain object-IDs, [UPNs](../active-directory/hybrid/plan-connect-userprincipalname.md), and IP addresses for each REST API call
 - Azure Key Vault diagnostic logs may contain object-IDs and IP addresses for REST API calls
 
 ## Deleting customer data
@@ -44,11 +40,11 @@ Soft delete allows you to recover deleted data for 90 days after deletion. When 
 
 ## Exporting customer data
 
-The same REST APIs, portal experience, and SDKs that are used to create vaults, keys, secrets, certificates, and managed storage accounts are also allow you to view and export these objects.
+The same REST APIs, portal experience, and SDKs that are used to create vaults, keys, secrets, certificates, and managed storage accounts  also allow you to view and export these objects.
 
 Azure Key Vault access logging is an optional feature that can be turned on to generate logs for each REST API call. These logs will be transferred to a storage account in your subscription where you apply the retention policy that meets your organization's requirements.
 
-Azure Key Vault diagnostic logs containing personal data can be retrieved by making an export request in the User Privacy portal. This request must be made by the tenant administrator.
+Azure Key Vault diagnostic logs that contain personal data can be retrieved by making an export request in the User Privacy portal. This request must be made by the tenant administrator.
 
 ## Next steps
 
@@ -56,14 +52,10 @@ Azure Key Vault diagnostic logs containing personal data can be retrieved by mak
 
 - [Azure Key Vault soft-delete overview](key-vault-soft-delete-cli.md)
 
-- [Vaults](https://docs.microsoft.com/rest/api/keyvault/vaults)
-
 - [Azure Key Vault key operations](https://docs.microsoft.com/rest/api/keyvault/key-operations)
 
 - [Azure Key Vault secret operations](https://docs.microsoft.com/rest/api/keyvault/secret-operations)
 
 - [Azure Key Vault certificates and policies](https://docs.microsoft.com/rest/api/keyvault/certificates-and-policies)
-
-- [Certificate issuers](https://docs.microsoft.com/rest/api/keyvault/certificate-issuers)
 
 - [Azure Key Vault storage account operations](https://docs.microsoft.com/rest/api/keyvault/storage-account-key-operations)

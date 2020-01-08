@@ -1,23 +1,23 @@
-﻿---
+---
 title: Reference - trust frameworks in Azure Active Directory B2C | Microsoft Docs
 description: A topic about Azure Active Directory B2C custom policies and the Identity Experience Framework.
 services: active-directory-b2c
-author: davidmu1
-manager: mtillman
+author: mmacy
+manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/04/2017
-ms.author: davidmu
-ms.component: B2C
+ms.author: marsma
+ms.subservice: B2C
 ---
 
 # Define Trust Frameworks with Azure AD B2C Identity Experience Framework
 
 Azure Active Directory B2C (Azure AD B2C) custom policies that use the Identity Experience Framework provide your organization with a centralized service. This service reduces the complexity of identity federation in a large community of interest. The complexity is reduced to a single trust relationship and a single metadata exchange.
 
-Azure AD B2C custom policies that use the Identity Experience Framework to enable you to answer the following questions:
+Azure AD B2C custom policies use the Identity Experience Framework to enable you to answer the following questions:
 
 - What are the legal, security, privacy, and data protection policies that must be adhered to?
 - Who are the contacts and what are the processes for becoming an accredited participant?
@@ -85,7 +85,7 @@ In terms of implementation, the TF specification consists of a set of policies t
 
 - The metadata for establishing network communications between participants. This metadata, along with the technical profiles, are used during a transaction to plumb “on the wire” interoperability between the relying party and other community participants.
 
-- The protocol conversion if any (for example, SAML, OAuth2, WS-Federation, and OpenID Connect).
+- The protocol conversion if any (for example, SAML 2.0, OAuth2, WS-Federation, and OpenID Connect).
 
 - The authentication requirements.
 

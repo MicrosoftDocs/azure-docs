@@ -1,15 +1,11 @@
 ---
 title: Get started with Azure Service Fabric CLI 
 description: Learn how to use the Azure Service Fabric CLI. Learn how to connect to a cluster and how to manage applications.
-services: service-fabric
-author: Christina-Kang
-manager: timlt
+author: jeffj6123
 
-ms.service: service-fabric
 ms.topic: conceptual
-ms.date: 05/23/2018
-ms.author: bikang
-
+ms.date: 9/17/2019
+ms.author: jejarry
 ---
 # Azure Service Fabric CLI
 
@@ -21,7 +17,7 @@ The Azure Service Fabric command-line interface (CLI) is a command-line utility 
 
 Prior to installation, make sure your environment has both Python and pip installed. For more information, see the [pip quickstart documentation](https://pip.pypa.io/en/latest/quickstart/) and the official [Python installation documentation](https://wiki.python.org/moin/BeginnersGuide/Download).
 
-The CLI supports Python versions 2.7, 3.5, and 3.6. Python 3.6 is the recommended version, since Python 2.7 will reach end of support soon.
+The CLI supports Python versions 2.7, 3.5, 3.6, and 3.7. Python 3.x is the recommended version, since Python 2.7 will reach end of support soon.
 
 ### Service Fabric target runtime
 
@@ -29,7 +25,10 @@ The Service Fabric CLI is meant to support the latest runtime version of the Ser
 
 | CLI version   | supported runtime version |
 |---------------|---------------------------|
-| Latest (~=5)  | Latest (~=6.2)            |
+| Latest (~=8)  | Latest (~=6.5)            |
+| 7.1.0         | 6.4                       |
+| 6.0.0         | 6.3                       |
+| 5.0.0         | 6.2                       |
 | 4.0.0         | 6.1                       |
 | 3.0.0         | 6.0                       |
 | 1.1.0         | 5.6, 5.7                  |
@@ -52,11 +51,11 @@ There are many ways to install pip and Python on your platform. Here are some st
 
 For Windows 10, Windows Server 2016, and Windows Server 2012 R2, use the standard official installation instructions. The Python installer also installs pip by default.
 
-1. Go to the official [Python downloads page](https://www.python.org/downloads/), and download the latest release of Python 3.6.
+1. Go to the official [Python downloads page](https://www.python.org/downloads/), and download the latest release of Python 3.7.
 
 2. Start the installer.
 
-3. At the bottom of the prompt, select **Add Python 3.6 to PATH**.
+3. At the bottom of the prompt, select **Add Python 3.7 to PATH**.
 
 4. Select **Install Now**, and finish the installation.
 
@@ -129,7 +128,7 @@ For MacOS, we recommend that you use the [HomeBrew package manager](https://brew
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
 
-Then from the terminal, install Python 3.6, pip, and the Service Fabric CLI by running the following commands:
+Then from the terminal, install Python 3.7, pip, and the Service Fabric CLI by running the following commands:
 
 ```bash
 brew install python3

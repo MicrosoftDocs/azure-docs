@@ -1,27 +1,23 @@
 ---
-title: Azure Reserve Instances Windows software costs - Azure Billing | Microsoft Docs
-description: Learn which Windows software meters are not included in Azure Reserved VM Instance costs.
-services: 'billing'
-documentationcenter: ''
-author: manish-shukla01
-manager: manshuk
-editor: ''
+title: Reservations software costs for Azure
+description: Learn which software meters are not included in Azure Reserved VM Instance costs.
+author: yashar
+manager: yashar
 tags: billing
-
-ms.service: billing
+ms.service: cost-management-billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/09/2018
-ms.author: manshuk
+ms.date: 11/14/2019
+ms.author: banders
 
 ---
-# Windows software costs not included with Azure Reserved Instances
+# Software costs not included with Azure Reserved VM Instances
 
-If you don't have an Azure Hybrid Use Benefit on your reserved instance virtual machines, then you are charged for the Windows software meters listed in the following section.
+Virtual machine reserved instance and SQL reserved capacity discounts apply only to the infrastructure costs and not to the software costs. If you use Windows VM and don't have an Azure Hybrid Benefit on your reserved virtual machine instances, then you are charged for the software meters listed in the following section. For SQL PaaS deployments, the IP cost will continue to be charged using separate meter if Azure Hybrid Benefit is not selected.
 
-## Windows software meters not included in reserved instance cost
+## Windows software meters not included in reservation cost
 
 | MeterId | MeterName in usage file | Used by VM |
 | ------- | ------------------------| --- |
@@ -46,21 +42,34 @@ If you don't have an Azure Hybrid Use Benefit on your reserved instance virtual 
 | 904c5c71-1eb7-43a6-961c-d305a9681624 | Reservation-Windows Svr (256 Core) | All except B Series |
 | 6fdab81b-4284-4df9-8939-c237cc7462fe | Reservation-Windows Svr (96 Core) | All except B Series |
 
-You can get the cost of each of these meters through Azure RateCard API. For information on how to get the rates for an azure meter, see [Get price and metadata information for resources used in an Azure subscription](https://msdn.microsoft.com/library/azure/mt219004).
+## Cloud services software meters not included in reservation cost
+
+| MeterId | MeterName in usage file |
+| ------- | ------------------------|
+|ac9d47ff-ff68-4afc-a145-0c321cf8d0d5|Cloud Services 1 vCPU License|
+|e0434559-19ee-4132-9c46-05ad4044f3f7|Cloud Services 2 vCPU License|
+|6ecc834e-39b3-48b3-8d10-cc5626bacb66|Cloud Services 4 vCPU License|
+|13103090-ca72-4825-ab12-7f16c4931d95|Cloud Services 8 vCPU License|
+|ecd2bb6e-45a5-49aa-a58b-3947ba21c364|Cloud Services 16 vCPU License|
+|de2c7f1d-06dc-4b16-bc8b-c2ec5f4c8aee|Cloud Services 20 vCPU License|
+|ca1af837-4b35-47f5-8d14-b1988149c4ca|Cloud Services 32 vCPU License|
+|dc72ee45-2ab7-4698-b435-e2cf10d1f9f6|Cloud Services 64 vCPU License|
+|7a803026-244c-4659-834c-11e6b2d6b76f|Cloud Services 80 vCPU License|
+
+## Get rates for Azure meters
+
+You can get the cost of each of these meters through Azure RateCard API. For information on how to get the rates for an azure meter, see [Get price and metadata information for resources used in an Azure subscription](/previous-versions/azure/reference/mt219004(v=azure.100)).
 
 ## Next steps
-To learn more about Azure Reserved Instances, see the following articles:
+To learn more about reservations for Azure, see the following articles:
 
-- [Save money on virtual machines with Azure Reserved Instances](billing-save-compute-costs-reservations.md)
-- [Prepay for Virtual Machines with Reserved Instances](../virtual-machines/windows/prepay-reserved-vm-instances.md)
-- [Manage reserved instances](billing-manage-reserved-vm-instance.md)
-- [Understand how the reserved instance discount is applied](billing-understand-vm-reservation-charges.md)
-- [Understand reserved instance usage for your Pay-As-You-Go subscription](billing-understand-reserved-instance-usage.md)
-- [Understand reserved instance usage for your Enterprise enrollment](billing-understand-reserved-instance-usage-ea.md)
+- [What are reservations for Azure?](billing-save-compute-costs-reservations.md)
+- [Prepay for Virtual Machines with Azure Reserved VM Instances](../virtual-machines/windows/prepay-reserved-vm-instances.md)
+- [Manage reservations for Azure](billing-manage-reserved-vm-instance.md)
+- [Understand how the reservation discount is applied](billing-understand-vm-reservation-charges.md)
+- [Understand reservation usage for your Pay-As-You-Go subscription](billing-understand-reserved-instance-usage.md)
+- [Understand reservation usage for your Enterprise enrollment](billing-understand-reserved-instance-usage-ea.md)
 
-## Need help? Contact support
+## Need help? Contact us
 
-If you still have further questions, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
-
-
-
+If you have questions or need help,  [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).

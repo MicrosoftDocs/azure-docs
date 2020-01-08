@@ -1,18 +1,18 @@
 ---
 layout: LandingPage
 title: Azure billing and cost management documentation | Microsoft Docs
-description: Learn how to understand your Azure billing, manage and monitor usage and costs, and manage your account and subscriptions. 
+description: Learn how to understand your Azure billing, manage and monitor usage and costs, and manage your account and subscriptions.
 services: billing
 author: cwatson-cat
 manager: dougeby
 layout: LandingPage
-ms.assetid:	
-ms.service: billing
+ms.assetid:
+ms.service: cost-management-billing
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
-ms.date: 05/24/2018
-ms.author: cwatson
+ms.date: 02/19/2019
+ms.author: banders
 ---
 
 # Azure billing and cost management documentation
@@ -45,9 +45,10 @@ Learn how to understand your Azure billing, monitor usage and costs, and manage 
                         <h3>Manage costs</h3>
                         <p>
                         <a href="/azure/billing/billing-getting-started">Prevent unexpected costs</a><br/>
-                        <a href="/azure/billing/billing-set-up-alerts">Set up billing alerts</a><br/>
-                        <a href="https://azure.microsoft.com/pricing/calculator/">Calculate pricing</a><br/>
-                        <a href="/azure/azure-resource-manager/resource-group-using-tags?toc=/azure/billing/TOC.json">Use resource tags</a>
+                        <a href="/azure/azure-resource-manager/resource-group-using-tags?toc=/azure/billing/TOC.json">Use resource tags</a><br/>
+                        <a href="/azure/cost-management/quick-acm-cost-analysis?toc=/azure/billing/TOC.json">Start analyzing costs</a><br/>
+                        <a href="/azure/cost-management/tutorial-acm-create-budgets?toc=/azure/billing/TOC.json">Create and manage budgets</a><br/>
+                        <a href="/azure/cost-management/tutorial-acm-opt-recommendations?toc=/azure/billing/TOC.json">Optimize recommendations</a>
                         </p>
                     </div>
                 </div>
@@ -97,8 +98,8 @@ Learn how to understand your Azure billing, monitor usage and costs, and manage 
                         <p>
                         <a href="/azure/billing/billing-manage-access">Grant access to billing</a><br/>
                         <a href="/azure/billing/billing-how-to-pay-by-invoice">Pay by invoice</a><br/>
-                        <a href="/azure/billing/billing-manage-reserved-vm-instance">Manage reserved instances</a><br/>
-                        <a href="/azure/billing/billing-understand-reserved-instance-usage-ea">Usage for reserved instances</a>
+                        <a href="/azure/billing/billing-manage-reserved-vm-instance">Manage Azure Reservations</a><br/>
+                        <a href="/azure/billing/billing-understand-reserved-instance-usage-ea">Usage for Azure Reservations</a>
                         </p>
                     </div>
                 </div>
@@ -127,11 +128,12 @@ Learn how to understand your Azure billing, monitor usage and costs, and manage 
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Save with Reserved VM Instances</h3>
+                        <h3>Save with Azure Reservations</h3>
                         <p>
-                        <a href="/azure/billing/billing-save-compute-costs-reservations">What are reserved instances?</a> <br/>
-                        <a href="/azure/virtual-machines/windows/prepay-reserved-vm-instances?toc=/azure/billing/TOC.json">Buy a reserved instance</a><br/>
-                        <a href="/azure/billing/billing-understand-vm-reservation-charges">How discount is applied</a><br/>
+                        <a href="/azure/billing/billing-save-compute-costs-reservations">What are Azure Reservations?</a> <br/>
+                        <a href="/azure/virtual-machines/windows/prepay-reserved-vm-instances?toc=/azure/billing/TOC.json">Buy a Reserved VM Instance</a><br/>
+                        <a href="/azure/sql-database/sql-database-reserved-capacity?toc=/azure/billing/TOC.json">Buy SQL Database reserved capacity</a><br/>
+                        <a href="/azure/billing/billing-understand-vm-reservation-charges">How VM discount is applied</a><br/>
                         <a href="/azure/billing/billing-reserved-instance-windows-software-costs">Software costs not included</a>
                         </p>
                     </div>
@@ -162,7 +164,6 @@ Learn how to understand your Azure billing, monitor usage and costs, and manage 
                 <div class="card">
                     <div class="cardText">
                         <h3>Enterprise subscription: requires EA portal access</h3>
-                        <style>.p-test:after { font-family: docons; content: "\E9D0";}</style>
                         <p>
                         <a class="p-test" href="https://ea.azure.com/helpdocs/createADepartment" data-linktype="external">Manage departments<span class="docon docon-navigate-external"></span></a>
                         <br>
@@ -179,5 +180,5 @@ Learn how to understand your Azure billing, monitor usage and costs, and manage 
             </div>
         </div>
     </li>
-    
+
 </ul>

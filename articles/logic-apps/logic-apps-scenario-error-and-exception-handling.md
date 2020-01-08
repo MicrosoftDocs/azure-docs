@@ -1,24 +1,14 @@
 ---
-title: Exception handling & error logging scenario - Azure Logic Apps | Microsoft Docs
-description: Describes a real use case about advanced exception handling and error logging for Azure Logic Apps
-keywords: ''
+title: Exception handling & error logging scenario
+description: Real use case and scenario for advanced exception handling and error logging in Azure Logic Apps
 services: logic-apps
+ms.suite: integration
 author: hedidin
-manager: jeconnoc
-editor: ''
-documentationcenter: ''
-
-ms.assetid: 63b0b843-f6b0-4d9a-98d0-17500be17385
-ms.service: logic-apps
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.reviewer: klam, estfan, logicappspm
 ms.topic: article
-ms.custom: H1Hack27Feb2017
 ms.date: 07/29/2016
-ms.author: LADocs; b-hoedid
-
 ---
+
 # Scenario: Exception handling and error logging for logic apps
 
 This scenario describes how you can extend a logic app to better support exception handling. 
@@ -35,7 +25,7 @@ Here's the story as the use case for this scenario:
 A well-known healthcare organization engaged us to develop an Azure solution 
 that would create a patient portal by using Microsoft Dynamics CRM Online. 
 They needed to send appointment records between the Dynamics CRM Online patient portal and Salesforce. 
-We were asked to use the [HL7 FHIR](http://www.hl7.org/implement/standards/fhir/) standard for all patient records.
+We were asked to use the [HL7 FHIR](https://www.hl7.org/implement/standards/fhir/) standard for all patient records.
 
 The project had two major requirements:  
 
@@ -75,7 +65,7 @@ let's start at the top. We must use a **Request** trigger because the parent log
 
 We are using a **Request** trigger as shown in the following example:
 
-```` json
+``` json
 "triggers": {
         "request": {
           "type": "request",
@@ -108,7 +98,7 @@ We are using a **Request** trigger as shown in the following example:
         }
       },
 
-````
+```
 
 
 ## Steps
@@ -467,8 +457,8 @@ Every document in Azure Cosmos DB must have a unique ID.
 We are using `PatientId` and adding a timestamp that is converted to a Unix timestamp value (double). 
 We truncate the value to remove the fractional value.
 
-You can view the source code of our error controller API 
-[from GitHub](https://github.com/HEDIDIN/LogicAppsExceptionManagementApi/blob/master/Logic App Exception Management API/Controllers/ErrorController.cs).
+You can view the source code of our error controller API from
+[GitHub](https://github.com/HEDIDIN/LogicAppsExceptionManagementApi/blob/master/LogicAppsExceptionManagementApi/Controllers/LogController.cs).
 
 We call the API from a logic app by using the following syntax:
 
@@ -520,4 +510,4 @@ The source code for the Logic Apps exception management API application is avail
 
 * [View more logic app examples and scenarios](../logic-apps/logic-apps-examples-and-scenarios.md)
 * [Learn about monitoring logic apps](../logic-apps/logic-apps-monitor-your-logic-apps.md)
-* [Create automated deployment templates for logic apps](../logic-apps/logic-apps-create-deploy-template.md)
+* [Automate logic app deployment](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)

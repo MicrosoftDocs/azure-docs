@@ -82,7 +82,7 @@ namespace, and a security token that confers the "Listen" right on that name.
 When the WebSocket is accepted by the service, the registration is complete and
 the established WebSocket is kept alive as the "control channel" for
 enabling all subsequent interactions. The service allows up to 25 concurrent
-listeners one Hybrid Connection. The quota for AppHooks is to be determined.
+listeners for one Hybrid Connection. The quota for AppHooks is to be determined.
 
 For Hybrid Connections, if there are two or more active listeners, incoming
 connections are balanced across them in random order; fair distribution is
@@ -514,7 +514,7 @@ The JSON content for `request` is as follows:
   the query string portion, which is stripped of ALL `sb-hc-` prefixed parameters.
 * **method** - string. This is the method of the request, per [RFC7231, Section 4](https://tools.ietf.org/html/rfc7231#section-4). The `CONNECT` method MUST NOT
  be used.
-* **body** – boolean. Indicates whether one more more binary body frame follows.
+* **body** – boolean. Indicates whether one or more binary body frame follows.
 
 ``` JSON
 {

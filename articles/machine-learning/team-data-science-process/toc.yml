@@ -15,8 +15,6 @@
     href: lifecycle-deployment.md
   - name: 5. Customer acceptance
     href: lifecycle-acceptance.md
-  - name: With Azure ML
-    href: http://aka.ms/datascienceprocess
 - name: Roles and tasks
   href: roles-tasks.md
   items:
@@ -28,8 +26,6 @@
     href: project-lead-tasks.md
   - name: Individual contributor
     href: project-ic-tasks.md
-- name: Project structure
-  href: https://github.com/Azure/Azure-TDSP-ProjectTemplate
 - name: Project planning
   href: team-data-science-process-project-templates.md
 - name: Development
@@ -51,22 +47,6 @@
 - name: Worked-out examples
   href: walkthroughs.md
   items:
-  - name: Azure Machine Learning
-    href: walkthroughs-aml-with-tdsp.md
-    items:
-    - name: Sentiment classification using Keras & Scikit Learn
-      href: predict-twitter-sentiment.md
-    - name: Sentiment classification using AML text analytics package
-      href: predict-twitter-sentiment-amltextpackage.md
-    - name: US income classification
-      href: ../desktop-workbench/scenario-tdsp-classifying-us-incomes.md
-      maintainContext: true
-    - name: Biomedical entity recognition
-      href: ../desktop-workbench/scenario-tdsp-biomedical-recognition.md
-      maintainContext: true
-    - name: Skin cancer image classification using AML vision package
-      href: isic-image-classification.md
-      maintainContext: true
   - name: Spark with PySpark and Scala
     href: walkthroughs-spark.md
     items:
@@ -96,82 +76,60 @@
     href: team-data-science-process-for-devops.md
 - name: How To
   items:
-  - name: Use TDSP in Azure ML
-    href: ../desktop-workbench/how-to-use-tdsp-in-azure-ml.md
-    maintainContext: true
   - name: Set up data science environments
     href: environment-setup.md
     items:
     - name: Azure storage accounts
-      href: ../../storage/common/storage-create-storage-account.md
-      maintainContext: true
+      href: /azure/storage/common/storage-create-storage-account?context=azure/machine-learning/team-data-science-process/context/ml-context
     - name: Platforms and tools
       href: platforms-and-tools.md
     - name: R and Python on HDInsight clusters
       items:
       - name: Introduction to Spark on HDInsight
-        href: ../../hdinsight/spark/apache-spark-overview.md
-        maintainContext: true
+        href: /azure/hdinsight/spark/apache-spark-overview?context=azure/machine-learning/team-data-science-process/context/ml-context
       - name: Create an Apache Spark cluster in Azure HDInsight
-        href: ../../hdinsight/spark/apache-spark-jupyter-spark-sql.md
-        maintainContext: true
+        href: /azure/hdinsight/spark/apache-spark-jupyter-spark-sql?context=azure/machine-learning/team-data-science-process/context/ml-context
       - name: PySpark kernels for Jupyter Notebook
-        href: ../../hdinsight/spark/apache-spark-jupyter-notebook-kernels.md
-        maintainContext: true
+        href: /azure/hdinsight/spark/apache-spark-jupyter-notebook-kernels?context=azure/machine-learning/team-data-science-process/context/ml-context
       - name: R Server on HDInsight
-        href: ../../hdinsight/r-server/r-server-overview.md
-        maintainContext: true
+        href: /azure/hdinsight/r-server/r-server-overview?context=azure/machine-learning/team-data-science-process/context/ml-context
       - name: Get started using R Server on HDInsight
-        href: ../../hdinsight/r-server/r-server-get-started.md
-        maintainContext: true
+        href: /azure/hdinsight/r-server/r-server-overview?context=azure/machine-learning/team-data-science-process/context/ml-context
     - name: Azure Machine Learning workspace
-      href: ../studio/create-workspace.md
-      maintainContext: true
-    - name: Set up a Data Science VM
-      items:
-      - name: Create a Windows Data Science VM
-        href: ../data-science-virtual-machine/provision-vm.md
-        maintainContext: true
-      - name: Create an Ubuntu Data Science VM
-        href: ../data-science-virtual-machine/dsvm-ubuntu-intro.md
-        maintainContext: true
-      - name: Create a CentOS Data Science VM
-        href: ../data-science-virtual-machine/linux-dsvm-intro.md
-        maintainContext: true
-      - name: Create a Deep Learning VM
-        href: ../data-science-virtual-machine/provision-deep-learning-dsvm.md
-        maintainContext: true
+      href: /azure/machine-learning/studio/create-workspace?context=azure/machine-learning/team-data-science-process/context/ml-context
   - name: Analyze business needs
     items:
     - name: Identify your scenario
       href: plan-your-environment.md
   - name: Acquire and understand data
     items:
-    - name: Manage data logistics
+    - name: Ingest data
+      displayName: move data, manage data logistics
       items:
       - name: Overview
         href: ingest-data.md
-      - name: Blob storage
-        href: move-azure-blob.md
-      - name: Use Storage Explorer
-        href: move-data-to-azure-blob-using-azure-storage-explorer.md
-      - name: Use AzCopy
-        href: move-data-to-azure-blob-using-azcopy.md
-      - name: Use Python
-        href: ../../storage/blobs/storage-python-how-to-use-blob-storage.md
-        maintainContext: true
-      - name: Use SSIS
-        href: move-data-to-azure-blob-using-ssis.md
-      - name: Move to a VM
+      - name: Move to/from Blob storage
+        items:
+        - name: Overview
+          href: move-azure-blob.md
+        - name: Use Storage Explorer
+          href: move-data-to-azure-blob-using-azure-storage-explorer.md
+        - name: Use AzCopy
+          href: https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10
+        - name: Use Python
+          href: /azure/storage/blobs/storage-python-how-to-use-blob-storage?context=azure/machine-learning/team-data-science-process/context/ml-context
+        - name: Use SSIS
+          href: move-data-to-azure-blob-using-ssis.md
+      - name: Move to SQL on a VM
         href: move-sql-server-virtual-machine.md
-      - name: Move to SQL Database
+      - name: Move to Azure SQL Database
         href: move-sql-azure.md
-      - name: Load into Hive tables
+      - name: Move to Hive tables
         href: move-hive-tables.md
-      - name: Load from on-prem SQL
-        href: move-sql-azure-adf.md
-      - name: Load fromSQL partition tables
+      - name: Move to SQL partitioned tables
         href: parallel-load-sql-partitioned-tables.md
+      - name: Move from on-prem SQL
+        href: move-sql-azure-adf.md
     - name: Explore and visualize data
       items:
       - name: Prepare data
@@ -180,11 +138,11 @@
         items:
         - name: Overview
           href: explore-data.md
-        - name: Use Pandas
+        - name: Explore Azure Blob storage
           href: explore-data-blob.md
-        - name: Use SQL VM
+        - name: Explore SQL on a VM
           href: explore-data-sql-server.md
-        - name: Use Hive tables
+        - name: Explore Hive tables
           href: explore-data-hive-tables.md
       - name: Sample data
         items:
@@ -218,8 +176,6 @@
       items:
       - name: Overview
         href: create-features.md
-      - name: Use Pandas
-        href: create-features-blob.md
       - name: Use SQL+Python
         href: create-features-sql-server.md
       - name: Use Hive queries
@@ -229,52 +185,31 @@
     - name: Create and train models
       items:
       - name: Choose algorithms
-        href: ../studio/algorithm-choice.md
-        maintainContext: true
+        href: /azure/machine-learning/studio/algorithm-choice?context=azure/machine-learning/team-data-science-process/context/ml-context
       - name: Algorithm cheat sheet
-        href: ../studio/algorithm-cheat-sheet.md
-        maintainContext: true
+        href: /azure/machine-learning/studio/algorithm-cheat-sheet?context=azure/machine-learning/team-data-science-process/context/ml-context
   - name: Deploy models in production
     href: deploy-models-in-production.md
 - name: Related
   items:
-  - name: Azure Machine Learning - AML
-    href: https://docs.microsoft.com/en-us/azure/machine-learning/service/
-  - name: Microsoft Cognitive Toolkit - CNTK
-    href: https://docs.microsoft.com/cognitive-toolkit/
-    maintainContext: true
-  - name: Cortana Intelligence Partner Solutions
-    items:
-    - name: Cortana Intelligence Gallery
-      href: https://gallery.cortanaintelligence.com
-    - name: Cortana Intelligence publishing guide
-      href: cortana-intelligence-appsource-publishing-guide.md
-    - name: Cortana Intelligence solution evaluation tool
-      href: cortana-intelligence-appsource-evaluation-tool.md
+  - name: Azure Machine Learning
+    href: ../
+  - name: Azure AI Gallery
+    href: https://gallery.azure.ai
   - name: Cortana Analytics
     items:
-    - name: APIs
+    - name: Anomaly detection
+      href: apps-anomaly-detection-api.md
+    - name: Cognitive Services
+      href: https://docs.microsoft.com/azure/cognitive-services/
+    - name: Predictive maintenance
       items:
-      - name: Anomaly detection
-        href: apps-anomaly-detection-api.md
-      - name: Cognitive Services
-        href: https://docs.microsoft.com/azure/cognitive-services/
-      - name: Predictive maintenance
-        items:
-        - name: Overview
-          href: cortana-analytics-playbook-predictive-maintenance.md
-        - name: Architecture
-          href: cortana-analytics-architecture-predictive-maintenance.md
-        - name: Technical guide
-          href: cortana-analytics-technical-guide-predictive-maintenance.md
-      - name: Vehicle telemetry
-        items:
-        - name: Overview
-          href: cortana-analytics-playbook-vehicle-telemetry.md
-        - name: Playbook
-          href: cortana-analytics-playbook-vehicle-telemetry-deep-dive.md
-        - name: Setup
-          href: cortana-analytics-playbook-vehicle-telemetry-powerbi.md
+      - name: Overview
+        href: cortana-analytics-playbook-predictive-maintenance.md
+      - name: Architecture
+        href: cortana-analytics-architecture-predictive-maintenance.md
+      - name: Technical guide
+        href: cortana-analytics-technical-guide-predictive-maintenance.md
 - name: Resources
   items:
   - name: Blogs
@@ -297,14 +232,12 @@
       href: https://newsignature.com/services/professional-services/advanced-analytics/
     - name: Blue Granite
       href: https://www.blue-granite.com/blog/getting-more-from-your-data-science-teams-organization-and-process-considerations
-    - name: Microsoft Consulting Services
-      href: https://www.microsoft.com/en-us/microsoftservices/business-analytics.aspx
   - name: Related Microsoft resources
     items:
     - name: MSDN forum
       href: https://social.msdn.microsoft.com/forums/azure/home?forum=MachineLearning
     - name: Stack Overflow
-      href: http://stackoverflow.com/questions/tagged/azure-machine-learning
+      href: https://stackoverflow.com/questions/tagged/azure-machine-learning
     - name: Videos
       href: https://azure.microsoft.com/resources/videos/index/?services=machine-learning
       

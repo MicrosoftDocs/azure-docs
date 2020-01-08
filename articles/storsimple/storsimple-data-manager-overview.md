@@ -1,6 +1,6 @@
 ---
 title: Microsoft Azure StorSimple Data Manager overview | Microsoft Docs
-description: Provides an overview of the StorSimple Data Manager serivce
+description: Provides an overview of the StorSimple Data Manager service
 services: storsimple
 documentationcenter: NA
 author: vidarmsft
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/21/2018
-ms.author: vidarmsft
+ms.author: alkohli
 ---
 
 # StorSimple Data Manager solution overview
@@ -64,7 +64,9 @@ We recommend that:
  - Your source storage account (the one associated with your StorSimple device) and target storage account (where you want the data in native format) be in the same Azure region.
  - You bring up your Data Manager and job definition in the region that contains the StorSimple storage account. If this is not possible, bring up the Data Manager in the nearest Azure region and then create the Job Definition in the same region as your StorSimple storage account. 
 
-    If your StorSimple storage account is not in the 26 regions that support job definition creation, we recommend that you do not run StorSimple Data Manager as you see long latencies and potentially high egress charges.
+    If your StorSimple storage account is not in the 26 regions that support job definition creation, we recommend that you do not run StorSimple Data Manager as you see long latencies and potential egress charges.
+    
+Microsoft strives to ensure that Azure services are always available in all regions. However, unplanned service outages may occur for short periods in a certain region. In such cases, you can bring up a Data Manager and job definition in a region that is not affected by the outage, and run the transformation job. You might encounter some additional latency in such a scenario, but this can be your recovery strategy in the rare event of a regional outage.
 
 ## Security considerations
 
@@ -88,6 +90,7 @@ The service currently has the following limitations:
 - The StorSimple Data Manager currently does not work with volumes that are bitlocker encrypted. You will see job failures if you try to run the service with an encrypted drive.
 - Some metadata of files (including ACLs) will not be retained in the transformed data.
 - This service works only with NTFS volumes.
+- File path lengths need to be less than 256 characters else the job will fail.
 
 ## Next steps
 

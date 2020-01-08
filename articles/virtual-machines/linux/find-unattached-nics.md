@@ -1,10 +1,10 @@
 ---
-title: Find and delete unattached Azure NICs | Microsoft Docs
-description: How to find and delete Azure NICs that are not attached to VMs with the Azure CLI 2.0
+title: Find and delete unattached Azure NICs 
+description: How to find and delete Azure NICs that are not attached to VMs with the Azure CLI
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: iainfoulds
-manager: jeconnoc
+author: cynthn
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 
@@ -12,10 +12,10 @@ ms.assetid:
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
-ms.devlang: na
+
 ms.topic: article
 ms.date: 04/10/2018
-ms.author: iainfou
+ms.author: cynthn
 ---
 
 # How to find and delete unattached network interface cards (NICs) for Azure VMs

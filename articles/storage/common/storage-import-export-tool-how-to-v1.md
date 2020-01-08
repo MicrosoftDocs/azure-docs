@@ -1,21 +1,13 @@
 ---
 title: Using the Azure Import/Export Tool - v1 | Microsoft Docs
 description: Learn how to use the Import/Export Tool to prepare hard drives for an import job, repair an import job, or repair an export job.
-author: muralikk
-manager: syadav
-editor: tysonn
+author: twooley
 services: storage
-documentationcenter: ''
-
-ms.assetid: f77535bb-d577-438a-bdd3-e15a82e0c543
 ms.service: storage
-ms.workload: storage 
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 1/15/2017
-ms.author: muralikk
-
+ms.author: twooley
+ms.subservice: common
 ---
 
 # Using the Azure Import/Export Tool (classic deployment model)

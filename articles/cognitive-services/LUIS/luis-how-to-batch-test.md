@@ -1,29 +1,33 @@
 ---
-title: Batch test your LUIS app - Azure | Microsoft Docs
-description: Use Language Understanding (LUIS) batch testing to find utterances with incorrect intents and entities.
+title: How to perform a batch test - LUIS
+titleSuffix: Azure Cognitive Services
+description: Use Language Understanding (LUIS) batch testing sets to find utterances with incorrect intents and entities.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: nitinme
+ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: language-understanding
-ms.topic: article
-ms.date: 03/14/2018
-ms.author: v-geberr
+ms.subservice: language-understanding
+ms.topic: conceptual
+ms.date: 10/25/2019
+ms.author: diberry
 ---
 
-# Batch testing
- Batch testing is a comprehensive test on your current trained model to measure its performance in LUIS. 
+# Batch testing with a set of example utterances
+
+ Batch testing is a comprehensive test on your current trained model to measure its performance in LUIS. The data sets used for batch testing should not include example utterances in the intents or utterances received from the prediction runtime endpoint. 
+
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
 
 <a name="batch-testing"></a>
+
 ## Import a dataset file for batch testing
 
 1. Select **Test** in the top bar, and then select **Batch testing panel**.
 
     ![Batch Testing Link](./media/luis-how-to-batch-test/batch-testing-link.png)
 
-2. Select **Import dataset**. The **Import new dataset** dialog box appears. Select **Choose File** and locate the [JSON](luis-concept-batch-test.md#batch-file-format) file that contains *no more than 1,000* utterances to test.
-
-    ![Import Dataset File](./media/luis-how-to-batch-test/batchtest-importset.png)
+2. Select **Import dataset**. The **Import new dataset** dialog box appears. Select **Choose File** and locate a JSON file with the correct [JSON format](luis-concept-batch-test.md#batch-file-format) that contains *no more than 1,000* utterances to test.
 
     Import errors are reported in a red notification bar at the top of the browser. When an import has errors, no dataset is created. For more information, see [Common errors](luis-concept-batch-test.md#common-errors-importing-a-batch).
 
@@ -32,7 +36,8 @@ ms.author: v-geberr
 4. Select **Done**. The dataset file is added.
 
 ## Run, rename, export, or delete dataset
-To run, rename, export, or delete the dataset, use the three dots (**...**) at the end of the dataset row.
+
+To run, rename, export, or delete the dataset, use the ellipsis (***...***) button at the end of the dataset row.
 
 ![Dataset Actions](./media/luis-how-to-batch-test/batch-testing-options.png)
 
@@ -51,36 +56,23 @@ The downloadable dataset is the same file that was uploaded for batch testing.
 |![Ready to test icon](./media/luis-how-to-batch-test/batch-test-result-blue.png)|Test is ready to run.|
 
 <a name="access-batch-test-result-details-in-a-visualized-view"></a>
+
 ## View batch test results 
+
 To review the batch test results, select **See results**.
 
 ![Batch test results](./media/luis-how-to-batch-test/run-test-results.png)
 
-<!--
- Select the **See results** link that appears after you run the test. A scatter graph known as an error matrix displays. The data points represent the utterances in the dataset. 
-
-Green points indicate correct prediction, and red ones indicate incorrect prediction.
-
-The filtering panel on the right side of the screen displays a list of all intents and entities in the app, with a green point for intents/entities that were predicted correctly in all dataset utterances, and a red point for those items with errors. Also, for each intent/entity, you can see the number of correct predictions out of the total utterances.
-
--->
-
-
 <a name="filter-chart-results-by-intent-or-entity"></a>  
+
 ## Filter chart results
 
 To filter the chart by a specific intent or entity, select the intent or entity in the right-side filtering panel. The data points and their distribution update in the graph according to your selection. 
  
 ![Visualized Batch Test Result](./media/luis-how-to-batch-test/filter-by-entity.png) 
 
-<!--
-## Investigate false sections
-Data points on the **[False Positive][false-positive]** and **[False Negative][false-negative]** sections indicate errors, which should be investigated. If all data points are on the **[True Positive][true-positive]** and **[True Negative][true-negative]** sections, then your application's performance is perfect on this dataset.
-
-
-The graph indicates [F-measure][f-measure], [recall][recall], and [precision][precision].  
--->
 ## View single-point utterance data
+
 In the chart, hover over a data point to see the certainty score of its prediction. Select a data point to retrieve its corresponding utterance in the utterances list at the bottom of the page. 
 
 ![Selected utterance](./media/luis-how-to-batch-test/selected-utterance.png)
@@ -88,7 +80,9 @@ In the chart, hover over a data point to see the certainty score of its predicti
 
 <a name="relabel-utterances-and-retrain"></a>
 <a name="false-test-results"></a>
+
 ## View section data
+
 In the four-section chart, select the section name, such as **False Positive** at the top-right of the chart. Below the chart, all utterances in that section display below the chart in a list. 
 
 ![Selected utterances by section](./media/luis-how-to-batch-test/selected-utterances-by-section.png)
@@ -99,20 +93,13 @@ The two sections of the chart in red indicate utterances that did not match the 
 
 The two sections of the chart in green did match the expected prediction.
 
+[!INCLUDE [Entity roles in batch testing - currently not supported](../../../includes/cognitive-services-luis-roles-not-supported-in-batch-testing.md)]
+
 ## Next steps
 
 If testing indicates that your LUIS app doesn't recognize the correct intents and entities, you can work to improve your LUIS app's performance by labeling more utterances or adding features. 
 
-* [Label suggested utterances with LUIS](Label-Suggested-Utterances.md) 
+* [Label suggested utterances with LUIS](luis-how-to-review-endpoint-utterances.md) 
 * [Use features to improve your LUIS app's performance](luis-how-to-add-features.md) 
 * [Understand batch testing with this tutorial](luis-tutorial-batch-testing.md)
 * [Learn batch testing concepts](luis-concept-batch-test.md).
-
-[true-positive]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-glossary#true-positive
-[true-negative]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-glossary#true-negative
-[false-positive]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-glossary#false-positive
-[false-negative]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-glossary#false-negative
-[f-measure]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-glossary#f-measure
-[recall]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-glossary#recall
-[precision]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-glossary#precision
-

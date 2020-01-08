@@ -1,17 +1,20 @@
 ---
-title: Get started with the Entity Linking API | Microsoft Docs
-description: Analyze text and link named entities to relevant entries in a knowledge base by using the Entity Linking API in Cognition Services.
+title: "Tutorial: Build an Entity Linking app - C#"
+titlesuffix: Azure Cognitive Services
+description: Analyze text and link named entities to relevant entries in a knowledge base by using the Entity Linking API.
 services: cognitive-services
 author: DavidLiCIG
-manager: wkwok
+manager: nitinme
+
 ms.service: cognitive-services
-ms.component: entity-linking-intelligence
-ms.topic: article
+ms.subservice: entity-linking-intelligence
+ms.topic: tutorial
 ms.date: 07/06/2016
 ms.author: davl
+ROBOTS: NOINDEX
 ---
 
-# Get Started with Entity Linking API in C&#35;
+# Tutorial: Build an Entity Linking app with C#
 
 Microsoft's Entity Linking is a natural language processing tool to analyze text and link named-entities to relevant entries in a knowledge base. 
 
@@ -49,7 +52,7 @@ Entity Linking is now installed as part of your application. You can confirm thi
  ![Included nuget library in project](./Images/NugetLibraryInProject.png)
  
 ### <a name="step-4-add-an-input-and-output-text-block-to-your-apps-xaml">Step 4: Add an input and output text block to your app’s XAML</a>
-Navigate to ** MainPage.xaml ** in **Solution Explorer**, then double click the file which will open it in a new window. For convenience, you can double click on the **XAML** button in the **Designer** tab, this will hide the **Visual Designer** and reserve all of the space for the code view.
+Navigate to **MainPage.xaml** in **Solution Explorer**, then double click the file which will open it in a new window. For convenience, you can double click on the **XAML** button in the **Designer** tab, this will hide the **Visual Designer** and reserve all of the space for the code view.
 
  ![Included nuget library in project](./Images/UWPMainPage.png)
  

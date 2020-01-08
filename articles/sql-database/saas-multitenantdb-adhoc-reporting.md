@@ -1,19 +1,16 @@
 ---
-title: Run ad hoc reporting queries across multiple Azure SQL databases | Microsoft Docs
+title: Ad hoc reporting queries across multiple databases
 description: "Run ad hoc reporting queries across multiple SQL databases in a multi-tenant app example."
-keywords: sql database tutorial
 services: sql-database
-author: stevestein
-manager: craigg
 ms.service: sql-database
-ms.custom: scale out apps
-ms.workload: "Inactive"
-ms.tgt_pltfrm: na
-ms.devlang:
+ms.subservice: scenario
+ms.custom: 
+ms.devlang: 
 ms.topic: conceptual
-ms.date: 04/01/2018
-ms.author: AyoOlubeko
-
+author: AyoOlubeko
+ms.author: craigg
+ms.reviewer: sstein
+ms.date: 10/30/2018
 ---
 # Run ad hoc analytics queries across multiple Azure SQL databases
 
@@ -23,7 +20,7 @@ In this tutorial, you run distributed queries across the entire set of tenant da
 In this tutorial you learn:
 
 > [!div class="checklist"]
-
+> 
 > * How to deploy an ad hoc reporting database
 > * How to run distributed queries across all tenant databases
 
@@ -143,7 +140,7 @@ When inspecting the execution plan, hover over the plan icons for details.
 In this tutorial you learned how to:
 
 > [!div class="checklist"]
-
+> 
 > * Run distributed queries across all tenant databases
 > * Deploy an ad hoc reporting database and add schema to it to run distributed queries.
 

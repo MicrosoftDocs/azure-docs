@@ -2,13 +2,9 @@
 title: Graphical Authoring in Azure Automation
 description: Graphical authoring allows you to create runbooks for Azure Automation without working with code. This article provides an introduction to graphical authoring and all the details needed to start creating a graphical runbook.
 services: automation
-ms.service: automation
-ms.component: process-automation
-author: georgewallace
-ms.author: gwallace
+ms.subservice: process-automation
 ms.date: 03/16/2018
 ms.topic: conceptual
-manager: carmonm
 ---
 # Graphical authoring in Azure Automation
 
@@ -42,7 +38,7 @@ The Library control is where you select [activities](#activities) to add to your
 |:--- |:--- |
 | Cmdlets |Includes all the cmdlets that can be used in your runbook. Cmdlets are organized by module. All of the modules that you have installed in your automation account are available. |
 | Runbooks |Includes the runbooks in your automation account. These runbooks can be added to the canvas to be used as child runbooks. Only runbooks of the same core type as the runbook being edited are shown; for Graphical runbooks only PowerShell-based runbooks are shown, while for Graphical PowerShell Workflow runbooks only PowerShell-Workflow-based runbooks are shown. |
-| Assets |Includes the [automation assets](http://msdn.microsoft.com/library/dn939988.aspx) in your automation account that can be used in your runbook. When you add an asset to a runbook, it adds a workflow activity that gets the selected asset. In the case of variable assets, you can select whether to add an activity to get the variable or set the variable. |
+| Assets |Includes the [automation assets](/previous-versions/azure/dn939988(v=azure.100)) in your automation account that can be used in your runbook. When you add an asset to a runbook, it adds a workflow activity that gets the selected asset. In the case of variable assets, you can select whether to add an activity to get the variable or set the variable. |
 | Runbook Control |Includes runbook control activities that can be used in your current runbook. A *Junction* takes multiple inputs and waits until all have completed before continuing the workflow. A *Code* activity runs one or more lines of PowerShell or PowerShell Workflow code depending on the graphical runbook type. You can use this activity for custom code or for functionality that is difficult to achieve with other activities. |
 
 ### Configuration control
@@ -284,6 +280,9 @@ The next activity, Connect-AzureRmAccount, adds the authenticated Run As account
 
 ![Connect-AzureRmAccount Parameter Set](media/automation-graphical-authoring-intro/authenticate-conn-to-azure-parameter-set.png)
 
+> [!IMPORTANT]
+> **Add-AzureRmAccount** is now an alias for **Connect-AzureRMAccount**. When searching your library items, if you do not see **Connect-AzureRMAccount**, you can use **Add-AzureRmAccount**, or you can update your modules in your Automation Account.
+
 For the parameters **APPLICATIONID**, **CERTIFICATETHUMBPRINT**, and **TENANTID** you need to specify the name of the property for the Field path because the activity outputs an object with multiple properties. Otherwise when you execute the runbook, it fails attempting to authenticate. This is what you need at a minimum to authenticate your runbook with the Run As account.
 
 To maintain backwards compatibility for subscribers who have created an Automation account using an [Azure AD User account](automation-create-aduser-account.md) to manage Azure classic deployment or for Azure Resource Manager resources, the method to authenticate is the Add-AzureAccount cmdlet with a [credential asset](automation-credentials.md) that represents an Active Directory user with access to the Azure account.
@@ -323,11 +322,11 @@ Each input parameter is defined by the properties in the following table:
 
 ### Runbook output
 
-Data created by any activity that does not have an outgoing link is saved to the [output of the runbook](http://msdn.microsoft.com/library/azure/dn879148.aspx). The output is saved with the runbook job and is available to a parent runbook when the runbook is used as a child.
+Data created by any activity that does not have an outgoing link is saved to the [output of the runbook](https://docs.microsoft.com/azure/automation/automation-runbook-output-and-messages). The output is saved with the runbook job and is available to a parent runbook when the runbook is used as a child.
 
 ## PowerShell expressions
 
-One of the advantages of graphical authoring is providing you with the ability to build a runbook with minimal knowledge of PowerShell. Currently, you do need to know a bit of PowerShell though for populating certain [parameter values](#activities) and for setting [link conditions](#links-and-workflow). This section provides a quick introduction to PowerShell expressions for those users who may not be familiar with it. Full details of PowerShell are available at [Scripting with Windows PowerShell](http://technet.microsoft.com/library/bb978526.aspx).
+One of the advantages of graphical authoring is providing you with the ability to build a runbook with minimal knowledge of PowerShell. Currently, you do need to know a bit of PowerShell though for populating certain [parameter values](#activities) and for setting [link conditions](#links-and-workflow). This section provides a quick introduction to PowerShell expressions for those users who may not be familiar with it. Full details of PowerShell are available at [Scripting with Windows PowerShell](https://technet.microsoft.com/library/bb978526.aspx).
 
 ### PowerShell expression data source
 You can use a PowerShell expression as a data source to populate the value of an [activity parameter](#activities) with the results of some PowerShell code. This could be a single line of code that performs some simple function or multiple lines that perform some complex logic. Any output from a command that is not assigned to a variable is output to the parameter value.
@@ -405,7 +404,7 @@ You can join multiple conditions using a [logical operator](https://technet.micr
 
 ### Hashtables
 
-[Hashtables](http://technet.microsoft.com/library/hh847780.aspx) are name/value pairs that are useful for returning a set of values. Properties for certain activities may expect a hashtable instead of a simple value. You may also see as hashtable referred to as a dictionary.
+[Hashtables](https://technet.microsoft.com/library/hh847780.aspx) are name/value pairs that are useful for returning a set of values. Properties for certain activities may expect a hashtable instead of a simple value. You may also see as hashtable referred to as a dictionary.
 
 You create a hashtable with the following syntax. A hashtable can contain any number of entries but each is defined by a name and value.
 

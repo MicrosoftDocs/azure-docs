@@ -1,21 +1,11 @@
 ﻿---
-title: Add or remove nodes to a standalone Service Fabric cluster | Microsoft Docs
+title: Add or remove nodes to a standalone Service Fabric cluster 
 description: Learn how to add or remove nodes to an Azure Service Fabric cluster on a physical or virtual machine running Windows Server, which could be on-premises or in any cloud.
-services: service-fabric
-documentationcenter: .net
 author: dkkapur
-manager: timlt
-editor: ''
 
-ms.assetid: bc6b8fc0-d2af-42f8-a164-58538be38d02
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 11/02/2017
 ms.author: dekapur
-
 ---
 # Add or remove nodes to a standalone Service Fabric cluster running on Windows Server
 After you have [created your standalone Service Fabric cluster on Windows Server machines](service-fabric-cluster-creation-for-windows-server.md), your (business) needs may change and you will need to add or remove nodes to your cluster. This article provides detailed steps to achieve this. Please note that add/remove node functionality is not supported in local development clusters.
@@ -25,7 +15,7 @@ After you have [created your standalone Service Fabric cluster on Windows Server
 1. Prepare the VM/machine you want to add to your cluster by following the steps outlined in [Plan and prepare your Service Fabric cluster deployment](service-fabric-cluster-creation-for-windows-server.md)
 2. Identify which fault domain and upgrade domain you are going to add this VM/machine to
 3. Remote desktop (RDP) into the VM/machine that you want to add to the cluster
-4. Copy or [download the standalone package for Service Fabric for Windows Server](http://go.microsoft.com/fwlink/?LinkId=730690) to the VM/machine and unzip the package
+4. Copy or [download the standalone package for Service Fabric for Windows Server](https://go.microsoft.com/fwlink/?LinkId=730690) to the VM/machine and unzip the package
 5. Run Powershell with elevated privileges, and navigate to the location of the unzipped package
 6. Run the *AddNode.ps1* script with the parameters describing the new node to add. The example below adds a new node called VM5, with type NodeType0 and IP address 182.17.34.52, into UD1 and fd:/dc1/r0. The *ExistingClusterConnectionEndPoint* is a connection endpoint for a node already in the existing cluster, which can be the IP address of *any* node in the cluster.
 
@@ -34,7 +24,7 @@ After you have [created your standalone Service Fabric cluster on Windows Server
 	```
 	Once the script finishes running, you can check if the new node has been added by running the [Get-ServiceFabricNode](/powershell/module/servicefabric/get-servicefabricnode?view=azureservicefabricps) cmdlet.
 
-7. To ensure consistency across different nodes in the cluster, you must initiate a configuration upgrade. Run [Get-ServiceFabricClusterConfiguration](/powershell/module/servicefabric/get-servicefabricclusterconfiguration?view=azureservicefabricps) to get the latest configuration file and add the newly added node to "Nodes" section. It is also recommended to always have the latest cluster configuration available in the case that you need to redploy a cluster with the same configuration.
+7. To ensure consistency across different nodes in the cluster, you must initiate a configuration upgrade. Run [Get-ServiceFabricClusterConfiguration](/powershell/module/servicefabric/get-servicefabricclusterconfiguration?view=azureservicefabricps) to get the latest configuration file and add the newly added node to "Nodes" section. It is also recommended to always have the latest cluster configuration available in the case that you need to redeploy a cluster with the same configuration.
 
 	```
 		{

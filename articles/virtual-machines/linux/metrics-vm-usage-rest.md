@@ -1,10 +1,10 @@
 ---
-title: Get Azure Virtual Machine usage data using the REST API | Microsoft Docs
+title: Get Azure Virtual Machine usage data using the REST API 
 description: Use the Azure REST APIs to collect utilization metrics for a Virtual Machine.
 services: virtual-machines
 author: rloutlaw
 ms.reviewer: routlaw
-manager: jeconnoc
+manager: gwallace
 ms.service: load-balancer
 ms.custom: REST
 ms.topic: article
@@ -14,7 +14,7 @@ ms.author: routlaw
 
 # Get Virtual Machine usage metrics using the REST API
 
-This example shows how to retrieve the CPU usage for a [Linux Virtual Machine](/azure/linux/virtual-machine) using the [Azure REST API](/rest/api/azure/).
+This example shows how to retrieve the CPU usage for a [Linux Virtual Machine](https://docs.microsoft.com/azure/virtual-machines/linux/monitor) using the [Azure REST API](/rest/api/azure/).
 
 Complete reference documentation and additional samples for the REST API are available in the [Azure Monitor REST reference](/rest/api/monitor). 
 
@@ -39,7 +39,7 @@ The following headers are required:
 
 | Name | Description |
 | :--- | :---------- |
-| subscriptionId | The subscription ID that identifies an Azure subscription. If you have multiple subscriptions, see [Working with multiple subscriptions](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest#working-with-multiple-subscriptions). |
+| subscriptionId | The subscription ID that identifies an Azure subscription. If you have multiple subscriptions, see [Working with multiple subscriptions](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest). |
 | resourceGroupName | The name of the Azure resource group associated with the resource. You can get this value from the Azure Resource Manager API, CLI, or the portal. |
 | vmname | The name of the Azure Virtual Machine. |
 | metricnames | Comma-separated list of valid  [Load Balancer metrics](/azure/load-balancer/load-balancer-standard-diagnostics). |

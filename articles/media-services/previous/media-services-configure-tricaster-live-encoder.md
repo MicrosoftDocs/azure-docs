@@ -4,7 +4,7 @@ description: This topic shows how to configure the Tricaster live encoder to sen
 services: media-services
 documentationcenter: ''
 author: cenkdin
-manager: cfowler
+manager: femila
 editor: ''
 
 ms.assetid: 8973181a-3059-471a-a6bb-ccda7d3ff297
@@ -13,11 +13,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 01/05/2017
-ms.author: juliako;cenkd;anilmur
-
+ms.date: 03/14/2019
+ms.author: juliako
+ms.reviewer: anilmur
 ---
-# Use the NewTek TriCaster encoder to send a single bitrate live stream
+# Use the NewTek TriCaster encoder to send a single bitrate live stream  
 > [!div class="op_single_selector"]
 > * [Tricaster](media-services-configure-tricaster-live-encoder.md)
 > * [Elemental Live](media-services-configure-elemental-live-encoder.md)
@@ -26,7 +26,7 @@ ms.author: juliako;cenkd;anilmur
 >
 >
 
-This article shows how to configure the [NewTek TriCaster](http://newtek.com/products/tricaster-40.html) live encoder to send a single bitrate stream to AMS channels that are enabled for live encoding. For more information, see [Working with Channels that are Enabled to Perform Live Encoding with Azure Media Services](media-services-manage-live-encoder-enabled-channels.md).
+This article shows how to configure the [NewTek TriCaster](https://newtek.com/products/tricaster-40.html) live encoder to send a single bitrate stream to AMS channels that are enabled for live encoding. For more information, see [Working with Channels that are Enabled to Perform Live Encoding with Azure Media Services](media-services-manage-live-encoder-enabled-channels.md).
 
 This tutorial shows how to manage Azure Media Services (AMS) with Azure Media Services Explorer (AMSE) tool. This tool only runs on Windows PC. If you are on Mac or Linux, use the Azure portal to create [channels](media-services-portal-creating-live-encoder-enabled-channel.md#create-a-channel) and [programs](media-services-portal-creating-live-encoder-enabled-channel.md).
 
@@ -36,17 +36,20 @@ This tutorial shows how to manage Azure Media Services (AMS) with Azure Media Se
 >
 
 ## Prerequisites
+
 * [Create an Azure Media Services account](media-services-portal-create-account.md)
 * Ensure there is a Streaming Endpoint running. For more information, see [Manage Streaming Endpoints in a Media Services Account](media-services-portal-manage-streaming-endpoints.md)
 * Install the latest version of the [AMSE](https://github.com/Azure/Azure-Media-Services-Explorer) tool.
 * Launch the tool and connect to your AMS account.
 
 ## Tips
+
 * Whenever possible, use a hardwired internet connection.
 * A good rule of thumb when determining bandwidth requirements is to double the streaming bitrates. While this is not a mandatory requirement, it helps mitigate the impact of network congestion.
 * When using software-based encoders, close out any unnecessary programs.
 
 ## Create a channel
+
 1. In the AMSE tool, navigate to the **Live** tab, and right-click within the channel area. Select **Create channel…** from the menu.
 
 	![tricaster](./media/media-services-tricaster-live-encoder/media-services-tricaster1.png)
@@ -71,7 +74,8 @@ While the channel is starting, you can [configure the encoder](media-services-co
 >
 >
 
-## <a id=configure_tricaster_rtmp></a>Configure the NewTek TriCaster encoder
+## <a id="configure_tricaster_rtmp"/>Configure the NewTek TriCaster encoder
+
 In this tutorial, the following output settings are used. The rest of this section describes configuration steps in more detail.
 
 **Video**:
@@ -89,6 +93,7 @@ In this tutorial, the following output settings are used. The rest of this secti
 * Sample Rate: 44.1 kHz
 
 ### Configuration steps
+
 1. Create a new **NewTek TriCaster** project depending on what video input source is being used.
 2. Once within that project, find the **Stream** button, and click the gear icon next to it to access the stream configuration menu.
 
@@ -128,6 +133,7 @@ In this tutorial, the following output settings are used. The rest of this secti
 >
 
 ## Test playback
+
 Navigate to the AMSE tool, and right-click the channel to be tested. From the menu, hover over **Playback the Preview** and select **with Azure Media Player**.  
 
     ![tricaster](./media/media-services-tricaster-live-encoder/media-services-tricaster8.png)
@@ -137,6 +143,7 @@ If the stream appears in the player, then the encoder has been properly configur
 If an error is received, the channel will need to be reset and encoder settings adjusted. See the [troubleshooting](media-services-troubleshooting-live-streaming.md) article for guidance.  
 
 ## Create a program
+
 1. Once channel playback is confirmed, create a program. Under the **Live** tab in the AMSE tool, right-click within the program area and select **Create New Program**.  
 
     ![tricaster](./media/media-services-tricaster-live-encoder/media-services-tricaster9.png)
@@ -153,12 +160,15 @@ If an error is received, the channel will need to be reset and encoder settings 
 The stream is now ready to be embedded in a player, or distributed to an audience for live viewing.  
 
 ## Troubleshooting
+
 See the [troubleshooting](media-services-troubleshooting-live-streaming.md) article for guidance.
 
 ## Next step
+
 Review Media Services learning paths.
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
 ## Provide feedback
+
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]

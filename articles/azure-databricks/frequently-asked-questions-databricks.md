@@ -1,39 +1,34 @@
 ---
-title: 'Azure Databricks: Common questions and help | Microsoft Docs'
+title: 'Azure Databricks: Common questions and help'
 description: Get answers to common questions and troubleshooting information about Azure Databricks.
 services: azure-databricks
-documentationcenter: ''
-author: nitinme
-manager: cgronlun
-editor: cgronlun
-
+author: mamccrea 
+ms.author: mamccrea
+ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.workload: big-data
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 05/29/2018
-ms.author: nitinme
-
+ms.topic: conceptual
+ms.date: 10/25/2018
 ---
 # Frequently asked questions about Azure Databricks
 
-This article lists the top queries you might have related to Azure Databricks. It also lists some common problems you might have while using Databricks. For more information, see [What is Azure Databricks](what-is-azure-databricks.md). 
+This article lists the top questions you might have related to Azure Databricks. It also lists some common problems you might have while using Databricks. For more information, see [What is Azure Databricks](what-is-azure-databricks.md). 
 
-## Can I use my own keys for local encryption? 
-In the current release, using your own keys from Azure Key Vault is not supported. 
+## Can I use Azure Key Vault to store keys/secrets to be used in Azure Databricks?
+Yes. You can use Azure Key Vault to store keys/secrets for use with Azure Databricks. For more information, see [Azure Key Vault-backed scopes](/azure/databricks/security/secrets/secret-scopes).
 
-## Can I use Azure virtual networks with Databricks?
-A new virtual network is created as part of Databricks provisioning. In this release, you cannot use your own Azure virtual network.
 
-## How do I access Azure Data Lake Store from a notebook? 
+## Can I use Azure Virtual Networks with Databricks?
+Yes. You can use an Azure Virtual Network (VNET) with Azure Databricks. For more information, see [Deploying Azure Databricks in your Azure Virtual Network](/azure/databricks/administration-guide/cloud-configurations/azure/vnet-inject).
+
+## How do I access Azure Data Lake Storage from a notebook? 
 
 Follow these steps:
 1. In Azure Active Directory (Azure AD), provision a service principal, and record its key.
-2. Assign the necessary permissions to the service principal in Data Lake Store.
-3. To access a file in Data Lake Store, use the service principal credentials in Notebook.
+1. Assign the necessary permissions to the service principal in Data Lake Storage.
+1. To access a file in Data Lake Storage, use the service principal credentials in Notebook.
 
-For more information, see [Use Data Lake Store with Azure Databricks](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake.html).
+For more information, see [Use Azure Data Lake Storage with Azure Databricks](/azure/databricks/data/data-sources/azure/azure-datalake).
 
 ## Fix common problems
 
@@ -48,8 +43,8 @@ Here are a few problems you might encounter with Databricks.
 #### Solution
 
 1. Go to the [Azure portal](https://portal.azure.com).
-2. Select **Subscriptions**, the subscription you are using, and then **Resource providers**. 
-3. In the list of resource providers, against **Microsoft.Databricks**, select **Register**. You must have the contributor or owner role on the subscription to register the resource provider.
+1. Select **Subscriptions**, the subscription you are using, and then **Resource providers**. 
+1. In the list of resource providers, against **Microsoft.Databricks**, select **Register**. You must have the contributor or owner role on the subscription to register the resource provider.
 
 
 ### Issue: Your account {email} does not have the owner or contributor role on the Databricks workspace resource in the Azure portal
@@ -81,7 +76,7 @@ The following are a couple of solutions to this issue:
 
 #### Solution
 
-If you did not create the workspace, and you are added as a user, contact the person who created the workspace. Have that person add you by using the Azure Databricks Admin Console. For instructions, see [Adding and managing users](https://docs.azuredatabricks.net/administration-guide/admin-settings/users.html). If you created the workspace and still you get this error, try selecting **Initialize Workspace** again from the Azure portal.
+If you did not create the workspace, and you are added as a user, contact the person who created the workspace. Have that person add you by using the Azure Databricks Admin Console. For instructions, see [Adding and managing users](/azure/databricks/administration-guide/users-groups/users). If you created the workspace and still you get this error, try selecting **Initialize Workspace** again from the Azure portal.
 
 ### Issue: Cloud provider launch failure while setting up the cluster (PublicIPCountLimitReached)
 
@@ -104,8 +99,8 @@ Azure error message: The subscription is not registered to use namespace 'Micros
 #### Solution
 
 1. Go to the [Azure portal](https://portal.azure.com).
-2. Select **Subscriptions**, the subscription you are using, and then **Resource providers**. 
-3. In the list of resource providers, against **Microsoft.Compute**, select **Register**. You must have the contributor or owner role on the subscription to register the resource provider.
+1. Select **Subscriptions**, the subscription you are using, and then **Resource providers**. 
+1. In the list of resource providers, against **Microsoft.Compute**, select **Register**. You must have the contributor or owner role on the subscription to register the resource provider.
 
 For more detailed instructions, see [Resource providers and types](../azure-resource-manager/resource-manager-supported-services.md).
 
@@ -113,7 +108,7 @@ For more detailed instructions, see [Resource providers and types](../azure-reso
 
 #### Background
 
-Azure Databricks is integrated with Azure AD. This enables you to set permissions within Azure Databricks (for example, on notebooks or clusters) by specifying users from Azure AD. For Azure Databricks to be able to list the names of the users from your Azure AD, it requires read permission to that information. This requires a consent. If the consent is not already available, you see the error.
+Azure Databricks is integrated with Azure Active Directory. You can set permissions within Azure Databricks (for example, on notebooks or clusters) by specifying users from Azure AD. For Azure Databricks to be able to list the names of the users from your Azure AD, it requires read permission to that information and consent to be given. If the consent is not already available, you see the error.
 
 #### Solution
 

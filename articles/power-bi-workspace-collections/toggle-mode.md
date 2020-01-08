@@ -1,23 +1,15 @@
 ---
-title: Toggle between view and edit mode for reports in Power BI Workspace Collections | Microsoft Docs
+title: Toggle between view and edit mode for reports
 description: Learn how to toggle between view and edit mode for your reports within Power BI Workspace Collections.
-services: power-bi-embedded
-documentationcenter: ''
-author: markingmyname
-manager: kfile
-editor: ''
-tags: ''
-
-ROBOTS: NOINDEX
-ms.assetid: 
+services: power-bi-workspace-collections
 ms.service: power-bi-embedded
-ms.devlang: NA
+author: rkarlin
+ms.author: rkarlin
 ms.topic: article
-ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/20/2017
-ms.author: maghan
 ---
+
 # Toggle between view and edit mode for reports in Power BI Workspace Collections
 
 Learn how to toggle between view and edit mode for your reports within Power BI Workspace Collections.
@@ -32,7 +24,7 @@ You need to create an access token that gives you the ability to both view and e
 > [!NOTE]
 > This allows you to edit and save changes to an existing report. If you would also like the function of supporting **Save As**, you need to supply additional permissions. For more information, see [Scopes](app-token-flow.md#scopes).
 
-```
+```csharp
 using Microsoft.PowerBI.Security;
 
 // rlsUsername and roles are optional
@@ -48,9 +40,10 @@ You need to supply permissions and a viewMode in order to see the save button wh
 
 For example, in JavaScript:
 
-```
+```html
    <div id="reportContainer"></div>
 
+    <script>
     // Get models. Models, it contains enums that can be used.
     var models = window['powerbi-client'].models;
 
@@ -76,6 +69,7 @@ For example, in JavaScript:
 
     // Embed the report and display it within the div container.
     var report = powerbi.embed(reportContainer, config);
+    </script>
 ```
 
 This indicates to embed the report in view mode based on **viewMode** being set to **models.ViewMode.View**.
@@ -84,7 +78,7 @@ This indicates to embed the report in view mode based on **viewMode** being set 
 
 You can use the following JavaScript to switch into view mode, if you are in edit mode.
 
-```
+```javascript
 // Get a reference to the embedded report HTML element
 var reportContainer = $('#reportContainer')[0];
 
@@ -100,7 +94,7 @@ report.switchMode("view");
 
 You can use the following JavaScript to switch into edit mode, if you are in view mode.
 
-```
+```javascript
 // Get a reference to the embedded report HTML element
 var reportContainer = $('#reportContainer')[0];
 
@@ -117,9 +111,9 @@ report.switchMode("edit");
 [Get started with sample](get-started-sample.md)  
 [Embed a report](embed-report.md)  
 [Authenticating and authorizing in Power BI Workspace Collections](app-token-flow.md)  
-[CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN#methods_)  
+[CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN)  
 [JavaScript Embed Sample](https://microsoft.github.io/PowerBI-JavaScript/demo/)  
 [PowerBI-CSharp Git Repo](https://github.com/Microsoft/PowerBI-CSharp)  
 [PowerBI-Node Git Repo](https://github.com/Microsoft/PowerBI-Node)  
 
-More questions? [Try the Power BI Community](http://community.powerbi.com/)
+More questions? [Try the Power BI Community](https://community.powerbi.com/)

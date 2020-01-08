@@ -1,137 +1,164 @@
 ---
-title: "Create a Kubernetes dev space in the cloud | Microsoft Docs"
-titleSuffix: Azure Dev Spaces
-author: "ghogen"
+title: "Debug and iterate on Kubernetes: Visual Studio Code & .NET Core"
 services: azure-dev-spaces
-ms.service: azure-dev-spaces
-ms.component: azds-kubernetes
-ms.author: "ghogen"
-ms.date: "06/06/2018"
-ms.topic: "quickstart"
-description: "Rapid Kubernetes development with containers and microservices on Azure"
-keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers"
-manager: "douge"
+ms.date: 07/08/2019
+ms.topic: quickstart
+description: "This quickstart shows you how to use Azure Dev Spaces and Visual Studio Code to debug and rapidly iterate a .NET Core application on Azure Kubernetes Service"
+keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, service mesh, service mesh routing, kubectl, k8s"
+manager: gwallace
 ---
-# Quickstart: Create a Kubernetes dev space with Azure Dev Spaces (.NET Core and VS Code)
+# Quickstart: Debug and iterate on Kubernetes: Visual Studio Code and .NET Core - Azure Dev Spaces
 
 In this guide, you will learn how to:
 
 - Set up Azure Dev Spaces with a managed Kubernetes cluster in Azure.
-- Iteratively develop code in containers using VS Code and the command line.
-- Debug the code in your dev space from VS Code
+- Iteratively develop code in containers using Visual Studio Code.
+- Debug the code in your dev space from Visual Studio Code.
 
-> [!Note]
-> **If you get stuck** at any time, see the [Troubleshooting](troubleshooting.md) section, or post a comment on this page. You can also try the more detailed [tutorial](get-started-netcore.md).
+Azure Dev Spaces also allows you debug and iterate using:
+- [Java and Visual Studio Code](quickstart-java.md)
+- [Node.js and Visual Studio Code](quickstart-nodejs.md)
+- [.NET Core and Visual Studio](quickstart-netcore-visualstudio.md)
 
 ## Prerequisites
 
 - An Azure subscription. If you don't have one, you can create a [free account](https://azure.microsoft.com/free).
-- A [Kubernetes cluster](https://ms.portal.azure.com/#create/microsoft.aks) running Kubernetes 1.9.6, in the EastUS, WestEurope, or CanadaEast region, with **Http Application Routing** enabled.
+- [Visual Studio Code installed](https://code.visualstudio.com/download).
+- The [Azure Dev Spaces](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds) and [C#](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp) extensions for Visual Studio Code installed.
+- [Azure CLI installed](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
-  ![Be sure to enable Http Application Routing.](media/common/Kubernetes-Create-Cluster-3.PNG)
+## Create an Azure Kubernetes Service cluster
 
-- [Visual Studio Code](https://code.visualstudio.com/download).
+You need to create an AKS cluster in a [supported region][supported-regions]. The below commands create a resource group called *MyResourceGroup* and an AKS cluster called *MyAKS*.
 
-## Set up Azure Dev Spaces
+```cmd
+az group create --name MyResourceGroup --location eastus
+az aks create -g MyResourceGroup -n MyAKS --location eastus --disable-rbac --generate-ssh-keys
+```
 
-1. Install the [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) (version 2.0.33 or higher).
-1. Set up Dev Spaces on your AKS cluster: `az aks use-dev-spaces -g MyResourceGroup -n MyAKS`
-1. Download the [Azure Dev Spaces extension](https://aka.ms/get-azds-code) for VS Code.
-1. Install the extension: `code --install-extension path-to-downloaded-extension/azds-0.1.1.vsix`
+## Enable Azure Dev Spaces on your AKS cluster
 
-## Build and run code in Kubernetes
+Use the `use-dev-spaces` command to enable Dev Spaces on your AKS cluster and follow the prompts. The below command enables Dev Spaces on the *MyAKS* cluster in the *MyResourceGroup* group and creates a *default* dev space.
 
-1. Download sample code from GitHub: [https://github.com/Azure/dev-spaces](https://github.com/Azure/dev-spaces) 
-1. Change directory to the webfrontend folder: `cd dev-spaces/samples/dotnetcore/getting-started/webfrontend`
-1. Generate Docker and Helm chart assets: `azds prep --public`
-1. Build and run your code in AKS. In the terminal window, run this command from the **root code folder**, webfrontend: `azds up`
-1. Scan the console output for information about the URL that was created by the `up` command. It will be in the form: 
+> [!NOTE]
+> The `use-dev-spaces` command will also install the Azure Dev Spaces CLI if its not already installed. You cannot install the Azure Dev Spaces CLI in the Azure Cloud Shell.
 
-   `Service 'webfrontend' port 'http' is available at <url>` 
+```cmd
+$ az aks use-dev-spaces -g MyResourceGroup -n MyAKS
 
-   Open this URL in a browser window, and you should see the web app load. 
+'An Azure Dev Spaces Controller' will be created that targets resource 'MyAKS' in resource group 'MyResourceGroup'. Continue? (y/N): y
 
-### Update a content file
+Creating and selecting Azure Dev Spaces Controller 'MyAKS' in resource group 'MyResourceGroup' that targets resource 'MyAKS' in resource group 'MyResourceGroup'...2m 24s
 
-1. Locate a file, such as `./Views/Home/Index.cshtml`, and make an edit to the HTML. For example, change line 70 that reads `<h2>Application uses</h2>` to something like: `<h2>Hello k8s in Azure!</h2>`
-1. Save the file. Moments later, in the Terminal window you'll see a message saying a file in the running container was updated.
-1. Go to your browser and refresh the page. You should see the web page display the updated HTML.
+Select a dev space or Kubernetes namespace to use as a dev space.
+ [1] default
+Type a number or a new name: 1
 
-What happened? Edits to content files, like HTML and CSS, don't require recompilation in a .NET Core web app, so an active `azds up` command automatically syncs any modified content files into the running container in Azure, so you can see your content edits right away.
+Kubernetes namespace 'default' will be configured as a dev space. This will enable Azure Dev Spaces instrumentation for new workloads in the namespace. Continue? (Y/n): Y
 
-### Update a code file
-Updating code files requires a little more work, because a .NET Core app needs to rebuild and produce updated application binaries.
+Configuring and selecting dev space 'default'...3s
 
-1. In the terminal window, press `Ctrl+C` (to stop `azds up`).
-1. Open the code file named `Controllers/HomeController.cs`, and edit the message that the About page will display: `ViewData["Message"] = "Your application description page.";`
-1. Save the file.
-1. Run  `azds up` in the terminal window. 
+Managed Kubernetes cluster 'MyAKS' in resource group 'MyResourceGroup' is ready for development in dev space 'default'. Type `azds prep` to prepare a source directory for use with Azure Dev Spaces and `azds up` to run.
+```
 
-This command rebuilds the container image and redeploys the Helm chart. To see your code changes take effect in the running application, go to the About menu in the web app.
+## Get sample application code
 
-But there is an even *faster method* for developing code, which you'll explore in the next section. 
+In this article, you use the [Azure Dev Spaces sample application](https://github.com/Azure/dev-spaces) to demonstrate using Azure Dev Spaces.
 
-## Debug a container in Kubernetes
+Clone the application from GitHub.
 
-In this section, you'll use VS Code to directly debug your container running in Azure. You'll also learn how to get a faster edit-run-test loop.
+```cmd
+git clone https://github.com/Azure/dev-spaces
+```
 
-![](./media/common/edit-refresh-see.png)
+## Prepare the sample application in Visual Studio Code
 
-### Initialize debug assets with the VS Code extension
-You first need to configure your code project so VS Code will communicate with the dev space in Azure. The VS Code extension for Azure Dev Spaces provides a helper command to set up debug configuration. 
+Open Visual Studio Code, click *File* then *Open...*, navigate to the *dev-spaces/samples/dotnetcore/getting-started/webfrontend* directory, and click *Open*.
 
-Open the **Command Palette** (using the **View | Command Palette** menu), and use auto-complete to type and select this command: `Azure Dev Spaces: Create configuration files for connected development`. 
+You now have the *webfrontend* project open in Visual Studio Code. To run the application in your dev space, generate the Docker and Helm chart assets using the Azure Dev Spaces extension in the Command Palette.
 
-This adds debug configuration for Azure Dev Spaces under the `.vscode` folder.
+To open the Command Palette in Visual Studio Code, click *View* then *Command Palette*. Begin typing `Azure Dev Spaces` and click on `Azure Dev Spaces: Prepare configuration files for Azure Dev Spaces`.
 
-![](./media/common/command-palette.png)
+![Prepare configuration files for Azure Dev Spaces](./media/common/command-palette.png)
 
-### Select the AZDS debug configuration
-1. To open the Debug view, click on the Debug icon in the **Activity Bar** on the side of VS Code.
-1. Select **.NET Core Launch (AZDS)** as the active debug configuration.
+When Visual Studio Code also prompts you to configure your public endpoint, choose `Yes` to enable a public endpoint.
+
+![Select public endpoint](media/common/select-public-endpoint.png)
+
+This command prepares your project to run in Azure Dev Spaces by generating a Dockerfile and Helm chart. It also generates a *.vscode* directory with debugging configuration at the root of your project.
+
+## Build and run code in Kubernetes from Visual Studio
+
+Click on the *Debug* icon on the left and click *.NET Core Launch (AZDS)* at the top.
 
 ![](media/get-started-netcore/debug-configuration.png)
 
+This command builds and runs your service in Azure Dev Spaces in debugging mode. The *Terminal* window at the bottom shows the build output and URLs for your service running Azure Dev Spaces. The *Debug Console* shows the log output.
+
 > [!Note]
-> If you don't see any Azure Dev Spaces commands in the Command Palette, ensure you have installed the VS Code extension for Azure Dev Spaces. Be sure the workspace you opened in VS Code is the folder that contains azds.yaml.
+> If you don't see any Azure Dev Spaces commands in the *Command Palette*, make sure you have installed the [Visual Studio Code extension for Azure Dev Spaces](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds). Also verify you opened the *dev-spaces/samples/dotnetcore/getting-started/webfrontend* directory in Visual Studio Code.
 
+You can see the service running by opening the public URL.
 
-### Debug the container in Kubernetes
-Hit **F5** to debug your code in Kubernetes.
+Click *Debug* then *Stop Debugging* to stop the debugger.
 
-As with the `up` command, code is synced to the dev space, and a container is built and deployed to Kubernetes. This time, of course, the debugger is attached to the remote container.
+## Update code
 
-> [!Tip]
-> The VS Code status bar will display a clickable URL.
+To deploy an updated version of your service, you can update any file in your project and rerun *.NET Core Launch (AZDS)*. For example:
 
-Set a breakpoint in a server-side code file, for example within the `Index()` function in the `Controllers/HomeController.cs` source file. Refreshing the browser page causes the breakpoint to be hit.
+1. If your application is still running, click *Debug* then *Stop Debugging* to stop it.
+1. Update [line 22 in `Controllers/HomeController.cs`](https://github.com/Azure/dev-spaces/blob/master/samples/dotnetcore/getting-started/webfrontend/Controllers/HomeController.cs#L22) to:
+    
+    ```csharp
+    ViewData["Message"] = "Your application description page in Azure.";
+    ```
 
-You have full access to debug information just like you would if the code was executing locally, such as the call stack, local variables, exception information, etc.
+1. Save your changes.
+1. Rerun *.NET Core Launch (AZDS)*.
+1. Navigate to your running service and click *About*.
+1. Observe your changes.
+1. Click *Debug* then *Stop Debugging* to stop your application.
 
-### Edit code and refresh
-With the debugger active, make a code edit. For example, modify the About page's message in `Controllers/HomeController.cs`. 
+## Setting and using breakpoints for debugging
+
+Start your service in debugging mode using *.NET Core Launch (AZDS)*.
+
+Navigate back to the *Explorer* view by clicking *View* then *Explorer*. Open `Controllers/HomeController.cs` and click somewhere on line 22 to put your cursor there. To set a breakpoint hit *F9* or click *Debug* then *Toggle Breakpoint*.
+
+Open your service in a browser and notice no message is displayed. Return to Visual Studio Code and observe line 20 is highlighted. The breakpoint you set has paused the service at line 20. To resume the service, hit *F5* or click *Debug* then *Continue*. Return to your browser and notice the message is now displayed.
+
+While running your service in Kubernetes with a debugger attached, you have full access to debug information such as the call stack, local variables, and exception information.
+
+Remove the breakpoint by putting your cursor on line 22 in `Controllers/HomeController.cs` and hitting *F9*.
+
+## Update code from Visual Studio Code
+
+While the service is running in debugging mode, update line 22 in `Controllers/HomeController.cs`. For example:
 
 ```csharp
-public IActionResult About()
-{
-    ViewData["Message"] = "My custom message in the About page.";
-    return View();
-}
+ViewData["Message"] = "Your application description page in Azure while debugging!";
 ```
 
-Save the file, and in the **Debug actions pane**, click the **Refresh** button. 
+Save the file. Click *Debug* then *Restart Debugging* or in the *Debug toolbar*, click the *Restart Debugging* button.
 
-![](media/get-started-netcore/debug-action-refresh.png)
+![](media/common/debug-action-refresh.png)
 
-Instead of rebuilding and redeploying a new container image each time code edits are made, which will often take considerable time, Azure Dev Spaces will incrementally recompile code within the existing container to provide a faster edit/debug loop.
+Open your service in a browser and notice your updated message is displayed.
 
-Refresh the web app in the browser, and go to the About page. You should see your custom message appear in the UI.
+Instead of rebuilding and redeploying a new container image each time code edits are made, Azure Dev Spaces incrementally recompiles code within the existing container to provide a faster edit/debug loop.
 
-**Now you have a method for rapidly iterating on code and debugging directly in Kubernetes!**
+## Clean up your Azure resources
+
+```cmd
+az group delete --name MyResourceGroup --yes --no-wait
+```
 
 ## Next steps
 
-Learn how Azure Dev Spaces helpls you develop more complex apps across multiple containers, and how you can simplify collaborative development by working with different versions or branches of your code in different spaces. 
+Learn how Azure Dev Spaces helps you develop more complex applications across multiple containers, and how you can simplify collaborative development by working with different versions or branches of your code in different spaces. 
 
 > [!div class="nextstepaction"]
-> [Working with multiple containers and team development](get-started-netcore.md#call-a-service-running-in-a-separate-container)
+> [Working with multiple containers and team development](multi-service-netcore.md)
+
+
+[supported-regions]: about.md#supported-regions-and-configurations
