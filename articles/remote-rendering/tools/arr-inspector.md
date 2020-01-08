@@ -86,7 +86,7 @@ After clicking the start button, the dialog will close and the collection proces
 
 ![VM Debug Information collection success](./media/state-debugger-snackbar-success.png)
 
-Once the collection is finished, you will receive a notification in the Inspector window. This notification contains an id that identifies this particular collection uniquely. Be sure to save it so you can later refer us to this specific collection of debug information.
+Once the collection is finished, you will receive a notification in the Inspector window. This notification contains an ID that identifies this particular collection uniquely. Be sure to save it so you can later refer us to this specific collection of debug information.
 
 ## Pause Mode
 
