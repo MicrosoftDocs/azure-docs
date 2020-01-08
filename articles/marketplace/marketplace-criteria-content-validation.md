@@ -45,29 +45,6 @@ All offers must meet the [All Listing Requirements](https://docs.microsoft.com/a
 ---
 ## SaaS app requirements
 
-Your offer’s transaction capabilities and the category/subcategory selection will determine the storefront where your offer will be published. Depending on your category selection, offers targeted to a technical (IT/Dev) audience will be published to [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps), and offers intended for a business audience will be published to [Microsoft AppSource](https://appsource.microsoft.com/marketplace/apps). View [categories](gtm-offer-listing-best-practices-categories.md) applicable to each storefront to determine your offer placement. If you intend to cross-list your offer, the value proposition should address both storefront [audiences](https://docs.microsoft.com/azure/marketplace/comparing-appsource-azure-marketplace). The table below summarizes how publishing across each storefront is determined for SaaS listings:
-
-<!---
-| SaaS Offer    |     |          |           |    |    |     | Applicable Storefront |              |
-|:-------------:|:---:|:--------:|:---------:|:--:|:--:|:---:|:---------------------:|:-------------:|
-| Metered billing | Microsoft 365 add-ins | Contact me | Transact (at least 1 plan) | Private-only plan | Public-only plan | Public & private plans | AppSource | Azure Marketplace |
-|  | X |  |  |  |  |  | X |  |
-| X |  |  | X | X |  |  |  | X |
-| X |  |  | X |  | X |  |  | X |
-| X |  |  | X |  |  | X |  | X<sup>2</sup> |
-|  |  |  | X | X |  |  |  | X |
-|  |  |  | X |  | X |  | X<sup>1</sup> | X<sup>1</sup> |
-|  |  |  | X |  |  | X | X<sup>1</sup> | X<sup>1,2</sup> |
-|  |  | X |  |  |  |  | x<sup>1</sup> | X<sup>1</sup> | 
-
-
-![SaaS offer storefronts](./media/marketplace-publishers-guide/saas-storefronts.png)
-
-<sup>1</sup> Depending on category/subcategory and industry selection. <br>
-<sup>2</sup> Offers with private plans will be published to the Azure portal.
-
-<br> --->
-
 |  | Listing Element | Base Requirements | Optimal Requirements | 
 |:--- |:--- |:--- |:--- |
 | 1 | Offer title |<br>• Must consist only of lowercase, alphanumeric characters, dashes, or underscores. Cannot be modified once published. <br>• Descriptive of solution offering.<br>• Matches online promotion of solution in partner's website. | Contains key search words |
