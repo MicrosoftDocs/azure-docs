@@ -83,8 +83,8 @@ import os
 if not os.path.isdir('data'):
     os.mkdir('data')
     
-if not os.path.exists(project_folder):
-    os.makedirs(project_folder)
+if not os.path.exists('project_folder'):
+    os.makedirs('project_folder')
 
 X = pd.DataFrame(data_train.data[100:,:])
 y = pd.DataFrame(data_train.target[100:])
