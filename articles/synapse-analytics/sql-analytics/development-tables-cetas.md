@@ -1,6 +1,6 @@
 ---
 title: CETAS in SQL Analytics
-description: Using CETAS in SQL Analytics
+description: Using CETAS with SQL Analytics
 services: synapse analytics
 author: filippopovic
 ms.service: synapse-analytics
@@ -11,8 +11,9 @@ ms.author: fipopovi
 ms.reviewer: jrasnick
 ---
 
-# CETAS in SQL Analytics 
-In either SQL pools or SQL on-demand, you can use CREATE EXTERNAL TABLE AS SELECT (CETAS) to complete the  following tasks:  
+# CETAS with SQL Analytics
+
+In either SQL pool or SQL on-demand, you can use CREATE EXTERNAL TABLE AS SELECT (CETAS) to complete the  following tasks:  
 
 1. Create an external table
 1. Export, in parallel, the results of a Transact-SQL SELECT statement to
@@ -20,11 +21,13 @@ In either SQL pools or SQL on-demand, you can use CREATE EXTERNAL TABLE AS SELEC
    1. Azure Storage Blob
    1. Azure Data Lake Store Gen2
 
-## CETAS in SQL pools
-For SQL pools CETAS usage and syntax, check the [CREATE EXTERNAL TABLE AS SELECT](/sql/t-sql/statements/create-external-table-as-select-transact-sql) article.
+## CETAS in SQL pool
+
+For SQL pool, CETAS usage and syntax, check the [CREATE EXTERNAL TABLE AS SELECT](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-as-select-transact-sql) article.
 
 ## CETAS in SQL on-demand
-When using the SQL on-demand resource, CETAS is used  to create an external table and export query results to Azure Storage Blob or Azure Data Lake Store Gen2.
+
+When using the SQL on-demand resource, CETAS is used to create an external table and export query results to Azure Storage Blob or Azure Data Lake Store Gen2.
 
 ### Syntax
 
