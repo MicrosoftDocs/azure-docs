@@ -23,6 +23,8 @@
   items:
   - name: Create Immersive Reader resource
     href: how-to-create-immersive-reader.md
+  - name: How to set the cookie policy
+    href: how-to/set-cookie-policy.md
 - name: Reference
   items:
   - name: SDK Reference
