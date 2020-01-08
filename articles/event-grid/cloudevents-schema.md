@@ -143,11 +143,9 @@ If you are already familiar with Event Grid, you may be aware of Event Grid's en
 
 <a name="azure-functions"></a>
 
-## Use an HTTP trigger as an Event Grid trigger
+## Use with Azure Functions
 
-Event Grid events are received as HTTP requests, so you can handle events by using an HTTP trigger instead of an Event Grid trigger. One possible reason for doing that is to get more control over the endpoint URL that invokes the function. Another reason is when you need to receive events in the [CloudEvents schema](../event-grid/cloudevents-schema.md). 
-
-If you use an HTTP trigger, you have to write code for what the Event Grid trigger does automatically:
+The [Azure Functions Event Grid binding](../azure-functions/functions-bindings-event-grid.md) does not natively support CloudEvents, so HTTP-triggered functions are used to read CloudEvents messages. When using an HTTP trigger to read CloudEvents, you have to write code for what the Event Grid trigger does automatically:
 
 * Sends a validation response to a [subscription validation request](../event-grid/security-authentication.md#webhook-event-delivery).
 * Invokes the function once per element of the event array contained in the request body.
