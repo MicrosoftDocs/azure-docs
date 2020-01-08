@@ -22,7 +22,7 @@ ms.date: 01/07/2019
 > 
 > Azure AD reporting provides a more comprehensive view of logs from Azure AD activity in your environment, including sign in events, audit events, and changes to your directory. To connect Azure AD logs, you can use either the [Azure Sentinel Azure AD connector](../../sentinel/connect-azure-active-directory.md) or configure [Azure AD logs integration with Azure Monitor](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md). 
 >
-> The collection of Azure AD log is subjected to Azure Monitor pricing.  See [Azure Sentinel pricing](https://azure.microsoft.com/pricing/details/azure-sentinel/) for more information.
+> The collection of Azure AD log is subjected to Azure Monitor pricing.  See [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/) for more information.
 >
 > To use the Azure Sentinel Office 365 solution:
 > 1. Using this connector affects the pricing of your workspace. For more information, see [Azure Sentinel pricing](https://azure.microsoft.com/pricing/details/azure-sentinel/).
