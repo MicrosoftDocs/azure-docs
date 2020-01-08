@@ -208,6 +208,8 @@
           href: scenario-mobile-app-configuration.md
         - name: Mobile platforms specific config
           items:
+          - name: Shared device mode for Android devices
+            href: shared-device-mode.md
           - name: Xamarin Android
             href: msal-net-xamarin-android-considerations.md
           - name: System browser on Android
