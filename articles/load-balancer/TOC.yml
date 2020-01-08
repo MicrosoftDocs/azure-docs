@@ -28,6 +28,8 @@
       href: quickstart-create-basic-load-balancer-powershell.md
     - name: Template
       href: load-balancer-get-started-internet-arm-template.md
+    - name: REST API
+      href: create-load-balancer-rest-api.md
     
 - name: Tutorials
   items:
@@ -95,8 +97,7 @@
       href: configure-load-balancer-outbound-cli.md
     - name: Configure outbound rules - PowerShell
       href: configure-load-balancer-outbound-powershell.md
-  - name: Create an Azure Load Balancer using REST API
-    href: create-load-balancer-rest-api.md
+
 
   - name: Create public Load Balancer with IPv6
     href: load-balancer-ipv6-internet-ps.md
