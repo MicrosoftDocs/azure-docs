@@ -821,7 +821,7 @@ The key can be included in a query string variable named `code`, as above. It ca
 You can allow anonymous requests, which do not require keys. You can also require that the master key be used. You change the default authorization level by using the `authLevel` property in the binding JSON. For more information, see [Trigger - configuration](#trigger---configuration).
 
 > [!NOTE]
-> When running functions locally, authorization is disabled regardless of the specified authentication level setting. After publishing to Azure, the `authLevel` setting in your trigger is enforced. Keys are still required when running [locally in a container](functions-create-function-linux-custom-image.md#run-the-image-locally).
+> When running functions locally, authorization is disabled regardless of the specified authorization level setting. After publishing to Azure, the `authLevel` setting in your trigger is enforced. Keys are still required when running [locally in a container](functions-create-function-linux-custom-image.md#run-the-image-locally).
 
 
 ### Secure an HTTP endpoint in production
@@ -834,7 +834,7 @@ To fully secure your function endpoints in production, you should consider imple
 
 * Deploy your function app to an Azure App Service Environment (ASE). ASE provides a dedicated hosting environment in which to run your functions. ASE lets you configure a single front-end gateway that you can use to authenticate all incoming requests. For more information, see [Configuring a Web Application Firewall (WAF) for App Service Environment](../app-service/environment/app-service-app-service-environment-web-application-firewall.md).
 
-When using one of these function app-level security methods, you should set the HTTP-triggered function authentication level to `anonymous`.
+When using one of these function app-level security methods, you should set the HTTP-triggered function authorization level to `anonymous`.
 
 ### Webhooks
 

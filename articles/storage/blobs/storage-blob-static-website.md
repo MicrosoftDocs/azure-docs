@@ -59,6 +59,9 @@ The index document that you specify when you enable static website hosting, appe
 
 If the server returns a 404 error, and you have not specified an error document when you enabled the website, then a default 404 page is returned to the user.
 
+> [!NOTE]
+> [CORS](https://docs.microsoft.com/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) is not supported with static website.
+
 ## Impact of the setting the public access level of the web container
 
 You can modify the public access level of the **$web** container, but this has no impact on the primary static website endpoint because these files are served through anonymous access requests. That means public (read-only) access to all files.
