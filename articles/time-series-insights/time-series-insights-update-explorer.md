@@ -43,7 +43,7 @@ The Azure Time Series Insights Preview explorer consists of the following seven 
 
 ## 1. Environment panel
 
-The environment panel displays all the Time Series Insights environments you have access to. The list includes pay-as-you-go (Preview) environments as well as S1/S2 environments (General Availability). Simply click the Time Series Insights environment you want to use to immediately be taken there.
+The environment panel displays all the Time Series Insights environments you have access to. The list includes pay-as-you-go (Preview) environments as well as S1/S2 environments (General Availability). Simply select the Time Series Insights environment you want to use to immediately be taken there.
 
 1. Select the drop-down arrow next to your displayed environment.
 
@@ -107,7 +107,7 @@ The chart enables you to display time series instances as lines. You can collaps
 
 1. **Interval size**: The Interval size slider tool enables you to zoom in and out of intervals over the same time span. This provides more precise control of movement between large slices of time that show smooth trends down to slices as small as the millisecond, allowing you to review granular, high-resolution cuts of your data. The slider’s default starting point is set as the most optimal view of the data from your selection; balancing resolution, query speed, and granularity.
 
-1. **Zoom and pan**: Click this control to zoom and pan the chart.
+1. **Zoom and pan**: Select this control to zoom and pan the chart.
 
 1. **Y-axis control**: Cycles through the available y-axis view options:
 
@@ -117,7 +117,7 @@ The chart enables you to display time series instances as lines. You can collaps
 
 1. **Marker element**: The currently selected data element and its associated details.
 
-You can further drill into a specific data slice by **left-clicking** a data point on the current graph while holding down the mouse and then dragging the selected area to the endpoint of your choice. **Right-click** the blue, selected area and click **Zoom** as shown below. You can also view and download the telemetry events in the selected timespan.
+You can further drill into a specific data slice by **left-clicking** a data point on the current graph while holding down the mouse and then dragging the selected area to the endpoint of your choice. **Right-click** the blue, selected area and then select **Zoom** as shown below. You can also view and download the telemetry events in the selected timespan.
 
   [![Preview chart zoom](media/v2-update-explorer/preview-chart-zoom.png)](media/v2-update-explorer/preview-chart-zoom.png#lightbox)
 
