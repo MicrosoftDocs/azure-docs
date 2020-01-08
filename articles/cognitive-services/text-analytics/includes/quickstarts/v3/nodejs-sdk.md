@@ -57,12 +57,12 @@ Create a file named `index.js` and add the following libraries:
 const { TextAnalyticsClient, CognitiveServicesCredential } = require("@azure/cognitiveservices-textanalytics");
 ```
 
-Create variables for your resource's Azure endpoint and subscription key.
+Create variables for your resource's Azure endpoint and key.
 
 [!INCLUDE [text-analytics-find-resource-information](../../find-azure-resource-info.md)]
 
 ```javascript
-const subscription_key = '<paste-your-text-analytics-key-here>';
+const key = '<paste-your-text-analytics-key-here>';
 const endpoint = `<paste-your-text-analytics-endpoint-here>`;
 ```
 
@@ -86,10 +86,10 @@ The response object is a list containing the analysis information for each docum
 
 ## Client Authentication
 
-Create a new [TextAnalyticsClient](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-textanalytics/textanalyticsclient) object with `credentials` and `endpoint` as a parameter.
+Create a new [TextAnalyticsClient](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-textanalytics/textanalyticsclient) object with your key and endpoint as parameters.
 
 ```javascript
-const client = new TextAnalyticsClient(endpoint,  new CognitiveServicesCredential(subscription_key));
+const client = new TextAnalyticsClient(endpoint,  new CognitiveServicesCredential(key));
 ```
 
 ## Sentiment analysis
@@ -117,7 +117,6 @@ async function sentimentAnalysis(client){
             console.log(`\t\tLength: ${sentence.length}, Offset: ${sentence.offset}`);
         })
     });
-
 }
 sentimentAnalysis(textAnalyticsClient)
 ```
