@@ -623,7 +623,7 @@ See [Deploy to Azure Container Instances](how-to-deploy-azure-container-instance
 See [Deploy to Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md).
 
 ### A/B Testing (controlled rollout)
-See [Controlled rollout of ML models](how-to-deploy-azure-kubernetes-service#deploy-models-to-aks-using-controlled-rollout-preview) for more information.
+See [Controlled rollout of ML models](how-to-deploy-azure-kubernetes-service.md#deploy-models-to-aks-using-controlled-rollout-preview) for more information.
 
 ## Consume web services
 
