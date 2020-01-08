@@ -11,7 +11,7 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 11/19/2019
+ms.date: 01/08/2020
 ms.topic: tutorial
 ms.author: jgao
 ---
@@ -39,7 +39,7 @@ This tutorial covers the following tasks:
 
 To complete this article, you need:
 
-* [Visual Studio Code](https://code.visualstudio.com/) with the Resource Manager Tools extension. See [Use Visual Studio Code to create Azure Resource Manager templates](./resource-manager-tools-vs-code.md).
+* [Visual Studio Code](https://code.visualstudio.com/) with the Resource Manager Tools extension. See [Use Visual Studio Code to create Azure Resource Manager templates](./use-vs-code-to-create-template.md).
 
 ## Open a Quickstart template
 
@@ -318,7 +318,7 @@ The deployment scripts adds a certificate to the key vault.  You need to configu
 
 ## Deploy the template
 
-Refer to the [Deploy the template](./resource-manager-quickstart-create-templates-use-visual-studio-code.md?tabs=PowerShell#deploy-the-template) section in the Visual Studio Code quickstart for opening the Cloud shell and upload the template file to the shell. And then run the following PowerShell script:
+Refer to the [Deploy the template](./quickstart-create-templates-use-visual-studio-code.md?tabs=PowerShell#deploy-the-template) section in the Visual Studio Code quickstart for opening the Cloud shell and upload the template file to the shell. And then run the following PowerShell script:
 
 ```azurepowershell-interactive
 $projectName = Read-Host -Prompt "Enter a project name that is used to generate resource names"

@@ -156,7 +156,7 @@ When the Azure resources are no longer needed, clean up the resources you deploy
 
 ## Next steps
 
-In this tutorial, you developed and deployed a template to create a virtual machine, a virtual network, and the dependent resources. To learn how to deploy Azure resources based on conditions, see:
+In this tutorial, you developed and deployed a template to create a virtual machine, a virtual network, and the dependent resources. To learn how to use deployment scripts to perform pre/post deployment operations, see:
 
 > [!div class="nextstepaction"]
-> [Use conditions](./template-tutorial-use-conditions.md)
+> [Use deployment script](./template-tutorial-deployment-script.md)
