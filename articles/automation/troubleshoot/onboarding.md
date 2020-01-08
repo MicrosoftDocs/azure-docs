@@ -137,7 +137,7 @@ The link cannot be updated or deleted because it is linked to Update Management 
 
 #### Cause
 
-This error occurs when you still have solutions active in your Log Analytics workspace that depend on your Automation Account and Log Analtyics workspace being linked.
+This error occurs when you still have solutions active in your Log Analytics workspace that depend on your Automation Account and Log Analytics workspace being linked.
 
 ### Resolution
 
