@@ -343,7 +343,7 @@ After you configure the cloud HR app to Azure AD user provisioning, run test cas
 Use the previous results to determine how to transition your automatic user provisioning implementation into production based on your established timelines.
 
 > [!TIP]
-> Use techniques such as data reduction and data scrubbing when you refresh the test environment with production data to remove or mask sensitive personally identifiable information (PII) data to comply with privacy and security standards.
+> Use techniques such as data reduction and data scrubbing when you refresh the test environment with production data to remove or mask sensitive personal data to comply with privacy and security standards. 
 
 ### Plan security
 
