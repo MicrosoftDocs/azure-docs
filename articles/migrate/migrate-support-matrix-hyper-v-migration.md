@@ -2,7 +2,7 @@
 title: Support for Hyper-V migration in Azure Migrate
 description: Learn about support for Hyper-V migration with Azure Migrate.
 ms.topic: conceptual
-ms.date: 11/19/2019
+ms.date: 01/08/2020
 ---
 
 # Support matrix for Hyper-V migration
@@ -11,7 +11,7 @@ This article summarizes support settings and limitations for migrating Hyper-V V
 
 ## Migration limitations
 
-- You can select up to 10 VMs at once for replication. If you want to migrate more machines, then replicate in groups of 10.
+You can select up to 10 VMs at once for replication. If you want to migrate more machines, replicate in groups of 10.
 
 
 ## Hyper-V hosts
