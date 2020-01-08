@@ -74,7 +74,7 @@ To learn more about the Time Series Model, see [Times Series Models](./time-seri
 
 ## 3. Hierarchy tree and search panel
 
-The hierarchy tree and search panel allows you to easily search and navigate your [Time Series Model](./time-series-insights-update-tsm.md) hierarchy to find the specific time series instances you want to display on your chart. When you select your instances, they are not only added to the current chart but are also added to the data well. 
+The hierarchy tree and search panel allow you to easily search and navigate your [Time Series Model](./time-series-insights-update-tsm.md) hierarchy to find the specific time series instances you want to display on your chart. When you select your instances, they are not only added to the current chart but are also added to the data well. 
 
 [![Hierarchy tree and search panel](media/v2-update-explorer/tsi-preview-explorer-hierarchy-search.png)](media/v2-update-explorer/tsi-preview-explorer-hierarchy-search.png#lightbox)
 
