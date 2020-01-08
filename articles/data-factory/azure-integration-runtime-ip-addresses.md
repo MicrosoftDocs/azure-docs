@@ -33,20 +33,14 @@ Allow traffic from the IP addresses listed for the Azure Integration runtime in 
 | Australia      | Australia East      | 20.37.193.0/25,</br>20.37.193.128/26,</br>13.70.74.144/28    |
 | &nbsp;         | Australia Southeast | 20.42.225.0/25,</br>20.42.225.128/26,</br>13.77.53.160/28    |
 | Brazil         | Brazil South        | 191.235.224.128/25,</br>191.235.225.0/26,</br>191.233.205.160/28 |
-| Canada         | Canada East         | 40.89.16.128/25,</br>40.89.17.0/26,</br>40.69.108.160/28     |
 | &nbsp;         | Canada Central      | 52.228.80.128/25,</br>52.228.81.0/26,</br>13.71.175.80/28    |
-| China          | China East          | 52.130.0.128/25,</br>52.130.1.0/26,</br>40.73.172.48/28      |
 | Europe         | North Europe        | 20.38.82.0/23,</br>20.38.80.192/26,</br>13.69.230.96/28      |
 | &nbsp;         | West Europe         | 40.74.26.0/23,</br>40.74.24.192/26,</br>13.69.67.192/28      |
 | France         | France Central      | 20.43.40.128/25,</br>20.43.41.0/26,</br>40.79.132.112/28     |
 | India          | Central India       | 52.140.104.128/25,</br>52.140.105.0/26,</br>20.43.121.48/28  |
-| &nbsp;         | South India         | 20.41.192.128/25,</br>20.41.193.0/26,</br>40.78.196.128/28   |
 | Japan          | Japan East          | 20.43.64.128/25,</br>20.43.65.0/26,</br>13.78.109.192/28     |
-| &nbsp;         | Japan West          | 40.80.56.128/25,</br>40.80.57.0/26,</br>40.80.176.96/28      |
 | Korea          | Korea Central       | 20.41.64.128/25,</br>20.41.65.0/26,</br>52.231.20.64/28      |
-|                | Korea South         | 40.80.168.128/25,</br>40.80.169.0/26,</br>52.231.148.160/28  |
 | United Kingdom | UK South            | 51.104.24.128/25,</br>51.104.25.0/26,</br>51.104.9.32/28     |
-|                | UK West             | 51.137.160.128/25,</br>51.137.161.0/26,</br>51.140.212.112/28 |
 | United States  | Central US          | 20.37.156.0/26,</br>20.37.156.0/26,</br>20.44.10.64/28       |
 |                | East US             | 20.42.2.0/23,</br>20.42.4.0/26,</br>40.71.14.32/28           |
 |                | East US2            | 20.41.2.0/23,</br>20.41.4.0/26,</br>20.44.17.80/28           |
@@ -56,7 +50,7 @@ Allow traffic from the IP addresses listed for the Azure Integration runtime in 
 |                | West Central US     | 52.150.137.128/25,</br>52.150.136.192/26,</br>13.71.199.0/28 |
 |                | West US             | 40.82.250.0/23,</br>40.82.249.64/26,</br>13.86.219.208/28    |
 |                | West US2            | 20.42.132.0/23,</br>20.42.129.64/26,</br>13.66.143.128/28    |
-|                | US Gov Virginia     | 52.127.48.128/25,</br>52.127.49.0/26,</br>52.127.45.96/28    |
+
 ## Known issue with Azure Storage
 
 * When connecting to Azure Storage account, IP network rules have no effect on requests originating from the Azure integration runtime in the same region as the storage account. For more details, please [refer this article](https://docs.microsoft.com/azure/storage/common/storage-network-security#grant-access-from-an-internet-ip-range). 
