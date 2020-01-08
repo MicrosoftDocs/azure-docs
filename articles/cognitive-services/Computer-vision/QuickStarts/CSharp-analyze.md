@@ -56,7 +56,7 @@ namespace CSHttpClientSample
         // the Analyze method endpoint
         static string uriBase = endpoint + "vision/v2.1/analyze";
 
-        static void Main()
+        static async Task Main()
         {
             // Get the path and filename to process from the user.
             Console.WriteLine("Analyze an image:");
@@ -67,8 +67,8 @@ namespace CSHttpClientSample
             if (File.Exists(imageFilePath))
             {
                 // Call the REST API method.
-                Console.WriteLine("\nWait a moment for the results to appear.\n");
-                MakeAnalysisRequest(imageFilePath).Wait();
+                Console.WriteLine("\nWait for the results to appear.\n");
+                await MakeAnalysisRequest(imageFilePath);
             }
             else
             {
