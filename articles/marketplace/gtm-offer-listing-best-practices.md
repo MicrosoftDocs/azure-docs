@@ -48,11 +48,11 @@ Categories and subcategories applicable to each Storefront are listed [here](gtm
 
 Industry selection applies only for offers published to AppSource and Consulting Services published in Azure Marketplace. Select industries and/or verticals if your offer addresses industry-specific needs, calling out industry-specific capabilities in your offer description. You can select up to two (2) industries and two (2) verticals per industry selected.
 
-### Applicable Products
+### Applicable products
 
 Select the applicable products your app works with for the offer to show up under selected products in AppSource.
 
-### Search Keywords
+### Search keywords
 
 Keywords can help customers find your offer when they search. Identify the top search keywords for your offer, incorporate them in your offer summary and description as well as in the keyword section of the offer listing details section.
 
