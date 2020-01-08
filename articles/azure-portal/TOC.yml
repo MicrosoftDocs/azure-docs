@@ -38,8 +38,6 @@
       href: supportability/how-to-create-azure-support-request.md
     - name: Upload files for a support request
       href: supportability/how-to-use-file-uploader.md
-    - name: Control access rights for support requests
-      href: supportability/create-manage-support-requests-using-access-control.md
     - name: Request quota increases
       items: 
       - name: Increase compute vCPU limits
