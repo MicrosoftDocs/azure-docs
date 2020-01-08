@@ -18,7 +18,7 @@ ms.date: 01/04/2020
 
 The **Reset Skills** request forces reprocessing of a specific skill or the entire skillset. This API is used to override the change detection logic used for incremental enrichment, to force an update of enriched documents in the cache. 
 
-You can reset an existing [skillset](create-skillset.md) using an HTTP PUT, specifying the name of the skillset to update on the request URI. You must use **api-version=2019-05-06-Preview** on the request.
+You can reset an existing [skillset](https://docs.microsoft.com/rest/api/searchservice/create-skillset) using an HTTP PUT, specifying the name of the skillset to update on the request URI. You must use **api-version=2019-05-06-Preview** on the request.
 
 ```http  
 PUT https://[servicename].search.windows.net/skillsets/[skillset name]/resetskills?api-version=2019-05-06-Preview
@@ -60,80 +60,8 @@ Status Code: 204 No Content for a successful response.
 
 ## See also
 
-+ [Search REST APIs](index.md)
-+ [HTTP status codes](http-status-codes.md)  
++ [Search REST APIs](https://docs.microsoft.com/rest/api/searchservice)
++ [HTTP status codes](https://docs.microsoft.com/rest/api/searchservice/http-status-codes)  
 + [AI enrichment overview](https://docs.microsoft.com/azure/search/cognitive-search-concept-intro)
 + [Configure caching and incremental enrichment](search-howto-incremental-index.md)
 + [Incremental enrichment](cognitive-search-incremental-indexing-conceptual.md)
-
-
-
-
-
-# Update Skillset (Azure Cognitive Search REST API)
-
-
-
-
-
-
-### Request example
- The following example updates a skillset used for enriching a collection of financial documents.
-
-```http
-PUT https://[servicename].search.windows.net/skillsets/financedocenricher?api-version=2019-05-06
-api-key: [admin key]
-Content-Type: application/json
-```
-
-The body of request is a JSON document. This particular skillset uses two skills asynchronously, independently processing the substance of `/document/content` as two different transformations. Alternatively, you can direct the output of one transformation to be the input of another. For more information, see [How to define a skillset](https://docs.microsoft.com/azure/search/cognitive-search-defining-skillset).
-
-```json
-{
-  "name": "financedocenricher",
-  "description": 
-  "An updated version of a skillset used to extract sentiment from financial records, extract company names, and then find additional information about each company mentioned. This version changes the target names.",
-  "skills":
-  [
-    {
-      "@odata.type": "#Microsoft.Skills.Text.EntityRecognitionSkill",
-      "categories": [ "Organization" ],
-      "defaultLanguageCode": "en",
-      "inputs": [
-        {
-          "name": "text",
-          "source": "/document/content"
-        }
-      ],
-      "outputs": [
-        {
-          "name": "organizations",
-          "targetName": "companies"
-        }
-      ]
-    },
-    {
-      "@odata.type": "#Microsoft.Skills.Text.SentimentSkill",
-      "inputs": [
-        {
-          "name": "text",
-          "source": "/document/content"
-        }
-      ],
-      "outputs": [
-        {
-          "name": "score",
-          "targetName": "positivityscore"
-        }
-      ]
-    },
-  ],
-  "cognitiveServices": 
-  {
-  "@odata.type": "#Microsoft.Azure.Search.CognitiveServicesByKey",
-  "description": "mycogsvcs resource in West US 2",
-  "key": "<your key goes here>"
-  }
-}
-```
-
