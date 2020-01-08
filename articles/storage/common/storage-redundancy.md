@@ -48,7 +48,7 @@ All data for all types of storage accounts are replicated, including block blobs
 For pricing information for each redundancy option, see [Azure Storage Pricing](https://azure.microsoft.com/pricing/details/storage/).
 
 > [!NOTE]
-> Azure Premium Disk Storage currently supports only locally redundant storage (LRS). Azure Premium Block Blob Storage supports locally redudant storage (LRS) and zone redudant storage (ZRS) in certain regions.
+> Azure Premium Disk Storage currently supports only locally redundant storage (LRS). Azure Premium Block Blob Storage supports locally redundant storage (LRS) and zone redundant storage (ZRS) in certain regions.
 
 ## Changing replication strategy
 
