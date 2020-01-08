@@ -65,7 +65,7 @@ renderingSessionSettings will be used by the RenderingSession.ps1 script
 
 azureStorageSettings contain values used by the Ingestion.ps1 script. Fill it out if you want to upload a model to azure blob storage and convert it by using our model ingestion service.
 
-- azureStorageSettings.azureSubscriptionId: Fill in your subscription id, which contains the storage account you are using
+- azureStorageSettings.azureSubscriptionId: Fill in your subscription ID, which contains the storage account you are using
 - azureStorageSettings.resourceGroup: Resource group, which contains the storage account you are using
 - azureStorageSettings.storageAccountName: Name of the storage account you are using
 - azureStorageSettings.blobInputContainerName: Input container inside the storage container - we will copy all files to the model ingestion service, and run our model conversion tool 
@@ -156,8 +156,8 @@ This will:
 - Take the local file from the modelSettings.modelLocation and upload it to the input blob container configured under azureStorageSettings of the config file. 
 - Then it will generate a SAS URIs for the input container (so the service can retrieve your files)
 - And it will generate a SAS URIs for the output container (so the service can upload the finished model)
-- Call the model ingestion REST API to kick off the model conversion. This will retrieve a model ingestion id
-- Poll the ingestion Status REST API using the ingestion id from above until it succeeds or an error occurs
+- Call the model ingestion REST API to kick off the model conversion. This will retrieve a model ingestion ID.
+- Poll the ingestion Status REST API using the ingestion ID from above until it succeeds or an error occurs
 - at the end it will output a SAS URI to the model in the output blob container, which can be used in a rendering session via the provided ARR API.
 
 You can point model ingestion to an alternate config file by using:
@@ -169,9 +169,9 @@ If you only want to start ingesting a model without polling:
 ```powershell
 PS> $ .\Ingestion.ps1 -IngestAsset 
 ```
-This will return an ingestion id 
+This will return an ingestion ID. 
 
-You can use this id to get the ingestion status with: 
+You can use this ID to get the ingestion status with: 
 ```powershell
 PS> $ .\Ingestion.ps1 -GetAssetStatus -Id <id> [-Poll]
 ```
