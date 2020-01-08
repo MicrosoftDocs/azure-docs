@@ -61,15 +61,7 @@ The following steps show you how to connect to your virtual machine using a remo
 
 8. You might receive a certificate warning during the sign-in process. Choose **Yes** or **Continue** to proceed with the connection.
 
-## Store the imported or exported .BACPAC
 
-Because SqlPackage operates with the filesystem, you can use the storage feature that best suits your needs for both performance (the speed of import or export operations), and cost. Importing and exporting databases uses [.BACPAC files](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/data-tier-applications#bacpac) stored in Azure Storage. 
-
-The .BACPAC file can be stored in [Azure Blobs](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview), or [Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction). Whether to use Azure Blobs or Azure Files depends on your specific business requirements. Azure Blobs will cost less than a premium Azure file share, but will take a longer time for the import or export operation to complete.
-
-To upload or download .BACPAC files, see [Transfer data with AzCopy and Blob storage](../storage/common/storage-use-azcopy-blobs.md), and [Transfer data with AzCopy and file storage](../storage/common/storage-use-azcopy-files.md).
-
-Depending on your environment, you might need to [Configure Azure Storage firewalls and virtual networks](../storage/common/storage-network-security.md).
 
 ## Install SqlPackage
 
@@ -158,7 +150,15 @@ Even with all of the above conditions, the import export service may not meet th
 3. VM should have SSD with adequate size for generating temp artifacts before uploading to blob storage.
 4. VM should have adequate core and memory configuration for the specific database.
 
+## Store the imported or exported .BACPAC file
 
+Because SqlPackage operates with the filesystem, you can use the storage feature that best suits your needs for both performance (the speed of import or export operations), and cost. Importing and exporting databases uses [.BACPAC files](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/data-tier-applications#bacpac) stored in Azure Storage. 
+
+The .BACPAC file can be stored in [Azure Blobs](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview), or [Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction). Whether to use Azure Blobs or Azure Files depends on your specific business requirements. Azure Blobs will cost less than a premium Azure file share, but will take a longer time for the import or export operation to complete.
+
+To upload or download .BACPAC files, see [Transfer data with AzCopy and Blob storage](../storage/common/storage-use-azcopy-blobs.md), and [Transfer data with AzCopy and file storage](../storage/common/storage-use-azcopy-files.md).
+
+Depending on your environment, you might need to [Configure Azure Storage firewalls and virtual networks](../storage/common/storage-network-security.md).
 
 ## Next steps
 
