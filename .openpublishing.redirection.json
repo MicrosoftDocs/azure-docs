@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path": "articles/active-directory/users-groups-roles/groups-update-rule.md",
+      "redirect_url": "/articles/active-directory/users-groups-roles/groups-create-rule",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/sql-database/sql-database-feature-restrictions.md",
       "redirect_url": "/azure/sql-database",
       "redirect_document_id": false
@@ -14503,7 +14508,7 @@
     },
     {
       "source_path": "articles/machine-learning/machine-learning-algorithm-cheat-sheet.md",
-      "redirect_url": "/azure/machine-learning/studio/algorithm-cheat-sheet",
+      "redirect_url": "/azure/machine-learning/algorithm-cheat-sheet",
       "redirect_document_id": false
     },
     {
