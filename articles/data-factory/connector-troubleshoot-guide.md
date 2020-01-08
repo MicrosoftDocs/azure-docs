@@ -436,56 +436,6 @@ busy to handle requests, it returns an HTTP error 503.
 - **Resolution**: Run the same query in SSMS and check if you see the same result. If yes, open a support ticket to Azure SQL Data Warehouse and provide your SQL DW server and database name to further troubleshoot.
             
 
-## Dynamics 365/Common Data Service/Dynamics CRM
-
-### Error code:  DynamicsCreateServiceClientError
-
-- **Message**: `This is a transient issue on dynamics server side. Try to rerun the pipeline.`
-
-- **Cause**: This is a transient issue on dynamics server side.
-
-- **Recommendation**:  Rerun the pipeline. If keep failing, try to reduce the parallelism. If still fail, please contact dynamics support.
-
-
-
-## JSON Format
-
-### Error code:  JsonInvalidArrayPathDefinition
-
-- **Message**: `Error occurred when deserializing source JSON data. Check whether the JsonPath in JsonNodeReference and JsonPathDefintion is valid.`
-
-
-### Error code:  JsonEmptyJObjectData
-
-- **Message**: `The specified row delimiter %rowDelimiter; is incorrect. Cannot detect a row after parse %size; MB data.`
-
-
-### Error code:  JsonNullValueInPathDefinition
-
-- **Message**: `Null JSONPath detected in JsonPathDefinition.`
-
-
-### Error code:  JsonUnsupportedHierarchicalComplexValue
-
-- **Message**: `The retrieved type of data %data; with value %value; is not supported yet. Please either remove the targeted column '%name;' or enable skip incompatible row to skip the issue rows.`
-
-
-### Error code:  JsonConflictPartitionDiscoverySchema
-
-- **Message**: `Conflicting partition column names detected.'%schema;', '%partitionDiscoverySchema;'`
-
-
-### Error code:  JsonInvalidDataFormat
-
-- **Message**: `Error occurred when deserializing source JSON file '%fileName;'. Check if the data is in valid JSON object format.`
-
-
-### Error code:  JsonInvalidDataMixedArrayAndObject
-
-- **Message**: `Error occurred when deserializing source JSON file '%fileName;'. The JSON format doesn't allow mixed arrays and objects.`
-
-
-
 ## Delimited Text Format
 
 ### Error code:  DelimitedTextColumnNameNotAllowNull
@@ -533,6 +483,56 @@ busy to handle requests, it returns an HTTP error 503.
 ### Error code:  DelimitedTextInvalidSettings
 
 - **Message**: `%settingIssues;`
+
+
+
+## Dynamics 365/Common Data Service/Dynamics CRM
+
+### Error code:  DynamicsCreateServiceClientError
+
+- **Message**: `This is a transient issue on dynamics server side. Try to rerun the pipeline.`
+
+- **Cause**: This is a transient issue on dynamics server side.
+
+- **Recommendation**:  Rerun the pipeline. If keep failing, try to reduce the parallelism. If still fail, please contact dynamics support.
+
+
+
+## JSON Format
+
+### Error code:  JsonInvalidArrayPathDefinition
+
+- **Message**: `Error occurred when deserializing source JSON data. Check whether the JsonPath in JsonNodeReference and JsonPathDefintion is valid.`
+
+
+### Error code:  JsonEmptyJObjectData
+
+- **Message**: `The specified row delimiter %rowDelimiter; is incorrect. Cannot detect a row after parse %size; MB data.`
+
+
+### Error code:  JsonNullValueInPathDefinition
+
+- **Message**: `Null JSONPath detected in JsonPathDefinition.`
+
+
+### Error code:  JsonUnsupportedHierarchicalComplexValue
+
+- **Message**: `The retrieved type of data %data; with value %value; is not supported yet. Please either remove the targeted column '%name;' or enable skip incompatible row to skip the issue rows.`
+
+
+### Error code:  JsonConflictPartitionDiscoverySchema
+
+- **Message**: `Conflicting partition column names detected.'%schema;', '%partitionDiscoverySchema;'`
+
+
+### Error code:  JsonInvalidDataFormat
+
+- **Message**: `Error occurred when deserializing source JSON file '%fileName;'. Check if the data is in valid JSON object format.`
+
+
+### Error code:  JsonInvalidDataMixedArrayAndObject
+
+- **Message**: `Error occurred when deserializing source JSON file '%fileName;'. The JSON format doesn't allow mixed arrays and objects.`
 
 
 
