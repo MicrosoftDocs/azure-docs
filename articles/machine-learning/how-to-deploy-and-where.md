@@ -1088,4 +1088,5 @@ For more information, see the documentation for [WebService.delete()](https://do
 * [Consume an Azure Machine Learning model deployed as a web service](how-to-consume-web-service.md)
 * [Monitor your Azure Machine Learning models with Application Insights](how-to-enable-app-insights.md)
 * [Collect data for models in production](how-to-enable-data-collection.md)
+* [Create event alerts and triggers for model deployments](how-to-use-event-grid.md)
 
