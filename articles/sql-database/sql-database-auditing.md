@@ -237,7 +237,7 @@ In production, you are likely to refresh your storage keys periodically. When wr
 
 - When using AAD Authentication, failed logins records will *not* appear in the SQL audit log. To view failed login audit records, you need to visit the [Azure Active Directory portal]( ../active-directory/reports-monitoring/reference-sign-ins-error-codes.md), which logs details of these events.
 
-- Azure SQL Database auditing is optimized for availability. During very high activity Azure SQL Database allows operations to proceed without recording all audited events.
+- Azure SQL Database auditing is optimized for availability & performance. During very high activity Azure SQL Database allows operations to proceed and may not record some audited events.
 
 
 ## <a id="subheading-7"></a>Manage Azure SQL Server and Database auditing using Azure PowerShell
