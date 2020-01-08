@@ -59,6 +59,8 @@
       href: load-balancer-standard-diagnostics.md
     - name: Azure Monitor logs for Basic Load Balancer
       href: load-balancer-monitor-log.md
+    - name: Get Load Balancer metrics with REST
+      href: load-balancer-query-metrics-rest-api.md
   - name: High Availability ports
     href: load-balancer-ha-ports-overview.md
   - name: IPv6 support
@@ -113,11 +115,11 @@
       href: load-balancer-ipv6-internet-template.md
   - name: Configure internal Load Balancer
     items:
-    - name: Configure internal Load Balancer (PowerShell)
-      href: load-balancer-get-started-ilb-arm-ps.md
-    - name: Configure internal Load Balancer (CLI)
+    - name: Azure CLI
       href: load-balancer-get-started-ilb-arm-cli.md
-    - name: Configure internal Load Balancer (Template)
+    - name: Azure PowerShell
+      href: load-balancer-get-started-ilb-arm-ps.md
+    - name: Template
       href: load-balancer-get-started-ilb-arm-template.md
   - name: Configure TCP idle timeout for Load Balancer
     href: load-balancer-tcp-idle-timeout.md
@@ -126,13 +128,10 @@
   - name: Using multiple IP configurations
     href: load-balancer-multiple-ip.md
     items:
-    - name: Using multiple IP configurations (CLI)
+    - name: Azure CLI
       href: load-balancer-multiple-ip-cli.md
-    - name: Using multiple IP configurations (PowerShell)
+    - name: Azure PowerShell
       href: load-balancer-multiple-ip-powershell.md
-
-  - name: Get Load Balancer metrics with REST
-    href: load-balancer-query-metrics-rest-api.md
   - name: Configure High Availability Ports for Internal Load Balancer
     href: load-balancer-configure-ha-ports.md
   - name: Move across regions
