@@ -1,11 +1,10 @@
 ---
 title: Shared device mode for Android devices | Azure
-description: How a Firstline worker Android app can use shared device mode.
+description: Learn about shared device mode which allows firstline workers to share an Android device 
 services: active-directory
 documentationcenter: dev-center-name
 author: tylermsft
 manager: CelesteDG
-
 ms.service: active-directory
 ms.subservice: develop
 ms.devlang: na
