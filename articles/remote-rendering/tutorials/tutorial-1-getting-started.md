@@ -51,7 +51,7 @@ nuget.exe sources Add -Name "ArrPackages" -Source <https://pkgs.dev.azure.com/ar
 
         ![confirm package imports](media/confirm-packages.png)
 
-3. Modify camera transform and properites
+3. Modify camera transform and properties
     - reset the transform
 
         ![reset camera transform](media/camera-reset-transform.png)
@@ -65,13 +65,13 @@ nuget.exe sources Add -Name "ArrPackages" -Source <https://pkgs.dev.azure.com/ar
 4. Bring up the Project Settings dialog(Edit > Project Settings...) and select Quality:
         ![change project quality settings](media/settings-quality.png)
 
-5. From the same dialog, select Graphics and change the Scriptable Rendering Pipline Setting to Hybrid Render Pipeline:
+5. From the same dialog, select Graphics and change the Scriptable Rendering Pipeline Setting to Hybrid Render Pipeline:
         ![changing project graphics settings](media/settings-graphics-lwrp.png)
 
 6. Select Player and change the XR Settings to support Windows Mixed Reality:
     ![player settings](media/xr-player-settings.png)
 
-7. Ensure to set the capbabilities for any generated application that is created.
+7. Ensure to set the capabilities for any generated application that is created.
 
     Capabilities:
     - InternetClient
@@ -252,7 +252,7 @@ _Note: The effect will take immediate effect and any connected user will be disc
     }
 ```
 
-To test the functionality in the Unity Editor, add a GUI to be able to activate this functionaliy.
+To test the functionality in the Unity Editor, add a GUI to be able to activate this functionality.
 
 ```csharp
     #if UNITY_EDITOR
@@ -285,14 +285,14 @@ Start the application in the editor(press Play or ctrl-p). You should see the GU
 ![testing](media/test-create.png)
 
 A message will appear in the Output Window. At this point, the server is provisioning the server but is not ready to connect to. This can take some time to complete.\
-![session id](media/create-session-output.png)
+![Session ID](media/create-session-output.png)
 
 If you stop playback at this time, the session will be stopped automatically due to a property of the ARRServiceUnity component. To prevent the editor from stopping your session automatically, turn this off before starting playback:\
 ![auto stop off](media/auto-stop-off.png)
 
 ## List sessions
 
-Typically, creating a session would be triggered outside of the player application because of the time required to spin up the server. Depending on the scenario, you may already have a session id or you want to query account to know what sessions are available to use.\
+Typically, creating a session would be triggered outside of the player application because of the time required to spin up the server. Depending on the scenario, you may already have a session ID or you want to query account to know what sessions are available to use.\
 \
 _Note: Be careful, not to connect to arbitrary sessions since they could already be in-use. You can only have one user connected at a time_
 
@@ -433,9 +433,9 @@ Create the new function to use the _SessionId_ property:
 ```
 
 Test and take note of the status of the session, as well as, the hostname.\
-![get session properties is ready](media/get-session-output-ready.png)
-![get session properties starting](media/get-session-output-starting.png)
-![use session id output](media/get-session-props.png)
+![Get session properties is ready](media/get-session-output-ready.png)
+![Get session properties starting](media/get-session-output-starting.png)
+![Use session ID output](media/get-session-props.png)
 
 ## Connect to an active session
 
