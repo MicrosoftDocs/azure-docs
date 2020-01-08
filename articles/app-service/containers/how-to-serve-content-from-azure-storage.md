@@ -32,6 +32,11 @@ This guide shows how to attach Azure Storage to App Service on Linux. Benefits i
 - Azure Storage with App Service **doesn't support** using the **Storage Firewall** configuration because of infrastructure limitations.
 - Azure Storage with App Service lets you specify **up to five** mount points per app.
 - Azure Storage is **not included** with your web app and billed separately. Learn more about [Azure Storage pricing](https://azure.microsoft.com/pricing/details/storage).
+- 
+
+> [!WARNING]
+> App Service configurations using Azure Blob Storage will become Read only in Feb 2020. [Learn more](https://github.com/Azure/app-service-linux-docs/blob/master/BringYourOwnStorage/mounting_azure_blob.md)
+>
 
 ## Configure your app with Azure Storage
 
