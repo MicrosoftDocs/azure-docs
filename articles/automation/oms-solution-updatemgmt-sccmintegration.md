@@ -1,5 +1,5 @@
 ---
-title: Use Update Management with Configuration Manager clients
+title: Use Azure Update Management with Configuration Manager clients
 description: This article is intended to help you configure Microsoft Endpoint Configuration Manager with this solution to depoloy software updates to ConfigMgr clients.
 services: automation
 ms.subservice: update-management
