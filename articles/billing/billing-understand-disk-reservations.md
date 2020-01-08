@@ -20,7 +20,7 @@ For information about Azure Disk reservation pricing, see [Azure Disk pricing](h
 
 ## How the reservation discount is applied
 
-The Azure Disk reservation discount is a "use-it-or-lose-it" discount and is applied to managed disk resources on an hourly basis. If you don't have any managed disk resources that meet the terms of your reservation for a given hour, then you lose a reservation quantity for that hour. You can't carry forward unused reserved hours.
+The Azure disk reservation discount is a "use-it-or-lose-it" discount and is applied to managed disk resources on an hourly basis. If you don't have any managed disk resources that meet the terms of your reservation for a given hour, then you lose a reservation quantity for that hour. You can't carry forward unused reserved hours.
 When you delete a resource, the reservation discount automatically applies to another matching resource in the specified scope. If no matching resources are found in the specified scope, then the reserved hours are lost.
 
 ## Discount examples
