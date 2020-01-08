@@ -1,8 +1,8 @@
 ---
-title: VMware support in Azure Migrate
-description: Learn about VMware assessment/migration support in Azure Migrate.
+title: VMware assessment support in Azure Migrate
+description: Learn about VMware assessment support in Azure Migrate.
 ms.topic: conceptual
-ms.date: 01/02/2020
+ms.date: 01/08/2020
 ---
 
 # Support matrix for VMware assessment 
@@ -23,7 +23,7 @@ To assess on-premises machines for migration to Azure with this article, you add
 **Discovery** | The Azure Migrate appliance can discover up to 10,000 VMware VMs on a vCenter Server.
 **Assessment** | You can add up to 35,000 machines in a single group.<br/><br/> You can assess up to 35,000 VMs in a single assessment.
 
-- [Learn more](concepts-assessment-calculation.md) about assessments.
+[Learn more](concepts-assessment-calculation.md) about assessments.
 
 
 ## Application discovery
