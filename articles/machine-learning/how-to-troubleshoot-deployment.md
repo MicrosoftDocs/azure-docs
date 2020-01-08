@@ -157,9 +157,9 @@ If you encounter problems deploying a model to ACI or AKS, try deploying it as a
 To deploy locally, modify your code to use `LocalWebservice.deploy_configuration()` to create a deployment configuration. Then use `Model.deploy()` to deploy the service. The following example deploys a model (contained in the model variable) as a local web service:
 
 ```python
+from azureml.core.environment import Environment
 from azureml.core.model import InferenceConfig, Model
 from azureml.core.webservice import LocalWebservice
-from azureml.core.environment import Environment
 
 
 # Create inference configuration based on the environment definition and the entry script
