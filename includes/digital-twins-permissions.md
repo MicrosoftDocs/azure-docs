@@ -7,7 +7,7 @@
  manager: bertvanhoof
  ms.service: digital-twins
  ms.topic: include
- ms.date: 11/11/2019
+ ms.date: 01/06/2020
  ms.custom: include file
 ---
 
@@ -54,7 +54,7 @@
     > * Test tenant and customer accounts should search for `Azure Digital Twins`.
     > * Other Microsoft accounts should search for `Azure Smart Spaces Service`.
 
-1. Either API once selected shows up as **Azure Digital Twins** in the same **Request API permissions** pane. Select the **Read** drop-down option, and then select the **Read.Write** checkbox. Select the **Add permissions** button.
+1. Either API will appear as **Azure Digital Twins** in the same **Request API permissions** pane once selected. Select the **Read** drop-down option, and then select the **Read.Write** checkbox. Select the **Add permissions** button.
 
     [![Add API permissions](./media/digital-twins-permissions/aad-app-req-permissions.png)](./media/digital-twins-permissions/aad-app-req-permissions.png#lightbox)
 
