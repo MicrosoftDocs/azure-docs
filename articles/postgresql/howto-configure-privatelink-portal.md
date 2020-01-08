@@ -123,6 +123,9 @@ In this section, you will create a PostgreSQL server and add a private endpoint 
 
 1. On the upper-left side of the screen in the Azure portal, select **Create a resource** > **Networking** > **Private Link Center (Preview)**.
 2. In **Private Link Center - Overview**, on the option to **Build a private connection to a service**, select **Start**.
+
+    ![Private Link overview](media/concepts-data-access-and-security-private-link/privatelink-overview.png)
+
 1. In **Create a private endpoint (Preview) - Basics**, enter or select this information:
 
     | Setting | Value |
@@ -160,7 +163,9 @@ In this section, you will create a PostgreSQL server and add a private endpoint 
 
 1. Select **Review + create**. You're taken to the **Review + create** page where Azure validates your configuration. 
 2. When you see the **Validation passed** message, select **Create**. 
- 
+
+    ![Private Link created](media/concepts-data-access-and-security-private-link/show-postgres-private-link.png)
+
 ## Connect to a VM using Remote Desktop (RDP)
 
 
