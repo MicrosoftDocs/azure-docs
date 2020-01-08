@@ -149,7 +149,7 @@ Applications already deployed to a Service Fabric cluster will be upgraded for t
 
 Applications deployed using the application resource model in Azure Resource Manager can be deleted from cluster using below steps
 
-1) Get resource id for application using [Get-AzResource](https://docs.microsoft.com/powershell/module/az.resources/get-azresource?view=azps-2.5.0):
+1) Get resource ID for application using [Get-AzResource](https://docs.microsoft.com/powershell/module/az.resources/get-azresource?view=azps-2.5.0):
 
     ```powershell
     Get-AzResource  -Name <String> | f1
