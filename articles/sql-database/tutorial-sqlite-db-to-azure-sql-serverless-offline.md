@@ -28,7 +28,7 @@ Once you have followed the below steps, your database will be migrated into Azur
 
 1. Provision a new Azure SQL Database in the Serverless compute tier.
 
-    ![screenshot of Azure Portal showing provisioning example for azure sql database serverless](./media/tutorial-sqlite-db-to-azure-sql-serverless-offline/provision-serverless.png)
+    ![screenshot of Azure portal showing provisioning example for azure sql database serverless](./media/tutorial-sqlite-db-to-azure-sql-serverless-offline/provision-serverless.png)
 
 2. Ensure you have your SQLite database file available in your Windows environment. Install a SQLite ODBC Driver if you do not already have one (there are many available in Open Source, for example, http://www.ch-werner.de/sqliteodbc/).
 
@@ -42,7 +42,7 @@ Once you have followed the below steps, your database will be migrated into Azur
 
 4. Download and install the self-hosted integration runtime. The easiest way to do this is the Express install option, as detailed in the documentation. If you opt for a manual install, you will need to provide the application with an authentication key, which can be located in your Data Factory instance by:
 
-    - Starting up ADF (Author and Monitor from the service in the Azure Portal)
+    - Starting up ADF (Author and Monitor from the service in the Azure portal)
     - Click the "Author" tab (Blue pencil) on the left
     - Click Connections (bottom left), then Integration runtimes
     - Add new Self-Hosted Integration Runtime, give it a name, select *Option 2*.
@@ -91,7 +91,7 @@ with open('CreateTables.sql', 'w') as f:
 c.close()
 ```
 
-13. Create the landing tables in your Serverless SQL target environment by copying the CREATE table statements from the CreateTables.sql file and running the SQL statements in the Query Editor in the Azure Portal.
+13. Create the landing tables in your Serverless SQL target environment by copying the CREATE table statements from the CreateTables.sql file and running the SQL statements in the Query Editor in the Azure portal.
 
 14. Return to the home screen of your Data Factory and click "Copy Data" to run through the job creation wizard.
 
@@ -101,5 +101,5 @@ c.close()
 
 ## Next steps
 
-- To get started, see [Quickstart: Create a single database in Azure SQL Database using the Azure Portal](sql-database-single-database-get-started.md).
+- To get started, see [Quickstart: Create a single database in Azure SQL Database using the Azure portal](sql-database-single-database-get-started.md).
 - For resource limits, see [Serverless compute tier resource limits](sql-database-vCore-resource-limits-single-databases.md#general-purpose---serverless-compute---gen5).
