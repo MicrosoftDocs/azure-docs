@@ -38,7 +38,9 @@ Container resource limits may differ from limits for non-networked container ins
 ### Unsupported networking scenarios 
 
 * **Azure Load Balancer** - Placing an Azure Load Balancer in front of container instances in a networked container group is not supported
-* **Virtual network peering** - VNet peering will not work for ACI if the network to which the ACI VNet is peered uses a public IP space. The peered network needs an RFC1918 private IP space in order for peering to work. Additionally, you currently can only peer your VNet to one other VNet
+* **Virtual network peering**
+  * VNet peering will not work for ACI if the network that the ACI VNet is peering to uses a public IP space. The peered network needs an RFC 1918 private IP space in order for VNet peering to work. 
+  * You can only peer your VNet to one other VNet
 * **Virtual network traffic routing** - Custom routes cannot be set up around public IPs. Routes can be set up within the private IP space of the delegated subnet in which the ACI resources are deployed 
 * **Network security groups** - Outbound security rules in NSGs applied to a subnet delegated to Azure Container Instances aren't currently enforced 
 * **Public IP or DNS label** - Container groups deployed to a virtual network don't currently support exposing containers directly to the internet with a public IP address or a fully qualified domain name
@@ -91,7 +93,7 @@ Once you've deployed your first container group with this method, you can deploy
 
 To deploy a container group to an existing virtual network:
 
-1. Create a subnet within your existing virtual network, use an existing subnet in which a container group is already deployed, or empty an existing subnet of *all* other resources
+1. Create a subnet within your existing virtual network, use an existing subnet in which a container group is already deployed, or use an existing subnet emptied of *all* other resources
 1. Deploy a container group with [az container create][az-container-create] and specify one of the following:
    * Virtual network name and subnet name
    * Virtual network resource ID and subnet resource ID, which allows using a virtual network from a different resource group
@@ -172,7 +174,7 @@ The log output should show that `wget` was able to connect and download the inde
 
 ### Deploy to existing virtual network - YAML
 
-You can also deploy a container group to an existing virtual network by using a YAML file, a Resource Manager template, or another programmatic method. To deploy to a subnet in a virtual network, you specify several additional properties in the YAML:
+You can also deploy a container group to an existing virtual network by using a YAML file, a Resource Manager template, or another programmatic method such as with the Python SDK. To deploy to a subnet in a virtual network, you specify several additional properties in the YAML:
 
 * `ipAddress`: The IP address settings for the container group.
   * `ports`: The ports to open, if any.
