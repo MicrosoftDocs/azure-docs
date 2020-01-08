@@ -91,22 +91,28 @@ A **participant** is a user who joins a conversation.
 
 ## Language support
 
-When creating or joining a conversation, each participant must choose a primary language. 
-- If they choose a language which is supported for **speech-to-text**, then they will be able to use speech input in the conversation. 
+When creating or joining a conversation, each participant must choose a primary language. This is the language which they will speak in, send instant messages in, and also the language that incoming messages will be translated to.
 
-- If they choose a **text** language that does not support speech-to-text, then they will only be able to type and send instant messages in the conversation. 
+There are two kinds of languages: **speech-to-text** and **text-only**:
+- If the user chooses a language that is supported for **speech-to-text**, then s/he will be able to use speech input in the conversation. 
 
-All messages in the conversation will also be translated to each participant's primary language.
+- If the user chooses a **text-only** language, then they will only be able to type and send instant messages in the conversation. 
 
 Apart from their primary language, each participant can also specify additional languages for translating the conversation.
 
-Below is a summary of the capabilities of the two types of languages: **speech-to-text** and **text**.
+Below is a summary of what the user will be able to do in a multi-device conversation, according to their chosen language.
 
-|  | [Speech-to-text](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/language-support#speech-to-text) | [Text](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/language-support#text-languages) |
+
+|  | Speech-to-text | Text translation |
 |-----------------------------------|----------------|------|
-| Speech recognition | ✔️ | ❌ |
+| Use speech input | ✔️ | ❌ |
 | Send instant messages | ✔️ | ✔️ |
 | Translate the conversation | ✔️ | ✔️ |
+
+> [!NOTE]
+> For lists of available speech-to-text and text translation languages, see [supported languages](supported-languages.md).
+
+
 
 ## Next steps
 
