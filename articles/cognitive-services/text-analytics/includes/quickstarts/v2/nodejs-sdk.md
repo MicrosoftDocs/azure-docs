@@ -41,7 +41,7 @@ Create a file named `index.js` and add the following libraries:
 
 Create variables for your resource's Azure endpoint and subscription key.
 
-[!INCLUDE [text-analytics-find-resource-information](../../find-azure-resource-info.md)]
+[!INCLUDE [text-analytics-find-resource-information](../../find-azure-resource-info-v2.md)]
 
 ```javascript
 const subscription_key = '<paste-your-text-analytics-key-here>';

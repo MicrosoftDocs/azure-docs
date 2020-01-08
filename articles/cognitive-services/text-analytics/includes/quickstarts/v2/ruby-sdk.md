@@ -42,7 +42,7 @@ In your Ruby file, import the following packages.
 
 Create variables for your resource's Azure endpoint and key. 
 
-[!INCLUDE [text-analytics-find-resource-information](../../find-azure-resource-info.md)]
+[!INCLUDE [text-analytics-find-resource-information](../../find-azure-resource-info-v2.md)]
 
 ```ruby
 const subscription_key = '<paste-your-text-analytics-key-here>'

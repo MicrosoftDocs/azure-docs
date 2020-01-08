@@ -17,7 +17,7 @@ ms.reviewer: assafi
 [Reference documentation]() | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics) | [Package (NuGet)]() | [Samples]()
 
 > [!NOTE]
-> The code in this article uses the synchronous methods of the Text Analytics .NET SDK as well as un-secured credentials use for simplicity reasons. For production scenarios, we recommend using the batched asynchronous methods for performance and scalability. For example, calling [AnalyzeSentimentAsync()]() instead of [AnalyzeSentiment()](). For secured use of credentials we recommend using [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview) to store all access keys and the use of [AAD authentication](https://docs.microsoft.com/azure/cognitive-services/authentication#authenticate-with-azure-active-directory) for all role based access controls. **Remember to never store access keys in code.**
+> The code in this article uses the synchronous methods of the Text Analytics .NET SDK as well as un-secured credentials use for simplicity reasons. For production scenarios, we recommend using the batched asynchronous methods for performance and scalability. For example, calling [AnalyzeSentimentAsync()]() instead of [AnalyzeSentiment()]().
 
 ## Prerequisites
 
