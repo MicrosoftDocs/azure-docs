@@ -135,7 +135,7 @@ As an overview:
 1. Modify the JSON payload as desired.
 1. Select **Done** and then **Close & Apply** within the **Power Query Editor Window**.
 
-You should see the desired changes applied.  
+You should read the desired changes applied.  
 
 ## Next Steps
 
@@ -143,4 +143,4 @@ You should see the desired changes applied.
 
 * Learn more about [Power BI desktop](https://docs.microsoft.com/power-bi/desktop-query-overview).
 
-* See [Time Series Insights GA Explorer](https://docs.microsoft.com/azure/time-series-insights/time-series-quickstart) and [Time Series Insights Preview Explorer](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-quickstart).
+* Read [Time Series Insights GA Explorer](https://docs.microsoft.com/azure/time-series-insights/time-series-quickstart) and [Time Series Insights Preview Explorer](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-quickstart).

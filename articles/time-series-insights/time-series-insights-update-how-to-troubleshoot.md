@@ -24,7 +24,7 @@ This problem might occur if you don’t have permissions to access the Time Seri
 
 ## Problem: No data is seen in the preview explorer
 
-There are several common reasons why you might not see your data in the [Azure Time Series Insights Preview explorer](https://insights.timeseries.azure.com/preview).
+There are several common reasons why your data might not appear in the [Azure Time Series Insights Preview explorer](https://insights.timeseries.azure.com/preview).
 
 - Your event source might not be receiving data.
 
@@ -34,7 +34,7 @@ There are several common reasons why you might not see your data in the [Azure T
 
 - Your event source data isn't in JSON format.
 
-    Time Series Insights supports only JSON data. For JSON samples, see [Supported JSON shapes](./how-to-shape-query-json.md).
+    Time Series Insights supports only JSON data. For JSON samples, read [Supported JSON shapes](./how-to-shape-query-json.md).
 
 - Your event source key is missing a required permission.
 
@@ -56,13 +56,13 @@ There are several common reasons why you might not see your data in the [Azure T
 
 - Your Time Series ID property specified at the time of provisioning is incorrect, missing, or null.
 
-    This problem might occur if the Time Series ID property is configured incorrectly at the time of provisioning the environment. For more information, see [Best practices for choosing a Time Series ID](./time-series-insights-update-how-to-id.md). At this time, you can't update an existing Time Series Insights environment to use a different Time Series ID.
+    This problem might occur if the Time Series ID property is configured incorrectly at the time of provisioning the environment. For more information, read [Best practices for choosing a Time Series ID](./time-series-insights-update-how-to-id.md). At this time, you can't update an existing Time Series Insights environment to use a different Time Series ID.
 
 ## Problem: Some data shows, but some is missing
 
 You might be sending data without the Time Series ID.
 
-- This problem might occur when you send events without the Time Series ID field in the payload. For more information, see [Supported JSON shapes](./how-to-shape-query-json.md).
+- This problem might occur when you send events without the Time Series ID field in the payload. For more information, read [Supported JSON shapes](./how-to-shape-query-json.md).
 - This problem might occur because your environment is being throttled.
 
     > [!NOTE]
@@ -92,7 +92,7 @@ If the Timestamp property isn’t explicitly specified, an event’s IoT hub or 
 
 - You might be accessing a Time Series Insights S1 or S2 environment.
 
-   Time Series Models are supported only in pay-as-you-go environments. For more information on how to access your S1 or S2 environment from the Time Series Insights Preview explorer, see [Visualize data in the explorer](./time-series-insights-update-explorer.md).
+   Time Series Models are supported only in pay-as-you-go environments. For more information on how to access your S1 or S2 environment from the Time Series Insights Preview explorer, read [Visualize data in the explorer](./time-series-insights-update-explorer.md).
 
    [![No events in environment.](media/preview-troubleshoot/troubleshoot-no-events.png)](media/preview-troubleshoot/troubleshoot-no-events.png#lightbox)
 
@@ -102,7 +102,7 @@ If the Timestamp property isn’t explicitly specified, an event’s IoT hub or 
 
 ## Problem: All my instances in the preview explorer lack a parent
 
-This problem might occur if your environment doesn’t have a Time Series Model hierarchy defined. For more information, see [Work with Time Series Models](./time-series-insights-update-how-to-tsm.md).
+This problem might occur if your environment doesn’t have a Time Series Model hierarchy defined. For more information, read [Work with Time Series Models](./time-series-insights-update-how-to-tsm.md).
 
   [![Unparented instances will display a warning.](media/preview-troubleshoot/unparented-instances.png)](media/preview-troubleshoot/unparented-instances.png#lightbox)
 

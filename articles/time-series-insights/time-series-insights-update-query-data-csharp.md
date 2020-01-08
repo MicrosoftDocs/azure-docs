@@ -19,7 +19,7 @@ This C# example demonstrates how to query data from the Azure Time Series Insigh
 
 The sample shows several basic examples of Query API usage:
 
-1. As a preparation step, acquire the access token through the Azure Active Directory API. Pass this token in the `Authorization` header of every Query API request. For setting up non-interactive applications, see [Authentication and authorization](time-series-insights-authentication-and-authorization.md). Also, ensure all the constants defined at the beginning of the sample are correctly set.
+1. As a preparation step, acquire the access token through the Azure Active Directory API. Pass this token in the `Authorization` header of every Query API request. For setting up non-interactive applications, read [Authentication and authorization](time-series-insights-authentication-and-authorization.md). Also, ensure all the constants defined at the beginning of the sample are correctly set.
 1. The list of environments that the user has access to is obtained. One of the environments is picked up as the environment of interest, and further data is queried for this environment.
 1. As an example of HTTPS request, availability data is requested for the environment of interest.
 1. Provides an example of SDK auto-generation support from [Azure AutoRest](https://github.com/Azure/AutoRest).

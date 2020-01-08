@@ -77,7 +77,7 @@ To get started, follow these steps.
 1. Provision a Time Series Insights environment in the Azure portal.
 1. Connect to an event source like an IoT hub or an event hub.
 1. Upload reference data. This isn't an additional service.
-1. See your data in minutes with the Time Series Insights explorer.
+1. Review and display your data in minutes with the Time Series Insights explorer.
 
 ## Explorer
 
