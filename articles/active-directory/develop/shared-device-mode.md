@@ -75,9 +75,9 @@ If you are writing an app that will only be used for firstline workers using a s
 
 ## Global Sign out
 
-When a user signs out, you will need to take action to protect the privacy and data of the user. For example, if you're building a medical records app, you'll want to make sure that when the user signs out that previously displayed patient records are cleared. Your application must be prepared for this and check every time it enters the foreground. To check whether the user has changed, since the last time the app was in the foreground, use the method described in the how-to topic: [How to Determine if a User has changed on the device](link).
+When a user signs out, you will need to take action to protect the privacy and data of the user. For example, if you're building a medical records app you'll want to make sure that when the user signs out that previously displayed patient records are cleared. Your application must be prepared for this and check every time it enters the foreground. See [Shared device global sign-out ](link) to learn how to check whether the user has changed and how to globally sign the previous user out of the app.
 
-Be aware that when your app uses MSAL to sign out the user in an app running on device that is in shared mode, as shown in the how-to topic [How to globally sign a user in and out](link), that the signed-in account and cached tokens are removed from both the app and the device:
+When your app uses MSAL to sign out the user in an app running on device that is in shared mode, the signed-in account and cached tokens are removed from both the app and the device.
 
 ## Next steps
 
