@@ -6,10 +6,8 @@ services: sql-database
 author: joplum
 ms.author: joplum
 manager: prda
-ms.reviewer: 
 ms.service: sql-database
 ms.workload: data-services
-ms.custom: ""
 ms.topic: article
 ms.date: 01/08/2020
 ---
