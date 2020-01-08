@@ -10,24 +10,26 @@
   items:
   - name: Create Standard Load Balancer
     href: quickstart-load-balancer-standard-public-portal.md
-      items:
-      - name: Portal
-        href: quickstart-load-balancer-standard-public-portal.md
-      - name: Azure CLI
-        href: quickstart-load-balancer-standard-public-cli.md
-      - name: Azure PowerShell
-        href: quickstart-create-standard-load-balancer-powershell.md
-      - name: Template
-        href: quickstart-load-balancer-standard-public-template.md
+    items:
+    - name: Portal
+      href: quickstart-load-balancer-standard-public-portal.md
+    - name: Azure CLI
+      href: quickstart-load-balancer-standard-public-cli.md
+    - name: Azure PowerShell
+      href: quickstart-create-standard-load-balancer-powershell.md
+    - name: Template
+      href: quickstart-load-balancer-standard-public-template.md
   - name: Create Basic Load Balancer
     href: quickstart-create-basic-load-balancer-portal.md
     items:
-      - name: Portal
-        href: quickstart-create-basic-load-balancer-portal.md
-      - name: Azure CLI
-        href: quickstart-create-basic-load-balancer-cli.md
-      - name: Azure PowerShell
-        href: quickstart-create-basic-load-balancer-powershell.md
+    - name: Portal
+      href: quickstart-create-basic-load-balancer-portal.md
+    - name: Azure CLI
+      href: quickstart-create-basic-load-balancer-cli.md
+    - name: Azure PowerShell
+      href: quickstart-create-basic-load-balancer-powershell.md
+    - name: Template
+      href: load-balancer-get-started-internet-arm-template.md
     
 - name: Tutorials
   items:
@@ -49,7 +51,6 @@
     href: powershell-samples.md
 - name: Concepts
   items:
-
   - name: Health probes
     href: load-balancer-custom-probe-overview.md
   - name: High Availability ports
@@ -98,8 +99,7 @@
       href: configure-load-balancer-outbound-powershell.md
   - name: Create an Azure Load Balancer using REST API
     href: create-load-balancer-rest-api.md
-  - name: Create Basic Load Balancer (Template)
-    href: load-balancer-get-started-internet-arm-template.md
+
   - name: Create public Load Balancer with IPv6
     href: load-balancer-ipv6-internet-ps.md
     items:
