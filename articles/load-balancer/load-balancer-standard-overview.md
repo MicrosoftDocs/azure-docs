@@ -188,22 +188,10 @@ SKUs are not mutable. Follow the steps in this section to move from one resource
 >
 >Matching SKUs must be used for Load Balancer and Public IP resources. You can't have a mixture of Basic SKU resources and Standard SKU resources. You can't attach standalone virtual machines, virtual machines in an availability set resource, or a virtual machine scale set resources to both SKUs simultaneously.
 
-## Region availability
+## Availability, Pricing, and SLA
 
-Standard Load Balancer is currently available in all public cloud regions.
-
-## SLA
-
-Standard Load Balancers are available with a 99.99% SLA.  Review the [Standard Load Balancer SLA](https://aka.ms/lbsla) for details.
-
-## Pricing
-
-Standard Load Balancer usage is charged.
-
-- Number of configured load-balancing and outbound rules (inbound NAT rules do not count against the total number of rules)
-- Amount of data processed inbound and outbound irrespective of rule. 
-
-For Standard Load Balancer pricing information, go to the [Load Balancer pricing](https://azure.microsoft.com/pricing/details/load-balancer/) page.
+Standard Load Balancer is currently available in all Azure regions.
+Review the [Standard Load Balancer SLA](https://aka.ms/lbsla) and [Load Balancer pricing](https://azure.microsoft.com/pricing/details/load-balancer/) for more information.
 
 ## Limitations
 
@@ -217,9 +205,9 @@ For Standard Load Balancer pricing information, go to the [Load Balancer pricing
 
 ## Next steps
 
+- Learn more about [Azure Load Balancer](load-balancer-overview.md).
 - Learn about using [Standard Load Balancer and Availability Zones](load-balancer-standard-availability-zones.md).
 - Learn about [Health Probes](load-balancer-custom-probe-overview.md).
-- Learn more about [Availability Zones](../availability-zones/az-overview.md).
 - Learn about [Standard Load Balancer Diagnostics](load-balancer-standard-diagnostics.md).
 - Learn about [supported multi-dimensional metrics](../azure-monitor/platform/metrics-supported.md#microsoftnetworkloadbalancers) for diagnostics  in [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md).
 - Learn about using [Load Balancer for outbound connections](load-balancer-outbound-connections.md).
@@ -227,8 +215,4 @@ For Standard Load Balancer pricing information, go to the [Load Balancer pricing
 - Learn about [TCP Reset on Idle](load-balancer-tcp-reset.md).
 - Learn about [Standard Load Balancer with HA Ports load balancing rules](load-balancer-ha-ports-overview.md).
 - Learn about using [Load Balancer with Multiple Frontends](load-balancer-multivip-overview.md).
-- Learn about [Virtual Networks](../virtual-network/virtual-networks-overview.md).
 - Learn more about [Network Security Groups](../virtual-network/security-overview.md).
-- Learn about [VNet Service Endpoints](../virtual-network/virtual-network-service-endpoints-overview.md).
-- Learn about some of the other key [networking capabilities](../networking/networking-overview.md) in Azure.
-- Learn more about [Load Balancer](load-balancer-overview.md).
