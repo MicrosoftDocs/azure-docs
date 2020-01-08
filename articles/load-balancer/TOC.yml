@@ -77,9 +77,9 @@
     items:
     - name: Portal
       href: load-balancer-get-started-internet-az-portal.md
-    - name: CLI
+    - name: Azure CLI
       href: load-balancer-get-started-internet-az-cli.md     
-    - name: PowerShell
+    - name: Azure PowerShell
       href: load-balancer-get-started-internet-az-powershell.md
   - name: Create a zonal public Standard Load Balancer
     items:
