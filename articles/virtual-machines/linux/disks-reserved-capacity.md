@@ -11,7 +11,7 @@ ms.subservice: disks
 
 # Reduce costs with Azure Disks Reservation
 
-Save on your premium solid state drive (SSD) usage with reserved capacity, combined with Reserved Virtual Machine Instances you can decrease your total VM costs. The reservation discount is applied automatically to the matching disks in the selected reservation scope, you don't need to assign a reservation to a Managed disk to get the discounts. Discounts are applied hourly on the disk usage and any unused reserved capacity does not carry over. Managed disk reservation discount does not apply to unmanaged disks, ultra disks, or page blob consumption.
+Save on your premium solid-state drive (SSD) usage with reserved capacity, combined with Reserved Virtual Machine Instances you can decrease your total VM costs. The reservation discount is applied automatically to the matching disks in the selected reservation scope, you don't need to assign a reservation to a Managed disk to get the discounts. Discounts are applied hourly on the disk usage and any unused reserved capacity does not carry over. Managed disk reservation discount does not apply to unmanaged disks, ultra disks, or page blob consumption.
 
 ## Determine your storage needs
 
@@ -26,7 +26,7 @@ Disk reservation is made per Disk SKU, hence the reservation consumption is base
 We recommend the following best practices when considering disk reservation purchase:
 
 •	Analyze your usage information to help determine which reservations you should purchase. Make sure you are tracking the usage in Disk SKUs instead of provisioned or used disk capacity. 
-•	Examine your Disk Reservation along with your VM reservation. We highly recommend to make reservation for both VM and Disk usage for maximum saving. You can start with determining the right VM reservation, then evaluate the disk reservation accordingly. Per workload, there is a typically a fix disk to VM configuration regarding of the SKUs and units. This approach can simplify the evaluation process and also make sure that you have an aligned plan for both VM and Disks in terms of subscriptions, regions, and others. 
+•	Examine your Disk Reservation along with your VM reservation. We highly recommend making reservation for both VM and Disk usage for maximum saving. You can start with determining the right VM reservation, then evaluate the disk reservation accordingly. Per workload, there is a typically a fix disk to VM configuration regarding of the SKUs and units. This approach can simplify the evaluation process and also make sure that you have an aligned plan for both VM and Disks in terms of subscriptions, regions, and others. 
 
 ## Purchase restrictions
 
@@ -34,7 +34,7 @@ Reservation discounts are not currently available for the following disks:
 •	Unmanaged disks/page blobs
 •	Standard SSD or standard HDD
 •	Premium SSD SKUs smaller than P30 – Reservations aren’t available for P1/P2/P3/P4/P6/P10/P15/P20 Premium SSD SKUs.
-•	Clouds - Reservations aren't available for purchase in Azure Gov, Germany or China regions.
+•	Clouds - Reservations aren't available for purchase in Azure Gov, Germany, or China regions.
 •	Capacity restrictions - In rare circumstances, Azure limits the purchase of new reservations for subset of disk SKUs, because of low capacity in a region.
 
 ## Buy a Disk Reservation
