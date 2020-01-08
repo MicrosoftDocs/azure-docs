@@ -19,7 +19,7 @@ ms.subservice: files
 
 ![File Structure](./media/storage-files-introduction/files-concepts.png)
 
-* **Storage Account**: All access to Azure Storage is done through a storage account. See [Scalability and Performance Targets](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) for details about storage account capacity.
+* **Storage Account**: All access to Azure Storage is done through a storage account. See [Scalability and performance targets for standard storage accounts](../common/scalability-targets-standard-account.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) for details about storage account capacity.
 
 * **Share**: A File Storage share is an SMB file share in Azure. All directories and files must be created in a parent share. An account can contain an unlimited number of shares and a share can store an unlimited number of files, up to the total capacity of the file share. The total capacity for premium and standard file shares is 100 TiB.
 
@@ -200,29 +200,40 @@ Standard file shares are available in all regions up to 5 TiB. In certain region
 
 |Region |Supported redundancy |
 |-------|---------|
+|Australia Central    |LRS     |
+|Australia Central 2    |LRS     |
 |Australia East |LRS     |
 |Australia Southeast|LRS |
+|Brazil South    |LRS     |
 |Canada Central  |LRS     |
 |Canada East     |LRS     |
 |Central India  |LRS     |
-|Central US*   |LRS     |
+|Central US*   |LRS, ZRS    |
 |East Asia      |LRS     |
 |East US*        |LRS,ZRS|
-|East US 2*      |LRS     |
+|East US 2*      |LRS, ZRS     |
 |France Central |LRS, ZRS|
 |France South   |LRS     |
 |Japan East     |LRS     |
+|Japan West     |LRS     |
+|Korea Central  |LRS     |
+|Korea South    |LRS     |
 |North Central US |LRS   |
 |North Europe   |LRS     |
 |South India    |LRS     |
 |South Central US |LRS     |
 |Southeast Asia |LRS, ZRS|
+|Switzerland North    |LRS     |
+|Switzerland West    |LRS     |
 |UAE Central    |LRS     |
-|UK South   |LRS     |
+|UAE North     LRS     |
+|UK North   |LRS, ZRS    |
+|UK South    |LRS     |
 |UK West    |LRS     |
 |West Central US|LRS     |
 |West Europe*    |LRS, ZRS|
-|West US*        |LRS     |
+|West India   |LRS     |
+|West US        |LRS     |
 |West US 2      |LRS, ZRS|
 
 \* Supported for new accounts, not all existing accounts have completed the upgrade process. You can check if your existing storage accounts have completed the upgrade process by attempting to [Enable large file shares](storage-files-how-to-create-large-file-share.md).
