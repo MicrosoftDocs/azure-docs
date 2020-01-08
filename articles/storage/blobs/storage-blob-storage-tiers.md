@@ -254,7 +254,7 @@ During rehydration, you may use the get blob properties operation to poll the **
 
 **After setting the tier of a blob, when will I start getting billed at the appropriate rate?**
 
-Each blob is always billed according to the tier indicated by the blob's **Access Tier** property. When you set a new tier for a blob, the **Access Tier** property  immediately reflects the new tier for all transitions. However, rehydrating a blob from the archive tier to a hot or cool tier can take several hours. In this case, you're billed at archive rates until rehydration is complete, at which point the **Access Tier** property reflects the new tier. At that point you're billed for that blob at the hot or cool rate.
+Each blob is always billed according to the tier indicated by the blob's **Access Tier** property. When you set a new online tier for a blob, the **Access Tier** property immediately reflects the new tier for all transitions. However, rehydrating a blob from the offline archive tier to a hot or cool tier can take several hours. In this case, you're billed at archive rates until rehydration is complete, at which point the **Access Tier** property reflects the new tier. Once rehydrated to the online tier, you're billed for that blob at the hot or cool rate.
 
 **How do I determine if I'll incur an early deletion charge when deleting or moving a blob out of the cool or archive tier?**
 
