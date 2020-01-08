@@ -169,4 +169,4 @@ For more information about specific questions or problems, see [Troubleshooting 
 + [Quickstart: Try AI enrichment in a portal walkthrough](cognitive-search-quickstart-blob.md)
 + [Tutorial: Learn about the AI enrichment APIs](cognitive-search-tutorial-blob.md)
 + [Knowledge store (preview)](knowledge-store-concept-intro.md)
-+ [Knowledge store walkthrough](knowledge-store-howto.md)
++ [Create a knowledge store in REST](knowledge-store-create-rest.md)
