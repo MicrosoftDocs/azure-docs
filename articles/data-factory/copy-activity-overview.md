@@ -264,7 +264,7 @@ Few points to note:
 
 - Resume happens at file level. If copy activity fails when copying a file, in next run, this specific file will be re-copied.
 - For resume to work properly, do not change the copy activity settings between the reruns.
-- When you copy data from Amazon S3, Azure Blob, Azure Data Lake Storage Gen2 and Google Cloud Storage, copy activity can resume from arbitary number of copied files. While for the rest of file-based connectors as source, currently copy activity supports resume from a limited number of files, usually at the range of tens of thousands and varies depending on the length of the file paths; files beyond this number will be re-copied during reruns.
+- When you copy data from Amazon S3, Azure Blob, Azure Data Lake Storage Gen2 and Google Cloud Storage, copy activity can resume from arbitrary number of copied files. While for the rest of file-based connectors as source, currently copy activity supports resume from a limited number of files, usually at the range of tens of thousands and varies depending on the length of the file paths; files beyond this number will be re-copied during reruns.
 
 For other scenarios than binary file copy, copy activity rerun starts from the beginning.
 
