@@ -63,15 +63,14 @@ Use the following steps to deploy an Azure Security Center for IoT security modu
     >[!Note] 
     >If you selected **Deploy at Scale**, add the device name and details before continuing to the **Add Modules** tab in the following instructions.     
 
-There are three steps to create an IoT Edge deployment for Azure Security Center for IoT. The following sections walk through each one. 
+For the IoT Edge deployment for Azure Security Center for IoT. Walk through each step 
 
-#### Step 1: Add modules
+#### Step 1: Modules
 
-1. From the **Add Modules** tab, **Deployment Modules** area, click the **configure** option for **AzureSecurityCenterforIoT**. 
-   
-1. Change the **name** to **azureiotsecurity**.
-1. Change the **Image URI** to **mcr.microsoft.com/ascforiot/azureiotsecurity:1.0.0**.
-1. Verify the **Container Create Options** value is set to:      
+1. Choose **AzureSecurityCenterforIoT** Module
+1. In **Module Settings** tab - Change the **name** to **azureiotsecurity**.
+1. In **Enviroment Variables** tab - add variable if needed (like debug level)
+1. In **Container Create Options** tab - Add the following configuration:      
     ``` json
     {
         "NetworkingConfig": {
@@ -89,23 +88,17 @@ There are three steps to create an IoT Edge deployment for Azure Security Center
         }
     }    
     ```
-1. Verify that **Set module twin's desired properties** is selected, and change the configuration object to:
+1. In **Module Twin Settings** tab - Add the following configuration:
       
     ``` json
-    { 
-       "properties.desired":{ 
-      "ms_iotn:urn_azureiot_Security_SecurityAgentConfiguration":{ 
-
-          }
-       }
-    }
+      "ms_iotn:urn_azureiot_Security_SecurityAgentConfiguration":{}
     ```
 
-1. Click **Save**.
-1. Scroll to the bottom of the tab and select **Configure advanced Edge Runtime settings**. 
-   
-1. Change the **Image** under **Edge Hub** to **mcr.microsoft.com/azureiotedge-hub:1.0.8.3**.
+1. Click **update**.
 
+#### Step 2: Runtime Settings
+1. press on **Runtime Settings** 
+1. Change the **Image** under **Edge Hub** to **mcr.microsoft.com/azureiotedge-hub:1.0.8.3**.
 1. Verify **Create Options** is set to: 
          
     ``` json
@@ -135,7 +128,7 @@ There are three steps to create an IoT Edge deployment for Azure Security Center
    
 1. Click **Next**.
 
-#### Step 2: Specify routes 
+#### Step 3: Specify routes 
 
 1. In the **Specify Routes** tab, make sure you have a route (explicit or implicit) that will forward messages from the **azureiotsecurity** module to **$upstream** according to the following examples, only then click **Next**. 
 
@@ -147,9 +140,11 @@ There are three steps to create an IoT Edge deployment for Azure Security Center
 "ASCForIoTRoute": "FROM /messages/modules/azureiotsecurity/* INTO $upstream"
 ~~~
 
-#### Step 3: Review deployment
+1. Click **Next**.
 
-- In the **Review Deployment** tab, review your deployment information, then select **Submit** to complete the deployment.
+#### Step 4: Review deployment
+
+- In the **Review Deployment** tab, review your deployment information, then select **Create** to complete the deployment.
 
 ## Diagnostic steps
 
