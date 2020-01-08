@@ -706,7 +706,7 @@ If you're using Git integration with your data factory and have a CI/CD pipeline
 - By design, Data Factory doesn't allow cherry-picking of commits or selective publishing of resources. Publishes will include all changes made in the data factory.
 
     - Data factory entities depend on each other. For example, triggers depend on pipelines, and pipelines depend on datasets and other pipelines. Selective publishing of a subset of resources could lead to unexpected behaviors and errors.
-    - On rare occasions when you need selective publishing, consider using a hotfix. For more information, see [Hotfix production branch](#hot-fix-production-branch).
+    - On rare occasions when you need selective publishing, consider using a hotfix. For more information, see [Hotfix production branch](#hotfix-production-branch).
 
 -   You can't publish from private branches.
 
