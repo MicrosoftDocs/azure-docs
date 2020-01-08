@@ -154,9 +154,7 @@ If you encounter problems deploying a model to ACI or AKS, try deploying it as a
 > [!WARNING]
 > Local web service deployments are not supported for production scenarios.
 
-To deploy locally, modify your code to use `LocalWebservice.deploy_configuration()` to create a deployment configuration. Then use `Model.deploy()` to deploy the service.
-
-If you are using the new/recommended deployment method via [Model.deploy()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model%28class%29?view=azure-ml-py#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) API with an [Environment](https://docs.microsoft.com/azure/machine-learning/service/how-to-use-environments) object as an input parameter, you can deploy service locally as follows:
+To deploy locally, modify your code to use `LocalWebservice.deploy_configuration()` to create a deployment configuration. Then use `Model.deploy()` to deploy the service. The following example deploys a model (contained in the model variable) as a local web service:
 
 ```python
 from azureml.core.model import InferenceConfig, Model
@@ -167,29 +165,6 @@ from azureml.core.environment import Environment
 # Create inference configuration based on the environment definition and the entry script
 myenv = Environment.from_conda_specification(name="env", file_path="myenv.yml")
 inference_config = InferenceConfig(entry_script="score.py", environment=myenv)
-# Create a local deployment, using port 8890 for the web service endpoint
-deployment_config = LocalWebservice.deploy_configuration(port=8890)
-# Deploy the service
-service = Model.deploy(
-    ws, "mymodel", [model], inference_config, deployment_config)
-# Wait for the deployment to complete
-service.wait_for_deployment(True)
-# Display the port that the web service is available on
-print(service.port)
-```
-
-If you are using the old workflow that does not rely on the [Environment](https://docs.microsoft.com/azure/machine-learning/service/how-to-use-environments) object, follow the example below:
-
-```python
-from azureml.core.model import InferenceConfig, Model
-from azureml.core.environment import Environment
-from azureml.core.webservice import LocalWebservice
-
-
-# Create inference configuration. This creates a docker image that contains the model.
-inference_config = InferenceConfig(runtime="python",
-                                   entry_script="score.py",
-                                   conda_file="myenv.yml")
 # Create a local deployment, using port 8890 for the web service endpoint
 deployment_config = LocalWebservice.deploy_configuration(port=8890)
 # Deploy the service
