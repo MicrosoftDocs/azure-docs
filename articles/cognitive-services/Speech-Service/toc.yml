@@ -199,8 +199,8 @@
      # href: quickstarts/translate-speech-to-text-multiple-languages.md
     - name: Translate speech-to-speech
       href: quickstarts/translate-speech-to-speech.md
-    - name: Translate multi-device conversations
-      href: quickstarts/translate-multi-device-conversations.md
+    - name: Translate a multi-device conversation
+      href: quickstarts/translate-multi-device-conversation.md
   - name: Tutorials
     items:
     - name: Build a Flask app to translate and synthesize text, REST
@@ -234,21 +234,15 @@
     items:
     - name: Speech translation FAQ
       href: https://www.microsoft.com/translator/faq.aspx
-- name: Conversation solutions
+- name: Conversation transcription
   expanded: false
   items:
   - name: Overview
     items:
-    - name: Overview of conversation solutions
-      href: conversation-solutions.md
-    - name: What is multi-device conversation?
-      href: multi-device-conversation.md
     - name: What is conversation transcription?
       href: conversation-transcription.md
   - name: How-to guides
     items:
-    - name: Multi-device Conversation
-      href: how-to-use-multi-device-conversation.md
     - name: Real time Conversation Transcription
       href: how-to-use-conversation-transcription.md
     - name: Asynchronous Conversation Transcription
@@ -282,6 +276,27 @@
       items:
       - name: Conversation transcription REST APIs
         href: https://signature.centralus.cts.speech.microsoft.com/UI/index.html
+- name: Multi-device conversation
+  expanded: false
+  items:
+  - name: Overview
+    items:
+    - name: What is multi-device conversation?
+      href: multi-device-conversation.md
+  - name: Quickstarts
+    items:
+    - name: Start and join a conversation
+      href: quickstarts/multi-device-conversation.md
+  - name: Reference
+    items:
+    - name: Speech SDK
+      items:
+      - name: C++
+        href: https://aka.ms/csspeech/cppref
+      - name: C#
+        href: https://aka.ms/csspeech/csharpref
+      - name: Release notes
+        href: releasenotes.md
 - name: Voice assistants
   expanded: false
   items:
