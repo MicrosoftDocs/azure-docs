@@ -7,7 +7,7 @@ manager: cshankar
 services: time-series-insights
 ms.service: time-series-insights
 ms.topic: conceptual
-ms.date: 11/13/2019
+ms.date: 01/06/2020
 ---
 
 # Connect Time Series Insights to Power BI  

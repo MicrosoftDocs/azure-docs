@@ -82,7 +82,7 @@ Production deployment enables a model to play an active role in a business. Pred
 There are various approaches and platforms to put models into production. Here are a few options:
 
 
-- [Model deployment in Azure Machine Learning](../service/how-to-deploy-and-where.md)
+- [Model deployment in Azure Machine Learning](../how-to-deploy-and-where.md)
 - [Deployment of a model in SQL-server](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-py6-operationalize-the-model)
 - [Microsoft Machine Learning Server](https://docs.microsoft.com/sql/advanced-analytics/r/r-server-standalone)
 

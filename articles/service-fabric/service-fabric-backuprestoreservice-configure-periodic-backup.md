@@ -1,5 +1,5 @@
 ---
-title: Understanding periodic backup configuration in Azure Service Fabric 
+title: Understanding periodic backup configuration
 description: Use Service Fabric's periodic backup and restore feature for enabling periodic data backup of your application data.
 author: hrushib
 

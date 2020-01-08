@@ -35,7 +35,7 @@ On Windows platforms, you must [install an OpenSSH compatible SSH client](https:
 
 1. Go to the Azure Machine Learning studio at https://ml.azure.com/.
 
-2. Select your [workspace](/azure/machine-learning/service/concept-workspace).
+2. Select your [workspace](concept-workspace.md).
 1. Click the **Compute Instances** tab.
 1. In the **Application URI** column, click the **SSH** link of the compute instance you want to use as a remote compute. 
 1. In the dialog, take note of the IP Address and SSH port. 

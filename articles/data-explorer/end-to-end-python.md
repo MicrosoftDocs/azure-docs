@@ -33,6 +33,7 @@ pip install azure-common
 pip install azure-mgmt-resource
 pip install azure-mgmt-kusto
 pip install azure-mgmt-eventgrid
+pip install azure-kusto-data
 pip install azure-storage-blob
 ```
 [!INCLUDE [data-explorer-authentication](../../includes/data-explorer-authentication.md)]

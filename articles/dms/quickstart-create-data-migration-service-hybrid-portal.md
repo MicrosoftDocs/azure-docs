@@ -167,7 +167,7 @@ Currently, uninstalling Azure Database Migration Service hybrid mode is supporte
 
 ## Set up the Azure Database Migration Service hybrid worker using PowerShell
 
-In addition to installing the Azure Database Migration Service hybrid worker via the Azure portal, we provide a PowerShell script that you can use to automate the worker installation steps after you create a new instance of Azure Database Migration Service in hybrid mode. The script:
+In addition to installing the Azure Database Migration Service hybrid worker via the Azure portal, we provide a [PowerShell script](https://techcommunity.microsoft.com/gxcuf89792/attachments/gxcuf89792/MicrosoftDataMigration/119/1/DMS_Hybrid_Script.zip) that you can use to automate the worker installation steps after you create a new instance of Azure Database Migration Service in hybrid mode. The script:
 
 1. Creates a new AdApp.
 2. Downloads the installer.
