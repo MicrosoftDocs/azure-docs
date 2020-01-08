@@ -60,8 +60,7 @@ Here is an example of how to instruct Service Fabric to use 50% of available CPU
     <Parameter Name="MemoryPercentageNodeCapacity" Value="0.7" />
 </Section>
 ```
-
-If you need full manual setup of node capacities, you can use the regular mechanism for describing the nodes in the cluster. Here is an example of how to set up the node with four cores and 2 GB of memory:
+For most customers and scenarios, automatic detection of node capacities for the CPU and memory is the recommended configuration (automatic detection is turned on by default). However, if you need full manual setup of node capacities, you can configure those per node type using the mechanism for describing the nodes in the cluster. Here is an example of how to set up the node type with four cores and 2 GB of memory:
 
 ```xml
     <NodeType Name="MyNodeType">
@@ -85,6 +84,14 @@ Auto-detection of available resources can be turned off if it is not required. T
     <Parameter Name="AutoDetectAvailableResources" Value="false" />
 </Section>
 ```
+> [!NOTE]
+> Starting with Service Fabric version 6.5, we have adjusted the behavior of how resource capacity (RC) for the CPU and Memory metrics is calculated in case both node capacity reservation percentage (NCRP) value and manual node capacity override (NCO) values are specified by the user.
+> - Before SF v6.5, the NCRP parameter was ignored, and node capacity override was used as the resource capacity (RC = NCO)
+> - Starting with SF v6.5, the resulting capacity for the metric is the multiple of the two values (RC = NCO * NCRP)
+>
+> To illustrate this, using the samples above: if node capacity override (NCO) for the CPU metric was manually configured to 4 cores, and node capacity reservation percentage (NCRP) for the CPU metric was configured to 0.5, the node capacity for CPU would be calculated to:
+> - Before SF v6.5, CPU capacity for this node type would be calculated to 4 cores (NCRP is ignored in case NCO is set)
+> - Starting with SF v6.5, CPU capacity for this node type will be calculated to 2 cores (NCRP is not ignored)
 
 For optimal performance, the following setting should also be turned on in the cluster manifest:
 
