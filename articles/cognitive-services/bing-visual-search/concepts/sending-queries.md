@@ -128,7 +128,7 @@ Content-Disposition: form-data; name="knowledgeRequest"
         "url" : "https://contoso.com/2018/05/fashion/red.jpg"
     }
     "invokedSkillsRequestData" : {
-        "enableEntityData" : true
+        "enableEntityData" : "true"
     }
 }
 
