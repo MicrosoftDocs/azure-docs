@@ -49,7 +49,7 @@
         href: tutorial-hybrid-copy-powershell.md
     - name: From Amazon Web Services S3 to Azure Data Lake Storage
       items:
-        name: Azure Data Lake Storage Gen2
+      - name: Azure Data Lake Storage Gen2
         href: load-azure-data-lake-storage-gen2.md
       - name: Azure Data Lake Storage Gen1
         href: load-azure-data-lake-store.md
