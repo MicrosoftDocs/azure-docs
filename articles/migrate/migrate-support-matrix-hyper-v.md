@@ -2,7 +2,7 @@
 title: Support for Hyper-V assessment in Azure Migrate
 description: Learn about support for Hyper-V assessment with Azure Migrate.
 ms.topic: conceptual
-ms.date: 11/19/2019
+ms.date: 01/08/2020
 ---
 
 # Support matrix for Hyper-V assessment
@@ -23,7 +23,7 @@ To assess on-premises machines for migration to Azure with this article, you add
 **Discovery** | The Azure Migrate appliance can discover up to 5000 Hyper-V VMs.<br/><br/> The appliance can connect to up to 300 Hyper-V hosts.
 **Assessment** | You can add up to 35,000 machines in a single group.<br/><br/> You can assess up to 35,000 VMs in a single assessment.
 
-- [Learn more](concepts-assessment-calculation.md) about assessments.
+[Learn more](concepts-assessment-calculation.md) about assessments.
 
 
 
@@ -50,7 +50,7 @@ To assess on-premises machines for migration to Azure with this article, you add
 
 Azure Migrate uses the [Azure Migrate appliance](migrate-appliance.md) for discovery and assessment. The appliance for Hyper-V runs on a Hyper-V VM, and is deployed using a compressed Hyper-V VHD that you download from the Azure portal. 
 
-- Learn about [appliance requirements](migrate-appliance#appliance---hyper-v) for Hyper-V
+- Learn about [appliance requirements](migrate-appliance.md#appliance---hyper-v) for Hyper-V
 - Learn about [URLs](migrate-appliance.md#url-access) the appliance needs to access.
 
 ## Port access
@@ -66,4 +66,4 @@ The following table summarizes port requirements for assessment.
 
 ## Next steps
 
-[Prepare for Hyper-V VM assessment](tutorial-prepare-hyper-v.md) for migration.
+[Prepare for Hyper-V VM assessment](tutorial-prepare-hyper-v.md)
