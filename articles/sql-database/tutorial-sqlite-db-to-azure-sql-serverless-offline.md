@@ -1,3 +1,19 @@
+---
+title: "Tutorial: How to migrate your SQLite database to Azure SQL Database Serverless"
+titleSuffix: Azure SQL Database
+description: Learn to perform an offline migration from SQLite to Azure SQL Database Serverless by using Azure Data Factory.
+services: sql-database
+author: joplum
+ms.author: joplum
+manager: prda
+ms.reviewer: 
+ms.service: sql-database
+ms.workload: data-services
+ms.custom: ""
+ms.topic: article
+ms.date: 01/08/2020
+---
+
 # How to migrate your SQLite database to Azure SQL Database Serverless
 For many people, SQLite provides their first experience of databases and SQL programming. It's inclusion in many operating systems and popular applications makes SQLite one the most widely deployed and used database engines in the world. And because it is likely the first database engine many people use, it can often end up as a central part of projects or applications. In such cases where the project or application outgrows the initial SQLite implementation, developers may need to migrate their data to a reliable, centralized data store.
 
@@ -79,3 +95,8 @@ c.close()
 ![screenshot showing the Copy Data wizard logo in Azure Data Factory](./media/tutorial-sqlite-db-to-azure-sql-serverless-offline/copy-data.PNG)
 
 15. Select all tables from the source SQLite database using the check boxes, and map them to the target tables in Azure SQL. Once the job has run, you have successfully migrated your data from SQLite to Azure SQL!
+
+## Next steps
+
+- To get started, see [Quickstart: Create a single database in Azure SQL Database using the Azure portal](sql-database-single-database-get-started.md).
+- For resource limits, see [Serverless compute tier resource limits](sql-database-vCore-resource-limits-single-databases.md#general-purpose---serverless-compute---gen5).
