@@ -157,7 +157,7 @@ In order to add data to application insights, you need the instrumentation key.
 1. In Visual Studio, build and run the bot. 
 1. Start the bot emulator and open the bot. This [step](luis-csharp-tutorial-bf-v4.md#use-the-bot-emulator-to-test-the-bot) is provided in the previous tutorial.
 
-1. Ask the bot a question. This [step](luis-csharp-tutorial-bf-v4.md##use-the-bot-emulator-to-test-the-bot) is provided in the previous tutorial.
+1. Ask the bot a question. This [step](luis-csharp-tutorial-bf-v4.md#use-the-bot-emulator-to-test-the-bot) is provided in the previous tutorial.
 
 ## View LUIS entries in Application Insights
 

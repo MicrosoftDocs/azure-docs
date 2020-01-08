@@ -32,7 +32,7 @@ You cannot make an RDP connection or any other type of connection to any other p
 
 Before you follow these steps, take a snapshot of the OS disk of the affected VM as a backup. For more information, see [Snapshot a disk](../windows/snapshot-copy-managed-disk.md).
 
-To enable the interface for the VM, use Serial control or [reset network interface](##reset-network-interface) for the VM.
+To enable the interface for the VM, use Serial control or [reset network interface](#reset-network-interface) for the VM.
 
 ### Use Serial control
 
