@@ -9,7 +9,6 @@
 - name: Quickstart
   items:
   - name: Create Standard Load Balancer
-    href: quickstart-load-balancer-standard-public-portal.md
     items:
     - name: Portal
       href: quickstart-load-balancer-standard-public-portal.md
@@ -20,7 +19,6 @@
     - name: Template
       href: quickstart-load-balancer-standard-public-template.md
   - name: Create Basic Load Balancer
-    href: quickstart-create-basic-load-balancer-portal.md
     items:
     - name: Portal
       href: quickstart-create-basic-load-balancer-portal.md
@@ -30,6 +28,8 @@
       href: quickstart-create-basic-load-balancer-powershell.md
     - name: Template
       href: load-balancer-get-started-internet-arm-template.md
+    - name: REST API
+      href: create-load-balancer-rest-api.md
     
 - name: Tutorials
   items:
@@ -97,9 +97,6 @@
       href: configure-load-balancer-outbound-cli.md
     - name: Configure outbound rules - PowerShell
       href: configure-load-balancer-outbound-powershell.md
-  - name: Create an Azure Load Balancer using REST API
-    href: create-load-balancer-rest-api.md
-
   - name: Create public Load Balancer with IPv6
     href: load-balancer-ipv6-internet-ps.md
     items:
@@ -119,8 +116,6 @@
     href: load-balancer-tcp-idle-timeout.md
   - name: Configure distribution mode for Load Balancer
     href: load-balancer-distribution-mode.md
-  - name: Combining load balancing services
-    href: ../traffic-manager/traffic-manager-load-balancing-azure.md?toc=%2fazure%2fload-balancer%2ftoc.json
   - name: Using multiple IP configurations
     href: load-balancer-multiple-ip.md
     items:

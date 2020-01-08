@@ -25,7 +25,7 @@ ms.custom: include file
 
 3. Select **Publish**. If you haven't already signed-in to your Azure account from Visual Studio, select **Sign-in**. You can also create a free Azure account.
 
-4. In the **App Service: Create new** dialog, use the **Hosting** settings as specified in the table below the image:
+4. In the **Azure App Service: Create new** dialog, use the **Hosting** settings as specified in the table below the image:
 
     ![Create App Service dialog](./media/functions-vstools-publish/functions-visual-studio-publish.png)
 
