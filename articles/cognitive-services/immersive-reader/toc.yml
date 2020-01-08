@@ -23,7 +23,9 @@
   items:
   - name: Create Immersive Reader resource
     href: how-to-create-immersive-reader.md
-  - name: Launch the Immersive Reader with HTML Content
+  - name: How to set the cookie policy
+    href: how-to/set-cookie-policy.md
+  - name: Launch the Immersive Reader with HTML content
     href: how-to-launch-with-html.md
 - name: Reference
   items:
