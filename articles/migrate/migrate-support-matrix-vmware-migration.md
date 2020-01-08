@@ -111,6 +111,7 @@ The table summarizes VMware VM support for VMware VMs you want to migrate using 
 
 
 
+
 ## Agent-based-replication appliance 
 
 When you set up the replication appliance using the OVA template provided in the Azure Migrate hub, the appliance runs Windows Server 2016 and complies with the support requirements. If you set up the replication appliance manually on a physical server, then make sure that it complies with the requirements.

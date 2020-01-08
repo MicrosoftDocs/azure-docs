@@ -54,19 +54,19 @@
   items:
   - name: Support matrices
     items:
-    - name: Support matrix for Azure Migrate
+    - name: General support 
       href: migrate-support-matrix.md
-    - name: Support matrix for VMware assessment
+    - name: VMware assessment support
       href: migrate-support-matrix-vmware.md
-    - name: Support matrix for VMware migration
+    - name: VMware migration support
       href: migrate-support-matrix-vmware-migration.md
-    - name: Support matrix for Hyper-V assessment 
+    - name: Hyper-V assessment support
       href: migrate-support-matrix-hyper-v.md
-    - name: Support matrix for Hyper-V migration
-      name: migrate-support-matrix-hyper-v-migration.md
-    - name: Support matrix for physical server assessment 
+    - name: Hyper-V migration support
+      href: migrate-support-matrix-hyper-v-migration.md
+    - name: Physical server assessment support
       href: migrate-support-matrix-physical.md
-    - name: Support matrix for physical server migration
+    - name: Physical server migration support
       href: migrate-support-matrix-physical-migration.md
     - name: Azure Migrate appliance requirements
       href: migrate-appliance.md
@@ -119,16 +119,16 @@
     href: prepare-for-migration.md
   - name: Delete an Azure Migrate project
     href: how-to-delete-project.md
-- name: Scale assessment and migration
-  items:
-  - name: Assess large numbers of VMware VMs
-    href: scale-vmware-assessment.md
-  - name: Assess large numbers of Hyper-V VMs
-    href: scale-hyper-v-assessment.md
-  - name: Automate migration of large number of VMs
-    href: how-to-migrate-at-scale.md
-  - name: Migration examples (Contoso series)
-    href: contoso-migration-overview.md
+  - name: Scale assessment and migration
+    items:
+    - name: Assess large numbers of VMware VMs
+      href: scale-vmware-assessment.md
+    - name: Assess large numbers of Hyper-V VMs
+      href: scale-hyper-v-assessment.md
+    - name: Automate migration of large number of VMs
+      href: how-to-migrate-at-scale.md
+    - name: Migration examples (Contoso series)
+      href: contoso-migration-overview.md
 - name: Troubleshoot
   items:
   - name: Troubleshoot Azure Migrate
