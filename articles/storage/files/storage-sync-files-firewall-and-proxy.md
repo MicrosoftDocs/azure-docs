@@ -143,7 +143,7 @@ For business continuity and disaster recovery (BCDR) reasons you may have specif
 ## Test network connectivity to service endpoints
 Once a server is registered with the Azure File Sync service, the Test-StorageSyncNetworkConnectivity cmdlet and ServerRegistration.exe can be used to test communications with all endpoints (URLs) specific to this server. This cmdlet can help troubleshoot when incomplete communication prevents the server from fully working with Azure File Sync and it can be used to fine tune proxy and firewall configurations.
 
-To run the network connectivity test, install Azure File Sync agent version 9.0 or later and run the following PowerShell commands:
+To run the network connectivity test, install Azure File Sync agent version 9.1 or later and run the following PowerShell commands:
 ```powershell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
 Test-StorageSyncNetworkConnectivity
