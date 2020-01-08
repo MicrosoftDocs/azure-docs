@@ -111,6 +111,4 @@ To learn more about Azure Database for PostgreSQL Single server security feature
 
 * To learn how to configure a virtual network service endpoint for your Azure Database for PostgreSQL Single server, see [Configure access from virtual networks](https://docs.microsoft.com/azure/postgresql/concepts-data-access-and-security-vnet).
 
-* To learn more about Private Link, see the Azure Private Link [documentation](https://docs.microsoft.com/azure/postgresql/concepts-data-access-and-security-private-link).
-
 * For an overview of Azure Database for PostgreSQL Single server connectivity, see [Azure Database for MySQL Connectivity Architecture](https://docs.microsoft.com/azure/postgresql/concepts-connectivity-architecture)
