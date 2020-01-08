@@ -1316,6 +1316,8 @@
         href: springerlink-tutorial.md
       - name: Sprinklr
         href: sprinklr-tutorial.md
+      - name: Spintr SSO
+        href: spintr-sso-tutorial.md
       - name: StatusPage
         href: statuspage-tutorial.md
       - name: Stormboard
