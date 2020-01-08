@@ -137,6 +137,7 @@ The following items don't sync, but the rest of the system continues to operate 
 ### Cloud tiering
 - If a tiered file is copied to another location by using Robocopy, the resulting file isn't tiered. The offline attribute might be set because Robocopy incorrectly includes that attribute in copy operations.
 - When copying files using robocopy, use the /MIR option to preserve file timestamps. This will ensure older files are tiered sooner than recently accessed files.
+- Files may fail to tier if the pagefile.sys is located on a volume that has cloud tiering enabled. The pagefile.sys should be located on a volume that has cloud tiering disabled.
 
 ## Agent version 8.0.0.0
 The following release notes are for version 8.0.0.0 of the Azure File Sync agent (released October 8, 2019).
