@@ -3937,7 +3937,7 @@
     },
     {
       "source_path": "articles/azure-supportability/create-manage-support-requests-using-access-control.md",
-      "redirect_url": "/azure/azure-portal/supportability/create-manage-support-requests-using-access-control",
+      "redirect_url": "/azure/azure-portal/supportability/how-to-create-azure-support-request#role-based-access-control",
       "redirect_document_id": true
     },
     {
