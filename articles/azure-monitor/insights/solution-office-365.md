@@ -91,7 +91,7 @@ ms.date: 01/08/2019
 > Azure Sentinel provides out-of-the-box security-oriented dashboards, custom alert queries, hunting queries, investigation, and automated response capabilities based on the Office 365 and Azure AD logs. Explore the Azure Sentinel GitHub and tutorials to learn more:
 >
 > - [Detect threats out-of-the-box](../../sentinel/tutorial-detect-threats-built-in.md)
-> - [Create custom analytic rules to detect suspicious threats](../../sentinel/> tutorial-detect-threats-custom.md)
+> - [Create custom analytic rules to detect suspicious threats](../../sentinel/tutorial-detect-threats-custom.md)
 > - [Monitor your data](../../sentinel/tutorial-monitor-your-data.md)
 > - [Investigate incidents with Azure Sentinel](../../sentinel/tutorial-investigate-cases.md)
 > - [Set up automated threat responses in Azure Sentinel](../../sentinel/tutorial-respond-threats-playbook.md)
