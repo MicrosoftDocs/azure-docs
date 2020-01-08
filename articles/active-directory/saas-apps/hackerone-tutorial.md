@@ -104,7 +104,7 @@ To configure Azure AD single sign-on with HackerOne, perform the following steps
     ![HackerOne Domain and URLs single sign-on information](common/sp-identifier.png)
 
 	a. In the **Sign on URL** text box, enter the following:
-    `https://hackerone.com/users/saml/auth`
+    `https://hackerone.com/users/saml/sign_in?email=<configured domain>`
 
     b. In the **Identifier (Entity ID)** text box, enter the following:
     `hackerone.com`
@@ -153,7 +153,13 @@ To configure Azure AD single sign-on with HackerOne, perform the following steps
 
     a. Click **Run test**.
 
-    b. If the value of the **Status** field equals **Last test status: created**, contact your [HackerOne support team](mailto:support@hackerone.com) to request a review of your configuration.
+6. Once the test completes successfully and the **Status** field shows **Last test status: success**, click the **Request Verification** button to submit to HackerOne for approval.
+
+    ![Submit for Approval](./media/hackerone-tutorial/tutorial_hackerone_006.png)
+
+7. After HackerOne approves the settings, you can click on the **Migrate Users** button to require SSO authentication for all users.
+
+    ![Enable SAML](./media/hackerone-tutorial/tutorial_hackerone_007.png)
 
 ### Create an Azure AD test user
 
@@ -172,7 +178,7 @@ The objective of this section is to create a test user in the Azure portal calle
     ![The User dialog box](common/user-properties.png)
 
     a. In the **Name** field enter **BrittaSimon**.
-  
+
     b. In the **User name** field type **brittasimon\@yourcompanydomain.extension**  
     For example, BrittaSimon@contoso.com
 
