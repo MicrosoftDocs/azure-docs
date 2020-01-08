@@ -15,7 +15,7 @@ ms.author: mlearned
 Azure Storage encrypts all data in a storage account at rest. By default, data is encrypted with Microsoft-managed keys. For additional control over encryption keys, you can supply [customer-managed keys][https://docs.microsoft.com/azure/virtual-machines/windows/disk-encryption#customer-managed-keys-public-preview] to use for encryption of both the OS and data disks for your AKS clusters.
 
 > [!NOTE]
-> New AKS clusters using Virtual Machine Scale Sets are required.  Existing clusters are not currently supported.
+> Both Linux and Windows based AKS clusters are supported.
 
 ## Before you begin
 
@@ -68,21 +68,24 @@ az keyvault create -n $keyVaultName -g $rgName -l $location --enable-purge-prote
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AKSPrivateLinkPreview')].{Name:name,State:properties.state}"
 ```
 
-## Create a Disk Encryption Set
-
+## Create an instance of a DiskEncryptionSet. 
+    
+```azurecli
 keyVaultId=$(az keyvault show --name $keyVaultName --query [id] -o tsv)
- 
+
 keyVaultKeyUrl=$(az keyvault key show --vault-name $keyVaultName --name $keyName --query [key.kid] -o tsv)
- 
-az group deployment create -g $rgName --template-uri "https://raw.githubusercontent.com/ramankumarlive/manageddiskscmkpreview/master/CreateDiskEncryptionSet.json" --parameters "diskEncryptionSetName=$diskEncryptionSetName" "keyVaultId=$keyVaultId" "keyVaultKeyUrl=$keyVaultKeyUrl" "region=$location" 
 
-## Grant the Disk Encryption Set access to Key Vault
-
-```azurecli-interactive
-desIdentity=$(az ad sp list --display-name $diskEncryptionSetName --query [].[objectId] -o tsv) 
-az keyvault set-policy -n $keyVaultName -g $rgName --object-id $desIdentity --key-permissions wrapkey unwrapkey get 
-az role assignment create --assignee $desIdentity --role Reader --scope $keyVaultId 
+az disk-encryption-set create -n $diskEncryptionSetName -l $location -g $rgName --source-vault $keyVaultId --key-url $keyVaultKeyUrl
 ```
+
+## Grant the DiskEncryptionSet resource access to the key vault.
+
+```azurecli
+desIdentity=$(az disk-encryption-set show -n $diskEncryptionSetName -g $rgName --query [identity.principalId] -o tsv)
+
+az keyvault set-policy -n $keyVaultName -g $rgName --object-id $desIdentity --key-permissions wrapkey unwrapkey get
+
+az role assignment create --assignee $desIdentity --role Reader --scope $keyVaultId
 
 ## Create an AKS cluster with and encrypt the OS disk with a customer-manged key
 
