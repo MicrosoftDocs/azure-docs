@@ -51,8 +51,13 @@
     href: powershell-samples.md
 - name: Concepts
   items:
-  - name: Health probes
-    href: load-balancer-custom-probe-overview.md
+  - name: Health monitoring
+    - name: Health probes
+      href: load-balancer-custom-probe-overview.md
+    - name: Standard Load Balancer metrics and diagnostics
+      href: load-balancer-standard-diagnostics.md
+    - name: Azure Monitor logs for Basic Load Balancer
+      href: load-balancer-monitor-log.md
   - name: High Availability ports
     href: load-balancer-ha-ports-overview.md
   - name: IPv6 support
@@ -67,8 +72,6 @@
     href: load-balancer-tcp-reset.md
   - name: Standard Load Balancer and Availability Zones
     href: load-balancer-standard-availability-zones.md
-  - name: Standard Load Balancer metrics and diagnostics
-    href: load-balancer-standard-diagnostics.md
   - name: Built-in security controls
     href: load-balancer-security-controls.md
 - name: How to
@@ -126,8 +129,7 @@
       href: load-balancer-multiple-ip-cli.md
     - name: Using multiple IP configurations (PowerShell)
       href: load-balancer-multiple-ip-powershell.md
-  - name: Azure Monitor logs for Azure Load Balancer
-    href: load-balancer-monitor-log.md
+
   - name: Get Load Balancer metrics with REST
     href: load-balancer-query-metrics-rest-api.md
   - name: Configure High Availability Ports for Internal Load Balancer
