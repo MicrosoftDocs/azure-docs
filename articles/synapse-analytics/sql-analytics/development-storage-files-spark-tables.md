@@ -26,7 +26,7 @@ SELECT * FROM [db].dbo.[spark_table]
 
 ## Connecting SQL on-demand to additional Spark instances
 
-Metadata synchronization is autoconfigured for each Spark pool provisioned in the Azure Synapse workspace. Furthermore, you can control metadata synchronization by using the stored procedures below:
+Metadata synchronization is auto-configured for each Spark pool provisioned in the Azure Synapse workspace. Furthermore, you can control metadata synchronization by using the stored procedures below:
 
 - **sp_metadata_sync_connector_add**
     Starts the connector to Spark for metadata synchronization.
