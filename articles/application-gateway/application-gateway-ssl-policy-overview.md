@@ -93,7 +93,7 @@ Application Gateway supports the following cipher suites from which you can choo
 > [!NOTE]
 > SSL cipher suites used for the connection are also based on the type of the certificate being used. In client to application gateway connections, the cipher suites used are based on the type of server certificates on the application gateway listener. In application gateway to backend pool connections, the cipher suites used are based on the type of server certificates on the backend pool servers.
 
-## Knonw Issue
+## Known issue
 Application Gateway v2 does not currently support the following ciphers:
 - DHE-RSA-AES128-GCM-SHA256
 - DHE-RSA-AES128-SHA
