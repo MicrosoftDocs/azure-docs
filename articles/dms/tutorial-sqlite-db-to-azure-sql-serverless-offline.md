@@ -1,7 +1,7 @@
 # How to migrate your SQLite database to Azure SQL Database Serverless
-For many people, SQLite provides their first experience of databases and SQL programming. It's inclusion in many operating systems and popular applications makes SQLite one the most widely deployed and used database engines in the world. And because it is likely the first database engine many people use, it can often end up as a central part of projects or applications. In such cases where the project or application outgrows the initial SQLite implementation, developers may need to migrate their data to a reliable, centralised data store.
+For many people, SQLite provides their first experience of databases and SQL programming. It's inclusion in many operating systems and popular applications makes SQLite one the most widely deployed and used database engines in the world. And because it is likely the first database engine many people use, it can often end up as a central part of projects or applications. In such cases where the project or application outgrows the initial SQLite implementation, developers may need to migrate their data to a reliable, centralized data store.
 
-Azure SQL Database serverless is a compute tier for single databases that automatically scales compute based on workload demand and bills for the amount of compute used per second. The serverless compute tier also automatically pauses databases during inactive periods when only storage is billed and automatically resumes databases when activity returns.
+Azure SQL Database serverless is a compute tier for single databases that automatically scales compute based on workload demand, and bills for the amount of compute used per second. The serverless compute tier also automatically pauses databases during inactive periods when only storage is billed and automatically resumes databases when activity returns.
 
 Once you have followed the below steps, your database will be migrated into Azure SQL Database Serverless, enabling you to make your database available to other users or applications in the cloud and only pay for what you use, with minimal application code changes.
 
@@ -15,15 +15,15 @@ Once you have followed the below steps, your database will be migrated into Azur
 
 1. Provision a new Azure SQL Database in the Serverless compute tier.
 
-![screenshot of azure portal showing provisioning example for azure sql database serverless](./media/tutorial-sqlite-db-to-azure-sql-serverless-offline/1-provision-serverless.jpg)
+![screenshot of Azure Portal showing provisioning example for azure sql database serverless](./media/tutorial-sqlite-db-to-azure-sql-serverless-offline/1-provision-serverless.jpg)
 
-2. Ensure you have your SQLite database file available in your Windows environment. Install a SQLite ODBC Driver if you do not already have one (there are many available in Open Source, e.g. http://www.ch-werner.de/sqliteodbc/).
+2. Ensure you have your SQLite database file available in your Windows environment. Install a SQLite ODBC Driver if you do not already have one (there are many available in Open Source, for example, http://www.ch-werner.de/sqliteodbc/).
 
 3. Create a System DSN for the database. Ensure you use the Data Source Administrator application that matches your system architecture (32-bit vs 64-bit). You can find which version you are running in your system settings.
 
     - Open ODBC Data Source Administrator in your environment.
     - Click the system DSN tab and click "Add"
-    - Select the SQLite ODBC connector you installed and give the connection a meaningful name e.g. sqlitemigrationsource
+    - Select the SQLite ODBC connector you installed and give the connection a meaningful name, for example, sqlitemigrationsource
     - Set the database name to the .db file
     - Save and exit
 
@@ -32,7 +32,7 @@ Once you have followed the below steps, your database will be migrated into Azur
     - Starting up ADF (Author and Monitor from the service in the Azure Portal)
     - Click the "Author" tab (Blue pencil) on the left
     - Click Connections (bottom left), then Integration runtimes
-    - Add new Self Hosted Integration Runtime, give it a name, select *Option 2*.
+    - Add new Self-Hosted Integration Runtime, give it a name, select *Option 2*.
 
 5. Create a new linked service for the source SQLite database in your Data Factory.
 
@@ -45,7 +45,7 @@ Once you have followed the below steps, your database will be migrated into Azur
 
 ![screenshot showing ODBC connector logo in the linked services blade in Azure Data Factory](./media/tutorial-sqlite-db-to-azure-sql-serverless-offline/linked-services-odbc.png)
 
-8. Give the linked service a meaningful name e.g. "sqlite_odbc". Select your integration runtime from the "Connect via integration runtime" dropdown. Enter the below into the connection string, replacing the Initial Catalog variable with the filepath for the .db file, and the DSN with the name of the system DSN connection: `Connection string: Provider=MSDASQL.1;Persist Security Info=False;Mode=ReadWrite;Initial Catalog=C:\sqlitemigrationsource.db;DSN=sqlitemigrationsource`
+8. Give the linked service a meaningful name, for example, "sqlite_odbc". Select your integration runtime from the "Connect via integration runtime" dropdown. Enter the below into the connection string, replacing the Initial Catalog variable with the filepath for the .db file, and the DSN with the name of the system DSN connection: `Connection string: Provider=MSDASQL.1;Persist Security Info=False;Mode=ReadWrite;Initial Catalog=C:\sqlitemigrationsource.db;DSN=sqlitemigrationsource`
 
 9. Set the authentication type to Anonymous
 
