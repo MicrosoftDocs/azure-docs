@@ -16,7 +16,7 @@ ms.topic: tutorial
 ms.author: jgao
 ---
 
-# Tutorial: Use deployment scripts in Azure Resource Manager templates (Preview)
+# Tutorial: Use deployment scripts to create a self-signed certificate (Preview)
 
 Learn how to use deployment scripts in Azure Resource Manage templates. Deployment scripts can be used to perform custom steps that can't be done by Resource Manager templates. For example, creating a self-signed certificate.  In this tutorial, you create a template to deploy an Azure key vault, and then use a `Microsoft.Resources/deploymentScripts` resource in the same template to create a certificate and then add the certificate to the key vault. To learn more about deployment script, see [Use deployment scripts in Azure Resource Manager templates](./deployment-script-in-template.md).
 
@@ -105,14 +105,14 @@ A user-assigned managed identity is required for executing deployment scripts. T
 
     ```json
     {
-      "apiVersion": "2018-11-30",
       "type": "Microsoft.ManagedIdentity/userAssignedIdentities",
+      "apiVersion": "2018-11-30",
       "name": "[parameters('identityName')]",
       "location": "[resourceGroup().location]"
     },
     {
-      "apiVersion": "2018-09-01-preview",
       "type": "Microsoft.Authorization/roleAssignments",
+      "apiVersion": "2018-09-01-preview",
       "name": "[variables('bootstrapRoleAssignmentId')]",
       "dependsOn": [
           "[resourceId('Microsoft.ManagedIdentity/userAssignedIdentities', parameters('identityName'))]"
@@ -198,7 +198,7 @@ The deployment scripts adds a certificate to the key vault.  You need to configu
     > The Resource Manager template extension of Visual Studio Code is not capable to format deployment scripts yet. Don't use [SHIFT]+[ALT]+F to format the deploymentScripts resources, like the following one.
 
     > [!NOTE]
-    > Because the inline deployment scripts are enclosed in double quotes, the strings inside the deployment scripts need to be enclosed in single quotes instead. The escape character for PowerShell is **\**.
+    > Because the inline deployment scripts are enclosed in double quotes, the strings inside the deployment scripts need to be enclosed in single quotes instead. The escape character for PowerShell is **&#92;**.
 
     ```json
     {
@@ -223,12 +223,6 @@ The deployment scripts adds a certificate to the key vault.  You need to configu
         "azPowerShellVersion": "2.8",
         "timeout": "PT30M",
         "arguments": "[format(' -vaultName {0} -certificateName {1} -subjectName {2}', parameters('keyVaultName'), parameters('certificateName'), parameters('subjectName'))]", // can pass an arguement string, double quotes must be escaped
-        "environmentVariables": [
-          {
-            "name": "someSecret",
-            "secureValue": "if this is really a secret, don't put it here... in plain text..."
-          }
-        ],
         "scriptContent": "
           param(
             [string] [Parameter(Mandatory=$true)] $vaultName,
@@ -304,7 +298,7 @@ The deployment scripts adds a certificate to the key vault.  You need to configu
 
     The completed template looks like:
 
-    [!code-json[](~/resourcemanager-templates/deployment-script/deploymentscript-keyvault.json?range=1-251&highlight=5-10,88-99,111-122,124-127,129-148,159-178,191-249)]
+    [!code-json[](~/resourcemanager-templates/deployment-script/deploymentscript-keyvault.json?range=1-251&highlight=5-10,88-99,111-122,124-127,129-148,159-178,191-243)]
 
 1. To see the debugging process, place an error in the code by adding the following line to the deployment script:
 

@@ -56,6 +56,8 @@ The benefits of deployment script:
 
 ## Resource schema
 
+The following json is an example.  The latest template schema can be found [here](/azure/templates/microsoft.resources/deploymentscripts).
+
 ```json
 {
   "type": "Microsoft.Resources/deploymentScripts",
@@ -89,11 +91,13 @@ The benefits of deployment script:
 }
 ```
 
+Note **scriptContent** and **primaryScriptUris** can't coexist in a template.
+
 Property value details:
 
 - **Identity**: The deployment script service uses a user-assigned managed identity to execute the scripts. Currently, only user-assigned managed identity is supported.
 - **kind**: Specify the type of script. Currently, only Azure PowerShell script is support. The value is **AzurePowerShell**.
-- **forceUpdateTag**: Determine whether the deployment script should be executed even if the script source has not changed. Can be current time stamp or a GUID. To learn more, see [Run script more than once](#run-script-more-than-once).
+- **forceUpdateTag**: Changing this value between template deployments forces the deployment script to re-execute. It is recommended to use the newGuid() or utcNow() function which needs to be set as the defaultValue of a parameter. To learn more, see [Run script more than once](#run-script-more-than-once).
 - **azPowerShellVersion**: Specify the Azure PowerShell module version to be used. Deployment script currently supports version 2.7.0, 2.8.0, and 3.0.0.
 - **arguments**: Specify the parameter values. The values are separated by spaces.
 - **scriptContent**: Specify the script content. To run an external script, use `primaryScriptUri` instead. For examples, see [Use inline script](#use-inline-scripts) and [Use external script](#use-external-scripts).
@@ -110,7 +114,7 @@ The following template has one resource defined with the `Microsoft.Resources/de
 [!code-json[](~/resourcemanager-templates/deployment-script/deploymentscript-helloworld.json?range=1-54&highlight=19,34-40,50)]
 
 > [!NOTE]
-> Because the inline deployment scripts are enclosed in double quotes, the strings inside the deployment scripts need to be enclosed in single quotes instead. The escape character for PowerShell is &#92;. You can also consider using string substitution as it is shown in the previous JSON sample.
+> Because the inline deployment scripts are enclosed in double quotes, the strings inside the deployment scripts need to be enclosed in single quotes instead. The escape character for PowerShell is **&#92;**. You can also consider using string substitution as it is shown in the previous JSON sample. See the default value of the name parameter.
 
 The script takes one parameter, and output the parameter value. **DeploymentScriptOutputs** is used for storing outputs.  In the outputs section, the highlighted line shows how to access the stored values. `Write-Output` is used for debugging purpose. To learn how to access the output file, see [Debug deployment scripts](#debug-deployment-scripts).  For the property descriptions, see [Resource schema](#resource-schema).
 
@@ -149,10 +153,14 @@ The external script files must be accessible.  To secure your script files that 
 You can separate complicated logics into one or more supporting script files. The `supportingScriptURI` property allows you to provide an array of URIs to the supporting script files if needed:
 
 ```json
-"primaryScriptURI": "https://uri1",
+"scriptContent": "
+    ...
+    ./Create-Cert.ps1
+    ...
+"
+
 "supportingScriptUris": [
-  "https://uri1a",
-  "https://uri1b"
+  "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/create-cert.ps1"
 ],
 ```
 
@@ -197,6 +205,7 @@ You can get the deployment script resource deployment information at the resourc
 The following example uses [ARMClient](https://github.com/projectkudu/ARMClient):
 
 ```azurepowershell
+armclient login
 armclient get /subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourcegroups/myrg/providers/microsoft.resources/deploymentScripts/myDeployementScript?api-version=2019-10-01-preview
 ```
 
