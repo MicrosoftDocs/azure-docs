@@ -12,7 +12,7 @@ ms.workload: data-services
 
 
 ms.topic: conceptual
-ms.date: 08/01/2019
+ms.date: 01/08/2020
 ms.author: jingwang
 
 ---
@@ -48,9 +48,9 @@ The following properties are supported for HubSpot linked service:
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property must be set to: **Hubspot** | Yes |
-| clientId | The client ID associated with your Hubspot application.  | Yes |
+| clientId | The client ID associated with your Hubspot application. Learn how to create an app in HubSpot from [here](https://developers.hubspot.com/docs/faq/how-do-i-create-an-app-in-hubspot). | Yes |
 | clientSecret | The client secret associated with your Hubspot application. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
-| accessToken | The access token obtained when initially authenticating your OAuth integration. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
+| accessToken | The access token obtained when initially authenticating your OAuth integration. Learn how to get access token with your client id and secret from [here](https://developers.hubspot.com/docs/methods/oauth2/get-access-and-refresh-tokens). Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
 | refreshToken | The refresh token obtained when initially authenticating your OAuth integration. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
 | useEncryptedEndpoints | Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.  | No |
 | useHostVerification | Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.  | No |
