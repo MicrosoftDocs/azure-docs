@@ -26,7 +26,7 @@ Learn how to use Azure Machine Learning to deploy a model as a web service on yo
 - You are testing a model that is under development.
 
 > [!TIP]
-> Deploying a model from a Jupyter Notebook on a compute instance, to a web service on the same VM is a _local deployment_. In this case, the 'local' computer is the compute instance. For more information on deployments, see [Deploy models with Azure Machine Learning](service/how-to-deploy-and-where.md).
+> Deploying a model from a Jupyter Notebook on a compute instance, to a web service on the same VM is a _local deployment_. In this case, the 'local' computer is the compute instance. For more information on deployments, see [Deploy models with Azure Machine Learning](how-to-deploy-and-where.md).
 
 ## Prerequisites
 
@@ -93,7 +93,7 @@ print("prediction:", resp.text)
 
 ## Next steps
 
-* [How to deploy a model using a custom Docker image](service/how-to-deploy-custom-docker-image.md)
+* [How to deploy a model using a custom Docker image](how-to-deploy-custom-docker-image.md)
 * [Deployment troubleshooting](how-to-troubleshoot-deployment.md)
 * [Secure Azure Machine Learning web services with SSL](how-to-secure-web-service.md)
 * [Consume a ML Model deployed as a web service](how-to-consume-web-service.md)
