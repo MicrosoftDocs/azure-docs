@@ -275,11 +275,6 @@ The response looks similar to the following example:
     Peerings                         : []
 
 
-You can get detailed descriptions of all the parameters by running the following command:
-
-```azurepowershell-interactive
-get-help get-azurededicatedcircuit -detailed
-```
 
 ## <a name="modify"></a>Modifying an ExpressRoute circuit
 You can modify certain properties of an ExpressRoute circuit without impacting connectivity.
