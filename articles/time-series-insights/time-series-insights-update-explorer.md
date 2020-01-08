@@ -217,7 +217,7 @@ The Time Series Insights Preview terms editor panel takes the following paramete
 | `IN` | String, Bool, Double, DateTime, TimeSpan, NULL | All operands should be of the same type or be NULL constant. |
 | `HAS` | String | Only constant string literals are allowed on the right side. Empty string and NULL aren't allowed. |
 
-To learn more about supported query operations and data types, see [Time Series Expression (TSX)](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax).
+To learn more about supported query operations and data types, read [Time Series Expression (TSX)](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax).
 
 ### Examples of where clauses
 
