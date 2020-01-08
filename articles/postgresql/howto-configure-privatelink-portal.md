@@ -119,7 +119,7 @@ In this section, you will create an Azure Database for PostgreSQL server in Azur
 
 ## Create a private endpoint
 
-In this section, you will create a SQL server and add a private endpoint to it. 
+In this section, you will create a PostgreSQL server and add a private endpoint to it. 
 
 1. On the upper-left side of the screen in the Azure portal, select **Create a resource** > **Networking** > **Private Link Center (Preview)**.
 2. In **Private Link Center - Overview**, on the option to **Build a private connection to a service**, select **Start**.
@@ -187,7 +187,7 @@ After you've created **myVm**, connect to it from the internet as follows:
 
 1. Once the VM desktop appears, minimize it to go back to your local desktop.
 
-## Access the SQL database server privately from the VM
+## Access the PostgreSQL server privately from the VM
 
 1. In the Remote Desktop of *myVM*, open PowerShell.
 

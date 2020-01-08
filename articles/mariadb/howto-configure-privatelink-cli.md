@@ -64,11 +64,11 @@ az vm create \
  Note the public IP address of the VM. You will use this address to connect to the VM from the internet in the next step.
 
 ## Create an Azure Database for MariaDB server 
-Create a Azure Database for MariaDB with the az sql server create command. Remember that the name of your SQL Server must be unique across Azure, so replace the placeholder value in brackets with your own unique value: 
+Create a Azure Database for MariaDB with the az mariadb server create command. Remember that the name of your MariaDB Server must be unique across Azure, so replace the placeholder value in brackets with your own unique value: 
 
 ```azurecli-interactive
 # Create a logical server in the resource group 
-az MariaDB server create \
+az mariadb server create \
 --name mydemoserver \
 --resource-group myResourcegroup \
 --location westeurope \
@@ -81,7 +81,7 @@ Note the MariaDB Server ID is similar to ```/subscriptions/subscriptionId/reso
 You will use the MariaDB Server ID in the next step. 
 
 ## Create the Private Endpoint 
-Create a private endpoint for the SQL Database server in your Virtual Network: 
+Create a private endpoint for the MariaDB server in your Virtual Network: 
 ```azurecli-interactive
 az network private-endpoint create \  
     --name myPrivateEndpoint \  
@@ -94,7 +94,7 @@ az network private-endpoint create \
  ```
 
 ## Configure the Private DNS Zone 
-Create a Private DNS Zone for SQL Database server domain and create an association link with the Virtual Network. 
+Create a Private DNS Zone for MariDB server domain and create an association link with the Virtual Network. 
 ```azurecli-interactive
 az network private-dns zone create --resource-group myResourceGroup \ 
    --name  "privatelink.database.azure.com" 
@@ -142,7 +142,7 @@ Connect to the VM *myVm* from the internet as follows:
 
 1. Once the VM desktop appears, minimize it to go back to your local desktop.  
 
-## Access the SQL database server privately from the VM
+## Access the MariaDB server privately from the VM
 
 1. In the Remote Desktop of *myVM*, open PowerShell.
 

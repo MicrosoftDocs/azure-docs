@@ -187,21 +187,21 @@ After you've created **myVm**, connect to it from the internet as follows:
 
 1. Once the VM desktop appears, minimize it to go back to your local desktop.
 
-## Access the SQL database server privately from the VM
+## Access the MariaDB server privately from the VM
 
 1. In the Remote Desktop of *myVM*, open PowerShell.
 
-2. Enter `nslookup mydemomserver.MariaDB.privatelink.database.azure.com`. 
+2. Enter `nslookup mydemomserver.mariadb.privatelink.database.azure.com`. 
 
     You'll receive a message similar to this:
     ```azurepowershell
     Server:  UnKnown
     Address:  168.63.129.16
     Non-authoritative answer:
-    Name:    mydemoMariaDBserver.MariaDB.privatelink.database.azure.com
+    Name:    mydemoMariaDBserver.mariadb.privatelink.database.azure.com
     Address:  10.1.3.4
 
-3. Install [Azure Data studio](https://docs.microsoft.com/sql/azure-data-studio/download?view=sql-server-ver15).
+3. Install [MySQL Workbench](https://dev.mysql.com/doc/workbench/wb-installing-windows.html).
 
 4. In **New connection**, enter or select this information:
 
