@@ -15,7 +15,6 @@ ms.date: 01/07/2019
 ![Office 365 logo](media/solution-office-365/icon.png)
 
 
-
 > [!IMPORTANT]
 > This solution has been replaced by the [Office 365](../../sentinel/connect-office-365.md) General Availability solution in [Azure Sentinel](../../sentinel/overview.md) and the [Azure AD reporting and monitoring solution](../../active-directory/reports-monitoring/plan-monitoring-and-reporting.md). Together they provide an updated version of the previous Azure Monitor Office 365 solution with an improved configuration experience. You can continue to use the existing solution until March 30, 2020.
 > 
@@ -29,7 +28,8 @@ ms.date: 01/07/2019
 > 1.	If you are already using the Azure Monitor Office 365 solution, you must first uninstall it using the script in the [Uninstall section below](#uninstall).
 > 2.	[Enable the Azure Sentinel solution](../../sentinel/quickstart-onboard.md) on your workspace.
 > 3.	Go to the **Data connectors** page in Azure Sentinel and enable the **Office 365** connector.
-
+> 
+> See the [Update solution FAQ](#updated-solution-faq) below for answers to common questions regarding the updated solution.
 
 The Office 365 management solution allows you to monitor your Office 365 environment in Azure Monitor.
 
@@ -39,17 +39,83 @@ The Office 365 management solution allows you to monitor your Office 365 environ
 - Demonstrate audit and compliance. For example, you can monitor file access operations on confidential files, which can help you with the audit and compliance process.
 - Perform operational troubleshooting by using [log queries](../log-query/log-query-overview.md) on top of Office 365 activity data of your organization.
 
+## Updated solution FAQ
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+### Q: Is it possible to on-board the Office 365 Azure Monitor solution between now and March 30th?
+No, the Azure Monitor Office 365 solution onboarding scripts are no longer available. The solution will be removed on March 30th.
 
-## Prerequisites
+### Q: Will the tables and schemas be changed?
+The **OfficeActivity** table name and schema will remain the same as in the current solution. You can continue using the same queries in the new solution excluding queries that reference Azure AD data.
 
-The following is required prior to this solution being installed and configured.
+The new [Azure AD reporting and monitoring solution](../../active-directory/reports-monitoring/plan-monitoring-and-reporting.md) logs will be ingested into the [SigninLogs](../../active-directory/reports-monitoring/concept-sign-ins.md) and [AuditLogs](../../active-directory/reports-monitoring/concept-audit-logs.md) tables instead of **OfficeActivity**. For more information, see [how to analyze Azure AD logs](../../active-directory-b2c/active-directory-b2c-apps.md/active-directory/reports-monitoring/howto-analyze-activity-logs-log-analytics.md), which is also relevant for Azure Sentinel and Azure Monitor users.
 
-- Organizational Office 365 subscription.
-- Credentials for a user account that is a Global Administrator.
-- To receive audit data, you must [configure auditing](https://support.office.com/article/Search-the-audit-log-in-the-Office-365-Security-Compliance-Center-0d4d0f35-390b-4518-800e-0c7ec95e946c?ui=en-US&rs=en-US&ad=US#PickTab=Before_you_begin) in your Office 365 subscription.  Note that [mailbox auditing](https://technet.microsoft.com/library/dn879651.aspx) is configured separately.  You can still install the solution and collect other data if auditing is not configured.
- 
+Following are samples for converting queries from **OfficeActivity** to **SigninLogs**:
+
+**Query failed sign-ins, by user:**
+
+```Kusto
+OfficeActivity
+| where TimeGenerated >= ago(1d) 
+| where OfficeWorkload == "AzureActiveDirectory"                      
+| where Operation == 'UserLoginFailed'
+| summarize count() by UserId	
+```
+
+```Kusto
+SigninLogs
+| where ConditionalAccessStatus == "failure" or ConditionalAccessStatus == "notApplied"
+| summarize count() by UserDisplayName
+```
+
+**View Azure AD operations:**
+
+```Kusto
+OfficeActivity
+| where OfficeWorkload =~ "AzureActiveDirectory"
+| sort by TimeGenerated desc
+| summarize AggregatedValue = count() by Operation
+```
+
+```Kusto
+AuditLogs
+| summarize count() by OperationName
+```
+
+### Q: How can I on-board Azure Sentinel?
+Azure Sentinel is a solution that you can enable on new or existing Log Analytics workspace. To learn more, see [Azure Sentinel on-boarding documentation](../../sentinel/quickstart-onboard).
+
+### Q: Do I need Azure Sentinel to connect the Azure AD logs?
+You can configure [Azure AD logs integration with Azure Monitor](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics), which is not related to the Azure Sentinel solution. Azure Sentinel provides a native connector and out-of-the box content for Azure AD logs. For more information, see the question below on out-of-the-box security-oriented content.
+
+###	Q: What are the differences when connecting Azure AD logs from Azure Sentinel and Azure Monitor?
+Azure Sentinel and Azure Monitor connect to Azure AD logs based on the same [Azure AD reporting and monitoring solution](../../active-directory/reports-monitoring/plan-monitoring-and-reporting). Azure Sentinel provides a one-click, native connector that connects the same data and provides monitoring information.
+
+###	Q: What do I need to change when moving to the new Azure AD reporting and monitoring tables?
+All queries using Azure AD data, including queries in alerts, dashboards, and any content that you created using Office 365 Azure AD data, must be recreated using the new tables.
+
+Azure Sentinel and Azure AD provide built-in content that you can use when moving to the Azure AD reporting and monitoring solution. For more information, see the next question on out-of-the-box security-oriented content and [How to use Azure Monitor workbooks for Azure Active Directory reports](../../active-directory/reports-monitoring/howto-use-azure-monitor-workbooks.md). 
+
+### Q: How I can use the Azure Sentinel out-of-the-box security-oriented content?
+Azure Sentinel provides out-of-the-box security-oriented dashboards, custom alert queries, hunting queries, investigation, and automated response capabilities based on the Office 365 and Azure AD logs. Explore the Azure Sentinel GitHub and tutorials to learn more:
+
+- [Detect threats out-of-the-box](../../sentinel/tutorial-detect-threats-built-in.md)
+- [Create custom analytic rules to detect suspicious threats](../../sentinel/tutorial-detect-threats-custom.md)
+- [Monitor your data](../../sentinel/tutorial-monitor-your-data.md)
+- [Investigate incidents with Azure Sentinel](../../sentinel/tutorial-investigate-cases.md)
+- [Set up automated threat responses in Azure Sentinel](../../sentinel/tutorial-respond-threats-playbook.md)
+- [Azure Sentinel GitHub community](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks)
+
+
+### Q: Does Azure Sentinel provide additional connectors as part of the solution?
+Yes, see [Azure Sentinel connect data sources](../../sentinel/connect-data-sources.md).
+
+
+###	Q: What will happen on March 30? Do I need to offboard beforehand?
+
+- You won’t be able to receive data from the **Office365** solution, and it will be removed from any workspaces where it's installed. The solution will no longer be available in the Marketplace
+- For Azure Sentinel customers, the Log Analytics workspace solution **Office365** will be included in the Azure Sentinel **SecurityInsights** solution.
+- If you don’t offboard your solution manually, your data will be disconnected automatically on March 30.
+
 
 ## Uninstall
 
