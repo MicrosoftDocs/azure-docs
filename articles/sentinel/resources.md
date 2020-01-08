@@ -28,7 +28,7 @@ Azure Logic Apps connectors: <https://docs.microsoft.com/connectors/>
 
 
 ## Auditing and reporting
-Audit logs of Azure Sentinel are maintained in [Azure Activity Logs](../azure-monitor/platform/activity-logs-overview.md).
+Audit logs of Azure Sentinel are maintained in [Azure Activity Logs](../azure-monitor/platform/platform-logs-overview.md).
 
 The following supported operations can be audited.
 
@@ -40,8 +40,6 @@ The following supported operations can be audited.
 |Delete Workflow	|Microsoft.Logic/workflows|
 |Create Saved Search	|Microsoft.OperationalInsights/workspaces/savedSearches|
 |Delete Saved Search	|Microsoft.OperationalInsights/workspaces/savedSearches|
-|Set Dashboard	|Microsoft.Portal/dashboards|
-|Delete Dashboard	|Microsoft.Portal/dashboards|
 |Update Alert Rules	|Microsoft.SecurityInsights/alertRules|
 |Delete Alert Rules	|Microsoft.SecurityInsights/alertRules|
 |Update Alert Rule Response Actions	|Microsoft.SecurityInsights/alertRules|
