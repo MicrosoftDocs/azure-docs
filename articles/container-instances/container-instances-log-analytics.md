@@ -2,12 +2,12 @@
 title: Collect & analyze resource logs
 description: Learn how to send resource logs and event data from container groups in Azure Container Instances to Azure Monitor logs
 ms.topic: article
-ms.date: 09/02/2019
+ms.date: 01/08/2020
 ms.author: danlep
 ---
 # Container group and instance logging with Azure Monitor logs
 
-Log Analytics workspaces provide a centralized location for storing and querying log data from not only Azure resources, but also on-premises resources and resources in other clouds. Azure Container Instances includes built-in support for sending logs and event data to Azure Monitor logs.
+Log Analytics workspaces provide a centralized location for storing and querying log data not only from Azure resources, but also on-premises resources and resources in other clouds. Azure Container Instances includes built-in support for sending logs and event data to Azure Monitor logs.
 
 To send container group log and event data to Azure Monitor logs, specify an existing Log Analytics workspace ID and workspace key when creating a container group. The following sections describe how to create a logging-enabled container group and how to query logs.
 
