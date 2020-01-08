@@ -33,7 +33,7 @@ ms.date: 01/08/2019
 >
 > ## Frequently asked questions
 > 
-> ### Q: Is it possible to on-board the Office 365 Azure Monitor solution between now and March 30th?**
+> ### Q: Is it possible to on-board the Office 365 Azure Monitor solution between now and March 30th?
 > No, the Azure Monitor Office 365 solution onboarding scripts are no longer available. The solution will be removed on March 30th.
 > 
 > ### Q: Will the tables and schemas be changed?
