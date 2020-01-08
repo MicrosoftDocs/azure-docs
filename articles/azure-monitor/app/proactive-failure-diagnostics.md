@@ -20,7 +20,7 @@ After setting up [Application Insights for your project](../../azure-monitor/app
 
 Here's a sample alert:
 
-![Sample smart detection alert showing cluster analysis around failure](./media/proactive-failure-diagnostics/013.png)
+[![](./media/proactive-failure-diagnostics/013.png "Sample smart detection alert showing cluster analysis around failure")](./media/proactive-failure-diagnostics/013.png#lightbox)
 
 The alert details will tell you:
 
@@ -73,11 +73,11 @@ This alert rule is created with an associated [Action Group](https://docs.micros
 
 Open the Alerts page. Failure Anomalies alert rules are included along with any alerts that you have set manually, and you can see whether it is currently in the alert state.
 
-![On the Application Insights resource page, click 'Alerts' tile, then 'Manage alert rules'.](./media/proactive-failure-diagnostics/021.png)
+[![](./media/proactive-failure-diagnostics/021.png "On the Application Insights resource page, click 'Alerts' tile, then 'Manage alert rules'")](./media/proactive-failure-diagnostics/021.png#lightbox)
 
 Click the alert to configure it.
 
-![Configuration](./media/proactive-failure-diagnostics/032.png)
+[![](./media/proactive-failure-diagnostics/032.png "Rule configuration screen")](./media/proactive-failure-diagnostics/032.png#lightbox)
 
 Notice that you can disable Smart Detection, but you can't delete it (or create another one).
 
@@ -299,7 +299,7 @@ You can also open the [Azure portal](https://portal.azure.com), navigate to the 
 
 Clicking on 'Diagnose failures' will help you get more details and resolve the issue.
 
-![Diagnostic search](./media/proactive-failure-diagnostics/051.png)
+[![](./media/proactive-failure-diagnostics/051.png "Diagnostic search")](./media/proactive-failure-diagnostics/051.png#lightbox)
 
 From the percentage of requests and number of users affected, you can decide how urgent the issue is. In the example above, the failure rate of 78.5% compares with a normal rate of 2.2%, indicates that something bad is going on. On the other hand, only 46 users were affected. If it was your app, you'd be able to assess how serious that is.
 
@@ -307,15 +307,13 @@ In many cases, you will be able to diagnose the problem quickly from the request
 
 In this example, there was an exception from SQL database due to request limit being reached.
 
-![Failed request details](./media/proactive-failure-diagnostics/052.png)
-
+[![](./media/proactive-failure-diagnostics/052.png "Failed request details")](./media/proactive-failure-diagnostics/052.png#lightbox)
 
 ## Review recent alerts
 
 Click **Alerts** in the Application Insights resource page to get to the most recent fired alerts:
 
-![Alerts summary](./media/proactive-failure-diagnostics/070.png)
-
+[![](./media/proactive-failure-diagnostics/070.png "Alerts summary")](./media/proactive-failure-diagnostics/070.png#lightbox)
 
 ## What's the difference ...
 Smart Detection of failure anomalies complements other similar but distinct features of Application Insights.
