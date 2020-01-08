@@ -130,7 +130,7 @@ Activity logs provide insight into the operations that were performed on your Az
 
 To view activity logs for your cache, click **Activity logs** from the **Resource menu**.
 
-For more information about Activity logs, see [Overview of the Azure Activity Log](../azure-monitor/platform/activity-logs-overview.md).
+For more information about Activity logs, see [Overview of the Azure Activity Log](../azure-monitor/platform/platform-logs-overview.md).
 
 
 

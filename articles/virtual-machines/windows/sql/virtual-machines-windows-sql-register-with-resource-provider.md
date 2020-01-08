@@ -57,7 +57,7 @@ For more information about the benefits of using the SQL VM resource provider, w
 To register your SQL Server VM with the resource provider, you'll need: 
 
 - An [Azure subscription](https://azure.microsoft.com/free/).
-- An Azure Resource Model [SQL Server VM](virtual-machines-windows-portal-sql-server-provision.md) deployed to the public cloud. 
+- An Azure Resource Model [SQL Server VM](virtual-machines-windows-portal-sql-server-provision.md) deployed to the public  or Azure Government cloud. 
 - The latest version of [Azure CLI](/cli/azure/install-azure-cli) or [PowerShell](/powershell/azure/new-azureps-module-az). 
 
 ## Management modes
@@ -281,8 +281,7 @@ Verify current SQL Server VM registration status using either Az CLI or PowerShe
 # [PowerShell](#tab/powershell)
 
   ```powershell-interactive
-  Get-AzResource -ResourceName <vm_name> -ResourceGroupName <resource_group> `
-  -ResourceType Microsoft.SqlVirtualMachine/sqlVirtualMachines
+  Get-AzSqlVM -Name <vm_name> -ResourceGroupName <resource_group>
   ```
 
 ---
@@ -344,7 +343,7 @@ Remove-AzSqlVM -ResourceGroupName <resource_group_name> -Name <VM_name>
 
 The SQL VM resource provider only supports:
 - SQL Server VMs deployed through the Azure Resource Manager. SQL Server VMs deployed through the classic model are not supported. 
-- SQL Server VMs deployed to the public cloud. Deployments to the private or government cloud are not supported. 
+- SQL Server VMs deployed to the public or Azure Government cloud. Deployments to other private or government clouds are not supported. 
 
 
 ## Frequently asked questions 

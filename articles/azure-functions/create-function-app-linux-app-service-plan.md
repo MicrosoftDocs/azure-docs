@@ -20,7 +20,7 @@ Sign in to the Azure portal at <https://portal.azure.com> with your Azure accoun
 
 ## Create a function app
 
-You must have a function app to host the execution of your functions on Linux. The function app provides an environment for execution of your function code. It lets you group functions as a logic unit for easier management, deployment, and sharing of resources. In this article, you create an App Service plan when you create your function app.
+You must have a function app to host the execution of your functions on Linux. The function app provides an environment for execution of your function code. It lets you group functions as a logical unit for easier management, deployment, scaling, and sharing of resources. In this article, you create an App Service plan when you create your function app.
 
 1. Select the **Create a resource** button found on the upper left-hand corner of the Azure portal, then select **Compute** > **Function App**.
 
@@ -34,7 +34,7 @@ You must have a function app to host the execution of your functions on Linux. T
     | ------------ |  ------- | -------------------------------------------------- |
     | **App name** | Globally unique name | Name that identifies your new function app. Valid characters are `a-z`, `0-9`, and `-`.  | 
     | **Subscription** | Your subscription | The subscription under which this new function app is created. | 
-    | **[Resource Group](../azure-resource-manager/resource-group-overview.md)** |  myResourceGroup | Name for the new resource group in which to create your function app. |
+    | **[Resource Group](../azure-resource-manager/management/overview.md)** |  myResourceGroup | Name for the new resource group in which to create your function app. |
     | **OS** | Linux | The function app runs on Linux. |
     | **Publish** | Code | The default Linux container for your **Runtime Stack** is used. All you need to provide is your function app project code. Another option is to publish a custom [Docker image](functions-create-function-linux-custom-image.md). |
     | **[Hosting plan](functions-scale.md)** | App Service plan | Hosting plan that defines how resources are allocated to your function app. When you run in an App Service plan, you can control the [scaling of your function app](functions-scale.md).  |

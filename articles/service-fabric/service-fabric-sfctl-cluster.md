@@ -1,6 +1,6 @@
 ---
-title: Azure Service Fabric CLI- sfctl cluster 
-description: Describes the Service Fabric CLI sfctl cluster commands.
+title: Azure Service Fabric CLI- sfctl cluster
+description: Learn about sfctl, the Azure Service Fabric command line interface. Includes a list of commands for managing clusters.
 author: jeffj6123
 
 ms.topic: reference

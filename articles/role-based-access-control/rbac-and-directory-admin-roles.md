@@ -66,7 +66,7 @@ Accounts and subscriptions are managed in the [Azure Account Center](https://acc
 
 ## Azure RBAC roles
 
-Azure RBAC is an authorization system built on [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) that provides fine-grained access management to Azure resources, such as compute and storage. Azure RBAC includes over 70 built-in roles. There are four fundamental RBAC roles. The first three apply to all resource types:
+Azure RBAC is an authorization system built on [Azure Resource Manager](../azure-resource-manager/management/overview.md) that provides fine-grained access management to Azure resources, such as compute and storage. Azure RBAC includes over 70 built-in roles. There are four fundamental RBAC roles. The first three apply to all resource types:
 
 | Azure RBAC role | Permissions | Notes |
 | --- | --- | --- |

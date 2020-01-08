@@ -59,7 +59,7 @@ Next, you create a function in the new function app.
     | Setting      | Suggested value  | Description                                |
     | ------------ | ---------------- | ------------------------------------------ |
     | **Name** | Default | Use the default function name suggested by the template.|
-    | **Azure Cosmos DB account connection** | New setting | Select **New**, then choose your **Subscription**, the **Database account** you created earlier, and **Select**. This creates an application setting for your account connection. This setting is used by the binding to connection to the database. |
+    | **Azure Cosmos DB account connection** | New setting | Select **New**, then choose your **Subscription**, the **Database account** you created earlier, and **Select**. This creates an application setting for your account connection. This setting is used by the binding to connect to the database. |
     | **Collection name** | Items | Name of collection to be monitored. |
     | **Create lease collection if it doesn't exist** | Checked | The collection doesn't already exist, so create it. |
     | **Database name** | Tasks | Name of database with the collection to be monitored. |

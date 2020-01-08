@@ -78,28 +78,25 @@ Configuration parameters are provided as JSON:
 }
 ```
 
-> [!NOTE]
-> The Batch Transcription API uses a REST service for requesting transcriptions, their status, and associated results. You can use the API from any language. The next section describes how the API is used.
-
 ### Configuration properties
 
 Use these optional properties to configure transcription:
 
 | Parameter | Description |
-|-----------|-------------|
-| `ProfanityFilterMode` | Specifies how to handle profanity in recognition results. Accepted values are `None`, which disables profanity filtering; `Masked`, which replaces profanity with asterisks; `Removed`, which removes all profanity from the result; `Tags`, which adds "profanity" tags. The default setting is `Masked`. |
-| `PunctuationMode` | Specifies how to handle punctuation in recognition results. Accepted values are `None`, which disables punctuation; `Dictated`, which implies explicit punctuation; `Automatic`, which lets the decoder deal with punctuation; `DictatedAndAutomatic`, which implies dictated punctuation marks or automatic (the default value). |
-| `AddWordLevelTimestamps` | Specifies if word level timestamps should be added to the output. Accepted values are `True`, which enables word level timestamps; `False`, to disable it (the default value). |
-| `AddSentiment` | Specifies sentiment should be added to the utterance. Accepted values are `True`, which enables sentiment per utterance; `False`, to disable it (the default value).|
-| `AddDiarization` | Specifies that diarization analysis should be carried out on the input that is expected to be mono channel containing two voices. Accepted values are `True`, which enables diarization; `False`, to disable it (the default value). It also requires `AddWordLevelTimestamps` to be set to true.|
-| `TranscriptionResultsContainerUrl` | An optional SAS token to a writeable container in Azure. The result will be stored in this container. |
+|-----------|------------|
+|`ProfanityFilterMode`|Specifies how to handle profanity in recognition results
+||**`Masked`** - Default. Replaces profanity with asterisks<br>`None` - Disables profanity filtering<br>`Removed` - Removes all profanity from the result<br>`Tags` - Adds profanity tags
+|`PunctuationMode`|Specifies to handle punctuation in recognition results
+||`Automatic` - The service inserts punctuation<br>`Dictated` - Dictated (spoken) punctuation<br>**`DictatedAndAutomatic`** - Default. Dictated and automatic punctuation<br>`None` - Disables punctuation
+|`AddWordLevelTimestamps`|Specifies if word level timestamps should be added to the output
+||`True` - Enables word level timestamps<br>**`False`** - Default. Disable word level timestamps
+|`AddSentiment`|Specifies if sentiment analysis is added to the utterance
+||`True` - Enables sentiment per utterance<br>**`False`** - Default. Disable sentiment
+|`AddDiarization`|Specifies if diarization analysis is carried out. If `true`, the input is expected to be mono channel audio containing a maximum of two voices. `AddWordLevelTimestamps` needs to be set to `true`
+||`True` - Enables diarization<br>**`False`** - Default. Disable diarization
+|`TranscriptionResultsContainerUrl`|Optional SAS token to a writeable container in Azure. The result will be stored in this container
 
 ### Storage
-
-Lexical` | The lexical form of the recognized text: the actual words recognized. |
-| `ITN` | The inverse-text-normalized ("canonical") form of the recognized text, with phone numbers, numbers, abbreviations ("doctor smith" to "dr smith"), and other transformations applied. |
-| `MaskedITN` | The ITN form with profanity masking applied, if requested. |
-| `Display` | The display form of the recognized text, with punctuation and capitalization added. This parameter is the same as `DisplayText` provided when format is set to `simple`. |
 
 Batch transcription supports [Azure Blob storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) for reading audio and writing transcriptions to storage.
 
@@ -117,14 +114,10 @@ For mono input audio, one transcription result file is being created. For stereo
       "CombinedResults": [
         {
           "ChannelNumber": null                             'always null'
-          "Lexical": string                                 'the actual words recognized'
-          "ITN": string                                     'inverse-text-normalized form
-                                                             of the recognized text, with phone numbers,
-                                                             abbreviations ("doctor smith" to "dr smith"),
-                                                             and other transformations applied'
-          "MaskedITN": string                               'The ITN form with profanity masking applied'
-          "Display": string                                 'The display form of the recognized text
-                                                             with punctuation and capitalization added'
+          "Lexical": string
+          "ITN": string
+          "MaskedITN": string
+          "Display": string
         }
       ]
       SegmentResults:[                                     'for each individual segment'
@@ -148,7 +141,7 @@ For mono input audio, one transcription result file is being created. For stereo
               "MaskedITN": string
               "Display": string
               "Sentiment":
-                {                                          'this is ommitted if sentiment is
+                {                                          'this is omitted if sentiment is
                                                             not requested'
                   "Negative": number                        'between 0 and 1'
                   "Neutral": number                         'between 0 and 1'
@@ -171,6 +164,15 @@ For mono input audio, one transcription result file is being created. For stereo
   ]
 }
 ```
+
+The result contains these forms:
+
+|Form|Content|
+|-|-|
+|`Lexical`|The actual words recognized.
+|`ITN`|Inverse-text-normalized form of the recognized text. Abbreviations ("doctor smith" to "dr smith"), phone numbers, and other transformations are applied.
+|`MaskedITN`|The ITN form with profanity masking applied.
+|`Display`|The display form of the recognized text. This includes added punctuation and capitalization.
 
 ## Speaker separation (Diarization)
 

@@ -95,7 +95,7 @@ If you use Windows Update, leave the automatic Windows Update setting enabled.
 **Detail**: Check for and install all Windows updates as a first step of every deployment. This measure is especially important to apply when you deploy images that come from either you or your own library. Although images from the Azure Marketplace are updated automatically by default, there can be a lag time (up to a few weeks) after a public release.
 
 **Best practice**: Periodically redeploy your VMs to force a fresh version of the OS.   
-**Detail**: Define your VM with an [Azure Resource Manager template](../../azure-resource-manager/resource-group-authoring-templates.md) so you can easily redeploy it. Using a template gives you a patched and secure VM when you need it.
+**Detail**: Define your VM with an [Azure Resource Manager template](../../azure-resource-manager/templates/template-syntax.md) so you can easily redeploy it. Using a template gives you a patched and secure VM when you need it.
 
 **Best practice**: Rapidly apply security updates to VMs.   
 **Detail**: Enable Azure Security Center (Free tier or Standard tier) to [identify missing security updates and apply them](../../security-center/security-center-apply-system-updates.md).
@@ -135,7 +135,7 @@ Resource abuse can be a problem when VM processes consume more resources than th
 
 We recommend that you use [Azure Monitor](/azure/monitoring-and-diagnostics/monitoring-overview-metrics) to gain visibility into your resource’s health. Azure Monitor features:
 
-- [Resource diagnostic log files](../../azure-monitor/platform/resource-logs-overview.md): Monitors your VM resources and identifies potential issues that might compromise performance and availability.
+- [Resource diagnostic log files](../../azure-monitor/platform/platform-logs-overview.md): Monitors your VM resources and identifies potential issues that might compromise performance and availability.
 - [Azure Diagnostics extension](/azure/azure-monitor/platform/diagnostics-extension-overview): Provides monitoring and diagnostics capabilities on Windows VMs. You can enable these capabilities by including the extension as part of the [Azure Resource Manager template](/azure/virtual-machines/windows/extensions-diagnostics-template).
 
 Organizations that don't monitor VM performance can’t determine whether certain changes in performance patterns are normal or abnormal. A VM that’s consuming more resources than normal might indicate an attack from an external resource or a compromised process running in the VM.
