@@ -125,7 +125,7 @@ All on-premises VMs replicated to Azure must meet the Azure VM requirements summ
 
 **Component** | **Requirements** | **Details**
 --- | --- | ---
-Guest operating system | Verify supported operating systems for [VMware VMs using agentless replication](#agentless-migration-vmware-vm-requirements), and for [VMware VMs using agent-based replication](#agent-based-migration-vmware-vm-requirements).<br/> You can migrate any workload running on a supported operating system. | Check fails if unsupported.
+Guest operating system | Verifies supported VMware VM operating systems for migration.<br/> You can migrate any workload running on a supported operating system. | Check fails if unsupported.
 Guest operating system architecture | 64-bit. | Check fails if unsupported.
 Operating system disk size | Up to 2,048 GB. | Check fails if unsupported.
 Operating system disk count | 1 | Check fails if unsupported.
@@ -142,5 +142,4 @@ Connect after migration-Linux | To connect to Azure VMs after migration using SS
 
 ## Next steps
 
-- [Migrate](tutorial-migrate-vmware-agent.md) VMware VMs with agent-based migration.
-- [Migrate](tutorial-migrate-physical-virtual-machines.md) physical servers.
+[Select](server-migrate-overview.md) a VMware migration option.
