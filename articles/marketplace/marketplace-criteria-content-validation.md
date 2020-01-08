@@ -8,7 +8,7 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 12/31/2019
-ms.author: v-qiwe
+ms.author: evansma
 ---
 
 # Azure Marketplace listing guidelines
