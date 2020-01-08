@@ -106,9 +106,13 @@ A simple configuration of one Virtual WAN with one hub and one vpnsite can be cr
 
 You can connect a VNet in a different region than your virtual WAN.
 
-### Can spoke VNets connected to a virtual hub communicate with each other?
+### Can spoke VNets connected to a virtual hub communicate with each other (V2V Transit)?
 
-Yes. Standard Virtual WAN supports Vnet to Vnet transitive connectivity via the Virtual WAN hub that the Vnets are connected to. In Virtual WAN terminology, we refer to these paths as “local Virtual WAN VNet transit” for VNets connected to a Virtual Wan Hub within a single region, and “global Virtual WAN VNet transit” for VNets connected through multiple Virtual WAN Hubs across two or more regions. VNet transit supports up to 3 Gbps of throughput during public preview. Throughput will expanded when global transit goes GA.   
+Yes. Standard Virtual WAN supports Vnet to Vnet transitive connectivity via the Virtual WAN hub that the Vnets are connected to. In Virtual WAN terminology, we refer to these paths as “local Virtual WAN VNet transit” for VNets connected to a Virtual Wan Hub within a single region, and “global Virtual WAN VNet transit” for VNets connected through multiple Virtual WAN Hubs across two or more regions. VNet transit supports up to 3 Gbps of throughput during public preview. Throughput will expanded when global transit goes GA.
+
+NOTE:
+Currently V2V transit preview requires a VPN GW to be deployed in a Virtual Hub to trigger the routing elements to be launched. This VPN GW is not used for the V2V transit path. This is a known limitation and will be removed at the time of V2V GA. 
+You can delete the VPN Gateway in the hub(s) after it is fully launched as it is not needed for V2V transit functionality. 
 
 For some scenarios, spoke Vnets can also be directly peered with each other using [Virtual Network Peering](../articles/virtual-network/virtual-network-peering-overview.md) in addition to local or global Virtual WAN VNet transit. In this case, Vnet Peering takes precedence over the transitive connection via the Virtual WAN hub. 
 
