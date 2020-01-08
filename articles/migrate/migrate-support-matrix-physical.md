@@ -23,7 +23,7 @@ To assess on-premises machines for migration to Azure with this article, you add
 **Discovery** | The Azure Migrate appliance can discover up to 250 physical servers.
 **Assessment** | You can add up to 35,000 machines in a single group.<br/><br/> You can assess up to 35,000 machines in a single assessment.
 
-- [Learn more](concepts-assessment-calculation.md) about assessments.
+[Learn more](concepts-assessment-calculation.md) about assessments.
 
 
 
@@ -33,7 +33,7 @@ To assess on-premises machines for migration to Azure with this article, you add
 | **Support**                | **Details**               
 | :-------------------       | :------------------- |
 | **Physical server deployment**       | The physical server can be standalone or deployed in a cluster. |
-| **Permissions**           | **Windows:** Set up a local user account on all the Windows servers that you want to include in the discovery.The user account needs to be added to these groups-Remote Desktop Users, Performance Monitor Users and Performance Log users. <br/> **Linux:** You need a root account on the Linux servers that you want to discover. |
+| **Permissions**           | **Windows:** Set up a local user account on all the Windows servers that you want to include in the discovery. The user account needs to be added to these groups-Remote Desktop Users, Performance Monitor Users and Performance Log users. <br/> **Linux:** You need a root account on the Linux servers that you want to discover. |
 | **Operating system** | All [Windows](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) and [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) operating systems are supported except the following:<br/> Windows Server 2003 <br/> SUSE Linux|
 
 
