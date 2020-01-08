@@ -8,7 +8,7 @@ ms.author: cshoe
 ---
 # Azure Functions deployment slots
 
-Azure Functions deployment slots allow your function app to run different instances called "slots". Slots are different environments exposed via a publicly available endpoint. One app instance is always mapped to the production slot, and you can swap instances assigned to a slot on demand. Function apps running under the Apps Service plan may have multiple slots, while under Consumption only one slot is allowed.
+Azure Functions deployment slots allow your function app to run different instances called "slots". Slots are different environments exposed via a publicly available endpoint. One app instance is always mapped to the production slot, and you can swap instances assigned to a slot on demand. Function apps running under the Apps Service plan may have multiple slots, while under the Consumption plan only one slot is allowed.
 
 The following reflect how functions are affected by swapping slots:
 
@@ -59,7 +59,7 @@ You can mark settings as a deployment setting which makes it "sticky". A sticky 
 
 If you create a deployment setting in one slot, make sure to create the same setting with a unique value in any other slot involved in a swap. This way, while a setting's value doesn't change, the setting names remain consistent among slots. This name consistency ensures your code doesn't try to access a setting that is defined in one slot but not another.
 
-Use the following steps to to create a deployment setting:
+Use the following steps to create a deployment setting:
 
 - Navigate to *Slots* in the function app
 - Click on the slot name
@@ -131,14 +131,14 @@ Using the [Azure CLI](https://docs.microsoft.com/cli/azure/functionapp/deploymen
 - [swap](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-swap)
 - [auto-swap](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-auto-swap)
 
-## Change app service plan
+## Change App Service plan
 
-With a function app that is running under an App Service plan, you have the option to change the underlying app service plan for a slot.
+With a function app that is running under an App Service plan, you have the option to change the underlying App Service plan for a slot.
 
 > [!NOTE]
 > You can't change a slot's App Service plan under the Consumption plan.
 
-Use the following steps to change a slot's app service plan:
+Use the following steps to change a slot's App Service plan:
 
 1. Navigate to a slot
 
