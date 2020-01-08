@@ -156,7 +156,7 @@ The following PowerShell script can be used to change the account tier. The `$rg
 $rgName = ""
 $accountName = ""
 
-#Change the storage account tier to Hot
+#Change the storage account tier to hot
 Set-AzStorageAccount -ResourceGroupName $rgName -Name $accountName -AccessTier Hot
 ```
 ---
@@ -195,8 +195,8 @@ $ctx = $storageAccount.Context
 #Select the blob from a container
 $blobs = Get-AzStorageBlob -Container $containerName -Blob $blobName -Context $context
 
-#Change the blob’s access tier to Hot using Standard priority rehydrate
-$blob.ICloudBlob.SetStandardBlobTier("Hot", “Standard”)
+#Change the blob’s access tier to archive
+$blob.ICloudBlob.SetStandardBlobTier("Archive")
 ```
 ---
 
