@@ -141,7 +141,7 @@ The following table summarizes the file fields to fill in:
 
 ### Add operating systems
 
-Assessment recognizes specific operating system names. Any name you specify must match one of the options in the [supported names list](#supported-operating-system-names).
+Assessment recognizes specific operating system names. Any name you specify must exactly match one of the strings in the [supported names list](#supported-operating-system-names).
 
 ### Add multiple disks
 
@@ -271,29 +271,6 @@ This view shows the estimated compute and storage cost of running VMs in Azure. 
 > Confidence ratings are not assigned to assessments of servers imported into Server Assessment by using CSV.
 
 ## Supported operating system names
-
-<!--
-Name | Name
---- | ---
-**A - H** |
-Apple Mac OS X 10 | Asianux 3<br/>Asianux 4<br/>Asianux 5
-CentOS<br/>CentOS 4/5 | CoreOS Linux
-Debian GNU/Linux 4<br/>Debian GNU/Linux 5<br/>Debian GNU/Linux 6<br/>Debian GNU/Linux 7<br/>Debian GNU/Linux 8 | FreeBSD
-**I - R** |
-IBM OS/2 | MS-DOS |
-Novell NetWare 5<br/>Novell NetWare 6 | Oracle Linux<br/> Oracle Linux 4/5<br/>Oracle Solaris 10<br/> Oracle Solaris 11
-Red Hat Enterprise Linux 2<br/>Red Hat Enterprise Linux 3<br/>Red Hat Enterprise Linux 4<br/>Red Hat Enterprise Linux 5<br/>Red Hat Enterprise Linux 6<br/>Red Hat Enterprise Linux 7<br/>Red Hat Fedora |
-**S-T** |
-SCO OpenServer 5<br/>SCO OpenServer 6<br/>SCO UnixWare 7 | Serenity Systems eComStation 1<br/>Serenity Systems eComStation 2
-Sun Microsystems Solaris 8<br/>Sun Microsystems Solaris 9 | SUSE Linux Enterprise 10<br/> SUSE Linux Enterprise 11<br/>SUSE Linux Enterprise 12<br/>SUSE Linux Enterprise 8/9<br/>SUSE Linux Enterprise 11<br/>SUSE openSUSE
-**U-Z** |
-Ubuntu Linux | VMware ESXi 4<br/>VMware ESXi 5<br/>VMware ESXi 6
-Windows 10<br/>Windows 2000<br/>Windows 3<br/>Windows 7<br/>Windows 8<br/>Windows 95<br/>Windows 98<br/>Windows NT<br/>Windows Server (R) 2008<br/>Windows Server 2003 | Windows Server 2008<br/>Windows Server 2008 R2<br/>Windows Server 2012<br/>Windows Server 2012 R2<br/>Windows Server 2016<br/>Windows Server 2019<br/>Windows Server Threshold<br/>Windows Vista<br/>Windows Web Server 2008 R2<br/>Windows XP Professional
-
-Server 2016<br/>Windows Server 2019<br/>Windows Server Threshold<br/>Windows Vista<br/>Windows Web Server 2008 R2<br/>Windows XP Professional
--->
-
-<!-- Table rewritten by using "columns" syntax -->
 
 <!-- BEGIN A - H -->
 
