@@ -10,7 +10,7 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 12/10/2019
+ms.date: 01/08/2019
 ms.author: jingwang
 
 ---
@@ -248,6 +248,21 @@ In some scenarios, when you run a Copy activity in Data Factory, you'll see **Pe
 In this sample, during a copy run, Data Factory tracks a high DTU utilization in the sink Azure SQL Database. This condition slows down write operations. The suggestion is to increase the DTUs on the Azure SQL Database tier:
 
 ![Copy monitoring with performance tuning tips](./media/copy-activity-overview/copy-monitoring-with-performance-tuning-tips.png)
+
+## Resume from last failed run
+
+When you copy large size of files as-is between file-based stores and choose to preserve the folder/file hierarchy from source to sink, e.g. to migrate data from Amazon S3 to Azure Data Lake Storage Gen2, copy activity supports resume from last filed run.
+
+You can leverage the copy activity resume in the following two ways:
+
+- **Activity level retry:** You can set retry count on copy activity. During the pipeline execution, if this copy activity fails, the next automatic retry will start from last trial's failure point.
+- **Rerun from failed activity:** After pipeline execution completion, you can also trigger a rerun from the filed activity in the ADF UI monitoring view or programmatically. If the failed activity is a copy activity, the pipeline will not only rerun from this activity, but also resume from the previous run's failure point. 
+
+    ![Copy resume](media/copy-activity-overview/resume-copy.png)
+
+Resume happens at file level. In other word, if copy fails in between when copying a file, next run this specific file will be re-copied entirely.
+
+For other scenarios, copy activity rerun will start from the beginning.
 
 ## Preserve metadata along with data
 
