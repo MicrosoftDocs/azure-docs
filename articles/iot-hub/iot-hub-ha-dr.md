@@ -5,7 +5,7 @@ author: jlian
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 08/21/2019
+ms.date: 01/08/2020
 ms.author: philmea
 ---
 
