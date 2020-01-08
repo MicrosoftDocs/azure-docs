@@ -11,7 +11,7 @@ ms.service: azure-remote-rendering
 ---
 
 
-# Overriding materials for ingestion
+# Override materials for ingestion
 
 When a model is ingested for use in Azure Remote Rendering, in addition to the converted asset, a *materials file* is also produced.
 This file describes how the settings in the source model are used to define the **physically-based rendering** (**PBR**) materials used by the renderer.

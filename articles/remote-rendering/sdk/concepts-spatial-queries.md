@@ -16,8 +16,6 @@ This section will cover spatial queries, that is queries returning objects lying
 ## Model preparation
 
 The model's geometry needs to be processed to generate the optimized data that will support fast queries on potentially complex scenes and meshes.
-<!--Entities will also receive an additional property : a collision layer. It is an integer, in the [0,31] range, currently 0 by default. 
-TODO : Add an API to change it.-->
 
 ## Ray cast query
 

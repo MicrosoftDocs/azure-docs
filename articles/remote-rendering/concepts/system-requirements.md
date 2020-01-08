@@ -11,6 +11,8 @@ ms.service: azure-remote-rendering
 ---
 # System Requirements
 
+*Azure remote rendering* is a service that enables you to render high-quality interactive 3D content in the cloud and stream it to devices, such as the HoloLens, in real time. This chapter describes the minimum system requirements that are required to work with this service.
+
 ## Development PC
 
 * Windows 10, version 1903 or newer
@@ -18,7 +20,7 @@ ms.service: azure-remote-rendering
 * For local preview of remotely rendered content (for example in Unity or Unreal) or ARRT usage your GPU needs to support H265 hardware video decode.
 
 | GPU manufacturer | Supported models |
-|-----------|:-----------:|
+|-----------|:-----------|
 | nVidia | Check https://developer.nvidia.com/video-encode-decode-gpu-support-matrix - your GPU needs a YES in the H.265 4:2:0 8-bit column in the NVDEC matrix |
 | AMD | Graphics cards with at least version 6 of their Unified Video Decoder, see https://en.wikipedia.org/wiki/Unified_Video_Decoder#UVD_6 |
 | Intel | Skylake and newer CPUs |

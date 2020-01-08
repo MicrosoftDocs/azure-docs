@@ -118,8 +118,9 @@ This script will instance the RemoteManager that will coordinate the rendering r
 
 ## Configure the AzureFrontend/AzureSession
 
-TODO: refactor with the AzureFrontend and AzureSession objects. Add properties for the component to store your account id and key to connect the Azure service. These values will come from the Azure Remote Rendering Account information in the Azure Portal:\
-TODO REPLACE IMAGE since account domain is not longer required.![remote rendering properties in portal](media/remote-rendering-account.png)
+The following image shows where to find the respective information in the web interface:
+
+![remote rendering properties in portal](media/remote-rendering-account.png)
 
 ```csharp
     [RequireComponent(typeof(ARRServiceUnity))]
@@ -648,13 +649,17 @@ In this part of the tutorial, use the provided script that will be used to show 
 Create a GameObject and rename it FrameStats and set its z position 0.325 units away from the camera and add the RemoteFrameStats component to the GameObject.
 
 Add a Canvas as a child of the FrameStats GameObject and set the properties as shown:
+
 ![canvas properties](media/framestats-canvas.png)
 
 Add a UI Text object as a child of the Canvas and set its properties as shown:
+
 ![text properties](media/framestats-text.png)
 
 With the FrameStats GameObject selected in the Hierarchy, populate the FrameStats field with the Text object. In the Unity Editor, you should see something like this:
+
 ![setting text property](media/framestats-set-text.png)
 
 Now, when connected to the remote session, the text should show the streaming statistics:
+
 ![frame stats output](media/framestats-output.png)

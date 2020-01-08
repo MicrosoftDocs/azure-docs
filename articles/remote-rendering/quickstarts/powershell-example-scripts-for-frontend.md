@@ -38,7 +38,7 @@ PS> $ Set-ExecutionPolicy -ExecutionPolicy Unrestricted
 ## Prepare an Azure Storage account 
 In order to use the asset ingestion service you need to have an Azure subscription and an Azure Storage V2 account. 
 In the Azure Storage account, you need to create at least one input blob container and output blob container. 
-You can create a storage account and the containers in the azure portal at: https://portal.azure.com 
+You can create a storage account and the containers in the Azure portal at: https://portal.azure.com 
 
 ## Make sure to be logged into your subscription
 If you want to use the asset ingestion service and upload files to azure blob storage, you will need to log into your subscription.
