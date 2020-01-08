@@ -128,7 +128,7 @@ A user-assigned managed identity is required for executing deployment scripts. T
 
 ### Configure the key vault access policies
 
-The deployment scripts adds a certificate to the key vault.  You need to configure the key vault access policies to give the permission to the managed identity:
+The deployment script adds a certificate to the key vault. Configure the key vault access policies to give the permission to the managed identity:
 
 1. Add a parameter for configuring the key vault access policies so that the managed identity can add certificates to the key vault.
 

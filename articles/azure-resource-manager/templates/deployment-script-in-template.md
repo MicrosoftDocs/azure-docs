@@ -91,13 +91,13 @@ The following json is an example.  The latest template schema can be found [here
 }
 ```
 
-Note **scriptContent** and **primaryScriptUris** can't coexist in a template.
+Note the previous example is for demonstration purpose.  **scriptContent** and **primaryScriptUris** can't coexist in a template.
 
 Property value details:
 
 - **Identity**: The deployment script service uses a user-assigned managed identity to execute the scripts. Currently, only user-assigned managed identity is supported.
 - **kind**: Specify the type of script. Currently, only Azure PowerShell script is support. The value is **AzurePowerShell**.
-- **forceUpdateTag**: Changing this value between template deployments forces the deployment script to re-execute. It is recommended to use the newGuid() or utcNow() function which needs to be set as the defaultValue of a parameter. To learn more, see [Run script more than once](#run-script-more-than-once).
+- **forceUpdateTag**: Changing this value between template deployments forces the deployment script to re-execute. Use the newGuid() or utcNow() function that needs to be set as the defaultValue of a parameter. To learn more, see [Run script more than once](#run-script-more-than-once).
 - **azPowerShellVersion**: Specify the Azure PowerShell module version to be used. Deployment script currently supports version 2.7.0, 2.8.0, and 3.0.0.
 - **arguments**: Specify the parameter values. The values are separated by spaces.
 - **scriptContent**: Specify the script content. To run an external script, use `primaryScriptUri` instead. For examples, see [Use inline script](#use-inline-scripts) and [Use external script](#use-external-scripts).
@@ -235,8 +235,8 @@ The life cycle of these resources is controlled by the following properties in t
 
 - **cleanupPreference**: Clean up preference when the script execution gets in a terminal state.  The supported values are:
 
-  - **Always**: Delete the resources once script execution gets in a terminal state. Since the deploymentScripts resource may still be present after the resources are cleaned up, the system script would copy the script execution results, e.g. stdout, outputs, return value, etc. to DB before the resources are deleted.
-  - **OnSuccess**: Delete the resources only when the script execution is successful. You can use still access the resources to find the debug information.
+  - **Always**: Delete the resources once script execution gets in a terminal state. Since the deploymentScripts resource may still be present after the resources are cleaned up, the system script would copy the script execution results, for example, stdout, outputs, return value, etc. to DB before the resources are deleted.
+  - **OnSuccess**: Delete the resources only when the script execution is successful. You can still access the resources to find the debug information.
   - **OnExpiration**: Delete the resources only when the **retentionInterval** setting is expired. This property is currently disabled.
 
 - **retentionInterval**: Specify the time interval that a script resource will be retained and after which will be expired and deleted.
