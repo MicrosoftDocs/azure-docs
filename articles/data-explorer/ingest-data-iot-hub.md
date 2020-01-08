@@ -101,6 +101,8 @@ Now you connect to the IoT Hub from Azure Data Explorer. When this connection is
     > * Select **My data includes routing info** to use dynamic routing, where your data includes the necessary routing information as seen in the [sample app](https://github.com/Azure-Samples/event-hubs-dotnet-ingest) comments. If both static and dynamic properties are set, the dynamic properties override the static ones. 
     > * Only events enqueued after you create the data connection are ingested.
 
+[!INCLUDE [data-explorer-container-system-properties](../../includes/data-explorer-container-system-properties.md)]
+
 ## Generate sample data for testing
 
 The simulated device application connects to a device-specific endpoint on your IoT hub and sends simulated temperature and humidity telemetry.

@@ -135,6 +135,8 @@ Now you connect to the event hub from Azure Data Explorer. When this connection 
     > * Enable GZip compression for static routing by opening a [support request in the Azure portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview). Enable GZip compression for dynamic routing as seen in the [sample app](https://github.com/Azure-Samples/event-hubs-dotnet-ingest). 
     > * Avro format and event system properties aren't supported on compression payload.
 
+[!INCLUDE [data-explorer-container-system-properties](../../includes/data-explorer-container-system-properties.md)]
+
 ## Copy the connection string
 
 When you run the [sample app](https://github.com/Azure-Samples/event-hubs-dotnet-ingest) listed in Prerequisites, you need the connection string for the event hub namespace.
