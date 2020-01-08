@@ -25,15 +25,15 @@ access to database objects, and a newly created Hyperscale (Citus) server group
 comes with several roles pre-defined:
 
 * The [default PostgreSQL roles](https://www.postgresql.org/docs/current/default-roles.html)
-* *azure_pg_admin*
-* *postgres*
-* *citus*
+* `azure_pg_admin`
+* `postgres`
+* `citus`
 
 Since Hyperscale is a managed PaaS service, only Microsoft can sign in with the
-*postgres* super user role. For limited administrative access, Hyperscale
-provides the *citus* role.
+`postgres` super user role. For limited administrative access, Hyperscale
+provides the `citus` role.
 
-Permissions for the citus role:
+Permissions for the `citus` role:
 
 * Read all configuration variables, even variables normally visible only to
   superusers.
@@ -44,14 +44,14 @@ Permissions for the citus role:
 * [Create PostgreSQL extensions](concepts-hyperscale-extensions.md) (because
   the role is a member of azure\_pg\_admin).
 
-Notably, the citus role has some restrictions:
+Notably, the `citus` role has some restrictions:
 
 * Can't create roles
 * Can't create databases
 
 ## How to create additional users
 
-As mentioned, the *citus* admin account lacks permission to create additional
+As mentioned, the `citus` admin account lacks permission to create additional
 users. To add a user, use the Azure portal interface.
 
 1. Go to the **Roles** page for your Hyperscale server group, and click **+ Add**:
@@ -73,7 +73,7 @@ a tool such as PgAdmin or psql. (See [connecting with
 psql](quickstart-create-hyperscale-portal.md#connect-to-the-database-using-psql)
 in the Hyperscale (Citus) quickstart.)
 
-For example, to allow *db_user* to read *mytable*, grant the permission:
+For example, to allow `db_user` to read `mytable`, grant the permission:
 
 ```sql
 GRANT SELECT ON mytable TO db_user;
@@ -82,7 +82,7 @@ GRANT SELECT ON mytable TO db_user;
 Hyperscale (Citus) propagates single-table GRANT statements through the entire
 cluster, applying them on all worker nodes. However GRANTs that are system-wide
 (for example, for all tables in a schema) need to be run on every date node.  Use the
-*run_command_on_workers()* helper function:
+`run_command_on_workers()` helper function:
 
 ```sql
 -- applies to the coordinator node
@@ -102,7 +102,7 @@ to delete the user or reset their password.
 
    ![Edit a role](media/howto-hyperscale-create-users/edit-role.png)
 
-The *citus* role is privileged and can't be deleted.
+The `citus` role is privileged and can't be deleted.
 
 ## Next steps
 
