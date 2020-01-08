@@ -1,2 +1,2 @@
-Please visit the following page for the most up-to-date documentation: 
+Learn how to set up Azure Active Directory with SmarterU, here: 
 https://help.smarteru.com/ID2053086
