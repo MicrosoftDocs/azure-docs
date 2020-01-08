@@ -164,4 +164,4 @@ Learn how Azure Dev Spaces helps you develop more complex applications across mu
 > [Working with multiple containers and team development](multi-service-java.md)
 
 
-[supported-regions]: about.md#supported-regions-and-configurations
+[supported-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service

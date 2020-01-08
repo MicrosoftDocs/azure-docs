@@ -43,7 +43,7 @@ The summary of the broker setup process is as follows:
 Use the following detailed instructions to complete the broker setup:
 
 > [!Important]
-> In the following code snippets wnX is an abbreviation for one of the three worker nodes and should be substituted with `wn0`, `wn1` or `wn2` as appropriate. `WorkerNode0_Name` and `HeadNode0_Name` should be substituted with the names of the respective machines, such as `wn0-abcxyz` or `hn0-abcxyz`.
+> In the following code snippets wnX is an abbreviation for one of the three worker nodes and should be substituted with `wn0`, `wn1` or `wn2` as appropriate. `WorkerNode0_Name` and `HeadNode0_Name` should be substituted with the names of the respective machines.
 
 1. Perform initial setup on head node 0, which for HDInsight will fill the role of the Certificate Authority (CA).
 
@@ -151,10 +151,10 @@ To complete the configuration modification, do the following steps:
 
 Complete the following steps to finish the client setup:
 
-1. Sign in to the client machine (hn1).
+1. Sign in to the client machine (standby head node).
 1. Create a java keystore and get a signed certificate for the broker. Then copy the certificate to the VM where the CA is running.
-1. Switch to the CA machine (hn0) to sign the client certificate.
-1. Go to the client machine (hn1) and navigate to the `~/ssl` folder. Copy the signed cert to client machine.
+1. Switch to the CA machine (active head node) to sign the client certificate.
+1. Go to the client machine (standby head node) and navigate to the `~/ssl` folder. Copy the signed cert to client machine.
 
 ```bash
 cd ssl
@@ -168,11 +168,11 @@ keytool -keystore kafka.client.keystore.jks -certreq -file client-cert-sign-requ
 # Copy the cert to the CA
 scp client-cert-sign-request3 sshuser@HeadNode0_Name:~/tmp1/client-cert-sign-request
 
-# Switch to the CA machine (hn0) to sign the client certificate.
+# Switch to the CA machine (active head node) to sign the client certificate.
 cd ssl
 openssl x509 -req -CA ca-cert -CAkey ca-key -in /tmp1/client-cert-sign-request -out /tmp1/client-cert-signed -days 365 -CAcreateserial -passin pass:MyServerPassword123
 
-# Return to the client machine (hn1), navigate to ~/ssl folder and copy signed cert from the CA (hn0) to client machine
+# Return to the client machine (standby head node), navigate to ~/ssl folder and copy signed cert from the CA (active head node) to client machine
 scp -i ~/kafka-security.pem sshuser@HeadNode0_Name:/tmp1/client-cert-signed
 
 # Import CA cert to trust store
