@@ -10,7 +10,7 @@ ms.reviewer: minewiskan
 ---
 # Connecting to on-premises data sources with On-premises data gateway
 
-The on-premises data gateway provides secure data transfer between on-premises data sources and your Azure Analysis Services servers in the cloud. In addition to working with multiple Azure Analysis Services servers in the same region, the latest version of the gateway also works with Azure Logic Apps, Power BI, Power Apps, and Microsoft Flow. You can associate multiple services in the same subscription and same region with a single gateway. While the gateway you install is the same across all of these services, Azure Analysis Services and Logic Apps have some additional steps.
+The on-premises data gateway provides secure data transfer between on-premises data sources and your Azure Analysis Services servers in the cloud. In addition to working with multiple Azure Analysis Services servers in the same region, the latest version of the gateway also works with Azure Logic Apps, Power BI, Power Apps, and Power Automate. You can associate multiple services in the same subscription and same region with a single gateway. While the gateway you install is the same across all of these services, Azure Analysis Services and Logic Apps have some additional steps.
 
 For Azure Analysis Services, getting setup with the gateway the first time is a four-part process:
 

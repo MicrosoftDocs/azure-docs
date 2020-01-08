@@ -47,7 +47,7 @@ service ambari-server start
 In some scenarios, your headnode runs out of memory, and the Linux oom-killer starts to pick processes to kill. You can verify this situation by searching the AmbariServer process ID, which should not be found. Then look at your `/var/log/syslog`, and look for something like this:
 
 ```
-Jul 27 15:29:30 hn0-xxxxxx kernel: [874192.703153] java invoked oom-killer: gfp_mask=0x23201ca, order=0, oom_score_adj=0
+Jul 27 15:29:30 xxx-xxxxxx kernel: [874192.703153] java invoked oom-killer: gfp_mask=0x23201ca, order=0, oom_score_adj=0
 ```
 
 Then identify which processes are taking memories and try to further root cause.
