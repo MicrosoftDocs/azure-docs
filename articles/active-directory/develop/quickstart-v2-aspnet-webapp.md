@@ -66,7 +66,7 @@ In this quickstart, you use a code sample to learn how an ASP.NET web app to sig
 > [Download the Visual Studio 2019 solution](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-DotNet/archive/master.zip)
 
 > [!div renderon="portal"]
-> Run the project using Visual Studio or your favorite editor
+> Run the project using Visual Studio 2019.
 > [!div renderon="portal" id="autoupdate" class="nextstepaction"]
 > [Download the code sample]()
 
@@ -88,7 +88,7 @@ In this quickstart, you use a code sample to learn how an ASP.NET web app to sig
 >    <add key="ClientId" value="Enter_the_Application_Id_here" />
 >    <add key="Tenant" value="Enter_the_Tenant_Info_Here" />
 >    ```
-> Where:
+>    Where:
 > - `Enter_the_Application_Id_here` - is the Application Id for the application you registered.
 > - `Enter_the_Tenant_Info_Here` - is one of the options below:
 >   - If your application supports **My organization only**, replace this value with the **Tenant Id** or **Tenant name** (for example, contoso.onmicrosoft.com)
