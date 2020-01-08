@@ -97,8 +97,6 @@
       href: configure-load-balancer-outbound-cli.md
     - name: Configure outbound rules - PowerShell
       href: configure-load-balancer-outbound-powershell.md
-
-
   - name: Create public Load Balancer with IPv6
     href: load-balancer-ipv6-internet-ps.md
     items:
@@ -118,8 +116,6 @@
     href: load-balancer-tcp-idle-timeout.md
   - name: Configure distribution mode for Load Balancer
     href: load-balancer-distribution-mode.md
-  - name: Combining load balancing services
-    href: ../traffic-manager/traffic-manager-load-balancing-azure.md?toc=%2fazure%2fload-balancer%2ftoc.json
   - name: Using multiple IP configurations
     href: load-balancer-multiple-ip.md
     items:
