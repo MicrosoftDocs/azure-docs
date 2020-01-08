@@ -127,7 +127,7 @@ The following table shows a comparison of premium performance block blob storage
 
 ## Quickstart scenarios
 
-In this section, the following scenarios are demonstrated using the Azure portal:
+In this section, the following scenarios are demonstrated using the Azure portal and powershell:
 
 - How to change the default account access tier of a GPv2 or Blob storage account.
 - How to change the tier of a blob in a GPv2 or Blob storage account.
