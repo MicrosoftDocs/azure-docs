@@ -151,4 +151,4 @@ Learn how Azure Dev Spaces helps you develop more complex applications across mu
 [nodejs-quickstart]: quickstart-nodejs.md
 [netcore-quickstart]: quickstart-netcore.md
 [team-quickstart]: quickstart-team-development.md
-[supported-regions]: about.md#supported-regions-and-configurations
+[supported-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service
