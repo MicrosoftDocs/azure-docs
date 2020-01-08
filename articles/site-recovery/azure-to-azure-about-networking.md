@@ -6,7 +6,7 @@ author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 10/22/2019
+ms.date: 1/8/2020
 ms.author: sutalasi
 
 ---
@@ -50,18 +50,19 @@ login.microsoftonline.com | Required for authorization and authentication to the
 
 ## Outbound connectivity for IP address ranges
 
-If you are using an IP-based firewall proxy, or NSG rules to control outbound connectivity, these IP ranges need to be allowed.
+If you are using an IP-based firewall proxy, or NSG to control outbound connectivity, these IP ranges need to be allowed.
 
 - All IP address ranges that correspond to the storage accounts in source region
     - Create a [Storage service tag](../virtual-network/security-overview.md#service-tags) based NSG rule for the source region.
     - Allow these addresses so that data can be written to the cache storage account, from the VM.
 - Create a [Azure Active Directory (AAD) service tag](../virtual-network/security-overview.md#service-tags) based NSG rule for allowing access to all IP addresses corresponding to AAD
     - If new addresses are added to the Azure Active Directory (AAD) in the future, you need to create new NSG rules.
-- Site Recovery service endpoint IP addresses - available in an [XML file](https://aka.ms/site-recovery-public-ips) and depend on your target location. 
+- Create an EventsHub service tag based NSG rule for the target region, allowing access to Site Recovery monitoring.
+- Create an AzureSiteRecovery service tag based NSG rule for allowing access to Site Recovery service in any region.
 - We recommend that you create the required NSG rules on a test NSG, and verify that there are no problems before you create the rules on a production NSG.
 
 
-Site Recovery IP address ranges are as follows:
+If you prefer using Site Recovery IP address ranges (not recommended), please refer the below table:
 
    **Target** | **Site Recovery IP** |  **Site Recovery monitoring IP**
    --- | --- | ---
@@ -132,11 +133,9 @@ This example shows how to configure NSG rules for a VM to replicate.
 
       ![aad-tag](./media/azure-to-azure-about-networking/aad-tag.png)
 
-3. Create outbound HTTPS (443) rules for the Site Recovery IPs that correspond to the target location:
+3. Similar to above security rules, create outbound HTTPS (443) security rule for "EventHub.CentralUS" on the NSG that correspond to the target location. This allows access to Site Recovery monitoring.
 
-   **Location** | **Site Recovery IP address** |  **Site Recovery monitoring IP address**
-    --- | --- | ---
-   Central US | 40.69.144.231 | 52.165.34.144
+4. Create an outbound HTTPS (443) security rule for "AzureSiteRecovery" on the NSG. This allows access to Site Recovery Service in any region.
 
 ### NSG rules - Central US
 
@@ -146,12 +145,9 @@ These rules are required so that replication can be enabled from the target regi
 
 2. Create an outbound HTTPS (443) security rule for "AzureActiveDirectory" on the NSG.
 
-3. Create outbound HTTPS (443) rules for the Site Recovery IPs that correspond to the source location:
+3. Similar to above security rules, create outbound HTTPS (443) security rule for "EventHub.EastUS" on the NSG that correspond to the source location. This allows access to Site Recovery monitoring.
 
-   **Location** | **Site Recovery IP address** |  **Site Recovery monitoring IP address**
-    --- | --- | ---
-   East US | 13.82.88.226 | 104.45.147.24
-
+4. Create an outbound HTTPS (443) security rule for "AzureSiteRecovery" on the NSG. This allows access to Site Recovery Service in any region.
 
 ## Network virtual appliance configuration
 
