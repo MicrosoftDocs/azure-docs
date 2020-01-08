@@ -65,13 +65,13 @@ Logic apps in an ISE provide the same user experiences and similar capabilities 
 
 ![Connectors with and without labels in an ISE](./media/connect-virtual-network-vnet-isolated-environment-overview/labeled-built-in-actions-triggers-managed-connectors.png)
 
-* Built-in triggers and actions, such as HTTP, that have the **CORE** label always run in the same ISE as your logic app. Connectors that have the **ISE** label also run in the same ISE as your logic app.
+* Built-in triggers and actions that have the **CORE** label, for example, HTTP, always run in the same ISE as your logic app. Connectors that have the **ISE** label, for example, FTP, also run in the same ISE as your logic app.
 
   For example, here are some connectors that offer ISE versions:
 
   * Azure Blob Storage, File Storage, and Table Storage
   * Azure Queues, Azure Service Bus, Azure Event Hubs, and IBM MQ
-  * FTP, and SFTP-SSH
+  * FTP and SFTP-SSH
   * SQL Server, Azure SQL Data Warehouse, Azure Cosmos DB
   * AS2, X12, and EDIFACT
 
