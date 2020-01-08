@@ -117,7 +117,7 @@ Use Traffic Manager to distribute traffic across multiple application gateways i
 
 Yes, the Application Gateway v2 SKU supports autoscaling. For more information, see [Autoscaling and Zone-redundant Application Gateway](application-gateway-autoscaling-zone-redundant.md).
 
-### Does manual scale up or scale down cause downtime?
+### Does manual or automatic scale up or scale down cause downtime?
 
 No. Instances are distributed across upgrade domains and fault domains.
 

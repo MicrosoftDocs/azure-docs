@@ -524,6 +524,8 @@
     items:
     - name: Data movement security considerations
       href: data-movement-security-considerations.md
+    - name: Azure Integration Runtime IP addresses
+      href: azure-integration-runtime-ip-addresses.md
     - name: Store credentials in Azure Key Vault
       href: store-credentials-in-key-vault.md
     - name: Use Azure Key Vault secrets in pipeline activities
