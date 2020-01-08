@@ -138,11 +138,11 @@ Most configuration fields are named such that they can be defaulted to false. Al
 ## Single Page Applications (Angular, React, Vue, etc)
 
 For a single page application, you should first [setup Application Insights in your application](#getting-started). 
-By default, this SDK will **not** handle state-based route changing that occurs in single page applications. To enable automatic route change tracking for your single page application, you can add `enableAutoRouteTracking: true` to your setup configuration.
+By default, this SDK will **not** handle state-based route changing that occurs in single page applications. To enable automatic route change tracking for your single page application, you can add `enableAutoRouteTracking: true` to your setup configuration. This will enable pageviews to be collected on your **Angular, React, or Vue** Web Application.
+
+## Other Extensions
 
 Currently, we offer a separate [React plugin](#react-extensions) which you can initialize with this SDK. It will also accomplish route change tracking for you, as well as collect [other React specific telemetry](https://github.com/microsoft/ApplicationInsights-JS/blob/17ef50442f73fd02a758fbd74134933d92607ecf/extensions/applicationinsights-react-js/README.md).
-
-## React extensions
 
 | Extensions |
 |---------------|
