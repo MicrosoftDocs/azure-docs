@@ -9,43 +9,21 @@ ms.author: v-umha
 
 # Sensor partner integration
 
-This article provides information about the Azure FarmBeats Translator component, which enables sensor partner integration.
+This article provides information about the Azure FarmBeats **Translator** component, which enables sensor partner integration.
 
-Using this component, partners can develop sensors that integrate with FarmBeats to use the API and send customer device data and telemetry to FarmBeats Datahub. Data is visualized by using the FarmBeats Accelerator. Data can be used for data fusion and for building machine learning/artificial intelligence models.
+Using this component, partners can integrate with FarmBeats using FarmBeats Data hub APIs and send customer device data and telemetry to FarmBeats Data hub. Once the data is available in FarmBeats, it is visualized using the FarmBeats Accelerator and can be used for data fusion and for building machine learning/artificial intelligence models.
 
-## Link a FarmBeats account
+## Before you start
 
-After you've purchased and deployed devices or sensors, you can access the device data and telemetry on your device partners' software as a service (SaaS) portal. Device partners enable you to link your account to your FarmBeats instance on Azure. The following credentials must be filled in by you or your system integrator:
+To develop the Translator component, you will need the following credentials that will enable access to the FarmBeats APIs.
 
-   - Display name (an optional field for users to define a name for this integration)
-   - API endpoint
-   - Tenant ID
-   - Client ID
-   - Client secret
-   - EventHub connection string
-   - Start date
+- API Endpoint
+- Tenant ID
+- Client ID
+- Client Secret
+- EventHub Connection String
 
-   > [!NOTE]
-   > The start date enables the historical data feed, that is, the data from the date specified by the user.
-
-## Unlink FarmBeats
-
-You have the ability to unlink an existing FarmBeats integration. Unlinking FarmBeats shouldn't delete any device or sensor metadata that was created in your datahub. Unlinking does the following:
-
-   - Stops telemetry flow.
-   - Deletes and erases the integration credentials on the device partner.
-
-## Edit FarmBeats integration
-
-You can edit the FarmBeats integration settings if the client secret or connection string changes. In this case, you can edit only the following fields:
-
-   - Display name (if applicable)
-   - Client secret (should be displayed in "2x8***********" format or the Show/Hide feature rather than clear text)
-   - Connection string (should be displayed in "2x8***********" format or Show/Hide feature rather than clear text)
-
-## View the last telemetry sent
-
-You can view the timestamp of the last telemetry that was sent, which is found under **Telemetry Sent**. This is the time at which the latest telemetry was successfully sent to FarmBeats.
+See this section for getting the above credentials: [Enable Device Integration](get-sensor-data-from-sensor-partner.md#enable-device-integration-with-farmbeats)
 
 ## Translator development
 
@@ -67,7 +45,7 @@ FarmBeats uses Microsoft Azure Active Directory authentication. Azure App Serv
 
 For more information, see [Azure Active Directory](https://docs.microsoft.com/azure/app-service/overview-authentication-authorization).
 
-FarmBeats Datahub uses bearer authentication, which needs the following credentials:
+FarmBeats Data hub uses bearer authentication, which needs the following credentials:
    - Client ID
    - Client secret
    - Tenant ID
@@ -102,14 +80,14 @@ access_token = token_response.get('accessToken') 
 
 **HTTP request headers**
 
-Here are the most common request headers that need to be specified when you make an API call to FarmBeats Datahub.
+Here are the most common request headers that need to be specified when you make an API call to FarmBeats Data hub.
 
 
 **Header** | **Description and example**
 --- | ---
-Content-Type | The request format (Content-Type: application/<format>). For FarmBeats Datahub APIs, the format is JSON. Content-Type: application/json
+Content-Type | The request format (Content-Type: application/<format>). For FarmBeats Data hub APIs, the format is JSON. Content-Type: application/json
 Authorization | Specifies the access token required to make an API call. Authorization: Bearer <Access-Token>
-Accept | The response format. For FarmBeats Datahub APIs, the format is JSON. Accept: application/json
+Accept | The response format. For FarmBeats Data hub APIs, the format is JSON. Accept: application/json
 
 **API requests**
 
@@ -136,7 +114,7 @@ JSON is a common language-independent data format that provides a simple text re
 
 ## Metadata specifications
 
-FarmBeats Datahub has the following APIs that enable device partners to create and manage device or sensor metadata.
+FarmBeats Data hub has the following APIs that enable device partners to create and manage device or sensor metadata.
 
 - /**DeviceModel**: DeviceModel corresponds to the metadata of the device, such as the manufacturer and the type of device, which is either gateway or node.
 - /**Device**: Device corresponds to a physical device present on the farm.
@@ -145,8 +123,8 @@ FarmBeats Datahub has the following APIs that enable device partners to create a
 
   **DeviceModel** |  |
   --- | ---
-  Type (node, gateway)  | 1 Star |
-  Manufacturer  | 2 Star |
+  Type (node, gateway)  | Type of the device - Node or Gateway |
+  Manufacturer  | Name of the manufacturer |
   ProductCode  | Device product code or model name or number. For example, EnviroMonitor#6800. |
   Ports  | Port name and type, which is digital or analog.  |
   Name  | Name to identify resource. For example, model name or product name. |
@@ -158,7 +136,7 @@ FarmBeats Datahub has the following APIs that enable device partners to create a
   ReportingInterval |Reporting interval in seconds. |
   Location    |Device latitude (-90 to +90), longitude (-180 to 180), and elevation (in meters). |
   ParentDeviceId | ID of the parent device to which this device is connected. For example, if a node is connected to a gateway, the node has parentDeviceID as the gateway. |
-  Name  | Name to identify the resource. Device partners need to send a name that's consistent with the device name on the device partner side. If the device name is user defined on the device partner side, the same user-defined name should be propagated to FarmBeats.  |
+  Name  | Name to identify the resource. Device partners need to send a name that's consistent with the device name on the device partner side. If the device name is user-defined on the device partner side, the same user-defined name should be propagated to FarmBeats.  |
   Description  | Provide a meaningful description.  |
   Properties  |Additional properties from the manufacturer.  |
   **SensorModel** |  |
@@ -247,11 +225,11 @@ The canonical message format is as follows:
       "sensordata": [
         {
           "timestamp": "< timestamp in ISO 8601 format >",
-          "<sensor measure name (as defined in the Sensor Model)>": "<value>"
+          "<sensor measure name (as defined in the Sensor Model)>": <value>
         },
         {
           "timestamp": "<timestamp in ISO 8601 format>",
-          "<sensor measure name (as defined in the Sensor Model)>": "<value>"
+          "<sensor measure name (as defined in the Sensor Model)>": <value>
         }
       ]
     }
@@ -300,11 +278,49 @@ For example, here's a telemetry message:
 
 ```
 
+> [!NOTE]
+> The following sections are related to other changes (eg. UI, error management etc.) that the sensor partner can refer to in developing the Translator component.
+
+
+## Link a FarmBeats account
+
+After customers have purchased and deployed devices or sensors, they can access the device data and telemetry on the device partners' software as a service (SaaS) portal. Device partners can enable customers to link their account to their FarmBeats instance on Azure by providing a way to input the following credentials:
+
+   - Display name (an optional field for users to define a name for this integration)
+   - API endpoint
+   - Tenant ID
+   - Client ID
+   - Client secret
+   - EventHub connection string
+   - Start date
+
+   > [!NOTE]
+   > The start date enables the historical data feed, that is, the data from the date specified by the user.
+
+## Unlink FarmBeats
+
+Device partners can enable customers to unlink an existing FarmBeats integration. Unlinking FarmBeats shouldn't delete any device or sensor metadata that was created in FarmBeats Data hub. Unlinking does the following:
+
+   - Stops telemetry flow.
+   - Deletes and erases the integration credentials on the device partner.
+
+## Edit FarmBeats integration
+
+Device partners can enable customers to edit the FarmBeats integration settings if the client secret or connection string changes. In this case, only the following fields are editable:
+
+   - Display name (if applicable)
+   - Client secret (should be displayed in "2x8***********" format or the Show/Hide feature rather than clear text)
+   - Connection string (should be displayed in "2x8***********" format or Show/Hide feature rather than clear text)
+
+## View the last telemetry sent
+
+Device partners can enable customers to view the timestamp of the last telemetry that was sent, which is found under **Telemetry Sent**. This is the time at which the latest telemetry was successfully sent to FarmBeats.
+
 ## Troubleshooting and error management
 
 **Troubleshoot option or support**
 
-If you're unable to receive device data or telemetry in the FarmBeats instance specified, the device partner should provide support and a mechanism for troubleshooting.
+If customer is unable to receive device data or telemetry in the FarmBeats instance specified, the device partner should provide support and a mechanism for troubleshooting.
 
 **Telemetry data retention**
 
@@ -312,7 +328,7 @@ The telemetry data should also be retained for a predefined time period so that 
 
 **Error management or error notification**
 
-If an error affects the device or sensor metadata or the data integration or telemetry data flow in the device partner system, you should receive a notification. A mechanism to resolve any errors should also be designed and implemented.
+If an error affects the device or sensor metadata or the data integration or telemetry data flow in the device partner system, customer should receive a notification. A mechanism to resolve any errors should also be designed and implemented.
 
 **Connection checklist**
 
