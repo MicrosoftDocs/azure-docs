@@ -91,6 +91,8 @@ The .NET Feature Management libraries extend the framework with comprehensive fe
                     Console.WriteLine("Welcome to the beta!");
                 }
             }
+
+            Console.WriteLine("Hello World!");
         }
     ```
 
