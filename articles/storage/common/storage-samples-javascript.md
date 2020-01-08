@@ -14,7 +14,10 @@ ms.topic: sample
 
 The following tables provide an overview of our samples repository and the scenarios covered in each sample. Click on the links to view the corresponding sample code in GitHub.
 
-## Blob samples
+> [!NOTE]
+> These samples use the Azure Storage JavaScript v10 library. For v12 code, see [samples](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob/samples) in the GitHub repository.
+
+## Blob samples (v10)
 
 | **Scenario** | **Sample Code** |
 |--------------|-----------------|
@@ -39,7 +42,7 @@ The following tables provide an overview of our samples repository and the scena
 | Set Cors rules | [Getting Started with Azure Blob Service in JavaScript](https://github.com/Azure-Samples/storage-blob-node-getting-started/blob/master/advanced.js#L152) |
 | Snapshot Blob | [Getting Started with Azure Blob Service in JavaScript](https://github.com/Azure-Samples/storage-blob-node-getting-started/blob/master/basic.js#L79) |
 
-## File samples
+## File samples (v10)
 
 | **Scenario** | **Sample Code** |
 |--------------|-----------------|
@@ -49,7 +52,7 @@ The following tables provide an overview of our samples repository and the scena
 | List Directories and Files | [Getting Started with Azure File Service in JavaScript](https://github.com/Azure-Samples/storage-file-node-getting-started/blob/master/fileSample.js#L115) |
 | List Shares | [Getting Started with Azure File Service in JavaScript](https://github.com/Azure-Samples/storage-file-node-getting-started/blob/master/fileSample.js#L187) |
 
-## Queue samples
+## Queue samples (v10)
 
 | **Scenario** | **Sample Code** |
 |--------------|-----------------|
@@ -67,7 +70,7 @@ The following tables provide an overview of our samples repository and the scena
 | Queue Stats | [Getting Started with Azure Queue Service in JavaScript](https://github.com/Azure-Samples/storage-queue-node-getting-started/blob/master/advanced.js#L149) |
 | Update Message | [Getting Started with Azure Queue Service in JavaScript](https://github.com/Azure-Samples/storage-queue-node-getting-started/blob/master/basic.js#L176) |
 
-## Table samples
+## Table samples (v10)
 
 | **Scenario** | **Sample Code** |
 |--------------|-----------------|

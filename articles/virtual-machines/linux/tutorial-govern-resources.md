@@ -1,6 +1,6 @@
 ---
-title: Tutorial - Govern Azure virtual machines with Azure CLI 
-description: In this tutorial, you learn how to use the Azure CLI to manage Azure virtual machines by applying RBAC, polices, locks and tags
+title: Tutorial - Manage virtual machines with the CLI 
+description: In this tutorial, you learn how to use the Azure CLI to manage Azure virtual machines by applying RBAC, polices, locks and tags.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: tfitzmac
@@ -18,7 +18,7 @@ ms.custom: mvc
 #Customer intent: As an IT administrator, I want to learn how to control and manage VM resources so that I can secure and audit resource access, and group resources for billing or management.
 ---
 
-# Tutorial: Learn about Linux virtual machine governance with Azure CLI
+# Tutorial: Learn about Linux virtual machine management with Azure CLI
 
 [!INCLUDE [Resource Manager governance introduction](../../../includes/resource-manager-governance-intro.md)]
 
