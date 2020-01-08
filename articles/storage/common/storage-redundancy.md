@@ -50,7 +50,7 @@ The primary difference between GRS and GZRS is how data is replicated in the pri
 > [!IMPORTANT]
 > Asynchronous replication involves a delay from the time that data is written to the primary region, to when it is replicated to the secondary region. In the event of a regional disaster, changes that haven't yet been replicated to the secondary region may be lost if that data can't be recovered from the primary region.
 
-With GRS or GZRS, the data in the secondary location isn't available for read or write access unless Microsoft initiates a failover to the secondary region. In the case of a failover, you'll have read and write access to that data after the failover has completed. For more information, please see [Disaster recovery guidance](../articles/storage/common/storage-disaster-recovery-guidance.md).
+With GRS or GZRS, the data in the secondary location isn't available for read or write access unless Microsoft initiates a failover to the secondary region. In the case of a failover, you'll have read and write access to that data after the failover has completed. For more information, see [Disaster recovery guidance](storage-disaster-recovery-guidance.md).
 
 For read access to the secondary location, configure your storage account to use read-access geo-redundant storage (RA-GRS) or read-access geo-zone-redundant storage (RA-GZRS). For more information, see [Read access to data in the secondary region](#read-access-to-data-in-the-secondary-region).
 
