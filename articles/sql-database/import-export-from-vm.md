@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: 
-ms.date: 01/07/2020
+ms.date: 01/08/2020
 ---
 # Import or export an Azure SQL database without allowing Azure services to access the server
 
@@ -152,9 +152,11 @@ Even with all of the above conditions, the import export service may not meet th
 
 ## Store the imported or exported .BACPAC file
 
-Because SqlPackage operates with the filesystem, you can use the storage feature that best suits your needs for both performance (the speed of import or export operations), and cost. Importing and exporting databases uses [.BACPAC files](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/data-tier-applications#bacpac) stored in Azure Storage. 
+The .BACPAC file can be stored in [Azure Blobs](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview), or [Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction). 
 
-The .BACPAC file can be stored in [Azure Blobs](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview), or [Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction). Whether to use Azure Blobs or Azure Files depends on your specific business requirements. Azure Blobs will cost less than a premium Azure file share, but will take a longer time for the import or export operation to complete.
+To achieve the best performance, use Azure Files. SqlPackage operates with the filesystem so it can access Azure Files directly.
+
+To reduce cost, use Azure Blobs, which cost less than a premium Azure file share. However, it will require you to copy the [.BACPAC file](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/data-tier-applications#bacpac) between the the blob and the local file system before the import or export operation. As a result the process will take longer.
 
 To upload or download .BACPAC files, see [Transfer data with AzCopy and Blob storage](../storage/common/storage-use-azcopy-blobs.md), and [Transfer data with AzCopy and file storage](../storage/common/storage-use-azcopy-files.md).
 
