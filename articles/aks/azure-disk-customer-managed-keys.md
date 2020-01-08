@@ -28,38 +28,14 @@ Azure Storage encrypts all data in a storage account at rest. By default, data i
 ## Current supported regions
 
 * Australia East
-* Canada Central
-* Canada East
-* Central US
-* East Asia
-* East US
-* East US 2
-* France
-* North Central US
-* UK South
-* North Europe
-* South East Asia
-* South Central US
-* West Central US
-* West Europe
-* West US
-* West US 2
-
-## Install latest AKS CLI preview extension
-
-To use private clusters, you need the *aks-preview* CLI extension version 0.4.18 or higher. Install the *aks-preview* Azure CLI extension using the [az extension add][az-extension-add] command, then check for any available updates using the [az extension update][az-extension-update] command::
-
-```azurecli-interactive
-# Install the aks-preview extension
-az extension add --name aks-preview
-
-# Update the extension to make sure you have the latest version installed
-az extension update --name aks-preview
-```
-> [!CAUTION]
-> When you register a feature on a subscription, you can't currently un-register that feature. After you enable some preview features, defaults may be used for all AKS clusters then created in the subscription. Don't enable preview features on production subscriptions. Use a separate subscription to test preview features and gather feedback.
+* Canada Central, Canada East
+* Central US, East US, East US 2, North Central US, South Central US, West Central US, West US, West US 2
+* East Asia, South East Asia
+* France, North Europe, UK South, West Europe
 
 ## Create Azure Key Vault instance to store your keys
+
+You can optionally use the Azure portal to [Configure customer-managed keys with Azure Key Vault][https://docs.microsoft.com/azure/storage/common/storage-encryption-keys-portal]
 
 Create a new Key Vault instance and enable soft delete and purge protection.
 
@@ -68,24 +44,21 @@ az keyvault create -n $keyVaultName -g $rgName -l $location --enable-purge-prote
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AKSPrivateLinkPreview')].{Name:name,State:properties.state}"
 ```
 
-## Create an instance of a DiskEncryptionSet. 
+## Create an instance of a DiskEncryptionSet
     
 ```azurecli
 keyVaultId=$(az keyvault show --name $keyVaultName --query [id] -o tsv)
-
 keyVaultKeyUrl=$(az keyvault key show --vault-name $keyVaultName --name $keyName --query [key.kid] -o tsv)
-
 az disk-encryption-set create -n $diskEncryptionSetName -l $location -g $rgName --source-vault $keyVaultId --key-url $keyVaultKeyUrl
 ```
 
-## Grant the DiskEncryptionSet resource access to the key vault.
+## Grant the DiskEncryptionSet resource access to the key vault
 
 ```azurecli
 desIdentity=$(az disk-encryption-set show -n $diskEncryptionSetName -g $rgName --query [identity.principalId] -o tsv)
-
 az keyvault set-policy -n $keyVaultName -g $rgName --object-id $desIdentity --key-permissions wrapkey unwrapkey get
-
 az role assignment create --assignee $desIdentity --role Reader --scope $keyVaultId
+```
 
 ## Create an AKS cluster with and encrypt the OS disk with a customer-manged key
 
@@ -101,10 +74,10 @@ az aks create -n clusterName -g resourceGroupName --node-osdisk-diskencryptionse
 
 ## Limitations
 
-> OS Disk Encryption supported with Kubernetes version 1.17 and above   
-> Available only in regions where BYOK is supported
-> This is currently for new AKS clusters only, existing clusters cannot be upgraded
-> AKS cluster using Virtual Machine Scale Sets are required, no support Virtual Machine Availablity Sets
+* OS Disk Encryption supported with Kubernetes version 1.17 and above   
+* Available only in regions where BYOK is supported
+* This is currently for new AKS clusters only, existing clusters cannot be upgraded
+* AKS cluster using Virtual Machine Scale Sets are required, no support Virtual Machine Availablity Sets
 
 
 ## Next steps
