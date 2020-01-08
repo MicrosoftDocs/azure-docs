@@ -104,9 +104,7 @@ The following sample *host.json* file has all possible options specified (exclud
                 "tempFolder": null,
                 "thresholdForSnapshotting": 1,
                 "uploaderProxy": null
-            },
-            "SamplingExcludedTypes": "",
-            "SamplingIncludedTypes": "Dependency, Event, Exception, PageView, Request, Trace"
+            }
         }
     },
     "managedDependency": {
@@ -135,32 +133,7 @@ This setting is a child of [logging](#logging).
 
 Controls options for Application Insights, including [sampling options](./functions-monitoring.md#configure-sampling).
 
-```json
-{
-    "applicationInsights": {        
-        "enableDependencyTracking": true,
-        "enablePerformanceCountersCollection": true,
-        "samplingExcludedTypes": "Trace;Exception",
-        "samplingIncludedTypes": "Request;Dependency",
-        "samplingSettings": {
-          "isEnabled": true,
-          "maxTelemetryItemsPerSecond" : 20
-          "EvaluationInterval": "00:00:15",
-          "InitialSamplingPercentage": 0,
-          "MaxSamplingPercentage": 100,
-          "MinSamplingPercentage": 0.1,
-          "MovingAverageRatio":0.25,
-          "SamplingPercentageDecreaseTimeout": "00:02:00",
-          "SamplingPercentageIncreaseTimeout": "00:15:00"
-        }
-    "SamplingExcludedTypes": "",
-    "SamplingIncludedTypes": "Dependency, Event, Exception, PageView, Request, Trace",
-    "EnableLiveMetrics": true,
-    "EnableDependencyTracing":true,
-    "EnablePerformanceCountersCollection":true
-    }
-}
-```
+For the complete JSON structure, see the earlier [example host.json file](#sample-hostjson-file).
 
 > [!NOTE]
 > Log sampling may cause some executions to not show up in the Application Insights monitor blade. To avoid log sampling, add `samplingExcludedTypes: "Request"` to the `applicationInsights` value.
@@ -168,8 +141,8 @@ Controls options for Application Insights, including [sampling options](./functi
 | Property | Default | Description |
 | --------- | --------- | --------- | 
 | samplingSettings | n/a | See [applicationInsights.samplingSettings](#applicationinsightssamplingsettings). |
-| samplingExcludedTypes | `Dependency;Event` | A semi-colon delimited list of types that you don't want to be sampled. Recognized types are: Dependency, Event, Exception, PageView, Request, Trace. All instances of the specified types are transmitted; the types that are not specified are sampled. |
-| samplingIncludedTypes | `PageView;Trace` | A semi-colon delimited list of types that you want to be sampled; an empty list implies all types. Type listed in `samplingExcludedTypes` override types listed here. Recognized types are: Dependency, Event, Exception, PageView, Request, Trace. All instances of the specified types are transmitted; the types that are not specified are sampled. |
+| samplingExcludedTypes | null | A semi-colon delimited list of types that you don't want to be sampled. Recognized types are: Dependency, Event, Exception, PageView, Request, Trace. All instances of the specified types are transmitted; the types that are not specified are sampled. |
+| samplingIncludedTypes | null | A semi-colon delimited list of types that you want to be sampled; an empty list implies all types. Type listed in `samplingExcludedTypes` override types listed here. Recognized types are: Dependency, Event, Exception, PageView, Request, Trace. All instances of the specified types are transmitted; the types that are not specified are sampled. |
 | enableLiveMetrics | true | Enables live metrics collection. |
 | enableDependencyTracking | true | Enables dependency tracking. |
 | enablePerformanceCountersCollection | true | Enables Kudu performance counters collection. |
