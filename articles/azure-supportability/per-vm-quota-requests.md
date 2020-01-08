@@ -75,7 +75,7 @@ To request a standard vCPU quota increase per VM series from the **Help + suppor
 
    Under **Types**, you can request both standard and spot quota types from a single support case through multi-selection support.
    
-   For more information about increasing spot quota limits, see [Azure spot VMs for virtual machine scale sets](https://docs.microsoft.com/azure/virtual-machine-scale-sets/use-spot)
+   For more information about increasing spot quota limits, see [Azure spot VMs for virtual machine scale sets](https://docs.microsoft.com/azure/virtual-machine-scale-sets/use-spot).
 
    c. Below the **Standard** drop-down list, select the SKU series whose quotas you want to increase.
 
