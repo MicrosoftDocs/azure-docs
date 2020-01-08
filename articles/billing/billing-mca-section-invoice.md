@@ -47,7 +47,7 @@ The image below shows an invoice with two invoice sections - Engineering and Mar
 This section describes common scenarios for organizing costs and corresponding billing account structures:
 
 |Scenario  |Structure  |
-|---------|---------|git s
+|---------|---------|
 |Jack signs-up for Azure and needs a single monthly invoice. | A billing profile and an invoice section. This structure is automatically set up for Jack when he signs up for Azure and doesn't require any additional steps. |
 
 ![Info graphic for a simple billing scenario](./media/billing-mca-section-invoice/organize-billing-scenario1.png)
