@@ -163,22 +163,6 @@
     href: http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.network.operations.html#azure.mgmt.network.operations.LoadBalancersOperations
   - name: REST
     href: https://msdn.microsoft.com/library/azure/mt163651.aspx
-- name: Related
-  items:
-  - name: Application Gateway
-    href: /azure/application-gateway/
-  - name: Express Route
-    href: /azure/expressroute/
-  - name: Virtual Network
-    href: /azure/virtual-network/
-  - name: VPN Gateway
-    href: /azure/vpn-gateway/
-  - name: Virtual Machine
-    href: /azure/virtual-machines/
-  - name: Traffic Manager
-    href: /azure/traffic-manager/
-  - name: DNS
-    href: /azure/dns/
 - name: Resources
   items:
   - name: Build your skills with Microsoft Learn
@@ -191,5 +175,5 @@
     href: https://azure.microsoft.com/pricing/details/load-balancer/
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
-  - name: Service updates
+  - name: Product updates
     href: https://azure.microsoft.com/updates/?product=load-balancer
