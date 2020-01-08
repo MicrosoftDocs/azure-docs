@@ -212,9 +212,9 @@ Instead, first remove a database from a sync group. Then, deploy the change and 
 
 If you attempt to remove a database and then edit a sync group without first deploying one of the changes, one or the other operation fails. The portal interface might become inconsistent. If this happens, refresh the page to restore the correct state.
 
-### Avoid refresh schema timeout
+### Avoid schema refresh timeout
 
-If you have a complex schema to sync, during a refresh schema you may encounter an "operation timeout" if the sync metadata between databases has a lower SKU (example: basic). 
+If you have a complex schema to sync, you may encounter an "operation timeout" during a schema refresh you may encounter an "operation timeout" if the sync metadata database has a lower SKU (example: basic). 
 
 #### Solution
 
