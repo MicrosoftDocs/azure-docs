@@ -23,7 +23,7 @@ To get started we provide a built-in model, so if you do not want to use one of 
 - Use a client application to display the remotely rendered content
     - See: [Unity Sample Project Documentation](../how-tos/run-unity-sample-project.md) for how to build and run the sample project.
 
-We provide the following AzureDevOps repository and nuget feed.
+We provide the following Azure DevOps repository and nuget feed.
 
 * The repository is [arrClient](https://dev.azure.com/arrClient/arrClient/_git/arrClient) - it provides sample code and documentation.
 * The nuget feed is [ArrPackages](https://dev.azure.com/arrClient/arrClient/_packaging?_a=feed&feed=ArrPackages) - it provides the required Unity packages.

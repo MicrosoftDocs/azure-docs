@@ -84,7 +84,7 @@ Naturally, the textures can be loaded separately and the respectively received t
 Azure Remote Rendering contains a few built-in sky environments that can be loaded by prepending their respective identifier with `builtin://` during the call to `RemoteRenderingClient.LoadTextureAsync()`. For reference, these skies are listed below:
 
 |Identifier               | Type    | Description                                             | Illustration                                                      |
-|-------------------------|:-------:|:-------------------------------------------------------:|:-----------------------------------------------------------------:|
+|-------------------------|:-------:|:-------------------------------------------------------|:-----------------------------------------------------------------:|
 |GreenPointPark           | Cubemap | Sunny day with slowly varying surfaces                  | ![GreenPointPark](media/green-point-park.png)
 |SataraNight              | Cubemap | Dark night sky and ground with many surrounding lights  | ![SataraNight](media/satara-night.png)
 |SnowyForestPath          | Cubemap | Mostly uniformly distributed white-blue light           | ![SnowyForestPath](media/snowy-forest-path.png)

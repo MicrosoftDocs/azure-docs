@@ -49,7 +49,7 @@ public void ExampleConnect()
     }
 ```
 
-> ![NOTE]
+> [!NOTE]
 > To switch the render mode the service runs with, call `RemoteRenderingClient::Disconnect` or `RemoteManager.Disconnect` respectively, wait until the disconnect event has been triggered and reconnect with the desired mode.
 
 ## Modes

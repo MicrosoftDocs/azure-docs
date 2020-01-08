@@ -60,7 +60,7 @@ The above code snippets creates a new session on Azure and, once the session is 
 With regard to lifetime, the ```AzureFrontend``` manages accounts and VMs in Azure and the ```RemoteManager``` manages a specific connection to a VM. A single VM can only have either zero or one active connection to it at a time.
 
 The lifetime of a VM is not tied to the ```AzureFrontend``` class or the ```AzureSession``` class. ```AzureSession.StopRenderingSessionAsync``` must be called. 
-Session id can be queried via `AzureSession.GetSessionId()` and cached locally, in case when application experienced unexpected termination the connection can be restored via call to `AzureFrontend.OpenSession`.
+Session ID can be queried via `AzureSession.GetSessionId()` and cached locally, in case when application experienced unexpected termination the connection can be restored via call to `AzureFrontend.OpenSession`.
 
 When finished, ```AzureFrontend``` and ```AzureSession``` objects must be manually disposed.
 

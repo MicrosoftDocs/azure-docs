@@ -29,7 +29,8 @@ Properties either have values of build-in types such as `bool`, `int`, `float`, 
 - `Color` consist of a four float channels Red, Green, Blue, Alpha (`RGBA`) in range of from 0.0 to 1.0 inclusive. It also may define `RGB` values only, in which case the Alpha value will default to 1.0.
 - `Vec` is a short for `Vector` and consist of multiple float values grouped together. For example, `Vec` could be `Vec2` for two values, `Vec3` and `Vec4` etc.
 - `Texture` is a filename of a texture file. If it is `Texture2D` that means the file should be 2D texture file, or `TextureCube`, which means the file should be an environment type of texture. Each texture has a subproperty of type `int`, which defines the UV Channel used for it.
-    > Note: The renderer requires all texture files to be encoded in `DDS v10` format or higher. The ingestion pipeline will convert most common image formats to the required format.
+    > [!NOTE]
+    > The renderer requires all texture files to be encoded in `DDS v10` format or higher. The ingestion pipeline will convert most common image formats to the required format.
 - `enum` is a one of a set of predefined named values, for instance `two` from the set of values `{one, two, three}`.
 
 ## Shared part of properties
@@ -43,6 +44,7 @@ These properties are common to both PBR and Basic Color materials.
   - The `albedoColor` property defines a constant color for all surfaces that use this material. However, a surface can additionally be given a texture, which defines the albedo color at any point. Albedo textures can be set via the `albedoMap` property, as described next. Other colors/maps (below) are defined analog.
 
 `albedoMap` is a `Texture2D`, this is a texture filename, which defines `albedoColor` on per-pixel basis using texture coordinates to map this file into surface. Same as above if it has an `Alpha` channel then all rules apply to it as well.
+> [!NOTE]
 > If both `albedoMap` and `albedoColor` are defined, then the final color is a product of both values (per-pixel).
 
 `alphaClipEnabled` is a `bool` and enables a special rendering mode where parts of a surface where the Alpha channel is lower than the `alphaClipThreshold` value will not be drawn. The default is `false`. 
@@ -91,8 +93,11 @@ Many modern game engines and content creation tools support PBR materials becaus
 
 The core idea is to use `BaseColor`, `Metalness` and `Roughness` properties to emulate a wide range of real-world materials.
 
-> Note: PBR materials are not universal solution. For instance, there are materials that reflect different color depends on the viewing angle. For example, some fabrics or car paints. These kinds of materials are not handled by the standard PBR model, and are not supported by Azure Remote Rendering. (This includes PBR extensions, for example, Thin-Film (multi-layered surface) and Clear-Coat (for car paint).)
-> Note: An alternative to the `Metalness-Roughness` PBR model used in Azure Remote Rendering is the `Specular-Glossiness` PBR model. This can represent a broader range of materials. However, it is more expensive, and usually it does not work well for real-time cases.
+> [!NOTE]
+> PBR materials are not universal solution. For instance, there are materials that reflect different color depends on the viewing angle. For example, some fabrics or car paints. These kinds of materials are not handled by the standard PBR model, and are not supported by Azure Remote Rendering. (This includes PBR extensions, for example, Thin-Film (multi-layered surface) and Clear-Coat (for car paint).)
+
+> [!NOTE]
+> An alternative to the `Metalness-Roughness` PBR model used in Azure Remote Rendering is the `Specular-Glossiness` PBR model. This can represent a broader range of materials. However, it is more expensive, and usually it does not work well for real-time cases.
 > Be aware that it is not always possible to convert from Specular-Glossiness to Metalness-Roughness as there are pairs of values of (Diffuse, Specular) that cannot be converted to (BaseColor, Metalness). The conversion in the other direction simpler and more precise, since all (BaseColor, Metalness) pairs correspond to a well defined (Diffuse, Specular).
 
 We use Cook-Torrance microfacet BRDF with GGX NDF, Schlick Fresnel and GGX Smith correlated visibility term with Lambert diffuse term. Basically, this model is the de facto industry standard at the moment. For more in-depth details, refer for instance to this external article  [Physically based Rendering - Cook Torrance](http://www.codinglabs.net/article_physically_based_rendering_cook_torrance.aspx).
@@ -106,7 +111,9 @@ Here is a helmet from the [glTF Sample Models](https://github.com/KhronosGroup/g
 The `Base (or Albedo)` color is the pure color of an object, without lighting applied.
 Albedo color can be distinguished from another commonly used term, the `Diffuse` color, which is both color as well as shaded with some diffuse lighting.
 For instance, if you light up white wall by green light the diffuse color of the wall will be green while albedo color will still be white.
->Since this is a shared property between different types of materials, we use the term Albedo and not Base color.
+
+> [!NOTE]
+> Since Albedo is a shared property between different types of materials, we use the term Albedo and not Base color.
 
 Albedo color, texture and other related properties are set up in the shared part (see above section)
 
@@ -125,7 +132,7 @@ In physics, this property corresponds to whether a surface is Conductive or Diel
 
 - `metalness` is a `float` with default value `0.0`.
 - `metalnessMap` is a `Texture2D`. The default is `None`.
-> If both values are defined then final `metalness` will be a product of those values.
+- If both values are defined then final `metalness` will be a product of those values.
 
 ![metalness and roughness](./media/metalness-roughness.png)
 As you can see on the picture, bottom-right corner looks like a material that is fully metal, bottom-left is ceramic/plastic material. An albedo color here is changing as well to follow physical properties. With increasing Roughness the material loses reflection sharpness.
@@ -134,10 +141,12 @@ As you can see on the picture, bottom-right corner looks like a material that is
 
 Real world surfaces have "infinite detail" at each level of zoom, but that's not possible in real-time rendering. To emulate high frequency surface detail, a commonly used technique is Normal maps.
 The normal of the surface within a triangle can be varied, by referencing a texture, giving a relief to the surface.
+
+> [!NOTE]
 > A related concept is known as Bump mapping, but a bump map defines a height displacement for each pixel, rather than a normal.
 
 - `normalMap` is a `Texture2D`. The default is `None`.
-> If a map is not defined then effect is disabled.
+- If a map is not defined then the effect is disabled.
 
 ### Occlusion Map
 
@@ -145,7 +154,7 @@ Imagine a car staying in the garage, the floor under the car will always be occl
 
 - `occlusionMap` is a `Texture2D`. The default is `None`.
 - `aoScale` is a `float` with default value `1.0` which is multiplier for occlusion map.
-> If map is not defined then occlusion is not enabled.
+- If map is not defined then occlusion is not enabled.
 
 ![Occlusion Map](./media/boom-box-ao2.gif)
 
@@ -168,8 +177,9 @@ If one wants to refer a material in the scene, it needs to have proper unique na
 Almost everything from glTF 2.0 spec is supported in Azure remote rendering Material except EmissiveFactor/Texture.
 
 The following table shows the mapping:
+
 | glTF | Azure remote rendering |
-|:-------------------:|:--------------------------:|
+|:-------------------|:--------------------------|
 |   baseColorFactor   |   albedoColor              |
 |   baseColorTexture  |   albedoMap                |
 |   metallicFactor    |   metalness                |
@@ -200,6 +210,7 @@ Textures embedded in `.bin` or `.glb` files are also supported.
 
 An FBX format is closed-source format and the FBX material are not compatible with PBR materials in general. It uses complex description of a surface with many unique parameters and properties and **not all of them are used by Azure Remote Rendering assets pipeline**.
 
+> [!NOTE]
 > Azure Remote Rendering assets pipeline supports only FBX 2011 and higher.
 
 An FBX format defines a conservative approach for materials, there are only two types of them mentioned in official FBX specification:
@@ -221,7 +232,7 @@ FBX Material uses Diffuse-Specular-SpecularLevel concept, so to convert from a D
 This table shows how textures are mapped from FBX Materials to Azure remote rendering materials. Some of them are not directly used but in combination with other textures participating in the formulas (for instance Diffuse texture)
 
 | FBX | Azure remote rendering |
-|:-----:|:----:|
+|:-----|:----|
 | AmbientColor | Occlusion Map   |
 | DiffuseColor | *used for Albedo, Metalness* |
 | TransparentColor | *used for alpha channel of Albedo* | 

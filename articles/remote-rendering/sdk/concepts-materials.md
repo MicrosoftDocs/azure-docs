@@ -45,8 +45,8 @@ Supported features:
  * Two-sided rendering (with two-sided lighting)
  * Support for using vertex colors as albedo modulation
 
-> [!INFO]
-The importer from source assets (fbx) always converts source materials into Pbr materials and tries to match the physical properties.
+> [!NOTE]
+> The importer from source assets (fbx) always converts source materials into Pbr materials and tries to match the physical properties.
 
 For information how to use these properties on the Pbr material class, refer to the API documentation.
 

@@ -10,7 +10,7 @@ ms.topic: conceptual
 ms.service: azure-remote-rendering
 ---
 
-# Configuring model ingestion
+# Configure model ingestion
 
 This chapter documents the user-facing options in the configuration file for the ingestion.
 

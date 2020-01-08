@@ -10,7 +10,7 @@ ms.topic: tutorial
 ms.service: azure-remote-rendering
 ---
 
-# Getting a token
+# Get a token
 
 Tokens are used to gain access to the Remote rendering service REST APIs. The tokens are issued by the STS (Secure Token Service) in exchange for an account key. The STS URL is https://sts.mixedreality.azure.com.
 
@@ -33,12 +33,12 @@ PS> $accountKey = "*******************************************="
 Creates a token to be used to access other services.
 
 | URI | Method |
-|-----------|:-----------:|
+|-----------|:-----------|
 | /accounts/*account ID*/token | GET |
 
 ### Responses
 | Status code | JSON payload | Comments |
-|-----------|:-----------:|:-----------:|
+|-----------|:-----------|:-----------|
 | 200 | - AccessToken: string | Success |
 
 ### Examples:

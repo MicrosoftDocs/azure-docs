@@ -45,7 +45,7 @@ We provide two REST API endpoints to:
 
 ## Environments:
 | Environment | Base URL | 
-|-----------|:-----------:|
+|-----------|:-----------|
 | Production West US 2 | https://remoterendering.westus2.mixedreality.azure.com |
 | Production West Europe | https://remoterendering.westeurope.mixedreality.azure.com |
 
@@ -58,7 +58,7 @@ We provide two REST API endpoints to:
 ### Start conversion
 
 | Endpoint | Method |
-|-----------|:-----------:|
+|-----------|:-----------|
 | /v1/accounts/*account ID*/models/create | POST |
 
 Returns the ID of the created model wrapped in a JSON document. The field is "modelId"
@@ -70,7 +70,7 @@ Returns the ID of the created model wrapped in a JSON document. The field is "mo
    
 ### Model conversion status
 | Endpoint | Method |
-|-----------|:-----------:|
+|-----------|:-----------|
 | /v1/accounts/*account ID*/models/*assetId*/status | GET |
 
 Returns a JSON document with a "status" field that can have the following values:
@@ -89,7 +89,7 @@ Returns a JSON document with a "status" field that can have the following values
 - upload your model to the input container
 
 The creation of the storage account and the blob containers can be done with one of the following:
-- [Azure Portal](https://portal.azure.com) 
+- [Azure portal](https://portal.azure.com) 
 - [az commandline](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
 - [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)
 - SDKs (C#, Python ... )

@@ -10,7 +10,7 @@ ms.topic: tutorial
 ms.service: azure-remote-rendering
 ---
 
-# Launching virtual machines
+# Launch virtual machines
 
 Once an asset has been converted, a session should be created to render it. The creation will allocate a virtual machine (VM) with a public IP a client can connect to. Once the VM is not needed anymore, the session must be stopped to free up resources.
 
@@ -21,7 +21,7 @@ The script and its configuration are described here: [Powershell Example Scripts
 
 ## Environments:
 | Environment | Base URL | 
-|-----------|:-----------:|
+|-----------|:-----------|
 | Production West US 2 | https://remoterendering.westus2.mixedreality.azure.com |
 | Production West Europe | https://remoterendering.westeurope.mixedreality.azure.com |
 
@@ -55,7 +55,7 @@ PS> $token = $response.AccessToken;
 Creates a session by allocating a VM. Returns the ID of the session created.
 
 | URI | Method |
-|-----------|:-----------:|
+|-----------|:-----------|
 | /v1/accounts/*account ID*/sessions/create | POST |
 
 ### Request body
@@ -65,7 +65,7 @@ Creates a session by allocating a VM. Returns the ID of the session created.
 
 ### Responses
 | Status code | JSON payload | Comments |
-|-----------|:-----------:|:-----------:|
+|-----------|:-----------|:-----------|
 | 202 | - session ID: GUID | Success |
 
 ### Examples
@@ -99,7 +99,7 @@ PS> $sessionId = "d31bddca-dab7-498e-9bc9-7594bc12862f"
 Updates the session parameters. Currently you can only extend a lease. The session is identified by its ID (returned by the service when the session is created).
 
 | URI | Method |
-|-----------|:-----------:|
+|-----------|:-----------|
 | /v1/accounts/*account ID*/sessions/*session ID* | PATCH |
 
 ### Request body
@@ -107,7 +107,7 @@ Updates the session parameters. Currently you can only extend a lease. The sessi
 
 ### Responses
 | Status code | JSON payload | Comments |
-|-----------|:-----------:|:-----------:|
+|-----------|:-----------|:-----------|
 | 200 | | Success |
 
 ### Examples
@@ -131,12 +131,12 @@ RawContentLength  : 0
 Provides a list of current sessions
 
 | URI | Method |
-|-----------|:-----------:|
+|-----------|:-----------|
 | /v1/accounts/*account ID*/sessions | GET |
 
 ### Responses
 | Status code | JSON payload | Comments |
-|-----------|:-----------:|:-----------:|
+|-----------|:-----------|:-----------|
 | 200 | - sessions: array of session properties | see "Get session properties" section for a description of session properties |
 
 ### Examples
@@ -167,12 +167,12 @@ RawContentLength  : 2
 Provides information about the session (VM hostname, etc.). The session is identified by its ID (returned by the service when the session is created).
 
 | URI | Method |
-|-----------|:-----------:|
+|-----------|:-----------|
 | /v1/accounts/*account ID*/sessions/*session ID*/properties | GET |
 
 ### Responses
 | Status code | JSON payload | Comments |
-|-----------|:-----------:|:-----------:|
+|-----------|:-----------|:-----------|
 | 200 | - message: string<br/>- sessionElapsedTime: timespan<br/>- sessionHostname: string<br/>- sessionId: string<br/>- sessionMaxLeaseTime: timespan<br/>- sessionSize: enum<br/>- sessionStatus: enum | enum sessionStatus { starting, ready, stopping, stopped, expired, error}<br/>If the status is 'error' or 'expired', the message will contain more information |
 
 ### Examples
@@ -203,12 +203,12 @@ RawContentLength  : 60
 Stops a session and reclaims resources. The session is identified by its ID (returned by the service when the session is created).
 
 | URI | Method |
-|-----------|:-----------:|
+|-----------|:-----------|
 | /1/accounts/*account ID*/sessions/*session ID* | DELETE |
 
 ### Responses
 | Status code | JSON payload | Comments |
-|-----------|:-----------:|:-----------:|
+|-----------|:-----------|:-----------|
 | 204 | | Success |
 
 ### Examples

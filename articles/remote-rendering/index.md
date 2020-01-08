@@ -16,7 +16,7 @@ Welcome to Azure Remote Rendering.
 ## Prerequisites
 * [System requirements](concepts/system-requirements.md)
 
-## Quick start 
+## Quickstart 
 * [Overview](overview.md)
 * [Getting started](quickstarts/getting-started.md)
 * [Rendering your first model](quickstarts/rendering-your-first-model.md)

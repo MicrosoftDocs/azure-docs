@@ -22,11 +22,11 @@ Once you obtain the hostname (ending in "mixedreality.azure.com") of your ARR se
 If you want to browse ArrInspector on the PC you can:
 1. Call ConnectToArrInspectorAsync on the PC
 2. Call ConnectToArrInspectorAsync on the device. This will create a 'StartArrInspector.html' file, which you can download to the PC and open:
-  * Point the Windows Device Portal to your HoloLens
-  * Go to System/File Explorer
-  * Navigate to 'User Folders\LocalAppData\\[your_app]\AC\Temp\'
-  * Save 'StartArrInspector.html'
-  * Open 'StartArrInspector.html' - this will load the sessions' ArrInspector. This file is only valid for 24 hours after the ConnectToArrInspectorAsync API call
+   * Point the Windows Device Portal to your HoloLens
+   * Go to System/File Explorer
+   * Navigate to 'User Folders\LocalAppData\\[your_app]\AC\Temp\'
+   * Save 'StartArrInspector.html'
+   * Open 'StartArrInspector.html' - this will load the sessions' ArrInspector. This file is only valid for 24 hours after the ConnectToArrInspectorAsync API call
 
 ## The Performance Panel
 
@@ -86,7 +86,7 @@ After clicking the start button, the dialog will close and the collection proces
 
 ![VM Debug Information collection success](./media/state-debugger-snackbar-success.png)
 
-Once the collection is finished, you will receive a notification in the Inspector window. This notification contains an id that identifies this particular collection uniquely. Be sure to save it so you can later refer us to this specific collection of debug information.
+Once the collection is finished, you will receive a notification in the Inspector window. This notification contains an ID that identifies this particular collection uniquely. Be sure to save it so you can later refer us to this specific collection of debug information.
 
 ## Pause Mode
 

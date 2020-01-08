@@ -189,7 +189,7 @@ void GetIngestionStatus(AzureFrontend frontend, string assetId)
 
 For detailed documentation about rendering service, see the [article](../quickstarts/launching-virtual-machines.md).
 
-A rendering session can either be created dynamically on the service or an already existing session id can be 'opened' into an AzureSession object.
+A rendering session can either be created dynamically on the service or an already existing session ID can be 'opened' into an AzureSession object.
 
 #### Create rendering session
 
