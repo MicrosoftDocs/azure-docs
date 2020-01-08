@@ -52,6 +52,7 @@
 - name: Concepts
   items:
   - name: Health monitoring
+    items:
     - name: Health probes
       href: load-balancer-custom-probe-overview.md
     - name: Standard Load Balancer metrics and diagnostics
