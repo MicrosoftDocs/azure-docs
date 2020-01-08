@@ -1,6 +1,6 @@
 ---
 title: Azure Migrate replication appliance 
-description: Learn about the Azure Migrate replication appliance for agent-based VMWare mgration.
+description: Learn about the Azure Migrate replication appliance for agent-based VMWare migration.
 ms.topic: conceptual
 ms.date: 01/08/2020
 ---
@@ -25,7 +25,7 @@ The replication appliance is deployed when you set up agent-based migration of V
 **Used for** | **Details**
 --- |  ---
 VMware VM agent-based migration | You download OVA template from the Azure Migrate hub, and import to vCenter Server to create the appliance VM.
-Physical machine agent-based migration | If you don't have a VMware infrastructure, or if you're unable to create a VMware VM using an OVA templateou , you download a software installer from the Azure Migrate hub, and run it to set up the appliance machine.
+Physical machine agent-based migration | If you don't have a VMware infrastructure, or if you can't create a VMware VM using an OVA template, you download a software installer from the Azure Migrate hub, and run it to set up the appliance machine.
 
 ## Appliance requirements
 
