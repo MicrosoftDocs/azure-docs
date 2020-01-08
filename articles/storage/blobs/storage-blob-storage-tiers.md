@@ -134,6 +134,7 @@ In this section, the following scenarios are demonstrated using the Azure portal
 
 ### Change the default account access tier of a GPv2 or Blob storage account
 
+# [Portal](#tab/azure-portal)
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. In the Azure portal, search for and select **All Resources**.
@@ -146,11 +147,27 @@ In this section, the following scenarios are demonstrated using the Azure portal
 
 1. Click **Save** at the top.
 
-### Change the tier of a blob in a GPv2 or Blob storage account
+![Change storage account tier](media/storage-tiers/account-tier.png)
 
+# [Powershell](#tab/azure-powershell)
+The following PowerShell script can be used to change the account tier. The `$rgName` variable must be initialized with your resource group name. The `$accountName` variable must be initialized with your storage account name. 
+```powershell
+#Initialize the following with your resource group and storage account names
+$rgName = ""
+$accountName = ""
+
+#Change the storage account tier to Hot
+Set-AzStorageAccount -ResourceGroupName $rgName -Name $accountName -AccessTier Hot
+```
+---
+
+### Change the tier of a blob in a GPv2 or Blob storage account
+# [Portal](#tab/azure-portal)
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. In the Azure portal, search for and select **All Resources**.
+
+1. Select your storage account.
 
 1. Select your container and then select your blob.
 
@@ -159,6 +176,29 @@ In this section, the following scenarios are demonstrated using the Azure portal
 1. Select the **Hot**, **Cool**, or **Archive** access tier. If your blob is currently in archive and you want to rehydrate to an online tier, you may also select a Rehydrate Priority of **Standard** or **High**.
 
 1. Select **Save** at the bottom.
+
+![Change storage account tier](media/storage-tiers/blob-access-tier.png)
+
+# [Powershell](#tab/azure-powershell)
+The following PowerShell script can be used to change the blob tier. The `$rgName` variable must be initialized with your resource group name. The `$accountName` variable must be initialized with your storage account name. The `$containerName` variable must be initialized with your container name. The `$blobName` variable must be initialized with your blob name. 
+```powershell
+#Initialize the following with your resource group, storage account, container, and blob names
+$rgName = ""
+$accountName = ""
+$containerName = ""
+$blobName == ""
+
+#Select the storage account and get the context
+$storageAccount =Get-AzStorageAccount -ResourceGroupName $rgName -Name $accountName
+$ctx = $storageAccount.Context
+
+#Select the blob from a container
+$blobs = Get-AzStorageBlob -Container $containerName -Blob $blobName -Context $context
+
+#Change the blob’s access tier to Hot using Standard priority rehydrate
+$blob.ICloudBlob.SetStandardBlobTier("Hot", “Standard”)
+```
+---
 
 ## Pricing and billing
 
