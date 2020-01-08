@@ -97,7 +97,7 @@ For example, if your on-premises installation uses a data disk that is assigned 
 
 ## Check Azure VM requirements
 
-On-premises machines that you replicate to Azure must comply with Azure VM requirements for operating system and architecture, disks, network settings, and VM naming. Verify the requirements for [VMware VMs/physical servers](migrate-support-matrix-vmware-migration.md#azure-vm-requirements), and [Hyper-V VMs](migrate-support-matrix-hyper-v-migration.md#azure-v-requirements) before migration.
+On-premises machines that you replicate to Azure must comply with Azure VM requirements for operating system and architecture, disks, network settings, and VM naming. Verify the requirements for [VMware VMs/physical servers](migrate-support-matrix-vmware-migration.md#azure-vm-requirements), and [Hyper-V VMs](migrate-support-matrix-hyper-v-migration.md#azure-vm-requirements) before migration.
 
 
 ## Prepare to connect after migration
