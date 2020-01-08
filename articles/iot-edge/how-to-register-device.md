@@ -19,7 +19,7 @@ You have the choice of registering by using one of the following tools:
 
 * [Register a device in the Azure portal](#register-in-the-azure-portal) if you prefer a graphical user interface to create, view, and manage Azure resources.
 * [Register a device with Visual Studio Code](#register-with-visual-studio-code) if you prefer to manage Azure IoT resources in the same place where you develop your IoT solutions.
-* [Azure CLI](#register-with-the-Azure-CLI) if you prefer command-line tools for managing Azure resources, or intend to automate tasks.
+* [Register a device with the Azure CLI](#register-with-the-azure-cli) if you prefer command-line tools for managing Azure resources, or intend to automate tasks.
 
 ## Register in the Azure portal
 
