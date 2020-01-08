@@ -1,6 +1,6 @@
 ---
 title: Understand the Linux Hybrid Runbook Worker health in Azure Update Management
-description: Learn how to troubleshoot issues with the Hybrid Runbook Worker on Linux that supports Update Management.
+description: Learn how to troubleshoot and resolve issues with the Azure Automation Hybrid Runbook Worker on Linux that supports Update Management.
 services: automation
 author: mgoedtel
 ms.author: magoedte

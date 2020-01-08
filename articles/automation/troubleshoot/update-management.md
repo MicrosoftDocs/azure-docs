@@ -1,6 +1,6 @@
 ---
 title: Troubleshoot errors with Update Management
-description: Learn how to troubleshoot issues with Update Management.
+description: Learn how to troubleshoot and resolve issues with the Update Management solution in Azure.
 services: automation
 author: mgoedtel
 ms.author: magoedte
