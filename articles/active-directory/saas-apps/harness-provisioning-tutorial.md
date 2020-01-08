@@ -128,13 +128,13 @@ To configure automatic user provisioning for Harness in Azure AD, do the followi
  
    a. In the **Tenant URL** box, enter **`https://app.harness.io/gateway/api/scim/account/XCPzWkCIQ46ypIu2DeT7yw`**.  
    b. In the **Secret Token** box, enter the SCIM Authentication Token value that you saved in step 6 of the "Set up Harness for provisioning" section.  
-   c. Click **Test Connection** to ensure that Azure AD can connect to Harness. If the connection fails, ensure that your Harness account has *Admin* permissions, and then try again.
+   c. Select **Test Connection** to ensure that Azure AD can connect to Harness. If the connection fails, ensure that your Harness account has *Admin* permissions, and then try again.
 
 1. In the **Notification Email** box, enter the email address of a person or group that should receive the provisioning error notifications, and then select the **Send an email notification when a failure occurs** check box.
 
 	![The "Notification Email" box](common/provisioning-notification-email.png)
 
-1. Click **Save**.
+1. Select **Save**.
 
 1. Under **Mappings**, select **Synchronize Azure Active Directory Users to Harness**.
 
