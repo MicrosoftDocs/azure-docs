@@ -1,6 +1,6 @@
 ---
 title: Control storage account access for SQL on-demand
-description: Describes how SQL on-demand accesses Azure Storage and how you can control storage access for SQL Analytics on-demand.
+description: Describes how SQL on-demand accesses Azure Storage and how you can control storage access for SQL on-demand.
 services: synapse-analytics 
 author: filippopovic
 ms.service: synapse-analytics 
@@ -65,7 +65,7 @@ SQL on-demand is used to authorize data access. Before accessing the data, the A
 
 Before accessing the data, the Azure Storage administrator must grant permissions to Managed Identity for accessing the data. Granting permissions to Managed Identity is done the same way as granting permission to any other AAD user.
 
-## Creating credentials
+## Create credentials
 
 To query a file located in Azure Storage, your SQL on-demand end point needs a server-level CREDENTIAL that contains the authentication information. A credential is added by running [CREATE CREDENTIAL](https://docs.microsoft.com/sql/t-sql/statements/create-credential-transact-sql?view=sql-server-2017). You'll need to provide a CREDENTIAL NAME argument. It must match either part of the path or the whole path to data in Storage (see below). 
 
@@ -234,4 +234,14 @@ Depending on the path shape you want, the following requirements are in place fo
 | *Single file*    | Supported | Supported        | Supported             | Supported     |
 | *Multiple files* | Supported | Supported        | Not supported         | Not supported |
 
+## Next steps
 
+The quickstart articles listed below will help you learn how query different folder types, file types, and create and use views:
+
+- [Query single CSV file](query-single-csv-file.md)
+- [Query folders and multiple CSV files](query-folders-multiple-csv-files.md)
+- [Query specific files](query-specific-files.md)
+- [Query Parquet files](query-parquet-files.md)
+- [Create and use views](create-use-views.md)
+- [Query JSON files](query-json-files.md)
+- [Query Parquet nested types](query-parquet-nested-types.md)
