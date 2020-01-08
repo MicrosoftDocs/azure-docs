@@ -30,7 +30,7 @@ We recommend the following best practices when considering disk reservation purc
 
 ## Purchase restrictions
 
-Reservation discounts are not currently available following Disks:
+Reservation discounts are not currently available for the following disks:
 •	Unmanaged disks/page blobs
 •	Standard SSD or standard HDD
 •	Premium SSD SKUs smaller than P30 – Reservations aren’t available for P1/P2/P3/P4/P6/P10/P15/P20 Premium SSD SKUs.

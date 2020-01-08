@@ -13,15 +13,14 @@ ms.author: rogarana
 
 # Understand how your reservation discount is applied to Azure Disk
 
-After you purchase Azure Storage reserved capacity, the reservation discount is automatically applied to Disk resources that match the terms of the reservation. The reservation discount applies to disk capacity only. Disk snapshots are charged at pay-as-you-go rates.
+After you purchase Azure disk reserved capacity, the reservation discount is automatically applied to disk resources that match the terms of your reservation. The reservation discount applies to disk capacity only, disk snapshots are charged at pay-as-you-go rates.
 
-For more information about Azure Disk reservation, see Save costs with Azure Disks Reservation.
-For information about Azure Disk reservation pricing, see Azure Disk pricing.
+For more information about Azure Disk reservation, see [Save costs with Azure Disks Reservation](../virtual-machines/linux/disks-reserved-capacity.md).
+For information about Azure Disk reservation pricing, see [Azure Disk pricing](https://azure.microsoft.com/en-us/pricing/details/managed-disks/).
 
 ## How the reservation discount is applied
 
-The Azure Disk reservation discount is applied to Managed Disk resources on an hourly basis.
-The Azure Disk reservation discount is a "use-it-or-lose-it" discount. If you don't have any Managed Disk resources that meet the terms of the reservation for a given hour, then you lose a reservation quantity for that hour. You can't carry forward unused reserved hours.
+The Azure Disk reservation discount is a "use-it-or-lose-it" discount and is applied to managed disk resources on an hourly basis. If you don't have any managed disk resources that meet the terms of your reservation for a given hour, then you lose a reservation quantity for that hour. You can't carry forward unused reserved hours.
 When you delete a resource, the reservation discount automatically applies to another matching resource in the specified scope. If no matching resources are found in the specified scope, then the reserved hours are lost.
 
 ## Discount examples
