@@ -1,6 +1,6 @@
 ---
-title: Using external tables in SQL Analytics
-description: Reading or writing data files in SQL Analytics
+title: Use external tables with SQL Analytics
+description: Reading or writing data files with SQL Analytics
 services: synapse analytics
 author: julieMSFT
 ms.service: synapse-analytics
@@ -11,17 +11,17 @@ ms.author: jrasnick
 ms.reviewer: jrasnick
 ---
 
-# Using external tables for each SQL Analytics resource
-An external table points to data located in Hadoop, Azure Storage blob, or Azure Data Lake Store. External tables are used to read data from files or write data to files in Azure Storage. You can use external tables for both of the SQL pools and SQL on-demand resources in SQL Analytics. 
+# Use external tables with SQL Analytics
+An external table points to data located in Hadoop, Azure Storage blob, or Azure Data Lake Store. External tables are used to read data from files or write data to files in Azure Storage. With SQL Analytics, you can use external tables to read and write data to SQL pool or SQL on-demand.
 
-## External tables in SQL pools
+## External tables in SQL pool
 
-In SQL pools, you'll use an external table to:
+In SQL pool, you'll use an external table to:
 
 - Query Hadoop or Azure Blob Storage data with Transact-SQL statements.
 - Import and store data from Hadoop, Azure Blob Storage, and Azure Data Lake Store into Azure SQL Data Warehouse.
 
-When used in conjunction with the CREATE TABLE AS SELECT statement, selecting from an external table imports data into a SQL pool. External tables are useful for loading data. For a loading tutorial, see [Use PolyBase to load data from Azure Blob Storage](../../sql-data-warehouse/load-data-from-azure-blob-storage-using-polybase.md).
+When used in conjunction with the [CREATE TABLE AS SELECT](../../sql-data-warehouse/sql-data-warehouse-develop-ctas.md) statement, selecting from an external table imports data into a SQL pool. External tables are useful for loading data. For a loading tutorial, see [Use PolyBase to load data from Azure Blob Storage](../../sql-data-warehouse/load-data-from-azure-blob-storage-using-polybase.md).
 
 
 ## External tables in SQL on-demand
@@ -225,7 +225,7 @@ If you specify a folder LOCATION, a SQL on-demand query will select from the ext
 > [!NOTE]
 > Unlike Hadoop and PolyBase, SQL on-demand doesn't return subfolders. It returns files for which the file name begins with an underline (_) or a period (.).
 
-In this example, if LOCATION='/webdata/', a SQL on-demand query, will return rows from mydata.txt and_hidden.txt. It won't return mydata2.txt and mydata3.txt because they're located in a subfolder.
+In this example, if LOCATION='/webdata/', a SQL on-demand query, will return rows from mydata.txt and _hidden.txt. It won't return mydata2.txt and mydata3.txt because they're located in a subfolder.
 
 ![Recursive data for external tables](media/development-tables-external-tables/folder-traversal.png)
 
@@ -278,6 +278,4 @@ SELECT TOP 1 * FROM census_external_table
 
 
 ## Next steps
-
-
 Check the [CETAS](development-tables-cetas.md) article for how to save the query results to an external table in Azure Storage. Or you can start querying [Spark tables](development-storage-files-spark-tables.md).
