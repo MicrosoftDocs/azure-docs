@@ -24,21 +24,22 @@
 - name: Concepts
   items:
   - name: Deep Learning and AI frameworks
-    href: dsvm-deep-learning-ai-frameworks.md
+    href: dsvm-tools-deep-learning-frameworks.md
   - name: Programming languages
-    href: dsvm-languages.md
+    href: dsvm-tools-languages.md
   - name: Development tools 
     href: dsvm-tools-development.md
   - name: ML and data science tools
-    href: dsvm-ml-data-science-tools.md
+    href: dsvm-tools-data-science.md
   - name: Data platforms
-    href: dsvm-data-platforms.md    
+    href: dsvm-tools-data-platforms.md    
   - name: Data ingestion tools
     href: dsvm-tools-ingestion.md
-  - name: Data exploration and visualization tools
-    href: dsvm-tools-explore-and-visualize.md
+  - name: Productivity tools
+    href: dsvm-tools-productivity.md
   - name: Enterprise security and guidance
     href: dsvm-enterprise-overview.md  
+
 - name: Samples    
   href: dsvm-samples-and-walkthroughs.md
 - name: How-to guides

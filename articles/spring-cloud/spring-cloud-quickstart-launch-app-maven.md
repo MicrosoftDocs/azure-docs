@@ -53,6 +53,9 @@ To complete this quickstart:
 
 It takes about 5 minutes for the service to be deployed. After the service is deployed, select **Go to resource** and the **Overview** page for the service instance appears.
 
+> [!div class="nextstepaction"]
+> [I ran into an issue](https://www.research.net/r/javae2e?tutorial=asc-maven-quickstart&step=provision)
+
 ## Set up your configuration server
 
 1. On the service **Overview** page, select **Config Server**.
@@ -60,6 +63,9 @@ It takes about 5 minutes for the service to be deployed. After the service is de
 
     > [!div class="mx-imgBorder"]
     > ![Define and apply config settings](media/maven-qs-apply-config.jpg)
+
+> [!div class="nextstepaction"]
+> [I ran into an issue](https://www.research.net/r/javae2e?tutorial=asc-maven-quickstart&step=config-server)
 
 ## Clone and build the sample application repository
 
@@ -101,6 +107,9 @@ It takes about 5 minutes for the service to be deployed. After the service is de
    ```
 
 1. After the deployment has finished, you can access PiggyMetrics by using the URL provided in the output from the preceding command.
+
+> [!div class="nextstepaction"]
+> [I ran into an issue](https://www.research.net/r/javae2e?tutorial=asc-maven-quickstart&step=deploy)
 
 ## Next steps
 
