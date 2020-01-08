@@ -47,7 +47,7 @@ No, the Azure Monitor Office 365 solution onboarding scripts are no longer avail
 ### Q: Will the tables and schemas be changed?
 The **OfficeActivity** table name and schema will remain the same as in the current solution. You can continue using the same queries in the new solution excluding queries that reference Azure AD data.
 
-The new [Azure AD reporting and monitoring solution](../../active-directory/reports-monitoring/plan-monitoring-and-reporting.md) logs will be ingested into the [SigninLogs](../../active-directory/reports-monitoring/concept-sign-ins.md) and [AuditLogs](../../active-directory/reports-monitoring/concept-audit-logs.md) tables instead of **OfficeActivity**. For more information, see [how to analyze Azure AD logs](../../active-directory-b2c/active-directory-b2c-apps.md/active-directory/reports-monitoring/howto-analyze-activity-logs-log-analytics.md), which is also relevant for Azure Sentinel and Azure Monitor users.
+The new [Azure AD reporting and monitoring solution](../../active-directory/reports-monitoring/plan-monitoring-and-reporting.md) logs will be ingested into the [SigninLogs](../../active-directory/reports-monitoring/concept-sign-ins.md) and [AuditLogs](../../active-directory/reports-monitoring/concept-audit-logs.md) tables instead of **OfficeActivity**. For more information, see [how to analyze Azure AD logs](../../active-directory/reports-monitoring/howto-analyze-activity-logs-log-analytics.md), which is also relevant for Azure Sentinel and Azure Monitor users.
 
 Following are samples for converting queries from **OfficeActivity** to **SigninLogs**:
 
@@ -82,13 +82,13 @@ AuditLogs
 ```
 
 ### Q: How can I on-board Azure Sentinel?
-Azure Sentinel is a solution that you can enable on new or existing Log Analytics workspace. To learn more, see [Azure Sentinel on-boarding documentation](../../sentinel/quickstart-onboard).
+Azure Sentinel is a solution that you can enable on new or existing Log Analytics workspace. To learn more, see [Azure Sentinel on-boarding documentation](../../sentinel/quickstart-onboard.md).
 
 ### Q: Do I need Azure Sentinel to connect the Azure AD logs?
-You can configure [Azure AD logs integration with Azure Monitor](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics), which is not related to the Azure Sentinel solution. Azure Sentinel provides a native connector and out-of-the box content for Azure AD logs. For more information, see the question below on out-of-the-box security-oriented content.
+You can configure [Azure AD logs integration with Azure Monitor](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md), which is not related to the Azure Sentinel solution. Azure Sentinel provides a native connector and out-of-the box content for Azure AD logs. For more information, see the question below on out-of-the-box security-oriented content.
 
 ###	Q: What are the differences when connecting Azure AD logs from Azure Sentinel and Azure Monitor?
-Azure Sentinel and Azure Monitor connect to Azure AD logs based on the same [Azure AD reporting and monitoring solution](../../active-directory/reports-monitoring/plan-monitoring-and-reporting). Azure Sentinel provides a one-click, native connector that connects the same data and provides monitoring information.
+Azure Sentinel and Azure Monitor connect to Azure AD logs based on the same [Azure AD reporting and monitoring solution](../../active-directory/reports-monitoring/plan-monitoring-and-reporting.md). Azure Sentinel provides a one-click, native connector that connects the same data and provides monitoring information.
 
 ###	Q: What do I need to change when moving to the new Azure AD reporting and monitoring tables?
 All queries using Azure AD data, including queries in alerts, dashboards, and any content that you created using Office 365 Azure AD data, must be recreated using the new tables.
