@@ -36,10 +36,6 @@ The cause for most of these issues is as follows. The session storage and local 
 
 - **Popup window doesn't close or is stuck when using login through Popup to authenticate**. When authenticating through popup window in Microsoft Edge or IE(InPrivate), after entering credentials and signing in, if multiple domains across security zones are involved in the navigation, the popup window doesn't close because MSAL.js loses the handle to the popup window.  
 
-    Here are links to these issues in the Microsoft Edge issue tracker:  
-    - [Bug 13861050](https://developer.microsoft.com/en-us/microsoft-edge/platform/issues/13861050/)
-    - [Bug 13861663](https://developer.microsoft.com/en-us/microsoft-edge/platform/issues/13861663/)
-
 ### Update: Fix available in MSAL.js 0.2.3
 Fixes for the authentication redirect loop issues have been released in [MSAL.js 0.2.3](https://github.com/AzureAD/microsoft-authentication-library-for-js/releases). Enable the flag `storeAuthStateInCookie` in the MSAL.js config to take advantage of this fix. By default this flag is set to false.
 
