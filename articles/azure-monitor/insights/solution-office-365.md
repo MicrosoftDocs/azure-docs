@@ -25,9 +25,10 @@ ms.date: 01/07/2019
 > The collection of Azure AD log is subjected to Azure Monitor pricing.  See [Azure Sentinel pricing](https://azure.microsoft.com/pricing/details/azure-sentinel/) for more information.
 >
 > To use the Azure Sentinel Office 365 solution:
-> 1.	If you are already using the Azure Monitor Office 365 solution, you must first uninstall it using the script in the [Uninstall section below](#uninstall).
-> 2.	[Enable the Azure Sentinel solution](../../sentinel/quickstart-onboard.md) on your workspace.
-> 3.	Go to the **Data connectors** page in Azure Sentinel and enable the **Office 365** connector.
+> 1. Using this connector affects the pricing of your workspace. For more information, see [Azure Sentinel pricing](https://azure.microsoft.com/pricing/details/azure-sentinel/).
+> 2. If you are already using the Azure Monitor Office 365 solution, you must first uninstall it using the script in the [Uninstall section below](#uninstall).
+> 3. [Enable the Azure Sentinel solution](../../sentinel/quickstart-onboard.md) on your workspace.
+> 4. Go to the **Data connectors** page in Azure Sentinel and enable the **Office 365** connector.
 > 
 > See the [Update solution FAQ](#updated-solution-faq) below for answers to common questions regarding the updated solution.
 
@@ -115,6 +116,9 @@ Yes, see [Azure Sentinel connect data sources](../../sentinel/connect-data-sourc
 - You won’t be able to receive data from the **Office365** solution, and it will be removed from any workspaces where it's installed. The solution will no longer be available in the Marketplace
 - For Azure Sentinel customers, the Log Analytics workspace solution **Office365** will be included in the Azure Sentinel **SecurityInsights** solution.
 - If you don’t offboard your solution manually, your data will be disconnected automatically on March 30.
+
+### Q: Will my data transfer to the new solution?
+Yes. When you remove the **Office 365** solution from your workspace, its data will become temporarily unavailable because the schema is removed. When you enable the new **Office 365** connector in Sentinel, the schema is restored to the workspace and any data already collected will become available. 
 
 
 ## Uninstall
