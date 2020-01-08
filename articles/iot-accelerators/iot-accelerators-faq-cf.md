@@ -1,6 +1,6 @@
 ---
 title: Connected Factory solution FAQ - Azure | Microsoft Docs
-description: Frequently asked questions for the Connected Factory solution accelerator
+description: This article answers the frequently asked questions for the Connected Factory solution accelerator. It includes links to the GitHub repository.
 author: dominicbetts
 manager: timlt
 ms.service: iot-accelerators

@@ -1,24 +1,34 @@
 
 - name: Azure Cognitive Services Documentation
-  href: index.md
+  href: index.yml
 - name: Overview
   expanded: true
   items:
-  - name: What is Cognitive Services?
+  - name: What are Cognitive Services?
     href: Welcome.md
+  - name: Cognitive Services and Machine learning
+    href: cognitive-services-and-machine-learning.md
+  - name: Virtual networks for Cognitive Services
+    href: cognitive-services-virtual-networks.md
+  - name: Custom subdomains for Cognitive Services
+    href: cognitive-services-custom-subdomains.md
   - name: Language support
     href: language-support.md
 - name: Container support
   items:
   - name: Container support
     href: cognitive-services-container-support.md
+  - name: Container image tags
+    href: ./containers/container-image-tags.md
+  - name: Container FAQ
+    href: ./containers/container-faq.md
   - name: Container recipes
     items:
     - name: Container Reuse
       href: ./containers/container-reuse-recipe.md
     - name: Deploy to Azure Container Instance
       href: ./containers/azure-container-instance-recipe.md
-    - name: Deploy to Azure Kubernetes 
+    - name: Deploy to Azure Kubernetes
       href: ./containers/azure-kubernetes-recipe.md
     - name: Deploy with Docker Compose
       href: ./containers/docker-compose-recipe.md
@@ -32,8 +42,10 @@
       href: ../aks/tutorial-kubernetes-prepare-app.md
 - name: Quickstarts
   items:
-  - name: Create an account
+  - name: Create a new resource using the Azure portal
     href: cognitive-services-apis-create-account.md
+  - name: Create a new resource using the Azure CLI
+    href: cognitive-services-apis-create-account-cli.md
   - name: Authentication
     href: authentication.md
   - name: Diagnostic logging
@@ -48,6 +60,10 @@
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Compliance
     href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
+  - name: Support & help options
+    href: cognitive-services-support-options.md
+  - name: Service Level Agreement(SLA)
+    href: https://azure.microsoft.com/support/legal/sla/cognitive-services/v1_1/
   - name: Videos
     href: https://azure.microsoft.com/resources/videos/index/?services=cognitive-services
   - name: Blog
@@ -58,5 +74,3 @@
     href: https://cognitive.uservoice.com/
   - name: Code of conduct
     href: https://go.microsoft.com/fwlink/?LinkId=698895
-  - name: Knowledge Base
-    href: https://cognitive.uservoice.com/knowledgebase

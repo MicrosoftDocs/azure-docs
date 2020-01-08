@@ -1,11 +1,11 @@
 ---
-title: Firewall rules in Azure Database for PostgreSQL - Single Server
-description: This article describes firewall rules for Azure Database for PostgreSQL - Single Server.
+title: Firewall rules - Azure Database for PostgreSQL - Single Server
+description: This article describes how to use firewall rules to connect to Azure Database for PostgreSQL - Single Server.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 5/6/2019
+ms.date: 10/25/2019
 ---
 # Firewall rules in Azure Database for PostgreSQL - Single Server
 Azure Database for PostgreSQL server firewall prevents all access to your database server until you specify which computers have permission. The firewall grants access to the server based on the originating IP address of each request.
@@ -36,27 +36,34 @@ To allow applications from Azure to connect to your Azure Database for PostgreSQ
 
 ![Configure Allow access to Azure services in the portal](media/concepts-firewall-rules/allow-azure-services.png)
 
+### Connecting from a VNet
+To connect securely to your Azure Database for PostgreSQL server from a VNet, consider using [VNet service endpoints](./concepts-data-access-and-security-vnet.md). 
+
 ## Programmatically managing firewall rules
 In addition to the Azure portal, firewall rules can be managed programmatically using Azure CLI.
 See also [Create and manage Azure Database for PostgreSQL firewall rules using Azure CLI](howto-manage-firewall-using-cli.md)
 
-## Troubleshooting the database server firewall
+## Troubleshooting firewall issues
 Consider the following points when access to the Microsoft Azure Database for PostgreSQL Server service does not behave as you expect:
 
 * **Changes to the allow list have not taken effect yet:** There may be as much as a five-minute delay for changes to the Azure Database for PostgreSQL Server firewall configuration to take effect.
 
 * **The login is not authorized or an incorrect password was used:** If a login does not have permissions on the Azure Database for PostgreSQL server or the password used is incorrect, the connection to the Azure Database for PostgreSQL server is denied. Creating a firewall setting only provides clients with an opportunity to attempt connecting to your server; each client must still provide the necessary security credentials.
 
-For example, using a JDBC client, the following error may appear.
-> java.util.concurrent.ExecutionException: java.lang.RuntimeException: org.postgresql.util.PSQLException: FATAL: password authentication failed for user "yourusername"
+   For example, using a JDBC client, the following error may appear.
+   > java.util.concurrent.ExecutionException: java.lang.RuntimeException: org.postgresql.util.PSQLException: FATAL: password authentication failed for user "yourusername"
 
 * **Dynamic IP address:** If you have an Internet connection with dynamic IP addressing and you are having trouble getting through the firewall, you could try one of the following solutions:
 
-* Ask your Internet Service Provider (ISP) for the IP address range assigned to your client computers that access the Azure Database for PostgreSQL Server, and then add the IP address range as a firewall rule.
+   * Ask your Internet Service Provider (ISP) for the IP address range assigned to your client computers that access the Azure Database for PostgreSQL Server, and then add the IP address range as a firewall rule.
 
-* Get static IP addressing instead for your client computers, and then add the static IP address as a firewall rule.
+   * Get static IP addressing instead for your client computers, and then add the static IP address as a firewall rule.
+
+* **Server's IP appears to be public:**
+Connections to the Azure Database for PostgreSQL server are routed through a publicly accessible Azure gateway. However, the actual server IP is protected by the firewall. For more information, visit the [connectivity architecture article](concepts-connectivity-architecture.md). 
 
 ## Next steps
 For articles on creating server-level and database-level firewall rules, see:
 * [Create and manage Azure Database for PostgreSQL firewall rules using the Azure portal](howto-manage-firewall-using-portal.md)
 * [Create and manage Azure Database for PostgreSQL firewall rules using Azure CLI](howto-manage-firewall-using-cli.md)
+- [VNet service endpoints in Azure Database for PostgreSQL](./concepts-data-access-and-security-vnet.md)

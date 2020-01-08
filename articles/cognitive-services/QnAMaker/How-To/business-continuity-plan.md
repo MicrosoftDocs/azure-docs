@@ -7,8 +7,8 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
-ms.topic: article
-ms.date: 01/14/2019
+ms.topic: conceptual
+ms.date: 08/20/2019
 ms.author: diberry
 ---
 
@@ -28,7 +28,7 @@ The high-level idea as represented above is as follows:
 
 4. Once the primary and secondary stacks have been set up, use [traffic manager](https://docs.microsoft.com/azure/traffic-manager/) to configure the two endpoints and set up a routing method.
 
-5. You would need to create an SSL certificate for your traffic manager endpoint. [Bind the SSL certificate](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-ssl) in your App services.
+5. You would need to create a Secure Sockets Layer (SSL) certificate for your traffic manager endpoint. [Bind the SSL certificate](https://docs.microsoft.com/azure/app-service/configure-ssl-bindings) in your App services.
 
 6. Finally, use the traffic manager endpoint in your Bot or App.
 

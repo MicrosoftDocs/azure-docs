@@ -45,13 +45,15 @@ Click **Add** to open the **Add a shared access policy** blade.  You can enter t
 
 ![Screenshot showing adding a shared access policy](./media/iot-hub-create-through-portal/iot-hub-add-shared-access-policy.png)
 
-* The **Registry read** and **Registry write** policies grant read and write access rights to the identity registry. Choosing the write option automatically chooses the read option.
+* The **Registry read** and **Registry write** policies grant read and write access rights to the identity registry. These permissions are used by back-end cloud services to manage device identities. Choosing the write option automatically chooses the read option.
 
-* The **Service connect** policy grants permission to access service endpoints such as **Receive device-to-cloud**. 
+* The **Service connect** policy grants permission to access service endpoints. This permission is used by back-end cloud services to send and receive messages from devices as well as to update and read device twin and module twin data.
 
-* The **Device connect** policy grants permissions for sending and receiving messages using the IoT Hub device-side endpoints.
+* The **Device connect** policy grants permissions for sending and receiving messages using the IoT Hub device-side endpoints. This permission is used by devices to send and receive messages from an IoT hub, update and read device twin and module twin data, and perform file uploads.
 
 Click **Create** to add this newly created policy to the existing list.
+
+For more detailed information about the access granted by specific permissions, see [IoT Hub permissions](./iot-hub-devguide-security.md#iot-hub-permissions).
 
 ## Message Routing for an IoT hub
 

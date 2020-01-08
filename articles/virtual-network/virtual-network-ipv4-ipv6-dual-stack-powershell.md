@@ -1,23 +1,25 @@
 ---
-title: Deploy an IPv6 dual stack application in Azure virtual network - PowerShell
+title: Deploy IPv6 dual stack application - Basic Load Balancer - PowerShell
 titlesuffix: Azure Virtual Network
 description: This article shows how deploy an IPv6 dual stack application in Azure virtual network using Azure Powershell.
 services: virtual-network
 documentationcenter: na
 author: KumudD
-manager: twooley
+manager: mtillman
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/22/2019
+ms.date: 12/17/2019
 ms.author: kumud
 ---
 
-# Deploy an IPv6 dual stack application in Azure - PowerShell (Preview)
+# Deploy an IPv6 dual stack application using Basic Load Balancer - PowerShell (Preview)
 
-This article shows you how to deploy a dual stack (IPv4 + IPv6) application in Azure that includes a dual stack virtual network and subnet, a load balancer with dual (IPv4 + IPv6) front-end configurations, VMs with NICs that have a dual IP configuration, network security group, and public IPs.
+This article shows you how to deploy a dual stack (IPv4 + IPv6) application with Basic Load Balancer using Azure PowerShell that includes a dual stack virtual network and subnet, a Basic Load Balancer with dual (IPv4 + IPv6) front-end configurations, VMs with NICs that have a dual IP configuration, network security group, and public IPs.
+
+To deploy a dual stack (IPV4 + IPv6) application using Standard Load Balancer, see [Deploy an IPv6 dual stack application with Standard Load Balancer using Azure PowerShell](virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md).
 
 > [!Important]
 > IPv6 support for Azure Virtual Network is currently in public preview. This preview is provided without a service level agreement and is not recommended for production workloads. Certain features may not be supported or may have constrained capabilities. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for details.
@@ -30,13 +32,16 @@ If you choose to install and use PowerShell locally, this article requires the A
 Before you deploy a dual stack application in Azure, you must configure your subscription for this preview feature using the following Azure PowerShell:
 
 Register as follows:
+
 ```azurepowershell
 Register-AzProviderFeature -FeatureName AllowIPv6VirtualNetwork -ProviderNamespace Microsoft.Network
+Register-AzProviderFeature -FeatureName AllowIPv6CAOnStandardLB -ProviderNamespace Microsoft.Network
 ```
 It takes up to 30 minutes for feature registration to complete. You can check your registration status by running the following Azure PowerShell command:
 Check on the registration as follows:
 ```azurepowershell
 Get-AzProviderFeature -FeatureName AllowIPv6VirtualNetwork -ProviderNamespace Microsoft.Network
+Get-AzProviderFeature -FeatureName AllowIPv6CAOnStandardLB -ProviderNamespace Microsoft.Network
 ```
 After the registration is complete, run the following command:
 
@@ -120,7 +125,11 @@ $backendPoolv4 = New-AzLoadBalancerBackendAddressPoolConfig `
 $backendPoolv6 = New-AzLoadBalancerBackendAddressPoolConfig `
 -Name "dsLbBackEndPool_v6"
 ```
-
+### Create a health probe
+Use [Add-AzLoadBalancerProbeConfig](/powershell/module/az.network/add-azloadbalancerprobeconfig) to create a health probe to monitor the health of the VMs.
+```azurepowershell
+$probe = New-AzLoadBalancerProbeConfig -Name MyProbe -Protocol tcp -Port 3389 -IntervalInSeconds 15 -ProbeCount 2
+```
 ### Create a load balancer rule
 
 A load balancer rule is used to define how traffic is distributed to the VMs. You define the frontend IP configuration for the incoming traffic and the backend IP pool to receive the traffic, along with the required source and destination port. To make sure only healthy VMs receive traffic, you can optionally define a health probe. Basic load balancer uses an IPv4 probe to assess health for both IPv4 and IPv6 endpoints on the VMs. Standard load balancer includes support for explicitly IPv6 health probes.
@@ -134,7 +143,8 @@ $lbrule_v4 = New-AzLoadBalancerRuleConfig `
   -BackendAddressPool $backendPoolv4 `
   -Protocol Tcp `
   -FrontendPort 80 `
-  -BackendPort 80
+  -BackendPort 80 `
+  -probe $probe
 
 $lbrule_v6 = New-AzLoadBalancerRuleConfig `
   -Name "dsLBrule_v6" `
@@ -142,7 +152,8 @@ $lbrule_v6 = New-AzLoadBalancerRuleConfig `
   -BackendAddressPool $backendPoolv6 `
   -Protocol Tcp `
   -FrontendPort 80 `
-  -BackendPort 80
+  -BackendPort 80 `
+  -probe $probe
 ```
 
 ### Create load balancer
@@ -301,7 +312,7 @@ Now you can create the VMs with [New-AzVM](/powershell/module/az.compute/new-azv
 $vmsize = "Standard_A2"
 $ImagePublisher = "MicrosoftWindowsServer"
 $imageOffer = "WindowsServer"
-$imageSKU = "2016-Datacenter"
+$imageSKU = "2019-Datacenter"
 
 $vmName= "dsVM1"
 $VMconfig1 = New-AzVMConfig -VMName $vmName -VMSize $vmsize -AvailabilitySetId $avset.Id 3> $null | Set-AzVMOperatingSystem -Windows -ComputerName $vmName -Credential $cred -ProvisionVMAgent 3> $null | Set-AzVMSourceImage -PublisherName $ImagePublisher -Offer $imageOffer -Skus $imageSKU -Version "latest" 3> $null | Set-AzVMOSDisk -Name "$vmName.vhd" -CreateOption fromImage  3> $null | Add-AzVMNetworkInterface -Id $NIC_1.Id  3> $null 

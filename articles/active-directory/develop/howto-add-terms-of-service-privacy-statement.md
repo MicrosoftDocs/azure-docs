@@ -2,16 +2,12 @@
 title: Terms of Service and privacy statement for apps | Azure
 description: Learn how you can configure the terms of service and privacy statement for apps registered to use Azure AD.
 services: active-directory
-documentationcenter: dev-center-name
 author: rwike77
 manager: CelesteDG
-editor: ''
 
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/22/2019
 ms.author: ryanwi
@@ -65,7 +61,7 @@ Follow these steps in the Azure portal.
 4. Fill out the **Terms of Service URL** and **Privacy Statement URL** fields.
 5. Save your changes.
 
-    ![App properties section with terms of service and privacy statement URLs](./media/howto-add-terms-of-service-privacy-statement/azure-portal-terms-service-privacy-statement-urls.png)
+    ![App properties contains terms of service and privacy statement URLs](./media/howto-add-terms-of-service-privacy-statement/azure-portal-terms-service-privacy-statement-urls.png)
 
 ### <a name="app-object-json"></a>Using the app object JSON
 

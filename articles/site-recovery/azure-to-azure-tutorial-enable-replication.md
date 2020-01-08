@@ -1,12 +1,11 @@
 ---
-title: Set up disaster recovery for Azure VMs to a secondary Azure region with Azure Site Recovery
+title: Set up Azure VM disaster recovery with Azure Site Recovery
 description: Learn how to set up disaster recovery for Azure VMs to a different Azure region, using the Azure Site Recovery service.
-services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 05/30/2019
+ms.date: 1/8/2020
 ms.author: raynew
 ms.custom: mvc
 ---
@@ -37,7 +36,7 @@ To complete this tutorial:
 Create the vault in any region, except the source region.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) > **Recovery Services**.
-2. Click **Create a resource** > **Management Tools** > **Backup and Site Recovery**.
+2. On the Azure portal menu or from the **Home** page, select **Create a resource**. Then select **Management Tools** > **Backup and Site Recovery**.
 3. In **Name**, specify a friendly name to identify the vault. If you have more than one
    subscription, select the appropriate one.
 4. Create a resource group or select an existing one. Specify an Azure region. To check supported
@@ -53,8 +52,7 @@ Create the vault in any region, except the source region.
 ## Verify target resource settings
 
 1. Verify that your Azure subscription allows you to create VMs in the target region. Contact support to enable the required quota.
-2. Make sure your subscription has enough resources to support VM sizes that match your source
-   VMs. Site Recovery picks the same size, or the closest possible size, for the target VM.
+2. Make sure your subscription has enough resources to support VM sizes that match your source VMs. Site Recovery picks the same size, or the closest possible size, for the target VM.
 
 ## Set up outbound network connectivity for VMs
 
@@ -77,15 +75,18 @@ If you're using a URL-based firewall proxy to control outbound connectivity, all
 
 ### Outbound connectivity for IP address ranges
 
-If you want to control outbound connectivity using IP addresses instead of URLs, allow these addresses for IP-based firewalls, proxy, or NSG rules.
+If you're using NSG, create service tag based NSG rules for access to Azure Storage, Azure Active Directory, Site Recovery service and Site Recovery monitoring. [Learn more](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges).
+
+If you want to control outbound connectivity using IP addresses instead of NSG rules, allow these addresses for IP-based firewalls, proxy, or NSG rules.
+
+>[!NOTE]
+>It is recommended to always configure NSG rules with service tags for outbound access.
 
   - [Microsoft Azure Datacenter IP Ranges](https://www.microsoft.com/download/details.aspx?id=41653)
   - [Windows Azure Datacenter IP Ranges in Germany](https://www.microsoft.com/download/details.aspx?id=54770)
   - [Windows Azure Datacenter IP Ranges in China](https://www.microsoft.com/download/details.aspx?id=42064)
   - [Office 365 URLs and IP address ranges](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity)
   - [Site Recovery service endpoint IP addresses](https://aka.ms/site-recovery-public-ips)
-
-If you're using NSG you can create a storage service tag NSG rules for the source region. [Learn more](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges).
 
 ## Verify Azure VM certificates
 
@@ -154,7 +155,7 @@ Site Recovery creates default settings and replication policy for the target reg
     **Target location** | The target region used for disaster recovery.<br/><br/> We recommend that the target location matches the location of the Site Recovery vault.
     **Target resource group** | The resource group in the target region that holds Azure VMs after failover.<br/><br/> By default, Site Recovery creates a new resource group in the target region with an "asr" suffix. The location of the target resource group can be any region except the region in which your source virtual machines are hosted.
     **Target virtual network** | The network in the target region that VMs are located after failover.<br/><br/> By default, Site Recovery creates a new virtual network (and subnets) in the target region with an "asr" suffix.
-    **Cache storage accounts** | Site Recovery uses a storage account in the source region. Changes to source VMs are sent to this account before replication to the target location.<br/><br/> If you are using a firewall-enabled cache storage account, make sure that you enable **Allow trusted Microsoft services**. [Learn more.](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions)
+    **Cache storage accounts** | Site Recovery uses a storage account in the source region. Changes to source VMs are sent to this account before replication to the target location.<br/><br/> If you are using a firewall-enabled cache storage account, make sure that you enable **Allow trusted Microsoft services**. [Learn more.](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions). Also, ensure that you allow access to at least one subnet of source Vnet.
     **Target storage accounts (source VM uses non-managed disks)** | By default, Site Recovery creates a new storage account in the target region to mirror the source VM storage account.<br/><br/> Enable **Allow trusted Microsoft services** if you're using a firewall-enabled cache storage account.
     **Replica managed disks (If source VM uses managed disks)** | By default, Site Recovery creates replica managed disks in the target region to mirror the source VM's managed disks with the same storage type (Standard or premium) as the source VM's managed disk. You can only customize Disk type 
     **Target availability sets** | By default, Azure Site Recovery creates a new availability set in the target region with name having "asr" suffix for the VMs part of an availability set in source region. In case availability set created by Azure Site Recovery already exists, it is reused.

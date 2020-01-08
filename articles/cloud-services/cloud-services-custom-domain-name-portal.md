@@ -3,18 +3,11 @@ title: Configure a custom domain name in Cloud Services | Microsoft Docs
 description: Learn how to expose your Azure application or data to the internet on a custom domain by configuring DNS settings.  These examples use the Azure portal.
 services: cloud-services
 documentationcenter: .net
-author: jpconnock
-manager: timlt
-editor: ''
-
-ms.assetid: 5783a246-a151-4fb1-b488-441bfb29ee44
+author: tgore03
 ms.service: cloud-services
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
-ms.author: jeconnoc
+ms.author: tagore
 
 ---
 # Configuring a custom domain name for an Azure cloud service
@@ -142,3 +135,6 @@ This example demonstrates creating an A record for the root domain. If you wish 
 [Azure portal]: https://portal.azure.com
 [vip]: ./media/cloud-services-custom-domain-name-portal/csvip.png
 [csurl]: ./media/cloud-services-custom-domain-name-portal/csurl.png
+
+
+

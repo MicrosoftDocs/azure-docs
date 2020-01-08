@@ -1,14 +1,12 @@
 ---
-title: Check status, set up logging, and get alerts - Azure Logic Apps | Microsoft Docs
-description: Monitor status, log diagnostics data, and set up alerts for Azure Logic Apps
+title: Check status, set up logging, and get alerts
+description: Monitor status, set up logging, and turn on alerts for diagnosing errors and problems in Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
-ms.reviewer: jonfan, estfan, LADocs
+ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
-ms.assetid: 5c1b1e15-3b6c-49dc-98a6-bdbe7cb75339
 ms.date: 07/21/2017
 ---
 
@@ -202,7 +200,7 @@ Along with Azure Monitor logs, you can extend how you use your logic app's
 diagnostic data with other Azure services, for example: 
 
 * [Archive Azure Diagnostics Logs in Azure Storage](../azure-monitor/platform/archive-diagnostic-logs.md)
-* [Stream Azure Diagnostics Logs to Azure Event Hubs](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md) 
+* [Stream Azure Diagnostics Logs to Azure Event Hubs](../azure-monitor/platform/resource-logs-stream-event-hubs.md) 
 
 You can then get real-time monitoring by using telemetry and analytics from other services, 
 like [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) 
@@ -345,9 +343,29 @@ but you can use the `correlation` properties of events to correlate across actio
     }
   }
   ```
+  Here's another example that uses **Initialize variable** action. The example adds tracked properties from the action's input where the input is an array, not a record.  
+
+  ``` json
+  "actions": { 
+   "Initialize_variable": { 
+      "inputs": { 
+         "variables": [{ 
+            "name": "ConnectorName", 
+            "type": "String", 
+            "value": "SFTP-SSH" 
+         }]
+      },
+      "runAfter": {},
+      "trackedProperties": { 
+         "Track1": "@action().inputs.variables[0].value"
+      },
+      "type": "InitializeVariable"
+   } 
+  }
+  ```
 
 ## Next steps
 
-* [Create templates for logic app deployment and release management](../logic-apps/logic-apps-create-deploy-template.md)
+* [Automate logic app deployment](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)
 * [B2B scenarios with Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md)
 * [Monitor B2B messages](../logic-apps/logic-apps-monitor-b2b-message.md)

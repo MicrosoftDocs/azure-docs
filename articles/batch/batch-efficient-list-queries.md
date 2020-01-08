@@ -4,12 +4,11 @@ description: Increase performance by filtering your queries when requesting info
 services: batch
 documentationcenter: .net
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 editor: ''
 
 ms.assetid: 031fefeb-248e-4d5a-9bc2-f07e46ddd30d
 ms.service: batch
-ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: big-compute

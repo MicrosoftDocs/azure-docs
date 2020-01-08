@@ -1,27 +1,25 @@
 ---
-title: Copy data to or from Azure SQL Database by using Data Factory | Microsoft Docs
-description: Learn how to copy data from supported source data stores to Azure SQL Database or from SQL Database to supported sink data stores by using Data Factory.
+title: Copy and transform data in Azure SQL Database
+description: Learn how to copy data to and from Azure SQL Database, and transform data in Azure SQL Database by using Azure Data Factory.
 services: data-factory
-documentationcenter: ''
+ms.author: jingwang
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
-
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
-
 ms.topic: conceptual
-ms.date: 06/14/2019
-ms.author: jingwang
-
+ms.custom: seo-lt-2019
+ms.date: 12/13/2019
 ---
-# Copy data to or from Azure SQL Database by using Azure Data Factory
+
+# Copy and transform data in Azure SQL Database by using Azure Data Factory
+
 > [!div class="op_single_selector" title1="Select the version of Azure Data Factory that you're using:"]
 > * [Version 1](v1/data-factory-azure-sql-connector.md)
 > * [Current version](connector-azure-sql-database.md)
 
-This article outlines how to copy data to and from Azure SQL Database. To learn about Azure Data Factory, read the [introductory article](introduction.md).
+This article outlines how to use Copy Activity in Azure Data Factory to copy data from and to Azure SQL Database, and use Data Flow to transform data in Azure SQL Database. To learn about Azure Data Factory, read the [introductory article](introduction.md).
 
 ## Supported capabilities
 
@@ -32,7 +30,7 @@ This Azure SQL Database connector is supported for the following activities:
 - [Lookup activity](control-flow-lookup-activity.md)
 - [GetMetadata activity](control-flow-get-metadata-activity.md)
 
-Specifically, this Azure SQL Database connector supports these functions:
+For Copy activity, this Azure SQL Database connector supports these functions:
 
 - Copying data by using SQL authentication and Azure Active Directory (Azure AD) Application token authentication with a service principal or managed identities for Azure resources.
 - As a source, retrieving data by using a SQL query or a stored procedure.
@@ -58,7 +56,7 @@ These properties are supported for an Azure SQL Database linked service:
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The **type** property must be set to **AzureSqlDatabase**. | Yes |
-| connectionString | Specify information needed to connect to the Azure SQL Database instance for the **connectionString** property. <br/>Mark this field as **SecureString** to store it securely in Azure Data Factory. You also can put a password or service principal key in Azure Key Vault. If it's SQL authentication, pull the `password` configuration out of the connection string. For more information, see the JSON example following the table and [Store credentials in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
+| connectionString | Specify information needed to connect to the Azure SQL Database instance for the **connectionString** property. <br/>You also can put a password or service principal key in Azure Key Vault. If it's SQL authentication, pull the `password` configuration out of the connection string. For more information, see the JSON example following the table and [Store credentials in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
 | servicePrincipalId | Specify the application's client ID. | Yes, when you use Azure AD authentication with a service principal |
 | servicePrincipalKey | Specify the application's key. Mark this field as **SecureString** to store it securely in Azure Data Factory or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes, when you use Azure AD authentication with a service principal |
 | tenant | Specify the tenant information, like the domain name or tenant ID, under which your application resides. Retrieve it by hovering the mouse in the upper-right corner of the Azure portal. | Yes, when you use Azure AD authentication with a service principal |
@@ -83,10 +81,7 @@ For different authentication types, refer to the following sections on prerequis
     "properties": {
         "type": "AzureSqlDatabase",
         "typeProperties": {
-            "connectionString": {
-                "type": "SecureString",
-                "value": "Server=tcp:<servername>.database.windows.net,1433;Database=<databasename>;User ID=<username>@<servername>;Password=<password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
-            }
+            "connectionString": "Server=tcp:<servername>.database.windows.net,1433;Database=<databasename>;User ID=<username>@<servername>;Password=<password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
         },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",
@@ -104,10 +99,7 @@ For different authentication types, refer to the following sections on prerequis
     "properties": {
         "type": "AzureSqlDatabase",
         "typeProperties": {
-            "connectionString": {
-                "type": "SecureString",
-                "value": "Server=tcp:<servername>.database.windows.net,1433;Database=<databasename>;User ID=<username>@<servername>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
-            },
+            "connectionString": "Server=tcp:<servername>.database.windows.net,1433;Database=<databasename>;User ID=<username>@<servername>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30",
             "password": { 
                 "type": "AzureKeyVaultSecret", 
                 "store": { 
@@ -160,10 +152,7 @@ To use a service principal-based Azure AD application token authentication, foll
     "properties": {
         "type": "AzureSqlDatabase",
         "typeProperties": {
-            "connectionString": {
-                "type": "SecureString",
-                "value": "Server=tcp:<servername>.database.windows.net,1433;Database=<databasename>;Connection Timeout=30"
-            },
+            "connectionString": "Server=tcp:<servername>.database.windows.net,1433;Database=<databasename>;Connection Timeout=30",
             "servicePrincipalId": "<service principal id>",
             "servicePrincipalKey": {
                 "type": "SecureString",
@@ -209,10 +198,7 @@ To use managed identity authentication, follow these steps.
     "properties": {
         "type": "AzureSqlDatabase",
         "typeProperties": {
-            "connectionString": {
-                "type": "SecureString",
-                "value": "Server=tcp:<servername>.database.windows.net,1433;Database=<databasename>;Connection Timeout=30"
-            }
+            "connectionString": "Server=tcp:<servername>.database.windows.net,1433;Database=<databasename>;Connection Timeout=30"
         },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",
@@ -224,14 +210,16 @@ To use managed identity authentication, follow these steps.
 
 ## Dataset properties
 
-For a full list of sections and properties available to define datasets, see [Datasets](https://docs.microsoft.com/azure/data-factory/concepts-datasets-linked-services). This section provides a list of properties supported by the Azure SQL Database dataset.
+For a full list of sections and properties available to define datasets, see [Datasets](https://docs.microsoft.com/azure/data-factory/concepts-datasets-linked-services). 
 
-To copy data from or to Azure SQL Database, the following properties are supported:
+The following properties are supported for Azure SQL Database dataset:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The **type** property of the dataset must be set to **AzureSqlTable**. | Yes |
-| tableName | The name of the table or view in the Azure SQL Database instance that the linked service refers to. | No for source, Yes for sink |
+| schema | Name of the schema. |No for source, Yes for sink  |
+| table | Name of the table/view. |No for source, Yes for sink  |
+| tableName | Name of the table/view with schema. This property is supported for backward compatibility. For new workload, use `schema` and `table`. | No for source, Yes for sink |
 
 #### Dataset properties example
 
@@ -247,7 +235,8 @@ To copy data from or to Azure SQL Database, the following properties are support
         },
         "schema": [ < physical schema, optional, retrievable during authoring > ],
         "typeProperties": {
-            "tableName": "MyTable"
+            "schema": "<schema_name>",
+            "table": "<table_name>"
         }
     }
 }
@@ -259,18 +248,18 @@ For a full list of sections and properties available for defining activities, se
 
 ### Azure SQL Database as the source
 
-To copy data from Azure SQL Database, set the **type** property in the copy activity source to **SqlSource**. The following properties are supported in the copy activity **source** section:
+To copy data from Azure SQL Database, the following properties are supported in the copy activity **source** section:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| type | The **type** property of the copy activity source must be set to **SqlSource**. | Yes |
+| type | The **type** property of the copy activity source must be set to **AzureSqlSource**. "SqlSource" type is still supported for backward compatibility. | Yes |
 | sqlReaderQuery | This property uses the custom SQL query to read data. An example is `select * from MyTable`. | No |
 | sqlReaderStoredProcedureName | The name of the stored procedure that reads data from the source table. The last SQL statement must be a SELECT statement in the stored procedure. | No |
 | storedProcedureParameters | Parameters for the stored procedure.<br/>Allowed values are name or value pairs. The names and casing of parameters must match the names and casing of the stored procedure parameters. | No |
 
 **Points to note:**
 
-- If **sqlReaderQuery** is specified for **SqlSource**, the copy activity runs this query against the Azure SQL Database source to get the data. You also can specify a stored procedure by specifying **sqlReaderStoredProcedureName** and **storedProcedureParameters** if the stored procedure takes parameters.
+- If **sqlReaderQuery** is specified for **AzureSqlSource**, the copy activity runs this query against the Azure SQL Database source to get the data. You also can specify a stored procedure by specifying **sqlReaderStoredProcedureName** and **storedProcedureParameters** if the stored procedure takes parameters.
 - If you don't specify either **sqlReaderQuery** or **sqlReaderStoredProcedureName**, the columns defined in the "structure" section of the dataset JSON are used to construct a query. The query `select column1, column2 from mytable` runs against Azure SQL Database. If the dataset definition doesn't have "structure," all columns are selected from the table.
 
 #### SQL query example
@@ -294,7 +283,7 @@ To copy data from Azure SQL Database, set the **type** property in the copy acti
         ],
         "typeProperties": {
             "source": {
-                "type": "SqlSource",
+                "type": "AzureSqlSource",
                 "sqlReaderQuery": "SELECT * FROM MyTable"
             },
             "sink": {
@@ -326,7 +315,7 @@ To copy data from Azure SQL Database, set the **type** property in the copy acti
         ],
         "typeProperties": {
             "source": {
-                "type": "SqlSource",
+                "type": "AzureSqlSource",
                 "sqlReaderStoredProcedureName": "CopyTestSrcStoredProcedureWithParameters",
                 "storedProcedureParameters": {
                     "stringData": { "value": "str3" },
@@ -365,17 +354,20 @@ GO
 > [!TIP]
 > Learn more about the supported write behaviors, configurations, and best practices from [Best practice for loading data into Azure SQL Database](#best-practice-for-loading-data-into-azure-sql-database).
 
-To copy data to Azure SQL Database, set the **type** property in the copy activity sink to **SqlSink**. The following properties are supported in the copy activity **sink** section:
+To copy data to Azure SQL Database, the following properties are supported in the copy activity **sink** section:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| type | The **type** property of the copy activity sink must be set to **SqlSink**. | Yes |
+| type | The **type** property of the copy activity sink must be set to **AzureSqlSink**. "SqlSink" type is still supported for backward compatibility. | Yes |
 | writeBatchSize | Number of rows to insert into the SQL table *per batch*.<br/> The allowed value is **integer** (number of rows). By default, Azure Data Factory dynamically determines the appropriate batch size based on the row size. | No |
 | writeBatchTimeout | The wait time for the batch insert operation to finish before it times out.<br/> The allowed value is **timespan**. An example is “00:30:00” (30 minutes). | No |
 | preCopyScript | Specify a SQL query for the copy activity to run before writing data into Azure SQL Database. It's invoked only once per copy run. Use this property to clean up the preloaded data. | No |
 | sqlWriterStoredProcedureName | The name of the stored procedure that defines how to apply source data into a target table. <br/>This stored procedure is *invoked per batch*. For operations that run only once and have nothing to do with source data, for example, delete or truncate, use the `preCopyScript` property. | No |
+| storedProcedureTableTypeParameterName |The parameter name of the table type specified in the stored procedure.  |No |
+| sqlWriterTableType |The table type name to be used in the stored procedure. The copy activity makes the data being moved available in a temp table with this table type. Stored procedure code can then merge the data that's being copied with existing data. |No |
 | storedProcedureParameters |Parameters for the stored procedure.<br/>Allowed values are name and value pairs. Names and casing of parameters must match the names and casing of the stored procedure parameters. | No |
-| sqlWriterTableType | Specify a table type name to be used in the stored procedure. The copy activity makes the data being moved available in a temporary table with this table type. Stored procedure code can then merge the data that's being copied with existing data. | No |
+| tableOption | Specifies whether to automatically create the sink table if not exists based on the source schema. Auto table creation is not supported when sink specifies stored procedure or staged copy is configured in copy activity. Allowed values are: `none` (default), `autoCreate`. |No |
+| disableMetricsCollection | Data Factory collects metrics such as Azure SQL Database DTUs for copy performance optimization and recommendations. If you are concerned with this behavior, specify `true` to turn it off. | No (default is `false`) |
 
 **Example 1: Append data**
 
@@ -401,8 +393,9 @@ To copy data to Azure SQL Database, set the **type** property in the copy activi
                 "type": "<source type>"
             },
             "sink": {
-                "type": "SqlSink",
-                "writeBatchSize": 100000
+                "type": "AzureSqlSink",
+                "writeBatchSize": 100000,
+                "tableOption": "autoCreate"
             }
         }
     }
@@ -435,9 +428,10 @@ Learn more details from [Invoke a stored procedure from a SQL sink](#invoke-a-st
                 "type": "<source type>"
             },
             "sink": {
-                "type": "SqlSink",
+                "type": "AzureSqlSink",
                 "sqlWriterStoredProcedureName": "CopyTestStoredProcedureWithParameters",
-                "sqlWriterTableType": "CopyTestTableType",
+                "storedProcedureTableTypeParameterName": "MyTable",
+                "sqlWriterTableType": "MyTableType",
                 "storedProcedureParameters": {
                     "identifier": { "value": "1", "type": "Int" },
                     "stringData": { "value": "str1" }
@@ -508,81 +502,99 @@ The steps to write data with custom logic are similar to those described in the 
 
 ## <a name="invoke-a-stored-procedure-from-a-sql-sink"></a> Invoke a stored procedure from a SQL sink
 
-When you copy data into Azure SQL Database, you also can configure and invoke a user-specified stored procedure with additional parameters.
+When you copy data into Azure SQL Database, you also can configure and invoke a user-specified stored procedure with additional parameters. The stored procedure feature takes advantage of [table-valued parameters](https://msdn.microsoft.com/library/bb675163.aspx).
 
 > [!TIP]
 > Invoking a stored procedure processes the data row by row instead of by using a bulk operation, which we don't recommend for large-scale copy. Learn more from [Best practice for loading data into Azure SQL Database](#best-practice-for-loading-data-into-azure-sql-database).
 
 You can use a stored procedure when built-in copy mechanisms don't serve the purpose. An example is when you want to apply extra processing before the final insertion of source data into the destination table. Some extra processing examples are when you want to merge columns, look up additional values, and insert into more than one table.
 
-The following sample shows how to use a stored procedure to do an upsert into a table in Azure SQL Database. Assume that the input data and the sink **Marketing** table each have three columns: **ProfileID**, **State**, and **Category**. Do the upsert based on the **ProfileID** column, and only apply it for a specific category.
+The following sample shows how to use a stored procedure to do an upsert into a table in Azure SQL Database. Assume that the input data and the sink **Marketing** table each have three columns: **ProfileID**, **State**, and **Category**. Do the upsert based on the **ProfileID** column, and only apply it for a specific category called "ProductA".
 
-**Output dataset:** The "tableName" is the same table type parameter name in your stored procedure, as shown in the following stored procedure script:
+1. In your database, define the table type with the same name as **sqlWriterTableType**. The schema of the table type is the same as the schema returned by your input data.
 
-```json
-{
-    "name": "AzureSQLDbDataset",
-    "properties":
-    {
-        "type": "AzureSqlTable",
-        "linkedServiceName": {
-            "referenceName": "<Azure SQL Database linked service name>",
-            "type": "LinkedServiceReference"
-        },
-        "typeProperties": {
-            "tableName": "Marketing"
+    ```sql
+    CREATE TYPE [dbo].[MarketingType] AS TABLE(
+        [ProfileID] [varchar](256) NOT NULL,
+        [State] [varchar](256) NOT NULL，
+        [Category] [varchar](256) NOT NULL
+    )
+    ```
+
+2. In your database, define the stored procedure with the same name as **sqlWriterStoredProcedureName**. It handles input data from your specified source and merges into the output table. The parameter name of the table type in the stored procedure is the same as **tableName** defined in the dataset.
+
+    ```sql
+    CREATE PROCEDURE spOverwriteMarketing @Marketing [dbo].[MarketingType] READONLY, @category varchar(256)
+    AS
+    BEGIN
+    MERGE [dbo].[Marketing] AS target
+    USING @Marketing AS source
+    ON (target.ProfileID = source.ProfileID and target.Category = @category)
+    WHEN MATCHED THEN
+        UPDATE SET State = source.State
+    WHEN NOT MATCHED THEN
+        INSERT (ProfileID, State, Category)
+        VALUES (source.ProfileID, source.State, source.Category);
+    END
+    ```
+
+3. In Azure Data Factory, define the **SQL sink** section in the copy activity as follows:
+
+    ```json
+    "sink": {
+        "type": "AzureSqlSink",
+        "sqlWriterStoredProcedureName": "spOverwriteMarketing",
+        "storedProcedureTableTypeParameterName": "Marketing",
+        "sqlWriterTableType": "MarketingType",
+        "storedProcedureParameters": {
+            "category": {
+                "value": "ProductA"
+            }
         }
     }
-}
-```
-
-Define the **SQL sink** section in the copy activity as follows:
-
-```json
-"sink": {
-    "type": "SqlSink",
-    "SqlWriterTableType": "MarketingType",
-    "SqlWriterStoredProcedureName": "spOverwriteMarketing",
-    "storedProcedureParameters": {
-        "category": {
-            "value": "ProductA"
-        }
-    }
-}
-```
-
-In your database, define the stored procedure with the same name as **SqlWriterStoredProcedureName**. It handles input data from your specified source and merges into the output table. The parameter name of the table type in the stored procedure is the same as **tableName** defined in the dataset.
-
-```sql
-CREATE PROCEDURE spOverwriteMarketing @Marketing [dbo].[MarketingType] READONLY, @category varchar(256)
-AS
-BEGIN
-  MERGE [dbo].[Marketing] AS target
-  USING @Marketing AS source
-  ON (target.ProfileID = source.ProfileID and target.Category = @category)
-  WHEN MATCHED THEN
-      UPDATE SET State = source.State
-  WHEN NOT MATCHED THEN
-      INSERT (ProfileID, State, Category)
-      VALUES (source.ProfileID, source.State, source.Category);
-END
-```
-
-In your database, define the table type with the same name as **sqlWriterTableType**. The schema of the table type is the same as the schema returned by your input data.
-
-```sql
-CREATE TYPE [dbo].[MarketingType] AS TABLE(
-    [ProfileID] [varchar](256) NOT NULL,
-    [State] [varchar](256) NOT NULL,
-    [Category] [varchar](256) NOT NULL
-)
-```
-
-The stored procedure feature takes advantage of [table-valued parameters](https://msdn.microsoft.com/library/bb675163.aspx).
+    ```
 
 ## Mapping data flow properties
 
-Learn details from [source transformation](data-flow-source.md) and [sink transformation](data-flow-sink.md) in mapping data flow.
+When transforming data in mapping data flow, you can read and write to tables from Azure SQL Database. For more information, see the [source transformation](data-flow-source.md) and [sink transformation](data-flow-sink.md) in mapping data flows.
+
+### Source transformation
+
+Settings specific to Azure SQL Database are available in the **Source Options** tab of the source transformation. 
+
+**Input:** Select whether you point your source at a table (equivalent of ```Select * from <table-name>```) or enter a custom SQL query.
+
+**Query**: If you select Query in the input field, enter a SQL query for your source. This setting overrides any table that you've chosen in the dataset. **Order By** clauses aren't supported here, but you can set a full SELECT FROM statement. You can also use user-defined table functions. **select * from udfGetData()** is a UDF in SQL that returns a table. This query will produce a source table that you can use in your data flow. Using queries is also a great way to reduce rows for testing or for lookups. 
+
+* SQL Example: ```Select * from MyTable where customerId > 1000 and customerId < 2000```
+
+**Batch size**: Enter a batch size to chunk large data into reads.
+
+**Isolation Level**: The default for SQL sources in mapping data flow is read uncommitted. You can change the isolation level here to one of these values:
+* Read Committed
+* Read Uncommitted
+* Repeatable Read
+* Serializable
+* None (ignore isolation level)
+
+![Isolation Level](media/data-flow/isolationlevel.png "Isolation Level")
+
+### Sink transformation
+
+Settings specific to Azure SQL Database are available in the **Settings** tab of the sink transformation.
+
+**Update method:** Determines what operations are allowed on your database destination. The default is to only allow inserts. To update, upsert, or delete rows, an alter-row transformation is required to tag rows for those actions. For updates, upserts and deletes, a key column or columns must be set to determine which row to alter.
+
+**Table action:** Determines whether to recreate or remove all rows from the destination table prior to writing.
+* None: No action will be done to the table.
+* Recreate: The table will get dropped and recreated. Required if creating a new table dynamically.
+* Truncate: All rows from the target table will get removed.
+
+**Batch size**: Controls how many rows are being written in each bucket. Larger batch sizes improve compression and memory optimization, but risk out of memory exceptions when caching data.
+
+**Pre and Post SQL scripts**: Enter multi-line SQL scripts that will execute before (pre-processing) and after (post-processing) data is written to your Sink database
+
+![pre and post SQL processing scripts](media/data-flow/prepost1.png "SQL processing scripts")
 
 ## Data type mapping for Azure SQL Database
 
@@ -625,6 +637,14 @@ When data is copied from or to Azure SQL Database, the following mappings are us
 
 >[!NOTE]
 > For data types that map to the Decimal interim type, currently Azure Data Factory supports precision up to 28. If you have data with precision larger than 28, consider converting to a string in SQL query.
+
+## Lookup activity properties
+
+To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
+
+## GetMetadata activity properties
+
+To learn details about the properties, check [GetMetadata activity](control-flow-get-metadata-activity.md) 
 
 ## Next steps
 For a list of data stores supported as sources and sinks by the copy activity in Azure Data Factory, see [Supported data stores and formats](copy-activity-overview.md##supported-data-stores-and-formats).

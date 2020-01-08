@@ -1,14 +1,8 @@
 ---
 title: Azure Table storage bindings for Azure Functions
 description: Understand how to use Azure Table storage bindings in Azure Functions.
-services: functions
-documentationcenter: na
 author: craigshoemaker
-manager: jeconnoc
-keywords: azure functions, functions, event processing, dynamic compute, serverless architecture
 
-ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: reference
 ms.date: 09/03/2018
 ms.author: cshoe
@@ -27,7 +21,7 @@ The Table storage bindings are provided in the [Microsoft.Azure.WebJobs](https:/
 
 [!INCLUDE [functions-storage-sdk-version](../../includes/functions-storage-sdk-version.md)]
 
-## Packages - Functions 2.x
+## Packages - Functions 2.x and higher
 
 The Table storage bindings are provided in the [Microsoft.Azure.WebJobs.Extensions.Storage](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage) NuGet package, version 3.x. Source code for the package is in the [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/tree/dev/src/Microsoft.Azure.WebJobs.Extensions.Storage/Tables) GitHub repository.
 
@@ -106,7 +100,7 @@ public class TableStorage
 
 ### Input - C# example - CloudTable
 
-`IQueryable` isn't supported in the [Functions v2 runtime](functions-versions.md). An alternative is to use a `CloudTable` method parameter to read the table by using the Azure Storage SDK. Here's an example of a 2.x function that queries an Azure Functions log table:
+`IQueryable` isn't supported in the [Functions v2 runtime](functions-versions.md). An alternative is to use a `CloudTable` method parameter to read the table by using the Azure Storage SDK. Here's an example of a function that queries an Azure Functions log table:
 
 ```csharp
 using Microsoft.Azure.WebJobs;
@@ -259,7 +253,7 @@ public class Person : TableEntity
 
 ### Input - C# script example - CloudTable
 
-`IQueryable` isn't supported in the [Functions v2 runtime](functions-versions.md). An alternative is to use a `CloudTable` method parameter to read the table by using the Azure Storage SDK. Here's an example of a 2.x function that queries an Azure Functions log table:
+`IQueryable` isn't supported in the Functions runtime for [versions 2.x and higher)](functions-versions.md). An alternative is to use a `CloudTable` method parameter to read the table by using the Azure Storage SDK. Here's an example of a function that queries an Azure Functions log table:
 
 ```json
 {
@@ -488,7 +482,7 @@ The storage account to use is determined in the following order:
 
 ## Input - Java annotations
 
-In the [Java functions runtime library](/java/api/overview/azure/functions/runtime), use the `@TableInput` annotation on parameters whose value would come from Table storage.  This annotation can be used with native Java types, POJOs, or nullable values using Optional<T>. 
+In the [Java functions runtime library](/java/api/overview/azure/functions/runtime), use the `@TableInput` annotation on parameters whose value would come from Table storage.  This annotation can be used with native Java types, POJOs, or nullable values using Optional\<T>. 
 
 ## Input - configuration
 
@@ -525,14 +519,14 @@ The Table storage input binding supports the following scenarios:
 
 * **Read one or more rows in JavaScript**
 
-  Set the `filter` and `take` properties. Don't set `partitionKey` or `rowKey`. Access the input table entity (or entities) using `context.bindings.<name>`. The deserialized objects have `RowKey` and `PartitionKey` properties.
+  Set the `filter` and `take` properties. Don't set `partitionKey` or `rowKey`. Access the input table entity (or entities) using `context.bindings.<BINDING_NAME>`. The deserialized objects have `RowKey` and `PartitionKey` properties.
 
 ## Output
 
 Use an Azure Table storage output binding to write entities to a table in an Azure Storage account.
 
 > [!NOTE]
-> This output binding does not support updating existing entities. Use the `TableOperation.Replace` operation [from the Azure Storage SDK](https://docs.microsoft.com/azure/cosmos-db/table-storage-how-to-use-dotnet#replace-an-entity) to update an existing entity.   
+> This output binding does not support updating existing entities. Use the appropriate [`TableOperation`](/dotnet/api/microsoft.azure.cosmos.table.tableoperation?view=azure-dotnet) from the [Azure Storage SDK](/azure/cosmos-db/tutorial-develop-table-dotnet#insert-or-merge-an-entity) to update an existing entity as required.   
 
 ## Output - example
 
@@ -782,7 +776,7 @@ The Table storage output binding supports the following scenarios:
 
 * **Write one or more rows in JavaScript**
 
-  In JavaScript functions, access the table output using `context.bindings.<name>`.
+  In JavaScript functions, access the table output using `context.bindings.<BINDING_NAME>`.
 
 ## Exceptions and return codes
 

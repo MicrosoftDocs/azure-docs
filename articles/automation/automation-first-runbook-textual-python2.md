@@ -2,13 +2,9 @@
 title: My first Python runbook in Azure Automation
 description: Tutorial that walks you through the creation, testing, and publishing of a simple Python runbook.
 services: automation
-ms.service: automation
 ms.subservice: process-automation
-author: georgewallace
-ms.author: gwallace
 ms.date: 03/19/2019
 ms.topic: conceptual
-manager: carmonm
 ---
 # My first Python runbook
 
@@ -94,7 +90,7 @@ To manage Azure resources, the script has to authenticate using the credentials 
 > [!NOTE]
 > The Automation account must have been created with the service principal feature for there to be a Run As Certificate.
 > If your automation account was not created with the service principal, you can authenticate by using the method described at
-> [Authenticate with the Azure Management Libraries for Python](https://docs.microsoft.com/python/azure/python-sdk-azure-authenticate).
+> [Authenticate with the Azure Management Libraries for Python](/azure/python/python-sdk-azure-authenticate).
 
 1. Open the textual editor by clicking **Edit** on the MyFirstRunbook-Python pane.
 
@@ -142,7 +138,7 @@ To manage Azure resources, the script has to authenticate using the credentials 
 ## Add code to create Python Compute client and start the VM
 
 To work with Azure VMs, create an instance of the
-[Azure Compute client for Python](https://docs.microsoft.com/python/api/azure.mgmt.compute.computemanagementclient?view=azure-python).
+[Azure Compute client for Python](https://docs.microsoft.com/python/api/azure-mgmt-compute/azure.mgmt.compute.computemanagementclient).
 
 Use the Compute client to start the VM. Add the following code to the runbook:
 
@@ -205,11 +201,35 @@ and the name of the VM to start as the value of the second parameter.
 
 Click **OK** to start the runbook. The runbook runs and starts the VM that you specified.
 
+## Error Handling in Python
+
+You can also use the following conventions to retrieve various streams from your Python runbooks, including **WARNING**, **ERROR**, and **DEBUG** streams.
+
+```python
+print("Hello World output") 
+print("ERROR: - Hello world error")
+print("WARNING: - Hello world warning")
+print("DEBUG: - Hello world debug")
+print("VERBOSE: - Hello world verbose")
+```
+
+The following example shows this convention used in a `try...except` block.
+
+```python
+try:
+    raise Exception('one', 'two')
+except Exception as detail:
+    print 'ERROR: Handling run-time error:', detail
+```
+
+> [!NOTE]
+> **sys.stderr** is not supported in Azure Automation.
+
 ## Next steps
 
 - To get started with PowerShell runbooks, see [My first PowerShell runbook](automation-first-runbook-textual-powershell.md)
 - To get started with Graphical runbooks, see [My first graphical runbook](automation-first-runbook-graphical.md)
 - To get started with PowerShell workflow runbooks, see [My first PowerShell workflow runbook](automation-first-runbook-textual.md)
 - To know more about runbook types, their advantages and limitations, see [Azure Automation runbook types](automation-runbook-types.md)
-- To learn about developing for Azure with Python, see [Azure for Python developers](https://docs.microsoft.com/python/azure/?view=azure-python)
+- To learn about developing for Azure with Python, see [Azure for Python developers](/azure/python/)
 - To view sample Python 2 runbooks, see the [Azure Automation GitHub](https://github.com/azureautomation/runbooks/tree/master/Utility/Python)

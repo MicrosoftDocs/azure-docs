@@ -1,5 +1,5 @@
 ---
-title: Configure an external Listener for Always On Availability Groups | Microsoft Docs
+title: Configure an external listener for availability groups
 description: This tutorial walks you through steps of creating an Always On Availability Group Listener in Azure that is externally accessible by using the public Virtual IP address of the associated cloud service.
 services: virtual-machines-windows
 documentationcenter: na
@@ -10,15 +10,16 @@ tags: azure-service-management
 
 ms.assetid: a2453032-94ab-4775-b976-c74d24716728
 ms.service: virtual-machines-sql
-ms.devlang: na
+
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/31/2017
 ms.author: mikeray
+ms.custom: "seo-lt-2019"
 
 ---
-# Configure an external listener for Always On Availability Groups in Azure
+# Configure an external listener for availability Groups on Azure SQL Server VMs
 > [!div class="op_single_selector"]
 > * [Internal Listener](../classic/ps-sql-int-listener.md)
 > * [External Listener](../classic/ps-sql-ext-listener.md)

@@ -1,12 +1,8 @@
 ---
 title: Determine causes of non-compliance
 description: When a resource is non-compliant, there are many possible reasons. Learn to find out what caused the non-compliance.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 04/26/2019
-ms.topic: conceptual
-ms.service: azure-policy
-manager: carmonm
+ms.topic: how-to
 ---
 # Determine causes of non-compliance
 
@@ -17,7 +13,7 @@ two ways to find this information:
 
 > [!div class="checklist"]
 > - [Compliance details](#compliance-details)
-> - [Change history (Preview)](#change-history-preview)
+> - [Change history (Preview)](#change-history)
 
 ## Compliance details
 
@@ -94,7 +90,7 @@ To view the compliance details, follow these steps:
 
 These details explain why a resource is currently non-compliant, but don't show when the change was
 made to the resource that caused it to become non-compliant. For that information, see [Change
-history (Preview)](#change-history-preview) below.
+history (Preview)](#change-history) below.
 
 ### Compliance reasons
 
@@ -127,48 +123,27 @@ The following matrix maps each possible _reason_ to the responsible
 
 ## Compliance details for Guest Configuration
 
-For _audit_ policies in the _Guest Configuration_ category, there could be multiple settings
+For _auditIfNotExists_ policies in the _Guest Configuration_ category, there could be multiple settings
 evaluated inside the VM and you'll need to view per-setting details. For example, if you're auditing
-for a list of installed applications and the assignment status is _Non-compliant_, you'll need to
-know which specific applications are missing.
+for a list of password policies and only one of them has status _Non-compliant_, you'll need to
+know which specific password policies are out of compliance and why.
 
 You also might not have access to sign in to the VM directly but you need to report on why the VM is
-_Non-compliant_. For example, you might audit that VMs are joined to the correct domain and include
-the current domain membership in the reporting details.
+_Non-compliant_.
 
 ### Azure portal
 
-1. Launch the Azure Policy service in the Azure portal by clicking **All services**, then searching
-   for and selecting **Policy**.
+Begin by following the same steps in the section above for viewing policy compliance details.
 
-1. On the **Overview** or **Compliance** page, select a policy assignment for any initiative that
-   contains a Guest Configuration policy definition that's _Non-compliant_.
+In the **Compliance details** pane view click the link **Last evaluated resource**.
 
-1. Select an _audit_ policy in the initiative that's _Non-compliant_.
-
-   ![View audit definition details](../media/determine-non-compliance/guestconfig-audit-compliance.png)
-
-1. On the **Resource compliance** tab, the following information is provided:
-
-   - **Name** - The name of the Guest Configuration Assignments.
-   - **Parent Resource** - The virtual machine in a _Non-Compliant_ state for the selected Guest
-     Configuration assignment.
-   - **Resource Type** - The _guestConfigurationAssignments_ full name.
-   - **Last Evaluated** - The last time the Guest Configuration service notified Azure Policy about
-     the state of the target virtual machine.
-
-   ![View compliance details](../media/determine-non-compliance/guestconfig-assignment-view.png)
-
-1. Select the Guest Configuration Assignment name in the **Name** column to open the **Resource
-   Compliance** page.
-
-1. Select the **View Resource** button at the top of the page to open the **Guest Assignment** page.
+   ![View auditIfNotExists definition details](../media/determine-non-compliance/guestconfig-auditifnotexists-compliance.png)
 
 The **Guest Assignment** page displays all available compliance details. Each row in the view
-represents an evaluation that was performed inside the virtual machine. In the **Reason** column, a
+represents an evaluation that was performed inside the machine. In the **Reason** column, a
 phrase describing why the Guest Assignment is _Non-compliant_ is shown. For example, if you're
-auditing that VMs should be joined to a domain, the **Reason** column would display text including
-the current domain membership.
+auditing password policies, the **Reason** column would display text including
+the current value for each setting.
 
 ![View compliance details](../media/determine-non-compliance/guestconfig-compliance-details.png)
 
@@ -205,7 +180,7 @@ Get-AzVMGuestPolicyReport -ResourceGroupName <resourcegroupname> -VMName <vmname
 The following applications are not installed: '<name>'.
 ```
 
-You can also output a compliance history for Guest Assignments in scope for the virtual machine. The
+You can also output a compliance history for Guest Assignments in scope for the machine. The
 output from this command includes the details of each report for the VM.
 
 > [!NOTE]
@@ -278,6 +253,6 @@ query this information outside of the Azure portal, see [Get resource changes](.
 - Review the [Azure Policy definition structure](../concepts/definition-structure.md).
 - Review [Understanding policy effects](../concepts/effects.md).
 - Understand how to [programmatically create policies](programmatically-create.md).
-- Learn how to [get compliance data](getting-compliance-data.md).
+- Learn how to [get compliance data](get-compliance-data.md).
 - Learn how to [remediate non-compliant resources](remediate-resources.md).
 - Review what a management group is with [Organize your resources with Azure management groups](../../management-groups/overview.md).

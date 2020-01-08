@@ -44,7 +44,7 @@ Before you install Azure AD Connect, there are a few things that you need.
 
 ### Azure AD Connect server
 >[!IMPORTANT]
->The Azure AD Connect server contains critical identity data and should be treated as a Tier 0 component as documented in [the Active Directory administrative tier model](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material#ADATM_BM)
+>The Azure AD Connect server contains critical identity data and should be treated as a Tier 0 component as documented in [the Active Directory administrative tier model](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material)
 
 * Azure AD Connect cannot be installed on Small Business Server or Windows Server Essentials before 2019 (Windows Server Essentials 2019 is supported). The server must be using Windows Server standard or better.
 * Installing Azure AD Connect on a Domain Controller is not recommended due to security practices and more restrictive settings that can prevent Azure AD Connect from installing correctly.
@@ -52,12 +52,8 @@ Before you install Azure AD Connect, there are a few things that you need.
 >[!IMPORTANT]
 >Installing Azure AD Connect on small business server, server essentials, or server core is not supported.
 
-* Azure AD Connect must be installed on Windows Server 2008 R2 or later. This server must be domain joined and may be a domain controller or a member server.
-* If you install Azure AD Connect on Windows Server 2008 R2, then make sure to apply the latest hotfixes from Windows Update. The installation is not able to start with an unpatched server.
-* If you plan to use the feature **password synchronization**, then the Azure AD Connect server must be on Windows Server 2008 R2 SP1 or later.
-* If you plan to use a **group managed service account**, then the Azure AD Connect server must be on Windows Server 2012 or later.
-* The Azure AD Connect server must have [.NET Framework 4.5.1](#component-prerequisites) or later and [Microsoft PowerShell 3.0](#component-prerequisites) or later installed.
-* The Azure AD Connect server must not have PowerShell Transcription Group Policy enabled.
+* Azure AD Connect must be installed on Windows Server 2012 or later. This server must be domain joined and may be a domain controller or a member server.
+* The Azure AD Connect server must not have PowerShell Transcription Group Policy enabled if you are using Azure AD Connect wizard to manage ADFS configuration. You can enable PowerShell transcription if you are using Azure AD Connect wizard to manage sync configuration.
 * If Active Directory Federation Services is being deployed, the servers where AD FS or Web Application Proxy are installed must be Windows Server 2012 R2 or later. [Windows remote management](#windows-remote-management) must be enabled on these servers for remote installation.
 * If Active Directory Federation Services is being deployed, you need [SSL Certificates](#ssl-certificate-requirements).
 * If Active Directory Federation Services is being deployed, then you need to configure [name resolution](#name-resolution-for-federation-servers).
@@ -138,7 +134,7 @@ Azure AD Connect depends on Microsoft PowerShell and .NET Framework 4.5.1. You n
 * Windows Server 2012R2
   * Microsoft PowerShell is installed by default. No action is required.
   * .NET Framework 4.5.1 and later releases are offered through Windows Update. Make sure you have installed the latest updates to Windows Server in the Control Panel.
-* Windows Server 2008 R2 and Windows Server 2012
+* Windows Server 2012
   * The latest version of Microsoft PowerShell is available in **Windows Management Framework 4.0**, available on [Microsoft Download Center](https://www.microsoft.com/downloads).
   * .NET Framework 4.5.1 and later releases are available on [Microsoft Download Center](https://www.microsoft.com/downloads).
 
@@ -146,14 +142,9 @@ Azure AD Connect depends on Microsoft PowerShell and .NET Framework 4.5.1. You n
 ### Enable TLS 1.2 for Azure AD Connect
 Prior to version 1.1.614.0, Azure AD Connect by default uses TLS 1.0 for encrypting the communication between the sync engine server and Azure AD. You can change this by configuring .NET applications to use TLS 1.2 by default on the server. More information about TLS 1.2 can be found in [Microsoft Security Advisory 2960358](https://technet.microsoft.com/security/advisory/2960358).
 
-1. TLS 1.2 cannot be enabled prior to Windows Server 2008 R2 or later. Make sure you have the .NET 4.5.1 hotfix installed for your operating system, see [Microsoft Security Advisory 2960358](https://technet.microsoft.com/security/advisory/2960358). You might have this hotfix or a later release installed on your server already.
-2. If you use Windows Server 2008 R2, then make sure TLS 1.2 is enabled. On Windows Server 2012 server and later versions, TLS 1.2 should already be enabled.
+1.  Make sure you have the .NET 4.5.1 hotfix installed for your operating system, see [Microsoft Security Advisory 2960358](https://technet.microsoft.com/security/advisory/2960358). You might have this hotfix or a later release installed on your server already.
     ```
-    [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2]
-    [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Client] "DisabledByDefault"=dword:00000000 "Enabled"=dword:00000001
-    [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Server] "DisabledByDefault"=dword:00000000 "Enabled"=dword:00000001
-    ```
-3. For all operating systems, set this registry key and restart the server.
+2. For all operating systems, set this registry key and restart the server.
     ```
     HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\.NETFramework\v4.0.30319
     "SchUseStrongCrypto"=dword:00000001
@@ -216,7 +207,7 @@ The table below shows the minimum requirements for the Azure AD Connect sync com
 | 300,000–600,000 |1.6 GHz |32 GB |450 GB |
 | More than 600,000 |1.6 GHz |32 GB |500 GB |
 
-The minimum requirements for computers running AD FS or Web Application Servers is the following:
+The minimum requirements for computers running AD FS or Web Application Proxy Servers is the following:
 
 * CPU: Dual core 1.6 GHz or higher
 * MEMORY: 2 GB or higher

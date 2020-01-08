@@ -1,18 +1,13 @@
 ---
 title: Create and share dashboards of Azure Log Analytics data | Microsoft Docs
 description: This tutorial helps you understand how Log Analytics dashboards can visualize all of your saved log queries, giving you a single lens to view your environment.
-services: log-analytics
-documentationcenter: log-analytics
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: abb07f6c-b356-4f15-85f5-60e4415d0ba2
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service:  azure-monitor
+ms.subservice: logs
 ms.topic: tutorial
+author: bwren
+ms.author: bwren
 ms.date: 06/19/2019
-ms.author: magoedte
+
 ms.custom: mvc
 ---
 
@@ -70,7 +65,7 @@ Save the query by selecting the **Save** button from the top of the page.
 
 ![Save query](media/tutorial-logs-dashboards/save-query.png)
 
-In the **Save Query** control panel, provide a name such as *Azure VMs - Processor Utilization* and a category such as *Dashboards* and then click **Save**.  This way you can create a library of common queries that you can use and modify.  Finally, pin this to the shared dashboard created earlier by selecting the **Pin** button from the top right corner of the page and then selecting the dashboard name.
+In the **Save Query** control panel, provide a name such as *Azure VMs - Processor Utilization* and a category such as *Dashboards* and then click **Save**.  This way you can create a library of common queries that you can use and modify.  Finally, pin this to the shared dashboard created earlier by selecting the **Pin to dashboard** button from the top right corner of the page and then selecting the dashboard name.
 
 Now that we have a query pinned to the dashboard, you will notice it has a generic title and comment below it.
 

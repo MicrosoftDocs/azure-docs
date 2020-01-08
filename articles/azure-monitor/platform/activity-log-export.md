@@ -11,7 +11,11 @@ ms.subservice: logs
 ---
 
 # Export Azure Activity log to storage or Azure Event Hubs
-The [Azure Activity Log](activity-logs-overview.md) provides insight into subscription-level events that have occurred in your Azure subscription. In addition to viewing the Activity log in the Azure portal or copying it to a Log Analytics workspace where it can be analyzed with other data collected by Azure Monitor, you can create a log profile to archive the Activity log to an Azure storage account or stream it to an Event Hub.
+
+> [!WARNING]
+> You can now collect the Activity log into a Log Analytics workspace using a diagnostic setting similar to how you collect resource logs. See [Collect and analyze Azure activity logs in Log Analytics workspace in Azure Monitor](diagnostic-settings-subscription.md).
+
+The [Azure Activity Log](platform-logs-overview.md) provides insight into subscription-level events that have occurred in your Azure subscription. In addition to viewing the Activity log in the Azure portal or copying it to a Log Analytics workspace where it can be analyzed with other data collected by Azure Monitor, you can create a log profile to archive the Activity log to an Azure storage account or stream it to an Event Hub.
 
 ## Archive Activity Log
 Archiving the Activity Log to a storage account is useful if you would like to retain your log data longer than 90 days (with full control over the retention policy) for audit, static analysis, or backup. If you only need to retain your events for 90 days or less you do not need to set up archival to a storage account, since Activity Log events are retained in the Azure platform for 90 days.
@@ -24,7 +28,7 @@ Archiving the Activity Log to a storage account is useful if you would like to r
 ## Prerequisites
 
 ### Storage account
-If you're archiving your Activity Log, you need to [create a storage account](../../storage/common/storage-quickstart-create-account.md) if you don't already have one. You should not use an existing storage account that has other, non-monitoring data stored in it so that you can better control access to monitoring data. If you are also archiving Diagnostic Logs and metrics to a storage account though, you may choose to use that same storage account to keep all monitoring data in a central location.
+If you're archiving your Activity Log, you need to [create a storage account](../../storage/common/storage-quickstart-create-account.md) if you don't already have one. You should not use an existing storage account that has other, non-monitoring data stored in it so that you can better control access to monitoring data. If you are also archiving logs and metrics to a storage account though, you may choose to use that same storage account to keep all monitoring data in a central location.
 
 The storage account does not have to be in the same subscription as the subscription emitting logs as long as the user who configures the setting has appropriate RBAC access to both subscriptions.
 > [!NOTE]
@@ -50,16 +54,14 @@ The log profile defines the following.
 
 **Which regions (locations) should be exported.** You should include all locations since many events in the Activity Log are global events.
 
-**How long the Activity Log should be retained in a Storage Account.** A retention of zero days means logs are kept forever. Otherwise, the value can be any number of days between 1 and 2147483647.
+**How long the Activity Log should be retained in a Storage Account.** A retention of zero days means logs are kept forever. Otherwise, the value can be any number of days between 1 and 365.
 
 If retention policies are set, but storing logs in a storage account is disabled, then retention policies have no effect. Retention policies are applied per-day, so at the end of a day (UTC), logs from the day that is now beyond the retention policy are deleted. For example, if you had a retention policy of one day, at the beginning of the day today the logs from the day before yesterday would be deleted. The delete process begins at midnight UTC, but note that it can take up to 24 hours for the logs to be deleted from your storage account.
 
 
+> [!IMPORTANT]
+> You may receive an error when creating a log profile if the Microsoft.Insights resource provider isn't registered. See [Azure resource providers and types](../../azure-resource-manager/resource-manager-supported-services.md) to register this provider.
 
-> [!WARNING]
-> The format of the log data in the storage account changed to JSON Lines on Nov. 1st, 2018. [See this article for a description of the impact and how to update your tooling to handle the new format.](diagnostic-logs-append-blobs.md)
->
->
 
 ### Create log profile using the Azure portal
 
@@ -110,7 +112,7 @@ If a log profile already exists, you first need to remove the existing log profi
     | StorageAccountId |No |Resource ID of the Storage Account where the Activity Log should be saved. |
     | serviceBusRuleId |No |Service Bus Rule ID for the Service Bus namespace you would like to have event hubs created in. This is a string with the format: `{service bus resource ID}/authorizationrules/{key name}`. |
     | Location |Yes |Comma-separated list of regions for which you would like to collect Activity Log events. |
-    | RetentionInDays |Yes |Number of days for which events should be retained in the storage account, between 1 and 2147483647. A value of zero stores the logs indefinitely. |
+    | RetentionInDays |Yes |Number of days for which events should be retained in the storage account, between 1 and 365. A value of zero stores the logs indefinitely. |
     | Category |No |Comma-separated list of event categories that should be collected. Possible values are _Write_, _Delete_, and _Action_. |
 
 ### Example script
@@ -152,91 +154,9 @@ If a log profile already exists, you first need to remove the existing log profi
     | name |Yes |Name of your log profile. |
     | storage-account-id |Yes |Resource ID of the Storage Account to which Activity Logs should be saved. |
     | locations |Yes |Space-separated list of regions for which you would like to collect Activity Log events. You can view a list of all regions for your subscription using `az account list-locations --query [].name`. |
-    | days |Yes |Number of days for which events should be retained, between 1 and 365. A value of zero will store the logs indefinitely (forever).  If zero, then the enabled parameter should be set to true. |
+    | days |Yes |Number of days for which events should be retained, between 1 and 365. A value of zero will store the logs indefinitely (forever).  If zero, then the enabled parameter should be set to false. |
     |enabled | Yes |True or False.  Used to enable or disable the retention policy.  If True, then the days parameter must be a value greater than 0.
     | categories |Yes |Space-separated list of event categories that should be collected. Possible values are Write, Delete, and Action. |
-
-
-
-## Activity log schema
-Whether sent to Azure storage or Event Hub, the Activity log data will be written to JSON with the following format.
-
-``` JSON
-{
-    "records": [
-        {
-            "time": "2015-01-21T22:14:26.9792776Z",
-            "resourceId": "/subscriptions/s1/resourceGroups/MSSupportGroup/providers/microsoft.support/supporttickets/115012112305841",
-            "operationName": "microsoft.support/supporttickets/write",
-            "category": "Write",
-            "resultType": "Success",
-            "resultSignature": "Succeeded.Created",
-            "durationMs": 2826,
-            "callerIpAddress": "111.111.111.11",
-            "correlationId": "c776f9f4-36e5-4e0e-809b-c9b3c3fb62a8",
-            "identity": {
-                "authorization": {
-                    "scope": "/subscriptions/s1/resourceGroups/MSSupportGroup/providers/microsoft.support/supporttickets/115012112305841",
-                    "action": "microsoft.support/supporttickets/write",
-                    "evidence": {
-                        "role": "Subscription Admin"
-                    }
-                },
-                "claims": {
-                    "aud": "https://management.core.windows.net/",
-                    "iss": "https://sts.windows.net/72f988bf-86f1-41af-91ab-2d7cd011db47/",
-                    "iat": "1421876371",
-                    "nbf": "1421876371",
-                    "exp": "1421880271",
-                    "ver": "1.0",
-                    "http://schemas.microsoft.com/identity/claims/tenantid": "1e8d8218-c5e7-4578-9acc-9abbd5d23315 ",
-                    "http://schemas.microsoft.com/claims/authnmethodsreferences": "pwd",
-                    "http://schemas.microsoft.com/identity/claims/objectidentifier": "2468adf0-8211-44e3-95xq-85137af64708",
-                    "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn": "admin@contoso.com",
-                    "puid": "20030000801A118C",
-                    "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier": "9vckmEGF7zDKk1YzIY8k0t1_EAPaXoeHyPRn6f413zM",
-                    "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname": "John",
-                    "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname": "Smith",
-                    "name": "John Smith",
-                    "groups": "cacfe77c-e058-4712-83qw-f9b08849fd60,7f71d11d-4c41-4b23-99d2-d32ce7aa621c,31522864-0578-4ea0-9gdc-e66cc564d18c",
-                    "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name": " admin@contoso.com",
-                    "appid": "c44b4083-3bq0-49c1-b47d-974e53cbdf3c",
-                    "appidacr": "2",
-                    "http://schemas.microsoft.com/identity/claims/scope": "user_impersonation",
-                    "http://schemas.microsoft.com/claims/authnclassreference": "1"
-                }
-            },
-            "level": "Information",
-            "location": "global",
-            "properties": {
-                "statusCode": "Created",
-                "serviceRequestId": "50d5cddb-8ca0-47ad-9b80-6cde2207f97c"
-            }
-        }
-    ]
-}
-```
-The elements in this JSON are described in the following table.
-
-| Element name | Description |
-| --- | --- |
-| time |Timestamp when the event was generated by the Azure service processing the request corresponding the event. |
-| resourceId |Resource ID of the impacted resource. |
-| operationName |Name of the operation. |
-| category |Category of the action, eg. Write, Read, Action. |
-| resultType |The type of the result, eg. Success, Failure, Start |
-| resultSignature |Depends on the resource type. |
-| durationMs |Duration of the operation in milliseconds |
-| callerIpAddress |IP address of the user who has performed the operation, UPN claim, or SPN claim based on availability. |
-| correlationId |Usually a GUID in the string format. Events that share a correlationId belong to the same uber action. |
-| identity |JSON blob describing the authorization and claims. |
-| authorization |Blob of RBAC properties of the event. Usually includes the “action”, “role” and “scope” properties. |
-| level |Level of the event. One of the following values: _Critical_, _Error_, _Warning_, _Informational_, and _Verbose_ |
-| location |Region in which the location occurred (or global). |
-| properties |Set of `<Key, Value>` pairs (i.e. Dictionary) describing the details of the event. |
-
-> [!NOTE]
-> The properties and usage of these properties can vary depending on the resource.
 
 
 

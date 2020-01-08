@@ -1,18 +1,12 @@
 ---
 title: SQL to Azure Monitor log query cheat sheet | Microsoft Docs
 description: Help for users familiar with SQL in writing log queries in Azure Monitor.
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: ''
-ms.assetid: 
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 08/21/2018
+author: bwren
 ms.author: bwren
+ms.date: 08/21/2018
+
 ---
 
 # SQL to Azure Monitor log query cheat sheet 

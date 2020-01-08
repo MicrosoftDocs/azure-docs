@@ -1,10 +1,9 @@
 ---
-title: Azure PowerShell Script Sample - Migrate blobs across storage accounts using AzCopy on Windows | Microsoft Docs
-description: Using AzCopy, copies the Blob contents of one Azure Storage Account to another.
+title: Migrate blobs across storage accounts with AzCopy on Windows
+description: Azure PowerShell Script Sample - Using AzCopy, copies the Blob contents of one Azure Storage Account to another.
 services: storage
 documentationcenter: na
-author: roygara
-manager: jeconnoc
+author: normesta
 
 ms.custom: mvc
 ms.service: storage
@@ -13,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: azurecli
 ms.topic: sample
 ms.date: 02/01/2018
-ms.author: rogarana
+ms.author: normesta
 ---
 
 # Migrate blobs across storage accounts using AzCopy on Windows

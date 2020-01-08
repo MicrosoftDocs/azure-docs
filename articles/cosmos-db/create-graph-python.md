@@ -168,13 +168,13 @@ Now go back to the Azure portal to get your connection information and copy it i
 <a id="add-sample-data"></a>
 ## Review and add sample data
 
-You can now go back to Data Explorer and see the vertices added to the graph, and add additional data points.
+After the vertices and edges are inserted, you can now go back to Data Explorer and see the vertices added to the graph, and add additional data points.
 
 1. Click **Data Explorer**, expand **sample-graph**, click **Graph**, and then click **Apply Filter**. 
 
    ![Create new documents in Data Explorer in the Azure portal](./media/create-graph-python/azure-cosmosdb-data-explorer-expanded.png)
 
-2. In the **Results** list, notice the new users added to the graph. Select **ben** and notice that they're connected to robin. You can move the vertices around by dragging and dropping, zoom in and out by scrolling the wheel of your mouse, and expand the size of the graph with the double-arrow. 
+2. In the **Results** list, notice three new users are added to the graph. You can move the vertices around by dragging and dropping, zoom in and out by scrolling the wheel of your mouse, and expand the size of the graph with the double-arrow. 
 
    ![New vertices in the graph in Data Explorer in the Azure portal](./media/create-graph-python/azure-cosmosdb-graph-explorer-new.png)
 
@@ -188,6 +188,7 @@ You can now go back to Data Explorer and see the vertices added to the graph, an
 
     key|value|Notes
     ----|----|----
+    pk|/pk| 
     id|ashley|The unique identifier for the vertex. If you don't specify an id, one is generated for you.
     gender|female| 
     tech | java | 
@@ -205,6 +206,7 @@ You can now go back to Data Explorer and see the vertices added to the graph, an
 
     key|value|Notes
     ----|----|----
+    pk|/pk| 
     id|rakesh|The unique identifier for the vertex. If you don't specify an id, one is generated for you.
     gender|male| 
     school|MIT| 

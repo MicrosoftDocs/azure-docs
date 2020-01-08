@@ -1,12 +1,10 @@
 ---
-title: Connect to SFTP server with SSH - Azure Logic Apps
+title: Connect to SFTP server with SSH
 description: Automate tasks that monitor, create, manage, send, and receive files for an SFTP server by using SSH and Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: divswa, klam, LADocs
+author: divyaswarnkar
+ms.reviewer: estfan, klam, logicappspm
 ms.topic: article
 ms.date: 06/18/2019
 tags: connectors
@@ -28,7 +26,7 @@ For differences between the SFTP-SSH connector and the SFTP connector, review th
 
 ## Limits
 
-* By default, SFTP-SSH actions can read or write files that are *1 GB or smaller* but only in *15 MB* chunks at a time. To handle files larger than 15 MB, SFTP-SSH actions support [message chunking](../logic-apps/logic-apps-handle-large-messages.md), except for the Copy File action, which can handle only 15 MB files. The **Get file content** action implicitly uses message chunking. 
+* By default, SFTP-SSH actions can read or write files that are *1 GB or smaller* but only in *15 MB* chunks at a time. To handle files larger than 15 MB, SFTP-SSH actions support [message chunking](../logic-apps/logic-apps-handle-large-messages.md), except for the Copy File action, which can handle only 15 MB files. The **Get file content** action implicitly uses message chunking.
 
 * SFTP-SSH triggers don't support chunking. When requesting file content, triggers select only files that are 15 MB or smaller. To get files larger than 15 MB, follow this pattern instead:
 
@@ -44,18 +42,9 @@ Here are other key differences between the SFTP-SSH connector and the SFTP conne
 
 * Uses the [SSH.NET library](https://github.com/sshnet/SSH.NET), which is an open-source Secure Shell (SSH) library that supports .NET.
 
-  > [!NOTE]
-  >
-  > The SFTP-SSH connector supports *only* these private keys, 
-  > formats, algorithms, and fingerprints:
-  >
-  > * **Private key formats**: RSA (Rivest Shamir Adleman) and 
-  > DSA (Digital Signature Algorithm) keys in both OpenSSH and ssh.com formats
-  > * **Encryption algorithms**: DES-EDE3-CBC, DES-EDE3-CFB, DES-CBC, 
-  > AES-128-CBC, AES-192-CBC, and AES-256-CBC
-  > * **Fingerprint**: MD5
+* By default, SFTP-SSH actions can read or write files that are *1 GB or smaller* but only in *15 MB* chunks at a time.
 
-* By default, SFTP-SSH actions can read or write files that are *1 GB or smaller* but only in *15 MB* chunks at a time. To handle files larger than 15 MB, SFTP-SSH actions can use [message chunking](../logic-apps/logic-apps-handle-large-messages.md). However, the Copy File action supports only 15 MB files because that action doesn't support message chunking. SFTP-SSH triggers don't support chunking.
+  To handle files larger than 15 MB, SFTP-SSH actions can use [message chunking](../logic-apps/logic-apps-handle-large-messages.md). However, the Copy File action supports only 15 MB files because that action doesn't support message chunking. SFTP-SSH triggers don't support chunking. To upload large files, you need both read and write permissions for the root folder on your SFTP server.
 
 * Provides the **Create folder** action, which creates a folder at the specified path on the SFTP server.
 
@@ -67,28 +56,24 @@ Here are other key differences between the SFTP-SSH connector and the SFTP conne
 
 * An Azure subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/).
 
-* Your SFTP server address and account credentials, which let your logic app access your SFTP account. You also need access to an SSH private key and the SSH private key password.
+* Your SFTP server address and account credentials, which let your logic app access your SFTP account. You also need access to an SSH private key and the SSH private key password. To use chunking when uploading large files, you need both read and write permissions for the root folder on your SFTP server. Otherwise, you get a "401 Unauthorized" error.
 
   > [!IMPORTANT]
   >
-  > The SFTP-SSH connector supports *only* these private 
-  > key formats, algorithms, and fingerprints:
+  > The SFTP-SSH connector supports *only* these private key formats, algorithms, and fingerprints:
   >
-  > * **Private key formats**: RSA (Rivest Shamir Adleman) and 
-  > DSA (Digital Signature Algorithm) keys in both OpenSSH and ssh.com formats
-  > * **Encryption algorithms**: DES-EDE3-CBC, DES-EDE3-CFB, DES-CBC, 
-  > AES-128-CBC, AES-192-CBC, and AES-256-CBC
+  > * **Private key formats**: RSA (Rivest Shamir Adleman) and DSA (Digital Signature Algorithm) keys in both OpenSSH and ssh.com formats. If your private key is in PuTTY (.ppk) file format, first [convert the key to the OpenSSH (.pem) file format](#convert-to-openssh).
+  >
+  > * **Encryption algorithms**: DES-EDE3-CBC, DES-EDE3-CFB, DES-CBC, AES-128-CBC, AES-192-CBC, and AES-256-CBC
+  >
   > * **Fingerprint**: MD5
   >
-  > When you're creating your logic app, after you add 
-  > the SFTP-SSH trigger or action you want, you'll need 
-  > to provide connection information for your SFTP server. 
-  > If you're using an SSH private key, make sure you 
-  > ***copy*** the key from your SSH private key file, 
-  > and ***paste*** that key into the connection details, 
-  > ***Don't manually enter or edit the key***, 
-  > which might cause the connection to fail. 
-  > For more information, see the later steps in this article.
+  > After you add the SFTP-SSH trigger or action you want to your logic app, 
+  > you have to provide connection information for your SFTP server. When you 
+  > provide your SSH private key for this connection, ***don't manually enter or edit the key***, 
+  > which might cause the connection to fail. Instead, make sure that you ***copy the key*** from 
+  > your SSH private key file, and ***paste*** that key into the connection details. 
+  > For more information, see the [Connect to SFTP with SSH](#connect) section later this article.
 
 * Basic knowledge about [how to create logic apps](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
@@ -105,6 +90,44 @@ SFTP-SSH triggers work by polling the SFTP file system and looking for any file 
 |||
 
 When a trigger finds a new file, the trigger checks that the new file is complete, and not partially written. For example, a file might have changes in progress when the trigger checks the file server. To avoid returning a partially written file, the trigger notes the timestamp for the file that has recent changes, but doesn't immediately return that file. The trigger returns the file only when polling the server again. Sometimes, this behavior might cause a delay that is up to twice the trigger's polling interval.
+
+<a name="convert-to-openssh"></a>
+
+## Convert PuTTY-based key to OpenSSH
+
+If your private key is in PuTTY format, which uses the .ppk (PuTTY Private Key) file name extension, first convert the key to the OpenSSH format, which uses the .pem (Privacy Enhanced Mail) file name extension.
+
+### Unix-based OS
+
+1. If the PuTTY tools aren't already installed on your system, do that now, for example:
+
+   `sudo apt-get install -y putty`
+
+1. Run this command, which creates a file that you can use with the SFTP-SSH connector:
+
+   `puttygen <path-to-private-key-file-in-PuTTY-format> -O private-openssh -o <path-to-private-key-file-in-OpenSSH-format>`
+
+   For example:
+
+   `puttygen /tmp/sftp/my-private-key-putty.ppk -O private-openssh -o /tmp/sftp/my-private-key-openssh.pem`
+
+### Windows OS
+
+1. If you haven't done so already, [download the latest PuTTY Generator (puttygen.exe) tool](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html), and then launch the tool.
+
+1. On this screen, select **Load**.
+
+   ![Select "Load"](./media/connectors-sftp-ssh/puttygen-load.png)
+
+1. Browse to your private key file in PuTTY format, and select **Open**.
+
+1. From the **Conversions** menu, select **Export OpenSSH key**.
+
+   ![Select "Export OpenSSH key"](./media/connectors-sftp-ssh/export-openssh-key.png)
+
+1. Save the private key file with the `.pem` file name extension.
+
+<a name="connect"></a>
 
 ## Connect to SFTP with SSH
 
@@ -124,11 +147,9 @@ When a trigger finds a new file, the trigger checks that the new file is complet
 
    > [!IMPORTANT]
    >
-   > When you enter your SSH private key in the 
-   > **SSH private key** property, follow these 
-   > additional steps, which help make sure you provide 
-   > the complete and correct value for this property. 
-   > An invalid key causes the connection to fail.
+   > When you enter your SSH private key in the **SSH private key** property, 
+   > follow these additional steps, which help make sure you provide the 
+   > complete and correct value for this property. An invalid key causes the connection to fail.
 
    Although you can use any text editor, here are sample steps that show how to correctly copy and paste your key by using Notepad.exe as an example.
 

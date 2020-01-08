@@ -100,6 +100,8 @@ To learn about the properties in the data object, see the event source:
 * [Media Services](../media-services/latest/media-services-event-schemas.md?toc=%2fazure%2fevent-grid%2ftoc.json)
 * [Resource groups (management operations)](event-schema-resource-groups.md)
 * [Service Bus](event-schema-service-bus.md)
+* [Azure SignalR](event-schema-azure-signalr.md)
+* [Azure Machine Learning](event-schema-machine-learning.md)
 
 For custom topics, the event publisher determines the data object. The top-level data should have the same fields as standard resource-defined events.
 

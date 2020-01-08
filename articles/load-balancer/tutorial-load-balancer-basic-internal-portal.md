@@ -1,10 +1,10 @@
 ---
 title: 'Tutorial: Create an internal load balancer - Azure portal'
-titlesuffix: Azure Load Balancer
+titleSuffix: Azure Load Balancer
 description: This tutorial shows you how to create an internal Basic load balancer by using the Azure portal.
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 manager: twooley
 Customer intent: As an IT administrator, I want to create a load balancer that load balances incoming internal traffic to virtual machines within a specific zone in a region. 
 ms.service: load-balancer
@@ -13,7 +13,7 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/27/2019
-ms.author: kumud
+ms.author: allensu
 ms.custom: seodec18
 ---
 
@@ -89,7 +89,7 @@ Create a Basic internal load balancer by using the portal. The name and IP addre
     | Subscription               | Select your subscription.    |    
     | Resource group         | Select **Create new** and type *MyResourceGroupLB* in the text box.|
     | Name                   | *myLoadBalancer*                                   |
-    | Region         | Select **West Europe**.                                        |
+    | Region         | Select **East US 2**.                                        |
     | Type          | Select **Internal**.                                        |
     | SKU           | Select **Basic**.                          |
     | Virtual network           | Select *MyVNet*.                          |    

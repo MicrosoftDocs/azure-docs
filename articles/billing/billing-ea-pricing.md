@@ -1,33 +1,29 @@
 ---
-title: View and download your organization's Azure pricing | Microsoft Docs
+title: View and download your organization's Azure pricing
 description: Learn how to view and download pricing or estimate costs with your organization's pricing.
-services: ''
-documentationcenter: ''
-author: adpick
+author: bandersmsft
 manager: jureid
-editor: ''
 tags: billing
-
-ms.service: billing
+ms.service: cost-management-billing
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/22/2019
+ms.date: 09/30/2019
 ms.author: banders
 ms.custom: seodec18
-
 ---
+
 # View and download your organization's Azure pricing
 
-Azure customers with an Enterprise Agreement (EA) or [Microsoft Customer Agreement](#check-your-access-to-a-microsoft-customer-agreement) may view and download their pricing from the Azure portal. If you have a Microsoft Customer Agreement, see View and download pricing for your Microsoft Customer Agreement.
+Azure customers with an Azure Enterprise Agreement (EA), Microsoft Customer Agreement (MCA), or Microsoft Partner Agreement (MPA) may view and download their pricing in the Azure portal. [Learn how to check your billing account type](#check-your-billing-account-type).
 
-## View and download EA pricing
+## Download pricing for an Enterprise Agreement
 
 Depending on the policies set for your organization by the Enterprise Admin, only certain administrative roles provide access to your organization's EA pricing information. For more information, see [Understand Azure Enterprise Agreement administrative roles in Azure](billing-understand-ea-roles.md).
 
-1. As an Enterprise Admin, sign in to the [Azure portal](https://portal.azure.com/).
-1. Search on **Cost Management + Billing**.
+1. As an Enterprise Admin, sign-in to the [Azure portal](https://portal.azure.com/).
+1. Search for *Cost Management + Billing*.
 
    ![Screenshot that shows Azure portal search](./media/billing-ea-pricing/portal-cm-billing-search.png)
 
@@ -36,37 +32,40 @@ Depending on the policies set for your organization by the Enterprise Admin, onl
    ![Screenshot that shows usage and charges under Billing](./media/billing-ea-pricing/ea-pricing-usage-charges-nav.png)
 
 1. Select ![Screenshot that shows Azure portal search](./media/billing-ea-pricing/download-icon.png) **Download** for the month.
+
 1. Under **Price Sheet**, select **Download csv**.
 
    ![Screenshot that shows the price sheet download csv button](./media/billing-ea-pricing/download-ea-price-sheet.png)
 
-## View and download pricing for your Microsoft Customer Agreement
+## Download pricing for an MCA or MPA account
 
-You must be the billing profile owner, contributor, reader, or invoice manager to view and download pricing. To learn more about billing roles for Microsoft Customer Agreements, see [Billing profile roles and tasks](billing-understand-mca-roles.md#billing-profile-roles-and-tasks).
-
-### Download price sheets for the current billing period
-
-1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Search on **Cost Management + Billing**.
-1. Select a billing profile. Depending on your access, you might need to select a billing account first.
-1. In the **Overview** blade, find the download links beneath the month-to-date charges.
-1. Select **Azure price sheet**.
-![Screenshot that shows download from Overview](./media/billing-ea-pricing/open-pricing.png)
+If you have an MCA, you must be the billing profile owner, contributor, reader, or invoice manager to view and download pricing. If you have an MPA, you must have the Global Admin and Admin Agent role in the partner organization to view and download pricing.
 
 ### Download price sheets for billed charges
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Search on **Cost Management + Billing**.
+1. Sign-in to the [Azure portal](https://portal.azure.com).
+1. Search for *Cost Management + Billing*.
 1. Select a billing profile. Depending on your access, you might need to select a billing account first.
 1. Select **Invoices**.
 1. In the invoice grid, find the row of the invoice corresponding to the price sheet you want to download.
-1. Click on the ellipsis (`...`) at the end of the row.
+1. Click the ellipsis (`...`) at the end of the row.
 ![Screenshot that shows the ellipsis selected](./media/billing-ea-pricing/billingprofile-invoicegrid.png)
 
 1. If you want to see prices for the services in the selected invoice, select **Invoice price sheet**.
 1. If you want to see prices for all Azure services for the given billing period, select **Azure price sheet**.
 
 ![Screenshot that shows context menu with price sheets](./media/billing-ea-pricing/contextmenu-pricesheet.png)
+
+### Download price sheets for the current billing period
+
+If you have an MCA, you can download pricing for the current billing period.
+
+1. Sign-in to the [Azure portal](https://portal.azure.com).
+1. Search for *Cost Management + Billing*.
+1. Select a billing profile. Depending on your access, you might need to select a billing account first.
+1. In the **Overview** area, find the download links beneath the month-to-date charges.
+1. Select **Azure price sheet**.
+![Screenshot that shows download from Overview](./media/billing-ea-pricing/open-pricing.png)
 
 ## Estimate costs with the Azure pricing calculator
 
@@ -81,11 +80,11 @@ You may also use your organization’s pricing to estimate costs with the Azure 
 
 1. Choose the organization.
 1. Select **Apply**.
-1. Search and add products to your estimate.
+1. Search for and then add products to your estimate.
 1. Estimated prices shown are based on pricing for the organization you selected.
 
-## Check your access to a Microsoft Customer Agreement
-[!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]
+## Check your billing account type
+[!INCLUDE [billing-check-account-type](../../includes/billing-check-account-type.md)]
 
 ## Next steps
 

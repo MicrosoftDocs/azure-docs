@@ -1,51 +1,50 @@
 ---
-title: 'PowerShell Quickstart: Create, load, and query indexes using Azure Search REST APIs - Azure Search'
-description: Explains how to create an index, load data, and run queries using PowerShell's Invoke-RestMethod and the Azure Search REST API.
+title: 'Quickstart: Create a search index in PowerShell using REST APIs'
+titleSuffix: Azure Cognitive Search
+description: In this REST API quickstart, learn how to create an index, load data, and run queries using PowerShell's Invoke-RestMethod and the Azure Cognitive Search REST API.
 
-ms.date: 06/10/2019
+manager: nitinme
 author: heidisteen
-manager: cgronlun
 ms.author: heidist
-services: search
-ms.service: search
+ms.service: cognitive-search
+ms.topic: quickstart
 ms.devlang: rest-api
-ms.topic: conceptual
-ms.custom: seodec2018
+ms.date: 11/04/2019
 ---
-# Quickstart: Create an Azure Search index in PowerShell using REST APIs
+# Quickstart: Create an Azure Cognitive Search index in PowerShell using REST APIs
 > [!div class="op_single_selector"]
 > * [PowerShell (REST)](search-create-index-rest-api.md)
 > * [C#](search-create-index-dotnet.md)
-> * [Postman (REST)](search-fiddler.md)
+> * [Postman (REST)](search-get-started-postman.md)
 > * [Python](search-get-started-python.md)
 > * [Portal](search-create-index-portal.md)
 > 
 
-This article walks you through the process of creating, loading, and querying an Azure Search index using PowerShell and the [Azure Search REST APIs](https://docs.microsoft.com/rest/api/searchservice/). This article explains how to run PowerShell commands interactively. Alternatively, you could run a finished script. To download a copy, go to the [azure-search-powershell-samples](https://github.com/Azure-Samples/azure-search-powershell-samples/tree/master/Quickstart) repo.
+This article walks you through the process of creating, loading, and querying an Azure Cognitive Search index using PowerShell and the [Azure Cognitive Search REST APIs](https://docs.microsoft.com/rest/api/searchservice/). This article explains how to run PowerShell commands interactively. Alternatively, you can [download and run a Powershell script](https://github.com/Azure-Samples/azure-search-powershell-samples/tree/master/Quickstart) that performs the same operations.
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin and then [sign up for Azure Search](search-create-service-portal.md).
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prerequisites
 
-The following services and tools are used in this quickstart. 
+The following services and tools are required for this quickstart. 
 
 + [PowerShell 5.1 or later](https://github.com/PowerShell/PowerShell), using [Invoke-RestMethod](https://docs.microsoft.com/powershell/module/Microsoft.PowerShell.Utility/Invoke-RestMethod) for sequential and interactive steps.
 
-+ [Create an Azure Search service](search-create-service-portal.md) or [find an existing service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this quickstart. 
++ [Create an Azure Cognitive Search service](search-create-service-portal.md) or [find an existing service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this quickstart. 
 
 ## Get a key and URL
 
-REST calls require the service URL and an access key on every request. A search service is created with both, so if you added Azure Search to your subscription, follow these steps to get the necessary information:
+REST calls require the service URL and an access key on every request. A search service is created with both, so if you added Azure Cognitive Search to your subscription, follow these steps to get the necessary information:
 
 1. [Sign in to the Azure portal](https://portal.azure.com/), and in your search service **Overview** page, get the URL. An example endpoint might look like `https://mydemo.search.windows.net`.
 
 2. In **Settings** > **Keys**, get an admin key for full rights on the service. There are two interchangeable admin keys, provided for business continuity in case you need to roll one over. You can use either the primary or secondary key on requests for adding, modifying, and deleting objects.
 
-![Get an HTTP endpoint and access key](media/search-fiddler/get-url-key.png "Get an HTTP endpoint and access key")
+![Get an HTTP endpoint and access key](media/search-get-started-postman/get-url-key.png "Get an HTTP endpoint and access key")
 
 All requests require an api-key on every request sent to your service. Having a valid key establishes trust, on a per request basis, between the application sending the request and the service that handles it.
 
-## Connect to Azure Search
+## Connect to Azure Cognitive Search
 
 1. In PowerShell, create a **$headers** object to store the content-type and API key. Replace the admin API key (YOUR-ADMIN-API-KEY) with a key that is valid for your search service. You only have to set this header once for the duration of the session, but you will add it to every request. 
 
@@ -59,7 +58,7 @@ All requests require an api-key on every request sent to your service. Having a 
 2. Create a **$url** object that specifies the service's indexes collection. Replace the service name (YOUR-SEARCH-SERVICE-NAME) with a valid search service.
 
     ```powershell
-    $url = "https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes?api-version=2019-05-06"
+    $url = "https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes?api-version=2019-05-06&$select=name"
     ```
 
 3. Run **Invoke-RestMethod** to send a GET request to the service and verify the connection. Add **ConvertTo-Json** so that you can view the responses sent back from the service.
@@ -319,7 +318,7 @@ Be sure to use single quotes on search $urls. Query strings include **$** charac
 
 1. Set the endpoint to the *hotels-quickstart* docs collection and add a **search** parameter to pass in a query string. 
   
-   This string executes an empty search (search=*), returning an unranked list (search score  = 1.0) of arbitrary documents. By default, Azure Search returns 50 matches at a time. As structured, this query returns an entire document structure and values. Add **$count=true** to get a count of all documents in the results.
+   This string executes an empty search (search=*), returning an unranked list (search score  = 1.0) of arbitrary documents. By default, Azure Cognitive Search returns 50 matches at a time. As structured, this query returns an entire document structure and values. Add **$count=true** to get a count of all documents in the results.
 
     ```powershell
     $url = 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?api-version=2019-05-06&search=*&$count=true'
@@ -387,21 +386,17 @@ $url = 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quicksta
 
 $url = 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?api-version=2019-05-06&search=pool&$orderby=Address/City asc&$select=HotelName, Address/City, Tags, Rating'
 ```
-## Clean up 
+## Clean up resources
 
-You should delete the index if you no longer need it. A free service is limited to three indexes. You might want to delete any indexes you are not actively using so that you can step through other tutorials.
+When you're working in your own subscription, it's a good idea at the end of a project to identify whether you still need the resources you created. Resources left running can cost you money. You can delete resources individually or delete the resource group to delete the entire set of resources.
 
-```powershell
-# Set the URI to the hotel index
-$url = 'https://mydemo.search.windows.net/indexes/hotels-quickstart?api-version=2019-05-06'
+You can find and manage resources in the portal, using the **All resources** or **Resource groups** link in the left-navigation pane.
 
-# Delete the index
-Invoke-RestMethod -Uri $url -Headers $headers -Method Delete
-```
+If you are using a free service, remember that you are limited to three indexes, indexers, and data sources. You can delete individual items in the portal to stay under the limit. 
 
 ## Next steps
 
-In this quickstart, you used PowerShell to  step through the basic workflow for creating and accessing content in Azure Search. With the concepts in mind, we recommend moving on to more advanced scenarios, such as indexing from Azure data sources;
+In this quickstart, you used PowerShell to  step through the basic workflow for creating and accessing content in Azure Cognitive Search. With the concepts in mind, we recommend moving on to more advanced scenarios, such as indexing from Azure data sources;
 
 > [!div class="nextstepaction"]
-> [REST Tutorial: Index and search semi-structured data (JSON blobs) in Azure Search](search-semi-structured-data.md)
+> [REST Tutorial: Index and search semi-structured data (JSON blobs) in Azure Cognitive Search](search-semi-structured-data.md)

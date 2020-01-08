@@ -2,12 +2,12 @@
 title: Concepts - Networking in Azure Kubernetes Services (AKS)
 description: Learn about networking in Azure Kubernetes Service (AKS), including kubenet and Azure CNI networking, ingress controllers, load balancers, and static IP addresses.
 services: container-service
-author: iainfoulds
+author: mlearned 
 
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
-ms.author: iainfou
+ms.author: mlearned
 ---
 
 # Network concepts for applications in Azure Kubernetes Service (AKS)
@@ -25,7 +25,7 @@ This article introduces the core concepts that provide networking to your applic
 
 To allow access to your applications, or for application components to communicate with each other, Kubernetes provides an abstraction layer to virtual networking. Kubernetes nodes are connected to a virtual network, and can provide inbound and outbound connectivity for pods. The *kube-proxy* component runs on each node to provide these network features.
 
-In Kubernetes, *Services* logically group pods to allow for direct access via an IP address or DNS name and on a specific port. You can also distribute traffic using a *load balancer*. More complex routing of application traffic can also be achieved with *Ingress Controllers*. Security and filtering of the network traffic for pods is possible with Kubernetes *network policies* (in preview in AKS).
+In Kubernetes, *Services* logically group pods to allow for direct access via an IP address or DNS name and on a specific port. You can also distribute traffic using a *load balancer*. More complex routing of application traffic can also be achieved with *Ingress Controllers*. Security and filtering of the network traffic for pods is possible with Kubernetes *network policies*.
 
 The Azure platform also helps to simplify virtual networking for AKS clusters. When you create a Kubernetes load balancer, the underlying Azure load balancer resource is created and configured. As you open network ports to pods, the corresponding Azure network security group rules are configured. For HTTP application routing, Azure can also configure *external DNS* as new ingress routes are configured.
 
@@ -51,7 +51,7 @@ To simplify the network configuration for application workloads, Kubernetes uses
 
 The IP address for load balancers and services can be dynamically assigned, or you can specify an existing static IP address to use. Both internal and external static IP addresses can be assigned. This existing static IP address is often tied to a DNS entry.
 
-Both *internal* and *external* load balancers can be created. Internal load balancers are only assigned a private IP address, so can't be accessed from the Internet.
+Both *internal* and *external* load balancers can be created. Internal load balancers are only assigned a private IP address, so they can't be accessed from the Internet.
 
 ## Azure virtual networks
 
@@ -88,7 +88,7 @@ Both kubenet and Azure CNI provide network connectivity for your AKS clusters. H
     * You must manually manage and maintain user-defined routes (UDRs).
     * Maximum of 400 nodes per cluster.
 * **Azure CNI**
-    * Pods get full virtual network connectivity and can be directly reached from outside of the cluster.
+    * Pods get full virtual network connectivity and can be directly reached via their private IP address from connected networks.
     * Requires more IP address space.
 
 The following behavior differences exist between kubenet and Azure CNI:

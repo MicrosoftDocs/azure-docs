@@ -1,20 +1,19 @@
 ---
 title: Understand outputs from Azure Stream Analytics
 description: This article describes data output options available in Azure Stream Analytics, including Power BI for analysis results.
-services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 05/31/2019
+ms.date: 10/8/2019
 ---
 
 # Understand outputs from Azure Stream Analytics
 
 This article describes the types of outputs available for an Azure Stream Analytics job. Outputs let you store and save the results of the Stream Analytics job. By using the output data, you can do further business analytics and data warehousing of your data.
 
-When you design your Stream Analytics query, refer to the name of the output by using the [INTO clause](https://msdn.microsoft.com/azure/stream-analytics/reference/into-azure-stream-analytics). You can use a single output per job, or multiple outputs per streaming job (if you need them) by providing multiple INTO clauses in the query.
+When you design your Stream Analytics query, refer to the name of the output by using the [INTO clause](https://docs.microsoft.com/stream-analytics-query/into-azure-stream-analytics). You can use a single output per job, or multiple outputs per streaming job (if you need them) by providing multiple INTO clauses in the query.
 
 To create, edit, and test Stream Analytics job outputs, you can use the [Azure portal](stream-analytics-quick-create-portal.md#configure-job-output), [Azure PowerShell](stream-analytics-quick-create-powershell.md#configure-output-to-the-job), [.NET API](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.streamanalytics.ioutputsoperations?view=azure-dotnet), [REST API](https://docs.microsoft.com/rest/api/streamanalytics/stream-analytics-output), and [Visual Studio](stream-analytics-quick-create-vs.md).
 
@@ -47,27 +46,28 @@ The following table lists property names and their descriptions to configure you
 
 You can use [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) as an output for data that's relational in nature or for applications that depend on content being hosted in a relational database. Stream Analytics jobs write to an existing table in SQL Database. The table schema must exactly match the fields and their types in your job's output. You can also specify [Azure SQL Data Warehouse](https://azure.microsoft.com/documentation/services/sql-data-warehouse/) as an output via the SQL Database output option. To learn about ways to improve write throughput, see the [Stream Analytics with Azure SQL Database as output](stream-analytics-sql-output-perf.md) article.
 
+You can also use [Azure SQL Database Managed Instance](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance) as an output. You have to [configure public endpoint in Azure SQL Database Managed Instance](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-configure) and then manually configure the following settings in Azure Stream Analytics. Azure virtual machine running SQL Server with a database attached is also supported by manually configuring the settings below.
+
 The following table lists the property names and their description for creating a SQL Database output.
 
 | Property name | Description |
 | --- | --- |
 | Output alias |A friendly name used in queries to direct the query output to this database. |
 | Database | The name of the database where you're sending your output. |
-| Server name | The SQL Database server name. |
+| Server name | The SQL Database server name. For Azure SQL Database Managed Instance, it is required to specify the port 3342. For example, *sampleserver.public.database.windows.net,3342* |
 | Username | The username that has write access to the database. Stream Analytics supports only SQL authentication. |
 | Password | The password to connect to the database. |
 | Table | The table name where the output is written. The table name is case-sensitive. The schema of this table should exactly match the number of fields and their types that your job output generates. |
 |Inherit partition scheme| An option for inheriting the partitioning scheme of your previous query step, to enable fully parallel topology with multiple writers to the table. For more information, see [Azure Stream Analytics output to Azure SQL Database](stream-analytics-sql-output-perf.md).|
 |Max batch count| The recommended upper limit on the number of records sent with every bulk insert transaction.|
 
-> [!NOTE]
-> The Azure SQL Database offering is supported for a job output in Stream Analytics, but an Azure virtual machine running SQL Server with a database attached or in a SQL Azure Managed Instance is not supported yet. This is subject to change in future releases.
+## Blob storage and Azure Data Lake Gen2
 
-## Blob storage
+Data Lake Storage Gen2 makes Azure Storage the foundation for building enterprise data lakes on Azure. Designed from the start to service multiple petabytes of information while sustaining hundreds of gigabits of throughput, Data Lake Storage Gen2 allows you to easily manage massive amounts of data.A fundamental part of Data Lake Storage Gen2 is the addition of a hierarchical namespace to Blob storage.
 
 Azure Blob storage offers a cost-effective and scalable solution for storing large amounts of unstructured data in the cloud. For an introduction on Blob storage and its usage, see [Upload, download, and list blobs with the Azure portal](../storage/blobs/storage-quickstart-blobs-portal.md).
 
-The following table lists the property names and their descriptions for creating a blob output.
+The following table lists the property names and their descriptions for creating a blob or ADLS Gen2 output.
 
 | Property name       | Description                                                                      |
 | ------------------- | ---------------------------------------------------------------------------------|
@@ -78,7 +78,9 @@ The following table lists the property names and their descriptions for creating
 | Path pattern | Optional. The file path pattern that's used to write your blobs within the specified container. <br /><br /> In the path pattern, you can choose to use one or more instances of the date and time variables to specify the frequency that blobs are written: <br /> {date}, {time} <br /><br />You can use custom blob partitioning to specify one custom {field} name from your event data to partition blobs. The field name is alphanumeric and can include spaces, hyphens, and underscores. Restrictions on custom fields include the following: <ul><li>Field names aren't case-sensitive. For example, the service can't differentiate between column "ID" and column "id."</li><li>Nested fields are not permitted. Instead, use an alias in the job query to "flatten" the field.</li><li>Expressions can't be used as a field name.</li></ul> <br />This feature enables the use of custom date/time format specifier configurations in the path. Custom date and time formats must be specified one at a time, enclosed by the {datetime:\<specifier>} keyword. Allowable inputs for \<specifier> are yyyy, MM, M, dd, d, HH, H, mm, m, ss, or s. The {datetime:\<specifier>} keyword can be used multiple times in the path to form custom date/time configurations. <br /><br />Examples: <ul><li>Example 1: cluster1/logs/{date}/{time}</li><li>Example 2: cluster1/logs/{date}</li><li>Example 3: cluster1/{client_id}/{date}/{time}</li><li>Example 4: cluster1/{datetime:ss}/{myField} where the query is: SELECT data.myField AS myField FROM Input;</li><li>Example 5: cluster1/year={datetime:yyyy}/month={datetime:MM}/day={datetime:dd}</ul><br />The time stamp of the created folder structure follows UTC and not local time.<br /><br />File naming uses the following convention: <br /><br />{Path Prefix Pattern}/schemaHashcode_Guid_Number.extension<br /><br />Example output files:<ul><li>Myoutput/20170901/00/45434_gguid_1.csv</li>  <li>Myoutput/20170901/01/45434_gguid_1.csv</li></ul> <br />For more information about this feature, see [Azure Stream Analytics custom blob output partitioning](stream-analytics-custom-path-patterns-blob-storage-output.md). |
 | Date format | Optional. If the date token is used in the prefix path, you can select the date format in which your files are organized. Example: YYYY/MM/DD |
 | Time format | Optional. If the time token is used in the prefix path, specify the time format in which your files are organized. Currently the only supported value is HH. |
-| Event serialization format | Serialization format for output data. JSON, CSV, and Avro are supported. |
+| Event serialization format | Serialization format for output data. JSON, CSV, Avro, and Parquet are supported. |
+|Minimum  rows (Parquet only)|The number of minimum rows per batch. For Parquet, every batch will create a new file. The current default value is 2,000 rows and the allowed maximum is 10,000 rows.|
+|Maximum time (Parquet only)|The maximum wait time per batch. After this time, the batch will be written to the output even if the minimum rows requirement is not met. The current default value is 1 minute and the allowed maximum is 2 hours. If your blob output has path pattern frequency, the wait time cannot be higher than the partition time range.|
 | Encoding    | If you're using CSV or JSON format, an encoding must be specified. UTF-8 is the only supported encoding format at this time. |
 | Delimiter   | Applicable only for CSV serialization. Stream Analytics supports a number of common delimiters for serializing CSV data. Supported values are comma, semicolon, space, tab, and vertical bar. |
 | Format      | Applicable only for JSON serialization. **Line separated** specifies that the output is formatted by having each JSON object separated by a new line. **Array** specifies that the output is formatted as an array of JSON objects. This array is closed only when the job stops or Stream Analytics has moved on to the next time window. In general, it's preferable to use line-separated JSON, because it doesn't require any special handling while the output file is still being written to. |
@@ -96,7 +98,7 @@ When you're using Blob storage as output, a new file is created in the blob in t
 
 ## Event Hubs
 
-The [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) service is a highly scalable publish-subscribe event ingestor. It can collect millions of events per second. One use of an event hub as output is when the output of a Stream Analytics job becomes the input of another streaming job.
+The [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) service is a highly scalable publish-subscribe event ingestor. It can collect millions of events per second. One use of an event hub as output is when the output of a Stream Analytics job becomes the input of another streaming job. For information about the maximum message size and batch size optimization, see the [output batch size](#output-batch-size) section.
 
 You need a few parameters to configure data streams from event hubs as an output.
 
@@ -111,8 +113,8 @@ You need a few parameters to configure data streams from event hubs as an output
 | Event serialization format | The serialization format for output data. JSON, CSV, and Avro are supported. |
 | Encoding | For CSV and JSON, UTF-8 is the only supported encoding format at this time. |
 | Delimiter | Applicable only for CSV serialization. Stream Analytics supports a number of common delimiters for serializing data in CSV format. Supported values are comma, semicolon, space, tab, and vertical bar. |
-| Format | Applicable only for JSON serialization. **Line separated** specifies that the output is formatted by having each JSON object separated by a new line. **Array** specifies that the output is formatted as an array of JSON objects. This array is closed only when the job stops or Stream Analytics has moved on to the next time window. In general, it's preferable to use line-separated JSON, because it doesn't require any special handling while the output file is still being written to. |
-| Property columns | Optional. Comma-separated columns that need to be attached as user properties of the outgoing message instead of the payload. More info about this feature is in the section [Custom metadata properties for output](#custom-metadata-properties-for-output). |
+| Format | Applicable only for JSON serialization. **Line separated** specifies that the output is formatted by having each JSON object separated by a new line. **Array** specifies that the output is formatted as an array of JSON objects.  |
+| Property columns | Optional. Comma-separated columns that need to be attached as user properties of the outgoing message instead of the payload. More information about this feature is in the section [Custom metadata properties for output](#custom-metadata-properties-for-output). |
 
 ## Power BI
 
@@ -144,7 +146,7 @@ Power BI uses the first-in, first-out (FIFO) retention policy. Data will collect
 ### Convert a data type from Stream Analytics to Power BI
 Azure Stream Analytics updates the data model dynamically at runtime if the output schema changes. Column name changes, column type changes, and the addition or removal of columns are all tracked.
 
-This table covers the data type conversions from [Stream Analytics data types](https://msdn.microsoft.com/library/azure/dn835065.aspx) to Power BI [Entity Data Model (EDM) types](https://docs.microsoft.com/dotnet/framework/data/adonet/entity-data-model), if a Power BI dataset and table don't exist.
+This table covers the data type conversions from [Stream Analytics data types](https://docs.microsoft.com/stream-analytics-query/data-types-azure-stream-analytics) to Power BI [Entity Data Model (EDM) types](https://docs.microsoft.com/dotnet/framework/data/adonet/entity-data-model), if a Power BI dataset and table don't exist.
 
 From Stream Analytics | To Power BI
 -----|-----
@@ -200,7 +202,8 @@ The following table lists the property names and their descriptions for creating
 | Encoding |For CSV and JSON, UTF-8 is the only supported encoding format at this time. |
 | Delimiter |Applicable only for CSV serialization. Stream Analytics supports a number of common delimiters for serializing data in CSV format. Supported values are comma, semicolon, space, tab, and vertical bar. |
 | Format |Applicable only for JSON type. **Line separated** specifies that the output is formatted by having each JSON object separated by a new line. **Array** specifies that the output is formatted as an array of JSON objects. |
-| Property columns | Optional. Comma-separated columns that need to be attached as user properties of the outgoing message instead of the payload. More info about this feature is in the section [Custom metadata properties for output](#custom-metadata-properties-for-output). |
+| Property columns | Optional. Comma-separated columns that need to be attached as user properties of the outgoing message instead of the payload. More information about this feature is in the section [Custom metadata properties for output](#custom-metadata-properties-for-output). |
+| System Property columns | Optional. Key value pairs of System Properties and corresponding column names that need to be attached to the outgoing message instead of the payload. More information about this feature is in the section [System properties for Service Bus Queue and Topic outputs](#system-properties-for-service-bus-queue-and-topic-outputs)  |
 
 The number of partitions is [based on the Service Bus SKU and size](../service-bus-messaging/service-bus-partitioning.md). Partition key is a unique integer value for each partition.
 
@@ -219,7 +222,8 @@ The following table lists the property names and their descriptions for creating
 | Event serialization format |The serialization format for output data. JSON, CSV, and Avro are supported. |
 | Encoding |If you're using CSV or JSON format, an encoding must be specified. UTF-8 is the only supported encoding format at this time. |
 | Delimiter |Applicable only for CSV serialization. Stream Analytics supports a number of common delimiters for serializing data in CSV format. Supported values are comma, semicolon, space, tab, and vertical bar. |
-| Property columns | Optional. Comma-separated columns that need to be attached as user properties of the outgoing message instead of the payload. More info about this feature is in the section [Custom metadata properties for output](#custom-metadata-properties-for-output). |
+| Property columns | Optional. Comma-separated columns that need to be attached as user properties of the outgoing message instead of the payload. More information about this feature is in the section [Custom metadata properties for output](#custom-metadata-properties-for-output). |
+| System Property columns | Optional. Key value pairs of System Properties and corresponding column names that need to be attached to the outgoing message instead of the payload. More information about this feature is in the section [System properties for Service Bus Queue and Topic outputs](#system-properties-for-service-bus-queue-and-topic-outputs) |
 
 The number of partitions is [based on the Service Bus SKU and size](../service-bus-messaging/service-bus-partitioning.md). The partition key is a unique integer value for each partition.
 
@@ -262,6 +266,9 @@ Azure Stream Analytics invokes Azure Functions via HTTP triggers. The Azure Func
 
 When Azure Stream Analytics receives a 413 ("http Request Entity Too Large") exception from an Azure function, it reduces the size of the batches that it sends to Azure Functions. In your Azure function code, use this exception to make sure that Azure Stream Analytics doesn’t send oversized batches. Also, make sure that the maximum batch count and size values used in the function are consistent with the values entered in the Stream Analytics portal.
 
+> [!NOTE]
+> During test connection, Stream Analytics sends an empty batch to Azure Functions to test if the connection between the two works. Make sure that your Functions app handles empty batch requests to make sure test connection passes.
+
 Also, in a situation where there's no event landing in a time window, no output is generated. As a result, the **computeResult** function isn't called. This behavior is consistent with the built-in windowed aggregate functions.
 
 ## Custom metadata properties for output 
@@ -283,6 +290,27 @@ The following screenshot shows output message properties inspected in EventHub t
 
 ![Event custom properties](./media/stream-analytics-define-outputs/09-stream-analytics-custom-properties.png)
 
+## System properties for Service Bus Queue and Topic outputs 
+You can attach query columns as [system properties](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azure-dotnet#properties) to your outgoing service bus Queue or Topic messages. 
+These columns don't go into the payload instead the corresponding BrokeredMessage [system property](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azure-dotnet#properties) is populated with the query column values.
+These system properties are supported - `MessageId, ContentType, Label, PartitionKey, ReplyTo, SessionId, CorrelationId, To, ForcePersistence, TimeToLive, ScheduledEnqueueTimeUtc`.
+String values of these columns are parsed as corresponding system property value type and any parsing failures are treated as data errors.
+This field is provided as a JSON object format. Details about this format are as follows -
+* Surrounded by curly braces {}.
+* Written in key/value pairs.
+* Keys and values must be strings.
+* Key is the system property name and value is the query column name.
+* Keys and values are separated by a colon.
+* Each key/value pair is separated by a comma.
+
+This shows how to use this property –
+
+* Query: `select *, column1, column2 INTO queueOutput FROM iotHubInput`
+* System Property Columns:
+`{ "MessageId": "column1", "PartitionKey": "column2"}`
+
+This sets the `MessageId` on service bus queue messages with `column1`'s values and PartitionKey is set with `column2`'s values.
+
 ## Partitioning
 
 The following table summarizes the partition support and the number of output writers for each output type:
@@ -298,7 +326,7 @@ The following table summarizes the partition support and the number of output wr
 | Azure Service Bus topic | Yes | Automatically chosen. The number of partitions is based on the [Service Bus SKU and size](../service-bus-messaging/service-bus-partitioning.md). The partition key is a unique integer value for each partition.| Same as the number of partitions in the output topic.  |
 | Azure Service Bus queue | Yes | Automatically chosen. The number of partitions is based on the [Service Bus SKU and size](../service-bus-messaging/service-bus-partitioning.md). The partition key is a unique integer value for each partition.| Same as the number of partitions in the output queue. |
 | Azure Cosmos DB | Yes | Based on the PARTITION BY clause in the query. | Follows the input partitioning for [fully parallelized queries](stream-analytics-scale-jobs.md). |
-| Azure Functions | No | None | Not applicable. |
+| Azure Functions | Yes | Based on the PARTITION BY clause in the query. | Follows the input partitioning for [fully parallelized queries](stream-analytics-scale-jobs.md). |
 
 The number of output writers can also be controlled using `INTO <partition count>` (see [INTO](https://docs.microsoft.com/stream-analytics-query/into-azure-stream-analytics#into-shard-count)) clause in your query, which can be helpful in achieving a desired job topology. If your output adapter is not partitioned, lack of data in one input partition will cause a delay up to the late arrival amount of time. In such cases, the output is merged to a single writer, which might cause bottlenecks in your pipeline. To learn more about late arrival policy, see [Azure Stream Analytics event order considerations](stream-analytics-out-of-order-and-late-events.md).
 
@@ -309,15 +337,15 @@ The following table explains some of the considerations for output batching:
 
 | Output type |	Max message size | Batch size optimization |
 | :--- | :--- | :--- |
-| Azure Data Lake Store | See [Data Lake Storage limits](../azure-subscription-service-limits.md#data-lake-store-limits). | Use up to 4 MB per write operation. |
+| Azure Data Lake Store | See [Data Lake Storage limits](../azure-resource-manager/management/azure-subscription-service-limits.md#data-lake-store-limits). | Use up to 4 MB per write operation. |
 | Azure SQL Database | Configurable using Max batch count. 10,000 maximum and 100 minimum rows per single bulk insert by default.<br />See [Azure SQL limits](../sql-database/sql-database-resource-limits.md). |  Every batch is initially bulk inserted with maximum batch count. Batch is split in half (until minimum batch count) based on retryable errors from SQL. |
-| Azure Blob storage | See [Azure Storage limits](../azure-subscription-service-limits.md#storage-limits). | The maximum blob block size is 4 MB.<br />The maximum blob bock count is 50,000. |
+| Azure Blob storage | See [Azure Storage limits](../azure-resource-manager/management/azure-subscription-service-limits.md#storage-limits). | The maximum blob block size is 4 MB.<br />The maximum blob bock count is 50,000. |
 | Azure Event Hubs	| 256 KB or 1 MB per message. <br />See [Event Hubs limits](../event-hubs/event-hubs-quotas.md). |	When input/output partitioning isn't aligned, each event is packed individually in `EventData` and sent in a batch of up to the maximum message size. This also happens if [custom metadata properties](#custom-metadata-properties-for-output) are used. <br /><br />  When input/output partitioning is aligned, multiple events are packed into a single `EventData` instance, up to the maximum message size, and sent.	|
 | Power BI | See [Power BI Rest API limits](https://msdn.microsoft.com/library/dn950053.aspx). |
-| Azure Table storage | See [Azure Storage limits](../azure-subscription-service-limits.md#storage-limits). | The default is 100 entities per single transaction. You can configure it to a smaller value as needed. |
+| Azure Table storage | See [Azure Storage limits](../azure-resource-manager/management/azure-subscription-service-limits.md#storage-limits). | The default is 100 entities per single transaction. You can configure it to a smaller value as needed. |
 | Azure Service Bus queue	| 256 KB per message for Standard tier, 1MB for Premium tier.<br /> See [Service Bus limits](../service-bus-messaging/service-bus-quotas.md). | Use a single event per message. |
 | Azure Service Bus topic | 256 KB per message for Standard tier, 1MB for Premium tier.<br /> See [Service Bus limits](../service-bus-messaging/service-bus-quotas.md). | Use a single event per message. |
-| Azure Cosmos DB	| See [Azure Cosmos DB limits](../azure-subscription-service-limits.md#azure-cosmos-db-limits). | Batch size and write frequency are adjusted dynamically based on Azure Cosmos DB responses. <br /> There are no predetermined limitations from Stream Analytics. |
+| Azure Cosmos DB	| See [Azure Cosmos DB limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-cosmos-db-limits). | Batch size and write frequency are adjusted dynamically based on Azure Cosmos DB responses. <br /> There are no predetermined limitations from Stream Analytics. |
 | Azure Functions	| | The default batch size is 262,144 bytes (256 KB). <br /> The default event count per batch is 100. <br /> The batch size is configurable and can be increased or decreased in the Stream Analytics [output options](#azure-functions).
 
 ## Next steps

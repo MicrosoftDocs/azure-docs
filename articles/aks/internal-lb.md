@@ -2,12 +2,12 @@
 title: Create an internal load balancer in Azure Kubernetes Service (AKS)
 description: Learn how to create and use an internal load balancer to expose your services with Azure Kubernetes Service (AKS).
 services: container-service
-author: iainfoulds
+author: mlearned
 
 ms.service: container-service
 ms.topic: article
 ms.date: 03/04/2019
-ms.author: iainfou
+ms.author: mlearned
 
 #Customer intent: As a cluster operator or developer, I want to learn how to create a service in AKS that uses an internal Azure load balancer for enhanced security and without an external endpoint.
 ---
@@ -17,7 +17,7 @@ ms.author: iainfou
 To restrict access to your applications in Azure Kubernetes Service (AKS), you can create and use an internal load balancer. An internal load balancer makes a Kubernetes service accessible only to applications running in the same virtual network as the Kubernetes cluster. This article shows you how to create and use an internal load balancer with Azure Kubernetes Service (AKS).
 
 > [!NOTE]
-> Azure Load Balancer is available in two SKUs - *Basic* and *Standard*. By default, the *Basic* SKU is used when a service manifest is used to create a load balancer on AKS. For more information, see [Azure load balancer SKU comparison][azure-lb-comparison].
+> Azure Load Balancer is available in two SKUs - *Basic* and *Standard*. By default, the Standard SKU is used when you create an AKS cluster.  When creating a Service with type as LoadBalancer, you will get the same LB type as when you provision the cluster. For more information, see [Azure load balancer SKU comparison][azure-lb-comparison].
 
 ## Before you begin
 

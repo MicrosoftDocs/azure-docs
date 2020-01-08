@@ -8,7 +8,7 @@ ms.assetid: 4b7720c1-699e-432b-9246-6e49fb77f497
 ms.service: azure-government
 ms.topic: article
 ms.workload: azure-government
-ms.date: 04/22/2019
+ms.date: 12/11/2019
 ms.author: gsacavdm
 
 ---
@@ -135,13 +135,34 @@ For more information on using PowerShell, see [public documentation](https://doc
 Metrics are generally available in Azure Government. However, multi-dimensional metrics are supported only via the REST API. The ability to [show multi-dimensional metrics](../azure-monitor/platform/metrics-charts.md) is in preview in the Azure Government portal.
 
 #### Metric Alerts
-The first generation of metrics alerts is generally available in both Azure Government and commercial Azure. The first generation is called *Alerts (Classic)*.  The second generation of metric alerts (also called the [unified alerts experience](../azure-monitor/platform/alerts-overview.md)) is now also available, but with a reduced set of resource providers [compared to the public cloud](../azure-monitor/platform/alerts-metric-near-real-time.md). More will be added over time. 
+The first generation of metrics alerts is generally available in both Azure Government and commercial Azure. The first generation is called *Alerts (Classic)*. The second generation of metric alerts (also called the [unified alerts experience](../azure-monitor/platform/alerts-overview.md)) is now also available, but with a reduced set of resource providers [compared to the public cloud](../azure-monitor/platform/alerts-metric-near-real-time.md). More will be added over time. 
 
 The resources currently supported in the second generation alerts experience are:
+- Microsoft.ApiManagement/service
 - Microsoft.Compute/virtualMachines
+- Microsoft.DBforMySQL/servers
+- Microsoft.DBforPostgreSQL/servers
+- Microsoft.DBforMariaDB/servers
+- Microsoft.Devices/IotHubs
+- Microsoft.EventGrid/topics
+- Microsoft.EventGrid/domains
+- Microsoft.EventHub/clusters
+- Microsoft.EventHub/namespaces
+- Microsoft.Insights/components
+- Microsoft.Network/dnszones
+- Microsoft.Network/loadBalancers
+- Microsoft.Network/natGateways
+- Microsoft.Network/privateEndpoints
+- Microsoft.Network/privateLinkServices
 - Microsoft.OperationalInsights/workspaces
 - Microsoft.PowerBIDedicated/capacities
-- Microsoft.Storage/accounts
+- Microsoft.Relay/namespaces
+- Microsoft.ServiceBus/namespaces
+- Microsoft.Storage/storageAccounts
+- Microsoft.Storage/storageAccounts/blobServices
+- Microsoft.Storage/storageAccounts/fileServices
+- Microsoft.Storage/storageAccounts/queueServices
+- Microsoft.Storage/storageAccounts/tableServices
 
 You can still use [classic alerts](../azure-monitor/platform/alerts-classic.overview.md) for resources not yet available in the second generation of alerts. 
 
@@ -173,7 +194,7 @@ Currently for Azure Government customers, the only way to enable Application Ins
     `Variable name: AzureGraphApiVersion`
     `Variable value: 2014-04-01`
 
-3. Make the appropriate Application Insights SDK endpoint modifications for either [ASP.NET](https://docs.microsoft.com/azure/azure-government/documentation-government-services-monitoringandmanagement#net-with-applicationinsightsconfig) or [ASP.NET Core](https://docs.microsoft.com/azure/azure-government/documentation-government-services-monitoringandmanagement#net-core) depending on your project type.
+3. Make the appropriate Application Insights SDK endpoint modifications for either [ASP.NET](https://docs.microsoft.com/azure/azure-government/documentation-government-services-monitoringandmanagement#net-with-applicationinsightsconfig) or [ASP.NET Core](#aspnet-core) depending on your project type.
 
 ### Snapshot Debugger
 
@@ -208,7 +229,7 @@ In order to send data from Application Insights to the Azure Government region, 
 </ApplicationInsights>
 ```
 
-### .NET Core
+### ASP.NET Core
 
 Modify the appsettings.json file in your project as follows to adjust the main endpoint:
 
@@ -224,16 +245,70 @@ Modify the appsettings.json file in your project as follows to adjust the main e
 The values for Live Metrics and the Profile Query Endpoint can only be set via code. To override the default values for all endpoint values via code, make the following changes in the `ConfigureServices` method of the `Startup.cs` file:
 
 ```csharp
+using Microsoft.ApplicationInsights.Extensibility;
 using Microsoft.ApplicationInsights.Extensibility.Implementation.ApplicationId;
-using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.QuickPulse; //place at top of Startup.cs file
+using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.QuickPulse;
+using Microsoft.ApplicationInsights.Channel;
+using Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel; //place at top of Startup.cs file
 
    services.ConfigureTelemetryModule<QuickPulseTelemetryModule>((module, o) => module.QuickPulseServiceEndpoint="https://quickpulse.applicationinsights.us/QuickPulseService.svc");
 
-   services.AddSingleton(new ApplicationInsightsApplicationIdProvider() { ProfileQueryEndpoint = "https://dc.applicationinsights.us/api/profiles/{0}/appId" }); 
+   services.AddSingleton<IApplicationIdProvider, ApplicationInsightsApplicationIdProvider>(_ => new ApplicationInsightsApplicationIdProvider() { ProfileQueryEndpoint = "https://dc.applicationinsights.us/api/profiles/{0}/appId" });
 
-   services.AddSingleton<ITelemetryChannel>(new ServerTelemetryChannel() { EndpointAddress = "https://dc.applicationinsights.us/v2/track" });
+   services.AddSingleton<ITelemetryChannel>(_ => new ServerTelemetryChannel() { EndpointAddress = "https://dc.applicationinsights.us/v2/track" });
 
     //place in ConfigureServices method. If present, place this prior to   services.AddApplicationInsightsTelemetry("instrumentation key");
+```
+
+### Azure Functions
+
+Please install following packages into your Function project:
+
+- Microsoft.ApplicationInsights version 2.10.0
+- Microsoft.ApplicationInsights.PerfCounterCollector version 2.10.0
+- Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel version 2.10.0
+
+And also add (or modify) the startup code for your Function application:
+
+```csharp
+[assembly: FunctionsStartup(typeof(Example.Startup))]
+namespace Example
+{
+  class Startup : FunctionsStartup
+  {
+      public override void Configure(IFunctionsHostBuilder builder)
+      {
+          var quickPulseFactory = builder.Services.FirstOrDefault(sd => sd.ServiceType == typeof(ITelemetryModule) && 
+                                               sd.ImplementationType == typeof(QuickPulseTelemetryModule));
+          if (quickPulseFactory != null)
+          {
+              builder.Services.Remove(quickPulseFactory);
+          }
+
+          var appIdFactory = builder.Services.FirstOrDefault(sd => sd.ServiceType == typeof(IApplicationIdProvider));
+          if (appIdFactory != null)
+          {
+              builder.Services.Remove(appIdFactory);
+          }
+
+          var channelFactory = builder.Services.FirstOrDefault(sd => sd.ServiceType == typeof(ITelemetryChannel));
+          if (channelFactory != null)
+          {
+              builder.Services.Remove(channelFactory);
+          }
+
+          builder.Services.AddSingleton<ITelemetryModule, QuickPulseTelemetryModule>(_ =>
+              new QuickPulseTelemetryModule
+              {
+                  QuickPulseServiceEndpoint = "https://quickpulse.applicationinsights.us/QuickPulseService.svc"
+              });
+
+          builder.Services.AddSingleton<IApplicationIdProvider, ApplicationInsightsApplicationIdProvider>(_ => new ApplicationInsightsApplicationIdProvider() { ProfileQueryEndpoint = "https://dc.applicationinsights.us/api/profiles/{0}/appId" });
+
+          builder.Services.AddSingleton<ITelemetryChannel>(_ => new ServerTelemetryChannel() { EndpointAddress = "https://dc.applicationinsights.us/v2/track" });
+      }
+  }
+}
 ```
 
 ### Java
@@ -389,7 +464,7 @@ For information on this service and how to use it, see [Azure Scheduler Document
 The Azure Government portal can be accessed [here](https://portal.azure.us).
 
 ## Azure Resource Manager
-For information on this service and how to use it, see [Azure Resource Manager Documentation](../azure-resource-manager/resource-group-overview.md).
+For information on this service and how to use it, see [Azure Resource Manager Documentation](../azure-resource-manager/management/overview.md).
 
 ## Next steps
 * Subscribe to the [Azure Government blog](https://blogs.msdn.microsoft.com/azuregov/)

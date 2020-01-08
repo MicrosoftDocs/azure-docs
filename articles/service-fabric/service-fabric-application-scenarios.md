@@ -1,21 +1,9 @@
 ---
-title: Application scenarios and design | Microsoft Docs
+title: Application scenarios and design
 description: Overview of categories of cloud applications in Service Fabric. Discusses application design that uses stateful and stateless services.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
 
-ms.assetid: 3a8ca6ea-b8e9-4bc3-9e20-262437d2528e
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 4/24/2019
-ms.author: atsenthi
-
 ---
 # Service Fabric application scenarios
 Azure Service Fabric offers a reliable and flexible platform where you can write and run many types of business applications and services. These applications and microservices can be stateless or stateful, and they're resource-balanced across virtual machines to maximize efficiency. 
@@ -70,7 +58,7 @@ Here's an example application that uses stateless services:
 ![Application that uses stateless services][Image1]
 
 Here's an example application that uses stateful services:
-![Application that uses stateless services][Image2]
+![Application that uses stateful services][Image2]
 
 ## Next steps
 
@@ -88,5 +76,5 @@ Here's an example application that uses stateful services:
   * [Scale Service Fabric services](service-fabric-concepts-scalability.md)
   * [Partition Service Fabric services](service-fabric-concepts-partitioning.md)
 
-[Image1]: media/service-fabric-application-scenarios/AppwithStatelessServices.jpg
-[Image2]: media/service-fabric-application-scenarios/AppwithStatefulServices.jpg
+[Image1]: media/service-fabric-application-scenarios/AppwithStatelessServices.png
+[Image2]: media/service-fabric-application-scenarios/AppwithStatefulServices.png

@@ -1,14 +1,14 @@
 ---
 title: Language support - Translator Text API
 titleSuffix: Azure Cognitive Services
-description: A list of natural languages supported by the Translator Text API.
+description: The Translator Text API supports the following languages for text to text translation using Neural Machine Translation (NMT).
 services: cognitive-services
 author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 06/04/2019
+ms.date: 12/02/2019
 ms.author: swmachan
 ---
 # Language and region support for the Translator Text API
@@ -76,8 +76,9 @@ The V3 Translator API is neural by default and statistical systems are only avai
 |Malagasy|	`mg`	|Statistical only|	Statistical|
 |Malay|	`ms`	|Statistical only	|Statistical|
 |Maltese|	`mt`	|Statistical only|	Statistical|
+|Maori| `mi`  |Neural only| Neural|
 |Norwegian|	`nb`	|Neural available|	Neural|
-|Persian|	`fa`	|Statistical only|	Statistical|
+|Persian|	`fa`	|Neural available|	Neural|
 |Polish|	`pl`	|Neural available|	Neural|
 |Portuguese|	`pt`	|Neural available|	Neural|
 |Queretaro Otomi|	`otq`	|Statistical only|	Statistical|
@@ -91,7 +92,7 @@ The V3 Translator API is neural by default and statistical systems are only avai
 |Spanish|	`es`	|Neural available|	Neural|
 |Swedish|	`sv`	|Neural available	|Neural|
 |Tahitian|	`ty`	|Statistical only|	Statistical|
-|Tamil|	`ta`	|Statistical only|	Statistical|
+|Tamil|	`ta`	|Neural available |	Neural|
 |Telugu|	`te`	|Neural only|	Neural|
 |Thai|	`th`	|Neural available|	Neural|
 |Tongan|	`to`	|Statistical only|	Statistical|
@@ -224,6 +225,7 @@ The following languages are available for customization to or from English using
 | Hungarian      | `hu`          |
 | Icelandic | `is` |
 | Indonesian|	`id`	|
+| Irish | `ga`	|
 | Italian      | `it`          |
 | Japanese      | `ja`          |
 |Kiswahili|	`sw`	|
@@ -231,7 +233,9 @@ The following languages are available for customization to or from English using
 | Latvian      | `lv`          |
 | Lithuanian      | `lt`          |
 |Malagasy|	`mg`	|
+|Maori| `mi`  |
 | Norwegian      | `nb`          |
+| Persian      | `fa`          |
 | Polish      | `pl`          |
 | Portuguese      | `pt`          |
 | Romanian      | `ro`          |

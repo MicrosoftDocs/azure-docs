@@ -11,9 +11,8 @@ ms.assetid: 47da4bb2-426e-4e53-8fa7-214ee2e3ab37
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 11/04/2019
 ms.author: apimpm
 ---
 # Issue templates in Azure API Management
@@ -25,6 +24,8 @@ Azure API Management provides you the ability to customize the content of develo
   
 > [!NOTE]
 >  Sample default templates are included in the following documentation, but are subject to change due to continuous improvements. You can view the live default templates in the developer portal by navigating to the desired individual templates. For more information about working with templates, see [How to customize the API Management developer portal using templates](api-management-developer-portal-templates.md).  
+
+[!INCLUDE [api-management-portal-legacy.md](../../includes/api-management-portal-legacy.md)]
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
   

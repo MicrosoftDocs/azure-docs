@@ -18,6 +18,9 @@ GPU optimized VM sizes are specialized virtual machines available with single or
 
 * **NV and NVv3** sizes are optimized and designed for remote visualization, streaming, gaming, encoding, and VDI scenarios using frameworks such as OpenGL and DirectX.  These VMs are backed by the NVIDIA Tesla M60 GPU.
 
+* **NVv4** sizes are optimized and designed for VDI and remote visualization. With partioned GPUs, NVv4 offers the right size for workloads requiring smaller GPU resources.  These VMs are backed by the AMD Radeon Instinct MI25 GPU.
+
+
 ## NC-series
 
 Premium Storage:  Not Supported
@@ -51,7 +54,7 @@ The NC24rs v2 configuration provides a low latency, high-throughput network inte
 > For this size family, the vCPU (core) quota in your subscription is initially set to 0 in each region. [Request a vCPU quota increase](../articles/azure-supportability/resource-manager-core-quotas-request.md) for this family in an [available region](https://azure.microsoft.com/regions/services/).
 >
 
-| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | GPU | GPU memory: GiB | Max data disks | Max uncached disk throughput: IOPS / MBps | Max NICs |
+| Size | vCPU | Memory: GiB | Temp storage (SSD): GiB | GPU | GPU memory: GiB | Max data disks | Max uncached disk throughput: IOPS / MBps | Max NICs |
 | --- | --- | --- | --- | --- | --- | ---  | ---| --- |
 | Standard_NC6s_v2 | 6 |112 | 736 | 1 | 16 | 12 | 20000/ 200 | 4 |
 | Standard_NC12s_v2 | 12 |224 | 1474 | 2 | 32 | 24 | 40000 / 400 | 8 |
@@ -74,7 +77,7 @@ NCv3-series VMs are powered by [NVIDIA Tesla V100](https://www.nvidia.com/en-us/
 > For this size family, the vCPU (core) quota in your subscription is initially set to 0 in each region. [Request a vCPU quota increase](../articles/azure-supportability/resource-manager-core-quotas-request.md) for this family in an [available region](https://azure.microsoft.com/regions/services/).
 >
 
-| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | GPU | GPU memory: GiB | Max data disks | Max uncached disk throughput: IOPS / MBps | Max NICs |
+| Size | vCPU | Memory: GiB | Temp storage (SSD): GiB | GPU | GPU memory: GiB | Max data disks | Max uncached disk throughput: IOPS / MBps | Max NICs |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_NC6s_v3 | 6 |112 | 736 | 1 | 16 | 12 | 20000 / 200 | 4 |
 | Standard_NC12s_v3 | 12 |224 | 1474 | 2 | 32 | 24 | 40000 / 400 | 8 |
@@ -85,22 +88,34 @@ NCv3-series VMs are powered by [NVIDIA Tesla V100](https://www.nvidia.com/en-us/
 
 *RDMA capable
 
-## NDv2-series (Preview)
+## Updated NDv2-series (Preview)
 
 Premium Storage:  Supported
 
 Premium Storage caching:  Supported
 
-Infiniband: Not supported
+InfiniBand: Supported
 
-NDv2-series virtual machine is a new addition to the GPU family designed for the needs of the HPC, AI, and machine learning workloads. It’s powered by 8 NVIDIA Tesla V100 NVLINK interconnected GPUs and 40 Intel Xeon Platinum 8168 (Skylake) cores and 672 GiB of system memory. NDv2 instance provides excellent FP32 and FP64 performance for HPC and AI workloads utilizing Cuda, TensorFlow, Pytorch, Caffe, and other frameworks.
+The NDv2-series virtual machine is a new addition to the GPU family designed for the needs of the most demanding GPU-accelerated AI, machine learning, simulation, and HPC workloads. 
 
-[Sign-up and get access to these machines during preview](https://aka.ms/ndv2signup).
+NDv2 is powered by 8 NVIDIA Tesla V100 NVLINK-connected GPUs, each with 32 GB of GPU memory. Each NDv2 VM also has 40 non-HyperThreaded Intel Xeon Platinum 8168 (Skylake) cores and 672 GiB of system memory. 
+
+NDv2 instances provide excellent performance for HPC and AI workloads utilizing CUDA GPU-optimized computation kernels, and the many AI, ML, and analytics tools that support GPU acceleration 'out-of-box,' such as TensorFlow, Pytorch, Caffe, RAPIDS, and other frameworks. 
+
+Critically, the NDv2 is built for both computationally-intense scale-up (harnessing 8 GPUs per VM) and scale-out (harnessing multiple VMs working together) workloads. The NDv2 series now supports 100 Gigabit InfiniBand EDR backend networking, similar to that available on the HB series of HPC VM, to allow high-performance clustering for parallel scenarios including distributed training for AI and ML. This backend network supports all major InfiniBand protocols, including those employed by NVIDIA’s NCCL2 libraries, allowing for seamless clustering of GPUs.
+
+> When [enabling InfiniBand](https://docs.microsoft.com/azure/virtual-machines/workloads/hpc/enable-infiniband) on the ND40rs_v2 VM, please use the 4.7-1.0.0.1 Mellanox OFED driver.
+
+> Due to increased GPU memory, the new ND40rs_v2 VM requires the use of [Generation 2 VMs](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2) and marketplace images. 
+
+> [Sign-up to request early access to the NDv2 virtual machine preview.](https://aka.ms/AzureNDrv2Preview)
+
+> Please note: The ND40s_v2 featuring 16 GB of per-GPU memory is no longer available for preview and has been superceded by the updated ND40rs_v2.
 <br>
 
-| Size | vCPU | GPU | Memory | NICs (Max) | Max. disk size | Max. data disks | Max uncached disk throughput: IOPS / MBps | Max network bandwidth | 
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Standard_ND40s_v2 | 40 | 8 V100 (NVLink) | 672 GiB | 8 | Temporary 1344 / 2948XIO | 32 | 80000 / 800 | 24000 Mbps |
+| Size | vCPU | Memory: GiB | Temp Storage (SSD): GiB | GPU | GPU Memory: GiB | Max data disks | Max uncached disk throughput: IOPS / MBps | Max network bandwidth | Max NICs |
+|---|---|---|---|---|---|---|---|---|---|
+| Standard_ND40rs_v2 | 40 | 672 | 2948 | 8 V100 32 GB (NVLink) | 16 | 32 | 80000 / 800 | 24000 Mbps | 8 |
 
 ## ND-series
 
@@ -108,7 +123,7 @@ Premium Storage:  Supported
 
 Premium Storage caching:  Supported
 
-The ND-series virtual machines are a new addition to the GPU family designed for AI, and Deep Learning workloads. They offer excellent performance for training and inference. ND instances are powered by [NVIDIA Tesla P40](http://images.nvidia.com/content/pdf/tesla/184427-Tesla-P40-Datasheet-NV-Final-Letter-Web.pdf) GPUs and Intel Xeon E5-2690 v4 (Broadwell) CPUs. These instances provide excellent performance for single-precision floating point operations, for AI workloads utilizing Microsoft Cognitive Toolkit, TensorFlow, Caffe, and other frameworks. The ND-series also offers a much larger GPU memory size (24 GB), enabling to fit much larger neural net models. Like the NC-series, the ND-series offers a configuration with a secondary low-latency, high-throughput network through RDMA, and InfiniBand connectivity so you can run large-scale training jobs spanning many GPUs.
+The ND-series virtual machines are a new addition to the GPU family designed for AI, and Deep Learning workloads. They offer excellent performance for training and inference. ND instances are powered by [NVIDIA Tesla P40](https://images.nvidia.com/content/pdf/tesla/184427-Tesla-P40-Datasheet-NV-Final-Letter-Web.pdf) GPUs and Intel Xeon E5-2690 v4 (Broadwell) CPUs. These instances provide excellent performance for single-precision floating point operations, for AI workloads utilizing Microsoft Cognitive Toolkit, TensorFlow, Caffe, and other frameworks. The ND-series also offers a much larger GPU memory size (24 GB), enabling to fit much larger neural net models. Like the NC-series, the ND-series offers a configuration with a secondary low-latency, high-throughput network through RDMA, and InfiniBand connectivity so you can run large-scale training jobs spanning many GPUs.
 
 > [!IMPORTANT]
 > For this size family, the vCPU (core) quota per region in your subscription is initially set to 0. [Request a vCPU quota increase](../articles/azure-supportability/resource-manager-core-quotas-request.md) for this family in an [available region](https://azure.microsoft.com/regions/services/).
@@ -131,7 +146,7 @@ Premium Storage:  Not Supported
 
 Premium Storage caching:  Not Supported
 
-The NV-series virtual machines are powered by [NVIDIA Tesla M60](http://images.nvidia.com/content/tesla/pdf/188417-Tesla-M60-DS-A4-fnl-Web.pdf) GPUs and NVIDIA GRID technology for desktop accelerated applications and virtual desktops where customers are able to visualize their data or simulations. Users are able to visualize their graphics intensive workflows on the NV instances to get superior graphics capability and additionally run single precision workloads such as encoding and rendering. NV-series VMs are also powered by Intel Xeon E5-2690 v3 (Haswell) CPUs.
+The NV-series virtual machines are powered by [NVIDIA Tesla M60](https://images.nvidia.com/content/tesla/pdf/188417-Tesla-M60-DS-A4-fnl-Web.pdf) GPUs and NVIDIA GRID technology for desktop accelerated applications and virtual desktops where customers are able to visualize their data or simulations. Users are able to visualize their graphics intensive workflows on the NV instances to get superior graphics capability and additionally run single precision workloads such as encoding and rendering. NV-series VMs are also powered by Intel Xeon E5-2690 v3 (Haswell) CPUs.
 
 Each GPU in NV instances comes with a GRID license. This license gives you the flexibility to use an NV instance as a virtual workstation for a single user, or 25 concurrent users can connect to the VM for a virtual application scenario.
 
@@ -143,13 +158,13 @@ Each GPU in NV instances comes with a GRID license. This license gives you the f
 
 1 GPU = one-half M60 card.
 
-## NVv3-series (Preview) <sup>1</sup>
+## NVv3-series  <sup>1</sup>
 
 Premium Storage:  Supported
 
 Premium Storage caching:  Supported
 
-The NVv3-series virtual machines are powered by [NVIDIA Tesla M60](http://images.nvidia.com/content/tesla/pdf/188417-Tesla-M60-DS-A4-fnl-Web.pdf) GPUs and NVIDIA GRID technology with Intel E5-2690 v4 (Broadwell) CPUs. These virtual machines are targeted for GPU accelerated graphics applications and virtual desktops where customers want to visualize their data, simulate results to view, work on CAD, or render and stream content. Additionally, these virtual machines can run single precision workloads such as encoding and rendering. NVv3 virtual machines support Premium Storage and come with twice the system memory (RAM) when compared with its predecessor NV-series.  
+The NVv3-series virtual machines are powered by [NVIDIA Tesla M60](https://images.nvidia.com/content/tesla/pdf/188417-Tesla-M60-DS-A4-fnl-Web.pdf) GPUs and NVIDIA GRID technology with Intel E5-2690 v4 (Broadwell) CPUs. These virtual machines are targeted for GPU accelerated graphics applications and virtual desktops where customers want to visualize their data, simulate results to view, work on CAD, or render and stream content. Additionally, these virtual machines can run single precision workloads such as encoding and rendering. NVv3 virtual machines support Premium Storage and come with twice the system memory (RAM) when compared with its predecessor NV-series.  
 
 Each GPU in NVv3 instances comes with a GRID license. This license gives you the flexibility to use an NV instance as a virtual workstation for a single user, or 25 concurrent users can connect to the VM for a virtual application scenario.
 
@@ -162,3 +177,26 @@ Each GPU in NVv3 instances comes with a GRID license. This license gives you the
 1 GPU = one-half M60 card.
 
 <sup>1</sup> NVv3-series VMs feature Intel Hyper-Threading Technology
+
+## NVv4-series (Preview)  <sup>1</sup>
+
+Premium Storage:  Supported
+
+Premium Storage caching:  Supported
+
+The NVv4-series virtual machines are powered by [AMD Radeon Instinct MI25](https://www.amd.com/en/products/professional-graphics/instinct-mi25) GPUs and AMD EPYC 7V12(Rome) CPUs. With NVv4-series Azure is introducing virtual machines with partial GPUs. Pick the right sized virtual machine for GPU accelerated graphics applications and virtual desktops starting at 1/8th of a GPU with 2 GiB frame buffer to a full GPU with 16 GiB frame buffer. NVv4 virtual machines currently support only Windows guest operating system.
+
+[Sign-up and get access to these machines during preview](https://aka.ms/nvv4signup).
+<br>
+
+| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | GPU | GPU memory: GiB | Max data disks | Max NICs |
+| --- | --- | --- | --- | --- | --- | --- | --- | 
+| Standard_NV4as_v4 |4 |14 |88 | 1/8 | 2 | 4 | 2 |
+| Standard_NV8as_v4 |8 |28 |176 | 1/4 | 4 | 8 | 4 |
+| Standard_NV16as_v4 |16 |56 |352 | 1/2 | 8 | 16 | 8 | 
+| Standard_NV32as_v4 |32 |112 |704 | 1 | 16 | 32 | 8 | 
+
+
+
+<sup>1</sup> NVv4-series VMs feature AMD Simultaneous multithreading Technology
+

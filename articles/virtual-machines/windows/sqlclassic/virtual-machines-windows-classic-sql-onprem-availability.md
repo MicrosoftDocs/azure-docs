@@ -10,7 +10,7 @@ tags: azure-service-management
 
 ms.assetid: 7ca7c423-8342-4175-a70b-d5101dfb7f23
 ms.service: virtual-machines-sql
-ms.devlang: na
+
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
@@ -36,7 +36,7 @@ This tutorial assumes you have the following:
 This section shows you how to use the **Add Azure Replica Wizard** to extend your Always On Availability Group solution to include Azure replicas.
 
 > [!IMPORTANT]
-> The **Add Azure Replica Wizard** only supports virtual machines created with the Classic deployment model. New VM deployments should use the newer Resource Manager model. If you are using VMs with Resource Manager, then you must manually add the secondary Azure replica using Transact-SQL commmands (not shown here). This wizard will not work in the Resource Manager scenario.
+> The **Add Azure Replica Wizard** only supports virtual machines created with the Classic deployment model. New VM deployments should use the newer Resource Manager model. If you are using VMs with Resource Manager, then you must manually add the secondary Azure replica using Transact-SQL commands (not shown here). This wizard will not work in the Resource Manager scenario.
 
 1. From within SQL Server Management Studio, expand **Always On High Availability** > **Availability Groups** > **[Name of your Availability Group]**.
 2. Right-click **Availability Replicas**, then click **Add Replica**.

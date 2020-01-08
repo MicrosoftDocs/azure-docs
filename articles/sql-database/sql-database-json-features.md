@@ -1,5 +1,5 @@
 ---
-title: Working with JSON data in Azure SQL Database | Microsoft Docs
+title: Working with JSON data
 description: Azure SQL Database enables you to parse, query, and format data in JavaScript Object Notation (JSON) notation.
 services: sql-database
 ms.service: sql-database
@@ -10,7 +10,6 @@ ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer:
-manager: craigg
 ms.date: 01/15/2019
 ---
 # Getting started with JSON features in Azure SQL Database

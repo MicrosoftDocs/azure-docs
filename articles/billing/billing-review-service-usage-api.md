@@ -6,13 +6,13 @@ documentationcenter: na
 author: lleonard-msft
 manager: 
 editor: ''
-ms.service: billing
+ms.service: cost-management-billing
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/15/2018
-ms.author: erikre
+ms.date: 10/01/2019
+ms.author: banders
 
 # As an administrator or developer, I want to use REST APIs to review resource and service usage data under my control.
 

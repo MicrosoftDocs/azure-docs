@@ -14,7 +14,8 @@ ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
 ms.date: 03/18/2019
-ms.author: juliako;cenkdin
+ms.author: juliako
+ms.reviewer: cenkdin
 
 ---
 # Creating Filters with Media Services .NET SDK 

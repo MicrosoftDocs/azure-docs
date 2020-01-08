@@ -1,6 +1,6 @@
 ---
 title: Parameterized queries in Azure Cosmos DB
-description: Learn about SQL parameterized queries
+description: Learn how SQL parameterized queries provide robust handling and escaping of user input, and prevent accidental exposure of data through SQL injection.
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
@@ -49,5 +49,5 @@ Parameter values can be any valid JSON: strings, numbers, Booleans, null, even a
 
 ## Next steps
 
-- [Azure Cosmos DB .NET samples](https://github.com/Azure/azure-cosmosdb-dotnet)
+- [Azure Cosmos DB .NET samples](https://github.com/Azure/azure-cosmos-dotnet-v3)
 - [Model document data](modeling-data.md)

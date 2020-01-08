@@ -1,17 +1,17 @@
 ---
-title: 'Tutorial: Create a pipeline with Copy Activity using Visual Studio | Microsoft Docs'
+title: 'Tutorial: Create a pipeline with Copy Activity using Visual Studio '
 description: In this tutorial, you create an Azure Data Factory pipeline with a Copy Activity by using Visual Studio.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 
 
 ms.assetid: 1751185b-ce0a-4ab2-a9c3-e37b4d149ca3
 ms.service: data-factory
 ms.workload: data-services
 ms.custom: vs-azure
-ms.tgt_pltfrm: na
+
 
 ms.topic: tutorial
 ms.date: 01/22/2018
@@ -23,7 +23,6 @@ robots: noindex
 > [!div class="op_single_selector"]
 > * [Overview and prerequisites](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Copy Wizard](data-factory-copy-data-wizard-tutorial.md)
-> * [Azure portal](data-factory-copy-activity-tutorial-using-azure-portal.md)
 > * [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 > * [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
 > * [Azure Resource Manager template](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
@@ -360,7 +359,7 @@ Navigate to the home page for your data factory:
 4. Click your data factory in the results list to see the home page for your data factory.
 
 	![Data factory home page](media/data-factory-copy-activity-tutorial-using-visual-studio/data-factory-home-page.png)
-5. Follow instructions from [Monitor datasets and pipeline](data-factory-copy-activity-tutorial-using-azure-portal.md#monitor-pipeline) to monitor the pipeline and datasets you have created in this tutorial. Currently, Visual Studio does not support monitoring Data Factory pipelines. 
+5. Follow instructions from [Monitor datasets and pipeline](data-factory-monitor-manage-pipelines.md) to monitor the pipeline and datasets you have created in this tutorial. Currently, Visual Studio does not support monitoring Data Factory pipelines. 
 
 ## Summary
 In this tutorial, you created an Azure data factory to copy data from an Azure blob to an Azure SQL database. You used Visual Studio to create the data factory, linked services, datasets, and a pipeline. Here are the high-level steps you performed in this tutorial:  
@@ -507,7 +506,7 @@ To publish entities in an Azure Data Factory project using configuration file:
 When you deploy, the values from the configuration file are used to set values for properties in the JSON files before the entities are deployed to Azure Data Factory service.   
 
 ## Use Azure Key Vault
-It is not advisable and often against security policy to commit sensitive data such as connection strings to the code repository. See [ADF Secure Publish](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ADFSecurePublish) sample on GitHub to learn about storing sensitive information in Azure Key Vault and using it while publishing Data Factory entities. The Secure Publish extension for Visual Studio allows the secrets to be stored in Key Vault and only references to them are specified in linked services/ deployment configurations. These references are resolved when you publish Data Factory entities to Azure. These files can then be committed to source repository without exposing any secrets.
+It is not advisable and often against security policy to commit sensitive data such as connection strings to the code repository. See [ADF Secure Publish](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/ADFSecurePublish) sample on GitHub to learn about storing sensitive information in Azure Key Vault and using it while publishing Data Factory entities. The Secure Publish extension for Visual Studio allows the secrets to be stored in Key Vault and only references to them are specified in linked services/ deployment configurations. These references are resolved when you publish Data Factory entities to Azure. These files can then be committed to source repository without exposing any secrets.
 
 
 ## Next steps

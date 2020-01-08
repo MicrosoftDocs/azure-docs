@@ -1,16 +1,15 @@
 ---
-title: Tutorial - Back up Linux virtual machines in the Azure portal | Microsoft Docs
+title: Tutorial - Back up Linux virtual machines in the Azure portal 
 description: In this tutorial, you learn how to use the Azure portal to protect your Linux virtual machines with Azure Backup.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-resource-manager
 
 ms.assetid: 
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure

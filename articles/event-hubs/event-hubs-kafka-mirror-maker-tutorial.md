@@ -3,14 +3,14 @@ title: Use Apache Kafka MirrorMaker - Azure Event Hubs | Microsoft Docs
 description: This article provides information on how to use Kafka MirrorMaker to mirror a Kafka cluster in AzureEvent Hubs.
 services: event-hubs
 documentationcenter: .net
-author: basilhariri
+author: ShubhaVijayasarathy
 manager: timlt
 
 ms.service: event-hubs
 ms.topic: conceptual
 ms.custom: seodec18
 ms.date: 12/06/2018
-ms.author: bahariri
+ms.author: shvija
 
 ---
 
@@ -82,7 +82,7 @@ Update the consumer configuration file `source-kafka.config`, which tells Mirror
 
 ##### source-kafka.config
 
-```xml
+```
 bootstrap.servers={SOURCE.KAFKA.IP.ADDRESS1}:{SOURCE.KAFKA.PORT1},{SOURCE.KAFKA.IP.ADDRESS2}:{SOURCE.KAFKA.PORT2},etc
 group.id=example-mirrormaker-group
 exclude.internal.topics=true
@@ -95,7 +95,7 @@ Now update the producer configuration file `mirror-eventhub.config`, which tells
 
 ##### mirror-eventhub.config
 
-```xml
+```
 bootstrap.servers={YOUR.EVENTHUBS.FQDN}:9093
 client.id=mirror_maker_producer
 

@@ -11,7 +11,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/21/2019
-ms.author: kumud;tyao
+ms.author: kumud
+ms.reviewer: tyao
 
 ---
 # What is geo-filtering on a domain for Azure Front Door?

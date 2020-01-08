@@ -3,20 +3,17 @@ title: Automation scenarios for Azure billing and cost management | Microsoft Do
 description: Learn how common billing and cost management scenarios are mapped to different APIs.
 services: 'billing'
 documentationcenter: ''
-author: Erikre
+author: bandersmsft
 manager: dougeby
-editor: ''
 tags: billing
-
-ms.assetid: 204b15b2-6667-4b6c-8ea4-f32c06f287fd
-ms.service: billing
+ms.service: cost-management-billing
 ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: billing
-ms.date: 6/13/2018
-ms.author: erikre
- 
+ms.date: 10/01/2019
+ms.author: banders
+
 ---
 
 # Automation scenarios for billing and cost management
@@ -67,7 +64,7 @@ Web Direct and Enterprise customers can use all the following APIs, except where
 
 -	[Marketplace Charges API](https://docs.microsoft.com/rest/api/consumption/marketplaces): Get charge and usage data on all Azure Marketplace resources (Azure partner offerings). You can use this data to add up costs across all Marketplace resources or to investigate costs/usage on specific resources.
 
--	[Price Sheet API](https://docs.microsoft.com/rest/api/consumption/pricesheet) (*Enterprise customers only*): Get custom pricing for all meters. Enterprises can use this data in combination with usage details and marketplace usage information to calculate costs by using usage and marketplace data. 
+-	[Price Sheet API](https://docs.microsoft.com/rest/api/consumption/pricesheet) (*Enterprise customers only*): Get custom pricing for all meters. Enterprises can use this data in combination with usage details and marketplace usage information to calculate costs by using usage and marketplace data.
 
 -	[Reservation Recommendations API](https://docs.microsoft.com/rest/api/consumption/reservationrecommendations): Get recommendations for purchasing Reserved VM Instances. Recommendations help you analyze expected cost savings and purchase amounts. For more information, see [APIs for Azure reservation automation](billing-reservation-apis.md).
 
@@ -77,14 +74,14 @@ Web Direct and Enterprise customers can use all the following APIs, except where
 
 -	[Usage Details API](https://docs.microsoft.com/rest/api/consumption/usagedetails): Get charge and usage information on all Azure resources from Microsoft. Information is in the form of usage detail records, which are currently emitted once per meter per day. You can use the information to add up the costs across all resources or investigate costs/usage on specific resources.
 
--	[RateCard API](/previous-versions/azure/reference/mt219005(v=azure.100)): Get meter rates if you're a Web Direct customer. You can then use the returned information with your resource usage information to manually calculate the expected bill. 
+-	[RateCard API](/previous-versions/azure/reference/mt219005(v=azure.100)): Get meter rates if you're a Web Direct customer. You can then use the returned information with your resource usage information to manually calculate the expected bill.
 
 -	[Unrated Usage API](/previous-versions/azure/reference/mt219003(v=azure.100)): Get raw usage information before Azure does any metering/charging.
 
 ### Billing
 -	[Billing Periods API](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-billing-periods): Determine a billing period to analyze, along with the invoice IDs for that period. You can use invoice IDs with the Invoices API.
 
--	[Invoices API](https://docs.microsoft.com/rest/api/billing/2018-11-01-preview/invoices): Get the download URL for an invoice for a billing period in PDF form.
+-	[Invoices API](/rest/api/billing/2019-10-01-preview/invoices): Get the download URL for an invoice for a billing period in PDF form.
 
 ### Enterprise consumption
 The following APIs are for Enterprise only:
@@ -104,11 +101,11 @@ The following APIs are for Enterprise only:
 ## Frequently asked questions
 
 ### What's the difference between the Enterprise Reporting APIs and the Consumption APIs? When should I use each?
-These APIs have a similar set of functionality and can answer the same broad set of questions in the billing and cost management space. But they target different audiences: 
+These APIs have a similar set of functionality and can answer the same broad set of questions in the billing and cost management space. But they target different audiences:
 
 - Enterprise Reporting APIs are available to customers who have signed an Enterprise Agreement with Microsoft that grants them access to negotiated monetary commitments and custom pricing. The APIs require a key that you can get from the [Enterprise Portal](https://ea.azure.com). For a description of these APIs, see [Overview of Reporting APIs for Enterprise customers](billing-enterprise-api.md).
 
-- Consumption APIs are available to all customers, with a few exceptions. For more information, see [Azure consumption API overview](billing-consumption-api-overview.md) and the [Azure Consumption API reference](https://docs.microsoft.com/rest/api/consumption/). We recommend the provided APIs as the solution for the latest development scenarios. 
+- Consumption APIs are available to all customers, with a few exceptions. For more information, see [Azure consumption API overview](billing-consumption-api-overview.md) and the [Azure Consumption API reference](https://docs.microsoft.com/rest/api/consumption/). We recommend the provided APIs as the solution for the latest development scenarios.
 
 ### What's the difference between the Usage Details API and the Usage API?
 These APIs provide fundamentally different data:
@@ -123,7 +120,7 @@ These APIs provide fundamentally different data:
 ### What's the difference between the Invoice API and the Usage Details API?
 These APIs provide a different view of the same data:
 
-- The [Invoice API](https://docs.microsoft.com/rest/api/billing/2018-11-01-preview/invoices) is for Web Direct customers only. It provides a monthly rollup of your bill based on the aggregate charges for each meter type. 
+- The [Invoice API](/rest/api/billing/2019-10-01-preview/invoices) is for Web Direct customers only. It provides a monthly rollup of your bill based on the aggregate charges for each meter type.
 
 - The [Usage Details API](https://docs.microsoft.com/rest/api/consumption/usagedetails) provides a granular view of the usage/cost records for each day. Both Enterprise and Web Direct customers can use it.
 

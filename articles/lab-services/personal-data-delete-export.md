@@ -11,7 +11,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/13/2018
+ms.date: 07/19/2019
 ms.author: spelluru
 
 ---
@@ -52,6 +52,12 @@ As a lab user, if you like to have this personal data deleted, you can do so by 
 For example, If you delete your VM, or removed your email address, the DevTest Labs service anonymizes this data 30 days after the resource is deleted. The 30-day retention policy after deletion is to make sure that we provide an accurate month-over-month cost projection to the lab admin.
 
 ## How can I request an export on my personal data?
+You can export personal and lab usage data by using the Azure portal or PowerShell. The data is exported as two different CSV files:
+
+- **disks.csv** - contains information about the disks being used by the different VMs
+- **virtualmachines.csv** - contains information about the VMs in the lab.
+
+### Azure portal
 As a lab user, you can request an export on the personal data that the DevTest Labs service stores. To request for an export, navigate to the **Personal data** option on the **Overview** page of your lab. Select the **Request export** button kicks off the creation of a downloadable excel file in your Lab admin's storage account. You can then contact your lab admin to view this data.
 
 1. Select **Personal data** on the left menu. 
@@ -70,6 +76,138 @@ As a lab user, you can request an export on the personal data that the DevTest L
 6. Select the **folder** named after your lab. You find **csv** files for **disks** and **virtual machines** in your lab in this folder. You can download these csv files, filter the content for the lab user requesting an access, and share it with them.
 
     ![Download CSV file](./media/personal-data-delete-export/download-csv-file.png)
+
+### Azure PowerShell
+
+```powershell
+Param (
+    [Parameter (Mandatory=$true, HelpMessage="The storage account name where to store usage data")]
+    [string] $storageAccountName,
+
+    [Parameter (Mandatory=$true, HelpMessage="The storage account key")]
+    [string] $storageKey,
+
+    [Parameter (Mandatory=$true, HelpMessage="The DevTest Lab name to get usage data from")]
+    [string] $labName,
+
+    [Parameter (Mandatory=$true, HelpMessage="The DevTest Lab subscription")]
+    [string] $labSubscription
+    )
+
+#Login
+Login-AzureRmAccount
+
+# Set the subscription for the lab
+Get-AzureRmSubscription -SubscriptionId $labSubscription  | Select-AzureRmSubscription
+
+# DTL will create this container in the storage when invoking the action, cannot be changed currently
+$containerName = "labresourceusage"
+
+# Get the storage context
+$Ctx = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageKey 
+$SasToken = New-AzureStorageAccountSASToken -Service Blob, File -ResourceType Container, Service, Object -Permission rwdlacup -Protocol HttpsOnly -Context $Ctx
+
+# Generate the storage blob uri
+$blobUri = $Ctx.BlobEndPoint + $SasToken
+
+# blobStorageAbsoluteSasUri and usageStartDate are required
+$actionParameters = @{
+    'blobStorageAbsoluteSasUri' = $blobUri    
+}
+
+$startdate = (Get-Date).AddDays(-7)
+
+$actionParameters.Add('usageStartDate', $startdate.Date.ToString())
+
+# Get the lab resource group
+$resourceGroupName = (Find-AzureRmResource -ResourceType 'Microsoft.DevTestLab/labs' | Where-Object { $_.Name -eq $labName}).ResourceGroupName
+    
+# Create the lab resource id
+$resourceId = "/subscriptions/" + $labSubscription + "/resourceGroups/" + $resourceGroupName + "/providers/Microsoft.DevTestLab/labs/" + $labName + "/"
+
+# !!!!!!! this is the new resource action to get the usage data.
+$result = Invoke-AzureRmResourceAction -Action 'exportLabResourceUsage' -ResourceId $resourceId -Parameters $actionParameters -Force
+ 
+# Finish up cleanly
+if ($result.Status -eq "Succeeded") {
+    Write-Output "Telemetry successfully downloaded for " $labName
+    return 0
+}
+else
+{
+    Write-Output "Failed to download lab: " + $labName
+    Write-Error $result.toString()
+    return -1
+}
+```
+
+The key components in the above sample are:
+
+- The Invoke-AzureRmResourceAction command.
+   
+    ```
+    Invoke-AzureRmResourceAction -Action 'exportLabResourceUsage' -ResourceId $resourceId -Parameters $actionParameters -Force
+    ```
+- Two action parameters
+    - **blobStorageAbsoluteSasUri** - The storage account URI with the Shared Access Signature (SAS) token. In the PowerShell script, this value could be passed in instead of the storage key.
+    - **usageStartDate** - The beginning date to pull data, with the end date being the current date on which the action is executed. The granularity is at the day level, so even if you add time information, it will be ignored.
+
+### Exported data - a closer look
+Now let’s take a closer look at the exported data. As mentioned earlier, once the data are successfully exported, there will be two CSV files. 
+
+The **virtualmachines.csv** contains the following data columns:
+
+| Column name | Description |
+| ----------- | ----------- | 
+| SubscriptionId | The subscription identifier that the lab exists in. |
+| LabUId | Unique GUID identifier for the lab. |
+| LabName | Name of the lab. |
+| LabResourceId | Fully qualified lab resource ID. |
+| ResourceGroupName | Name of the resource group that contains the VM | 
+| ResourceId | Fully qualified resource ID for the VM. |
+| ResourceUId | GUID for the VM |
+| Name | Virtual machine name. |
+| CreatedTime | The date-time at which the VM was created. |
+| DeletedDate | The date-time at which the VM was deleted. If it's empty, deletion hasn't occurred, yet. |
+| ResourceOwner | Owner of the VM. If the value is empty, then it's either a claimable VM or created by a service principal. |
+| PricingTier | Pricing tier of the VM |
+| ResourceStatus | Availability state of the VM. Active, if still exists or Inactive, if the VM has been deleted. |
+| ComputeResourceId | Fully qualified virtual machine compute resource identifier. |
+| Claimable | Set to true if the VM is a claimable VM | 
+| EnvironmentId | The environment resource identifier within which the Virtual machine was created in. It's empty when the VM wasn't created as part of an environment resource. |
+| ExpirationDate | Expiration date for the VM. It's set to empty, if an expiration date hasn't been set.
+| GalleryImageReferenceVersion |  Version of the VM base image. |
+| GalleryImageReferenceOffer | Offer of the VM base image. |
+| GalleryImageReferencePublisher | Publisher of the VM base image. |
+| GalleryImageReferenceSku | Sku of the VM base image |
+| GalleryImageReferenceOsType | OS type of the VM base image |
+| CustomImageId | Fully qualified ID of the VM base custom image. |
+
+The data columns contained in **disks.csv** are listed below:
+
+| Column name | Description | 
+| ----------- | ----------- | 
+| SubscriptionId | ID of the subscription that contains the lab |
+| LabUId | GUID for the lab |
+| LabName | Name of the lab | 
+| LabResourceId | Fully qualified resource ID for the lab | 
+| ResourceGroupName | Name of the resource group that contains the lab | 
+| ResourceId | Fully qualified resource ID for the VM. |
+| ResourceUId | GUID for the VM |
+ |Name | The name of the attached disk |
+| CreatedTime |The date and time at which the data disk was created. |
+| DeletedDate | The date and time at which the data disk was deleted. |
+| ResourceStatus | Status of the resource. Active, if the resource exists. Inactive, when deleted. |
+| DiskBlobName | Blob name for the data disk. |
+| DiskSizeGB | The size of the data disk. |
+| DiskType | Type of the data disk. 0 for Standard, 1 for Premium. |
+| LeasedByVmId | Resource ID of the VM to which the data disk has been attached. |
+
+
+> [!NOTE]
+> If you are dealing with multiple labs and want to get overall information, the two key columns are the **LabUID** and the **ResourceUId**, which are the unique ids across subscriptions.
+
+The exported data can be manipulated and visualized using tools, like SQL Server, Power BI, etc. This feature is especially useful when you want to report usage of your lab to your management team that may not be using the same Azure subscription as you do.
 
 ## Next steps
 See the following articles: 

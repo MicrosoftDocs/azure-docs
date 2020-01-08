@@ -1,5 +1,5 @@
 ---
-title: "Troubleshoot Azure SQL Data Sync | Microsoft Docs"
+title: Troubleshoot SQL Data Sync
 description: "Learn how to troubleshoot common issues with Azure SQL Data Sync."
 services: sql-database
 ms.service: sql-database
@@ -10,7 +10,6 @@ ms.topic: conceptual
 author: allenwux
 ms.author: xiwu
 ms.reviewer: carlrab
-manager: craigg
 ms.date: 12/20/2018
 ---
 # Troubleshoot issues with SQL Data Sync

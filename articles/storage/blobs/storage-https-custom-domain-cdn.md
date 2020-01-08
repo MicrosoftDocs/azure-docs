@@ -1,14 +1,12 @@
 ---
 title: Use Azure CDN to access blobs with custom domains over HTTPS
 description: Learn how to integrate Azure CDN with Blob storage to access blobs with custom domains over HTTPS
-services: storage
 author: normesta
-
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/26/2018
 ms.author: normesta
-ms.reviewer: seguler
+ms.reviewer: dineshm
 ms.subservice: blobs
 ---
 
@@ -37,7 +35,7 @@ To enable HTTPS for your custom Blob storage endpoint, do the following:
 
 ## Shared access signatures
 
-By default, Blob storage endpoints disallow anonymous read access. If your Blob storage endpoint is configured to disallow anonymous read access, provide a [shared access signature](../common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) token in each request to your custom domain. For more information, see [Manage anonymous read access to containers and blobs](storage-manage-access-to-resources.md).
+By default, Blob storage endpoints disallow anonymous read access. If your Blob storage endpoint is configured to disallow anonymous read access, provide a [shared access signature](../common/storage-sas-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) token in each request to your custom domain. For more information, see [Manage anonymous read access to containers and blobs](storage-manage-access-to-resources.md).
 
 Azure CDN doesn't respect any restrictions that are added to the shared access signature token. For example, all shared access signature tokens expire. You can still access content with an expired shared access signature until that content is purged from the Azure CDN edge nodes. You can control how long data is cached on Azure CDN by setting the cache response header. To learn how, see [Manage expiration of Azure Storage blobs in Azure CDN](../../cdn/cdn-manage-expiration-of-blob-content.md).
 

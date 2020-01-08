@@ -1,10 +1,10 @@
 ---
 title: What is Azure Standard Load Balancer?
-titlesuffix: Azure Load Balancer
-description: Overview of Azure Standard Load Balancer features
+titleSuffix: Azure Load Balancer
+description: With this learning path, get started with an overview of Azure Standard Load Balancer features.
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 manager: twooley
 ms.custom: seodec18
 ms.service: load-balancer
@@ -12,8 +12,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/28/2019
-ms.author: kumud
+ms.date: 11/21/2019
+ms.author: allensu
 ---
 
 # Azure Standard Load Balancer overview
@@ -33,9 +33,6 @@ The Load Balancer resource's functions are always expressed as a frontend, a rul
 One key aspect is the scope of the virtual network for the resource.  While Basic Load Balancer exists within the scope of an availability set, a Standard Load Balancer is fully integrated with the scope of a virtual network and all virtual network concepts apply.
 
 Load Balancer resources are objects within which you can express how Azure should program its multi-tenant infrastructure to achieve the scenario you wish to create.  There is no direct relationship between Load Balancer resources and actual infrastructure; creating a Load Balancer doesn't create an instance, capacity is always available, and there are no start-up or scaling delays to consider. 
-
->[!NOTE]
-> Azure provides a suite of fully managed load balancing solutions for your scenarios.  If you are looking for TLS termination ("SSL offload") or per HTTP/HTTPS request application layer processing, review [Application Gateway](../application-gateway/application-gateway-introduction.md).  If you are looking for global DNS load balancing, review [Traffic Manager](../traffic-manager/traffic-manager-overview.md).  Your end-to-end scenarios may benefit from combining these solutions as needed.
 
 ## Why use Standard Load Balancer?
 
@@ -181,14 +178,6 @@ SKUs are not mutable. Follow the steps in this section to move from one resource
 
 4. Attach all VM instances to the new Standard SKU resources.
 
-### Migrate from Standard to Basic SKU
-
-1. Create a new Basic resource (Load Balancer and Public IPs, as needed). Recreate your rules and probe definitions.  Change an HTTPS probe to a TCP probe to 443/tcp. 
-
-2. Remove the Standard SKU resources (Load Balancer and Public IPs, as applicable) from all VM instances. Be sure to also remove all VM instances of an availability set.
-
-3. Attach all VM instances to the new Basic SKU resources.
-
 >[!IMPORTANT]
 >
 >There are limitations regarding use of the Basic and Standard SKUs.
@@ -199,22 +188,10 @@ SKUs are not mutable. Follow the steps in this section to move from one resource
 >
 >Matching SKUs must be used for Load Balancer and Public IP resources. You can't have a mixture of Basic SKU resources and Standard SKU resources. You can't attach standalone virtual machines, virtual machines in an availability set resource, or a virtual machine scale set resources to both SKUs simultaneously.
 
-## Region availability
+## Availability, Pricing, and SLA
 
-Standard Load Balancer is currently available in all public cloud regions.
-
-## SLA
-
-Standard Load Balancers are available with a 99.99% SLA.  Review the [Standard Load Balancer SLA](https://aka.ms/lbsla) for details.
-
-## Pricing
-
-Standard Load Balancer usage is charged.
-
-- Number of configured load-balancing and outbound rules (inbound NAT rules do not count against the total number of rules)
-- Amount of data processed inbound and outbound irrespective of rule. 
-
-For Standard Load Balancer pricing information, go to the [Load Balancer pricing](https://azure.microsoft.com/pricing/details/load-balancer/) page.
+Standard Load Balancer is currently available in all Azure regions.
+Review the [Standard Load Balancer SLA](https://aka.ms/lbsla) and [Load Balancer pricing](https://azure.microsoft.com/pricing/details/load-balancer/) for more information.
 
 ## Limitations
 
@@ -228,9 +205,9 @@ For Standard Load Balancer pricing information, go to the [Load Balancer pricing
 
 ## Next steps
 
+- Learn more about [Azure Load Balancer](load-balancer-overview.md).
 - Learn about using [Standard Load Balancer and Availability Zones](load-balancer-standard-availability-zones.md).
 - Learn about [Health Probes](load-balancer-custom-probe-overview.md).
-- Learn more about [Availability Zones](../availability-zones/az-overview.md).
 - Learn about [Standard Load Balancer Diagnostics](load-balancer-standard-diagnostics.md).
 - Learn about [supported multi-dimensional metrics](../azure-monitor/platform/metrics-supported.md#microsoftnetworkloadbalancers) for diagnostics  in [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md).
 - Learn about using [Load Balancer for outbound connections](load-balancer-outbound-connections.md).
@@ -238,8 +215,4 @@ For Standard Load Balancer pricing information, go to the [Load Balancer pricing
 - Learn about [TCP Reset on Idle](load-balancer-tcp-reset.md).
 - Learn about [Standard Load Balancer with HA Ports load balancing rules](load-balancer-ha-ports-overview.md).
 - Learn about using [Load Balancer with Multiple Frontends](load-balancer-multivip-overview.md).
-- Learn about [Virtual Networks](../virtual-network/virtual-networks-overview.md).
 - Learn more about [Network Security Groups](../virtual-network/security-overview.md).
-- Learn about [VNet Service Endpoints](../virtual-network/virtual-network-service-endpoints-overview.md).
-- Learn about some of the other key [networking capabilities](../networking/networking-overview.md) in Azure.
-- Learn more about [Load Balancer](load-balancer-overview.md).

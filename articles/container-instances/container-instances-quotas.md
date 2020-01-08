@@ -1,13 +1,8 @@
 ---
-title: Azure Container Instances quotas and region availability
+title: Service quotas and region availability
 description: Quotas, limits, and region availability of the Azure Container Instances service.
-services: container-instances
-author: dlepow
-
-ms.service: container-instances
-ms.topic: overview
+ms.topic: article
 ms.date: 03/01/2019
-ms.author: danlep
 ---
 # Quotas and limits for Azure Container Instances
 

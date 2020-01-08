@@ -1,17 +1,9 @@
 ---
 title: Azure Functions C# developer reference
 description: Understand how to develop Azure Functions using C#.
-services: functions
-documentationcenter: na
-author: ggailey777
-manager: jeconnoc
-keywords: azure functions, functions, event processing, webhooks, dynamic compute, serverless architecture
 
-ms.service: azure-functions
-ms.devlang: dotnet
 ms.topic: reference
 ms.date: 09/12/2018
-ms.author: glenga
 
 ---
 # Azure Functions C# developer reference
@@ -26,6 +18,18 @@ This article assumes that you've already read the following articles:
 
 * [Azure Functions developers guide](functions-reference.md)
 * [Azure Functions Visual Studio 2019 Tools](functions-develop-vs.md)
+
+## Supported versions
+
+Versions of the Functions runtime work with specific versions of .NET. The following table shows the highest level of .NET Core and .NET Framework and .NET Core that can be used with a specific version of Functions in your project. 
+
+| Functions runtime version | Max .NET version |
+| ---- | ---- |
+| Functions 3.x | .NET Core 3.1 |
+| Functions 2.x | .NET Core 2.2 |
+| Functions 1.x | .NET Framework 4.6 |
+
+To learn more, see [Azure Functions runtime versions overview](functions-versions.md)
 
 ## Functions class library project
 
@@ -46,10 +50,11 @@ When you build the project, a folder structure that looks like the following exa
  | - host.json
 ```
 
-This directory is what gets deployed to your function app in Azure. The binding extensions required in [version 2.x](functions-versions.md) of the Functions runtime are [added to the project as NuGet packages](./functions-bindings-register.md#c-class-library-with-visual-studio-2019).
+This directory is what gets deployed to your function app in Azure. The binding extensions required in [version 2.x](functions-versions.md) of the Functions runtime are [added to the project as NuGet packages](./functions-bindings-register.md#vs).
 
 > [!IMPORTANT]
-> The build process creates a *function.json* file for each function. This *function.json* file is not meant to be edited directly. You can't change binding configuration or disable the function by editing this file. To learn how to disable a function, see [How to disable functions](disable-function.md#functions-2x---c-class-libraries).
+> The build process creates a *function.json* file for each function. This *function.json* file is not meant to be edited directly. You can't change binding configuration or disable the function by editing this file. To learn how to disable a function, see [How to disable functions](disable-function.md).
+
 
 ## Methods recognized as functions
 
@@ -341,7 +346,7 @@ Define an imperative binding as follows:
   }
   ```
 
-  `BindingTypeAttribute` is the .NET attribute that defines your binding, and `T` is an input or output type that's supported by that binding type. `T` cannot be an `out` parameter type (such as `out JObject`). For example, the Mobile Apps table output binding supports [six output types](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs#L17-L22), but you can only use [ICollector<T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) or [IAsyncCollector<T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs) with imperative binding.
+  `BindingTypeAttribute` is the .NET attribute that defines your binding, and `T` is an input or output type that's supported by that binding type. `T` cannot be an `out` parameter type (such as `out JObject`). For example, the Mobile Apps table output binding supports [six output types](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs#L17-L22), but you can only use [ICollector\<T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) or [IAsyncCollector\<T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs) with imperative binding.
 
 ### Single attribute example
 
@@ -367,7 +372,7 @@ public static class IBinderExample
 }
 ```
 
-[BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobAttribute.cs)
+[BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Extensions.Storage/Blobs/BlobAttribute.cs)
 defines the [Storage blob](functions-bindings-storage-blob.md) input or output binding, and
 [TextWriter](/dotnet/api/system.io.textwriter) is a supported output binding type.
 

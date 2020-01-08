@@ -1,20 +1,13 @@
 ---
-title: Best practices and troubleshooting for Node.js - Azure App Service
-description: Learn the best practices and troubleshooting steps for node applications on Azure App Service.
-services: app-service\web
-documentationcenter: nodejs
-author: ranjithr
-manager: wadeh
-editor: ''
+title: Node.js best practices and troubleshooting
+description: Learn the best practices and troubleshooting steps for Node.js applications running in Azure App Service.
+author: msangapu-msft
 
 ms.assetid: 387ea217-7910-4468-8987-9a1022a99bef
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 11/09/2017
-ms.author: ranjithr
+ms.author: msangapu
 ms.custom: seodec18
 ---
 # Best practices and troubleshooting guide for node applications on Azure App Service Windows
@@ -276,7 +269,7 @@ NODE.exe has a setting called `NODE_PENDING_PIPE_INSTANCES`. On Azure App Servic
 Follow these links to learn more about node.js applications on Azure App Service.
 
 * [Get started with Node.js web apps in Azure App Service](app-service-web-get-started-nodejs.md)
-* [How to debug a Node.js web app in Azure App Service](app-service-web-tutorial-nodejs-mongodb-app.md)
+* [How to debug a Node.js web app in Azure App Service](https://blogs.msdn.microsoft.com/azureossds/2018/08/03/debugging-node-js-apps-on-azure-app-services/)
 * [Using Node.js Modules with Azure applications](../nodejs-use-node-modules-azure-apps.md)
 * [Azure App Service Web Apps: Node.js](https://blogs.msdn.microsoft.com/silverlining/2012/06/14/windows-azure-websites-node-js/)
 * [Node.js Developer Center](../nodejs-use-node-modules-azure-apps.md)

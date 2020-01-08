@@ -1,11 +1,11 @@
 ---
 title: Introduction to Azure Cosmos DB
 description: Learn about Azure Cosmos DB. This globally-distributed multi-model database is built for low latency, elastic scalability, high availability, and offers native support for NoSQL data.
-author: rimman
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: overview
-ms.date: 05/20/2019
-ms.author: rimman
+ms.date: 10/23/2019
 
 ---
 
@@ -70,11 +70,11 @@ Since Cosmos DB is a fully managed service, you no longer need to manage and ope
 
 Cosmos DB is the first and only service to offer [industry-leading comprehensive SLAs](https://azure.microsoft.com/support/legal/sla/cosmos-db/) encompassing 99.999% high availability, read and write latency at the 99th percentile, guaranteed throughput, and consistency.
 
-### Globally distributed operational analytics with Spark
+### Globally distributed operational analytics and AI with natively built-in Apache Spark
 
 You can run [Spark](spark-connector.md) directly on data stored in Cosmos DB. This capability allows you to do low-latency, operational analytics at global scale without impacting transactional workloads operating directly against Cosmos DB. For more information, see [Globally distributed operational analytics](lambda-architecture.md).
 
-### Develop applications on Cosmos DB using popular NoSQL APIs
+### Develop applications on Cosmos DB using popular Open Source Software (OSS) APIs
 
 Cosmos DB offers a choice of APIs to work with your data stored in your Cosmos database. By default, [you can use SQL](how-to-sql-query.md) (a core API) for querying your Cosmos database. Cosmos DB also implements APIs for [Cassandra](cassandra-introduction.md), [MongoDB](mongodb-introduction.md), [Gremlin](graph-introduction.md) and [Azure Table Storage](table-introduction.md). You can point client drivers (and tools) for the commonly used NoSQL (e.g., MongoDB, Cassandra, Gremlin) directly to your Cosmos database. By supporting the wire protocols of commonly used NoSQL APIs, Cosmos DB allows you to:
 

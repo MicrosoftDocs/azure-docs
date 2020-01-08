@@ -1,19 +1,14 @@
 ---
 title: Connect functions to Azure Storage using Visual Studio Code 
 description: Learn how to add an output binding to connect your functions to an Azure Storage queue using Visual Studio Code.
-author: ggailey777
-ms.author: glenga
 ms.date: 06/25/2019
 ms.topic: quickstart
-ms.service: azure-functions
-ms.custom: mvc
-manager: jeconnoc
 #Customer intent: As an Azure Functions developer, I want to connect my function to Azure Storage so that I can easily write data to a storage queue.
 ---
 
 # Connect functions to Azure Storage using Visual Studio Code
 
-Azure Functions lets you connect functions to Azure services and other resources without having to write your own integration code. These *bindings*, which represent both input and output, are declared within the function definition. Data from bindings is provided to the function as parameters. A trigger is a special type of input binding. While a function has only one trigger, it can have multiple input and output bindings. To learn more, see [Azure Functions triggers and bindings concepts](functions-triggers-bindings.md).
+[!INCLUDE [functions-add-storage-binding-intro](../../includes/functions-add-storage-binding-intro.md)]
 
 This article shows you how to use Visual Studio Code to connect the function you created in the [previous quickstart article](functions-create-first-function-vs-code.md) to Azure Storage. The output binding that you add to this function writes data from the HTTP request to a message in an Azure Queue storage queue. 
 
@@ -47,178 +42,51 @@ In the [previous quickstart article](functions-create-first-function-vs-code.md)
 
 Because you are using a Queue storage output binding, you must have the Storage bindings extension installed before you run the project. 
 
-### JavaScript
+# [JavaScript](#tab/nodejs)
 
 [!INCLUDE [functions-extension-bundles](../../includes/functions-extension-bundles.md)]
 
-### C\# class library
+# [C\#](#tab/csharp)
 
 With the exception of HTTP and timer triggers, bindings are implemented as extension packages. Run the following [dotnet add package](/dotnet/core/tools/dotnet-add-package) command in the Terminal window to add the Storage extension package to your project.
 
 ```bash
 dotnet add package Microsoft.Azure.WebJobs.Extensions.Storage --version 3.0.4
 ```
-
+---
 Now, you can add the storage output binding to your project.
 
 ## Add an output binding
 
 In Functions, each type of binding requires a `direction`, `type`, and a unique `name` to be defined in the function.json file. The way you define these attributes depends on the language of your function app.
 
-### JavaScript
+# [JavaScript](#tab/nodejs)
 
-Binding attributes are defined directly in the function.json file. Depending on the binding type, additional properties may be required. The [queue output configuration](functions-bindings-storage-queue.md#output---configuration) describes the fields required for an Azure Storage queue binding. The extension makes it easy to add bindings to the function.json file. 
+[!INCLUDE [functions-add-output-binding-json](../../includes/functions-add-output-binding-json.md)]
 
-To create a binding, right-click (Ctrl+click on macOS) the `function.json` file in your HttpTrigger folder and choose **Add binding...**. Follow the prompts to define the following binding properties for the new binding:
+# [C\#](#tab/csharp)
 
-| Prompt | Value | Description |
-| -------- | ----- | ----------- |
-| **Select binding direction** | `out` | The binding is an output binding. |
-| **Select binding with direction...** | `Azure Queue Storage` | The binding is an Azure Storage queue binding. |
-| **The name used to identify this binding in your code** | `msg` | Name that identifies the binding parameter referenced in your code. |
-| **The queue to which the message will be sent** | `outqueue` | The name of the queue that the binding writes to. When the *queueName* doesn't exist, the binding creates it on first use. |
-| **Select setting from "local.setting.json"** | `AzureWebJobsStorage` | The name of an application setting that contains the connection string for the Storage account. The `AzureWebJobsStorage` setting contains the connection string for the Storage account you created with the function app. |
+[!INCLUDE [functions-add-storage-binding-csharp-library](../../includes/functions-add-storage-binding-csharp-library.md)]
 
-A binding is added to the `bindings` array in your function.json file, which should now look like the following example:
-
-```json
-{
-   ...
-
-  "bindings": [
-    {
-      "authLevel": "function",
-      "type": "httpTrigger",
-      "direction": "in",
-      "name": "req",
-      "methods": [
-        "get",
-        "post"
-      ]
-    },
-    {
-      "type": "http",
-      "direction": "out",
-      "name": "$return"
-    },
-    {
-      "type": "queue",
-      "direction": "out",
-      "name": "msg",
-      "queueName": "outqueue",
-      "connection": "AzureWebJobsStorage"
-    }
-  ]
-}
-```
-
-### C\# class library
-
-In a C# class library project, the bindings are defined as binding attributes on the function method. The function.json file is then autogenerated based on these attributes.
-
-Open the HttpTrigger.cs project file and add the following `using` statement:
-
-```cs
-using Microsoft.Azure.WebJobs.Extensions.Storage;
-```
-
-Add the following parameter to the `Run` method definition:
-
-```cs
-[Queue("outqueue"),StorageAccount("AzureWebJobsStorage")] ICollector<string> msg
-```
-
-The `msg` parameter is an `ICollector<T>` type, which represents a collection of messages that are written to an output binding when the function completes. In this case, the output is a storage queue named `outqueue`. The connection string for the Storage account is set by the `StorageAccountAttribute`. This attribute indicates the setting that contains the Storage account connection string and can be applied at the class, method, or parameter level. In this case, you could omit `StorageAccountAttribute` because you are already using the default storage account.
-
-The Run method definition should now look like the following:  
-
-```cs
-[FunctionName("HttpTrigger")]
-public static async Task<IActionResult> Run(
-    [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)] HttpRequest req, 
-    [Queue("outqueue"),StorageAccount("AzureWebJobsStorage")] ICollector<string> msg, ILogger log)
-```
+---
 
 ## Add code that uses the output binding
 
 After the binding is defined, you can use the `name` of the binding to access it as an attribute in the function signature. By using an output binding, you don't have to use the Azure Storage SDK code for authentication, getting a queue reference, or writing data. The Functions runtime and queue output binding do those tasks for you.
 
-### JavaScript
+# [JavaScript](#tab/nodejs)
 
-Add code that uses the `msg` output binding object on `context.bindings` to create a queue message. Add this code before the`context.res` statement.
+[!INCLUDE [functions-add-output-binding-js](../../includes/functions-add-output-binding-js.md)]
 
-```javascript
-// Add a message to the Storage queue.
-context.bindings.msg = "Name passed to the function: " + 
-(req.query.name || req.body.name);
-```
+# [C\#](#tab/csharp)
 
-At this point, your function should look as follows:
+[!INCLUDE [functions-add-storage-binding-csharp-library-code](../../includes/functions-add-storage-binding-csharp-library-code.md)]
 
-```javascript
-module.exports = async function (context, req) {
-    context.log('JavaScript HTTP trigger function processed a request.');
-
-    if (req.query.name || (req.body && req.body.name)) {
-        // Add a message to the Storage queue.
-        context.bindings.msg = "Name passed to the function: " + 
-        (req.query.name || req.body.name);
-        context.res = {
-            // status: 200, /* Defaults to 200 */
-            body: "Hello " + (req.query.name || req.body.name)
-        };
-    }
-    else {
-        context.res = {
-            status: 400,
-            body: "Please pass a name on the query string or in the request body"
-        };
-    }
-};
-```
-
-### C\#
-
-Add code that uses the `msg` output binding object to create a queue message. Add this code before the method returns.
-
-```cs
-if (!string.IsNullOrEmpty(name))
-{
-    // Add a message to the output collection.
-    msg.Add(string.Format("Name passed to the function: {0}", name));
-}
-```
-
-At this point, your function should look as follows:
-
-```cs
-[FunctionName("HttpTrigger")]
-public static async Task<IActionResult> Run(
-    [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)] HttpRequest req, 
-    [Queue("outqueue"),StorageAccount("AzureWebJobsStorage")] ICollector<string> msg, ILogger log)
-{
-    log.LogInformation("C# HTTP trigger function processed a request.");
-
-    string name = req.Query["name"];
-
-    string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
-    dynamic data = JsonConvert.DeserializeObject(requestBody);
-    name = name ?? data?.name;
-
-    if (!string.IsNullOrEmpty(name))
-    {
-        // Add a message to the output collection.
-        msg.Add(string.Format("Name passed to the function: {0}", name));
-    }
-    return name != null
-        ? (ActionResult)new OkObjectResult($"Hello, {name}")
-        : new BadRequestObjectResult("Please pass a name on the query string or in the request body");
-}
-```
+---
 
 [!INCLUDE [functions-run-function-test-local-vs-code](../../includes/functions-run-function-test-local-vs-code.md)]
 
-A new queue named **outqueue** is created in your Storage account by the Functions runtime when the output binding is first used. You'll use Storage Explorer to verify that the queue was created along with the new message.
+A new queue named **outqueue** is created in your storage account by the Functions runtime when the output binding is first used. You'll use Storage Explorer to verify that the queue was created along with the new message.
 
 ### Connect Storage Explorer to your account
 
@@ -248,7 +116,7 @@ After you successfully sign in to your account, you see all of the Azure subscri
 
 Now, it's time to republish the updated function app to Azure.
 
-## Redeploy and test the updated app
+## Redeploy and verify the updated app
 
 1. In Visual Studio Code, press F1 to open the command palette. In the command palette, search for and select `Azure Functions: Deploy to function app...`.
 

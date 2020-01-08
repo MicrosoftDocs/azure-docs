@@ -28,6 +28,21 @@ The Azure Active Directory team regularly updates Azure AD Connect Health with n
 Azure AD Connect Health for Sync is integrated with Azure AD Connect installation. Read more about [Azure AD Connect release history](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-version-history)
 For feature feedback, vote at [Connect Health User Voice channel](https://feedback.azure.com/forums/169401-azure-active-directory/filters/new?category_id=165591)
 
+## July 2019
+**Agent Update**
+* Azure AD Connect Health agent for AD FS (version 3.1.59.0) 
+   1. Text change in TestWindowsTransport
+   2. Changes for AD FS RP upload
+   
+* Azure AD Connect Health agent for AD FS (version 3.1.56.0) 
+   1. Add TestWindowsTransport test and remove WsTrust endpoints checks in CheckOffice365Endpoints test
+   2. Log OS and .NET information
+   3. Increase RP configuration message upload size to 1MB.
+   4. Bug fixes
+   
+* Azure AD Connect Health agent for AD DS (version 3.1.56.0) 
+   1. Log OS and .NET information 
+   2. Bug fixes
 
 ## May 2019
 **Agent Update:** 

@@ -1,10 +1,10 @@
 ---
-title: Frequently asked questions for Linux VMs in Azure | Microsoft Docs
+title: Frequently asked questions for Linux VMs in Azure 
 description: Provides answers to some of the common questions about Linux virtual machines created with the Resource Manager model.
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-management
 
@@ -12,7 +12,7 @@ ms.assetid: 3648e09c-1115-4818-93c6-688d7a54a353
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
-ms.devlang: na
+
 ms.topic: article
 ms.date: 05/08/2019
 ms.author: cynthn
@@ -25,7 +25,7 @@ This article addresses some common questions about Linux virtual machines create
 All subscribers can run server software on an Azure virtual machine. For more information, see [Linux on Azure-Endorsed Distributions](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## How much storage can I use with a virtual machine?
-Each data disk can be up to 4 TB (4,095 GB). The number of data disks you can use depends on the size of the virtual machine. For details, see [Sizes for Virtual Machines](sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Each data disk can be up to 32,767 GiB. The number of data disks you can use depends on the size of the virtual machine. For details, see [Sizes for Virtual Machines](sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 Azure Managed Disks are the recommended disk storage offerings for use with Azure Virtual Machines for persistent storage of data. You can use multiple Managed Disks with each Virtual Machine. Managed Disks offer two types of durable storage options: Premium and Standard Managed Disks. For pricing information, see [Managed Disks Pricing](https://azure.microsoft.com/pricing/details/managed-disks).
 
@@ -50,10 +50,10 @@ The two new regions of Canada Central and Canada East are not automatically regi
 Yes, this is now possible. The VM first needs to be stopped deallocated. Then you can add or remove a NIC (unless it's the last NIC on the VM). 
 
 ## Are there any computer name requirements?
-Yes. The computer name can be a maximum of 64 characters in length. See [Naming conventions rules and restrictions](/azure/architecture/best-practices/naming-conventions) for more information around naming your resources.
+Yes. The computer name can be a maximum of 64 characters in length. See [Naming conventions rules and restrictions](/azure/architecture/best-practices/resource-naming) for more information around naming your resources.
 
 ## Are there any resource group name requirements?
-Yes. The resource group name can be a maximum of 90 characters in length. See [Naming conventions rules and restrictions](/azure/architecture/best-practices/naming-conventions) for more information about resource groups.
+Yes. The resource group name can be a maximum of 90 characters in length. See [Naming conventions rules and restrictions](/azure/architecture/best-practices/resource-naming) for more information about resource groups.
 
 ## What are the username requirements when creating a VM?
 

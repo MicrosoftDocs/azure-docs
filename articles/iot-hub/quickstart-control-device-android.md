@@ -17,7 +17,7 @@ ms.author: wesmc
 
 [!INCLUDE [iot-hub-quickstarts-2-selector](../../includes/iot-hub-quickstarts-2-selector.md)]
 
-IoT Hub is an Azure service that enables you to ingest high volumes of telemetry from your IoT devices into the cloud and manage your devices from the cloud. In this quickstart, you use a *direct method* to control a simulated device connected to your IoT hub. You can use direct methods to remotely change the behavior of a device connected to your IoT hub.
+IoT Hub is an Azure service that enables you to manage your IoT devices from the cloud, and ingest high volumes of device telemetry to the cloud for storage or processing. In this quickstart, you use a *direct method* to control a simulated device connected to your IoT hub. You can use direct methods to remotely change the behavior of a device connected to your IoT hub.
 
 The quickstart uses two pre-written Java applications:
 
@@ -31,7 +31,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 ## Prerequisites
 
-* Android studio from https://developer.android.com/studio/. For more information regarding Android Studio installation, see [android-installation](https://developer.android.com/studio/install).
+* Android studio from https://developer.android.com/studio/. For more information on Android Studio installation, see [android-installation](https://developer.android.com/studio/install).
 
 * Android SDK 27 is used by the sample in this article.
 
@@ -59,11 +59,11 @@ A device must be registered with your IoT hub before it can connect. In this qui
 
    **YourIoTHubName**: Replace this placeholder below with the name you chose for your IoT hub.
 
-   **MyAndroidDevice**: This value is the name given for the registered device. Use MyAndroidDevice as shown. If you choose a different name for your device, you may also need to use that name throughout this article, and update the device name in the sample applications before you run them.
+   **MyAndroidDevice**: This is the name of the device you're registering. It's recommended to use **MyAndroidDevice** as shown. If you choose a different name for your device, you also need to use that name throughout this article, and update the device name in the sample applications before you run them.
 
     ```azurecli-interactive
     az iot hub device-identity create \
-      --hub-name YourIoTHubName --device-id MyAndroidDevice
+      --hub-name {YourIoTHubName} --device-id MyAndroidDevice
     ```
 
 2. Run the following commands in Azure Cloud Shell to get the _device connection string_ for the device you just registered:
@@ -72,7 +72,7 @@ A device must be registered with your IoT hub before it can connect. In this qui
 
     ```azurecli-interactive
     az iot hub device-identity show-connection-string \
-      --hub-name YourIoTHubName \
+      --hub-name {YourIoTHubName} \
       --device-id MyAndroidDevice \
       --output table
     ```
@@ -90,24 +90,24 @@ You also need a _service connection string_ to enable the back-end service appli
 **YourIoTHubName**: Replace this placeholder below with the name you chose for your IoT hub.
 
 ```azurecli-interactive
-az iot hub show-connection-string --name YourIoTHubName --policy-name service --output table
+az iot hub show-connection-string --policy-name service --name {YourIoTHubName} --output table
 ```
 
 Make a note of the service connection string, which looks like:
 
 `HostName={YourIoTHubName}.azure-devices.net;SharedAccessKeyName=service;SharedAccessKey={YourSharedAccessKey}`
 
-You use this value later in the quickstart. The service connection string is different from the device connection string.
+You use this value later in the quickstart. This service connection string is different from the device connection string you noted in the previous step.
 
 ## Listen for direct method calls
 
-The device SDK sample application can be run on a physical Android device or an Android emulator. The sample connects to a device-specific endpoint on your IoT hub, sends simulated telemetry, and listens for direct method calls from your hub. In this quickstart, the direct method call from the hub tells the device to change the interval at which it sends telemetry. The simulated device sends an acknowledgement back to your hub after it executes the direct method.
+The device SDK sample application can be run on a physical Android device or an Android emulator. The sample connects to a device-specific endpoint on your IoT hub, sends simulated telemetry, and listens for direct method calls from your hub. In this quickstart, the direct method call from the hub tells the device to change the interval at which it sends telemetry. The simulated device sends an acknowledgment back to your hub after it executes the direct method.
 
 1. Open the GitHub sample Android project in Android Studio. The project is located in the following directory of your cloned or downloaded copy of [azure-iot-sample-java](https://github.com/Azure-Samples/azure-iot-samples-java) repository.
 
         \azure-iot-samples-java\iot-hub\Samples\device\AndroidSample
 
-2. In Android Studio, open *gradle.properties* for the sample project and replace the **Device_Connection_String** placeholder with your device connection string you noted earlier.
+2. In Android Studio, open *gradle.properties* for the sample project and replace the **Device_Connection_String** placeholder with the device connection string you made a note of earlier.
 
     ```
     DeviceConnectionString=HostName={YourIoTHubName}.azure-devices.net;DeviceId=MyAndroidDevice;SharedAccessKey={YourSharedAccessKey}
@@ -127,39 +127,39 @@ The device SDK sample application can be run on a physical Android device or an 
 
     ![Sample screenshot of client device android app](media/quickstart-control-device-android/sample-screenshot.png)
 
-This app needs to be left running on a phycial device or emulator while you execute the service SDK sample to update the telemetry interval during run-time.
+This app needs to be left running on a physical device or emulator while you execute the service SDK sample to update the telemetry interval during run-time.
 
 ## Read the telemetry from your hub
 
-In this section, you will use the Azure Cloud Shell with the [IoT extension](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot?view=azure-cli-latest) to monitor the device messages that are sent by the Android device.
+In this section, you will use the Azure Cloud Shell with the [IoT extension](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot?view=azure-cli-latest) to monitor the messages that are sent by the Android device.
 
 1. Using the Azure Cloud Shell, run the following command to connect and read messages from your IoT hub:
 
    **YourIoTHubName**: Replace this placeholder below with the name you choose for your IoT hub.
 
     ```azurecli-interactive
-    az iot hub monitor-events --hub-name YourIoTHubName --output table
+    az iot hub monitor-events --hub-name {YourIoTHubName} --output table
     ```
 
     The following screenshot shows the output as the IoT hub receives telemetry sent by the Android device:
 
       ![Read the device messages using the Azure CLI](media/quickstart-control-device-android/read-data.png)
 
-By default the telemetry app is sending telemetry from the Android device every 5 seconds. In the next section, you will use a direct method call to update the telemetry interval for the Android IoT device.
+By default, the telemetry app sends telemetry from the Android device every five seconds. In the next section, you will use a direct method call to update the telemetry interval for the Android IoT device.
 
 ## Call the direct method
 
-The service application connects to a service-side endpoint on your IoT Hub. The application makes direct method calls to a device through your IoT hub and listens for acknowledgements.
+The service application connects to a service-side endpoint on your IoT Hub. The application makes direct method calls to a device through your IoT hub and listens for acknowledgments.
 
 Run this app on a separate physical Android device or Android emulator.
 
-An IoT Hub back-end service application typically runs in the cloud where it is easier to mitigate the risks associated with the sensitive connection string that controls all devices on an IoT Hub. In this example, we are running it as an Android app for demonstration purposes only. The other language versions of this quickstart provide other examples that align more closely with a back-end service application.
+An IoT Hub back-end service application typically runs in the cloud, where it's easier to mitigate the risks associated with the sensitive connection string that controls all devices on an IoT Hub. In this example, we are running it as an Android app for demonstration purposes only. The other-language versions of this quickstart provide examples that align more closely with a typical back-end service application.
 
 1. Open the GitHub service sample Android project in Android Studio. The project is located in the following directory of your cloned or downloaded copy of [azure-iot-sample-java](https://github.com/Azure-Samples/azure-iot-samples-java) repository.
 
         \azure-iot-samples-java\iot-hub\Samples\service\AndroidSample
 
-2. In Android Studio, open *gradle.properties* for the sample project and update the value for **ConnectionString** and **DeviceId** properties with your service connection string you noted earlier and the Android device ID you registered.
+2. In Android Studio, open *gradle.properties* for the sample project. Update the values for the **ConnectionString** and **DeviceId** properties with the service connection string you noted earlier and the Android device ID you registered.
 
     ```
     ConnectionString=HostName={YourIoTHubName}.azure-devices.net;SharedAccessKeyName=service;SharedAccessKey={YourSharedAccessKey}
@@ -182,9 +182,9 @@ An IoT Hub back-end service application typically runs in the cloud where it is 
 
     ![Enter telemetry interval](media/quickstart-control-device-android/enter-telemetry-interval.png)
 
-6. The app will receive an acknowledgement indicating whether the method executed successfully or not.
+6. The app will receive an acknowledgment indicating whether the method executed successfully or not.
 
-    ![Direct Method Acknowledgement](media/quickstart-control-device-android/direct-method-ack.png)
+    ![Direct Method acknowledgment](media/quickstart-control-device-android/direct-method-ack.png)
 
 ## Clean up resources
 

@@ -1,24 +1,17 @@
 ---
-title: Configure and manage Azure Notebook projects
-description: How to manage project metadata, project files, the project's environment and setup steps through both the Azure Notebooks UI and direct terminal access.
-services: app-service
-documentationcenter: ''
-author: kraigb
-manager: douge
-
-ms.assetid: 35dd6ff1-a14a-4a2e-b173-6d8467de3e89
-ms.service: azure-notebooks
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+title: Configure and manage Azure Notebooks Preview
+description: Learn how to manage project metadata, project files, the project's environment and setup steps through both the Azure Notebooks UI and direct terminal access.
+ms.topic: how-to
 ms.date: 05/13/2019
-ms.author: kraigb
 ---
 
-# Manage and configure projects
+# <a id="manage-and-configure-projects" /> Manage and configure projects in Azure Notebooks Preview
 
-A project in Azure Notebooks is essentially a configuration of the underlying Linux virtual machine in which Jupyter notebooks run, along with a file folder and descriptive metadata. The project dashboard in Azure Notebooks allows you to manage files and otherwise configure the project's characteristics:
+A project in Azure Notebooks Preview is essentially a configuration of the underlying Linux virtual machine in which Jupyter notebooks run, along with a file folder and descriptive metadata. 
+
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
+
+The project dashboard in Azure Notebooks allows you to manage files and otherwise configure the project's characteristics:
 
 - The compute tier on which the project runs, which can be the free tier or an Azure virtual machine.
 - Project metadata, which includes a name, description, an identifier that's used when sharing the project, and whether the project is public or private.

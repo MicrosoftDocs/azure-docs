@@ -1,6 +1,6 @@
 ---
 title: SQL constants in Azure Cosmos DB
-description: Learn about SQL constants in Azure Cosmos DB
+description: Learn about how the SQL query constants in Azure Cosmos DB are used to represent a specific data value
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
@@ -114,5 +114,5 @@ ms.author: tisande
 
 ## Next steps
 
-- [Azure Cosmos DB .NET samples](https://github.com/Azure/azure-cosmosdb-dotnet)
+- [Azure Cosmos DB .NET samples](https://github.com/Azure/azure-cosmos-dotnet-v3)
 - [Model document data](modeling-data.md)

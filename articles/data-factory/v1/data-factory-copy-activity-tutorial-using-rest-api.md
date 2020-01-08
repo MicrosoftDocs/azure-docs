@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Use REST API to create an Azure Data Factory pipeline | Microsoft Docs'
+title: 'Tutorial: Use REST API to create an Azure Data Factory pipeline '
 description: In this tutorial, you use REST API to create an Azure Data Factory pipeline with a Copy Activity to copy data from an Azure blob storage an Azure SQL database. 
 services: data-factory
 documentationcenter: ''
@@ -10,8 +10,6 @@ editor:
 ms.assetid: 1704cdf8-30ad-49bc-a71c-4057e26e7350
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
-
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
@@ -22,7 +20,6 @@ robots: noindex
 > [!div class="op_single_selector"]
 > * [Overview and prerequisites](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Copy Wizard](data-factory-copy-data-wizard-tutorial.md)
-> * [Azure portal](data-factory-copy-activity-tutorial-using-azure-portal.md)
 > * [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 > * [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
 > * [Azure Resource Manager template](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
@@ -102,7 +99,7 @@ Create following JSON files in the folder where curl.exe is located.
 
 ### azurestoragelinkedservice.json
 > [!IMPORTANT]
-> Replace **accountname** and **accountkey** with name and key of your Azure storage account. To learn how to get your storage access key, see [View, copy and regenerate storage access keys](../../storage/common/storage-account-manage.md#access-keys).
+> Replace **accountname** and **accountkey** with name and key of your Azure storage account. To learn how to get your storage access key, see [Manage storage account access keys](../../storage/common/storage-account-keys-manage.md).
 
 ```JSON
 {
@@ -335,7 +332,7 @@ In this step, you create an Azure Data Factory named **ADFCopyTutorialDF**. A da
 	> Confirm that the name of the data factory you specify here (ADFCopyTutorialDF) matches the name specified in the **datafactory.json**. 
    
 	```PowerShell
-    $cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data “@datafactory.json” https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/ADFCopyTutorialDF0411?api-version=2015-10-01};
+    $cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data "@datafactory.json" https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/ADFCopyTutorialDF0411?api-version=2015-10-01};
     ```
 2. Run the command by using **Invoke-Command**.
    
@@ -407,7 +404,7 @@ In this step, you link your Azure SQL database to your data factory. You specify
 1. Assign the command to variable named **cmd**. 
    
 	```PowerShell
-	$cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data “@azuresqllinkedservice.json” https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/linkedservices/AzureSqlLinkedService?api-version=2015-10-01};
+	$cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data "@azuresqllinkedservice.json" https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/linkedservices/AzureSqlLinkedService?api-version=2015-10-01};
     ```
 2. Run the command by using **Invoke-Command**.
    

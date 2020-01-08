@@ -1,15 +1,13 @@
 ---
 title: Use Application Change Analysis in Azure Monitor to find web-app issues | Microsoft Docs
 description: Use Application Change Analysis in Azure Monitor to troubleshoot application issues on live sites on Azure App Service.
-services: application-insights
-author: cawams
-manager: carmonm
-ms.assetid: ea2a28ed-4cd9-4006-bd5a-d4c76f4ec20b
-ms.service: application-insights
-ms.tgt_pltfrm: ibiza
+ms.service:  azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 05/07/2019
+author: cawams
 ms.author: cawa
+ms.date: 05/07/2019
+
 ---
 
 # Use Application Change Analysis (preview) in Azure Monitor
@@ -29,13 +27,17 @@ The following diagram illustrates the architecture of Change Analysis:
 
 ![Architecture diagram of how Change Analysis gets change data and provides it to client tools](./media/change-analysis/overview.png)
 
-Currently Change Analysis is integrated into the **Diagnose and solve problems** experience in the App Service web app. To enable change detection and view changes in the web app, see the *Change Analysis for the Web Apps feature* section later in this article.
+Currently Change Analysis is integrated into the **Diagnose and solve problems** experience in the App Service web app, as well as available as a standalone blade in Azure portal.
+See the *Viewing changes for all resources in Azure* section to access Change Analysis blade and the *Change Analysis for the Web Apps feature* section for using it within Web App portal later in this article.
 
-### Azure Resource Manager deployment changes
+### Azure Resource Manager tracked properties changes
 
-Using [Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/overview), Change Analysis provides a historical record of how the Azure resources that host your application have changed over time. Change Analysis can detect, for example, changes in IP configuration rules, managed identities, and SSL settings. So if a tag is added to a web app, Change Analysis reflects the change. This information is available as long as the `Microsoft.ChangeAnalysis` resource provider is enabled in the Azure subscription.
+Using [Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/overview), Change Analysis provides a historical record of how the Azure resources that host your application have changed over time. Tracked settings such as managed identities, Platform OS upgrade, and hostnames can be detected.
 
-### Changes in web app deployment and configuration
+### Azure Resource Manager proxied setting changes
+Settings such as IP Configuration rule, SSL settings and extension versions are not yet available in ARG, so Change Analysis queries and computes these changes securely to provide more details in what changed in the app. These information is not available yet in Azure Resource Graph but will be available soon.
+
+### Changes in web app deployment and configuration (in-guest changes)
 
 Change Analysis captures the deployment and configuration state of an application every 4 hours. It can detect, for example, changes in the application environment variables. The tool computes the differences and presents what has changed. Unlike Resource Manager changes, code deployment change information might not be available immediately in the tool. To view the latest changes in Change Analysis, select **Scan changes now**.
 
@@ -44,10 +46,41 @@ Change Analysis captures the deployment and configuration state of an applicatio
 ### Dependency changes
 
 Changes to resource dependencies can also cause issues in a web app. For example, if a web app calls into a Redis cache, the Redis cache SKU could affect the web app performance. To detect changes in dependencies, Change Analysis checks the web app's DNS record. In this way, it identifies changes in all app components that could cause issues.
+Currently the following dependencies are supported:
+- Web Apps
+- Azure Storage
+- Azure SQL
+
+### Enablement
+"Microsoft.ChangeAnalysis" resource provider needs to be registered with a subscription for the Azure Resource Manager tracked properties and proxied settings change data to be available. As you enter the Web App diagnose and solve problems or bring up the Change Analysis standalone blade, this resource provider is automatically registered. It does not have any performance and cost implementations for your subscription.
+For web app in-guest changes, separate enablement is required for scanning code files within a web app. See *Enable Change Analysis in the Diagnose and solve problems tool* section later in this article for more details.
+
+## Viewing changes for all resources in Azure
+In Azure Monitor, there is a standalone blade for Change Analysis to view all changes with insights and application dependencies resources.
+
+Search for Change Analysis in the search bar on Azure portal to launch the blade.
+
+![Screenshot of searching Change Analysis in Azure portal](./media/change-analysis/search-change-analysis.png)
+
+Select Resource Group and resources to start viewing changes.
+
+![Screenshot of Change Analysis blade in Azure portal](./media/change-analysis/change-analysis-standalone-blade.png)
+
+You can see Insights and related dependencies resources that host your application. This view is designed to be application-centric for developers to troubleshoot issues.
+
+Currently supported resources include:
+- Virtual Machines
+- Virtual Machine Scale Set
+- Azure Networking resources
+- Web app with in-guest file tracking and environment variables changes
+
+For any feedback, please use the send feedback button in the blade or email changeanalysisteam@microsoft.com.
+
+![Screenshot of feedback button in Change Analysis blade](./media/change-analysis/change-analysis-feedback.png)
 
 ## Change Analysis for the Web Apps feature
 
-In Azure Monitor, Change Analysis is currently built into the self-service **Diagnose and solve problems** experience. Access this experience from the **Overview** page of your App Service application.
+In Azure Monitor, Change Analysis is also built into the self-service **Diagnose and solve problems** experience. Access this experience from the **Overview** page of your App Service application.
 
 ![Screenshot of the "Overview" button and the "Diagnose and solve problems" button](./media/change-analysis/change-analysis.png)
 
@@ -65,71 +98,54 @@ In Azure Monitor, Change Analysis is currently built into the self-service **Dia
 
    ![Screenshot of "Application Crashes" options](./media/change-analysis/enable-changeanalysis.png)
 
-1. Turn on **Change Analysis** and select **Save**.
+1. Turn on **Change Analysis** and select **Save**. The tool displays all web apps under an App Service plan. You can use the plan level switch to turn on Change Analysis for all web apps under a plan.
 
     ![Screenshot of the "Enable Change Analysis" user interface](./media/change-analysis/change-analysis-on.png)
 
 
-1. To access Change Analysis, select **Diagnose and solve problems** > **Availability and Performance** > **Application Crashes**. You'll see a graph that summarizes the type of changes over time along with details on those changes:
+1. To access Change Analysis, select **Diagnose and solve problems** > **Availability and Performance** > **Application Crashes**. You'll see a graph that summarizes the type of changes over time along with details on those changes. By default, changes in the past 24 hours are displayed to help with immediate problems.
 
      ![Screenshot of the change diff view](./media/change-analysis/change-view.png)
 
 
 ### Enable Change Analysis at scale
 
-If your subscription includes numerous web apps, enabling the service at the level of the web app would be inefficient. In this case, follow these alternative instructions.
+If your subscription includes numerous web apps, enabling the service at the level of the web app would be inefficient. Run the following script to enable all web apps in your subscription.
 
-### Register the Change Analysis resource provider for your subscription
+Pre-requisites:
+* PowerShell Az Module. Follow instructions at [Install the Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-2.6.0)
 
-1. Register the Change Analysis feature flag (preview). Because the feature flag is in preview, you need to register it to make it visible to your subscription:
+Run the following script:
 
-   1. Open [Azure Cloud Shell](https://azure.microsoft.com/features/cloud-shell/).
+```PowerShell
+# Log in to your Azure subscription
+Connect-AzAccount
 
-      ![Screenshot of change Cloud Shell](./media/change-analysis/cloud-shell.png)
+# Get subscription Id
+$SubscriptionId = Read-Host -Prompt 'Input your subscription Id'
 
-   1. Change the shell type to **PowerShell**.
+# Make Feature Flag visible to the subscription
+Set-AzContext -SubscriptionId $SubscriptionId
 
-      ![Screenshot of change Cloud Shell](./media/change-analysis/choose-powershell.png)
+# Register resource provider
+Register-AzResourceProvider -ProviderNamespace "Microsoft.ChangeAnalysis"
 
-   1. Run the following PowerShell command:
 
-        ``` PowerShell
-        Set-AzContext -Subscription <your_subscription_id> #set script execution context to the subscription you are trying to enable
-        Get-AzureRmProviderFeature -ProviderNamespace "Microsoft.ChangeAnalysis" -ListAvailable #Check for feature flag availability
-        Register-AzureRmProviderFeature -FeatureName PreviewAccess -ProviderNamespace Microsoft.ChangeAnalysis #Register feature flag
-        ```
+# Enable each web app
+$webapp_list = Get-AzWebApp | Where-Object {$_.kind -eq 'app'}
+foreach ($webapp in $webapp_list)
+{
+    $tags = $webapp.Tags
+    $tags[“hidden-related:diagnostics/changeAnalysisScanEnabled”]=$true
+    Set-AzResource -ResourceId $webapp.Id -Tag $tags -Force
+}
 
-1. Register the Change Analysis resource provider for the subscription.
+```
 
-   - Go to **Subscriptions**, and select the subscription you want to enable in the change service. Then select resource providers:
 
-        ![Screenshot showing how to register the Change Analysis resource provider](./media/change-analysis/register-rp.png)
-
-       - Select **Microsoft.ChangeAnalysis**. Then at the top of the page, select **Register**.
-
-       - After the resource provider is enabled, you can set a hidden tag on the web app to detect changes at the level of deployment. To set a hidden tag, follow the instructions under **Unable to fetch Change Analysis information**.
-
-   - Alternatively, you can use a PowerShell script to register the resource provider:
-
-        ```PowerShell
-        Get-AzureRmResourceProvider -ListAvailable | Select-Object ProviderNamespace, RegistrationState #Check if RP is ready for registration
-
-        Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.ChangeAnalysis" #Register the Change Analysis RP
-        ```
-
-        To use PowerShell to set a hidden tag on a web app, run the following command:
-
-        ```powershell
-        $webapp=Get-AzWebApp -Name <name_of_your_webapp>
-        $tags = $webapp.Tags
-        $tags[“hidden-related:diagnostics/changeAnalysisScanEnabled”]=$true
-        Set-AzResource -ResourceId <your_webapp_resourceid> -Tag $tag
-        ```
-
-     > [!NOTE]
-     > After you add the hidden tag, you might still need to wait up to 4 hours before you start seeing changes. Results are delayed because Change Analysis scans your web app only every 4 hours. The 4-hour schedule limits the scan's performance impact.
 
 ## Next steps
 
-- Monitor App Service more effectively by [enabling Application Insights features](azure-web-apps.md) in Azure Monitor.
+- Enable Application Insights for [Azure App Services apps](azure-web-apps.md).
+- Enable Application Insights for [Azure VM and Azure virtual machine scale set IIS-hosted apps](azure-vm-vmss-apps.md).
 - Learn more about [Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/overview), which helps power Change Analysis.

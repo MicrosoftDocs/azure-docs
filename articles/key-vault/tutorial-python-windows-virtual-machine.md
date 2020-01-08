@@ -8,7 +8,7 @@ manager: rajvijan
 ms.service: key-vault
 ms.topic: tutorial
 ms.date: 09/05/2018
-ms.author: pryerram
+ms.author: mbaldwin
 ms.custom: mvc
 #Customer intent: As a developer I want to use Azure Key vault to store secrets for my app, so that they are kept secure.
 ---
@@ -29,7 +29,7 @@ The tutorial shows you how to:
 > * Enable a managed identity.
 > * Assign permissions to the VM identity.
 
-Before you begin, read [Key Vault basic concepts](key-vault-whatis.md#basic-concepts). 
+Before you begin, read [Key Vault basic concepts](basic-concepts.md). 
 
 If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -43,7 +43,7 @@ For Windows, Mac, and Linux:
 
 Azure Key Vault stores credentials securely, so they're not displayed in your code. However, you need to authenticate to Azure Key Vault to retrieve your keys. To authenticate to Key Vault, you need a credential. It's a classic bootstrap dilemma. Managed Service Identity (MSI) solves this issue by providing a _bootstrap identity_ that simplifies the process.
 
-When you enable MSI for an Azure service, such as Azure Virtual Machines, Azure App Service, or Azure Functions, Azure creates a [service principal](key-vault-whatis.md#basic-concepts). MSI does this for the instance of the service in Azure Active Directory (Azure AD) and injects the service principal credentials into that instance. 
+When you enable MSI for an Azure service, such as Azure Virtual Machines, Azure App Service, or Azure Functions, Azure creates a [service principal](basic-concepts.md). MSI does this for the instance of the service in Azure Active Directory (Azure AD) and injects the service principal credentials into that instance. 
 
 ![MSI](media/MSI.png)
 
@@ -100,9 +100,9 @@ This secret stores the value **MySecret**.
 ## Create a virtual machine
 You can create a virtual machine by using one of the following methods:
 
-* [The Azure CLI](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-cli)
-* [PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-powershell)
-* [The Azure portal](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal)
+* [The Azure CLI](../virtual-machines/windows/quick-create-cli.md)
+* [PowerShell](../virtual-machines/windows/quick-create-powershell.md)
+* [The Azure portal](../virtual-machines/windows/quick-create-portal.md)
 
 ## Assign an identity to the VM
 In this step, you create a system-assigned identity for the virtual machine by running the following command in the Azure CLI:
@@ -129,7 +129,7 @@ az keyvault set-policy --name '<YourKeyVaultName>' --object-id <VMSystemAssigned
 
 ## Log on to the virtual machine
 
-To log on to the virtual machine, follow the instructions in [Connect and log on to an Azure virtual machine running Windows](https://docs.microsoft.com/azure/virtual-machines/windows/connect-logon).
+To log on to the virtual machine, follow the instructions in [Connect and log on to an Azure virtual machine running Windows](../virtual-machines/windows/connect-logon.md).
 
 ## Create and run a sample Python app
 

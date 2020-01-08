@@ -1,11 +1,7 @@
 ---
 title: Deploy to Azure App Service by using the Jenkins plugin
 description: Learn how to use the Azure App Service Jenkins plugin to deploy a Java web app to Azure in Jenkins
-ms.service: jenkins
 keywords: jenkins, azure, devops, app service
-author: tomarchermsft
-manager: jeconnoc
-ms.author: tarcher
 ms.topic: tutorial
 ms.date: 07/31/2018
 ---
@@ -31,7 +27,7 @@ If you don't already have a Jenkins Master, start with the [solution template](i
 * [Azure Credentials](https://plugins.jenkins.io/azure-credentials) version 1.2
 * [Azure App Service](https://plugins.jenkins.io/azure-app-service) version 0.1
 
-You can use the Jenkins plugin to deploy a web app in any language that is supported by Web Apps, such as C#, PHP, Java, and Node.js. In this tutorial, we use a [simple Java web app for Azure](https://github.com/azure-devops/javawebappsample). To fork the repo to your own GitHub account, select the **Fork** button in the upper right corner of the GitHub interface.  
+You can use the Jenkins plugin to deploy a web app in any language that is supported by Web Apps, such as C#, PHP, Python, Java, and Node.js. In this tutorial, we use a [simple Java web app for Azure](https://github.com/azure-devops/javawebappsample). To fork the repo to your own GitHub account, select the **Fork** button in the upper right corner of the GitHub interface.  
 
 > [!NOTE]
 > The Java JDK and Maven are required to build the Java project. Install these components on the Jenkins Master, or on the VM agent if you use the agent for continuous integration. If you are deploying a Java SE application, ZIP is also needed on the build server.

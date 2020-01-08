@@ -21,23 +21,20 @@ ms.author: yegu
 
 # Quickstart: Add feature flags to an ASP.NET Core app
 
-You can enable feature management in ASP.NET Core by connecting your application to Azure App Configuration. You can use this managed service to store all your feature flags and control their states centrally. This quickstart shows how to incorporate App Configuration into an ASP.NET Core web app to create an end-to-end implementation of feature management.
+In this quickstart, you incorporate Azure App Configuration into an ASP.NET Core web app to create an end-to-end implementation of feature management. You can use the App Configuration service to centrally store all your feature flags and control their states. 
 
 The .NET Core Feature Management libraries extend the framework with comprehensive feature flag support. These libraries are built on top of the .NET Core configuration system. They seamlessly integrate with App Configuration through its .NET Core configuration provider.
 
-You can use any code editor to do the steps in this quickstart. [Visual Studio Code](https://code.visualstudio.com/) is an excellent option available on the Windows, macOS, and Linux platforms.
-
 ## Prerequisites
 
-To do this quickstart, install the [.NET Core SDK](https://dotnet.microsoft.com/download).
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+- Azure subscription - [create one for free](https://azure.microsoft.com/free/)
+- [.NET Core SDK](https://dotnet.microsoft.com/download).
 
 ## Create an App Configuration store
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. Select **Feature Manager** > **+Create** to add the following feature flags:
+6. Select **Feature Manager** > **+Add** to add the following feature flags:
 
     | Key | State |
     |---|---|
@@ -52,7 +49,7 @@ You use the [.NET Core command-line interface (CLI)](https://docs.microsoft.com/
 1. In the new folder, run the following command to create a new ASP.NET Core MVC web app project:
 
    ```    
-   dotnet new mvc
+   dotnet new mvc --no-https
    ```
 
 ## Add Secret Manager
@@ -82,11 +79,10 @@ Add the [Secret Manager tool](https://docs.microsoft.com/aspnet/core/security/ap
 
 ## Connect to an App Configuration store
 
-1. Add references to the `Microsoft.Extensions.Configuration.AzureAppConfiguration` and `Microsoft.FeatureManagement` NuGet packages by running the following commands:
+1. Add reference to the `Microsoft.Azure.AppConfiguration.AspNetCore` and the `Microsoft.FeatureManagement.AspNetCore` NuGet packages by running the following commands:
 
     ```
-    dotnet add package Microsoft.Extensions.Configuration.AzureAppConfiguration --version 1.0.0-preview-008920001-990
-
+    dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore --version 2.0.0-preview-009470001-12
     dotnet add package Microsoft.FeatureManagement.AspNetCore --version 1.0.0-preview-009000001-1251
     ```
 
@@ -117,6 +113,11 @@ Add the [Secret Manager tool](https://docs.microsoft.com/aspnet/core/security/ap
     ```
 
 1. Update the `CreateWebHostBuilder` method to use App Configuration by calling the `config.AddAzureAppConfiguration()` method.
+    
+    > [!IMPORTANT]
+    > `CreateHostBuilder` replaces `CreateWebHostBuilder` in .NET Core 3.0.  Select the correct syntax based on your environment.
+
+    ### Update `CreateWebHostBuilder` for .NET Core 2.x
 
     ```csharp
     public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
@@ -126,16 +127,34 @@ Add the [Secret Manager tool](https://docs.microsoft.com/aspnet/core/security/ap
                 var settings = config.Build();
                 config.AddAzureAppConfiguration(options => {
                     options.Connect(settings["ConnectionStrings:AppConfig"])
-                           .UseFeatureFlags();
+                        .UseFeatureFlags();
                 });
             })
             .UseStartup<Startup>();
     ```
 
+    ### Update `CreateHostBuilder` for .NET Core 3.x
+
+    ```csharp
+    public static IHostBuilder CreateHostBuilder(string[] args) =>
+        Host.CreateDefaultBuilder(args)
+        .ConfigureWebHostDefaults(webBuilder =>
+        webBuilder.ConfigureAppConfiguration((hostingContext, config) =>
+        {
+            var settings = config.Build();
+            config.AddAzureAppConfiguration(options => {
+                options.Connect(settings["ConnectionStrings:AppConfig"])
+                    .UseFeatureFlags();
+            });
+        })
+        .UseStartup<Startup>());
+    ```
+
+
 1. Open *Startup.cs*, and add references to the .NET Core feature manager:
 
     ```csharp
-    using Microsoft.FeatureManagement.AspNetCore;
+    using Microsoft.FeatureManagement;
     ```
 
 1. Update the `ConfigureServices` method to add feature flag support by calling the `services.AddFeatureManagement()` method. Optionally, you can include any filter to be used with feature flags by calling `services.AddFeatureFilter<FilterType>()`:
@@ -144,6 +163,16 @@ Add the [Secret Manager tool](https://docs.microsoft.com/aspnet/core/security/ap
     public void ConfigureServices(IServiceCollection services)
     {
         services.AddFeatureManagement();
+    }
+    ```
+
+1. Update the `Configure` method to add a middleware to allow the feature flag values to be refreshed at a recurring interval while the ASP.NET Core web app continues to receive requests.
+
+    ```csharp
+    public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+    {
+        app.UseAzureAppConfiguration();
+        app.UseMvc();
     }
     ```
 
@@ -259,6 +288,8 @@ Add the [Secret Manager tool](https://docs.microsoft.com/aspnet/core/security/ap
     |---|---|
     | Beta | On |
 
+1. Restart your application by switching back to your command prompt and pressing `Ctrl-C` to cancel the running `dotnet` process, then rerunning `dotnet run`.
+
 1. Refresh the browser page to see the new configuration settings.
 
     ![Quickstart app launch local](./media/quickstarts/aspnet-core-feature-flag-local-after.png)
@@ -274,3 +305,4 @@ In this quickstart, you created a new App Configuration store and used it to man
 - Learn more about [feature management](./concept-feature-management.md).
 - [Manage feature flags](./manage-feature-flags.md).
 - [Use feature flags in an ASP.NET Core app](./use-feature-flags-dotnet-core.md).
+- [Use dynamic configuration in an ASP.NET Core app](./enable-dynamic-configuration-aspnet-core.md)

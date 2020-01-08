@@ -1,5 +1,5 @@
 ---
-title: Manage Mobility agent on servers for disaster recovery of VMware VMs and physical servers with Azure Site Recovery | Microsoft Docs
+title: Manage the Mobility agent for VMware/physical servers with Azure Site Recovery 
 description: Manage Mobility Service agent for disaster recovery of VMware VMs and physical servers to Azure using the  Azure Site Recovery service.
 author: Rajeswari-Mamilla
 manager: rochakm
@@ -9,7 +9,7 @@ ms.date: 03/25/2019
 ms.author: ramamill
 ---
 
-# Manage mobility agent on protected machines
+# Manage the Mobility agent 
 
 You set up mobility agent on your server when you use Azure Site Recovery for disaster recovery of VMware VMs and physical servers to Azure. Mobility agent coordinates communications between your protected machine, configuration server/scale-out process server and manages data replication. This article summarizes common tasks for managing mobility agent after it's deployed.
 
@@ -56,11 +56,12 @@ Uninstall from the UI or from a command prompt.
 
 ### On a Linux machine
 1. On the Linux machine, sign in as a **root** user.
-2. In a terminal, go to /user/local/ASR.
+2. In a terminal, go to /usr/local/ASR.
 3. Run the following command:
     ```
     uninstall.sh -Y
-
+   ```
+   
 ## Install Site Recovery VSS provider on source machine
 
 Azure Site Recovery VSS provider is required on the source machine to generate application consistency points. If the installation of the provider didn't succeed through push installation, follow the below given guidelines to install it manually.

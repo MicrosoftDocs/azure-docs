@@ -41,7 +41,7 @@ The challenge we face in implementing offline mode is the following:
 * MP4 is supported by many players, encoder tools, but there is no binding between MP4 container and DRM;
 * In the long term, CFF with CENC is the way to go. However, today, the tools/player support ecosystem is not there yet. We need a solution, today.
  
-The idea is: smooth streaming ([PIFF](https://go.microsoft.com/?linkid=9682897)) file format with H264/AAC has a binding with PlayReady (AES-128 CTR). Individual smooth streaming .ismv file (assuming audio is muxed in video) is itself a fMP4 and can be used for playback. If a smooth streaming content goes through PlayReady encryption, each .ismv file becomes a PlayReady protected fragmented MP4. We can choose an .ismv file with the preferred bitrate and rename it as .mp4 for download.
+The idea is: smooth streaming ([PIFF](https://docs.microsoft.com/iis/media/smooth-streaming/protected-interoperable-file-format)) file format with H264/AAC has a binding with PlayReady (AES-128 CTR). Individual smooth streaming .ismv file (assuming audio is muxed in video) is itself a fMP4 and can be used for playback. If a smooth streaming content goes through PlayReady encryption, each .ismv file becomes a PlayReady protected fragmented MP4. We can choose an .ismv file with the preferred bitrate and rename it as .mp4 for download.
 
 There are two options for hosting the PlayReady protected MP4 for progressive download:
 
@@ -110,7 +110,6 @@ private async void LoadUri_Click(object sender, RoutedEventArgs e)
 
 ![Offline mode playback of PlayReady protected fMP4](./media/offline-playready-for-windows/offline-playready1.jpg)
 
-
 Since the video is under PlayReady protection, the screenshot will not be able to include the video.
 
 In summary, we have achieved offline mode on Azure Media Services:
@@ -119,6 +118,10 @@ In summary, we have achieved offline mode on Azure Media Services:
 * Content can be hosted in Azure Media Services or Azure Storage for progressive download;
 * PlayReady license delivery can be from Azure Media Services or elsewhere;
 * The prepared smooth streaming content can still be used for online streaming via DASH or smooth with PlayReady as the DRM.
+
+## Additional notes
+
+* Widevine is a service provided by Google Inc. and subject to the terms of service and Privacy Policy of Google, Inc.
 
 ## Next steps
 

@@ -19,6 +19,8 @@ ms.author: alkohli
 ---
 # Deploy and manage a StorSimple Cloud Appliance in Azure (Update 3 and later)
 
+[!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner.md)]
+
 ## Overview
 
 The StorSimple 8000 Series Cloud Appliance is an additional capability that comes with your Microsoft Azure StorSimple solution. The StorSimple Cloud Appliance runs on a virtual machine in a Microsoft Azure virtual network, and you can use it to back up and clone data from your hosts.

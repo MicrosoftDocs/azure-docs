@@ -5,7 +5,7 @@
  author: anavinahar
  ms.service: networking
  ms.topic: include
- ms.date: 06/25/2019
+ ms.date: 12/09/2019
  ms.author: anavin
  ms.custom: include file
 
@@ -21,11 +21,14 @@ The following limits apply only for networking resources managed through **Azure
 | Virtual networks |1,000 |
 | Subnets per virtual network |3,000 |
 | Virtual network peerings per virtual network |500 |
+| [Virtual network gateways (VPN Gateways) per virtual network](../articles/vpn-gateway/vpn-gateway-about-vpngateways.md#gwsku) |30 |
 | DNS servers per virtual network |20 |
 | Private IP addresses per virtual network |65,536 |
 | Private IP addresses per network interface |256 |
 | Private IP addresses per virtual machine |256 |
-| Concurrent TCP or UDP flows per NIC of a virtual machine or role instance |500,000 |
+| Public IP addresses per network interface |256 |
+| Public IP addresses per virtual machine |256 |
+| [Concurrent TCP or UDP flows per NIC of a virtual machine or role instance](../articles/virtual-network/virtual-machine-network-throughput.md#flow-limits-and-recommendations) |500,000 |
 | Network interface cards |65,536 |
 | Network Security Groups |5,000 |
 | NSG rules per NSG |1,000 |
@@ -45,34 +48,42 @@ The following limits apply only for networking resources managed through **Azure
 | --- | --- | --- |
 | Public IP addresses - dynamic | 1,000 for Basic. |Contact support. |
 | Public IP addresses - static | 1,000 for Basic. |Contact support. |
-| Public IP addresses - static | 200 for Standard.|Contact support. |
+| Public IP addresses - static | 1,000 for Standard.|Contact support. |
 | Public IP prefix length | /28 | Contact support. |
 
 #### <a name="load-balancer"></a>Load balancer limits
 The following limits apply only for networking resources managed through Azure Resource Manager per region per subscription. Learn how to [view your current resource usage against your subscription limits](../articles/networking/check-usage-against-limits.md).
 
-| Resource | Default/maximum limit |
-| --- | --- |
-| Load balancers | 1,000 | 
-| Rules per resource, Basic | 250 |
-| Rules per resource, Standard | 1,500 | 
-| Rules per IP configuration | 299 |
-| Rules per NIC | 300 |
-| Front-end IP configurations, Basic | 200 |
-| Front-end IP configurations, Standard | 600 |
-| Back-end pool, Basic | 100, single availability set |
-| Back-end pool, Standard | 1,000, single virtual network |
-| Back-end resources per load balancer, Standard<sup>1</sup> | 150 |
-| High-availability ports, Standard | 1 per internal front-end |
+**Standard Load Balancer**
+
+| Resource                                | Default/maximum limit         |
+|-----------------------------------------|-------------------------------|
+| Load balancers                          | 1,000                         |
+| Rules per resource                      | 1,500                         |
+| Rules per NIC (across all IPs on a NIC) | 300                           |
+| Frontend IP configurations             | 600                           |
+| Backend pool size                          | 1,000 instances, single virtual network |
+| Backend resources per load balancer<sup>1<sup>   | 150                 |
+| High-availability ports                 | 1 per internal frontend      |
 
 <sup>1</sup>The limit is up to 150 resources, in any combination of standalone virtual machine resources, availability set resources, and virtual machine scale-set resources.
+
+**Basic Load Balancer**
+
+| Resource                                | Default/maximum limit        |
+|-----------------------------------------|------------------------------|
+| Load balancers                          | 1,000                        |
+| Rules per resource                      | 250                          |
+| Rules per NIC (across all IPs on a NIC) | 300                          |
+| Frontend IP configurations             | 200                          |
+| Backend pool size                           | 100 instances, single availability set |
 
 #### <a name="virtual-networking-limits-classic"></a>The following limits apply only for networking resources managed through the **classic** deployment model per subscription. Learn how to [view your current resource usage against your subscription limits](../articles/networking/check-usage-against-limits.md).
 
 | Resource | Default limit | Maximum limit |
 | --- | --- | --- |
 | Virtual networks |100 |100 |
-| Local network sites |20 |Contact support. |
+| Local network sites |20 |50 |
 | DNS servers per virtual network |20 |20 |
 | Private IP addresses per virtual network |4,096 |4,096 |
 | Concurrent TCP or UDP flows per NIC of a virtual machine or role instance |500,000, up to 1,000,000 for two or more NICs. |500,000, up to 1,000,000 for two or more NICs. |

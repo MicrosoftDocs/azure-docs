@@ -1,21 +1,11 @@
 ---
-title: Develop .NET Core Azure Service Fabric applications with Visual Studio Code | Microsoft Docs
+title: Develop .NET Core applications with Visual Studio Code 
 description: This article shows how to build, deploy, and debug .NET Core Service Fabric applications using Visual Studio Code. 
-services: service-fabric
-documentationcenter: .net
 author: peterpogorski
-manager: chackdan
-editor: ''
 
-ms.assetid: 96176149-69bb-4b06-a72e-ebbfea84454b
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 06/29/2018
 ms.author: pepogors
-
 ---
 
 # Develop C# Service Fabric applications with Visual Studio Code
@@ -74,6 +64,17 @@ After you have built the application, you can deploy it to the local cluster.
 4. After you've verified the application is running, launch a browser and open this page: http:\//localhost:31002. This is the web front-end of the application. Refresh the page to see the current value of the counter as it increments.
 
    ![Counter Service application in Browser](./media/service-fabric-develop-csharp-applications-with-vs-code/counter-service-running.png)
+
+## Publish the application to an Azure Service Fabric cluster
+Along with deploying the application to the local cluster, you can also publish the application to a remote Azure Service Fabric cluster. 
+
+1. Ensure that you have built your application using the instructions above. Update the generated configuration file `Cloud.json` with the details of the remote cluster you want to publish to.
+
+2. From the **Command Palette**, select the **Service Fabric: Publish Application command**. The output of the install process is sent to the integrated terminal.
+
+   ![Publish Application command in VS Code](./media/service-fabric-develop-csharp-applications-with-vs-code/sf-publish-application.png)
+
+3. When the deployment is complete, launch a browser and open Service Fabric Explorer: `https:<clusterurl>:19080/Explorer`. You should see that the application is running. This may take some time, so be patient. 
 
 ## Debug the application
 When debugging applications in VS Code, the application must be running on a local cluster. Breakpoints can then be added to the code.

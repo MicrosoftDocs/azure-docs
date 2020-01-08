@@ -1,16 +1,16 @@
 ---
-title: Azure Custom Script Extension for Windows | Microsoft Docs
+title: Azure Custom Script Extension for Windows 
 description: Automate Windows VM configuration tasks by using the Custom Script extension
 services: virtual-machines-windows
 manager: carmonm
-author: georgewallace
+author: bobbytreed
 manager: carmonm
 ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 05/02/2019
-ms.author: gwallace
+ms.author: robreed
 
 ---
 # Custom Script Extension for Windows
@@ -51,6 +51,7 @@ If your script is on a local server, then you may still need additional firewall
 * When the script is running, you will only see a 'transitioning' extension status from the Azure portal or CLI. If you want more frequent status updates of a running script, you'll need to create your own solution.
 * Custom Script extension does not natively support proxy servers, however you can use a file transfer tool that supports proxy servers within your script, such as *Curl*
 * Be aware of non-default directory locations that your scripts or commands may rely on, have logic to handle this situation.
+* Custom Script Extension will run under the LocalSystem Account
 
 ## Extension schema
 
@@ -64,7 +65,7 @@ These items should be treated as sensitive data and specified in the extensions 
 {
     "apiVersion": "2018-06-01",
     "type": "Microsoft.Compute/virtualMachines/extensions",
-    "name": "config-app",
+    "name": "virtualMachineName/config-app",
     "location": "[resourceGroup().location]",
     "dependsOn": [
         "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'),copyindex())]",
@@ -95,6 +96,9 @@ These items should be treated as sensitive data and specified in the extensions 
 
 > [!NOTE]
 > Only one version of an extension can be installed on a VM at a point in time, specifying custom script twice in the same Resource Manager template for the same VM will fail.
+
+> [!NOTE]
+> We can use this schema inside the VirtualMachine resource or as a standalone resource. The name of the resource has to be in this format "virtualMachineName/extensionName", if this extension is used as a standalone resource in the ARM template. 
 
 ### Property values
 

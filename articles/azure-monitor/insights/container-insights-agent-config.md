@@ -1,32 +1,24 @@
 ---
 title: Configure Azure Monitor for containers agent data collection | Microsoft Docs
 description: This article describes how you can configure the Azure Monitor for containers agent to control stdout/stderr and environment variables log collection.
-services: azure-monitor
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: tysonn
-ms.assetid: 
-ms.service: azure-monitor
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 06/22/2019
-ms.author: magoedte
+ms.topic: conceptual
+ms.date: 10/15/2019
 ---
 
 # Configure agent data collection for Azure Monitor for containers
 
-Azure Monitor for containers collects stdout, stderr, and environmental variables from container workloads deployed to managed Kubernetes clusters hosted on Azure Kubernetes Service (AKS) from the containerized agent. You can configure agent data collection settings by creating a custom Kubernetes ConfigMaps to control this experience. This article demonstrates how to create ConfigMap and configure data collection based on your requirements.
+Azure Monitor for containers collects stdout, stderr, and environmental variables from container workloads deployed to managed Kubernetes clusters hosted on Azure Kubernetes Service (AKS) from the containerized agent. You can configure agent data collection settings by creating a custom Kubernetes ConfigMaps to control this experience. 
 
-## Configure your cluster with custom data collection settings
+This article demonstrates how to create ConfigMap and configure data collection based on your requirements.
+
+## ConfigMap file settings overview
 
 A template ConfigMap file is provided that allows you to easily edit it with your customizations without having to create it from scratch. Before starting, you should review the Kubernetes documentation about [ConfigMaps](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/) and familiarize yourself with how to create, configure, and deploy ConfigMaps. This will allow you to filter stderr and stdout per namespace or across the entire cluster, and environment variables for any container running across all pods/nodes in the cluster.
 
 >[!IMPORTANT]
->The minimum agent version supported by this feature is microsoft/oms:ciprod06142019 or later. 
+>The minimum agent version supported to collect stdout, stderr, and environmental variables from container workloads is ciprod06142019 or later. To verify your agent version, from the **Node** tab select a node, and in the properties pane note value of the **Agent Image Tag** property. For additional information about the agent versions and what's included in each release, see [agent release notes](https://github.com/microsoft/Docker-Provider/tree/ci_feature_prod).
 
-### Overview of configurable data collection settings
+### Data collection settings
 
 The following are the settings that can be configured to control data collection.
 
@@ -38,37 +30,57 @@ The following are the settings that can be configured to control data collection
 |`[log_collection_settings.stdout] exclude_namespaces =`|String | Comma-separated array |Array of Kubernetes namespaces for which stdout logs will not be collected. This setting is effective only if `log_collection_settings.stdout.enabled` is set to `true`. If not specified in ConfigMap, the default value is `exclude_namespaces = ["kube-system"]`.|
 |`[log_collection_settings.stderr] enabled =` |Boolean | true or false |This controls if stderr container log collection is enabled. When set to `true` and no namespaces are excluded for stdout log collection (`log_collection_settings.stderr.exclude_namespaces` setting), stderr logs will be collected from all containers across all pods/nodes in the cluster. If not specified in ConfigMaps, the default value is `enabled = true`. |
 |`[log_collection_settings.stderr] exclude_namespaces =` |String |Comma-separated array |Array of Kubernetes namespaces for which stderr logs will not be collected. This setting is effective only if `log_collection_settings.stdout.enabled` is set to `true`. If not specified in ConfigMap, the default value is `exclude_namespaces = ["kube-system"]`. |
-| `[log_collection_settings.env_var] enabled =` |Boolean | true or false | This controls if environment variable collection is enabled. When set to `false`, no environment variables are collected for any container running across all pods/nodes in the cluster. If not specified in ConfigMap, the default value is `enabled = true`. |
+| `[log_collection_settings.env_var] enabled =` |Boolean | true or false | This setting controls environment variable collection across all pods/nodes in the cluster and defaults to `enabled = true` when not specified in ConfigMaps. If collection of environment variables is globally enabled, you can disable it for a specific container by setting the environment variable `AZMON_COLLECT_ENV` to **False** either with a Dockerfile setting or in the [configuration file for the Pod](https://kubernetes.io/docs/tasks/inject-data-application/define-environment-variable-container/) under the **env:** section. If collection of environment variables is globally disabled, then you cannot enable collection for a specific container (that is, the only override that can be applied at the container level is to disable collection when it's already enabled globally.). |
+| `[log_collection_settings.enrich_container_logs] enabled =` |Boolean | true or false | This setting controls container log enrichment to populate the Name and Image property values for every log record written to the ContainerLog table for all container logs in the cluster. It defaults to `enabled = false` when not specified in ConfigMap. |
 
-### Configure and deploy ConfigMaps
+ConfigMaps is a global list and there can be only one ConfigMap applied to the agent. You cannot have another ConfigMaps overruling the collections.
+
+## Configure and deploy ConfigMaps
 
 Perform the following steps to configure and deploy your ConfigMap configuration file to your cluster.
 
 1. [Download](https://github.com/microsoft/OMS-docker/blob/ci_feature_prod/Kubernetes/container-azm-ms-agentconfig.yaml) the template ConfigMap yaml file and save it as container-azm-ms-agentconfig.yaml.  
-1. Edit the ConfigMap yaml file with your customizations. 
+
+2. Edit the ConfigMap yaml file with your customizations to collect stdout, stderr, and/or environmental variables.
 
     - To exclude specific namespaces for stdout log collection, you configure the key/value using the following example: `[log_collection_settings.stdout] enabled = true exclude_namespaces = ["my-namespace-1", "my-namespace-2"]`.
+    
     - To disable environment variable collection for a specific container, set the key/value `[log_collection_settings.env_var] enabled = true` to enable variable collection globally, and then follow the steps [here](container-insights-manage-agent.md#how-to-disable-environment-variable-collection-on-a-container) to complete configuration for the specific container.
+    
     - To disable stderr log collection cluster-wide, you configure the key/value using the following example: `[log_collection_settings.stderr] enabled = false`.
 
-1. Create ConfigMap by running the following kubectl command: `kubectl apply -f <configmap_yaml_file.yaml>`.
+3. Create ConfigMap by running the following kubectl command: `kubectl apply -f <configmap_yaml_file.yaml>`.
     
     Example: `kubectl apply -f container-azm-ms-agentconfig.yaml`. 
     
     The configuration change can take a few minutes to finish before taking effect, and all omsagent pods in the cluster will restart. The restart is a rolling restart for all omsagent pods, not all restart at the same time. When the restarts are finished, a message is displayed that's similar to the following and includes the result: `configmap "container-azm-ms-agentconfig" created`.
 
-To verify the configuration was successfully applied, use the following command to review the logs from an agent pod: `kubectl logs omsagent-fdf58 -n=kube-system`. If there are configuration errors from the osmagent pods, the output will show errors similar to the following:
+## Verify configuration 
+
+To verify the configuration was successfully applied, use the following command to review the logs from an agent pod: `kubectl logs omsagent-fdf58 -n=kube-system`. If there are configuration errors from the omsagent pods, the output will show errors similar to the following:
 
 ``` 
 ***************Start Config Processing******************** 
 config::unsupported/missing config schema version - 'v21' , using defaults
 ```
 
+Errors related to applying configuration changes are also available for review. The following options are available to perform additional troubleshooting of configuration changes:
+
+- From an agent pod logs using the same `kubectl logs` command. 
+
+- From Live logs. Live logs show errors similar to the following:
+
+    ```
+    config::error::Exception while parsing config map for log collection/env variable settings: \nparse error on value \"$\" ($end), using defaults, please check config map for errors
+    ```
+
+- From the **KubeMonAgentEvents** table in your Log Analytics workspace. Data is sent every hour with *Error* severity for configuration errors. If there are no errors, the entry in the table will have data with severity *Info*, which reports no errors. The **Tags** property contains more information about the pod and container ID on which the error occurred and also the first occurrence, last occurrence and count in the last hour.
+
 Errors prevent omsagent from parsing the file, causing it to restart and use the default configuration. After you correct the error(s) in ConfigMap, save the yaml file and apply the updated ConfigMaps by running the command: `kubectl apply -f <configmap_yaml_file.yaml`.
 
 ## Applying updated ConfigMap
 
-If you have already deployed a ConfigMap for your cluster and you want to update it with a newer configuration, you can simply edit the ConfigMap file you've previously used and then apply using the same command as before, `kubectl apply -f <configmap_yaml_file.yaml`.
+If you have already deployed a ConfigMap to your cluster and you want to update it with a newer configuration, you can edit the ConfigMap file you've previously used and then apply using the same command as before, `kubectl apply -f <configmap_yaml_file.yaml`.
 
 The configuration change can take a few minutes to finish before taking effect, and all omsagent pods in the cluster will restart. The restart is a rolling restart for all omsagent pods, not all restart at the same time. When the restarts are finished, a message is displayed that's similar to the following and includes the result: `configmap "container-azm-ms-agentconfig" updated`.
 
@@ -93,5 +105,8 @@ The output will show similar to the following with the annotation schema-version
 
 ## Next steps
 
-- To continue learning how to use Azure Monitor and monitor other aspects of your AKS cluster, see [View Azure Kubernetes Service health](container-insights-analyze.md).
+- Azure Monitor for containers does not include a predefined set of alerts. Review the [Create performance alerts with Azure Monitor for containers](container-insights-alerts.md) to learn how to create recommended alerts for high CPU and memory utilization to support your DevOps or operational processes and procedures.
+
+- With monitoring enabled to collect health and resource utilization of your AKS or hybrid cluster and workloads running on them, learn [how to use](container-insights-analyze.md) Azure Monitor for containers.
+
 - View [log query examples](container-insights-log-search.md#search-logs-to-analyze-data) to see pre-defined queries and examples to evaluate or customize for alerting, visualizing, or analyzing your clusters.

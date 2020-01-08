@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/05/2016
-ms.author: hkanna
+ms.author: matd
 ---
 
 # StorSimple as a backup target with Backup Exec
@@ -33,7 +33,7 @@ The information in this article will be most helpful to backup administrators, s
 
 ## Supported versions
 
--   [Backup Exec 16 and later versions](http://backupexec.com/compatibility)
+-   [Backup Exec 16 and later versions](https://www.veritas.com/content/support/en_US/article.100040087)
 -   [StorSimple Update 3 and later versions](storsimple-overview.md#storsimple-workload-summary)
 
 

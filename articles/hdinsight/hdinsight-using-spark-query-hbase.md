@@ -7,7 +7,7 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 06/06/2019
+ms.date: 10/02/2019
 ---
 
 # Use Apache Spark to read and write Apache HBase data
@@ -20,7 +20,7 @@ Apache HBase is typically queried either with its low-level API (scans, gets, an
 
 * An SSH client. For more information, see [Connect to HDInsight (Apache Hadoop) using SSH](hdinsight-hadoop-linux-use-ssh-unix.md).
 
-* The [URI scheme](hdinsight-hadoop-linux-information.md#URI-and-scheme) for your clusters primary storage. This would be wasb:// for Azure Blob Storage, abfs:// for Azure Data Lake Storage Gen2 or adl:// for Azure Data Lake Storage Gen1. If secure transfer is enabled for Blob Storage or Data Lake Storage Gen2, the URI would be wasbs:// or abfss://, respectively  See also, [secure transfer](../storage/common/storage-require-secure-transfer.md).
+* The [URI scheme](hdinsight-hadoop-linux-information.md#URI-and-scheme) for your clusters primary storage. This would be wasb:// for Azure Blob Storage, abfs:// for Azure Data Lake Storage Gen2 or adl:// for Azure Data Lake Storage Gen1. If secure transfer is enabled for Blob Storage, the URI would be `wasbs://`.  See also, [secure transfer](../storage/common/storage-require-secure-transfer.md).
 
 ## Overall process
 
@@ -139,7 +139,7 @@ In this step, you define a catalog object that maps the schema from Apache Spark
     |}""".stripMargin
     ```
 
-    The code performs the following:  
+    The code does the following:  
 
      a. Define a catalog schema for the HBase table named `Contacts`.  
      b. Identify the rowkey as `key`, and map the column names used in Spark to the column family, column name, and column type as used in HBase.  
@@ -187,8 +187,7 @@ In this step, you define a catalog object that maps the schema from Apache Spark
 8. Issue a SQL query against the `contacts` table:
 
     ```scala
-    val query = spark.sqlContext.sql("select personalName, officeAddress from contacts")
-    query.show()
+    spark.sqlContext.sql("select personalName, officeAddress from contacts").show
     ```
 
 9. You should see results like these:

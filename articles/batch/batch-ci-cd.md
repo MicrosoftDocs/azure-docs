@@ -7,6 +7,7 @@ ms.date: 03/28/2019
 ms.topic: conceptual
 ms.custom: fasttrack-new
 services: batch
+ms.service: batch
 ---
 
 # Use Azure Pipelines to build and deploy HPC solutions
@@ -46,7 +47,7 @@ The codebase structure used in this sample resembles the following;
 This section assumes you are familiar with version control and designing Resource Manager templates. If you aren't familiar with these concepts, see the following pages for more information.
 
 * [What is source control?](https://docs.microsoft.com/azure/devops/user-guide/source-control?view=azure-devops)
-* [Understand the structure and syntax of Azure Resource Manager Templates](../azure-resource-manager/resource-group-authoring-templates.md)
+* [Understand the structure and syntax of Azure Resource Manager Templates](../azure-resource-manager/templates/template-syntax.md)
 
 #### Azure Resource Manager templates
 

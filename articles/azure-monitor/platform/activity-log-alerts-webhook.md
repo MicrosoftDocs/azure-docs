@@ -1,14 +1,15 @@
 ---
 title: Understand the webhook schema used in activity log alerts
 description: Learn about the schema of the JSON that is posted to a webhook URL when an activity log alert activates.
-author: johnkemnetz
-services: azure-monitor
-ms.service: azure-monitor
-ms.topic: conceptual
-ms.date: 03/31/2017
-ms.author: johnkem
+ms.service:  azure-monitor
 ms.subservice: alerts
+ms.topic: conceptual
+author: rboucher
+ms.author: robb
+ms.date: 03/31/2017
+
 ---
+
 # Webhooks for Azure activity log alerts
 As part of the definition of an action group, you can configure webhook endpoints to receive activity log alert notifications. With webhooks, you can route these notifications to other systems for post-processing or custom actions. This article shows what the payload for the HTTP POST to a webhook looks like.
 
@@ -119,6 +120,49 @@ The JSON payload contained in the POST operation differs based on the payload's 
 				"subscriptionId":"12345-5645-123a-9867-123b45a6789",
 				"submissionTimestamp":"2017-06-25T20:23:04.9743772+00:00",
 				"resourceType":"MICROSOFT.SECURITY/LOCATIONS/ALERTS"
+			}
+		},
+		"properties":{}
+	}
+}
+```
+
+### Recommendation
+
+```json
+{
+	"schemaId":"Microsoft.Insights/activityLogs",
+	"data":{
+		"status":"Activated",
+		"context":{
+			"activityLog":{
+				"channels":"Operation",
+				"claims":"{\"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress\":\"Microsoft.Advisor\"}",
+				"caller":"Microsoft.Advisor",
+				"correlationId":"123b4c54-11bb-3d65-89f1-0678da7891bd",
+				"description":"A new recommendation is available.",
+				"eventSource":"Recommendation",
+				"eventTimestamp":"2017-06-29T13:52:33.2742943+00:00",
+				"httpRequest":"{\"clientIpAddress\":\"0.0.0.0\"}",
+				"eventDataId":"1bf234ef-e45f-4567-8bba-fb9b0ee1dbcb",
+				"level":"Informational",
+				"operationName":"Microsoft.Advisor/recommendations/available/action",
+				"properties":{
+					"recommendationSchemaVersion":"1.0",
+					"recommendationCategory":"HighAvailability",
+					"recommendationImpact":"Medium",
+					"recommendationName":"Enable Soft Delete to protect your blob data",
+					"recommendationResourceLink":"https://portal.azure.com/#blade/Microsoft_Azure_Expert/RecommendationListBlade/recommendationTypeId/12dbf883-5e4b-4f56-7da8-123b45c4b6e6",
+					"recommendationType":"12dbf883-5e4b-4f56-7da8-123b45c4b6e6"
+				},
+				"resourceId":"/subscriptions/12345-5645-123a-9867-123b45a6789/resourceGroups/contoso/providers/microsoft.storage/storageaccounts/contosoStore",
+				"resourceGroupName":"CONTOSO",
+				"resourceProviderName":"MICROSOFT.STORAGE",
+				"status":"Active",
+				"subStatus":"",
+				"subscriptionId":"12345-5645-123a-9867-123b45a6789",
+				"submissionTimestamp":"2017-06-29T13:52:33.2742943+00:00",
+				"resourceType":"MICROSOFT.STORAGE/STORAGEACCOUNTS"
 			}
 		},
 		"properties":{}
@@ -239,10 +283,10 @@ For specific schema details on service health notification activity log alerts, 
 | status |String. Status of the operation. Common values include Started, In Progress, Succeeded, Failed, Active, and Resolved. |
 | subStatus |Usually includes the HTTP status code of the corresponding REST call. It might also include other strings that describe a substatus. Common substatus values include OK (HTTP Status Code: 200), Created (HTTP Status Code: 201), Accepted (HTTP Status Code: 202), No Content (HTTP Status Code: 204), Bad Request (HTTP Status Code: 400), Not Found (HTTP Status Code: 404), Conflict (HTTP Status Code: 409), Internal Server Error (HTTP Status Code: 500), Service Unavailable (HTTP Status Code: 503), and Gateway Timeout (HTTP Status Code: 504). |
 
-For specific schema details on all other activity log alerts, see [Overview of the Azure activity log](../../azure-monitor/platform/activity-logs-overview.md).
+For specific schema details on all other activity log alerts, see [Overview of the Azure activity log](../../azure-monitor/platform/platform-logs-overview.md).
 
 ## Next steps
-* [Learn more about the activity log](../../azure-monitor/platform/activity-logs-overview.md).
+* [Learn more about the activity log](../../azure-monitor/platform/platform-logs-overview.md).
 * [Execute Azure automation scripts (Runbooks) on Azure alerts](https://go.microsoft.com/fwlink/?LinkId=627081).
 * [Use a logic app to send an SMS via Twilio from an Azure alert](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app). This example is for metric alerts, but it can be modified to work with an activity log alert.
 * [Use a logic app to send a Slack message from an Azure alert](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app). This example is for metric alerts, but it can be modified to work with an activity log alert.

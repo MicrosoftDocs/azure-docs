@@ -1,13 +1,11 @@
 ---
 title: Static website hosting in Azure Storage
 description: Azure Storage static website hosting, providing a cost-effective, scalable solution for hosting modern web applications.
-services: storage
 author: normesta
-
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.author: normesta
-ms.reviewer: seguler
+ms.reviewer: dineshm
 ms.date: 05/29/2019
 ms.subservice: blobs
 ---
@@ -41,7 +39,7 @@ You can use any of these tools to upload content to the **$web** container:
 > * [AzCopy](../common/storage-use-azcopy-v10.md)
 > * [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)
 > * [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/)
-> * [Visual Studio Code extension](https://code.visualstudio.com/tutorials/static-website/getting-started)
+> * [Visual Studio Code extension](/azure/javascript/tutorial-vscode-static-website-node-01)
 
 ## Viewing content
 
@@ -55,11 +53,14 @@ Users can view site content from a browser by using the public URL of the websit
 
 The URL of your site contains a regional code. For example the URL `https://contosoblobaccount.z22.web.core.windows.net/` contains regional code `z22`.
 
-While that code must remain the URL, it is only for internal use, and you won't have to use that code in any other way.
+While that code must remain in the URL, it is only for internal use, and you won't have to use that code in any other way.
 
 The index document that you specify when you enable static website hosting, appears when users open the site and don't specify a specific file (For example: `https://contosoblobaccount.z22.web.core.windows.net`).  
 
 If the server returns a 404 error, and you have not specified an error document when you enabled the website, then a default 404 page is returned to the user.
+
+> [!NOTE]
+> [CORS](https://docs.microsoft.com/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) is not supported with static website.
 
 ## Impact of the setting the public access level of the web container
 

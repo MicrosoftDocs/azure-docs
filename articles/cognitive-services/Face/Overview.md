@@ -1,14 +1,14 @@
 ---
 title: What is the Face API?
 titleSuffix: Azure Cognitive Services
-description: Learn how to use the Face service to detect and analyze faces in images.
+description: The Azure Cognitive Services Face API provides algorithms that are used to detect, recognize, and analyze human faces in images.
 author: PatrickFarley
 manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: overview
-ms.date: 02/20/2019
+ms.date: 12/05/2019
 ms.author: pafarley
 #Customer intent: As the developer of an app that deals with images of humans, I want to learn what the Face API does so I can determine if I should use its features.
 ---
@@ -32,7 +32,7 @@ For more information on face detection, see the [Face detection](concepts/face-d
 
 ## Face verification
 
-The Verify API performs an authentication against two detected faces or from one detected face to one person object. Practically, it evaluates whether two faces belong to the same person. This capability is potentially useful in security scenarios. For more information, see the [Face recognition](concepts/face-recognition.md) concepts guide or the [Verify API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a) reference documentation.
+The Verify API does an authentication against two detected faces or from one detected face to one person object. Practically, it evaluates whether two faces belong to the same person. This capability is potentially useful in security scenarios. For more information, see the [Face recognition](concepts/face-recognition.md) concepts guide or the [Verify API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a) reference documentation.
 
 ## Find similar faces
 
@@ -42,11 +42,11 @@ The following example shows the target face:
 
 ![A woman smiling](./Images/FaceFindSimilar.QueryFace.jpg)
 
-And these are the candidate faces:
+And these images are the candidate faces:
 
 ![Five images of people smiling. Images a and b show the same person.](./Images/FaceFindSimilar.Candidates.jpg)
 
-To find four similar faces, the matchPerson mode returns a and b, which show the same person as the target face. The matchFace mode returns a, b, c, and d, exactly four candidates, even if some aren't the same person as the target or have low similarity. For more information, see the [Face recognition](concepts/face-recognition.md) concepts guide or the [Find Similar API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237) reference documentation.
+To find four similar faces, the matchPerson mode returns a and b, which show the same person as the target face. The matchFace mode returns a, b, c, and d&mdash;exactly four candidates, even if some aren't the same person as the target or have low similarity. For more information, see the [Face recognition](concepts/face-recognition.md) concepts guide or the [Find Similar API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237) reference documentation.
 
 ## Face grouping
 
@@ -56,11 +56,11 @@ The Group API divides a set of unknown faces into several groups based on simila
 
 The Identify API is used to identify a detected face against a database of people. This feature might be useful for automatic image tagging in photo management software. You create the database in advance, and you can edit it over time.
 
-The following image shows an example of a database named "myfriends." Each group can contain up to 1 million different person objects. Each person object can have up to 248 faces registered.
+The following image shows an example of a database named `"myfriends"`. Each group can contain up to 1 million different person objects. Each person object can have up to 248 faces registered.
 
 ![A grid with three columns for different people, each with three rows of face images](./Images/person.group.clare.jpg)
 
-After a database is created and trained, you can perform identification against the group with a new detected face. If the face is identified as a person in the group, the person object is returned.
+After you create and train a database, you can do identification against the group with a new detected face. If the face is identified as a person in the group, the person object is returned.
 
 For more information about person identification, see the [Face recognition](concepts/face-recognition.md) concepts guide or the [Identify API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239) reference documentation.
 

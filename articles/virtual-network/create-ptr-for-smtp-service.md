@@ -5,6 +5,7 @@ description: Describes how to configure reverse lookup zones for an SMTP banner 
 services: virtual-network
 documentationcenter: virtual-network
 author: genlin
+manager: dcscontentpm
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article

@@ -1,16 +1,17 @@
 --- 
-title: Escalate private cloud privileges - Azure VMware Solution by CloudSimple
+title: Escalate private cloud privileges
+titleSuffix: Azure VMware Solution by CloudSimple
 description: Describes how to escalate privileges on your private cloud for administrative functions in vCenter
 author: sharaths-cs
 ms.author: b-shsury
 ms.date: 06/05/2019
 ms.topic: article
-ms.service: vmware
+ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ---
 
-# Escalate Private Cloud vCenter privileges from the CloudSimple portal 
+# Escalate Private Cloud vCenter privileges from the CloudSimple portal
 
 For administrative access to your Private Cloud vCenter, you can temporarily escalate your CloudSimple privileges.  Using elevated privileges, you can install VMware solutions, add identity sources, and manage users.
 
@@ -33,7 +34,7 @@ Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.c
 
     ![Change vSphere privilege](media/escalate-private-cloud-privilege.png)
 
-4. Select the vSphere user type.  Only **CloudOwner@cloudsimple.local** local user can be escalated.
+4. Select the vSphere user type.  Only `CloudOwner@cloudsimple.local` local user can be escalated.
 
 5. Select the escalate time interval from the drop-down. Choose the shortest period that will allow you to complete the task.
 

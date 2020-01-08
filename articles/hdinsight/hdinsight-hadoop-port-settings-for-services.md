@@ -1,19 +1,18 @@
 ---
 title: Ports used by Hadoop services on HDInsight - Azure 
-description: A list of ports used by Hadoop services running on HDInsight.
+description: This article provides a list of ports used by Apache Hadoop services running in Azure HDInsight
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
-
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/27/2019
-ms.author: hrasheed
+ms.date: 10/15/2019
 ---
 
 # Ports used by Apache Hadoop services on HDInsight
 
-This document provides a list of the ports used by Apache Hadoop services running on Linux-based HDInsight clusters. It also provides information on ports used to connect to the cluster using SSH.
+This document provides a list of the ports used by Apache Hadoop services running on HDInsight clusters. It also provides information on ports used to connect to the cluster using SSH.
 
 ## Public ports vs. non-public ports
 
@@ -22,13 +21,13 @@ Linux-based HDInsight clusters only expose three ports publicly on the internet;
 Internally, HDInsight is implemented by several Azure Virtual Machines (the nodes within the cluster) running on an Azure Virtual Network. From within the virtual network, you can access ports not exposed over the internet. For example, if you connect to one of the head nodes using SSH, from the head node you can then directly access services running on the cluster nodes.
 
 > [!IMPORTANT]  
-> If you do not specify an Azure Virtual Network as a configuration option for HDInsight, one is created automatically. However, you cannot join other machines (such as other Azure Virtual Machines or your client development machine) to this virtual network.
+> If you do not specify an Azure Virtual Network as a configuration option for HDInsight, one is created automatically. However, you can't join other machines (such as other Azure Virtual Machines or your client development machine) to this virtual network.
 
-To join additional machines to the virtual network, you must create the virtual network first, and then specify it when creating your HDInsight cluster. For more information, see [Extend HDInsight capabilities by using an Azure Virtual Network](hdinsight-extend-hadoop-virtual-network.md)
+To join additional machines to the virtual network, you must create the virtual network first, and then specify it when creating your HDInsight cluster. For more information, see [Plan a virtual network for HDInsight](hdinsight-plan-virtual-network-deployment.md).
 
 ## Public ports
 
-All the nodes in an HDInsight cluster are located in an Azure Virtual Network, and cannot be directly accessed from the internet. A public gateway provides internet access to the following ports, which are common across all HDInsight cluster types.
+All the nodes in an HDInsight cluster are located in an Azure Virtual Network, and can't be directly accessed from the internet. A public gateway provides internet access to the following ports, which are common across all HDInsight cluster types.
 
 | Service | Port | Protocol | Description |
 | --- | --- | --- | --- |
@@ -37,7 +36,7 @@ All the nodes in an HDInsight cluster are located in an Azure Virtual Network, a
 | sshd |23 |SSH |Connects clients to sshd on the secondary headnode. For more information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md). |
 | Ambari |443 |HTTPS |Ambari web UI. See [Manage HDInsight using the Apache Ambari Web UI](hdinsight-hadoop-manage-ambari.md) |
 | Ambari |443 |HTTPS |Ambari REST API. See [Manage HDInsight using the Apache Ambari REST API](hdinsight-hadoop-manage-ambari-rest-api.md) |
-| WebHCat |443 |HTTPS |HCatalog REST API. See [Use Apache Hive with Curl](hadoop/apache-hadoop-use-pig-curl.md), [Use Apache Pig with Curl](hadoop/apache-hadoop-use-pig-curl.md), [Use MapReduce with Curl](hadoop/apache-hadoop-use-mapreduce-curl.md) |
+| WebHCat |443 |HTTPS |HCatalog REST API. See  [Use MapReduce with Curl](hadoop/apache-hadoop-use-mapreduce-curl.md) |
 | HiveServer2 |443 |ODBC |Connects to Hive using ODBC. See [Connect Excel to HDInsight with the Microsoft ODBC driver](hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md). |
 | HiveServer2 |443 |JDBC |Connects to ApacheHive using JDBC. See [Connect to Apache Hive on HDInsight using the Hive JDBC driver](hadoop/apache-hadoop-connect-hive-jdbc-driver.md) |
 
@@ -69,7 +68,7 @@ All services publicly exposed on the internet must be authenticated:
 
 ### Ambari
 
-| Service | Nodes | Port | URL path | Protocol | 
+| Service | Nodes | Port | URL path | Protocol |
 | --- | --- | --- | --- | --- |
 | Ambari web UI | Head nodes | 8080 | / | HTTP |
 | Ambari REST API | Head nodes | 8080 | /api/v1 | HTTP |
@@ -101,7 +100,7 @@ Examples:
 | NodeManager |All worker nodes |30050 |&nbsp; |The address of the container manager |
 | NodeManager web UI |All worker nodes |30060 |HTTP |Resource Manager interface |
 | Timeline address |Head nodes |10200 |RPC |The Timeline service RPC service. |
-| Timeline web UI |Head nodes |8181 |HTTP |The Timeline service web UI |
+| Timeline web UI |Head nodes |8188 |HTTP |The Timeline service web UI |
 
 ### Hive ports
 

@@ -1,26 +1,18 @@
 ---
-title: "Azure Status Monitor v2 API reference: Enable instrumentation engine | Microsoft Docs"
-description: Status Monitor v2 API reference. Enable-InstrumentationEngine. Monitor website performance without redeploying the website. Works with ASP.NET web apps hosted on-premises, in VMs, or on Azure.
-services: application-insights
-documentationcenter: .net
-author: MS-TimothyMothra
-manager: alexklim
-ms.assetid: 769a5ea4-a8c6-4c18-b46c-657e864e24de
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+title: Azure Application Insights Agent API reference
+description: Application Insights Agent API reference. Enable-InstrumentationEngine. Monitor website performance without redeploying the website. Works with ASP.NET web apps hosted on-premises, in VMs, or on Azure.
+ms.service:  azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 04/23/2019
+author: TimothyMothra
 ms.author: tilee
+ms.date: 04/23/2019
+
 ---
-# Status Monitor v2 API: Enable-InstrumentationEngine (v0.2.1-alpha)
+
+# Application Insights Agent API: Enable-InstrumentationEngine
 
 This article describes a cmdlet that's a member of the [Az.ApplicationMonitor PowerShell module](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/).
-
-> [!IMPORTANT]
-> Status Monitor v2 is currently in public preview.
-> This preview version is provided without a service-level agreement, and we don't recommend it for production workloads. Some features might not be supported, and some might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Description
 
@@ -28,7 +20,7 @@ Enables the instrumentation engine by setting some registry keys.
 Restart IIS for the changes to take effect.
 
 The instrumentation engine can supplement data collected by the .NET SDKs.
-It collects events and messages that describe the execution of a managed process. These events and messages include dependency result codes, HTTP verbs, and SQL command text.
+It collects events and messages that describe the execution of a managed process. These events and messages include dependency result codes, HTTP verbs, and [SQL command text](asp-net-dependencies.md#advanced-sql-tracking-to-get-full-sql-query).
 
 Enable the instrumentation engine if:
 - You've already enabled monitoring with the Enable cmdlet but didn't enable the instrumentation engine.
@@ -78,7 +70,7 @@ Configuring registry for instrumentation engine...
 - [Add web client telemetry](../../azure-monitor/app/javascript.md) to see exceptions from web page code and to enable trace calls.
 - [Add the Application Insights SDK to your code](../../azure-monitor/app/asp-net.md) so you can insert trace and log calls.
  
- Do more with Status Monitor v2:
- - Use our guide to [troubleshoot](status-monitor-v2-troubleshoot.md) Status Monitor v2.
+ Do more with Application Insights Agent:
+ - Use our guide to [troubleshoot](status-monitor-v2-troubleshoot.md) Application Insights Agent.
  - [Get the config](status-monitor-v2-api-get-config.md) to confirm that your settings were recorded correctly.
  - [Get the status](status-monitor-v2-api-get-status.md) to inspect monitoring.

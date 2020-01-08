@@ -1,6 +1,6 @@
 ---
 title: "Quickstart: Suggest search queries with the Bing Autosuggest REST API and Java"
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Learn how to quickly start suggesting search terms in real-time with the Bing Autosuggest API.
 services: cognitive-services
 author: aahill
@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-autosuggest
 ms.topic: quickstart
-ms.date: 02/20/2019
+ms.date: 12/11/2019
 ms.author: aahi
 ---
 
@@ -40,7 +40,7 @@ Use this quickstart to begin making calls to the Bing Autosuggest API and gettin
     import com.google.gson.JsonParser;
     ```
 
-2. Create variables for your subscription key, the API host and path, your [market code](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#market-codes), and a search query.
+2. Create variables for your subscription key, the API host and path, your [market code](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#market-codes), and a search query. You can use the global endpoint below, or the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
     
     ```java
     static String subscriptionKey = "enter key here";

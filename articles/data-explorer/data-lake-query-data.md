@@ -6,7 +6,7 @@ ms.author: orspodek
 ms.reviewer: rkarlin 
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 06/25/2019
+ms.date: 07/17/2019
 ---
 
 # Query data in Azure Data Lake using Azure Data Explorer (Preview)
@@ -16,15 +16,13 @@ Azure Data Lake Storage is a highly scalable and cost-effective data lake soluti
 Azure Data Explorer integrates with Azure Blob Storage and Azure Data Lake Storage Gen2, providing fast, cached, and indexed access to data in the lake. You can analyze and query data in the lake without prior ingestion into Azure Data Explorer. You can also query across ingested and uningested native lake data simultaneously.  
 
 > [!TIP]
-> The best query performance necessitates data ingestion into Azure Data Explorer. The capability to query data in Azure Data Lake Storage Gen2 without prior ingestion should only be used for historical data or data that is rarely queried.
+> The best query performance necessitates data ingestion into Azure Data Explorer. The capability to query data in Azure Data Lake Storage Gen2 without prior ingestion should only be used for historical data or data that is rarely queried. [Optimize your query performance in the lake](#optimize-your-query-performance) for best results.
  
-## Optimize query performance in the lake 
-
-* Partition data for improved performance and optimized query time.
-* Compress data for improved performance (gzip for best compression, lz4 for best performance).
-* Use Azure Blob Storage or Azure Data Lake Storage Gen2 with the same region as your Azure Data Explorer cluster. 
 
 ## Create an external table
+
+ > [!NOTE]
+ > Currently supported storage accounts are Azure Blob Storage or Azure Data Lake Storage Gen2. Currently supported data formats are json, csv, tsv and txt.
 
 1. Use the `.create external table` command to create an external table in Azure Data Explorer. Additional external table commands such as `.show`, `.drop`, and `.alter` are documented in [External table commands](/azure/kusto/management/externaltables).
 
@@ -37,16 +35,44 @@ Azure Data Explorer integrates with Azure Blob Storage and Azure Data Lake Stora
     dataformat=csv (h@'http://storageaccount.blob.core.windows.net/container1;secretKey') 
     with (compressed = true)  
     ```
-
-    This query creates daily partitions *container1/yyyy/MM/dd/all_exported_blobs.csv*. Increased performance is expected with more granular partitioning. For example, queries over external tables with daily partitions, such as the one above, will have better performance than those queries with monthly partitioned tables.
-
+    
     > [!NOTE]
-    > Currently supported storage accounts are Azure Blob Storage or Azure Data Lake Storage Gen2. Currently supported data formats are csv, tsv and txt.
+    > * Increased performance is expected with more granular partitioning. For example, queries over external tables with daily partitions, will have better performance than those queries with monthly partitioned tables.
+    > * When you define an external table with partitions, the storage structure is expected to be identical.
+For example, if the table is defined with a DateTime partition in yyyy/MM/dd format (default), the URI storage file path should be *container1/yyyy/MM/dd/all_exported_blobs*. 
+    > * If the external table is partitioned by a datetime column, always include a time filter for a closed range in your query (for example, the query - `ArchivedProducts | where Timestamp between (ago(1h) .. 10m)` - should perform better than this (opened range) one - `ArchivedProducts | where Timestamp > ago(1h)` ). 
 
 1. The external table is visible in the left pane of the Web UI
 
     ![external table in web UI](media/data-lake-query-data/external-tables-web-ui.png)
+
+### Create an external table with json format
+
+You can create an external table with json format. For more information see [External table commands](/azure/kusto/management/externaltables)
+
+1. Use the `.create external table` command to create a table named *ExternalTableJson*:
+
+    ```kusto
+    .create external table ExternalTableJson (rownumber:int, rowguid:guid) 
+    kind=blob
+    dataformat=json
+    ( 
+       h@'http://storageaccount.blob.core.windows.net/container1;secretKey'
+    )
+    with 
+    (
+       docstring = "Docs",
+       folder = "ExternalTables",
+       namePrefix="Prefix"
+    ) 
+    ```
  
+1. Json format necessitates a second step of creating mapping to columns as shown below. In the following query, create a specific json mapping named *mappingName*:
+
+    ```kusto
+    .create external table ExternalTableJson json mapping "mappingName" '[{ "column" : "rownumber", "datatype" : "int", "path" : "$.rownumber"},{ "column" : "rowguid", "path" : "$.rowguid" }]' 
+    ```
+
 ### External table permissions
  
 * The database user can create an external table. The table creator automatically becomes the table administrator.
@@ -63,6 +89,14 @@ external_table("ArchivedProducts") | take 100
 
 > [!TIP]
 > Intellisense isn't currently supported on external table queries.
+
+### Query an external table with json format
+
+To query an external table with json format, use the `external_table()` function, and provide both table name and mapping name as the function arguments. In the query below, if *mappingName* is not specified, a mapping that you previously created will be used.
+
+```kusto
+external_table(‘ExternalTableJson’, ‘mappingName’)
+```
 
 ## Query external and ingested data together
 
@@ -146,7 +180,7 @@ The *TaxiRides* sample data set contains New York City taxi data from [NYC Taxi 
     partition by bin(pickup_datetime, 1d)
     dataformat=csv
     ( 
-    h@'https://externalkustosamples.blob.core.windows.net/taxiridesbyday?st=2019-06-18T14%3A59%3A00Z&se=2029-06-19T14%3A59%3A00Z&sp=rl&sv=2016-05-31&sr=c&sig=yEaO%2BrzFHzAq7lvd4d9PeQ%2BTi3AWnho8Rn8hGU0X30M%3D'
+        h@'http://storageaccount.blob.core.windows.net/container1;secretKey''
     )
     ```
 1. The resulting table was created in the *help* cluster:
@@ -187,6 +221,37 @@ This query uses partitioning, which optimizes query time and performance. The qu
 ![render partitioned query](media/data-lake-query-data/taxirides-with-partition.png)
   
 You can write additional queries to run on the external table *TaxiRides* and learn more about the data. 
+
+## Optimize your query performance
+
+Optimize your query performance in the lake by using the following best practices for querying external data. 
+ 
+### Data format
+ 
+Use a columnar format for analytical queries since:
+* Only the columns relevant to a query can be read. 
+* Column encoding techniques can reduce data size significantly.  
+Azure Data Explorer supports Parquet and ORC columnar formats. Parquet format is suggested due to optimized implementation. 
+ 
+### Azure region 
+ 
+Ascertain that external data resides in the same Azure region as your Azure Data Explorer cluster. This reduces cost and data fetch time.
+ 
+### File size
+ 
+Optimal file size is hundreds of Mb (up to 1 Gb) per file. Avoid many small files that require unneeded overhead, such as slower file enumeration process and limited use of columnar format. Note that the number of files should be greater than the number of CPU cores in your Azure Data Explorer cluster. 
+ 
+### Compression
+ 
+Use compression to reduce the amount of data being fetched from the remote storage. For Parquet format, use the internal Parquet compression mechanism that compresses column groups separately, thus allowing you to read them separately. To validate use of compression mechanism, check that the files are named as follows: “<filename>.gz.parquet” or “<filename>.snappy.parquet” as opposed to “<filename>.parquet.gz”). 
+ 
+### Partitioning
+ 
+Organize your data using "folder" partitions that enables the query to skip irrelevant paths. When planning partitioning consider file size and common filters in your queries such as timestamp or tenant ID.
+ 
+### VM size
+ 
+Select VM SKUs with more cores and higher network throughput (memory is less important). For more information see [Select the correct VM SKU for your Azure Data Explorer cluster](manage-cluster-choose-sku.md).
 
 ## Next steps
 

@@ -1,5 +1,5 @@
 ---
-title: Tutorial deploy an Azure function to a device - Azure IoT Edge | Microsoft Docs 
+title: 'Tutorial: Deploy Azure functions as modules - Azure IoT Edge'
 description: In this tutorial, you develop an Azure function as an IoT Edge module, then deploy it to an edge device.
 author: kgremban
 manager: philmea
@@ -8,7 +8,7 @@ ms.date: 06/25/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.custom: "mvc, seodec18"
+ms.custom: mvc
 #Customer intent: As an IoT developer, I want to use Azure Functions to execute logic on edge devices to filter data and communications that are sent to the cloud.
 ---
 
@@ -134,15 +134,17 @@ Let's add some additional code so that the module processes the messages at the 
                    if (messageBody != null && messageBody.machine.temperature > temperatureThreshold)
                    {
                        // Send the message to the output as the temperature value is greater than the threshold.
-                       var filteredMessage = new Message(messageBytes);
-                       // Copy the properties of the original message into the new Message object.
-                       foreach (KeyValuePair<string, string> prop in messageReceived.Properties)
-                       {filteredMessage.Properties.Add(prop.Key, prop.Value);}
-                       // Add a new property to the message to indicate it is an alert.
-                       filteredMessage.Properties.Add("MessageType", "Alert");
-                       // Send the message.
-                       await output.AddAsync(filteredMessage);
-                       logger.LogInformation("Info: Received and transferred a message with temperature above the threshold");
+                       using (var filteredMessage = new Message(messageBytes))
+                       {
+                            // Copy the properties of the original message into the new Message object.
+                            foreach (KeyValuePair<string, string> prop in messageReceived.Properties)
+                            {filteredMessage.Properties.Add(prop.Key, prop.Value);}
+                            // Add a new property to the message to indicate it is an alert.
+                            filteredMessage.Properties.Add("MessageType", "Alert");
+                            // Send the message.       
+                            await output.AddAsync(filteredMessage);
+                            logger.LogInformation("Info: Received and transferred a message with temperature above the threshold");
+                       }
                    }
                }
            }
@@ -213,7 +215,7 @@ You can use the Azure portal to deploy your function module to an IoT Edge devic
 
 3. Browse to the solution folder that contains the **CSharpFunction**. Open the config folder, select the **deployment.json** file, and then choose **Select Edge Deployment Manifest**.
 
-4. Refresh the **Azure IoT Hub Devices** section. You should see the new **CSharpFunction** running along with the **TempSensor** module and the **$edgeAgent** and **$edgeHub**. It may take a few moments for the new modules to show up. Your IoT Edge device has to retrieve its new deployment information from IoT Hub, start the new containers, and then report the status back to IoT Hub. 
+4. Refresh the **Azure IoT Hub Devices** section. You should see the new **CSharpFunction** running along with the **SimulatedTemperatureSensor** module and the **$edgeAgent** and **$edgeHub**. It may take a few moments for the new modules to show up. Your IoT Edge device has to retrieve its new deployment information from IoT Hub, start the new containers, and then report the status back to IoT Hub. 
 
    ![View deployed modules in VS Code](./media/tutorial-deploy-function/view-modules.png)
 

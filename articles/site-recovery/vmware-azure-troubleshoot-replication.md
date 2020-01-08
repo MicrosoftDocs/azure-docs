@@ -5,7 +5,7 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/14/2019
+ms.date: 08/2/2019
 ms.author: mayg
 
 ---
@@ -50,28 +50,15 @@ When you try to select the source machine to enable replication by using Site Re
 
 Virtual machines that are replicated under Site Recovery aren't available in the Azure portal if there are duplicate entries in the system. To learn how to delete stale entries and resolve the issue, refer to [Azure Site Recovery VMware-to-Azure: How to clean up duplicate or stale entries](https://social.technet.microsoft.com/wiki/contents/articles/32026.asr-vmware-to-azure-how-to-cleanup-duplicatestale-entries.aspx).
 
-## Common errors and solutions
+## No crash consistent recovery point available for the VM in the last 'XXX' minutes
+
+Some of the most common issues are listed below
 
 ### Initial replication issues [error 78169]
 
 Over an above ensuring that there are no connectivity, bandwidth or time sync related issues, ensure that:
 
 - No anti-virus software is blocking Azure Site Recovery. Learn [more](vmware-azure-set-up-source.md#azure-site-recovery-folder-exclusions-from-antivirus-program) on folder exclusions required for Azure Site Recovery.
-
-### Missing app-consistent recovery points [error 78144]
-
- This happens due to issues with Volume Shadow copy Service (VSS). To resolve: 
- 
-- Verify that the installed version of the Azure Site Recovery agent is at least 9.22.2. 
-- Verify that VSS Provider is installed as a service in Windows Services and also verify the Component Service MMC to check that Azure Site Recovery VSS Provider is listed.
-- If the VSS Provider is not installed, refer the [installation failure troubleshooting article](vmware-azure-troubleshoot-push-install.md#vss-installation-failures).
-
-- If VSS is disabled,
-    - Verify that the startup type of the VSS Provider service is set to **Automatic**.
-    - Restart the following services:
-        - VSS service
-        - Azure Site Recovery VSS Provider
-        - VDS service
 
 ### Source machines with high churn [error 78188]
 
@@ -81,7 +68,13 @@ Possible Causes:
 
 To resolve the issue:
 - Ensure that the target storage account type (Standard or Premium) is provisioned as per the churn rate requirement at source.
+- If you are already replicating to a Premium managed disk (asrseeddisk type), ensure that the size of the disk supports the observed churn rate as per Site Recovery limits. You can increase the size of the asrseeddisk if required. Follow the below steps:
+    - Navigate to the Disks blade of the impacted replicated machine and copy the replica disk name
+    - Navigate to this replica managed disk
+    - You may see a banner on the Overview blade saying that a SAS URL has been generated. Click on this banner and cancel the export. Ignore this step if you do not see the banner.
+    - As soon as the SAS URL is revoked, go to Configuration blade of the Managed Disk and increase the size so that ASR supports the observed churn rate on source disk
 - If the observed churn is temporary, wait for a few hours for the pending data upload to catch up and to create recovery points.
+- If the disk contains non-critical data like temporary logs, test data etc., consider moving this data elsewhere or completely exclude this disk from replication
 - If the problem continues to persist, use the Site Recovery [deployment planner](site-recovery-deployment-planner.md#overview) to help plan replication.
 
 ### Source machines with no heartbeat [error 78174]
@@ -120,8 +113,78 @@ To resolve the issue, use the following steps to verify the service status:
     - Check the logs at the location for error details:
         
           C:\Program Files (X86)\Microsoft Azure Site Recovery\agent\svagents*log
+3. To register master target with configuration server, navigate to folder **%PROGRAMDATA%\ASR\Agent**, and run the following on command prompt:
+   ```
+   cmd
+   cdpcli.exe --registermt
+
+   net stop obengine
+
+   net start obengine
+
+   exit
+   ```
+
+## Error ID 78144 - No app-consistent recovery point available for the VM in the last 'XXX' minutes
+
+Enhancements have been made in mobility agent [9.23](vmware-physical-mobility-service-overview.md#from-923-version-onwards) & [9.27](site-recovery-whats-new.md#update-rollup-39) versions to handle VSS installation failure behaviors. Ensure that you are on the latest versions for best guidance on troubleshooting VSS failures.
+
+Some of the most common issues are listed below
+
+#### Cause 1: Known issue in SQL server 2008/2008 R2 
+**How to fix** : There is a known issue with SQL server 2008/2008 R2. Please refer this KB article [Azure Site Recovery Agent or other non-component VSS backup fails for a server hosting SQL Server 2008 R2](https://support.microsoft.com/help/4504103/non-component-vss-backup-fails-for-server-hosting-sql-server-2008-r2)
+
+#### Cause 2: Azure Site Recovery jobs fail on servers hosting any version of SQL Server instances with AUTO_CLOSE DBs 
+**How to fix** : Refer Kb [article](https://support.microsoft.com/help/4504104/non-component-vss-backups-such-as-azure-site-recovery-jobs-fail-on-ser) 
 
 
+#### Cause 3: Known issue in SQL Server 2016 and 2017
+**How to fix** : Refer Kb [article](https://support.microsoft.com/help/4493364/fix-error-occurs-when-you-back-up-a-virtual-machine-with-non-component) 
+
+
+### More causes due to VSS related issues:
+
+To troubleshoot further, Check the files on the source machine to get the exact error code for failure:
+	
+	C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\Application Data\ApplicationPolicyLogs\vacp.log
+
+How to locate the errors in the file?
+Search for the string "vacpError"  by opening the vacp.log file in an editor
+		
+	Ex: vacpError:220#Following disks are in FilteringStopped state [\\.\PHYSICALDRIVE1=5, ]#220|^|224#FAILED: CheckWriterStatus().#2147754994|^|226#FAILED to revoke tags.FAILED: CheckWriterStatus().#2147754994|^|
+
+In the above example **2147754994** is the error code that tells you about the failure as shown below
+
+#### VSS writer is not installed - Error 2147221164 
+
+*How to fix*: To generate application consistency tag, Azure Site Recovery uses Microsoft Volume Shadow copy Service (VSS). It installs a VSS Provider for its operation to take app consistency snapshots. This VSS Provider is installed as a service. In case the VSS Provider service is not installed, the application consistency snapshot creation fails with the error id 0x80040154  "Class not registered". </br>
+Refer [article for VSS writer installation troubleshooting](https://docs.microsoft.com/azure/site-recovery/vmware-azure-troubleshoot-push-install#vss-installation-failures) 
+
+#### VSS writer is disabled - Error 2147943458
+
+**How to fix**: To generate application consistency tag, Azure Site Recovery uses Microsoft Volume Shadow copy Service (VSS). It installs a VSS Provider for its operation to take app consistency snapshots. This VSS Provider is installed as a service. In case the VSS Provider service is disabled, the application consistency snapshot creation fails with the error id "The specified service is disabled and cannot be started(0x80070422)". </br>
+
+- If VSS is disabled,
+    - Verify that the startup type of the VSS Provider service is set to **Automatic**.
+    - Restart the following services:
+        - VSS service
+        - Azure Site Recovery VSS Provider
+        - VDS service
+
+####  VSS PROVIDER NOT_REGISTERED - Error 2147754756
+
+**How to fix**: To generate application consistency tag, Azure Site Recovery uses Microsoft Volume Shadow copy Service (VSS). 
+Check if the Azure Site Recovery  VSS Provider service is installed or not. </br>
+
+- Retry the Provider installation using the following commands:
+- Uninstall existing provider: C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\InMageVSSProvider_Uninstall.cmd
+- Reinstall: C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\InMageVSSProvider_Install.cmd
+ 
+Verify that the startup type of the VSS Provider service is set to **Automatic**.
+    - Restart the following services:
+        - VSS service
+        - Azure Site Recovery VSS Provider
+        - VDS service
 
 ## Next steps
 

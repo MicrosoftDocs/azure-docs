@@ -1,10 +1,10 @@
 ---
-title: Detailed walkthrough of Machine Learning on Azure IoT Edge | Microsoft Docs 
+title: 'Tutorial: Detailed walkthrough of Machine Learning on Azure IoT Edge'
 description: A high-level tutorial that walks through the various tasks necessary to create an end-to-end, machine learning at the edge scenario. 
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 06/13/2019
+ms.date: 11/11/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge

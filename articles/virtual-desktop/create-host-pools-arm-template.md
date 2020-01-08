@@ -1,17 +1,17 @@
 ---
-title: Create a Windows Virtual Desktop Preview host pool with an Azure Resource Manager template  - Azure
-description: How to create a host pool in Windows Virtual Desktop Preview with an Azure Resource Manager template.
+title: Windows Virtual Desktop host pool Azure Resource Manager - Azure
+description: How to create a host pool in Windows Virtual Desktop with an Azure Resource Manager template.
 services: virtual-desktop
 author: Heidilohr
 
 ms.service: virtual-desktop
-ms.topic: how-to
-ms.date: 04/05/2019
+ms.topic: conceptual
+ms.date: 08/29/2019
 ms.author: helohr
 ---
 # Create a host pool with an Azure Resource Manager template
 
-Host pools are a collection of one or more identical virtual machines within Windows Virtual Desktop Preview tenant environments. Each host pool can contain an app group that users can interact with as they would on a physical desktop.
+Host pools are a collection of one or more identical virtual machines within Windows Virtual Desktop tenant environments. Each host pool can contain an app group that users can interact with as they would on a physical desktop.
 
 Follow this section's instructions to create a host pool for a Windows Virtual Desktop tenant with an Azure Resource Manager template provided by Microsoft. This article will tell you how to create a host pool in Windows Virtual Desktop, create a resource group with VMs in an Azure subscription, join those VMs to the AD domain, and register the VMs with Windows Virtual Desktop.
 

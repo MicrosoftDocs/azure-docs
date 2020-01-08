@@ -1,18 +1,17 @@
 ---
-title: 'Extend your on-premises network to Azure over a private connection - ExpressRoute Overview : Azure | Microsoft Docs'
+title: 'Azure ExpressRoute Overview: Connect over a private connection'
 description: The ExpressRoute Technical Overview explains how an ExpressRoute connection works to extend your on-premises network to Azure over a private connection.
 services: expressroute
 author: mialdrid
 
 ms.service: expressroute
 ms.topic: overview
-ms.date: 05/20/2019
+ms.date: 09/18/2019
 ms.author: mialdrid
-ms.custom: seodec18
 
 ---
 # ExpressRoute overview
-ExpressRoute lets you extend your on-premises networks into the Microsoft cloud over a private connection facilitated by a connectivity provider. With ExpressRoute, you can establish connections to Microsoft cloud services, such as Microsoft Azure, Office 365, and Dynamics 365.
+ExpressRoute lets you extend your on-premises networks into the Microsoft cloud over a private connection facilitated by a connectivity provider. With ExpressRoute, you can establish connections to Microsoft cloud services, such as Microsoft Azure and Office 365.
 
 Connectivity can be from an any-to-any (IP VPN) network, a point-to-point Ethernet network, or a virtual cross-connection through a connectivity provider at a co-location facility. ExpressRoute connections do not go over the public Internet. This allows ExpressRoute connections to offer more reliability, faster speeds, consistent latencies, and higher security than typical connections over the Internet. For information on how to connect your network to Microsoft using ExpressRoute, see [ExpressRoute connectivity models](expressroute-connectivity-models.md).
 
@@ -42,7 +41,6 @@ Each ExpressRoute circuit consists of two connections to two Microsoft Enterpris
 ExpressRoute connections enable access to the following services:
 * Microsoft Azure services
 * Microsoft Office 365 services
-* Microsoft Dynamics 365
 
 > [!NOTE]
 > [!INCLUDE [expressroute-office365-include](../../includes/expressroute-office365-include.md)]

@@ -1,5 +1,5 @@
 ---
-title: SQL Server Availability Groups - Azure Virtual Machines - Tutorial | Microsoft Docs  
+title: "Tutorial: Configure availability group"
 description: "This tutorial shows how to create a SQL Server Always On Availability Group on Azure Virtual Machines."
 services: virtual-machines
 documentationCenter: na
@@ -10,17 +10,18 @@ tags: azure-service-management
 
 ms.assetid: 08a00342-fee2-4afe-8824-0db1ed4b8fca
 ms.service: virtual-machines-sql
-ms.devlang: na
+
 ms.custom: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/30/2018
 ms.author: mikeray
+ms.custom: "seo-lt-2019"
 
 ---
 
-# Tutorial: Configure Always On Availability Group in Azure VM manually
+# Tutorial: Configure availability group on Azure SQL Server VM manually
 
 This tutorial shows how to create a SQL Server Always On Availability Group on Azure Virtual Machines. The complete tutorial creates an Availability Group with a database replica on two SQL Servers.
 
@@ -79,6 +80,9 @@ After the prerequisites are completed, the first step is to create a Windows Ser
    | Confirmation |Use defaults unless you are using Storage Spaces. See the note following this table. |
 
 ### Set the Windows server failover cluster IP address
+
+  > [!NOTE]
+  > On Windows Server 2019, the cluster creates a **Distributed Server Name** instead of the **Cluster Network Name**. If you're using Windows Server 2019, skip any steps that refer to the cluster core name in this tutorial. You can create a cluster network name using [PowerShell](virtual-machines-windows-portal-sql-create-failover-cluster.md#windows-server-2019). Review the blog [Failover Cluster: Cluster Network Object](https://blogs.windows.com/windowsexperience/2018/08/14/announcing-windows-server-2019-insider-preview-build-17733/#W0YAxO8BfwBRbkzG.97) for more information. 
 
 1. In **Failover Cluster Manager**, scroll down to **Cluster Core Resources** and expand the cluster details. You should see both the **Name** and the **IP Address** resources in the **Failed** state. The IP address resource cannot be brought online because the cluster is assigned the same IP address as the machine itself, therefore it is a duplicate address.
 

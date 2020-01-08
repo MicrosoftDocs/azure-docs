@@ -1,20 +1,17 @@
 ---
-title: How to build an app that can sign in any Azure AD user
+title: Build apps that sign in Azure AD users
+titleSuffix: Microsoft identity platform
 description: Shows how to build a multi-tenant application that can sign in a user from any Azure Active Directory tenant.
 services: active-directory
-documentationcenter: ''
 author: rwike77
 manager: CelesteDG
-editor: ''
 
 ms.assetid: 35af95cb-ced3-46ad-b01d-5d2f6fd064a3
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/22/2019
+ms.date: 12/10/2019
 ms.author: ryanwi
 ms.reviewer: jmprieur, lenalepa, sureshja
 ms.custom: aaddev
@@ -37,7 +34,7 @@ There are four simple steps to convert your application into an Azure AD multi-t
 3. [Update your code to handle multiple issuer values](#update-your-code-to-handle-multiple-issuer-values)
 4. [Understand user and admin consent and make appropriate code changes](#understand-user-and-admin-consent)
 
-Let’s look at each step in detail. You can also jump straight to [this list of multi-tenant samples][AAD-Samples-MT].
+Let’s look at each step in detail. You can also jump straight to [this list of multi-tenant samples](https://docs.microsoft.com/samples/browse/?products=azure-active-directory).
 
 ## Update registration to be multi-tenant
 
@@ -102,7 +99,7 @@ For a user to sign in to an application in Azure AD, the application must be rep
 
 For a multi-tenant application, the initial registration for the application lives in the Azure AD tenant used by the developer. When a user from a different tenant signs in to the application for the first time, Azure AD asks them to consent to the permissions requested by the application. If they consent, then a representation of the application called a *service principal* is created in the user’s tenant, and sign-in can continue. A delegation is also created in the directory that records the user’s consent to the application. For details on the application's Application and ServicePrincipal objects, and how they relate to each other, see [Application objects and service principal objects][AAD-App-SP-Objects].
 
-![Consent to single-tier app][Consent-Single-Tier]
+![Illustrates consent to single-tier app][Consent-Single-Tier]
 
 This consent experience is affected by the permissions requested by the application. Microsoft identity platform supports two kinds of permissions, app-only and delegated.
 
@@ -140,7 +137,7 @@ This can be a problem if your logical application consists of two or more applic
 
 This is demonstrated in a multi-tier native client calling web API sample in the [Related content](#related-content) section at the end of this article. The following diagram provides an overview of consent for a multi-tier app registered in a single tenant.
 
-![Consent to multi-tier known client app][Consent-Multi-Tier-Known-Client]
+![Illustrates consent to multi-tier known client app][Consent-Multi-Tier-Known-Client]
 
 #### Multiple tiers in multiple tenants
 
@@ -155,7 +152,7 @@ If it's an API built by an organization other than Microsoft, the developer of t
 
 The following diagram provides an overview of consent for a multi-tier app registered in different tenants.
 
-![Consent to multi-tier multi-party app][Consent-Multi-Tier-Multi-Party]
+![Illustrates consent to multi-tier multi-party app][Consent-Multi-Tier-Multi-Party]
 
 ### Revoking consent
 
@@ -176,7 +173,7 @@ In this article, you learned how to build an application that can sign in a user
 
 ## Related content
 
-* [Multi-tenant application samples][AAD-Samples-MT]
+* [Multi-tenant application samples](https://docs.microsoft.com/samples/browse/?products=azure-active-directory)
 * [Branding guidelines for applications][AAD-App-Branding]
 * [Application objects and service principal objects][AAD-App-SP-Objects]
 * [Integrating applications with Azure Active Directory][AAD-Integrating-Apps]
@@ -195,7 +192,7 @@ In this article, you learned how to build an application that can sign in a user
 [AAD-Graph-Overview]: https://azure.microsoft.com/documentation/articles/active-directory-graph-api/
 [AAD-Graph-Perm-Scopes]: https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes
 [AAD-Integrating-Apps]:quickstart-v1-integrate-apps-with-azure-ad.md
-[AAD-Samples-MT]: https://azure.microsoft.com/documentation/samples/?service=active-directory&term=multitenant
+[AAD-Samples-MT]: https://docs.microsoft.com/samples/browse/?products=azure-active-directory
 [AAD-Why-To-Integrate]: ./active-directory-how-to-integrate.md
 [AZURE-portal]: https://portal.azure.com
 [MSFT-Graph-overview]: https://developer.microsoft.com/graph/docs/overview/overview

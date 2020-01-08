@@ -8,7 +8,15 @@
 - name: Quickstarts
   expanded: true
   items:
-    - name: Detect Anomalies in your data
+    - name: Client library
+      items:
+        - name: Using C#
+          href: quickstarts/detect-data-anomalies-csharp-sdk.md
+        - name: Using Python
+          href: quickstarts/detect-data-anomalies-python-sdk.md
+        - name: Using Node.js
+          href: quickstarts/detect-data-anomalies-nodejs-sdk.md
+    - name: REST API
       items:
         - name: Using C#
           href: quickstarts/detect-data-anomalies-csharp.md
@@ -33,7 +41,9 @@
         href: anomaly-detector-container-howto.md
       - name: Configure containers
         href: anomaly-detector-container-configuration.md
-        displayName: docker, container, apikey, billing, log, mount, run, pull, port      
+        displayName: docker, container, apikey, billing, log, mount, run, pull, port
+      - name: Use container instances
+        href: how-to/deploy-anomaly-detection-on-container-instances.md
 - name: Concepts
   items: 
     - name: Anomaly Detection API best practices
@@ -52,6 +62,20 @@
           href: https://go.microsoft.com/fwlink/?linkid=2090370
         - name: Node.js
           href: https://go.microsoft.com/fwlink/?linkid=2090788
+    - name: Technical blogs
+      items:
+        - name: Introducing Azure Anomaly Detector API
+          href: https://techcommunity.microsoft.com/t5/AI-Customer-Engineering-Team/Introducing-Azure-Anomaly-Detector-API/ba-p/490162
+        - name: Overview of SR-CNN algorithm 
+          href: https://techcommunity.microsoft.com/t5/AI-Customer-Engineering-Team/Overview-of-SR-CNN-algorithm-in-Azure-Anomaly-Detector/ba-p/982798
+    - name: Demo
+      items:
+        - name: Interactive demo
+          href: https://aka.ms/adDemo
+        - name: On Jupyter Notebook
+          href: https://aka.ms/adNotebook      
+    - name: Paper on SR-CNN in KDD 2019
+      href: https://arxiv.org/abs/1906.03821
 - name: Resources
   items:
     - name: Pricing

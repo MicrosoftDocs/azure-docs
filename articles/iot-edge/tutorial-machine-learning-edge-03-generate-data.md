@@ -1,10 +1,10 @@
 ---
-title: Generate simulated device data - Machine Learning on Azure IoT Edge | Microsoft Docs 
-description: Create virtual devices that generate simulated telemetry that can later be used to train a machine learning model.
+title: 'Tutorial: Generate simulated device data - Machine Learning on Azure IoT Edge'
+description: 'In this tutorial, you will create virtual devices that generate simulated telemetry that can later be used to train a machine learning model.'
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 06/13/2019
+ms.date: 11/11/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
@@ -116,9 +116,9 @@ Now that we have the project building, connect to your IoT hub to access the con
 
 1. Note that devices are added to the IoT Hub and that the devices show up in green to indicate that data is being sent via that device.
 
-1. You can view the messages being sent to the hub by right-clicking on any device and selecting **Start Monitoring D2C Message**. The messages will show in the output pane in Visual Studio Code.
+1. You can view the messages being sent to the hub by right-clicking on any device and selecting **Start Monitoring Built-in Event Endpoint**. The messages will show in the output pane in Visual Studio Code.
 
-1. Stop monitoring by clicking in the **Azure IoT Hub Toolkit** output pane and choose **Stop Monitoring D2C Message**.
+1. Stop monitoring by clicking in the **Azure IoT Hub Toolkit** output pane and choose **Stop Monitoring Built-in Event Endpoint**.
 
 1. Let the application run to completion, which takes a few minutes.
 

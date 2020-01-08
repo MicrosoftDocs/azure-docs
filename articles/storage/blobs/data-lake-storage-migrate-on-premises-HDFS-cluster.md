@@ -1,17 +1,16 @@
 ---
-title: Use Azure Data Box to migrate data from on-premises HDFS store to Azure Storage
+title: 'Migrate from on-prem HDFS store to Azure Storage with Azure Data Box'
 description: Migrate data from an on-premises HDFS store to Azure Storage
-services: storage
 author: normesta
-
 ms.service: storage
-ms.date: 06/11/2019
+ms.date: 11/19/2019
 ms.author: normesta
-ms.topic: article
-ms.component: data-lake-storage-gen2
+ms.topic: conceptual
+ms.subservice: data-lake-storage-gen2
+ms.reviewer: jamesbak
 ---
 
-# Use Azure Data Box to migrate data from an on-premises HDFS store to Azure Storage
+# Migrate from on-prem HDFS store to Azure Storage with Azure Data Box
 
 You can migrate data from an on-premises HDFS store of your Hadoop cluster into Azure Storage (blob storage or Data Lake Storage Gen2) by using a Data Box device. You can choose from an 80-TB Data Box or a 770-TB Data Box Heavy.
 
@@ -207,7 +206,7 @@ To create a service principal, see [How to: Use the portal to create an Azure AD
 
 * When performing the steps in the [Assign the application to a role](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role) section of the article, make sure to assign the **Storage Blob Data Contributor** role to the service principal.
 
-* When performing the steps in the [Get values for signing in](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) section of the article, application ID, and client secret values into a text file. You'll need those soon.
+* When performing the steps in the [Get values for signing in](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) section of the article, save application ID, and client secret values into a text file. You'll need those soon.
 
 ### Generate a list of copied files with their permissions
 

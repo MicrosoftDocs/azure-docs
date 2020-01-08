@@ -1,4 +1,4 @@
----
+﻿---
 title: Understand and solve Azure AD Application Proxy CORS issues
 description: Provides an understanding of CORS in Azure AD Application Proxy, and how to identify and solve CORS issues. 
 services: active-directory
@@ -47,7 +47,7 @@ In the following screenshot, selecting the **Try It** button caused a CORS error
 
 ## CORS challenges with Application Proxy
 
-The following example shows a typical Azure AD Application Proxy CORS scenario. The internal server hosts a **CORSWebService** web API controller, and a **CORSWebClient** that calls **CORSWebService**. There's an AJAX request from **CORSWebClient** to **CORSWebService**.
+The following example shows a typical Azure AD Application Proxy CORS scenario. The internal server hosts a **CORSWebService** web API controller, and a **CORSWebClient** that calls **CORSWebService**. There's an AJAX request from **CORSWebClient** to **CORSWebService**.
 
 ![On-premises same-origin request](./media/application-proxy-understand-cors-issues/image1.png)
 
@@ -96,7 +96,7 @@ Content-Type: text/plain; charset=utf-8\
 Expires: -1\
 Vary: Accept-Encoding\
 Server: Microsoft-IIS/8.5 Microsoft-HTTPAPI/2.0\
-**Access-Control-Allow-Origin: https://corswebclient-contoso.msappproxy.net**\
+**Access-Control-Allow-Origin: https\://corswebclient-contoso.msappproxy.net**\
 X-AspNet-Version: 4.0.30319\
 X-Powered-By: ASP.NET\
 Content-Length: 17

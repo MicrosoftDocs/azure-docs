@@ -1,18 +1,16 @@
 ---
 title: Enable Snapshot Debugger for .NET apps in Azure Service Fabric, Cloud Service, and Virtual Machines | Microsoft Docs
-description: Enable Snapshot Debugger for .NET apps in Azure Service Fabric, Cloud Service, and Virtual Machines 
-services: application-insights
-documentationcenter: ''
-author: brahmnes
-manager: carmonm
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+description: Enable Snapshot Debugger for .NET apps in Azure Service Fabric, Cloud Service, and Virtual Machines
+ms.service:  azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.reviewer: mbullwin
+author: brahmnes
+ms.author: bfung
 ms.date: 03/07/2019
-ms.author: brahmnes
+
+ms.reviewer: mbullwin
 ---
+
 # Enable Snapshot Debugger for .NET apps in Azure Service Fabric, Cloud Service, and Virtual Machines
 
 If your ASP.NET or ASP.NET core application runs in Azure App Service, it's highly recommended to [enable Snapshot Debugger through the Application Insights portal page](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json). However, if your application requires a customized Snapshot Debugger configuration, or a preview version of .NET core, then this instruction should be followed ***in addition*** to the instructions for [enabling through the Application Insights portal page](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json).
@@ -81,15 +79,7 @@ If your application runs in Azure Service Fabric, Cloud Service, Virtual Machine
        Add the following at the end of the ConfigureServices method in the `Startup` class in `Startup.cs`.
 
 	   ```csharp
-            services.AddSnapshotCollector((configuration) =>
-            {
-                IConfigurationSection section = Configuration.GetSection(nameof(SnapshotCollectorConfiguration));
-                if (section.Value != null)
-                {
-                    section.Bind(configuration);
-                }
-            });
-
+            services.AddSnapshotCollector((configuration) => Configuration.Bind(nameof(SnapshotCollectorConfiguration), configuration));
 	   ```
 	2. If [Microsoft.ApplicationInsights.SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet package version 1.3.4 or below is used, then add the following using statements to `Startup.cs`.
 

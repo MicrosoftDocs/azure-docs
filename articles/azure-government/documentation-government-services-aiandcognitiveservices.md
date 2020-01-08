@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 10/23/2018
+ms.date: 10/01/2019
 ms.author: jglixon
 
 ---
@@ -22,10 +22,13 @@ This article outlines variations and considerations when using **Cognitive Servi
 The following AI and Cognitive Services are generally available in Azure Government: 
 
 - Computer Vision
+- Custom Vision
 - Face
 - Content Moderator
+- Speech
 - Translator Text
 - Language Understanding
+- QnA Maker
 - Azure Bot Service
 
 > [!IMPORTANT]
@@ -41,6 +44,16 @@ Variations in Azure Government:
 - Available SKUs: S1
 
 For more information, see the [global Azure documentation](../cognitive-services/computer-vision/index.yml) and [Computer Vision API documentation](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa).
+
+### Custom Vision
+
+Variations in Azure Government:
+
+- Custom Vision Portal: https://www.customvision.azure.us
+- Endpoint URL: https://virginia.api.cognitive.microsoft.us/customvision/v3.0/
+- Available SKUs: F0,S0
+
+For more information, see the [global Azure documentation](https://go.microsoft.com/fwlink/?linkid=848046), [Custom Vision Training API reference](https://go.microsoft.com/fwlink/?linkid=865445), and [Custom Vision Prediction API reference](https://go.microsoft.com/fwlink/?linkid=865446)
  
 ### Face
 
@@ -69,6 +82,7 @@ Variations in Azure Government:
 
 - Endpoint:  https://virginia.stt.speech.azure.us
 - Auth Token Service: https://virginia.api.cognitive.microsoft.us/sts/v1.0/issueToken 
+- Custom Speech Portal: https://virginia.cris.azure.us/Home/CustomSpeech
 - Available SKUs: S0
 - Supported features:
   - Speech-to-Text 
@@ -80,7 +94,15 @@ Variations in Azure Government:
   - Neural voices for Text-to-speech
 - Supported locales: 
   Locales for the following languages are supported. 
-  - English (United States) - en-us
+  - Arabic (ar-*)
+  - Chinese (zh-*)
+  - English (en-*)
+  - French (fr-*)
+  - German (de-*)
+  - Hindi
+  - Korean
+  - Russian
+  - Spanish (es-*)
 
 See details of supported locales by features in [Language and region support for the Speech Services](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support).
 
@@ -107,6 +129,16 @@ Variations in Azure Government:
 - Speech Requests, Speech Priming, Spell Check, and Prebuilt Domains are not currently available
 
 For more information, see [global Azure documentation](../cognitive-services/luis/what-is-luis.md) for Language Understanding.
+
+### QnA Maker
+
+Variations in Azure Government:
+
+- Endpoint: https://virginia.api.cognitive.microsoft.us/qnamaker/v4.0
+- QnA Maker portal: https://qnamaker.azure.us
+- Available SKUs: S0
+
+For more information, see [global Azure documentation](../cognitive-services/QnAMaker/Overview/overview.md) for QnA Maker.
 
 ## Azure Bot Service
 
@@ -136,9 +168,7 @@ Some Bot Service features available in the public cloud are not yet available in
 
 Commonly used services in bot applications that are currently unavailable in Azure Government:
 - Application Insights
-- Azure Search
-- QnA Maker Cognitive Service
-- Speech Services Cognitive Service
+- Speech Services
 
 For more information, see [global Azure documentation](https://aka.ms/botdocs/) for Bot Service.
 
@@ -150,4 +180,3 @@ Data considerations for Cognitive Services and Azure Bot Service are not yet ava
 * Subscribe to the [Azure Government blog](https://blogs.msdn.microsoft.com/azuregov/)
 * Get help on Stack Overflow by using the [azure-gov](https://stackoverflow.com/questions/tagged/azure-gov) tag
 * Give us feedback or request new features via the [Azure Government feedback forum](https://feedback.azure.com/forums/558487-azure-government) 
-

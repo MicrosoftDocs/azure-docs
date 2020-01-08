@@ -1,5 +1,5 @@
 ---
-title: Manage Cloudyn budgets in Azure | Microsoft Docs
+title: Manage Cloudyn budgets in Azure
 description: This article helps you quickly create budgets and start managing them in Cloudyn.
 services: cost-management
 keywords:
@@ -7,7 +7,7 @@ author: bandersmsft
 ms.author: banders
 ms.date: 05/20/2019
 ms.topic: conceptual
-ms.service: cost-management
+ms.service: cost-management-billing
 manager: vitavor
 ms.custom: seodec18
 ---

@@ -1,16 +1,14 @@
 ---
 title: Get started with Azure Queue storage using .NET - Azure Storage
 description: Azure Queues provide reliable, asynchronous messaging between application components. Cloud messaging enables your application components to scale independently.
-services: storage
 author: mhopkins-msft
 
-ms.service: storage
-ms.devlang: dotnet
-ms.topic: conceptual
-ms.date: 05/21/2019
 ms.author: mhopkins
-ms.reviewer: cbrooks
+ms.date: 05/21/2019
+ms.service: storage
 ms.subservice: queues
+ms.topic: conceptual
+ms.reviewer: cbrooks
 ---
 
 # Get started with Azure Queue storage using .NET
@@ -87,7 +85,7 @@ You have two environment options for running the examples in this guide:
 * You can run your code against an Azure Storage account in the cloud.
 * You can run your code against the Azure storage emulator. The storage emulator is a local environment that emulates an Azure Storage account in the cloud. The emulator is a free option for testing and debugging your code while your application is under development. The emulator uses a well-known account and key. For more information, see [Use the Azure storage emulator for development and testing](../common/storage-use-emulator.md).
 
-If you are targeting a storage account in the cloud, copy the primary access key for your storage account from the Azure portal. For more information, see [Access keys](../common/storage-account-manage.md#access-keys).
+If you are targeting a storage account in the cloud, copy the primary access key for your storage account from the Azure portal. For more information, see [Manage storage account access keys](../common/storage-account-keys-manage.md).
 
 > [!NOTE]
 > You can target the storage emulator to avoid incurring any costs associated with Azure Storage. However, if you do choose to target an Azure storage account in the cloud, costs for performing this tutorial will be negligible.

@@ -1,13 +1,12 @@
 ---
-title: Connect to Dynamics 365 - Azure Logic Apps
+title: Connect to Dynamics 365
 description: Create and manage records with Dynamics 365 (online) REST APIs and Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
 author: Mattp123
 ms.author: matp
-ms.reviewer: estfan, LADocs
-ms.topic: article
+ms.reviewer: estfan, logicappspm
+ms.topic: conceptual
 ms.date: 08/18/2018
 tags: connectors
 ---
@@ -30,7 +29,7 @@ If you're new to logic apps, review [What is Azure Logic Apps?](../logic-apps/lo
 ## Prerequisites
 
 * An Azure subscription. If you don't have an Azure subscription, 
-<a href="https://azure.microsoft.com/free/" target="_blank">sign up for a free Azure account</a>.
+[sign up for a free Azure account](https://azure.microsoft.com/free/).
 
 * A [Dynamics 365 account](https://dynamics.microsoft.com)
 
@@ -160,11 +159,11 @@ values that you select from the dynamic list won't work.
 | Field | Description |
 |-------|-------------|
 | **Owner** | Must be either a valid user ID or team record ID. |
-| **Owner Type** | Must be either **systemusers** or **teams**. |
+| **Owner Type** | Must be either `systemusers` or `teams`. |
 | **Regarding** | Must be a valid record ID, such as an account ID or contact record ID. |
-| **Regarding Type** | Must be a lookup type, such as **accounts** or **contacts**. |
+| **Regarding Type** | Must be a lookup type, such as `accounts` or `contacts`. |
 | **Customer** | Must be a valid record ID, such as an account ID or contact record ID. |
-| **Customer Type** | Must be the lookup type, such as **accounts** or **contacts**. |
+| **Customer Type** | Must be the lookup type, such as `accounts` or `contacts`. |
 |||
 
 In this example, the action named **Create a new record** creates a new task record:
@@ -225,11 +224,6 @@ For more information about troubleshooting logic apps, see
 For technical details, such as triggers, actions, and limits, 
 as described by the connector's OpenAPI (formerly Swagger) file, 
 see the [connector's reference page](/connectors/dynamicscrmonline/).
-
-## Get support
-
-* For questions, visit the [Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-* To submit or vote on feature ideas, visit the [Logic Apps user feedback site](https://aka.ms/logicapps-wish).
 
 ## Next steps
 

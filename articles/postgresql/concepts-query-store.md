@@ -1,15 +1,15 @@
 ---
-title: Query Store in Azure Database for PostgreSQL - Single Server
+title: Query Store - Azure Database for PostgreSQL - Single Server
 description: This article describes the Query Store feature in Azure Database for PostgreSQL - Single Server.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 5/6/2019
+ms.date: 10/14/2019
 ---
 # Monitor performance with the Query Store
 
-**Applies to:** Azure Database for PostgreSQL - Single Server 9.6 and 10
+**Applies to:** Azure Database for PostgreSQL - Single Server versions 9.6, 10, 11
 
 The Query Store feature in Azure Database for PostgreSQL provides a way to track query performance over time. Query Store simplifies performance troubleshooting by helping you quickly find the longest running and most resource-intensive queries. Query Store automatically captures a history of queries and runtime statistics, and it retains them for your review. It separates data by time windows so that you can see database usage patterns. Data for all users, databases, and queries is stored in a database named **azure_sys** in the Azure Database for PostgreSQL instance.
 
@@ -52,6 +52,10 @@ Common scenarios for using Query Store include:
 
 To minimize space usage, the runtime execution statistics in the runtime stats store are aggregated over a fixed, configurable time window. The information in these stores is visible by querying the query store views.
 
+## Access Query Store information
+
+Query Store data is stored in the azure_sys database on your Postgres server. 
+
 The following query returns information about queries in Query Store:
 ```sql
 SELECT * FROM query_store.qs_view; 
@@ -61,6 +65,9 @@ Or this query for wait stats:
 ```sql
 SELECT * FROM query_store.pgms_wait_sampling_view;
 ```
+
+You can also emit Query Store data to [Azure Monitor Logs](../azure-monitor/log-query/log-query-overview.md) for analytics and alerting, Event Hubs for streaming, and Azure Storage for archiving. The log categories to configure are **QueryStoreRuntimeStatistics** and **QueryStoreWaitStatistics**. To learn about setup, visit the [Azure Monitor diagnostic settings](../azure-monitor/platform/diagnostic-settings.md) article.
+
 
 ## Finding wait queries
 Wait event types combine different wait events into buckets by similarity. Query Store provides the wait event type, specific wait event name, and the query in question. Being able to correlate this wait information with the query runtime statistics means you can gain a deeper understanding of what contributes to query performance characteristics.
@@ -169,6 +176,7 @@ Query_store.staging_data_reset() returns void
 ## Limitations and known issues
 - If a PostgreSQL server has the parameter default_transaction_read_only on, Query Store cannot capture data.
 - Query Store functionality can be interrupted if it encounters long Unicode queries (>= 6000 bytes).
+- [Read replicas](concepts-read-replicas.md) replicate Query Store data from the master server. This means that a read replica's Query Store does not provide statistics about queries run on the read replica.
 
 
 ## Next steps

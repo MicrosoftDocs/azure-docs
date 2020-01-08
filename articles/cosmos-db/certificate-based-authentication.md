@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory certificate-based authentication with Azure Cosmos DB
+title: Certificate-based authentication with Azure Cosmos DB and Active Directory
 description: Learn how to configure an Azure AD identity for certificate-based authentication to access keys from Azure Cosmos DB.
 author: voellm
 ms.service: cosmos-db
@@ -10,9 +10,9 @@ ms.reviewer: sngun
 
 ---
 
-# Certificate-based authentication for an Azure AD identity to access keys from an Azure Cosmos account
+# Certificate-based authentication for an Azure AD identity to access keys from an Azure Cosmos DB account
 
-Certificate-based authentication enables your client application to be authenticated by using Azure Active Directory (Azure AD) with a client certificate. You can perform certificate-based authentication on a machine where you need an identity, such as an on-premise machine or virtual machine in Azure. Your application can then read Azure Cosmo DB keys without having the keys directly in the application. This article describes how to create a sample Azure AD application, configure it for certificate-based authentication, sign into Azure using the new application identity, and then it retrieves the keys from your Azure Cosmos account. This article uses Azure PowerShell to set up the identities and provides a C# sample app that authenticates and accesses keys from your Azure Cosmos account.  
+Certificate-based authentication enables your client application to be authenticated by using Azure Active Directory (Azure AD) with a client certificate. You can perform certificate-based authentication on a machine where you need an identity, such as an on-premises machine or virtual machine in Azure. Your application can then read Azure Cosmos DB keys without having the keys directly in the application. This article describes how to create a sample Azure AD application, configure it for certificate-based authentication, sign into Azure using the new application identity, and then it retrieves the keys from your Azure Cosmos account. This article uses Azure PowerShell to set up the identities and provides a C# sample app that authenticates and accesses keys from your Azure Cosmos account.  
 
 ## Prerequisites
 
@@ -22,11 +22,11 @@ Certificate-based authentication enables your client application to be authentic
 
 ## Register an app in Azure AD
 
-In this step, you will register a sample web application in your Azure AD account. This application is later used to read the keys from your Azure Cosmos account. Use the following steps to register an application: 
+In this step, you will register a sample web application in your Azure AD account. This application is later used to read the keys from your Azure Cosmos DB account. Use the following steps to register an application: 
 
 1. Sign into the [Azure portal](https://portal.azure.com/).
 
-1. Open the Azure **Active Directory** pane, go to App registrations pane, and select **New registration**. 
+1. Open the Azure **Active Directory** pane, go to **App registrations** pane, and select **New registration**. 
 
    ![New application registration in Active Directory](./media/certificate-based-authentication/new-app-registration.png)
 
@@ -110,6 +110,19 @@ The above command results in the output similar to the screenshot below:
 
 1. Select **Save** after you fill out the form
 
+## Register your certificate with Azure AD
+
+You can associate the certificate-based credential with the client application in Azure AD from the Azure portal. To associate the credential, you must upload the certificate file with the following steps:
+
+In the Azure app registration for the client application:
+
+1. Sign into the [Azure portal](https://portal.azure.com/).
+
+1. Open the Azure **Active Directory** pane, go to the **App registrations** pane, and open the sample app you created in the previous step. 
+
+1. Select **Certificates & secrets** and then **Upload certificate**. Browse the certificate file you created in the previous step to upload.
+
+1. Select **Add**. After the certificate is uploaded, the thumbprint, start date, and expiration values are displayed.
 
 ## Access the keys from PowerShell
 
@@ -193,7 +206,6 @@ namespace TodoListDaemonWithCert
             Console.WriteLine("Got result {0} and keys {1}", response.StatusCode.ToString(), response.Content.ReadAsStringAsync().Result);
         }
  
- 
         /// <summary>
         /// Reads the certificate
         /// </summary>
@@ -215,52 +227,6 @@ namespace TodoListDaemonWithCert
             store.Close();
             return cert;
         }
- 
- 
-        /// <summary>
-        /// Get an access token from Azure AD using client credentials.
-        /// If the attempt to get a token fails because the server is unavailable, retry twice after 3 seconds each
-        /// </summary>
-        private static async Task<AuthenticationResult> GetAccessToken(AuthenticationContext authContext, string resourceUri, ClientAssertionCertificate cert)
-        {
-            //
-            // Get an access token from Azure AD using client credentials.
-            // If the attempt to get a token fails because the server is unavailable, retry twice after 3 seconds each.
-            //
-            AuthenticationResult result = null;
-            int retryCount = 0;
-            bool retry = false;
- 
-            do
-            {
-                retry = false;
-                errorCode = 0;
- 
-                try
-                {
-                    result = await authContext.AcquireTokenAsync(resourceUri, cert);
-                }
-                catch (AdalException ex)
-                {
-                    if (ex.ErrorCode == "temporarily_unavailable")
-                    {
-                        retry = true;
-                        retryCount++;
-                        Thread.Sleep(3000);
-                    }
- 
-                    Console.WriteLine(
-                        String.Format("An error occurred while acquiring a token\nTime: {0}\nError: {1}\nRetry: {2}\n",
-                        DateTime.Now.ToString(),
-                        ex.ToString(),
-                        retry.ToString()));
- 
-                    errorCode = -1;
-                }
- 
-            } while ((retry == true) && (retryCount < 3));
-            return result;
-        }
     }
 }
 ```
@@ -276,4 +242,4 @@ Similar to the previous section, you can view the Activity log of your Azure Cos
 
 * [Secure Azure Cosmos keys using Azure Key Vault](access-secrets-from-keyvault.md)
 
-* [Security attributes for Azure Cosmos DB](cosmos-db-security-attributes.md)
+* [Security controls for Azure Cosmos DB](cosmos-db-security-controls.md)

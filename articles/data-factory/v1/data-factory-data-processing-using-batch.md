@@ -1,23 +1,18 @@
 ---
-title: Process large-scale datasets by using Data Factory and Batch | Microsoft Docs
+title: Process large-scale datasets by using Data Factory and Batch 
 description: Describes how to process huge amounts of data in an Azure Data Factory pipeline by using the parallel processing capability of Azure Batch.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-
-
-ms.assetid: 688b964b-51d0-4faa-91a7-26c7e3150868
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
-
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.author: shlo
-
-robots: noindex
 ---
+
 # Process large-scale datasets by using Data Factory and Batch
 > [!NOTE]
 > This article applies to version 1 of Azure Data Factory, which is generally available. If you use the current version of the Data Factory service, see [Custom activities in Data Factory](../transform-data-using-dotnet-custom-activity.md).
@@ -556,7 +551,7 @@ Linked services link data stores or compute services to a data factory. In this 
 
    ![New data store](./media/data-factory-data-processing-using-batch/image7.png)
 
-1. Replace **account name** with the name of your storage account. Replace **account key** with the access key of the storage account. To learn how to get your storage access key, see [View, copy, and regenerate storage access keys](../../storage/common/storage-account-manage.md#access-keys).
+1. Replace **account name** with the name of your storage account. Replace **account key** with the access key of the storage account. To learn how to get your storage access key, see [Manage storage account access keys](../../storage/common/storage-account-keys-manage.md).
 
 1. Select **Deploy** on the command bar to deploy the linked service.
 

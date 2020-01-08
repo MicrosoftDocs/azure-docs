@@ -1,21 +1,21 @@
 ---
-title: Azure Virtual Machines planning and implementation for SAP NetWeaver | Microsoft Docs
+title: 'SAP on Azure: Planning and Implementation Guide'
 description: Azure Virtual Machines planning and implementation for SAP NetWeaver
 services: virtual-machines-linux,virtual-machines-windows
 documentationcenter: ''
 author: MSSedusch
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 keywords: ''
 
 ms.assetid: d7c59cc1-b2d0-4d90-9126-628f9c7a5538
 ms.service: virtual-machines-linux
-ms.devlang: NA
+
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 05/07/2019
+ms.date: 12/13/2019
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
 ---
@@ -72,8 +72,8 @@ ms.custom: H1Hack27Feb2017
 [azure-ps]:/powershell/azureps-cmdlets-docs
 [azure-quickstart-templates-github]:https://github.com/Azure/azure-quickstart-templates
 [azure-script-ps]:https://go.microsoft.com/fwlink/p/?LinkID=395017
-[azure-subscription-service-limits]:../../../azure-subscription-service-limits.md
-[azure-subscription-service-limits-subscription]:../../../azure-subscription-service-limits.md#subscription-limits
+[azure-resource-manager/management/azure-subscription-service-limits]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
+[azure-resource-manager/management/azure-subscription-service-limits-subscription]:../../../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits
 
 [dbms-guide]:dbms-guide.md
 [dbms-guide-2.1]:dbms-guide.md#c7abf1f0-c927-4a7c-9c1d-c7b5b3b7212f
@@ -231,7 +231,7 @@ ms.custom: H1Hack27Feb2017
 
 [powershell-install-configure]:https://docs.microsoft.com/powershell/azure/install-az-ps
 [resource-group-authoring-templates]:../../../resource-group-authoring-templates.md
-[resource-group-overview]:../../../azure-resource-manager/resource-group-overview.md
+[resource-group-overview]:../../../azure-resource-manager/management/overview.md
 [resource-groups-networking]:../../../networking/networking-overview.md
 [sap-pam]:https://support.sap.com/pam
 [sap-templates-2-tier-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-marketplace-image%2Fazuredeploy.json
@@ -245,7 +245,7 @@ ms.custom: H1Hack27Feb2017
 [storage-powershell-guide-full-copy-vhd]:../../../storage/common/storage-powershell-guide-full.md
 [storage-premium-storage-preview-portal]:../../windows/disks-types.md
 [storage-redundancy]:../../../storage/common/storage-redundancy.md
-[storage-scalability-targets]:../../../storage/common/storage-scalability-targets.md
+[storage-scalability-targets]:../../../storage/common/scalability-targets-standard-accounts.md
 [storage-use-azcopy]:../../../storage/common/storage-use-azcopy.md
 [template-201-vm-from-specialized-vhd]:https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-from-specialized-vhd
 [templates-101-simple-windows-vm]:https://github.com/Azure/azure-quickstart-templates/tree/master/101-simple-windows-vm
@@ -307,7 +307,7 @@ ms.custom: H1Hack27Feb2017
 [xplat-cli-azure-resource-manager]:../../../xplat-cli-azure-resource-manager.md
 [capture-image-linux-step-2-create-vm-image]:../../linux/capture-image.md#step-2-create-vm-image
 
-[!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
+
 
 Microsoft Azure enables companies to acquire compute and storage resources in minimal time without lengthy procurement cycles. Azure Virtual Machine service allows companies to deploy classical applications, like SAP NetWeaver based applications into Azure and extend their reliability and availability without having further resources available on-premises. Azure Virtual Machine Services also supports cross-premises connectivity, which enables companies to actively integrate Azure Virtual Machines into their on-premises domains, their Private Clouds and their SAP System Landscape.
 This white paper describes the fundamentals of Microsoft Azure Virtual Machine and provides a walk-through of planning and implementation considerations for SAP NetWeaver installations in Azure and as such should be the document to read before starting actual deployments of SAP NetWeaver on Azure.
@@ -325,7 +325,7 @@ With Microsoft Azure Virtual Machine Services, Microsoft offers a comprehensive 
 The paper itself focuses on two main aspects:
 
 * The first part describes two supported deployment patterns for SAP NetWeaver based applications on Azure. It also describes general handling of Azure with SAP deployments in mind.
-* The second part details implementing the two different scenarios described in the first part.
+* The second part details implementing the different scenarios described in the first part.
 
 For additional resources, see chapter [Resources][planning-guide-1.2] in this document.
 
@@ -340,6 +340,7 @@ Throughout the document, we use the following terms:
 * SAP Landscape: This term refers to the entire SAP assets in a customer's IT landscape. The SAP landscape includes all production and non-production environments.
 * SAP System: The combination of DBMS layer and application layer of, for example, an SAP ERP development system, SAP BW test system, SAP CRM production system, etc. In Azure deployments, it is not supported to divide these two layers between on-premises and Azure. Means an SAP system is either deployed on-premises or it is deployed in Azure. However, you can deploy the different systems of an SAP landscape into either Azure or on-premises. For example, you could deploy the SAP CRM development and test systems in Azure but the SAP CRM production system on-premises.
 * Cross-premises or hybrid: Describes a scenario where VMs are deployed to an Azure subscription that has site-to-site, multi-site, or ExpressRoute connectivity between the on-premises datacenter(s) and Azure. In common Azure documentation, these kinds of deployments are also described as cross-premises or hybrid scenarios. The reason for the connection is to extend on-premises domains, on-premises Active Directory/OpenLDAP, and on-premises DNS into Azure. The on-premises landscape is extended to the Azure assets of the subscription. Having this extension, the VMs can be part of the on-premises domain. Domain users of the on-premises domain can access the servers and can run services on those VMs (like DBMS services). Communication and name resolution between VMs deployed on-premises and Azure deployed VMs is possible. This is the most common and nearly exclusive case deploying SAP assets into Azure. For more information, see [this][vpn-gateway-cross-premises-options] article and [this][vpn-gateway-site-to-site-create].
+* Azure Monitoring Extension, Enhanced Monitoring and Azure Extension for SAP: Describe one and the same item. It describes a VM extension that needs to be deployed by you to provide some basic data about the Azure infrastructure to the SAP Host Agent. SAP in SAP notes might refer to it as Monitoring Extension or Enhanced monitoring. In Azure, we are referring to it as **Azure Extension for SAP**.
 
 > [!NOTE]
 > Cross-premises or hybrid deployments of SAP systems where Azure Virtual Machines running SAP systems are members of an on-premises domain are supported for production SAP systems. Cross-premises  or hybrid configurations are supported for deploying parts or complete SAP landscapes into Azure. Even running the complete SAP landscape in Azure requires having those VMs being part of on-premises domain and ADS/OpenLDAP. 
@@ -381,13 +382,12 @@ The following SAP Notes are related to the topic of SAP on Azure:
 
 Also read the [SCN Wiki](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) that contains all SAP Notes for Linux.
 
-General default limitations and maximum limitations of Azure subscriptions can be found in [this article][azure-subscription-service-limits-subscription].
+General default limitations and maximum limitations of Azure subscriptions can be found in [this article][azure-resource-manager/management/azure-subscription-service-limits-subscription].
 
 ## Possible Scenarios
 SAP is often seen as one of the most mission-critical applications within enterprises. The architecture and operations of these applications is mostly complex and ensuring that you meet requirements on availability and performance is important.
 
-Thus enterprises have to think carefully about which cloud provider to choose for running such business critical business processes on. Azure is the ideal public cloud platform for business critical SAP applications and business processes. Given the wide variety of Azure infrastructure,  nearly all existing SAP NetWeaver and S/4HANA systems can be hosted in Azure today. Azure provides VMs with many Terabytes of memory and more than 200 CPUs. Beyond that Azure offers [HANA Large Instances](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture), which allow scale-out HANA deployments of up to 24TB and scale-out ANA deployments of up to 120TB. 
-
+Thus enterprises have to think carefully about which cloud provider to choose for running such business critical business processes on. Azure is the ideal public cloud platform for business critical SAP applications and business processes. Given the wide variety of Azure infrastructure,  nearly all existing SAP NetWeaver and S/4HANA systems can be hosted in Azure today. Azure provides VMs with many Terabytes of memory and more than 200 CPUs. Beyond that Azure offers [HANA Large Instances](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture), which allow scale-out HANA deployments of up to 24TB and scale-out ANA deployments of up to 120TB. One can state today that nearly all on-premise SAP scenarios can be run in Azure as well. 
 
 In order to successfully deploy SAP systems into either Azure IaaS or IaaS in general, it is important to understand the significant differences between the offerings of traditional outsourcers or hosters and IaaS offerings. Whereas the traditional hoster or outsourcer adapts infrastructure (network, storage and server type) to the workload a customer wants to host, it is instead the customer's  or partner's responsibility to characterize the workload and choose the correct Azure components of VMs, storage and network for IaaS deployments.
 
@@ -412,7 +412,7 @@ Keep in mind that the limits listed in the link above are upper limits. It does 
 
 The Microsoft Azure platform is a multi-tenant platform. As a result storage, network, and other resources are shared between tenants. Intelligent throttling and quota logic is used to prevent one tenant from impacting the performance of another tenant (noisy neighbor) in a drastic way. Especially for certifying the Azure platform for SAP HANA, Microsoft needs to prove the resource isolation for cases where multiple VMs can run on the same host on a regular basis to SAP. Though logic in Azure tries to keep variances in bandwidth experienced small, highly shared platforms tend to introduce larger variances in resource/bandwidth availability than customers might experience in their on-premises deployments. The probability that an SAP system on Azure could experience larger variances than in an on-premises system needs to be taken into account.
 
-A last step is to evaluate availability requirements. It can happen, that the underlying Azure infrastructure needs to get updated and requires the hosts running VMs to be rebooted. Microsoft documents the different cases in [Maintenance for virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/windows/maintenance-and-updates). To mitigate the rare cases where VMs are forced to reboot, but even more important for the cases you need to patch guest OS or DBMS components, you need to develop a valid high availability concepts for your production SAP systems. This requirement is not any different than the requirements you face on-premise. Microsoft is steadily advancing the Azure platform to reduce downtime caused by platform changes. 
+A last step is to evaluate availability requirements. It can happen, that the underlying Azure infrastructure needs to get updated and requires the hosts running VMs to be rebooted. Microsoft documents the different cases in [Maintenance for virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/windows/maintenance-and-updates). To mitigate the rare cases where VMs are forced to reboot, but even more important for the cases you need to patch guest OS or DBMS components, you need to develop a valid high availability concepts for your production SAP systems. This requirement is not any different than the requirements you face on-premises. Microsoft is steadily advancing the Azure platform to reduce downtime caused by platform changes. 
 
 In order to successfully deploy an SAP system onto Azure, the on-premises SAP system(s) Operating System, Database, and SAP applications must appear on the SAP Azure support matrix, fit within the resources the Azure infrastructure can provide and which can work with the Availability SLAs Microsoft Azure offers. As those systems are identified, you need to decide on one of the following two deployment scenarios.
 
@@ -452,6 +452,18 @@ Read [this article][vpn-gateway-create-site-to-site-rm-powershell] for more info
 * Supported operating system releases, database system releases supported on Azure Virtual Machine Services in conjunction with SAP software are documented in SAP Note [1928533].
 * SAP applications and releases supported on Azure Virtual Machine Services are documented in SAP Note [1928533].
 * Only 64Bit images are supported to run as Guest VMs in Azure for SAP scenarios. As a result, only 64-bit SAP applications and databases are supported.
+
+
+## First steps planning a deployment
+The first step in deployment planning is NOT to check for VMs available to run SAP. The first step can be one that is time consuming, but most important, is to work with compliance and security teams in your company on what the boundary conditions are for deploying which type of SAP workload or business process into public cloud. If your company deployed other software before into Azure, the process can be easy. If your company is more at the beginning of the journey, there might be larger discussions necessary in order to figure out the boundary conditions, security conditions, that allow certain SAP data and SAP business processes to be hosted in public cloud.
+
+As useful help you can point to [Microsoft compliance offerings](https://docs.microsoft.com/microsoft-365/compliance/offering-home) for a list of compliance offers Microsoft can provide. 
+
+Other areas of concerns like data encryption for data at rest or other encryption in Azure service is documented in [Azure encryption overview](https://docs.microsoft.com/azure/security/fundamentals/encryption-overview).
+
+Don't underestimate this phase of the project in your planning. Only when you have agreement and rules around this topic, you need to go to the next step which is the planning of the network architecture that you deploy in Azure.
+
+
 
 ## Microsoft Azure Virtual Machine Services
 The Microsoft Azure platform is an internet-scale cloud services platform hosted and operated in Microsoft data centers. The platform includes the Microsoft Azure Virtual Machine Services (Infrastructure as a Service, or IaaS) and a set of rich Platform as a Service (PaaS) capabilities.
@@ -582,7 +594,7 @@ More information on Premium Storage can be found here: <https://azure.microsoft.
 
 When deploying services or VMs in Azure, deployment of VHDs and VM Images can be organized in units called Azure Storage Accounts. When planning an Azure deployment, you need to carefully consider the restrictions of Azure. On the one side, there is a limited number of Storage Accounts per Azure subscription. Although each Azure Storage Account can hold a large number of VHD files, there is a fixed limit on the total IOPS per Storage Account. When deploying hundreds of SAP VMs with DBMS systems creating significant IO calls, it is recommended to distribute high IOPS DBMS VMs between multiple Azure Storage Accounts. Care must be taken not to exceed the current limit of Azure Storage Accounts per subscription. Because storage is a vital part of the database deployment for an SAP system, this concept is discussed in more detail in the already referenced [DBMS Deployment Guide][dbms-guide].
 
-More information about Azure Storage Accounts can be found in [this article][storage-scalability-targets]. Reading this article, you realize that there are differences in the limitations between Azure Standard Storage Accounts and Premium Storage Accounts. Major differences are the volume of data that can be stored within such a Storage Account. In Standard Storage the volume is a magnitude larger than with Premium Storage. On the other side, the Standard Storage Account is severely limited in IOPS (see column **Total Request Rate**), whereas the Azure Premium Storage Account has no such limitation. We will discuss details and results of these differences when discussing the deployments of SAP systems, especially the DBMS servers.
+More information about Azure Storage Accounts can be found in the [Scalability targets for standard storage accounts](../../../storage/common/scalability-targets-standard-account.md) and [Scalability targets for premium page blob storage accounts](../../../storage/blobs/scalability-targets-premium-page-blobs.md). Reading these articles, you realize that there are differences in the limitations between Azure Standard Storage Accounts and Premium Storage Accounts. Major differences are the volume of data that can be stored within such a Storage Account. In Standard Storage the volume is a magnitude larger than with Premium Storage. On the other side, the Standard Storage Account is severely limited in IOPS (see column **Total Request Rate**), whereas the Azure Premium Storage Account has no such limitation. We will discuss details and results of these differences when discussing the deployments of SAP systems, especially the DBMS servers.
 
 Within a Storage Account, you have the possibility to create different containers for the purpose of organizing and categorizing different VHDs. These containers are used to, for example, separate VHDs of different VMs. There are no performance implications in using just one container or multiple containers underneath a single Azure Storage Account.
 
@@ -802,7 +814,7 @@ See example here:
 <https://blogs.technet.com/b/keithmayer/archive/2015/07/07/18-steps-for-end-to-end-iaas-provisioning-in-the-cloud-with-azure-resource-manager-arm-powershell-and-desired-state-configuration-dsc.aspx>
 
 
-Deployment of the Azure Monitoring Extension for SAP (see chapter [Azure Monitoring Solution for SAP][planning-guide-9.1] in this document) is only possible via PowerShell or CLI. Therefore it is mandatory to set up and configure PowerShell or CLI when deploying or administering an SAP NetWeaver system in Azure.  
+Deployment of the Azure Extension for SAP (see chapter [Azure Extension for SAP][planning-guide-9.1] in this document) is only possible via PowerShell or CLI. Therefore it is mandatory to set up and configure PowerShell or CLI when deploying or administering an SAP NetWeaver system in Azure.  
 
 As Azure provides more functionality, new PS cmdlets are going to be added that requires an update of the cmdlets. Therefore it makes sense to check the Azure Download site at least once the month <https://azure.microsoft.com/downloads/> for a new version of the cmdlets. The new version is installed on top of the older version.
 
@@ -820,7 +832,7 @@ For information about installation, configuration and how to use CLI commands to
 * [Deploy and manage virtual machines by using Azure Resource Manager templates and the Azure CLI][../../linux/create-ssh-secured-vm-from-template.md]
 * [Use the Azure classic CLI for Mac, Linux, and Windows with Azure Resource Manager][xplat-cli-azure-resource-manager]
 
-Also read chapter [Azure CLI for Linux VMs][deployment-guide-4.5.2] in the [Deployment Guide][planning-guide] on how to use Azure CLI to deploy the Azure Monitoring Extension for SAP.
+Also read chapter [Azure CLI for Linux VMs][deployment-guide-4.5.2] in the [Deployment Guide][planning-guide] on how to use Azure CLI to deploy the Azure  Extension for SAP.
 
 ## Different ways to deploy VMs for SAP in Azure
 
@@ -1313,7 +1325,7 @@ Azure Geo-replication works locally on each VHD in a VM and does not replicate t
 ---
 ### Final Deployment
 
-For the final deployment and exact steps, especially with regards to the deployment of SAP Extended Monitoring, refer to the [Deployment Guide][deployment-guide].
+For the final deployment and exact steps, especially with regards to the deployment of the Azure Extension for SAP, refer to the [Deployment Guide][deployment-guide].
 
 ## Accessing SAP systems running within Azure VMs
 
@@ -1636,8 +1648,6 @@ The cross-premises or hybrid scenario can be roughly described like in the graph
 
 ![Site-to-Site connectivity between on-premises and Azure assets][planning-guide-figure-2100]
 
-The scenario shown above describes a scenario where the on-premise
-
 The minimum requirement is the use of secure communication protocols such as SSL/TLS for browser access or VPN-based connections for system access to the Azure services. The assumption is that companies handle the VPN connection between their corporate network and Azure differently. Some companies might blankly open all the ports. Some other companies might want to be precise in which ports they need to open, etc.
 
 In the table below typical SAP communication ports are listed. Basically it is sufficient to open the SAP gateway port.
@@ -1796,30 +1806,30 @@ SAP instances located in Azure need to access file shares, which are within the 
 
 ## Supportability
 
-### <a name="6f0a47f3-a289-4090-a053-2521618a28c3"></a>Azure Monitoring Solution for SAP
+### <a name="6f0a47f3-a289-4090-a053-2521618a28c3"></a>Azure Extension for SAP
 
-In order to enable the monitoring of mission critical SAP systems on Azure the SAP monitoring tools SAPOSCOL or SAP Host Agent get data off the Azure Virtual Machine Service host via an Azure Monitoring Extension for SAP. Since the demands by SAP were specific to SAP applications, Microsoft decided not to generically implement the required functionality into Azure, but leave it for customers to deploy the necessary monitoring components and configurations to their Virtual Machines running in Azure. However, deployment and lifecycle management of the monitoring components will be mostly automated by Azure.
+In order to feed some portion of Azure infrastructure information of mission critical SAP systems to the SAP Host Agent instances, installed in VMs, an Azure (VM) Extension for SAP needs to get installed for the deployed VMs. Since the demands by SAP were specific to SAP applications, Microsoft decided not to generically implement the required functionality into Azure, but leave it for customers to deploy the necessary VM extension and configurations to their Virtual Machines running in Azure. However, deployment and lifecycle management of the Azure VM Extension for SAP will be mostly automated by Azure.
 
 #### Solution design
 
-The solution developed to enable SAP Monitoring is based on the architecture of Azure VM Agent and Extension framework. The idea of the Azure VM Agent and Extension framework is to allow installation of software application(s) available in the Azure VM Extension gallery within a VM. The principle idea behind this concept is to allow (in cases like the Azure Monitoring Extension for SAP), the deployment of special functionality into a VM and the configuration of such software at deployment time.
+The solution developed to enable SAP Host Agent getting the required information is based on the architecture of Azure VM Agent and Extension framework. The idea of the Azure VM Agent and Extension framework is to allow installation of software application(s) available in the Azure VM Extension gallery within a VM. The principle idea behind this concept is to allow (in cases like the Azure Extension for SAP), the deployment of special functionality into a VM and the configuration of such software at deployment time.
 
 The 'Azure VM Agent' that enables handling of specific Azure VM Extensions within the VM is injected into Windows VMs by default on VM creation in the Azure portal. In case of SUSE, Red Hat or Oracle Linux, the VM agent is already part of the
 Azure Marketplace image. In case one would upload a Linux VM from on-premises to Azure the VM agent has to be installed manually.
 
-The basic building blocks of the Monitoring solution in Azure for SAP looks like this:
+The basic building blocks of the solution to provide Azure infrastructure information to SAP Host agent in Azure looks like this:
 
 ![Microsoft Azure Extension components][planning-guide-figure-2400]
 
-As shown in the block diagram above, one part of the monitoring solution for SAP is hosted in the Azure VM Image and Azure Extension Gallery, which is a globally replicated repository that is managed by Azure Operations. It is the responsibility of the joint SAP/MS team working on the Azure implementation of SAP to work with Azure Operations to publish new versions of the Azure Monitoring Extension for SAP.
+As shown in the block diagram above, one part of the solution is hosted in the Azure VM Image and Azure Extension Gallery, which is a globally replicated repository that is managed by Azure Operations. It is the responsibility of the joint SAP/MS team working on the Azure implementation of SAP to work with Azure Operations to publish new versions of the Azure Extension for SAP.
 
-When you deploy a new Windows VM, the Azure VM Agent is automatically added into the VM. The function of this agent is to coordinate the loading and configuration of the Azure Extensions for monitoring of SAP NetWeaver Systems. For Linux VMs, the Azure VM Agent is already part of the Azure Marketplace OS image.
+When you deploy a new Windows VM, the Azure VM Agent is automatically added into the VM. The function of this agent is to coordinate the loading and configuration of the Azure Extensions of the VMs. For Linux VMs, the Azure VM Agent is already part of the Azure Marketplace OS image.
 
 However, there is a step that still needs to be executed by the customer. This is the enablement and configuration of the performance collection. The process related to the configuration is automated by a PowerShell script or CLI command. The PowerShell script can be downloaded in the Microsoft Azure Script Center as described in the [Deployment Guide][deployment-guide].
 
-The overall Architecture of the Azure monitoring solution for SAP looks like:
+The overall Architecture of the Azure extension for SAP looks like:
 
-![Azure monitoring solution for SAP NetWeaver][planning-guide-figure-2500]
+![Azure extension for SAP ][planning-guide-figure-2500]
 
 **For the exact how-to and for detailed steps of using these PowerShell cmdlets or CLI command during deployments, follow the instructions given in the [Deployment Guide][deployment-guide].**
 
@@ -2024,7 +2034,7 @@ See additional information regarding autostart for SAP instances here:
 
 * [Start/Stop SAP along with your Unix Server Start/Stop](https://scn.sap.com/community/unix/blog/2012/08/07/startstop-sap-along-with-your-unix-server-startstop)
 * [Starting and Stopping SAP NetWeaver Management Agents](https://help.sap.com/saphelp_nwpi711/helpdata/en/49/9a15525b20423ee10000000a421938/content.htm)
-* [How to enable auto Start of HANA Database](http://www.freehanatutorials.com/2012/10/how-to-enable-auto-start-of-hana.html)
+* [How to enable auto Start of HANA Database](http://sapbasisinfo.com/blog/2016/08/15/enabling-autostart-of-sap-hana-database-on-server-boot-situation/)
 
 ### Larger 3-Tier SAP systems
 High-Availability aspects of 3-Tier SAP configurations got discussed in earlier sections already. But what about systems where the DBMS server requirements are too large to have it located in Azure, but the SAP application layer could be deployed into Azure?

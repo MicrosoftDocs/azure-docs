@@ -4,7 +4,7 @@ description: Supportability of adding Azure VMs to an existing availability set.
 services: virtual-machines-linux
 documentationcenter: ''
 author: Deland-Han
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 
 ms.assetid: 

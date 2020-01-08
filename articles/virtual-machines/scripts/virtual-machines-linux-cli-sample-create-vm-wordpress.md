@@ -1,10 +1,10 @@
 ---
-title: Azure CLI Script Sample - Create a Linux VM with WordPress | Microsoft Docs
+title: Azure CLI Script Sample - Create a Linux VM with WordPress 
 description: Azure CLI Script Sample - Create a Linux VM with WordPress
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-service-management
 

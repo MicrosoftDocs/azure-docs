@@ -1,17 +1,19 @@
 ---
-title: C# tutorial on autocompletion and suggestions - Azure Search
-description:  This tutorial builds on the "Search results pagination - Azure Search" project, to add autocompletion and suggestions. The goal is a richer user experience. Learn how to combine a drop-down list of suggestions with inline autocompletion.
-services: search
-ms.service: search
-ms.topic: tutorial
-ms.author: v-pettur
+title: C# tutorial on autocompletion and suggestions
+titleSuffix: Azure Cognitive Search
+description:  This tutorial demonstrates autocompletion and suggestions as a way to collect search term input from users using dropdown list. It builds on an existing hotels project.
+
+manager: nitinme
 author: PeterTurcan
-ms.date: 05/01/2019
+ms.author: v-pettur
+ms.service: cognitive-search
+ms.topic: tutorial
+ms.date: 11/04/2019
 ---
 
-# C# tutorial: Add autocompletion and suggestions - Azure Search
+# C# tutorial: Add autocompletion and suggestions - Azure Cognitive Search
 
-Learn how to implement autocompletion (type-ahead and suggestions) when a user starts typing into your search box. In this tutorial, we will show type-ahead results and suggestion results separately, then show a method of combining them to create a richer user experience. A user may only have to type two or three keys to locate all the results that are available. This tutorial builds onto the paging project created in the [C# Tutorial: Search results pagination - Azure Search](tutorial-csharp-paging.md) tutorial.
+Learn how to implement autocompletion (type-ahead and suggestions) when a user starts typing into your search box. In this tutorial, we will show type-ahead results and suggestion results separately, then show a method of combining them to create a richer user experience. A user may only have to type two or three keys to locate all the results that are available. This tutorial builds onto the paging project created in the [C# Tutorial: Search results pagination - Azure Cognitive Search](tutorial-csharp-paging.md) tutorial.
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]
@@ -24,7 +26,7 @@ In this tutorial, you learn how to:
 
 To complete this tutorial, you need to:
 
-Have the [C# Tutorial: Search results pagination - Azure Search](tutorial-csharp-paging.md) project up and running. This project can either be your own version, that you completed in the previous tutorial, or install it from GitHub: [Create first app](https://github.com/Azure-Samples/azure-search-dotnet-samples).
+Have the [C# Tutorial: Search results pagination - Azure Cognitive Search](tutorial-csharp-paging.md) project up and running. This project can either be your own version, that you completed in the previous tutorial, or install it from GitHub: [Create first app](https://github.com/Azure-Samples/azure-search-dotnet-samples).
 
 ## Add suggestions
 
@@ -64,11 +66,11 @@ The autocomplete function called in the script above is not something we have to
     ```cs
     <head>
         <meta charset="utf-8">
-        <title>Autocomplete demo</title>
-        <link href="https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css"
+        <title>Typeahead</title>
+        <link href="https://code.jquery.com/ui/1.12.1/themes/start/jquery-ui.css"
               rel="stylesheet">
         <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-        <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
         <link rel="stylesheet" href="~/css/hotels.css" />
     </head>
@@ -141,7 +143,7 @@ The autocomplete function called in the script above is not something we have to
  
     ![Typing "pa" with fuzzy set to true](./media/tutorial-csharp-create-first-app/azure-search-suggest-fuzzy.png)
 
-    If you are interested, the [Lucene query syntax in Azure Search](https://docs.microsoft.com/azure/search/query-lucene-syntax) describes the logic used in fuzzy searches in detail.
+    If you are interested, the [Lucene query syntax in Azure Cognitive Search](https://docs.microsoft.com/azure/search/query-lucene-syntax) describes the logic used in fuzzy searches in detail.
 
 ## Add highlighting to the suggestions
 
@@ -250,7 +252,7 @@ Another variation, that is slightly different from suggestions, is autocompletio
 
 ## Combine autocompletion and suggestions
 
-Combining autocompletion and suggestions is the most complex of our options, and probably provides the best user experience. What we want is to display, inline with the text that is being typed, the first choice of Azure Search for autocompleting the text. Also, we want a range of suggestions as a drop-down list.
+Combining autocompletion and suggestions is the most complex of our options, and probably provides the best user experience. What we want is to display, inline with the text that is being typed, the first choice of Azure Cognitive Search for autocompleting the text. Also, we want a range of suggestions as a drop-down list.
 
 There are libraries that offer this functionality - often called "inline autocompletion" or a similar name. However, we are going to natively implement this feature, so you can see what is going on. We are going to start work on the controller first in this example.
 
@@ -456,9 +458,9 @@ Consider the following takeaways from this project:
 
 ## Next steps
 
-One of the issues with autocompletion and suggestions is that they involve repeated calls to the server (one on every key stroke after the minimum number of characters typed is reached). If these repeated calls results in slower than expected responses, then the user experience diminishes. Using facets provides an interesting alternative to avoid these repeated calls, which we will look at next.
+In the next tutorial, we have a look at another way of improving the user experience, using facets to narrow searches with a single click.
 
 > [!div class="nextstepaction"]
-> [C# Tutorial: Use facets for navigation and network efficiency - Azure Search](tutorial-csharp-facets.md)
+> [C# Tutorial: Use facets to aid navigation - Azure Cognitive Search](tutorial-csharp-facets.md)
 
 

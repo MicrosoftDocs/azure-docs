@@ -1,17 +1,18 @@
 ---
-title: Azure Data Factory Mapping Data Flow Sort Transformation
+title: Mapping data flow Sort Transformation
 description: Azure Data Factory Mapping Data Sort Transformation
 author: kromerm
 ms.author: makromer
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 10/08/2018
 ---
 
 # Azure Data Factory Data Flow Sort Transformations
 
-[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
+
 
 ![Sort settings](media/data-flow/sort.png "Sort")
 

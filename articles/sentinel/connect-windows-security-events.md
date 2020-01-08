@@ -1,5 +1,5 @@
 ---
-title: Connect Windows security event data to Azure Sentinel Preview| Microsoft Docs
+title: Connect Windows security event data to Azure Sentinel| Microsoft Docs
 description: Learn how to connect Windows security event data to Azure Sentinel.
 services: sentinel
 documentationcenter: na
@@ -8,34 +8,34 @@ manager: rkarlin
 editor: ''
 
 ms.assetid: d51d2e09-a073-41c8-b396-91d60b057e6a
-ms.service: sentinel
+ms.service: azure-sentinel
+ms.subservice: azure-sentinel
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/17/2019
+ms.date: 09/23/2019
 ms.author: rkarlin
 
 ---
 # Connect Windows security events 
 
-> [!IMPORTANT]
-> Azure Sentinel is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 
 You can stream all security events from the Windows Servers connected to your Azure Sentinel workspace. This connection enables you to view dashboards, create custom alerts, and improve investigation. This gives you more insight into your organization’s network and improves your security operation capabilities.  You can select which events to stream:
 
 - **All events** - All Windows security and AppLocker events.
-- **Common** - A standard set of events for auditing purposes. A full user audit trail is included in this set. For example, this set contains both user logins and user logoff (event ID 4634). We include auditing actions like security group changes, key domain controller Kerberos operations, and other events that are recommended by industry organizations.
+- **Common** - A standard set of events for auditing purposes. A full user audit trail is included in this set. For example, this set contains both user sign in and user sign out events (event ID 4634). We include auditing actions like security group changes, key domain controller Kerberos operations, and other events that are recommended by industry organizations.
 
 Events that have very low volume were included in the Common set as the main motivation to choose it over all the events is to reduce the volume and not to filter out specific events.
-- **Minimal** - A small set of events that might indicate potential threats. By enabling this option, you won't be able to have a full audit trail.  This set covers only events that might indicate a successful breach and important events that have a very low volume. For example, this set contains user successful and failed login (event IDs 4624, 4625), but it doesn’t contain logout which is important for auditing but not meaningful for detection and has relatively high volume. Most of the data volume of this set is the login events and process creation event (event ID 4688).
+- **Minimal** - A small set of events that might indicate potential threats. By enabling this option, you won't be able to have a full audit trail.  This set covers only events that might indicate a successful breach and important events that have a very low volume. For example, this set contains user successful and failed login (event IDs 4624, 4625), but it doesn’t contain sign out information which is important for auditing but not meaningful for detection and has relatively high volume. Most of the data volume of this set is the sign in events and process creation event (event ID 4688).
 - **None** - No security or AppLocker events.
 
 > [!NOTE]
 > 
 > - Data will be stored in the geographic location of the workspace on which you are running Azure Sentinel.
+> - If Azure Security Center and Azure Sentinel are running on the same workspace, the Security Events connector can only be connected from either Azure Security Center or Azure Sentinel. To manage these events from Azure Sentinel, we recommend that you disconnect it from Azure Security Center and connect it only to Azure Sentinel.
+
 
 The following list provides a complete breakdown of the Security and App Locker event IDs for each set:
 
@@ -55,7 +55,7 @@ The following list provides a complete breakdown of the Security and App Locker 
 
 To fully integrate your Windows security events with Azure Sentinel:
 
-1. In the Azure Sentinel portal, select **Data connectors** and then click on the **Windows security events** tile. 
+1. In the Azure Sentinel portal, select **Data connectors** and then click on the **Security Events** tile. 
 1. Select which data types you want to stream.
 1. Click **Update**.
 6. To use the relevant schema in Log Analytics for the Windows security events, search for **SecurityEvent**.
@@ -69,5 +69,5 @@ It may take around 20 minutes until your logs start to appear in Log Analytics.
 ## Next steps
 In this document, you learned how to connect Windows security events to Azure Sentinel. To learn more about Azure Sentinel, see the following articles:
 - Learn how to [get visibility into your data, and potential threats](quickstart-get-visibility.md).
-- Get started [detecting threats with Azure Sentinel](tutorial-detect-threats.md).
+- Get started [detecting threats with Azure Sentinel](tutorial-detect-threats-built-in.md).
 

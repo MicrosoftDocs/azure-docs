@@ -1,31 +1,24 @@
 ---
-title: Azure Functions Overview | Microsoft Docs
+title: Azure Functions Overview 
 description: Understand how to use Azure Functions to optimize asynchronous workloads in minutes.
-services: functions
-documentationcenter: na
 author: mattchenderson
-manager: jeconnoc
-keywords: azure functions, functions, event processing, webhooks, dynamic compute, serverless architecture
 
 ms.assetid: 01d6ca9f-ca3f-44fa-b0b9-7ffee115acd4
-ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: overview
 ms.date: 10/03/2017
-ms.author: glenga
 
 ms.custom: H1Hack27Feb2017, mvc
 
 ---
 # An introduction to Azure Functions  
-Azure Functions is a solution for easily running small pieces of code, or "functions," in the cloud. You can write just the code you need for the problem at hand, without worrying about a whole application or the infrastructure to run it. Functions can make development even more productive, and you can use your development language of choice, such as C#, F#, Node.js, Java, or PHP. Pay only for the time your code runs and trust Azure to scale as needed. Azure Functions lets you develop [serverless](https://azure.microsoft.com/solutions/serverless/) applications on Microsoft Azure.
+Azure Functions is a solution for easily running small pieces of code, or "functions," in the cloud. You can write just the code you need for the problem at hand, without worrying about a whole application or the infrastructure to run it. Functions can make development even more productive, and you can use your development language of choice, such as C#, Java, JavaScript, PowerShell, and Python. Pay only for the time your code runs and trust Azure to scale as needed. Azure Functions lets you develop [serverless](https://azure.microsoft.com/solutions/serverless/) applications on Microsoft Azure.
 
 This topic provides a high-level overview of Azure Functions. If you want to jump right in and get started with Functions, start with [Create your first Azure Function](functions-create-first-azure-function.md). If you are looking for more technical information about Functions, see the [developer reference](functions-reference.md).
 
 ## Features
 Here are some key features of Functions:
 
-* **Choice of language** - Write functions using your choice of C#, F#, or Javascript. See [Supported languages](supported-languages.md) for other options.
+* **Choice of language** - Write functions using your choice of C#, Java, Javascript, Python, and other languages. See [Supported languages](supported-languages.md) for the complete list.
 * **Pay-per-use pricing model** - Pay only for the time spent running your code. See the Consumption hosting plan option in the [pricing section](#pricing).  
 * **Bring your own dependencies** - Functions supports NuGet and NPM, so you can use your favorite libraries.  
 * **Integrated security** - Protect HTTP-triggered functions with OAuth providers such as Azure Active Directory, Facebook, Google, Twitter, and Microsoft Account.  
@@ -65,7 +58,8 @@ Azure Functions integrates with various Azure and 3rd-party services. These serv
 ## <a name="pricing"></a>How much does Functions cost?
 Azure Functions has two kinds of pricing plans. Choose the one that best fits your needs: 
 
-* **Consumption plan** - When your function runs, Azure provides all of the necessary computational resources. You don't have to worry about resource management, and you only pay for the time that your code runs. 
+* **Consumption plan** - When your function runs, Azure provides all of the necessary computational resources. You don't have to worry about resource management, and you only pay for the time that your code runs.
+* **Premium plan** -  You specify a number of pre-warmed instances that are always online and ready to respond immediately. When your function runs, Azure provides any additional computational resources that are needed. You pay for the pre-warmed instances running continuously and any additional instances you use as Azure scales your app in and out.
 * **App Service plan** - Run your functions just like your web apps. When you are already using App Service for your other applications, you can run your functions on the same plan at no additional cost. 
 
 For more information about hosting plans, see [Azure Functions hosting plan comparison](functions-scale.md). Full pricing details are available on the [Functions Pricing page](https://azure.microsoft.com/pricing/details/functions/).

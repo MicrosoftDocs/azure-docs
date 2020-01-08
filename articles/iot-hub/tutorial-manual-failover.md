@@ -1,6 +1,6 @@
 ---
 title: Manual failover of an Azure IoT hub | Microsoft Docs
-description: Show how to perform a manual failover for an Azure IoT hub
+description: Learn how to perform a manual failover of your IoT hub to a different region and confirm it's working, and then return it to the original region and check it again.
 author: robinsh
 manager: timlt
 ms.service: iot-hub
@@ -12,7 +12,7 @@ ms.custom: mvc
 #Customer intent: As an IT Pro, I want to be able to perform a manual failover of my IoT hub to a different region, and then return it to the original region.
 ---
 
-# Tutorial: Perform manual failover for an IoT hub (public preview)
+# Tutorial: Perform manual failover for an IoT hub
 
 Manual failover is a feature of the IoT Hub service that allows customers to [failover](https://en.wikipedia.org/wiki/Failover) their hub's operations from a primary region to the corresponding Azure geo-paired region. Manual failover can be done in the event of a regional disaster or an extended service outage. You can also perform a planned failover to test your disaster recovery capabilities, although we recommend using a test IoT hub rather than one running in production. The manual failover feature is offered to customers at no additional cost.
 
@@ -43,7 +43,7 @@ In this tutorial, you perform the following tasks:
 
     **Resource Group**: click **Create new** and specify **ManlFailRG** for the resource group name.
 
-    **Region**: select a region close to you that is part of the preview. This tutorial uses `West US 2`. A failover can only be performed between Azure geo-paired regions. The region geo-paired with West US 2 is WestCentralUS.
+    **Region**: select a region close to you. This tutorial uses `West US 2`. A failover can only be performed between Azure geo-paired regions. The region geo-paired with West US 2 is WestCentralUS.
     
    **IoT Hub Name**: specify a name for your Iot hub. The hub name must be globally unique. 
 

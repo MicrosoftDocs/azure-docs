@@ -1,13 +1,13 @@
 ---
-title: Understand and work with Azure Cost Management scopes | Microsoft Docs
+title: Understand and work with Azure Cost Management scopes
 description: This article helps you understand billing and resource management scopes available in Azure and how to use the scopes in Cost Management and APIs.
 services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 05/20/2019
+ms.date: 10/17/2019
 ms.topic: conceptual
-ms.service: cost-management
+ms.service: cost-management-billing
 manager: micflan
 ms.custom:
 ---
@@ -32,7 +32,7 @@ Cost Management works at all scopes above resources to allow organizations to ma
 
 Azure supports three scopes for resource management. Each scope supports managing access and governance, including but not limited to, cost management.
 
-- [**Management groups**](../governance/management-groups/index.md) - Hierarchical containers, up to eight levels, to organize Azure subscriptions.
+- [**Management groups**](../governance/management-groups/overview.md) - Hierarchical containers, up to eight levels, to organize Azure subscriptions.
 
     Resource type: [Microsoft.Management/managementGroups](/rest/api/resources/managementgroups)
 
@@ -40,7 +40,7 @@ Azure supports three scopes for resource management. Each scope supports managin
 
     Resource type: [Microsoft.Resources/subscriptions](/rest/api/resources/subscriptions)
 
-- [**Resource groups**](../azure-resource-manager/resource-group-overview.md#resource-groups) - Logical groupings of related resources for an Azure solution that share the same lifecycle. For example resources that are deployed and deleted together.
+- [**Resource groups**](../azure-resource-manager/management/overview.md#resource-groups) - Logical groupings of related resources for an Azure solution that share the same lifecycle. For example resources that are deployed and deleted together.
 
     Resource type: [Microsoft.Resources/subscriptions/resourceGroups](/rest/api/resources/resourcegroups)
 
@@ -95,20 +95,20 @@ Azure subscriptions are nested under enrollment accounts. Billing users have acc
 
 Billing users don't have access to management groups because they don't fall explicitly under a specific billing account. Access must be granted to management groups explicitly. Management groups roll-up costs from all nested subscriptions. However, they only include usage-based purchases. They don't include purchases such as reservations and third-party Marketplace offerings. To view these costs, use the EA billing account.
 
-## Individual agreement (Pay-As-You-Go) scopes
+## Individual agreement scopes
 
-Pay-as-you-go (PAYG) subscriptions, including related types like free/trial and dev/test offers, don't have an explicit billing account scope. Instead, each subscription has an account owner or account admin, like the EA account owner.
+Azure subscriptions created from individual offers like pay-as-you-go and related types like Free Trial and dev/test offers, don't have an explicit billing account scope. Instead, each subscription has an account owner or account admin, like the EA account owner.
 
 - [**Billing account**](../billing/billing-view-all-accounts.md) -
 Represents a single account owner for one or more Azure subscriptions. It doesn't currently support granting access to multiple people or access to aggregated cost views.
 
     Resource type: Not applicable
 
-PAYG subscription account admins can view and manage billing data, such as invoices and payments, from the [Azure Account Center](https://account.azure.com/subscriptions). However, they can't view cost data or manage resources in the Azure portal. To grant access to the account admin, use the Cost Management roles mentioned previously.
+Individual Azure subscription account admins can view and manage billing data, such as invoices and payments, from the [Azure Account Center](https://account.azure.com/subscriptions). However, they can't view cost data or manage resources in the Azure portal. To grant access to the account admin, use the Cost Management roles mentioned previously.
 
-Unlike EA, PAYG subscription account admins can see their invoices in the Azure portal. Keep in mind that Cost Management Reader and Cost Management Contributor roles don't provide access to invoices. For more information, see [How to grant access to PAYG invoices](../billing/billing-manage-access.md#give-access-to-billing).
+Unlike EA, individual Azure subscription account admins can see their invoices in the Azure portal. Keep in mind that Cost Management Reader and Cost Management Contributor roles don't provide access to invoices. For more information, see [How to grant access to invoices](../billing/billing-manage-access.md##give-read-only-access-to-billing).
 
-## Customer Agreement scopes
+## Microsoft Customer Agreement scopes
 
 Microsoft Customer Agreement billing accounts have the following scopes:
 
@@ -124,7 +124,11 @@ Microsoft Customer Agreement billing accounts have the following scopes:
 
     Resource type: `Microsoft.Billing/billingAccounts/invoiceSections`
 
+- **Customer** - Represents a group of subscriptions that are associated to a specific customer that is onboarded to a Microsoft Customer Agreement by partner. This scope is specific to CSP.
+
 Unlike EA billing scopes, Customer Agreement billing accounts _are_ bound to a single directory and can't have subscriptions across multiple Azure AD directories.
+
+Customer Agreement billing scopes don't apply to partners. Partner roles and permissions are documented at [Assign users roles and permissions](/partner-center/permissions-overview).
 
 Customer Agreement billing scopes support the following roles:
 
@@ -138,13 +142,39 @@ Azure subscriptions are nested under invoice sections, like how they are under E
 
 Billing users don't have access to management groups because they don't explicitly fall under the billing account. However, when management groups are enabled for the organization, all subscription costs are rolled-up to the billing account and to the root management group because they are both constrained to a single directory. Management groups only include purchases that are usage-based. Purchases like reservations and third-party Marketplace offerings aren't included in management groups. So, the billing account and root management group may report different totals. To view these costs, use the billing account or respective billing profile.
 
+## AWS scopes
+
+After AWS integration is complete, see [setup and configure AWS integration](aws-integration-set-up-configure.md). The following scopes are available:
+
+- **External Billing account** - Represents a customer agreement with a third-party vendor. This is similar to the EA billing account.
+
+    Resource type: `Microsoft.CostManagement/externalBillingAccounts`
+
+- **External subscription** - Represents a customer operational account with a third-party vendor. This is similar to an Azure subscription.
+
+    Resource type: `Microsoft.CostManagement/externalSubscriptions`
+
 ## Cloud Solution Provider (CSP) scopes
 
-Cloud Solution Provider (CSP) partners aren't supported in Cost Management today. Instead, you can use [Partner Center](https://docs.microsoft.com/azure/cloud-solution-provider/overview/partner-center-overview).
+The following scopes are supported for CSPs with customers on a Microsoft Customer Agreement:
+
+- **Billing account** - Represents a customer agreement for multiple Microsoft products and services. Customer Agreement billing accounts aren't functionally the same as EA enrollments. EA enrollments are more closely aligned to billing profiles.
+
+    Resource type: `Microsoft.Billing/billingAccounts (accountType = Organization)`
+
+- **Billing profile** - Defines the subscriptions that are included in an invoice. Billing profiles are the functional equivalent of an EA enrollment, since that's the scope that invoices are generated at. Similarly, purchases that aren't usage-based (such as Marketplace and reservations) are only available at this scope.
+
+    Resource type: `Microsoft.Billing/billingAccounts/billingProfiles`
+
+- **Customer** - Represents a group of subscriptions that are associated to a specific customer that is onboarded to a Microsoft Customer Agreement by a partner.
+
+Only the users with *Global admin* and *Admin agent* roles can manage and view costs for billing accounts, billing profiles, and customers directly in the partner's Azure tenant. For more information about partner center roles, see [Assign users roles and permissions](/partner-center/permissions-overview).
+
+Azure Cost Management only supports CSP partner customers if the customers have a Microsoft Customer Agreement. For CSP supported customers who are not yet on a Microsoft Customer Agreement, see [Partner Center](https://docs.microsoft.com/azure/cloud-solution-provider/overview/partner-center-overview).
 
 ## Switch between scopes in Cost Management
 
-All Cost Management views in the Azure portal include a **Scope** pill at the top-left of the view. Use it to quickly change scope. Click the **Scope** pill to open the scope picker. It shows billing accounts, the root management group, and any subscriptions that aren't nested under the root management group. To select a scope, click the background to highlight it and then click **Select** at the bottom. To drill-in to nested scopes, like resource groups in a subscription, click the scope name link. To select the parent scope at any nested level, click **Select this &lt;scope&gt;** at the top of the scope picker.
+All Cost Management views in the Azure portal include a **Scope** selection pill at the top-left of the view. Use it to quickly change scope. Click the **Scope** pill to open the scope picker. It shows billing accounts, the root management group, and any subscriptions that aren't nested under the root management group. To select a scope, click the background to highlight it and then click **Select** at the bottom. To drill-in to nested scopes, like resource groups in a subscription, click the scope name link. To select the parent scope at any nested level, click **Select this &lt;scope&gt;** at the top of the scope picker.
 
 ## Identify the resource ID for a scope
 

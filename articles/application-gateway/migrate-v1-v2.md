@@ -1,11 +1,11 @@
 ---
-title: Migrate Azure Application Gateway and Web Application Firewall from v1 to v2
+title: Migrate from v1 to v2 - Azure Application Gateway
 description: This article shows you how to migrate Azure Application Gateway and Web Application Firewall from v1 to v2
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 6/18/2019
+ms.date: 11/14/2019
 ms.author: victorh
 ---
 
@@ -61,7 +61,7 @@ This command also installs the required Az modules.
 
 ### Install using the script directly
 
-If you do have some Azure Az modules installed and can't uninstall them (or don't want to uninstall them), you can manually download the script using the **Manual Download** tab in the script download link. The script is downloaded as a raw nupkg file. To install the script from this nupkg file, see [Manual Package Download](https://docs.microsoft.com/powershell/gallery/how-to/working-with-packages/manual-download).
+If you do have some Azure Az modules installed and can't uninstall them (or don't want to uninstall them), you can manually download the script using the **Manual Download** tab in the script download link. The script is downloaded as a raw nupkg file. To install the script from this nupkg file, see [Manual Package Download](/powershell/scripting/gallery/how-to/working-with-packages/manual-download).
 
 To run the script:
 
@@ -71,15 +71,17 @@ To run the script:
 
 1. Run `Get-Help AzureAppGWMigration.ps1` to examine the required parameters:
 
-   `AzureAppGwMigration.ps1
+   ```
+   AzureAppGwMigration.ps1
     -resourceId <v1 application gateway Resource ID>
     -subnetAddressRange <subnet space you want to use>
     -appgwName <string to use to append>
     -sslCertificates <comma-separated SSLCert objects as above>
     -trustedRootCertificates <comma-separated Trusted Root Cert objects as above>
     -privateIpAddress <private IP string>
-    -publicIpResourceName <public IP name string>
-    -validateMigration -enableAutoScale`
+    -publicIpResourceId <public IP name string>
+    -validateMigration -enableAutoScale
+   ```
 
    Parameters for the script:
    * **resourceId: [String]: Required** - This is the Azure Resource ID for your existing Standard v1 or WAF v1 gateway. To find this string value,  navigate to the Azure portal, select your application gateway or WAF resource, and click the **Properties** link for the gateway. The Resource ID is located on that page.
@@ -149,7 +151,7 @@ Here are a few scenarios where your current application gateway (Standard) may r
 
   * If you use public IP addresses on your application gateway, you can do a controlled, granular migration using a Traffic Manager profile to incrementally route traffic (weighted traffic routing method) to the new v2 gateway.
 
-    You can do this by adding the DNS labels of both the v1 and v2 application gateways to the [Traffic Manager profile](../traffic-manager/traffic-manager-routing-methods.md#weighted-traffic-routing-method), and CNAMEing your custom DNS record (for example, www.contoso.com) to the Traffic Manager domain (for example, contoso.trafficmanager.net).
+    You can do this by adding the DNS labels of both the v1 and v2 application gateways to the [Traffic Manager profile](../traffic-manager/traffic-manager-routing-methods.md#weighted-traffic-routing-method), and CNAMEing your custom DNS record (for example, `www.contoso.com`) to the Traffic Manager domain (for example, contoso.trafficmanager.net).
   * Or, you can update your custom domain DNS record to point to the DNS label of the new v2 application gateway. Depending on the TTL configured on your DNS record, it may take a while for all your client traffic to migrate to your new v2 gateway.
 * **Your clients connect to the frontend IP address of your application gateway**.
 
@@ -176,6 +178,10 @@ The Azure PowerShell script creates a new v2 gateway with an appropriate size to
 ### I configured my v1 gateway  to send logs to Azure storage. Does the script replicate this configuration for v2 as well?
 
 No. The script doesn't  replicate this configuration for v2. You must add the log configuration separately to the migrated v2 gateway.
+
+### Does this script support certificates uploaded to Azure KeyVault ?
+
+No. Currently the script does not support certificates in KeyVault. However, this is being considered for a future version.
 
 ### I ran into some issues with using this script. How can I get help?
   

@@ -1,12 +1,8 @@
 ---
 title: Use autoscale to send email and webhook alert notifications
-description: 'See how to use autoscale actions to call web URLs or send email notifications in Azure Monitor. '
-author: anirudhcavale
-services: azure-monitor
-ms.service: azure-monitor
+description: Learn how to use autoscale actions to call web URLs or send email notifications in Azure Monitor.
 ms.topic: conceptual
 ms.date: 04/03/2017
-ms.author: ancav
 ms.subservice: autoscale
 ---
 # Use autoscale actions to send email and webhook alert notifications in Azure Monitor
@@ -27,7 +23,7 @@ You can opt-in from the Azure portal for Cloud Services and Server Farms (Web Ap
 
 ## Virtual Machine scale sets
 For newer Virtual Machines created with Resource Manager (Virtual Machine scale sets), you can configure this using REST API, Resource Manager templates, PowerShell, and CLI. A portal interface is not yet available.
-When using the REST API or Resource Manager template, include the notifications element with the following options.
+When using the REST API or Resource Manager template, include the notifications element in your [autoscalesettings](https://docs.microsoft.com/azure/templates/microsoft.insights/2015-04-01/autoscalesettings) with the following options.
 
 ```
 "notifications": [
@@ -114,5 +110,5 @@ When the autoscale notification is generated, the following metadata is included
 | portalLink |Yes |Azure portal link to the summary page of the target resource |
 | oldCapacity |Yes |The current (old) instance count when Autoscale took a scale action |
 | newCapacity |Yes |The new instance count that Autoscale scaled the resource to |
-| Properties |No |Optional. Set of <Key, Value> pairs (for example,  Dictionary <String, String>). The properties field is optional. In a custom user interface  or Logic app based workflow, you can enter keys and values that can be passed using the payload. An alternate way to pass custom properties back to the outgoing webhook call is to use the webhook URI itself (as query parameters) |
+| properties |No |Optional. Set of <Key, Value> pairs (for example,  Dictionary <String, String>). The properties field is optional. In a custom user interface  or Logic app based workflow, you can enter keys and values that can be passed using the payload. An alternate way to pass custom properties back to the outgoing webhook call is to use the webhook URI itself (as query parameters) |
 

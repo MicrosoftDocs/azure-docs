@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/07/2019
+ms.date: 10/31/2019
 ms.author: spelluru
 
 ---
@@ -25,10 +25,22 @@ This article shows how teachers/lab admin can save a template virtual machine im
 
 
 ## Save an image to the shared image gallery
-After a shared image gallery is attached, a teacher can save or upload an  image to the shared image gallery so that it can be reused by other teachers. For instructions for uploading an image to the shared image gallery, see [Shared Image Gallery overview](../../virtual-machines/windows/shared-images.md). 
+After a shared image gallery is attached, a lab account admin or a teacher can save an image to the shared image gallery so that it can be reused by other teachers. 
 
-> [!NOTE]
-> Curently, the Classroom Labs user interface (UI) doesn't support saving a lab image to the shared image gallery. 
+1. On the **Template** page for the lab, select **Export to Shared Image Gallery** on the toolbar.
+
+    ![Save image button](../media/how-to-use-shared-image-gallery/export-to-shared-image-gallery-button.png)
+2. On the **Export to Shared Image Gallery** dialog, enter a **name for the image**, and then select **Export**. 
+
+    ![Export to Shared Image Gallery dialog](../media/how-to-use-shared-image-gallery/export-to-shared-image-gallery-dialog.png)
+3. You can see the progress of this operation on the **Template** page. This operation can take sometime. 
+
+    ![Export in progress](../media/how-to-use-shared-image-gallery/exporting-image-in-progress.png)
+4. When the export operation is successful, you see the following message:
+
+    ![Export completed](../media/how-to-use-shared-image-gallery/exporting-image-completed.png)
+
+You can also upload an image to the shared image gallery outside the context of a lab. For more information, see [Shared image gallery overview](../../virtual-machines/windows/shared-images.md). 
 
 ## Use an image from the shared image gallery
 A teacher/professor can pick a custom image available in the shared image gallery for the template during new lab creation.

@@ -2,13 +2,9 @@
 title: Source Control integration in Azure Automation
 description: This article describes source control integration with GitHub in Azure Automation.
 services: automation
-ms.service: automation
 ms.subservice: process-automation
-author: georgewallace
-ms.author: gwallace
-ms.date: 04/26/2019
+ms.date: 12/10/2019
 ms.topic: conceptual
-manager: carmonm
 ---
 # Source control integration in Azure Automation
 
@@ -24,7 +20,7 @@ Azure Automation supports three types of source control:
 
 * A source control repository (GitHub or Azure Repos)
 * A [Run-As Account](manage-runas-account.md)
-* Ensure you have the [latest Azure modules](automation-update-azure-modules.md) in your Automation Account
+* Ensure you have the [latest Azure modules](automation-update-azure-modules.md) in your Automation Account, including **AzureRM.Profile** module. 
 
 > [!NOTE]
 > Source control sync jobs run under the users Automation Account and are billed at the same rate as other Automation jobs.
@@ -166,6 +162,13 @@ Select the source control you want to remove. On the **Source Control Summary** 
 ## Encoding
 
 If multiple people are editing runbooks in your source control repository with different editors, there's a chance to run into encoding issues. This situation can lead to incorrect characters in your runbook. To learn more about this, see [Common causes of encoding issues](/powershell/scripting/components/vscode/understanding-file-encoding#common-causes-of-encoding-issues)
+
+## Updating the access token
+
+Currently, there is no way to update the access token in Source Control from the portal. After your personal access token is expired or revoked, you can update Source Control with a new access token in the following ways:
+
+* Through the [REST Api](https://docs.microsoft.com/rest/api/automation/sourcecontrol/update).
+* By using the [Update-AzAutomationSourceControl](/powershell/module/az.automation/update-azautomationsourcecontrol) cmdlet.
 
 ## Next steps
 

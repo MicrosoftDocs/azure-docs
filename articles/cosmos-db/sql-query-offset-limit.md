@@ -1,6 +1,6 @@
 ---
 title: OFFSET LIMIT clause in Azure Cosmos DB
-description: Learn about the OFFSET LIMIT clause for Azure Cosmos DB.
+description: Learn how to use the OFFSET LIMIT clause to skip and take some certain values when querying in Azure Cosmos DB
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
@@ -8,7 +8,7 @@ ms.date: 06/10/2019
 ms.author: mjbrown
 
 ---
-# OFFSET LIMIT clause
+# OFFSET LIMIT clause in Azure Cosmos DB
 
 The OFFSET LIMIT clause is an optional clause to skip then take some number of values from the query. The OFFSET count and the LIMIT count are required in the OFFSET LIMIT clause.
 
@@ -32,7 +32,7 @@ OFFSET <offset_amount> LIMIT <limit_amount>
 
 ## Remarks
   
-  Both the OFFSET count and the LIMIT count are required in the OFFSET LIMIT clause. If an optional `ORDER BY` clause is used, the result set is produced by doing the skip over the ordered values. Otherwise, the query will return a fixed order of values. Currently this clause is supported for queries within a single partition only, cross-partition queries don't yet support it.
+  Both the OFFSET count and the LIMIT count are required in the OFFSET LIMIT clause. If an optional `ORDER BY` clause is used, the result set is produced by doing the skip over the ordered values. Otherwise, the query will return a fixed order of values. This clause is now supported for queries within a single partition as well as cross-partition queries.
 
 ## Examples
 

@@ -4,16 +4,15 @@ description: Learn about default Azure Batch quotas, limits, and constraints, an
 services: batch
 documentationcenter: ''
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 editor: ''
 
 ms.assetid: 28998df4-8693-431d-b6ad-974c2f8db5fb
 ms.service: batch
 ms.workload: big-compute
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 05/28/2019
+ms.date: 08/13/2019
 ms.author: lahugh
 ms.custom: seodec18
 
@@ -39,7 +38,7 @@ Also note that quotas are not guaranteed values. Quotas can vary based on change
 
 ### Cores quotas in user subscription mode
 
-If you created a Batch account with pool allocation mode set to **user subscription**, quotas are applied differently. In this mode, Batch VMs and other resources are created directly in your subscription when a pool is created. The Azure Batch cores quotas do not apply to an account created in this mode. Instead, the quotas in your subscription for regional compute cores and other resources are applied. Learn more about these quotas in [Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md).
+If you created a Batch account with pool allocation mode set to **user subscription**, quotas are applied differently. In this mode, Batch VMs and other resources are created directly in your subscription when a pool is created. The Azure Batch cores quotas do not apply to an account created in this mode. Instead, the quotas in your subscription for regional compute cores and other resources are applied. Learn more about these quotas in [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md).
 
 ## Pool size limits
 
@@ -50,7 +49,7 @@ Pool size limits are set by the Batch service. Unlike [resource quotas](#resourc
 | **Compute nodes in [inter-node communication enabled pool](batch-mpi.md)**  ||
 | Batch service pool allocation mode | 100 |
 | Batch subscription pool allocation mode | 80 |
-| **Compute nodes in [pool created with custom VM image](batch-custom-images.md)**<sup>1</sup> ||
+| **Compute nodes in [pool created with a managed image resource](batch-custom-images.md)**<sup>1</sup> ||
 | Dedicated nodes | 2000 |
 | Low-priority nodes | 1000 |
 
@@ -67,6 +66,7 @@ Additional limits set by the Batch service. Unlike [resource quotas](#resource-q
 | Application packages per application | 40 |
 | Application packages per pool | 10 |
 | Maximum task lifetime | 180 days<sup>1</sup> |
+| [Mounts](virtual-file-mount.md) per compute node | 10 |
 
 <sup>1</sup> The maximum lifetime of a task, from when it is added to the job to when it completes, is 180 days. Completed tasks persist for seven days; data for tasks not completed within the maximum lifetime is not accessible.
 
@@ -136,13 +136,13 @@ Batch pools in the Virtual Machine Configuration deployed in an Azure virtual ne
 * One [public IP address](../virtual-network/virtual-network-ip-addresses-overview-arm.md)
 * One [load balancer](../load-balancer/load-balancer-overview.md)
 
-These resources are allocated in the subscription that contains the virtual network supplied when creating the Batch pool. These resources are limited by the subscription's [resource quotas](../azure-subscription-service-limits.md). If you plan large pool deployments in a virtual network, check the subscription's quotas for these resources. If needed, request an increase in the Azure portal by selecting **Help + support**.
+These resources are allocated in the subscription that contains the virtual network supplied when creating the Batch pool. These resources are limited by the subscription's [resource quotas](../azure-resource-manager/management/azure-subscription-service-limits.md). If you plan large pool deployments in a virtual network, check the subscription's quotas for these resources. If needed, request an increase in the Azure portal by selecting **Help + support**.
 
 
 ## Related topics
 * [Create an Azure Batch account using the Azure portal](batch-account-create-portal.md)
 * [Azure Batch feature overview](batch-api-basics.md)
-* [Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md)
+* [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md)
 
 [portal]: https://portal.azure.com
 [portal_classic_increase]: https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/

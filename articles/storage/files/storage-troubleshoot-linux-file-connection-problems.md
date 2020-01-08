@@ -1,11 +1,9 @@
 ---
 title: Troubleshoot Azure Files problems in Linux | Microsoft Docs
 description: Troubleshooting Azure Files problems in Linux
-services: storage
 author: jeffpatt24
-tags: storage
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: jeffpatt
 ms.subservice: files
@@ -33,7 +31,7 @@ Common causes for this problem are:
 | openSUSE | 13.2+ | 42.3+ |
 | SUSE Linux Enterprise Server | 12 | 12 SP3+ |
 
-- CIFS utilities (cfs-utils) are not installed on the client.
+- CIFS utilities (cifs-utils) are not installed on the client.
 - The minimum SMB/CIFS version, 2.1, is not installed on the client.
 - SMB 3.0 encryption is not supported on the client. The preceding table provides a list of Linux distributions that support mounting from on-premises and cross-region using encryption. Other distributions require kernel 4.11 and later versions.
 - You're trying to connect to a storage account over TCP port 445, which is not supported.
@@ -56,7 +54,7 @@ To resolve the problem, use the [troubleshooting tool for Azure Files mounting e
 
 For security reasons, connections to Azure file shares are blocked if the communication channel isn't encrypted and if the connection attempt isn't made from the same datacenter where the Azure file shares reside. Unencrypted connections within the same datacenter can also be blocked if the [Secure transfer required](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) setting is enabled on the storage account. An encrypted communication channel is provided only if the user's client OS supports SMB encryption.
 
-To learn more, see [Prerequisites for mounting an Azure file share with Linux and the cifs-utils package](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-linux#prerequisites-for-mounting-an-azure-file-share-with-linux-and-the-cifs-utils-package). 
+To learn more, see [Prerequisites for mounting an Azure file share with Linux and the cifs-utils package](storage-how-to-use-files-linux.md#prerequisites). 
 
 ### Solution for cause 1
 
@@ -88,19 +86,30 @@ There is a quota of 2,000 open handles on a single file. When you have 2,000 ope
 
 Reduce the number of concurrent open handles by closing some handles, and then retry the operation.
 
+To view open handles for a file share, directory or file, use the [Get-AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/get-azstoragefilehandle) PowerShell cmdlet.  
+
+To close open handles for a file share, directory or file, use the [Close-AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/close-azstoragefilehandle) PowerShell cmdlet.
+
+> [!Note]  
+> The Get-AzStorageFileHandle and Close-AzStorageFileHandle cmdlets are included in Az PowerShell module version 2.4 or later. To install the latest Az PowerShell module, see [Install the Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps).
+
 <a id="slowfilecopying"></a>
 ## Slow file copying to and from Azure Files in Linux
 
 - If you don't have a specific minimum I/O size requirement, we recommend that you use 1 MiB as the I/O size for optimal performance.
-- If you know the final size of a file that you're extending by using writes, and your software doesn't experience compatibility problems when an unwritten tail on the file contains zeros, then set the file size in advance instead of making every write an extending write.
 - Use the right copy method:
     - Use [AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) for any transfer between two file shares.
-    - Using cp with parallel could improve copy speed, the number of threads depends on your use case and workload. This example uses six: `find * -type f | parallel --will-cite -j 6 cp {} /mntpremium/ &`.
+    - Using cp or dd with parallel could improve copy speed, the number of threads depends on your use case and workload. The following examples use six: 
+    - cp example (cp will use the default block size of the file system as the chunk size): `find * -type f | parallel --will-cite -j 6 cp {} /mntpremium/ &`.
+    - dd example (this command explicitly sets chunk size to 1 MiB): `find * -type f | parallel --will-cite-j 6 dd if={} of=/mnt/share/{} bs=1M`
     - Open source third party tools such as:
         - [GNU Parallel](https://www.gnu.org/software/parallel/).
         - [Fpart](https://github.com/martymac/fpart) - Sorts files and packs them into partitions.
         - [Fpsync](https://github.com/martymac/fpart/blob/master/tools/fpsync) - Uses Fpart and a copy tool to spawn multiple instances to migrate data from src_dir to dst_url.
         - [Multi](https://github.com/pkolano/mutil) - Multi-threaded cp and md5sum based on GNU coreutils.
+- Setting the file size in advance, instead of making every write an extending write, helps improve copy speed in scenarios where the file size is known. If extending writes need to be avoided, you can set a destination file size with `truncate - size <size><file>` command. After that, `dd if=<source> of=<target> bs=1M conv=notrunc`command will copy a source file without having to repeatedly update the size of the target file. For example, you can set the destination file size for every file you want to copy (assume a share is mounted under /mnt/share):
+    - `$ for i in `` find * -type f``; do truncate --size ``stat -c%s $i`` /mnt/share/$i; done`
+    - and then - copy files without extending writes in parallel: `$find * -type f | parallel -j6 dd if={} of =/mnt/share/{} bs=1M conv=notrunc`
 
 <a id="error115"></a>
 ## "Mount error(115): Operation now in progress" when you mount Azure Files by using SMB 3.0
@@ -111,7 +120,7 @@ Some Linux distributions don't yet support encryption features in SMB 3.0. Users
 
 ### Solution
 
-The encryption feature for SMB 3.0 for Linux was introduced in the 4.11 kernel. This feature enables mounting of an Azure file share from on-premises or from a different Azure region. This functionality is included in the Linux distributions listed in [Minimum recommended versions with corresponding mount capabilities (SMB version 2.1 vs SMB version 3.0)](storage-how-to-use-files-linux.md#minimum-recommended-versions-with-corresponding-mount-capabilities-smb-version-21-vs-smb-version-30). Other distributions require kernel 4.11 and later versions.
+The encryption feature for SMB 3.0 for Linux was introduced in the 4.11 kernel. This feature enables mounting of an Azure file share from on-premises or from a different Azure region. Some Linux distributions may have backported changes from the 4.11 kernel to older versions of the Linux kernel which they maintain. To assist in determining if your version of Linux supports SMB 3.0 with encryption, consult with [Use Azure Files with Linux](storage-how-to-use-files-linux.md). 
 
 If your Linux SMB client doesn't support encryption, mount Azure Files by using SMB 2.1 from an Azure Linux VM that's in the same datacenter as the file share. Verify that the [Secure transfer required]( https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) setting is disabled on the storage account. 
 
@@ -127,13 +136,30 @@ You do not have access
 
 ### Solution for cause 1
 
-Browse to the storage account where the Azure file share is located, click **Access control (IAM)** and verify your user account has access to the storage account. To learn more, see [How to secure your storage account with Role-Based Access Control (RBAC)](https://docs.microsoft.com/azure/storage/common/storage-security-guide#how-to-secure-your-storage-account-with-role-based-access-control-rbac).
+Browse to the storage account where the Azure file share is located, click **Access control (IAM)** and verify your user account has access to the storage account. To learn more, see [How to secure your storage account with Role-Based Access Control (RBAC)](https://docs.microsoft.com/azure/storage/blobs/security-recommendations#data-protection).
 
 ### Cause 2: Virtual network or firewall rules are enabled on the storage account
 
 ### Solution for cause 2
 
 Verify virtual network and firewall rules are configured properly on the storage account. To test if virtual network or firewall rules is causing the issue, temporarily change the setting on the storage account to **Allow access from all networks**. To learn more, see [Configure Azure Storage firewalls and virtual networks](https://docs.microsoft.com/azure/storage/common/storage-network-security).
+
+<a id="open-handles"></a>
+## Unable to delete a file or directory in an Azure file share
+
+### Cause
+This issue typically occurs if the file or directory has an open handle. 
+
+### Solution
+
+If the SMB clients have closed all open handles and the issue continues to occur, perform the following:
+
+- Use the [Get-AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/get-azstoragefilehandle) PowerShell cmdlet to view open handles.
+
+- Use the [Close-AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/close-azstoragefilehandle) PowerShell cmdlet to close open handles. 
+
+> [!Note]  
+> The Get-AzStorageFileHandle and Close-AzStorageFileHandle cmdlets are included in Az PowerShell module version 2.4 or later. To install the latest Az PowerShell module, see [Install the Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps).
 
 <a id="slowperformance"></a>
 ## Slow performance on an Azure file share mounted on a Linux VM
@@ -185,40 +211,6 @@ Use the storage account user for copying the files:
 - `Passwd [storage account name]`
 - `Su [storage account name]`
 - `Cp -p filename.txt /share`
-
-## Cannot connect to or mount an Azure file share
-
-### Cause
-
-Common causes for this problem are:
-
-- You're using an incompatible Linux distribution client. We recommend that you use the following Linux distributions to connect to an Azure file share:
-
-    |   | SMB 2.1 <br>(Mounts on VMs within the same Azure region) | SMB 3.0 <br>(Mounts from on-premises and cross-region) |
-    | --- | :---: | :---: |
-    | Ubuntu Server | 14.04+ | 16.04+ |
-    | RHEL | 7+ | 7.5+ |
-    | CentOS | 7+ |  7.5+ |
-    | Debian | 8+ |   |
-    | openSUSE | 13.2+ | 42.3+ |
-    | SUSE Linux Enterprise Server | 12 | 12 SP3+ |
-
-- CIFS utilities (cifs-utils) are not installed on the client.
-- The minimum SMB/CIFS version, 2.1, is not installed on the client.
-- SMB 3.0 encryption is not supported on the client. SMB 3.0 encryption is available in Ubuntu 16.4 and later versions, along with SUSE 12.3 and later versions. Other distributions require kernel 4.11 and later versions.
-- You're trying to connect to a storage account over TCP port 445, which is not supported.
-- You're trying to connect to an Azure file share from an Azure VM, and the VM is not in the same region as the storage account.
-- If the [Secure transfer required]( https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) setting is enabled on the storage account, Azure Files will allow only connections that use SMB 3.0 with encryption.
-
-### Solution
-
-To resolve the problem, use the [troubleshooting tool for Azure Files mounting errors on Linux](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-02184089). This tool:
-
-* Helps you to validate the client running environment.
-* Detects the incompatible client configuration that would cause access failure for Azure Files.
-* Gives prescriptive guidance on self-fixing.
-* Collects the diagnostics traces.
-
 
 ## ls: cannot access '&lt;path&gt;': Input/output error
 
@@ -283,7 +275,7 @@ This reconnection problem in the Linux kernel is now fixed as part of the follow
 - [CIFS: Fix a possible memory corruption during reconnect](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=53e0e11efe9289535b060a51d4cf37c25e0d0f2b)
 - [CIFS: Fix a possible double locking of mutex during reconnect (for kernel v4.9 and later)](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=96a988ffeb90dba33a71c3826086fe67c897a183)
 
-However, these changes might not be ported yet to all the Linux distributions. This fix and other reconnection fixes can be found in the [Minimum recommended versions with corresponding mount capabilities (SMB version 2.1 vs SMB version 3.0)](storage-how-to-use-files-linux.md#minimum-recommended-versions-with-corresponding-mount-capabilities-smb-version-21-vs-smb-version-30) section of the [Use Azure Files with Linux](storage-how-to-use-files-linux.md) article. You can get this fix by upgrading to one of these recommended kernel versions.
+However, these changes might not be ported yet to all the Linux distributions. If you're using a popular Linux distribution, you can check on the [Use Azure Files with Linux](storage-how-to-use-files-linux.md) to see which version of your distribution has the necessary kernel changes.
 
 ### Workaround
 

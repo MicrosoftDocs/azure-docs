@@ -23,8 +23,8 @@ ms.author: sngun
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [REST Resource Provider](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
 > * [SQL](sql-api-query-reference.md)
-> * [BulkExecutor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
-> * [BulkExecutor - Java](sql-api-sdk-bulk-executor-java.md)
+> * [Bulk executor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
+> * [Bulk executor - Java](sql-api-sdk-bulk-executor-java.md)
 
 The SQL API Java SDK supports synchronous operations. For asynchronous support, use the [SQL API Async Java SDK](sql-api-sdk-async-java.md). 
 
@@ -38,6 +38,34 @@ The SQL API Java SDK supports synchronous operations. For asynchronous support, 
 |**Minimum supported runtime**|[Java Development Kit (JDK) 7+](https://aka.ms/azure-jdks)|
 
 ## Release notes
+
+### <a name="2.4.5"/>2.4.5
+* Avoiding retry on invalid partition key range error, if user provides pkRangeId.
+
+### <a name="2.4.4"/>2.4.4
+* Optimized partition key range cache refreshes.
+* Fixes the scenario where the SDK doesn't entertain partition split hint from server and results in incorrect client side routing caches refresh.
+
+### <a name="2.4.2"/>2.4.2
+* Optimized collection cache refreshes.
+
+### <a name="2.4.1"/>2.4.1
+* Added support to retrieve inner exception message from request diagnostic string.
+
+### <a name="2.4.0"/>2.4.0
+* Introduced version api on PartitionKeyDefinition.
+
+### <a name="2.3.0"/>2.3.0
+* Added separate timeout support for direct mode.
+
+### <a name="2.2.3"/>2.2.3
+* Consuming null error message from service and producing document client exception.
+
+### <a name="2.2.2"/>2.2.2
+* Socket connection improvement, adding SoKeepAlive default true.
+
+### <a name="2.2.0"/>2.2.0
+* Added request diagnostics string support.
 
 ### <a name="2.1.3"/>2.1.3
 * Fixed bug in PartitionKey for Hash V2.

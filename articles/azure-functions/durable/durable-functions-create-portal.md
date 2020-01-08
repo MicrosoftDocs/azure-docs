@@ -1,15 +1,9 @@
 ---
 title: Create Durable Functions using the Azure portal  
 description: Learn how to install the Durable Functions extension for Azure Functions for portal development.
-services: functions
-author: ggailey777
-manager: jeconnoc
-keywords:
-ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 10/23/2018
-ms.author: azfuncdf, glenga
+ms.reviewer: azfuncdf
 ---
 
 # Create Durable Functions using the Azure portal
@@ -46,7 +40,7 @@ If you are creating JavaScript Durable Functions, you will need to install the [
     ```json
     {
       "dependencies": {
-        "durable-functions": "^1.1.2"
+        "durable-functions": "^1.3.1"
       }
     }
     ```
@@ -134,4 +128,4 @@ Your first durable function is now up and running in Azure.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn about common durable function patterns](durable-functions-concepts.md)
+> [Learn about common durable function patterns](durable-functions-overview.md#application-patterns)

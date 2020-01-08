@@ -1,20 +1,17 @@
 ---
-title: Pass custom state in authentication requests (Microsoft Authentication Library for JavaScript) | Azure
+title: Pass custom state in authentication requests (MSAL.js) | Azure
+titleSuffix: Microsoft identity platform
 description: Learn how to pass a custom state parameter value in authentication request using the Microsoft Authentication Library for JavaScript (MSAL.js).
 services: active-directory
-documentationcenter: dev-center-name
-author: rwike77
+author: TylerMSFT
 manager: CelesteDG
-editor: ''
 
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/29/2019
-ms.author: nacanuma
+ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 #Customer intent: As an application developer, I want to learn about passing custom state in authentication requests so I can create more robust applications.
@@ -48,7 +45,7 @@ For example:
 ```javascript
 let loginRequest = {
     scopes: ["user.read", "user.write"],
-    state: “page_url”
+    state: "page_url"
 }
 
 myMSALObj.loginPopup(loginRequest);

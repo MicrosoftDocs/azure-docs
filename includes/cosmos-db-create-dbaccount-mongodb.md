@@ -2,16 +2,16 @@
  title: include file
  description: include file
  services: cosmos-db
- author: rimman
+ author: SnehaGunda
+ ms.author: sngun
  ms.service: cosmos-db
  ms.topic: include
  ms.date: 12/26/2018
- ms.author: rimman
  ms.custom: include file
 ---
 
 1. In a new window, sign in to the [Azure portal](https://portal.azure.com/).
-2. In the left menu, click **Create a resource**, click **Databases**, and then under **Azure Cosmos DB**, click **Create**.
+2. In the left menu, select **Create a resource**, select **Databases**, and then under **Azure Cosmos DB**, select **Create**.
    
    ![Screenshot of the Azure portal, highlighting More Services, and Azure Cosmos DB](./media/cosmos-db-create-dbaccount-mongodb/create-nosql-db-databases-json-tutorial-1.png)
 

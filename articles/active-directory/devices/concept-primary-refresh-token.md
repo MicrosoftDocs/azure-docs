@@ -58,7 +58,7 @@ The PRT is issued during user authentication on a Windows 10 device in two scena
    * Adding an account via the **Use this account everywhere on this device** prompt after signing in to an app (for example, Outlook)
    * Adding an account from **Settings** > **Accounts** > **Access Work or School** > **Connect**
 
-In these scenarios, the Azure AD WAM plugin is the primary authority for the PRT since Windows logon is not happening with this  Azure AD account.
+In Azure AD registered device scenarios, the Azure AD WAM plugin is the primary authority for the PRT since Windows logon is not happening with this  Azure AD account.
 
 > [!NOTE]
 > 3rd party identity providers need to support the WS-Trust protocol to enable PRT issuance on Windows 10 devices. Without WS-Trust, PRT cannot be issued to users on Hybrid Azure AD joined or Azure AD joined devices

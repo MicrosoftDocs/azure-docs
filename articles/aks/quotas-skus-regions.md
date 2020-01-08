@@ -2,12 +2,12 @@
 title: Quotas, SKUs, and region availability in Azure Kubernetes Service (AKS)
 description: Learn about the default quotas, restricted node VM SKU sizes, and region availability of the Azure Kubernetes Service (AKS).
 services: container-service
-author: iainfoulds
+author: mlearned
 
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 04/09/2019
-ms.author: iainfou
+ms.author: mlearned
 ---
 # Quotas, virtual machine size restrictions, and region availability in Azure Kubernetes Service (AKS)
 
@@ -21,7 +21,7 @@ This article details the default resource limits for Azure Kubernetes Service (A
 
 ## Provisioned infrastructure
 
-All other network, compute, and storage limitations apply to the provisioned infrastructure. For the relevant limits, see [Azure subscription and service limits](../azure-subscription-service-limits.md).
+All other network, compute, and storage limitations apply to the provisioned infrastructure. For the relevant limits, see [Azure subscription and service limits](../azure-resource-manager/management/azure-subscription-service-limits.md).
 
 > [!IMPORTANT]
 > When you upgrade an AKS cluster, additional resources are temporarily consumed. These resources include available IP addresses in a virtual network subnet, or virtual machine vCPU quota. If you use Windows Server containers (currently in preview in AKS), the only endorsed approach to apply the latest updates to the nodes is to perform an upgrade operation. A failed cluster upgrade process may indicate that you don't have the available IP address space or vCPU quota to handle these temporary resources. For more information on the Windows Server node upgrade process, see [Upgrade a node pool in AKS][nodepool-upgrade].

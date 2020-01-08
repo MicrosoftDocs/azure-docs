@@ -1,11 +1,10 @@
 ---
-title: Azure Files scalability and performance targets | Microsoft Docs
+title: Azure Files scalability and performance targets
 description: Learn about the scalability and performance targets for Azure Files, including the capacity, request rate, and inbound and outbound bandwidth limits.
-services: storage
 author: roygara
 ms.service: storage
-ms.topic: article
-ms.date: 5/5/2019
+ms.topic: conceptual
+ms.date: 10/16/2019
 ms.author: rogarana
 ms.subservice: files
 ---
@@ -20,7 +19,7 @@ The scalability and performance targets listed here are high-end targets, but ma
 
 The parent resource for an Azure file share is an Azure storage account. A storage account represents a pool of storage in Azure that can be used by multiple storage services, including Azure Files, to store data. Other services that store data in storage accounts are Azure Blob storage, Azure Queue storage, and Azure Table storage. The following targets apply all storage services storing data in a storage account:
 
-[!INCLUDE [azure-storage-limits](../../../includes/azure-storage-limits.md)]
+[!INCLUDE [azure-storage-account-limits-standard](../../../includes/azure-storage-account-limits-standard.md)]
 
 [!INCLUDE [azure-storage-limits-azure-resource-manager](../../../includes/azure-storage-limits-azure-resource-manager.md)]
 
@@ -29,15 +28,17 @@ The parent resource for an Azure file share is an Azure storage account. A stora
 
 ## Azure Files scale targets
 
-### Premium scale targets
+There are three categories of limitations to consider for Azure Files: storage accounts, shares, and files.
 
-There are three categories of limitations to consider for premium file shares: storage accounts, shares, and files.
+For example: With premium file shares, a single share can achieve 100,000 IOPS and a single file can scale up to 5,000 IOPS. So, if you have three files in one share, the maximum IOPS you can get from that share is 15,000.
 
-For example: A single share can achieve 100,000 IOPS and a single file can scale up to 5,000 IOPS. So, for example, if you have three files in one share, the maximum IOPS you can get from that share is 15,000.
+### Standard storage account limits
+
+See the [Azure storage account scale targets](#azure-storage-account-scale-targets) section for these limits.
 
 ### Premium FileStorage account limits
 
-Premium file shares are provisioned in a special storage account called **filestorage**. This account has slightly different scale targets than the storage account used for standard file shares. For the storage account scale targets, refer to the table in the [Azure storage account scale targets](#azure-storage-account-scale-targets) section.
+[!INCLUDE [azure-storage-limits-filestorage](../../../includes/azure-storage-limits-filestorage.md)]
 
 > [!IMPORTANT]
 > Storage account limits apply to all shares. Scaling up to the max for FileStorage accounts is only achievable if there is only one share per FileStorage account.
@@ -45,8 +46,8 @@ Premium file shares are provisioned in a special storage account called **filest
 ### File share and file scale targets
 
 > [!NOTE]
-> Standard file shares larger than 5 TiB are in preview and have certain limitations.
-> For a list of limitations and to onboard to the preview of these larger file share sizes, see the [Standard file shares](storage-files-planning.md#standard-file-shares) section of the planning guide.
+> Standard file shares larger than 5 TiB have certain limitations and regional restrictions.
+> For a list of limitations, regional information, and instructions to enable these larger file share sizes, see the [Onboard to larger file shares](storage-files-planning.md#onboard-to-larger-file-shares-standard-tier) section of the planning guide.
 
 [!INCLUDE [storage-files-scale-targets](../../../includes/storage-files-scale-targets.md)]
 
@@ -92,7 +93,7 @@ To help you plan your deployment for each of the stages, below are the results o
 | Number of objects synced| 125,000 objects (~1% churn) |
 | Dataset Size| 50 GiB |
 | Average File Size | ~500 KiB |
-| Upload Throughput | 30 objects per second |
+| Upload Throughput | 20 objects per second |
 | Full Download Throughput* | 60 objects per second |
 
 *If cloud tiering is enabled, you are likely to observe better performance as only some of the file data is downloaded. Azure File Sync only downloads the data of cached files when they are changed on any of the endpoints. For any tiered or newly created files, the agent does not download the file data, and instead only syncs the namespace to all the server endpoints. The agent also supports partial downloads of tiered files as they are accessed by the user. 
@@ -109,4 +110,3 @@ As a general guide for your deployment, you should keep a few things in mind:
 
 - [Planning for an Azure Files deployment](storage-files-planning.md)
 - [Planning for an Azure File Sync deployment](storage-sync-files-planning.md)
-- [Scalability and performance targets for other storage services](../common/storage-scalability-targets.md)

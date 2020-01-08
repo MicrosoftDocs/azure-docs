@@ -1,11 +1,11 @@
 ---
 title: Configure OPC Publisher - Azure | Microsoft Docs
-description: How to configure OPC Publisher
+description: This article describes how to configure OPC Publisher to specify OPC UA node data changes, OPC UA events to publish and also the telemetry format.
 author: dominicbetts
 ms.author: dobett
 ms.date: 06/10/2019
 ms.topic: overview
-ms.service: iot-industrialiot
+ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
 ---
@@ -36,7 +36,7 @@ The following example shows the format of the configuration file:
 [
   {
     "EndpointUrl": "opc.tcp://testserver:62541/Quickstarts/ReferenceServer",
-    "UseSecurity": false,
+    "UseSecurity": true,
     "OpcNodes": [
       {
         "Id": "i=2258",
