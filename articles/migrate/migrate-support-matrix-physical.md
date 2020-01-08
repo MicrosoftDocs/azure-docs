@@ -41,7 +41,7 @@ To assess on-premises machines for migration to Azure with this article, you add
 
 Azure Migrate uses the [Azure Migrate appliance](migrate-appliance.md) for discovery and assessment. The appliance for physical servers can run on a VM or a physical machine. You set it up using a PowerShell script that you download from the Azure portal.
 
-- Learn about [appliance requirements](migrate-appliance#applianceappliance---physical) for physical servers.
+- Learn about [appliance requirements](migrate-appliance.md#appliance---physical) for physical servers.
 - Learn about [URLs](migrate-appliance.md#url-access) the appliance needs to access.
 
 ## Port access

@@ -130,7 +130,7 @@ Before setting up the Azure Migrate appliance and beginning assessment in the ne
 
 Review the requirements for agentless migration of VMware VMs.
 
-1. [Review](migrate-support-matrix-vmware-migration.md#agentless-vmware-servers) VMware server requirements, and the [permissions](migrate-support-matrix-vmware-migration.md#agentless-migration-vcenter-server-permissions) that Azure Migrate needs to access the vCenter Server for agentless migration using Azure Migrate Server Migration.
+1. [Review](migrate-support-matrix-vmware-migration.md#agentless-vmware-servers) VMware server requirements, and the [permissions](migrate-support-matrix-vmware-migration.md#agentless-vmware-servers) that Azure Migrate needs to access the vCenter Server for agentless migration using Azure Migrate Server Migration.
 2. [Review](migrate-support-matrix-vmware-migration.md#agentless-vmware-vms) the requirements for VMware VMs that you want to migrate to Azure using agentless migration.
 4. [Review](migrate-support-matrix-vmware-migration.md#agentless-azure-migrate-appliance) the requirements for using the Azure Migrate appliance for agentless migration.
 5. Note the [URL access](migrate-appliance.md#url-access) and [port access](migrate-support-matrix-vmware-migration.md#agentless-ports) needed for agentless migration.

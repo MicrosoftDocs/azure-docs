@@ -7,7 +7,7 @@ ms.date: 01/07/2020
 
 # Support matrix for physical server migration
 
-This article summarizes support settings and limitations for migrating physical servers with [Azure Migrate: Server Migration](migrate-services-overview.md#azure-migrate-server-migration-tool) . If you're looking for information about assessing physical servers for migration to Azure, review the [assessment support matrix](migrate-support-matrix-vmwarephysical.md).
+This article summarizes support settings and limitations for migrating physical servers with [Azure Migrate: Server Migration](migrate-services-overview.md#azure-migrate-server-migration-tool) . If you're looking for information about assessing physical servers for migration to Azure, review the [assessment support matrix](migrate-support-matrix-physical.md).
 
 
 ## Overview
@@ -16,7 +16,7 @@ You can migrate on-premises machines as physical servers, using agent-based repl
 
 - On-premises physical servers.
 - VMs virtualized by platforms such as Xen, KVM.
-- Hyper-V VMs or VMware VMs if for some reason you don't want to use the standard [Hyper-V](tutorial-migrate-hyper-v) or [VMware](server-migrate-overview.md) flows.
+- Hyper-V VMs or VMware VMs if for some reason you don't want to use the standard [Hyper-V](tutorial-migrate-hyper-v.md) or [VMware](server-migrate-overview.md) flows.
 - VMs running in private clouds.
 - VMs running in public clouds such as Amazon Web Services (AWS) or Google Cloud Platform (GCP).
 
@@ -69,7 +69,7 @@ All on-premises VMs replicated to Azure must meet the Azure VM requirements summ
 
 **Component** | **Requirements** | **Details**
 --- | --- | ---
-Guest operating system | Verify supported operating systems for [VMware VMs using agentless replication](#agentless-migration-vmware-vm-requirements), and for [VMware VMs using agent-based replication](#agent-based-migration-vmware-vm-requirements).<br/> You can migrate any workload running on a supported operating system. | Check fails if unsupported.
+Guest operating system | Verifies supported operating systems.<br/> You can migrate any workload running on a supported operating system. | Check fails if unsupported.
 Guest operating system architecture | 64-bit. | Check fails if unsupported.
 Operating system disk size | Up to 2,048 GB. | Check fails if unsupported.
 Operating system disk count | 1 | Check fails if unsupported.

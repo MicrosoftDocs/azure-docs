@@ -7,7 +7,7 @@ ms.date: 01/08/2020
 
 # Support matrix for VMware assessment 
 
-This article summarizes support settings and limitations for assessing VMware VMs with [Azure Migrate: Server Assessment](migrate-services-overview.md#azure-migrate-server-asssessment-tool). If you're looking for information about migrating VMware VMs to Azure, review the [migration support matrix](migrate-support-matrix-vmware-migration.md).
+This article summarizes support settings and limitations for assessing VMware VMs with [Azure Migrate: Server Assessment](migrate-services-overview.md#azure-migrate-server-migration-tool). If you're looking for information about migrating VMware VMs to Azure, review the [migration support matrix](migrate-support-matrix-vmware-migration.md).
 
 ## Overview
 

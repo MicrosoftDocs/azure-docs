@@ -101,7 +101,7 @@ Before setting up the Azure Migrate appliance and beginning assessment in the ne
 1. [Verify](migrate-appliance.md#appliance---physical) appliance requirements for physical servers.
 2. [Review](migrate-appliance.md#url-access) the Azure URLs that the appliance will need to access.
 3. [Review](migrate-appliance.md#collected-data---vmware) that that the appliance will collect during discovery and assessment.
-4. [Note](migrate-support-matrix-physical.md#assessment-port-access) port access requirements physical server assessment.
+4. [Note](migrate-support-matrix-physical.md#port-access) port access requirements physical server assessment.
 
 
 ### Set up an account for physical server discovery
