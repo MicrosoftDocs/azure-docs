@@ -4,7 +4,7 @@ description: How to manage and update Azure HPC Cache using the Azure portal
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 11/18/2019
+ms.date: 1/08/2020
 ms.author: rohogue
 ---
 
@@ -58,9 +58,18 @@ Click the **Upgrade** button to begin the software update. The cache status chan
 
 The **Delete** button destroys the cache. When you delete a cache, all of its resources are destroyed and no longer incur account charges.
 
-Storage targets are unaffected when you delete the cache. You can add them to a future cache later, or decommission them separately.
+The back-end storage volumes used as storage targets are unaffected when you delete the cache. You can add them to a future cache later, or decommission them separately.
 
-The cache automatically flushes any unsaved data to storage targets as part of its final shutdown.
+> [!NOTE]
+> Azure HPC Cache does not automatically write changed data from the cache to the back-end storage systems before deleting the cache.
+>
+> To make sure that all data in the cache has been written to long-term storage, follow this procedure:
+>
+> 1. [Remove](hpc-cache-edit-storage.md#remove-a-storage-target) each storage target from the Azure HPC Cache by using the delete button on the Storage targets page. The system automatically writes any changed data from the cache to the back-end storage system before removing the target.
+> 1. Wait for the storage target to be completely removed. The process can take an hour or longer if there is a lot of data to write from the cache. When it is done, a portal notification says that the delete operation was successful, and the storage target disappears from the list.
+> 1. After all affected storage targets have been deleted, it is safe to delete the cache.
+>
+> Alternatively, you can use the [flush](#flush-cached-data) option to save cached data, but there is a small risk of losing work if a client writes a change to the cache after the flush completes but before the cache instance is destroyed.
 
 ## Cache metrics and monitoring
 
