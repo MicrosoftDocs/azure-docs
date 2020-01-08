@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/25/2019
+ms.date: 01/10/2020
 ms.author: marsma
 ms.subservice: B2C
 ---
@@ -25,7 +25,7 @@ There are three primary steps required for enabling Azure Pipelines to manage cu
 1. Configure an Azure Pipeline
 
 > [!IMPORTANT]
-> Managing Azure AD B2C custom policies currently uses **preview** operations available on the Microsoft Graph API `/beta` endpoint. Use of these APIs in production applications is not supported. For more information, see the [Microsoft Graph REST API beta endpoint reference](https://docs.microsoft.com/graph/api/overview?toc=./ref/toc.json&view=graph-rest-beta).
+> Managing Azure AD B2C custom policies with an Azure Pipeline currently uses **preview** operations available on the Microsoft Graph API `/beta` endpoint. Use of these APIs in production applications is not supported. For more information, see the [Microsoft Graph REST API beta endpoint reference](https://docs.microsoft.com/graph/api/overview?toc=./ref/toc.json&view=graph-rest-beta).
 
 ## Prerequisites
 
@@ -143,13 +143,16 @@ With your repository initialized and populated with your custom policy files, yo
 
 1. Sign in to your Azure DevOps Services organization and navigate to your project.
 1. In your project, select **Pipelines** > **Releases** > **New pipeline**.
-1. Select **Empty Job** at the top of navigation pane to choose a template.
+1. Under **Select a template**, select **Empty job**.
 1. Enter a **Stage name**, for example *DeployCustomPolicies*, then close the pane.
 1. Select **Add an artifact**, and under **Source type**, select **Azure Repository**.
     1. Choose the source repository containing the *Scripts* folder that you populated with the PowerShell script.
     1. Choose a **Default branch**. If you created a new repository in the previous section, the default branch is *master*.
     1. Leave the **Default version** setting of *Latest from the default branch*.
-1. Select **Add**, and then select **Save** to save the pipeline configuration.
+    1. Enter a **Source alias** for the repository. For example, *policyRepo*. Do not include any spaces in the alias name.
+1. Select **Add**
+1. Rename the pipeline to reflect its intent. For example, *Deploy Custom Policy Pipeline*.
+1. Select **Save** to save the pipeline configuration.
 
 ### Configure pipeline variables
 
@@ -166,32 +169,36 @@ With your repository initialized and populated with your custom policy files, yo
 
 ### Add pipeline tasks
 
+Next, add a task to deploy a policy file.
+
 1. Select the **Tasks** tab.
 1. Select **Agent job**, and then select the plus sign (**+**) to add a task to the Agent job.
 1. Search for and select **PowerShell**. Do not select "Azure PowerShell," "PowerShell on target machines," or another PowerShell entry.
 1. Select newly added **PowerShell Script** task.
 1. Enter following values for the PowerShell Script task:
-    * **Task Version**: 2.*
-    * **Display Name**: 'name of the specific policy that you are targeting to upload Example: 'B2C_1A_TrustFrameworkBase'
+    * **Task version**: 2.*
+    * **Display name**: The name of the policy that this task should upload. For example, *B2C_1A_TrustFrameworkBase*.
     * **Type**: File Path
     * **Script Path**: Select the ellipsis (***...***), navigate to the *Scripts* folder, and then select the *DeployToB2C.ps1* file.
     * **Arguments:**
 
-        Enter the following for **Arguments**. Replace `{repo-name}` with the name of your repository.
+        Enter the following for **Arguments**. Replace `{alias-name}` with the alias you specified in the previous section.
 
         ```PowerShell
-        -ClientID $(clientId) -ClientSecret $(clientSecret) -TenantId $(tenantId) -PolicyId B2C_1A_TrustFrameworkBase -PathToFile $(System.DefaultWorkingDirectory)/_{repo-name}/B2CAssets/TrustFrameworkBase.xml
+        # Before
+        -ClientID $(clientId) -ClientSecret $(clientSecret) -TenantId $(tenantId) -PolicyId B2C_1A_TrustFrameworkBase -PathToFile $(System.DefaultWorkingDirectory)/{alias-name}/B2CAssets/TrustFrameworkBase.xml
         ```
 
-        For example, if you named your repository *contosob2cpolicies*, the argument line should be:
+        For example, if the alias you specified is *policyRepo*, the argument line should be:
 
         ```PowerShell
-        -ClientID $(clientId) -ClientSecret $(clientSecret) -TenantId $(tenantId) -PolicyId B2C_1A_TrustFrameworkBase -PathToFile $(System.DefaultWorkingDirectory)/_contosob2cpolicies/B2CAssets/TrustFrameworkBase.xml
+        # After
+        -ClientID $(clientId) -ClientSecret $(clientSecret) -TenantId $(tenantId) -PolicyId B2C_1A_TrustFrameworkBase -PathToFile $(System.DefaultWorkingDirectory)/contosob2cpolicies/B2CAssets/TrustFrameworkBase.xml
         ```
 
 1. Select **Save** to save the Agent job.
 
-This example task uploads one policy to Azure AD B2C. Before proceeding, try running the **Agent job** to ensure that it completes successfully before creating additional tasks.
+The task you just added uploads *one* policy file to Azure AD B2C. Before proceeding, manually trigger the job (**Create release**) to ensure that it completes successfully before creating additional tasks.
 
 If the task completes successfully, add deployment tasks by performing the preceding steps for each of the custom policy files. Modify the `-PolicyId` and `-PathToFile` argument values for each policy.
 
