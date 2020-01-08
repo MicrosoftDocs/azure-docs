@@ -697,17 +697,17 @@ If you're using Git integration with your data factory and have a CI/CD pipeline
 
 -   **Data Factory CI/CD script**. Before the Resource Manager deployment step in CI/CD, you need to complete certain tasks, like stopping and restarting triggers and performing cleanup. We recommend that you use PowerShell scripts before and after deployment. For more information, see [Update active triggers](#update-active-triggers).
 
--   **Integration runtimes and sharing**. Integration runtimes don't change often and are similar across all stages in your CI/CD. As a result, Data Factory expects you to have the same name and same type of Integration Runtimes across all stages of CI/CD. If you're looking to share Integration Runtimes across all stages, consider using a ternary factory just for containing the shared Integration Runtimes. You can use this shared factory in all of your environments as a linked integration runtime type.
+-   **Integration runtimes and sharing**. Integration runtimes don't change often and are similar across all stages in your CI/CD. So Data Factory expects you to have the same name and type of integration runtime across all stages of CI/CD. If you want to share integration runtimes across all stages, consider using a ternary factory just to contain the shared integration runtimes. You can use this shared factory in all of your environments as a linked integration runtime type.
 
--   **Key Vault**. When you use Azure Key Vault based linked services, you can take advantages of it further by keeping separate key vaults for different environments. You can also configure separate permission levels for each of them. For example, you may not want your team members to have permissions to production secrets. If you follow this approach, it's recommended you to keep the same secret names across all stages. If you keep the same names, you don't have to change your Resource Manager templates across CI/CD environments since the only thing that changes is the key vault name, which is one of the Resource Manager template parameters.
+-   **Key Vault**. When you use linked services based on Azure Key Vault, you can take advantage of them further by keeping separate key vaults for different environments. You can also configure separate permission levels for each key vault. For example, you might not want your team members to have permissions to production secrets. If you follow this approach, we recommend that you to keep the same secret names across all stages. If you keep the same names, you don't have to change your Resource Manager templates across CI/CD environments because the only thing that changes is the key vault name, which is one of the Resource Manager template parameters.
 
 ## Unsupported features
 
-- By design, ADF does _not_ allow cherry-picking commits or selective publishing of resources. Publishes will include **all** changes made in the data factory
+- By design, Data Factory doesn't allow cherry-picking of commits or selective publishing of resources. Publishes will include all changes made in the data factory.
 
-    - Data factory entities depend on each other, for instance, triggers depend on pipelines, pipelines depend on datasets and other pipelines, etc. Selective publishing of a subset of resources _may_ lead to unexpected behaviors and errors
-    - On rare occasions where selective publishing is required, you may consider a hot-fix. For more information, see [Hot-Fix Production Branch](#hot-fix-production-branch)
+    - Data factory entities depend on each other. For example, triggers depend on pipelines, and pipelines depend on datasets and other pipelines. Selective publishing of a subset of resources could lead to unexpected behaviors and errors.
+    - On rare occasions when you need selective publishing, consider using a hotfix. For more information, see [Hotfix production branch](#hot-fix-production-branch).
 
--   You cannot publish from private branches
+-   You can't publish from private branches.
 
--   As of now, you cannot host projects on Bitbucket
+-   As of now, you can't host projects on Bitbucket.
