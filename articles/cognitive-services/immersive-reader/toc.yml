@@ -23,6 +23,8 @@
   items:
   - name: Create Immersive Reader resource
     href: how-to-create-immersive-reader.md
+  - name: Customize Immersive Reader button
+    href: how-to-customize-launch-button.md
 - name: Reference
   items:
   - name: SDK Reference
