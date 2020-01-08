@@ -60,7 +60,11 @@ For read access to the secondary location, configure your storage account to use
 
 ### Geo-zone-redundant storage (preview)
 
+Geo-zone-redundant storage (GZRS) (preview) marries the high availability of [zone-redundant storage (ZRS)](storage-redundancy-zrs.md) with protection from regional outages as provided by [geo-redundant storage (GRS)](storage-redundancy-grs.md). Data in a GZRS storage account is replicated across three [Azure availability zones](../../availability-zones/az-overview.md) in the primary region and also replicated to a secondary geographic region for protection from regional disasters. Each Azure region is paired with another region within the same geography, together making a regional pair. For more details and exceptions refer to the [documentation](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
 
+With a GZRS storage account, you can continue to read and write data if an availability zone becomes unavailable or is unrecoverable. Additionally, your data is also durable in the case of a complete regional outage or a disaster in which the primary region isn’t recoverable. GZRS is designed to provide at least 99.99999999999999% (16 9's) durability of objects over a given year. GZRS also offers the same scalability targets as LRS, ZRS, GRS, or RA-GRS. You can optionally enable read access to data in the secondary region with read-access geo-zone-redundant storage (RA-GZRS) if your applications need to be able to read data in the event of a disaster in the primary region.
+
+Microsoft recommends using GZRS for applications requiring consistency, durability, high availability, excellent performance, and resilience for disaster recovery. For the additional security of read access to the secondary region in the event of a regional disaster, enable RA-GZRS for your storage account.
 
 ## Read access to data in the secondary region
 
