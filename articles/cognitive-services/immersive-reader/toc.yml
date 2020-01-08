@@ -27,8 +27,6 @@
   items:
   - name: SDK Reference
     href: reference.md
-  - name: iOS SDK Reference
-    href: ios-reference.md
 - name: Resources
   items:
   - name: Azure roadmap
