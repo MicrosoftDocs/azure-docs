@@ -23,7 +23,14 @@ Azure Storage encrypts all data in a storage account at rest. By default, data i
 
 * You must enable soft delete and purge protection for Azure Key Vault when using Key Vault to encrypt managed disks.
 
-* You need the Azure CLI version 2.0.77 or later and the aks-preview 0.4.18 extension
+* You need the Azure CLI version 2.0.77 or later and the aks-preview 0.4.26 extension
+
+> [!IMPORTANT]
+> AKS preview features are self-service opt-in. Previews are provided "as-is" and "as available" and are excluded from the service level agreements and limited warranty. AKS Previews are partially covered by customer support on best effort basis. As such, these features are not meant for production use. For additional infromation, please see the following support articles:
+>
+> * [AKS Support Policies](support-policies.md)
+> * [Azure Support FAQ](faq.md)
+
 
 ## Current supported regions
 
@@ -32,6 +39,17 @@ Azure Storage encrypts all data in a storage account at rest. By default, data i
 * Central US, East US, East US 2, North Central US, South Central US, West Central US, West US, West US 2
 * East Asia, South East Asia
 * France, North Europe, UK South, West Europe
+
+## Install latest AKS CLI preview extension
+
+To use customer-managed keys, you need the *aks-preview* CLI extension version 0.4.26 or higher. Install the *aks-preview* Azure CLI extension using the [az extension add][az-extension-add] command, then check for any available updates using the [az extension update][az-extension-update] command::
+
+```azurecli-interactive
+# Install the aks-preview extension
+az extension add --name aks-preview
+
+# Update the extension to make sure you have the latest version installed
+az extension update --name aks-preview
 
 ## Create Azure Key Vault instance to store your keys
 
