@@ -30,22 +30,21 @@ Whereas **Conversation Transcription** works on a single device with a multichan
 
 ## Key features
 
-- **Cross-platform support** – Clients can be mobile apps (Android / iOS), Windows apps, or web apps.
-- **Message relay** - Each client will send text messages to the service, which then distributes the messages to all other clients, in the language(s) of their choice.
+- **Cross-platform support** – Clients can be mobile apps (Android or iOS), Windows UWP apps, or web apps.
+- **Real-time transcription** – Everyone will receive a transcript of the conversation, so they can follow along the text in real-time or save it for later.
+- **Real-time translation** – With more than 60 supported languages for text translation, everyone can translate the conversation into their preferred language(s).
+- **Readable transcripts** – The transcription and translation are easy to follow, with punctuation and sentence breaks.
 - **Voice or text input** – Each user can speak or type on their own device, depending on language support.
-- **Real-time transcription** – Everyone can get a transcript of what is being said, so they can follow along the text in real-time or save it for later.
-- **Readable transcripts** – The transcription will have punctuation and sentence breaks for easier readability.
-- **Real-time translation** – Translate the transcription into more than 60 languages, so each person can participate in their own language.
-- **Multi-speaker diarization** – If every speaker uses a separate device, the service will attribute messages based on which device sent it.
+- **Message relay** - The service will distributes messages sent by one client to all the others, in the language(s) of their choice.
+- **Multi-speaker diarization** – If every speaker uses a separate device, the service will attribute messages to devices from which they are sent.
 
 ## Use cases
 
-### Ad-hoc conversations
+### Lightweight conversations
 
-Creating and joining a conversation is easy. One user (the 'host') creates a conversation, which generates a random 5-letter conversation code and a QR code. 
-All other users ('participants') join the conversation by typing in the conversation code or scanning the QR code. 
+Creating and joining a conversation is easy. One user will act as the 'host' and create a conversation, which generates a random 5-letter conversation code and a QR code. All other users ('participants') can join the conversation by typing in the conversation code or scanning the QR code. 
 
-Since users join via the randomly generated code, and not using any personal accounts, multi-device conversations is suited for scenarios in which individuals may not necessarily already have each other's contact information, and makes it easy to create quick, ad-hoc conversations.
+Since users join via the randomly generated code and are not using any personal accounts, multi-device conversations is suited for scenarios in which individuals may not already have each other's contact information, and makes it easy to create quick, on-the-spot conversations.
 
 ### Inclusive meetings
 
@@ -53,7 +52,7 @@ Real-time transcription and translation can help make conversations more accessi
 
 ### Presentations
 
-In scenarios where one person is giving a speech or presenting content to an audience, you can provide captions for the speaker, and also allow each audience member to follow the speech in their own language, on their own device.
+In scenarios where one person is giving a speech or presenting content to an audience, you can provide captions for the speaker, and also allow members of the audience to follow the speech in their own language, on their own device.
 
 ## How it works
 
@@ -65,11 +64,11 @@ Each client can send audio or instant messages. The service will transcribe audi
 
 ## Overview of Conversation, Host, and Participant
 
-A **conversation** is a session which the clients connect to, and which is started by the **host** user. 
+A **conversation** is a session that the clients connect to and is started by the **host** user. 
 
 Metadata of the conversation includes: 
--	Timestamps of when the conversation started and ended
--	List of participants in the conversation, which includes each client’s nickname and chosen language
+-	Timestamps of the start and end of the conversation, as defined by when the **host** user starts and leaves the conversation
+-	List of participants in the conversation, including each participant's chosen nickname and language
 
 There are two types of users in a conversation:  **host** and **participant**.
 
@@ -78,35 +77,36 @@ The **host** is the user who starts a conversation, and who acts as the administ
 - The host must be connected to the conversation for the duration of the conversation. If the host leaves the conversation, the conversation will end for all other participants.
 - The host has a few extra controls to manage the conversation: 
     - Lock the conversation (prevent additional participants from joining)
-    - Mute all participants (prevent other participants from sending messages to the conversation)
+    - Mute all participants (prevent other participants from sending all kinds of messages to the conversation)
     - Mute individual participants
     - Unmute all participants
     - Unmute individual participants
 
 A **participant** is a user who joins a conversation.
 - Participants can leave and rejoin the same conversation at any time, without ending the conversation for other participants.
+- Participants cannot lock the conversation or mute/unmute other participants
 
 > [!NOTE]
-> You can have up to 100 participants per conversation, of which 10 can be speaking at any given time.
+> Each conversation can have up to 100 participants, of which 10 can be speaking at any given time.
 
 ## Language support
 
-When creating or joining a conversation, each participant must choose a language. 
+When creating or joining a conversation, each participant must choose a primary language. 
 - If they choose a language which is supported for **speech-to-text**, then they will be able to use speech input in the conversation. 
 
-- If they choose a **text** language that does not support speech-to-text, then they will only be able to type in the conversation. 
+- If they choose a **text** language that does not support speech-to-text, then they will only be able to type and send instant messages in the conversation. 
 
-All messages in the conversation will also be translated to each participant's chosen language.
+All messages in the conversation will also be translated to each participant's primary language.
 
-Apart from their chosen, primary language, each participant can also specify additional languages for translating messages they receive.
+Apart from their primary language, each participant can also specify additional languages for translating the conversation.
 
 Below is a summary of the capabilities of the two types of languages: **speech-to-text** and **text**.
 
 |  | [Speech-to-text](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/language-support#speech-to-text) | [Text](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/language-support#text-languages) |
 |-----------------------------------|----------------|------|
 | Speech recognition | ✔️ | ❌ |
-| Send an instant message | ✔️ | ✔️ |
-| Translate others' participants messages to your language | ✔️ | ✔️ |
+| Send instant messages | ✔️ | ✔️ |
+| Translate the conversation | ✔️ | ✔️ |
 
 ## Next steps
 
