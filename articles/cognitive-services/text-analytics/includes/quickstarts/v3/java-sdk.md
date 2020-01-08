@@ -71,7 +71,7 @@ In the java file, add a new class and add your azure resource's key and endpoint
 
 ```java
 public class TextAnalyticsSample {
-    private static String SUBSCRIPTION_KEY = "<replace-with-your-text-analytics-key-here>";
+    private static String KEY = "<replace-with-your-text-analytics-key-here>";
     private static String ENDPOINT = "<replace-with-your-text-analytics-endpoint-here>";
 }
 ```
@@ -81,7 +81,7 @@ Add the following main method to the class. You will define the methods called h
 ```java
 public static void main(String[] args) {
     
-    TextAnalyticsClient client = authenticateClient(SUBSCRIPTION_KEY, ENDPOINT);
+    TextAnalyticsClient client = authenticateClient(KEY, ENDPOINT);
     
     sentimentAnalysisExample(client);
     detectLanguageExample(client);
@@ -110,7 +110,7 @@ The Text Analytics client is a [TextAnalyticsClient]() object that authenticates
 
 ## Authenticate the client
 
-Create a method to instantiate the [TextAnalyticsClient]() object with your `SUBSCRIPTION_KEY` AND `ENDPOINT` created above.
+Create a method to instantiate the [TextAnalyticsClient]() object with your `KEY` AND `ENDPOINT` created above.
 
 ```java
 static TextAnalyticsClient authenticateClient(String subscriptionKey, String endpoint) {
@@ -248,7 +248,8 @@ static void recognizePIIEntitiesExample(TextAnalyticsClient client)
 ### Output
 
 ```console
-Personally Identifiable Information Entities Text: 123-12-1234, Type: U.S. Social Security Number (SSN), Subtype: N/A, Offset: 33, Length: 11, Score: 0.85.
+Personally Identifiable Information Entities
+Text: 123-12-1234, Type: U.S. Social Security Number (SSN), Subtype: N/A, Offset: 33, Length: 11, Score: 0.85.
 ```
 
 ## Entity linking
