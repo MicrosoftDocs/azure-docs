@@ -2,7 +2,6 @@
 documentType: LandingData
 title: Azure DevOps Projects
 metadata:
-  document_id:
   title: Azure DevOps Projects Documentation - Quickstarts and tutorials
   meta.description: 
   services: devops-project

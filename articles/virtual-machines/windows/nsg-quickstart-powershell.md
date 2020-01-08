@@ -94,5 +94,5 @@ In this example, you created a simple rule to allow HTTP traffic. You can find i
 
 * [Azure Resource Manager overview](../../azure-resource-manager/management/overview.md)
 * [What is a network security group?](../../virtual-network/security-overview.md)
-* [Azure Resource Manager Overview for Load Balancers](../../load-balancer/load-balancer-arm.md)
+* [Azure Load Balancer Overview](../../load-balancer/load-balancer-overview.md)
 

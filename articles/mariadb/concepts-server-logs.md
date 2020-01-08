@@ -40,7 +40,7 @@ Other parameters you can adjust include:
 See the MariaDB [slow query log documentation](https://mariadb.com/kb/en/library/slow-query-log-overview/) for full descriptions of the slow query log parameters.
 
 ## Diagnostic logs
-Azure Database for MariaDB is integrated with Azure Monitor Diagnostic Logs. Once you have enabled slow query logs on your MariaDB server, you can choose to have them emitted to Azure Monitor logs, Event Hubs, or Azure Storage. To learn more about how to enable diagnostic logs, see the how to section of the [diagnostic logs documentation](../azure-monitor/platform/resource-logs-overview.md).
+Azure Database for MariaDB is integrated with Azure Monitor Diagnostic Logs. Once you have enabled slow query logs on your MariaDB server, you can choose to have them emitted to Azure Monitor logs, Event Hubs, or Azure Storage. To learn more about how to enable diagnostic logs, see the how to section of the [diagnostic logs documentation](../azure-monitor/platform/platform-logs-overview.md).
 
 > [!IMPORTANT]
 > This diagnostic feature for server logs is only available in the General Purpose and Memory Optimized [pricing tiers](concepts-pricing-tiers.md).
