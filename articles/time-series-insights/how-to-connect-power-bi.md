@@ -38,8 +38,8 @@ Make sure to sign up for a [free Azure subscription](https://azure.microsoft.com
 
 To connect your Time Series Insights environment to Power BI, follow these steps:
 
-1. Open Time Series Insights Explorer                      
-1. Export data as a query or as raw data                       
+1. Open Time Series Insights Explorer
+1. Export data as a query or as raw data
 1. Open Power BI Desktop
 1. Load from Custom Query
 
@@ -48,13 +48,14 @@ To connect your Time Series Insights environment to Power BI, follow these steps
 To get started:
 
 1. Open the Time Series Insights Preview Explorer and curate your data.
-1. Once you have created a view you are satisfied with, navigate to the **More Actions** dropdown menu and click on **Connect to Power BI**. 
+1. Once you have created a view you are satisfied with, navigate to the **More actions** dropdown menu and click on **Connect to Power BI**.
 
     [![Time Series Insights Preview Explorer export](media/how-to-connect-power-bi/time-series-insights-export-option.png)](media/how-to-connect-power-bi/time-series-insights-export-option.png#lightbox)
 
 1. Set your parameters inside this tab:
 
-   1. Specify a relative timeframe to view. If you are happy with your existing view, leave this as **Existing timeframe**. 
+   1. Specify a relative timeframe to view. If you are happy with your existing view, leave this as **Existing timeframe**.
+   
    1. Choose between **Aggregated** and **Raw Events**. 
    
        > [!NOTE]
