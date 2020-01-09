@@ -6,7 +6,7 @@ author: mlearned
 
 ms.service: container-service
 ms.topic: article
-ms.date: 01/01/2020
+ms.date: 01/09/2020
 ms.author: mlearned
 ---
 
@@ -127,12 +127,13 @@ TODO , encrypt the data disks steps for same cluster above?
 
 ## Next steps
 
-TODO
+Review [best practices for AKS cluster security][best-practices-security]
 
 <!-- LINKS - external -->
 
 
 <!-- LINKS - internal -->
+[best-practices-security]: /operator-best-practices-cluster-security
 [byok-azure-portal]: storage/common/storage-encryption-keys-portal
 [customer-managed-keys]: /virtual-machines/windows/disk-encryption#customer-managed-keys-public-preview
 [key-vault-generate]: /key-vault/key-vault-manage-with-cli2
