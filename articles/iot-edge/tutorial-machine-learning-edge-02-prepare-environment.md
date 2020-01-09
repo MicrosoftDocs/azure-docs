@@ -105,19 +105,19 @@ schedule:
 
 ### Connect and configure development machine
 
-Now that we have created a VM, we need to prepare installing the software needed to complete the tutorial.
+Now that we have created a VM, we need to finish installing the software needed to complete the tutorial.
 
 #### Start a remote desktop session
 
 1. On the page for the virtual machine in the Azure portal, select **Connect**.
 
-1. On the right page, select **Download RDP File**.
+1. On the right pane, select **Download RDP File**.
 
-1. Double-click on the RDP file that you downloaded.
+1. In File Explorer, double-click on the RDP file that you downloaded.
 
-1. You will be presented with a dialog saying the publisher of the remote connection is unknown. Click the **Don’t ask me again for connections to this computer** checkbox then select **Connect**.
+1. You will be presented with a dialog saying the publisher of the remote connection is unknown. This is acceptable, so select **Connect**.
 
-1. Provide the Administrator password that you provided to set up the VM and click **OK**.
+1. Provide the administrator password that you provided to create the VM and click **OK**.
 
 1. You will be prompted to accept the certificate for the VM. Select **Yes**.
 
@@ -194,21 +194,17 @@ As part of creating the IoT hub, the script that we ran in the previous section 
 
 1. Expand the **Storage** section, and select **turbofanDeviceStorage**.
 
-1. Note that this endpoint points to Azure Storage container called **device data**.
+1. Note that this endpoint points to the container named **devicedata** that you created.
 
-1. Also note the **File name format** has partition as the last element in the name. We find this format is more convenient for the file operations we will do with Azure Notebooks later in the tutorial.
-
-1. Since no edits were made, return to the **Message routing** page.
+1. Also note the **Filename format** has partition as the last element in the name. We find this format is more convenient for the file operations we will do with Azure Notebooks later in the tutorial.
 
 1. Select the **Routes** tab.
 
 1. Select the route named **turbofanDeviceDataToStorage**.
 
-1. Note that the route’s endpoint is the **turbofanDeviceStorage** custom endpoint.
+1. Note that the route’s endpoint is the **turbofanDeviceStorage** endpoint.
 
-1. Look at the routing query, which is set to **true**. This means that all device telemetry messages will match this route and therefore all messages will be sent to the **turbofanDeviceStorage** endpoint.
-
-1. Since no edits were made, return to the **Message routing** page. You can leave the Azure portal.
+1. Look at the **Routing query**, which is set to **true**. This means that all device telemetry messages will match this route and therefore all messages will be sent to the **turbofanDeviceStorage** endpoint.
 
 ## Next steps
 
