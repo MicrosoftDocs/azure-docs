@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: quickstart
-ms.date: 10/23/2019
+ms.date: 01/09/2020
 ms.author: diberry
 #Customer intent: As a developer, I want implement a Personalizer loop so that I can understand how to use the Rank and Reward calls.
 ---
