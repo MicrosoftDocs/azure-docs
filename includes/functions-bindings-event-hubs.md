@@ -332,7 +332,7 @@ def main(event: func.EventHubEvent):
 
 ### Trigger - Java example
 
-The following example shows an Event Hub trigger binding in a *function.json* file and an [Java function](../articles/azure-functions/functions-reference-java.md) that uses the binding. The function logs the message body of the Event Hub trigger.
+The following example shows an Event Hub trigger binding in a *function.json* file and a [Java function](../articles/azure-functions/functions-reference-java.md) that uses the binding. The function logs the message body of the Event Hub trigger.
 
 ```json
 {
@@ -386,9 +386,8 @@ The following table explains the binding configuration properties that you set i
 |**path** |**EventHubName** | Functions 1.x only. The name of the event hub. When the event hub name is also present in the connection string, that value overrides this property at runtime. |
 |**eventHubName** |**EventHubName** | Functions 2.x and higher. The name of the event hub. When the event hub name is also present in the connection string, that value overrides this property at runtime. |
 |**consumerGroup** |**ConsumerGroup** | An optional property that sets the [consumer group](../articles/event-hubs/event-hubs-features.md#event-consumers) used to subscribe to events in the hub. If omitted, the `$Default` consumer group is used. |
-|**cardinality** | n/a | For Javascript. Set to `many` in order to enable batching.  If omitted or set to `one`, single message passed to function. |
+|**cardinality** | n/a | For Javascript. Set to `many` in order to enable batching.  If omitted or set to `one`, a single message is passed to the function. |
 |**connection** |**Connection** | The name of an app setting that contains the connection string to the event hub's namespace. Copy this connection string by clicking the **Connection Information** button for the [namespace](../articles/event-hubs/event-hubs-create.md#create-an-event-hubs-namespace), not the event hub itself. This connection string must have at least read permissions to activate the trigger.|
-|**path**|**EventHubName**|The name of the event hub. Can be referenced via app settings `%eventHubName%`|
 
 [!INCLUDE [app settings to local.settings.json](../articles/azure-functions/../../includes/functions-app-settings-local.md)]
 
@@ -445,7 +444,7 @@ public static string Run([TimerTrigger("0 */5 * * * *")] TimerInfo myTimer, ILog
 }
 ```
 
-The following sample shows how to use the `IAsyncCollector` interface to send a batch of messages. This scenario is common when you are processing messages coming from one Event Hub and sending the result to another Event Hub.
+The following example shows how to use the `IAsyncCollector` interface to send a batch of messages. This scenario is common when you are processing messages coming from one Event Hub and sending the result to another Event Hub.
 
 ```csharp
 [FunctionName("EH2EH")]
@@ -635,13 +634,13 @@ def main(timer: func.TimerRequest) -> str:
 
 ### Output - Java example
 
-The following example shows a Java function that writes a message contianing the current time to an Event Hub.
+The following example shows a Java function that writes a message containing the current time to an Event Hub.
 
 ```java
 @FunctionName("sendTime")
 @EventHubOutput(name = "event", eventHubName = "samples-workitems", connection = "AzureEventHubConnection")
 public String sendTime(
-   @TimerTrigger(name = "sendTimeTrigger", schedule = "0 *&#47;5 * * * *") String timerInfo)  {
+   @TimerTrigger(name = "sendTimeTrigger", schedule = "0 */5 * * * *") String timerInfo)  {
      return LocalDateTime.now().toString();
  }
 ```
