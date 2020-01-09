@@ -77,7 +77,7 @@ KeyVaultId=$(az keyvault show --name <key-vault-name> --query [id] -o tsv)
 KeyVaultKeyUrl=$(az keyvault key show --vault-name <key-vault-name>  --name <key-name>  --query [key.kid] -o tsv)
 
 # Create a DiskEncryptionSet
-az disk-encryption-set create -n <disk-encryption-set-name>  -l <azure-location-name>  -g <resource-group-name> --source-vault KeyVaultId --key-url KeyVaultKeyUrl 
+az disk-encryption-set create -n <disk-encryption-set-name>  -l <azure-location-name>  -g <resource-group-name> --source-vault $KeyVaultId --key-url $KeyVaultKeyUrl 
 ```
 
 ## Grant the DiskEncryptionSet resource access to the key vault
