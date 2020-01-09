@@ -19,7 +19,7 @@ In this article, you'll learn about security features available for Azure Machin
 When you use a cloud service, a best practice is to restrict access to only the users who need it. Start by understanding the authentication and authorization model used by the service. You might also want to restrict network access or securely join resources in your on-premises network with the cloud. Data encryption is also vital, both at rest and while data moves between services. Finally, you need to be able to monitor the service and produce an audit log of all activity.
 
 > [!NOTE]
-> Code in this document was tested with Azure Machine Learning SDK version 1.0.83.1 or higher.
+> The information in this article works with the Azure Machine Learning SDK version 1.0.83.1 or higher.
 
 ## Authentication
 
