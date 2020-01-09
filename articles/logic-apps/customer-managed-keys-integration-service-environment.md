@@ -20,9 +20,9 @@ This topic shows how to set up and specify your own encryption key to use when y
 
 * You can specify the customer-managed key to use only when you create your ISE, not afterwards. You can't disable this key after you create your ISE. Currently, no support exists for rotating a customer-managed key for an ISE.
 
-* To support customer-managed keys, your ISE requires an [external access endpoint](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-endpoint-access) and the [system-assigned managed identity](../active-directory/managed-identities-azure-resources/overview.md#how-does-the-managed-identities-for-azure-resources-work) to access resources in other Azure Active Directory (Azure AD) tenants. The managed identity authenticates access to those resources for your ISE so that you don't have to sign in with your own credentials.
+* To support customer-managed keys, create an ISE that uses an [external access endpoint](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-endpoint-access) and the [system-assigned managed identity](../active-directory/managed-identities-azure-resources/overview.md#how-does-the-managed-identities-for-azure-resources-work) to access resources in other Azure Active Directory (Azure AD) tenants. The managed identity authenticates access for your ISE so that you don't have to sign in to resources with your own credentials.
 
-* Within 30 minutes after you create your ISE, go to your Azure key vault, and grant the system-assigned managed identity access to that key vault. Otherwise, your ISE deployment fails.
+* Within 30 minutes after you create your ISE, go to your Azure key vault, and [grant the system-assigned managed identity access to that key vault]a(#identity-access-to-key-vault). Otherwise, ISE creation fails.
 
 ## Prerequisites
 
@@ -163,9 +163,9 @@ For example:
 
 <a name="identity-access-to-key-vault"></a>
 
-## Give identity access to your key vault
+## Grant access to your key vault
 
-Within *30 minutes* after you create your ISE, you must grant the ISE's system-assigned identity access to your key vault. Otherwise, creation and deployment for your ISE fails, and you get a permissions error. You can use either Azure PowerShell ([Set-AzKeyVaultAccessPolicy](https://docs.microsoft.com/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) command) or follow these steps for the Azure portal:
+Within *30 minutes* after you create your ISE, you must give your ISE's system-assigned identity access to your key vault. Otherwise, creation for your ISE fails, and you get a permissions error. You can use either Azure PowerShell ([Set-AzKeyVaultAccessPolicy](https://docs.microsoft.com/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) command) or follow these steps for the Azure portal:
 
 1. In the [Azure portal](https://portal.azure.com), open your Azure key vault. From your key vault's menu, select **Access control (IAM)**.
 
