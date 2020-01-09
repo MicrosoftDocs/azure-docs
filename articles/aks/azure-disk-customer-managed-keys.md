@@ -64,20 +64,22 @@ Create a new *resource group*, then create a new *Key Vault* instance and enable
 az account list-locations
 
 # Create new resource group in a supported Azure region
-az group create -l myAzureRegionName -n <resource-group-name>
+az group create -l myAzureRegionName -n myResourceGroup
 
 # Create an Azure Key Vault resource in a supported Azure region
 az keyvault create -n myKeyVaultName -g myResourceGroup-l myAzureRegionName  --enable-purge-protection true --enable-soft-delete true
 ```
 
 ## Create an instance of a DiskEncryptionSet
+
+You will need a *key* stored in Azure Key Vault to complete the following steps.  Either store your existing Key in the Key Vault you created, or [generate a key][key-vault-generate]
     
 ```azurecli
 # Retrieve the Key Vault Id and store it in a variable
 keyVaultId=$(az keyvault show --name myKeyVaultName --query [id] -o tsv)
 
 # Retrieve the Key Vault key URL and store it in a variable
-keyVaultKeyUrl=$(az keyvault key show --vault-name myKeyVaultName  --name <key-name>  --query [key.kid] -o tsv)
+keyVaultKeyUrl=$(az keyvault key show --vault-name myKeyVaultName  --name myKeyName  --query [key.kid] -o tsv)
 
 # Create a DiskEncryptionSet
 az disk-encryption-set create -n myDiskEncryptionSetName  -l myAzureRegionName  -g myResourceGroup--source-vault $keyVaultId --key-url $keyVaultKeyUrl 
@@ -137,6 +139,7 @@ TODO
 
 <!-- LINKS - internal -->
 [customer-managed-keys]: /virtual-machines/windows/disk-encryption#customer-managed-keys-public-preview
+[key-vault-generate]: /key-vault/key-vault-manage-with-cli2
 [azure-disk-volume]: azure-disk-volume.md
 [azure-files-pvc]: azure-files-dynamic-pv.md
 [premium-storage]: ../virtual-machines/windows/disks-types.md
