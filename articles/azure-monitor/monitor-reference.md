@@ -169,24 +169,20 @@ The following table lists Azure services and the data they collect into Azure Mo
 ## Product integrations
 The services and solutions in the following table store their data in a Log Analytics workspace so that it can be analyzed with other log data collected by Azure Monitor.
 
-| Service | Description |
+| Product/Service | Description |
 |:---|:---|
-| [Azure Application Gateway](insights/azure-networking-analytics.md#azure-application-gateway-analytics-solution-in-azure-monitor) | Analyze logs and metrics from Azure Application Gateway. |
 | [Azure Automation](/azure/automation/) | Manage operating system updates and track changes on Windows and Linux computers. See [Change Tracking](../automation/change-tracking.md) and [Update Management](../automation/automation-update-management.md). |
 | [Azure Information Protection ](https://docs.microsoft.com/azure/information-protection/) | Classify and optionally protect documents and emails. See [Central reporting for Azure Information Protection](https://docs.microsoft.com/azure/information-protection/reports-aip#configure-a-log-analytics-workspace-for-the-reports). |
 | [Azure Security Center](/azure/security-center/) | Collect and analyze security events and perform threat analysis. See [Data collection in Azure Security Center](/security-center/security-center-enable-data-collection.md) |
 | [Azure Sentinel](/azure/sentinel/) | Connects to different sources including Office 365 and Amazon Web Services Cloud Trail. See [Connect data sources](/azure/sentinel/connect-data-sources). |
-| [Desktop Analytics](https://docs.microsoft.com/configmgr/desktop-analytics/overview) | Integrates with Configuration Manager to provide insight and intelligence to make more informed decisions about the update readiness of your Windows clients. |
-| [DNS Analytics](insights/dns-analytics.md) | Collects, analyzes, and correlates Windows DNS analytic and audit logs and other related data from your DNS servers. |
 | [Key Vault Analytics](insights/azure-key-vault.md) | Analyze Azure Key Vault AuditEvent logs. |
 | [Microsoft Intune](https://docs.microsoft.com/intune/) | Create a diagnostic setting to send logs to Azure Monitor. See [Send log data to storage, event hubs, or log analytics in Intune (preview)](https://docs.microsoft.com/intune/fundamentals/review-logs-using-azure-monitor).  |
-| [Network Performance Monitor](insights/network-performance-monitor.md) | Monitor network connectivity and performance to service and application endpoints. |
+| Network  | [DNS Analytics](insights/dns-analytics.md) - Collects, analyzes, and correlates Windows DNS analytic and audit logs and other related data from your DNS servers.<br>[Network Performance Monitor](insights/network-performance-monitor.md) - Monitor network connectivity and performance to service and application endpoints.<br>[Azure Application Gateway](insights/azure-networking-analytics.md#azure-application-gateway-analytics-solution-in-azure-monitor) - Analyze logs and metrics from Azure Application Gateway.<br>[Traffic Analytics](/azure/network-watcher/traffic-analytics) - Analyzes Network Watcher network security group (NSG) flow logs to provide insights into traffic flow in your Azure cloud. |
 | [On-Demand Assessments](https://docs.microsoft.com/services-hub/health/getting_started_with_on_demand_assessments) | Assess and optimize the availability, security, and performance of your on-premises, hybrid, and cloud Microsoft technology environments. |
 | [SQL Analytics](insights/azure-sql.md) | Monitor performance of Azure SQL databases, elastic pools, and managed instances at scale and across multiple subscriptions. |
 | [System Center Operations Manager](https://docs.microsoft.com/system-center/scom) | Collect data from Operations Manager agents by connecting their management group to Azure Monitor. See [Connect Operations Manager to Azure Monitor](platform/om-agents.md) |
-| [Traffic Analytics](/azure/network-watcher/traffic-analytics) | Analyzes Network Watcher network security group (NSG) flow logs to provide insights into traffic flow in your Azure cloud.  |
 | [Visual Studio App Center](https://docs.microsoft.com/appcenter/) | Build, test, and distribute applications and then monitor their status and usage. See [Start analyzing your mobile app with App Center and Application Insights](learn/mobile-center-quickstart.md). |
-| [Windows Update Compliance](https://docs.microsoft.com/windows/deployment/update/update-compliance-get-started) | Assess your Windows desktop upgrades. |
+| Windows | [Windows Update Compliance](https://docs.microsoft.com/windows/deployment/update/update-compliance-get-started) - Assess your Windows desktop upgrades.<br>[Desktop Analytics](https://docs.microsoft.com/configmgr/desktop-analytics/overview) | Integrates with Configuration Manager to provide insight and intelligence to make more informed decisions about the update readiness of your Windows clients. |
 
 
 ## External product integrations
