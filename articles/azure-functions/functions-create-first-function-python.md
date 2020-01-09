@@ -69,37 +69,33 @@ You run all subsequent commands in this activated virtual environment. (To exit 
 
 ## Create a local function project
 
-In Azure Functions, a function project is a container for one or more individual functions that each responds to a specific trigger. All functions in a project share the same local and hosting configurations.
+In Azure Functions, a function project is a container for one or more individual functions that each responds to a specific trigger. All functions in a project share the same local and hosting configurations. In this section you create a function project that contains a single function.
 
-In the virtual environment, run the `func init` command to create a project for Python functions in a folder named *MyFunctionProj*:
+1. In the virtual environment, run the `func init` command to create a project for Python functions in a folder named *MyFunctionProj*:
 
-```
-func init MyFunctionProj --python
-```
+    ```
+    func init MyFunctionProj --python
+    ```
+    
+    This folder contains various files for the project, including *requirements.txt*, the local configuration file [local.settings.json](functions-run-local.md#local-settings-file), and the cloud host configuration file [host.json](functions-host-json.md).
 
-Then navigate into that folder where you add function code in the next step.
+1. Navigate into that folder where you add function code in the next step.
 
-```
-cd MyFunctionProj
-```
+    ```
+    cd MyFunctionProj
+    ```
+    
+1. Add a function to your project by using the following command, where the `--name` argument is the unique name of your function and the `--template` argument specifies the function's trigger. `func new` create a subfolder matching the function name that contains a code file named *\_\_init\_\_.py* and a configuration file named configuration file named *function.json*.
 
-This folder contains various files for the project, including *requirements.txt*, the local configuration file [local.settings.json](functions-run-local.md#local-settings-file), and the cloud host configuration file [host.json](functions-host-json.md).
-
-## Create a function
-
-Add a function to your project by using the following command, where the `--name` argument is the unique name of your function and the `--template` argument specifies the function's trigger:
-
-```
-func new --name HttpExample --template "HTTP trigger"
-```
-
-This `func new` command creates a subfolder *HttpExample* (matching the function name), which contains a configuration file named *function.json* and a code file named *__init__.py*. 
+    ```
+    func new --name HttpExample --template "HTTP trigger"
+    ```
 
 ### (Optional) Examine the file contents
 
 If desired, you can skip to [Run the function locally](#run-the-function-locally) and examine the file contents later.
 
-# [\_\_init\_\_.py](#tab/__init__py)
+# [__init__.py](#tab/__init__py)
 
 *\_\_init\_\_.py* is a Python file that contains a `main()` function that is triggered according to the configuration in *function.json*.
 
@@ -198,38 +194,38 @@ To deploy your function code to Azure, you need to create three resources:
 
 You use Azure CLI commands to create these items. Each command provides JSON output upon completion.
 
-Start by logging into Azure with the [az login](/cli/azure/group#az-login) command:
+1. Log into Azure with the [az login](/cli/azure/group#az-login) command:
 
-```azurecli
-az login
-```
+    ```azurecli
+    az login
+    ```
+    
+1. Create a resource group with the [az group create](/cli/azure/group#az-group-create) command. The following example creates a resource group named `myResourceGroup` in the `westeurope` region. (You generally create your resource group and resources in a region near you, using a region returned from the `az account list` command.)
 
-Next, create a resource group with the [az group create](/cli/azure/group#az-group-create) command. The following example creates a resource group named `myResourceGroup` in the `westeurope` region. (You generally create your resource group and resources in a region near you, using a region returned from the `az account list` command.)
+    ```azurecli
+    az group create --name AzureFunctionsQuickstart-rg --location westeurope
+    ```
+    
+    > [!NOTE]
+    > You can't host Linux and Windows apps in the same resource group. If you have an existing resource group named `AzureFunctionsQuickstart-rg` with a Windows function app or web app, you must use a different resource group.
+    
+1. Create a general-purpose storage account in your resource group and region by using the [az storage account create](/cli/azure/storage/account#az-storage-account-create) command. In the following example, replace `<storage_name>` with a globally unique name appropriate to you. Names must contain three to 24 characters numbers and lowercase letters only. `Standard_LRS` specifies a typical general-purpose account.
 
-```azurecli
-az group create --name AzureFunctionsQuickstart-rg --location westeurope
-```
+    ```azurecli
+    az storage account create --name <storage_name> --location westeurope --resource-group AzureFunctionsQuickstart-rg --sku Standard_LRS
+    ```
+    
+    The storage account incurs only a few USD cents for this quickstart.
+    
+1. Create the Functions app using the [az functionapp create](/cli/azure/functionapp#az-functionapp-create) command. In the following example, replace `<storage_name>` with the name of the account you used in the previous step, and replace `<app_name>` with a globally unique name appropriate to you. The `<app_name>` is also the default DNS domain for the function app.
 
-> [!NOTE]
-> You can't host Linux and Windows apps in the same resource group. If you have an existing resource group named `AzureFunctionsQuickstart-rg` with a Windows function app or web app, you must use a different resource group.
-
-Third, create a general-purpose storage account in your resource group and region by using the [az storage account create](/cli/azure/storage/account#az-storage-account-create) command. In the following example, replace `<storage_name>` with a globally unique name appropriate to you. Names must contain three to 24 characters numbers and lowercase letters only. `Standard_LRS` specifies a typical general-purpose account.
-
-```azurecli
-az storage account create --name <storage_name> --location westeurope --resource-group AzureFunctionsQuickstart-rg --sku Standard_LRS
-```
-
-The storage account incurs only a few USD cents for this quickstart.
-
-Finally, create the Functions app using the [az functionapp create](/cli/azure/functionapp#az-functionapp-create) command. In the following example, replace `<storage_name>` with the name of the account you used in the previous step, and replace `<app_name>` with a globally unique name appropriate to you. The `<app_name>` is also the default DNS domain for the function app.
-
-```azurecli
-az functionapp create --resource-group AzureFunctionsQuickstart-rg --os-type Linux --consumption-plan-location westeurope --runtime python --name <app_name> --storage-account <storage_name>
-```
-
-This command creates a function app running Python 3.7 under the [Azure Functions Consumption Plan](functions-scale.md#consumption-plan), which is free for the amount of usage you incur here. The command also provisions an associated Azure Application Insights instance in the same resource group, with which you can monitor your function app and view logs. For more information, see [Monitor Azure Functions](functions-monitoring.md). The instance incurs no costs until you activate it.
-
-## Deploy the function project to Azure
+    ```azurecli
+    az functionapp create --resource-group AzureFunctionsQuickstart-rg --os-type Linux --consumption-plan-location westeurope --runtime python --name <app_name> --storage-account <storage_name>
+    ```
+    
+    This command creates a function app running Python 3.7 under the [Azure Functions Consumption Plan](functions-scale.md#consumption-plan), which is free for the amount of usage you incur here. The command also provisions an associated Azure Application Insights instance in the same resource group, with which you can monitor your function app and view logs. For more information, see [Monitor Azure Functions](functions-monitoring.md). The instance incurs no costs until you activate it.
+    
+    ## Deploy the function project to Azure
 
 With the necessary resources in place, you're now ready to deploy your local functions project to the function app in Azure by using the [func azure functionapp publish](functions-run-local.md#project-file-deployment) command. In the following example, replace `<app_name>` with the name of your app.
 
