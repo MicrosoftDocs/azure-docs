@@ -70,36 +70,35 @@ The DevVM directory contains the files needed to create an Azure virtual machine
     .\Create-AzureDevVm.ps1
     ```
 
-    * When prompted, provide the following information:
-      * **Azure Subscription ID**: Your subscription ID, which can be found in [Azure Subscriptions](https://ms.portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) in portal.
-      * **Resource Group Name**: The name of a new or existing resource group in Azure.
-      * **Location**: Choose an Azure location where the virtual machine will be created. For example, `West US 2` or `North Europe`. For more information, see [Azure locations](https://azure.microsoft.com/global-infrastructure/locations/).
-      * **AdminUsername**: Provide a memorable name for the admin account you want to create and use on the virtual machine.
-      * **AdminPassword**: Set a password for the admin account on the virtual machine.
+    When prompted, provide the following information:
 
-    * If you do not have the Azure PowerShell[Azure PowerShell module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-1.1.0) installed, the script will install it. 
+    * **Azure Subscription ID**: Your subscription ID, which can be found in [Azure Subscriptions](https://ms.portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) in portal.
+    * **Resource Group Name**: The name of a new or existing resource group in Azure.
+    * **Location**: Choose an Azure location where the virtual machine will be created. For example, `West US 2` or `North Europe`. For more information, see [Azure locations](https://azure.microsoft.com/global-infrastructure/locations/).
+    * **AdminUsername**: Provide a memorable name for the admin account you want to create and use on the virtual machine.
+    * **AdminPassword**: Set a password for the admin account on the virtual machine.
 
-    * You will be prompted to sign in to Azure.
-
-    * The script confirms the information for the creation of your VM. Press `y` or `Enter` to continue.
+    If you do not have the Azure PowerShell[Azure PowerShell module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-1.1.0) installed, the script will install it.
 
 The script runs for several minutes as it executes the following steps:
 
-* Create the resource group if it does not exist
-* Deploy the virtual machine
-* Enable Hyper-V on the VM
-* Install software need for development and clone the sample repository
-* Restart the VM
-* Create an RDP file on your desktop for connecting to the VM
+* Prompts you to sign in to Azure.
+* Confirms the information for the creation of your VM. Press `y` or `Enter` to continue.
+* Creates the resource group if it does not exist.
+* Deploys the virtual machine.
+* Enables Hyper-V on the VM.
+* Installs software need for development and clone the sample repository.
+* Restarts the VM.
+* Creates an RDP file on your desktop for connecting to the VM.
 
-### Set autoshutdown schedule
+### Set auto-shutdown schedule
 
 To help you reduce cost, the VM has been created with an automatic shutdown schedule that is set to 1900 PST. You may need to update this timing depending on your location and schedule. To update the shutdown
 schedule:
 
 1. In the Azure portal, navigate to the VM that the script created.
 
-1. Select **Auto-shutdown** on the side navigator.
+1. From the left pane menu, under **Operations**, select **Auto-shutdown**.
 
 1. Enter a new shutdown time in **Scheduled shutdown** or change the **Time zone** then click **Save**.
 
