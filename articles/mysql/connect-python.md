@@ -27,7 +27,7 @@ Install Python and the MySQL connector for Python on your computer by using the 
 > [!NOTE]
 > This quickstart uses a raw SQL query approach to connect to MySQL. If you're using a web framework, use the recommended connector for the framework, for example, [mysqlclient](https://pypi.org/project/mysqlclient/) for Django.
 
-1. Download and install [Python 3.7 or above](https://www.python.org/downloads/). Make sure to add Python to your `PATH`, because the MySQL connector requires that.
+1. Download and install [Python 3.7 or above](https://www.python.org/downloads/) for your OS. Make sure to add Python to your `PATH`, because the MySQL connector requires that.
    
 1. Open a command prompt or `bash` shell, and check your Python version by running `python -V` with the uppercase V switch.
    
