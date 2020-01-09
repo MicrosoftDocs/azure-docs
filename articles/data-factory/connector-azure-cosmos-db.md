@@ -56,7 +56,7 @@ The following properties are supported for the Azure Cosmos DB (SQL API) linked 
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The **type** property must be set to **CosmosDb**. | Yes |
-| connectionString |Specify information that's required to connect to the Azure Cosmos DB database.<br />**Note**: You must specify database information in the connection string as shown in the examples that follow. <br/>Mark this field as a SecureString to store it securely in Data Factory. You can also put account key in Azure Key Vault and pull the `accountKey` configuration out of the connection string. Refer to the following samples and [Store credentials in Azure Key Vault](store-credentials-in-key-vault.md) article with more details. |Yes |
+| connectionString |Specify information that's required to connect to the Azure Cosmos DB database.<br />**Note**: You must specify database information in the connection string as shown in the examples that follow. <br/> You can also put account key in Azure Key Vault and pull the `accountKey` configuration out of the connection string. Refer to the following samples and [Store credentials in Azure Key Vault](store-credentials-in-key-vault.md) article with more details. |Yes |
 | connectVia | The [Integration Runtime](concepts-integration-runtime.md) to use to connect to the data store. You can use the Azure Integration Runtime or a self-hosted integration runtime (if your data store is located in a private network). If this property isn't specified, the default Azure Integration Runtime is used. |No |
 
 **Example**
@@ -67,10 +67,7 @@ The following properties are supported for the Azure Cosmos DB (SQL API) linked 
     "properties": {
         "type": "CosmosDb",
         "typeProperties": {
-            "connectionString": {
-                "type": "SecureString",
-                "value": "AccountEndpoint=<EndpointUrl>;AccountKey=<AccessKey>;Database=<Database>"
-            }
+            "connectionString": "AccountEndpoint=<EndpointUrl>;AccountKey=<AccessKey>;Database=<Database>"
         },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",
@@ -88,10 +85,7 @@ The following properties are supported for the Azure Cosmos DB (SQL API) linked 
     "properties": {
         "type": "CosmosDb",
         "typeProperties": {
-            "connectionString": {
-                "type": "SecureString",
-                "value": "AccountEndpoint=<EndpointUrl>;Database=<Database>"
-            },
+            "connectionString": "AccountEndpoint=<EndpointUrl>;Database=<Database>",
             "accountKey": { 
                 "type": "AzureKeyVaultSecret", 
                 "store": { 

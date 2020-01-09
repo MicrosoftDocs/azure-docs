@@ -1,12 +1,8 @@
 ---
 title: General questions about the Azure Site Recovery service
 description: This article discusses popular general questions about Azure Site Recovery.
-author: rayne-wiselman
-manager: carmonm
-ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/14/2019
-ms.author: raynew
 
 ---
 # General questions about Azure Site Recovery
@@ -153,7 +149,7 @@ Our partner, Riverbed, provides detailed guidance on working with Azure Site Rec
 ### Can I use ExpressRoute to replicate virtual machines to Azure?
 Yes, [ExpressRoute can be used](concepts-expressroute-with-site-recovery.md) to replicate on-premises virtual machines to Azure.
 
-- Azure Site Recovery replicates data to an Azure Storage over a public endpoint. You need to set up [Microsoft peering](../expressroute/expressroute-circuit-peerings.md#microsoftpeering) or use an existing [public peering](../expressroute/expressroute-circuit-peerings.md#publicpeering) (deprecated for new circuits)  to use ExpressRoute for Site Recovery replication.
+- Azure Site Recovery replicates data to an Azure Storage over a public endpoint. You need to set up [Microsoft peering](../expressroute/expressroute-circuit-peerings.md#microsoftpeering) or use an existing [public peering](../expressroute/about-public-peering.md) (deprecated for new circuits)  to use ExpressRoute for Site Recovery replication.
 - Microsoft peering is the recommended routing domain for replication.
 - Replication is not supported over private peering.
 - If you're protecting VMware machines or physical machines, ensure that the [Networking Requirements](vmware-azure-configuration-server-requirements.md#network-requirements) for Configuration Server are also met. Connectivity to specific URLs is required by Configuration Server for orchestration of Site Recovery replication. ExpressRoute cannot be used for this connectivity.
@@ -214,7 +210,7 @@ To automate you could use on-premises Orchestrator or Operations Manager to dete
 Yes, you can use the alternate location recovery to failback to a different host from Azure.
 
 * [For VMware virtual machines](concepts-types-of-failback.md#alternate-location-recovery-alr)
-* [For Hyper-V virtual machines](hyper-v-azure-failback.md#perform-failback)
+* [For Hyper-V virtual machines](hyper-v-azure-failback.md#fail-back-to-an-alternate-location)
 
 ## Automation
 

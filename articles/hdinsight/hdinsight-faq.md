@@ -109,7 +109,7 @@ No, it's not possible to run Apache Kafka and Apache Spark on the same HDInsight
 
 ### How do I change timezone in Ambari?
 
-1. Open the Ambari Web UI at https://CLUSTERNAME.azurehdinsight.net, where CLUSTERNAME is the name of your cluster.
+1. Open the Ambari Web UI at `https://CLUSTERNAME.azurehdinsight.net`, where CLUSTERNAME is the name of your cluster.
 2. In the upper-right corner, select admin | Settings. 
 
    ![Ambari Settings](media/hdinsight-faq/ambari-settings.png)

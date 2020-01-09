@@ -98,7 +98,7 @@ If you don't already have a virtual network (VNet), create one. Screenshots are 
 
 5. Select the **Subscription** you want to use from the drop-down list.
 
-6. Select an existing **Resource Group**. Or, create a new resource group by selecting **Create new** and entering a name. If you're creating a new resource group, name the resource group according to your planned configuration values. For more information about resource groups, see [Azure Resource Manager overview](../azure-resource-manager/resource-group-overview.md#resource-groups).
+6. Select an existing **Resource Group**. Or, create a new resource group by selecting **Create new** and entering a name. If you're creating a new resource group, name the resource group according to your planned configuration values. For more information about resource groups, see [Azure Resource Manager overview](../azure-resource-manager/management/overview.md#resource-groups).
 
 7. Select a **Location** for your VNet. This setting determines the geographical location of the resources that you deploy to this VNet.
 

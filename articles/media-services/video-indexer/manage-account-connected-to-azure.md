@@ -9,7 +9,7 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 05/15/2019
+ms.date: 12/16/2019
 ms.author: juliako
 ---
 
@@ -45,6 +45,17 @@ If your Videos Indexer account is connected to Azure, you see the following:
 * The number and type of allocated Reserved Units.
 
 If your account needs some adjustments, you will see relevant errors and warnings about your account configuration on the **Settings** page. The messages contain links to exact places in Azure portal where you need to make changes. For more information, see the [errors and warnings](#errors-and-warnings) section that follows.
+
+## Repair the connection to Azure
+
+In the **Update connection to Azure Media Services** dialog of your [Video Indexer](https://www.videoindexer.ai/) page, you are asked to provide values for the following settings: 
+
+|Setting|Description|
+|---|---|
+|Azure subscription ID|The subscription ID can be retrieved from the Azure portal. Click on **All services** in the left panel, and search for "subscriptions". Select **Subscriptions** and choose the desired ID from the list of your subscriptions.|
+|Azure Media Services resource group name|The name for the resource group in which you created the Media Services account.|
+|Application ID|The Azure AD application ID (with permissions for the specified Media Services account) that you created for this Video Indexer account. <br/><br/>To get the App ID, navigate to Azure portal. Under the Media Services account, choose your account and go to **API Access**. Click **Connect to Media Services API with service principal** -> **Azure AD App**. Copy the relevant parameters.|
+|Application key|The Azure AD application key associated with your Media Services account that you specified above. <br/><br/>To get the app key, navigate to Azure portal. Under the Media Services account, choose your account and go to **API Access**. Click **Connect to Media Services API with service principal** -> **Manage application** -> **Certificates & secrets**. Copy the relevant parameters.|
 
 ## Auto-scale reserved units
 
