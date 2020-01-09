@@ -15,11 +15,11 @@ This article provides information about the **most recent** Azure HDInsight rele
 
 ## Summary
 
-Azure HDInsight is one of the most popular services among enterprise customers for open-source Apache Hadoop and Apache Spark analytics on Azure.
+Azure HDInsight is one of the most popular services among enterprise customers for open-source analytics on Azure.
 
 ## Release date: 01/09/2019
 
-This release applies both for HDInsight 3.6 and 4.0. HDInsight release is made available to all regions over several days. The release date here indicates the the first region release date. If you do not see below changes, please wait for the release being live in your region in several days.
+This release applies both for HDInsight 3.6 and 4.0. HDInsight release is made available to all regions over several days. The release date here indicates the first region release date. If you don't see below changes, please wait for the release being live in your region in several days.
 
 > [!IMPORTANT]  
 > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight versioning article](hdinsight-component-versioning.md).
@@ -28,10 +28,10 @@ This release applies both for HDInsight 3.6 and 4.0. HDInsight release is made a
 ### TLS 1.2 enforcement
 Transport Layer Security (TLS) and Secure Sockets Layer (SSL) are cryptographic protocols that provide communications security over a computer network. Learn more about [TLS](https://en.wikipedia.org/wiki/Transport_Layer_Security#SSL_1.0.2C_2.0_and_3.0). HDInsight uses TLS 1.2 on public HTTPs endpoints but TLS 1.1 is still supported for backward compatibility. 
 
-From this release, HDInsight will enforce all connection through TLS 1.2. An new property **minSupportedTlsVersion** is introduced via ARM template for cluster creation. The property is by-default "1.2", which means the cluster only supports TLS 1.2 and above. Customers can set this property to "1.1" specifically for backward compatibility.
+From this release, HDInsight will enforce all connection through TLS 1.2. A new property **minSupportedTlsVersion** is introduced via ARM template for cluster creation. The property is by-default "1.2", which means the cluster only supports TLS 1.2 and above. Customers can set this property to "1.1" specifically for backward compatibility.
 
-### Bring your own key for disk encryption
-All managed disks in HDInsight are protected with Azure Storage Service Encryption (SSE). By default, the data on those disks is encrypted using Microsoft-managed keys. From this release, you can Bring Your Own Key (BYOK) for disk encryption and manage it using Azure Key Vault. BYOK encryption is a one-step process handled during cluster creation with no additional cost. All you need to do is to register HDInsight as a managed identity with Azure Key Vault and add the encryption key when you create your cluster. 
+### Bring your own key for disk encryptionNow
+All managed disks in HDInsight are protected with Azure Storage Service Encryption (SSE). Data on those disks is encrypted by Microsoft-managed keys by default. Starting from this release, you can Bring Your Own Key (BYOK) for disk encryption and manage it using Azure Key Vault. BYOK encryption is a one-step configuration during cluster creation with no additional cost. Just register HDInsight as a managed identity with Azure Key Vault and add the encryption key when you create your cluster. 
 
 ## Deprecation
 No deprecations for this release. To get ready for upcoming deprecations, see [Upcoming changes](#upcoming-changes).
@@ -40,12 +40,12 @@ No deprecations for this release. To get ready for upcoming deprecations, see [U
 ### TLS 1.2 enforcement
 Transport Layer Security (TLS) and Secure Sockets Layer (SSL) are cryptographic protocols that provide communications security over a computer network. Learn more about [TLS](https://en.wikipedia.org/wiki/Transport_Layer_Security#SSL_1.0.2C_2.0_and_3.0). HDInsight uses TLS 1.2 on public HTTPs endpoints but TLS 1.1 is still supported for backward compatibility. 
 
-From this release, HDInsight will enforce all connection through TLS 1.2. An new property **minSupportedTlsVersion** is introduced via ARM template for cluster creation. The property is by-default "1.2", which means the cluster only supports TLS 1.2 and above. Customers can set this property to "1.1" specifically for backward compatibility.
+From this release, HDInsight will enforce all connection through TLS 1.2. A new property **minSupportedTlsVersion** is introduced via ARM template for cluster creation. The property is by-default "1.2", which means the cluster only supports TLS 1.2 and above. Customers can set this property to "1.1" specifically for backward compatibility.
 
 ### Cluster worker node provisioning change
 When 80% of the worker nodes are ready, the cluster enters operational stage. At this stage, customers can do all the data plane operations like running scripts and jobs. But customers can't do any control plane operation like scaling up/down. Only deletion is supported.
 
-Then the cluster waits for another 60 minutes for the remaining 20% of the worker nodes. After 60 minutes, even not all of worker nodes come up, the cluster still turns into running stage. Customers can use this cluster as normal, and do both control plan operations, like scaling up/down, and data plan operations, like running scripts and jobs. The cluster will be marked as partial success, and customers will only be charged with the success instances. 
+Then the cluster waits for another 60 minutes for the remaining 20% of the worker nodes. After 60 minutes, even not all of worker nodes come up, the cluster still turns into running stage. Customers can use this cluster as normal. Both control plan operations like scaling up/down, and data plan operations like running scripts and jobs are accepted. The cluster will be marked as partial success, and customers will only be charged with the success instances. 
 
 ## Upcoming changes
 The following changes will happen in upcoming releases. 
@@ -55,7 +55,7 @@ A minimum 4-core VM is required for Head Node to ensure the high availability an
 
 ### ESP Spark cluster node size change 
 In the upcoming release, the minimum allowed node size for ESP Spark cluster will be changed to Standard_D13_V2. 
-A-series VMs could cause ESP cluster issues due to relatively low CPU and memory capacity. In the upcoming release, A-series VMs will be deprecated for creating new ESP clusters.
+A-series VMs could cause ESP cluster issues because of relatively low CPU and memory capacity. A-series VMs will be deprecated for creating new ESP clusters.
 
 ### Moving to Azure virtual machine scale sets
 HDInsight now uses Azure virtual machines to provision the cluster. In the upcoming release, HDInsight will use Azure virtual machine scale sets instead. See more about Azure virtual machine scale sets.
@@ -67,4 +67,4 @@ In the upcoming HDInsight 4.0 release, HBase version will be upgraded from versi
 HDInsight continues to make cluster reliability and performance improvements. 
 
 ## Component version change
-There is no component version change for this release. You could find the current component versions for HDInsight 4.0 ad HDInsight 3.6 here.
+No component version change for this release. You could find the current component versions for HDInsight 4.0 ad HDInsight 3.6 here.
