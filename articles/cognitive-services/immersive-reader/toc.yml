@@ -9,12 +9,12 @@
   items:
   - name: Using C#
     href: Quickstart.md
+  - name: Using Node.js
+    href: quickstart-nodejs.md
   - name: Using Swift (iOS)
     href: ios-quickstart.md
 - name: Tutorials
   items:
-  - name: Launch the Immersive Reader (Node.js)
-    href: tutorial-nodejs.md
   - name: Launch the Immersive Reader (Python)
     href: tutorial-python.md
   - name: Picture to Immersive Reader (Swift)

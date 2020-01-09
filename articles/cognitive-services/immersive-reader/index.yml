@@ -31,12 +31,12 @@ landingContent:
         links:
           - text: ASP.NET Core
             url: quickstart.md
+          - text: Node.js
+            url: quickstart-nodejs.md
           - text: Swift (iOS)
             url: ios-quickstart.md
       - linkListType: tutorial
         links:
-          - text: Node.js
-            url: tutorial-nodejs.md
           - text: Python
             url: tutorial-python.md
           - text: Swift (iOS)
