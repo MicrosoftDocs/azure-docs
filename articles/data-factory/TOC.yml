@@ -132,6 +132,8 @@
       href: tutorial-deploy-ssis-packages-azure.md
     - name: Azure PowerShell
       href: tutorial-deploy-ssis-packages-azure-powershell.md
+    - name: Join virtual network
+      href: tutorial-deploy-ssis-virtual-network.md  
 - name: Samples
   items:
   - name: Code samples
