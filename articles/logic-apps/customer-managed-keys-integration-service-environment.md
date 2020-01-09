@@ -18,11 +18,13 @@ This topic shows how to set up and specify your own encryption key to use when y
 
 ## Considerations
 
-* You can specify the customer-managed key to use only when you create your ISE, not afterwards. You can't disable this key after you create your ISE. Currently, no support exists for rotating a customer-managed key for an ISE.
+* You can specify a customer-managed key *only when you create your ISE*, not afterwards. You also can't disable this key after your ISE is created. Currently, no support exists for rotating a customer-managed key for an ISE.
 
-* To support customer-managed keys, create an ISE that uses an [external access endpoint](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-endpoint-access) and the [system-assigned managed identity](../active-directory/managed-identities-azure-resources/overview.md#how-does-the-managed-identities-for-azure-resources-work) to access resources in other Azure Active Directory (Azure AD) tenants. The managed identity authenticates access for your ISE so that you don't have to sign in to resources with your own credentials.
+* To support customer-managed keys, create an ISE that has an [external access endpoint](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-endpoint-access) and uses the [system-assigned managed identity](../active-directory/managed-identities-azure-resources/overview.md#how-does-the-managed-identities-for-azure-resources-work) to access resources in other Azure Active Directory (Azure AD) tenants. The managed identity authenticates access for your ISE so that you don't have to sign in with your own credentials.
 
-* Within 30 minutes after you create your ISE, go to your Azure key vault, and [grant the system-assigned managed identity access to that key vault]a(#identity-access-to-key-vault). Otherwise, ISE creation fails.
+* Currently, the only way to create an ISE that uses a customer-managed key and the system-assigned identity is by calling the Logic Apps REST API with an HTTPS PUT request. To perform this task, you can use a tool such as [Postman](https://www.getpostman.com/downloads/), or you can create a logic app.
+
+* Within *30 minutes after you create your ISE*, open your Azure key vault in the Azure portal, and [grant the system-assigned identity access to your key vault](#identity-access-to-key-vault). Otherwise, ISE creation fails and throws a permissions error.
 
 ## Prerequisites
 
@@ -41,25 +43,27 @@ This topic shows how to set up and specify your own encryption key to use when y
 
   If you're new to Azure Key Vault, learn [how to create a key vault](../key-vault/quick-create-portal.md#create-a-vault) and [how to configure customer-managed keys](../storage/common/storage-encryption-keys-portal.md) by using the Azure portal. Or, use the Azure PowerShell commands, [New-AzKeyVault](https://docs.microsoft.com/powershell/module/az.keyvault/new-azkeyvault) and [Add-AzKeyVaultKey](https://docs.microsoft.com/powershell/module/az.keyvault/Add-AzKeyVaultKey).
 
-* A tool that can create your ISE by sending a PUT request, for example, Postman or even a logic app
+* A tool that you can use to create your ISE by calling the Logic Apps REST API with an HTTPS PUT request. For example, you can use [Postman](https://www.getpostman.com/downloads/), or you can build a logic app that performs this task.
 
-## Create ISE that uses your key
+<a name="enable-support-key-system-identity"></a>
 
-When you create your ISE, enable support for these items:
+## Create ISE with key and managed identity support
+
+To create your ISE by calling the Logic Apps REST API, use this HTTPS PUT request:
+
+`PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/integrationServiceEnvironments/{integrationServiceEnvironmentName}?api-version=2018-07-01-preview`
+
+In the request header, include the `Authorization` property and set the property's value to the bearer token associated with the customer who has access to the Azure subscription or resource group to use for the ISE. In the request body, enable support for these items in your ISE definition:
 
 * External access endpoint
-* The customer-managed key in your key vault
-* The system-assigned managed identity that your ISE uses to access that key in your key vault
+* Your key vault and the customer-managed key that you want to use
+* The system-assigned managed identity that your ISE uses to access your key vault
 
-Here's the syntax for the properties and values to use in the JSON definition for your ISE:
+Here's the syntax to use for these properties and values in your ISE definition:
 
 ```json
 {
    <other-ISE-definition-properties>,
-   "sku": {
-      "name": "Premium",
-      "capacity": 1
-   },
    "properties": {
       "networkConfiguration": {
          "accessEndpoint": {
@@ -111,10 +115,6 @@ For example:
 ```json
 {
    <other-ISE-definition-properties>,
-   "sku": {
-      "name": "Premium",
-      "capacity": 1
-   },
    "properties": {
       "networkConfiguration": {
          "accessEndpoint": {
@@ -165,11 +165,16 @@ For example:
 
 ## Grant access to your key vault
 
-Within *30 minutes* after you create your ISE, you must give your ISE's system-assigned identity access to your key vault. Otherwise, creation for your ISE fails, and you get a permissions error. You can use either Azure PowerShell ([Set-AzKeyVaultAccessPolicy](https://docs.microsoft.com/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) command) or follow these steps for the Azure portal:
+Within *30 minutes* after you create your ISE, you must give the ISE's system-assigned identity access to your key vault. Otherwise, creation for your ISE fails, and you get a permissions error. You can use either Azure PowerShell ([Set-AzKeyVaultAccessPolicy](https://docs.microsoft.com/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) command) or follow these steps for the Azure portal:
 
 1. In the [Azure portal](https://portal.azure.com), open your Azure key vault. From your key vault's menu, select **Access control (IAM)**.
 
-1. On the toolbar, select **Add** > **Add role assignment**. 
+1. On the toolbar, select **Add** > **Add role assignment**.
+
+   > [!TIP]
+   > If the Add role assignment option is disabled, you most likely don't have permissions. 
+   > For more information about the permissions that let you manage roles for resources, see 
+   > [Administrator role permissions in Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md).
 
 1. On the **Add role assignment** pane, select these values:
 
