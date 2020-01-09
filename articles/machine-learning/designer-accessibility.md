@@ -73,4 +73,6 @@ Use the following shortcuts with the access key. For more information on access 
 
 ## Next steps
 
-Learn more about [accessibility-related tools at Microsoft](https://www.microsoft.com/en-us/accessibility).
+- [Turn on high contrast or change theme](azure-portal-change-theme-high-contrast.md)
+- [Supported browsers and devices](../azure-preview-portal-supported-browsers-devices.md)
+- [Accessibility-related tools at Microsoft](https://www.microsoft.com/en-us/accessibility)
