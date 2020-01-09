@@ -225,7 +225,7 @@ You use Azure CLI commands to create these items. Each command provides JSON out
     
     This command creates a function app running Python 3.7 under the [Azure Functions Consumption Plan](functions-scale.md#consumption-plan), which is free for the amount of usage you incur here. The command also provisions an associated Azure Application Insights instance in the same resource group, with which you can monitor your function app and view logs. For more information, see [Monitor Azure Functions](functions-monitoring.md). The instance incurs no costs until you activate it.
     
-    ## Deploy the function project to Azure
+## Deploy the function project to Azure
 
 With the necessary resources in place, you're now ready to deploy your local functions project to the function app in Azure by using the [func azure functionapp publish](functions-run-local.md#project-file-deployment) command. In the following example, replace `<app_name>` with the name of your app.
 
