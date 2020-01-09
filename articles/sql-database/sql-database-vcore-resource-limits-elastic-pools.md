@@ -314,7 +314,7 @@ You can set the service tier, compute size, and storage amount using the [Azure 
 
 ### M-series compute generation (preview)
 
-|Compute size|GP_M_128|
+|Compute size|BC_M_128|
 |:--- | --: |
 |Compute generation|M-series|
 |vCores|128|
