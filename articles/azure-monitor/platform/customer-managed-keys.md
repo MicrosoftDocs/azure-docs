@@ -1,6 +1,6 @@
 ---
-title: Azure Monitor customer managed key configuration guide 
-description: Information and steps to configure Customer Managed Key (CMK) to encrypt data in your Log Analytics workspaces using an Azure Key Vault key.
+title: Azure Monitor customer-managed key configuration guide 
+description: Information and steps to configure Customer-Managed Key (CMK) to encrypt data in your Log Analytics workspaces using an Azure Key Vault key.
 ms.service:  azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
@@ -10,9 +10,9 @@ ms.date: 01/07/2020
 
 ---
 
-# Azure Monitor customer managed key configuration guide 
+# Azure Monitor customer-managed key configuration guide 
 
-This guide provides background information and steps to configure Customer Managed Keys (CMK) for your Log Analytics workspaces. Once configured, any data sent to your workspaces is encrypted with your Azure Key Vault key.
+This guide provides background information and steps to configure Customer-Managed Keys (CMK) for your Log Analytics workspaces. Once configured, any data sent to your workspaces is encrypted with your Azure Key Vault key.
 
 We recommend you review [Limitations and constraints](#Limitations and constraints) below before configuration. 
 
@@ -22,7 +22,7 @@ We recommend you review [Limitations and constraints](#Limitations and constrain
 
 - The CMK deployment described in the guide is delivered in production quality and supported as such although it's an early access feature.
 
-- CMK capability is delivered on a dedicated data-store-cluster, aka ADX cluster and suitable for customers sending 1TB per day.
+- CMK capability is delivered on a dedicated data-store-cluster, aka ADX cluster and suitable for customers sending 1 TB per day.
 
 - CMK pricing model isn't available currently and it isn't covered in the guide -- A pricing model for dedicated data-store-cluster is expected in the second quarter of 2020 and will apply on any existing CMK deployments.
 
@@ -33,7 +33,7 @@ We recommend you review [Limitations and constraints](#Limitations and constrain
 > Log Analytics and Application Insights are using the same data-store platform and query engine. 
 > We are bringing these two stores together via integration of Application Insights into Log Analytics to create a single unified logs store under Azure Monitor. This change is planned for the second quarter of calendar year 2020. If you don’t have to deploy CMK for your Application Insight data by then, we recommend waiting for the completion of the consolidation since such deployments will be disrupted by the consolidation and you will have to re-configure CMK after the migration to Log Analytics workspace.
 
-## Customer managed key (CMK) overview
+## Customer-managed key (CMK) overview
 
 [Encryption at Rest](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest)
 is a common privacy and security requirement in organizations. You can
@@ -41,7 +41,7 @@ let Azure completely manage Encryption at Rest, while you have various
 options to closely manage encryption or encryption keys.
 
 The Azure Monitor data-store ensures that all data encrypted at
-rest using Azure managed keys while stored in Azure storage. Azure Monitor also
+rest using Azure-managed keys while stored in Azure Storage. Azure Monitor also
 provides an option for data encryption using your own key that is stored
 in [Azure Key Vaults](https://docs.microsoft.com/azure/key-vault/key-vault-overview),
 which is accessed using system-assigned [managed identity](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) authentication. This key can be either [software or hardware-HSM
@@ -563,7 +563,7 @@ platform and query engine -- We are bringing these two stores together
 via integration of Application Insights into Log Analytics to provide a
 single unified logs store under Azure Monitor by the second quarter of
 2020. This change will bring your Application Insight data into Log
-Analytics workspaces and make queries, insights and other improvements
+Analytics workspaces and make queries, insights, and other improvements
 possible while the configuration of CMK on your workspace, will also
 apply to your Application Insights data.
 
@@ -588,7 +588,7 @@ of the ones listed above.
 
 ### Create *Cluster* resource
 
-This resource is used as intermediate identity connection between your Key Vault and your components. AFTER you received a confirmation that your subscriptions were whitelisted, create a Log Analytics Cluster resource at the region where your components are located. The type of the Cluster resource is defined at creation time by setting the “clusterType” property to either ‘LogAnalytics’, or ‘ApplicationInsights’ – It should be ‘ApplicationInsights’ for Application Insights CMK. “clusterType” setting can’t be altered after the configuration.
+This resource is used as intermediate identity connection between your Key Vault and your components. AFTER you received a confirmation that your subscriptions were whitelisted, create a Log Analytics Cluster resource at the region where your components are located. The type of the Cluster resource is defined at creation time by setting the *clusterType* property to either *LogAnalytics*, or *ApplicationInsights*. It should be *ApplicationInsights* for Application Insights CMK. The *clusterType* setting can’t be altered after the configuration.
 
 Create:
 ```
