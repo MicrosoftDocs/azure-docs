@@ -181,7 +181,7 @@ The services and solutions in the following table store their data in a Log Anal
 | [Office 365](insights/solution-office-365.md) | Monitor your Office 365 environment. Updated version with improved onboarding available through Azure Sentinel. |
 | [SQL Analytics](insights/azure-sql.md) | Monitor performance of Azure SQL databases, elastic pools, and managed instances at scale and across multiple subscriptions. |
 | [Surface Hub](insights/surface-hubs.md) | Track the health and usage of Surface Hub devices. |
-| [System Center Operations Manager](https://docs.microsoft.com/system-center/scom) | Collect data from Operations Manager agents by connecting their management group to Azure Monitor. See [Connect Operations Manager to Azure Monitor](platform/om-agents.md)<br> Assess the risk and health of your System Center Operations Manager management group with [SCOM Asessment](insights/scom-assessment.md) solution. |
+| [System Center Operations Manager](https://docs.microsoft.com/system-center/scom) | Collect data from Operations Manager agents by connecting their management group to Azure Monitor. See [Connect Operations Manager to Azure Monitor](platform/om-agents.md)<br> Assess the risk and health of your System Center Operations Manager management group with [Operations Manager Assessment](insights/scom-assessment.md) solution. |
 | [Microsoft Teams Rooms](https://docs.microsoft.com/microsoftteams/room-systems/azure-monitor-deploy) | Integrated, end-to-end management of Microsoft Teams Rooms devices. |
 | [Visual Studio App Center](https://docs.microsoft.com/appcenter/) | Build, test, and distribute applications and then monitor their status and usage. See [Start analyzing your mobile app with App Center and Application Insights](learn/mobile-center-quickstart.md). |
 | Windows | [Windows Update Compliance](https://docs.microsoft.com/windows/deployment/update/update-compliance-get-started) - Assess your Windows desktop upgrades.<br>[Desktop Analytics](https://docs.microsoft.com/configmgr/desktop-analytics/overview) - Integrates with Configuration Manager to provide insight and intelligence to make more informed decisions about the update readiness of your Windows clients. |
@@ -223,8 +223,9 @@ Azure Monitor can collect data from resources outside of Azure using the methods
 
 ## Next steps
 
-- [Read more about the Azure Monitor data platform which stores the logs and metrics collected by insights and solutions.](platform/data-platform.md) 
-- [Complete a tutorial on monitoring an Azure resource.](learn/tutorial-resource-logs.md)
-- [Complete a tutorial on writing a log query to analyze data in Azure Monitor Logs.](learn/tutorial-resource-logs.md).
-- [Complete a tutorial on creating a metrics chart to analyze data in Azure Monitor Metrics](learn/tutorial-metrics-explorer.md)
+- Read more about the [Azure Monitor data platform which stores the logs and metrics collected by insights and solutions](platform/data-platform.md).
+- Complete a [tutorial on monitoring an Azure resource](learn/tutorial-resource-logs.md).
+- Complete a [tutorial on writing a log query to analyze data in Azure Monitor Logs](learn/tutorial-resource-logs.md).
+- Complete a [tutorial on creating a metrics chart to analyze data in Azure Monitor Metrics](learn/tutorial-metrics-explorer.md).
+
  
