@@ -123,13 +123,10 @@ To distribute traffic to the VMs, the load balancer uses a back-end address pool
 1. Under **Virtual machines**. 
    1. Add **MyVM1** and **MyVM2** to the back-end pool.
    2. After you add each machine, drop down and select its **Network IP configuration**. 
-   
-   >[!NOTE]
-   >Do not add **MyTestVM** to the pool. 
-   
+     
 1. Select **Add**.
    
-   ![Add the back-end address pool](./media/tutorial-load-balancer-basic-internal-portal/3-load-balancer-backend-02.png)
+   ![Add the back-end address pool](./media/tutorial-load-balancer-standard-internal-portal/3-load-balancer-backend-02.png)
    
 1. On the **Backend pools** page, expand **MyBackendPool** and make sure both **VM1** and **VM2** are listed.
 
@@ -145,12 +142,12 @@ To allow the load balancer to monitor VM status, you use a health probe. The hea
    
 1. On the **Add a health probe** page, type or select the following values:
    
-   - **Name**: Type *MyHealthProbe*.
+   - **Name**: Type **MyHealthProbe**.
    - **Protocol**: Drop down and select **HTTP**. 
-   - **Port**: Type *80*. 
-   - **Path**: Accept */* for the default URI. You can replace this value with any other URI. 
-   - **Interval**: Type *15*. Interval is the number of seconds between probe attempts.
-   - **Unhealthy threshold**: Type *2*. This value is the number of consecutive probe failures that occur before a VM is considered unhealthy.
+   - **Port**: Type **80**. 
+   - **Path**: Accept **/** for the default URI. You can replace this value with any other URI. 
+   - **Interval**: Type **15**. Interval is the number of seconds between probe attempts.
+   - **Unhealthy threshold**: Type **2**. This value is the number of consecutive probe failures that occur before a VM is considered unhealthy.
    
 1. Select **OK**.
    
@@ -170,11 +167,11 @@ The load balancer rule named **MyLoadBalancerRule** listens to port 80 in the fr
    
 1. On the **Add load balancing rule** page, type or select the following values, if not already present:
    
-   - **Name**: Type *MyLoadBalancerRule*.
-   - **Frontend IP address:** Type *LoadBalancerFrontEnd* if not present.
+   - **Name**: Type **MyLoadBalancerRule**.
+   - **Frontend IP address:** Type **LoadBalancerFrontEnd** if not present.
    - **Protocol**: Select **TCP**.
-   - **Port**: Type *80*.
-   - **Backend port**: Type *80*.
+   - **Port**: Type **80**.
+   - **Backend port**: Type **80**.
    - **Backend pool**: Select **MyBackendPool**.
    - **Health probe**: Select **MyHealthProbe**. 
    
@@ -229,10 +226,10 @@ On each back-end server, use PowerShell to install IIS and replace the default I
       Install-WindowsFeature -name Web-Server -IncludeManagementTools
     
     # Remove default htm file
-     remove-item  C:\inetpub\wwwroot\iisstart.htm
+      remove-item  C:\inetpub\wwwroot\iisstart.htm
     
-    #Add custom htm file
-     Add-Content -Path "C:\inetpub\wwwroot\iisstart.htm" -Value $("Hello World from " + $env:computername)
+    # Add custom htm file
+      Add-Content -Path "C:\inetpub\wwwroot\iisstart.htm" -Value $("Hello World from " + $env:computername)
     ```
 1. Close the RDP connections with MyVM1 and MyVM2 by selecting **Disconnect**. Do not shut down the VMs.
 
