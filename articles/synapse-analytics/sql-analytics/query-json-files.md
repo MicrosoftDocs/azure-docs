@@ -1,6 +1,6 @@
 ---
 title: Query JSON files
-description: This section explains how to read JSON files.
+description: This section explains how to read JSON files using SQL on-demand resources within SQL Analytics.
 services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -13,7 +13,7 @@ ms.reviewer: jrasnick
 
 # Quickstart: Query JSON files 
 
-In this article, you'll learn how to write a query in SQL on-demand that will read JSON files.
+In this article, you'll learn how to write a query using SQL on-demand resources within SQL Analytics. The query's objective is to read JSON files.
 
 ## Prerequisites
 
