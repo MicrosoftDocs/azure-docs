@@ -47,11 +47,15 @@ The following example creates a workspace using a template from your local machi
 
 For capacity reservation, you define a selected capacity reservation for ingesting data by specifying the SKU `CapacityReservation` and a value in GB for the property `capacityReservationLevel`. The following list details the supported values and behavior when configuring it.
 
-1. Once you set the reservation limit, you cannot change to a different SKU within 31 days.
-2. Once you set the reservation value, you can only increase it within 31 days.
-3. You can only set the value of `capacityReservationLevel` in multiples of 100, with a maximum value of 50000.
-4. If you increase the reservation level, the timer is reset and you cannot change it for another 31 days from this update.  
-5. If you modify any other property for the workspace but retain the reservation limit to the same level, the timer is not reset. 
+- Once you set the reservation limit, you cannot change to a different SKU within 31 days.
+
+- Once you set the reservation value, you can only increase it within 31 days.
+
+- You can only set the value of `capacityReservationLevel` in multiples of 100, with a maximum value of 50000.
+
+- If you increase the reservation level, the timer is reset and you cannot change it for another 31 days from this update.  
+
+- If you modify any other property for the workspace but retain the reservation limit to the same level, the timer is not reset. 
 
 ### Create and deploy template
 
