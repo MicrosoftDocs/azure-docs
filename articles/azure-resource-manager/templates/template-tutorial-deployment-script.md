@@ -1,5 +1,5 @@
 ﻿---
-title: Use Azure Resource Manager template deployment scripts | Microsoft Docs
+title: Use template deployment scripts | Microsoft Docs
 description: Learn how to use deployment scripts in Azure Resource Manager templates.
 services: azure-resource-manager
 documentationcenter: ''
