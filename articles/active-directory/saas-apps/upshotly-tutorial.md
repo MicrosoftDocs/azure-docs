@@ -90,7 +90,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://app.upshotly.com/api/sso/login/<companyID>`
 
 	> [!NOTE]
-	> The Sign-on URL value is not real. Update this values with the actual Sign-on URL. You will get the **<companyID>** value explained later in the tutorial. Contact [Upshotly Client support team](mailto:support@upshotly.com) for queries. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> The Sign-on URL value is not real. Update this values with the actual Sign-on URL. You will get the **companyID** value explained later in the tutorial. Contact [Upshotly Client support team](mailto:support@upshotly.com) for queries. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
 
