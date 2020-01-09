@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 01/04/2020
+ms.date: 01/09/2020
 ---
 # Reset Skills (api-version=2019-05-06-Preview)
 
@@ -33,7 +33,7 @@ POST https://[service name].search.windows.net/indexers/resetskills?api-version=
 api-key: [admin key]  
 ```  
 
-### Request headers  
+## Request headers  
 
  The following table describes the required and optional request headers.  
 
@@ -44,7 +44,7 @@ api-key: [admin key]
 
 You also need the service name to construct the request URL. You can get both the service name and `api-key` from your service Overview page in the Azure portal. See [Create an Azure Cognitive Search service](https://docs.microsoft.com/azure/search/search-create-service-portal) for page navigation help.  
 
-### Request body syntax  
+## Request body syntax  
 
 The body of the request is an array of skill names.
 
