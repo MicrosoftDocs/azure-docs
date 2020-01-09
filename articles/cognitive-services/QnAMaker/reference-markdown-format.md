@@ -5,6 +5,8 @@ ms.topic: reference
 ms.date: 01/09/2020
 ---
 
+# Markdown format supported in QnA Maker answer text
+
 Following is the list of markdown formats that you can use in QnA Maker's answer text.
 
 
