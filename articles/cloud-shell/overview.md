@@ -38,11 +38,11 @@ Leverage Cloud Shell to work untethered from a local machine in a way only the c
 Users can choose between Bash or PowerShell.
 1. Select **Cloud Shell**.
 
-![Cloud Shell icon](media/overview/overview-cloudshell-icon.png)
+    ![Cloud Shell icon](media/overview/overview-cloudshell-icon.png)
 
 2. Select **Bash** or **PowerShell**.
 
-![Choose either Bash or PowerShell](media/overview/overview-choices.png)
+    ![Choose either Bash or PowerShell](media/overview/overview-choices.png)
 
 ### Authenticated and configured Azure workstation
 Cloud Shell is managed by Microsoft so it comes with popular command-line tools and language support. Cloud Shell also securely authenticates automatically for instant access to your resources through the Azure CLI or Azure PowerShell cmdlets.
