@@ -86,7 +86,7 @@ steps:
 
 # [Python](#tab/python)
 
-You can use one of the following samples to create a YAML file to build a Python app for a specific supported version. Python is supported only for function apps running on Linux.
+You can use one of the following samples to create a YAML file to build an app for a specific Python version. Python is supported only for function apps running on Linux.
 
 **Version 3.7**
 
