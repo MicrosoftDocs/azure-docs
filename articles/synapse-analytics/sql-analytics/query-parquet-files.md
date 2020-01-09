@@ -1,5 +1,5 @@
 ---
-title: Query Parquet files using SQL on-demand
+title: Query Parquet files using SQL on-demand resources
 description: In this article, you'll learn how to query Parquet files.
 services: synapse analytics
 author: azaricstefan
@@ -11,10 +11,9 @@ ms.author: v-stazar
 ms.reviewer: jrasnick
 ---
 
-# Quickstart: Query Parquet files using SQL on-demand
+# Quickstart: Query Parquet files using SQL on-demand resources in SQL Analytics
 
-In this article, you'll learn how to write a query in SQL on-demand that will read Parquet files.
-
+In this article, you'll learn how to write a query using SQL on-demand resources that will read Parquet files.
 
 ## Prerequisites
 
@@ -25,7 +24,7 @@ Before reading rest of this article, review the following articles:
 
 ## Read Parquet files
 
-You can query Parquet files the same way you read CSV files. The only difference is that the FILEFORMAT parameter should be set to PARQUET. Examples in this section show the specifics of reading Parquet files.
+You can query Parquet files the same way you read CSV files. The only difference is that the FILEFORMAT parameter should be set to PARQUET. Examples in this article show the specifics of reading Parquet files.
 
 > [!NOTE]
 > You do not have to specify columns in the OPENROWSET WITH clause when reading parquet files. SQL on-demand will utilize metadata in the Parquet file and bind columns by name.  
