@@ -82,15 +82,6 @@
         abstract: 
         achievement: 
         iconUrl: 
-        levels:
-          - 
-        roles:
-          - 
-        products:
-          - 
-        units:
-          - 
-        
     - name: Use cluster storage
       items:
       - name: Using Azure Storage

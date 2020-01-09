@@ -275,4 +275,4 @@ In this configuration, the container is configured to start *nodemon*. When serv
 > [Learn about multi-service development](multi-service-nodejs.md)
 
 
-[supported-regions]: about.md#supported-regions-and-configurations
+[supported-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service
