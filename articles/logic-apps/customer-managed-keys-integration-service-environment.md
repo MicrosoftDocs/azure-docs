@@ -122,19 +122,19 @@ For example:
          },
          "subnets": [
             {
-               "id": "/subscriptions/********************/resourceGroups/fabrikam-vnet-rg/providers/Microsoft.Network/virtualNetworks/fabrikam-vnet/subnets/subnet-1",
+               "id": "/subscriptions/********************/resourceGroups/Fabrikam-RG/providers/Microsoft.Network/virtualNetworks/Fabrikam-VNET/subnets/subnet-1",
                "type": "Microsoft.Network/virtualNetworks/subnets"
             },
             {
-               "id": "/subscriptions/********************/resourceGroups/fabrikam-ise-rg/providers/Microsoft.Network/virtualNetworks/fabrikam-vnet/subnets/subnet-2",
+               "id": "/subscriptions/********************/resourceGroups/Fabrikam-RG/providers/Microsoft.Network/virtualNetworks/Fabrikam-VNET/subnets/subnet-2",
                "type": "Microsoft.Network/virtualNetworks/subnets"
             },
             {
-               "id": "/subscriptions/********************/resourceGroups/fabrikam-ise-rg/providers/Microsoft.Network/virtualNetworks/fabrikam-vnet/subnets/subnet-3",
+               "id": "/subscriptions/********************/resourceGroups/Fabrikam-RG/providers/Microsoft.Network/virtualNetworks/Fabrikam-VNET/subnets/subnet-3",
                "type": "Microsoft.Network/virtualNetworks/subnets"
             },
             {
-               "id": "/subscriptions/********************/resourceGroups/fabrikam-ise-rg/providers/Microsoft.Network/virtualNetworks/fabrikam-vnet/subnets/subnet-4",
+               "id": "/subscriptions/********************/resourceGroups/Fabrikam-RG/providers/Microsoft.Network/virtualNetworks/Fabrikam-VNET/subnets/subnet-4",
                "type": "Microsoft.Network/virtualNetworks/subnets"
             }
          ]
@@ -142,17 +142,17 @@ For example:
       "encryptionConfiguration": {
          "encryptionKeyReference": {
             "keyVault": {
-               "name": "fabrikam-key-vault",
-               "id": "subscriptions/********************/resourceGroups/fabrikam-key-vault-rg/providers/Microsoft.KeyVault/vaults/fabrikam-key-vault",
+               "name": "FabrikamKeyVault",
+               "id": "subscriptions/********************/resourceGroups/Fabrikam-RG/providers/Microsoft.KeyVault/vaults/FabrikamKeyVault",
                "type": "Microsoft.KeyVault/vaults"
             },
-            "keyName": "fabrikam-customer-managed-key",
+            "keyName": "Fabrikam-Encryption-Key",
             "keyVersion": "********************"
          }
       }
    },
-   "id": "/subscriptions/********************/resourceGroups/fabrikam-ise-rg/providers/Microsoft.Logic/integrationServiceEnvironments/fabrikam-ISE",
-   "name": "fabrikam-ISE",
+   "id": "/subscriptions/********************/resourceGroups/Fabrikam-RG/providers/Microsoft.Logic/integrationServiceEnvironments/Fabrikam-ISE",
+   "name": "Fabrikam-ISE",
    "type": "Microsoft.Logic/integrationServiceEnvironments",
    "location": "WestUS",
    "identity": {
