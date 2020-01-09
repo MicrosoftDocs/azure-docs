@@ -1,7 +1,7 @@
 ---
 title: Multiple branches in mapping data flow
 description: Replicating data streams in mapping data flow with multiple branches
-author: kromermbrache
+author: kromerm
 ms.author: makromer
 ms.reviewer: douglasl
 ms.service: data-factory
