@@ -9,7 +9,7 @@ ms.topic: tutorial
 
 author: sdgilley
 ms.author: sgilley
-ms.date: 08/26/2019
+ms.date: 01/10/2020
 ms.custom: seodec18
 # As a professional data scientist, I can deploy the model previously trained in tutorial1.
 ---
@@ -37,7 +37,7 @@ Container Instances is a great solution for testing and understanding the workfl
 
 ## Prerequisites
 
-To run the notebook, first complete the model training in [Tutorial (part 1): Train an image classification model](tutorial-train-models-with-aml.md).   Then open the  **img-classification-part2-deploy.ipynb** notebook in your cloned **tutorials** folder.
+To run the notebook, first complete the model training in [Tutorial (part 1): Train an image classification model](tutorial-train-models-with-aml.md).   Then open the  *img-classification-part2-deploy.ipynb* notebook in your cloned *tutorials/image-classification-mnist-data* folder.
 
 This tutorial is also available on [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials) if you wish to use it on your own [local environment](how-to-configure-environment.md#local).  Make sure you have installed `matplotlib` and `scikit-learn` in your environment. 
 
