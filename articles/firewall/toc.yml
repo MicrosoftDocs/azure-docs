@@ -53,6 +53,8 @@
       href: integrate-lb.md
     - name: Application rules with SQL FQDNs
       href: sql-fqdn-filtering.md
+    - name: SNAT private ranges
+      href: snat-private-range.md
 - name: Reference
   items:
   - name: Azure CLI
