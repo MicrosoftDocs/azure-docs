@@ -100,7 +100,7 @@ Supported **delimited text write settings** under `formatSettings`:
 | Property      | Description                                                  | Required                                              |
 | ------------- | ------------------------------------------------------------ | ----------------------------------------------------- |
 | type          | The type of formatSettings must be set to **DelimitedTextWriteSettings**. | Yes                                                   |
-| fileExtension | The file extension used to name the output files, e.g. `.csv`, `.txt`. It must be specified when the `fileName` is not specified in the output DelimitedText dataset. When file name is specified in the sink dataset, file extension setting will be ignored.  | Yes when file name is not specified in output dataset |
+| fileExtension | The file extension used to name the output files, e.g. `.csv`, `.txt`. It must be specified when the `fileName` is not specified in the output DelimitedText dataset. When file name is configured in the output dataset, it will be used as the sink file name and the file extension setting will be ignored.  | Yes when file name is not specified in output dataset |
 
 ## Mapping data flow properties
 
