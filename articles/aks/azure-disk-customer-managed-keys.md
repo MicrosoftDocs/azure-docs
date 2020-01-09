@@ -60,19 +60,24 @@ You can optionally use the Azure portal to [Configure customer-managed keys with
 Create a new *resource group*, then create a new *Key Vault* instance and enable soft delete and purge protection.
 
 ```azurecli-interactive
-# Create new resource group in centralus or another supported region
-az group create -l centralus -n <resource-group-name>
+# Create new resource group in West US or another supported region
+az group create -l westus -n <resource-group-name>
 
-# Create an Azure Key Vault resource
-az keyvault create -n <key-vault-name> -g <resource-group-name> -l <azure-location-name>  --enable-purge-protection true --enable-soft-delete true
+# Create an Azure Key Vault resource in West US or another supported region
+az keyvault create -n <key-vault-name> -g <resource-group-name> -l westus  --enable-purge-protection true --enable-soft-delete true
 ```
 
 ## Create an instance of a DiskEncryptionSet
     
 ```azurecli
-keyVaultId=$(az keyvault show --name <key-vault-name> --query [id] -o tsv)
-keyVaultKeyUrl=$(az keyvault key show --vault-name <key-vault-name>  --name <key-name>  --query [key.kid] -o tsv)
-az disk-encryption-set create -n <disk-encryption-set-name>  -l <azure-location-name>  -g <resource-group-name> --source-vault <key-vault-id> --key-url <key-vault-url> 
+# Retrieve the Key Vault Id and store it in a variable
+KeyVaultId=$(az keyvault show --name <key-vault-name> --query [id] -o tsv)
+
+# Retrieve the Key Vault key URL and store it in a variable
+KeyVaultKeyUrl=$(az keyvault key show --vault-name <key-vault-name>  --name <key-name>  --query [key.kid] -o tsv)
+
+# Create a DiskEncryptionSet
+az disk-encryption-set create -n <disk-encryption-set-name>  -l <azure-location-name>  -g <resource-group-name> --source-vault KeyVaultId --key-url KeyVaultKeyUrl 
 ```
 
 ## Grant the DiskEncryptionSet resource access to the key vault
