@@ -103,14 +103,11 @@ To configure Azure AD single sign-on with HackerOne, perform the following steps
 
     ![HackerOne Domain and URLs single sign-on information](common/sp-identifier.png)
 
-	a. In the **Sign on URL** text box, type a URL using the following pattern:
-    `https://hackerone.com/<company name>/authentication`
+	a. In the **Sign on URL** text box, enter the following:
+    `https://hackerone.com/users/saml/auth`
 
-    b. In the **Identifier (Entity ID)** text box, type a URL:
-    `https://hackerone.com/users/saml/metadata`
-
-	> [!NOTE]
-	> This Sign on URL value is not real. Update this value with the actual Sign-On URL. Contact [HackerOne Client support team](mailto:support@hackerone.com) to get this value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+    b. In the **Identifier (Entity ID)** text box, enter the following:
+    `hackerone.com`
 
 5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** from the given options as per your requirement and save it on your computer.
 

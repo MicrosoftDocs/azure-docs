@@ -67,7 +67,7 @@ SSH Tunneling is the only way to access Hue on the cluster once it is running. T
 
     This will return a name similar to the following:
 
-        hn0-myhdi-nfebtpfdv1nubcidphpap2eq2b.ex.internal.cloudapp.net
+        myhdi-nfebtpfdv1nubcidphpap2eq2b.ex.internal.cloudapp.net
 
     This is the hostname of the primary headnode where the Hue website is located.
 

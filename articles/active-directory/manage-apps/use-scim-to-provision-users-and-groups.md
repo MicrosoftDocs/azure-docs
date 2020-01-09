@@ -59,15 +59,16 @@ Note that you don't need to support both users and groups or all the attributes 
 | Azure Active Directory user | "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User" |
 | --- | --- |
 | IsSoftDeleted |active |
+|department|urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|
 | displayName |displayName |
+|employeeId|urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:employeeNumber|
 | Facsimile-TelephoneNumber |phoneNumbers[type eq "fax"].value |
 | givenName |name.givenName |
 | jobTitle |title |
 | mail |emails[type eq "work"].value |
 | mailNickname |externalId |
-| manager |manager |
+| manager |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager |
 | mobile |phoneNumbers[type eq "mobile"].value |
-| objectId |ID |
 | postalCode |addresses[type eq "work"].postalCode |
 | proxy-Addresses |emails[type eq "other"].Value |
 | physical-Delivery-OfficeName |addresses[type eq "other"].Formatted |
@@ -76,15 +77,16 @@ Note that you don't need to support both users and groups or all the attributes 
 | telephone-Number |phoneNumbers[type eq "work"].value |
 | user-PrincipalName |userName |
 
+
 ### Table 2: Default group attribute mapping
 
 | Azure Active Directory group | urn:ietf:params:scim:schemas:core:2.0:Group |
 | --- | --- |
-| displayName |externalId |
+| displayName |displayName |
 | mail |emails[type eq "work"].value |
 | mailNickname |displayName |
 | members |members |
-| objectId |ID |
+| objectId |externalId |
 | proxyAddresses |emails[type eq "other"].Value |
 
 ## Step 2: Understand the Azure AD SCIM implementation

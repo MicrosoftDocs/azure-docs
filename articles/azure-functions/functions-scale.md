@@ -10,15 +10,15 @@ ms.custom: H1Hack27Feb2017
 ---
 # Azure Functions scale and hosting
 
-When you create a function app in Azure, you must choose a hosting plan for your app. There are three hosting plans available for Azure Functions: [Consumption plan](#consumption-plan), [Premium plan](#premium-plan), and [App Service plan](#app-service-plan).
+When you create a function app in Azure, you must choose a hosting plan for your app. There are three hosting plans available for Azure Functions: [Consumption plan](#consumption-plan), [Premium plan](#premium-plan), and [Dedicated (App Service) plan](#app-service-plan).
 
 The hosting plan you choose dictates the following behaviors:
 
 * How your function app is scaled.
 * The resources available to each function app instance.
-* Support for advanced features, such as VNET connectivity.
+* Support for advanced features, such as Azure Virtual Network connectivity.
 
-Both Consumption and Premium plans automatically add compute power when your code is running. Your app is scaled out when needed to handle load, and scaled down when code stops running. For the Consumption plan, you also don't have to pay for idle VMs or reserve capacity in advance.  
+Both Consumption and Premium plans automatically add compute power when your code is running. Your app is scaled out when needed to handle load, and scaled in when code stops running. For the Consumption plan, you also don't have to pay for idle VMs or reserve capacity in advance.  
 
 Premium plan provides additional features, such as premium compute instances, the ability to keep instances warm indefinitely, and VNet connectivity.
 
@@ -29,7 +29,7 @@ App Service plan allows you to take advantage of dedicated infrastructure, which
 Feature support falls into the following two categories:
 
 * _Generally available (GA)_: fully supported and approved for production use.
-* _Preview_: not yet fully supported and approved for production use.
+* _Preview_: not yet fully supported nor approved for production use.
 
 The following table indicates the current level of support for the three hosting plans, when running on either Windows or Linux:
 
@@ -74,7 +74,7 @@ Consider the Azure Functions premium plan in the following situations:
 * You have a high number of small executions and have a high execution bill but low GB second bill in the consumption plan.
 * You need more CPU or memory options than what is provided by the Consumption plan.
 * Your code needs to run longer than the [maximum execution time allowed](#timeout) on the Consumption plan.
-* You require features that are only available on a Premium plan, such as VNET/VPN connectivity.
+* You require features that are only available on a Premium plan, such as virtual network connectivity.
 
 When running JavaScript functions on a Premium plan, you should choose an instance that has fewer vCPUs. For more information, see the [Choose single-core Premium plans](functions-reference-node.md#considerations-for-javascript-functions).  
 
