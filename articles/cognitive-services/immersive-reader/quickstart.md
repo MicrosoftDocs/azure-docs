@@ -37,20 +37,11 @@ Create a new project in Visual Studio, using the ASP.NET Core Web Application te
 
 ![New ASP.NET Core Web Application](./media/quickstart-csharp/3-createmvc.png)
 
-## Acquire an Azure AD authentication token
+## Set up authentication
 
-You need some values from the Azure AD authentication configuration prerequisite step above for this part. Refer back to the text file you saved of that session.
+### Configure authentication values
 
-````text
-TenantId     => Azure subscription TenantId
-ClientId     => Azure AD ApplicationId
-ClientSecret => Azure AD Application Service Principal password
-Subdomain    => Immersive Reader resource subdomain (resource 'Name' if the resource was created in the Azure portal, or 'CustomSubDomain' option if the resource was created with Azure CLI Powershell. Check the Azure portal for the subdomain on the Endpoint in the resource Overview page, for example, 'https://[SUBDOMAIN].cognitiveservices.azure.com/')
-````
-
-### Store the Azure AD values in a secret file
-
-Right-click on the project in the _Solution Explorer_ and choose **Manage User Secrets**. This will open a file called _secrets.json_. This file isn't checked into source control. Learn more [here](https://docs.microsoft.com/aspnet/core/security/app-secrets?view=aspnetcore-3.1&tabs=windows). Replace the contents of _secrets.json_ with the following, supplying your custom property values from above. 
+Right-click on the project in the _Solution Explorer_ and choose **Manage User Secrets**. This will open a file called _secrets.json_. This file isn't checked into source control. Learn more [here](https://docs.microsoft.com/aspnet/core/security/app-secrets?view=aspnetcore-3.1&tabs=windows). Replace the contents of _secrets.json_ with the following, supplying your custom property values from the Azure AD authentication configuration prerequisite step above. 
 
 ```json
 {

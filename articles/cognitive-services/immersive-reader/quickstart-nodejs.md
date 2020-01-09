@@ -46,20 +46,11 @@ yarn add request
 yarn add dotenv
 ```
 
-## Acquire an Azure AD authentication token
+## Set up authentication
 
-You need some values from the Azure AD authentication configuration prerequisite step above for this part. Refer back to the text file you saved of that session.
-
-````text
-TenantId     => Azure subscription TenantId
-ClientId     => Azure AD ApplicationId
-ClientSecret => Azure AD Application Service Principal password
-Subdomain    => Immersive Reader resource subdomain (resource 'Name' if the resource was created in the Azure portal, or 'CustomSubDomain' option if the resource was created with Azure CLI Powershell. Check the Azure portal for the subdomain on the Endpoint in the resource Overview page, for example, 'https://[SUBDOMAIN].cognitiveservices.azure.com/')
-````
-
-### Store the Azure AD values in a secret file
-
-Once you have these values, create a new file called _.env_ in the root of your project. Paste the following code into it, supplying your custom property values from above. Do not include quotation marks or the "{" and "}" characters.
+### Configure authentication values
+Create a new file called _.env_ in the root of your project. Paste the following code into it, supplying your custom property values from the Azure AD authentication configuration prerequisite step above. 
+Do not include quotation marks or the "{" and "}" characters.
 
 ```text
 TENANT_ID={YOUR_TENANT_ID}
