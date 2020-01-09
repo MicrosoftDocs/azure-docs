@@ -62,6 +62,8 @@
     href: platform/powershell-samples.md
 - name: Concepts
   items:
+  - name: What can you monitor?
+    href: monitor-reference.md
   - name: Azure management
     href: azure-management.md
   - name: Continuous monitoring

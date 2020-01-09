@@ -10,7 +10,7 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 12/13/2019
+ms.date: 01/08/2020
 ms.author: raiye
 ---
 # Azure Guest OS
@@ -18,27 +18,24 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 
 ## December 2019 Guest OS
 
->[!NOTE]
->The December Guest OS is currently being rolled out to Cloud Service VMs that are configured for automatic updates. When the rollout is complete, this version will be made available for manual updates through the Azure portal and configuration files. The following patches are included in the December Guest OS. This list is subject to change.
-
 | Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
 | --- | --- | --- | --- | --- |
-|  Rel 19-12  |  [4530692]  |  Windows Security  | 2.93 | Dec 10, 2019 |
-|  Rel 19-12  |  [4530677]  |  Internet Explorer  | 2.93 | Dec 10, 2019 |
-|  Rel 19-12  |  [4530677]  |  Internet Explorer  | 3.80 | Dec 10, 2019 |
-|  Rel 19-12  |  [4530698]  |  Windows Security  | 3.80 | Dec 10, 2019 |
-|  Rel 19-12  |  [4530730]  |  Windows Security  | 4.73 | Dec 10, 2019 |
-|  Rel 19-12  |  [4530677]  |  Internet Explorer  | 4.73 | Dec 10, 2019 |
-|  Rel 19-12  |  [4530689]  |  Latest Cumulative update  | 5.38 | Dec 10, 2019 |
-|  Rel 19-12  |  [4530715]  |  Latest Cumulative update  | 6.14 | Dec 10, 2019 |
-|  Rel 19-12  |  [4525235]  |  Non-Security  | 2.93 | Nov 12, 2019 |
-|  Rel 19-12  |  [4531786]  |  Servicing Stack Update  | 2.93 | Dec 10, 2019 |
-|  Rel 19-12  |  [4525246]  |  Non-Security  | 3.80 | Nov 12, 2019 |
-|  Rel 19-12  |  [4523208]  |  Servicing Stack Update  | 3.8 | Nov 12, 2019 |
-|  Rel 19-12  |  [4525243]  |  Non-Security  | 4.73 | Nov 12, 2019 |
-|  Rel 19-12  |  [4524445]  |  Servicing Stack Update  | 4.73 | Nov 12, 2019 |
-|  Rel 19-12  |  [4520724]  |  Servicing Stack Update  | 5.38 | Nov 12, 2019 |
-|  Rel 19-12  |  [4523204]  |  ServicingStackUpdate  | 6.14 | Nov 12, 2019 |
+|  Rel 19-12  |  [4530692]  |  Windows Security  | [2.93] | Dec 10, 2019 |
+|  Rel 19-12  |  [4530677]  |  Internet Explorer  | [2.93] | Dec 10, 2019 |
+|  Rel 19-12  |  [4530677]  |  Internet Explorer  | [3.80] | Dec 10, 2019 |
+|  Rel 19-12  |  [4530698]  |  Windows Security  | [3.80] | Dec 10, 2019 |
+|  Rel 19-12  |  [4530730]  |  Windows Security  | [4.73] | Dec 10, 2019 |
+|  Rel 19-12  |  [4530677]  |  Internet Explorer  | [4.73] | Dec 10, 2019 |
+|  Rel 19-12  |  [4530689]  |  Latest Cumulative update  | [5.38] | Dec 10, 2019 |
+|  Rel 19-12  |  [4530715]  |  Latest Cumulative update  | [6.14] | Dec 10, 2019 |
+|  Rel 19-12  |  [4525235]  |  Non-Security  | [2.93] | Nov 12, 2019 |
+|  Rel 19-12  |  [4531786]  |  Servicing Stack Update  | [2.93] | Dec 10, 2019 |
+|  Rel 19-12  |  [4525246]  |  Non-Security  | [3.80] | Nov 12, 2019 |
+|  Rel 19-12  |  [4523208]  |  Servicing Stack Update  | [3.80] | Nov 12, 2019 |
+|  Rel 19-12  |  [4525243]  |  Non-Security  | [4.73] | Nov 12, 2019 |
+|  Rel 19-12  |  [4524445]  |  Servicing Stack Update  | [4.73] | Nov 12, 2019 |
+|  Rel 19-12  |  [4520724]  |  Servicing Stack Update  | [5.38] | Nov 12, 2019 |
+|  Rel 19-12  |  [4523204]  |  ServicingStackUpdate  | [6.14] | Nov 12, 2019 |
 
 [4530692]: https://support.microsoft.com/kb/4530692
 [4530677]: https://support.microsoft.com/kb/4530677
@@ -56,6 +53,12 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 [4524445]: https://support.microsoft.com/kb/4524445
 [4520724]: https://support.microsoft.com/kb/4520724
 [4523204]: https://support.microsoft.com/kb/4523204
+[6.14]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-6-releases
+[5.38]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-5-releases
+[4.73]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-4-releases
+[3.80]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-3-releases
+[2.93]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-2-releases
+
 
 
 ## November 2019 Guest OS
