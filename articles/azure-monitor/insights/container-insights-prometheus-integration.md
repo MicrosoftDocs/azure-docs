@@ -15,7 +15,7 @@ ms.date: 01/08/2020
 >The minimum agent version supported for scraping Prometheus metrics is ciprod07092019 or later, and the agent version supported for writing configuration and agent errors in the `KubeMonAgentEvents` table is ciprod10112019. For more information about the agent versions and what's included in each release, see [agent release notes](https://github.com/microsoft/Docker-Provider/tree/ci_feature_prod). 
 >To verify your agent version, from the **Node** tab select a node, and in the properties pane note value of the **Agent Image Tag** property.
 
-Scraping of Prometheus metrics is supported on the following Kubernetes clusters hosted in:
+Scraping of Prometheus metrics is supported on Kubernetes clusters hosted on:
 
 - Azure Kubernetes Service (AKS)
 - Azure Container Instances
