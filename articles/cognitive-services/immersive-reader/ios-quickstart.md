@@ -2,7 +2,6 @@
 title: "Quickstart: Create an iOS app that launches the Immersive Reader (Swift)"
 titleSuffix: Azure Cognitive Services
 description: In this quickstart, you will build an iOS app from scratch and add the Immersive Reader functionality.
-services: cognitive-services
 author: metanMSFT
 
 ms.service: cognitive-services
@@ -36,34 +35,67 @@ Choose **Single View App**.
 
 ![New Single View App](./media/ios/xcode-single-view-app.png)
 
+## Set up authentication
+
+In the top menu, click on **Product > Scheme > Edit Scheme...**.
+
+![Edit Scheme](./media/ios/quickstart-ios-edit-scheme.png)
+
+In the **Run** view, click on **Arguments** tab.
+
+![Edit Scheme](./media/ios/quickstart-ios-env-vars.png)
+
+In the **Environment Variables** section, add the following names and values, supplying the values given when you created your Immersive Reader resource.
+
+```text
+TENANT_ID=<YOUR_TENANT_ID>
+CLIENT_ID=<YOUR_CLIENT_ID>
+CLIENT_SECRET<YOUR_CLIENT_SECRET>
+SUBDOMAIN=<YOUR_SUBDOMAIN>
+```
+
 ## Set up the app to run without a storyboard
 
-Open AppDelegate.swift and replace the file with the following code.
+Open *AppDelegate.swift* and replace the file with the following code.
 
-[!code-swift[AppDelegate](~/ImmersiveReaderSdk/iOS/samples/quickstart-swift/quickstart-swift/AppDelegate.swift)]
+[!code-swift[AppDelegate](~/ImmersiveReaderSdk/js/samples/ios/quickstart-swift/quickstart-swift/AppDelegate.swift)]
 
-## Create the Launch View Controller and add sample content
+## Create the view controllers and add sample content
 
-Rename ViewController.swift to LaunchViewController.swift and replace the file with the following code.
+Rename *ViewController.swift* to *LaunchViewController.swift* and replace the file with the following code.
 
-[!code-swift[LaunchViewController](~/ImmersiveReaderSdk/iOS/samples/quickstart-swift/quickstart-swift/LaunchViewController.swift)]
+[!code-swift[LaunchViewController](~/ImmersiveReaderSdk/js/samples/ios/quickstart-swift/quickstart-swift/LaunchViewController.swift)]
+
+Add a new file to the project root folder named *ImmersiveReaderViewController.swift* and add the following code.
+
+[!code-swift[ImmersiveReaderViewController](~/ImmersiveReaderSdk/js/samples/ios/quickstart-swift/quickstart-swift/ImmersiveReaderViewController.swift)]
+
+Add another new file to the project root folder named *LaunchImmersiveReader.swift* and add the following code.
+
+[!code-swift[LaunchImmersiveReader](~/ImmersiveReaderSdk/js/samples/ios/quickstart-swift/quickstart-swift/LaunchImmersiveReader.swift)]
+
+Add a file to the *Resources* folder named *iFrameMessaging.js* and add the following code.
+
+[!code-javascript[iFrameMessaging](~/ImmersiveReaderSdk/js/samples/ios/quickstart-swift/quickstart-swift/Resources/iFrameMessaging.js)]
 
 ## Build and run the app
 
 Set the archive scheme in Xcode by selecting a simulator or device target.
-![Archive scheme](./media/ios/xcode-archive-scheme.png)<br/>
+
+![Archive scheme](./media/ios/xcode-archive-scheme.png)
+
 ![Select Target](./media/ios/xcode-select-target.png)
 
-In Xcode, press Ctrl + R or click on the play button to run the project and the app should launch on the specified simulator or device.
+In Xcode, press **Ctrl+R** or click on the play button to run the project. The app should launch on the specified simulator or device.
 
 In your app, you should see:
 
 ![Sample app](./media/ios/sample-app-ipad.png)
 
-When you click on the "Immersive Reader" button, you'll see the Immersive Reader launched with the content on app.
+When you click on the **Immersive Reader** button, you'll see the Immersive Reader launched with the content on app.
 
 ![Immersive Reader](./media/ios/immersive-reader-ipad.png)
 
 ## Next steps
 
-* Explore the [Immersive Reader iOS SDK](https://github.com/microsoft/immersive-reader-sdk/tree/master/iOS) and the [Immersive Reader iOS SDK Reference](./ios-reference.md)
+* Explore the [Immersive Reader SDK Reference](./reference.md)
