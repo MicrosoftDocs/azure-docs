@@ -1,5 +1,5 @@
 ---
-title: Azure Monitor customer-managed key configuration guide 
+title: Azure Monitor customer-managed key configuration
 description: Information and steps to configure Customer-Managed Key (CMK) to encrypt data in your Log Analytics workspaces using an Azure Key Vault key.
 ms.service:  azure-monitor
 ms.subservice: logs
@@ -10,28 +10,27 @@ ms.date: 01/07/2020
 
 ---
 
-# Azure Monitor customer-managed key configuration guide 
+# Azure Monitor customer-managed key configuration 
 
-This guide provides background information and steps to configure Customer-Managed Keys (CMK) for your Log Analytics workspaces. Once configured, any data sent to your workspaces is encrypted with your Azure Key Vault key.
+This article provides background information and steps to configure Customer-Managed Keys (CMK) your Log Analytics workspaces and Application Insights components. Once configured, any data sent to your workspaces is encrypted with your Azure Key Vault key.
 
-We recommend you review [Limitations and constraints](#Limitations and constraints) below before configuration. 
+We recommend you review [Limitations and constraints](#Limitations and constraints) below before configuration.
 
 ## Disclaimers
 
 - Azure Monitor CMK is an early access feature and enabled for registered subscriptions
 
-- The CMK deployment described in the guide is delivered in production quality and supported as such although it's an early access feature.
+- The CMK deployment described in this article is delivered in production quality and supported as such although it's an early access feature.
 
-- CMK capability is delivered on a dedicated data-store-cluster, aka ADX cluster and suitable for customers sending 1 TB per day.
+- CMK capability is delivered on a dedicated data-store-cluster, which is an ADX cluster and suitable for customers sending 1 TB or more per day.
 
-- CMK pricing model isn't available currently and it isn't covered in the guide -- A pricing model for dedicated data-store-cluster is expected in the second quarter of 2020 and will apply on any existing CMK deployments.
+- CMK pricing model isn't available currently and it isn't covered in this article. A pricing model for dedicated data-store-cluster is expected in the second quarter of calendar year (CY) 2020 and will apply to any existing CMK deployments.
 
-- The guide describes the CMK configuration for Log Analytics workspaces. CMK for Application Insights components is also supported using this guide while differences are listed in the Appendix.
-
+- This article describes the CMK configuration for Log Analytics workspaces. CMK for Application Insights components is also supported using this article while differences are listed in the Appendix.
 
 > [!NOTE]
-> Log Analytics and Application Insights are using the same data-store platform and query engine. 
-> We are bringing these two stores together via integration of Application Insights into Log Analytics to create a single unified logs store under Azure Monitor. This change is planned for the second quarter of calendar year 2020. If you don’t have to deploy CMK for your Application Insight data by then, we recommend waiting for the completion of the consolidation since such deployments will be disrupted by the consolidation and you will have to re-configure CMK after the migration to Log Analytics workspace.
+> Log Analytics and Application Insights are using the same data-store platform and query engine.
+> We are bringing these two stores together via integration of Application Insights into Log Analytics to create a single unified logs store under Azure Monitor. This change is planned for the second quarter of calendar year 2020. If you don’t have to deploy CMK for your Application Insight data by then, we recommend waiting for the completion of the consolidation since such deployments will be disrupted by the consolidation and you will have to re-configure CMK after the migration to Log Analytics workspace. The 1 TB per day minimum applies at the cluster level, and until the consolidation completes during second quarter Application Insights and Log Analytics require separate clusters.
 
 ## Customer-managed key (CMK) overview
 
@@ -82,7 +81,8 @@ There are 3 types of keys involved in Storage data encryption:
 - **DEK** - Data Encryption Key
 
 The following rules apply:
-- Azure Storage generates a unique encryption key for every storage account, which is known as the AEK
+
+- The ADX storage account generates a unique encryption key for every storage account, which is known as the AEK
 
 - The AEK is used to derive DEKs, which are the keys that are used to
     encrypt each block of data written to disk.
@@ -117,20 +117,21 @@ The provisioning process includes these steps:
 The procedure is not supported in the UI currently and the provisioning process is performed via REST API.
 
 > [!IMPORTANT]
-> Any API request must include a Bearer authorization token in the request header. 
+> Any API request must include a Bearer authorization token in the request header.
 
 For example:
 
-```
+```rst
 GET
-https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}?api-version=2015-11-01-preview] 
+https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}?api-version=2015-11-01-preview]
   authorization: Bearer eyJ0eXAiO....
 ```
+
 where *eyJ0eXAiO....* represents the full authorization token. 
 
 You can acquire the token using one of these methods:
 
-1. Use [App registrations](https://docs.microsoft.com/graph/auth/auth-concepts#access-tokens) method. 
+1. Use [App registrations](https://docs.microsoft.com/graph/auth/auth-concepts#access-tokens) method.
 
 2. In the Azure portal
     1. Navigate to Azure portal in "developer tool (F12)
@@ -150,7 +151,7 @@ CMK capability is an early access feature. The subscriptions where you plan to c
 
 Create an Azure Key Vault resource, then generate or import a key to be used for data encryption.
 
-The Azure Key Vault must be configured as recoverable to protect your key and the access to your Azure Monitor data. 
+The Azure Key Vault must be configured as recoverable to protect your key and the access to your Azure Monitor data.
 
 To [Turn on recovery options](https://docs.microsoft.com/azure/key-vault/key-vault-best-practices#turn-on-recovery-options):
 - [Soft Delete](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete)
@@ -554,7 +555,7 @@ Response
 
 ## Appendix
 
-This guide applies to Application Insights Customer Managed Key (CMK) as
+This article applies to Application Insights Customer Managed Key (CMK) as
 well, though you should consider the upcoming change to help you plan
 the deployment of CMK for your Application Insight components.
 
@@ -576,8 +577,7 @@ apply to your Application Insights data.
 
 ## Application Insights CMK configuration
 
-The configuration of Application Insights CMK is identical to the process illustrated in this guide, including constraints and
-troubleshooting except these steps:
+The configuration of Application Insights CMK is identical to the process illustrated in this article, including constraints and troubleshooting except these steps:
 
 - Create *Cluster* resource
 
@@ -586,12 +586,13 @@ troubleshooting except these steps:
 When configuring CMK for Application Insights, use these steps instead
 of the ones listed above.
 
-### Create *Cluster* resource
+### Create a *Cluster* resource
 
 This resource is used as intermediate identity connection between your Key Vault and your components. AFTER you received a confirmation that your subscriptions were whitelisted, create a Log Analytics Cluster resource at the region where your components are located. The type of the Cluster resource is defined at creation time by setting the *clusterType* property to either *LogAnalytics*, or *ApplicationInsights*. It should be *ApplicationInsights* for Application Insights CMK. The *clusterType* setting can’t be altered after the configuration.
 
 Create:
-```
+
+```json
 PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.OperationalInsights/clusters/{cluster-name}?api-version=2019-08-01-preview
 Authorization: Bearer <token>
 Content-type: application/json
@@ -611,7 +612,7 @@ Response:
 
 Identity is assigned to the Cluster at creation time.
 
-```
+```json
 
 {
   "identity": {
@@ -633,7 +634,7 @@ Identity is assigned to the Cluster at creation time.
 
 ### Associate a component to a Cluster resource
 
-```
+```json
 PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Insights/components/{component-name}?api-version=2015-05-01
 Authorization: Bearer <token>
 Content-type: application/json
@@ -648,7 +649,8 @@ Content-type: application/json
 ```
 
 Response
-```
+
+```json
 {
   "id": "/subscriptions/{subscription-id}/resourcegroups/{resource-group-name}/providers/microsoft.insights/components/{component-name}",
   "name": "component-name",
