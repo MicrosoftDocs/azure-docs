@@ -189,7 +189,8 @@ The data flow created in this step inner joins the 'TripDataCSV' dataset created
 
     ![Portal](media/lab-data-flow-data-share/dataflow7.png)
 
-*Note: Data preview does not write data.*
+> [!Note]
+> Data preview does not write data.
 
 ### Configure your trip fares SQL DB source
 
@@ -332,13 +333,17 @@ Once you have created a data share, you'll then switch hats and become the *data
 
     ![Add dataset](media/lab-data-flow-data-share/add-dataset.png)
 
-1. Select **Azure SQL Data Warehouse** to select a table from the Azure SQL Data Warehouse that your ADF transformations landed in. (Note: Azure SQL Data Warehouse is now known as Azure Synapse Analytics)
+1. Select **Azure SQL Data Warehouse** to select a table from the Azure SQL Data Warehouse that your ADF transformations landed in.
 
     ![Add dataset](media/lab-data-flow-data-share/add-dataset-sql.png)
-    
+
+> [!NOTE]
+> Azure SQL Data Warehouse is now known as Azure Synapse Analytics
+
 1. You'll be given a script to run before you can proceed. The script provided creates a user in the SQL database to allow the Azure Data Share MSI to authenticate on its behalf. 
 
-    IMPORTANT: Before running the script, you must set yourself as the Active Directory Admin for the SQL Server. 
+> [!IMPORTANT]
+> Before running the script, you must set yourself as the Active Directory Admin for the SQL Server. 
 
 1. Open a new tab and navigate to the Azure portal. Copy the script provided to create a user in the database that you want to share data from. Do this by logging into the EDW database using Query Explorer (preview) using AAD authentication. 
 
