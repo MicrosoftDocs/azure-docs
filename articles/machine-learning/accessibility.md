@@ -1,11 +1,25 @@
+---
+title: Use accesibility features in the designer (preview)
+titleSuffix: Azure Machine Learning
+description: Learn how to use screenreader accessibility features in the designer to create machine learning pipelines.
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: core
+ms.topic: how-to
+ms.author: peterlu
+author: peterclu
+ms.date: 01/09/2020
+
+---
+
 # Use a screen reader to explore and navigate designer
 
 This article is for people with visual impairments who use a screen reader. Use designer with your keyboard and a screen reader to read and edit designer pipelines. We have tested it with Narrator and JAWS, but it might work with other screen readers as long as they follow common accessibility standards and techniques.
 
-
 ## Drag and drop graph
 
 Designer provides a drag-n-drop experience to train and deploy machine learning models. It lets you visually connect datasets and modules on an interactive canvas. 
+
 ###  Navigate the graph
 The pipeline graph is described as two level list. The fist level list describes all the nodes of a graph. The second level list describes the connection to other nodes of a specific node. Screen reader user can navigate the graph by:
 
