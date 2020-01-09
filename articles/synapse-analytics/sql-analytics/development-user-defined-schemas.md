@@ -1,6 +1,6 @@
 ---
-title: User-defined schemas in SQL Analytics
-description: In the sections below, you'll find various tips for using T-SQL user-defined schemas to develop solutions in the SQL Analytics capability of Azure Synapse Analytics.
+title: User-defined schemas within SQL Analytics
+description: In the sections below, you'll find various tips for using T-SQL user-defined schemas to develop solutions with the SQL Analytics capability of Azure Synapse Analytics.
 services: synapse-analytics 
 author: azaricstefan 
 ms.service: synapse-analytics
@@ -12,8 +12,8 @@ ms.reviewer: jrasnick
 ---
 
 
-# User-defined schemas in SQL Analytics
-In the sections below, you'll find various tips for using T-SQL user-defined schemas to develop solutions in the SQL Analytics capability of Azure Synapse Analytics.
+# User-defined schemas within SQL Analytics
+In the sections below, you'll find various tips for using T-SQL user-defined schemas to develop solutions within SQL Analytics.
 
 ## Schemas for application boundaries
 
@@ -22,11 +22,11 @@ Traditional analytics architecture often uses separate databases to create appli
 Instead, SQL Analytics runs the entire analytics workload within one database. Cross database joins aren't permitted. SQL Analytics expects all tables used by the warehouse to be stored within the one database.
 
 > [!NOTE]
-> SQL Analytics does not support cross database queries of any kind. Consequently, analytics implementations that leverage this pattern will need to be revised.
+> SQL Analytics doesn't support cross database queries of any kind. Consequently, analytics implementations that leverage this pattern need to be revised.
 > 
 > 
 
-## Recommendations
+## User-defined schema recommendations
 Included are recommendations for consolidating workloads, security, domain, and functional boundaries by using user-defined schemas:
 
 - Use one SQL Analytics database to run your entire analytics workload.
@@ -114,7 +114,7 @@ FROM    [edw].customer
 > Any change in schema strategy requires a review of the security model for the database. In many cases, you might be able to simplify the security model by assigning permissions at the schema level. 
 > 
 > 
-If more granular permissions are required, you can use database roles. For more information on database roles, refer to the [Manage database roles and users](https://docs.microsoft.com/azure/analysis-services/analysis-services-database-users/
+If more granular permissions are required, you can use database roles. For more information about database roles, see the [Manage database roles and users](https://docs.microsoft.com/azure/analysis-services/analysis-services-database-users/
 ) article. 
 
 ## Next steps
