@@ -30,7 +30,7 @@ Transport Layer Security (TLS) and Secure Sockets Layer (SSL) are cryptographic 
 
 From this release, HDInsight will enforce all connection through TLS 1.2. A new property **minSupportedTlsVersion** is introduced via ARM template for cluster creation. The property is by-default "1.2", which means the cluster only supports TLS 1.2 and above. Customers can set this property to "1.1" specifically for backward compatibility.
 
-### Bring your own key for disk encryptionNow
+### Bring your own key for disk encryption
 All managed disks in HDInsight are protected with Azure Storage Service Encryption (SSE). Data on those disks is encrypted by Microsoft-managed keys by default. Starting from this release, you can Bring Your Own Key (BYOK) for disk encryption and manage it using Azure Key Vault. BYOK encryption is a one-step configuration during cluster creation with no additional cost. Just register HDInsight as a managed identity with Azure Key Vault and add the encryption key when you create your cluster. 
 
 ## Deprecation
