@@ -14,7 +14,7 @@ ms.reviewer: jrasnick
 
 # Control storage account access for SQL on-demand in Azure Synapse Analytics
 
-A SQL on-demand query reads files directly from Azure Storage. Since the storage account is an object that is external to the SQL on-demand resource, appropriate credentials are required. A user needs the applicable permissions granted to use the requisite credential. This article describes the types of credentials you can use and how credential lookup is enacted for SQL and AAD logins.
+A SQL on-demand query reads files directly from Azure Storage. Since the storage account is an object that is external to the SQL on-demand resource, appropriate credentials are required. A user needs the applicable permissions granted to use the requisite credential. This article describes the types of credentials you can use and how credential lookup is enacted for SQL and Azure AD logins.
 
 ## Supported storage authorization types
 
@@ -25,11 +25,11 @@ A user that has logged into a SQL on-demand resource must be authorized to acces
 - [User Identity](#user-identity)
 
 > [!NOTE]
-> [AAD pass-through](#force-aad-pass-through) is the default behavior when you create a workspace. You can [disable this behavior](#disable-forcing-aad-pass-through).
+> [Azure AD pass-through](#force-azure-ad-pass-through) is the default behavior when you create a workspace. You can [disable this behavior](#disable-forcing-azure-ad-pass-through).
 
 In the table below you'll find the different authorization types that are either supported or will be supported soon.
 
-| Authorization type                    | *SQL user*    | *AAD user*     |
+| Authorization type                    | *SQL user*    | *Azure AD user*     |
 | ------------------------------------- | ------------- | -----------    |
 | [SAS](#shared-access-signature)       | Supported     | Supported      |
 | [Managed Identity](#managed-identity) | Not supported | Not supported  |
@@ -40,7 +40,7 @@ In the table below you'll find the different authorization types that are either
 **Shared access signature (SAS)** provides delegated access to resources in a storage account. With SAS, a customer can grant clients access to resources in a storage account without sharing account keys. SAS gives you granular control
 over the type of access you grant to clients who have an SAS, including validity interval, granted permissions, acceptable IP address range, and the acceptable protocol (https/http).
 
-You can get an SAS token by navigating to **Azure Portal -> Storage Account -> Shared access signature -> Configure permissions -> Generate SAS and connection string.** 
+You can get an SAS token by navigating to the **Azure portal -> Storage Account -> Shared access signature -> Configure permissions -> Generate SAS and connection string.** 
 
 > [!IMPORTANT]
 > When an SAS token is generated, it includes a question mark ('?') at the beginning of the token. To use the token in SQL on-demand, you must remove the question mark ('?') when creating a credential. For example: 
@@ -49,8 +49,8 @@ You can get an SAS token by navigating to **Azure Portal -> Storage Account -> S
 
 ### User Identity
 
-**User Identity**, also known as “pass-through", is an authorization type where the identity of the AAD user that logged into
-SQL on-demand is used to authorize data access. Before accessing the data, the Azure Storage administrator must grant permissions to the AAD user. As indicated in the table above, it's not supported for the SQL user type.
+**User Identity**, also known as “pass-through", is an authorization type where the identity of the Azure AD user that logged into
+SQL on-demand is used to authorize data access. Before accessing the data, the Azure Storage administrator must grant permissions to the Azure AD user. As indicated in the table above, it's not supported for the SQL user type.
 
 > [!IMPORTANT]
 > You need to have a Storage Blob Data Owner/Contributor/Reader role to use your identity to access the data.
@@ -63,7 +63,7 @@ SQL on-demand is used to authorize data access. Before accessing the data, the A
 
 **Managed Identity** is also known as MSI. It's a feature of Azure Active Directory (Azure AD) that provides Azure services for SQL on-demand. Also, it deploys an automatically managed identity in Azure AD. This identity can be used to authorize the request for data access in Azure Storage. 
 
-Before accessing the data, the Azure Storage administrator must grant permissions to Managed Identity for accessing the data. Granting permissions to Managed Identity is done the same way as granting permission to any other AAD user.
+Before accessing the data, the Azure Storage administrator must grant permissions to Managed Identity for accessing the data. Granting permissions to Managed Identity is done the same way as granting permission to any other Azure AD user.
 
 ## Create credentials
 
@@ -85,7 +85,7 @@ CREDENTIAL NAME must match the full path to the container, folder, or file, in t
  '<storage_path>' is a path within your storage that points to the folder or file you want to read.
 
 > [!NOTE]
-> There is special CREDENTIAL NAME  `UserIdentity`  that [forces AAD pass-through](#force-aad-pass-through). Please read about the effect it has on [credential lookup](#credential-lookup) while executing queries.
+> There is special CREDENTIAL NAME  `UserIdentity`  that [forces Azure AD pass-through](#force-azure-ad-pass-through). Please read about the effect it has on [credential lookup](#credential-lookup) while executing queries.
 
 Optionally, to allow a user to create or drop a credential, admin can GRANT/DENY ALTER ANY CREDENTIAL permission to a user:
 
@@ -139,21 +139,21 @@ Exchange <*mystorageaccountname*> with your actual storage account name, and <*m
 >GO
 >```
 
-## Force AAD pass-through
+## Force Azure AD pass-through
 
-Forcing an AAD pass-through is a default behavior achieved by a special CREDENTIAL NAME, `UserIdentity`, that is created automatically during Azure Synapse workspace provisioning. It forces the usage of an AAD pass-through for each query of every AAD login, which will occur despite the existence of other credentials. 
+Forcing an Azure AD pass-through is a default behavior achieved by a special CREDENTIAL NAME, `UserIdentity`, that is created automatically during Azure Synapse workspace provisioning. It forces the usage of an Azure AD pass-through for each query of every Azure AD login, which will occur despite the existence of other credentials. 
 
 > [!NOTE]
-> AAD pass-through is a default behavior.
+> Azure AD pass-through is a default behavior.
 
-In case you [disabled forcing AAD pass-through for each query](#disable-forcing-aad-pass-through), and want to enable it again, execute:
+In case you [disabled forcing Azure AD pass-through for each query](#disable-forcing-azure-ad-pass-through), and want to enable it again, execute:
 
 ```sql
 CREATE CREDENTIAL [UserIdentity]
 WITH IDENTITY = 'User Identity'
 ```
 
-To enable forcing an AAD pass-through for a specific user, you can grant REFERENCE permission on credential `UserIdentity` to that particular user. The following example enables forcing an AAD pass-through for a user_name:
+To enable forcing an Azure AD pass-through for a specific user, you can grant REFERENCE permission on credential `UserIdentity` to that particular user. The following example enables forcing an Azure AD pass-through for a user_name:
 
 ```sql
 GRANT REFERENCES ON CREDENTIAL::[UserIdentity] TO USER [user_name]
@@ -161,17 +161,17 @@ GRANT REFERENCES ON CREDENTIAL::[UserIdentity] TO USER [user_name]
 
 For more information on how SQL on-demand finds credential to use, see [credential lookup](#credential-lookup).
 
-## Disable forcing AAD pass-through
+## Disable forcing Azure AD pass-through
 
-You can disable [forcing AAD pass-through for each query](#force-aad-pass-through). To disable it, drop the `Userdentity` credential using:
+You can disable [forcing Azure AD pass-through for each query](#force-azure-ad-pass-through). To disable it, drop the `Userdentity` credential using:
 
 ```sql
 DROP CREDENTIAL [UserIdentity]
 ```
 
-If you want to re-enable it again, refer to the [force AAD pass-through](#force-aad-pass-through) section. 
+If you want to re-enable it again, refer to the [force Azure AD pass-through](#force-azure-ad-pass-through) section. 
 
-To disable forcing AAD pass-through for a specific user, you can deny a REFERENCE permission on credential `UserIdentity` for a particular user. The following example disables a forcing AAD pass-through for a user_name:
+To disable forcing Azure AD pass-through for a specific user, you can deny a REFERENCE permission on credential `UserIdentity` for a particular user. The following example disables a forcing Azure AD pass-through for a user_name:
 
 ```sql
 DENY REFERENCES ON CREDENTIAL::[UserIdentity] TO USER [user_name]
@@ -185,7 +185,7 @@ To use the credential, a user must have REFERENCES permission on a specific cred
 
 `GRANT REFERENCES ON CREDENTIAL::[storage_credential] TO [specific_user]`
 
-To ensure a smooth AAD pass-through experience, all users will, by default, have a right to use the `UserIdentity` credential. This is achieved by an automatic execution of the following statement upon Azure Synapse workspace provisioning:
+To ensure a smooth Azure AD pass-through experience, all users will, by default, have a right to use the `UserIdentity` credential. This is achieved by an automatic execution of the following statement upon Azure Synapse workspace provisioning:
 
 ```sql
 GRANT REFERENCES ON CREDENTIAL::[UserIdentity] TO [public]
@@ -195,9 +195,9 @@ GRANT REFERENCES ON CREDENTIAL::[UserIdentity] TO [public]
 
 When authorizing queries, credential lookup is used to access a storage account and is based on following rules:
 
-- User is logged in as an AAD login
+- User is logged in as an Azure AD login
 
-   - If a UserIdentity credential exists, and the user has reference permissions on it, AAD pass-through will be used, otherwise [lookup credential by path](#lookup-credential-by-path)
+   - If a UserIdentity credential exists, and the user has reference permissions on it, Azure AD pass-through will be used, otherwise [lookup credential by path](#lookup-credential-by-path)
 
 - User is logged in as a SQL login
 
@@ -205,7 +205,7 @@ When authorizing queries, credential lookup is used to access a storage account 
 
 ### Lookup credential by path
 
-If forcing AAD pass-through is disabled, credential lookup will be based on the storage path (depth first) and the existence of a REFERENCES permission on that particular credential. When there are multiple credentials that can be used to access the same file, SQL on-demand will use the most specific one.  
+If forcing Azure AD pass-through is disabled, credential lookup will be based on the storage path (depth first) and the existence of a REFERENCES permission on that particular credential. When there are multiple credentials that can be used to access the same file, SQL on-demand will use the most specific one.  
 
 Below is an example of a query over the following file path: 
 > "account.dfs.core.windows.net/filesystem/folder1/.../folderN/fileX.ext" 
