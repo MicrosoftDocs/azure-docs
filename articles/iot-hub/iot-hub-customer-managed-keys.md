@@ -1,6 +1,6 @@
 ---
 title: Azure IoT Hub data encryption at rest via customer-managed keys| Microsoft Docs (Early Access)
-description: Data encryption with customer-managed keys for IoT Hub  
+description: Data encryption with customer-managed keys for IoT Hub (early access)
 author: ash2017
 manager: briz
 ms.service: iot-hub
