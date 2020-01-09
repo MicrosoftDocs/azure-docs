@@ -5,7 +5,7 @@ ms.service: avere-vfxt
 author: ekpgh
 ms.author: rohogue
 ms.topic: conceptual
-ms.date: 1/06/2020
+ms.date: 01/06/2020
 ---
 
 # Azure vFTX for Azure whitepapers and other resources

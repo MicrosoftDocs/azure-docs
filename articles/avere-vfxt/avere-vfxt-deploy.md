@@ -144,11 +144,11 @@ To find the information:
 
 1. On left side, click **Deployments**, and then **microsoft-avere.vfxt-template**.
 
-   ![Resource group portal page with Deployments selected on the left and microsoft-avere.vfxt-template showing in a table under Deployment name](media/avere-vfxt-outputs-deployments.png) <!-- update image for new portal GUI -->
+   ![Resource group portal page with Deployments selected on the left and microsoft-avere.vfxt-template showing in a table under Deployment name](media/avere-vfxt-outputs-deployments.png)
 
 1. On left side, click **Outputs**. Copy the values in each of the fields.
 
-   ![outputs page showing SSHSTRING, RESOURCE_GROUP, LOCATION, NETWORK_RESOURCE_GROUP, NETWORK, SUBNET, SUBNET_ID, VSERVER_IPs, and MGMT_IP values in fields to the right of the labels](media/avere-vfxt-outputs-values.png)<!-- update image for new portal GUI -->
+   ![outputs page showing SSHSTRING, RESOURCE_GROUP, LOCATION, NETWORK_RESOURCE_GROUP, NETWORK, SUBNET, SUBNET_ID, VSERVER_IPs, and MGMT_IP values in fields to the right of the labels](media/avere-vfxt-outputs-values.png)
 
 ## Next steps
 

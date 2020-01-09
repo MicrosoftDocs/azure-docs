@@ -12,7 +12,12 @@ ms.author: rohogue
 
 This article explains how to plan a new Avere vFXT for Azure cluster that is positioned and sized appropriately for your needs.
 
-Before going to the Azure Marketplace or creating any VMs, consider how the cluster will interact with other elements in Azure. Plan where cluster resources will be located in your private network and subnets, and decide where your back-end storage will be. Make sure that the cluster nodes you create are powerful enough to support your workflow.
+Before going to the Azure Marketplace or creating any VMs, consider these details:
+
+* How will the cluster interact with other Azure resources?
+* Where should cluster elements be located in private networks and subnets?
+* What type of back-end storage will you use, and how will the cluster access it?
+* How powerful do your cluster nodes need to be to support your workflow?
 
 Read on to learn more.
 
@@ -38,10 +43,12 @@ Consider where the elements of your Avere vFXT for Azure deployment will be. The
 
 Follow these guidelines when planning your Avere vFXT system's network infrastructure:
 
-* Create a new subscription for each Avere vFXT for Azure deployment and manage all components in this subscription. Benefits include:
+* Create a new subscription for each Avere vFXT for Azure deployment and manage all components in this subscription.
+
+  Benefits of using a new subscription for each deployment include:
   * Simpler cost tracking - View and audit all costs from resources, infrastructure, and compute cycles in one subscription.
   * Easier cleanup - You can remove the entire subscription when finished with the project.
-  * Convenient partitioning of resource quotas - Protect other critical workloads from possible resource throttling by isolating the Avere vFXT clients and cluster in a single subscription. This avoids conflict when bringing up a large number of clients for a high-performance computing workflow.
+  * Convenient partitioning of resource quotas - Isolate the Avere vFXT clients and cluster in a single subscription to protect other critical workloads from possible resource throttling. This separation prevents conflict when bringing up a large number of clients for a high-performance computing workflow.
 
 * Locate your client compute systems close to the vFXT cluster. Back-end storage can be more remote.  
 
@@ -51,7 +58,7 @@ Follow these guidelines when planning your Avere vFXT system's network infrastru
   * In the same resource group
   * In the same storage account
   
-  The automated cluster creation template handles this for most situations.
+  The cluster creation template handles this configuration for most situations.
 
 * The cluster must be located in its own subnet to avoid IP address conflicts with clients or other compute resources.
 

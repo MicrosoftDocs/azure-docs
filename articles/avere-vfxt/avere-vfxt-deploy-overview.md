@@ -4,9 +4,10 @@ description: Overview of deploying Avere vFXT for Azure
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 12/20/2019
+ms.date: 01/09/2020
 ms.author: rohogue
 ---
+<!-- filename is linked to in the marketplace template, make sure it gets a redirect if we rename it -->
 
 # Avere vFXT for Azure - deployment overview
 
@@ -20,7 +21,7 @@ After [planning your system](avere-vfxt-deploy-plan.md), you can begin to create
 
 An Azure Resource Manager template in the Azure Marketplace collects the necessary information and automatically deploys the entire cluster.
 
-After the vFXT cluster is up and running, you will want to know how to connect clients to it and (optionally) how to move your data to the new Blob storage container. If you use a NAS storage system, you need to add it after the cluster is created.
+After the vFXT cluster is up and running, there are still some configuration steps to take before using it. If you created a new Blob storage container, you'll want to move your data to it. If you use a NAS storage system, you need to add it after the cluster is created. You will want to connect clients to the cluster.
 
 Here is an overview of all of the steps.
 
@@ -62,7 +63,7 @@ Here is an overview of all of the steps.
 1. Add data (if needed)
 
    Because the Avere vFXT is a scalable multi-client cache, the best way to move data to a new back-end storage container is with a multi-client, multi-threaded file copy strategy.
-   
+
    If you need to move working set data to a new Blob container or other back-end storage system, follow the instructions in [Moving data to the vFXT cluster](avere-vfxt-data-ingest.md).
 
 ## Next steps
