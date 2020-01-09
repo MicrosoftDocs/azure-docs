@@ -1,5 +1,5 @@
 ---
-title: Troubleshooting issues with Azure Automation Desired State Configuration (DSC)
+title: Troubleshoot Azure Automation Desired State Configuration (DSC)
 description: This article provides information on troubleshooting Desired State Configuration (DSC)
 services: automation
 ms.service: automation
@@ -10,7 +10,7 @@ ms.date: 04/16/2019
 ms.topic: conceptual
 manager: carmonm
 ---
-# Troubleshoot Desired State Configuration (DSC)
+# Troubleshoot issues with Azure Automation Desired State Configuration (DSC)
 
 This article provides information on troubleshooting issues with Desired State Configuration (DSC).
 

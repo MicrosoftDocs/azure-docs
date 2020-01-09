@@ -161,6 +161,13 @@ You can use the following compute targets, or compute resources, to host your we
 
 [!INCLUDE [aml-compute-target-deploy](../../includes/aml-compute-target-deploy.md)]
 
+## Single versus multi-model endpoints
+Azure ML supports deploying single or multiple models behind a single endpoint.
+
+Multi-model endpoints use a shared container to host multiple models. This helps to reduce overhead costs, improves utilization and enables you to chain modules together into ensembles. Models you specify in your deployment script are mounted and made available on the disk of the serving container - you can load them into memory on demand and score based on the specific model being requested at scoring time.
+
+For an E2E example which shows how to use multiple models behind a single containerized endpoint, see [this example](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/deployment/deploy-multi-model)
+
 ## Prepare to deploy
 
 To deploy the model, you need the following items:
@@ -614,6 +621,9 @@ See [Deploy to Azure Container Instances](how-to-deploy-azure-container-instance
 ### <a id="aks"></a>Azure Kubernetes Service (dev/test and production)
 
 See [Deploy to Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md).
+
+### A/B Testing (controlled rollout)
+See [Controlled rollout of ML models](how-to-deploy-azure-kubernetes-service.md#deploy-models-to-aks-using-controlled-rollout-preview) for more information.
 
 ## Consume web services
 

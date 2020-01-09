@@ -45,7 +45,7 @@ Diagnostic logs are disabled by default. To enable diagnostic logs, follow these
 
 New settings take effect in about 10 minutes. After that, logs appear in the configured archival target, in the **Diagnostics logs** pane.
 
-For more information about configuring diagnostics, see the [overview of Azure diagnostic logs](../azure-monitor/platform/resource-logs-overview.md).
+For more information about configuring diagnostics, see the [overview of Azure diagnostic logs](../azure-monitor/platform/platform-logs-overview.md).
 
 ### Diagnostic logs categories
 
