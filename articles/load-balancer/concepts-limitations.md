@@ -16,7 +16,7 @@ ms.date: 01/09/2019
 ms.author: allensu
 
 ---
-## Load Balancer components and limitations
+# Load Balancer components and limitations
 
 Azure load balancer includes several components that make up its operation. Load balancer components can be configured using:
 
@@ -54,7 +54,7 @@ Azure load balancer includes several components that make up its operation. Load
 
 ![Azure Load Balancer](./media/load-balancer-overview/load-balancer-overview.png)
 
-## Load Balancer concepts
+## <a name = "load-balancer-concepts"></a>Load Balancer concepts
 
 Load Balancer provides the following fundamental capabilities for TCP and UDP applications:
 
@@ -70,7 +70,7 @@ By default, Load Balancer uses a 5-tuple hash.
    - **IP protocol number to map flows to available servers** 
 
 You can create affinity to a source IP address by using a 2- or 3-tuple hash for a given rule. All packets of the same packet flow arrive on the same instance behind the load-balanced front end. When the client starts a new flow from the same source IP, the source port is changed. As a result, the 5-tuple hash might cause the traffic to go to a different backend endpoint.
-For more information, see [Configure the distribution mode for Azure Load Balancer](load-balancer-distribution-mode.md). 
+For more information, see [Configure the distribution mode for Azure Load Balancer](./load-balancer-distribution-mode.md). 
 
 The following image displays the hash-based distribution:
 
@@ -123,7 +123,7 @@ An internal Load Balancer enables the following types of load balancing:
 
 *Figure: Balancing multi-tier applications by using both public and internal Load Balancer*
 
-## Limitations
+## <a name = "limitations"></a>Limitations
 
 * Load Balancer provides load balancing and port forwarding for specific TCP or UDP protocols. Load-balancing rules and inbound NAT rules support TCP and UDP, but not other IP protocols including ICMP.
 

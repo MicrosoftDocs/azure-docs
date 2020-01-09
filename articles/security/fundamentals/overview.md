@@ -263,9 +263,9 @@ Traffic Manager provides a range of traffic-routing methods to suit different ap
 ### Azure Load Balancer
 [Azure Load Balancer](../../load-balancer/load-balancer-overview.md) delivers high availability and network performance to your applications. It is a Layer 4 (TCP, UDP) load balancer that distributes incoming traffic among healthy instances of services defined in a load-balanced set. Azure Load Balancer can be configured to:
 
--	Load balance incoming Internet traffic to virtual machines. This configuration is known as [Internet-facing load balancing](../../load-balancer/load-balancer-overview.md#publicloadbalancer).
+-	Load balance incoming Internet traffic to virtual machines. This configuration is known as [Internet-facing load balancing](../../load-balancer/concepts-limitations.md#publicloadbalancer).
 
--	Load balance traffic between virtual machines in a virtual network, between virtual machines in cloud services, or between on-premises computers and virtual machines in a cross-premises virtual network. This configuration is known as [internal load balancing](../../load-balancer/load-balancer-overview.md#internalloadbalancer).
+-	Load balance traffic between virtual machines in a virtual network, between virtual machines in cloud services, or between on-premises computers and virtual machines in a cross-premises virtual network. This configuration is known as [internal load balancing](../../load-balancer/concepts-limitations.md#internalloadbalancer).
 
 - Forward external traffic to a specific virtual machine
 
