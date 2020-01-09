@@ -45,7 +45,13 @@ The following table lists the API version for the resources used in this example
 
 The following example creates a workspace using a template from your local machine. The JSON template is configured to only require the name and location of the new workspace. It uses values specified for other workspace parameters such as [access control mode](design-logs-deployment.md#access-control-mode), pricing tier, retention, and capacity reservation level.
 
-For capacity reservation, you define a selected capacity reservation for ingesting data by specifying the SKU `CapacityReservation` and a value in GB for the property `capacityReservationLevel`. Acceptable values match the daily capacity Reservation listed on the [Pricing page](https://azure.microsoft.com/pricing/details/monitor/), with a maximum value of 50,000. 
+For capacity reservation, you define a selected capacity reservation for ingesting data by specifying the SKU `CapacityReservation` and a value in GB for the property `capacityReservationLevel`. The following list details the supported values and behavior when configuring it.
+
+1. Once you set the reservation limit, you cannot change to a different SKU within 31 days.
+2. Once you set the reservation value, you can only increase it within 31 days.
+3. You can only set the value of `capacityReservationLevel` in multiples of 100, with a maximum value of 50000.
+4. If you increase the reservation level, the timer is reset and you cannot change it for another 31 days from this update.  
+5. If you modify any other property for the workspace but retain the reservation limit to the same level, the timer is not reset. 
 
 ### Create and deploy template
 
