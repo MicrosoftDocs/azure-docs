@@ -13,7 +13,7 @@ ms.reviewer: jrasnick
 
 # Quickstart: Quickstart: Query Parquet nested types using SQL on-demand in Azure Synapse Analytics 
 
-In this article, you'll learn how to write a query using SQL on-demand in Azure Synapse Analytics.
+In this article, you'll learn how to write a query using SQL on-demand in Azure Synapse Analytics.  This query will read Parquet nested types.
 
 ## Prerequisites
 
