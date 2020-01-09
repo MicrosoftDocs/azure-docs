@@ -1,5 +1,5 @@
 ---
-title: "Customize the Immersive Reader Button"
+title: "Customize the Immersive Reader button"
 titleSuffix: Azure Cognitive Services
 description: This article will show you how to customize the button that launches the Immersive Reader.
 services: cognitive-services
@@ -13,7 +13,7 @@ ms.date: 01/14/2020
 ms.author: metan
 ---
 
-# How to Customize the Immersive Reader Button
+# How to customize the Immersive Reader button
 
 This article demonstrates how to customize the button that launches the Immersive Reader to fit the needs of your application.
 
@@ -57,11 +57,11 @@ This renders the following:
 
 This renders the following:
 
-![Icon button](./media/button-iconAndText.png)
+![Icon button](./media/button-icon-and-text.png)
 
-## Customize the language of the button
+## Customize the button text
 
-Configure the language of the button and the button's alt text using the `data-locale` attribute. The default language is English.
+Configure the language and the alt text for the button using the `data-locale` attribute. The default language is English.
 
 ```html
 <div class='immersive-reader-button' data-locale='fr-FR'></div>
