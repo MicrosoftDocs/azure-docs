@@ -41,6 +41,21 @@ To complete this article, you need:
 
 * [Visual Studio Code](https://code.visualstudio.com/) with the Resource Manager Tools extension. See [Use Visual Studio Code to create Azure Resource Manager templates](./use-vs-code-to-create-template.md).
 
+* **A user-assigned managed identity with the contributor's role at the subscription level**. This identity is used to execute deployment scripts. To create one, see [User-assigned managed identity](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#user-assigned-managed-identity). You need the identity ID when you deploy the template. The format of the identity is:
+
+  ```json
+  /subscriptions/<SubscriptionID>/resourcegroups/<ResourceGroupName>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<IdentityID>
+  ```
+
+  Use the following PowerShell script to get the ID by providing the resource group name and the identity name.
+
+  ```azurepowershell-interactive
+  $idGroup = Read-Host -Prompt "Enter the resource group name for the managed identity"
+  $idName = Read-Host -Prompt "Enter the name of the managed identity"
+
+  $id = (Get-AzUserAssignedIdentity -resourcegroupname $idGroup -Name idName).Id
+  ```
+
 ## Open a Quickstart template
 
 Instead of creating a template from scratch, you open a template from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/). Azure Quickstart Templates is a repository for Resource Manager templates.
@@ -74,61 +89,20 @@ Remove the following two parameter definitions:
 
 If you choose not to remove these definitions, you need to specify the parameter values during the deployment.
 
-### Create a user-assigned managed identity
-
-A user-assigned managed identity is required for executing deployment scripts. This managed identity needs to have the contributor role at either the subscription scope or the resource group scope. To simplify the tutorial, you create the managed identity from the same template:
-
-1. Add a parameter for setting the managed identity name.
-
-    ```json
-    "identityName": {
-      "type": "string",
-      "metadata": {
-        "description": "Specifies the name of the user-assigned managed identity."
-      }
-    },
-    ```
-
-    > [!NOTE]
-    > Press [SHIFT]+[ALT]+F to format the JSON file in Visual Studio Code.
-
-1. Add two variables for assigning the contributor role to the newly created managed identity:
-
-    ```json
-    "variables":{
-        "bootstrapRoleAssignmentId": "[guid(concat(resourceGroup().id, 'contributor'))]",
-        "contributorRoleDefinitionId": "[concat('/subscriptions/', subscription().subscriptionId, '/providers/Microsoft.Authorization/roleDefinitions/', 'b24988ac-6180-42a0-ab88-20f7382dd24c')]"
-    },
-    ```
-
-1. Add the following two resources. The first resource creates a user-assigned managed identity, and the second resource assigns the contributor's role at the resource group level.
-
-    ```json
-    {
-      "type": "Microsoft.ManagedIdentity/userAssignedIdentities",
-      "apiVersion": "2018-11-30",
-      "name": "[parameters('identityName')]",
-      "location": "[resourceGroup().location]"
-    },
-    {
-      "type": "Microsoft.Authorization/roleAssignments",
-      "apiVersion": "2018-09-01-preview",
-      "name": "[variables('bootstrapRoleAssignmentId')]",
-      "dependsOn": [
-          "[resourceId('Microsoft.ManagedIdentity/userAssignedIdentities', parameters('identityName'))]"
-      ],
-      "properties": {
-          "roleDefinitionId": "[variables('contributorRoleDefinitionId')]",
-          "principalId": "[reference(resourceId('Microsoft.ManagedIdentity/userAssignedIdentities', parameters('identityName')), '2018-11-30').principalId]",
-          "scope": "[resourceGroup().id]",
-          "principalType": "ServicePrincipal"
-      }
-    },
-    ```
-
 ### Configure the key vault access policies
 
 The deployment script adds a certificate to the key vault. Configure the key vault access policies to give the permission to the managed identity:
+
+1. Add a parameter to get the managed identity ID:
+
+    ```json
+    "identityId": {
+      "type": "string",
+      "metadata": {
+        "description": "Specifies the ID of the user-assigned managed identity."
+      }
+    },
+    ```
 
 1. Add a parameter for configuring the key vault access policies so that the managed identity can add certificates to the key vault.
 
@@ -150,26 +124,26 @@ The deployment script adds a certificate to the key vault. Configure the key vau
 1. Update the existing key vault access policies to:
 
     ```json
-        "accessPolicies": [
-          {
-            "objectId": "[parameters('objectId')]",
-            "tenantId": "[parameters('tenantId')]",
-            "permissions": {
-              "keys": "[parameters('keysPermissions')]",
-              "secrets": "[parameters('secretsPermissions')]",
-              "certificates": "[parameters('certificatesPermissions')]"
-            }
-          },
-          {
-            "objectId": "[reference(resourceId('Microsoft.ManagedIdentity/userAssignedIdentities', parameters('identityName')), '2018-11-30').principalId]",
-            "tenantId": "[parameters('tenantId')]",
-            "permissions": {
-              "keys": "[parameters('keysPermissions')]",
-              "secrets": "[parameters('secretsPermissions')]",
-              "certificates": "[parameters('certificatesPermissions')]"
-            }
-          }
-        ],
+    "accessPolicies": [
+      {
+        "objectId": "[parameters('objectId')]",
+        "tenantId": "[parameters('tenantId')]",
+        "permissions": {
+          "keys": "[parameters('keysPermissions')]",
+          "secrets": "[parameters('secretsPermissions')]",
+          "certificates": "[parameters('certificatesPermissions')]"
+        }
+      },
+      {
+        "objectId": "[reference(parameters('identityId'), '2018-11-30').principalId]",
+        "tenantId": "[parameters('tenantId')]",
+        "permissions": {
+          "keys": "[parameters('keysPermissions')]",
+          "secrets": "[parameters('secretsPermissions')]",
+          "certificates": "[parameters('certificatesPermissions')]"
+        }
+      }
+    ],
     ```
 
     There are two policies defined, one for the signed-in user, and the other is for the managed identity.  The signed-in user only needs the *list* permission to verify the deployment.  To simplify the tutorial, the same certificate is assigned to both the managed identity and the signed-in users.
@@ -207,13 +181,12 @@ The deployment script adds a certificate to the key vault. Configure the key vau
       "name": "createAddCertificate",
       "location": "[resourceGroup().location]",
       "dependsOn": [
-        "[resourceId('Microsoft.KeyVault/vaults', parameters('keyVaultName'))]",
-        "[resourceId('Microsoft.Authorization/roleAssignments', variables('bootstrapRoleAssignmentId'))]"
+        "[resourceId('Microsoft.KeyVault/vaults', parameters('keyVaultName'))]"
       ],
       "identity": {
         "type": "UserAssigned",
         "userAssignedIdentities": {
-          "[resourceId('Microsoft.ManagedIdentity/userAssignedIdentities', parameters('identityName'))]": {
+          "[parameters('identityId')]": {
           }
         }
       },
@@ -298,7 +271,7 @@ The deployment script adds a certificate to the key vault. Configure the key vau
 
     The completed template looks like:
 
-    [!code-json[](~/resourcemanager-templates/deployment-script/deploymentscript-keyvault.json?range=1-251&highlight=5-10,88-99,111-122,124-127,129-148,159-178,191-243)]
+    [!code-json[](~/resourcemanager-templates/deployment-script/deploymentscript-keyvault.json?range=1-251&highlight=93-122,135-154,165-239)]
 
 1. To see the debugging process, place an error in the code by adding the following line to the deployment script:
 
@@ -318,15 +291,15 @@ Refer to the [Deploy the template](./quickstart-create-templates-use-visual-stud
 $projectName = Read-Host -Prompt "Enter a project name that is used to generate resource names"
 $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
 $upn = Read-Host -Prompt "Enter your email address used to sign in to Azure"
+$identityId = Read-Host -Prompt "Enter the user-assigned managed identity ID"
 
 $adUserId = (Get-AzADUser -UserPrincipalName $upn).Id
 $resourceGroupName = "${projectName}rg"
 $keyVaultName = "${projectName}kv"
-$identityName = "${projectName}id"
 
 New-AzResourceGroup -Name $resourceGroupName -Location $location
 
-New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateFile "$HOME/azuredeploy.json" -identityName $identityName -keyVaultName $keyVaultName -objectId $adUserId
+New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateFile "$HOME/azuredeploy.json" -identityId $identityId -keyVaultName $keyVaultName -objectId $adUserId
 
 Write-Host "Press [ENTER] to continue ..."
 ```
