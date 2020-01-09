@@ -70,7 +70,9 @@ The preview also has the following restrictions:
 - Your Key Vault must be in the same subscription and region as your customer-managed keys.
 - Disks, snapshots, and images encrypted with customer-managed keys cannot move to another subscription.
 
-### Setting up your Azure Key Vault and DiskEncryptionSet
+### CLI
+
+#### Setting up your Azure Key Vault and DiskEncryptionSet
 
 1.	Create an instance of Azure Key Vault and encryption key.
 
@@ -107,7 +109,7 @@ The preview also has the following restrictions:
     New-AzRoleAssignment -ResourceName $keyVaultName -ResourceGroupName $ResourceGroupName -ResourceType "Microsoft.KeyVault/vaults" -  ObjectId $des.Identity.PrincipalId -RoleDefinitionName "Reader" 
     ```
 
-### Create a VM using a Marketplace image, encrypting the OS and data disks with customer-managed keys
+#### Create a VM using a Marketplace image, encrypting the OS and data disks with customer-managed keys
 
 ```powershell
 $VMLocalAdminUser = "yourVMLocalAdminUserName"
@@ -145,7 +147,7 @@ $VirtualMachine = Add-AzVMDataDisk -VM $VirtualMachine -Name $($VMName +"DataDis
 New-AzVM -ResourceGroupName $ResourceGroupName -Location $LocationName -VM $VirtualMachine -Verbose
 ```
 
-### Create an empty disk encrypted using server-side encryption with customer-managed keys and attach it to a VM
+#### Create an empty disk encrypted using server-side encryption with customer-managed keys and attach it to a VM
 
 ```PowerShell
 $vmName = "yourVMName"
@@ -171,6 +173,50 @@ Update-AzVM -ResourceGroupName $rgName -VM $vm
 
 > [!IMPORTANT]
 > Customer-managed keys rely on managed identities for Azure resources, a feature of Azure Active Directory (Azure AD). When you configure customer-managed keys, a managed identity is automatically assigned to your resources under the covers. If you subsequently move the subscription, resource group, or managed disk from one Azure AD directory to another, the managed identity associated with managed disks is not transferred to the new tenant, so customer-managed keys may no longer work. For more information, see [Transferring a subscription between Azure AD directories](../../active-directory/managed-identities-azure-resources/known-issues.md#transferring-a-subscription-between-azure-ad-directories).
+
+### Portal
+
+#### Setting up your Azure Key Vault
+
+1. Sign into the Azure portal and search for Key Vault
+1. Search for and select **Key Vaults**.
+
+<image>
+
+1. Select **+Add** to create a new Key Vault.
+1. Create a new resource group
+1. Enter a key vault name, select a region, and select a pricing tier.
+1. Select **Review + Create**, verify your choices, then select **Create**.
+
+<image>
+
+1. Once your key vault finishes deploying, select it.
+1. Select **Keys** under **Settings**.
+1. Select **Generate/Import**
+1. Fill in the selections as you like and then select **Create**.
+
+#### Setting up your disk encryption set
+
+1. Search for Disk Encryption Sets and select it.
+1. Select **+Add**.
+
+<Image>
+
+1. Select your resource group, name your encryption set, and select the same region as your key vault.
+1. Select **Key vault and key**.
+
+<Image>
+
+1. Select the key vault and key you created previously, as well as the version.
+1. Press **Select**.
+1. Select **Review + Create** and then **Create**.
+1. Open the disk encryption set once it finishes creating and select the alert that pops up.
+     This will allow you to use the set with your key vault.
+
+#### Deploy a VM
+
+Now that you've created and set up your key vault and the disk encryption set, you can deploy a VM using the encryption.
+The VM deployment process is similar to the standard deployment process, the only difference is that you should deploy the VM in the same region as your other resources, and that on the disk blade you select to use your customer managed key.
 
 ## Server-side encryption versus Azure disk encryption
 
