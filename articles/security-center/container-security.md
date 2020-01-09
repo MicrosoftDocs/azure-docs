@@ -35,9 +35,9 @@ When issues are found – by Qualys or Security Center – you’ll get notified
 ## Environment hardening
 
 ### Continuous monitoring of your Docker configuration
-Azure Security Center identifies unmanaged containers hosted on IaaS Linux VMs, or other Linux machines running Docker containers. Security Center continuously assesses the configurations of these containers. It then compares them with the [Center for Internet Security (CIS) Docker Benchmark](https://www.cisecurity.org/benchmark/docker/)). 
+Azure Security Center identifies unmanaged containers hosted on IaaS Linux VMs, or other Linux machines running Docker containers. Security Center continuously assesses the configurations of these containers. It then compares them with the [Center for Internet Security (CIS) Docker Benchmark](https://www.cisecurity.org/benchmark/docker/)).
 
-Security Center includes the entire ruleset of the CIS Docker Benchmark and alerts you if your containers don't satisfy any of the controls. When it finds misconfigurations, Security Center generates security recommendations. Use the **recommendations page** to view recommendations and remediate issues. You'll also see the recommendations on the **Containers** tab that displays all virtual machines deployed with Docker. When you're exploring the security issues on a virtual machine, Security Center provides additional information about the containers on the machine. Such information includes the Docker version and the number of images running on the host. For details of the recommendations, see [here](https://docs.microsoft.com/azure/security-center/security-center-virtual-machine-protection). 
+Security Center includes the entire ruleset of the CIS Docker Benchmark and alerts you if your containers don't satisfy any of the controls. When it finds misconfigurations, Security Center generates security recommendations. Use the **recommendations page** to view recommendations and remediate issues. You'll also see the recommendations on the **Containers** tab that displays all virtual machines deployed with Docker. When you're exploring the security issues on a virtual machine, Security Center provides additional information about the containers on the machine. Such information includes the Docker version and the number of images running on the host. For details of the recommendations, see [here](https://docs.microsoft.com/azure/security-center/security-center-virtual-machine-protection).
 
 >[!NOTE]
 > These CIS benchmark checks will not run on AKS-managed instances or Databricks-managed VMs.
@@ -57,14 +57,13 @@ Security Center provides real-time threat detection for your containerized envir
 
 We detect threats at the host and AKS cluster level. For full details, see [threat detection for Azure containers](https://docs.microsoft.com/azure/security-center/security-center-alerts-compute#azure-containers-).
 
-## To view the security posture of your container-related resources
-1.	Open Security Center’s **Compute & apps** page.
-2.	Click the **Containers** tab.
-    The posture of your AKS clusters, ACR registries, and VMs running Docker appears.
 
 ## Next steps
 
-To learn more about container security in Azure Security Center, see:
+To learn more about container security in Azure Security Center, see these related articles:
+
+* To view the security posture of your container-related resources, see the containers section of [Protect your machines and applications](security-center-virtual-machine-protection.md#containers).
+
 * Details of the [integration with Azure Kubernetes Service](azure-kubernetes-service-integration.md)
 
 * Details of the [integration with Azure Container Registry](azure-container-registry-integration.md)
