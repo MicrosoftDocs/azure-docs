@@ -18,14 +18,37 @@ ms.author: allensu
 ---
 ## Load Balancer components and limitations
 
-Azure load balancer includes several components that make up it's operation.  Load balancer components can be configured by the Azure portal, Azure CLI, Azure PowerShell and a Azure template.
+Azure load balancer includes several components that make up its operation. Load balancer components can be configured using:
+
+- **[Azure Portal](https://docs.microsoft.com/azure/load-balancer/quickstart-load-balancer-standard-public-portal)**
+- **[Azure CLI](https://docs.microsoft.com/azure/load-balancer/quickstart-load-balancer-standard-public-cli)**
+- **[Azure PowerShell](https://docs.microsoft.com/azure/load-balancer/quickstart-create-standard-load-balancer-powershell)**
+- **[Template](https://docs.microsoft.com/azure/load-balancer/quickstart-load-balancer-standard-public-template)**
+
 
 ## Load Balancer components
 
-* **Frontend IP configurations**: The IP address of the load balancer. It is the point of contact for clients. These can be either **[public](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address)** or **[private](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm#private-ip-addresses)** IP addresses, thus creating either Public or Internal load balancers respectively.
-* **Backend pool**: The group of virtual machines or instances in the Virtual Machine Scale Set that are going to serve the incoming request. To scale cost-effectively in order to meet high volumes of incoming traffic computing best practices generally recommends adding more instances to the backend pool. Load balancer instantly reconfigures itself via automatic reconfiguration when you scale instances up or down. Adding or removing VMs from the backend pool reconfigures the load balancer without additional operations on the load balancer resource.
-* **Health probes**: A **[health probe](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview)** is used to determine the health of the instances in the backend pool. You can define the unhealthy threshold for your health probes. When a probe fails to respond, the Load Balancer stops sending new connections to the unhealthy instances. A probe failure doesn't affect existing connections. The connection continues until the application terminates the flow, an idle timeout occurs, or the VM shuts down. Load Balancer provides different health probe types for TCP, HTTP, and HTTPS endpoints. For more information, see [Probe types](load-balancer-custom-probe-overview.md#types).
-* **Load balancing rules**: Load Balancing rules are the ones that tell the Load Balancer what needs to be done when. 
+* **Frontend IP configurations**: The IP address of the load balancer. It's the point of contact for clients. These addresses can be either: 
+
+    - **[Public IP Address](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address)**
+    - **[Private IP Address](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm#private-ip-addresses)**
+
+* **Backend pool**: The group of virtual machines or instances in the Virtual Machine Scale Set that are going to serve the incoming request. To scale cost-effectively to meet high volumes of incoming traffic, computing guidelines generally recommend adding more instances to the backend pool. Load balancer instantly reconfigures itself via automatic reconfiguration when you scale instances up or down. Adding or removing VMs from the backend pool reconfigures the load balancer without additional operations on the load balancer resource.
+* **Health probes**: A **[health probe](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview)** is used to determine the health of the instances in the backend pool. You can define the unhealthy threshold for your health probes. When a probe fails to respond, the Load Balancer stops sending new connections to the unhealthy instances. A probe failure doesn't affect existing connections. 
+    
+    The connection continues until the application: 
+    - Ends the flow
+    - Idle timeout occurs
+    - The VM shuts down
+
+    Load Balancer provides different health probe types for endpoints:
+    - TCP
+    - HTTP
+    - HTTPS
+     
+    For more information, see [Probe types](load-balancer-custom-probe-overview.md#types).
+
+* **Load-balancing rules**: Load-Balancing rules are the ones that tell the Load Balancer what needs to be done when. 
 * **Inbound NAT rules**: An Inbound NAT rule forwards traffic from a specific port of a specific frontend IP address to a specific port of a specific backend instance inside the virtual network. **[Port forwarding](https://docs.microsoft.com/azure/load-balancer/tutorial-load-balancer-port-forwarding-portal)** is done by the same hash-based distribution as load balancing. Common scenarios for this capability are Remote Desktop Protocol (RDP) or Secure Shell (SSH) sessions to individual VM instances inside an Azure Virtual Network. You can map multiple internal endpoints to ports on the same front-end IP address. You can use the front-end IP addresses to remotely administer your VMs without an additional jump box.
 * **Outbound rules**: An **[outbound rule](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-rules-overview)** configures outbound Network Address Translation (NAT) for all virtual machines or instances identified by the backend pool to be translated to the frontend.
 
@@ -35,9 +58,21 @@ Azure load balancer includes several components that make up it's operation.  Lo
 
 Load Balancer provides the following fundamental capabilities for TCP and UDP applications:
 
-* **Load balancing algorithm**: With Azure Load Balancer, you can create a load-balancing rule to distribute traffic that arrives at the frontend to backend pool instances. Load Balancer uses a hashing algorithm for distribution of inbound flows and rewrites the headers of flows to backend pool instances. A server is available to receive new flows when a health probe indicates a healthy back-end endpoint.
-By default, Load Balancer uses a 5-tuple hash. The hash includes source IP address, source port, destination IP address, destination port, and IP protocol number to map flows to available servers. You can create affinity to a source IP address by using a 2- or 3-tuple hash for a given rule. All packets of the same packet flow arrive on the same instance behind the load-balanced front end. When the client initiates a new flow from the same source IP, the source port is changed. As a result, the 5-tuple hash might cause the traffic to go to a different backend endpoint.
-For more information, see [Configure the distribution mode for Azure Load Balancer](load-balancer-distribution-mode.md). The following image displays the hash-based distribution:
+* **Load-balancing algorithm**: With Azure Load Balancer, you can create a load-balancing rule to distribute traffic that arrives at the frontend to backend pool instances. Load Balancer uses a hashing algorithm for distribution of inbound flows and rewrites the headers of flows to backend pool instances. A server is available to receive new flows when a health probe indicates a healthy back-end endpoint.
+By default, Load Balancer uses a 5-tuple hash. 
+
+   The hash includes: 
+
+   - **Source IP address**
+   - **Source port**
+   - **Destination IP address**
+   - **Destination port**
+   - **IP protocol number to map flows to available servers** 
+
+You can create affinity to a source IP address by using a 2- or 3-tuple hash for a given rule. All packets of the same packet flow arrive on the same instance behind the load-balanced front end. When the client starts a new flow from the same source IP, the source port is changed. As a result, the 5-tuple hash might cause the traffic to go to a different backend endpoint.
+For more information, see [Configure the distribution mode for Azure Load Balancer](load-balancer-distribution-mode.md). 
+
+The following image displays the hash-based distribution:
 
   ![Hash-based distribution](./media/load-balancer-overview/load-balancer-distribution.png)
 
@@ -46,7 +81,7 @@ For more information, see [Configure the distribution mode for Azure Load Balanc
 * **Application independence and transparency**: Load Balancer doesn't directly interact with TCP or UDP or the application layer. Any TCP or UDP application scenario can be supported. Load Balancer doesn't terminate or originate flows, interact with the payload of the flow, or provide any application layer gateway function. Protocol handshakes always occur directly between the client and the back-end pool instance. A response to an inbound flow is always a response from a virtual machine. When the flow arrives on the virtual machine, the original source IP address is also preserved.
   * Every endpoint is only answered by a VM. For example, a TCP handshake always occurs between the client and the selected back-end VM. A response to a request to a front end is a response generated by a back-end VM. When you successfully validate connectivity to a front end, you're validating the end-to-end connectivity to at least one back-end virtual machine.
   * Application payloads are transparent to Load Balancer. Any UDP or TCP application can be supported.
-  * Because Load Balancer doesn't interact with the TCP payload and provide TLS offload, you can build end-to-end encrypted scenarios. Using Load Balancer gains large scale-out for TLS applications by terminating the TLS connection on the VM itself. For example, your TLS session keying capacity is only limited by the type and number of VMs you add to the back-end pool.
+  * Because Load Balancer doesn't interact with the TCP payload and provide TLS offload, you can build end-to-end encrypted scenarios. Using Load Balancer gains large scale-out for TLS applications by ending the TLS connection on the VM itself. For example, your TLS session keying capacity is only limited by the type and number of VMs you add to the back-end pool.
 
 * **Outbound connections (SNAT)**: All outbound flows from private IP addresses inside your virtual network to public IP addresses on the internet can be translated to a front-end IP address of the Load Balancer. When a public front end is tied to a back-end VM by way of a load-balancing rule, Azure translates outbound connections to the public front-end IP address. This configuration has the following advantages:
   * Easy upgrade and disaster recovery of services, because the front end can be dynamically mapped to another instance of the service.
@@ -75,7 +110,7 @@ Azure Load Balancer distributes network traffic equally among multiple VM instan
 
 ### <a name = "internalloadbalancer"></a> Internal Load Balancer
 
-An internal Load Balancer directs traffic only to resources that are inside a virtual network or that use a VPN to access Azure infrastructure, in contrast to a public Load Balancer. Azure infrastructure restricts access to the load-balanced front-end IP addresses of a virtual network. Front-end IP addresses and virtual networks are never directly exposed to an internet endpoint. Internal line-of-business applications run in Azure and are accessed from within Azure or from on-premises resources.
+An internal load balancer directs traffic only to resources that are inside a virtual network or that use a VPN to access Azure infrastructure, in contrast to a public load balancer. Azure infrastructure restricts access to the load-balanced front-end IP addresses of a virtual network. Front-end IP addresses and virtual networks are never directly exposed to an internet endpoint. Internal line-of-business applications run in Azure and are accessed from within Azure or from on-premises resources.
 
 An internal Load Balancer enables the following types of load balancing:
 
@@ -102,7 +137,7 @@ An internal Load Balancer enables the following types of load balancing:
 
   When the flow maps back to itself, the outbound flow appears to originate from the VM to the front end and the corresponding inbound flow appears to originate from the VM to itself. From the guest operating system's point of view, the inbound and outbound parts of the same flow don't match inside the virtual machine. The TCP stack won't recognize these halves of the same flow as being part of the same flow. The source and destination don't match. When the flow maps to any other VM in the back-end pool, the halves of the flow do match and the VM can respond to the flow.
 
-  The symptom for this scenario is intermittent connection timeouts when the flow returns to the same back end that originated the flow. Common workarounds include insertion of a proxy layer behind the internal Load Balancer and using Direct Server Return (DSR) style rules. For more information, see [Multiple Front ends for Azure Load Balancer](load-balancer-multivip-overview.md).
+  The symptom for this scenario is intermittent connection timeouts when the flow returns to the same backend that originated the flow. Common workarounds include insertion of a proxy layer behind the internal Load Balancer and using Direct Server Return (DSR) style rules. For more information, see [Multiple Front ends for Azure Load Balancer](load-balancer-multivip-overview.md).
 
   You can combine an internal Load Balancer with any third-party proxy or use internal [Application Gateway](../application-gateway/application-gateway-introduction.md) for proxy scenarios with HTTP/HTTPS. While you could use a public Load Balancer to mitigate this issue, the resulting scenario is prone to [SNAT exhaustion](load-balancer-outbound-connections.md#snat). Avoid this second approach unless carefully managed.
 
