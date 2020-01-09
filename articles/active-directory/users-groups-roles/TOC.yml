@@ -31,6 +31,8 @@
     href: /azure/role-based-access-control/rbac-and-directory-admin-roles?context=azure/active-directory/users-groups-roles/context/ugr-context
   - name: Group-based licensing basics    
     href: /azure/active-directory/fundamentals/active-directory-licensing-whatis-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
+  - name: Manage access with groups    
+    href: /azure/active-directory/fundamentals/active-directory-manage-groups?context=azure/active-directory/users-groups-roles/context/ugr-context
 - name: How-to guides
   expanded: true
   items:
@@ -80,8 +82,6 @@
       href: /azure/active-directory/connect/active-directory-aadconnect?context=azure/active-directory/users-groups-roles/context/ugr-context
   - name: Manage groups
     items: 
-    - name: Manage access with groups    
-      href: /azure/active-directory/fundamentals/active-directory-manage-groups?context=azure/active-directory/users-groups-roles/context/ugr-context
     - name: Search group and member lists (preview)    
       href: groups-members-owners-search.md
     - name: Create a group (Azure portal)    
