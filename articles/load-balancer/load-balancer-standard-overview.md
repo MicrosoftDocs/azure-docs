@@ -188,10 +188,22 @@ SKUs are not mutable. Follow the steps in this section to move from one resource
 >
 >Matching SKUs must be used for Load Balancer and Public IP resources. You can't have a mixture of Basic SKU resources and Standard SKU resources. You can't attach standalone virtual machines, virtual machines in an availability set resource, or a virtual machine scale set resources to both SKUs simultaneously.
 
-## Availability, Pricing, and SLA
+## Region availability
 
 Standard Load Balancer is currently available in all Azure regions.
-Review the [Standard Load Balancer SLA](https://aka.ms/lbsla) and [Load Balancer pricing](https://azure.microsoft.com/pricing/details/load-balancer/) for more information.
+
+## SLA 
+
+Standard Load Balancers are available with a 99.99% SLA.  Review the [Standard Load Balancer SLA](https://aka.ms/lbsla) for details. 
+
+## Pricing 
+
+Standard Load Balancer usage is charged. 
+
+- Number of configured load-balancing and outbound rules (inbound NAT rules do not count against the total number of rules) 
+- Amount of data processed inbound and outbound irrespective of rule.
+
+For Standard Load Balancer pricing information, go to the [Load Balancer pricing](https://azure.microsoft.com/pricing/details/load-balancer/) page.
 
 ## Limitations
 
