@@ -71,7 +71,7 @@ with your Key Vault key. The underlay ADX cluster storage uses the
 managed identity that\'s associated with the *Cluster* resource to
 authenticate and access your Azure Key Vault via Azure Active Directory.
 
-![CMK Overview](media\customer-managed-keys\cmk-overview-8bit.png)
+![CMK Overview](media/customer-managed-keys/cmk-overview-8bit.png)
 
 ## Encryption keys management
 
@@ -153,7 +153,7 @@ Create an Azure Key Vault resource, then generate or import a key to be used for
 The Azure Key Vault must be configured as recoverable to protect your key and the access to your Azure Monitor data. 
 
 To [Turn on recovery options](https://docs.microsoft.com/azure/key-vault/key-vault-best-practices#turn-on-recovery-options):
-- [Soft Delete](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-ovw-soft-delete)
+- [Soft Delete](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete)
     must be turned on
 - Purge protection should be turned on to guard against force deletion of the secret / vault even after soft delete
 
@@ -217,7 +217,7 @@ Update your Key Vault and add access policy with 'Get', 'Wrap Key' and
 resource name. These permissions will be propagated to the underlaying
 Azure Monitor Storage.
 
-![grant Key Vault permissions](media\customer-managed-keys\grant-key-vault-permissions-8bit.png)
+![grant Key Vault permissions](media/customer-managed-keys/grant-key-vault-permissions-8bit.png)
 
 The *Get* permission is required to verify that your Key Vault is
     configured as recoverable to protect your key and the access to your
@@ -235,7 +235,7 @@ resource with Azure Key Vault Key identifier details, to allow Azure
 Monitor Storage to use the new version. To get the Key Identifier,
 select the current version of your key in Azure Key Vault:
 
-![Grant Key Vault permissions](media\customer-managed-keys\key-identifier-8bit.png)
+![Grant Key Vault permissions](media/customer-managed-keys/key-identifier-8bit.png)
 
 Update the *Cluster* resource KeyVaultProperties with Key Identifier
 details.
@@ -453,7 +453,7 @@ Limitations and constraints
 -   The Azure Key Vault must be configured as recoverable. These
     properties aren't enabled by default:
 
-    -   [Soft Delete](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-ovw-soft-delete)
+    -   [Soft Delete](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete)
         is turned on
     -   'Do Not Purge' is turned on to guard against force deletion of
         the secret / vault even after soft delete
@@ -629,7 +629,7 @@ Identity is assigned to the Cluster at creation time.
   "type": "Microsoft.OperationalInsights/clusters",
   "location": "region-name"
 }
-````
+```
 
 ### Associate a component to a Cluster resource
 
