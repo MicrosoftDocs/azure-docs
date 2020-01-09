@@ -225,4 +225,4 @@ Refresh the web app in the browser. You should see your custom message appear in
 > [Learn about multi-service development](multi-service-java.md)
 
 
-[supported-regions]: about.md#supported-regions-and-configurations
+[supported-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service

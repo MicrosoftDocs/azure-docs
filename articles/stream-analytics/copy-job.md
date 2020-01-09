@@ -18,7 +18,7 @@ You can copy or back up your deployed Azure Stream Analytics jobs using Visual S
 
 * Sign in to the [Azure portal](https://portal.azure.com/).
 
-* Install [Azure Stream Analytics extension for Visual Studio Code](https://docs.microsoft.com/azure/stream-analytics/quick-create-vs-code#install-the-azure-stream-analytics-extension) or [Azure Stream Analytics tools for Visual Studio](https://docs.microsoft.com/azure/stream-analytics/quick-create-vs-code#install-the-azure-stream-analytics-extension).  
+* Install [Azure Stream Analytics extension for Visual Studio Code](quick-create-vs-code.md#install-the-azure-stream-analytics-tools-extension) or [Azure Stream Analytics tools for Visual Studio](quick-create-vs-code.md#install-the-azure-stream-analytics-tools-extension).  
 
 ## Visual Studio Code
 

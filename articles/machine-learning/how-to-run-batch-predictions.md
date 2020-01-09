@@ -88,7 +88,7 @@ Now you need to configure data inputs and outputs, including:
 
 You can also reference other datasets in your custom inference script. For example, you can use it to access labels in your script for labeling images by using `Dataset.register` and `Dataset.get_by_name`.
 
-For more information about Azure Machine Learning datasets, see [Create and access datasets (preview)](https://docs.microsoft.com/azure/machine-learning/service/how-to-create-register-datasets).
+For more information about Azure Machine Learning datasets, see [Create and access datasets (preview)](https://docs.microsoft.com/azure/machine-learning/how-to-create-register-datasets).
 
 `PipelineData` objects are used for transferring intermediate data between pipeline steps. In this example, you use it for inference outputs.
 
