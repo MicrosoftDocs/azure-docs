@@ -134,6 +134,6 @@ Review [best practices for AKS cluster security][best-practices-security]
 
 <!-- LINKS - internal -->
 [best-practices-security]: /operator-best-practices-cluster-security
-[byok-azure-portal]: storage/common/storage-encryption-keys-portal
+[byok-azure-portal]: /storage/common/storage-encryption-keys-portal
 [customer-managed-keys]: /virtual-machines/windows/disk-encryption#customer-managed-keys-public-preview
-[key-vault-generate]: /key-vault/key-vault-manage-with-cli2
+[key-vault-generate]: /azure/key-vault/key-vault-manage-with-cli2
