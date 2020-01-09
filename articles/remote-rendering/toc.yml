@@ -101,9 +101,9 @@
 - name: Tutorials
   expanded: true
   items:
-  - name: Tutorial 1 : Getting-started
+  - name: "Tutorial 1 : Getting-started"
     href: tutorials/tutorial-1-getting-started.md
-  - name: Tutorial 2 : Working with remote entities
+  - name: "Tutorial 2 : Working with remote entities"
     href: tutorials/tutorial-2-working-with-remote-entities.md
-  - name: Tutorial 3 : Changing environment and materials
+  - name: "Tutorial 3 : Changing environment and materials"
     href: tutorials/tutorial-3-changing-environment-and-materials.md
