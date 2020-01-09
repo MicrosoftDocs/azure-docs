@@ -23,7 +23,7 @@ The pipeline graph is organized as a list of lists. The top-level module list co
 1. In the module list, use the arrow key to switch modules.
 1. Use tab to open the connection list for the target module.
 1. Use arrow key to switch between the connection ports for the module.
-1. Use the “g” key to go to the module targetted by the connection.
+1. Use “G” to go to the target module.
 
 ## Edit the pipeline graph
 
