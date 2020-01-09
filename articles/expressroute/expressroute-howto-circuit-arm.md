@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: expressroute
 ms.topic: article
-ms.date: 11/13/2019
+ms.date: 01/08/2020
 ms.author: cherylmc
 
 ---
@@ -278,7 +278,7 @@ The response looks similar to the following example:
 You can get detailed descriptions of all the parameters by running the following command:
 
 ```azurepowershell-interactive
-get-help get-azurededicatedcircuit -detailed
+get-help Get-AzExpressRouteCircuit -detailed
 ```
 
 ## <a name="modify"></a>Modifying an ExpressRoute circuit

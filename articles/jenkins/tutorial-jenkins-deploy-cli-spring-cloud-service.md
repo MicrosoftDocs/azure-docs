@@ -2,7 +2,7 @@
 title: Deploy apps to Azure Spring Cloud using Jenkins and the Azure CLI
 description: Learn how to use Azure CLI in a continuous integration and deployment pipeline to deploy microservices to Azure Spring Cloud service
 ms.topic: tutorial
-ms.date: 12/06/2019
+ms.date: 01/07/2020
 ---
 
 # Tutorial: Deploy apps to Azure Spring Cloud using Jenkins and the Azure CLI
