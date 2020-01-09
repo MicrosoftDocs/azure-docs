@@ -39,7 +39,7 @@ In order to successfully deploy and configure the management tool, you first nee
   - createWvdMgmtUxAppRegistration.ps1
   - updateWvdMgmtUxApiUrl.ps1
 
-After you deploy and configure the management tool, we recommend you ask a user to launch the management UI to make sure everything works. The user who launches the management UI must have a role assigment that lets them view or edit the Windows Virtual Desktop tenant.
+After you deploy and configure the management tool, we recommend you ask a user to launch the management UI to make sure everything works. The user who launches the management UI must have a role assignment that lets them view or edit the Windows Virtual Desktop tenant.
 
 ## Set up PowerShell
 
