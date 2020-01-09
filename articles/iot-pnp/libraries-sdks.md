@@ -27,6 +27,10 @@ The IoT Plug and Play libraries and SDKs enable developers to build IoT solution
 | Java   | [Maven](https://mvnrepository.com/artifact/com.microsoft.azure.sdk.iot/digital-twin-device-client-preview/1.0.0) | [GitHub](https://github.com/Azure/azure-iot-sdk-java) | [Digital Twin samples](https://github.com/Azure-Samples/azure-iot-samples-java/tree/master/digital-twin/Samples) | [Connect to IoT Hub](./quickstart-connect-pnp-device-java.md) | [Reference](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device) |
 | Node.js | [NPM](https://www.npmjs.com/package/azure-iot-digitaltwins-device) | [GitHub](https://github.com/Azure/azure-iot-sdk-node/tree/digitaltwins-preview) | [Digital Twin samples](https://github.com/Azure/azure-iot-sdk-node/tree/digitaltwins-preview/digitaltwins/samples) | [Connect to IoT Hub](./quickstart-connect-pnp-device-node.md) | [Reference](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device) |
 
+## IoT Hub support
+
+IoT Plug and Play device capabilities are only supported by [free and standard tier IoT hubs](../iot-hub/iot-hub-scaling.md).
+
 ## Next steps
 
 In addition to the device SDKs and libraries, you can use REST APIs to interact with the model repositories.
