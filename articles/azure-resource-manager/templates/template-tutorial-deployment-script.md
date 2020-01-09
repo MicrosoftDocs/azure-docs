@@ -269,9 +269,7 @@ The deployment script adds a certificate to the key vault. Configure the key vau
 
     **$DeploymentScriptOutputs** is used to store output value.  To learn more, see [Work with outputs from deployment scripts](./deployment-script-in-template.md#work-with-outputs-from-deployment-scripts).
 
-    The completed template looks like:
-
-    [!code-json[](~/resourcemanager-templates/deployment-script/deploymentscript-keyvault.json?range=1-251&highlight=93-122,135-154,165-239)]
+    The completed template can be found [here](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-keyvault.json).
 
 1. To see the debugging process, place an error in the code by adding the following line to the deployment script:
 
