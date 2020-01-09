@@ -21,7 +21,7 @@ Before you migrate your data from MongoDB (either on-premises or in the cloud) t
 
 If you have already completed the above pre-requisites for migration, you can [Migrate MongoDB data to Azure Cosmos DB's API for MongoDB using the Azure Database Migration Service](../dms/tutorial-mongodb-cosmos-db.md). Additionally, if you haven't created an account, you can browse any of the [Quickstarts](create-mongodb-dotnet.md).
 
-## <a id="considerations">Main considerations when using Azure Cosmos DB's API for MongoDB</a>
+## <a id="considerations"></a>Main considerations when using Azure Cosmos DB's API for MongoDB
 
 The following are specific characteristics about Azure Cosmos DB's API for MongoDB:
 - **Capacity model**: Database capacity on Cosmos DB is based on a throughput-based model. This model is based on [Request Units per second](request-units.md), which is a unit that represents the number of database operations that can be executed against a collection on a per-second basis. This capacity can be allocated at [a database or collection level](set-throughput.md), and it can works on an allocation model, or an [AutoPilot model](provision-throughput-autopilot.md).
@@ -29,7 +29,7 @@ The following are specific characteristics about Azure Cosmos DB's API for Mongo
 - **Elastic capacity**: The capacity for a given collection or database can change at any time. This allows for the database to elastically adapt to the throughput requirements of your workload.
 - **Automatic sharding**: Cosmos DB provides an automatic partitioning system that only requires a shard (or partitioning) key. The [automatic partitioning mechanism](partition-data.md) is shared across all Cosmos DB APIs and it allows for seamless data and throughout scaling through horizontal distribution.
 
-## <a id="options">Migration options for Azure Cosmos DB's API for MongoDB</a>
+## <a id="options"></a>Migration options for Azure Cosmos DB's API for MongoDB
 
 |**Migration type**|**Solution**|**Considerations**|
 |---------|---------|---------|
@@ -61,13 +61,13 @@ This command will output a JSON document similar to the following:
 
 After you understand the number of RUs consumed by a query and the concurrency needs for that query, you can adjust the number of provisioned RUs. Optimizing RUs is not a one-time event - you should continually optimize or scale up the RUs provisioned, depending on whether you are not expecting a heavy traffic, as opposed to a heavy workload or importing data.
 
-## <a id="partitioning">Choose your partition key</a>
+## <a id="partitioning"></a>Choose your partition key
 Partitioning is a key point of consideration before migrating to a globally distributed database like Azure Cosmos DB. Azure Cosmos DB uses partitioning to scale individual containers in a database to meet the storage and throughput needs of your application. This feature works in a similar way as sharding, without the need to host and configure routing servers.  
 
 In a similar way, the partitioning capability automatically adds capacity and re-balances the data accordingly. For details and recommendations on choosing the right partition key for your data, please see the [Choosing a Partition Key article](https://docs.microsoft.com/azure/cosmos-db/partitioning-overview#choose-partitionkey). 
 
 ## <a id="indexing"></a>Index your data
-By default, Azure Cosmos DB indexes all your data fields upon ingestion. You can modify the [indexing policy](index-policy.md) in Azure Cosmos DB at any time. In fact, it is often recommended to turn off indexing when migrating data, and then turn it back on when the data is already in Cosmos DB. For more details on indexing, you can read more about it in the [Indexing in Azure Cosmos DB](index-overview.md) section. 
+By default, Azure Cosmos DB indexes all your data fields upon ingestion. You can modify the [indexing policy](index-policy.md) in Azure Cosmos DB at any time. For more details on indexing, you can read more about it in the [Indexing in Azure Cosmos DB](index-overview.md) section. 
 
 [Azure Database Migration Service](../dms/tutorial-mongodb-cosmos-db.md) automatically migrates MongoDB collections with unique indexes. However, the unique indexes must be created before the migration. Azure Cosmos DB does not support the creation of unique indexes, when there is already data in your collections. For more information, see [Unique keys in Azure Cosmos DB](unique-keys.md).
 
