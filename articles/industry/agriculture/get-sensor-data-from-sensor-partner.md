@@ -57,14 +57,13 @@ Alternatively, you can generate the credentials by running this script from Azur
 
 8. Go to the directory where the file was uploaded. By default, files get uploaded to the home directory under the username.
 
-9. Run the following script.
+9. Run the following script. The script asks for the Tenant ID which can be obtained from Azure Active Directory -> Overview page.
 
     ```azurepowershell-interactive 
 
     ./generatePartnerCredentials.ps1   
 
     ```
-The tenant ID can be obtained from Azure Active Directory -> Overview page.
 
 10. Follow the onscreen instructions to capture the values for **API Endpoint**, **Tenant ID**, **Client ID**, **Client Secret**, and **EventHub Connection String**.
 
