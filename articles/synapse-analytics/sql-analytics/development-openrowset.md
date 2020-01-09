@@ -11,7 +11,8 @@ ms.author: fipopovi
 ms.reviewer: jrasnick
 ---
 
-# How to use OPENROWSET in SQL on-demand
+# How to use OPENROWSET with SQL on-demand
+
 The OPENROWSET(BULK...) function allows you to access files in Azure Storage. Within the SQL on-demand resource, the OPENROWSET bulk rowset provider is accessed by calling the OPENROWSET function and specifying the BULK option.  
 
 The OPENROWSET function can be referenced in the FROM clause of a query as if it were a table name OPENROWSET. It supports bulk operations through a built-in BULK provider that enables data from a file to be read and returned as a rowset.
@@ -42,24 +43,23 @@ WITH ( {'column_name' 'column_type' [ 'column_ordinal'] })
 [ , FIELDTERMINATOR = 'char' ]    
 [ , ROWTERMINATOR = 'char’ ] 
 [ , ESCAPE_CHAR = 'char' ] 
-[ , FIRSTROW = first_row  ]     
+[ , FIRSTROW = 'first_row'  ]     
 [ , FIELDQUOTE = 'quote_characters']
 ```
 
-### File types 
+## Arguments
 
 You have two choices for input files that contain the target data for querying. Valid values are:
 
-- 'CSV’ - Includes any delimited text file with row/column separators. Any character can be used as a field separator, such as  TSV: FIELDTERMINATOR = tab.
+- 'CSV' - Includes any delimited text file with row/column separators. Any character can be used as a field separator, such as  TSV: FIELDTERMINATOR = tab.
 
-- ‘PARQUET’ - Binary file in Parquet format 
+- 'PARQUET' - Binary file in Parquet format 
 
-## Arguments
 'unstructured_data_path'
 
 The unstructured_data_path that establishes
 a path to the data is structured as follows:
- '<prefix>://<storage_account_path>/<storage_path>'. 
+ '<prefix>://<storage_account_path>/<storage_path>' 
  
  
  Below you'll find the relevant storage account paths that will link to your particular external data source. 
@@ -82,17 +82,14 @@ If you specify the unstructured_data_path to be a folder, a SQL on-demand query 
 > [!NOTE]
 > Unlike Hadoop and PolyBase, SQL on-demand doesn't return subfolders. It returns files for which the file name begins with an underline (_) or a period (.).
 
-In the example below, if the unstructured_data_path='https://mystorageaccount.dfs.core.windows.net/webdata/', a SQL on-demand query will return rows from mydata.txt and_hidden.txt. It won't return mydata2.txt and mydata3.txt because they are located in a subfolder.
+In the example below, if the unstructured_data_path='https://mystorageaccount.dfs.core.windows.net/webdata/', a SQL on-demand query will return rows from mydata.txt and _hidden.txt. It won't return mydata2.txt and mydata3.txt because they are located in a subfolder.
 
 ![Recursive data for external tables](media/development-openrowset/folder-traversal.png)
 
-#### WITH clause
+[WITH ( {'column_name' 'column_type' [ 'column_ordinal'] }) ]
 
 The WITH clause allows you to specify columns that you want to read from files.
 
-
-
-[WITH ( {'column_name' 'column_type' [ 'column_ordinal'] }) ]
 - For CSV data files, to read all the columns, provide column names and their data types. If you want a subset of columns, use ordinal numbers to pick the columns from the originating data files by ordinal. Columns will be bound by the ordinal designation. 
 
 > [!IMPORTANT]
