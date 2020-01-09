@@ -49,11 +49,11 @@ To adjust module properties:
 
 | Keystroke | Description |
 |-|-|
-| Ctrl + F6 | Switch focus between canvas and module tree |
-| Ctrl + F1   | Open information card when focusing on a node in module tree (same as mouse-over hover) |
-| Ctrl + Shift + H | Open connection helper to connect nodes when focus is on a node |
-| Ctrl + Shift + E | Open module panel to set module properties when focus is on a node |
-| Ctrl + G | Move focus to first failed node if pipeline run failed |
+| Ctrl + F6 | Toggle focus between canvas and module tree |
+| Ctrl + F1   | Open the information card when focusing on a node in module tree |
+| Ctrl + Shift + H | Open the connection helper when focus is on a node |
+| Ctrl + Shift + E | Open module properties when focus is on a node |
+| Ctrl + G | Move focus to first failed node if the pipeline run failed |
 
 ## Action shortcuts
 
