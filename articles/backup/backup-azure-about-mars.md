@@ -8,7 +8,7 @@ ms.date: 12/02/2019
 
 # About the Microsoft Azure Recovery Services (MARS) agent
 
-This article describes how the Azure Backup service uses the Microsoft Azure Recovery Services (MARS) agent to back up and restore files and folders and restore the volume or system state from an on-premises computer to Azure.
+This article describes how the Azure Backup service uses the Microsoft Azure Recovery Services (MARS) agent to back up and restore files, folders, and the volume or system state from an on-premises computer to Azure.
 
 The MARS agent supports the following backup scenarios:
 
