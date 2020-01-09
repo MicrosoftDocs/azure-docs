@@ -15,21 +15,21 @@ ms.custom:
 
 # Statistics in SQL Analytics
 
-Provided in this article are recommendations and examples for creating and updating query-optimization statistics in the SQL Analytics resources: SQL pools and SQL on-demand.
+Provided in this article are recommendations and examples for creating and updating query-optimization statistics using the SQL Analytics resources: SQL pool and SQL on-demand.
 
-## Statistics in SQL pools
+## Statistics in the SQL pool resource
 
 ### Why use statistics
 
-The more the SQL pools resource knows about your data, the faster it can execute queries. After loading data into SQL pools, collecting statistics on your data is one of the most important things you can do for query optimization.  
+The more the SQL pool resource knows about your data, the faster it can execute queries. After loading data into SQL pool, collecting statistics on your data is one of the most important things you can do for query optimization.  
 
-The SQL pools query optimizer is a cost-based optimizer. It compares the cost of various query plans, and then chooses the plan with the lowest cost. In most cases, it chooses the plan that will execute the fastest. 
+The SQL pool query optimizer is a cost-based optimizer. It compares the cost of various query plans, and then chooses the plan with the lowest cost. In most cases, it chooses the plan that will execute the fastest. 
 
 For example, if the optimizer estimates that the date your query is filtering on will return one row it will choose one plan. If it estimates that the selected date will return 1 million rows, it will return a different plan.
 
-### Automatic creation of statistic
+### Automatic creation of statistics
 
-SQL pools will analyze incoming user queries for missing statistics when the database AUTO_CREATE_STATISTICS option is on.  If statistics are missing, the query optimizer creates statistics on individual columns in the query predicate or join condition. This function is used to improve cardinality estimates for the query plan. 
+SQL pool will analyze incoming user queries for missing statistics when the database AUTO_CREATE_STATISTICS option is set to `ON`.  If statistics are missing, the query optimizer creates statistics on individual columns in the query predicate or join condition. This function is used to improve cardinality estimates for the query plan. 
 
 > [!IMPORTANT]
 > Automatic creation of statistics is currently turned on by default.
@@ -41,7 +41,7 @@ SELECT name, is_auto_create_stats_on
 FROM sys.databases
 ```
 
-If your data warehouse doesn't have AUTO_CREATE_STATISTICS configured, we recommend you enable this property by running the following command:
+If your data warehouse doesn't have AUTO_CREATE_STATISTICS enabled, we recommend you enable this property by running the following command:
 
 ```sql
 ALTER DATABASE <yourdatawarehousename>
@@ -65,7 +65,7 @@ Automatic creation of statistics is done synchronously. So, you may incur slight
 To avoid measurable performance degradation, you should ensure stats have been created first by executing the benchmark workload before profiling the system.
 
 > [!NOTE]
-> The creation of stats will be logged in [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?view=azure-sqldw-latest) under a different user context.
+> The creation of stats is logged in [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?view=azure-sqldw-latest) under a different user context.
 
 When automatic statistics are created, they'll take the form: _WA_Sys_<8 digit column id in Hex>_<8 digit table id in Hex>. You can view already created stats by running the [DBCC SHOW_STATISTICS](/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql?view=azure-sqldw-latest) command:
 
@@ -253,7 +253,7 @@ CREATE STATISTICS stats_col3 on dbo.table3 (col3);
 
 #### Use a stored procedure to create statistics on all columns in a database
 
-SQL pools don't have a system stored procedure equivalent to sp_create_stats in SQL Server. This stored procedure creates a single column statistics object on every column of the database that doesn't already have statistics.
+SQL pool doesn't have a system stored procedure equivalent to sp_create_stats in SQL Server. This stored procedure creates a single column statistics object on every column of the database that doesn't already have statistics.
 The following example will help you get started with your database design. Feel free to adapt it to your needs:
 
 ```sql
@@ -481,7 +481,7 @@ DBCC SHOW_STATISTICS() shows the data held within a statistics object. This data
 - Density vector
 - Histogram
 
-The header is the metadata about the statistics. The histogram displays the distribution of values in the first key column of the statistics object. The density vector measures cross-column correlation. SQL pools compute cardinality estimates with any of the data in the statistics object.
+The header is the metadata about the statistics. The histogram displays the distribution of values in the first key column of the statistics object. The density vector measures cross-column correlation. SQL pool computes cardinality estimates with any of the data in the statistics object.
 
 #### Show header, density, and histogram
 
@@ -513,7 +513,7 @@ DBCC SHOW_STATISTICS (dbo.table1, stats_col1) WITH histogram, density_vector
 
 ### DBCC SHOW_STATISTICS() differences
 
-DBCC SHOW_STATISTICS() is more strictly implemented in SQL pools compared to SQL Server:
+DBCC SHOW_STATISTICS() is more strictly implemented in SQL pool compared to SQL Server:
 
 - Undocumented features aren't supported.
 - Can't use Stats_stream.
@@ -529,14 +529,14 @@ For further improve query performance, see [Monitor your workload](../../sql-dat
 
 
 
-## Statistics in SQL on-demand
+## Statistics in the SQL on-demand resource
 Statistics are created per particular column for particular dataset (OPENROWSET path).
 
 ### Why use statistics
 
 The more SQL on-demand knows about your data, the faster it can execute queries against it. Collecting statistics on your data is one of the most important things you can do to optimize your queries. The SQL on-demand query optimizer is a cost-based optimizer. It compares the cost of various query plans, and then chooses the plan with the lowest cost. In most cases, it chooses the plan that will execute the fastest. For example, if the optimizer estimates that the date your query is filtering on will return one row it will choose one plan. If it estimates that the selected date will return 1 million rows, it will return a different plan.
 
-### Automatic creation of statistic
+### Automatic creation of statistics
 
 SQL on-demand analyzes incoming user queries for missing statistics. If statistics are missing, the query optimizer creates statistics on individual columns in the query predicate or join condition to improve cardinality estimates for the query plan.
 
@@ -709,4 +709,4 @@ FROM OPENROWSET(
 
 ## Next steps
 
-For further query performance improvements, see [Best practices for SQL pools](best-practices-sql-pool.md#maintain-statistics).
+For further query performance improvements, see [Best practices for SQL pool](best-practices-sql-pool.md#maintain-statistics).
