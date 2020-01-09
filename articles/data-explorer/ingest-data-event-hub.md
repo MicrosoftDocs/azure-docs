@@ -106,7 +106,7 @@ Now you connect to the event hub from Azure Data Explorer. When this connection 
 
     ![Event hub connection](media/ingest-data-event-hub/event-hub-connection.png)
 
-    Data Source:
+    **Data Source:**
 
     **Setting** | **Suggested value** | **Field description**
     |---|---|---|
@@ -117,7 +117,7 @@ Now you connect to the event hub from Azure Data Explorer. When this connection 
     | Event system properties | Select relevant properties | The [Event Hub system properties](/azure/service-bus-messaging/service-bus-amqp-protocol-guide#message-annotations). If there are multiple records per event message, the system properties will be added to the first one. When adding system properties, [create](/azure/kusto/management/tables#create-table) or [update](/azure/kusto/management/tables#alter-table-and-alter-merge-table) table schema and [mapping](/azure/kusto/management/mappings) to include the selected properties. |
     | | |
 
-    Target table:
+    **Target table:**
 
     There are two options for routing the ingested data: *static* and *dynamic*. 
     For this article, you use static routing, where you specify the table name, data format, and mapping. Therefore, leave **My data includes routing info** unselected.
