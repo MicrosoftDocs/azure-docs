@@ -16,7 +16,7 @@ ms.date: 01/09/2020
 > Incremental enrichment is currently in public preview. This preview version is provided without a service level agreement, and it's not recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
 > The [REST API version 2019-05-06-Preview](search-api-preview.md) provides this feature. There is no portal or .NET SDK support at this time.
 
-The **Reset Skills** request forces reprocessing of a specific skill or the entire skillset. This API is used to override the change detection logic used for incremental enrichment, to force an update of enriched documents in the cache. 
+The **Reset Skills** request specifies which skills to process on the next indexer run. For indexers that having caching enabled, you can explicitly request processing for skill updates that the indexer cannot detect. For example, if the change is external, such as revisions to a custom skill, you can use this API to re-run the skill. Outputs, such as a knowledge store or search index, are refreshed using reusable data from the cache and new content per the updated skill.
 
 You can reset an existing [skillset](https://docs.microsoft.com/rest/api/searchservice/create-skillset) using an HTTP PUT, specifying the name of the skillset to update on the request URI. You must use **api-version=2019-05-06-Preview** on the request.
 
