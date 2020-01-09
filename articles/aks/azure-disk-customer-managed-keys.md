@@ -60,8 +60,8 @@ You can optionally use the Azure portal to [Configure customer-managed keys with
 Create a new *resource group*, then create a new *Key Vault* instance and enable soft delete and purge protection.
 
 ```azurecli-interactive
-# Create new resource group
-az group create -l westus -n <resource-group-name>
+# Create new resource group in centralus or another supported region
+az group create -l centralus -n <resource-group-name>
 
 # Create an Azure Key Vault resource
 az keyvault create -n <key-vault-name> -g <resource-group-name> -l <azure-location-name>  --enable-purge-protection true --enable-soft-delete true
