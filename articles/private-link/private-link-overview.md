@@ -62,7 +62,7 @@ For pricing details, see [Azure Private Link pricing](https://azure.microsoft.co
 For FAQs, see [Azure Private Link FAQs](private-link-faq.md).
  
 ## Limits  
-For limits, see [Azure Private Link limits](../azure-subscription-service-limits.md#private-link-limits).
+For limits, see [Azure Private Link limits](../azure-resource-manager/management/azure-subscription-service-limits.md#private-link-limits).
 
 ## Next steps
 - [Create a Private Endpoint for SQL Database Server using Portal ](create-private-endpoint-portal.md)

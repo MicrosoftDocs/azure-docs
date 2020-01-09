@@ -8,7 +8,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 12/04/2019
+ms.date: 01/08/2019
 ---
 
 # Tutorial: Train and deploy a model from the CLI
@@ -50,7 +50,7 @@ git clone https://github.com/microsoft/MLOps.git
 
 ### Training files
 
-The `examples/cli-train-delpoy` directory from the project contains the following files, which are used when training a model:
+The `examples/cli-train-deploy` directory from the project contains the following files, which are used when training a model:
 
 * `.azureml\mnist.runconfig`: A __run configuration__ file. This file defines the runtime environment needed to train the model. In this example, it also mounts the data used to train the model into the training environment.
 * `scripts\train.py`: The training script. This file trains the model.
@@ -208,7 +208,7 @@ To train a model, you can provide the training data using a dataset. To create a
 To register the dataset using the `dataset.json` file, use the following command:
 
 ```azurecli-interactive
-az ml dataset register -f dataset.json
+az ml dataset register -f dataset.json --skip-validation
 ```
 
 The output of this command is similar to the following JSON:
@@ -363,6 +363,9 @@ To deploy a model, use the following command:
 az ml model deploy -n myservice -m "mymodel:1" --ic inferenceConfig.yml --dc aciDeploymentConfig.yml
 ```
 
+> [!NOTE]
+> You may receive a warning about "Failed to check LocalWebservice existence". You can safely ignore this, as you are not deploying a local web service.
+
 This command deploys a new service named `myservice`, using version 1 of the model that you registered previously.
 
 The `inferenceConfig.yml` file provides information on how to perform inference, such as the entry script (`score.py`) and software dependencies. For more information on the structure of this file, see the [Inference configuration schema](reference-azure-machine-learning-cli.md#inference-configuration-schema). For more information on entry scripts, see [Deploy models with the Azure Machine Learning](how-to-deploy-and-where.md#prepare-to-deploy).
@@ -408,6 +411,13 @@ While you can create a client application to call the endpoint, the machine lear
 ```azurecli-interactive
 az ml service run -n myservice -d @testdata.json
 ```
+
+> [!TIP]
+> If you use PowerShell, use the following command instead:
+>
+> ```powershell
+> az ml service run -n myservice -d `@testdata.json
+> ```
 
 The response from the command is similar to `[ 3 ]`.
 

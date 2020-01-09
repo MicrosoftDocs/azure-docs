@@ -52,7 +52,7 @@ Visit the [Pricing page](https://azure.microsoft.com/pricing/details/network-wat
 You can view the latest regional availability on the [Azure Service availability page](https://azure.microsoft.com/global-infrastructure/services/?products=network-watcher)
 
 ### What are resource limits on Network Watcher?
-See the [Service limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#network-watcher-limits) page for all limits.  
+See the [Service limits](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#network-watcher-limits) page for all limits.  
 
 ### Why is only one instance of Network Watcher allowed per region?
 Network Watcher just needs to be enabled once for a subscription for it's features to work, this is a not a service limit.

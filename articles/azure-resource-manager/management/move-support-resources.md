@@ -1,8 +1,8 @@
 ---
 title: Move operation support by resource type
 description: Lists the Azure resource types that can be moved to a new resource group or subscription.
-ms.topic: reference
-ms.date: 10/24/2019
+ms.topic: conceptual
+ms.date: 01/02/2020
 ---
 
 # Move operation support for resources
@@ -137,7 +137,6 @@ Jump to a resource provider namespace:
 > - [Microsoft.TimeSeriesInsights](#microsofttimeseriesinsights)
 > - [Microsoft.Token](#microsofttoken)
 > - [Microsoft.VirtualMachineImages](#microsoftvirtualmachineimages)
-> - [microsoft.visualstudio](#microsoftvisualstudio)
 > - [Microsoft.VMwareCloudSimple](#microsoftvmwarecloudsimple)
 > - [Microsoft.Web](#microsoftweb)
 > - [Microsoft.WindowsIoT](#microsoftwindowsiot)
@@ -635,6 +634,7 @@ Jump to a resource provider namespace:
 > | Resource type | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | domains | Yes | Yes |
+> | eventSubscriptions | No - can't be moved independently but automatically moved with subscribed resource. | No - can't be moved independently but automatically moved with subscribed resource. |
 > | topics | Yes | Yes |
 
 ## Microsoft.EventHub
@@ -720,7 +720,7 @@ Jump to a resource provider namespace:
 > | workbooks | Yes | Yes |
 
 > [!IMPORTANT]
-> Make sure moving to new subscription doesn't exceed [subscription quotas](../../azure-subscription-service-limits.md#azure-monitor-limits).
+> Make sure moving to new subscription doesn't exceed [subscription quotas](../../azure-resource-manager/management/azure-subscription-service-limits.md#azure-monitor-limits).
 
 ## Microsoft.IoTCentral
 
@@ -933,6 +933,7 @@ Jump to a resource provider namespace:
 > | publicipprefixes | Yes | Yes |
 > | routefilters | No | No |
 > | routetables | Yes | Yes |
+> | securegateways | Yes | Yes |
 > | serviceendpointpolicies | Yes | Yes |
 > | trafficmanagerprofiles | Yes | Yes |
 > | virtualhubs | No | No |
@@ -963,7 +964,7 @@ Jump to a resource provider namespace:
 > | workspaces | Yes | Yes |
 
 > [!IMPORTANT]
-> Make sure moving to new subscription doesn't exceed [subscription quotas](../../azure-subscription-service-limits.md#azure-monitor-limits).
+> Make sure moving to new subscription doesn't exceed [subscription quotas](../../azure-resource-manager/management/azure-subscription-service-limits.md#azure-monitor-limits).
 
 ## Microsoft.OperationsManagement
 
@@ -1257,18 +1258,6 @@ Jump to a resource provider namespace:
 > | Resource type | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | imagetemplates | No | No |
-
-## microsoft.visualstudio
-
-> [!div class="mx-tableFixed"]
-> | Resource type | Resource group | Subscription |
-> | ------------- | ----------- | ---------- |
-> | account | No | No |
-> | account / extension | No | No |
-> | account / project | No | No |
-
-> [!IMPORTANT]
-> To change the subscription for Azure DevOps, see [change the Azure subscription used for billing](/azure/devops/organizations/billing/change-azure-subscription?toc=/azure/azure-resource-manager/toc.json).
 
 ## Microsoft.VMwareCloudSimple
 

@@ -1,5 +1,5 @@
 ---
-title: Continuous build and integration for your Azure Service Fabric Linux applications using Jenkins 
+title: Continuous build for Linux applications using Jenkins 
 description: Continuous build and integration for your Service Fabric Linux application using Jenkins
 author: sayantancs
 

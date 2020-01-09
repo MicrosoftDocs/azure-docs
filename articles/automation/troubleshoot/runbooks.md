@@ -265,9 +265,9 @@ The job was tried three times but it failed
 
 This error occurs due to one of the following issues:
 
-* Memory Limit. The documented limits on how much memory is allocated to a Sandbox is found at [Automation service limits](../../azure-subscription-service-limits.md#automation-limits). A job may fail it if it's using more than 400 MB of memory.
+* Memory Limit. The documented limits on how much memory is allocated to a Sandbox is found at [Automation service limits](../../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits). A job may fail it if it's using more than 400 MB of memory.
 
-* Network Sockets. Azure sandboxes are limited to 1000 concurrent network sockets as described at [Automation service limits](../../azure-subscription-service-limits.md#automation-limits).
+* Network Sockets. Azure sandboxes are limited to 1000 concurrent network sockets as described at [Automation service limits](../../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits).
 
 * Module Incompatible. This error can occur if module dependencies aren't correct and if they aren't, your runbook typically returns a "Command not found" or "Cannot bind parameter" message.
 

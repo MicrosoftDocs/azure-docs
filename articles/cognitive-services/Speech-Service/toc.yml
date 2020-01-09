@@ -147,6 +147,7 @@
     items:
     - name: Recognize speech, intents, and entities
       href: quickstarts/intent-recognition.md
+      displayName: Recognize intents and entities with LUIS, LUIS, Language Understanding, prebuilt domains
   - name: How-to guides
     items:
     - name: Recognize speech intents with LUIS, C#
@@ -438,16 +439,9 @@
     items:
     - name: Create a project
       href: quickstarts/create-project.md
-    - name: Setup Speech SDK with C#
-      href: quickstarts/setup-platform.md?pivots=programming-language-csharp
-    - name: Setup Speech SDK with C++
-      href: quickstarts/setup-platform.md?pivots=programming-language-cpp
-    - name: Setup Speech SDK with Java
-      href: quickstarts/setup-platform.md?pivots=programming-language-java
-    - name: Setup Speech SDK with Python
-      href: quickstarts/setup-platform.md?pivots=programming-language-python
-    - name: Setup Speech SDK with Other Platforms
-      href: quickstarts/setup-platform.md?pivots=programming-language-more
+    - name: Setup Speech SDK
+      href: quickstarts/setup-platform.md
+      displayName: install the speech sdk, install the speech sdk java, install the speech sdk C#, install the speech sdk python, install the speech sdk C++, setup speech sdk, install, install C#, install C++, install Python, install Java, install Javascript
   - name: How-to guides
     items:
     - name: How to enable logging

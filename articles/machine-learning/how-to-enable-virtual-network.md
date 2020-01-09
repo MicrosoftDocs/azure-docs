@@ -124,7 +124,7 @@ The Machine Learning compute instance or cluster automatically allocates additio
 * One public IP address
 * One load balancer
 
-These resources are limited by the subscription's [resource quotas](https://docs.microsoft.com/azure/azure-subscription-service-limits).
+These resources are limited by the subscription's [resource quotas](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits).
 
 
 ### <a id="mlcports"></a> Required ports
@@ -168,6 +168,33 @@ If you don't want to use the default outbound rules and you do want to limit the
 The NSG rule configuration in the Azure portal is shown in the following image:
 
 [![The outbound NSG rules for Machine Learning Compute](./media/how-to-enable-virtual-network/limited-outbound-nsg-exp.png)](./media/how-to-enable-virtual-network/limited-outbound-nsg-exp.png#lightbox)
+
+> [!NOTE]
+> If you plan on using default Docker images provided by Microsoft, and enabling user managed dependencies, you must also use a __Service Tag__ of __MicrosoftContainerRegistry.Region_Name__ (For example, MicrosoftContainerRegistry.EastUS).
+>
+> This configuration is needed when you have code similar to the following snippets as part of your training scripts:
+>
+> __RunConfig training__
+> ```python
+> # create a new runconfig object
+> run_config = RunConfiguration()
+> 
+> # configure Docker 
+> run_config.environment.docker.enabled = True
+> # For GPU, use DEFAULT_GPU_IMAGE
+> run_config.environment.docker.base_image = DEFAULT_CPU_IMAGE 
+> run_config.environment.python.user_managed_dependencies = True
+> ```
+>
+> Estimator training__
+> ```python
+> est = Estimator(source_directory='.', 
+>                 script_params=script_params, 
+>                 compute_target='local', 
+>                 entry_script='dummy_train.py', 
+>                 user_managed=True)
+> run = exp.submit(est)
+> ```
 
 ### User-defined routes for forced tunneling
 

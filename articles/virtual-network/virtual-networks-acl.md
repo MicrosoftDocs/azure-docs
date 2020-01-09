@@ -35,7 +35,7 @@ Using Network ACLs, you can do the following:
 * Use rule ordering to ensure the correct set of rules are applied on a given virtual machine endpoint (lowest to highest)
 * Specify an ACL for a specific remote subnet IPv4 address.
 
-See the [Azure limits](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) article for ACL limits.
+See the [Azure limits](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) article for ACL limits.
 
 ## How ACLs work
 An ACL is an object that contains a list of rules. When you create an ACL and apply it to a virtual machine endpoint, packet filtering takes place on the host node of your VM. This means the traffic from remote IP addresses is filtered by the host node for matching ACL rules instead of on your VM. This prevents your VM from spending the precious CPU cycles on packet filtering.

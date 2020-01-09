@@ -22,7 +22,7 @@ This quickstart shows you how to build a sample IoT Plug and Play device applica
 
 ## Prerequisites
 
-To complete this quickstart, you need to install .NET Core 3.0 on your development machine. You can download this version of the .NET Core SDK for multiple platforms from [Download .NET Core 3.0](https://dotnet.microsoft.com/download/dotnet-core/3.0).
+To complete this quickstart, you need to install .NET Core 2.2 on your development machine. You can download this version of the .NET Core SDK for multiple platforms from [Download .NET Core 2.2](https://dotnet.microsoft.com/download/dotnet-core/2.2).
 
 You can verify the version of .NET that's on your development machine by running the following command in a local terminal window: 
 

@@ -6,21 +6,20 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.reviewer: trbye
-ms.author: trbye
-author: trevorbye
-ms.date: 10/03/2019
-
+author: likebupt
+ms.author: keli19
+ms.date: 12/12/2019
 ---
 
 # Debug and troubleshoot machine learning pipelines
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-In this article, you learn how to debug and troubleshoot [machine learning pipelines](concept-ml-pipelines.md) in the [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
+In this article, you learn how to debug and troubleshoot [machine learning pipelines](concept-ml-pipelines.md) in the [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) and [Azure Machine Learning designer (preview)](https://docs.microsoft.com/azure/machine-learning/service/concept-designer).
 
+
+## Debug and troubleshoot in the Azure Machine Learning SDK
 The following sections provide an overview of common pitfalls when building pipelines, and different strategies for debugging your code that's running in a pipeline. Use the following tips when you're having trouble getting a pipeline to run as expected. 
-
-## Testing scripts locally
+### Testing scripts locally
 
 One of the most common failures in a pipeline is that an attached script (data cleansing script, scoring script, etc.) is not running as intended, or contains runtime errors in the remote compute context that are difficult to debug in your workspace in the Azure Machine Learning studio. 
 
@@ -40,7 +39,7 @@ Once you have a script setup to run on your local environment, it is much easier
 > Once you can verify that your script is running as expected, a good next step is running the script in a single-step pipeline before 
 > attempting to run it in a pipeline with multiple steps.
 
-## Debugging scripts from remote context
+### Debugging scripts from remote context
 
 Testing scripts locally is a great way to debug major code fragments and complex logic before you start building a pipeline, but at some point you will likely need to debug scripts during the actual pipeline run itself, especially when diagnosing behavior that occurs during the interaction between pipeline steps. We recommend liberal use of `print()` statements in your step scripts so that you can see object state and expected values during remote execution, similar to how you would debug JavaScript code.
 
@@ -49,28 +48,23 @@ The log file `70_driver_log.txt` contains:
 * All printed statements during your script's execution
 * The stack trace for the script 
 
-To find this and other log files in the portal, first click on the pipeline in your workspace.
+To find this and other log files in the portal, first click on the pipeline run in your workspace.
 
-![Pipelines page in portal](./media/how-to-debug-pipelines/pipeline-1.png)
+![Pipeline run list page](./media/how-to-debug-pipelines/pipelinerun-01.png)
 
-Navigate to the pipeline parent run.
+Navigate to the pipeline run detail page.
 
-![Pipelines parent run](./media/how-to-debug-pipelines/pipeline-2.png)
+![Pipeline run detail page](./media/how-to-debug-pipelines/pipelinerun-02.png)
 
-Click on the run ID for the specific step.
+Click on the module for the specific step. Navigate to the **Logs** tab. Other logs include information about your environment image build process and step preparation scripts.
 
-![Pipelines page in portal](./media/how-to-debug-pipelines/pipeline-3.png)
-
-Navigate to the **Logs** tab. Other logs include information about your environment image build process and step preparation scripts.
-
-![Pipelines page in portal](./media/how-to-debug-pipelines/pipeline-4.png)
+![Pipeline run detail page log tab](./media/how-to-debug-pipelines/pipelinerun-03.png)
 
 > [!TIP]
-> Runs for *published pipelines* can be found in the **Pipelines** tab in your workspace in the 
-> portal. 
-> Runs for *non-published pipelines* can be found in **Experiments**.
+> Runs for *published pipelines* can be found in the **Endpoints** tab in your workspace. 
+> Runs for *non-published pipelines* can be found in **Experiments** or **Pipelines**.
 
-## Troubleshooting tips
+### Troubleshooting tips
 
 The following table contains common problems during pipeline development, with potential solutions.
 
@@ -82,8 +76,33 @@ The following table contains common problems during pipeline development, with p
 | Pipeline not reusing steps | Step reuse is enabled by default, but ensure you haven't disabled it in a pipeline step. If reuse is disabled, the `allow_reuse` parameter in the step will be set to `False`. |
 | Pipeline is rerunning unnecessarily | To ensure that steps only rerun when their underlying data or scripts change, decouple your directories for each step. If you use the same source directory for multiple steps, you may experience unnecessary reruns. Use the `source_directory` parameter on a pipeline step object to point to your isolated directory for that step, and ensure you aren't using the same `source_directory` path for multiple steps. |
 
+## Debug and troubleshoot in Azure Machine Learning designer (preview)
+
+This section provides an overview of how to troubleshoot  pipelines in the designer.
+For pipelines created in the designer, you can find the **log files** on either the authoring page, or in the pipeline run detail page.
+
+### Access logs from the authoring page
+
+When you submit a pipeline run and stay in the authoring page, you can find the log files generated for each module.
+
+1. Select any module in the authoring canvas.
+1. In the properties pane, go to the  **Logs** tab.
+1. Select the log file `70_driver_log.txt`
+
+    ![Authoring page module logs](./media/how-to-debug-pipelines/pipelinerun-05.png)
+
+### Access logs from pipeline runs
+
+You can also find the log files of specific runs in the pipeline run detail page in either the **Pipelines** or **Experiments** sections.
+
+1. Select a pipeline run created in the designer.
+    ![Pipeline run page](./media/how-to-debug-pipelines/pipelinerun-04.png)
+1. Select any module in the preview pane.
+1. In the properties pane, go to the **Logs** tab.
+1. Select the log file `70_driver_log.txt`
+
 ## Next steps
 
 * See the SDK reference for help with the [azureml-pipelines-core](https://docs.microsoft.com/python/api/azureml-pipeline-core/?view=azure-ml-py) package and the [azureml-pipelines-steps](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py) package.
 
-* Follow the [advanced tutorial](tutorial-pipeline-batch-scoring-classification.md) on using pipelines for batch scoring.
+* See the list of [designer exceptions and error codes](algorithm-module-reference/designer-error-codes.md).
