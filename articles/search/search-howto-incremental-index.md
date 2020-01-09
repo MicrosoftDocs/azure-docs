@@ -153,7 +153,7 @@ To set up incremental enrichment for a new indexer, all you have to do is includ
 
 The cache is created, used, and managed by the indexer, and its contents are not represented in a format that is human readable. The best way to determine whether the cache is used is by running the indexer and compare before-and-after metrics for execution time and document counts. 
 
-For example, assume a skillset that originally specified just entity detection of *people* and *organizations*, and now has *locations*. Using cached content, only location-related processing is performed. Existing output related to people and organizations is preserved. 
+For example, assume a skillset that starts with image analysis and Optical Character Recognition (OCR) of scanned documents, followed by downstream analysis of the resulting text. If you modify a downstream text skill, the indexer can retreive all of the previously processed image and OCR content from cache, updating and processing just text-related changes indicated by your edits. 
 
 ## Working with the cache
 
