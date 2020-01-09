@@ -55,7 +55,7 @@ Following is a sample overview of the continuous integration and delivery lifecy
 
    ![Build your own template](media/continuous-integration-deployment/custom-deployment-build-your-own-template.png) 
 
-1. Select **Load file** and then select the generated Resource Manager template.
+1. Select **Load file**, and then select the generated Resource Manager template.
 
    ![Edit template](media/continuous-integration-deployment/custom-deployment-edit-template.png)
 
@@ -177,9 +177,9 @@ There are two ways to handle secrets:
 
 ### Update active triggers
 
-Deployment can fail if you try to update active triggers. To update active triggers, you need to manually stop them and then restart them after the deployment. You can do this by using an Azure Powershell task:
+Deployment can fail if you try to update active triggers. To update active triggers, you need to manually stop them and then restart them after the deployment. You can do this by using an Azure PowerShell task:
 
-1.  On the **Tasks** tab of the release, add an **Azure Powershell** task.
+1.  On the **Tasks** tab of the release, add an **Azure PowerShell** task.
 
 1.  Select **Azure Resource Manager** as the connection type, and select your subscription.
 
