@@ -57,6 +57,9 @@ Private Endpoints can be created using:
 ### Approval Process
 Once the network admin creates the Private Endpoint (PE), the PostgreSQL admin can manage the Private Endpoint Connection (PEC) to Azure Database for PostgreSQL.
 
+> [!NOTE]
+> Currently, Azure Database for PostgreSQL Single server only supports auto-approval for the private endpoint.
+
 * Navigate to the Azure Database for PostgreSQL server resource in the Azure portal. 
     * Select the Private endpoint connections in the left pane
     * Shows a list of all Private Endpoint Connections (PECs)
@@ -113,4 +116,4 @@ To learn more about Azure Database for PostgreSQL Single server security feature
 
 * To learn how to configure a virtual network service endpoint for your Azure Database for PostgreSQL Single server, see [Configure access from virtual networks](https://docs.microsoft.com/azure/postgresql/concepts-data-access-and-security-vnet).
 
-* For an overview of Azure Database for PostgreSQL Single server connectivity, see [Azure Database for MySQL Connectivity Architecture](https://docs.microsoft.com/azure/postgresql/concepts-connectivity-architecture)
+* For an overview of Azure Database for PostgreSQL Single server connectivity, see [Azure Database for PostgreSQL Connectivity Architecture](https://docs.microsoft.com/azure/postgresql/concepts-connectivity-architecture)
