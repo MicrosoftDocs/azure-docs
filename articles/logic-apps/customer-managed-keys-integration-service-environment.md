@@ -37,7 +37,7 @@ This topic shows how to set up and specify your own encryption key to use when y
 
   If you're new to Azure Key Vault, learn [how to create a key vault](../key-vault/quick-create-portal.md#create-a-vault) and [how to configure customer-managed keys](../storage/common/storage-encryption-keys-portal.md) by using the Azure portal. Or, use these Azure PowerShell commands: [New-AzKeyVault](https://docs.microsoft.com/powershell/module/az.keyvault/new-azkeyvault) and [Add-AzKeyVaultKey](https://docs.microsoft.com/powershell/module/az.keyvault/Add-AzKeyVaultKey).
 
-* A tool that can create your ISE by sending an PUT request, for example, Postman or even a logic app
+* A tool that can create your ISE by sending a PUT request, for example, Postman or even a logic app
 
 ## Create ISE that supports your key
 
@@ -155,19 +155,17 @@ For example:
 }
 ```
 
-<a name="add-access-to-key-vault"></a>
+<a name="identity-access-to-key-vault"></a>
 
-## Give ISE access to your customer-managed key
+## Give identity access to key vault
 
-Within *30 minutes* after you create your ISE, you must grant the system-assigned managed identity for your ISE access to the your key vault. Otherwise, your ISE's creation and deployment fails, and you get an error message about a permissions issue.
-
-You can use either the Azure PowerShell [Set-AzKeyVaultAccessPolicy](https://docs.microsoft.com/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) command or follow the steps for the Azure portal:
+Within *30 minutes* after you create your ISE, you must grant the ISE's system-assigned identity access to your key vault . Otherwise, creation and deployment for your ISE fails, and you get a permissions error. You can use either Azure PowerShell ([Set-AzKeyVaultAccessPolicy](https://docs.microsoft.com/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) command) or follow these steps for the Azure portal:
 
 1. In the [Azure portal](https://portal.azure.com), open your Azure key vault. From your key vault's menu, select **Access control (IAM)**.
 
-1. On the toolbar, select **Add** > **Add role assignment**.
+1. On the toolbar, select **Add** > **Add role assignment**. 
 
-1. Under **Add role assignment**, select these values:
+1. On the **Add role assignment** pane, select these values:
 
    * **Role**: Contributor
    * **Assign access to**: Azure AD user, group, or service principal
