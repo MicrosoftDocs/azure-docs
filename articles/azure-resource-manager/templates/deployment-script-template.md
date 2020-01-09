@@ -9,7 +9,7 @@ ms.date: 01/09/2020
 ms.author: jgao
 
 ---
-# Use deployment scripts in Azure Resource Manager templates (Preview)
+# Use deployment scripts in templates (Preview)
 
 Learn how to use deployment scripts in Azure Resource templates. With a new resource type called `Microsoft.Resources/deploymentScripts`, users can execute deployment scripts in template deployments and review execution results. These scripts can be used for performing custom steps such as:
 
@@ -91,7 +91,8 @@ The following json is an example.  The latest template schema can be found [here
 }
 ```
 
-Note the previous example is for demonstration purpose.  **scriptContent** and **primaryScriptUris** can't coexist in a template.
+> [!NOTE]
+> The example is for demonstration purpose.  **scriptContent** and **primaryScriptUris** can't coexist in a template.
 
 Property value details:
 
