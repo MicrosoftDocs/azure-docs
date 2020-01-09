@@ -7,7 +7,7 @@ ms.date: 01/08/2019
 
 # Manage learning policy
 
-Learning policy settings determine the _hyperparameters_ of the model training.
+Learning policy settings determine the _hyperparameters_ of the model training. The learning policy is defined in a `.json` file.
 
 ## Import a new learning policy
 
@@ -24,5 +24,7 @@ Learning policy settings determine the _hyperparameters_ of the model training.
 1. For the **Import learning settings** select the **Export learning settings** button. This saves the `json` file to your local computer.
 
 ## Next steps
+
+Learn about learning policy [concepts](concept-active-learning.md#learning-settings)
 
 [Learn about region availability](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services)

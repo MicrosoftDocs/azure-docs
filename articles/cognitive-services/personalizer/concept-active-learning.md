@@ -38,6 +38,8 @@ Learning settings determine the *hyperparameters* of the model training. Two mod
 
 You can import and export learning-policy files from the Azure portal. Use this method to save existing policies, test them, replace them, and archive them in your source code control as artifacts for future reference and audit.
 
+Learn [how to](how-to-learning-policy.md) import and export a learning policy.
+
 ### Understand learning policy settings
 
 The settings in the learning policy aren't intended to be changed. Change settings only if you understand how they affect Personalizer. Without this knowledge, you could cause problems, including invalidating Personalizer models.
