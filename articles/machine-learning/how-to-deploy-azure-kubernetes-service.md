@@ -36,7 +36,7 @@ When deploying to Azure Kubernetes Service, you deploy to an AKS cluster that is
 
 - An Azure Machine Learning workspace. For more information, see [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).
 
-- A machine learning model registered in your workspace. If you don't have a registered model, see [How and where to deploy models](service/how-to-deploy-and-where.md).
+- A machine learning model registered in your workspace. If you don't have a registered model, see [How and where to deploy models](how-to-deploy-and-where.md).
 
 - The [Azure CLI extension for Machine Learning service](reference-azure-machine-learning-cli.md), [Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py), or the [Azure Machine Learning Visual Studio Code extension](how-to-vscode-tools.md).
 
@@ -46,9 +46,9 @@ When deploying to Azure Kubernetes Service, you deploy to an AKS cluster that is
     * `model` - Set to your registered model.
     * `inference_config` - Set to the inference configuration for the model.
 
-    For more information on setting these variables, see [How and where to deploy models](service/how-to-deploy-and-where.md).
+    For more information on setting these variables, see [How and where to deploy models](how-to-deploy-and-where.md).
 
-- The __CLI__ snippets in this article assume that you've created an `inferenceconfig.json` document. For more information on creating this document, see [How and where to deploy models](service/how-to-deploy-and-where.md).
+- The __CLI__ snippets in this article assume that you've created an `inferenceconfig.json` document. For more information on creating this document, see [How and where to deploy models](how-to-deploy-and-where.md).
 
 ## Create a new AKS cluster
 
