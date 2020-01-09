@@ -56,6 +56,7 @@ This article describes, step by step, how to make a client application to talk t
 
    ```json
    {
+     "type": "event",
      "name": "UpdateDeviceState",
      "state": "{OnOff}",
      "device": "{SubjectDevice}"
@@ -100,12 +101,11 @@ connector.ActivityReceived += async (sender, activityReceivedEventArgs) =>
     NotifyUser($"Activity received, hasAudio={activityReceivedEventArgs.HasAudio} activity={activityReceivedEventArgs.Activity}");
 
     dynamic activity = JsonConvert.DeserializeObject(activityReceivedEventArgs.Activity);
-    var payload = activity?.Value;
 
-    if(payload?.name == "SetDeviceState")
+    if(activity?.name == "SetDeviceState")
     {
-        var state = payload?.state;
-        var device = payload?.device;
+        var state = activity?.state;
+        var device = activity?.device;
         switch(device)
         {
             case "tv":
