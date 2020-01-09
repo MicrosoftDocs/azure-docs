@@ -9,12 +9,13 @@ ms.topic: reference
 ms.author: peterlu
 author: peterclu
 ms.date: 01/09/2020
-
 ---
 
 # Use a keyboard to use Azure Machine Learning designer (preview)
 
-Use your keyboard and a screen reader to use Azure Machine Learning designer. This workflow has been tested with [Narrator](https://support.microsoft.com/help/22798/windows-10-complete-guide-to-narrator) and [JAWS](https://www.freedomscientific.com/products/software/jaws/), but it should work with other standard screen readers.
+Learn how to use a keyboard and screen reader to use Azure Machine Learning designer. For a list of keyboard shortcuts that work everywhere in the Azure portal, see [Keyboard shortcuts in the Azure portal](../azure-portal/azure-portal-keyboard-shortcuts.md)
+
+This workflow has been tested with [Narrator](https://support.microsoft.com/help/22798/windows-10-complete-guide-to-narrator) and [JAWS](https://www.freedomscientific.com/products/software/jaws/), but it should work with other standard screen readers.
 
 ## Navigate the pipeline graph
 
@@ -32,7 +33,6 @@ The pipeline graph is organized as a list of lists. The top-level module list co
 1. Use Ctrl+F6 to switch focus from the canvas to the module tree.
 1. Find the desired module in the module tree using standard treeview control.
 
-
 ### Edit a module
 
 To connect a module to another module:
@@ -45,7 +45,7 @@ To adjust module properties:
 1. Use Ctrl + Shift + E when targetting a module to open the module properties.
 1. Edit the module properties.
 
-## Navigation keystrokes
+## Navigation shortcuts
 
 | Keystroke | Description |
 |-|-|
@@ -55,9 +55,9 @@ To adjust module properties:
 | Ctrl + Shift + E | Open module panel to set module properties when focus is on a node |
 | Ctrl + G | Move focus to first failed node if pipeline run failed |
 
-## Action keystrokes
+## Action shortcuts
 
-Use the following keystrokes with the access key. For more information on access keys, see https://en.wikipedia.org/wiki/Access_key.
+Use the following shortcuts with the access key. For more information on access keys, see https://en.wikipedia.org/wiki/Access_key.
 
 | Keystroke | Action |
 |-|-|
@@ -70,3 +70,7 @@ Use the following keystrokes with the access key. For more information on access
 | Access key + K | Open "Create inference pipeline" dropdown |
 | Access key + U | Open "Update inference pipeline" dropdown |
 | Access key + M | Open more(...) dropdown |
+
+## Next steps
+
+Learn more about [accessibility-related tools at Microsoft](https://www.microsoft.com/en-us/accessibility).
