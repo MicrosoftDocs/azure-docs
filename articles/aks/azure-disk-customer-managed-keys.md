@@ -12,7 +12,7 @@ ms.author: mlearned
 
 # Bring your own keys (BYOK) with Azure disks in Azure Kubernetes Service (AKS)
 
-Azure Storage encrypts all data in a storage account at rest. By default, data is encrypted with Microsoft-managed keys. For additional control over encryption keys, you can supply [customer-managed keys][https://docs.microsoft.com/azure/virtual-machines/windows/disk-encryption#customer-managed-keys-public-preview] to use for encryption of both the OS and data disks for your AKS clusters.
+Azure Storage encrypts all data in a storage account at rest. By default, data is encrypted with Microsoft-managed keys. For additional control over encryption keys, you can supply [customer-managed keys][customer-manged-keys] to use for encryption of both the OS and data disks for your AKS clusters.
 
 > [!NOTE]
 > Linux and Windows based AKS clusters are both supported.
@@ -115,7 +115,7 @@ TODO
 [managed-disk-pricing-performance]: https://azure.microsoft.com/pricing/details/managed-disks/
 
 <!-- LINKS - internal -->
-[customer-managed keys]: /virtual-machines/windows/disk-encryption#customer-managed-keys-public-preview
+[customer-managed-keys]: /virtual-machines/windows/disk-encryption#customer-managed-keys-public-preview
 [azure-disk-volume]: azure-disk-volume.md
 [azure-files-pvc]: azure-files-dynamic-pv.md
 [premium-storage]: ../virtual-machines/windows/disks-types.md
