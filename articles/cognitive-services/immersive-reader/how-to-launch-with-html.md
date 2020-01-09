@@ -39,7 +39,7 @@ Place the content that you wish to show in the Immersive Reader inside a contain
 
 Use the `id` of the container element to get the HTML content in your JavaScript code.
 
-```typescript
+```javascript
 const htmlContent = document.getElementById('immersive-reader-content').innerHTML;
 ```
 
@@ -47,7 +47,7 @@ const htmlContent = document.getElementById('immersive-reader-content').innerHTM
 
 When calling `ImmersiveReader.launchAsync`, set the chunk's `mimeType` property to `text/html` to enable rendering HTML.
 
-```typescript
+```javascript
 const data = {
     chunks: [{
         content: htmlContent,
