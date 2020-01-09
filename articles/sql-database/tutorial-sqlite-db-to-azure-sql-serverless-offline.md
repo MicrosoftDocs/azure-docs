@@ -60,9 +60,9 @@ Once you have followed the below steps, your database will be migrated into Azur
 
 8. Give the linked service a meaningful name, for example, "sqlite_odbc". Select your integration runtime from the "Connect via integration runtime" dropdown. Enter the below into the connection string, replacing the Initial Catalog variable with the filepath for the .db file, and the DSN with the name of the system DSN connection: 
 
-```
-Connection string: Provider=MSDASQL.1;Persist Security Info=False;Mode=ReadWrite;Initial Catalog=C:\sqlitemigrationsource.db;DSN=sqlitemigrationsource
-```
+    ```
+    Connection string: Provider=MSDASQL.1;Persist Security Info=False;Mode=ReadWrite;Initial Catalog=C:\sqlitemigrationsource.db;DSN=sqlitemigrationsource
+    ```
 
 9. Set the authentication type to Anonymous
 
@@ -76,20 +76,20 @@ Connection string: Provider=MSDASQL.1;Persist Security Info=False;Mode=ReadWrite
 
 12. Extract the CREATE TABLE statements from your SQLite database. You can do this by executing the below Python script on your database file.
 
-```
-#!/usr/bin/python
-import sqlite3
-conn = sqlite3.connect("sqlitemigrationsource.db")
-c = conn.cursor()
+    ```
+    #!/usr/bin/python
+    import sqlite3
+    conn = sqlite3.connect("sqlitemigrationsource.db")
+    c = conn.cursor()
 
-print("Starting extract job..")
-with open('CreateTables.sql', 'w') as f:
-    for tabledetails in c.execute("SELECT * FROM sqlite_master WHERE type='table'"):
-        print("Extracting CREATE statement for " + (str(tabledetails[1])))
-        print(tabledetails)
-        f.write(str(tabledetails[4].replace('\n','') + ';\n'))
-c.close()
-```
+    print("Starting extract job..")
+    with open('CreateTables.sql', 'w') as f:
+        for tabledetails in c.execute("SELECT * FROM sqlite_master WHERE type='table'"):
+            print("Extracting CREATE statement for " + (str(tabledetails[1])))
+            print(tabledetails)
+            f.write(str(tabledetails[4].replace('\n','') + ';\n'))
+    c.close()
+    ```
 
 13. Create the landing tables in your Serverless SQL target environment by copying the CREATE table statements from the CreateTables.sql file and running the SQL statements in the Query Editor in the Azure portal.
 
