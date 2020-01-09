@@ -38,7 +38,6 @@ Solutions are based on log queries and views customized for a particular applica
 |:---|:---|
 | [Agent health](insights/solution-agenthealth.md) | Analyze the health and configuration of Log Analytics agents. |
 | [Alert management](platform/alert-management-solution.md) | Analyze alerts collected from System Center Operations Manager, Nagios, or Zabbix. |
-| [Containers](insights/containers.md) | View and manage Docker and Windows container hosts. |
 | [Service Map](insights/service-map.md) | Automatically discovers application components on Windows and Linux systems and maps the communication between services. The same functionality is provided in   |
 
 
@@ -172,8 +171,6 @@ The services and solutions in the following table store their data in a Log Anal
 
 | Service | Description |
 |:---|:---|
-| [Active Directory assessment](insights/ad-assessment.md) | Assess the risk and health of your Active Directory environments. |
-| [Active Directory replication status](insights/ad-replication-status.md) | Regularly monitors your Active Directory environment for any replication failures. |
 | [Azure Application Gateway](insights/azure-networking-analytics.md#azure-application-gateway-analytics-solution-in-azure-monitor) | Analyze logs and metrics from Azure Application Gateway. |
 | [Azure Automation](/azure/automation/) | Manage operating system updates and track changes on Windows and Linux computers. See [Change Tracking](../automation/change-tracking.md) and [Update Management](../automation/automation-update-management.md). |
 | [Azure Information Protection ](https://docs.microsoft.com/azure/information-protection/) | Classify and optionally protect documents and emails. See [Central reporting for Azure Information Protection](https://docs.microsoft.com/azure/information-protection/reports-aip#configure-a-log-analytics-workspace-for-the-reports). |
@@ -185,13 +182,12 @@ The services and solutions in the following table store their data in a Log Anal
 | [Microsoft Intune](https://docs.microsoft.com/intune/) | Create a diagnostic setting to send logs to Azure Monitor. See [Send log data to storage, event hubs, or log analytics in Intune (preview)](https://docs.microsoft.com/intune/fundamentals/review-logs-using-azure-monitor).  |
 | [Network Performance Monitor](insights/network-performance-monitor.md) | Monitor network connectivity and performance to service and application endpoints. |
 | [On-Demand Assessments](https://docs.microsoft.com/services-hub/health/getting_started_with_on_demand_assessments) | Assess and optimize the availability, security, and performance of your on-premises, hybrid, and cloud Microsoft technology environments. |
-| [SQL assessment](insights/sql-assessment.md) | Assess the risk and health of your SQL Server environments.  |
 | [SQL Analytics](insights/azure-sql.md) | Monitor performance of Azure SQL databases, elastic pools, and managed instances at scale and across multiple subscriptions. |
 | [System Center Operations Manager](https://docs.microsoft.com/system-center/scom) | Collect data from Operations Manager agents by connecting their management group to Azure Monitor. See [Connect Operations Manager to Azure Monitor](platform/om-agents.md) |
 | [Traffic Analytics](/azure/network-watcher/traffic-analytics) | Analyzes Network Watcher network security group (NSG) flow logs to provide insights into traffic flow in your Azure cloud.  |
 | [Visual Studio App Center](https://docs.microsoft.com/appcenter/) | Build, test, and distribute applications and then monitor their status and usage. See [Start analyzing your mobile app with App Center and Application Insights](learn/mobile-center-quickstart.md). |
 | [Windows Update Compliance](https://docs.microsoft.com/windows/deployment/update/update-compliance-get-started) | Assess your Windows desktop upgrades. |
-| [Wire Data](insights/wire-data.md) | Consolidated network and performance data collected from Windows-connected and Linux-connected computers with the Log Analytics agent. |
+
 
 ## External product integrations
 The following solutions provide monitoring for applications and services outside of Azure. These services have their own support and service level agreement.
@@ -209,15 +205,20 @@ The following solutions are in the process of being deprecated. They are covered
 
 | Solution | Description |
 |:---|:---|
+| [Active Directory assessment](insights/ad-assessment.md) | Assess the risk and health of your Active Directory environments. |
+| [Active Directory replication status](insights/ad-replication-status.md) | Regularly monitors your Active Directory environment for any replication failures. |
 | [Activity log analytics](platform/activity-log-view.md#activity-logs-analytics-monitoring-solution) | Analyze Activity log entries using predefined log queries and views. |
 | [Cloud Foundry](../cloudfoundry/cloudfoundry-oms-nozzle.md) | Collect, view, and analyze your Cloud Foundry system health and performance metrics, across multiple deployments. |
+| [Containers](insights/containers.md) | View and manage Docker and Windows container hosts. |
+| [SQL assessment](insights/sql-assessment.md) | Assess the risk and health of your SQL Server environments.  |
+| [Wire Data](insights/wire-data.md) | Consolidated network and performance data collected from Windows-connected and Linux-connected computers with the Log Analytics agent. |
 
-## ITSM solutions
-The following solutions have support shared between Microsoft and Service Now. 
+
+## Third party integration
 
 | Solution | Description |
 |:---|:---|
-| [ITSM](platform/itsmc-overview.md) | Connect your ITSM product/service and Azure Monitor to centrally manage your work items. |
+| [ITSM](platform/itsmc-overview.md) | Connect your ITSM product/service and Azure Monitor to centrally manage your work items. Support shared between Microsoft and Service Now.  |
 
 
 ## Resources outside of Azure
