@@ -40,12 +40,6 @@ This article shows how to create an Immersive Reader resource and configure it w
         Write-Host "Setting the active subscription to '$SubscriptionName'"
         az account set --subscription $SubscriptionName
 
-        Write-Host "Checking if a resource with the name '$ResourceName' already exists"
-        $resourceId = az cognitiveservices account show --name $ResourceName --resource-group $ResourceGroupName --query "id" -o tsv | Out-Null
-        if ($resourceId) {
-            throw "Error: Resource with the name '$ResourceName' already exists"
-        }
-
         Write-Host "Checking if the resource group '$ResourceGroupName' already exists"
         $resourceGroupExists = az group exists --name $ResourceGroupName
         if ($resourceGroupExists -eq "true") {
@@ -55,27 +49,36 @@ This article shows how to create an Immersive Reader resource and configure it w
             az group create --name $ResourceGroupName --location $ResourceGroupLocation | Out-Null
         }
 
-        Write-Host "Creating the new Immersive Reader resource '$ResourceName' (SKU '$ResourceSku') in '$ResourceLocation' with subdomain '$Subdomain'"
-        $resourceId = az cognitiveservices account create `
-                        --name $ResourceName `
-                        --resource-group $ResourceGroupName `
-                        --kind ImmersiveReader `
-                        --sku $ResourceSku `
-                        --location $ResourceLocation `
-                        --custom-domain $Subdomain `
-                        --query "id" `
-                        -o tsv
-
+        # Create an Azure Active Directory resource if it doesn't already exist
+        $resourceId = az cognitiveservices account show --resource-group $ResourceGroupName --name $ResourceName --query "id" -o tsv
         if (-not $resourceId) {
-            throw "Error: Failed to create Immersive Reader resource"
+            Write-Host "Creating the new Immersive Reader resource '$ResourceName' (SKU '$ResourceSku') in '$ResourceLocation' with subdomain '$Subdomain'"
+            $resourceId = az cognitiveservices account create `
+                            --name $ResourceName `
+                            --resource-group $ResourceGroupName `
+                            --kind ImmersiveReader `
+                            --sku $ResourceSku `
+                            --location $ResourceLocation `
+                            --custom-domain $Subdomain `
+                            --query "id" `
+                            -o tsv
+
+            if (-not $resourceId) {
+                throw "Error: Failed to create Immersive Reader resource"
+            }
+            Write-Host "Immersive Reader resource created successfully"
         }
-        Write-Host "Immersive Reader resource created successfully"
 
         # Create an Azure Active Directory app if it doesn't already exist
         $clientId = az ad app show --id $IdentifierUri --query "appId" -o tsv
         if (-not $clientId) {
             Write-Host "Creating new Azure Active Directory app"
             $clientId = az ad app create --password $ClientSecret --display-name $ApplicationDisplayName --identifier-uris $IdentifierUri --query "appId" -o tsv
+
+            if (-not $clientId) {
+                throw "Error: Failed to create Azure Active Directory app"
+            }
+            Write-Host "Azure Active Directory app created successfully"
         }
 
         # Create a service principal if it doesn't already exist
@@ -84,10 +87,19 @@ This article shows how to create an Immersive Reader resource and configure it w
             Write-Host "Creating new service principal"
             az ad sp create --id $clientId | Out-Null
             $principalId = az ad sp show --id $IdentifierUri --query "objectId" -o tsv
+
+            if (-not $principalId) {
+                throw "Error: Failed to create new service principal"
+            }
+            Write-Host "New service principal created successfully"
         }
 
         Write-Host "Granting service principal access to the newly created Immersive Reader resource"
-        az role assignment create --assignee $principalId --scope $resourceId --role "Cognitive Services User" | Out-Null
+        $accessResult = az role assignment create --assignee $principalId --scope $resourceId --role "Cognitive Services User" | Out-Null
+        if (-not $accessResult) {
+                throw "Error: Failed to grant service principal access"
+        }
+        Write-Host "Service principal access granted successfully"
 
         # Grab the tenant ID, which is needed when obtaining an Azure AD token
         $tenantId = az account show --query "tenantId" -o tsv
