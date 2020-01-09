@@ -33,9 +33,17 @@ The pipeline graph is organized as a list of lists. The top-level module list co
 1. Find the desired module in the module tree using standard treeview control.
 
 
-### Edit an existing module
+### Edit a module
 
-To connect a module to another module, use Ctrl + Shift + H when targetting a module in the module list to open the connection helper. The connection helper list all the available connection ports for you to edit.
+To connect a module to another module:
+
+1. Use Ctrl + Shift + H when targetting a module in the module list to open the connection helper.
+1. Edit the connection ports for the module.
+
+To adjust module properties:
+
+1. Use Ctrl + Shift + E when targetting a module to open the module properties.
+1. Edit the module properties.
 
 ## Navigation keystrokes
 
