@@ -1,6 +1,6 @@
 ---
-title: Control storage account access for SQL on-demand
-description: Describes how SQL on-demand accesses Azure Storage and how you can control storage access for SQL on-demand.
+title: Control storage account access for SQL on-demand resources
+description: Describes how SQL on-demand accesses Azure Storage and how you can control storage access for SQL on-demand resources.
 services: synapse-analytics 
 author: filippopovic
 ms.service: synapse-analytics 
@@ -12,13 +12,13 @@ ms.reviewer: jrasnick
 ---
 
 
-# Control storage account access for SQL on-demand
+# Control storage account access for SQL on-demand resources
 
-SQL on-demand query reads files directly from Azure Storage. Since the storage account is an object that is external to SQL on-demand, appropriate credentials are required. A user needs the applicable permissions granted to use the requisite credential. This document describes the types of credentials you can use and how credential lookup is enacted for SQL and AAD logins.
+A SQL on-demand query reads files directly from Azure Storage. Since the storage account is an object that is external to the SQL on-demand resource, appropriate credentials are required. A user needs the applicable permissions granted to use the requisite credential. This article describes the types of credentials you can use and how credential lookup is enacted for SQL and AAD logins.
 
 ## Supported storage authorization types
 
-A user that has logged into SQL on-demand must be authorized to access and query the files in Azure Storage. Three authorization types are supported:
+A user that has logged into a SQL on-demand resource must be authorized to access and query the files in Azure Storage. Three authorization types are supported:
 
 - [Shared access signature](#shared-access-signature)
 - [Managed Identity](#managed-identity)
@@ -79,8 +79,8 @@ CREDENTIAL NAME must match the full path to the container, folder, or file, in t
 | External Data Source       | Prefix | Storage account path                                |
 | -------------------------- | ------ | --------------------------------------------------- |
 | Azure Blob Storage         | https  | <storage_account>.blob.core.windows.net             |
-| Azure Data Lake Store Gen1 | https  | <storage_account>.azuredatalakestore.net/webhdfs/v1 |
-| Azure Data Lake Store Gen2 | https  | <storage_account>.dfs.core.windows.net              |
+| Azure Data Lake Storage Gen1 | https  | <storage_account>.azuredatalakestore.net/webhdfs/v1 |
+| Azure Data Lake Storage Gen2 | https  | <storage_account>.dfs.core.windows.net              |
 
  '<storage_path>' is a path within your storage that points to the folder or file you want to read.
 
@@ -119,7 +119,7 @@ Exchange <*mystorageaccountname*> with your actual storage account name, and <*m
 > GO
 > ```
 
-**User Identity and Azure Data Lake Store Gen1** 
+**User Identity and Azure Data Lake Storage Gen1** 
 
 Exchange <*mystorageaccountname*> with your actual storage account name, and <*mystorageaccountcontainername*> with the actual container name:
 
@@ -129,7 +129,7 @@ Exchange <*mystorageaccountname*> with your actual storage account name, and <*m
 >GO
 >```
 
-**User Identity and Azure Data Lake Store Gen2** 
+**User Identity and Azure Data Lake Storage Gen2** 
 
 Exchange <*mystorageaccountname*> with your actual storage account name, and <*mystorageaccountcontainername*> with the actual container name:
 
@@ -159,7 +159,7 @@ To enable forcing an AAD pass-through for a specific user, you can grant REFEREN
 GRANT REFERENCES ON CREDENTIAL::[UserIdentity] TO USER [user_name]
 ```
 
-For more information on how SQL on-demandfinds credential to use, see [credential lookup](#credential-lookup).
+For more information on how SQL on-demand finds credential to use, see [credential lookup](#credential-lookup).
 
 ## Disable forcing AAD pass-through
 
