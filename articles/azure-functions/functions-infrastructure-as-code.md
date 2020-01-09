@@ -86,7 +86,7 @@ Application Insights is recommended for monitoring your function apps. The Appli
             },
             "properties": {
                 "Application_Type": "web",
-                "ApplicationId": "[variables('functionAppName')]"
+                "ApplicationId": "[variables('appInsightsName')]"
             }
         },
 ```

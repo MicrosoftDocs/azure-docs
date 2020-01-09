@@ -1,8 +1,7 @@
 ---
-title: Azure PowerShell samples for VPN Gateway | Microsoft Docs
+title: Azure PowerShell samples for VPN Gateway
 description: Azure PowerShell samples for VPN Gateway.
 services: vpn-gateway
-documentationcenter: ''
 author: cherylmc
 manager: jeconnoc
 editor: ''

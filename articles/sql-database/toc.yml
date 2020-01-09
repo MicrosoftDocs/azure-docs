@@ -530,6 +530,8 @@
       href: sql-database-security-tutorial.md
     - name: Stream data with Stream Analytics
       href: sql-database-stream-analytics.md
+    - name: Migrate a SQLite database to Azure SQL Database Serverless
+      href: tutorial-sqlite-db-to-azure-sql-serverless-offline.md
 
   - name: Concepts
     items:

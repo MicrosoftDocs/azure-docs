@@ -58,9 +58,6 @@
       items:
       - name: Offer listing best practices
         href: ./gtm-offer-listing-best-practices.md
-        items:
-        - name: Categories
-          href: ./gtm-offer-listing-best-practices-categories.md
       - name: How to get featured
         href: ./gtm-how-to-get-featured.md
       - name: Marketplace content validation

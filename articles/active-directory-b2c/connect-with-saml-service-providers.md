@@ -269,7 +269,7 @@ Your custom policy and Azure AD B2C tenant are now ready. Next, create an applic
 1. In the left menu, select **Azure AD B2C**. Or, select **All services** and search for and select **Azure AD B2C**.
 1. Select **App registrations (Preview)**, and then select **New registration**.
 1. Enter a **Name** for the application. For example, *SAMLApp1*.
-1. Under **Supported account types**, select **Accounts in any organizational directory or any identity provider.**
+1. Under **Supported account types**, select **Accounts in this organizational directory only**
 1. Under **Redirect URI**, select **Web**, and then enter `https://localhost`. You modify this value later in the application registration's manifest.
 1. Select **Grant admin consent to openid and offline_access permissions**.
 1. Select **Register**.
@@ -281,11 +281,11 @@ For SAML apps, there are several properties you need to configure in the applica
 1. In the [Azure portal](https://portal.azure.com), navigate to the application registration that you created in the previous section.
 1. Under **Manage**, select **Manifest** to open the manifest editor. You modify several properties in the following sections.
 
-#### IdentifierUri
+#### identifierUris
 
-The `IdentifierUri` is a string collection containing user-defined URI(s) that uniquely identify a Web app within its Azure AD B2C tenant. The identifier URI must be from a verified domain within your organization's directory. For example, `https://contoso.onmicrosoft.com/app-name`. Your service provider must set this value in the `Issuer` element of a SAML request.
+The `identifierUris` is a string collection containing user-defined URI(s) that uniquely identify a Web app within its Azure AD B2C tenant. Your service provider must set this value in the `Issuer` element of a SAML request.
 
-#### SamlMetadataUrl
+#### samlMetadataUrl
 
 This property represents service provider's publicly available metadata URL. The metadata URL can point to a metadata file uploaded to any anonymously accessible endpoint, for example blob storage.
 
@@ -299,7 +299,7 @@ For this tutorial which uses the SAML test application, use the following value 
 "samlMetadataUrl":"https://samltestapp2.azurewebsites.net/Metadata",
 ```
 
-#### ReplyUrlWithType (Optional)
+#### replyUrlsWithType (Optional)
 
 If you do not provide a metadata URI, you can explicitly specify the reply URL. This optional property represents the `AssertionConsumerServiceUrl` (`SingleSignOnService` URL in the service provider metadata) and the `BindingType` is assumed to be `HTTP POST`.
 
@@ -316,7 +316,7 @@ For this tutorial, in which you use the SAML test application, set the `url` pro
 ],
 ```
 
-#### LogoutUrl (Optional)
+#### logoutUrl (Optional)
 
 This optional property represents the `Logout` URL (`SingleLogoutService` URL in the relying party metadata), and the `BindingType` for this is assumed to be `Http-Redirect`.
 
