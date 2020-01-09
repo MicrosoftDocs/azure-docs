@@ -108,7 +108,7 @@ The API server end point has no public IP address. Consequently, users will need
     * select the virtual network on the right pane. Virtual network name will be in the form aks-vnet-*.
     * select Peerings on the left pane
     * click on Add and add the Virtual network of the VM and create the peering.
-    * Go to the Vnet where you have the VM and then click on peerings and select the AKS Virtual network and create the peering. If the address ranges on the AKS Virtual network and the VM's virtual network clashes, Then peering will fail. Refer to this [document](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-peering-overview) for more information about virtual network peering.
+    * Go to the Vnet where you have the VM and then click on peerings and select the AKS Virtual network and create the peering. If the address ranges on the AKS Virtual network and the VM's virtual network clashes, Then peering will fail. Refer to this [document][virtual-network-peering] for more information about virtual network peering.
 * SSH into the VM
 * Install Kubectl tool and run kubectl commands
 
@@ -133,3 +133,5 @@ The API server end point has no public IP address. Consequently, users will need
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-extension-update]: /cli/azure/extension#az-extension-update
 [private-link-service]: https://docs.microsoft.com/azure/private-link/private-link-service-overview
+[virtual-network-peering]: ../virtual-network/virtual-network-peering-overview.md
+
