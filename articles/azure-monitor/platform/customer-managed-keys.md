@@ -9,7 +9,6 @@ ms.author: yossiy
 ms.date: 01/07/2020
 
 ---
-
 # Azure Monitor customer-managed key configuration 
 
 This article provides background information and steps to configure Customer-Managed Keys (CMK) your Log Analytics workspaces and Application Insights components. Once configured, any data sent to your workspaces is encrypted with your Azure Key Vault key.
@@ -50,7 +49,7 @@ The Azure Monitor use of encryption is identical to the way
 operates.
 
 The frequency that Azure Monitor Storage accesses Key Vault for wrap and
-unwrap operations is between 6 to 60 seconds. Azure Monitor Storage 
+unwrap operations is between 6 to 60 seconds. Azure Monitor Storage  
 always respects changes in key permissions within an hour.
 
 ## How CMK works in Azure Monitor
@@ -424,45 +423,44 @@ with Key Identifier details" step.
     in Azure Monitor shortly after, the key won't be accessible by Azure
     Monitor Storage.
 
-Limitations and constraints
-===========================
+## Limitations and constraints
 
--   The CMK feature is supported at ADX cluster level and requires a
+- The CMK feature is supported at ADX cluster level and requires a
     dedicated Azure Monitor ADX cluster
 
--   The max number of *Cluster* resources per subscription is limited to 5
+- The max number of *Cluster* resources per subscription is limited to 5
 
--   *Cluster* resource association to workspace should be carried ONLY
+- *Cluster* resource association to workspace should be carried ONLY
     after you received a confirmation from the product group that the
     ADX cluster provisioning was fulfilled. Data that is sent prior to
     this provisioning will be dropped and won't be recoverable.
 
--   CMK encryption applies to newly ingested data after the CMK
+- CMK encryption applies to newly ingested data after the CMK
     configuration. Data that was ingested prior to the CMK
     configuration, remained encrypted with Microsoft key. You can query
     data before and after the configuration seamlessly.
 
--   CMK capability is regional -- your Azure Key Vault, *Cluster*
+- CMK capability is regional -- your Azure Key Vault, *Cluster*
     resource and associated workspaces must be in the same region but
     can be in different subscriptions.
 
--   Once workspace is associated to a *Cluster* resource, it cannot be
+- Once workspace is associated to a *Cluster* resource, it cannot be
     de-associated from the *Cluster* resource, since data is encrypted
     with your key and isn't accessible without your KEK in Azure Key
     Vault.
 
--   The Azure Key Vault must be configured as recoverable. These
+- The Azure Key Vault must be configured as recoverable. These
     properties aren't enabled by default:
 
-    -   [Soft Delete](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete)
+  - [Soft Delete](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete)
         is turned on
-    -   'Do Not Purge' is turned on to guard against force deletion of
+  - 'Do Not Purge' is turned on to guard against force deletion of
         the secret / vault even after soft delete
 
--   *Cluster* resource move to another resource group or subscription
+- *Cluster* resource move to another resource group or subscription
     isn't supported currently.
 
--   Workspace association to *Cluster* resource will fail if the
+- Workspace association to *Cluster* resource will fail if the
     *Cluster* resource is in a different tenant.
 
 -   Workspace association to *Cluster* resource will fail if it is
