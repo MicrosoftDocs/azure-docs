@@ -43,16 +43,17 @@ We provide two REST API endpoints to:
 - start model conversion 
 - poll conversion progress 
 
-## Environments:
+## Environments
+
 | Environment | Base URL | 
 |-----------|:-----------|
 | Production West US 2 | https://remoterendering.westus2.mixedreality.azure.com |
 | Production West Europe | https://remoterendering.westeurope.mixedreality.azure.com |
 
-## Common request headers:
+## Common request headers
 - The *Authorization* header must have the value of "Bearer [token]", where [token] is the authentication token returned by the Secure Token Service, see [how to get a token](../quickstarts/getting-tokens.md)
 
-## Common response headers:
+## Common response headers
 - The *MS-CV* header can be used by the product team to trace the call within the service
 
 ### Start conversion

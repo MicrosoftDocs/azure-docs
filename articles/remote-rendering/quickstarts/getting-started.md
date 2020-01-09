@@ -14,7 +14,7 @@ ms.service: azure-remote-rendering
 
 The best way to get started with Azure Remote Rendering is to jump in and complete the [Rendering your first Model Tutorial](../quickstarts/rendering-your-first-model.md).
 
-## Further documentation:
+## Further documentation
 - [Create an account](../how-tos/create-an-account.md) to use the REST API.
 - [Ingesting a model](../how-tos/ingest-models.md) into the remote rendering internal format using the ingestion REST API.
 You will need an Azure Storage account and configure it with input and output containers.

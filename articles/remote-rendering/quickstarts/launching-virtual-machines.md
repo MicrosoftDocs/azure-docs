@@ -19,7 +19,7 @@ The RenderingSession.ps1 can be found in the Scripts directory of the arrclient 
 
 The script and its configuration are described here: [Powershell Example Scripts](../quickstarts/powershell-example-scripts-for-frontend.md)
 
-## Environments:
+## Environments
 | Environment | Base URL | 
 |-----------|:-----------|
 | Production West US 2 | https://remoterendering.westus2.mixedreality.azure.com |
@@ -30,16 +30,16 @@ Example:
 PS> $endPoint = "https://remoterendering.westus2.mixedreality.azure.com"
 ```
 
-## Accounts:
+## Accounts
 If you don't have a Remote Rendering account, [create one](../how-tos/create-an-account.md). Each resource is identified by an *account ID* and the *account ID* is used throughout the session APIs. 
 
-### Examples:
+### Examples
 ```powershell
 PS> $accountId = "********-****-****-****-************"
 PS> $accountKey = "*******************************************="
 ```
 
-## Common request headers:
+## Common request headers
 - The *Authorization* header must have the value of "Bearer [token]", where [token] is the authentication token returned by the Secure Token Service, see [how to get a token](../quickstarts/getting-tokens.md)
 ```powershell
 PS> [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.SecurityProtocolType]::Tls12
@@ -48,7 +48,7 @@ PS> $response = ConvertFrom-Json -InputObject $webResponse.Content
 PS> $token = $response.AccessToken;
 ```
 
-## Common response headers:
+## Common response headers
 - The *MS-CV* header can be used by the product team to trace the call within the service
 
 ## Creating a session

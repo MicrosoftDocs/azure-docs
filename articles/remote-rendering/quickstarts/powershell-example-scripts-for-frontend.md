@@ -74,7 +74,7 @@ azureStorageSettings contain values used by the Ingestion.ps1 script. Fill it ou
 modelSettings is used to select which model you want to convert - it does not need to be filled out if you provide command-line parameters to the Ingestion.ps1 script:
 - modelSettings.modelLocation: can be also provided to the Ingestion.ps1 via the -ModelLocation parameter. Path to the local file on disc. for example: "C:\\\\models\\\\box.fbx". Make sure to properly escape the backslash in the path and use "\\\\"
 
-## RenderingSession.ps1: 
+## Script RenderingSession.ps1
 Make sure you have filled out the accountSettings and renderingSessionSettings sections in arrconfig.json next to the RenderingSession.ps1 script.
 
 All commands can be executed in a powershell window:
@@ -130,18 +130,18 @@ To list the current sessions, use:
 PS> $ .\RenderingSession.ps1 -GetSessions
 ```
 
-## Stop a session: 
+## Stop a session
 ```powershell
 PS> $ .\RenderingSession.ps1 -StopSession -Id <sessionID> 
 ```
 
-## Change session properties:
+## Change session properties
 At the moment, we only support changing the maxLeaseTime of a VM. The lease time will still be counted from the time when the VM was spun up initially. 
 ```powershell
 PS> $ .\RenderingSession.ps1 -UpdateSession -Id <sessionID> -MaxLeaseTime <hh:mm:ss>
 ```
 
-## Converting an asset using Ingestion.ps1:
+## Converting an asset using Ingestion.ps1
 Make sure you have filled out the accountSettings and azureStorageSettings sections in arrconfig.json next to the Ingestion.ps1 script.
 Open a powershell in the Scripts folder and make sure you are logged into the Azure subscription under which your storage account exists
 ```powershell
