@@ -39,7 +39,7 @@ If schemas have already been used, then you have a few options:
 
 - Remove the legacy schema names and start fresh
 - Keep the legacy schema names by pre-pending the legacy schema name to the table name
-- Retain the legacy schema names by implementing views over the table in an extra schema, which will re-create the old schema structure.
+- Retain the legacy schema names by implementing views over the table in an extra schema, which re-creates the old schema structure.
 
 > [!NOTE]
 > On first inspection, option 3 may seem like the most appealing choice. Views are read only in SQL Analytics. Any data or table modification would need to be performed against the base table. Option 3 also introduces a layer of views into your system. You might want to give this some additional thought if you are already using views in your architecture.
