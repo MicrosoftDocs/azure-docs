@@ -11,23 +11,25 @@ ms.date: 01/06/2019
 
 # Bring your own key disk encryption on Azure HDInsight
 
-Azure HDInsight supports Bring Your Own Key (BYOK) encryption for data on managed disks and resource disks attached to HDInsight cluster VMs. This feature allows you to use Azure Key Vault to manage the encryption keys that secure data at rest on your HDInsight clusters. Your clusters may have one or more attached Azure Storage accounts where the encryption keys could also be Microsoft-managed or customer-managed, but the encryption service is different.
+Azure HDInsight supports customer-managed keys, also known as Bring Your Own Key (BYOK) encryption for data on managed disks and resource disks attached to HDInsight cluster VMs. This feature allows you to use Azure Key Vault to manage the encryption keys that secure data at rest on your HDInsight clusters. Your clusters may have one or more attached Azure Storage accounts where the encryption keys could also be Microsoft-managed or customer-managed, but the encryption service is different.
 
-All managed disks and resource disks in HDInsight are protected with Azure Storage Service Encryption (SSE). By default, the data on those disks is encrypted using Microsoft-managed keys. If you enable BYOK, you provide the encryption key for HDInsight to use and manage it using Azure Key Vault.
+This document does not address data stored in your Azure Storage account. For more information about ASE, please see [Azure Storage encryption for data at rest](../storage/common/storage-service-encryption.md).
 
-BYOK encryption is a one-step process handled during cluster creation at no additional cost. All you need to do is register HDInsight as a managed identity with Azure Key Vault and add the encryption key when you create your cluster.
+All managed disks in HDInsight are protected with Azure Storage Service Encryption (SSE). By default, the data on those disks is encrypted using Microsoft-managed keys. If you enable customer-managed keys for HDInsight, you provide the encryption keys for HDInsight to use and manage those keys using Azure Key Vault.
+
+Customer-managed key encryption is a one-step process handled during cluster creation at no additional cost. All you need to do is register HDInsight as a managed identity with Azure Key Vault and add the encryption key when you create your cluster.
 
 Both resource disk and managed disks on each node of the cluster are encrypted with a symmetric Data Encryption Key (DEK). The DEK is protected using the Key Encryption Key (KEK) from your key vault. The encryption and decryption processes are handled entirely by Azure HDInsight.
 
 You can use the Azure portal or Azure CLI to safely rotate the keys in the key vault. When a key rotates, the HDInsight cluster starts using the new key within minutes. Enable the "Soft Delete" key protection features to protect against ransomware scenarios and accidental deletion. Key vaults without this protection feature aren't supported.
 
-## Get started with BYOK
+## Get started with customer-managed keys
 
-To create a BYOK enabled HDInsight cluster, we'll go through the following steps:
+To create a customer-managed key enabled HDInsight cluster, we'll go through the following steps:
 
 1. Create managed identities for Azure resources
 2. Setup Azure Key Vault and keys
-3. Create HDInsight cluster with BYOK enabled
+3. Create HDInsight cluster with customer-managed key enabled
 4. Rotating the encryption key
 
 ## Create managed identities for Azure resources
@@ -88,9 +90,9 @@ HDInsight only supports Azure Key Vault. If you have your own key vault, you can
 
     ![Save Azure Key Vault access policy](./media/disk-encryption/add-key-vault-access-policy-save.png)
 
-## Create cluster with disk encryption
+## Create cluster with customer-managed key disk encryption
 
-You're now ready to create a new HDInsight cluster. BYOK can only be applied to new clusters during cluster creation. Encryption can't be removed from BYOK clusters, and BYOK can't be added to existing clusters.
+You're now ready to create a new HDInsight cluster. Customer-managed key can only be applied to new clusters during cluster creation. Encryption can't be removed from customer-managed key clusters, and customer-managed key can't be added to existing clusters.
 
 ### Using the Azure portal
 
@@ -110,7 +112,7 @@ az hdinsight create -t spark -g MyResourceGroup -n MyCluster \
 --assign-identity MyMSI
 ```
 
-## Rotating the Encryption key
+## Rotating the encryption key
 
 There might be scenarios where you might want to change the encryption keys used by the HDInsight cluster after it has been created. This can be easily via the portal. For this operation, the cluster must have access to both the current key and the intended new key, otherwise the rotate key operation will fail.
 
@@ -133,7 +135,7 @@ az hdinsight rotate-disk-encryption-key \
 --resource-group MyResourceGroup
 ```
 
-## FAQ for BYOK
+## FAQ for customer-managed key encryption
 
 **How does the HDInsight cluster access my key vault?**
 
@@ -141,7 +143,7 @@ HDInsight accesses your Azure Key Vault instance using the managed identity that
 
 **Is this feature available for all clusters on HDInsight?**
 
-BYOK encryption is available for all cluster types except Spark 2.1 and 2.2.
+Customer-managed key encryption is available for all cluster types except Spark 2.1 and 2.2.
 
 **Can I use multiple keys to encrypt different disks or folders?**
 
@@ -161,13 +163,13 @@ Since only “Soft Delete” enabled keys are supported, if the keys are recover
 
 Resource disks and data/managed disks are encrypted. OS disks are not encrypted.
 
-**If a cluster is scaled up, will the new nodes support BYOK seamlessly?**
+**If a cluster is scaled up, will the new nodes support customer-managed keys seamlessly?**
 
 Yes. The cluster needs access to the key in the key vault during scale up. The same key is used to encrypt both managed disks and resource disks in the cluster.
 
-**Is BYOK available in my location?**
+**Are customer-managed keys available in my location?**
 
-HDInsight BYOK is available in all public clouds and national clouds.
+HDInsight customer-managed keys is available in all public clouds and national clouds.
 
 ## Next steps
 
