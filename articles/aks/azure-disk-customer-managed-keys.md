@@ -53,7 +53,7 @@ az extension add --name aks-preview
 az extension update --name aks-preview
 ```
 
-## Create Azure Key Vault instance to store your keys
+## Create an Azure Key Vault instance to store your keys
 
 You can optionally use the Azure portal to [Configure customer-managed keys with Azure Key Vault][byok-azure-portal]
 
