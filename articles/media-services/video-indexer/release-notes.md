@@ -37,7 +37,7 @@ Update a specific section in the transcript using the [Update-Video-Index](https
 You can now update Media Services connection configuration in order to self-help with issues like: 
 
 * incorrect Azure Media Services resource
-* password was changed
+* password changes
 * Media Services resources were moved between subscriptions  
 
 To fix the account configuration, in the Video Indexer portal navigate to Settings > Account tab (as owner).
