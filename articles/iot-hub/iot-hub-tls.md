@@ -21,7 +21,7 @@ TLS 1.0 and 1.1 are considered legacy and are [planned for deprecation](./tls-1.
 
 For added security, it is advised to configure your IoT Hubs to _only_ allow client connections that use TLS version 1.2 and to enforce the use of [recommended ciphers](#recommended-ciphers).
 
-For this purpose, provision a new IoT Hub in any of the [supported regions](#supported-regions) and set the `minTlsVersion` property to `1.2` in your ARM template's IoT hub resource specification:
+For this purpose, provision a new IoT Hub in any of the [supported regions](#supported-regions) and set the `minTlsVersion` property to `1.2` in your Azure Resource Manager template's IoT hub resource specification:
 
 ```json
 {
