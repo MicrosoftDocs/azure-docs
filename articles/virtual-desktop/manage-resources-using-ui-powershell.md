@@ -155,7 +155,7 @@ Now that you've set up the management tool at any time, you can launch it anytim
 
 ## Report issues
 
-If you come across any issues with the management tool or other Windows Virtual Desktop tools, follow the directions in [ARM Templates for Remote Desktop Services](https://github.com/Azure/RDS-Templates/blob/master/README.md) to report them on GitHub.
+If you come across any issues with the management tool or other Windows Virtual Desktop tools, follow the directions in [Azure Resource Manager templates for Remote Desktop Services](https://github.com/Azure/RDS-Templates/blob/master/README.md) to report them on GitHub.
 
 ## Next steps
 
