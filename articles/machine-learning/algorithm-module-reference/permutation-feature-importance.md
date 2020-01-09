@@ -13,7 +13,7 @@ ms.date: 10/10/2019
 ---
 # Permutation Feature Importance
 
-This article describes how to use the Permutation Feature Importance module in Azure Machine Learning designer (preview), to compute a set of feature importance scores for your dataset. You use these scores to help you determine the best features to use in a model.
+This article describes how to use the Permutation Feature Importance module in Azure Machine Learning designer, to compute a set of feature importance scores for your dataset. You use these scores to help you determine the best features to use in a model.
 
 In this module, feature values are randomly shuffled, one column at a time. The performance of the model is measured before and after. You can choose one of the standard metrics to measure performance.
 
