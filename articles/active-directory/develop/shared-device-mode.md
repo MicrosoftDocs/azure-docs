@@ -49,9 +49,13 @@ Applications that only support multiple-account mode can't run on a shared devic
 
 **Supporting both single-account and multiple-account mode**
 
-If your app supports multiple accounts, but you also need to support single account mode so that you can use shared device mode, you can use `ISingleAccountPublicClientApplication.isSharedDevice()` to determine when to run in single-account mode. You could also adapt the user interface accordingly.
+Your app can support running on both personal devices and shared devices. If your app supports multiple accounts, but can also support single account mode so that you can use shared device mode. Your apps may change their behavior based on the type of device they are on. Use `ISingleAccountPublicClientApplication.isSharedDevice()` to determine when to run in single-account mode. There are two different interfaces that represent the type of device your application is on. When you request an application instance from MSAL’s application factory, the correct type of application object is provided automatically.
 
-You'll also need to perform a type check and cast to the appropriate interface when you get your public client application object, like this:
+The following object model illustrates the type of object you may receive and what it means in the context of a shared device:
+
+![public client application inheritance model](media/v2-shared-device-mode/ipublic-client-app-inheritance.png)
+
+You'll need to perform a type check and cast to the appropriate interface when you get your public client application object, like this:
 
 ```java
 private IPublicClientApplication mApplication;
@@ -65,6 +69,15 @@ private IPublicClientApplication mApplication;
         }
 ```
 
+The following differences apply depending on whether your app is running on a shared or personal device:
+
+|  | Shared mode device  | Personal device |
+|---------|---------|---------|
+| **Accounts**     | Only one account | Multiple accounts |
+| **Sign-in** | Global | Global |
+| **Sign-out** | Global | Each application can control if the sign-out is local to the app or for the family of applications. |
+| **Supported account types** | Work accounts only | Personal and work accounts supported  |
+
 ## What happens when the device mode changes
 
 If your application is running in multiple-account mode, and an administrator puts the device in shared device mode, all of the accounts on the device are cleared from the application and the application transitions to single-account mode.
@@ -73,11 +86,17 @@ If your application is running in multiple-account mode, and an administrator pu
 
 If you are writing an app that will only be used for firstline workers using a shared device, we recommend that you write your application to only support single-account mode. This includes most applications that are task focused such as medical records apps, invoice apps, and most line-of-business apps. Only supporting single-account mode simplifies development because you won't need to implement the additional features that are part of multiple-account apps.
 
-## Global Sign out
+## Global sign out and the overall app lifecycle
 
-When a user signs out, you will need to take action to protect the privacy and data of the user. For example, if you're building a medical records app you'll want to make sure that when the user signs out that previously displayed patient records are cleared. Your application must be prepared for this and check every time it enters the foreground. See [Shared device global sign-out ](link) to learn how to check whether the user has changed and how to globally sign the previous user out of the app.
+When a user signs out, you will need to take action to protect the privacy and data of the user. For example, if you're building a medical records app you'll want to make sure that when the user signs out that previously displayed patient records are cleared. Your application must be prepared for this and check every time it enters the foreground.
 
 When your app uses MSAL to sign out the user in an app running on device that is in shared mode, the signed-in account and cached tokens are removed from both the app and the device.
+
+The following diagram shows the overall app lifecycle and common events that may occur while your app runs. It covers from the time an activity launches, signing in and signing out an account, and how events such as pausing, resuming, and stopping the activity fit in.
+
+![Shared device app lifecycle](media/v2-shared-device-mode/lifecycle.png)
+
+ See [Shared device global sign-out ](link) to learn how to check whether the user has changed and how to globally sign the previous user out of the app.
 
 ## Next steps
 

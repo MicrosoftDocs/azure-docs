@@ -488,6 +488,10 @@
         href: vs-active-directory-webapi-what-happened.md
       - name: Diagnose errors during authentication
         href: vs-active-directory-error.md
+   - name: Shared device mode
+     items:
+     - name: Shared device global sign-out
+     href: howto-v2-global-sign-in-out.md 
   - name: References
     items:
     - name: Authentication libraries
