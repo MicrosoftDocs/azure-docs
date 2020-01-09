@@ -67,8 +67,8 @@ Keep the PowerShell window you used to sign in open to run additional PowerShell
 Run the following commands to create the app registration with required API permissions:
 
 ```powershell
-$appName = Read-Host -Prompt "Enter a unique name for the management tool's app registration"
-$subscriptionId = Read-Host -Prompt "Enter the Azure subscription ID where you will be deploying the management tool"
+$appName = Read-Host -Prompt "Enter a unique name for the management tool's app registration. The name can't contain spaces or special characters."
+$subscriptionId = Read-Host -Prompt "Enter the Azure subscription ID where you will be deploying the management tool."
 
 .\createWvdMgmtUxAppRegistration.ps1 -AppName $appName -SubscriptionId $subscriptionId
 ```
