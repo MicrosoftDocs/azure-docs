@@ -71,13 +71,13 @@ az keyvault create -n <key-vault-name> -g <resource-group-name> -l westus  --ena
     
 ```azurecli
 # Retrieve the Key Vault Id and store it in a variable
-KeyVaultId=$(az keyvault show --name <key-vault-name> --query [id] -o tsv)
+keyVaultId=$(az keyvault show --name <key-vault-name> --query [id] -o tsv)
 
 # Retrieve the Key Vault key URL and store it in a variable
-KeyVaultKeyUrl=$(az keyvault key show --vault-name <key-vault-name>  --name <key-name>  --query [key.kid] -o tsv)
+keyVaultKeyUrl=$(az keyvault key show --vault-name <key-vault-name>  --name <key-name>  --query [key.kid] -o tsv)
 
 # Create a DiskEncryptionSet
-az disk-encryption-set create -n <disk-encryption-set-name>  -l <azure-location-name>  -g <resource-group-name> --source-vault $KeyVaultId --key-url $KeyVaultKeyUrl 
+az disk-encryption-set create -n <disk-encryption-set-name>  -l <azure-location-name>  -g <resource-group-name> --source-vault $keyVaultId --key-url $keyVaultKeyUrl 
 ```
 
 ## Grant the DiskEncryptionSet resource access to the key vault
