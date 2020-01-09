@@ -5,7 +5,7 @@ services: data-factory
 author: linda33wj
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 08/26/2019
+ms.date: 01/09/2020
 ms.author: jingwang
 ms.reviewer: craigg
 ---
@@ -121,8 +121,6 @@ Cosmos DB calculates RU from [here](../cosmos-db/request-units.md#request-unit-c
 ### Error code:  AdlsGen2OperationFailed
 
 - **Message**: `ADLS Gen2 operation failed for: %adlsGen2Message;.%exceptionData;.`
-
-<br/>
 
 - **Cause**: ADLS Gen2 throws the error indicating operation failed.
 
