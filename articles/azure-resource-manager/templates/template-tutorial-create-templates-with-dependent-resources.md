@@ -112,7 +112,7 @@ There are many methods for deploying templates.  In this tutorial, you use Cloud
     ![Azure portal Cloud shell upload file](./media/template-tutorial-create-templates-with-dependent-resources/azure-portal-cloud-shell-upload-file.png)
 1. Select the template you saved earlier in the tutorial. The default name is **azuredeploy.json**.  If you have a file with the same file name, the old file is overwritten without any notification.
 
-    You can optionally use the **ls $HOME** command and the **cat $HOME/azuredeploy.json** command to verify the files areis uploaded successfully.
+    You can optionally use the **ls $HOME** command and the **cat $HOME/azuredeploy.json** command to verify the files are uploaded successfully.
 
 1. From the Cloud shell, run the following PowerShell commands. To increase security, use a generated password for the virtual machine administrator account. See [Prerequisites](#prerequisites).
 

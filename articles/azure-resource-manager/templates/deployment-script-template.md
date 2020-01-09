@@ -170,7 +170,7 @@ The supporting files are copied to azscripts/azscriptinput at the runtime. Use r
 
 ## Work with outputs from deployment scripts
 
-The following template show how to pass values between two deploymentScripts resources:
+The following template shows how to pass values between two deploymentScripts resources:
 
 [!code-json[](~/resourcemanager-templates/deployment-script/deploymentscript-basic.json?range=1-84)]
 
