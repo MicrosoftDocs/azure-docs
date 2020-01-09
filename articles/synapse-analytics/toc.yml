@@ -66,22 +66,24 @@
     items:
     # - name: Overview
     #   href: article-template.md
-  - name: Analytics resources
-    items:
-    # - name: SQL pool
-    #   href: article-template.md
-    - name: SQL on-demand
-      href: sql-analytics/sql-analytics-on-demand-workspace-overview.md
-    - name: Spark pools 
-      href: ./spark/apache-spark-overview.md
-  - name: Pipeline and activity
-    href: ../data-factory/concepts-pipelines-activities.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-  - name: Execution and trigger
-    href: ../data-factory/concepts-pipeline-execution-triggers.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-  - name: Linked services
-    href: ../data-factory/concepts-linked-services.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-  - name: Integration runtime
-    href: ../data-factory/concepts-integration-runtime.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+    - name: Analytics resources
+      items:
+      # - name: SQL pool
+      #   href: article-template.md
+      - name: SQL on-demand
+        href: sql-analytics/sql-analytics-on-demand-workspace-overview.md
+      - name: Spark pools 
+        href: ./spark/apache-spark-overview.md
+  - name: Integration and Orchestration
+    items:      
+      - name: Pipeline and activity
+        href: ../data-factory/concepts-pipelines-activities.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+      - name: Execution and trigger
+        href: ../data-factory/concepts-pipeline-execution-triggers.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+      - name: Linked services
+        href: ../data-factory/concepts-linked-services.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+      - name: Integration runtime
+        href: ../data-factory/concepts-integration-runtime.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
   - name: Metadata management
     items:
     # - name: Overview
