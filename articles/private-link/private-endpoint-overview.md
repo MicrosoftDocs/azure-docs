@@ -111,9 +111,9 @@ For Azure services, use the recommended zone names as described in the following
 |Azure Cosmos DB (Microsoft.AzureCosmosDB/databaseAccounts)|Cassandra|privatelink.cassandra.cosmos.azure.com|
 |Azure Cosmos DB (Microsoft.AzureCosmosDB/databaseAccounts)|Gremlin	|privatelink.gremlin.cosmos.azure.com|
 |Azure Cosmos DB (Microsoft.AzureCosmosDB/databaseAccounts)|Table|privatelink.table.cosmos.azure.com|
-|Azure Database for PostgreSQL - Single server (Microsoft.DBforPostgreSQL/servers)|postgresqlServer|privatelink.database.azure.com|
-|Azure Database for MySQL (Microsoft.DBforMySQL/servers)|mysqlServer|privatelink.database.azure.com|
-|Azure Database for MariaDB (Microsoft.DBforMariaDB/servers)|mariadbServer|privatelink.database.azure.com|
+|Azure Database for PostgreSQL - Single server (Microsoft.DBforPostgreSQL/servers)|postgresqlServer|privatelink.postgres.database.azure.com|
+|Azure Database for MySQL (Microsoft.DBforMySQL/servers)|mysqlServer|privatelink.mysql.database.azure.com|
+|Azure Database for MariaDB (Microsoft.DBforMariaDB/servers)|mariadbServer|privatelink.mariadb.database.azure.com|
  
 Azure will create a canonical name DNS record (CNAME) on the public DNS to redirect the resolution to the suggested domain names. You'll be able to override the resolution with the private IP address of your private endpoints. 
  
@@ -138,3 +138,9 @@ The following table includes a list of known limitations when using private endp
 - [Create a Private Endpoint for Storage account using Portal ](create-private-endpoint-storage-portal.md)
 - [Create a Private Endpoint for Azure Cosmos account using Portal ](../cosmos-db/how-to-configure-private-endpoints.md)
 - [Create your own Private Link service using Azure PowerShell](create-private-link-service-powershell.md)
+- [Create your own Private Link for Azure Database for PostgreSQL - Single server using Portal](../postgresql/howto-configure-privatelink-portal.md)
+- [Create your own Private Link for Azure Database for PostgreSQL - Single server using CLI](../postgresql/howto-configure-privatelink-cli.md)
+- [Create your own Private Link for Azure Database for MySQL using Portal](../mysql/howto-configure-privatelink-portal.md)
+- [Create your own Private Link for Azure Database for MySQL using CLI](../mysql/howto-configure-privatelink-cli.md)
+- [Create your own Private Link for Azure Database for MariaDB using Portal](../mariadb/howto-configure-privatelink-portal.md)
+- [Create your own Private Link for Azure Database for MariaDB using CLI](../mariadb/howto-configure-privatelink-cli.md)
