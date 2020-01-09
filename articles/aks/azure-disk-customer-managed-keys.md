@@ -57,11 +57,14 @@ az extension update --name aks-preview
 
 You can optionally use the Azure portal to [Configure customer-managed keys with Azure Key Vault][https://docs.microsoft.com/azure/storage/common/storage-encryption-keys-portal]
 
-Create a new Key Vault instance and enable soft delete and purge protection.
+Create a new *resource group*, then create a new *Key Vault* instance and enable soft delete and purge protection.
 
 ```azurecli-interactive
+# Create new resource group
+az group create -l westus -n <resource-group-name>
+
+# Create an Azure Key Vault resource
 az keyvault create -n <key-vault-name> -g <resource-group-name> -l <azure-location-name>  --enable-purge-protection true --enable-soft-delete true
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AKSPrivateLinkPreview')].{Name:name,State:properties.state}"
 ```
 
 ## Create an instance of a DiskEncryptionSet
