@@ -54,6 +54,9 @@ A private link resource is the destination target of a given private endpoint. T
 |**Azure Storage**  | Microsoft.Storage/storageAccounts    |  Blob (blob, blob_secondary)<BR> Table (table, table_secondary)<BR> Queue (queue, queue_secondary)<BR> File (file, file_secondary)<BR> Web (web, web_secondary)        |
 |**Azure Data Lake Storage Gen2**  | Microsoft.Storage/storageAccounts    |  Blob (blob, blob_secondary)       |
 |**Azure Cosmos DB** | Microsoft.AzureCosmosDB/databaseAccounts	| Sql, MongoDB, Cassandra, Gremlin, Table|
+|**Azure Database for PostgreSQL -Single server** | Microsoft.DBforPostgreSQL/servers	| postgresqlServer |
+|**Azure Database for MySQL** | Microsoft.DBforMySQL/servers	| mysqlServer |
+|**Azure Database for MariaDB** | Microsoft.DBforMariaDB/servers	| mariadbServer |
  
 ## Network security of private endpoints 
 When using private endpoints for Azure services, traffic is secured to a specific private link resource. The platform performs an access control to validate network connections reaching only the specified private link resource. To access additional resources within the same Azure service, additional private endpoints are required. 
@@ -108,6 +111,9 @@ For Azure services, use the recommended zone names as described in the following
 |Azure Cosmos DB (Microsoft.AzureCosmosDB/databaseAccounts)|Cassandra|privatelink.cassandra.cosmos.azure.com|
 |Azure Cosmos DB (Microsoft.AzureCosmosDB/databaseAccounts)|Gremlin	|privatelink.gremlin.cosmos.azure.com|
 |Azure Cosmos DB (Microsoft.AzureCosmosDB/databaseAccounts)|Table|privatelink.table.cosmos.azure.com|
+|Azure Database for PostgreSQL - Single server (Microsoft.DBforPostgreSQL/servers)|postgresqlServer|privatelink.database.azure.com|
+|Azure Database for MySQL (Microsoft.DBforMySQL/servers)|mysqlServer|privatelink.database.azure.com|
+|Azure Database for MariaDB (Microsoft.DBforMariaDB/servers)|mariadbServer|privatelink.database.azure.com|
  
 Azure will create a canonical name DNS record (CNAME) on the public DNS to redirect the resolution to the suggested domain names. You'll be able to override the resolution with the private IP address of your private endpoints. 
  
