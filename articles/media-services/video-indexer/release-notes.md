@@ -40,7 +40,7 @@ You can now update Media Services connection configuration in order to self-help
 * password was changed
 * Media Services resources were moved between subscriptions  
 
-To fix the account configuration, in Video Indexer portal navigate to Settings > Account tab (as owner).
+To fix the account configuration, in the Video Indexer portal navigate to Settings > Account tab (as owner).
 
 ### Configure the custom vision account
 
