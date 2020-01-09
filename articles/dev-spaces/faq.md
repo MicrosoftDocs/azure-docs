@@ -13,7 +13,7 @@ This addresses frequently asked questions about Azure Dev Spaces.
 
 ## Which Azure regions currently provide Azure Dev Spaces?
 
-For a complete list of available regions, see [supported regions and configurations][supported-regions].
+See [supported regions][supported-regions] for a complete list of available regions.
 
 ## Can I use Azure Dev Spaces without a public IP address?
 
@@ -59,5 +59,5 @@ Yes, you can use Azure Dev Spaces on AKS clusters with [Restricted egress traffi
 [dev-spaces-routing]: how-dev-spaces-works.md#how-routing-works
 [ingress-traefik]: how-to/ingress-https-traefik.md#configure-a-custom-traefik-ingress-controller
 [ingress-https-traefik]: how-to/ingress-https-traefik.md#configure-the-traefik-ingress-controller-to-use-https
-[supported-regions]: about.md#supported-regions-and-configurations
+[supported-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service
 [windows-containers]: how-to/run-dev-spaces-windows-containers.md
