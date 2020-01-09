@@ -18,17 +18,17 @@ This topic shows how to set up and specify your own encryption key to use when y
 
 ## Considerations
 
-* You can specify a customer-managed key *only* when you create an ISE, not after you create your ISE. After you create an ISE that uses a customer-managed key, you can't disable that key. Currently, no support exists for rotating this key for your ISE.
+* You have to specify the customer-managed key to use when you create your ISE, not afterwards. You can't disable this key after you create your ISE. Currently, no support exists for rotating a customer-managed key for an ISE.
 
-* Your ISE must use an [external access endpoint](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-endpoint-access) and the [system-assigned managed identity](../active-directory/managed-identities-azure-resources/overview.md#how-does-the-managed-identities-for-azure-resources-work) to access resources in other Azure Active Directory (Azure AD) tenants. The managed identity authenticates access for your ISE so that you don't have to sign in with your own credentials.
+* To support customer-managed keys, your ISE requires an [external access endpoint](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-endpoint-access) and the [system-assigned managed identity](../active-directory/managed-identities-azure-resources/overview.md#how-does-the-managed-identities-for-azure-resources-work) to access resources in other Azure Active Directory (Azure AD) tenants. The managed identity authenticates access to those resources for your ISE so that you don't have to sign in with your own credentials.
 
-* Within 30 minutes after you create your ISE, you must add your ISE's system-assigned managed identity to your Azure key vault's access policies. Otherwise, your ISE deployment fails.
+* Within 30 minutes after you create your ISE, go to your Azure key vault and grant the system-assigned managed identity access to that key vault. Otherwise, your ISE deployment fails.
 
 ## Prerequisites
 
 * An Azure subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/).
 
-* An Azure key vault, which has the **Soft Delete** and **Do Not Purge** properties enabled along with a customer-managed key that you created with these property values:
+* An Azure key vault, which has the **Soft Delete** and **Do Not Purge** properties enabled along with a key that you created with these property values:
 
   | Property | Value |
   |----------|-------|
@@ -39,11 +39,11 @@ This topic shows how to set up and specify your own encryption key to use when y
 
   ![Create your customer-managed encryption key](./media/customer-managed-keys-integration-service-environment/create-customer-managed-key-for-encryption.png)
 
-  If you're new to Azure Key Vault, learn [how to create a key vault](../key-vault/quick-create-portal.md#create-a-vault) and [how to configure customer-managed keys](../storage/common/storage-encryption-keys-portal.md) by using the Azure portal. Or, use these Azure PowerShell commands: [New-AzKeyVault](https://docs.microsoft.com/powershell/module/az.keyvault/new-azkeyvault) and [Add-AzKeyVaultKey](https://docs.microsoft.com/powershell/module/az.keyvault/Add-AzKeyVaultKey).
+  If you're new to Azure Key Vault, learn [how to create a key vault](../key-vault/quick-create-portal.md#create-a-vault) and [how to configure customer-managed keys](../storage/common/storage-encryption-keys-portal.md) by using the Azure portal. Or, use the Azure PowerShell commands, [New-AzKeyVault](https://docs.microsoft.com/powershell/module/az.keyvault/new-azkeyvault) and [Add-AzKeyVaultKey](https://docs.microsoft.com/powershell/module/az.keyvault/Add-AzKeyVaultKey).
 
 * A tool that can create your ISE by sending a PUT request, for example, Postman or even a logic app
 
-## Create ISE that supports your key
+## Create ISE that uses your key
 
 When you create your ISE, enable support for these items:
 
@@ -51,10 +51,11 @@ When you create your ISE, enable support for these items:
 * The customer-managed key in your key vault
 * The system-assigned managed identity that your ISE uses to access that key in your key vault
 
-Here are the properties and values to use in your ISE definition:
+Here's the syntax for the properties and values to use in the JSON definition for your ISE:
 
 ```json
 {
+   <other-ISE-definition-properties>,
    "sku": {
       "name": "Premium",
       "capacity": 1
@@ -66,19 +67,19 @@ Here are the properties and values to use in your ISE definition:
          },
          "subnets": [
             {
-               "id": "/subscriptions/<Azure-subscription-ID>/resourceGroups/<Azure-virtual-network-resource-group>/providers/Microsoft.Network/virtualNetworks/<Azure-virtual-network-name>/subnets/<subnet-name-1>",
+               "id": "/subscriptions/<Azure-subscription-ID>/resourceGroups/<Azure-resource-group>/providers/Microsoft.Network/virtualNetworks/<virtual-network-name>/subnets/<subnet-1>",
                "type": "Microsoft.Network/virtualNetworks/subnets"
             },
             {
-               "id": "/subscriptions/<Azure-subscription-ID>/resourceGroups/<Azure-virtual-network-resource-group>/providers/Microsoft.Network/virtualNetworks/<Azure-virtual-network-name>/subnets/<subnet-name-1>",
+               "id": "/subscriptions/<Azure-subscription-ID>/resourceGroups/<Azureresource-group>/providers/Microsoft.Network/virtualNetworks/<virtual-network-name>/subnets/<subnet-2>",
                "type": "Microsoft.Network/virtualNetworks/subnets"
             },
             {
-               "id": "/subscriptions/<Azure-subscription-ID>/resourceGroups/<Azure-virtual-network-resource-group>/providers/Microsoft.Network/virtualNetworks/<Azure-virtual-network-name>/subnets/<subnet-name-1>",
+               "id": "/subscriptions/<Azure-subscription-ID>/resourceGroups/<Azure-resource-group>/providers/Microsoft.Network/virtualNetworks/<virtual-network-name>/subnets/<subnet-3>",
                "type": "Microsoft.Network/virtualNetworks/subnets"
             },
             {
-               "id": "/subscriptions/<Azure-subscription-ID>/resourceGroups/<Azure-virtual-network-resource-group>/providers/Microsoft.Network/virtualNetworks/<Azure-virtual-network-name>/subnets/<subnet-name-1>",
+               "id": "/subscriptions/<Azure-subscription-ID>/resourceGroups/<Azure-resource-group>/providers/Microsoft.Network/virtualNetworks/<virtual-network-name>/subnets/<subnet-4>",
                "type": "Microsoft.Network/virtualNetworks/subnets"
             }
          ]
@@ -87,7 +88,7 @@ Here are the properties and values to use in your ISE definition:
          "encryptionKeyReference": {
             "keyVault": {
                "name": "<key-vault-name>",
-               "id": "subscriptions/<Azure-subscription-ID>/resourceGroups/<Azure-key-vault-resource-group>/providers/Microsoft.KeyVault/vaults/<key-vault-name>",
+               "id": "subscriptions/<Azure-subscription-ID>/resourceGroups/<Azure-resource-group>/providers/Microsoft.KeyVault/vaults/<key-vault-name>",
                "type": "Microsoft.KeyVault/vaults"
             },
             "keyName": "<customer-managed-key-name>",
@@ -95,10 +96,10 @@ Here are the properties and values to use in your ISE definition:
          }
       }
    },
-   "id": "/subscriptions/<Azure-subscription-ID>/resourceGroups/<Azure-ISE-resource-group>/providers/Microsoft.Logic/integrationServiceEnvironments/<ISE-name>",
+   "id": "/subscriptions/<Azure-subscription-ID>/resourceGroups/<Azure-resource-group>/providers/Microsoft.Logic/integrationServiceEnvironments/<ISE-name>",
    "name": "<ISE-name>",
    "type": "Microsoft.Logic/integrationServiceEnvironments",
-   "location": "<Azure-datacenter-region>",
+   "location": "<Azure-region>",
    "identity": {
       "type": "SystemAssigned"
    }
@@ -109,6 +110,7 @@ For example:
 
 ```json
 {
+   <other-ISE-definition-properties>,
    "sku": {
       "name": "Premium",
       "capacity": 1
@@ -161,7 +163,7 @@ For example:
 
 <a name="identity-access-to-key-vault"></a>
 
-## Give identity access to key vault
+## Give identity access to your key vault
 
 Within *30 minutes* after you create your ISE, you must grant the ISE's system-assigned identity access to your key vault . Otherwise, creation and deployment for your ISE fails, and you get a permissions error. You can use either Azure PowerShell ([Set-AzKeyVaultAccessPolicy](https://docs.microsoft.com/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) command) or follow these steps for the Azure portal:
 
