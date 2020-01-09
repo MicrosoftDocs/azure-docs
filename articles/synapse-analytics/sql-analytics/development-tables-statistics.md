@@ -586,7 +586,7 @@ For more information, see [Cardinality Estimation](/sql/relational-databases/per
 
 ### Examples: Create statistics
 
-The examples below show you how to use various options for creating statistics. The options that you use for each column depend on the characteristics of your data and how the column will be used in queries.
+The following examples show you how to use various options for creating statistics. The options that you use for each column depend on the characteristics of your data and how the column will be used in queries.
 
 > [!NOTE]
 > You can create single-column statistics only at this moment.
