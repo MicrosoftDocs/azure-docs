@@ -40480,6 +40480,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/hdinsight/hadoop/apache-hadoop-debug-jobs.md",
+      "redirect_url": "/azure/hdinsight/hdinsight-hadoop-oms-log-analytics-tutorial",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/hdinsight/hadoop/apache-hadoop-use-mapreduce-remote-desktop.md",
       "redirect_url": "/azure/hdinsight/hadoop/apache-hadoop-use-mapreduce-ssh",
       "redirect_document_id": false
