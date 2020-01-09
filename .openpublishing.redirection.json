@@ -18551,6 +18551,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/migrate/troubleshooting-general.md",
+      "redirect_url": "troubleshoot-general",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/migrate/preserve-drive-letter-protected-virtual-machines-failed-migrated-azure.md",
       "redirect_url": "prepare-for-migration",
       "redirect_document_id": false

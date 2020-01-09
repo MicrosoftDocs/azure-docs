@@ -32,6 +32,8 @@
     href: ingest-data-overview.md
   - name: Data visualization overview
     href: viz-overview.md
+  - name: Security overview
+    href: security.md
 - name: How-to guides
   items:
   - name: Create cluster and database
@@ -144,6 +146,18 @@
       href: sisense.md
     - name: Redash
       href: redash.md
+  - name: Secure
+    items:
+    - name: Manage cluster security
+      href: manage-cluster-security.md
+    - name: Configure managed identities
+      href: managed-identities.md
+    - name: Configure customer-managed-keys
+      items:
+        - name: C#
+          href: customer-managed-keys-csharp.md
+        - name: Azure Resource Manager template
+          href: customer-managed-keys-resource-manager.md
   - name: Manage
     items:
     - name: Cluster
@@ -154,8 +168,6 @@
         href: manage-cluster-horizontal-scaling.md
       - name: Manage cluster vertical scaling
         href: manage-cluster-vertical-scaling.md
-      - name: Manage cluster security
-        href: manage-cluster-security.md
       - name: Check cluster health
         href: check-cluster-health.md
     - name: Database
