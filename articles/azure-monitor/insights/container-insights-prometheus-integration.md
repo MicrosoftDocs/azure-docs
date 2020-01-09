@@ -174,7 +174,11 @@ The configuration change can take a few minutes to finish before taking effect, 
 
 ## Applying updated ConfigMap
 
-If you have already deployed a ConfigMap to your cluster other than Azure Red Hat OpenShift and you want to update it with a newer configuration, you can edit the ConfigMap file you've previously used and then apply using the same command as before, `kubectl apply -f <configmap_yaml_file.yaml`. For Azure Red Hat OpenShift cluster, apply the same command as before, `oc edit configmaps container-azm-ms-agentconfig -n openshift-azure-logging`.
+If you have already deployed a ConfigMap to your cluster and you want to update it with a newer configuration, you can edit the ConfigMap file you've previously used, and then apply using the same commands as before.
+
+For Kubernetes clusters other than Azure Red Hat OpenShift, run the command `kubectl apply -f <configmap_yaml_file.yaml`. 
+
+For Azure Red Hat OpenShift cluster, run the command, `oc edit configmaps container-azm-ms-agentconfig -n openshift-azure-logging`.
 
 The configuration change can take a few minutes to finish before taking effect, and all omsagent pods in the cluster will restart. The restart is a rolling restart for all omsagent pods, not all restart at the same time. When the restarts are finished, a message is displayed that's similar to the following and includes the result: `configmap "container-azm-ms-agentconfig" updated`.
 
@@ -201,7 +205,7 @@ Errors related to applying configuration changes are also available for review. 
 
 Errors prevent omsagent from parsing the file, causing it to restart and use the default configuration. After you correct the error(s) in ConfigMap on clusters other than Azure Red Hat OpenShift, save the yaml file and apply the updated ConfigMaps by running the command: `kubectl apply -f <configmap_yaml_file.yaml`. 
 
-For Kubernetes cluster running on Azure Red Hat OpenShift, save the yaml file and apply the updated ConfigMaps by running the command:
+For a Kubernetes cluster running on Azure Red Hat OpenShift, save the yaml file and apply the updated ConfigMaps by running the command:
 
 ``` bash
 oc edit configmaps container-azm-ms-agentconfig -n openshift-azure-logging
