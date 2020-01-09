@@ -9,6 +9,7 @@ ms.service: azure
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
 
 ---
+
 # Spot quota: Increase limits for all VM series
 
 Spot virtual machines (VMs) provide a different model of Azure usage. They let you assume lower costs in exchange for letting Azure remove VMs as needed for pay-as-you-go or reserved VM instance deployments. For more information about spot VMs, see [Azure spot VMs for virtual machine scale sets](https://docs.microsoft.com/azure/virtual-machine-scale-sets/use-spot).
@@ -62,11 +63,7 @@ To request a spot quota limit increase for all VM series from the **Help + suppo
 
    ![The "Quota details" pane](./media/resource-manager-core-quotas-request/3-7.png)
 
-<<<<<<< HEAD:articles/azure-portal/supportability/low-priority-quota.md
-8. For the selected location, select **Type** value as **‘Spot’**. You can request both Standard and Spot quota types from a single support case through multi-selection support on the **Type** field. Learn more about **increasing Standard quota per VM Series** on this [page](https://docs.microsoft.com/azure/azure-portal/supportability/per-vm-quota-requests).
-=======
    a. In the **Deployment model** drop-down list, select the appropriate model.
->>>>>>> b9ecdcf8869bf0fefb59432643279ad81f5f0bc7:articles/azure-supportability/low-priority-quota.md
 
    b. In the **Locations** drop-down list, select a location. For the selected location, under **Types**, in the **Select a type** box, enter **Spot**. 
    
@@ -117,11 +114,7 @@ To request a spot quota limit increase for all VM series from the **Subscription
 
    ![The "Quota details" pane](./media/resource-manager-core-quotas-request/3-2-6.png)
  
-<<<<<<< HEAD:articles/azure-portal/supportability/low-priority-quota.md
-7.	For the selected location, select **Type** value as **‘Spot’.** You can request both Standard and Spot quota types from a single support case through multi-selection support on the **Type** field. Learn more about **increasing standard quota per VM Series** on this [page](https://docs.microsoft.com/azure/azure-portal/supportability/per-vm-quota-requests).
-=======
    a. In the **Deployment model** drop-down list, select the appropriate model.
->>>>>>> b9ecdcf8869bf0fefb59432643279ad81f5f0bc7:articles/azure-supportability/low-priority-quota.md
 
    b. In the **Locations** drop-down list, select a location. 
    
