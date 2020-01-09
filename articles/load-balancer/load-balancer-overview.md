@@ -33,7 +33,7 @@ An **[internal (or private) load balancer](./concepts-limitations.md#internalloa
 
 ![](./media/load-balancer-arm/load-balancer-arm.png)
 
-For more information on the individual load balancer components, see [Azure Load Balancer concepts and limitations](./concepts-limitations.md)
+For more information on the individual load balancer components, see [Azure Load Balancer components and limitations](./concepts-limitations.md)
 
 ## <a name="skus"></a> Load Balancer SKU comparison
 
