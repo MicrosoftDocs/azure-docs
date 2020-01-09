@@ -124,12 +124,14 @@ You can optionally set the `enableEntityData` attribute in the header to `true` 
 Content-Disposition: form-data; name="knowledgeRequest"
 
 {
-    "imageInfo" : {
-        "url" : "https://contoso.com/2018/05/fashion/red.jpg"
-    }
+  "imageInfo" : {
+      "url" : "https://contoso.com/2018/05/fashion/red.jpg"
+  },
+  "knowledgeRequest" : {
     "invokedSkillsRequestData" : {
         "enableEntityData" : "true"
     }
+  }
 }
 
 --boundary_1234-abcd--
