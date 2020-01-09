@@ -20,12 +20,12 @@ This topic shows how to set up and specify your own encryption key to use when y
 
 * An Azure subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/).
 
-* An Azure key vault with the **Soft Delete** and **Do Not Purge** properties enabled. Create a key that has these properties:
+* An Azure key vault that has the **Soft Delete** and **Do Not Purge** properties enabled plus a customer-managed key that has these properties:
 
   * Key type: **RSA**
   * Key size: **2048**
-  
-  If you're new to creating customer-managed keys, see [Configure customer-managed keys with Azure Key Vault](../storage/common/storage-encryption-keys-portal.md).
+
+  If you're new to Azure Key Vault, learn [how to create a key vault](../key-vault/quick-create-portal.md#create-a-vault) and [how to configure customer-managed keys](../storage/common/storage-encryption-keys-portal.md).
 
 ## 
 
