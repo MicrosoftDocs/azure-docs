@@ -16,11 +16,17 @@ This document walks through a general recommended approach for troubleshooting q
 You can broadly categorize query optimizations in Azure Cosmos DB: Optimizations that reduce the Request Unit (RU) charge of the query and optimizations that just reduce latency. By reducing the RU charge of a query, you will almost certainly decrease latency as well.
 This document will use examples that can be recreated using the [nutrition](https://github.com/CosmosDB/labs/blob/master/dotnet/setup/NutritionData.json) data set.
 
+### Obtaining query metrics:
+
+When optimizing a query in Azure Cosmos DB, the first step is always to [obtain the query metrics](profile-sql-api-query.md) for your query.  These are also available through the Azure Portal as shown below:
+
+![Obtaining query metrics](./media/troubleshoot-query-performance/obtain-query-metrics.jpg)
+
+After obtaining query metrics, compare the Retrieved Document Count with the Loaded Document Count for your query. Use this comparison to identify the relevant sections to reference below.
+
 You can reference the below section to understand the relevant query optimizations for your scenario:
 
 ### Query's RU charge is too high
-
-<br>
 
 #### Loaded Document Count is significantly greater than Retrieved Document Count
 
@@ -56,14 +62,6 @@ c. [Increasing MaxConcurrency](#increasing-maxconcurrency)
 
 d. [Increasing MaxBufferedItemCount](#increasing-maxbuffereditemcount)
 
-### Obtaining query metrics:
-
-When optimizing a query in Azure Cosmos DB, the first step is always to [obtain the query metrics](profile-sql-api-query.md) for your query.  These are also available through the Azure Portal as shown below:
-
-![Obtaining query metrics](./media/troubleshoot-query-performance/obtain-query-metrics.jpg)
-
-After obtaining query metrics, compare the Retrieved Document Count with the Loaded Document Count for your query. Use this comparison to identify the relevant sections to reference below.
-
 ## Optimizations for queries where Loaded Document Count significantly exceeds Retrieved Document Count:
 
  The Retrieved Document Count is the number of documents that will show up in the results of your query. The Loaded Document Count is the number of documents that needed to be scanned. If the Loaded Document Count is significantly higher than the Retrieved Document Count, then there was at least one part of your query that was unable to utilize the index.
@@ -92,9 +90,6 @@ Indexing policy:
     "excludedPaths": [
         {
             "path": "/*"
-        },
-        {
-            "path": "/\"_etag\"/?"
         }
     ]
 }
@@ -165,7 +160,7 @@ Indexing policy:
 {
 
         "automatic":true,
-    "indexingMode":"Consistent",
+        "indexingMode":"Consistent",
         "includedPaths":[  
             {  
                 "path":"/*"
@@ -270,10 +265,10 @@ WHERE t.name = 'infant formula' AND (n.nutritionValue > 0
 AND n.nutritionValue < 10) AND s.amount > 1
 ```
 
-For this query, the index will match any document that has a tag with the name "infant formula." It's a nutrient item with a value between 0 and 10, and a serving item with an amount greater than 1. The JOIN expression here will perform the cross-product of all items of tags, nutrients, and servings arrays for each matching document before any filter is applied.
-The WHERE clause will then apply the filter predicate on each <c, t, n, s> tuple.
+For this query, the index will match any document that has a tag with the name "infant formula",nutrtionValue greater than 0, and serving amount greater than 1. The JOIN expression here will perform the cross-product of all items of tags, nutrients, and servings arrays for each matching document before any filter is applied. The WHERE clause will then apply the filter predicate on each <c, t, n, s> tuple.
 
 For instance, if a matching document had 10 items in each of the three arrays, it will expand to 1 x 10 x 10 x 10 (that is, 1,000) tuples. Using subqueries here can help in filtering out joined array items before joining with the next expression.
+
 This query is equivalent to the preceding one but uses subqueries:
 
 ```sql
@@ -292,7 +287,7 @@ If the Loaded Document Count is approximately equal to the Retrieved Document Co
 
 ## Avoid cross partition queries
 
-Azure Cosmos DB uses partitioning to scale individual containers as Request Unit and data storage needs increase. Each physical partition has a separate and independent index. If your query has an equality filter that matches your container’s partition key, you will only need to check the relevant partition’s index. This optimization reduces the total number of RU’s that the query requires.
+Azure Cosmos DB uses [partitioning](partitioning-overview.md) to scale individual containers as Request Unit and data storage needs increase. Each physical partition has a separate and independent index. If your query has an equality filter that matches your container’s partition key, you will only need to check the relevant partition’s index. This optimization reduces the total number of RU’s that the query requires.
 
 If you have a large number of provisioned RU’s (over 30,000) or a large amount of data stored (over ~100 GB), you likely have a large enough container to see a significant reduction in query RU charges.
 
@@ -320,7 +315,7 @@ SELECT * FROM c WHERE c.foodGroup > “Soups, Sauces, and Gravies” and c.descr
 
 ## Optimize queries that have a filter on multiple properties
 
-While queries with filters on multiple properties will normally utilize a range index, they will be more efficient if they can be served from a composite index. For small amounts of data, this optimization will not have a significant impact. It may prove useful, however, with large amounts of data. You can only optimize, at most, one non-equality filter per composite index. If your query has multiple non-equality filters, you should pick one of them that will utilize the composite index. The remainder will continue to utilize range indexes. The non-equality filter must be defined last in the composite index.
+While queries with filters on multiple properties will normally utilize a range index, they will be more efficient if they can be served from a composite index. For small amounts of data, this optimization will not have a significant impact. It may prove useful, however, for large amounts of data. You can only optimize, at most, one non-equality filter per composite index. If your query has multiple non-equality filters, you should pick one of them that will utilize the composite index. The remainder will continue to utilize range indexes. The non-equality filter must be defined last in the composite index. [Learn more about composite indexes](index-policy.md#composite-indexes)
 
 Here are some examples of queries which could be optimized with a composite index:
 
@@ -361,22 +356,22 @@ Here is the relevant composite index:
 
 ## Common optimizations that reduce query latency (no impact on RU charge):
 
-In many cases, RU charge may be acceptable but query latency is still too high. The below sections give an overview of tips for reducing query latency. A query's RU charge is deterministic - give 
+In many cases, RU charge may be acceptable but query latency is still too high. The below sections give an overview of tips for reducing query latency. If you run the same query multiple times on the same data set, it will have the same RU charge each time. However, query latency may vary between query executions.
 
 ## Improving proximity between your app and Azure Cosmos DB
 
-Queries that are run from a different region than the Azure Cosmos DB account will have a higher latency than if they were run inside the same region. For example, if you were running code on your desktop computer, you should expect latency to be tens or hundreds (or more) milliseconds greater than if the query came from a Virtual Machine within the same Azure region as Azure Cosmos DB. It is simple to globally distribute data in Azure Cosmos DB to ensure you can bring your data closer to your app.
+Queries that are run from a different region than the Azure Cosmos DB account will have a higher latency than if they were run inside the same region. For example, if you were running code on your desktop computer, you should expect latency to be tens or hundreds (or more) milliseconds greater than if the query came from a Virtual Machine within the same Azure region as Azure Cosmos DB. It is simple to [globally distribute data in Azure Cosmos DB](distribute-data-globally.md) to ensure you can bring your data closer to your app.
 
 ## Increasing provisioned throughput
 
 In Azure Cosmos DB, your provisioned throughput is measured in Request Units (RU’s). Let’s imagine you have a query that consumes 5 RU’s of throughput. For example, if you provision 1,000 RU’s, you would be able to run that query 200 times per second. If you attempted to run the query when there was not enough throughput available, Azure Cosmos DB would return an HTTP 429 error. Any of the current Core (SQL) API sdk's will automatically retry this query after waiting a brief period. Throttled requests take a longer amount of time, so increasing provisioned throughput can improve query latency. You can observe the [total number of requests throttled requests(use-metrics.md#understand-how-many-requests-are-succeeding-or-causing-errors in the Metrics blade of the Azure Portal.
 
 ## Increasing MaxConcurrency
-Parallel queries work by querying multiple partitions in parallel. However, data from an individual partitioned collection is fetched serially with respect to the query. So, adjust the MaxConcurrency to set the number of partitions that has the maximum chance of achieving the most performant query, provided all other system conditions remain the same. If you don't know the number of partitions, you can set the MaxConcurrency (or MaxDegreesOfParallelism in older sdk versions) to set a high number, and the system chooses the minimum (number of partitions, user provided input) as the maximum degree of parallelism.
+Parallel queries work by querying multiple partitions in parallel. However, data from an individual partitioned collection is fetched serially with respect to the query. So, adjusting the MaxConcurrency to the number of partitions has the maximum chance of achieving the most performant query, provided all other system conditions remain the same. If you don't know the number of partitions, you can set the MaxConcurrency (or MaxDegreesOfParallelism in older sdk versions) to a high number, and the system chooses the minimum (number of partitions, user provided input) as the maximum degree of parallelism.
 
 ## Increasing MaxBufferedItemCount
 
-Parallel query is designed to pre-fetch results while the current batch of results is being processed by the client. The pre-fetching helps in overall latency improvement of a query. Setting the MaxBufferedItemCount limits the number of pre-fetched results. By setting this value to the expected number of results returned (or a higher number), the query can receive maximum benefit from pre-fetching.
+Queries are designed to pre-fetch results while the current batch of results is being processed by the client. The pre-fetching helps in overall latency improvement of a query. Setting the MaxBufferedItemCount limits the number of pre-fetched results. By setting this value to the expected number of results returned (or a higher number), the query can receive maximum benefit from pre-fetching. Setting this value to -1 allows the system to automatically decide the number of items to buffer.
 
 ## Next steps
 Refer to documents below on how to measure RUs per query, get execution statistics to tune your queries, and more:
