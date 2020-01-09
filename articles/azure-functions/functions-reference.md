@@ -97,4 +97,4 @@ For more information, see the following resources:
 * [Code and test Azure Functions locally](./functions-develop-local.md)
 * [Best Practices for Azure Functions](functions-best-practices.md)
 * [Azure Functions C# developer reference](functions-dotnet-class-library.md)
-* [Azure Functions NodeJS developer reference](functions-reference-node.md)
+* [Azure Functions Node.js developer reference](functions-reference-node.md)
