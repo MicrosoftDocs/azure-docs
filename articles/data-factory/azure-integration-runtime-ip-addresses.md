@@ -26,14 +26,14 @@ The IP addresses that Azure Integration Runtime uses depends on the region where
 
 Allow traffic from the IP addresses listed for the Azure Integration runtime in the specific Azure region where your resources are located:
 
-| Country        | Region              | Allowed Source IP addresses                                  |
+|                | Region              | IP addresses                                                 |
 | -------------- | ------------------- | ------------------------------------------------------------ |
 | Asia           | East Asia           | 20.189.104.128/25, </br>20.189.106.0/26, </br>13.75.39.112/28 |
 | &nbsp;         | Southeast Asia      | 20.43.128.128/25, </br>20.43.130.0/26, </br>40.78.236.176/28 |
 | Australia      | Australia East      | 20.37.193.0/25,</br>20.37.193.128/26,</br>13.70.74.144/28    |
 | &nbsp;         | Australia Southeast | 20.42.225.0/25,</br>20.42.225.128/26,</br>13.77.53.160/28    |
 | Brazil         | Brazil South        | 191.235.224.128/25,</br>191.235.225.0/26,</br>191.233.205.160/28 |
-| &nbsp;         | Canada Central      | 52.228.80.128/25,</br>52.228.81.0/26,</br>13.71.175.80/28    |
+| Canada         | Canada Central      | 52.228.80.128/25,</br>52.228.81.0/26,</br>13.71.175.80/28    |
 | Europe         | North Europe        | 20.38.82.0/23,</br>20.38.80.192/26,</br>13.69.230.96/28      |
 | &nbsp;         | West Europe         | 40.74.26.0/23,</br>40.74.24.192/26,</br>13.69.67.192/28      |
 | France         | France Central      | 20.43.40.128/25,</br>20.43.41.0/26,</br>40.79.132.112/28     |
