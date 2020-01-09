@@ -11,7 +11,7 @@ ms.custom: include file
 ---
 ## <a name="timeout"></a>Function app timeout duration 
 
-The timeout duration of a function app is defined by the functionTimeout property in the [host.json](../articles/azure-functions/functions-host-json.md#functiontimeout) project file. The following table shows the default and maximum values in minutes for both plans and in both runtime versions:
+The timeout duration of a function app is defined by the `functionTimeout` property in the [host.json](../articles/azure-functions/functions-host-json.md#functiontimeout) project file. The following table shows the default and maximum values in minutes for both plans and the different runtime versions:
 
 | Plan | Runtime Version | Default | Maximum |
 |------|---------|---------|---------|
