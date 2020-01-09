@@ -71,7 +71,10 @@ First, provide a **Version** for the manifest. Use the format *n.n.n* (for examp
 
 Next, enter your **Tenant ID**. This is a GUID associated with the Azure Active Directory tenant ID of your organization (i.e., the tenant which you will be working in to manage your customers' resources). If you don't have this handy, you can find it by hovering over your account name on the upper right-hand side of the Azure portal, or by selecting **Switch directory**.
 
-Finally, add one or more **Authorization** entries to your plan. Authorizations define the entities who can access resources and subscriptions for customers who purchase the plan, and assign roles that grant specific levels of access. For details about supported roles, see [Tenants, roles, and users in Azure Lighthouse scenarios](../concepts/tenants-users-roles.md).
+Finally, add one or more **Authorization** entries to your plan. Authorizations define the entities who can access resources and subscriptions for customers who purchase the plan, and assign roles that grant specific levels of access.
+
+> [!TIP]
+> In most cases, you'll want to assign permissions to an Azure AD user group or service principal, rather than to a series of individual user accounts. This lets you add or remove access for individual users without having to update and republish the plan when your access requirements change. For additional recommendations, see [Tenants, roles, and users in Azure Lighthouse scenarios](../concepts/tenants-users-roles.md).
 
 For each **Authorization**, you'll need to provide the following. You can then select **New authorization** as many times as needed to add more users and role definitions.
 
@@ -81,7 +84,7 @@ For each **Authorization**, you'll need to provide the following. You can then s
 - **Assignable Roles**: This is required only if you have selected User Access Administrator in the **Role Definition** for this authorization. If so, you must add one or more assignable roles here. The user in the **Azure AD Object ID** field will be able to assign these **Assignable Roles** to [managed identities](../../active-directory/managed-identities-azure-resources/overview.md), which is required in order to [deploy policies that can be remediated](deploy-policy-remediation.md). Note that no other permissions normally associated with the User Access Administrator role will apply to this user. If you do not select one or more roles here, your submission will not pass certification. (If you did not select User Access Administrator for this user’s Role Definition, this field has no effect.)
 
 > [!TIP]
-> In most cases, you'll want to assign permissions to an Azure AD user group or service principal, rather than to a series of individual user accounts. This lets you add or remove access for individual users without having to update and republish the plan when your access requirements change. For additional recommendations, see [Tenants, roles, and users in Azure Lighthouse scenarios](../concepts/tenants-users-roles.md).
+> To ensure you can [remove access to a delegation](../how-to/onboard-customer.md#remove-access-to-a-delegation) if needed, include an authorization with the **Role Definition** set to [Managed Services Registration Assignment Delete Role](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role). If this role is not assigned, delegated resources can only be removed by a user in the customer's tenant.
 
 Once you've completed the info, you can select **New plan** as many times as you need to create additional plans. When you're done, select **Save**, and then continue to the **Marketplace** section.
 
