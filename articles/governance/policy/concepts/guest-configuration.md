@@ -110,7 +110,7 @@ To communicate with the Guest Configuration resource provider in Azure, machines
 access to Azure datacenters on port **443**. If you're using a private virtual network in Azure that
 doesn't allow outbound traffic, configure exceptions with [Network Security
 Group](../../../virtual-network/manage-network-security-group.md#create-a-security-rule) rules.
-The [service tag](../../../virtual-network/service-tags-overview)
+The [service tag](../../../virtual-network/service-tags-overview.md)
 "GuestAndHybridManagement" can be used to reference the Guest Configuration service.
 
 ## Guest Configuration definition requirements
