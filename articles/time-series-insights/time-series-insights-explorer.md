@@ -54,7 +54,7 @@ Within minutes of connecting your event source to your Time Series Insights envi
 
    [![Time Series Insights environment selection](media/time-series-insights-explorer/tsi-ga-explorer-environments.png)](media/time-series-insights-explorer/tsi-ga-explorer-environments.png#lightbox)
 
-1. Next, you read a chart that shows a count of all events during the selected timespan. Here you have a number of controls:
+1. Next, a chart that shows a count of all events during the selected timespan is displayed. Here you have a number of controls:
 
     - **Terms Editor panel**: The term space is where you query your environment. It’s found on the left side of the screen:
       - **MEASURE**: This drop-down list shows all numeric columns (**Doubles**).
@@ -77,11 +77,11 @@ Within minutes of connecting your event source to your Time Series Insights envi
 
          [![Example GA queries](media/time-series-insights-explorer/tsi-ga-example-queries.png)](media/time-series-insights-explorer/tsi-ga-example-queries.png#lightbox)
 
-1. You can use the **Interval Size** slider tool to zoom in and out of intervals over the same timespan. The slider provides more precise control of movement between large slices of time that show smooth trends down to slices as small as the millisecond, which allow you to read granular, high-resolution cuts of your data. The slider’s default starting point is set as the most optimal view of the data from your selection to balance resolution, query speed, and granularity.
+1. You can use the **Interval Size** slider tool to zoom in and out of intervals over the same timespan. The slider provides more precise control of movement between large slices of time that show smooth trends down to slices as small as the millisecond, which allow you to display and analyze granular, high-resolution cuts of your data. The slider’s default starting point is set as the most optimal view of the data from your selection to balance resolution, query speed, and granularity.
 
 1. The **Time brush** tool makes it easy to navigate from one timespan to another.
 
-1. Select the **Save** icon to save your current query and share it with other users of the environment. When you select the **Open** icon, you can read all of your saved queries and any shared queries of other users in environments you have access to.
+1. Select the **Save** icon to save your current query and share it with other users of the environment. When you select the **Open** icon, you can review all of your saved queries and any shared queries of other users in environments you have access to.
 
    [![Queries](media/time-series-insights-explorer/tsi-ga-explorer-saved-queries.png)](media/time-series-insights-explorer/tsi-ga-explorer-saved-queries.png#lightbox)
 

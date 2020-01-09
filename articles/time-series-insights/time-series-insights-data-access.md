@@ -108,7 +108,7 @@ Follow these steps to grant guest access to a Time Series Insights environment t
 
 1. The guest can now access the shared environment using the environment URL provided by the administrator. They can enter that URL into their web browser for immediate access.
 
-1. The guest user will read the administrator's tenant by selecting their profile icon in the upper-right corner of the Time Series explorer.
+1. The administrator's tenant will be displayed to the guest user after selecting their profile icon in the upper-right corner of the Time Series explorer.
 
     [![Avatar selection on insights.azure.com](media/data-access/data-access-select-tenant-and-instance.png)](media/data-access/data-access-select-tenant-and-instance.png#lightbox)
 

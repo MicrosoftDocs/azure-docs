@@ -135,7 +135,7 @@ As an overview:
 1. Modify the JSON payload as desired.
 1. Select **Done** and then **Close & Apply** within the **Power Query Editor Window**.
 
-You should read the desired changes applied.  
+The interface will now reflect the desired changes you applied.  
 
 ## Next Steps
 

@@ -64,7 +64,7 @@ If you have old events in your event source, you can approach throttling in one 
 - Change your event source's retention limits to help remove old events that you don't want to show up in Time Series Insights.
 - Provision a larger environment size (number of units) to increase the throughput of old events. Using the preceding example, if you increase the same S1 environment to five units for one day, the environment should catch up within a day. If your steady-state event production is 1 million or fewer events per day, you can reduce the capacity of the event to one unit after it catches up.
 
-The throttling limit is enforced based on the environment's SKU type and capacity. All event sources in the environment share this capacity. If the event source for your IoT hub or event hub pushes data beyond the enforced limits, you will experience throttling and a lag.
+The throttling limit is enforced based on the environment's SKU type and capacity. All event sources in the environment share this capacity. If the event source for your IoT hub or event hub pushes data beyond the enforced limits, you'll experience throttling and a lag.
 
 The following figure shows a Time Series Insights environment that has an SKU of S1 and a capacity of 3. It can ingress 3 million events per day.
 
