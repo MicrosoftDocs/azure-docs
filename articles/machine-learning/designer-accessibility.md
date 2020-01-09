@@ -1,11 +1,11 @@
 ---
 title: Use accesibility features in the designer (preview)
 titleSuffix: Azure Machine Learning
-description: Learn how to use screenreader accessibility features in the designer to create machine learning pipelines.
+description: Learn about the screen reader accessibility features available in the designer.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
+ms.topic: reference
 ms.author: peterlu
 author: peterclu
 ms.date: 01/09/2020
