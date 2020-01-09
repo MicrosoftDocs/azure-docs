@@ -99,7 +99,7 @@ This `func new` command creates a subfolder *HttpExample* (matching the function
 
 If desired, you can skip to [Run the function locally](#run-the-function-locally) and examine the file contents later.
 
-# [__init__.py](#tab/init-py)
+# [\_\_init\_\_.py](#tab/__init__py)
 
 *\_\_init\_\_.py* is a Python file that contains a `main()` function that is triggered according to the configuration in *function.json*.
 
@@ -130,7 +130,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
 
 For HTTP trigger, the function receives request data in the variable `req` as defined in *function.json*. `req` is an instance of the [azure.functions.HttpRequest class](/python/api/azure-functions/azure.functions.httprequest). The return object, defined as `$return` in *function.json*, is an instance of [azure.functions.HttpResponse class](/python/api/azure-functions/azure.functions.httpresponse). To learn more, see [Azure Functions HTTP triggers and bindings](functions-bindings-http-webhook.md).
 
-# [function.json](#tab/function-json)
+# [function.json](#tab/functionjson)
 
 *function.json* is a configuration file that defines the input and output `bindings` for the function, including the trigger type. You can change `scriptFile` to invoke a different Python file if desired.
 
