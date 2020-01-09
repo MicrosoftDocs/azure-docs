@@ -2,16 +2,11 @@
 title: Detach a data disk from a Windows VM - Azure
 description: Detach a data disk from a virtual machine in Azure using the Resource Manager deployment model.
 services: virtual-machines-windows
-documentationcenter: ''
 author: cynthn
 manager: gwallace
-editor: ''
-tags: azure-service-management
-
-ms.assetid: 13180343-ac49-4a3a-85d8-0ead95e2028c
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-windows
+
 
 ms.topic: article
 ms.date: 01/08/2020
@@ -58,9 +53,8 @@ You can *hot* remove a data disk, but make sure nothing is actively using the di
 1. Select the virtual machine that has the data disk you want to detach.
 1. Under **Settings**, select **Disks**.
 1. At the top of the **Disks** pane, select **Edit**.
-1. In the **Disks** pane, to the far right of the data disk that you would like to detach, click the ![Detach button image](./media/detach-disk/detach.png) detach button.
-1. After the disk has been removed, click **Save** on the top of the pane.
-1. In the virtual machine pane, click **Overview** and then click the **Start** button at the top of the pane to restart the VM.
+1. In the **Disks** pane, to the far right of the data disk that you would like to detach, select **Detach**.
+1. Select **Save** on the top of the page to save your changes.
 
 The disk stays in storage but is no longer attached to a virtual machine.
 
