@@ -15,7 +15,7 @@ ms.author: mlearned
 Azure Storage encrypts all data in a storage account at rest. By default, data is encrypted with Microsoft-managed keys. For additional control over encryption keys, you can supply [customer-managed keys][https://docs.microsoft.com/azure/virtual-machines/windows/disk-encryption#customer-managed-keys-public-preview] to use for encryption of both the OS and data disks for your AKS clusters.
 
 > [!NOTE]
-> Both Linux and Windows based AKS clusters are supported.
+> Linux and Windows based AKS clusters are both supported.
 
 ## Before you begin
 
@@ -36,7 +36,8 @@ Azure Storage encrypts all data in a storage account at rest. By default, data i
 
 * Australia East
 * Canada Central, Canada East
-* Central US, East US, East US 2, North Central US, South Central US, West Central US, West US, West US 2
+* Central US, East US, East US 2, North Central US, South Central US
+* West Central US, West US, West US 2
 * East Asia, South East Asia
 * France, North Europe, UK South, West Europe
 
@@ -58,23 +59,25 @@ You can optionally use the Azure portal to [Configure customer-managed keys with
 Create a new Key Vault instance and enable soft delete and purge protection.
 
 ```azurecli-interactive
-az keyvault create -n $keyVaultName -g $rgName -l $location --enable-purge-protection true --enable-soft-delete true
+az keyvault create -n <key-vault-name> -g <resource-group-name> -l <azure-location-name>  --enable-purge-protection true --enable-soft-delete true
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AKSPrivateLinkPreview')].{Name:name,State:properties.state}"
 ```
 
 ## Create an instance of a DiskEncryptionSet
     
 ```azurecli
-keyVaultId=$(az keyvault show --name $keyVaultName --query [id] -o tsv)
-keyVaultKeyUrl=$(az keyvault key show --vault-name $keyVaultName --name $keyName --query [key.kid] -o tsv)
-az disk-encryption-set create -n $diskEncryptionSetName -l $location -g $rgName --source-vault $keyVaultId --key-url $keyVaultKeyUrl
+keyVaultId=$(az keyvault show --name <key-vault-name> --query [id] -o tsv)
+keyVaultKeyUrl=$(az keyvault key show --vault-name <key-vault-name>  --name <key-name>  --query [key.kid] -o tsv)
+az disk-encryption-set create -n <disk-encryption-set-name>  -l <azure-location-name>  -g <resource-group-name> --source-vault <key-vault-id> --key-url <key-vault-url> 
 ```
 
 ## Grant the DiskEncryptionSet resource access to the key vault
 
+Use the DiskEncryptionSet and resource groups you created on the prior steps, and grant the DiskEncryptionSet resource access to the Azure Key Vault.
+
 ```azurecli
-desIdentity=$(az disk-encryption-set show -n $diskEncryptionSetName -g $rgName --query [identity.principalId] -o tsv)
-az keyvault set-policy -n $keyVaultName -g $rgName --object-id $desIdentity --key-permissions wrapkey unwrapkey get
+desIdentity=$(az disk-encryption-set show -n <disk-encryption-set-name>  -g <resource-group-name> --query [identity.principalId] -o tsv)
+az keyvault set-policy -n <key-vault-name> -g <resource-group-name> --object-id $desIdentity --key-permissions wrapkey unwrapkey get
 az role assignment create --assignee $desIdentity --role Reader --scope $keyVaultId
 ```
 
