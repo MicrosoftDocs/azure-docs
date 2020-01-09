@@ -14,17 +14,17 @@ ms.author: mlearned
 
 In a private cluster, the control plane or API server has internal IP addresses that are defined in the [RFC1918 - Address Allocation for Private Internets](https://tools.ietf.org/html/rfc1918) document. By using a private cluster, you can ensure that network traffic between your API server and your node pools remains on the private network only.
 
-The control plane or API server is in an Azure Kubernetes Service (AKS)-managed Azure subscription. A customer's cluster/node pool is in the customer's subscription. The server and the cluster/node pool can communicate with each other through the [Azure Private Link service][private-link-service] in the API server virtual network and a private endpoint that's exposed in the subnet of the customer's AKS cluster.
+The control plane or API server is in an Azure Kubernetes Service (AKS)-managed Azure subscription. A customer's cluster or node pool is in the customer's subscription. The server and the cluster or node pool can communicate with each other through the [Azure Private Link service][private-link-service] in the API server virtual network and a private endpoint that's exposed in the subnet of the customer's AKS cluster.
 
 > [!IMPORTANT]
-> AKS preview features are self-service and are offered on an opt-in basis. Previews are provided *as is* and *as available* and are excluded from the service-level agreement (SLA) and limited warranty. AKS previews are partially covered by customer support on a *best effort* basis. As such, the features are not meant for production use. For more information, see the following support articles:
+> AKS preview features are self-service and are offered on an opt-in basis. Previews are provided *as is* and *as available* and are excluded from the service-level agreement (SLA) and limited warranty. AKS previews are partially covered by customer support on a *best effort* basis. Therefore, the features aren't meant for production use. For more information, see the following support articles:
 >
 > * [AKS Support Policies](support-policies.md)
 > * [Azure Support FAQ](faq.md)
 
 ## Prerequisites
 
-* The Azure CLI version 2.0.77 or later, and the aks-preview version 0.4.18 extension
+* The Azure CLI version 2.0.77 or later, and the Azure CLI AKS Preview extension version 0.4.18
 
 ## Currently supported regions
 * West US
@@ -35,9 +35,9 @@ The control plane or API server is in an Azure Kubernetes Service (AKS)-managed 
 * West Europe
 * Australia East
 
-## Install the latest AKS CLI preview extension
+## Install the latest Azure CLI AKS Preview extension
 
-To use private clusters, you need the aks-preview CLI extension version 0.4.18 or later. Install the aks-preview Azure CLI extension by using the [az extension add][az-extension-add] command, and then check for any available updates by using the following [az extension update][az-extension-update] command:
+To use private clusters, you need the Azure CLI AKS Preview extension version 0.4.18 or later. Install the Azure CLI AKS Preview extension by using the [az extension add][az-extension-add] command, and then check for any available updates by using the following [az extension update][az-extension-update] command:
 
 ```azurecli-interactive
 # Install the aks-preview extension
@@ -100,7 +100,7 @@ The API server endpoint has no public IP address. Consequently, you must create 
    ```
 
 1. Do either of the following:
-   * Create a VM in the same virtual network as the AKS cluster.
+   * Create a VM in the same virtual network as the AKS cluster.  
    * Create a VM in a different virtual network, and peer this virtual network with the AKS cluster virtual network.
 
      If you create a VM in a different virtual network, set up a link between this virtual network and the private DNS zone. To do so:
@@ -120,10 +120,10 @@ The API server endpoint has no public IP address. Consequently, you must create 
 
 
 ## Dependencies  
-* The Private Link service is supported on Standard Load Balancer only. Basic Load Balancer is not supported.  
+* The Private Link service is supported on Standard Azure Load Balancer only. Basic Azure Load Balancer isn't supported.  
 
 ## Limitations 
-* [Azure Private Link service limitations][private-link-service] apply to private clusters, Azure private endpoints, and virtual network service endpoints, which are not currently supported in the same virtual network.
+* [Azure Private Link service limitations][private-link-service] apply to private clusters, Azure private endpoints, and virtual network service endpoints, which aren't currently supported in the same virtual network.
 * No support for virtual nodes in a private cluster to spin private Cisco Application Centric Infrastructure (ACI) instances in a private Azure virtual network.
 * No support for Azure DevOps integration out of the box with private clusters.
 * For customers that need to enable Azure Container Registry to work with private AKS, the Container Registry virtual network must be peered with the agent cluster virtual network.
