@@ -14,7 +14,7 @@ There is also a [Visual Studio Code-based version](/azure/python/tutorial-vs-cod
 
 ## Prerequisites
 
-- [Python 3.7.4](https://www.python.org/downloads/). (Python 3.7.4 is verified with Azure Functions; Python 3.8 and later versions are not yet supported.)
+- [Python 3.7.4](https://www.python.org/downloads/release/python-374/). (Python 3.7.4 is verified with Azure Functions; Python 3.8 and later versions are not yet supported.)
 
 - The [Azure Functions Core Tools](./functions-run-local.md#v2) version 2.7.1846 or a later.
 
