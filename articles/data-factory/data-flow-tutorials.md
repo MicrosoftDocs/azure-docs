@@ -5,7 +5,7 @@ author: djpmsft
 ms.author: daperlov
 ms.service: data-factory
 ms.topic: tutorial
-ms.date: 01/06/2020
+ms.date: 01/08/2020
 ---
 
 # Mapping data flow video tutorials
@@ -115,3 +115,5 @@ As updates are constantly made to the product, some features have added or diffe
 [Intelligent data routing](https://youtu.be/PIGw-Z-0upw)
 
 [Data masking for sensitive data](https://www.youtube.com/watch?v=OFd4LeiTmfs)
+
+[Logical Models vs. Physical Models](http://youtu.be/K5tgzLjEE9Q)
