@@ -74,7 +74,7 @@ az keyvault create -n myKeyVaultName -g myResourceGroup-l myAzureRegionName  --e
 
 You will need a *key* stored in Azure Key Vault to complete the following steps.  Either store your existing Key in the Key Vault you created, or [generate a key][key-vault-generate]
     
-```azurecli
+```azurecli-interactive
 # Retrieve the Key Vault Id and store it in a variable
 keyVaultId=$(az keyvault show --name myKeyVaultName --query [id] -o tsv)
 
@@ -89,7 +89,7 @@ az disk-encryption-set create -n myDiskEncryptionSetName  -l myAzureRegionName  
 
 Use the DiskEncryptionSet and resource groups you created on the prior steps, and grant the DiskEncryptionSet resource access to the Azure Key Vault.
 
-```azurecli
+```azurecli-interactive
 # Retrieve the DiskEncryptionSet value and set a variable
 desIdentity=$(az disk-encryption-set show -n myDiskEncryptionSetName  -g myResourceGroup--query [identity.principalId] -o tsv)
 
