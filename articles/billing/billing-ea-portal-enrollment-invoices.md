@@ -582,25 +582,33 @@ Specific Azure Marketplace offers can use monetary commitment funds. See [third-
 
 ### Power BI Pro
 
-Power BI Pro is now available for EA customers. With Power BI Pro, you can generate and share reports to effectively manage your cost data, with additional collaboration and data refresh features. Power BI Pro offers higher data capacity and data streaming limits. Exciting new cost management features for Azure Enterprise customers are coming soon.
+Power BI Pro is available for EA customers. With Power BI Pro, you can generate and share reports to effectively manage your cost data. It also has additional collaboration and data refresh features. Power BI Pro offers higher data capacity and data streaming limits. New cost management features for Azure Enterprise customers are coming soon.
 
-Current Power BI Free users using the Microsoft Azure Consumption Insights content pack are eligible for a 60-day free trial of Power BI Pro. If you want to continue using Power BI Pro after the free trial, you can do so with the addition of a license.
+<!--
+Current Power BI (free) users who use the Microsoft Azure Consumption Insights content pack can get a 60-day free trial of Power BI Pro. After the trial is over, you can continue using Power BI Pro by adding a license.
 
-To sign up for the free trial, go to the gear icon and selecting **Manage personal storage**. Then select **Try Pro for free** on the right. See [Power BI self-service sign up](https://powerbi.microsoft.com/documentation/powerbi-service-self-service-signup-for-power-bi/#power-bi-pro-60-day-trial) for more information on the Power BI Pro free trial.
+To sign up for the free Power BI Pro trial:
 
-### Microsoft Azure EA Power BI Pro trial terms
+1. From the gear icon in Power BI, select **Manage personal storage**.
+1. Select **Try Pro for free** on the right.
 
-- **General purpose**: The extended Power BI Pro for the "Microsoft Azure Enterprise" content pack trial offer (the "Offer") is available to existing qualified users during the term of the Offer, to allow them to access certain insights related to their Microsoft Azure consumption through the use of a specific Power BI content pack.
-- **Eligibility**: Users under an Enterprise Agreement (EA) may participate in the Offer if they've a function related to their organization's Microsoft Azure billing, service, service and/or cost management.
+See [Power BI self-service sign up](https://powerbi.microsoft.com/documentation/powerbi-service-self-service-signup-for-power-bi/#power-bi-pro-60-day-trial) for more information on the Power BI Pro free trial.
+
+### Azure EA Power BI Pro trial terms
+
+- **General purpose**: The extended Power BI Pro for the "Microsoft Azure Enterprise" content pack trial offer (the "Offer") is available to existing qualified users during the term of the Offer, to allow them to access certain insights related to their Azure consumption through the use of a specific Power BI content pack.
+- **Eligibility**: Users under an Enterprise Agreement (EA) can participate in the Offer if they have a function related to their organization's Azure billing, service, or cost management.
 - **Exclusions**:
-  - Users already participating in the Extended Power BI Pro trial will continue to qualify under the pre-existing offer and may not enter into the Azure EA Power BI Pro trial offer.
-  - Users participating in the offer may only use Power BI Pro with the Microsoft Azure Enterprise content pack. Any other use of Power BI Pro is prohibited.
-  - Term: The Offer will begin on June 1, 2017 and end on May 31, 2018.  Acceptance can occur at any time during the 12-month period, though the offer will terminate on May 31, 2018 for all users regardless of when they accepted the Offer.
+  - Users already participating in the Extended Power BI Pro trial will continue to qualify under the pre-existing offer and can't enter into the Azure EA Power BI Pro trial offer.
+  - Users participating in the Offer can only use Power BI Pro with the Microsoft Azure Enterprise content pack. Any other use of Power BI Pro is prohibited.
+  - Term: The Offer began on June 1, 2017 and ended on May 31, 2018.  Acceptance can occur at any time during the 12-month period, though the offer will terminate on May 31, 2018 for all users regardless of when they accepted the Offer. 
+  -->
 
 ### To access the Microsoft Azure Consumption Insights content pack:
 
-1. Navigate to [Microsoft Azure Consumption Insights](https://app.powerbi.com/getdata/services/azureconsumption?cpcode=MicrosoftAzureConsumptionInsights&amp;getDataForceConnect=true&amp;WT.mc_id=azurebg_email_Trans_33675_1378_Service_Notice_EA_Customer_Power_BI_EA_Content_Pack_Apr26). Select **Get It Now**.
-1. Provide Enrollment Number and Number of Months. Select **Next**.
+1. Go to [Microsoft Azure Consumption Insights](https://app.powerbi.com/getdata/services/azureconsumption?cpcode=MicrosoftAzureConsumptionInsights&amp;getDataForceConnect=true&amp;WT.mc_id=azurebg_email_Trans_33675_1378_Service_Notice_EA_Customer_Power_BI_EA_Content_Pack_Apr26).
+1. Select **Get It Now**.
+1. Provide an enrollment number and the number of months, and then select **Next**.
 1. Provide your API access key to connect. You can find the key for your enrollment in the [Enterprise portal](https://ea.azure.com/?WT.mc_id=azurebg_email_Trans_33675_1378_Service_Notice_EA_Customer_Power_BI_EA_Content_Pack_Apr26). Select **Sign In**.
 1. The import process will begin automatically. When complete, a new dashboard, report, and model will appear in the navigation pane. Select the dashboard to view your imported data.
 
@@ -625,7 +633,7 @@ Power BI reporting is available for EA direct, partner, and indirect customers w
 
 ## Reports FAQ
 
-This section of the article answers common questions relating to interpreting reports.
+This section answers common questions about reports.
 
 ### Why is my cost showing as $0?
 
