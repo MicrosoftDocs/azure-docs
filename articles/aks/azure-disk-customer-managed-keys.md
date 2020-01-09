@@ -60,24 +60,27 @@ You can optionally use the Azure portal to [Configure customer-managed keys with
 Create a new *resource group*, then create a new *Key Vault* instance and enable soft delete and purge protection.
 
 ```azurecli-interactive
-# Create new resource group in West US or another supported region
-az group create -l westus -n <resource-group-name>
+# Optionally retrieve Azure region short names for use on upcoming commands
+az account list-locations
 
-# Create an Azure Key Vault resource in West US or another supported region
-az keyvault create -n <key-vault-name> -g <resource-group-name> -l westus  --enable-purge-protection true --enable-soft-delete true
+# Create new resource group in a supported Azure region
+az group create -l myAzureRegionName -n <resource-group-name>
+
+# Create an Azure Key Vault resource in a supported Azure region
+az keyvault create -n myKeyVaultName -g myResourceGroup-l myAzureRegionName  --enable-purge-protection true --enable-soft-delete true
 ```
 
 ## Create an instance of a DiskEncryptionSet
     
 ```azurecli
 # Retrieve the Key Vault Id and store it in a variable
-keyVaultId=$(az keyvault show --name <key-vault-name> --query [id] -o tsv)
+keyVaultId=$(az keyvault show --name myKeyVaultName --query [id] -o tsv)
 
 # Retrieve the Key Vault key URL and store it in a variable
-keyVaultKeyUrl=$(az keyvault key show --vault-name <key-vault-name>  --name <key-name>  --query [key.kid] -o tsv)
+keyVaultKeyUrl=$(az keyvault key show --vault-name myKeyVaultName  --name <key-name>  --query [key.kid] -o tsv)
 
 # Create a DiskEncryptionSet
-az disk-encryption-set create -n <disk-encryption-set-name>  -l <azure-location-name>  -g <resource-group-name> --source-vault $keyVaultId --key-url $keyVaultKeyUrl 
+az disk-encryption-set create -n myDiskEncryptionSetName  -l myAzureRegionName  -g myResourceGroup--source-vault $keyVaultId --key-url $keyVaultKeyUrl 
 ```
 
 ## Grant the DiskEncryptionSet resource access to the key vault
@@ -85,19 +88,19 @@ az disk-encryption-set create -n <disk-encryption-set-name>  -l <azure-location-
 Use the DiskEncryptionSet and resource groups you created on the prior steps, and grant the DiskEncryptionSet resource access to the Azure Key Vault.
 
 ```azurecli
-desIdentity=$(az disk-encryption-set show -n <disk-encryption-set-name>  -g <resource-group-name> --query [identity.principalId] -o tsv)
-az keyvault set-policy -n <key-vault-name> -g <resource-group-name> --object-id $desIdentity --key-permissions wrapkey unwrapkey get
+desIdentity=$(az disk-encryption-set show -n myDiskEncryptionSetName  -g myResourceGroup--query [identity.principalId] -o tsv)
+az keyvault set-policy -n myKeyVaultName -g myResourceGroup--object-id $desIdentity --key-permissions wrapkey unwrapkey get
 az role assignment create --assignee $desIdentity --role Reader --scope $keyVaultId
 ```
 
 ## Create an AKS cluster with and encrypt the OS disk with a customer-manged key
 
-Create a new AKS cluster and use your key to encrypt the OS disk.
+Create a new resource group and AKS cluster, then use your key to encrypt the OS disk.
 
 ```azurecli-interactive
 diskEncryptionSetId=$(az resource show -n $diskEncryptionSetName -g ssecmktesting --resource-type "Microsoft.Compute/diskEncryptionSets" --query [id] -o tsv)
-az group create -n resourceGroupName -l westcentralus
-az aks create -n clusterName -g resourceGroupName --node-osdisk-diskencryptionsetid diskEncryptionId
+az group create -n myResourceGroup-l myAzureRegionName
+az aks create -n myAKSCluster -g myResourceGroup --node-osdisk-diskencryptionsetid diskEncryptionId
 ```
 
 ## Encrypt an AKS cluster data disk with a customer-managed key
