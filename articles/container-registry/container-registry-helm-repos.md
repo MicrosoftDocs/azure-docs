@@ -202,18 +202,10 @@ wordpress-1598530621-mariadb-0          1/1     Running   0          2m48s
 
 ### Delete a Helm chart from the repository
 
-To delete a chart from the repository, use the [az acr helm delete][az-acr-helm-delete] command. Specify the name of the chart, such as *wordpress*, and the version to delete, such as *8.1.0*.
+To delete a chart from the repository, use the [az acr repository delete][az-acr-repository-delete] command. 
 
 ```azurecli
-az acr helm delete --name mycontainerregistry wordpress --version 8.1.0
-```
-
-If you wish to delete all versions of the named chart, leave out the `--version` parameter.
-
-The chart continues to be returned when you run `helm search`. Again, the Helm client doesn't automatically update the list of available charts in a repository. To update the Helm client repo index, use the [az acr helm repo add][az-acr-helm-repo-add] command again:
-
-```azurecli
-az acr helm repo add --name mycontainerregistry
+az acr repository delete --name mycontainerregistry --image helm/wordpress:latest
 ```
 
 
