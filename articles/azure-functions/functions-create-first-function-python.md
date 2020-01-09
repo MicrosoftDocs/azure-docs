@@ -83,7 +83,7 @@ Then navigate into that folder where you add function code in the next step.
 cd MyFunctionProj
 ```
 
-This folder contains various files for the project, including *requirements.txt*, the local configuration file [local.settings.json](functions-run-local#local-settings-file), and the cloud host configuration file [host.json](functions-host-json).
+This folder contains various files for the project, including *requirements.txt*, the local configuration file [local.settings.json](functions-run-local.md#local-settings-file), and the cloud host configuration file [host.json](functions-host-json.md).
 
 ## Create a function
 
@@ -99,7 +99,7 @@ This `func new` command creates a subfolder *HttpExample* (matching the function
 
 If desired, you can skip to [Run the function locally](#run-the-function-locally) and examine the file contents later.
 
-# [\_\_init\_\_.py](#tab/__init__.py)
+# [__init__.py](#tab/init-py)
 
 *\_\_init\_\_.py* is a Python file that contains a `main()` function that is triggered according to the configuration in *function.json*.
 
@@ -130,7 +130,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
 
 For HTTP trigger, the function receives request data in the variable `req` as defined in *function.json*. `req` is an instance of the [azure.functions.HttpRequest class](/python/api/azure-functions/azure.functions.httprequest). The return object, defined as `$return` in *function.json*, is an instance of [azure.functions.HttpResponse class](/python/api/azure-functions/azure.functions.httpresponse). To learn more, see [Azure Functions HTTP triggers and bindings](functions-bindings-http-webhook.md).
 
-# [function.json](#tab/function.json)
+# [function.json](#tab/function-json)
 
 *function.json* is a configuration file that defines the input and output `bindings` for the function, including the trigger type. You can change `scriptFile` to invoke a different Python file if desired.
 
@@ -227,7 +227,7 @@ Finally, create the Functions app using the [az functionapp create](/cli/azure/f
 az functionapp create --resource-group AzureFunctionsQuickstart-rg --os-type Linux --consumption-plan-location westeurope --runtime python --name <app_name> --storage-account <storage_name>
 ```
 
-This command creates a function app running Python 3.7 under the [Azure Functions Consumption Plan](functions-scale#consumption-plan), which is free for the amount of usage you incur here. The command also provisions an associated Azure Application Insights instance in the same resource group, with which you can monitor your function app and view logs. For more information, see [Monitor Azure Functions](functions-monitoring.md). The instance incurs no costs until you activate it.
+This command creates a function app running Python 3.7 under the [Azure Functions Consumption Plan](functions-scale.md#consumption-plan), which is free for the amount of usage you incur here. The command also provisions an associated Azure Application Insights instance in the same resource group, with which you can monitor your function app and view logs. For more information, see [Monitor Azure Functions](functions-monitoring.md). The instance incurs no costs until you activate it.
 
 ## Deploy the function project to Azure
 
