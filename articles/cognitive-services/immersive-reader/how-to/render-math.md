@@ -16,7 +16,7 @@ ms.author: pasta
 # How to render math in the Immersive Reader
 
 The Immersive Reader can render math when provided in the form of Mathematical Markup Language ([MathML](https://developer.mozilla.org/en-US/docs/Web/MathML)).
-The MIME type can be set through the Immersive Reader [chunk](../reference.md#chunk). See [supported MIME types](../reference#Supported-mime-types) for more information.
+The MIME type can be set through the Immersive Reader [chunk](../reference.md#chunk). See [supported MIME types](../reference.md#supported-mime-types) for more information.
 
 ## Send Math to the Immersive Reader
 In order to send math to the Immersive Reader, supply a chunk containing MathML, and set the MIME type to 'application/mathml+xml';
