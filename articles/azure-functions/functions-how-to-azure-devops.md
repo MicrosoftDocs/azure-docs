@@ -25,7 +25,7 @@ To create a YAML-based pipeline, first build your app, and then deploy the app.
 
 How you build your app in Azure Pipelines depends on your app's programming language. Each language has specific build steps that create a deployment artifact. A deployment artifact is used to deploy your function app in Azure.
 
-#### .NET
+# [C\#](#tab/csharp)
 
 You can use the following sample to create a YAML file to build a .NET app:
 
@@ -56,7 +56,7 @@ steps:
     artifactName: 'drop'
 ```
 
-#### JavaScript
+# [JavaScript](#tab/javascript)
 
 You can use the following sample to create a YAML file to build a JavaScript app:
 
@@ -84,40 +84,11 @@ steps:
     artifactName: 'drop'
 ```
 
-#### Python
+# [Python](#tab/python)
 
-You can use one of the following samples to create a YAML file to build a Python app. Python is supported only for Linux Azure Functions.
+The YAML is slightly different, depending on your Python version. You can use one of the following samples to create a YAML file to build a Python app for a specific version. Python is supported only for function apps running on Linux.
 
-###### Python 3.6
-
-```yaml
-pool:
-  vmImage: ubuntu-16.04
-steps:
-- task: UsePythonVersion@0
-  displayName: "Setting python version to 3.6 as required by functions"
-  inputs:
-    versionSpec: '3.6'
-    architecture: 'x64'
-- bash: |
-    if [ -f extensions.csproj ]
-    then
-        dotnet build extensions.csproj --output ./bin
-    fi
-    pip install --target="./.python_packages/lib/python3.6/site-packages" -r ./requirements.txt
-- task: ArchiveFiles@2
-  displayName: "Archive files"
-  inputs:
-    rootFolderOrFile: "$(System.DefaultWorkingDirectory)"
-    includeRootFolder: false
-    archiveFile: "$(System.DefaultWorkingDirectory)/build$(Build.BuildId).zip"
-- task: PublishBuildArtifacts@1
-  inputs:
-    PathtoPublish: '$(System.DefaultWorkingDirectory)/build$(Build.BuildId).zip'
-    artifactName: 'drop'
-```
-
-###### Python 3.7
+**Version 3.7**
 
 ```yaml
 pool:
@@ -146,7 +117,36 @@ steps:
     artifactName: 'drop'
 ```
 
-#### PowerShell
+**Version 3.6**
+
+```yaml
+pool:
+  vmImage: ubuntu-16.04
+steps:
+- task: UsePythonVersion@0
+  displayName: "Setting python version to 3.6 as required by functions"
+  inputs:
+    versionSpec: '3.6'
+    architecture: 'x64'
+- bash: |
+    if [ -f extensions.csproj ]
+    then
+        dotnet build extensions.csproj --output ./bin
+    fi
+    pip install --target="./.python_packages/lib/python3.6/site-packages" -r ./requirements.txt
+- task: ArchiveFiles@2
+  displayName: "Archive files"
+  inputs:
+    rootFolderOrFile: "$(System.DefaultWorkingDirectory)"
+    includeRootFolder: false
+    archiveFile: "$(System.DefaultWorkingDirectory)/build$(Build.BuildId).zip"
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(System.DefaultWorkingDirectory)/build$(Build.BuildId).zip'
+    artifactName: 'drop'
+```
+
+# [PowerShell](#tab/powershell)
 
 You can use the following sample to create a YAML file to package a PowerShell app. PowerShell is supported only for Windows Azure Functions.
 
@@ -165,6 +165,8 @@ steps:
     PathtoPublish: '$(System.DefaultWorkingDirectory)/build$(Build.BuildId).zip'
     artifactName: 'drop'
 ```
+
+---
 
 ### Deploy your app
 
