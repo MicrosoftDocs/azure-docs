@@ -1,7 +1,7 @@
 ---
 title: Onboard a customer to Azure delegated resource management
 description: Learn how to onboard a customer to Azure delegated resource management, allowing their resources to be accessed and managed through your own tenant.
-ms.date: 01/07/2020
+ms.date: 01/09/2020
 ms.topic: conceptual
 ---
 
@@ -196,7 +196,7 @@ Once you have updated your parameter file, a user in the customer's tenant must 
 Because this is a subscription-level deployment, it cannot be initiated in the Azure portal. The deployment may be done by using PowerShell or Azure CLI, as shown below.
 
 > [!IMPORTANT]
-> This subscription-level deployment must be done by a non-guest account in the customer’s tenant who has the [Owner built-in role](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) for the subscription being onboarded (or which contains the resource groups that are being onboarded). To see all users who can delegate the subscription, a user in the customer's tenant can select the subscription in the Azure portal, open **Access control (IAM)**, [list all roles](../../role-based-access-control/role-definitions-list.md#list-all-roles), then select **Owner** to see all users with that role.
+> This subscription-level deployment must be done by a non-guest account in the customer’s tenant who has the [Owner built-in role](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) for the subscription being onboarded (or which contains the resource groups that are being onboarded). To see all users who can delegate the subscription, a user in the customer's tenant can select the subscription in the Azure portal, open **Access control (IAM)**, and [view all users with the Owner role](../../role-based-access-control/role-assignments-list-portal#list-owners-of-a-subscription.md).
 
 ### PowerShell
 
