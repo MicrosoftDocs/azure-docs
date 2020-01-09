@@ -162,7 +162,7 @@ Select **Save** after completing these fields.
 
 ### Category
 
-Select a minimum of one (1) and a maximum of three (3) categories used for grouping your offer into the appropriate marketplace search areas. In the offer description, call out how your offer supports these categories.
+Select a minimum of one (1) and a maximum of three (3) categories used for grouping your offer into the appropriate marketplace search areas. Please call out how your offer supports these categories in the offer description. 
 
 ### Industry
 

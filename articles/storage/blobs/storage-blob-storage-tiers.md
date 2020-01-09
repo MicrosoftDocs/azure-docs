@@ -123,7 +123,7 @@ The following table shows a comparison of premium performance block blob storage
 <sup>2</sup> Archive Storage currently supports 2 rehydrate priorities, High and Standard, that offers different retrieval latencies. For more information, see [Rehydrate blob data from the archive tier](storage-blob-rehydration.md).
 
 > [!NOTE]
-> Blob storage accounts support the same performance and scalability targets as general-purpose v2 storage accounts. For more information, see [Azure Storage Scalability and Performance Targets](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+> Blob storage accounts support the same performance and scalability targets as general-purpose v2 storage accounts. For more information, see [Scalability and performance targets for Blob storage](scalability-targets.md).
 
 ## Quickstart scenarios
 
@@ -226,7 +226,7 @@ Azure portal, PowerShell, and CLI tools and .NET, Java, Python, and Node.js clie
 
 **How much data can I store in the hot, cool, and archive tiers?**
 
-Data storage along with other limits are set at the account level and not per access tier. You can choose to use all of your limit in one tier or across all three tiers. For more information, see [Azure Storage scalability and performance targets](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+Data storage along with other limits are set at the account level and not per access tier. You can choose to use all of your limit in one tier or across all three tiers. For more information, see [Scalability and performance targets for standard storage accounts](../common/scalability-targets-standard-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 ## Next steps
 

@@ -36,7 +36,7 @@ Update a specific section in the transcript using the [Update-Video-Index](https
 
 You can now update Media Services connection configuration in order to self-help with issues like: incorrect Azure Media Services resource, and `____`. To fix the account configuration, in Video Indexer portal navigate to Settings > Account tab (as owner).
 
-### Custom vision account configuration
+### Configure the custom vision account
 
 Configure the custom vision account on paid accounts using the Video Indexer portal (previously, this was only supported by API). To do that, sign in to the Video Indexer portal, choose Model Customization > Animated characters > Configure. 
 
@@ -44,9 +44,9 @@ Configure the custom vision account on paid accounts using the Video Indexer por
 
 Scenes, shots, and keyframes are now merged into one insight for easier consumption and navigation. When you select the desired scene you can see what shots and keyframes it consists of. 
 
-### Video name too long notification
+### Notification about a long video name
 
-When video name is longer than 80 characters, Video Indexer will show a descriptive error on upload.
+When a video name is longer than 80 characters, Video Indexer shows a descriptive error on upload.
 
 ### Streaming endpoint is disabled notification
 

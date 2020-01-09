@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/02/2019
+ms.date: 01/08/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ---
@@ -36,6 +36,22 @@ The easiest way to see the roles assigned to a user or group in a subscription i
     ![Role assignments for a user](./media/role-assignments-list-portal/azure-resources-user.png)    
 
 1. To change the subscription, click the **Subscriptions** list.
+
+## List owners of a subscription
+
+Users that have been assigned the [Owner](built-in-roles.md#owner) role for a subscription can manage everything in the subscription. Follow these steps to list the owners of a subscription.
+
+1. In the Azure portal, click **All services** and then **Subscriptions**.
+
+1. Click the subscription you want to list the owners of.
+
+1. Click **Access control (IAM)**.
+
+1. Click the **Role assignments** tab to view all the role assignments for this subscription.
+
+1. Scroll to the **Owners** section to see all the users that have been assigned the Owner role for this subscription.
+
+   ![Subscription Access control - Role assignments tab](./media/role-assignments-list-portal/access-control-role-assignments-subscription.png)
 
 ## List role assignments at a scope
 

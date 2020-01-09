@@ -36,28 +36,37 @@ The previous information is provided to you by your system integrator. For any i
 
 Alternatively, you can generate the credentials by running this script from Azure Cloud Shell. Follow these steps.
 
-1. Download the [zip file](https://aka.ms/farmbeatspartnerscript), and extract it to your local drive. Two files are inside the zip file.
-2. Sign in to https://portal.azure.com/ and open Cloud Shell. This option is available on the toolbar in the upper-right corner of the Azure portal.
+1. Download the [zip file](https://aka.ms/farmbeatspartnerscriptv2), and extract it to your local drive. There will be one file inside the zip file.
+2. Sign in to https://portal.azure.com/ and go to Azure Active Directory -> App Registrations
+
+3. Click on the App Registration that was created as part of your FarmBeats deployment. It will have the same name as your FarmBeats Datahub.
+
+4. Click on “Expose an API” -> Click “Add a client application” and enter **04b07795-8ddb-461a-bbee-02f9e1bf7b46** and check "Authorize Scope". This will give access to the azure cli (Cloud shell) to perform the below steps.
+
+5. Open Cloud Shell. This option is available on the toolbar in the upper-right corner of the Azure portal.
 
     ![Azure portal toolbar](./media/get-drone-imagery-from-drone-partner/navigation-bar-1.png)
 
-3. Make sure the environment is set to **PowerShell**. By default, it's set to Bash.
+6. Make sure the environment is set to **PowerShell**. By default, it's set to Bash.
 
     ![PowerShell toolbar setting](./media/get-sensor-data-from-sensor-partner/power-shell-new-1.png)
 
-4. Upload the two files from step 1 in your Cloud Shell instance.
+7. Upload the file from step 1 in your Cloud Shell instance.
 
     ![Upload toolbar button](./media/get-sensor-data-from-sensor-partner/power-shell-two-1.png)
 
-5. Go to the directory where the files were uploaded. By default, they're uploaded to the home directory under the username.
-6. Run the following script:
+8. Go to the directory where the file was uploaded. By default, files get uploaded to the home directory under the username.
+
+9. Run the following script.
 
     ```azurepowershell-interactive 
 
-    ./generateCredentials.ps1   
+    ./generatePartnerCredentials.ps1   
 
     ```
-7. Follow the onscreen instructions to capture the values for **API Endpoint**, **Tenant ID**, **Client ID**, **Client Secret**, and **EventHub Connection String**. The EventHub connection string is available as part of the API response in Swagger.
+The tenant ID can be obtained from Azure Active Directory -> Overview page.
+
+10. Follow the onscreen instructions to capture the values for **API Endpoint**, **Tenant ID**, **Client ID**, **Client Secret**, and **EventHub Connection String**.
 
 ### Integrate device data by using the generated credentials
 

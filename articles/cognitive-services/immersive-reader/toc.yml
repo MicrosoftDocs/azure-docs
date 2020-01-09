@@ -23,10 +23,12 @@
   items:
   - name: Create Immersive Reader resource
     href: how-to-create-immersive-reader.md
-  - name: How to set the cookie policy
+  - name: Set the cookie policy
     href: how-to/set-cookie-policy.md
   - name: Launch the Immersive Reader with HTML content
     href: how-to-launch-with-html.md
+  - name: Customize Immersive Reader button
+    href: how-to-customize-launch-button.md
 - name: Reference
   items:
   - name: SDK Reference
