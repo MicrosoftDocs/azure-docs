@@ -37,7 +37,7 @@ You can add a markdown tile to your Azure dashboards to display custom, static c
 
       ![Screenshot showing entering inline content](./media/azure-portal-markdown-tile/azure-portal-dashboard-markdown-inline-content.png)
 
-    - Select **Insert content using URL** if you want to use existing markdown content that's hosted online. 
+   - Select **Insert content using URL** if you want to use existing markdown content that's hosted online.
 
       ![Screenshot showing entering URL](./media/azure-portal-markdown-tile/azure-portal-dashboard-markdown-url.png)
 
