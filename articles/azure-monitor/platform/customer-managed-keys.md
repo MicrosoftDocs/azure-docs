@@ -21,9 +21,9 @@ We recommend you review [Limitations and constraints](#Limitations and constrain
 
 - The CMK deployment described in this article is delivered in production quality and supported as such although it's an early access feature.
 
-- CMK capability is delivered on a dedicated data-store-cluster, which is an ADX cluster and suitable for customers sending 1 TB or more per day.
+- The CMK capability is delivered on a dedicated data-store-cluster, which an Azure Data Explorer (ADX) cluster and suitable for customers sending 1TB per day or more. 
 
-- CMK pricing model isn't available currently and it isn't covered in this article. A pricing model for dedicated data-store-cluster is expected in the second quarter of calendar year (CY) 2020 and will apply to any existing CMK deployments.
+- The CMK pricing model isn't available currently and it isn't covered in this article. A pricing model for dedicated data-store-cluster is expected in the second quarter of calendar year (CY) 2020 and will apply to any existing CMK deployments.
 
 - This article describes the CMK configuration for Log Analytics workspaces. CMK for Application Insights components is also supported using this article while differences are listed in the Appendix.
 
