@@ -28,7 +28,7 @@ For a new firewall, the Azure PowerShell command is:
 > [!NOTE]
 > IANAPrivateRanges is expanded to the current defaults on Azure Firewall while the other ranges are added to it.
 
-For more information, see [New-AzFirewall](https://docs.microsoft.com/en-us/powershell/module/az.network/new-azfirewall?view=azps-3.3.0).
+For more information, see [New-AzFirewall](https://docs.microsoft.com/powershell/module/az.network/new-azfirewall?view=azps-3.3.0).
 
 ### Existing firewall
 
