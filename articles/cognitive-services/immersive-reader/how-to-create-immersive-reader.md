@@ -121,18 +121,18 @@ This article shows how to create an Immersive Reader resource and configure it w
       -IdentifierUri <IDENTIFIER_URI>
     ```
 
-    >[!NOTE]
-    > Use [az account list](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az-account-list) to get your subscription name.
-    >
-    > If the specified resource group does not exist, it will be created. If the specified resource group already exists, the resource group location parameter will be ignored.
-    >
-    > The resource location can be any of the following: `eastus`, `eastus2`, `southcentralus`, `westus`, `westus2`, `australiaeast`, `southeastasia`, `centralindia`, `japaneast`, `northeurope`, `uksouth`, `westeurope`.
-    >
-    > The resource SKU can be `S0`, `S1`, or `F0`.
-    >
-    > The custom subdomain needs to be globally unique and cannot include special characters, such as: `.`, `!`, `,`.
-    >
-    > The `ApplicationDisplayName` and `IdentifierUri` parameters are optional.
+    | Parameter | Comments |
+    | --- | --- |
+    | SubscriptionName |You must have an Azure subscription in order to create a resource |
+    | ResourceGroupName |Resources are created in resource groups within subscriptions. Supply a name of an existing resource group. If this resource group does not already exist, this script will created a new one for you with this name |
+    | ResourceGroupLocation |If your resource group doesn't exist, you need to supply a location in which to create the group. To find a list of locations, run `az account list-locations`. This parameter is optional if your resource group already exists |
+    | ResourceName |  Must be alphanumeric, and may contain '-', as long as the '-' does not start or end the subdomain. Length must be <= 63|
+    | ResourceLocation |Options: `eastus`, `eastus2`, `southcentralus`, `westus`, `westus2`, `australiaeast`, `southeastasia`, `centralindia`, `japaneast`, `northeurope`, `uksouth`, `westeurope` |
+    | ResourceSku |Options: `S0`, `S1`, or `F0`. Visit our [Cognitive Services pricing page](https://azure.microsoft.com/pricing/details/cognitive-services/immersive-reader/) to learn more about each available SKU |
+    | Subdomain |This parameter is provided as a feature for Azure AD authentication for Cognitive Services. The subdomain must be globally unique |
+    | ClientSecret |A password you create that will be used later to authenticate when acquiring a token to call the Immersive Reader |
+    | ApplicationDisplayName |Must be alphanumeric, and may contain '-', as long as the '-' does not start or end the subdomain. Length must be <= 63. This parameter is optional if your Azure AD app already exists |
+    | IdentifierUri |A unique URI that will be used for the Azure AD app that will be created. For example, `https://immersivereaderaad-mycompany` |
 
 1. Copy the JSON output into a text file for later use. The output should look like the following.
 
