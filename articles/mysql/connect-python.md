@@ -12,7 +12,7 @@ ms.custom: seo-python-october2019
 ---
 
 # Quickstart: Use Python to connect and query data with Azure Database for MySQL
-This quickstart demonstrates how to use [Python](https://python.org) to connect to an Azure Database for MySQL. The article uses SQL statements to query, insert, update, and delete data in the database from Mac OS, Ubuntu Linux, and Windows platforms. 
+This quickstart demonstrates how to use [Python](https://python.org) to connect to an Azure Database for MySQL. You can use SQL statements to query, insert, update, and delete data in the database from Mac OS, Ubuntu Linux, and Windows platforms. 
 
 This article assumes that you're familiar with developing using Python, but you're new to working with Azure Database for MySQL.
 
@@ -27,7 +27,7 @@ Install Python and the MySQL connector for Python on your computer by using the 
 > [!NOTE]
 > This quickstart uses a raw SQL query approach to connect to MySQL. If you're using a web framework, use the recommended connector for the framework, for example, [mysqlclient](https://pypi.org/project/mysqlclient/) for Django.
 
-1. Download and install Python 3.7 or above from [python.org](https://www.python.org/downloads/). Make sure to add Python to your `PATH`, because the MySQL connector requires that.
+1. Download and install [Python 3.7 or above](https://www.python.org/downloads/). Make sure to add Python to your `PATH`, because the MySQL connector requires that.
    
 1. Open a command prompt or `bash` shell, and check your Python version by running `python -V` with the uppercase V switch.
    
@@ -41,7 +41,7 @@ Install Python and the MySQL connector for Python on your computer by using the 
    pip install mysql-connector-python
    ```
    
-   You can also install the Python connector for MySQL from [mysql.com](https://dev.mysql.com/downloads/connector/python/). For more information, see the [MySQL Connector/Python Developer Guide](https://dev.mysql.com/doc/connector-python/en/). 
+   You can also install the Python connector for MySQL from [mysql.com](https://dev.mysql.com/downloads/connector/python/). For more information about the MySQL Connector for Python, see the [MySQL Connector/Python Developer Guide](https://dev.mysql.com/doc/connector-python/en/). 
 
 ## Get connection information
 Get the connection information you need to connect to Azure Database for MySQL from the Azure portal. You need the server name, database name, and login credentials.
