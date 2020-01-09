@@ -30,6 +30,11 @@ sections:
       image: 
         src: media/index/get-started.svg
         href: /azure/virtual-machines/linux
+   - title: Troubleshoot virtual machine
+      href: /azure/virtual-machines/troubleshooting
+      image: 
+        src: media/index/get-started.svg
+        href: /azure/virtual-machines/troubleshooting
 - title: 5-Minute Linux quickstarts
   items:
   - type: paragraph
