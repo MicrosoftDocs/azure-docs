@@ -50,7 +50,7 @@
   - name: Use Logic Apps
     href: ethereum-logic-app.md
   - name: Monitor ABS
-  - href: monitor-azure-blockchain-service.md
+  - href: monitor.md
 - name: Blockchain Data Manager
   items:
   - name: Data manager overview

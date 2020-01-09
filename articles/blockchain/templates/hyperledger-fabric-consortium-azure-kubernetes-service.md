@@ -58,11 +58,11 @@ To get started with the HLF network components deployment, navigate to the [Azur
 
 1. Select **create** to start the template deployment. The **Create Hyperledger Fabric on Azure Kubernetes Service** displays.
 
-    ![Hyperledger Fabric on Azure Kubernetes Service Template](./media/hyperledger-fabric-consortium-aks/hyperledger-fabric-aks.png)
+    ![Hyperledger Fabric on Azure Kubernetes Service Template](./media/hyperledger-fabric-consortium-azure-kubernetes-service/hyperledger-fabric-aks.png)
 
 2. Enter the project details in **Basics** page.
 
-    ![Hyperledger Fabric on Azure Kubernetes Service Template](./media/hyperledger-fabric-consortium-aks/create-for-hyperledger-fabric-basics.png)
+    ![Hyperledger Fabric on Azure Kubernetes Service Template](./media/hyperledger-fabric-consortium-azure-kubernetes-service/create-for-hyperledger-fabric-basics.png)
 
 3. Enter the following details:
     - **Subscription**: Choose the subscription name where you want to deploy the HLF network components.
@@ -71,7 +71,7 @@ To get started with the HLF network components deployment, navigate to the [Azur
     - **Resource prefix**: Prefix for naming of resources that are deployed. Resource prefix must be less than six characters in length and the combination of characters must include both numbers and letters.
 4. Select **Fabric Settings** tab to define the HLF network components that will be deployed.
 
-    ![Hyperledger Fabric on Azure Kubernetes Service Template](./media/hyperledger-fabric-consortium-aks/create-for-hyperledger-fabric-settings.png)
+    ![Hyperledger Fabric on Azure Kubernetes Service Template](./media/hyperledger-fabric-consortium-azure-kubernetes-service/create-for-hyperledger-fabric-settings.png)
 
 5. Enter the following details:
     - **Organization name**: The name of the Fabric organization, which is required for various data plane operations.
@@ -90,7 +90,7 @@ To get started with the HLF network components deployment, navigate to the [Azur
 
 6. Select **AKS cluster Settings** tab to define the Azure Kubernetes cluster configuration that is the underlying infrastructure on which the Fabric network components will be setup.
 
-    ![Hyperledger Fabric on Azure Kubernetes Service Template](./media/hyperledger-fabric-consortium-aks/create-for-hyperledger-fabric-aks-cluster-settings-1.png)
+    ![Hyperledger Fabric on Azure Kubernetes Service Template](./media/hyperledger-fabric-consortium-azure-kubernetes-service/create-for-hyperledger-fabric-aks-cluster-settings-1.png)
 
 7. Enter the following details:
     - **Kubernetes cluster name**: The name of the AKS cluster that is created. This field is prepopulated based on the resource prefix provided, you can change if necessary.
@@ -117,11 +117,11 @@ To build the blockchain consortium post deploying the ordering service and peer 
 > [!NOTE]
 > Build Your Network (byn) script provided is strictly to be used for demo/devtest scenarios. For production grade setup we recommend using the native HLF APIs.
 
-All the commands to run the byn script can be executed through Azure Bash Command Line Interface (CLI). You can login into Azure shell web version through ![Hyperledger Fabric on Azure Kubernetes Service Template](./media/hyperledger-fabric-consortium-aks/arrow.png) option at the top-right corner of the Azure portal. On the command prompt, type bash and enter to switch to bash CLI.
+All the commands to run the byn script can be executed through Azure Bash Command Line Interface (CLI). You can login into Azure shell web version through ![Hyperledger Fabric on Azure Kubernetes Service Template](./media/hyperledger-fabric-consortium-azure-kubernetes-service/arrow.png) option at the top-right corner of the Azure portal. On the command prompt, type bash and enter to switch to bash CLI.
 
 See [Azure shell](https://docs.microsoft.com/azure/cloud-shell/overview) for more information.
 
-![Hyperledger Fabric on Azure Kubernetes Service Template](./media/hyperledger-fabric-consortium-aks/hyperledger-powershell.png)
+![Hyperledger Fabric on Azure Kubernetes Service Template](./media/hyperledger-fabric-consortium-azure-kubernetes-service/hyperledger-powershell.png)
 
 
 Download byn.sh and fabric-admin.yaml file.
