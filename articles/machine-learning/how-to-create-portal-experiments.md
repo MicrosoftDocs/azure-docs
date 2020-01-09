@@ -175,7 +175,7 @@ Guardrail|Status|Condition&nbsp;for&nbsp;trigger
 ---|---|---
 Missing&nbsp;values&nbsp;imputation |**Passed** <br> <br> **Fixed**|	No missing value in any of the input&nbsp;columns <br> <br> Some columns have missing values
 Cross validation|**Done**|If no explicit validation set is provided
-High&nbsp;cardinality&nbsp;feature&nbsp;detection|	**Passed** <br> <br>**Done**|	No high cardinality features were detected <br><br> High cardinality input column were detected
+High&nbsp;cardinality&nbsp;feature&nbsp;detection|	**Passed** <br> <br>**Done**|	No high cardinality features were detected <br><br> High cardinality input columns were detected
 Class balance detection	|**Passed** <br><br><br>**Alerted** |Classes are balanced in the training data; A dataset is considered balanced if each class has good representation in the dataset, as measured by number and ratio of samples <br> <br> Classes in the training data are imbalanced
 Time-series data consistency|**Passed** <br><br><br><br> **Fixed** |<br> The selected {horizon, lag, rolling window} value(s) were analyzed, and no potential out-of-memory issues were detected. <br> <br>The selected {horizon, lag, rolling window} values were analyzed and will potentially cause your experiment to run out of memory. The lag or rolling window has been turned off.
 

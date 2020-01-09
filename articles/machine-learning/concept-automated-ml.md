@@ -93,9 +93,9 @@ In every automated machine learning experiment, your data is automatically scale
 
 ### Advanced preprocessing: optional featurization
 
-Additional advanced preprocessing and featurization are also available, such as data guard rails, encoding, and transforms. [Learn more about what featurization is included](how-to-create-portal-experiments.md#preprocess). Enable this setting with:
+Additional advanced preprocessing and featurization are also available, such as data guardrails, encoding, and transforms. [Learn more about what featurization is included](how-to-create-portal-experiments.md#preprocess). Enable this setting with:
 
-+ Azure Machine Learning studio : Selecting the **View featurization settings** in the **Configuration Run** section [with these steps](how-to-create-portal-experiments.md).
++ Azure Machine Learning studio: Selecting the **View featurization settings** in the **Configuration Run** section [with these steps](how-to-create-portal-experiments.md).
 
 + Python SDK: Specifying `"feauturization": auto' / 'off' / FeaturizationConfig` for the [`AutoMLConfig` class](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig).
 
@@ -107,7 +107,7 @@ The best way to prevent over-fitting is to follow ML best-practices including:
 
 * Using more training data, and eliminating statistical bias
 * Preventing target leakage
-* Using less features
+* Using fewer features
 * **Regularization and hyperparameter optimization**
 * **Model complexity limitations**
 * **Cross-validation**
@@ -160,7 +160,7 @@ Learn more and see an example of [automated machine learning for time series for
 
 * holiday detection and featurization
 * time-series and DNN learners (Auto-ARIMA, Prophet, ForecastTCN)
-* many model support through grouping
+* many models support through grouping
 * rolling-origin cross validation
 * configurable lags
 * rolling window aggregate features
