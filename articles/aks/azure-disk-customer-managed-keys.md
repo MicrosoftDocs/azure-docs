@@ -19,9 +19,9 @@ Azure Storage encrypts all data in a storage account at rest. By default, data i
 
 ## Before you begin
 
-* This article assumes that you are creating a new AKS cluster.  You will also need to use or create an instance of Azure Key Vault to store your encryption keys.
+* This article assumes that you are creating a *new AKS cluster*.  You will also need to use or create an instance of Azure Key Vault to store your encryption keys.
 
-* You must enable soft delete and purge protection for Azure Key Vault when using Key Vault to encrypt managed disks.
+* You must enable soft delete and purge protection for *Azure Key Vault* when using Key Vault to encrypt managed disks.
 
 * You need the Azure CLI version 2.0.77 or later and the aks-preview 0.4.26 extension
 
@@ -115,6 +115,7 @@ TODO
 [managed-disk-pricing-performance]: https://azure.microsoft.com/pricing/details/managed-disks/
 
 <!-- LINKS - internal -->
+[customer-managed keys]: /virtual-machines/windows/disk-encryption#customer-managed-keys-public-preview
 [azure-disk-volume]: azure-disk-volume.md
 [azure-files-pvc]: azure-files-dynamic-pv.md
 [premium-storage]: ../virtual-machines/windows/disks-types.md
