@@ -25,10 +25,20 @@ When using SQL Server Integration Services (SSIS) in Azure Data Factory, you sho
 
 - You want to connect to data stores/resources configured with IP firewall rules from SSIS packages that run on your Azure-SSIS IR.
 
-Data Factory lets you join your Azure-SSIS IR to a virtual network created through the classic deployment model or the Azure Resource Manager deployment model. 
+Data Factory lets you join your Azure-SSIS IR to a virtual network created through the classic deployment model or the Azure Resource Manager deployment model.
 
 > [!IMPORTANT]
 > The classic virtual network is being deprecated, so use the Azure Resource Manager virtual network instead.  If you already use the classic virtual network, switch to the Azure Resource Manager virtual network as soon as possible.
+
+The [configuring an Azure-SQL Server Integration Services (SSIS) integration runtime (IR) to join a virtual network](tutorial-deploy-ssis-virtual-network.md) tutorial shows the minimum steps via Azure portal. This article expands on the tutorial and describes all the optional tasks:
+
+- If you are using virtual network (classic).
+- If you bring your own public IP addresses for the Azure-SSIS IR.
+- If you use your own Domain Name System (DNS) server.
+- If you use a network security group (NSG) on the subnet.
+- If you use Azure ExpressRoute or a user-defined route (UDR).
+- If you use customized Azure-SSIS IR.
+- If you using Azure Powershell provisioning.
 
 ## Access to on-premises data stores
 
