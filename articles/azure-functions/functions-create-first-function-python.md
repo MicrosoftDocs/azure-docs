@@ -97,7 +97,7 @@ If desired, you can skip to [Run the function locally](#run-the-function-locally
 
 # [\_\_init\_\_.py](#tab/initpy)
 
-*\_\_init\_\_.py* is a Python file that contains a `main()` function that is triggered according to the configuration in *function.json*.
+*\_\_init\_\_.py* contains a `main()` Python function that's triggered according to the configuration in *function.json*.
 
 ```python
 import logging
@@ -200,7 +200,7 @@ You use Azure CLI commands to create these items. Each command provides JSON out
     az login
     ```
     
-1. Create a resource group with the [az group create](/cli/azure/group#az-group-create) command. The following example creates a resource group named `myResourceGroup` in the `westeurope` region. (You generally create your resource group and resources in a region near you, using a region returned from the `az account list` command.)
+1. Create a resource group with the [az group create](/cli/azure/group#az-group-create) command. The following example creates a resource group named `AzureFunctionsQuickstart-rg` in the `westeurope` region. (You generally create your resource group and resources in a region near you, using an available region from the `az account list-locations` command.)
 
     ```azurecli
     az group create --name AzureFunctionsQuickstart-rg --location westeurope
