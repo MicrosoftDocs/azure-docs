@@ -119,6 +119,10 @@ az aks create -n myAKSCluster -g myResourceGroup --node-osdisk-diskencryptionset
 
 TODO , encrypt the data disks steps for same cluster above?
 
+## Verify your key is working
+
+TODO
+
 ## Limitations
 
 * OS Disk Encryption supported with Kubernetes version 1.17 and above   
