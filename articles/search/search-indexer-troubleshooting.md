@@ -22,7 +22,7 @@ Indexers can run into a number of issues when indexing data into Azure Cognitive
 ## Connection Errors
 
 > [!NOTE]
-> Indexers have limited support for accessing data sources and other resources that are secured by Azure network security mechanisms. Currently, indexers can only access data sources via corresponding IP whitelisting mechanisms or NSG rules when applicable. Details for accessing each supported data source can be found below. Full featured support is currently planned for release at a future date.
+> Indexers have limited support for accessing data sources and other resources that are secured by Azure network security mechanisms. Currently, indexers can only access data sources via corresponding IP address range restriction mechanisms or NSG rules when applicable. Details for accessing each supported data source can be found below. Full featured support is currently planned for release at a future date.
 >
 > You can find out the IP address of your search service by pinging its fully qualified domain name (eg., `<your-search-service-name>.search.windows.net`).
 >
@@ -35,9 +35,9 @@ Azure Storage, CosmosDB and Azure SQL provide a configurable firewall. There's n
 There are 2 options for allowing indexers to access these resources in such an instance:
 
 1. Disable the firewall, by allowing access from **All Networks** (if feasible).
-2. Alternatively, you can IP whitelist the IP address of your search service and the IP address range of `AzureCognitiveSearch` [service tag](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags) in the firewall rules of your data source.
+2. Alternatively, you can allow access for the IP address of your search service and the IP address range of `AzureCognitiveSearch` [service tag](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags) in the firewall rules of your resource (IP address range restriction).
 
-Details for configuring IP whitelisting for each data source type can be found from the following links:
+Details for configuring IP address range restrictions for each data source type can be found from the following links:
 
 1. [Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-network-security#grant-access-from-an-internet-ip-range)
 
@@ -45,7 +45,7 @@ Details for configuring IP whitelisting for each data source type can be found f
 
 3. [Azure SQL](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure#create-and-manage-ip-firewall-rules)
 
-**Limitation**: As stated in the documentation above for Azure Storage, IP whitelisting will only work if your search service and your storage account are in different regions.
+**Limitation**: As stated in the documentation above for Azure Storage, IP address range restrictions will only work if your search service and your storage account are in different regions.
 
 Azure functions (that could be used as a [Custom Web Api skill](cognitive-search-custom-skill-web-api.md)) also support [IP address restrictions](https://docs.microsoft.com/azure/azure-functions/ip-addresses#ip-address-restrictions). The list of IP addresses to configure would be the IP address of your search service and the IP address range of `AzureCognitiveSearch` service tag.
 
