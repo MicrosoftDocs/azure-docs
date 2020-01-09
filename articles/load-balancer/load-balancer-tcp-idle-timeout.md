@@ -38,7 +38,7 @@ TCP keep-alive works for scenarios where battery life isn't a constraint. It isn
 
 ![TCP timeout](./media/load-balancer-tcp-idle-timeout/image1.png)
 
-The following sections describe how to change idle timeout settings in virtual machines and cloud services.
+The following sections describe how to change idle timeout settings for public IP and load balancer resources.
 
 ## Configure the TCP timeout for your instance-level public IP to 15 minutes
 
