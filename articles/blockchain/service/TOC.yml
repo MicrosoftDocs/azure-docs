@@ -49,7 +49,7 @@
     href: manage-consortium-powershell.md
   - name: Use Logic Apps
     href: ethereum-logic-app.md
-  - name: Monitor ABS
+  - name: Monitor
   - href: monitor.md
 - name: Blockchain Data Manager
   items:
