@@ -1,5 +1,5 @@
 ---
-title: Azure Media Services Community Overview | Microsoft Docs
+title: Azure Media Services v3 Community Overview | Microsoft Docs
 description: This Azure Media Services community page discusses different ways you can ask questions, give feedback, and get updates about Media Services.
 services: media-services
 documentationcenter: ''
