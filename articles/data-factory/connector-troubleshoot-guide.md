@@ -128,13 +128,9 @@ Cosmos DB calculates RU from [here](../cosmos-db/request-units.md#request-unit-c
 
 - **Recommendation**:  Check the detailed error message thrown by ADLS Gen2. If it's caused by transient failure, please retry. If you need further help, please contact Azure Storage support and provide the request ID in error message.
 
-<br/>
-
 - **Cause**: When the error message contains 'Forbidden', the service principal or managed identity you use may not have enough permission to access the ADLS Gen2.
 
 - **Recommendation**:  Refer to the help document: https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#service-principal-authentication.
-
-<br/>
 
 - **Cause**: When the error message contains 'InternalServerError', the error is returned by ADLS Gen2.
 
@@ -197,13 +193,9 @@ busy to handle requests, it returns an HTTP error 503.
 
 - **Message**: `Cannot connect to SQL Database: '%server;', Database: '%database;', User: '%user;'. Check the linked service configuration is correct, and make sure the SQL Database firewall allows the integration runtime to access.`
 
-<br/>
-
 - **Cause**: If the error message contains "SqlException", SQL Database throws the error indicating some specific operation failed.
 
 - **Recommendation**:  Please search by SQL error code in this reference doc for more details: https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors. If you need further help, contact Azure SQL support.
-
-<br/>
 
 - **Cause**: If the error message contains "Client with IP address '...' is not allowed to access the server", and you are trying to connect to Azure SQL Database, usually it is caused by Azure SQL Database firewall issue.
 
@@ -214,20 +206,14 @@ busy to handle requests, it returns an HTTP error 503.
 
 - **Message**: `A database operation failed. Please search error to get more details.`
 
-<br/>
-
 - **Cause**: If the error message contains "SqlException", SQL Database throws the error indicating some specific operation failed.
 
 - **Recommendation**:  If SQL error is not clear, please try to alter the database to latest compatibility level '150'. It can throw latest version SQL errors. Please refer the detail doc:  https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-compatibility-level?view=sql-server-ver15#backwardCompat.
-		For troublesthooing SQL issues, please search by SQL error code in this reference doc for more details: https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors. If you need further help, contact Azure SQL support.
-
-<br/>
+		For troubleshooting SQL issues, please search by SQL error code in this reference doc for more details: https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors. If you need further help, contact Azure SQL support.
 
 - **Cause**: If the error message contains "PdwManagedToNativeInteropException", usually it's caused by mismatch between source and sink column sizes.
 
 - **Recommendation**:  Check the size of both source and sink columns. If you need further help, contact Azure SQL support.
-
-<br/>
 
 - **Cause**: If the error message contains "InvalidOperationException", usually it's caused by invalid input data.
 
@@ -265,13 +251,9 @@ busy to handle requests, it returns an HTTP error 503.
 
 - **Message**: `A database operation failed. Check the SQL errors.`
 
-<br/>
-
 - **Cause**: If the issue happens on SQL source and the error is related to SqlDateTime overflow, the data value is over the logic type range (1/1/1753 12:00:00 AM - 12/31/9999 11:59:59 PM).
 
 - **Recommendation**:  Cast the type to string in source SQL query, or in copy activity column mapping change the column type to 'String'.
-
-<br/>
 
 - **Cause**: If the issue happens on SQL sink and the error is related to SqlDateTime overflow, the data value is over the allowed range in sink table.
 
@@ -323,13 +305,9 @@ busy to handle requests, it returns an HTTP error 503.
 
 - **Message**: `SQL transaction commits failed`
 
-<br/>
-
 - **Cause**: If exception details constantly tell transaction timeout, the network latency between integration runtime and database is higher than default threshold as 30 seconds.
 
 - **Recommendation**:  Update Sql linked service connection string with 'connection timeout' value equals to 120 or higher and rerun the activity.
-
-<br/>
 
 - **Cause**: If exception details intermittently tell sqlconnection broken, it could just be transient network failure or SQL Database side issue
 
@@ -451,19 +429,13 @@ busy to handle requests, it returns an HTTP error 503.
 
 - **Message**: `Error found when processing '%function;' source '%name;' with row number %rowCount;: found more columns than expected column count: %columnCount;.`
 
-<br/>
-
 - **Cause**: The problematic row's column count is large than the first row's column count. It may be caused by data issue or incorrect column delimiter/quote char settings.
 
 - **Recommendation**:  Please get the row count in error message, check the row's column and fix the data.
 
-<br/>
-
 - **Cause**: If the expected column count is "1" in error message, it's possible that you specified wrong compression or format settings, which caused ADF to wrongly parse your file(s).
 
 - **Recommendation**:  Check the format settings to make sure it matches to your source file(s).
-
-<br/>
 
 - **Cause**: If your source is a folder, it's possible that the files under the specified folder have different schema.
 
@@ -542,19 +514,13 @@ busy to handle requests, it returns an HTTP error 503.
 
 - **Message**: `An error occurred when invoking java, message: %javaException;.`
 
-<br/>
-
 - **Cause**: When the error message contains 'java.lang.OutOfMemory', 'Java heap space' and 'doubleCapacity', usually it's a memory management issue in old version of integration runtime.
 
 - **Recommendation**:  If you are using Self-hosted Integration Runtime and the version is earlier than 3.20.7159.1, suggest to upgrade to the latest version.
 
-<br/>
-
 - **Cause**: When the error message contains 'java.lang.OutOfMemory', the integration runtime doesn't have enough resource to process the file(s).
 
 - **Recommendation**:  Limit the concurrent runs on the integration runtime. For Self-hosted Integration Runtime, scale up to a powerful machine with memory equal to or larger than 8 GB.
-
-<br/>
 
 - **Cause**: When error message contains 'NullPointerReference', it possible is a transient error.
 
