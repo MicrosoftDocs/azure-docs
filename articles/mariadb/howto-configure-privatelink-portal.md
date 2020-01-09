@@ -5,7 +5,7 @@ author: kummanish
 ms.author: manishku
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 01/05/2020
+ms.date: 01/09/2020
 ---
 
 # Create and manage Private Link for Azure Database for MariaDB (Preview) using Portal
@@ -90,7 +90,7 @@ In this section, you will create a Virtual Network and the subnet to host the VM
 
 1. When you see the **Validation passed** message, select **Create**.
 
-## Create an Azure Database for MariaDB Single server
+## Create an Azure Database for MariaDB
 
 In this section, you will create an Azure Database for MariaDB server in Azure. 
 

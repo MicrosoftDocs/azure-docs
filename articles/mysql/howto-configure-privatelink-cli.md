@@ -5,7 +5,7 @@ author: kummanish
 ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 01/05/2020
+ms.date: 01/09/2020
 ---
 
 # Create and manage Private Link for Azure Database for MySQL (Preview) using CLI
@@ -163,9 +163,9 @@ Connect to the VM *myVm* from the internet as follows:
     | Setting | Value |
     | ------- | ----- |
     | Connection Name| Select the connection name of your choice.|
-    | Hostname | Select *mydemoserver.mariadb.privatelink.database.azure.com* |
-    | Username | Enter username as *username@servername* which is provided during the MariaDB server creation. |
-    | Password | Enter a password provided during the MariaDB server creation. |
+    | Hostname | Select *mydemoserver.mysql.privatelink.database.azure.com* |
+    | Username | Enter username as *username@servername* which is provided during the MySQL server creation. |
+    | Password | Enter a password provided during the MySQL server creation. |
     ||
 
 5. Select Connect.

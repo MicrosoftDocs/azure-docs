@@ -5,7 +5,7 @@ author: kummanish
 ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 01/04/2020
+ms.date: 01/09/2020
 ---
 
 # Create and manage Private Link for Azure Database for PostgreSQL - Single server (Preview) using CLI
