@@ -158,7 +158,7 @@ Disks with Write Accelerator enabled | Not supported.<br/><br/> Azure backup aut
 Back up & Restore deduplicated VMs/disks | Azure Backup does not support deduplication. For more information, see this [article](https://docs.microsoft.com/azure/backup/backup-support-matrix#disk-deduplication-support) <br/> <br/>  - Azure Backup does not deduplicate across VMs in the Recovery Services vault <br/> <br/>  - If there are VMs in deduplication state during restore, the files can't be restored as vault does not understand the format. However, you will be able to successfully perform the full VM restore.
 Add disk to protected VM | Supported.
 Resize disk on protected VM | Supported.
-Shared storage| Backing up VMs using Cluster Shared Volume (CSV) or Scale-Out File Server is not recommended. CSV writers are likely to fail during backup. On restore, disks containing CSV volumes might not come-up.
+Shared storage| Backing up VMs using Cluster Shared Volume (CSV) or Scale-Out File Server is not supported. CSV writers are likely to fail during backup. On restore, disks containing CSV volumes might not come-up.
 
 ## VM network support
 

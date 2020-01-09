@@ -10,7 +10,7 @@ ms.author: bwren
 ms.subservice: ""
 ---
 # Stream Azure platform logs to Azure Event Hubs
-[Platform logs](resource-logs-overview.md) in Azure, including Azure Activity log and resource logs, provide detailed diagnostic and auditing information for Azure resources and the Azure platform they depend on.  This article describes streaming platform logs to event hubs to send data to external systems such as third-party SIEMs and other log analytics solutions.
+[Platform logs](platform-logs-overview.md) in Azure, including Azure Activity log and resource logs, provide detailed diagnostic and auditing information for Azure resources and the Azure platform they depend on.  This article describes streaming platform logs to event hubs to send data to external systems such as third-party SIEMs and other log analytics solutions.
 
 
 ## What you can do with platform logs sent to an event hub
@@ -129,7 +129,7 @@ Following is sample output data from Event Hubs for a resource log:
 
 ## Next steps
 
-* [Read more about resource logs](resource-logs-overview.md).
+* [Read more about resource logs](platform-logs-overview.md).
 * [Create diagnostic setting to collect logs and metrics in Azure](diagnostic-settings.md).
 * [Stream Azure Active Directory logs with Azure Monitor](../../active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md).
 * [Get started with Event Hubs](../../event-hubs/event-hubs-dotnet-standard-getstarted-send.md).
