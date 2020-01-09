@@ -86,6 +86,8 @@
       href: groups-members-owners-search.md
     - name: Create a group (Azure portal)    
       href: /azure/active-directory/fundamentals/active-directory-groups-create-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
+    - name: Create a role-eligible group
+      href: roles-groups-create-eligible.md
     - name: Assign sensitivity labels (preview)
       href: groups-assign-sensitivity-labels.md
     - name: Manage groups PowerShell for Graph (v2)   
@@ -126,22 +128,6 @@
         href: groups-dynamic-membership.md
       - name: Change group membership type  
         href: groups-change-type.md
-  - name: Assign licenses
-    items:
-    - name: Assign licenses to a group    
-      href: licensing-groups-assign.md
-    - name: Resolve group license problems   
-      href: licensing-groups-resolve-problems.md
-    - name: Change users to group licensing    
-      href: licensing-groups-migrate-users.md
-    - name: Change licenses for a user or group
-      href: licensing-groups-change-licenses.md
-    - name: Additional scenarios    
-      href: licensing-group-advanced.md
-    - name: Group licensing with PowerShell and Graph
-      href: licensing-ps-examples.md
-    - name: Service plan IDs for licensing
-      href: licensing-service-plan-reference.md
   - name: Azure AD administrator roles    
     items: 
     - name: Roles and permissions
@@ -164,6 +150,12 @@
         href: roles-custom-available-permissions.md
       - name: Delegate app admin permissions
         href: roles-delegate-app-roles.md
+    - name: Assign roles to groups
+      href: roles-groups-assign-role.md
+    - name: Remove roles from groups
+      href: roles-groups-remove-assignment.md
+    - name: View group role assignments
+      href: roles-groups-view-assignments.md
     - name: Least-privileged roles by task   
       href: roles-delegate-by-task.md
     - name: Microsoft 365 roles
@@ -176,6 +168,22 @@
         href: directory-emergency-access.md
     - name: Administrative units    
       href: directory-administrative-units.md
+  - name: Assign licenses
+    items:
+    - name: Assign licenses to a group    
+      href: licensing-groups-assign.md
+    - name: Resolve group license problems   
+      href: licensing-groups-resolve-problems.md
+    - name: Change users to group licensing    
+      href: licensing-groups-migrate-users.md
+    - name: Change licenses for a user or group
+      href: licensing-groups-change-licenses.md
+    - name: Additional scenarios    
+      href: licensing-group-advanced.md
+    - name: Group licensing with PowerShell and Graph
+      href: licensing-ps-examples.md
+    - name: Service plan IDs for licensing
+      href: licensing-service-plan-reference.md
   - name: Manage sign-in
     items:    
     - name: Customize company branding    
