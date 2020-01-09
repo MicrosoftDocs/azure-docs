@@ -24,7 +24,7 @@ This topic shows how to set up and specify your own encryption key to use when y
 
 * Currently, the only way to create an ISE that uses a customer-managed key and the system-assigned identity is by calling the Logic Apps REST API with an HTTPS PUT request. To perform this task, you can use a tool such as [Postman](https://www.getpostman.com/downloads/), or you can create a logic app.
 
-* Within *30 minutes after you create your ISE*, open your Azure key vault in the Azure portal, and [grant the system-assigned identity access to your key vault](#identity-access-to-key-vault). Otherwise, ISE creation fails and throws a permissions error.
+* Within *30 minutes* after you send the HTTPS PUT request that creates your ISE, open your Azure key vault in the Azure portal, and [grant the system-assigned identity access to your key vault](#identity-access-to-key-vault). Otherwise, ISE creation fails and throws a permissions error.
 
 ## Prerequisites
 
@@ -165,7 +165,7 @@ For example:
 
 ## Grant access to your key vault
 
-Within *30 minutes* after you create your ISE, you must give the ISE's system-assigned identity access to your key vault. Otherwise, creation for your ISE fails, and you get a permissions error. You can use either Azure PowerShell ([Set-AzKeyVaultAccessPolicy](https://docs.microsoft.com/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) command) or follow these steps for the Azure portal:
+Within *30 minutes* after you send the HTTP PUT request to create your ISE, you must give your ISE's system-assigned identity access to your key vault. Otherwise, creation for your ISE fails, and you get a permissions error. You can use either the Azure PowerShell [Set-AzKeyVaultAccessPolicy](https://docs.microsoft.com/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) command, or you can follow these steps for the Azure portal:
 
 1. In the [Azure portal](https://portal.azure.com), open your Azure key vault. From your key vault's menu, select **Access control (IAM)**.
 
