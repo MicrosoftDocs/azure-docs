@@ -13,42 +13,49 @@ ms.reviewer: sngun
 
 This document walks through a general recommended approach for troubleshooting queries in Azure Cosmos DB. While the steps outlined in this document should not be considered a “catch all” for potential query issues, we have consolidated most performance tips here. You should use this document as a starting place for troubleshooting for Azure Cosmos DB’s core (SQL) API.
 
-You can broadly categorize query optimizations in Azure Cosmos DB: Optimizations that reduce the Request Unit (RU) charge of the query and optimizations that just reduce latency. Of course, by reducing the RU charge of a query, you will almost certainly decrease latency as well.
+You can broadly categorize query optimizations in Azure Cosmos DB: Optimizations that reduce the Request Unit (RU) charge of the query and optimizations that just reduce latency. By reducing the RU charge of a query, you will almost certainly decrease latency as well.
 This document will use examples that can be recreated using the [nutrition](https://github.com/CosmosDB/labs/blob/master/dotnet/setup/NutritionData.json) data set.
 
 You can reference the below section to understand the relevant query optimizations for your scenario:
 
 ### Query's RU charge is too high
 
-**Loaded Document Count is significantly greater than Retrieved Document Count**
+<br>
+<br>
 
-a. [Ensure that the indexing policy includes necessary paths](#Ensure-that-the-indexing-policy-includes-necessary-paths)
+#### Loaded Document Count is significantly greater than Retrieved Document Count
 
-b. [Understand which system functions utilize the index](#Understand-which-system-functions-utilize-the-index)
+a. [Ensure that the indexing policy includes necessary paths](troubleshoot-query-performance.md#Ensure-that-the-indexing-policy-includes-necessary-paths)
 
-c. [Optimize queries with both a filter and an ORDER BY clause](#Optimize-queries-with-both-a-filter-and-an-ORDER-BY-clause)
+b. [Understand which system functions utilize the index](troubleshoot-query-performance.md#Understand-which-system-functions-utilize-the-index)
+
+c. [Optimize queries with both a filter and an ORDER BY clause](troubleshoot-query-performance.md#Optimize-queries-with-both-a-filter-and-an-ORDER-BY-clause)
 
 d. [Optimize queries that use DISTINCT](#Optimize-queries-that-use-DISTINCT)
 
-e. [Optimize JOIN expressions by using a subquery](#Optimize-JOIN-expressions-by-using-a-subquery)
+e. [Optimize JOIN expressions by using a subquery](troubleshoot-query-performance.md#Optimize-JOIN-expressions-by-using-a-subquery)
 
-**Loaded Document Count is approximately equal to Retrieved Document Count**
+<br>
 
-a. [Avoid cross partition queries](#Avoid-cross-partition-queries)
+#### Loaded Document Count is approximately equal to Retrieved Document Count
 
-b. [Optimize queries that have a filter on multiple properties](#Optimize-queries-that-have-a-filter-on-multiple-properties)
+a. [Avoid cross partition queries](troubleshoot-query-performance.md#Avoid-cross-partition-queries)
 
-c. [Optimize queries with both a filter and an ORDER BY clause](#Optimize-queries-with-both-a-filter-and-an-ORDER-BY-clause)
+b. [Optimize queries that have a filter on multiple properties](troubleshoot-query-performance.md#Optimize-queries-that-have-a-filter-on-multiple-properties)
+
+c. [Optimize queries with both a filter and an ORDER BY clause](troubleshoot-query-performance.md#Optimize-queries-with-both-a-filter-and-an-ORDER-BY-clause)
+
+<br>
 
 ### Query's RU charge is acceptable but latency is still too high
 
-a. [Improving proximity between your app and Azure Cosmos DB](#Improving-proximity-between-your-app-and-Azure-Cosmos-DB)
+a. [Improving proximity between your app and Azure Cosmos DB](troubleshoot-query-performance.md#Improving-proximity-between-your-app-and-Azure-Cosmos-DB)
 
-b. [Increasing provisioned throughput](#Increasing-provisioned-throughput)
+b. [Increasing provisioned throughput](troubleshoot-query-performance.md#Increasing-provisioned-throughput)
 
-c. [Increasing MaxConcurrency](#Increasing-MaxConcurrency)
+c. [Increasing MaxConcurrency](troubleshoot-query-performance.md#Increasing-MaxConcurrency)
 
-d. [Increasing MaxBufferedItemCount](#Increasing-MaxBufferedItemCount)
+d. [Increasing MaxBufferedItemCount](troubleshoot-query-performance.md#Increasing-MaxBufferedItemCount)
 
 ### Obtaining query metrics:
 
@@ -58,7 +65,7 @@ When optimizing a query in Azure Cosmos DB, the first step is always to [obtain 
 
 ## Optimizations for queries where Loaded Document Count significantly exceeds Retrieved Document Count:
 
-After obtaining query metrics, compare the Retrieved Document Count with the Loaded Document Count for your query. The Retrieved Document Count is the number of documents that will show up in the results of your query. The Loaded Document Count is the number of documents that needed to be scanned. If the Loaded Document Count is significantly higher than the Retrieved Document Count, then there was at least one part of your query which was unable to utilize the index.
+After obtaining query metrics, compare the Retrieved Document Count with the Loaded Document Count for your query. The Retrieved Document Count is the number of documents that will show up in the results of your query. The Loaded Document Count is the number of documents that needed to be scanned. If the Loaded Document Count is significantly higher than the Retrieved Document Count, then there was at least one part of your query that was unable to utilize the index.
 
 ## Ensure that the indexing policy includes necessary paths
 
@@ -117,7 +124,7 @@ Updated indexing policy:
 
 **RU Charge:** 2.98 RU's
 
-You can add additional properties to the indexing policy at any time, with no impact to write availability or performance. If you add a new property to the index, queries that use this property will immediately utilize the new available index while it is being built. As a result, query results may be inconsistent as the index rebuild is in progress. If a new property is indexed, queries that only utilize existing indexes will not be affected during the index rebuild. You can [track index transformation progress](https://docs.microsoft.com/azure/cosmos-db/how-to-manage-indexing-policy#use-the-net-sdk-v3).
+You can add additional properties to the indexing policy at any time, with no impact to write availability or performance. If you add a new property to the index, queries that use this property will immediately utilize the new available index. The query will utilize the new index while it is being built. As a result, query results may be inconsistent as the index rebuild is in progress. If a new property is indexed, queries that only utilize existing indexes will not be affected during the index rebuild. You can [track index transformation progress](https://docs.microsoft.com/azure/cosmos-db/how-to-manage-indexing-policy#use-the-net-sdk-v3).
 
 ## Understand which system functions utilize the index
 
@@ -133,7 +140,7 @@ Some common system functions that must load each document are shown below:
 | --------------------------------------- |------------------------------------------------------------ |
 | CONTAINS                                | Use Azure Search for full text search                        |
 | UPPER/LOWER                             | Instead of using the system function to normalize data each time for comparisons, instead normalize the casing upon insertion. Then a query such as ```SELECT * FROM c WHERE UPPER(c.name) = 'BOB'``` simply becomes ```SELECT * FROM c WHERE c.name = 'BOB'``` |
-| Mathematical functions (non-aggregates) | If you need to frequently compute a value in your query,   consider storing this as a property in your JSON document. |
+| Mathematical functions (non-aggregates) | If you need to frequently compute a value in your query, consider storing this value as a property in your JSON document. |
 
 ------
 
@@ -209,7 +216,7 @@ Updated indexing policy:
 
 ## Optimize queries that use DISTINCT
 
-It will be more efficient to find the DISTINCT set of results if the duplicate results are consecutive. You can ensure that duplicate results are consecutive by adding an ORDER BY clause to the query and adding a composite index. If you need to ORDER BY multiple properties, add a composite index.
+It will be more efficient to find the DISTINCT set of results if the duplicate results are consecutive. Adding an ORDER BY clause to the query and a composite index will ensure that duplicate results are consecutive. If you need to ORDER BY multiple properties, add a composite index.
 
 ### Original
 
@@ -280,12 +287,14 @@ Assume that only one item in the tags array matches the filter, and there are fi
 
 ## Optimizations for queries where Loaded Document Count is approximately equal to Retrieved Document Count:
 
-If the Loaded Document Count is approximately equal to the Retrieved Document Count, it means the query did not have to scan a lot of unnecessary documents. For many queries, such as those that use the TOP keyword, Loaded Document Count may exceed Retrieved Document Count by 1. This should not be cause for concern.
+If the Loaded Document Count is approximately equal to the Retrieved Document Count, it means the query did not have to scan many unnecessary documents. For many queries, such as those that use the TOP keyword, Loaded Document Count may exceed Retrieved Document Count by 1. This should not be cause for concern.
 
 ## Avoid cross partition queries
 
-Azure Cosmos DB uses partitioning to scale individual containers as Request Unit and data storage needs increase. Each physical partition has a separate and independent index. If your query has an equality filter that matches your container’s partition key, you will only need to check relevant partition’s index. This reduces the total number of RU’s that the query requires.
-If you have a large number of provisioned RU’s (over 30,000) or a large amount of data stored (over ~100 GB), you likely have a large enough container to see a significant reduction in query RU charges. 
+Azure Cosmos DB uses partitioning to scale individual containers as Request Unit and data storage needs increase. Each physical partition has a separate and independent index. If your query has an equality filter that matches your container’s partition key, you will only need to check the relevant partition’s index. This optimization reduces the total number of RU’s that the query requires.
+
+If you have a large number of provisioned RU’s (over 30,000) or a large amount of data stored (over ~100 GB), you likely have a large enough container to see a significant reduction in query RU charges.
+
 For example, if we create a container with the partition key foodGroup, the following queries would only need to check a single physical partition:
 
 ```sql
@@ -310,7 +319,7 @@ SELECT * FROM c WHERE c.foodGroup > “Soups, Sauces, and Gravies” and c.descr
 
 ## Optimize queries that have a filter on multiple properties
 
-While queries with filters on multiple properties will normally utilize a range index, they will be more efficient if they can be served from a composite index. For small amounts of data this optimization will not have a significant impact. It may prove useful, however, with large amounts of data. You can only optimize, at most, one non-equality filter per composite index. If your query has multiple non-equality filters, you should pick one of them that will utilize the composite index. The remainder will continue to utilize range indexes. The non-equality filter must be defined last in the composite index.
+While queries with filters on multiple properties will normally utilize a range index, they will be more efficient if they can be served from a composite index. For small amounts of data, this optimization will not have a significant impact. It may prove useful, however, with large amounts of data. You can only optimize, at most, one non-equality filter per composite index. If your query has multiple non-equality filters, you should pick one of them that will utilize the composite index. The remainder will continue to utilize range indexes. The non-equality filter must be defined last in the composite index.
 
 Here are some examples of queries which could be optimized with a composite index:
 
@@ -355,19 +364,18 @@ In many cases, RU charge may be acceptable but query latency is still too high. 
 
 ## Improving proximity between your app and Azure Cosmos DB
 
-Queries that are run from outside the same Azure region as the Azure Cosmos DB account will have a higher latency than if they were run inside the same region. If, for example, you were running code on your desktop computer, you should expect latency to be tens or hundreds (or more) milliseconds greater than if the query came from a Virtual Machine within the same Azure region as Azure Cosmos DB. It is simple to globally distribute data in Azure Cosmos DB to ensure you can bring your data closer to your app. 
+Queries that are run from a different region than the Azure Cosmos DB account will have a higher latency than if they were run inside the same region. For example, if you were running code on your desktop computer, you should expect latency to be tens or hundreds (or more) milliseconds greater than if the query came from a Virtual Machine within the same Azure region as Azure Cosmos DB. It is simple to globally distribute data in Azure Cosmos DB to ensure you can bring your data closer to your app.
 
 ## Increasing provisioned throughput
 
-In Azure Cosmos DB, your provisioned throughput is measured in Request Units (RU’s). Let’s imagine you have a query that consumes 5 RU’s of throughput. If you, for example, provision 1,000 RU’s, you would be able to run that query 200 times per second. If you attempted to run the query when there was not enough throughput available, Azure Cosmos DB would return a HTTP 429 error. Any of the current Core (SQL) API sdk’s will automatically retry this query after waiting a brief period. This will result in increased latency so increasing provisioned throughput can improve query latency.
-You can observe the total number of throttled requests in the Metrics blade of the Azure Portal.
+In Azure Cosmos DB, your provisioned throughput is measured in Request Units (RU’s). Let’s imagine you have a query that consumes 5 RU’s of throughput. For example, if you provision 1,000 RU’s, you would be able to run that query 200 times per second. If you attempted to run the query when there was not enough throughput available, Azure Cosmos DB would return an HTTP 429 error. Any of the current Core (SQL) API sdk's will automatically retry this query after waiting a brief period. Throttled requests take a longer amount of time, so increasing provisioned throughput can improve query latency. You can observe the [total number of requests throttled requests(use-metrics.md#understand-how-many-requests-are-succeeding-or-causing-errors in the Metrics blade of the Azure Portal.
 
 ## Increasing MaxConcurrency
 Parallel queries work by querying multiple partitions in parallel. However, data from an individual partitioned collection is fetched serially with respect to the query. So, adjust the MaxConcurrency to set the number of partitions that has the maximum chance of achieving the most performant query, provided all other system conditions remain the same. If you don't know the number of partitions, you can set the MaxConcurrency (or MaxDegreesOfParallelism in older sdk versions) to set a high number, and the system chooses the minimum (number of partitions, user provided input) as the maximum degree of parallelism.
 
 ## Increasing MaxBufferedItemCount
 
-Parallel query is designed to pre-fetch results while the current batch of results is being processed by the client. The pre-fetching helps in overall latency improvement of a query. Setting the MaxBufferedItemCount limits the number of pre-fetched results. By setting this value to the expected number of results returned (or a higher number), this enables the query to receive maximum benefit from pre-fetching.
+Parallel query is designed to pre-fetch results while the current batch of results is being processed by the client. The pre-fetching helps in overall latency improvement of a query. Setting the MaxBufferedItemCount limits the number of pre-fetched results. By setting this value to the expected number of results returned (or a higher number), the query can receive maximum benefit from pre-fetching.
 
 ## Next steps
 Refer to documents below on how to measure RUs per query, get execution statistics to tune your queries, and more:
