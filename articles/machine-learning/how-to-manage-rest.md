@@ -1,47 +1,35 @@
+file:///Users/larryobrien/Documents/src/AzureDocs/azure-docs-pr/articles/machine-learning/how-to-manage-rest.md {"mtime":1578512330548,"ctime":1578511816918,"size":6283,"etag":"34elljb926gl","orphaned":false}
 ---
-title: #Required; page title displayed in search results. Include the word "tutorial". Include the brand.
-description: #Required; article description that is displayed in search results. Include the word "tutorial".
-author: #Required; your GitHub user alias, with correct capitalization.
-ms.author: #Required; microsoft alias of author; optional team alias.
-ms.service: #Required; service per approved list. service slug assigned to your service by ACOM.
-ms.topic: tutorial #Required
-ms.date: #Required; mm/dd/yyyy format.
+title: Use REST to manage ML resources  
+description: How to use REST APIs to create, run, and delete Azure ML resources 
+author: lobrien
+ms.author: laobri
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: core
+ms.topic: conceptual
+ms.date: 01/31/2020
 ---
 
-<!---Recommended: Remove all the comments in this template before you
-sign-off or merge to master.--->
+TODO:s/119ec674-a66c-4b3b-8514-57cb582c4c8c/your-subscription-id/
 
-<!---Tutorials are scenario-based procedures for the top customer tasks
-identified in milestone one of the
-[Content + Learning content model](contribute-get-started-mvc.md).
-You only use tutorials to show the single best procedure for completing
-an approved top 10 customer task.
---->
+# Create, run, and delete Azure ML resources using REST
 
-# Tutorial: <do something with X> 
-<!---Required:
-Starts with "Tutorial: "
-Make the first word following "Tutorial:" a verb.
---->
+tk applies to boilerplate. tk
 
-Introductory paragraph.
-<!---Required:
-Lead with a light intro that describes, in customer-friendly language,
-what the customer will learn, or do, or accomplish. Answer the
-fundamental “why would I want to do this?” question.
---->
+There are several ways to manage your Azure ML resources. You can use the [portal](tk), [command-line interface](tk), or [Python SDK](tk). 
+Or, you can use the REST API. The REST API uses HTTP verbs in a standard way to create, retrieve, update, and delete resources. The REST
+API can be used from any language or tool capable of making HTTP requests. REST's straightforward structure often makes it a good choice in scripting environments and for MLOps automation. 
 
-In this tutorial, you learn how to:
+In this article, you learn how to:
 
 > [!div class="checklist"]
-> * All tutorials include a list summarizing the steps to completion
-> * Each of these bullet points align to a key H2
-> * Use these green checkboxes in a tutorial
-<!---Required:
-The outline of the tutorial should be included in the beginning and at
-the end of every tutorial. These will align to the **procedural** H2
-headings for the activity. You do not need to include all H2 headings.
-Leave out the prerequisites, clean-up resources and next steps--->
+> * Retrieve an authorization token
+> * Create a properly-formatted REST request using service principal authentication
+> * Use GET requests to retrieve information about Azure ML's hierarchical resources
+> * Use POST requests to create resources, run training experiments and pipelines, and score against deployed models
+> * Use DELETE requests to clean up resources 
+
 
 If you don’t have a <service> subscription, create a free trial account...
 <!--- Required, if a free trial account exists
@@ -56,15 +44,136 @@ them. Better to put that info directly into the article text.--->
 
 ## Prerequisites
 
-- First prerequisite
-- Second prerequisite
-- Third prerequisite
-<!---If you need them, make Prerequisites your first H2 in a tutorial. If
-there’s something a customer needs to take care of before they start (for
-example, creating a VM) it’s OK to link to that content before they
-begin.--->
+- workspace. You'll need your 
+- Administrative REST requests use service principal authentication. Follow the steps in [Set up authentication for Azure Machine Learning resources and workflows](how-to-setup-authentication#set-up-service-principal-authentication) to create a service principal in your workspace. 
+- The **curl** utility. This is available in the [Windows Subsystem for Linux](https://aka.ms/wslinstall/) or any UNIX distribution. In PowerShell, **curl** is an alias for **Invoke-WebRequest** and `curl -d "key=val" -X POST uri` becomes `Invoke-WebRequest -Body "key=val" -Method POST -Uri uri`. tk TODO: Confirm that all my curl requests work in PS tk. This article uses curl since it is very widely available, but the [source code](tk) uses [Postman](tk), a tool that allows developers to organize requests, swap in variables, and view request and response details in an easy-to-use manner. 
 
-## Sign in to <service/product/tool name>
+
+## Retrieve a service principal authentication token
+
+Administrative REST requests are authenticated by a token provided by your workspace's service principal. In order to retrieve this, you will need:
+
+- Your tenantid (identifying the organization to which your subscription belongs)
+- Your client id (which will be associated with the created token)
+- Your client secret (which you should safeguard)
+
+You should have these values from the response to the creation of your service principal (as discussed in [Set up authentication for Azure Machine Learning resources and workflows](how-to-setup-authentication#set-up-service-principal-authentication). If you are using your company subscription, it is possible that you do not have sufficient permissions to create a service principal. In that case, you should use a personal subscription, such as that provided with your Visual Studio subscription or (tk free? tk)
+
+To retrieve a token, open a terminal window and, substituting your own values as appropriate, run:
+
+```bash
+curl -d "grant_type=client_credentials&resource=https%3A%2F%2Fmanagement.azure.com%2F&client_id=your-client-id&client_secret=your-client-secret" \
+-X POST https://login.microsoftonline.com/your-tenant-id/oauth2/token
+```
+
+The response should provide an access token good for one hour:
+
+```json
+{
+    "token_type": "Bearer",
+    "expires_in": "3599",
+    "ext_expires_in": "3599",
+    "expires_on": "1578523094",
+    "not_before": "1578519194",
+    "resource": "https://management.azure.com/",
+    "access_token": "your-access-token"
+}
+```
+
+Make note of the token, as you will use it to authenticate all subsequent administrative requests. You will do so by setting an Authorization header in all requests:
+
+```bash
+curl -h "Authentication: Bearer your-access-token" ...more args...
+```
+
+Note that the value starts with the string "Bearer " including a single space before you add the token.
+
+## Get a list of resource groups associated with your subscription
+
+| Resource | Verb | Description | 
+| ResourceGroups | GET | tk | 
+
+To retrieve the list of resource groups associate with your subscription, run:
+
+```bash
+curl https://management.azure.com/subscriptions/your-subscription-id/resourceGroups?api-version=2019-11-01 -H "Authorization: Bearer your-access-token"
+```
+
+Across Azure, many REST APIs are published. Each service provider updates their API on their own cadence, but must do so without breaking existing programs. The `api-version` argument varies from service to service. For the Machine Learning Service, for instance, the current API version is `2019-11-01`. For storage accounts, it's 2019-06-01. For key vaults, it's 2019-09-01. All REST calls should set the `api-version` argument to the expected value. You can rely on the syntax and semantics of the specified version even as the API continues to evolve. If you send a request to a provider without the `api-version` argument, the response will contain a human-readable list of supported values. 
+
+The above call will result in a compacted JSON response of the form: 
+
+```json
+{
+    "value": [
+        {
+            "id": "/subscriptions/119ec674-a66c-4b3b-8514-57cb582c4c8c/resourceGroups/RG1",
+            "name": "RG1",
+            "type": "Microsoft.Resources/resourceGroups",
+            "location": "westus2",
+            "properties": {
+                "provisioningState": "Succeeded"
+            }
+        },
+        {
+            "id": "/subscriptions/119ec674-a66c-4b3b-8514-57cb582c4c8c/resourceGroups/RG2",
+            "name": "RG2",
+            "type": "Microsoft.Resources/resourceGroups",
+            "location": "eastus",
+            "properties": {
+                "provisioningState": "Succeeded"
+            }
+        }
+    ]
+}
+```
+
+## Drill down into workspaces and their resources
+
+To retrieve the set of workspaces in a resource group, run the following, substituting `your-subscription-id`, `your-resource-group`, and `your-access-token`: 
+
+```
+curl https://management.azure.com/subscriptions/your-subscription-id/resourceGroups/your-resource-group/providers/Microsoft.MachineLearningServices/workspaces/?api-version=2019-11-01 \
+-H "Authorization: Bearer your-access-token"
+```
+
+Again you'll receive a JSON list, this time containing a list, each item of which details a workspace:
+
+```json
+{
+    "id": "/subscriptions/119ec674-a66c-4b3b-8514-57cb582c4c8c/resourceGroups/DeepLearning5RG/providers/Microsoft.MachineLearningServices/workspaces/laobri-rest",
+    "name": "laobri-rest",
+    "type": "Microsoft.MachineLearningServices/workspaces",
+    "location": "centralus",
+    "tags": {},
+    "etag": null,
+    "properties": {
+        "friendlyName": "",
+        "description": "",
+        "creationTime": "2020-01-03T19:56:09.7588299+00:00",
+        "storageAccount": "/subscriptions/119ec674-a66c-4b3b-8514-57cb582c4c8c/resourcegroups/deeplearning5rg/providers/microsoft.storage/storageaccounts/laobrirest0275623111",
+        "containerRegistry": null,
+        "keyVault": "/subscriptions/119ec674-a66c-4b3b-8514-57cb582c4c8c/resourcegroups/deeplearning5rg/providers/microsoft.keyvault/vaults/laobrirest2525649324",
+        "applicationInsights": "/subscriptions/119ec674-a66c-4b3b-8514-57cb582c4c8c/resourcegroups/deeplearning5rg/providers/microsoft.insights/components/laobrirest2053523719",
+        "hbiWorkspace": false,
+        "workspaceId": "12284440-cb1d-494f-92f2-be4dcd7d5297",
+        "subscriptionState": null,
+        "subscriptionStatusChangeTimeStampUtc": null,
+        "discoveryUrl": "https://centralus.experiments.azureml.net/discovery"
+    },
+    "identity": {
+        "type": "SystemAssigned",
+        "principalId": "353497de-bc6d-493c-820a-36d10083ecfe",
+        "tenantId": "72f988bf-86f1-41af-91ab-2d7cd011db47"
+    },
+    "sku": {
+        "name": "Basic",
+        "tier": "Basic"
+    }
+}
+```
+Deployed ML Web services use token-based authentication. 
+
 
 Sign in to the [<service> portal](url).
 <!---If you need to sign in to the portal to do the tutorial, this H2 and
