@@ -40,7 +40,7 @@ Additionally, the parameters are as follows:
 
 ## First-time setup
 
-You have two steps before using the samples included below:
+Before using the samples included later in this article, you have two steps:
 
 - Create a database for your views (in case you want to use views)
 - Create credentials to be used by SQL on-demand to access the files in storage
@@ -62,7 +62,7 @@ CREATE DATABASE mydbname
 
 ### Create credentials
 
-You must credentials before you can run queries. This credential will be used by SQL on-demand service to access the files in storage.
+You must create credentials before you can run queries. This credential will be used by SQL on-demand service to access the files in storage.
 For more information on how to manage storage access control, review the [Storage access control](development-storage-files-storage-access-control.md) article.
 
 > [!NOTE]
