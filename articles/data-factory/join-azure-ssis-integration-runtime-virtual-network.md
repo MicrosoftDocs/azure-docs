@@ -38,7 +38,7 @@ The [configuring an Azure-SQL Server Integration Services (SSIS) integration run
 - If you use a network security group (NSG) on the subnet.
 - If you use Azure ExpressRoute or a user-defined route (UDR).
 - If you use customized Azure-SSIS IR.
-- If you using Azure Powershell provisioning.
+- If you use Azure Powershell provisioning.
 
 ## Access to on-premises data stores
 
