@@ -23,7 +23,7 @@ If you picked a free price tier when you created the Personalizer instance, ther
 
 ### I'm getting a 5xx error on Rank or Reward APIs. What should I do?
 
-These issues should be transparent. If they continue, contact support by selecting in the Azure portal for your Personalizer resource.
+These issues should be transparent. If they continue, contact support by selecting **New support request** in the **Support + troubleshooting** section, in the Azure portal for your Personalizer resource.
 
 
 ## Learning loop
@@ -49,8 +49,8 @@ When the new update period begins, the updated model is used, and you’ll see t
 
 ### The learning loop was learning but seems to not learn anymore, and the quality of the Rank results isn't that good. What should I do?
 
-* Make sure you've completed and applied one evaluation in the Azure portal.
-* Make sure all rewards are sent and processed.
+* Make sure you've completed and applied one evaluation in the Azure portal for that Personalizer resource (learning loop).
+* Make sure all rewards are sent, via the Reward API, and processed.
 
 ### How do I know that the learning loop is getting updated regularly and is used to score my data?
 
