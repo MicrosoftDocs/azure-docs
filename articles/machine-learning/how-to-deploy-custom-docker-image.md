@@ -257,7 +257,7 @@ service.wait_for_deployment(show_output = True)
 print(service.state)
 ```
 
-For more information on deployment, see [Deploy models with Azure Machine Learning](service/how-to-deploy-and-where.md).
+For more information on deployment, see [Deploy models with Azure Machine Learning](how-to-deploy-and-where.md).
 
 ### Use an image with the Machine Learning CLI
 
@@ -289,5 +289,5 @@ For more information on deploying a model using the ML CLI, see the "model regis
 
 ## Next steps
 
-* Learn more about [Where to deploy and how](service/how-to-deploy-and-where.md).
+* Learn more about [Where to deploy and how](how-to-deploy-and-where.md).
 * Learn how to [Train and deploy machine learning models using Azure Pipelines](/azure/devops/pipelines/targets/azure-machine-learning?view=azure-devops).
