@@ -6,14 +6,15 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include 
-ms.date: 10/17/2019
+ms.date: 11/20/2019
 ms.author: diberry
 ---
+
 ## Prerequisites
 
 * [Go](https://golang.org/) programming language  
 * [Visual Studio Code](https://code.visualstudio.com/)
-* Public app ID: df67dcdb-c37d-46af-88e1-8b97951ca1c2
+* Public app ID: `df67dcdb-c37d-46af-88e1-8b97951ca1c2`
 
 ## Get LUIS key
 
@@ -21,7 +22,7 @@ ms.author: diberry
 
 ## Get intent programmatically
 
-Use Go to query the prediction endpoint GET [API](https://aka.ms/luis-apim-v3-prediction) to get the prediction result.
+Use Go to query the [prediction endpoint](https://aka.ms/luis-apim-v3-prediction) and get a prediction result.
 
 1. Create a new file named `predict.go`. Add the following code:
     
@@ -79,8 +80,8 @@ Use Go to query the prediction endpoint GET [API](https://aka.ms/luis-apim-v3-pr
 
 1. Replace the following values:
 
-    * `YOUR-KEY` with your starter key
-    * `YOUR-ENDPOINT` with your endpoint, for example, `westus2.api.cognitive.microsoft.com`
+    * `YOUR-KEY` with your starter key.
+    * `YOUR-ENDPOINT` with your endpoint. For example, `westus2.api.cognitive.microsoft.com`.
 
 1. With a command prompt in the same directory as where you created the file, enter the following command to compile the Go file:
 

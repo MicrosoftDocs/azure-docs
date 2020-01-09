@@ -1,18 +1,14 @@
 ---
-title: AD FS support in Microsoft Authentication Library for .NET 
+title: AD FS support in MSAL.NET  | Azure
 titleSuffix: Microsoft identity platform
 description: Learn about Active Directory Federation Services (AD FS) support in Microsoft Authentication Library for .NET (MSAL.NET).
 services: active-directory
-documentationcenter: dev-center-name
 author: TylerMSFT
 manager: CelesteDG
-editor: ''
 
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/16/2019
 ms.author: twhitney
@@ -58,6 +54,6 @@ Currently, there are no plans to support a direct connection to:
 
  If you need to support scenarios requiring a direct connection to AD FS 2016, use the latest version of [Azure Active Directory Authentication Library](active-directory-authentication-libraries.md#microsoft-supported-client-libraries). When you have upgraded your on-premises system to AD FS 2019, you'll be able to use MSAL.NET.
 
-## See also
+## Next steps
 
 For the federated case, see [Configure Azure Active Directory sign in behavior for an application by using a Home Realm Discovery policy](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-authentication-for-federated-users-portal)

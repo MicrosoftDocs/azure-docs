@@ -133,12 +133,12 @@ Here is the zoom grid for zoom level 1:
 
 ## Quadkey indices
 
-Some mapping platforms use a quadkey indexing naming convention that combines the tile ZY coordinates into a one-dimension string called quadtree keys or "quadkeys" for short. Each quadkey uniquely identifies a single tile at a particular level of detail, and it can be used as a key in common database B-tree indexes. The Azure Maps SDKs support the overlaying of tile layers that use quadkey naming convention in addition to other naming conventions as documented in the [Add a tile layer](map-add-tile-layer.md) document.
+Some mapping platforms use a `quadkey` indexing naming convention that combines the tile ZY coordinates into a one-dimension string called `quadtree` keys or `quadkeys` for short. Each `quadkey` uniquely identifies a single tile at a particular level of detail, and it can be used as a key in common database B-tree indexes. The Azure Maps SDKs support the overlaying of tile layers that use `quadkey` naming convention in addition to other naming conventions as documented in the [Add a tile layer](map-add-tile-layer.md) document.
 
 > [!NOTE]
-> The quadkeys naming convention only works for zoom levels of one or greater. The Azure Maps SDK's support zoom level 0 which is a single map tile for the whole world. 
+> The `quadkeys` naming convention only works for zoom levels of one or greater. The Azure Maps SDK's support zoom level 0 which is a single map tile for the whole world. 
 
-To convert tile coordinates into a quadkey, the bits of the Y and X coordinates are interleaved, and the result is interpreted as a base-4 number (with leading zeros maintained) and converted into a string. For instance, given tile XY coordinates of (3, 5) at level 3, the quadkey is determined as follows:
+To convert tile coordinates into a `quadkey`, the bits of the Y and X coordinates are interleaved, and the result is interpreted as a base-4 number (with leading zeros maintained) and converted into a string. For instance, given tile XY coordinates of (3, 5) at level 3, the `quadkey` is determined as follows:
 
 ```
 tileX = 3 = 011 (base 2)
@@ -148,13 +148,13 @@ tileY = 5 = 1012 (base 2)
 quadkey = 100111 (base 2) = 213 (base 4) = "213"
 ```
 
-Quadkeys have several interesting properties. First, the length of a quadkey (the number of digits) equals the zoom level of the corresponding tile. Second, the quadkey of any tile starts with the quadkey of its parent tile (the containing tile at the previous level). As shown in the example below, tile 2 is the parent of tiles 20 through 23:
+`Qquadkeys` have several interesting properties. First, the length of a `quadkey` (the number of digits) equals the zoom level of the corresponding tile. Second, the `quadkey` of any tile starts with the `quadkey` of its parent tile (the containing tile at the previous level). As shown in the example below, tile 2 is the parent of tiles 20 through 23:
 
 <center>
 
 ![Quadkey tile pyramid](media/zoom-levels-and-tile-grid/quadkey-tile-pyramid.png)</center>
 
-Finally, quadkeys provide a one-dimensional index key that usually preserves the proximity of tiles in XY space. In other words, two tiles that have nearby XY coordinates usually have quadkeys that are relatively close together. This is important for optimizing database performance, because neighboring tiles are often requested in groups, and it's desirable to keep those tiles on the same disk blocks, in order to minimize the number of disk reads.
+Finally, `quadkeys` provide a one-dimensional index key that usually preserves the proximity of tiles in XY space. In other words, two tiles that have nearby XY coordinates usually have `quadkeys` that are relatively close together. This is important for optimizing database performance, because neighboring tiles are often requested in groups, and it's desirable to keep those tiles on the same disk blocks, in order to minimize the number of disk reads.
 
 ## Tile math source code
 
@@ -417,6 +417,7 @@ namespace AzureMaps
             var sinLatitude = Math.Sin(latitude * Math.PI / 180);
             var y = 0.5 - Math.Log((1 + sinLatitude) / (1 - sinLatitude)) / (4 * Math.PI);
 
+            //tileSize needed in calculations as in rare cases the multiplying/rounding/dividing can make the difference of a pixel which can result in a completely different tile. 
             var mapSize = MapSize(zoom, tileSize);
             tileX = (int)Math.Floor(Clip(x * mapSize + 0.5, 0, mapSize - 1) / tileSize);
             tileY = (int)Math.Floor(Clip(y * mapSize + 0.5, 0, mapSize - 1) / tileSize);
@@ -797,6 +798,7 @@ module AzureMaps {
             var sinLatitude = Math.sin(latitude * Math.PI / 180);
             var y = 0.5 - Math.log((1 + sinLatitude) / (1 - sinLatitude)) / (4 * Math.PI);
 
+            //tileSize needed in calculations as in rare cases the multiplying/rounding/dividing can make the difference of a pixel which can result in a completely different tile. 
             var mapSize = this.MapSize(zoom, tileSize);
 
             return {

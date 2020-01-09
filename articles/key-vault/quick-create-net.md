@@ -153,7 +153,7 @@ Add the following directives to the top of your code:
 
 ### Authenticate and create a client
 
-Authenticating to your key vault and creating a key vault client depends on the environmental variables in the [Set environmental variables](#set-environmental-variables) step above. The name of your key vault is expanded to the key vault URI, in the format "https://<your-key-vault-name>.vault.azure.net".
+Authenticating to your key vault and creating a key vault client depends on the environmental variables in the [Set environmental variables](#set-environmental-variables) step above. The name of your key vault is expanded to the key vault URI, in the format "https://\<your-key-vault-name\>.vault.azure.net".
 
 [!code-csharp[Directives](~/samples-key-vault-dotnet-quickstart/key-vault-console-app/Program.cs?name=authenticate)]
 
@@ -194,7 +194,7 @@ az keyvault secret show --vault-name <your-unique-keyvault-name> --name mySecret
 When no longer needed, you can use the Azure CLI or Azure PowerShell to remove your key vault and the corresponding  resource group.
 
 ```azurecli
-az group delete -g "myResourceGroup" -l "EastUS" 
+az group delete -g "myResourceGroup"
 ```
 
 ```azurepowershell

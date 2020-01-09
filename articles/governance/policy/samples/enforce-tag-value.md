@@ -1,6 +1,6 @@
 ---
 title: Sample - Enforce tag and its value
-description: This sample policy definition requires a tag name and value, each set as a parameter.
+description: This sample policy definition requires a tag name and value defined in a parameter on each Azure resource.
 ms.date: 01/23/2019
 ms.topic: sample
 ---

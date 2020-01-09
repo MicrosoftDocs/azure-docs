@@ -4,7 +4,7 @@ ms.service: time-series-insights
 author: deepakpalled
 ms.author: dpalled
 manager: cshankar
-ms.date: 10/09/2019
+ms.date: 12/06/2019
 ---
 
 ## Business disaster recovery

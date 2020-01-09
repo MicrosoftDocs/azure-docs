@@ -32,7 +32,7 @@ In the monitoring section, select **Diagnostic settings** and specify the target
 
 ![The Recovery Services vault's diagnostic setting, targeting Log Analytics](media/backup-azure-monitoring-laworkspace/rs-vault-diagnostic-setting.png)
 
-You can target a Log Analytics workspace from another subscription. To monitor vaults across subscriptions in a single place, select the same Log Analytics workspace for multiple Recovery Services vaults. To channel all the information that's related to Azure Backup to the Log Analytics workspace, select **AzureBackupReport** as the log.
+You can target a Log Analytics workspace from another subscription. To monitor vaults across subscriptions in a single place, select the same Log Analytics workspace for multiple Recovery Services vaults. To channel all the information that's related to Azure Backup to the Log Analytics workspace, choose **AzureDiagnostics** in the toggle that appears, and select the **AzureBackupReport** event.
 
 > [!IMPORTANT]
 > After you finish the configuration, you should wait 24 hours for the initial data push to finish. After that initial data push, all the events are pushed as described later in this article, in the [frequency section](#diagnostic-data-update-frequency).
@@ -45,8 +45,6 @@ You can target a Log Analytics workspace from another subscription. To monitor v
 After the data is inside the Log Analytics workspace, [deploy a GitHub template](https://azure.microsoft.com/resources/templates/101-backup-la-reporting/) to Log Analytics to visualize the data. To properly identify the workspace, make sure you give it the same resource group, workspace name, and workspace location. Then install this template on the workspace.
 
 ### View Azure Backup data by using Log Analytics
-
-After the template is deployed, the solution for monitoring and reporting in Azure Backup will show up in the workspace summary region. To go to the summary, follow one of these paths:
 
 - **Azure Monitor**: In the **Insights** section, select **More** and then choose the relevant workspace.
 - **Log Analytics workspaces**: Select the relevant workspace, and then under **General**, select **Workspace summary**.
@@ -63,7 +61,7 @@ When you select any of the overview tiles, you can view further information. Her
 
    ![Log Analytics graph for restore jobs](media/backup-azure-monitoring-laworkspace/la-azurebackup-alertsazure.png)
 
-Similarly, by clicking on the other tiles, you will be able to see reports on Restore Jobs, Cloud Storage, Backup Items, Alerts from On-Premises Resources Backup, and Log Backup Jobs.
+Similarly, by clicking on the other tiles, you will be able to see reports on Restore Jobs, Cloud Storage, Backup Items, Alerts from on-premises Resources Backup, and Log Backup Jobs.
 
 These graphs are provided with the template. You can edit the graphs or add more graphs if you need to.
 
@@ -236,7 +234,7 @@ You can view all alerts created from activity logs and Log Analytics workspaces 
 Although you can get notifications through activity logs, we highly recommend using Log Analytics rather than activity logs for monitoring at scale. Here's why:
 
 - **Limited scenarios**: Notifications through activity logs apply only to Azure VM backups. The notifications must be set up for every Recovery Services vault.
-- **Definition fit**: The scheduled backup activity doesn't fit with the latest definition of activity logs. Instead, it aligns with [resource logs](https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-collect-workspace#what-you-can-do-with-resource-logs-in-a-workspace). This alignment causes unexpected effects when the data that flows through the activity log channel changes.
+- **Definition fit**: The scheduled backup activity doesn't fit with the latest definition of activity logs. Instead, it aligns with [resource logs](https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-collect-workspace#what-you-can-do-with-platform-logs-in-a-workspace). This alignment causes unexpected effects when the data that flows through the activity log channel changes.
 - **Problems with the activity log channel**: In Recovery Services vaults, activity logs that are pumped from Azure Backup follow a new model. Unfortunately, this change affects the generation of activity logs in Azure Government, Azure Germany, and Azure China 21Vianet. If users of these cloud services create or configure any alerts from activity logs in Azure Monitor, the alerts aren't triggered. Also, in all Azure public regions, if a user [collects Recovery Services activity logs into a Log Analytics workspace](https://docs.microsoft.com/azure/azure-monitor/platform/collect-activity-logs), these logs don't appear.
 
 Use a Log Analytics workspace for monitoring and alerting at scale for all your workloads that are protected by Azure Backup.

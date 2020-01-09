@@ -1,5 +1,5 @@
 ---
-title: Create and manage VNet service endpoints and rules in Azure Database for PostgreSQL - Single Server using the Azure portal
+title: Use virtual network rules - Azure portal - Azure Database for PostgreSQL - Single Server
 description: Create and manage VNet service endpoints and rules Azure Database for PostgreSQL - Single Server using the Azure portal
 author: bolzmj
 ms.author: mbolz

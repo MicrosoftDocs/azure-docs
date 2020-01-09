@@ -1,18 +1,8 @@
 ---
-title: Run custom Windows container (Preview) - Azure App Service | Microsoft Docs
-description: Learn how to deploy a custom Windows container into Azure App Service.
-services: app-service\web
-documentationcenter: ''
-author: cephalin
-manager: jeconnoc
-editor: ''
-
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
+title: 'QuickStart: Windows container (Preview)'
+description: Deploy your first custom Windows container to Azure App Service. Take advantage of containerization, customize the Windows container the way you like it. 
 ms.topic: quickstart
 ms.date: 08/30/2019
-ms.author: cephalin
 ms.custom: mvc
 ms.custom: seodec18
 

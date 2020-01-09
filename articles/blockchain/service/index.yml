@@ -1,10 +1,10 @@
 ### YamlMime:Landing
 
-title: Azure Blockchain Service Documentation
+title: Azure Blockchain Service documentation
 summary: Learn how to create blockchain applications. Tutorials, API references, and other documentation show you how to use Azure Blockchain Service to create, develop, and manage blockchain applications on Azure.
 
 metadata:
-  title: Azure Blockchain Service Documentation - Tutorials, API Reference
+  title: Azure Blockchain Service documentation
   description: Learn how to create blockchain applications. Tutorials, API references, and other documentation show you how to use Azure Blockchain Service to create, develop, and manage blockchain applications on Azure.
   services: azure-blockchain
   ms.service: azure-blockchain

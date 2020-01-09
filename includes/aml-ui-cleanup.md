@@ -37,7 +37,7 @@ The compute target that you created here *automatically autoscales* to zero nod
 
 You can unregister datasets from your workspace by selecting each dataset and selecting **Unregister**.
 
-![Unregister dataset](./media/aml-ui-cleanup/unregister-dataset.png)
+![Unregister dataset](./media/aml-ui-cleanup/unregister-dataset1225.png)
 
 To delete a dataset, go to the storage account by using the Azure portal or Azure Storage Explorer and manually delete those assets.
 

@@ -1,7 +1,7 @@
 ---
 title: "Permutation Feature Importance: Module reference"
-titleSuffix: Azure Machine Learning service
-description: Learn how to use the Permutation Feature Importance module in the Azure Machine Learning service to compute the permutation feature importance scores of feature variables, given a trained model and a test dataset.
+titleSuffix: Azure Machine Learning
+description: Learn how to use the Permutation Feature Importance module in Azure Machine Learning to compute the permutation feature importance scores of feature variables, given a trained model and a test dataset.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -64,4 +64,4 @@ The reason for the difference is that Permutation Feature Importance doesn't mea
   
 ## Next steps
 
-See the [set of modules available](module-reference.md) to the Azure Machine Learning service. 
+See the [set of modules available](module-reference.md) to Azure Machine Learning. 

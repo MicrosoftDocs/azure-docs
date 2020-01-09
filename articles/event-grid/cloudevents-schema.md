@@ -3,11 +3,10 @@ title: Use Azure Event Grid with events in CloudEvents schema
 description: Describes how to set the CloudEvents schema for events in Azure Event Grid.
 services: event-grid
 author: banisadr
-manager: timlt
 
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 11/07/2018
+ms.date: 11/18/2019
 ms.author: babanisa
 ---
 
@@ -90,7 +89,7 @@ az eventgrid topic create \
   --name <topic_name> \
   -l westcentralus \
   -g gridResourceGroup \
-  --input-schema cloudeventv01schema
+  --input-schema cloudeventschemav1_0
 ```
 
 For PowerShell, use:
@@ -104,7 +103,7 @@ New-AzureRmEventGridTopic `
   -ResourceGroupName gridResourceGroup `
   -Location westcentralus `
   -Name <topic_name> `
-  -InputSchema CloudEventV01Schema
+  -InputSchema CloudEventSchemaV1_0
 ```
 
 The current version of CloudEvents doesn't support batching of events. To publish events with CloudEvent schema to a topic, publish each event individually.
@@ -122,7 +121,7 @@ az eventgrid event-subscription create \
   --name <event_subscription_name> \
   --source-resource-id $topicID \
   --endpoint <endpoint_URL> \
-  --event-delivery-schema cloudeventv01schema
+  --event-delivery-schema cloudeventschemav1_0
 ```
 
 For PowerShell, use:
@@ -133,10 +132,14 @@ New-AzureRmEventGridSubscription `
   -ResourceId $topicid `
   -EventSubscriptionName <event_subscription_name> `
   -Endpoint <endpoint_URL> `
-  -DeliverySchema CloudEventV01Schema
+  -DeliverySchema CloudEventSchemaV1_0
 ```
 
  Currently, you can't use an Event Grid trigger for an Azure Functions app when the event is delivered in the CloudEvents schema. Use an HTTP trigger. For examples of implementing an HTTP trigger that receives events in the CloudEvents schema, see [Use an HTTP trigger as an Event Grid trigger](../azure-functions/functions-bindings-event-grid.md#use-an-http-trigger-as-an-event-grid-trigger).
+
+ ## Endpoint Validation with CloudEvents v1.0
+
+If you are already familiar with Event Grid, you may be aware of Event Grid's endpoint validation handshake for preventing abuse. CloudEvents v1.0 implements its own [abuse protection semantics](security-authentication.md#webhook-event-delivery) using the HTTP OPTIONS method. You can read more about it [here](https://github.com/cloudevents/spec/blob/v1.0/http-webhook.md#4-abuse-protection). When using the CloudEvents schema for output, Event Grid uses with the CloudEvents v1.0 abuse protection in place of the Event Grid validation event mechanism.
 
 ## Next steps
 

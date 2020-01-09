@@ -61,4 +61,4 @@ No.
 
 Azure SignalR Service provides all three transports that ASP.NET Core SignalR supports by default. It is not configurable. SignalR Service will handle connections and transports for all client connections.
 
-You can configure client-side transports as documented [here](https://docs.microsoft.com/aspnet/core/signalr/configuration?view=aspnetcore-2.1#configure-allowed-transports).
+You can configure client-side transports as documented [here](https://docs.microsoft.com/aspnet/core/signalr/configuration?view=aspnetcore-2.1&tabs=dotnet#configure-allowed-transports-2).

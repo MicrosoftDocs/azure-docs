@@ -71,8 +71,7 @@ Open a command prompt and create a folder named *sqltest*. Open the folder you c
 1. Replace its contents with the following code. Then add the appropriate values for your server, database, user, and password.
 
     ```js
-    const Connection = require("tedious").Connection;
-    const Request = require("tedious").Request;
+    const { Connection, Request } = require("tedious");
 
     // Create connection to database
     const config = {

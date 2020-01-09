@@ -24,6 +24,9 @@ It's a common scenario to use software RAID on Linux virtual machines in Azure t
 ## Attaching data disks
 Two or more empty data disks are needed to configure a RAID device.  The primary reason for creating a RAID device is to improve performance of your disk IO.  Based on your IO needs, you can choose to attach disks that are stored in our Standard Storage, with up to 500 IO/ps per disk or our Premium storage with up to 5000 IO/ps per disk. This article does not go into detail on how to provision and attach data disks to a Linux virtual machine.  See the Microsoft Azure article [attach a disk](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) for detailed instructions on how to attach an empty data disk to a Linux virtual machine on Azure.
 
+> [!IMPORTANT]
+>Do not mix disks of different sizes, doing so would result in performance of the raidset to be limited to that of the slowest disk. 
+
 ## Install the mdadm utility
 * **Ubuntu**
   ```bash

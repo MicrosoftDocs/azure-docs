@@ -1,6 +1,6 @@
 ---
 title: Sample - Create VM using managed disk
-description: This sample policy definition requires that virtual machines use managed disks.
+description: This sample policy definition requires that virtual machines and virtual machine scale sets use managed disks.
 ms.date: 01/23/2019
 ms.topic: sample
 ---

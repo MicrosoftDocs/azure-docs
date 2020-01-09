@@ -9,13 +9,13 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 07/03/2019
+ms.date: 12/05/2019
 ms.author: pafarley
 ms.custom: seodec18
 ---
 # Quickstart: Extract printed and handwritten text using the Computer Vision REST API and Java
 
-In this quickstart, you extract printed and/or handwritten text from an image by using Computer Vision's REST API. With the [Batch Read](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) and [Read Operation Result](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/5be108e7498a4f9ed20bf96d) methods, you can detect text in an image and extract recognized characters into a machine-readable character stream. The API will determine which recognition model to use for each line of text, so it supports images with both printed and handwritten text.
+In this quickstart, you will extract printed and/or handwritten text from an image using the Computer Vision REST API. With the [Batch Read](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) and [Read Operation Result](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/5be108e7498a4f9ed20bf96d) methods, you can detect text in an image and extract recognized characters into a machine-readable character stream. The API will determine which recognition model to use for each line of text, so it supports images with both printed and handwritten text.
 
 > [!IMPORTANT]
 > Unlike the [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) method, the [Batch Read](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) method runs asynchronously. This method does not return any information in the body of a successful response. Instead, the Batch Read method returns a URI in the value of the `Operation-Content` response header field. You can then call this URI, which represents the [Read Operation Result](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/5be108e7498a4f9ed20bf96d) method, in order to check the status and return the results of the Batch Read method call.

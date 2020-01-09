@@ -1,20 +1,21 @@
 ---
-title: Copy data by using the Azure Copy Data tool 
+title: Copy data from Azure Blob storage to SQL using Copy Data tool
 description: Create an Azure data factory and then use the Copy Data tool to copy data from Azure Blob storage to a SQL database.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+ms.author: jingwang
+manager: shwang
 ms.reviewer: douglasl
-
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
+ms.custom: seo-lt-2019
 ms.date: 09/11/2018
-ms.author: jingwang
-
 ---
+
 # Copy data from Azure Blob storage to a SQL database by using the Copy Data tool
+
 > [!div class="op_single_selector" title1="Select the version of the Data Factory service that you're using:"]
 > * [Version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Current version](tutorial-copy-data-tool.md)
@@ -88,7 +89,7 @@ Prepare your Blob storage and your SQL database for the tutorial by performing t
 
     b. Select **Create new**, and enter the name of a resource group.
     
-    To learn about resource groups, see [Use resource groups to manage your Azure resources](../azure-resource-manager/resource-group-overview.md).
+    To learn about resource groups, see [Use resource groups to manage your Azure resources](../azure-resource-manager/management/overview.md).
 
 1. Under **version**, select **V2** for the version.
 1. Under **location**, select the location for the data factory. Only supported locations are displayed in the drop-down list. The data stores (for example, Azure Storage and SQL Database) and computes (for example, Azure HDInsight) that are used by your data factory can be in other locations and regions.

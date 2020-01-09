@@ -82,8 +82,11 @@ landingContent:
             url: functions-bindings-error-pages.md
       - linkListType: learn
         links:
-          - text: Develop/test/deploy with Visual Studio
+          - text: Develop functions using Visual Studio
             url: /learn/modules/develop-test-deploy-azure-functions-with-visual-studio/index
+          - text: Develop functions from the command line
+            url: /learn/modules/develop-test-deploy-azure-functions-with-core-tools/index
+        
       - linkListType: video
         links:
           - text: Develop with Visual Studio Code

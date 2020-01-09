@@ -1,7 +1,7 @@
 ---
-title: 'Quickstart: Speech SDK for .NET Framework Windows platform setup - Speech Service'
+title: 'Quickstart: Speech SDK for .NET Framework Windows platform setup - Speech service'
 titleSuffix: Azure Cognitive Services
-description: Use this guide to set up your platform for C# under .NET Framework for Windows with the Speech Services SDK.
+description: Use this guide to set up your platform for C# under .NET Framework for Windows with the Speech service SDK.
 services: cognitive-services
 author: markamos
 manager: nitinme

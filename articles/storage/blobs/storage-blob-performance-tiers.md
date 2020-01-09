@@ -51,6 +51,12 @@ Premium performance storage is ideal for workloads that require fast and consist
 
 Standard performance supports different [access tiers](storage-blob-storage-tiers.md) to store data in the most cost-effective manner. It's optimized for high capacity and high throughput on large data sets.
 
+- **Backup and disaster recovery datasets**. Standard performance storage offers cost-efficient tiers, making it a perfect use case for both short-term and long-term disaster recovery datasets, secondary backups, and compliance data archiving.
+
+- **Media content**. Images and videos often are accessed frequently when first created and stored, but this content type is used less often as it gets older. Standard performance storage offers suitable tiers for media content needs. 
+
+- **Bulk data processing**. These kinds of workloads are suitable for standard storage because they require cost-effective high-throughput storage instead of consistent low latency. Large, raw datasets are staged for processing and eventually migrate to cooler tiers.
+
 ## Migrate from standard to premium
 
 You can't convert an existing standard performance storage account to a block blob storage account with premium performance. To migrate to a premium performance storage account, you must create a BlockBlobStorage account, and migrate the data to the new account. For more information, see [Create a BlockBlobStorage account](storage-blob-create-account-block-blob.md).

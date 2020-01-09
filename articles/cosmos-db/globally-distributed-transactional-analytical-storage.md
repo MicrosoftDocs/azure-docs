@@ -1,5 +1,5 @@
 ---
-title: Globally distributed transactional and analytical storage for Azure Cosmos containers
+title: Globally distributed transactional and analytical(in private preview) storage for Azure Cosmos containers
 description: Learn about transactional and analytical storage and their configuration options for Azure Cosmos containers.
 author: markjbrown
 ms.author: mjbrown
@@ -11,7 +11,7 @@ ms.reviewer: sngun
 
 # Globally distributed transactional and analytical storage for Azure Cosmos containers
 
-Azure Cosmos container is internally backed by two storage engines - transactional storage engine and an updatable analytical storage engine. Both the storage engines are log-structured and write-optimized for faster updates. However, each of them is encoded differently:
+Azure Cosmos container is internally backed by two storage engines - transactional storage engine and an updatable analytical storage engine (in private preview). Both the storage engines are log-structured and write-optimized for faster updates. However, each of them is encoded differently:
 
 * **Transactional storage engine** – It is encoded in row-oriented format for fast transactional reads and queries.
 

@@ -59,6 +59,8 @@
     href: linux-recovery-cannot-start-file-system-errors.md
   - name: Troubleshoot kernel-related boot problems
     href: https://support.microsoft.com/help/4091524
+  - name: Recover LVM configured VMs and no boot 
+    href: chroot-logical-volume-manager.md
   - name: Troubleshoot fstab errors
     href: linux-virtual-machine-cannot-start-fstab-errors.md
   - name: Detailed SSH troubleshooting
@@ -114,6 +116,8 @@
       href: serial-console-grub-single-user-mode.md
     - name: Serial Console NMI/SysRq
       href: serial-console-nmi-sysrq.md
+    - name: Serial console grub proactive configuration
+      href: serial-console-grub-proactive-configuration.md
   - name: Serial Console for Windows
     href: serial-console-windows.md
     items:
@@ -125,8 +129,6 @@
     href: serial-console-power-options.md
   - name: Common Serial Console errors
     href: serial-console-errors.md
-  - name: Serial console grub proactive configuration
-    href: serial-console-grub-proactive-configuration.md
 - name: Errors when deleting storage resources
   href: storage-resource-deletion-errors.md
 - name: Errors when deleting classic storage resources
@@ -157,6 +159,8 @@
     href: troubleshoot-deploy-vm-linux.md
   - name: Windows
     href: troubleshoot-deploy-vm-windows.md
+  - name: Restarting, Shutting Down, or Stopping services
+    href: boot-error-troubleshoot-windows.md
 - name: Device names are changed
   href: troubleshoot-device-names-problems.md
 - name: VM recovery access
@@ -173,11 +177,14 @@
       href: troubleshoot-recovery-disks-linux.md
     - name: Azure portal
       href: troubleshoot-recovery-disks-portal-linux.md
-- name: Boot errors
-  href: boot-error-troubleshoot.md
+- name: Boot errors Linux
+  href: boot-error-troubleshoot-linux.md
   items:
   - name: Grub Rescue
     href: troubleshoot-vm-boot-error.md
+- name: Boot errors Windows
+  href: boot-error-troubleshoot.md
+  items:
   - name: Boot diagnostics
     href: boot-diagnostics.md
   - name: BitLocker errors

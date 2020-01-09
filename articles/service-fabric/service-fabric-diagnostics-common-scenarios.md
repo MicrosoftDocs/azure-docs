@@ -1,21 +1,11 @@
 ---
-title: Azure Service Fabric Diagnose Common Scenarios | Microsoft Docs
-description: Learn how to troubleshoot common scenarios with Azure Service Fabric
-services: service-fabric
-documentationcenter: .net
+title: Azure Service Fabric Diagnose Common Scenarios 
+description: Learn about troubleshooting common monitoring and diagnostic scenarios within Azure Service Fabric applications.
 author: srrengar
-manager: chackdan
-editor: ''
 
-ms.assetid:
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 02/25/2019
 ms.author: srrengar
-
 ---
 
 # Diagnose common scenarios with Service Fabric

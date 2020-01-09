@@ -2,7 +2,7 @@
 title: What is Azure Private Link service?
 description: Learn about Azure Private Link service.
 services: private-link
-author: asudbring
+author: malopMSFT
 ms.service: private-link
 ms.topic: conceptual
 ms.date: 09/16/2019
@@ -63,7 +63,7 @@ A Private Link service specifies the following properties:
  
 - A single Private Link Service can be accessed from multiple Private Endpoints belonging to different VNets, subscriptions and/or Active Directory tenants. The connection is established through a connection workflow. 
  
-- Multiple Private Link services can be created on the same Standard Load Balancer using different front-end IP configurations. There are limits to the number of Private Link services you can create per Standard Load Balancer and per subscription. For details, see [Azure limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#networking-limits).
+- Multiple Private Link services can be created on the same Standard Load Balancer using different front-end IP configurations. There are limits to the number of Private Link services you can create per Standard Load Balancer and per subscription. For details, see [Azure limits](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#networking-limits).
  
 - Private Link service can have more than one NAT IP configurations linked to it. Choosing more than one NAT IP configurations can help service providers to scale. Today, service providers can assign up to eight NAT IP addresses per Private Link service. With each NAT IP address, you can assign more ports for your TCP connections and thus scale out. After you add multiple NAT IP addresses to a Private Link service, you can't delete the NAT IP addresses. This is done to ensure that active connections are not impacted while deleting the NAT IP addresses.
 
@@ -96,7 +96,6 @@ The following are the known limitations when using the Private Link service:
 - Supported only on Standard Load Balancer 
 - Supports IPv4 traffic only
 - Supports TCP traffic only
-- Only reachable from private endpoints in the same region
 - Create and Manage experience from Azure portal is not supported
 - Clients connection information using proxy protocol is not available to service provider
 

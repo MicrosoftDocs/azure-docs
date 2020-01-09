@@ -194,7 +194,7 @@
     {
       "path_to_root": "samples-cognitive-services-speech-sdk",
       "url": "https://github.com/Azure-Samples/cognitive-services-speech-sdk",
-      "branch": "rhurey/quickstart.refactor"
+      "branch": "release-ignite-cogserv-speech-service"
     },
     {
       "path_to_root": "media-services-v3-dotnet-quickstarts",

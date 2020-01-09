@@ -90,7 +90,7 @@ Before configuring RingCentral for automatic user provisioning with Azure AD, yo
 This section guides you through the steps to configure the Azure AD provisioning service to create, update, and disable users and/or groups in RingCentral based on user and/or group assignments in Azure AD.
 
 > [!TIP]
-> You may also choose to enable SAML-based single sign-on for RingCentral , following the instructions provided in the [RingCentral Single sign-on tutorial](https://docs.microsoft.comazure/active-directory/saas-apps/ringcentral-tutorial). Single sign-on can be configured independently of automatic user provisioning, though these two features compliment each other.
+> You may also choose to enable SAML-based single sign-on for RingCentral , following the instructions provided in the [RingCentral Single sign-on tutorial](ringcentral-tutorial.md). Single sign-on can be configured independently of automatic user provisioning, though these two features compliment each other.
 
 > [!NOTE]
 > To learn more about RingCentral's SCIM endpoint, refer to [RingCentral API Reference](https://developers.ringcentral.com/api-reference).

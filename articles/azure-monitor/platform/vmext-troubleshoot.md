@@ -4,8 +4,8 @@ description: Describe the symptoms, causes, and resolution for the most common i
 ms.service:  azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: MGoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 06/06/2019
 
 ---

@@ -1,5 +1,5 @@
 ---
-title: Azure proximity placement groups for optimal network latency with SAP applications | Microsoft Docs
+title: Azure proximity placement groups for SAP applications | Microsoft Docs
 description: Describes SAP deployment scenarios with Azure proximity placement groups
 services: virtual-machines-linux,virtual-machines-windows
 documentationcenter: ''

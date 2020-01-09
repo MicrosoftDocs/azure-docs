@@ -9,7 +9,7 @@ manager: cshankar
 ms.topic: quickstart
 ms.workload: big-data
 ms.custom: mvc seodec18
-ms.date: 11/15/2019
+ms.date: 01/06/2020
 # Customer intent: As a data analyst or developer, I want to quickly learn about the Time Series insights visualization explorer.
 ---
 

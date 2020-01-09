@@ -20,11 +20,10 @@ During the preview period, Azure Spring Cloud offers only one service tier.
 
 Resource | Amount
 ------- | -------
-vCPU | 4
-Memory | 8 GBytes
-Azure Spring Cloud subscription | 1
-Azure Spring Cloud service instances per region per subscription | 2
-Total app instances per Azure Spring Cloud service instance | 50
+vCPU | 4 per service instance
+Memory | 8 GBytes per service instance
+Azure Spring Cloud service instances per region per subscription | 10
+Total app instances per Azure Spring Cloud service instance | 500
 Total app instances per Spring application | 20
 Persistent volumes | 10 x 50 GBytes
 

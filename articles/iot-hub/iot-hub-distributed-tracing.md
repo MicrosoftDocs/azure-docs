@@ -83,22 +83,23 @@ These instructions are for building the sample on Windows. For other environment
 
 ### Clone the source code and initialize
 
-1. Install ["Desktop development with C++" workload](https://docs.microsoft.com/cpp/build/vscpp-step-0-installation?view=vs-2017) for either Visual Studio 2015 or 2017.
+1. Install ["Desktop development with C++" workload](https://docs.microsoft.com/cpp/build/vscpp-step-0-installation?view=vs-2019) for Visual Studio 2019. Visual Studio 2017 and 2015 are also supported.
 
 1. Install [CMake](https://cmake.org/). Make sure it is in your `PATH` by typing `cmake -version` from a command prompt.
 
-1. Open a command prompt or Git Bash shell. Execute the following command to clone the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) GitHub repository:
+1. Open a command prompt or Git Bash shell. Run the following commands to clone the latest release of the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) GitHub repository:
 
     ```cmd
-    git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive -b public-preview
+    git clone -b public-preview https://github.com/Azure/azure-iot-sdk-c.git
+    cd azure-iot-sdk-c
+    git submodule update --init
     ```
 
     You should expect this operation to take several minutes to complete.
 
-1. Create a `cmake` subdirectory in the root directory of the git repository, and navigate to that folder.
+1. Create a `cmake` subdirectory in the root directory of the git repository, and navigate to that folder. Run the following commands from the `azure-iot-sdk-c` directory:
 
     ```cmd
-    cd azure-iot-sdk-c    
     mkdir cmake
     cd cmake
     cmake ..

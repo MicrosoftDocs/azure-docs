@@ -72,7 +72,7 @@ In this section, you create an Azure Databricks workspace using the Azure portal
     |---------|---------|
     |**Workspace name**     | Provide a name for your Databricks workspace        |
     |**Subscription**     | From the drop-down, select your Azure subscription.        |
-    |**Resource group**     | Specify whether you want to create a new resource group or use an existing one. A resource group is a container that holds related resources for an Azure solution. For more information, see [Azure Resource Group overview](../azure-resource-manager/resource-group-overview.md). |
+    |**Resource group**     | Specify whether you want to create a new resource group or use an existing one. A resource group is a container that holds related resources for an Azure solution. For more information, see [Azure Resource Group overview](../azure-resource-manager/management/overview.md). |
     |**Location**     | Select **East US 2**. For other available regions, see [Azure services available by region](https://azure.microsoft.com/regions/services/?WT.mc_id=sparkeventhubs-docs-alehall).        |
     |**Pricing Tier**     |  Choose between **Standard** or **Premium**. For more information on these tiers, see [Databricks pricing page](https://azure.microsoft.com/pricing/details/databricks/?WT.mc_id=sparkeventhubs-docs-alehall).       |
 
@@ -97,7 +97,7 @@ In this section, you create an Azure Databricks workspace using the Azure portal
     Accept all other default values other than the following:
 
    * Enter a name for the cluster.
-   * For this article, create a cluster with **5.2** runtime.
+   * For this article, create a cluster with **6.0** runtime.
    * Make sure you select the **Terminate after \_\_ minutes of inactivity** checkbox. Provide a duration (in minutes) to terminate the cluster, if the cluster is not being used.
 
    Select cluster worker and driver node size suitable for your technical criteria and [budget](https://azure.microsoft.com/pricing/details/databricks/?WT.mc_id=sparkeventhubs-docs-alehall).
