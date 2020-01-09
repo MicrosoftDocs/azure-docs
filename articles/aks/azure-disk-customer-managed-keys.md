@@ -93,8 +93,10 @@ Use the DiskEncryptionSet and resource groups you created on the prior steps, an
 # Retrieve the DiskEncryptionSet value and set a variable
 desIdentity=$(az disk-encryption-set show -n myDiskEncryptionSetName  -g myResourceGroup--query [identity.principalId] -o tsv)
 
-# Grant the DiskEncryptionSet resource read access to Key Vault
+# Update security policy settings
 az keyvault set-policy -n myKeyVaultName -g myResourceGroup--object-id $desIdentity --key-permissions wrapkey unwrapkey get
+
+# Assign the reader role
 az role assignment create --assignee $desIdentity --role Reader --scope $keyVaultId
 ```
 
