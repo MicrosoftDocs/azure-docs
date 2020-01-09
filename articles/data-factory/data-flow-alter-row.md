@@ -22,7 +22,7 @@ Alter Row transformations will only operate on database or CosmosDB sinks in you
 
 Create an Alter Row transformation and specify a row policy with a condition of `true()`. Each row that doesn't match any of the previously defined expressions will be marked for the specified row policy. By default, each row that doesn't match any conditional expression will be marked for `Insert`.
 
-![Alter row one policy](media/data-flow/alter-row4.png "Alter row one policy")
+![Alter row policy](media/data-flow/alter-row4.png "Alter row policy")
 
 > [!NOTE]
 > To mark all rows with one policy, you can create a condition for that policy and specify the condition as `true()`.
@@ -35,13 +35,13 @@ Use [debug mode](concepts-data-flow-debug-mode.md) to view the results of your a
 
 Each alter row policy is represented by an icon that indicates whether an insert, update, upsert, or deleted action will occur. The top header shows how many rows are affected by each policy in the preview.
 
-## Allow alter row polcies in sink
+## Allow alter row policies in sink
 
-For the alter row polcies to work, the data stream must write to a database or Cosmos sink. In the **Settings** tab in your sink, enable which alter row policies are allowed for that sink.
+For the alter row policies to work, the data stream must write to a database or Cosmos sink. In the **Settings** tab in your sink, enable which alter row policies are allowed for that sink.
 
 ![Alter row sink](media/data-flow/alter-row2.png "Alter Row Sink")
 
- The default behavior is to only allow inserts. To allow updates, upserts, or deletes, check the box in the sink corresponding to that condition. If updates, upserts, or, deletes are enabled, you must specifiy which key columns in the sink to match on.
+ The default behavior is to only allow inserts. To allow updates, upserts, or deletes, check the box in the sink corresponding to that condition. If updates, upserts, or, deletes are enabled, you must specify which key columns in the sink to match on.
 
 > [!NOTE]
 > If your inserts, updates, or upserts modify the schema of the target table in the sink, the data flow will fail. To modify the target schema in your database, choose **Recreate table** as the table action. This will drop and recreate your table with the new schema definition.

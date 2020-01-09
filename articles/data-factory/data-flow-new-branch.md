@@ -1,7 +1,7 @@
 ---
 title: Multiple branches in mapping data flow
-description: Replicating data streams in mapping data flow with multiple braches
-author: kromerm
+description: Replicating data streams in mapping data flow with multiple branches
+author: kromermbrache
 ms.author: makromer
 ms.reviewer: douglasl
 ms.service: data-factory
@@ -14,7 +14,7 @@ ms.date: 01/08/2020
 
 Add a new branch to do multiple sets of operations and transformations against the same data stream. Adding a new branch is useful when you want to use the same source to for multiple sinks or for self-joining data together.
 
-A new branch can be added from the transformation list similar to other transformations. **New Branch** will only be available as an action when there's am existing transformation following the transformation you're attempting to branch.
+A new branch can be added from the transformation list similar to other transformations. **New Branch** will only be available as an action when there's an existing transformation following the transformation you're attempting to branch.
 
 ![Adding a new branch](media/data-flow/new-branch2.png "Adding a new branch")
 
