@@ -182,7 +182,7 @@ The services and solutions in the following table store their data in a Log Anal
 | [SQL Analytics](insights/azure-sql.md) | Monitor performance of Azure SQL databases, elastic pools, and managed instances at scale and across multiple subscriptions. |
 | [System Center Operations Manager](https://docs.microsoft.com/system-center/scom) | Collect data from Operations Manager agents by connecting their management group to Azure Monitor. See [Connect Operations Manager to Azure Monitor](platform/om-agents.md) |
 | [Visual Studio App Center](https://docs.microsoft.com/appcenter/) | Build, test, and distribute applications and then monitor their status and usage. See [Start analyzing your mobile app with App Center and Application Insights](learn/mobile-center-quickstart.md). |
-| Windows | [Windows Update Compliance](https://docs.microsoft.com/windows/deployment/update/update-compliance-get-started) - Assess your Windows desktop upgrades.<br>[Desktop Analytics](https://docs.microsoft.com/configmgr/desktop-analytics/overview) | Integrates with Configuration Manager to provide insight and intelligence to make more informed decisions about the update readiness of your Windows clients. |
+| Windows | [Windows Update Compliance](https://docs.microsoft.com/windows/deployment/update/update-compliance-get-started) - Assess your Windows desktop upgrades.<br>[Desktop Analytics](https://docs.microsoft.com/configmgr/desktop-analytics/overview) - Integrates with Configuration Manager to provide insight and intelligence to make more informed decisions about the update readiness of your Windows clients. |
 
 
 ## External product integrations
