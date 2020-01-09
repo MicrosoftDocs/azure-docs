@@ -54,7 +54,7 @@ or [in Azure](/azure/automation/automation-dsc-onboarding#azure-virtual-machines
 to pull configurations.
 
 To try out PowerSTIG, visit the
-[PowerShell Gallery](http://www.powershellgallery.com)
+[PowerShell Gallery](https://www.powershellgallery.com)
 and download the solution or click "Project Site"
 to view the
 [documentation](https://github.com/microsoft/powerstig).

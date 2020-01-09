@@ -5,7 +5,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 11/28/2019
+ms.date: 1/8/2020
 ms.author: raynew
 ms.custom: mvc
 ---
@@ -75,15 +75,18 @@ If you're using a URL-based firewall proxy to control outbound connectivity, all
 
 ### Outbound connectivity for IP address ranges
 
-If you want to control outbound connectivity using IP addresses instead of URLs, allow these addresses for IP-based firewalls, proxy, or NSG rules.
+If you're using NSG, create service tag based NSG rules for access to Azure Storage, Azure Active Directory, Site Recovery service and Site Recovery monitoring. [Learn more](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges).
+
+If you want to control outbound connectivity using IP addresses instead of NSG rules, allow these addresses for IP-based firewalls, proxy, or NSG rules.
+
+>[!NOTE]
+>It is recommended to always configure NSG rules with service tags for outbound access.
 
   - [Microsoft Azure Datacenter IP Ranges](https://www.microsoft.com/download/details.aspx?id=41653)
   - [Windows Azure Datacenter IP Ranges in Germany](https://www.microsoft.com/download/details.aspx?id=54770)
   - [Windows Azure Datacenter IP Ranges in China](https://www.microsoft.com/download/details.aspx?id=42064)
   - [Office 365 URLs and IP address ranges](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity)
   - [Site Recovery service endpoint IP addresses](https://aka.ms/site-recovery-public-ips)
-
-If you're using NSG you can create a storage service tag NSG rules for the source region. [Learn more](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges).
 
 ## Verify Azure VM certificates
 
