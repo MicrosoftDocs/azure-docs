@@ -136,7 +136,7 @@ On Windows, open PowerShell as administrator on a target node and run:
   --service-principal-secret "{your-spn-password}" `
   --resource-group "{your-resource-group-name}" `
   --tenant-id "{your-tenant-id}" `
-  --location "{location-of-your-resource-group}" `
+  --location "{desired-location}" `
   --subscription-id "{your-subscription-id}"
 ```
 
@@ -158,7 +158,7 @@ Parameters:
 * `tenant-id` : The Tenant GUID. You can find it in Azure portal by selecting **Azure Active directory** -> **properties** -> **Directory ID**.
 * `subscription-id` : The GUID of the subscription, in Azure, where you want to connect your machine.
 * `resource-group` : The resource group where you want your machine connected.
-* `location` : See [Azure regions and locations](https://azure.microsoft.com/global-infrastructure/regions/). This location can be the same, or different, as the resource group's location. For public preview, the service is supported in **WestUS2** and **West Europe**.
+* `location` : See [Azure regions and locations](https://azure.microsoft.com/global-infrastructure/regions/). This location can be the same, or different, as the resource group's location. For public preview, the service is supported in **WestUS2**, **SouthEast Asia**, and **West Europe**.
 * `resource-name` :  (*Optional*) Used for the Azure resource representation of your on-premises machine. If you do not specify this value, the machine hostname will be used.
 
 You can find more information on the 'azcmagent' tool in [Azcmagent Reference](azcmagent-reference.md).
