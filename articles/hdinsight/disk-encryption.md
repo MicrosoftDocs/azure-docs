@@ -39,7 +39,7 @@ To create a BYOK enabled HDInsight cluster, we'll go through the following steps
 
 ## Create managed identities for Azure resources
 
-To authenticate to Key Vault, create a user-assigned managed identity using the [Azure portal](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md), [Azure PowerShell](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md), [Azure Resource Manager](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-arm.md), or [Azure CLI](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli.md). For more information on how managed identities work in Azure HDInsight, see [Managed identities in Azure HDInsight](../hdinsight-managed-identities.md). Be sure to save the managed identity resource ID for when you add it to the Key Vault access policy.
+To authenticate to Key Vault, create a user-assigned managed identity using the [Azure portal](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md), [Azure PowerShell](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md), [Azure Resource Manager](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-arm.md), or [Azure CLI](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli.md). For more information on how managed identities work in Azure HDInsight, see [Managed identities in Azure HDInsight](hdinsight-managed-identities.md). Be sure to save the managed identity resource ID for when you add it to the Key Vault access policy.
 
 ![Create user-assigned managed identity in Azure portal](./media/disk-encryption/user-managed-identity-portal.png)
 
@@ -148,4 +148,4 @@ HDInsight BYOK is available in all public clouds and national clouds.
 ## Next steps
 
 * [Azure Disk Encryption](../security/fundamentals/azure-disk-encryption-vms-vmss.md)
-* [Encrypt OS and attached data disks in a virtual machine scale set with the Azure CLI](https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/disk-encryption-cli)
+* [Encrypt OS and attached data disks in a virtual machine scale set with the Azure CLI](../virtual-machine-scale-sets/disk-encryption-cli.md)
