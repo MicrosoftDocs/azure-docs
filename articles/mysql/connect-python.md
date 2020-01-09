@@ -33,7 +33,7 @@ Install Python and the MySQL connector for Python on your computer by using the 
    
 1. The `pip` package installer is included in the latest versions of Python. Update `pip` to the latest version by running `pip install -U pip`. 
    
-   If `pip` isn't installed, you can download and install it with `get pip.py`. For more information, see [Installation](https://pip.pypa.io/en/stable/installing/). 
+   If `pip` isn't installed, you can download and install it with `get-pip.py`. For more information, see [Installation](https://pip.pypa.io/en/stable/installing/). 
    
 1. Use `pip` to install the MySQL connector for Python and its dependencies:
    
