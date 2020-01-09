@@ -11,14 +11,7 @@ ms.date: 01/06/2019
 
 # Bring your own key disk encryption on Azure HDInsight
 
-Azure HDInsight supports Bring Your Own Key (BYOK) encryption for data on managed disks and resource disks attached to HDInsight cluster VMs. This feature, similar to [Azure Disk Encryption](../security/fundamentals/azure-disk-encryption-vms-vmss.md), allows you to use Azure Key Vault to manage the encryption keys that secure data at rest on your HDInsight clusters. This feature is different than  [Azure Storage encryption](../storage/common/storage-service-encryption.md).  Your clusters may have one or more attached Azure Storage accounts where the encryption keys could also be Microsoft-managed or customer-managed, but the encryption service is different.
-
-The following HDInsight 3.6 cluster types are not supported for BYOK disk encryption:
-
-* Spark 2.1 and 2.2
-* Kafka 1.0
-* ML Services
-* Storm
+Azure HDInsight supports Bring Your Own Key (BYOK) encryption for data on managed disks and resource disks attached to HDInsight cluster VMs. This feature allows you to use Azure Key Vault to manage the encryption keys that secure data at rest on your HDInsight clusters. Your clusters may have one or more attached Azure Storage accounts where the encryption keys could also be Microsoft-managed or customer-managed, but the encryption service is different.
 
 All managed disks and resource disks in HDInsight are protected with Azure Storage Service Encryption (SSE). By default, the data on those disks is encrypted using Microsoft-managed keys. If you enable BYOK, you provide the encryption key for HDInsight to use and manage it using Azure Key Vault.
 
@@ -95,25 +88,56 @@ HDInsight only supports Azure Key Vault. If you have your own key vault, you can
 
     ![Save Azure Key Vault access policy](./media/disk-encryption/add-key-vault-access-policy-save.png)
 
-## Create HDInsight cluster
+## Create cluster with disk encryption
 
 You're now ready to create a new HDInsight cluster. BYOK can only be applied to new clusters during cluster creation. Encryption can't be removed from BYOK clusters, and BYOK can't be added to existing clusters.
 
+### Using the Azure portal
+
 During cluster creation, provide the full key URL, including the key version. For example, `https://contoso-kv.vault.azure.net/keys/myClusterKey/46ab702136bc4b229f8b10e8c2997fa4`. You also need to assign the managed identity to the cluster and provide the key URI.
+
+### Using Azure CLI
+
+The following example shows how to use Azure CLI to create a new Apache Spark cluster with disk encryption enabled. See the [Azure CLI az hdinsight create](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-create) documentation for more information.
+
+```azurecli
+az hdinsight create -t spark -g MyResourceGroup -n MyCluster \
+-p "HttpPassword1234!" --workernode-data-disks-per-node 2 \
+--storage-account MyStorageAccount \
+--encryption-key-name SparkClusterKey \
+--encryption-key-version 00000000000000000000000000000000 \
+--encryption-vault-uri https://MyKeyVault.vault.azure.net \
+--assign-identity MyMSI
+```
 
 ## Rotating the Encryption key
 
 There might be scenarios where you might want to change the encryption keys used by the HDInsight cluster after it has been created. This can be easily via the portal. For this operation, the cluster must have access to both the current key and the intended new key, otherwise the rotate key operation will fail.
 
+### Using the Azure portal
+
 To rotate the key, you must have the full url of the new key (See Step 3 of [Setup the Key Vault and Keys](#set-up-the-key-vault-and-keys)). Once you've done that, go to the HDInsight cluster properties section in the portal and click on **Change Key** under **Disk Encryption Key URL**. Enter in the new key url and submit to rotate the key.
 
 ![rotate disk encryption key](./media/disk-encryption/change-key.png)
+
+### Using Azure CLI
+
+The following example shows how to rotate the disk encryption key for an existing HDInsight cluster. See [Azure CLI az hdinsight rotate-disk-encryption-key](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-rotate-disk-encryption-key) for more details.
+
+```azurecli
+az hdinsight rotate-disk-encryption-key \
+--encryption-key-name SparkClusterKey \
+--encryption-key-version 00000000000000000000000000000000 \
+--encryption-vault-uri https://MyKeyVault.vault.azure.net \
+--name MyCluster \
+--resource-group MyResourceGroup
+```
 
 ## FAQ for BYOK
 
 **How does the HDInsight cluster access my key vault?**
 
-Associate a managed identity with the HDInsight cluster during cluster creation. This managed identity can be created before or during cluster creation. You also need to grant the managed identity access to the key vault where the key is stored.
+HDInsight accesses your Azure Key Vault instance using the managed identity that you associate with the HDInsight cluster. This managed identity can be created before or during cluster creation. You also need to grant the managed identity access to the key vault where the key is stored.
 
 **Is this feature available for all clusters on HDInsight?**
 
@@ -147,5 +171,4 @@ HDInsight BYOK is available in all public clouds and national clouds.
 
 ## Next steps
 
-* [Azure Disk Encryption](../security/fundamentals/azure-disk-encryption-vms-vmss.md)
-* [Encrypt OS and attached data disks in a virtual machine scale set with the Azure CLI](../virtual-machine-scale-sets/disk-encryption-cli.md)
+* [Overview of enterprise security in Azure HDInsight](/domain-joined/hdinsight-security-overview.md)
