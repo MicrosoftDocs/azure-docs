@@ -47,23 +47,39 @@ This topic shows how to set up and specify your own encryption key to use when y
 
 <a name="enable-support-key-system-identity"></a>
 
-## Create ISE with key and managed identity support
+## Create ISE with key vault and managed identity support
 
-To create your ISE by calling the Logic Apps REST API, use this HTTPS PUT request:
+To create your ISE by calling the Logic Apps REST API, make this HTTPS PUT request:
 
 `PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/integrationServiceEnvironments/{integrationServiceEnvironmentName}?api-version=2018-07-01-preview`
 
-In the request header, include the `Authorization` property and set the property's value to the bearer token associated with the customer who has access to the Azure subscription or resource group to use for the ISE. In the request body, enable support for these items in your ISE definition:
+### Request header
+
+In the request header, include the `Authorization` property and set the property value to the bearer token for the customer who has access to the Azure subscription or resource group that you want to use.
+
+### Request body
+
+In the request body, enable support for these additional items in your ISE:
 
 * External access endpoint
 * Your key vault and the customer-managed key that you want to use
 * The system-assigned managed identity that your ISE uses to access your key vault
 
-Here's the syntax to use for these properties and values in your ISE definition:
+Here's the request body syntax for the properties and values that you need to create your ISE:
 
 ```json
 {
-   <other-ISE-definition-properties>,
+   "id": "/subscriptions/<Azure-subscription-ID>/resourceGroups/<Azure-resource-group>/providers/Microsoft.Logic/integrationServiceEnvironments/<ISE-name>",
+   "name": "<ISE-name>",
+   "type": "Microsoft.Logic/integrationServiceEnvironments",
+   "location": "<Azure-region>",
+   "sku": {
+      "name": "Premium",
+      "capacity": 1
+   },
+   "identity": {
+      "type": "SystemAssigned"
+   },
    "properties": {
       "networkConfiguration": {
          "accessEndpoint": {
@@ -99,22 +115,25 @@ Here's the syntax to use for these properties and values in your ISE definition:
             "keyVersion": "<key-version-number>"
          }
       }
-   },
-   "id": "/subscriptions/<Azure-subscription-ID>/resourceGroups/<Azure-resource-group>/providers/Microsoft.Logic/integrationServiceEnvironments/<ISE-name>",
-   "name": "<ISE-name>",
-   "type": "Microsoft.Logic/integrationServiceEnvironments",
-   "location": "<Azure-region>",
-   "identity": {
-      "type": "SystemAssigned"
    }
 }
 ```
 
-For example:
+### Example request body
 
 ```json
 {
-   <other-ISE-definition-properties>,
+   "id": "/subscriptions/********************/resourceGroups/Fabrikam-RG/providers/Microsoft.Logic/integrationServiceEnvironments/Fabrikam-ISE",
+   "name": "Fabrikam-ISE",
+   "type": "Microsoft.Logic/integrationServiceEnvironments",
+   "location": "WestUS",
+   "identity": {
+      "type": "SystemAssigned"
+   },
+   "sku": {
+      "name": "Premium",
+      "capacity": 1
+   },
    "properties": {
       "networkConfiguration": {
          "accessEndpoint": {
@@ -150,13 +169,6 @@ For example:
             "keyVersion": "********************"
          }
       }
-   },
-   "id": "/subscriptions/********************/resourceGroups/Fabrikam-RG/providers/Microsoft.Logic/integrationServiceEnvironments/Fabrikam-ISE",
-   "name": "Fabrikam-ISE",
-   "type": "Microsoft.Logic/integrationServiceEnvironments",
-   "location": "WestUS",
-   "identity": {
-      "type": "SystemAssigned"
    }
 }
 ```
