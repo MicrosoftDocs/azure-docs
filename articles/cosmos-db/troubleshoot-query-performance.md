@@ -38,7 +38,7 @@ e. [Optimize JOIN expressions by using a subquery](#optimize-join-expressions-by
 
 #### Loaded Document Count is approximately equal to Retrieved Document Count
 
-a. [Avoid cross partition queries](#Avoid-cross-partition-queries)
+a. [Avoid cross partition queries](#avoid-cross-partition-queries)
 
 b. [Optimize queries that have a filter on multiple properties](#optimize-queries-that-have-a-filter-on-multiple-properties)
 
@@ -58,7 +58,7 @@ d. [Increasing MaxBufferedItemCount](#increasing-maxbuffereditemcount)
 
 ### Obtaining query metrics:
 
-When optimizing a query in Azure Cosmos DB, the first step is always to [obtain the query metrics](sql-api-sql-query-metrics.md#query-execution-metrics) for your query.  These are also available through the Azure Portal as shown below:
+When optimizing a query in Azure Cosmos DB, the first step is always to [obtain the query metrics](profile-sql-api-query.md) for your query.  These are also available through the Azure Portal as shown below:
 
 ![Obtaining query metrics](./media/troubleshoot-query-performance/obtain-query-metrics.jpg)
 
