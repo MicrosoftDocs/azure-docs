@@ -150,7 +150,12 @@ For more details on encryption of a Cosmos DB instance using customer-managed ke
 
 All container images in your registry (Azure Container Registry) are encrypted at rest. Azure automatically encrypts an image before storing it and decrypts it when Azure Machine Learning pulls the image.
 
-To use your own (customer-managed) keys to encrypt your Azure Container Registry, you need to create your own ACR and attach it while provisioning the workspace. 
+To use your own (customer-managed) keys to encrypt your Azure Container Registry, you need to create your own ACR and attach it while provisioning the workspace.
+
+For an example of creating a workspace using an existing Azure Container Registry, see the following articles:
+
+* [Create a workspace for Azure Machine Learning with Azure CLI](how-to-manage-workspace-cli.md).
+* [Use an Azure Resource Manager template to create a workspace for Azure Machine Learning](how-to-create-workspace-template.md)
 
 #### Azure Container Instance
 
