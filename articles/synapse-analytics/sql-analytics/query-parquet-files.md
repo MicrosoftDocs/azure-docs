@@ -1,6 +1,6 @@
 ---
-title: Query Parquet files using SQL on-demand resources
-description: In this article, you'll learn how to query Parquet files.
+title: Query Parquet files using SQL on-demand
+description: In this article, you'll learn how to query Parquet files using SQL on-demand.
 services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -11,9 +11,9 @@ ms.author: v-stazar
 ms.reviewer: jrasnick
 ---
 
-# Quickstart: Query Parquet files using SQL on-demand resources in SQL Analytics
+# Quickstart: Query Parquet files using SQL on-demand in Azure Synapse Analytics
 
-In this article, you'll learn how to write a query using SQL on-demand resources that will read Parquet files.
+In this article, you'll learn how to write a query using SQL on-demand that will read Parquet files.
 
 ## Prerequisites
 
