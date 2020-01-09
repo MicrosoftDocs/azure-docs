@@ -117,7 +117,7 @@ Before you can deploy your app, you'll need to create some Azure resources.
 
 ## Create a function app in Azure
 
-A function app provides an environment for executing your function code. It lets you group functions as a logical unit for easier management, deployment, and sharing of resources. 
+A function app provides an environment for executing your function code. It lets you group functions as a logical unit for easier management, deployment, scaling, and sharing of resources.
 
 Run the following command. Replace `<APP_NAME>` with a unique function app name. Replace `<STORAGE_NAME>` with a storage account name. The `<APP_NAME>` is also the default DNS domain for the function app. This name needs to be unique across all apps in Azure.
 
