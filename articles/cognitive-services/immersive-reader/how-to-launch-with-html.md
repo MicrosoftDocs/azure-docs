@@ -2,7 +2,6 @@
 title: "Launch the Immersive Reader with HTML content"
 titleSuffix: Azure Cognitive Services
 description: This article will show you how to launch the Immersive Reader with HTML content.
-services: cognitive-services
 author: metanMSFT
 manager: guillasi
 
@@ -13,13 +12,13 @@ ms.date: 01/14/2020
 ms.author: metan
 ---
 
-# How to Launch the Immersive Reader with HTML Content
+# How to launch the Immersive Reader with HTML content
 
 This article demonstrates how to launch the Immersive Reader with HTML content.
 
 ## Prepare the HTML content
 
-Place the content that you wish to show in the Immersive Reader inside a container element. Be sure to give the container element an `id`. The Immersive Reader provides support for basic HTML elements, see the [reference](./reference.md#html-support) for more information.
+Place the content that you want to render in the Immersive Reader inside of a container element. Be sure that the container element has a unique `id`. The Immersive Reader provides support for basic HTML elements, see the [reference](./reference.md#html-support) for more information.
 
 ```html
 <div id='immersive-reader-content'>
