@@ -51,6 +51,7 @@ az extension add --name aks-preview
 
 # Update the extension to make sure you have the latest version installed
 az extension update --name aks-preview
+```
 
 ## Create Azure Key Vault instance to store your keys
 
