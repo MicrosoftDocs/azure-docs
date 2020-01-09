@@ -85,12 +85,12 @@ For continuation *C* and end *E* flow states, byte and packet counts are aggrega
 
 The text that follows is an example of a flow log. As you can see, there are multiple records that follow the property list described in the preceding section.
 
-## NSG Flow Logging Considerations
+## NSG flow logging considerations
 
 **Storage account considerations**: 
 
-1. Location: The storage account used must be in the same region as the NSG.
-2. Self-manage key rotation: If you change/rotate the access keys to your storage account, NSG Flow Logs will stop working. To fix this issue, you must disable and then re-enable NSG Flow Logs.
+- Location: The storage account used must be in the same region as the NSG.
+- Self-manage key rotation: If you change/rotate the access keys to your storage account, NSG Flow Logs will stop working. To fix this issue, you must disable and then re-enable NSG Flow Logs.
 
 **Enable NSG Flow Logging on all NSGs attached to a resource**: Flow logging in Azure is configured on the NSG resource. A flow will only be associated to one NSG Rule. In scenarios where multiple NSGs are utilized, we recommend that NSG flow logging is enabled on all NSGs applied a resource's subnet or network interface to ensure that all traffic is recorded. For more information see [how traffic is evaluated](../virtual-network/security-overview.md#how-traffic-is-evaluated) in Network Security Groups.
 
