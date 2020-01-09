@@ -88,7 +88,10 @@ az disk-encryption-set create -n myDiskEncryptionSetName  -l myAzureRegionName  
 Use the DiskEncryptionSet and resource groups you created on the prior steps, and grant the DiskEncryptionSet resource access to the Azure Key Vault.
 
 ```azurecli
+# Retrieve the DiskEncryptionSet value and set a variable
 desIdentity=$(az disk-encryption-set show -n myDiskEncryptionSetName  -g myResourceGroup--query [identity.principalId] -o tsv)
+
+# Grant the DiskEncryptionSet resource read access to Key Vault
 az keyvault set-policy -n myKeyVaultName -g myResourceGroup--object-id $desIdentity --key-permissions wrapkey unwrapkey get
 az role assignment create --assignee $desIdentity --role Reader --scope $keyVaultId
 ```
@@ -98,12 +101,19 @@ az role assignment create --assignee $desIdentity --role Reader --scope $keyVaul
 Create a new resource group and AKS cluster, then use your key to encrypt the OS disk.
 
 ```azurecli-interactive
+# Retrieve the DiskEncryptionSet value and set a variable
 diskEncryptionSetId=$(az resource show -n $diskEncryptionSetName -g ssecmktesting --resource-type "Microsoft.Compute/diskEncryptionSets" --query [id] -o tsv)
+
+# Create a resource group for the AKS cluster
 az group create -n myResourceGroup-l myAzureRegionName
+
+# Create the AKS cluster
 az aks create -n myAKSCluster -g myResourceGroup --node-osdisk-diskencryptionsetid diskEncryptionId
 ```
 
 ## Encrypt an AKS cluster data disk with a customer-managed key
+
+TODO , encrypt the data disks steps for same cluster above?
 
 ## Limitations
 
