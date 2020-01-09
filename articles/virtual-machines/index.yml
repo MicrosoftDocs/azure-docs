@@ -30,7 +30,7 @@ sections:
       image: 
         src: media/index/get-started.svg
         href: /azure/virtual-machines/linux
-   - title: Troubleshoot virtual machine
+    - title: Troubleshoot virtual machine
       href: /azure/virtual-machines/troubleshooting
       image: 
         src: media/index/get-started.svg
