@@ -13,7 +13,7 @@ ms.reviewer: jrasnick
 
 # Quickstart: Query folders and multiple CSV files  
 
-In this article, you'll learn how to write a query using SQL on-demand resources within SQL Analytics. You'll be able to read from multiple CSV files.
+In this article, you'll learn how to write a query using SQL on-demand in Azure Synapse Analytics.
 
 SQL on-demand supports reading multiple files/folders by using wildcards, which are similar to the wildcards used in Windows OS. However, greater flexibility is present since multiple wildcards are allowed. 
 

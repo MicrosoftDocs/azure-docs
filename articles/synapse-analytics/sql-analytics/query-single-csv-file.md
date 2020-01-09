@@ -1,6 +1,6 @@
 ---
 title: Query single CSV files
-description: CSV files may have different formats. In this section, you'll learn how to query single CSV files with different file formats using SQL on-demand resources.
+description: In this article, you'll learn how to query single CSV files with different file formats using SQL on-demand.
 services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -13,7 +13,7 @@ ms.reviewer: jrasnick
 
 # Quickstart: Query single CSV files
 
-In this article, you'll learn how to query a single CSV file using SQL on-demand resources within SQL Analytics. CSV files may have different formats: 
+In this article, you'll learn how to query a single CSV file using SQL on-demand in Azure Synapse Analytics. CSV files may have different formats: 
 
 - With and without a header row
 - Comma and tab-delimited values
