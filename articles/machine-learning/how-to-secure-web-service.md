@@ -1,7 +1,7 @@
 ---
 title: Secure web services using SSL
 titleSuffix: Azure Machine Learning
-description: Learn how to enable HTTPS in order too secure a web service that's deployed through Azure Machine Learning. 
+description: Learn how to enable HTTPS in order to secure a web service that's deployed through Azure Machine Learning. 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -23,6 +23,8 @@ You use [HTTPS](https://en.wikipedia.org/wiki/HTTPS) to restrict access to web s
 
 > [!TIP]
 > The Azure Machine Learning SDK uses the term "SSL" for properties that are related to secure communications. This doesn't mean that your web service doesn't use *TLS*. SSL is just a more commonly recognized term.
+>
+> Specifically, web services deployed through Azure Machine Learning only support TLS version 1.2.
 
 TLS and SSL both rely on *digital certificates*, which help with encryption and identity verification. For more information on how digital certificates work, see the Wikipedia topic [Public key infrastructure](https://en.wikipedia.org/wiki/Public_key_infrastructure).
 

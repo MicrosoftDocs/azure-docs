@@ -31,7 +31,7 @@ You tag resources to add values that help you identify their use. For example, y
 
 The following example highlights the changes to the template. Copy the whole file and replace your template with its contents.
 
-[!code-json[](~/resourcemanager-templates/get-started-with-templates/add-tags/azuredeploy.json?range=1-118&highlight=46-52,64,78,100)]
+[!code-json[](~/resourcemanager-templates/get-started-with-templates/add-tags/azuredeploy.json?range=1-118&highlight=46-52,64,86,103)]
 
 ## Deploy template
 

@@ -44,12 +44,13 @@ Unmanaged VM disks are not supported in accounts that have a hierarchical namesp
 
 ## Filesystem Support in SDKs
 
-- .NET, Java and Python are in public preview. Other SDKs are not currently supported.
-- Get and Set ACLs operations are not currently recursive.
+- [.NET](data-lake-storage-directory-file-acl-dotnet.md), [Java](data-lake-storage-directory-file-acl-java.md) and [Python](data-lake-storage-directory-file-acl-python.md) support are in public preview. Other SDKs are not currently supported.
+- Get and set ACL operations are not currently recursive.
 
 ## Filesystem Support in PowerShell and Azure CLI
 
-Get and Set ACLs operations are not currently recursive.
+- [PowerShell](data-lake-storage-directory-file-acl-powershell.md) and [Azure CLI](data-lake-storage-directory-file-acl-cli.md) support are in public preview.
+- Get and set ACL operations are not currently recursive.
 
 ## Support for other Blob Storage features
 

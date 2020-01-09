@@ -148,7 +148,7 @@ Once you've set up your images, define a label at the top of your script for the
 
 [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_persongroupvars)]
 
-Then add the following code to the bottom of your script. This code creates a **PersongGroup** and three **Person** objects.
+Then add the following code to the bottom of your script. This code creates a **PersonGroup** and three **Person** objects.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_persongroup_create)]
 
