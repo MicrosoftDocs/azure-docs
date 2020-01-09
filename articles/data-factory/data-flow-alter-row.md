@@ -1,19 +1,18 @@
 ---
-title: Mapping data flow Alter Row Transformation
-description: How to update database target using Azure Data Factory mapping data flow Alter Row Transformation
+title: Alter row transformation in mapping data flow
+description: How to update database target using the alter row transformation in mapping data flow
 author: kromerm
 ms.author: makromer
+ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 03/12/2019
+ms.date: 01/08/2020
 ---
 
-# Azure Data Factory Alter Row Transformation
+# Alter row transformation in mapping data flow
 
 Use the Alter Row transformation to set insert, delete, update, and upsert policies on rows. You can add one-to-many conditions as expressions. These conditions should be specified in order of priority, as each row will be marked with the policy corresponding to the first-matching expression. Each of those conditions can result in a row (or rows) being inserted, updated, deleted, or upserted. Alter Row can produce both DDL & DML actions against your database.
-
-
 
 ![Alter row settings](media/data-flow/alter-row1.png "Alter Row Settings")
 
@@ -47,6 +46,36 @@ The default behavior in ADF Data Flow with database sinks is to insert rows. If 
 
 > [!NOTE]
 > If your inserts, updates, or upserts modify the schema of the target table in the sink, your data flow will fail. In order to modify the target schema in your database, you must choose the "Recreate table" option in the sink. This will drop and recreate your table with the new schema definition.
+
+## Data flow script
+
+### Syntax
+
+```
+<incomingStream>
+    alterRow(
+           insertIf(<condition>?),
+           updateIf(<condition>?),
+           deleteIf(<condition>?),
+           upsertIf(<condition>?),
+        ) ~> <alterRowTransformationName>
+```
+
+### Example
+
+The below example is an alter row transformation named `CleanData` that takes an incoming stream `SpecifyUpsertConditions` and creates three alter row conditions. In the previous transformation, a column named `alterRowCondition` is calculated that determines whether or not a row is inserted, updated, or deleted in the database. If the value of the column has a string value that matches the alter row rule, it is assigned that policy.
+
+In the Data Factory UX, this transformation looks like the below image:
+
+![Alter row example](media/data-flow/alter-row4.png "Alter row example")
+
+The data flow script for this transformation is in the snippet below:
+
+```
+SpecifyUpsertConditions alterRow(insertIf(alterRowCondition == 'insert'),
+	updateIf(alterRowCondition == 'update'),
+	deleteIf(alterRowCondition == 'delete')) ~> AlterRow
+```
 
 ## Next steps
 
