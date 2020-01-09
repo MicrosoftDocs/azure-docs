@@ -11,13 +11,20 @@ ms.date: 01/06/2019
 
 # Bring your own key disk encryption on Azure HDInsight
 
-Azure HDInsight includes Bring Your Own Key (BYOK) support for all cluster types. This capability lets you own and manage the keys used to encrypt data at rest.
+Azure HDInsight supports Bring Your Own Key (BYOK) encryption for data on managed disks and resource disks attached to HDInsight cluster VMs. This feature, similar to [Azure Disk Encryption](../security/fundamentals/azure-disk-encryption-vms-vmss.md), allows you to use Azure Key Vault to manage the encryption keys that secure data at rest on your HDInsight clusters. This feature is different than  [Azure Storage encryption](../storage/common/storage-service-encryption.md).  Your clusters may have one or more attached Azure Storage accounts where the encryption keys could also be Microsoft-managed or customer-managed, but the encryption service is different.
 
-All managed disks in HDInsight are protected with Azure Storage Service Encryption (SSE). By default, the data on those disks is encrypted using Microsoft-managed keys. If you enable BYOK, you provide the encryption key for HDInsight to use and manage it using Azure Key Vault.
+The following HDInsight 3.6 cluster types are not supported for BYOK disk encryption:
+
+* Spark 2.1 and 2.2
+* Kafka 1.0
+* ML Services
+* Storm
+
+All managed disks and resource disks in HDInsight are protected with Azure Storage Service Encryption (SSE). By default, the data on those disks is encrypted using Microsoft-managed keys. If you enable BYOK, you provide the encryption key for HDInsight to use and manage it using Azure Key Vault.
 
 BYOK encryption is a one-step process handled during cluster creation at no additional cost. All you need to do is register HDInsight as a managed identity with Azure Key Vault and add the encryption key when you create your cluster.
 
-All messages to the cluster are encrypted with a symmetric Data Encryption Key (DEK). The DEK is protected using the Key Encryption Key (KEK) from your key vault. The encryption and decryption processes are handled entirely by Azure HDInsight.
+Both resource disk and managed disks on each node of the cluster are encrypted with a symmetric Data Encryption Key (DEK). The DEK is protected using the Key Encryption Key (KEK) from your key vault. The encryption and decryption processes are handled entirely by Azure HDInsight.
 
 You can use the Azure portal or Azure CLI to safely rotate the keys in the key vault. When a key rotates, the HDInsight cluster starts using the new key within minutes. Enable the "Soft Delete" key protection features to protect against ransomware scenarios and accidental deletion. Key vaults without this protection feature aren't supported.
 
@@ -32,7 +39,7 @@ To create a BYOK enabled HDInsight cluster, we'll go through the following steps
 
 ## Create managed identities for Azure resources
 
-To authenticate to Key Vault, create a user-assigned managed identity using the [Azure portal](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md), [Azure PowerShell](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md), [Azure Resource Manager](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-arm.md), or [Azure CLI](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli.md). For more information on how managed identities work in Azure HDInsight, see [Managed identities in Azure HDInsight](../hdinsight-managed-identities.md). While Azure Active directory is required for managed identities and BYOK to Kafka, Enterprise Security Package (ESP) isn't a requirement. Be sure to save the managed identity resource ID for when you add it to the Key Vault access policy.
+To authenticate to Key Vault, create a user-assigned managed identity using the [Azure portal](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md), [Azure PowerShell](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md), [Azure Resource Manager](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-arm.md), or [Azure CLI](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli.md). For more information on how managed identities work in Azure HDInsight, see [Managed identities in Azure HDInsight](../hdinsight-managed-identities.md). Be sure to save the managed identity resource ID for when you add it to the Key Vault access policy.
 
 ![Create user-assigned managed identity in Azure portal](./media/disk-encryption/user-managed-identity-portal.png)
 
@@ -40,7 +47,7 @@ To authenticate to Key Vault, create a user-assigned managed identity using the 
 
 HDInsight only supports Azure Key Vault. If you have your own key vault, you can import your keys into Azure Key Vault. Remember that the keys must have "Soft Delete". The "Soft Delete" feature is available through the REST, .NET/C#, PowerShell, and Azure CLI interfaces.
 
-1. To create a new key vault, follow the [Azure Key Vault](../../key-vault/key-vault-overview.md) quickstart. For more information about importing existing keys, visit [About keys, secrets, and certificates](../../key-vault/about-keys-secrets-and-certificates.md).
+1. To create a new key vault, follow the [Azure Key Vault](../key-vault/key-vault-overview.md) quickstart. For more information about importing existing keys, visit [About keys, secrets, and certificates](../key-vault/about-keys-secrets-and-certificates.md).
 
 1. Enable "soft-delete" on the key-vault by using the [az keyvault update](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-update) CLI command.
 
@@ -112,9 +119,9 @@ Associate a managed identity with the HDInsight cluster during cluster creation.
 
 BYOK encryption is available for all cluster types except Spark 2.1 and 2.2.
 
-**Can I have different keys for different topics/partitions?**
+**Can I use multiple keys to encrypt different disks or folders?**
 
-No, all managed disks in the cluster are encrypted by the same key.
+No, all managed disks and resource disks are encrypted by the same key.
 
 **What happens if the cluster loses access to the key vault or the key?**
 
@@ -126,19 +133,19 @@ If the cluster loses access to the key, warnings will be shown in the Apache Amb
 
 Since only “Soft Delete” enabled keys are supported, if the keys are recovered in the key vault, the cluster should regain access to the keys. To recover an Azure Key Vault key, see [Undo-AzKeyVaultKeyRemoval](/powershell/module/az.keyvault/Undo-AzKeyVaultKeyRemoval) or [az-keyvault-key-recover](/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-recover).
 
-**Are OS disks/Resource disks also encrypted?**
+**Which disk types are encrypted? Are OS disks/resource disks also encrypted?**
 
-No. OS disks and Resource disks aren't encrypted.
+Resource disks and data/managed disks are encrypted. OS disks are not encrypted.
 
-**If a cluster is scaled up, will the new brokers support BYOK seamlessly?**
+**If a cluster is scaled up, will the new nodes support BYOK seamlessly?**
 
-Yes. The cluster needs access to the key in the key vault during scale up. The same key is used to encrypt all managed disks in the cluster.
+Yes. The cluster needs access to the key in the key vault during scale up. The same key is used to encrypt both managed disks and resource disks in the cluster.
 
 **Is BYOK available in my location?**
 
-HDInsight BYOK is available in all public clouds.
+HDInsight BYOK is available in all public clouds and national clouds.
 
 ## Next steps
 
-* For more information about Azure Key Vault, see [What is Azure Key Vault](../../key-vault/key-vault-overview.md)?
-* To get started with Azure Key Vault, see [Getting Started with Azure Key Vault](../../key-vault/key-vault-overview.md).
+* [Azure Disk Encryption](../security/fundamentals/azure-disk-encryption-vms-vmss.md)
+* [Encrypt OS and attached data disks in a virtual machine scale set with the Azure CLI](https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/disk-encryption-cli)
