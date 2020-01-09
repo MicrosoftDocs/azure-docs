@@ -5,7 +5,7 @@ author: roaror
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: conceptual
-ms.date: 04/17/2019
+ms.date: 01/09/2020
 ms.author: roaror
 ---
 
@@ -25,9 +25,9 @@ If you have already completed the above pre-requisites for migration, you can [M
 
 The following are specific characteristics about Azure Cosmos DB's API for MongoDB:
 - **Capacity model**: Database capacity on Cosmos DB is based on a throughput-based model. This model is based on [Request Units per second](request-units.md), which is a unit that represents the number of database operations that can be executed against a collection on a per-second basis. This capacity can be allocated at [a database or collection level](set-throughput.md), and it can works on an allocation model, or an [AutoPilot model](provision-throughput-autopilot.md).
-- **Request Units**: Every database operation has an associated Request Units (RUs) cost in Cosmos DB. When executed, this is substracted from the available request units level on a given second. If a request requires more RUs than currently allocated the two options are increasing the amount of RUs, or waiting until the next second starts, then retrying the operation.
+- **Request Units**: Every database operation has an associated Request Units (RUs) cost in Cosmos DB. When executed, this is subtracted from the available request units level on a given second. If a request requires more RUs than currently allocated the two options are increasing the amount of RUs, or waiting until the next second starts, then retrying the operation.
 - **Elastic capacity**: The capacity for a given collection or database can change at any time. This allows for the database to elastically adapt to the throughput requirements of your workload.
-- **Automatic sharding**: Cosmos DB provides an automatic partitioning system that only requires a shard (or partitioning) key. The [automatic partitioning mechanism](partition-data.md) is shared across all Cosmos DB APIs and it allows for seamless data and throughout scaling through horizointal distribution.
+- **Automatic sharding**: Cosmos DB provides an automatic partitioning system that only requires a shard (or partitioning) key. The [automatic partitioning mechanism](partition-data.md) is shared across all Cosmos DB APIs and it allows for seamless data and throughout scaling through horizontal distribution.
 
 ## <a id="options">Migration options for Azure Cosmos DB's API for MongoDB</a>
 
@@ -61,8 +61,10 @@ This command will output a JSON document similar to the following:
 
 After you understand the number of RUs consumed by a query and the concurrency needs for that query, you can adjust the number of provisioned RUs. Optimizing RUs is not a one-time event - you should continually optimize or scale up the RUs provisioned, depending on whether you are not expecting a heavy traffic, as opposed to a heavy workload or importing data.
 
-## <a id="partitioning"></a>Choose your partition key
-Partitioning is a key point of consideration before migrating to a globally distributed Database like Azure Cosmos DB. Azure Cosmos DB uses partitioning to scale individual containers in a database to meet the scalability and performance needs of your application. In partitioning, the items in a container are divided into distinct subsets called logical partitions. For details and recommendations on choosing the right partition key for your data, please see the [Choosing a Partition Key section](https://docs.microsoft.com/azure/cosmos-db/partitioning-overview#choose-partitionkey). 
+## <a id="partitioning">Choose your partition key</a>
+Partitioning is a key point of consideration before migrating to a globally distributed database like Azure Cosmos DB. Azure Cosmos DB uses partitioning to scale individual containers in a database to meet the storage and throughput needs of your application. This feature works in a similar way as sharding, without the need to host and configure routing servers.  
+
+In a similar way, the partitioning capability automatically adds capacity and re-balances the data accordingly. For details and recommendations on choosing the right partition key for your data, please see the [Choosing a Partition Key article](https://docs.microsoft.com/azure/cosmos-db/partitioning-overview#choose-partitionkey). 
 
 ## <a id="indexing"></a>Index your data
 By default, Azure Cosmos DB indexes all your data fields upon ingestion. You can modify the [indexing policy](index-policy.md) in Azure Cosmos DB at any time. In fact, it is often recommended to turn off indexing when migrating data, and then turn it back on when the data is already in Cosmos DB. For more details on indexing, you can read more about it in the [Indexing in Azure Cosmos DB](index-overview.md) section. 
