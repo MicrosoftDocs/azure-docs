@@ -179,12 +179,14 @@ Here's the request body syntax for the properties and values that you need to cr
 
 Within *30 minutes* after you send the HTTP PUT request to create your ISE, you must give your ISE's system-assigned identity access to your key vault. Otherwise, creation for your ISE fails, and you get a permissions error. You can use either the Azure PowerShell [Set-AzKeyVaultAccessPolicy](https://docs.microsoft.com/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) command, or you can follow these steps for the Azure portal:
 
-1. In the [Azure portal](https://portal.azure.com), open your Azure key vault. From your key vault's menu, select **Access control (IAM)**.
+1. In the [Azure portal](https://portal.azure.com), open your Azure key vault.
 
-1. On the toolbar, select **Add** > **Add role assignment**.
+1. On your key vault menu, select **Access control (IAM)**. On the toolbar, select **Add** > **Add role assignment**, for example:
+
+   ![Add role to key vault for your integration service environment](./media/customer-managed-keys-integration-service-environment/give-ise-access-to-key-vault.png)
 
    > [!TIP]
-   > If the Add role assignment option is disabled, you most likely don't have permissions. 
+   > If the **Add role assignment** option is disabled, you most likely don't have permissions. 
    > For more information about the permissions that let you manage roles for resources, see 
    > [Administrator role permissions in Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md).
 
