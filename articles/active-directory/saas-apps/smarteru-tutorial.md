@@ -18,6 +18,9 @@ ms.date: 03/19/2019
 ms.author: jeedes
 
 ---
+
+Note: This document is maintained by Microsoft. The process for integrating SmarterU with Azure AD is also documented and maintained by SmarterU in the [SmarterU help system](https://help.smarteru.com/ID2053086).
+
 # Tutorial: Azure Active Directory integration with SmarterU
 
 In this tutorial, you learn how to integrate SmarterU with Azure Active Directory (Azure AD).
