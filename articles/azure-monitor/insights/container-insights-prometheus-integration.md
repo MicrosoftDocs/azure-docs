@@ -24,7 +24,7 @@ Scraping of Prometheus metrics is supported on Kubernetes clusters hosted on:
 
 ## Azure Red Hat OpenShift Prerequisites
 
-Before you start, confirm you are a member of the Customer Cluster Admin role of your Azure Red Hat OpenShift cluster to configure the containerized agent and Prometheus scraping settings. To verify you are a member of the `osa-customer-admins` group, run the following command:
+Before you start, confirm you are a member of the Customer Cluster Admin role of your Azure Red Hat OpenShift cluster to configure the containerized agent and Prometheus scraping settings. To verify you are a member of the *osa-customer-admins* group, run the following command:
 
 ``` bash
   oc get groups
@@ -37,7 +37,7 @@ NAME                  USERS
 osa-customer-admins   <your-user-account>@<your-tenant-name>.onmicrosoft.com
 ```
 
-If you are member of `osa-customer-admins` group, you should be able to list the `container-azm-ms-agentconfig` ConfigMap using the following command:
+If you are member of *osa-customer-admins* group, you should be able to list the `container-azm-ms-agentconfig` ConfigMap using the following command:
 
 ``` bash
 oc get configmaps container-azm-ms-agentconfig -n openshift-azure-logging
@@ -156,7 +156,7 @@ Perform the following steps to configure and deploy your ConfigMap configuration
     
     Example: `kubectl apply -f container-azm-ms-agentconfig.yaml`. 
     
-4. To create ConfigMap on Azure Red Hat OpenShift clusters, save `container-azm-ms-agentconfig.yaml` in `openshift-azure-logging` namespace with your configuration settings using the following command:
+4. To create ConfigMap on Azure Red Hat OpenShift clusters, save `container-azm-ms-agentconfig.yaml` in *openshift-azure-logging* namespace with your configuration settings using the following command:
 
     ``` bash
     oc edit configmaps container-azm-ms-agentconfig -n openshift-azure-logging
