@@ -92,9 +92,9 @@ To create an invoice section, you need to be a **billing profile owner** or a **
 
 To create a billing profile, you need to be a **billing account owner** or a **billing account contributor**. For more information, see [Manage billing profiles for billing account](billing-understand-mca-roles.md#manage-billing-profiles-for-billing-account).
 
-> [!IMPORTANT]
->
-> Creating additional billing profiles may impact your overall cost. For more information, see [Things to consider when adding new billing profiles](#things-to-consider-when-adding-new-billing-profiles).
+    > [!IMPORTANT]
+    >
+    > Creating additional billing profiles may impact your overall cost. For more information, see [Things to consider when adding new billing profiles](#things-to-consider-when-adding-new-billing-profiles).
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -106,9 +106,9 @@ To create a billing profile, you need to be a **billing account owner** or a **b
 
    [![Screenshot that shows billing profile list](./media/billing-mca-section-invoice/mca-list-profiles.png)](./media/billing-mca-section-invoice/mca-list-profiles-zoomed-in.png#lightbox)
 
-> [!Note]
->
-> If you don't see the Add button in the Billing profile page, the feature is not available for your account. Currently, it is only available for accounts that have been set up while working with a Microsoft representative.
+    > [!Note]
+    >
+    > If you don't see the Add button in the Billing profile page, the feature is not available for your account. Currently, it is only available for accounts that have been set up while working with a Microsoft representative.
 
 4. Fill the form and click **Create**.
 
@@ -155,9 +155,9 @@ Once you have customized your billing account based on your needs, you can link 
 
 If you have existing Azure subscriptions or other products such as Azure Marketplace and App source resources, you can move them from their existing invoice section to another invoice section to reorganize your costs. 
 
-> [!IMPORTANT]
->
-> Subscriptions and other products can only be moved between invoice sections that belong to the same billing profile. Moving subscriptions and products across invoice sections in different billing profiles is not supported.
+    > [!IMPORTANT]
+    >
+    > Subscriptions and other products can only be moved between invoice sections that belong to the same billing profile. Moving subscriptions and products across invoice sections in different billing profiles is not supported.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
