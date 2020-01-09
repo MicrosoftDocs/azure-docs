@@ -21,51 +21,52 @@ You can reference the below section to understand the relevant query optimizatio
 ### Query's RU charge is too high
 
 <br>
-<br>
 
 #### Loaded Document Count is significantly greater than Retrieved Document Count
 
-a. [Ensure that the indexing policy includes necessary paths](troubleshoot-query-performance.md#Ensure-that-the-indexing-policy-includes-necessary-paths)
+a. [Ensure that the indexing policy includes necessary paths](#ensure-that-the-indexing-policy-includes-necessary-paths)
 
-b. [Understand which system functions utilize the index](troubleshoot-query-performance.md#Understand-which-system-functions-utilize-the-index)
+b. [Understand which system functions utilize the index](#understand-which-system-functions-utilize-the-index)
 
-c. [Optimize queries with both a filter and an ORDER BY clause](troubleshoot-query-performance.md#Optimize-queries-with-both-a-filter-and-an-ORDER-BY-clause)
+c. [Optimize queries with both a filter and an ORDER BY clause](#optimize-queries-with-both-a-filter-and-an-order-by-clause)
 
-d. [Optimize queries that use DISTINCT](#Optimize-queries-that-use-DISTINCT)
+d. [Optimize queries that use DISTINCT](#optimize-queries-that-use-distinct)
 
-e. [Optimize JOIN expressions by using a subquery](troubleshoot-query-performance.md#Optimize-JOIN-expressions-by-using-a-subquery)
+e. [Optimize JOIN expressions by using a subquery](#optimize-join-expressions-by-using-a-subquery)
 
 <br>
 
 #### Loaded Document Count is approximately equal to Retrieved Document Count
 
-a. [Avoid cross partition queries](troubleshoot-query-performance.md#Avoid-cross-partition-queries)
+a. [Avoid cross partition queries](#Avoid-cross-partition-queries)
 
-b. [Optimize queries that have a filter on multiple properties](troubleshoot-query-performance.md#Optimize-queries-that-have-a-filter-on-multiple-properties)
+b. [Optimize queries that have a filter on multiple properties](#optimize-queries-that-have-a-filter-on-multiple-properties)
 
-c. [Optimize queries with both a filter and an ORDER BY clause](troubleshoot-query-performance.md#Optimize-queries-with-both-a-filter-and-an-ORDER-BY-clause)
+c. [Optimize queries with both a filter and an ORDER BY clause](#optimize-queries-with-both-a-filter-and-an-order-by-clause)
 
 <br>
 
 ### Query's RU charge is acceptable but latency is still too high
 
-a. [Improving proximity between your app and Azure Cosmos DB](troubleshoot-query-performance.md#Improving-proximity-between-your-app-and-Azure-Cosmos-DB)
+a. [Improving proximity between your app and Azure Cosmos DB](#improving-proximity-between-your-app-and-azure-cosmos-db)
 
-b. [Increasing provisioned throughput](troubleshoot-query-performance.md#Increasing-provisioned-throughput)
+b. [Increasing provisioned throughput](#increasing-provisioned-throughput)
 
-c. [Increasing MaxConcurrency](troubleshoot-query-performance.md#Increasing-MaxConcurrency)
+c. [Increasing MaxConcurrency](#increasing-maxconcurrency)
 
-d. [Increasing MaxBufferedItemCount](troubleshoot-query-performance.md#Increasing-MaxBufferedItemCount)
+d. [Increasing MaxBufferedItemCount](#increasing-maxbuffereditemcount)
 
 ### Obtaining query metrics:
 
-When optimizing a query in Azure Cosmos DB, the first step is always to [obtain the query metrics](https://docs.microsoft.com/en-us/azure/cosmos-db/sql-api-sql-query-metrics#query-execution-metrics) for your query These are also available through the Azure Portal as shown below:
+When optimizing a query in Azure Cosmos DB, the first step is always to [obtain the query metrics](sql-api-sql-query-metrics.md#query-execution-metrics) for your query.  These are also available through the Azure Portal as shown below:
 
 ![Obtaining query metrics](./media/troubleshoot-query-performance/obtain-query-metrics.jpg)
 
+After obtaining query metrics, compare the Retrieved Document Count with the Loaded Document Count for your query. Use this comparison to identify the relevant sections to reference below.
+
 ## Optimizations for queries where Loaded Document Count significantly exceeds Retrieved Document Count:
 
-After obtaining query metrics, compare the Retrieved Document Count with the Loaded Document Count for your query. The Retrieved Document Count is the number of documents that will show up in the results of your query. The Loaded Document Count is the number of documents that needed to be scanned. If the Loaded Document Count is significantly higher than the Retrieved Document Count, then there was at least one part of your query that was unable to utilize the index.
+ The Retrieved Document Count is the number of documents that will show up in the results of your query. The Loaded Document Count is the number of documents that needed to be scanned. If the Loaded Document Count is significantly higher than the Retrieved Document Count, then there was at least one part of your query that was unable to utilize the index.
 
 ## Ensure that the indexing policy includes necessary paths
 
