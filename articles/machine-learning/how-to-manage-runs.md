@@ -110,17 +110,6 @@ To start a submit a pipeline run in the designer (preview), use the following st
 
 1. Select an Experiment to group your pipeline runs.
 
-You can also resubmit pipeline runs using the same parameters and settings in the studio.
-
-1. In the **Pipeline** section of the studio, select a pipeline run number.
-
-1. Select the **Child runs** tab.
-
-1. Select **Resubmit**.
-
-> [!TIP]
-> You can **Clone** a pipeline run to create an editable pipeline draft. This lets you use a previous pipeline run as a starting point for a new pipeline.
-
 ## Monitor the status of a run
 
 ### Using the SDK
