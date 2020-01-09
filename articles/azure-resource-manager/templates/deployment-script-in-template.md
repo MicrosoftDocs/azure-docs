@@ -109,14 +109,14 @@ Property value details:
 
 ## Use inline scripts
 
-The following template has one resource defined with the `Microsoft.Resources/deploymentScripts` type. The second highlighted part shows the inline script.
+The following template has one resource defined with the `Microsoft.Resources/deploymentScripts` type.
 
-[!code-json[](~/resourcemanager-templates/deployment-script/deploymentscript-helloworld.json?range=1-54&highlight=19,34-40,50)]
+[!code-json[](~/resourcemanager-templates/deployment-script/deploymentscript-helloworld.json?range=1-54)]
 
 > [!NOTE]
 > Because the inline deployment scripts are enclosed in double quotes, the strings inside the deployment scripts need to be enclosed in single quotes instead. The escape character for PowerShell is **&#92;**. You can also consider using string substitution as it is shown in the previous JSON sample. See the default value of the name parameter.
 
-The script takes one parameter, and output the parameter value. **DeploymentScriptOutputs** is used for storing outputs.  In the outputs section, the highlighted line shows how to access the stored values. `Write-Output` is used for debugging purpose. To learn how to access the output file, see [Debug deployment scripts](#debug-deployment-scripts).  For the property descriptions, see [Resource schema](#resource-schema).
+The script takes one parameter, and output the parameter value. **DeploymentScriptOutputs** is used for storing outputs.  In the outputs section, the **value** line shows how to access the stored values. `Write-Output` is used for debugging purpose. To learn how to access the output file, see [Debug deployment scripts](#debug-deployment-scripts).  For the property descriptions, see [Resource schema](#resource-schema).
 
 To run the script, select **Try it** to open the Cloud shell, and then paste the following code into the shell pane.
 
@@ -170,17 +170,15 @@ The supporting files are copied to azscripts/azscriptinput at the runtime. Use r
 
 ## Work with outputs from deployment scripts
 
-The highlighted lines in the following template show how to pass values between two deploymentScripts resources:
+The following template show how to pass values between two deploymentScripts resources:
 
-[!code-json[](~/resourcemanager-templates/deployment-script/deploymentscript-basic.json?range=1-84&highlight=39-40,66)]
+[!code-json[](~/resourcemanager-templates/deployment-script/deploymentscript-basic.json?range=1-84)]
 
 In the first resource, you define a variable called **$DeploymentScriptOutputs**, and use it to store the output values. To access the output value from another resource within the template, use:
 
 ```json
 reference('<ResourceName>').output.text
 ```
-
-Declaring **$DeploymentScriptOutputs** is only required when testing the script on a local machine. You don't need to remove the declaration when you use the script in a deploymentScript resource.
 
 ## Debug deployment scripts
 
@@ -211,9 +209,9 @@ armclient get /subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourcegroups
 
 The output is similar to:
 
-[!code-json[](~/resourcemanager-templates/deployment-script/deploymentscript-status.json?range=1-48&highlight=15,24-25)]
+[!code-json[](~/resourcemanager-templates/deployment-script/deploymentscript-status.json?range=1-48)]
 
-The highlighted lines show the deployment state, and the deployment script resource IDs.
+The output shows the deployment state, and the deployment script resource IDs.
 
 The following REST API returns the log:
 
