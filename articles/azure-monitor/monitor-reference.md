@@ -191,7 +191,7 @@ The services and solutions in the following table store their data in a Log Anal
 
 
 ## Other solutions
-Other solutions are available for monitoring different applications and services, but active development has stopped and they may not be available in all regions. They are covered by the Azure Log Analytics data ingestion service level agreement
+Other solutions are available for monitoring different applications and services, but active development has stopped and they may not be available in all regions. They are covered by the Azure Log Analytics data ingestion service level agreement.
 
 | Solution | Description |
 |:---|:---|
@@ -208,7 +208,7 @@ Other solutions are available for monitoring different applications and services
 
 | Solution | Description |
 |:---|:---|
-| [ITSM](platform/itsmc-overview.md) | Connect your ITSM product/service and Azure Monitor to centrally manage your work items. Support shared between Microsoft and Service Now.  |
+| [ITSM](platform/itsmc-overview.md) | The IT Service Management Connector (ITSMC) allows you to connect Azure and a supported IT Service Management (ITSM) product/service.  |
 
 
 ## Resources outside of Azure
