@@ -14,12 +14,9 @@ There is also a [Visual Studio Code-based version](/azure/python/tutorial-vs-cod
 
 ## Prerequisites
 
-- [Python 3.7.4](https://www.python.org/downloads/release/python-374/). (Python 3.7.4 is verified with Azure Functions; Python 3.8 and later versions are not yet supported.)
-
 - The [Azure Functions Core Tools](./functions-run-local.md#v2) version 2.7.1846 or a later.
-
 - The [Azure CLI](/cli/azure/install-azure-cli) version 2.0.76 or later.
-
+- [Python 3.7.4](https://www.python.org/downloads/release/python-374/). (Python 3.7.4 is verified with Azure Functions; Python 3.8 and later versions are not yet supported.)
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
 ## Create and activate a virtual environment
@@ -71,21 +68,21 @@ You run all subsequent commands in this activated virtual environment. (To exit 
 
 In Azure Functions, a function project is a container for one or more individual functions that each responds to a specific trigger. All functions in a project share the same local and hosting configurations. In this section you create a function project that contains a single function.
 
-1. In the virtual environment, run the `func init` command to create a project for Python functions in a folder named *MyFunctionProj*:
+1. In the virtual environment, run the `func init` command to create a functions project in a folder named *LocalFunctionProj* with the specified runtime:
 
     ```
-    func init MyFunctionProj --python
+    func init LocalFunctionProj --python
     ```
     
-    This folder contains various files for the project, including *requirements.txt*, the local configuration file [local.settings.json](functions-run-local.md#local-settings-file), and the cloud host configuration file [host.json](functions-host-json.md).
+    This folder contains various files for the project, including configurations files named [local.settings.json](functions-run-local.md#local-settings-file) and [host.json](functions-host-json.md).
 
-1. Navigate into that folder where you add function code in the next step.
+1. Navigate into the project folder:
 
     ```
-    cd MyFunctionProj
+    cd LocalFunctionProj
     ```
     
-1. Add a function to your project by using the following command, where the `--name` argument is the unique name of your function and the `--template` argument specifies the function's trigger. `func new` create a subfolder matching the function name that contains a code file named *\_\_init\_\_.py* and a configuration file named configuration file named *function.json*.
+1. Add a function to your project by using the following command, where the `--name` argument is the unique name of your function and the `--template` argument specifies the function's trigger. `func new` create a subfolder matching the function name that contains a code file appropriate to the project's chosen language and a configuration file named *function.json*.
 
     ```
     func new --name HttpExample --template "HTTP trigger"
@@ -159,13 +156,13 @@ Each binding requires a direction, a type, and a unique name. The HTTP trigger h
 
 ## Run the function locally
 
-Start the function by starting the local Azure Functions runtime host in the *MyFunctionProj* folder:
+Start the function by starting the local Azure Functions runtime host in the *LocalFunctionProj* folder:
 
 ```
 func host start
 ```
 
-The following output should appear. (If HttpExample doesn't appear as shown below, you likely started the host from within the *HttpExample* folder. In that case, use **Ctrl**+**C** to stop the host, navigate to the parent *MyFunctionProj* folder, and run `func host start` again.)
+The following output should appear. (If HttpExample doesn't appear as shown below, you likely started the host from within the *HttpExample* folder. In that case, use **Ctrl**+**C** to stop the host, navigate to the parent *LocalFunctionProj* folder, and run `func host start` again.)
 
 ```output
 Now listening on: http://0.0.0.0:7071
@@ -223,7 +220,7 @@ You use Azure CLI commands to create these items. Each command provides JSON out
     az functionapp create --resource-group AzureFunctionsQuickstart-rg --os-type Linux --consumption-plan-location westeurope --runtime python --name <app_name> --storage-account <storage_name>
     ```
     
-    This command creates a function app running Python 3.7 under the [Azure Functions Consumption Plan](functions-scale.md#consumption-plan), which is free for the amount of usage you incur here. The command also provisions an associated Azure Application Insights instance in the same resource group, with which you can monitor your function app and view logs. For more information, see [Monitor Azure Functions](functions-monitoring.md). The instance incurs no costs until you activate it.
+    This command creates a function app running the indivated language runtime under the [Azure Functions Consumption Plan](functions-scale.md#consumption-plan), which is free for the amount of usage you incur here. The command also provisions an associated Azure Application Insights instance in the same resource group, with which you can monitor your function app and view logs. For more information, see [Monitor Azure Functions](functions-monitoring.md). The instance incurs no costs until you activate it.
     
 ## Deploy the function project to Azure
 
@@ -239,10 +236,6 @@ The command shows results similar to the following output (truncated for simplic
 Getting site publishing info...
 Creating archive for current directory...
 Performing remote build for functions project.
-
-...
-
-Running pip install...
 
 ...
 
@@ -278,7 +271,9 @@ Run [curl](https://curl.haxx.se/) with the **Invoke url**, appending the paramet
 
 ## Clean up resources
 
-Unless you continue to the next step, [Add an Azure Storage queue output binding](functions-add-output-binding-storage-queue-python.md), use the following command to delete the resource group you created to avoid incurring further costs. Deleting a resource group deletes all the resources within that group.
+If you continue to the next step, [Add an Azure Storage queue output binding](functions-add-output-binding-storage-queue-python.md), keep all your resources in place as you'll build on what you've already done.
+
+Otherwise, use the following command to delete the resource group and all its contained resources to avoid incurring further costs.
 
 ```azurecli
 az group delete --name AzureFunctionsQuickstart-rg
