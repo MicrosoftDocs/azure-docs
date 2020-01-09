@@ -36,7 +36,7 @@
   - name: Load balance internet traffic to VMs
     href: tutorial-load-balancer-standard-manage-portal.md
   - name: Load balance internal traffic to VMs
-    href: tutorial-load-balancer-basic-internal-portal.md
+    href: tutorial-load-balancer-standard-internal-portal.md
   - name: Load balance VMs across availability zones
     href: tutorial-load-balancer-standard-public-zone-redundant-portal.md
   - name: Load balance VM within a specific availability zone
