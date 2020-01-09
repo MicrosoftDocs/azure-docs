@@ -11,7 +11,7 @@ ms.date: 10/29/2019
 
 # Manage logic apps with Visual Studio
 
-Although you can create, edit, manage, and deploy logic apps in the [Azure portal](https://portal.azure.com), you can also use Visual Studio when you want to add your logic apps to source control, publish different versions, and create [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) templates for various deployment environments. With Visual Studio Cloud Explorer, you can find and manage your logic apps along with other Azure resources. For example, you can open, download, edit, run, view run history, disable, and enable logic apps that are already deployed in the Azure portal. If you're new to working with Azure Logic Apps in Visual Studio, learn [how to create logic apps with Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md).
+Although you can create, edit, manage, and deploy logic apps in the [Azure portal](https://portal.azure.com), you can also use Visual Studio when you want to add your logic apps to source control, publish different versions, and create [Azure Resource Manager](../azure-resource-manager/management/overview.md) templates for various deployment environments. With Visual Studio Cloud Explorer, you can find and manage your logic apps along with other Azure resources. For example, you can open, download, edit, run, view run history, disable, and enable logic apps that are already deployed in the Azure portal. If you're new to working with Azure Logic Apps in Visual Studio, learn [how to create logic apps with Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md).
 
 > [!IMPORTANT]
 > Deploying or publishing a logic app from Visual Studio overwrites the version of that app in the Azure portal. 
@@ -93,7 +93,7 @@ In Visual Studio, you can open logic apps previously created and deployed either
 
 ## Download from Azure
 
-You can download logic apps from the [Azure portal](https://portal.azure.com) and save them as [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) templates. You can then locally edit the templates with Visual Studio and customize logic apps for different deployment environments.  Downloading logic apps automatically *parameterizes* their definitions inside [Resource Manager templates](../azure-resource-manager/template-deployment-overview.md), which also use JavaScript Object Notation (JSON).
+You can download logic apps from the [Azure portal](https://portal.azure.com) and save them as [Azure Resource Manager](../azure-resource-manager/management/overview.md) templates. You can then locally edit the templates with Visual Studio and customize logic apps for different deployment environments.  Downloading logic apps automatically *parameterizes* their definitions inside [Resource Manager templates](../azure-resource-manager/template-deployment-overview.md), which also use JavaScript Object Notation (JSON).
 
 1. In Visual Studio, open Cloud Explorer. Find and select the logic app that you want to download from Azure.
 

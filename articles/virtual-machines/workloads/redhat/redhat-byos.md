@@ -1,5 +1,5 @@
 ---
-title: Red Hat Enterprise Linux bring-your-own-susbcription images
+title: Red Hat Enterprise Linux bring-your-own-susbcription images | Microsoft Docs
 description: Learn about bring-your-own-subscription images for Red Hat Enterprise Linux on Azure
 services: virtual-machines-linux
 documentationcenter: ''

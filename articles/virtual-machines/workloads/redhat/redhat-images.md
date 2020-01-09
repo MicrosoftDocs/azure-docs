@@ -1,5 +1,5 @@
 ---
-title: Red Hat Enterprise Linux images in Azure
+title: Red Hat Enterprise Linux images in Azure | Microsoft Docs
 description: Learn about Red Hat Enterprise Linux images in Microsoft Azure
 services: virtual-machines-linux
 documentationcenter: ''
@@ -73,7 +73,7 @@ For RHEL 6.x images, the image types are as follows:
 For RHEL 7.x images, there are a few different image types. The following table shows the different sets of images we offer. A full list can be viewed with the Az CLI command `az vm image list --publisher redhat --all`.
 
 >[!NOTE]
-Unless otherwise indicated, all images are LVM-partitioned and will connect to regular RHEL repositories (i.e. not EUS, not E4S). Details on Extended Update Support and Update Services for SAP are available at the [Red Hat Enterprise Linux Life Cycle page](https://access.redhat.com/support/policy/updates/errata).
+> Unless otherwise indicated, all images are LVM-partitioned and will connect to regular RHEL repositories (i.e. not EUS, not E4S). Going forward, we are moving to publishing only LVM-partitioned images but are open to feedback on this decision. Details on Extended Update Support and Update Services for SAP are available at the [Red Hat Enterprise Linux Life Cycle page](https://access.redhat.com/support/policy/updates/errata).
 
 |Publisher | Offer | SKU value | Version | Details
 |----------|-------|------------|---------|--------

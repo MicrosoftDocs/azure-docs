@@ -76,7 +76,7 @@ Neural text-to-speech is a new type of speech synthesis powered by deep neural n
 
 Neural voices can be used to make interactions with chatbots and voice assistants more natural and engaging, convert digital texts such as e-books into audiobooks and enhance in-car navigation systems. With the human-like natural prosody and clear articulation of words, neural voices significantly reduce listening fatigue when users interact with AI systems.
 
-For a full list of neural voices and regional availability, see [regions](regions.md#standard-and-neural-voices).
+For more information about regional availability, see [regions](regions.md#standard-and-neural-voices).
 
 Locale | Language | Gender | Full service name mapping | Short voice name
 --------|----------|--------|---------|------------
@@ -85,6 +85,8 @@ Locale | Language | Gender | Full service name mapping | Short voice name
 `en-US` | English (US) | Female | "Microsoft Server Speech Text to Speech Voice (en-US, JessaNeural)" | "en-US-JessaNeural"
 `it-IT` | Italian (Italy) | Female |"Microsoft Server Speech Text to Speech Voice (it-IT, ElsaNeural)" | "it-IT-ElsaNeural"
 `zh-CN` | Chinese (Mainland) | Female | "Microsoft Server Speech Text to Speech Voice (zh-CN, XiaoxiaoNeural)" | "zh-CN-XiaoxiaoNeural"
+
+To learn how you can configure and adjust neural voices, see [Speech synthesis markup language](speech-synthesis-markup.md#adjust-speaking-styles).
 
 > [!NOTE]
 > You can use either the full service name mapping or the short voice name in your speech synthesis requests.

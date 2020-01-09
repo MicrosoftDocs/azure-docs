@@ -550,7 +550,7 @@ The following is a list of Fabric settings that you can customize, organized by 
 |PlacementSearchTimeout | Time in seconds, default is 0.5 |Dynamic| Specify timespan in seconds. When placing services; search for at most this long before returning a result. |
 |PLBRefreshGap | Time in seconds, default is 1 |Dynamic| Specify timespan in seconds. Defines the minimum amount of time that must pass before PLB refreshes state again. |
 |PreferredLocationConstraintPriority | Int, default is 2| Dynamic|Determines the priority of preferred location constraint: 0: Hard; 1: Soft; 2: Optimization; negative: Ignore |
-|PreferUpgradedUDs|bool,default is TRUE|Dynamic|Turns on and off logic which prefers moving to already upgraded UDs.|
+|PreferUpgradedUDs|bool,default is FALSE|Dynamic|Turns on and off logic which prefers moving to already upgraded UDs. Starting with SF 7.0, the default value for this parameter is changed from TRUE to FALSE.|
 |PreventTransientOvercommit | Bool, default is false | Dynamic|Determines should PLB immediately count on resources that will be freed up by the initiated moves. By default; PLB can initiate move out and move in on the same node which can create transient overcommit. Setting this parameter to true will prevent those kinds of overcommits and on-demand defrag (aka placementWithMove) will be disabled. |
 |ScaleoutCountConstraintPriority | Int, default is 0 |Dynamic| Determines the priority of scaleout count constraint: 0: Hard; 1: Soft; negative: Ignore. |
 |SwapPrimaryThrottlingAssociatedMetric | string, default is ""|Static| The associated metric name for this throttling. |

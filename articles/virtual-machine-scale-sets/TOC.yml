@@ -64,7 +64,7 @@
 - name: Concepts
   items:
   - name: Azure Resource Manager
-    href: ../azure-resource-manager/resource-group-overview.md
+    href: ../azure-resource-manager/management/overview.md
     maintainContext: true
   - name: Regions
     href: ../virtual-machines/windows/regions.md

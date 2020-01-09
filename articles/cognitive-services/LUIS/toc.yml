@@ -169,6 +169,8 @@
     - name: Add Descriptor
       displayName: synonym, interchange, phrase list, descriptor
       href: luis-how-to-add-features.md
+    - name: Migrate to V3 Authoring
+      href: luis-migration-authoring-entities.md
     - name: With REST APIs
       items:
       - name: Build app programmatically using Node.js

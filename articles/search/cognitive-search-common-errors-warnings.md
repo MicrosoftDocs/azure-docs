@@ -140,7 +140,7 @@ The document was read and processed, but the indexer could not add it to the sea
 | --- | --- | --- |
 | A field contains a term that is too large | A term in your document is larger than the [32 KB limit](search-limits-quotas-capacity.md#api-request-limits) | You can avoid this restriction by ensuring the field is not configured as filterable, facetable, or sortable.
 | Document is too large to be indexed | A document is larger than the [maximum api request size](search-limits-quotas-capacity.md#api-request-limits) | [How to index large data sets](search-howto-large-index.md)
-| Document contains too many objects in collection | A collection in your document exceeds the [maximum elements across all complex collections limit](search-limits-quotas-capacity.md#index-limits) | We recommend reducing the size of the complex collection in the document to below the limit and avoid high storage utilization.
+| Document contains too many objects in collection | A collection in your document exceeds the [maximum elements across all complex collections limit](search-limits-quotas-capacity.md#index-limits) "The document with key `'1000052'` has `'4303'` objects in collections (JSON arrays). At most `'3000'` objects are allowed to be in collections across the entire document. Please remove objects from collections and try indexing the document again." | We recommend reducing the size of the complex collection in the document to below the limit and avoid high storage utilization.
 | Trouble connecting to the target index (that persists after retries) because the service is under other load, such as querying or indexing. | Failed to establish connection to update index. Search service is under heavy load. | [Scale up your search service](search-capacity-planning.md)
 | Search service is being patched for service update, or is in the middle of a topology reconfiguration. | Failed to establish connection to update index. Search service is currently down/Search service is undergoing a transition. | Configure service with at least 3 replicas for 99.9% availability per [SLA documentation](https://azure.microsoft.com/support/legal/sla/search/v1_0/)
 | Failure in the underlying compute/networking resource (rare) | Failed to establish connection to update index. An unknown failure occurred. | Configure indexers to [run on a schedule](search-howto-schedule-indexers.md) to pick up from a failed state.
@@ -170,10 +170,18 @@ This error occurs when the indexer is unable to finish processing a single docum
 
 <a name="could-not-execute-skill-because-a-skill-input-was-invalid"/>
 
-## Warning: Could not execute skill because a skill input was invalid
-Indexer was not able to run a skill in the skillset because an input to the skill was missing, the wrong type, or otherwise invalid.
+## Warning: Skill input was invalid
+An input to the skill was missing, the wrong type, or otherwise invalid. The warning message will indicate the impact:
+1) Could not execute skill
+2) Skill executed but may have unexpected results
 
-Cognitive skills have required inputs and optional inputs. For example the [Key phrase extraction skill](cognitive-search-skill-keyphrases.md) has two required inputs `text`, `languageCode`, and no optional inputs. If any required inputs are invalid, the skill gets skipped and generates a warning. Skipped skills do not generate any outputs, so if other skills use outputs of the skipped skill they may generate additional warnings.
+Cognitive skills have required inputs and optional inputs. For example the [Key phrase extraction skill](cognitive-search-skill-keyphrases.md) has two required inputs `text`, `languageCode`, and no optional inputs. Custom skill inputs are all considered optional inputs.
+
+If any required inputs are missing or if any input is not the right type, the skill gets skipped and generates a warning. Skipped skills do not generate any outputs, so if other skills use outputs of the skipped skill they may generate additional warnings.
+
+If an optional input is missing, the skill will still run but may produce unexpected output due to the missing input.
+
+In both cases, this warning may be expected due to the shape of your data. For example, if you have a document containing information about people with the fields `firstName`, `middleName`, and `lastName`, you may have some documents which do not have an entry for `middleName`. If you to pass `middleName` as an input to a skill in the pipeline, then it is expected that this skill input may be missing some of the time. You will need to evaluate your data and scenario to determine whether or not any action is required as a result of this warning.
 
 If you want to provide a default value in case of missing input, you can use the [Conditional skill](cognitive-search-skill-conditional.md) to generate a default value and then use the output of the [Conditional skill](cognitive-search-skill-conditional.md) as the skill input.
 

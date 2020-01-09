@@ -1,5 +1,5 @@
 ---
-title: Using the Azure CLI with Azure Storage | Microsoft Docs
+title: Using the Azure CLI with Azure Storage
 description: Learn how to use the Azure Command-Line Interface (Azure CLI) with Azure Storage to create and manage storage accounts and work with Azure blobs and files.
 services: storage
 author: tamram

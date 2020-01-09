@@ -54,7 +54,7 @@ $vmAction = "Start"
 Select-AzSubscription -SubscriptionId $subscriptionId
 
 # Get the lab information
-$devTestLab = Find-AzResource -ResourceType 'Microsoft.DevTestLab/labs' -ResourceNameEquals $devTestLabName
+$devTestLab = Get-AzResource -ResourceType 'Microsoft.DevTestLab/labs' -ResourceName $devTestLabName
 
 # Start the VM and return a succeeded or failed status
 $returnStatus = Invoke-AzResourceAction `
