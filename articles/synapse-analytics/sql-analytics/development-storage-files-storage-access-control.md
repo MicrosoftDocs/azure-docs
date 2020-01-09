@@ -1,6 +1,6 @@
 ---
-title: Control storage account access for SQL on-demand resources
-description: Describes how SQL on-demand accesses Azure Storage and how you can control storage access for SQL on-demand resources.
+title: Control storage account access for SQL on-demand in Azure Synapse Analytics
+description: Describes how SQL on-demand accesses Azure Storage and how you can control storage access for SQL on-demand in Azure Synapse Analytics.
 services: synapse-analytics 
 author: filippopovic
 ms.service: synapse-analytics 
@@ -12,7 +12,7 @@ ms.reviewer: jrasnick
 ---
 
 
-# Control storage account access for SQL on-demand resources
+# Control storage account access for SQL on-demand in Azure Synapse Analytics
 
 A SQL on-demand query reads files directly from Azure Storage. Since the storage account is an object that is external to the SQL on-demand resource, appropriate credentials are required. A user needs the applicable permissions granted to use the requisite credential. This article describes the types of credentials you can use and how credential lookup is enacted for SQL and AAD logins.
 
