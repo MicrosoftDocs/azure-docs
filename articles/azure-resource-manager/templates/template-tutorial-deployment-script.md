@@ -104,6 +104,9 @@ The deployment script adds a certificate to the key vault. Configure the key vau
     },
     ```
 
+    > [!NOTE]
+    > The Resource Manager template extension of Visual Studio Code is not capable to format deployment scripts yet. Don't use [SHIFT]+[ALT]+F to format the deploymentScripts resources, like the following one.
+
 1. Add a parameter for configuring the key vault access policies so that the managed identity can add certificates to the key vault.
 
     ```json
@@ -167,9 +170,6 @@ The deployment script adds a certificate to the key vault. Configure the key vau
     }
 
 1. Add a deploymentScripts resource:
-
-    > [!NOTE]
-    > The Resource Manager template extension of Visual Studio Code is not capable to format deployment scripts yet. Don't use [SHIFT]+[ALT]+F to format the deploymentScripts resources, like the following one.
 
     > [!NOTE]
     > Because the inline deployment scripts are enclosed in double quotes, the strings inside the deployment scripts need to be enclosed in single quotes instead. The escape character for PowerShell is **&#92;**.
