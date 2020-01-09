@@ -25,6 +25,8 @@
     href: how-to-create-immersive-reader.md
   - name: Set the cookie policy
     href: how-to/set-cookie-policy.md
+  - name: Render math
+    href: how-to/render-math.md
   - name: Customize Immersive Reader button
     href: how-to-customize-launch-button.md
 - name: Reference
