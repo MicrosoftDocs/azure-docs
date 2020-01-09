@@ -69,7 +69,7 @@ Azure Data Explorer has the following roles:
 
     The output of the command shows the list of existing users and the roles they're assigned to in the database.
     
-    For examples pertaining to Azure Active Directory and the Kusto authorization model, please see [Principles and Identity Providers](https://docs.microsoft.com/en-us/azure/kusto/management/access-control/principals-and-identity-providers)
+    For examples pertaining to Azure Active Directory and the Kusto authorization model, please see [Principles and Identity Providers](https://docs.microsoft.com/azure/kusto/management/access-control/principals-and-identity-providers)
 
 ## Next steps
 
