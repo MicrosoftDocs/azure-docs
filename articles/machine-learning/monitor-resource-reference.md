@@ -15,7 +15,7 @@ ms.date: 11/06/2019
 
 # Azure machine learning monitoring data reference
 
-Learn about the data and resources collected by Azure Monitor from your Azure Machine Learning workspace. See [Monitoring Azure Machine Learning](service/monitor-azure-machine-learning.md) for details on collecting and analyzing monitoring data.
+Learn about the data and resources collected by Azure Monitor from your Azure Machine Learning workspace. See [Monitoring Azure Machine Learning](monitor-azure-machine-learning.md) for details on collecting and analyzing monitoring data.
 
 ## Resource logs
 
