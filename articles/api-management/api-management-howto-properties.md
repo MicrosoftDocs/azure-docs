@@ -39,7 +39,7 @@ Named values can contain literal strings and [policy expressions](/azure/api-man
 | Expression | @(DateTime.Now.ToString()) | False  |               |
 
 > [!NOTE]
-> Instead of named values stored within an API Management service, you can use values stored in the [Azure Key Vault](https://azure.microsoft.com/en-us/services/key-vault/) service as demonstrated by this [example](https://github.com/Azure/api-management-policy-snippets/blob/master/examples/Look%20up%20Key%20Vault%20secret%20using%20Managed%20Service%20Identity.policy.xml).
+> Instead of named values stored within an API Management service, you can use values stored in the [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) service as demonstrated by this [example](https://github.com/Azure/api-management-policy-snippets/blob/master/examples/Look%20up%20Key%20Vault%20secret%20using%20Managed%20Service%20Identity.policy.xml).
 
 ## To add and edit a named value
 
