@@ -1,5 +1,5 @@
 ---
-title: Traffic coverage in Azure Maps | Microsoft Azure Maps
+title: Traffic coverage | Microsoft Azure Maps
 description: In this article, you will learn about traffic coverage in Microsoft Azure Maps.
 author: walsehgal
 ms.author: v-musehg

@@ -1,5 +1,5 @@
 ---
-title: Use the Azure Maps services module | Microsoft Azure Maps
+title: Use the Azure Maps Services module | Microsoft Azure Maps
 description: In this article, you will learn how to utilize the Microsoft Azure Maps REST services using the Azure Maps services module.
 author: rbrundritt
 ms.author: richbrun

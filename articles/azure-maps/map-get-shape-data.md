@@ -1,5 +1,5 @@
 ---
-title: Get shapes data from drawing manager in Azure Maps| Microsoft Azure Maps
+title: Get data from shapes on a map | Microsoft Azure Maps
 description: In this article learn, how to get shape data drawn on a map using the Microsoft Azure Maps Web SDK.
 author: walsehgal
 ms.author: v-musehg

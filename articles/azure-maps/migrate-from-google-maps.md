@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Migrate from Google Maps to Azure Maps | Microsoft Azure Maps'
-description: 'Tutorial: A tutorial on how to migrate from Google Maps to Azure Maps.'
+description: A tutorial on how to migrate from Google Maps to Azure Maps.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 12/17/2019

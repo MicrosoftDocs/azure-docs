@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Migrate web services from Google Maps | Microsoft Azure Maps'
-description: 'Tutorial: How to migrate web services from Google Maps to Microsoft Azure Maps.'
+description: How to migrate web services from Google Maps to Microsoft Azure Maps.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 12/17/2019

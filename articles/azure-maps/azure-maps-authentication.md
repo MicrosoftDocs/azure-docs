@@ -1,5 +1,5 @@
 ---
-title: Authentication with Azure Maps | Microsoft Azure Maps
+title: Authentication methods | Microsoft Azure Maps
 description: In this article, you will learn about authentication methods to authenticate requests made to Microsoft Azure Maps services.
 author: walsehgal
 ms.author: v-musehg

@@ -1,5 +1,5 @@
 ---
-title: Web SDK supported browsers for Azure Maps | Microsoft Azure Maps
+title: Web SDK supported browsers | Microsoft Azure Maps
 description: In this article, you will learn about supported browsers for Microsoft Azure Maps Web SDK and how to check if a browser is a supported browser.
 author: rbrundritt
 ms.author: richbrun

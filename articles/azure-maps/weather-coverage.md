@@ -1,5 +1,5 @@
 ---
-title: Weather coverage in Azure Maps | Microsoft Azure Maps
+title: Weather coverage | Microsoft Azure Maps
 description: In this article, you will learn about Weather coverage in Microsoft Azure Maps.
 author: walsehgal
 ms.author: v-musehg

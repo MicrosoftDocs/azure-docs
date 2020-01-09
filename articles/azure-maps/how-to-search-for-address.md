@@ -1,6 +1,6 @@
 ---
-title: Search locations using the Azure Maps Search service | Microsoft Azure Maps
-description: In this article, you will learn how to search for a location using the Microsoft Azure Maps Search service.
+title: Search locations using the Azure Maps Search Service | Microsoft Azure Maps
+description: In this article, you will learn how to search for a location using the Microsoft Azure Maps Search Service.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 04/05/2019
