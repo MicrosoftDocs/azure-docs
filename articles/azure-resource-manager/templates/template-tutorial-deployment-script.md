@@ -11,7 +11,7 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 01/08/2020
+ms.date: 01/09/2020
 ms.topic: tutorial
 ms.author: jgao
 ---
@@ -39,7 +39,7 @@ This tutorial covers the following tasks:
 
 To complete this article, you need:
 
-* [Visual Studio Code](https://code.visualstudio.com/) with the Resource Manager Tools extension. See [Use Visual Studio Code to create Azure Resource Manager templates](./use-vs-code-to-create-template.md).
+* **[Visual Studio Code](https://code.visualstudio.com/) with the Resource Manager Tools extension**. See [Use Visual Studio Code to create Azure Resource Manager templates](./use-vs-code-to-create-template.md).
 
 * **A user-assigned managed identity with the contributor's role at the subscription level**. This identity is used to execute deployment scripts. To create one, see [User-assigned managed identity](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#user-assigned-managed-identity). You need the identity ID when you deploy the template. The format of the identity is:
 
@@ -108,16 +108,16 @@ The deployment script adds a certificate to the key vault. Configure the key vau
 
     ```json
     "certificatesPermissions": {
-        "type": "array",
-        "defaultValue": [
+      "type": "array",
+      "defaultValue": [
         "get",
         "list",
         "update",
         "create"
-        ],
-        "metadata": {
-        "description": "Specifies the permissions to certificates in the vault. Valid values are: all, get, list, update, create, import, delete, recover, backup, restore, manage contacts, manage certificate authorities, get certificate authorities, list certificate authorities, set certificate authorities, delete certificate authorities."
-        }
+      ],
+      "metadata": {
+      "description": "Specifies the permissions to certificates in the vault. Valid values are: all, get, list, update, create, import, delete, recover, backup, restore, manage contacts, manage certificate authorities, get certificate authorities, list certificate authorities, set certificate authorities, delete certificate authorities."
+      }
     }
     ```
 
