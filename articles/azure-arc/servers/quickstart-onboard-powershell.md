@@ -30,6 +30,9 @@ A Service Principal is a special limited management identity that is granted onl
 
 In this example, we will use [Azure PowerShell](/powershell/azure/install-az-ps) to create a Service Principal Name (SPN). Alternatively, you can follow the steps listed under [Create a Service Principal using the Azure portal](../../active-directory/develop/howto-create-service-principal-portal.md) for this task.
 
+> [!NOTE]
+> When you create the service principal, you must be an Owner or User Access Administrator on the subscription that you want to use for onboarding. If you don't have sufficient permissions to create role assignments, the service principal might be created, but it won't be able to onboard machines.
+
 The `Azure Connected Machine Onboarding` role contains only the permissions required for onboarding. You can define the permission of a SPN to allow its scope to cover a resource group or a subscription.
 
 You must store the output of the [`New-AzADServicePrincipal`](/powershell/module/az.resources/new-azadserviceprincipal) cmdlet, or you will not be able to retrieve the password to use in a later step.
