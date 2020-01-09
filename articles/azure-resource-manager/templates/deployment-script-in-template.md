@@ -1,5 +1,5 @@
 ---
-title: Use deployment scripts in Resource Manage template| Microsoft Docs
+title: Use deployment scripts in Resource Manager template| Microsoft Docs
 description: use deployment scripts in Azure Resource Manager templates.
 services: azure-resource-manager
 author: mumian
@@ -24,7 +24,7 @@ Learn how to use deployment scripts in Azure Resource templates. With a new reso
 The benefits of deployment script:
 
 - Easy to code, use, and debug. You can develop deployment scripts in your favorite development environments. The scripts can be embedded in templates or in external script files.
-- You can specify the script language and platform. Currently, only Azure PowerShell deployment scripts on the Linux environment are supported. The Azure CLI support will be added in the near future.
+- You can specify the script language and platform. Currently, only Azure PowerShell deployment scripts on the Linux environment are supported.
 - Allow specifying the identities that are used to execute the scripts. Currently, only [Azure user-assigned managed identity](../../active-directory/managed-identities-azure-resources/overview.md) is supported.
 - Allow passing command-line arguments to the script.
 - Can specify script outputs and pass them back to the deployment.
@@ -134,7 +134,7 @@ Write-Host "Press [ENTER] to continue ..."
 
 The output looks like:
 
-![Resource Manager template deployment script hello world output](./media/deployment-script-in-template/resource-manager-template-deployment-script-helloworld-output.png)
+![Resource Manager template deployment script hello world output](./media/deployment-script-template/resource-manager-template-deployment-script-helloworld-output.png)
 
 ## Use external scripts
 
@@ -184,7 +184,7 @@ reference('<ResourceName>').output.text
 
 The script service creates a [storage account](../../storage/common/storage-account-overview.md) and a [container instance](../../container-instances/container-instances-overview.md) for script execution. Both resources have the **azscripts** suffix in the resource names.
 
-![Resource Manager template deployment script resource names](./media/deployment-script-in-template/resource-manager-template-deployment-script-resources.png)
+![Resource Manager template deployment script resource names](./media/deployment-script-template/resource-manager-template-deployment-script-resources.png)
 
 The user script, the execution results, and the stdout file are stored in the files shares of the storage account. There is a folder called **azscripts**. In the folder, there are two more folders for the input and the output files: **azscriptinput** and **azscriptoutput**.
 
@@ -223,7 +223,7 @@ It only works before the deployment script resources are deleted.
 
 To see the deploymentScripts resource in the portal, select **Show hidden types**:
 
-![Resource Manager template deployment script, show hidden types, portal](./media/deployment-script-in-template/resource-manager-deployment-script-portal-show-hidden-types.png)
+![Resource Manager template deployment script, show hidden types, portal](./media/deployment-script-template/resource-manager-deployment-script-portal-show-hidden-types.png)
 
 ## Clean up deployment script resources
 
@@ -265,7 +265,7 @@ Currently, deployment script supports Azure PowerShell version 2.7.0, 2.8.0, and
 1. Select the Docker Desktop icon from taskbars, and then select **Settings**.
 1. Select **Shared Drives**, select a local drive that you want to be available to your containers, and then select **Apply**
 
-    ![Resource Manager template deployment script docker drive](./media/deployment-script-in-template/resource-manager-deployment-script-docker-setting-drive.png)
+    ![Resource Manager template deployment script docker drive](./media/deployment-script-template/resource-manager-deployment-script-docker-setting-drive.png)
 
 1. Enter your windows credentials at the prompt.
 1. Open a terminal window, either Command Prompt or Windows PowerShell (Do not use PowerShell ISE).
@@ -294,7 +294,7 @@ Currently, deployment script supports Azure PowerShell version 2.7.0, 2.8.0, and
 1. Select **Share it** when you get a prompt.
 1. Run a PowerShell script as shown in the following screenshot (given that you have a helloworld.ps1 file in d:\docker folder.)
 
-    ![Resource Manager template deployment script docker cmd](./media/deployment-script-in-template/resource-manager-deployment-script-docker-cmd.png)
+    ![Resource Manager template deployment script docker cmd](./media/deployment-script-template/resource-manager-deployment-script-docker-cmd.png)
 
 After the PowerShell script is tested successfully, you can use it as a deployment script.
 

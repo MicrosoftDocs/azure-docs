@@ -127,7 +127,7 @@
       href: template-outputs.md
     - name: Deployment script
       displayName: custom script
-      href: deployment-script-in-template.md
+      href: deployment-script-template.md
     - name: Modularize templates
       displayName: linked templates, nested templates
       href: linked-templates.md

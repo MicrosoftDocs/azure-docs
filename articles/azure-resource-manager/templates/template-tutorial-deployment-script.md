@@ -18,13 +18,13 @@ ms.author: jgao
 
 # Tutorial: Use deployment scripts to create a self-signed certificate (Preview)
 
-Learn how to use deployment scripts in Azure Resource Manage templates. Deployment scripts can be used to perform custom steps that can't be done by Resource Manager templates. For example, creating a self-signed certificate.  In this tutorial, you create a template to deploy an Azure key vault, and then use a `Microsoft.Resources/deploymentScripts` resource in the same template to create a certificate and then add the certificate to the key vault. To learn more about deployment script, see [Use deployment scripts in Azure Resource Manager templates](./deployment-script-in-template.md).
+Learn how to use deployment scripts in Azure Resource Manage templates. Deployment scripts can be used to perform custom steps that can't be done by Resource Manager templates. For example, creating a self-signed certificate.  In this tutorial, you create a template to deploy an Azure key vault, and then use a `Microsoft.Resources/deploymentScripts` resource in the same template to create a certificate and then add the certificate to the key vault. To learn more about deployment script, see [Use deployment scripts in Azure Resource Manager templates](./deployment-script-template.md).
 
 > [!NOTE]
 > The deployment script is currently in preview. To use it, you must [sign up for the preview](https://aka.ms/armtemplatepreviews).
 
 > [!IMPORTANT]
-> Two deployment script resources, a storage account and a container instance, are created in the same resource group for script execution and troubleshooting. These resources are usually deleted by the script service when the script execution gets in a terminal state. You are billed for the resources until the resources are deleted. To learn more, see [Clean up deployment script resources](./deployment-script-in-template.md#clean-up-deployment-script-resources).
+> Two deployment script resources, a storage account and a container instance, are created in the same resource group for script execution and troubleshooting. These resources are usually deleted by the script service when the script execution gets in a terminal state. You are billed for the resources until the resources are deleted. To learn more, see [Clean up deployment script resources](./deployment-script-template.md#clean-up-deployment-script-resources).
 
 This tutorial covers the following tasks:
 
@@ -218,7 +218,7 @@ The deployment script adds a certificate to the key vault. Configure the key vau
           else {
             $policy = New-AzKeyVaultCertificatePolicy -SubjectName $subjectName -IssuerName Self -ValidityInMonths 12 -Verbose
 
-            # private key is added as a secret that can be retrieved in the ARM template
+            # private key is added as a secret that can be retrieved in the Resource Manager template
             Add-AzKeyVaultCertificate -VaultName $vaultName -Name $certificateName -CertificatePolicy $policy -Verbose
 
             $newCert = Get-AzKeyVaultCertificate -VaultName $vaultName -Name $certificateName
@@ -256,18 +256,18 @@ The deployment script adds a certificate to the key vault. Configure the key vau
 
     * **identity**: Deployment script uses a user-assigned managed identity to execute the scripts.
     * **kind**: Specify the type of script. Currently, only PowerShell script is support.
-    * **forceUpdateTag**: Determine whether the deployment script should be executed even if the script source has not changed. Can be current time stamp or a GUID. To learn more, see [Run script more than once](./deployment-script-in-template.md#run-script-more-than-once).
+    * **forceUpdateTag**: Determine whether the deployment script should be executed even if the script source has not changed. Can be current time stamp or a GUID. To learn more, see [Run script more than once](./deployment-script-template.md#run-script-more-than-once).
     * **azPowerShellVersion**: Specifies the Azure PowerShell module version to be used. Currently, deployment script supports version 2.7.0, 2.8.0, and 3.0.0.
     * **timeout**: Specify the maximum allowed script execution time specified in the [ISO 8601 format](https://en.wikipedia.org/wiki/ISO_8601). Default value is **P1D**.
     * **arguments**: Specify the parameter values. The values are separated by spaces.
-    * **scriptContent**: Specify the script content. To run an external script, use **primaryScriptURI** instead. For more information, see [Use external script](./deployment-script-in-template.md#use-external-scripts).
-        Declaring **$DeploymentScriptOutputs** is only required when testing the script on a local machine. Declaring the variable allows the script to be run on a local machine and in a deploymentScript resource without having to make changes. The value assigned to $DeploymentScriptOutputs is available as outputs in the deployments. For more information, see [Work with outputs from deployment scripts](./deployment-script-in-template.md#work-with-outputs-from-deployment-scripts).
+    * **scriptContent**: Specify the script content. To run an external script, use **primaryScriptURI** instead. For more information, see [Use external script](./deployment-script-template.md#use-external-scripts).
+        Declaring **$DeploymentScriptOutputs** is only required when testing the script on a local machine. Declaring the variable allows the script to be run on a local machine and in a deploymentScript resource without having to make changes. The value assigned to $DeploymentScriptOutputs is available as outputs in the deployments. For more information, see [Work with outputs from deployment scripts](./deployment-script-template.md#work-with-outputs-from-deployment-scripts).
     * **cleanupPreference**: Specify the preference on when to delete the deployment script resources.  The default value is **Always**, which means the deployment script resources are deleted despite the terminal state (Succeeded, Failed, canceled). In this tutorial, **OnSuccess** is used so that you get a chance to view the script execution results.
     * **retentionInterval**: Specify the interval for which the service retains the script resources after it reaches a terminal state. Resources will be deleted when this duration expires. Duration is based on ISO 8601 pattern. This tutorial uses P1D, which means one day.  This property is used when **retentionInterval** is set to **OnExpiration**. This property is not enabled currently.
 
     The deployment script takes three parameters: key vault name, certificate name, and subject name.  It creates a certificate, and then adds the certificate to the key vault.
 
-    **$DeploymentScriptOutputs** is used to store output value.  To learn more, see [Work with outputs from deployment scripts](./deployment-script-in-template.md#work-with-outputs-from-deployment-scripts).
+    **$DeploymentScriptOutputs** is used to store output value.  To learn more, see [Work with outputs from deployment scripts](./deployment-script-template.md#work-with-outputs-from-deployment-scripts).
 
     The completed template can be found [here](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-keyvault.json).
 
