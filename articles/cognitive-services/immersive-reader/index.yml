@@ -39,8 +39,6 @@ landingContent:
             url: tutorial-nodejs.md
           - text: Python
             url: tutorial-python.md
-          - text: Swift (iOS)
-            url: tutorial-ios-picture-immersive-reader.md
 
   - title: Explore Immersive Reader
     linkLists:
