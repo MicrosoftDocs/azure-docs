@@ -72,7 +72,7 @@
           href: container-registry-auto-purge.md
       - name: Use ACR webhooks
         href: container-registry-webhook.md
-      - name: Helm chart repositories (preview)
+      - name: Helm chart repositories
         href: container-registry-helm-repos.md
     - name: Security and authentication
       items:
