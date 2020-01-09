@@ -31,7 +31,7 @@ This guide shows you how to configure your API Management service instance to us
 ## <a name="step1"> </a>Upload a Certificate
 
 > [!NOTE]
-> Instead of an uploaded certificate you can use a certificate stored in the [Azure Key Vault](https://azure.microsoft.com/en-us/services/key-vault/) service as shown in this [example](https://github.com/galiniliev/api-management-policy-snippets/blob/galin/AkvCert/examples/Look%20up%20Key%20Vault%20certificate%20using%20Managed%20Service%20Identity%20and%20call%20backend.policy.xml).
+> Instead of an uploaded certificate you can use a certificate stored in the [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) service as shown in this [example](https://github.com/galiniliev/api-management-policy-snippets/blob/galin/AkvCert/examples/Look%20up%20Key%20Vault%20certificate%20using%20Managed%20Service%20Identity%20and%20call%20backend.policy.xml).
 
 ![Add client certificates](media/api-management-howto-mutual-certificates/apim-client-cert-new.png)
 
