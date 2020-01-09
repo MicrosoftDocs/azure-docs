@@ -144,7 +144,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ### Create Upshotly test user
 
-In this section, you create a user called B.Simon in Fastly Edge Cloud. Work with [Upshotly Client support team](mailto:support@upshotly.com) to add the users in the Fastly Edge Cloud platform. Users must be created and activated before you use single sign-on.
+In this section, you create a user called B.Simon in Upshotly Edge Cloud. Work with [Upshotly Client support team](mailto:support@upshotly.com) to add the users in the Upshotly Edge Cloud platform. Users must be created and activated before you use single sign-on.
 
 ## Test SSO 
 
