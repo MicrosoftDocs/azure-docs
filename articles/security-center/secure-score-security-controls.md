@@ -52,7 +52,7 @@ The contribution of each Security Control towards the overall Secure Score is sh
 
 To get all the possible points for a Security Control, all your resources must comply with all of the security recommendations within the Security Control. For example, Security Center has multiple recommendations regarding how to secure your management ports. In the past, you could remediate some of those related and interdependent recommendations while leaving others unsolved, and your Secure Score would improve. When looked at objectively, it's easy to argue that your security hadn't improved until you had resolved them all. Now, you must remediate them all to make a difference to your Secure Score.
 
-For example, the Security Control called "Apply system updates" has a maximum score of six points which you can see in the tooltip on the potential increase value of the control:
+For example, the Security Control called "Apply system updates" has a maximum score of six points, which you can see in the tooltip on the potential increase value of the control:
 
 [![The Security Control "Apply system updates"](media/secure-score-security-controls/apply-system-updates-control.png)](media/secure-score-security-controls/apply-system-updates-control.png#lightbox)
 
@@ -61,7 +61,7 @@ For example, the Security Control called "Apply system updates" has a maximum sc
 |Metric|Calculation|Example|
 |-|-|-|
 |**Secure Score**<br>Single subscription|(Sum of your current points /<br> sum of the maximum score available)<br> * 100|![Single subscription secure score with all controls enabled](media/secure-score-security-controls/secure-score-example-single-sub.png)<br>In this example, there is a single subscription with all Security Controls available (a potential maximum score of 60 points). The score shows 27 points out of a possible 60 and the remaining 32 points are reflected in the "Potential score increase" figures of the Security Controls.<br>![Single subscription secure score with all controls enabled](media/secure-score-security-controls/secure-score-example-single-sub-recs.png)|
-|**Secure Score**<br>Multiple subscriptions|(Sum of your current points for all resources in all subscriptions/<br> sum of the maximum score available)<br> * 100|When viewing multiple subscriptions, Secure Score evaluates all resources within all enabled policies and groups their combined impact on each Security Control's maximum score.<br>![Single subscription secure score with all controls enabled](media/secure-score-security-controls/secure-score-example-multiple-subs.png)<br>The combined scoer is **not** an average; rather it's the evaluated posture of the status of all resources across all subscriptions.<br>Here too, if you go to the recommendations page and add up the potential points available, you will find that it's the difference between the current score (24) and the maximum score available (60).|
+|**Secure Score**<br>Multiple subscriptions|(Sum of your current points for all resources in all subscriptions/<br> sum of the maximum score available)<br> * 100|When viewing multiple subscriptions, Secure Score evaluates all resources within all enabled policies and groups their combined impact on each Security Control's maximum score.<br>![Single subscription secure score with all controls enabled](media/secure-score-security-controls/secure-score-example-multiple-subs.png)<br>The combined score is **not** an average; rather it's the evaluated posture of the status of all resources across all subscriptions.<br>Here too, if you go to the recommendations page and add up the potential points available, you will find that it's the difference between the current score (24) and the maximum score available (60).|
 
 
 ## Improving your Secure Score
@@ -105,9 +105,9 @@ With the changes introduced in this enhanced Secure Score, you must solve all re
 No; it won't change until you remediate all of the recommendation for a single resource. To get the maximum score for a control, you must remediate all recommendations, for all resources.
 
 ### Will this enhanced Secure Score replace the existing Secure Score? 
-Yes, but for a while they will be running side by side to ease the transition.
+Yes, but for a while they'll be running side by side to ease the transition.
 
-### If a recommendation is not applicable to me, and I disable it in the policy, will my Security Control be fulfilled and my Secure Score updated?
+### If a recommendation isn't applicable to me, and I disable it in the policy, will my Security Control be fulfilled and my Secure Score updated?
 Yes. We recommend disabling recommendations when they're inapplicable in your environment. For instructions on how to disable a specific recommendation, see [Disable security policies](https://docs.microsoft.com/azure/security-center/tutorial-security-policy#disable-security-policies).
 
 ### If a Security Control offers me zero points towards my Secure Score, should I ignore it?
