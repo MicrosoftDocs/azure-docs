@@ -97,7 +97,7 @@ Name: Microsoft Server Speech Text to Speech Voice (zh-CN, xxx), Description: xx
 
 ## Prepare input files
 
-Prepare an input text file. It can be either plain text or SSML text. For the input file requirements, see how to [prepare content for synthesis](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/long-audio-api#prepare-content-for-synthesis).
+Prepare an input text file. It can be either plain text or SSML text. For the input file requirements, see how to [prepare content for synthesis](https://docs.microsoft.com/azure/cognitive-services/speech-service/long-audio-api#prepare-content-for-synthesis).
 
 ## Convert text to speech
 
@@ -105,7 +105,7 @@ After preparing the input text file, add this code for speech synthesis to `voic
 
 > [!NOTE]
 > 'concatenateResult' is an optional parameter. If this parameter isn't set, the audio outputs will be generated per paragraph. You can also concatenate the audios into 1 output by setting the parameter. 
-> By default, the audio output is set to riff-16khz-16bit-mono-pcm. For more information about supported audio outputs, see [Audio output formats](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/long-audio-api#audio-output-formats).
+> By default, the audio output is set to riff-16khz-16bit-mono-pcm. For more information about supported audio outputs, see [Audio output formats](https://docs.microsoft.com/azure/cognitive-services/speech-service/long-audio-api#audio-output-formats).
 
 ```python
 parser.add_argument('--submit', action="store_true", default=False, help='submit a synthesis request')
