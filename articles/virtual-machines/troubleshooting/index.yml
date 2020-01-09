@@ -29,7 +29,7 @@ landingContent:
             url: allocation-failure-classic
           - text: Troubleshoot deployment issues when creating a new virtual machine in Azure
             url: troubleshoot-deployment-new-vm-windows.md
-         - text: Resolve errors for invalid template
+          - text: Resolve errors for invalid template
             url: ../../azure-resource-manager/templates/error-invalid-template.md
 
   # Card (optional)
