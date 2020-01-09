@@ -1,7 +1,7 @@
 ---
 title: Use accesibility features in the designer (preview)
 titleSuffix: Azure Machine Learning
-description: Learn about the screen reader accessibility features available in the designer.
+description: Learn about the keyboard shortcuts and screen reader accessibility features available in the designer.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -12,57 +12,53 @@ ms.date: 01/09/2020
 
 ---
 
-# Use a screen reader to explore and navigate designer
+# Use a keyboard to use Azure Machine Learning designer (preview)
 
-This article is for people with visual impairments who use a screen reader. Use designer with your keyboard and a screen reader to read and edit designer pipelines. We have tested it with Narrator and JAWS, but it might work with other screen readers as long as they follow common accessibility standards and techniques.
+Use your keyboard and a screen reader to use Azure Machine Learning designer. This workflow has been tested with [Narrator](https://support.microsoft.com/help/22798/windows-10-complete-guide-to-narrator) and [JAWS](https://www.freedomscientific.com/products/software/jaws/), but it should work with other standard screen readers.
 
-## Drag and drop graph
+## Navigate the pipeline graph
 
-Designer provides a drag-n-drop experience to train and deploy machine learning models. It lets you visually connect datasets and modules on an interactive canvas. 
+The pipeline graph is organized as a list of lists. The top-level module list contains all of the module in the pipeline. Each item in the module list contains a connection list that describes all of its connections. 
 
-###  Navigate the graph
-The pipeline graph is described as two level list. The fist level list describes all the nodes of a graph. The second level list describes the connection to other nodes of a specific node. Screen reader user can navigate the graph by:
+1. In the module list, use the arrow key to switch modules.
+1. Use tab to open the connection list for the target module.
+1. Use arrow key to switch between the connection ports for the module.
+1. Use the “g” key to go to the module targetted by the connection.
 
-1.	Use arrow key to switch nodes in the first level node list.
-2.	After select a specific node, use tab to select connection ports of the node.
-3.	Use arrow key to switch between ports of a node
-4.	When s port is selected, use “g” key to go to the target node. Then start from 1 to navigate the graph.
+## Edit the pipeline graph
 
+### Add a module to the graph
 
-### Edit the graph
-
-If screen reader user want to add a new node to the graph, ha can use Ctrl+F6 to switch focus from canvas to module tree and find a wanted node in the module tree. Module tree is a standard treeview control. 
-
-If screens reader user want to connect a node to another one, he can use Ctrl + Shift + H when select a node to open the connection helper. The connection helper will list all the available nodes and connection ports. 
+1. Use Ctrl+F6 to switch focus from the canvas to the module tree.
+1. Find the desired module in the module tree using standard treeview control.
 
 
-## Short cuts 
+### Edit an existing module
 
-Following short cuts are used for easier keyboard access to designer. 
+To connect a module to another module, use Ctrl + Shift + H when targetting a module in the module list to open the connection helper. The connection helper list all the available connection ports for you to edit.
 
-**Short cuts for navigation & edit** garph
+## Navigation keystrokes
 
-| short cut       | Description |
-| ----------- | ----------- |
-| Ctrl + F6   | Switch focus between canvas and module tree|
-| Ctrl + F1   | Open information card when focus on a node in module tree (same as hover by mouse)|
-|Ctrl + Shift + H|Open connection helper to connect nodes when focus is on a node|
-|Ctrl + Shift + E|Open module panel to set module properties when focus is on a node|
-|Ctrl + G|Move focus to first failed node if pipeline run failed|
+| Keystroke | Description |
+|-|-|
+| Ctrl + F6 | Switch focus between canvas and module tree |
+| Ctrl + F1   | Open information card when focusing on a node in module tree (same as mouse-over hover) |
+| Ctrl + Shift + H | Open connection helper to connect nodes when focus is on a node |
+| Ctrl + Shift + E | Open module panel to set module properties when focus is on a node |
+| Ctrl + G | Move focus to first failed node if pipeline run failed |
 
+## Action keystrokes
 
-**Short cuts for frequent actions**
+Use the following keystrokes with the access key. For more information on access keys, see https://en.wikipedia.org/wiki/Access_key.
 
-Below short cuts are implemented through access key, check https://en.wikipedia.org/wiki/Access_key to learn more about access keys.
-
-| Access key      | Action |
-| ----------- | ----------- |
-| Run      | R       |
-| Publish   | P      |
-|Clone|C|
-|Deploy|D|
-|Create/update inference pipeline|I|
-|Create/update batch inference pipeline|B|
-|Open "Create inference pipeline" dropdown |K|
-|Open "Update inference pipeline" dropdown| U|
-|Open more(...) dropdown|M|
+| Keystroke | Action |
+|-|-|
+| Access key + R | Run |
+| Access key + P | Publish |
+| Access key + C | Clone |
+| Access key + D | Deploy |
+| Access key + I | Create/update inference pipeline |
+| Access key + B | Create/update batch inference pipeline |
+| Access key + K | Open "Create inference pipeline" dropdown |
+| Access key + U | Open "Update inference pipeline" dropdown |
+| Access key + M | Open more(...) dropdown |
