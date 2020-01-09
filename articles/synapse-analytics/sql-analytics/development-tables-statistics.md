@@ -17,7 +17,7 @@ ms.custom:
 
 Provided in this article are recommendations and examples for creating and updating query-optimization statistics using the SQL Analytics resources: SQL pool and SQL on-demand.
 
-## Statistics in the SQL pool resource
+## Statistics in SQL pool
 
 ### Why use statistics
 
@@ -529,7 +529,7 @@ For further improve query performance, see [Monitor your workload](../../sql-dat
 
 
 
-## Statistics in the SQL on-demand resource
+## Statistics in SQL on-demand
 Statistics are created per particular column for particular dataset (OPENROWSET path).
 
 ### Why use statistics
