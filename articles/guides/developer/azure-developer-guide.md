@@ -130,7 +130,7 @@ Most applications must store data, so however you decide to host your applicatio
   > **Get started**: [Create a SQL database in minutes by using the Azure portal](../../sql-database/sql-database-get-started.md).
 
 
-You can use [Azure Data Factory](../../data-factory/introduction.md) to move existing on-premises data to Azure. If you aren't ready to move data to the cloud, [Hybrid Connections](../../biztalk-services/integration-hybrid-connection-overview.md) in BizTalk Services lets you connect your App Service hosted app to on-premises resources. You can also connect to Azure data and storage services from your on-premises applications.
+You can use [Azure Data Factory](../../data-factory/introduction.md) to move existing on-premises data to Azure. If you aren't ready to move data to the cloud, [Hybrid Connections](../../app-service/app-service-hybrid-connections.md) in Azure App Service lets you connect your App Service hosted app to on-premises resources. You can also connect to Azure data and storage services from your on-premises applications.
 
 #### Docker support
 
@@ -144,11 +144,11 @@ Azure provides several ways to use containers in your applications.
   > 
   > **Get started**: [Create a Docker environment in Azure by using the Docker VM extension](../../virtual-machines/virtual-machines-linux-dockerextension.md).
 
-- **Azure Container Service**: Lets you create, configure, and manage a cluster of virtual machines  that are preconfigured to run containerized applications. To learn     more about Container Service, see [Azure Container Service introduction](../../container-service/container-service-intro.md).
+- **Azure Kubernetes Service**: Lets you create, configure, and manage a cluster of virtual machines  that are preconfigured to run containerized applications. To learn more about Azure Kubernetes Service, see [Azure Kubernetes Service introduction](../../aks/intro-kubernetes.md).
 
   > **When to use**: When you need to build production-ready, scalable environments that provide additional scheduling and management tools, or when you’re deploying a Docker Swarm cluster.
   > 
-  > **Get started**: [Deploy a Container Service cluster](../../container-service/dcos-swarm/container-service-deployment.md).
+  > **Get started**: [Deploy a Kubernetes Service cluster](../../aks/tutorial-kubernetes-deploy-cluster.md).
 
 - **Docker Machine**: Lets you install and manage a Docker Engine on virtual hosts by using docker-machine commands.
 
@@ -182,7 +182,7 @@ To learn more about security best practices in Azure, see [Azure security best p
 
 With your application up and running in Azure, you need to monitor performance, watch for issues, and see how customers are using your app. Azure provides several monitoring options.
 
--   **Visual Studio Application Insights**: An Azure-hosted extensible analytics service that integrates with Visual Studio to monitor your live web applications. It gives you the data that you need to improve the performance and usability of your apps continuously. This improvement occurs whether you host your applications on Azure or not.
+-   **Application Insights**: An Azure-hosted extensible analytics service that integrates with Visual Studio to monitor your live web applications. It gives you the data that you need to improve the performance and usability of your apps continuously. This improvement occurs whether you host your applications on Azure or not.
 
 	>**Get started**: Follow the [Application Insights tutorial](../../azure-monitor/app/app-insights-overview.md).
 
