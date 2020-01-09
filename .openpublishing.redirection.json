@@ -40880,11 +40880,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/azure-monitor/platform/data-sources-reference.md",
-      "redirect_url": "/azure/azure-monitor/platform/data-sources",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/azure-monitor/platform/collect-activity-logs-subscriptions.md",
       "redirect_url": "/azure/azure-monitor/platform/activity-log-collect-tenants",
       "redirect_document_id": false

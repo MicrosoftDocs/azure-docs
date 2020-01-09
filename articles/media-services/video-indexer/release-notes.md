@@ -34,7 +34,7 @@ Update a specific section in the transcript using the [Update-Video-Index](https
 
 ### Fix account configuration from the Video Indexer portal
 
-You can now update Media Services connection configuration in order to self-help with issues like: incorrect Azure Media Services resource, and `____`. To fix the account configuration, in Video Indexer portal navigate to Settings > Account tab (as owner).
+You can now update Media Services connection configuration in order to self-help with issues like: incorrect Azure Media Services resource. To fix the account configuration, in Video Indexer portal navigate to Settings > Account tab (as owner).
 
 ### Configure the custom vision account
 
