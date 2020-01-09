@@ -95,7 +95,7 @@ In Azure Functions, a function project is a container for one or more individual
 
 If desired, you can skip to [Run the function locally](#run-the-function-locally) and examine the file contents later.
 
-# [__init__.py](#tab/__init__py)
+# [\_\_init\_\_.py](#tab/initpy)
 
 *\_\_init\_\_.py* is a Python file that contains a `main()` function that is triggered according to the configuration in *function.json*.
 
