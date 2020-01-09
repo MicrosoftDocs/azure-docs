@@ -93,7 +93,7 @@
     - name: Node.js
       items:
       - name: Reference
-        href: https://docs.microsoft.com/en-us/javascript/api/@azure/cognitiveservices-personalizer/?view=azure-node-latest
+        href: https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-personalizer/?view=azure-node-latest
       - name: NPM
         href: https://www.npmjs.com/package/@azure/cognitiveservices-personalizer/v/1.0.0
     - name: Python
