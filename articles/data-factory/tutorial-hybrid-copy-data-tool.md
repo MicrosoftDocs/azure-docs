@@ -1,19 +1,18 @@
 ---
-title: Copy on-premises data by using the Azure Copy Data tool | Microsoft Docs
+title: Copy on-premises data using the Azure Copy Data tool
 description: Create an Azure data factory and then use the Copy Data tool to copy data from an on-premises SQL Server database to Azure Blob storage.
 services: data-factory
-documentationcenter: ''
+ms.author: abnarain
 author: nabhishek
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
-
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
+ms.custom: seo-lt-2019
 ms.date: 04/09/2018
-ms.author: abnarain
-
 ---
+
 # Copy data from an on-premises SQL Server database to Azure Blob storage by using the Copy Data tool
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
@@ -119,7 +118,7 @@ In this section, you create a blob container named **adftutorial** in your Blob 
 
    - Select **Create new**, and enter the name of a resource group. 
         
-     To learn about resource groups, see [Use resource groups to manage your Azure resources](../azure-resource-manager/resource-group-overview.md).
+     To learn about resource groups, see [Use resource groups to manage your Azure resources](../azure-resource-manager/management/overview.md).
 1. Under **Version**, select **V2**.
 1. Under **Location**, select the location for the data factory. Only locations that are supported are displayed in the drop-down list. The data stores (for example, Azure Storage and SQL Database) and computes (for example, Azure HDInsight) used by Data Factory can be in other locations/regions.
 1. Select **Create**.

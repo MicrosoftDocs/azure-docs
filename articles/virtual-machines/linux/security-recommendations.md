@@ -7,7 +7,7 @@ manager: RKarlin
 
 ms.service: virtual-machines
 ms.topic: conceptual
-ms.date: 09/19/2019
+ms.date: 11/13/2019
 ms.author: barclayn
 ms.custom: security-recommendations
 ---

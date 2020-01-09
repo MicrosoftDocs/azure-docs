@@ -7,13 +7,19 @@
 - name: How-to guides
   items:
   - name: Create a bastion host
-    href: bastion-create-host-portal.md
+    items:
+    - name: Azure portal
+      href: bastion-create-host-portal.md
+    - name: Azure PowerShell
+      href: bastion-create-host-powershell.md
   - name: Connect to a virtual machine
     items:
     - name: SSH (Linux)
       href: bastion-connect-vm-ssh.md
     - name: RDP (Windows)
       href: bastion-connect-vm-rdp.md
+  - name: Connect to a virtual machine scale set
+    href: bastion-connect-vm-scale-set.md
   - name: Connect to DevTest Labs virtual machines
     href: ../lab-services/enable-browser-connection-lab-virtual-machines.md?toc=%2fazure%2fbastion%2ftoc.json
   - name: Work with a virtual machine session
@@ -24,6 +30,12 @@
       href: bastion-vm-full-screen.md
   - name: Work with NSGs
     href: bastion-nsg.md
+  - name: Configure and access diagnostic logs
+    href: diagnostic-logs.md
+  - name: Monitor and manage sessions
+    href: session-monitoring.md
+  - name: Troubleshoot
+    href: troubleshoot.md
 - name: Resources
   items:
   - name: Bastion FAQ

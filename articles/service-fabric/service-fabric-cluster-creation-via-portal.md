@@ -1,21 +1,9 @@
 ---
-title: Create a Service Fabric cluster in the Azure portal | Microsoft Docs
+title: Create a Service Fabric cluster in the Azure portal 
 description: Learn how to set up a secure Service Fabric cluster in Azure using the Azure portal and Azure Key Vault.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: vturecek
 
-ms.assetid: 426c3d13-127a-49eb-a54c-6bde7c87a83b
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 09/06/2018
-ms.author: atsenthi
-
 ---
 # Create a Service Fabric cluster in Azure using the Azure portal
 > [!div class="op_single_selector"]
@@ -210,7 +198,6 @@ At this point, you have a secure cluster using certificates for management authe
 
 <!-- Links -->
 [azure-powershell]: https://azure.microsoft.com/documentation/articles/powershell-install-configure/
-[service-fabric-rp-helpers]: https://github.com/ChackDan/Service-Fabric/tree/master/Scripts/ServiceFabricRPHelpers
 [azure-portal]: https://portal.azure.com/
 [key-vault-get-started]: ../key-vault/key-vault-overview.md
 [create-cluster-arm]: service-fabric-cluster-creation-via-arm.md

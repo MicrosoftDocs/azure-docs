@@ -1,25 +1,25 @@
 ---
-title: How to work with search results - Azure Search
-description: Structure and sort search results, get a document count, and add content navigation to search results in Azure Search.
-author: HeidiSteen
+title: How to work with search results
+titleSuffix: Azure Cognitive Search
+description: Structure and sort search results, get a document count, and add content navigation to search results in Azure Cognitive Search.
+
 manager: nitinme
-services: search
-ms.service: search
-ms.devlang: 
-ms.topic: conceptual
-ms.date: 06/13/2019
+author: HeidiSteen
 ms.author: heidist
-ms.custom: seodec2018
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
 ---
-# How to work with search results in Azure Search
-This article provides guidance on how to implement standard elements of a search results page, such as total counts, document retrieval, sort orders, and navigation. Page-related options that contribute data or information to your search results are specified through the [Search Document](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) requests sent to your Azure Search Service. 
+
+# How to work with search results in Azure Cognitive Search
+This article provides guidance on how to implement standard elements of a search results page, such as total counts, document retrieval, sort orders, and navigation. Page-related options that contribute data or information to your search results are specified through the [Search Document](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) requests sent to your Azure Cognitive Search service. 
 
 In the REST API, requests include a GET command, path, and query parameters that inform the service what is being requested, and how to formulate the response. In the .NET SDK, the equivalent API is [DocumentSearchResult Class](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.documentsearchresult-1).
 
 Several code samples include a web frontend interface, which you can find here: [New York City Jobs demo app](https://azjobsdemo.azurewebsites.net/) and [CognitiveSearchFrontEnd](https://github.com/LuisCabrer/CognitiveSearchFrontEnd).
 
 > [!NOTE]
-> A valid request includes a number of elements, such as a service URL and path, HTTP verb, `api-version`, and so on. For brevity, we trimmed the examples to highlight just the syntax that is relevant to pagination. For more information about request syntax, see [Azure Search Service REST](https://docs.microsoft.com/rest/api/searchservice).
+> A valid request includes a number of elements, such as a service URL and path, HTTP verb, `api-version`, and so on. For brevity, we trimmed the examples to highlight just the syntax that is relevant to pagination. For more information about request syntax, see [Azure Cognitive Search REST APIs](https://docs.microsoft.com/rest/api/searchservice).
 >
 
 ## Total hits and Page Counts
@@ -28,7 +28,7 @@ Showing the total number of results returned from a query, and then returning th
 
 ![][1]
 
-In Azure Search, you use the `$count`, `$top`, and `$skip` parameters to return these values. The following example shows a sample request for total hits on an index called "online-catalog", returned as `@odata.count`:
+In Azure Cognitive Search, you use the `$count`, `$top`, and `$skip` parameters to return these values. The following example shows a sample request for total hits on an index called "online-catalog", returned as `@odata.count`:
 
     GET /indexes/online-catalog/docs?$count=true
 
@@ -50,7 +50,7 @@ On a search results page, you might want to show a thumbnail image, a subset of 
 
  ![][2]
 
-In Azure Search, you would use `$select` and a [Search API request](https://docs.microsoft.com/rest/api/searchservice/search-documents) to implement this experience.
+In Azure Cognitive Search, you would use `$select` and a [Search API request](https://docs.microsoft.com/rest/api/searchservice/search-documents) to implement this experience.
 
 To return a subset of fields for a tiled layout:
 
@@ -68,7 +68,7 @@ Sort orders often default to relevance, but it's common to make alternative sort
 
  ![][3]
 
-In Azure Search, sorting is based on the `$orderby` expression, for all fields that are indexed as `"Sortable": true.` An `$orderby` clause is an OData expression. For information about syntax, see [OData expression syntax for filters and order-by clauses](query-odata-filter-orderby-syntax.md).
+In Azure Cognitive Search, sorting is based on the `$orderby` expression, for all fields that are indexed as `"Sortable": true.` An `$orderby` clause is an OData expression. For information about syntax, see [OData expression syntax for filters and order-by clauses](query-odata-filter-orderby-syntax.md).
 
 Relevance is strongly associated with scoring profiles. You can use the default scoring, which relies on text analysis and statistics to rank order all results, with higher scores going to documents with more or stronger matches on a search term.
 
@@ -86,7 +86,7 @@ You would create a method that accepts the selected sort option as input, and re
 
 ## Faceted navigation
 
-Search navigation is common on a results page, often located at the side or top of a page. In Azure Search, faceted navigation provides self-directed search based on predefined filters. See [Faceted navigation in Azure Search](search-faceted-navigation.md) for details.
+Search navigation is common on a results page, often located at the side or top of a page. In Azure Cognitive Search, faceted navigation provides self-directed search based on predefined filters. See [Faceted navigation in Azure Cognitive Search](search-faceted-navigation.md) for details.
 
 ## Filters at the page level
 
@@ -96,14 +96,14 @@ You can send a filter with or without a search expression. For example, the foll
 
     GET /indexes/online-catalog/docs?$filter=brandname eq 'Microsoft' and category eq 'Games'
 
-See [Search Documents (Azure Search API)](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) for more information about `$filter` expressions.
+See [Search Documents (Azure Cognitive Search API)](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) for more information about `$filter` expressions.
 
 ## See Also
 
-- [Azure Search Service REST API](https://docs.microsoft.com/rest/api/searchservice)
+- [Azure Cognitive Search REST API](https://docs.microsoft.com/rest/api/searchservice)
 - [Index Operations](https://docs.microsoft.com/rest/api/searchservice/Index-operations)
 - [Document Operations](https://docs.microsoft.com/rest/api/searchservice/Document-operations)
-- [Faceted Navigation in Azure Search](search-faceted-navigation.md)
+- [Faceted Navigation in Azure Cognitive Search](search-faceted-navigation.md)
 
 <!--Image references-->
 [1]: ./media/search-pagination-page-layout/Pages-1-Viewing1ofNResults.PNG

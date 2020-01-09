@@ -1,5 +1,5 @@
 ---
-title: CLI example scales a SQL elastic pool-Azure SQL Database | Microsoft Docs
+title: CLI example scales a SQL elastic pool-Azure SQL Database 
 description: Azure CLI example script to scale an elastic pool in Azure SQL Database
 services: sql-database
 ms.service: sql-database

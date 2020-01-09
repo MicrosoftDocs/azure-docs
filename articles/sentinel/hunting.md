@@ -19,9 +19,7 @@ ms.date: 09/10/2019
 ms.author: rkarlin
 ---
 
-# Hunt for threats with in Azure Sentinel
-
-
+# Hunt for threats with Azure Sentinel
 
 If you're an investigator who wants to be proactive about looking for security threats, Azure Sentinel powerful hunting search and query tools to hunt for security threats across your organization’s data sources. But your systems and security appliances generate mountains of data that can be difficult to parse and filter into meaningful events. To help security analysts look proactively for new anomalies that weren't detected by your security apps, Azure Sentinel' built-in hunting queries guide you into asking the right questions to find issues in the data you already have on your network. 
 

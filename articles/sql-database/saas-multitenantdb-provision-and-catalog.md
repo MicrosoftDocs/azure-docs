@@ -1,11 +1,11 @@
 ---
-title: Provision in SaaS multi-tenant Azure | Microsoft Docs
+title: Provision in SaaS multi-tenant
 description: "Learn how to provision and catalog new tenants in an Azure SQL Database multi-tenant SaaS app"
 services: sql-database
 ms.service: sql-database
 ms.subservice: scenario
-ms.custom: 
-ms.devlang: 
+ms.custom:
+ms.devlang:
 ms.topic: conceptual
 author: MightyPen
 ms.author: genemi
@@ -57,11 +57,11 @@ The catalog can also indicate whether a tenant is offline for maintenance or oth
 - The service tier or edition of a database.
 - The version of the database schema.
 - The tenant name and its SLA (service level agreement).
-- Information to enable application management, customer support, or devops processes.  
+- Information to enable application management, customer support, or devops processes.
 
-The catalog can also be used to enable cross-tenant reporting, schema management, and data extract for analytics purposes. 
+The catalog can also be used to enable cross-tenant reporting, schema management, and data extract for analytics purposes.
 
-### Elastic Database Client Library 
+### Elastic Database Client Library
 
 In Wingtip, the catalog is implemented in the *tenantcatalog* database. The *tenantcatalog* is created using the Shard Management features of the [Elastic Database Client Library (EDCL)](sql-database-elastic-database-client-library.md). The library enables an application to create, manage, and use a *shard map* that is stored in a database. A shard map cross-references the tenant key with its shard, meaning its sharded database.
 
@@ -102,7 +102,7 @@ The tenant provisioning scripts in this tutorial support both of the following s
 - Provisioning a tenant into an existing database shared with other tenants.
 - Provisioning a tenant into its own database.
 
-Tenant data is then initialized and registered in the catalog shard map. In the sample app, databases that contain multiple tenants are given a generic name, such as *tenants1* or *tenants2*. Databases that contain a single tenant are given the tenant's name. The specific naming conventions used in the sample are not a critical part of the pattern, as the use of a catalog allows any name to be assigned to the database.  
+Tenant data is then initialized and registered in the catalog shard map. In the sample app, databases that contain multiple tenants are given a generic name, such as *tenants1* or *tenants2*. Databases that contain a single tenant are given the tenant's name. The specific naming conventions used in the sample are not a critical part of the pattern, as the use of a catalog allows any name to be assigned to the database.
 
 <a name="goto_1_tutorial"/>
 
@@ -126,7 +126,7 @@ To complete this tutorial, make sure the following prerequisites are completed:
 
 - Get the Wingtip scripts and source code:
     - The Wingtip Tickets SaaS Multi-tenant Database scripts and application source code are available in the [WingtipTicketsSaaS-MultitenantDB](https://github.com/microsoft/WingtipTicketsSaaS-MultiTenantDB) GitHub repo.
-    - See the [general guidance](saas-tenancy-wingtip-app-guidance-tips.md) for steps to download and unblock the Wingtip scripts. 
+    - See the [general guidance](saas-tenancy-wingtip-app-guidance-tips.md) for steps to download and unblock the Wingtip scripts.
 
 ## Provision a tenant into a database *shared* with other tenants
 
@@ -138,8 +138,8 @@ The following are key elements of the provisioning workflow you step through:
 
 - **Calculate the new tenant key**: A hash function is used to create the tenant key from the tenant name.
 - **Check if the tenant key already exists**: The catalog is checked to ensure the key has not already been registered.
-- **Initialize tenant in the default tenant database**: The tenant database is updated to add the new tenant information.  
-- **Register tenant in the catalog**: The mapping between the new tenant key and the existing tenants1 database is added to the catalog. 
+- **Initialize tenant in the default tenant database**: The tenant database is updated to add the new tenant information.
+- **Register tenant in the catalog**: The mapping between the new tenant key and the existing tenants1 database is added to the catalog.
 - **Add the tenant's name to a catalog extension table**: The venue name is added to the Tenants table in the catalog.  This addition shows how the Catalog database can be extended to support additional application-specific data.
 - **Open Events page for the new tenant**: The *Bushwillow Blues* events page is opened in the browser.
 
@@ -166,7 +166,7 @@ To understand how the Wingtip app implements new tenant provisioning in a shared
 
 5. Trace the script's execution using the **Debug** menu options, **F10** and **F11**, to step over or into called functions.
 
-For more information about debugging PowerShell scripts, see [Tips on working with and debugging PowerShell scripts](https://msdn.microsoft.com/powershell/scripting/core-powershell/ise/how-to-debug-scripts-in-windows-powershell-ise).
+For more information about debugging PowerShell scripts, see [Tips on working with and debugging PowerShell scripts](https://docs.microsoft.com/powershell/scripting/components/ise/how-to-debug-scripts-in-windows-powershell-ise).
 
 ## Provision a tenant in its *own* database
 
@@ -178,7 +178,7 @@ The following are key elements of the workflow you step through while tracing th
 - **Check if the tenant key already exists**: The catalog is checked to ensure the key has not already been registered.
 - **Create a new tenant database**: The database is created by copying the *basetenantdb* database using a Resource Manager template.  The new database name is based on the tenant's name.
 - **Add database to catalog**: The new tenant database is registered as a shard in the catalog.
-- **Initialize tenant in the default tenant database**: The tenant database is updated to add the new tenant information.  
+- **Initialize tenant in the default tenant database**: The tenant database is updated to add the new tenant information.
 - **Register tenant in the catalog**: The mapping between the new tenant key and the *sequoiasoccer* database is added to the catalog.
 - **Tenant name is added to the catalog**: The venue name is added to the Tenants extension table in the catalog.
 - **Open Events page for the new tenant**: The *Sequoia Soccer* Events page is opened in the browser.
@@ -211,7 +211,7 @@ This exercise provisions a batch of 17 tenants. It’s recommended you provision
 
 2. Press **F5** and run the script.
 
-### Verify the deployed set of tenants 
+### Verify the deployed set of tenants
 
 At this stage, you have a mix of tenants deployed into a shared database and tenants deployed into their own databases. The Azure portal can be used to inspect the databases created. In the [Azure portal](https://portal.azure.com), open the **tenants1-mt-\<USER\>** server by browsing to the list of SQL servers.  The **SQL databases** list should include the shared **tenants1** database and the databases for the tenants that are in their own database:
 
@@ -221,7 +221,7 @@ While the Azure portal shows the tenant databases, it doesn't let you see the te
 
 #### Using Wingtip Tickets events hub page
 
-Open the Events Hub page in the browser (http:events.wingtip-mt.\<USER\>.trafficmanager.net)  
+Open the Events Hub page in the browser (http:events.wingtip-mt.\<USER\>.trafficmanager.net)
 
 #### Using catalog database
 
@@ -239,7 +239,7 @@ The full list of tenants and the corresponding database for each is available in
 3. Right click on the view *TenantsExtended* and choose **Select Top 1000 Rows**. Note the mapping between tenant name and database for the different tenants.
 
     ![ExtendedTenants view in SSMS](media/saas-multitenantdb-provision-and-catalog/extendedtenantsview.png)
-      
+
 ## Other provisioning patterns
 
 This section discusses other interesting provisioning patterns.
@@ -258,7 +258,7 @@ This type of automated service could be simple or complex. For example, the auto
 
 <!-- - Additional [tutorials that build upon the Wingtip SaaS application](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)-->
 - [Elastic database client library](sql-database-elastic-database-client-library.md)
-- [How to Debug Scripts in Windows PowerShell ISE](https://msdn.microsoft.com/powershell/scripting/core-powershell/ise/how-to-debug-scripts-in-windows-powershell-ise)
+- [How to Debug Scripts in Windows PowerShell ISE](https://docs.microsoft.com/powershell/scripting/components/ise/how-to-debug-scripts-in-windows-powershell-ise)
 
 
 ## Next steps

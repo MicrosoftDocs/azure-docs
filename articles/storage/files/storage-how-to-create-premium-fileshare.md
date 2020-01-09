@@ -71,7 +71,7 @@ If you would like to clean up the resources created in this article, you can sim
 
 ### Create an account using PowerShell
 
-First, install the latest version of the [PowerShellGet](https://docs.microsoft.com/powershell/gallery/installing-psget) module.
+First, install the latest version of the [PowerShellGet](/powershell/scripting/gallery/installing-psget) module.
 
 Then, upgrade your powershell module, sign in to your Azure subscription, create a resource group, and then create a storage account.
 

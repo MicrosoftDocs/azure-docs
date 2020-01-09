@@ -1,14 +1,12 @@
 ---
-title: Understand and adjust Streaming Units in Azure Stream Analytics
+title: Streaming Units in Azure Stream Analytics
 description: This article describes the Streaming Units setting and other factors that impact performance in Azure Stream Analytics.
-services: stream-analytics
 author: JSeb225
 ms.author: jeanb
-manager: kfile
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 06/21/2019
+ms.date: 10/28/2019
 ---
 
 # Understand and adjust Streaming Units
@@ -29,6 +27,7 @@ The SU % utilization metric, which ranges from 0% to 100%, describes the memory 
     ![Azure portal Stream Analytics job configuration][img.stream.analytics.preview.portal.settings.scale]
     
 4. Use the slider to set the SUs for the job. Notice that you are limited to specific SU settings. 
+5. You can change the number of SUs assigned to your job even when it is running. This is not possible if your job uses a [non-partitioned output](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization#query-using-non-partitioned-output) or has [a multi-step query with different PARTITION BY values](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization#multi-step-query-with-different-partition-by-values). You job should also have at least 6 SUs in order to change this setting when the job is running. You maybe restricted to choosing from a set of SU values when the job is running. 
 
 ## Monitor job performance
 Using the Azure portal, you can track the throughput of a job:
@@ -93,7 +92,7 @@ Once the query is partitioned out, it is spread out over multiple nodes. As a re
 Event Hub partitions should be partitioned by the grouping key to avoid the need for a reduce step. For more information, see [Event Hubs overview](../event-hubs/event-hubs-what-is-event-hubs.md). 
 
 ## Temporal joins
-The memory consumed (state size) of a temporal join is proportional to the number of events in the temporal wiggle room of the join, which is event input rate multiply by the wiggle room size. In other words, the memory consumed by joins is proportional to the DateDiff time range multiplied by average event rate.
+The memory consumed (state size) of a temporal join is proportional to the number of events in the temporal wiggle room of the join, which is event input rate multiplied by the wiggle room size. In other words, the memory consumed by joins is proportional to the DateDiff time range multiplied by average event rate.
 
 The number of unmatched events in the join affect the memory utilization for the query. The following query is looking to find the ad impressions that generate clicks:
 
@@ -105,7 +104,7 @@ The number of unmatched events in the join affect the memory utilization for the
 
 In this example, it is possible that lots of ads are shown and few people click on it and it is required to keep all the events in the time window. Memory consumed is proportional to the window size and event rate. 
 
-To remediate this, send events to Event Hub partitioned by the join keys (id in this case), and scale out the query by allowing the system to process each input partition separately using  **PARTITION BY** as shown:
+To remediate this, send events to Event Hub partitioned by the join keys (ID in this case), and scale out the query by allowing the system to process each input partition separately using  **PARTITION BY** as shown:
 
    ```sql
    SELECT clicks.id

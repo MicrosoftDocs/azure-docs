@@ -1,14 +1,14 @@
 ---
-title: Managed identity for Data Factory | Microsoft Docs
+title: Managed identity for Data Factory 
 description: Learn about managed identity for Azure Data Factory. 
 services: data-factory
 author: linda33wj
-manager: craigg
+manager: shwang
 editor: ''
 
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
+
 
 ms.topic: conceptual
 ms.date: 04/08/2019
@@ -23,7 +23,7 @@ This article helps you understand what is managed identity for Data Factory (for
 
 ## Overview
 
-When creating a data factory, a managed identity can be created along with factory creation. The managed identity is a managed application registered to Azure Activity Directory, and represents this specific data factory.
+When creating a data factory, a managed identity can be created along with factory creation. The managed identity is a managed application registered to Azure Active Directory, and represents this specific data factory.
 
 Managed identity for Data Factory benefits the following features:
 

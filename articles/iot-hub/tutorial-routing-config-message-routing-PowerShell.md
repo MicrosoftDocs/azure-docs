@@ -1,6 +1,6 @@
 ---
-title: Configure message routing for Azure IoT Hub using Azure PowerShell | Microsoft Docs
-description: Configure message routing for Azure IoT Hub using Azure PowerShell
+title: Configure message routing for Azure IoT Hub with Azure PowerShell
+description: Configure message routing for Azure IoT Hub using Azure PowerShell. Depending on properties in the message, route to either a storage account or a Service Bus queue.
 author: robinsh
 manager: philmea
 ms.service: iot-hub
@@ -30,13 +30,13 @@ Start by creating the resources with PowerShell.
 
 ### Use PowerShell to create your base resources
 
+Copy and paste the script below into Cloud Shell and press Enter. It runs the script one line at a time. This first section of the script will create the base resources for this tutorial, including the storage account, IoT Hub, Service Bus Namespace, and Service Bus queue. As you go through the tutorial, copy each block of script and paste it into Cloud Shell to run it.
+
 There are several resource names that must be globally unique, such as the IoT Hub name and the storage account name. To make this easier, those resource names are appended with a random alphanumeric value called *randomValue*. The randomValue is generated once at the top of the script and appended to the resource names as needed throughout the script. If you don't want it to be random, you can set it to an empty string or to a specific value. 
 
 > [!IMPORTANT]
 > The variables set in the initial script are also used by the routing script, so run all of the script in the same Cloud Shell session. If you open a new session to run the script for setting up the routing, several of the variables will be missing values. 
 >
-
-Copy and paste the script below into Cloud Shell and press Enter. It runs the script one line at a time. This first section of the script will create the base resources for this tutorial, including the storage account, IoT Hub, Service Bus Namespace, and Service Bus queue. As you go through the tutorial, copy each block of script and paste it into Cloud Shell to run it.
 
 ```azurepowershell-interactive
 # This command retrieves the subscription id of the current Azure account.
@@ -136,7 +136,7 @@ First, set up the endpoint for the storage account, then create the message rout
 
 [!INCLUDE [iot-hub-include-blob-storage-format](../../includes/iot-hub-include-blob-storage-format.md)]
 
-These variables are set:
+These are the variables used by the script that must be set within your Cloud Shell session:
 
 **resourceGroup**: There are two occurrences of this field -- set both of them to your resource group.
 
@@ -158,7 +158,7 @@ These variables are set:
 
 **condition**: This field is the query used to filter for the messages sent to this endpoint. The query condition for the messages being routed to storage is `level="storage"`.
 
-**enabled**: This field defaults to `true`, indicating that the message route should be enabled after created.
+**enabled**: This field defaults to `true`, indicating that the message route should be enabled after being created.
 
 Copy this script and paste it into your Cloud Shell window.
 
@@ -228,7 +228,7 @@ $sbqkey = Get-AzServiceBusKey `
     -Name "sbauthrule"
 ```
 
-Now set up the routing endpoint and the message route for the Service Bus queue. These variables are set:
+Now set up the routing endpoint and the message route for the Service Bus queue. These are the variables used by the script that must be set within your Cloud Shell session:
 
 **endpointName**: This field is the name identifying the endpoint. 
 

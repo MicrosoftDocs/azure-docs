@@ -1,5 +1,5 @@
 ---
-title: Manage Azure IoT Hub cloud device messaging with Cloud Explorer for Visual Studio | Microsoft Docs
+title: Use VS Cloud Explorer to manage Azure IoT Hub device messaging
 description: Learn how to use Cloud Explorer for Visual Studio to monitor device to cloud messages and send cloud to device messages in Azure IoT Hub.
 author: shizn
 ms.service: iot-hub

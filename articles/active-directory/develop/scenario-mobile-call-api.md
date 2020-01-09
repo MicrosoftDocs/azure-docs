@@ -1,5 +1,6 @@
 ---
-title: Mobile app that calls web APIs - calling a web API | Microsoft identity platform
+title: Call a web API from a mobile app | Azure
+titleSuffix: Microsoft identity platform
 description: Learn how to build a mobile app that calls web APIs (calling a web API)
 services: active-directory
 documentationcenter: dev-center-name
@@ -130,7 +131,7 @@ If you need to call the same API several times, or if you need to call multiple 
 
 If you need to call several APIs for the same user, once you've acquired a token for a user, you can avoid repeatedly asking the user for credentials by subsequently calling `AcquireTokenSilent` to get a token.
 
-```CSharp
+```csharp
 var result = await app.AcquireTokenXX("scopeApi1")
                       .ExecuteAsync();
 
@@ -143,7 +144,7 @@ The cases where interaction is required is when:
 - The user consented for the first API, but now needs to consent for more scopes (incremental consent)
 - The first API didn't require multiple-factor authentication, but the next one does.
 
-```CSharp
+```csharp
 var result = await app.AcquireTokenXX("scopeApi1")
                       .ExecuteAsync();
 

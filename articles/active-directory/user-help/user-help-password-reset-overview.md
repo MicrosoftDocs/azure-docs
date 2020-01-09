@@ -1,5 +1,5 @@
 ---
-title: Reset your own work or school password overview - Azure Active Directory | Microsoft Docs
+title: Reset your own work or school password overview - Azure AD
 description: A list of links to articles about how to register and reset your work or school password without administrator assistance.
 services: active-directory
 author: eross-msft
@@ -30,5 +30,5 @@ For detailed information and instructions about how to register your account for
 
 |Article |Description |
 |------|------------|
-| [Register for self-service password reset](active-directory-passwords-reset-register.md) ] Instructions about how to verify your authentication methods and sign up for self-service password reset so you can reset your own password.|
-| [Reset your password](user-help-reset-password.md) ] Instructions about how to reset or unlock your password for a work or school account.|
+| [Register for self-service password reset](active-directory-passwords-reset-register.md) | Instructions about how to verify your verification methods and sign up for self-service password reset so you can reset your own password. |
+| [Reset your password](active-directory-passwords-update-your-own-password.md) | Instructions about how to reset or unlock your password for a work or school account. |

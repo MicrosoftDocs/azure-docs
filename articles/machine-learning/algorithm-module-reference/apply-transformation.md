@@ -1,7 +1,7 @@
 ---
 title:  "Apply Transformation: Module Reference"
-titleSuffix: Azure Machine Learning service
-description: Learn how to use the Apply Transformation module in Azure Machine Learning service to modify an input dataset based on a previously computed transformation. 
+titleSuffix: Azure Machine Learning
+description: Learn how to use the Apply Transformation module in Azure Machine Learning to modify an input dataset based on a previously computed transformation. 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/02/2019
+ms.date: 10/22/2019
 ---
 
 # Apply Transformation module
 
-This article describes a module of the visual interface (preview) for Azure Machine Learning service.
+This article describes a module in Azure Machine Learning designer (preview).
 
 Use this module to modify an input dataset based on a previously computed transformation.  
   
@@ -28,7 +28,7 @@ Azure Machine Learning provides support for creating and then applying many diff
 
 ## How to use Apply Transformation  
   
-1. Add the **Apply Transformation** module to your experiment. You can find this module under **Machine Learning**, in the **Score** category. 
+1. Add the **Apply Transformation** module to your pipeline. You can find this module under **Machine Learning**, in the **Score** category. 
   
 2. Locate an existing transformation to use as an input.  Previously saved transformations can be found in the **Transforms** group in the left navigation pane.  
   
@@ -38,8 +38,8 @@ Azure Machine Learning provides support for creating and then applying many diff
   
 4. No other parameters need to be set since all customization is done when defining the transformation.  
   
-5. To apply a transformation to the new dataset, run the experiment.  
+5. To apply a transformation to the new dataset, run the pipeline.  
 
 ## Next steps
 
-See the [set of modules available](module-reference.md) to Azure Machine Learning service. 
+See the [set of modules available](module-reference.md) to Azure Machine Learning. 

@@ -1,21 +1,11 @@
 ---
-title: Azure Cache for Redis FAQ | Microsoft Docs
+title: Azure Cache for Redis FAQ
 description: Learn the answers to common questions, patterns, and best practices for Azure Cache for Redis
-services: cache
-documentationcenter: ''
 author: yegu-ms
-manager: jhubbard
-editor: ''
-
-ms.assetid: c2c52b7d-b2d1-433a-b635-c20180e5cab2
-ms.service: cache
-ms.workload: tbd
-ms.tgt_pltfrm: cache
-ms.devlang: na
-ms.topic: article
-ms.date: 04/29/2019
 ms.author: yegu
-
+ms.service: cache
+ms.topic: conceptual
+ms.date: 04/29/2019
 ---
 # Azure Cache for Redis FAQ
 Learn the answers to common questions, patterns, and best practices for Azure Cache for Redis.
@@ -69,7 +59,7 @@ The following FAQs cover basic concepts and questions about Azure Cache for Redi
 * [Performance considerations around connections](#performance-considerations-around-connections)
 
 ## Monitoring and troubleshooting FAQs
-The FAQs in this section cover common monitoring and troubleshooting questions. For more information about monitoring and troubleshooting your Azure Cache for Redis instances, see [How to monitor Azure Cache for Redis](cache-how-to-monitor.md) and [How to troubleshoot Azure Cache for Redis](cache-how-to-troubleshoot.md).
+The FAQs in this section cover common monitoring and troubleshooting questions. For more information about monitoring and troubleshooting your Azure Cache for Redis instances, see [How to monitor Azure Cache for Redis](cache-how-to-monitor.md) and the various troubleshoot guides.
 
 * [How do I monitor the health and performance of my cache?](#how-do-i-monitor-the-health-and-performance-of-my-cache)
 * [Why am I seeing timeouts?](#why-am-i-seeing-timeouts)
@@ -174,7 +164,7 @@ For more information on considerations when using Azure Cache for Redis with oth
 - [Azure China 21Vianet Cloud - Azure Cache for Redis](https://www.azure.cn/home/features/redis-cache/)
 - [Microsoft Azure Germany](https://azure.microsoft.com/overview/clouds/germany/)
 
-For information on using Azure Cache for Redis with PowerShell in Azure Government Cloud, Azure China 21Vianet Cloud, and Microsoft Azure Germany, see [How to connect to other clouds - Azure Cache for Redis PowerShell](cache-howto-manage-redis-cache-powershell.md#how-to-connect-to-other-clouds).
+For information on using Azure Cache for Redis with PowerShell in Azure Government Cloud, Azure China 21Vianet Cloud, and Microsoft Azure Germany, see [How to connect to other clouds - Azure Cache for Redis PowerShell](cache-how-to-manage-redis-cache-powershell.md#how-to-connect-to-other-clouds).
 
 <a name="cache-configuration"></a>
 
@@ -193,6 +183,7 @@ Usually the default values of the client are sufficient. You can fine-tune the o
   * For ConnectRetry and ConnectTimeout, the general guidance is to fail fast and retry again. This guidance is based on your workload and how much time on average it takes for your client to issue a Redis command and receive a response.
   * Let StackExchange.Redis automatically reconnect instead of checking connection status and reconnecting yourself. **Avoid using the ConnectionMultiplexer.IsConnected property**.
   * Snowballing - sometimes you may run into an issue where you are retrying and the retries snowball and never recovers. If snowballing occurs, you should consider using an exponential backoff retry algorithm as described in [Retry general guidance](../best-practices-retry-general.md) published by the Microsoft Patterns & Practices group.
+  
 * **Timeout values**
   * Consider your workload and set the values accordingly. If you are storing large values, set the timeout to a higher value.
   * Set `AbortOnConnectFail` to false and let StackExchange.Redis reconnect for you.
@@ -439,7 +430,7 @@ These tools enable you to monitor the health of your Azure Cache for Redis insta
 <a name="cache-timeouts"></a>
 
 ### Why am I seeing timeouts?
-Timeouts happen in the client that you use to talk to Redis. When a command is sent to the Redis server, the command is queued up and Redis server eventually picks up the command and executes it. However the client can time out during this process and if it does an exception is raised on the calling side. For more information on troubleshooting timeout issues, see [Client-side troubleshooting](cache-how-to-troubleshoot.md#client-side-troubleshooting) and [StackExchange.Redis timeout exceptions](cache-how-to-troubleshoot.md#stackexchangeredis-timeout-exceptions).
+Timeouts happen in the client that you use to talk to Redis. When a command is sent to the Redis server, the command is queued up and Redis server eventually picks up the command and executes it. However the client can time out during this process and if it does an exception is raised on the calling side. For more information on troubleshooting timeout issues, see [client-side troubleshooting](cache-troubleshoot-client.md) and [StackExchange.Redis timeout exceptions](cache-troubleshoot-timeouts.md#stackexchangeredis-timeout-exceptions).
 
 <a name="cache-disconnect"></a>
 
@@ -474,7 +465,7 @@ Unlike traditional caches that deal only with key-value pairs, Redis is popular 
 
 Another key aspect to Redis success is the healthy, vibrant open- source ecosystem built around it. This is reflected in the diverse set of Redis clients available across multiple languages. This ecosystem and wide range of clients allow Azure Cache for Redis to be used by nearly any workload you would build inside of Azure.
 
-For more information about getting started with Azure Cache for Redis, see [How to Use Azure Cache for Redis](cache-dotnet-how-to-use-azure-redis-cache.md) and [Azure Cache for Redis documentation](index.md).
+For more information about getting started with Azure Cache for Redis, see [How to Use Azure Cache for Redis](cache-dotnet-how-to-use-azure-redis-cache.md) and [Azure Cache for Redis documentation](index.yml).
 
 ### Managed Cache service
 [Managed Cache service was retired November 30, 2016.](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/)

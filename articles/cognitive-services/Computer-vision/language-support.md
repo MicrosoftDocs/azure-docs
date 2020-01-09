@@ -1,7 +1,7 @@
 ---
 title: Language support - Computer Vision
 titleSuffix: Azure Cognitive Services
-description: A list of natural languages supported by Computer Vision features.
+description: This article provides a list of natural languages supported by Computer Vision features; OCR, Recognize Text and Read.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme

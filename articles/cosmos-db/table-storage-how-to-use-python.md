@@ -1,5 +1,5 @@
 ---
-title: Get started with Azure Table storage and the Azure Cosmos DB Table API using Python
+title: Use Azure Cosmos DB Table API and Azure Table storage using Python
 description: Store structured data in the cloud using Azure Table storage or the Azure Cosmos DB Table API.
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
@@ -70,7 +70,7 @@ table_service = TableService(account_name='myaccount', account_key='mykey')
 To connect to Azure Cosmos DB, copy your primary connection string from the Azure portal, and create a [TableService][py_TableService] object using your copied connection string:
 
 ```python
-table_service = TableService(connection_string='DefaultEndpointsProtocol=https;AccountName=myaccount;AccountKey=mykey;TableEndpoint=myendpoint;)
+table_service = TableService(connection_string='DefaultEndpointsProtocol=https;AccountName=myaccount;AccountKey=mykey;TableEndpoint=myendpoint;')
 ```
 
 ## Create a table

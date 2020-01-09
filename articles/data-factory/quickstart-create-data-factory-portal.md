@@ -1,10 +1,10 @@
 ---
-title: Create an Azure data factory using the Azure Data Factory UI | Microsoft Docs
+title: Create an Azure data factory using the Azure Data Factory UI 
 description: Create a data factory with a pipeline that copies data from one location in Azure Blob storage to another location.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
 
 ms.service: data-factory
@@ -34,7 +34,10 @@ Watching this video helps you understand the Data Factory UI:
 
 1. Launch **Microsoft Edge** or **Google Chrome** web browser. Currently, Data Factory UI is supported only in Microsoft Edge and Google Chrome web browsers.
 1. Go to the [Azure portal](https://portal.azure.com). 
-1. Select **Create a resource** on the left menu, select **Analytics**, and then select **Data Factory**. 
+1. From the Azure portal menu, select **Create a resource**.
+   
+   ![Select Create a resource from Azure portal menu](./media/doc-common-process/create-a-resource.png)
+1. Select **Analytics**, and then select **Data Factory**. 
    
    ![Data Factory selection in the "New" pane](./media/doc-common-process/new-azure-data-factory-menu.png)
 1. On the **New data factory** page, enter **ADFTutorialDataFactory** for **Name**. 
@@ -48,7 +51,7 @@ Watching this video helps you understand the Data Factory UI:
    - Select **Use existing**, and select an existing resource group from the list. 
    - Select **Create new**, and enter the name of a resource group.   
          
-   To learn about resource groups, see [Using resource groups to manage your Azure resources](../azure-resource-manager/resource-group-overview.md).  
+   To learn about resource groups, see [Using resource groups to manage your Azure resources](../azure-resource-manager/management/overview.md).  
 1. For **Version**, select **V2**.
 1. For **Location**, select the location for the data factory.
 

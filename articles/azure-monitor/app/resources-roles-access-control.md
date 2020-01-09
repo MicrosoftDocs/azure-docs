@@ -1,18 +1,15 @@
 ---
 title: Resources, roles and access control in Azure Application Insights | Microsoft Docs
 description: Owners, contributors and readers of your organization's insights.
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 49f736a5-67fe-4cc6-b1ef-51b993fb39bd
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service:  azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 02/14/2019
+author: mrbullwinkle
 ms.author: mbullwin
+ms.date: 02/14/2019
+
 ---
+
 # Resources, roles, and access control in Application Insights
 
 You can control who has read and update access to your data in Azure [Application Insights][start], by using [Role-based access control in Microsoft Azure](../../role-based-access-control/role-assignments-portal.md).
@@ -124,22 +121,22 @@ Since certain roles can be linked to notifications and e-mail alerts it can be h
 ### Query within the context of a specific Application Insights resource for owners and contributors
 
 ```powershell
-$resourceGroup = “RGNAME”
-$resourceName = “AppInsightsName”
-$resourceType = “microsoft.insights/components”
+$resourceGroup = "RGNAME"
+$resourceName = "AppInsightsName"
+$resourceType = "microsoft.insights/components"
 (Get-AzRoleAssignment -ResourceGroup $resourceGroup -ResourceType $resourceType -ResourceName $resourceName | Where-Object {$_.RoleDefinitionName -in @('Owner', 'Contributor') } | Select -ExpandProperty SignInName | Sort-Object -Unique) -Join ", "
 ```
 
 ### Query within the context of a specific resource group for owners and contributors
 
 ```powershell
-$resourceGroup = “RGNAME”
+$resourceGroup = "RGNAME"
 (Get-AzRoleAssignment -ResourceGroup $resourceGroup | Where-Object {$_.RoleDefinitionName -in @('Owner', 'Contributor') } | Select -ExpandProperty SignInName | Sort-Object -Unique) -Join ", "
 ```
 
 <!--Link references-->
 
 [account]: https://account.microsoft.com
-[group]: ../../azure-resource-manager/resource-group-overview.md
+[group]: ../../azure-resource-manager/management/overview.md
 [portal]: https://portal.azure.com/
 [start]: ../../azure-monitor/app/app-insights-overview.md

@@ -1,5 +1,5 @@
 ---
-title: Query across cloud databases with different schema | Microsoft Docs
+title: Query across cloud databases with different schema
 description: how to set up cross-database queries over vertical partitions
 services: sql-database
 ms.service: sql-database

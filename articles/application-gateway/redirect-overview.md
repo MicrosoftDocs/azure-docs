@@ -1,20 +1,12 @@
 ---
 title: Redirect overview for Azure Application Gateway
-description: Learn about the redirect capability in Azure Application Gateway
+description: Learn about the redirect capability in Azure Application Gateway to redirect traffic received on one listener to another listener or to an external site.
 services: application-gateway
-documentationcenter: na
 author: amsriva
-manager: jpconnock
-tags: azure-resource-manager
-
 ms.service: application-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 3/19/2018
+ms.date: 11/16/2019
 ms.author: amsriva
-
 ---
 
 # Application Gateway redirect overview

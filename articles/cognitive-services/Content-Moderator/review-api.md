@@ -1,16 +1,16 @@
 ---
 title: Reviews, Workflows, and Jobs concepts - Content Moderator
 titleSuffix: Azure Cognitive Services
-description: Learn about Reviews, Workflows, and Jobs
+description: In this article, you will learn about the core concepts of the Review tool; reviews, workflows, and jobs.
 services: cognitive-services
-author: sanjeev3
+author: PatrickFarley
 manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 03/14/2019
-ms.author: sajagtap
+ms.author: pafarley
 #Customer intent: broad conceptual overview of key concepts
 ---
 
@@ -72,5 +72,5 @@ See the [REST API guide](./try-review-api-job.md) to get started using jobs.
 ## Next steps
 
 * Test drive the [Job API console](try-review-api-job.md), and use the REST API code samples. If you're familiar with Visual Studio and C#, also check out the [Jobs .NET quickstart](moderation-jobs-quickstart-dotnet.md). 
-* For reviews, get started with the [Review API console](try-review-api-review.md), and use the REST API code samples. Then see the [Reviews .NET quickstart](moderation-reviews-quickstart-dotnet.md).
+* For reviews, get started with the [Review API console](try-review-api-review.md), and use the REST API code samples. Then see the reviews section of the [.NET quickstart](dotnet-sdk-quickstart.md).
 * For video reviews, use the [Video review quickstart](video-reviews-quickstart-dotnet.md), and learn how to [add transcripts to the video review](video-transcript-reviews-quickstart-dotnet.md).

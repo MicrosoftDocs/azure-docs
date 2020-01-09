@@ -1,19 +1,21 @@
 ---
 title: List blobs with .NET - Azure Storage 
-description: Learn how to list blobs in a container in your Azure Storage account using the .NET client library.
+description: Learn how to list blobs in a container in your Azure Storage account using the .NET client library. Code examples show how to list blobs in a flat listing, or how to list blobs hierarchically, as though they were organized into directories or folders.
 services: storage
 author: tamram
 
 ms.service: storage
 ms.topic: article
-ms.date: 09/04/2019
+ms.date: 01/06/2020
 ms.author: tamram
 ms.subservice: blobs
 ---
 
 # List blobs with .NET
 
-When you list blobs from your code, you can specify a number of options to manage how results are returned from Azure Storage. This article shows how to list blobs using the [Azure Storage client library for .NET](/dotnet/api/overview/azure/storage/client).  
+When you list blobs from your code, you can specify a number of options to manage how results are returned from Azure Storage. You can specify the number of results to return in each set of results, and then retrieve the subsequent sets. You can specify a prefix to return blobs whose names begin with that character or string. And you can list blobs in a flat listing structure, or hierarchically. A hierarchical listing returns blobs as though they were organized into folders. 
+
+This article shows how to list blobs using the [Azure Storage client library for .NET](/dotnet/api/overview/azure/storage/client).  
 
 ## Understand blob listing options
 
@@ -49,7 +51,7 @@ To return blob metadata with the results, specify the **Metadata** value for the
 
 ### Flat listing versus hierarchical listing
 
-Blobs in Azure Storage are organized in a flat paradigm, rather than a hierarchical paradigm (like a classic file system). However, you can organize blobs into *virtual directories* in order to mimic a hierarchical paradigm. A virtual directory is part of the name of the blob that is demarcated by the delimiter character.
+Blobs in Azure Storage are organized in a flat paradigm, rather than a hierarchical paradigm (like a classic file system). However, you can organize blobs into *virtual directories* in order to mimic a folder structure. A virtual directory forms part of the name of the blob and is indicated by the delimiter character.
 
 To organize blobs into virtual directories, use a delimiter character in the blob name. The default delimiter character is a forward slash (/), but you can specify any character as the delimiter.
 
@@ -134,12 +136,12 @@ private static async Task ListBlobsHierarchicalListingAsync(CloudBlobContainer c
     try
     {
         // Call the listing operation and enumerate the result segment.
-        // When the continuation token is null, the last segment has been returned and 
+        // When the continuation token is null, the last segment has been returned and
         // execution can exit the loop.
         do
         {
             BlobResultSegment resultSegment = await container.ListBlobsSegmentedAsync(prefix,
-                false, BlobListingDetails.Metadata, null, null, null, null);
+                false, BlobListingDetails.Metadata, null, continuationToken, null, null);
             foreach (var blobItem in resultSegment.Results)
             {
                 // A hierarchical listing may return both virtual directories and blobs.

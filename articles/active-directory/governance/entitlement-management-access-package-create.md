@@ -1,6 +1,6 @@
 ---
-title: Create a new access package in Azure AD entitlement management (Preview) - Azure Active Directory
-description: Learn how to create a new access package of resources you want to share in Azure Active Directory entitlement management (Preview).
+title: Create a new access package in entitlement management - Azure AD
+description: Learn how to create a new access package of resources you want to share in Azure Active Directory entitlement management.
 services: active-directory
 documentationCenter: ''
 author: msaburnley
@@ -21,12 +21,7 @@ ms.collection: M365-identity-device-management
 #Customer intent: As an administrator, I want detailed information about the options available when creating a new access package so that the access package can be managed with minimal effort.
 
 ---
-# Create a new access package in Azure AD entitlement management (Preview)
-
-> [!IMPORTANT]
-> Azure Active Directory (Azure AD) entitlement management is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# Create a new access package in Azure AD entitlement management
 
 An access package enables you to do a one-time setup of resources and policies that automatically administers access for the life of the access package. This article describes how to create a new access package.
 
@@ -66,9 +61,9 @@ Here are the high-level steps to create a new access package.
 
 1. In the left menu, click **Access packages**.
 
-    ![Entitlement management in the Azure portal](./media/entitlement-management-shared/elm-access-packages.png)
-
 1. Click **New access package**.
+   
+    ![Entitlement management in the Azure portal](./media/entitlement-management-shared/access-packages-list.png)
 
 ## Basics
 
@@ -98,11 +93,11 @@ On the **Resource roles** tab, you select the resources to include in the access
 
     ![Access package - Resource roles](./media/entitlement-management-access-package-create/resource-roles.png)
 
-    If you are creating the access package in the General catalog or a new catalog, you will be able to pick any resource from the directory that you own. You must be at least a Global administrator, a User administrator or Catalog creator.
+    If you are creating the access package in the General catalog or a new catalog, you will be able to pick any resource from the directory that you own. You must be at least a Global administrator, a User administrator, or Catalog creator.
 
     If you are creating the access package in an existing catalog, you can select any resource that is already in the catalog without owning it.
 
-    If you are a Global administrator, a User administrator or catalog owner, you have the additional option of selecting resources you own that are not yet in the catalog. If you select resources not currently in the selected catalog, these resources will also be added to the catalog for other catalog administrators to build access packages with. If you only want to select resources that are currently in the selected catalog, check the **Only see** check box at the top of the Select pan.
+    If you are a Global administrator, a User administrator, or catalog owner, you have the additional option of selecting resources you own that are not yet in the catalog. If you select resources not currently in the selected catalog, these resources will also be added to the catalog for other catalog administrators to build access packages with. If you only want to select resources that are currently in the selected catalog, check the **Only see** check box at the top of the Select pane.
 
 1. Once you have selected the resources, in the **Role** list, select the role you want users to be assigned for the resource.
 
@@ -116,7 +111,7 @@ On the **Requests** tab, you create the first policy to specify who can request 
 
 ![Access package - Requests tab](./media/entitlement-management-access-package-create/requests.png)
 
-Perform the steps in one of the following sections.
+Depending on who you want to be able to request this access package, perform the steps in one of the following sections.
 
 [!INCLUDE [Entitlement management request policy](../../../includes/active-directory-entitlement-management-request-policy.md)]
 

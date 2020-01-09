@@ -1,5 +1,5 @@
 ---
-title: OpenShift Container Platform 3.11 in Azure prerequisites | Microsoft Docs
+title: OpenShift Container Platform 3.11 in Azure prerequisites 
 description: Prerequisites to deploy OpenShift Container Platform 3.11 in Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -14,7 +14,7 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 10/14/2019
+ms.date: 10/23/2019
 ms.author: haroldw
 ---
 
@@ -110,14 +110,16 @@ az group create -l eastus -n openshiftrg
 Create service principal:
 
 ```azurecli
-scope=`az group show --name openshiftrg --query id`
-az ad sp create-for-rbac --name openshiftsp \
-      --role Contributor --password {Strong Password} \
-      --scopes $scope \
+az group show --name openshiftrg --query id
 ```
-If you're using Windows, execute ```az group show --name openshiftrg --query id``` and use the output in place of $scope.
+Save the output of the command and use in place of $scope in next command
 
-Take note of the appId property returned from the command:
+```azurecli
+az ad sp create-for-rbac --name openshiftsp \
+      --role Contributor --scopes $scope \
+```
+
+Take note of the appId property and password returned from the command:
 ```json
 {
   "appId": "11111111-abcd-1234-efgh-111111111111",
@@ -128,8 +130,7 @@ Take note of the appId property returned from the command:
 }
 ```
  > [!WARNING] 
- > Be sure to create a secure password. Follow the
- > [Azure AD password rules and restrictions](/azure/active-directory/active-directory-passwords-policy) guidance.
+ > Be sure to write down the secure password as it will not be possible to retrieve this password again.
 
 For more information on service principals, see [Create an Azure service principal with Azure CLI](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest).
 

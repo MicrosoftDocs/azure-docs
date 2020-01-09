@@ -1,10 +1,9 @@
 ---
-title: Use AMQP 1.0 with Java Message Service API and Azure Service Bus
+title: Use AMQP with Java Message Service API & Azure Service Bus
 description: How to use the Java Message Service (JMS) with Azure Service Bus and Advanced Message Queuing Protocol (AMQP) 1.0.
 services: service-bus-messaging
 documentationcenter: java
 author: axisc
-manager: timlt
 editor: spelluru
 
 ms.assetid: be766f42-6fd1-410c-b275-8c400c811519
@@ -13,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
-ms.date: 03/05/2019
+ms.date: 10/22/2019
 ms.author: aschhab
 ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019
 
@@ -341,7 +340,7 @@ MODIFIED_FAILED_UNDELIVERABLE = 5; -> Defer()
 ## JMS Topics vs. Service Bus Topics
 Using Azure Service Bus topics and subscriptions through the Java Message Service (JMS) API provides basic send and receive capabilities. It's a convenient choice when porting applications from other message brokers with JMS compliant APIs, even though Service Bus topics differ from JMS Topics and require a few adjustments. 
 
-Azure Service Bus topics route messages into named, shared, durable subscriptions that are managed through the Azure Resource Management interface, the Azure command line tools, or through the Azure portal. Each subscription allows for up to 2000 selection rules, each of which may have a filter condition and, for SQL filters, also a metadata transformation action. Each filter condition match selects the input message to be copied into tehj subscription.  
+Azure Service Bus topics route messages into named, shared, durable subscriptions that are managed through the Azure Resource Management interface, the Azure command line tools, or through the Azure portal. Each subscription allows for up to 2000 selection rules, each of which may have a filter condition and, for SQL filters, also a metadata transformation action. Each filter condition match selects the input message to be copied into the subscription.  
 
 Receiving messages from subscriptions is identical receiving messages from queues. Each subscription has an associated dead-letter queue as well as the ability to automatically forward messages to another queue or topics. 
 

@@ -1,5 +1,5 @@
 ---
-title: Azure CLI Script Sample - Create a Windows Server 2016 VM with IIS using DSC | Microsoft Docs
+title: Azure CLI Script Sample - Create a Windows Server 2016 VM with IIS using DSC 
 description: Azure CLI Script Sample - Create a Windows Server 2016 VM with IIS using DSC
 services: virtual-machines-windows
 documentationcenter: virtual-machines

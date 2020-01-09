@@ -20,7 +20,7 @@ The [Microsoft Azure Data Lake](https://azure.microsoft.com/solutions/data-lake/
 
 Data Lake Analytics is also a key part of Cortana Analytics Suite and works with Azure SQL Data Warehouse, Power BI, and Data Factory. This gives you a complete cloud big data and advanced analytics platform.
 
-This walkthrough begins by describing how to install the prerequisites and resources that are needed to complete data science process tasks. Then it outlines the data processing steps using U-SQL and concludes by showing how to use Python and Hive with Azure Machine Learning Studio to build and deploy the predictive models.
+This walkthrough begins by describing how to install the prerequisites and resources that are needed to complete data science process tasks. Then it outlines the data processing steps using U-SQL and concludes by showing how to use Python and Hive with Azure Machine Learning Studio (classic) to build and deploy the predictive models.
 
 ### U-SQL and Visual Studio
 This walkthrough recommends using Visual Studio to edit U-SQL scripts to process the dataset. The U-SQL scripts are described here and provided in a separate file. The process includes ingesting, exploring, and sampling the data. It also shows how to run a U-SQL scripted job from the Azure portal. Hive tables are created for the data in an associated HDInsight cluster to facilitate the building and deployment of a binary classification model in Azure Machine Learning Studio.
@@ -29,7 +29,7 @@ This walkthrough recommends using Visual Studio to edit U-SQL scripts to process
 This walkthrough also contains a section that shows how to build and deploy a predictive model using Python with Azure Machine Learning Studio. It provides a Jupyter notebook with the Python scripts for the steps in this process. The notebook includes code for some additional feature engineering steps and models construction such as multiclass classification and regression modeling in addition to the binary classification model outlined here. The regression task is to predict the amount of the tip based on other tip features.
 
 ### Azure Machine Learning
-Azure Machine Learning Studio is used to build and deploy the predictive models. This is done using two approaches: first with Python scripts and then with Hive tables on an HDInsight (Hadoop) cluster.
+Azure Machine Learning Studio (classic) is used to build and deploy the predictive models. This is done using two approaches: first with Python scripts and then with Hive tables on an HDInsight (Hadoop) cluster.
 
 ### Scripts
 Only the principal steps are outlined in this walkthrough. You can download the full **U-SQL script** and **Jupyter Notebook** from [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/AzureDataLakeWalkthrough).
@@ -52,7 +52,7 @@ To prepare the data science environment for this walkthrough, create the followi
 * Azure Data Lake Store (ADLS)
 * Azure Data Lake Analytics (ADLA)
 * Azure Blob storage account
-* Azure Machine Learning Studio account
+* Azure Machine Learning Studio (classic) account
 * Azure Data Lake Tools for Visual Studio (Recommended)
 
 This section provides instructions on how to create each of these resources. If you choose to use Hive tables with Azure Machine Learning, instead of Python, to build a model, you also need to provision an HDInsight (Hadoop) cluster. This alternative procedure in described in the Option 2 section.
@@ -80,8 +80,8 @@ Create an Azure Blob storage account from the [Azure portal](https://portal.azur
 
  ![5](./media/data-lake-walkthrough/5-Create-Azure-Blob.PNG)
 
-### Set up an Azure Machine Learning Studio account
-Sign up/into Azure Machine Learning Studio from the [Azure Machine Learning studio](https://azure.microsoft.com/services/machine-learning/) page. Click on the **Get started now** button and then choose a "Free Workspace" or "Standard Workspace". Now your are ready to create experiments in Azure Machine Learning studio.
+### Set up an Azure Machine Learning Studio (classic) account
+Sign up/into Azure Machine Learning Studio (classic) from the [Azure Machine Learning studio](https://azure.microsoft.com/services/machine-learning/) page. Click on the **Get started now** button and then choose a "Free Workspace" or "Standard Workspace". Now your are ready to create experiments in Azure Machine Learning studio.
 
 ### Install Azure Data Lake Tools [Recommended]
 Install Azure Data Lake Tools for your version of Visual Studio from [Azure Data Lake Tools for Visual Studio](https://www.microsoft.com/download/details.aspx?id=49504).
@@ -553,7 +553,7 @@ Here you build a binary classification model to predict whether a trip is tipped
 ### Build Web Service API and consume it in Python
 You want to operationalize the machine learning model after it has been built. The binary logistic model is used here as an example. Make sure the scikit-learn version in your local machine is 0.15.1. You don't have to worry about this if you use Azure Machine Learning studio.
 
-* Find your workspace credentials from Azure Machine Learning studio settings. In Azure Machine Learning Studio, click **Settings** --> **Name** --> **Authorization Tokens**.
+* Find your workspace credentials from Azure Machine Learning Studio (classic) settings. In Azure Machine Learning Studio, click **Settings** --> **Name** --> **Authorization Tokens**.
 
     ![c3](./media/data-lake-walkthrough/c3-workspace-id.PNG)
 
@@ -588,7 +588,7 @@ You want to operationalize the machine learning model after it has been built. T
        ![c4](./media/data-lake-walkthrough/c4-call-API.PNG)
 
 ## Option 2: Create and deploy models directly in Azure Machine Learning
-Azure Machine Learning Studio can read data directly from Azure Data Lake Store and then be used to create and deploy models. This approach uses a Hive table that points at the Azure Data Lake Store. This requires that a separate Azure HDInsight cluster be provisioned, on which the Hive table is created. The following sections show how to do this.
+Azure Machine Learning Studio (classic) can read data directly from Azure Data Lake Store and then be used to create and deploy models. This approach uses a Hive table that points at the Azure Data Lake Store. This requires that a separate Azure HDInsight cluster be provisioned, on which the Hive table is created. The following sections show how to do this.
 
 ### Create an HDInsight Linux Cluster
 Create an HDInsight Cluster (Linux) from the [Azure portal](https://portal.azure.com). For details, see the **Create an HDInsight cluster with access to Azure Data Lake Store** section in [Create an HDInsight cluster with Data Lake Store using Azure portal](../../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
@@ -596,7 +596,7 @@ Create an HDInsight Cluster (Linux) from the [Azure portal](https://portal.azure
  ![18](./media/data-lake-walkthrough/18-create_HDI_cluster.PNG)
 
 ### Create Hive table in HDInsight
-Now you create Hive tables to be used in Azure Machine Learning Studio in the HDInsight cluster using the data stored in Azure Data Lake Store in the previous step. Go to the HDInsight cluster created. Click **Settings** --> **Properties** --> **Cluster AAD Identity** --> **ADLS Access**, make sure your Azure Data Lake Store account is added in the list with read, write and execute rights.
+Now you create Hive tables to be used in Azure Machine Learning Studio (classic) in the HDInsight cluster using the data stored in Azure Data Lake Store in the previous step. Go to the HDInsight cluster created. Click **Settings** --> **Properties** --> **Cluster AAD Identity** --> **ADLS Access**, make sure your Azure Data Lake Store account is added in the list with read, write and execute rights.
 
  ![19](./media/data-lake-walkthrough/19-HDI-cluster-add-ADLS.PNG)
 
@@ -646,7 +646,7 @@ When the query finishes running, you should see the results like this:
 ### Build and deploy models in Azure Machine Learning Studio
 You are now ready to build and deploy a model that predicts whether or not a tip is paid with Azure Machine Learning. The stratified sample data is ready to be used in this binary classification (tip or not) problem. The predictive models using multiclass classification (tip_class) and regression (tip_amount) can also be built and deployed with Azure Machine Learning Studio, but here it is only shown how to handle the case using the binary classification model.
 
-1. Get the data into Azure Machine Learning studio using the **Import Data** module, available in the **Data Input and Output** section. For more information, see the [Import Data module](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/) reference page.
+1. Get the data into Azure Machine Learning Studio (classic) using the **Import Data** module, available in the **Data Input and Output** section. For more information, see the [Import Data module](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/) reference page.
 2. Select **Hive Query** as the **Data source** in the **Properties** panel.
 3. Paste the following Hive script in the **Hive database query** editor
 
@@ -672,7 +672,7 @@ The web service dashboard displays shortly:
  ![27](./media/data-lake-walkthrough/27-AML-web-api.PNG)
 
 ## Summary
-By completing this walkthrough you have created a data science environment for building scalable end-to-end solutions in Azure Data Lake. This environment was used to analyze a large public dataset, taking it through the canonical steps of the Data Science Process, from data acquisition through model training, and then to the deployment of the model as a web service. U-SQL was used to process, explore and sample the data. Python and Hive were used with Azure Machine Learning Studio to build and deploy predictive models.
+By completing this walkthrough you have created a data science environment for building scalable end-to-end solutions in Azure Data Lake. This environment was used to analyze a large public dataset, taking it through the canonical steps of the Data Science Process, from data acquisition through model training, and then to the deployment of the model as a web service. U-SQL was used to process, explore and sample the data. Python and Hive were used with Azure Machine Learning Studio (classic) to build and deploy predictive models.
 
 ## What's next?
 The learning path for the

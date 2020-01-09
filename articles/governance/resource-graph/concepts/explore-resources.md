@@ -1,11 +1,8 @@
 ---
 title: Explore your Azure resources
 description: Learn to use the Resource Graph query language to explore your resources and discover how they're connected.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 10/18/2019
 ms.topic: conceptual
-ms.service: resource-graph
 ---
 # Explore your Azure resources with Resource Graph
 
@@ -335,6 +332,6 @@ sample.
 
 ## Next steps
 
-- Learn more about the [query language](query-language.md)
-- See the language in use in [Starter queries](../samples/starter.md)
-- See advanced uses in [Advanced queries](../samples/advanced.md)
+- Learn more about the [query language](query-language.md).
+- See the language in use in [Starter queries](../samples/starter.md).
+- See advanced uses in [Advanced queries](../samples/advanced.md).

@@ -1,18 +1,13 @@
 ---
 title: Create views to analyze log data in Azure Monitor | Microsoft Docs
 description: By using View Designer in Azure Monitor, you can create custom views that are displayed in the Azure portal and contain a variety of visualizations on data in the Log Analytics workspace. This article contains an overview of View Designer and presents procedures for creating and editing custom views.
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: ''
-ms.assetid: ce41dc30-e568-43c1-97fa-81e5997c946a
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service:  azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 06/22/2018
+author: bwren
 ms.author: bwren
+ms.date: 06/22/2018
+
 ---
 
 # Create custom views by using View Designer in Azure Monitor
@@ -101,7 +96,7 @@ The options for working with views in edit mode are described in the following t
 | Save        | Saves your changes and closes the view. |
 | Cancel      | Discards your changes and closes the view. |
 | Delete View | Deletes the view. |
-| Export      | Exports the view to an [Azure Resource Manager template](../../azure-resource-manager/resource-group-authoring-templates.md) that you can import into another workspace. The name of the file is the name of the view, and it has an *omsview* extension. |
+| Export      | Exports the view to an [Azure Resource Manager template](../../azure-resource-manager/templates/template-syntax.md) that you can import into another workspace. The name of the file is the name of the view, and it has an *omsview* extension. |
 | Import      | Imports the *omsview* file that you exported from another workspace. This action overwrites the configuration of the existing view. |
 | Clone       | Creates a new view and opens it in View Designer. The name of the new view is the same as the original name, but with *Copy* appended to it. |
 

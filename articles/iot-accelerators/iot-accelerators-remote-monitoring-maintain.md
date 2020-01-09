@@ -1,5 +1,5 @@
 ---
-title: Use alerts and fix device issues in the remote monitoring solution tutorial - Azure | Microsoft Docs
+title: Use alerts in the Remote Monitoring solution - Azure | Microsoft Docs 
 description: This tutorial shows you how to Use alerts to identify and fix issues with devices connected to the Remote Monitoring solution accelerator.
 author: dominicbetts
 manager: timlt

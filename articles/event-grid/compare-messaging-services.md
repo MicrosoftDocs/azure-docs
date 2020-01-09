@@ -1,5 +1,5 @@
 ---
-title: Azure messaging comparison - Event Grid, Event Hubs, Service Bus
+title: Compare Azure messaging services
 description: Describes the three Azure messaging services - Azure Event Grid, Event Hubs, and Service Bus. Recommends which service to use for different scenarios.
 services: event-grid
 author: spelluru
@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: event-grid
 ms.topic: overview
-ms.date: 01/30/2019
+ms.date: 10/22/2019
 ms.author: spelluru
 ms.custom: seodec18
 ---
@@ -94,7 +94,7 @@ In other cases, you link them together to form an event and data pipeline. You u
 
 ## Next steps
 See the following articles: 
-
+- [Asynchronous messaging options in Azure](/azure/architecture/guide/technology-choices/messaging)
 - [Events, Data Points, and Messages - Choosing the right Azure messaging service for your data](https://azure.microsoft.com/blog/events-data-points-and-messages-choosing-the-right-azure-messaging-service-for-your-data/).
 - [Storage queues and Service Bus queues - compared and contrasted](../service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted.md)
 - To get started with Event Grid, see [Create and route custom events with Azure Event Grid](custom-event-quickstart.md).

@@ -3,14 +3,14 @@ title: "Tutorial: Use an ONNX model with Windows ML - Custom Vision Service"
 titleSuffix: Azure Cognitive Services
 description: Learn how to create a Windows UWP app that uses an ONNX model exported from Azure Cognitive Services.
 services: cognitive-services
-author: larryfr
+author: PatrickFarley
 manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: tutorial
-ms.date: 07/03/2019
-ms.author: larryfr
+ms.date: 12/05/2019
+ms.author: pafarley
 # As a developer, I want to use a custom vision model with Windows ML.
 ---
 # Tutorial: Use an ONNX model from Custom Vision with Windows ML (preview)

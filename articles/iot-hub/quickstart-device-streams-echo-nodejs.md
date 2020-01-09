@@ -1,5 +1,5 @@
 ﻿---
-title: Communicate to a device app in Node.js via IoT Hub device streams (preview) | Microsoft Docs
+title: Communicate to device app in Node.js with Azure IoT Hub device streams
 description: In this quickstart, you will run a Node.js service-side application that communicates with an IoT device via a device stream.
 author: robinsh
 ms.service: iot-hub
@@ -39,9 +39,10 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 The preview of device streams is currently only supported for IoT Hubs created in the following regions:
 
-*  **Central US**
-
-*  **Central US EUAP**
+  * Central US
+  * Central US EUAP
+  * North Europe
+  * Southeast Asia
 
 To run the service-side application in this quickstart, you need Node.js v10.x.x or later on your development machine.
 

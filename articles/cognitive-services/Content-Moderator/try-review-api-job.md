@@ -3,14 +3,14 @@ title: Use moderation jobs with the REST API console - Content Moderator
 titleSuffix: Azure Cognitive Services
 description: Use the Review API's job operations to initiate end-to-end content moderation jobs for image or text content in Azure Content Moderator. 
 services: cognitive-services
-author: sanjeev3
+author: PatrickFarley
 manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
-ms.date: 03/18/2019
-ms.author: sajagtap
+ms.date: 10/24/2019
+ms.author: pafarley
 #The Jobs how-to for REST/console
 ---
 
@@ -25,7 +25,7 @@ A moderation job serves as a kind of wrapper for the functionality of content mo
 
 ## Create a job
 
-To create a moderation job, go to the [Job - Create](https://westus2.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c5) API reference page and select the button for your key region (you can find this in the Endpoint URL on the **Credentials** page of the [Review tool](https://contentmoderator.cognitive.microsoft.com/)). This starts the API console, where you can easily construct and run REST API calls.
+To create a moderation job, go to the [Job - Create](https://westus2.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c5) API reference page and select the button for your subscription region (you can find this in the Endpoint URL on the **Credentials** page of the [Review tool](https://contentmoderator.cognitive.microsoft.com/)). This starts the API console, where you can easily construct and run REST API calls.
 
 ![Job - Create page region selection](images/test-drive-job-1.png)
 

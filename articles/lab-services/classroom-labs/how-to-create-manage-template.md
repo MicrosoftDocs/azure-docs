@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2019
+ms.date: 10/31/2019
 ms.author: spelluru
 
 ---
@@ -36,12 +36,10 @@ Use the following steps to set title and description for the first time, and upd
 Use the following steps to update a template VM.  
 
 1. On the **Template** page, select **Customize template** on the toolbar. 
-
-    ![Customize template button](../media/how-to-create-manage-template/customize-template-button.png)
 2. On the **Customize template** dialog, select **Continue**. Once you start the template and make changes, it will no longer have the same setup as the virtual machines last published to your users. Template changes will not be reflected on your users' existing virtual machines until after you publish again.
 
     ![Customize dialog box](../media/how-to-create-manage-template/customize-template-dialog.png)
-1. Select **Connect to template** button on the toolbar to connect to the template VM, and follow instructions. If it's a Windows machine, you will see an option to download the RDP file. 
+1. Wait until the template VM is started, and then select **Connect to template** on the toolbar to connect to the template VM, and follow instructions. If it's a Windows machine, you will see an option to download the RDP file. 
 
     ![Connect to the template VM](../media/how-to-create-manage-template/connect-template-vm.png)
 1. Install any software that's required for students to do the lab (for example, Visual Studio, Azure Storage Explorer, etc.). 

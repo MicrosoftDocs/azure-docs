@@ -56,7 +56,7 @@ The following are key attributes of an alert rule:
 
 ## What you can alert on
 
-You can alert on metrics and logs, as described in [monitoring data sources](../../azure-monitor/platform/data-sources-reference.md). These include but are not limited to:
+You can alert on metrics and logs, as described in [monitoring data sources](../../azure-monitor/platform/data-sources.md). These include but are not limited to:
 - Metric values
 - Log search queries
 - Activity log events
@@ -180,23 +180,23 @@ The consumption and management of alert instances requires the user to have the 
 
 You might want to query programmatically for alerts generated against your subscription. This might be to create custom views outside of the Azure portal, or to analyze your alerts to identify patterns and trends.
 
-You can query for alerts generated against your subscriptions either by using the [Alert Management REST API](https://aka.ms/alert-management-api) or by using the [Azure Resource Graph REST API for Alerts](https://docs.microsoft.com/rest/api/azureresourcegraph/resources/resources).
+You can query for alerts generated against your subscriptions either by using the [Alert Management REST API](https://aka.ms/alert-management-api) or by using the [Azure Resource Graph](../../governance/resource-graph/overview.md) and the [REST API for Resources](/rest/api/azureresourcegraph/resourcegraph(2019-04-01)/resources/resources).
 
-The [Azure Resource Graph REST API for Alerts](https://docs.microsoft.com/rest/api/azureresourcegraph/resources/resources) allows you to query for alert instances at scale. This is recommended when you have to manage alerts generated across many subscriptions. 
+The Resource Graph REST API for Resources allows you to query for alert instances at scale. This is recommended when you have to manage alerts generated across many subscriptions. 
 
-The following sample request to the API returns the count of alerts within one subscription:
+The following sample request to the Resource Graph REST API returns the count of alerts within one subscription:
 
 ```json
 {
   "subscriptions": [
     <subscriptionId>
   ],
-  "query": "where type =~ 'Microsoft.AlertsManagement/alerts' | summarize count()",
-  "options": {
-            "dataset":"alerts"
-  }
+  "query": "AlertsManagementResources | where type =~ 'Microsoft.AlertsManagement/alerts' | summarize count()"
 }
 ```
+
+You can also see the result of this Resource Graph query in the portal with Azure Resource Graph Explorer: [portal.azure.com](https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/AlertsManagementResources%20%7C%20where%20type%20%3D~%20%27Microsoft.AlertsManagement%2Falerts%27%20%7C%20summarize%20count())
+
 You can query the alerts for their [essential](alerts-common-schema-definitions.md#essentials) fields.
 
 Use the [Alert Management REST API](https://aka.ms/alert-management-api) to get more information about specific alerts, including their [alert context](alerts-common-schema-definitions.md#alert-context) fields.
@@ -207,6 +207,7 @@ Use the [Alert Management REST API](https://aka.ms/alert-management-api) to get 
 - [Learn about action groups](../../azure-monitor/platform/action-groups.md)
 - [Managing your alert instances in Azure](https://aka.ms/managing-alert-instances)
 - [Managing Smart Groups](https://aka.ms/managing-smart-groups)
+- [Learn more about Azure alerts pricing](https://azure.microsoft.com/pricing/details/monitor/)
 
 
 

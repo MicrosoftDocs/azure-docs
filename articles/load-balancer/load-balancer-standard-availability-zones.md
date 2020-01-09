@@ -1,7 +1,7 @@
 ---
 title: Azure Standard Load Balancer and Availability Zones
-titlesuffix: Azure Load Balancer
-description: Standard Load Balancer and Availability Zones
+titleSuffix: Azure Load Balancer
+description: With this learning path, get started with Azure Standard Load Balancer and Availability Zones.
 services: load-balancer
 documentationcenter: na
 author: asudbring
@@ -17,7 +17,7 @@ ms.author: allensu
 
 # Standard Load Balancer and Availability Zones
 
-Azure Standard Load Balancer supports [availability zones](../availability-zones/az-overview.md) scenarios. You can use Standard Load Balancer to optimize availability in your end-to-end scenario by aligning resources with zones and distributing them across zones.  Review [availability zones](../availability-zones/az-overview.md) for guidance on what availability zones are, which regions currently support availability zones, and other related concepts and products. availability zones in combination with Standard Load Balancer is an expansive and flexible feature set that can create many different scenarios.  Review this document to understand these [concepts](#concepts) and fundamental scenario [design guidance](#design).
+Azure Standard Load Balancer supports [availability zones](../availability-zones/az-overview.md) scenarios. You can use Standard Load Balancer to optimize availability in your end-to-end scenario by aligning resources with zones and distributing them across zones.  Review [availability zones](../availability-zones/az-overview.md) for guidance on what availability zones are, which regions currently support availability zones, and other related concepts and products. Availability zones in combination with Standard Load Balancer is an expansive and flexible feature set that can create many different scenarios.  Review this document to understand these [concepts](#concepts) and fundamental scenario [design guidance](#design).
 
 >[!IMPORTANT]
 >Review [Availability Zones](../availability-zones/az-overview.md) for related topics, including any region specific information.
@@ -83,7 +83,7 @@ The following excerpt is an illustration for how to define a zone-redundant fron
                 ],
 ```
 
-The preceeding excerpts are not complete templates but intended to show how to express availability zones properties.  You need to incorporate these statements into your templates.
+The preceding excerpts are not complete templates but intended to show how to express availability zones properties.  You need to incorporate these statements into your templates.
 
 #### Optional zone isolation
 

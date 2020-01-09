@@ -49,9 +49,9 @@ For recommendations, see [High availability and load balancing of your Applicati
 
 No, this scenario isn't supported. Only the connector and update services can be configured to use a forward proxy for outbound traffic to Azure. See [Work with existing on-premises proxy servers](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-configure-connectors-with-proxy-servers)
 
-### Is SSL termination (SSL/HHTPS inspection or acceleration) on traffic from the connector servers to Azure supported?
+### Is SSL termination (SSL/HTTPS inspection or acceleration) on traffic from the connector servers to Azure supported?
 
-The Application Proxy Connector performs certificate-based authentication to Azure. SSL Termination (SSL/HHTPS inspection or acceleration) breaks this authentication method and isn't supported. Traffic from the connector to Azure must bypass any devices that are performing SSL Termination.  
+The Application Proxy Connector performs certificate-based authentication to Azure. SSL Termination (SSL/HTTPS inspection or acceleration) breaks this authentication method and isn't supported. Traffic from the connector to Azure must bypass any devices that are performing SSL Termination.  
 
 ### Should I create a dedicated account to register the connector with Azure AD Application Proxy?
 
@@ -91,7 +91,7 @@ The PrincipalsAllowedToDelegateToAccount method is used when connector servers a
 If the connector servers and the web application service account are in the same domain, you can use Active Directory Users and Computers to configure the delegation settings on each of the connector machine accounts, allowing them to delegate to the target SPN.
 
 If the connector servers and the web application service account are in different domains, Resource-based delegation is used. The delegation permissions are configured on the target web server and web application service account. This method of Constrained Delegation is relatively new. The method was introduced in Windows Server 2012, which supports cross-domain delegation by allowing the resource (web service) owner to control which machine and service accounts can delegate to it. There's no UI to assist with this configuration, so you'll need to use PowerShell.
-For more information, see the whitepaper [Understanding Kerberos Constrained Delegation with Application Proxy](http://aka.ms/kcdpaper).
+For more information, see the whitepaper [Understanding Kerberos Constrained Delegation with Application Proxy](https://aka.ms/kcdpaper).
 
 ## Pass-through authentication
 

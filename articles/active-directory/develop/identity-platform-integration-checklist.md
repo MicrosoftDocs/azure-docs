@@ -2,21 +2,17 @@
 title: Best practices for Microsoft identity platform | Azure
 description: Learn about best practices, recommendations, and common oversights when integrating with the Microsoft identity platform.
 services: active-directory
-documentationcenter: ''
 author: rwike77
 manager: CelesteDG
-editor: ''
 
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/11/2019
 ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, jesakowi
-ms.custom: aaddev, identityplatformtop40
+ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
 #Customer intent: As an application developer, I want to learn about best practices so I can integrate my application with the Microsoft identity platform.
 ---
 
@@ -71,7 +67,7 @@ Use the following checklist to ensure that your application is effectively integ
 |---|---|
 | ![checkbox](./media/active-directory-integration-checklist/checkbox-two.svg) | Use modern authentication solutions (OAuth 2.0, [OpenID Connect](v2-protocols-oidc.md)) to securely sign in users. |
 | ![checkbox](./media/active-directory-integration-checklist/checkbox-two.svg) |  Don't program directly against protocols such as OAuth 2.0 and Open ID. Instead, leverage the [Microsoft Authentication Library (MSAL)](msal-overview.md). The MSAL libraries securely wrap security protocols in an easy-to-use library, and you get built-in support for [Conditional Access](/azure/active-directory/conditional-access/overview) scenarios, device-wide [single sign-on (SSO)](/azure/active-directory/manage-apps/what-is-single-sign-on), and built-in token caching support. For more info, see the list of Microsoft supported [client libraries](reference-v2-libraries.md#microsoft-supported-client-libraries) and [middleware libraries](reference-v2-libraries.md#microsoft-supported-server-middleware-libraries) and the list of [compatible third-party client libraries](reference-v2-libraries.md#compatible-client-libraries).<br/><br/>If you must hand code for the authentication protocols, you should follow a methodology such as [Microsoft SDL](https://www.microsoft.com/sdl/default.aspx). Pay close attention to the security considerations in the standards specifications for each protocol.|
-| ![checkbox](./media/active-directory-integration-checklist/checkbox-two.svg) |  Migrate existing apps from [Azure Active Directory Authentication Library (ADAL)](active-directory-authentication-libraries.md) to [Microsoft Authentication Library](msal-overview.md). MSAL is Microsoft’s latest identity platform solution and is preferred to ADAL. It is available on .NET and JavaScript and is also in public preview for Android, iOS, Python, and Java. Read more about migrating [ADAL.NET](msal-net-migration.md), [ADAL.js](msal-compare-msal-js-and-adal-js.md), and [ADAL.NET and iOS broker](msal-net-migration-ios-broker.md) apps.|
+| ![checkbox](./media/active-directory-integration-checklist/checkbox-two.svg) |  Migrate existing apps from [Azure Active Directory Authentication Library (ADAL)](active-directory-authentication-libraries.md) to [Microsoft Authentication Library](msal-overview.md). MSAL is Microsoft’s latest identity platform solution and is preferred to ADAL. It is available on .NET, JavaScript, Android, iOS, macOS and is also in public preview for Python and Java. Read more about migrating [ADAL.NET](msal-net-migration.md), [ADAL.js](msal-compare-msal-js-and-adal-js.md), and [ADAL.NET and iOS broker](msal-net-migration-ios-broker.md) apps.|
 | ![checkbox](./media/active-directory-integration-checklist/checkbox-two.svg) |  For mobile apps, configure each platform using the application registration experience. In order for your application to take advantage of the Microsoft Authenticator or Microsoft Company Portal for single sign-in, your app needs a “broker redirect URI” configured. This allows Microsoft to return control to your application after authentication. When configuring each platform, the app registration experience will guide you through the process. Use the quickstart to download a working example. On iOS, use brokers and system webview whenever possible.|
 | ![checkbox](./media/active-directory-integration-checklist/checkbox-two.svg) |  In web apps or web APIs, keep one token cache per account.  For web apps, the token cache should be keyed by the account ID.  For web APIs, the account should be keyed by the hash of the token used to call the API. MSAL.NET provides custom token cache serialization in the .NET Framework and .NET Core subplatforms. For security and performance reasons, our recommendation is to serialize one cache per user. For more information, read about [token cache serialization](msal-net-token-cache-serialization.md#token-cache-for-a-web-app-confidential-client-application).|
 | ![checkbox](./media/active-directory-integration-checklist/checkbox-two.svg) | If the data your app requires is available through [Microsoft Graph](https://developer.microsoft.com/graph), request permissions for this data using the Microsoft Graph endpoint rather than the individual API. |

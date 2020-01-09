@@ -1,12 +1,11 @@
 ---
-title: Connect to file systems on premises - Azure Logic Apps
+title: Connect to file systems on premises
 description: Automate tasks and workflows that connect to on-premises file systems with the File System connector through the on-premises data gateway in Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
 author: derek1ee
 ms.author: deli
-ms.reviewer: klam, estfan, LADocs
+ms.reviewer: klam, estfan, logicappspm
 ms.topic: article
 ms.date: 01/13/2019
 ---
@@ -41,8 +40,7 @@ This article shows how you can connect to an on-premises file system as describe
 
 1. Sign in to the [Azure portal](https://portal.azure.com), and open your logic app in Logic App Designer, if not open already.
 
-1. In the search box, enter "dropbox" as your filter. From the triggers list, select this trigger: 
-**When a file is created**
+1. In the search box, enter "dropbox" as your filter. From the triggers list, select this trigger: **When a file is created**
 
    ![Select Dropbox trigger](media/logic-apps-using-file-connector/select-dropbox-trigger.png)
 

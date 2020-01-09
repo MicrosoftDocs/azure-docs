@@ -1,6 +1,6 @@
 ---
-title: Data Factory - .NET API Change Log | Microsoft Docs
-description: Describes breaking changes, feature additions, bug fixes etc... in a specific version of .NET API for the Azure Data Factory.
+title: Data Factory - .NET API Change Log 
+description: Describes breaking changes, feature additions, bug fixes, and so on, in a specific version of .NET API for the Azure Data Factory.
 services: data-factory
 documentationcenter: ''
 author: djpmsft

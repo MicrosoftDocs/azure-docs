@@ -1,34 +1,23 @@
 ---
-title: Azure PowerShell Samples - Service Fabric | Microsoft Docs
-description: Azure PowerShell Samples - Service Fabric
-services: service-fabric
-documentationcenter: service-fabric
-author: athinanthny
-manager: chackdan
-editor: 
-tags: 
+title: Azure PowerShell Samples - Service Fabric 
+description: Learn about the creation and management of Azure Service Fabric clusters, apps, and services using Powershell.
 
-ms.assetid: b48d1137-8c04-46e0-b430-101e07d7e470
-ms.service: service-fabric
 ms.topic: sample
-ms.tgt_pltfrm: na
-ms.workload: service-fabric
 ms.date: 11/29/2018
-ms.author: atsenthi
 ms.custom: mvc
 ---
-# Azure PowerShell samples
+# Azure Service Fabric PowerShell samples
 
 The following table includes links to PowerShell scripts samples that create and manage Service Fabric clusters, applications, and services.
 
-[!INCLUDE [links to azure cli and service fabric cli](../../includes/service-fabric-powershell.md)]
+[!INCLUDE [links to azure CLI and service fabric CLI](../../includes/service-fabric-powershell.md)]
 
 | | |
 |-|-|
 | **Create cluster** ||
 | [Create a cluster (Azure)](./scripts/service-fabric-powershell-create-secure-cluster-cert.md)| Creates an Azure Service Fabric cluster. |
 | **Manage cluster, nodes, and infrastructure** ||
-| [Add an application certificate](./scripts/service-fabric-powershell-add-application-certificate.md)| Adds an application X.509 certificate to all nodes in a cluster. |
+| [Add an application certificate](./scripts/service-fabric-powershell-add-application-certificate.md)| Creates an X509 certificate to Key Vault and deploys it to a virtual machine scale set in your cluster. |
 | [Update the RDP port range on cluster VMs](./scripts/service-fabric-powershell-change-rdp-port-range.md)|Changes the RDP port range on cluster node VMs in a deployed cluster.|
 | [Update the admin user and password for cluster node VMs](./scripts/service-fabric-powershell-change-rdp-user-and-pw.md) | Updates the admin username and password for cluster node VMs. |
 | [Open a port in the load balancer](./scripts/service-fabric-powershell-open-port-in-load-balancer.md) | Open an application port in the Azure load balancer to allow inbound traffic on a specific port. |

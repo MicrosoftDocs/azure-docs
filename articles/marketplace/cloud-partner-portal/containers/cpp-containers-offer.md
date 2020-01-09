@@ -4,6 +4,7 @@ description: Overview of the process for publishing a container offer on the Azu
 services: Azure, Marketplace, Cloud Partner Portal, 
 author: dan-wesley
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/02/2018
 ms.author: pabutler

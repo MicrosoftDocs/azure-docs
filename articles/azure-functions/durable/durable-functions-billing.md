@@ -2,10 +2,6 @@
 title: Durable functions billing - Azure Functions
 description: Learn about the internal behaviors of Durable Functions and how they affect billing for Azure Functions.
 author: cgillum
-manager: jeconnoc
-keywords:
-ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: overview
 ms.date: 08/31/2019
 ms.author: azfuncdf

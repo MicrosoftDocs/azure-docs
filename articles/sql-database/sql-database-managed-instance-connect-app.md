@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database Managed Instance connect application | Microsoft Docs
+title: Managed instance connect application
 description: This article discusses how to connect your application to Azure SQL Database Managed Instance.
 services: sql-database
 ms.service: sql-database

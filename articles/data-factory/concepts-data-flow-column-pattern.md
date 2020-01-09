@@ -1,56 +1,69 @@
 ---
-title: Column Patterns in Azure Data Factory mapping data flows
-description: Create generalized data transformation patterns using Azure Data Factory Column Patterns in mapping data flows
+title: Column patterns in Azure Data Factory mapping data flow
+description: Create generalized data transformation patterns using column patterns in Azure Data Factory mapping data flows
 author: kromerm
 ms.author: makromer
+ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 01/30/2019
+ms.date: 10/21/2019
 ---
 
-# Mapping data flows column patterns
+# Using column patterns in mapping data flow
 
+Several mapping data flow transformations allow you to reference template columns based on patterns instead of hard-coded column names. This matching is known as *column patterns*. You can define patterns to match columns based on name, data type, stream, or position instead of requiring exact field names. There are two scenarios where column patterns are useful:
 
+* If incoming source fields change often such as the case of changing columns in text files or NoSQL databases. This scenario is known as [schema drift](concepts-data-flow-schema-drift.md).
+* If you wish to do a common operation on a large group of columns. For example, wanting to cast every column that has 'total' in its column name into a double.
 
-Several Azure Data Factory Data Flow transformations support the idea of "Columns Patterns" so that you can create template columns based on patterns instead of hard-coded column names. You can use this feature within the Expression Builder to define patterns to match columns for transformation instead of requiring exact, specific field names. Patterns are useful if incoming source fields change often, particularly in the case of changing columns in text files or NoSQL databases. This condition is sometimes referred to as "Schema Drift".
+Column patterns are currently available in the derived column, aggregate, select, and sink transformations.
 
-This "Flexible Schema" handling is currently found in the Derived Column and Aggregate transformations as well as the Select and Sink transformations as "rule-based mapping".
+## Column patterns in derived column and aggregate
+
+To add a column pattern in a derived column or the Aggregates tab of an aggregate transformation, click the plus icon to the right of an existing column. Select **Add column pattern**. 
+
+![column patterns](media/data-flow/columnpattern.png "Column Patterns")
+
+Use the [expression builder](concepts-data-flow-expression-builder.md) to enter the match condition. Create a boolean expression that matches columns based on the `name`, `type`, `stream`, and `position` of the column. The pattern will affect any column, drifted or defined, where the condition returns true.
+
+The two expression boxes below the match condition specify the new names and values of the affected columns. Use `$$` to reference the existing value of the matched field. The left expression box defines the name and the right expression box defines the value.
 
 ![column patterns](media/data-flow/columnpattern2.png "Column Patterns")
 
-## Column patterns
-Column patterns are useful for handling both Schema Drift scenarios as well as general scenarios. It is good for conditions where you are not able to fully know each column name. You can pattern match on column name and column data type and build an expression for transformation that will perform that operation against any field in the data stream that matches your `name` & `type` patterns.
+The above column pattern matches every column of type double and creates one aggregate column per match. The name of the new column is the matched column's name concatenated with '_total'. The value of the new column is the rounded, aggregated sum of the existing double value.
 
-When adding an expression to a transform that accepts patterns, choose "Add Column Pattern". Column Patterns allows schema drift column matching patterns.
+To verify your matching condition is correct, you can validate the output schema of defined columns in the **Inspect** tab or get a snapshot of the data in the **Data preview** tab. 
 
-When building template column patterns, use `$$` in the expression to represent a reference to each matched field from the input data stream.
+![column patterns](media/data-flow/columnpattern3.png "Column Patterns")
 
-If you choose to use one of the Expression Builder regex functions, you can then subsequently use $1, $2, $3 ... to reference the subpatterns matched from your regex expression.
+## Rule-based mapping in select and sink
 
-An example of Column Pattern scenario is using SUM with a series of incoming fields. The aggregate SUM calculations are in the Aggregate transformation. You can then use SUM on every match of field types that match "integer" and then use $$ to reference each match in your expression.
+When mapping columns in source and select transformations, you can add either fixed mapping or rule-based mappings. If you know the schema of your data and expect specific columns from the source dataset to always match specific static names, use fixed mapping. If you're working with flexible schemas, use rule-based mapping to build a pattern match based on the `name`, `type`, `stream`, and `position` of columns. You can have any combination of fixed and rule-based mappings. 
 
-## Match columns
-![column pattern types](media/data-flow/pattern2.png "Pattern types")
+To add a rule-based mapping, click **Add mapping** and select **Rule-based mapping**.
 
-To build patterns based on columns, you can match on column name, type, stream, or position and use any combination of those with expression functions and regular expressions.
+![rule-based mapping](media/data-flow/rule2.png "Rule-based mapping")
 
-![column position](media/data-flow/position.png "Column position")
+In the left expression box, enter your boolean match condition. In the right expression box, specify what the matched column will be mapped to. Use `$$` to reference the existing name of the matched field.
 
-## Rule-based mapping
-When mapping columns in Source and Select transformations, you will have an option to choose "Fixed mapping" or "Rule-based mapping". When you know the schema of your data and expect specific columns from the Source dataset that always match specific static names, you can use fixed mapping. But when you are working with flexible schemas, use rule-based mapping. You will be able to build a pattern match using the rules described above.
+If you click the downward chevron icon, you can specify a regex mapping condition.
 
-![rule based mapping](media/data-flow/rule2.png "Rule based mapping")
+Click the eyeglasses icon next to a rule-based mapping to view which defined columns are matched and what they're mapped to.
 
-Build your rules using the expression builder. Your expressions will return a boolean value to either match columns (true) or exclude columns (false).
+![rule-based mapping](media/data-flow/rule1.png "Rule-based mapping")
 
-## Pattern matching special columns
+In the above example, two rule-based mappings are created. The first takes all columns not named 'movie' and maps them to their existing values. The second rule uses regex to match all columns that start with 'movie' and maps them to column 'movieId'.
 
-* `$$` will translate to the name of each match at design time in debug mode and upon execution at run time
+If your rule results in multiple identical mappings, enable **Skip duplicate inputs** or **Skip duplicate outputs** to prevent duplicates.
+
+## Pattern matching expression values.
+
+* `$$` translates to the name or value of each match at run time
 * `name` represents the name of each incoming column
 * `type` represents the data type of each incoming column
-* `stream` represents the name associated with each stream or transformation in your flow
+* `stream` represents the name associated with each stream, or transformation in your flow
 * `position` is the ordinal position of columns in your data flow
 
 ## Next steps
-* Learn more about the ADF mapping data flow [expression language](https://aka.ms/dataflowexpressions) for data transformations
-* Use column patterns in the [Sink transformation](data-flow-sink.md) and [Select transformation](data-flow-select.md) with rule-based mapping
+* Learn more about the mapping data flow [expression language](data-flow-expression-functions.md) for data transformations
+* Use column patterns in the [sink transformation](data-flow-sink.md) and [select transformation](data-flow-select.md) with rule-based mapping

@@ -1,5 +1,5 @@
 ---
-title: Create a Windows Virtual Desktop host pool with PowerShell  - Azure
+title: Create Windows Virtual Desktop host pool PowerShell - Azure
 description: How to create a host pool in Windows Virtual Desktop with PowerShell cmdlets.
 services: virtual-desktop
 author: Heidilohr
@@ -32,7 +32,7 @@ New-RdsHostPool -TenantName <tenantname> -Name <hostpoolname>
 Run the next cmdlet to create a registration token to authorize a session host to join the host pool and save it to a new file on your local computer. You can specify how long the registration token is valid by using the -ExpirationHours parameter.
 
 ```powershell
-New-RdsRegistrationInfo -TenantName <tenantname> -HostPoolName <hostpoolname> -ExpirationHours <number of hours> | Select-Object -ExpandProperty Token > <PathToRegFile>
+New-RdsRegistrationInfo -TenantName <tenantname> -HostPoolName <hostpoolname> -ExpirationHours <number of hours> | Select-Object -ExpandProperty Token | Out-File -FilePath <PathToRegFile>
 ```
 
 After that, run this cmdlet to add Azure Active Directory users to the default desktop app group for the host pool.
@@ -80,7 +80,7 @@ To successfully domain-join, do the following things on each virtual machine:
 5. Authenticate with a domain account that has privileges to domain-join machines.
 
     >[!NOTE]
-    > If you're joining your VMs to an Azure Active Directory Domain Services (Azure AD DS) environment, ensure that your domain join user is also a member of the [AAD DC Administrators group](../active-directory-domain-services/tutorial-create-instance.md#configure-an-administrative-group).
+    > If you're joining your VMs to an Azure Active Directory Domain Services (Azure AD DS) environment, ensure that your domain join user is also a member of the [AAD DC Administrators group](../active-directory-domain-services/tutorial-create-instance-advanced.md#configure-an-administrative-group).
 
 ## Register the virtual machines to the Windows Virtual Desktop host pool
 

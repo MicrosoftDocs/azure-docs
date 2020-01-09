@@ -1,5 +1,5 @@
 ---
-title: Run an SSIS package with the Execute SSIS Package activity - Azure | Microsoft Docs
+title: Run an SSIS package with the Execute SSIS Package activity
 description: This article describes how to run a SQL Server Integration Services (SSIS) package in an Azure Data Factory pipeline by using the Execute SSIS Package activity.
 services: data-factory
 documentationcenter: ''
@@ -8,12 +8,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: 
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 09/13/2019
-author: swinarko
 ms.author: sawinark
+author: swinarko
 ms.reviewer: douglasl
-manager: craigg
+manager: mflasko
+ms.custom: seo-lt-2019
+ms.date: 11/14/2019
 ---
+
 # Run an SSIS package with the Execute SSIS Package activity in Azure Data Factory
 This article describes how to run a SQL Server Integration Services (SSIS) package in an Azure Data Factory  pipeline by using the Execute SSIS Package activity. 
 
@@ -51,7 +53,7 @@ In this step, you use the Data Factory UI or app to create a pipeline. You add a
 
     When you create or edit your key vault linked service, you can select or edit your existing key vault or create a new one. Make sure to grant Data Factory managed identity access to your key vault if you haven't done so already. You can also enter your secrets directly in the following format: `<Key vault linked service name>/<secret name>/<secret version>`. If your package needs 32-bit runtime to run, select the **32-Bit runtime** check box.
 
-   For **Package location**, select **SSISDB**, **File System (Package)**, or **File System (Project)**. If you select **SSISDB** as your package location, which is automatically selected if your Azure-SSIS IR was provisioned with the SSIS catalog (SSISDB) hosted by an Azure SQL Database server or managed instance, specify your package to run that was deployed into SSISDB. 
+   For **Package location**, select **SSISDB**, **File System (Package)**, **File System (Project)**, or **Embedded package**. If you select **SSISDB** as your package location, which is automatically selected if your Azure-SSIS IR was provisioned with the SSIS catalog (SSISDB) hosted by an Azure SQL Database server or managed instance, specify your package to run that was deployed into SSISDB. 
 
     If your Azure-SSIS IR is running and the **Manual entries** check box is cleared, browse and select your existing folders, projects, packages, or environments from SSISDB. Select **Refresh** to fetch your newly added folders, projects, packages, or environments from SSISDB so that they're available for browsing and selection. To browse or select the environments for your package executions, you must configure your projects beforehand to add those environments as references from the same folders under SSISDB. For more information, see [Create and map SSIS environments](https://docs.microsoft.com/sql/integration-services/create-and-map-a-server-environment?view=sql-server-2014).
 
@@ -76,6 +78,10 @@ In this step, you use the Data Factory UI or app to create a pipeline. You add a
    Next, specify the credentials to access your project, package, or configuration files. If you previously entered the values for your package execution credentials (see previous), you can reuse them by selecting the **Same as package execution credentials** check box. Otherwise, enter the values for your package access credentials in the **Domain**, **Username**, and **Password** boxes. For example, if you store your project, package, or configuration in Azure Files, the domain is `Azure`, the username is `<storage account name>`, and the password is `<storage account key>`. 
 
    Alternatively, you can use secrets stored in your key vault as their values (see previous). These credentials are used to access your package and child packages in Execute Package Task, all from their own path or the same project, as well as configurations, which include those specified in your packages. 
+
+   If you select **Embedded package** as your package location, drag and drop your package to run or **Upload** it from a file folder into the box provided. Your package will be automatically compressed and embedded in the activity payload. Once embedded, you can **Download** your package later for editing. You can also **Parameterize** your embedded package by assigning it to a pipeline parameter that can be used in multiple activities, hence optimizing the size of your pipeline payload. If your embedded package is not all encrypted and we detect the use of Execute Package Task in it, the **Execute Package Task** check box will be automatically selected and the relevant child packages with their file system references will be automatically added for you to also embed them. If we can't detect the use of Execute Package Task, you'll have to manually select the **Execute Package Task** check box and add the relevant child packages with their file system references one by one for you to also embed them. If the child packages use SQL Server references, please ensure that the SQL Server is accessible by your Azure-SSIS IR.  The use of project references for child packages is currently unsupported.
+   
+   ![Set properties on the Settings tab - Manual](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings5.png)
    
    If you used the **EncryptAllWithPassword** or **EncryptSensitiveWithPassword** protection level when you created your package via SQL Server Data Tools, enter the value for your password in the **Encryption password** box. Alternatively, you can use a secret stored in your key vault as its value (see previous). If you used the **EncryptSensitiveWithUserKey** protection level, reenter your sensitive values in configuration files or on the **SSIS Parameters**, **Connection Managers**, or **Property Overrides** tabs (see later). 
 
@@ -275,7 +281,7 @@ In this step, you create a pipeline with an Execute SSIS Package activity. The a
    }
    ```
 
-   To execute packages stored in file systems, file shares, or Azure Files, enter the values for your package or log location properties as follows:
+   To execute packages stored in file systems, file shares, or Azure Files, enter the values for your package and log location properties as follows:
 
    ```json
    {
@@ -347,6 +353,31 @@ In this step, you create a pipeline with an Execute SSIS Package activity. The a
                                    "value": "MyAccountKey"
                                }
                            }
+                       }
+                   }
+               }
+           }
+       }
+   }
+   ```
+
+   To execute embedded packages, enter the values for your package location property as follows:
+
+   ```json
+   {
+       {
+           {
+               {
+                   "packageLocation": {
+                       "type": "InlinePackage",
+                       "typeProperties": {
+                           "packagePassword": {
+                               "type": "SecureString",
+                               "value": "MyEncryptionPassword"
+                           },
+						   "packageName": "MyPackage.dtsx",
+						   "packageContent":"My compressed/uncompressed package content",
+						   "packageLastModifiedDate": "YYYY-MM-DDTHH:MM:SSZ UTC-/+HH:MM"
                        }
                    }
                }

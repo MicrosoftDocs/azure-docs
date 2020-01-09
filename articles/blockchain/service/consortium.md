@@ -1,19 +1,13 @@
 ---
-title: Azure Blockchain Service Consortium
-description: Understand how Azure Blockchain Service uses a private consortium
-services: azure-blockchain
-keywords: 
-author: PatAltimore
-ms.author: patricka
-ms.date: 10/14/2019
-ms.topic: article
-ms.service: azure-blockchain
+title: Azure Blockchain Service consortium
+description: Overview of how Azure Blockchain service implements consortium blockchain networks.
+ms.date: 11/21/2019
+ms.topic: conceptual
 ms.reviewer: zeyadr
-manager: femila
 #Customer intent: As a network operator, I want to understand how a consortium works in Azure Blockchain Service so I can manage participants in the consortium.
 ---
 
-# Azure Blockchain Service Consortium
+# Azure Blockchain Service consortium
 
 Using Azure Blockchain Service, you can create private consortium blockchain networks where each blockchain network can be limited to specific participants in the network. Only participants in the private consortium blockchain network can view and interact with the blockchain. Consortium networks in Azure Blockchain Service can contain two types of member participant roles:
 
@@ -81,4 +75,4 @@ You can reset your Ethereum account by clicking on your member account and enter
 
 ## Next steps
 
-[How to manage members in Azure Blockchain Service using PowerShell](manage-consortium-powershell.md)
+Consortium management actions can be accessed through PowerShell. For more information, see [Manage consortium members in Azure Blockchain Service using PowerShell](manage-consortium-powershell.md).

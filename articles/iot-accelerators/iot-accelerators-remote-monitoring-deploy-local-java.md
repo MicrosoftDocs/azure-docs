@@ -1,5 +1,5 @@
 ---
-title: Deploy the Remote Monitoring solution locally (via IntelliJ IDE) - Azure | Microsoft Docs 
+title: Deploy Remote Monitoring solution locally - IntelliJ IDE - Azure | Microsoft Docs 
 description: This how-to guide shows you how to deploy the Remote Monitoring solution accelerator to your local machine by using IntelliJ for testing and development.
 author: v-krghan
 manager: dominicbetts

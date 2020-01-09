@@ -26,23 +26,23 @@ landingContent:
       - linkListType: overview
         links:
           - text: What is Identity Protection?
-            url: overview-v2.md
+            url: overview-identity-protection.md
           - text: Introducing the security overview
-            url: security-overview.md
+            url: concept-identity-protection-security-overview.md
 
   # Card
   - title: Investigate risk detections
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Configure risk polciies
-            url: howto-configure-risk-policies.md
+          - text: Configure risk policies
+            url: howto-identity-protection-configure-risk-policies.md
           - text: Investigate risk
-            url: howto-investigate-risk.md
+            url: howto-identity-protection-investigate-risk.md
       - linkListType: reference
         links:
           - text: Types of events
-            url: risk-events-reference.md
+            url: concept-identity-protection-risks.md
 
   # Card
   - title: Identity Protection experience
@@ -50,12 +50,9 @@ landingContent:
       - linkListType: concept
         links:
           - text: Sign-in experience
-            url: flows.md
+            url: concept-identity-protection-user-experience.md
       - linkListType: how-to-guide
         links:
           - text: Simulate Risk Detections
-            url: playbook.md
-      - linkListType: quickstart
-        links:
-          - text: Block access when a session risk is detected
-            url: quickstart-sign-in-risk-policy.md
+            url: howto-identity-protection-simulate-risk.md
+

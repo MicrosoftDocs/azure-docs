@@ -1,5 +1,5 @@
 ---
-title: 'Azure Active Directory Domain Services for Azure Cloud Solution Providers | Microsoft Docs'
+title: Azure AD Domain Services for Cloud Solution Providers | Microsoft Docs
 description: Azure Active Directory Domain Services for Azure Cloud Solution Providers.
 services: active-directory-ds
 documentationcenter: ''

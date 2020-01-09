@@ -2,7 +2,7 @@
 author: paulbouwer
 ms.service: container-service
 ms.topic: include
-ms.date: 10/09/2019
+ms.date: 11/15/2019
 ms.author: pabouwer
 ---
 
@@ -12,7 +12,7 @@ In a PowerShell-based shell on Windows, use `Invoke-WebRequest` to download the 
 
 ```powershell
 # Specify the Istio version that will be leveraged throughout these instructions
-$ISTIO_VERSION="1.3.2"
+$ISTIO_VERSION="1.4.0"
 
 # Enforce TLS 1.2
 [Net.ServicePointManager]::SecurityProtocol = "tls12"

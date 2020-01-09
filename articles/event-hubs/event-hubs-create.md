@@ -1,15 +1,14 @@
 ---
-title: Azure Quickstart - Create an event hub using the Azure portal | Microsoft Docs
+title: Azure Quickstart - Create an event hub using the Azure portal
 description: In this quickstart, you learn how to create an Azure event hub using Azure portal and then send and receive events using .NET Standard SDK.
 services: event-hubs
 documentationcenter: ''
 author: ShubhaVijayasarathy
-manager: timlt
 
 ms.service: event-hubs
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 01/23/2019
+ms.date: 12/02/2019
 ms.author: shvija
 #Customer intent: How do I stream data and process telemetry from an event hub? 
 
@@ -57,9 +56,11 @@ An Event Hubs namespace provides a unique scoping container, referenced by its f
 
    ![Add button](./media/event-hubs-quickstart-portal/event-hubs-add-toolbar.png)
 4. On the **Create namespace** page, take the following steps:
-    1. Enter a name for the namespace. The system immediately checks to see if the name is available.
-    2. Choose the pricing tier (Basic or Standard).
-    3. Select the **subscription** in which you want to create the namespace.
+    1. Enter a **name** for the namespace. The system immediately checks to see if the name is available.
+    2. Choose the **pricing tier** (Basic or Standard).
+    3. Notice that **Enable Kafka** option is automatically enabled. Azure Event Hubs provides you with a Kafka endpoint. This endpoint enables your Event Hubs namespace to natively understand [Apache Kafka](https://kafka.apache.org/intro) message protocol and APIs. With this capability, you can communicate with your event hubs as you would with Kafka topics without changing your protocol clients or running your own clusters. Event Hubs supports [Apache Kafka versions 1.0](https://kafka.apache.org/10/documentation.html) and later.
+    4. Select the **subscription** in which you want to create the namespace.
+    5. Select an existing **resource group** or create a new resource group. 
     4. Select a **location** for the namespace.
     5. Select **Create**. You may have to wait a few minutes for the system to fully provision the resources.
 
@@ -99,7 +100,7 @@ In this article, you created a resource group, an Event Hubs namespace, and an e
 - [Node.js](event-hubs-node-get-started-send.md)
 - [Go](event-hubs-go-get-started-send.md)
 - [C (send only)](event-hubs-c-getstarted-send.md)
-- [Apache Storm (reecive only)](event-hubs-storm-getstarted-receive.md)
+- [Apache Storm (receive only)](event-hubs-storm-getstarted-receive.md)
 
 
 [Azure portal]: https://portal.azure.com/

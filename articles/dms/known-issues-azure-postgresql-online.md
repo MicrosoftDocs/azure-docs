@@ -1,6 +1,7 @@
 ---
-title: Article about known issues/migration limitations with online migrations from PostgreSQL to Azure Database for PostgreSQL-Single server | Microsoft Docs
-description: Learn about known issues/migration limitations with online migrations from PostgreSQL to Azure Database for PostgreSQL.
+title: "Known issues: Online migrations from PostgreSQL to Azure Database for PostgreSQL"
+titleSuffix: Azure Database Migration Service
+description: Learn about known issues and migration limitations with online migrations from PostgreSQL to Azure Database for PostgreSQL-Single server using the Azure Database Migration Service.
 services: database-migration
 author: HJToland3
 ms.author: jtoland
@@ -8,9 +9,9 @@ manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
-ms.custom: mvc
+ms.custom: [seo-lt-2019, seo-dt-2019]
 ms.topic: article
-ms.date: 10/03/2019
+ms.date: 10/27/2019
 ---
 
 # Known issues/migration limitations with online migrations from PostgreSQL to Azure DB for PostgreSQL-Single server
@@ -148,6 +149,9 @@ ALTER USER PG_User SET search_path = fnRenames, pg_catalog, "$user", public;
 -- ALTER USER PG_User SET search_path TO DEFAULT;
 COMMIT;
 ```
+
+  > [!NOTE]
+  > In the preceding script, "PG_User" refers to the username being used to connect to the migration source.
 
 ## Limitations when migrating online from AWS RDS PostgreSQL
 

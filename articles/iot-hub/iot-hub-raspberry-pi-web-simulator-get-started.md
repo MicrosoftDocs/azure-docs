@@ -1,5 +1,5 @@
 ---
-title: Simulated Raspberry Pi to cloud (Node.js) - Connect Raspberry Pi web simulator to Azure IoT Hub | Microsoft Docs
+title: Connect Raspberry Pi web simulator to Azure IoT Hub (Node.js)
 description: Connect Raspberry Pi web simulator to Azure IoT Hub for Raspberry Pi to send data to the Azure cloud.
 author: wesmc7777
 manager: philmea

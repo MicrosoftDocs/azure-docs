@@ -3,11 +3,11 @@ title: How to create and deploy a cloud service | Microsoft Docs
 description: Learn how to create and deploy a cloud service using the Azure portal.
 services: cloud-services
 documentationcenter: ''
-author: georgewallace
+author: tgore03
 ms.service: cloud-services
 ms.topic: article
 ms.date: 05/18/2017
-ms.author: gwallace
+ms.author: tagore
 
 ---
 # How to create and deploy a cloud service
@@ -86,3 +86,6 @@ If your deployment package was [configured to use certificates](cloud-services-c
 * Configure a [custom domain name](cloud-services-custom-domain-name-portal.md).
 * [Manage your cloud service](cloud-services-how-to-manage-portal.md).
 * Configure [ssl certificates](cloud-services-configure-ssl-certificate-portal.md).
+
+
+

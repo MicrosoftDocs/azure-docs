@@ -4,6 +4,7 @@ description: Configure lead management for Dynamics 365 for Customer Engagement.
 services: Azure, Marketplace, commercial marketplace, Partner Center
 author: qianw211
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 07/30/2019
 ms.author: evansma
@@ -78,15 +79,15 @@ Use the following steps to configure Azure Active Directory for Dynamics 365 for
 
     ![Register an application](./media/commercial-marketplace-lead-management-instructions-dynamics/register-an-application.png)
 
-8. Now that your application is registered, access the application’s overview page and copy the **Application (client) ID** value on that page. Save this value, as it is the *Application (client) ID* value that you need to provide in the publishing portal and in Dynamics to receive leads for your marketplace offer.
+8. Now that your application is registered, access the application's overview page and copy the **Application (client) ID** value on that page. Save this value, as it is the *Application (client) ID* value that you need to provide in the publishing portal and in Dynamics to receive leads for your marketplace offer.
 
     ![Application (client) ID](./media/commercial-marketplace-lead-management-instructions-dynamics/application-id.png)
 
-9. Select **Certificates and secrets** from the app’s left navigation, and select **New client secret** on that page. Enter a meaningful description for the client secret, and select the **Never** option under Expires. Select **Add** to create the client secret.
+9. Select **Certificates and secrets** from the app's left navigation, and select **New client secret** on that page. Enter a meaningful description for the client secret, and select the **Never** option under Expires. Select **Add** to create the client secret.
 
     ![Application - Certification and Secrets](./media/commercial-marketplace-lead-management-instructions-dynamics/aad-certificates-secrets.png)
 
-10. As soon as the client secret is successfully created, **Copy the client secret value**. You won’t be able to retrieve the value after you navigate away from the page. Save this value, as it is the *Client secret* value you need to provide in the publishing portal to receive leads for your marketplace offer. 
+10. As soon as the client secret is successfully created, **Copy the client secret value**. You won't be able to retrieve the value after you navigate away from the page. Save this value, as it is the *Client secret* value you need to provide in the publishing portal to receive leads for your marketplace offer. 
 11. Select **API permissions** from the apps' left navigation, and then select **Add a permission**.
 12. Select Microsoft APIs, and then select **Dynamics CRM** as the API.
 13. Under *What type of permissions does your application require*, make sure **Delegated permissions** is selected. Check the permission for **user_impersonation** *Access Common Data Service as organization users*. Select **Add permissions**.
@@ -124,7 +125,7 @@ Use the following steps to configure Office 365 for Dynamics 365 for Customer En
     * Provide a username
     * Provide a password, and deselect the "Make this user change their password when they first sign in" option.
     * Select "User (no administrator access)" as the role for the user.
-    * Select “Dynamics 365 Customer Engagement plan” as product license shown in the next screen capture. You'll be charged for the license you choose. 
+    * Select "Dynamics 365 Customer Engagement plan" as product license shown in the next screen capture. You'll be charged for the license you choose. 
 
 Save these values as they are the *Username and Password* values you need to provide in the publishing portal to receive leads for your marketplace offer.
 
@@ -141,22 +142,22 @@ The final step is to enable the User you created to write the leads.
 
     ![Manage roles](./media/commercial-marketplace-lead-management-instructions-dynamics/security-manage-roles.png)
 
-5. Search for the role name “Microsoft Marketplace Lead Writer” and select it to assign the user the role.
+5. Search for the role name "Microsoft Marketplace Lead Writer" and select it to assign the user the role.
 
     ![Manage user roles](./media/commercial-marketplace-lead-management-instructions-dynamics/security-manage-user-roles.png)
 
     >[!Note]
     >This role is created by the solution that you imported and only has permissions to write the leads and to track the solution version to ensure compatibility.
 
-6. Navigate back to Security page and select **Security Roles**. Search for the role “Microsoft Marketplace Lead Writer” and select it.
+6. Navigate back to Security page and select **Security Roles**. Search for the role "Microsoft Marketplace Lead Writer" and select it.
 
     ![Security roles](./media/commercial-marketplace-lead-management-instructions-dynamics/security-roles.png)
 
-7. Once in the security role, select the **Core Records** tab. Search for the “User Entity UI Settings” entity and enable the Create, Read, and Write permissions to User (1/4 yellow circle) for that entity by clicking once into each of the corresponding circles.
+7. Once in the security role, select the **Core Records** tab. Search for the "User Entity UI Settings" entity and enable the Create, Read, and Write permissions to User (1/4 yellow circle) for that entity by clicking once into each of the corresponding circles.
 
     ![Microsoft Marketplace Lead Writer - Core Records](./media/commercial-marketplace-lead-management-instructions-dynamics/marketplace-lead-writer.png)
 
-8. Now navigate to the **Customization** tab. Search tor the “System Job” entity and enables the Read, Write, and AppendTo permissions to Organization (solid green) for that entity by clicking four times into each of the corresponding circles.
+8. Now navigate to the **Customization** tab. Search tor the "System Job" entity and enables the Read, Write, and AppendTo permissions to Organization (solid green) for that entity by clicking four times into each of the corresponding circles.
 
     ![Microsoft Marketplace Lead Writer - customization](./media/commercial-marketplace-lead-management-instructions-dynamics/marketplace-lead-writer-customization.png)
 

@@ -41,7 +41,7 @@ Prefix size is specified as a Classless Inter-Domain Routing (CIDR) mask size. F
 For costs associated with using Azure Public IPs, both individual IP addresses and IP ranges, see [Public IP Address pricing](https://azure.microsoft.com/pricing/details/ip-addresses/).
 
 ## Limitations
-IPv6 is supported on Basic Public IPs only with “dynamic” allocation that means that the IPv6 address will change if you delete and redeploy your application (VM’s or load balancers) in Azure. Only Standard IPv6 Public IP’s support both dynamic and static (reserved) allocation.
+IPv6 is supported on Basic Public IPs only with “dynamic” allocation that means that the IPv6 address will change if you delete and redeploy your application (VM’s or load balancers) in Azure. Standard IPv6 Public IP’s support solely static (reserved) allocation though Standard INTERNAL load balancers can also support dynamic allocation from within the subnet to which they are assigned.  
 
 As a best practice, we recommend that you use Standard Public IPs and Standard Load Balancers for your IPv6 applications.
 

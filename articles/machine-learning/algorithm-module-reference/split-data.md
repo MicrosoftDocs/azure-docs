@@ -1,7 +1,7 @@
 ---
 title:  "Split Data: Module Reference"
-titleSuffix: Azure Machine Learning service
-description: Learn how to use the Split Data module in Azure Machine Learning service to divide a dataset into two distinct sets.
+titleSuffix: Azure Machine Learning
+description: Learn how to use the Split Data module in Azure Machine Learning to divide a dataset into two distinct sets.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,11 +9,11 @@ ms.topic: reference
 
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/02/2019
+ms.date: 10/22/2019
 ---
 # Split Data module
 
-This article describes a module of the visual interface (preview) for Azure Machine Learning service.
+This article describes a module in Azure Machine Learning designer (preview).
 
 Use this module to divide a dataset into two distinct sets.
 
@@ -25,7 +25,7 @@ This module is particularly useful when you need to separate data into training 
 > Before choosing the splitting mode, read all options to determine the type of split you need.
 > If you change the splitting mode, all other options could be reset.
 
-1. Add the **Split Data** module to your experiment in the interface. You can find this module under **Data Transformation**, in the **Sample and Split** category.
+1. Add the **Split Data** module to your pipeline in the designer. You can find this module under **Data Transformation**, in the **Sample and Split** category.
 
 2. **Splitting mode**: Choose one of the following modes, depending on the type of data you have, and how you want to divide it. Each splitting mode has different options. Click the following topics for detailed instructions and examples. 
 
@@ -40,7 +40,8 @@ This module is particularly useful when you need to separate data into training 
     - **Relative Expression Split**:  Use this option whenever you want to apply a condition to a number column. The number could be a date/time field, a column containing age or dollar amounts, or even a percentage. For example, you might want to divide your data set depending on the cost of the items, group people by age ranges, or separate data by a calendar date.
 
 ### Split Rows
-1.  Add the [Split Data](./split-data.md) module to your experiment in the interface, and connect the dataset you want to split.
+
+1.  Add the [Split Data](./split-data.md) module to your pipeline in the designer, and connect the dataset you want to split.
   
 2.  For **Splitting mode**, choose **Split rows**. 
 
@@ -60,12 +61,12 @@ This module is particularly useful when you need to separate data into training 
 
     With stratified sampling, the data is divided such that each output dataset gets roughly the same percentage of each target value. For example, you might want to ensure that your training and testing sets are roughly balanced with regard to the outcome, or with regard ot some other column such as gender.
 
-7. Run the experiment.
+7. Run the pipeline.
 
 
 ## Regular expression split
 
-1.  Add the [Split Data](./split-data.md) module to your experiment, and connect it as input to the dataset you want to split.  
+1.  Add the [Split Data](./split-data.md) module to your pipeline, and connect it as input to the dataset you want to split.  
   
 2.  For **Splitting mode**, select **Regular expression split**.
 
@@ -74,13 +75,13 @@ This module is particularly useful when you need to separate data into training 
    The regular expression should follow Python regular expression syntax.
 
 
-4. Run the experiment.
+4. Run the pipeline.
 
     Based on the regular expression you provide, the dataset is divided into two sets of rows: rows with values that match the expression and all remaining rows. 
 
 ## Relative expression split.
 
-1. Add the [Split Data](./split-data.md) module to your experiment, and connect it as input to the dataset you want to split.
+1. Add the [Split Data](./split-data.md) module to your pipeline, and connect it as input to the dataset you want to split.
   
 2. For **Splitting mode**, select **relative expression split**.
   
@@ -103,10 +104,10 @@ This module is particularly useful when you need to separate data into training 
 
 
 
-4. Run the experiment.
+4. Run the pipeline.
 
     The expression divides the dataset into two sets of rows: rows with values that meet the condition, and all remaining rows.
 
 ## Next steps
 
-See the [set of modules available](module-reference.md) to Azure Machine Learning service. 
+See the [set of modules available](module-reference.md) to Azure Machine Learning. 

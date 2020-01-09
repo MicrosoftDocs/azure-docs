@@ -27,6 +27,8 @@
     href: storage-files-planning.md
   - name: Planning for an Azure File Sync deployment
     href: storage-sync-files-planning.md
+  - name: Networking considerations for direct access
+    href: storage-files-networking-overview.md
   - name: About cloud tiering
     href: storage-sync-cloud-tiering.md
   - name: About storage accounts
@@ -51,12 +53,12 @@
     items:
     - name: Authorization
       href: ../common/storage-auth.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-    - name: Azure Storage security
-      href: ../common/storage-security-guide.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: Azure Storage encryption
       href: ../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: Azure AD authentication over SMB
       href: storage-files-active-directory-overview.md
+    - name: Use Azure Private Endpoints
+      href: ../common/storage-private-endpoints.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json  
     - name: Compliance offerings
       href: ../common/storage-compliance-offerings.md
   - name: Development
@@ -99,6 +101,8 @@
       href: storage-sync-files-deployment-guide.md
     - name: Configure File Sync proxy and firewall settings
       href: storage-sync-files-firewall-and-proxy.md
+    - name: SQL Server FCI with premium file shares
+      href: ../../virtual-machines/windows/sql/virtual-machines-windows-portal-sql-create-failover-cluster-premium-file-share.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
   - name: Mount
     items:
     - name: Use Azure Files with Windows
@@ -107,6 +111,14 @@
       href: storage-how-to-use-files-linux.md
     - name: Use Azure Files with macOS
       href: storage-how-to-use-files-mac.md
+  - name: Network
+    items:
+    - name: Configure Site-to-Site VPN 
+      href: storage-files-configure-s2s-vpn.md
+    - name: Configure Point-to-Site VPN on Windows
+      href: storage-files-configure-p2s-vpn-windows.md
+    - name: Configure Point-to-Site VPN on Linux
+      href: storage-files-configure-p2s-vpn-linux.md
   - name: Manage
     items:
     - name: Register a server with Azure File Sync
@@ -127,6 +139,8 @@
       href: storage-sync-offline-data-transfer.md
     - name: Move data to and from Azure Storage
       href: ../common/storage-moving-data.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+    - name: Migrate to Azure File Sync from StorSimple
+      href: storage-sync-files-storsimple-migration.md
     - name: Move data with AzCopy
       items:
         - name: Get started
@@ -135,6 +149,8 @@
           href: ../common/storage-use-azcopy-files.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
         - name: Configure, optimize, troubleshoot
           href: ../common/storage-use-azcopy-configure.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+        - name: Transfer data with the Data Movement library
+          href: ../common/storage-use-data-movement-library.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
   - name: Develop
     items:
     - name: Configure connection strings
@@ -167,6 +183,10 @@
       href: storage-troubleshooting-files-performance.md
     - name: Troubleshoot Azure File Sync
       href: storage-sync-files-troubleshoot.md
+    - name: Troubleshoot Deleting Azure Files
+      href: storage-troubleshoot-cannot-delete-files-azure-file-share.md
+    - name: Recover a deleted storage account
+      href: storage-how-to-recover-deleted-account.md
 - name: Reference
   items:
   - name: Azure PowerShell
@@ -175,24 +195,22 @@
     href: /cli/azure/storage
   - name: .NET
     items:
-    - name: Blobs, Queues, and Files
-      href: /dotnet/api/overview/azure/storage/client
+    - name: Files (version 11.x)
+      href: /dotnet/api/microsoft.azure.storage.file
     - name: Data Movement
       href: /dotnet/api/microsoft.azure.storage.datamovement
     - name: Storage Resource Provider
       href: /dotnet/api/overview/azure/storage/management
   - name: Java
     items:
-    - name: Blobs, Queues, and Files (version 12.x - preview)
-      href: https://azure.github.io/azure-sdk-for-java/track2reports/index.html
-    - name: Blobs, Queues, and Files (version 8)
-      href: https://docs.microsoft.com/java/api/overview/azure/storage?view=azure-java-legacy
+    - name: Files (version 8.x)
+      href: /java/api/com.microsoft.azure.storage.file
     - name: Storage Resource Provider
       href: /java/api/overview/azure/storage/management
-  - name: Node.js
-    href: /javascript/api/overview/azure/storage
-  - name: Python
-    href: /python/api/overview/azure/storage
+  - name: JavaScript (version 10.x)
+    href: /javascript/api/@azure/storage-file
+  - name: Python (version 2.x)
+    href: /python/api/azure-storage-file/?view=azure-python
   - name: REST
     items:
     - name: Blobs, Queues, Tables, and Files

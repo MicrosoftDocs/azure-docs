@@ -1,14 +1,8 @@
 ---
-title: Locking down App Service Environment outbound traffic - Azure
-description: Describes how to integrate with Azure Firewall to secure outbound traffic
-services: app-service
-documentationcenter: na
+title: Lock down outbound traffic
+description: Learn how to integrate with Azure Firewall to secure outbound traffic from within an App Service environment.
 author: ccompy
-manager: stefsch
 ms.assetid: 955a4d84-94ca-418d-aa79-b57a5eb8cb85
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/31/2019
 ms.author: ccompy
@@ -25,6 +19,9 @@ There are a number of inbound dependencies that an ASE has. The inbound manageme
 The ASE outbound dependencies are almost entirely defined with FQDNs, which do not have static addresses behind them. The lack of static addresses means that Network Security Groups (NSGs) cannot be used to lock down the outbound traffic from an ASE. The addresses change often enough that one cannot set up rules based on the current resolution and use that to create NSGs. 
 
 The solution to securing outbound addresses lies in use of a firewall device that can control outbound traffic based on domain names. Azure Firewall can restrict outbound HTTP and HTTPS traffic based on the FQDN of the destination.  
+
+> [!NOTE]
+> At this moment, we can't fully lockdown the outbound connection currently.
 
 ## System architecture
 

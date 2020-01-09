@@ -1,11 +1,11 @@
 ---
 title: Optimize cost for multi-region deployments in Azure Cosmos DB
 description: This article explains how to manage costs of multi-region deployments in Azure Cosmos DB.
-author: rimman
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/31/2019
-ms.author: rimman
 ---
 
 # Optimize multi-region cost in Azure Cosmos DB

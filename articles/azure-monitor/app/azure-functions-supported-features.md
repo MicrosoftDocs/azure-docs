@@ -1,17 +1,14 @@
 ---
-title: Azure Application Insights - Azure Functions Supported Features | Microsoft Docs
+title: Azure Application Insights - Azure Functions Supported Features
 description: Application Insights Supported Features for Azure Functions
-services: application-insights
-documentationcenter: .net
-author: TimothyMothra
-manager: 
-ms.service: application-insights
-ms.workload: TBD
-ms.tgt_pltfrm: ibiza
+ms.service:  azure-monitor
+ms.subservice: application-insights
 ms.topic: reference
-ms.date: 4/23/2019
-ms.reviewer: mbullwin
+author: TimothyMothra
 ms.author: tilee
+ms.date: 4/23/2019
+
+ms.reviewer: mbullwin
 ---
 
 # Application Insights for Azure Functions supported features

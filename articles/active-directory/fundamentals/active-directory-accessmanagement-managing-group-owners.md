@@ -16,7 +16,7 @@ ms.collection: M365-identity-device-management
 ---
 
 # Add or remove group owners in Azure Active Directory
-Azure Active Directory (Azure AD) groups are owned and managed by group owners. Group owners can be users or service principals, and are able to manage the group including membership. Only existing group owners or group-managing administrators can assign group onwers. Group owners aren't required to be members of the group.
+Azure Active Directory (Azure AD) groups are owned and managed by group owners. Group owners can be users or service principals, and are able to manage the group including membership. Only existing group owners or group-managing administrators can assign group owners. Group owners aren't required to be members of the group.
 
 When a group has no owner, group-managing administrators are still able to manage the group.
 

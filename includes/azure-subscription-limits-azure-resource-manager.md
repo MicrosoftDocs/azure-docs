@@ -3,7 +3,7 @@
  description: include file
  services: billing
  author: rothja
- ms.service: billing
+ ms.service: cost-management-billing
  ms.topic: include
  ms.date: 07/22/2019
  ms.author: jroth
@@ -14,6 +14,7 @@
 | --- | --- | --- |
 | VMs per [subscription](../articles/billing-buy-sign-up-azure-subscription.md) |25,000<sup>1</sup> per region. |25,000 per region. |
 | VM total cores per [subscription](../articles/billing-buy-sign-up-azure-subscription.md) |20<sup>1</sup> per region. | Contact support. |
+| Azure Spot VM total cores per [subscription](../articles/billing-buy-sign-up-azure-subscription.md) |20<sup>1</sup> per region. | Contact support. |
 | VM per series, such as Dv2 and F, cores per [subscription](../articles/billing-buy-sign-up-azure-subscription.md) |20<sup>1</sup> per region. | Contact support. |
 | [Coadministrators](../articles/billing-add-change-azure-subscription-administrator.md) per subscription |Unlimited. |Unlimited. |
 | [Storage accounts](../articles/storage/common/storage-quickstart-create-account.md) per region per subscription |250 |250 |

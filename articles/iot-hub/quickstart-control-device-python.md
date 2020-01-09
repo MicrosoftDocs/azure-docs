@@ -39,6 +39,8 @@ az extension add --name azure-cli-iot-ext
 
 If you haven't already done so, download the sample Python project from https://github.com/Azure-Samples/azure-iot-samples-python/archive/master.zip and extract the ZIP archive.
 
+Have [Python version 3.7 or later](https://www.python.org/downloads/) installed on your development machine. For other versions of Python supported, see [Azure IoT Device Features](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device#azure-iot-device-features) in the SDK documentation.
+
 ## Create an IoT hub
 
 If you completed the previous [Quickstart: Send telemetry from a device to an IoT hub](quickstart-send-telemetry-python.md), you can skip this step.
@@ -105,7 +107,7 @@ The simulated device application connects to a device-specific endpoint on your 
 1. In the local terminal window, run the following commands to install the required libraries for the simulated device application:
 
     ```cmd/sh
-    pip install azure-iothub-device-client
+    pip install azure-iot-device
     ```
 
 1. In the local terminal window, run the following commands to run the simulated device application:
@@ -131,7 +133,7 @@ The back-end application connects to a service-side endpoint on your IoT Hub. Th
 1. In the local terminal window, run the following commands to install the required libraries for the simulated device application:
 
     ```cmd/sh
-    pip install azure-iothub-service-client future
+    pip install azure-iot-hub
     ```
 
 1. In the local terminal window, run the following commands to run the back-end application:

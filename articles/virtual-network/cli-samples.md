@@ -1,5 +1,5 @@
 ---
-title: Azure CLI samples for virtual network | Microsoft Docs
+title: Azure CLI samples for virtual network
 description: Azure CLI samples for virtual network.
 services: virtual-network
 documentationcenter: virtual-network

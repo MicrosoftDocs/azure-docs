@@ -2,12 +2,11 @@
 title: Modeling data in Azure Cosmos DB
 titleSuffix: Azure Cosmos DB
 description: Learn about data modeling in NoSQL databases, differences between modeling data in a relational database and a document database.
-author: rimman
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/23/2019
-ms.author: rimman
-ms.custom: rimman
 
 ---
 # Data modeling in Azure Cosmos DB

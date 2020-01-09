@@ -1,19 +1,15 @@
 ---
 title: Application Insights API for custom events and metrics | Microsoft Docs
 description: Insert a few lines of code in your device or desktop app, webpage, or service, to track usage and diagnose issues.
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 80400495-c67b-4468-a92e-abf49793a54d
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service:  azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 03/27/2019
+author: mrbullwinkle
 ms.author: mbullwin
+ms.date: 03/27/2019
 
 ---
+
 # Application Insights API for custom events and metrics
 
 Insert a few lines of code in your application to find out what users are doing with it, or to help diagnose issues. You can send telemetry from device and desktop apps, web clients, and web servers. Use the [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) core telemetry API to send custom events and metrics, and your own versions of standard telemetry. This API is the same API that the standard Application Insights data collectors use.
@@ -30,7 +26,7 @@ The core API is uniform across all platforms, apart from a few variations like `
 | [`TrackMetric`](#trackmetric) |Performance measurements such as queue lengths not related to specific events. |
 | [`TrackException`](#trackexception) |Logging exceptions for diagnosis. Trace where they occur in relation to other events and examine stack traces. |
 | [`TrackRequest`](#trackrequest) |Logging the frequency and duration of server requests for performance analysis. |
-| [`TrackTrace`](#tracktrace) |Diagnostic log messages. You can also capture third-party logs. |
+| [`TrackTrace`](#tracktrace) |Resource Diagnostic log messages. You can also capture third-party logs. |
 | [`TrackDependency`](#trackdependency) |Logging the duration and frequency of calls to external components that your app depends on. |
 
 You can [attach properties and metrics](#properties) to most of these telemetry calls.
@@ -571,7 +567,7 @@ telemetry.trackTrace({
 *Client/Browser-side JavaScript*
 
 ```javascript
-trackTrace(message: string, properties?: {[string]:string}, severityLevel?: AI.SeverityLevel)
+trackTrace(message: string, properties?: {[string]:string}, severityLevel?: SeverityLevel)
 ```
 
 Log a diagnostic event such as entering or leaving a method.
@@ -616,7 +612,7 @@ If [sampling](../../azure-monitor/app/sampling.md) is in operation, the itemCoun
 
 ## TrackDependency
 
-Use the TrackDependency call to track the response times and success rates of calls to an external piece of code. The results appear in the dependency charts in the portal.
+Use the TrackDependency call to track the response times and success rates of calls to an external piece of code. The results appear in the dependency charts in the portal. The code snippet below needs to be added wherever a dependency call is made.
 
 *C#*
 
@@ -645,20 +641,20 @@ finally
 
 ```java
 boolean success = false;
-long startTime = System.currentTimeMillis();
+Instant startTime = Instant.now();
 try {
     success = dependency.call();
 }
 finally {
-    long endTime = System.currentTimeMillis();
-    long delta = endTime - startTime;
+    Instant endTime = Instant.now();
+    Duration delta = Duration.between(startTime, endTime);
     RemoteDependencyTelemetry dependencyTelemetry = new RemoteDependencyTelemetry("My Dependency", "myCall", delta, success);
-    telemetry.setTimeStamp(startTime);
-    telemetry.trackDependency(dependencyTelemetry);
+    RemoteDependencyTelemetry.setTimeStamp(startTime);
+    RemoteDependencyTelemetry.trackDependency(dependencyTelemetry);
 }
 ```
 
-*JavaScript*
+*Node.js*
 
 ```javascript
 var success = false;
@@ -1180,8 +1176,8 @@ To determine how long data is kept, see [Data retention and privacy](../../azure
 
 ## Reference docs
 
-* [ASP.NET reference](https://docs.microsoft.com/en-us/dotnet/api/overview/azure/insights?view=azure-dotnet)
-* [Java reference](https://docs.microsoft.com/en-us/java/api/overview/azure/appinsights?view=azure-java-stable/)
+* [ASP.NET reference](https://docs.microsoft.com/dotnet/api/overview/azure/insights?view=azure-dotnet)
+* [Java reference](https://docs.microsoft.com/java/api/overview/azure/appinsights?view=azure-java-stable/)
 * [JavaScript reference](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)
 
 

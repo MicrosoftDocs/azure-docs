@@ -1,10 +1,10 @@
 ---
-title: Tutorial - Apache Kafka with Enterprise Security Package in Azure HDInsight
+title: Tutorial - Apache Kafka & Enterprise Security - Azure HDInsight
 description: Tutorial - Learn how to configure Apache Ranger policies for Kafka in Azure HDInsight with Enterprise Security Package.
-ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
+ms.service: hdinsight
 ms.topic: tutorial
 ms.date: 09/04/2019
 ---
@@ -88,7 +88,7 @@ To create two topics, `salesevents` and `marketingspend`:
    ssh DOMAINADMIN@CLUSTERNAME-ssh.azurehdinsight.net
    ```
 
-   Replace `DOMAINADMIN` with the admin user for your cluster configured during [cluster creation](./apache-domain-joined-configure-using-azure-adds.md#create-a-hdinsight-cluster-with-esp), and replace `CLUSTERNAME` with the name of your cluster. If prompted, enter the password for the admin user account. For more information on using `SSH` with HDInsight, see [Use SSH with HDInsight](../../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md).
+   Replace `DOMAINADMIN` with the admin user for your cluster configured during [cluster creation](./apache-domain-joined-configure-using-azure-adds.md#create-an-hdinsight-cluster-with-esp), and replace `CLUSTERNAME` with the name of your cluster. If prompted, enter the password for the admin user account. For more information on using `SSH` with HDInsight, see [Use SSH with HDInsight](../../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md).
 
 2. Use the following commands to save the cluster name to a variable and install a JSON parsing utility `jq`. When prompted, enter the Kafka cluster name.
 

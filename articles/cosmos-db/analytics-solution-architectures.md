@@ -1,11 +1,11 @@
 ---
 title: Solutions using globally distributed analytics in Azure Cosmos DB.
 description: Learn about the solutions that can be built using the globally distributed analytics in Azure Cosmos DB.
-author: rimman
+author: markjbrown
+ms.author: mjbrown
 ms.topic: conceptual
 ms.service: cosmos-db
 ms.date: 09/26/2019
-ms.author: rimman
 ms.reviewer: sngun
 ---
 
@@ -29,12 +29,12 @@ You can use Spark support in Azure Cosmos DB to deliver real-time recommendation
 
 The following image shows how Azure Cosmos DB Spark support is used to optimize pricing and promotions:
 
-![Azure Cosmos DB’s Spark support to optimize pricing and promotions](./media/spark-api-introduction/optimize-pricing-and-promotions.png)
+![Azure Cosmos DB’s Spark support to optimize pricing and promotions](./media/analytics-solution-architectures/optimize-pricing-and-promotions.png)
 
 
 The following image shows how Azure Cosmos DB Spark support is used in real-time recommendation engine:
 
-![Azure Cosmos DB Spark support in real-time recommendation engine](./media/spark-api-introduction/real-time-recommendation-engine.png)
+![Azure Cosmos DB Spark support in real-time recommendation engine](./media/analytics-solution-architectures/real-time-recommendation-engine.png)
 
 ## Manufacturing and IoT
 
@@ -44,7 +44,7 @@ Azure Cosmos DB’s in-built analytics platform allows you to enable real-time a
 
 The following image shows how Azure Cosmos DB’s Spark support is used to read metrics from IoT devices and apply smart grid analytics:
 
-![Azure Cosmos DB’s Spark support to read metrics from IoT devices](./media/spark-api-introduction/read-metrics-from-iot-devices.png)
+![Azure Cosmos DB’s Spark support to read metrics from IoT devices](./media/analytics-solution-architectures/read-metrics-from-iot-devices.png)
 
 ## Predictive maintenance
 
@@ -54,11 +54,11 @@ The following image shows how Azure Cosmos DB’s Spark support is used to read 
 
 The following image shows how Azure Cosmos DB’s Spark support is used to build a predictive maintenance system:
 
-![Azure Cosmos DB’s Spark support to build a predictive maintenance system](./media/spark-api-introduction/predictive-maintenance-system.png)
+![Azure Cosmos DB’s Spark support to build a predictive maintenance system](./media/analytics-solution-architectures/predictive-maintenance-system.png)
 
 The following image shows how Azure Cosmos DB’s Spark support is used to build a real-time vehicle diagnostic system:
 
-![Azure Cosmos DB’s Spark support to build a real-time vehicle diagnostic system](./media/spark-api-introduction/real-time-vehicle-diagnostic-system.png)
+![Azure Cosmos DB’s Spark support to build a real-time vehicle diagnostic system](./media/analytics-solution-architectures/real-time-vehicle-diagnostic-system.png)
 
 ## Gaming
 
@@ -70,7 +70,7 @@ The following image shows how Azure Cosmos DB’s Spark support is used to build
 
 The following image shows how Azure Cosmos DB’s Spark support is used in gaming analytics:
 
-![Azure Cosmos DB’s Spark support in gaming analytics](./media/spark-api-introduction/gaming-analytics.png)
+![Azure Cosmos DB’s Spark support in gaming analytics](./media/analytics-solution-architectures/gaming-analytics.png)
 
 ## Next steps
 

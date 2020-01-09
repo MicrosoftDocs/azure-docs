@@ -1,18 +1,10 @@
 ---
-title: How to configure Azure Cache for Redis | Microsoft Docs
+title: How to configure Azure Cache for Redis
 description: Understand the default Redis configuration for Azure Cache for Redis and learn how to configure your Azure Cache for Redis instances
-services: cache
-documentationcenter: na
 author: yegu-ms
-manager: jhubbard
-editor: tysonn
 
-ms.assetid: d0bf2e1f-6a26-4e62-85ba-d82b35fc5aa6
 ms.service: cache
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: cache
-ms.workload: tbd
+ms.topic: conceptual
 ms.date: 08/22/2017
 ms.author: yegu
 
@@ -124,7 +116,7 @@ The following settings are configured on the **Advanced settings** blade.
 By default, non-SSL access is disabled for new caches. To enable the non-SSL port, click **No** for **Allow access only via SSL** on the **Advanced settings** blade and then click **Save**.
 
 > [!NOTE]
-> SSL access to Azure Cache for Redis supports TLS 1.0 by default. The minimum supported TLS version can be raised up to TLS 1.2 if desired by using the **Minimum TLS version** dropdown on the **Advanced settings** blade and then click **Save**.
+> SSL  access to Azure Cache for Redis supports TLS 1.0, 1.1 and 1.2 currently, but versions 1.0 and 1.1 are being retired soon.  Please read our [Remove TLS 1.0 and 1.1 page](cache-remove-tls-10-11.md) for more details.
 
 ![Azure Cache for Redis Access Ports](./media/cache-configure/redis-cache-access-ports.png)
 
@@ -426,7 +418,7 @@ New Azure Cache for Redis instances are configured with the following default Re
 For more information about databases, see [What are Redis databases?](cache-faq.md#what-are-redis-databases)
 
 > [!NOTE]
-> The `databases` setting can be configured only during cache creation and only using PowerShell, CLI, or other management clients. For an example of configuring `databases` during cache creation using PowerShell, see [New-AzRedisCache](cache-howto-manage-redis-cache-powershell.md#databases).
+> The `databases` setting can be configured only during cache creation and only using PowerShell, CLI, or other management clients. For an example of configuring `databases` during cache creation using PowerShell, see [New-AzRedisCache](cache-how-to-manage-redis-cache-powershell.md#databases).
 > 
 > 
 

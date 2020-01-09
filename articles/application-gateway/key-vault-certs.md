@@ -11,12 +11,9 @@ ms.author: victorh
 
 # SSL termination with Key Vault certificates
 
-[Azure Key Vault](../key-vault/key-vault-overview.md) is a platform-managed secret store that you can use to safeguard secrets, keys, and SSL certificates. Azure Application Gateway supports integration with Key Vault (in public preview) for server certificates that are attached to HTTPS-enabled listeners. This support is limited to the v2 SKU of Application Gateway.
+[Azure Key Vault](../key-vault/key-vault-overview.md) is a platform-managed secret store that you can use to safeguard secrets, keys, and SSL certificates. Azure Application Gateway supports integration with Key Vault for server certificates that are attached to HTTPS-enabled listeners. This support is limited to the v2 SKU of Application Gateway.
 
-> [!IMPORTANT]
-> Integration of Application Gateway with Key Vault is currently in public preview. This preview is provided without a service-level agreement (SLA) and isn't recommended for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-This public preview offers two models for SSL termination:
+Key Vault integration offers two models for SSL termination:
 
 - You can explicitly provide SSL certificates attached to the listener. This model is the traditional way to pass SSL certificates to Application Gateway for SSL termination.
 - You can optionally provide a reference to an existing Key Vault certificate or secret when you create an HTTPS-enabled listener.

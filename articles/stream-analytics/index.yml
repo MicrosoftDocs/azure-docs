@@ -140,7 +140,7 @@ landingContent:
         links:
           - text: Use machine learning to detect anomalies
             url: stream-analytics-machine-learning-anomaly-detection.md
-          - text: Perform sentiment analysis with Azure Machine Learning Studio
+          - text: Perform sentiment analysis with Azure Machine Learning Studio (classic)
             url: stream-analytics-machine-learning-integration-tutorial.md
           - text: Scale jobs with Machine Learning Studio functions
             url: stream-analytics-scale-with-machine-learning-functions.md
@@ -149,9 +149,9 @@ landingContent:
       - linkListType: how-to-guide
         links:
         - text: Explore jobs with Visual Studio Code
-          url: vscode-local-run.md
+          url: visual-studio-code-explore-jobs.md
         - text: Test queries with sample data in Visual Studio Code
-          url: vscode-local-run.md
+          url: visual-studio-code-local-run.md
         - text: Install tools for Visual Studio
           url: stream-analytics-tools-for-visual-studio-install.md
         - text: Test queries with sample data in Visual Studio
@@ -162,6 +162,10 @@ landingContent:
           url: stream-analytics-tools-for-visual-studio-edge-jobs.md
         - text: Develop an IoT Edge job in Visual Studio
           url: stream-analytics-tools-for-visual-studio-edge-jobs.md
+      - linkListType: video
+        links:
+        - text: Author, manage and test with Visual Studio Code
+          url: https://www.youtube.com/watch?v=N9ak_9ZaHms
   - title: Try Stream Analytics tutorials and solutions 
     linkLists:
       - linkListType: tutorial

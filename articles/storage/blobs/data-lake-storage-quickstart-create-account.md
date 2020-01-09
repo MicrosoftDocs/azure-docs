@@ -4,8 +4,8 @@ description: Quickly learn to create a new storage account with access to Data L
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
-ms.topic: quickstart
-ms.date: 08/19/2019
+ms.topic: conceptual
+ms.date: 10/23/2019
 ms.author: normesta
 ms.reviewer: stewu
 ---
@@ -14,7 +14,7 @@ ms.reviewer: stewu
 
 Azure Data Lake Storage Gen2 [supports a hierarchical namespace](data-lake-storage-introduction.md) which provides a native directory-based container tailored to work with the Hadoop Distributed File System (HDFS). Access to Data Lake Storage Gen2 data from the HDFS is available through the [ABFS driver](data-lake-storage-abfs-driver.md).
 
-This quickstart demonstrates how to create an account using the [Azure portal](https://portal.azure.com/), [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview), or via the [Azure CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest).
+This article demonstrates how to create an account using the Azure portal, Azure PowerShell, or via the Azure CLI.
 
 ## Prerequisites
 
@@ -23,7 +23,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 |           | Prerequisite |
 |-----------|--------------|
 |Portal     | None         |
-|PowerShell | This quickstart requires the PowerShell module Az.Storage version **0.7** or later. To find your current version, run the `Get-Module -ListAvailable Az.Storage` command. If after you run this command, no results appear, or if a version lower than **0.7** appears, then you'll have to upgrade your powershell module. See the [Upgrade your powershell module](#upgrade-your-powershell-module) section of this guide.
+|PowerShell | This article requires the PowerShell module Az.Storage version **0.7** or later. To find your current version, run the `Get-Module -ListAvailable Az.Storage` command. If after you run this command, no results appear, or if a version lower than **0.7** appears, then you'll have to upgrade your powershell module. See the [Upgrade your powershell module](#upgrade-your-powershell-module) section of this guide.
 |CLI        | You can sign in to Azure and run Azure CLI commands in one of two ways: <ul><li>You can run CLI commands from within the Azure portal, in Azure Cloud Shell </li><li>You can install the CLI and run CLI commands locally</li></ul>|
 
 When working on the command line you have the option of running the Azure Cloud shell or installing the CLI locally.
@@ -34,64 +34,49 @@ Azure Cloud Shell is a free Bash shell that you can run directly within the Azur
 
 [![Cloud Shell](./media/data-lake-storage-quickstart-create-account/cloud-shell-menu.png)](https://portal.azure.com)
 
-The button launches an interactive shell that you can use to run the steps in this quickstart:
+The button launches an interactive shell that you can use to run the steps in this article:
 
 [![Screenshot showing the Cloud Shell window in the portal](./media/data-lake-storage-quickstart-create-account/cloud-shell.png)](https://portal.azure.com)
 
 ### Install the CLI locally
 
-You can also install and use the Azure CLI locally. This quickstart requires that you are running the Azure CLI version 2.0.38 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli).
+You can also install and use the Azure CLI locally. This article requires that you are running the Azure CLI version 2.0.38 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli).
 
 ## Create a storage account with Azure Data Lake Storage Gen2 enabled
 
-Before you create an account, you first create a resource group that acts as a logical container to storage accounts or any other Azure resources you create. If you wish to clean up the resources created by this quickstart, you can simply delete the resource group. Deleting the resource group also deletes the associated storage account, and any other resources associated with the resource group. For more information regarding resource groups, see [Azure Resource Manager overview](../../azure-resource-manager/resource-group-overview.md).
+An Azure storage account contains all of your Azure Storage data objects: blobs, files, queues, tables, and disks. The storage account provides a unique namespace for your Azure Storage data that is accessible from anywhere in the world over HTTP or HTTPS. Data in your Azure storage account is durable and highly available, secure, and massively scalable.
 
 > [!NOTE]
 > You must create new storage accounts as type **StorageV2 (general-purpose V2)** to take advantage of Data Lake Storage Gen2 features.  
 
 For more information about storage accounts, see [Azure Storage account overview](../common/storage-account-overview.md).
 
-When naming your storage account, keep these rules in mind:
-
-- Storage account names must be between 3 and 24 characters in length and may contain numbers and lowercase letters only.
-- Your storage account name must be unique within Azure. No two storage accounts can have the same name.
-
 ## Create an account using the Azure portal
 
 Sign in to the [Azure portal](https://portal.azure.com).
 
-### Create a resource group
+### Create a storage account
 
-To create a resource group in the Azure portal, follow these steps:
-
-1. In the Azure portal, expand the menu on the left side to open the menu of services, and choose **Resource Groups**.
-2. Click the **Add** button to add a new resource group.
-3. Enter a name for the new resource group.
-4. Select the subscription in which to create the new resource group.
-5. Choose the location for the resource group.
-6. Click the **Create** button.  
-
-   ![Screenshot showing resource group creation in the Azure portal](./media/data-lake-storage-quickstart-create-account/create-resource-group.png)
-
-### Create a general-purpose v2 storage account
+Every storage account must belong to an Azure resource group. A resource group is a logical container for grouping your Azure services. When you create a storage account, you have the option to either create a new resource group, or use an existing resource group. This article shows how to create a new resource group.
 
 To create a general-purpose v2 storage account in the Azure portal, follow these steps:
 
 > [!NOTE]
 > The hierarchical namespace is currently available in all public regions.
 
-1. In the Azure portal, expand the menu on the left side to open the menu of services, and choose **All services**. Then, scroll down to **Storage**, and choose **Storage accounts**. On the **Storage Accounts** window that appears, choose **Add**.
-2. Select your **Subscription** and the **Resource group** you created earlier.
-3. Enter a name for your storage account.
-4. Set **Location** to **West US 2**
-5. Leave these fields set to their defaults: **Performance**, **Account kind**, **Replication**, **Access tier**.
-6. Choose the subscription in which you want to create the storage account.
-7. Select **Next : Advanced >**
-8. Leave the values under **SECURITY** and **VIRTUAL NETWORKS** fields set to their defaults.
-9. In the **Data Lake Storage Gen2** section set **Hierarchical namespace** to **Enabled**.
-10. Click **Review + Create** to create the storage account.
+1. Choose the subscription in which you want to create the storage account.
+2. In the Azure portal, choose the **Create a resource** button, then choose **Storage account**.
+3. Under the **Resource group** field, select **Create new**. Enter a name for your new resource group.
+   
+   A resource group is a logical container for grouping your Azure services. When you create a storage account, you have the option to either create a new resource group, or use an existing resource group.
 
-    ![Screenshot showing storage account creation in the Azure portal](./media/data-lake-storage-quickstart-create-account/azure-data-lake-storage-account-create-advanced.png)
+4. Next, enter a name for your storage account. The name you choose must be unique across Azure. The name also must be between 3 and 24 characters in length, and can include numbers and lowercase letters only.
+5. Choose a location.
+6. Make sure that **StorageV2 (general purpose v2)** appears as selected in the **Account kind** drop-down list.
+7. Optionally change the values in each of these fields: **Performance**, **Replication**, **Access tier**. To learn more about these options, see [Introduction to Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-introduction#azure-storage-services).
+8. Choose the **Advanced** tab.
+10. In the **Data Lake Storage Gen2** section set **Hierarchical namespace** to **Enabled**.
+11. Click **Review + Create** to create the storage account.
 
 Your storage account is now created through the portal.
 
@@ -105,7 +90,7 @@ To remove a resource group using the Azure portal:
 
 ## Create an account using PowerShell
 
-First, install the latest version of the [PowerShellGet](https://docs.microsoft.com/powershell/gallery/installing-psget) module.
+First, install the latest version of the [PowerShellGet](/powershell/scripting/gallery/installing-psget) module.
 
 Then, upgrade your powershell module, sign in to your Azure subscription, create a resource group, and then create a storage account.
 
@@ -209,7 +194,7 @@ az storage account create `
     --location westus2 `
     --sku Standard_LRS `
     --kind StorageV2 `
-    --hierarchical-namespace true
+    --enable-hierarchical-namespace true
 ```
 
 ### Clean up resources
@@ -222,6 +207,6 @@ az group delete --name myResourceGroup
 
 ## Next steps
 
-In this quickstart, you've created a storage account with Data Lake Storage Gen2 capabilities. To learn how to upload and download blobs to and from your storage account, see the following topic.
+In this article, you've created a storage account with Data Lake Storage Gen2 capabilities. To learn how to upload and download blobs to and from your storage account, see the following topic.
 
 * [AzCopy V10](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)

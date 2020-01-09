@@ -1,5 +1,5 @@
 ---
-title: SQL Server Availability Groups - Azure Virtual Machines - Disaster Recovery | Microsoft Docs
+title: Configure availability group across different regions
 description: "This article explains how to configure a SQL Server availability group on Azure virtual machines with a replica in a different region."
 services: virtual-machines
 documentationCenter: na
@@ -17,10 +17,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: "05/02/2017"
 ms.author: mikeray
+ms.custom: "seo-lt-2019"
 
 ---
 
-# Configure an Always On availability group on Azure virtual machines in different regions
+# Configure an availability group on Azure SQL Server virtual machines in different regions
 
 This article explains how to configure a SQL Server Always On availability group replica on Azure virtual machines in a remote Azure location. Use this configuration to support disaster recovery.
 
@@ -128,7 +129,7 @@ Run the PowerShell script with the cluster network name, IP address, and probe p
    ```powershell
    $ClusterNetworkName = "<MyClusterNetworkName>" # The cluster name for the network in the new region (Use Get-ClusterNetwork on Windows Server 2012 of higher to find the name).
    $IPResourceName = "<IPResourceName>" # The cluster name for the new IP Address resource.
-   $ILBIP = “<n.n.n.n>” # The IP Address of the Internal Load Balancer (ILB) in the new region. This is the static IP address for the load balancer you configured in the Azure portal.
+   $ILBIP = "<n.n.n.n>" # The IP Address of the Internal Load Balancer (ILB) in the new region. This is the static IP address for the load balancer you configured in the Azure portal.
    [int]$ProbePort = <nnnnn> # The probe port you set on the ILB.
 
    Import-Module FailoverClusters

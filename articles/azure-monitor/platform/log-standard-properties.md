@@ -1,17 +1,13 @@
 ---
 title: Standard properties in Azure Monitor log records | Microsoft Docs
 description: Describes properties that are common to multiple data types in Azure Monitor logs.
-services: log-analytics
-documentationcenter: ''
+ms.service:  azure-monitor
+ms.subservice: logs
+ms.topic: conceptual
 author: bwren
-manager: carmonm
-editor: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.topic: article
-ms.date: 07/18/2019
 ms.author: bwren
+ms.date: 07/18/2019
+
 ---
 
 # Standard properties in Azure Monitor Logs

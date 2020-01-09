@@ -1,13 +1,14 @@
 ---
-title: OData language overview - Azure Search
-description: OData language overview for filters, select, and order-by for Azure Search queries.
-ms.date: 06/13/2019
-services: search
-ms.service: search
-ms.topic: conceptual
-author: "Brjohnstmsft"
-ms.author: "brjohnst"
+title: OData language overview
+titleSuffix: Azure Cognitive Search
+description: OData language overview for filters, select, and order-by for Azure Cognitive Search queries.
+
 manager: nitinme
+author: brjohnstmsft
+ms.author: brjohnst
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
 translation.priority.mt:
   - "de-de"
   - "es-es"
@@ -20,9 +21,10 @@ translation.priority.mt:
   - "zh-cn"
   - "zh-tw"
 ---
-# OData language overview for `$filter`, `$orderby`, and `$select` in Azure Search
 
-Azure Search supports a subset of the OData expression syntax for **$filter**, **$orderby**, and **$select** expressions. Filter expressions are evaluated during query parsing, constraining search to specific fields or adding match criteria used during index scans. Order-by expressions are applied as a post-processing step over a result set to sort the documents that are returned. Select expressions determine which document fields are included in the result set. The syntax of these expressions is distinct from the [simple](query-simple-syntax.md) or [full](query-lucene-syntax.md) query syntax that is used in the **search** parameter, although there's some overlap in the syntax for referencing fields.
+# OData language overview for `$filter`, `$orderby`, and `$select` in Azure Cognitive Search
+
+Azure Cognitive Search supports a subset of the OData expression syntax for **$filter**, **$orderby**, and **$select** expressions. Filter expressions are evaluated during query parsing, constraining search to specific fields or adding match criteria used during index scans. Order-by expressions are applied as a post-processing step over a result set to sort the documents that are returned. Select expressions determine which document fields are included in the result set. The syntax of these expressions is distinct from the [simple](query-simple-syntax.md) or [full](query-lucene-syntax.md) query syntax that is used in the **search** parameter, although there's some overlap in the syntax for referencing fields.
 
 This article provides an overview of the OData expression language used in filters, order-by, and select expressions. The language is presented "bottom-up", starting with the most basic elements and building on them. The top-level syntax for each parameter is described in a separate article:
 
@@ -30,13 +32,13 @@ This article provides an overview of the OData expression language used in filte
 - [$orderby syntax](search-query-odata-orderby.md)
 - [$select syntax](search-query-odata-select.md)
 
-OData expressions range from simple to highly complex, but they all share common elements. The most basic parts of an OData expression in Azure Search are:
+OData expressions range from simple to highly complex, but they all share common elements. The most basic parts of an OData expression in Azure Cognitive Search are:
 
 - **Field paths**, which refer to specific fields of your index.
 - **Constants**, which are literal values of a certain data type.
 
 > [!NOTE]
-> Terminology in Azure Search differs from the [OData standard](https://www.odata.org/documentation/) in a few ways. What we call a **field** in Azure Search is called a **property** in OData, and similarly for **field path** versus **property path**. An **index** containing **documents** in Azure Search is referred to more generally in OData as an **entity set** containing **entities**. The Azure Search terminology is used throughout this reference.
+> Terminology in Azure Cognitive Search differs from the [OData standard](https://www.odata.org/documentation/) in a few ways. What we call a **field** in Azure Cognitive Search is called a **property** in OData, and similarly for **field path** versus **property path**. An **index** containing **documents** in Azure Cognitive Search is referred to more generally in OData as an **entity set** containing **entities**. The Azure Cognitive Search terminology is used throughout this reference.
 
 ## Field paths
 
@@ -53,10 +55,10 @@ identifier ::= [a-zA-Z_][a-zA-Z_0-9]*
 An interactive syntax diagram is also available:
 
 > [!div class="nextstepaction"]
-> [OData syntax diagram for Azure Search](https://azuresearch.github.io/odata-syntax-diagram/#field_path)
+> [OData syntax diagram for Azure Cognitive Search](https://azuresearch.github.io/odata-syntax-diagram/#field_path)
 
 > [!NOTE]
-> See [OData expression syntax reference for Azure Search](search-query-odata-syntax-reference.md) for the complete EBNF.
+> See [OData expression syntax reference for Azure Cognitive Search](search-query-odata-syntax-reference.md) for the complete EBNF.
 
 A field path is composed of one or more **identifiers** separated by slashes. Each identifier is a sequence of characters that must start with an ASCII letter or underscore, and contain only ASCII letters, digits, or underscores. The letters can be upper- or lower-case.
 
@@ -83,7 +85,7 @@ In this example, the range variable `room` appears in the `room/Type` field path
 
 ### Using field paths
 
-Field paths are used in many parameters of the [Azure Search API](https://docs.microsoft.com/rest/api/searchservice/). The following table lists all the places where they can be used, plus any restrictions on their usage:
+Field paths are used in many parameters of the [Azure Cognitive Search REST APIs](https://docs.microsoft.com/rest/api/searchservice/). The following table lists all the places where they can be used, plus any restrictions on their usage:
 
 | API | Parameter name | Restrictions |
 | --- | --- | --- |
@@ -101,9 +103,9 @@ Field paths are used in many parameters of the [Azure Search API](https://docs.m
 
 ## Constants
 
-Constants in OData are literal values of a given [Entity Data Model](https://docs.microsoft.com/dotnet/framework/data/adonet/entity-data-model) (EDM) type. See [Supported data types](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) for a list of supported types in Azure Search. Constants of collection types aren't supported.
+Constants in OData are literal values of a given [Entity Data Model](https://docs.microsoft.com/dotnet/framework/data/adonet/entity-data-model) (EDM) type. See [Supported data types](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) for a list of supported types in Azure Cognitive Search. Constants of collection types aren't supported.
 
-The following table shows examples of constants for each of the data types supported by Azure Search:
+The following table shows examples of constants for each of the data types supported by Azure Cognitive Search:
 
 | Data type | Example constants |
 | --- | --- |
@@ -116,7 +118,7 @@ The following table shows examples of constants for each of the data types suppo
 | `Edm.Int64` | `283032927235` |
 | `Edm.String` | `'hello'` |
 
-The following EBNF ([Extended Backus-Naur Form](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)) defines the grammar for most of the constants shown in the above table. The grammar for geo-spatial types can be found in [OData geo-spatial functions in Azure Search](search-query-odata-geo-spatial-functions.md).
+The following EBNF ([Extended Backus-Naur Form](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)) defines the grammar for most of the constants shown in the above table. The grammar for geo-spatial types can be found in [OData geo-spatial functions in Azure Cognitive Search](search-query-odata-geo-spatial-functions.md).
 
 <!-- Upload this EBNF using https://bottlecaps.de/rr/ui to create a downloadable railroad diagram. -->
 
@@ -181,14 +183,14 @@ boolean_literal ::= 'true' | 'false'
 An interactive syntax diagram is also available:
 
 > [!div class="nextstepaction"]
-> [OData syntax diagram for Azure Search](https://azuresearch.github.io/odata-syntax-diagram/#constant)
+> [OData syntax diagram for Azure Cognitive Search](https://azuresearch.github.io/odata-syntax-diagram/#constant)
 
 > [!NOTE]
-> See [OData expression syntax reference for Azure Search](search-query-odata-syntax-reference.md) for the complete EBNF.
+> See [OData expression syntax reference for Azure Cognitive Search](search-query-odata-syntax-reference.md) for the complete EBNF.
 
 ## Building expressions from field paths and constants
 
-Field paths and constants are the most basic part of an OData expression, but they're already full expressions themselves. In fact, the **$select** parameter in Azure Search is nothing but a comma-separated list of field paths, and **$orderby** isn't much more complicated than **$select**. If you happen to have a field of type `Edm.Boolean` in your index, you can even write a filter that is nothing but the path of that field. The constants `true` and `false` are likewise valid filters.
+Field paths and constants are the most basic part of an OData expression, but they're already full expressions themselves. In fact, the **$select** parameter in Azure Cognitive Search is nothing but a comma-separated list of field paths, and **$orderby** isn't much more complicated than **$select**. If you happen to have a field of type `Edm.Boolean` in your index, you can even write a filter that is nothing but the path of that field. The constants `true` and `false` are likewise valid filters.
 
 However, most of the time you'll need more complex expressions that refer to more than one field and constant. These expressions are built in different ways depending on the parameter.
 
@@ -207,23 +209,23 @@ select_expression ::= '*' | field_path(',' field_path)*
 An interactive syntax diagram is also available:
 
 > [!div class="nextstepaction"]
-> [OData syntax diagram for Azure Search](https://azuresearch.github.io/odata-syntax-diagram/#filter_expression)
+> [OData syntax diagram for Azure Cognitive Search](https://azuresearch.github.io/odata-syntax-diagram/#filter_expression)
 
 > [!NOTE]
-> See [OData expression syntax reference for Azure Search](search-query-odata-syntax-reference.md) for the complete EBNF.
+> See [OData expression syntax reference for Azure Cognitive Search](search-query-odata-syntax-reference.md) for the complete EBNF.
 
 The **$orderby** and **$select** parameters are both comma-separated lists of simpler expressions. The **$filter** parameter is a Boolean expression that is composed of simpler sub-expressions. These sub-expressions are combined using logical operators such as [`and`, `or`, and `not`](search-query-odata-logical-operators.md), comparison operators such as [`eq`, `lt`, `gt`, and so on](search-query-odata-comparison-operators.md), and collection operators such as [`any` and `all`](search-query-odata-collection-operators.md).
 
 The **$filter**, **$orderby**, and **$select** parameters are explored in more detail in the following articles:
 
-- [OData $filter syntax in Azure Search](search-query-odata-filter.md)
-- [OData $orderby syntax in Azure Search](search-query-odata-orderby.md)
-- [OData $select syntax in Azure Search](search-query-odata-select.md)
+- [OData $filter syntax in Azure Cognitive Search](search-query-odata-filter.md)
+- [OData $orderby syntax in Azure Cognitive Search](search-query-odata-orderby.md)
+- [OData $select syntax in Azure Cognitive Search](search-query-odata-select.md)
 
 ## See also  
 
-- [Faceted navigation in Azure Search](search-faceted-navigation.md)
-- [Filters in Azure Search](search-filters.md)
-- [Search Documents &#40;Azure Search Service REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
+- [Faceted navigation in Azure Cognitive Search](search-faceted-navigation.md)
+- [Filters in Azure Cognitive Search](search-filters.md)
+- [Search Documents &#40;Azure Cognitive Search REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
 - [Lucene query syntax](query-lucene-syntax.md)
-- [Simple query syntax in Azure Search](query-simple-syntax.md)
+- [Simple query syntax in Azure Cognitive Search](query-simple-syntax.md)

@@ -3,14 +3,14 @@ title: API reference - Content Moderator
 titleSuffix: Azure Cognitive Services
 description: Learn about the various content moderation and review APIs for Content Moderator.
 services: cognitive-services
-author: sanjeev3
+author: PatrickFarley
 manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: reference
 ms.date: 05/29/2019
-ms.author: sajagtap
+ms.author: pafarley
 
 ---
 
