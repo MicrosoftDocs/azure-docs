@@ -55,7 +55,7 @@ az extension update --name aks-preview
 
 ## Create Azure Key Vault instance to store your keys
 
-You can optionally use the Azure portal to [Configure customer-managed keys with Azure Key Vault][https://docs.microsoft.com/azure/storage/common/storage-encryption-keys-portal]
+You can optionally use the Azure portal to [Configure customer-managed keys with Azure Key Vault][byok-azure-portal]
 
 Create a new *resource group*, then create a new *Key Vault* instance and enable soft delete and purge protection.
 
@@ -130,26 +130,9 @@ TODO , encrypt the data disks steps for same cluster above?
 TODO
 
 <!-- LINKS - external -->
-[access-modes]: https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes
-[kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
-[kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
-[kubernetes-storage-classes]: https://kubernetes.io/docs/concepts/storage/storage-classes/
-[kubernetes-volumes]: https://kubernetes.io/docs/concepts/storage/persistent-volumes/
-[managed-disk-pricing-performance]: https://azure.microsoft.com/pricing/details/managed-disks/
+
 
 <!-- LINKS - internal -->
+[byok-azure-portal]: storage/common/storage-encryption-keys-portal
 [customer-managed-keys]: /virtual-machines/windows/disk-encryption#customer-managed-keys-public-preview
 [key-vault-generate]: /key-vault/key-vault-manage-with-cli2
-[azure-disk-volume]: azure-disk-volume.md
-[azure-files-pvc]: azure-files-dynamic-pv.md
-[premium-storage]: ../virtual-machines/windows/disks-types.md
-[az-disk-list]: /cli/azure/disk#az-disk-list
-[az-snapshot-create]: /cli/azure/snapshot#az-snapshot-create
-[az-disk-create]: /cli/azure/disk#az-disk-create
-[az-disk-show]: /cli/azure/disk#az-disk-show
-[aks-quickstart-cli]: kubernetes-walkthrough.md
-[aks-quickstart-portal]: kubernetes-walkthrough-portal.md
-[install-azure-cli]: /cli/azure/install-azure-cli
-[operator-best-practices-storage]: operator-best-practices-storage.md
-[concepts-storage]: concepts-storage.md
-[storage-class-concepts]: concepts-storage.md#storage-classes
