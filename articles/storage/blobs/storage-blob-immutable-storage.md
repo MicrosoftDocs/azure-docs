@@ -74,13 +74,13 @@ Append blobs are comprised of data blocks and optimized for data append operatio
 
 Only time-based retention policies have a `allowProtectedAppendWrites` setting that allows for writing new blocks to an append blob while maintaining immutability protection and compliance. If enabled, you are allowed to create an append blob directly in the policy protected container and continue to add new blocks of data to the end of existing append blobs using the *AppendBlock* API. Only new blocks can be added and any existing blocks cannot be modified or deleted. Time-retention immutability protection still applies, preventing deletion of the append blob until the effective retention period has elapsed.  
 
-As this setting is part of a time-based retention policy, the appends blobs still stay in the immutable state for the duration of the *effective* retention period. there is a slight difference in how the retention period is determined.Since new data is appended beyond the initial creation of the append blob The effective retention is the difference between append blob's **last modification time** and the user-specified retention interval. Similarly when the retention interval is extended, immutable storage uses the most recent value of the user-specified retention interval to calculate the effective retention period.
+As this setting is part of a time-based retention policy, the append blobs still stay in the immutable state for the duration of the *effective* retention period. there is a slight difference in how the retention period is determined. Since new data is appended beyond the initial creation of the append blob The effective retention is the difference between append blob's **last modification time** and the user-specified retention interval. Similarly when the retention interval is extended, immutable storage uses the most recent value of the user-specified retention interval to calculate the effective retention period.
 
 For example, suppose that a user creates a time-based retention policy with `allowProtectedAppendWrites` enabled and a retention interval of 90 days. An append blob, _logblob1_, is created in the container today, new logs continue to be added to the append blob for the next 10 days; so, the effective retention period for the _logblob1_ is 90 days from today (the time of its last modification/append).
 
 Unlocked time-based retention policies allow the `allowProtectedAppendWrites` setting to be enabled and disabled at any time. Once the time-based retention policy is locked, the `allowProtectedAppendWrites` setting cannot be changed.
 
-Legal hold policies cannot enable `allowProtectedAppendWrites` and do not allow for new blocks to appended to append blobs. If a legal hold is applied to a time-based retention policy with `allowProtectedAppendWrites` enabled, the *AppendBlock* API will fail until the legal hold is lifted.
+Legal hold policies cannot enable `allowProtectedAppendWrites` and do not allow for new blocks to be appended to append blobs. If a legal hold is applied to a time-based retention policy with `allowProtectedAppendWrites` enabled, the *AppendBlock* API will fail until the legal hold is lifted.
 
 > [!IMPORTANT] 
 > This feature is currently available in the following regions:
@@ -129,7 +129,7 @@ Yes. To document compliance, Microsoft retained a leading independent assessment
 
 **Does the feature apply to only block blobs and append blobs, or to page blobs as well?**
 
-Immutable storage can be used with any blob type as it is set at the container level, but we recommend that you use WORM for containers that mainly store block blobs and append blobs. Existing blobs in a container are protected by a newly set policies. But any new page blobs need to be created outside the WORM container, and then copied in. Onced copied into a WORM container, no further changes to a page blob are allowed. Setting a WORM policy on a container that stores VHDs (page blobs) for any active virtual machines is discouraged as it will lock the VM disk. We recommend that you throughly review the documentation and test your scenarios before locking any time-based policies.
+Immutable storage can be used with any blob type as it is set at the container level, but we recommend that you use WORM for containers that mainly store block blobs and append blobs. Existing blobs in a container will be protected by a newly set WORM policy. But any new page blobs need to be created outside the WORM container, and then copied in. Once copied into a WORM container, no further changes to a page blob are allowed. Setting a WORM policy on a container that stores VHDs (page blobs) for any active virtual machines is discouraged as it will lock the VM disk. We recommend that you thoroughly review the documentation and test your scenarios before locking any time-based policies.
 
 **Do I need to create a new storage account to use this feature?**
 
