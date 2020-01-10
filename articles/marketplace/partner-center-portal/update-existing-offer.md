@@ -7,14 +7,14 @@ ms.author: v-chjen
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 05/30/2019
+ms.date: 01/21/2020
 ---
 
 # Update an existing offer in the Commercial Marketplace
 
 You can view your existing offers on the **Overview** tab of the [Commercial Marketplace portal](https://partner.microsoft.com/dashboard/commercial-marketplace/offers) in Partner Center.
 
-To update an existing offer that is currently live in the marketplace: 
+To update an existing offer that's currently live in the marketplace:
 
 1. Select the name of the offer you would like to update. The status of the offer may be listed as **Live**, **Publish in progress**, **Draft**, **Attention needed**, or **Not being sold in the marketplace** (if you've previously chosen to stop selling the offer). Once selected, the **Offer overview** page for that offer will open.
 2. Select **Update** from the overview card, or the menu item from the left navigation, for the area that you would like to update. You may want to update the **Offer setup**, **Properties**, **Offer listing**, **Preview**, **Technical configuration**, **Plan overview**, or **Test drive**. 
@@ -23,7 +23,6 @@ To update an existing offer that is currently live in the marketplace:
 ## Review and publish an updated offer
 
 When you're ready to publish your updated offer, select **Publish** from any page. The **Review and publish** page will open. On this page you can:
-
 
 - See the completion status for the sections of the offer that you updated: 
     - **Unpublished changes**: The section has been updated and is complete. All required data has been provided and there were no errors introduced in the updates.
@@ -40,7 +39,55 @@ To make changes to a plan within an existing offer that you've already published
 - With the **Offer overview** page open for your existing offer, choose the plan that you want to change. If the plan is not accessible from the **Plan overview** list, select **See all plans**.
 - You can choose to select the plan **Name**, **Pricing model**, or **Availability**. *Currently plans are only available in English (United States)*.
 - Select **Save** after making any necessary changes to the plan name, description, pricing, or audience availability. 
-- Select **Publish** once you are ready to publish your updates. The **[Review and publish](#review-and-publish-an-updated-offer)** page will open and provide a completion status for your updates. 
+- Select **Publish** once you are ready to publish your updates. The **[Review and publish](#review-and-publish-an-updated-offer)** page will open and provide a completion status for your updates.
+
+## Compare changes to marketplace offers
+
+When you make changes to a published or preview offer, you can audit the changes before making them live with **Compare**.
+
+>[!NOTE]
+> A published offer is an offer that's been successfully published to Preview or Live state.
+
+See below for general auditing tips:
+
+- You can use **Compare** at any point during the editing process.
+- Select a field on the **Compare** page to navigate to the value you want to modify.
+- If you're ready to publish your updates, select **Review and publish**.
+- To see the values for all fields, even fields not updated, toggle **Show all fields**.  
+
+### Compare changes to published offer
+
+Follow the instructions below to compare your changes from the published offer:
+
+1. Select **Compare** in the command bar of the page. The **Compare** page provides side-by-side versions of the saved changes of this offer and the published marketplace offer.
+2. When you access **Compare** from a specific page of the offer, the default displays only the changes made on that page.
+    - If you want to compare changes on all pages, change the page from **Select a page to compare**.  
+    - If you want to compare changes to the offer across all pages, select **All pages**.
+
+As the default, **Compare** contrasts your new changes to the live marketplace offer. You can also compare changes to a preview offer.
+
+### Compare changes to a preview offer
+
+If you have changes in preview that aren't live, you can compare new changes with the preview marketplace offer.
+
+Follow the instructions below to compare new changes with your preview marketplace offer:
+
+1. Select **Compare** in the command bar of the page.
+2. Select the **With** dropdown and change it from **Live offer** to **Preview offer**.
+3. The **Compare** page provides side-by-side versions that show the changes.
+
+>[!NOTE]
+>If your offer hasn't become live yet but you've published to preview, you don’t have the option to compare with a live offer.
+
+The following pages don't currently support **Compare**:
+
+- CSP Reseller Audience
+- Test Drive Technical Configuration
+- Test Drive Marketplace Listing
+- Co-sell
+- Supplemental files
+
+Remember to re-publish your offer after making updates for the changes to take effect.
 
 ## Delete a draft offer
 
