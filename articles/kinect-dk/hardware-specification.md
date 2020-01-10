@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure Kinect DK hardware specification
 description: Azure Kinect DK specifications and capabilities
 author: tesych
@@ -19,11 +19,12 @@ This article provides details about how Azure Kinect hardware integrates Microso
 
 These abbreviated terms are used throughout this article.
 
-* NFOV (Narrow field-of-view depth mode)
-* WFOV (Wide field-of-view depth mode)
-* FOV (Field-of-view)
-* FPS (Frames-per-second)
-* IMU (Inertial Measurement Unit)
+- NFOV (Narrow field-of-view depth mode)
+- WFOV (Wide field-of-view depth mode)
+- FOV (Field-of-view)
+- FPS (Frames-per-second)
+- IMU (Inertial Measurement Unit)
+- FoI (Field of Interest)
 
 ## Product dimensions and weight
 
@@ -50,7 +51,7 @@ Refer to additional product [safety information](https://support.microsoft.com/h
 
 Azure Kinect DK integrates a Microsoft designed 1-Megapixel Time-of-Flight (ToF) depth camera using the [image sensor presented at ISSCC 2018](https://docs.microsoft.com/windows/mixed-reality/ISSCC-2018). The depth camera supports the modes indicated below:
 
- | Mode            | Resolution | FOI       | FPS                | Operating range* | Exposure time |
+ | Mode            | Resolution | FoI       | FPS                | Operating range* | Exposure time |
 |-----------------|------------|-----------|--------------------|------------------|---------------|
 | NFOV unbinned   | 640x576    | 75°x65°   | 0, 5, 15, 30       | 0.5 - 3.86 m       | 12.8 ms        |
 | NFOV 2x2 binned (SW) | 320x288    | 75°x65°   | 0, 5, 15, 30       | 0.5 - 5.46 m       | 12.8 ms        |
