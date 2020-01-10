@@ -181,21 +181,27 @@ Within *30 minutes* after you send the HTTP PUT request to create your ISE, you 
 
 1. In the [Azure portal](https://portal.azure.com), open your Azure key vault.
 
-1. On your key vault menu, under **Settings**, select **Access policies** > **Add Access Policy**, for example:
+1. On your key vault menu, select **Access policies** > **Add Access Policy**, for example:
 
    ![Add access policy for system-assigned managed identity](./media/customer-managed-keys-integration-service-environment/add-ise-access-policy-key-vault.png)
 
-1. Under **Add access policy**, follow these steps:
+1. After the **Add access policy** pane opens, follow these steps:
 
-   1. From the **Secret permissions** list, select **Get** and **List**.
+   1. Select these options:
 
-   1. Under **Select principal**, select **None selected**.
-   
-   1. On **Select principal** pane, in the search box, find and select your ISE. When you're done, choose **Select** > **Add**.
+      | Setting | Values |
+      |---------|--------|
+      | **Configure from template (optional) list** | Key Management |
+      | **Key permissions** | - **Key Management Operations**: Get, List, Backup, Restore <p><p>- **Cryptographic Operations**: Decrypt, Encrypt, Unwrap Key, Wrap Key, Verify, Sign |
+      |||
 
-   ![Select your ISE to use as the principal](./media/customer-managed-keys-integration-service-environment/select-service-principal-ise.png)
+      ![Select "Key Management" > "Key permissions"](./media/customer-managed-keys-integration-service-environment/select-key-permissions.png)
 
-1. When you're done with the **Access policies** pane, select **Save**.
+   1. For **Select principal**, select **None selected**. After the **Principal** pane opens, in the search box, find and select your ISE. When you're done, choose **Select** > **Add**.
+
+      ![Select your ISE to use as the principal](./media/customer-managed-keys-integration-service-environment/select-service-principal-ise.png)
+
+   1. When you're finished with the **Access policies** pane, select **Save**.
 
 For more information, see [Provide Key Vault authentication with a managed identity](../key-vault/managed-identity.md#grant-your-app-access-to-key-vault).
 
