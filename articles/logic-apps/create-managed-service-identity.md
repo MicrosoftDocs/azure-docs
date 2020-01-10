@@ -303,16 +303,12 @@ If your template also includes the managed identity's resource definition, you c
 
 ## Give identity access to resources
 
-After you set up a managed identity that your logic app can use for authentication, set up access for that identity on the Azure resource where you want to use that identity by adding a role assignment. Here are the options that you can use:
+Before you can use your logic app's managed identity for authentication, set up access for that identity on the Azure resource where you plan to use the identity. To complete this task, assign the appropriate role to that identity on the target Azure resource. Here are the options that you can use:
 
 * [Azure portal](#azure-portal-assign-access)
 * [Azure Resource Manager template](../role-based-access-control/role-assignments-template.md)
-* Azure PowerShell
-  * [Assign access to an Azure resource for a managed identity](../active-directory/managed-identities-azure-resources/howto-assign-access-powershell.md)
-  * [Add role assignment by using Azure RBAC](../role-based-access-control/role-assignments-powershell.md)
-* Azure CLI
-  * [Assign access to an Azure resource for a managed identity](../active-directory/managed-identities-azure-resources/howto-assign-access-cli.md)
-  * [Add role assignment by using Azure RBAC](../role-based-access-control/role-assignments-cli.md)
+* Azure PowerShell ([New-AzRoleAssignment](https://docs.microsoft.com/powershell/module/az.resources/new-azroleassignment)) - For more information, see [Add role assignment by using Azure RBAC and Azure PowerShell](../role-based-access-control/role-assignments-powershell.md).
+* Azure CLI ([az role assignment create](https://docs.microsoft.com/cli/azure/role/assignment?view=azure-cli-latest#az-role-assignment-create)) - For more information, see [Add role assignment by using Azure RBAC and Azure CLI](../role-based-access-control/role-assignments-cli.md).
 * [Azure REST API](../role-based-access-control/role-assignments-rest.md)
 
 <a name="azure-portal-assign-access"></a>
