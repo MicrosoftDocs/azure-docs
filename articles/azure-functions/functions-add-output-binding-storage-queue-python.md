@@ -80,36 +80,7 @@ The second binding is of type `http` with the direction `out`, in which case the
 
 To write to an Azure Storage queue from this function, add an output binding (`"direction": "out"`) of type `queue` and name `msg`, as shown in the code below. In this case the function receives an output argument named `msg`.
 
-```json
-{
-   ...
-
-  "bindings": [
-    {
-      "authLevel": "function",
-      "type": "httpTrigger",
-      "direction": "in",
-      "name": "req",
-      "methods": [
-        "get",
-        "post"
-      ]
-    },
-    {
-      "type": "http",
-      "direction": "out",
-      "name": "$return"
-    },
-    {
-      "type": "queue",
-      "direction": "out",
-      "name": "msg",
-      "queueName": "outqueue",
-      "connection": "AzureWebJobsStorage"
-    }
-  ]
-}
-```
+:::code language="json" source="code/quickstarts-python/function-json-python-storage-queue,json" highlight="18-25":::
 
 For a `queue` type, you must also specify two additional properties: `queueName`, the name of the queue itself, and `connection`, the name of the Azure Storage connection string that you observed earlier in the *local.settings.json* file. These requirements are described in the [queue output configuration](functions-bindings-storage-queue.md#output---configuration).
 
@@ -121,32 +92,7 @@ With the binding added to *function.json*, you can now update your function to r
 
 In the *HttpExample* folder, update *\_\_init\_\_.py* to match the following code, which adds the `msg` parameter to the function definition and the line `msg.set(name)` under the `if name:` statement.
 
-```python
-import logging
-
-import azure.functions as func
-
-
-def main(req: func.HttpRequest, msg: func.Out[func.QueueMessage]) -> str:
-
-    name = req.params.get('name')
-    if not name:
-        try:
-            req_body = req.get_json()
-        except ValueError:
-            pass
-        else:
-            name = req_body.get('name')
-
-    if name:
-        msg.set(name)
-        return func.HttpResponse(f"Hello {name}!")
-    else:
-        return func.HttpResponse(
-            "Please pass a name on the query string or in the request body",
-            status_code=400
-        )
-```
+:::code language="python" source="code/quickstarts-python/function-json-python-storage-queue,json" highlight="6,18":::
 
 The `msg` parameter is an instance of the [`azure.functions.InputStream class`](/python/api/azure-functions/azure.functions.httprequest). It contains a `set` method that writes a message to the queue with the given string value, in this case the name passed to the function in the URL query string.
 
