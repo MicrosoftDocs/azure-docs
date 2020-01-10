@@ -122,7 +122,6 @@ You can also add a new node pool to an existing cluster and encrypt the OS disk 
 ```azurecli-interactive
 # Add a nodepool to an existing cluster with BYOK encryption
 nodepool add –-cluster-name myAKSCluster -n myNodePoolName -g myResourceGroup --node-osdisk-diskencryptionsetid diskEncryptionId  
-
 ```
 
 ## Encrypt your AKS cluster data disk with a customer-managed key
