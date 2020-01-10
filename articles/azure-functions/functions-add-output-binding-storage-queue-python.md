@@ -13,20 +13,18 @@ In this article, you integrate an Azure Storage queue with the function and stor
 
 - Complete the quickstart, [Create an HTTP triggered Python function](functions-create-first-function-python.md). If you already cleaned up resources at the end of that article, go through the steps again to recreate the Functions app in Azure, but leave the resources in place.
 
+- By default, the *host.json* file in the function projects folder contains the properties below to enable [extension bundles](functions-bindings-register.md#extension-bundles). If you modified *host.json* for any reason, verify that these properties are still in place:
 
-> [!NOTE]
-> By default, the *host.json* file in the function projects folder contains the properties below to enable [extension bundles](functions-bindings-register.md#extension-bundles). If you modified *host.json* for any reason, verify that these properties are still in place:
->
-> ```json
-> {
->     "version": "2.0",
->     "extensionBundle": {
->         "id": "Microsoft.Azure.Functions.ExtensionBundle",
->         "version": "[1.*, 2.0.0)"
->     }
-> }
-> ```
-
+    ```json
+    {
+        "version": "2.0",
+        "extensionBundle": {
+            "id": "Microsoft.Azure.Functions.ExtensionBundle",
+            "version": "[1.*, 2.0.0)"
+        }
+    }
+    ```
+    
 ## Retrieve the Azure Storage connection string from the deployed function app
 
 When you created a function app in Azure in the previous quickstart, you also created a Storage account. The connection string for this account is stored securely in app settings in Azure. By downloading the setting into the *local.settings.json* file, you can use that connection write to a Storage queue in the same account when running the function locally. 
@@ -191,7 +189,7 @@ Now that you've tested the function locally and verified that it wrote a message
 
 1. In the *LocalFunctionsProj* folder, use the [`func azure functionapp publish`](functions-run-local.md#project-file-deployment) command to redeploy the project, replacing`<app_name>` with the name of your app.
 
-    ```command
+    ```
     func azure functionapp publish <app_name>
     ```
     
