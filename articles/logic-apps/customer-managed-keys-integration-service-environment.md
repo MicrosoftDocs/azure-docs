@@ -26,7 +26,7 @@ This topic shows how to set up and specify your own encryption key to use when y
 
 * Currently, the only way to create an ISE that supports a customer-managed key and has its system-assigned identity enabled is by calling the Logic Apps REST API with an HTTPS PUT request.
 
-* Within *30 minutes* after you send the HTTPS PUT request that creates your ISE, open your Azure key vault in the Azure portal, and [add an access policy to your key vault for the system-assigned identity](#identity-access-to-key-vault). Otherwise, ISE creation fails and throws a permissions error.
+* Within *30 minutes* after you send the HTTPS PUT request that creates your ISE, you must [grant access to your key vault for your ISE's system-assigned identity](#identity-access-to-key-vault). Otherwise, ISE creation fails and throws a permissions error.
 
 ## Prerequisites
 
@@ -183,7 +183,7 @@ This example request body shows the sample values:
 
 ## Grant access to your key vault
 
-Within *30 minutes* after you send the HTTP PUT request to create your ISE, you must grant access to your key vault for your ISE's system-assigned identity. Otherwise, creation for your ISE fails, and you get a permissions error. You can use either the Azure PowerShell [Set-AzKeyVaultAccessPolicy](https://docs.microsoft.com/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) command, or you can follow these steps for the Azure portal:
+Within *30 minutes* after you send the HTTP PUT request to create your ISE, you must grant access to your key vault for your ISE's system-assigned identity. Otherwise, creation for your ISE fails, and you get a permissions error. For this task, add an access policy to your key vault for your ISE's system-assigned identity. You can use either the Azure PowerShell [Set-AzKeyVaultAccessPolicy](https://docs.microsoft.com/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) command, or you can follow these steps in the Azure portal:
 
 1. In the [Azure portal](https://portal.azure.com), open your Azure key vault.
 
