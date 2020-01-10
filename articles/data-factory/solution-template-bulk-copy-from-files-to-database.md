@@ -14,9 +14,6 @@ ms.date: 01/08/2020
 
 This article describes a solution template that you can use to copy data in bulk from Azure Data Lake Storage Gen2 to Azure Synapse Analytics / Azure SQL Database.
 
-> [!NOTE]
-> If you want to copy data from a small number of tables with small size of data, it's more efficient for you to use the [Azure Data Factory Copy Data tool](copy-data-tool.md). to have one single copy activity, or foreach activity + copy activity in your pipeline. 
-
 ## About this solution template
 
 This template retrieves files from Azure Data Lake Storage Gen2 source. Then it iterates over each file in the source and copies the file to the destination data store. 
@@ -24,8 +21,8 @@ This template retrieves files from Azure Data Lake Storage Gen2 source. Then it 
 Currently this template only supports copying data in **DelimitedText** format. Files in other data formats can also be retrieved from source data store, but can not be copied to the destination data store.  
 
 The template contains three activities:
-- **Get Metadata** retrieves files from Azure Data Lake Storage Gen2, and passes them to subsequent *ForEach* activity.
-- **ForEach** gets files from the *Get Metadata* activity and iterates each file to the *Copy* activity.
+- **Get Metadata** activity retrieves files from Azure Data Lake Storage Gen2, and passes them to subsequent *ForEach* activity.
+- **ForEach** activity gets files from the *Get Metadata* activity and iterates each file to the *Copy* activity.
 - **Copy** activity resides in *ForEach* activity to copy each file from the source data store to the destination data store.
 
 The template defines the following two parameters:
@@ -51,7 +48,7 @@ The template defines the following two parameters:
     ![Review the pipeline](media/solution-template-bulk-copy-from-files-to-database/new-pipeline.png)
 
     > [!NOTE]
-    > If you chose **Azure Synapse Analytics (formerly SQL DW)** as the data destination in **step 2** mentioned above, you must enter a connection to Azure Blob storage for staging, as required by SQL Data Warehouse Polybase. The template will automatically generate a container path for your Blob storage. Check if the container has been created after the pipeline run.
+    > If you chose **Azure Synapse Analytics (formerly SQL DW)** as the data destination in **step 2** mentioned above, you must enter a connection to Azure Blob storage for staging, as required by SQL Data Warehouse Polybase. As the following screenshot shows, the template will automatically generate a *Storage Path* for your Blob storage. Check if the container has been created after the pipeline run.
     	
     ![Polybase setting](media/solution-template-bulk-copy-from-files-to-database/staging-account.png)
 
