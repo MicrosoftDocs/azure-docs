@@ -26,7 +26,7 @@ A publicly available container image does not guarantee security. Container imag
 
 Take advantage of solutions to scan container images in a private registry and identify potential vulnerabilities. It’s important to understand the depth of threat detection that the different solutions provide.
 
-For example, Azure Container Registry optionally [integrates with Azure Security Center](..security-center/azure-container-registry-integration.md) (preview) to automatically scan all Linux images pushed to a registry. The integrated Qualys scanner detects image vulnerabilities, classifies them, and provides remediation guidance.
+For example, Azure Container Registry optionally [integrates with Azure Security Center](..security-center/azure-container-registry-integration.md) to automatically scan all Linux images pushed to a registry. Azure Security Center's integrated Qualys scanner detects image vulnerabilities, classifies them, and provides remediation guidance.
 
 Security monitoring and image scanning solutions such as [Twistlock](https://azuremarketplace.microsoft.com/marketplace/apps/twistlock.twistlock?tab=Overview) and [Aqua Security](https://azuremarketplace.microsoft.com/marketplace/apps/aqua-security.aqua-security?tab=Overview) are also available through the Azure Marketplace.  
 
