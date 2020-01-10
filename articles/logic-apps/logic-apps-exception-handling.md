@@ -163,7 +163,7 @@ When an action throws an unhandled error or exception, the action is marked `Fai
 
 ![Examples that show how run statuses are evaluated](./media/logic-apps-exception-handling/status-evaluation-for-parallel-branches.png)
 
-To make sure that an action can still run despite having a predecessor that doesn't finish successfully, [customize that action's "run after" behavior](#customize-run-after) to catch and handle the predecessor's unsuccessful statuses.
+To make sure that an action can still run despite its predecessor's status, [customize an action's "run after" behavior](#customize-run-after) to handle the predecessor's unsuccessful statuses.
 
 <a name="customize-run-after"></a>
 
