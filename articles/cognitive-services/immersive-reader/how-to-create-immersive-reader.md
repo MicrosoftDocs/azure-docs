@@ -25,16 +25,16 @@ This article shows how to create an Immersive Reader resource and configure it w
 
     ```azurepowershell-interactive
     function Create-ImmersiveReaderResource(
-        [Parameter(Mandatory=$true, Position=0)] [String] $SubscriptionName,
-        [Parameter(Mandatory=$true)] [String] $ResourceGroupName,
-        [Parameter(Mandatory=$false)] [String] $ResourceGroupLocation,
-        [Parameter(Mandatory=$true)] [String] $ResourceName,
+        [Parameter(Mandatory=$true, Position=0)] [String] $ResourceName,
         [Parameter(Mandatory=$true)] [String] $ResourceLocation,
-        [Parameter(Mandatory=$true)] [String] $ResourceSku,
-        [Parameter(Mandatory=$true)] [String] $Subdomain,
-        [Parameter(Mandatory=$true)] [String] $ClientSecret,
-        [Parameter(Mandatory=$false)] [String] $ApplicationDisplayName="ImmersiveReaderAAD",
-        [Parameter(Mandatory=$false)] [String] $IdentifierUri="http://ImmersiveReaderAAD"
+        [Parameter(Mandatory=$false)] [String] $ResourceGroupName,
+        [Parameter(Mandatory=$false)] [String] $ResourceGroupLocation,
+        [Parameter(Mandatory=$false)] [String] $ResourceSubdomain,
+        [Parameter(Mandatory=$true)] [String] $ResourceSKU,
+        [Parameter(Mandatory=$true)] [String] $SubscriptionName,
+        [Parameter(Mandatory=$false)] [String] $AADAppDisplayName="ImmersiveReaderAAD",
+        [Parameter(Mandatory=$true)] [String] $AADAppIdentifierUri,
+        [Parameter(Mandatory=$true)] [String] $AADAppClientSecret
     )
     {
         Write-Host "Setting the active subscription to '$SubscriptionName'"
@@ -46,20 +46,24 @@ This article shows how to create an Immersive Reader resource and configure it w
             Write-Host "Resource group exists"
         } else {
             Write-Host "Resource group does not exist. Creating resource group"
-            az group create --name $ResourceGroupName --location $ResourceGroupLocation | Out-Null
+            $groupResult = az group create --name $ResourceGroupName --location $ResourceGroupLocation | Out-Null
+            if (-not $groupResult) {
+                throw "Error: Failed to create resource group"
+            }
+            Write-Host "Resource group created successfully"
         }
 
         # Create an Azure Active Directory resource if it doesn't already exist
         $resourceId = az cognitiveservices account show --resource-group $ResourceGroupName --name $ResourceName --query "id" -o tsv
         if (-not $resourceId) {
-            Write-Host "Creating the new Immersive Reader resource '$ResourceName' (SKU '$ResourceSku') in '$ResourceLocation' with subdomain '$Subdomain'"
+            Write-Host "Creating the new Immersive Reader resource '$ResourceName' (SKU '$ResourceSKU') in '$ResourceLocation' with subdomain '$ResourceSubdomain'"
             $resourceId = az cognitiveservices account create `
                             --name $ResourceName `
                             --resource-group $ResourceGroupName `
                             --kind ImmersiveReader `
-                            --sku $ResourceSku `
+                            --sku $ResourceSKU `
                             --location $ResourceLocation `
-                            --custom-domain $Subdomain `
+                            --custom-domain $ResourceSubdomain `
                             --query "id" `
                             -o tsv
 
@@ -70,10 +74,10 @@ This article shows how to create an Immersive Reader resource and configure it w
         }
 
         # Create an Azure Active Directory app if it doesn't already exist
-        $clientId = az ad app show --id $IdentifierUri --query "appId" -o tsv
+        $clientId = az ad app show --id $AADAppIdentifierUri --query "appId" -o tsv
         if (-not $clientId) {
             Write-Host "Creating new Azure Active Directory app"
-            $clientId = az ad app create --password $ClientSecret --display-name $ApplicationDisplayName --identifier-uris $IdentifierUri --query "appId" -o tsv
+            $clientId = az ad app create --password $AADAppClientSecret --display-name $AADAppDisplayName --identifier-uris $AADAppIdentifierUri --query "appId" -o tsv
 
             if (-not $clientId) {
                 throw "Error: Failed to create Azure Active Directory app"
@@ -82,11 +86,11 @@ This article shows how to create an Immersive Reader resource and configure it w
         }
 
         # Create a service principal if it doesn't already exist
-        $principalId = az ad sp show --id $IdentifierUri --query "objectId" -o tsv
+        $principalId = az ad sp show --id $AADAppIdentifierUri --query "objectId" -o tsv
         if (-not $principalId) {
             Write-Host "Creating new service principal"
             az ad sp create --id $clientId | Out-Null
-            $principalId = az ad sp show --id $IdentifierUri --query "objectId" -o tsv
+            $principalId = az ad sp show --id $AADAppIdentifierUri --query "objectId" -o tsv
 
             if (-not $principalId) {
                 throw "Error: Failed to create new service principal"
@@ -108,8 +112,8 @@ This article shows how to create an Immersive Reader resource and configure it w
         $result = @{}
         $result.TenantId = $tenantId
         $result.ClientId = $clientId
-        $result.ClientSecret = $ClientSecret
-        $result.Subdomain = $Subdomain
+        $result.ClientSecret = $AADAppClientSecret
+        $result.Subdomain = $ResourceSubdomain
 
         Write-Host "Success! " -ForegroundColor Green -NoNewline
         Write-Host "Save the following JSON object to a text file for future reference:"
@@ -121,30 +125,31 @@ This article shows how to create an Immersive Reader resource and configure it w
 
     ```azurepowershell-interactive
     Create-ImmersiveReaderResource
-      -SubscriptionName <SUBSCRIPTION_NAME> `
-      -ResourceGroupName <RESOURCE_GROUP_NAME> `
-      -ResourceGroupLocation <RESOURCE_GROUP_LOCATION> `
+    
       -ResourceName <RESOURCE_NAME> `
       -ResourceLocation <RESOURCE_LOCATION> `
-      -ResourceSku <RESOURCE_SKU> `
-      -Subdomain <SUBDOMAIN> `
-      -ClientSecret <CLIENT_SECRET> `
-      -ApplicationDisplayName <APP_DISPLAY_NAME> `
-      -IdentifierUri <IDENTIFIER_URI>
+      -ResourceGroupName <RESOURCE_GROUP_NAME> `
+      -ResourceGroupLocation <RESOURCE_GROUP_LOCATION> `
+      -ResourceSubdomain <RESOURCE_SUBDOMAIN> `
+      -ResourceSKU <RESOURCE_SKU> `
+      -SubscriptionName <SUBSCRIPTION_NAME> `
+      -AADAppDisplayName <AAD_APP_DISPLAY_NAME> `
+      -AADAppIdentifierUri <AAD_APP_IDENTIFIER_URI> `
+      -AADAppClientSecret <AAD_APP_CLIENT_SECRET>
     ```
 
     | Parameter | Comments |
     | --- | --- |
-    | SubscriptionName |You must have an Azure subscription in order to create a resource |
-    | ResourceGroupName |Resources are created in resource groups within subscriptions. Supply a name of an existing resource group. If this resource group does not already exist, this script will created a new one for you with this name |
-    | ResourceGroupLocation |If your resource group doesn't exist, you need to supply a location in which to create the group. To find a list of locations, run `az account list-locations`. This parameter is optional if your resource group already exists |
-    | ResourceName |  Must be alphanumeric, and may contain '-', as long as the '-' does not start or end the subdomain. Length must be <= 63|
-    | ResourceLocation |Options: `eastus`, `eastus2`, `southcentralus`, `westus`, `westus2`, `australiaeast`, `southeastasia`, `centralindia`, `japaneast`, `northeurope`, `uksouth`, `westeurope` |
-    | ResourceSku |Options: `S0`, `S1`, or `F0`. Visit our [Cognitive Services pricing page](https://azure.microsoft.com/pricing/details/cognitive-services/immersive-reader/) to learn more about each available SKU |
-    | Subdomain |This parameter is provided as a feature for Azure AD authentication for Cognitive Services. The subdomain must be globally unique |
-    | ClientSecret |A password you create that will be used later to authenticate when acquiring a token to call the Immersive Reader |
-    | ApplicationDisplayName |Must be alphanumeric, and may contain '-', as long as the '-' does not start or end the subdomain. Length must be <= 63. This parameter is optional if your Azure AD app already exists |
-    | IdentifierUri |A unique URI that will be used for the Azure AD app that will be created. For example, `https://immersivereaderaad-mycompany` |
+    | ResourceName |  Must be alphanumeric, and may contain '-', as long as the '-' is not the first or last character. Length may not exceed 63 characters.|
+    | ResourceLocation |Options: `eastus`, `eastus2`, `southcentralus`, `westus`, `westus2`, `australiaeast`, `southeastasia`, `centralindia`, `japaneast`, `northeurope`, `uksouth`, `westeurope`. |
+    | ResourceGroupName |Resources are created in resource groups within subscriptions. Supply the name of an existing resource group. If the resource group does not already exist, a new one with this name will be created. This parameter is optional if the resource group already exists. |
+    | ResourceGroupLocation |If your resource group doesn't exist, you need to supply a location in which to create the group. To find a list of locations, run `az account list-locations`. This parameter is optional if your resource group already exists. |
+    | ResourceSubdomain |A custom subdomain is needed for your Immersive Reader resource. The subdomain is used by the SDK when calling the Immersive Reader service to launch the Reader. The subdomain must be globally unique. The subdomain must be alphanumeric, and may contain '-', as long as the '-' is not the first or last character. Length may not exceed 63 characters. This parameter is optional if the resource already exists. |
+    | ResourceSKU |Options: `S0`, `S1`, or `F0`. Visit our [Cognitive Services pricing page](https://azure.microsoft.com/pricing/details/cognitive-services/immersive-reader/) to learn more about each available SKU. |
+    | SubscriptionName |This is the name of your Azure subscription. You must have a subscription in order to create a resource. |
+    | AADAppDisplayName |The Azure Active Directory application display name. If an existing Azure AD application is not found, a new one with this name will be created. This parameter is optional if the Azure AD application already exists. |
+    | AADAppIdentifierUri |The URI for the Azure AD app. If an existing Azure AD app is not found, a new one with this URI will be created. For example, `https://immersivereaderaad-mycompany` |
+    | AADAppClientSecret |A password you create that will be used later to authenticate when acquiring a token to launch the Immersive Reader.. |
 
 1. Copy the JSON output into a text file for later use. The output should look like the following.
 
