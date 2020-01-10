@@ -31,7 +31,8 @@ Multi-factor authentication is supported if Azure Active Directory (Azure AD) is
 
 [![Authentication in Azure Machine Learning](media/concept-enterprise-security/authentication.png)](media/concept-enterprise-security/authentication-expanded.png#lightbox)
 
-See the [Set up authentication](how-to-setup-authentication.md) how-to for detailed examples and instructions on setting up authentication, including service principal authentication for automated workflows.
+For more information, see [Set up authentication for Azure Machine Learning resources and workflows](how-to-setup-authentication.md). This article provides information and examples on authentication, including using service principals and automated workflows.
+
 
 ### Authentication for web service deployment
 
@@ -42,7 +43,7 @@ Azure Machine Learning supports two forms of authentication for web services: ke
 |Key|Keys are static and do not need to be refreshed. Keys can be regenerated manually.|Disabled by default| Enabled by default|
 |Token|Tokens expire after a specified time period and need to be refreshed.| Not available| Disabled by default |
 
-See the [web-service authentication section](how-to-setup-authentication.md#web-service-authentication) for code examples on authenticating to web-services in Azure Machine Learning.
+For code examples, see the [web-service authentication section](how-to-setup-authentication.md#web-service-authentication).
 
 ## Authorization
 
@@ -91,7 +92,7 @@ For more information on managed identities, see [Managed identities for Azure re
 
 We don't recommend that admins revoke the access of the managed identity to the resources mentioned in the preceding table. You can restore access by using the resync keys operation.
 
-Azure Machine Learning creates an additional application (the name starts with `aml-` or `Microsoft-AzureML-Support-App-`) with contributor-level access in your subscription for every workspace region. For example, if you have one workspace in East US and another workspace in North Europe in the same subscription, you'll see two of these applications. These applications enable Azure Machine Learning to help you manage compute resources.
+Azure Machine Learning creates an additional application (the name starts with `aml-` or `Microsoft-AzureML-Support-App-`) with contributor-level access in your subscription for every workspace region. For example, if you have one workspace in East US and one in North Europe in the same subscription, you'll see two of these applications. These applications enable Azure Machine Learning to help you manage compute resources.
 
 ## Network security
 
@@ -115,7 +116,7 @@ For information on how to use your own keys for data stored in Azure Blob storag
 
 Training data is typically also stored in Azure Blob storage so that it's accessible to training compute targets. This storage isn't managed by Azure Machine Learning but mounted to compute targets as a remote file system.
 
-For information on regenerating the access keys for the Azure storage accounts used with your workspace, see [Regenerate storage access keys](how-to-change-storage-access-key.md).
+For information on regenerating the access keys, see [Regenerate storage access keys](how-to-change-storage-access-key.md).
 
 #### Azure Cosmos DB
 
@@ -207,7 +208,7 @@ Each workspace has an associated system-assigned managed identity that has the s
 
 Microsoft may collect non-user identifying information like resource names (for example the dataset name, or the machine learning experiment name), or job environment variables for diagnostic purposes. All such data is stored using Microsoft-managed keys in storage hosted in Microsoft owned subscriptions and follows [Microsoft’s standard Privacy policy and data handling standards](https://privacy.microsoft.com/privacystatement).
 
-Microsoft also recommends not storing sensitive information (such as account key secrets) in environment variables since this information is logged, encrypted, and stored by us.
+Microsoft also recommends not storing sensitive information (such as account key secrets) in environment variables. Environment variables are logged, encrypted, and stored by us.
 
 You may opt out from diagnostic data being collected by setting the `hbi_workspace` parameter to `TRUE` while provisioning the workspace. This functionality is supported when using the AzureML SDK, CLI, REST APIs, or Azure Resource Manager templates.
 
@@ -237,7 +238,15 @@ This screenshot shows the activity log of a workspace:
 
 [![Screenshot showing the activity log of a workspace](media/concept-enterprise-security/workspace-activity-log.png)](media/concept-enterprise-security/workspace-activity-log-expanded.png#lightbox)
 
-Scoring request details are stored in Application Insights. Application Insights is created in your subscription when you create a workspace. Logged information includes fields like HTTPMethod, UserAgent, ComputeType, RequestUrl, StatusCode, RequestId, and Duration.
+Scoring request details are stored in Application Insights. Application Insights is created in your subscription when you create a workspace. Logged information includes fields such as:
+
+* HTTPMethod
+* UserAgent
+* ComputeType
+* RequestUrl
+* StatusCode
+* RequestId
+* Duration
 
 > [!IMPORTANT]
 > Some actions in the Azure Machine Learning workspace don't log information to the activity log. For example, the start of a training run and the registration of a model aren't logged.
@@ -250,8 +259,8 @@ Scoring request details are stored in Application Insights. Application Insights
 
 The following diagram shows the create workspace workflow.
 
-* The user signs in to Azure AD from one of the supported Azure Machine Learning clients (Azure CLI, Python SDK, Azure portal) and requests the appropriate Azure Resource Manager token.
-* The user calls Azure Resource Manager to create the workspace. 
+* You sign in to Azure AD from one of the supported Azure Machine Learning clients (Azure CLI, Python SDK, Azure portal) and request the appropriate Azure Resource Manager token.
+* You call Azure Resource Manager to create the workspace. 
 * Azure Resource Manager contacts the Azure Machine Learning resource provider to provision the workspace.
 
 Additional resources are created in the user's subscription during workspace creation:
@@ -279,7 +288,7 @@ The following diagram shows the training workflow.
 
 * Azure Machine Learning is called with the snapshot ID for the code snapshot saved in the previous section.
 * Azure Machine Learning creates a run ID (optional) and a Machine Learning service token, which is later used by compute targets like Machine Learning Compute/VMs to communicate with the Machine Learning service.
-* You can choose either a managed compute target (like Machine Learning Compute) or an unmanaged compute target (like VMs) to run your training jobs. Here are the data flows for both scenarios:
+* You can choose either a managed compute target (like Machine Learning Compute) or an unmanaged compute target (like VMs) to run training jobs. Here are the data flows for both scenarios:
    * VMs/HDInsight, accessed by SSH credentials in a key vault in the Microsoft subscription. Azure Machine Learning runs management code on the compute target that:
 
    1. Prepares the environment. (Docker is an option for VMs and local computers. See the following steps for Machine Learning Compute to understand how running experiments on Docker containers works.)
