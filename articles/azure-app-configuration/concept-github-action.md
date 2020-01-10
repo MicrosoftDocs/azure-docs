@@ -2,14 +2,15 @@
 title: Using GitHub Actions with Azure App Configuration Sync | Microsoft Docs
 description: Use Github Actions to sync Azure App Configuration files 
 services: azure-app-configuration
-author: jeconnoc
+author: jpconnock
 
-ms.author: jpconnock
+ms.author: jeconnoc
 ms.date: 01/09/2020
 ms.topic: conceptual
 ms.service: azure-app-configuration
 
 ---
+# Sync your App Configuration Store using GitHub Actions
 Azure App Configuration uses GitHub Actions to update an App Configuration store when certain actions are performed on a GitHub repository. This allows you to leverage GitHub workflows to update app configuration rather than performing updates in the Azure portal, and enables you to integrate app configuration updates into the same workflow used to update app code.
 
 A GitHub Actions [workflow](https://help.github.com/articles/about-github-actions#workflow) is an automated process defined in your GitHub repository. This process tells GitHub how to build and deploy your GitHub project. Azure App Configuration provides the *Azure App Configuration Sync* Action to enable updates to an App Configuration instance when changes are made to the source repository. 
