@@ -11,7 +11,7 @@
 ---
 ### Portal
 
-Setting up customer-managed keys for your disks will require you to create resources in a particular order, if you're doing it for the first time. First, you will need to create and setup an Azure Key Vault.
+Setting up customer-managed keys for your disks will require you to create resources in a particular order, if you're doing it for the first time. First, you will need to create and set up an Azure Key Vault.
 
 #### Setting up your Azure Key Vault
 
