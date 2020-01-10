@@ -166,12 +166,6 @@ SKUs are not mutable. Follow the steps in this section to move from one resource
 
 >[!IMPORTANT]
 >
->There are limitations regarding use of the Basic and Standard SKUs.
->
->HA Ports and Diagnostics of the Standard SKU are only available in the Standard SKU. You can't migrate from the Standard SKU to the Basic SKU and also retain these features.
->
->Both Basic and Standard SKU have a number of differences as outlined in this article.  Make sure you understand and prepare for them.
->
 >Matching SKUs must be used for Load Balancer and Public IP resources. You can't have a mixture of Basic SKU resources and Standard SKU resources. You can't attach standalone virtual machines, virtual machines in an availability set resource, or a virtual machine scale set resources to both SKUs simultaneously.
 
 ## Region availability
