@@ -4,7 +4,7 @@ description: Explains planning to do before deploying Avere vFXT for Azure
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 12/03/2019
+ms.date: 01/09/2020
 ms.author: rohogue
 ---
 
