@@ -121,7 +121,6 @@ digest:  5899db028dcf96aeaabdadfa5899db025899db025899db025899db025899db02
 size:    29.1 KiB
 name:    wordpress
 version: 8.1.0
-
 ```
 
 ### List charts in the repository
@@ -229,7 +228,7 @@ az acr repository delete --name mycontainerregistry --image helm/wordpress:lates
 You can use the Helm 2 client and the [az acr helm][az-acr-helm] commands in the Azure CLI to store Helm charts in an Azure container registry. You must be using:
 
 - **An Azure container registry** in your Azure subscription. If needed, you can create a registry using the [Azure portal](container-registry-get-started-portal.md) or the [Azure CLI](container-registry-get-started-azure-cli.md).
-- **Helm client version 2.11.0 (not an RC version) or later** - Run `helm version` to find your current version. You also need a Helm server (Tiller) initialized within a Kubernetes cluster. If needed, you can [create an Azure Kubernetes Service cluster][aks-quickstart]. For more information on how to install and upgrade Helm, see [Installing Helm][helm-install-ve].
+- **Helm client version 2.11.0 (not an RC version) or later** - Run `helm version` to find your current version. You also need a Helm server (Tiller) initialized within a Kubernetes cluster. If needed, you can [create an Azure Kubernetes Service cluster][aks-quickstart]. For more information on how to install and upgrade Helm, see [Installing Helm][helm-install-v2].
 - **Azure CLI version 2.0.46 or later** - Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
 
 ### Add repository to Helm client
