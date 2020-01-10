@@ -1,10 +1,10 @@
 ---
-title: Create an Azure data factory using REST API | Microsoft Docs
+title: Create an Azure data factory using REST API 
 description: Create an Azure data factory to copy data from one location in Azure Blob storage to another location.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
 
 ms.service: data-factory
@@ -489,7 +489,7 @@ Here is the sample output:
 Use Azure Storage explorer to check the file is copied to "outputPath" from "inputPath" as you specified when creating a pipeline run.
 
 ## Clean up resources
-You can clean up the resources that you created in the Quickstart in two ways. You can delete the [Azure resource group](../azure-resource-manager/resource-group-overview.md), which includes all the resources in the resource group. If you want to keep the other resources intact, delete only the data factory you created in this tutorial.
+You can clean up the resources that you created in the Quickstart in two ways. You can delete the [Azure resource group](../azure-resource-manager/management/overview.md), which includes all the resources in the resource group. If you want to keep the other resources intact, delete only the data factory you created in this tutorial.
 
 Run the following command to delete the entire resource group:
 ```powershell

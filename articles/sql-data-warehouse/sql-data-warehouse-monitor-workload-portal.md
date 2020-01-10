@@ -1,5 +1,5 @@
 ---
-title: Monitor workload - Azure portal | Microsoft Docs
+title: Monitor workload - Azure portal 
 description: Monitor Azure SQL Data Warehouse using the Azure portal
 services: sql-data-warehouse
 author: kevinvngo

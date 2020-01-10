@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database managed instance connection types | Microsoft Docs
+title: Managed instance connection types
 description: Learn about managed instance connection types
 services: sql-database
 ms.service: sql-database

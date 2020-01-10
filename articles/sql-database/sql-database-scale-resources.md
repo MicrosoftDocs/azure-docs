@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database Scale Resources | Microsoft Docs
+title: Scale Resources
 description: This article explains how to scale your database by adding or removing allocated resources.
 services: sql-database
 ms.service: sql-database
@@ -57,9 +57,9 @@ Initiating scale up or scale down action in any of the flavors would restart dat
 
 ## Alternative scale methods
 
-Scaling resources is the easiest and the most effective way to improve performance of your database without changing either database or application code. In some cases, even the highest service tiers, compute sizes, and performance optimizations might not handle your workload on successful and cost-effective way. In that cases you have these additional options to scale your database:
+Scaling resources is the easiest and the most effective way to improve performance of your database without changing either the database or application code. In some cases, even the highest service tiers, compute sizes, and performance optimizations might not handle your workload in a successful and cost-effective way. In that case you have these additional options to scale your database:
 
-- [Read scale-out](sql-database-read-scale-out.md) is a feature available in where you are getting one read-only replica of your data where you can execute demanding read-only queries such as reports. Read-only replica will handle your read-only workload without affecting resource usage on your primary database.
+- [Read scale-out](sql-database-read-scale-out.md) is a available feature where you are getting one read-only replica of your data where you can execute demanding read-only queries such as reports. Read-only replica will handle your read-only workload without affecting resource usage on your primary database.
 - [Database sharding](sql-database-elastic-scale-introduction.md) is a set of techniques that enables you to split your data into several databases and scale them independently.
 
 ## Next steps

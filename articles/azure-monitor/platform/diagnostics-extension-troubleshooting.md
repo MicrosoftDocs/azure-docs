@@ -4,8 +4,8 @@ description: Troubleshoot problems when using Azure diagnostics in Azure Virtual
 ms.service:  azure-monitor
 ms.subservice: diagnostic-extension
 ms.topic: conceptual
-author: rboucher
-ms.author: robb
+author: bwren
+ms.author: bwren
 ms.date: 05/08/2019
 
 ---
@@ -204,15 +204,15 @@ This code generates four tables:
 
 | Event | Table name |
 | --- | --- |
-| provider=”prov1” &lt;Event id=”1” /&gt; |WADEvent+MD5(“prov1”)+”1” |
-| provider=”prov1” &lt;Event id=”2” eventDestination=”dest1” /&gt; |WADdest1 |
-| provider=”prov1” &lt;DefaultEvents /&gt; |WADDefault+MD5(“prov1”) |
-| provider=”prov2” &lt;DefaultEvents eventDestination=”dest2” /&gt; |WADdest2 |
+| provider="prov1" &lt;Event id="1" /&gt; |WADEvent+MD5("prov1")+"1" |
+| provider="prov1" &lt;Event id="2" eventDestination="dest1" /&gt; |WADdest1 |
+| provider="prov1" &lt;DefaultEvents /&gt; |WADDefault+MD5("prov1") |
+| provider="prov2" &lt;DefaultEvents eventDestination="dest2" /&gt; |WADdest2 |
 
 ## References
 
 ### How to check Diagnostics extension configuration
-The easiest way to check your extension configuration is to go to [Azure Resource Explorer](http://resources.azure.com), and then go to the virtual machine or cloud service where the Azure Diagnostics extension (IaaSDiagnostics / PaaDiagnostics) is.
+The easiest way to check your extension configuration is to go to [Azure Resource Explorer](https://resources.azure.com), and then go to the virtual machine or cloud service where the Azure Diagnostics extension (IaaSDiagnostics / PaaDiagnostics) is.
 
 Alternatively, remote desktop into the machine and look at the Azure Diagnostics Configuration file that's described in the Log artifacts path section.
 

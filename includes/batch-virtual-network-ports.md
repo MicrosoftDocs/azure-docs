@@ -42,7 +42,7 @@ Additional VNet requirements differ, depending on whether the Batch pool is in t
 
 **Permissions** - Check whether your security policies or locks on the VNet's subscription or resource group restrict a user's permissions to manage the VNet.
 
-**Additional networking resources** - Batch automatically allocates additional networking resources in the resource group containing the VNet. For each 50 dedicated nodes (or each 20 low-priority nodes), Batch allocates: 1 network security group (NSG), 1 public IP address, and 1 load balancer. These resources are limited by the subscription's [resource quotas](../articles/azure-subscription-service-limits.md). For large pools you may need to request a quota increase for one or more of these resources.
+**Additional networking resources** - Batch automatically allocates additional networking resources in the resource group containing the VNet. For each 50 dedicated nodes (or each 20 low-priority nodes), Batch allocates: 1 network security group (NSG), 1 public IP address, and 1 load balancer. These resources are limited by the subscription's [resource quotas](../articles/azure-resource-manager/management/azure-subscription-service-limits.md). For large pools you may need to request a quota increase for one or more of these resources.
 
 #### Network security groups
 

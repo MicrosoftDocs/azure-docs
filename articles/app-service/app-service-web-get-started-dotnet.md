@@ -1,19 +1,9 @@
 ---
-title: Create C# ASP.NET Core web app - Azure App Service | Microsoft Docs
-description: Learn how to run web apps in Azure App Service by deploying the default C# ASP.NET Core web app.
-services: app-service\web
-documentationcenter: ''
-author: cephalin
-manager: cfowler
-editor: ''
-
+title: 'QuickStart: Create a C# ASP.NET Core app'
+description: Learn how to run web apps in Azure App Service by deploying the default C# ASP.NET Core web app template from Visual Studio.
 ms.assetid: b1e6bd58-48d1-4007-9d6c-53fd6db061e3
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 08/30/2019
-ms.author: cephalin
 ms.custom: mvc, devcenter, vs-azure
 ms.custom: seodec18
 
@@ -136,17 +126,19 @@ When publishing completes, Visual Studio launches a browser to the URL of the we
 
 ## Manage the Azure app
 
-1. Go to the <a href="https://portal.azure.com" target="_blank">Azure portal</a> to manage the web app.
+To manage the web app, go to the [Azure portal](https://portal.azure.com), and search for and select **App Services**.
 
-1. From the left menu, select **App Services**, and then select the name of your Azure app.
+![Select App Services](./media/app-service-web-get-started-dotnet/app-services.png)
 
-   ![Portal navigation to Azure app](./media/app-service-web-get-started-dotnet/access-portal-vs2019.png)
+On the **App Services** page, select the name of your web app.
 
-   You see your web app's Overview page. Here, you can do basic management like browse, stop, start, restart, and delete.
+![Portal navigation to Azure app](./media/app-service-web-get-started-dotnet/access-portal-vs2019.png)
 
-   ![App Service in Azure portal](./media/app-service-web-get-started-dotnet/web-app-general-vs2019.png)
+You see your web app's Overview page. Here, you can do basic management like browse, stop, start, restart, and delete.
 
-   The left menu provides different pages for configuring your app.
+![App Service in Azure portal](./media/app-service-web-get-started-dotnet/web-app-general-vs2019.png)
+
+The left menu provides different pages for configuring your app.
 
 [!INCLUDE [Clean-up section](../../includes/clean-up-section-portal.md)]
 

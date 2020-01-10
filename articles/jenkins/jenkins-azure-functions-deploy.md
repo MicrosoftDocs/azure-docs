@@ -1,11 +1,7 @@
 ---
 title: Deploy to Azure Functions using the Jenkins Azure Functions plug-in
 description: Learn how to deploy to Azure Functions using the Jenkins Azure Functions plug-in
-ms.service: jenkins
 keywords: jenkins, azure, devops, java, azure functions
-author: tomarchermsft
-manager: jeconnoc
-ms.author: tarcher
 ms.topic: tutorial
 ms.date: 10/23/2019
 ---

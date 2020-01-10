@@ -1,6 +1,6 @@
 ---
-title: Set up security info (preview) to use your security questions - Azure Active Directory | Microsoft Docs
-description: How to set up your security info to verify your identity using pre-defined security questions.
+title: Set up security questions as your verification method - Azure AD
+description: How to set up your Security info (preview) page to verify your identity using pre-defined security questions as your verification method.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -15,7 +15,7 @@ ms.author: lizross
 ms.collection: M365-identity-device-management
 ---
 
-# Set up security info (preview) to use security questions
+# Set up security questions as your verification method
 
 You can follow these steps to add your password reset method. After you've set this up the first time, you can return to the **Security info** page to add, update, or delete your security information.
 
@@ -90,6 +90,6 @@ You have additional options for how your organization contacts you to verify you
 
 ## Next steps
 
-- Reset your password if you've lost or forgotten it, from the [Password reset portal](https://passwordreset.microsoftonline.com/) or follow the steps in the [Reset your work or school password](user-help-reset-password.md) article.
+- Reset your password if you've lost or forgotten it, from the [Password reset portal](https://passwordreset.microsoftonline.com/) or follow the steps in the [Reset your work or school password](active-directory-passwords-update-your-own-password.md) article.
 
 - Get troubleshooting tips and help for sign-in problems in the [Can't sign in to your Microsoft account](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant) article.

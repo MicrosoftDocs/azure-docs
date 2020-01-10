@@ -1,6 +1,6 @@
 ---
-title: About Azure Lab Services | Microsoft Docs
-description: Learn how Lab Services can make it easy to create, manage, and secure labs with virtual machines that can be used by developers, testers, educators, students, and others. 
+title: About classroom labs in Azure Lab Services | Microsoft Docs
+description: Learn how to quickly set up a classroom lab environment in the cloud - configure a lab with a template VM with the software required for the class and make a copy of the VM available to each student in the class. 
 services: lab-services
 documentationcenter: na
 author: spelluru
@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 09/30/2019
+ms.date: 11/26/2019
 ms.author: spelluru
 
 ---

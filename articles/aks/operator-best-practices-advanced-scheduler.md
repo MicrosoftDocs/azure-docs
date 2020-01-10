@@ -27,7 +27,7 @@ This best practices article focuses on advanced Kubernetes scheduling features f
 
 When you create your AKS cluster, you can deploy nodes with GPU support or a large number of powerful CPUs. These nodes are often used for large data processing workloads such as machine learning (ML) or artificial intelligence (AI). As this type of hardware is typically an expensive node resource to deploy, limit the workloads that can be scheduled on these nodes. You may instead wish to dedicate some nodes in the cluster to run ingress services, and prevent other workloads.
 
-This support for different nodes is provided by using multiple node pools. An AKS cluster provides one or more node pools. Support for multiple node pools in AKS is currently in preview.
+This support for different nodes is provided by using multiple node pools. An AKS cluster provides one or more node pools.
 
 The Kubernetes scheduler can use taints and tolerations to restrict what workloads can run on nodes.
 
@@ -77,16 +77,16 @@ For more information about how to use multiple node pools in AKS, see [Create an
 
 When you upgrade a node pool in AKS, taints and tolerations follow a set pattern as they're applied to new nodes:
 
-- **Default clusters without virtual machine scale support**
-  - Let's assume you have a two-node cluster - *node1* and *node2*. When you upgrade, an additional node (*node3*) is created.
+- **Default clusters that use virtual machine scale sets**
+  - Let's assume you have a two-node cluster - *node1* and *node2*. You upgrade the node pool.
+  - Two additional nodes are created, *node3* and *node4*, and the taints are passed on respectively.
+  - The original *node1* and *node2* are deleted.
+
+- **Clusters without virtual machine scale set support**
+  - Again, let's assume you have a two-node cluster - *node1* and *node2*. When you upgrade, an additional node (*node3*) is created.
   - The taints from *node1* are applied to *node3*, then *node1* is then deleted.
   - Another new node is created (named *node1*, since the previous *node1* was deleted), and the *node2* taints are applied to the new *node1*. Then, *node2* is deleted.
   - In essence *node1* becomes *node3*, and *node2* becomes *node1*.
-
-- **Clusters that use virtual machine scale sets**
-  - Again, let's assume you have a two-node cluster - *node1* and *node2*. You upgrade the node pool.
-  - Two additional nodes are created, *node3* and *node4*, and the taints are passed on respectively.
-  - The original *node1* and *node2* are deleted.
 
 When you scale a node pool in AKS, taints and tolerations do not carry over by design.
 

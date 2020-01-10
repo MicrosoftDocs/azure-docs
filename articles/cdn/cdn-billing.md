@@ -109,7 +109,7 @@ If you use one of the following Azure services as your CDN origin, you will not 
 - HDInsight
 - Azure Cosmos DB
 - Azure Data Lake Store
-- Azure Machine Learning service 
+- Azure Machine Learning 
 - Azure SQL database
 - Azure Cache for Redis
 

@@ -1,5 +1,5 @@
 ---
-title: Optimize your Gen2 cache | Microsoft Docs
+title: Optimize your Gen2 cache 
 description: Learn how to monitor your Gen2 cache using the Azure portal.
 services: sql-data-warehouse
 author: kevinvngo

@@ -2,8 +2,7 @@
 documentType: LandingData
 title: Virtual Machines Documentation
 metadata:
-  document_id: na
-  title: Azure Virtual Machine Documentation - Tutorials, API Reference | Microsoft Docs
+  title: Azure Virtual Machine Documentation - Tutorials, API Reference
   meta.description: Learn how to create, deploy, and manage Windows or Linux virtual machines. Tutorials, API references, and other documentation.
   services: virtual-machines
   author: georgewallace
@@ -13,8 +12,7 @@ metadata:
   ms.topic: landing-page
   ms.date: 01/23/2017
   ms.author: gwallace
-abstract:
-  description: Learn how to create Azure virtual machines. Tutorials, API references, and other documentation show you how to create and deploy Windows and Linux virtual machines and VM templates.
+  description: Learn how to create and deploy Windows and Linux virtual machines in Azure.
 sections:
 - title: 
   items:

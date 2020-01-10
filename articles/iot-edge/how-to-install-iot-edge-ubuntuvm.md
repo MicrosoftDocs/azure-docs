@@ -32,7 +32,7 @@ On first boot, the Azure IoT Edge on Ubuntu VM preinstalls the latest version of
     1.	Select your newly created virtual machine resource from the Azure portal and open the **run command** option
     1.	Select the **RunShellScript** option
     1.	Execute the script below via the command window with your device connection string: 
-    `/etc/iotedge/configedge.sh “{device_connection_string}”`
+    `/etc/iotedge/configedge.sh "{device_connection_string}"`
     1.	Select **Run**
     1.	Wait a few moments, and the screen should then provide a success message indicating the connection string was set successfully.
 

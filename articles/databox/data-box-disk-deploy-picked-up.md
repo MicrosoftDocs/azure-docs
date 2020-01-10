@@ -129,15 +129,29 @@ If needed, you can contact Quantium Solution Support (Japanese language) at the 
 
 ### [In Singapore](#tab/in-singapore)
 
-1. Print the shipping label and attach onto the box. If the label is damaged or lost:
+1. Print the shipping label and attach it to the box. If the label is damaged or lost:
     - Go to **Overview > Download shipping label** and get a return shipping label.
     - Affix the label on the device. Make sure that the label is visible.
 
-2. To request pickup:
-    - Call **SingPost** hotline at **6845 6485** during office hours (9am to 5pm, Monday to Friday).  
-    - Quote *Microsoft Azure pickup* and the service request number (tracking number on the return shipping label) to arrange for a collection. 
-    - You will get a verbal confirmation for the pickup schedule. 
-    - If the courier does not arrive for collection, call **SingPost** at **6845 6485** for alternate arrangements. 
+2. To request pickup, email SingPost Customer Service by using the following template with the tracking number (the tracking number can be found on the return label provided in the delivered package).
+
+    ```
+    To: kadcustcare@singpost.com
+    Subject: Microsoft Azure Pick-up - XZ00001234567 
+    Body: 
+     a.	Requestor name
+     b.	Requestor contact number
+     c.	Requestor collection address
+     d.	Preferred collection date
+    ```
+
+   > [!NOTE]
+   > For booking requests received on a business day:
+   > - Before 3 PM, pickup will be the next business day between 9 AM and 1 PM.
+   > - After 3 PM, pickup will be the next business day between 2 PM to 6 PM.
+
+   If you encounter any issues, kindly reach out to Data Box Operations Asia at adbo@microsoft.com. Provide the job name in the subject header and the issue encountered.
+
 3. Hand over to the courier. 
 
 

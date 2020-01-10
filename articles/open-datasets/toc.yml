@@ -9,7 +9,13 @@
 - name: Tutorial
   items:
   - name: Regression with automated machine learning
-    href: tutorial-opendatasets-automl.md
+    href: /azure/machine-learning/service/tutorial-auto-train-models?toc=/azure/open-datasets/toc.json&bc=/azure/open-datasets/breadcrumb/toc.json
+  - name: Enrich an image classification model
+    href: /azure/machine-learning/service/tutorial-train-models-with-aml?toc=/azure/open-datasets/toc.json&bc=/azure/open-datasets/breadcrumb/toc.json
+- name: How-to guides 
+  items:   
+  - name: Datasets in Azure Machine Learning
+    href: ../machine-learning/service/how-to-create-register-datasets.md?toc=/azure/open-datasets/toc.json&bc=/azure/open-datasets/breadcrumb/toc.json            
 - name: Samples
   displayName: example, examples, Jupyter, azure notebooks, python, notebook, GitHub
   href: samples.md

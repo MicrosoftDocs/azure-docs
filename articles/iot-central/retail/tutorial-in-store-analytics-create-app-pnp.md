@@ -1,13 +1,14 @@
 ---
-title: Create an in-store analytics application in Azure IoT Central | Microsoft Docs
+title: 'Tutorial - Create an in-store analytics application in Azure IoT Central'
 description: This tutorial shows how to create an in-store analytics retail application in IoT Central. You'll create it, customize it, and add sensor devices.
 services: iot-central
 ms.service: iot-central
+ms.subservice: iot-central-retail
 ms.topic: tutorial
-ms.custom: [iot-storeAnalytics-conditionMonitor, iot-p0-scenario]
+ms.custom: [iot-storeAnalytics-checkout, iot-p0-scenario]
 ms.author: timlt
 author: timlt
-ms.date: 10/03/2019
+ms.date: 11/12/2019
 ---
 
 # Tutorial: Create an in-store analytics application in Azure IoT Central
@@ -67,7 +68,7 @@ To create a new in-store analytics checkout application that uses preview featur
 
 1. If you have an Azure subscription, enter your *Directory, Azure subscription, and Region*. If you don't have a subscription, you can enable **7-day free trial** and complete the required contact information.  
 
-    For more information about directories and subscriptions, see the [create an application quickstart](../core/quick-deploy-iot-central-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json).
+    For more information about directories and subscriptions, see the [create an application quickstart](../preview/quick-deploy-iot-central.md).
 
 1. Select **Create**.
 
@@ -152,7 +153,7 @@ Second, customize your device templates by adding cloud properties. Cloud proper
 
 Third, customize device templates by building custom views. Views provide a way for operators to visualize telemetry and metadata for your devices, such as device metrics and health.
 
-Here, you use the first two methods to customize the device template for your RuuviTag sensors. For information about creating views for your sensors, see the [Add a simulated device to your IoT Central application](../core/quick-create-pnp-device-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json) quickstart.
+Here, you use the first two methods to customize the device template for your RuuviTag sensors. For information about creating views for your sensors, see the [Add a simulated device to your IoT Central application](../preview/quick-create-pnp-device.md) quickstart.
 
 To customize the built-in interfaces of the RuuviTag device template:
 
@@ -219,8 +220,8 @@ For this tutorial, you use the following set of real and simulated devices to bu
 
 Complete the steps in the following two articles to connect a real Rigado gateway and RuuviTag sensors. After you are done, return to this tutorial. Because you already created device templates in this tutorial, you do not need to create them again in the following set of directions.
 
-- To connect a Rigado gateway, see [Connect a Rigado Cascade 500 to your Azure IoT Central application](../core/howto-connect-rigado-cascade-500-pnp.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json).
-- To connect RuuviTag sensors, see [Connect a RuuviTag sensor to your Azure IoT Central application](../core/howto-connect-ruuvi-pnp.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json). You can also use these directions to create two simulated sensors, if needed.
+- To connect a Rigado gateway, see [Connect a Rigado Cascade 500 to your Azure IoT Central application](../preview/howto-connect-rigado-cascade-500.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json).
+- To connect RuuviTag sensors, see [Connect a RuuviTag sensor to your Azure IoT Central application](../preview/howto-connect-ruuvi.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json). You can also use these directions to create two simulated sensors, if needed.
 
 ## Add rules and actions
 As part of using sensors in your Azure IoT Central application to monitor conditions, you can create rules to run actions when certain conditions are met. A rule is associated with a device template and one or more devices, and contains conditions that must be met based on device telemetry or events. A rule also has one or more associated actions. The actions may include sending email notifications, or triggering a webhook action to send data to other services. The **In-store analytics - checkout** application template includes some predefined rules for the devices in the application.

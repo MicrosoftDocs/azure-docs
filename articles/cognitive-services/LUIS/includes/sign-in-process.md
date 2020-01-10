@@ -9,14 +9,15 @@ ms.service: cognitive-services
 ms.subservice: luis
 ms.topic: include
 ms.custom: include file
-ms.date: 09/02/2018
+ms.date: 10/23/2019
 ms.author: diberry
 ---
 ## Sign in to LUIS portal
 
 A new user to LUIS needs to follow this procedure:
 
-1. Sign in to [LUIS portal](https://www.luis.ai), select your country and agree to the terms of use.
+1. Sign in to [LUIS portal (preview)](https://preview.luis.ai), select your country and agree to the terms of use. If you see **My Apps** instead, a LUIS resource already exists and you should skip ahead to create an app.
+
 1. Select **Create Azure resource** then select **Create an authoring resource to migrate your apps to.**
 
     ![Choose a type of Language Understanding authoring resource](../media/luis-how-to-azure-subscription/sign-in-create-resource.png)
@@ -36,8 +37,8 @@ A new user to LUIS needs to follow this procedure:
 
 1. A summary of the resource to be created is displayed. Select **Next**.
 
-    ![Create authoring resource](./media/sign-in-confirm-key-selection.png)
+    ![Create authoring resource](../media/sign-in/sign-in-confirm-key-selection.png)
 
-1. Step 3 is a confirmation. Confirm your select by selecting **Continue**. 
+1. Confirm by selecting **Continue**. 
 
-    ![Create authoring resource](./media/sign-in-confirm-continue.png)
+    ![Create authoring resource](../media/sign-in/sign-in-confirm-continue.png)

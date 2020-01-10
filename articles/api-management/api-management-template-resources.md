@@ -12,7 +12,7 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 11/04/2019
 ms.author: apimpm
 ---
 # Azure API Management template resources
@@ -21,6 +21,8 @@ Azure API Management provides the following types of resources for use in the de
 -   [String resources](#strings)  
   
 -   [Glyph resources](#glyphs)  
+
+[!INCLUDE [api-management-portal-legacy.md](../../includes/api-management-portal-legacy.md)]
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
   
@@ -322,7 +324,7 @@ The following localization options are supported:
 |SectionHeadingRequestHeaders|Request headers|  
 |FormLabelSubtextOptional|optional|  
 |SectionHeadingCodeSamples|Code samples|  
-|TextblockOpenidConnectHeaderDescription|OpenID Connect id token obtained from <i\>{0}</i\>. Supported grant types: <i\>{1}</i\>.|  
+|TextblockOpenidConnectHeaderDescription|OpenID Connect ID token obtained from <i\>{0}</i\>. Supported grant types: <i\>{1}</i\>.|  
   
 ###  <a name="ErrorPageStrings"></a> ErrorPageStrings  
   

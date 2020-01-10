@@ -1,6 +1,7 @@
 ---
-title: Using AppAuth in an iOS application in Azure Active Directory B2C | Microsoft Docs
-description: This article shows you how to create an iOS app that uses AppAuth with Azure Active Directory B2C to manage user identities and authenticate users.
+title: Use AppAuth in an iOS application
+titleSuffix: Azure AD B2C
+description: How to create an iOS app that uses AppAuth with Azure Active Directory B2C to manage user identities and authenticate users.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -33,7 +34,9 @@ Next, register an application in your Azure AD B2C tenant. This gives Azure AD t
 
 [!INCLUDE [active-directory-b2c-appreg-native](../../includes/active-directory-b2c-appreg-native.md)]
 
-Record the **APPLICATION ID** for use in a later step. Next, select the application in the list and record the **Custom Redirect URI**, also for use in a later step. For example, `com.onmicrosoft.contosob2c.exampleapp://oauth/redirect`.
+Record the **Application (client) ID** for use in a later step.
+
+Also record your custom redirect URI for use in a later step. For example, `com.onmicrosoft.contosob2c.exampleapp://oauth/redirect`.
 
 ## Create your user flows
 In Azure AD B2C, every user experience is defined by a [user flow](active-directory-b2c-reference-policies.md). This application contains one identity experience: a combined sign-in and sign-up. When you create the user flow, be sure to:

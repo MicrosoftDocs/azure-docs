@@ -1,10 +1,10 @@
 ---
-title: Work with the previous version of Azure Migrate | Microsoft Docs
-description: Provides a summary for working with the old version of Azure Migrate
+title: Work with the previous version of Azure Migrate 
+description: Describes how to work with the previous version of Azure Migrate.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: overview
-ms.date: 07/11/2019
+ms.date: 11/19/2019
 ms.author: raynew
 ms.custom: mvc
 ---

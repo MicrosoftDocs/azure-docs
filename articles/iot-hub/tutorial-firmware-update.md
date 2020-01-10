@@ -1,15 +1,12 @@
 ---
 title: Update device firmware through Azure IoT Hub | Microsoft Docs
-description: Implement a device firmware update process using jobs and device twins.
+description: Learn how to implement a device firmware update process that can be triggered from a back-end application connected to your IoT hub.
 services: iot-hub
 author: wesmc7777
-manager: philmea
 ms.author: wesmc
 ms.service: iot-hub
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 06/28/2019
 ms.custom: mvc
 

@@ -1,5 +1,5 @@
 ---
-title: Integrate the Remote Monitoring solution with Data Lake Store - Azure | Microsoft Docs
+title: Stream data from Remote Monitoring to Data Lake Store - Azure | Microsoft Docs
 description: Learn how to integrate the Remote Monitoring solution with Azure Data Lake Store using an Azure Stream Analytics job.
 author: philmea
 manager: timlt

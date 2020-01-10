@@ -30,6 +30,10 @@ Open the VLANs/Subnets tab on the Network page to create and manage VLANs/subnet
 
     ![Create VLAN/subnet](media/create-new-vlan-subnet-details.png)
 
+
+> [!IMPORTANT]
+> There is a quota of 30 VLANs per private cloud. These limits can be increased by [contacting support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+
 ## Use VLAN information to set up a distributed port group in vSphere
 
 To create a distributed port group in vSphere, follow the instructions in the VMware topic 'Add a distributed port group' in the <a href="https://docs.vmware.com/en/VMware-vSphere/6.5/vsphere-esxi-vcenter-server-65-networking-guide.pdf" target="_blank">vSphere Networking Guide</a>. When setting up the distributed port group, provide the VLAN information from the CloudSimple configuration.

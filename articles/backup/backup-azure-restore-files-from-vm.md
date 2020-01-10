@@ -1,14 +1,8 @@
 ---
-title: 'Azure Backup: Recover files and folders from Azure VM backup'
-description: Recover files from an Azure virtual machine recovery point
-ms.reviewer: pullabhk
-author: dcurwin
-manager: carmonm
-keywords: item level recovery; file recovery from Azure VM backup; restore files from Azure VM
-ms.service: backup
+title: Recover files and folders from Azure VM backup
+description: In this article, learn how to recover files and folders from an Azure virtual machine recovery point.
 ms.topic: conceptual
 ms.date: 03/01/2019
-ms.author: dacurwin
 ---
 # Recover files from Azure virtual machine backup
 
@@ -61,16 +55,16 @@ To restore files or folders from the recovery point, go to the virtual machine a
 
     - download.microsoft.com
     - Recovery Service URLs (geo-name refers to the region where the recovery service vault resides)
-        - https:\//pod01-rec2.geo-name.backup.windowsazure.com (For Azure public geos)
-        - https:\//pod01-rec2.geo-name.backup.windowsazure.cn (For Azure China 21Vianet)
-        - https:\//pod01-rec2.geo-name.backup.windowsazure.us (For Azure US Government)
-        - https:\//pod01-rec2.geo-name.backup.windowsazure.de (For Azure Germany)
+            - <https://pod01-rec2.geo-name.backup.windowsazure.com> (For Azure public geos)
+            - <https://pod01-rec2.geo-name.backup.windowsazure.cn> (For Azure China 21Vianet)
+            - <https://pod01-rec2.geo-name.backup.windowsazure.us> (For Azure US Government)
+            - <https://pod01-rec2.geo-name.backup.windowsazure.de> (For Azure Germany)
     - outbound port 3260
 
 > [!Note]
 >
-> - The downloaded script file name will have the **geo-name** to be filled in the URL. For eg: The downloaded script name begins with \'VMname\'\_\'geoname\'_\'GUID\', like ContosoVM_wcus_12345678.....<br><br>
-> - The URL would be "https:\//pod01-rec2.wcus.backup.windowsazure.com"
+> - The downloaded script file name will have the **geo-name** to be filled in the URL. For eg: The downloaded script name begins with \'VMname\'\_\'geoname\'_\'GUID\', like ContosoVM_wcus_12345678
+> - The URL would be <https://pod01-rec2.wcus.backup.windowsazure.com>"
 
    For Linux, the script requires 'open-iscsi' and 'lshw' components to connect to the recovery point. If the components do not exist on the computer where the script is run, the script asks for permission to install the components. Provide consent to install the necessary components.
 
@@ -78,7 +72,7 @@ To restore files or folders from the recovery point, go to the virtual machine a
 
    You can run the script on any machine that has the same (or compatible) operating system as the backed-up VM. See the [Compatible OS table](backup-azure-restore-files-from-vm.md#system-requirements) for compatible operating systems. If the protected Azure virtual machine uses Windows Storage Spaces (for Windows Azure VMs) or LVM/RAID Arrays (for Linux VMs), you can't run the executable or script on the same virtual machine. Instead, run the executable or script on any other machine with a compatible operating system.
 
-### Identifying Volumes
+### Identifying volumes
 
 #### For Windows
 
@@ -104,7 +98,7 @@ In Linux, after the connection to the recovery point is severed, the OS doesn't 
 
 ## Special configurations
 
-### Dynamic Disks
+### Dynamic disks
 
 If the protected Azure VM has volumes with one or both of the following characteristics, you can't run the executable script on the same VM.
 
@@ -119,7 +113,7 @@ Windows Storage Spaces is a Windows technology that enables you to virtualize st
 
 If the protected Azure VM uses Windows Storage Spaces, you can't run the executable script on the same VM. Instead, run the executable script on any other machine with a compatible operating system.
 
-### LVM/RAID Arrays
+### LVM/RAID arrays
 
 In Linux, Logical volume manager (LVM) and/or software RAID Arrays are used to manage logical volumes over multiple disks. If the protected Linux VM uses LVM and/or RAID Arrays, you can't run the script on the same VM. Instead run the script on any other machine with a compatible OS and which supports the file system of the protected VM.
 
@@ -129,36 +123,36 @@ The following script output displays the LVM and/or RAID Arrays disks and the vo
 
 To bring these partitions online, run the commands in the following sections.
 
-#### For LVM Partitions
+#### For LVM partitions
 
 To list the volume group names under a physical volume.
 
 ```bash
 #!/bin/bash
-$ pvs <volume name as shown above in the script output>
+pvs <volume name as shown above in the script output>
 ```
 
 To list all logical volumes, names, and their paths in a volume group.
 
 ```bash
 #!/bin/bash
-$ lvdisplay <volume-group-name from the pvs command’s results>
+lvdisplay <volume-group-name from the pvs command’s results>
 ```
 
 To mount the logical volumes to the path of your choice.
 
 ```bash
 #!/bin/bash
-$ mount <LV path> </mountpath>
+mount <LV path> </mountpath>
 ```
 
-#### For RAID Arrays
+#### For RAID arrays
 
 The following command displays details about all raid disks.
 
 ```bash
 #!/bin/bash
-$ mdadm –detail –scan
+mdadm –detail –scan
 ```
 
  The relevant RAID disk is displayed as `/dev/mdm/<RAID array name in the protected VM>`
@@ -167,7 +161,7 @@ Use the mount command if the RAID disk has physical volumes.
 
 ```bash
 #!/bin/bash
-$ mount [RAID Disk Path] [/mountpath]
+mount [RAID Disk Path] [/mountpath]
 ```
 
 If the RAID disk has another LVM configured in it, then use the preceding procedure for LVM partitions but use the volume name in place of the RAID Disk name
@@ -180,6 +174,7 @@ The following table shows the compatibility between server and computer operatin
 
 |Server OS | Compatible client OS  |
 | --------------- | ---- |
+| Windows Server 2019    | Windows 10 |
 | Windows Server 2016    | Windows 10 |
 | Windows Server 2012 R2 | Windows 8.1 |
 | Windows Server 2012    | Windows 8  |
@@ -214,9 +209,9 @@ The script also requires Python and bash components to execute and connect secur
 
 ## File recovery from Virtual machine backups having large disks
 
-This section explains how to perform file recovery from Azure Virtual machine backups whose number of disks are > 16 and each disk size is > 4 TB.
+This section explains how to perform file recovery from Azure Virtual machine backups whose number of disks are > 16 and each disk size is > 32 TB.
 
-Since file recovery process attaches all disks from the backup, in case of large number of disks (>16) or large disks (> 4 TB each), following action points are recommended.
+Since file recovery process attaches all disks from the backup, when large number of disks (>16) or large disks (> 32 TB each) are used, the following action points are recommended:
 
 - Keep a separate restore server (Azure VM D2v3 VMs) for file recovery. You can use that only file recovery and then shut down when not required. Restoring on the original machine is not recommended since it will have significant impact on the VM itself.
 - Then run the script once to check if the file recovery operation succeeds.
@@ -238,7 +233,7 @@ Since file recovery process attaches all disks from the backup, in case of large
   - In the file /etc/iscsi/iscsid.conf, change the setting from
     - node.conn[0].timeo.noop_out_timeout = 5  to node.conn[0].timeo.noop_out_timeout = 30
 - After performing the following, now run the script again. With these changes, it is highly probable that the file recovery succeeds.
-- Each time user downloads a script, Azure Backup initiates the process of preparing the recovery point for download. In case of large disks, this will take considerable time. If there are successive bursts of requests, the target preparation will go into a download spiral. Hence it is recommended to download a script from Portal/Powershell/CLI, wait for 20-30 mins (a heuristic) and then run it. By this time, the target is expected to be ready for connection from script.
+- Each time user downloads a script, Azure Backup initiates the process of preparing the recovery point for download. With large disks, this will take considerable time. If there are successive bursts of requests, the target preparation will go into a download spiral. Hence it is recommended to download a script from Portal/Powershell/CLI, wait for 20-30 mins (a heuristic) and then run it. By this time, the target is expected to be ready for connection from script.
 - After file recovery, make sure you go back to Portal to click “Unmount disks” for recovery points where you were not able to mount volumes. Essentially, this step will clean any existing processes/sessions and increase the chance of recovery.
 
 ## Troubleshooting

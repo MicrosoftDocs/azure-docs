@@ -1,9 +1,9 @@
 ---
-title: Multiple routes with Azure Maps | Microsoft Docs
-description: Find routes for different modes of travel using Azure Maps
+title: 'Tutorial: Multiple routes with Azure Maps'
+description: 'Tutorial: Find routes for different modes of travel using Azure Maps'
 author: walsehgal
 ms.author: v-musehg
-ms.date: 03/07/2019
+ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
@@ -11,7 +11,7 @@ manager: timlt
 ms.custom: mvc
 ---
 
-# Find routes for different modes of travel using Azure Maps
+# Tutorial: Find routes for different modes of travel using Azure Maps
 
 This tutorial shows how to use your Azure Maps account and the route service to find the route to your point of interest, prioritized by your mode of travel. You display two different routes on your map, one for cars and one for trucks that may have route restrictions because of height, weight, or hazardous cargo. In this tutorial, you learn how to:
 
@@ -22,8 +22,7 @@ This tutorial shows how to use your Azure Maps account and the route service to 
 > * Display multiple routes on your map
 
 ## Prerequisites
-
-Before you proceed, follow the instructions in [manage account](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys#create-a-new-account) to create an Azure Maps account subscription with S1 pricing tier and follow the steps in [get primary key](./tutorial-search-location.md#getkey) to get the primary subscription key for your account.
+Before you proceed, follow instructions in [Create an account](quick-demo-map-app.md#create-an-account-with-azure-maps) to create an Azure Maps account subscription with S1 pricing tier and follow the steps in [get primary key](quick-demo-map-app.md#get-the-primary-key-for-your-account) to get the primary key for your account. For more details on authentication in Azure Maps, see [manage authentication in Azure Maps](how-to-manage-authentication.md).
 
 ## Create a new map
 

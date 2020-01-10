@@ -35,8 +35,8 @@ You can try the [smart meter monitoring app for free](https://apps.azureiotcentr
 
 After you deploy the app, you'll see the simulated meter data on the dashboard, as shown in the figure below. This template is a sample app that you can easily extend and customize for your specific use cases.
 
-[!div class="mx-imgBorder"]
-![Smart Meter App Dashboard](media/overview-iot-central-energy/smart-meter-app-dashboard.png)
+> [!div class="mx-imgBorder"]
+> ![Smart Meter App Dashboard](media/overview-iot-central-energy/smart-meter-app-dashboard.png)
 
 
 ## What is the solar panel monitoring application?

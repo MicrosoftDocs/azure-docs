@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Load balance internet traffic to VMs - Azure portal'
-titlesuffix: Azure Load Balancer
+titleSuffix: Azure Load Balancer
 description: This tutorial shows how to create and manage a Standard Load Balancer by using the Azure portal.
 services: load-balancer
 documentationcenter: na

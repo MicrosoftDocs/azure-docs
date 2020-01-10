@@ -1,5 +1,5 @@
 ---
-title: Roles and permissions for Azure Data Factory | Microsoft Docs
+title: Roles and permissions for Azure Data Factory 
 description: Describes the roles and permissions required to create Data Factories and to work with child resources.
 ms.date: 11/5/2018
 ms.topic: conceptual
@@ -7,10 +7,10 @@ ms.service: data-factory
 services: data-factory
 documentationcenter: ''
 ms.workload: data-services
-ms.tgt_pltfrm: na
+
 author: djpmsft
 ms.author: daperlov
-manager: craigg
+manager: anandsub
 ---
 
 # Roles and permissions for Azure Data Factory

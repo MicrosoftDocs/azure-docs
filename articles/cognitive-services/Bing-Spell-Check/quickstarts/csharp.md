@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Check spelling with the Bing Spell Check REST API and C#"
+title: "Quickstart: Check spelling with the REST API and C# - Bing Spell Check"
 titleSuffix: Azure Cognitive Services
 description: Get started using the Bing Spell Check REST API to check spelling and grammar.
 services: cognitive-services
@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: quickstart
-ms.date: 04/11/2019
+ms.date: 12/16/2019
 ms.author: aahi
 ---
 
@@ -41,7 +41,7 @@ Use this quickstart to make your first call to the Bing Spell Check REST API. Th
     using Newtonsoft.Json;
     ```
 
-2. Create variables for the API endpoint, your subscription key, and the text to be spell checked.
+2. Create variables for the API endpoint, your subscription key, and the text to be spell checked. You can use the global endpoint below, or the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
 
     ```csharp
     namespace SpellCheckSample
@@ -131,6 +131,10 @@ static void Main(string[] args)
     Console.ReadLine();
 }
 ```
+
+## Run the application
+
+Build and run your project. If you're using Visual Studio, press **F5** to debug the file.
 
 ## Example JSON response
 

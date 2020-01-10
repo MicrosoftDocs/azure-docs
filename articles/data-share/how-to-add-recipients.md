@@ -1,21 +1,21 @@
 ---
-title: Add recipients in Azure Data Share Preview
-description: Learn how to add recipients to an existing data share in Azure Data Share preview.
+title: Add recipients in Azure Data Share 
+description: Learn how to add recipients to an existing data share in Azure Data Share.
 author: joannapea
 ms.author: joanpo
 ms.service: data-share
 ms.topic: conceptual
 ms.date: 07/10/2019
 ---
-# How to add a recipient to an existing data share in Azure Data Share Preview
+# How to add a recipient to an existing data share in Azure Data Share
 
-This article will show you how to add recipients to a pre-existing data share. 
+This article will show you how to add recipients to a pre-existing data share.
 
 For information on how to add recipients as you create a share, see the [Share data](share-your-data.md) tutorial.
 
 ## Navigate to a sent data share
 
-In Azure Data Share Preview, navigate to your sent share and select the **Invitations** tab. Listed here are all of the recipients of invitations to this data share. To add a new one, click **Add Recipient**.
+In Azure Data Share, navigate to your sent share and select the **Invitations** tab. Listed here are all of the recipients of invitations to this data share. To add a new one, click **Add Recipient**.
 
 ![Add Recipient](./media/how-to/how-to-add-recipients/add-recipient.png)
 

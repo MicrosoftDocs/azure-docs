@@ -1,5 +1,5 @@
 ---
-title: Visualize SQL Data Warehouse data with Power BI Microsoft Azure
+title: Visualize data with Power BI Microsoft Azure
 description: Visualize SQL Data Warehouse data with Power BI
 services: sql-data-warehouse
 author: mlee3gsd
@@ -10,6 +10,7 @@ ms.subservice: integration
 ms.date: 04/17/2018
 ms.author: martinle
 ms.reviewer: igorstan
+ms.custom: seo-lt-2019
 ---
 
 # Visualize data with Power BI

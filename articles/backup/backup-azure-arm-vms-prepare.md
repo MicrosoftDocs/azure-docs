@@ -1,13 +1,8 @@
 ---
-title: Back up Azure VMs in a Recovery Services vault with Azure Backup
+title: Back up Azure VMs in a Recovery Services vault
 description: Describes how to back up Azure VMs in a Recovery Services vault using the Azure Backup
-service: backup
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 04/03/2019
-ms.author: dacurwin
 ---
 # Back up Azure VMs in a Recovery Services vault
 
@@ -28,7 +23,7 @@ In this article, you learn how to:
 
 ## Before you start
 
-* [Review](backup-architecture.md#architecture-direct-backup-of-azure-vms) the Azure VM backup architecture.
+* [Review](backup-architecture.md#architecture-built-in-azure-vm-backup) the Azure VM backup architecture.
 * [Learn about](backup-azure-vms-introduction.md) Azure VM backup, and the backup extension.
 * [Review the support matrix](backup-support-matrix-iaas.md) before you configure backup.
 
@@ -62,9 +57,8 @@ After the vault is created, it appears in the Recovery Services vaults list. If 
 
 ![List of backup vaults](./media/backup-azure-arm-vms-prepare/rs-list-of-vaults.png)
 
-> [!NOTE]
-> Azure Backup service creates a separate resource group (other than the VM resource group) to store snapshot, with the naming format **AzureBackupRG_geography_number** (example: AzureBackupRG_northeurope_1). The data in this resource group will be retained for the duration in days as specified in *Retain instant recovery snapshot* section of the Azure Virtual Machine Backup policy.  Applying a lock to this resource group can cause backup failures.<br>
-This resource group should also be excluded from any name/tag restrictions as a restriction policy would block creation of Resource Point collections in it again causing backup failures.
+>[!NOTE]
+> Azure Backup now allows customization of the resource group name created by the Azure Backup service. For more information, see [Azure Backup resource group for Virtual Machines](backup-during-vm-creation.md#azure-backup-resource-group-for-virtual-machines).
 
 ### Modify storage replication
 

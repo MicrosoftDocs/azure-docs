@@ -1,8 +1,8 @@
 ---
-title: Parquet format in Azure Data Factory | Microsoft Docs
+title: Parquet format in Azure Data Factory 
 description: 'This topic describes how to deal with Parquet format in Azure Data Factory.'
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: craigg
 
 ms.service: data-factory

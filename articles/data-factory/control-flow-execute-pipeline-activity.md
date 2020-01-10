@@ -1,5 +1,5 @@
 ---
-title: Execute Pipeline Activity in Azure Data Factory | Microsoft Docs
+title: Execute Pipeline Activity in Azure Data Factory 
 description: Learn how you can use the Execute Pipeline Activity to invoke one Data Factory pipeline from another Data Factory pipeline.
 services: data-factory
 documentationcenter: ''
@@ -163,10 +163,7 @@ This scenario has two pipelines:
     "properties": {
     "type": "AzureStorage",
     "typeProperties": {
-      "connectionString": {
-        "value": "DefaultEndpointsProtocol=https;AccountName=*****",
-        "type": "SecureString"
-      }
+      "connectionString": "DefaultEndpointsProtocol=https;AccountName=*****;AccountKey=*****"
     }
   }
 }

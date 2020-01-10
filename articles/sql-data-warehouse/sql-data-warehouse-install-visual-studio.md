@@ -1,5 +1,5 @@
 ---
-title: Install Visual Studio 2019 for SQL Data Warehouse | Microsoft Docs
+title: Install Visual Studio 2019 
 description: Install Visual Studio and SQL Server Development Tools (SSDT) for Azure SQL Data Warehouse
 services: sql-data-warehouse
 ms.custom: vs-azure
@@ -9,9 +9,10 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: development
-ms.date: 10/17/2019
+ms.date: 01/07/2020
 ms.author: kevin
 ms.reviewer: igorstan
+ms.custom: seo-lt-2019
 ---
 
 # Getting started with Visual Studio 2019 for SQL Data Warehouse
@@ -21,19 +22,29 @@ Visual Studio **2019** SQL Server Data Tools (SSDT) is a single tool allowing yo
 - Leverage an object explorer to visually explore all objects in your data model including tables, views, stored procedures, and etc.
 - Generate T-SQL data definition language (DDL) scripts for your objects
 - Develop your data warehouse using a state-based approach with SSDT Database Projects
-- Integrate your database project with source control systems such as Git with Azure DevOps Repos
+- Integrate your database project with source control systems such as Git with Azure Repos
 - Set up continuous integration and deployment pipelines with automation servers such as Azure DevOps
 
-> [!NOTE]
-> Currently Visual Studio SSDT Database Projects is in preview. To receive periodic updates on this feature, please vote on [UserVoice].
-
-## Install Visual Studio 2019 Preview
+## Install Visual Studio 2019
 See [Download Visual Studio 2019][] to download and install Visual Studio **16.3 and above**. During install, select the data storage and processing workload. Standalone SSDT installation is no longer required in Visual Studio 2019.
 
-## Reporting issues with SSDT Visual Studio 2019 (preview)
-To report issues when using SSDT with SQL Data Warehouse, email the following email distribution list: <sqldwssdtpreview@service.microsoft.com>
+## Unsupported features in SSDT
+
+There are times when feature releases for SQL Data Warehouse may not include support for SSDT. The following features are currently unsupported:
+
+- [Materialized views](https://docs.microsoft.com/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?view=azure-sqldw-latest) (in progress)
+- [Ordered Clustered Columnstore Indexes](https://docs.microsoft.com/sql/t-sql/statements/create-columnstore-index-transact-sql?view=azure-sqldw-latest#examples--and-) (in progress)
+- [COPY statement](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) (in progress)
+- [Workload management](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-workload-management) - workload groups and classifiers (in progress)
+- [Row-level security](https://docs.microsoft.com/sql/relational-databases/security/row-level-security?view=sql-server-ver15)
+  - Submit a support ticket or vote [here](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/39040057-ssdt-row-level-security) to get the feature supported.
+- [Dynamic data masking](https://docs.microsoft.com/sql/relational-databases/security/dynamic-data-masking?toc=%2Fazure%2Fsql-data-warehouse%2Ftoc.json&view=sql-server-2017#defining-a-dynamic-data-mask)
+  - Submit a support ticket or vote [here](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/39040048-ssdt-support-dynamic-data-masking) to get the feature supported. 
+- [PREDICT](https://docs.microsoft.com/sql/t-sql/queries/predict-transact-sql?view=sql-server-ver15&viewFallbackFrom=azure-sqldw-latest) function 
+- [Tables with constraints](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-table-constraints#table-constraints) are not supported. For these table objects, set the build action to "None".
 
 ## Next steps
+
 Now that you have the latest version of SSDT, you're ready to [connect][connect] to your SQL Data Warehouse.
 
 <!--Anchors-->

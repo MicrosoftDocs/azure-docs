@@ -80,9 +80,9 @@ To prove endpoint ownership, echo back the validation code in the validationResp
 }
 ```
 
-You must return an HTTP 200 OK response status code. HTTP 202 Accepted is not recognized as a valid Event Grid subscription validation response.
+You must return an HTTP 200 OK response status code. HTTP 202 Accepted is not recognized as a valid Event Grid subscription validation response.The http request must complete within 30 seconds. If the operation doesn’t finish within 30 seconds then the operation will be canceled and it may be re-attempted after 5 seconds. If all the attempts fail then it will be treated as validation handshake error.
 
-Or, you can manually validate the subscription by sending a GET request to the validation URL. The event subscription stays in a pending state until validated.
+Or, you can manually validate the subscription by sending a GET request to the validation URL. The event subscription stays in a pending state until validated.The validation Url uses port 553. If your firewall rules block port 553 then rules may need to be updated for successful manual handshake.
 
 For an example of handling the subscription validation handshake, see a [C# sample](https://github.com/Azure-Samples/event-grid-dotnet-publish-consume-events/blob/master/EventGridConsumer/EventGridConsumer/Function1.cs).
 
@@ -97,6 +97,11 @@ During event subscription creation, if you're seeing an error message such as "T
 
 ### Event delivery security
 
+#### Azure AD
+
+You can secure your webhook endpoint by using Azure Active Directory to authenticate and authorize Event Grid to publish events to your endpoints. You will need to create an Azure Active Directory Application, create a role and service principle in your application authorizing Event Grid, and configure the event subscription to use the Azure AD Application. [Learn how to configure AAD with Event Grid](secure-webhook-delivery.md).
+
+#### Query parameters
 You can secure your webhook endpoint by adding query parameters to the webhook URL when creating an Event Subscription. Set one of these query parameters to be a secret such as an [access token](https://en.wikipedia.org/wiki/Access_token). The webhook can use the secret to recognize the event is coming from Event Grid with valid permissions. Event Grid will include these query parameters in every event delivery to the webhook.
 
 When editing the Event Subscription, the query parameters aren't displayed or returned unless the [--include-full-endpoint-url](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-show) parameter is used in Azure [CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest).
@@ -203,7 +208,7 @@ Event Grid provides two built-in roles for managing event subscriptions. They ar
 
 You can [assign these roles to a user or group](../role-based-access-control/quickstart-assign-role-user-portal.md).
 
-**EventGrid EventSubscription Contributor (Preview)**: manage Event Grid subscription operations
+**EventGrid EventSubscription Contributor**: manage Event Grid subscription operations
 
 ```json
 [
@@ -211,7 +216,7 @@ You can [assign these roles to a user or group](../role-based-access-control/qui
     "Description": "Lets you manage EventGrid event subscription operations.",
     "IsBuiltIn": true,
     "Id": "428e0ff05e574d9ca2212c70d0e0a443",
-    "Name": "EventGrid EventSubscription Contributor (Preview)",
+    "Name": "EventGrid EventSubscription Contributor",
     "IsServiceRole": false,
     "Permissions": [
       {
@@ -239,7 +244,7 @@ You can [assign these roles to a user or group](../role-based-access-control/qui
 ]
 ```
 
-**EventGrid EventSubscription Reader (Preview)**: read Event Grid subscriptions
+**EventGrid EventSubscription Reader**: read Event Grid subscriptions
 
 ```json
 [
@@ -247,7 +252,7 @@ You can [assign these roles to a user or group](../role-based-access-control/qui
     "Description": "Lets you read EventGrid event subscriptions.",
     "IsBuiltIn": true,
     "Id": "2414bbcf64974faf8c65045460748405",
-    "Name": "EventGrid EventSubscription Reader (Preview)",
+    "Name": "EventGrid EventSubscription Reader",
     "IsServiceRole": false,
     "Permissions": [
       {

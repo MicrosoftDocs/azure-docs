@@ -1,5 +1,5 @@
 ---
-title: Deploy a Windows 7 virtual machine on Windows Virtual Desktop - Azure
+title: Deploy Windows 7 virtual machine Windows Virtual Desktop - Azure
 description: How to configure and deploy a Windows 7 virtual machine on Windows Virtual Desktop.
 services: virtual-desktop
 author: Heidilohr
@@ -32,18 +32,19 @@ To set up a Windows 7 VM on Windows Virtual Desktop:
 7. Install all Windows Updates in the Optional category (excluding language packs). This installs the Remote Desktop Protocol 8.0 update ([KB2592687](https://www.microsoft.com/download/details.aspx?id=35393)) that you need to complete these instructions.
 8. Open the Local Group Policy Editor and navigate to **Computer Configuration** > **Administrative Templates** > **Windows Components** > **Remote Desktop Services** > **Remote Desktop Session Host** > **Remote Session Environment**.
 9. Enable the Remote Desktop Protocol 8.0 policy.
-10. Restart the virtual machine by running the following command:
+10. Join this VM to your Active Directory domain.
+11. Restart the virtual machine by running the following command:
     
      ```cmd
      shutdown /r /t 0
      ```
     
-11. Follow the instructions [here](https://docs.microsoft.com/powershell/module/windowsvirtualdesktop/export-rdsregistrationinfo) to get a registration token.
-12. [Download the Windows Virtual Desktop Agent for Windows 7](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3JZCm).
-13. [Download the Windows Virtual Desktop Agent Manager for Windows 7](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3K2e3).
-14. Open the Windows Virtual Desktop Agent installer and follow the instructions. When prompted, give the registration key you created in step 11.
-15. Open the Windows Virtual Desktop installer and follow the instructions.
-16. Optionally, block the TCP/3389 port to remove direct Remote Desktop Protocol access to the VM.
+12. Follow the instructions [here](https://docs.microsoft.com/powershell/module/windowsvirtualdesktop/export-rdsregistrationinfo) to get a registration token.
+13. [Download the Windows Virtual Desktop Agent for Windows 7](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3JZCm).
+14. [Download the Windows Virtual Desktop Agent Manager for Windows 7](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3K2e3).
+15. Open the Windows Virtual Desktop Agent installer and follow the instructions. When prompted, give the registration key you created in step 12.
+16. Open the Windows Virtual Desktop installer and follow the instructions.
+17. Optionally, block the TCP/3389 port to remove direct Remote Desktop Protocol access to the VM.
 
 ## Next steps
 

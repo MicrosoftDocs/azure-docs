@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Monitor Windows virtual machines in Azure | Microsoft Docs
+title: Tutorial - Monitor Windows virtual machines in Azure 
 description: In this tutorial, you learn how to monitor the performance and discovered application components running on your Windows virtual machines.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -89,7 +89,7 @@ To enable monitoring of your Azure VM with Azure Monitor for VMs:
 
 3. On the **Insights (preview)** page, select **Try now**.
 
-    ![Enable Azure Monitor for VMs for a VM](../../azure-monitor/insights/media/vminsights-enable-single-vm/enable-vminsights-vm-portal-01.png)
+    ![Enable Azure Monitor for VMs for a VM](../../azure-monitor/insights/media/vminsights-enable-single-vm/enable-vminsights-vm-portal.png)
 
 4. On the **Azure Monitor Insights Onboarding** page, if you have an existing Log Analytics workspace in the same subscription, select it in the drop-down list.  
 

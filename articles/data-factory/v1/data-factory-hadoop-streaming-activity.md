@@ -1,5 +1,5 @@
 ---
-title: Transform data using Hadoop Streaming Activity - Azure | Microsoft Docs
+title: Transform data using Hadoop Streaming Activity - Azure 
 description: Learn how you can use the Hadoop Streaming Activity in an Azure data factory to transform data by running Hadoop Streaming programs on an on-demand/your own HDInsight cluster.
 services: data-factory
 documentationcenter: ''
@@ -222,5 +222,5 @@ The HDInsight cluster is automatically populated with example programs (wc.exe a
 * [Pig Activity](data-factory-pig-activity.md)
 * [MapReduce Activity](data-factory-map-reduce.md)
 * [Invoke Spark programs](data-factory-spark.md)
-* [Invoke R scripts](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample)
+* [Invoke R scripts](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/RunRScriptUsingADFSample)
 

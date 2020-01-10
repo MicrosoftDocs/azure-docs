@@ -10,6 +10,6 @@
       tocHref: /azure/iot-central/
       topicHref: /azure/iot-central/
       items:
-      - name: IoT Central for Energy
+      - name: IoT Central for Energy (preview features)
         tocHref: /azure/iot-central/
         topicHref: /azure/iot-central/energy/index/

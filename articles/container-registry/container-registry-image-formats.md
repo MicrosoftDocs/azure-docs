@@ -1,14 +1,8 @@
 ---
-title: Azure Container Registry content formats
-description: Learn about supported content formats in Azure Container Registry.
-services: container-registry
-author: dlepow
-manager: gwallace
-
-ms.service: container-registry
+title: Supported content formats
+description: Learn about content formats supported by Azure Container Registry, including Docker-compatible container images, Helm charts, OCI images, and OCI artifacts.
 ms.topic: article
 ms.date: 08/30/2019
-ms.author: danlep
 ---
 
 # Content formats supported in Azure Container Registry
@@ -25,7 +19,7 @@ The following Docker container image formats are supported:
 
 ## OCI images
 
-Azure Container Registry supports images that meet the [Open Container Initiative (OCI) Image Format Specification](https://github.com/opencontainers/image-spec/blob/master/spec.md). Packaging formats include [Singularity Image Format (SIF)](https://www.sylabs.io/2018/03/sif-containing-your-containers/).
+Azure Container Registry supports images that meet the [Open Container Initiative (OCI) Image Format Specification](https://github.com/opencontainers/image-spec/blob/master/spec.md). Packaging formats include [Singularity Image Format (SIF)](https://github.com/sylabs/sif).
 
 ## OCI artifacts
 

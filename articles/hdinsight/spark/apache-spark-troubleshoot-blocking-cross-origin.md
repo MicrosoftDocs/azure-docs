@@ -1,5 +1,5 @@
 ---
-title: Jupyter server 404 error due to "Blocking Cross Origin API" in Azure HDInsight
+title: Jupyter 404 error - "Blocking Cross Origin API" - Azure HDInsight
 description: Jupyter server 404 "Not Found" error due to "Blocking Cross Origin API" in Azure HDInsight
 ms.service: hdinsight
 ms.topic: troubleshooting
@@ -20,7 +20,7 @@ When you access the Jupyter service on HDInsight, you see an error box saying "N
 ```log
 [W 2018-08-21 17:43:33.352 NotebookApp] 404 PUT /api/contents/PySpark/notebook.ipynb (10.16.0.144) 4504.03ms referer=https://pnhr01hdi-corpdir.msappproxy.net/jupyter/notebooks/PySpark/notebook.ipynb
 Blocking Cross Origin API request.  
-Origin: https://xxx.xxx.xxx, Host: hn0-pnhr01.j101qxjrl4zebmhb0vmhg044xe.ax.internal.cloudapp.net:8001
+Origin: https://xxx.xxx.xxx, Host: pnhr01.j101qxjrl4zebmhb0vmhg044xe.ax.internal.cloudapp.net:8001
 ```
 
 You may also see an IP address in the "Origin" field in the Jupyter log.

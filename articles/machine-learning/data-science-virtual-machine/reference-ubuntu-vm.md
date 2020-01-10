@@ -236,9 +236,9 @@ You can access the [Azure portal](https://portal.azure.com) from the pre-install
 
 ## Azure Machine Learning
 
-Azure Machine Learning is a fully managed cloud service that enables you to build, deploy, and share predictive analytics solutions. You build your experiments and models from Azure Machine Learning Studio. You can access it from a web browser on the Data Science Virtual Machine by visiting [Microsoft Azure Machine Learning](https://studio.azureml.net).
+Azure Machine Learning is a fully managed cloud service that enables you to build, deploy, and share predictive analytics solutions. You can build your experiments and models from Azure Machine Learning Studio (classic). You can access it from a web browser on the Data Science Virtual Machine by visiting [Microsoft Azure Machine Learning](https://studio.azureml.net).
 
-After you sign in to Azure Machine Learning Studio, you can use an experimentation canvas to build a logical flow for the machine learning algorithms. You also have access to a Jupyter notebook that is hosted on Azure Machine Learning and can work seamlessly with the experiments in Machine Learning Studio. 
+After you sign in to Azure Machine Learning Studio (classic), you can use an experimentation canvas to build a logical flow for the machine learning algorithms. You also have access to a Jupyter notebook that is hosted on Azure Machine Learning and can work seamlessly with the experiments in Azure Machine Learning Studio (classic). 
 
 Operationalize the machine learning models that you have built by wrapping them in a web service interface. Operationalizing machine learning models enables clients written in any language to invoke predictions from those models. For more information, see the [Machine Learning documentation](https://azure.microsoft.com/documentation/services/machine-learning/).
 

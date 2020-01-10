@@ -4,6 +4,7 @@ description: Deprecated CPP article, linked to PC article. Was "The prerequisite
 services: Dynamics 365 for Customer Engagement offer, Azure, Marketplace, Cloud Partner Portal, 
 author: ChJenk
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/30/2019
 ms.author: v-chjen

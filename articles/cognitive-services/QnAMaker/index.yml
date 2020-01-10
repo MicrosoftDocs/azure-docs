@@ -64,10 +64,8 @@ landingContent:
     linkLists:
       - linkListType: get-started
         links:
-          - text: "Quickstart: Using Postman"
-            url: quickstarts/get-answer-from-kb-using-postman.md
-          - text: "Quickstart: Using cURL"
-            url: quickstarts/get-answer-from-kb-using-curl.md  
+          - text: "Quickstart: With Postman or cURL"
+            url: quickstarts/get-answer-from-knowledge-base-using-url-tool.md
           - text: "Quickstart: Using REST and C#"
             url: quickstarts/get-answer-from-knowledge-base-csharp.md     
           - text: "Quickstart: Using NuGet and C#"

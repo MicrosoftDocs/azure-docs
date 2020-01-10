@@ -31,9 +31,8 @@ This article:
 The Azure AD portal provides you with a central place to manage your device identities. You can get to this place by either using a [direct link](https://portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/Devices) or by following these manual steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as administrator.
-2. On the left navbar, click **Active Directory**.
 
-   ![Configure device settings](./media/device-management-azure-portal/01.png)
+2. Search for and select **Azure Active Directory** or select it from the **Home** page.
 
 3. In the **Manage** section, click **Devices**.
 
@@ -136,6 +135,7 @@ To enable / disable a device, you have two options:
 
 - You need to be a global administrator or cloud device administrator in Azure AD to enable / disable a device. 
 - Disabling a device prevents a device from successfully authenticating with Azure AD, thereby preventing the device from accessing your Azure AD resources that are guarded by device CA or using your WH4B credentials.
+- Disabling the device will revoke both the Primary Refresh Token (PRT) and any Refresh Tokens (RT) on the device.
 
 ### Delete an Azure AD device
 

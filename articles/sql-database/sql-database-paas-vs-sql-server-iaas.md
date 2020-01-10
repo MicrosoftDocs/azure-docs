@@ -1,5 +1,5 @@
 ---
-title: Choose the right deployment option in Azure SQL | Microsoft Docs
+title: Choose the right deployment option
 description: Learn how to choose among the deployment options within Azure SQL between SQL databases, SQL managed instances, and SQL Server on Azure virtual machines.
 services: sql-database
 ms.service: sql-database

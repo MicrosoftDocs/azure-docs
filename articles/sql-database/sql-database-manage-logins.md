@@ -1,5 +1,5 @@
 ---
-title: Azure SQL logins and users | Microsoft Docs
+title: Logins and users
 description: Learn about SQL Database and SQL Data Warehouse security management, specifically how to manage database access and login security through the server-level principal account.
 keywords: sql database security,database security management,login security,database security,database access
 services: sql-database
@@ -48,6 +48,9 @@ The **Server admin** and **Azure AD admin** accounts have the following characte
 - Can create, alter, and drop databases, logins, users in master, and server-level IP firewall rules.
 - Can add and remove members to the `dbmanager` and `loginmanager` roles.
 - Can view the `sys.sql_logins` system table.
+- Cannot be renamed.
+- To change the Azure AD admin account, use the Portal or Azure CLI.
+- The Server Admin account cannot be changed afterwards.
 
 ### Configuring the firewall
 

@@ -1,5 +1,5 @@
 ---
-title: Secure remote administration of your Gateway in Azure Australia
+title: Secure remote administration of gateway in Azure Australia
 description: Guidance on configuring secure remote administration within the Australian regions to meet the specific requirements of Australian Government policy, regulations, and legislation.
 author: galey801
 ms.service: azure-australia
