@@ -14,14 +14,14 @@ ms.date: 01/06/2020
 # What are Azure Machine Learning environments?
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Machine Learning environments specify the Python packages, environment variables, and software settings around your training and scoring scripts. They also specify run times (Python, Spark, or Docker). They are managed and versioned entities within your Azure Machine Learning workspace that enable reproducible, auditable, and portable machine learning workflows across a variety of compute targets.
+Azure Machine Learning environments specify the Python packages, environment variables, and software settings around your training and scoring scripts. They also specify run times (Python, Spark, or Docker). They are managed and versioned entities within your Machine Learning workspace that enable reproducible, auditable, and portable machine learning workflows across a variety of compute targets.
 
-You can use an environment object on your local compute to:
+You can use an `Environment` object on your local compute to:
 * Develop your training script.
-* Reuse that same environment on Azure Machine Learning Compute for model training at scale.
+* Reuse the same environment on Azure Machine Learning Compute for model training at scale.
 * Deploy your model with that same environment.
 
-The following diagram illustrates that you can use a single environment object in both your run configuration for training and your inference and deployment configuration for web service deployments.
+The following diagram illustrates how you can use a single environment object in both your run configuration, for training, and your inference and deployment configuration, for web service deployments.
 
 ![Diagram of an environment in machine learning workflow](./media/concept-environments/ml-environment.png)
 
