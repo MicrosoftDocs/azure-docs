@@ -71,7 +71,7 @@ After you submit your solution:
 
 If you make changes after your submission is approved, it must go through the approval process again.
 
-If you have questions about policies or requirements in your report, you can engage with the AppSource Validation Team via [Stack Overflow](https://stackoverflow.com/search?q=office-store). Tag your question with "Office-Store".
+If you have general questions about policies, processes or validation requirements,  you can engage with the AppSource Validation Team via [Stack Overflow](https://stackoverflow.com/search?q=office-store). Tag your question with "Office-Store". Please be aware that the Validation Team will not be able to discuss individual submission results over StackOverflow. 
 
 ## See also
 
