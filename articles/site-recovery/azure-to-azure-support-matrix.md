@@ -5,7 +5,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 11/15/2019
+ms.date: 1/10/2020
 ms.author: raynew
 
 ---
@@ -203,7 +203,7 @@ Redundancy | LRS and GRS are supported.<br/><br/> ZRS isn't supported.
 Cool and hot storage | Not supported | VM disks aren't supported on cool and hot storage
 Storage Spaces | Supported |
 Encryption at rest (SSE) | Supported | SSE is the default setting on storage accounts.	 
-Encryption at rest (CMK) | Not Supported | 	 
+Encryption at rest (CMK) | Supported | Both Software and HSM keys are supported for managed disks	 
 Azure Disk Encryption (ADE) for Windows OS | Supported for VMs with managed disks. VMs using unmanaged disks are not supported |
 Azure Disk Encryption (ADE) for Linux OS | Supported |
 Hot add	| Supported | Enabling replication for a data disk that you add to a replicated Azure VM is supported for VMs that use managed disks.

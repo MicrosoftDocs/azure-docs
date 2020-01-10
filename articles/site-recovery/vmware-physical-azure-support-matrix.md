@@ -5,7 +5,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/15/2019
+ms.date: 1/10/2020
 ms.author: raynew
 
 ---
@@ -224,7 +224,7 @@ Cool storage | No
 Hot storage| No
 Block blobs | No
 Encryption-at-rest (SSE)| Yes
-Encryption-at-rest (CMK)| No
+Encryption-at-rest (CMK)| Yes (via Powershell Az 3.3.0 module onwards)
 Premium storage | Yes
 Import/export service | No
 Azure Storage firewalls for VNets | Yes.<br/> Configured on target storage/cache storage account (used to store replication data).
