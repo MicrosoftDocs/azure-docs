@@ -100,7 +100,7 @@ az keyvault set-policy -n myKeyVaultName -g myResourceGroup--object-id $desIdent
 az role assignment create --assignee $desIdentity --role Reader --scope $keyVaultId
 ```
 
-## Create an AKS cluster with and encrypt the OS disk with a customer-manged key
+## Create a new AKS cluster and encrypt the OS disk with a customer-manged key
 
 Create a new resource group and AKS cluster, then use your key to encrypt the OS disk.
 
@@ -115,9 +115,19 @@ az group create -n myResourceGroup-l myAzureRegionName
 az aks create -n myAKSCluster -g myResourceGroup --node-osdisk-diskencryptionsetid diskEncryptionId
 ```
 
-## Encrypt an AKS cluster data disk with a customer-managed key
+## Add a node pool to an existing AKS cluster and encrypt the OS disk with a customer-managed key
 
-TODO , encrypt the data disks steps for same cluster above?
+You can also add a new node pool to an existing cluster and encrypt the OS disk with your own key.
+
+```azurecli-interactive
+# Add a nodepool to an existing cluster with BYOK encryption
+nodepool add –-cluster-name myAKSCluster -n myNodePoolName -g myResourceGroup --node-osdisk-diskencryptionsetid diskEncryptionId  
+
+```
+
+## Encrypt your AKS cluster data disk with a customer-managed key
+
+TODO
 
 ## Verify your key is working
 
