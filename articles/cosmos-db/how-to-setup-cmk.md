@@ -10,12 +10,8 @@ ms.author: thweiss
 
 # Configure customer-managed keys for your Azure Cosmos DB account
 
-> [!IMPORTANT]
-> The deployment of Azure Cosmos DB customer-managed keys requires White Glove Implementation Assistance to ensure, within the scope of the customer scenario, that the proper tests have taken place and is fit for the intended use.
->
-> To use Azure Cosmos DB customer-managed keys, please request that your Azure subscription be whitelisted by contacting [cosmosdbpm@microsoft.com](mailto:cosmosdbpm@microsoft.com).
->
-> We will assign to you a Microsoft expert to steward you in the implementation of this service.
+> [!NOTE]
+> At this time, you must request access to use this capability. To do so, please contact your Microsoft support representative.
 
 Data stored in your Azure Cosmos DB account is automatically and seamlessly encrypted. Azure Cosmos DB offers two options for managing the keys used to encrypt your data at rest:
 - **Service-managed keys**. By default, Microsoft manages the keys used to encrypt your Azure Cosmos DB account.
