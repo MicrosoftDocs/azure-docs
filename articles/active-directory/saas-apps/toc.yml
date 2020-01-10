@@ -1370,6 +1370,8 @@
         href: teamwork-tutorial.md
       - name: Templafy
         href: templafy-tutorial.md
+      - name: Terraform Enterprise
+        href: terraform-enterprise-tutorial.md
       - name: TextMagic
         href: textmagic-tutorial.md
       - name: The Funding Portal
