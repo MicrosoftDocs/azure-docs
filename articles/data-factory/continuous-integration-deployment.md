@@ -181,7 +181,7 @@ Deployment can fail if you try to update active triggers. To update active trigg
 
 1.  On the **Tasks** tab of the release, add an **Azure PowerShell** task.
 
-1.  Select **Azure Resource Manager** as the connection type, and select your subscription.
+1.  Select **Azure Resource Manager** as the connection type, and then select your subscription.
 
 1.  Select **Inline Script** as the script type, and then provide your code. The following code stops the triggers:
 
@@ -415,7 +415,7 @@ Here's an explanation of how the preceding template is constructed, broken down 
 
 #### IntegrationRuntimes
 
-* All properties under the path `typeProperties` are parameterized with their respective default values. For example, there are two properties under **IntegrationRuntimes** type properties: `computeProperties` and `ssisProperties`. Both property types are created with their respective default values and types (Object).
+* All properties under the path `typeProperties` are parameterized with their respective default values. For example, there are two properties under `IntegrationRuntimes` type properties: `computeProperties` and `ssisProperties`. Both property types are created with their respective default values and types (Object).
 
 #### Triggers
 
@@ -659,7 +659,7 @@ If you've configured Git, the linked templates are generated and saved alongside
 
 The linked Resource Manager templates usually consist of a master template and a set of child templates that are linked to the master. The parent template is called ArmTemplate_master.json, and child templates are named with the pattern ArmTemplate_0.json, ArmTemplate_1.json, and so on. 
 
-To use linked templates instead of the full Resource Manager template, update your CI/CD task to point to ArmTemplate_master.json instead of ArmTemplateForFactory.json (the full Resource Manager template). Resource Manager also requires that you upload the linked templates into a storage account so Azure can access them during deployment. For more info, see [Deploying linked Resource Manager Templates with VSTS](https://blogs.msdn.microsoft.com/najib/2018/04/22/deploying-linked-arm-templates-with-vsts/).
+To use linked templates instead of the full Resource Manager template, update your CI/CD task to point to ArmTemplate_master.json instead of ArmTemplateForFactory.json (the full Resource Manager template). Resource Manager also requires that you upload the linked templates into a storage account so Azure can access them during deployment. For more info, see [Deploying linked Resource Manager templates with VSTS](https://blogs.msdn.microsoft.com/najib/2018/04/22/deploying-linked-arm-templates-with-vsts/).
 
 Remember to add the Data Factory scripts in your CI/CD pipeline before and after the deployment task.
 
