@@ -10,6 +10,11 @@ ms.author: thweiss
 
 # Configure customer-managed keys for your Azure Cosmos account
 
+> [!IMPORTANT]
+> The deployment of Azure Cosmos DB customer-managed keys requires White Glove Implementation Assistance to ensure, within the scope of the customer scenario, that the proper tests have taken place and is fit for the intended use.
+> To use Azure Cosmos DB customer-managed keys, please request that your Azure subscription be whitelisted by contacting [cosmosdbpm@microsoft.com](mailto:cosmosdbpm@microsoft.com).
+> We will assign to you a Microsoft expert to steward you in the implementation of this service.
+
 Data stored in your Azure Cosmos DB account is automatically and seamlessly encrypted. Azure Cosmos DB offers two options for managing the keys used to encrypt your data at rest:
 - **Service-managed keys**. By default, Microsoft manages the keys used to encrypt your Azure Cosmos DB account.
 - **Customer-managed keys (CMK)**. You can optionally choose to add a second layer of encryption with keys you manage.
@@ -20,11 +25,7 @@ Customer-managed keys must be stored in [Azure Key Vault](../key-vault/key-vault
 
 Currently, customer-managed keys are only available for new accounts and need to be set up during account creation.
 
-### 1. Activate customer-managed keys for your Azure subscription
-
-From the Azure portal, open a support ticket to request the activation of the "AllowCustomerManagedKeys" capability for your Azure subscription.
-
-### 2. Make sure the Azure Cosmos DB resource provider is registered for your Azure subscription
+### 1. Make sure the Azure Cosmos DB resource provider is registered for your Azure subscription
 
 From the Azure portal, go to your Azure subscription and select "Resource providers" from the left menu:
 
@@ -36,7 +37,7 @@ Search for the "Microsoft.DocumentDB" resource provider.
 
     ![Registering the Microsoft.DocumentDB resource provider](./media/how-to-setup-cmk/portal-rp-register.png)
 
-### 3. Configure your Azure Key Vault instance
+### 2. Configure your Azure Key Vault instance
 
 Using customer-managed keys with Azure Cosmos DB requires two properties to be set on the Azure Key Vault instance you plan to use to host your encryption keys: **Soft Delete** and **Do Not Purge**. These properties aren't enabled by default but can be enabled using either PowerShell or the Azure CLI.
 
@@ -44,7 +45,7 @@ To learn how to enable these properties on an existing Azure Key Vault instance,
 - [How to use soft-delete with PowerShell](../key-vault/key-vault-soft-delete-powershell.md)
 - [How to use soft-delete with Azure CLI](../key-vault/key-vault-soft-delete-cli.md)
 
-### 4. Add an access policy to your Azure Key Vault instance
+### 3. Add an access policy to your Azure Key Vault instance
 
 From the Azure portal, go to the Azure Key Vault instance you plan to use to host your encryption keys. Then, select "Access Policies" from the left menu:
 
@@ -61,7 +62,7 @@ From the Azure portal, go to the Azure Key Vault instance you plan to use to hos
 
 - Click "Add" to add the new access policy
 
-### 5. Generate a key in Azure Key Vault
+### 4. Generate a key in Azure Key Vault
 
 From the Azure portal, go the Azure Key Vault instance you plan to use to host your encryption keys. Then, select "Keys" from the left menu:
 
@@ -77,7 +78,7 @@ From the Azure portal, go the Azure Key Vault instance you plan to use to host y
 
     ![Copying the key's key identifier](./media/how-to-setup-cmk/portal-akv-keyid.png)
 
-### 6. Create a new Azure Cosmos DB account
+### 5. Create a new Azure Cosmos DB account
 
 #### Using the Azure portal
 
@@ -176,14 +177,6 @@ New-AzResourceGroupDeployment `
 ### Is there any additional charge when using customer-managed keys?
 
 Yes. To account for the additional compute load that is required to manage data encryption and decryption with customer-managed keys, all operations executed against the Azure Cosmos DB account get a 25% increase in [Request Units](./request-units.md) consumed.
-
-### Which Azure regions are supported?
-
-Azure Cosmos DB customer-managed keys are currently supported in the East US, West US 2, and South Central US regions. More regions will be added over the coming months.
-
-### What happens if I try to add to my CMK-enabled account a region that isn't supported?
-
-This operation will fail.
 
 ### What data gets encrypted with the CMK?
 
