@@ -4,7 +4,7 @@ description: A checklist of security controls for evaluating Azure VPN Gateway
 services: sql-database
 author: msmbaldwin
 manager: rkarlin
-ms.service: load-balancer
+ms.service: vpn-gateway
 
 ms.topic: conceptual
 ms.date: 09/06/2019
