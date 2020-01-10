@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure Kinect DK hardware specification
 description: Azure Kinect DK specifications and capabilities
 author: tesych
@@ -191,20 +191,6 @@ Azure Kinect DK consumes up to 5.9 W; specific power consumption is use-case dep
 ## Calibration
 
 Azure Kinect DK is calibrated at the factory. The calibration parameters for visual and inertial sensors may be queried programmatically through the Sensor SDK.
-
-## External synchronization
-
-The device includes 3.5-mm synchronization jacks that can be used to link multiple units together. When linked, cameras can coordinate the timing of Depth and RGB camera triggering. There are specific sync-in and sync-out jacks on the device, enabling easy daisy chaining. A compatible cable isn't included in box and must be purchased separately.
-
-Cable requirements:
-
-- 3.5-mm tip male-to-male cable ("3.5-mm audio cable")
-- Maximum cable length < 10 m
-- Both stereo and mono cable are supported
-
-When using multiple depth camera's in synchronized captures, depth camera captures should be offset from one another by 160us or more to avoid depth cameras interference.
-
-More details on [external synchronization setup](https://support.microsoft.com/help/4494429)
 
 ## Device recovery
 
