@@ -63,18 +63,20 @@ During the preview, only the following scenarios are supported:
 
 The preview also has the following restrictions:
 
-- **Only available in West Central US, Canada Central, North Europe**.
+- **Only available in West Central US, South Central US, East US 2, East US, West US 2, Central Canada, and North Europe.**
 - Disks created from custom images that are encrypted using server-side encryption and customer-managed keys must be encrypted using the same customer-managed keys and must be in the same subscription.
 - Snapshots created from disks that are encrypted with server-side encryption and customer-managed keys must be encrypted with the same customer-managed keys.
 - Custom images encrypted using server-side encryption and customer-managed keys cannot be used in the shared image gallery.
-- Your Key Vault must be in the same subscription and region as your customer-managed keys.
+- All resources related to your customer-managed keys (Azure Key Vaults, disk encryption sets, VMs, disks, and snapshots) must be in the same subscription and region.
 - Disks, snapshots, and images encrypted with customer-managed keys cannot move to another subscription.
 - If you use the Azure Portal to create your disk encryption set, you cannot use snapshots for now.
 
 ### CLI
 #### Setting up your Azure Key Vault and DiskEncryptionSet
 
-1.	Create an instance of Azure Key Vault and encryption key.
+1. Make sure that you have installed the latest [Azure CLI](/cli/azure/install-az-cli2) and logged to an Azure account in with [az login](/cli/azure/reference-index).
+
+1. Create an instance of Azure Key Vault and encryption key.
 
     When creating the Key Vault instance, you must enable soft delete and purge protection. Soft delete ensures that the Key Vault holds a deleted key for a given retention period (90 day default). Purge protection ensures that a deleted key cannot be permanently deleted until the retention period lapses. These settings protect you from losing data due to accidental deletion. These settings are mandatory when using a Key Vault for encrypting managed disks.
 
@@ -104,7 +106,10 @@ The preview also has the following restrictions:
     az disk-encryption-set create -n $diskEncryptionSetName -l $location -g $rgName --source-vault $keyVaultId --key-url $keyVaultKeyUrl
     ```
 
-1.	Grant the DiskEncryptionSet resource access to the key vault.
+1.	Grant the DiskEncryptionSet resource access to the key vault. 
+
+    > [!NOTE]
+    > It may take few minutes for Azure to create the identity of your DiskEncryptionSet in your Azure Active Directory. If you get an error like "Cannot find the Active Directory object" when running the following command, wait a few minutes and try again.
 
     ```azurecli
     desIdentity=$(az disk-encryption-set show -n $diskEncryptionSetName -g $rgName --query [identity.principalId] -o tsv)
