@@ -58,7 +58,7 @@ We can work around this current limitation in one of the following ways:
 
 Let’s look at these approaches in more detail:
 
-## ADF with Two Copy Activities
+## Azure Data Factory with two copy activities
 
 Although we cannot embed OrderDetails as a JSON-array in the destination Cosmos DB document, we can work around the issue by using two separate Copy Activities.
 
