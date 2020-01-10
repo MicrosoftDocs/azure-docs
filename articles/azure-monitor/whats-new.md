@@ -45,7 +45,7 @@ ms.date: 01/05/2020
 ### Insights and solutions
 - [Azure Monitor for containers Frequently Asked Questions](insights/container-insights-faq.md) - Added question on Image and Name fields.
 - [Azure SQL Analytics solution in Azure Monitor](insights/azure-sql.md) - Updated Database waits Managed Instance support.
-- [Configure Azure Monitor for containers agent data collection](insights/container-insights-agent-config.md) - Added settomg fpr enrich_container_logs.
+- [Configure Azure Monitor for containers agent data collection](insights/container-insights-agent-config.md) - Added setting for enrich_container_logs.
 - [Configure Hybrid Kubernetes clusters with Azure Monitor for containers](insights/container-insights-hybrid-setup.md) - Added troubleshooting section.
 - [Monitor Active Directory replication status with Azure Monitor](insights/ad-replication-status.md) - .NET Framework prerequisite updated.
 - [Network Performance Monitor solution in Azure](insights/network-performance-monitor.md) - Added supported regions.
@@ -59,7 +59,7 @@ ms.date: 01/05/2020
 - [Designing your Azure Monitor Logs deployment](platform/design-logs-deployment.md) - Ingestion rate for a workspace increased.
 
 ### Metrics
-- [Azure Monitor platform metrics exportable via Diagnostic Settings](platform/metrics-supported-export-diagnostic-settings.md) - New article
+- [Azure Monitor platform metrics exportable via Diagnostic Settings](platform/metrics-supported-export-diagnostic-settings.md) - New article.
 
 ### Platform logs
 Multiple articles updated as part of restructure of content for platform logs based on new feature for configuring activity log using diagnostic settings.
@@ -80,8 +80,10 @@ Multiple articles updated as part of restructure of content for platform logs ba
 
 ### Quickstarts and tutorials
 
-- [Create a metrics chart in Azure Monitor](learn/tutorial-metrics-explorer.md) - New article
-- [Collect resource logs from an Azure Resource and analyze with Azure Monitor](learn/tutorial-resource-logs.md) - New article
-- [Monitor an Azure resource with Azure Monitor](learn/quick-monitor-azure-resource.md) - New article
+- [Create a metrics chart in Azure Monitor](learn/tutorial-metrics-explorer.md) - New article.
+- [Collect resource logs from an Azure Resource and analyze with Azure Monitor](learn/tutorial-resource-logs.md) - New article.
+- [Monitor an Azure resource with Azure Monitor](learn/quick-monitor-azure-resource.md) - New article.
    
 ## Next steps
+
+- If you'd like to contribute to Azure Monitor documentation, see the [Docs Contributor Guide](https://docs.microsoft.com/contribute/).
