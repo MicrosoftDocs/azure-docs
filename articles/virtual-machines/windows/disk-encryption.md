@@ -70,7 +70,7 @@ For now, we also have the following restrictions:
 - Custom images encrypted using server-side encryption and customer-managed keys cannot be used in the shared image gallery.
 - All resources related to your customer-managed keys (Azure Key Vaults, disk encryption sets, VMs, disks, and snapshots) must be in the same subscription and region.
 - Disks, snapshots, and images encrypted with customer-managed keys cannot move to another subscription.
-- If you use the Azure Portal to create your disk encryption set, you cannot use snapshots for now.
+- If you use the Azure portal to create your disk encryption set, you cannot use snapshots for now.
 - Only ["soft" and "hard" RSA keys](../../key-vault/about-keys-secrets-and-certificates.md#keys-and-key-types) of size 2080 are supported, no other keys or sizes.
 
 ### PowerShell
