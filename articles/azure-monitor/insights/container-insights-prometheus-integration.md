@@ -180,7 +180,9 @@ A pre-configured copy of ConfigMap, named `container-azm-ms-agentconfig.yaml`, i
     >       openshift.io/reconcile-protect: "true"
     >```
 
-   This command opens the file in your text editor allowing you to make whatever configuration changes required. When you are finished editing the file, save the file to commit your changes.
+    This command opens the file in your text editor allowing you to make whatever configuration changes required. When you are finished editing the file, save the file to commit your changes.
+
+    You can view the updated ConfigMap by running the command, `oc describe configmaps container-azm-ms-agentconfig -n openshift-azure-logging`. 
 
 The configuration change can take a few minutes to finish before taking effect, and all omsagent pods in the cluster will restart. The restart is a rolling restart for all omsagent pods, not all restart at the same time. When the restarts are finished, a message is displayed that's similar to the following and includes the result: `configmap "container-azm-ms-agentconfig" created`.
 
@@ -190,7 +192,7 @@ If you have already deployed a ConfigMap to your cluster and you want to update 
 
 For Kubernetes clusters other than Azure Red Hat OpenShift, run the command `kubectl apply -f <configmap_yaml_file.yaml`. 
 
-For Azure Red Hat OpenShift cluster, run the command, `oc edit configmaps container-azm-ms-agentconfig -n openshift-azure-logging` to open the file in your default editor to modify and then save.
+For Azure Red Hat OpenShift cluster, run the command, `oc edit configmaps container-azm-ms-agentconfig -n openshift-azure-logging` to open the file in your default editor to modify and then save it.
 
 The configuration change can take a few minutes to finish before taking effect, and all omsagent pods in the cluster will restart. The restart is a rolling restart for all omsagent pods, not all restart at the same time. When the restarts are finished, a message is displayed that's similar to the following and includes the result: `configmap "container-azm-ms-agentconfig" updated`.
 
