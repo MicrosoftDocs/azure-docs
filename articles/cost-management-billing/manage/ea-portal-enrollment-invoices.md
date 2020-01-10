@@ -4,7 +4,7 @@ description: This article explains how to manage and act on your Azure Enterpris
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 12/11/2019
+ms.date: 01/02/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 manager: boalcsva

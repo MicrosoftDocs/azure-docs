@@ -115,11 +115,11 @@
       href: ../common/storage-account-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Security
       items:
-      - name: Security overview
-        href: ../common/storage-security-guide.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: Security recommendations
+        href: security-recommendations.md
       - name: Azure Storage encryption
         href: ../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Authorization
+      - name: Authorizing data operations
         href: ../common/storage-auth.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         items:
         - name: Authorize with Azure AD
@@ -130,6 +130,8 @@
           href: ../common/storage-sas-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Anonymous access to blobs
           href: storage-manage-access-to-resources.md
+      - name: Authorizing management operations
+        href: ../common/authorization-resource-provider.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Immutable blobs
         href: storage-blob-immutable-storage.md
       - name: Advanced threat protection
@@ -165,8 +167,6 @@
         href: storage-lifecycle-management-concepts.md
     - name: Performance, scaling, and cost optimization
       items:
-      - name: Scalability and performance targets
-        href: ../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Performance and scalability checklist
         href: storage-performance-checklist.md
       - name: Latency in Blob storage
@@ -274,8 +274,6 @@
         href: storage-blob-containers-list.md
       - name: Manage properties and metadata (.NET)
         href: storage-blob-container-properties-metadata.md
-      - name: Set and manage immutability policies
-        href: storage-blob-immutability-policies-manage.md
     - name: Create and manage blobs
       items:
       - name: List blobs (.NET)
@@ -294,8 +292,10 @@
           items:
           - name: Portal
             href: ../common/storage-access-blobs-queues-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-          - name: PowerShell or Azure CLI
-            href: ../common/storage-auth-aad-script.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+          - name: PowerShell
+            href: ../common/authorize-active-directory-powershell.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+          - name: Azure CLI
+            href: ../common/authorize-active-directory-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Manage access rights with RBAC
           items:
           - name: Portal
@@ -368,6 +368,8 @@
           href: ../common/storage-network-security.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Enable Transport Layer Security
           href: ../common/storage-security-tls.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: Set and manage immutability policies
+        href: storage-blob-immutability-policies-manage.md
     - name: Disaster recovery
       items:
       - name: Initiate account failover
@@ -442,6 +444,18 @@
         href: ../common/troubleshoot-latency-storage-analytics-logs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
   - name: Reference
     items:
+    - name: Scalability and performance targets
+      items:
+      - name: Blob storage
+        href: scalability-targets.md
+      - name: Standard storage accounts
+        href: ../common/scalability-targets-standard-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: Premium block blob storage accounts
+        href: scalability-targets-premium-block-blobs.md
+      - name: Premium page blob storage accounts
+        href: scalability-targets-premium-page-blobs.md
+      - name: Storage resource provider
+        href: ../common/scalability-targets-resource-provider.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Azure PowerShell
       href: /powershell/module/az.storage
     - name: Azure CLI
@@ -741,18 +755,6 @@
         href: ../blobs/data-lake-storage-performance-tuning-mapreduce.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Optimize Storm on HDInsight
         href: ../blobs/data-lake-storage-performance-tuning-storm.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Manage files (blobs)
-      items:
-        - name: Overview
-          href: ../blobs/data-lake-storage-performance-tuning-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Optimize Spark on HDInsight
-          href: ../blobs/data-lake-storage-performance-tuning-spark.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Optimize Hive on HDInsight
-          href: ../blobs/data-lake-storage-performance-tuning-hive.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Optimize MapReduce on HDInsight
-          href: ../blobs/data-lake-storage-performance-tuning-mapreduce.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Optimize Storm on HDInsight
-          href: ../blobs/data-lake-storage-performance-tuning-storm.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Migrate data
       items:
       - name: Upgrade from Data Lake Storage Gen1

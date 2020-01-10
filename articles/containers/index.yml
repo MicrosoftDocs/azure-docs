@@ -2,7 +2,6 @@
 documentType: LandingData
 title: Azure for Containers
 metadata:
-  document_id:
   title: Azure for Containers - Quickstarts, Tutorials, API Reference
   description: Get started managing and deploying container apps with Azure using quickstarts, tutorials, and tools for containers.
   keywords: Azure, Containers, Docker, API, Kubernetes

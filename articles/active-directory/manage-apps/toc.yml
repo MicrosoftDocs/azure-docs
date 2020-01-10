@@ -21,6 +21,10 @@
       href: /azure/active-directory/saas-apps/
     - name: Add an on-premises app with Application Proxy
       href: application-proxy-add-on-premises-application.md
+  - name: Samples
+    items: 
+    - name: Azure PowerShell samples for Application Proxy
+      href: application-proxy-powershell-samples.md
   - name: Concepts
     expanded: true
     items: 

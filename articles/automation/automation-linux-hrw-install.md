@@ -2,13 +2,9 @@
 title: Azure Automation Linux Hybrid Runbook Worker
 description: This article provides information on installing an Azure Automation Hybrid Runbook Worker so you can run runbooks on Linux-based computers in your local datacenter or cloud environment.
 services: automation
-ms.service: automation
 ms.subservice: process-automation
-author: mgoedtel
-ms.author: magoedte
 ms.date: 06/28/2018
 ms.topic: conceptual
-manager: carmonm
 ---
 # Deploy a Linux Hybrid Runbook Worker
 

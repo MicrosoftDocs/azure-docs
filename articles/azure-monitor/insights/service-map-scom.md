@@ -4,8 +4,8 @@ description: Azure Monitor for VMs automatically discovers application component
 ms.service:  azure-monitor
 ms.subservice: 
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 07/12/2019
 
 ---

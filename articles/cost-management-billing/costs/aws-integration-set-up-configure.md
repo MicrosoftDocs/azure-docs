@@ -1,5 +1,5 @@
 ---
-title: Set up and configure AWS Cost and Usage report integration with Azure Cost Management
+title: Set up AWS integration with Azure Cost Management
 description: This article walks you through setting up and configuring AWS Cost and Usage report integration with Azure Cost Management.
 services: cost-management
 keywords:

@@ -36,7 +36,7 @@ Before enabling the new experience, review the article [Combined security inform
 Complete these steps to enable combined registration:
 
 1. Sign in to the Azure portal as a user administrator or global administrator.
-2. Go to **Azure Active Directory** > **User settings** > **Manage settings for access panel preview features**.
+2. Go to **Azure Active Directory** > **User settings** > **Manage user feature preview settings**.
 3. Under **Users can use preview features for registering and managing security info**, choose to enable for a **Selected** group of users or for **All** users.
 
    ![Enable the combined security info preview experience for All users](media/howto-registration-mfa-sspr-combined/enable-the-combined-security-info-preview.png)
@@ -63,7 +63,7 @@ The following policy applies to all selected users, who attempt to register usin
 
 ![Create a CA policy to control security info registration](media/howto-registration-mfa-sspr-combined/require-registration-from-trusted-location.png)
 
-1. In the **Azure portal**, browse to **Azure Active Directory** > **Conditional Access**
+1. In the **Azure portal**, browse to **Azure Active Directory** > **Security** > **Conditional Access**
 1. Select **New policy**
 1. In Name, Enter a Name for this policy. For example, **Combined Security Info Registration on Trusted Networks**
 1. Under **Assignments**, click **Users and groups**, and select the users and groups you want this policy to apply to

@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Reduce Azure costs with optimization recommendations | Microsoft Docs
+title: Tutorial - Reduce Azure costs with recommendations
 description: This tutorial helps you reduce Azure costs when you act on optimization recommendations.
 services: cost-management
 keywords:
@@ -103,4 +103,4 @@ In this tutorial, you learned how to:
 If you haven't already read the Cost Management best practices article, it provides high-level guidance and principles to consider to help manage costs.
 
 > [!div class="nextstepaction"]
-> [Cost Management best practices](../../cost-management/cost-mgt-best-practices.md)
+> [Cost Management best practices](cost-mgt-best-practices.md)

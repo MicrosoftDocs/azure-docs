@@ -77,11 +77,9 @@ The next step in building your application is to install the Azure Maps Android 
         ```
         implementation "com.microsoft.azure.maps:mapcontrol:0.2"
         ```
-
-    > [!Note]
-    > The Azure Maps Android SDK is regularly being upgraded and enhanced. You can see the [Getting started with Android map control](https://docs.microsoft.com/azure/azure-maps/how-to-use-android-map-control-library) documentation, to get the latest Azure Maps implementation version number. Also, you can set the version number from “0.2” to “0+” to have it always point to the latest version.
-
-3. Edit **res** > **layout** > **activity_main.xml** and replace it with the code:
+    
+    4. Go to **File** in the toolbar and then click on **Sync Project with Gradle Files**.
+3. Add a map fragment to the main activity (res \> layout \> activity\_main.xml):
     
     ```XML
     <?xml version="1.0" encoding="utf-8"?>
@@ -198,7 +196,6 @@ The next step in building your application is to install the Azure Maps Android 
             mapControl.onSaveInstanceState(outState);
         }
     }
-
     ```
 
 ## Import classes

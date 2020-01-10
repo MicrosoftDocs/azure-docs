@@ -26,23 +26,23 @@ The following sections describe each of the options for key management in greate
 
 ## Platform-managed keys
 
-By default, managed disks use platform-managed encryption keys. As of June 10th, 2017, all new managed disks, snapshots, images, and new data written to existing managed disks are automatically encrypted-at-rest with platform-managed keys. 
+By default, managed disks use platform-managed encryption keys. As of June 10, 2017, all new managed disks, snapshots, images, and new data written to existing managed disks are automatically encrypted-at-rest with platform-managed keys. 
 
 ## Customer-managed keys (public preview)
 
 You can choose to manage encryption at the level of each managed disk, with your own keys. Server-side encryption for managed disks with customer-managed keys offers an integrated experience with Azure Key Vault. You can either import [your RSA keys](../../key-vault/key-vault-hsm-protected-keys.md) to your Key Vault or generate new RSA keys in Azure Key Vault. Azure managed disks handles the encryption and decryption in a fully transparent fashion using [envelope encryption](../../storage/common/storage-client-side-encryption.md#encryption-and-decryption-via-the-envelope-technique). It encrypts data using an [AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) 256 based data encryption key (DEK), which is, in turn, protected using your keys. You have to grant access to managed disks in your Key Vault to use your keys for encrypting and decrypting the DEK. This allows you full control of your data and keys. You can disable your keys or revoke access to managed disks at any time. You can also audit the encryption key usage with Azure Key Vault monitoring to ensure that only managed disks or other trusted Azure services are accessing your keys.
 
-The following diagram shows how managed disks uses Azure Active Directory and Azure Key Vault to make requests using the customer-managed key:
+The following diagram shows how managed disks use Azure Active Directory and Azure Key Vault to make requests using the customer-managed key:
 
 ![Managed disks customer-managed keys workflow](media/disk-storage-encryption/customer-managed-keys-sse-managed-disks-workflow.png)
 
 
-The following list explains the numbered steps in the diagram:
+The following list explains the diagram in even more detail:
 
 1. An Azure Key Vault administrator creates key vault resources.
 1. The key vault admin either imports their RSA keys to Key Vault or generate new RSA keys in Key Vault.
 1. That administrator creates an instance of Disk Encryption Set resource, specifying an Azure Key Vault ID and a key URL. Disk Encryption Set is a new resource introduced for simplifying the key management for managed disks. 
-1. When a disk encryption set is created, a [system-assigned managed identity](../../active-directory/managed-identities-azure-resources/overview.md) is created in Azure active directory (AD) and associated with the disk encryption set. 
+1. When a disk encryption set is created, a [system-assigned managed identity](../../active-directory/managed-identities-azure-resources/overview.md) is created in Azure Active Directory (AD) and associated with the disk encryption set. 
 1. The Azure key vault administrator then grants the managed identity permission to perform operations in the key vault.
 1. A VM user creates disks by associating them with the disk encryption set. The VM user can also enable server-side encryption with customer-managed keys for existing resources by associating them with the disk encryption set. 
 1. Managed disks use the managed identity to send requests to the Azure Key Vault.
@@ -63,7 +63,7 @@ During the preview, only the following scenarios are supported:
 
 The preview also has the following restrictions:
 
-- Only available in West Central US.
+- **Only available in West Central US, Canada Central, North Europe**.
 - Disks created from custom images that are encrypted using server-side encryption and customer-managed keys must be encrypted using the same customer-managed keys and must be in the same subscription.
 - Snapshots created from disks that are encrypted with server-side encryption and customer-managed keys must be encrypted with the same customer-managed keys.
 - Custom images encrypted using server-side encryption and customer-managed keys cannot be used in the shared image gallery.
@@ -77,15 +77,15 @@ The preview also has the following restrictions:
     When creating the Key Vault instance, you must enable soft delete and purge protection. Soft delete ensures that the Key Vault holds a deleted key for a given retention period (90 day default). Purge protection ensures that a deleted key cannot be permanently deleted until the retention period lapses. These settings protect you from losing data due to accidental deletion. These settings are mandatory when using a Key Vault for encrypting managed disks.
 
     ```azurecli
-    subscriptionId = <yourSubscriptionIDHere>
-    rgName = <yourResourceGroupNameHere>
-    location = <yourDesiredLocationHere>
-    keyVaultName = <yourKeyVaultNameHere>
-    keyName = <yourKeyNameHere>
-    diskEncryptionSetName = <yourDiskEncryptionSetNameHere>
-    diskName = <yourDiskNameHere>
+    subscriptionId=yourSubscriptionID
+    rgName=yourResourceGroupName
+    location=WestCentralUS
+    keyVaultName=yourKeyVaultName
+    keyName=yourKeyName
+    diskEncryptionSetName=yourDiskEncryptionSetName
+    diskName=yourDiskName
 
-    az account set -subscription $subscriptionId
+    az account set --subscription $subscriptionId
 
     az keyvault create -n $keyVaultName -g $rgName -l $location --enable-purge-protection true --enable-soft-delete true
 
@@ -95,61 +95,60 @@ The preview also has the following restrictions:
 1.	Create an instance of a DiskEncryptionSet. 
     
     ```azurecli
-    keyVaultId = $(az keyvault show --name $keyVaultName --query [id] -o tsv)
+    keyVaultId=$(az keyvault show --name $keyVaultName --query [id] -o tsv)
 
-    keyVaultKeyUrl = $(az keyvault key show --vault-name $keyVaultName --name $keyName --query [key.kid] -o tsv)
+    keyVaultKeyUrl=$(az keyvault key show --vault-name $keyVaultName --name $keyName --query [key.kid] -o tsv)
 
-    az group deployment create -g $rgName --template-uri "https://raw.githubusercontent.com/ramankumarlive/manageddiskscmkpreview/master/CreateDiskEncryptionSet.json" --parameters "diskEncryptionSetName = $diskEncryptionSetName" "keyVaultId = $keyVaultId" "keyVaultKeyUrl=$keyVaultKeyUrl" "region=$location"
+    az disk-encryption-set create -n $diskEncryptionSetName -l $location -g $rgName --source-vault $keyVaultId --key-url $keyVaultKeyUrl
     ```
 
 1.	Grant the DiskEncryptionSet resource access to the key vault.
 
     ```azurecli
-    desIdentity=$(az ad sp list --display-name $diskEncryptionSetName --query[].[objectId] -o tsv)
+    desIdentity=$(az disk-encryption-set show -n $diskEncryptionSetName -g $rgName --query [identity.principalId] -o tsv)
 
     az keyvault set-policy -n $keyVaultName -g $rgName --object-id $desIdentity --key-permissions wrapkey unwrapkey get
 
     az role assignment create --assignee $desIdentity --role Reader --scope $keyVaultId
     ```
 
-### Create a VM using a marketplace image, encrypting the OS and data disks with customer-managed keys
+### Create a VM using a Marketplace image, encrypting the OS and data disks with customer-managed keys
 
 ```azurecli
-rgName="<yourResourceGroupName>"
-vmName="<yourVMName>"
-region="westcentralus"
-password="<yourVMLocalAdminPassword>"
-vmSize="Standard_DS3_V2"
-diskEncryptionSetName="<yourDiskEncryptionSetName>"
-templateURI="https://raw.githubusercontent.com/ramankumarlive/manageddiskscmkpreview/master/CreateVMWithDisksEncryptedWithCMK.json"
+rgName=yourResourceGroupName
+vmName=yourVMName
+location=WestCentralUS
+vmSize=Standard_DS3_V2
+image=UbuntuLTS 
+diskEncryptionSetName=yourDiskencryptionSetName
 
-diskEncryptionSetId=$(az resource show -n $diskEncryptionSetName -g ssecmktesting --resource-type "Microsoft.Compute/diskEncryptionSets" --query [id] -o tsv)
+diskEncryptionSetId=$(az disk-encryption-set show -n $diskEncryptionSetName -g $rgName --query [id] -o tsv)
 
-az group deployment create -g $rgName --template-uri $templateURI --parameters "virtualMachineName=$vmName" "adminPassword=$password" "vmSize=$vmSize" "diskEncryptionSetId=$diskEncryptionSetId" "region=$region"
+az vm create -g $rgName -n $vmName -l $location --image $image --size $vmSize --generate-ssh-keys --os-disk-encryption-set $diskEncryptionSetId --data-disk-sizes-gb 128 128 --data-disk-encryption-sets $diskEncryptionSetId $diskEncryptionSetId
+
 
 ```
 
 ### Create an empty disk encrypted using server-side encryption with customer-managed keys and attach it to a VM
 
 ```azurecli
-vmName="<yourVMName>"
-rgName="<yourResourceGroupName>"
-diskName="<yourDiskName>"
-diskSkuName="Premium_LRS"
-diskSizeinGiB="30"
-region="westcentralus"
+vmName=yourVMName
+rgName=yourResourceGroupName
+diskName=yourDiskName
+diskSkuName=Premium_LRS
+diskSizeinGiB=30
+location=WestCentralUS
 diskLUN=2
-diskEncryptionSetName="<yourDiskEncryptionSetName>"
-templateURI="https://raw.githubusercontent.com/ramankumarlive/manageddiskscmkpreview/master/CreateEmptyDataDiskEncryptedWithSSECMK.json"
-
-diskEncryptionSetId=$(az resource show -n $diskEncryptionSetName -g ssecmktesting --resource-type "Microsoft.Compute/diskEncryptionSets" --query [id] -o tsv)
+diskEncryptionSetName=yourDiskEncryptionSetName
 
 
-az group deployment create -g $rgName --template-uri $templateURI --parameters  "diskName=$diskName" "diskSkuName=$diskSkuName" "dataDiskSizeInGb=$diskSizeinGiB" "diskEncryptionSetId=$diskEncryptionSetId" "region=$region"
+diskEncryptionSetId=$(az disk-encryption-set show -n $diskEncryptionSetName -g $rgName --query [id] -o tsv)
+
+az disk create -n $diskName -g $rgName -l $location --encryption-type EncryptionAtRestWithCustomerKey --disk-encryption-set $diskEncryptionSetId --size-gb $diskSizeinGiB --sku $diskSkuName
 
 diskId=$(az disk show -n $diskName -g $rgName --query [id] -o tsv)
 
-az vm disk attach --vm-name $vmName --lun $diskLUN --ids $diskId
+az vm disk attach --vm-name $vmName --lun $diskLUN --ids $diskId 
 
 ```
 

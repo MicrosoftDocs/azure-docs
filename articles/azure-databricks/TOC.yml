@@ -123,6 +123,9 @@
     - name: Configure clusters
       href: /azure/databricks/clusters/configure
       maintainContext: true
+    - name: Custom containers
+      href: /azure/databricks/clusters/custom-containers
+      maintainContext: true
     - name: Initialize cluster nodes
       href: /azure/databricks/clusters/init-scripts
       maintainContext: true
@@ -772,6 +775,14 @@
       - name: Save data to TFRecord files with TensorFlow
         href: /azure/databricks/applications/deep-learning/data-prep/tensorflow-to-tfrecords
         maintainContext: true
+      - name: Featurization
+        items:
+        - name: Featurization overview
+          href: /azure/databricks/applications/deep-learning/featurization/index
+          maintainContext: true
+        - name: Transfer learning
+          href: /azure/databricks/applications/deep-learning/featurization/transfer-learning-keras
+          maintainContext: true
     - name: Single node training
       items:
       - name: Single node training overview
@@ -1065,6 +1076,9 @@
       items:
       - name: Cluster configuration overview
         href: /azure/databricks/administration-guide/clusters/index
+        maintainContext: true
+      - name: Enable Container Services
+        href: /azure/databricks/administration-guide/clusters/container-services
         maintainContext: true
       - name: Enable Databricks Runtime for Genomics
         href: /azure/databricks/administration-guide/clusters/genomics-runtime
@@ -1463,6 +1477,9 @@
     - name: Databricks Connect
       href: /azure/databricks/dev-tools/databricks-connect
       maintainContext: true
+    - name: CI/CD with Jenkins
+      href: /azure/databricks/dev-tools/ci-cd
+      maintainContext: true
     - name: Manage dependencies in data pipelines
       href: /azure/databricks/dev-tools/data-pipelines
       maintainContext: true
@@ -1521,11 +1538,37 @@
     href: /azure/databricks/dev-tools/databricks-utils
     maintainContext: true
   - name: Databricks CLI
-    href: /azure/databricks/dev-tools/databricks-cli
-    maintainContext: true
-  - name: Stack CLI
-    href: /azure/databricks/dev-tools/stack
-    maintainContext: true
+    items:
+    - name: Databricks CLI overview
+      href: /azure/databricks/dev-tools/cli/index
+      maintainContext: true
+    - name: Clusters
+      href: /azure/databricks/dev-tools/cli/clusters-cli
+      maintainContext: true
+    - name: DBFS
+      href: /azure/databricks/dev-tools/cli/dbfs-cli
+      maintainContext: true
+    - name: Groups
+      href: /azure/databricks/dev-tools/cli/groups-cli
+      maintainContext: true
+    - name: Instance pools
+      href: /azure/databricks/dev-tools/cli/instance-pools-cli
+      maintainContext: true
+    - name: Jobs
+      href: /azure/databricks/dev-tools/cli/jobs-cli
+      maintainContext: true
+    - name: Libraries
+      href: /azure/databricks/dev-tools/cli/libraries-cli
+      maintainContext: true
+    - name: Secrets
+      href: /azure/databricks/dev-tools/cli/secrets-cli
+      maintainContext: true
+    - name: Stack
+      href: /azure/databricks/dev-tools/cli/stack-cli
+      maintainContext: true
+    - name: Workspace
+      href: /azure/databricks/dev-tools/cli/workspace-cli
+      maintainContext: true
   - name: Azure Databricks REST API
     href: /rest/api/databricks
   - name: Resource Manager template
@@ -1538,6 +1581,9 @@
       items:
       - name: Platform release notes 
         href: /azure/databricks/release-notes/product/index
+        maintainContext: true
+      - name: January 2020
+        href: /azure/databricks/release-notes/product/2020/january
         maintainContext: true
       - name: December 2019
         href: /azure/databricks/release-notes/product/2019/december

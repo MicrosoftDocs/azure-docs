@@ -1,22 +1,12 @@
 ---
 title: 'Quickstart: Create a Spring Boot app on Azure Service Fabric'
 description: In this quickstart, you deploy a Spring Boot application for Azure Service Fabric using a Spring Boot sample application.
-services: service-fabric
-documentationcenter: java
 author: suhuruli
-manager: msfussell
-editor: ''
 
-ms.assetid: 
-ms.service: service-fabric
-ms.devlang: java
 ms.topic: quickstart
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 01/29/2019
 ms.author: suhuruli
 ms.custom: mvc, devcenter, seo-java-august2019, seo-java-september2019
-
 ---
 # Quickstart: Deploy a Java Spring Boot app on Azure Service Fabric
 

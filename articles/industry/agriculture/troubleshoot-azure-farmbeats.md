@@ -281,7 +281,7 @@ Try either of the following:
 
 **Error**: There's an error reading input from the *input.json* file.
 
-**Corrective action**: This issue usually arises because of an error in specifying the correct *input.json* file path or name to the installer. Make appropriate corrections, and retry the redeployment.
+**Corrective action**: This issue usually arises because of an error in specifying the correct *input.json* file path or name to the installer. Make appropriate corrections, and retry the deployment.
 
 **Error**: There's an error parsing values in the *input.json* file.
 

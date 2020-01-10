@@ -2,13 +2,9 @@
 title: Azure Automation Windows Hybrid Runbook Worker
 description: This article provides information on installing an Azure Automation Hybrid Runbook Worker that you can use to run runbooks on Windows-based computers in your local datacenter or cloud environment.
 services: automation
-ms.service: automation
 ms.subservice: process-automation
-author: mgoedtel
-ms.author: magoedte
 ms.date: 12/10/2019
 ms.topic: conceptual
-manager: carmonm
 ---
 # Deploy a Windows Hybrid Runbook Worker
 

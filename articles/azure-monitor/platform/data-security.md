@@ -4,8 +4,8 @@ description: Learn about how Log Analytics protects your privacy and secures you
 ms.service:  azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: MGoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 03/04/2019
 
 ---

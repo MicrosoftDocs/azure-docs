@@ -57,9 +57,7 @@ To protect an API with Azure AD, the first step is to register an application in
 
 1. On the app **Overview** page, find the **Application (client) ID** value and record it for later.
 
-When the application is created, make a note of the **Application ID**, for use in a subsequent step. 
-
-1. Select **Expose an API** and click on **Save and continue** to create an Application ID URI.
+1. Select **Expose an API** and set the **Application ID URI** with the default value. Record this value for later.
 
 1. In the **Add a scope** page, create a new scope supported by the API. (e.g., Read) then click on *Add scope* to create the scope. Repeat this step to add all scopes supported by your API.
 
@@ -200,7 +198,7 @@ You can use the [Validate JWT](api-management-access-restriction-policies.md#Val
     <openid-config url="https://login.microsoftonline.com/{aad-tenant}/.well-known/openid-configuration" />
     <required-claims>
         <claim name="aud">
-            <value>{Application ID of backend-app}</value>
+            <value>{Application ID URI of backend-app}</value>
         </claim>
     </required-claims>
 </validate-jwt>

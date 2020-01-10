@@ -1,7 +1,7 @@
 ---
 title: Publish a managed services offer to Azure Marketplace
 description: Learn how to publish a managed service offer that onboards customers to Azure delegated resource management.
-ms.date: 11/15/2019
+ms.date: 12/16/2019
 ms.topic: conceptual
 ---
 
@@ -56,6 +56,9 @@ Complete the following sections in the **Plan Details** section:
 |**Description**     | Description text that provides a more detailed explanation of the plan.         |
 |**Billing model**     | There are 2 billing models shown here, but you must choose **Bring your own license** for managed services offers. This means that you will bill your customers directly for costs related to this offer, and Microsoft does not charge any fees to you.   |
 |**Is this a private Plan?**     | Indicates whether the SKU is private or public. The default is **No** (public). If you leave this selection, your plan will not be restricted to specific customers (or to a certain number of customers); after you publish a public plan, you can't later change it to private. To make this plan available only to specific customers, select **Yes**. When you do so, you'll need to identify the customers by providing their subscription IDs. These can be entered one by one (for up to 10 subscriptions) or by uploading a .csv file (for up to 20,000 subscriptions). Be sure to include your own subscriptions here so you can test and validate the offer. For more information, see [Private SKUs and Plans](../../marketplace/cloud-partner-portal-orig/cloud-partner-portal-azure-private-skus.md).  |
+
+> [!IMPORTANT]
+> Once a plan has been published as public, you can't change it to private. To control which customers can accept your offer and delegate resources, use a private plan. With a public plan, you can't restrict availability to certain customers or even to a certain number of customers (although you can stop selling the plan completely if you choose to do so). There is currently no mechanism to reject or remove delegations once a customer accepts an offer, although you can always reach out to a customer and ask them to [remove your access](view-manage-service-providers.md#add-or-remove-service-provider-offers).
 
 ### Manifest details
 

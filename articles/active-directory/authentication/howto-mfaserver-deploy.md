@@ -28,9 +28,6 @@ This page covers a new installation of the server and setting it up with on-prem
 
 ## Plan your deployment
 
-> [!WARNING]
-> Starting in March of 2019 MFA Server downloads will only be available to paid tenants. Free/trial tenants will no longer be able to download or generate and use activation credentials.
-
 Before you download the Azure Multi-Factor Authentication Server, think about what your load and high availability requirements are. Use this information to decide how and where to deploy.
 
 A good guideline for the amount of memory you need is the number of users you expect to authenticate on a regular basis.
@@ -92,9 +89,6 @@ If you aren't using the Event Confirmation feature, and your users aren't using 
 | 70.37.154.200/29 |255.255.255.248 |70.37.154.201 – 70.37.154.206 |
 
 ## Download the MFA Server
-
-> [!WARNING]
-> Starting in March of 2019 MFA Server downloads will only be available to paid tenants. Free/trial tenants will no longer be able to download or generate and use activation credentials.
 
 Follow these steps to download the Azure Multi-Factor Authentication Server from the Azure portal:
 

@@ -3,15 +3,11 @@ title: View and Download Azure usage and charges
 description: Describes how to download or view your Azure daily usage and charges.
 keywords: billing usage, usage charges, usage download, view usage, azure invoice, azure usage
 author: bandersmsft
-manager: jureid
+ms.author: banders
 tags: billing
 ms.service: cost-management-billing
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.author: banders
+ms.date: 01/03/2020
 ---
 
 # View and download your Azure usage and charges
@@ -30,8 +26,8 @@ If you have a Microsoft Customer Agreement (MCA), you must be a billing profile 
 1. Depending on your access, you might need to select a Billing account or Billing profile.
 1. In the left menu, select **Invoices** under **Billing**.
 1. In the invoice grid, find the row of the billing period corresponding to the usage you want to download.
-1. Click the download icon or the ellipsis (`...`) on the right.
-1. Select **Download Azure usage and charges** from the download menu.
+1. Select the **download icon** or the ellipsis (`...`) on the right.
+1. The Download pane opens on the right. Select **Download** from the **Usage Details** section.
 
 ## Download usage for EA customers
 

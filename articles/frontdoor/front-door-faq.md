@@ -127,7 +127,7 @@ Azure Front Door (AFD) requires a public IP or publicly resolvable DNS name to r
 
 ### What are the various timeouts and limits for Azure Front Door Service?
 
-Learn about all the documented [timeouts and limits for Azure Front Door Service](https://docs.microsoft.com/azure/azure-subscription-service-limits#azure-front-door-service-limits).
+Learn about all the documented [timeouts and limits for Azure Front Door Service](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-front-door-service-limits).
 
 ## Performance
 

@@ -41,7 +41,7 @@ First you need to set up a storage account to which the monitoring data will be 
 
 ## Route subscription logs to the storage account
 
-You are now ready to begin to set up your Azure environment to route monitoring data to a storage account. First we configure subscription-level data (contained in the Azure Activity Log) to be routed to the storage account. The [**Azure Activity Log**](../../azure-monitor/platform/activity-logs-overview.md) provides a history of subscription-level events in Azure. You can browse it in the Azure portal to determine *who* created, updated, or deleted *what* resources and *when* they did it.
+You are now ready to begin to set up your Azure environment to route monitoring data to a storage account. First we configure subscription-level data (contained in the Azure Activity Log) to be routed to the storage account. The [**Azure Activity Log**](../../azure-monitor/platform/platform-logs-overview.md) provides a history of subscription-level events in Azure. You can browse it in the Azure portal to determine *who* created, updated, or deleted *what* resources and *when* they did it.
 
 1. Click the **Monitor** button found on the left-hand navigation list, then on **Activity Log**.
 

@@ -4,8 +4,8 @@ description: Azure Monitor can read the logs for Azure services that write diagn
 ms.service:  azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: MGoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 04/12/2017
 
 ---

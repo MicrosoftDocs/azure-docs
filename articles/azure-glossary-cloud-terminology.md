@@ -71,7 +71,7 @@ See [Navigate and select Windows virtual machine images in Azure with PowerShell
 
 ## limits
 The number of resources that can be created or the performance benchmark that can be achieved. Limits are typically associated with subscriptions, services, and offerings.  
-See [Azure subscription and service limits, quotas, and constraints](azure-subscription-service-limits.md)
+See [Azure subscription and service limits, quotas, and constraints](azure-resource-manager/management/azure-subscription-service-limits.md)
 
 ## load balancer
 A resource that distributes incoming traffic among computers in a network. In Azure, a load balancer distributes traffic to virtual machines defined in a load-balancer set. A [load balancer](load-balancer/load-balancer-overview.md) can be internet-facing, or it can be internal.  

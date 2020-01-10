@@ -1,6 +1,6 @@
 ---
-title: Error and exception handling
-description: Learn about patterns for error and exception handling in Azure Logic Apps
+title: Handling errors and exceptions
+description: Learn how to handle errors and exceptions that happen in automated tasks and workflows created by using Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 author: dereklee

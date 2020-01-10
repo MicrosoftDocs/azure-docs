@@ -188,6 +188,6 @@ To explore the Azure Maps APIs that are used in this tutorial, see:
 * [Daily Forecast](https://aka.ms/AzureMapsWeatherDailyForecast)
 * [Render - Get Map Image](https://docs.microsoft.com/rest/api/maps/render/getmapimage)
 
-For a complete list of Azure Maps REST APIs, see [Azure Maps REST APIs](https://docs.microsoft.com/azure/azure-maps/#reference).
+For a complete list of Azure Maps REST APIs, see [Azure Maps REST APIs](https://docs.microsoft.com/azure/azure-maps/consumption-model).
 
 To learn more about Azure Notebooks, see [Azure Notebooks](https://docs.microsoft.com/azure/notebooks).
