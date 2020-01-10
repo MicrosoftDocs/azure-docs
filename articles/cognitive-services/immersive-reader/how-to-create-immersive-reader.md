@@ -17,7 +17,7 @@ ms.author: rwaller
 
 This article shows how to create an Immersive Reader resource and configure it with Azure Active Directory authentication.
 
-## Set up Powershell environment
+## Set up PowerShell environment
 
 1. Start by opening the [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview). Ensure that the cloud shell is set to PowerShell in the upper-left hand dropdown or by typing `pwsh`.
 
