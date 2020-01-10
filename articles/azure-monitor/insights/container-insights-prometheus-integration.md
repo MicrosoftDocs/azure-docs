@@ -88,11 +88,22 @@ ConfigMaps is a global list and there can be only one ConfigMap applied to the a
 
 ## Configure and deploy ConfigMaps
 
-Perform the following steps to configure your ConfigMap configuration file for Kubernetes clusters, excluding Azure Red Hat OpenShift.
+Perform the following steps to configure your ConfigMap configuration file for Kubernetes clusters.
 
 1. [Download](https://github.com/microsoft/OMS-docker/blob/ci_feature_prod/Kubernetes/container-azm-ms-agentconfig.yaml) the template ConfigMap yaml file and save it as container-azm-ms-agentconfig.yaml.
 
-2. Edit the ConfigMap yaml file with your customizations to scrape Prometheus metrics.
+    >[!NOTE]
+   >This step is not required when working with Azure Red Hat OpenShift since the ConfigMap template already exists on the cluster.
+
+2. Edit the ConfigMap yaml file with your customizations to scrape Prometheus metrics. If you are editing the ConfigMap yaml file for Azure Red Hat OpenShift, first run the command `oc edit configmaps container-azm-ms-agentconfig -n openshift-azure-logging` to open the file in a text editor.
+
+    >[!NOTE]
+    >The following annotation `openshift.io/reconcile-protect: "true"` must be added under the metadata of *container-azm-ms-agentconfig* ConfigMap to prevent reconciliation. 
+    >```
+    >metadata:
+    >   annotations:
+    >       openshift.io/reconcile-protect: "true"
+    >```
 
     - To collect of Kubernetes services cluster-wide, configure the ConfigMap file using the following example.
 
@@ -156,35 +167,15 @@ Perform the following steps to configure your ConfigMap configuration file for K
 	
           If you want to restrict monitoring to specific namespaces for pods that have annotations, for example only include pods dedicated for production workloads, set the `monitor_kubernetes_pod` to `true` in ConfigMap, and add the namespace filter `monitor_kubernetes_pods_namespaces` specifying the namespaces to scrape from. For example, `monitor_kubernetes_pods_namespaces = ["default1", "default2", "default3"]`
 
-3. To create ConfigMap, run the following kubectl command: `kubectl apply -f <configmap_yaml_file.yaml>`.
+3. For clusters other than Azure Red Hat OpenShift, run the following kubectl command: `kubectl apply -f <configmap_yaml_file.yaml>`.
     
     Example: `kubectl apply -f container-azm-ms-agentconfig.yaml`. 
 
-The configuration change can take a few minutes to finish before taking effect, and all omsagent pods in the cluster will restart. The restart is a rolling restart for all omsagent pods, not all restart at the same time. When the restarts are finished, a message is displayed that's similar to the following and includes the result: `configmap "container-azm-ms-agentconfig" created`.
-
-## Deploy ConfigMaps for Azure Red Hat OpenShift
-
-A template ConfigMap file, named `container-azm-ms-agentconfig.yaml`, is available with Azure Red Hat OpenShift in the *openshift-azure-logging* namespace. Review the [scraping settings](#prometheus-scraping-settings) and then perform the following steps to edit the yaml file.
-
-1. To edit ConfigMap with your configuration settings, use the following command:
-
-    ``` bash
-    oc edit configmaps container-azm-ms-agentconfig -n openshift-azure-logging
-    ```
-
-    >[!NOTE]
-    >The following annotation `openshift.io/reconcile-protect: "true"` must be added under the metadata of *container-azm-ms-agentconfig* ConfigMap to prevent reconciliation. 
-    >```
-    >metadata:
-    >   annotations:
-    >       openshift.io/reconcile-protect: "true"
-    >```
-
-    This command opens the file in your text editor allowing you to make whatever configuration changes required. When you are finished editing the file, save the file to commit your changes.
-
-    You can view the updated ConfigMap by running the command, `oc describe configmaps container-azm-ms-agentconfig -n openshift-azure-logging`. 
+4. For Azure Red Hat OpenShift, save your changes in the editor.
 
 The configuration change can take a few minutes to finish before taking effect, and all omsagent pods in the cluster will restart. The restart is a rolling restart for all omsagent pods, not all restart at the same time. When the restarts are finished, a message is displayed that's similar to the following and includes the result: `configmap "container-azm-ms-agentconfig" created`.
+
+You can view the updated ConfigMap by running the command, `oc describe configmaps container-azm-ms-agentconfig -n openshift-azure-logging`. 
 
 ## Applying updated ConfigMap
 
