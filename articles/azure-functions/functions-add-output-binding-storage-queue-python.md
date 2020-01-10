@@ -13,35 +13,20 @@ In this article, you integrate an Azure Storage queue with the function and stor
 
 - Complete the quickstart, [Create an HTTP triggered Python function](functions-create-first-function-python.md). If you already cleaned up resources at the end of that article, go through the steps again to recreate the Functions app in Azure, but leave the resources in place.
 
-- By default, the *host.json* file in the function projects folder contains the properties below to enable [extension bundles](functions-bindings-register.md#extension-bundles). If you modified *host.json* for any reason, verify that these properties are still in place:
-
-    ```json
-    {
-        "version": "2.0",
-        "extensionBundle": {
-            "id": "Microsoft.Azure.Functions.ExtensionBundle",
-            "version": "[1.*, 2.0.0)"
-        }
-    }
-    ```
-    
-## Retrieve the Azure Storage connection string from the deployed function app
+## Retrieve the Azure Storage connection string
 
 When you created a function app in Azure in the previous quickstart, you also created a Storage account. The connection string for this account is stored securely in app settings in Azure. By downloading the setting into the *local.settings.json* file, you can use that connection write to a Storage queue in the same account when running the function locally. 
 
-1. From the root of the project, run the following command, replacing `<app_name>` with the name of your function app from the previous quickstart. (You might need to sign in to your Azure account.)
+1. From the root of the project, run the following command, replacing `<app_name>` with the name of your function app from the previous quickstart. This command will overwrite any existing values in the file.
 
     ```
     func azure functionapp fetch-app-settings <app_name>
     ```
     
-    > [!IMPORTANT]  
-    > This command overwrites any existing values in the file.
-    
-    > [!IMPORTANT]
-    > Because *local.settings.json* contains secrets downloaded from Azure, always exclude this file from source control. The *.gitignore* file created with a local functions project excludes the file by default.
-
 1. Open *local.settings.json* and locate the value named `AzureWebJobsStorage`, which is the Storage account connection string. You use the name `AzureWebJobsStorage` and the connection string in other sections of this article.
+
+> [!IMPORTANT]
+> Because *local.settings.json* contains secrets downloaded from Azure, always exclude this file from source control. The *.gitignore* file created with a local functions project excludes the file by default.
 
 ## Add an output binding to function.json
 
@@ -76,25 +61,25 @@ Each binding has at least a type, a direction, and a name. In the example above,
 
 The second binding is of type `http` with the direction `out`, in which case the special `name` of `$return` indicates that this binding uses the function's return value rather than providing an input parameter.
 
-To write to an Azure Storage queue from this function, add an output binding (`"direction": "out"`) of type `queue` and name `msg`, as shown in the code below. In this case the function receives an output argument named `msg`.
+To write to an Azure Storage queue from this function, add an `out` binding of type `queue` with the name `msg`, as shown in the code below:
 
 :::code language="json" source="code/quickstarts-python/function-json-python-storage-queue.json" highlight="18-25":::
 
-For a `queue` type, you must also specify two additional properties: `queueName`, the name of the queue itself, and `connection`, the name of the Azure Storage connection string that you observed earlier in the *local.settings.json* file. These requirements are described in the [queue output configuration](functions-bindings-storage-queue.md#output---configuration).
+In this case, `msg` is given to the function as an output argument. For a `queue` type, you must also specify the name of the queue in `queueName` and provide the *name* of the Azure Storage connection (from *local.settings.json*) in `connection`.
 
-For more information on the details of bindings, see [Azure Functions triggers and bindings concepts](functions-triggers-bindings.md).
+For more information on the details of bindings, see [Azure Functions triggers and bindings concepts](functions-triggers-bindings.md) and [queue output configuration](functions-bindings-storage-queue.md#output---configuration).
 
 ## Add code to use the output binding
 
-With the binding added to *function.json*, you can now update your function to receive the `msg` output parameter and write messages to the queue.
+With the queue binding specified in *function.json*, you can now update your function to receive the `msg` output parameter and write messages to the queue.
 
-In the *HttpExample* folder, update *\_\_init\_\_.py* to match the following code, which adds the `msg` parameter to the function definition and the line `msg.set(name)` under the `if name:` statement.
+Update *HttpExample\\\_\_init\_\_.py* to match the following code, adding the `msg` parameter to the function definition and `msg.set(name)` under the `if name:` statement.
 
 :::code language="python" source="code/quickstarts-python/init-py-storage-queue.py" highlight="6,18":::
 
-The `msg` parameter is an instance of the [`azure.functions.InputStream class`](/python/api/azure-functions/azure.functions.httprequest). It contains a `set` method that writes a message to the queue with the given string value, in this case the name passed to the function in the URL query string.
+The `msg` parameter is an instance of the [`azure.functions.InputStream class`](/python/api/azure-functions/azure.functions.httprequest). Its `set` method writes a string message to the queue, in this case the name passed to the function in the URL query string.
 
-Observe also that you didn't need to write any code for authentication, getting a queue reference, or writing data. All these integration tasks are conveniently handled in the Azure Functions runtime and queue output binding.
+Observe that you *don't* need to write any code for authentication, getting a queue reference, or writing data. All these integration tasks are conveniently handled in the Azure Functions runtime and queue output binding.
 
 ## Run and test the function locally
 
@@ -105,8 +90,6 @@ Observe also that you didn't need to write any code for authentication, getting 
     ```
     func host start
     ```
-    
-    Because you enabled extension bundles in the *host.json* file, the [Storage binding extension](functions-bindings-storage-blob.md#packages---functions-2x-and-higher) is downloaded and installed for you during startup, along with the other Microsoft binding extensions.
 
 1. Once startup is complete and you see the URL for the `HttpExample` endpoint, copy its URL to a browser and append the query string `?name=<your-name>`, making the full URL like `http://localhost:7071/api/HttpExample?name=Guido`. The browser should display a message like `Hello Guido` as in the previous article.
 
@@ -114,11 +97,26 @@ Observe also that you didn't need to write any code for authentication, getting 
 
 1. When you're done, stop the host with **Ctrl**+**C**.
 
+> [!TIP]
+> During startup, the host downloads and installs the [Storage binding extension](functions-bindings-storage-blob.md#packages---functions-2x-and-higher) and other Microsoft binding extensions. This installation happens because binding extensions are enabled by default in the *host.json* file with the following properties:
+>
+> ```json
+> {
+>     "version": "2.0",
+>     "extensionBundle": {
+>         "id": "Microsoft.Azure.Functions.ExtensionBundle",
+>         "version": "[1.*, 2.0.0)"
+>     }
+> }
+> ```
+>
+> If you encounter any errors related to binding extensions, check that the above properties are present in *host.json*.
+
 ## View the message in the Azure Storage queue
 
-At the same time your function generated an HTTP response for the web browser, it also wrote a message to an Azure Storage queue named `outqueue`, as specified in the queue binding. You can view the queue in the [Azure portal](/storage/queues/storage-quickstart-queues-portal.md) or in the  [Microsoft Azure Storage Explorer][https://storageexplorer.com/]. You can also view the queue in the Azure CLI as follows:
+When your function generates an HTTP response for the web browser, it also calls `msg.set(name)`, which writes a message to an Azure Storage queue named `outqueue`, as specified in the queue binding. You can view the queue in the [Azure portal](/storage/queues/storage-quickstart-queues-portal.md) or in the  [Microsoft Azure Storage Explorer][https://storageexplorer.com/]. You can also view the queue in the Azure CLI as described in the following steps:
 
-1. Open the function project's *local.setting.json* file and copy the connection string value. In a terminal or command window, run the following command to create an environment variable named `AZURE_STORAGE_CONNECTION_STRING`, replacing `<connection_string>` with the actual value. Creating this environment variables means you don't need to supply the connection string in subsequent commands.
+1. Open the function project's *local.setting.json* file and copy the connection string value. In a terminal or command window, run the following command to create an environment variable named `AZURE_STORAGE_CONNECTION_STRING`, pasting your specific connection string in place of  `<connection_string>`. (This environment variable means you don't need to supply the connection string to each subsequent command using the `--connection-string` argument.)
 
     # [bash](#tab/bash)
     
@@ -140,7 +138,7 @@ At the same time your function generated an HTTP response for the web browser, i
     
     ---
     
-1. Use the [`az storage queue list`](/cli/azure/storage/queue#az-storage-queue-list) command to view the Storage queues in your account. The output from this command should include a queue named `outqueue`, which was created when the function wrote its first message to that queue.
+1. (Optional) Use the [`az storage queue list`](/cli/azure/storage/queue#az-storage-queue-list) command to view the Storage queues in your account. The output from this command should include a queue named `outqueue`, which was created when the function wrote its first message to that queue.
     
     # [bash](#tab/bash)
     
@@ -163,7 +161,7 @@ At the same time your function generated an HTTP response for the web browser, i
     ---
 
 
-1. Use the [`az storage message peek`](/cli/azure/storage/message#az-storage-message-peek) command to view the messages in this queue. The command returns a collection, from which the following commands retrieve the first message in the queue. Because the Storage queue bindings work with [base64 strings](functions-bindings-storage-queue.md#encoding), you must also decode the message to view as text. Once you do so, the text should be the first name you used when testing the function in the browser.
+1. Use the [`az storage message peek`](/cli/azure/storage/message#az-storage-message-peek) command to view the messages in this queue, which should be the first name you used when testing the function earlier. The command retrieves the first message in the queue in [base64 encoding](functions-bindings-storage-queue.md#encoding), so you must also decode the message to view as text.
 
     # [bash](#tab/bash)
     
@@ -183,7 +181,7 @@ At the same time your function generated an HTTP response for the web browser, i
 
     ---
     
-### Redeploy the project to Azure
+## Redeploy the project to Azure
 
 Now that you've tested the function locally and verified that it wrote a message to the Azure Storage queue, you can redeploy your project to update the endpoint running on Azure.
 
