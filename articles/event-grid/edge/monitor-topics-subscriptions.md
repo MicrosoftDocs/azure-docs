@@ -33,22 +33,22 @@ Both topics and event subscriptions emit metrics to give you insights into event
 
 | Metric | Description |
 | ------ | ----------- |
-| EventsReceived | 
-| UnmatchedEvents
-| SuccessRequests
-| SystemErrorRequests
-| UserErrorRequests
-| SuccessRequestLatencyMs
+| EventsReceived | Number of events published to the topic
+| UnmatchedEvents | Number of events published to the topic that do not match an Event Subscription and are dropped
+| SuccessRequests | Number of inbound publish requests recieved by the topic
+| SystemErrorRequests | Number of inbound publish requests failed due to an internal system error
+| UserErrorRequests | Number on inbound publish requests failed due to user error such as malformed JSON
+| SuccessRequestLatencyMs | Publish request response latency in milliseconds
 
 
 ### Event subscription metrics
 
 | Metric | Description |
 | ------ | ----------- |
-| deliverySuccessCounts
-| deliveryFailureCounts
-| deliverySuccessLatencyMs
-| deliveryFailureLatencyMs
-| systemDelayForFirstAttemptMs
-| deliveryAttemptsCount
-| expiredCounts
+| deliverySuccessCounts | Number of events sucessfully delivered to the configured endpoint
+| deliveryFailureCounts | Number of event delivery attempts failed to the configured endpoint
+| deliverySuccessLatencyMs | Latency of events successfully delivered in milliseconds
+| deliveryFailureLatencyMs | Latency of events not sucessfully delivered in milliseconds
+| systemDelayForFirstAttemptMs | System delay of events before first delivery attempt in miliseconds
+| deliveryAttemptsCount | Number of event delivery attempts - success and failure
+| expiredCounts | Number of events unable to be delivered 
