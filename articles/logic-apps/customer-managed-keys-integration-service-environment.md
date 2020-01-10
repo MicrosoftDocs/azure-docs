@@ -59,11 +59,11 @@ In the request header, include the `Authorization` property and set the property
 
 ### Request body
 
-In the request body, enable support for these additional items in your ISE:
+In the request body, enable support for these additional items by providing their information in your ISE definition:
 
+* The system-assigned managed identity that your ISE uses to access your key vault
 * External access endpoint
 * Your key vault and the customer-managed key that you want to use
-* The system-assigned managed identity that your ISE uses to access your key vault
 
 Here's the request body syntax for the properties and values that you need to create your ISE:
 
