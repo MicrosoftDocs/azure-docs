@@ -3,7 +3,7 @@ title: Server-side encryption of Azure Managed Disks - PowerShell
 description: Azure Storage protects your data by encrypting it at rest before persisting it to Storage clusters. You can rely on Microsoft-managed keys for the encryption of your managed disks, or you can use customer-managed keys to manage encryption with your own keys.
 author: roygara
 
-ms.date: 12/13/2019
+ms.date: 01/09/2020
 ms.topic: conceptual
 ms.author: rogarana
 ms.service: virtual-machines-windows
@@ -170,59 +170,10 @@ Update-AzVM -ResourceGroupName $rgName -VM $vm
 
 ```
 
-
 > [!IMPORTANT]
 > Customer-managed keys rely on managed identities for Azure resources, a feature of Azure Active Directory (Azure AD). When you configure customer-managed keys, a managed identity is automatically assigned to your resources under the covers. If you subsequently move the subscription, resource group, or managed disk from one Azure AD directory to another, the managed identity associated with managed disks is not transferred to the new tenant, so customer-managed keys may no longer work. For more information, see [Transferring a subscription between Azure AD directories](../../active-directory/managed-identities-azure-resources/known-issues.md#transferring-a-subscription-between-azure-ad-directories).
 
-### Portal
-
-Setting up customer-managed keys for your disks will require you to create resources in a particular order, if you're doing it for the first time. First, you will need to create and setup an Azure Key Vault.
-
-#### Setting up your Azure Key Vault
-
-1. Sign into the Azure portal and search for Key Vault
-1. Search for and select **Key Vaults**.
-
-<image>
-
-1. Select **+Add** to create a new Key Vault.
-1. Create a new resource group
-1. Enter a key vault name, select a region, and select a pricing tier.
-1. Select **Review + Create**, verify your choices, then select **Create**.
-
-<image>
-
-1. Once your key vault finishes deploying, select it.
-1. Select **Keys** under **Settings**.
-1. Select **Generate/Import**
-1. Fill in the selections as you like and then select **Create**.
-
-#### Setting up your disk encryption set
-
-Disk encryption sets are only available through [this link](https://aka.ms/diskencryptionsets). They cannot yet be searched in the portal.
-
-1. Open the [disk encryption sets link](https://aka.ms/diskencryptionsets).
-1. Select **+Add**.
-
-<Image>
-
-1. Select your resource group, name your encryption set, and select the same region as your key vault.
-1. Select **Key vault and key**.
-
-<Image>
-
-1. Select the key vault and key you created previously, as well as the version.
-1. Press **Select**.
-1. Select **Review + Create** and then **Create**.
-1. Open the disk encryption set once it finishes creating and select the alert that pops up.
-     This will allow you to use the set with your key vault.
-
-#### Deploy a VM
-
-Now that you've created and set up your key vault and the disk encryption set, you can deploy a VM using the encryption.
-The VM deployment process is similar to the standard deployment process, the only differences are that you need to deploy the VM in the same region as your other resources and you opt to use a customer managed key.
-
-1. 
+[!INCLUDE [virtual-machines-disks-encryption-portal](../../../includes/virtual-machines-disks-encryption-portal.md)]
 
 ## Server-side encryption versus Azure disk encryption
 

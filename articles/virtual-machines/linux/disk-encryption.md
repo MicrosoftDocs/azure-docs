@@ -3,7 +3,7 @@ title: Server-side encryption of Azure Managed Disks - Azure CLI
 description: Azure Storage protects your data by encrypting it at rest before persisting it to Storage clusters. You can rely on Microsoft-managed keys for the encryption of your managed disks, or you can use customer-managed keys to manage encryption with your own keys.
 author: roygara
 
-ms.date: 12/13/2019
+ms.date: 01/09/2020
 ms.topic: conceptual
 ms.author: rogarana
 ms.service: virtual-machines-linux
@@ -154,6 +154,8 @@ az vm disk attach --vm-name $vmName --lun $diskLUN --ids $diskId
 
 > [!IMPORTANT]
 > Customer-managed keys rely on managed identities for Azure resources, a feature of Azure Active Directory (Azure AD). When you configure customer-managed keys, a managed identity is automatically assigned to your resources under the covers. If you subsequently move the subscription, resource group, or managed disk from one Azure AD directory to another, the managed identity associated with managed disks is not transferred to the new tenant, so customer-managed keys may no longer work. For more information, see [Transferring a subscription between Azure AD directories](../../active-directory/managed-identities-azure-resources/known-issues.md#transferring-a-subscription-between-azure-ad-directories).
+
+[!INCLUDE [virtual-machines-disks-encryption-portal](../../../includes/virtual-machines-disks-encryption-portal.md)]
 
 ## Server-side encryption versus Azure disk encryption
 
