@@ -15,7 +15,7 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 12/23/2019
+ms.date: 01/10/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 
@@ -119,6 +119,8 @@ For information on integration of Azure services into SAP components, see:
 
 
 ## Change Log
+- 01/10/2020: Changes in [SAP HANA scale-out with standby node on Azure VMs with Azure NetApp Files on SLES](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-suse) and in [SAP HANA scale-out with standby node on Azure VMs with Azure NetApp Files on RHEL](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-rhel) to add instructions on how to make `nfs4_disable_idmapping` changes permanent.
+- 01/10/2020: Changes in [High availability for SAP NetWeaver on Azure VMs on SLES with Azure NetApp Files for SAP applications](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-netapp-files) and in [Azure Virtual Machines high availability for SAP NetWeaver on RHEL with Azure NetApp Files for SAP applications](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-netapp-files) to add instructions how to mount Azure NetApp Files NFSv4 volumes.
 - 12/23/2019: Release of [High availability for SAP NetWeaver on Azure VMs on SLES multi-SID guide](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-multi-sid)
 - 12/18/2019: Release of [SAP HANA scale-out with standby node on Azure VMs with Azure NetApp Files on RHEL](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-rhel)
 - 11/21/2019: Changes in [SAP HANA scale-out with standby node on Azure VMs with Azure NetApp Files on SUSE Linux Enterprise Server](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-suse) to simplify the configuration for NFS ID mapping and change the recommended primary network interface to simplify routing.
