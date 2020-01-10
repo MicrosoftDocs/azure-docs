@@ -18,11 +18,13 @@ This topic shows how to set up and specify your own encryption key to use when y
 
 ## Considerations
 
-* You can specify a customer-managed key *only when you create your ISE*, not afterwards. You also can't disable this key after your ISE is created. Currently, no support exists for rotating a customer-managed key for an ISE.
+* At this time, customer-managed key support for an ISE is available only in these Azure regions: West US 2, East US, and South Central US
 
-* To support customer-managed keys, create an ISE that has an [external access endpoint](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-endpoint-access) and uses the [system-assigned managed identity](../active-directory/managed-identities-azure-resources/overview.md#how-does-the-managed-identities-for-azure-resources-work) to access resources in other Azure Active Directory (Azure AD) tenants. The managed identity authenticates access for your ISE so that you don't have to sign in with your own credentials.
+* You can specify a customer-managed key *only when you create your ISE*, not afterwards. You can't disable this key after your ISE is created. Currently, no support exists for rotating a customer-managed key for an ISE.
 
-* Currently, the only way to create an ISE that uses a customer-managed key and the system-assigned identity is by calling the Logic Apps REST API with an HTTPS PUT request. To perform this task, you can use a tool such as [Postman](https://www.getpostman.com/downloads/), or you can create a logic app.
+* To support customer-managed keys, your ISE requires requires having its [system-assigned managed identity](../active-directory/managed-identities-azure-resources/overview.md#how-does-the-managed-identities-for-azure-resources-work) enabled. This identity helps the ISE authenticate access to resources in other Azure Active Directory (Azure AD) tenants so that you don't have to sign in with your own credentials.
+
+* Currently, the only way to create an ISE that supports a customer-managed key and has its system-assigned identity enabled is by calling the Logic Apps REST API with an HTTPS PUT request.
 
 * Within *30 minutes* after you send the HTTPS PUT request that creates your ISE, open your Azure key vault in the Azure portal, and [add an access policy to your key vault for the system-assigned identity](#identity-access-to-key-vault). Otherwise, ISE creation fails and throws a permissions error.
 
@@ -30,7 +32,11 @@ This topic shows how to set up and specify your own encryption key to use when y
 
 * An Azure subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/).
 
-* An Azure key vault, which has the **Soft Delete** and **Do Not Purge** properties enabled along with a key that you created with these property values:
+* An Azure key vault that has the **Soft Delete** and **Do Not Purge** properties enabled
+
+  For more information about enabling these properties, see [Azure Key Vault soft-delete overview](../key-vault/key-vault-ovw-soft-delete.md) and [Configure customer-managed keys with Azure Key Vault](../storage/common/storage-encryption-keys-portal.md). If you're new to Azure Key Vault, learn [how to create a key vault](../key-vault/quick-create-portal.md#create-a-vault) by using the Azure portal or by using the Azure PowerShell command, [New-AzKeyVault](https://docs.microsoft.com/powershell/module/az.keyvault/new-azkeyvault).
+
+* In your key vault, a key that's created with these property values:
 
   | Property | Value |
   |----------|-------|
@@ -41,7 +47,7 @@ This topic shows how to set up and specify your own encryption key to use when y
 
   ![Create your customer-managed encryption key](./media/customer-managed-keys-integration-service-environment/create-customer-managed-key-for-encryption.png)
 
-  If you're new to Azure Key Vault, learn [how to create a key vault](../key-vault/quick-create-portal.md#create-a-vault) and [how to configure customer-managed keys](../storage/common/storage-encryption-keys-portal.md) by using the Azure portal. Or, use the Azure PowerShell commands, [New-AzKeyVault](https://docs.microsoft.com/powershell/module/az.keyvault/new-azkeyvault) and [Add-AzKeyVaultKey](https://docs.microsoft.com/powershell/module/az.keyvault/Add-AzKeyVaultKey).
+  For more information, see [Configure customer-managed keys with Azure Key Vault](../storage/common/storage-encryption-keys-portal.md) or the Azure PowerShell command, [Add-AzKeyVaultKey](https://docs.microsoft.com/powershell/module/az.keyvault/Add-AzKeyVaultKey).
 
 * A tool that you can use to create your ISE by calling the Logic Apps REST API with an HTTPS PUT request. For example, you can use [Postman](https://www.getpostman.com/downloads/), or you can build a logic app that performs this task.
 
@@ -51,28 +57,36 @@ This topic shows how to set up and specify your own encryption key to use when y
 
 To create your ISE by calling the Logic Apps REST API, make this HTTPS PUT request:
 
-`PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/integrationServiceEnvironments/{integrationServiceEnvironmentName}?api-version=2018-07-01-preview`
+`PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/integrationServiceEnvironments/{integrationServiceEnvironmentName}?api-version=2019-05-01`
+
+> [!IMPORTANT]
+> The Logic Apps REST API 2019-05-01 version requires that you make your own HTTP PUT request for ISE connectors.
 
 ### Request header
 
-In the request header, include the `Authorization` property and set the property value to the bearer token for the customer who has access to the Azure subscription or resource group that you want to use.
+In the request header, include these properties:
+
+* `Content-type`: Set this property value to `application/json`.
+
+* `Authorization`: Set this property value to the bearer token for the customer who has access to the Azure subscription or resource group that you want to use.
 
 ### Request body
 
 In the request body, enable support for these additional items by providing their information in your ISE definition:
 
 * The system-assigned managed identity that your ISE uses to access your key vault
-* External access endpoint
 * Your key vault and the customer-managed key that you want to use
 
-Here's the request body syntax for the properties and values that you need to create your ISE:
+#### Request body syntax
+
+Here is the request body syntax, which describes the properties to use when you create your ISE:
 
 ```json
 {
-   "id": "/subscriptions/<Azure-subscription-ID>/resourceGroups/<Azure-resource-group>/providers/Microsoft.Logic/integrationServiceEnvironments/<ISE-name>",
-   "name": "<ISE-name>",
+   "id": "/subscriptions/{Azure-subscription-ID/resourceGroups/{Azure-resource-group}/providers/Microsoft.Logic/integrationServiceEnvironments/{ISE-name}",
+   "name": "{ISE-name}",
    "type": "Microsoft.Logic/integrationServiceEnvironments",
-   "location": "<Azure-region>",
+   "location": "{Azure-region}",
    "sku": {
       "name": "Premium",
       "capacity": 1
@@ -83,50 +97,47 @@ Here's the request body syntax for the properties and values that you need to cr
    "properties": {
       "networkConfiguration": {
          "accessEndpoint": {
+            // Your ISE can use the "External" or "Internal" endpoint. This example uses "External".
             "type": "External"
          },
          "subnets": [
             {
-               "id": "/subscriptions/<Azure-subscription-ID>/resourceGroups/<Azure-resource-group>/providers/Microsoft.Network/virtualNetworks/<virtual-network-name>/subnets/<subnet-1>",
-               "type": "Microsoft.Network/virtualNetworks/subnets"
+               "id": "/subscriptions/{Azure-subscription-ID}/resourceGroups/{Azure-resource-group}/providers/Microsoft.Network/virtualNetworks/{virtual-network-name}/subnets/{subnet-1}",
             },
             {
-               "id": "/subscriptions/<Azure-subscription-ID>/resourceGroups/<Azure-resource-group>/providers/Microsoft.Network/virtualNetworks/<virtual-network-name>/subnets/<subnet-2>",
-               "type": "Microsoft.Network/virtualNetworks/subnets"
+               "id": "/subscriptions/{Azure-subscription-ID}/resourceGroups/{Azure-resource-group}/providers/Microsoft.Network/virtualNetworks/{virtual-network-name}/subnets/{subnet-2}",
             },
             {
-               "id": "/subscriptions/<Azure-subscription-ID>/resourceGroups/<Azure-resource-group>/providers/Microsoft.Network/virtualNetworks/<virtual-network-name>/subnets/<subnet-3>",
-               "type": "Microsoft.Network/virtualNetworks/subnets"
+               "id": "/subscriptions/{Azure-subscription-ID}/resourceGroups/{Azure-resource-group}/providers/Microsoft.Network/virtualNetworks/{virtual-network-name}/subnets/{subnet-3}",
             },
             {
-               "id": "/subscriptions/<Azure-subscription-ID>/resourceGroups/<Azure-resource-group>/providers/Microsoft.Network/virtualNetworks/<virtual-network-name>/subnets/<subnet-4>",
-               "type": "Microsoft.Network/virtualNetworks/subnets"
+               "id": "/subscriptions/{Azure-subscription-ID}/resourceGroups/{Azure-resource-group}/providers/Microsoft.Network/virtualNetworks/{virtual-network-name}/subnets/{subnet-4}",
             }
          ]
       },
       "encryptionConfiguration": {
          "encryptionKeyReference": {
             "keyVault": {
-               "name": "<key-vault-name>",
-               "id": "subscriptions/<Azure-subscription-ID>/resourceGroups/<Azure-resource-group>/providers/Microsoft.KeyVault/vaults/<key-vault-name>",
-               "type": "Microsoft.KeyVault/vaults"
+               "id": "subscriptions/{Azure-subscription-ID}/resourceGroups/{Azure-resource-group}/providers/Microsoft.KeyVault/vaults/{key-vault-name}",
             },
-            "keyName": "<customer-managed-key-name>",
-            "keyVersion": "<key-version-number>"
+            "keyName": "{customer-managed-key-name}",
+            "keyVersion": "{key-version-number}"
          }
       }
    }
 }
 ```
 
-### Example request body
+#### Request body example
+
+This example request body shows the sample values:
 
 ```json
 {
    "id": "/subscriptions/********************/resourceGroups/Fabrikam-RG/providers/Microsoft.Logic/integrationServiceEnvironments/Fabrikam-ISE",
    "name": "Fabrikam-ISE",
    "type": "Microsoft.Logic/integrationServiceEnvironments",
-   "location": "WestUS",
+   "location": "WestUS2",
    "identity": {
       "type": "SystemAssigned"
    },
@@ -137,33 +148,28 @@ Here's the request body syntax for the properties and values that you need to cr
    "properties": {
       "networkConfiguration": {
          "accessEndpoint": {
+            // Your ISE can use the "External" or "Internal" endpoint. This example uses "External".
             "type": "External"
          },
          "subnets": [
             {
                "id": "/subscriptions/********************/resourceGroups/Fabrikam-RG/providers/Microsoft.Network/virtualNetworks/Fabrikam-VNET/subnets/subnet-1",
-               "type": "Microsoft.Network/virtualNetworks/subnets"
             },
             {
                "id": "/subscriptions/********************/resourceGroups/Fabrikam-RG/providers/Microsoft.Network/virtualNetworks/Fabrikam-VNET/subnets/subnet-2",
-               "type": "Microsoft.Network/virtualNetworks/subnets"
             },
             {
                "id": "/subscriptions/********************/resourceGroups/Fabrikam-RG/providers/Microsoft.Network/virtualNetworks/Fabrikam-VNET/subnets/subnet-3",
-               "type": "Microsoft.Network/virtualNetworks/subnets"
             },
             {
                "id": "/subscriptions/********************/resourceGroups/Fabrikam-RG/providers/Microsoft.Network/virtualNetworks/Fabrikam-VNET/subnets/subnet-4",
-               "type": "Microsoft.Network/virtualNetworks/subnets"
             }
          ]
       },
       "encryptionConfiguration": {
          "encryptionKeyReference": {
             "keyVault": {
-               "name": "FabrikamKeyVault",
                "id": "subscriptions/********************/resourceGroups/Fabrikam-RG/providers/Microsoft.KeyVault/vaults/FabrikamKeyVault",
-               "type": "Microsoft.KeyVault/vaults"
             },
             "keyName": "Fabrikam-Encryption-Key",
             "keyVersion": "********************"
@@ -192,7 +198,7 @@ Within *30 minutes* after you send the HTTP PUT request to create your ISE, you 
       | Setting | Values |
       |---------|--------|
       | **Configure from template (optional) list** | Key Management |
-      | **Key permissions** | - **Key Management Operations**: Get, List, Backup, Restore <p><p>- **Cryptographic Operations**: Decrypt, Encrypt, Unwrap Key, Wrap Key, Verify, Sign |
+      | **Key permissions** | - **Key Management Operations**: Get, List <p><p>- **Cryptographic Operations**: Unwrap Key, Wrap Key |
       |||
 
       ![Select "Key Management" > "Key permissions"](./media/customer-managed-keys-integration-service-environment/select-key-permissions.png)
