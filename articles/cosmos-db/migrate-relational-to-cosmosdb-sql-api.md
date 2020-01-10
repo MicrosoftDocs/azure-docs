@@ -1,6 +1,6 @@
 ---
 title: Migrate one-to-few relational data into Azure Cosmos DB SQL API
-description: This doc describes how you can handle complex migration of one-to-few relationships into SQL API
+description: Learn how to handle complex data migration for one-to-few relationships into SQL API
 author: TheovanKraay
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
