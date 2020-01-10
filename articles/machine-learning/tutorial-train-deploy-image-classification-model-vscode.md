@@ -8,7 +8,7 @@ ms.subservice: core
 ms.topic: tutorial
 author: luisquintanilla
 ms.author: luquinta
-ms.date: 01/08/2019
+ms.date: 01/11/2019
 #Customer intent: As a professional data scientist, I want to develop, deploy, and manage Azure Machine Learning projects locally in Visual Studio Code.
 ---
 
@@ -44,7 +44,7 @@ Get the code for this tutorial by downloading and unzipping the [VS Code Tools f
 
 ## Create a workspace
 
-The first thing you have to do to build an application in Azure Machine Learning is to create a workspace. A workspace is a space that contains the resources to train models as well as the trained models themselves. See the documentation to learn more about [what is a workspace](./concept-workspace.md). 
+The first thing you have to do to build an application in Azure Machine Learning is to create a workspace. A workspace contains the resources to train models as well as the trained models themselves. For more information, see [what is a workspace](./concept-workspace.md). 
 
 1. On the Visual Studio Code activity bar, select the **Azure** icon to open the Azure Machine Learning view.
 1. Right-click your Azure subscription and select **Create Workspace**. 
@@ -55,9 +55,9 @@ The first thing you have to do to build an application in Azure Machine Learning
 1. Select **Create a new resource group** in the command palette. 
 1. Enter "TeamWorkspace-rg" in the command palette text box and press **Enter**. 
 1. In the command palette, choose a location for your workspace. It's recommended to choose a location that is closest to the location you plan to deploy your model. In this case, choose **West US 2**.
-1. When prompted to select a workspace SKU, select **Basic** to create a basic workspace. Visit the [Azure Machine Learning overview](./overview-what-is-azure-ml.md#sku) to learn more about the different workspace offerings.
+1. When prompted to select a workspace SKU, select **Basic** to create a basic workspace. For more information on different workspace offerings, see [Azure Machine Learning overview](./overview-what-is-azure-ml.md#sku).
 
-At this point, a request to Azure is made to create a new workspace in your account. After a few minutes, if successful, your new workspace will appear in your subscription node. 
+At this point, a request to Azure is made to create a new workspace in your account. After a few minutes, the new workspace appears in your subscription node. 
 
 ## Create an experiment
 
@@ -73,11 +73,11 @@ One or more experiments can be created in your workspace to track and analyze in
 
 1. In the command palette prompt, name your experiment "MNIST" and press **Enter** to create the new experiment. 
 
-Like workspaces, a request is sent to Azure to create an experiment with the provided configurations. If successful, the new experiment will appear in the *Experiments* node of your workspace. 
+Like workspaces, a request is sent to Azure to create an experiment with the provided configurations. After a few minutes, the new experiment appears in the *Experiments* node of your workspace. 
 
 ## Configure Compute Targets
 
-A compute target is the computing resource or environment where you run scripts and deploy trained models to. To learn more about compute targets, see the [Azure Machine Learning compute targets documentation](./concept-compute-target.md).
+A compute target is the computing resource or environment where you run scripts and deploy trained models. For more information, see the [Azure Machine Learning compute targets documentation](./concept-compute-target.md).
 
 To create a compute target:
 
@@ -92,11 +92,11 @@ To create a compute target:
 1. Choose a VM size. In the command palette prompt, select **Standard_F2s_v2**.
 1. In the command palette prompt, name your compute "TeamWkspc-com" and press **Enter** to create your compute.
 
-If successful, the new compute target will appear in the *Compute* node of your workspace.
+After a few minutes, the new compute target appears in the *Compute* node of your workspace.
 
 ## Create a run configuration
 
-To run an Azure Machine Learning experiment on a compute, that compute needs to be configured appropriately. A run configuration file is the mechanism by which this environment is specified.
+When you submit a training run to a compute target, you also submit the configuration needed to run the training job. For example, the script that contains the training code and the Python dependencies needed to run it.
 
 To create a run configuration:
 
@@ -116,7 +116,7 @@ To create a run configuration:
     pip: azureml-defaults; conda: python=3.6.2, tensorflow=1.15.0
     ```
     
-    If successful, a file called *MNIST-rc.runconfig* should appear in VS Code.
+    A file called *MNIST-rc.runconfig* appears in VS Code with content similar to the one below:
 
     ```json
     {
@@ -167,7 +167,7 @@ To create a run configuration:
     Azure ML: Save and Continue
     ```
 
-The *MNIST-rc* run configuration should now be saved and appear under the *TeamWkspc-com* compute node.
+The *MNIST-rc* run configuration is added under the *TeamWkspc-com* compute node.
 
 ## Train the model
 
@@ -185,7 +185,7 @@ To run an Azure Machine Learning experiment:
 
 1. In the command palette, select the **TeamWkspc-com** compute target.
 1. Then, select the **MNIST-rc** run configuration.
-1. At this point, a request is sent to Azure to run your experiment on the selected compute target in your workspace. This process should take a few minutes. To track the progress of your experiment, right-click the current run node and select **View Run in Azure portal**.
+1. At this point, a request is sent to Azure to run your experiment on the selected compute target in your workspace. This process takes several minutes. The amount of time to run the training job is impacted by several factors like the compute type and training data size. To track the progress of your experiment, right-click the current run node and select **View Run in Azure portal**.
 1. When the dialog requesting to open an external website appears, select **Open**.
 
     ![Track experiment progress](./media/tutorial-train-deploy-image-classification-model-vscode/track-experiment-progress.png)
@@ -233,16 +233,16 @@ To register your model:
     Azure ML: Save and Continue
     ```
 
-If successful, your model should appear under the *Models* node.
+After a few minutes, the model appears under the *Models* node.
 
 ## Deploy the model
 
 In Visual Studio Code, you can deploy your model as a web service to:
 
-+ Azure Container Instances (ACI) for testing.
-+ Azure Kubernetes Service (AKS) for production.
++ Azure Container Instances (ACI).
++ Azure Kubernetes Service (AKS).
 
-You don't need to create an ACI container to test in advance, because ACI containers are created as needed. However, you do need to configure AKS clusters in advance. For more information, see [deploy models with Azure Machine Learning](how-to-deploy-and-where.md) to learn about deployment options.
+You don't need to create an ACI container to test in advance, because ACI containers are created as needed. However, you do need to configure AKS clusters in advance. For more information on deployment options, see [deploy models with Azure Machine Learning](how-to-deploy-and-where.md) .
 
 To deploy a web service as an ACI :
 
@@ -293,7 +293,7 @@ To deploy a web service as an ACI :
     Azure ML: Save and Continue
     ```
 
-At this point, a request is sent to Azure to deploy your web service. The deployment process takes a few minutes. If successful, the new service should appear under the *Endpoints* node.
+At this point, a request is sent to Azure to deploy your web service. This process takes several minutes. Once deployed, the new service appears under the *Endpoints* node.
 
 ## Next steps
 
