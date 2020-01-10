@@ -35,7 +35,7 @@ The script is designed to be flexible. It will first look for existing Immersive
         [Parameter(Mandatory=$true)] [String] $ResourceName,
         [Parameter(Mandatory=$false)] [String] $ResourceSubdomain,
         [Parameter(Mandatory=$false)] [String] $ResourceSKU,
-        [Parameter(Mandatory=$true)] [String] $ResourceLocation,
+        [Parameter(Mandatory=$false)] [String] $ResourceLocation,
         [Parameter(Mandatory=$true)] [String] $ResourceGroupName,
         [Parameter(Mandatory=$false)] [String] $ResourceGroupLocation,
         [Parameter(Mandatory=$false)] [String] $AADAppDisplayName="ImmersiveReaderAAD",
@@ -50,7 +50,6 @@ The script is designed to be flexible. It will first look for existing Immersive
         }
         $subscriptionResult = az account set --subscription $SubscriptionName
 
-        Write-Host "Checking if the resource group '$ResourceGroupName' already exists"
         $resourceGroupExists = az group exists --name $ResourceGroupName
         if ($resourceGroupExists -eq "false") {
             Write-Host "Resource group does not exist. Creating resource group"
@@ -109,7 +108,7 @@ The script is designed to be flexible. It will first look for existing Immersive
         Write-Host "Granting service principal access to the newly created Immersive Reader resource"
         $accessResult = az role assignment create --assignee $principalId --scope $resourceId --role "Cognitive Services User"
         if (-not $accessResult) {
-                throw "Error: Failed to grant service principal access"
+            throw "Error: Failed to grant service principal access"
         }
         Write-Host "Service principal access granted successfully"
 
@@ -151,7 +150,7 @@ The script is designed to be flexible. It will first look for existing Immersive
     | ResourceName |  Must be alphanumeric, and may contain '-', as long as the '-' is not the first or last character. Length may not exceed 63 characters.|
     | ResourceSubdomain |A custom subdomain is needed for your Immersive Reader resource. The subdomain is used by the SDK when calling the Immersive Reader service to launch the Reader. The subdomain must be globally unique. The subdomain must be alphanumeric, and may contain '-', as long as the '-' is not the first or last character. Length may not exceed 63 characters. This parameter is optional if the resource already exists. |
     | ResourceSKU |Options: `S0`, `S1`, or `F0`. Visit our [Cognitive Services pricing page](https://azure.microsoft.com/pricing/details/cognitive-services/immersive-reader/) to learn more about each available SKU. This parameter is optional if the resource already exists. |
-    | ResourceLocation |Options: `eastus`, `eastus2`, `southcentralus`, `westus`, `westus2`, `australiaeast`, `southeastasia`, `centralindia`, `japaneast`, `northeurope`, `uksouth`, `westeurope`. |
+    | ResourceLocation |Options: `eastus`, `eastus2`, `southcentralus`, `westus`, `westus2`, `australiaeast`, `southeastasia`, `centralindia`, `japaneast`, `northeurope`, `uksouth`, `westeurope`. This parameter is optional if the resource already exists. |
     | ResourceGroupName |Resources are created in resource groups within subscriptions. Supply the name of an existing resource group. If the resource group does not already exist, a new one with this name will be created. |
     | ResourceGroupLocation |If your resource group doesn't exist, you need to supply a location in which to create the group. To find a list of locations, run `az account list-locations`. This parameter is optional if your resource group already exists. |
     | AADAppDisplayName |The Azure Active Directory application display name. If an existing Azure AD application is not found, a new one with this name will be created. This parameter is optional if the Azure AD application already exists. |
