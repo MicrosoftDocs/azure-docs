@@ -7,7 +7,7 @@ author: cherylmc
 
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 05/11/2017
+ms.date: 01/09/2020
 ms.author: cherylmc
 ---
 # Delete a virtual network gateway using PowerShell (classic)
