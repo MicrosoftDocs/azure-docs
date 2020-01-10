@@ -14,7 +14,7 @@ ms.author: pasta
 
 # How to display math in the Immersive Reader
 
-The Immersive Reader can display math when provided in the form of Mathematical Markup Language ([MathML](https://developer.mozilla.org/en-US/docs/Web/MathML)).
+The Immersive Reader can display math when provided in the form of Mathematical Markup Language ([MathML](https://developer.mozilla.org/docs/Web/MathML)).
 The MIME type can be set through the Immersive Reader [chunk](../reference.md#chunk). See [supported MIME types](../reference.md#supported-mime-types) for more information.
 
 ## Send Math to the Immersive Reader
@@ -46,7 +46,7 @@ For example, if your content were the following:
         <mo>=</mo>
         <mn>4</mn>
     </math>
-</div> 
+</div>
 ```
 
 Then you could display your content by using the following JavaScript.
