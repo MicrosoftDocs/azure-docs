@@ -88,8 +88,8 @@ To create a compute target:
 
     ![Create a compute target](./media/tutorial-train-deploy-image-classification-model-vscode/create-compute.png)
 
-1. Select **Azure Machine Learning Compute (AmlCompute)**.
-1. Choose a VM size. In the command palette prompt, select **Standard_F2s_v2**.
+1. Select **Azure Machine Learning Compute (AmlCompute)**. Azure Machine Learning Compute is a managed-compute infrastructure that allows the user to easily create a single or multi-node compute that can be used with other users in your workspace.
+1. Choose a VM size. In the command palette prompt, select **Standard_F2s_v2**. The size of your VM has an impact on the amount of time it takes to train your models. For more information on VM sizes, see [sizes for Linux virtual machines in Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/sizes).
 1. In the command palette prompt, name your compute "TeamWkspc-com" and press **Enter** to create your compute.
 
 After a few minutes, the new compute target appears in the *Compute* node of your workspace.
@@ -109,14 +109,14 @@ To create a run configuration:
 
 1. In the command palette prompt, name your run configuration "MNIST-rc" and press **Enter** to create your compute.
 1. Then, select **TensorFlow Single-Node Training** as the training job type.
-1. Press **Enter** to browse the script file to run on the compute. In this case, the script to train the model is the *train.py* file inside the *vscode-tools-for-ai/mnist-vscode-docs-sample* directory.
+1. Press **Enter** to browse the script file to run on the compute. In this case, the script to train the model is the `train.py` file inside the `vscode-tools-for-ai/mnist-vscode-docs-sample` directory.
 1. Enter the following into the command palette prompt to specify the required packages.
     
     ```text
     pip: azureml-defaults; conda: python=3.6.2, tensorflow=1.15.0
     ```
     
-    A file called *MNIST-rc.runconfig* appears in VS Code with content similar to the one below:
+    A file called `MNIST-rc.runconfig` appears in VS Code with content similar to the one below:
 
     ```json
     {
@@ -167,7 +167,7 @@ To create a run configuration:
     Azure ML: Save and Continue
     ```
 
-The *MNIST-rc* run configuration is added under the *TeamWkspc-com* compute node.
+The `MNIST-rc` run configuration is added under the *TeamWkspc-com* compute node.
 
 ## Train the model
 
@@ -190,7 +190,7 @@ To run an Azure Machine Learning experiment:
 
     ![Track experiment progress](./media/tutorial-train-deploy-image-classification-model-vscode/track-experiment-progress.png)
 
-When the model is done training, the label next to the run node should say "Completed".
+When the model is done training, the status label next to the run node updates to "Completed".
 
 ## Register the model
 
@@ -211,8 +211,8 @@ To register your model:
     ![Register a model](./media/tutorial-train-deploy-image-classification-model-vscode/register-model.png)
 
 1. On the command palette, name your model "MNIST-TensorFlow-model" and press **Enter**.
-1. A TensorFlow model is made up of several files. Select *Model folder* as the model path format in the command palette. 
-1. Select the *azureml_outputs/Run_1/outputs/Run_1/outputs/outputs/model* directory.
+1. A TensorFlow model is made up of several files. Select **Model folder** as the model path format in the command palette. 
+1. Select the `azureml_outputs/Run_1/outputs/Run_1/outputs/outputs/model` directory.
 
     A file containing your model configurations appears in Visual Studio Code with similar content to the one below:
 
@@ -255,8 +255,8 @@ To deploy a web service as an ACI :
 
 1. On the command palette, select **Azure Container Instances**.
 1. Name your service "mnist-tensorflow-svc" and press **Enter** in the command palette.
-1. Choose the script to run in the container by pressing **Enter** in the command palette and browsing for the *score.py* file in the *mnist-vscode-docs-sample* directory.
-1. Provide the dependencies needed to run the script by pressing **Enter** in the command palette and browsing for the *env.yml* file in the *mnist-vscode-docs-sample* directory.
+1. Choose the script to run in the container by pressing **Enter** in the command palette and browsing for the `score.py` file in the `mnist-vscode-docs-sample` directory.
+1. Provide the dependencies needed to run the script by pressing **Enter** in the command palette and browsing for the `env.yml` file in the `mnist-vscode-docs-sample` directory.
 
     A file containing your model configurations appears in Visual Studio Code with similar content to the one below:
 

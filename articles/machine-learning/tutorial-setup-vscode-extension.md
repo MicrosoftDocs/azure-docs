@@ -8,7 +8,7 @@ ms.subservice: core
 ms.topic: tutorial
 author: luisquintanilla
 ms.author: luquinta
-ms.date: 01/08/2019
+ms.date: 01/11/2019
 #Customer intent: As a professional data scientist, I want to learn how to get started with the Azure Machine Learning Visual Studio Code Extension.
 ---
 
@@ -26,7 +26,7 @@ In this tutorial, you learn the following tasks:
 ## Prerequisites
 
 - Azure subscription. If you don't have one, sign up to try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree).
-- Install [Visual Studio Code](https://code.visualstudio.com/docs/setup/setup-overview), a lightweight, cross-platform code editor.
+- Install [Visual Studio Code](https://code.visualstudio.com/docs/setup/setup-overview), a lightweight, cross-platform code editor. 
 
 ## Install the extension
 
@@ -38,6 +38,8 @@ In this tutorial, you learn the following tasks:
 > [!NOTE]
 > Alternatively, you can install the Azure Machine Learning extension via the Visual Studio Marketplace by [downloading the installer directly](https://aka.ms/vscodetoolsforai). 
 
+The rest of the steps in this tutorial have been tested with **version 0.6.8** of the extension.
+
 ## Sign in to your Azure Account
 
 In order to provision resources and run workloads on Azure, you have to sign in with your Azure account credentials. To assist with account management, Azure Machine Learning automatically installs the Azure Account extension. Visit the following site to [learn more about the Azure Account extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account).
@@ -47,10 +49,10 @@ In order to provision resources and run workloads on Azure, you have to sign in 
 
 ## Run a script in Azure
 
-Now that you have signed into Azure with your account credentials, it's time to run a script to test whether your local Visual Studio Code environment is set up correctly.
+Now that you have signed into Azure with your account credentials, Use the steps in this section to learn how to use the extension to train a machine learning model.
 
 1. Download and unzip the [VS Code Tools for AI repository](https://github.com/microsoft/vscode-tools-for-ai/archive/master.zip) anywhere on your computer.
-1. Open the *mnist-vscode-docs-sample* directory in Visual Studio Code.
+1. Open the `mnist-vscode-docs-sample` directory in Visual Studio Code.
 1. Select the **Azure** icon in the Activity Bar.
 1. Select the **Run Experiment** icon at the top of the Azure Machine Learning View.
 
@@ -61,14 +63,14 @@ Now that you have signed into Azure with your account credentials, it's time to 
     1. Select your Azure subscription.
     1. Select **Create a new Azure ML workspace**
     1. Select the **TensorFlow Single-Node Training** job type.
-    1. Enter *train.py* as the script to train.
+    1. Enter `train.py` as the script to train. This is the file that contains code to a machine learning model that categorize images of handwritten digits.
     1. Specify the following packages as requirements to run.
 
         ```text
         pip: azureml-defaults; conda: python=3.6.2, tensorflow=1.15.0
         ```
 
-1. At this point, a configuration file similar to the one below should open in the editor window.
+1. At this point, a configuration file similar to the one below appears in the text editor. The configuration contains the information required to run the training job like the file that contains the code to train the model and any Python dependencies specified in the previous step.
 
     ```json
     {
@@ -93,8 +95,8 @@ Now that you have signed into Azure with your account credentials, it's time to 
     }
     ```
 
-1. Select **Submit experiment** to run your experiment in Azure.
-1. After a few minutes, if successful, a directory called *output* is created locally containing a trained TensorFlow model.
+1. Select **Submit experiment** to run your experiment in Azure. This sends the `train.py` and configuration file to your Azure Machine Learning workspace. The training job is then started on a compute resource in Azure.
+1. After several minutes, a directory called `output` is created locally containing a trained TensorFlow model.
 
 ## Next steps
 
