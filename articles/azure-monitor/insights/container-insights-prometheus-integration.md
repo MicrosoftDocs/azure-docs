@@ -191,9 +191,9 @@ The configuration change can take a few minutes to finish before taking effect, 
 
 To verify the configuration was successfully applied to a cluster, use the following command to review the logs from an agent pod: `kubectl logs omsagent-fdf58 -n=kube-system`. 
 
-    >[!NOTE]
-    >This command is not applicable to Azure Red Hat OpenShift cluster.
-    > 
+>[!NOTE]
+>This command is not applicable to Azure Red Hat OpenShift cluster.
+> 
 
 If there are configuration errors from the omsagent pods, the output will show errors similar to the following:
 
