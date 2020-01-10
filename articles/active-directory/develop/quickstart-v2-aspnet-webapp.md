@@ -75,7 +75,7 @@ In this quickstart, you use a code sample to learn how an ASP.NET web app to sig
 > We have configured your project with values of your app's properties. 
 
 > [!div renderon="docs"]
-> #### Step 4: Run your Visual Studio project
+> #### Step 3: Run your Visual Studio project
 
 1. Extract the zip file to a local folder closer to the root folder - for example, **C:\Azure-Samples**
 1. Open the solution in Visual Studio (AppModelv2-WebApp-OpenIDConnect-DotNet.sln)
@@ -101,7 +101,7 @@ In this quickstart, you use a code sample to learn how an ASP.NET web app to sig
 
 > [!div class="sxs-lookup" renderon="portal"]
 > > [!NOTE]
-> > This quickstart supports Enter_the_Supported_Account_Info_Here.	
+> > Enter_the_Supported_Account_Info_Here
 
 ## More information
 
