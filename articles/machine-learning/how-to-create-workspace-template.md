@@ -105,7 +105,13 @@ az group deployment create \
 
 For more information, see [Deploy resources with Resource Manager templates and Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md) and [Deploy private Resource Manager template with SAS token and Azure CLI](../azure-resource-manager/secure-template-with-sas-token.md).
 
-## Azure Key Vault access policy and Azure Resource Manager templates
+## Troubleshooting
+
+### Resource provider errors
+
+[!INCLUDE [machine-learning-resource-provider](../../includes/machine-learning-resource-provider.md)]
+
+### Azure Key Vault access policy and Azure Resource Manager templates
 
 When you use an Azure Resource Manager template to create the workspace and associated resources (including Azure Key Vault), multiple times. For example, using the template multiple times with the same parameters as part of a continuous integration and deployment pipeline.
 
@@ -197,8 +203,6 @@ To avoid this problem, we recommend one of the following approaches:
     ```text
     /subscriptions/{subscription-guid}/resourceGroups/myresourcegroup/providers/Microsoft.KeyVault/vaults/mykeyvault
     ```
-
-
 
 ## Next steps
 
