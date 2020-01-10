@@ -95,10 +95,6 @@ After setting up the hardware and connecting the sync out jack of the master to 
 
 When Master Azure Kinect Device is started, the synchronized image from both of the Azure Kinect devices should appear.
 
-A few things to remember:
-
-
-
 ### Avoiding multi-device depth interference
 
 It is important to understand how to set up your Azure Kinect DK devices to avoid depth interference. 
@@ -129,3 +125,4 @@ In order to trigger multiple Azure Kinect DK devices by an external device and c
 - The below plugs can be used with Kinect DK, and all sleeves and rings are shorted together inside Kinect DK and they are connected to ground of master Kinect DK. Tip is the sync signal.
 
 ![Camera trigger signal externally](./media/resources/camera-trigger-signal.jpg)
+
