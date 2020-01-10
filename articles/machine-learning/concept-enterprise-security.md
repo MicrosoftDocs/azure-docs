@@ -103,11 +103,15 @@ For more information, see [How to run experiments and inference in a virtual net
 
 ### Encryption at rest
 
+> [!IMPORTANT]
+> If your workspace contains sensitive data we recommend setting the phbi_workspace flag](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-) while creating your workspace. This controls the amount of data Microsoft collects for diagnostic purposes and enables encryption in Microsoft managed envrionments.
+
+
 #### Azure Blob storage
 
 Azure Machine Learning stores snapshots, output, and logs in the Azure Blob storage account that's tied to the Azure Machine Learning workspace and your subscription. All the data stored in Azure Blob storage is encrypted at rest with Microsoft-managed keys.
 
-For information on how to use your own keys for data stored in Azure Blob storage, see [Azure Storage encryption with customer-managed keys in Azure Key Vault](https://docs.microsoft.com/azure/storage/common/storage-service-encryption-customer-managed-keys).
+For information on how to use your own keys for data stored in Azure Blob storage, see [Azure Storage encryption with customer-managed keys in Azure Key Vault](../storage/common/storage-encryption-keys-portal.md).
 
 Training data is typically also stored in Azure Blob storage so that it's accessible to training compute targets. This storage isn't managed by Azure Machine Learning but mounted to compute targets as a remote file system.
 
@@ -132,20 +136,18 @@ To enable provisioning a Cosmos DB instance in your subscription with customer-m
 
 * Use the following parameters when creating the Azure Machine Learning workspace. Both parameters are mandatory and supported in SDK, CLI, REST APIs, and Resource Manager templates.
 
-    * `resource_cmk_uri`: This parameter is the full resource URI of the customer managed key in your key vault, including the version information for the key. 
+    * `resource_cmk_uri`: This parameter is the full resource URI of the customer managed key in your key vault, including the [version information for the key](../key-vault/about-keys-secrets-and-certificates.md#objects-identifiers-and-versioning). 
 
     * `cmk_keyvault`: This parameter is the resource ID of the key vault in your subscription. This key vault needs to be in the same region and subscription that you will use for the Azure Machine Learning workspace. 
     
         > [!NOTE]
-        > This key vault instance can be different than the key vault that is created by Azure Machine Learning when you provision the workspace. If you want to use the same key vault instance for the workspace, pass the same key vault while provisioning the workspace by using the key_vault parameter. 
+        > This key vault instance can be different than the key vault that is created by Azure Machine Learning when you provision the workspace. If you want to use the same key vault instance for the workspace, pass the same key vault while provisioning the workspace by using the [key_vault parameter](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-). 
 
 This Cosmos DB instance is created in a Microsoft-managed resource group in your subscription. 
 
 > [!IMPORTANT]
 > * If you need to delete this Cosmos DB instance, you must delete the Azure Machine Learning workspace that uses it. 
-> * The default __Request Units__ for this Cosmos DB account is set at __8000__. Changing this value is unsupported. 
-> * Key rotation is not supported for this resource.  
-> * Revocation of access only removes read access of data, not the management of the data by the Cosmos DB service.
+> * The default [__Request Units__](../cosmos-db/request-units.md) for this Cosmos DB account is set at __8000__. Changing this value is unsupported. 
 
 For more details on encryption of a Cosmos DB instance using customer-managed keys, read LINK TBD.
 
@@ -153,7 +155,7 @@ For more details on encryption of a Cosmos DB instance using customer-managed ke
 
 All container images in your registry (Azure Container Registry) are encrypted at rest. Azure automatically encrypts an image before storing it and decrypts it when Azure Machine Learning pulls the image.
 
-To use your own (customer-managed) keys to encrypt your Azure Container Registry, you need to create your own ACR and attach it while provisioning the workspace.
+To use your own (customer-managed) keys to encrypt your Azure Container Registry, you need to create your own ACR and attach it while provisioning the workspace or encrypt the default instance that gets created at the time of workspace provisioning.
 
 For an example of creating a workspace using an existing Azure Container Registry, see the following articles:
 
@@ -162,7 +164,7 @@ For an example of creating a workspace using an existing Azure Container Registr
 
 #### Azure Container Instance
 
-Azure Container Instance does not support disk encryption. If you need disk encryption, we recommend deploying to an Azure Kubernetes Service instance instead. In this case, you may also want to use Azure Machine Learning’s support for role-based access controls to prevent deployments to an Azure Container Instance in your subscription.
+Azure Container Instance does not support disk encryption. If you need disk encryption, we recommend [deploying to an Azure Kubernetes Service instance](how-to-deploy-azure-kubernetes-service.md) instead. In this case, you may also want to use Azure Machine Learning’s support for role-based access controls to prevent deployments to an Azure Container Instance in your subscription.
 
 #### Azure Kubernetes Service
 
@@ -177,7 +179,7 @@ This process allows you to encrypt both the Data and the OS Disk of the deployed
 
 The OS disk for each compute node stored in Azure Storage is encrypted with Microsoft-managed keys in Azure Machine Learning storage accounts. This compute target is ephemeral, and clusters are typically scaled down when no runs are queued. The underlying virtual machine is de-provisioned, and the OS disk is deleted. Azure Disk Encryption isn't supported for the OS disk.
 
-Each virtual machine also has a local temporary disk for OS operations. If you want, you can use the disk to stage training data. The disk isn't encrypted by default. To enable encryption for this disk, raise a support ticket for the Azure Machine Learning service. This environment is ephemeral, and encryption support is limited to system-managed keys only.
+Each virtual machine also has a local temporary disk for OS operations. If you want, you can use the disk to stage training data. The disk is encrypted by default for workspaces with the `hbi_workspace` parameter set to `TRUE`. This environment is short-lived only for the duration of your run, and encryption support is limited to system-managed keys only.
 
 For more information on how encryption at rest works in Azure, see [Azure data encryption at rest](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest).
 
@@ -203,17 +205,17 @@ Each workspace has an associated system-assigned managed identity that has the s
 
 ### Microsoft collected data
 
-Microsoft may collect non-user identifying information such as Azure resource names (such as workspace name, compute cluster name, dataset name), or job environment variables for diagnostic purposes. All such data is stored using Microsoft-managed keys in storage hosted in Microsoft owned subscriptions and follows Microsoft’s standard Privacy policy.
+Microsoft may collect non-user identifying information like resource names (for example the dataset name, or the machine learning experiment name), or job environment variables for diagnostic purposes. All such data is stored using Microsoft-managed keys in storage hosted in Microsoft owned subscriptions and follows [Microsoft’s standard Privacy policy and data handling standards](https://privacy.microsoft.com/privacystatement).
 
-Microsoft also recommends not storing sensitive information (such as account key secrets) as environment variables since this information is logged, encrypted, and stored by us.
+Microsoft also recommends not storing sensitive information (such as account key secrets) in environment variables since this information is logged, encrypted, and stored by us.
 
-You may opt out from diagnostic data being collected by setting the `hbi_workspace` parameter to `TRUE` while provisioning the workspace. This functionality is supported when using the AzureML SDK, CLI, or REST APIs only.
+You may opt out from diagnostic data being collected by setting the `hbi_workspace` parameter to `TRUE` while provisioning the workspace. This functionality is supported when using the AzureML SDK, CLI, REST APIs or ARM templates.
 
-## Microsoft-generated data
+### Microsoft-generated data
 
 When using services such as Automated Machine Learning, Microsoft may generate a transient, pre-processed data for training multiple models. This data is stored in a datastore in your workspace, which allows you to enforce access controls and encryption appropriately.
 
-You may also want to encrypt diagnostic information logged from your deployed endpoint into your Azure Application Insights instance.
+You may also want to encrypt [diagnostic information logged from your deployed endpoint](how-to-enable-app-insights.md) into your Azure Application Insights instance.
 
 ## Monitoring
 
