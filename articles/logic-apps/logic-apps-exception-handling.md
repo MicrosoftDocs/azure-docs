@@ -6,7 +6,7 @@ ms.suite: integration
 author: dereklee
 ms.author: deli
 ms.reviewer: klam, estfan, logicappspm
-ms.date: 01/31/2018
+ms.date: 01/11/2020
 ms.topic: article
 ---
 
@@ -157,13 +157,13 @@ This table shows how Logic Apps generates a uniform random variable in the speci
 
 ## Catch and handle failures by changing "run after" behavior
 
-When you add actions in the Logic App Designer, you implicitly declare the order to use for running those actions. After an action finishes running, that action is marked with a status such as `Succeeded`, `Failed`, `Skipped`, or `TimedOut`. In each action definition, the `runAfter` property specifies the predecessor action that must run and that predecessor's permitted status before the successor action can run. By default, an action that you add in the designer runs only after the predecessor action finishes running with `Succeeded` status.
+When you add actions in the Logic App Designer, you implicitly declare the order to use for running those actions. After an action finishes running, that action is marked with a status such as `Succeeded`, `Failed`, `Skipped`, or `TimedOut`. In each action definition, the `runAfter` property specifies the predecessor action that must first finish and the statuses permitted for that predecessor before the successor action can run. By default, an action that you add in the designer runs only after the predecessor completes with `Succeeded` status.
 
-Whether a logic app has a single path or parallel paths (branches), a path's status is determined by the last action that's not marked as `Skipped`, but has either `Failed`, `Succeeded`, `Cancelled`, or `TimedOut` status. If an action throws an error or exception that's not handled, that action's status is marked as `Failed`, and any successor action is marked as `Skipped`. If this behavior happens in a logic app that has parallel branches, the Logic Apps engine follows the next predecessor branch until a branch ends in an action that's not marked `Skipped`. For either the single path or parallel paths, if the last action in any path is marked as `Failed`, the entire logic app run is marked as `Failed`, for example:
+When an action throws an unhandled error or exception, the action is marked `Failed`, and any successor action is marked `Skipped`. If this behavior happens for an action that has parallel branches, the Logic Apps engine follows the other branches to determine their completion statuses. For example, if a branch ends with a `Skipped` action, that branch's completion status is based on that skipped action's predecessor action. After the logic app run completes, the engine determines the entire run's status by comparing across the branches' statuses with the `AND` operation. If any branch ends as `Failed`, the entire logic app run is marked `Failed`.
 
 ![Examples that show how run statuses are evaluated](./media/logic-apps-exception-handling/status-evaluation-for-parallel-branches.png)
 
-To make sure that an action can still run despite having a predecessor that finishes with an unsuccessful status. set up the predecessor to catch all failures and handle all statuses other than `Succeeded`. To set up error handling, [customize the action's "run after" behavior](#customize-run-after).
+To make sure that an action can still run despite having a predecessor that doesn't finish successfully, [customize that action's "run after" behavior](#customize-run-after) to catch and handle the predecessor's unsuccessful statuses.
 
 <a name="customize-run-after"></a>
 
