@@ -197,7 +197,7 @@ Within *30 minutes* after you send the HTTP PUT request to create your ISE, you 
 
 1. When you're done with the **Access policies** pane, select **Save**.
 
-For more information, see [Provide Key Vault authentication with a managed identity](../key-vault/managed-identity#grant-your-app-access-to-key-vault.md).
+For more information, see [Provide Key Vault authentication with a managed identity](../key-vault/managed-identity.md#grant-your-app-access-to-key-vault).
 
 ## Next steps
 
