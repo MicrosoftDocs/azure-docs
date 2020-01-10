@@ -87,7 +87,7 @@ The script runs for several minutes as it executes the following steps:
 * Restarts the VM.
 * Creates an RDP file on your desktop for connecting to the VM.
 
-## Start a remote desktop session
+### Start a remote desktop session
 
 1. On the page for the virtual machine in the Azure portal, select **Connect**.
 
@@ -100,6 +100,17 @@ The script runs for several minutes as it executes the following steps:
 1. Provide the administrator password that you provided to create the VM and click **OK**.
 
 1. You will be prompted to accept the certificate for the VM. Select **Yes**.
+
+### Set auto-shutdown schedule
+
+To help you reduce cost, the development VM has been created with an automatic shutdown schedule that is set to 1900 PST. You may need to update this timing depending on your location and schedule. To update the shutdown
+schedule:
+
+1. In the Azure portal, navigate to the VM that the script created.
+
+1. From the left pane menu, under **Operations**, select **Auto-shutdown**.
+
+1. Enter a new shutdown time in **Scheduled shutdown** or change the **Time zone** then click **Save**.
 
 ## Install Visual Studio Code extensions
 
@@ -183,17 +194,6 @@ As part of creating the IoT hub, the script that we ran in the previous section 
 1. Note that the route’s endpoint is the **turbofanDeviceStorage** endpoint.
 
 1. Look at the **Routing query**, which is set to **true**. This means that all device telemetry messages will match this route and therefore all messages will be sent to the **turbofanDeviceStorage** endpoint.
-
-## Set auto-shutdown schedule
-
-To help you reduce cost, the development VM has been created with an automatic shutdown schedule that is set to 1900 PST. You may need to update this timing depending on your location and schedule. To update the shutdown
-schedule:
-
-1. In the Azure portal, navigate to the VM that the script created.
-
-1. From the left pane menu, under **Operations**, select **Auto-shutdown**.
-
-1. Enter a new shutdown time in **Scheduled shutdown** or change the **Time zone** then click **Save**.
 
 ## Next steps
 
