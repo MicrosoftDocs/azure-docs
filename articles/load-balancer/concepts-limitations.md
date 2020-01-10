@@ -18,13 +18,6 @@ ms.author: allensu
 ---
 # Load Balancer components and limitations
 
-Azure load balancer includes several components that make up its operation. Load balancer components can be configured using:
-
-- **[Azure Portal](https://docs.microsoft.com/azure/load-balancer/quickstart-load-balancer-standard-public-portal)**
-- **[Azure CLI](https://docs.microsoft.com/azure/load-balancer/quickstart-load-balancer-standard-public-cli)**
-- **[Azure PowerShell](https://docs.microsoft.com/azure/load-balancer/quickstart-create-standard-load-balancer-powershell)**
-- **[Template](https://docs.microsoft.com/azure/load-balancer/quickstart-load-balancer-standard-public-template)**
-
 
 ## Load Balancer components
 
