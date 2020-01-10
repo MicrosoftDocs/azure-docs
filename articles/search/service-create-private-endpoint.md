@@ -8,7 +8,7 @@ author: mrcarter8
 ms.author: mcarter
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 01/09/2020
+ms.date: 01/10/2020
 ---
 
 # Restrict access to Azure Cognitive Search using Private Endpoint and a virtual network connection.
