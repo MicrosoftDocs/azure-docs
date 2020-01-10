@@ -8,19 +8,92 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 01/02/2020
+ms.date: 01/12/2020
 ---
-# Match on patterns and special characters using whole or partial terms
+# Match on patterns and special characters (dashes)
 
-When search strings include special characters (`-, /, \, &, ?, *, =`), or when a pattern consists of one or more partial strings contained within a larger term, the default analyzer is often insufficient for producing matching tokens in your index. Assuming the following fictitious feature codes, you might want queries like `"SQL*Linux"` to get the first two documents, or `"SQL.2019"` for the last two.
+For queries that include special characters (`-, /, \, =`) or patterns based on partial terms within a larger term, custom analyzers are needed to ensure that characters or terms remain intact during indexing. By default, when indexing with the built-in standard analyzer, a phone number like "+1 (425) 703-6214" is tokenized as 
+"1", "425", "703", "6214". Searching on "3-62", partial terms with the dash, will fail because that content doesn't exist as such in the index. Likewise, wildcard and regular expression queries also need custom analyzers. Query expressions that include patterns need to evaluated against the whole term. 
 
-+ `"MSFT/SQL.2017/Linux"`
-+ `"MSFT/SQL.2019/Linux&Java-Ext"`
-+ `"MSFT/SQL.2019/Win&Java-Ext"`
+When you need to search on partial strings, special characters, or are using wildcard and RegEx queries, you can override the default analyzer with a custom analyzer that operates under different tokenization rules. Taking a step back, the approach looks like this:
 
-What makes the above terms problematic in search scenarios is the linguistic analysis that occurs during indexing and queries, where composite terms are broken into smaller parts, and characters like dashes, periods, and slashes are discarded. 
++ Choose an analyzer or tokenizer that produces the output you want
++ Optionally, define a custom analyzer in the index if you need deeper customization
++ Assign the analyzer to the field
++ Build the index and test
 
-For example, using the default analyzer, the middle term is tokenized as: `MSFT`, `SQL`, `2019`, `Linux`, `Java`, `Ext`, segmented and stripped of all characters. Given these transformations, you can imagine how searching on a pattern like `"SQL.2019"` becomes problematic when the index contains only segments of the term, and not the extended pattern that you expect.
+## Choosing an analyzer
+
+Azure Cognitive Search uses the Standard Lucene analyzer by default. You can override this analyzer on a per-field basis to get different output in the index. The following analyzers are commonly used when you want terms to remain intact during indexing:
+
+| Analyzer | Behaviors |
+|----------|-----------|
+| keyword | Content of the entire field is tokenized as a single term. |
+| whitespace | Separates on white spaces only. Terms that include dashes or other characters are treated as a single token. |
+| custom analyzer | (recommended) Add a new analyzer definition to an index that uses a tokenizer and token filter you provide. A recommended combination is the keyword tokenizer with a lower-case token filter. When used by itself, the built-in keyword analyzer does not lower-case any upper-case text, which can result in false negative query results. Creating a custom analyzer give you a mechanism for adding the filter. |
+
+To help you choose an analyzer, test each one to view the tokens it emits. Using a web API test tool like Postman, create a request that calls the [Test Analyzer REST API](https://docs.microsoft.com/rest/api/searchservice/test-analyzer), passing in the analyzer and term.  An existing service and index is required for this test.
+
+1. Start with the Standard analyzer to understand the default behavior.
+
+   ```json
+   {
+  "text": "SVP10-NOR-00",
+  "analyzer": "standard"
+  }
+   ```
+
+1. Reponse shows how the text is tokenized within the index. 
+
+  ```json
+  {
+      "tokens": [
+          {
+              "token": "svp10",
+              "startOffset": 0,
+              "endOffset": 5,
+              "position": 0
+          },
+          {
+              "token": "nor",
+              "startOffset": 6,
+              "endOffset": 9,
+              "position": 1
+          },
+          {
+              "token": "00",
+              "startOffset": 10,
+              "endOffset": 12,
+              "position": 2
+          }
+      ]
+  }
+  ```
+1. Modify the request to use the `whitespace` or `keyword` analyzer:
+
+   ```json
+   {
+  "text": "SVP10-NOR-00",
+  "analyzer": "keyword"
+  }
+   ```
+
+1. Now the response consists of a single token, with dashes preserved as a part of the string.
+
+  ```json
+  {
+
+      "tokens": [
+          {
+              "token": "SVP10-NOR-00",
+              "startOffset": 0,
+              "endOffset": 12,
+              "position": 0
+          }
+      ]
+  }
+  ```
+
 
 ## How to approach pattern matching
 
@@ -43,7 +116,7 @@ Gaining control over tokenization starts with switching out the default Standard
 
 ### Use the Keyword tokenizer to preserve whole terms
 
-If the objective is to match on patterns that contain special characters, make sure whole terms are preserved intact. The keyword tokenizer creates a single token for the entire contents of a field. You should combine it with a lowercase token filter. Query parsers typicaly lowercase any uppercase text inputs. Lowercasing homogenizes the inputs with the tokenized terms.
+If the objective is to match on patterns that contain special characters, make sure whole terms are preserved intact. The keyword tokenizer creates a single token for the entire contents of a field. You should combine it with a lowercase token filter. Query parsers typically lowercase any uppercase text inputs. Lowercasing homogenizes the inputs with the tokenized terms.
 
 The following example illustrates a custom analyzer that provides the keyword tokenizer and a lowercase token filter. Customer analyzers are defined within the index and then referenced on the field definition.
 
