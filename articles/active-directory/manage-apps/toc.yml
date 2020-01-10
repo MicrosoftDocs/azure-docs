@@ -21,6 +21,10 @@
       href: /azure/active-directory/saas-apps/
     - name: Add an on-premises app with Application Proxy
       href: application-proxy-add-on-premises-application.md
+  - name: Samples
+    items: 
+    - name: Azure PowerShell samples for Application Proxy
+      href: application-proxy-powershell-samples.md
   - name: Concepts
     expanded: true
     items: 
@@ -70,12 +74,10 @@
           href: end-user-experiences.md
     - name: Application provisioning (SCIM)
       items:
+       - name: How provisioning works
+         href: how-provisioning-works.md
        - name: Plan an automatic user provisioning deployment
          href: plan-auto-user-provisioning.md
-       - name: Automatic provisioning for SCIM-enabled apps
-         href: use-scim-to-provision-users-and-groups.md
-       - name: Manual vs. automatic provisioning 
-         href: application-provisioning-config-how-to.md
     - name: Cloud HR provisioning
       items:
        - name: Plan cloud HR user provisioning deployment
@@ -139,6 +141,8 @@
         items:
         - name: Configure user consent
           href: configure-user-consent.md
+        - name: Grant tenant-wide admin consent
+          href: grant-admin-consent.md
         - name: Configure admin consent workflow (preview)
           href: configure-admin-consent-workflow.md
         - name: Methods for assigning users and groups to an app
@@ -233,28 +237,32 @@
             href: access-panel-troubleshoot-self-service-access.md
     - name: Application provisioning (SCIM)
       items:
-      - name: Configure app provisioning
+      - name: Configure provisioning for a gallery app
+        href: configure-automatic-user-provisioning-portal.md
+      - name: Build a SCIM endpoint and configure provisioning
+        href: use-scim-to-provision-users-and-groups.md
+      - name: Edit the attribute mappings
         items:
-        - name: Configure automatic user provisioning
-          href: configure-automatic-user-provisioning-portal.md
-        - name: Use SCIM for automatic provisioning
-          href: use-scim-to-provision-users-and-groups.md
         - name: Customize attribute mappings
           href: Customize-application-attributes.md
         - name: Write expressions for attribute mappings
           href: functions-for-customizing-application-data.md
+      - name: Include or exclude users and groups from scope
+        items:
         - name: Scoping users or groups to be provisioned 
           href: define-conditional-rules-for-provisioning-user-accounts.md
         - name: Skip deletion for out-of-scope users
           href: skip-out-of-scope-deletions.md
+      - name: Monitor and report on provisioning
+        items:
         - name: Monitor provisioning status and performance
           href: application-provisioning-when-will-provisioning-finish-specific-user.md
         - name: Report on app provisioning
           href: check-status-user-account-provisioning.md
-        - name: Exporting and importing your configuration
+        - name: Export and import your configuration
           href: export-import-provisioning-configuration.md  
-        - name: Automate configuration using MS Graph
-          href: application-provisioning-configure-api.md
+      - name: Automate configuration using MS Graph
+        href: application-provisioning-configure-api.md
       - name: Troubleshoot user provisioning
         items:
         - name: Troubleshoot app provisioning

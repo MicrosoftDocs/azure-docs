@@ -1,7 +1,7 @@
 ---
-title: "Quickstart: Create a first Bing Custom Search instance | Microsoft Docs"
+title: "Quickstart: Create a first Bing Custom Search instance"
 titleSuffix: Azure Cognitive Services
-description: Use this article to create a custom Bing instance that can search domains and webpages that you define. 
+description: Use this quickstart to create a custom Bing instance that can search domains and webpages that you define. 
 services: cognitive-services
 author: aahill
 manager: nitinme

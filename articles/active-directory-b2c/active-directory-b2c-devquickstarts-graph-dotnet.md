@@ -26,9 +26,6 @@ For B2C tenants, there are two primary modes of communicating with the Graph API
 
 In this article, you learn how to perform the automated use case. You'll build a .NET 4.5 `B2CGraphClient` that performs user create, read, update, and delete (CRUD) operations. The client will have a Windows command-line interface (CLI) that allows you to invoke various methods. However, the code is written to behave in a non-interactive, automated fashion.
 
->[!IMPORTANT]
-> You **must** use the [Azure AD Graph API](../active-directory/develop/active-directory-graph-api-quickstart.md) to manage users in an Azure AD B2C directory. The Azure AD Graph API is different from the Microsoft Graph API. Learn more in this MSDN blog post: [Microsoft Graph or Azure AD Graph](https://blogs.msdn.microsoft.com/aadgraphteam/2016/07/08/microsoft-graph-or-azure-ad-graph/).
-
 ## Prerequisites
 
 Before you can create applications or users, you need an Azure AD B2C tenant. If you don't already have one, [Create an Azure Active Directory B2C tenant](tutorial-create-tenant.md).
@@ -59,8 +56,9 @@ The *Read and write directory data* permission that you granted earlier does **N
 
 If you want to give your application the ability to delete users or update passwords, you need to grant it the *User administrator* role.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) and switch to the directory that contains your Azure AD B2C tenant.
-1. Select **Azure AD B2C** in the left menu. Or, select **All services** and then search for and select **Azure AD B2C**.
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Select the **Directory + Subscription** icon in the portal toolbar, and then select the directory that contains your Azure AD B2C tenant.
+1. In the Azure portal, search for and select **Azure AD B2C**.
 1. Under **Manage**, select **Roles and administrators**.
 1. Select the **User administrator** role.
 1. Select **Add assignment**.

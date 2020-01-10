@@ -44,10 +44,7 @@ Once an Azure IR is created, you can reference it in your Linked Service definit
     "properties": {
       "type": "AzureStorage",
       "typeProperties": {
-        "connectionString": {
-          "value": "DefaultEndpointsProtocol=https;AccountName=myaccountname;AccountKey=...",
-          "type": "SecureString"
-        }
+        "connectionString": "DefaultEndpointsProtocol=https;AccountName=myaccountname;AccountKey=..."
       },
       "connectVia": {
         "referenceName": "MySampleAzureIR",

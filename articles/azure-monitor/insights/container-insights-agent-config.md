@@ -1,11 +1,7 @@
 ---
 title: Configure Azure Monitor for containers agent data collection | Microsoft Docs
 description: This article describes how you can configure the Azure Monitor for containers agent to control stdout/stderr and environment variables log collection.
-ms.service:  azure-monitor
-ms.subservice: 
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
 ms.date: 10/15/2019
 ---
 
@@ -35,6 +31,7 @@ The following are the settings that can be configured to control data collection
 |`[log_collection_settings.stderr] enabled =` |Boolean | true or false |This controls if stderr container log collection is enabled. When set to `true` and no namespaces are excluded for stdout log collection (`log_collection_settings.stderr.exclude_namespaces` setting), stderr logs will be collected from all containers across all pods/nodes in the cluster. If not specified in ConfigMaps, the default value is `enabled = true`. |
 |`[log_collection_settings.stderr] exclude_namespaces =` |String |Comma-separated array |Array of Kubernetes namespaces for which stderr logs will not be collected. This setting is effective only if `log_collection_settings.stdout.enabled` is set to `true`. If not specified in ConfigMap, the default value is `exclude_namespaces = ["kube-system"]`. |
 | `[log_collection_settings.env_var] enabled =` |Boolean | true or false | This setting controls environment variable collection across all pods/nodes in the cluster and defaults to `enabled = true` when not specified in ConfigMaps. If collection of environment variables is globally enabled, you can disable it for a specific container by setting the environment variable `AZMON_COLLECT_ENV` to **False** either with a Dockerfile setting or in the [configuration file for the Pod](https://kubernetes.io/docs/tasks/inject-data-application/define-environment-variable-container/) under the **env:** section. If collection of environment variables is globally disabled, then you cannot enable collection for a specific container (that is, the only override that can be applied at the container level is to disable collection when it's already enabled globally.). |
+| `[log_collection_settings.enrich_container_logs] enabled =` |Boolean | true or false | This setting controls container log enrichment to populate the Name and Image property values for every log record written to the ContainerLog table for all container logs in the cluster. It defaults to `enabled = false` when not specified in ConfigMap. |
 
 ConfigMaps is a global list and there can be only one ConfigMap applied to the agent. You cannot have another ConfigMaps overruling the collections.
 

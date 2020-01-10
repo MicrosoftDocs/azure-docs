@@ -51,16 +51,21 @@ Use the following command to run a performance benchmark test.
 | **Syntax** | `azcopy bench 'https://<storage-account-name>.blob.core.windows.net/<container-name>'` |
 | **Example** | `azcopy bench 'https://mystorageaccount.blob.core.windows.net/mycontainer/myBlobDirectory?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=%2FSOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B%2F3Eykf%2FJLs%3D'` |
 
+> [!TIP]
+> This example encloses path arguments with single quotes (''). Use single quotes in all command shells except for the Windows Command Shell (cmd.exe). If you're using a Windows Command Shell (cmd.exe), enclose path arguments with double quotes ("") instead of single quotes ('').
+
 This command runs a performance benchmark by uploading test data to a specified destination. The test data is generated in memory, uploaded to the destination, then deleted from the destination after the test is complete. You can specify how many files to generate and what size you'd like them to be by using optional command parameters.
+
+For detailed reference docs, see [azcopy bench](storage-ref-azcopy-bench.md).
 
 To view detailed help guidance for this command, type `azcopy bench -h` and then press the ENTER key.
 
 ### Optimize throughput
 
-You can use the `cap-mbps` flag to place a ceiling on the throughput data rate. For example, the following command caps throughput to `10` megabits (MB) per second.
+You can use the `cap-mbps` flag in your commands to place a ceiling on the throughput data rate. For example, the following command resumes a job and caps throughput to `10` megabits (MB) per second. 
 
 ```azcopy
-azcopy --cap-mbps 10
+azcopy jobs resume <job-id> --cap-mbps 10
 ```
 
 Throughput can decrease when transferring small files. You can you can increase throughput by setting the `AZCOPY_CONCURRENCY_VALUE` environment variable. This variable specifies the number of concurrent requests that can occur.  
@@ -141,6 +146,9 @@ Use the following command to resume a failed/canceled job. This command uses its
 azcopy jobs resume <job-id> --source-sas="<sas-token>"
 azcopy jobs resume <job-id> --destination-sas="<sas-token>"
 ```
+
+> [!TIP]
+> Enclose path arguments such as the SAS token with single quotes (''). Use single quotes in all command shells except for the Windows Command Shell (cmd.exe). If you're using a Windows Command Shell (cmd.exe), enclose path arguments with double quotes ("") instead of single quotes ('').
 
 When you resume a job, AzCopy looks at the job plan file. The plan file lists all the files that were identified for processing when the job was first created. When you resume a job, AzCopy will attempt to transfer all of the files that are listed in the plan file which weren't already transferred.
 

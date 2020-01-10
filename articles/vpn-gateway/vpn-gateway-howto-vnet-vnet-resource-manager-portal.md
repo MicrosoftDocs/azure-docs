@@ -1,5 +1,5 @@
 ---
-title: Configure a VNet-to-VNet VPN gateway connection by using the Azure portal | Microsoft Docs
+title: 'Configure a VNet-to-VNet VPN Gateway connection: Azure portal'
 description: Create a VPN gateway connection between VNets by using Resource Manager and the Azure portal.
 services: vpn-gateway
 author: cherylmc

@@ -29,7 +29,7 @@ Here's the continuation of the example code shown in [Protected web API calls we
 
 Once you acquired the token, use it as a bearer token to call the downstream API.
 
-```CSharp
+```csharp
 private async Task GetTodoList(bool isAppStarting)
 {
  ...

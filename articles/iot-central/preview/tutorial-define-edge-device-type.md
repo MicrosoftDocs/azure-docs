@@ -395,4 +395,4 @@ In this tutorial, you learned how to:
 Now that you've created a device template in your Azure IoT Central application, you can do this next:
 
 > [!div class="nextstepaction"]
-> [Connect device](./tutorial-connect-pnp-device.md)
+> [Connect edge device](./tutorial-add-edge-as-leaf-device.md)

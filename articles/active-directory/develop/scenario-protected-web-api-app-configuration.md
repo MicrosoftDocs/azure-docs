@@ -40,7 +40,7 @@ The information about the identity of the app, and about the user (unless the we
 
 Here's a C# code example that shows a client calling the API after it acquires a token with Microsoft Authentication Library for .NET (MSAL.NET):
 
-```CSharp
+```csharp
 var scopes = new[] {$"api://.../access_as_user}";
 var result = await app.AcquireToken(scopes)
                       .ExecuteAsync();
@@ -93,19 +93,19 @@ When an app is called on a controller action that holds an `[Authorize]` attribu
 
 In ASP.NET Core, this middleware is initialized in the Startup.cs file:
 
-```CSharp
+```csharp
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 ```
 
 The middleware is added to the web API by this instruction:
 
-```CSharp
+```csharp
  services.AddAzureAdBearer(options => Configuration.Bind("AzureAd", options));
 ```
 
  Currently, the ASP.NET Core templates create Azure Active Directory (Azure AD) web APIs that sign in users within your organization or any organization, not with personal accounts. But you can easily change them to use the Microsoft identity platform endpoint by adding this code to the Startup.cs file:
 
-```CSharp
+```csharp
 services.Configure<JwtBearerOptions>(AzureADDefaults.JwtBearerAuthenticationScheme, options =>
 {
     // This is a Microsoft identity platform web API.

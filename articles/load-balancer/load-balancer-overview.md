@@ -68,7 +68,7 @@ Load Balancer supports both Basic and Standard SKUs. These SKUs differ in scenar
 The complete scenario configuration might differ slightly depending on SKU. Load Balancer documentation calls out when an article applies only to a specific SKU. To compare and understand the differences, see the following table. For more information, see [Azure Standard Load Balancer overview](load-balancer-standard-overview.md).
 
 >[!NOTE]
-> Microsoft reccomends Standard Load Balancer.
+> Microsoft recommends Standard Load Balancer.
 Standalone VMs, availability sets, and virtual machine scale sets can be connected to only one SKU, never both. Load Balancer and the public IP address SKU must match when you use them with public IP addresses. Load Balancer and public IP SKUs aren't mutable.
 
 [!INCLUDE [comparison table](../../includes/load-balancer-comparison-table.md)]

@@ -1,18 +1,9 @@
 ---
 title: Setup Azure Monitor for containers Live Data (preview) | Microsoft Docs
 description: This article describes how to setup the real-time view of container logs (stdout/stderr) and events without using kubectl with Azure Monitor for containers.
-services: azure-monitor
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: 
-ms.assetid: 
-ms.service: azure-monitor
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 10/16/2019
-ms.author: magoedte
+
 ---
 
 # How to setup the Live Data (preview) feature

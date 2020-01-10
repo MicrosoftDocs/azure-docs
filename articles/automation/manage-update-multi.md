@@ -2,13 +2,9 @@
 title: Manage updates for multiple Azure virtual machines
 description: This article describes how to manage updates for Azure and non-Azure virtual machines.
 services: automation
-ms.service: automation
 ms.subservice: update-management
-author: mgoedtel
-ms.author: magoedte
 ms.date: 11/20/2019
 ms.topic: conceptual
-manager: carmonm
 ---
 # Manage updates for multiple machines
 

@@ -220,7 +220,7 @@ The transact requirements for different offer types are covered in this section.
 - A Microsoft account and financial information are required for the transact publishing option, regardless of the offer's pricing model.
 - Mandatory financial information includes payout account and tax profile.
 
-For more information on setting up these accounts, see [Manage Your Partner Center Account](https://docs.microsoft.com/azure/marketplace/partner-center-portal/manage-account#financial-details).
+For more information on setting up these accounts, see [Manage Your Partner Center Account](https://docs.microsoft.com/azure/marketplace/partner-center-portal/manage-account)).
 
 
 ### Requirements for specific offer types

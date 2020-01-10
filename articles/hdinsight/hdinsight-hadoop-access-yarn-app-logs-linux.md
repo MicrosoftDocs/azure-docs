@@ -62,7 +62,7 @@ Specify the &lt;applicationId>, &lt;user-who-started-the-application>, &lt;conta
 
 The YARN ResourceManager UI runs on the cluster headnode. It's accessed through the Ambari web UI. Use the following steps to view the YARN logs:
 
-1. In your web browser, navigate to https://CLUSTERNAME.azurehdinsight.net. Replace CLUSTERNAME with the name of your HDInsight cluster.
+1. In your web browser, navigate to `https://CLUSTERNAME.azurehdinsight.net`. Replace CLUSTERNAME with the name of your HDInsight cluster.
 2. From the list of services on the left, select **YARN**.
 
     ![Apache Ambari Yarn service selected](./media/hdinsight-hadoop-access-yarn-app-logs-linux/yarn-service-selected.png)

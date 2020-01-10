@@ -36,6 +36,14 @@
     href: tutorial-backup-windows-server-to-azure.md
   - name: Restore files to Windows Server
     href: tutorial-backup-restore-files-windows-server.md
+  - name: SAP HANA databases on Azure VMs – using CLI
+    items:
+       - name: Backup SAP HANA databases - CLI  
+         href: tutorial-sap-hana-backup-cli.md
+       - name: Restore SAP HANA databases - CLI
+         href: tutorial-sap-hana-restore-cli.md
+       - name: Manage backed up SAP HANA databases - CLI 
+         href: tutorial-sap-hana-manage-cli.md
 - name: Samples
   items:
   - name: Azure PowerShell
@@ -244,6 +252,8 @@
       href: manage-monitor-sql-database-backup.md
   - name: SAP HANA databases on Azure VMs
     items:
+    - name: About SAP HANA Backup on Azure VMs  
+      href: sap-hana-db-about.md
     - name: Back up SAP HANA databases on Azure VMs
       href: backup-azure-sap-hana-database.md
     - name: Restore SAP HANA databases in Azure VMs

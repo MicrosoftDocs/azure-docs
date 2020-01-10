@@ -2,7 +2,7 @@
 title: Troubleshoot backup errors with Azure VMs
 description: In this article, learn how to troubleshoot errors encountered with backup and restore of Azure virtual machines.
 ms.reviewer: srinathv
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 08/30/2019
 ---
 
@@ -56,7 +56,6 @@ The backup operation failed because the VM is in Failed state. For a successful 
 Error code: UserErrorFsFreezeFailed <br/>
 Error message: Failed to freeze one or more mount-points of the VM to take a file-system consistent snapshot.
 
-* Check the file system state of all mounted devices using the **tune2fs** command, for example **tune2fs -l /dev/sdb1 \\**.\| grep **Filesystem state**.
 * Unmount the devices for which the file system state was not cleaned, using the **umount** command.
 * Run a file system consistency check on these devices by using the **fsck** command.
 * Mount the devices again and retry backup operation.</ol>
@@ -179,7 +178,6 @@ This will ensure the snapshots are taken through host instead of Guest. Retry th
 | Error details | Workaround |
 | ------ | --- |
 | **Error code**: 320001, ResourceNotFound <br/> **Error message**: Could not perform the operation as VM no longer exists. <br/> <br/> **Error code**: 400094, BCMV2VMNotFound <br/> **Error message**: The virtual machine doesn't exist <br/> <br/>  An Azure virtual machine wasn't found.  |This error happens when the primary VM is deleted, but the backup policy still looks for a VM to back up. To fix this error, take the following steps: <ol><li> Re-create the virtual machine with the same name and same resource group name, **cloud service name**,<br>**or**</li><li> Stop protecting the virtual machine with or without deleting the backup data. For more information, see [Stop protecting virtual machines](backup-azure-manage-vms.md#stop-protecting-a-vm).</li></ol>|
-| **Error code**: UserErrorVmProvisioningStateFailed<br/> **Error message**: The VM is in failed provisioning state: <br>Restart the VM and make sure the VM is running or shut down. | This error occurs when one of the extension failures puts the VM into failed provisioning state. Go to the extensions list, check if there's a failed extension, remove it, and try restarting the virtual machine. If all extensions are in running state, check if the VM Agent service is running. If not, restart the VM Agent service. |
 |**Error code**: UserErrorBCMPremiumStorageQuotaError<br/> **Error message**: Could not copy the snapshot of the virtual machine, due to insufficient free space in the storage account | For premium VMs on VM backup stack V1, we copy the snapshot to the storage account. This step makes sure that backup management traffic, which works on the snapshot, doesn't limit the number of IOPS available to the application using premium disks. <br><br>We recommend that you allocate only 50 percent, 17.5 TB, of the total storage account space. Then the Azure Backup service can copy the snapshot to the storage account and transfer data from this copied location in the storage account to the vault. |
 | **Error code**: 380008, AzureVmOffline <br/> **Error message**: Failed to install Microsoft Recovery Services extension as virtual machine  is not running | The VM Agent is a prerequisite for the Azure Recovery Services extension. Install the Azure Virtual Machine Agent and restart the registration operation. <br> <ol> <li>Check if the VM Agent is installed correctly. <li>Make sure that the flag on the VM config is set correctly.</ol> Read more about installing the VM Agent and how to validate the VM Agent installation. |
 | **Error code**: ExtensionSnapshotBitlockerError <br/> **Error message**: The snapshot operation failed with the Volume Shadow Copy Service (VSS) operation error **This drive is locked by BitLocker Drive Encryption. You must unlock this drive from the Control Panel.** |Turn off BitLocker for all drives on the VM and check if the VSS issue is resolved. |

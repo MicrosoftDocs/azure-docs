@@ -1,6 +1,6 @@
 ---
-title: Add and run code snippets
-description: Add and run code snippets with inline code in Azure Logic Apps
+title: Add and run code snippets by using inline code
+description: Learn how to create and run code snippets by using inline code actions for automated tasks and workflows that you create with Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 ms.reviewer: deli, logicappspm

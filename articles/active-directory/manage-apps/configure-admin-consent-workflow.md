@@ -149,8 +149,10 @@ If you're concerned about granting admin consent and allowing all users in the t
 
 For more information on consenting to applications, see [Azure Active Directory consent framework](../develop/consent-framework.md).
 
-[Consent and Integrating Apps to AzureAD](../develop/quickstart-v1-integrate-apps-with-azure-ad.md)
+[Configure how end-users consent to applications](configure-user-consent.md)
 
-[Consent and Permissioning for AzureAD v2.0 converged Apps](../develop/active-directory-v2-scopes.md)
+[Grant tenant-wide admin consent to an application](grant-admin-consent.md)
 
-[AzureAD StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)
+[Permissions and consent in the Microsoft identity platform](../develop/active-directory-v2-scopes.md)
+
+[Azure AD on StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)

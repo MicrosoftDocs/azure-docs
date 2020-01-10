@@ -25,7 +25,7 @@ ms.custom: H1Hack27Feb2017
 > The samples in this article use parameters and variables that are either required or common to management solutions and described in [Design and build a management solution in Azure](solutions-creating.md)
 
 ## Prerequisites
-This article assumes that you're already familiar with how to [create a management solution](solutions-creating.md) and the structure of a [Resource Manager template](../../azure-resource-manager/resource-group-authoring-templates.md) and solution file.
+This article assumes that you're already familiar with how to [create a management solution](solutions-creating.md) and the structure of a [Resource Manager template](../../azure-resource-manager/templates/template-syntax.md) and solution file.
 
 
 ## Log Analytics Workspace

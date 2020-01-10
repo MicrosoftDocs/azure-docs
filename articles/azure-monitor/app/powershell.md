@@ -160,7 +160,8 @@ Create a new .json file - let's call it `template1.json` in this example. Copy t
                 "location": "[parameters('appLocation')]",
                 "tags": {},
                 "properties": {
-                    "ApplicationId": "[parameters('appName')]"
+                    "ApplicationId": "[parameters('appName')]",
+                    "retentionInDays": "[parameters('retentionInDays')]"
                 },
                 "dependsOn": []
             },
@@ -174,7 +175,6 @@ Create a new .json file - let's call it `template1.json` in this example. Copy t
                 ],
                 "properties": {
                     "CurrentBillingFeatures": "[variables('pricePlan')]",
-                    "retentionInDays": "[parameters('retentionInDays')]",
                     "DataVolumeCap": {
                         "Cap": "[parameters('dailyQuota')]",
                         "WarningThreshold": "[parameters('warningThreshold')]",
@@ -390,7 +390,7 @@ To automate the creation of any other resource of any kind, create an example ma
     `"apiVersion": "2015-05-01",`
 
 ### Parameterize the template
-Now you have to replace the specific names with parameters. To [parameterize a template](../../azure-resource-manager/resource-group-authoring-templates.md), you write expressions using a [set of helper functions](../../azure-resource-manager/resource-group-template-functions.md). 
+Now you have to replace the specific names with parameters. To [parameterize a template](../../azure-resource-manager/templates/template-syntax.md), you write expressions using a [set of helper functions](../../azure-resource-manager/resource-group-template-functions.md). 
 
 You can't parameterize just part of a string, so use `concat()` to build strings.
 

@@ -1,6 +1,6 @@
 ---
-title: "Quickstart: Computer Vision client library for Python | Microsoft Docs"
-description: Get started with the Computer Vision client library for Python.
+title: "Quickstart: Computer Vision client library for Python"
+description: Get started with the Computer Vision client library for Python with this quickstart.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme

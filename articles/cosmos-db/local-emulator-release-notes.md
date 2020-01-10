@@ -21,6 +21,10 @@ This article shows the Azure Cosmos emulator release notes with a list of featur
 
 ## Release notes
 
+### 2.7.2
+
+- This release adds MongoDB version 3.6 server support to the Cosmos Emulator. To start a MongoDB endpoint that target version 3.6 of the service, start the emulator from an Administrator command line with "/EnableMongoDBEndpoint=3.6" option.
+
 ### 2.7.0
 
 - This release fixes a regression which prevented users from executing queries against the SQL API account from the emulator when using .NET core or x86 .NET based clients.

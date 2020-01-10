@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: C# SDK query prediction endpoint - LUIS"
 titleSuffix: Azure Cognitive Services
-description: This article will show you how to use the C# SDK to send a user utterance to the Azure Cognitive Services LUIS application and receive a prediction.
+description: This quickstart will show you how to use the C# SDK to send a user utterance to the Azure Cognitive Services LUIS application and receive a prediction.
 author: diberry
 manager: nitinme
 ms.service: cognitive-services
@@ -116,7 +116,7 @@ The Language Understanding (LUIS) prediction runtime client is a [LUISRuntimeCli
 
 Once the client is created, use this client to access functionality including:
 
-* Prediction by [staging or product slot]((https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.runtime.predictionoperationsextensions.getslotpredictionasync?view=azure-dotnet))
+* Prediction by [staging or product slot](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.runtime.predictionoperationsextensions.getslotpredictionasync?view=azure-dotnet)
 * Prediction by [version](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.runtime.predictionoperationsextensions.getversionpredictionasync?view=azure-dotnet)
 
 

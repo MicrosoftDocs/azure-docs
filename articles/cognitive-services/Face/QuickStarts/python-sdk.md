@@ -1,6 +1,6 @@
 ---
-title: "Quickstart: Face client library for Python | Microsoft Docs"
-description: This article will help you get started with the Face client library for Python to detect, find similar, identify, verify and more.
+title: "Quickstart: Face client library for Python"
+description: This quickstart will help you get started with the Face client library for Python to detect, find similar, identify, verify and more.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -148,7 +148,7 @@ Once you've set up your images, define a label at the top of your script for the
 
 [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_persongroupvars)]
 
-Then add the following code to the bottom of your script. This code creates a **PersongGroup** and three **Person** objects.
+Then add the following code to the bottom of your script. This code creates a **PersonGroup** and three **Person** objects.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_persongroup_create)]
 

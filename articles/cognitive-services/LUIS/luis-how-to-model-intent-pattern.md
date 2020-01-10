@@ -22,7 +22,27 @@ After a LUIS app receives endpoint utterances, use a [pattern](luis-concept-patt
 > [!CAUTION]
 > Patterns only include machine-learned entity parents, not subcomponents.
 
-## Add template utterance to create pattern
+## Adding example utterances as pattern
+
+If you want to add a pattern for an entity, the _easiest_ way is to create the pattern from the Intent details page. This ensures your syntax matches the example utterance.
+
+1. In the [preview LUIS portal](https://preview.luis.ai), select the app from the **My Apps** page.
+1. On the **Intents** list page, select the intent name of the example utterance you want to create a template utterance from.
+1. On the Intent details page, select the row for the example utterance you want to use as the template utterance, then select **+ Add as pattern** from the context toolbar.
+
+    > [!div class="mx-imgBorder"]
+    > ![Screenshot of selecting example utterance as a template pattern on the Intent details page.](./media/luis-how-to-model-intent-pattern/add-example-utterances-as-pattern-template-utterance-from-intent-detail-page.png)
+
+1. In the pop-up box, select **Done** on the **Confirm patterns** page. You don't need to define the entities' subcomponents, constraints, or descriptors. You only need to list the machine-learned entity.
+
+    > [!div class="mx-imgBorder"]
+    > ![Screenshot of confirming example utterance as a template pattern on the Intent details page.](./media/luis-how-to-model-intent-pattern/confirm-patterns-from-example-utterance-intent-detail-page.png)
+
+1. If you need to edit the template, such as selecting text as optional, with the `[]` (square) brackets, you need to make this edit form the **Patterns** page.
+
+1. In the navigation bar, select **Train** to train the app with the new pattern.
+
+## Add template utterance using correct syntax
 
 1. Open your app by selecting its name on **My Apps** page, and then select **Patterns** in the left panel, under **Improve app performance**.
 

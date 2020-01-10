@@ -193,7 +193,7 @@
 - name: Related
   items:
   - name: Azure Machine Learning
-    href: ../service/
+    href: ../
   - name: Azure AI Gallery
     href: https://gallery.azure.ai
   - name: Cortana Analytics

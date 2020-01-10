@@ -38,7 +38,7 @@ Here is a simplified code of the action of the `HomeController`. This code gets 
 }
 ```
 
-```CSharp
+```csharp
 public async Task<IActionResult> Profile()
 {
  var application = BuildConfidentialClientApplication(HttpContext, HttpContext.User);

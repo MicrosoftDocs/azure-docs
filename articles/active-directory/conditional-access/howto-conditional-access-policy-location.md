@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 12/03/2019
+ms.date: 12/12/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -55,5 +55,7 @@ More information about the location condition in Conditional Access can be found
 ## Next steps
 
 [Conditional Access common policies](concept-conditional-access-policy-common.md)
+
+[Determine impact using Conditional Access report-only mode](howto-conditional-access-report-only.md)
 
 [Simulate sign in behavior using the Conditional Access What If tool](troubleshoot-conditional-access-what-if.md)
