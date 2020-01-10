@@ -217,11 +217,9 @@ Errors related to applying configuration changes are also available for review. 
 
 - From the **KubeMonAgentEvents** table in your Log Analytics workspace. Data is sent every hour with *Warning* severity for scrape errors and *Error* severity for configuration errors. If there are no errors, the entry in the table will have data with severity *Info*, which reports no errors. The **Tags** property contains more information about the pod and container ID on which the error occurred and also the first occurrence, last occurrence, and count in the last hour.
 
-Errors prevent omsagent from parsing the file, causing it to restart and use the default configuration. After you correct the error(s) in ConfigMap on clusters other than Azure Red Hat OpenShift, save the yaml file and apply the updated ConfigMaps by running the command: `kubectl apply -f <configmap_yaml_file.yaml`. For Azure Red Hat OpenShift, edit and save the updated ConfigMaps by running the command:
+Errors prevent omsagent from parsing the file, causing it to restart and use the default configuration. After you correct the error(s) in ConfigMap on clusters other than Azure Red Hat OpenShift, save the yaml file and apply the updated ConfigMaps by running the command: `kubectl apply -f <configmap_yaml_file.yaml`. 
 
-``` bash
-oc edit configmaps container-azm-ms-agentconfig -n openshift-azure-logging
-```
+For Azure Red Hat OpenShift, edit and save the updated ConfigMaps by running the command: `oc edit configmaps container-azm-ms-agentconfig -n openshift-azure-logging`.
 
 ## Query Prometheus metrics data
 
