@@ -108,6 +108,7 @@ Sample code highlights include:
 - Registering the events of interest
 - Adding or removing participants to the conversation using the Conversation object
 - Streaming the audio
+- In Speech SDK version 1.9.0 and onwards both “int” and “string” value types are supported in the voice signature version field.
 
 The transcription and speaker identifier come back in the registered events.
 
