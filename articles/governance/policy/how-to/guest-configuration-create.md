@@ -80,10 +80,11 @@ the boolean is `$true` then `Get-TargetResource` isn't called.
 
 #### Configuration requirements
 
-The only requirement for Guest Configuration to use a custom configuration is for the name
-of the configuration to be consistent everywhere it is used.  This includes the name of the .zip file
-for the content package, the configuration name in the mof file stored inside the content package,
-and the configuration name used in ARM as the guest assignment name.
+The only requirement for Guest Configuration to use a custom configuration is for the name of the
+configuration to be consistent everywhere it's used. This name requirement includes the name of the
+.zip file for the content package, the configuration name in the MOF file stored inside the content
+package, and the configuration name used in a Resource Manager template as the guest assignment
+name.
 
 #### Get-TargetResource requirements
 
@@ -236,7 +237,7 @@ and not communicating with the service.
 In Azure Policy Guest Configuration, the optimal way to manage secrets used at run time is to store
 them in Azure Key Vault. This design is implemented within custom DSC resources.
 
-1. First, create a user-assigned managed identity in Azure.
+1. Create a user-assigned managed identity in Azure.
 
    The identity is used by machines to access secrets stored in Key Vault. For detailed steps, see
    [Create, list or delete a user-assigned managed identity using Azure PowerShell](../../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md).
@@ -252,12 +253,12 @@ them in Azure Key Vault. This design is implemented within custom DSC resources.
 
    For detailed steps, see
    [Configure managed identities for Azure resources on an Azure VM using PowerShell](../../../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md#user-assigned-managed-identity).
-   At scale, assign this identity using Azure Resource Manager via Azure Policy. For detailed steps,
+   Assign this identity using Azure Resource Manager via Azure Policy at scale. For detailed steps,
    see
    [Configure managed identities for Azure resources on an Azure VM using a template](../../../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md#assign-a-user-assigned-managed-identity-to-an-azure-vm).
 
-1. Finally, within your custom resource use the client ID generated above to access Key Vault using
-   the token available from the machine.
+1. Use the client ID generated above within your custom resource to access Key Vault using the token
+   available from the machine.
 
    The `client_id` and url to the Key Vault instance can be passed to the resource as
    [properties](/powershell/scripting/dsc/resources/authoringresourcemof#creating-the-mof-schema) so
@@ -395,7 +396,7 @@ New-GuestConfigurationPolicy
 ```
 
 For Linux policies, include the property **AttributesYmlContent** in your configuration and
-overwrite the values accordingly. The Guest Configuration agent automatically creates the YaML file
+overwrite the values as needed. The Guest Configuration agent automatically creates the YAML file
 used by InSpec to store attributes. See the example below.
 
 ```powershell
