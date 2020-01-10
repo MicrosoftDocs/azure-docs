@@ -24,7 +24,6 @@ Enabling the BYOK feature is a one time setup process on your namespace.
 > There are some caveats to the customer managed key for service side encryption. 
 >   * This feature is supported by [Azure Service Bus Premium](service-bus-premium-messaging.md) tier. It cannot be enabled for standard tier Service Bus namespaces.
 >   * The encryption can only be enabled for new or empty namespaces. If the namespace contains data, then the encryption operation will fail.
->   * If [Virtual network (VNet) service endpoints](service-bus-service-endpoints.md) are configured on Azure Key Vault for your Service Bus namespace, BYOK will not be supported. 
 
 You can use Azure Key Vault to manage your keys and audit your key usage. You can either create your own keys and store them in a key vault, or you can use the Azure Key Vault APIs to generate keys. For more information about Azure Key Vault, see [What is Azure Key Vault?](../key-vault/key-vault-overview.md)
 

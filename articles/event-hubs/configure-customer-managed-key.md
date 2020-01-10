@@ -161,10 +161,6 @@ Following are the common errors codes to look for when BYOK encryption is enable
 > [!IMPORTANT]
 > To enable Geo-DR on a namespace that's using the BYOK encryption, the secondary namespace for pairing must be in a dedicated cluster and must have a system assigned managed identity enabled on it. To learn more, see [Managed Identities for Azure Resources](../active-directory/managed-identities-azure-resources/overview.md).
 
-> [!NOTE]
-> If virtual network (VNet) service endpoints are configured on Azure Key Vault for your Event Hubs namespace, BYOK will not be supported. 
-
-
 ## Next steps
 See the following articles:
 - [Event Hubs overview](event-hubs-about.md)
