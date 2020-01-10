@@ -369,6 +369,8 @@
       items:
       - name: DATABASICS
         href: databasics-tutorial.md
+      - name: DataCamp
+        href: datacamp-tutorial.md
       - name: Datahug
         href: datahug-tutorial.md
       - name: Dealpath
