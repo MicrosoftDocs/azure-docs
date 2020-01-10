@@ -142,6 +142,8 @@ From the managed instance page, select **Pricing tier** link placed under the Se
 
 ![change managed instance hardware](media/sql-database-service-tiers-vcore/change-managed-instance-hardware.png)
 
+On the **Pricing tier** page you will be able to change hardware generation as described in the previous steps.
+
 # [PowerShell](#tab/azure-powershell)
 
 Use the following PowerShell script:
