@@ -173,7 +173,7 @@ At this time, you can only access the `allowProtectedAppendWrites` setting for t
 > - South Central US
 > - West US 2
 >
-> Please refer to [Allow Protected Append Blobs Writes](#allow-protected-append-blobs-writes) for more information.
+> Please refer to [Allow Protected Append Blobs Writes](storage-blob-immutable-storage.md#allow-protected-append-blobs-writes) for more information.
 
 ![Allow additional append writes](media/storage-blob-immutability-policies-manage/immutable-allow-additional-append-writes.png)
 
