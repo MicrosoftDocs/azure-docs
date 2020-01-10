@@ -50,12 +50,12 @@ Container and storage account deletion are also not permitted if there are any b
 
 For more information on how to set and lock time-based retention policies, see [Set and manage immutability policies for Blob storage](storage-blob-immutability-policies-manage.md).
 
-### Time-based retention policies
+## Time-based retention policies
 
 > [!IMPORTANT]
 > A time-based retention policy must be *locked* for the blob to be in a compliant immutable (write and delete protected) state for SEC 17a-4(f) and other regulatory compliance. We recommend that you lock the policy in a reasonable amount of time, typically less than 24 hours. The initial state of an applied time-based retention policy is *unlocked*, allowing you to test the feature and make changes to the policy before you lock it. While the *unlocked* state provides immutability protection, we don't recommend using the *unlocked* state for any purpose other than short-term feature trials. 
 
-When a time-based retention policy is applied on a container, all blobs in the container will stay in the immutable state for the duration of the *effective* retention period. The effective retention period for existing blobs is equal to the difference between the blob creation time and the user-specified retention interval. For new blobs, the effective retention period is equal to the user-specified retention interval. Because users can extend the retention interval, immutable storage uses the most recent value of the user-specified retention interval to calculate the effective retention period.
+When a time-based retention policy is applied on a container, all blobs in the container will stay in the immutable state for the duration of the *effective* retention period. The effective retention period for blobs is equal to the difference between the blob's **creation time** and the user-specified retention interval. Because users can extend the retention interval, immutable storage uses the most recent value of the user-specified retention interval to calculate the effective retention period.
 
 For example, suppose that a user creates a time-based retention policy with a retention interval of five years. An existing blob in that container, _testblob1_, was created one year ago; so, the effective retention period for _testblob1_ is four years. When a new blob, _testblob2_, is uploaded to the container, the effective retention period for the _testblob2_ is five years from the time of its creation.
 
@@ -68,15 +68,32 @@ The following limits apply to retention policies:
 - For a container, the maximum number of edits to extend a retention interval for locked time-based immutable policies is 5.
 - For a container, a maximum of seven time-based retention policy audit logs are retained for a locked policy.
 
-#### Allow Protected Append Blobs Writes
+### Allow Protected Append Blobs Writes
 
-An append blob is comprised of blocks and is optimized for append operations, such as logging. Time-based retention policies have a setting, 'allowProtectedAppendWrites' that allows writing additional data to end of an append blob.
+Append blobs are comprised of data blocks and optimized for data append operations required by auditing and logging scenarios. By design, append blobs only allow the addition of new block to the end of the blob. Regardless of immutability, modification or deletion of existing blocks in an append blob is fundamentally not allowed. To learn more about append blobs, see (About Append Blobs)[https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-append-blobs].
 
-With this setting enabled on a time-based policy, you are allowed to create an append blob directly in the protected container and continue to add new blocks of data to the end of the append blob. Modification or deleting existing blocks is not supported or allowed.
+Only time-based retention policies have a `allowProtectedAppendWrites` setting that allows for writing new blocks to an append blob while maintaining immutability protection and compliance. If enabled, you are allowed to create an append blob directly in the policy protected container and continue to add new blocks of data to the end of existing append blobs using the *AppendBlock* API. Only new blocks can be added and any existing blocks cannot be modified or deleted. Time-retention immutability protection still applies, preventing deletion of the append blob until the effective retention period has elapsed.  
 
-### Legal holds
+As this setting is part of a time-based retention policy, the appends blobs still stay in the immutable state for the duration of the *effective* retention period. there is a slight difference in how the retention period is determined.Since new data is appended beyond the initial creation of the append blob The effective retention is the difference between append blob's **last modification time** and the user-specified retention interval. Similarly when the retention interval is extended, immutable storage uses the most recent value of the user-specified retention interval to calculate the effective retention period.
 
-Legal hold are temporary holds that can be used for legal investigation purposes, regulatory compliance, or enterprise policies. A  descriptive tag is set with each legal hold to indicate the purpose of the hold.
+For example, suppose that a user creates a time-based retention policy with `allowProtectedAppendWrites` enabled and a retention interval of 90 days. An append blob, _logblob1_, is created in the container today, new logs continue to be added to the append blob for the next 10 days; so, the effective retention period for the _logblob1_ is 90 days from today (the time of its last modification/append).
+
+Unlocked time-based retention policies allow the `allowProtectedAppendWrites` setting to be enabled and disabled at any time. Once the time-based retention policy is locked, the `allowProtectedAppendWrites` setting cannot be changed.
+
+Legal hold policies cannot enable `allowProtectedAppendWrites` and do not allow for new blocks to appended to append blobs. If a legal hold is applied to a time-based retention policy with `allowProtectedAppendWrites` enabled, the *AppendBlock* API will fail until the legal hold is lifted.
+
+> [!IMPORTANT] 
+> This feature is currently available in the following regions:
+> - East US
+> - South Central US
+> - West US 2
+>
+> At this time, we strongly advise that you do not to enable `allowProtectedAppendWrites` in any other regions besides those specified, as it will cause intermittent failures and may affect compliance.
+
+## Legal holds
+
+Legal holds are temporary holds that can be used for legal investigation purposes or general protection policies. Each legal hold policy needs to be associated with one or more tags. Tags are used as a named identifier, such as a case ID or event, to categorize and 
+describe the purpose of the hold.
 
 A container can have both a legal hold and a time-based retention policy at the same time. All blobs in that container stay in the immutable state until all legal holds are cleared, even if their effective retention period has expired. Conversely, a blob stays in an immutable state until the effective retention period expires, even though all legal holds have been cleared.
 
@@ -98,7 +115,7 @@ The following table shows the types of Blob storage operations that are disabled
 
 <sup>1</sup> The blob service allows these operations to create a new blob once. All subsequent overwrite operations on an existing blob path in an immutable container are not allowed.
 
-<sup>2</sup> Append Block is only allowed for time-based retention policies with the 'allowProtectedAppendWrites' property enabled.
+<sup>2</sup> Append Block is only allowed for time-based retention policies with the 'allowProtectedAppendWrites' property enabled. See the [Allow Protected Append Blobs Writes](#allow-protected-append-blobs-writes) section for more information.
 
 ## Pricing
 
@@ -110,9 +127,9 @@ There is no additional charge for using this feature. Immutable data is priced i
 
 Yes. To document compliance, Microsoft retained a leading independent assessment firm that specializes in records management and information governance, Cohasset Associates, to evaluate immutable Blob storage and its compliance with requirements specific to the financial services industry. Cohasset validated that immutable Blob storage, when used to retain time-based Blobs in a WORM state, meets the relevant storage requirements of CFTC Rule 1.31(c)-(d), FINRA Rule 4511, and SEC Rule 17a-4. Microsoft targeted this set of rules, as they represent the most prescriptive guidance globally for records retention for financial institutions. The Cohasset report is available in the [Microsoft Service Trust Center](https://aka.ms/AzureWormStorage). To request a letter of attestation from Microsoft regarding WORM immutability compliance, please contact Azure support.
 
-**Does the feature apply to only block blobs, or to page and append blobs as well?**
+**Does the feature apply to only block blobs and append blobs, or to page blobs as well?**
 
-Immutable storage can be used with any blob type as it is set at the container level, but we recommend that you use WORM for containers that mainly store block blobs. Unlike block blobs, any new page blobs and append blobs need to be created outside a WORM container, and then copied in. After you copy these blobs into a WORM container, no further *appends* to an append blob or changes to a page blob are allowed. Setting a WORM policy on a container that stores VHDs (page blobs) for any active virtual machines is discouraged as it will lock the VM disk.
+Immutable storage can be used with any blob type as it is set at the container level, but we recommend that you use WORM for containers that mainly store block blobs and append blobs. Existing blobs in a container are protected by a newly set policies. But any new page blobs need to be created outside the WORM container, and then copied in. Onced copied into a WORM container, no further changes to a page blob are allowed. Setting a WORM policy on a container that stores VHDs (page blobs) for any active virtual machines is discouraged as it will lock the VM disk. We recommend that you throughly review the documentation and test your scenarios before locking any time-based policies.
 
 **Do I need to create a new storage account to use this feature?**
 
@@ -138,7 +155,7 @@ The Delete Container operation will fail if at least one blob exists within the 
 
 The storage account deletion will fail if there is at least one container with a legal hold set or a **locked** time-based policy. A container with an unlocked time-based policy does not protect against storage account deletion. You must remove all legal holds and delete all **locked** containers before you can delete the storage account. For information on container deletion, see the preceding question. You can also apply further delete protections for your storage account with [Azure Resource Manager locks](../../azure-resource-manager/resource-group-lock-resources.md).
 
-**Can I move the data across different blob tiers (hot, cool, cold) when the blob is in the immutable state?**
+**Can I move the data across different blob tiers (hot, cool, archive) when the blob is in the immutable state?**
 
 Yes, you can use the Set Blob Tier command to move data across the blob tiers while keeping the data in the compliant immutable state. Immutable storage is supported on hot, cool, and archive blob tiers.
 
@@ -153,10 +170,6 @@ Yes. When a time-based retention policy is first created, it is in an *unlocked*
 **Can I use soft delete alongside Immutable blob policies?**
 
 Yes, if your compliance requirements allow for soft delete to be enabled. [Soft delete for Azure Blob storage](storage-blob-soft-delete.md) applies for all containers within a storage account regardless of a legal hold or time-based retention policy. We recommend enabling soft delete for additional protection before any immutable WORM policies are applied and confirmed.
-
-**Where is the feature available?**
-
-Immutable storage is available in Azure Public, China, and Government regions. If immutable storage is not available in your region, please contact Azure support and email azurestoragefeedback@microsoft.com.
 
 ## Next steps
 
