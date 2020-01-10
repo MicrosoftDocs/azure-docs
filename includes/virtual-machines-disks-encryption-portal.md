@@ -36,7 +36,8 @@ Setting up customer-managed keys for your disks will require you to create resou
 
 ![sse-key-vault-generate-settings.png](media/virtual-machines-disk-encryption-portal/sse-key-vault-generate-settings.png)
 
-1. Currently we only support "soft" and "hard" RSA keys of size 2080 Fill in the selections as you like and then select **Create**.
+1. Keep both **Key Type** set to **RSA** and **RSA Key Size** set to **2080**.
+1. Fill in the remaining selections as you like and then select **Create**.
 
 ![sse-create-a-key-generate.png](media/virtual-machines-disk-encryption-portal/sse-create-a-key-generate.png)
 
