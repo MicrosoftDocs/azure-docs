@@ -30,7 +30,7 @@ In this tutorial, you learn how to:
 * [Microsoft Azure](https://ms.portal.azure.com).
 * [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/).
 
-## Get started
+<h2 id="Get-started">Get started</h2>
 
 Before submitting a Spark job definition, you need to be the Storage Blob Data Owner of the ADLS Gen2 filesystem you want to work with. If you aren't, you need to add the permission manually. 
 
