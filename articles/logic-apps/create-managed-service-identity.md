@@ -108,7 +108,15 @@ When Azure creates your logic app resource definition, the `identity` object get
 
 ## Give identity access to resources
 
-Before you can use your logic app's system-assigned managed identity for authentication, give that identity access to the Azure resource where you plan to use the identity. To complete this task, assign the appropriate role to that identity on the target Azure resource by using either the Azure PowerShell [New-AzRoleAssignment](https://docs.microsoft.com/powershell/module/az.resources/new-azroleassignment) command, Azure CLI [az role assignment create](https://docs.microsoft.com/cli/azure/role/assignment?view=azure-cli-latest#az-role-assignment-create) command, or these steps for the Azure portal:
+Before you can use your logic app's system-assigned managed identity for authentication, give that identity access to the Azure resource where you plan to use the identity. To complete this task, assign the appropriate role to that identity on the target Azure resource. Here are the options that you can use:
+
+* [Azure portal](#azure-portal-assign-access)
+* [Azure Resource Manager template](../role-based-access-control/role-assignments-template.md)
+* Azure PowerShell ([New-AzRoleAssignment](https://docs.microsoft.com/powershell/module/az.resources/new-azroleassignment)) - For more information, see [Add role assignment by using Azure RBAC and Azure PowerShell](../role-based-access-control/role-assignments-powershell.md).
+* Azure CLI ([az role assignment create](https://docs.microsoft.com/cli/azure/role/assignment?view=azure-cli-latest#az-role-assignment-create)) - For more information, see [Add role assignment by using Azure RBAC and Azure CLI](../role-based-access-control/role-assignments-cli.md).
+* [Azure REST API](../role-based-access-control/role-assignments-rest.md)
+
+### Assign access in the Azure portal
 
 1. In the [Azure portal](https://portal.azure.com), go to the Azure resource where you want your managed identity to have access.
 
