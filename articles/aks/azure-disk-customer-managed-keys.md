@@ -128,9 +128,13 @@ nodepool add –-cluster-name myAKSCluster -n myNodePoolName -g myResourceGroup 
 
 You can also encrypt the AKS data disks with your own keys.  Replace myResourceGroup and myDiskEncryptionSetName with your real values, and apply the yaml.
 
-TODO
+### Deploy the sample image from ACR to AKS
 
-```console
+Ensure you have the proper AKS credentials
+
+Create a file called **byok-azure-disk.yaml** that contains the following information.  Replace myResourceGroup and myDiskEncrptionSetName with your values.
+
+```
 kind: StorageClass
 apiVersion: storage.k8s.io/v1
 metadata:
@@ -140,6 +144,10 @@ parameters:
   skuname: Standard_LRS
   kind: managed
   diskEncryptionSetID: "/subscriptions/{subs-id}/resourceGroups/{myResourceGroup}/providers/Microsoft.Compute/diskEncryptionSets/{myDiskEncryptionSetName}"
+```
+Next, run this deployment in your AKS cluster:
+```
+kubectl apply -f byok-azure-disk.yaml
 ```
 
 ## Verify your key is working
