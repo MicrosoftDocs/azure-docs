@@ -12,7 +12,7 @@ manager: gwallace
 
 This article is to show you how you can use the Azure Image Builder to create an image version in a [Shared Image Gallery](shared-image-galleries.md), then distribute the image globally.
 
-We will be using a .json template to configure the image. The .json file we are using is here: [helloImageTemplateforWinSIG.json](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/1_Creating_a_Custom_Win_Shared_Image_Gallery_Image/helloImageTemplateforWinSIG.json). 
+We will be using a .json template to configure the image. The .json file we are using is here: [armTemplateWinSIG.json](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/1_Creating_a_Custom_Win_Shared_Image_Gallery_Image/armTemplateWinSIG.json). 
 
 To distribute the image to a Shared Image Gallery, the template uses [sharedImage](../linux/image-builder-json.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#distribute-sharedimage) as the value for the `distribute` section of the template.
 
@@ -126,14 +126,14 @@ az sig image-definition create \
 Download the .json template and configure it with your variables.
 
 ```azurecli-interactive
-curl https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/1_Creating_a_Custom_Win_Shared_Image_Gallery_Image/helloImageTemplateforWinSIG.json -o helloImageTemplateforWinSIG.json
-sed -i -e "s/<subscriptionID>/$subscriptionID/g" helloImageTemplateforWinSIG.json
-sed -i -e "s/<rgName>/$sigResourceGroup/g" helloImageTemplateforWinSIG.json
-sed -i -e "s/<imageDefName>/$imageDefName/g" helloImageTemplateforWinSIG.json
-sed -i -e "s/<sharedImageGalName>/$sigName/g" helloImageTemplateforWinSIG.json
-sed -i -e "s/<region1>/$location/g" helloImageTemplateforWinSIG.json
-sed -i -e "s/<region2>/$additionalregion/g" helloImageTemplateforWinSIG.json
-sed -i -e "s/<runOutputName>/$runOutputName/g" helloImageTemplateforWinSIG.json
+curl https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/1_Creating_a_Custom_Win_Shared_Image_Gallery_Image/armTemplateWinSIG.json -o armTemplateWinSIG.json
+sed -i -e "s/<subscriptionID>/$subscriptionID/g" armTemplateWinSIG.json
+sed -i -e "s/<rgName>/$sigResourceGroup/g" armTemplateWinSIG.json
+sed -i -e "s/<imageDefName>/$imageDefName/g" armTemplateWinSIG.json
+sed -i -e "s/<sharedImageGalName>/$sigName/g" armTemplateWinSIG.json
+sed -i -e "s/<region1>/$location/g" armTemplateWinSIG.json
+sed -i -e "s/<region2>/$additionalregion/g" armTemplateWinSIG.json
+sed -i -e "s/<runOutputName>/$runOutputName/g" armTemplateWinSIG.json
 ```
 
 ## Create the image version
@@ -145,7 +145,7 @@ Submit the image configuration to the Azure Image Builder service.
 ```azurecli-interactive
 az resource create \
     --resource-group $sigResourceGroup \
-    --properties @helloImageTemplateforWinSIG.json \
+    --properties @armTemplateWinSIG.json \
     --is-full-object \
     --resource-type Microsoft.VirtualMachineImages/imageTemplates \
     -n helloImageTemplateforWinSIG01
