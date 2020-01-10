@@ -34,11 +34,10 @@ Azure Storage encrypts all data in a storage account at rest. By default, data i
 
 ## Current supported regions
 
-* Australia East
+* Australia East, East Asia, South East Asia
 * Canada Central, Canada East
 * Central US, East US, East US 2, North Central US, South Central US
 * West Central US, West US, West US 2
-* East Asia, South East Asia
 * France, North Europe, UK South, West Europe
 
 ## Install latest AKS CLI preview extension
