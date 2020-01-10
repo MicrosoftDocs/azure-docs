@@ -1,6 +1,7 @@
 - name: Azure Remote Rendering Documentation
   href: index.md
 - name: Overview
+  expanded: true
   items:
   - name: About Remote Rendering
     href: overview.md
@@ -12,22 +13,20 @@
   - name: Rendering your first model
     href: quickstarts/rendering-your-first-model.md
 - name: Account creation
-  expanded: true
   items:
   - name: Azure frontend authentication
     href: sdk/azure-frontend-authentication.md
   - name: Create an account
     href: how-tos/create-an-account.md
-  - name: Getting tokens
+  - name: Get a token
     href: quickstarts/getting-tokens.md
-  - name: Launching virtual machines
+  - name: Launch virtual machines
     href: quickstarts/launching-virtual-machines.md
   - name: Example scripts for frontend authentication
     href: quickstarts/powershell-example-scripts-for-frontend.md
 - name: Model ingestion
-  expanded: true
   items:
-  - name: Ingesting models
+  - name: Ingest models
     href: how-tos/ingest-models.md
   - name: Configure the model ingestion
     href: how-tos/configure-model-ingestion.md
@@ -37,7 +36,6 @@
   expanded: true
   items:
   - name: Concepts
-    expanded: true
     items:
     - name: SDK concepts introduction
       href: concepts/sdk-concepts.md
@@ -66,7 +64,6 @@
     - name: Z-fighting mitigation
       href: sdk/concepts-z-fighting-mitigation.md
   - name: Features
-    expanded: true
     items:
     - name: Cut planes
       href: sdk/features-cut-planes.md
@@ -79,18 +76,16 @@
     - name: Sky
       href: sdk/features-sky.md
 - name: Remote rendering with Unity
-  expanded: true
   items:
   - name: SDK overview for Unity
     href: concepts/sdk-unity-concepts.md
-  - name: Install remore rendering package for Unity
+  - name: Install remote rendering package for Unity
     href: how-tos/install-remote-rendering-unity-package.md
   - name: Run Unity sample project
     href: how-tos/run-unity-sample-project.md
   - name: Create new Unity project
     href: quickstarts/create-new-unity-project.md
 - name: Tools and analysis
-  expanded: true
   items:
   - name: ArrInspector inspection tool
     href: tools/arr-inspector.md
@@ -99,7 +94,6 @@
   - name: Performance profiling in remote rendering
     href: how-tos/performance-tracing.md
 - name: Tutorials
-  expanded: true
   items:
   - name: "Tutorial 1: Getting-started"
     href: tutorials/tutorial-1-getting-started.md

@@ -65,7 +65,7 @@ Supported features:
 
 ## Material classes
 
-The API provides a generic class Material. This class is material type agnostic and only provides generic information such as material name. It houses specific material implementations of type ColorMaterial or PbrMaterial, which can be queried in the following manner:
+The API provides a generic class `Material`. This class is material type agnostic and only provides generic information such as material name. It houses specific material implementations of type ColorMaterial or PbrMaterial, which can be queried in the following manner:
 
 C++ 
  ``` cpp

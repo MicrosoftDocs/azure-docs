@@ -11,14 +11,11 @@ ms.service: azure-remote-rendering
 ---
 # Graphics binding
 
-> [!WARNING]
-> Graphics bindings are experimental. It is highly encouraged not to touch them until the samples are added in a later release.
-
 To be able to use Azure Remote Rendering in a custom application, it needs to be integrated into the application's rendering pipeline. This integration is the responsibility of the graphics binding.
 
 Once set up, the graphics binding gives access to various functions that affect the rendered image. These functions can be separated into two categories: general functions that are always available and specific functions that are only relevant for the selected `Microsoft.Azure.RemoteRendering.GraphicsApi`.
 
-## Unity
+## Graphics binding in Unity
 
 In Unity the entire binding is handled by the `RemoteUnityClientInit` struct passed into the construction of `RemoteManagerUnity`. To set the graphics mode, the `graphicsApi` field has to be set to the chosen binding. When in doubt, the field should be initialized with  that will have the following behavior in Unity:
 
@@ -28,7 +25,7 @@ In Unity the entire binding is handled by the `RemoteUnityClientInit` struct pas
 
 The only other relevant part for Unity is accessing the [basic binding](#access), all the other sections below can be skipped.
 
-## Setup
+## Graphics binding setup in custom applications
 
 To select a graphics binding two steps have to be taken: First, the graphics binding has to be statically initialized using the following function in C++:
 
@@ -43,7 +40,7 @@ The call above is necessary to integrate Azure Remote Rendering into the hologra
 
 Note that the static init function has two arguments of type `ARRConnectionType` and `GraphicsApi`. These parameters must match the same parameters in the `ClientInit` struct that is passed into the `RemoteRenderingClient` in C++ or the `RemoteManager` in C# respectively. If this is not the case, the client initialization will fail.
 
-## <span id="access">Accessing Graphics Binding
+## <span id="access">Accessing graphics binding
 
 Once a client is set up, the basic graphics binding can be accessed with the GraphicsBinding getter. As an example, the focus point mode can be set with:
 In C++:

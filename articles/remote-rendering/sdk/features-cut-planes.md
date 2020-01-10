@@ -11,7 +11,6 @@ ms.service: azure-remote-rendering
 ---
 # Cut planes
 
-## Overview
 A cut plane is a visual feature that clips each pixel on one side of a virtual, infinite plane thus revealing the inside of a mesh.
 The following image shows a car model with a horizontal cut plane added on the right side:
 

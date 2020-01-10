@@ -11,8 +11,6 @@ ms.service: azure-remote-rendering
 ---
 # Lights
 
-## Overview
-
 Lights can be added to the scene to change the lighting conditions of all remotely rendered geometry. By default the scene is only lit by a [global sky light](../sdk/features-sky.md). Any new user allocated light is added on top of that. User lights are always considered as 'dynamic lights', that is, they can dynamically change any property such as position, intensity, or color over time.
 
 Lights are added to the scene as components of respective type attached to a game object. The game object serves as the spatial transform of the light source.

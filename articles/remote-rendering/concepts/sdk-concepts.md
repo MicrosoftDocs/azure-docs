@@ -12,6 +12,8 @@ ms.service: azure-remote-rendering
 
 # SDK concepts
 
+This chapter explains some high level concepts of the Remote Rendering API.
+
 ## Session management
 
 A session is composed on an ```AzureFrontend``` class which contains the credential information required to perform ARR API calls and connect to ARR Sessions. Once an ```AzureFrontend``` class has been initialized with account credentials, an ```AzureSession``` can either be created or a previously created session can be opened.
