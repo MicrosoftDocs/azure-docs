@@ -377,6 +377,7 @@ The following code snippet demonstrates how to **create a new AKS cluster**, and
 
 ```python
 import azureml.core
+from azureml.core.compute.aks import AksUpdateConfiguration
 from azureml.core.compute import AksCompute, ComputeTarget
 
 # Verify that cluster does not exist already
@@ -403,7 +404,7 @@ except:
     aks_target.wait_for_completion(show_output = True)
     
     # Update AKS configuration to use an internal load balancer
-    update_config = AksUpdateConfiguration(None, "InternalLoadBalancer")
+    update_config = AksUpdateConfiguration(None, "InternalLoadBalancer", "default")
     aks_target.update(update_config)
     # Wait for the operation to complete
     aks_target.wait_for_completion(show_output = True)
