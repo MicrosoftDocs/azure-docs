@@ -464,7 +464,7 @@ If the requirements aren't met, Azure Data Factory checks the settings and autom
             "source": {
                 "type": "ParquetSource",
                 "storeSettings":{
-                    "type": "AzureBlobStorageReadSetting",
+                    "type": "AzureBlobStorageReadSettings",
                     "recursive": true
                 }
             },
@@ -648,7 +648,7 @@ The following COPY statement settings are supported under `allowCopyCommand` in 
             "source": {
                 "type": "ParquetSource",
                 "storeSettings":{
-                    "type": "AzureBlobStorageReadSetting",
+                    "type": "AzureBlobStorageReadSettings",
                     "recursive": true
                 }
             },
