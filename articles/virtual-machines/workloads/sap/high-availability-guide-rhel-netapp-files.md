@@ -293,7 +293,7 @@ The instructions in this section are only applicable, if using Azure NetApp File
     echo "Y" > /sys/module/nfs/parameters/nfs4_disable_idmapping
     # Make the configuration permanent
     echo "options nfs nfs4_disable_idmapping=Y" >> /etc/modprobe.d/nfs.conf
-    </code></pre>`
+    </code></pre>
 
    For more details on how to change `nfs4_disable_idmapping` parameter see https://access.redhat.com/solutions/1749883.
 
