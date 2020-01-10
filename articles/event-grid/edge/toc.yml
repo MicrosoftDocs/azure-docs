@@ -41,7 +41,9 @@
     - name: Linux
       href: persist-state-linux.md  
     - name: Windows
-      href: persist-state-windows.md  
+      href: persist-state-windows.md
+  - name: Monitor topics and subscriptions
+    href: monitor-topics-subscriptions.md
   - name: Configure API protocols
     href: configure-api-protocol.md  
   - name: Configure client authentication

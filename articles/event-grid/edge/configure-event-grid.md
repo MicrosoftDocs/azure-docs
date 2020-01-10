@@ -74,3 +74,11 @@ To learn about this feature in general, see [Delivery and Output batching](deliv
 | `api:deliveryPolicyLimits:maxEventsPerBatch` | Maximum value allowed for the `MaxEventsPerBatch` knob. Default value is `50`.
 | `broker:defaultMaxBatchSizeInBytes` | Maximum delivery request size when only `MaxEventsPerBatch` is specified. Default value is `1_058_576`.
 | `broker:defaultMaxEventsPerBatch` | Maximum number of events to add to a batch when only `MaxBatchSizeInBytes` is specified. Default value is `10`.
+
+## Metrics
+
+To learn about using metrics with Event Grid on IoT Edge, see [monitor topics and subscriptions](monitor-topics-subscriptions.md)
+
+| Property Name | Description |
+| ---------------- | ------------ |
+| `metrics:reporterType` | Reporter type for metrics enpoint. Default is `none` and disables metrics. Setting to `prometheus` enables metrics in the Prometheus exposition format.
