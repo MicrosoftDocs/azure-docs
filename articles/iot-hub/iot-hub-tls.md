@@ -80,11 +80,11 @@ Use the links below to configure TLS 1.2 and allowed ciphers in IoT Hub client S
 
 | Language | TLS 1.2 supported | Documentation |
 |----------|-------------------|---------------|
-| C#       | Yes               | Link          |
-| C        | Yes               | [Link](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/configure_tls_protocol_version_and_ciphers.md)          |
-| Java     | Yes               | Link          |
-| Python   | Yes               | Link          |
-| NodeJS   | Yes               | Link          |
+| C        | Yes               | [Link](https://aka.ms/Tls_C_SDK_IoT) |
+| Python   | Yes               | [Link](https://aka.ms/Tls_Python_SDK_IoT) |
+| C#       | Yes               | [Link](https://aka.ms/Tls_CSharp_SDK_IoT) |
+| Java     | Yes               | [Link](https://aka.ms/Tls_Java_SDK_IoT) |
+| NodeJS   | Yes               | [Link](https://aka.ms/Tls_Node_SDK_IoT) |
 
 
 ### Use TLS 1.2 in your IoT Edge setup
