@@ -17,7 +17,7 @@ The query design can express simple pass-through logic to move event data from o
 
 This article outlines solutions to several common query patterns based on real-world scenarios.
 
-## Data Formats
+## Supported Data Formats
 
 Azure Stream Analytics supports processing events in CSV, JSON and Avro data formats.
 
@@ -339,7 +339,7 @@ For more information, refer to [**COUNT** aggregate function](/stream-analytics-
 
 ## Calculation over past events
 
-The **LAG** function, can be used to look into past events within a time window, this allow past values to be compared against the current event. For example, the current car *Make* can be outputted if it is different from the last car that went through the toll.
+The **LAG** function can be used to look at past events within a time window and compare them against the current event. For example, the current car make can be outputted if it is different from the last car that went through the toll.
 
 **Input**:
 
@@ -370,7 +370,7 @@ Use **LAG** to peek into the input stream one event back, retrieving the *Make* 
 
 For more information, refer to [**LAG**](/stream-analytics-query/lag-azure-stream-analytics).
 
-## The first event in a window
+## Retrieve the first event in a window
 
 **IsFirst** can be used to retrieve the first event in a time window. For example, outputting the first car information at every 10-minute interval.
 
@@ -433,9 +433,9 @@ WHERE
 
 For more information, refer to [**IsFirst**](/stream-analytics-query/isfirst-azure-stream-analytics).
 
-## The last event in a window
+## Return the last event in a window
 
-As events are consumed by the system in real time, there is no function that can determine if an event will be the last one to arrive for that window of time. To achieve this, the input stream needs to be joined with another where the time of an event is the maximum time for all events at that window.
+As events are consumed by the system in real-time, there is no function that can determine if an event will be the last one to arrive for that window of time. To achieve this, the input stream needs to be joined with another where the time of an event is the maximum time for all events at that window.
 
 **Input**:
 
@@ -482,12 +482,12 @@ FROM
 
 The first step on the query finds the maximum time stamp in 10-minute windows, that is the time stamp of the last event for that window. The second step joins the results of the first query with the original stream to find the event that match the last time stamps in each window. 
 
-**DATEDIFF** is a date specific function that compares and returns the time different between two DateTime fields, for more information, refer to [date functions](https://docs.microsoft.com/en-us/stream-analytics-query/date-and-time-functions-azure-stream-analytics).
+**DATEDIFF** is a date-specific function that compares and returns the time difference between two DateTime fields, for more information, refer to [date functions](https://docs.microsoft.com/stream-analytics-query/date-and-time-functions-azure-stream-analytics).
 
 For more information on joining streams, refer to [**JOIN**](/stream-analytics-query/join-azure-stream-analytics).
 
 
-## Correlating events in a stream
+## Correlate events in a stream
 
 Correlating events in the same stream can be done by looking at past events using the **LAG** function. For example, an output can be generated every time two consecutive cars from the same *Make* go through the toll for the last 90 seconds.
 
@@ -525,7 +525,7 @@ The **LAG** function can look into the input stream one event back and retrieve 
 
 For more information, refer to [LAG](/stream-analytics-query/lag-azure-stream-analytics).
 
-## Detecting the duration between events
+## Detect the duration between events
 
 The duration of an event can be computed by looking at the last Start event once an End event is received. This query can be useful to determine the time a user spends on a page or a feature.
 
@@ -557,11 +557,11 @@ WHERE
 	Event = 'end'
 ```
 
-The **LAST** function can be used to retrieve the last event within a specific condition. In this example, the condition is an event of type Start, partitioning the search by **PARTITION BY** [user] and Feature. This way, every user and feature will be treated independently when searching for the Start event. **LIMIT DURATION** limits the search back in time to 1 hour between the End and Start events.
+The **LAST** function can be used to retrieve the last event within a specific condition. In this example, the condition is an event of type Start, partitioning the search by **PARTITION BY** user and feature. This way, every user and feature is treated independently when searching for the Start event. **LIMIT DURATION** limits the search back in time to 1 hour between the End and Start events.
 
-## Detecting the duration of a condition
+## Detect the duration of a condition
 
-A certain condition can span through multiple events, **LAG** function can also be used to identify the duration of that condition. For example, suppose that a bug resulted in all cars having an incorrect weight (above 20,000 pounds), and the duration of that bug must be computed.
+For conditions that span through multiple events the **LAG** function can be used to identify the duration of that condition. For example, suppose that a bug resulted in all cars having an incorrect weight (above 20,000 pounds), and the duration of that bug must be computed.
 
 **Input**:
 
@@ -602,11 +602,11 @@ WHERE
 	[weight] < 20000
 	AND previous_weight > 20000
 ```
-The first **SELECT** statement correlates the current weight measurement with the previous measurement, projecting it together with the current one. The second **SELECT** looks back to the last event where the *previous_weight* is less than 20000, where the current weight is smaller than 20000 and the *previous_weight* of the current event was bigger than 20000.
+The first **SELECT** statement correlates the current weight measurement with the previous measurement, projecting it together with the current measurement. The second **SELECT** looks back to the last event where the *previous_weight* is less than 20000, where the current weight is smaller than 20000 and the *previous_weight* of the current event was bigger than 20000.
 
-Sounds complicated but it is simple, the *End_fault* is the current non-faulty event where the previous event was faulty, and the *Start_fault* is the last non-faulty event before that.
+The End_fault is the current non-faulty event where the previous event was faulty, and the Start_fault is the last non-faulty event before that.
 
-## Periodically outputting values
+## Periodically output values
 
 In case of irregular or missing events, a regular interval output can be generated from a more sparse data input. For example, generate an event every 5 seconds that reports the most recently seen data point.
 
@@ -652,9 +652,9 @@ This query generates events every 5 seconds and outputs the last event that was 
 
 For more information, refer to [Hopping window](/stream-analytics-query/hopping-window-azure-stream-analytics).
 
-## Processing events with independent time (Substreams)
+## Process events with independent time (Substreams)
 
-Events can arrive late or out of order due to clock skews between event producers, clock skews between partitions, or even network latency.
+Events can arrive late or out of order due to clock skews between event producers, clock skews between partitions, or network latency.
 For example, the device clock for *TollID* 2 is five seconds behind *TollID* 1, and the device clock for *TollID* 3 is ten seconds behind *TollID* 1. A computation can happen independently for each toll, considering only its own clock data as a timestamp.
 
 **Input**:
@@ -745,9 +745,9 @@ GROUP BY DeviceId,TumblingWindow(minute, 5)
 
 For more information, refer to [COUNT(DISTINCT Time)](/stream-analytics-query/count-azure-stream-analytics).
 
-## Session Window
+## Session Windows
 
-A Session Window is a window that keeps expanding as events occurs, and closes for computation if no event is received after a specific amount of time or the window reaches its maximum duration.
+A Session Window is a window that keeps expanding as events occur and closes for computation if no event is received after a specific amount of time or if the window reaches its maximum duration.
 This window is particularly useful when computing user interaction data. A window starts when a user starts interacting with the system and closes when no more events are observed, meaning, the user has stopped interacting.
 For example, a user is interacting with a web page where the number of clicks is logged, a Session Window can be used to find out how long the user interacted with the site.
 
