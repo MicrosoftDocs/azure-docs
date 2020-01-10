@@ -19,6 +19,8 @@
     href: trusted-security-partners.md
   - name: Rule processing logic
     href: rule-processing.md
+  - name: Architecture options
+    href: vhubs-and-vnets.md
 - name: How-to guides
   items:
   - name: Deploy trusted security partners
