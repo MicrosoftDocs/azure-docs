@@ -48,49 +48,57 @@ Immutable storage for Azure Blob storage supports two types of WORM or immutable
 
 Container and storage account deletion are also not permitted if there are any blobs in a container that are protected by a legal hold or a locked time-based policy. A legal hold policy will protect against blob, container, and storage account deletion. Both unlocked and locked time-based policies will protect against blob deletion for the specified time. Both unlocked and locked time-based policies will protect against container deletion only if at least one blob exists within the container. Only a container with *locked* time-based policy will protect against storage account deletions; containers with unlocked time-based policies do not offer storage account deletion protection nor compliance.
 
+For more information on how to set and lock time-based retention policies, see [Set and manage immutability policies for Blob storage](storage-blob-immutability-policies-manage.md).
+
 ### Time-based retention policies
 
 > [!IMPORTANT]
 > A time-based retention policy must be *locked* for the blob to be in a compliant immutable (write and delete protected) state for SEC 17a-4(f) and other regulatory compliance. We recommend that you lock the policy in a reasonable amount of time, typically less than 24 hours. The initial state of an applied time-based retention policy is *unlocked*, allowing you to test the feature and make changes to the policy before you lock it. While the *unlocked* state provides immutability protection, we don't recommend using the *unlocked* state for any purpose other than short-term feature trials. 
 
-When a time-based retention policy is applied on a container, all blobs in the container will stay in the immutable state for the duration of the *effective* retention period. The effective retention period for existing blobs is equal to the difference between the blob creation time and the user-specified retention interval.
-
-For new blobs, the effective retention period is equal to the user-specified retention interval. Because users can extend the retention interval, immutable storage uses the most recent value of the user-specified retention interval to calculate the effective retention period.
+When a time-based retention policy is applied on a container, all blobs in the container will stay in the immutable state for the duration of the *effective* retention period. The effective retention period for existing blobs is equal to the difference between the blob creation time and the user-specified retention interval. For new blobs, the effective retention period is equal to the user-specified retention interval. Because users can extend the retention interval, immutable storage uses the most recent value of the user-specified retention interval to calculate the effective retention period.
 
 For example, suppose that a user creates a time-based retention policy with a retention interval of five years. An existing blob in that container, _testblob1_, was created one year ago; so, the effective retention period for _testblob1_ is four years. When a new blob, _testblob2_, is uploaded to the container, the effective retention period for the _testblob2_ is five years from the time of its creation.
 
-An unlocked time-based retention policy is recommended only for feature testing and a policy must be locked in order to be compliant with SEC 17a-4(f) and other regulatory compliance. Once a time-based retention policy is locked, the policy cannot be removed and a maximum of five increases to the effective retention period is allowed. For more information on how to set and lock time-based retention policies, see [Set and manage immutability policies for Blob storage](storage-blob-immutability-policies-manage.md).
+An unlocked time-based retention policy is recommended only for feature testing and a policy must be locked in order to be compliant with SEC 17a-4(f) and other regulatory compliance. Once a time-based retention policy is locked, the policy cannot be removed and a maximum of five increases to the effective retention period is allowed.
 
 The following limits apply to retention policies:
 
-- For a storage account, the maximum number of containers with locked time-based immutable policies is 1,000.
+- For a storage account, the maximum number of containers with locked time-based immutable policies is 10,000.
 - The minimum retention interval is one day. The maximum is 146,000 days (400 years).
 - For a container, the maximum number of edits to extend a retention interval for locked time-based immutable policies is 5.
 - For a container, a maximum of seven time-based retention policy audit logs are retained for a locked policy.
 
+#### Allow Protected Append Blobs Writes
+
+An append blob is comprised of blocks and is optimized for append operations, such as logging. Time-based retention policies have a setting, 'allowProtectedAppendWrites' that allows writing additional data to end of an append blob.
+
+With this setting enabled on a time-based policy, you are allowed to create an append blob directly in the protected container and continue to add new blocks of data to the end of the append blob. Modification or deleting existing blocks is not supported or allowed.
+
 ### Legal holds
 
-When you set a legal hold, all existing and new blobs stay in the immutable state until the legal hold is cleared. For more information on how to set and clear legal holds, see [Set and manage immutability policies for Blob storage](storage-blob-immutability-policies-manage.md).
+Legal hold are temporary holds that can be used for legal investigation purposes, regulatory compliance, or enterprise policies. A  descriptive tag is set with each legal hold to indicate the purpose of the hold.
 
 A container can have both a legal hold and a time-based retention policy at the same time. All blobs in that container stay in the immutable state until all legal holds are cleared, even if their effective retention period has expired. Conversely, a blob stays in an immutable state until the effective retention period expires, even though all legal holds have been cleared.
 
+The following limits apply to legal holds:
+
+- For a storage account, the maximum number of containers with a legal hold setting is 10,000.
+- For a container, the maximum number of legal hold tags is 10.
+- The minimum length of a legal hold tag is three alphanumeric characters. The maximum length is 23 alphanumeric characters.
+- For a container, a maximum of 10 legal hold policy audit logs are retained for the duration of the policy.
+
+## Scenarios
 The following table shows the types of Blob storage operations that are disabled for the different immutable scenarios. For more information, see the [Azure Blob Service REST API](https://docs.microsoft.com/rest/api/storageservices/blob-service-rest-api) documentation.
 
 |Scenario  |Blob state  |Blob operations denied  |Container and account protection
 |---------|---------|---------|---------|
-|Effective retention interval on the blob has not yet expired and/or legal hold is set     |Immutable: both delete and write-protected         | Put Blob<sup>1</sup>, Put Block<sup>1</sup>, Put Block List<sup>1</sup>, Delete Container, Delete Blob, Set Blob Metadata, Put Page, Set Blob Properties,  Snapshot Blob, Incremental Copy Blob, Append Block         |Container deletion denied; Storage Account deletion denied         |
-|Effective retention interval on the blob has expired and no legal hold is set    |Write-protected only (delete operations are allowed)         |Put Blob<sup>1</sup>, Put Block<sup>1</sup>, Put Block List<sup>1</sup>, Set Blob Metadata, Put Page, Set Blob Properties,  Snapshot Blob, Incremental Copy Blob, Append Block         |Container deletion denied if at least 1 blob exists within protected container; Storage Account deletion denied only for *locked* time-based policies         |
-|All legal holds cleared, and no time-based retention policy is set on the container     |Mutable         |None         |None         |
-|No WORM policy is created (time-based retention or legal hold)     |Mutable         |None         |None         |
+|Effective retention interval on the blob has not yet expired and/or legal hold is set     |Immutable: both delete and write-protected         | Put Blob<sup>1</sup>, Put Block<sup>1</sup>, Put Block List<sup>1</sup>, Delete Container, Delete Blob, Set Blob Metadata, Put Page, Set Blob Properties,  Snapshot Blob, Incremental Copy Blob, Append Block<sup>2</sup>         |Container deletion denied; Storage Account deletion denied         |
+|Effective retention interval on the blob has expired and no legal hold is set    |Write-protected only (delete operations are allowed)         |Put Blob<sup>1</sup>, Put Block<sup>1</sup>, Put Block List<sup>1</sup>, Set Blob Metadata, Put Page, Set Blob Properties,  Snapshot Blob, Incremental Copy Blob, Append Block<sup>2</sup>         |Container deletion denied if at least 1 blob exists within protected container; Storage Account deletion denied only for *locked* time-based policies         |
+|No WORM policy applied (no time-based retention and no legal hold tag)     |Mutable         |None         |None         |
 
 <sup>1</sup> The blob service allows these operations to create a new blob once. All subsequent overwrite operations on an existing blob path in an immutable container are not allowed.
 
-The following limits apply to legal holds:
-
-- For a storage account, the maximum number of containers with a legal hold setting is 1,000.
-- For a container, the maximum number of legal hold tags is 10.
-- The minimum length of a legal hold tag is three alphanumeric characters. The maximum length is 23 alphanumeric characters.
-- For a container, a maximum of 10 legal hold policy audit logs are retained for the duration of the policy.
+<sup>2</sup> Append Block is only allowed for time-based retention policies with the 'allowProtectedAppendWrites' property enabled.
 
 ## Pricing
 
