@@ -18,7 +18,7 @@ To open the overview page, select your cache resource in the Azure portal. For e
 
 The buttons at the top of the page can help you manage the cache:
 
-* [**Flush**](#flush-cached-data) - Writes all cached data to storage targets
+* [**Flush**](#flush-cached-data) - Writes changed data to storage targets
 * [**Upgrade**](#upgrade-cache-software) - Updates the cache software
 * **Refresh** - Reloads the overview page
 * [**Delete**](#delete-the-cache) - Permanently destroys the cache
