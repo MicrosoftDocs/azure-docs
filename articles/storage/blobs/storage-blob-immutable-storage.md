@@ -68,7 +68,7 @@ The following limits apply to retention policies:
 - For a container, the maximum number of edits to extend a retention interval for locked time-based immutable policies is 5.
 - For a container, a maximum of seven time-based retention policy audit logs are retained for a locked policy.
 
-### Allow Protected Append Blobs Writes
+### Allow protected append blobs writes
 
 Append blobs are comprised of data blocks and optimized for data append operations required by auditing and logging scenarios. By design, append blobs only allow the addition of new block to the end of the blob. Regardless of immutability, modification or deletion of existing blocks in an append blob is fundamentally not allowed. To learn more about append blobs, see [About Append Blobs](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-append-blobs).
 
@@ -83,7 +83,7 @@ Unlocked time-based retention policies allow the `allowProtectedAppendWrites` se
 Legal hold policies cannot enable `allowProtectedAppendWrites` and do not allow for new blocks to be appended to append blobs. If a legal hold is applied to a time-based retention policy with `allowProtectedAppendWrites` enabled, the *AppendBlock* API will fail until the legal hold is lifted.
 
 > [!IMPORTANT] 
-> This feature is currently available in the following regions:
+> The allow protected append blobs writes setting under time-based retention is currently available in the following regions:
 > - East US
 > - South Central US
 > - West US 2
