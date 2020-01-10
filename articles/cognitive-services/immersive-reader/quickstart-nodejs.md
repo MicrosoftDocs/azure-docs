@@ -48,7 +48,7 @@ yarn add dotenv
 ## Set up authentication
 
 ### Configure authentication values
-Create a new file called _.env_ in the root of your project. Paste the following code into it, supplying your custom property values from the Azure AD authentication configuration prerequisite step above. 
+Create a new file called _.env_ in the root of your project. Paste the following code into it, supplying your custom property values from the Azure AD authentication configuration prerequisite step above.
 Do not include quotation marks or the "{" and "}" characters.
 
 ```text
@@ -66,7 +66,7 @@ Next, open _app.js_ and add the following to the top of the file. This loads the
 require('dotenv').config();
 ```
 
-### Update the router to acquire the token 
+### Update the router to acquire the token
 Open the _routes\index.js_ file and replace the automatically generated code with the following code.
 
 This code creates an API endpoint that acquires an Azure AD authentication token using your service principal password. It also retrieves the subdomain. It then returns an object containing the token and subdomain.
@@ -100,14 +100,14 @@ router.get('/GetTokenAndSubdomain', function(req, res) {
                 console.log(err);
                 return res.status(500).send('CogSvcs IssueToken error');
             }
-    
+
             var tokenResultParsed = JSON.parse(tokenResult);
-            
+
             if (tokenResultParsed.error) {
                 console.log(tokenResult);
                 return res.send({error :  "Unable to acquire Azure AD token. Check the debugger for more information."})
             }
-    
+
             var token = tokenResultParsed.access_token;
             var subdomain = process.env.SUBDOMAIN;
             return res.send({token, subdomain});
@@ -132,12 +132,12 @@ doctype html
 html
    head
       title Immersive Reader Quickstart Node.js
-      
+
       link(rel='stylesheet', href='https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css')
 
       // A polyfill for Promise is needed for IE11 support.
       script(src='https://cdn.jsdelivr.net/npm/promise-polyfill@8/dist/polyfill.min.js')
-      
+
       script(src='https://contentstorage.onenote.office.net/onenoteltir/immersivereadersdk/immersive-reader-sdk.0.0.3.js')
       script(src='https://code.jquery.com/jquery-3.3.1.min.js')
 
@@ -151,7 +151,7 @@ html
    body
       div(class="container")
         button(class="immersive-reader-button" data-button-style="iconAndText" data-locale="en")
-    
+
         h1(id="ir-title") About Immersive Reader
         div(id="ir-content" lang="en-us")
           p Immersive Reader is a tool that implements proven techniques to improve reading comprehension for emerging readers, language learners, and people with learning differences. The Immersive Reader is designed to make reading more accessible for everyone. The Immersive Reader
@@ -170,7 +170,7 @@ html
           p(lang="zh-cn") 沉浸式阅读器支持许多语言
           p(lang="de-de") Der plastische Reader ist in vielen Sprachen verfügbar.
           p(lang="ar-eg" dir="rtl" style="text-align:right") يتوفر \"القارئ الشامل\" في العديد من اللغات.
-    
+
 script(type="text/javascript").
   function getTokenAndSubdomainAsync() {
         return new Promise(function (resolve, reject) {
@@ -200,7 +200,7 @@ script(type="text/javascript").
             .then(function (response) {
                 const token = response["token"];
                 const subdomain = response["subdomain"];
-                // Learn more about chunk usage and supported MIME types https://docs.microsoft.com/en-us/azure/cognitive-services/immersive-reader/reference#chunk
+                // Learn more about chunk usage and supported MIME types https://docs.microsoft.com/azure/cognitive-services/immersive-reader/reference#chunk
                 const data = {
                     title: $("#ir-title").text(),
                     chunks: [{
@@ -208,7 +208,7 @@ script(type="text/javascript").
                         mimeType: "text/html"
                     }]
                 };
-                // Learn more about options https://docs.microsoft.com/en-us/azure/cognitive-services/immersive-reader/reference#options
+                // Learn more about options https://docs.microsoft.com/azure/cognitive-services/immersive-reader/reference#options
                 const options = {
                     "onExit": exitCallback,
                     "uiZIndex": 2000
