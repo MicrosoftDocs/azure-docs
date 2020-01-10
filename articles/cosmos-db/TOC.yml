@@ -82,7 +82,7 @@
       href: resource-manager-samples.md
   - name: Concepts
     items:
-    - name: Understanding the differences between NoSQL and relational databases
+    - name: NoSQL Vs relational databases
       href: relational-or-nosql.md
     - name: Global distribution
       items:
