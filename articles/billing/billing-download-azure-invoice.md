@@ -108,7 +108,7 @@ To opt out of getting your invoice by email, follow the preceding steps and clic
 
 ## Give others access to your Microsoft Customer Agreement invoices
 
-You can give others access to view, download, and pay invoices by assigning them invoice manager role for a billing profile. If you have opt in for getting your invoice in email, these users also get the invoices in email. 
+You can give others access to view, download, and pay invoices by assigning them invoice manager role for a billing profile. If you have opted in for getting your invoice in email, these users also get the invoices in email. 
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
