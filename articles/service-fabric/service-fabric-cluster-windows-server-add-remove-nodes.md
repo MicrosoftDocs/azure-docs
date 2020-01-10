@@ -31,22 +31,24 @@ When using certificates to secure the cluster they are expected to be installed 
 4. Copy or [download the standalone package for Service Fabric for Windows Server](https://go.microsoft.com/fwlink/?LinkId=730690) to the VM/machine and unzip the package
 5. Run Powershell with elevated privileges, and navigate to the location of the unzipped package
 6. Run the *AddNode.ps1* script with the parameters describing the new node to add. The example below adds a new node called VM5, with type NodeType0 and IP address 182.17.34.52, into UD1 and fd:/dc1/r0. The *ExistingClusterConnectionEndPoint* is a connection endpoint for a node already in the existing cluster, which can be the IP address of *any* node in the cluster. 
+
 Unsecure (prototyping):
+
 	```
-	
 .\AddNode.ps1 -NodeName VM5 -NodeType NodeType0 -NodeIPAddressorFQDN 182.17.34.52 -ExistingClientConnectionEndpoint 182.17.34.50:19000 -UpgradeDomain UD1 -FaultDomain fd:/dc1/r0 -AcceptEULA
 
 	```
 
 Secure (Certificate-based):
-	```
-	
-	$CertThumbprint= "***********************"
 
+	```	
+$CertThumbprint= "***********************"
+	
 .\AddNode.ps1 -NodeName VM5 -NodeType NodeType0 -NodeIPAddressorFQDN 182.17.34.52 -ExistingClientConnectionEndpoint 182.17.34.50:19000 -UpgradeDomain UD1 -FaultDomain fd:/dc1/r0 -X509Credential -ServerCertThumbprint $CertThumbprint  -AcceptEULA
 
 	```
-	Once the script finishes running, you can check if the new node has been added by running the [Get-ServiceFabricNode](/powershell/module/servicefabric/get-servicefabricnode?view=azureservicefabricps) cmdlet.
+
+Once the script finishes running, you can check if the new node has been added by running the [Get-ServiceFabricNode](/powershell/module/servicefabric/get-servicefabricnode?view=azureservicefabricps) cmdlet.
 
 7. To ensure consistency across different nodes in the cluster, you must initiate a configuration upgrade. Run [Get-ServiceFabricClusterConfiguration](/powershell/module/servicefabric/get-servicefabricclusterconfiguration?view=azureservicefabricps) to get the latest configuration file and add the newly added node to "Nodes" section. It is also recommended to always have the latest cluster configuration available in the case that you need to redeploy a cluster with the same configuration.
 
