@@ -70,7 +70,8 @@ The preview also has the following restrictions:
 - Your Key Vault must be in the same subscription and region as your customer-managed keys.
 - Disks, snapshots, and images encrypted with customer-managed keys cannot move to another subscription.
 
-### Setting up your Azure Key Vault and DiskEncryptionSet
+### CLI
+#### Setting up your Azure Key Vault and DiskEncryptionSet
 
 1.	Create an instance of Azure Key Vault and encryption key.
 
@@ -112,7 +113,7 @@ The preview also has the following restrictions:
     az role assignment create --assignee $desIdentity --role Reader --scope $keyVaultId
     ```
 
-### Create a VM using a Marketplace image, encrypting the OS and data disks with customer-managed keys
+#### Create a VM using a Marketplace image, encrypting the OS and data disks with customer-managed keys
 
 ```azurecli
 rgName=yourResourceGroupName
@@ -129,7 +130,7 @@ az vm create -g $rgName -n $vmName -l $location --image $image --size $vmSize --
 
 ```
 
-### Create an empty disk encrypted using server-side encryption with customer-managed keys and attach it to a VM
+#### Create an empty disk encrypted using server-side encryption with customer-managed keys and attach it to a VM
 
 ```azurecli
 vmName=yourVMName

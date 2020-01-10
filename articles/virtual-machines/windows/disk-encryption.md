@@ -70,7 +70,7 @@ The preview also has the following restrictions:
 - Your Key Vault must be in the same subscription and region as your customer-managed keys.
 - Disks, snapshots, and images encrypted with customer-managed keys cannot move to another subscription.
 
-### CLI
+### PowerShell
 
 #### Setting up your Azure Key Vault and DiskEncryptionSet
 
