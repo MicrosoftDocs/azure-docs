@@ -39,8 +39,6 @@ When customers connect to the public endpoint from on-premises machines, their I
 
 With Private Link, customers can enable cross-premises access to the private endpoint using [ExpressRoute](../expressroute/expressroute-introduction.md), private peering, or VPN tunneling. Customers can then disable all access via the public endpoint and not use the IP-based firewall to allow any IP addresses.
 
-With Private Link, customers can enable cross-premises access to the private endpoint using Express Route (ER) private peering or VPN tunnel.They can subsequently disable all access via public endpoint and not use the IP-based firewall.
-
 ## How to set up Private Link for Azure SQL Database 
 
 ### Creation Process
