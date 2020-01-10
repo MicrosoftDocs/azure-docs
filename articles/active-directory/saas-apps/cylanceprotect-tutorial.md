@@ -13,7 +13,7 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 01/03/2020
+ms.date: 01/10/2020
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -109,6 +109,9 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 1. On the **Set up CylancePROTECT** section, copy the appropriate URL(s) based on your requirement.
 
 	![Copy configuration URLs](common/copy-configuration-urls.png)
+
+> [!NOTE]
+> Open the downloaded Base64 encoded certificate in a text editor and copy ONLY the text between **START** and **END** tags to paste in Cylance Admin portal.
 
 ### Create an Azure AD test user
 
