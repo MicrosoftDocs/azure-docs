@@ -61,7 +61,7 @@ Configure your Azure Active Directory app to use the OAuth 2.0 implicit grant fl
 
     Check **Access tokens** to enable the **oauth2AllowImplicitFlow** setting in your Manifest.json.
 
-    [![Public client configuration setting](../../includes/media/digital-twins-permissions/aad-public-client.png)](../../includes/media/digital-twins-permissions/aad-public-client.png#lightbox)
+    [![Public client configuration setting](../../includes/media/digital-twins-permissions/aad-configure-public-client.png)](../../includes/media/digital-twins-permissions/aad-configure-public-client.png#lightbox)
 
 1. Copy and keep the **Application ID** of your Azure Active Directory app. It's used in the steps that follow.
 
