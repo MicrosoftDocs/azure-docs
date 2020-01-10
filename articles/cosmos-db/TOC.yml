@@ -82,6 +82,8 @@
       href: resource-manager-samples.md
   - name: Concepts
     items:
+    - name: NoSQL Vs relational databases
+      href: relational-nosql.md
     - name: Global distribution
       items:
       - name: Overview
@@ -1058,6 +1060,8 @@
         href: cassandra-migrate-cosmos-db-blitzz.md
       - name: Migrate hundreds of terabytes of data into Azure Cosmos DB 
         href: migrate-cosmosdb-data.md
+      - name: Migrate one-to-few relational data
+        href: migrate-relational-to-cosmos-db-sql-api.md 
     - name: Bulk executor library
       items: 
       - name: About bulk executor library
