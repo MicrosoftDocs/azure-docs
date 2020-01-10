@@ -34,20 +34,6 @@ One key aspect is the scope of the virtual network for the resource.  While Basi
 
 Load Balancer resources are objects within which you can express how Azure should program its multi-tenant infrastructure to achieve the scenario you wish to create.  There is no direct relationship between Load Balancer resources and actual infrastructure; creating a Load Balancer doesn't create an instance, capacity is always available, and there are no start-up or scaling delays to consider. 
 
-## Why use Standard Load Balancer?
-
-Standard Load Balancer enables you to scale your applications and create high availability for small scale deployments to large and complex multi-zone architectures.
-
-Review the table below for an overview of the differences between Standard Load Balancer and Basic Load Balancer:
-
->[!NOTE]
-> New designs should adopt Standard Load Balancer. 
-
-[!INCLUDE [comparison table](../../includes/load-balancer-comparison-table.md)]
-
-Review [service limits for Load Balancer](https://aka.ms/lblimits), as well as [pricing](https://aka.ms/lbpricing), and [SLA](https://aka.ms/lbsla).
-
-
 ### <a name="backend"></a>Backend pool
 
 Standard Load Balancer backend pools expand to any virtual machine resource in a virtual network.  It can contain up to 1000 backend instances.  A backend instance is an IP configuration, which is a property of a NIC resource.
