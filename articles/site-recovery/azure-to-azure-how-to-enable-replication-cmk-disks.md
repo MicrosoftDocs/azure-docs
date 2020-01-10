@@ -1,6 +1,6 @@
 ---
 title: Enable replication for encrypted Azure VMs in Azure Site Recovery 
-description: This article describes how to configure replication for VMs with customer managed key (CMK) enabled disks from one Azure region to another by using Site Recovery.
+description: This article describes how to configure replication for VMs with customer-managed key (CMK) enabled disks from one Azure region to another by using Site Recovery.
 author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
@@ -10,12 +10,12 @@ ms.author: mayg
 
 ---
 
-# Replicate machines with Customer Managed Keys (CMK) enabled disks
+# Replicate machines with Customer-Managed Keys (CMK) enabled disks
 
-This article describes how to replicate Azure VMs with Customer Managed Keys (CMK) enabled managed disks, from one Azure region to another.
+This article describes how to replicate Azure VMs with Customer-Managed Keys (CMK) enabled managed disks, from one Azure region to another.
 
 ## Pre-Requisite
-You must create the Disk Encryption set(s) in the target region for the target subscription before enabling replication for your virtual machines which have CMK-enabled managed disks.
+You must create the Disk Encryption set(s) in the target region for the target subscription before enabling replication for your virtual machines that have CMK-enabled managed disks.
 
 ## Enable replication
 
@@ -41,7 +41,7 @@ For this example, the primary Azure region is East Asia, and the secondary regio
     - **Replica managed disks (if your source VM uses managed disks)**: Site Recovery creates new replica managed disks in the target region to mirror the source VM's managed disks of the same storage type (standard or premium) as the source VM's managed disks.
     - **Cache storage accounts**: Site Recovery needs an extra storage account called *cache storage* in the source region. All the changes on the source VMs are tracked and sent to the cache storage account. They're then replicated to the target location.
     - **Availability set**: By default, Site Recovery creates a new availability set in the target region. The name has the "asr" suffix. If an availability set that was created by Site Recovery already exists, it's reused.
-    - **Disk encryption sets (DES)**: Site Recovery needs the disk encryption set(s) to be used for replica and target managed disks. You must pre-create DES in the target subscription and the target region prior to enabling the replication. By default, a DES is not selected. You must click on ‘Customize’ to choose a DES per source disk.
+    - **Disk encryption sets (DES)**: Site Recovery needs the disk encryption set(s) to be used for replica and target managed disks. You must pre-create DES in the target subscription and the target region before enabling the replication. By default, a DES is not selected. You must click on ‘Customize’ to choose a DES per source disk.
     - **Replication policy**: Defines the settings for recovery point retention history and app-consistent snapshot frequency. By default, Site Recovery creates a new replication policy with default settings of *24 hours* for recovery point retention and *60 minutes* for app-consistent snapshot frequency.
 
     ![Enable Replication for machine with CMK enabled disks](./media/azure-to-azure-how-to-enable-replication-cmk-disks/CMKEnableDR.png)
@@ -58,7 +58,7 @@ Follow these steps to modify the Site Recovery default target settings.
 	- For **Availability set**, you can add availability set settings to the VM, if they're part of an availability set in the source region.
 	- For **Target Storage accounts**, select the account to use.
 
-3. Select **Customize** next to "Storage encryption settings" to select the target DES for every customer managed key (CMK) enabled source managed disk. At the time of selection, you will also be able to see which target key vault the DES is associated with.
+3. Select **Customize** next to "Storage encryption settings" to select the target DES for every customer-managed key (CMK) enabled source managed disk. At the time of selection, you will also be able to see which target key vault the DES is associated with.
 
 4. Select **Create target resource** > **Enable Replication**.
 5. After the VMs are enabled for replication, you can check the VMs' health status under **Replicated items**.
@@ -72,9 +72,9 @@ Follow these steps to modify the Site Recovery default target settings.
 
 * I have enabled CMK on an existing replicated item, how can I ensure that CMK is applied on the target region as well?
 
-    You can find out the name of the replica managed disk (created by ASR in the target region) and attach DES to this replica disk. However, you will not be able to see the DES details in the Disks blade once you attach it. Alternatively, you can choose to disable the replication of the VM and enable it again. This will ensure that you see DES and key vault details in the Disks blade for the replicated item.
+    You can find out the name of the replica managed disk (created by ASR in the target region) and attach DES to this replica disk. However, you will not be able to see the DES details in the Disks blade once you attach it. Alternatively, you can choose to disable the replication of the VM and enable it again. It will ensure you see DES and key vault details in the Disks blade for the replicated item.
 
-* I have added a new CMK enabled disk to the replicated item. How can I replicate this with Azure Site Recovery?
+* I have added a new CMK enabled disk to the replicated item. How can I replicate this disk with Azure Site Recovery?
 
-    Addition of a new CMK enabled disk to an existing replicated item is not supported. Please re-enable the replication for the virtual machine.
+    Addition of a new CMK enabled disk to an existing replicated item is not supported. Disable the replication and enable the replication again for the virtual machine.
 
