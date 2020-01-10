@@ -11,11 +11,11 @@ keywords: azure, kinect, specs, hardware, DK, capabilities, depth, color, RGB, I
 
 # Synchronization across multiple Azure Kinect Dk devices
 
-In this article we will explore the benefits of multi device synchronization and it's details.
+In this article, we will explore the benefits of multi device synchronization and its details.
 
 Before you start, make sure to review [Azure Kinect DK Hardware specification](hardware-specification.md) and the [the multi- camera hardware set up](https://support.microsoft.com/help/4494429). 
 
-There are a few important things to consider before starting your multi- camera set up. 
+There are a few important things to consider before starting your multi- camera setup. 
 
 - We recommend not to use automatic exposure setting since it can cause the device timing to change as exposure changes.
 - Device timestamp changes to ‘Start of Frame’ from ‘Center of Frame’ when using master or subordinate modes.
@@ -37,8 +37,8 @@ Let's take a closer look at some of those reasons.
 
 ### Solve for occlusion
 
-Occlusion means that there is something you want to see, but can't due to some interference. In our case Azure Kinect Dk device has two cameras (depth and color cameras) that do not share the same origin, so one camera can see part of an object that other cannot. Therefore, when transforming depth to color image, you may see a shadow around an object.
-On the image below, the left camera sees the grey pixel P2, but the ray from the right camera to P2 hits the white foreground object. As a result the right camera can not see P2.
+Occlusion means that there is something you want to see, but cannot due to some interference. In our case Azure Kinect Dk device has two cameras (depth and color cameras) that do not share the same origin, so one camera can see part of an object that other cannot. Therefore, when transforming depth to color image, you may see a shadow around an object.
+On the image below, the left camera sees the grey pixel P2, but the ray from the right camera to P2 hits the white foreground object. As a result the right camera cannot see P2.
 
  ![Occlusion](./media/occlusion.png)
 
@@ -46,7 +46,7 @@ Using additional Azure Kinect DK devices will solve this issue and fill out an o
 
 ## Set up multiple Azure Kinect Dk devices
 
-Please make sure to review [the multi- camera hardware set up article](https://support.microsoft.com/help/4494429) that describes different options for hardware set up. 
+Make sure to review [the multi- camera hardware setup article](https://support.microsoft.com/help/4494429) that describes different options for hardware setup. 
 
 > [!NOTE]
 > Make sure to remove the cover in order to reveal the sync ports.
@@ -61,7 +61,7 @@ Cable requirements:
 - Maximum cable length < 10 m
 - Both stereo and mono cable are supported
 
-When using multiple depth camera's in synchronized captures, depth camera captures should be offset from one another by 160us or more to avoid depth cameras interference.
+When using multiple depth cameras in synchronized captures, depth camera captures should be offset from one another by 160us or more to avoid depth cameras interference.
 
 ### Cross- Device Calibration
 
@@ -71,7 +71,7 @@ There are different ways to do so, but in our [GitHub green screen code sample](
 
 ### Verify two Azure Kinect DK devices synchronization
 
-After setting up the hardware and connecting the sync out jack of the master to sync in of the subordinate, we can use the [Azure Kinect Viewer](azure-kinect-viewer.md) to validate the devices setup up. This also can be done for more then two devices.
+After setting up the hardware and connecting the sync out jack of the master to sync in of the subordinate, we can use the [Azure Kinect Viewer](azure-kinect-viewer.md) to validate the devices setup. It also can be done for more than two devices.
 
 > [!NOTE]
 > Subordinate device is the one that connected to "Sync In" ping
@@ -82,12 +82,12 @@ After setting up the hardware and connecting the sync out jack of the master to 
 
   ![Subordinate camera start](./media/open-device.png)
 
-3. In the section "External Sync" choose option "Sub" and start the device. (when subordinate device is started, you will see no images yet until master device is turned on.)
+3. In the section "External Sync", choose option "Sub" and start the device. (when subordinate device is started, you will see no images yet until master device is turned on.)
 
   ![Subordinate camera start](./media/sub-start.png)
 
 4. Navigate to another instance of the Azure Kinect viewer and open the master Azure Kinect DK device.
-5. In the section "External Sync" choose option "Master" and start the device.
+5. In the section "External Sync", choose option "Master" and start the device.
 
 > [!NOTE]
 > Make sure to always start the subordinate device first!
@@ -102,7 +102,7 @@ A few things to remember:
 ### Avoiding multi-device depth interference
 
 It is important to understand how to set up your Azure Kinect DK devices to avoid depth interference. 
-The depth camera laser on time is less than 160us, 160us ends up having a safety margin (over the 125 us in the table below) to ensure variations is sensors don’t cause issues with software. There are indeed 9 pulses & images that the sensor uses to capture the depth engine. The exact timing changes based on the depth mode you are using.
+The depth camera laser on time is less than 160us, 160us ends up having a safety margin (over the 125 us in the table below) to ensure variations is sensors don’t cause issues with software. There are nine pulses & images that the sensor uses to capture the depth engine. The exact timing changes based on the depth mode you are using.
 
 Using the table below the exposure time can be calculated as:
 
@@ -114,18 +114,18 @@ Depth Mode | IR <br>Pulses | Pulse <br>Width  | Idle <br>Periods| Idle Time | Ex
 NFOV Unbinned <br>  NFOV 2xx Binned <br> WFOV 2x2 Binned | 9 | 125 us | 8 | 1450 us | 12.8 ms 
 WFOV Unbinned                                            | 9 | 125 us | 8 | 2390 us | 20.3 ms
 
-The table above is the raw timing of the sensor and should match up with your scope measurements. As you can tell, the IR on time is ~125 us. Due to variations in timing for the firmware, and it minimum timing resolution of 11us, we recommend being no closer than 160us. The idle time between each IR pulse for NFOV is ~1450us. This idle time gives us enough laser off time to interleave 9 more sensors allowing us a total of 10 depth cameras linked together all being 160us of phase off each other. 
+The table above is the raw timing of the sensor and should match up with your scope measurements. As you can tell, the IR on time is ~125 us. Due to variations in timing for the firmware, and it minimum timing resolution of 11us, we recommend being no closer than 160us. The idle time between each IR pulse for NFOV is ~1450us. This idle time gives us enough laser off time to interleave nine more sensors allowing us a total of 10 depth cameras linked together all being 160us of phase off each other. 
 
-This leaves you with 20.5 ms to get your mocap system running without interfering with the depth cameras.
+It leaves you with 20.5 ms to get your mocap system running without interfering with the depth cameras.
 
-## Trigger Azure Kinect DK devices externally using 3.5mm audio cable
+## Trigger Azure Kinect DK devices externally using 3.5 mm audio cable
 
 In order to trigger multiple Azure Kinect DK devices by an external device and control triggering time using 3.5 mm audio cable, the following needs to be considered:
 
 - The SYNC signals are active high and pulse width should be greater than 8us.
-- We currently support 30, 15 and 5 fps, so frequency of master VSYNC signal from your board (developed to generate signal) should also be one of these 3.
+- We currently support 30 fps, 15 fps and 5 fps, so frequency of master VSYNC signal from your board (developed to generate signal) should also be one of above 3 options.
 - Kinect DK 1 should be connected to your board, Kinect DK 2 to your Kinect DK 1 and Kinect DK 3 to your Kinect DK 2, say daisy-chain.
-- SYNC signal from the board should be 5V TTL/CMOS with maximum driving capacity no less than 8mA.
+- SYNC signal from the board should be 5 V TTL/CMOS with maximum driving capacity no less than 8 mA.
 - The below plugs can be used with Kinect DK, and all sleeves and rings are shorted together inside Kinect DK and they are connected to ground of master Kinect DK. Tip is the sync signal.
 
 ![Camera trigger signal externally](./media/resources/camera-trigger-signal.jpg)
