@@ -12,7 +12,7 @@ services: event-grid
 
 # Event Handlers and destinations in Event Grid on Edge
 
-An event handler is the place where the event is sent. The handler takes some further action to process the event. With the Event Grid on Edge module, this can be on the same edge device, another device, or in the cloud. You can also use any WebHook to handle events, or you can use one of the native handlers like Azure Event Grid, the cloud service, or Service Bus.
+An event handler is the place where the event for further action or to process the event. With the Event Grid on Edge module, the event handler can be on the same edge device, another device, or in the cloud. You may can use any WebHook to handle events, or send events to one of the native handlers like Azure Event Grid.
 
 This article provides information on how to configure each.
 
@@ -41,7 +41,7 @@ To publish to an Azure Event Grid cloud endpoint, set the `endpointType` to `eve
 
 * endpointUrl: Event Grid Topic URL in the cloud
 * sasKey: Event Grid Topic's SAS key
-* topicName: Name to stamp all outgoing events to Event Grid. This can be useful when posting to an Event Grid Domain topic.
+* topicName: Name to stamp all outgoing events to Event Grid. Topic name is useful when posting to an Event Grid Domain topic.
 
    ```json
         {
@@ -81,7 +81,7 @@ To publish to an Edge Hub module, set the `endpointType` to `edgeHub` and provid
 
 To publish to an Event Hub, set the `endpointType` to `eventHub` and provide:
 
-* connectionString: Connection string for the specific Event Hub you are targeting generated via a Shared Access Policy.
+* connectionString: Connection string for the specific Event Hub you're targeting generated via a Shared Access Policy.
 
     >[!NOTE]
     > The connection string must be entity specific. Using a namespace connection string will not work. You can generate an entity specific connection string by navigating to the specific Event Hub you would like to publish to in the Azure Portal and clicking **Shared access policies** to generate a new entity specific connecection string.
@@ -103,10 +103,10 @@ To publish to an Event Hub, set the `endpointType` to `eventHub` and provide:
 
 To publish to a Service Bus Queue, set the `endpointType` to `serviceBusQueue` and provide:
 
-* connectionString: Connection string for the specific Service Bus Queue you are targeting generated via a Shared Access Policy.
+* connectionString: Connection string for the specific Service Bus Queue you're targeting generated via a Shared Access Policy.
 
     >[!NOTE]
-    > The connection string must be entity specific. Using a namespace connection string will not work. You can generate an entity specific connection string by navigating to the specific Service Bus Queue you would like to publish to in the Azure Portal and clicking **Shared access policies** to generate a new entity specific connecection string.
+    > The connection string must be entity specific. Using a namespace connection string will not work. Generate an entity specific connection string by navigating to the specific Service Bus Queue you would like to publish to in the Azure Portal and clicking **Shared access policies** to generate a new entity specific connecection string.
 
     ```json
         {
@@ -125,10 +125,10 @@ To publish to a Service Bus Queue, set the `endpointType` to `serviceBusQueue` a
 
 To publish to a Service Bus Topic, set the `endpointType` to `serviceBusTopic` and provide:
 
-* connectionString: Connection string for the specific Service Bus Topic you are targeting generated via a Shared Access Policy.
+* connectionString: Connection string for the specific Service Bus Topic you're targeting generated via a Shared Access Policy.
 
     >[!NOTE]
-    > The connection string must be entity specific. Using a namespace connection string will not work. You can generate an entity specific connection string by navigating to the specific Service Bus Topic you would like to publish to in the Azure Portal and clicking **Shared access policies** to generate a new entity specific connecection string.
+    > The connection string must be entity specific. Using a namespace connection string will not work. Generate an entity specific connection string by navigating to the specific Service Bus Topic you would like to publish to in the Azure Portal and clicking **Shared access policies** to generate a new entity specific connecection string.
 
     ```json
         {
@@ -147,7 +147,7 @@ To publish to a Service Bus Topic, set the `endpointType` to `serviceBusTopic` a
 
 To publish to a Storage Queue, set the  `endpointType` to `storageQueue` and provide:
 
-* queueName: Name of the Storage Queue you are publishing to.
+* queueName: Name of the Storage Queue you're publishing to.
 * connectionString: Connection string for the Storage Account the Storage Queue is in.
 
     >[!NOTE]
