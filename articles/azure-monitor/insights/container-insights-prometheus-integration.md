@@ -2,7 +2,7 @@
 title: Configure Azure Monitor for containers Prometheus Integration | Microsoft Docs
 description: This article describes how you can configure the Azure Monitor for containers agent to scrape metrics from Prometheus with your Kubernetes cluster.
 ms.topic: conceptual
-ms.date: 01/08/2020
+ms.date: 01/09/2020
 ---
 
 # Configure scraping of Prometheus metrics with Azure Monitor for containers
@@ -15,7 +15,7 @@ ms.date: 01/08/2020
 >The minimum agent version supported for scraping Prometheus metrics is ciprod07092019 or later, and the agent version supported for writing configuration and agent errors in the `KubeMonAgentEvents` table is ciprod10112019. For more information about the agent versions and what's included in each release, see [agent release notes](https://github.com/microsoft/Docker-Provider/tree/ci_feature_prod). 
 >To verify your agent version, from the **Node** tab select a node, and in the properties pane note value of the **Agent Image Tag** property.
 
-Scraping of Prometheus metrics is supported on Kubernetes clusters hosted on:
+Scraping of Prometheus metrics is supported with Kubernetes clusters hosted on:
 
 - Azure Kubernetes Service (AKS)
 - Azure Container Instances
@@ -84,7 +84,7 @@ ConfigMaps is a global list and there can be only one ConfigMap applied to the a
 
 ## Configure and deploy ConfigMaps
 
-Perform the following steps to configure and deploy your ConfigMap configuration file to your cluster.
+Perform the following steps to configure your ConfigMap configuration file for Kubernetes clusters, excluding Azure Red Hat OpenShift.
 
 1. [Download](https://github.com/microsoft/OMS-docker/blob/ci_feature_prod/Kubernetes/container-azm-ms-agentconfig.yaml) the template ConfigMap yaml file and save it as container-azm-ms-agentconfig.yaml.
 
@@ -152,11 +152,17 @@ Perform the following steps to configure and deploy your ConfigMap configuration
 	
           If you want to restrict monitoring to specific namespaces for pods that have annotations, for example only include pods dedicated for production workloads, set the `monitor_kubernetes_pod` to `true` in ConfigMap, and add the namespace filter `monitor_kubernetes_pods_namespaces` specifying the namespaces to scrape from. For example, `monitor_kubernetes_pods_namespaces = ["default1", "default2", "default3"]`
 
-3. To create ConfigMap on Kubernetes clusters other than Azure Red Hat OpenShift, run the following kubectl command: `kubectl apply -f <configmap_yaml_file.yaml>`.
+3. To create ConfigMap, run the following kubectl command: `kubectl apply -f <configmap_yaml_file.yaml>`.
     
     Example: `kubectl apply -f container-azm-ms-agentconfig.yaml`. 
-    
-4. To create ConfigMap on Azure Red Hat OpenShift clusters, save `container-azm-ms-agentconfig.yaml` in *openshift-azure-logging* namespace with your configuration settings using the following command:
+
+The configuration change can take a few minutes to finish before taking effect, and all omsagent pods in the cluster will restart. The restart is a rolling restart for all omsagent pods, not all restart at the same time. When the restarts are finished, a message is displayed that's similar to the following and includes the result: `configmap "container-azm-ms-agentconfig" created`.
+
+## Deploy ConfigMaps for Azure Red Hat OpenShift
+
+A default copy of ConfigMap `container-azm-ms-agentconfig.yaml` is available with Azure Red Hat OpenShift in the *openshift-azure-logging* namespace. To set custom key-value pairs, perform the following steps to edit the yaml file.
+
+1. To edit ConfigMap with your configuration settings, use the following command:
 
     ``` bash
     oc edit configmaps container-azm-ms-agentconfig -n openshift-azure-logging
@@ -170,7 +176,7 @@ Perform the following steps to configure and deploy your ConfigMap configuration
     >       openshift.io/reconcile-protect: "true"
     >```
 
-The configuration change can take a few minutes to finish before taking effect, and all omsagent pods in the cluster will restart. The restart is a rolling restart for all omsagent pods, not all restart at the same time. When the restarts are finished, a message is displayed that's similar to the following and includes the result: `configmap "container-azm-ms-agentconfig" created`.
+
 
 ## Applying updated ConfigMap
 
