@@ -91,7 +91,7 @@ Download the CSV template, and add server information to it.
 
 1. In **Migration Goals** > **Servers** > **Azure Migrate: Server Assessment**, click **Discover**.
 2. In **Discover machines**, select **Import using .CSV**.
-3. Click **Download** to download the .CSV template. Alternatively, you can [download it directly](https://go.microsoft.com/fwlink/?linkid=2108404).
+3. Click **Download** to download the .CSV template. Alternatively, you can [download it directly](https://go.microsoft.com/fwlink/?linkid=2109031).
 
     ![Download .CSV template](./media/tutorial-assess-import/download-template.png)
 
