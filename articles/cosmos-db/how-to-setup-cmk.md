@@ -1,0 +1,216 @@
+---
+title: Setup customer-managed keys for your Azure Cosmos DB account
+description: Learn how to setup customer-managed keys for your Azure Cosmos DB account
+author: ThomasWeiss
+ms.service: cosmos-db
+ms.topic: conceptual
+ms.date: 01/09/2020
+ms.author: thweiss
+---
+
+# Setup customer-managed keys for your Azure Cosmos account
+
+Data stored in your Azure Cosmos DB account is automatically and seamlessly encrypted. Azure Cosmos DB offers two options for managing the keys used to encrypt your data at rest:
+- **Service-managed keys**. By default, Microsoft manages the keys used to encrypt your Azure Cosmos DB account.
+- **Customer-managed keys (CMK)**. You can optionally choose to add a second layer of encryption with keys managed by yourself.
+
+Customer-managed keys must be stored in [Azure Key Vault](../key-vault/key-vault-overview.md). A key must be provided for each CMK-enabled account and is used to encrypt all the data stored in that account.
+
+## Setup
+
+Currently, customer-managed keys are only available for new accounts and need to be setup during account creation.
+
+### 1. Activate customer-managed keys for your Azure subscription
+
+From the Azure Portal, open a support ticket to request the activation of the "AllowCustomerManagedKeys" capability for your Azure subscription.
+
+### 2. Make sure the Azure Cosmos DB resource provider is registered for your Azure subscription
+
+From the Azure Portal, go to your Azure subscription and select "Resource providers" from the left menu:
+
+!["Resource providers" entry from the left menu](./media/how-to-setup-cmk/portal-rp.png)
+
+Search for the "Microsoft.DocumentDB" resource provider.
+- If the resource provider is already marked as registered, there is nothing to do.
+- If not, select it and click on "Register":
+
+![Registering the Microsoft.DocumentDB resource provider](./media/how-to-setup-cmk/portal-rp-register.png)
+
+### 3. Configure your Azure Key Vault instance
+
+Using customer-managed keys with Azure Cosmos DB requires two properties to be set on the Azure Key Vault instance you plan to use to host your encryption keys: **Soft Delete** and **Do Not Purge**. These properties are not enabled by default but can be enabled using either PowerShell or the Azure CLI.
+
+To learn how to enable these properties on an existing Azure Key Vault instance, see the sections titled Enabling soft-delete and Enabling Purge Protection in one of the following articles:
+- [How to use soft-delete with PowerShell](../key-vault/key-vault-soft-delete-powershell.md)
+- [How to use soft-delete with Azure CLI](../key-vault/key-vault-soft-delete-cli.md)
+
+### 4. Add an access policy to your Azure Key Vault instance
+
+From the Azure Portal, go to the Azure Key Vault instance you plan to use to host your encryption keys and select "Access Policies" from the left menu:
+
+!["Access policies" from the left menu](./media/how-to-setup-cmk/portal-akv-ap.png)
+
+- Click on "+ Add Access Policy"
+- Under the "Key permissions" dropdown menu, select "Get", "Unwrap Key" and "Wrap Key":
+
+![Selecting the right permissions](./media/how-to-setup-cmk/portal-akv-add-ap-perm2.png)
+
+- Under "Select principal", click on "None selected", search for and select the "Azure Cosmos DB" principal, then click "Select" at the bottom:
+
+![Selecting the Azure Cosmos DB principal](./media/how-to-setup-cmk/portal-akv-add-ap.png)
+
+- Click "Add" to add the new access policy
+
+### 5. Generate a key in Azure Key Vault
+
+From the Azure Portal, go the Azure Key Vault instance you plan to use to host your encryption keys and select "Keys" from the left menu:
+
+!["Keys" entry from the left menu](./media/how-to-setup-cmk/portal-akv-keys.png)
+
+- Click on "Generate/Import"
+- Provide a name for the new key, select an RSA key size (a minimum of 3072 is recommended for best security) and click "Create":
+
+![Creating a new key](./media/how-to-setup-cmk/portal-akv-gen.png)
+
+- Once the key is created, click on the newly created key, then on its current version
+- Copy the key’s "Key Identifier" except the part after the last forward slash:
+
+![Copying the key's key identifier](./media/how-to-setup-cmk/portal-akv-keyid.png)
+
+### 6. Create a new Azure Cosmos DB account
+
+#### Using the Azure Portal
+
+When creating a new Azure Cosmos DB account from the Azure Portal, choose "Customer-managed key" at the "Encryption" step and pass the URI of the Azure Key Vault key copied from step 4 in the "Key URI" field:
+
+![Setting CMK parameters in the Azure Portal](./media/how-to-setup-cmk/portal-cosmos-enc.png)
+
+#### Using PowerShell
+
+When creating a new Azure Cosmos DB account with PowerShell,
+- pass the URI of the Azure Key Vault key copied from step 4 under the "keyVaultKeyUri" property in the "PropertyObject",
+- make sure to use "2019-12-12" as the API version.
+
+```powershell
+$resourceGroupName = "myResourceGroup"
+$location = "West US 2"
+$accountName = "mycosmosaccount"
+
+$locations = @(
+    @{ "locationName"="West US 2"; "failoverPriority"=0 }
+)
+
+$CosmosDBProperties = @{
+    "databaseAccountOfferType"="Standard";
+    "locations"=$locations;
+    "keyVaultKeyUri" = "https://<my-vault>.vault.azure.net/keys/<my-key>";
+}
+
+New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
+    -ApiVersion "2019-12-12" -ResourceGroupName $resourceGroupName `
+    -Location $location -Name $accountName -PropertyObject $CosmosDBProperties
+```
+
+#### Using ARM templates
+
+When creating a new Azure Cosmos DB account through an ARM template:
+- pass the URI of the Azure Key Vault key copied from step 4 under the "keyVaultKeyUri" property in the "properties" object
+- make sure to use "2019-12-12" as the API version
+
+```
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "accountName": {
+            "type": "string"
+        },
+        "location": {
+            "type": "string"
+        },
+        "keyVaultKeyUri": {
+            "type": "string"
+        }
+    },
+    "resources": 
+    [
+        {
+            "type": "Microsoft.DocumentDB/databaseAccounts",
+            "name": "[parameters('accountName')]",
+            "apiVersion": "2019-12-12",
+            "kind": "GlobalDocumentDB",
+            "location": "[parameters('location')]",
+            "properties": {
+                "locations": [ 
+                    {
+                        "locationName": "[parameters('location')]",
+                        "failoverPriority": 0,
+                        "isZoneRedundant": false
+                    }
+                ],
+                "databaseAccountOfferType": "Standard",
+                "keyVaultKeyUri": "[parameters('keyVaultKeyUri')]"
+            }
+        }
+    ]
+}
+
+```
+
+```powershell
+$resourceGroupName = "myResourceGroup"
+$accountName = "mycosmosaccount"
+$location = "West US 2"
+$keyVaultKeyUri = "https://<my-vault>.vault.azure.net/keys/<my-key>"
+
+New-AzResourceGroupDeployment `
+    -ResourceGroupName $resourceGroupName `
+    -TemplateFile "deploy.json" `
+    -accountName $accountName `
+    -location $location `
+    -keyVaultKeyUri $keyVaultKeyUri
+```
+
+## Frequently asked questions
+
+### Is there any additional charge when using customer-managed keys?
+
+Yes. To account for the additional compute load required to manage data encryption and decryption with customer-managed keys, all operations executed against the Azure Cosmos DB account get a 25% increase in the amount of [Request Units](./request-units.md) consumed.
+
+### Which Azure regions are supported?
+
+Azure Cosmos DB customer-managed keys are currently supported in the East US, West US 2 and South Central US regions. More regions will be added over the coming months.
+
+### What happens if I try to add to my CMK-enabled account a region that is not supported?
+
+This operation will fail.
+
+### What data gets encrypted with the CMK?
+
+All the data stored in your Azure Cosmos DB account gets encrypted with the CMK, except for object meta-data and the values used as your containers' [partition key](./partitioning-overview.md) values.
+
+### Will customer-managed keys be supported for existing accounts?
+
+Support for existing accounts is planned to be available by Summer of 2020.
+
+### Is there a plan to support finer granularity than account-level keys?
+
+Support for container-level keys is planned to be available by Summer of 2020.
+
+### How does customer-managed keys affect backups?
+
+Azure Cosmos DB takes [regular and automatic backups](./online-backup-and-restore.md) of the data stored in your account. This operation backs up the encrypted data. For a restored backup to be usable, the encryption key used at the time of the backup must still be available, i.e. no revocation shall have been made and the version of the key used at the time of the backup shall still be enabled.
+
+### How do I revoke an encryption key?
+
+Key revocation is performed by disabling the latest version of the key:
+
+![Disabling a key's version](./media/how-to-setup-cmk/portal-akv-rev2.png)
+
+Alternatively, to revoke all keys from an Azure Key Vault instance, you can delete the access policy granted to the Azure Cosmos DB principal:
+
+![Deleting the access policy for the Azure Cosmos DB principal](./media/how-to-setup-cmk/portal-akv-rev.png)
+
+### What operations are available after a customer-managed key is revoked?
+
+The only operation possible when the encryption key has been revoked is account deletion.
