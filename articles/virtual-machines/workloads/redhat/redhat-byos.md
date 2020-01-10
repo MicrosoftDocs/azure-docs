@@ -18,7 +18,7 @@ ms.author: alsin
 
 ---
 
-# Red Hat Gold Images in Azure
+# Red Hat Enterprise Linux Bring-Your-Own-Subscription Gold Images in Azure
 Red Hat Enterprise Linux (RHEL) images are available in Azure via a pay-as-you-go (PAYG) or bring-your-own-subscription (Red Hat Gold Image) model. This document provides an overview of the Red Hat Gold Images in Azure.
 
 ## Important points to consider
@@ -33,7 +33,7 @@ Red Hat Enterprise Linux (RHEL) images are available in Azure via a pay-as-you-g
 
 - The images are unentitled, so you must use subscription-manager to register and subscribe the VMs to get updates from Red Hat directly
 
-- It is currently not possible to dynamically switch between Red Hat Gold Image and PAYG billing models for Linux images. Redeploying the VM from the respective image is required to switch the billing model
+- It is currently not possible to dynamically switch between BYOS and PAYG billing models for Linux images. Redeploying the VM from the respective image is required to switch the billing model
 
 - Azure Disk Encryption (ADE) is supported on these Red Hat Gold Images. ADE support is currently in preview. You must register with Red Hat using subscription-manager before configuring ADE. Once registered, to configure ADE refer to: [Enable Azure Disk Encryption for Linux IaaS VMs](https://docs.microsoft.com/azure/virtual-machines/linux/disk-encryption-overview)
 
@@ -43,13 +43,9 @@ Red Hat Enterprise Linux (RHEL) images are available in Azure via a pay-as-you-g
 
 ## Requirements and conditions to access the Red Hat Gold Images
 
-1. Get familiar with the [Red Hat Cloud Access program](https://www.redhat.com/en/technologies/cloud-computing/cloud-access) terms and enable your Red Hat subscriptions for Cloud Access at [Red Hat Subscription Manager](https://access.redhat.com/management/cloud).
+1. Get familiar with the [Red Hat Cloud Access program](https://www.redhat.com/en/technologies/cloud-computing/cloud-access) terms and enable your Red Hat subscriptions for Cloud Access at [Red Hat Subscription Manager](https://access.redhat.com/management/cloud). You will need to have on hand the Azure subscription(s) that are going to be registered for Cloud Access.
 
-2. Enable your Red Hat subscriptions for Cloud Access in [Red Hat Subscription Management](https://access.redhat.com/management/cloud). You will need to have on hand the Azure subscription(s) that you with to access the Red Hat Gold Images with. Red Hat has published [step-by-step documentation for getting started with Cloud Access](https://access.redhat.com/) to guide you through this step.
-
-	a. When enabling subscriptions for Cloud Access, only subscriptions marked with `Gold Image` are eligible to receive access to the images.
-
-3. If you have enabled Red Hat subscriptions for Cloud Access that meet the proper eligibility requirements, your Azure subscription(s) will be automatically be enabled for Gold Image access.
+1. If you have enabled Red Hat subscriptions for Cloud Access that meet the proper eligibility requirements, your Azure subscription(s) will be automatically be enabled for Gold Image access.
 
 ### Expected time for image access
 
