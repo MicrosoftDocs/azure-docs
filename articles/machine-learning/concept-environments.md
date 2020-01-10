@@ -21,7 +21,7 @@ You can use an `Environment` object on your local compute to:
 * Reuse the same environment on Azure Machine Learning Compute for model training at scale.
 * Deploy your model with that same environment.
 
-The following diagram illustrates how you can use a single environment object in both your run configuration, for training, and your inference and deployment configuration, for web service deployments.
+The following diagram illustrates how you can use a single `Environment` object in both your run configuration, for training, and your inference and deployment configuration, for web service deployments.
 
 ![Diagram of an environment in machine learning workflow](./media/concept-environments/ml-environment.png)
 
