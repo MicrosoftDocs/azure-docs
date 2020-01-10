@@ -23,7 +23,7 @@ Initial release of Azure Event Grid on IoT Edge. Included features:
 * Retry policies
 * Module to module publishing
 * Publish to WebHook as a destination
-* Publish to Iot Edge Hub as a destination
+* Publish to IoT Edge Hub as a destination
 * Publish to Azure Event Grid cloud service as a destination
 * Persisted state for metadata
 * Blob storage module integration

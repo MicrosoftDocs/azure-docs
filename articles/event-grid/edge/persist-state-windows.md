@@ -24,7 +24,7 @@ This article provides the steps needed to deploy Event Grid module with persiste
 
 ## Persistence via volume mount
 
-[Docker volumes](https://docs.docker.com/storage/volumes/) are used to preserve data across deployments. To mount a volume, you need to create it using docker commands, give permissions so that the container can read, write to it, and then deploy the module. There is no provision to automatically create a volume with necessary permissions on Windows. It needs to be created before deploying.
+[Docker volumes](https://docs.docker.com/storage/volumes/) are used to preserve data across deployments. To mount a volume, you need to create it using docker commands, give permissions so that the container can read, write to it, and then deploy the module.
 
 1. Create a volume by running the following command:
 
@@ -211,7 +211,7 @@ Important things to note about persisting events:
 
 * Persisting events is enabled on a per Event Subscription basis and is opt-in once a volume or directory has been mounted.
 * Event persistence is configured on an Event Subscription at creation time and cannot be modified once the Event Subscription is created. To toggle event persistence, you must delete and re-create the Event Subscription.
-* Persisting events is almost always slower than in memory operations, however the speed difference is highly dependent on the characteristics of the drive. The tradeoff between speed and reliability is inherent to all messaging systems but generally only becomes a noticible at large scale.
+* Persisting events is almost always slower than in memory operations, however the speed difference is highly dependent on the characteristics of the drive. The tradeoff between speed and reliability is inherent to all messaging systems but only becomes a noticible at large scale.
 
 To enable event persistence on an Event Subscription, set `persistencePolicy` to `true`:
 
