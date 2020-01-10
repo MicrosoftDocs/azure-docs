@@ -16,7 +16,7 @@ services: iot-edge
 
 This article from the end-to-end Azure Machine Learning on IoT Edge tutorial helps you prepare your environment for development and deployment. First, set up a development machine with all the tools you need. Then, create the necessary cloud resources in Azure.
 
-## Set up a development virtual machine
+## Set up the development VM
 
 This step is typically performed by a cloud developer. Some of the software may also be helpful for a data scientist.
 
@@ -87,7 +87,7 @@ The script runs for several minutes as it executes the following steps:
 * Restarts the VM.
 * Creates an RDP file on your desktop for connecting to the VM.
 
-### Start a remote desktop session
+### Connect to the development VM
 
 1. On the page for the virtual machine in the Azure portal, select **Connect**.
 
@@ -150,7 +150,7 @@ Azure IoT Hub is the heart of any IoT application as it handles secure communica
 
 In this section, you use a script to create an Azure IoT hub and an Azure Storage account. Then in the Azure portal, you configure a route that forwards data received by the hub to an Azure Storage container. These steps take about 10 minutes to complete.
 
-1. On your development machine, open a PowerShell window.
+1. On the development VM, open a PowerShell window.
 
 1. Change to the IoTHub directory.
 
@@ -175,19 +175,23 @@ As part of creating the IoT hub, the script that we ran in the previous section 
 
 1. Open the [Azure portal](https://portal.azure.com) and go to the resource group you're using for this tutorial.
 
-1. Select the IoT Hub that the script created. It will have a name similar to "IotEdgeAndMlHub-jrujej6de6i7w".
+1. In the list of resources, select the IoT Hub that the script created. It will have a name similar to "IotEdgeAndMlHub-jrujej6de6i7w".
+
+
 
 1. From the left pane menu, under **Messaging**, select **Message routing**.
 
-1. On the **Message Routing** page, select the **Custom endpoints** tab.
+1. On the **Message routing** page, select the **Custom endpoints** tab.
 
-1. Expand the **Storage** section, and select **turbofanDeviceStorage**.
+1. Expand the **Storage** section, and select **turbofanDeviceStorage** as shown here:
 
-1. Note that this endpoint points to the container named **devicedata** that you created.
+   ![Custom Endpoints](media/tutorial-machine-learning-edge-02-prepare-environment/custom-endpoints.png)
+
+1. Note that this endpoint points to the container named `**device data** that you created.
 
 1. Also note the **Filename format** has partition as the last element in the name. We find this format is more convenient for the file operations we will do with Azure Notebooks later in the tutorial.
 
-1. Select the **Routes** tab.
+1. Return to the **Message routing** page and select the **Routes** tab.
 
 1. Select the route named **turbofanDeviceDataToStorage**.
 
@@ -197,7 +201,7 @@ As part of creating the IoT hub, the script that we ran in the previous section 
 
 ## Next steps
 
-In this article, we created an IoT Hub and configured a route to an Azure Storage account. In the next article, we will send data from a set of simulated devices through the IoT Hub into the storage account. Later in the tutorial, after we have configured our IoT Edge device and modules, we will revisit routes and look a little more at the routing query.
+In this article, we created an IoT Hub and configured a route to an Azure Storage account. Next, we will send data from a set of simulated devices through the IoT Hub into the storage account. Later in the tutorial, after we have configured our IoT Edge device and modules, we will revisit routes and look a little more at the routing query.
 
 For more information about the steps covered in this portion of the Machine Learning on IoT Edge tutorial, see:
 
