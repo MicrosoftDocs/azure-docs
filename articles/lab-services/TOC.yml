@@ -72,6 +72,8 @@
       href: devtest-lab-auto-startup-vm.md      
     - name: Scale your lab
       href: devtest-lab-scale-lab.md
+    - name: Enable managed identities for lab VMs
+      href: enable-managed-identities-lab-vms.md
     - name: Manage virtual machine bases
       items:        
       - name: Configure Azure Marketplace images

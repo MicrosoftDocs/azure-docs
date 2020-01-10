@@ -81,6 +81,9 @@ az extension add --name spring-cloud
         az configure --defaults spring-cloud=<service instance name>
     ```
 
+> [!div class="nextstepaction"]
+> [I ran into an issue](https://www.research.net/r/javae2e?tutorial=asc-cli-quickstart&step=provision)
+
 ## Setup your configuration server
 
 Update your config-server with the location of the git repository for our project:
@@ -88,6 +91,9 @@ Update your config-server with the location of the git repository for our projec
 ```git
 az spring-cloud config-server git set -n <your-service-name> --uri https://github.com/Azure-Samples/piggymetrics --label config
 ```
+
+> [!div class="nextstepaction"]
+> [I ran into an issue](https://www.research.net/r/javae2e?tutorial=asc-cli-quickstart&step=config-server)
 
 ## Build the microservices applications locally
 
@@ -127,6 +133,9 @@ az spring-cloud app deploy -n account-service --jar-path ./account-service/targe
 az spring-cloud app deploy -n auth-service --jar-path ./auth-service/target/auth-service.jar
 ```
 
+> [!div class="nextstepaction"]
+> [I ran into an issue](https://www.research.net/r/javae2e?tutorial=asc-cli-quickstart&step=deploy)
+
 ## Assign public endpoint to gateway
 
 We need a way to access the application via a web browser. Our gateway application needs a public facing endpoint, which can be assigned using the following command:
@@ -152,6 +161,9 @@ You can also navigate the Azure portal to find the URL.
     ![Screenshot of PiggyMetrics running](media/spring-cloud-quickstart-launch-app-cli/navigate-app1.png)
 1. Find the URL on the **gateway Overview** page
     ![Screenshot of PiggyMetrics running](media/spring-cloud-quickstart-launch-app-cli/navigate-app2-url.png)
+
+> [!div class="nextstepaction"]
+> [I ran into an issue](https://www.research.net/r/javae2e?tutorial=asc-cli-quickstart&step=public-endpoint)
 
 ## Next Steps
 
