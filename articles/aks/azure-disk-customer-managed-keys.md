@@ -23,7 +23,7 @@ Azure Storage encrypts all data in a storage account at rest. By default, data i
 
 * You must enable soft delete and purge protection for *Azure Key Vault* when using Key Vault to encrypt managed disks.
 
-* You need the Azure CLI version 2.0.77 or later and the aks-preview 0.4.26 extension
+* You need the Azure CLI version 2.0.79 or later and the aks-preview 0.4.26 extension
 
 > [!IMPORTANT]
 > AKS preview features are self-service opt-in. Previews are provided "as-is" and "as available" and are excluded from the service level agreements and limited warranty. AKS Previews are partially covered by customer support on best effort basis. As such, these features are not meant for production use. For additional infromation, please see the following support articles:
@@ -128,7 +128,7 @@ TODO
 * OS Disk Encryption supported with Kubernetes version 1.17 and above   
 * Available only in regions where BYOK is supported
 * This is currently for new AKS clusters only, existing clusters cannot be upgraded
-* AKS cluster using Virtual Machine Scale Sets are required, no support Virtual Machine Availablity Sets
+* AKS cluster using Virtual Machine Scale Sets are required, no support for Virtual Machine Availablity Sets
 
 
 ## Next steps
@@ -139,8 +139,8 @@ Review [best practices for AKS cluster security][best-practices-security]
 
 
 <!-- LINKS - internal -->
-[az-extension-add]: /azure/cli/azure/extension#az-extension-add
-[az-extension-update]: /azure/cli/azure/extension#az-extension-update
+[az-extension-add]: /cli/azure/extension#az-extension-add
+[az-extension-update]: /cli/azure/extension#az-extension-update
 [best-practices-security]: /azure/aks/operator-best-practices-cluster-security
 [byok-azure-portal]: /azure/storage/common/storage-encryption-keys-portal
 [customer-managed-keys]: /azure/virtual-machines/windows/disk-encryption#customer-managed-keys-public-preview
