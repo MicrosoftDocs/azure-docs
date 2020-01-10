@@ -40,7 +40,7 @@ Privileged Identity Management provides time-based and approval-based role activ
 
 Once you set up Privileged Identity Management, you'll see **Tasks**, **Manage**, and **Activity** options in the left navigation menu. As an administrator, you'll choose between managing **Azure AD roles** and **Azure resource** roles. When you choose the type of roles to manage, you see a similar set of options for that role type.
 
-![Screenshot of Privileged Identity Management in the Azure portal](./media/pim-configure/pim-overview.png)
+![Screenshot of Privileged Identity Management in the Azure portal](./media/pim-configure/pim-quickstart.png)
 
 ## Who can do what?
 

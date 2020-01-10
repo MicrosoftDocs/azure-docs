@@ -1,5 +1,5 @@
 ---
-title: Single-page application (app's code configuration) - Microsoft identity platform
+title: Configure single-page app - Microsoft identity platform | Azure
 description: Learn how to build a single-page application (app's code configuration)
 services: active-directory
 documentationcenter: dev-center-name

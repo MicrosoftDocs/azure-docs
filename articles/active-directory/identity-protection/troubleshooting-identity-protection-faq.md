@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: troubleshooting
-ms.date: 10/18/2019
+ms.date: 12/13/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -39,6 +39,14 @@ Toggling **Show dates as** hides the **RISK LAST UPDATED** column. To readd the 
 
 ## Frequently asked questions
 
+### Why is a user is at risk?
+
+If you are an Azure AD Identity Protection customer, go to the [risky users](howto-identity-protection-investigate-risk.md#risky-users) view and click on an at-risk user. In the drawer at the bottom, tab ‘Risk history’ will show all the events that led to a user risk change. To see all risky sign-ins for the user, click on ‘User’s risky sign-ins’. To see all risk detections for this user, click on ‘User’s risk detections’.
+
+### How can I get a report of detections of a specific type?
+
+Go to the risk detections view and filter by ‘Detection type’. You can then download this report in .CSV or .JSON format using the **Download** button at the top. For more information, see the article [How To: Investigate risk](howto-identity-protection-investigate-risk.md#risk-detections).
+
 ### Why can’t I set my own risk levels for each risk detection?
 
 Risk levels in Identity Protection are based on the precision of the detection and powered by our supervised machine learning. To customize what experience users are presented, administrator can include/exclude certain users/groups from the User Risk and Sign-In Risk Policies.
@@ -46,6 +54,20 @@ Risk levels in Identity Protection are based on the precision of the detection a
 ### Why does the location of a sign-in not match where the user truly signed in from?
 
 IP geolocation mapping is an industry-wide challenge. If you feel that the location listed in the sign-ins report does not match the actual location, reach out to Microsoft support. 
+
+### How can I close specific risk detections like I did in the old UI?
+
+You can give feedback on risk detections by confirming the linked sign-in as compromised or safe. The feedback given on the sign-in trickles down to all the detections made on that sign-in. If you want to close detections that are not linked to a sign-in, you can provide that feedback on the user level. For more information, see the article [How to: Give risk feedback in Azure AD Identity Protection](howto-identity-protection-risk-feedback.md).
+
+### How far can I go back in time to understand what’s going on with my user?
+
+- The [risky users](howto-identity-protection-investigate-risk.md#risky-users) view shows a user’s risk standing based on all past sign-ins. 
+- The [risky sign-ins](howto-identity-protection-investigate-risk.md#risky-sign-ins) view shows at-risk signs in the last 30 days. 
+- The [risk detections](howto-identity-protection-investigate-risk.md#risk-detections) view shows risk detections made in the last 90 days.
+
+### How can I learn more about a specific detection?
+
+All risk detections are documented in the article [What is risk](concept-identity-protection-risks.md#risk-types-and-detection). You can hover over the (i) symbol next to the detection on the Azure portal to learn more about a detection.
 
 ### How do the feedback mechanisms in Identity Protection work?
 

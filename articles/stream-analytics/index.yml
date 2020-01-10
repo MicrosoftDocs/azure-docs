@@ -149,9 +149,9 @@ landingContent:
       - linkListType: how-to-guide
         links:
         - text: Explore jobs with Visual Studio Code
-          url: vscode-local-run.md
+          url: visual-studio-code-explore-jobs.md
         - text: Test queries with sample data in Visual Studio Code
-          url: vscode-local-run.md
+          url: visual-studio-code-local-run.md
         - text: Install tools for Visual Studio
           url: stream-analytics-tools-for-visual-studio-install.md
         - text: Test queries with sample data in Visual Studio

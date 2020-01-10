@@ -1,25 +1,29 @@
 ---
-title: "Quickstart: Recognize speech from a microphone, C# (.NET) - Speech Service"
+title: "Quickstart: Recognize speech from a microphone, C# (.NET) - Speech service"
 titleSuffix: Azure Cognitive Services
-description: TBD
 services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: quickstart
+ms.topic: include
+<<<<<<< HEAD
+ms.date: 12/17/2019
+=======
 ms.date: 10/28/2019
+>>>>>>> 34375507a6a9dabc49d422608c19b7fe54779f45
 ms.author: erhopf
 ---
 
 ## Prerequisites
 
-Before you get started, make sure to:
+Before you get started:
 
 > [!div class="checklist"]
 > * [Create an Azure Speech Resource](../../../../get-started.md)
 > * [Setup your development environment](../../../../quickstarts/setup-platform.md?tabs=dotnet)
 > * [Create an empty sample project](../../../../quickstarts/create-project.md?tabs=dotnet)
+> * Make sure that you have access to a microphone for audio capture
 
 ## Open your project in Visual Studio
 

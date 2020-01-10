@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: pim
 ms.topic: overview
-ms.date: 11/08/2019
+ms.date: 01/02/2020
 ms.author: curtand
 ms.custom: pim 
 ms.collection: M365-identity-device-management
@@ -23,6 +23,8 @@ For details about the Microsoft Graph APIs, check out the [Azure AD Privileged I
 
 > [!IMPORTANT]
 > APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+>
+> Although all the PIM operations are supported through our Graph API commands, we use a different system to approve activation requests. Graph API for approval is currently being developed and will be released over the next few months.
 
 ## Required permissions
 

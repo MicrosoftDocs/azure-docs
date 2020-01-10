@@ -1,6 +1,6 @@
 ---
-title: Firewall rules in Azure Database for PostgreSQL - Single Server
-description: This article describes firewall rules for Azure Database for PostgreSQL - Single Server.
+title: Firewall rules - Azure Database for PostgreSQL - Single Server
+description: This article describes how to use firewall rules to connect to Azure Database for PostgreSQL - Single Server.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql

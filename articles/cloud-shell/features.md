@@ -80,11 +80,11 @@ Cloud Shell includes pre-configured authentication for open-source tools such as
 
 |Language   |Version   |
 |---|---|
-|.NET Core  |2.0.0       |
+|.NET Core  |2.2.402       |
 |Go         |1.9        |
 |Java       |1.8        |
-|Node.js    |8.9.4      |
-|PowerShell |[6.2.0](https://github.com/PowerShell/powershell/releases)       |
+|Node.js    |8.16.0      |
+|PowerShell |[6.2.3](https://github.com/PowerShell/powershell/releases)       |
 |Python     |2.7 and 3.5 (default)|
 
 ## Next steps

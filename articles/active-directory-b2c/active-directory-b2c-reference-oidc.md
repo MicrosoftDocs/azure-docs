@@ -20,7 +20,7 @@ OpenID Connect is an authentication protocol, built on top of OAuth 2.0, that ca
 
 [OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html) extends the OAuth 2.0 *authorization* protocol for use as an *authentication* protocol. This authentication protocol allows you to perform single sign-on. It introduces the concept of an *ID token*, which allows the client to verify the identity of the user and obtain basic profile information about the user.
 
-Because it extends OAuth 2.0, it also enables applications to securely acquire *access tokens*. You can use access tokens to access resources that are secured by an [authorization server](active-directory-b2c-reference-protocols.md). OpenID Connect is recommended if you're building a web application that's hosted on a server and accessed through a browser. If you want to add identity management to your mobile or desktop applications using Azure AD B2C, you should use [OAuth 2.0](active-directory-b2c-reference-oauth-code.md) rather than OpenID Connect. For more information about tokens, see the [Overview of tokens in Azure Active Directory B2C](active-directory-b2c-reference-tokens.md)
+Because it extends OAuth 2.0, it also enables applications to securely acquire *access tokens*. You can use access tokens to access resources that are secured by an [authorization server](active-directory-b2c-reference-protocols.md). OpenID Connect is recommended if you're building a web application that's hosted on a server and accessed through a browser. For more information about tokens, see the [Overview of tokens in Azure Active Directory B2C](active-directory-b2c-reference-tokens.md)
 
 Azure AD B2C extends the standard OpenID Connect protocol to do more than simple authentication and authorization. It introduces the [user flow parameter](active-directory-b2c-reference-policies.md), which enables you to use OpenID Connect to add user experiences to your application, such as sign-up, sign-in, and profile management.
 
@@ -271,6 +271,7 @@ GET https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/
 | {tenant} | Yes | Name of your Azure AD B2C tenant |
 | {policy} | Yes | The user flow that you want to use to sign the user out of your application. |
 | id_token_hint| No | A previously issued ID token to pass to the logout endpoint as a hint about the end user's current authenticated session with the client. The `id_token_hint` ensures that the `post_logout_redirect_uri` is a registered reply URL in your Azure AD B2C application settings. |
+| client_id | No* | The application ID that the [Azure portal](https://portal.azure.com/) assigned to your application.<br><br>\**This is required when using `Application` isolation SSO configuration and _Require ID Token_ in logout request is set to `No`.* |
 | post_logout_redirect_uri | No | The URL that the user should be redirected to after successful sign out. If it isn't included, Azure AD B2C shows the user a generic message. Unless you provide an `id_token_hint`, you should not register this URL as a reply URL in your Azure AD B2C application settings. |
 | state | No | If a `state` parameter is included in the request, the same value should appear in the response. The application should verify that the `state` values in the request and response are identical. |
 

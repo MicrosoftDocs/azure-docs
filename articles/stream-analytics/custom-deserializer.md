@@ -1,7 +1,6 @@
 ---
 title: Tutorial - Custom .NET deserializers for Azure Stream Analytics cloud jobs
 description: This tutorial demonstrates how to create a custom .NET deserializer for an Azure Stream Analytics cloud job using Visual Studio.
-services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
