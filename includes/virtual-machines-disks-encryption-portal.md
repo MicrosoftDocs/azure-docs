@@ -25,36 +25,56 @@ Setting up customer-managed keys for your disks will require you to create resou
 1. Enter a key vault name, select a region, and select a pricing tier.
 1. Select **Review + Create**, verify your choices, then select **Create**.
 
-<image>
+![sse-create-a-key-vault.png](media/virtual-machines-disk-encryption-portal/sse-create-a-key-vault.png)
 
 1. Once your key vault finishes deploying, select it.
 1. Select **Keys** under **Settings**.
 1. Select **Generate/Import**
+
+![sse-key-vault-generate-settings.png](media/virtual-machines-disk-encryption-portal/sse-key-vault-generate-settings.png)
+
 1. Fill in the selections as you like and then select **Create**.
+
+![sse-create-a-key-generate.png](media/virtual-machines-disk-encryption-portal/sse-create-a-key-generate.png)
 
 #### Setting up your disk encryption set
 
-Disk encryption sets are only available through [this link](https://aka.ms/diskencryptionsets). They cannot yet be searched in the portal.
+Disk encryption sets are only available through [this link](https://aka.ms/diskencryptionsets). They cannot yet be searched in the Azure portal.
 
 1. Open the [disk encryption sets link](https://aka.ms/diskencryptionsets).
 1. Select **+Add**.
 
-<Image>
+![sse-create-disk-encryption-set.png](media/virtual-machines-disk-encryption-portal/sse-create-disk-encryption-set.png)
 
 1. Select your resource group, name your encryption set, and select the same region as your key vault.
 1. Select **Key vault and key**.
-
-<Image>
-
 1. Select the key vault and key you created previously, as well as the version.
 1. Press **Select**.
+
+![sse-create-disk-enc-set-blade.png](media/virtual-machines-disk-encryption-portal/sse-create-disk-enc-set-blade.png)
+
 1. Select **Review + Create** and then **Create**.
 1. Open the disk encryption set once it finishes creating and select the alert that pops up.
+
+![sse-disk-enc-alert-fix.png](media/virtual-machines-disk-encryption-portal/sse-disk-enc-alert-fix.png)
+
      Two notifications should pop up and succeed. Doing this will allow you to use the set with your key vault.
+
+![disk-enc-notification-success.png](media/virtual-machines-disk-encryption-portal/disk-enc-notification-success.png)
 
 #### Deploy a VM
 
 Now that you've created and set up your key vault and the disk encryption set, you can deploy a VM using the encryption.
 The VM deployment process is similar to the standard deployment process, the only differences are that you need to deploy the VM in the same region as your other resources and you opt to use a customer managed key.
 
-1. 
+1. Search for **Virtual Machines** and select **+ Add** to create a VM.
+1. On the **Basic** tab, select the same region as your disk encryption set and Azure Key Vault.
+1. Fill in the other values on the **Basic** tab as you like.
+
+![sse-create-a-vm-region.png](media/virtual-machines-disk-encryption-portal/sse-create-a-vm-region.png)
+
+1. On the **Disks** tab, select **Encryption at rest with customer-managed key**.
+1. Select your disk encryption set in the **Disk encryption set** drop-down.
+1. Make the remaining selections as you like.
+
+![sse-create-vm-select-cmk-encryption-set.png](media/virtual-machines-disk-encryption-portal/sse-create-vm-select-cmk-encryption-set.png)
