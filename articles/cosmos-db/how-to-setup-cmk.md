@@ -8,7 +8,7 @@ ms.date: 01/09/2020
 ms.author: thweiss
 ---
 
-# Configure customer-managed keys for your Azure Cosmos account
+# Configure customer-managed keys for your Azure Cosmos DB account
 
 > [!IMPORTANT]
 > The deployment of Azure Cosmos DB customer-managed keys requires White Glove Implementation Assistance to ensure, within the scope of the customer scenario, that the proper tests have taken place and is fit for the intended use.
