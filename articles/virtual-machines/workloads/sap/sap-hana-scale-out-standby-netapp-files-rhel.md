@@ -15,7 +15,7 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 12/18/2019
+ms.date: 01/10/2020
 ms.author: radeltch
 
 ---
@@ -435,7 +435,9 @@ Configure and prepare your OS by doing the following steps:
     echo "Y" > /sys/module/nfs/parameters/nfs4_disable_idmapping
     # Make the configuration permanent
     echo "options nfs nfs4_disable_idmapping=Y" >> /etc/modprobe.d/nfs.conf
-    </code></pre>`
+    </code></pre>
+
+   For more details on how to change `nfs4_disable_idmapping` parameter see https://access.redhat.com/solutions/1749883.
 
 6. **[A]** Mount the shared Azure NetApp Files volumes.  
 
