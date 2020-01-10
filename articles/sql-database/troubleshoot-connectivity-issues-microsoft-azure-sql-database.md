@@ -17,7 +17,7 @@ You receive error messages when the connection to Azure SQL Database fails. Thes
 
 ## Transient fault error messages
 
-The Azure infrastructure has the ability to dynamically reconfigure servers when heavy workloads arise in the SQL Database service.  This dynamic behavior might cause your client program to lose its connection to SQL Database. This kind of error condition is called a *transient fault*. atabase reconfiguration events occur because of a planned event (for example, a software upgrade) or an unplanned event (for example, a process crash, or load balancing). Most reconfiguration events are generally short-lived and should be completed in less than 60 seconds at most. However, these events can occasionally take longer to finish, such as when a large transaction causes a long-running recovery. The following table lists various tranisent errors that applications can receive when connecting to SQL Database
+The Azure infrastructure has the ability to dynamically reconfigure servers when heavy workloads arise in the SQL Database service.  This dynamic behavior might cause your client program to lose its connection to SQL Database. This kind of error condition is called a *transient fault*. Database reconfiguration events occur because of a planned event (for example, a software upgrade) or an unplanned event (for example, a process crash, or load balancing). Most reconfiguration events are generally short-lived and should be completed in less than 60 seconds at most. However, these events can occasionally take longer to finish, such as when a large transaction causes a long-running recovery. The following table lists various tranisent errors that applications can receive when connecting to SQL Database
 
 ### List of transient fault error codes
 
@@ -33,9 +33,6 @@ The Azure infrastructure has the ability to dynamically reconfigure servers when
 | 49920 |16 |Cannot process request. Too many operations in progress for subscription "%ld".<br/><br/>The service is busy processing multiple requests for this subscription. Requests are currently blocked for resource optimization. Query [sys.dm_operation_status](https://msdn.microsoft.com/library/dn270022.aspx) for operation status. Wait until pending requests are complete or delete one of your pending requests and retry your request later. For more information, see: <br/>&bull; &nbsp;[Database server resource limits](sql-database-resource-limits-database-server.md)<br/>&bull; &nbsp;[DTU-based limits for single databases](sql-database-service-tiers-dtu.md)<br/>&bull; &nbsp;[DTU-based limits for elastic pools](sql-database-dtu-resource-limits-elastic-pools.md)<br/>&bull; &nbsp;[vCore-based limits for single databases](sql-database-vcore-resource-limits-single-databases.md)<br/>&bull; &nbsp;[vCore-based limits for elastic pools](sql-database-vcore-resource-limits-elastic-pools.md)<br/>&bull; &nbsp;[Managed instance resource limits](sql-database-managed-instance-resource-limits.md). |
 | 4221 |16 |Login to read-secondary failed due to long wait on 'HADR_DATABASE_WAIT_FOR_TRANSITION_TO_VERSIONING'. The replica is not available for login because row versions are missing for transactions that were in-flight when the replica was recycled. The issue can be resolved by rolling back or committing the active transactions on the primary replica. Occurrences of this condition can be minimized by avoiding long write transactions on the primary. |
 
-#### Cannot connect to a secondary database
-
-An connection attempt to a secondary database failed because the database is in the process of reconfiguration and it is busy applying new pages while in the middle of an active transaction on the primary database.
 
 ### Steps to resolve transient connectivity issues
 
@@ -170,16 +167,6 @@ For more information, see [Managing databases and logins in Azure SQL Database](
 These exceptions can occur either because of connection or query issues. To confirm that this error is caused by connectivity issues, see [Confirm whether an error is caused by a connectivity issue](#confirm-whether-an-error-is-caused-by-a-connectivity-issue).
 
 Connection timeouts occur because the application can't connect to the server. To resolve this issue, try the steps (in the order presented) in the [Steps to fix common connection issues](#steps-to-fix-common-connection-issues) section.
-
-## Transient errors (errors 40197, 40545)
-
-### Error 40197: The service has encountered an error processing your request. Please try again. Error code < code >
-
-This issue occurs because of a transient error encountered during a reconfiguration or failover on the back end.
-
-To resolve this issue, wait a short period and retry. No support case is required unless the issue persists.
-
-As a best practice, make sure that retry logic is in place. For more information about the retry logic, see [Troubleshoot transient faults and connection errors to SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-connectivity-issues).
 
 ## Resource governance errors
 
