@@ -131,6 +131,16 @@ Identify users who have not registered for MFA using the PowerShell that follows
 
 ```Get-MsolUser -All | Where-Object {$_.StrongAuthenticationMethods.Count -eq 0} | Select-Object -Property UserPrincipalName```
 
+Identify users and output methods registered. 
+
+```PowerShell
+Get-MsolUser -All | Select-Object @{N='UserPrincipalName';E={$_.UserPrincipalName}},
+
+@{N='MFA Status';E={if ($_.StrongAuthenticationRequirements.State){$_.StrongAuthenticationRequirements.State} else {"Disabled"}}},
+
+@{N='MFA Methods';E={$_.StrongAuthenticationMethods.methodtype}} | Export-Csv -Path c:\MFA_Report.csv -NoTypeInformation
+```
+
 ## Possible results in activity reports
 
 The following table may be used to troubleshoot multi-factor authentication using the downloaded version of the multi-factor authentication activity report. They will not appear directly in the Azure portal.

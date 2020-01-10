@@ -1,6 +1,6 @@
 ---
-title: Working with the change feed processor library in Azure Cosmos DB 
-description: Learn how to use the Azure Cosmos DB change feed processor library to read the change feed, the components of the change feed processor, and the implementation life cycle 
+title: Change feed processor library in Azure Cosmos DB 
+description: Learn how to use the Azure Cosmos DB change feed processor library to read the change feed, the components of the change feed processor
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db

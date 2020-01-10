@@ -156,7 +156,7 @@ The head nodes and edge node (if there is one) can be accessed over the internet
 > [!IMPORTANT]  
 > The previous examples assume that you are using password authentication, or that certificate authentication is occurring automatically. If you use an SSH key-pair for authentication, and the certificate is not used automatically, use the `-i` parameter to specify the private key. For example, `ssh -i ~/.ssh/mykey sshuser@clustername-ssh.azurehdinsight.net`.
 
-Once connected, the prompt changes to indicate the SSH user name and the node you're connected to. For example, when connected to the primary head node as `sshuser`, the prompt is `sshuser@hn0-clustername:~$`.
+Once connected, the prompt changes to indicate the SSH user name and the node you're connected to. For example, when connected to the primary head node as `sshuser`, the prompt is `sshuser@<active-headnode-name>:~$`.
 
 ### Connect to worker and Apache Zookeeper nodes
 

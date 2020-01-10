@@ -228,8 +228,6 @@ Copy the full script and save it as `RegisterSqLVMs.psm1`.
 
 [!code-powershell-interactive[main](../../../../powershell_scripts/sql-virtual-machine/register-sql-vms/RegisterSqlVMs.psm1 "Bulk register SQL Server virtual machines")]
 
-
-
 ## Next steps
 
 For more information, see the following articles: 

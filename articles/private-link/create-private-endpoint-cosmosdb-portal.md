@@ -1,7 +1,7 @@
 ---
 title: Connect to an Azure Cosmos account with Azure Private Link
 description: Learn how to securely access the Azure Cosmos account from a VM by creating a Private Endpoint.
-author: asudbring
+author: malopMSFT
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/04/2019

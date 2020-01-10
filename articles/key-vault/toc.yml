@@ -106,7 +106,7 @@
     items:
     - name: Recommendations
       href: security-recommendations.md
-  - name: Authentication
+  - name: Authenticate
     items:
     - name: Use an App Service managed identity
       href: managed-identity.md
@@ -140,6 +140,8 @@
       href: /java/azure/spring-framework/configure-spring-boot-starter-java-app-with-azure-key-vault
 - name: Reference
   items:
+  - name: Key Vault REST error codes
+    href: rest-error-codes.md
   - name: Azure PowerShell
     href: /powershell/module/az.keyvault/?view=azps-1.2.0#key_vault
   - name: Azure CLI

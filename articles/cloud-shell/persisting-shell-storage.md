@@ -23,6 +23,9 @@ Cloud Shell utilizes Azure File storage to persist files across sessions. On ini
 > [!NOTE]
 > Bash and PowerShell share the same file share. Only one file share can be associated with automatic mounting in Cloud Shell.
 
+> [!NOTE]
+> Azure storage firewall is not supported for cloud shell storage accounts.
+
 ## Create new storage
 
 When you use basic settings and select only a subscription, Cloud Shell creates three resources on your behalf in the supported region that's nearest to you:

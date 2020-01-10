@@ -24,7 +24,7 @@ The timer trigger is provided in the [Microsoft.Azure.WebJobs.Extensions](https:
 
 [!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
-## Packages - Functions 2.x
+## Packages - Functions 2.x and higher
 
 The timer trigger is provided in the [Microsoft.Azure.WebJobs.Extensions](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions) NuGet package, version 3.x. Source code for the package is in the [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/) GitHub repository.
 
@@ -164,7 +164,9 @@ public void keepAlive(
 
 In [C# class libraries](functions-dotnet-class-library.md), use the [TimerTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerTriggerAttribute.cs).
 
-The attribute's constructor takes a CRON expression or a `TimeSpan`. You can use `TimeSpan`  only if the function app is running on an App Service plan. The following example shows a CRON expression:
+The attribute's constructor takes a CRON expression or a `TimeSpan`. You can use `TimeSpan` only if the function app is running on an App Service plan. `TimeSpan` is not supported for Consumption or Elastic Premium Functions.
+
+The following example shows a CRON expression:
 
 ```csharp
 [FunctionName("TimerTriggerCSharp")]
@@ -325,7 +327,7 @@ If you are sharing storage accounts across function apps that are not deployed t
 
 | Functions version | Setting                                              |
 | ----------------- | ---------------------------------------------------- |
-| 2.x               | `AzureFunctionsWebHost__hostid` environment variable |
+| 2.x (and higher)  | `AzureFunctionsWebHost__hostid` environment variable |
 | 1.x               | `id` in *host.json*                                  |
 
 You can omit the identifying value or manually set each function app's identifying configuration to a different value.

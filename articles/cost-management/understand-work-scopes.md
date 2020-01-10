@@ -40,7 +40,7 @@ Azure supports three scopes for resource management. Each scope supports managin
 
     Resource type: [Microsoft.Resources/subscriptions](/rest/api/resources/subscriptions)
 
-- [**Resource groups**](../azure-resource-manager/resource-group-overview.md#resource-groups) - Logical groupings of related resources for an Azure solution that share the same lifecycle. For example resources that are deployed and deleted together.
+- [**Resource groups**](../azure-resource-manager/management/overview.md#resource-groups) - Logical groupings of related resources for an Azure solution that share the same lifecycle. For example resources that are deployed and deleted together.
 
     Resource type: [Microsoft.Resources/subscriptions/resourceGroups](/rest/api/resources/resourcegroups)
 

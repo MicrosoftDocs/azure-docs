@@ -8,7 +8,7 @@ ms.service: time-series-insights
 author: deepakpalled
 ms.author: dpalled
 manager: cshankar
-ms.date: 11/14/2019
+ms.date: 12/06/2019
 ---
 
 1. In the [Azure portal](https://ms.portal.azure.com/), select **Azure Active Directory** > **App registrations** > **New registration**.
@@ -36,7 +36,7 @@ ms.date: 11/14/2019
 
     1. Enable the implicit grant flow by checking **Access tokens** or **ID tokens**.
 
-   [![Create a new client secret](media/time-series-insights-aad-registration/active-directory-auth-blade.png)](media/time-series-insights-aad-registration/active-directory-auth-blade.png#lightbox)
+   [![Create Redirect URIs and configure Implicit grant](media/time-series-insights-aad-registration/active-directory-auth-blade.png)](media/time-series-insights-aad-registration/active-directory-auth-blade.png#lightbox)
 
    Click **Save**.
 

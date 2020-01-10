@@ -1,7 +1,7 @@
 ---
-title: App Registration Portal Help Topics 
+title: App registration portal reference | Azure
 titleSuffix: Microsoft identity platform
-description: A description of various features in the Microsoft app registration portal.
+description: A description of the features in the Microsoft app registration portal.
 services: active-directory
 author: rwike77
 manager: CelesteDG

@@ -65,7 +65,7 @@ Based on your organizational requirements, smart lockout values may need to be c
 To check or modify the smart lockout values for your organization, use the following steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Search for and select *Azure Active Directory*. Select **Authentication methods** > **Password protection**.
+1. Search for and select *Azure Active Directory*. Select **Security** > **Authentication methods** > **Password protection**.
 1. Set the **Lockout threshold**, based on how many failed sign-ins are allowed on an account before its first lockout. The default is 10.
 1. Set the **Lockout duration in seconds**, to the length in seconds of each lockout. The default is 60 seconds (one minute).
 

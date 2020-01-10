@@ -2,13 +2,9 @@
 title: Query Azure Update Management logs
 description: This article describes how to query the logs for Update Management in your Log Analytics workspace.
 services: automation
-ms.service: automation
 ms.subservice: update-management
-author: mgoedtel
-ms.author: magoedte
-ms.date: 01/09/2020
+ms.date: 01/10/2020
 ms.topic: conceptual
-manager: carmonm
 ---
 # Query update records for Update Management in Azure Monitor Logs
 

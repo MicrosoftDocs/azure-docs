@@ -15,7 +15,7 @@ This article describes how to set up agentless dependency mapping in Azure Migra
 
 > [!IMPORTANT]
 > Agentless dependency visualization is currently in preview for Azure VMware VMs discovered using an Azure Migrate appliance.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> Certain features might not be supported or might have constrained capabilities. This preview is covered by customer support and can be used for production workloads.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## About dependency mapping

@@ -113,28 +113,27 @@ After the configuration server is set up, you register it in the vault.
 3. After the installation finishes, sign in to the VM as the administrator.
 4. The first time you sign in, the Azure Site Recovery Configuration Tool starts within a few seconds.
 5. Enter a name that's used to register the configuration server with Site Recovery. Then select **Next**.
-6. The tool checks that the VM can connect to Azure. After the connection is established, select **Sign in** to sign in to your Azure subscription. The credentials must have access to the vault in which you want to register the configuration server.
+6. The tool checks that the VM can connect to Azure. After the connection is established, select **Sign in** to sign in to your Azure subscription. The credentials must have access to the vault in which you want to register the configuration server. Ensure that necessary [roles](vmware-azure-deploy-configuration-server.md#azure-active-directory-permission-requirements) are assigned to this user.
 7. The tool performs some configuration tasks and then reboots.
 8. Sign in to the machine again. In a few seconds, the Configuration Server Management Wizard starts automatically.
 
 
 ### Configure settings and add the VMware server
 
-Finish setting up and registering the configuration server. 
+Finish setting up and registering the configuration server. Before proceeding, ensure all [pre-requisites](vmware-azure-deploy-configuration-server.md#prerequisites) are met for successful set up of configuration server.
 
 
 1. In the configuration server management wizard, select **Setup connectivity**. From the dropdowns, first select the NIC that the in-built process server uses for discovery and push installation of mobility service on source machines, and then select the NIC that Configuration Server uses for connectivity with Azure. Then select **Save**. You cannot change this setting after it's configured.
 2. In **Select Recovery Services vault**, select your Azure subscription and the relevant resource group and vault.
-3. In **Install third-party software**, accept the license agreement. Select **Download and Install** to install MySQL Server. If you placed MySQL in the path, this step is skipped.
-4. Select **Install VMware PowerCLI**. Make sure all browser windows are closed before you do this. Then select **Continue**.
-5. In **Validate appliance configuration**, prerequisites are verified before you continue.
-6. In **Configure vCenter Server/vSphere ESXi server**, enter the FQDN or IP address of the vCenter server, or vSphere host, where the VMs you want to replicate are located. Enter the port on which the server is listening. Enter a friendly name to be used for the VMware server in the vault.
-7. Enter user credentials to be used by the configuration server to connect to the VMware server. Ensure that the user name and password are correct and is a part of the Administrators group of the virtual machine to be protected. Site Recovery uses these credentials to automatically discover VMware VMs that are available for replication. Select **Add**, and then select **Continue**.
-8. In **Configure virtual machine credentials**, enter the user name and password that will be used to automatically install Mobility Service on VMs when replication is enabled.
+3. In **Install third-party software**, accept the license agreement. Select **Download and Install** to install MySQL Server. If you placed MySQL in the path, this step can be skipped. Learn [more](vmware-azure-deploy-configuration-server.md#configure-settings)
+4. In **Validate appliance configuration**, prerequisites are verified before you continue.
+5. In **Configure vCenter Server/vSphere ESXi server**, enter the FQDN or IP address of the vCenter server, or vSphere host, where the VMs you want to replicate are located. Enter the port on which the server is listening. Enter a friendly name to be used for the VMware server in the vault.
+6. Enter user credentials to be used by the configuration server to connect to the VMware server. Ensure that the user name and password are correct and is a part of the Administrators group of the virtual machine to be protected. Site Recovery uses these credentials to automatically discover VMware VMs that are available for replication. Select **Add**, and then select **Continue**.
+7. In **Configure virtual machine credentials**, enter the user name and password that will be used to automatically install Mobility Service on VMs when replication is enabled.
     - For Windows machines, the account needs local administrator privileges on the machines you want to replicate.
     - For Linux, provide details for the root account.
-9. Select **Finalize configuration** to complete registration.
-10. After registration finishes, in the Azure portal, verify that the configuration server and VMware server are listed on the **Source** page in the vault. Then select **OK** to configure target settings.
+8. Select **Finalize configuration** to complete registration.
+9. After registration finishes, open the Azure portal and verify that the configuration server and VMware server are listed on **Recovery Services Vault** > **Manage** > **Site Recovery Infrastructure** > **Configuration Servers**.
 
 
 After the configuration server is registered, Site Recovery connects to VMware servers by using the specified settings, and discovers VMs.
@@ -172,20 +171,20 @@ Select and verify target resources.
 Enable replication for VMs as follows:
 
 1. Select **Replicate application** > **Source**.
-1. In **Source**, select **On-premises**, and select the configuration server in **Source location**.
-1. In **Machine type**, select **Virtual Machines**.
-1. In **vCenter/vSphere Hypervisor**, select the vSphere host, or vCenter server that manages the host.
-1. Select the process server (installed by default on the configuration server VM). Then select **OK**. Health status of each process server is indicated as per recommended limits and other parameters. Choose a healthy process server. A [critical](vmware-physical-azure-monitor-process-server.md#process-server-alerts) process server cannot be chosen. You can either [troubleshoot and resolve](vmware-physical-azure-troubleshoot-process-server.md) the errors **or** set up a [scale-out process server](vmware-azure-set-up-process-server-scale.md).
-1. In **Target**, select the subscription and the resource group in which you want to create the failed-over VMs. We're using the Resource Manager deployment model. 
-1. Select the Azure network and subnet to which Azure VMs connect when they're created after failover.
-1. Select **Configure now for selected machines** to apply the network setting to all VMs on which you enable replication. Select **Configure later** to select the Azure network per machine.
-1. In **Virtual Machines** > **Select virtual machines**, select each machine you want to replicate. You can only select machines for which replication can be enabled. Then select **OK**. If you are not able to view/select any particular virtual machine, [learn more](https://aka.ms/doc-plugin-VM-not-showing) about resolving the issue.
-1. In **Properties** > **Configure properties**, select the account to be used by the process server to automatically install Mobility Service on the machine.
-1. In **Replication settings** > **Configure replication settings**, verify that the correct replication policy is selected.
-1. Select **Enable Replication**. Site Recovery installs the Mobility Service when replication is enabled for a VM.
-1. You can track progress of the **Enable Protection** job in **Settings** > **Jobs** > **Site Recovery Jobs**. After the **Finalize Protection** job runs, the machine is ready for failover.
-1. It can take 15 minutes or longer for changes to take effect and appear in the portal.
-1. To monitor VMs you add, check the last discovered time for VMs in **Configuration Servers** > **Last Contact At**. To add VMs without waiting for the scheduled discovery, highlight the configuration server (don't select it) and select **Refresh**.
+2. In **Source**, select **On-premises**, and select the configuration server in **Source location**.
+3. In **Machine type**, select **Virtual Machines**.
+4. In **vCenter/vSphere Hypervisor**, select the vSphere host, or vCenter server that manages the host.
+5. Select the process server (installed by default on the configuration server VM). Then select **OK**. Health status of each process server is indicated as per recommended limits and other parameters. Choose a healthy process server. A [critical](vmware-physical-azure-monitor-process-server.md#process-server-alerts) process server cannot be chosen. You can either [troubleshoot and resolve](vmware-physical-azure-troubleshoot-process-server.md) the errors **or** set up a [scale-out process server](vmware-azure-set-up-process-server-scale.md).
+6. In **Target**, select the subscription and the resource group in which you want to create the failed-over VMs. We're using the Resource Manager deployment model. 
+7. Select the Azure network and subnet to which Azure VMs connect when they're created after failover.
+8. Select **Configure now for selected machines** to apply the network setting to all VMs on which you enable replication. Select **Configure later** to select the Azure network per machine.
+9. In **Virtual Machines** > **Select virtual machines**, select each machine you want to replicate. You can only select machines for which replication can be enabled. Then select **OK**. If you are not able to view/select any particular virtual machine, [learn more](https://aka.ms/doc-plugin-VM-not-showing) about resolving the issue.
+10. In **Properties** > **Configure properties**, select the account to be used by the process server to automatically install Mobility Service on the machine.
+11. In **Replication settings** > **Configure replication settings**, verify that the correct replication policy is selected.
+12. Select **Enable Replication**. Site Recovery installs the Mobility Service when replication is enabled for a VM.
+13. You can track progress of the **Enable Protection** job in **Settings** > **Jobs** > **Site Recovery Jobs**. After the **Finalize Protection** job runs and a recovery point generation is complete, the machine is ready for failover.
+14. It can take 15 minutes or longer for changes to take effect and appear in the portal.
+15. To monitor VMs you add, check the last discovered time for VMs in **Configuration Servers** > **Last Contact At**. To add VMs without waiting for the scheduled discovery, highlight the configuration server (don't select it) and select **Refresh**.
 
 ## Next steps
 After enabling replication, run a drill to make sure everything's working as expected.

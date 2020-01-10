@@ -104,7 +104,6 @@ When you're configuring VM backups, we suggest following these practices:
 - Modify the default schedule times that are set in a policy. For example, if the default time in the policy is 12:00 AM, increment the timing by several minutes so that resources are optimally used.
 - If you're restoring VMs from a single vault, we highly recommend that you use different [general-purpose v2 storage accounts](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade) to ensure that the target storage account doesn’t get throttled. For example, each VM must have a different storage account. For example, if 10 VMs are restored, use 10 different storage accounts.
 - For backup of VMs that are using premium storage, with Instant Restore, we recommend allocating *50%* free space of the total allocated storage space, which is required **only** for the first backup. The 50% free space is not a requirement for backups after the first backup is complete
-- The restores from a general-purpose v1 storage layer (snapshot) will be completed in minutes because the snapshot is in the same storage account. Restores from the general-purpose v2 storage layer (vault) can take hours. In cases where the data is available in general-purpose v1 storage, we recommend that you use the [Instant Restore](backup-instant-restore-capability.md) feature for faster restores. (If the data must be restored from a vault, then it will take more time.)
 - The limit on the number of disks per storage account is relative to how heavily the disks are being accessed by applications that are running on an infrastructure as a service (IaaS) VM. As a general practice, if 5 to 10 disks or more are present on a single storage account, balance the load by moving some disks to separate storage accounts.
 
 ## Backup costs
@@ -119,14 +118,14 @@ The protected-instance size calculation is based on the *actual* size of the VM.
 
 Similarly, the backup storage bill is based on the amount of data that's stored in Azure Backup, which is the sum of the actual data in each recovery point.
 
-For example, take an A2-Standard-sized VM that has two additional data disks with a maximum size of 4 TB each. The following table shows the actual data stored on each of these disks:
+For example, take an A2-Standard-sized VM that has two additional data disks with a maximum size of 32 TB each. The following table shows the actual data stored on each of these disks:
 
 **Disk** | **Max size** | **Actual data present**
 --- | --- | ---
-OS disk | 4095 GB | 17 GB
+OS disk | 32 TB | 17 GB
 Local/temporary disk | 135 GB | 5 GB (not included for backup)
-Data disk 1 | 4095 GB | 30 GB
-Data disk 2 | 4095 GB | 0 GB
+Data disk 1 | 32 TB| 30 GB
+Data disk 2 | 32 TB | 0 GB
 
 The actual size of the VM in this case is 17 GB + 30 GB + 0 GB = 47 GB. This protected-instance size (47 GB) becomes the basis for the monthly bill. As the amount of data in the VM grows, the protected-instance size used for billing changes to match.
 

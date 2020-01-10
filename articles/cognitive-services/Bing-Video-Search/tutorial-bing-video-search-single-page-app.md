@@ -1,7 +1,7 @@
 ---
 title: "Tutorial: Build a single-page Bing Video Search app"
 titleSuffix: Azure Cognitive Services
-description: Explains how to use the Bing Video Search API in a single-page Web application.
+description: This tutorial explains how to use the Bing Video Search API in a single-page Web application.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: tutorial
-ms.date: 07/12/2019
+ms.date: 12/09/2019
 ms.author: aahi
 ---
 # Tutorial: Single-page Video Search app
@@ -136,7 +136,7 @@ function bingSearchOptions(form) {
 For example, the `SafeSearch` parameter in an actual API call can be `strict`, `moderate`, or `off`, with `moderate` being the default. Our form, however, uses a checkbox, which has only two states. The JavaScript code converts this setting to either `strict` or `off` (`moderate` is not used).
 
 ## Performing the request
-Given the query, the options string, and the API key, the `BingWebSearch` function uses an `XMLHttpRequest` object to make the request to the Bing Search endpoint.
+Given the query, the options string, and the API key, the `BingWebSearch` function uses an `XMLHttpRequest` object to make the request to the Bing Search endpoint. You can use the global endpoint below, or the [custom subdomain](../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
 
 ```javascript
 // Search on the query, using search options, authenticated by the key.

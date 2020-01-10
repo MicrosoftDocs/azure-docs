@@ -1,17 +1,17 @@
 ---
 title: Create predictive data pipelines
 description: Learn how to create a predictive pipeline by using Azure Machine Learning - Batch Execution Activity in Azure Data Factory.
-services: data-factory
-documentationcenter: ''
-ms.service: data-factory
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.topic: conceptual
-ms.date: 02/20/2019
 author: nabhishek
 ms.author: abnarain
-manager: craigg
+manager: shwang
+services: data-factory
+ms.service: data-factory
+ms.workload: data-services
+ms.topic: conceptual
+ms.custom: seo-lt-2019
+ms.date: 02/20/2019
 ---
+
 # Create predictive pipelines using Azure Machine Learning and Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](v1/data-factory-azure-ml-batch-execution-activity.md)

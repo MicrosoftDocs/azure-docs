@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Create and manage exported data from Azure Cost Management
+title: Tutorial - Export data from Azure Cost Management
 description: This article shows you how you can create and manage exported Azure Cost Management data so that you can use it in external systems.
 services: cost-management
 keywords:
