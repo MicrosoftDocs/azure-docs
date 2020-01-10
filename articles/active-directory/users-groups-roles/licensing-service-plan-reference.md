@@ -121,6 +121,7 @@ When managing licenses in [the Azure portal](https://portal.azure.com/#blade/Mic
 | VISIO Online Plan 2	| VISIOCLIENT	| c5928f49-12ba-48f7-ada3-0d743a3601d5	| ONEDRIVE_BASIC (da792a53-cbc0-4184-a10d-e544dd34b3c1)<br/>VISIO_CLIENT_SUBSCRIPTION (663a804f-1c30-4ff0-9915-9db84f0d1cea)<br/>VISIOONLINE (2bdbaf8f-738f-4ac7-9234-3c3ee2ce7d0f) | ONEDRIVE_BASIC (da792a53-cbc0-4184-a10d-e544dd34b3c1)<br/>VISIO_CLIENT_SUBSCRIPTION (663a804f-1c30-4ff0-9915-9db84f0d1cea)<br/>VISIOONLINE (2bdbaf8f-738f-4ac7-9234-3c3ee2ce7d0f) |
 | WINDOWS 10 ENTERPRISE E3	| WIN10_PRO_ENT_SUB	| cb10e6cd-9da4-4992-867b-67546b1db821	| WIN10_PRO_ENT_SUB (21b439ba-a0ca-424f-a6cc-52f954a5b111) | WINDOWS 10 ENTERPRISE (21b439ba-a0ca-424f-a6cc-52f954a5b111) |
 | Windows 10 Enterprise E5 | WIN10_VDA_E5 | 488ba24a-39a9-4473-8ee5-19291e71b002 | EXCHANGE_S_FOUNDATION (113feb6c-3fe4-4440-bddc-54d774bf0318)<br/>WINDEFATP (871d91ec-ec1a-452b-a83f-bd76c7d770ef)<br/>Virtualization Rights for Windows 10 (E3/E5+VDA) (e7c91390-7625-45be-94e0-e16907e03118) | Exchange Foundation (113feb6c-3fe4-4440-bddc-54d774bf0318)<br/>Microsoft Defender Advanced Threat Protection (871d91ec-ec1a-452b-a83f-bd76c7d770ef)<br/>Windows 10 Enterprise (New) (e7c91390-7625-45be-94e0-e16907e03118)
+| PowerApps per user plan | POWERAPPS_PER_USER | b30411f5-fea1-4a59-9ad9-3db7c7ead579 | tbd | tbd
 
 ## Service plans that cannot be assigned at the same time
 
