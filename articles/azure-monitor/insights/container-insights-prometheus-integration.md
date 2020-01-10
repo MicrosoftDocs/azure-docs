@@ -92,7 +92,7 @@ Perform the following steps to configure your ConfigMap configuration file for K
 
 1. [Download](https://github.com/microsoft/OMS-docker/blob/ci_feature_prod/Kubernetes/container-azm-ms-agentconfig.yaml) the template ConfigMap yaml file and save it as container-azm-ms-agentconfig.yaml.
 
-    >[!NOTE]
+   >[!NOTE]
    >This step is not required when working with Azure Red Hat OpenShift since the ConfigMap template already exists on the cluster.
 
 2. Edit the ConfigMap yaml file with your customizations to scrape Prometheus metrics. If you are editing the ConfigMap yaml file for Azure Red Hat OpenShift, first run the command `oc edit configmaps container-azm-ms-agentconfig -n openshift-azure-logging` to open the file in a text editor.
