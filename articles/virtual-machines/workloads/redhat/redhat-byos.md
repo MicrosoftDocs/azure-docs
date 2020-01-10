@@ -112,6 +112,7 @@ The following set of instructions will walk you through the initial deployment p
     ```
 
 1. SSH into your VM and verify that you have an unentitled image. To do this, run `sudo yum repolist` (for RHEL 8 use `sudo dnf repolist`). The output will ask you to use subscription-manager to register the VM with Red Hat.
+
 >[!NOTE]
 >On RHEL 8 `dnf` and `yum` are interchangeable, more about this in the [RHEL 8 Admin Guide](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_basic_system_settings/installing-software-with-yum_configuring-basic-system-settings).
 
