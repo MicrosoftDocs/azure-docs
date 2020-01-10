@@ -22,7 +22,7 @@ This article describes the supported scenarios and architecture details for HANA
 
 >[!NOTE]
 >If your required scenario is not mentioned in this article, contact the Microsoft Service Management team to assess your requirements.
-Before you proceed with the HLI unit provisioning, validate the design with SAP or your service implementation partner.
+Before you set up the HLI unit, validate the design with SAP or your service implementation partner.
 
 ## Terms and definitions
 Let's understand the terms and definitions that are used in this article:
@@ -231,8 +231,8 @@ The following mount points are preconfigured:
 ### Key considerations
 - /usr/sap/SID is a symbolic link to /hana/shared/SID.
 - For MCOS: Volume size distribution is based on the database size in memory. To learn what database sizes in memory are supported in a multi-SID environment, see [Overview and architecture](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture).
-- At the DR: The volumes and mount points are configured (marked as “Required for HANA installation”) for the production HANA instance installation at the DR HLI unit. 
-- At the DR: The data, log backups, and shared volumes (marked as “Storage Replication”) are replicated via snapshot from the production site. These volumes are mounted during failover only. For more information, see [Disaster recovery failover procedure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery).
+- At the DR site: The volumes and mount points are configured (marked as “Required for HANA installation”) for the production HANA instance installation at the DR HLI unit. 
+- At the DR site: The data, log backups, and shared volumes (marked as “Storage Replication”) are replicated via snapshot from the production site. These volumes are mounted during failover only. For more information, see [Disaster recovery failover procedure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery).
 - The boot volume for *SKU Type I class* is replicated to the DR node.
 
 
@@ -280,9 +280,9 @@ The following mount points are preconfigured:
 ### Key considerations
 - /usr/sap/SID is a symbolic link to /hana/shared/SID.
 - For MCOS: Volume size distribution is based on the database size in memory. To learn what database sizes in memory are supported in a multi-SID environment, see [Overview and architecture](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture).
-- At the DR: The volumes and mount points are configured (marked as “Required for HANA installation”) for the production HANA instance installation at the DR HLI unit. 
-- At the DR: The data, log backups, and shared volumes (marked as “Storage Replication”) are replicated via snapshot from the production site. These volumes are mounted during failover only. For more information, see [Disaster recovery failover procedure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery). 
-- At the DR: The data, log backups, log, and shared volumes for QA (marked as “QA instance installation”) are configured for the QA instance installation.
+- At the DR site: The volumes and mount points are configured (marked as “Required for HANA installation”) for the production HANA instance installation at the DR HLI unit. 
+- At the DR site: The data, log backups, and shared volumes (marked as “Storage Replication”) are replicated via snapshot from the production site. These volumes are mounted during failover only. For more information, see [Disaster recovery failover procedure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery). 
+- At the DR site: The data, log backups, log, and shared volumes for QA (marked as “QA instance installation”) are configured for the QA instance installation.
 - The boot volume for *SKU Type I class* is replicated to the DR node.
 
 ## HSR with STONITH for high availability
@@ -387,10 +387,10 @@ The following mount points are preconfigured:
 - /usr/sap/SID is a symbolic link to /hana/shared/SID.
 - For MCOS: Volume size distribution is based on the database size in memory. To learn what database sizes in memory are supported in a multi-SID environment, see [Overview and architecture](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture).
 - STONITH: An SBD is configured for the STONITH setup. However, the use of STONITH is optional.
-- At the DR: *Two sets of storage volumes are required* for primary and secondary node replication.
-- At the DR: The volumes and mount points are configured (marked as “Required for HANA installation”) for the production HANA instance installation at the DR HLI unit. 
-- At the DR: The data, log backups, and shared volumes (marked as “Storage Replication”) are replicated via snapshot from the production site. These volumes are mounted during failover only. For more information, see [Disaster recovery failover procedure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery). 
-- At the DR: The data, log backups, log, and shared volumes for QA (marked as “QA instance installation”) are configured for the QA instance installation.
+- At the DR site: *Two sets of storage volumes are required* for primary and secondary node replication.
+- At the DR site: The volumes and mount points are configured (marked as “Required for HANA installation”) for the production HANA instance installation at the DR HLI unit. 
+- At the DR site: The data, log backups, and shared volumes (marked as “Storage Replication”) are replicated via snapshot from the production site. These volumes are mounted during failover only. For more information, see [Disaster recovery failover procedure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery). 
+- At the DR site: The data, log backups, log, and shared volumes for QA (marked as “QA instance installation”) are configured for the QA instance installation.
 - The boot volume for *SKU Type I class* is replicated to the DR node.
 
 
@@ -552,8 +552,8 @@ The following mount points are preconfigured:
 
 ### Key considerations
 - /usr/sap/SID is a symbolic link to /hana/shared/SID.
--  At the DR: The volumes and mount points are configured (marked as “Required for HANA installation”) for the production HANA instance installation at the DR HLI unit. 
-- At the DR: The data, log backups, and shared volumes (marked as “Storage Replication”) are replicated via snapshot from the production site. These volumes are mounted during failover only. For more information, see [Disaster recovery failover procedure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery). 
+-  At the DR site: The volumes and mount points are configured (marked as “Required for HANA installation”) for the production HANA instance installation at the DR HLI unit. 
+- At the DR site: The data, log backups, and shared volumes (marked as “Storage Replication”) are replicated via snapshot from the production site. These volumes are mounted during failover only. For more information, see [Disaster recovery failover procedure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery). 
 - The boot volume for *SKU Type I class* is replicated to the DR node.
 
 
@@ -643,8 +643,8 @@ The following mount points are preconfigured:
 ### Key considerations
 - /usr/sap/SID is a symbolic link to /hana/shared/SID.
 - For MCOS: Volume size distribution is based on the database size in memory. To learn what database sizes in memory are supported in a multi-SID environment, see [Overview and architecture](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture).
-- At the DR: The volumes and mount points are configured (marked as “PROD Instance at DR site”) for the production HANA instance installation at the DR HLI unit. 
-- At the DR: The data, log backups, log, and shared volumes for QA (marked as “QA instance installation”) are configured for the QA instance installation.
+- At the DR site: The volumes and mount points are configured (marked as “PROD Instance at DR site”) for the production HANA instance installation at the DR HLI unit. 
+- At the DR site: The data, log backups, log, and shared volumes for QA (marked as “QA instance installation”) are configured for the QA instance installation.
 - The primary node syncs with the DR node by using HANA System Replication. 
 - [Global Reach](https://docs.microsoft.com/azure/expressroute/expressroute-global-reach) is used to link the ExpressRoute circuits together to make a private network between your regional networks.
 
@@ -689,7 +689,7 @@ The following mount points are preconfigured:
 
 ### Key considerations
 - /usr/sap/SID is a symbolic link to /hana/shared/SID.
-- At the DR: The volumes and mount points are configured (marked as “PROD DR instance”) for the production HANA instance installation at the DR HLI unit. 
+- At the DR site: The volumes and mount points are configured (marked as “PROD DR instance”) for the production HANA instance installation at the DR HLI unit. 
 - The primary site node syncs with the DR node by using HANA System Replication. 
 - [Global Reach](https://docs.microsoft.com/azure/expressroute/expressroute-global-reach) is used to link the ExpressRoute circuits together to make a private network between your regional networks.
 
@@ -737,8 +737,8 @@ The following mount points are preconfigured:
 
 ### Key considerations
 - /usr/sap/SID is a symbolic link to /hana/shared/SID.
-- At the DR: The volumes and mount points are configured (marked as “PROD DR instance”) for the production HANA instance installation at the DR HLI unit. 
-- At the DR: The data, log backups, log, and shared volumes for QA (marked as “QA instance installation”) are configured for the QA instance installation.
+- At the DR site: The volumes and mount points are configured (marked as “PROD DR instance”) for the production HANA instance installation at the DR HLI unit. 
+- At the DR site: The data, log backups, log, and shared volumes for QA (marked as “QA instance installation”) are configured for the QA instance installation.
 - The primary site node syncs with the DR node by using HANA System Replication. 
 - [Global Reach](https://docs.microsoft.com/azure/expressroute/expressroute-global-reach) is used to link the ExpressRoute circuits together to make a private network between your regional networks.
 
@@ -785,7 +785,7 @@ The following mount points are preconfigured:
 
 ### Key considerations
 - /usr/sap/SID is a symbolic link to /hana/shared/SID.
-- At the DR: The volumes and mount points are configured for the production HANA instance installation at the DR HLI unit. 
+- At the DR site: The volumes and mount points are configured for the production HANA instance installation at the DR HLI unit. 
 - The primary site node syncs with the DR node by using HANA System Replication. 
 - [Global Reach](https://docs.microsoft.com/azure/expressroute/expressroute-global-reach) is used to link the ExpressRoute circuits together to make a private network between your regional networks.
 
