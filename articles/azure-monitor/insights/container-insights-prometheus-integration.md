@@ -169,7 +169,7 @@ A default copy of ConfigMap `container-azm-ms-agentconfig.yaml` is available wit
     ```
 
     >[!NOTE]
-    >The following annotation `openshift.io/reconcile-protect: "true"` must be added under the metadata of container-azm-ms-agentconfig ConfigMap to prevent reconciliation. 
+    >The following annotation `openshift.io/reconcile-protect: "true"` must be added under the metadata of *container-azm-ms-agentconfig* ConfigMap to prevent reconciliation. 
     >```
     >metadata:
     >   annotations:
