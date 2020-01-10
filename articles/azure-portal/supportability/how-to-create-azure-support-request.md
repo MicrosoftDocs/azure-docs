@@ -32,7 +32,11 @@ Based on customer feedback, we’ve updated the support request experience to fo
 
 ## Getting started
 
-You can get to **Help + support** in the Azure portal. It's available from the global header or from the resource menu for a service.
+You can get to **Help + support** in the Azure portal. It's available from the global header or from the resource menu for a service. Before you can file a support request, you must have appropriate permissions.
+
+### Role based access control
+
+To create a support request, you must be an admin or be assigned to the [Support Request Contributor](../../role-based-access-control/built-in-roles.md#support-request-contributor) role.
 
 ### Go to Help + support from the global header
 
