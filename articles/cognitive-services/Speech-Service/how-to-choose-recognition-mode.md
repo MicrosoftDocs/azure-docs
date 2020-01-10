@@ -10,6 +10,7 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 01/10/2020
 ms.author: dapine
+zone_pivot_groups: programming-languages-set-two
 ---
 
 # Choosing a speech recognition mode
@@ -22,7 +23,7 @@ If you want to process each utterance one "sentence" at a time, use the "recogni
 
 At the end of one recognized utterance, the service stops processing audio from that request. The maximum limit for recognition is a sentence duration of 20 seconds.
 
-# [C#](#tab/csharp)
+::: zone pivot="programming-language-csharp"
 
 For more information on using the `RecognizeOnceAsync` function, see the [.NET Speech SDK docs](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechrecognizer.recognizeonceasync?view=azure-dotnet#Microsoft_CognitiveServices_Speech_SpeechRecognizer_RecognizeOnceAsync).
 
@@ -30,7 +31,8 @@ For more information on using the `RecognizeOnceAsync` function, see the [.NET S
 var result = await recognizer.RecognizeOnceAsync().ConfigureAwait(false);
 ```
 
-# [C++](#tab/cpp)
+::: zone-end
+::: zone pivot="programming-language-cpp"
 
 For more information on using the `RecognizeOnceAsync` function, see the [C++ Speech SDK docs](https://docs.microsoft.com/cpp/cognitive-services/speech/asyncrecognizer#recognizeonceasync).
 
@@ -38,7 +40,8 @@ For more information on using the `RecognizeOnceAsync` function, see the [C++ Sp
 auto result = recognize->RecognizeOnceAsync().get();
 ```
 
-# [Java](#tab/java)
+::: zone-end
+::: zone pivot="programming-language-java"
 
 For more information on using the `recognizeOnceAsync` function, see the [Java Speech SDK docs](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.SpeechRecognizer.recognizeOnceAsync?view=azure-java-stable).
 
@@ -46,7 +49,8 @@ For more information on using the `recognizeOnceAsync` function, see the [Java S
 SpeechRecognitionResult result = recognizer.recognizeOnceAsync().get();
 ```
 
-# [Python](#tab/python)
+::: zone-end
+::: zone pivot="programming-language-python"
 
 For more information on using the `recognize_once` function, see the [Python Speech SDK docs](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechrecognizer?view=azure-python#recognize-once------azure-cognitiveservices-speech-speechrecognitionresult).
 
@@ -54,13 +58,18 @@ For more information on using the `recognize_once` function, see the [Python Spe
 result = speech_recognizer.recognize_once()
 ```
 
-***
+::: zone-end
+::: zone pivot="programming-language-more"
+
+For additional languages, see the [Speech SDK reference docs](speech-to-text.md#speech-sdk-reference-docs).
+
+::: zone-end
 
 ## Continuous
 
 If you need long-running recognition, use the start and corresponding stop functions for continuous recognition. The start function will start and continue processing all utterances until you invoke the stop function, or until too much time in silence has passed. When using the continuous mode, be sure to register to the various events that will fire upon occurrence. For example, the "recognized" event fires when speech recognition occurs. You need to have an event handler in place to handle recognition. A limit of 10 minutes of total speech recognition time, per session is enforced by the Speech service.
 
-# [C#](#tab/csharp)
+::: zone pivot="programming-language-csharp"
 
 ```csharp
 // Subscribe to event
@@ -80,7 +89,8 @@ await recognizer.StartContinuousRecognitionAsync().ConfigureAwait(false);
 await recognizer.StopContinuousRecognitionAsync().ConfigureAwait(false);
 ```
 
-# [C++](#tab/cpp)
+::: zone-end
+::: zone pivot="programming-language-cpp"
 
 ```cpp
 // Connect to event
@@ -100,7 +110,8 @@ recognizer->StartContinuousRecognitionAsync().get();
 recognizer->StopContinuousRecognitionAsync().get();
 ```
 
-# [Java](#tab/java)
+::: zone-end
+::: zone pivot="programming-language-java"
 
 ```java
 recognizer.recognized.addEventListener((s, e) -> {
@@ -117,7 +128,8 @@ recognizer.startContinuousRecognitionAsync().get();
 recognizer.stopContinuousRecognitionAsync().get();
 ```
 
-# [Python](#tab/python)
+::: zone-end
+::: zone pivot="programming-language-python"
 
 ```python
 def recognized_cb(evt):
@@ -134,13 +146,18 @@ speech_recognizer.start_continuous_recognition()
 speech_recognizer.stop_continuous_recognition()
 ```
 
-***
+::: zone-end
+::: zone pivot="programming-language-more"
+
+For additional languages, see the [Speech SDK reference docs](speech-to-text.md#speech-sdk-reference-docs).
+
+::: zone-end
 
 ## Dictation
 
 When using continuous recognition, you can enable dictation processing by using the corresponding "enable dictation" function. This mode will cause the speech config instance to interpret word descriptions of sentence structures such as punctuation. For example, the utterance "Do you live in town question mark" would be interpreted as the text "Do you live in town?".
 
-# [C#](#tab/csharp)
+::: zone pivot="programming-language-csharp"
 
 For more information on using the `EnableDictation` function, see the [.NET Speech SDK docs](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig.enabledictation?view=azure-dotnet#Microsoft_CognitiveServices_Speech_SpeechConfig_EnableDictation).
 
@@ -149,7 +166,8 @@ For more information on using the `EnableDictation` function, see the [.NET Spee
 SpeechConfig.EnableDictation();
 ```
 
-# [C++](#tab/cpp)
+::: zone-end
+::: zone pivot="programming-language-cpp"
 
 For more information on using the `EnableDictation` function, see the [C++ Speech SDK docs](https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig#enabledictation).
 
@@ -158,7 +176,8 @@ For more information on using the `EnableDictation` function, see the [C++ Speec
 SpeechConfig->EnableDictation();
 ```
 
-# [Java](#tab/java)
+::: zone-end
+::: zone pivot="programming-language-java"
 
 For more information on using the `enableDictation` function, see the [Java Speech SDK docs](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.SpeechConfig.enableDictation?view=azure-java-stable).
 
@@ -167,7 +186,8 @@ For more information on using the `enableDictation` function, see the [Java Spee
 SpeechConfig.enableDictation();
 ```
 
-# [Python](#tab/python)
+::: zone-end
+::: zone pivot="programming-language-python"
 
 For more information on using the `enable_dictation` function, see the [Python Speech SDK docs](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig?view=azure-python#enable-dictation--).
 
@@ -176,7 +196,13 @@ For more information on using the `enable_dictation` function, see the [Python S
 SpeechConfig.enable_dictation()
 ```
 
-***
+::: zone-end
+::: zone pivot="programming-language-more"
+
+For additional languages, see the [Speech SDK reference docs](speech-to-text.md#speech-sdk-reference-docs).
+
+::: zone-end
+
 
 ## Next steps
 
