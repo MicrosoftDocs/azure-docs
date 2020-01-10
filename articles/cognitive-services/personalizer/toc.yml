@@ -92,6 +92,8 @@
         href: https://github.com/Azure/azure-sdk-for-go/tree/master/services/preview/personalizer/v1.0/personalizer
     - name: Node.js
       items:
+      - name: Reference
+        href: https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-personalizer/?view=azure-node-latest
       - name: NPM
         href: https://www.npmjs.com/package/@azure/cognitiveservices-personalizer/v/1.0.0
     - name: Python

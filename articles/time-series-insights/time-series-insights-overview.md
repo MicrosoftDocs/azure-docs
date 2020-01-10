@@ -62,7 +62,7 @@ Azure Time Series Insights captures and stores every new event as a row, and cha
 
 ## Capabilities
 
-- **Get started quickly**: Azure Time Series Insights doesn't require upfront data preparation, so you can quickly connect to millions of events in your IoT hub or event hub. After you connect, you can visualize and interact with sensor data to quickly validate your IoT solutions. You can interact with your data without writing code, and you don't need to learn a new language. Time Series Insights provides a granular, free-text query surface for advanced users, and point and click exploration.
+- **Get started quickly**: Azure Time Series Insights doesn't require upfront data preparation, so you can quickly connect to millions of events in your IoT hub or event hub. After you connect, you can visualize and interact with sensor data to quickly validate your IoT solutions. You can interact with your data without writing code, and you don't need to learn a new language. Time Series Insights provides a granular, free-text query surface for advanced users, and point-and-click exploration.
 
 - **Near real-time insights**: Time Series Insights can ingest millions of sensor events per day, with one-minute latency. Time Series Insights helps you gain insights into your sensor data. Use it to spot trends and anomalies, conduct root-cause analyses, and avoid costly downtime. Cross-correlation between real-time and historical data helps you find hidden trends in the data.
 
@@ -77,7 +77,7 @@ To get started, follow these steps.
 1. Provision a Time Series Insights environment in the Azure portal.
 1. Connect to an event source like an IoT hub or an event hub.
 1. Upload reference data. This isn't an additional service.
-1. See your data in minutes with the Time Series Insights explorer.
+1. Review and display your data in minutes with the Time Series Insights explorer.
 
 ## Explorer
 

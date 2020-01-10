@@ -34,20 +34,6 @@ One key aspect is the scope of the virtual network for the resource.  While Basi
 
 Load Balancer resources are objects within which you can express how Azure should program its multi-tenant infrastructure to achieve the scenario you wish to create.  There is no direct relationship between Load Balancer resources and actual infrastructure; creating a Load Balancer doesn't create an instance, capacity is always available, and there are no start-up or scaling delays to consider. 
 
-## Why use Standard Load Balancer?
-
-Standard Load Balancer enables you to scale your applications and create high availability for small scale deployments to large and complex multi-zone architectures.
-
-Review the table below for an overview of the differences between Standard Load Balancer and Basic Load Balancer:
-
->[!NOTE]
-> New designs should adopt Standard Load Balancer. 
-
-[!INCLUDE [comparison table](../../includes/load-balancer-comparison-table.md)]
-
-Review [service limits for Load Balancer](https://aka.ms/lblimits), as well as [pricing](https://aka.ms/lbpricing), and [SLA](https://aka.ms/lbsla).
-
-
 ### <a name="backend"></a>Backend pool
 
 Standard Load Balancer backend pools expand to any virtual machine resource in a virtual network.  It can contain up to 1000 backend instances.  A backend instance is an IP configuration, which is a property of a NIC resource.
@@ -179,12 +165,6 @@ SKUs are not mutable. Follow the steps in this section to move from one resource
 4. Attach all VM instances to the new Standard SKU resources.
 
 >[!IMPORTANT]
->
->There are limitations regarding use of the Basic and Standard SKUs.
->
->HA Ports and Diagnostics of the Standard SKU are only available in the Standard SKU. You can't migrate from the Standard SKU to the Basic SKU and also retain these features.
->
->Both Basic and Standard SKU have a number of differences as outlined in this article.  Make sure you understand and prepare for them.
 >
 >Matching SKUs must be used for Load Balancer and Public IP resources. You can't have a mixture of Basic SKU resources and Standard SKU resources. You can't attach standalone virtual machines, virtual machines in an availability set resource, or a virtual machine scale set resources to both SKUs simultaneously.
 
