@@ -44,7 +44,7 @@ FROM Orders o;
 
 The results of this query would look as below: 
 
-![Order Details](./media/migrate-relational-to-cosmos-sql-api/for-json-query-result.png)
+![Order Details](./media/migrate-relational-to-cosmos-sql-api/for-json-query-result.png#lightbox)
 
 
 Ideally, you want to use a single Azure Data Factory (ADF) copy activity to query SQL data as the source and write the output directly to Azure Cosmos DB sink as proper JSON objects. Currently, it is not possible to perform the needed JSON transformation in one copy activity. If we try to copy the results of the above query into an Azure Cosmos DB SQL API container, we will see the OrderDetails field as a string property of our document, instead of the expected JSON array.
@@ -60,7 +60,7 @@ We can work around this current limitation in one of the following ways:
 
 Let’s look at these approaches in more detail:
 
-## Azure Data Factory with two copy activities
+## Azure Data Factory
 
 Although we cannot embed OrderDetails as a JSON-array in the destination Cosmos DB document, we can work around the issue by using two separate Copy Activities.
 
@@ -241,7 +241,7 @@ writeConfig = {
 }
 ```
 
-Then, we will query the source Database (in this case SQL Server) for both the order and order detail records, putting the results into Spark Dataframes. We will also create a list containing all the order ids, and a Thread pool for parallel operations:
+Then, we will query the source Database (in this case SQL Server) for both the order and order detail records, putting the results into Spark Dataframes. We will also create a list containing all the order IDs, and a Thread pool for parallel operations:
 
 ```python
 import json
@@ -274,7 +274,7 @@ orderids = orders.select('OrderId').collect()
 pool = ThreadPool(10)
 ```
 
-Then, create a function for writing Orders into the target SQL API collection. This function will filter all order details for the given order id, convert them into a JSON array, and insert the array into a JSON document that we will write into the target SQL API Collection for that order:
+Then, create a function for writing Orders into the target SQL API collection. This function will filter all order details for the given order ID, convert them into a JSON array, and insert the array into a JSON document that we will write into the target SQL API Collection for that order:
 
 ```python
 def writeOrder(orderid):
@@ -322,11 +322,11 @@ def writeOrder(orderid):
   df = spark.read.json(sc.parallelize([orderjsondata]))
   
   #write the dataframe (this will be a single order record with merged many-to-one order details) to cosmos db using spark the connector
-  #https://docs.microsoft.com/en-us/azure/cosmos-db/spark-connector
+  #https://docs.microsoft.com/azure/cosmos-db/spark-connector
   df.write.format("com.microsoft.azure.cosmosdb.spark").mode("append").options(**writeConfig).save()
 ```
 
-Finally, we will call the above using a map function on the thread pool, to execute in parallel, passing in the list of order ids we created earlier:
+Finally, we will call the above using a map function on the thread pool, to execute in parallel, passing in the list of order IDs we created earlier:
 
 ```python
 #map order details to orders in parallel using the above function

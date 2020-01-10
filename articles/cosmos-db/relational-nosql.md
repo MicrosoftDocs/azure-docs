@@ -1,6 +1,6 @@
 ---
-title: Understanding the differences between NoSQL and Relational Databases 
-description: This article enumerates the differences between NoSQL and Relational Databases 
+title: Understanding the differences between Azure Cosmos DB NoSQL and relational databases 
+description: This article enumerates the differences between NoSQL and relational databases 
 author: TheovanKraay
 ms.author: thvankra
 ms.service: cosmos-db
@@ -27,7 +27,7 @@ If your transactional volumes are reaching extreme levels, such as many thousand
 
 ![Backend](./media/relational-or-nosql/backend-scaled.png)
 
-## Hierarchical Data
+## Hierarchical data
 
 There are a significant number of use cases where transactions in the database can contain many parent-child relationships. These relationships can grow significantly over time, and prove difficult to manage. Forms of [hierarchical databases](https://en.wikipedia.org/wiki/Hierarchical_database_model) did emerge during the 1980s, but were not popular due to inefficiency in storage. They also lost traction as [Ted Codd’s relational model](https://en.wikipedia.org/wiki/Relational_model) became the de facto standard used by virtually all mainstream database management systems.
 
@@ -37,7 +37,7 @@ The emergence of [object oriented design](https://en.wikipedia.org/wiki/Object-o
 
 ![OrderDetails](./media/relational-or-nosql/order-orderdetails.jpg)
 
-## Complex Networks and Relationships
+## Complex networks and relationships
 
 Ironically, given their name, relational databases present a less than optimal solution for modeling deep and complex relationships. The reason for this is that relationships between entities do not actually exist in a relational database. They need to be computed at runtime, with complex relationships requiring cartesian joins in order to allow mapping using queries. As a result, operations become exponentially more expensive in terms of computation as relationships increase. In some cases, a relational database attempting to manage such entities will become unusable.
 
@@ -63,7 +63,7 @@ The [microservices](https://en.wikipedia.org/wiki/Microservices) pattern has gro
 * a JavaScript engine and [query API](https://docs.microsoft.com/azure/cosmos-db/javascript-query-api) built into the database.
 * a state-of-the-art [change feed](https://docs.microsoft.com/azure/cosmos-db/change-feed) which clients can subscribe to in order to get notified of modifications to a container.
 
-## Some challenges with NoSQL Databases
+## Some challenges with NoSQL databases
 
 Although there are some clear advantages when implementing NoSQL databases, there are also some challenges that you may want to take into consideration. These may not be present to the same degree when working with the relational model:
 
