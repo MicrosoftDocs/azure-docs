@@ -26,7 +26,7 @@ The following controls are used in the Azure Security Benchmark:
 - [Data Protection](security-control-data-protection.md)
 - [Vulnerability Management](security-control-vulnerability-management.md)
 - [Inventory and Asset Management](security-control-inventory-asset-management.md)
-- [Secure Configuraton](security-control-secure-configuration.md)
+- [Secure Configuration](security-control-secure-configuration.md)
 - [Malware Defense](security-control-malware-defense.md)
 - [Data Recovery](security-control-data-recovery.md)
 - [Incident Response](security-control-incident-response.md)
