@@ -1,7 +1,7 @@
 ---
-title: "Render math in the Immersive Reader"
+title: "Display math in the Immersive Reader"
 titleSuffix: Azure Cognitive Services
-description: This article will show you how to render math in the Immersive Reader.
+description: This article will show you how to display math in the Immersive Reader.
 services: cognitive-services
 author: pasta
 manager: guillasi
@@ -9,17 +9,17 @@ manager: guillasi
 ms.service: cognitive-services
 ms.subservice: immersive-reader
 ms.topic: conceptual
-ms.date: 01/09/2020
+ms.date: 01/14/2020
 ms.author: pasta
 ---
 
-# How to render math in the Immersive Reader
+# How to display math in the Immersive Reader
 
-The Immersive Reader can render math when provided in the form of Mathematical Markup Language ([MathML](https://developer.mozilla.org/en-US/docs/Web/MathML)).
+The Immersive Reader can display math when provided in the form of Mathematical Markup Language ([MathML](https://developer.mozilla.org/en-US/docs/Web/MathML)).
 The MIME type can be set through the Immersive Reader [chunk](../reference.md#chunk). See [supported MIME types](../reference.md#supported-mime-types) for more information.
 
 ## Send Math to the Immersive Reader
-In order to send math to the Immersive Reader, supply a chunk containing MathML, and set the MIME type to 'application/mathml+xml';
+In order to send math to the Immersive Reader, supply a chunk containing MathML, and set the MIME type to ```application/mathml+xml```;
 
 For example, if your content were the following:
 
@@ -50,14 +50,14 @@ For example, if your content were the following:
 </div> 
 ```
 
-Then you could render your content by using the following JavaScript.
+Then you could display your content by using the following JavaScript.
 
 ```javascript
 const data = {
     title: 'My Math',
     chunks: [{
         content: document.getElementById('ir-content').innerHTML.trim(),
-        mimeType: "application/mathml+xml"
+        mimeType: 'application/mathml+xml'
     }]
 };
 
