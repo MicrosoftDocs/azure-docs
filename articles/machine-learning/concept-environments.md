@@ -48,7 +48,7 @@ For specific code samples, see the "Create an environment" section of [Reuse env
 * Environments are automatically registered to your workspace when you submit an experiment. They can also be manually registered.
 * You can fetch environments from your workspace to use for training or deployment, or to make edits to the environment definition.
 * With versioning, you can see changes to your environments over time, which ensures reproducibility.
-* You can build Docker images automatically from your environments
+* You can build Docker images automatically from your environments.
 
 For code samples, see the "Manage environments" section of [Reuse environments for training and deployment](how-to-use-environments.md#manage-environments).
 
