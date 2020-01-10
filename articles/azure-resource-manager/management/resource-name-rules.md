@@ -18,53 +18,53 @@ For recommendations about how to name resources, see [Ready: Recommended naming 
 > [!div class="mx-tableFixed"]
 > | Entity | Scope | Length | Valid Characters |
 > | --- | --- | --- | --- |
-> | servers | Resource group | 3-63 | Starts with lowercase letter. Contains lowercase letters and numbers. |
+> | servers | Resource group | 3-63 | Lowercase letters and numbers.<br><br>Starts with lowercase letter. |
 
 ## Microsoft.ApiManagement
 
 > [!div class="mx-tableFixed"]
 > | Entity | Scope | Length | Valid Characters |
 > | --- | --- | --- | --- |
-> | service | Global | 1-50 | Starts with letter. Contains alphanumeric. |
-> | service/apis | Service | 1-256 | Can't contain these characters: *#&+:<>? |
-> | service/apis/issues | API | 1-256 | Can't contain these characters: *#&+:<>? |
-> | service/apis/issues/attachments | Issue | 1-256 | Can't contain these characters: *#&+:<>? |
-> | service/apis/issues/comments | Issue | 1-256 | Can't contain these characters: *#&+:<>? |
-> | service/apis/operations | API | 1-256 | Can't contain these characters: *#&+:<>? |
-> | service/apis/operations/tags | Operation | 1-256 | Can't contain these characters: *#&+:<>? |
-> | service/apis/releases | API | 1-80 | Starts and ends with alphanumeric or underscore. Contains alphanumerics, underscores, and hyphens. |
-> | service/apis/schemas | API | 1-256 | Can't contain these characters: *#&+:<>? |
-> | service/apis/tagDescriptions | API | 1-256 | Can't contain these characters: *#&+:<>? |
-> | service/apis/tags | API | 1-256 | Can't contain these characters: *#&+:<>? |
-> | service/api-version-sets | Service | 1-256 | Can't contain these characters: *#&+:<>? |
-> | service/authorizationServers | Service | Not specified | Can't contain these characters: *#&+:<>? |
-> | service/backends | Service | 1-255 | Can't contain these characters: *#&+:<>? |
-> | service/certificates | Service | 1-256 | Can't contain these characters: *#&+:<>? |
-> | service/diagnostics | Service | 1-256 | Can't contain these characters: *#&+:<>? |
-> | service/groups | Service | 1-256 | Can't contain these characters: *#&+:<>? |
-> | service/groups/users | Group | 1-256 | Can't contain these characters: *#&+:<>? |
-> | service/identityProviders | Service |  | Can't contain these characters: *#&+:<>? |
-> | service/loggers | Service |  | Can't contain these characters: *#&+:<>? |
-> | service/notifications | Service | | Can't contain these characters: *#&+:<>? |
-> | service/notifications/recipientEmails | Notification |  | Can't contain these characters: *#&+:<>? |
-> | service/openidConnectProviders | Service |  | Can't contain these characters: *#&+:<>? |
-> | service/policies | Service |  | Can't contain these characters: *#&+:<>? |
-> | service/products | Service | 1-256 | Can't contain these characters: *#&+:<>? |
-> | service/products/apis | Product | 1-256 | Can't contain these characters: *#&+:<>? |
-> | service/products/groups | Product | 1-256 | Can't contain these characters: *#&+:<>? |
-> | service/products/tags | Product | 1-256 | Can't contain these characters: *#&+:<>? |
-> | service/properties | Service | | Can't contain these characters: *#&+:<>? |
-> | service/subscriptions | Service | 1-256 | Can't contain these characters: *#&+:<>? |
-> | service/tags | Service | 1-256 | Can't contain these characters: *#&+:<>? |
-> | service/templates | Service | | Can't contain these characters: *#&+:<>? |
-> | service/users | Service | 1-256 | Can't contain these characters: *#&+:<>? |
+> | service | global | 1-50 | Alphanumerics.<br><br>Starts with letter. |
+> | service / apis | service | 1-256 | Can't contain these characters: `*#&+:<>?` |
+> | service / apis / issues | api | 1-256 | Can't contain these characters: `*#&+:<>?` |
+> | service / apis / issues / attachments | issue | 1-256 | Can't contain these characters: `*#&+:<>?` |
+> | service / apis / issues / comments | issue | 1-256 | Can't contain these characters: `*#&+:<>?` |
+> | service / apis / operations | api | 1-256 | Can't contain these characters: `*#&+:<>?` |
+> | service / apis / operations / tags | operation | 1-256 | Can't contain these characters: `*#&+:<>?` |
+> | service / apis / releases | api | 1-80 | Alphanumerics, underscores, and hyphens.<br><br>Starts and ends with alphanumeric or underscore. |
+> | service / apis / schemas | api | 1-256 | Can't contain these characters: `*#&+:<>?` |
+> | service / apis / tagDescriptions | api | 1-256 | Can't contain these characters: `*#&+:<>?` |
+> | service / apis / tags | api | 1-256 | Can't contain these characters: `*#&+:<>?` |
+> | service / api-version-sets | service | 1-256 | Can't contain these characters: `*#&+:<>?` |
+> | service / authorizationServers | service | Not specified | Can't contain these characters: `*#&+:<>?` |
+> | service / backends | service | 1-255 | Can't contain these characters: `*#&+:<>?` |
+> | service / certificates | service | 1-256 | Can't contain these characters: `*#&+:<>?` |
+> | service / diagnostics | service | 1-256 | Can't contain these characters: `*#&+:<>?` |
+> | service / groups | service | 1-256 | Can't contain these characters: `*#&+:<>?` |
+> | service / groups / users | group | 1-256 | Can't contain these characters: `*#&+:<>?` |
+> | service / identityProviders | service |  | Can't contain these characters: `*#&+:<>?` |
+> | service / loggers | service |  | Can't contain these characters: `*#&+:<>?` |
+> | service / notifications | service | | Can't contain these characters: `*#&+:<>?` |
+> | service / notifications / recipientEmails | notification |  | Can't contain these characters: `*#&+:<>?` |
+> | service / openidConnectProviders | service |  | Can't contain these characters: `*#&+:<>?` |
+> | service / policies | service |  | Can't contain these characters: `*#&+:<>?` |
+> | service / products | service | 1-256 | Can't contain these characters: `*#&+:<>?` |
+> | service / products / apis | product | 1-256 | Can't contain these characters: `*#&+:<>?` |
+> | service / products / groups | product | 1-256 | Can't contain these characters: `*#&+:<>?` |
+> | service / products / tags | product | 1-256 | Can't contain these characters: `*#&+:<>?` |
+> | service / properties | service | | Can't contain these characters: `*#&+:<>?` |
+> | service / subscriptions | service | 1-256 | Can't contain these characters: `*#&+:<>?` |
+> | service / tags | service | 1-256 | Can't contain these characters: `*#&+:<>?` |
+> | service / templates | service | | Can't contain these characters: `*#&+:<>?` |
+> | service / users | service | 1-256 | Can't contain these characters: `*#&+:<>?` |
 
 ## Microsoft.AppConfiguration
 
 > [!div class="mx-tableFixed"]
 > | Entity | Scope | Length | Valid Characters |
 > | --- | --- | --- | --- |
-> | configurationStores | Resource group | 5-50 | Contains alphanumerics, underscores, and hyphens. |
+> | configurationStores | Resource group | 5-50 | Alphanumerics, underscores, and hyphens. |
 
 ## Microsoft.Authorization
 
@@ -156,18 +156,18 @@ For recommendations about how to name resources, see [Ready: Recommended naming 
 > [!div class="mx-tableFixed"]
 > | Entity | Scope | Length | Valid Characters |
 > | --- | --- | --- | --- |
-> | availabilitySets | Resource group | 1-80 | Starts with alphanumeric, and ends with alphanumeric or underscore. Contains alphanumerics, underscores, periods, and hyphens. |
-> | diskEncryptionSets | Resource group | 1-80 | Contains alphanumerics and underscores. |
-> | disks | Resource group | 1-80 | Contains alphanumerics and underscores. |
-> | galleries | 1-80 | Not specified | Starts and ends with alphanumeric. Contains alphanumerics and periods. |
+> | availabilitySets | Resource group | 1-80 | Alphanumerics, underscores, periods, and hyphens.<br><br>Starts with alphanumeric, and ends with alphanumeric or underscore. |
+> | diskEncryptionSets | Resource group | 1-80 | Alphanumerics and underscores. |
+> | disks | Resource group | 1-80 | Alphanumerics and underscores. |
+> | galleries | 1-80 | Not specified | Alphanumerics and periods.<br><br>Starts and ends with alphanumeric. |
 > | galleries/applications | Gallery | 1-80 | Starts and ends with alphanumeric. Contains alphanumeric, hyphens, and periods. |
 > | galleries/applications/versions | Application | 32-bit integer | Numbers and periods. |
 > | galleries/images | Gallery | 1-80 | Starts and ends with alphanumeric. Contains alphanumeric, hyphens, and periods. |
 > | galleries/images/versions | Image | 32-bit integer | Numbers and periods. |
 > | images | Resource group | 1-80 | Starts with alphanumeric, and ends with alphanumeric or underscore. Contains alphanumerics, underscores, periods, and hyphens. |
 > | snapshots | Resource group | 1-80 | Starts with alphanumeric, and ends with alphanumeric or underscore. Contains alphanumerics, underscores, periods, and hyphens. |
-> | virtualMachines | Resource group | 1-15 (Windows), 1-64 (Linux) | Can't begin with underscore. Can't end with period or hyphen. Can't contain these characters: \/""[]:|<>+=;,?*@& |
-> | virtualMachineScaleSets | Resource group | 1-15 (Windows), 1-64 (Linux) | Can't begin with underscore. Can't end with period or hyphen. Can't contain these characters: \/""[]:|<>+=;,?*@& |
+> | virtualMachines | Resource group | 1-15 (Windows), 1-64 (Linux) | Can't begin with underscore. Can't end with period or hyphen. Can't contain these characters: `\/""[]:|<>+=;,?*@&` |
+> | virtualMachineScaleSets | Resource group | 1-15 (Windows), 1-64 (Linux) | Can't begin with underscore. Can't end with period or hyphen. Can't contain these characters: `\/""[]:|<>+=;,?*@&` |
 
 ## Microsoft.ContainerInstance
 
