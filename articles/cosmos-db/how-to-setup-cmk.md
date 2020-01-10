@@ -8,7 +8,7 @@ ms.date: 01/09/2020
 ms.author: thweiss
 ---
 
-# Setup customer-managed keys for your Azure Cosmos account
+# Configure customer-managed keys for your Azure Cosmos account
 
 Data stored in your Azure Cosmos DB account is automatically and seamlessly encrypted. Azure Cosmos DB offers two options for managing the keys used to encrypt your data at rest:
 - **Service-managed keys**. By default, Microsoft manages the keys used to encrypt your Azure Cosmos DB account.
@@ -81,7 +81,7 @@ From the Azure portal, go the Azure Key Vault instance you plan to use to host y
 
 #### Using the Azure portal
 
-When creating a new Azure Cosmos DB account from the Azure portal, choose "Customer-managed key" at the "Encryption" step. In the "Key URI" field, pass the URI of the Azure Key Vault key copied from step 4.:
+When creating a new Azure Cosmos DB account from the Azure portal, choose "Customer-managed key" at the "Encryption" step. In the "Key URI" field, pass the URI of the Azure Key Vault key copied from step 4:
 
 ![Setting CMK parameters in the Azure portal](./media/how-to-setup-cmk/portal-cosmos-enc.png)
 
