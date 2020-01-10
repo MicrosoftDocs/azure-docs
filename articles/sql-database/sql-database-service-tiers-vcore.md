@@ -136,6 +136,14 @@ On the **Basics** tab, select the **Configure database** link in the **Compute +
   
 **To change the hardware generation of an existing managed instance**
 
+# [Portal](#tab/azure-portal)
+
+From the managed instance page, select **Pricing tier** link placed under the Settings section
+
+![change managed instance hardware](media/sql-database-service-tiers-vcore/change-managed-instance-hardware.png)
+
+# [PowerShell](#tab/azure-powershell)
+
 Use the following PowerShell script:
 
 ```powershell-interactive
@@ -171,6 +179,8 @@ Set-AzResource -Properties $properties -ResourceName $instanceName -ResourceType
 ```
 
 Make sure to enter your subscription id, name, and resource group of the managed instance.
+
+---
 
 ### Hardware availability
 
