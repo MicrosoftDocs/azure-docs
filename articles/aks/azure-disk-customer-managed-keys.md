@@ -117,7 +117,7 @@ az aks create -n myAKSCluster -g myResourceGroup --node-osdisk-diskencryptionset
 
 ## Add a node pool to an existing AKS cluster and encrypt the OS disk with a customer-managed key
 
-You can also add a new node pool to an existing cluster and encrypt the OS disk with your own key.
+New nodepools do not use encrypted disks by default.  You can add a new node pool to an existing cluster and encrypt the OS disk with your own key by using the following command.
 
 ```azurecli-interactive
 # Add a nodepool to an existing cluster with BYOK encryption
