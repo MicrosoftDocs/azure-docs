@@ -19,7 +19,7 @@ Indexers can run into a number of issues when indexing data into Azure Cognitive
 * [Document processing](#document-processing-errors)
 * [Document ingestion to an index](#index-errors)
 
-## Connection Errors
+## Connection errors
 
 > [!NOTE]
 > Indexers have limited support for accessing data sources and other resources that are secured by Azure network security mechanisms. Currently, indexers can only access data sources via corresponding IP address range restriction mechanisms or NSG rules when applicable. Details for accessing each supported data source can be found below.
@@ -34,16 +34,16 @@ Azure Storage, CosmosDB and Azure SQL provide a configurable firewall. There's n
 
 There are 2 options for allowing indexers to access these resources in such an instance:
 
-1. Disable the firewall, by allowing access from **All Networks** (if feasible).
-2. Alternatively, you can allow access for the IP address of your search service and the IP address range of `AzureCognitiveSearch` [service tag](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags) in the firewall rules of your resource (IP address range restriction).
+* Disable the firewall, by allowing access from **All Networks** (if feasible).
+* Alternatively, you can allow access for the IP address of your search service and the IP address range of `AzureCognitiveSearch` [service tag](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags) in the firewall rules of your resource (IP address range restriction).
 
 Details for configuring IP address range restrictions for each data source type can be found from the following links:
 
-1. [Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-network-security#grant-access-from-an-internet-ip-range)
+* [Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-network-security#grant-access-from-an-internet-ip-range)
 
-2. [Cosmos DB](https://docs.microsoft.com/azure/storage/common/storage-network-security#grant-access-from-an-internet-ip-range)
+* [Cosmos DB](https://docs.microsoft.com/azure/storage/common/storage-network-security#grant-access-from-an-internet-ip-range)
 
-3. [Azure SQL](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure#create-and-manage-ip-firewall-rules)
+* [Azure SQL](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure#create-and-manage-ip-firewall-rules)
 
 **Limitation**: As stated in the documentation above for Azure Storage, IP address range restrictions will only work if your search service and your storage account are in different regions.
 
@@ -61,11 +61,11 @@ The `AzureCognitiveSearch` service tag can be directly used in the inbound [NSG 
 
 More details for accessing data in a SQL managed instance are outlined [here](search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md)
 
-### CosmosDB Indexing isn't enabled
+### CosmosDB "Indexing" isn't enabled
 
 Azure Cognitive Search has an implicit dependency on Cosmos DB indexing. If you turn off automatic indexing in Cosmos DB, Azure Cognitive Search returns a successful state, but fails to index container contents. For instructions on how to check settings and turn on indexing, see [Manage indexing in Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/how-to-manage-indexing-policy#use-the-azure-portal).
 
-## Document Processing Errors
+## Document processing errors
 
 ### Unprocessable or unsupported documents
 
@@ -100,7 +100,7 @@ api-key: [admin key]
 }
 ```
 
-## Index Errors
+## Index errors
 
 ### Missing documents
 
