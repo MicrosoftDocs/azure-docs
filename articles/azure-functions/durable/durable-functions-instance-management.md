@@ -54,6 +54,39 @@ public static async Task Run(
 
 # [JavaScript](#tab/javascript)
 
+<a name="javascript-function-json"></a>Unless otherwise specified, the examples on this page use the HTTP trigger with the following function.json.
+
+**function.json**
+
+```json
+{
+  "bindings": [
+    {
+      "name": "req",
+      "type": "httpTrigger",
+      "direction": "in",
+      "methods": ["post"]
+    },
+    {
+      "name": "$return",
+      "type": "http",
+      "direction": "out"
+    },
+    {
+      "name": "starter",
+      "type": "durableClient",
+      "direction": "in"
+    }
+  ],
+  "disabled": false
+}
+```
+
+> [!NOTE]
+> This example targets Durable Functions version 2.x. In version 1.x, use `orchestrationClient` instead of `durableClient`.
+
+**index.js**
+
 ```javascript
 const df = require("durable-functions");
 
@@ -147,6 +180,8 @@ module.exports = async function(context, instanceId) {
 }
 ```
 
+See [Start instances](#javascript-function-json) for the function.json configuration.
+
 ---
 
 ### Azure Functions Core Tools
@@ -215,6 +250,8 @@ module.exports = async function(context, req) {
     });
 };
 ```
+
+See [Start instances](#javascript-function-json) for the function.json configuration.
 
 ---
 
@@ -288,6 +325,8 @@ module.exports = async function(context, req) {
 };
 ```
 
+See [Start instances](#javascript-function-json) for the function.json configuration.
+
 ---
 
 ### Azure Functions Core Tools
@@ -342,6 +381,8 @@ module.exports = async function(context, instanceId) {
     return client.terminate(instanceId, reason);
 };
 ```
+
+See [Start instances](#javascript-function-json) for the function.json configuration.
 
 ---
 
@@ -404,6 +445,8 @@ module.exports = async function(context, instanceId) {
 };
 ```
 
+See [Start instances](#javascript-function-json) for the function.json configuration.
+
 ---
 
 > [!NOTE]
@@ -442,6 +485,8 @@ Here is an example HTTP-trigger function that demonstrates how to use this API:
 # [JavaScript](#tab/javascript)
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/HttpSyncStart/index.js)]
+
+See [Start instances](#javascript-function-json) for the function.json configuration.
 
 ---
 
@@ -547,6 +592,8 @@ modules.exports = async function(context, ctx) {
 };
 ```
 
+See [Start instances](#javascript-function-json) for the function.json configuration.
+
 ---
 
 ## Rewind instances (preview)
@@ -592,6 +639,8 @@ module.exports = async function(context, instanceId) {
 };
 ```
 
+See [Start instances](#javascript-function-json) for the function.json configuration.
+
 ---
 
 ### Azure Functions Core Tools
@@ -636,6 +685,8 @@ module.exports = async function(context, instanceId) {
 };
 ```
 
+See [Start instances](#javascript-function-json) for the function.json configuration.
+
 ---
 
 The next example shows a timer-triggered function that purges the history for all orchestration instances that completed after the specified time interval. In this case, it removes data for all instances completed 30 or more days ago. It's scheduled to run once per day, at 12 AM:
@@ -664,6 +715,41 @@ public static Task Run(
 # [JavaScript](#tab/javascript)
 
 The `purgeInstanceHistoryBy` method can be used to conditionally purge instance history for multiple instances.
+
+**function.json**
+
+```json
+{
+  "bindings": [
+    {
+      "schedule": "0 0 12 * * *",
+      "name": "myTimer",
+      "type": "timerTrigger",
+      "direction": "in"
+    },
+    {
+      "name": "starter",
+      "type": "durableClient",
+      "direction": "in"
+    }
+  ],
+  "disabled": false
+}
+```
+
+**index.js**
+
+```javascript
+const df = require("durable-functions");
+
+module.exports = async function (context, myTimer) {
+    const client = df.getClient(context);
+    const createdTimeFrom = new Date(0);
+    const createdTimeTo = new Date().setDate(today.getDate() - 30);
+    const runtimeStatuses = [ df.OrchestrationRuntimeStatus.Completed ];
+    return client.purgeInstanceHistoryBy(createdTimeFrom, createdTimeTo, runtimeStatuses);
+};
+```
 
 ---
 

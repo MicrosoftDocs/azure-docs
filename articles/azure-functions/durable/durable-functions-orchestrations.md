@@ -182,7 +182,7 @@ Orchestrator functions can also add retry policies to the activity or sub-orches
 
 For more information and for examples, see the [Error handling](durable-functions-error-handling.md) article.
 
-### Critical sections (Durable Functions 2.x)
+### Critical sections (Durable Functions 2.x, currently .NET only)
 
 Orchestration instances are single-threaded so it isn't necessary to worry about race conditions *within* an orchestration. However, race conditions are possible when orchestrations interact with external systems. To mitigate race conditions when interacting with external systems, orchestrator functions can define *critical sections* using a `LockAsync` method in .NET.
 
@@ -259,7 +259,7 @@ For more information and for detailed examples, see the [HTTP features](durable-
 
 ### Passing multiple parameters
 
-It isn't possible to pass multiple parameters to an activity function directly. The recommendation is to pass in an array of objects.
+It isn't possible to pass multiple parameters to an activity function directly. The recommendation is to pass in an array of objects or composite objects.
 
 # [C#](#tab/csharp)
 

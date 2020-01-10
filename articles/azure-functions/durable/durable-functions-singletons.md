@@ -51,7 +51,8 @@ public static async Task<HttpResponseMessage> RunSingle(
 
 # [JavaScript](#tab/javascript)
 
-Here's the function.json file:
+**function.json**
+
 ```json
 {
   "bindings": [
@@ -77,7 +78,8 @@ Here's the function.json file:
 }
 ```
 
-Here's the JavaScript code:
+**index.js**
+
 ```javascript
 const df = require("durable-functions");
 

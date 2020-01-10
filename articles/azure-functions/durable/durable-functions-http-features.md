@@ -167,6 +167,8 @@ Durable Functions natively supports calls to APIs that accept Azure Active Direc
 
 The following code is an example of a .NET orchestrator function. The function makes authenticated calls to restart a virtual machine by using the Azure Resource Manager [virtual machines REST API](https://docs.microsoft.com/rest/api/compute/virtualmachines).
 
+# [C#](#tab/csharp)
+
 ```csharp
 [FunctionName("RestartVm")]
 public static async Task RunOrchestrator(
@@ -191,6 +193,8 @@ public static async Task RunOrchestrator(
 }
 ```
 
+# [JavaScript](#tab/javascript)
+
 ```javascript
 const df = require("durable-functions");
 
@@ -199,18 +203,21 @@ module.exports = df.orchestrator(function*(context) {
     const resourceGroup = "myRG";
     const vmName = "myVM";
     const apiVersion = "2019-03-01";
+    const tokenSource = new df.ManagedIdentityTokenSource("https://management.core.windows.net");
 
     // get a list of the Azure subscriptions that I have access to
     const restartResponse = yield context.df.callHttp(
         "POST",
-        `https://management.azure.com/subscriptions/${subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Compute/virtualMachines/${vmName}/restart?api-version=${apiVersion}`,
+        `https://management.azure.com/subscriptions/${subscriptionId}/resourceGroups/${resourceGroup}/providers/Microsoft.Compute/virtualMachines/${vmName}/restart?api-version=${apiVersion}`,
         undefined, // no request content
         undefined, // no request headers (besides auth which is handled by the token source)
-        df.ManagedIdentityTokenSource("https://management.core.windows.net"));
+        tokenSource);
 
     return restartResponse;
 });
 ```
+
+---
 
 In the previous example, the `tokenSource` parameter is configured to acquire Azure AD tokens for [Azure Resource Manager](../../azure-resource-manager/management/overview.md). The tokens are identified by the resource URI `https://management.core.windows.net`. The example assumes that the current function app either is running locally or was deployed as a function app with a managed identity. The local identity or the managed identity is assumed to have permission to manage VMs in the specified resource group `myRG`.
 
