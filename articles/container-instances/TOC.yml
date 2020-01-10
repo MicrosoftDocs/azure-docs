@@ -59,6 +59,8 @@
       href: container-instances-vnet.md
     - name: Deploy from Azure Container Registry
       href: container-instances-using-azure-container-registry.md
+    - name: Encrypt the deployment template
+      href: container-instances-encrypt-template.md
   - name: Container scenarios
     items:
     - name: Set restart policy for run-once tasks
