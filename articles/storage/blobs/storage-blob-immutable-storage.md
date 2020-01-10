@@ -88,7 +88,7 @@ Legal hold policies cannot enable `allowProtectedAppendWrites` and do not allow 
 > - South Central US
 > - West US 2
 >
-> At this time, we strongly advise that you do not to enable `allowProtectedAppendWrites` in any other regions besides those specified, as it will cause intermittent failures and may affect compliance.
+> At this time, we strongly advise that you do not to enable `allowProtectedAppendWrites` in any other regions besides those specified, as it will cause intermittent failures and may affect compliance. For more information on how to set and lock time-based retention policies, see [Enabling allow protected append blobs writes](storage-blob-immutability-policies-manage.md#enabling-allow-protected-append-blobs-writes).
 
 ## Legal holds
 
@@ -115,7 +115,7 @@ The following table shows the types of Blob storage operations that are disabled
 
 <sup>1</sup> The blob service allows these operations to create a new blob once. All subsequent overwrite operations on an existing blob path in an immutable container are not allowed.
 
-<sup>2</sup> Append Block is only allowed for time-based retention policies with the 'allowProtectedAppendWrites' property enabled. See the [Allow Protected Append Blobs Writes](#allow-protected-append-blobs-writes) section for more information.
+<sup>2</sup> Append Block is only allowed for time-based retention policies with the `allowProtectedAppendWrites` property enabled. For more information, see the [Allow Protected Append Blobs Writes](#allow-protected-append-blobs-writes) section .
 
 ## Pricing
 
