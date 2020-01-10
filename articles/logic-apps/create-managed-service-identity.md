@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
-ms.date: 01/10/2020
+ms.date: 01/17/2020
 ---
 
 # Authenticate access to Azure resources by using managed identities in Azure Logic Apps
