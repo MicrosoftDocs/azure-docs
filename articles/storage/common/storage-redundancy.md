@@ -50,9 +50,9 @@ The primary difference between GRS and GZRS is how data is replicated in the pri
 > [!IMPORTANT]
 > Asynchronous replication involves a delay from the time that data is written to the primary region, to when it is replicated to the secondary region. In the event of a regional disaster, changes that haven't yet been replicated to the secondary region may be lost if that data can't be recovered from the primary region.
 
-With GRS or GZRS, the data in the secondary location isn't available for read or write access unless there is a failover to the secondary region. A failover may be customer-managed or Microsoft-managed. In the case of a failover, you'll have read and write access to that data after the failover has completed. For more information on disaster recovery and to learn how to fail over to the secondary region, see [Disaster recovery and account failover (preview)](storage-disaster-recovery-guidance.md).
+With GRS or GZRS, the data in the secondary location isn't available for read or write access unless there is a failover to the secondary region. For read access to the secondary location, configure your storage account to use read-access geo-redundant storage (RA-GRS) or read-access geo-zone-redundant storage (RA-GZRS). For more information, see [Read access to data in the secondary region](#read-access-to-data-in-the-secondary-region).
 
-For read access to the secondary location, configure your storage account to use read-access geo-redundant storage (RA-GRS) or read-access geo-zone-redundant storage (RA-GZRS). For more information, see [Read access to data in the secondary region](#read-access-to-data-in-the-secondary-region).
+If the primary region becomes unavailable, you can choose to failover to the secondary region (preview). After the failover has completed, the secondary region becomes the primary region, and you can again read and write data. For more information on disaster recovery and to learn how to fail over to the secondary region, see [Disaster recovery and account failover (preview)](storage-disaster-recovery-guidance.md).
 
 ### Geo-redundant storage
 
@@ -60,22 +60,21 @@ For read access to the secondary location, configure your storage account to use
 
 ### Geo-zone-redundant storage (preview)
 
-Geo-zone-redundant storage (GZRS) (preview) combines the high availability offered by ZRS with protection from regional outages as provided by GRS. Data in a GZRS storage account is replicated across three [Azure availability zones](../../availability-zones/az-overview.md) in the primary region and also replicated to a secondary geographic region for protection from regional disasters. Each Azure region is paired with another region within the same geography, together making a regional pair.
+Geo-zone-redundant storage (GZRS) (preview) combines the high availability provided by ZRS with protection from regional outages as provided by GRS. Data in a GZRS storage account is replicated across three [Azure availability zones](../../availability-zones/az-overview.md) in the primary region and also replicated to a secondary geographic region for protection from regional disasters. Each Azure region is paired with another region within the same geography, together making a regional pair.
 
-With a GZRS storage account, you can continue to read and write data if an availability zone becomes unavailable or is unrecoverable. Additionally, your data is also durable in the case of a complete regional outage or a disaster in which the primary region isn’t recoverable. GZRS is designed to provide at least 99.99999999999999% (16 9's) durability of objects over a given year. 
+With a GZRS storage account, you can continue to read and write data if an availability zone becomes unavailable or is unrecoverable. Additionally, your data is also durable in the case of a complete regional outage or a disaster in which the primary region isn’t recoverable. GZRS is designed to provide at least 99.99999999999999% (16 9's) durability of objects over a given year.
 
 Microsoft recommends using GZRS for applications requiring consistency, durability, high availability, excellent performance, and resilience for disaster recovery. For the additional security of read access to the secondary region in the event of a regional disaster, enable RA-GZRS for your storage account.
 
 ## Read access to data in the secondary region
 
-GRS replicates your data to another data center in a secondary region, but that data is available to be read only if Microsoft initiates a failover from the primary to secondary region.
+Both GRS and GZRS replicate your data to another physical location in the secondary region, but that data is available to be read only if the customer or Microsoft initiates a failover from the primary to secondary region. For read access to the secondary region, enable read-access geo-redundant storage (RA-GRS) or read-access geo-zone-redundant storage (RA-GZRS).
 
-Read-access geo-redundant storage (RA-GRS) is based on GRS. RA-GRS replicates your data to another data center in a secondary region, and also provides you with the option to read from the secondary region. With RA-GRS, you can read from the secondary region regardless of whether Microsoft initiates a failover from the primary to secondary region.
+If your storage account is configured for read access to the secondary region, then you can design your applications to seamlessly shift to reading data from the secondary region if the primary region becomes unavailable for any reason. You do not need to wait until Microsoft initiates a failover from the primary to secondary region. For more information about how to design your applications for high availabiilty, see [Designing highly available applications using read-access geo-redundant storage](storage-designing-ha-apps-with-ragrs.md).
 
 You can optionally enable read access to data in the secondary region with read-access geo-zone-redundant storage (RA-GZRS) if your applications need to be able to read data in the event of a disaster in the primary region.
 
-
-## Choosing a redundancy configuration
+## Summary of redundancy configurations
 
 When you create a storage account, you can select one of the following redundancy configurations:
 
@@ -85,10 +84,10 @@ The following table provides a quick overview of the scope of durability and ava
 
 | Scenario                                                                                                 | LRS                             | ZRS                              | GRS/RA-GRS                                  | GZRS/RA-GZRS (preview)                              |
 | :------------------------------------------------------------------------------------------------------- | :------------------------------ | :------------------------------- | :----------------------------------- | :----------------------------------- |
-| Node unavailability within a data center                                                                 | Yes                             | Yes                              | Yes                                  | Yes                                  |
+| A node within a data center becomes unavailable                                                                 | Yes                             | Yes                              | Yes                                  | Yes                                  |
 | An entire data center (zonal or non-zonal) becomes unavailable                                           | No                              | Yes                              | Yes                                  | Yes                                  |
-| A region-wide outage                                                                                     | No                              | No                               | Yes                                  | Yes                                  |
-| Read access to your data (in a remote, geo-replicated region) in the event of region-wide unavailability | No                              | No                               | Yes (with RA-GRS)                                   | Yes (with RA-GZRS)                                 |
+| A region-wide outage occurs                                                                                     | No                              | No                               | Yes                                  | Yes                                  |
+| Read access to data in the secondary region | No                              | No                               | Yes (with RA-GRS)                                   | Yes (with RA-GZRS)                                 |
 | Designed to provide \_\_ durability of objects over a given year<sup>1</sup>                                          | at least 99.999999999% (11 9's) | at least 99.9999999999% (12 9's) | at least 99.99999999999999% (16 9's) | at least 99.99999999999999% (16 9's) |
 | Supported storage account types<sup>2</sup>                                                                   | GPv2, GPv1, BlockBlobStorage, BlobStorage, FileStorage                | GPv2, BlockBlobStorage, FileStorage                             | GPv2, GPv1, BlobStorage                     | GPv2                     |
 | Availability SLA for read requests<sup>1</sup>  | At least 99.9% (99% for cool access tier) | At least 99.9% (99% for cool access tier) | At least 99.9% (99% for cool access tier) for GRS<br /><br />At least 99.99% (99.9% for cool access tier) for RA-GRS | At least 99.9% (99% for cool access tier) for GZRS<br /><br />At least 99.99% (99.9% for cool access tier) for RA-GZRS |
@@ -98,25 +97,12 @@ The following table provides a quick overview of the scope of durability and ava
 
 <sup>2</sup> For information for storage account types, see [Storage account overview](storage-account-overview.md).
 
-All data for all types of storage accounts are replicated. Objects including block blobs, append blobs, page blobs, queues, tables, and files are replicated.
+All data for all types of storage accounts are copied according to the redundancy configuration for the storage account. Objects including block blobs, append blobs, page blobs, queues, tables, and files are copied.
 
 For pricing information for each redundancy configuration, see [Azure Storage Pricing](https://azure.microsoft.com/pricing/details/storage/).
 
 > [!NOTE]
-> Azure Premium Disk Storage currently supports only locally redundant storage (LRS). Azure Premium Block Blob Storage supports locally redundant storage (LRS) and zone redundant storage (ZRS) in certain regions.
-
-## Changing redundancy configuration
-
-You can change your storage account's redundancy configuration by using the [Azure portal](https://portal.azure.com/), [Azure Powershell](storage-powershell-guide-full.md), [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest), or one of the [Azure Storage client libraries](https://docs.microsoft.com/azure/index#pivot=sdkstools). Changing the replication type of your storage account does not result in down time.
-
-> [!NOTE]
-> Currently, you cannot use the Azure portal or the Azure Storage client libraries to convert your account to ZRS, GZRS, or RA-GZRS. To migrate your account to ZRS, see [Zone-redundant storage (ZRS) for building highly available Azure Storage applications](storage-redundancy-zrs.md) for details. To migrate GZRS or RA-GZRS, see [Geo-zone-redundant storage for highly availability and maximum durability (preview)](storage-redundancy-zrs.md) for details.
-
-Costs associated with changing your storage account's redundancy configuration depend on your conversion path. Ordering from least to the most expensive, Azure Storage redundancy offerings include LRS, ZRS, GRS, RA-GRS, GZRS, and RA-GZRS. For example, going *from* LRS to any other type of replication will incur additional charges because you are moving to a more sophisticated redundancy level. Migrating *to* GRS or RA-GRS will incur an egress bandwidth charge because your data (in your primary region) is being replicated to your remote secondary region. This charge is a one-time cost at initial setup. After the data is copied, there are no further migration charges. You are only charged for replicating any new or updates to existing data. For details on bandwidth charges, see [Azure Storage Pricing page](https://azure.microsoft.com/pricing/details/storage/blobs/).
-
-If you migrate your storage account from GRS to LRS, there is no additional cost, but your replicated data is deleted from the secondary location.
-
-If you migrate your storage account from RA-GRS to GRS or LRS, that account is billed as RA-GRS for an additional 30 days beyond the date that it was converted.
+> Azure Premium Disk Storage currently supports only locally redundant storage (LRS). Block blob storage accounts support locally redundant storage (LRS) and zone redundant storage (ZRS) in certain regions.
 
 ## See also
 
