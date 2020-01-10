@@ -14,7 +14,7 @@ ms.author: mayg
 
 This article describes how to replicate Azure VMs with Customer-Managed Keys (CMK) enabled managed disks, from one Azure region to another.
 
-## Pre-Requisite
+## Prerequisite
 You must create the Disk Encryption set(s) in the target region for the target subscription before enabling replication for your virtual machines that have CMK-enabled managed disks.
 
 ## Enable replication
