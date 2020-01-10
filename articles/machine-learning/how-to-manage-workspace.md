@@ -107,6 +107,12 @@ Use the Delete button at the top of the workspace you wish to delete.
 
 [!INCLUDE [aml-delete-resource-group](../../includes/aml-delete-resource-group.md)]
 
+## Troubleshooting
+
+### Resource provider errors
+
+[!INCLUDE [machine-learning-resource-provider](../../includes/machine-learning-resource-provider.md)]
+
 ## Next steps
 
 Follow the full-length tutorial to learn how to use a workspace to build, train, and deploy models with Azure Machine Learning.
