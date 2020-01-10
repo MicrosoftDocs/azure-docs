@@ -12,7 +12,7 @@ ms.author: thweiss
 
 Data stored in your Azure Cosmos DB account is automatically and seamlessly encrypted. Azure Cosmos DB offers two options for managing the keys used to encrypt your data at rest:
 - **Service-managed keys**. By default, Microsoft manages the keys used to encrypt your Azure Cosmos DB account.
-- **Customer-managed keys (CMK)**. You can optionally choose to add a second layer of encryption with keys managed by yourself.
+- **Customer-managed keys (CMK)**. You can optionally choose to add a second layer of encryption with keys you manage.
 
 Customer-managed keys must be stored in [Azure Key Vault](../key-vault/key-vault-overview.md). A key must be provided for each CMK-enabled account and is used to encrypt all the data stored in that account.
 
@@ -55,7 +55,7 @@ From the Azure portal, go to the Azure Key Vault instance you plan to use to hos
 
     ![Selecting the right permissions](./media/how-to-setup-cmk/portal-akv-add-ap-perm2.png)
 
-- Under "Select principal", click on "None selected", search for and select the "Azure Cosmos DB" principal, then click "Select" at the bottom:
+- Under "Select principal", click on "None selected", search for and select the "Azure Cosmos DB" principal, then click "Select" at the bottom (if the "Azure Cosmos DB" principal can't be found, you may need to re-register the "Microsoft.DocumentDB" resource provider at step 2):
 
     ![Selecting the Azure Cosmos DB principal](./media/how-to-setup-cmk/portal-akv-add-ap.png)
 
@@ -93,22 +93,22 @@ When creating a new Azure Cosmos DB account with PowerShell,
 
 ```powershell
 $resourceGroupName = "myResourceGroup"
-$location = "West US 2"
+$accountLocation = "West US 2"
 $accountName = "mycosmosaccount"
 
-$locations = @(
+$failoverLocations = @(
     @{ "locationName"="West US 2"; "failoverPriority"=0 }
 )
 
 $CosmosDBProperties = @{
     "databaseAccountOfferType"="Standard";
-    "locations"=$locations;
+    "locations"=$failoverLocations;
     "keyVaultKeyUri" = "https://<my-vault>.vault.azure.net/keys/<my-key>";
 }
 
 New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
     -ApiVersion "2019-12-12" -ResourceGroupName $resourceGroupName `
-    -Location $location -Name $accountName -PropertyObject $CosmosDBProperties
+    -Location $accountLocation -Name $accountName -PropertyObject $CosmosDBProperties
 ```
 
 #### Using ARM templates
@@ -160,14 +160,14 @@ When creating a new Azure Cosmos DB account through an ARM template:
 ```powershell
 $resourceGroupName = "myResourceGroup"
 $accountName = "mycosmosaccount"
-$location = "West US 2"
+$accountLocation = "West US 2"
 $keyVaultKeyUri = "https://<my-vault>.vault.azure.net/keys/<my-key>"
 
 New-AzResourceGroupDeployment `
     -ResourceGroupName $resourceGroupName `
     -TemplateFile "deploy.json" `
     -accountName $accountName `
-    -location $location `
+    -location $accountLocation `
     -keyVaultKeyUri $keyVaultKeyUri
 ```
 
@@ -195,11 +195,11 @@ All the data stored in your Azure Cosmos DB account gets encrypted with the CMK,
 
 ### Will customer-managed keys be supported for existing accounts?
 
-Support for existing accounts is planned to be available by Q3 of 2020.
+This feature is currently available for new accounts only.
 
 ### Is there a plan to support finer granularity than account-level keys?
 
-Support for container-level keys is planned to be available by Q3 of 2020.
+Not currently, however container-level keys are being considered.
 
 ### How does customer-managed keys affect backups?
 
