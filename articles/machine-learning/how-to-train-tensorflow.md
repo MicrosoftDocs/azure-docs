@@ -84,7 +84,7 @@ exp = Experiment(workspace=ws, name='tf-mnist')
 
 ### Create a file dataset
 
-A `FileDataset` object references one or multiple files in your workspace datastore or public urls. The files can be of any format, and the class provides you with the ability to download or mount the files to your compute. By creating a `FileDataset`, you create a reference to the data source location. If you applied any transformations to the data set, they will be stored in the data set as well. The data remains in its existing location, so no extra storage cost is incurred. See the [how-to](https://docs.microsoft.com/azure/machine-learning/service/how-to-create-register-datasets) guide on the `Dataset` package for more information.
+A `FileDataset` object references one or multiple files in your workspace datastore or public urls. The files can be of any format, and the class provides you with the ability to download or mount the files to your compute. By creating a `FileDataset`, you create a reference to the data source location. If you applied any transformations to the data set, they will be stored in the data set as well. The data remains in its existing location, so no extra storage cost is incurred. See the [how-to](https://docs.microsoft.com/azure/machine-learning/how-to-create-register-datasets) guide on the `Dataset` package for more information.
 
 ```python
 from azureml.core.dataset import Dataset
@@ -159,6 +159,8 @@ est = TensorFlow(source_directory=script_folder,
 
 > [!TIP]
 > Support for **Tensorflow 2.0** has been added to the Tensorflow estimator class. See the [blog post](https://azure.microsoft.com/blog/tensorflow-2-0-on-azure-fine-tuning-bert-for-question-tagging/) for more information.
+
+For more information on customizing your Python environment, see [Create and manage environments for training and deployment](how-to-use-environments.md). 
 
 ## Submit a run
 

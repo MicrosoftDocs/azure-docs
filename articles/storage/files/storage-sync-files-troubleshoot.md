@@ -171,6 +171,7 @@ On the server that is showing as "Appears offline" in the portal, look at Event 
 - If **GetNextJob completed with status: -2134347756** is logged, the server is unable to communicate with the Azure File Sync service due to a firewall or proxy. 
 	- If the server is behind a firewall, verify port 443 outbound is allowed. If the firewall restricts traffic to specific domains, confirm the domains listed in the Firewall [documentation](https://docs.microsoft.com/azure/storage/files/storage-sync-files-firewall-and-proxy#firewall) are accessible.
 	- If the server is behind a proxy, configure the machine-wide or app-specific proxy settings by following the steps in the Proxy [documentation](https://docs.microsoft.com/azure/storage/files/storage-sync-files-firewall-and-proxy#proxy).
+	- Use the Test-StorageSyncNetworkConnectivity cmdlet to check network connectivity to the service endpoints. To learn more, see [Test network connectivity to service endpoints](https://docs.microsoft.com/azure/storage/files/storage-sync-files-firewall-and-proxy#test-network-connectivity-to-service-endpoints).
 
 - If **GetNextJob completed with status: -2134347764** is logged, the server is unable to communicate with the Azure File Sync service due to an expired or deleted certificate.  
 	- Run the following PowerShell command on the server to reset the certificate used for authentication:

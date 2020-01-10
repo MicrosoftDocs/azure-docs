@@ -111,9 +111,9 @@ You might want to access data viewed in the Time Series Insights Preview explore
 
 You can access your data in three general ways:
 
-* From the Time Series Insights Preview explorer. You can export data as a CSV file from the explorer. For more information, see [Time Series Insights Preview explorer](./time-series-insights-update-explorer.md).
-* From the Time Series Insights Preview API. You can reach the API endpoint at `/getRecorded`. To learn more about this API, see [Time Series Query](./time-series-insights-update-tsq.md).
-* Directly from an Azure Storage account. You need read access to whatever account you're using to access your Time Series Insights Preview data. For more information, see [Manage access to your storage account resources](../storage/blobs/storage-manage-access-to-resources.md).
+* From the Time Series Insights Preview explorer. You can export data as a CSV file from the explorer. For more information, read [Time Series Insights Preview explorer](./time-series-insights-update-explorer.md).
+* From the Time Series Insights Preview API. You can reach the API endpoint at `/getRecorded`. To learn more about this API, read [Time Series Query](./time-series-insights-update-tsq.md).
+* Directly from an Azure Storage account. You need read access to whatever account you're using to access your Time Series Insights Preview data. For more information, read [Manage access to your storage account resources](../storage/blobs/storage-manage-access-to-resources.md).
 
 ### Data deletion
 
@@ -123,7 +123,7 @@ Don't delete your Time Series Insights Preview files. Manage related data from w
 
 Parquet is an open-source columnar file format that was designed for efficient storage and performance. Time Series Insights Preview uses Parquet for these reasons. It partitions data by Time Series ID for query performance at scale.  
 
-For more information about the Parquet file type, see the [Parquet documentation](https://parquet.apache.org/documentation/latest/).
+For more information about the Parquet file type, read the [Parquet documentation](https://parquet.apache.org/documentation/latest/).
 
 Time Series Insights Preview stores copies of your data as follows:
 

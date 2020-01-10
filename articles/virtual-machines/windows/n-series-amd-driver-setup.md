@@ -36,7 +36,7 @@ For basic specs, storage capacities, and disk details, see [GPU Windows VM sizes
 
 1. Connect by Remote Desktop to each NVv4-series VM.
 
-1. Download, extract, and install the supported driver for your Windows operating system.
+1. Downloa and extract the driver setup files. Navigate to the folder and run 'setup.exe' to install the supported driver for your Windows operating system.
 
 ## Verify driver installation
 

@@ -7,7 +7,7 @@ Customer intent: As someone with a basic network background, but is new to Azure
 
 ms.service: vpn-gateway
 ms.topic: overview
-ms.date: 11/13/2019
+ms.date: 01/10/2020
 ms.author: cherylmc
 
 ---

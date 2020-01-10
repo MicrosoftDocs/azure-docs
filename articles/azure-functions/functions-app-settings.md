@@ -186,8 +186,8 @@ By default Functions proxies will utilize a shortcut to send API calls from prox
 
 |Key|Value|Description|
 |-|-|-|
-|AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|true|Calls with a backend url pointing to a function in the local Function App will no longer be sent directly to the function, and will instead be directed back to the HTTP front end for the Function App|
-|AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|false|This is the default value. Calls with a  backend url pointing to a function in the local Function App will be forwarded directly to that Function|
+|AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|true|Calls with a backend URL pointing to a function in the local Function App will no longer be sent directly to the function, and will instead be directed back to the HTTP front end for the Function App|
+|AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|false|This is the default value. Calls with a  backend URL pointing to a function in the local Function App will be forwarded directly to that Function|
 
 
 ## AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES
