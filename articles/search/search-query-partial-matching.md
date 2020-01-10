@@ -12,15 +12,19 @@ ms.date: 01/12/2020
 ---
 # Match on patterns and special characters (dashes)
 
-For queries that include special characters (`-, /, \, =`) or patterns based on partial terms within a larger term, custom analyzers are needed to ensure that characters or terms remain intact during indexing. By default, when indexing with the built-in standard analyzer, a phone number like "+1 (425) 703-6214" is tokenized as 
-"1", "425", "703", "6214". Searching on "3-62", partial terms with the dash, will fail because that content doesn't exist as such in the index. Likewise, wildcard and regular expression queries also need custom analyzers. Query expressions that include patterns need to evaluated against the whole term. 
+For queries that include special characters (`-, /, \, =`) or patterns based on partial terms within a larger term, custom analyzers are typically needed to ensure that characters or terms remain whole during indexing. 
 
-When you need to search on partial strings, special characters, or are using wildcard and RegEx queries, you can override the default analyzer with a custom analyzer that operates under different tokenization rules. Taking a step back, the approach looks like this:
+By default, a phone number like "+1 (425) 703-6214" is tokenized as 
+"1", "425", "703", "6214". Searching on "3-62", partial terms with the dash, will fail because that content doesn't exist as such in the index. 
 
-+ Choose an analyzer or tokenizer that produces the output you want
+When you need to search on partial strings or special characters, you can override the default analyzer with a custom analyzer that operates under different tokenization rules that keeps terms intact. Taking a step back, the approach looks like this:
+
++ Choose an analyzer that produces the output you want
 + Optionally, define a custom analyzer in the index if you need deeper customization
 + Assign the analyzer to the field
 + Build the index and test
+
+This article walks you through each step. The approach you learn here can be used in other scenarios. Wildcard and regular expression queries also need whole terms as the basis for pattern matching. 
 
 ## Choosing an analyzer
 
@@ -28,9 +32,9 @@ Azure Cognitive Search uses the Standard Lucene analyzer by default. You can ove
 
 | Analyzer | Behaviors |
 |----------|-----------|
-| keyword | Content of the entire field is tokenized as a single term. |
-| whitespace | Separates on white spaces only. Terms that include dashes or other characters are treated as a single token. |
-| custom analyzer | (recommended) Add a new analyzer definition to an index that uses a tokenizer and token filter you provide. A recommended combination is the keyword tokenizer with a lower-case token filter. When used by itself, the built-in keyword analyzer does not lower-case any upper-case text, which can result in false negative query results. Creating a custom analyzer give you a mechanism for adding the filter. |
+| [keyword]() | Content of the entire field is tokenized as a single term. |
+| [whitespace]() | Separates on white spaces only. Terms that include dashes or other characters are treated as a single token. |
+| [custom analyzer]() | (recommended) Add a new analyzer definition to an index that uses a tokenizer and token filter you provide. A recommended combination is the keyword tokenizer with a lower-case token filter. When used by itself, the built-in keyword analyzer does not lower-case any upper-case text, which can result in false negative query results. Creating a custom analyzer give you a mechanism for adding the filter. |
 
 To help you choose an analyzer, test each one to view the tokens it emits. Using a web API test tool like Postman, create a request that calls the [Test Analyzer REST API](https://docs.microsoft.com/rest/api/searchservice/test-analyzer), passing in the analyzer and term.  An existing service and index is required for this test.
 
@@ -43,7 +47,7 @@ To help you choose an analyzer, test each one to view the tokens it emits. Using
   }
    ```
 
-1. Reponse shows how the text is tokenized within the index. 
+1. Evaluate the response to see how the text is tokenized within the index. 
 
   ```json
   {
@@ -78,7 +82,7 @@ To help you choose an analyzer, test each one to view the tokens it emits. Using
   }
    ```
 
-1. Now the response consists of a single token, with dashes preserved as a part of the string.
+1. Now the response consists of a single token, with dashes preserved as a part of the string. If you need to search on a pattern or a partial term, the query engine now has the basis for finding a match.
 
   ```json
   {
@@ -94,7 +98,7 @@ To help you choose an analyzer, test each one to view the tokens it emits. Using
   }
   ```
 
-
+<!-- 
 ## How to approach pattern matching
 
 For pattern matching on partial terms or on strings that contain special characters, adopt an indexing strategy that preserves or creates necessary information:
@@ -108,23 +112,48 @@ Both approaches require a custom analyzer as replacement for the default text an
 You can implement either approach, both, or [design alternative solutions](#design-a-custom-solution) once you understand the role of analyzers in indexing and query parsing.
 
 > [!NOTE]
-> Exceptions to the conditions and approaches described in this article include $filters and specific query types. $filter expressions are not evaluated against the inverted indexes, and thus tokenization behaviors are not applicable. Similarly, RegEx queries, wildcard (*) queries, and fuzzy matching queries are lower-cased by the query parser, but are not otherwise stemmed or lemmatized during query parsing. As such, tokenization is less of a concern.
+> Exceptions to the conditions and approaches described in this article include $filters and specific query types. $filter expressions are not evaluated against the inverted indexes, and thus tokenization behaviors are not applicable. Similarly, RegEx queries, wildcard (*) queries, and fuzzy matching queries are lower-cased by the query parser, but are not otherwise stemmed or lemmatized during query parsing. As such, tokenization is less of a concern. -->
 
 ## Set up analyzers
 
-Gaining control over tokenization starts with switching out the default Standard Lucene analyzer for a [custom analyzer](index-add-custom-analyzers.md) that delivers minimal processing (typical when using advanced wildcard queries), or additional processing that generates more tokens.
+Gaining control over tokenization starts with switching out the default Standard Lucene analyzer for a built-in or  [custom analyzer](index-add-custom-analyzers.md) that delivers minimal processing (typical when using advanced wildcard queries), or additional processing that generates more tokens.
 
-### Use the Keyword tokenizer to preserve whole terms
+### Use built-in analyzers
 
-If the objective is to match on patterns that contain special characters, make sure whole terms are preserved intact. The keyword tokenizer creates a single token for the entire contents of a field. You should combine it with a lowercase token filter. Query parsers typically lowercase any uppercase text inputs. Lowercasing homogenizes the inputs with the tokenized terms.
+The following analyzers can be referenced by name on an `analyzer` property of a field definition, with no additional configuration required:
 
-The following example illustrates a custom analyzer that provides the keyword tokenizer and a lowercase token filter. Customer analyzers are defined within the index and then referenced on the field definition.
++ `keyword`
++ `whitespace`
++ `pattern`
+
+```json
+    {
+      "name": "phoneNumber",
+      "type": "Edm.String",
+      "key": false,
+      "retrievable": true,
+      "searchable": true,
+      "analyzer": "keyword"
+    }
+```
+For more information about all available built-in analyzers, see [Predefined analyzers list](https://docs.microsoft.com/azure/search/index-add-custom-analyzers#predefined-analyzers-reference). 
+
+### Use custom analyzers
+
+A custom analyzer is a user-defined combination of tokenizer, tokenfilter, and possible configuration settings, giving you more control over the indexing process. The definition of a custom analyzer is specified in the index, and then referenced on a field definition.
+
+When the objective is whole-term tokenization, a custom analyzer that consists of a **keyword tokenizer** and **lower-case token filter** is recommended.
+
++ The keyword tokenizer creates a single token for the entire contents of a field.
++ The lowercase token filter transforms upper-case letters into lower-case text. Query parsers typically lowercase any uppercase text inputs. Lowercasing homogenizes the inputs with the tokenized terms.
+
+The following example illustrates a custom analyzer that provides the keyword tokenizer and a lowercase token filter.
 
 ```json
 {
 "fields": [
   {
-  "name": "featureCode",
+  "name": "phoneNumber",
   "analyzer":"myCustomAnalyzer",
   "type": "Edm.String",
   "searchable": true,
@@ -148,9 +177,11 @@ The following example illustrates a custom analyzer that provides the keyword to
 "charFilters": [],
 "tokenFilters": []
 ```
-The keyword_v2 tokenizer and lowercase token filter are known to the system and using their default configuration, which is why you can reference them without having to define them first.
 
-### Use prefix and suffix token filters to generate partial strings
+> [!NOTE]
+> The keyword_v2 tokenizer and lowercase token filter are known to the system and using their default configurations, which is why you can reference them by name without having to define them first.
+
+### Add prefix and suffix token filters to generate partial strings
 
 A token filter adds additional processing over existing tokens in your index. The following example adds an EdgeNGramTokenFilter to make prefix matches faster. Additional tokens are generated for in 2-25 character combinations: (not only MS, MSF, MSFT, MSFT/, but also embedded/internal partial strings like SQL, SQL., SQL.2)
 
@@ -190,75 +221,6 @@ A token filter adds additional processing over existing tokens in your index. Th
   }
 ]
 ```
-
-<!-- In full text search, query patterns that include spaces or characters (like dashes, slashes, quotes, commas, and periods) are problematic because [analyzers](search-lucene-query-architecture.md#stage-1-query-parsing) both strip out those characters at query time, and use them during indexing to break up and tokenize terms into smaller searchable parts. For example, using the default analyzer, this Microsoft phone number, 800-642-7676, would be tokenized into 3 separate components, which makes finding an exact match on the whole term less likely.
-
-A more realistic scenario is a complex term, such as the following fictitious example that combines upper and lower case text with special characters: `"MSFT/SQL.2019/Linux&Java-Ext"`. If you used the default analyzer on such a term, the index would have tokens for individual parts, but not the term as a whole. As such, queries like `MSFT/SQL*` or `"Linux&Java"` would return zero results.
-
-In Azure Cognitive Search, you can make complex patterns more matchable using a combination of query and indexing capabilities. 
-
-+ Query techniques include using regular expressions (RegEx) and wildcards to match on specific character sequences placed anywhere within a term, including terms that have spaces and symbols. 
-
-+ Indexing techniques include analyzers that tokenize on whole terms to preserve the integrity of the string, as well as anlayzers that generate tokens based on prefix or suffix sequences.  -->
-
-<!-- ## Query techniques for matching on patterns
-
-Suppose you have three documents with the following fictitious feature codes, and your goal is to design various queries that match on partial strings:
-
-+ `featureCode: MSFT/SQL.2017/Linux`
-+ `featureCode: MSFT/SQL.2019/Linux&Java-Ext`
-+ `featureCode: MSFT/SQL.2019/Win&Java-Ext`
-
-Some example queries might be `"MSFT/SQL*"` (a wildcard prefix query), `"*Java"` (a wildcard suffix query), `"2019/Linux"` (partial string query), `"SQL.201?` (single character wildcard), or any regular expression query that provides advanced pattern matching.
-
-+ Wildcard queries
-+ Regular expression queries
-
-Within your index, the following tokens are necessary to support these queries:
-
-Whole-term tokens to support regular expression queries
-Prefix terms (optional but recommended for performance)
-Suffix terms (optional but recommended for performance)
-
-
-You can also include prefix and suffix analyzers for similar use cases that call for pattern matching. -->
-
-<!-- Transition phrase from query to indexing section?
-
-To support matching on specific patterns, whether in whole or partial terms, you want to control how terms are tokenized during indexing, as well as build a query that defines the pattern of interest.  -->
-
-
-<!-- ## Techniques for pattern matching
-
-The following techniques are useful for searching on patterns, including those that contain special characters.
-
-| Type   | Explanation |
-|--------|-------------| 
-| Wildcard | A type of query available when you use the Full Lucene syntax option.  |
-| RegEx    | A type of query available when you use the Full Lucene syntax option.  |
-| Prefix analyzer  | Used during indexing and queries to ... |
-| Suffix analyzer  | Used during indexing and queries to ... |
-
-Both Wildcard and RegEx queries require the full syntax (queryType=Full) and do not return search rankings.
-
-Prefix and Suffix queries use the default simple syntax. -->
-
-<!-- ## Requirements
-
-Implementing support for regular expressions and partial term matching is more complicated than straight full text search, but its useful when the following conditions exist:
-
-+ Field type is **Edm.String**. Fields with numeric data types are never analyzed during indexing and are thus tokenized as whole terms.
-+ Values include spaces, characters, or meaningful combinations of upper and lower case text
-+ Queries are composed of whole or partial terms that include any of the above elements (spaces, special characters, case-sensitive values)
-
-The following table includes examples that indicate a need for a RegEx search:
-
-| String | Explanation |
-|--------|-------------|
-| `800-642-7676` | Phone numbers follow specific patterns and include delimiters that are part of the value. |
-| `support@microsoft.com`  | Email addresses with `@` are candidates for RegEx search.  |
-| `Bravern-2` | Alphanumeric content, with some form of delimiter, is often found in addresses, SKUs, product or model identifiers, account numbers, student IDs, and so forth. Search strings that include delimiters are typically constructed using a RegEx query that includes the special character. |
-| `"ABCD.23PT1111/Dur/5min"` | Composite terms like this one often need to be matched using partial term queries built from combinations of each part (for example, `1111/Dur/5min`). This type of query is virtually impossible to do unless you are using un-analyzed text and a RegEx query. | -->
 
 ## Test analyzer output
 
@@ -341,8 +303,6 @@ This article explains how analyzers both contribute to query problems and solve 
 Finding an exact match to an input query string can be challenging in unexpected ways. During indexing, linguistic analyzers will break terms into root forms to get the broadest possible matches, with the downside of potentially losing information or context that you would otherwise expect to retain. If you find yourself wondering why a query isn't returning an expected match, this article might help you understand the causes and how to structure your index and queries to get right results.
 
 This article is focused on exact matches of numeric content and the impact of special characters on query logic.
-
-For more information about the query engine architecture, we recommend [How full text search works in Azure Cognitive Search](search-lucene-query-architecture.md). For other exact-match information, such as filters that match on verbatim strings, see [Filters in Azure Cognitive Search](search-filters.md).
 
 ## Matching on numeric data or special characters
 
