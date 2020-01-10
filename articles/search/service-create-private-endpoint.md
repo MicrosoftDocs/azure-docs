@@ -1,7 +1,7 @@
 ---
 title: Create a Private Endpoint for secure connections
 titleSuffix: Azure Cognitive Search
-description: Currently in preview, restrict access to a search service endpoint using Private Endpoint and a secure VNet connection.
+description: Currently in preview, you can restrict access to a search service endpoint using Private Endpoint and a secure VNet connection.
 
 manager: nitinme
 author: mrcarter8
@@ -37,8 +37,8 @@ A private endpoint for your search service enables you to:
 
 Click [request access](https://aka.ms/SearchPrivateLinkRequestAccess) to sign up for this preview feature. The form requests information about you, your company, and  general network topology. Once we review your request, you'll receive a confirmation email with additional instructions.
 
-## Create an app service
-In this section, you will create a virtual network and app service environment used to access your search service's private endpoint.
+## Create a VM
+In this section, you will create a virtual network and subnet to host the VM that will be used to access your search service's private endpoint.
 
 ### Set up the virtual network
 1. Sign in to the [Azure portal](https://portal.azure.com).
@@ -47,14 +47,15 @@ In this section, you will create a virtual network and app service environment u
 
     | Setting | Value |
     | ------- | ----- |
-    | Name | Enter *MyVirtualNetwork*. |
-    | Address space | Enter *10.1.0.0/16*. |
-    | Subscription | Select your subscription.|
-    | Resource group | Select **Create new**, enter *myResourceGroup*, then select **OK**. |
-    | Location | Select **West US** or whatever region you are using.|
-    | Subnet - Name | Enter *mySubnet*. |
-    | Subnet - Address range | Enter *10.1.0.0/24*. |
+    | Name | Enter *MyVirtualNetwork* |
+    | Address space | Enter *10.1.0.0/16* |
+    | Subscription | Select your subscription|
+    | Resource group | Select **Create new**, enter *myResourceGroup*, then select **OK** |
+    | Location | Select **West US** or whatever region you are using|
+    | Subnet - Name | Enter *mySubnet* |
+    | Subnet - Address range | Enter *10.1.0.0/24* |
     |||
+
 1. Leave the rest as default and select **Create**.
 
 
@@ -105,9 +106,10 @@ In this section, you will create a virtual network and app service environment u
 
 1. When you see the **Validation passed** message, select **Create**.
 
-## Create a Private Endpoint
 
-In this section, create a search service with a Private Endpoint. 
+## Create your search service with a private endpoint
+
+In this section, you will create a new Azure Cognitive Search service with a Private Endpoint. 
 
 1. On the top left of main portal page, select **Create a resource** > **Web** > **Azure Cognitive Search**.
 
@@ -125,9 +127,13 @@ In this section, create a search service with a Private Endpoint.
     |||
   
 1. Select **Next: Scale**.
+
 1. Leave the values as default and select **Next: Networking**.
+
 1. In **New Search Service - Networking**, select **Private** for **Endpoint connectivity(data)**.
+
 1. In **New Search Service - Networking**, select **+ Add** under **Private endpoint**. 
+
 1. In **Create Private Endpoint**, enter or select this information:
 
     | Setting | Value |
@@ -146,11 +152,14 @@ In this section, create a search service with a Private Endpoint.
     |||
 
 1. Select **OK**. 
+
 1. Select **Review + create**. You're taken to the **Review + create** page where Azure validates your configuration. 
+
 1. When you see the **Validation passed** message, select **Create**. 
 1. Once the service is created, browse to the resource that you just created.
 1. Select **Keys** from the left content menu.
 1. Copy the **Primary admin key** for use in the next step.
+
  
 ## Connect to a VM from the internet
 
@@ -177,12 +186,15 @@ Connect to the VM *myVm* from the internet as follows:
 
 1. Once the VM desktop appears, minimize it to go back to your local desktop.  
 
+
 ## Access the search service privately from the VM
 
 In this section, you will verify private network access to the search service and connect privately to the storage account using the Private Endpoint.
 
 1. In the Remote Desktop of *myVM*, open PowerShell.
-1. Enter `nslookup [search service name].search.windows.net`
+
+1. Enter 'nslookup [search service name].search.windows.net'
+
     You'll receive a message similar to this:
     ```azurepowershell
     Server:  UnKnown
@@ -193,8 +205,11 @@ In this section, you will verify private network access to the search service an
     Aliases:  [search service name].search.windows.net
     ```
 1. Follow this [Quickstart](search-get-started-postman.md) from the VM to create a new search index in your service in Postman using the REST API.
+
 1. Try several of these same requests in Postman on your local workstation.
+
 1. If you are able to complete the Quickstart from the VM, but receive an error that the remote server does not exist on your local workstation, you have successfully configured a private endpoint for your search service.
+
 1. Close the remote desktop connection to *myVM*. 
 
 ## Clean up resources 
