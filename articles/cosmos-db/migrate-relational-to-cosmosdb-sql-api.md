@@ -55,7 +55,7 @@ We can work around this current limitation in one of the following ways:
   1. Get JSON-formatted data from SQL to a text file in an intermediary blob storage location, and 
   2. Load data from the JSON text file to a container in Azure Cosmos DB.
 
-* **Use Azure Databricks to read from SQL and write to Cosmos DB** - we will present two options here.
+* **Use Azure Databricks to read from SQL and write to Azure Cosmos DB** - we will present two options here.
 
 
 Let’s look at these approaches in more detail:
