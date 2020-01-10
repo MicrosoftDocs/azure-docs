@@ -1,12 +1,12 @@
 ---
 title: Business continuity & disaster recovery - Azure Paired Regions
 description: Learn about Azure regional pairing, to ensure that applications are resilient during data center failures.
-author: jeconnoc
+author: jpconnock
 manager: angrobe
 ms.service: multiple
 ms.topic: article
 ms.date: 01/09/2020
-ms.author: jpconnock
+ms.author: jeconnoc
 ---
 
 # Business continuity and disaster recovery (BCDR): Azure Paired Regions
@@ -15,7 +15,7 @@ ms.author: jpconnock
 
 An Azure region consists of a set of datacenters deployed within a latency-defined perimeter and connected through a dedicated low-latency network.  This ensures that Azure services within an Azure region offer the best possible performance and security.  
 
-An Azure geography defines an area of the world containing at least one Azure Region. Geographies define a discrete market, typically containing two or more regions, that preserves data residency and compliance boundaries.  Find more information about Azure's global infrastructure [here](https://azure.microsoft.com/en-us/global-infrastructure/regions/)
+An Azure geography defines an area of the world containing at least one Azure Region. Geographies define a discrete market, typically containing two or more regions, that preserves data residency and compliance boundaries.  Find more information about Azure's global infrastructure [here](https://azure.microsoft.com/global-infrastructure/regions/)
 
 Each Azure region is paired with another region within the same geography, together making a regional pair. Azure serializes platform updates (planned maintenance) across regional pairs, ensuring that only one paired region updates at a time. In the event of an outage affecting multiple regions, at least one region in each pair will be prioritized for recovery.
 
