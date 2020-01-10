@@ -1,5 +1,5 @@
 ---
-title: Bring your own key disk encryption for Azure HDInsight
+title: Customer-managed key disk encryption for Azure HDInsight
 description: This article describes how to use your own encryption key from Azure Key Vault to encrypt data stored on managed disks in Azure HDInsight clusters.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 01/06/2019
 ---
 
-# Bring your own key disk encryption on Azure HDInsight
+# Customer-managed key disk encryption
 
 Azure HDInsight supports customer-managed keys, also known as Bring Your Own Key (BYOK) encryption for data on managed disks and resource disks attached to HDInsight cluster VMs. This feature allows you to use Azure Key Vault to manage the encryption keys that secure data at rest on your HDInsight clusters. Your clusters may have one or more attached Azure Storage accounts where the encryption keys could also be Microsoft-managed or customer-managed, but the encryption service is different.
 
