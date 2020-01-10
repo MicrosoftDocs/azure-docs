@@ -126,7 +126,21 @@ nodepool add –-cluster-name myAKSCluster -n myNodePoolName -g myResourceGroup 
 
 ## Encrypt your AKS cluster data disk with a customer-managed key
 
+You can also encrypt the AKS data disks with your own keys.  Replace myResourceGroup and myDiskEncryptionSetName with your real values, and apply the yaml.
+
 TODO
+
+``console
+kind: StorageClass
+apiVersion: storage.k8s.io/v1
+metadata:
+  name: hdd
+provisioner: kubernetes.io/azure-disk
+parameters:
+  skuname: Standard_LRS
+  kind: managed
+  diskEncryptionSetID: "/subscriptions/{subs-id}/resourceGroups/{myResourceGroup}/providers/Microsoft.Compute/diskEncryptionSets/{myDiskEncryptionSetName}"
+```
 
 ## Verify your key is working
 
