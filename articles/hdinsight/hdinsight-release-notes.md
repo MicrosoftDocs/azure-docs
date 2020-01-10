@@ -45,7 +45,7 @@ From this release, HDInsight will enforce all connection through TLS 1.2. A new 
 ### Cluster worker node provisioning change
 When 80% of the worker nodes are ready, the cluster enters operational stage. At this stage, customers can do all the data plane operations like running scripts and jobs. But customers can't do any control plane operation like scaling up/down. Only deletion is supported.
 
-Then the cluster waits for another 60 minutes for the remaining 20% of the worker nodes. After 60 minutes, even not all of worker nodes come up, the cluster still turns into running stage. Customers can use this cluster as normal. Both control plan operations like scaling up/down, and data plan operations like running scripts and jobs are accepted. The cluster will be marked as partial success, and customers will only be charged with the success instances. 
+After entering the *operational* stage, the cluster waits for another 60 minutes for the remaining 20% of the worker nodes to come online. At the end of this 60 minutes, the cluster moves to the *running* stage, even if all of worker nodes are still not available. Once a cluster enters the *running* stage, you can use it as normal. Both control plan operations like scaling up/down, and data plan operations like running scripts and jobs are accepted. If all of the requested worker nodes are not available, the cluster will be marked as a partial success, and you will only be charged for the nodes that were deployed successfully. 
 
 ## Upcoming changes
 The following changes will happen in upcoming releases. 
