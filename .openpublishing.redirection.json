@@ -24606,6 +24606,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/storage/blobs/storage-quickstart-blobs-nodejs-v10.md",
+      "redirect_url": "/azure/storage/blobs/storage-quickstart-blobs-nodejs-legacy",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/storage/blobs/storage-quickstart-blobs-javascript-client-libraries-v10.md",
+      "redirect_url": "/azure/storage/blobs/storage-quickstart-blobs-javascript-client-libraries-legacy",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/storage/blobs/storage-nodejs-how-to-use-blob-storage.md",
       "redirect_url": "/azure/storage/blobs/storage-quickstart-blobs-nodejs",
       "redirect_document_id": false
