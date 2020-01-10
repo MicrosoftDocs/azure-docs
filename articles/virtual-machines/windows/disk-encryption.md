@@ -63,7 +63,7 @@ During the preview, only the following scenarios are supported:
 
 The preview also has the following restrictions:
 
-- Only available in West Central US.
+- **Only available in West Central US, US East 2, Canada Central, North Europe.**
 - Disks created from custom images that are encrypted using server-side encryption and customer-managed keys must be encrypted using the same customer-managed keys and must be in the same subscription.
 - Snapshots created from disks that are encrypted with server-side encryption and customer-managed keys must be encrypted with the same customer-managed keys.
 - Custom images encrypted using server-side encryption and customer-managed keys cannot be used in the shared image gallery.
@@ -72,7 +72,9 @@ The preview also has the following restrictions:
 
 ### Setting up your Azure Key Vault and DiskEncryptionSet
 
-1.	Create an instance of Azure Key Vault and encryption key.
+1. Make sure that you have installed latest [Azure PowerShell version](/powershell/azure/install-az-ps), and you are signed in to an Azure account in with Connect-AzAccount
+
+1. Create an instance of Azure Key Vault and encryption key.
 
     When creating the Key Vault instance, you must enable soft delete and purge protection. Soft delete ensures that the Key Vault holds a deleted key for a given retention period (90 day default). Purge protection ensures that a deleted key cannot be permanently deleted until the retention period lapses. These settings protect you from losing data due to accidental deletion. These settings are mandatory when using a Key Vault for encrypting managed disks.
 
