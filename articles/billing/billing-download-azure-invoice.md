@@ -92,7 +92,7 @@ If you have a billing account for Microsoft Customer Agreement, you can opt in t
 
 1. Select **Billing profiles** from the left-hand side. From the billing profiles list, select a billing profile to get its invoices in email.
 
-   [![Screenshot that shows billing profile list](./media/billing-download-azure-invoice/mca-list-profiles.png)](./media/billing-download-azure-invoice/mca-list-profiles-zoomed-in.png#lightbox)
+   [![Screenshot that shows billing profile list](./media/billing-download-azure-invoice/mca-select-profile.png)](./media/billing-download-azure-invoice/mca-select-profile-zoomed-in.png#lightbox)
 
 1. Select **Properties** from the left-hand side and then select **Update email invoice preference**.
 
@@ -118,13 +118,13 @@ You can give others access to view, download, and pay invoices by assigning them
 
 1. Select **Billing profiles** from the left-hand side. From the billing profiles list, select a billing profile for which you want to assign an invoice manager role.
 
-   [![Screenshot that shows billing profile list](./media/billing-download-azure-invoice//mca-list-profiles.png)](./media/billing-download-azure-invoice/mca-list-profiles-zoomed-in.png#lightbox)
+   [![Screenshot that shows billing profile list](./media/billing-download-azure-invoice/mca-select-profile.png)](./media/billing-download-azure-invoice/mca-select-profile-zoomed-in.png#lightbox)
 
 1. Select **Access Control (IAM)** from the left-hand side and then select **Add** from the top of the page.
 
    [![Screenshot that shows access control page](./media/billing-download-azure-invoice/mca-select-access-control.png)](./media/billing-download-azure-invoice/mca-select-access-control-zoomed-in.png#lightbox)
 
-1. In the Role drop-down list, select **Invoice Manager** role. Enter the email address of the user to whom you want to give access. Select **Save** to assign the role.
+1. In the Role drop-down list, select **Invoice Manager**. Enter the email address of the user to whom you want to give access. Select **Save** to assign the role.
 
    [![Screenshot that shows adding a user as an invoice manager](./media/billing-download-azure-invoice/mca-added-invoice-manager.png)](./media/billing-download-azure-invoice/mca-added-invoice-manager.png#lightbox)
 
