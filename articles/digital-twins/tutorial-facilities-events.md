@@ -8,7 +8,7 @@ manager: bertvanhoof
 ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial 
-ms.date: 11/12/2019
+ms.date: 01/10/2020
 #Customer intent: As an Azure IoT developer, I want to walk through a sample application to learn how to capture events from a Azure Digital Twins space. 
 ---
 
