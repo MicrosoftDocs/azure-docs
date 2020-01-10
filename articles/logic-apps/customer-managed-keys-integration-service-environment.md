@@ -24,7 +24,7 @@ This topic shows how to set up and specify your own encryption key to use when y
 
 * Currently, the only way to create an ISE that uses a customer-managed key and the system-assigned identity is by calling the Logic Apps REST API with an HTTPS PUT request. To perform this task, you can use a tool such as [Postman](https://www.getpostman.com/downloads/), or you can create a logic app.
 
-* Within *30 minutes* after you send the HTTPS PUT request that creates your ISE, open your Azure key vault in the Azure portal, and [grant the system-assigned identity access to your key vault](#identity-access-to-key-vault). Otherwise, ISE creation fails and throws a permissions error.
+* Within *30 minutes* after you send the HTTPS PUT request that creates your ISE, open your Azure key vault in the Azure portal, and [add an access policy to your key vault for the system-assigned identity](#identity-access-to-key-vault). Otherwise, ISE creation fails and throws a permissions error.
 
 ## Prerequisites
 
@@ -177,28 +177,27 @@ Here's the request body syntax for the properties and values that you need to cr
 
 ## Grant access to your key vault
 
-Within *30 minutes* after you send the HTTP PUT request to create your ISE, you must give your ISE's system-assigned identity access to your key vault. Otherwise, creation for your ISE fails, and you get a permissions error. You can use either the Azure PowerShell [Set-AzKeyVaultAccessPolicy](https://docs.microsoft.com/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) command, or you can follow these steps for the Azure portal:
+Within *30 minutes* after you send the HTTP PUT request to create your ISE, you must grant access to your key vault for your ISE's system-assigned identity. Otherwise, creation for your ISE fails, and you get a permissions error. You can use either the Azure PowerShell [Set-AzKeyVaultAccessPolicy](https://docs.microsoft.com/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) command, or you can follow these steps for the Azure portal:
 
 1. In the [Azure portal](https://portal.azure.com), open your Azure key vault.
 
-1. On your key vault menu, select **Access control (IAM)**. On the toolbar, select **Add** > **Add role assignment**, for example:
+1. On your key vault menu, under **Settings**, select **Access policies** > **Add access policy**, for example:
 
-   ![Add role to key vault for your integration service environment](./media/customer-managed-keys-integration-service-environment/give-ise-access-to-key-vault.png)
+   ![Add access policy for system-assigned managed identity](./media/customer-managed-keys-integration-service-environment/add-ise-access-policy-key-vault.png)
 
-   > [!TIP]
-   > If the **Add role assignment** option is disabled, you most likely don't have permissions. 
-   > For more information about the permissions that let you manage roles for resources, see 
-   > [Administrator role permissions in Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md).
+1. Under **Add access policy**, follow these steps:
 
-1. On the **Add role assignment** pane, select these values:
+   1. From the **Secret permissions** list, select **Get** and **List**.
 
-   * **Role**: Contributor
-   * **Assign access to**: Azure AD user, group, or service principal
-   * **Select**: The name for your ISE
+   1. Under **Select principal**, select **None selected**.
+   
+   1. On **Select principal** pane, in the search box, find and select your ISE. When you're done, choose **Select** > **Add**.
 
-1. When you're done, select **Save**.
+   ![Select your ISE to use as the principal](./media/customer-managed-keys-integration-service-environment/select-service-principal-ise.png)
 
-For more information, see [Add or remove role assignments using Azure RBAC and the Azure portal](../role-based-access-control/role-assignments-portal.md).
+1. When you're done with the **Access policies** pane, select **Save**.
+
+For more information, see [Provide Key Vault authentication with a managed identity](../key-vault/managed-identity#grant-your-app-access-to-key-vault.md).
 
 ## Next steps
 
