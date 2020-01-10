@@ -85,6 +85,27 @@ enable a fileserver and mount it on each cluster node with:
     address = 54.83.20.2
 ```
 
+## Creating exports
+
+NFS exports can also be configured in a cluster template. A node can have an arbitrary number of exports but only one node in
+a cluster may be a fileserver. In the example below we show configs to add to a node to disable the default nfs exports and add
+a new export named _backup_. This export will then be available to other nodes via the mount configurations in this page.
+
+``` ini
+        [[[configuration]]]
+        run_list = recipe[cshared::directories],recipe[cshared::server]
+        cyclecloud.discoverable = true
+        cshared.server.shared_dir = /shared
+        cyclecloud.mounts.sched.disabled = true
+        cyclecloud.mounts.shared.disabled = true
+        cshared.server.legacy_links_disabled = true
+
+        [[[configuration cyclecloud.exports.backup]]]
+        type = nfs
+        export_path = /mnt/raid/backup
+        options = no_root_squash
+        samba.enabled = false
+```
 
 ## Export Configuration Options
 
