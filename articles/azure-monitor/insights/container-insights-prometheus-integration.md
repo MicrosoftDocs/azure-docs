@@ -22,6 +22,8 @@ Scraping of Prometheus metrics is supported with Kubernetes clusters hosted on:
 - Azure Stack or on-premises
 - Azure Red Hat OpenShift
 
+For Azure Red Hat OpenShift, a preconfigured ConfigMap file is created by default and you only need to ?
+
 ## Azure Red Hat OpenShift Prerequisites
 
 Before you start, confirm you are a member of the Customer Cluster Admin role of your Azure Red Hat OpenShift cluster to configure the containerized agent and Prometheus scraping settings. To verify you are a member of the *osa-customer-admins* group, run the following command:
