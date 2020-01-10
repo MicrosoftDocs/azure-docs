@@ -9,7 +9,7 @@ ms.service: virtual-machines-windows
 ms.subservice: disks
 ---
 
-# Premium SSD bursting
+# Premium SSD bursting (preview)
 
 [!INCLUDE [managed-disks-bursting](../../../includes/managed-disks-bursting.md)]
 

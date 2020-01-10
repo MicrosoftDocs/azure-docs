@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 11/11/2019
+ms.date: 11/15/2019
 ms.author: diberry
 ---
 
@@ -21,9 +21,20 @@ The entity represents a word or phrase inside the utterance that you want extrac
 
 [!INCLUDE [Uses preview portal](includes/uses-portal-preview.md)]
 
-## Creating an entity is different from labeling an entity
+## Plan entities, then create and label
 
-You first need to create an entity before you can label the entity in the example utterance. 
+Machine-learned entities can be created from the example utterances or created from the **Entities** page. 
+
+In general, a best practice is to spend time planning the entities before creating a machine-learned entity in the portal. Then create the machine-learned entity from the example utterance with as much detail in the subcomponents and descriptors and constraints as you know at the time. The [decomposable entity tutorial](tutorial-machine-learned-entity.md) demonstrates how to use this method. 
+
+As part of planning the entities, you may know you need text-matching entities (such as prebuilt entities, regular expression entities, or list entities). You can create these from the **Entities** page before they are labeled in example utterances. 
+
+When labeling, you can either label individual entities then build up to a parent machine-learned entity. Or you can start with a parent machine-learned entity and decompose into child entities. 
+
+> [!TIP] 
+>Label all words that may indicate an entity, even if the words are not used when extracted in the client application. 
+
+## Creating an entity before or with labeling
 
 Use the following table to understand which entities where to create or add each entity to the app. 
 
@@ -50,7 +61,7 @@ Use text-matching entities provide several ways to extract data:
 |--|--|
 |[List entity](#add-list-entities-for-exact-matches)|list of canonical names along with synonyms as alternative forms|
 |Regular expression entity|match text using a regular expression entity|
-|[Prebuilt entity](tutorial-machine-learned-entity.md#add-prebuilt-number-to-app-to-help-extract-data)|match common data types such as number, email, date|
+|[Prebuilt entity](tutorial-machine-learned-entity.md#add-prebuilt-number-to-help-extract-data)|match common data types such as number, email, date|
 |Prebuilt domain entity|match using selected subject domains|
 |[Pattern.any](#add-a-patternany-entity)| to match entities that may be easily confused with the surrounding text|  
 
@@ -163,14 +174,18 @@ LUIS does not allow you to change the type of the entity because it doesn't know
 
 ## Next steps
 
-Learn more about patterns:
+> [!div class="nextstepaction"] 
+> [Use prebuilt models](howto-add-prebuilt-models.md) 
 
-* [Patterns Concepts](luis-concept-patterns.md)
-* [Patterns Syntax](reference-pattern-syntax.md)
+Learn more about:
+* How to [train](luis-how-to-train.md)
+* How to [test](luis-interactive-test.md)
+* How to [publish](luis-how-to-publish-app.md)
+* Patterns:
+    * [Concepts](luis-concept-patterns.md)
+    * [Syntax](reference-pattern-syntax.md)
+* [Prebuilt entities GitHub repository](https://github.com/Microsoft/Recognizers-Text)
+* [Data Extraction concepts](luis-concept-data-extraction.md)
 
-For more information about prebuilt entities, see the [Recognizers-Text](https://github.com/Microsoft/Recognizers-Text) project. 
 
-For information about how the entity appears in the JSON endpoint query response, see [Data Extraction](luis-concept-data-extraction.md)
-
-Now that you have added intents, utterances and entities, you have a basic LUIS app. Learn how to [train](luis-how-to-train.md), [test](luis-interactive-test.md), and [publish](luis-how-to-publish-app.md) your app.
  

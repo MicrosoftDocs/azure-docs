@@ -2,7 +2,7 @@
   href: index.yml
 - name: Overview
   items:
-  - name: Overview of Azure Policy
+  - name: What is Azure Policy?
     displayName: rbac, assign, initiative, parameters, count
     href: overview.md
 - name: Quickstarts
@@ -279,7 +279,7 @@
     href: ./concepts/guest-configuration.md
 - name: How-to guides
   items:
-  - name: Azure Policy extension for VSCode
+  - name: Azure Policy extension for VS Code
     displayName: visual studio code
     href: ./how-to/extension-for-vscode.md
   - name: Programmatically create policies
@@ -300,9 +300,24 @@
   - name: Remediate non-compliant resources
     displayName: managed identity, task, definition, roleDefinitionIds
     href: ./how-to/remediate-resources.md
-  - name: Enable Azure Monitor for VMs (preview)
-    displayName: insights, log analytics, builtin
-    href: ../../azure-monitor/insights/vminsights-enable-at-scale-policy.md?toc=/azure/governance/policy/toc.json
+  - name: Azure Key Vault integration
+    items:
+    - name: Integrate Key Vault with Azure Policy
+      displayName: key vault, certificate, key
+      href: ../../key-vault/azure-policy.md?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
+  - name: Azure Lighthouse integration
+    items:
+    - name: Deploy a policy at scale
+      displayName: lighthouse, scale, deploy
+      href: ../../lighthouse/how-to/policy-at-scale.md?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
+    - name: Deploy a policy that can be remediated
+      displayName: lighthouse, scale, remediate
+      href: ../../lighthouse/how-to/deploy-policy-remediation.md?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
+  - name: Azure Monitor integration
+    items:
+    - name: Enable Azure Monitor for VMs (preview)
+      displayName: monitor, insights, log analytics, builtin
+      href: ../../azure-monitor/insights/vminsights-enable-at-scale-policy.md?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
 - name: Reference
   items:
   - name: Azure CLI
@@ -321,6 +336,14 @@
       href: /dotnet/api/microsoft.azure.management.resourcemanager.models.policyassignment
     - name: Policy Definitions
       href: /dotnet/api/microsoft.azure.management.resourcemanager.models.policydefinition
+  - name: Azure SDK for Python
+    items:
+    - name: Policy
+      href: /python/api/azure-mgmt-resource/azure.mgmt.resource.policy
+    - name: Policy client
+      href: /python/api/azure-mgmt-resource/azure.mgmt.resource.policyclient
+    - name: Policy Insights
+      href: /python/api/azure-mgmt-policyinsights/azure.mgmt.policyinsights
   - name: REST
     items:
     - name: Events

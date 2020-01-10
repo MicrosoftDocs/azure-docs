@@ -4,7 +4,7 @@ description: Learn which software meters are not included in Azure Reserved VM I
 author: yashar
 manager: yashar
 tags: billing
-ms.service: billing
+ms.service: cost-management-billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na

@@ -1,5 +1,5 @@
 ---
-title: How to create and locate anchors using on-device sensors in Objective-C | Microsoft Docs
+title: Coarse relocalization in Objective-C
 description: In-depth explanation of how to create and locate anchors using on-device sensors in Objective-C.
 author: bucurb
 manager: dacoghl

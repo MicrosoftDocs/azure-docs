@@ -87,7 +87,7 @@ You can delete a subnet only if there are no resources in the subnet. If there a
 
 **Commands**
 
-- Azure CLI: [az network vnet delete](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-delete)
+- Azure CLI: [az network vnet subnet delete](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-delete)
 - PowerShell: [Remove-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/remove-azvirtualnetworksubnetconfig?toc=%2fazure%2fvirtual-network%2ftoc.json)
 
 ## Permissions

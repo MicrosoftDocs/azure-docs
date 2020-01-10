@@ -1,12 +1,8 @@
 ---
 title: Restore VMware VMs with Azure Backup Server
 description: Use Azure Backup Server (MABS) to restore VMware VMs running on a VMware vCenter/ESXi server.
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 08/18/2019
-ms.author: dacurwin
 ---
 # Restore VMware virtual machines
 

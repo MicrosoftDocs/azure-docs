@@ -21,11 +21,11 @@ You can now see and manage all the members of the administrator roles in the Azu
 
 ## View all roles
 
-In Azure Active Directory, select **Roles and administrators** to see the list of all available roles. 
+Search for and select **Azure Active Directory**. Select **Roles and administrators** to see the list of all available roles.
 
 Click the ellipsis on the right of each row to open the detailed description of the role.
 
-![list of roles in Azure AD portal](./media/directory-manage-roles-portal/role-list.png)
+![list of roles in Azure AD portal](./media/directory-manage-roles-portal/view-roles-in-azure-active-directory.png)
 
 ## View my roles
 

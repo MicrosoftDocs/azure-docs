@@ -1,12 +1,8 @@
 ---
-title: Support matrix for the Microsoft Azure Recovery Services agent
+title: Support matrix for the MARS agent
 description: This article summarizes Azure Backup support when you back up machines that are running the Microsoft Azure Recovery Services (MARS) agent.
-author: dcurwin
-ms.service: backup
 ms.date: 08/30/2019
 ms.topic: conceptual
-ms.author: dacurwin
-manager: carmonm
 ---
 
 # Support matrix for backup with the Microsoft Azure Recovery Services (MARS) agent
@@ -44,12 +40,12 @@ When you use the MARS agent to back up data, the agent takes a snapshot of the d
 --- | ---
 Size |  Free space in the cache folder should be at least 5 to 10 percent of the overall size of your backup data.
 Location | The cache folder must be locally stored on the machine that's being backed up, and it must be online. The cache folder shouldn't be on a network share, on removable media, or on an offline volume.
-Folder | The cache folder should be encrypted on a deduplicated volume or in a folder that's compressed, that's sparse, or that has a reparse point.
+Folder | The cache folder should not be encrypted on a deduplicated volume or in a folder that's compressed, that's sparse, or that has a reparse point.
 Location changes | You can change the cache location by stopping the backup engine (`net stop bengine`) and copying the cache folder to a new drive. (Ensure the new drive has sufficient space.) Then update two registry entries under **HKLM\SOFTWARE\Microsoft\Windows Azure Backup** (**Config/ScratchLocation** and **Config/CloudBackupProvider/ScratchLocation**) to the new location and restart the engine.
 
 ## Networking and access support
 
-### URL access
+### URL and IP access
 
 The MARS agent needs access to these URLs:
 
@@ -58,6 +54,13 @@ The MARS agent needs access to these URLs:
 - *.WindowsAzure.com
 - *.MicrosoftOnline.com
 - *.Windows.net
+
+And to these IP addresses:
+
+- 20.190.128.0/18
+- 40.126.0.0/18
+
+Access to all of the URLs and IP addresses listed above uses the HTTPS protocol on port 443.
 
 ### Throttling support
 
@@ -71,7 +74,12 @@ Network throttling | Not available for backed-up machines that run Windows Serve
 >[!NOTE]
 > The MARS agent does not support Windows Server Core SKUs.
 
-You can use the MARS agent to back up directly to Azure on some operating systems that run on on-premises machines and Azure VMs. The operating systems must be 64 bit and should be running the latest services packs and updates. The following table summarizes these operating systems:
+You can use the MARS agent to back up directly to Azure on the operating systems listed below that run on:
+
+1. On-premises Windows Servers
+2. Azure VMs running Windows
+
+The operating systems must be 64 bit and should be running the latest services packs and updates. The following table summarizes these operating systems:
 
 **Operating system** | **Files/folders** | **System state** | **Software/Module requirements**
 --- | --- | --- | ---
@@ -123,7 +131,7 @@ OneDrive (synced files are sparse streams)| Not supported.
 Read-only volumes| Not supported | Volume Copy Shadow Service (VSS) works only if the volume is writable.
 Offline volumes| Not supported |VSS works only if the volume is online.
 Network share| Not supported |The volume must be local on the server.
-BitLocker-protected volumes| Not supported |The volume must be unlocked before the backup starts.
+BitLocker-locked volumes| Not supported |The volume must be unlocked before the backup starts.
 File system identification| Not supported |Only NTFS is supported.
 Removable media| Not supported |All backup item sources must have a *fixed* status.
 Deduplicated drives | Supported | Azure Backup converts deduplicated data to normal data. It optimizes, encrypts, stores, and sends the data to the vault.

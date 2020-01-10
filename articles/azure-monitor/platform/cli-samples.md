@@ -156,7 +156,7 @@ Use the information in this section to work with diagnostic settings.
 az monitor diagnostic-settings list --resource <target resource ID>
 ```
 
-### Create a diagnostic log setting 
+### Create a diagnostic setting 
 
 ```azurecli
 az monitor diagnostic-settings create --name <diagnostic name> \

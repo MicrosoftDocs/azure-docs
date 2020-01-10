@@ -5,8 +5,6 @@ author: craigshoemaker
 ms.author: cshoe
 ms.date: 9/12/2019
 ms.topic: article
-ms.service: azure-functions
-manager: gwallace
 ---
 
 # Designing Azure Functions for identical input

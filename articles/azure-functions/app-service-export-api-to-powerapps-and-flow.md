@@ -1,21 +1,15 @@
 ---
-title: Exporting an Azure-hosted API to PowerApps and Microsoft Flow | Microsoft Docs
+title: Exporting an Azure-hosted API to PowerApps and Microsoft Flow 
 description: Overview of how to expose an API hosted in App Service to PowerApps and Microsoft Flow
-services: app-service
-author: ggailey777
-manager: jeconnoc
 
-ms.assetid: 
-ms.service: app-service
 ms.topic: conceptual
 ms.date: 12/15/2017
-ms.author: glenga
 ms.reviewer: sunayv
 
 ---
 # Exporting an Azure-hosted API to PowerApps and Microsoft Flow
 
-[PowerApps](https://powerapps.microsoft.com/guided-learning/learning-introducing-powerapps/) is a service for building and using custom business apps that connect to your data and work across platforms. [Microsoft Flow](https://flow.microsoft.com/guided-learning/learning-introducing-flow/) makes it easy to automate workflows and business processes between your favorite apps and services. Both PowerApps and Microsoft Flow come with a variety of built-in connectors to data sources such as Office 365, Dynamics 365, Salesforce, and more. In some cases, app and flow builders also want to connect to data sources and APIs built by their organization.
+[PowerApps](https://powerapps.microsoft.com/guided-learning/learning-introducing-powerapps/) is a service for building and using custom business apps that connect to your data and work across platforms. [Microsoft Flow](/learn/modules/get-started-with-flow/index) makes it easy to automate workflows and business processes between your favorite apps and services. Both PowerApps and Microsoft Flow come with a variety of built-in connectors to data sources such as Office 365, Dynamics 365, Salesforce, and more. In some cases, app and flow builders also want to connect to data sources and APIs built by their organization.
 
 Similarly, developers that want to expose their APIs more broadly within an organization can make their APIs available to app and flow builders. This topic shows you how to export an API built with [Azure Functions](../azure-functions/functions-overview.md) or [Azure App Service](../app-service/overview.md). The exported API becomes a *custom connector*, which is used in PowerApps and Microsoft Flow just like a built-in connector.
 

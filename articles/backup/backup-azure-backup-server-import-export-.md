@@ -1,13 +1,9 @@
 ---
-title: Azure Backup - Offline backup for DPM and Azure Backup Server
+title: Offline backup for DPM and Azure Backup Server
 description: Azure Backup enables you to send data off the network using the Azure Import/Export service. This article explains the offline backup workflow for DPM and Azure Backup Server (MABS).
 ms.reviewer: saurse
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 05/08/2018
-ms.author: dacurwin
 ---
 # Offline-backup workflow for DPM and Azure Backup Server
 
@@ -102,7 +98,7 @@ The information in this section helps you complete the offline-backup workflow s
 
 The *AzureOfflineBackupDiskPrep* utility is used to prepare the SATA drives that are sent to the nearest Azure Datacenter. This utility is available in installation directory of the Recovery Services agent in the following path:
 
-*\\Microsoft Azure Recovery Services Agent\\Utils\\*
+    *\\Microsoft Azure Recovery Services Agent\\Utils\\*
 
 1. Go to the directory, and copy the **AzureOfflineBackupDiskPrep** directory to a copy computer on which the SATA drives to be prepared are connected. Ensure the following with regards to the copy computer:
 
@@ -216,4 +212,4 @@ At the time of the next scheduled backup, Azure Backup performs incremental back
 ## Next steps
 
 * For any questions on the Azure Import/Export workflow, refer to [Use the Microsoft Azure Import/Export service to transfer data to Blob storage](../storage/common/storage-import-export-service.md).
-* Refer to the offline-backup section of the Azure Backup [FAQ](backup-azure-backup-faq.md) for any questions about the workflow.
+

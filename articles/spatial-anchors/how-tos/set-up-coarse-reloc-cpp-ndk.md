@@ -1,5 +1,5 @@
 ---
-title: How to create and locate anchors using on-device sensors in C++/NDK | Microsoft Docs
+title: Coarse relocalization in C++/NDK
 description: In-depth explanation of how to create and locate anchors using on-device sensors in C++/NDK.
 author: bucurb
 manager: dacoghl

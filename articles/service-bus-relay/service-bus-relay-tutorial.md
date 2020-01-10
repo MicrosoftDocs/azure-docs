@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Expose an on-premises WCF REST service to external client by using Azure WCF Relay'
+title: Expose an on-prem WCF REST service to clients using Azure Relay
 description: 'Tutorial: Build a client and service application using WCF Relay.'
 services: service-bus-relay
 documentationcenter: na

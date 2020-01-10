@@ -1,6 +1,6 @@
 ---
 title: Sample - Use listed vNet for VM network interfaces
-description: This sample policy definition requires that network interfaces use an approved virtual network.
+description: This sample policy definition requires that network interfaces use an approved virtual network defined in a parameter.
 ms.date: 01/23/2019
 ms.topic: sample
 ---

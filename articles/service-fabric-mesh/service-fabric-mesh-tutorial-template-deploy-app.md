@@ -1,17 +1,8 @@
 ---
-title: Tutorial- Deploy an app to Azure Service Fabric Mesh | Microsoft Docs
+title: Tutorial- Deploy an app to Azure Service Fabric Mesh 
 description: In this tutorial, you learn how to deploy an application to Service Fabric Mesh using a template.
-services: service-fabric-mesh
-documentationcenter: .net
 author: dkkapur
-manager: jeconnoc
-editor: ''
-ms.assetid:  
-ms.service: service-fabric-mesh
-ms.devlang: dotNet
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 01/11/2019
 ms.author: dekapur
 ms.custom: mvc, devcenter
@@ -260,7 +251,7 @@ Services are specified in the template as properties of the application resource
                   "endpoints": [
                     {
                       "name": "ServiceAListener",
-                      "port": 20001
+                      "port": 80
                     }
                   ],
                   "resources": {

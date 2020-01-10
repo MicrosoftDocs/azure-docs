@@ -3,7 +3,7 @@ title: Architectural concepts in Azure IoT Central | Microsoft Docs
 description: This article introduces key concepts relating the architecture of Azure IoT Central
 author: dominicbetts
 ms.author: dobett
-ms.date: 11/12/2019
+ms.date: 11/27/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
@@ -147,7 +147,7 @@ In an Azure IoT Central application, you can [create and run jobs](../core/howto
 
 ## Role-based access control (RBAC)
 
-An [administrator can define access rules](howto-administer.md) for an Azure IoT Central application using the predefined roles. An administrator can assign users to roles that determine what areas of the application the user has access to.
+An [administrator can define access rules](howto-manage-users-roles.md) for an Azure IoT Central application using one of the predefined roles or by creating a custom role. Roles determine what areas of the application a user has access to and what actions they can perform.
 
 ## Security
 

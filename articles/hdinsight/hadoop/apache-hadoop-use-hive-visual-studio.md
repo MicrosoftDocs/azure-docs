@@ -2,13 +2,12 @@
 title: Apache Hive & Data Lake tools for Visual Studio - Azure HDInsight
 description: Learn how to use the Data Lake tools for Visual Studio to run Apache Hive queries with Apache Hadoop on Azure HDInsight.
 author: hrasheed-msft
-ms.reviewer: jasonh
-
-ms.service: hdinsight
-ms.custom: hdinsightactive
-ms.topic: conceptual
-ms.date: 11/06/2019
 ms.author: hrasheed
+ms.reviewer: jasonh
+ms.service: hdinsight
+ms.topic: conceptual
+ms.custom: hdinsightactive
+ms.date: 11/27/2019
 ---
 
 # Run Apache Hive queries using the Data Lake tools for Visual Studio
@@ -32,11 +31,11 @@ You have two options for creating and running Hive queries:
 
 ### Create an ad-hoc Hive query
 
-Ad-hoc queries can be executed in either **Batch** or **Interactive** mode.
+Ad hoc queries can be executed in either **Batch** or **Interactive** mode.
 
-1. Open **Visual Studio**.
+1. Launch **Visual Studio** and select **Continue without code**.
 
-2. From **Server Explorer**, navigate to **Azure** > **HDInsight**.
+2. From **Server Explorer**, right-click **Azure**, select **Connect to Microsoft Azure Subscription...**, and complete the sign in process.
 
 3. Expand **HDInsight**, right-click the cluster where you want to run the query, and then select **Write a Hive Query**.
 
@@ -95,7 +94,7 @@ To run a Hive query by creating a Hive application, follow these steps:
         > External tables should be used when you expect the underlying data to be updated by an external source, such as a MapReduce job or an Azure service.
         >
         > Dropping an external table does **not** delete the data, only the table definition.
-    
+
     * `ROW FORMAT`: Tells Hive how the data is formatted. In this case, the fields in each log are separated by a space.
 
     * `STORED AS TEXTFILE LOCATION`: Tells Hive that the data is stored in the *example/data* directory, and that it's stored as text.
@@ -134,7 +133,7 @@ The following example relies on the `log4jLogs` table created in the previous pr
         > Unlike `EXTERNAL` tables, dropping an internal table also deletes the underlying data.
 
     * `STORED AS ORC`: Stores the data in *optimized row columnar* (ORC) format. ORC is a highly optimized and efficient format for storing Hive data.
-    
+
     * `INSERT OVERWRITE ... SELECT`: Selects rows from the `log4jLogs` table that contain `[ERROR]`, then inserts the data into the `errorLogs` table.
 
 3. Change **Interactive** to **Batch** if necessary, then select **Submit**.
@@ -145,14 +144,8 @@ The following example relies on the `log4jLogs` table created in the previous pr
 
 As you can see, the HDInsight tools for Visual Studio provide an easy way to work with Hive queries on HDInsight.
 
-For general information about Hive in HDInsight:
+* For general information about Hive in HDInsight, see [What is Apache Hive and HiveQL on Azure HDInsight?](hdinsight-use-hive.md)
 
-* [What is Apache Hive and HiveQL on Azure HDInsight?](hdinsight-use-hive.md)
+* For information about other ways you can work with Hadoop on HDInsight, see [Use MapReduce in Apache Hadoop on HDInsight](hdinsight-use-mapreduce.md)
 
-For information about other ways you can work with Hadoop on HDInsight:
-
-* [Use MapReduce in Apache Hadoop on HDInsight](hdinsight-use-mapreduce.md)
-
-For more information about the HDInsight tools for Visual Studio:
-
-* [Use Data Lake Tools for Visual Studio to connect to Azure HDInsight and run Apache Hive queries](apache-hadoop-visual-studio-tools-get-started.md)
+* For more information about the HDInsight tools for Visual Studio, see[Use Data Lake Tools for Visual Studio to connect to Azure HDInsight and run Apache Hive queries](apache-hadoop-visual-studio-tools-get-started.md)

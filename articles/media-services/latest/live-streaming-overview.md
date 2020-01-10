@@ -39,6 +39,9 @@ With Media Services, you can take advantage of [Dynamic Packaging](dynamic-packa
 
 Dynamic encryption enables you to dynamically encrypt your live or on-demand content with AES-128 or any of the three major digital rights management (DRM) systems: Microsoft PlayReady, Google Widevine, and Apple FairPlay. Media Services also provides a service for delivering AES keys and DRM (PlayReady, Widevine, and FairPlay) licenses to authorized clients. For more information, see [Dynamic encryption](content-protection-overview.md).
 
+> [!NOTE]
+> Widevine is a service provided by Google Inc. and subject to the terms of service and Privacy Policy of Google, Inc.
+
 ## Dynamic Manifest
 
 Dynamic filtering is used to control the number of tracks, formats, bitrates, and presentation time windows that are sent out to the players. For more information, see [filters and dynamic manifests](filters-dynamic-manifest-overview.md).
@@ -59,7 +62,7 @@ When using the pass-through **Live Event**, you rely on your on-premises live en
 
 When using cloud encoding with Media Services, you would configure your on-premises live encoder to send a single bitrate video as the contribution feed (up to 32Mbps aggregate) to the Live Event (using RTMP or fragmented-MP4 input protocol). The Live Event transcodes the incoming single bitrate stream into [multiple bitrate video streams](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming) at varying resolutions to improve delivery and makes it available for delivery to playback devices via industry standard protocols like MPEG-DASH, Apple HTTP Live Streaming (HLS), and Microsoft Smooth Streaming. 
 
-### Live transcription
+### Live transcription (preview)
 
 Live transcription is a feature you can use with Live Events that are either pass-through or live encoding. For more information, see [live transcription](live-transcription.md). When this feature is enabled, the service uses the [Speech-To-Text](../../cognitive-services/speech-service/speech-to-text.md) feature of Cognitive Services to transcribe the spoken words in the incoming audio into text. This text is then made available for delivery along with video and audio in MPEG-DASH and HLS protocols.
 

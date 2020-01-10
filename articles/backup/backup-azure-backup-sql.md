@@ -1,13 +1,8 @@
 ---
-title: Azure Backup for SQL Server workloads using DPM
+title: Back up SQL Server to Azure as a DPM workload
 description: An introduction to backing up SQL Server databases using the Azure Backup service
-ms.reviewer: kasinh
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.author: dacurwin
 ---
 # Back up SQL Server to Azure as a DPM workload
 

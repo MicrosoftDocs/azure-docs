@@ -1,11 +1,7 @@
 ---
 title: How to Stop Monitoring Your Azure Kubernetes Service cluster | Microsoft Docs
 description: This article describes how you can discontinue monitoring of your Azure AKS cluster with Azure Monitor for containers.
-ms.service:  azure-monitor
-ms.subservice: 
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
 ms.date: 08/19/2019
 
 ---
@@ -161,5 +157,8 @@ The configuration change can take a few minutes to complete. When it's completed
 ProvisioningState       : Succeeded
 ```
 
-If the workspace was created only to support monitoring the cluster and it's no longer needed, you have to manually delete it. If you are not familiar with how to delete a workspace, see [Delete an Azure Log Analytics workspace with the Azure portal](../../log-analytics/log-analytics-manage-del-workspace.md). Don't forget about the **Workspace Resource ID** we copied earlier in step 4, you're going to need that. 
+
+## Next steps
+
+If the workspace was created only to support monitoring the cluster and it's no longer needed, you have to manually delete it. If you are not familiar with how to delete a workspace, see [Delete an Azure Log Analytics workspace with the Azure portal](../../log-analytics/log-analytics-manage-del-workspace.md). Don't forget about the **Workspace Resource ID** copied earlier in step 4, you're going to need that. 
 

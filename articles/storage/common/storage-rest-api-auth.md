@@ -1,5 +1,6 @@
 ---
-title: Calling Azure Storage REST API operations with Shared Key authorization | Microsoft Docs
+title: Call REST API operations with Shared Key authorization
+titleSuffix: Azure Storage
 description: Use the Azure Storage REST API to make a request to Blob storage using Shared Key authorization.
 services: storage
 author: tamram
@@ -12,7 +13,7 @@ ms.reviewer: cbrooks
 ms.subservice: common
 ---
 
-# Using the Azure Storage REST API
+# Call REST API operations with Shared Key authorization
 
 This article shows you how to call the Azure Storage REST APIs, including how to form the Authorization header. It's written from the point of view of a developer who knows nothing about REST and no idea how to make a REST call. After you learn how to call a REST operation, you can leverage this knowledge to use any other Azure Storage REST operations.
 
@@ -54,9 +55,9 @@ The sample application lists the containers in a storage account. Once you under
 
 If you look at the [Blob Service REST API](/rest/api/storageservices/Blob-Service-REST-API), you see all of the operations you can perform on blob storage. The storage client libraries are wrappers around the REST APIs – they make it easy for you to access storage without using the REST APIs directly. But as noted above, sometimes you want to use the REST API instead of a storage client library.
 
-## REST API Reference: List Containers API
+## List Containers operation
 
-Take a look at the page in the REST API Reference for the [ListContainers](/rest/api/storageservices/List-Containers2) operation. This information will help you understand where some of the fields come from in the request and response.
+Review the reference for the [ListContainers](/rest/api/storageservices/List-Containers2) operation. This information will help you understand where some of the fields come from in the request and response.
 
 **Request Method**: GET. This verb is the HTTP method you specify as a property of the request object. Other values for this verb include HEAD, PUT, and DELETE, depending on the API you are calling.
 
@@ -133,29 +134,29 @@ using (var httpRequestMessage = new HttpRequestMessage(HttpMethod.Get, uri)
 Add the request headers for `x-ms-date` and `x-ms-version`. This place in the code is also where you add any additional request headers required for the call. In this example, there are no additional headers. An example of an API that passes in extra headers is the Set Container ACL operation. This API call adds a header called "x-ms-blob-public-access" and the value for the access level.
 
 ```csharp
-    // Add the request headers for x-ms-date and x-ms-version.
-    DateTime now = DateTime.UtcNow;
-    httpRequestMessage.Headers.Add("x-ms-date", now.ToString("R", CultureInfo.InvariantCulture));
-    httpRequestMessage.Headers.Add("x-ms-version", "2017-07-29");
-    // If you need any additional headers, add them here before creating
-    //   the authorization header.
+// Add the request headers for x-ms-date and x-ms-version.
+DateTime now = DateTime.UtcNow;
+httpRequestMessage.Headers.Add("x-ms-date", now.ToString("R", CultureInfo.InvariantCulture));
+httpRequestMessage.Headers.Add("x-ms-version", "2017-07-29");
+// If you need any additional headers, add them here before creating
+//   the authorization header.
 ```
 
 Call the method that creates the authorization header and add it to the request headers. You'll see how to create the authorization header later in the article. The method name is GetAuthorizationHeader, which you can see in this code snippet:
 
 ```csharp
-    // Get the authorization header and add it.
-    httpRequestMessage.Headers.Authorization = AzureStorageAuthenticationHelper.GetAuthorizationHeader(
-        storageAccountName, storageAccountKey, now, httpRequestMessage);
+// Get the authorization header and add it.
+httpRequestMessage.Headers.Authorization = AzureStorageAuthenticationHelper.GetAuthorizationHeader(
+    storageAccountName, storageAccountKey, now, httpRequestMessage);
 ```
 
 At this point, `httpRequestMessage` contains the REST request complete with the authorization headers.
 
-## Call the REST API with the request
+## Send the request
 
-Now that you have the request, you can call SendAsync to send the REST request. SendAsync calls the API and gets the response back. Examine the response StatusCode (200 is OK), then parse the response. In this case, you get an XML list of containers. Let's look at the code for calling the GetRESTRequest method to create the request, execute the request, and then examine the response for the list of containers.
+Now that you have constructed the request, you can call the SendAsync method to send it to Azure Storage. Check that the value of the response status code is 200, meaning that the operation has succeeded. Next, parse the response. In this case, you get an XML list of containers. Let's look at the code for calling the GetRESTRequest method to create the request, execute the request, and then examine the response for the list of containers.
 
-```csharp 
+```csharp
     // Send the request.
     using (HttpResponseMessage httpResponseMessage =
       await new HttpClient().SendAsync(httpRequestMessage, cancellationToken))

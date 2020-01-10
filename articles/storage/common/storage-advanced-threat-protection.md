@@ -1,5 +1,6 @@
 ---
-title: Advanced threat protection for Azure Storage
+title: Configure advanced threat protection
+titleSuffix: Azure Storage
 description: Configure advanced threat protection for Azure Storage to detect anomalies in account activity and be notified of potentially harmful attempts to access your account.
 services: storage
 author: tamram
@@ -11,7 +12,7 @@ ms.author: tamram
 ms.reviewer: cbrooks
 ---
 
-# Advanced threat protection for Azure Storage
+# Configure advanced threat protection for Azure Storage
 
 Advanced threat protection for Azure Storage provides an additional layer of security intelligence that detects unusual and potentially harmful attempts to access or exploit storage accounts. This layer of protection allows you to address threats without being a security expert or managing security monitoring systems.
 

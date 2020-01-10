@@ -318,7 +318,7 @@ When a group is created, certain endpoints allow the end user to specify a mailN
 
 ## Group writeback to on-premises (preview)
 
-Today, many groups are still managed in on-premises Active Directory. To answer requests to sync cloud groups back to on-premise, Office 365 groups writeback feature for Azure AD is now available for preview.
+Today, many groups are still managed in on-premises Active Directory. To answer requests to sync cloud groups back to on-premises, Office 365 groups writeback feature for Azure AD is now available for preview.
 
 Office 365 groups are created and managed in the cloud. The writeback capability allows you to write back Office 365 groups as distribution groups to an Active Directory forest with Exchange installed. Users with on-premises Exchange mailboxes can then send and receive emails from these groups. The group writeback feature doesn't support Azure AD security groups or distribution groups.
 

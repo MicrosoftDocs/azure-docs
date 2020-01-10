@@ -1,9 +1,6 @@
 ---
 title: Tutorial - Create an Application Gateway ingress controller in Azure Kubernetes Service
 description: Tutorial illustrating how to create a Kubernetes Cluster with Azure Kubernetes Service with Application Gateway as ingress controller
-ms.service: terraform
-author: tomarchermsft
-ms.author: tarcher
 ms.topic: tutorial
 ms.date: 11/13/2019
 ---

@@ -48,7 +48,6 @@ Questions or problems with [Azure Application Insights in Java][java]? Here are 
 * Have you configured Java agent by following [Configure Java Agent](java-agent.md) ?
 * Make sure both the java agent jar and the AI-Agent.xml file are placed in the same folder.
 * Make sure that the dependency you are trying to auto-collect is supported for auto collection. Currently we only support MySQL, MsSQL, Oracle DB and Azure Cache for Redis dependency collection.
-* Are you using JDK 1.7 or 1.8? Currently we do not support dependency collection in JDK 9.
 
 ## No usage data
 **I see data about requests and response times, but no page view, browser, or user data.**
