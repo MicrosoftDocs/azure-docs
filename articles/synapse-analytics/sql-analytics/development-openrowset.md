@@ -110,12 +110,7 @@ WITH (
 	--[population] bigint
 )
 ```
-
-ESCAPE_CHAR = 'char'
-
-Specifies the character in the file that is used to escape itself and all delimiter values in the file. If the escape character is followed by a value other than itself, or any of the delimiter values, the escape character is dropped when reading the value. 
-
-The ESCAPE_CHAR parameter will be applied regardless of whether the FIELDQUOTE is or isn't enabled. It won't be used to escape the quoting character. The quoting character is escaped with double-quotes in alignment with the Excel CSV behavior.
+<bulk_options>
 
 FIELDTERMINATOR ='field_terminator'
 
@@ -124,6 +119,20 @@ Specifies the field terminator to be used. The default field terminator is a com
 ROWTERMINATOR ='row_terminator'`
 
 Specifies the row terminator to be used. The default row terminator is a newline character such as \r\n.
+
+ESCAPE_CHAR = 'char'
+
+Specifies the character in the file that is used to escape itself and all delimiter values in the file. If the escape character is followed by a value other than itself, or any of the delimiter values, the escape character is dropped when reading the value. 
+
+The ESCAPE_CHAR parameter will be applied regardless of whether the FIELDQUOTE is or isn't enabled. It won't be used to escape the quoting character. The quoting character is escaped with double-quotes in alignment with the Excel CSV behavior.
+
+FIRSTROW = 'first_row' 
+
+Specifies the number of the first row to load. The default is 1. This indicates the first row in the specified data file. The row numbers are determined by counting the row terminators. FIRSTROW is 1-based.
+
+FIELDQUOTE = 'field_quote' 
+
+Specifies a character that will be used as the quote character in the CSV file. If not specified, the quote character (") will be used. 
 
 ## Examples
 
@@ -155,7 +164,7 @@ WITH (
 
 
 
-The example below returns all columns of the first row from the census data set in Parquet format without specifying column names and data types: 
+The following example returns all columns of the first row from the census data set in Parquet format without specifying column names and data types: 
 
 ```sql
 /* make sure you have credentials for storage account access created
