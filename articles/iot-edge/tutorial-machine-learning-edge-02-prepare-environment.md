@@ -16,7 +16,7 @@ services: iot-edge
 
 This article from the end-to-end Azure Machine Learning on IoT Edge tutorial helps you prepare your environment for development and deployment. First, set up a development machine with all the tools you need. Then, create the necessary cloud resources in Azure.
 
-## Set up a development machine
+## Set up a development virtual machine
 
 This step is typically performed by a cloud developer. Some of the software may also be helpful for a data scientist.
 
@@ -44,11 +44,7 @@ The developer VM is not strictly necessary – all the development tools can be 
 
 It takes about 30 minutes to create and configure the virtual machine.
 
-### Get the script
-
 Clone or download the PowerShell script from the [Machine Learning and IoT Edge](https://github.com/Azure-Samples/IoTEdgeAndMlSample) sample repository. Navigate to the DevVM directory.
-
-### Create an Azure virtual machine
 
 The DevVM directory contains the files needed to create an Azure virtual machine appropriate for completing this tutorial.
 
@@ -58,13 +54,13 @@ The DevVM directory contains the files needed to create an Azure virtual machine
     cd <srcdir>\IoTEdgeAndMlSample\DevVM
     ```
 
-2. Run the following command to allow execution of scripts. Choose **Yes to All** when prompted.
+1. Run the following command to allow execution of scripts. Choose **Yes to All** when prompted.
 
     ```powershell
     Set-ExecutionPolicy Bypass -Scope Process
     ```
 
-3. Run Create-AzureDevVM.ps1 from this directory.
+1. Run Create-AzureDevVM.ps1 from this directory.
 
     ```powershell
     .\Create-AzureDevVm.ps1
@@ -76,7 +72,7 @@ The DevVM directory contains the files needed to create an Azure virtual machine
     * **Resource Group Name**: The name of a new or existing resource group in Azure.
     * **Location**: Choose an Azure location where the virtual machine will be created. For example, `West US 2` or `North Europe`. For more information, see [Azure locations](https://azure.microsoft.com/global-infrastructure/locations/).
     * **AdminUsername**: Provide a memorable name for the admin account you want to create and use on the virtual machine.
-    * **AdminPassword**: Set a password for the admin account on the virtual machine.
+    * **AdminPassword**: Set a password for the administrator account on the virtual machine.
 
     If you do not have the Azure PowerShell[Azure PowerShell module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-1.1.0) installed, the script will install it.
 
@@ -91,22 +87,7 @@ The script runs for several minutes as it executes the following steps:
 * Restarts the VM.
 * Creates an RDP file on your desktop for connecting to the VM.
 
-### Set auto-shutdown schedule
-
-To help you reduce cost, the VM has been created with an automatic shutdown schedule that is set to 1900 PST. You may need to update this timing depending on your location and schedule. To update the shutdown
-schedule:
-
-1. In the Azure portal, navigate to the VM that the script created.
-
-1. From the left pane menu, under **Operations**, select **Auto-shutdown**.
-
-1. Enter a new shutdown time in **Scheduled shutdown** or change the **Time zone** then click **Save**.
-
-### Connect and configure development machine
-
-Now that we have created a VM, we need to finish installing the software needed to complete the tutorial.
-
-#### Start a remote desktop session
+## Start a remote desktop session
 
 1. On the page for the virtual machine in the Azure portal, select **Connect**.
 
@@ -120,25 +101,25 @@ Now that we have created a VM, we need to finish installing the software needed 
 
 1. You will be prompted to accept the certificate for the VM. Select **Yes**.
 
-#### Install Visual Studio Code extensions
+## Install Visual Studio Code extensions
 
 Now that you have connected to the development machine, add some useful extensions to Visual Studio Code to make the development experience easier.
 
 1. In a PowerShell window, navigate to **C:\\source\\IoTEdgeAndMlSample\\DevVM**.
 
-2. Allow scripts to be executed on the virtual machine by typing.
+1. Allow scripts to be executed on the virtual machine by typing.
 
     ```powershell
     Set-ExecutionPolicy Bypass -Scope CurrentUser -Force
     ```
 
-3. Run the script.
+1. Run the script.
 
     ```powershell
     .\Enable-CodeExtensions.ps1
     ```
 
-4. The script will run for a few minutes installing VS code extensions:
+1. The script will run for a few minutes installing VS code extensions:
 
     * Azure IoT Tools
     * Python
@@ -157,8 +138,6 @@ Azure IoT Hub is the heart of any IoT application as it handles secure communica
 * Later in the tutorial, we will use IoT Hub to configure and manage our Azure IoT Edge device.
 
 In this section, you use a script to create an Azure IoT hub and an Azure Storage account. Then in the Azure portal, you configure a route that forwards data received by the hub to an Azure Storage container. These steps take about 10 minutes to complete.
-
-### Create cloud resources
 
 1. On your development machine, open a PowerShell window.
 
@@ -179,7 +158,7 @@ In this section, you use a script to create an Azure IoT hub and an Azure Storag
 
 The script takes about two minutes to run. Once complete, the script outputs the name of the IoT hub and the storage account.
 
-### Review route to storage in IoT Hub
+## Review route to storage in IoT Hub
 
 As part of creating the IoT hub, the script that we ran in the previous section also created a custom endpoint and a route. IoT Hub routes consist of a query expression and an endpoint. If a message matches the expression, the data is sent along the route to the associated endpoint. Endpoints can be Event Hubs, Service Bus Queues, and Topics. In this case, the endpoint is a Blob container in a storage account. Let’s use the Azure portal to review the route created by our script.
 
@@ -204,6 +183,17 @@ As part of creating the IoT hub, the script that we ran in the previous section 
 1. Note that the route’s endpoint is the **turbofanDeviceStorage** endpoint.
 
 1. Look at the **Routing query**, which is set to **true**. This means that all device telemetry messages will match this route and therefore all messages will be sent to the **turbofanDeviceStorage** endpoint.
+
+## Set auto-shutdown schedule
+
+To help you reduce cost, the development VM has been created with an automatic shutdown schedule that is set to 1900 PST. You may need to update this timing depending on your location and schedule. To update the shutdown
+schedule:
+
+1. In the Azure portal, navigate to the VM that the script created.
+
+1. From the left pane menu, under **Operations**, select **Auto-shutdown**.
+
+1. Enter a new shutdown time in **Scheduled shutdown** or change the **Time zone** then click **Save**.
 
 ## Next steps
 
