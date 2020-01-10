@@ -31,7 +31,7 @@ Check the Network Security Group has the correct **Inbound security rules** that
    ![NSG Inbound security rule](media/search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers/nsg-rule.png "NSG Inbound security rule")
 
 > [!NOTE]
-> You can choose to be more restrictive in the inbound access to your managed SQL instance by modifying the current rule (`public_endpoint_inbound`) with 2 rules) -
+> You can choose to be more restrictive in the inbound access to your managed SQL instance by modifying the current rule (`public_endpoint_inbound`) with 2 rules:
 >
 > * Allowing inbound access from the `AzureCognitiveSearch` [service tag](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags) ("SOURCE" = `AzureCognitiveSearch`)
 >
