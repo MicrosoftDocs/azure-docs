@@ -47,7 +47,7 @@ Self-service password reset works in the following scenarios:
 * **Password reset -** when a user can't sign in, such as when they forgot password, and want to reset their password.
 * **Account unlock -** when a user can't sign in because their account is locked out and want to unlock their account.
 
-When a user updates or resets their password using self-service password reset, that password can also be written back to an on-premises Active Directory environment. This password writeback process uses Azure AD Connect. Password writeback makes sure that a user can immediately use their updated credentials with on-premises devices and applications.
+When a user updates or resets their password using self-service password reset, that password can also be written back to an on-premises Active Directory environment. Password writeback makes sure that a user can immediately use their updated credentials with on-premises devices and applications.
 
 ## Azure Multi-Factor Authentication
 
@@ -63,6 +63,8 @@ Azure Multi-Factor Authentication works by requiring two or more of the followin
 * Something you have, such as a trusted device that is not easily duplicated, like a phone or hardware key.
 * Something you are - biometrics like a fingerprint or face scan.
 
+Users can register themselves for both self-service password reset and Azure Multi-Factor Authentication in one step to simplify the on-boarding experience. Administrators can define what forms of secondary authentication can be used. Azure Multi-Factor Authentication can also be required when users perform a self-service password reset to further secure that process.
+
 ## Password protection
 
 By default, Azure AD blocks weak passwords such as *Password1*. A global banned password list is automatically updated and enforced that includes known weak passwords. If an Azure AD user tries to set their password to one of these weak passwords, they receive a notification to choose a more secure password.
@@ -75,11 +77,13 @@ For hybrid security, you can integrate Azure AD password protection with an on-p
 
 ## Passwordless authentication
 
-The end-goal for many environments is to remove the use of passwords as part of sign-in events. Even with features like Azure password protection or Azure Multi-Factor Authentication, a username and password are a weak form of authentication that can be exposed or brute-force attacked.
+The end-goal for many environments is to remove the use of passwords as part of sign-in events. Features like Azure password protection or Azure Multi-Factor Authentication help improve security, but a username and password remains a weak form of authentication that can be exposed or brute-force attacked.
 
 ![Security versus convenience with the authentication process that leads to passwordless](./media/concept-authentication-passwordless/passwordless-convenience-security.png)
 
-When you sign in with a passwordless method, credentials are provided through the use of methods like biometrics with Windows Hello for Business, or a FIDO2 security key. These authentication methods can't be easily duplicated by an attacker. Azure AD provides ways to natively authenticate using passwordless methods to simplify the sign-in experience for users and reduce the risk of attacks.
+When you sign in with a passwordless method, credentials are provided through the use of methods like biometrics with Windows Hello for Business, or a FIDO2 security key. These authentication methods can't be easily duplicated by an attacker.
+
+Azure AD provides ways to natively authenticate using passwordless methods to simplify the sign-in experience for users and reduce the risk of attacks.
 
 ## License requirements
 
