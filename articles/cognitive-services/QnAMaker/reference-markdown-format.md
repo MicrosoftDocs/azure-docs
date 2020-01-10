@@ -7,8 +7,13 @@ ms.date: 01/09/2020
 
 # Markdown format supported in QnA Maker answer text
 
-Following is the list of markdown formats that you can use in QnA Maker's answer text.
+QnA Maker stores answer text as markdown. There are many flavors of markdown. In order to make sure the answer text is returned and displayed correctly, use this reference.
 
+Use the **[CommonMark](https://commonmark.org/help/tutorial/index.html)** tutorial to validate your Markdown. The tutorial has a **Try it** feature for quick copy/paste validation.
+
+## Supported markdown format
+
+Following is the list of markdown formats that you can use in QnA Maker's answer text.
 
 |Purpose|Format|Example markdown|Rendering<br>as displayed in Chat bot|
 |--|--|--|--|
@@ -29,7 +34,7 @@ A new line between 2 sentences.|`\n\n`|`How can I create a bot with \n\n QnA Mak
 
 *QnA Maker doesn't process the image in any way. It is the client application's role to render the image.
 
-If you want to add content using update/replace knowledgebase APIs and the content/file contains html tags, you can preserve the HTML in your file by ensuring that opening and closing of the tags are converted in the encoded format.
+If you want to add content using update/replace knowledge base APIs and the content/file contains html tags, you can preserve the HTML in your file by ensuring that opening and closing of the tags are converted in the encoded format.
 
 | Preserve HTML  | Representation in the API request  | Representation in KB |
 |-----------|---------|-------------------------|
