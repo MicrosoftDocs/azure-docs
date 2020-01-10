@@ -324,7 +324,7 @@ After you've configured your Azure Resource Manager virtual network or classic v
 
    ![List of data factories](media/join-azure-ssis-integration-runtime-virtual-network/data-factories-list.png)
 
-1. Select your data factory with the Azure-SSIS IR in the list. You see the home page for your data factory. Select the **Author & Deploy** tile. You see the Data Factory UI on a separate tab. 
+1. Select your data factory with the Azure-SSIS IR in the list. You see the home page for your data factory. Select the **Author & Monitor** tile. You see the Data Factory UI on a separate tab. 
 
    ![Data factory home page](media/join-azure-ssis-integration-runtime-virtual-network/data-factory-home-page.png)
 
