@@ -63,7 +63,7 @@ During the preview, only the following scenarios are supported:
 
 The preview also has the following restrictions:
 
-- Only available in West Central US.
+- Only available in West Central US, South Central US, East US, West US 2.
 - Disks created from custom images that are encrypted using server-side encryption and customer-managed keys must be encrypted using the same customer-managed keys and must be in the same subscription.
 - Snapshots created from disks that are encrypted with server-side encryption and customer-managed keys must be encrypted with the same customer-managed keys.
 - Custom images encrypted using server-side encryption and customer-managed keys cannot be used in the shared image gallery.
@@ -176,6 +176,8 @@ Update-AzVM -ResourceGroupName $rgName -VM $vm
 
 ### Portal
 
+Setting up customer-managed keys for your disks will require you to create resources in a particular order, if you're doing it for the first time. First, you will need to create and setup an Azure Key Vault.
+
 #### Setting up your Azure Key Vault
 
 1. Sign into the Azure portal and search for Key Vault
@@ -197,7 +199,9 @@ Update-AzVM -ResourceGroupName $rgName -VM $vm
 
 #### Setting up your disk encryption set
 
-1. Search for Disk Encryption Sets and select it.
+Disk encryption sets are only available through [this link](https://aka.ms/diskencryptionsets). They cannot yet be searched in the portal.
+
+1. Open the [disk encryption sets link](https://aka.ms/diskencryptionsets).
 1. Select **+Add**.
 
 <Image>
@@ -216,7 +220,9 @@ Update-AzVM -ResourceGroupName $rgName -VM $vm
 #### Deploy a VM
 
 Now that you've created and set up your key vault and the disk encryption set, you can deploy a VM using the encryption.
-The VM deployment process is similar to the standard deployment process, the only difference is that you should deploy the VM in the same region as your other resources, and that on the disk blade you select to use your customer managed key.
+The VM deployment process is similar to the standard deployment process, the only differences are that you need to deploy the VM in the same region as your other resources and you opt to use a customer managed key.
+
+1. 
 
 ## Server-side encryption versus Azure disk encryption
 
