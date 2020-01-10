@@ -77,15 +77,15 @@ The preview also has the following restrictions:
     When creating the Key Vault instance, you must enable soft delete and purge protection. Soft delete ensures that the Key Vault holds a deleted key for a given retention period (90 day default). Purge protection ensures that a deleted key cannot be permanently deleted until the retention period lapses. These settings protect you from losing data due to accidental deletion. These settings are mandatory when using a Key Vault for encrypting managed disks.
 
     ```azurecli
-    subscriptionId = <yourSubscriptionIDHere>
-    rgName = <yourResourceGroupNameHere>
-    location = <yourDesiredLocationHere>
-    keyVaultName = <yourKeyVaultNameHere>
-    keyName = <yourKeyNameHere>
-    diskEncryptionSetName = <yourDiskEncryptionSetNameHere>
-    diskName = <yourDiskNameHere>
+    subscriptionId=yourSubscriptionID
+    rgName=yourResourceGroupName
+    location=WestCentralUS
+    keyVaultName=yourKeyVaultName
+    keyName=yourKeyName
+    diskEncryptionSetName=yourDiskEncryptionSetName
+    diskName=yourDiskName
 
-    az account set -subscription $subscriptionId
+    az account set --subscription $subscriptionId
 
     az keyvault create -n $keyVaultName -g $rgName -l $location --enable-purge-protection true --enable-soft-delete true
 
@@ -95,17 +95,17 @@ The preview also has the following restrictions:
 1.	Create an instance of a DiskEncryptionSet. 
     
     ```azurecli
-    keyVaultId = $(az keyvault show --name $keyVaultName --query [id] -o tsv)
+    keyVaultId=$(az keyvault show --name $keyVaultName --query [id] -o tsv)
 
-    keyVaultKeyUrl = $(az keyvault key show --vault-name $keyVaultName --name $keyName --query [key.kid] -o tsv)
+    keyVaultKeyUrl=$(az keyvault key show --vault-name $keyVaultName --name $keyName --query [key.kid] -o tsv)
 
-    az group deployment create -g $rgName --template-uri "https://raw.githubusercontent.com/ramankumarlive/manageddiskscmkpreview/master/CreateDiskEncryptionSet.json" --parameters "diskEncryptionSetName = $diskEncryptionSetName" "keyVaultId = $keyVaultId" "keyVaultKeyUrl=$keyVaultKeyUrl" "region=$location"
+    az disk-encryption-set create -n $diskEncryptionSetName -l $location -g $rgName --source-vault $keyVaultId --key-url $keyVaultKeyUrl
     ```
 
 1.	Grant the DiskEncryptionSet resource access to the key vault.
 
     ```azurecli
-    desIdentity=$(az ad sp list --display-name $diskEncryptionSetName --query[].[objectId] -o tsv)
+    desIdentity=$(az disk-encryption-set show -n $diskEncryptionSetName -g $rgName --query [identity.principalId] -o tsv)
 
     az keyvault set-policy -n $keyVaultName -g $rgName --object-id $desIdentity --key-permissions wrapkey unwrapkey get
 
@@ -115,41 +115,40 @@ The preview also has the following restrictions:
 ### Create a VM using a Marketplace image, encrypting the OS and data disks with customer-managed keys
 
 ```azurecli
-rgName="<yourResourceGroupName>"
-vmName="<yourVMName>"
-region="westcentralus"
-password="<yourVMLocalAdminPassword>"
-vmSize="Standard_DS3_V2"
-diskEncryptionSetName="<yourDiskEncryptionSetName>"
-templateURI="https://raw.githubusercontent.com/ramankumarlive/manageddiskscmkpreview/master/CreateVMWithDisksEncryptedWithCMK.json"
+rgName=yourResourceGroupName
+vmName=yourVMName
+location=WestCentralUS
+vmSize=Standard_DS3_V2
+image=UbuntuLTS 
+diskEncryptionSetName=yourDiskencryptionSetName
 
-diskEncryptionSetId=$(az resource show -n $diskEncryptionSetName -g ssecmktesting --resource-type "Microsoft.Compute/diskEncryptionSets" --query [id] -o tsv)
+diskEncryptionSetId=$(az disk-encryption-set show -n $diskEncryptionSetName -g $rgName --query [id] -o tsv)
 
-az group deployment create -g $rgName --template-uri $templateURI --parameters "virtualMachineName=$vmName" "adminPassword=$password" "vmSize=$vmSize" "diskEncryptionSetId=$diskEncryptionSetId" "region=$region"
+az vm create -g $rgName -n $vmName -l $location --image $image --size $vmSize --generate-ssh-keys --os-disk-encryption-set $diskEncryptionSetId --data-disk-sizes-gb 128 128 --data-disk-encryption-sets $diskEncryptionSetId $diskEncryptionSetId
+
 
 ```
 
 ### Create an empty disk encrypted using server-side encryption with customer-managed keys and attach it to a VM
 
 ```azurecli
-vmName="<yourVMName>"
-rgName="<yourResourceGroupName>"
-diskName="<yourDiskName>"
-diskSkuName="Premium_LRS"
-diskSizeinGiB="30"
-region="westcentralus"
+vmName=yourVMName
+rgName=yourResourceGroupName
+diskName=yourDiskName
+diskSkuName=Premium_LRS
+diskSizeinGiB=30
+location=WestCentralUS
 diskLUN=2
-diskEncryptionSetName="<yourDiskEncryptionSetName>"
-templateURI="https://raw.githubusercontent.com/ramankumarlive/manageddiskscmkpreview/master/CreateEmptyDataDiskEncryptedWithSSECMK.json"
-
-diskEncryptionSetId=$(az resource show -n $diskEncryptionSetName -g ssecmktesting --resource-type "Microsoft.Compute/diskEncryptionSets" --query [id] -o tsv)
+diskEncryptionSetName=yourDiskEncryptionSetName
 
 
-az group deployment create -g $rgName --template-uri $templateURI --parameters  "diskName=$diskName" "diskSkuName=$diskSkuName" "dataDiskSizeInGb=$diskSizeinGiB" "diskEncryptionSetId=$diskEncryptionSetId" "region=$region"
+diskEncryptionSetId=$(az disk-encryption-set show -n $diskEncryptionSetName -g $rgName --query [id] -o tsv)
+
+az disk create -n $diskName -g $rgName -l $location --encryption-type EncryptionAtRestWithCustomerKey --disk-encryption-set $diskEncryptionSetId --size-gb $diskSizeinGiB --sku $diskSkuName
 
 diskId=$(az disk show -n $diskName -g $rgName --query [id] -o tsv)
 
-az vm disk attach --vm-name $vmName --lun $diskLUN --ids $diskId
+az vm disk attach --vm-name $vmName --lun $diskLUN --ids $diskId 
 
 ```
 

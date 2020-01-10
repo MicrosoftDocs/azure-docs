@@ -26,7 +26,9 @@ API versions, Nuget packages, namespaces, and endpoints are unchanged. Your exis
 
 ### January 2020
 
-+ *Restricted IP access and private endpoint (preview)* on a search service endpoint is now available in **api-version=2019-10-01-Preview**. You can set up a secure endpoint using the new **IpRule** and **NetworkRuleSet** properties in the [Create or Update](https://docs.microsoft.com/rest/api/searchmanagement/services/createorupdate) Management REST API. For more information about API versions, see [How to use the Management REST API](https://docs.microsoft.com/rest/api/searchmanagement/search-howto-management-rest-api).
++ [Customer-managed encryption keys](search-security-manage-encryption-keys.md) is now generally available. If you are using REST, you can access the feature using `api-version=2019-05-06`. For managed code, the correct package is still [.NET SDK version 8.0-preview](search-dotnet-sdk-migration-version-9.md) even though the feature is out of preview. 
+
++ *Restricted IP access and private endpoint (preview)* on a search service endpoint is now available in **api-version=2019-10-01-Preview**. You can set up a secure endpoint using the new **IpRule** and **NetworkRuleSet** properties in the [Create or Update](https://docs.microsoft.com/rest/api/searchmanagement/services/createorupdate) Management REST API. For more information about API versions and regional availability, see [How to use the Management REST API](https://docs.microsoft.com/rest/api/searchmanagement/search-howto-management-rest-api).
 
 ### December 2019
 
@@ -34,7 +36,7 @@ API versions, Nuget packages, namespaces, and endpoints are unchanged. Your exis
 
 ### November 2019 - Ignite Conference
 
-+ [Incremental indexing (preview)](cognitive-search-incremental-indexing-conceptual.md) allows you to pick and choose which steps to reprocess when making modifications to an enrichment pipeline. Incremental indexing is useful if you have image content that you previously analyzed. The output of costly analysis is stored and then used as a basis for additional indexing or enrichment.
++ [Incremental enrichment (preview)](cognitive-search-incremental-indexing-conceptual.md) adds caching and statefullness to an enrichment pipeline so that you can work on specific steps or phases without losing content that is already processed. Previously, any change to an enrichment pipeline required a full rebuild. With incremental enrichment, the output of costly analysis, especially image analysis, is preserved.
 
 <!-- 
 + Custom Entity Lookup is a cognitive skill used during indexing that allows you to provide a list of custom entities (such as part numbers, diseases, or names of locations you care about) that should be found within the text. It supports fuzzy matching, case-insensitive matching, and entity synonyms. -->
