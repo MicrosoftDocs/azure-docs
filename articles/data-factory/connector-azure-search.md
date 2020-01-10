@@ -176,4 +176,4 @@ The following table specifies whether an Azure Cognitive Search data type is sup
 Currently other data types e.g. ComplexType are not supported. For a full list of Azure Cognitive Search supported data types, see [Supported data types (Azure Cognitive Search)](https://docs.microsoft.com/rest/api/searchservice/supported-data-types).
 
 ## Next steps
-For a list of data stores supported as sources and sinks by the copy activity in Azure Data Factory, see [supported data stores](copy-activity-overview.md##supported-data-stores-and-formats).
+For a list of data stores supported as sources and sinks by the copy activity in Azure Data Factory, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

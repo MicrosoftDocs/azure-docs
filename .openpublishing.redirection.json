@@ -3931,6 +3931,61 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/azure-supportability/index.yml",
+      "redirect_url": "/azure/azure-portal/supportability/how-to-create-azure-support-request",
+      "redirect_document_id": false
+    },
+	    {
+      "source_path": "articles/azure-supportability/classic-deployment-model-quota-increase-requests.md",
+      "redirect_url": "/azure/azure-portal/supportability/classic-deployment-model-quota-increase-requests",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/azure-supportability/create-manage-support-requests-using-access-control.md",
+      "redirect_url": "/azure/azure-portal/supportability/how-to-create-azure-support-request#role-based-access-control",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/azure-supportability/how-to-create-azure-support-request.md",
+      "redirect_url": "/azure/azure-portal/supportability/how-to-create-azure-support-request",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/azure-supportability/how-to-use-file-uploader.md",
+      "redirect_url": "/azure/azure-portal/supportability/how-to-use-file-uploader",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/azure-supportability/low-priority-quota.md",
+      "redirect_url": "/azure/azure-portal/supportability/low-priority-quota",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/azure-supportability/networking-quota-requests.md",
+      "redirect_url": "/azure/azure-portal/supportability/networking-quota-requests",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/azure-supportability/per-vm-quota-requests.md",
+      "redirect_url": "/azure/azure-portal/supportability/per-vm-quota-requests",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/azure-supportability/regional-quota-requests.md",
+      "redirect_url": "/azure/azure-portal/supportability/regional-quota-requests",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/azure-supportability/resource-manager-core-quotas-request.md",
+      "redirect_url": "/azure/azure-portal/supportability/resource-manager-core-quotas-request",
+      "redirect_document_id": true
+    },
+	    {
+      "source_path": "articles/azure-supportability/sku-series-unavailable.md",
+      "redirect_url": "/azure/azure-portal/supportability/sku-series-unavailable",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/azure-toolkit-for-eclipse-debugging-azure-applications.md",
       "redirect_url": "/java/azure/eclipse/azure-toolkit-for-eclipse",
       "redirect_document_id": false
