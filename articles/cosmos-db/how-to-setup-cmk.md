@@ -1,6 +1,6 @@
 ---
-title: Setup customer-managed keys for your Azure Cosmos DB account
-description: Learn how to setup customer-managed keys for your Azure Cosmos DB account
+title: Configure customer-managed keys for your Azure Cosmos DB account
+description: Learn how to configure customer-managed keys for your Azure Cosmos DB account
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: conceptual
@@ -18,7 +18,7 @@ Customer-managed keys must be stored in [Azure Key Vault](../key-vault/key-vault
 
 ## Setup
 
-Currently, customer-managed keys are only available for new accounts and need to be setup during account creation.
+Currently, customer-managed keys are only available for new accounts and need to be set up during account creation.
 
 ### 1. Activate customer-managed keys for your Azure subscription
 
@@ -175,7 +175,7 @@ New-AzResourceGroupDeployment `
 
 ### Is there any additional charge when using customer-managed keys?
 
-Yes. To account for the additional compute load required to manage data encryption and decryption with customer-managed keys, all operations executed against the Azure Cosmos DB account get a 25% increase in [Request Units](./request-units.md) consumed.
+Yes. To account for the additional compute load that is required to manage data encryption and decryption with customer-managed keys, all operations executed against the Azure Cosmos DB account get a 25% increase in [Request Units](./request-units.md) consumed.
 
 ### Which Azure regions are supported?
 
@@ -187,7 +187,11 @@ This operation will fail.
 
 ### What data gets encrypted with the CMK?
 
-All the data stored in your Azure Cosmos DB account gets encrypted with the CMK, except for object meta-data and the values used as your containers' [partition key](./partitioning-overview.md) values.
+All the data stored in your Azure Cosmos DB account gets encrypted with the CMK, except for the following meta-data:
+- the names of your Azure Cosmos DB [accounts, databases and containers](./account-overview.md#elements-in-an-azure-cosmos-account),
+- the names of your [stored procedures](./stored-procedures-triggers-udfs.md),
+- the property paths declared in your [indexing policies](./index-policy.md),
+- the values of your containers' [partition key](./partitioning-overview.md).
 
 ### Will customer-managed keys be supported for existing accounts?
 
@@ -199,7 +203,7 @@ Support for container-level keys is planned to be available by Q3 of 2020.
 
 ### How does customer-managed keys affect backups?
 
-Azure Cosmos DB takes [regular and automatic backups](./online-backup-and-restore.md) of the data stored in your account. This operation backs up the encrypted data. For a restored backup to be usable, the encryption key used at the time of the backup must still be available. This means that no revocation shall have been made and the version of the key used at the time of the backup shall still be enabled.
+Azure Cosmos DB takes [regular and automatic backups](./online-backup-and-restore.md) of the data stored in your account. This operation backs up the encrypted data. For a restored backup to be usable, the encryption key used at the time of the backup must still be available. This means that no revocation shall have been made and the version of the key that was used at the time of the backup shall still be enabled.
 
 ### How do I revoke an encryption key?
 
